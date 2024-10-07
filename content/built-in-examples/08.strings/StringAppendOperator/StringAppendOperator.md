@@ -30,7 +30,7 @@ In both cases, `stringOne` equals "A long integer: 123456789". Like the `+` oper
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 ### Circuit
 

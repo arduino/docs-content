@@ -79,7 +79,7 @@ For best results, initialize your Strings before you concatenate them.
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 ### Circuit
 

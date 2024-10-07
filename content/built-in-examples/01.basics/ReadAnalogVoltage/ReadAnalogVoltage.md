@@ -15,7 +15,7 @@ This example shows you how to read an analog input on analog pin 0, convert the 
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - 10k ohm potentiometer
 

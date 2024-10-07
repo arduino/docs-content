@@ -16,7 +16,7 @@ In this example we use a variable resistor (a potentiometer or a photoresistor),
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - Potentiometer **or**
 - 10K ohm photoresistor and 10K ohm resistor

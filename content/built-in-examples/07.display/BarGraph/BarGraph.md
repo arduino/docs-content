@@ -19,7 +19,7 @@ This tutorial borrows from the [**For Loop and Arrays**](https://www.arduino.cc/
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - LED bar graph display or 10 LEDs
 - Potentiometer

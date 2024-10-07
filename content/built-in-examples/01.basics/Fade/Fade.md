@@ -14,7 +14,7 @@ This example demonstrates the use of the [analogWrite()](https://www.arduino.cc/
 
 ### Hardware Required
 
-- Arduino board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - LED
 

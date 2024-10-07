@@ -12,7 +12,7 @@ This example demonstrates the advanced serial printing functions by generating o
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 ### Circuit
 
