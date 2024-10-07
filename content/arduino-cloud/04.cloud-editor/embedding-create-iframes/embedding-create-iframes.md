@@ -19,12 +19,12 @@ Then, we need to have a code. In this tutorial, we are just going to use the goo
 It should look something like this:
 
 ```markup
-<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
 ```
 
 This iframe can now simply be embedded in a HTML page, and it will look like this:
 
-<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
 
 But there are many ways we can modify the iframe to look different. So let's take a look the available modifications we can make!
 
@@ -39,12 +39,12 @@ To do this, we need to change `view-mode=` from `embed` to `snippet` at the end 
 ```
 The result is the following:
 
-<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
 
 And the full URL should look like this:
 
 ```markup
-<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
 ```
 
 ## Highlighting specific lines
@@ -57,12 +57,12 @@ Next is the highlighting feature. To use this, simply add the following lines to
 
 The result is that line 6 and 7 are highlighted:
 
-<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet&highlight=L6,7" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet&highlight=L6,7" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
 
 And the full URL should look like this:
 
 ```markup
-<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet&highlight=L6,7" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet&highlight=L6,7" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
 ```
 
 You can highlight as many lines as you want, and it is easily configurable. For example, if we want to highlight line 4 and 6-9, we simply need to add the following to the URL:
@@ -81,11 +81,11 @@ It's also possible to only show specific lines by adding the `scope` parameter, 
 
 The result is that only lines 3 to 30 are shown.
 
-<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet&scope=L3-L30" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet&scope=L3-L30" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
 
 The full URL should look like this:
 ```markup
-<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet&scope=L3-L30" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet&scope=L3-L30" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
 ```
 
 ## Hide Numbers
@@ -98,7 +98,7 @@ To hide the line numbers in the embedded snippet, add the `&hide-numbers` parame
 
 The full URL should look like this:
 ```markup
-<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet&scope=L3-L30&hide-numbers" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet&scope=L3-L30&hide-numbers" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
 ```
 
 ## Manually changing the size of your widget
@@ -119,7 +119,7 @@ style="height:200px;width:50%;margin:10px 0"
 
 Which will look like this:
 
-<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet" style="height:200px;width:50%;margin:10px 0" frameborder=0></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet" style="height:200px;width:50%;margin:10px 0" frameborder="0"></iframe>
 
 ## Automatically re-sizing your sketches
 
