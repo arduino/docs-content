@@ -2,7 +2,6 @@
 identifier: AKX00034
 title: Arduino® Edge Control
 hardwareRevision: Rev 2
-isDraft: true
 type: pro
 ---
 
