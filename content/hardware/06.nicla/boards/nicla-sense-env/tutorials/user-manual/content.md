@@ -36,7 +36,7 @@ This user manual provides a comprehensive Nicla Sense Env board overview, highli
 - [Arduino_NiclaSenseEnv library](https://github.com/arduino-libraries/Arduino_NiclaSenseEnv)
 - [Arduino Renesas Portenta Boards core](https://github.com/arduino/ArduinoCore-renesas) (required to work with the Portenta C33 board)
 
-***The Nicla Sense Env board is not intended as a standalone device but as a shield of another Portenta, MKR, or Nano family board. In this user manual, we will use the Portenta C33 as the main board and show how to use the Nicla Sense Env board as a shield.***
+***The Nicla Sense Env board is not intended as a standalone device but as a shield to work alongside a Portenta, MKR, or Nano family board. In this user manual, we will use the Portenta C33 as the main board and show how to use the Nicla Sense Env board as a shield.***
 
 ## Nicla Sense Env Overview
 
