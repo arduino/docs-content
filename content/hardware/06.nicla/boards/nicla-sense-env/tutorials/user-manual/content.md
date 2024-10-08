@@ -241,7 +241,7 @@ NiclaSenseEnv device;
   the device I2C address, serial number, and other configuration settings.
 */
 void printDeviceInfo() {
-    Serial.println("Device Information:");
+    Serial.println("- Device Information:");
     Serial.print("- Device (0x");
     Serial.print(device.deviceAddress(), HEX);
     Serial.println(") connected.");
@@ -277,11 +277,11 @@ void setup() {
     for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
 
     if (device.begin()) {
-        Serial.println("Device successfully initialized!");
+        Serial.println("- Device successfully initialized!");
         // Print device information once after initialization
         printDeviceInfo();  
     } else {
-        Serial.println("Failed to initialize the device. Please check the connection!");
+        Serial.println("- Failed to initialize the device. Please check the connection!");
     }
 }
 
@@ -519,7 +519,7 @@ You can download the example sketch [here](assets/nicla_sense_env_low_power_mode
 
 ## LEDs
 
-This section of the user manual explains how to control both the onboard orange and RGB and LEDs on the Nicla Sense Env board using the `Arduino_NiclaSenseEnv` library API. The LEDs can be used to provide visual feedback for various operations, such as indicating status, warnings, or sensor errors. This section covers the basic usage of both LEDs, including turning them on, changing colors, and adjusting brightness.
+This section of the user manual explains how to control both the onboard orange and RGB and LEDs of the Nicla Sense Env board using the `Arduino_NiclaSenseEnv` library API. The LEDs can be used to provide visual feedback for various operations, such as indicating status, warnings, or sensor errors. This section covers the basic usage of both LEDs, including turning them on, changing colors, and adjusting its brightness.
 
 ![The onboard LEDs of the Nicla Sense Env board](assets/user-manual-20.png)
 
@@ -591,6 +591,8 @@ Here is a detailed breakdown of the example sketch shown before and the `Arduino
 
 After uploading the example sketch to the Nicla Sense Env board, you should see the orange LED smoothly increase and decrease in brightness, creating a continuous pulsing effect.
 
+![Orange LED of the Nicla Sense Env board](assets/user-manual-22.gif)
+
 You can download the example sketch [here](assets/nicla_sense_env_orange_led_control_example.zip).
 
 ### RGB LED
@@ -599,7 +601,7 @@ The onboard RGB LED on the Nicla Sense Env board can be controlled using the `Ar
 
 ```arduino
 /**
-  RGB LED Control Example for Nicla Sense Env (with brightness control)
+  RGB LED Control Example for Nicla Sense Env
   Name: nicla_sense_env_rgb_led_control_example_brightness.ino
   Purpose: This sketch demonstrates how to control the RGB LED by setting 
   different colors and ensuring brightness control using the Arduino_NiclaSenseEnv library.
@@ -669,6 +671,10 @@ Here is a detailed breakdown of the example sketch shown before and the `Arduino
 After uploading the example sketch to the Nicla Sense Env board, you should see the following output in the Arduino IDE's Serial Monitor:
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-19.png)
+
+You should also see the onboard RGB LED of your Nicla Sense Env board turn on red for one second, then green for one second, then blue for one second, and finally turn off, repeating this cycle.
+
+![RGB LED of the Nicla Sense Env board](assets/user-manual-21.gif)
 
 You can download the example sketch [here](assets/nicla_sense_env_rgb_led_control_example_brightness.zip).
 
