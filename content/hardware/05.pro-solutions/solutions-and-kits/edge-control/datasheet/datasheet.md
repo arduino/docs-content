@@ -1,8 +1,8 @@
 ---
 identifier: AKX00034
 title: Arduino® Edge Control
-hardwareRevision: Rev 1
-isPreviousRevision: false
+hardwareRevision: Rev 2
+isDraft: true
 type: pro
 ---
 
@@ -17,56 +17,101 @@ The functionality of this board is expandable with Arduino® MKR Boards to provi
 # Target areas:
 Agriculture measurements, smart irrigation systems, hydroponics
 
-# Features
-*   **Nina B306 Module**
-    *   **Processor**
-        *   64 MHz Arm® Cortex®-M4F (with FPU)
-        *   1 MB Flash + 256 KB RAM
-    *   **Wireless**
-        *   Bluetooth®  (Bluetooth® Low Energy 5 via Cordio® stack)
-        *   Advertising Extensions
-        *   95 dBm sensitivity
-        *   4.8 mA in TX (0 dBm)
-        *   4.6 mA in RX (1 Mbps)
-    *   **Peripherals**
-        *   Full-speed 12 Mbps USB
-        *   Arm® CryptoCell® CC310 security subsystem
-        *   QSPI/SPI/TWI/I²S/PDM/QDEC
-        *   High speed 32 MHz SPI
-        *   Quad SPI interface 32 MHz
-        *   12-bit 200 ksps ADC
-        *   128 bit AES/ECB/CCM/AAR co-processor
-*   **Memory**
-    *   1 MB internal Flash memory
-    *   2MB onboard QSPI
-    *   SD Card slot
-*   **Power**
-    *   Low Power
-    *   200uA Sleep current
-    *   Can operate for up to 34 months on a 12V/5Ah battery 
-
-    *   **12 V Acid/lead SLA Battery Supply** (Recharged via solar panels)
-
-    *   **RTC CR2032 Lithium Battery back up**
-*   **Battery**
-    *   **LT3652 Solar Panel Battery Charger**
-        *   Input Supply Voltage Regulation Loop for Peak Power Tracking in (MPPT) Solar applications
-*   **I/O**
-    *   6x edge sensitive wake up pins
-    *   16x hydrostatic watermark sensor input
-    *   8x 0-5V analog inputs
-    *   4x 4-20mA inputs
-    *   8x latching relay command outputs with drivers
-    *   8x latching relay command outputs without drivers
-    *   4x 60V/2.5A galvanically isolated solid state relays
-    *   6x 18 pin plug in terminal block connectors 
-*   **Dual MKR Socket**
-    *   Individual power control 
-    *   Individual Serial Port
-    *   Individual I2C ports
-
-*   **Safety information**
-    *   Class A 
+<h2>Features</h2>
+<table style="page-break-before: avoid;">
+ <thead>
+    <tr>
+        <th width="25%" style="text-align: center">Component</th>
+        <th colspan="3" style="text-align: center">Details</th>
+    </tr>
+ </thead>
+ <tbody>
+     <tr>
+        <td rowspan="3" style="text-align: center">Nina B306 Module</td>
+        <td width="15%" style="text-align: center">Processor</td>
+        <td>
+            <p>64 MHz Arm® Cortex®-M4F (with FPU)</p>
+            <p>1  MB Flash + 256 KB RAM</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: center">Wireless</td>
+        <td>
+            <p>Bluetooth®  (Bluetooth® Low Energy 5 via Cordio® stack, Bluetooth® Low Energy 4.2 via Arduino® Stack)</p>
+            <p>Advertising Extensions</p>
+            <p>95 dBm sensitivity</p>
+            <p>4.8 mA in TX (0 dBm)</p>
+            <p>4.6 mA in RX (1 Mbps)</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: center">Peripherals</td>
+        <td>
+            <p>Full-speed 12 Mbps USB</p>
+            <p>Arm® CryptoCell® CC310 security subsystem</p>
+            <p>QSPI/SPI/TWI/I²S/PDM/QDEC</p>
+            <p>High speed 32 MHz SPI</p>
+            <p>Quad SPI interface 32 MHz</p>
+            <p>12-bit 200 ksps ADC</p>
+            <p>128 bit AES/ECB/CCM/AAR co-processor</p>
+        </td>
+    </tr>
+    <tr> 
+        <td style="text-align: center">Memory</td>
+        <td colspan="2">
+            <p>1 MB internal Flash memory</p>
+            <p>2MB onboard QSPI</p>
+            <p>SD Card slot</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: center">Power</td>
+        <td colspan="2">
+            <p>Low Power</p>
+            <p>200uA Sleep current</p>
+            <p>Can operate for up to 34 months on a 12V/5Ah battery </p>
+            <p>12 V Acid/lead SLA Battery Supply (Recharged via solar panels)</p>
+            <p>RTC CR2032 Lithium Battery back up</p>
+       </td>
+    </tr>
+    <tr>
+        <td style="text-align: center">Battery</td> 
+        <td colspan="2">
+            <p>LT3652 Solar Panel Battery Charger</p>
+            <p>Input Supply Voltage Regulation Loop for Peak Power Tracking in (MPPT) Solar applications</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: center">I/O</td>
+        <td colspan="2">
+            <p>6x edge sensitive wake up pins</p>
+            <p>16x hydrostatic watermark sensor input</p>
+            <p>8x 0-5V analog inputs</p>
+            <p>4x 4-20mA inputs</p>
+            <p>8x latching relay command outputs with drivers</p>
+            <p>8x latching relay command outputs without drivers</p>
+            <p>4x 60V/2.5A galvanically isolated solid state relays</p>
+            <p>6x 18 pin plug in terminal block connectors</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: center">RTC</td>
+        <td colspan="2">Provides year, month, day and time based on a 32.768 kHz crystal. Alarm and timer functions are also included.</td>
+    </tr>
+    <tr>
+        <td height="25px" style="text-align: center">Dual MKR Socket</td>
+        <td colspan="2">
+            <p>Individual power control </p>
+            <p>Individual Serial Port</p>
+            <p>Individual I2C ports</p>
+       </td>
+    </tr>
+    <tr>
+        <td height="25px" style="text-align: center">Safety information</td>
+        <td colspan="2">Class A</td>
+    </tr>
+ </tbody>
+</table>
 
 # Contents
 
@@ -120,11 +165,14 @@ The Arduino® Edge Control is your gateway to Agriculture 4.0. Get real-time ins
 
 ## Functional Overview
 
+### Block Diagram
+![Block Diagram](assets/Block_Diagram-EdgeControl_datasheet.svg)
+
 ### Board Topology
 
-Top view
+#### Top Topology
 
-![Board Topology](assets/edgeControlTopology_80.png)
+![Board Topology Top](assets/edgeControl_topology_top_60.svg)
 
 | **Ref.**     | **Description**                | **Ref.**       | **Description**                                  |
 | ------------ | ------------------------------ | -------------- | ------------------------------------------------ |
@@ -134,23 +182,26 @@ Top view
 | U4           | TPS54620 5V boost converter IC | J6             | Micro SD Card                                    |
 | U5           | CD4081BNSR AND gate IC         | J4             | CR2032 battery holder                            |
 | U6           | CD40106BNSR NOT gate IC        | J5             | Micro USB (NINA Module)                          |
-| U12,U17      | MC14067BDWG multiplexer IC     | U8             | TCA6424A IO expander IC                          |
-| U16          | CD40109BNSRG4 I/O Expander     | U9             | NINA-B306 Module                                 |
-| U18,19,20,21 | TS13102 solid state relay IC   | U10            | ADR360AUJZ-R2 Voltage reference series 2.048V IC |
+| U12,U17      | MC14067BDWG multiplexer IC     | J3, J7-J11     | T1844798 Term Block HDR                          |
+| U16          | CD40109BNSRG4 I/O Expander     | U10            | ADR360AUJZ-R2 Voltage reference series 2.048V IC |
+| U18,19,20,21 | TS13102 solid state relay IC   | U12, U17       | MC14067BDWG IC Multiplexer switch                |
+| U8           | TCA6424A IO expander IC        | U13            | AP2141 IC power SW USB                           |
+| U9           | NINA-B306 Module               | U16            | CD40109BNSR voltage translator                   |
+| Q1, Q2       | MOSFET P-CH 30V 20A 8SO        |                |                                                  |
 
 <div style="break-after:page"></div>
 
-Back view
+#### Bot Topology
 
-![Board topolgy back](assets/edgeControlTopologyBack_80.png)
+![Board Topolgy Bottom](assets/edgeControl_topology_bot_60.svg)
 
 | **Ref.** | **Description**           | **Ref.** | **Description**                  |
 | -------- | ------------------------- | -------- | -------------------------------- |
-| U11      | W25Q16JVZPIQ Flash 16M IC | Q3       | ZXMP4A16GTA MOSFET P-CH 40V 6.4A |
+| U11      | W25Q16JVZPIQ Flash 16M IC | U22      | PCF8563 Real-time clock/calendar |
 | U7       | CD4081BNSR AND gate IC    | U14, 15  | MC14067BDWG IC MUX               |
 
 ### Processor
-The main processor is a Cortex®-M4F running at up to 64 MHz.
+The Main Processor is a Cortex M4F running at up to 64MHz.
 
 ### LCD Screen
 The Arduino® Edge Control provides a dedicated connector (J1) for interfacing with a HD44780 16x2 LCD display module, sold separately. The main processor controls the LCD via a TCA6424 port expander over I2C. Data is transferred over a 4-bit interface. LCD backlight intensity is also adjustable by the main processor.
@@ -213,7 +264,7 @@ All Arduino® boards, including this one, work out-of-the-box on the Arduino® C
 The Arduino® Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
-All Arduino® IoT enabled products are supported on Arduino® IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino® IoT enabled products are supported on Arduino Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
 Sample sketches for the Arduino® Edge Control can be found either in the “Examples” menu in the Arduino® IDE or in the “Documentation” section of the Arduino® Pro website **[4]**
@@ -378,19 +429,20 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 <div style="break-after:page"></div>
 
 ## Mechanical Information
+
 ### Board Outline
 
-![](assets/edgeControlOutline_80.png)
+![](assets/edgeControlOutline_60.svg)
 
 ### Mounting Holes
 
-![](assets/edgeControlMountingHoles_80.png)
+![](assets/edgeControlMountingHoles_60.svg)
 
 <div style="break-after:page"></div>
 
 ### Connector Positions
 
-![](assets/edgeControlConnectors_80.png)
+![](assets/edgeControlConnectors_60.svg)
 
 <div style="break-after:page"></div>
 
@@ -466,7 +518,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Frequency bands | Maximum output power (ERP) |
 | --------------- | -------------------------- |
-| 2402-2480Mhz    | 3.35 dBm                   |
+| 2402-2480Mhz    | x.x dBm                     |
 
 
 ## Company Information
@@ -491,8 +543,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                          |
 |------------|--------------|--------------------------------------|
-| 03/09/2024 | 5            | Cloud Editor updated from Web Editor |
-| 05/12/2023 | 4            | Accessories section updated          |
-| 30/12/2021 | 3            | Information updates                  |
-| 04/05/2021 | 2            | Design/structure update              |
-| 21/02/2020 | 1            | First Release                        |
+| 03/09/2024 | 3            | Cloud Editor updated from Web Editor |
+| 05/12/2023 | 2            | Accessories section updated          |
+| 05/01/2022 | 1            | First Release                        |
