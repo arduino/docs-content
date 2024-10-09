@@ -1,6 +1,6 @@
 ---
-title: 'Embedding Sketches with Iframes'
-description: 'Learn about different methods when embedding your sketches in a website.'
+title: 'Embed & Share Sketches'
+description: 'Learn about sharing your sketches and different methods to embed your sketches in a website.'
 author: 'Karl Söderby, Hannes Siebeneicher'
 ---
 
