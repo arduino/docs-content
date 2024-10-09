@@ -14,7 +14,7 @@ First of all, we need to navigate to the [Cloud Editor](https://app.arduino.cc/s
 
 Then, we need to have a code. In this tutorial, we are just going to use the good old **blink** example. When we have our sketch ready, click on the **share** button next to the serial monitor tool. This will open up a new window, that will have two fields: **link** and **embed**. Copy the embed field.
 
-![embed field](assets/iframe-highlight.png)
+![embed field](./assets/Embed_1.png)
 
 It should look something like this:
 
@@ -131,11 +131,15 @@ We can also choose to automatically re-size our iframes. This is simply done by 
 
 And then using the class `arduino-sketch-iframe` in your `HTML element`.
 
-## Summary
+## Share your Code
 
-There are several cool ways of working with iframes from the Cloud Editor, and it is a really easy process that requires very little coding.
+If you want to share you're code with others can you do so by following the same steps as above, but instead of clicking on "Embed in HTML code:" you click on "Link to share:"
 
-The Cloud Editor helps you keep track on all of your sketches, and with the iframes, including your projects on other pages has never been easier.
+![Share Code](./assets/Share_1.png)
+
+This link will direct others to a preview of our code where they can copy it or directly add it to their sketchbook.
+
+***Note: If you want to learn how to keep sensitive data in your code safe, read [Store Sensitive Data in Sketches](/arduino-cloud/cloud-editor/share-your-sketches/).***
 
 ### More tutorials
 
