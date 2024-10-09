@@ -1,7 +1,7 @@
 ---
-title: 'Embedding your sketches into an HTML page'
-description: 'Learn about different methods when embedding your sketches in a website.'
-author: 'Karl Söderby'
+title: 'Embed & Share Sketches'
+description: 'Learn about sharing your sketches and different methods to embed your sketches in a website.'
+author: 'Karl Söderby, Hannes Siebeneicher'
 ---
 
 The Cloud Editor is a great tool for creating and uploading programs while also collecting all of your sketches in one place. Another great feature is embedding them as iframes, such as articles, blogposts or journals.
