@@ -18,7 +18,7 @@ software:
   - web-editor
 ---
 
-This user manual provides a comprehensive Nicla Sense Env board overview, highlighting its hardware and software elements. With it, you will confidently learn how to set up, configure, and use all the main features of a Nicla Sense Env board.
+This user manual provides a comprehensive overview of the Nicla Sense Env board, highlighting its hardware and software elements. With it, you will learn how to set up, configure, and use all the main features of a Nicla Sense Env board.
 
 ![ ](assets/hero-banner.png)
 
@@ -68,16 +68,16 @@ Here's an overview of the board's main components shown in the images above:
 - **ESLOV connector**: The Nicla Sense Env has an onboard ESLOV connector to extend the board communication capabilities via I<sup>2</sup>C. 
 - **Surface mount**: The castellated pins of the board allow it to be positioned as a surface-mountable module.
 
-### Board Libraries 
+### Board Libraries
 
-The [`Arduino_NiclaSenseEnv` library](https://github.com/arduino-libraries/Arduino_NiclaSenseEnv) contains an application programming interface (API) to read data from the board and control its parameters and behavior over I<sup>2</sup>C. This library supports the following: 
+The [`Arduino_NiclaSenseEnv` library](https://github.com/arduino-libraries/Arduino_NiclaSenseEnv) contains an application programming interface (API) to read data from the board and control its parameters and behavior over I²C. This library supports the following: 
 
 - Board control (sleep, reset, and factory reset)
-- Board configuration (I<sup>2</sup>C address configuration)
+- Board configuration (I²C address configuration)
 - Onboard RGB LED control
 - Onboard orange LED control
-- Onboard indoor air quality sensor control (sulfur detection, odor intensity, ethanol level, TVOC, CO<sub>2</sub>, IAQ measurements)
-- Onboard outdoor air quality sensor control (NO<sub>2</sub>, O<sub>3</sub>, OAQ measurements)
+- Onboard indoor air quality sensor control (sulfur detection, odor intensity, ethanol level, TVOC, CO₂, IAQ measurements)
+- Onboard outdoor air quality sensor control (NO₂, O<sub>3</sub>, OAQ measurements)
 - Temperature and humidity sensor control
 - UART comma-separated values (CSV) output
 
@@ -91,31 +91,31 @@ To install the `Arduino_NiclaSenseEnv` library, navigate to `Tools > Manage libr
 
 The full pinout is available and downloadable as PDF from the link below:
 
-- Nicla Sense Env pinout
+- [Nicla Sense Env pinout](https://docs.arduino.cc/resources/pinouts/ABX00089-full-pinout.pdf)
 
 ### Datasheet
 
 The complete datasheet is available and downloadable as PDF from the link below:
 
-- Nicla Sense Env datasheet
+- [Nicla Sense Env datasheet](https://docs.arduino.cc/resources/datasheets/ABX00089-datasheet.pdf)
 
 ### Schematics
 
 The complete schematics are available and downloadable as PDF from the link below:
 
-- Nicla Sense Env schematics
+- [Nicla Sense Env schematics](https://docs.arduino.cc/resources/schematics/ABX00089-schematics.pdf)
 
 ### STEP Files 
 
 The complete STEP files are available and downloadable from the link below:
 
-- Nicla Sense Env STEP files
+- [Nicla Sense Env STEP files](../../downloads/ABX00089-step.zip)
 
 ## First Use
 
 ### Unboxing the Product
 
-Let's check out what is inside the box of the Nicla Sense Env board. Besides the board, you will find an ESLOV cable inside the box, which can connect the Nicla Sense Env with other supported Arduino boards with an onboard ESLOV connector (Portenta, Nano, or MKR family boards). The board's MKR-styled pins can also connect the Nicla Sense Env to other supported Arduino boards, but 2.54 mm header pins (not included) must be soldered to the MKR-styled board pins. 
+Let's check out what is inside the box of the Nicla Sense Env board. Besides the board, you will find an ESLOV cable inside the box, which can connect the Nicla Sense Env with other supported Arduino boards with an onboard ESLOV connector (Portenta or MKR family boards). The board's MKR-styled pins can also connect the Nicla Sense Env to other supported Arduino boards (Nano family), but 2.54 mm header pins (not included) must be soldered to the MKR-styled board pins. 
 
 ![Unboxing the Nicla Sense Env](assets/user-manual-4.png)
 
