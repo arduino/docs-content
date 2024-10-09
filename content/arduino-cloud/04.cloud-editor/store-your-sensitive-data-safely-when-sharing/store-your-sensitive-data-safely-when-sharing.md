@@ -3,11 +3,7 @@ title: 'Store Sensitive Data in Sketches'
 description: 'Learn how to share sketches without sharing the sensitive data such as Wi-Fi credentials and API keys.'
 ---
 
-Often in your sketch, there is some sensitive data that you’d like to keep private, which could accidentally become public when published on GitHub or when you [share your sketch with someone else via URL](
-    
-
-
-). This sensitive information may include Wi-Fi network names and passwords, API key, and so on. But now, you can add a secret tab to your sketch and store your private data there.
+Often in your sketch, there is some sensitive data that you’d like to keep private, which could accidentally become public when published on GitHub or when you [share your sketch with someone else via URL](content/arduino-cloud/04.cloud-editor/embedding-create-iframes/embedding-create-iframes.md). This sensitive information may include Wi-Fi network names and passwords, API key, and so on. But now, you can add a secret tab to your sketch and store your private data there.
 
 This feature has been designed specifically for the [Arduino Cloud Editor](https://app.arduino.cc). If you have yet to try it, follow [Getting Started with Arduino Cloud](https://docs.arduino.cc/arduino-cloud/guides/overview/) — all you need is an Arduino ID.
 
