@@ -121,6 +121,14 @@ Let's check out what is inside the box of the Nicla Sense Env board. Besides the
 
 **The Nicla Sense Env is not a standalone device but a shield for an Arduino-supported board from the Portenta, MKR, or Nano board families**. This user manual will use a Portenta C33 as the main or host board and the Nicla Sense Env as a shield or client board connected through the included ESLOV cable.
 
+### Connecting the Board
+
+As shown in the image below, the Nicla Sense Env can be connected to a Portenta or MKR family board using the onboard ESLOV connector and the included ESLOV cable. Alternatively, you can connect the Nicla Sense Env as a shield by using the MKR-styled pins on the Portenta or MKR family boards.
+
+![Connecting the Nicla Sense Env](assets/user-manual-23.png)
+
+For other compatible boards, such as those from the Nano family, the Nicla Sense Env can also be connected using the 2.54 mm pins of the Nicla Sense Env board.
+
 ### Powering the Board
 
 The Nicla Sense Env can be powered by:
@@ -770,7 +778,7 @@ The Nicla Sense Env board features an onboard air quality sensor, the ZMOD4410 f
 
 The example sketch below demonstrates how to read air quality data from the ZMOD4410 sensor using the `Arduino_NiclaSenseEnv` library API. The sketch reports indoor air quality values to the Arduino IDE's Serial Monitor every 5 seconds.
 
-**Important**: The ZMOD4410 supports several operation modes, each with specific sample rates and warm-up requirements. For IAQ measurements, the sensor can take a sample every three seconds but requires 60 warm-up samples, meaning a total warm-up time of 3 minutes. In ultra-low-power mode, the sensor can take samples every 90 seconds but requires only 10 warm-up samples, meaning it takes 15 minutes to fully warm up.
+**Important**: The ZMOD4410 supports several operation modes, each with specific sample rates and warm-up requirements. For IAQ measurements, the sensor can take a sample every three seconds but requires 60 warm-up samples, meaning a total warm-up time of 3 minutes. In ultra-low-power mode, the sensor can take samples every 90 seconds but requires only 10 warm-up samples, meaning it takes 15 minutes to fully warm-up.
 
 ```arduino
 /**
@@ -863,7 +871,7 @@ The Nicla Sense Env board features an onboard outdoor air quality sensor, the ZM
 
 The example sketch below demonstrates how to read air quality data from the ZMOD4510 sensor using the `Arduino_NiclaSenseEnv` library API. The sketch reports outdoor air quality values to the Arduino IDE's Serial Monitor every 5 seconds.
 
-**Important**: The ZMOD4510 supports several operation modes, each with specific sample rates and warm-up requirements. For NO₂/O₃ measurements, the sensor can take a sample every 6 seconds but requires 50 warm-up samples, meaning a total warm-up time of 5 minutes. In ultra-low-power O₃ mode, the sensor can take samples every 2 seconds, but it requires 900 warm-up samples before it is fully operational, meaning it takes 30 minutes to warm up completely.
+**Important**: The ZMOD4510 supports several operation modes, each with specific sample rates and warm-up requirements. For NO₂/O₃ measurements, the sensor can take a sample every 6 seconds but requires 50 warm-up samples, meaning a total warm-up time of 5 minutes. In ultra-low-power O₃ mode, the sensor can take samples every two seconds, but it requires 900 warm-up samples before it is fully operational, meaning it takes 30 minutes to warm-up completely.
 
 ```arduino
 /**
