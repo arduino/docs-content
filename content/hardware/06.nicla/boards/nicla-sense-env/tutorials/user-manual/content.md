@@ -766,11 +766,15 @@ The Nicla Sense Env board features an onboard air quality sensor, the ZMOD4410 f
 
 ![The ZMOD4410 sensor of the Nicla Sense Env board](assets/user-manual-15.png)
 
+***Every ZMOD sensor is electrically and chemically calibrated during Renesas production. The calibration data is stored in the non-volatile memory (NVM) of the sensor module and is used by the firmware routines during sensor initialization. ZMOD sensors are qualified for a 10-year lifetime (following the JEDEC JESD47 standard) without the need for recalibration.***
+
 The example sketch below demonstrates how to read air quality data from the ZMOD4410 sensor using the `Arduino_NiclaSenseEnv` library API. The sketch reports indoor air quality values to the Arduino IDE's Serial Monitor every 5 seconds.
+
+**Important**: The ZMOD4410 supports several operation modes, each with specific sample rates and warm-up requirements. For IAQ measurements, the sensor can take a sample every three seconds but requires 60 warm-up samples, meaning a total warm-up time of 3 minutes. In ultra-low-power mode, the sensor can take samples every 90 seconds but requires only 10 warm-up samples, meaning it takes 15 minutes to fully warm up.
 
 ```arduino
 /**
-  Air Quality Sensor Example for Nicla Sense Env
+  Indoor Air Quality Sensor Example for Nicla Sense Env
   Name: nicla_sense_env_indoor_air_quality_example.ino
   Purpose: This sketch demonstrates how to read air quality data from the
   ZMOD4410 sensor on the Nicla Sense Env using the Arduino_NiclaSenseEnv library API.
@@ -817,7 +821,9 @@ void setup() {
         // Set the sensor mode to indoor air quality
         airQualitySensor.setMode(IndoorAirQualitySensorMode::indoorAirQuality);
 
-        // Allow time for the sensor to start delivering data
+        // The ZMOD4410 can take a sample every 3 seconds in IAQ mode and requires 60 warm-up samples,
+        // meaning the sensor will take about 3 minutes to fully warm-up before accurate readings can 
+        // be obtained. In this example, we allow 5 seconds for the sensor to start delivering data.
         delay(5000);
     } else {
         Serial.println("- Device could not be found. Please double-check the wiring!");
@@ -853,7 +859,11 @@ The Nicla Sense Env board features an onboard outdoor air quality sensor, the ZM
 
 ![The ZMOD4510 sensor of the Nicla Sense Env board](assets/user-manual-17.png)
 
+***Every ZMOD sensor is electrically and chemically calibrated during Renesas production. The calibration data is stored in the non-volatile memory (NVM) of the sensor module and is used by the firmware routines during sensor initialization. ZMOD sensors are qualified for a 10-year lifetime (following the JEDEC JESD47 standard) without the need for recalibration.***
+
 The example sketch below demonstrates how to read air quality data from the ZMOD4510 sensor using the `Arduino_NiclaSenseEnv` library API. The sketch reports outdoor air quality values to the Arduino IDE's Serial Monitor every 5 seconds.
+
+**Important**: The ZMOD4510 supports several operation modes, each with specific sample rates and warm-up requirements. For NO₂/O₃ measurements, the sensor can take a sample every 6 seconds but requires 50 warm-up samples, meaning a total warm-up time of 5 minutes. In ultra-low-power O₃ mode, the sensor can take samples every 2 seconds, but it requires 900 warm-up samples before it is fully operational, meaning it takes 30 minutes to warm up completely.
 
 ```arduino
 /**
@@ -903,8 +913,10 @@ void setup() {
         outdoorAirQualitySensor.setMode(OutdoorAirQualitySensorMode::outdoorAirQuality);
         outdoorAirQualitySensor.setEnabled(true);
 
-        // Allow time for the sensor to start delivering data
-        delay(5000);
+        // The ZMOD4510 takes a sample every 6 seconds in NO2/O3 mode and requires 50 warm-up samples,
+        // meaning the sensor will take about 5 minutes to fully warm-up before accurate readings 
+        // can be obtained. In this example, we allow 6 seconds for the sensor to start delivering data.
+        delay(6000);
     } else {
         Serial.println("- Device could not be found. Please double-check the wiring!");
     }
@@ -914,7 +926,7 @@ void loop() {
     // Read data from the ZMOD4510 sensor every 5 seconds
     auto outdoorAirQualitySensor = device.outdoorAirQualitySensor();
     displaySensorData(outdoorAirQualitySensor);
-    delay(5000);
+    delay(6000);
 }
 ```
 
@@ -1084,8 +1096,8 @@ Explore our Help Center, which offers a comprehensive collection of articles and
 
 Join our community forum to connect with other Nicla family board users, share your experiences, and ask questions. The Forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Nicla Sense Env.
 
-- Nicla Sense Env category in the Arduino Forum
-
+- [Nicla Sense Env category in the Arduino Forum](https://forum.arduino.cc/c/hardware/nicla-family/nicla-family/170)
+- 
 ### Contact Us
 
 Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Nicla family boards.
