@@ -622,7 +622,7 @@ In this section, we will connect the environmental monitor to Arduino Cloud. The
 
 ***If you are new to Arduino Cloud, please check out [this tutorial](https://docs.arduino.cc/arduino-cloud/guides/overview/).***
 
-Please, begin by creating a new Thing in your Arduino Cloud with the following variables: 
+Please, begin by creating a new **Thing** in your Arduino Cloud with the following variables: 
 
 - cloudTemperature
 - cloudHumidity 
@@ -632,7 +632,9 @@ Please, begin by creating a new Thing in your Arduino Cloud with the following v
 
 All of the variables must be **`float`** type, have **`Read Only`** permission and a **`On Change`** update policy.
 
-The complete example sketch is shown below.
+On the `thingProperties.h` header, update your Wi-Fi credentials (SSID and PASS).
+
+The complete example sketch is shown below and can be downloaded from [here](assets/cloud_air_quality_monitor.zip).
 
 ```arduino
 /**
@@ -880,7 +882,7 @@ void readSensors() {
     // Update RGB LED color based on AQI
     if (airQualityIndex <= 50) {
       rgbLED.setColor(0, 255, 0);  // Green for good air quality
-    } else if (airQualityIndex <= 100) {
+    } else if (airQualityIndex <= 150) {
       rgbLED.setColor(255, 255, 0);  // Yellow for moderate air quality
     } else {
       rgbLED.setColor(255, 0, 0);  // Red for unhealthy air quality
