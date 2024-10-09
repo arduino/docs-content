@@ -7,21 +7,21 @@ links:
   [
     {
       title: "LiquidCrystal",
-      url: https://docs.arduino.cc/libraries/LiquidCrystal/
+      url: https://docs.arduino.cc/libraries/liquidcrystal/
     },
     {
       title: "Servo",
-      url: https://docs.arduino.cc/libraries/Servo/,
+      url: https://docs.arduino.cc/libraries/servo/,
     },
     {
       title: "LiquidCrystal I2C",
-      url: https://docs.arduino.cc/libraries/LiquidCrystal%20I2C/
+      url: https://docs.arduino.cc/libraries/liquidcrystal-i2c/
     },
-    { title: "WiFi", url: https://docs.arduino.cc/libraries/WiFi/ },
-    { title: "SD", url: https://docs.arduino.cc/libraries/SD/ },
+    { title: "WiFi", url: https://docs.arduino.cc/libraries/wifi/ },
+    { title: "SD", url: https://docs.arduino.cc/libraries/sd/ },
     {
       title: "Stepper",
-      url: https://docs.arduino.cc/libraries/Stepper/,
+      url: https://docs.arduino.cc/libraries/stepper/,
     },
   ]
 ---
