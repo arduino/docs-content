@@ -30,6 +30,7 @@ The **Arduino AWS S3 CSV Exporter** is designed to extract time series data from
 * [Arduino Cloud](https://cloud.arduino.cc/). If you do not have an account, you can create one for free inside [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
 * [AWS CLI](https://aws.amazon.com/cli/)
 * [Go Programming Language](https://go.dev/) (version 1.22 or higher)
+* [Official Arduino AWS S3 CSV Exporter Repository](https://github.com/arduino/aws-s3-integration)
 
 ## Deployment Using CloudFormation Template
 
