@@ -582,7 +582,7 @@ void displayAllData() {
             // Good air quality: Green LED
             rgbLED.setColor(0, 255, 0);  
             rgbLED.setBrightness(255);   
-        } else if (airQualityIndex <= 100) {
+        } else if (airQualityIndex <= 150) {
             // Moderate air quality: Yellow LED
             rgbLED.setColor(255, 255, 0);
             rgbLED.setBrightness(255);
