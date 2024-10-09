@@ -78,12 +78,7 @@ This application note uses advanced sensors to provide accurate, real-time measu
   
 The AQI scale ranges from 0 to 500, with the following classifications:
 
-- 0-50: Good air quality.
-- 51-100: Moderate air quality.
-- 101-150: Unhealthy for sensitive groups.
-- 151-200: Unhealthy for everyone.
-- 201-300: Very unhealthy.
-- 301-500: Hazardous conditions.
+![AQI scale ranges and health advice](assets/AQI.png)
 
 The AQI makes it easy to understand how outdoor air quality affects public health, particularly when pollutant levels reach unhealthy or hazardous thresholds.
 
@@ -222,7 +217,7 @@ uint32_t lastReadTime = 0;
 NiclaSenseEnv device;
 ```
 
-In the code snippet shown before:
+In the code snippet shown above:
 
 - The `Arduino_NiclaSenseEnv` library is included to provide access to the onboard sensors.
 - The constant `READ_INTERVAL` defines the time between each sensor reading (10 seconds in this example).
@@ -253,7 +248,7 @@ void setup() {
 }
 ```
 
-In the code snippet shown before:
+In the code snippet shown above:
 
 - Serial communication is initialized at `115200` baud rate, allowing data to be sent to the IDE's Serial Monitor.
 - The Nicla Sense Env board is initialized to read temperature, humidity and the outdoor Air Quality Index (AQI).
@@ -277,7 +272,7 @@ void loop() {
 }
 ```
 
-In the code snippet shown before:
+In the code snippet shown above:
 
 - The `loop()` function continuously checks if the time interval (10 seconds) has passed since the last reading.
 - Once the interval is reached, the `displayAllData()` function is called to read sensor data.
@@ -335,7 +330,7 @@ The complete improved example sketch can be downloaded [here](assets/outdoor_air
 
 ## Improving the Simple Environmental Monitor Example Sketch
 
-In the previous section, we explored setting up a simple environmental monitor using the Nicla Sense Env and the Portenta C33 boards. While the example sketch provided detailed readings on temperature, humidity and air quality, we can improve the example sketch by incorporating a visual indicator for the outdoor Air Quality Index (AQI).
+In the previous section, we explored setting up a simple environmental monitor using the Nicla Sense Env and the Portenta C33 board. While the example sketch provided detailed readings on temperature, humidity and air quality, we can improve the example sketch by incorporating a visual indicator for the outdoor Air Quality Index (AQI).
 
 In this section, we will improve the example sketch by adding control of the onboard RGB LED on the Nicla Sense Env board. The RGB LED will provide a visual representation of the outdoor AQI, changing colors based on its value.
 
