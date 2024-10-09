@@ -81,7 +81,7 @@ The [`Arduino_NiclaSenseEnv` library](https://github.com/arduino-libraries/Ardui
 - Temperature and humidity sensor control
 - UART comma-separated values (CSV) output
 
-***The Portenta, MKR, and Nano family boards support the `Arduino_NiclaSenseEnv` library.***
+***The Portenta, MKR, Nano and UNO (R4) family boards support the `Arduino_NiclaSenseEnv` library.***
 
 To install the `Arduino_NiclaSenseEnv` library, navigate to `Tools > Manage libraries...` or click the **Library Manager** icon in the left tab of the Arduino IDE. In the Library Manager tab, search for `Arduino_NiclaSenseEnv` and install the latest version of the library.
 
@@ -1104,8 +1104,8 @@ Explore our Help Center, which offers a comprehensive collection of articles and
 
 Join our community forum to connect with other Nicla family board users, share your experiences, and ask questions. The Forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Nicla Sense Env.
 
-- [Nicla Sense Env category in the Arduino Forum](https://forum.arduino.cc/c/hardware/nicla-family/nicla-family/170)
-- 
+- [Nicla Sense Env category in the Arduino Forum](https://forum.arduino.cc/c/hardware/nicla-family/nicla-family/169)
+
 ### Contact Us
 
 Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Nicla family boards.
