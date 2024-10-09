@@ -15,7 +15,7 @@ links:
     },
     {
       title: "LiquidCrystal I2C",
-      url: https://docs.arduino.cc/libraries/liquidcrystal-i2c//
+      url: https://docs.arduino.cc/libraries/liquidcrystal-i2c/
     },
     { title: "WiFi", url: https://docs.arduino.cc/libraries/wifi/ },
     { title: "SD", url: https://docs.arduino.cc/libraries/sd/ },
