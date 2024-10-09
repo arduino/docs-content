@@ -95,22 +95,6 @@ The table below provides a comprehensive guideline for the optimal use of the Ni
 
 <sup>1</sup> Nicla Sense Env powered through the VCC pin (+3.3 VDC).
 
-### Power Consumption
-
-<p style="text-align: justify;">
-<strong>Work in progress</strong>. The table below summarizes the power consumption of the Nicla Sense Env in different test cases. Notice that the board's operating current will depend greatly on the application.
-</p>
-
-|             **Parameter**            |   **Symbol**   | **Min** | **Typ** | **Max** | **Unit** |
-|:------------------------------------:|:--------------:|:-------:|:-------:|:-------:|:--------:|
-|   Typical Mode Current Consumption²  | I<sub>NM</sub> |    -    |   TBD   |    -    |    mA    |
-|  Low Power Mode Current Consumption³ | I<sub>LP</sub> |    -    |   TBD   |    -    |    mA    |
-| Deep Sleep Mode Current Consumption⁴ | I<sub>DS</sub> |    -    |   TBD   |    -    |    mA    |
-
-<sup>2</sup> Nicla Sense Env powered through the power supply (+3.3 VDC) of a Portenta C33 board.<br>
-<sup>3</sup> Nicla Sense Env powered through the power supply (+3.3 VDC) of a Portenta C33 board.<br>
-<sup>4</sup> Nicla Sense Env powered through the power supply (+3.3 VDC) of a Portenta C33 board.
-
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 To put the Nicla Sense Env in <strong>deep sleep mode</strong>, use the API provided by the <strong>Nicla Sense Env Arduino library</strong>.
 </div>
