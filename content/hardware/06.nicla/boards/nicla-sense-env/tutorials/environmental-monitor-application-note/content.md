@@ -630,7 +630,7 @@ Please, begin by creating a new Thing in your Arduino Cloud with the following v
 - cloudO3 
 - cloudAQI
 
-All of the variables must be **`float`** type, have **`Read & Write`** permission and a **`On Change`** update policy.
+All of the variables must be **`float`** type, have **`Read Only`** permission and a **`On Change`** update policy.
 
 The complete example sketch is shown below.
 
@@ -759,51 +759,6 @@ void readSensors() {
   } else {
     Serial.println("- ERROR: One or more sensors are disabled.");
   }
-}
-
-/**
-  Function called when cloudTemperature variable changes.
-  This function can be used to respond to changes in temperature values 
-  from the Arduino Cloud dashboard.
-*/
-void onCloudTemperatureChange() {
-  // Add your code here to act upon temperature changes
-}
-
-/**
-  Function called when cloudHumidity variable changes.
-  This function can be used to respond to changes in humidity values 
-  from the Arduino Cloud dashboard.
-*/
-void onCloudHumidityChange() {
-  // Add your code here to act upon humidity changes
-}
-
-/**
-  Function called when cloudNO2 variable changes.
-  This function can be used to respond to changes in NO₂ values 
-  from the Arduino Cloud dashboard.
-*/
-void onCloudNO2Change() {
-  // Add your code here to act upon NO₂ changes
-}
-
-/**
-  Function called when cloudO3 variable changes.
-  This function can be used to respond to changes in O₃ values 
-  from the Arduino Cloud dashboard.
-*/
-void onCloudO3Change() {
-  // Add your code here to act upon O₃ changes
-}
-
-/**
-  Function called when cloudAQI variable changes.
-  This function can be used to respond to changes in AQI values 
-  from the Arduino Cloud dashboard.
-*/
-void onCloudAQIChange() {
-  // Add your code here to act upon AQI changes
 }
 ```
 
@@ -949,6 +904,8 @@ In the code snippet shown before:
 
 - The RGB LED changes color based on the AQI value. Green for good air quality, yellow for moderate, and red for unhealthy levels.
 - The cloud variables (`cloudTemperature`, `cloudHumidity`, `cloudNO2`, `cloudO3`, and `cloudAQI`) are updated with the latest sensor readings and sent to Arduino Cloud for remote monitoring.
+
+The complete cloud example sketch can be downloaded [here](assets/cloud_air_quality_monitor.zip).
 
 ## Conclusions
 
