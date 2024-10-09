@@ -334,6 +334,8 @@ In the previous section, we explored setting up a simple environmental monitor u
 
 In this section, we will improve the example sketch by adding control of the onboard RGB LED on the Nicla Sense Env board. The RGB LED will provide a visual representation of the outdoor AQI, changing colors based on its value.
 
+![Example working principle overview](assets/rgb-aqi.gif)
+
 The complete example sketch is shown below. The RGB LED will change color based on the following:
 
 - Green 🟢 for **good air quality**.
@@ -445,7 +447,7 @@ void displayAllData() {
             // Good air quality: Green LED
             rgbLED.setColor(0, 255, 0);  
             rgbLED.setBrightness(255);   
-        } else if (airQualityIndex <= 100) {
+        } else if (airQualityIndex <= 150) {
             // Moderate air quality: Yellow LED
             rgbLED.setColor(255, 255, 0);
             rgbLED.setBrightness(255);
