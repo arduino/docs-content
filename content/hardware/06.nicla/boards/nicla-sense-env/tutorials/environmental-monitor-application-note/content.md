@@ -494,7 +494,7 @@ In the code snippet shown before:
 
 ### Sensors Initialization
 
-In the `setup()` function, we initialize the onboard sensors and the onboard RGB LED of the Nicla Sense Env board. The outdoor air quality sensor is activated and the RGB LED is prepared to visually display the outdoor AQI based on the sensor readings.
+In the `setup()` function, we initialize the onboard sensors and the onboard RGB LED of the Nicla Sense Env. The outdoor air quality sensor is activated and the RGB LED is prepared to visually display the outdoor AQI based on the sensor readings.
 
 ```arduino
 void setup() {
