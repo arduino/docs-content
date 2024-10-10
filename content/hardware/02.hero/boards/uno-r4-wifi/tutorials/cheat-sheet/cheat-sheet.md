@@ -19,7 +19,7 @@ software:
 
 The **Arduino UNO** is our most popular and globally recognized development board, and has become a staple in the maker community and education since its release. The **Arduino UNO R4 WiFi** board is part of the 4th revision of UNO boards, and the first to feature a 32-bit MCU (RA4M1 series from Renesas).
 
-This document serves as a technical overview for the UNO R4 WiFi, where you will a collection of links to resources and guides to help you get started with your next project. 
+This document serves as a technical overview for the UNO R4 WiFi, where you will find a collection of links to resources and guides to help you get started with your next project. 
 
 The ESP32 module and the Renesas RA4M1-chip are part of a sophisticated USB-Serial system that is highly flexible and adaptive to allow for HID features while still keeping the ability to program both the main MCU, and the ESP32, if you so wish (although this is an advanced option and requires some hacking).
 
@@ -34,7 +34,7 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 ## Power Supply
 
-The board can be powered via the VIN pin, supporting a range between 6-24 V.The VIN pin is also connected to the DC-jack (barrel plug connector).
+The board can be powered via the VIN pin, supporting a range between 6-24 V. The VIN pin is also connected to the DC-jack (barrel plug connector).
 
 When powered via the VIN pin, you are using the onboard regulator to bring down the voltage to 5V, which means that the 5 V pin can provide up to 1.2 A. Keep in mind that this voltage regulator also powers the rest of the circuit board, including the MCU, LEDs among other components.
 
@@ -72,7 +72,7 @@ The Arduino UNO R4 WiFi is compatible with the [Arduino Cloud](https://create.ar
 
 ## Renesas RA4M1
 
-The UNO R4 WiFi features the powerful and very robust Renesas microcontroller also found on the UNO R4 Minima. Renesas microcontrollers are known for their high performance and robustness, including their built-in peripheral set. 
+The UNO R4 WiFi features the powerful and robust Renesas microcontroller also found on the UNO R4 Minima. Renesas microcontrollers are known for their high performance and robustness, including their built-in peripheral set. 
 
 These peripherals include analog-to-digital converters, timers, pulse width modulation (PWM) units, communication interfaces (such as UART, SPI, and I2C) and more.
 
@@ -183,7 +183,7 @@ The reference voltage of all digital pins is 5 V.
 
 ### PWM
 
-PWM (Pulse Width Modulation) capability allows a digital pin to emulate analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins. 
+PWM (Pulse Width Modulation) capability allows a digital pin to emulate an analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins. 
 
 The UNO R4 WiFi supports PWM on pins marked with ~ on the headers. Officially supported pins are:
 
@@ -208,7 +208,7 @@ By default, the resolution is 8 bit (0-255), You can use `analogWriteResolution(
 analogWriteResolution(resolution);
 ```
 
-Please note that the following pins are PWM capable but may interfere with other functionalities of the UNO R4 WiFi board. When writing library functions, please do not use this as they are not officially supported PWM pins. 
+Please note that the following pins are PWM capable but may interfere with other functionalities of the UNO R4 WiFi board. When writing library functions, please do not use these as they are not officially supported PWM pins. 
 
 | Pin       | RA4M1 | Timer   |
 | --------- | ----- | ------- |
@@ -268,7 +268,7 @@ analogWrite(pin, value);
 
 This DAC pin has a default write resolution of 8-bits. This means that values that are written to the pin should be between 0-255.
 
-However you may change this write resolution if you need to, to up to 12-bits, and in this case the values you write to the pin should be between 0-4096.
+However you may change this write resolution if you need to, up to 12-bits, and in this case the values you write to the pin should be between 0-4096.
 
 ```arduino
 analogWriteResolution(12);
@@ -379,7 +379,7 @@ void loop() {
 
 ## I2C
 
-I2C lets you connect multiple I2C compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7-bit address, meaning that the technical limit of I2C devices on a single line is 128. Practically, you're never gonna reach 128 devices before other limitations kick in.
+I2C lets you connect multiple I2C compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7-bit address, meaning that the technical limit of I2C devices on a single line is 128. Practically, you're never going to reach 128 devices before other limitations kick in.
 
 The UNO R4 WiFi has one I2C bus which is marked with SCL and SDA. They are shared with A4 (SDA) and A5 (SCL) which owners of previous UNO's are familiar with. The pullups are not mounted on the PCB but there are footprints to do so if needed.
 
@@ -420,7 +420,7 @@ Wire.endTransmission(); //stop transmit
 
 The UNO R4 WiFi features a Qwiic/STEMMA connector that you can use to connect modules, often allowing you to daisy chain several modules and control all of them through a single connector.
 
-Qwiic or STEMMA are both names for a type of connector developed by SparkFun and Adafruit respectively, that bundles the I2C pins of a development board and breakout modules. What this means is that if you have a development board (such as for example the Arduino UNO R4 WiFi) and a breakout module, and both have a Qwiic or STEMMA connector, you can hook them up together and with absolutely minimal wiring you can quickly create multi-faceted projects. 
+Qwiic or STEMMA are both names for a type of connector developed by SparkFun and Adafruit respectively, which bundles the I2C pins of a development board and breakout modules. What this means is that if you have a development board (such as for example the Arduino UNO R4 WiFi) and a breakout module, and both have a Qwiic or STEMMA connector, you can hook them up together and with absolutely minimal wiring you can quickly create multi-faceted projects. 
 
 If your breakout board features more than one of these connectors, which many do, you can use the second one to daisychain *another* Qwiic module to add another interactive node to your project.
 
@@ -512,7 +512,7 @@ if(Serial.available() > 0) {
 
 In the Ardunio API there is a [`FspTimer`](https://github.com/arduino/ArduinoCore-renesas/blob/149f78b6490ccbafeb420f68919c381a5bdb6e21/cores/arduino/FspTimer.h#L87) class which provides all the necessary functionality for using timers in a sketch.
 
-The UNO R4 WiFi has two timer peripherals, a Asynchronous General Purpose Timer (AGT) and a General PWM Timer (GPT). There are two AGT timers on the board, one of them is used for time measuring methods such as `millis()` and `microseconds()`.
+The UNO R4 WiFi has two timer peripherals, an Asynchronous General Purpose Timer (AGT) and a General PWM Timer (GPT). There are two AGT timers on the board, one is used for time measuring methods such as `millis()` and `microseconds()`.
 
 The board has 7 GPT timers to help perform PWM tasks, such as calculating duty cycles by measuring how long a signal is active. It is possible to use these reserved PWM timers by using the previously mentioned [`FspTimer`](https://github.com/arduino/ArduinoCore-renesas/blob/main/cores/arduino/FspTimer.h#L87) library. Using this function will explicitly request a PWM timer:
 
@@ -520,7 +520,7 @@ The board has 7 GPT timers to help perform PWM tasks, such as calculating duty c
 FspTimer::force_use_of_pwm_reserved_timer();
 ```
 
-When using the timer functions of the library you will need to enter the timers type. Which is either AGT or GPT. This can be declared in the sketch like this:
+When using the timer functions of the library you will need to enter the timer's type. Which is either AGT or GPT. This can be declared in the sketch like this:
 
 ```arduino
 uint8_t gpt_timer_type = GPT_TIMER;
@@ -608,7 +608,7 @@ By default, the ESP32-S3 module onboard the UNO R4 WiFi acts as a Serial bridge,
 
 On the UNO R3, the ATMEGA16U2 serves the same purpose. The onboard ESP32 module is a more advanced SoC, adding Wi-Fi® & Bluetooth® connectivity to the board.
 
-The ESP32 also exposes the ESP32's data lines, so that you can program the ESP32 directly. These data lines are exposed by 3x2 header at the top of the board, or through pads on the bottom side.
+The ESP32 also exposes the ESP32's data lines, so you can program the ESP32 directly. These data lines are exposed by 3x2 header at the top of the board, or through pads on the bottom side.
 
 ***Please note that the ESP32 has a default firmware installed, which is set to communicate with the RA4M1 chip. Any direct programming of the ESP32 will override that firmware and the communication between the chips may be disrupted until the default firmware is restored.***
 
@@ -634,7 +634,7 @@ If you wish you can change this and get direct access to the serial bus on the R
 
 ### Wi-Fi®
 
-The ESP32 onboard the UNO R4 WiFi is used to give the board Wi-Fi® capabilities. The Wi-Fi® module has a bitrate of up to 150 Mbps. The ESP32 module has a built in trace-antenna, meaning that you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means that you cannot use Bluetooth® and Wi-Fi® at the same time.
+The ESP32 onboard the UNO R4 WiFi is used to give the board Wi-Fi® capabilities. The Wi-Fi® module has a bitrate of up to 150 Mbps. The ESP32 module has a built in trace-antenna, meaning you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means you cannot use Bluetooth® and Wi-Fi® at the same time.
 
 To use the Wi-Fi® features of the UNO R4 WiFi, use the **WiFiS3** library that is built in to the UNO R4 Board Package.
 
@@ -642,7 +642,7 @@ To learn more about the Wi-Fi® capabilities of the UNO R4 WiFi, try out the [Ne
 
 ### Bluetooth®
 
-Thanks to the ESP32 module, the UNO R4 WiFi has Bluetooth® LE and Bluetooth® 5 capabilities, at a speed of up to 2 Mbps. The ESP32 module has a built in trace-antenna, meaning that you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means that you cannot use Bluetooth® and Wi-Fi® at the same time.
+Thanks to the ESP32 module, the UNO R4 WiFi has Bluetooth® LE and Bluetooth® 5 capabilities, at a speed of up to 2 Mbps. The ESP32 module has a built in trace-antenna, meaning you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means that you cannot use Bluetooth® and Wi-Fi® at the same time.
 
 Below is an example sketch scans for bluetooth devices:
 
