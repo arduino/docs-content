@@ -64,14 +64,25 @@ The main features are highlighted in the table shown below.
 
 ### Related Products
 
+- Arduino Portenta C33 (SKU: ABX00074)
 - Arduino Portenta H7 (SKU: ABX00042)
 - Arduino Portenta H7 Lite (SKU: ABX00045)
 - Arduino Portenta H7 Lite Connected (SKU: ABX00046)
-- Arduino Portenta C33 (SKU: ABX00074)
 - Arduino MKR WiFi 1010 (SKU: ABX00023)
-- Arduino MKR WAN 1310 (SKU: MKRWAN1310WANT)
-- Arduino MKR ZERO (SKU: ABX00012)
-- Arduino MKR NB 1500 (SKU: MKRNB1500WANT)
+- Arduino MKR WAN 1310 (SKU: ABX00029)
+- Arduino MKR Zero (SKU: ABX00012)
+- Arduino MKR NB 1500 (SKU: ABX00019)
+- Arduino Nano 33 BLE (SKU: ABX00030)
+- Arduino Nano 33 BLE Rev2 (SKU: ABX00071)
+- Arduino Nano 33 BLE Sense (SKU: ABX00031)
+- Arduino Nano 33 BLE Sense Rev2 (SKU: ABX00069)
+- Arduino Nano 33 IoT (SKU: ABX00027)
+- Arduino Nano ESP32 (SKU: ABX00092)
+- Arduino Nano Every (SKU: ABX00028)
+- Arduino Nano RP2040 Connect (SKU: ABX00052)
+- Arduino UNO R4 Minima (SKU: ABX00080)
+- Arduino UNO R4 WiFi (SKU: ABX00087)
+- Arduino Zero (SKU: ABX00003)
 
 <div style="page-break-after: always;"></div>
 
@@ -166,13 +177,17 @@ All Arduino devices work out of the box on the Arduino Cloud Editor **[2]** by i
 
 All Arduino IoT-enabled products are supported on Arduino Cloud, which allows you to log, graph, and analyze sensor data, trigger events, and automate your home or business. Take a look at the official documentation to know more.
 
+### Nicla Sense Env Arduino and MicroPython Library
+
+The Arduino_NiclaSenseEnv library **[4]** offers an Arduino API to read data from the Nicla Sense Env's onboard sensors (ZMOD4410, ZMOD4510 and HS4001) and control the board's functionality. This library is also available for MicroPython **[5]**.
+
 ### Sample Sketches
 
-Sample sketches for the Nicla Sense Env can be found either in the “Examples” menu in the Arduino IDE or the “Nicla Sense Env Documentation” section of Arduino documentation **[4]**.
+Sample sketches for the Nicla Sense Env can be found either in the “Examples” menu in the Arduino IDE or the “Nicla Sense Env Documentation” section of Arduino documentation **[6]**.
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]**, the Arduino Library Reference **[6]**, and the online store **[7]** where you will be able to complement your Nicla Sense Env board with additional extensions, sensors, and actuators.
+Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[7]**, the Arduino Library Reference **[8]**, and the online store **[9]** where you will be able to complement your Nicla Sense Env board with additional extensions, sensors, and actuators.
 </div>
 
 <div style="page-break-after: always;"></div>
@@ -229,11 +244,6 @@ The Nicla Sense Env has one reset button and two LEDs, an orange and an RGB LED,
 |          RoHS          |
 |         REACH          |
 |          WEEE          |
-|       FCC (USA)        |
-|      IC (Canada)       |
-|       UKCA (UK)        |
-|        Matter®         |
-|       Bluetooth®       |
 
 ### Declaration of Conformity CE DoC (EU)
 
@@ -328,21 +338,24 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Company Information
 
-| **Company Name**    | **Arduino S.r.l.**                         |
-|---------------------|--------------------------------------------|
-| **Company Address** | Via Andrea Appiani, 25-20900 Monza (Italy) |
+| **Company Information** | **Details**                                |
+|-------------------------|--------------------------------------------|
+| **Company Name**        | Arduino S.r.l.                             |
+| **Company Address**     | Via Andrea Appiani, 25-20900 Monza (Italy) |
 
 ## Reference Documentation
 
-|          **Reference**          | **Link**                                                                        |
-|:-------------------------------:|---------------------------------------------------------------------------------|
-|      Arduino IDE (Desktop)      | https://www.arduino.cc/en/Main/Software                                         |
-|       Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                |
-| Arduino Cloud - Getting Started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
-|  Nicla Sense Env Documentation  | https://docs.arduino.cc/hardware/nicla-sense-env/                               |
-|           Project Hub           | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending        |
-|        Library Reference        | https://www.arduino.cc/reference/en/                                            |
-|           Online Store          | https://store.arduino.cc/                                                       |
+| **No.** | **Reference**                             | **Link**                                                   |
+|:-------:|-------------------------------------------|------------------------------------------------------------|
+|    1    | Arduino IDE (Desktop)                     | https://www.arduino.cc/en/Main/Software                    |
+|    2    | Arduino IDE (Cloud)                       | https://create.arduino.cc/editor                           |
+|    3    | Arduino Cloud - Getting Started           | https://docs.arduino.cc/arduino-cloud/guides/overview/     |
+|    4    | Arduino_NiclaSenseEnv Library             | https://github.com/arduino-libraries/Arduino_NiclaSenseEnv |
+|    5    | Arduino_NiclaSenseEnv MicroPython Library | https://github.com/arduino/arduino-nicla-sense-env-mpy/    |
+|    6    | Nicla Sense Env Documentation             | https://docs.arduino.cc/hardware/nicla-sense-env/          |
+|    7    | Project Hub                               | https://create.arduino.cc/projecthub                       |
+|    8    | Library Reference                         | https://www.arduino.cc/reference/en/                       |
+|    9    | Online Store                              | https://store.arduino.cc/                                  |
 
 ## Document Revision History
 
