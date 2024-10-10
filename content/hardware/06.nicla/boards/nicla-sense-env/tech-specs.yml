@@ -2,7 +2,7 @@ Board:
   Name: Arduino® Nicla Sense Env
   SKU: ABX00089
 Microcontroller: Renesas RA2E1 Ultra-low-power 48 MHz Arm® Cortex®-M23 core (not accessible or programmable by the user)
-Memory: 
+Memory:
   Internal: 128 kB Flash, 16 kB SRAM
 Pins:
   I2C Pins: 2 (I2C0 accessible through Nicla pin (J1-2), PMOD connector (J3), and ESLOV connector (J5); I2C1 for onboard sensors)
@@ -23,13 +23,13 @@ Power:
   External Power from: Connected Portenta or MKR board
   External Power Supply: 3.3 V via VCC pin (header or PMOD)
 Clock speed:
-  Processor (RA2E1): 48MHz
+  Processor (RA2E1): 48 MHz
 Pinout features: Castellated pins for surface-mounting (SMD)
 Operating Temperature: "-40 °C to + 85 °C"
 Dimensions:
   Weight: 2 g
   Width: 22.86 mm (900 mils)
-  Length: 22.8 6mm (900 mils) 
+  Length: 22.8 6mm (900 mils)
 Accessories:
   Included: ESLOV cable
   Not included: "12-pin PMOD header connector (P/N: TSM-106-01-L-DH-TR)"

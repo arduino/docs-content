@@ -123,7 +123,7 @@ Let's check out what is inside the box of the Nicla Sense Env board. Besides the
 
 ### Connecting the Board
 
-As shown in the image below, the Nicla Sense Env can be connected to a Portenta or MKR family board using the onboard ESLOV connector and the included ESLOV cable. Alternatively, you can connect the Nicla Sense Env as a shield by using the MKR-styled pins on the Portenta or MKR family boards.
+As shown in the image below, the Nicla Sense Env can be connected to a Portenta or MKR family board using the onboard ESLOV connector and the included ESLOV cable. Alternatively, you can connect the Nicla Sense Env as a shield by using the MKR-style pins on the Portenta or MKR family boards.
 
 ![Connecting the Nicla Sense Env](assets/user-manual-23.png)
 
@@ -133,7 +133,7 @@ For other compatible boards, such as those from the Nano family, the Nicla Sense
 
 The Nicla Sense Env can be powered by:
 
-- Using the onboard **ESLOV connector**, which has a dedicated  +5 VDC power line regulated onboard to +3.3 VDC.
+- Using the onboard **ESLOV connector**, which has a dedicated +5 VDC power line regulated onboard to +3.3 VDC.
 - Using an **external +3.3 VDC power supply** connected to the `VCC` pin (please refer to the [board pinout section](#pinout) of the user manual).
 
 ![Different ways to power the Nicla Sense Env](assets/user-manual-5.png)
@@ -786,16 +786,16 @@ The example sketch below demonstrates how to read air quality data from the ZMOD
   Name: nicla_sense_env_indoor_air_quality_example.ino
   Purpose: This sketch demonstrates how to read air quality data from the
   ZMOD4410 sensor on the Nicla Sense Env using the Arduino_NiclaSenseEnv library API.
-  
+
   @author Arduino Product Experience Team
   @version 1.0 31/05/24
 */
 
 // Include the NiclaSenseEnv library
-#include "NiclaSenseEnv.h"  
+#include "NiclaSenseEnv.h"
 
 // Global device object for Nicla Sense Env
-NiclaSenseEnv device;  
+NiclaSenseEnv device;
 
 /**
   Displays air quality data from the ZMOD4410 sensor.
@@ -817,7 +817,7 @@ void displaySensorData(IndoorAirQualitySensor& sensor) {
     }
 }
 
-void setup() {    
+void setup() {
     // Initialize serial communication and wait up to 2.5 seconds for a connection
     Serial.begin(115200);
     for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));

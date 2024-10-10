@@ -12,13 +12,12 @@ author: José Bagur
 
 
 # Target Areas:
-Industrial automation, building automation, prototyping 
+Industrial automation, building automation, prototyping
 
 # CONTENTS
 
 ## Application Examples
 
-<div style="text-align:justify;">
 The Arduino Nicla Sense Env, when combined with Portenta, MKR, or Nano family boards, provides a versatile solution for various sectors. Below are some application examples that demonstrate its transformative potential:
 
 - **Industrial automation**: The Nicla Sense Env enhances industrial automation by providing precise monitoring and control capabilities, ensuring safety, efficiency, and environmental compliance in various processes.
@@ -30,7 +29,6 @@ The Arduino Nicla Sense Env, when combined with Portenta, MKR, or Nano family bo
   - **Climate control systems**: Integrate a Nicla Sense Env into your HVAC, air conditioning, or ventilation system to accurately measure air quality, humidity, and temperature. This ensures compliance with environmental regulations inside your smart building and increases tenant comfort.
   - **Automated air purifier**: With its embedded sensing capabilities, the Nicla Sense Env provides a comprehensive solution for air purifier systems in smart buildings and offices, saving energy and helping to maintain user health and wellness.
   - **Fumes and fire detection**: The effects of fire, smoke, and fumes can be catastrophic in various environments. By incorporating intelligent gas sensors with onboard Artificial Intelligence (AI), the Nicla Sense Env can detect the presence of indoor and outdoor carbon dioxide, notifying authorities for timely intervention.
-</div>
 
 ## Features
 ### General Specifications Overview
