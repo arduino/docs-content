@@ -52,10 +52,10 @@ The M4 supports:
 
 The M4 does **not** support:
 - Wi-Fi®
-- Serial communication\*
-- [Arduino Cloud](https://app.arduino.cc) sketches.
+- [Arduino Cloud](https://app.arduino.cc) sketches
+- Serial over USB\*
 
-***\*Serial Communication from the M4 can be enabled by setting up an RPC that allows the M4 & M7 cores to communicate. Using `RPC.print()` (M4) and `RPC.read()` (M7) helps achieve this. See [RPC Serial Example](#rpc-serial).***
+***\*Serial communication over USB on the M4 can be enabled only by setting up an RPC that allows the M4 & M7 cores to communicate. Using `RPC.print()` (M4) and `RPC.read()` (M7) helps achieve this. See [RPC Serial Example](#rpc-serial).***
 
 ### Boot / Disable M4
 
@@ -88,7 +88,7 @@ When programming the GIGA R1 WiFi's M7 and M4, we **create a sketch for each cor
 Some essential things to consider when programming the cores are:
 - You need to [partition the memory](#partitioning-the-flash-memory), allocating flash memory to the M4 core.
 - You need to select the [target core](#target-core), which is either **Main Core** or **M4 Co-processor**.
-- The M4 has no serial communication enabled, here we need to use RPC (see [RPC Serial example](#rpc-serial)).
+- The M4 does not *directly* support serial over USB. To enable it, we need to use RPC (see [RPC Serial example](#rpc-serial)).
 
 When writing multiple sketches, there are some things to consider to make your development experience easier:
 - Name your sketches with either `_M4` or `_M7` suffix or prefix. This will make it easier if the code is intended to be shared with others.
@@ -342,7 +342,7 @@ That covered most of the `msgpackrpc` library's API and use cases. For a complet
 
 In this section, you will find a series of examples that is based on the `RPC` library. 
 
-### RPC Serial
+### USB Serial Using RPC
 
 The `Serial.print()` command only works on the **M7 core**. In order to print values on the **M4**, we need to:
 - Use `RPC.println()` on the M4. This will print the values to the RPC1 stream.
