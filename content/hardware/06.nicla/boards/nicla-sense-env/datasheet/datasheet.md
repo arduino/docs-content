@@ -282,18 +282,6 @@ Arduino Boards are fully compliant with the related requirements of European Uni
 As a global supplier of electronic and electrical components, Arduino is aware of our obligations concerning laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 </p>
 
-**IC SAR Warning:**
-
-English:
-This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
-
-French:
-Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
-
-**Important:** The operating temperature of the EUT can’t exceed 85 °C and shouldn’t be lower than -40 °C.
-
-Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
-
 ## Company Information
 
 | **Company Information** | **Details**                                |
