@@ -18,22 +18,23 @@ software:
   - IoT-Cloud
 ---
 
-![ ](assets/hero-banner.png)
-
 ## Introduction
 
-Air pollution is a growing concern in urban and industrial areas due to the harmful effects of airborne pollutants such as nitrogen dioxide (NO₂) and ozone (O₃) on human health and the environment. This application note describes how to build a basic outdoor air quality monitor using the Arduino® Portenta C33 and the Nicla Sense Env board.
+Air pollution is a growing concern in urban and industrial areas due to the harmful effects of airborne pollutants such as nitrogen dioxide (NO₂) and ozone (O₃) on human health and the environment. This application note describes building a basic outdoor air quality monitor using the Arduino® Portenta C33 and the Nicla Sense Env board.
 
-The outdoor air quality monitor provides real-time data on temperature (°C), humidity (%), concentrations of NO₂ (ppb) and O₃ (ppb), as well as the outdoor Air Quality Index (AQI). It is suitable for deployment in urban areas, industrial zones or environmental research.
+![ ](assets/hero-banner.gif)
+
+The outdoor air quality monitor provides real-time data on temperature (°C), humidity (%), concentrations of NO₂ (ppb) and O₃ (ppb) and the outdoor Air Quality Index (AQI). It is suitable for deployment in urban areas, industrial zones or environmental research.
 
 ## Goals
 
-The main goals of this application note are as follows:
+The main goals of this application note are the following:
 
 - Develop and implement a simple outdoor air quality monitor that provides real-time data on temperature, humidity, and pollutants such as nitrogen dioxide (NO₂) and ozone (O₃).
 - Collect real-time data on NO₂, O₃ and the outdoor Air Quality Index (AQI) to evaluate outdoor air conditions.
 - Display live readings from the Nicla Sense Env board using the Arduino IDE Serial Monitor for immediate analysis.
-- Enable remote monitoring and analysis by connecting the monitor to the Arduino Cloud.
+- Use the RGB LED on the Nicla Sense Env board to provide visual feedback based on the AQI, indicating air quality levels with different colors.
+- Enable remote monitoring and analysis by connecting the outdoor air quality monitor to the Arduino Cloud.
 
 ## Hardware and Software Requirements
 
@@ -49,6 +50,7 @@ The main goals of this application note are as follows:
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
 - [Arduino_NiclaSenseEnv library](https://github.com/arduino-libraries/Arduino_NiclaSenseEnv)
 - [Arduino Renesas Portenta Boards core](https://github.com/arduino/ArduinoCore-renesas) (required to work with the Portenta C33 board)
+- For the Wi-Fi® connectivity feature of Portenta C33, we will use the [Arduino Cloud](https://create.arduino.cc/iot/things). If you do not have an account, create one for free [here](https://cloud.arduino.cc/).
 
 ***The Nicla Sense Env board is not intended as a standalone device but as a shield of another Portenta, MKR, or Nano family board. In this application note, we will use the Portenta C33 as the main board and the Nicla Sense Env board as a shield.***
 
@@ -56,29 +58,29 @@ The main goals of this application note are as follows:
 
 The electrical connections for the outdoor air quality monitor are outlined in the diagram below:
 
-![The outdoor air quality monitor hardware setup](assets/user-manual-1.png)
+![The outdoor air quality monitor hardware setup](assets/app-note-1.png)
 
-This diagram shows how the components are connected. The **Portenta C33** serves as the **host board** or primary controller, while the **Nicla Sense Env** board (the **client board** or shield) collects temperature, humidity, and outdoor air quality data.
+This diagram shows how the components are connected. The **Portenta C33** is the **host board** or primary controller, while the **Nicla Sense Env** board (the **client board** or shield) collects temperature, humidity, and outdoor air quality data.
 
-The Nicla Sense Env board connects to the Portenta C33 board using the **ESLOV interface**. The outdor air quality monitor operates with a single power supply bus (`+5 VDC` from the Portenta C33), which powers the  Nicla Sense Env. For testing purposes, the Portenta C33 is powered via its onboard USB-C port.
+The Nicla Sense Env board connects to the Portenta C33 board using the **ESLOV interface**. The outdoor air quality monitor operates with a single power supply bus (`+5 VDC` from the Portenta C33), which powers the Nicla Sense Env. The Portenta C33 is powered via its onboard USB-C port for testing purposes.
 
 ## Understanding Outdoor Air Quality
 
 Air pollution is not just a problem in urban areas; rural environments also face significant risks from pollutants like nitrogen dioxide (NO₂) and ozone (O₃). These gases pose serious health risks, especially for vulnerable populations. NO₂, produced by combustion engines and industrial processes, can travel far beyond urban centers. O₃, formed by atmospheric chemical reactions, affects urban and rural regions, especially during warmer seasons of the year.
 
-Real-time monitoring is critical in urban and rural settings to manage exposure to these pollutants properly. Air quality tracking and monitoring helps individuals and communities to proactively reduce health risks.
+Real-time monitoring is critical in urban and rural settings to properly manage exposure to these pollutants. Air quality tracking and monitoring help individuals and communities proactively reduce health risks.
 
 ### The Role of Sensors in Air Quality Monitoring
 
-This application note uses advanced sensors to provide accurate, real-time measurements of various pollutants. The Nicla Sense Env board offers a versatile solution for outdoor air quality monitoring.
+This application note uses advanced sensors to provide accurate, real-time measurements of various pollutants. The Nicla Sense Env board offers a versatile outdoor air quality monitoring solution.
 
 - **NO₂ Sensor**: Detects nitrogen dioxide, a harmful gas released by vehicles and industrial activities.
-- **O₃ Sensor**: Measures ozone, a gas that forms in the atmosphere through reactions between pollutants and sunlight, contributing to respiratory problems.
+- **O₃ Sensor**: Measures ozone, a gas that forms in the atmosphere through reactions between pollutants and sunlight and contributes to respiratory problems.
 - **Outdoor Air Quality Index (AQI)**: The outdoor AQI simplifies the interpretation of air quality by combining data from multiple pollutants (NO₂ and O₃) into a single value. 
   
 The AQI scale ranges from 0 to 500, with the following classifications:
 
-![AQI scale ranges and health advice](assets/AQI.png)
+![AQI scale ranges and health advice](assets/app-note-2.png)
 
 The AQI makes it easy to understand how outdoor air quality affects public health, particularly when pollutant levels reach unhealthy or hazardous thresholds.
 
@@ -250,7 +252,7 @@ void setup() {
 
 In the code snippet shown above:
 
-- Serial communication is initialized at `115200` baud rate, allowing data to be sent to the IDE's Serial Monitor.
+- Serial communication is initialized at a `115200` baud rate, allowing data to be sent to the IDE's Serial Monitor.
 - The Nicla Sense Env board is initialized to read temperature, humidity and the outdoor Air Quality Index (AQI).
 
 ### Data Collection
@@ -274,7 +276,7 @@ void loop() {
 
 In the code snippet shown above:
 
-- The `loop()` function continuously checks if the time interval (10 seconds) has passed since the last reading.
+- The `loop()` function continuously checks if the interval (10 seconds) has passed since the last reading.
 - Once the interval is reached, the `displayAllData()` function is called to read sensor data.
 
 ### Data Display
@@ -322,7 +324,7 @@ In the code snippet shown before:
 
 After uploading the example sketch to the host board, you should see the following output in the Arduino IDE's Serial Monitor:
 
-![Example sketch output in the Arduino IDE's Serial Monitor](assets/app-note-2.png)
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/app-note-3.png)
   
 ### Complete Example Sketch
 
@@ -330,11 +332,11 @@ The complete improved example sketch can be downloaded [here](assets/outdoor_air
 
 ## Improving the Simple Environmental Monitor Example Sketch
 
-In the previous section, we explored setting up a simple environmental monitor using the Nicla Sense Env and the Portenta C33 board. While the example sketch provided detailed readings on temperature, humidity and air quality, we can improve the example sketch by incorporating a visual indicator for the outdoor Air Quality Index (AQI).
+The previous section explored setting up a simple environmental monitor using the Nicla Sense Env and the Portenta C33 board. While the example sketch provided detailed readings on temperature, humidity and air quality, we can improve the example sketch by incorporating a visual indicator for the outdoor Air Quality Index (AQI).
 
-In this section, we will improve the example sketch by adding control of the onboard RGB LED on the Nicla Sense Env board. The RGB LED will provide a visual representation of the outdoor AQI, changing colors based on its value.
+In this section, we will improve the example sketch by adding control of the onboard RGB LED on the Nicla Sense Env board. The RGB LED will visually represent the outdoor AQI, changing colors based on its value.
 
-![Example working principle overview](assets/rgb-aqi.gif)
+![Simple environmental monitor working principle overview](assets/app-note-4.gif)
 
 The complete example sketch is shown below. The RGB LED will change color based on the following:
 
@@ -472,7 +474,7 @@ The following sections will help you to understand the main parts of the example
 
 ### Library Imports
 
-As in the original example sketch, we begin by including the necessary libraries for interacting with the Nicla Sense Env onboard sensors. Additionally, the RGB LED control functionality is managed also through the `Arduino_NiclaSenseEnv` library.
+As in the original example sketch, we include the necessary libraries for interacting with the Nicla Sense Env onboard sensors. The RGB LED control functionality is also managed through the `Arduino_NiclaSenseEnv` library.
 
 ```arduino
 // Include the necessary libraries for Nicla Sense Env sensors and LED control
@@ -494,7 +496,7 @@ In the code snippet shown before:
 
 ### Sensors Initialization
 
-In the `setup()` function, we initialize the onboard sensors and the onboard RGB LED of the Nicla Sense Env. The outdoor air quality sensor is activated and the RGB LED is prepared to visually display the outdoor AQI based on the sensor readings.
+In the `setup()` function, we initialize the Nicla Sense Env's onboard sensors and RGB LED. The outdoor air quality sensor is activated, and the onboard RGB LED is prepared to display the outdoor AQI visually based on the sensor readings.
 
 ```arduino
 void setup() {
@@ -521,13 +523,13 @@ void setup() {
 
 In the code snippet shown before:
 
-- Serial communication is initialized at `115200` baud rate, allowing data to be sent to the IDE's Serial Monitor.
+- Serial communication is initialized at a `115200` baud rate, allowing data to be sent to the IDE's Serial Monitor.
 - The Nicla Sense Env board is initialized to read temperature, humidity and the outdoor Air Quality Index (AQI).
 - The onboard RGB LED is also initialized and prepared to be controlled based on the outdoor AQI.
 
 ### Data Collection
 
-In the `loop()` function, data from the onboard sensors is collected every 10 seconds. The function then updates the onboard RGB LED color based on the AQI value to visually indicate the outdoor air quality status.
+Once the sensors are ready, the example sketch must continuously collect data. The `loop()` function ensures that data is captured every 10 seconds and sent to the IDE's Serial Monitor.
 
 ```arduino
 void loop() {
@@ -542,7 +544,7 @@ void loop() {
 
 In the code snippet shown before:
 
-- The `loop()` function continuously checks if the time interval (10 seconds) has passed since the last reading.
+- The `loop()` function continuously checks if the interval (10 seconds) has passed since the last reading.
 - Once the interval is reached, the `displayAllData()` function is called to read sensor data and update the RGB LED accordingly.
 
 ### Data Display
@@ -604,11 +606,11 @@ In the code snippet shown before:
 - The function retrieves temperature, humidity, gas concentrations (NO₂ and O₃), and the outdoor Air Quality Index (AQI).
 - Finally, the data is printed in a single line on the IDE's Serial Monitor, with the outdoor AQI displayed at the end.
 - Based on the outdoor AQI, the RGB LED color is set to green, yellow, or red to indicate good, moderate, or unhealthy air quality.
-- The function ensures that the RGB LED brightness is set to 100% for visibility.
+- The function ensures that the RGB LED brightness is 100% for visibility.
 
 After uploading the example sketch to the host board, you should see the following output in the Arduino IDE's Serial Monitor:
 
-![Example sketch output in the Arduino IDE's Serial Monitor](assets/app-note-2.png)
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/app-note-3.png)
 
 ### Complete Example Sketch
 
@@ -616,35 +618,34 @@ The complete improved example sketch can be downloaded [here](assets/outdoor_air
 
 ## Connecting the Environmental Monitor to Arduino Cloud
 
-As environmental monitoring continues to grow in importance, connecting devices to the Internet enables real-time, remote data monitoring, allowing for easier tracking and response to changing conditions. By connecting our environmental monitor with the [Arduino Cloud](https://cloud.arduino.cc/), we can gain access to live sensor data from anywhere. This connection turns the monitor into an Internet of Things (IoT) device, offering timely insights into air quality, temperature, and humidity through a centralized dashboard.
+As environmental monitoring continues to grow in importance, connecting devices to the Internet enables real-time, remote data monitoring, allowing for easier tracking and response to changing conditions. Connecting our environmental monitor with the [Arduino Cloud](https://cloud.arduino.cc/) allows us access to live sensor data from anywhere. This connection turns the monitor into an Internet of Things (IoT) device, offering timely insights into air quality, temperature, and humidity through a centralized dashboard.
 
-In this section, we will connect the environmental monitor to Arduino Cloud. The data collected from the monitor's sensors (temperature, humidity, NO₂, O₃, and AQI) will be transmitted to the Arduino Cloud, where it can be monitored via a web-based dashboard or a mobile app. The onboard RGB LED of the Portenta C33 will continue to provide visual feedback based on the current AQI level.
+In this section, we will connect the environmental monitor to Arduino Cloud. The data collected from the monitor's sensors (temperature, humidity, NO₂, O₃, and AQI) will be transmitted to the Arduino Cloud, which can be monitored via a web-based dashboard or a mobile app. The onboard RGB LED of the Portenta C33 will continue to provide visual feedback based on the current AQI level.
 
 ***If you are new to Arduino Cloud, please check out [this tutorial](https://docs.arduino.cc/arduino-cloud/guides/overview/).***
 
-Please, begin by creating a new **Thing** in your Arduino Cloud with the following variables: 
+Please begin by creating a new **Thing** in your Arduino Cloud with the following variables: 
 
 - cloudTemperature
 - cloudHumidity 
 - cloudNO2 
 - cloudO3 
 - cloudAQI
+- cloudAQIAlert
 
-All of the variables must be **`float`** type, have **`Read Only`** permission and a **`On Change`** update policy.
-
-On the `thingProperties.h` header, update your Wi-Fi credentials (SSID and PASS).
+All variables must be **`float`** type except for the `cloudAQIAlert` (**`boolean`**), have **`Read Only`** permission and a **`On Change`** update policy. On the `thingProperties.h` header file, automatically generated by the Arduino Cloud, remember to update your Wi-Fi® credentials (SSID and password).
 
 The complete example sketch is shown below and can be downloaded from [here](assets/cloud_air_quality_monitor.zip).
 
 ```arduino
 /**
   Outdoor Air Quality Monitoring with Arduino Cloud and RGB LED
-  Name: outdoor_air_quality_monitor_rgb.ino
+  Name: outdoor_air_quality_monitor_rgb_cloud.ino
   Purpose: This sketch reads temperature, humidity, and outdoor air quality
   (NO2, O3, AQI) from a Nicla Sense Env board connected to a Portenta C33 board.
   The data is sent to Arduino Cloud, where it can be monitored remotely via a 
   web interface or mobile app. The onboard RGB LED of the Nicla Sense Env changes 
-  color based on the AQI status (Green for good, Yellow for moderate, Red for unhealthy).
+  color based on the AQI status (green for good, yellow for moderate and red for unhealthy).
   
   @version 1.1 06/10/24
   @modified by: Arduino Product Experience Team
@@ -652,7 +653,9 @@ The complete example sketch is shown below and can be downloaded from [here](ass
 
 // Include necessary libraries for Nicla Sense Env sensors and Arduino Cloud
 #include "Arduino_NiclaSenseEnv.h"
-#include "thingProperties.h"  // Automatically generated by Arduino Cloud for property synchronization
+
+// Automatically generated by Arduino Cloud for property synchronization
+#include "thingProperties.h"  
 
 // Set time interval (in milliseconds) for sensor readings (10 seconds)
 static const uint32_t READ_INTERVAL = 10000; 
@@ -741,15 +744,29 @@ void readSensors() {
     Serial.print(" ppb, Air Quality Index: ");
     Serial.println(airQualityIndex);
 
-    // Update RGB LED color based on AQI
+    // Update the onboard RGB LED color based on AQI
     if (airQualityIndex <= 50) {
-      rgbLED.setColor(0, 255, 0);  // Green for good air quality
+      // Good air quality: Green LED
+      rgbLED.setColor(0, 255, 0);  
+      rgbLED.setBrightness(255);
+      // Set alert to 1 for good air quality
+      cloudAQIAlert = 1; 
+      Serial.println("RGB LED: Green (Good)");
     } else if (airQualityIndex <= 100) {
-      rgbLED.setColor(255, 255, 0);  // Yellow for moderate air quality
+      // Moderate air quality: Yellow LED
+      rgbLED.setColor(255, 255, 0);
+      rgbLED.setBrightness(255);
+      // Set alert to 0 for moderate air quality
+      cloudAQIAlert = 0;  
+      Serial.println("RGB LED: Yellow (Moderate)");
     } else {
-      rgbLED.setColor(255, 0, 0);  // Red for unhealthy air quality
+      // Unhealthy air quality: Red LED
+      rgbLED.setColor(255, 0, 0);
+      rgbLED.setBrightness(100);
+      // Set alert to 0 for moderate air quality
+      cloudAQIAlert = 0;
+      Serial.println("RGB LED: Red (Unhealthy)"); 
     }
-    rgbLED.setBrightness(255);  // Set brightness to max
 
     // Update Arduino Cloud variables
     cloudTemperature = temperature;
@@ -759,7 +776,7 @@ void readSensors() {
     cloudAQI = airQualityIndex;
 
   } else {
-    Serial.println("- ERROR: One or more sensors are disabled.");
+    Serial.println("- ERROR: One or more sensors are disabled!");
   }
 }
 ```
@@ -767,7 +784,7 @@ void readSensors() {
 The following sections will help you to understand the main parts of the example sketch shown before, which can be divided into the following:
 
 - Library imports
-- Cloud and sensors initialization
+- Cloud and sensor initialization
 - Data collection and Cloud Updates
 - Cloud variables update
 
@@ -778,12 +795,14 @@ The necessary libraries for interacting with Nicla Sense Env board sensors and i
 ```arduino
 // Include necessary libraries for Nicla Sense Env sensors and Arduino Cloud
 #include "Arduino_NiclaSenseEnv.h"
-#include "thingProperties.h"  // Automatically generated by Arduino Cloud for property synchronization
+
+// Automatically generated by Arduino Cloud for property synchronization
+#include "thingProperties.h"  
 ```
 
 In the code snippet shown before:
 
-- The `thingProperties.h` library is included. This file is generated by Arduino Cloud to handle the synchronization of cloud variables. This allows sensor data (e.g., temperature, humidity, etc.) to be synchronized automatically with the Arduino Cloud dashboard for remote monitoring.
+- The `thingProperties.h` header file is included. Arduino Cloud generates this file to handle the synchronization of cloud variables. This allows sensor data (e.g., temperature, humidity, etc.) to be synchronized automatically with the Arduino Cloud dashboard for remote monitoring.
   
 ### Cloud and Sensors Initialization
 
@@ -845,11 +864,11 @@ void loop() {
 In the code snippet shown before:
 
 - The `ArduinoCloud.update()` function ensures that the Cloud connection is maintained and any updates to the sensor data are sent to the Arduino Cloud.
-- Every 10 seconds, the `readSensors()` function is called to read sensor data and update the cloud variables.
+- The `readSensors()` function is called every 10 seconds to read sensor data and update the Cloud variables.
 
 ### Cloud Variables Update
 
-The `readSensors()` function handles reading data from the sensors and updating the Arduino Cloud variables. It also changes the RGB LED color of the Portenta C33 board based on AQI levels.
+The `readSensors()` function reads data from the sensors and updates the Arduino Cloud variables. It also changes the RGB LED color of the Portenta C33 board based on AQI levels.
 
 ```arduino
 void readSensors() {
@@ -879,15 +898,29 @@ void readSensors() {
     Serial.print(" ppb, Air Quality Index: ");
     Serial.println(airQualityIndex);
 
-    // Update RGB LED color based on AQI
+    // Update the onboard RGB LED color based on AQI
     if (airQualityIndex <= 50) {
-      rgbLED.setColor(0, 255, 0);  // Green for good air quality
-    } else if (airQualityIndex <= 150) {
-      rgbLED.setColor(255, 255, 0);  // Yellow for moderate air quality
+      // Good air quality: Green LED
+      rgbLED.setColor(0, 255, 0);  
+      rgbLED.setBrightness(255);
+      // Set alert to 1 for good air quality
+      cloudAQIAlert = 1; 
+      Serial.println("RGB LED: Green (Good)");
+    } else if (airQualityIndex <= 100) {
+      // Moderate air quality: Yellow LED
+      rgbLED.setColor(255, 255, 0);
+      rgbLED.setBrightness(255);
+      // Set alert to 0 for moderate air quality
+      cloudAQIAlert = 0;  
+      Serial.println("RGB LED: Yellow (Moderate)");
     } else {
-      rgbLED.setColor(255, 0, 0);  // Red for unhealthy air quality
+      // Unhealthy air quality: Red LED
+      rgbLED.setColor(255, 0, 0);
+      rgbLED.setBrightness(100);
+      // Set alert to 0 for moderate air quality
+      cloudAQIAlert = 0;
+      Serial.println("RGB LED: Red (Unhealthy)"); 
     }
-    rgbLED.setBrightness(255);  // Set brightness to max
 
     // Update Arduino Cloud variables
     cloudTemperature = temperature;
@@ -897,25 +930,31 @@ void readSensors() {
     cloudAQI = airQualityIndex;
 
   } else {
-    Serial.println("- ERROR: One or more sensors are disabled.");
+    Serial.println("- ERROR: One or more sensors are disabled!");
   }
 }
 ```
 
 In the code snippet shown before:
 
-- The RGB LED changes color based on the AQI value. Green for good air quality, yellow for moderate, and red for unhealthy levels.
-- The cloud variables (`cloudTemperature`, `cloudHumidity`, `cloudNO2`, `cloudO3`, and `cloudAQI`) are updated with the latest sensor readings and sent to Arduino Cloud for remote monitoring.
+- The RGB LED changes color based on the AQI value. Green 🟢 for good, yellow 🟡 for moderate, and red 🔴 for unhealthy.
+- The cloud variables (`cloudTemperature`, `cloudHumidity`, `cloudNO2`, `cloudO3`, and `cloudAQI`) are updated with the latest sensor readings and sent to Arduino Cloud for remote monitoring. The `cloudAQIAlert` variable indicates whether the air quality is good or unhealthy.
 
 The complete cloud example sketch can be downloaded [here](assets/cloud_air_quality_monitor.zip).
 
+### Arduino Cloud Dashboard
+
+The Arduino Cloud allows us to create a dashboard with professional real-time Human-Computer Interaction (HCI) elements, as seen in the following animation shows an active outdoor air quality monitor. **The animation has been sped up for illustrative purposes**.
+
+![AQI scale ranges and health advice](assets/app-note-5.gif)
+
 ## Conclusions
 
-In this application note, we explored how to integrate a Portenta C33 board with a Nicla Sense Env board to monitor environmental data, such as temperature, humidity, NO₂, O₃, and AQI. We demonstrated also how Arduino Cloud allows for easy remote monitoring and real-time visualization of this data.
+In this application note, we explored how to integrate a Portenta C33 board with a Nicla Sense Env board to monitor environmental data such as temperature, humidity, NO₂, O₃, and AQI. We also demonstrated how Arduino Cloud allows for easy remote monitoring and real-time visualization of this data.
 
-By using the Portenta C33, the Nicla Sense Env and the Arduino Cloud, we can turn sensor readings into useful information. This setup makes it possible to monitor outdor air quality, provide real-time feedback with the onboard RGB LED of the Portenta C33 and view the data remotely through a web dashboard or mobile app.
+By using the Portenta C33, the Nicla Sense Env, and the Arduino Cloud, we can turn sensor readings into useful information. This setup makes it possible to monitor outdoor air quality, provide real-time feedback with the onboard RGB LED of the Portenta C33, and view the data remotely through a web dashboard or mobile app.
 
-The main takeaway from this application is its potential for real-world use. With the integration of IoT and Cloud technology, we can monitor air quality remotely, respond to environmental changes more quickly, and contribute to improving living conditions and sustainability efforts.
+The main takeaway from this application is its potential for real-world use. By integrating IoT and Cloud technology, we can monitor air quality remotely, respond to environmental changes more quickly, and contribute to improving living conditions and sustainability efforts.
 
 ## Next Steps
 
@@ -923,6 +962,6 @@ There are several opportunities to enhance the functionality of the outdoor air 
 
 - Integrate additional sensors to measure specific pollutants such as carbon monoxide (CO) or sulfur dioxide (SO₂).
 - Optimize the monitor’s energy efficiency to support long-term use in remote or outdoor locations.
-- Create a custom dashboard on Arduino Cloud to track data trends over time and enable more in-depth analysis of air quality.
+- Create a custom dashboard on Arduino Cloud to track data trends over time and enable more in-depth air quality analysis.
 - Develop an alert system that notifies users when pollutant levels exceed safe limits.
 - Expand the system’s use to different geographical areas to gather comparative air quality data.

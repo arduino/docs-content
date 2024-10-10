@@ -23,15 +23,13 @@ Power:
   External Power from: Connected Portenta or MKR board
   External Power Supply: 3.3 V via VCC pin (header or PMOD)
 Clock speed:
-  Processor (M23): 48MHz
-Memory:
-  RA2E1: 128KB Flash, 16KB SRAM
+  Processor (RA2E1): 48MHz
 Pinout features: Castellated pins for surface-mounting (SMD)
-Operating Temperature: - 40 °C to + 85 °C
+Operating Temperature: "-40 °C to + 85 °C"
 Dimensions:
   Weight: 2 g
   Width: 22.86 mm (900 mils)
-  Length: 22.8 6mm (900 mils)
+  Length: 22.8 6mm (900 mils) 
 Accessories:
   Included: ESLOV cable
-  Not included: 12-pin PMOD header connector (P/N: TSM-106-01-L-DH-TR)
+  Not included: "12-pin PMOD header connector (P/N: TSM-106-01-L-DH-TR)"

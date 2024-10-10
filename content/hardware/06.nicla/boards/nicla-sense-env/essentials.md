@@ -7,12 +7,12 @@
 
 <EssentialsColumn title="Suggested Libraries">
 
-  <EssentialElement title="Arduino_NiclaSenseEnv" type="library" link="https://github.com/arduino-libraries/Arduino_NiclaSenseEnv">
-    The Arduino_NiclaSenseEnv library provides an API to read data from the Nicla Sense Env's three sensors (ZMOD4410, ZMOD4510, HS4001) and control the board's behavior.
+  <EssentialElement title="Nicla Sense Env Arduino Library" type="library" link="https://github.com/arduino-libraries/Arduino_NiclaSenseEnv">
+    The Arduino_NiclaSenseEnv Arduino library provides an API to read data from the Nicla Sense Env's three sensors (ZMOD4410, ZMOD4510, HS4001) and control the board's behavior.
   </EssentialElement>
 
-  <EssentialElement title="arduino-nicla-sense-env-mpy" type="library" link="https://github.com/arduino/arduino-nicla-sense-env-mpy/tree/main">
-    This Arduino Nicla Sense Env MicroPython package provides an API to read data from the Nicla Sense Env's three sensors (ZMOD4410, ZMOD4510, HS4001) and control the board's behavior.
+  <EssentialElement title="Nicla Sense Env MicroPython Library" type="library" link="https://github.com/arduino/arduino-nicla-sense-env-mpy/tree/main">
+    This Arduino Nicla Sense Env MicroPython library provides an API to read data from the Nicla Sense Env's three sensors (ZMOD4410, ZMOD4510, HS4001) and control the board's behavior.
   </EssentialElement>
 
 </EssentialsColumn>
