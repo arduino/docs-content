@@ -1,6 +1,6 @@
 ---
 title: Nicla Sense Env
-url_shop: https://store.arduino.cc/nicla-sense-env
+url_shop: https://store.arduino.cc/products/nicla-sense-env
 url_guide: /tutorials/nicla-sense-env/user-manual
 primary_button_url: /tutorials/nicla-sense-env/user-manual
 primary_button_title: User Manual
