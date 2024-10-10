@@ -26,7 +26,7 @@ The goals of this tutorials are:
 
 ## EEPROM
 
-Electronically erasable programmable read-only memory (EEPROM) is a memory that can be used to store data that can be retrieved after power loss. This memory can be effective to use during run-time to log data can be used to re-initialize whenever a system comes back online.
+Electronically erasable programmable read-only memory (EEPROM) is a memory that can be used to store data that can be retrieved after power loss - it is non-volatile. EEPROM memory can be useful during run-time to log data, or can be used to re-initialize variables whenever a system comes back online.
 
 When writing to the EEPROM memory, we specify two parameters: the **address** and **value**. Each byte can hold a value between 0-255.
 
