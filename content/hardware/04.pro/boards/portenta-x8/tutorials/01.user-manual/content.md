@@ -858,6 +858,30 @@ This way, your Docker image will be built and tagged with the name `x8-custom-de
 
 It is time for you to deploy the newly created Docker image. To do so, save it somewhere and deploy it on your Portenta X8.
 
+### Managing Early Start Services When Building Custom Containers
+
+The Portenta X8 firmware includes **`compose-apps-early-start.service`**, which starts certain Docker Compose applications early during the boot process. This feature helps pre-configured services run smoothly but may sometimes interfere with custom containers you pull or build.
+
+For example, system tools like [**Skopeo**](https://www.redhat.com/en/topics/containers/what-is-skopeo) may automatically remove containers without warning. This can happen to containers pulled from external sources or locally built on the device. If you notice that your custom containers are being removed unexpectedly, you can solve this by managing the system services with a few command lines.
+
+To prevent automatic container removal and ensure your custom containers stay intact, the early start services can be stopped and disabled by running the following commands in the ADB shell:
+
+```bash
+systemctl stop compose-apps-early-start.service
+systemctl stop compose-apps-early-start-recovery.service
+systemctl disable compose-apps-early-start.service
+systemctl disable compose-apps-early-start-recovery.service
+```
+
+Alternatively, you can use this single line of command:
+
+```bash
+systemctl stop compose-apps-early-start.service && systemctl stop compose-apps-early-start-recovery.service && systemctl disable compose-apps-early-start.service && systemctl disable compose-apps-early-start-recovery.service
+```
+
+Stopping and disabling these services will prevent the early start of compose applications, ensuring your custom containers are not removed automatically. Additionally, make sure to check for the [*latest firmware image*](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz) to maintain compatibility and optimal performance of the Portenta X8 with custom container developments.
+
+
 ### Deploy Your Container With Docker Hub
 
 If you have a [Docker Hub account](https://hub.docker.com/), you can freely upload your Docker image to your registry (e.g., `yourhubusername`):
