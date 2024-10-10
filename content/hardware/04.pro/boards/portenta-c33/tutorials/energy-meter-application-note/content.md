@@ -479,7 +479,7 @@ Additionally, the dashboard lets you select the installation voltage to meet the
 
 ![Arduino Cloud Mobile Dashboard Example](assets/C33_app_cloud_mobile.gif)
 
-On a mobile phone, the Arduino Cloud dashboard displays the information as the previous figure. It provides the complete interface you would use on a desktop platform, making it a very useful feature to access the dashboard wherever you are. 
+On a mobile phone, the Arduino Cloud dashboard displays the information as the previous figure. It provides the complete interface you would use on a desktop platform, making it a very useful feature to access the dashboard wherever you are.
 
 ## Conclusions
 
