@@ -1,7 +1,6 @@
 ---
 productsLibrariesMap:
   - wifinina
-  - WiFiNINA
   - arduinomqttclient
   - arduinoble
 ---
