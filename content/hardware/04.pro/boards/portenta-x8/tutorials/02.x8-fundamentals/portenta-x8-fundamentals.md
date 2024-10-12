@@ -1,8 +1,8 @@
 ---
-title: '02. How to Use the Portenta X8 Manager'
+title: '02. Portenta X8 Fundamentals & Manager'
 difficulty: beginner
 tags: [Linux, containers, factories, foundries]
-description: 'This article contains information about how to use the Portenta X8 Manager.'
+description: 'Learn about the fundamentals of the Portenta X8 and how to use the Portenta X8 Manager.'
 author: Benjamin Dannegård
 hardware:
   - hardware/04.pro/board/portenta-x8

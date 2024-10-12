@@ -113,7 +113,9 @@ To explore specific sections in more detail, please click on the links below tha
 
 ### Linux and Arduino Environment on Portenta X8
 
-The Portenta X8 runs a **Yocto** based Linux distribution. It allows users to upload sketches to the M4 core of the STM32H7 using the Arduino IDE. The process of uploading sketches may seem familiar to Arduino users, but on Portenta X8, the system uses a service called `monitor-m4-elf-file.service`. This service monitors a specific directory for updated sketches and flashes the M4 core with the new code via OpenOCD. This feature enables seamless integration between the Linux and Arduino environments on the board.
+The Portenta X8 runs a **Yocto** based Linux distribution. It allows users to upload sketches to the M4 core of the STM32H7 using the Arduino IDE. The process of uploading sketches may seem familiar to Arduino users, but on Portenta X8, the system uses a service called `monitor-m4-elf-file.service`.
+
+This service monitors a specific directory for updated sketches and flashes the M4 core with the new code via OpenOCD. This feature enables seamless integration between the Linux and Arduino environments on the board.
 
 The Portenta X8 employs **Remote Procedure Call (RPC)** mechanisms to enable communication between the Linux system and the Arduino cores. RPC allows the two processors (M4 and M7 cores) to exchange data, with the M7 core handling data transfers between the M4 core running Arduino sketches and the Linux environment.
 
@@ -130,7 +132,6 @@ It is recommended that you check every now and then to see if your Portenta X8 i
 In the next sections, four major ways to update your Portenta X8 are described:
 
 * Update for OS release V.399
-* Update through Out-of-the-box experience (available for OS release XXXX or newer)
 * Update through Portenta X8 Manager in your Arduino Cloud for Business account (available for all OS releases)
 * Update using the `uuu` tool (compatible with custom images)
 
@@ -181,30 +182,6 @@ These commands will make your V.399 compatible with the [aklite-offline](https:/
 Arduino provides this tool for free for any Portenta X8 user to enable offline secure updates to all devices, even if those devices are not connected to any FoundriesFactory.
 
 After the update process is finalized, your Portenta X8 will start running the latest OS release immediately.
-
-### Update Through Out-Of-The-Box Experience
-
-Leverage the integrated Out-of-the-box experience to update your Portenta X8 to the latest release.
-
-***Warning: The Out-of-the-box update feature is not a complete Over-The-Air (OTA) update. It allows users to update only the Portenta X8 default image and containers. It will overwrite any custom container application. Thus, it is recommended to make a local copy of your containers before updating your Portenta X8.***
-
-Open your Out-of-the-box as explained in [this section](#first-use-of-your-portenta-x8).
-
-![Out-of-the-box homepage](assets/OOTB_homepage.png "Out-of-the-box homepage")
-
-Click on **CHECK FOR UPDATES** in the lower right corner.
-
-At this point, you have to select whether you would like to proceed with the update. If yes, click on **UPDATE**.
-
-![Proceed with update](assets/OOTB_update_select.png "Proceed with update")
-
-Please do not turn off your Portenta X8 or disconnect it from the network during the update. This process may take a few minutes.
-
-![Successful update](assets/OOTB-succesful-OS-update.png "Successful update")
-
-Once the update is finished, your Portenta X8 will automatically restart with the new Linux image in place.
-
-At this point, if you want to continue using your Out-of-the-box, you can open a new command line window and launch the command `adb forward tcp:8080 tcp:80` again. Now open your browser, go to [http://localhost:8080](http://localhost:8080), and the same Out-of-the-box dashboard will appear.
 
 #### Troubleshooting
 
@@ -268,7 +245,7 @@ Click on **Linux boards** and sign in to your Arduino Cloud account. If you do n
 
 ![Sign into Arduino Cloud](assets/registration-signin.png "Sign into Arduino Cloud")
 
-When successfully logged in, you will be asked to download the Arduino Create Agent if you have not done so yet. Click on **DOWNLOAD**.
+When successfully logged in, you will be asked to download the **Arduino Create Agent** if you have not done so yet. Click on **DOWNLOAD**.
 
 ![Create Agent Installation](assets/agent-installation.png "Create Agent Installation")
 
@@ -284,11 +261,31 @@ You can now proceed to the setup of the board connectivity by clicking **OK, GOT
 
 ***If you face any issue with this flow or prefer to interact directly with your Portenta X8 through the command line, please refer to [this section](#working-with-linux) to learn how to connect with the board leveraging ADB service.***
 
+Once the setup is ready, let's open the Out-of-the-box page. Use the command line window and launch the following command:
+
+```bash
+adb forward tcp:8080 tcp:80
+```
+
+Now open your browser, go to [http://localhost:8080](http://localhost:8080), and the Out-of-the-box dashboard will appear.
+
+![Out-of-the-box Home Screen](assets/OOTB_homepage_init.png "Out-of-the-box Home Screen")
+
+On the Out-of-the-box page, the **SYSTEM INFO** button is located at the bottom left.
+
+![Out-of-the-box System Info](assets/OOTB_system_info.png "Out-of-the-box System Info")
+
+It will show you different types of information about the Portenta X8, including hardware/software information, network status, and active containers. 
+
 #### Wi-Fi® Configuration
 
 Click **Wi-Fi® Connection** to start configuring your network connectivity. Otherwise, you can connect your Portenta X8 to the Internet through an Ethernet cable using a USB-C® hub with an RJ45 port or a Portenta Carrier. In this tutorial, Wi-Fi® connectivity will be used.
 
 ![Out-of-the-box Wi-Fi® Settings](assets/OOTB_homepage_Wifi.png "Out-of-the-box Wi-Fi® Settings")
+
+Choose **WiFi Network** option to continue network connectivity configuration with Wi-Fi® connectivity.
+
+![Out-of-the-box Wi-Fi® Network Selection](assets/OOTB_wifi_option.png "Out-of-the-box Wi-Fi® Network Selection")
 
 Select your Wi-Fi® SSID. You can select a network from the available list or introduce your SSID manually.
 
@@ -414,13 +411,19 @@ Once provisioned, the Portenta X8 will be automatically linked to an example [Th
 
 As mentioned, Arduino provides an example dashboard that will automatically set up and be visible live after your Portenta X8 has been provisioned. To make this dashboard update its data automatically, you need to go back to your Out-of-the-box and launch the example.
 
-To do so, copying the shown code `python3 examples/arduino_iot_cloud_example.py` and clicking on **Launch Example** is sufficient. An Alpine-Python shell will open, and you will have to paste the previous code here to launch the example.
+To do so, copying the shown code:
+
+```bash
+python3 examples/arduino_iot_cloud_example.py
+```
+
+And clicking on **Launch Example** is sufficient. An Alpine-Python shell will open, and you will have to paste the previous code here to launch the example.
 
 ![Launching dashboard example](assets/OOTB_example_dashboard_launch.png "Launching dashboard example")
 
 Now, you can navigate to your dashboard [here](https://create.arduino.cc/iot/dashboards) to see your Portenta X8 LED blinking and the live temperature inside the microprocessor.
 
-![Portenta X8 dashboard working](assets/cloud_dashboard_working.png "Portenta X8 dashboard working")
+![Portenta X8 dashboard working](assets/cloud_dashboard_working.gif "Portenta X8 dashboard working")
 
 ***If you face any issues during the provisioning of your Portenta X8, feel free to repeat the procedure above.***
 
