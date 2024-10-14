@@ -30,7 +30,7 @@ The data extraction is managed by a scheduled AWS Lambda function that operates 
 ## Required Software
 
 * [Arduino Cloud](https://cloud.arduino.cc/). **If you do not have an account, you can create one for free inside [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true)**.
-* [AWS CLI](https://aws.amazon.com/cli/). **If you do not have an AWS account, you can create one [here](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#aws-registration)**
+* [AWS CLI](https://aws.amazon.com/cli/). **If you do not have an AWS account, please refer to the [online AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html)**.
 * [Go Programming Language](https://go.dev/) (version 1.22 or higher)
 * [Official Arduino AWS S3 CSV Exporter Repository](https://github.com/arduino/aws-s3-integration)
 
