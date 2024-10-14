@@ -16,7 +16,9 @@ software:
 
 ## Overview
 
-The **Arduino AWS S3 CSV Exporter** is designed to extract time series data from **Arduino Cloud** and publish it to an **AWS S3** bucket. The data extraction is managed by a scheduled AWS Lambda function that operates at configurable intervals, with samples aggregated based on the user’s preference. Data is stored in CSV format and uploaded to S3, providing a structured way to manage and store data.
+The **Arduino AWS S3 CSV Exporter** is designed to extract time series data from **Arduino Cloud** and publish it to an **AWS S3** bucket.
+
+The data extraction is managed by a scheduled AWS Lambda function that operates at configurable intervals, with samples aggregated based on the user’s preference. Data is stored in CSV format and uploaded to S3, providing a structured way to manage and store data.
 
 ## Goals
 
@@ -28,7 +30,7 @@ The **Arduino AWS S3 CSV Exporter** is designed to extract time series data from
 ## Required Software
 
 * [Arduino Cloud](https://cloud.arduino.cc/). **If you do not have an account, you can create one for free inside [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true)**.
-* [AWS CLI](https://aws.amazon.com/cli/)
+* [AWS CLI](https://aws.amazon.com/cli/). **If you do not have an AWS account, you can create one [here](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#aws-registration)**
 * [Go Programming Language](https://go.dev/) (version 1.22 or higher)
 * [Official Arduino AWS S3 CSV Exporter Repository](https://github.com/arduino/aws-s3-integration)
 
@@ -44,7 +46,12 @@ Aggregation is performed as an average over the aggregation period, and non-nume
 
 This setup allows you to easily manage and store time series data from connected devices, offering flexibility with configurable parameters like sampling intervals and data filtering.
 
-## Deployment Using CloudFormation Template
+## AWS Account & CloudFormation Template
+
+If you do not have an existing AWS account and user, refer to the [online AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html) for setting up your account. To get started, follow these steps:
+
+- [Sign up for an AWS account](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#aws-registration)
+- [Create an administrative user](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#create-an-admin)
 
 The exporter setup involves deploying resources using a [**CloudFormation template**](https://github.com/arduino/aws-s3-integration/blob/0.3.0/deployment/cloud-formation-template/deployment.yaml). Ensure your AWS account has permissions for:
 
@@ -186,4 +193,6 @@ To help you get the most out of the exporter, the following documentation resour
 
 ## Conclusion
 
-In this tutorial, you have learned to use the **Arduino AWS S3 CSV Exporter** to capture time series data from **Arduino Cloud** and store it in **AWS S3** for management and analysis. With configurable options for aggregation intervals, tag filtering, and data compression, the exporter offers flexibility for various project needs. Following this tutorial, you can deploy and configure the exporter using a CloudFormation template, making it a useful tool for integrating cloud based data storage into your IoT projects.
+In this tutorial, you have learned to use the **Arduino AWS S3 CSV Exporter** to capture time series data from **Arduino Cloud** and store it in **AWS S3** for management and analysis. With configurable options for aggregation intervals, tag filtering, and data compression, the exporter offers flexibility for various project needs.
+
+Following this tutorial, you can deploy and configure the exporter using a CloudFormation template, making it a useful tool for integrating cloud based data storage into your IoT projects.
