@@ -1,7 +1,6 @@
 ---
-featured: micropython
-title: '0. Introduction to MicroPython'
-description: 'Learn about Micropython'
+title: 'Introduction to MicroPython'
+description: 'Learn about the fundamentals of Micropython on Arduino boards.'
 author: 'Pedro Lima'
 hero_image: "./hero-banner.png"
 ---

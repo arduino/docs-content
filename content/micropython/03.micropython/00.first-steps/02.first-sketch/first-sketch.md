@@ -1,71 +1,65 @@
 ---
-featured: micropython-101
-title: '1. Installing micropython'
-description: 'Lern how to setup MicroPython'
+title: 'My First Script'
+description: 'Learn how to write a basic MicroPython script to blink an LED.'
 author: 'Pedro Lima'
 hero_image: "./hero-banner.png"
 ---
 
-# My First Script
+In this tutorial, we'll guide create our very first MicroPython script that will run on an Arduino board. We'll make an LED blink, a classic beginner project that introduces you to basic MicroPython programming concepts.
 
-In this article, we'll guide you through creating your first MicroPython script on your Arduino board. We'll make an LED blink. A classic beginner project that introduces you to basic programming concepts in MicroPython.
+## Hardware & Software Needed
 
-## Requirements
+For this tutorial, you will need a MicroPython compatible Arduino Board:
 
-### Hardware Boards
+  - [Arduino Nano 33 BLE]()
+  - [Arduino Nano ESP32]()
+  - [Arduino Nano RP2040 Connect]()
+  - [Arduino GIGA R1 WiFi]()
+  - [Arduino Portenta H7]()
+  - [Arduino Nicla Vision]()
 
-- **Arduino Boards Compatible with MicroPython**:
-  - Arduino Nano 33 BLE
-  - Arduino Nano 33 IoT
-  - Arduino Nano RP2040 Connect
-  - Arduino Portenta H7
-  - Arduino Nicla Vision
+You will also need the following software installed:
 
-### Software (Editor)
+  - [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython).
 
-- **MicroPython-Compatible Editor**:
-  - [Arduino IDE with MicroPython Support](https://www.arduino.cc/en/software).
-
-## Introducing the Example: Blinking an LED
+## Board and Editor Setup
 
 Blinking an LED is a simple yet effective way to get started with MicroPython while still understanding how to control hardware using code.
 
-## Step-by-Step Guide
+1. Connect your Arduino board to your computer via USB.
+2. Open the Arduino Lab for MicroPython application.
+3. Click on the **Connect** button, and select the board from the list.
 
-### 1. Open Your Editor
+***Need help installing MicroPython on your board? Visit the [MicroPython installation guide]().***
 
-Launch your MicroPython-compatible editor (e.g., Arduino IDE or Thonny IDE).
+## First Script (LED Blink)
 
-### 2. Connect Your Board
+Once your board is connected, we can start writing code! Below you will find a basic example, that will flash the built in LED on your board every second. 
 
-Ensure your Arduino board is connected to your computer via USB.
+1. First, open the `main.py` file on your board. We write in this file, because once saved, the code will run even if you reset the board.
+   ![Open main.py file.]()
 
-### 3. Write the Code
+2. Copy and paste the following code into your editor:
+  ```python
+  import machine
+  import time
 
-Copy and paste the following code into your editor:
+  led = machine.Pin(25, machine.Pin.OUT)
 
-```python
-import machine
-import time
+  while True:
+      led.value(1)
+      time.sleep(1)
+      led.value(0)
+      time.sleep(1)
+  ```
 
-led = machine.Pin(25, machine.Pin.OUT)
+  ***Note: On some boards, the built-in LED might be on a different pin. For example, on the Arduino Nano RP2040 Connect, the built-in LED is on pin `25`. Check your board's documentation to confirm the correct pin number.***
 
-while True:
-    led.value(1)
-    time.sleep(1)
-    led.value(0)
-    time.sleep(1)
-```
+3. Click the **Run** or **Upload** button in your editor to transfer the script to your board.
 
-**Note**: On some boards, the built-in LED might be on a different pin. For example, on the Arduino Nano RP2040 Connect, the built-in LED is on pin `25`. Check your board's documentation to confirm the correct pin number.
+Once the script is running, the LED on your board should start blinking at one-second intervals. This means your MicroPython script has loaded successfully.
 
-### 4. Run the Script
-
-Click the **Run** or **Upload** button in your editor to transfer the script to your board.
-
-### 5. Observe the LED
-
-Once the script is running, the LED on your board should start blinking at one-second intervals.
+![LED blinking on your board.]()
 
 ## Programming Concepts Explained
 
@@ -159,12 +153,12 @@ while True:
 
 ## Conclusion
 
-Congratulations! You've written and modified your first MicroPython script on an Arduino board. This simple exercise introduced you to:
+Congratulations! You've written and modified your first MicroPython script on an Arduino board. This exercise introduced you to:
 
-- Importing modules
-- Initializing hardware components
-- Using loops
-- Controlling time delays
+- Importing modules (`machine`, `time`)
+- Initializing hardware components (LED)
+- Using loops (`while`)
+- Controlling time delays (`time.sleep()`)
 
-Although simple these concepts are key for a vast majoraty of the operations you will be performing when writing your own programs and are present in the industry at large.
+These concepts are key for a vast majoraty of the operations you will be performing when writing your own programs and are present in the industry at large.
 
