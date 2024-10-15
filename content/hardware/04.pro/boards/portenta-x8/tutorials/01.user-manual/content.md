@@ -132,6 +132,7 @@ It is recommended that you check every now and then to see if your Portenta X8 i
 In the next sections, four major ways to update your Portenta X8 are described:
 
 * Update for OS release V.399
+* Update through Out-of-the-box experience
 * Update through Portenta X8 Manager in your Arduino Cloud for Business account (available for all OS releases)
 * Update using the `uuu` tool (compatible with custom images)
 
@@ -183,6 +184,34 @@ Arduino provides this tool for free for any Portenta X8 user to enable offline s
 
 After the update process is finalized, your Portenta X8 will start running the latest OS release immediately.
 
+### Update Through Out-Of-The-Box Experience
+
+Leverage the integrated Out-of-the-box experience to update your Portenta X8 to the latest release.
+
+***Warning: The Out-of-the-box update feature is not a complete Over-The-Air (OTA) update. It allows users to update only the Portenta X8 default image and containers. It will overwrite any custom container application. Thus, it is recommended to make a local copy of your containers before updating your Portenta X8.***
+
+Open your Out-of-the-box as explained in [this section](#first-use-of-your-portenta-x8).
+
+![Out-of-the-box homepage](assets/OOTB_homepage_update_button.png "Out-of-the-box homepage")
+
+Click on **CHECK FOR UPDATES** in the lower right corner.
+
+At this point, you have to select whether you would like to proceed with the update. If yes, click on **UPDATE**.
+
+![Proceed with update](assets/OOTB_update_select.png "Proceed with update")
+
+Please do not turn off your Portenta X8 or disconnect it from the network during the update. This process may take a few minutes.
+
+![Successful update](assets/OOTB-succesful-OS-update.png "Successful update")
+
+Once the update is finished, your Portenta X8 will automatically restart with the new Linux image in place.
+
+At this point, if you want to continue using your Out-of-the-box, you can open a new command line window and launch the command `adb forward tcp:8080 tcp:80` again. Now open your browser, go to [http://localhost:8080](http://localhost:8080), and the same Out-of-the-box dashboard will appear.
+
+In case you try to update the Portenta X8 and it has the latest available image, you will get following message:
+
+![Latest update in place](assets/OOTB_homepage_update_latest.png "Latest update in place")
+
 #### Troubleshooting
 
 If something goes wrong during the update, you can manually flash your Portenta X8 with the latest Linux image provided at [this link](https://github.com/arduino/lmp-manifest/releases).
@@ -215,7 +244,7 @@ You can now start interacting with your Portenta X8. Portenta X8 has an embedded
 
 ### Power The Board
 
-Connect the Portenta X8 to your PC via a USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®).
+Connect the Portenta X8 to your PC via a [USB-C® cable (either USB-C® to USB-A)](https://store.arduino.cc/products/usb-cable2in1-type-c).
 
 Once connected, you will see the Portenta X8 LEDs start blinking. Portenta X8 features two LEDs, a Power LED, and a Status LED, which can blink in parallel.
 
@@ -469,11 +498,11 @@ To complete the registration of the Board with the FoundriesFactory, copy the co
 
 ![Out-of-the-box Factory code challenge](assets/OOTB_board_manager_factory_challenge.png "Out-of-the-box Factory code challenge")
 
-Click on **COMPLETE REGISTRATION** to be re-directed to the Foundries.io activation page.
+Click on **COMPLETE REGISTRATION** to be re-directed to the *Foundries.io* activation page.
 
 Paste your token in the text box and press **Next**.
 
-***The token code is valid for 15 minutes; if you do not paste it in this time span, you will have to repeat all the above registration steps in your Out-of-the-box to generate a new code.***
+***The token code is valid for __15 minutes__. If you do not use it in this time span, you will have to repeat all the above registration steps in your Out-of-the-box to generate a new code.***
 
 ![FoundriesFactory pasted token](assets/web_board_manager_factory_challenge.png "FoundriesFactory pasted token")
 
@@ -494,6 +523,10 @@ Your Portenta X8 is correctly provisioned into your FoundriesFactory.
 To verify your device status, click on your FoundriesFactory, go to the **Devices** section, and check its target update and the installed containers Apps.
 
 ![FoundriesFactory device overview](assets/web_board_manager_factory_device-overview.png "FoundriesFactory device overview")
+
+You can also check within the Out-of-the-box home screen for factory registration if it was successfully registered.
+
+![Out-of-the-box Factory registration confirmation](assets/OOTB_board_manager_factory_confirm.png "Out-of-the-box Factory registration confirmation")
 
 ***If you want to learn more about Portenta X8 Manager features, check the dedicated section of this user manual called [Working with Portenta X8 Board Manager](#working-with-portenta-x8-board-manager).***
 
