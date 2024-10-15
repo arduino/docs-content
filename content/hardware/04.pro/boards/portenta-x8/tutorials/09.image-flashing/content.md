@@ -44,24 +44,26 @@ Please extract the files after you have downloaded the compressed file. The extr
 ```
 Unzipped folder
 ├── imx-boot-portenta-x8
-├── lmp-partner-arduino-image-portenta-x8.wic.gz **(Compressed)**
+├── lmp-factory-image-portenta-x8.wic.gz **(Compressed)**
 ├── mfgtool-files-portenta-x8.tar.gz **(Compressed)**
 ├── sit-portenta-x8.bin
 └── u-boot-portenta-x8.itb
 ```
 
-After verifying these files are available, you will need to decompress `mfgtool-files-portenta-x8.tar.gz` and `lmp-partner-arduino-image-portenta-x8.wic.gz`. Please ensure the `.wic` is in the unzipped folder in the main directory. The folder structure should share a similar following layout.
+After verifying these files are available, you will need to decompress `mfgtool-files-portenta-x8.tar.gz` and `lmp-factory-image-portenta-x8.wic.gz`. Please ensure the `.wic` is in the unzipped folder in the main directory. The folder structure should share a similar following layout.
 
 ```
 Unzipped folder
 ├── mfgtool-files-portenta-x8/
 ├── imx-boot-portenta-x8
-├── lmp-partner-arduino-image-portenta-x8.wic
-├── lmp-partner-arduino-image-portenta-x8.wic.gz **(Compressed)**
+├── lmp-factory-image-portenta-x8.wic
+├── lmp-factory-image-portenta-x8.wic.gz **(Compressed)**
 ├── mfgtool-files-portenta-x8.tar.gz **(Compressed)**
 ├── sit-portenta-x8.bin
 └── u-boot-portenta-x8.itb
 ```
+
+***Starting from image version 888, _`lmp-partner-arduino-image-portenta-x8.wic.gz`_ is now known as __`lmp-factory-image-portenta-x8.wic.gz`__.***
 
 ### Setting the Portenta X8 to Flashing Mode
 
