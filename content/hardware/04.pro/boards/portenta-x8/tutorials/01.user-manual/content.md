@@ -206,7 +206,13 @@ Please do not turn off your Portenta X8 or disconnect it from the network during
 
 Once the update is finished, your Portenta X8 will automatically restart with the new Linux image in place.
 
-At this point, if you want to continue using your Out-of-the-box, you can open a new command line window and launch the command `adb forward tcp:8080 tcp:80` again. Now open your browser, go to [http://localhost:8080](http://localhost:8080), and the same Out-of-the-box dashboard will appear.
+At this point, if you want to continue using your Out-of-the-box, you can open a new command line window and launch the following command againg:
+
+```bash
+adb forward tcp:8080 tcp:80
+```
+
+Now open your browser, go to [**http://localhost:8080**](http://localhost:8080), and the same Out-of-the-box dashboard will appear.
 
 In case you try to update the Portenta X8 and it has the latest available image, you will get following message:
 
@@ -1116,36 +1122,29 @@ You need to enable SPI support before using SPI devices.
 
 Open Portenta X8 Shell as explained [here](#working-with-linux).
 
+With root privileges on the Portenta X8, you can enable the SPI device interface by loading the `spidev` module using the following command:
+
 ```bash
-sudo modprobe spi-dev
+sudo modprobe spidev
 ```
 
-An upcoming image release for the X8 will load the `spi-dev` modules automatically at boot. In the current version, please create a `/etc/modules-load.d/spi-dev.conf` file with the following content:
+To ensure the `spidev` module loads automatically at startup, add it to the system's module configuration and reboot:
 
 ```bash
-spi-dev
-```
-
-and restart the board.
-
-```bash
-echo "spi-dev" | sudo tee > /etc/modules-load.d/spi-dev.conf
-```
-
-```bash
+echo "spidev" | sudo tee /etc/modules-load.d/spidev.conf
 sudo systemctl reboot
 ```
 
-Add the device you want to communicate within a container in a `docker-compose.yml` file: 
+To set up a service named `my_spi_service` that utilizes the SPI device at `/dev/spidev0.0`, include the following configuration in your service definition:
 
-```
+```yaml
 services:
- my_spi_service:
- devices:
- - /dev/spi-1
- - /dev/spi-2
- - /dev/spi-3
+  my_spi_service:
+    devices:
+      - "/dev/spidev0.0"
 ```
+
+This configuration is typically added to a _docker-compose.yml_ file, allowing the service to interact with the specified SPI device.
 
 If the Linux user on which the container is running is not `root`, you need to set up the permissions for the user to access the SPI devices. You might add the required comments to an `entrypoint.sh` shell file (to be added to the `Dockerfile` or the `docker-compose.yml` file).
 
@@ -1193,38 +1192,35 @@ You need to enable I2C support before using I2C devices.
 
 Open Portenta X8 Shell as explained [here](#working-with-linux).
 
-Thus, execute the following command:
+With administrative (root) privileges on the Portenta X8, you can enable the I2C device interface using the following command:
 
 ```bash
 sudo modprobe i2c-dev
 ```
 
-An upcoming image release for the X8 will load the `i2c-dev` modules automatically at boot. In the current version, please create a `/etc/modules-load.d/i2c-dev.conf` file with the following content:
+Use the following commands to ensure the `i2c-dev` module is automatically loaded at system startup. A system reboot is required for the changes to take effect:
 
 ```bash
-i2c-dev
-```
-
-and restart the board.
-
-```bash
-echo "i2c-dev" | sudo tee > /etc/modules-load.d/i2c-dev.conf
+echo "i2c-dev" | sudo tee /etc/modules-load.d/i2c-dev.conf
 ```
 
 ```bash
 sudo systemctl reboot
 ```
 
-Add the device you want to communicate within a container in a `docker-compose.yml` file: 
+These commands activate and configure the I2C device interface on the system. The following section demonstrates how to set up I2C services within a Docker environment by defining them under `my_i2c_service` in a _docker-compose.yml_ file:
 
-```
+```yaml
 services:
- my_i2c_service:
- devices:
- - /dev/i2c-1
- - /dev/i2c-2
- - /dev/i2c-3
+  my_i2c_service:
+    devices:
+      - "/dev/i2c-0"
+      - "/dev/i2c-1"
+      - "/dev/i2c-2"
+      - "/dev/i2c-3"
 ```
+
+You can configure I2C services for all available interfaces (from 0 to 3) or specify particular services as needed.
 
 If the Linux user on which the container is running is not `root`, you need to set up the permissions for the user to access the I2C devices. You might add the required comments to an `entrypoint.sh` shell file (to be added to the `Dockerfile` or the `docker-compose.yml` file).
 
@@ -1248,28 +1244,93 @@ gosu <container user> /usr/bin/python my_i2c_service.py
 |--------------|-------------------------------|-------------|
 | `/dev/i2c-1` | **`I2C1`**                    |             |
 | `/dev/i2c-2` | **`I2C0`**                    | Recommended |
-| `/dev/i2c-3` | **`I2C1`**                    |             |
+| `/dev/i2c-3` | **`I2C2`**                    |             |
 
 #### Examples
+
+Within the Portenta X8 shell, you can quickly test I2C communication with compatible devices using specific commands. To list all connected I2C devices, use:
+
+```bash
+i2cdetect -y <I2C bus>
+```
+
+To interact with a specific I2C device and retrieve data, the command format is:
+
+```bash
+i2cget -y <I2C bus> <device address> <register address>
+```
+
+For example:
+
+```bash
+# List I2C devices on bus 2
+i2cdetect -y 2
+
+# Read data from a device at address 0x77 on bus 2, register 0xD0
+i2cget -y 2 0x77 0xD0
+```
+
+If a BME280 sensor is connected to *I2C0* and the above commands are used, the Portenta X8 will show **`0x60`** value to tell the sensor is alive.
+
+Here are some simple examples of implementing I2C communication on the Portenta X8 with Portenta Mid Carrier using Python.
+
+The following code uses the SMBus (System Management Bus) protocol, with SMBus-compatible [libraries](https://github.com/kplindegaard/smbus2), to read a data byte from a device on `/dev/i2c-3`. The byte is read from address 80, offset 0, and then printed.
 
 Examples of using SMBus-compatible [libraries](https://github.com/kplindegaard/smbus2):
 
 ```python
 from smbus2 import SMBus
 
-# Connect to /dev/i2c-2
-bus = SMBus(2)
+# Connect to /dev/i2c-3
+bus = SMBus(3)
 b = bus.read_byte_data(80, 0)
 print(b)
 ```
 
-Example of using [python-periphery](https://python-periphery.readthedocs.io/en/latest/index.html):
+The next example shows how to initialize the I2C bus using the _smbus2_ library and read multiple bytes from a device. The `read_i2c_block_data` function retrieves a block of bytes from the I2C device at the specified address.
+
+```python
+from smbus2 import SMBus
+
+# Initialize the I2C bus
+bus = SMBus(3)  # 3 represents /dev/i2c-3
+
+device_address = 0x1
+num_bytes = 2
+
+# Read from the I2C device
+data = bus.read_i2c_block_data(device_address, 0, num_bytes)  # Starting address is 0 to read from
+
+# Data is a list of bytes
+for byte in data:
+    print(byte)
+```
+
+The following example shows how to write data to an I2C device using the _smbus2_ library. A data byte (`value`) is sent to a specific address (`device_address`) with a given instruction.
+
+```python
+from smbus2 import SMBus
+
+# Initialize the I2C bus
+bus = SMBus(3)  # 3 represents /dev/i2c-3
+
+device_address = 0x1
+instruction = 0x00
+value = 0xFF
+
+# Write to the I2C device
+bus.write_byte_data(device_address, instruction, value)
+```
+
+In the following example, the [python-periphery](https://python-periphery.readthedocs.io/en/latest/index.html) library is used to communicate with the I2C device. This library integrates a broad range of protocols within the same script. The `I2C.transfer()` method performs read and write operations on the I2C bus.
+
+The code reads a byte from an EEPROM at address `0x50`, offsets `0x100`, and then prints it.
 
 ```python
 from periphery import I2C
 
-# Open i2c-0 controller
-i2c = I2C("/dev/i2c-2")
+# Open i2c-3 controller
+i2c = I2C("/dev/i2c-3")
 
 # Read byte at address 0x100 of EEPROM at 0x50
 msgs = [I2C.Message([0x01, 0x00]), I2C.Message([0x00], read=True)]
@@ -1293,11 +1354,61 @@ Since one of the `I2C` pins is GPIO-multiplexed, you need to detach it from the 
  
 ### UART
 
-In this case, a Portenta X8 with a Portenta Breakout board is used to explore UART communication.
+In this case, a Portenta X8 with a Portenta Breakout board can be used to explore UART communication. The Portenta Mid Carrier and Portenta Hat Carrier also provides the capability to use the UART communication.
 
 #### UART With Linux
 
 A standard UART is available as `/dev/ttymxc1` in Linux and is mapped to the **`UART1`** port on the Portenta Breakout.
+
+With root access on the Portenta X8, you can list the available serial ports in Linux using the following command:
+
+```bash
+ls /dev/ttyUSB* /dev/ttyACM* /dev/ttymxc*
+
+// Example output:
+/dev/ttyUSB0   /dev/ttyUSB2   /dev/ttymxc1   /dev/ttymxc3
+/dev/ttyUSB1   /dev/ttyUSB3   /dev/ttymxc2
+```
+
+Common serial devices are typically labeled as _/dev/ttyUSBx_, _/dev/ttyACMx_, or _/dev/ttymxcx_. For instance, you might see _/dev/ttymxc1_ listed.
+
+The following Python script uses the _pyserial_ library for UART communication. The _processData_ function is defined to handle incoming data, which can be customized according to your needs.
+
+```python
+import serial
+import time
+
+# Define the processData function (customize based on your requirements)
+def processData(data):
+    print("Received:", data)  # Currently, it just prints the data. Modify as needed.
+
+# Set up the serial port
+ser = serial.Serial('/dev/ttymxc1', 9600)  # Replace with the correct port and baud rate for your setup
+
+incoming = ""
+
+while True:
+    # Check for available data and read individual characters
+    while ser.in_waiting:
+        c = ser.read().decode('utf-8')  # Read a single character and decode from bytes to string
+
+        # Check if the character is a newline (line-ending)
+        if c == '\n':
+            # Process the received data
+            processData(incoming)
+
+            # Clear the incoming data string for the next message
+            incoming = ""
+        else:
+            # Add the character to the incoming data string
+            incoming += c
+
+        time.sleep(0.002)  # Delay for data buffering, similar to Arduino's delay(2);
+```
+
+This script maintains a serial connection on _/dev/ttymxc1_ with a baud rate of _9600_. It reads incoming data character by character until it encounters a newline (`\n`), which indicates the end of a data packet.
+
+After processing the data, the script resets and is ready for the next message. The `time.sleep(0.002)` introduces a brief delay for data buffering, similar to `delay(2);` in the Arduino environment.
 
 ### Bluetooth®
 
