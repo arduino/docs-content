@@ -291,6 +291,8 @@ The LED Matrix now supports printing characters via the [ArduinoGraphics](https:
 
 The example below simply prints out **"Hello World!"** on the matrix.
 
+***For this example to work, you need to install the [ArduinoGraphics](/libraries/arduinographics/) library to enable character printing on the LED matrix using the library manager.***
+
 ```arduino
 // To use ArduinoGraphics APIs, please include BEFORE Arduino_LED_Matrix
 #include "ArduinoGraphics.h"
