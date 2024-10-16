@@ -148,9 +148,7 @@ As shown in the image above, the OS release of this Portenta X8 corresponds to `
 
 ### Update For OS Release V.399
 
-If your Portenta X8 is flashed with the OS release V.399 and you have a carrier compatible with Portenta X8 (like Portenta Breakout). In that case, we recommend you update it to the latest image release by following [this tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing#flashing-mode-with-carrier).
-
-Otherwise, you can also open a new Command Line window and connect to your Portenta X8, as explained [here](#working-with-linux). At this point, verify that your Portenta X8 is connected to the Internet and type the following commands:
+Open a new Command Line window and connect to your Portenta X8, as explained [here](#working-with-linux). At this point, verify that your Portenta X8 is connected to the Internet and type the following commands:
 
 ```bash
 wget https://downloads.arduino.cc/portentax8image/399-install-update
@@ -182,7 +180,9 @@ These commands will make your V.399 compatible with the [aklite-offline](https:/
 
 Arduino provides this tool for free for any Portenta X8 user to enable offline secure updates to all devices, even if those devices are not connected to any FoundriesFactory.
 
-After the update process is finalized, your Portenta X8 will start running the latest OS release immediately.
+After the update process has finished, your Portenta X8 will start running the latest OS release immediately.
+
+***If your Portenta X8 has the _OS release V.399_ and you have a carrier compatible with Portenta X8 (like Portenta Breakout). In that case, we recommend you update it to the latest image release by going to [flashing with `uuu tool`](#update-using-uuu-tool) section and follow the instructions found within the dedicated tutorial here: [__How To Flash Your Portenta X8__](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing).***
 
 ### Update Through Out-Of-The-Box Experience
 
@@ -237,6 +237,8 @@ More information about Waves can be found in the official Foundries documentatio
 ### Update Using `uuu` Tool
 
 An alternative method to update the Portenta X8 with the latest OS image is to use the `uuu` tool (or `uuu_mac` for macOS). This approach is particularly useful for users who have built a custom image or prefer a manual update process. The image files can be downloaded from the [Arduino repository](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz) and extracted into a specific directory.
+
+You can find more details in the dedicated tutorial here: [**How To Flash Your Portenta X8**](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing).
 
 Depending on the carrier being used (e.g., Max Carrier, Breakout, Hat, or Mid Carrier), DIP switch settings must be adjusted to enter programming mode or specific commands can be executed via ADB for a barebone setup. Once the board is in programming mode, you can navigate to the extracted image files and run the `uuu full_image.uuu` command to begin the flashing process.
 

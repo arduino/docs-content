@@ -25,11 +25,12 @@ In this tutorial, you will learn how to manually flash your Portenta X8 with the
 ### Required Hardware and Software
 
 - [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
-- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - Portenta Family Carrier (Optional):
 - [Arduino Portenta Breakout Board](https://store.arduino.cc/products/arduino-portenta-breakout)
 - [Arduino Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier)
 - [Arduino Portenta Hat Carrier](https://store.arduino.cc/products/portenta-hat-carrier)
+- [Arduino Portenta Mid Carrier](https://store.arduino.cc/products/portenta-mid-carrier)
 
 ## Instructions
 
@@ -91,13 +92,15 @@ For the **Portenta Mid Carrier**, the `BOOT SEL` DIP switch should be set to the
 
 ![Portenta Mid Carrier DIP switches](assets/midCarrier-dip-switches.png)
 
-You must connect one USB-C® end to the Portenta X8 and the other (USB-C® or USB-A) to your computer. With this, the Portenta X8 is ready to begin the flashing process.
+**You must connect one USB-C® end to the Portenta X8 and the other (USB-C® or USB-A) to your computer.** With this, the Portenta X8 is ready to begin the flashing process.
 
 #### Flashing Mode without Carrier
 
-***It is recommended to flash the board with the carrier. If it is not possible, we provide an alternative procedure for advanced users only implying the full flash memory erasing. If something goes wrong during the procedure, you might not be able to recover the board. Proceed with caution.***
+***It is recommended to flash the board with the carrier. If it is not possible, we provide an alternative procedure for advanced users only implying the full flash memory erasing. If something goes wrong during the procedure, you might not be able to recover the board. __Proceed with caution__.***
 
-If *Portenta Breakout* or *Portenta Max Carrier* is unavailable, the Portenta X8 can be configured for programming mode using a few command lines inside the Portenta X8's terminal via ADB. Please use the following commands in exact sequence while in the root environment with root permission.
+If **compatible Carrier platform** is unavailable, the Portenta X8 can be configured for **programming mode** using a few command lines inside the Portenta X8's terminal via ADB.
+
+**Please use the following commands in exact sequence while in the root environment with root permission.**
 
 ```bash
 echo 0 > /sys/block/mmcblk2boot0/force_ro
@@ -119,13 +122,23 @@ This sequence of commands will allow you to reset Portenta X8's bootloader secto
 
 ### Flashing the Portenta X8
 
-To flash the Portenta X8, you need to begin by opening a terminal. Within the terminal, you need to change the directory to where the `mfgtool-files-portenta-x8` file is located using the `cd` command. Once it is inside the directory where the previous file is included, the following command is used:
+To flash the Portenta X8, you need to begin by opening a terminal. Within the terminal, you need to change the directory to where the **`mfgtool-files-portenta-x8`** files are found using the `cd` command.
+
+Once it is inside the directory where the previous file is included, the following command is used:
 
 ```bash
 uuu full_image.uuu
 ```
 
-If you have followed the __Flashing Mode without Carrier__ method to flash an OS or a custom image, the `uuu` command should be active and seeking the board. While the process is active, please unplug and reconnect the USB-C® cable powering the Portenta X8 to allow entering the programming mode of the boot sequence. It should trigger the standing-by `uuu` task to run the flash process.
+If the command is not recognized, use this command with the additional prefixes:
+
+```bash
+.\uuu .\full_image.uuu
+```
+
+If you have followed the [**Flashing Mode without Carrier** method](#flashing-mode-without-carrier) to flash a factory or custom image, the `uuu` command should be active and waiting to connect with the board.
+
+While the process is active, please unplug and reconnect the USB-C® cable powering the Portenta X8 to allow entering the programming mode of the boot sequence. It should trigger the standing-by `uuu` task to run the flash process.
 
 When the flashing operation is finished, you should see a similar result as the following figure:
 
