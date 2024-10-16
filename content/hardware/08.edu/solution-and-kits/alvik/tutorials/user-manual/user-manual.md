@@ -123,6 +123,10 @@ When fully charged it will stay GREEN.
 
 ***Don't confuse the RGB status LED with the power ON LED of the Nano ESP32, which is always green.***
 
+To preserve the battery life of your Alvik, always store it fully charged. We recommend charging Alvik completely between working sessions. If you won’t be using it for an extended period, it's best to remove the battery until you're ready to use it again.
+
+If Alvik is left unused for several months with the battery level below 20%, it may become fully depleted, leading to a voltage drop. In such cases, the battery will need to be charged externally using a compatible battery charger.
+
 
 ### Replacing The Battery
 
