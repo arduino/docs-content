@@ -21,7 +21,8 @@ In your sketch, replace the strings containing sensitive data by writing `SECRET
 
 ![SECRET in Code](./assets/add_secret_3.png)
 
-A new page will appear where you can enter your SECRET-Keys
+A new page will appear where you can enter your secret keys.
+
 
 ![Add SECRET Key](./assets/add_secret_2.png)
 
