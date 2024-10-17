@@ -1,5 +1,5 @@
 ---
-title: GIGA Display Shield App Wizard Guide
+title: GIGA Display Shield AppWizard Guide
 description: 'Learn how to use Segger AppWizard with the GIGA Display Shield.'
 author: Benjamin Dannegård
 tags: [Display, appwizard, segger, GUI]
