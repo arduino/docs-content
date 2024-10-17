@@ -16,7 +16,7 @@ Specifically, we will show you how to create a screen with AppWizard that includ
 - [Arduino GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
 - [Arduino GIGA Display Shield](https://store.arduino.cc/products/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- [App Wizard](https://www.segger.com/products/user-interface/emwin/tools/appwizard/)
+- [AppWizard](https://www.segger.com/products/user-interface/emwin/tools/appwizard/)
 - [emWin Arduino Library](https://github.com/SEGGERMicro/emWin-Arduino-Library/)
 
 ## Downloading the Library and Core
