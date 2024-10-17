@@ -51,11 +51,11 @@ As reported in the image above, Portenta X8 features two powerful computing unit
 
 * **NXP® i.MX 8M Mini** Cortex®-A53 quad-core up to 1.8GHz per core + 1x Cortex®-M4 up to 400 MHz. This microprocessor is the one where the Yocto Linux distribution is running together with Docker containers (check [this section](#linux-environment) of this user manual to learn more).
 
-* **STMicroelectronics STM32H747XI** featuring 1x Arm® Cortex®-M7 core running up to 480 MHz and 1x Arm® Cortex®-M4 core running up to 240 MHz. This microcontroller hosts the ["Arduino Mbed OS Portenta Boards" Core](https://github.com/arduino/ArduinoCore-mbed). M4 core is accessible and programmable by the user, while M7 is dedicated to establishing and guaranteeing the communication between i.MX 8M Mini and M4, as well as to manage peripherals through RPC. For more details, refer to [this section](#arduino-environment) of the user manual.
+* **STMicroelectronics STM32H747AII6** featuring 1x Arm® Cortex®-M7 core running up to 480 MHz and 1x Arm® Cortex®-M4 core running up to 240 MHz. This microcontroller hosts the ["Arduino Mbed OS Portenta Boards" Core](https://github.com/arduino/ArduinoCore-mbed). M4 core is accessible and programmable by the user, while M7 is dedicated to establishing and guaranteeing the communication between i.MX 8M Mini and M4, as well as to manage peripherals through RPC. For more details, refer to [this section](#arduino-environment) of the user manual.
 
 The two computing units are responsible for different tasks, which are summarized in the table below.
 
-| **NXP® i.MX 8M Mini**                                   | **STMicroelectronics STM32H747XI (M4)**                        |
+| **NXP® i.MX 8M Mini**                                   | **STMicroelectronics STM32H747AII6**                           |
 |---------------------------------------------------------|----------------------------------------------------------------|
 | Running Yocto Linux distribution with Docker containers | Running Arduino sketches with the Mbed OS Portenta Boards Core |
 | Dedicated to high level tasks                           | Dedicated to real-time tasks                                   |
@@ -111,7 +111,7 @@ To explore specific sections in more detail, please click on the links below tha
 * [Arduino Environment](#arduino-environment)
 * [Arduino Cloud](#portenta-x8-with-arduino-cloud)
 
-### Linux and Arduino Environment on Portenta X8
+### Portenta X8: Linux & Arduino Integration
 
 The Portenta X8 runs a **Yocto** based Linux distribution. It allows users to upload sketches to the M4 core of the STM32H7 using the Arduino IDE. The process of uploading sketches may seem familiar to Arduino users, but on Portenta X8, the system uses a service called `monitor-m4-elf-file.service`.
 
@@ -123,18 +123,18 @@ The communication uses **MessagePack-RPC**, a lightweight protocol for serialize
 
 The Portenta X8 offers a powerful, versatile platform by combining Linux capabilities with Arduino’s ease of use. Users can deploy and manage device-independent applications using Docker containers while also taking advantage of Arduino’s rich ecosystem for embedded development. This hybrid environment supports flexible development, making it ideal for complex, multifunctional projects.
 
-***For more in-depth details on fundamentals of the Portenta X8, please refer to this [tutorial](https://docs.arduino.cc/tutorials/portenta-x8/x8-fundamentals/).***
+***For more in-depth details on fundamentals of the Portenta X8, please refer to this [documentation](https://docs.arduino.cc/tutorials/portenta-x8/x8-fundamentals/).***
 
 ## Portenta X8 OS Image Update
 
 It is recommended that you check every now and then to see if your Portenta X8 image version is up to date to have the latest security updates.
 
-In the next sections, four major ways to update your Portenta X8 are described:
+In the next sections, four ways to update your Portenta X8 are described:
 
-* Update for OS release V.399
-* Update through Out-of-the-box experience
-* Update through Portenta X8 Manager in your Arduino Cloud for Business account (available for all OS releases)
-* Update using the `uuu` tool (compatible with custom images)
+* [Update for OS release V.399](#update-for-os-release-v399)
+* [Update through Out-of-the-box experience](#update-through-out-of-the-box-experience)
+* [Update through Portenta X8 Manager in your Arduino Cloud for Business account (available for all OS releases)](#update-with-portenta-x8-board-manager)
+* [Update using the `uuu` tool (compatible with custom images)](#update-using-uuu-tool)
 
 ### Check Portenta X8 OS Release
 
@@ -226,7 +226,7 @@ You can follow [this section](#update-using-uuu-tool) to learn to use the `uuu` 
 
 ### Update With Portenta X8 Board Manager
 
-If you have an *Arduino Cloud for business* account with the Portenta X8 Manager, check if the target installed on your Portenta X8 is the latest one available in your FoundriesFactory.  
+If you have an **Arduino Cloud for Business** account with the Portenta X8 Manager, check if the target installed on your Portenta X8 is the latest one available in your FoundriesFactory.  
 
 ![FoundriesFactory device overview](assets/web_board_manager_factory_device-overview.png "FoundriesFactory device overview")
 
