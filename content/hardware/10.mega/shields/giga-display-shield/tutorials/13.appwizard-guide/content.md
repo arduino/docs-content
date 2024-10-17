@@ -7,7 +7,9 @@ tags: [Display, appwizard, segger, GUI]
 
 ## Introduction
 
-Segger's app wizard is a graphical framework for building powerful UIs, and is fully compatible with the GIGA Display Shield. It allows you to build UIs, using pre-made widgets like buttons, images, loading bars, sliders, checkboxes, etc. It also allows you to fully customize the screenspace on the display. In this guide, we will go through some of the different components and interactions, so you can learn how to best use AppWizard for your own projects.
+Segger AppWizard is a graphical framework for building powerful UIs, and is fully compatible with the GIGA Display Shield. It allows you to build UIs, using pre-made widgets like buttons, images, loading bars, sliders, checkboxes, etc. It also allows you to fully customize the screenspace on the display. In this guide, we will go through some of the different components and interactions, so you can learn how to best use AppWizard for your own projects.
+
+Specifically, we will show you how to create a screen with AppWizard that includes some of the most common elements: a button, a text label, a progress bar, and a slider. We will also demonstrate how to export the code from AppWizard and create an Arduino library that implements the designed screen.
 
 ## Hardware & Software Needed
 
