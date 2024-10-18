@@ -30,3 +30,4 @@ IP Protection: IP20
 Operating Temperature: -40 °C to +90 °C
 Programming:
   Arduino programming language: Via Arduino IDE, Arduino CLI, Arduino Cloud
+  JSON: Notehub In-Browser Terminal
