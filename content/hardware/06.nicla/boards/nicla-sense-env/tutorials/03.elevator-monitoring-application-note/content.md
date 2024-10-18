@@ -25,30 +25,39 @@ software:
 
 ## Introduction
 
-Air pollution is a growing concern in urban and industrial areas due to the harmful effects of airborne pollutants such as nitrogen dioxide (NO₂) and ozone (O₃) on human health and the environment. This application note describes building a basic outdoor air quality monitor using the Arduino® Portenta C33 and the Nicla Sense Env board.
+Air pollution is a threat that lurks even where we least expect it, from the comfort of our homes to our workplaces. Pollutants like CO₂ and volatile organic compounds (TVOC) silently threaten our health, representing a determining factor for our quality of life. This application note describes the building of an air quality monitor and occupancy machine vision tracker for indoor environments, in this case an elevator.
 
 ![ ](assets/hero-banner.gif)
 
-The outdoor air quality monitor provides real-time data on temperature (°C), humidity (%), concentrations of NO₂ (ppb) and O₃ (ppb) and the outdoor Air Quality Index (AQI). It is suitable for deployment in urban areas, industrial zones or environmental research.
+The monitoring system will measure the elevator's temperature, relative humidity, indoor air quality (IAQ), estimated CO₂ and total volatile organic compounds (TVOC) alongside counting the people inside the elevator. All this information will be forwarded to the Arduino Cloud for further visualization and tracking. The system will give a real-time visual feedback of the condition inside the elevator to warn people of harmful air quality.
+
 
 ## Goals
 
-The main goals of this application note are the following:
+The project showcased in this application note has the following objectives:
 
-- Develop and implement a simple outdoor air quality monitor that provides real-time data on temperature, humidity, and pollutants such as nitrogen dioxide (NO₂) and ozone (O₃).
-- Collect real-time data on NO₂, O₃ and the outdoor Air Quality Index (AQI) to evaluate outdoor air conditions.
-- Display live readings from the Nicla Sense Env board using the Arduino IDE Serial Monitor for immediate analysis.
-- Use the RGB LED on the Nicla Sense Env board to provide visual feedback based on the AQI, indicating air quality levels with different colors.
-- Enable remote monitoring and analysis by connecting the outdoor air quality monitor to the Arduino Cloud.
+- Monitoring the air quality and environmental variables inside the elevator.
+- Counting the people inside the elevator using Machine Vision.
+- Giving real-time visual feedback of the conditions of the elevator using Modulino® Pixels:.
+- Sharing all the gathered data to the Arduino Cloud for remote monitoring.
 
 ## Hardware and Software Requirements
 
 ### Hardware Requirements
 
+This project is meant to be developed with the **Portenta Proto Kit** that includes the following products among others:
+
 - [Nicla Sense Env](https://store.arduino.cc/products/nicla-sense-env) (x1)
-- [Portenta C33](https://store.arduino.cc/products/portenta-c33) (x1)
+- [Nicla Vision](https://store.arduino.cc/products/nicla-vision) (x1)
+- [Portenta Mid Carrier](https://store.arduino.cc/products/portenta-mid-carrier) (x1)
+- [Portenta H7](https://store.arduino.cc/products/portenta-h7) (x1)
+- Modulino Pixels (x1)
+- Portenta Mid Carrier Proto Shield (x1)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 - Wi-Fi® W.FL antenna (x1)
+- ESLOV cable (x2)
+- Qwiic cable (x1)
+- Custom 3D printed parts
 
 ### Software Requirements
 
