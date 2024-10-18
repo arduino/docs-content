@@ -39,7 +39,7 @@ The project showcased in this application note has the following objectives:
 
 ## Hardware and Software Requirements
 
-![Hardware needed for the project]()
+![Hardware needed for the project](assets/hardware.png)
 
 ### Hardware Requirements
 
