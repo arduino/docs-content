@@ -31,7 +31,6 @@ Air pollution is a threat that lurks even where we least expect it, from the com
 
 The monitoring system will measure the elevator's temperature, relative humidity, indoor air quality (IAQ), estimated CO₂ and total volatile organic compounds (TVOC) alongside counting the people inside the elevator. All this information will be forwarded to the Arduino Cloud for further visualization and tracking. The system will give a real-time visual feedback of the condition inside the elevator to warn people of harmful air quality.
 
-
 ## Goals
 
 The project showcased in this application note has the following objectives:
@@ -62,21 +61,27 @@ This project is meant to be developed with the **Portenta Proto Kit** that inclu
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [OpenMV IDE](https://openmv.io/pages/download)
 - [Arduino_NiclaSenseEnv library](https://github.com/arduino-libraries/Arduino_NiclaSenseEnv)
-- [Arduino Renesas Portenta Boards core](https://github.com/arduino/ArduinoCore-renesas) (required to work with the Portenta C33 board)
-- For the Wi-Fi® connectivity feature of Portenta C33, we will use the [Arduino Cloud](https://create.arduino.cc/iot/things). If you do not have an account, create one for free [here](https://cloud.arduino.cc/).
-
-***The Nicla Sense Env board is not intended as a standalone device but as a shield of another Portenta, MKR, or Nano family board. In this application note, we will use the Portenta C33 as the main board and the Nicla Sense Env board as a shield.***
+- [Arduino Portenta Boards core](https://github.com/arduino/ArduinoCore-mbed) (required to work with the Portenta H7 board)
+- [Arduino Cloud](https://create.arduino.cc/iot/things). If you do not have an account, create one for free [here](https://cloud.arduino.cc/).
 
 ## Hardware Setup Overview
 
-The electrical connections for the outdoor air quality monitor are outlined in the diagram below:
+The electrical connections for the project are outlined in the diagram below:
 
-![The outdoor air quality monitor hardware setup](assets/app-note-1.png)
+![System wiring overview](assets/diagram.png)
 
-This diagram shows how the components are connected. The **Portenta C33** is the **host board** or primary controller, while the **Nicla Sense Env** board (the **client board** or shield) collects temperature, humidity, and outdoor air quality data.
+This diagram shows how the components are connected. 
 
-The Nicla Sense Env board connects to the Portenta C33 board using the **ESLOV interface**. The outdoor air quality monitor operates with a single power supply bus (`+5 VDC` from the Portenta C33), which powers the Nicla Sense Env. The Portenta C33 is powered via its onboard USB-C port for testing purposes.
+- The Portenta H7 is attached to the Portenta Mid Carrier using the High-Density connectors.
+- The Mid Carrier Proto Shield is stacked to the Portenta Mid Carrier using the breakout connectors.
+- The Modulino Pixels is wired to the Portenta Mid Carrier using the Qwiic cable and fixed with the included screws and nuts.
+- The Nicla Vision and the Nicla Sense Env are wired to the Mid Carrier Proto Shield using ESLOV cables.
+
+To power the project you can use the terminal block of the Portenta Mid Carrier, the USB-C connector of the Portenta H7 or the barrel jack of the Mid Carrier Proto Shield.
+
+![Powering options](assets/power-options.png)
 
 ## Understanding Outdoor Air Quality
 
