@@ -84,6 +84,17 @@ To power the project you can use the terminal block of the Portenta Mid Carrier,
 
 ## Smart Elevator Monitoring System Overview
 
+### Indoor Air Quality Sensor
+
+### Visual Air Quality Feedback
+
+### Machine Vision for People Counting
+
+### Portenta H7 Code
+
+### Nicla Vision Code
+
+### Arduino Cloud Dashboard
 
 ### Complete Example Sketch
 
