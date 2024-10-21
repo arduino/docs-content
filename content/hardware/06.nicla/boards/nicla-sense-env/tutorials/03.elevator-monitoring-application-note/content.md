@@ -96,18 +96,31 @@ The **Nicla Sense Env** is a sensor shield that must be controlled by a host, in
 
 One of the project's main features is the environment variables sensing, this is possible using the **ZMOD4410** indoor air quality sensor featured by the **Nicla Sense Env**.
 
-The ZMOD4410 is a gas sensor module designed for easy implementation to detect total volatile organic compounds (TVOC), estimate CO₂ and monitor air quality (IAQ).
+The ZMOD4410 is a gas sensor module designed for easy implementation to detect total volatile organic compounds (TVOC), estimate CO₂ and monitor indoor air quality (IAQ).
 
 The sensor can output air quality in the following three ways:
 
 - **Renesas IAQ Rating**: 0 - 5 (being 0 the cleaner and healthier air)
 - **Interpreted Air Quality**: in words, "Very Good", "Good", "Medium", "Poor" and "Bad"
 - **Relative Air Quality**: 0 - 500 (being 0 the cleaner and healthier air)
-- 
+  
+We are going to use the **Relative Air Quality** range because it will give us a more accurate and sensitive range to measure variations in the air quality, use the following table for reference:
+
+![Relative Air Quality table](assets/AQI.png)
 
 ### Visual Air Quality Feedback
 
+The system features a real-time visual feedback to warn the occupants of the elevator so they know the current air quality status in any time and take the right preventive measures.
+
+Using the Modulino Pixels the system will display the colors corresponding to the Air Quality Index shown in the table from above.
+
+![Modulino Pixels feedback system](assets/led-feedback.gif)
+
 ### Machine Vision for People Counting
+
+The Nicla Vision will use a built-in FOMO model for face detection, with a very simple python script it will be able to report through I2C the faces count on a single frame covering the whole elevator.
+
+![Nicla Vision people counting](assets/nicla-count.png)
 
 ### Portenta H7 Code
 
