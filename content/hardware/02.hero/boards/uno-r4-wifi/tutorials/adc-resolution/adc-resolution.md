@@ -43,4 +43,4 @@ void loop(){
 
 ## Summary
 
-This short tutorial show how to update the resolution for your ADC, a new feature available on the UNO R4 WiFi board.
+This short tutorial demonstrates how to update the resolution for your ADC, a new feature available on the UNO R4 WiFi board.
