@@ -81,11 +81,11 @@ It's also possible to only show specific lines by adding the `scope` parameter, 
 
 The result is that only lines 3 to 30 are shown.
 
-<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet&scope=L3-L30" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet&scope=L24-L28" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
 
 The full URL should look like this:
 ```markup
-<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet&scope=L3-L30" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet&scope=24-28" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
 ```
 
 ## Hide Numbers
