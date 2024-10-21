@@ -5,15 +5,15 @@ author: Karl Söderby
 tags: [Arduino Cloud, Device Status]
 ---
 
-Keeping track of your devices is important, and using by using [triggers](), you can automate push notifications regarding your device status.
+Keeping track of your devices is important, and using by using [triggers](https://docs.arduino.cc/arduino-cloud/cloud-interface/triggers/), you can automate push notifications regarding your device status.
 
 You can have triggers for:
 - When a device goes online
 - When a device goes offline
 
 You can modify the trigger to:
-- Trigger immediately when device status changes
-- Trigger after an X amount of minutes after the device status has changed
+- Trigger immediately when the device status changes
+- Trigger after an X amount of minutes/hours after the device status has changed
 
 ## Requirements
 
@@ -30,8 +30,10 @@ You can modify the trigger to:
 6. Select the time for notification (immediately or specific time e.g. 1 hour).
 7. Choose the action (email of push notification on phone).
 
-![Device status notification setup.]()
+![Device status notification setup.](assets/shared-spaces.png)
 
 ## Usage
 
-Depending on the setup, your notifications will trigger when the device status change, either sending you an email or a push notification.
+Depending on the setup, your notifications will trigger when the device status change, either sending you an email or a push notification\*.
+
+***\*Read the article about [push notifications](/arduino-cloud/iot-remote-app/push-notifications/) for more information.***
