@@ -102,7 +102,8 @@ The sensor can output air quality in the following three ways:
 
 - **Renesas IAQ Rating**: 0 - 5 (being 0 the cleaner and healthier air)
 - **Interpreted Air Quality**: in words, "Very Good", "Good", "Medium", "Poor" and "Bad"
-- **Relative Air Quality**: 0 - 500
+- **Relative Air Quality**: 0 - 500 (being 0 the cleaner and healthier air)
+- 
 
 ### Visual Air Quality Feedback
 
