@@ -16,8 +16,6 @@ Triggers can be set up for any of your existing projects, and are found in the [
 
 ***In this tutorial, we use the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot). This is not a requirement, you can use any Arduino Cloud-compatible board for this tutorial.***
 
-## Setup & Configuration
-
 ## Limitations
 
 Currently, the only variables supported by the trigger feature are:
