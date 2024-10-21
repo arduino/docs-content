@@ -7,6 +7,8 @@ tags: [Arduino Cloud, Triggers, Cloud Notification]
 
 Triggers react to certain conditions inside your Arduino Cloud Thing, such as a boolean being true, or a string being assigned a value. As soon as a set condition is met a notification gets triggered and sent to you. This is useful when you monitor data and you need to know about any change as soon as it happens. This could be anything from different values in environmental monitoring or security-related information such as movement detection.
 
+Triggers can also be used to detect **device status**, where you can configure to send an email / push notification whenever a device goes online/offline.
+
 Triggers can be set up for any of your existing projects, and are found in the [cloud home section](https://cloud.arduino.cc/home/).
 
 ## Hardware & Software Needed
