@@ -24,7 +24,7 @@ software:
 
 Air pollution is a threat that lurks even where we least expect it, from the comfort of our homes to our workplaces. Pollutants like CO₂ and volatile organic compounds (TVOC) silently threaten our health, representing a determining factor for our quality of life. This application note describes the building of an air quality monitor and occupancy machine vision tracker for indoor environments, in this case an elevator.
 
-![ ]()
+![Hardware needed for the project](assets/hardware.png)
 
 The monitoring system will measure the elevator's temperature, relative humidity, indoor air quality (IAQ), estimated CO₂ and total volatile organic compounds (TVOC) while counting the people inside the elevator. All this information will be forwarded to the Arduino Cloud for further visualization and tracking. The system will give a real-time visual feedback of the condition inside the elevator to warn people of harmful air quality.
 
@@ -84,7 +84,25 @@ To power the project you can use the terminal block of the Portenta Mid Carrier,
 
 ## Smart Elevator Monitoring System Overview
 
+The elevator monitoring system integrates sensor data gathering, machine vision, live user feedback and cloud communication using the Portenta H7 Wi-Fi® connection.
+
+The **Portenta H7** is responsible for the Nicla Sense Env sensors reading, receiving people count from the Nicla Vision through I2C, showing air quality status on the Modulino Pixels and communicating with the Cloud.
+
+The **Nicla Vision** is the project's second SoM and is dedicated exclusively to detecting faces in the elevator, counting them and reporting the number to the Portenta H7.
+
+The **Nicla Sense Env** is a sensor shield that must be controlled by a host, in this case the Portenta H7, that includes several environment sensors.
+
 ### Indoor Air Quality Sensor
+
+One of the project's main features is the environment variables sensing, this is possible using the **ZMOD4410** indoor air quality sensor featured by the **Nicla Sense Env**.
+
+The ZMOD4410 is a gas sensor module designed for easy implementation to detect total volatile organic compounds (TVOC), estimate CO₂ and monitor air quality (IAQ).
+
+The sensor can output air quality in the following three ways:
+
+- **Renesas IAQ Rating**: 0 - 5 (being 0 the cleaner and healthier air)
+- **Interpreted Air Quality**: in words, "Very Good", "Good", "Medium", "Poor" and "Bad"
+- **Relative Air Quality**: 0 - 500
 
 ### Visual Air Quality Feedback
 
