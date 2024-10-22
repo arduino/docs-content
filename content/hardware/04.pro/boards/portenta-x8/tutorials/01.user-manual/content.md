@@ -22,6 +22,8 @@ software:
 
 Portenta X8 is a powerful, industrial-grade System on a Module with Linux OS preloaded onboard that can run device-independent software thanks to its modular container architecture.
 
+![Portenta X8](assets/x8-user-manual-front.png "Portenta X8")
+
 In this user manual, we will go through the foundations of the Portenta X8 to help you understand how the board works and how you can benefit from its advanced features.
 
 ## Required Hardware
