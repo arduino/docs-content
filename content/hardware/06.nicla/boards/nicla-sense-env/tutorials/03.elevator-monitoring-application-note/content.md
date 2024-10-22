@@ -260,7 +260,43 @@ The `getPeopleCount()` function creates an I2C request asking for the people det
 
 ### Nicla Vision Code
 
-The people counting feature of the project is achieved by the Nicla Vision running a FOMO face detection model. The
+The people counting feature of the project is achieved by the Nicla Vision running a FOMO face detection model. 
+
+For this feature we are using the [OpenMV IDE](https://openmv.io/pages/download) for running MicroPython sketches that you can download from [here](https://openmv.io/pages/download).
+
+Let's explain a bit how the code works starting from the main loop of the sketch:
+
+```python
+if __name__ == "__main__":
+
+    clock = time.clock()
+    while True:
+        clock.tick()
+
+        img = sensor.snapshot()
+        faces = analyze_image(img)
+
+        green_led.on() if faces > 0 else green_led.off() # Turn on green LED when face is detected
+
+        if(faces > 0):
+            print("Faces detected:", faces)
+            buf[0] = faces
+            i2c.send(buf)
+
+        now = ticks_ms()
+```
+
+In simple words, we are on an infinite loop taking pictures with the `sensor.snapshot()` function which are then used as inputs for the face detection model using the `analyze_image()` function.
+
+If faces are detected, the onboard green LED will light up and the count will be sent by I2C to the Portenta H7.
+
+In the face detection process, some auxiliary functions are used to filter unwanted results including false positives. A brief explanation of these functions are listed below:
+
+- `calculate_distance()`: it returns the distance between two rectangles bounding a possible face to avoid duplicates.
+- `merge_rectangles()` and `merge_close_rectangles()`: if two or more bounding rectangles are too close they will be merged into one.
+- `fomo_post_process()`: it returns the list of bounding boxes to be analyzed by the previously explained functions.
+
+***You can download the complete example code for the Nicla Vision [here](assets/People_Count_Nicla_Vision.zip)***
 
 ### Arduino Cloud Dashboard
 
