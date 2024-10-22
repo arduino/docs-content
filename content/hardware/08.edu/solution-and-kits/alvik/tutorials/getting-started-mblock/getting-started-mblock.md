@@ -1,5 +1,5 @@
 ---
-title: "Start With Alvik And Block-based Language"
+title: "Start With Alvik And Block-Based Language"
 difficulty: beginner
 description: "Take your first steps with Arduino® Alvik and mBlock."
 tags:
