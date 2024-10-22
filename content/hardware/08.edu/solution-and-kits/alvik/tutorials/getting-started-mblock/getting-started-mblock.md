@@ -1,5 +1,5 @@
 ---
-title: "Start with Alvik and Block-based Language"
+title: "Start With Alvik And Block-based Language"
 difficulty: beginner
 description: "Take your first steps with Arduino® Alvik and mBlock."
 tags:
@@ -95,7 +95,7 @@ To find the "mLink - mBlock web version driver" and download the appropriate fil
 
 
 
-## Connect the robot to mBlock
+## Connect the Robot to mBlock
 
 To program Alvik, start by opening the mBlock software if you haven’t already. Once the software is open, follow these steps to connect:
 
@@ -144,9 +144,9 @@ Explore mBlock to start programming Alvik. You'll find a list of visual blocks i
 
 Every parameter inside the **rectangle area**, for example the number `5` or the `cancel ▼` element in the dropdown menu can be edited, to give Alvik a different behavior.
 
-![yellow-blink](assets/yellow-blink.png)
+![yellow LED rectangle commands](assets/yellow-blink.png)
 
-Some blocks, for example in `Control` section, have an angular tile `⬣` parameter, where you can drag and drop in an entire block, allowing you to nest commands like`if <   > then {   }`.
+Some blocks, for example in the`Control` section, have an **hexagonal** tile `⬣` parameter, where you can drag and drop in an entire block, allowing you to nest commands like for `if <   > then {   }`.
 
 ## Blink
 
@@ -168,14 +168,14 @@ The goal of our first program is to make the LEDs flash when you press a button 
 
 Now you’ve created your first program: Alvik will turn on the left LED for one second when the OK `✔` button is pressed.
 
-![Blink](assets/blink.gif) 
+![Blink program](assets/blink.gif) 
 
 ### ToF Sensor Example
 
  use the command `if <   > then {   } else {   }`
- 
+
  Alvik needs time to read the distance sensor, and if you keep looping too fast, it might get overwhelmed. To fix this, add a **small delay** (about 0.1 seconds). This won’t change much in behavior but will give Alvik **enough time to read the sensor**.
- 
+
 ### Next Steps
 
 *  If you want to learn more about how Alvik is built or which functions you can use to program it, visit the documentation in the [Docs space for Alvik](https://docs.arduino.cc/hardware/alvik/) and follow the respective [Alvik's User Manual](https://docs.arduino.cc/hardware/alvik/user-manual) to know more about how to build incredible projects with your robot!
