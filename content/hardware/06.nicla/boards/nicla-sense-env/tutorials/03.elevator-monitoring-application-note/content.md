@@ -298,6 +298,8 @@ In the face detection process, some auxiliary functions are used to filter unwan
 
 ***You can download the complete example code for the Nicla Vision [here](assets/People_Count_Nicla_Vision.zip)***
 
+If you want to test the Nicla Vision example code **standalone** you must comment out the `i2c.send(buf)` line of the sketch, this is because it will show an error if it couldn't find the Portenta H7 on the I2C bus.
+
 ### Arduino Cloud Dashboard
 
 ### Complete Example Sketch
