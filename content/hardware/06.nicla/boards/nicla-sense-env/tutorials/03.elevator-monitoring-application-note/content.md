@@ -26,7 +26,7 @@ Air pollution is a threat that lurks even where we least expect it, from the com
 
 This application note describes the building of an air quality monitor and occupancy machine vision tracker for indoor environments, in this case an elevator.
 
-![Thumbnail](assets/thumb2.gif)
+![ ](assets/thumb2.gif)
 
 The monitoring system will measure the elevator's temperature, relative humidity, indoor air quality (IAQ), estimated CO₂ and total volatile organic compounds (TVOC) while counting the people inside the elevator. All this information will be forwarded to the Arduino Cloud for further visualization and tracking. The system will give a real-time visual feedback of the condition inside the elevator to warn people of harmful air quality.
 
