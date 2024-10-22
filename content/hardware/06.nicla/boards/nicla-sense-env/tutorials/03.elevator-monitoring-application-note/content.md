@@ -78,6 +78,8 @@ This diagram shows how the components are connected.
 - The Modulino Pixels is wired to the Portenta Mid Carrier using the Qwiic cable and fixed with the included screws and nuts.
 - The Nicla Vision and the Nicla Sense Env are wired to the Mid Carrier Proto Shield using ESLOV cables.
 
+### Powering Options
+
 To power the project you can use the terminal block of the Portenta Mid Carrier, the USB-C connector of the Portenta H7 or the barrel jack of the Mid Carrier Proto Shield.
 
 ![Powering options](assets/power-options.png)
@@ -107,6 +109,8 @@ The sensor can output air quality in the following three ways:
 We are going to use the **Relative Air Quality** range because it will give us a more accurate and sensitive range to measure variations in the air quality, use the following table for reference:
 
 ![Relative Air Quality table](assets/AQI.png)
+
+To complement the environment monitoring we are going to use also the **HS4001** temperature and humidity sensor of the Nicla Sense Env.
 
 ### Visual Air Quality Feedback
 
@@ -217,7 +221,7 @@ void setup() {
 }
 ```
 
-In the `loop()` function, the Nicla Sense Env sensores are read every 10 seconds, the people count is requested to the Nicla Vision and the Cloud connection is updated.
+In the `loop()` function, the Nicla Sense Env sensors are read every 10 seconds, the people count is requested to the Nicla Vision and the Cloud connection is updated.
 
 ```arduino
 void loop() {
@@ -252,7 +256,11 @@ We also control the Modulino Pixels color based on the IAQ and update the cloud 
 
 The `getPeopleCount()` function creates an I2C request asking for the people detected by the Nicla Vision.
 
+***You can download the complete example code for the Portenta H7 [here](assets/Smart_elevator_Portenta_h7.zip)***
+
 ### Nicla Vision Code
+
+The people counting feature of the project is achieved by the Nicla Vision running a FOMO face detection model. The
 
 ### Arduino Cloud Dashboard
 
