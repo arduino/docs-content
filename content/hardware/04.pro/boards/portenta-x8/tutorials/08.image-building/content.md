@@ -59,10 +59,18 @@ cd lmp-manifest
 Build the Docker image with the following command:
 
 ```bash
-docker build -t yocto-build ./lmp-manifest
+docker build -t yocto-build .
 ```
 
+***If you encounter issues running Docker commands, you may need to install the necessary Docker components. You can install the Docker CLI by running: **`winget install --id=Docker.DockerCLI -e`** or install [**Docker Desktop**](https://docs.docker.com/desktop/install/windows-install/), which includes all needed components.***
+
 ![Building a Docker Image](assets/docker_build.png)
+
+If you are building the Docker image one directory up, please use the following command:
+
+```bash
+docker build -t yocto-build ./lmp-manifest
+```
 
 You will see a confirmation message indicating the image's readiness if the build completes successfully.
 
@@ -76,6 +84,12 @@ To run the *`yocto-build`* image and begin an interactive session, use the follo
 
 ```bash
 docker run -v <source>:/dockerVolume -it yocto-build bash
+```
+
+If it encounters errors that may relate to entrypoint, you can use the following command instead of the previous command:
+
+```bash
+docker run --entrypoint /bin/bash -v <source>:/dockerVolume -it yocto-build
 ```
 
 Once inside the container, switch to the *`builder`* user to proceed with the build process. The password for the builder user is **builder**:
