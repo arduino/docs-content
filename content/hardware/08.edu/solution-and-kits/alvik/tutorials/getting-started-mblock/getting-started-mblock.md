@@ -1,12 +1,11 @@
 ---
-title: "Use Alvik with block-based language"
+title: "Start with Alvik and block-based language"
 difficulty: beginner
 description: "Take your first steps with Arduino® Alvik and mBlock."
 tags:
   - Robot, Block-based, Education
 author: "Gaia Castronovo"
 ---
-## Use Alvik with block-based language
 
 ![Alvik's Robot](assets/getting-started.jpg)
 
@@ -21,14 +20,13 @@ When unboxing Alvik, you should find the following items:
 
 ## Preparing Your Environment
 
-During the installation process, you may **need to install additional drivers**, which might require the **administrator login password**.
+During the installation process, you may **need to install additional drivers**, which  requires access to the **administrator login password** to your OS.
 
 ### Supported Systems
 
-You can use a computer with different systems like:
+You can use a computer with different operating systems like:
 
 * Windows
-
 * Mac, 
 * Chromebook, 
 * Linux. 
@@ -67,7 +65,7 @@ To install mBlock on Windows:
 
 3. Install the **drivers** to allow your computer to communicate with the robot. A window will appear asking you to click "INSTALL."
 
-![install driver](/assets/install-drivers.png)
+![install driver](assets/install-drivers.png)
 Sometimes, the driver installation window may open in the background. Look for the computer icon in your application bar and click it to continue.
 
 If you encounter an installation error, try clicking "UNINSTALL" and then "INSTALL" again. Once the driver installation is complete, close the driver window manually by clicking the "X" button. After installing the drivers, finish the mBlock installation.
