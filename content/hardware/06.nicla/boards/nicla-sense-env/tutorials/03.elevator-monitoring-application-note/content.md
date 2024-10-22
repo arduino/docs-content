@@ -22,7 +22,9 @@ software:
 
 ## Introduction
 
-Air pollution is a threat that lurks even where we least expect it, from the comfort of our homes to our workplaces. Pollutants like CO₂ and volatile organic compounds (TVOC) silently threaten our health, representing a determining factor for our quality of life. This application note describes the building of an air quality monitor and occupancy machine vision tracker for indoor environments, in this case an elevator.
+Air pollution is a threat that lurks even where we least expect it, from the comfort of our homes to our workplaces. Pollutants like CO₂ and volatile organic compounds (TVOC) silently threaten our health, representing a determining factor for our quality of life. 
+
+This application note describes the building of an air quality monitor and occupancy machine vision tracker for indoor environments, in this case an elevator.
 
 ![Thumbnail](assets/thumb2.gif)
 
@@ -55,7 +57,6 @@ This project is meant to be developed with the **Portenta Proto Kit** that inclu
 - Wi-Fi® W.FL antenna (x1)
 - ESLOV cable (x2)
 - Qwiic cable (x1)
-- Custom 3D printed parts
 
 ### Software Requirements
 
@@ -329,18 +330,16 @@ The complete project sketches can be downloaded here:
 
 ## Conclusions
 
-In this application note, we explored how to integrate a Portenta C33 board with a Nicla Sense Env board to monitor environmental data such as temperature, humidity, NO₂, O₃, and AQI. We also demonstrated how Arduino Cloud allows for easy remote monitoring and real-time visualization of this data.
+In this application note, we have learned how to implement an indoor air quality and occupancy monitoring system by turning a conventional elevator into a smart and monitored one.
 
-By using the Portenta C33, the Nicla Sense Env, and the Arduino Cloud, we can turn sensor readings into useful information. This setup makes it possible to monitor outdoor air quality, provide real-time feedback with the onboard RGB LED of the Portenta C33, and view the data remotely through a web dashboard or mobile app.
-
-The main takeaway from this application is its potential for real-world use. By integrating IoT and Cloud technology, we can monitor air quality remotely, respond to environmental changes more quickly, and contribute to improving living conditions and sustainability efforts.
+This application shows how Arduino's environment simplifies the workflow for developing smart solutions to address real industrial needs. The Arduino PRO product line is a perfect fit for developing robust and reliable projects for the industry. We covered on-site sensor data sampling, Machine Vision, and real-time Cloud monitoring.
 
 ## Next Steps
 
-There are several opportunities to enhance the functionality of the outdoor air quality monitor:
+Now that you know how to develop an indoor air quality and people counting system with the Portenta Prototyping Kit, it is time to continue exploring all the capabilities of the Arduino Pro environment. Integrate it with your professional setup and enhance it with powerful solutions.
 
-- Integrate additional sensors to measure specific pollutants such as carbon monoxide (CO) or sulfur dioxide (SO₂).
-- Optimize the monitor’s energy efficiency to support long-term use in remote or outdoor locations.
-- Create a custom dashboard on Arduino Cloud to track data trends over time and enable more in-depth air quality analysis.
-- Develop an alert system that notifies users when pollutant levels exceed safe limits.
-- Expand the system’s use to different geographical areas to gather comparative air quality data.
+You can take this solution even further by:
+
+- Create your own FOMO model using Edge Impulse to specifically detect persons instead of just faces.
+- Add the Modulino Buzzer to create a warning sound if the number of people in the elevator is exceeding the limit or the air quality is too bad.
+- Integrate the Arduino 4G Module for deployments without Wi-Fi or Ethernet.
