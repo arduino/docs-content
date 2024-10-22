@@ -1,5 +1,5 @@
 ---
-title: "Start with Alvik and block-based language"
+title: "Start with Alvik and Block-based Language"
 difficulty: beginner
 description: "Take your first steps with Arduino® Alvik and mBlock."
 tags:
@@ -9,7 +9,7 @@ author: "Gaia Castronovo"
 
 ![Alvik's Robot](assets/getting-started.jpg)
 
-Welcome to your first experience with Alvik, your companion for exploring robotics and programming. In this guide, we'll walk you through setting up your Alvik and starting your journey into block based.
+Welcome to your first steps with Alvik, your companion for exploring robotics and programming. In this guide, we'll walk you through setting up your Alvik and starting your journey with block based language.
 
 ## What’s Included in the Box 
 
@@ -20,7 +20,7 @@ When unboxing Alvik, you should find the following items:
 
 ## Preparing Your Environment
 
-During the installation process, you may **need to install additional drivers**, which  requires access to the **administrator login password** to your OS.
+During the installation process, you may **need to install additional drivers**, that require access to the **administrator login password** to your OS.
 
 ### Supported Systems
 
@@ -70,8 +70,6 @@ Sometimes, the driver installation window may open in the background. Look for t
 
 If you encounter an installation error, try clicking "UNINSTALL" and then "INSTALL" again. Once the driver installation is complete, close the driver window manually by clicking the "X" button. After installing the drivers, finish the mBlock installation.
 
-Find mBlock on your computer (it has a Panda icon) and open it.
-
 ### MacOS
 
 To install mBlock on macOS:
@@ -87,11 +85,9 @@ To install mBlock on macOS:
 
 If you're using a **Chromebook** ([read the full guide here](https://support.makeblock.com/hc/en-us/articles/19412317319191-Device-Connection-Guide-for-Chromebook-Latest-Version)) or a **Linux** machine, the installation process is different because there is no installable version of the software available. Instead, you'll use the online version of mBlock, which requires a special driver to connect to the robot.
 
-1. Scroll down to find the "mLink - mBlock web version driver" and download the appropriate file for your operating system.
+To find the "mLink - mBlock web version driver" and download the appropriate file for your operating system.
 
 ![download mlink](assets/mlink.png)
-
-2. Go to your Downloads folder and install the driver. The installation steps may vary depending on your operating system.
 
 ## Update Firmware
 
@@ -105,17 +101,17 @@ To program Alvik, start by opening the mBlock software if you haven’t already.
 
 **1.** Locate the robot's **on/off switch** and slide it to the **OFF** position.
 
-***To ensure a proper connection and protect the robot's battery, always turn off the robot before connecting it to your computer; it may not appear if left on***
+***To ensure a proper connection and protect the robot's battery, always turn off the robot before connecting it to your computer; it may not appear if left on.***
 
-![Alvik switch slide on or off](/block-based-coding-robotics/_assets/projects/00/robot-off.png)
+![Alvik switch slide on or off](assets/robot-off.png)
 
 **2.**  <a href="https://ide.mblock.cc">Open mBlock</a>. In the `Device` section, add Alvik as a programmable board by clicking the `+ Add` button, then selecting Alvik from the robot list.
 
 ![add device in mblock](assets/add-device.gif)
 
-**3.** **Connect the programming cable** to your computer and the Arduino Nano ESP32, the brain of the robot.
+**3.** **Connect the programming cable** to your computer and the Arduino Nano ESP32.
 
-![Connecting Alvik to the PC](assets/connecting-final.gif)
+![Connecting Alvik to the PC](assets/connecting_alvik.gif)
 
 **4.** Locate the robot's **on/off switch** and slide it to the **ON** position.
 
@@ -127,7 +123,7 @@ To program Alvik, start by opening the mBlock software if you haven’t already.
 
 **6.** Click the **Connect** button in the pop-up window.
 
-In the connect window, select the **Serial Port**, which is the interface the computer uses to communicate with the robot. On Windows, you might see something like COM4 (or another number), while on other operating systems, it could be something like `/dev/tty.[yourSerialPortName]`. mBlock typically detects the correct port automatically, but if you encounter any issues, make sure the selected port is the right one.
+In the connect window, select the **Serial Port**, in Windows you might see something like COM4 (or another number), while on other operating systems, it could be something like `/dev/tty.[yourSerialPortName]`. mBlock typically detects the correct port automatically, but if you encounter any issues, make sure the selected port is the right one.
 
 ![mblock connect button](assets/COM-port.png)
 
@@ -137,8 +133,20 @@ In the connect window, select the **Serial Port**, which is the interface the co
 
 Explore mBlock to start programming Alvik. You'll find a list of visual blocks in the center of the interface. Each block represents a command Alvik can execute, divided into **different colored folders by action kind**.
 
-![command list](assets/command-list-horiz.png)When you're creating a sequence of commands for Alvik you **always need to start by stating the initial event**:
-Find an `Event` command that starts when a button is pressed.
+![command list](assets/actions.png)When you're creating a sequence of commands for Alvik you **always need to start by stating the initial event** either:
+
+![event in the action menu](assets/events.png)
+
+* `When Alvik starts`  - the code will be executed the moment you turn ON Alvik.
+* `When button [] is pressed` - the code will be executed the moment you press the designated button.
+
+### Blocks Parameters
+
+Every parameter inside the **rectangle area**, for example the number `5` or the `cancel ▼` element in the dropdown menu can be edited, to give Alvik a different behavior.
+
+![yellow-blink](assets/yellow-blink.png)
+
+Some blocks, for example in `Control` section, have an angular tile `⬣` parameter, where you can drag and drop in an entire block, allowing you to nest commands like`if <   > then {   }`.
 
 ## Blink
 
@@ -156,16 +164,18 @@ The goal of our first program is to make the LEDs flash when you press a button 
 
 2. Next, go to the `LEDs` folder and drag `set [left] LED color to [RED] for (1) seconds` into the coding area, connecting it to the previous command.
 
-3. You need to upload the code to the robot. **Remember to turn ON the robot before uploading the code.** Transfer the program from the PC to the board by clicking the blue `Upload Code` button in the left side of the interface, and wait for the file transfer. You are now ready to test the code: let's press the `✔` button on the Alvik!
+3. You need to upload the code to the robot. **Remember to turn ON the robot when you are transferring the code.** Click the `Upload Code` button in the left side of the interface, and wait for the file transfer. 
 
 Now you’ve created your first program: Alvik will turn on the left LED for one second when the OK `✔` button is pressed.
 
 ![Blink](assets/blink.gif) 
 
-Every parameter inside the white area (for example the number `1` or the `▼` element in the dropdown menu) may be edited, to give Alvik a different behavior. Let's try to edit the program to make the robot turn on *yellow* both LEDs, for *5 seconds*, when button `cancel` is pressed.
+### ToF Sensor Example
 
-![yellow-blink](/block-based-coding-robotics/_assets/projects/00/yellow-blink.png) 
-
+ use the command `if <   > then {   } else {   }`
+ 
+ Alvik needs time to read the distance sensor, and if you keep looping too fast, it might get overwhelmed. To fix this, add a **small delay** (about 0.1 seconds). This won’t change much in behavior but will give Alvik **enough time to read the sensor**.
+ 
 ### Next Steps
 
 *  If you want to learn more about how Alvik is built or which functions you can use to program it, visit the documentation in the [Docs space for Alvik](https://docs.arduino.cc/hardware/alvik/) and follow the respective [Alvik's User Manual](https://docs.arduino.cc/hardware/alvik/user-manual) to know more about how to build incredible projects with your robot!
