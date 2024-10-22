@@ -24,7 +24,7 @@ software:
 
 Air pollution is a threat that lurks even where we least expect it, from the comfort of our homes to our workplaces. Pollutants like CO₂ and volatile organic compounds (TVOC) silently threaten our health, representing a determining factor for our quality of life. This application note describes the building of an air quality monitor and occupancy machine vision tracker for indoor environments, in this case an elevator.
 
-![Hardware needed for the project](assets/hardware.png)
+![Thumbnail](assets/thumb2.gif)
 
 The monitoring system will measure the elevator's temperature, relative humidity, indoor air quality (IAQ), estimated CO₂ and total volatile organic compounds (TVOC) while counting the people inside the elevator. All this information will be forwarded to the Arduino Cloud for further visualization and tracking. The system will give a real-time visual feedback of the condition inside the elevator to warn people of harmful air quality.
 
@@ -279,10 +279,13 @@ if __name__ == "__main__":
         green_led.on() if faces > 0 else green_led.off() # Turn on green LED when face is detected
 
         if(faces > 0):
+            i2c.init(I2C.PERIPHERAL, addr=0x35) 
             print("Faces detected:", faces)
             buf[0] = faces
             i2c.send(buf)
-
+        else:
+            i2c.deinit() 
+           
         now = ticks_ms()
 ```
 
@@ -300,20 +303,29 @@ In the face detection process, some auxiliary functions are used to filter unwan
 
 If you want to test the Nicla Vision example code **standalone** you must comment out the `i2c.send(buf)` line of the sketch, this is because it will show an error if it couldn't find the Portenta H7 on the I2C bus.
 
-### Arduino Cloud Dashboard
-
-### Complete Example Sketch
-
-The complete improved example sketch can be downloaded [here]().
-
-## Connecting the Environmental Monitor to Arduino Cloud
-
+***For the Nicla Vision to run the sketch once is powered up you must put the code inside the `main.py` file in the file system.***
 
 ### Arduino Cloud Dashboard
 
-The Arduino Cloud allows us to create a dashboard with professional real-time Human-Computer Interaction (HCI) elements, as seen in the following animation shows an active outdoor air quality monitor. **The animation has been sped up for illustrative purposes**.
+By leveraging the Arduino Cloud, we can seamlessly integrate a simple yet powerful dashboard to monitor and visualize the system status in real-time:
 
+![Arduino Cloud dashboard](assets/dashboard.gif)
 
+Within the Arduino Cloud's dashboard, the system variables can be monitored with the following widgets:
+
+- System variable gauge showing relative humidity.
+- Numeric state widgets to show IAQ, temperature, CO₂, ethanol and TVOC readings.
+- Advanced charts showing historical record of CO₂, ethanol, temperature and humidity.
+- People occupancy historical chart and current state.
+
+### Complete Project Sketch
+
+![Project sketches](assets/ide.png)
+
+The complete project sketches can be downloaded here:
+
+- [Portenta H7 code](assets/Smart_elevator_Portenta_h7.zip)
+- [Nicla Vision code](assets/People_Count_Nicla_Vision.zip)
 
 ## Conclusions
 
