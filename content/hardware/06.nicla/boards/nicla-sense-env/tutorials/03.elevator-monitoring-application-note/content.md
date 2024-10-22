@@ -176,7 +176,7 @@ ModulinoPixels leds;
 In the `setup()` function, a variety of peripherals are initialized, including:
 
 - Serial communication
-- I2C connection
+- I2C communication
 - Arduino Cloud properties
 - Nicla Sense Env communication and sensor objects
 - Modulino Pixels
@@ -336,10 +336,10 @@ This application shows how Arduino's environment simplifies the workflow for dev
 
 ## Next Steps
 
-Now that you know how to develop an indoor air quality and people counting system with the Portenta Prototyping Kit, it is time to continue exploring all the capabilities of the Arduino Pro environment. Integrate it with your professional setup and enhance it with powerful solutions.
+Now that you know how to develop an indoor air quality and people counting system with the Portenta Proto Kit, it is time to continue exploring all the capabilities of the Arduino Pro environment. Integrate it with your professional setup and enhance it with powerful solutions.
 
 You can take this solution even further by:
 
-- Create your own FOMO model using Edge Impulse to specifically detect persons instead of just faces.
-- Add the Modulino Buzzer to create a warning sound if the number of people in the elevator is exceeding the limit or the air quality is too bad.
-- Integrate the Arduino 4G Module for deployments without Wi-Fi or Ethernet.
+- Creating your own FOMO model using Edge Impulse to specifically detect persons instead of just faces.
+- Adding the Modulino Buzzer to create a warning sound if the number of people in the elevator is exceeding the limit or the air quality is too bad.
+- Integrating the Arduino 4G Module for deployments without Wi-Fi or Ethernet.
