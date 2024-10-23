@@ -156,7 +156,9 @@ Every parameter inside the **rectangle area**, for example the number `5` or the
 
 Some blocks, for example in the`Control` section, have an **hexagonal** tile `⬣` parameter, where you can drag and drop in an entire block, allowing you to nest commands like for `if <   > then {   }`.
 
-## Blink
+![Nesting parameters inside a block](assets/angular-parameter.png)
+
+## Blink Example
 
 Alvik comes with two built-in **RGB LEDs**, located on top of the robot.
 
@@ -180,9 +182,19 @@ Now you’ve created your first program: Alvik will turn on the left LED for one
 
 ### ToF Sensor Example
 
- use the command `if <   > then {   } else {   }`
+In this second example Alvik will try to keep a constant distance from an object, moving back and forward accordingly.
 
- Alvik needs time to read the distance sensor, and if you keep looping too fast, it might get overwhelmed. To fix this, add a **small delay** (about 0.1 seconds). This won’t change much in behavior but will give Alvik **enough time to read the sensor**.
+<video width="100%" loop autoplay>
+<source src="assets/tof-video.mp4" type="video/mp4" />
+</video>
+
+Navigate to `Control` commands folder.
+
+Inside a loop block called `forever` , use the command `if <   > then {   } else {   }` 
+
+Alvik needs time to read the distance sensor therefore we need to avoid executing the loop block `forever` too fast. To fix this, add a **small delay** (about 0.1 seconds) with the block `wait ( )`. This won’t change much in behavior but will give Alvik **enough time to read the sensor**.
+
+We'll also use two other kind of blocks: `Motor` contains all actions to control Alvik's wheels and inside the folder `Distance Sensors` the blocks to control the Time of Flight sensor.
 
 ### Next Steps
 
