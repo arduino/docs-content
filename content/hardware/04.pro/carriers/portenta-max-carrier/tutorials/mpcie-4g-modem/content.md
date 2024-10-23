@@ -335,6 +335,12 @@ nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn hologram connection.auto
 If your SIM card requires a PIN, update the command as follows:
 
 ```bash
+nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn <APN> gsm.pin <PIN>
+```
+
+For instance, if you are using Vodafone in Italy, you can replace the `<APN>` field with `mobile.vodafone.it` and include the PIN number as well:
+
+```bash
 nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn mobile.vodafone.it gsm.pin <PIN>
 ```
 
@@ -444,6 +450,12 @@ Ensure that the Docker container has access to the GPIO device files by passing 
 docker run --device /dev/gpiochip5 <docker-image>
 ```
 
+The `<docker-image>` field is the name of the Docker image you want to run with access to the GPIO device files. For example, if your Docker image is called `my_modem_image`, the command would look like this:
+
+```bash
+docker run --device /dev/gpiochip5 my_modem_image
+```
+
 Inside the container, an **entrypoint.sh** script can control the modem's power via GPIO, with the 3.3V Buck Converter line connected to the **PCIE Enable (GPIO5)** pin. The following command can be added to the script:
 
 ```bash
@@ -488,7 +500,6 @@ After the speed test, you might observe results similar to the following image.
 
 ***The download and upload speed may vary depending on the region.***
 
-
 For a more streamlined approach, you can use the following single-line command:
 
 ```bash
@@ -496,6 +507,12 @@ nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn hologram connection.auto
 ```
 
 If your SIM card requires a PIN, adjust the command as follows:
+
+```bash
+nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn <APN> gsm.pin <PIN>
+```
+
+For instance, if you are using Vodafone in Italy, you can replace the `<APN>` field with `mobile.vodafone.it` and include the PIN number as well:
 
 ```bash
 nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn mobile.vodafone.it gsm.pin <PIN>

@@ -2189,9 +2189,7 @@ systemctl stop ModemManager
 
 After stopping **ModemManager**, there will be a delay before the modem can be powered back on and detected by **mmcli**. The delay is around **20 seconds** for appropriate initialization.
 
-Make sure the mini PCIe power configuration is configured as described in the [Mini PCIe Power Breakout Header](#mini-pcie-power-breakout-header-j9) section. The Portenta X8 requires the **PCIE Enable (GPIO5)** pin to be connected to a **VCC (3V3)** pin.
-
-Modems may get stuck on certain occasions, so it is recommended that power be managed through software to allow modem rebooting when necessary.
+***Make sure the mini PCIe power configuration is configured as described in the [Mini PCIe Power Breakout Header](#mini-pcie-power-breakout-header-j9) section. The Portenta X8 requires the __PCIE Enable (GPIO5)__ pin to be connected to a __VCC (3V3)__ pin. Modems may get stuck on certain occasions, so it is recommended that power be managed through software to allow modem rebooting when necessary.***
 
 #### Modem Configuration
 
@@ -2263,6 +2261,12 @@ Ensure that the Docker container has access to the GPIO device files by passing 
 
 ```bash
 docker run --device /dev/gpiochip5 <docker-image>
+```
+
+The `<docker-image>` field is the name of the Docker image you want to run with access to the GPIO device files. For example, if your Docker image is called `my_modem_image`, the command would look like this:
+
+```bash
+docker run --device /dev/gpiochip5 my_modem_image
 ```
 
 Inside the container, an **entrypoint.sh** script can control the modem's power via GPIO, with the 3.3V Buck Converter line connected to the **PCIE Enable (GPIO5)** pin. The following command can be added to the script:
@@ -2344,6 +2348,12 @@ nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn hologram connection.auto
 ```
 
 In case the SIM card requires a PIN number, the format is modified slightly as follows:
+
+```bash
+nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn <APN> gsm.pin <PIN>
+```
+
+For instance, if you are using Vodafone in Italy, you can replace the `<APN>` field with `mobile.vodafone.it` and include the PIN number as well:
 
 ```bash
 nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn mobile.vodafone.it gsm.pin <PIN>
@@ -2573,7 +2583,7 @@ sudo qmicli -d /dev/cdc-wdm0 --dms-get-manufacturer
 
 Power management for the **EC200A-EU module** may require manual intervention, particularly if **ModemManager** is disabled or when using Docker. Make sure the mini PCIe power configuration is configured as described in the [Mini PCIe Power Breakout Header](#mini-pcie-power-breakout-header-j9) section. The Portenta X8 requires the **PCIE Enable (GPIO5)** pin to be connected to a **VCC (3V3)** pin. This is a required power setup for proper system operation.
 
-Additionally, sometimes the modem may become unresponsive, so it is recommended that you have a software based power control, which allows you to reboot the modem when necessary.
+***Sometimes the modem may become unresponsive, so it is recommended that you have a software based power control, which allows you to reboot the modem when necessary.***
 
 You can create a custom script using the `gpiod` library to manage modem power via software. Ensure that the jumper connection mentioned previously is in place for this to work. The script can be used to power the modem and provide the required delay for proper initialization. A typical example is as follows:
 
