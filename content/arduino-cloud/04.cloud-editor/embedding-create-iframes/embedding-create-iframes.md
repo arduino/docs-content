@@ -76,12 +76,12 @@ You can highlight as many lines as you want, and it is easily configurable. For 
 It's also possible to only show specific lines by adding the `scope` parameter, like this:
 
 ```markup
-&scope=L3-L30
+&scope=L24-L37
 ```
 
-The result is that only lines 3 to 30 are shown.
+The result is that only lines 24 to 37 are shown.
 
-<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet&scope=L24-L28" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet&scope=L24-L37" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
 
 The full URL should look like this:
 ```markup
