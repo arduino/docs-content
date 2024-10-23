@@ -62,6 +62,8 @@ The following image provides the position of the Power Jack on the Portenta Max 
 
 ![Portenta Max Carrier Power Jack](assets/portentaMAXcarrier_power_distro.png)
 
+***Modems may get stuck on certain occasions, so it is recommended that power be managed through software to allow modem rebooting when necessary.***
+
 ## Mini PCI Express
 
 **Mini PCIe**, short for Mini Peripheral Component Interconnect Express, is a smaller version of the PCIe interface mainly used in laptops and small devices to add features such as Wi-Fi®, Bluetooth®, and cellular connectivity.
