@@ -92,7 +92,7 @@ For the **Portenta Mid Carrier**, the `BOOT SEL` DIP switch should be set to the
 
 ![Portenta Mid Carrier DIP switches](assets/midCarrier-dip-switches.png)
 
-**You must connect one USB-C® end to the Portenta X8 and the other (USB-C® or USB-A) to your computer.** With this, the Portenta X8 is ready to begin the flashing process.
+**You must connect one USB-C® end to the Portenta X8 and the other USB-A to your computer.** Using a USB-C® to USB-C® cable may cause compatibility issues during the process, so it is recommended to use a [USB-C® to USB-A cable](https://store.arduino.cc/products/usb-cable2in1-type-c). With this, the Portenta X8 is ready to begin the flashing process.
 
 #### Flashing Mode without Carrier
 
@@ -138,7 +138,7 @@ If the command is not recognized, use this command with the additional prefixes:
 
 If you have followed the [**Flashing Mode without Carrier** method](#flashing-mode-without-carrier) to flash a factory or custom image, the `uuu` command should be active and waiting to connect with the board.
 
-While the process is active, please unplug and reconnect the USB-C® cable powering the Portenta X8 to allow entering the programming mode of the boot sequence. It should trigger the standing-by `uuu` task to run the flash process.
+While the process is active, please unplug and reconnect the USB cable powering the Portenta X8 to allow entering the programming mode of the boot sequence. It should trigger the standing-by `uuu` task to run the flash process.
 
 When the flashing operation is finished, you should see a similar result as the following figure:
 
