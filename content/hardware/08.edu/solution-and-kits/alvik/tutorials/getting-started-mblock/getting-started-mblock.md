@@ -63,12 +63,12 @@ To install mBlock on Windows:
 
 2. Double-click the downloaded file and click "YES" when prompted. Follow the on-screen instructions to complete the installation.
 
-3. Install the **drivers** to allow your computer to communicate with the robot. A window will appear asking you to click "INSTALL."
+3. Install the **drivers**: a window will appear asking you to click "INSTALL."
 
 ![install driver](assets/install-drivers.png)
-Sometimes, the driver installation window may open in the background. Look for the computer icon in your application bar and click it to continue.
+The driver installation window may occasionally open in the background. If this happens, look for the computer icon in your taskbar and click it to proceed. 
 
-If you encounter an installation error, try clicking "UNINSTALL" and then "INSTALL" again. Once the driver installation is complete, close the driver window manually by clicking the "X" button. After installing the drivers, finish the mBlock installation.
+If you encounter an installation error, click 'UNINSTALL' and then 'INSTALL' again. Once the drivers are installed, close the driver window manually by clicking the 'X'. Afterward, complete the mBlock installation.
 
 ### MacOS
 
@@ -88,12 +88,6 @@ If you're using a **Chromebook** ([read the full guide here](https://support.mak
 To find the "mLink - mBlock web version driver" and download the appropriate file for your operating system.
 
 ![download mlink](assets/mlink.png)
-
-## Update Firmware
-
-
-
-
 
 ## Connect the Robot to mBlock
 
@@ -129,15 +123,29 @@ In the connect window, select the **Serial Port**, in Windows you might see some
 
 **7.** You are **ready** to work!
 
+## Update Firmware with Alvik Updater
+
+![Alvik Firmware Updater](assets/AlvikFirmwareUpdater30sec.gif)
+
+1. Visit https://alvikupdate.arduino.cc.
+2. Connect Alvik to your computer.
+3. Turn ON your Alvik.
+4. Click the "Connect" button.
+5. **A pop-up window will appear** prompting you to select the COM port. Choose the correct port and confirm.
+6. Once connected, click the "Update" button and wait for the process to complete.
+
 ## Blocks 
 
 Explore mBlock to start programming Alvik. You'll find a list of visual blocks in the center of the interface. Each block represents a command Alvik can execute, divided into **different colored folders by action kind**.
 
-![command list](assets/actions.png)When you're creating a sequence of commands for Alvik you **always need to start by stating the initial event** either:
+![command list](assets/actions.png)When you're creating a sequence of commands for Alvik you **always need to start by stating the initial event**:
 
 ![event in the action menu](assets/events.png)
 
 * `When Alvik starts`  - the code will be executed the moment you turn ON Alvik.
+
+or
+
 * `When button [] is pressed` - the code will be executed the moment you press the designated button.
 
 ### Blocks Parameters
