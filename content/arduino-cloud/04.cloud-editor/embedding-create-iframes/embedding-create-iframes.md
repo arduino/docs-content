@@ -14,7 +14,8 @@ First of all, we need to navigate to the [Cloud Editor](https://app.arduino.cc/s
 
 Then, we need to have a code. In this tutorial, we are just going to use the good old **blink** example. When we have our sketch ready, click on the **share** button next to the serial monitor tool. This will open up a new window, that will have two fields: **link** and **embed**. Copy the embed field.
 
-![embed field](./assets/Embed_1.png)
+![Embed in HTML code](./assets/Embed_1.png)
+
 
 It should look something like this:
 
