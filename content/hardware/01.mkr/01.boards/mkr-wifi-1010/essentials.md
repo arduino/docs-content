@@ -1,3 +1,10 @@
+---
+productsLibrariesMap:
+  - wifinina
+  - arduinomqttclient
+  - arduinoble
+---
+
 <EssentialsColumn title="First Steps">
   <EssentialElement title="Quickstart Guide" link="/software/ide-v2/tutorials/ide-v2-board-manager" type="getting-started">
     All you need to know to get started with your new Arduino board.
