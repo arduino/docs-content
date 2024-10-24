@@ -348,33 +348,26 @@ nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn mobile.vodafone.it gsm.p
 
 #### EMEA EC200A-EU Module
 
-For the **EMEA (EC200A-EU) Module**, which requires **mmcli**, use the following command to connect to the network after patching **ModemManager**:
+The **EMEA (EC200A-EU) Module** can be used with **ModemManager** for network connectivity. To connect the module to the network, use the following command:
 
 ```bash
 mmcli -m 0 --simple-connect='apn=iot.1nce.net,ip-type=ipv4v6'
 ```
 
-Ensure the `udev` rule remaps the USB `eth0` interface to `ec200aeu`. The rule can be applied as follows:
+The latest images include the necessary `udev` rules for managing the EC200A-EU module. To verify the `udev` rule, you can check the `75-ec200aeu.rules` file using the following command:
 
 ```bash
-sudo nano /etc/udev/rules.d/99-remap-ec200aeu.rules
+cat /etc/udev/rules.d/75-ec200aeu.rules
 ```
 
-Add the following line:
+This rule file typically contains the following:
 
 ```bash
-SUBSYSTEM=="net", ACTION=="add", KERNEL=="eth0", NAME="ec200aeu"
+SUBSYSTEM=="net", ACTION=="add", ATTRS{idVendor}=="2c7c", ATTRS{idProduct}=="6005", NAME="ec200aeu"
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="ec200aeu", TAG+="systemd", ENV{SYSTEMD_WANTS}="ec200a-eu.service"
 ```
 
-Then reload the rules:
-
-```bash
-sudo udevadm control --reload-rules
-```
-
-```bash
-sudo udevadm trigger
-```
+These rules automatically manage the `ec200aeu` network interface and ensure the required service starts.
 
 #### For QMI Based Modems
 

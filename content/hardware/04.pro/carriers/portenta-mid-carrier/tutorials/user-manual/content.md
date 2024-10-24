@@ -2239,13 +2239,26 @@ This configuration will prevent the **GNSS Global (EG25) Module** from using the
 
 #### EMEA EC200A-EU Module
 
-The **EMEA (EC200A-EU) Module** is not directly supported by **ModemManager** out of the box and requires a compatibility patch. Once the patch is applied, you can connect to the network using:
+The **EMEA (EC200A-EU) Module** can be used with **ModemManager** for network connectivity. To connect the module to the network, use the following command:
 
 ```bash
 mmcli -m 0 --simple-connect='apn=iot.1nce.net,ip-type=ipv4v6'
 ```
 
-The modem will create a USB `eth0` interface that will be remapped into `ec200aeu` by an `udev` rule.
+The latest images include the necessary `udev` rules for managing the EC200A-EU module. To verify the `udev` rule, you can check the `75-ec200aeu.rules` file using the following command:
+
+```bash
+cat /etc/udev/rules.d/75-ec200aeu.rules
+```
+
+This rule file typically contains the following:
+
+```bash
+SUBSYSTEM=="net", ACTION=="add", ATTRS{idVendor}=="2c7c", ATTRS{idProduct}=="6005", NAME="ec200aeu"
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="ec200aeu", TAG+="systemd", ENV{SYSTEMD_WANTS}="ec200a-eu.service"
+```
+
+These rules ensure that the `ec200aeu` interface is managed automatically and that the necessary service starts.
 
 #### Docker Environment and Power Management
 
