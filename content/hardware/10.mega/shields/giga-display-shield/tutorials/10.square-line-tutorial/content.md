@@ -207,8 +207,6 @@ void loop() {
 
 If there is a need to rotate the UI created in SqaureLine on the GIGA Display Shield, there is one line that needs to be added to one of the exported library files. In the **ui -> src** folder, find the `ui.c` file and open it.
 
-![Finding ui.c inside the folders]()
-
 The lvgl code we need to add is:
 
 ```arduino
@@ -217,7 +215,7 @@ lv_display_set_rotation(dispp, rotation);
 
 Where `rotation` can be set to `0`, `90`, `180` or `270` depending on how much you want to rotate the UI.
 
-![Rotation code added to ui.c file]()
+![Rotation code added to ui.c file](assets/ui_rotation.png)
 
 ## Next Step
 
