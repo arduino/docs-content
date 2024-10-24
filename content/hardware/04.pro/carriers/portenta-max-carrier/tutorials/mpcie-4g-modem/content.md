@@ -328,7 +328,7 @@ Once the overlays are set, please reboot the Portenta X8 to ensure the configura
 
 #### GNSS Global EG25 Module
 
-For the **GNSS Global (EG25) Module**, you can configure the modem using **nmcli**:
+The **GNSS Global (EG25) Module** supports the QMI interface, making it compatible with **NetworkManager**. You can configure the modem using **nmcli** (NetworkManager’s command-line tool):
 
 ```bash
 nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn hologram connection.autoconnect yes

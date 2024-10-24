@@ -2195,7 +2195,7 @@ After stopping **ModemManager**, there will be a delay before the modem can be p
 
 #### Global EG25 Module
 
-The **Global EG25 Module** is supported by **NetworkManager**, allowing you to configure it easily. To set up a connection, use the following command:
+The **Global EG25 Module** supports the QMI interface, making it compatible with **NetworkManager**. You can configure it using **nmcli**, the command-line tool for **NetworkManager**. To set up a connection, use the following command:
 
 ```bash
 nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn hologram connection.autoconnect yes
