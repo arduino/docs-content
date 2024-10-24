@@ -11,6 +11,8 @@ To use the [Arduino Nano ESP32](/hardware/nano-esp32) board, you will need to in
 
 To install it, you will need the Arduino IDE, which you can download from the [Arduino Software page](https://www.arduino.cc/en/software). In this guide, we will use the latest version of the IDE 2.
 
+***Note: The Nano ESP32 utilizes the Arduino ESP32 Boards core based on the 2.x branch of the arduino-esp32 core, leveraging ESP-IDF version v5.1.4. Please be aware that functions and features may differ between versions, so ensure you reference the correct documentation for this setup.***
+
 ## Software & Hardware Needed
 
 - [Arduino Nano ESP32](https://store.arduino.cc/nano-esp32)
