@@ -7,7 +7,7 @@ tags:
 author: "Gaia Castronovo"
 ---
 
-![Alvik's Robot](assets/getting-started.jpg)
+![Alvik Robot](assets/getting-started.jpg)
 
 Welcome to your first steps with Alvik, your companion for exploring robotics and programming. In this guide, we'll walk you through setting up your Alvik and starting your journey with block based language.
 
@@ -17,6 +17,19 @@ When unboxing Alvik, you should find the following items:
 
 - Alvik robot
 - USB-C® cable (located under the cardboard tray)
+
+## Update Firmware with Alvik Updater
+
+Updating the firmware on your Alvik ensures it has the latest features, bug fixes, and performance improvements. Regular updates help maintain compatibility with the mBlock software and ensure optimal performance of your robot.
+
+![Alvik Firmware Updater](assets/AlvikFirmwareUpdater30sec.gif)
+
+1. Visit https://alvikupdate.arduino.cc.
+2. Connect Alvik to your computer.
+3. Turn ON your Alvik.
+4. Click the "Connect" button.
+5. **A pop-up window will appear** prompting you to select the COM port. Choose the correct port and confirm.
+6. Once connected, click the "Update" button and wait for the process to complete.
 
 ## Preparing Your Environment
 
@@ -37,7 +50,7 @@ You can use a computer with different operating systems like:
 
 For a quick start, you can use the *mBlock web version*. Scroll down on the [download page](https://mblock.cc/pages/downloads) to download the correct **mLink driver** for your **operating system**.
 
-![mlink drivers](assets/mlink-1.png)
+![mlink web version](assets/mlink-1.png)
 
 After downloading, install the **drivers**. This small software helps your computer communicate with the robot. When prompted, simply click "INSTALL."
 
@@ -51,7 +64,7 @@ Please [download the software](https://mblock.cc/pages/downloads), then double-c
 
 If you're using a *Windows* or *Mac* computer, scroll down the page and click the appropriate button. For *Chromebook* or *Linux* users, the process is slightly different.
 
-![download webpage](assets/download-version.png)
+![Download Webpage](assets/download-version.png)
 
 ### Windows
 
@@ -59,13 +72,13 @@ To install mBlock on Windows:
 
 1. Click the "Download for Windows" button, wait for the download to finish, and find the file in your Downloads folder.
 
-![download folder](assets/installing-download.png)
+​	![Download Folder](assets/installing-download.png)
 
 2. Double-click the downloaded file and click "YES" when prompted. Follow the on-screen instructions to complete the installation.
 
 3. Install the **drivers**: a window will appear asking you to click "INSTALL."
 
-![install driver](assets/install-drivers.png)
+	![install driver](assets/install-drivers.png)
 The driver installation window may occasionally open in the background. If this happens, look for the computer icon in your taskbar and click it to proceed. 
 
 If you encounter an installation error, click 'UNINSTALL' and then 'INSTALL' again. Once the drivers are installed, close the driver window manually by clicking the 'X'. Afterward, complete the mBlock installation.
@@ -77,7 +90,7 @@ To install mBlock on macOS:
 1. Click on the "Download for Mac" button on the [Download page](https://mblock.cc/pages/downloads), wait for the download to finish, and find the file in your Downloads folder.
 2. Double-click the downloaded file to mount the `.dmg` file. Then, drag the Panda icon to the Applications folder.
 
-![install on mac](assets/install-mac.png)
+	![Install on mac](assets/install-mac.png)
 
 3. Open the Applications folder, locate the mBlock app, and open it. The first time you open the software, right-click (or Control-click) on the app and select "Open" from the dropdown menu.
 
@@ -87,7 +100,7 @@ If you're using a **Chromebook** ([read the full guide here](https://support.mak
 
 To find the "mLink - mBlock web version driver" and download the appropriate file for your operating system.
 
-![download mlink](assets/mlink.png)
+![download  Chromebook mlink](assets/mlink.png)
 
 ## Connect the Robot to mBlock
 
@@ -97,11 +110,11 @@ To program Alvik, start by opening the mBlock software if you haven’t already.
 
 ***To ensure a proper connection and protect the robot's battery, always turn off the robot before connecting it to your computer; it may not appear if left on.***
 
-![Alvik switch slide on or off](assets/robot-off.png)
+![Alvik switch slide OFF](assets/robot-off.png)
 
 **2.**  <a href="https://ide.mblock.cc">Open mBlock</a>. In the `Device` section, add Alvik as a programmable board by clicking the `+ Add` button, then selecting Alvik from the robot list.
 
-![add device in mblock](assets/add-device.gif)
+![Add device in mblock](assets/add-device.gif)
 
 **3.** **Connect the programming cable** to your computer and the Arduino Nano ESP32.
 
@@ -109,38 +122,27 @@ To program Alvik, start by opening the mBlock software if you haven’t already.
 
 **4.** Locate the robot's **on/off switch** and slide it to the **ON** position.
 
-![Alvik switch slide on or off](assets/alvik-on.png)
+![Alvik switch slide on](assets/alvik-on.png)
 
 **5.** Establish the connection to **mBlock** clicking on the **Connect** button.
 
-![mblock connect button](assets/connect-button.png)
+![mBlock connect button](assets/connect-button.png)
 
 **6.** Click the **Connect** button in the pop-up window.
 
 In the connect window, select the **Serial Port**, in Windows you might see something like COM4 (or another number), while on other operating systems, it could be something like `/dev/tty.[yourSerialPortName]`. mBlock typically detects the correct port automatically, but if you encounter any issues, make sure the selected port is the right one.
 
-![mblock connect button](assets/COM-port.png)
+![mblock COM port selection](assets/COM-port.png)
 
 **7.** You are **ready** to work!
 
-## Update Firmware with Alvik Updater
-
-![Alvik Firmware Updater](assets/AlvikFirmwareUpdater30sec.gif)
-
-1. Visit https://alvikupdate.arduino.cc.
-2. Connect Alvik to your computer.
-3. Turn ON your Alvik.
-4. Click the "Connect" button.
-5. **A pop-up window will appear** prompting you to select the COM port. Choose the correct port and confirm.
-6. Once connected, click the "Update" button and wait for the process to complete.
-
 ## Blocks 
 
-Explore mBlock to start programming Alvik. You'll find a list of visual blocks in the center of the interface. Each block represents a command Alvik can execute, divided into **different colored folders by action kind**.
+Explore mBlock to start programming your Alvik. In the center of the interface, you’ll find a list of visual blocks, each representing a command that Alvik can execute. These blocks are grouped **into color-coded categories based on the type of action** they perform.
 
-![command list](assets/actions.png)When you're creating a sequence of commands for Alvik you **always need to start by stating the initial event**:
+![Command List](assets/actions.png)When you're creating a sequence of commands for Alvik you **always need to start by stating the initial event**:
 
-![event in the action menu](assets/events.png)
+![Event in the action menu](assets/events.png)
 
 * `When Alvik starts`  - the code will be executed the moment you turn ON Alvik.
 
@@ -168,7 +170,7 @@ On the top of Alvik you can also find **8 buttons**, that let you operate the ro
 
 ![Alvik buttons](assets/touchButtons.png)
 
-The goal of our first program is to make the LEDs flash when you press a button on Alvik:
+The goal of **our first program** is to make the LEDs flash when you press a button on Alvik:
 
 1. Navigate to the `Events` folder and drag the command `When button [ok] is pressed` to the coding area on the right. 
 
@@ -194,9 +196,10 @@ Inside a loop block called `forever` , use the command `if <   > then {   } else
 
 Alvik needs time to read the distance sensor therefore we need to avoid executing the loop block `forever` too fast. To fix this, add a **small delay** (about 0.1 seconds) with the block `wait ( )`. This won’t change much in behavior but will give Alvik **enough time to read the sensor**.
 
-We'll also use two other kind of blocks: `Motor` contains all actions to control Alvik's wheels and inside the folder `Distance Sensors` the blocks to control the Time of Flight sensor.
+We'll also use two other types of blocks: the `Motor` blocks contain all the actions needed to control Alvik's wheels, while the `Distance Sensors` folder holds the blocks for controlling the Time of Flight sensor.
 
 ### Next Steps
 
+*  For more in depth block-based guided projects with STEAM topics [visit the course page](https://courses.arduino.cc/block-based-coding-robotics).
 *  If you want to learn more about how Alvik is built or which functions you can use to program it, visit the documentation in the [Docs space for Alvik](https://docs.arduino.cc/hardware/alvik/) and follow the respective [Alvik's User Manual](https://docs.arduino.cc/hardware/alvik/user-manual) to know more about how to build incredible projects with your robot!
 * If you want to follow step-by-step guided projects following an educational approach to learn MicroPython and robotics topics with Alvik, follow the [Explore Robotics in MicroPython](https://courses.arduino.cc/explore-robotics-micropython/) course.
