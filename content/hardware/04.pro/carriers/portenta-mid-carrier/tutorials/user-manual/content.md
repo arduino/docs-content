@@ -2168,7 +2168,7 @@ This step ensures the modem functions properly in QMI mode.
 
 The **ModemManager** service manages the power for the Pro 4G Module via a script. **Global (EG25)** and **EU (EC200A-EU)** modems are different and require different configurations:
 
-- **Global EG25 Module**: This modem is supported directly by **NetworkManager**, which works alongside **ModemManager**.
+- **Global EG25 Module**: This modem supports the *Qualcomm MSM Interface (QMI)*, making it compatible with **NetworkManager**, which uses **nmcli** as its command-line tool. It also works with **ModemManager** to manage modem connectivity.
 - **EU EC200A-EU Module**: This modem is **not officially supported** by **ModemManager**. It is **not QMI-compatible** and requires raw AT commands over a USB serial interface. It connects as a USB device, creating an `ec200aeu` network interface managed by existing `udev` rules. 
 
 Power management is handled by **ModemManager** using the following script setup. Before starting **ModemManager**, the system runs a script to power on the modem, and another script is run after the service stops to power off the modem:
@@ -2268,6 +2268,10 @@ In a Docker environment, it is often useful to disable **ModemManager** to avoid
 
 ```bash
 sudo systemctl stop ModemManager
+```
+
+```bash
+sudo systemctl disable ModemManager
 ```
 
 However, when **ModemManager** is active, it handles modem power automatically using customized scripts, such as:
@@ -2547,10 +2551,14 @@ The output will list the detected modems, including the Pro 4G Module. Note the 
 
 ![Arduino Pro 4G Module - AT Commands](assets/portentaMIDcarrier_mpcie_4gmodem_at1.png)
 
-Before sending AT commands, ModemManager must be in debug mode. First, stop the ModemManager service using:
+Before sending AT commands, ModemManager must be in debug mode. First, stop and disable the ModemManager service using:
 
 ```bash
 sudo systemctl stop ModemManager
+```
+
+```bash
+sudo systemctl disable ModemManager
 ```
 
 Then start it in the background with debugging enabled by running:
@@ -2624,10 +2632,14 @@ This ensures the modem powers up correctly and becomes available for network ope
 
 #### Docker Container Considerations
 
-Disable ModemManager to prevent conflicts with tools like `qmicli` when managing either modem within a Docker container. This can be done by using the following command:
+Disable **ModemManager** to prevent conflicts with tools like `qmicli` when managing either modem within a Docker container. This can be done by using the following command:
 
 ```bash
 sudo systemctl stop ModemManager
+```
+
+```bash
+sudo systemctl disable ModemManager
 ```
 
 Inside the container, you will need to manage the modem’s power as explained in this [**EC200A-EU**](#emea-ec200a-eu-module-1) section.

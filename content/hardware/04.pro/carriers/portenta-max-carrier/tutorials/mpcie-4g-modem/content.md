@@ -330,7 +330,7 @@ Once the overlays are set, please reboot the Portenta X8 to ensure the configura
 
 #### GNSS Global EG25 Module
 
-The **GNSS Global (EG25) Module** supports the QMI interface, making it compatible with **NetworkManager**. You can configure the modem using **nmcli** (NetworkManager’s command-line tool):
+The **GNSS Global (EG25) Module** supports the *Qualcomm MSM Interface (QMI)*, which is compatible with **NetworkManager**. You can configure the modem using **nmcli**, the command-line tool for **NetworkManager**:
 
 ```bash
 nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn hologram connection.autoconnect yes
@@ -391,7 +391,7 @@ sudo systemctl stop ModemManager
 sudo systemctl disable ModemManager
 ```
 
-This allows **qmicli** to communicate directly with the QMI interface for modem operations.
+Once **ModemManager** has been disabled, you can use **qmicli** to communicate reliably with the QMI interface for modem operations.
 
 ***The **EC200A-EU** modem is not compatible with __QMI__. It requires raw AT commands over a USB serial interface. For more information, refer to the [Quectel EC200A-EU documentation](https://python.quectel.com/en/products/ec200a-eu).***
 
@@ -468,6 +468,10 @@ In a Docker environment, it is often useful to disable **ModemManager** to avoid
 
 ```bash
 sudo systemctl stop ModemManager
+```
+
+```bash
+sudo systemctl disable ModemManager
 ```
 
 For modem power management, the connection between the **PCIE Enable (GPIO5)** pin and **VCC (3V3)** pin is required for a proper power setup. This bridge ensures proper hardware functionality when controlling the modem power. Moreover, you should manage power through software to allow the modem to be rebooted in case it becomes unresponsive.
