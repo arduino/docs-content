@@ -32,7 +32,7 @@ To install the board package, open the "Board Manager" from the menu to the left
 
 ![Install UNO R4 WiFi boards package.](assets/install-wifi-core.png)
 
-You should now be able to select your board in the board selector. You will need to have your board connected to your computer via the USB-C® connector at this point.
+You're now able to select your board in the board selector. You will need to have your board connected to your computer via the USB-C® connector at this point.
 
 ![Arduino UNO R4 WiFi board found.](assets/wifi-connected.png)
 
