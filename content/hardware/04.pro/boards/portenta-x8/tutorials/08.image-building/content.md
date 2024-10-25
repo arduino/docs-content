@@ -62,7 +62,7 @@ Build the Docker image with the following command:
 docker build -t yocto-build .
 ```
 
-***If you encounter issues running Docker commands, you may need to install the necessary Docker components. You can install the Docker CLI by running: **`winget install --id=Docker.DockerCLI -e`** or install [**Docker Desktop**](https://docs.docker.com/desktop/install/windows-install/), which includes all needed components.***
+***If you encounter issues running Docker commands, you may need to install the necessary Docker components. You can install the Docker CLI by running: __`winget install --id=Docker.DockerCLI -e`__ or install [__Docker Desktop__](https://docs.docker.com/desktop/install/windows-install/), which includes all needed components.***
 
 ![Building a Docker Image](assets/docker_build.png)
 
