@@ -2162,12 +2162,14 @@ ip link set dev wwan0 up
 
 This step ensures the modem functions properly in QMI mode.
 
+***The **EC200A-EU** modem is not compatible with __QMI__. It requires raw AT commands over a USB serial interface. For more information, refer to the [Quectel EC200A-EU documentation](https://python.quectel.com/en/products/ec200a-eu).***
+
 #### ModemManager and Power Management Service
 
 The **ModemManager** service manages the power for the Pro 4G Module via a script. **Global (EG25)** and **EU (EC200A-EU)** modems are different and require different configurations:
 
 - **Global EG25 Module**: This modem is supported directly by **NetworkManager**, which works alongside **ModemManager**.
-- **EU EC200A-EU Module**: This modem is **not officially supported** by **ModemManager** and creates a USB `eth0` connection. This can be remapped into an `ec200aeu` network device using an `udev` rule.
+- **EU EC200A-EU Module**: This modem is **not officially supported** by **ModemManager**. It is **not QMI-compatible** and requires raw AT commands over a USB serial interface. It connects as a USB device, creating an `ec200aeu` network interface managed by existing `udev` rules. 
 
 Power management is handled by **ModemManager** using the following script setup. Before starting **ModemManager**, the system runs a script to power on the modem, and another script is run after the service stops to power off the modem:
 
@@ -2189,7 +2191,7 @@ systemctl stop ModemManager
 
 After stopping **ModemManager**, there will be a delay before the modem can be powered back on and detected by **mmcli**. The delay is around **20 seconds** for appropriate initialization.
 
-***Make sure the mini PCIe power configuration is configured as described in the [Mini PCIe Power Breakout Header](#mini-pcie-power-breakout-header-j9) section. The Portenta X8 requires the __PCIE Enable (GPIO5)__ pin to be connected to a __VCC (3V3)__ pin. Modems may get stuck on certain occasions, so it is recommended that power be managed through software to allow modem rebooting when necessary.***
+***Make sure the mini PCIe power configuration is configured as described in the [Mini PCIe Power Breakout Header](#mini-pcie-power-breakout-header-j9) section. The Portenta X8 requires the __PCIE Enable (GPIO5)__ pin to be connected to a __VCC (3V3)__ pin. Also, modems are complex devices, so it is recommended to understand the software components involved to troubleshoot issues effectively.***
 
 #### Modem Configuration
 
@@ -2268,9 +2270,22 @@ In a Docker environment, it is often useful to disable **ModemManager** to avoid
 sudo systemctl stop ModemManager
 ```
 
-For modem power management, the connection between the **PCIE Enable (GPIO5)** pin and **VCC (3V3)** pin is now required for a proper power setup. This bridge ensures proper hardware functionality when controlling the modem power. Moreover, you should manage power through software to allow the modem to be rebooted in case it becomes unresponsive.
+However, when **ModemManager** is active, it handles modem power automatically using customized scripts, such as:
 
-Ensure that the Docker container has access to the GPIO device files by passing them into the container:
+- `/usr/sbin/modem_on.sh`
+- `/usr/sbin/modem_off.sh`
+
+These scripts contain the logic to manage power across different carrier boards. They are used by **ModemManager** to control the modem. You can review these scripts within the **ModemManager** service configuration:
+
+```bash
+systemctl cat ModemManager
+```
+
+If **ModemManager** is disabled, you can manually use these scripts to manage modem power, as they provide a straightforward way to handle it without conflicts.
+
+For modem power management, the connection between the **PCIE Enable (GPIO5)** pin and **VCC (3V3)** pin is required for a proper power setup. This bridge ensures stable hardware functionality when controlling modem power.
+
+If you prefer manual control inside the Docker container, ensure it has access to GPIO device files:
 
 ```bash
 docker run --device /dev/gpiochip5 <docker-image>
@@ -2580,25 +2595,18 @@ nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn hologram connection.auto
 
 #### EMEA EC200A-EU Module
 
-The **EMEA (EC200A-EU)** module, unlike the EG25 module, is not officially supported by **ModemManager** and thus requires a different approach. After ensuring that the Pro 4G Module is properly mounted and recognized by the Portenta X8, you may find it presents as a USB Ethernet device (`eth0`). For appropriate configuration, you will need to remap it using an `udev` rule into an `ec200aeu` network device.
+The **EMEA (EC200A-EU)** module is not compatible with **QMI** and operates using raw AT commands over a USB serial interface. It is also **not officially supported by ModemManager**, so it requires a different configuration approach compared to the **EG25 module**. When properly mounted and recognized by the Portenta X8, the module presents as a USB Ethernet device named `ec200aeu`, managed by existing `udev` rules. For more details, plese check [this section](#emea-ec200a-eu-module)
 
-The **ModemManager** requires a small compatibility patch to work with the module and send configuration AT commands to the modem. Once patched, you can connect to the network using the following command for example:
+To establish a network connection, use **mmcli** with the following command:
 
 ```bash
 mmcli -m 0 --simple-connect='apn=iot.1nce.net,ip-type=ipv4v6'
 ```
-
-If **ModemManager** is disabled or if you prefer an alternative method, you can use `qmicli` to identify the modem and interact with it. For instance, you can retrieve the manufacturer information by running:
-
-```bash
-sudo qmicli -d /dev/cdc-wdm0 --dms-get-manufacturer
-```
+If **ModemManager** is disabled or if you prefer an alternative, you will need to use serial communication with AT commands to manage the modem. For more information, refer to the [Quectel EC200A-EU documentation](https://python.quectel.com/en/products/ec200a-eu).
 
 Power management for the **EC200A-EU module** may require manual intervention, particularly if **ModemManager** is disabled or when using Docker. Make sure the mini PCIe power configuration is configured as described in the [Mini PCIe Power Breakout Header](#mini-pcie-power-breakout-header-j9) section. The Portenta X8 requires the **PCIE Enable (GPIO5)** pin to be connected to a **VCC (3V3)** pin. This is a required power setup for proper system operation.
 
-***Sometimes the modem may become unresponsive, so it is recommended that you have a software based power control, which allows you to reboot the modem when necessary.***
-
-You can create a custom script using the `gpiod` library to manage modem power via software. Ensure that the jumper connection mentioned previously is in place for this to work. The script can be used to power the modem and provide the required delay for proper initialization. A typical example is as follows:
+You can create a custom script using the `gpiod` library to manage modem power via software. Ensure that the jumper connection mentioned earlier is in place for proper functionality. The script can be used to power the modem and provide the required delay for proper initialization. A possible example is as follows:
 
 ```bash
 gpioset gpiochip5 5=1 #PCIE 3V3 BUCK EN (stm32h7 PE10)
@@ -2611,6 +2619,8 @@ sleep 20
 ```
 
 This ensures the modem powers up correctly and becomes available for network operations. The software based power control also helps you reboot the modem if it becomes unresponsive, improving overall reliability and preventing manual resets.
+
+***Modems can be challenging to work with, so it is recommended to understand the software components involved to troubleshoot issues effectively.***
 
 #### Docker Container Considerations
 

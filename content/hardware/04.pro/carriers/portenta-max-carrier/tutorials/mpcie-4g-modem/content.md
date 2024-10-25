@@ -62,7 +62,9 @@ The following image provides the position of the Power Jack on the Portenta Max 
 
 ![Portenta Max Carrier Power Jack](assets/portentaMAXcarrier_power_distro.png)
 
-***Modems may get stuck on certain occasions, so it is recommended that power be managed through software to allow modem rebooting when necessary.***
+***Modems can be challenging to work with, so it is helpful to understand the software components involved to troubleshoot potential issues effectively.***
+
+Modems are complex devices, so it is recommended that the user knows each software component involved in order to troubleshoot potential issues.
 
 ## Mini PCI Express
 
@@ -320,7 +322,7 @@ The previous commands are used to set environment variables, which we will use t
 fw_setenv overlays 'ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_enuc_bq24195 ov_carrier_max_usbfs ov_carrier_max_sdc ov_carrier_max_cs42l52'
 ```
 
-***The `ov_carrier_max_pcie_mini` overlay is not required for USB modems such as the GNSS Global (EG25) and EMEA (EC200A-EU) variants of the Pro 4G Module.***
+***__NOTE:__ The `ov_carrier_max_pcie_mini` overlay is __not required for modems__ such as the __GNSS Global (EG25)__ and __EMEA (EC200A-EU)__ variants of the Pro 4G Module, as these modems rely on the USB interface and not on the PCIe bus.***
 
 Once the overlays are set, please reboot the Portenta X8 to ensure the configuration has been applied correctly.
 
@@ -371,7 +373,27 @@ These rules automatically manage the `ec200aeu` network interface and ensure the
 
 #### For QMI Based Modems
 
-For **QMI based modems**, modems that use *Qualcomm MSM Interface*, following steps can help configure the modem, which involves managing the **Raw IP mode** and using **qmicli** for network control.
+**QMI-based modems** use the *Qualcomm MSM Interface (QMI)*, a messaging format for communication between software components in the modem and peripheral subsystems. QMI follows a client-server model, where clients interact with QMI services using either a **request/response** format or **unsolicited events** for system notifications. 
+
+To check if a modem supports QMI, use the following command:
+
+```bash
+qmicli -d /dev/cdc-wdm0 --dms-get-model
+```
+
+If the modem is QMI compatible, you can manage the **Raw IP mode** and control network connections using **qmicli**, which is an alternative to **ModemManager**. Before using **qmicli**, it is recommended to stop and disable the **ModemManager** service to avoid conflicts:
+
+```bash
+sudo systemctl stop ModemManager
+```
+
+```bash
+sudo systemctl disable ModemManager
+```
+
+This allows **qmicli** to communicate directly with the QMI interface for modem operations.
+
+***The **EC200A-EU** modem is not compatible with __QMI__. It requires raw AT commands over a USB serial interface. For more information, refer to the [Quectel EC200A-EU documentation](https://python.quectel.com/en/products/ec200a-eu).***
 
 #### Raw IP Mode Setup for QMI Based Modems
 
@@ -415,7 +437,18 @@ udhcpc -q -f -n -i wwan0
 
 ### Modem Power Management
 
-The modems might become unresponsive, so it is recommended that power can be controlled through software to allow modem rebooting when necessary. The **gpioset** command should include a jumper and a 20 second delay for proper initialization.
+Modems can become unresponsive, so it is recommended that power can be controlled through software to allow rebooting when necessary. By default, this process is handled automatically by **ModemManager** using customized scripts such as:
+
+- `/usr/sbin/modem_on.sh`
+- `/usr/sbin/modem_off.sh`
+
+These scripts contain the logic to manage modem power for different carrier boards and are used by **ModemManager** to distinguish between each board type. You can review these scripts by checking the **ModemManager** service configuration:
+
+```bash
+systemctl cat ModemManager
+```
+
+If you prefer to manage the modem manually, you can use these scripts directly, as they provide a simpler way to handle modem power. For cases where **ModemManager** is disabled, you can use the **gpioset** command to control the modem’s power and add a 20 second delay for proper initialization:
 
 ```bash
 gpioset gpiochip5 5=1 #PCIE 3V3 BUCK EN (stm32h7 PE10)
