@@ -150,7 +150,7 @@ or
 
 * `When button [] is pressed` - the code will be executed the moment you press the designated button.
 
-### Blocks Parameters
+### Block Parameters
 
 Every parameter inside the **rectangle area**, for example the number `5` or the `cancel ▼` element in the dropdown menu can be edited, to give Alvik a different behavior.
 
