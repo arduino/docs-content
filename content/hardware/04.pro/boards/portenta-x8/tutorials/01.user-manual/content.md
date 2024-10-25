@@ -45,7 +45,7 @@ So, let's have a look at its technical specifications.
 
 ### Board Architecture Overview
 
-Portenta X8 is a powerful, industrial-grade System on a Module that combines a Yocto Linux distribution with the well-known Arduino environment.
+Portenta X8 is a powerful, industrial-grade System-on-Module (SoM) that combines a Yocto Linux distribution with the well-known Arduino environment.
 
 ![Portenta X8 Tech Specs](assets/portenta_x8_call_outs.png "Portenta X8 Tech Specs")
 
