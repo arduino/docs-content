@@ -2595,7 +2595,7 @@ nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn hologram connection.auto
 
 #### EMEA EC200A-EU Module
 
-The **EMEA (EC200A-EU)** module is not compatible with **QMI** and operates using raw AT commands over a USB serial interface. It is also **not officially supported by ModemManager**, so it requires a different configuration approach compared to the **EG25 module**. When properly mounted and recognized by the Portenta X8, the module presents as a USB Ethernet device named `ec200aeu`, managed by existing `udev` rules. For more details, plese check [this section](#emea-ec200a-eu-module)
+The **EMEA (EC200A-EU)** module is not compatible with **QMI** and operates using raw AT commands over a USB serial interface. It is also **not officially supported by ModemManager**, so it requires a different configuration approach compared to the **EG25 module**. When properly mounted and recognized by the Portenta X8, the module presents as a USB Ethernet device named `ec200aeu`, managed by existing `udev` rules. For more details, please check [this section](#emea-ec200a-eu-module)
 
 To establish a network connection, use **mmcli** with the following command:
 
