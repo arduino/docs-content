@@ -39,8 +39,8 @@ During the installation process, you may **need to install additional drivers**,
 
 You can use a computer with different operating systems like:
 
-* Windows
-* Mac, 
+* Windows,
+* MacOS, 
 * Chromebook, 
 * Linux. 
 
