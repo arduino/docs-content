@@ -44,7 +44,7 @@ You can use a computer with different operating systems like:
 * Chromebook, 
 * Linux. 
 
-***Alvik is not yet supported by mBlock mobile app for Android or IOS devices.***
+***Alvik is not yet supported by mBlock mobile app for Android or iOS devices.***
 
 ### Online Coding
 
