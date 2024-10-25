@@ -156,7 +156,7 @@ Every parameter inside the **rectangle area**, for example the number `5` or the
 
 ![yellow LED rectangle commands](assets/yellow-blink.png)
 
-Some blocks, for example in the`Control` section, have an **hexagonal** tile `⬣` parameter, where you can drag and drop in an entire block, allowing you to nest commands like for `if <   > then {   }`.
+Some blocks, for example in the`Control` section, have a **hexagonal** tile `⬣` parameter, where you can drag and drop in an entire block, allowing you to nest commands like for `if <   > then {   }`.
 
 ![Nesting parameters inside a block](assets/angular-parameter.png)
 
