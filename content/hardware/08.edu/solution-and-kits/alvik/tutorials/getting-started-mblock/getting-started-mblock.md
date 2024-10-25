@@ -98,7 +98,7 @@ To install mBlock on macOS:
 
 If you're using a **Chromebook** ([read the full guide here](https://support.makeblock.com/hc/en-us/articles/19412317319191-Device-Connection-Guide-for-Chromebook-Latest-Version)) or a **Linux** machine, the installation process is different because there is no installable version of the software available. Instead, you'll use the online version of mBlock, which requires a special driver to connect to the robot.
 
-To find the "mLink - mBlock web version driver" and download the appropriate file for your operating system.
+Here you can find the "mLink - mBlock web version driver" and download the appropriate file for your operating system.
 
 ![download  Chromebook mlink](assets/mlink.png)
 
