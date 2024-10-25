@@ -34,41 +34,34 @@ You will be guided on how to achieve this setup. It is recommendable to familiar
 
 ## Remote Procedure Call - RPC
 
-**REWORK THE TEXT**
+The two processors within the Portenta X8 require a communication mechanism to exchange data, known as an **RPC (Remote Procedure Call)**.
 
-The two processors inside Portenta X8 need a communication mechanism to exchange data. The communication mechanism is called **RPC (Remote Procedure Call)**.
+**RPC** allows a program to trigger a **`procedure`** or **`function`** on another computer over a network rather than locally. It lets a program execute procedures **remotely**, with the details of network communication hidden to maintain transparency, making the remote call appear similar to a local one.
 
-The expression RPC refers to activating a "procedure" or "function" by a program on a computer other than the one on which the program is executed. In other words, RPC allows a program to execute procedures "remotely" on "remote" computers (but accessible through a network).
+It is particularly useful for distributed computing in a client-server model. The **`procedure call`** behaves as a **`request`** from the client, and the **`return value`** serves as the server's **`response`**. This model uses multiple computers connected over a network (often the Internet) to solve large computational tasks.
 
-The idea of transparency is also essential to the concept of RPC. The remote procedure call must be performed in a way similar to that of the traditional "local" procedure call; the details of the network communication must, therefore, be "hidden" (i.e., made transparent) for the user.
+While RPC aims to closely replicate local procedure calls, complete equivalence is not possible due to network communication challenges, which can introduce communication failures. To manage these issues, different RPC mechanisms adopt distinct semantics:
 
-The RPC paradigm is particularly suitable for distributed computing based on the client-server model: the "call procedure" corresponds to the "request" sent by the "client," and the "return value" of the procedure corresponds to the "response" sent by the "server." Distributed computing uses the resources of several computers connected to a network (usually via the Internet) to solve large-scale computational problems.
+- **`At most once` semantics** ensures that a remote call may fail but will not be run multiple times.
+- **`At least once` semantics** guarantees that the call is made at least once, even if it results in multiple activations.
 
-Although the ultimate goal of the RPC paradigm is to provide a remote procedure call mechanism whose semantics are essentially equivalent to that of the local procedure call (hence the aforementioned transparency of the mechanism), this equivalence is never fully achieved due to difficulties that can arise in network communication (always subjected to failure).
+The Portenta X8 uses **MessagePack-RPC** for its communication (see the [library repository](https://github.com/msgpack-rpc/msgpack-rpc) for details). *MessagePack-RPC* relies on *MessagePack* as the serialization protocol, encoding data in *MsgPack* format, and is supported over:
 
-Since there is no single obviously "right" way to handle these complications, RPC mechanisms can differ subtly in the exact semantics of the remote call. Some mechanisms, for example, have "at most once" semantics: in other words, a remote procedure call can fail (i.e., not be executed), but it is guaranteed not to result in multiple activations.
-
-The opposite approach is represented by the "at least once" semantics, which guarantees that the procedure is called at least once (it could therefore happen that it is activated several times).
-
-As a consequence, there are multiple types of RPC implementations. In the case of Portenta X8, **MessagePack-RPC** is used (check the [library repository](https://github.com/msgpack-rpc/msgpack-rpc) to get more details). It is an RPC implementation that uses MessagePack as a serialization protocol, i.e., data exchange is encoded in MsgPack format.
-
-It is transported over different protocols:
-
-* OpenAMP via Shared Memory
-* SPI
-* Linux Char Device
-* TCP/IP
+- OpenAMP via Shared Memory
+- SPI
+- Linux Char Device
+- TCP/IP
 
 ![Linux Arduino RPC](assets/linux_arduino_RPC.png "Linux Arduino RPC")
 
-As you can see in the image above, the **M7 core** of **STM32H7** simplifies communication between the Linux and the Arduino environments. If an Arduino sketch runs on the **M4 core**, the **M7 core** will hand over any data/request between the M4 core and the Linux side. Due to this hardware design, traditional dual-core processing is not supported in the Portenta X8.
+In the image above, the **M7 core** of the **STM32H7** manages communication between the Linux and Arduino environments. If an Arduino sketch runs on the **M4 core**, the **M7 core** acts as an intermediary, handling data requests between the M4 core and the Linux environment. Due to this setup, traditional dual-core processing is not supported on the Portenta X8.
 
-At the same time, on the Linux side, a service sends data between the two worlds, `m4-proxy`.
+On the Linux side, a service called `m4-proxy` handles data transfer between Linux and Arduino.
 
-So, the communication between Arduino and Linux side will proceed as follows:
+The communication process works as follows:
 
-* A program registers as the RPC server on port X for a list of procedures that the M4 may call
-* `m4-proxy` will forward the calls from the M4 to the registered program/port
+- A program registers as the RPC server on port X, listing the procedures available for the M4 to call.
+- `m4-proxy` then forwards the calls from the M4 to the appropriate program/port.
 
 ![RPC M4 proxy](assets/m4-proxy.png "RPC M4 proxy")
 
@@ -244,7 +237,7 @@ Alternatively, you could modify the files directly on the X8 using an editor suc
 If you wonder how to specify the Python® script that is executed when running a container, have a look at the `Dockerfile` file. There you will find the `ENTRYPOINT` command that takes multiple arguments. In our example:
 
 ```python
-ENTRYPOINT [ "python3", "m4_to_python.py"]`
+ENTRYPOINT ["python3", "m4_to_python.py"]
 ```
 
 ## Conclusion
