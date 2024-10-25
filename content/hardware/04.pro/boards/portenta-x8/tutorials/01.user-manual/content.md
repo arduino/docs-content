@@ -131,122 +131,16 @@ The Portenta X8 offers a powerful, versatile platform by combining Linux capabil
 
 It is recommended that you check every now and then to see if your Portenta X8 image version is up to date to have the latest security updates.
 
-In the next sections, four ways to update your Portenta X8 are described:
+***To review the image version history, refer to the [__Portenta X8 firmware release notes__](https://docs.arduino.cc/tutorials/portenta-x8/x8-firmware-release-notes/).***
 
-* [Update for OS release V.399](#update-for-os-release-v399)
-* [Update through Out-of-the-box experience](#update-through-out-of-the-box-experience)
-* [Update through Portenta X8 Manager in your Arduino Cloud for Business account (available for all OS releases)](#update-with-portenta-x8-board-manager)
-* [Update using the `uuu` tool (compatible with custom images)](#update-using-uuu-tool)
+There are four ways to update your Portenta X8 are described:
 
-### Check Portenta X8 OS Release
-
-To verify which OS release is flashed on your Portenta X8, you need to connect to your board through **ADB**, as explained in [this section](#working-with-linux) of this user manual.
-
-You can type `cat /etc/os-release` in your command line window to get the OS release currently running on your device.
-
-![Get OS release](assets/adb-shell-os-release.png "Get OS Release")
-
-As shown in the image above, the OS release of this Portenta X8 corresponds to `IMAGE_VERSION=569`.
-
-### Update For OS Release V.399
-
-Open a new Command Line window and connect to your Portenta X8, as explained [here](#working-with-linux). At this point, verify that your Portenta X8 is connected to the Internet and type the following commands:
-
-```bash
-wget https://downloads.arduino.cc/portentax8image/399-install-update
-```
-
-```bash
-chmod +x 399-install-update
-```
-
-```bash
-sudo ./399-install-update
-```
-
-Now, you need to reboot the board by pressing its pushbutton for around 10 seconds. After that, connect again to your Portenta X8 through the Command Line and type the following commands:
-
-```bash
-wget https://downloads.arduino.cc/portentax8image/399-finalize-update
-```
-
-```bash
-chmod +x 399-finalize-update
-```
-
-```bash
-sudo ./399-finalize-update
-```
-
-These commands will make your V.399 compatible with the [aklite-offline](https://docs.foundries.io/latest/user-guide/offline-update/offline-update.html) tool. They will then allow you to update your Portenta X8 to the latest image version of Arduino released.
-
-Arduino provides this tool for free for any Portenta X8 user to enable offline secure updates to all devices, even if those devices are not connected to any FoundriesFactory.
-
-After the update process has finished, your Portenta X8 will start running the latest OS release immediately.
-
-***If your Portenta X8 has the _OS release V.399_ and you have a carrier compatible with Portenta X8 (like Portenta Breakout). In that case, we recommend you update it to the latest image release by going to [flashing with `uuu tool`](#update-using-uuu-tool) section and follow the instructions found within the dedicated tutorial here: [__How To Flash Your Portenta X8__](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing).***
-
-### Update Through Out-Of-The-Box Experience
-
-Leverage the integrated Out-of-the-box experience to update your Portenta X8 to the latest release.
-
-***Warning: The Out-of-the-box update feature is not a complete Over-The-Air (OTA) update. It allows users to update only the Portenta X8 default image and containers. It will overwrite any custom container application. Thus, it is recommended to make a local copy of your containers before updating your Portenta X8.***
-
-Open your Out-of-the-box as explained in [this section](#first-use-of-your-portenta-x8).
-
-![Out-of-the-box homepage](assets/OOTB_homepage_update_button.png "Out-of-the-box homepage")
-
-Click on **CHECK FOR UPDATES** in the lower right corner.
-
-At this point, you have to select whether you would like to proceed with the update. If yes, click on **UPDATE**.
-
-![Proceed with update](assets/OOTB_update_select.png "Proceed with update")
-
-Please do not turn off your Portenta X8 or disconnect it from the network during the update. This process may take a few minutes.
-
-![Successful update](assets/OOTB-succesful-OS-update.png "Successful update")
-
-Once the update is finished, your Portenta X8 will automatically restart with the new Linux image in place.
-
-At this point, if you want to continue using your Out-of-the-box, you can open a new command line window and launch the following command againg:
-
-```bash
-adb forward tcp:8080 tcp:80
-```
-
-Now open your browser, go to [**http://localhost:8080**](http://localhost:8080), and the same Out-of-the-box dashboard will appear.
-
-In case you try to update the Portenta X8 and it has the latest available image, you will get following message:
-
-![Latest update in place](assets/OOTB_homepage_update_latest.png "Latest update in place")
-
-#### Troubleshooting
-
-If something goes wrong during the update, you can manually flash your Portenta X8 with the latest Linux image provided at [this link](https://github.com/arduino/lmp-manifest/releases).
-
-You can follow [this section](#update-using-uuu-tool) to learn to use the `uuu` tool and update your device manually with the latest OS Image version. Follow [this dedicated tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing) to learn how to flash your device manually.
-
-### Update With Portenta X8 Board Manager
-
-If you have an **Arduino Cloud for Business** account with the Portenta X8 Manager, check if the target installed on your Portenta X8 is the latest one available in your FoundriesFactory.  
-
-![FoundriesFactory device overview](assets/web_board_manager_factory_device-overview.png "FoundriesFactory device overview")
-
-If this is not the case, you can update your device using FoundriesFactory **Waves** functionality. Check [this tutorial](https://docs.arduino.cc/tutorials/portenta-x8/waves-fleet-managment) to read the complete instructions.
-
-More information about Waves can be found in the official Foundries documentation at [this link](https://docs.foundries.io/latest/reference-manual/factory/fioctl/fioctl_waves.html?highlight=wave).
-
-### Update Using `uuu` Tool
-
-An alternative method to update the Portenta X8 with the latest OS image is to use the `uuu` tool (or `uuu_mac` for macOS). This approach is particularly useful for users who have built a custom image or prefer a manual update process. The image files can be downloaded from the [Arduino repository](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz) and extracted into a specific directory.
+* [Update for OS release V.399](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-for-os-release-v399)
+* [Update through Out-of-the-box experience](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-through-out-of-the-box-experience)
+* [Update through Portenta X8 Manager in your Arduino Cloud for Business account (available for all OS releases)](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-with-portenta-x8-board-manager)
+* [Update using the `uuu` tool (compatible with custom images)](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-using-uuu-tool)
 
 You can find more details in the dedicated tutorial here: [**How To Flash Your Portenta X8**](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing).
-
-Depending on the carrier being used (e.g., Max Carrier, Breakout, Hat, or Mid Carrier), DIP switch settings must be adjusted to enter programming mode or specific commands can be executed via ADB for a barebone setup. Once the board is in programming mode, you can navigate to the extracted image files and run the `uuu full_image.uuu` command to begin the flashing process.
-
-If not using a carrier, ensure the tool is running before cycling the power on the Portenta X8. Upon successful completion, reset the DIP switches or recycle the power to confirm the update.
-
-***For a detailed guide, refer to the [Flashing Portenta X8 tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing).***
 
 ## First Use Of Your Portenta X8
 
@@ -756,7 +650,7 @@ You may want to build a custom image for the Portenta X8 with the source code pr
 
 ***Have a look at [this dedicated tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-building) to understand how to build your own custom image.***
 
-### Interacting with Tenta-Config
+### Using the Integrated Overlay Configurator
 
 **tenta-config** is a configuration tool for managing hardware settings and device tree overlays on compatible carriers. It provides a graphical interface for customizing system configurations with compatible carriers, such as peripheral management, adjusting video output settings, and managing pin mappings.
 
