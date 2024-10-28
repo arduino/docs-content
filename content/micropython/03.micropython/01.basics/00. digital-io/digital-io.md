@@ -13,6 +13,8 @@ Digital pins are fundamental for interacting with the physical world using your 
 - Control outputs, such as turning an LED on and off.
 - Read inputs, like detecting the state of a button.
 
+Digital signals are extremly usefull because alth
+
 Digital signals have two distinct values:
 
 - **HIGH (1)**: Represents a voltage level close to the board's operating voltage (e.g., 3.3V or 5V).
@@ -99,7 +101,7 @@ In pull-up mode, the input pin is internally connected to a HIGH voltage level. 
 - Connect one side of the button to **GND**.
 - Connect the other side to a digital input pin.
 
-![Demo]()
+![Demo]() TODO: Show Schematic
 
 ### Pull-Down Mode
 
@@ -110,7 +112,7 @@ In pull-down mode, the input pin is internally connected to GND. When the input 
 - Connect one side of the button to **3.3V** (or **5V**, depending on your board's logic level).
 - Connect the other side to a digital input pin.
 
-![Demo]()
+![Demo]() TODO: Show Schematic
 
 
 ### Code Example: Reading a Button with Pull-Up Mode

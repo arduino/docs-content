@@ -6,71 +6,69 @@ author: 'Karl Söderby'
 hero_image: "./hero-banner.png"
 ---
 
-***This page is an introduction to the Arduino platform. If you are already familiar with Arduino, we recommend skipping to the next page.***
+# Installing MicroPython
 
-Arduino is a platform that enables students, teachers, hobbyists & professionals all over the world to build projects & applications that run on tiny computers.
+In this article, we'll walk you through the process of installing MicroPython on your Arduino board. By the end of this guide, you (and your board) will be ready to write and run your first MicroPython script. Let's get started!
 
-The Arduino ecosystem is comprised of the hardware (a physical board with a tiny computer), software tools & services (Arduino IDE, Arduino Cloud), and the Arduino programming language, or "Arduino API".
+## Requirements
 
-## The Arduino Board
+Before you begin, make sure you have the following:
 
-![The Arduino Nano ESP32.](assets/nano-esp32.png)
+### Supported Arduino Boards
+MicroPython is officially supported on several Arduino boards. Here’s a list of compatible boards:
 
-An Arduino development board is centered around a tiny computer that you program yourself to behave in specific ways. You can, for example, program a board to control a light, a motor, or to read the values of a temperature sensor.
-
-The Arduino board is the connection with the physical world and can be used to control many different electronic circuits and devices. To name a few examples, an Arduino can be used to:
-- Create a light show with an LED strip,
-- Automatically open a door when you walk up to it,
-- A robotic arm that is controlled with a joystick,
-- A weather station recording data and posting it online.
-
-## Hardware Required
-
-This course is designed around two main components:
-- [Nano ESP32](https://store.arduino.cc/products/nano-esp32) - an Arduino board with a Wi-Fi® chip and antenna. 
-- [Nano Screw Terminal Adapter](https://store.arduino.cc/products/nano-screw-terminal) - a carrier with screw terminal connections.
-
-Additionally, as we progress in the course, we introduce the option of using third party components from [Seeed](https://www.seeedstudio.com/), which uses the **Grove connector standard**. These components can easily be connected to the Nano Screw Terminal Adapter via a [grove-to-male cable](https://store.arduino.cc/products/grove-4-pin-male-to-grove-4-pin-cable-5-pcs).
-
-![Mount the Nano ESP32 on the Nano Screw terminal.](assets/esp32-terminal.png)
-
-### Nano ESP32
-
-The [Nano ESP32](https://store.arduino.cc/products/nano-esp32) is the board used in this course, which is very suitable for MicroPython due to its quick processor, large flash memory and Wi-Fi® enabled chip packed into a tiny circuit board.
-
-***You can find out more about this board in the [Nano ESP32 documentation](/hardware/nano-esp32).***
-
-### Nano Screw Terminal
-
-The [Nano Screw Terminal Adapter](https://store.arduino.cc/products/nano-screw-terminal) is a carrier that you insert your Nano board into. With the carrier, you can very easily connect cables and secure them tightly with a screwdriver. This makes it easy to maintain and your circuits more robust.
-
-***You can find out more about this board in the [Nano Screw Terminal Adapter documentation](/hardware/nano-screw-terminal-adapter).***
+- [Portenta C33](https://store.arduino.cc/products/portenta-c33)
+- [Arduino GIGA R1 WiFi](https://store.arduino.cc/products/arduino-giga-r1-wifi)
+- [Portenta H7](https://store.arduino.cc/products/portenta-h7)
+- [Portenta H7 Lite](https://store.arduino.cc/products/portenta-h7-lite)
+- [Portenta H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected)
+- [Opta](https://store.arduino.cc/products/opta)
+- [Opta Wifi](https://store.arduino.cc/products/opta-wifi)
+- [Opta RS485](https://store.arduino.cc/products/opta-rs485)
+- [Arduino Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect)
+- [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
+- [Arduino Nano 33 BLE](https://store.arduino.cc/products/arduino-nano-33-ble)
+- [Arduino Nano 33 BLE Rev2](https://store.arduino.cc/products/arduino-nano-33-ble-rev2)
+- [Arduino Nano 33 BLE Sense](https://store.arduino.cc/products/arduino-nano-33-ble-sense)
+- [Arduino Nano 33 BLE Sense Rev2](https://store.arduino.cc/products/arduino-nano-33-ble-sense-rev2)
+- [Arduino Nano ESP32](https://store.arduino.cc/products/arduino-nano-esp32)
 
 
-## Microcontroller Basics
+### Software Requirements
+- **Arduino Labs for Micropython**: Ensure you have the [latest version](https://labs.arduino.cc/en/labs/micropython) of the IDE..
+- **MicroPython Firmware Installer**: [This installer](https://labs.arduino.cc/en/labs/micropython-installer) is needed to upload the MicroPython firmware onto your Arduino board. You can download it from the official Arduino website under the MicroPython section.
 
-The tiny computer on the board, also known as the **microcontroller**, can be programmed and communicated with over USB. This microcontroller has very limited memory compared to the computers you are used to. For example, the board used in this course has about **30 000 times less RAM memory** than a modern computer, such as a Mac.
+## How to setup your board
 
-A microcontroller is designed to run the instructions it is programmed with, as soon as the board has power. These instructions happen very quickly, with thousands of instructions executed every second. How often they are executed can be altered in your program. You can for example pause the program for a second, and resume it again.
+1. If you haven’t already, download the [Micropython Firmware Installer](https://labs.arduino.cc/en/labs/micropython-installer) and launch it.
+2. Plug your board, it should be recognized by the installer.
+![Arduino Nano ESP32 detected!](./assets/board-selected.png)
+3. Press **INSTALL MICROPYTHON**. A loading animation will appear.
 
-## Programming Basics
+Once the firmware is installed a "Instalation sucessfull" message will appear. At this point you can safely close the installer as your board is now ready for tinkering!
+![Firmware Successfully Uploaded!](./assets/flashed.png)
 
-So how do we actually get the board to do what we want?
+### Programming your bard
 
-There are two ways of programming an Arduino board, either using the Arduino programming language (a subset of C/C++) or with MicroPython, an implementation of Python® specifically for microcontrollers. In this course, we will be using **MicroPython**. 
+After downloading the [latest version](https://labs.arduino.cc/en/labs/micropython) of the IDE you can use it for the first time by:
+1. Unpack the compressed folder you downloaded.
+2. Plug your Arduino board into your computer using a USB cable.
+3. Press the connection button on the top left corner of the window. This will look like a plug and socket as in this image:
+TODO: ADD IMAGE OF CONNECTION
+4. Select the COM port where your board is connected.
 
-### Arduino Programming Language
+You are now ready to upload your first sketch.
+TODO: A 4 step screenshot to explain the processimage
 
-With the **Arduino programming language**, you write your program in what we call "sketches". A sketch is a file with the `.ino` extension, that you can edit inside the Arduino IDE. When you are happy with your sketch, you need to compile this file. A compiler checks for errors, and if successful, the sketch can be uploaded to your board. Once uploaded you replace the current program on your board.
+## Troubleshooting
 
-The compiler is very strict and will point out where in your code you have a problem. If you are using a function from the Arduino language called `digitalWrite()`, but you write `digitalwrite()`, the code will not compile and you will get an error.
+If you run into any issues during installation, here are some common problems and solutions:
 
-### MicroPython
+### 1. **Board Not Detected**
+- **Solution**: Ensure that your board is properly connected and the correct USB drivers are installed. Try using a different USB cable or port.
 
-Programming an Arduino using MicroPython is a slightly different experience. In this scenario, you install a version of Python on your board permanently, and then you send instructions to it. This means you can change the code for your board and load it in real time. MicroPython also implements a file system on your board.
+### 2. **Unable to Flash Firmware**
+- **Solution**: Double-check that the MicroPython Firmware Installer was able to burn the firmware and that your board is compatible(it will not show up on the installer if it is not). Also, verify that no other software is using the serial port.
 
-## Summary
-
-Over the years Arduino has released over a hundred different development boards, each different from the other. You choose the board depending on what you want to achieve, e.g. some boards have a Wi-Fi® module allowing you to connect to the Internet, and some have onboard sensors that allow you to record sensor data.
-
-- [Next chapter: MicroPython Installation Guide](/micropython/micropython-course/course/installation)
+By following these steps, you should be able to successfully install MicroPython on your Arduino board and run your first script. Stay tuned for more tutorials to help you get the most out of MicroPython!
+For information on how to uploadyour first sketch please check [](). TODO: We need to add here the guide for first sketch once it is linkable
