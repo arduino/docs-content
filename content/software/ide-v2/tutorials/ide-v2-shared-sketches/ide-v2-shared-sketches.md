@@ -28,7 +28,7 @@ In this tutorial, we will learn how to change a setting that allows you to impor
 
 ## Enable Shared Space in IDE
 
-1. Open the Arduino IDE, and open the "Preferences" menu, through the command **⌘ + Shift + P (Mac)** or **CTRL + Shift + P (Windows)**. Open the **"Preferences: Open Settings (UI)**.
+1. Open the Arduino IDE, and open the "Preferences" menu, through the command **⌘ + Shift + P (Mac)** or **CTRL + Shift + P (Windows)**. Open the **"Preferences: Open Settings (UI)"**.
    ![Open settings.](assets/open-preferences.png)
 
 2. Search for "shared", and enter your Space ID in the form field.
