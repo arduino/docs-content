@@ -213,7 +213,7 @@ The code we need to add is:
 lv_display_set_rotation(dispp, rotation);
 ```
 
-Where `rotation` can be set to `0`, `90`, `180` or `270` depending on how much you want to rotate the UI.
+The `rotation` can be set to `0`, `90`, `180` or `270` depending on how much you want to rotate the UI.
 
 ![Rotation code added to ui.c file](assets/ui_rotation.png)
 
