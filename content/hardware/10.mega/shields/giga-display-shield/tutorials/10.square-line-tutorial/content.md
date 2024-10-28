@@ -205,7 +205,7 @@ void loop() {
 
 ## Rotating the SquareLine UI
 
-If there is a need to rotate the UI created in SqaureLine on the GIGA Display Shield, there is one line that needs to be added to one of the exported library files. In the **ui -> src** folder, find the `ui.c` file and open it.
+If there is a need to rotate the UI created in SquareLine on the GIGA Display Shield, there is a single line that needs to be added to one of the exported library files. In the `/ui/src` folder, find the `ui.c` file and open it.
 
 The lvgl code we need to add is:
 
