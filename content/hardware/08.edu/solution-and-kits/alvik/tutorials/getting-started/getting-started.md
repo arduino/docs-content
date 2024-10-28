@@ -44,6 +44,10 @@ Keeping your Alvik’s firmware updated ensures it has the latest features, bug 
 
 Alvik is intended to be programmed with MicroPython. We recommend you to install the [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython) editor. Follow the instructions next to the download link to install it and open the IDE.
 
+If you're using a **Chromebook**, there is no installable version of the software available. Instead, you'll use the [**online version**](https://lab-micropython.arduino.cc/) using Chrome. You'll need to login with an Arduino account to use it. 
+
+![Online Lab Micropython](/explore-robotics-micropython/_assets/projects/00/online-lab-micropython.jpg)
+
 Alternatively, on par with other Arduino products, you can also program your Alvik using Arduino IDE and C++. If this is the case you can find setup instructions over at [Setting up Alvik on Arduino IDE](../setting-alvik-arduino-ide/setting-alvik-arduino-ide.md).
 
 Now that all the previous steps have been set, let's see how to make Alvik moving across your room while avoiding objects! Let's create custom program for Alvik that:
