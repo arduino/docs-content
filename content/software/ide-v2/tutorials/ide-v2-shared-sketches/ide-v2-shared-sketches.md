@@ -12,7 +12,7 @@ The Arduino IDE can be synchronized with your [Arduino Cloud](https://app.arduin
 
 In this tutorial, we will learn how to change a setting that allows you to import projects based on a **Space ID**.
 
-***Learn more about [shared spaces](https://docs.arduino.cc/arduino-cloud/education/shared-spaces/) in the Arduino Cloud.***
+***Note that you will need to have a Shared Space already set up to follow this tutorial. Learn more about [shared spaces](https://docs.arduino.cc/arduino-cloud/education/shared-spaces/) in the Arduino Cloud.***
 
 ## Requirements
 
