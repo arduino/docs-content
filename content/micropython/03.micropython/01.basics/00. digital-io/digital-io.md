@@ -1,7 +1,7 @@
 ---
 
 featured: micropython-101
-title: '2. Micropython Basics - Loops'
+title: '2. Micropython Basics - Digital I/O'
 description: 'Learn the basics for loops on MicroPython.'
 author: 'Pedro Lima'
 hero_image: "./hero-banner.png"
