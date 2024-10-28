@@ -13,14 +13,12 @@ Digital pins are fundamental for interacting with the physical world using your 
 - Control outputs, such as turning an LED on and off.
 - Read inputs, like detecting the state of a button.
 
-Digital signals are extremly usefull because alth
-
 Digital signals have two distinct values:
 
 - **HIGH (1)**: Represents a voltage level close to the board's operating voltage (e.g., 3.3V or 5V).
 - **LOW (0)**: Represents a voltage level close to 0V (ground).
 
-Understanding how to use digital pins allows you to create interactive projects that respond to external stimuli or control external devices.
+Although they can only represent two states, digital signals are highly useful. Being binary in nature, they directly interface with microcontrollers and processors, making them ideal for tasks requiring fast, on/off communication, such as reading sensors or controlling simple outputs. Their simplicity also gives them a natural resilience to electrical noise, as noise only disrupts digital signals when it is strong enough to cross the threshold between HIGH and LOW states. This makes them reliable for clear, consistent communication in various environments.
 
 ## Digital Outputs
 
