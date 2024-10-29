@@ -702,17 +702,17 @@ You can find more information on how to use the `tanta-config` to set up the Pro
 
 If you want to continue working with your Portenta X8, you can find tons of additional tutorials in the **Tutorials** section of our [Arduino Docs](https://docs.arduino.cc/hardware/portenta-x8). Please go check them out!
 
-## Working With Arduino Sketch
+## Working With Arduino
+
+### Working With Arduino IDE
 
 In this section, you will learn how to upload a sketch to the M4 core on the STM32H747XI MCU.
 
-Open the Arduino IDE and download the latest **Arduino Mbed OS Portenta Boards Core**. Learn how to do it by following [this tutorial](https://docs.arduino.cc/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta).
-
-Select Portenta X8 in the board selector.
+Open the Arduino IDE and download the latest **Arduino Mbed OS Portenta Boards Core** following [this tutorial](https://docs.arduino.cc/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta). Then, select **Portenta X8** from the board selector.
 
 ![IDE Board Selector](assets/x8-IDE.png "IDE Board Selector")
 
-Create a custom sketch or open one of the example sketches, e.g., the blink sketch:
+Create a custom sketch or open an example like the blink sketch:
 
 ```arduino
 void setup(){
@@ -727,35 +727,52 @@ void loop(){
 }
 ```
 
-At this point, select the port of your device in the port selector menu and then press the Compile and Upload button.
+Select the device port and press **Compile and Upload**. The sketch is compiled into a binary, uploaded to the Linux side of the Portenta X8, and flashed by the RPC service running on Linux.
 
-Behind the curtains, the sketch gets compiled into a binary. That binary file is then uploaded to the Linux side of the Portenta X8. The flashing is done on the board itself by the RPC service running on Linux (see [Communication between Linux and Arduino section](#communication-between-linux-and-arduino) of this user manual to learn more).
+***Please refer to the [Communication between Arduino and Linux](#communication-between-arduino-and-linux) section for details on how Remote Procedure Call enables this communication.***
 
-When the sketch has been uploaded successfully, the onboard LED of your Portenta X8 will start blinking at an interval of one second.
+Once the upload is successful, the onboard LED of your Portenta X8 will blink at a one second interval.
 
-You can also upload the firmware manually if you like. To do so, you first need to compile the sketch by selecting **Export compiled binary** from the Sketch menu in the Arduino IDE. It will compile the sketch and save the binary file in the sketch folder. Alternatively, you can create a `elf` file using the [Arduino CLI](https://arduino.github.io/arduino-cli/0.29/).
+If you prefer to upload the firmware manually, first compile the sketch by selecting **Export compiled binary** from the Sketch menu in the Arduino IDE. It will compile the sketch and save the binary file in the sketch folder. Alternatively, you can use the [Arduino CLI](https://arduino.github.io/arduino-cli/0.29/) to create an `elf` file.
 
 You can use the ADB tool installed as part of the Portenta X8 core to upload the firmware. It can be found at `Arduino15\packages\arduino\tools\adb\32.0.0`.
 
 From that directory, you can use the `adb` tool. To upload your compiled sketch, you need to type the following command into your terminal window:
 
-```
+```bash
 adb push <sketchBinaryPath> /tmp/arduino/m4-user-sketch.elf
 ```
 
 ![ADB upload with a terminal](assets/x8-terminal-ADB-push.png)
 
-You have just learned to use your Portenta X8 with the Arduino IDE. However, you can do much more with the Arduino environment, particularly leveraging the RPC communication between the Arduino and Linux layers.
+### Communication between Arduino and Linux
 
-You can have a look at this [GitHub repository](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/RPC/examples) to have access to multiple IDE examples showing how to use RPC communication with Portenta X8.
+The Portenta X8 uses **RPC (Remote Procedure Call)** to exchange data between processors, allowing remote **procedures** or **functions** to run over a network while appearing as local calls.
 
-***Check [Communication between Linux and Arduino](#communication-between-linux-and-arduino) section of this user manual to learn more about RPC.***
+In a client-server model, **RPC** supports distributed computing by treating **procedure calls** as client **requests** and **return values** as server **responses**. To ensure reliability, two semantics are used:
 
-You can build an Arduino sketch to manage all the tasks requiring real-time, including sensor communication, Fieldbus management, etc., and then send those data to a Cloud or remote server via multiple connectivity options by leveraging the high-performance network management capabilities of Linux OS.
+- **`At most once`**: Prevents duplicate execution if a failure occurs.
+- **`At least once`**: Guarantees at least one execution, even if repeated.
 
-For instance, try [Data Exchange Between Python® on Linux and an Arduino Sketch](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange) tutorial to learn how to exchange sensor data between the Python® container embedded on Portenta X8 and an Arduino sketch.
+The Portenta X8 relies on [**MessagePack-RPC**](https://github.com/msgpack-rpc/msgpack-rpc) for communication, supporting *OpenAMP*, *SPI*, *Linux Char Device*, and *TCP/IP*.
 
-Additionally, if you are a more advanced user, you can check [Multi-Protocol Gateway With Portenta X8 & Max Carrier](https://docs.arduino.cc/tutorials/portenta-x8/multi-protocol-gateway) tutorial on developing your multi-protocol gateway: receive data from a sensor with the Arduino layer via MQTT protocol, take advantage of RPC to establish communication between Arduino and Linux, and then send the acquired data to The Things Network via LoRaWAN® managed by the Linux layer.
+The **M7 core** of the **STM32H7** manages data flow between the Linux and Arduino environments, working as an intermediary when the **M4 core** runs an Arduino sketch. At the same time, `m4-proxy` eases data transfer on the Linux side. This design does not support traditional dual-core processing.
+
+![Linux Arduino RPC](assets/linux_arduino_RPC.png "Linux Arduino RPC")
+
+![RPC M4 proxy](assets/m4-proxy.png "RPC M4 proxy")
+
+You can make interesting systems with the Arduino environment by leveraging the RPC communication between the Arduino and Linux layers. Check out this [GitHub repository](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/RPC/examples) for examples of using RPC with the Portenta X8.
+
+***For further details about Remote Procedure Call and its implementation, please refer to [this dedicated tutorial](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange/).***
+
+### Advanced Arduino-Linux Integration
+
+Build Arduino sketches for real-time tasks like sensor communication and Fieldbus management. Then, send data to the cloud or remote servers using Linux's networking capabilities.
+
+For example, the [Data Exchange Between Python® on Linux and an Arduino Sketch](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange) tutorial will help you understand how to exchange sensor data between the Python® container embedded on Portenta X8 and an Arduino sketch.
+
+If you are a more advanced user, you can check [Multi-Protocol Gateway With Portenta X8 & Max Carrier](https://docs.arduino.cc/tutorials/portenta-x8/multi-protocol-gateway) tutorial on developing your multi-protocol gateway. It aims to receive data from a sensor with the Arduino layer via MQTT protocol, take advantage of RPC to establish communication between Arduino and Linux, and then send the acquired data to *The Things Network* via *LoRaWAN®* managed by the Linux layer.
 
 ## Working With Arduino Cloud
 
