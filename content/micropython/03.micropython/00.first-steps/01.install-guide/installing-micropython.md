@@ -35,7 +35,7 @@ MicroPython is officially supported on several Arduino boards. Here’s a list o
 
 
 ### Software Requirements
-- **Arduino Labs for Micropython**: Ensure you have the [latest version](https://labs.arduino.cc/en/labs/micropython) of the IDE..
+- **Arduino Labs for Micropython**: Ensure you have the [latest version](https://labs.arduino.cc/en/labs/micropython) of the IDE. (Optional)
 - **MicroPython Firmware Installer**: [This installer](https://labs.arduino.cc/en/labs/micropython-installer) is needed to upload the MicroPython firmware onto your Arduino board. You can download it from the official Arduino website under the MicroPython section.
 
 ## How to setup your board
@@ -48,14 +48,24 @@ MicroPython is officially supported on several Arduino boards. Here’s a list o
 Once the firmware is installed a "Installation successful" message will appear. At this point you can safely close the installer as your board is now ready for tinkering!
 ![Firmware Successfully Uploaded!](./assets/flashed.png)
 
-### Programming your bard
+### IDE setup
+
+#### Offline IDE
 
 After downloading the [latest version](https://labs.arduino.cc/en/labs/micropython) of the IDE you can use it for the first time by:
-1. Unpack the compressed folder you downloaded.
-2. Plug your Arduino board into your computer using a USB cable.
-3. Press the connection button on the top left corner of the window. This will look like a plug and socket as in this image:
+- Unpack the compressed folder you downloaded.
+- Execute "Arduino Lab for MicroPython.exe"
+
+#### Online IDE
+
+Alternatively, you can use the IDE without installing it by using the online version available [here](https://lab-micropython.arduino.cc/).
+
+#### Connecting Board and IDE
+
+1. Plug your Arduino board into your computer using a USB cable.
+2. Press the connection button on the top left corner of the window. This will look like a plug and socket as in this image:
 TODO: ADD IMAGE OF CONNECTION
-4. Select the COM port where your board is connected.
+3. Select the COM port where your board is connected.
 
 You are now ready to upload your first sketch.
 TODO: A 4 step screenshot to explain the processimage
