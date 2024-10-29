@@ -113,7 +113,7 @@ To explore specific sections in more detail, please click on the links below tha
 * [Arduino Environment](#arduino-environment)
 * [Arduino Cloud](#portenta-x8-with-arduino-cloud)
 
-### Portenta X8: Linux & Arduino Integration
+### Portenta X8: Linux & Arduino Interoperability
 
 The Portenta X8 runs a **Yocto** based Linux distribution. It allows users to upload sketches to the M4 core of the STM32H7 using the Arduino IDE. The process of uploading sketches may seem familiar to Arduino users, but on Portenta X8, the system uses a service called `monitor-m4-elf-file.service`.
 
@@ -260,7 +260,7 @@ This shell is running in a Python-Alpine container embedded in Portenta X8. You 
 
 ![Out-of-the-box Python-Alpine Shell](assets/OOTB_alpine_shell.png "Out-of-the-box Python-Alpine Shell")
 
-#### Portenta X8 with Arduino Cloud
+## Portenta X8 with Arduino Cloud
 
 ***Note: this is an optional step. The Portenta X8 can also be used with a local IDE without an internet connection.***
 
@@ -362,7 +362,7 @@ Now, you can navigate to your dashboard [here](https://create.arduino.cc/iot/das
 
 ***If you would like to customize your Portenta X8 Things/Dashboards with your custom data, check [this section](#working-with-arduino-cloud) of the user manual.***
 
-#### Portenta X8 Board Manager
+## Portenta X8 Board Manager
 
 ***Note: this is an optional step. Although the Portenta X8 Board manager opens a wide range of possibilities that are important for business applications, the Portenta X8 can be used for free without the need for any additional paid license***
 
@@ -625,7 +625,166 @@ An example of how to use the command:
 journalctl --since "2022-12-22 12:20:00" --until yesterday
 ```
 
-### Create And Upload Docker Containers To Portenta X8
+### Developing and Deploying Custom Docker Containers on Portenta X8
+
+To customize the Portenta X8, you can develop and deploy Docker containers. Start by provisioning your device as described in the [Portenta X8 with Arduino Cloud section](#portenta-x8-with-arduino-cloud).
+
+Once ready, you can customize Portenta X8, for example, Thing and Dashboard. This can be done by writing your own Python script leveraging the [Arduino IoT Cloud Python library](https://github.com/arduino/arduino-iot-cloud-py). Check the documentation and the examples inside the library to learn more about creating your own Python application.
+
+When your Python script is ready, you have to create a dedicated Dockerfile to integrate your new script. The Dockerfile needs the Out-of-the-box Python container (i.e., `arduino-ootb-python-devel`) to interact with your Arduino Cloud account correctly.
+
+So, open a terminal window and create a Dockerfile integrating the following code with your Python script:
+
+```bash
+FROM arduino/arduino-ootb-python-devel:latest
+```
+
+```bash
+# Copy custom python cloud scripts
+COPY ./custom-examples /root/custom-examples
+```
+
+```bash
+RUN chmod -R 755 /root/custom-examples
+```
+
+#### Build Your Container
+
+You can create your custom containers and build them inside the Portenta X8. Since Portenta X8 is based on an arm64 architecture, you can use the command `build` only if you build the container directly on an arm64 architecture (e.g., Macbook based on M1/M2 processor or Portenta X8). Open a terminal window and type:
+
+```bash
+docker build . -t x8-custom-devel
+```
+
+Otherwise, if you are using a different architecture or building machine, use the `buildx` command to specify which architecture your build should compile for:
+
+```bash
+docker buildx build --platform linux/arm64 -t x8-custom-devel --load .
+```
+
+This way, your Docker image will be built and tagged with the name `x8-custom-devel`.
+
+It is time for you to deploy the newly created Docker image. To do so, save it somewhere and deploy it on your Portenta X8.
+
+#### Managing Early Start Services When Building Custom Containers
+
+The Portenta X8 firmware includes **`compose-apps-early-start.service`**, which starts certain Docker Compose applications early during the boot process. This feature helps pre-configured services run smoothly but may sometimes interfere with custom containers you pull or build.
+
+For example, system tools like [**Skopeo**](https://www.redhat.com/en/topics/containers/what-is-skopeo) may automatically remove containers without warning. This can happen to containers pulled from external sources or locally built on the device. If you notice that your custom containers are being removed unexpectedly, you can solve this by managing the system services with a few command lines.
+
+To prevent automatic container removal and ensure your custom containers stay intact, the early start services can be stopped and disabled by running the following commands in the ADB shell:
+
+```bash
+systemctl stop compose-apps-early-start.service
+systemctl stop compose-apps-early-start-recovery.service
+systemctl disable compose-apps-early-start.service
+systemctl disable compose-apps-early-start-recovery.service
+```
+
+Alternatively, you can use this single line of command:
+
+```bash
+systemctl stop compose-apps-early-start.service && systemctl stop compose-apps-early-start-recovery.service && systemctl disable compose-apps-early-start.service && systemctl disable compose-apps-early-start-recovery.service
+```
+
+Stopping and disabling these services will prevent the early start of compose applications, ensuring your custom containers are not removed automatically. Additionally, make sure to check for the [*latest firmware image*](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz) to maintain compatibility and optimal performance of the Portenta X8 with custom container developments.
+
+
+#### Deploy Your Container With Docker Hub
+
+If you have a [Docker Hub account](https://hub.docker.com/), you can freely upload your Docker image to your registry (e.g., `yourhubusername`):
+
+```bash
+docker push yourhubusername/x8-custom-devel
+```
+
+Your image is now available in your Docker Hub registry `yourhubusername`.
+
+At this point, you can directly pull the image to your Portenta X8. To do so, connect to your Portenta X8 through ADB. It can be found at `Arduino15\packages\arduino\tools\adb\32.0.0`.
+
+You can pull the image from that directory to the preferred location.
+
+```bash
+adb shell
+```
+
+With the Portenta X8's terminal, the following command is used.
+
+```bash
+docker pull x8-custom-devel
+```
+
+Now, your image is correctly deployed on your Portenta X8.
+
+#### Deploy Your Container Without Docker Hub
+
+If you do not have a Docker Hub account, you can also save the Docker container locally as a **.tar** file. Then, you can easily load that to an image.
+
+You can use the 'docker save' command to save a Docker image after you have built it. For example, let's save a local copy of the `x8-custom-devel` docker image you made:
+
+```bash
+docker save x8-custom-devel:latest | gzip > x8-custom-devel_latest.tar.gz
+```
+
+At this point, you can directly pull the image to your Portenta X8. To do so, connect to your Portenta X8 through ADB. It can be found at `Arduino15\packages\arduino\tools\adb\32.0.0`.
+
+```bash
+docker import /home/fio/x8-custom-devel_latest.tar.gz x8-custom-devel:latest
+```
+
+Now, your image is correctly deployed on your Portenta X8.
+
+#### Launch Your Container
+
+To launch your brand new image, you need to create a new `docker-compose.yml`. To do so, first, you must stop the current `docker-compose.yml`.
+
+```bash
+cd /var/sota/compose-apps/arduino-ootb && docker compose stop
+```
+
+You can now create the path for the new `docker-compose.yml`:
+
+```bash
+mkdir /var/sota/compose-apps/custom-devel && cd /var/sota/compose-apps/custom-devel && touch docker-compose.yml
+```
+
+Before uploading, open the `docker-compose.yml` and edit it as follows to make it use the Docker image you have just created:
+
+```
+services:
+ custom:
+  container_name: custom-devel
+  hostname: "portenta-x8"
+  image: x8-custom-devel:latest
+      
+  restart: unless-stopped
+  tty: true
+  read_only: false
+  user: "0"
+  volumes:
+    #- '/dev:/dev'
+    - '/run/arduino_hw_info.env:/run/arduino_hw_info.env:ro'
+    - '/sys/devices:/sys/devices'
+    - '/sys/class/pwm:/sys/class/pwm'
+    - '/sys/bus/iio:/sys/bus/iio'
+    - '/var/sota:/var/sota'
+    - './keys:/tmp/keys:ro'
+  devices:
+    - '/dev/gpiochip5'
+    - '/dev/tee0'
+```
+
+It is now time to upload the new `docker-compose.yml` to your Portenta X8:
+
+```bash
+docker-compose up --detach
+```
+
+And you are ready to go! Your Portenta X8 Dashboards and Things can be customized using the same process multiple times.
+
+***If you are using the Portenta X8 Manager, go to [this documentation](https://docs.foundries.io/latest/tutorials/getting-started-with-docker/getting-started-with-docker.html) to learn how to upload the newly created container in your FoundriesFactory.***
+
+#### In-Depth Docker Container Management On Portenta X8
 
 We created dedicated tutorials covering this topic. Go check them out:
 
@@ -729,7 +888,7 @@ void loop(){
 
 Select the device port and press **Compile and Upload**. The sketch is compiled into a binary, uploaded to the Linux side of the Portenta X8, and flashed by the RPC service running on Linux.
 
-***Please refer to the [Communication between Arduino and Linux](#communication-between-arduino-and-linux) section for details on how Remote Procedure Call enables this communication.***
+***Please refer to the [Communication Between Arduino and Linux](#communication-between-arduino-and-linux) section for details on how Remote Procedure Call enables this communication.***
 
 Once the upload is successful, the onboard LED of your Portenta X8 will blink at a one second interval.
 
@@ -745,7 +904,7 @@ adb push <sketchBinaryPath> /tmp/arduino/m4-user-sketch.elf
 
 ![ADB upload with a terminal](assets/x8-terminal-ADB-push.png)
 
-### Communication between Arduino and Linux
+### Communication Between Arduino and Linux
 
 The Portenta X8 uses **RPC (Remote Procedure Call)** to exchange data between processors, allowing remote **procedures** or **functions** to run over a network while appearing as local calls.
 
@@ -774,168 +933,9 @@ For example, the [Data Exchange Between Python® on Linux and an Arduino Sketch]
 
 If you are a more advanced user, you can check [Multi-Protocol Gateway With Portenta X8 & Max Carrier](https://docs.arduino.cc/tutorials/portenta-x8/multi-protocol-gateway) tutorial on developing your multi-protocol gateway. It aims to receive data from a sensor with the Arduino layer via MQTT protocol, take advantage of RPC to establish communication between Arduino and Linux, and then send the acquired data to *The Things Network* via *LoRaWAN®* managed by the Linux layer.
 
-## Working With Arduino Cloud
-
-To start using your Portenta X8 with Arduino Cloud, provision your device as described in [this section](#portenta-x8-with-arduino-cloud).
-
-Once ready, you can customize Portenta X8, for example, Thing and Dashboard. This can be done by writing your own Python script leveraging the [Arduino IoT Cloud Python library](https://github.com/arduino/arduino-iot-cloud-py). Check the documentation and the examples inside the library to learn more about creating your own Python application.
-
-When your Python script is ready, you have to create a dedicated Dockerfile to integrate your new script. The Dockerfile needs the Out-of-the-box Python container (i.e., `arduino-ootb-python-devel`) to interact with your Arduino Cloud account correctly.
-
-So, open a terminal window and create a Dockerfile integrating the following code with your Python script:
-
-```bash
-FROM arduino/arduino-ootb-python-devel:latest
-```
-
-```bash
-# Copy custom python cloud scripts
-COPY ./custom-examples /root/custom-examples
-```
-
-```bash
-RUN chmod -R 755 /root/custom-examples
-```
-
-### Build Your Container
-
-You can create your custom containers and build them inside the Portenta X8. Since Portenta X8 is based on an arm64 architecture, you can use the command `build` only if you build the container directly on an arm64 architecture (e.g., Macbook based on M1/M2 processor or Portenta X8). Open a terminal window and type:
-
-```bash
-docker build . -t x8-custom-devel
-```
-
-Otherwise, if you are using a different architecture or building machine, use the `buildx` command to specify which architecture your build should compile for:
-
-```bash
-docker buildx build --platform linux/arm64 -t x8-custom-devel --load .
-```
-
-This way, your Docker image will be built and tagged with the name `x8-custom-devel`.
-
-It is time for you to deploy the newly created Docker image. To do so, save it somewhere and deploy it on your Portenta X8.
-
-### Managing Early Start Services When Building Custom Containers
-
-The Portenta X8 firmware includes **`compose-apps-early-start.service`**, which starts certain Docker Compose applications early during the boot process. This feature helps pre-configured services run smoothly but may sometimes interfere with custom containers you pull or build.
-
-For example, system tools like [**Skopeo**](https://www.redhat.com/en/topics/containers/what-is-skopeo) may automatically remove containers without warning. This can happen to containers pulled from external sources or locally built on the device. If you notice that your custom containers are being removed unexpectedly, you can solve this by managing the system services with a few command lines.
-
-To prevent automatic container removal and ensure your custom containers stay intact, the early start services can be stopped and disabled by running the following commands in the ADB shell:
-
-```bash
-systemctl stop compose-apps-early-start.service
-systemctl stop compose-apps-early-start-recovery.service
-systemctl disable compose-apps-early-start.service
-systemctl disable compose-apps-early-start-recovery.service
-```
-
-Alternatively, you can use this single line of command:
-
-```bash
-systemctl stop compose-apps-early-start.service && systemctl stop compose-apps-early-start-recovery.service && systemctl disable compose-apps-early-start.service && systemctl disable compose-apps-early-start-recovery.service
-```
-
-Stopping and disabling these services will prevent the early start of compose applications, ensuring your custom containers are not removed automatically. Additionally, make sure to check for the [*latest firmware image*](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz) to maintain compatibility and optimal performance of the Portenta X8 with custom container developments.
-
-
-### Deploy Your Container With Docker Hub
-
-If you have a [Docker Hub account](https://hub.docker.com/), you can freely upload your Docker image to your registry (e.g., `yourhubusername`):
-
-```bash
-docker push yourhubusername/x8-custom-devel
-```
-
-Your image is now available in your Docker Hub registry `yourhubusername`.
-
-At this point, you can directly pull the image to your Portenta X8. To do so, connect to your Portenta X8 through ADB. It can be found at `Arduino15\packages\arduino\tools\adb\32.0.0`.
-
-You can pull the image from that directory to the preferred location.
-
-```bash
-adb shell
-```
-
-With the Portenta X8's terminal, the following command is used.
-
-```bash
-docker pull x8-custom-devel
-```
-
-Now, your image is correctly deployed on your Portenta X8.
-
-### Deploy Your Container Without Docker Hub
-
-If you do not have a Docker Hub account, you can also save the Docker container locally as a **.tar** file. Then, you can easily load that to an image.
-
-You can use the 'docker save' command to save a Docker image after you have built it. For example, let's save a local copy of the `x8-custom-devel` docker image you made:
-
-```bash
-docker save x8-custom-devel:latest | gzip > x8-custom-devel_latest.tar.gz
-```
-
-At this point, you can directly pull the image to your Portenta X8. To do so, connect to your Portenta X8 through ADB. It can be found at `Arduino15\packages\arduino\tools\adb\32.0.0`.
-
-```bash
-docker import /home/fio/x8-custom-devel_latest.tar.gz x8-custom-devel:latest
-```
-
-Now, your image is correctly deployed on your Portenta X8.
-
-### Launch Your Container
-
-To launch your brand new image, you need to create a new `docker-compose.yml`. To do so, first, you must stop the current `docker-compose.yml`.
-
-```bash
-cd /var/sota/compose-apps/arduino-ootb && docker compose stop
-```
-
-You can now create the path for the new `docker-compose.yml`:
-
-```bash
-mkdir /var/sota/compose-apps/custom-devel && cd /var/sota/compose-apps/custom-devel && touch docker-compose.yml
-```
-
-Before uploading, open the `docker-compose.yml` and edit it as follows to make it use the Docker image you have just created:
-
-```
-services:
- custom:
-  container_name: custom-devel
-  hostname: "portenta-x8"
-  image: x8-custom-devel:latest
-      
-  restart: unless-stopped
-  tty: true
-  read_only: false
-  user: "0"
-  volumes:
-    #- '/dev:/dev'
-    - '/run/arduino_hw_info.env:/run/arduino_hw_info.env:ro'
-    - '/sys/devices:/sys/devices'
-    - '/sys/class/pwm:/sys/class/pwm'
-    - '/sys/bus/iio:/sys/bus/iio'
-    - '/var/sota:/var/sota'
-    - './keys:/tmp/keys:ro'
-  devices:
-    - '/dev/gpiochip5'
-    - '/dev/tee0'
-```
-
-It is now time to upload the new `docker-compose.yml` to your Portenta X8:
-
-```bash
-docker-compose up --detach
-```
-
-And you are ready to go! Your Portenta X8 Dashboards and Things can be customized using the same process multiple times.
-
-***If you are using the Portenta X8 Manager, go to [this documentation](https://docs.foundries.io/latest/tutorials/getting-started-with-docker/getting-started-with-docker.html) to learn how to upload the newly created container in your FoundriesFactory.***
-
 ## Working With Portenta X8 Board Manager
 
-As mentioned, the Portenta X8 Board Manager allows you to keep your Portenta X8 Linux image and corresponding containers up to date easily, even remotely, through Over-The-Air (OTA) updates (via wireless connectivity).
+The Portenta X8 Board Manager allows you to keep your Portenta X8 Linux image and corresponding containers up to date easily, even remotely, through Over-The-Air (OTA) updates (via wireless connectivity).
 
 Subscribe to an *Arduino Cloud for business* plan with Portenta X8 Board Manager to access all these features. Please have a look at [this section](#portenta-x8-board-manager) of the user manual to learn more.
 
