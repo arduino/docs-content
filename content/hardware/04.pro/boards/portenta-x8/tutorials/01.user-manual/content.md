@@ -194,7 +194,7 @@ You can now proceed to the setup of the board connectivity by clicking **OK, GOT
 
 ***If you face any issue with this flow or prefer to interact directly with your Portenta X8 through the command line, please refer to [this section](#working-with-linux) to learn how to connect with the board leveraging ADB service.***
 
-Once the setup is ready, let's open the Out-of-the-box page. Use the command line window and launch the following command:
+Once the setup is ready, let's open the Out-of-the-box page. Use the command line window and launch the TCP port forwarding setup command:
 
 ```bash
 adb forward tcp:8080 tcp:80
@@ -935,9 +935,9 @@ If you are a more advanced user, you can check [Multi-Protocol Gateway With Port
 
 ## Working With Portenta X8 Board Manager
 
-The Portenta X8 Board Manager helps you to keep your Portenta X8 Linux image and containers up to date, even remotely, using Over-The-Air (OTA) updates via wireless connectivity.
+The Portenta X8 Board Manager helps you keep your Portenta X8 Linux image and containers up to date, even remotely, using Over-The-Air (OTA) updates via wireless connectivity.
 
-To access these features, an **Arduino Cloud for Business** plan with Portenta X8 Board Manager subscription is required.
+An **Arduino Cloud for Business** plan with a Portenta X8 Board Manager subscription is required to enable these features.
 
 **For more information on configuration and environment exploration, please refer to the [Portenta X8 Board Manager](#portenta-x8-board-manager) section at the beginning of the user manual.**
 
