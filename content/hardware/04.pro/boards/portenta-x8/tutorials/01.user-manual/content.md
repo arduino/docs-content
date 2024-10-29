@@ -627,7 +627,7 @@ journalctl --since "2022-12-22 12:20:00" --until yesterday
 
 ### Developing and Deploying Custom Docker Containers on Portenta X8
 
-To customize the Portenta X8, you can develop and deploy Docker containers. Start by provisioning your device as described in the [Portenta X8 with Arduino Cloud section](#portenta-x8-with-arduino-cloud).
+To customize the Portenta X8, you can develop and deploy Docker containers. Start by provisioning your device as described in the [**Portenta X8 with Arduino Cloud**](#portenta-x8-with-arduino-cloud) section.
 
 Once ready, you can customize Portenta X8, for example, Thing and Dashboard. This can be done by writing your own Python script leveraging the [Arduino IoT Cloud Python library](https://github.com/arduino/arduino-iot-cloud-py). Check the documentation and the examples inside the library to learn more about creating your own Python application.
 
@@ -935,9 +935,11 @@ If you are a more advanced user, you can check [Multi-Protocol Gateway With Port
 
 ## Working With Portenta X8 Board Manager
 
-The Portenta X8 Board Manager allows you to keep your Portenta X8 Linux image and corresponding containers up to date easily, even remotely, through Over-The-Air (OTA) updates (via wireless connectivity).
+The Portenta X8 Board Manager helps you to keep your Portenta X8 Linux image and containers up to date, even remotely, using Over-The-Air (OTA) updates via wireless connectivity.
 
-Subscribe to an *Arduino Cloud for business* plan with Portenta X8 Board Manager to access all these features. Please have a look at [this section](#portenta-x8-board-manager) of the user manual to learn more.
+To access these features, an **Arduino Cloud for Business** plan with Portenta X8 Board Manager subscription is required.
+
+**For more information on configuration and environment exploration, please refer to the [Portenta X8 Board Manager](#portenta-x8-board-manager) section at the beginning of the user manual.**
 
 ### Device And Fleet Management With Portenta X8 Board Manager
 
