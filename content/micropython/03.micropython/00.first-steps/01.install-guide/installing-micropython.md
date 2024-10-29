@@ -45,7 +45,7 @@ MicroPython is officially supported on several Arduino boards. Here’s a list o
 ![Arduino Nano ESP32 detected!](./assets/board-selected.png)
 3. Press **INSTALL MICROPYTHON**. A loading animation will appear.
 
-Once the firmware is installed a "Instalation sucessfull" message will appear. At this point you can safely close the installer as your board is now ready for tinkering!
+Once the firmware is installed a "Installation successful" message will appear. At this point you can safely close the installer as your board is now ready for tinkering!
 ![Firmware Successfully Uploaded!](./assets/flashed.png)
 
 ### Programming your bard
