@@ -62,6 +62,10 @@ The following image provides the position of the Power Jack on the Portenta Max 
 
 ![Portenta Max Carrier Power Jack](assets/portentaMAXcarrier_power_distro.png)
 
+***Modems can be challenging to work with, so it is helpful to understand the software components involved to troubleshoot potential issues effectively.***
+
+Modems are complex devices, so it is recommended that the user knows each software component involved in order to troubleshoot potential issues.
+
 ## Mini PCI Express
 
 **Mini PCIe**, short for Mini Peripheral Component Interconnect Express, is a smaller version of the PCIe interface mainly used in laptops and small devices to add features such as Wi-Fi®, Bluetooth®, and cellular connectivity.
@@ -312,15 +316,90 @@ fw_setenv is_on_carrier yes
 fw_setenv carrier_name max
 ```
 
-The previous commands are used to set environment variables, which we will use to set and use the needed overlays to link the mini PCIe interface under its profile. The overlays are as follows and set using the following command:
+The previous commands are used to set environment variables, which we will use to set and apply the needed overlays to link the USB modem interface under its profile. The overlays are as follows and set using the following command:
 
 ```bash
-fw_setenv overlays 'ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_enuc_bq24195 ov_carrier_max_usbfs ov_carrier_max_sdc ov_carrier_max_cs42l52 ov_carrier_max_pcie_mini'
+fw_setenv overlays 'ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_enuc_bq24195 ov_carrier_max_usbfs ov_carrier_max_sdc ov_carrier_max_cs42l52'
 ```
+
+***__NOTE:__ The `ov_carrier_max_pcie_mini` overlay is __not required for modems__ such as the __GNSS Global (EG25)__ and __EMEA (EC200A-EU)__ variants of the Pro 4G Module, as these modems rely on the USB interface and not on the PCIe bus.***
 
 Once the overlays are set, please reboot the Portenta X8 to ensure the configuration has been applied correctly.
 
 ### Connecting & Testing Network Connectivity
+
+#### GNSS Global EG25 Module
+
+The **GNSS Global (EG25) Module** supports the *Qualcomm MSM Interface (QMI)*, which is compatible with **NetworkManager**. You can configure the modem using **nmcli**, the command-line tool for **NetworkManager**:
+
+```bash
+nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn hologram connection.autoconnect yes
+```
+
+***For information on managing interface configuration rules for the EG25 module, please see [this section](https://docs.arduino.cc/tutorials/portenta-mid-carrier/user-manual/#global-eg25-module).***
+
+If your SIM card requires a PIN, update the command as follows:
+
+```bash
+nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn <APN> gsm.pin <PIN>
+```
+
+For instance, if you are using Vodafone in Italy, you can replace the `<APN>` field with `mobile.vodafone.it` and include the PIN number as well:
+
+```bash
+nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn mobile.vodafone.it gsm.pin <PIN>
+```
+
+#### EMEA EC200A-EU Module
+
+The **EMEA (EC200A-EU) Module** mainly uses raw AT commands over a USB serial interface and is not compatible with QMI. While it is not *natively supported* by **ModemManager**, basic connectivity can still be established using **mmcli**:
+
+```bash
+mmcli -m 0 --simple-connect='apn=iot.1nce.net,ip-type=ipv4v6'
+```
+
+***The **EC200A-EU** modem is not compatible with __QMI__. It requires raw AT commands over a USB serial interface. For more information, refer to the [Quectel EC200A-EU documentation](https://python.quectel.com/en/products/ec200a-eu).***
+
+The latest images include the necessary `udev` rules to automatically manage the `ec200aeu` interface. You can verify this by checking the `75-ec200aeu.rules` file using the following command:
+
+```bash
+cat /etc/udev/rules.d/75-ec200aeu.rules
+```
+
+This rule file typically contains the following:
+
+```bash
+SUBSYSTEM=="net", ACTION=="add", ATTRS{idVendor}=="2c7c", ATTRS{idProduct}=="6005", NAME="ec200aeu"
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="ec200aeu", TAG+="systemd", ENV{SYSTEMD_WANTS}="ec200a-eu.service"
+```
+
+These rules automatically manage the `ec200aeu` network interface and ensure the required service starts.
+
+#### For QMI Based Modems
+
+**QMI-based modems** use the *Qualcomm MSM Interface (QMI)*, a messaging format for communication between software components in the modem and peripheral subsystems. QMI follows a client-server model, where clients interact with QMI services using either a **request/response** format or **unsolicited events** for system notifications. 
+
+To check if a modem supports QMI, use the following command:
+
+```bash
+qmicli -d /dev/cdc-wdm0 --dms-get-model
+```
+
+If the modem is QMI compatible, you can manage the **Raw IP mode** and control network connections using **qmicli**, which is an alternative to **ModemManager**. Before using **qmicli**, it is recommended to stop and disable the **ModemManager** service to avoid conflicts:
+
+```bash
+sudo systemctl stop ModemManager
+```
+
+```bash
+sudo systemctl disable ModemManager
+```
+
+Once **ModemManager** has been disabled, you can use **qmicli** to communicate reliably with the QMI interface for modem operations.
+
+***The **EC200A-EU** modem is not compatible with __QMI__. It requires raw AT commands over a USB serial interface. For more information, refer to the [Quectel EC200A-EU documentation](https://python.quectel.com/en/products/ec200a-eu).***
+
+#### Raw IP Mode Setup for QMI Based Modems
 
 With the overlays configured, the setup process involves bringing down the `wwan0` interface, setting it to raw IP mode, and then bringing it back up:
 
@@ -335,6 +414,8 @@ echo Y > /sys/class/net/wwan0/qmi/raw_ip
 ```bash
 ip link set dev wwan0 up
 ```
+
+#### Inspecting and Configuring the QMI Based Modem
 
 Following that, use `qmicli` commands to inspect the card's status and begin a network connection:
 
@@ -357,6 +438,75 @@ udhcpc -q -f -n -i wwan0
 ```
 
 ![PRO 4G GNSS Module - Dynamic IP Configuration](assets/portentaMAXcarrier_mpcie_dynamic.png)
+
+### Modem Power Management
+
+Modems can become unresponsive, so it is recommended that power can be controlled through software to allow rebooting when necessary. By default, this process is handled automatically by **ModemManager** using customized scripts such as:
+
+- `/usr/sbin/modem_on.sh`
+- `/usr/sbin/modem_off.sh`
+
+These scripts contain the logic to manage modem power for different carrier boards and are used by **ModemManager** to distinguish between each board type. You can review these scripts by checking the **ModemManager** service configuration:
+
+```bash
+systemctl cat ModemManager
+```
+
+If you prefer to manage the modem manually, you can use these scripts directly, as they provide a simpler way to handle modem power. For cases where **ModemManager** is disabled, you can use the **gpioset** command to control the modem’s power and add a 20 second delay for proper initialization:
+
+```bash
+gpioset gpiochip5 5=1 #PCIE 3V3 BUCK EN (stm32h7 PE10)
+```
+
+This is applicable to both USB based and QMI based modems. After powering on the modem, allow **20 seconds** for the modem to initialize properly:
+
+```bash
+sleep 20
+```
+
+This ensures the modem powers up correctly and becomes available for network operations.
+
+### Docker Container Considerations
+
+In a Docker environment, it is often useful to disable **ModemManager** to avoid conflicts and instead control the modem using **qmicli** for QMI-based modems or use **nmcli/mmcli** for USB-based modems:
+
+```bash
+sudo systemctl stop ModemManager
+```
+
+```bash
+sudo systemctl disable ModemManager
+```
+
+For modem power management, the connection between the **PCIE Enable (GPIO5)** pin and **VCC (3V3)** pin is required for a proper power setup. This bridge ensures proper hardware functionality when controlling the modem power. Moreover, you should manage power through software to allow the modem to be rebooted in case it becomes unresponsive.
+
+Ensure that the Docker container has access to the GPIO device files by passing them into the container:
+
+```bash
+docker run --device /dev/gpiochip5 <docker-image>
+```
+
+The `<docker-image>` field is the name of the Docker image you want to run with access to the GPIO device files. For example, if your Docker image is called `my_modem_image`, the command would look like this:
+
+```bash
+docker run --device /dev/gpiochip5 my_modem_image
+```
+
+Inside the container, an **entrypoint.sh** script can control the modem's power via GPIO, with the 3.3V Buck Converter line connected to the **PCIE Enable (GPIO5)** pin. The following command can be added to the script:
+
+```bash
+gpioset gpiochip5 5=1
+```
+
+***It is required to have **PCIE Enable (GPIO5)** pin connected to the **VCC (3V3)** pin to secure the power supply line.***
+
+This will enable the power to the modem and add a delay for proper modem initialization:
+
+```bash
+sleep 20
+``` 
+
+### Testing Network Connectivity and Speed
 
 We now have the Pro 4G Module with the Portenta X8 on the Porteta Max Carrier ready for use. To test the connection speed, perform a speed test by downloading the `speedtest-cli` script, making it executable, and running it within a Docker container:
 
@@ -386,7 +536,6 @@ After the speed test, you might observe results similar to the following image.
 
 ***The download and upload speed may vary depending on the region.***
 
-
 For a more streamlined approach, you can use the following single-line command:
 
 ```bash
@@ -394,6 +543,12 @@ nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn hologram connection.auto
 ```
 
 If your SIM card requires a PIN, adjust the command as follows:
+
+```bash
+nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn <APN> gsm.pin <PIN>
+```
+
+For instance, if you are using Vodafone in Italy, you can replace the `<APN>` field with `mobile.vodafone.it` and include the PIN number as well:
 
 ```bash
 nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn mobile.vodafone.it gsm.pin <PIN>
