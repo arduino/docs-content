@@ -22,11 +22,11 @@ To better understand these loops, let’s imagine them as tasks at the supermark
 
 - **`for` loops**: Imagine walking down a supermarket aisle with a shopping list that specifies exactly how many items to pick up, one by one, in order. Once you’ve gathered all the items on your list, your task is complete. This is like a `for` loop iterating over a sequence, handling each specified item one at a time.
 
-TODO:!(FOR ILUSTRATION)[]
+TODO:!(FOR ILLUSTRATION)[]
 
 - **`while` loops**: Imagine going to the supermarket to buy a certain product that’s on sale, as long as it stays in stock. You keep coming back, day after day, until the sale ends or the stock runs out. In a `while` loop, you keep “coming back” as long as a condition (like the sale continuing) remains true.
 
-TODO:!(WHILE ILUSTRATION)[]
+TODO:!(WHILE ILLUSTRATION)[]
 
 Let's jump into each of these with examples.
 
