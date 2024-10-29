@@ -2197,21 +2197,21 @@ After stopping **ModemManager**, there will be a delay before the modem can be p
 
 #### Global EG25 Module
 
-The **Global EG25 Module** supports the QMI interface, making it compatible with **NetworkManager**. You can configure it using **nmcli**, the command-line tool for **NetworkManager**. To set up a connection, use the following command:
+The **Global EG25 Module** supports the *Qualcomm MSM Interface (QMI)*, making it compatible with **NetworkManager**. You can configure it using **nmcli**, the command-line tool for **NetworkManager**. To set up a connection, use the following command:
 
 ```bash
 nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn hologram connection.autoconnect yes
 ```
 
-This command establishes a GSM connection on the `cdc-wdm0` interface and automatically connects to the `hologram` APN.
+In this command, the `cdc-wdm0` interface is used to establish the GSM connection because **nmcli** needs to interact with the control interface to set up the modem for data connectivity. **nmcli** uses `cdc-wdm0` to send QMI commands configuring the modem, defining the APN, and handling initial network connection setup. This step is important for activating the data interface (`wwan0` or `eth0`) and preparing it for use.
+
+However, while this command uses `cdc-wdm0` for connection setup, it does not mean that `cdc-wdm0` will handle actual data traffic. The `cdc-wdm0` interface is designed specifically for QMI based control messages and modem management, which means it only controls the modem’s behavior and establishes the network session. Once the session is active, the modem will use a separate network interface, such as `wwan0` or `eth0`, to manage data transmission.
+
+Depending on the network configuration, the proper data transmission interfaces to use on the **EG25 Module** are `wwan0` or `eth0`. These interfaces are specifically intended for network traffic and should be used for all networking tasks.
 
 #### Configuring Interface Ignore Rules for GNSS Global EG25
 
-For the **GNSS Global (EG25) Module**, it is important to consider the system to **ignore unnecessary interfaces** to prevent network conflicts during application development. One such interface, `cdc-wdm0`, is automatically created as a **control interface** used for modem management and is not intended for direct network connections.
-
-If the system attempts to use `cdc-wdm0` for networking, it can lead to conflicts, misconfigurations, or performance issues because this interface is designed for control commands and is not optimized for handling data traffic. For example, for checking the modem status or sending AT commands. The appropriate data interfaces, such as `wwan0` or `eth0`, should be used for actual network connections.
-
-To avoid these issues, you can configure the system to ignore the `cdc-wdm0` interface using a `udev` rule. This ensures that the modem's correct network interface is used without interference from unnecessary control interfaces. To implement this, the following example instructions can help you do so.
+To prevent potential conflicts and ensure the system uses the correct network interface, you can configure it to **ignore the `cdc-wdm0` interface** for regular networking tasks. You can configure this for the system using a `udev` rule. This ensures that the modem's correct network interface is used without interference from unnecessary control interfaces. To implement this, the following example instructions can help you do so.
 
 Create a new `udev` rule in `/etc/udev/rules.d/` to ignore the `cdc-wdm0` interface:
 
@@ -2237,17 +2237,17 @@ The rule can be immediately applied by triggering with following command:
 sudo udevadm trigger
 ```
 
-This configuration will prevent the **GNSS Global (EG25) Module** from using the control interface `cdc-wdm0` for networking, ensuring the proper network interface is used for establishing connections. This improves overall system reliability, reduces the risk of network conflicts and optimizes performance.
+This configuration ensures that the **GNSS Global (EG25) Module** does not use the `cdc-wdm0` control interface for networking. It improves system reliability by preventing conflicts, optimizing performance, and ensuring that the appropriate data interface, like `wwan0` or `eth0`, is used for network connections.
 
 #### EMEA EC200A-EU Module
 
-The **EMEA (EC200A-EU) Module** can be used with **ModemManager** for network connectivity. To connect the module to the network, use the following command:
+The **EMEA (EC200A-EU) Module** mainly uses raw AT commands over a USB serial interface and is not compatible with **QMI**. While it is not *natively supported* by **ModemManager**, basic connectivity can still be established using **mmcli**:
 
 ```bash
 mmcli -m 0 --simple-connect='apn=iot.1nce.net,ip-type=ipv4v6'
 ```
 
-The latest images include the necessary `udev` rules for managing the EC200A-EU module. To verify the `udev` rule, you can check the `75-ec200aeu.rules` file using the following command:
+The latest images include the necessary `udev` rules to automatically manage the `ec200aeu` interface. You can verify this by checking the `75-ec200aeu.rules` file using the following command:
 
 ```bash
 cat /etc/udev/rules.d/75-ec200aeu.rules

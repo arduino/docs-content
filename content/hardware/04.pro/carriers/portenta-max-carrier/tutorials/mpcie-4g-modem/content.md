@@ -336,6 +336,8 @@ The **GNSS Global (EG25) Module** supports the *Qualcomm MSM Interface (QMI)*, w
 nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn hologram connection.autoconnect yes
 ```
 
+***For information on managing interface configuration rules for the EG25 module, please see [this section](https://docs.arduino.cc/tutorials/portenta-mid-carrier/user-manual/#global-eg25-module).***
+
 If your SIM card requires a PIN, update the command as follows:
 
 ```bash
@@ -350,13 +352,15 @@ nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn mobile.vodafone.it gsm.p
 
 #### EMEA EC200A-EU Module
 
-The **EMEA (EC200A-EU) Module** can be used with **ModemManager** for network connectivity. To connect the module to the network, use the following command:
+The **EMEA (EC200A-EU) Module** mainly uses raw AT commands over a USB serial interface and is not compatible with QMI. While it is not *natively supported* by **ModemManager**, basic connectivity can still be established using **mmcli**:
 
 ```bash
 mmcli -m 0 --simple-connect='apn=iot.1nce.net,ip-type=ipv4v6'
 ```
 
-The latest images include the necessary `udev` rules for managing the EC200A-EU module. To verify the `udev` rule, you can check the `75-ec200aeu.rules` file using the following command:
+***The **EC200A-EU** modem is not compatible with __QMI__. It requires raw AT commands over a USB serial interface. For more information, refer to the [Quectel EC200A-EU documentation](https://python.quectel.com/en/products/ec200a-eu).***
+
+The latest images include the necessary `udev` rules to automatically manage the `ec200aeu` interface. You can verify this by checking the `75-ec200aeu.rules` file using the following command:
 
 ```bash
 cat /etc/udev/rules.d/75-ec200aeu.rules
