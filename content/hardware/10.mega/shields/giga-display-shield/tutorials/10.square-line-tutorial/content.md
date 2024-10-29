@@ -203,6 +203,20 @@ void loop() {
 }
 ```
 
+## Rotating the SquareLine UI
+
+If there is a need to rotate the UI created in SquareLine on the GIGA Display Shield, there is a single line that needs to be added to one of the exported library files. In the `/ui/src` folder, find the `ui.c` file and open it.
+
+The code we need to add is:
+
+```arduino
+lv_display_set_rotation(dispp, rotation);
+```
+
+The `rotation` can be set to `0`, `90`, `180` or `270` depending on how much you want to rotate the UI.
+
+![Rotation code added to ui.c file](assets/ui_rotation.png)
+
 ## Next Step
 
 If you are curious about how LVGL works with the GIGA Display Shield, take a look at our [LVGL Guide](/tutorials/giga-display-shield/lvgl-guide).
