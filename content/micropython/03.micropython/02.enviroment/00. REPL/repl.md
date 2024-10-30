@@ -1,7 +1,7 @@
 ---
 
 featured: micropython-101
-title: '1. Micropython Enviroment - REPL'
+title: '1. Micropython Environment - REPL'
 description: 'Learn the basics for loops on MicroPython.'
 author: 'Pedro Lima'
 hero_image: "./hero-banner.png"
@@ -59,7 +59,7 @@ REPL is particularly useful for:
 
 ## Going Further With REPL
 
-REPL in MicroPython is an usefull tool that enables instant testing and feedback, making coding more interactive and efficient. Whether you're learning, debugging, or exploring ideas, REPL provides a flexible and powerful coding experience.
+REPL in MicroPython is an useful tool that enables instant testing and feedback, making coding more interactive and efficient. Whether you're learning, debugging, or exploring ideas, REPL provides a flexible and powerful coding experience.
 
 **Experiment with REPL**
 
