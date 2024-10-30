@@ -46,7 +46,7 @@ Alvik is intended to be programmed with MicroPython. We recommend you to install
 
 If you're using a **Chromebook**, there is no installable version of the software available. Instead, you'll use the [**online version**](https://lab-micropython.arduino.cc/) using Chrome. You'll need to login with an Arduino account to use it. 
 
-![Online Lab Micropython](/explore-robotics-micropython/_assets/projects/00/online-lab-micropython.jpg)
+![Online Lab Micropython](assets/online-lab-micropython.jpg)
 
 Alternatively, on par with other Arduino products, you can also program your Alvik using Arduino IDE and C++. If this is the case you can find setup instructions over at [Setting up Alvik on Arduino IDE](../setting-alvik-arduino-ide/setting-alvik-arduino-ide.md).
 
