@@ -1,11 +1,8 @@
 ---
-
-featured: micropython-101
-title: '2. Micropython Basics - Digital I/O'
-description: 'Learn the basics for loops on MicroPython.'
+title: 'Digital I/O'
+description: 'Learn about digital I/O with MicroPython.'
 author: 'Pedro Lima'
-hero_image: "./hero-banner.png"
-
+tags: [MicroPython, Digital I/O]
 ---
 
 Digital pins are fundamental for interacting with the physical world using your Arduino board. In this chapter, we'll explore how to use digital pins in MicroPython to:
@@ -18,15 +15,19 @@ Digital signals have two distinct values:
 - **HIGH (1)**: Represents a voltage level close to the board's operating voltage (e.g., 3.3V or 5V).
 - **LOW (0)**: Represents a voltage level close to 0V (ground).
 
-Although they can only represent two states, digital signals are highly useful. Being binary in nature, they directly interface with microcontrollers and processors, making them ideal for tasks requiring fast, on/off communication, such as reading sensors or controlling simple outputs. Their simplicity also gives them a natural resilience to electrical noise, as noise only disrupts digital signals when it is strong enough to cross the threshold between HIGH and LOW states. This makes them reliable for clear, consistent communication in various environments.
+Although they can only represent two states, digital signals are highly useful. Being binary in nature, they directly interface with microcontrollers and processors, making them ideal for tasks requiring fast, on/off communication, such as reading sensors or controlling simple outputs. Their simplicity also gives them a natural resilience to electrical noise, as noise only disrupts digital signals when it is strong enough to cross the threshold between HIGH and LOW states. This makes them reliable for clear, consistent communication in various environments, compared to analog signals.
+
+## Requirements
+
+
 
 ## Digital Outputs
 
-To control digital outputs in MicroPython, we use the `Pin` class from the `machine` module. Setting a pin as an output allows you to control devices like LEDs, relays, or other actuators.
+To control digital outputs in MicroPython, we use the `Pin` class from the `machine` module. Setting a pin as an output allows us to control devices like LEDs, relays, or other actuators.
 
-### Code Example: Blinking an LED
+## Code Example: Blinking an LED
 
-Let's create the classic "Blink" example, where we turn an LED on and off at regular intervals.
+For this exercise, we will use the "Blink" example, where we turn an LED on and off at regular intervals.
 
 **Components Needed:**
 
@@ -70,7 +71,6 @@ while True:
   - `time.sleep(1)`: Pauses the program for 1 second.
   - `led.value(0)`: Sets the pin to LOW, turning the LED off.
   - The loop repeats indefinitely, causing the LED to blink.
-
 
 
 ## Digital Inputs
