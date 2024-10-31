@@ -2,8 +2,8 @@
 featured: micropython-101
 title: 'Installing MicroPython'
 description: 'Learn how to install MicroPython on your Arduino board.'
-author: 'Pedro Lima & Karl Söderby'
-hero_image: "./hero-banner.png"
+author: 'Pedro Lima'
+tags: [MicroPython, Installation]
 ---
 
 # Installing MicroPython
@@ -40,7 +40,7 @@ MicroPython is officially supported on several Arduino boards. Here’s a list o
 - [MicroPython Firmware Installer](https://labs.arduino.cc/en/labs/micropython-installer) - the firmware installer is needed to install MicroPython on our Arduino board. 
 - [Arduino Lab for Micropython](https://labs.arduino.cc/en/labs/micropython) - Arduino Lab for MicroPython is an editor where we can create and run MicroPython scripts on our Arduino board.
 
-***Note that the editor is also available online, at [Arduino Cloud - Arduino Labs for MicroPython](https://lab-micropython.arduino.cc/)
+***Note that the editor is also available online, at [Arduino Cloud - Arduino Labs for MicroPython](https://lab-micropython.arduino.cc/)***
 
 ## Install MicroPython
 
