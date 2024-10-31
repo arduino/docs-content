@@ -1,3 +1,4 @@
+---
 title: Getting Started with Nano Matter Display
 description: This tutorial teaches you the basics about the Nano Matter Display, leveraging the Arduino environment to develop E-Ink + Matter applications.
 author: Christopher Méndez
