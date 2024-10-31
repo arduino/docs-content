@@ -68,7 +68,7 @@ Run the downloaded file, and move it to your **"Applications"** folder.
 
 #### Windows
 
-Unzip the downloaded file, and run the executeable file (`.exe`). 
+Unzip the downloaded file, and run the executable file (`.exe`). 
 
 ![Installation Windows]()
 
