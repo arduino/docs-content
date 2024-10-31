@@ -109,12 +109,12 @@ while True:
 Let's take a look at what's included in this code example:
 
 - **Import Modules**: We import `Pin` from `machine` and `time` for delays.
-- **Initialize LED Pin**: Create a `Pin` object, setting the pin number and direction (`Pin.OUT`).
+- **Initialize LED Pin**: with the `Pin` object, we set the pin number and direction (`Pin.OUT`).
 - **Main Loop**:
-  - `led.value(1)`: Sets the pin to HIGH, turning the LED on.
-  - `time.sleep(1)`: Pauses the program for 1 second.
-  - `led.value(0)`: Sets the pin to LOW, turning the LED off.
-  - The loop repeats indefinitely, causing the LED to blink.
+  - `led.value(1)` - Sets the pin to HIGH, turning the LED on.
+  - `time.sleep(1)` - Pauses the program for 1 second.
+  - `led.value(0)` - Sets the pin to LOW, turning the LED off.
+  - `while True:` - The loop repeats indefinitely, causing the LED to blink.
 
 
 
