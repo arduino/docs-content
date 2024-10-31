@@ -2009,7 +2009,7 @@ It is available in two variants, **EMEA** and **Global (covering the US)**. This
 
 ![Arduino Pro 4G GNSS Module Global / Module EMEA](assets/portentaQuectel_overview.gif)
 
-***Make sure to attach external antennas to the Pro 4G Module to work correctly with wireless signals. There are three external antenna connectors: a main antenna connector, an Rx-diversity antenna connector, and a GNSS antenna connector. The impedance of the antenna connectors is **50 Ω**.***
+***Make sure to attach external antennas to the Pro 4G Module to work correctly with wireless signals. There are three external antenna connectors: a main antenna connector, an Rx-diversity antenna connector, and a GNSS antenna connector. The impedance of the antenna connectors is __50 Ω__.***
 
 #### Setting Up Via Out-Of-The-Box Experience
 
@@ -2163,7 +2163,7 @@ ip link set dev wwan0 up
 
 This step ensures the modem functions properly in QMI mode.
 
-***The **EC200A-EU** modem is not compatible with __QMI__. It requires raw AT commands over a USB serial interface. For more information, refer to the [Quectel EC200A-EU documentation](https://python.quectel.com/en/products/ec200a-eu).***
+***The __EC200A-EU__ modem is not compatible with __QMI__. It requires raw AT commands over a USB serial interface. For more information, refer to the [Quectel EC200A-EU documentation](https://python.quectel.com/en/products/ec200a-eu).***
 
 #### ModemManager and Power Management Service
 
