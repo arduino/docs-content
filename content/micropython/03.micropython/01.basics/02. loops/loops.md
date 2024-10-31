@@ -1,14 +1,55 @@
 ---
-
-featured: micropython-101
-title: '3. Micropython Basics - Loops'
-description: 'Learn the basics for loops on MicroPython.'
+title: 'Loops'
+description: 'Learn how to use different loops with MicroPython.'
 author: 'Pedro Lima'
-hero_image: "./hero-banner.png"
-
+tags: [MicroPython, Loops]
 ---
 
-Loops are fundamental constructs in programming that allow you to execute a block of code multiple times. In MicroPython, loops help you perform repetitive tasks efficiently and are an awesome tool to keep in your coder's toolbox. In this article, we will explore the different loop structures available.
+Loops are fundamental constructs in all programming languages, that allow you to execute a block of code multiple times. In MicroPython, loops help you perform repetitive tasks efficiently and are an awesome tool to keep in your coder's toolbox. 
+
+In this guide, we will explore the different loop structures available.
+
+## Requirements
+
+Before we start, let's check the requirements:
+
+### MicroPython Compatible Arduino Boards
+
+MicroPython is officially supported on several Arduino boards. Here’s a list of the compatible boards:
+
+- [Portenta C33](https://store.arduino.cc/products/portenta-c33)
+- [Arduino GIGA R1 WiFi](https://store.arduino.cc/products/arduino-giga-r1-wifi)
+- [Portenta H7](https://store.arduino.cc/products/portenta-h7)
+- [Portenta H7 Lite](https://store.arduino.cc/products/portenta-h7-lite)
+- [Portenta H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected)
+- [Opta](https://store.arduino.cc/products/opta)
+- [Opta Wifi](https://store.arduino.cc/products/opta-wifi)
+- [Opta RS485](https://store.arduino.cc/products/opta-rs485)
+- [Arduino Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect)
+- [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
+- [Arduino Nano 33 BLE](https://store.arduino.cc/products/arduino-nano-33-ble)
+- [Arduino Nano 33 BLE Rev2](https://store.arduino.cc/products/arduino-nano-33-ble-rev2)
+- [Arduino Nano 33 BLE Sense](https://store.arduino.cc/products/arduino-nano-33-ble-sense)
+- [Arduino Nano 33 BLE Sense Rev2](https://store.arduino.cc/products/arduino-nano-33-ble-sense-rev2)
+- [Arduino Nano ESP32](https://store.arduino.cc/products/arduino-nano-esp32)
+
+### Software Requirements
+
+- [Arduino Lab for Micropython](https://labs.arduino.cc/en/labs/micropython) - Arduino Lab for MicroPython is an editor where we can create and run MicroPython scripts on our Arduino board.
+
+***Note that the editor is also available online, at [Arduino Cloud - Arduino Labs for MicroPython](https://lab-micropython.arduino.cc/)***
+
+## Board and Editor Setup
+
+1. Open the [Arduino Lab for MicroPython]() application.
+2. Plug the Arduino board into the computer using a USB cable.
+    ![Connect board to computer.]()
+3. Press the connection button on the top left corner of the window.
+    ![Connect the editor to the board.]()
+4. The connected Arduino board should appear, and we can click it:
+    ![Select board.]()
+
+***Need help installing MicroPython on your board? Visit the [MicroPython installation guide]().***
 
 ## Loop Structures in MicroPython
 
@@ -22,17 +63,13 @@ To better understand these loops, let’s imagine them as tasks at the supermark
 
 - **`for` loops**: Imagine walking down a supermarket aisle with a shopping list that specifies exactly how many items to pick up, one by one, in order. Once you’ve gathered all the items on your list, your task is complete. This is like a `for` loop iterating over a sequence, handling each specified item one at a time.
 
-TODO:!(FOR ILLUSTRATION)[]
+![How for loops work.]()
 
 - **`while` loops**: Imagine going to the supermarket to buy a certain product that’s on sale, as long as it stays in stock. You keep coming back, day after day, until the sale ends or the stock runs out. In a `while` loop, you keep “coming back” as long as a condition (like the sale continuing) remains true.
 
-TODO:!(WHILE ILLUSTRATION)[]
+![How while loops work.]()
 
-Let's jump into each of these with examples.
-
-
-
-## Using a `for` Loop
+## For Loops
 
 The `for` loop is used for iterating over a sequence. It automatically retrieves each item in the sequence one after another.
 
@@ -61,9 +98,9 @@ for letter in "Arduino":
     time.sleep(3)
 ```
 
-**Explanation:**
+Let's take a look at what's included in this code example:
 
-- **Import `time` Module**: We import the `time` module to use the `sleep()` function for delays.
+- `import time` - we import the `time` module to use the `sleep()` function for delays.
 - **Initialize `cycle` Variable**: We start a `cycle` counter at 1.
 - **`for letter in "Arduino"`**: The loop iterates over each character in the string `"Arduino"`, assigning each character to the variable `letter`.
 - **Print Statement**: Outputs the cycle number, the current letter, and mentions that it's printed with a `for` loop.
@@ -116,9 +153,56 @@ while index < len(word):
 - **Increment Counters**: Increases `index` and `cycle` by 1.
 - **`time.sleep(3)`**: Pauses the program for 3 seconds before the next iteration.
 
+## Control Statements
 
+While inside a loop, we can control how it should behave using control statements: **continue** and **break**
 
+### Continue
 
+The `continue` statement can be used to skip past an iteration. For example, if we for some reason want to skip every fifth iteration, we could use the following code:
+
+```python
+for i in range(10)
+    if i == 5:
+        continue
+    print(i)
+```
+
+Running this script will result in:
+
+```python
+0
+1
+2
+3
+4
+6 # we skip the 5th iteration
+7
+8
+9
+10
+```
+
+### Break
+
+The `break` statement can be used to break out of a loop before it finishes all iterations. This can be useful to for example cancel a process if something unexpected happens.
+
+```python
+for i in range(10)
+    if i == 5:
+        break
+    print(i)
+```
+
+Running this script will result in:
+
+```python
+0
+1
+2
+3
+4
+```
 
 ## Conclusion
 
