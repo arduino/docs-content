@@ -91,7 +91,7 @@ The following is an overview of the system’s inputs, outputs and Modbus connec
 
 The diagram below provides a summary of the connections for the packaging and labeling:
 
-![Electrical connections of the packaging and labeling system](assets/system-wiring-overview.png)
+![Electrical connections of the packaging and labeling system](assets/system-wiring-overview-c.png)
 
 The diagram above illustrates all the equipment connected to the Opta. Both the Opta and its expansion module are powered by a 24V DC source. In the PLC input section, the connections for the start and stop push buttons, along with the four photoelectric sensors, are shown.
 
@@ -107,11 +107,11 @@ To ensure proper operation, the Opta and its expansion module require a stable p
 
 We will utilize three servo drives to construct the **Cartesian robot** responsible for capturing items and placing them into their respective boxes. To facilitate this process, the servo drives will be connected to the Opta PLC via Modbus RTU, using the RS-485 communication interface. The diagram below illustrates the connection setup for the servo drives.
 
-![Servo driver Modbus Connection](assets/servodriver-wiring.png)
+![Servo driver Modbus Connection](assets/servodriver-wiring-c.png)
 
 The same approach will be applied to the labeling machine. We will use Modbus RTU with the RS-485 interface to control the machine responsible for labeling the materials. The diagram below illustrates this connection.
 
-![Labeling Machine Connection](assets/label-machine-wiring.png)
+![Labeling Machine Connection](assets/label-machine-wiring-c.png)
 
 Next, we have the connections for the start and stop buttons. The start button, connected to `I1`, is configured as normally open (NO), meaning it activates the circuit when pressed. The stop button, connected to `I2`, is configured as normally closed (NC), meaning it deactivates the circuit when pressed.
 
@@ -155,7 +155,7 @@ There, the box will pass through a machine responsible for closing and sealing i
 
 The image below illustrates the entire packaging and labeling system, as well as all the hardware used and its positioning within the entire system.
 
-![Packaging and Labeling System](assets/system-entire-overview.png)
+![Packaging and Labeling System](assets/system-entire-overview-c.png)
 
 The Opta will be responsible for controlling the entire packaging and labeling system. It will execute control logic to read inputs, activate outputs, and perform read and write operations on other devices through the RS-485 interface using the Modbus RTU protocol. It will also provide system status and variable data in real-time to the Arduino Cloud, using a Wi-Fi® connection.
 
