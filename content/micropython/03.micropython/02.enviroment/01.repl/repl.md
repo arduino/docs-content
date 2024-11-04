@@ -1,6 +1,6 @@
 ---
 title: 'REPL'
-description: 'Learn the basics for loops on MicroPython.'
+description: 'Learn how to use the REPL (Read-Eval-Print Loop) in MicroPython.'
 author: 'Pedro Lima'
 tags: [MicroPython, REPL]
 ---
