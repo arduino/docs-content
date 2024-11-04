@@ -285,7 +285,7 @@ The outputs listed above were configured on the Opta. Next, we will configure th
 
 If you want to learn how to add the expansion module, please click on this [link](https://docs.arduino.cc/software/plc-ide/tutorials/opta-analog-expansion-plc-ide/).
 
-### Mapping the built-in LEDs on the Opta
+### Mapping the Built-In LEDs on the Opta
 
 The Opta features programmable built-in LEDs. We'll use these LEDs to indicate that the Opta is running by turning on the green LED. Additionally, each output LED will light up individually to show when a corresponding output is active.
 
