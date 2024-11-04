@@ -1,16 +1,13 @@
 ---
-
-featured: micropython-101
-title: '1. Micropython Environment - REPL'
+title: 'REPL'
 description: 'Learn the basics for loops on MicroPython.'
 author: 'Pedro Lima'
-hero_image: "./hero-banner.png"
-
+tags: [MicroPython, REPL]
 ---
 
-REPL, which stands for Read-Eval-Print Loop, is an interactive environment that makes programming in MicroPython fast and flexible. REPL allows you to enter code line-by-line and see the results immediately. Although sometimes overlooked it is a great way for testing and debugging on the fly.
+**REPL**, short for **Read-Eval-Print Loop**, is an interactive environment that makes programming in MicroPython fast and flexible. REPL allows you to enter code line-by-line and see the results immediately. Although sometimes overlooked it is a great way for testing and debugging on the fly.
 
-We’ll walk through what REPL does, why it’s useful, and how you can use it to enhance your MicroPython experience.
+In this guide, we’ll go through how the REPL functions, why it’s useful, and how you can use it to enhance your MicroPython experience.
 
 ## What is REPL?
 
@@ -23,6 +20,10 @@ The REPL process involves four basic steps:
 
 Think of REPL as a conversation between you and your MicroPython environment, where each line you type gets an instant response, making it ideal for exploring ideas and troubleshooting.
 
+## print()
+
+
+
 ## How REPL Works in MicroPython
 
 In MicroPython, REPL can be accessed via Arduino Labs for MicroPython terminal, enabling you to run code in real-time directly on your device. Here’s a step-by-step guide on using it:
@@ -32,9 +33,28 @@ In MicroPython, REPL can be accessed via Arduino Labs for MicroPython terminal, 
 3. **See Results Instantly**: Any output, return values, or errors are displayed right away. If your code contains expressions, REPL will evaluate and print them for you.
 4. **Iterate**: The loop resets, and you can immediately enter more code, building on previous commands or testing new lines independently.
 
-## Example: Using REPL in MicroPython
+## Example: Store and Print Your Name
 
-Let's see a simple REPL session to add two numbers interactively:
+Let's create a REPL session, where you will enter your name, and then print it.
+
+Connect your board, and click on the **RUN** button with an empty script, then enter the following things in the REPL, line by line.
+
+```
+>>> name = "Pedro"
+>>> name
+```
+
+When writing `name` in the REPL, (after `name = "Pedro"`), we should get:
+
+```
+'Pedro'
+```
+
+![TODO: GIF showing step by step so people understand to run each individually]()
+
+## Example: Perform a Calculation in the REPL
+
+Now let's create a REPL session that performs a calculation, by adding two numbers together:
 
 ```python
 >>> a = 5
@@ -42,12 +62,13 @@ Let's see a simple REPL session to add two numbers interactively:
 >>> a + b
 8
 ```
-TODO: GIF showing step by step so people understand to run each individually !()[]
 
-In this REPL session:
+![TODO: GIF showing step by step so people understand to run each individually]()
 
-- **Define variables**: We set `a` to 5 and `b` to 3.
-- **Perform calculation**: Entering `a + b` immediately returns `8`, showing the result without having to write a full script.
+In this REPL session, we:
+
+- Defined variables by setting `a` to `5` and `b` to `3`.
+- Performed a calculation by entering `a + b`, which immediately returns `8`, showing the result without having to write a full script.
 
 ## Common Uses of REPL
 
@@ -57,7 +78,7 @@ REPL is particularly useful for:
 - **Debugging**: Test small parts of a larger project interactively.
 - **Learning**: Practice MicroPython commands and get instant feedback, ideal for beginners.
 
-## Going Further With REPL
+## Summary
 
 REPL in MicroPython is an useful tool that enables instant testing and feedback, making coding more interactive and efficient. Whether you're learning, debugging, or exploring ideas, REPL provides a flexible and powerful coding experience.
 
