@@ -317,12 +317,12 @@ After this configuration, you need to create a Modbus node to set up information
 
 The table below illustrates the configuration of the Modbus nodes.
 
-| **Name**           | **Modbus adress** | **Minimum polling time** | **Adress Type** | **Swap Words mode** |
-| ------------------ | ----------------- | ------------------------ | --------------- | ------------------- |
-| Servodriver_Axis_X | 1                 | 1                        | Modbus          | Little endian       |
-| Servodriver_Axis_X | 2                 | 1                        | Modbus          | Little endian       |
-| Servodriver_Axis_X | 3                 | 1                        | Modbus          | Little endian       |
-| Labeling_Machine   | 4                 | 1                        | Modbus          | Little endian       |
+| **Name**           | **Modbus address** | **Minimum polling time** | **Address Type** | **Swap Words mode** |
+| ------------------ | ------------------ | ------------------------ | ---------------- | ------------------- |
+| Servodriver_Axis_X | 1                  | 1                        | Modbus           | Little endian       |
+| Servodriver_Axis_X | 2                  | 1                        | Modbus           | Little endian       |
+| Servodriver_Axis_X | 3                  | 1                        | Modbus           | Little endian       |
+| Labeling_Machine   | 4                  | 1                        | Modbus           | Little endian       |
 
 In Modbus RTU, functions and addresses are essential for communication between a master device and slave devices. Each Modbus RTU message includes a function code that instructs the slave on a specific action. Common function codes include reading coils (Function 01) for binary output values, reading discrete inputs (Function 02) for binary input values, reading holding registers (Function 03) for internal data, and writing to coils or registers (Functions 05 and 06). Additionally, Function 16 (Write Multiple Registers) is used to write a series of values to consecutive holding registers, enabling batch updates to multiple data points. Addresses in Modbus RTU refer to specific memory locations within the device, each storing data points like sensor readings or control outputs. Unique addresses ensure that the master can accurately read or write data across the network, making Modbus RTU a reliable protocol for industrial communication.
 
