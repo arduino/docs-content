@@ -20,13 +20,13 @@ hardware:
 
 Packaging and labeling are essential processes in the production and distribution of products. Packaging involves enclosing and protecting items to ensure they remain safe from damage, contamination, or spoilage during storage and transport. It also improves the manageability of the product, making it easier to handle. Additionally, packaging enhances presentation, playing a key role in maintaining product quality and meeting safety standards.
 
+![Packaging and Labeling System Thumbnail](assets/thumbnail.png)
+
 Labeling complements this by providing crucial information such as barcodes, expiration dates and usage instructions. This ensures proper handling, traceability, and compliance with regulations. Together, packaging and labeling are critical for product identification, handling, safety, and customer satisfaction across industries.
 
 Many industries rely heavily on packaging and labeling systems. In food and beverage, packaging keeps items fresh, while labels provide important details like nutritional information and expiration dates. In the pharmaceutical industry, precise labeling is crucial for dosage instructions and regulatory compliance. In electronics and e-commerce, packaging protects fragile items, and labels ensure accurate shipping and traceability. By integrating remote control and monitoring into packaging and labeling systems, industries can significantly enhance control over their production processes. 
 
 Using Opta™ with Arduino Cloud, we can create an advanced, automated system that is fully remotely controlled. The Arduino Cloud dashboard provides a user-friendly interface, displaying all key metrics in real-time. This setup allows operators to monitor data and control machinery remotely, enabling them to track efficiency and address potential issues before they escalate, ensuring the system meets the demands of modern manufacturing.
-
-![Packaging and Labeling System Thumbnail](assets/thumbnail.png)
 
 Thanks to the use of Opta™, this solution will be cost-effective while offering remote access for monitoring and controlling the status of key elements within the application. Additionally, the system can be fully customized to meet specific needs, allowing us to design it exactly the way we want.
 
@@ -107,7 +107,7 @@ To ensure proper operation, the Opta and its expansion module require a stable p
 
 We will utilize three servo drives to construct the **Cartesian robot** responsible for capturing items and placing them into their respective boxes. To facilitate this process, the servo drives will be connected to the Opta PLC via Modbus RTU, using the RS-485 communication interface. The diagram below illustrates the connection setup for the servo drives.
 
-![Servodriver Modbus Connection](assets/servodriver-wiring.png)
+![Servo driver Modbus Connection](assets/servodriver-wiring.png)
 
 The same approach will be applied to the labeling machine. We will use Modbus RTU with the RS-485 interface to control the machine responsible for labeling the materials. The diagram below illustrates this connection.
 
@@ -1129,7 +1129,7 @@ void onStopButtonChange()  {
 
 ### Arduino Cloud Dashboard
 
-The Arduino Cloud provides a reliable platform for real-time monitoring and control of the Packaging and Labeling System. This setup enables you to remotely view and interact with importants components of the process as it operates. The system tracks key metrics, such as the total count of packed and labeled items and provides live updates on statuses like running, warning, and stopped. Additionally, you can start and stop the system remotely, giving you complete control over operations from anywhere.
+The Arduino Cloud provides a reliable platform for real-time monitoring and control of the Packaging and Labeling System. This setup enables you to remotely view and interact with important components of the process as it operates. The system tracks key metrics, such as the total count of packed and labeled items and provides live updates on statuses like running, warning, and stopped. Additionally, you can start and stop the system remotely, giving you complete control over operations from anywhere.
 
 This real-time integration allows you to monitor the performance of your packaging and labeling system while enabling immediate action when needed. It serves as a versatile and powerful tool for managing operations with speed and efficiency.
 
@@ -1138,7 +1138,7 @@ This real-time integration allows you to monitor the performance of your packagi
 Within the Arduino Cloud's dashboard, the system variables can be monitored with the following widgets:
 
 - `Image`: Displays a visual of the entire packaging and labeling system.
-- `LED`:  A simple indicator to show if a component is active or inactive through an LED light.
+- `LED`: A simple indicator to show if a component is active or inactive through an LED light.
 - `Value`: Shows the total count of packed and labeled items.
 - `Push Button`: Includes two push-buttons, start and stop, that allow control of the system via Arduino Cloud, simulating the function of physical buttons to initiate or stop operations. Additionally, the buttons will display their status in the Arduino Cloud when they are physically pressed, ensuring real-time synchronization between physical and virtual controls.
   
