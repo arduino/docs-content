@@ -18,7 +18,7 @@ hardware:
 
 ## Introduction
 
-Packaging and labeling are essential processes in the production and distribution of products. Packaging involves enclosing and protecting items to ensure they remain safe from damage, contamination, or spoilage during storage and transport. It also improves the manageability of the product, making it easier to handle, store, and transport. Additionally, packaging enhances presentation, playing a key role in maintaining product quality and meeting safety standards.
+Packaging and labeling are essential processes in the production and distribution of products. Packaging involves enclosing and protecting items to ensure they remain safe from damage, contamination, or spoilage during storage and transport. It also improves the manageability of the product, making it easier to handle. Additionally, packaging enhances presentation, playing a key role in maintaining product quality and meeting safety standards.
 
 Labeling complements this by providing crucial information such as barcodes, expiration dates and usage instructions. This ensures proper handling, traceability, and compliance with regulations. Together, packaging and labeling are critical for product identification, handling, safety, and customer satisfaction across industries.
 
@@ -50,7 +50,7 @@ Our goal with this application is to showcase the capabilities of Opta™ in con
 ### Hardware Requirements
 
 - [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
-- [Arduino Pro Opta Ext A0602](https://store.arduino.cc/products/opta-ext-a0602?srsltid=AfmBOoqr2e45Yp2GgU1lytuJLGE8CK399uocy5RmOJqEDBh1B2xi_j4e) (x1)
+- [Arduino Pro Opta Ext D1608E](https://store.arduino.cc/collections/pro-family/products/opta-ext-d1608e) (x1)
 - 24 VDC Power Supply (x1)
 - Photoeletric Sensor (x4)
 - Green normally open push button (1x)
@@ -59,8 +59,8 @@ Our goal with this application is to showcase the capabilities of Opta™ in con
 - Industrial Indicator Tower (1x)
 - Conveyor belt (3x)
 - Carton Closing Machine (1x)
-- Servodriver compatible with Modbus RTU over RS485 (x3)
-- Servomotor compatible with the selected servodriver (x3)
+- Servo driver compatible with Modbus RTU over RS485 (x3)
+- Servomotor compatible with the selected servo driver (x3)
 - Labeling machine (1x)
 - 14 AWG Wiring Cable
 - [USB Type-C® Cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
@@ -95,7 +95,9 @@ The diagram below provides a summary of the connections for the packaging and la
 
 The diagram above illustrates all the equipment connected to the Opta. Both the Opta and its expansion module are powered by a 24V DC source. In the PLC input section, the connections for the start and stop push buttons, along with the four photoelectric sensors, are shown.
 
-On the output side, there are connections to four relays that control the three conveyor belts and the box-closing machine. It’s important to note that the motors and the box-closing machine are not directly connected to the Opta outputs, as these outputs cannot supply the required current. Instead, the Opta controls the relays, which safely handle the current and voltage necessary to operate the motors and box-closing machine, protecting the PLC from overloads and potential damage. The outputs of the Opta expansion module are connected to the industrial indicator tower.
+On the output side, are the connections to four relays that control the three conveyor belts and the box-closing machine. It’s important to note that the motors and the box-closing machine are not directly connected to the Opta outputs as a good practice to protect them. 
+
+Instead, the Opta controls the external relays, which safely handle the current and voltage necessary to operate the motors and box-closing machine, protecting the PLC from overloads and potential damage. The Opta digital expansion outputs are connected to the industrial indicator tower.
 
 Additionally, the Opta is connected via Modbus RTU to three servo drives and a labeling machine.
 
@@ -103,7 +105,7 @@ To ensure proper operation, the Opta and its expansion module require a stable p
 
 ![Opta power supply connection](assets/opta-power-1.png)
 
-We will utilize three servo drives to construct the Cartesian robot responsible for capturing items and placing them into their respective boxes. To facilitate this process, the servo drives will be connected to the Opta PLC via Modbus RTU, using the RS-485 communication interface. The diagram below illustrates the connection setup for the servo drives.
+We will utilize three servo drives to construct the **Cartesian robot** responsible for capturing items and placing them into their respective boxes. To facilitate this process, the servo drives will be connected to the Opta PLC via Modbus RTU, using the RS-485 communication interface. The diagram below illustrates the connection setup for the servo drives.
 
 ![Servodriver Modbus Connection](assets/servodriver-wiring.png)
 
@@ -115,15 +117,31 @@ Next, we have the connections for the start and stop buttons. The start button, 
 
 ![Start and Stop Buttons](assets/button-wiring-1.png)
 
-The four photoelectric sensors are connected to inputs `I3`, `I4`, `I5`, and `I6` respectively. Each input is linked to a corresponding output of the photoelectric sensor, which operates in a binary (on/off) manner. The sensor connected to `I3` detects objects in the pick area, while the sensor connected to `I4` detects open boxes in the packaging area. The sensor connected to `I5` detects boxes at the entry of the carton closing machine, and the last photoelectric sensor, connected to `I6`, detects boxes at the entry of the labeling machine. Each output will be either active (on) or inactive (off), depending on whether the sensor detects an object within its detection range.
+The four photoelectric sensors are connected to inputs `I3`, `I4`, `I5`, and `I6` respectively. Each input is linked to a corresponding output of the photoelectric sensor, which operates in a binary (on/off) manner.
+
+- Sensor on `I3` detects objects in the pick area.
+- Sensor on `I4` detects open boxes in the packaging area. 
+- Sensor on `I5` detects boxes at the entry of the carton closing machine
+- Sensor on `I6` detects boxes at the entry of the labeling machine. 
+  
+Each output will be either active (on) or inactive (off), depending on whether the sensor detects an object within its detection range.
 
 ![Photoeletric Sensor Connection](assets/photo-sensor-wiring.png)
 
-The Opta's outputs are connected to relays that safely manage the current and voltage required to operate the motors and the box closing machine, preventing any potential damage to the Opta’s outputs. Output `O1` is linked to the relay controlling the motor of the input conveyor, while output `O2` is connected to the relay responsible for driving the motor of the packaging conveyor. Output `O3` is connected to the relay that controls the motor for the box closing and labeling conveyor. Finally, output `O4` controls the relay for the actuator that closes the open box in the carton closing machine.
+The Opta's outputs are connected to relays that safely manage the current and voltage required to operate the motors and the box closing machine, preventing any potential damage to the Opta’s outputs. 
+
+- Output `O1` is linked to the relay controlling the motor of the input conveyor. 
+- Output `O2` is connected to the relay responsible for driving the motor of the packaging conveyor. 
+- Output `O3` is connected to the relay that controls the motor for the box closing and labeling conveyor. 
+- Output `O4` controls the relay for the actuator that closes the open box in the carton closing machine.
 
 ![Actuators wiring](assets/relay-wiring-1.png)
 
-The expansion module will be responsible for controlling the indicator tower. We will use the third to fifth outputs to ensure the wires are positioned at the bottom of the expansion module, facilitating the assembly of the electrical circuit. Output `O3` in the expansion module will activate the green light, `O4` will control the yellow light, and `O5` will be responsible for the red light.
+The expansion module will be responsible for controlling the indicator tower. We will use the third to fifth outputs to ensure the wires are positioned at the bottom of the expansion module, facilitating the assembly of the electrical circuit. 
+
+- Output `O3` in the expansion module will activate the green light.
+- Output `O4` will control the yellow light.
+- Output `O5` will be responsible for the red light.
 
 ![Actuators wiring](assets/relay-wiring-2.png)
 
@@ -131,7 +149,9 @@ The expansion module will be responsible for controlling the indicator tower. We
 
 ## Packaging and Labeling Overview
 
-The system is designed to receive an item on a feed conveyor, pick it up using an XYZ Cartesian robot controlled by three servo drives with Modbus RTU communication, and place it into an open box on a separate conveyor. Once the item is placed in the box, the conveyor will briefly activate to transfer the open box with the item inside to the next conveyor. There, the box will pass through a machine responsible for closing and sealing it. Following this, the box will move to another machine, also controlled via Modbus RTU, which will label the box to ensure that essential product information is included. Finally, the closed and labeled box will proceed to the next stages in the industrial process.
+The system is designed to receive an item on a feed conveyor, pick it up using an XYZ Cartesian robot controlled by three servo drives with Modbus RTU communication, and place it into an open box on a separate conveyor. Once the item is placed in the box, the conveyor will briefly activate to transfer the open box with the item inside to the next conveyor. 
+
+There, the box will pass through a machine responsible for closing and sealing it. Following this, the box will move to another machine, also controlled via Modbus RTU, which will label the box to ensure that essential product information is included. Finally, the closed and labeled box will proceed to the next stages in the industrial process.
 
 The image below illustrates the entire packaging and labeling system, as well as all the hardware used and its positioning within the entire system.
 
@@ -145,11 +165,11 @@ The system is activated when the 'Start' button is pressed, and the first task i
 
 After the home operation is completed, the system initiates the operation of both feeder conveyor belts: one for the object to be packed and the other for the packaging box. The first conveyor belt transports the object to the picking area, while the second belt brings an open box to the packaging area. In both cases, the items move along the belts until their respective presence sensors are activated, indicating that the object is in the picking area and the box is in the packaging area. In this way, both conveyor belts are halted while waiting for the pick-and-place operation.
 
-Once the open box and the item to be packed are in position, the XYZ Cartesian robot performs a pick-and-place operation to transfer the item into the box. This robot consists of three servodrivers, each controlling a servomotor that drives one of the X, Y, or Z axes. The Opta controller manages these servodrivers individually via RS-485 Modbus RTU communication, using read-and-write commands on their Modbus map registers. This setup allows the Opta to precisely control each axis independently, guiding the robot through the necessary movements to execute the pick-and-place task accurately. After the operation, the item is securely placed inside the open box.
+Once the open box and the item to be packed are in position, the XYZ Cartesian robot performs a pick-and-place operation to transfer the item into the box. This robot consists of three servo drivers, each controlling a servomotor that drives one of the X, Y, or Z axes. The Opta controller manages these servo drivers individually via RS-485 Modbus RTU communication, using read-and-write commands on their Modbus map registers. This setup allows the Opta to precisely control each axis independently, guiding the robot through the necessary movements to execute the pick-and-place task accurately. After the operation, the item is securely placed inside the open box.
 
 Now, the conveyor belt carrying the open box with the item inside briefly moves forward to transfer the box to the next conveyor belt. The open box with the item will now be closed in the box-closing machine. The conveyor transports it until a sensor in the box-closing machine detects the presence of the open box. At this point, the Opta activates an actuator responsible for closing and sealing the box. With the item now safely packed, the conveyor belt moves the package to the labeling machine.
 
-The package's arrival in the labeling area is detected by a presence sensor. Upon detection, the Opta sends a command via RS-485 Modbus RTU communication to activate the labeling machine. The machine then accurately applies a label to the package, detailing essential information about the item inside. With the labeling complete, the package moves forward to undergo further processing in another area of the facility, outside of the packaging and labeling process.
+The package's arrival in the labeling area is detected by a presence sensor. Upon detection, the Opta sends a command via RS-485 Modbus RTU communication to activate the labeling machine. The machine then accurately applies a label to the package, detailing essential information about the item inside. With the labeling complete, the package moves forward to undergo further processing in another area of the facility, outside the packaging and labeling process.
 
 In essence, this outlines the complete process of the packaging and labeling system. The Opta manages each step and simultaneously functions as a gateway, transmitting real-time data to the Arduino Cloud. This way, you can monitor and control your system in real time.
 
@@ -161,7 +181,7 @@ In essence, this outlines the complete process of the packaging and labeling sys
 
 - The **Conveyor belt** is used to drive the package. Three conveyors will be used. Two conveyors are responsible for feeding the system, bringing the item to be packaged and the box that will hold the item, while the third conveyor is responsible for moving the open package to be closed by the carton closing machine and labeled by the labeling machine. All conveyors will be controlled via a Solid State Relay, which is used to activate loads that are not supported by the PLC output. This way, the PLC can control equipment requiring a higher load capacity.
 
-- The **Modbus Servodriver** is used to create the XYZ Cartesian robot, which will be used for picking up the item and placing it inside the box. These servo drivers will be controlled via Modbus RTU.
+- The **Modbus Servo driver** is used to create the XYZ Cartesian robot, which will be used for picking up the item and placing it inside the box. These servo drivers will be controlled via Modbus RTU.
 
 - The **Carton Closing Machine** is used to close and seal the open box containing the item. It will be controlled by a solid-state relay connected to an output from the Opta, which will act on an electromechanical actuator responsible for performing the closing and sealing operation.
 
@@ -219,7 +239,7 @@ If you haven't previously downloaded and opened the Arduino PLC IDE project, and
 
 ![Arduino PLC IDE: Creating a New Ladder Diagram](assets/arduino-plc-ide-new-program.png)
 
-**Mapping the Inputs and Outputs**
+### Mapping the Inputs and Outputs
 
 In the Arduino PLC IDE, it's essential to link the PLC's physical inputs and outputs to variables that will be used in your program. These variables will represent the input states and manage the output controls.
 
@@ -232,7 +252,7 @@ In the previous section, `Packaging and Labeling System Setup`, we reviewed the 
 - `I3`: Linked to the variable `objectDetectionSensor`, which indicates when the photoelectric sensor detects the presence of an object to be packed in the picking area.
 - `I4`: Linked to the variable `boxPresenceSensor`, which indicates when the photoelectric sensor detects the presence of an open box in the packaging area.
 - `I5`: Linked to the variable `boxClosureSensor`, which indicate when the photoelectric sensor detects the presence of an item packed in the open box in the area of the box-closing machine.
-- `I6`: Associated with the variable `boxLabelingSensor`, which indicate when the photoelectric sensor detects the presence of an item packed in the closed box in the area of the laebling machine.
+- `I6`: Associated with the variable `boxLabelingSensor`, which indicate when the photoelectric sensor detects the presence of an item packed in the closed box in the area of the labeling machine.
 
 All input variables are of boolean type, meaning they can hold either a `True` or `False` value.
 
@@ -242,9 +262,9 @@ The image below illustrates the association between the physical input elements 
 
 Now, for the outputs, we have the following configuration:
 
-The Opta’s outputs will be employed to activate the relays controlling the three conveyors and the box-closing machine, utilizing all four outputs available on the Opta. Consequently, the expansion module will be used to manage the signal tower, as no additional outputs are available on the Opta. The signal tower features three colors: red, yellow, and green each of which will be individually controlled by a dedicated output on the expansion module.
+The Opta outputs will be employed to activate the relays controlling the three conveyors and the box-closing machine, utilizing all four outputs available on the Opta. Consequently, the digital expansion module will be used to manage the signal tower, as no additional outputs are available on the Opta. The signal tower features three colors: red, yellow, and green, each of which will be individually controlled by a dedicated output on the expansion module.
 
-The Opta’s outputs are configured as follows.
+The Opta outputs are configured as follows.
 
 - `O1`: Linked to the variable `infeedConveyor`, which is responsible for activating the relay that will operate the conveyor motor bringing the item to the picking area.
 - `O2`: Linked to the variable `packConveyor`, which is responsible for activating the relay that will operate the package conveyor motor, bringing the open box to the placing area.
@@ -265,7 +285,7 @@ The outputs listed above were configured on the Opta. Next, we will configure th
 
 If you want to learn how to add the expansion module, please click on this [link](https://docs.arduino.cc/software/plc-ide/tutorials/opta-analog-expansion-plc-ide/).
 
-**Mapping the built-in LEDs on the Opta**
+### Mapping the built-in LEDs on the Opta
 
 The Opta features programmable built-in LEDs. We'll use these LEDs to indicate that the Opta is running by turning on the green LED. Additionally, each output LED will light up individually to show when a corresponding output is active.
 
@@ -283,7 +303,7 @@ This configuration can be seen in the image below.
 
 ![Programmable Outputs](assets/leds-outputs.png)
 
-**Modbus Setup**
+### Modbus Setup
 
 Modbus RTU is a popular communication protocol used in industrial automation to connect devices like PLCs, sensors, and other equipment. It uses a master-slave setup, where one master device can control and exchange data with multiple slave devices over serial lines (such as RS-232 or RS-485). Modbus RTU sends data in a compact, efficient format, which helps maintain fast communication over longer distances. Known for its simplicity and reliability, it’s widely used to ensure different devices from various manufacturers can work together in industrial systems.
 
@@ -297,12 +317,12 @@ After this configuration, you need to create a Modbus node to set up information
 
 The table below illustrates the configuration of the Modbus nodes.
 
-| Name   | Modbus adress   | Minimum polling time   | Adress Type  | Swap Words mode  |
-|------------|------------|------------|------------|------------|
-| Servodriver_Axis_X | 1 | 1 | Modbus | Little endian |
-| Servodriver_Axis_X| 2 | 1 | Modbus | Little endian |
-| Servodriver_Axis_X | 3 | 1 | Modbus | Little endian |
-| Labeling_Machine | 4 | 1 | Modbus | Little endian |
+| **Name**           | **Modbus adress** | **Minimum polling time** | **Adress Type** | **Swap Words mode** |
+| ------------------ | ----------------- | ------------------------ | --------------- | ------------------- |
+| Servodriver_Axis_X | 1                 | 1                        | Modbus          | Little endian       |
+| Servodriver_Axis_X | 2                 | 1                        | Modbus          | Little endian       |
+| Servodriver_Axis_X | 3                 | 1                        | Modbus          | Little endian       |
+| Labeling_Machine   | 4                 | 1                        | Modbus          | Little endian       |
 
 In Modbus RTU, functions and addresses are essential for communication between a master device and slave devices. Each Modbus RTU message includes a function code that instructs the slave on a specific action. Common function codes include reading coils (Function 01) for binary output values, reading discrete inputs (Function 02) for binary input values, reading holding registers (Function 03) for internal data, and writing to coils or registers (Functions 05 and 06). Additionally, Function 16 (Write Multiple Registers) is used to write a series of values to consecutive holding registers, enabling batch updates to multiple data points. Addresses in Modbus RTU refer to specific memory locations within the device, each storing data points like sensor readings or control outputs. Unique addresses ensure that the master can accurately read or write data across the network, making Modbus RTU a reliable protocol for industrial communication.
 
@@ -316,24 +336,24 @@ You can access this [link](https://dl.mitsubishielectric.com/dl/fa/document/manu
 
 In the image, we can see that function FC 03 is used, which is responsible for reading holding-type registers only. We also have the configurations for starting address, polling time, timeout, and oneshot variable. The functions and addresses to be used for the servo driver are described in the table below.
 
-| Function | Start Address Decimal | Start Address Hex | Polling Time | Time out | Oneshot variable | Description | Linked Variable |
-|----|---|---|---|---|---|---|---|
-| FC 03 - Read Holding Register | 24640 | 6040h | 0 | 1000 | N/A | At address 24640 is the Control Word, a 16-bit register that enables control of key operations (like turning the servo on/off or resetting alarms) via Modbus RTU by setting specific bits. By reading this address, we can retrieve information about the state of the Control Word. | getControlWordAxis |
-| FC 03 - Read Holding Register | 24641 | 6041h | 0 | 1000 | N/A | At address 24641 is the Status Word, a 16-bit register that provides real-time feedback on the current status of the device. By reading the Status Word, operators or control systems can monitor the servo’s condition, determine if any alarms are present, and verify if the system is ready, active, or requires intervention. | getStatusAxis |
-| FC 16 - Write Multiple Register | 24640 | 6040h | 0 | 1000 | N/A  | At address 24640 is the Control Word. Now, instead of reading, we will write to the Control Word, allowing us to control the servo motor's operations. | setControlWordAxis |
-| FC 16 - Write Multiple Register | 24672 | 6060h | 0 | 1000 | N/A | The 6060h register, or "Mode of Operation" register, sets the control mode for the servo. Different values activate specific modes: -20 for position control, -21 for speed control, -22 for torque control, and 6 for homing mode, which moves the servo to a predefined home position. This register is crucial for configuring the servo’s control type for its intended operation. | setControlModeAxis |
-| FC 16 - Write Multiple Register | 10242 | 2802h | 0 | 1000 | N/A | The 2802h register is used to set position data, specifying a position to which the servo driver should move the servo motor. | setPositionAxis |
+| **Function**                        | **Start Address Decimal** | **Start Address Hex** | **Polling Time** | **Time out** | **Oneshot variable** | **Description**                                                                                                                                                                                                                                                                                                                                                                            | **Linked Variable**    |
+| ------------------------------- | --------------------- | ----------------- | ------------ | -------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| FC 03 - Read Holding Register   | 24640                 | 6040h             | 0            | 1000     | N/A              | At address 24640 is the Control Word, a 16-bit register that enables control of key operations (like turning the servo on/off or resetting alarms) via Modbus RTU by setting specific bits. By reading this address, we can retrieve information about the state of the Control Word.                                                                                                  | getControlWordAxis |
+| FC 03 - Read Holding Register   | 24641                 | 6041h             | 0            | 1000     | N/A              | At address 24641 is the Status Word, a 16-bit register that provides real-time feedback on the current status of the device. By reading the Status Word, operators or control systems can monitor the servo’s condition, determine if any alarms are present, and verify if the system is ready, active, or requires intervention.                                                     | getStatusAxis      |
+| FC 16 - Write Multiple Register | 24640                 | 6040h             | 0            | 1000     | N/A              | At address 24640 is the Control Word. Now, instead of reading, we will write to the Control Word, allowing us to control the servo motor's operations.                                                                                                                                                                                                                                 | setControlWordAxis |
+| FC 16 - Write Multiple Register | 24672                 | 6060h             | 0            | 1000     | N/A              | The 6060h register, or "Mode of Operation" register, sets the control mode for the servo. Different values activate specific modes: -20 for position control, -21 for speed control, -22 for torque control, and 6 for homing mode, which moves the servo to a predefined home position. This register is crucial for configuring the servo’s control type for its intended operation. | setControlModeAxis |
+| FC 16 - Write Multiple Register | 10242                 | 2802h             | 0            | 1000     | N/A              | The 2802h register is used to set position data, specifying a position to which the servo driver should move the servo motor.                                                                                                                                                                                                                                                          | setPositionAxis    |
 
 Now, for the labeling machine, we will use only coils, which are described in the table below.
 
-| Function | Start Address Decimal | Polling Time | Time out | Oneshot variable | Description | Linked Variable |
-|----|---|---|---|---|---|---|
-| FC 05 - Write Single Coil | 3000 | 0 | 1000 | N/A | The address with the value 3000 is responsible for activating the labeling machine, making it operate. | labelingControl |
-| FC 03 - Read Holding Register | 4000 | 0 | 1000 | N/A | The address with the value 4000 is responsible for reading the state of the labeling machine. | labelingStatus |
+| **Function**                      | **Start Address Decimal** | **Polling Time** | **Time out** | **Oneshot variable** | **Description**                                                                                            | **Linked Variable** |
+| ----------------------------- | --------------------- | ------------ | -------- | ---------------- | ------------------------------------------------------------------------------------------------------ | --------------- |
+| FC 05 - Write Single Coil     | 3000                  | 0            | 1000     | N/A              | The address with the value 3000 is responsible for activating the labeling machine, making it operate. | labelingControl |
+| FC 03 - Read Holding Register | 4000                  | 0            | 1000     | N/A              | The address with the value 4000 is responsible for reading the state of the labeling machine.          | labelingStatus  |
 
 Remember, it is important that the devices on the Modbus network are configured to communicate with each other to enable data transmission over the network. We will not cover how to configure these devices, as each manual provides the correct method for doing so.
 
-**Step-by-Step Ladder Diagram Breakdown:**
+### Step-by-Step Ladder Diagram Breakdown:
 
 The **Rung 01**
 
@@ -381,7 +401,7 @@ The **Rung 05**
 
 - `runSystem`: This input is energized when the system is in the running state. It indicates that the overall system is operational.
 - `ackHome`: This input is a confirmation signal indicating that the system is in a known home position. 
-- `MOVE` to `setControlModeAxisX`: When both the runSystem and ackHome conditions are met, this MOVE block assigns the value 6 to `setControlModeAxisX`, configuring the control mode for the X-axis.
+- `MOVE` to `setControlModeAxisX`: When both the `runSystem` and `ackHome` conditions are met, this MOVE block assigns the value 6 to `setControlModeAxisX`, configuring the control mode for the X-axis.
 - `MOVE` to `setControlModeAxisY`: Simultaneously, this MOVE block assigns the value 6 to `setControlModeAxisY`, configuring the control mode for the Y-axis.
 - `MOVE` to `setControlModeAxisZ`: Likewise, this MOVE block assigns the value 6 to `setControlModeAxisZ`, configuring the control mode for the Z-axis.
 
@@ -459,8 +479,8 @@ The **Rung 11**
 ![Packaging and Labeling System](assets/Rung11.png)
 
 - `enableOperation`: This input indicates that the system is ready for operation, meaning previous conditions have been met.
-- `objectDetectionSensor`:  This input represents a sensor that detects the presence of an object in the picking area.
-- `infeedConveyor`:  This output activates the conveyor, moving items to the picking area when the system is ready (`enableOperation` is active) and no object is currently detected (`objectDetectionSensor` is inactive).
+- `objectDetectionSensor`: This input represents a sensor that detects the presence of an object in the picking area.
+- `infeedConveyor`: This output activates the conveyor, moving items to the picking area when the system is ready (`enableOperation` is active) and no object is currently detected (`objectDetectionSensor` is inactive).
 - `outputLED01`: This output activates an indicator LED, signaling that the conveyor is running and ready to process objects.
 
 **Resume**: This rung activates the `infeedConveyor` and `outputLED01` when the system is ready (`enableOperation` is active) and no object is detected by the sensor (`objectDetectionSensor` is inactive). This logic controls both the conveyor operation and the LED indicator. When a object in the picking area is detected, the `infeedConveyor` is haulted.
@@ -491,31 +511,31 @@ The **Rung 14**
 
 ![Packaging and Labeling System](assets/Rung14.png)
 
-- `pickOperation`:This indicate that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
-- `MOVE`: Each `MOVE block` assigns the value -20 to the control mode variable for a specific axis (X, Y, and Z).
-- `setControlModeAxisX`: This variable receives the value -20, configuring the X-axis for a position control mode, intended for the picking operation.
-- `setControlModeAxisY`: This variable receives the value -20, configuring the Y-axis for a position control mode, intended for the picking operation.
-- `setControlModeAxisZ`: This variable receives the value -20, configuring the Z-axis for a position control mode, intended for the picking operation.
+- `pickOperation`: This indicates that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
+- `MOVE`: Each `MOVE block` assigns the value `-20` to the control mode variable for a specific axis (X, Y, and Z).
+- `setControlModeAxisX`: This variable receives the value `-20`, configuring the X-axis for a position control mode, intended for the picking operation.
+- `setControlModeAxisY`: This variable receives the value `-20`, configuring the Y-axis for a position control mode, intended for the picking operation.
+- `setControlModeAxisZ`: This variable receives the value `-20`, configuring the Z-axis for a position control mode, intended for the picking operation.
 
-**Resume**: This rung sets the control mode of each axis (X, Y, Z) to -20 (Position control mode) when `pickOperation` is active, configuring them for the picking operation. By applying this control mode, the system prepares each axis for movement specific to picking tasks, ensuring coordinated and accurate positioning for the operation. Setting into the position control mode allows the servo motor to move each axis to precise target positions, ensuring accurate, repeatable movements for tasks like picking and placing.
+**Resume**: This rung sets the control mode of each axis (X, Y, Z) to `-20` (Position control mode) when `pickOperation` is active, configuring them for the picking operation. By applying this control mode, the system prepares each axis for movement specific to picking tasks, ensuring coordinated and accurate positioning for the operation. Setting into the position control mode allows the servo motor to move each axis to precise target positions, ensuring accurate, repeatable movements for tasks like picking and placing.
 
 The **Rung 15**
 
 ![Packaging and Labeling System](assets/Rung15.png)
 
-- `pickOperation`:This indicate that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
+- `pickOperation`: This indicates that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
 - `MOVE`: Each `MOVE block` assigns a position value to a specific axis (X, Y, and Z) to reach the target coordinates for the picking operation.
-- `setPositionAxisX`: This variable is set to 100, positioning the X-axis at this target location for the picking operation.
-- `setPositionAxisY`: This variable is set to 50, positioning the Y-axis at a mid-point target for the picking operation.
-- `setPositionAxisZ`: This variable is set to 100, positioning the Z-axis at its target for reaching the pick position.
+- `setPositionAxisX`: This variable is set to `100`, positioning the X-axis at this target location for the picking operation.
+- `setPositionAxisY`: This variable is set to `50`, positioning the Y-axis at a mid-point target for the picking operation.
+- `setPositionAxisZ`: This variable is set to `100`, positioning the Z-axis at its target for reaching the pick position.
 
-**Resume**: This rung positions each axis (X, Y, Z) at specific target coordinates when `pickOperation` is active, with values 100 for X and Z, and 50 for Y. These position values ensure each axis moves to the precise location needed for the picking operation, enabling accurate and synchronized positioning.
+**Resume**: This rung positions each axis (X, Y, Z) at specific target coordinates when `pickOperation` is active, with values `100` for X and Z, and 50 for Y. These position values ensure each axis moves to the precise location needed for the picking operation, enabling accurate and synchronized positioning.
 
 The **Rung 16**
 
 ![Packaging and Labeling System](assets/Rung16.png)
 
-- `pickOperation`:This indicate that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
+- `pickOperation`: This indicates that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
 - `OR`: Each `OR block` performs a bitwise OR operation between the current control word of each axis and the value 8. Setting bit 4 (represented by the binary value 1000) activates the start command in the control word, initiating movement to the previously set position.
 - `getControlWordAxisX`: This variable is used to get the Control Word from the X-axis servodriver. The control word is a multi-bit register that controls motor actions, with each bit triggering specific functions like starting, stopping, or homing. 
 - `getControlWordAxisY`: This variable is used to get the Control Word from the Y-axis servodriver. The control word is a multi-bit register that controls motor actions, with each bit triggering specific functions like starting, stopping, or homing. 
@@ -530,8 +550,8 @@ The **Rung 17**
 
 ![Packaging and Labeling System](assets/Rung17.png)
 
-- `pickOperation`:This indicate that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
-- `AND`: Each `AND block` performs a bitwise AND operation between the status word of each axis and the value 1024. The binary representation of 1024 is 10000000000, which likely corresponds to a specific bit in the status word that indicates whether the target position has been reached.
+- `pickOperation`: This indicates that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
+- `AND`: Each `AND block` performs a bitwise AND operation between the status word of each axis and the value 1024. The binary representation of `1024` is `10000000000`, which likely corresponds to a specific bit in the status word that indicates whether the target position has been reached.
 - `getStatusAxisX`: This variable represents the status word for the X-axis. The 11th bit (value 1024) within this status word indicates when the X-axis has reached its home position.
 - `getStatusAxisY`: This variable represents the status word for the Y-axis. The 11th bit (value 1024) within this status word indicates when the Y-axis has reached its home position.
 - `getStatusAxisZ`: This variable represents the status word for the Z-axis. The 11th bit (value 1024) within this status word indicates when the Z-axis has reached its home position.
@@ -545,7 +565,7 @@ The **Rung 18**
 
 ![Packaging and Labeling System](assets/Rung18.png)
 
-- `pickOperation`:This indicate that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
+- `pickOperation`: This indicates that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
 - `GT (Greater Than)`: Each `GT (Greater Than)` block checks if the `getTargetReachedAxis` variable for each axis (X, Y, Z) is greater than zero. If it is, this indicates that the target position has been reached and triggers the corresponding acknowledgment variable.
 - `getTargetReachedAxisX`: This variable is used to confirm that the X-axis has reached its target.
 - `getTargetReachedAxisY`: This variable is used to confirm that the Y-axis has reached its target.
@@ -560,7 +580,7 @@ The **Rung 19**
 
 ![Packaging and Labeling System](assets/Rung19.png)
 
-- `pickOperation`:This indicate that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
+- `pickOperation`: This indicates that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
 - `MOVE`: The `MOVE block` assigns the value 50 to `setPositionAxisZ`, positioning the Z-axis at this specified target.
 - `ackTargetReachedAxisX`: This variable is used to confirm acknowledgment that the X-axis has reached its target.
 - `ackTargetReachedAxisY`: This variable is used to confirm acknowledgment that the Y-axis has reached its target.
@@ -572,7 +592,7 @@ The **Rung 20**
 
 ![Packaging and Labeling System](assets/Rung20.png)
 
-- `pickOperation`:This indicate that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
+- `pickOperation`: This indicates that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
 - `OR`: The `OR block` performs a bitwise OR operation between `getControlWordAxisZ` and the value 8. Setting bit 4 (represented by the binary value 1000) in `setControlWordAxisZ` enables a specific command, starting the Z-axis movement.
 - `ackTargetReachedAxisX`: This variable is used to confirm acknowledgment that the X-axis has reached its target.
 - `ackTargetReachedAxisY`: This variable is used to confirm acknowledgment that the Y-axis has reached its target.
@@ -584,7 +604,7 @@ The **Rung 21**
 
 ![Packaging and Labeling System](assets/Rung21.png)
 
-- `pickOperation`:This indicate that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
+- `pickOperation`: This indicates that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
 - `MOVE`: The first `MOVE block` assigns the value 300 to `setPositionAxisX`, positioning the X-axis at this specified coordinate for the next operation. The second `MOVE block` assigns the value 50 to `setPositionAxisY`, positioning the Y-axis at this specified coordinate.
 - `ackTargetReachedAxisZ`: This variable is used to confirm acknowledgment that the Z-axis has reached its target.
 
@@ -594,10 +614,10 @@ The **Rung 22**
 
 ![Packaging and Labeling System](assets/Rung22.png)
 
-- `pickOperation`:This indicate that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
+- `pickOperation`: This indicates that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
 - `OR`: Each `OR block` performs a bitwise OR operation between the current control word of the axis (X or Y) and the value 8. Setting bit 4 (binary 1000) in the control word enables a specific command, likely initiating movement to the target position.
-- `getControlWordAxisX`: This variable is used to get the Control Word from the X-axis servodriver. The control word is a multi-bit register that controls motor actions, with each bit triggering specific functions like starting, stopping, or homing. 
-- `getControlWordAxisY`: This variable is used to get the Control Word from the Y-axis servodriver. The control word is a multi-bit register that controls motor actions, with each bit triggering specific functions like starting, stopping, or homing. 
+- `getControlWordAxisX`: This variable is used to get the Control Word from the X-axis servo driver. The control word is a multi-bit register that controls motor actions, with each bit triggering specific functions like starting, stopping, or homing. 
+- `getControlWordAxisY`: This variable is used to get the Control Word from the Y-axis servo driver. The control word is a multi-bit register that controls motor actions, with each bit triggering specific functions like starting, stopping, or homing. 
 - `ackTargetReachedAxisZ`: This variable is used to confirm acknowledgment that the Z-axis has reached its target.
 
 **Resume**: This rung activates a start movement command for both the X and Y axes by setting bit 4 in each control word when the picking operation is active and the Z-axis has acknowledged reaching its target. This prepares the X and Y axes to move to their previously defined positions, coordinating their movement in preparation for the place operation or the next step in the sequence.
@@ -606,7 +626,7 @@ The **Rung 23**
 
 ![Packaging and Labeling System](assets/Rung23.png)
 
-- `pickOperation`: This indicate that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
+- `pickOperation`: This indicates that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
 - `MOVE`: Each `MOVE block` assigns the value 80 to `setPositionAxisZ`, positioning the Z-axis at this specified coordinate.
 - `ackTargetReachedAxisX`: This variable is used to confirm acknowledgment that the X-axis has reached its target.
 - `ackTargetReachedAxisY`: This variable is used to confirm acknowledgment that the Y-axis has reached its target.
@@ -618,7 +638,7 @@ The **Rung 24**
 
 ![Packaging and Labeling System](assets/Rung24.png)
 
-- `pickOperation`: This indicate that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
+- `pickOperation`: This indicates that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
 - `OR`: The `OR block` performs a bitwise OR operation between `getControlWordAxisZ` and the value 8. Setting bit 4 (binary 1000) in the control word enables a specific command in `setControlWordAxisZ`, to initiate the movement of the Z-axis.
 - `ackTargetReachedAxisX`: This variable is used to confirm acknowledgment that the X-axis has reached its target.
 - `ackTargetReachedAxisY`: This variable is used to confirm acknowledgment that the Y-axis has reached its target.
@@ -629,19 +649,19 @@ The **Rung 25**
 
 ![Packaging and Labeling System](assets/Rung25.png)
 
-- `pickOperation`: This indicate that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
-- `MOVE`: The `MOVE block` assigns the value 20 to `setPositionAxisZ`, positioning the Z-axis at this specific coordinate.
-- `setPositionAxisZ`: This variable is set to 80, positioning the Z-axis at its target for reaching the place position.
+- `pickOperation`: This indicates that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
+- `MOVE`: The `MOVE block` assigns the value `20` to `setPositionAxisZ`, positioning the Z-axis at this specific coordinate.
+- `setPositionAxisZ`: This variable is set to `80`, positioning the Z-axis at its target for reaching the place position.
 
-**Resume**: This rung sets the target position of the Z-axis to 20 when the picking operation is active and the Z-axis has acknowledged reaching its previous target. This movement likely positions the Z-axis downward to perform the place operation, ensuring that the item is accurately placed in the designated location, such as inside an open box.
+**Resume**: This rung sets the target position of the Z-axis to `20` when the picking operation is active and the Z-axis has acknowledged reaching its previous target. This movement likely positions the Z-axis downward to perform the place operation, ensuring that the item is accurately placed in the designated location, such as inside an open box.
 
 The **Rung 26**
 
 ![Packaging and Labeling System](assets/Rung26.png)
 
-- `pickOperation`: This indicate that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
+- `pickOperation`: This indicates that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
 - `OR`: The `OR block` performs a bitwise OR operation between `getControlWordAxisZ` and the value 8. Setting bit 4 (binary 1000) in the control word enables a specific command in `setControlWordAxisZ`, to initiate the movement of the Z-axis.
-- `setPositionAxisZ`: This variable is set to 80, positioning the Z-axis at its target for reaching the place position.
+- `setPositionAxisZ`: This variable is set to `80`, positioning the Z-axis at its target for reaching the place position.
 
 **Resume**: This rung sets bit 4 in the Z-axis control word, activating a movement command for the Z-axis when the picking operation is active and the Z-axis has acknowledged reaching its target. This command moves the Z-axis to its final position to complete the place operation, ensuring accurate placement of the item into the designated area, such as inside a box.
 
@@ -649,9 +669,9 @@ The **Rung 27**
 
 ![Packaging and Labeling System](assets/Rung27.png)
 
-- `pickOperation (R)`: This output resets the pickOperation signal, indicating the end of the picking operation.
+- `pickOperation (R)`: This output resets the `pickOperation` signal, indicating the end of the picking operation.
 - `operationDone (S)`: This output sets the `operationDone` flag, confirming that the entire operation has been successfully completed.
-- `setPositionAxisZ`: This variable is set to 80, positioning the Z-axis at its target for reaching the place position.
+- `setPositionAxisZ`: This variable is set to `80`, positioning the Z-axis at its target for reaching the place position.
 
 **Resume**: This rung finalizes the pick and place operation by resetting `pickOperation` and setting `operationDone` once the Z-axis has reached its target position. The reset of `pickOperation` ends the active picking and placing sequence, while `operationDone` signals that the operation has been completed, allowing the system to proceed to the next task or operation cycle.
 
@@ -673,7 +693,7 @@ The **Rung 29**
 ![Packaging and Labeling System](assets/Rung29.png)
 
 - `sealingAndLabelingConveyor`: This input indicates that the `sealingAndLabelingConveyor` is active, signaling that the package is in the sealing and labeling stage.
-- `outputLED03`: This output activates `outputLED03`, likely as an indicator that the sealing and labeling conveyor is currently running and the package is being processed in this stage.
+- `outputLED03`: This output activates `outputLED03`, likely as an indicator that the sealing and labeling conveyor is currently running, and the package is being processed in this stage.
 
 **Resume**: This rung activates `outputLED03` when the `sealingAndLabelingConveyor` is active. The LED serves as a visual indicator that the package has entered the sealing and labeling phase, helping operators monitor the progress of the packaging process.
 
@@ -706,12 +726,12 @@ The **Rung 32**
 - `infeedConveyor (R)`: This output resets the `infeedConveyor`, stopping it as part of the shutdown.
 - `packConveyor (R)`: This output resets the `packConveyor`, stopping it as part of the shutdown.
 - `sealingAndLabelingConveyor (R)`: This output resets the `sealingAndLabelingConveyor`, stopping the conveyor in the sealing and labeling stage.
-- `boxSealingMachine (R)`: This output resets the boxSealingMachine, stopping the sealing operation.
+- `boxSealingMachine (R)`: This output resets the `boxSealingMachine`, stopping the sealing operation.
 - `signalTowerRedLight`: This output activates the `signalTowerRedLight`, indicating that the system is in a stopped state.
 - `labelingControl (R)`: This output resets `labelingControl`, stopping the labeling process.
-- `getControlWordAxisX`: This variable is used to get the Control Word from the X-axis servodriver. The control word is a multi-bit register that controls motor actions, with each bit triggering specific functions like starting, stopping, or homing. 
-- `getControlWordAxisY`: This variable is used to get the Control Word from the Y-axis servodriver. The control word is a multi-bit register that controls motor actions, with each bit triggering specific functions like starting, stopping, or homing. 
-- `getControlWordAxisZ`: This variable is used to get the Control Word from the Z-axis servodriver. The control word is a multi-bit register that controls motor actions, with each bit triggering specific functions like starting, stopping, or homing.
+- `getControlWordAxisX`: This variable is used to get the Control Word from the X-axis servo driver. The control word is a multi-bit register that controls motor actions, with each bit triggering specific functions like starting, stopping, or homing. 
+- `getControlWordAxisY`: This variable is used to get the Control Word from the Y-axis servo driver. The control word is a multi-bit register that controls motor actions, with each bit triggering specific functions like starting, stopping, or homing. 
+- `getControlWordAxisZ`: This variable is used to get the Control Word from the Z-axis servo driver. The control word is a multi-bit register that controls motor actions, with each bit triggering specific functions like starting, stopping, or homing.
 - `setControlWordAxisX`: This variable is used to send commands to the X-axis motor by setting specific bits in its control word, enabling functions like starting, stopping, or homing.
 - `setControlWordAxisY`: This variable is used to send commands to the Y-axis motor by setting specific bits in its control word, enabling functions like starting, stopping, or homing.
 - `setControlWordAxisZ`: This variable is used to send commands to the Z-axis motor by setting specific bits in its control word, enabling functions like starting, stopping, or homing.
@@ -800,29 +820,29 @@ To add the shared input and output variables, go to the `Resources` tab in the A
 
 The following table contains the input variables shown in the image.
 
-| Variable | Description |
-|----------|----------|
-| `in_cloudStartButton` | The `in_cloudStartButton` variable captures the state of the start button from the Arduino Cloud. In other words, when the button is activated on the dashboard, this variable receives and stores its current state, allowing the system to respond accordingly. |
-| `in_cloudStopButton` | The `in_cloudStopButton` variable captures the state of the stop button from the Arduino Cloud. When the stop button is pressed on the dashboard, this variable receives and stores its current state, allowing the system to respond accordingly. |
+| **Variable**          | **Description**                                                                                                                                                                                                                |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `in_cloudStartButton` | Captures the state of the start button from the Arduino Cloud. In other words, when the button is activated on the dashboard, this variable receives and stores its current state, allowing the system to respond accordingly. |
+| `in_cloudStopButton`  | Captures the state of the stop button from the Arduino Cloud. When the stop button is pressed on the dashboard, this variable receives and stores its current state, allowing the system to respond accordingly.               |
 
 ![Arduino PLC IDE: Shared Outputs Variables](assets/arduino-plc-shared-outputs-variable.png)
 
 The following table contains the output variables shown in the image.
 
-| Variable | Description |
-|----------|----------|
-| `out_cloudStartButtonStatus` | The `out_cloudStartButtonStatus` variable sends the state of the start button to the Arduino Cloud. This variable updates the dashboard with the button's current status, allowing remote monitoring of whether the start button is active or inactive. |
-| `out_cloudStopButtonStatus` | The `out_cloudStopButtonStatus` variable sends the state of the stop button to the Arduino Cloud. This variable updates the dashboard with the current status of the stop button, enabling remote monitoring of whether the stop button is engaged or disengaged. |
-| `out_cloudSystemRunning` | The `out_cloudSystemRunning` variable sends the current running status of the system to the Arduino Cloud. This variable updates the dashboard to indicate whether the system is actively running or not, allowing for remote monitoring of the system's operational state. |
-| `out_cloudSystemWarning` | The `out_cloudSystemWarning` variable sends the system's warning status to the Arduino Cloud. This variable updates the dashboard to reflect whether any warnings are active, enabling remote monitoring of potential issues within the system. |
-| `out_cloudStopButtonStatus` | The out_`cloudSystemStopped` variable sends the system's stopped status to the Arduino Cloud. This variable updates the dashboard to indicate whether the system is currently stopped, allowing for remote monitoring of its operational state. |
-| `out_cloudTotalItemsPackedLabeled` | The `out_cloudTotalItemsPackedLabeled` variable sends the total count of packed and labeled items to the Arduino Cloud. This variable updates the dashboard with the cumulative number of processed items, providing real-time tracking of the system’s output. |
+| **Variable**                       | **Description**                                                                                                                                                                                                                       |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `out_cloudStartButtonStatus`       | Sends the state of the start button to the Arduino Cloud. This variable updates the dashboard with the button's current status, allowing remote monitoring of whether the start button is active or inactive.                         |
+| `out_cloudStopButtonStatus`        | Sends the state of the stop button to the Arduino Cloud. This variable updates the dashboard with the current status of the stop button, enabling remote monitoring of whether the stop button is engaged or disengaged.              |
+| `out_cloudSystemRunning`           | Sends the current running status of the system to the Arduino Cloud. This variable updates the dashboard to indicate whether the system is actively running or not, allowing for remote monitoring of the system's operational state. |
+| `out_cloudSystemWarning`           | Sends the system's warning status to the Arduino Cloud. This variable updates the dashboard to reflect whether any warnings are active, enabling remote monitoring of potential issues within the system.                             |
+| `out_cloudStopButtonStatus`        | Sends the system's stopped status to the Arduino Cloud. This variable updates the dashboard to indicate whether the system is currently stopped, allowing for remote monitoring of its operational state.                             |
+| `out_cloudTotalItemsPackedLabeled` | Sends the total count of packed and labeled items to the Arduino Cloud. This variable updates the dashboard with the cumulative number of processed items, providing real-time tracking of the system’s output.                       |
 
 To find the section that contains the code in Arduino Sketch, go to the `Resources` tab and then select the `Sketch` option, as shown in the figure below. This is the section where we will place the code responsible for communicating with the Arduino Cloud.
 
 ![Arduino PLC IDE Sketch](assets/arduino-plc-sketch.png)
 
-And below is the code contained in the screenshot above:
+Below is the code contained in the screenshot above:
 
 ```arduino
 #include <ArduinoIoTCloud.h> // Library for Arduino IoT Cloud functionalities
@@ -912,6 +932,7 @@ void onStopButtonChange()  {
 }
 ```
 To explain the code, we will divide it into four sections: 
+
 - Global Declarations and Initialization
 - Setup Function
 - Loop Function
