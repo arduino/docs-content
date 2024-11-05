@@ -20,7 +20,7 @@ hardware:
 
 Packaging and labeling are essential processes in the production and distribution of products. Packaging involves enclosing and protecting items to ensure they remain safe from damage, contamination, or spoilage during storage and transport. It also improves the manageability of the product, making it easier to handle. Additionally, packaging enhances presentation, playing a key role in maintaining product quality and meeting safety standards.
 
-![Packaging and Labeling System Thumbnail](assets/thumbnail-1.jpg)
+![Packaging and Labeling System Thumbnail](assets/thumbnail.png)
 
 Labeling complements this by providing crucial information such as barcodes, expiration dates and usage instructions. This ensures proper handling, traceability, and compliance with regulations. Together, packaging and labeling are critical for product identification, handling, safety, and customer satisfaction across industries.
 
@@ -155,7 +155,7 @@ There, the box will pass through a machine responsible for closing and sealing i
 
 The image below illustrates the entire packaging and labeling system, as well as all the hardware used and its positioning within the entire system.
 
-![Packaging and Labeling System](assets/system-entire-overview-c.png)
+![Packaging and Labeling System](assets/system-entire-overview-c2.png)
 
 The Opta will be responsible for controlling the entire packaging and labeling system. It will execute control logic to read inputs, activate outputs, and perform read and write operations on other devices through the RS-485 interface using the Modbus RTU protocol. It will also provide system status and variable data in real-time to the Arduino Cloud, using a Wi-Fi® connection.
 
@@ -163,13 +163,23 @@ In order for this to be possible, we will create all the programming logic for t
 
 The system is activated when the 'Start' button is pressed, and the first task it performs is the 'Home' operation for the XYZ Cartesian robot. This 'Home' operation moves the robot to a predefined starting position, establishing a reliable reference point for all subsequent tasks. This step is essential for maintaining accuracy and consistency in the robot's movements, as it prevents positioning errors over time. The robot achieves this by moving each axis (X, Y, and Z) to specific positions detected by sensors or fixed limits, which calibrates it for precise operations. This process ensures that the XYZ Cartesian robot is properly calibrated and ready for accurate performance.
 
+![Cartesian robot homing](assets/cartesian-c.png)
+
 After the home operation is completed, the system initiates the operation of both feeder conveyor belts: one for the object to be packed and the other for the packaging box. The first conveyor belt transports the object to the picking area, while the second belt brings an open box to the packaging area. In both cases, the items move along the belts until their respective presence sensors are activated, indicating that the object is in the picking area and the box is in the packaging area. In this way, both conveyor belts are halted while waiting for the pick-and-place operation.
+
+![Feeder conveyors and sensors](assets/conveyors-c2.png)
 
 Once the open box and the item to be packed are in position, the XYZ Cartesian robot performs a pick-and-place operation to transfer the item into the box. This robot consists of three servo drivers, each controlling a servomotor that drives one of the X, Y, or Z axes. The Opta controller manages these servo drivers individually via RS-485 Modbus RTU communication, using read-and-write commands on their Modbus map registers. This setup allows the Opta to precisely control each axis independently, guiding the robot through the necessary movements to execute the pick-and-place task accurately. After the operation, the item is securely placed inside the open box.
 
+![Pick-and-place step](assets/pick-n-place.png)
+
 Now, the conveyor belt carrying the open box with the item inside briefly moves forward to transfer the box to the next conveyor belt. The open box with the item will now be closed in the box-closing machine. The conveyor transports it until a sensor in the box-closing machine detects the presence of the open box. At this point, the Opta activates an actuator responsible for closing and sealing the box. With the item now safely packed, the conveyor belt moves the package to the labeling machine.
 
+![Closing machine]()
+
 The package's arrival in the labeling area is detected by a presence sensor. Upon detection, the Opta sends a command via RS-485 Modbus RTU communication to activate the labeling machine. The machine then accurately applies a label to the package, detailing essential information about the item inside. With the labeling complete, the package moves forward to undergo further processing in another area of the facility, outside the packaging and labeling process.
+
+![Labeling machine]()
 
 In essence, this outlines the complete process of the packaging and labeling system. The Opta manages each step and simultaneously functions as a gateway, transmitting real-time data to the Arduino Cloud. This way, you can monitor and control your system in real time.
 
