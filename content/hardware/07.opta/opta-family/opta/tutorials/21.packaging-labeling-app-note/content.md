@@ -1166,6 +1166,8 @@ Additionally, various integrations can be set up to enhance the project. For ins
 
 All the necessary files to replicate this application note can be found below:
 
+[![ ](assets/download.png)](assets/Packaging_and_labeling.zip)
+
 - The complete code can be downloaded [here](assets/Packaging_and_labeling.zip)
 
 ## Conclusion
