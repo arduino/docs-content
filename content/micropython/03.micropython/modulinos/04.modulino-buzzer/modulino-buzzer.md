@@ -33,7 +33,7 @@ Before we start programming, we will need to connect our Modulino Buzzer to our 
 
 ![Circuit Diagram]()
 
-## Modulino Pixels Code Example
+## Modulino Buzzer Code Example
 
 Copy the code below and run it in Arduino MicroPython labs, while connected to our board.
 
