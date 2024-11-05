@@ -70,7 +70,7 @@ You should see a folder called `lib` and a file called `boot.py`. Go ahead and p
 
 ![MicroPython Lab Files](./assets/microPythonLabsFiles.png)
 
-If you see this, it means the package has been installed sucessfully. If you want to to go even deeper, you can open the modulino folder and have a look at the individual Modulino packages. Don't worry, you don't have to understand what those files mean exactly to continue.
+If you see this, it means the package has been installed successfully. If you want to to go even deeper, you can open the modulino folder and have a look at the individual Modulino packages. Don't worry, you don't have to understand what those files mean exactly to continue.
 
 ## First Sketch
 
@@ -84,4 +84,4 @@ You should see "Hello, World", being printed in the commandline.
 
 ## Next Steps
 
-Now that you have sucessfully installed everything it's time to program your first Modulino.
+Now that you have successfully installed everything it's time to program your first Modulino.
