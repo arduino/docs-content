@@ -27,9 +27,26 @@ Your Alvik robot is equipped with three ready-to-go examples. To choose one of t
 
 Now that you have played with Alvik and have seen it moving, it is time to know more in-depth how it is built and how to program Alvik to do amazing things.
 
+## Update Firmware with Alvik Updater
+
+Keeping your Alvik’s firmware updated ensures it has the latest features, bug fixes, and performance enhancements. Regular updates also help maintain compatibility with other software, providing optimal performance for your robot.
+
+![Alvik Firmware Updater](assets/AlvikFirmwareUpdater30sec.gif)
+
+1. Visit https://alvikupdate.arduino.cc.
+2. Connect Alvik to your computer.
+3. Turn ON your Alvik.
+4. Click the "Connect" button.
+5. **A pop-up window will appear** prompting you to select the COM port. Choose the correct port and confirm.
+6. Once connected, click the "Update" button and wait for the process to complete.
+
 ### Let's Start Coding Alvik
 
-Alvik is intended to be programmed with MicroPyton. We recommend you to install the [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython) editor. Follow the instructions next to the download link to install it and open the IDE.
+Alvik is intended to be programmed with MicroPython. We recommend you to install the [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython) editor. Follow the instructions next to the download link to install it and open the IDE.
+
+If you're using a **Chromebook**, there is no installable version of the software available. Instead, you'll use the [**online version**](https://lab-micropython.arduino.cc/) using Chrome. You'll need to login with an Arduino account to use it. 
+
+![Online Lab Micropython](assets/online-lab-micropython.jpg)
 
 Alternatively, on par with other Arduino products, you can also program your Alvik using Arduino IDE and C++. If this is the case you can find setup instructions over at [Setting up Alvik on Arduino IDE](../setting-alvik-arduino-ide/setting-alvik-arduino-ide.md).
 
@@ -108,6 +125,6 @@ You are now all set, disconnect Alvik from the computer, put some obstacles arou
 
 ### Next Steps
 
-* There is a set of already built examples that will help you to better understand how Alvik works, you can download them from [this link](https://github.com/arduino/arduino-alvik-mpy/archive/refs/tags/0.2.0.zip), unzip them in your already created _alvik_ folder and you will be able to see them straight away in the Arduino Labs for MicroPython IDE.
+* There is a set of already built examples that will help you to better understand how Alvik works, you can download them from [this link](https://github.com/arduino/arduino-alvik-mpy/releases), unzip them in your already created _alvik_ folder and you will be able to see them straight away in the Arduino Labs for MicroPython.
 *  If you want to learn more about how Alvik is built or which functions you can use to program it, visit the documentation in the [Docs space for Alvik](https://docs.arduino.cc/hardware/alvik/) and follow the respective [Alvik's User Manual](https://docs.arduino.cc/hardware/alvik/user-manual) to know more about how to build incredible projects with your robot!
 * If you want to follow step-by-step guided projects following an educational approach to learn MicroPython and robotics topics with Alvik, follow the [Explore Robotics in MicroPython](https://courses.arduino.cc/explore-robotics-micropython/) course.
