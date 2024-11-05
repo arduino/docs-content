@@ -73,6 +73,12 @@ Our goal with this application is to showcase the capabilities of Opta™ in con
 - The [Arduino Create Agent](https://cloud.arduino.cc/download-agent/) to provision the Opta WiFi on the Arduino Cloud.
 - The [Arduino Cloud](https://cloud.arduino.cc/). If you do not have an account, you can create one for free inside [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
 
+### Download the Project Code
+
+[![ ](assets/download.png)](assets/Packaging_and_labeling.zip)
+
+Download the whole project code including the PLC IDE program [here](assets/Packaging_and_labeling.zip).
+
 ### Recommended Skills
 
 - **Electrical knowledge:** Understanding wiring, safety protocols and interfaces like RS-485.
@@ -363,7 +369,7 @@ Now, for the labeling machine, we will use only coils, which are described in th
 
 Remember, it is important that the devices on the Modbus network are configured to communicate with each other to enable data transmission over the network. We will not cover how to configure these devices, as each manual provides the correct method for doing so.
 
-### Step-by-Step Ladder Diagram Breakdown:
+### Step-by-Step Ladder Diagram Breakdown
 
 The **Rung 01**
 
