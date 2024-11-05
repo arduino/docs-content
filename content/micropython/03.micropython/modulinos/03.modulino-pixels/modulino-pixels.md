@@ -14,7 +14,7 @@ In this tutorial, we will get started with the Modulino Pixels and control its R
 
 The goals of this tutorial are:
 
-- learn how to connect a Modulino to the Arduino Nano ESP32.
+- learn how to connect a Modulino to an Arduino board.
 - learn how to program the Modulino Pixels.
 
 ## Hardware & Software Needed
@@ -90,4 +90,4 @@ for j in range(0, 3):
 # Turn off all LEDs
 pixels.clear_all()    
 pixels.show()
-````
+```
