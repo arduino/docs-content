@@ -13,32 +13,32 @@ In this tutorial, we will go through the installation process required for progr
 
 The goals of this tutorial are:
 
-- Learn how to install a MicroPython package on your board (the Modulino package).
+- Learn how to install a MicroPython package on an Arduino board (the Modulino package).
 
 ## Hardware & Software Needed
 
-You will need a MicroPython compatible board that works with the Modulinos:
+We will need a MicroPython compatible board that works with the Modulinos:
 - [Arduino Nano ESP32](https://store.arduino.cc/products/nano-esp32?queryID=undefined)
 - [Arduino Nano RP2040 Connect](https://store.arduino.cc/en-se/products/arduino-nano-rp2040-connect)
 
-You will also need the following software:
+We will also need the following software:
 - [MicroPython Labs](https://lab-micropython.arduino.cc/)
 - [MicroPython Installer](https://labs.arduino.cc/en/labs/micropython-installer)
 - [Modulino MicroPython package](https://github.com/arduino/arduino-modulino-mpy)
 
 ## Install MicroPython
 
-To follow this tutorial, you will need to install MicroPython on your Arduino board. The easiest way is to install it using the [MicroPython Installer](https://labs.arduino.cc/en/labs/micropython-installer).
+To follow this tutorial, we will need to install MicroPython on our Arduino board. The easiest way is to install it using the [MicroPython Installer](https://labs.arduino.cc/en/labs/micropython-installer).
 
 - Open the installer.
-- Connect your board. 
+- Connect the board to the computer. 
 - If it does not appear press the refresh button.
 - Press "Install MicroPython".
 - Wait for the installation to finish.
 
 ![MicroPython Installer](./assets/microPythonInstaller.png)
 
-***More details on installing MicroPython on your board are available in the [MicroPython Installation guide]().***
+***More details on installing MicroPython on our board are available in the [MicroPython Installation guide]().***
 
 ## Install Modulino Package
 
@@ -56,7 +56,7 @@ The easiest way of installing it is using `mpremote`. Currently, we will need a 
    ```bash
    pip install mpremote 
    ```
-   This will install `mpremote`, which makes it possible to install packages on our board via your computer.
+   This will install `mpremote`, which makes it possible to install packages on our board via our computer.
 2. With `mpremote` installed, we need to run the following command to identify our board's serial port:
    ```bash
    mpremote connect list
@@ -69,7 +69,7 @@ The easiest way of installing it is using `mpremote`. Currently, we will need a 
    ```
    - The port here is `/dev/cu.usbmodem101`. Copy this.
 
-3. Now, run the following the command. Make sure to replace `<PORT>` with the port of your device obtained in the previous step.
+3. Now, run the following the command. Make sure to replace `<PORT>` with the port of our device obtained in the previous step.
     ```bash
     mpremote connect <PORT> mip install github:arduino/arduino-modulino-mpy
     ```
@@ -77,7 +77,7 @@ The easiest way of installing it is using `mpremote`. Currently, we will need a 
     Upon completion, we should see something like this in the terminal, to verify the success of the installation:
     ![Successful installation.](assets/package-installed.png)
 
-4. Great job. We have now installed the Modulino package on your board!
+4. Great job. We have now installed the Modulino package on our board!
 
 **Troubleshooting:**
 - Make sure your board is connected to your computer.
@@ -94,21 +94,21 @@ We can now verify that everything was installed correctly. Go to [MicroPython La
 
 ![MicroPython Labs](./assets/microPythonLabs.png)
 
-Select the board and press select "connect". You should, now be connected to your Arduino board.
+Select the board and press select "connect". We should now be connected to our Arduino board.
 
-***If you experience any issues, try disconnecting and connecting the board again and reinstall MicroPython using the [MicroPython Installer](https://labs.arduino.cc/en/labs/micropython-installer).***
+***If we experience any issues, try disconnecting and connecting the board again and reinstall MicroPython using the [MicroPython Installer](https://labs.arduino.cc/en/labs/micropython-installer).***
 
 To verify that the Modulino package has been installed correctly, click on the file icon in the top bar of the Labs editor.
 
-You should see a folder called `lib` and a file called `boot.py`. Go ahead and press on the `lib` folder and you should see several files and a folder called `modulino`.
+We should see a folder called `lib` and a file called `boot.py`. Go ahead and press on the `lib` folder and we should see several files and a folder called `modulino`.
 
 ![MicroPython Lab Files](./assets/microPythonLabsFiles.png)
 
-If you see this, it means the package has been installed successfully.
+If we see this, it means the package has been installed successfully.
 
 ## Next Steps
 
-Now that you have successfully installed everything it's time to program your first Modulino. Below are links to the documentation for all Modulinos. They are also accessible in the side menu at [Arduino Docs - MicroPython](https://docs.arduino.cc/micropython/), under "Modulinos".
+Now that we have successfully installed everything it's time to program our first Modulino. Below are links to the documentation for all Modulinos. They are also accessible in the side menu at [Arduino Docs - MicroPython](https://docs.arduino.cc/micropython/), under "Modulinos".
 
 - [Modulino Distance](/micropython/modulinos/modulino-distance)
 - [Modulino Pixels](/micropython/modulinos/modulino-pixels)
