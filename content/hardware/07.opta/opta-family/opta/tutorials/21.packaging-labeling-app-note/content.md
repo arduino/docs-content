@@ -58,7 +58,7 @@ Our goal with this application is to showcase the capabilities of Opta™ in con
 - Power Relay 24 V (x4)
 - Industrial Indicator Tower (1x)
 - Conveyor belt (3x)
-- Carton Closing Machine (1x)
+- Box Closing Machine (1x)
 - Servo driver compatible with Modbus RTU over RS485 (x3)
 - Servomotor compatible with the selected servo driver (x3)
 - Labeling machine (1x)
@@ -121,7 +121,7 @@ The four photoelectric sensors are connected to inputs `I3`, `I4`, `I5`, and `I6
 
 - Sensor on `I3` detects objects in the pick area.
 - Sensor on `I4` detects open boxes in the packaging area. 
-- Sensor on `I5` detects boxes at the entry of the carton closing machine
+- Sensor on `I5` detects boxes at the entry of the box closing machine
 - Sensor on `I6` detects boxes at the entry of the labeling machine. 
   
 Each output will be either active (on) or inactive (off), depending on whether the sensor detects an object within its detection range.
@@ -133,7 +133,7 @@ The Opta's outputs are connected to relays that safely manage the current and vo
 - Output `O1` is linked to the relay controlling the motor of the input conveyor. 
 - Output `O2` is connected to the relay responsible for driving the motor of the packaging conveyor. 
 - Output `O3` is connected to the relay that controls the motor for the box closing and labeling conveyor. 
-- Output `O4` controls the relay for the actuator that closes the open box in the carton closing machine.
+- Output `O4` controls the relay for the actuator that closes the open box in the box closing machine.
 
 ![Actuators wiring](assets/relay-wiring-1.png)
 
@@ -185,15 +185,15 @@ In essence, this outlines the complete process of the packaging and labeling sys
 
 ### Sensors Deployment
 
-- The **Photoeletric Sensor** this sensor will be responsible for detecting the presence of the item to be packaged and the box. Four of these sensors will be used, located on the two feeder conveyors: one responsible for bringing the open box and the other for bringing the item to be packaged. Another sensor will be placed in front of the carton closing machine to indicate that there is a box ready to be sealed, and the last one will be located in front of the labeling machine, indicating that the package is ready to receive its label.
+- The **Photoeletric Sensor** this sensor will be responsible for detecting the presence of the item to be packaged and the box. Four of these sensors will be used, located on the two feeder conveyors: one responsible for bringing the open box and the other for bringing the item to be packaged. Another sensor will be placed in front of the box closing machine to indicate that there is a box ready to be sealed, and the last one will be located in front of the labeling machine, indicating that the package is ready to receive its label.
 
 ### Actuators Deployment
 
-- The **Conveyor belt** is used to drive the package. Three conveyors will be used. Two conveyors are responsible for feeding the system, bringing the item to be packaged and the box that will hold the item, while the third conveyor is responsible for moving the open package to be closed by the carton closing machine and labeled by the labeling machine. All conveyors will be controlled via a Solid State Relay, which is used to activate loads that are not supported by the PLC output. This way, the PLC can control equipment requiring a higher load capacity.
+- The **Conveyor belt** is used to drive the package. Three conveyors will be used. Two conveyors are responsible for feeding the system, bringing the item to be packaged and the box that will hold the item, while the third conveyor is responsible for moving the open package to be closed by the box closing machine and labeled by the labeling machine. All conveyors will be controlled via a Solid State Relay, which is used to activate loads that are not supported by the PLC output. This way, the PLC can control equipment requiring a higher load capacity.
 
 - The **Modbus Servo driver** is used to create the XYZ Cartesian robot, which will be used for picking up the item and placing it inside the box. These servo drivers will be controlled via Modbus RTU.
 
-- The **Carton Closing Machine** is used to close and seal the open box containing the item. It will be controlled by a solid-state relay connected to an output from the Opta, which will act on an electromechanical actuator responsible for performing the closing and sealing operation.
+- The **box Closing Machine** is used to close and seal the open box containing the item. It will be controlled by a solid-state relay connected to an output from the Opta, which will act on an electromechanical actuator responsible for performing the closing and sealing operation.
 
 - The **Labelling Machine** is used to label the package. It will be responsible for applying a label that contains crucial information about the package, and it will be controlled via Modbus RTU.
 
@@ -221,13 +221,13 @@ In essence, this outlines the complete process of the packaging and labeling sys
 - **Action:** The conveyor containing the box with the item inside is momentarily activated.
 - **Description:** The brief activation of the conveyor containing the item is done to ensure that the package reaches the next conveyor in the system.
 
-**Carton closing machine**
+**Box closing machine**
 - **Action:** The open box will be closed and sealed in this process.
-- **Description:** After the brief activation period of the box feeder conveyor, the open box containing the item is now on the closing and labeling conveyor, which is activated to move the box to the carton closing machine. The presence of this open package is detected by a photoelectric sensor, which triggers the carton closing machine to carry out the process of closing and sealing the package.
+- **Description:** After the brief activation period of the box feeder conveyor, the open box containing the item is now on the closing and labeling conveyor, which is activated to move the box to the box closing machine. The presence of this open package is detected by a photoelectric sensor, which triggers the box closing machine to carry out the process of closing and sealing the package.
 
 **Labeling machine**
 - **Action:** The labeling process of the sealed package will be carried out.
-- **Description:** After the package is closed and sealed by the carton closing machine, the closing and labeling conveyor remains activated and moves the now-sealed package to the labeling area. Upon arrival in this area, a photoelectric sensor detects the package, triggering the labeling machine, which is activated to label the closed package. The package, now closed and labeled, continues along the closing and labeling conveyor to be handled in other factory processes.
+- **Description:** After the package is closed and sealed by the box closing machine, the closing and labeling conveyor remains activated and moves the now-sealed package to the labeling area. Upon arrival in this area, a photoelectric sensor detects the package, triggering the labeling machine, which is activated to label the closed package. The package, now closed and labeled, continues along the closing and labeling conveyor to be handled in other factory processes.
 
 **System Stop**
 - **Action:** Press the stop button.
@@ -547,9 +547,9 @@ The **Rung 16**
 
 - `pickOperation`: This indicates that the system is ready, an object is detected in the picking area, and a box is present in the packing area.
 - `OR`: Each `OR block` performs a bitwise OR operation between the current control word of each axis and the value 8. Setting bit 4 (represented by the binary value 1000) activates the start command in the control word, initiating movement to the previously set position.
-- `getControlWordAxisX`: This variable is used to get the Control Word from the X-axis servodriver. The control word is a multi-bit register that controls motor actions, with each bit triggering specific functions like starting, stopping, or homing. 
-- `getControlWordAxisY`: This variable is used to get the Control Word from the Y-axis servodriver. The control word is a multi-bit register that controls motor actions, with each bit triggering specific functions like starting, stopping, or homing. 
-- `getControlWordAxisZ`: This variable is used to get the Control Word from the Z-axis servodriver. The control word is a multi-bit register that controls motor actions, with each bit triggering specific functions like starting, stopping, or homing.
+- `getControlWordAxisX`: This variable is used to get the Control Word from the X-axis servo driver. The control word is a multi-bit register that controls motor actions, with each bit triggering specific functions like starting, stopping, or homing. 
+- `getControlWordAxisY`: This variable is used to get the Control Word from the Y-axis servo driver. The control word is a multi-bit register that controls motor actions, with each bit triggering specific functions like starting, stopping, or homing. 
+- `getControlWordAxisZ`: This variable is used to get the Control Word from the Z-axis servo driver. The control word is a multi-bit register that controls motor actions, with each bit triggering specific functions like starting, stopping, or homing.
 - `setControlWordAxisX`: This variable is used to send commands to the X-axis motor by setting specific bits in its control word, enabling functions like starting, stopping, or homing.
 - `setControlWordAxisY`: This variable is used to send commands to the Y-axis motor by setting specific bits in its control word, enabling functions like starting, stopping, or homing.
 - `setControlWordAxisZ`: This variable is used to send commands to the Z-axis motor by setting specific bits in its control word, enabling functions like starting, stopping, or homing.
