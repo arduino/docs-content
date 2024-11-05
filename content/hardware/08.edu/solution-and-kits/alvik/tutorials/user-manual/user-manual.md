@@ -358,6 +358,8 @@ After executing these commands, there will be updates of the process on the prom
 
 Alvik is intended to be programmed with MicroPyton. We recommend you to install the [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython) editor.
 
+***If you're using a Chromebook, you'll need to use the [**online version**](https://lab-micropython.arduino.cc/) of Arduino Lab for MicroPython, using Chrome. You'll need to login with an Arduino account to use it.***
+
 Now that all the previous steps have been set, let's see how to create custom programs for Alvik to move forward until detecting an object in front of it, Alvik will detect it, dodge it and continue on its way.
 
 **1. **Create an Alvik folder in your computer and set it as the path of the Arduino Lab for MicroPython IDE.
