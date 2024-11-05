@@ -1,13 +1,14 @@
 ---
 
 title: 'Modulino Pixels'
-description: 'Get started with using the Modulino Pixels'
+description: 'Get started with the Modulino Pixels using MicroPython'
 author: 'Hannes Siebeneicher, Sebastian Romero'
 hero_image: "./hero-banner.png"
-
 ---
 
-This article will show you how to get started with the Modulino Pixels and control RGB LEDs.
+In this tutorial, we will get started with the Modulino Pixels and control its RGB LEDs.
+
+***Note that the installation of the Modulino package is not covered in this tutorial. For details on how to install this, visit the [MicroPython - Modulino Package Installation tutorial](/micropython/modulinos/installation).***
 
 ## Goals
 
@@ -18,21 +19,24 @@ The goals of this tutorial are:
 
 ## Hardware & Software Needed
 
-- [MicroPython Labs](https://lab-micropython.arduino.cc/)
-- [Arduino Nano ESP32](https://store.arduino.cc/products/nano-esp32?queryID=undefined)
-- [Modulino MicroPython Package](https://github.com/arduino/arduino-modulino-mpy)
+For this tutorial, we will need the following hardware:
 - [Modulino Pixels](https://store.arduino.cc/products/plug-and-make-kit)
 - [Arduino Nano to QWIIC Connector Carrier]()
+- [Arduino Nano ESP32](https://store.arduino.cc/products/nano-esp32?queryID=undefined) or [Arduino Nano RP2040 Connect](https://store.arduino.cc/en-se/products/arduino-nano-rp2040-connect)
+
+We will also need the following software:
+- [MicroPython Labs](https://lab-micropython.arduino.cc/)
+- [Modulino MicroPython Package](https://github.com/arduino/arduino-modulino-mpy)
 
 ## Connect the Modulino
 
-Before programming it, you need to first connect your Modulino Pixels to your Arduino Nano ESP32. Follow the diagram below to connect your Modulino Pixels and Nano ESP32.
+Before we start programming, we will need to connect our Modulino Pixels to our Arduino board. For this we can follow the circuit diagram below:
 
 ![Circuit Diagram]()
 
-## Code
+## Modulino Pixels Code Example
 
-Copy the code below and run it in Arduino MicroPython labs connected to your Arduino Nano ESP32.
+Copy the code below and run it in Arduino MicroPython labs, while connected to our board.
 
 ```python
 from modulino import ModulinoPixels, ModulinoColor
