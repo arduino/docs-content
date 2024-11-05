@@ -51,6 +51,18 @@ The Nano Matter Display include the following features:
 
 ### Nano Matter Display Kit Assembly
 
+In the Nano Matter Display kit you will find the following parts:
+
+- Pervasive Displays EPD extension board (Gen 4).
+- E-ink display (2.9" 384x168).
+- Pervasive Displays EXT4-to-Nano adapter.
+- Brass spacer standoffs (x4).
+- M3 nuts for the standoffs (x4).
+- Plastic washers (x4).
+- Acrylic sheet to protect the display (x1).
+
+
+
 ### Configuring the Development Environment
 
 #### Library Installation
