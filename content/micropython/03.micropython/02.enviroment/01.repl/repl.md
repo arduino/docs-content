@@ -20,7 +20,6 @@ The REPL process involves four basic steps:
 
 Think of REPL as a conversation between you and your MicroPython environment, where each line you type gets an instant response, making it ideal for exploring ideas and troubleshooting.
 
-## print()
 
 
 
