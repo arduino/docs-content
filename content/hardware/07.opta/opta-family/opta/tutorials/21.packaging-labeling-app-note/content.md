@@ -171,15 +171,15 @@ After the home operation is completed, the system initiates the operation of bot
 
 Once the open box and the item to be packed are in position, the XYZ Cartesian robot performs a pick-and-place operation to transfer the item into the box. This robot consists of three servo drivers, each controlling a servomotor that drives one of the X, Y, or Z axes. The Opta controller manages these servo drivers individually via RS-485 Modbus RTU communication, using read-and-write commands on their Modbus map registers. This setup allows the Opta to precisely control each axis independently, guiding the robot through the necessary movements to execute the pick-and-place task accurately. After the operation, the item is securely placed inside the open box.
 
-![Pick-and-place step](assets/pick-n-place.png)
+![Pick-and-place step](assets/pick-n-place-c.png)
 
 Now, the conveyor belt carrying the open box with the item inside briefly moves forward to transfer the box to the next conveyor belt. The open box with the item will now be closed in the box-closing machine. The conveyor transports it until a sensor in the box-closing machine detects the presence of the open box. At this point, the Opta activates an actuator responsible for closing and sealing the box. With the item now safely packed, the conveyor belt moves the package to the labeling machine.
 
-![Closing machine]()
+![Box-closing step](assets/box-closing.png)
 
 The package's arrival in the labeling area is detected by a presence sensor. Upon detection, the Opta sends a command via RS-485 Modbus RTU communication to activate the labeling machine. The machine then accurately applies a label to the package, detailing essential information about the item inside. With the labeling complete, the package moves forward to undergo further processing in another area of the facility, outside the packaging and labeling process.
 
-![Labeling machine]()
+![Labeling machine](assets/labeling.png)
 
 In essence, this outlines the complete process of the packaging and labeling system. The Opta manages each step and simultaneously functions as a gateway, transmitting real-time data to the Arduino Cloud. This way, you can monitor and control your system in real time.
 
