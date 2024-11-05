@@ -2,7 +2,7 @@
 title: 'Modulino Buzzer'
 description: 'Get started with the Modulino Buzzer using MicroPython'
 author: 'Hannes Siebeneicher, Sebastian Romero'
-hero_image: "./hero-banner.png"
+tags: [MicroPython, Piezo, Speaker]
 ---
 
 In this tutorial, we will get started with the Modulino Buzzer, a piezo speaker that can output sound.

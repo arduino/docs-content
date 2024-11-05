@@ -1,9 +1,8 @@
 ---
-
 title: 'Modulino Pixels'
 description: 'Get started with the Modulino Pixels using MicroPython'
 author: 'Hannes Siebeneicher, Sebastian Romero'
-hero_image: "./hero-banner.png"
+tags: [MicroPython, RGB, Pixel Strip]
 ---
 
 In this tutorial, we will get started with the Modulino Pixels and control its RGB LEDs.

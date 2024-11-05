@@ -2,7 +2,7 @@
 title: 'Modulino Thermo'
 description: 'Get started with the Modulino Thermo using MicroPython'
 author: 'Hannes Siebeneicher, Sebastian Romero'
-hero_image: "./hero-banner.png"
+tags: [MicroPython, Environmental Sensor]
 ---
 
 In this tutorial, we will get started with the Modulino Thermo, reading surrounding temperature and humidity.

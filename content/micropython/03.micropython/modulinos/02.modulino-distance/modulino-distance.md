@@ -2,7 +2,7 @@
 title: 'Modulino Distance'
 description: 'Get started with the Modulino Distance using MicroPython'
 author: 'Hannes Siebeneicher, Sebastian Romero'
-hero_image: "./hero-banner.png"
+tags: [MicroPython, Time of Flight, Sensors]
 ---
 
 In this tutorial, we will get started with the Modulino Distance, which can measure the distance to an object.

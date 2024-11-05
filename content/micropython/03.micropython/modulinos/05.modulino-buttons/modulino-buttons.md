@@ -2,7 +2,7 @@
 title: 'Modulino Buttons'
 description: 'Get started with the Modulino Buttons using MicroPython'
 author: 'Hannes Siebeneicher, Sebastian Romero'
-hero_image: "./hero-banner.png"
+tags: [MicroPython, Pushbuttons, Digital Input]
 ---
 
 In this tutorial, we will get started with the Modulino Buttons, a three-button Modulino.

@@ -1,10 +1,8 @@
 ---
-
 title: 'Modulino Installation'
 description: 'Get started with using the Modulinos'
 author: 'Hannes Siebeneicher, Sebastian Romero'
-hero_image: "./hero-banner.png"
-
+tags: [MicroPython, Package Installation]
 ---
 
 In this tutorial, we will go through the installation process required for programming the Arduino Modulinos with MicroPython. 

@@ -1,10 +1,8 @@
 ---
-
 title: 'Modulino Movement'
 description: 'Get started with using the Modulino Movement'
 author: 'Hannes Siebeneicher, Sebastian Romero'
-hero_image: "./hero-banner.png"
-
+tags: [MicroPython, Movement, IMU]
 ---
 
 In this tutorial, we will get started with the Modulino Movement, measuring acceleration and positioning.
