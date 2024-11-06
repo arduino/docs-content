@@ -3,6 +3,7 @@ title: 'Introduction to MicroPython'
 description: 'Learn about the fundamentals of Micropython on Arduino boards.'
 author: 'Pedro Lima'
 tags: [MicroPython, Introduction]
+micropython_type: test
 ---
 
 MicroPython is a lightweight implementation of Python 3 designed to run on microcontrollers and embedded systems. Think of it as a mini-version of Python, tailored for hardware with limited resources like memory and processing power. Despite its smaller size, MicroPython retains the simplicity and flexibility of Python, making it an excellent option for programming hardware.

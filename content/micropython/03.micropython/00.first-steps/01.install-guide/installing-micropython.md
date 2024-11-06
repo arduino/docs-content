@@ -4,6 +4,7 @@ title: 'Installing MicroPython'
 description: 'Learn how to install MicroPython on your Arduino board.'
 author: 'Pedro Lima'
 tags: [MicroPython, Installation]
+micropython_type: test
 ---
 
 # Installing MicroPython

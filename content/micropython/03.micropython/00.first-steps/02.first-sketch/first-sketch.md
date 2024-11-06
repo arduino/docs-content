@@ -3,6 +3,7 @@ title: 'My First Script'
 description: 'Learn how to write a basic MicroPython script to blink an LED.'
 author: 'Pedro Lima'
 tags: [MicroPython, Blink]
+micropython_type: test
 ---
 
 In this tutorial, we will create our very first MicroPython script that will run on an Arduino board. Starting of simple, we will make an LED blink, a classic beginner project that will get us familiar with the MicroPython programming environment.
