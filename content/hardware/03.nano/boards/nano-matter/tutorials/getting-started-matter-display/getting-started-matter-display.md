@@ -22,7 +22,7 @@ These features are meant to be leveraged with the Arduino Nano Matter to extend 
 
 ## Required Hardware and Software
 
-![Nano Matter Display Hardware]()
+![Nano Matter Display Hardware](assets/hardware.jpg)
 
 ### Hardware Requirements
 
@@ -39,7 +39,7 @@ These features are meant to be leveraged with the Arduino Nano Matter to extend 
 
 ### Nano Matter Display Main Features
 
-![Nano Matter Hardware Overview]()
+![Nano Matter Hardware Overview](assets/features-c2.jpg)
 
 The Nano Matter Display include the following features:
 
@@ -61,11 +61,23 @@ In the Nano Matter Display kit you will find the following parts:
 - Plastic washers (x4).
 - Acrylic sheet to protect the display (x1).
 
+Follow the next animation for the assembly steps:
 
+![Nano Matter Display Assembly](assets/assembly-animation.gif)
 
 ### Configuring the Development Environment
 
+To start using the Nano Matter Display we first need to install some basic dependencies for the Arduino IDE.
+
 #### Library Installation
+
+Download the following libraries:
+
+- `PDLS_EXT4_Basic_Matter.h`: enables support for Pervasive Displays extension board to control the E-ink display and every other features. Download it from this [repository](https://github.com/rei-vilo/PDLS_EXT4_Basic_Matter).
+  
+- `qrcode.h`: allows you to create QR codes to then be displayed on the E-ink display. You can install it from the Library Manager on the Arduino IDE or from its [repository](https://github.com/ricmoo/qrcode/).
+
+***Follow these guides to learn more about library installation process ([Library Manager](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-installing-a-library/), [.zip install](https://docs.arduino.cc/software/ide-v1/tutorials/installing-libraries/))***
 
 ## Matter Weather Station
 
