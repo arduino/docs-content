@@ -123,7 +123,7 @@ When fully charged it will stay GREEN.
 
 ***Don't confuse the RGB status LED with the power ON LED of the Nano ESP32, which is always green.***
 
-To preserve the battery life of your Alvik, always store it fully charged. We recommend charging Alvik completely between working sessions. If you won’t be using it for an extended period, it's best to remove the battery until you're ready to use it again.
+To preserve the battery life of your Alvik, always store it fully charged. **We recommend charging Alvik completely between working sessions**. If you won’t be using it for an extended period, it's best to remove the battery until you're ready to use it again.
 
 If Alvik is left unused for several months with the battery level below 20%, it may become fully depleted, leading to a voltage drop. In such cases, the battery will need to be charged externally using a compatible battery charger.
 
@@ -138,14 +138,11 @@ The battery is located in the bottom part of Alvik, if you need to access it you
 Follow the steps below to replace Alvik's battery and reset the battery management system (BMS):
 
 1. **Turn Alvik OFF**.
-2. **Unplug Arduino Nano ESP32** board from the Alvik's body.
-3. **Re-install Arduino Nano ESP32’s MicroPython bootloader** by following [**this guide**](https://docs.arduino.cc/micropython/basics/board-installation/).
-4. **Remove the existing battery**: carefully take the old battery out of its compartment.
-5. **Tighten the battery holder terminals** pull the + and – terminals slightly toward the center to ensure they make good contact with the battery terminals.
-6. **Insert the new battery**: place the new battery into the holder, ensuring it is securely connected. To confirm proper contact, use a multimeter (set to 20V) to measure the battery holder terminals (+ & -); it should show the battery's voltage.
-7. **Reconnect the Nano ESP32**: If you are using a different controller or have used the robot in another manner, reconnect the Nano ESP32.
-8. **Connect the Nano ESP32 to your computer** using the USB cable, while the Alvik switch is in OFF position.
-9. **Once the battery begins charging**, switch ON Alvik, like the image below.
+2. **Remove the existing battery**: carefully take the old battery out of its compartment.
+3. **Insert the new battery**: place the new battery into the holder, ensuring it is securely connected. To confirm proper contact, use a multimeter (set to 20V) to measure the battery holder terminals (+ & -); it should show the battery's voltage.
+4. **Tighten the battery holder terminals** pull the + and – terminals slightly toward the center to ensure they make good contact with the battery terminals.
+5. **Connect the Nano ESP32 to your computer** using the USB cable, while the Alvik switch is in OFF position.
+6. **Switch ON Alvik,** like the image below.
 
 ![Charging blink](assets/charging.gif)
 
