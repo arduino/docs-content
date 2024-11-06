@@ -20,7 +20,6 @@ The goals of this tutorial are:
 
 For this tutorial, we will need the following hardware:
 - [Modulino Pixels](https://store.arduino.cc/products/plug-and-make-kit)
-- [Arduino Nano to QWIIC Connector Carrier]()
 - [Arduino Nano ESP32](https://store.arduino.cc/products/nano-esp32?queryID=undefined) or [Arduino Nano RP2040 Connect](https://store.arduino.cc/en-se/products/arduino-nano-rp2040-connect)
 
 We will also need the following software:
