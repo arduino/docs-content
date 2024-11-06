@@ -1,14 +1,20 @@
 ---
-featured: micropython-101  
-title: '2. Micropython Environment - Editor'  
+title: 'Code Editor'  
 description: 'Learn the basics for loops on MicroPython.'  
 author: 'Pedro Lima'  
-hero_image: "./hero-banner.png"  
+tags: [MicroPython, Arduino Lab for MicroPython]
 ---
 
-Arduino Labs for MicroPython includes a user-friendly code editor that helps us write, format, and run MicroPython code with ease. In this article, we’ll explore how the code editor works, key formatting rules for MicroPython, and some useful tips to keep our code clean and error-free.
+Arduino Lab for MicroPython includes a user-friendly code editor that helps us write, format, and run MicroPython code with ease. In this article, we’ll explore how the code editor works, key formatting rules for MicroPython, and some useful tips to keep our code clean and error-free.
 
-## The Code Editor in Arduino Labs for MicroPython
+## Requirements
+
+- [Arduino Lab for MicroPython]()
+- **MicroPython compatible board** (not required for using the editor, but for running any code).
+
+***Note that the Arduino Lab for MicroPython is now also available online, as part of the Arduino Cloud platform. You will find it here: [Arduino Cloud - Arduino Lab for MicroPython]().***
+
+## Arduino Labs for MicroPython
 
 The code editor in Arduino Labs is designed to streamline our coding experience, providing tools to:
 
@@ -17,6 +23,24 @@ The code editor in Arduino Labs is designed to streamline our coding experience,
 - Run our code and view results directly in the REPL.
 
 As we get familiar with the editor, remember that MicroPython has a few syntax rules that differ from other languages we might know.
+
+### Overview
+
+Text / bullet points here summarizing e.g. buttons and icons in the editor.
+
+![Overview of the code editor.]()
+
+### Files
+
+Text / bullet points here for how to manage files (and point to the file system tutorial)
+
+![Managing files in Arduino Lab for MicroPython]()
+
+### REPL
+
+Text / bullet points here for where the REPL is and how it works (and point to the REPL tutorial)
+
+![The REPL.]()
 
 ## Indentation
 
@@ -105,8 +129,3 @@ Here are a few quick tips to make the most of our time in the code editor:
 - **Keep It Modular**: Split complex code into functions for easier maintenance.
 - **Comment as We Go**: Leave helpful comments explaining why we wrote certain sections of code.
 - **Indent Carefully**: Pay attention to indentation for clean, error-free code.
-
-## Try It Out
-
-- **Experiment with Indentation**: Try writing a few functions with nested loops or conditionals to get comfortable with indentation.
-- **Add Comments**: Document a small code snippet with comments explaining each part.
