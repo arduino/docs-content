@@ -13,7 +13,38 @@ Arduino® Alvik is a powerful and versatile robot specifically designed for prog
 
 Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through different programming languages including MicroPython, the Arduino language, and block-based coding; enabling different possibilities to explore Robotics, IoT and Artificial Intelligence.
 
-### Unboxing Alvik
+## Update The Firmware of your Alvik
+
+Keeping your Alvik’s firmware updated ensures it has the latest features, bug fixes, and performance enhancements. Regular updates also help maintain compatibility with other software, providing optimal performance for your robot.
+
+![Alvik Firmware Updater](assets/AlvikFirmwareUpdater30sec.gif)
+
+1. Visit https://alvikupdate.arduino.cc.
+2. Connect Alvik to your computer.
+3. Turn ON your Alvik.
+4. Click the "Connect" button.
+5. **A pop-up window will appear** prompting you to select the COM port. Choose the correct port and confirm.
+6. Once connected, click the "Update" button and wait for the process to complete.
+
+### Checking the status of the battery
+
+Once the firmware of your Alvik is up to date and before start playing with it, let's verify your battery works as it should by following these steps:
+
+1. Reset your Alvik by turning it OFF and disconnecting it from the PC
+2. Connect the Alvik to the PC keeping Alvik OFF
+3. At this point some lights should turn ON in your Alvik.
+   1. Green LED (not confuse it with the PWR LED of the Nano ESP32) will turn ON in the ESP32
+      ![Alvik fully charged - Green LED](assets/charged.png)
+      1. The battery is fully charged, continue to the Unboxing Alvik
+   2. Red LED blinking
+      ![Charging blink](assets/charging.gif)
+      1. The battery is not fully charged, it is charging from the PC, continue to the Unboxing Alvik 
+   3. If when you connect your Alvik none you don't get the lights described avobe the battery of the robot might be faulty, to check it turn your Alvik ON. If the battery is faulty an orange light in the back part of the robot, at the left part near the QWIIC connector will blink every 10 seconds.
+      ![Faulty battery](assets/faulty_battery.gif)
+      1. If the battery is faulty, it needs to be replaced. Please contact the support team.
+         
+
+## Unboxing Alvik
 
 ![Selecting one of the ready-to-go examples](assets/select-examples.gif)
 
@@ -26,19 +57,6 @@ Your Alvik robot is equipped with three ready-to-go examples. To choose one of t
 - **Blue Program (Line Follower):** Your robot will glide along a black line on a white surface. Press the "tick" confirmation button again to make the robot follow the line. You can stop the robot at any moment by pressing the "X" cancel button. **The recommended size for the "black line" to follow is between 2-3 cm wide.**
 
 Now that you have played with Alvik and have seen it moving, it is time to know more in-depth how it is built and how to program Alvik to do amazing things.
-
-## Update Firmware with Alvik Updater
-
-Keeping your Alvik’s firmware updated ensures it has the latest features, bug fixes, and performance enhancements. Regular updates also help maintain compatibility with other software, providing optimal performance for your robot.
-
-![Alvik Firmware Updater](assets/AlvikFirmwareUpdater30sec.gif)
-
-1. Visit https://alvikupdate.arduino.cc.
-2. Connect Alvik to your computer.
-3. Turn ON your Alvik.
-4. Click the "Connect" button.
-5. **A pop-up window will appear** prompting you to select the COM port. Choose the correct port and confirm.
-6. Once connected, click the "Update" button and wait for the process to complete.
 
 ### Let's Start Coding Alvik
 
