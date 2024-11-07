@@ -26,24 +26,27 @@ Keeping your Alvik’s firmware updated ensures it has the latest features, bug 
 5. **A pop-up window will appear** prompting you to select the COM port. Choose the correct port and confirm.
 6. Once connected, click the "Update" button and wait for the process to complete.
 
-### Checking The State Of The Battery
+
+
+## Checking The State Of The Battery
 
 Once the firmware of your Alvik is up to date and before start playing with it, let's verify your battery works as it should by following these steps:
 
 1. Reset your Alvik by turning it OFF and disconnecting it from the PC.
 2. Connect the Alvik to the PC keeping Alvik OFF.
 3. At this point some lights should turn ON in your Alvik:
+
 - **Green LED** (not confuse it with the PWR LED of the Nano ESP32) will turn ON in the ESP32
-![Alvik fully charged - Green LED](assets/charged.png)
+  ![Alvik fully charged - Green LED](assets/charged.png)
 The battery is fully charged. Proceed to "Unboxing Alvik" paragraph.
   
 - **Red LED blinking**
-![Charging blink](assets/charging.gif)
-The battery is still charging from the PC. Continue to the Unboxing Alvik.
+  ![Charging blink](assets/charging.gif)
+  The battery is still charging from the PC. Continue to the Unboxing Alvik.
 
 - **No lights** 
-![Faulty battery](assets/faulty_battery.gif)
-The battery may be faulty. To check it, turn Alvik ON; if an orange light near the QWIIC connector blinks every 10 seconds, contact our customer support for a replacement.
+  ![Faulty battery](assets/faulty_battery.gif)
+  The battery may be faulty. To check it, turn Alvik ON; if an orange light near the QWIIC connector blinks every 10 seconds, contact our customer support for a replacement.
 
 ## Unboxing Alvik
 
