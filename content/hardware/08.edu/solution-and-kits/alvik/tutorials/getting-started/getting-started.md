@@ -13,7 +13,7 @@ Arduino® Alvik is a powerful and versatile robot specifically designed for prog
 
 Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through different programming languages including MicroPython, the Arduino language, and block-based coding; enabling different possibilities to explore Robotics, IoT and Artificial Intelligence.
 
-## Update The Firmware of your Alvik
+## Update The Firmware Of Your Alvik
 
 Keeping your Alvik’s firmware updated ensures it has the latest features, bug fixes, and performance enhancements. Regular updates also help maintain compatibility with other software, providing optimal performance for your robot.
 
@@ -26,7 +26,7 @@ Keeping your Alvik’s firmware updated ensures it has the latest features, bug 
 5. **A pop-up window will appear** prompting you to select the COM port. Choose the correct port and confirm.
 6. Once connected, click the "Update" button and wait for the process to complete.
 
-### Checking the status of the battery
+### Checking The State Of The Battery
 
 Once the firmware of your Alvik is up to date and before start playing with it, let's verify your battery works as it should by following these steps:
 
