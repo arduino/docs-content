@@ -468,7 +468,11 @@ Once the code is uploaded, the display will show the commissioning steps alongsi
 
 See the following video that shows the whole process with the Amazon Alexa app.
 
-![Video showing the process]()
+<div style="text-align: center;">
+  <video width="100%" controls="true">
+  <source src="assets/video.mp4" type="video/mp4"/>
+  </video>
+</div>
 
 ***Make sure to use the right assistant app respectively to your Thread Border Router brand.***
 
