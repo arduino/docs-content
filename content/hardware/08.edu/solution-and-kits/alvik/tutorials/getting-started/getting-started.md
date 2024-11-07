@@ -26,9 +26,7 @@ Keeping your Alvik’s firmware updated ensures it has the latest features, bug 
 5. **A pop-up window will appear** prompting you to select the COM port. Choose the correct port and confirm.
 6. Once connected, click the "Update" button and wait for the process to complete.
 
-
-
-## Checking The State Of The Battery
+## Checking The State Of The Battery
 
 Once the firmware of your Alvik is up to date and before start playing with it, let's verify your battery works as it should by following these steps:
 
@@ -48,7 +46,7 @@ The battery is fully charged. Proceed to "Unboxing Alvik" paragraph.
   ![Faulty battery](assets/faulty_battery.gif)
   The battery may be faulty. To check it, turn Alvik ON; if an orange light near the QWIIC connector blinks every 10 seconds, contact our customer support for a replacement.
 
-## Unboxing Alvik
+## Unboxing Alvik
 
 ![Selecting one of the ready-to-go examples](assets/select-examples.gif)
 
