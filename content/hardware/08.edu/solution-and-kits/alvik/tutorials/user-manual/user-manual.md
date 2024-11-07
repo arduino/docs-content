@@ -139,7 +139,8 @@ Follow the steps below to replace Alvik's battery and reset the battery manageme
 
 1. **Turn Alvik OFF**.
 2. **Remove the existing battery**: carefully take the old battery out of its compartment.
-3. **Insert the new battery**: place the new battery into the holder, ensuring it is securely connected. To confirm proper contact, use a multimeter (set to 20V) to measure the battery holder terminals (+ & -); it should show the battery's voltage.
+3. **Tighten the battery holder terminals** pull the + and – terminals slightly toward the center to ensure they make good contact with the battery terminals.
+
 4. **Tighten the battery holder terminals** pull the + and – terminals slightly toward the center to ensure they make good contact with the battery terminals.
 5. **Connect the Nano ESP32 to your computer** using the USB cable, while the Alvik switch is in OFF position.
 6. **Switch ON Alvik,** like the image below.
