@@ -34,17 +34,16 @@ Once the firmware of your Alvik is up to date and before start playing with it, 
 2. Connect the Alvik to the PC keeping Alvik OFF.
 3. At this point some lights should turn ON in your Alvik:
 - **Green LED** (not confuse it with the PWR LED of the Nano ESP32) will turn ON in the ESP32
-  ![Alvik fully charged - Green LED](assets/charged.png)
-  The battery is fully charged. Proceed to "Unboxing Alvik" paragraph.
+![Alvik fully charged - Green LED](assets/charged.png)
+The battery is fully charged. Proceed to "Unboxing Alvik" paragraph.
   
 - **Red LED blinking**
-   ![Charging blink](assets/charging.gif)
-  The battery is still charging from the PC. Continue to the Unboxing Alvik.
+![Charging blink](assets/charging.gif)
+The battery is still charging from the PC. Continue to the Unboxing Alvik.
 
 - **No lights** 
-  ![Faulty battery](assets/faulty_battery.gif)
-  The battery may be faulty. To check it, turn Alvik ON; if an orange light near the QWIIC connector blinks every 10 seconds, contact our customer support for a replacement.
-         
+![Faulty battery](assets/faulty_battery.gif)
+The battery may be faulty. To check it, turn Alvik ON; if an orange light near the QWIIC connector blinks every 10 seconds, contact our customer support for a replacement.
 
 ## Unboxing Alvik
 
