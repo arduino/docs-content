@@ -69,6 +69,12 @@ Follow the next animation for the assembly steps:
 
 To start using the Nano Matter Display we first need to install some basic dependencies for the Arduino IDE.
 
+#### Arduino IDE Download
+
+We are going to use the Arduino IDE to develop around the Nano Matter Display. Follow this guide to learn how to install the IDE if you haven't done so.
+
+- [Arduino IDE Installation Guide](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing/)
+
 #### Library Installation
 
 Download the following libraries:
@@ -79,13 +85,400 @@ Download the following libraries:
 
 ***Follow these guides to learn more about library installation process ([Library Manager](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-installing-a-library/), [.zip install](https://docs.arduino.cc/software/ide-v1/tutorials/installing-libraries/))***
 
-## Matter Weather Station
+## Matter RGB Lightbulb
+
+In order to quickly understand the product capabilities we are going to jump straight to a hands-on section based on the [RGB Lightbulb example](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#matter) showcased in the **Nano Matter User Manual**.
+
+![RGB Lightbulb Thumbnail]()
+
+***As this examples uses the Matter network you will need a __Thread Border Router__ to replicate it. See the supported ones on the [Matter section of the Nano Matter User Manual](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#matter).***
+
+The following example code is based on the Matter library built-in example called **nano_matter_lightbulb_color** and the **Pervasive Displays library API**:
+
+```arduino
+#include <Matter.h>
+#include <MatterLightbulb.h>
+#include "PDLS_EXT4_Basic_Matter.h"
+#include "hV_Configuration.h"
+#include "ezWS2812gpio.h"
+#include "qrcode.h"
+
+#define LED_R LED_BUILTIN
+#define LED_G LED_BUILTIN_1
+#define LED_B LED_BUILTIN_2
+
+uint8_t r, g, b;
+
+MatterColorLightbulb matter_color_bulb; // RGB LED Matter UI instance
+
+pins_t nano_matter = boardArduinoNanoMatter;
+
+ezWS2812gpio myRGB(1, nano_matter.ledData); // Pervasive Displays onboard WS2813C LED set up (Number of LEDs, LED Pin)
+
+Screen_EPD_EXT4_Fast EPD(eScreen_EPD_290_KS_0F, nano_matter); // Pervasive Displays E-INK set up (screen type, host board)
+
+#define MATTER_EXAMPLE_NAME "Nano Matter RGB"
+
+void update_led_color();
+void led_off();
+void handle_button_press();
+volatile bool button_pressed = false;
+
+void setup() {
+  Serial.begin(115200);
+
+  // Nano Matter device set up
+  Matter.begin();
+  matter_color_bulb.begin();
+  matter_color_bulb.boost_saturation(51);  // Boost saturation by 20 percent
+
+  // Screen set up
+  EPD.begin();
+  EPD.setPowerProfile(POWER_MODE_AUTO, POWER_SCOPE_GPIO_ONLY);
+  EPD.setOrientation(3);
+  EPD.regenerate();  // Clear buffer and screen
+
+  // Set up the onboard button for LED control and decommissioning
+  pinMode(nano_matter.button, INPUT_PULLUP);
+  attachInterrupt(nano_matter.button, &handle_button_press, FALLING);
+
+  // Pervasive Displays onboard WS2813C LED set up
+  myRGB.begin();
+
+  // Turn the LED off
+  led_off();
+
+  Serial.println("Arduino Nano Matter - color lightbulb");
+
+  if (!Matter.isDeviceCommissioned()) {
+    Serial.println("Matter device is not commissioned");
+    Serial.println("Commission it to your Matter hub with the manual pairing code or QR code");
+    Serial.printf("Manual pairing code: %s\n", Matter.getManualPairingCode().c_str());
+    Serial.printf("QR code URL: %s\n", Matter.getOnboardingQRCodeUrl().c_str());
+    displayCommissioning();
+  }
+
+  while (!Matter.isDeviceCommissioned()) {
+    decommission_handler();
+    delay(200);
+  }
+
+  EPD.clear();
+  EPD.selectFont(Font_Terminal12x16);
+  uint16_t y = 0;
+  uint16_t dy = EPD.characterSizeY();
+
+  EPD.gText(0, y, MATTER_EXAMPLE_NAME);
+  y += dy * 2;
+  EPD.flush();
+
+  EPD.selectFont(Font_Terminal8x12);
+  dy = EPD.characterSizeY();
+
+  Serial.println("Waiting for Thread network...");
+  EPD.gText(0, y, "Waiting for Thread network...");
+  y += dy;
+  EPD.flush();
+
+  while (!Matter.isDeviceThreadConnected()) {
+    decommission_handler();
+    delay(200);
+  }
+
+  Serial.println("Connected to Thread network");
+  EPD.gText(0, y, "Connected to Thread network");
+  y += dy;
+  EPD.flush();
+
+  Serial.println("Waiting for Matter device discovery...");
+  EPD.gText(0, y, "Waiting for Matter device discovery...");
+  y += dy;
+  EPD.flush();
+  while (!matter_color_bulb.is_online()) {
+    decommission_handler();
+    delay(200);
+  }
+  Serial.println("Matter device is now online");
+  EPD.gText(0, y, "Matter device is now online");
+  y += dy;
+  EPD.flush();
+
+  delay(1000);
+  EPD.clear();
+  EPD.flush();
+
+  // Initial LED state
+  matter_color_bulb.get_rgb(&r, &g, &b);
+  displayValue();
+  EPD.flush();
+}
+
+void loop() {
+  // If the physical button state changes - update the lightbulb's on/off state
+  if (button_pressed) {
+    button_pressed = false;
+    // Toggle the on/off state of the lightbulb
+    matter_color_bulb.toggle();
+  }
+
+  // Get the current on/off state of the lightbulb
+  static bool matter_lightbulb_last_state = false;
+  bool matter_lightbulb_current_state = matter_color_bulb.get_onoff();
+
+  // If the current state is ON and the previous was OFF - turn on the LED
+  if (matter_lightbulb_current_state && !matter_lightbulb_last_state) {
+    matter_lightbulb_last_state = matter_lightbulb_current_state;
+    Serial.println("Bulb ON");
+    // Set the LEDs to the last received state
+    update_led_color();
+  }
+
+  // If the current state is OFF and the previous was ON - turn off the LED
+  if (!matter_lightbulb_current_state && matter_lightbulb_last_state) {
+    matter_lightbulb_last_state = matter_lightbulb_current_state;
+    Serial.println("Bulb OFF");
+    matter_color_bulb.set_onoff(0);
+    led_off();
+    displayValue();
+    EPD.flush();
+  }
+
+  static uint8_t hue_prev = 0;
+  static uint8_t saturation_prev = 0;
+  static uint8_t brightness_prev = 0;
+  uint8_t hue_curr = matter_color_bulb.get_hue();
+  uint8_t saturation_curr = matter_color_bulb.get_saturation_percent();
+  uint8_t brightness_curr = matter_color_bulb.get_brightness_percent();
+
+  // If either the hue, saturation or the brightness changes - update the LED to reflect the latest change
+  if (hue_prev != hue_curr || saturation_prev != saturation_curr || brightness_prev != brightness_curr) {
+    update_led_color();
+    hue_prev = hue_curr;
+    saturation_prev = saturation_curr;
+    brightness_prev = brightness_curr;
+  }
+
+  decommission_handler();
+}
+
+// Updates the color of the RGB LED to match the Matter lightbulb's color
+void update_led_color() {
+  if (!matter_color_bulb.get_onoff()) {
+    return;
+  }
+
+  matter_color_bulb.get_rgb(&r, &g, &b);
+  myRGB.set_pixel(r, g, b);
+
+  Serial.printf("Setting bulb color to > r: %u  g: %u  b: %u\n", r, g, b);
+
+  displayValue();
+  EPD.flush();
+}
+
+// Turns the RGB LED off
+void led_off() {
+  // set the RGB LED to OFF
+  myRGB.set_pixel(0, 0, 0);
+
+}
+
+void handle_button_press() {
+  static uint32_t btn_last_press = 0;
+  if (millis() < btn_last_press + 200) {
+    return;
+  }
+  btn_last_press = millis();
+  button_pressed = true;
+}
+
+void decommission_handler() {
+  if (digitalRead(nano_matter.button) == LOW) {  //Push button pressed
+    // measures time pressed
+    int startTime = millis();
+    while (digitalRead(nano_matter.button) == LOW) {
+
+      int elapsedTime = (millis() - startTime) / 1000.0;
+
+      if (elapsedTime > 10) {
+        Serial.printf("Decommissioning!\n");
+        for (int i = 0; i < 10; i++) {
+          digitalWrite(LEDR, !(digitalRead(LEDR)));
+          delay(50);
+        };
+
+        displayDecommissioning();
+        break;
+      }
+    }
+  }
+}
+
+void displayQR(const char* code) {
+  // Create the QR code
+  QRCode qrcode;
+  uint8_t qrcodeData[qrcode_getBufferSize(3)];
+  qrcode_initText(&qrcode, qrcodeData, 3, 0, code);
+
+  uint16_t x = EPD.screenSizeX();
+  uint16_t y = EPD.screenSizeY();
+  uint8_t k = qrcode.size;
+  uint16_t dxy = min(x, y);
+  uint16_t dz = dxy / k;
+  uint16_t dxy0 = (dxy - k * dz) / 2;
+  uint16_t dx0 = x - dxy + dxy0;
+  uint16_t dy0 = 0 + dxy0;
+
+  EPD.setPenSolid(true);
+  EPD.dRectangle(x - dxy, 0, dxy, dxy, myColours.white);
+
+  for (uint8_t jy = 0; jy < k; jy++) {
+    for (uint8_t ix = 0; ix < k; ix++) {
+      uint16_t colour = qrcode_getModule(&qrcode, ix, jy) ? myColours.black : myColours.white;
+      EPD.dRectangle(dx0 + dz * ix, dy0 + dz * jy, dz, dz, colour);
+    }
+  }
+  EPD.setPenSolid(false);
+}
+
+void displayCommissioning() {
+  EPD.selectFont(Font_Terminal12x16);
+
+  uint16_t y = 0;
+  uint16_t dy = EPD.characterSizeY();
+
+  EPD.gText(0, y, MATTER_EXAMPLE_NAME);
+  y += dy * 2;
+  EPD.flush();
+  EPD.selectFont(Font_Terminal8x12);
+
+  EPD.gText(0, y, "Device not commissioned");
+  y += dy * 2;
+
+  EPD.gText(0, y, "Commission with:");
+  y += dy;
+
+  EPD.gText(0, y, "- Manual pairing code:");
+  y += dy;
+  EPD.gText(0, y, Matter.getManualPairingCode());
+  y += dy;
+
+  EPD.gText(0, y, "- Scan QR-code:");
+  y += dy;
+
+  displayQR(Matter.getOnboardingQRCodePayload().c_str());
+  EPD.flush();
+}
+
+void displayDecommissioning() {
+  EPD.clear();
+  EPD.selectFont(Font_Terminal12x16);
+  uint16_t y = 0;
+  uint16_t dy = EPD.characterSizeY();
+
+  EPD.gText(0, y, MATTER_EXAMPLE_NAME);
+  y += dy * 2;
+  EPD.flush();
+  EPD.selectFont(Font_Terminal8x12);
+
+  EPD.gText(0, y, "Decommissioning");
+  y += dy;
+  EPD.flush();
+
+  EPD.gText(0, y, ". Starting");
+  y += dy;
+  EPD.flush();
+
+  Matter.decommission();
+}
+
+void displayValue() {
+  EPD.setPenSolid();
+  EPD.setFontSolid();
+
+  uint16_t x = EPD.screenSizeX();
+  uint16_t y = EPD.screenSizeY();
+  uint16_t dx, dy, x0, y0;
+
+  x0 = 0;
+  dx = x / 6;
+  y0 = 0;
+  dy = y / 7;
+
+  EPD.selectFont(Font_Terminal12x16);
+
+  EPD.gText(x0, y0, MATTER_EXAMPLE_NAME);
+  y0 += dy;
+
+  EPD.selectFont(Font_Terminal8x12);
+  EPD.gText(x0 + dx * 0, y0 + dy * 1, "Red");
+  EPD.gText(x0 + dx * 2, y0 + dy * 1, "Green");
+  EPD.gText(x0 + dx * 4, y0 + dy * 1, "Blue");
+
+  EPD.gText(x0 + dx * 2 - EPD.characterSizeX() * 2, y0 + dy * 2 - EPD.characterSizeY(), "%");
+  EPD.gText(x0 + dx * 4 - EPD.characterSizeX() * 2, y0 + dy * 2 - EPD.characterSizeY(), "%");
+  EPD.gText(x0 + dx * 6 - EPD.characterSizeX() * 2, y0 + dy * 2 - EPD.characterSizeY(), "%");
+
+  EPD.selectFont(Font_Terminal12x16);
+  EPD.gTextLarge(x0 + dx * 0, y0 + dy * 2, formatString("%4i", r * 100 / 254));
+  EPD.gTextLarge(x0 + dx * 2, y0 + dy * 2, formatString("%4i", g * 100 / 254));
+  EPD.gTextLarge(x0 + dx * 4, y0 + dy * 2, formatString("%4i", b * 100 / 254));
+
+  EPD.gTextLarge(x0 + dx * 2, y0 + dy * 4, (matter_color_bulb.get_onoff() ? " ON " : " OFF"));
+}
+```
+
+Some of the code main functions will be briefly explained below:
+
+- The `displayCommissioning()` function displays the commissioning steps on the screen, letting you know how to device status and showing the QR code.
+- The `displayQR()` function converts the Nano Matter onboarding QR payload on an image to be shown in the E-ink display. 
+- The `loop()` function continuously checks if the user button was pressed and updates the LED color with the data received from the Matter controller.
+- The `setup()` function initiates the Matter service, E-ink display and other peripherals.
+
+Using the Nano Matter Display will allow you to enjoy the following new features:
+
+- Commissioning QR Code displayed on the E-Ink screen so we will be able to scan it with your phone.
+
+![QR code on commissioning process]()
+
+- Real time data monitoring on the E-ink display showing the lightbulb state and colors.
+  
+![Real time data display]()
 
 ### Upload the Example Sketch
 
-### Provision the Weather Station
+[![Download the complete code here](assets/download.png)](assets/rgb-matter-code.zip)
 
-### Enjoy It
+***Download the complete example code from [here](assets/rgb-matter-code.zip) since it needs the `ezWS2812gpio.h` header to control the RGB LED.***
+
+In the Arduino IDE select the **Arduino Nano Matter** inside the _Silicon Labs_ board package and make sure the **Protocol Stack** is set to _Matter_.
+
+![Code uploading image]()
+
+### Commissioning the Matter RGB Lightbulb and Final Test
+
+Once the code is uploaded, the display will show the commissioning steps alongside the QR code. 
+
+See the following video that shows the whole process with the Amazon Alexa app.
+
+![Video showing the process]()
+
+***Make sure to use the right assistant app respectively to your Thread Border Router brand.***
+
+## Matter Weather Station
+
+As another hands-on application, we are going to create a **weather station** using our Matter Display that measures `temperature` and `relative humidity` at the same time of showing it on the screen and sharing the measurements with our preferred personal assistant.
+
+![RGB Lightbulb Thumbnail]()
+
+***As this examples uses the Matter network you will need a __Thread Border Router__ to replicate it. See the supported ones on the [Matter section of the Nano Matter User Manual](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#matter).***
+
+The following example code is based on the **Pervasive Displays** example included in the library called **EXT4_Matter_Weather**:
+
+```arduino
+
+```
+
 
 ## Conclusion
 
