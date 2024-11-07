@@ -89,7 +89,7 @@ Download the following libraries:
 
 In order to quickly understand the product capabilities we are going to jump straight to a hands-on section based on the [RGB Lightbulb example](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#matter) showcased in the **Nano Matter User Manual**.
 
-![RGB Lightbulb Thumbnail]()
+![RGB Lightbulb Thumbnail](assets/led-rgb.jpg)
 
 ***As this examples uses the Matter network you will need a __Thread Border Router__ to replicate it. See the supported ones on the [Matter section of the Nano Matter User Manual](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#matter).***
 
@@ -109,19 +109,19 @@ The following example code is based on the Matter library built-in example calle
 
 uint8_t r, g, b;
 
-MatterColorLightbulb matter_color_bulb; // RGB LED Matter UI instance
+MatterColorLightbulb matter_color_bulb;  // RGB LED Matter UI instance
 
 pins_t nano_matter = boardArduinoNanoMatter;
 
-ezWS2812gpio myRGB(1, nano_matter.ledData); // Pervasive Displays onboard WS2813C LED set up (Number of LEDs, LED Pin)
+ezWS2812gpio myRGB(1, nano_matter.ledData);  // Pervasive Displays onboard WS2813C LED set up (Number of LEDs, LED Pin)
 
-Screen_EPD_EXT4_Fast EPD(eScreen_EPD_290_KS_0F, nano_matter); // Pervasive Displays E-INK set up (screen type, host board)
+Screen_EPD_EXT4_Fast EPD(eScreen_EPD_290_KS_0F, nano_matter);  // Pervasive Displays E-INK set up (screen type, host board)
 
 #define MATTER_EXAMPLE_NAME "Nano Matter RGB"
 
-void update_led_color();
-void led_off();
-void handle_button_press();
+static uint8_t countFlush = 1;         // Counter for global update
+const uint8_t FAST_BEFORE_GLOBAL = 16;  // Number of fast updates before golbal update
+
 volatile bool button_pressed = false;
 
 void setup() {
@@ -231,6 +231,7 @@ void loop() {
     Serial.println("Bulb ON");
     // Set the LEDs to the last received state
     update_led_color();
+    countFlush += 1;
   }
 
   // If the current state is OFF and the previous was ON - turn off the LED
@@ -241,6 +242,14 @@ void loop() {
     led_off();
     displayValue();
     EPD.flush();
+    countFlush += 1;
+  }
+
+  countFlush %= FAST_BEFORE_GLOBAL;
+
+  if (countFlush == 0) {
+    EPD.regenerate();
+    
   }
 
   static uint8_t hue_prev = 0;
@@ -280,7 +289,6 @@ void update_led_color() {
 void led_off() {
   // set the RGB LED to OFF
   myRGB.set_pixel(0, 0, 0);
-
 }
 
 void handle_button_press() {
@@ -439,11 +447,10 @@ Using the Nano Matter Display will allow you to enjoy the following new features
 
 - Commissioning QR Code displayed on the E-Ink screen so we will be able to scan it with your phone.
 
-![QR code on commissioning process]()
+![QR code on commissioning process](assets/qr-code.jpg)
 
 - Real time data monitoring on the E-ink display showing the lightbulb state and colors.
   
-![Real time data display]()
 
 ### Upload the Example Sketch
 
@@ -453,7 +460,7 @@ Using the Nano Matter Display will allow you to enjoy the following new features
 
 In the Arduino IDE select the **Arduino Nano Matter** inside the _Silicon Labs_ board package and make sure the **Protocol Stack** is set to _Matter_.
 
-![Code uploading image]()
+![Code uploading image](assets/upload.png)
 
 ### Commissioning the Matter RGB Lightbulb and Final Test
 
@@ -473,12 +480,379 @@ As another hands-on application, we are going to create a **weather station** us
 
 ***As this examples uses the Matter network you will need a __Thread Border Router__ to replicate it. See the supported ones on the [Matter section of the Nano Matter User Manual](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#matter).***
 
-The following example code is based on the **Pervasive Displays** example included in the library called **EXT4_Matter_Weather**:
+Download the following library:
+
+- `HDC2080.h`: includes the support for the temperature and humidity sensor. You can install it from the Library Manager on the Arduino IDE or from its [repository](https://github.com/lime-labs/HDC2080-Arduino).
+
+The following code is based on the **Pervasive Displays** example included in the library called **EXT4_Matter_Weather**:
 
 ```arduino
 
-```
+#include <Matter.h>
+#include <MatterTemperature.h>
+#include <MatterHumidity.h>
+#include "PDLS_EXT4_Basic_Matter.h"
+#include "hV_HAL_Peripherals.h"
+#include "hV_Configuration.h"
+#include "Wire.h"
+#include "qrcode.h"
+#include <HDC2080.h>
 
+MatterTemperature myMatterTemperature;
+MatterHumidity myMatterHumidity;
+
+pins_t nano_matter = boardArduinoNanoMatter;
+
+Screen_EPD_EXT4_Fast EPD(eScreen_EPD_290_KS_0F, nano_matter);
+
+#define MATTER_EXAMPLE_NAME "Matter Weather"
+
+#define HDC_ADDR 0x40
+HDC2080 sensor(HDC_ADDR);
+
+unsigned long previousMillis = 0;
+const long interval = 10000;
+
+struct measure_s {
+  float value;
+  float oldValue = 999.9;
+  float minimum = 999.9;
+  float maximum = -999.9;
+};
+
+measure_s temperature;
+measure_s humidity;
+
+static uint8_t countFlush = 1;         // Counter for global update
+const uint8_t FAST_BEFORE_GLOBAL = 16;  // Number of fast updates before global update
+bool flagDisplay = true;
+
+volatile bool button_pressed = false;
+
+void setup() {
+
+  Serial.begin(115200);
+  delay(500);
+
+  Matter.begin();
+  myMatterTemperature.begin();
+  myMatterHumidity.begin();
+
+  // Start
+  EPD.begin();
+  EPD.setPowerProfile(POWER_MODE_AUTO, POWER_SCOPE_GPIO_ONLY);
+  EPD.setOrientation(3);
+  EPD.regenerate();  // Clear buffer and screen
+
+  // --- Matter
+  // Set up the onboard button for decommissioning
+  pinMode(nano_matter.button, INPUT_PULLUP);
+
+  sensor.begin();
+  sensor.reset();
+
+  // Configure Measurements
+  sensor.setMeasurementMode(TEMP_AND_HUMID);  // Set measurements to temperature and humidity
+  sensor.setRate(ONE_HZ);                     // Set measurement frequency to 1 Hz
+  sensor.setTempRes(FOURTEEN_BIT);
+  sensor.setHumidRes(FOURTEEN_BIT);
+
+  sensor.triggerMeasurement();
+
+  if (!Matter.isDeviceCommissioned()) {
+    Serial.println("Matter device is not commissioned");
+    Serial.println("Commission it to your Matter hub with the manual pairing code or QR code");
+    Serial.printf("Manual pairing code: %s\n", Matter.getManualPairingCode().c_str());
+    Serial.printf("QR code URL: %s\n", Matter.getOnboardingQRCodeUrl().c_str());
+    displayCommissioning();
+  }
+
+  while (!Matter.isDeviceCommissioned()) {
+    decommission_handler();
+    delay(200);
+  }
+
+  EPD.clear();
+  EPD.selectFont(Font_Terminal12x16);
+  uint16_t y = 0;
+  uint16_t dy = EPD.characterSizeY();
+
+  EPD.gText(0, y, MATTER_EXAMPLE_NAME);
+  y += dy * 2;
+  EPD.flush();
+
+  EPD.selectFont(Font_Terminal8x12);
+  dy = EPD.characterSizeY();
+
+  Serial.println("Waiting for Thread network...");
+  EPD.gText(0, y, "Waiting for Thread network...");
+  y += dy;
+  EPD.flush();
+
+  while (!Matter.isDeviceThreadConnected()) {
+    decommission_handler();
+    delay(200);
+  }
+
+  Serial.println("Connected to Thread network");
+  EPD.gText(0, y, "Connected to Thread network");
+  y += dy;
+  EPD.flush();
+
+  Serial.println("Waiting for Matter device discovery...");
+  EPD.gText(0, y, "Waiting for Matter device discovery...");
+  y += dy;
+  EPD.flush();
+  while (!myMatterTemperature.is_online() || !myMatterHumidity.is_online()) {
+    decommission_handler();
+    delay(200);
+  }
+  Serial.println("Matter device is now online");
+  EPD.gText(0, y, "Matter device is now online");
+  y += dy;
+  EPD.flush();
+
+  delay(1000);
+
+  EPD.regenerate();
+}
+
+void loop() {
+
+  unsigned long currentMillis = millis();
+  if (currentMillis - previousMillis >= interval) {
+
+    previousMillis = currentMillis;
+
+    // HDC2080
+    // Temperature
+    temperature.value = sensor.readTemp();
+    // Humidity
+    humidity.value = sensor.readHumidity();
+
+    // --- Matter
+    // Publish the temperature value - you can also use 'myMatterTemperature = current_cpu_temp'
+    myMatterTemperature.set_measured_value_celsius(temperature.value);
+    // Publish the humidity value - you can also use 'myMatterHumidity.set_measured_value(current_humidity)'
+    myMatterHumidity = humidity.value;
+    // --- End of Matter
+
+    countFlush %= FAST_BEFORE_GLOBAL;
+
+    if (countFlush == 0) {
+      EPD.regenerate();
+     
+    }
+
+    displayValue(0, "Temperature", &temperature, "°C");
+    displayValue(1, "Humidity", &humidity, "%");
+    EPD.flush();
+
+    countFlush += 1;
+    
+    // Serial
+    Serial.print(formatString("Temperature = %5.1f < %5.1f < %5.1f oC, Humidity= %5.1f < %5.1f < %5.1f %%",
+                              temperature.minimum, temperature.value, temperature.maximum,
+                              humidity.minimum, humidity.value, humidity.maximum));
+    Serial.println();
+  }
+
+  decommission_handler();
+}
+
+void displayQR(const char* code) {
+  // Create the QR code
+  QRCode qrcode;
+  uint8_t qrcodeData[qrcode_getBufferSize(3)];
+  qrcode_initText(&qrcode, qrcodeData, 3, 0, code);
+
+  uint16_t x = EPD.screenSizeX();
+  uint16_t y = EPD.screenSizeY();
+  uint8_t k = qrcode.size;
+  uint16_t dxy = min(x, y);
+  uint16_t dz = dxy / k;
+  uint16_t dxy0 = (dxy - k * dz) / 2;
+  uint16_t dx0 = x - dxy + dxy0;
+  uint16_t dy0 = 0 + dxy0;
+
+  EPD.setPenSolid(true);
+  EPD.dRectangle(x - dxy, 0, dxy, dxy, myColours.white);
+
+  for (uint8_t jy = 0; jy < k; jy++) {
+    for (uint8_t ix = 0; ix < k; ix++) {
+      uint16_t colour = qrcode_getModule(&qrcode, ix, jy) ? myColours.black : myColours.white;
+      EPD.dRectangle(dx0 + dz * ix, dy0 + dz * jy, dz, dz, colour);
+    }
+  }
+  EPD.setPenSolid(false);
+}
+
+
+bool displayValue(uint8_t slot, String name, measure_s* value, String unit) {
+  uint16_t x = EPD.screenSizeX();
+  uint16_t y = EPD.screenSizeY();
+  uint16_t dx, dy, x0, y0;
+
+  x0 = x * slot / 2;
+  dx = x / 8;
+  y0 = 0;
+  dy = y / 5;
+
+  (*value).value = ((int32_t)(10 * (*value).value + 5)) / 10.0;
+  bool result = ((*value).value != (*value).oldValue);
+  (*value).oldValue = (*value).value;
+  (*value).maximum = max((*value).maximum, (*value).value);
+  (*value).minimum = min((*value).minimum, (*value).value);
+
+  EPD.setPenSolid(true);
+  EPD.setFontSolid(true);
+  EPD.dRectangle(x0, y0, dx * 4, dy * 4, myColours.white);
+
+  EPD.selectFont(Font_Terminal12x16);
+  EPD.gText(x0, y0, name);
+
+  EPD.selectFont(Font_Terminal16x24);
+  EPD.gTextLarge(x0, y0 + 1 * dy, formatString("%5.1f", (*value).value));
+
+  EPD.selectFont(Font_Terminal12x16);
+  char unit_c[4] = { 0 };
+  strcpy(unit_c, utf2iso(unit).c_str());
+  EPD.gText(x0 + 3 * dx - EPD.characterSizeX() * 0, y0 + 1 * dy - EPD.characterSizeY(), formatString("%s", unit_c));
+
+  EPD.selectFont(Font_Terminal8x12);
+  EPD.gText(x0, y0 + 3 * dy, "Minimum");
+  EPD.gText(x0 + 2 * dx, y0 + 3 * dy, "Maximum");
+
+  EPD.selectFont(Font_Terminal12x16);
+  EPD.gText(x0, y0 + 4 * dy, formatString("%5.1f", (*value).minimum));
+  EPD.gText(x0 + 2 * dx, y0 + 4 * dy, formatString("%5.1f", (*value).maximum));
+
+  EPD.setPenSolid(false);
+  return result;
+}
+
+
+void displayCommissioning() {
+  EPD.selectFont(Font_Terminal12x16);
+
+  uint16_t y = 0;
+  uint16_t dy = EPD.characterSizeY();
+
+  EPD.gText(0, y, MATTER_EXAMPLE_NAME);
+  y += dy * 2;
+  EPD.flush();
+  EPD.selectFont(Font_Terminal8x12);
+
+  EPD.gText(0, y, "Device not commissioned");
+  y += dy * 2;
+
+  EPD.gText(0, y, "Commission with:");
+  y += dy;
+
+  EPD.gText(0, y, "- Manual pairing code:");
+  y += dy;
+  EPD.gText(0, y, Matter.getManualPairingCode());
+  y += dy;
+
+  EPD.gText(0, y, "- Scan QR-code:");
+  y += dy;
+
+  displayQR(Matter.getOnboardingQRCodePayload().c_str());
+  EPD.flush();
+}
+
+void displayDecommissioning() {
+  EPD.clear();
+  EPD.selectFont(Font_Terminal12x16);
+  uint16_t y = 0;
+  uint16_t dy = EPD.characterSizeY();
+
+  EPD.gText(0, y, MATTER_EXAMPLE_NAME);
+  y += dy * 2;
+  EPD.flush();
+  EPD.selectFont(Font_Terminal8x12);
+
+  EPD.gText(0, y, "Decommissioning");
+  y += dy;
+  EPD.flush();
+
+  EPD.gText(0, y, ". Starting");
+  y += dy;
+  EPD.flush();
+
+  Matter.decommission();
+}
+
+void decommission_handler() {
+  if (digitalRead(nano_matter.button) == LOW) {  //Push button pressed
+    // measures time pressed
+    int startTime = millis();
+    while (digitalRead(nano_matter.button) == LOW) {
+
+      int elapsedTime = (millis() - startTime) / 1000.0;
+
+      if (elapsedTime > 10) {
+        Serial.printf("Decommissioning!\n");
+        for (int i = 0; i < 10; i++) {
+          digitalWrite(LEDR, !(digitalRead(LEDR)));
+          delay(50);
+        };
+
+        displayDecommissioning();
+        break;
+      }
+    }
+  }
+}
+
+```
+Some of the code main functions will be briefly explained below:
+
+- The `displayCommissioning()` function displays the commissioning steps on the screen, letting you know how to device status and showing the QR code.
+- The `displayQR()` function converts the Nano Matter onboarding QR payload on an image to be shown in the E-ink display. 
+- The `loop()` function continuously checks for the temperature and humidity data from the sensor and display it on the E-ink screen.
+- The `setup()` function initiates the Matter service, E-ink display and other peripherals.
+
+### Upload the Example Sketch
+
+[![Download the complete code here](assets/download.png)](assets/weather-matter-code.zip)
+
+***Download the complete example code from [here](assets/weather-matter-code.zip).***
+
+In the Arduino IDE select the **Arduino Nano Matter** inside the _Silicon Labs_ board package and make sure the **Protocol Stack** is set to _Matter_.
+
+![Code uploading image]()
+
+### Commissioning the Matter Weather Station and Final Test
+
+Once the code is uploaded, the display will show the commissioning steps alongside the QR code. Use your preferred personal assistant app and ecosystem.
+
+***Follow the previous example for commissioning reference.***
+
+With the Weather Station properly commissioned, now you can deploy it on an interesting place at home to monitor.
+
+![Weather Station Deployment at home]()
+
+## Nano Matter Display Sensors and Actuators
+
+### E-ink Display
+
+- Text
+- Orientation
+- Forms
+- Refresh 
+
+### RGB LED
+
+- LED control
+
+### 3-axis Accelerometer
+
+- Accel example
+
+### Temperature and Humidity Sensor
+
+- How to
 
 ## Conclusion
 
