@@ -11,7 +11,7 @@ tags: [Matter, E-Ink, Display]
 
 The Nano Matter Display is an evaluation kit for the Nano Matter that features an extension board from Pervasive Displays. It includes a 2.9 inches (384x168) E-ink monochrome high-definition display, a temperature and humidity sensor, a 3-axis accelerometer and an addressable RGB LED.
 
-![thumbnail]()
+![Nano Matter Display](assets/thumbnail.jpg)
 
 These features are meant to be leveraged with the Arduino Nano Matter to extend the board capabilities and allow the user to create interesting and useful applications around the E-ink display.
 
