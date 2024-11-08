@@ -120,7 +120,8 @@ Docker containers ensure portability by packaging applications with their runtim
 
 ### Foundries.io Factory and Benefits
 
-With Arduino Cloud's integration with Foundries.io, you can create a **Foundries.io Factory** to manage Portenta X8 devices and containers. A Factory helps manage, organize, and update devices while simplifying container deployment and team management.
+With Arduino Cloud's integration with Foundries.io via the so called Portenta X8 Manager, you can create a **Foundries.io Factory** to manage Portenta X8 devices and containers. A Factory helps manage, organize, and update devices while simplifying container deployment and team management.
+
 
 ![Factory page](assets/factory-page.png "Factory page")
 
