@@ -89,7 +89,7 @@ Download the following libraries:
 
 In order to quickly understand the product capabilities we are going to jump straight to a hands-on section based on the [RGB Lightbulb example](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#matter) showcased in the **Nano Matter User Manual**.
 
-![RGB Lightbulb Thumbnail](assets/led-rgb.jpg)
+![RGB Lightbulb Overview](assets/led-rgb.jpg)
 
 ***As this examples uses the Matter network you will need a __Thread Border Router__ to replicate it. See the supported ones on the [Matter section of the Nano Matter User Manual](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#matter).***
 
@@ -460,7 +460,7 @@ Using the Nano Matter Display will allow you to enjoy the following new features
 
 In the Arduino IDE select the **Arduino Nano Matter** inside the _Silicon Labs_ board package and make sure the **Protocol Stack** is set to _Matter_.
 
-![Code uploading image](assets/upload.png)
+![RGB example code upload](assets/upload.png)
 
 ### Commissioning the Matter RGB Lightbulb and Final Test
 
@@ -480,7 +480,7 @@ See the following video that shows the whole process with the Amazon Alexa app.
 
 As another hands-on application, we are going to create a **weather station** using our Matter Display that measures `temperature` and `relative humidity` at the same time of showing it on the screen and sharing the measurements with our preferred personal assistant.
 
-![RGB Lightbulb Thumbnail]()
+![Weather Station Overview](assets/weather-c.jpg)
 
 ***As this examples uses the Matter network you will need a __Thread Border Router__ to replicate it. See the supported ones on the [Matter section of the Nano Matter User Manual](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#matter).***
 
@@ -491,7 +491,6 @@ Download the following library:
 The following code is based on the **Pervasive Displays** example included in the library called **EXT4_Matter_Weather**:
 
 ```arduino
-
 #include <Matter.h>
 #include <MatterTemperature.h>
 #include <MatterHumidity.h>
@@ -825,7 +824,7 @@ Some of the code main functions will be briefly explained below:
 
 In the Arduino IDE select the **Arduino Nano Matter** inside the _Silicon Labs_ board package and make sure the **Protocol Stack** is set to _Matter_.
 
-![Code uploading image]()
+![Weather example code upload](assets/code-2.png)
 
 ### Commissioning the Matter Weather Station and Final Test
 
@@ -835,7 +834,7 @@ Once the code is uploaded, the display will show the commissioning steps alongsi
 
 With the Weather Station properly commissioned, now you can deploy it on an interesting place at home to monitor.
 
-![Weather Station Deployment at home]()
+![Weather Station Deployment at home](assets/living-2.gif)
 
 ## Nano Matter Display Sensors and Actuators
 
