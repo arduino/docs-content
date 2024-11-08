@@ -136,7 +136,7 @@ It is recommended that you check every now and then to see if your Portenta X8 i
 There are four ways to update your Portenta X8 are described:
 
 * [Update for OS release V.399](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-for-os-release-v399)
-* [Update through Out-of-the-box experience](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-through-out-of-the-box-experience)
+* [Update through Arduino Linux Wizard experience](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-through-arduino-linux-wizard-experience)
 * [Update through Portenta X8 Manager in your Arduino Cloud for Business account (available for all OS releases)](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-with-portenta-x8-board-manager)
 * [Update using the `uuu` tool (compatible with custom images)](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-using-uuu-tool)
 
@@ -190,23 +190,23 @@ Now click on **START CONFIGURATION**. The tool will install all the required add
 
 You can now proceed to the setup of the board connectivity by clicking **OK, GOT IT**. 
 
-![Out-of-the-box Connectivity Configuration](assets/ootb-wifi-config.png "Out-of-the-box Connectivity Configuration")
+![Arduino Linux Wizard Connectivity Configuration](assets/ootb-wifi-config.png "Arduino Linux Wizard Connectivity Configuration")
 
 ***If you face any issue with this flow or prefer to interact directly with your Portenta X8 through the command line, please refer to [this section](#working-with-linux) to learn how to connect with the board leveraging ADB service.***
 
-Once the setup is ready, let's open the Out-of-the-box page. Use the command line window and launch the TCP port forwarding setup command:
+Once the setup is ready, let's open the Arduino Linux Wizard page. Use the command line window and launch the TCP port forwarding setup command:
 
 ```bash
 adb forward tcp:8080 tcp:80
 ```
 
-Now open your browser, go to [http://localhost:8080](http://localhost:8080), and the Out-of-the-box dashboard will appear.
+Now open your browser, go to [http://localhost:8080](http://localhost:8080), and the Arduino Linux Wizard dashboard will appear.
 
-![Out-of-the-box Home Screen](assets/OOTB_homepage_init.png "Out-of-the-box Home Screen")
+![Arduino Linux Wizard Home Screen](assets/OOTB_homepage_init.png "Arduino Linux Wizard Home Screen")
 
-On the Out-of-the-box page, the **SYSTEM INFO** button is located at the bottom left.
+On the Arduino Linux Wizard page, the **SYSTEM INFO** button is located at the bottom left.
 
-![Out-of-the-box System Info](assets/OOTB_system_info.png "Out-of-the-box System Info")
+![Arduino Linux Wizard System Info](assets/OOTB_system_info.png "Arduino Linux Wizard System Info")
 
 It will show you different types of information about the Portenta X8, including hardware/software information, network status, and active containers. 
 
@@ -214,29 +214,29 @@ It will show you different types of information about the Portenta X8, including
 
 Click **Wi-Fi® Connection** to start configuring your network connectivity. Otherwise, you can connect your Portenta X8 to the Internet through an Ethernet cable using a USB-C® hub with an RJ45 port or a Portenta Carrier. In this tutorial, Wi-Fi® connectivity will be used.
 
-![Out-of-the-box Wi-Fi® Settings](assets/OOTB_homepage_Wifi.png "Out-of-the-box Wi-Fi® Settings")
+![Arduino Linux Wizard Wi-Fi® Settings](assets/OOTB_homepage_Wifi.png "Arduino Linux Wizard Wi-Fi® Settings")
 
 Choose **WiFi Network** option to continue network connectivity configuration with Wi-Fi® connectivity.
 
-![Out-of-the-box Wi-Fi® Network Selection](assets/OOTB_wifi_option.png "Out-of-the-box Wi-Fi® Network Selection")
+![Arduino Linux Wizard Wi-Fi® Network Selection](assets/OOTB_wifi_option.png "Arduino Linux Wizard Wi-Fi® Network Selection")
 
 Select your Wi-Fi® SSID. You can select a network from the available list or introduce your SSID manually.
 
-![Out-of-the-box Wi-Fi® SSID set-up](assets/OOTB_wifi_selection.png "Out-of-the-box Wi-Fi® SSID set-up")
+![Arduino Linux Wizard Wi-Fi® SSID set-up](assets/OOTB_wifi_selection.png "Arduino Linux Wizard Wi-Fi® SSID set-up")
 
 Type your Wi-Fi® password.
 
-![Out-of-the-box Wi-Fi® password set-up](assets/OOTB_wifi_SSID.png "Out-of-the-box Wi-Fi® password set-up")
+![Arduino Linux Wizard Wi-Fi® password set-up](assets/OOTB_wifi_SSID.png "Arduino Linux Wizard Wi-Fi® password set-up")
 
 Once connected, you will get a notification confirming your Portenta X8 has connected to the selected network, and its LED will start blinking green.
 
 Moreover, you can check the network you are connected to in the bottom left section of this dashboard.
 
-![Out-of-the-box Wi-Fi® connection successful](assets/OOTB_wifi_connected.png "Out-of-the-box Wi-Fi® connection successful")
+![Arduino Linux Wizard Wi-Fi® connection successful](assets/OOTB_wifi_connected.png "Arduino Linux Wizard Wi-Fi® connection successful")
 
-Now, you can click **OK** and be redirected to the Out-of-the-box homepage below.
+Now, you can click **OK** and be redirected to the Arduino Linux Wizard homepage below.
 
-![Out-of-the-box Homepage](assets/OOTB_homepage.png "Out-of-the-box Homepage")
+![Arduino Linux Wizard Homepage](assets/OOTB_homepage.png "Arduino Linux Wizard Homepage")
 
 ***You can change your network by clicking on the Settings button and repeat the steps above.***
 
@@ -254,11 +254,11 @@ This web page is hosted on the Portenta X8 and allows a user to:
 
 Click the **Shell** button to start using your Portenta X8 with Python-Alpine.
 
-![Out-of-the-box Shell button](assets/OOTB_homepage_shell.png "Out-of-the-box Shell button")
+![Arduino Linux Wizard Shell button](assets/OOTB_homepage_shell.png "Arduino Linux Wizard Shell button")
 
 This shell is running in a Python-Alpine container embedded in Portenta X8. You will find multiple examples under the directory `/root/examples` in this shell. Additionally, you can either add your own package through the command `apk add <packagename>` or start exploring the packages available online at [this link]( https://pkgs.alpinelinux.org/packages).
 
-![Out-of-the-box Python-Alpine Shell](assets/OOTB_alpine_shell.png "Out-of-the-box Python-Alpine Shell")
+![Arduino Linux Wizard Python-Alpine Shell](assets/OOTB_alpine_shell.png "Arduino Linux Wizard Python-Alpine Shell")
 
 ## Portenta X8 with Arduino Cloud
 
@@ -268,23 +268,23 @@ Making Portenta X8 compatible with Arduino Cloud means opening many new applicat
 
 ***Check all the available Arduino Cloud plans [here](https://cloud.arduino.cc/plans#business) and create your Arduino Cloud account in a couple of steps (see the dedicated documentation at [this link](https://docs.arduino.cc/arduino-cloud/)).***
 
-With the Out-of-the-box experience, your Portenta X8 can be securely self-provisioned in Arduino Cloud; you need to create API keys, and the Python container running on X8 will do the rest. When provisioned, you can start directly interacting with an example Thing and Dashboard that will be automatically generated to guide you in this new journey.
+With the Arduino Linux Wizard experience, your Portenta X8 can be securely self-provisioned in Arduino Cloud; you need to create API keys, and the Python container running on X8 will do the rest. When provisioned, you can start directly interacting with an example Thing and Dashboard that will be automatically generated to guide you in this new journey.
 
 Click the **Arduino Cloud** button to start provisioning your Portenta X8 in Arduino Cloud.
 
-![Out-of-the-box Arduino Cloud](assets/OOTB_homepage_cloud.png "Out-of-the-box Arduino Cloud")
+![Arduino Linux Wizard Arduino Cloud](assets/OOTB_homepage_cloud.png "Arduino Linux Wizard Arduino Cloud")
 
 Start setting up the device name for your Portenta X8 (in this case, *portenta-x8-test*) and click on **CONTINUE**. The same device name will be used and visualized in your Arduino Cloud space, but you can freely change it in the future.
 
-![Out-of-the-box Arduino Cloud Device Name](assets/OOTB_cloud_device_name.png "Out-of-the-box Arduino Cloud Device Name")
+![Arduino Linux Wizard Arduino Cloud Device Name](assets/OOTB_cloud_device_name.png "Arduino Linux Wizard Arduino Cloud Device Name")
 
 At this point, you will be asked to insert your API Key credentials and Organization ID. Organization ID is optional and should be filled in only if you use a Shared Space in Arduino Cloud for Business.
 
-![Out-of-the-box Arduino Cloud API Keys](assets/OOTB_cloud_generate_API.png "Out-of-the-box Arduino Cloud API Keys")
+![Arduino Linux Wizard Arduino Cloud API Keys](assets/OOTB_cloud_generate_API.png "Arduino Linux Wizard Arduino Cloud API Keys")
 
 To get API keys, log into your Arduino Cloud account and select the Space you would like your X8 to be provisioned into.
 
-Thus, click on **GENERATE API KEY** in your Out-of-the-box dashboard. A new window in your web browser will allow you to log in to your Arduino Cloud space.
+Thus, click on **GENERATE API KEY** in your Arduino Linux Wizard dashboard. A new window in your web browser will allow you to log in to your Arduino Cloud space.
 
 ***If you want to learn more about what API keys are and how they work, please take a look at the dedicated documentation available at [this link](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-iot-api).***
 
@@ -314,35 +314,35 @@ Keep this file safely stored; otherwise, your API credentials cannot be recovere
 
 ![Arduino Cloud API Key](assets/web_cloud_API_key.png "Arduino Cloud API Key")
 
-The PDF file will look like the image below and include the credentials you need to copy and paste into the Out-of-the-box page.
+The PDF file will look like the image below and include the credentials you need to copy and paste into the Arduino Linux Wizard page.
 
 ![Arduino Cloud API Key PDF](assets/web_cloud_API_key_PDF.png "Arduino Cloud API Key PDF")
 
-Thus, copy the **Client ID** and the **Client Secret** credentials and paste them into your Out-of-the-box dashboard as shown below.
+Thus, copy the **Client ID** and the **Client Secret** credentials and paste them into your Arduino Linux Wizard dashboard as shown below.
 
-![Out-of-the-box with API Keys](assets/OOTB_cloud_API_copy.png "Out-of-the-box with API Keys")
+![Arduino Linux Wizard with API Keys](assets/OOTB_cloud_API_copy.png "Arduino Linux Wizard with API Keys")
 
 If you are using an Arduino Cloud for Business account with Shared Spaces. In that case, you also need to add the Organization ID you would like your Portenta X8 to be provisioned into by clicking on **ADD ORGANIZATION**.
 
-![Out-of-the-box successful Cloud provisioning](assets/OOTB_cloud_success.png "Out-of-the-box successful Cloud provisioning")
+![Arduino Linux Wizard successful Cloud provisioning](assets/OOTB_cloud_success.png "Arduino Linux Wizard successful Cloud provisioning")
 
 To recover the Organization ID, known as Space ID, of your Shared Space on Arduino Cloud for Business, open your Arduino Cloud homepage and navigate to **Space Settings > General** in the sidebar on the left.
 
 ![Space ID on Cloud Settings](assets/shared-space-settings.png "Space ID on Cloud Settings")
 
-At this point, you can copy the **Space ID** of your Shared Space and paste it into your Out-of-the-box dashboard together with your API keys.
+At this point, you can copy the **Space ID** of your Shared Space and paste it into your Arduino Linux Wizard dashboard together with your API keys.
 
 ![API keys and Organization ID](assets/OOTB_cloud_organization_ID.png "API keys and Organization ID")
 
 Click on **SETUP DEVICE**, and you are ready to go, your Portenta X8 is now provisioned into your Arduino Cloud space.
 
-![Out-of-the-box successful Cloud provisioning](assets/OOTB_cloud_success.png "Out-of-the-box successful Cloud provisioning")
+![Arduino Linux Wizard successful Cloud provisioning](assets/OOTB_cloud_success.png "Arduino Linux Wizard successful Cloud provisioning")
 
-Once provisioned, the Portenta X8 will be automatically linked to an example [Thing](https://create.arduino.cc/iot/things) and [Dashboard](https://create.arduino.cc/iot/dashboards). You can freely check them by clicking on the corresponding links embedded in the Out-of-the-box.
+Once provisioned, the Portenta X8 will be automatically linked to an example [Thing](https://create.arduino.cc/iot/things) and [Dashboard](https://create.arduino.cc/iot/dashboards). You can freely check them by clicking on the corresponding links embedded in the Arduino Linux Wizard.
 
 ![Portenta X8 example Thing](assets/cloud_thing_created.png "Portenta X8 example Thing")
 
-As mentioned, Arduino provides an example dashboard that will automatically set up and be visible live after your Portenta X8 has been provisioned. To make this dashboard update its data automatically, you need to go back to your Out-of-the-box and launch the example.
+As mentioned, Arduino provides an example dashboard that will automatically set up and be visible live after your Portenta X8 has been provisioned. To make this dashboard update its data automatically, you need to go back to your Arduino Linux Wizard and launch the example.
 
 To do so, copying the shown code:
 
@@ -390,23 +390,23 @@ Your FoundriesFactory is correctly set up. As you can see, the Factory does not 
 
 ![FoundriesFactory homepage with no devices](assets/web_board_manager_factory_overview.png "FoundriesFactory homepage with no devices")
 
-To provision your Portenta X8, go back to your Out-of-the-box webpage and click on the **Portenta X8 Manager** button.
+To provision your Portenta X8, go back to your Arduino Linux Wizard webpage and click on the **Portenta X8 Manager** button.
 
-![Out-of-the-box Portenta X8 Manager](assets/OOTB_homepage_portenta_x8_manager.png "Out-of-the-box Portenta X8 Manager")
+![Arduino Linux Wizard Portenta X8 Manager](assets/OOTB_homepage_portenta_x8_manager.png "Arduino Linux Wizard Portenta X8 Manager")
 
 Enter the Factory name you have just registered, in this case, *user-test*, and assign a Board Name to your Portenta X8. This Board Name will be used to correctly identify your Portenta X8 in your FoundriesFactory. You can now click on **REGISTER**.
 
-![Out-of-the-box Factory and device registration](assets/OOTB_board_manager_factory_registration.png "Out-of-the-box Factory and device registration")
+![Arduino Linux Wizard Factory and device registration](assets/OOTB_board_manager_factory_registration.png "Arduino Linux Wizard Factory and device registration")
 
-To complete the registration of the Board with the FoundriesFactory, copy the code that appeared in your Out-of-the-box.
+To complete the registration of the Board with the FoundriesFactory, copy the code that appeared in your Arduino Linux Wizard.
 
-![Out-of-the-box Factory code challenge](assets/OOTB_board_manager_factory_challenge.png "Out-of-the-box Factory code challenge")
+![Arduino Linux Wizard Factory code challenge](assets/OOTB_board_manager_factory_challenge.png "Arduino Linux Wizard Factory code challenge")
 
 Click on **COMPLETE REGISTRATION** to be re-directed to the *Foundries.io* activation page.
 
 Paste your token in the text box and press **Next**.
 
-***The token code is valid for __15 minutes__. If you do not use it in this time span, you will have to repeat all the above registration steps in your Out-of-the-box to generate a new code.***
+***The token code is valid for __15 minutes__. If you do not use it in this time span, you will have to repeat all the above registration steps in your Arduino Linux Wizard to generate a new code.***
 
 ![FoundriesFactory pasted token](assets/web_board_manager_factory_challenge.png "FoundriesFactory pasted token")
 
@@ -428,9 +428,9 @@ To verify your device status, click on your FoundriesFactory, go to the **Device
 
 ![FoundriesFactory device overview](assets/web_board_manager_factory_device-overview.png "FoundriesFactory device overview")
 
-You can also check within the Out-of-the-box home screen for factory registration if it was successfully registered.
+You can also check within the Arduino Linux Wizard home screen for factory registration if it was successfully registered.
 
-![Out-of-the-box Factory registration confirmation](assets/OOTB_board_manager_factory_confirm.png "Out-of-the-box Factory registration confirmation")
+![Arduino Linux Wizard Factory registration confirmation](assets/OOTB_board_manager_factory_confirm.png "Arduino Linux Wizard Factory registration confirmation")
 
 ***If you want to learn more about Portenta X8 Manager features, check the dedicated section of this user manual called [Working with Portenta X8 Board Manager](#working-with-portenta-x8-board-manager).***
 
@@ -456,7 +456,7 @@ With this command, ADB allows you to forward the requests of your computer's `80
 
 Now you can open your browser, go to [http://localhost:8080](http://localhost:8080) and the same Arduino Linux Wizard dashboard will appear to allow you to configure your Portenta X8.
 
-![Out-of-the-box Homepage](assets/OOTB_homepage.png "Out-of-the-box Homepage")
+![Arduino Linux Wizard Homepage](assets/OOTB_homepage.png "Arduino Linux Wizard Homepage")
 
 Now, you can type `adb shell` to start communicating with your Portenta X8.
 
@@ -631,7 +631,7 @@ To customize the Portenta X8, you can develop and deploy Docker containers. Star
 
 Once ready, you can customize Portenta X8, for example, Thing and Dashboard. This can be done by writing your own Python script leveraging the [Arduino IoT Cloud Python library](https://github.com/arduino/arduino-iot-cloud-py). Check the documentation and the examples inside the library to learn more about creating your own Python application.
 
-When your Python script is ready, you have to create a dedicated Dockerfile to integrate your new script. The Dockerfile needs the Out-of-the-box Python container (i.e., `arduino-ootb-python-devel`) to interact with your Arduino Cloud account correctly.
+When your Python script is ready, you have to create a dedicated Dockerfile to integrate your new script. The Dockerfile needs the Arduino Linux Wizard Python container (i.e., `arduino-ootb-python-devel`) to interact with your Arduino Cloud account correctly.
 
 So, open a terminal window and create a Dockerfile integrating the following code with your Python script:
 

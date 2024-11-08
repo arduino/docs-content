@@ -39,7 +39,7 @@ In this tutorial, you will learn the different methods to flash your Portenta X8
 It is recommended to periodically check if your Portenta X8 image version is up to date to ensure you have the latest security updates. Four methods are available for updating your Portenta X8:
 
 * [Update for OS release V.399](#update-for-os-release-v399)
-* [Update through Out-of-the-box experience](#update-through-out-of-the-box-experience)
+* [Update through Arduino Linux Wizard experience](#update-through-arduino-linux-wizard-experience)
 * [Update through Portenta X8 Manager in your Arduino Cloud for Business account (available for all OS releases)](#update-with-portenta-x8-board-manager)
 * [Update using the `uuu` tool (compatible with custom images)](#update-using-uuu-tool)
 
@@ -97,17 +97,17 @@ When the update process has finished, your Portenta X8 will start running the la
 
 ***If your Portenta X8 is running _OS release V.399_ and is connected to a compatible carrier board, like the Portenta Breakout, it is recommended to update it to the latest image release by following the instructions in the [flashing with `uuu tool`](#update-using-uuu-tool) section.***
 
-## Update Through Out-Of-The-Box Experience
+## Update Through Arduino Linux Wizard Experience
 
-Leverage the integrated Out-of-the-box experience to update your Portenta X8 to the latest release.
+Leverage the integrated Arduino Linux Wizard experience to update your Portenta X8 to the latest release.
 
-***Warning: The Out-of-the-box update feature is not a complete Over-The-Air (OTA) update. It only updates the default Portenta X8 image and containers, overwriting any custom container applications. Therefore, it is recommended to back up your containers locally before updating your Portenta X8.***
+***Warning: The Arduino Linux Wizard update feature is not a complete Over-The-Air (OTA) update. It only updates the default Portenta X8 image and containers, overwriting any custom container applications. Therefore, it is recommended to back up your containers locally before updating your Portenta X8.***
 
-Open your Out-of-the-box page.
+Open your Arduino Linux Wizard page.
 
-***If you have not yet learned how to use the Out-of-the-box on the Portenta X8, please refer to [this section](https://docs.arduino.cc/tutorials/portenta-x8/user-manual/#first-use-of-your-portenta-x8) of the Portenta X8 user manual.***
+***If you have not yet learned how to use the Arduino Linux Wizard on the Portenta X8, please refer to [this section](https://docs.arduino.cc/tutorials/portenta-x8/user-manual/#first-use-of-your-portenta-x8) of the Portenta X8 user manual.***
 
-![Out-of-the-box homepage](assets/OOTB_homepage_update_button.png "Out-of-the-box homepage")
+![Arduino Linux Wizard homepage](assets/OOTB_homepage_update_button.png "Arduino Linux Wizard homepage")
 
 Click on **CHECK FOR UPDATES** in the lower right corner.
 
@@ -121,13 +121,13 @@ Do not turn off your Portenta X8 or disconnect it from the network during the up
 
 Once the update is complete, your Portenta X8 will automatically restart with the new Linux image.
 
-To continue using the Out-of-the-box feature, open a new command line window and enter:
+To continue using the Arduino Linux Wizard feature, open a new command line window and enter:
 
 ```bash
 adb forward tcp:8080 tcp:80
 ```
 
-Then, open your browser and access the Out-of-the-box dashboard at [**http://localhost:8080**](http://localhost:8080).
+Then, open your browser and access the Arduino Linux Wizard dashboard at [**http://localhost:8080**](http://localhost:8080).
 
 If your Portenta X8 is already running the latest image, you will see the following message:
 

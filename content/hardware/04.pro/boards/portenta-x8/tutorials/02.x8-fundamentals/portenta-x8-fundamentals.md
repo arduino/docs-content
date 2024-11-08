@@ -93,35 +93,51 @@ Yocto allows metadata separation using **layers**, enabling modular development 
 
 ***If you want to learn more about how to work with Yocto Distribution on your Portenta X8, please check the [Portenta X8's user manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual/#working-with-linux) of this user manual.***
 
-### Docker Containers and Foundries.io Factory Integration
+### Docker Containers
 
-The Portenta X8 enables device-independent software deployment through modular container architecture using Docker containers. Containers package applications with their dependencies, ensuring consistency across different environments.
+The Portenta X8 allows flexible, device independent software deployment through a modular container architecture powered by Docker containers. Containers offer a way to package software with all its required dependencies, such as libraries, frameworks, and configuration files, into a self-contained unit.
 
-#### Docker Containers
+This packaging guarantees consistency in how software behaves, regardless of the base computing environment, whether it is a local machine, server, or cloud platform.
 
-Unlike traditional virtualization, which virtualizes entire machines, containers virtualize only parts of resources, sharing the host operating system. This approach results in faster start-up times and more efficient resource use.
+To understand containers, it is helpful to compare them to traditional virtualization. Traditional virtual machines (VMs) run an entire operating system on top of a host system, with each VM requiring its resources and environment, leading to overhead.
+
+Containers take a different approach by virtualizing parts of the system while sharing the base host operating system. This lightweight approach means containers use fewer resources and have faster start-up times than full VMs, allowing scaling and rapid deployment.
 
 ![Virtual Machine vs Containers](assets/Virtual_Machine_Containers.png "Virtual Machine vs Containers")
 
-Benefits of containers include:
+The concept of containers has changed software development and deployment practices. Some key benefits of using containers include:
 
-- **Simplified Development, Testing, and Deployment**: Applications are decoupled from environments, making deployment consistent.
-- **Version Control**: Containers support easy rollbacks if updates fail.
-- **Isolation and Security**: Applications run in isolated environments, enhancing security.
-- **Granularity**: Containers can isolate specific components, improving performance and control.
+- **Simplified Development, Testing, and Deployment**: By decoupling applications from the base infrastructure, containers allow consistent behavior across various software lifecycle stages. Developers can ensure their code behaves identically in development, testing, and production environments.
 
-Portenta X8 uses Docker, which employs **Linux Containers (LXC)** for lightweight virtualization and provides a user-friendly interface for container management, with tools like **Dockerfile** for building images, **Docker Daemon** for running them, and orchestration tools like **Docker Swarm** and **Kubernetes** for managing their deployment. Docker containers make applications portable and enhance security by isolating runtime environments.
+- **Version Control and Easy Rollbacks**: Containers can be versioned, making it easy to roll back to previous states if updates introduce errors or issues. This flexibility is a valuable feature for maintaining stable software environments.
+
+- **Isolation and Security**: Containers run applications in isolated environments, reducing interactions with other containers or the host system. This separation enhances security by reducing the top layer for potential attacks.
+
+- **Granularity and Modularization**: Containers provide the capability to isolate specific components of an application. For example, different microservices of a larger application can be nested in individual containers. This approach improves control, scalability, and performance adjustment.
+
+#### Portenta X8 & Docker Containers
+
+The Portenta X8 leverages Docker for containerization. Docker uses **Linux Containers (LXC)** to create lightweight, isolated environments. With Docker, users can access various tools for building, running, and managing containers. These include:
+
+- **Dockerfile**: A script that defines the instructions to build a container image. This image is a snapshot of the software and its environment.
+
+- **Docker Daemon**: A service running on the host machine that manages container operations, such as starting, stopping, and networking.
+
+- **Docker Swarm and Kubernetes**: Tools for managing containers at scale, allowing robust deployment strategies and automation across multiple systems.
 
 ![Docker host](assets/Docker_host.png "Docker host vs client")
 
-Docker containers ensure portability by packaging applications with their runtime environments, making them easily transferable between machines or cloud environments. The isolation offered by Docker enhances security, preventing threats from propagating across containers or affecting the host system.
+#### Portability and Security
+
+Docker containers ensure that applications remain portable. Because the container bundles everything it needs, it can be moved between machines and cloud environments without modification. This portability makes it easy to deploy and scale applications wherever needed.
+
+Furthermore, container isolation protects applications by preventing security threats from spreading between containers or affecting the host system. This ensures a secure, robust operating environment.
 
 ![Images and containers](assets/images_containers.png "Images vs containers")
 
-### Foundries.io Factory and Benefits
+### Foundries.io Factory
 
 With Arduino Cloud's integration with Foundries.io via the so called Portenta X8 Manager, you can create a **Foundries.io Factory** to manage Portenta X8 devices and containers. A Factory helps manage, organize, and update devices while simplifying container deployment and team management.
-
 
 ![Factory page](assets/factory-page.png "Factory page")
 
