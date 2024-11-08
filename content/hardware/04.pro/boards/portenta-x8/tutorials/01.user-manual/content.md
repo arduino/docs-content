@@ -262,7 +262,7 @@ This shell is running in a Python-Alpine container embedded in Portenta X8. You 
 
 ## Portenta X8 with Arduino Cloud
 
-***Note: this is an optional step. The Portenta X8 can also be used with a local IDE without an internet connection.***
+***Note: this is an optional step. The Portenta X8 can also be used with locally without an internet connection.***
 
 Making Portenta X8 compatible with Arduino Cloud means opening many new applications. This compatibility is guaranteed by a brand-new Python container, which includes a dedicated [Arduino IoT Cloud Python library](https://github.com/arduino/arduino-iot-cloud-py). Through Arduino Cloud APIs, the Python container ensures full interaction and simple porting of any Python developed application in the Arduino Cloud.
 
