@@ -5,6 +5,7 @@ author: Christopher Méndez
 hardware:
   - hardware/03.nano/boards/nano-matter
 tags: [Matter, E-Ink, Display]
+difficulty: beginner
 ---
 
 ## Overview
