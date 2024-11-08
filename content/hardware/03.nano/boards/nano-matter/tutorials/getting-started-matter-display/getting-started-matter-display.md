@@ -838,10 +838,105 @@ With the Weather Station properly commissioned, now you can deploy it on an inte
 
 ## Nano Matter Display Sensors and Actuators
 
+In the following sections we are going to highlight some of the Nano Matter Display main features and learn how to use them.
+
 ### E-ink Display
 
-- Text
-- Orientation
+The API basic functions to control the E-ink display are shown below.
+
+- Define the screen object using the Pervasive Displays class and initialize it:
+
+```arduino
+Screen_EPD_EXT4_Fast <screen-name>(eScreen_EPD_290_KS_0F, boardArduinoNanoMatter);
+
+<screen-name>.begin();
+```
+Replace the `<screen-name>` with a custom designation of your display for further usage. For this guide we are going to use `EPD`.
+
+#### Screen Orientation
+
+**Orientation options:**
+
+- `0`: default
+- `1`: right rotated
+- `2`: reverse default
+- `3`: left rotated
+- `6`: ORIENTATION_PORTRAIT
+- `7`: ORIENTATION_LANDSCAPE 
+
+Define the screen orientation using the following function:
+
+```arduino
+EPD.setOrientation(7);
+```
+![Screen Orientation](assets/orientation.gif)
+
+#### Text
+
+To display text on the E-ink screen you need to define different screen parameters such as **font**, **orientation**, the **string** to be shown and its **color**.
+
+**Fonts available:**
+
+- `Font_Terminal6x8`
+- `Font_Terminal8x12`
+- `Font_Terminal12x16`
+- `Font_Terminal16x24`
+
+Define the font using the following function:
+
+```arduino
+EPD.selectFont(Font_Terminal8x12);
+```
+
+**Text writing:**
+
+Display text using the `gText` function, pass the coordinates and string:
+
+```arduino
+EPD.gText(<x_coordinate>, <y_coordinate>, <string>);
+```
+
+For example:
+
+```arduino
+EPD.gText(0, 0, "Hello World"); 
+EPD.flush(); // update the screen to show the text on buffer
+```
+
+**Colors:**
+
+The `gText` function also admits color definition for the text and the screen background. These are the available colors for this **Monochrome** display:
+
+- `myColours.black`: default
+- `myColours.white`: use when background color is not _white_
+- `myColours.gray`: simulates gray using black and white dots (not gray scale).
+
+For example:
+
+```arduino
+EPD.gText(0, 0, "Hello World", myColours.black, myColours.white); 
+EPD.flush(); // update the screen to show the text on buffer
+```
+
+To print inverted color text you must clear the screen in black, then show white text using the following method:
+
+```arduino
+EPD.clear(myColours.black);
+EPD.gText(0, 0, "Hello World", myColours.white, myColours.black); 
+EPD.flush(); // update the screen to show the text on buffer
+```
+
+**Text Size:**
+
+You can choose between different fonts to achieve different text size or use the `gTextLarge` to make the text shown bigger.
+
+```arduino
+EPD.gTextLarge(0, 0, "Hello World"); 
+EPD.flush(); // update the screen to show the text on buffer
+```
+
+![Text display](assets/text.png)
+
 - Forms
 - Refresh 
 
