@@ -841,7 +841,7 @@ With the Weather Station properly commissioned, now you can deploy it on an inte
 
 In the following sections we are going to highlight some of the Nano Matter Display main features and learn how to use them.
 
-### E-ink Display
+### E-Ink Display
 
 The API basic functions to control the E-ink display are shown below.
 
@@ -987,7 +987,7 @@ myRGB.set_pixel(<R>, <G>, <B>); // pass the RGB color code in the (0 - 255) rang
 
 ***Test the library example called __EXT4_WS2813C__***
 
-### 3-axis Accelerometer
+### 3-Axis Accelerometer
 
 The Nano Matter Display features a LIS2DH12 3-axis accelerometer that can be easily used with open-source libraries as the `SparkFun LIS2DH12`, install it by using the IDE Library Manager.
 
