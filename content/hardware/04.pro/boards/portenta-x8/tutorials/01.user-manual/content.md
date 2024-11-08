@@ -364,7 +364,7 @@ Now, you can navigate to your dashboard [here](https://create.arduino.cc/iot/das
 
 ## Portenta X8 Board Manager
 
-***Note: this is an optional step. Although the Portenta X8 Board manager opens a wide range of possibilities that are important for business applications, the Portenta X8 can be used for free without the need for any additional paid license***
+***Note: This is an optional step that enables the possibility of performing remote over-the-air updates on your Portenta X8 OS and applications. To proceed, you need an Arduino Cloud for Business plan with Portenta X8 Manager.***
 
 Now, you can start connecting your Portenta X8 to the Portenta X8 Board Manager. You need an Arduino Cloud for your business account to leverage this feature.
 
