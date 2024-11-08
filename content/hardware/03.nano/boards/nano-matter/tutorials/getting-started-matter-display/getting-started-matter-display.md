@@ -871,6 +871,8 @@ EPD.setOrientation(7);
 ```
 ![Screen Orientation](assets/orientation.gif)
 
+***Test the library example called __Common_Orientation__***
+
 #### Text
 
 To display text on the E-ink screen you need to define different screen parameters such as **font**, **orientation**, the **string** to be shown and its **color**.
@@ -937,24 +939,328 @@ EPD.flush(); // update the screen to show the text on buffer
 
 ![Text display](assets/text.png)
 
-- Forms
-- Refresh 
+***Test the library example called __Common_Text__***
+
+#### Graphics
+
+The E-ink display API includes some predefined functions for basic geometrical shapes, here you find some:
+
+- `EPD.line(<x1>, <y1>, <x2>, <y2>, <color>)`
+- `EPD.circle(<x0>, <y0>, <radius>, <color>)`
+- `EPD.triangle(<x1>, <y1>, <x2>, <y2>, <x3>, <y3>, <color>)`
+- `EPD.rectangle(<x1>, <y1>, <x2>, <y2>, <color>)`
+- `EPD.point(<x1>, <y1>, <color>)`
+
+You can make them opaque or a wire frame using the `setPenSolid()` function as follows:
+
+```arduino
+EPD.setPenSolid(true);  // print opaque forms
+
+EPD.setPenSolid(false);  // print wire frame forms 
+```
+
+![Forms display](assets/forms.png)
+
+***Follow the [Pervasive Displays documentation](https://pdls.pervasivedisplays.com/reference/html/de/d04/a01209.html) for advanced graphics.***
 
 ### RGB LED
 
-- LED control
+The Nano Matter Display features an addressable WS2813C RGB LED that can be easily used for visual status feedback.
+
+To control the onboard LED the `ezWS2812gpio.h` header is needed.
+
+The LED object is configured using the `ezWS2812gpio` class as follows:
+
+```arduino
+const pins_t myBoard = boardArduinoNanoMatter; // myBoard stores the Nano Matter pinout configuration 
+ezWS2812gpio myRGB(1, myBoard.ledData); // (<LED_quantity>, <data_pin>)
+```
+
+To control the LED color use the `set_pixel` function as follows:
+
+```arduino
+myRGB.set_pixel(<R>, <G>, <B>); // pass the RGB color code in the (0 - 255) range
+```
+
+![LED demo](assets/led-demo.jpg)
+
+***Test the library example called __EXT4_WS2813C__***
 
 ### 3-axis Accelerometer
 
-- Accel example
+The Nano Matter Display features a LIS2DH12 3-axis accelerometer that can be easily used with open-source libraries as the `SparkFun LIS2DH12`, install it by using the IDE Library Manager.
+
+The following example code adapts the screen orientation to the physical board rotation just as your smartphone does.
+
+```arduino
+#include <Wire.h>
+
+// EPD Screen Library and Configuration
+#include "PDLS_EXT4_Basic_Matter.h"
+#include "hV_Configuration.h"
+
+// Accelerometer support library
+#include "SparkFun_LIS2DH12.h"  //Click here to get the library: http://librarymanager/All#SparkFun_LIS2DH12
+
+SPARKFUN_LIS2DH12 accel;  //Create instance
+
+// PDLS
+pins_t myBoard = boardArduinoNanoMatter;
+
+Screen_EPD_EXT4_Fast EPD(eScreen_EPD_290_KS_0F, myBoard);
+
+uint8_t orientation = 9;
+uint8_t oldOrientation = 0;
+int aX, aY, aZ;
+
+void setup() {
+  Serial.begin(115200);
+  delay(500);
+  Serial.println();
+
+  // Start
+  EPD.begin();
+  EPD.regenerate();  // Clear buffer and screen
+
+  Wire.begin();
+
+  if (accel.begin() == false) {
+    Serial.println("Accelerometer no detected. Freezing...");
+    while (1)
+      ;
+  }
+  accel.disableTemperature();
+
+  pinMode(myBoard.button, INPUT_PULLUP);
+}
+
+void loop() {
+
+  if (accel.available()) {
+
+    aX = accel.getX();
+    aY = accel.getY();
+    aZ = accel.getZ();
+
+    Serial.println();
+    Serial.printf("x: %d, y: %d, z: %d", aX, aY, aZ);
+
+    oldOrientation = orientation;
+    if (oldOrientation == 9)  // Default
+    {
+      orientation = 3;
+    }
+
+    if (abs(aZ) < 900) {
+      if ((aX > 500) and (abs(aY) < 400)) {
+        orientation = 2;
+      } else if ((aX < -500) and (abs(aY) < 400)) {
+        orientation = 0;
+      } else if ((aY > 500) and (abs(aX) < 400)) {
+        orientation = 3;
+      } else if ((aY < -500) and (abs(aX) < 400)) {
+        orientation = 1;
+      }
+    }
+    Serial.printf(", o %i -> %i", oldOrientation, orientation);
+
+    if (orientation != oldOrientation)  // Update display
+    {
+      EPD.clear();
+      EPD.setOrientation(orientation);
+      EPD.selectFont(Font_Terminal12x16);
+      EPD.gText(0, 0, "Orientation");
+      uint16_t dt = EPD.characterSizeY();
+      EPD.selectFont(Font_Terminal16x24);
+      EPD.gText(0, dt, formatString("%i", orientation));
+      EPD.gText(1, dt, formatString("%i", orientation));
+
+      uint16_t x = EPD.screenSizeX();
+      uint16_t y = EPD.screenSizeY();
+      uint16_t dx = x / 2;
+      uint16_t dy = y / 2;
+      uint16_t dz = min(dx, dy) / 3;
+
+      EPD.setPenSolid(true);
+      EPD.triangle(dx, dy - dz, dx + dz, dy, dx - dz, dy, myColours.black);
+      EPD.rectangle(dx + dz / 3, dy, dx - dz / 3, dy + dz, myColours.black);
+
+      EPD.setPenSolid(false);
+      EPD.circle(dx, dy, dz + 8, myColours.black);
+
+      EPD.flush();
+      Serial.print(" *");
+    }
+  } else {
+    Serial.print(".");
+    delay(8);
+  }
+
+  if (digitalRead(myBoard.button) == LOW) {
+    EPD.regenerate();
+    while (true) {
+      delay(1000);
+    }
+  }
+
+  delay(200);
+}
+```
+
+If you rotate the Nano Matter Display you will notice how the screen orientation will change making the arrow always to point upward.
+
+![Accelerometer controlling orientation](assets/accel.gif)
 
 ### Temperature and Humidity Sensor
 
-- How to
+The Nano Matter Display features a HDC2080 temperature and relative humidity sensor that can be easily used with open-source libraries as the `Lime Labs HDC2080`, install it by using the IDE Library Manager.
+
+```arduino
+#include "PDLS_EXT4_Basic_Matter.h"
+#include "hV_HAL_Peripherals.h"
+#include "hV_Configuration.h"
+#include "Wire.h"
+#include <HDC2080.h>
+
+pins_t nano_matter = boardArduinoNanoMatter;
+
+Screen_EPD_EXT4_Fast EPD(eScreen_EPD_290_KS_0F, nano_matter);
+
+#define MATTER_EXAMPLE_NAME "Matter Weather"
+
+#define HDC_ADDR 0x40
+HDC2080 sensor(HDC_ADDR);
+
+unsigned long previousMillis = 0;
+const long interval = 5000;
+
+struct measure_s {
+  float value;
+  float oldValue = 999.9;
+  float minimum = 999.9;
+  float maximum = -999.9;
+};
+
+measure_s temperature;
+measure_s humidity;
+
+static uint8_t countFlush = 1;          // Counter for global update
+const uint8_t FAST_BEFORE_GLOBAL = 16;  // Number of fast updates before global update
+
+void setup() {
+  // Serial = Serial by default, otherwise edit hV_HAL_Peripherals.h
+  Serial.begin(115200);
+  delay(500);
+
+  // Start
+  EPD.begin();
+  EPD.setPowerProfile(POWER_MODE_AUTO, POWER_SCOPE_GPIO_ONLY);
+  EPD.setOrientation(3);
+  EPD.regenerate();  // Clear buffer and screen
+
+  sensor.begin();
+  sensor.reset();
+
+  // Configure Measurements
+  sensor.setMeasurementMode(TEMP_AND_HUMID);  // Set measurements to temperature and humidity
+  sensor.setRate(ONE_HZ);                     // Set measurement frequency to 1 Hz
+  sensor.setTempRes(FOURTEEN_BIT);
+  sensor.setHumidRes(FOURTEEN_BIT);
+
+  sensor.triggerMeasurement();
+}
+
+void loop() {
+
+ unsigned long currentMillis = millis();
+  if (currentMillis - previousMillis >= interval) {
+
+    previousMillis = currentMillis;
+
+    // HDC2080
+    // Temperature
+    temperature.value = sensor.readTemp();
+    // Humidity
+    humidity.value = sensor.readHumidity();
+
+    countFlush %= FAST_BEFORE_GLOBAL;
+
+    if (countFlush == 0) {
+      EPD.regenerate();
+    }
+
+    displayValue(0, "Temperature", &temperature, "°C");
+    displayValue(1, "Humidity", &humidity, "%");
+    EPD.flush();
+
+    countFlush += 1;
+
+    // Serial
+    Serial.print(formatString("Temperature = %5.1f < %5.1f < %5.1f oC, Humidity= %5.1f < %5.1f < %5.1f %%",
+                              temperature.minimum, temperature.value, temperature.maximum,
+                              humidity.minimum, humidity.value, humidity.maximum));
+    Serial.println();
+  }
+
+  delay(1000);
+
+}
+
+bool displayValue(uint8_t slot, String name, measure_s* value, String unit) {
+  uint16_t x = EPD.screenSizeX();
+  uint16_t y = EPD.screenSizeY();
+  uint16_t dx, dy, x0, y0;
+
+  x0 = x * slot / 2;
+  dx = x / 8;
+  y0 = 0;
+  dy = y / 5;
+
+  (*value).value = ((int32_t)(10 * (*value).value + 5)) / 10.0;
+  bool result = ((*value).value != (*value).oldValue);
+  (*value).oldValue = (*value).value;
+  (*value).maximum = max((*value).maximum, (*value).value);
+  (*value).minimum = min((*value).minimum, (*value).value);
+
+  EPD.setPenSolid(true);
+  EPD.setFontSolid(true);
+  EPD.dRectangle(x0, y0, dx * 4, dy * 4, myColours.white);
+
+  EPD.selectFont(Font_Terminal12x16);
+  EPD.gText(x0, y0, name);
+
+  EPD.selectFont(Font_Terminal16x24);
+  EPD.gTextLarge(x0, y0 + 1 * dy, formatString("%5.1f", (*value).value));
+
+  EPD.selectFont(Font_Terminal12x16);
+  char unit_c[4] = { 0 };
+  strcpy(unit_c, utf2iso(unit).c_str());
+  EPD.gText(x0 + 3 * dx - EPD.characterSizeX() * 0, y0 + 1 * dy - EPD.characterSizeY(), formatString("%s", unit_c));
+
+  EPD.selectFont(Font_Terminal8x12);
+  EPD.gText(x0, y0 + 3 * dy, "Minimum");
+  EPD.gText(x0 + 2 * dx, y0 + 3 * dy, "Maximum");
+
+  EPD.selectFont(Font_Terminal12x16);
+  EPD.gText(x0, y0 + 4 * dy, formatString("%5.1f", (*value).minimum));
+  EPD.gText(x0 + 2 * dx, y0 + 4 * dy, formatString("%5.1f", (*value).maximum));
+
+  EPD.setPenSolid(false);
+  return result;
+}
+```
+
+After uploading the example sketch you will be able to monitor the environment temperature and relative humidity alongside their historical minimum and maximums.
+
+![Temperature and Humidity](assets/weather-c.jpg)
 
 ## Conclusion
 
+In this tutorial you learned how to use the Nano Matter Display expansion kit, leveraging all its features like the E-ink screen to display high-contrast graphics with a low power consumption on a 2.9" (384x168) EPD. Other included features were explained like the built-in RGB LED, the 3-axis accelerometer and the temperature and humidity sensor. All these features were showcased using the user-friendly Arduino environment.
+
 ### Next Steps
 
-### Troubleshooting
+- Extend your knowledge with E-ink displays following the [Pervasive Displays documentation](https://docs.pervasivedisplays.com/).
+- Try all the examples included in the library for a deeper understanding on the API.
+- Start creating your own graphics to display custom data on the screen.
 
