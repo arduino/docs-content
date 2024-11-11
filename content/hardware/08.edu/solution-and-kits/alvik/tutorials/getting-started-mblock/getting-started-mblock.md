@@ -100,7 +100,7 @@ To install mBlock on Windows:
 **3.** Install the **drivers**: a window will appear asking you to click "INSTALL."
 
 ![install driver](assets/install-drivers.png)
-  
+
 The driver installation window may occasionally open in the background. If this happens, look for the computer icon in your taskbar and click it to proceed. 
 
 If you encounter an installation error, click 'UNINSTALL' and then 'INSTALL' again. Once the drivers are installed, close the driver window manually by clicking the 'X'. Afterward, complete the mBlock installation.
@@ -118,9 +118,9 @@ To install mBlock on macOS:
 
 ### Chromebook or Linux
 
-If you're using a **Chromebook** ([read the full guide here](https://support.makeblock.com/hc/en-us/articles/19412317319191-Device-Connection-Guide-for-Chromebook-Latest-Version)) or a **Linux** machine, the installation process is different because there is no installable version of the software available. Instead, you'll use the online version of mBlock, which requires a special driver to connect to the robot.
+If you're using a **[Chromebook](https://ide-chrome.mblock.cc/)** ([read the full guide here](https://support.makeblock.com/hc/en-us/articles/19412317319191-Device-Connection-Guide-for-Chromebook-Latest-Version)) or a **Linux** machine, the installation process is different because there is no installable version of the software available. Instead, you'll use the online version of mBlock, which requires a special driver to connect to the robot.
 
-Here you can find the "mLink - mBlock web version driver" and download the appropriate file for your operating system.
+[Here](https://ide-chrome.mblock.cc/) you can find the "mLink - mBlock web version driver" and [download](https://mblock.cc/pages/downloads) the appropriate file for your operating system.
 
 ![download  Chromebook mlink](assets/mlink.png)
 
