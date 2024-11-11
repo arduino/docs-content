@@ -1,7 +1,7 @@
 ---
 beta: true
 title: 'Open Thread Border Router with Nano Matter & ESP32'
-description: 'Learn how to create your own Thread Border Router using OpenThread and Arduino products.'
+description: 'Learn how to create your own Thread Border Router using OpenThread and Arduino ecosystem products.'
 difficulty: advanced
 compatible-products: [nano-matter]
 tags:
@@ -17,11 +17,11 @@ hardware:
 
 ## Introduction
 
-Thread is a low-power, wireless mesh networking protocol designed for smart homes and IoT devices. A Thread Border Router serves as a bridge between the Thread network and the wider internet or local networks, allowing devices within the Thread network to communicate with external systems.
+Thread is a low-power, wireless mesh networking protocol for smart homes and Internet of Things (IoT) devices. A Thread Border Router serves as a bridge between the Thread network and the wider Internet or local networks, allowing devices within the Thread network to communicate with external systems.
 
 ![Project overview](assets/thumbnail.png)
 
-Matter devices can use Thread as their primary communication method, especially for low-power devices such as sensors, light bulbs, and door locks. These devices communicate using the Thread protocol and leverage Matter's application layer for interoperability.
+Matter devices can use Thread as their primary communication method, especially for low-power devices such as sensors, light bulbs, and door locks. These devices use the Thread protocol and leverage Matter's application layer for interoperability.
 
 ### OpenThread Border Router
 
@@ -30,16 +30,16 @@ An OpenThread Border Router (OTBR) consists of a **Matter Controller** and a **R
 - The *Matter Controller* is essential for managing devices using the Matter protocol, which ensures interoperability between nodes. It handles: commissioning, communication and network management.
 - The *Radio Co-Processor* (RCP) is dedicated to handling Thread network communications, improving efficiency by offloading radio communication tasks.
 
-The **Arduino Nano Matter** serves as the **RCP**, connected to the **Arduino Nano ESP32** (the Matter Controller) via serial port.
+The **Nano Matter** is the **RCP**, connected to the **Nano ESP32** (the Matter Controller) via serial port.
 
 ![OpenThread border router architecture](assets/otbr.png)
 
 ## Goals
 
-This tutorial main objective is to guide you through the build and configuration of an OpenThread Border Router that will allow you to deploy a Matter network over Thread to integrate Matter devices to your Smart Home system. 
+This tutorial's main objective is to guide you through the build and configuration of an OpenThread Border Router. This router will allow you to deploy a Matter network over Thread and integrate Matter devices into your Smart Home system.
 
 - Create an OTBR using Arduino products.
-- Leverage the Nano Matter as a Radio Co-Processor.
+- Leverage the Nano Matter as a Radio Co-Processor (RCP).
 - Use the Nano ESP32 as a Matter Controller.
 - Integrate a smart outlet based on the Nano Matter to your network.
 
@@ -50,7 +50,7 @@ This tutorial main objective is to guide you through the build and configuration
 - [Nano Matter](https://store.arduino.cc/products/nano-matter) (x2)
 - [Nano ESP32](https://store.arduino.cc/products/nano-esp32) (x1)
 - Linux Computer (Laptop/PC) (x1)
-- USB-C® cable (x1)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 
 ### Software Requirements
 
@@ -68,9 +68,9 @@ This section outlines the steps to build the RCP firmware for the Nano Matter.
 
 #### Create a New Project
 
-- Download Simplicity Studio, this is an IDE provided by Silicon Labs. It is designed to simplify the development process for Silicon Labs hardware platforms. Download latest version [here](https://www.silabs.com/developers/simplicity-studio).
+- Download Simplicity Studio. Silicon Labs provides this IDE, which is designed to simplify the development process for Silicon Labs hardware platforms. Download latest version [here](https://www.silabs.com/developers/simplicity-studio).
 
-- Open Simplicity Studio and create a new project by clicking on **File > New > Silicon Labs Project Wizard**.
+- Open Simplicity Studio and create a new project by clicking **File > New > Silicon Labs Project Wizard**.
   
 ![New project creation](assets/new-project.png)
 
@@ -148,7 +148,7 @@ To set up the environment for the ESP32 firmware development use the following c
 sudo apt-get install git wget flex bison gperf python3 python3-pip python3-venv cmake ninja-build ccache libffi-dev libssl-dev dfu-util libusb-1.0-0
 ```
 
-***If you are using a different Linux distribution, search for the right commands [here](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/get-started/linux-macos-setup.html#for-linux-users).***
+***Search for the correct commands [here](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/get-started/linux-macos-setup.html#for-linux-users) if you use a different Linux distribution.***
 
 - Install the **ESP-IDF**:
   
@@ -237,7 +237,7 @@ idf.py -p /dev/ttyACM0 flash monitor
 
 ### OTBR Assembly
 
-After configuring and flashing the Nano Matter and Nano ESP32 separately, it is time to connect them together. As their communicate through a serial connection you can stack them using breakout headers or using jumper wires as follows:
+After configuring and flashing the Nano Matter and Nano ESP32 separately, it is time to connect them. As they communicate through a serial connection, you can stack them using breakout headers or jumper wires as follows:
 
 ![Nano ESP32 + Nano Matter wiring](assets/connection.png)
 ![Nano ESP32 + Nano Matter stacking](assets/connection-2.png)
@@ -246,11 +246,11 @@ After configuring and flashing the Nano Matter and Nano ESP32 separately, it is 
 
 ### CHIP Tool
 
-**CHIP Tool** is a command-line tool used for *commissioning*, *controlling*, and *managing* **Matter** devices within a Matter network.
+**CHIP Tool** is a command-line tool for *commissioning*, *controlling*, and *managing* **Matter** devices within a Matter network.
 
 Due to its high demand for storage space and computational power it must be executed on a separate, more powerful device, such as a Unix laptop (macOS or Linux), that is connected to the same Wi-Fi network. 
 
-This third device will handle the complex tasks required by CHIP Tool, while the Nano ESP32 acts as the Matter Controller in the network.
+This third device will handle the complex tasks, while the Nano ESP32 acts as the Matter Controller in the network.
 
 ![Network layout](assets/chip-tool.png)
 
@@ -306,7 +306,7 @@ This section provides an example of commissioning and communication over Matter 
 
 As the *end-device* we are going to use a Nano Matter configured as **Smart Outlet**.
 
-- Make sure you have the Silicon Labs boards package installed in the Arduino IDE 2.
+- Ensure the Silicon Labs boards package is installed in the Arduino IDE 2.
 
 ![Silicon Labs board package](assets/silabs-pckg.png)
 
@@ -344,11 +344,11 @@ For example:
 
 ### Matter Commissioning
 
-Commissioning refers to the process of setting up and integrating a new device into the Matter network. 
+Commissioning refers to setting up and integrating a new device into the Matter network.
 
-In this case, commissioning will occur via **Bluetooth**, where the laptop or PC with CHIP Tool installed will communicate with the end device using a Bluetooth connection.
+In this case, commissioning will occur via **Bluetooth**, where the laptop or PC with the CHIP Tool installed will communicate with the end device using a Bluetooth connection.
 
-- Open the terminal on the system where **CHIP Tool** is running, and execute the following command:
+- Open the terminal on the system where the **CHIP Tool** is running, and execute the following command:
 
 ```bash
 ./out/debug/chip-tool pairing code-thread <node-id> hex:<thread-network-dataset> <end-device-pairing-code>
@@ -380,12 +380,12 @@ To control the Smart Outlet use the following command format:
 ./out/debug/chip-tool onoff toggle 1 0x03
 ```
 
-- `onoff`: This specifies that the command pertains to the On/Off cluster, which controls the power state (on/off) of the device.
+- `onoff`: This specifies that the command pertains to the On/Off cluster, which controls the device's power state (on/off).
 - `toggle`: This command switches the current state of the device.
 - `1`: This is the Node ID of the device receiving the command.
 - `0x03`: This is the endpoint ID of the device (fixed to 0x03 for Silicon Labs device).
 
-Every time you run the command the Smart Outlet will toggle, turning on or off the load connected.
+Every time you run the command, the Smart Outlet toggles, turning the connected load on or off.
 
 ![Smart outlet working demo](assets/final-demo.gif)
 
@@ -395,5 +395,5 @@ This tutorial showed how to create an OpenThread Border Router using the Arduino
 
 ### Next Steps
 
-Now that you know how to create your own Thread Border Router you can continue developing a custom platform or application that uses the CHIP Tool API to control the Matter end-devices from a mobile app or web platform with user-friendly dashboards and interfaces.
+Now that you know how to create your own Thread Border Router, you can continue developing a custom platform or application that uses the CHIP Tool API to control Matter end devices from a mobile app or web platform with user-friendly dashboards and interfaces.
 
