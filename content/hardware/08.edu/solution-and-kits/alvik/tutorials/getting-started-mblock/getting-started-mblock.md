@@ -204,13 +204,15 @@ Now you’ve created your first program: Alvik will turn on the left LED for one
 
 ![Blink program](assets/blink.gif) 
 
-### ToF Sensor Example
+## ToF Sensor Example
 
 In this second example Alvik will try to keep a constant distance from an object, moving back and forward accordingly.
 
-<video width="100%" loop autoplay>
-<source src="assets/tof-video.mp4" type="video/mp4" />
-</video>
+<div style="text-align: center;">
+  <video width="100%" controls="true">
+  <source src="assets/tof-video.mp4" type="video/mp4"/>
+  </video>
+</div>
 
 Navigate to `Control` commands folder.
 
