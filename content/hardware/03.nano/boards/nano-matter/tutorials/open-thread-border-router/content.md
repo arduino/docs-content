@@ -39,8 +39,8 @@ The **Arduino Nano Matter** serves as the **RCP**, connected to the **Arduino Na
 This tutorial main objective is to guide you through the build and configuration of an OpenThread Border Router that will allow you to deploy a Matter network over Thread to integrate Matter devices to your Smart Home system. 
 
 - Create an OTBR using Arduino products.
-- Leverage the Arduino Nano Matter as a Radio Co-Processor.
-- Use the Arduino Nano ESP32 as a Matter Controller.
+- Leverage the Nano Matter as a Radio Co-Processor.
+- Use the Nano ESP32 as a Matter Controller.
 - Integrate a smart outlet based on the Nano Matter to your network.
 
 ## Hardware and Software Requirements
@@ -60,9 +60,9 @@ This tutorial main objective is to guide you through the build and configuration
 
 ## Setting up the OTBR
 
-### The RCP: Arduino Nano Matter
+### The RCP: Nano Matter
 
-This section outlines the steps to build the RCP firmware for the Arduino Nano Matter.
+This section outlines the steps to build the RCP firmware for the Nano Matter.
 
 ![Nano Matter Configuration](assets/matter-banner.png)
 
@@ -124,7 +124,7 @@ The default pinout is **PA8 > TX** and **PA9 > RX**, but we need to change it to
 
 - In your project directory navigate to the `/GNU ARM v12.2.1 - Default/` folder, right click on it and open a **Command Line**.
 
-Use the following command to flash the firmware to the Arduino Nano Matter, make sure to modify the `<username>` and `<project name>` with yours:
+Use the following command to flash the firmware to the Nano Matter, make sure to modify the `<username>` and `<project name>` with yours:
 
 ```bash
 /Users/<your-username>/AppData/Local/Arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/bin/openocd -d2 -s /Users/<your-username>/AppData/Local/Arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/share/openocd/scripts/ -f interface/cmsis-dap.cfg -f target/efm32s2_g23.cfg -c "init; reset_config srst_nogate; reset halt; program {<project-name>.hex}; reset; exit"
@@ -134,7 +134,7 @@ Use the following command to flash the firmware to the Arduino Nano Matter, make
 
 ***The __Openocd__ tool directory may vary according to your OS, modify the command above respectively.***
 
-### The Matter Controller: Arduino Nano ESP32
+### The Matter Controller: Nano ESP32
 
 This section outlines the steps to build the Matter Controller firmware for the Arduino Nano ESP32.
 
@@ -296,15 +296,15 @@ This section provides an example of commissioning and communication over Matter 
 
 ### Setup
 
-- **OTBR**: Arduino Nano ESP32 + Arduino Nano Matter
+- **OTBR**: Nano ESP32 + Nano Matter
 - **CHIP Tool**: running on a Linux PC (with Bluetooth capabilities)
-- **End-device**: Arduino Nano Matter or other boards compatible with the Silabs Arduino core
+- **End-device**: Nano Matter or other boards compatible with the Silabs Arduino core
 
 ![Solution architecture](assets/final-arch.png)
 
 ### End-Device Configuration
 
-As the *end-device* we are going to use an Arduino Nano Matter configured as **Smart Outlet**.
+As the *end-device* we are going to use a Nano Matter configured as **Smart Outlet**.
 
 - Make sure you have the Silicon Labs boards package installed in the Arduino IDE 2.
 
