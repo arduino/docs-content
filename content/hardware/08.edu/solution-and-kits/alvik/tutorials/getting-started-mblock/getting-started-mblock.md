@@ -31,6 +31,27 @@ Updating the firmware on your Alvik ensures it has the latest features, bug fixe
 5. **A pop-up window will appear** prompting you to select the COM port. Choose the correct port and confirm.
 6. Once connected, click the "Update" button and wait for the process to complete.
 
+## Checking The State Of The Battery
+
+Once the firmware of your Alvik is up to date and before start playing with it, let's verify your battery works as it should by following these steps:
+
+1. Reset your Alvik by turning it OFF and disconnecting it from the PC.
+2. Open the battery compartment and check that the clips are making contact with the battery. If they aren’t, remove the battery, adjust the clips to ensure proper alignment, and then reinsert the battery securely.
+3. Connect the Alvik to the PC keeping Alvik OFF.
+4. At this point some lights should turn ON in your Alvik:
+
+- **Green LED** (not confuse it with the PWR LED of the Nano ESP32) will turn ON in the ESP32
+  ![Alvik fully charged - Green LED](assets/charged.png)
+  The battery is fully charged. Proceed to "Unboxing Alvik" paragraph.
+  
+- **Red LED blinking**
+  ![Charging blink](assets/charging.gif)
+  The battery is still charging from the PC. Continue to the Unboxing Alvik.
+
+- **No lights** 
+  ![Faulty battery](assets/faulty_battery.gif)
+  The battery may be faulty. To check it, turn Alvik ON; if an orange light near the QWIIC connector blinks every 10 seconds, contact our customer support for a replacement.
+
 ## Preparing Your Environment
 
 During the installation process, you may **need to install additional drivers**, that require access to the **administrator login password** to your OS.
@@ -70,15 +91,16 @@ If you're using a *Windows* or *Mac* computer, scroll down the page and click th
 
 To install mBlock on Windows:
 
-1. Click the "Download for Windows" button, wait for the download to finish, and find the file in your Downloads folder.
+**1.** Click the "Download for Windows" button, wait for the download to finish, and find the file in your Downloads folder.
 
-​	![Download Folder](assets/installing-download.png)
+![Download Folder](assets/installing-download.png)
 
-2. Double-click the downloaded file and click "YES" when prompted. Follow the on-screen instructions to complete the installation.
+**2.** Double-click the downloaded file and click "YES" when prompted. Follow the on-screen instructions to complete the installation.
 
-3. Install the **drivers**: a window will appear asking you to click "INSTALL."
+**3.** Install the **drivers**: a window will appear asking you to click "INSTALL."
 
-	![install driver](assets/install-drivers.png)
+![install driver](assets/install-drivers.png)
+
 The driver installation window may occasionally open in the background. If this happens, look for the computer icon in your taskbar and click it to proceed. 
 
 If you encounter an installation error, click 'UNINSTALL' and then 'INSTALL' again. Once the drivers are installed, close the driver window manually by clicking the 'X'. Afterward, complete the mBlock installation.
@@ -96,9 +118,9 @@ To install mBlock on macOS:
 
 ### Chromebook or Linux
 
-If you're using a **Chromebook** ([read the full guide here](https://support.makeblock.com/hc/en-us/articles/19412317319191-Device-Connection-Guide-for-Chromebook-Latest-Version)) or a **Linux** machine, the installation process is different because there is no installable version of the software available. Instead, you'll use the online version of mBlock, which requires a special driver to connect to the robot.
+If you're using a **Chromebook** ([read the full guide here](https://support.makeblock.com/hc/en-us/articles/19412317319191-Device-Connection-Guide-for-Chromebook-Latest-Version)) or a **Linux** machine, the installation process is different because there is no installable version of the software available. Instead, you'll use the [online version of mBlock](https://ide-chrome.mblock.cc), which requires a special driver to connect to the robot.
 
-Here you can find the "mLink - mBlock web version driver" and download the appropriate file for your operating system.
+Here you can find the "mLink - mBlock web version driver" and [download](https://mblock.cc/pages/downloads) the appropriate file for your operating system.
 
 ![download  Chromebook mlink](assets/mlink.png)
 

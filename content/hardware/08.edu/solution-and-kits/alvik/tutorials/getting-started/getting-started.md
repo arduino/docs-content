@@ -31,12 +31,13 @@ Keeping your Alvik’s firmware updated ensures it has the latest features, bug 
 Once the firmware of your Alvik is up to date and before start playing with it, let's verify your battery works as it should by following these steps:
 
 1. Reset your Alvik by turning it OFF and disconnecting it from the PC.
-2. Connect the Alvik to the PC keeping Alvik OFF.
-3. At this point some lights should turn ON in your Alvik:
+2. Open the battery compartment and check that the clips are making contact with the battery. If they aren’t, remove the battery, adjust the clips to ensure proper alignment, and then reinsert the battery securely.
+3. Connect the Alvik to the PC keeping Alvik OFF.
+4. At this point some lights should turn ON in your Alvik:
 
 - **Green LED** (not confuse it with the PWR LED of the Nano ESP32) will turn ON in the ESP32
   ![Alvik fully charged - Green LED](assets/charged.png)
-The battery is fully charged. Proceed to "Unboxing Alvik" paragraph.
+  The battery is fully charged. Proceed to "Unboxing Alvik" paragraph.
   
 - **Red LED blinking**
   ![Charging blink](assets/charging.gif)
