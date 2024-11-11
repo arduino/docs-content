@@ -69,7 +69,7 @@ If you're using a **Chromebook**, there is no installable version of the softwar
 
 ![Online Lab Micropython](assets/online-lab-micropython.jpg)
 
-Alternatively, on par with other Arduino products, you can also program your Alvik using Arduino IDE and C++. If this is the case you can find setup instructions over at [Setting up Alvik on Arduino IDE](../setting-alvik-arduino-ide/setting-alvik-arduino-ide.md).
+Alternatively, on par with other Arduino products, you can also program your Alvik using Arduino IDE and C++. If this is the case you can find setup instructions over at [Setting up Alvik on Arduino IDE](https://docs.arduino.cc/tutorials/alvik/setting-alvik-arduino-ide/).
 
 Now that all the previous steps have been set, let's see how to make Alvik moving across your room while avoiding objects! Let's create custom program for Alvik that:
 
