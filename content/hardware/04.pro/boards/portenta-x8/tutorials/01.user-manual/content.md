@@ -115,32 +115,11 @@ To explore specific sections in more detail, please click on the links below tha
 
 ### Portenta X8: Linux & Arduino Interoperability
 
-The Portenta X8 runs a **Yocto** based Linux distribution. It allows users to upload sketches to the M4 core of the STM32H7 using the Arduino IDE. The process of uploading sketches may seem familiar to Arduino users, but on Portenta X8, the system uses a service called `monitor-m4-elf-file.service`.
+The Portenta X8 runs on a **Yocto-based Linux distribution** with Docker container support, offering robust capabilities for deploying and managing device independent applications. In addition, it allows users to upload Arduino sketches to the M4 core of the STM32H7 using the Arduino IDE. 
 
-This service monitors a specific directory for updated sketches and flashes the M4 core with the new code via OpenOCD. This feature enables seamless integration between the Linux and Arduino environments on the board.
+This integration leverages a service called `monitor-m4-elf-file.service`, which monitors for updated sketches and flashes the M4 core using *OpenOCD*, ensuring seamless interaction between Linux and Arduino environments. The Portenta X8 also supports **Remote Procedure Call (RPC)** communication between its Linux system and Arduino cores. It uses **MessagePack-RPC** to efficiently exchange data.
 
-The Portenta X8 employs **Remote Procedure Call (RPC)** mechanisms to enable communication between the Linux system and the Arduino cores. RPC allows the two processors (M4 and M7 cores) to exchange data, with the M7 core handling data transfers between the M4 core running Arduino sketches and the Linux environment.
-
-The communication uses **MessagePack-RPC**, a lightweight protocol for serialized data transfer, supporting various communication protocols like OpenAMP, SPI, and TCP/IP. This setup ensures efficient interaction between the Linux side and Arduino sketches without the complexity of traditional dual-core processing.
-
-The Portenta X8 offers a powerful, versatile platform by combining Linux capabilities with Arduino’s ease of use. Users can deploy and manage device-independent applications using Docker containers while also taking advantage of Arduino’s rich ecosystem for embedded development. This hybrid environment supports flexible development, making it ideal for complex, multifunctional projects.
-
-***For more in-depth details on fundamentals of the Portenta X8, please refer to this [documentation](https://docs.arduino.cc/tutorials/portenta-x8/x8-fundamentals/).***
-
-## Portenta X8 OS Image Update
-
-It is recommended that you check every now and then to see if your Portenta X8 image version is up to date to have the latest security updates.
-
-***To review the image version history, refer to the [__Portenta X8 firmware release notes__](https://docs.arduino.cc/tutorials/portenta-x8/x8-firmware-release-notes/).***
-
-There are four ways to update your Portenta X8 are described:
-
-* [Update for OS release V.399](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-for-os-release-v399)
-* [Update through Arduino Linux Wizard experience](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-through-arduino-linux-wizard-experience)
-* [Update through Portenta X8 Manager in your Arduino Cloud for Business account (available for all OS releases)](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-with-portenta-x8-board-manager)
-* [Update using the `uuu` tool (compatible with custom images)](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-using-uuu-tool)
-
-You can find more details in the dedicated tutorial here: [**How To Flash Your Portenta X8**](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing).
+***For more details on Portenta X8’s Linux capabilities, Docker support, and Arduino integration, please refer to the [__Portenta X8 Fundamentals documentation__](https://docs.arduino.cc/tutorials/portenta-x8/x8-fundamentals/).***
 
 ## First Use Of Your Portenta X8
 
@@ -194,21 +173,25 @@ You can now proceed to the setup of the board connectivity by clicking **OK, GOT
 
 ***If you face any issue with this flow or prefer to interact directly with your Portenta X8 through the command line, please refer to [this section](#working-with-linux) to learn how to connect with the board leveraging ADB service.***
 
-Once the setup is ready, let's open the Arduino Linux Wizard page. Use the command line window and launch the TCP port forwarding setup command:
+Once the setup is complete, the browser page will automatically switch to the Arduino Linux Wizard page.
+
+The Arduino Linux Wizard page is accessible at [**http://localhost:8080**](http://localhost:8080). You can use this link to open the Arduino Linux Wizard dashboard anytime.
+
+![Arduino Linux Wizard Home Screen](assets/OOTB_homepage_init.png "Arduino Linux Wizard Home Screen")
+
+The **SYSTEM INFO** button is located at the bottom left corner of the Arduino Linux Wizard page.
+
+![Arduino Linux Wizard System Info](assets/OOTB_system_info.png "Arduino Linux Wizard System Info")
+
+This section displays details about the Portenta X8, such as hardware and software specifications, network status, and active containers.
+
+If you disconnect the Portenta X8 and need to reopen the Arduino Linux Wizard page, use the command line and run the TCP port forwarding command:
 
 ```bash
 adb forward tcp:8080 tcp:80
 ```
 
-Now open your browser, go to [http://localhost:8080](http://localhost:8080), and the Arduino Linux Wizard dashboard will appear.
-
-![Arduino Linux Wizard Home Screen](assets/OOTB_homepage_init.png "Arduino Linux Wizard Home Screen")
-
-On the Arduino Linux Wizard page, the **SYSTEM INFO** button is located at the bottom left.
-
-![Arduino Linux Wizard System Info](assets/OOTB_system_info.png "Arduino Linux Wizard System Info")
-
-It will show you different types of information about the Portenta X8, including hardware/software information, network status, and active containers. 
+Then, access the page with [**http://localhost:8080**](http://localhost:8080) to open the Arduino Linux Wizard dashboard.
 
 #### Wi-Fi® Configuration
 
@@ -242,13 +225,14 @@ Now, you can click **OK** and be redirected to the Arduino Linux Wizard homepage
 
 #### Arduino Linux Wizard Homepage
 
-This web page is hosted on the Portenta X8 and allows a user to:
+The Arduino Linux Wizard, hosted on the Portenta X8, allows a user to leverage the following capabilities:
 
 - Get board details
 - [Configure Portenta X8 Wi-Fi®](#wi-fi-configuration)
 - [Interact with the board through the embedded Python® Alpine Shell](#portenta-x8-with-python-alpine-shell)
 - [Provision your device to Arduino Cloud](#portenta-x8-with-arduino-cloud)
 - Manage the Linux distribution with the dedicated [Portenta X8 Board Manager](#portenta-x8-board-manager)
+- [Update the board's operating system](#portenta-x8-os-image-update)
 
 #### Portenta X8 with Python Alpine Shell
 
@@ -259,6 +243,21 @@ Click the **Shell** button to start using your Portenta X8 with Python-Alpine.
 This shell is running in a Python-Alpine container embedded in Portenta X8. You will find multiple examples under the directory `/root/examples` in this shell. Additionally, you can either add your own package through the command `apk add <packagename>` or start exploring the packages available online at [this link]( https://pkgs.alpinelinux.org/packages).
 
 ![Arduino Linux Wizard Python-Alpine Shell](assets/OOTB_alpine_shell.png "Arduino Linux Wizard Python-Alpine Shell")
+
+## Portenta X8 OS Image Update
+
+It is recommended that you check every now and then to see if your Portenta X8 image version is up to date to have the latest security updates.
+
+***To review the image version history, refer to the [__Portenta X8 firmware release notes__](https://docs.arduino.cc/tutorials/portenta-x8/x8-firmware-release-notes/).***
+
+There are four ways to update your Portenta X8 are described:
+
+* [Update for OS release V.399](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-for-os-release-v399)
+* [Update through Arduino Linux Wizard experience](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-through-arduino-linux-wizard-experience)
+* [Update through Portenta X8 Manager in your Arduino Cloud for Business account (available for all OS releases)](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-with-portenta-x8-board-manager)
+* [Update using the `uuu` tool (compatible with custom images)](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-using-uuu-tool)
+
+You can find more details in the dedicated tutorial here: [**How To Flash Your Portenta X8**](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing).
 
 ## Portenta X8 with Arduino Cloud
 

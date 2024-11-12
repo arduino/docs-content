@@ -25,7 +25,17 @@ The **Portenta X8** is one of the most advanced boards available from Arduino, i
 - [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - [fioctl](https://docs.foundries.io/latest/getting-started/install-fioctl/index.html)
 
-## Instructions
+## Portenta X8: Linux & Arduino Interoperability
+
+The Portenta X8 runs on a **Yocto-based Linux distribution** with built-in support for Docker containers. It allows users to upload sketches to the M4 core of the STM32H7 using the Arduino IDE.
+
+While the process may be familiar to Arduino users, the Portenta X8 uses a service called `monitor-m4-elf-file.service`. This service monitors a specific directory for updated sketches. It flashes the M4 core with new code via OpenOCD, providing a seamless integration between the Linux and Arduino environments on the board.
+
+Additionally, the Portenta X8 uses **Remote Procedure Call (RPC)** mechanisms to enable communication between the Linux system and the Arduino cores. Through RPC, data can be exchanged between the M4 and M7 cores, with the M7 core managing data transfers between the M4 core running Arduino sketches and the Linux environment.
+
+The communication uses **MessagePack-RPC**, a lightweight protocol for serialized data transfer, supporting protocols such as OpenAMP, SPI, and TCP/IP. This setup provides solid interaction between Linux-based processes and Arduino sketches without the typical complexity of dual-core processing.
+
+The Portenta X8 provides a powerful and flexible platform by integrating Linux capabilities with Arduino's ease of use. Users can deploy and manage device independent applications using Docker containers while benefiting from Arduino’s rich ecosystem for embedded development. This hybrid environment makes it ideal for complex, multifunctional projects.
 
 If you need help setting up your board, please refer to the [**Portenta X8 User Manual**](https://docs.arduino.cc/tutorials/portenta-x8/user-manual) to learn the basics and get started with your Portenta X8.
 
