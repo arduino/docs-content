@@ -147,24 +147,28 @@ Furthermore, container isolation protects applications by preventing security th
 
 ### Foundries.io Factory
 
-With Arduino Cloud's integration with Foundries.io via the so called Portenta X8 Manager, you can create a **Foundries.io Factory** to manage Portenta X8 devices and containers. A Factory helps manage, organize, and update devices while simplifying container deployment and team management.
+With Arduino Cloud's integration with *Foundries.io* via the *Portenta X8 Manager*, you can create a **Foundries.io Factory** to manage Portenta X8 devices and containers. A Factory helps manage, organize, and update devices while simplifying container deployment and team management.
 
 ![Factory page](assets/factory-page.png "Factory page")
 
+***Using __Foundries.io__ and its features is __optional__ and not required for the Portenta X8 to function. It serves as an enhancement option to streamline development and add additional management capabilities.***
+
 #### Benefits of Foundries.io
 
-Foundries.io has developed a custom Linux distribution based on Yocto. It is designed with minimal software installed by default, making it ideal for professional applications. Foundries.io emphasizes cybersecurity, integrating top-level features such as **OP-TEE** and **OSTREE**, which ensure system integrity and security.
+Foundries.io has developed a custom Linux distribution based on Yocto. It is designed with minimal software installed by default, making it ideal for professional applications. Foundries.io emphasizes cybersecurity, integrating features such as **OP-TEE** and **OSTREE**, which ensure system integrity and security.
 
-One key advantage of Foundries.io is its **Over-The-Air (OTA)** system update mechanism. This OTA system is based on a client running on the target device and a robust cloud server, allowing seamless updates. Foundries.io also integrates **Docker Compose** to deploy software solutions. Instead of installing individual apps, entire containers are deployed, which may run a full distribution or just the minimal environment needed to run a particular set of applications—similar to an app store but container-based.
+One key advantage of Foundries.io is its **Over-The-Air (OTA)** system update mechanism. This OTA system is based on a client running on the target device and a robust cloud server, allowing seamless updates.
+
+Foundries.io also integrates **Docker Compose** to deploy software solutions. Instead of installing individual apps, entire containers are deployed, which may run a full distribution or just the minimal environment needed to run a particular set of applications, similar to an app store but based on containers.
 
 In summary, it provides:
 
-- Minimal pre-installed software, ideal for professional applications.
+- Minimal preinstalled software, ideal for professional applications.
 - Enhanced cybersecurity features like **OP-TEE** and **OSTREE**.
 - **Over-The-Air (OTA)** system updates.
 - Integration with **Docker Compose** to deploy entire containers for applications.
 
-Foundries.io also offers **FoundriesFactory**, a Cloud-based *DevSecOps* subscription service. It allows you to build, test, deploy, and maintain secure IoT and edge devices. Each Factory has a unique ID and automatic builds of both the base system and containers are handled in one place, streamlining the development process and ensuring a secure, up-to-date environment for your IoT and Edge devices.
+Foundries.io also offers **FoundriesFactory**, a Cloud-based *DevSecOps* subscription service. It allows you to build, test, deploy, and maintain secure IoT and edge devices. Each Factory has a unique ID and automatic builds of the base system and containers are handled in one place, streamlining the development process and ensuring a secure, up-to-date environment for your IoT and Edge devices.
 
 #### Factory Repositories
 
