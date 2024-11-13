@@ -2,21 +2,21 @@
 title: 'File System'
 description: 'Learn how to use the File Sytem in MicroPython.'
 author: 'Pedro Lima'
-tags: [MicroPython, REPL]
+tags: [MicroPython, File System]
 ---
 
+When working with MicroPython, we’re not limited to a single program file like in traditional Arduino sketches (using C++). Instead, MicroPython provides a file system, enabling us to store and manage multiple files on our microcontroller. This opens up powerful capabilities for organizing code, managing assets, and creating modular projects.
 
-When working with MicroPython, we’re not limited to a single program like in traditional Arduino sketches. Instead, MicroPython provides a file system, enabling us to store and manage multiple files on our microcontroller. This opens up powerful capabilities for organizing code, managing assets, and creating modular projects.
-
-In this article, we’ll explore how the MicroPython file system works, how to organize files effectively, and the typical structure of MicroPython projects.
+In this article, we'll explore how the MicroPython file system works, how to organize files effectively, and the typical structure of MicroPython projects.
 
 ## The MicroPython File System: Key Differences
 
-In traditional Arduino programming, we upload a single compiled file directly to the microcontroller, where it runs immediately. With MicroPython, however, we work within a file system that can store multiple files. This file system allows us to:
+In traditional Arduino programming, we upload a single compiled file directly to the microcontroller, where it runs immediately. In MicroPython we work within a file system that can store multiple files. This file system allows us to:
 
 - **Upload and Download Files**: We can save individual scripts, libraries, and assets directly on the device.
 - **Organize Project Files**: Create folders, save multiple scripts, and organize files for a modular approach.
 - **Edit Files Directly on the Device**: Modify files without needing to overwrite everything, making adjustments faster and more flexible.
+- **Run Different Scripts**: while we have `boot.py` (runs at start) and `main.py` (runs after start), we can also create more scripts that we can run, either from the editor, or from the board itself.
 
 ## Accessing the MicroPython File System
 
@@ -26,9 +26,11 @@ To interact with the MicroPython file system, we’ll use Arduino Labs for Micro
 2. **Upload and Download Files**: Use the file manager to upload files from our computer to the microcontroller or download files back to our computer.
 3. **Organize Files**: We can create folders and store multiple files, making it easy to organize our project.
 
+![Accessing the file system.]()
+
 ## Basic MicroPython File Structure
 
-A typical MicroPython project includes a main file, boot script, libraries, and any supporting files our project needs. Here’s a standard layout:
+A typical MicroPython project includes a `main.py` file, `boot.py` file, libraries, and any supporting files our project needs. Here’s a standard layout:
 
 ```
 / (Root Directory)
@@ -41,59 +43,64 @@ A typical MicroPython project includes a main file, boot script, libraries, and 
 - **`boot.py`**: Runs once at startup, before `main.py`, and is typically used for system configurations that need to be set when the device first powers on.
 - **`main.py`**: This is the primary script, similar to the `setup()` and `loop()` structure in Arduino. It runs automatically after `boot.py` finishes.
 
-## Example: Switching Execution from `main.py` to `favorite_things.py`
+## Example: Importing Code from Scripts
 
-Let’s say we’re creating a project where `main.py` runs and, at a certain point, hands off control to `favorite_things.py` to perform a specific task. Here’s how we might organize it.
+With the MicroPython file system, we can create our own scripts and import them in the `main.py` script. This can be helpful in avoiding long scripts, as we instead can store the code in other files. This approach also makes it more modular.
 
-1. **Write the Main Script** (`main.py`): This script runs some initial code and then switches to executing `favorite_things.py`.
-2.Create the file "favourite_things.py".
-3. **Add Content to `favorite_things.py`**: In this case, we’ll simply print a message from `favorite_things.py`.
+To run code from a separate script in our `main.py` file, we can follow the instructions below:
 
-### Sample `main.py` Code
+1. Create a file named `my_new_script.py`, and add the following function:
 
-Here’s how `main.py` might look, printing an introductory message and then executing `favorite_things.py`:
+    ```python
+    def test():
+        print("This runs from my_new_script.py")
+    ```
 
-```python
-def main():
-    print("Getting the list of my favourite things...")
+2. In `main.py`, we run some initial code and then switches to executing a function from `my_new_script.py`. Here's an example:
     
-    # Now execute favorite_things.py
-    print("Switch to favorite_things.py...")
-    try:
-        with open("favorite_things.py") as f:
-            exec(f.read())
-    except OSError:
-        print("Error: Could not open favorite_things.py")
+    ```python
+    import my_new_script
+    print("This runs from main.py")
 
-if __name__ == "__main__":
-    main()
-```
+    my_new_script.test()
+    ```
 
-### Sample `favorite_things.py` Code
+3. Check the REPL, we should see:
 
-In `favorite_things.py`, we’ll keep it simple with a message:
+    ```bash
+    This runs from main.py # executed from main.py
+    This runs from my_new_script.py #executed from my_new_script.py
+    ```
 
-```python
-# favorite_things.py
-print("Bears. Beets. Battlestar Galactica.")
-```
+Essentially, this is how [modules]() work. You import a module, and use a function from that module.
 
-### Explanation
+![Import code from a script.]()
 
-- **Switching Execution**: `main.py` starts by printing an introductory message, and then uses `exec(f.read())` to read and run the content of `favorite_things.py`.
-- **Running Another Script**: The `exec()` function allows `main.py` to execute `favorite_things.py` as if it were part of `main.py`, printing “Bears. Beets. Battlestar Galactica.” directly.
+## Example: Directly Executing a Script
 
-### Expected Output
+We can also directly execute another script stored on the device. For this example, let's create a script and name it `run_directly.py`.
 
-When you run `main.py`, the output should look like this:
+1. In the script, store this code:
 
-```
-Getting the list of my favourite things...
-Switch to favorite_things.py...
-Bears. Beets. Battlestar Galactica.
-```
+    ```python
+    print("I was run from main.py")
+    ```
 
-This setup demonstrates how to use MicroPython’s file system to organize and execute multiple scripts, allowing for modular and readable code.
+2. Then in `main.py`, we will use the `open()`, `exec()` and `read()` functions.
+
+    ```python
+    with open("run_directly.py") as f:
+        exec(f.read())
+    ```
+
+- `open()` - opens a file
+- `exec()` - executes a file
+- `read()` - reads a file
+
+As a result, we should read `"I was run from main.py"` in the REPL. How this differs from the previous example, is that the `run_directly.py` script was just run from top to bottom, as opposed to importing a specific segment of code.
+
+![Executing a script directly.]()
+
 
 ## Organizing Code with Modules and Libraries
 

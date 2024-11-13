@@ -1,12 +1,12 @@
 ---
 title: 'Modules'
-description: 'Understanding Modules and how to use them.'
+description: 'Understanding modules in MicroPython and how to use them.'
 author: 'Pedro Lima'
 tags: [MicroPython, Modules]
 ---
 
 
-In this article, we’ll cover how modules work in MicroPython, explore a few built-in modules, and demonstrate how to install an external package like Modulino to extend our MicroPython project’s functionality.
+In this guide, we’ll cover how modules work in MicroPython, explore a few built-in modules, and demonstrate how to install an external package like Modulino to extend our MicroPython project’s functionality.
 
 ## What Are Modules?
 
@@ -38,7 +38,7 @@ In this example, `time.sleep()` introduces a delay. Built-in modules like `time`
 
 ## External Modules
 
-Some modules aren’t included with the default MicroPython installation and need to be installed separately. External modules, often provided by the community or specific hardware packages, extend MicroPython’s functionality. For example, the **Modulino** library is an external module that provides tools for working with Arduino Modulinos.
+Some modules aren’t included with the default MicroPython installation and need to be installed separately. External modules, often provided by the community or specific hardware packages, extend MicroPython’s functionality. For example, the [Modulino library]() is an external module that provides tools for working with Arduino Modulinos.
 
 To demonstrate how to use external modules, we’ll go through the steps to install the Modulino package on an Arduino board.
 
@@ -51,23 +51,27 @@ Before we can install external modules, we need to have MicroPython running on o
 - Press the "Refresh" button if the board does not appear.
 - Click "**Install MicroPython**" and wait for the installation to complete.
 
+***For more details, visit the [MicroPython installation guide]()***
+
 ### Step 2: Install the Modulino Package
 
 To install the Modulino package, we’ll use `mpremote`, a tool that allows us to install MicroPython packages directly onto our board from the command line.
 
-1. **Install `mpremote`**: Make sure Python is installed on your computer, then open a terminal and type:
+1. Make sure Python is installed on your computer
+2. Open a terminal on your machine.
+3. Run the following command to install `mpremote`.
 
    ```bash
    pip install mpremote 
    ```
 
-2. **Connect to Your Board**: Find your board’s serial port by running:
+4. With `mpremote` installed, run the following script to find our board's serial port.
 
    ```bash
    mpremote connect list
    ```
 
-   This command should return something like:
+   This command should return something akin to:
 
    ```bash
    /dev/cu.usbmodem101 ecda3b60a4dccb3f 2341:056b Arduino Nano ESP32
@@ -75,13 +79,13 @@ To install the Modulino package, we’ll use `mpremote`, a tool that allows us t
 
    - Copy the port, e.g., `/dev/cu.usbmodem101`.
 
-3. **Install the Modulino Package**: Use the following command to install the Modulino package, replacing `<PORT>` with your board’s port:
+5. Use the following command to install the Modulino package (or any other package we want to install), replacing `<PORT>` with our board’s port retrieved in the previous step.
 
    ```bash
    mpremote connect <PORT> mip install github:arduino/arduino-modulino-mpy
    ```
 
-4. **Verify Installation**: After installation, check Arduino Labs for MicroPython. You should see a `/lib` folder with the Modulino library inside, indicating a successful installation.
+6. After the installation, open Arduino Labs for MicroPython, and connect your board. In the board's files, we should see a `/lib` folder with the Modulino library inside, indicating a successful installation.
 
    ![MicroPython Lab Files](./assets/microPythonLabsFiles.png)
 
