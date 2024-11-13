@@ -352,7 +352,7 @@ Compact version of the [Arduino Language Reference](https://www.arduino.cc/refer
 | ------------------ | ------------------------------------------------------------------ |
 | `! (logical not)`  | Inverts the logical value, true becomes false and vice versa.      |
 | `&& (logical and)` | Logical AND operator, returns true if both operands are true.      |
-| `&#124;&#124;(logical or)`     | Logical OR operator, returns true if at least one operand is true. |
+| `\|\|(logical or)`     | Logical OR operator, returns true if at least one operand is true. |
 
 
 ### Pointer Access Operators
