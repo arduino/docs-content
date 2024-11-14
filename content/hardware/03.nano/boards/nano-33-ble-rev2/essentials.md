@@ -1,3 +1,9 @@
+---
+productsLibrariesMap:
+  - arduinoble
+  - arduino_bmi270_bmm150
+---
+
 <EssentialsColumn title="First Steps">
   <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v2/tutorials/ide-v2-board-manager">
     All you need to know to get started with your new Arduino board.
@@ -9,21 +15,9 @@
 
 </EssentialsColumn>
 
-<EssentialsColumn title="Suggested Libraries">
-
-  <EssentialElement title="ArduinoBLE" type="library" link="https://www.arduino.cc/en/Reference/ArduinoBLE">
-The ArduinoBLE library is designed for Arduino boards that have hardware enabled for Bluetooth® Low Energy and Bluetooth® 4.0 and above. 
-  </EssentialElement>
-
-  <EssentialElement title="Arduino_BMI270_BMM150" type="library" link="https://www.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/">
-Allows you to read the accelerometer, magnetometer and gyroscope values from the IMU on your Arduino Nano 33 BLE Sense Rev2
-  </EssentialElement>
-
-</EssentialsColumn>
-
 <EssentialsColumn title="Arduino Basics">
   <EssentialElement title="Built-in Examples" type="tutorial" link="/built-in-examples/">
-    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands. 
+    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands.
   </EssentialElement>
   <EssentialElement title="Learn" type="resource" link="/learn/">
     Discover interesting articles, principles and techniques related to the Arduino ecosystem.
