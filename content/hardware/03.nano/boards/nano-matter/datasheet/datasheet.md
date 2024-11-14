@@ -5,7 +5,7 @@ type: maker
 author: José Bagur
 ---
 
-![](assets/Nano_Matter_Top_View.png)
+![](assets/Nano-Matter_Top.png)
 
 # Description
 
@@ -86,14 +86,13 @@ The table below provides a comprehensive guideline for the optimal use of the Na
 <div style="text-align:center;">
 
 |          **Parameter**           |   **Symbol**    | **Min** | **Typ** | **Max** | **Unit** |
-|:--------------------------------:|:---------------:|:-------:|:-------:|:-------:|:--------:|
-|     USB Supply Input Voltage     | V<sub>USB</sub> |    -    |   5.0   |    -    |    V     |
-| Supply Input Voltage<sup>1</sup> | V<sub>IN</sub>  |    -    |   5.0   |   5.5   |    V     |
+| :------------------------------: | :-------------: | :-----: | :-----: | :-----: | :------: |
+| Input voltage from USB connector | V<sub>USB</sub> |   4.8   |   5.0   |   5.5   |    V     |
+|    Input voltage from VIN pad    | V<sub>IN</sub>  |    6    |   7.0   |   21    |    V     |
 |      Operating Temperature       | T<sub>OP</sub>  |   -40   |    -    |   85    |    °C    |
 
 </div>
 
-<sup>1</sup> Nano Matter powered through the IN5V pin (+5 VDC).
 
 ### Power Consumption
 
@@ -106,7 +105,7 @@ The table below summarizes the power consumption of the Nano Matter in different
 | Typical Mode Current Consumption² | I<sub>NM</sub> |  -  | 16  |  -  |  mA  |
 
 
-<sup>2</sup> Nano Matter powered through the IN5V pin (+5 VDC), running a Matter color lightbulb example.
+<sup>2</sup> Nano Matter powered through the 5V pin (+5 VDC), running a Matter color lightbulb example.
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 To use the Nano Matter in <strong>low-power mode</strong>, the board must be powered through the <strong>pin IN5V</strong>.
@@ -144,7 +143,8 @@ An overview of the high-level architecture of the Nano Matter is illustrated in 
 The Nano Matter can be powered through one of the following interfaces:
 
 - **Onboard USB-C® port**: Provides a convenient way to power the board using standard USB-C® cables and adapters.
-- **External +5 VDC power supply**: This can be connected to the IN5V pin or the VIN pin of the Nano-styled header connector. For the VIN pin, ensure the VIN jumper is shorted to enable the power supply.
+- **VIN pad**: Applying 6 to 21 VDC to the VIN pin of the Nano-styled header connector. 
+- **5V pad**: Applying +5 VDC to the 5V pin of the Nano-styled header connector.
 
 A detailed figure below illustrates the power options available on the Nano Matter and the main system power architecture.
 
@@ -360,8 +360,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |        **Changes**        |
-|:----------:|:------------:|:-------------------------:|
-| 05/09/2024 |      3       | Cloud Editor updated from Web Editor |
-| 07/05/2024 |      2       | Board update |
-| 21/03/2024 |      1       | Community Preview Release |
+|  **Date**  | **Revision** |                 **Changes**                 |
+| :--------: | :----------: | :-----------------------------------------: |
+| 14/11/2024 |      4       | Board revision and power information update |
+| 05/09/2024 |      3       |    Cloud Editor updated from Web Editor     |
+| 07/05/2024 |      2       |                Board update                 |
+| 21/03/2024 |      1       |          Community Preview Release          |
