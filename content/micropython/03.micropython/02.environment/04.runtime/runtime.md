@@ -15,7 +15,7 @@ A **runtime environment** is the infrastructure that allows code to execute on a
 
 For MicroPython, the runtime is a lightweight version of the Python runtime, optimized to work with the limited resources of microcontrollers. This means it has to manage memory efficiently, provide quick access to hardware components, and interpret Python code in real-time.
 
-### How MicroPython's Runtime Works
+### MicroPython's Runtime
 
 MicroPython's runtime environment consists of several key components:
 
@@ -27,7 +27,7 @@ MicroPython's runtime environment consists of several key components:
 
 4. **File System**: The runtime includes a file system, typically mounted on the microcontroller’s flash storage. This allows MicroPython to load and execute scripts, save configuration files, or store data persistently.
 
-### Key Features of the MicroPython Runtime
+### MicroPython Runtime Features
 
 1. **REPL (Read-Eval-Print Loop)**: One of the standout features of MicroPython's runtime is the REPL. The REPL is an interactive shell where we can type and execute Python code line by line, get immediate feedback, and test ideas quickly. It’s especially useful for debugging and learning how the hardware responds to different commands.
 
@@ -37,7 +37,7 @@ MicroPython's runtime environment consists of several key components:
 
 3. **Concurrency with `uasyncio`**: MicroPython provides support for asynchronous programming using the `uasyncio` module. This allows us to handle multiple tasks concurrently, such as reading a sensor while controlling an LED, without blocking the main program.
 
-### Comparison to Standard Python
+### Micro vs Python
 
 While MicroPython aims to be as compatible as possible with standard Python, there are some important differences due to the limited resources available on microcontrollers:
 
@@ -45,7 +45,7 @@ While MicroPython aims to be as compatible as possible with standard Python, the
 - **Limited Libraries**: Many of Python’s standard libraries are unavailable in MicroPython because they are too large or not relevant for embedded systems. However, MicroPython provides specialized libraries for hardware interaction.
 - **Performance**: MicroPython is generally slower than compiled languages, but it’s fast enough for most embedded applications thanks to its lightweight runtime and efficient interpreter.
 
-## How Code Execution Works in MicroPython
+## Code Execution Works in MicroPython
 
 When we upload a MicroPython script to our microcontroller, the runtime handles code execution as follows:
 
@@ -54,8 +54,7 @@ When we upload a MicroPython script to our microcontroller, the runtime handles 
 3. **Hardware Interaction**: The runtime communicates with the microcontroller’s hardware through built-in libraries. For example, we can control GPIO pins, read sensor data, or send data over I2C using simple Python commands.
 4. **Error Handling**: MicroPython includes mechanisms for error handling and debugging. If the script encounters an error, the runtime will stop execution and display an error message in the REPL or console.
 
-## Best Practices for Working with the MicroPython Runtime
-
+## Best Practices
 1. **Manage Memory Wisely**: Be mindful of memory usage, especially when working with large data structures or performing frequent allocations. Use the garbage collector [(`gc`)](https://docs.micropython.org/en/latest/library/gc.html) if you need to manually free up memory.
 2. **Use REPL for Testing**: Take advantage of the REPL to experiment and debug code interactively. This can save time and help you understand how your code interacts with the hardware.
 3. **Optimize Code for Speed and Efficiency**: Use efficient data structures and algorithms to keep your code fast and responsive. Avoid blocking operations when possible, and consider using `uasyncio` for concurrency.
