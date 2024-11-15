@@ -53,7 +53,7 @@ The main features are highlighted in the table shown below.
 | Connectivity        | 802.15.4 Thread, Bluetooth® Low Energy 5.3, and Bluetooth® Mesh                                                                                                  |
 | Security            | Secure Vault® from Silicon Labs                                                                                                                                  |
 | USB Connectivity    | USB-C® port for power and data                                                                                                                                   |
-| Power Supply        | Various options for easily powering the board: USB-C® port and external power supply connected through the board's Nano-styled header connector pins (IN5V, VIN) |
+| Power Supply        | Various options for easily powering the board: USB-C® port and external power supply connected through the board's Nano-styled header connector pins (5V, VIN) |
 | Analog Peripherals  | 12-bit ADC (x20), up to 12-bit DAC (x4)                                                                                                                          |
 | Digital Peripherals | GPIO (x22 - All exposed I/O can be used as digital), UART (x2), I2C (x2), SPI (x2), PWM (x22) with a maximum of 5 simultaneously operational channels            |
 | Debugging           | JTAG/SWD debug port (accessible through the board's test pads)                                                                                                   |
@@ -108,7 +108,7 @@ The table below summarizes the power consumption of the Nano Matter in different
 <sup>2</sup> Nano Matter powered through the 5V pin (+5 VDC), running a Matter color lightbulb example.
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-To use the Nano Matter in <strong>low-power mode</strong>, the board must be powered through the <strong>pin IN5V</strong>.
+To use the Nano Matter in <strong>low-power mode</strong>, the board must be powered through the <strong>pin 3.3V</strong>.
 </div>
 
 
