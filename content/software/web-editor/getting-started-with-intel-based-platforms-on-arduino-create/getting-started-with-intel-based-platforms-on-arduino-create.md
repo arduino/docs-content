@@ -3,7 +3,7 @@ title: "Getting Started with Intel-Based Platforms on Arduino Create © CC BY-
 description: "Follow a guided installation wizard to get your IoT Gateway configured, and ready to be used on Arduino Create."
 coverImage: "assets/intel_gettingstarted_MCXEgoQ813.png"
 tags: [first configuration, gateway, internet of things]
-difficulty: "easy"
+difficulty: beginner
 author: "Arduino_Genuino"
 source: "https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-intel-based-platforms-on-arduino-create-dcf1bc"
 ---
