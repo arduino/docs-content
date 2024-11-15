@@ -22,22 +22,22 @@ software:
 
 ## Introduction
 
-Air pollution is a threat that lurks even where we least expect it, from the comfort of our homes to our workplaces. Pollutants like CO₂ and volatile organic compounds (TVOC) silently threaten our health, representing a determining factor for our quality of life. 
+Air pollution is an often overlooked threat that exists even in the places we feel safest, from our homes to our workplaces. Pollutants like CO₂ and volatile organic compounds (TVOC) silently threaten our health, representing a determining factor for our quality of life. 
 
-This application note describes the building of an air quality monitor and occupancy machine vision tracker for indoor environments, in this case an elevator.
+This application note describes building an air quality monitor and occupancy tracking system using machine vision for indoor environments designed for use in an elevator.
 
 ![ ](assets/thumb2.gif)
 
-The monitoring system will measure the elevator's temperature, relative humidity, indoor air quality (IAQ), estimated CO₂ and total volatile organic compounds (TVOC) while counting the people inside the elevator. All this information will be forwarded to the Arduino Cloud for further visualization and tracking. The system will give a real-time visual feedback of the condition inside the elevator to warn people of harmful air quality.
+The monitoring system will measure the elevator's temperature, relative humidity, indoor air quality (IAQ), estimated CO₂ and total volatile organic compounds (TVOC) while counting the people inside the elevator. All this information will be forwarded to the Arduino Cloud for further visualization and ongoing monitoring. The system will provide real-time visual feedback of the condition inside the elevator to warn people of harmful air quality.
 
 ## Goals
 
 The project showcased in this application note has the following objectives:
 
-- Monitoring the air quality and environmental variables inside the elevator.
-- Counting the people inside the elevator using Machine Vision.
-- Giving real-time visual feedback of the conditions of the elevator using Modulino® Pixels:.
-- Sharing all the gathered data to the Arduino Cloud for remote monitoring.
+- Monitor the air quality and environmental conditions within the elevator.
+- Count people inside the elevator using Machine Vision.
+- Provide real-time visual feedback on the elevator conditions using Modulino® Pixels.
+- Share all collected data to the Arduino Cloud for remote monitoring.
 
 ## Hardware and Software Requirements
 
@@ -66,6 +66,15 @@ This project is meant to be developed with the **Portenta Proto Kit** that inclu
 - [Arduino Portenta Boards core](https://github.com/arduino/ArduinoCore-mbed) (required to work with the Portenta H7 board)
 - [Arduino Cloud](https://create.arduino.cc/iot/things). If you do not have an account, create one for free [here](https://cloud.arduino.cc/).
 
+### Complete Project Sketch
+
+![Project sketches](assets/ide.png)
+
+The complete project sketches can be downloaded here:
+
+- [Portenta H7 code](assets/Smart_elevator_Portenta_h7.zip)
+- [Nicla Vision code](assets/People_Count_Nicla_Vision.zip)
+
 ## Smart Elevator Monitoring System Setup
 
 The electrical connections for the project are outlined in the diagram below:
@@ -75,71 +84,70 @@ The electrical connections for the project are outlined in the diagram below:
 This diagram shows how the components are connected. 
 
 - The Portenta H7 is attached to the Portenta Mid Carrier using the High-Density connectors.
-- The Mid Carrier Proto Shield is stacked to the Portenta Mid Carrier using the breakout connectors.
-- The Modulino Pixels is wired to the Portenta Mid Carrier using the Qwiic cable and fixed with the included screws and nuts.
-- The Nicla Vision and the Nicla Sense Env are wired to the Mid Carrier Proto Shield using ESLOV cables.
+- The Mid Carrier Proto Shield is stacked onto the Portenta Mid Carrier via breakout connectors.
+- The Modulino Pixels is wired to the Portenta Mid Carrier using the Qwiic cable and secured with the included screws and nuts.
+- The Nicla Vision and the Nicla Sense Env are connected to the Mid Carrier Proto Shield using ESLOV cables.
 
 ### Powering Options
 
-To power the project you can use the terminal block of the Portenta Mid Carrier, the USB-C connector of the Portenta H7 or the barrel jack of the Mid Carrier Proto Shield.
+The project can be powered using the terminal block on the Portenta Mid Carrier, the USB-C connector on the Portenta H7 or the barrel jack on the Mid Carrier Proto Shield.
 
 ![Powering options](assets/power-options.png)
 
 ## Smart Elevator Monitoring System Overview
 
-The elevator monitoring system integrates sensor data gathering, machine vision, live user feedback and cloud communication using the Portenta H7 Wi-Fi® connection.
+The elevator monitoring system integrates sensor data collection, machine vision, live user feedback and cloud connectivity via the Portenta H7’s Wi-Fi® connection.
 
-The **Portenta H7** is responsible for the Nicla Sense Env sensors reading, receiving people count from the Nicla Vision through I2C, showing air quality status on the Modulino Pixels and communicating with the Cloud.
+The **Portenta H7** is responsible for the Nicla Sense Env sensor readings, receiving occupant counts from the Nicla Vision through I2C, showing air quality status on the Modulino Pixels and communicating with the Cloud.
 
-The **Nicla Vision** is the project's second SoM and is dedicated exclusively to detecting faces in the elevator, counting them and reporting the number to the Portenta H7.
+The **Nicla Vision** is the project's second system-on-module (SoM) dedicated exclusively to detecting faces in the elevator, counting them and reporting the count to the Portenta H7.
 
-The **Nicla Sense Env** is a sensor shield that must be controlled by a host, in this case the Portenta H7, that includes several environment sensors.
+The **Nicla Sense Env** is a sensor shield that must be controlled by a host, in this case by the Portenta H7, and houses several environment sensors.
 
 ### Indoor Air Quality Sensor
 
-One of the project's main features is the environment variables sensing, this is possible using the **ZMOD4410** indoor air quality sensor featured by the **Nicla Sense Env**.
+A key feature of this project is monitoring environmental variables, which is made possible by the **ZMOD4410** indoor air quality sensor featured within the **Nicla Sense Env**.
 
-The ZMOD4410 is a gas sensor module designed for easy implementation to detect total volatile organic compounds (TVOC), estimate CO₂ and monitor indoor air quality (IAQ).
+The **ZMOD4410** is a gas sensor module designed to detect total volatile organic compounds (TVOC), estimate CO₂ and monitor indoor air quality (IAQ) with ease of implementation.
 
-The sensor can output air quality in the following three ways:
+The sensor can provide air quality data in three ways:
 
 - **Renesas IAQ Rating**: 0 - 5 (being 0 the cleaner and healthier air)
-- **Interpreted Air Quality**: in words, "Very Good", "Good", "Medium", "Poor" and "Bad"
+- **Interpreted Air Quality**: Qualitative ratings, as "Very Good", "Good", "Medium", "Poor" and "Bad"
 - **Relative Air Quality**: 0 - 500 (being 0 the cleaner and healthier air)
   
-We are going to use the **Relative Air Quality** range because it will give us a more accurate and sensitive range to measure variations in the air quality, use the following table for reference:
+For this project, we will use the **Relative Air Quality** scale, as it offers an accurate and sensitive range to measure variations in air quality. Refer to the table below for reference:
 
 ![Relative Air Quality table](assets/AQI.png)
 
-To complement the environment monitoring we are going to use also the **HS4001** temperature and humidity sensor of the Nicla Sense Env.
+To complement the environment monitoring, we will also use the **HS4001** temperature and humidity sensor of the Nicla Sense Env.
 
 ### Visual Air Quality Feedback
 
-The system features a real-time visual feedback to warn the occupants of the elevator so they know the current air quality status in any time and take the right preventive measures.
+The system features real-time visual feedback to warn the occupants of the elevator so they know the current air quality status at any time and take the right preventive measures.
 
-Using the Modulino Pixels the system will display the colors corresponding to the Air Quality Index shown in the table from above.
+Using the Modulino Pixels, the system will display the colors corresponding to the Air Quality Index levels shown in the table above.
 
 ![Modulino Pixels feedback system](assets/led-feedback.gif)
 
 ### Machine Vision for People Counting
 
-The Nicla Vision will use a built-in FOMO model for face detection, with a very simple python script it will be able to report through I2C the faces count on a single frame covering the whole elevator.
-
+The Nicla Vision will use a built-in FOMO (Faster Objects, More Objects) model for face detection. With a simple Python script, it can report the face count within a single frame covering the entire elevator via I2C.
 ![Nicla Vision people counting](assets/nicla-count.png)
 
 ### Portenta H7 Code
 
 Let's go through some important code sections to make this application fully operational, starting with the required libraries:
 
-- `Arduino_NiclaSenseEnv.h` includes the support for the Nicla Sense Env sensor data gathering.
-- `Wire.h` enables the I2C communication for the Nicla Sense Env and Nicla Vision boards.
-- `modulino.h` includes the support for the Modulino Pixels.
+- `Arduino_NiclaSenseEnv.h` provides support for collecting data from the Nicla Sense Env sensor.
+- `Wire.h` enables I2C communication with the Nicla Sense Env and Nicla Vision boards.
+- `modulino.h` provides support for controlling the Modulino Pixels.
   
 There is a header included in the project code for the Arduino Cloud configuration:
 
 - `thingProperties.h` includes the Wi-Fi® credentials and Arduino Cloud configuration.
   
-This header includes other two libraries necessary for the cloud communication which are:
+This header includes two other libraries necessary for cloud communication, which are:
 
 - `ArduinoIoTCloud.h` enables Arduino Cloud integration. Search for *ArduinoIoTCloud* in the Library Manager to install it.
 - `Arduino_ConnectionHandler.h` manages the board's internet connectivity. Search for *Arduino_ConnectionHandler* in the Library Manager to install it.
@@ -244,7 +252,7 @@ void loop() {
 }
 ```
 
-One of the main functions in the `loop()` is the `readSensors()` one, here we use the Nicla Sense Env API to read the following variables:
+One of the main functions in the `loop()` is `readSensors()`, which uses the Nicla Sense Env API to read the following variables:
 
 - Temperature (°C)
 - Relative Humidity (%)
@@ -255,7 +263,7 @@ One of the main functions in the `loop()` is the `readSensors()` one, here we us
 
 We also control the Modulino Pixels color based on the IAQ and update the cloud variables.
 
-The `getPeopleCount()` function creates an I2C request asking for the people detected by the Nicla Vision.
+The `getPeopleCount()` function creates an I2C request asking for the count of people detected by the Nicla Vision.
 
 ***You can download the complete example code for the Portenta H7 [here](assets/Smart_elevator_Portenta_h7.zip)***
 
@@ -263,9 +271,9 @@ The `getPeopleCount()` function creates an I2C request asking for the people det
 
 The people counting feature of the project is achieved by the Nicla Vision running a FOMO face detection model. 
 
-For this feature we are using the [OpenMV IDE](https://openmv.io/pages/download) for running MicroPython sketches that you can download from [here](https://openmv.io/pages/download).
+For this feature, we are using the [OpenMV IDE](https://openmv.io/pages/download) for running MicroPython sketches that you can download from [here](https://openmv.io/pages/download).
 
-Let's explain a bit how the code works starting from the main loop of the sketch:
+Here’s a brief overview of how the code works, starting with the main loop of the script:
 
 ```python
 if __name__ == "__main__":
@@ -290,19 +298,19 @@ if __name__ == "__main__":
         now = ticks_ms()
 ```
 
-In simple words, we are on an infinite loop taking pictures with the `sensor.snapshot()` function which are then used as inputs for the face detection model using the `analyze_image()` function.
+In simple words, we are on an infinite loop taking pictures with the `sensor.snapshot()` function, which is then used as inputs for the face detection model using the `analyze_image()` function.
 
-If faces are detected, the onboard green LED will light up and the count will be sent by I2C to the Portenta H7.
+If faces are detected, the onboard green LED will light up and the count will be sent via I2C to the Portenta H7.
 
-In the face detection process, some auxiliary functions are used to filter unwanted results including false positives. A brief explanation of these functions are listed below:
+During the face detection process, several auxiliary functions filter unwanted results, including false positives. A brief explanation of these functions is listed below:
 
 - `calculate_distance()`: it returns the distance between two rectangles bounding a possible face to avoid duplicates.
-- `merge_rectangles()` and `merge_close_rectangles()`: if two or more bounding rectangles are too close they will be merged into one.
+- `merge_rectangles()` and `merge_close_rectangles()`: Merges two or more close bounding rectangles into a single one if they are in proximity.
 - `fomo_post_process()`: it returns the list of bounding boxes to be analyzed by the previously explained functions.
 
 ***You can download the complete example code for the Nicla Vision [here](assets/People_Count_Nicla_Vision.zip)***
 
-If you want to test the Nicla Vision example code **standalone** you must comment out the `i2c.send(buf)` line of the sketch, this is because it will show an error if it couldn't find the Portenta H7 on the I2C bus.
+If you want to test the Nicla Vision example code **standalone**, you must comment out the `i2c.send(buf)` line in the sketch, this is because it will show an error if it can't find the Portenta H7 on the I2C bus.
 
 ***For the Nicla Vision to run the sketch once is powered up you must put the code inside the `main.py` file in the file system.***
 
@@ -316,8 +324,8 @@ Within the Arduino Cloud's dashboard, the system variables can be monitored with
 
 - System variable gauge showing relative humidity.
 - Numeric state widgets to show IAQ, temperature, CO₂, ethanol and TVOC readings.
-- Advanced charts showing historical record of CO₂, ethanol, temperature and humidity.
-- People occupancy historical chart and current state.
+- Advanced charts showing historical CO₂, ethanol, temperature and humidity records.
+- A people occupancy chart displaying both historical data and the current count.
 
 ### Complete Project Sketch
 
@@ -330,9 +338,9 @@ The complete project sketches can be downloaded here:
 
 ## Conclusions
 
-In this application note, we have learned how to implement an indoor air quality and occupancy monitoring system by turning a conventional elevator into a smart and monitored one.
+In this application note, we have learned how to implement an indoor air quality and occupancy monitoring system by transforming a conventional elevator into a smart, monitored space.
 
-This application shows how Arduino's environment simplifies the workflow for developing smart solutions to address real industrial needs. The Arduino PRO product line is a perfect fit for developing robust and reliable projects for the industry. We covered on-site sensor data sampling, Machine Vision, and real-time Cloud monitoring.
+This application shows how Arduino's ecosystem simplifies the workflow for developing smart solutions to address real industrial needs. The Arduino PRO product line is a perfect fit for developing robust and reliable projects for the industry. We covered on-site sensor data sampling, machine vision, and real-time Cloud monitoring.
 
 ## Next Steps
 
@@ -340,6 +348,6 @@ Now that you know how to develop an indoor air quality and people counting syste
 
 You can take this solution even further by:
 
-- Creating your own FOMO model using Edge Impulse to specifically detect persons instead of just faces.
-- Adding the Modulino Buzzer to create a warning sound if the number of people in the elevator is exceeding the limit or the air quality is too bad.
-- Integrating the Arduino 4G Module for deployments without Wi-Fi or Ethernet.
+- Creating your own FOMO model using Edge Impulse to detect people particularly, rather than just faces.
+- Adding a Modulino Buzzer to provide an alert if the elevator occupancy exceeds the limit or if air quality deteriorates.
+- Integrating the Arduino 4G Module for deployments without Wi-Fi or Ethernet connectivity.
