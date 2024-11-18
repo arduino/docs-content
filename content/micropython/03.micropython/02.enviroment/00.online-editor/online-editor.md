@@ -8,7 +8,7 @@ The [Arduino Lab for MicroPython]() is an online code editor that allows you to 
 
 In this tutorial, we will take a look at how we can access it, and test out it out by writing a simple script.
 
-***Note that this tutorial does not go in depth on how the Arduino Lab for MicroPython work. For more details, you can visit the [guide to the Arduino Lab for MicroPython]().***
+***Note that this tutorial does not go in depth on how the Arduino Lab for MicroPython works. For more details, you can visit the [guide to the Arduino Lab for MicroPython]().***
 
 ## Requirements
 
