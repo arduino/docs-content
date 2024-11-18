@@ -132,7 +132,7 @@ The Nano-styled header connectors pinout is shown in the figure below.
 
 An overview of the high-level architecture of the Nano Matter is illustrated in the figure below.
 
-![](assets/Nano_Matter_Block_Diagram.png)
+![](assets/Nano_Matter_Block_Diagram-v2.png)
 
 <div style="page-break-after: always;"></div>
 
