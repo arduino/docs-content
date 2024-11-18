@@ -69,7 +69,7 @@ We will now get to the programming part of this tutorial.
 2. We can now take a look at some of the core functions of this sketch:
 
 - `static const char channels = 1;` - sets the number of output channels. 
-- `static const int frequency = 16000;` - sets the sampling frequency to 20 KHz. 
+- `static const int frequency = 20000;` - sets the sampling frequency to 20 KHz. 
 - `short sampleBuffer[512]` - buffer to read samples into, each sample is 16-bits.
 - `while (!Serial)` - prevents program from running until Serial Monitor is opened.
 - `PDM.begin(channels, frequency)` - initializes the PDM library.
@@ -87,7 +87,7 @@ bool LED_SWITCH = false;
 static const char channels = 1;
 
 // default PCM output frequency
-static const int frequency = 16000;
+static const int frequency = 20000;
 
 // Buffer to read samples into, each sample is 16-bits
 short sampleBuffer[512];
