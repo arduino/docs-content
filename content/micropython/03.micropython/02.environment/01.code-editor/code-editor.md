@@ -26,23 +26,39 @@ As we get familiar with the editor, remember that MicroPython has a few syntax r
 
 ### Overview
 
-Text / bullet points here summarizing e.g. buttons and icons in the editor.
+The Arduino Lab for MicroPython editor provides several essential tools to make coding intuitive and efficient:
 
-![Overview of the code editor.]()
+1.**Connect/Disconnect Board**: Use this button to connect or disconnect your MicroPython-compatible board. This allows the code editor to communicate with your board for running and testing code.
+2.**Run/Stop Script**: Click this button to run or stop your script. The output will be displayed in the REPL, providing immediate feedback or error messages.
+3.**File Management**: This option lets you manage files on your MicroPython board. You can upload, download, and organize your scripts.
+4.**Edit Script**: The main area of the editor where you write and modify your MicroPython code. It provides features like syntax highlighting to enhance readability.
+5.**Expand Terminal**: Use this button to expand or collapse the terminal section, which displays the REPL output, helping you debug and interact with your code in real time.
+
+![Overview of the code editor.](assets/IDEOverview.png)
 
 ### Files
 
-Text / bullet points here for how to manage files (and point to the file system tutorial)
+Managing files in the Arduino Lab for MicroPython is straightforward and allows for efficient organization and transfer between your board and computer:
 
-![Managing files in Arduino Lab for MicroPython]()
+1. **Board Storage**: This section displays the files stored on your MicroPython-compatible board. You can view and manage scripts or data saved directly on the board.
+2. **Computer Storage**: This section shows the files on your computer, allowing you to select and manage files for uploading or downloading.
+3. **Download/Upload Files**: Use this option to transfer files between your computer and your board. You can upload new scripts or download data logs from your board.
+4. **Create File/Folder**: This option lets you create new files or folders directly on the board or in your project directory, making it easy to organize your code and assets.
+
+![Managing files in Arduino Lab for MicroPython](assets/IDEFileManager.png)
+
+***For a detailed tutorial on using the file system, please refer to the [File System Tutorial]().***
 
 ### REPL
 
-Text / bullet points here for where the REPL is and how it works (and point to the REPL tutorial)
+The REPL can be found by expanding the terminal. Here you can interact with the terminal. The buttons allow for basic features like copy and pasting as the shortcuts like ```CTRL+C will´´´ not work on this window.
 
-![The REPL.]()
+![The REPL.](assets/consoleTerminal.png)
+***For a detailed tutorial on using the file system, please refer to the [File System Tutorial]().***
 
-## Indentation
+## Code Editor
+
+### Indentation
 
 In MicroPython, indentation (using spaces or tabs) is essential for defining the structure of our code. Unlike many other languages, MicroPython relies on indentation instead of symbols like `{ }` to define code blocks.
 
@@ -61,12 +77,12 @@ def greet(name):
 
 In this example, each level of code indentation clearly defines which lines belong to which block. The `print` statements align under the `if` and `else` statements, showing they’re part of those blocks.
 
-### Avoiding Common Indentation Mistakes
+#### Avoiding Common Indentation Mistakes
 
 - **Mixing Tabs and Spaces**: Use either spaces or tabs consistently. Mixing them can lead to indentation errors. Tabs are generally preferred as these are easier to keep consistency.
 - **Missing Indentation**: Every line within a block (like the lines inside the `if` statement) must be indented correctly. If not, we’ll encounter syntax errors.
 
-## Comments: Inline and Multiline
+### Comments: Inline and Multiline
 
 Comments are essential for making our code understandable and documenting complex logic. In MicroPython:
 
@@ -91,7 +107,7 @@ Comments are essential for making our code understandable and documenting comple
 
 Using comments effectively helps both us and others understand the code’s purpose and logic.
 
-## MicroPython Syntax: No Semicolons Needed!
+### MicroPython Syntax: No Semicolons Needed!
 
 In MicroPython, each statement ends automatically at the end of a line, so there’s no need to use semicolons (`;`) as in languages like C++ or Java. This simplifies code and makes it cleaner and easier to read. 
 
