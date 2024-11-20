@@ -10,7 +10,7 @@ MicroPython is a lightweight implementation of Python 3 designed to run on micro
 
 ## MicroPython on Arduino Boards
 
-![Placeholder graphic]()
+![MicroPython with Arduino](assets/micropython-arduino.png)
 
 When using MicroPython on Arduino boards, the software is first installed on your Arduino. This allows the board to interpret and run Python code. Once MicroPython is installed on your board (don't worry, we'll cover this [here]()), you can start writing and executing Python scripts instantly.
 
@@ -20,7 +20,7 @@ Unlike traditional development approaches, where you compile code and then flash
 
 Once MicroPython is installed, you can start programming by writing scripts and uploading them to the board. These scripts are interpreted in real-time, meaning you can make quick changes and see immediate results, streamlining the development process.
 
-![TODO: Image of code edit with immediate change]()
+![Running a script.](assets/run-script.gif)
 
 MicroPython also includes a simple file system where your scripts are stored. For example, when you write a script, it is saved directly on the board and can be executed immediately without compiling. You can also save other scripts that can be activated from the main script!
 
@@ -36,8 +36,6 @@ The MicroPython installation includes several key components:
 
 2. **Base Modules**: MicroPython comes with built-in modules for working with hardware like pins, sensors, and communication protocols (I2C, SPI, etc.). This includes essential modules like `machine`, `network`, and `time`.
 
-    ![TODO: A diagram showing how `boot.py` and `main.py` are loaded during the boot process and how they fit into the file system could be useful here.]()
-
 ## How to Program for MicroPython
 
 Programming in MicroPython involves writing Python scripts in a text editor and then running them on your board. For this, we can use the [Arduino Lab for MicroPython]().
@@ -50,8 +48,6 @@ When writing MicroPython code, it's essential to think in terms of **modularity*
 2. **Helper Modules**: Break down your code into smaller modules for specific tasks, such as controlling a sensor or managing a display. These modules can be imported into `main.py` as needed.
 3. **Interrupts and Background Tasks**: If you're dealing with hardware, you may also need to work with interrupts or periodic tasks, which can be handled in dedicated modules.
 
-    ![TODO: A flowchart here could be beneficial to illustrate how to structure a MicroPython project, with `main.py` at the top and helper modules branching off.]()
-
 ## MicroPython vs. C++ for Electronics Projects
 
 MicroPython offers a different approach to programming compared to the traditional C++ used in Arduino development. Here are a few key comparisons:
@@ -60,6 +56,6 @@ MicroPython offers a different approach to programming compared to the tradition
 - **Real-Time Interactivity**: With MicroPython, you can write and test code interactively, without needing to compile. This makes it faster to experiment and troubleshoot hardware setups.
 - **Resource Efficiency**: C++ is more efficient in terms of memory and speed, making it a better option for projects that need to squeeze every bit of performance out of the hardware. MicroPython, on the other hand, prioritizes ease of development over raw performance, but it is still capable of handling many common hardware tasks.
 
-   ![TODO: A side-by-side table comparing typical tasks (like reading a sensor or blinking an LED) in MicroPython and C++ could help illustrate the differences.]()
+## Summary
 
 In summary, MicroPython provides a powerful and flexible way to develop electronic projects, especially for those familiar with Python. Its ability to run on microcontrollers like Arduino boards makes it an attractive option for both beginners and experienced developers who want a fast and efficient workflow.

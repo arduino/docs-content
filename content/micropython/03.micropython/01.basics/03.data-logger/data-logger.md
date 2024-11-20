@@ -45,11 +45,9 @@ MicroPython is officially supported on several Arduino boards. Here’s a list o
 
 1. Open the [Arduino Lab for MicroPython]() application.
 2. Plug the Arduino board into the computer using a USB cable.
-    ![Connect board to computer.]()
-3. Press the connection button on the top left corner of the window.
-    ![Connect the editor to the board.]()
-4. The connected Arduino board should appear, and we can click it:
-    ![Select board.]()
+    ![Connect board to computer.](assets/usb-comp.png)
+3. Press the connection button on the top left corner of the window. The connected Arduino board should appear (by its port name), and we can click it:
+    ![Connect to the board in the editor.](assets/select-board-ide.png)
 
 ***Need help installing MicroPython on your board? Visit the [MicroPython installation guide]().***
 

@@ -43,11 +43,9 @@ MicroPython is officially supported on several Arduino boards. Here’s a list o
 
 1. Open the [Arduino Lab for MicroPython]() application.
 2. Plug the Arduino board into the computer using a USB cable.
-    ![Connect board to computer.]()
-3. Press the connection button on the top left corner of the window.
-    ![Connect the editor to the board.]()
-4. The connected Arduino board should appear, and we can click it:
-    ![Select board.]()
+    ![Connect board to computer.](assets/usb-comp.png)
+3. Press the connection button on the top left corner of the window. The connected Arduino board should appear (by its port name), and we can click it:
+    ![Connect to the board in the editor.](assets/select-board-ide.png)
 
 ***Need help installing MicroPython on your board? Visit the [MicroPython installation guide]().***
 
@@ -56,7 +54,7 @@ MicroPython is officially supported on several Arduino boards. Here’s a list o
 Once your board is connected, we can start writing code! Below you will find a basic example, that will flash the built in LED on your board every second. 
 
 1. First, open the `main.py` file on your board. We write in this file, because once saved, the code will run even if you reset the board.
-   ![Open main.py file.]()
+   ![Open main.py file.](assets/open-files.png)
 
 2. Copy and paste the following code into your editor:
   ```python
@@ -78,11 +76,11 @@ Once your board is connected, we can start writing code! Below you will find a b
   ***Note: The built-in LED pin varies from board to board. For example, on the Arduino Nano RP2040 Connect, the built-in LED is on pin `25`.***
 
 3. Click the **Run** button in your editor to transfer the script to your board.
-   ![Run the script.]()
+   ![Run the script.](assets/run-script.png)
 
 Once the script is running, the LED on the board should start blinking at one-second intervals. This means our MicroPython script has loaded successfully.
 
-![LED blinking on your board.]()
+![LED blinking on your board.](assets/blink.gif)
 
 ### Code Breakdown
 

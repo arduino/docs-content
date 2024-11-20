@@ -62,11 +62,9 @@ In this guide, we will be using some additional electronic components:
 
 1. Open the [Arduino Lab for MicroPython]() application.
 2. Plug the Arduino board into the computer using a USB cable.
-    ![Connect board to computer.]()
-3. Press the connection button on the top left corner of the window.
-    ![Connect the editor to the board.]()
-4. The connected Arduino board should appear, and we can click it:
-    ![Select board.]()
+    ![Connect board to computer.](assets/usb-comp.png)
+3. Press the connection button on the top left corner of the window. The connected Arduino board should appear (by its port name), and we can click it:
+    ![Connect to the board in the editor.](assets/select-board-ide.png)
 
 ***Need help installing MicroPython on your board? Visit the [MicroPython installation guide]().***
 
@@ -83,7 +81,7 @@ Connect an LED to the Arduino board, following the circuit diagram below:
 - Connect the anode (+) of the LED to a digital output pin.
 - Connect the cathode (-) of the LED through a resistor to `GND`.
 
-![LED circuit.]()
+![LED circuit.](assets/LED.png)
 
 ***You can also use the built-in LED on your board, if you do not have an external LED.***
 
@@ -133,8 +131,6 @@ When a digital input pin is not connected to a definite HIGH or LOW voltage, it 
 
 These internal resistors are built into the microcontroller and can be enabled in your code, eliminating the need for external resistors.
 
-![We can create a image here to explain that]()
-
 ### Example: Pull-Up Mode
 
 In pull-up mode, the input pin is internally connected to a HIGH voltage level. When the input device (like a button) is activated and connects the pin to GND, the pin reads LOW (`0`).
@@ -142,7 +138,7 @@ In pull-up mode, the input pin is internally connected to a HIGH voltage level. 
 - Connect one side of the button to **GND**.
 - Connect the other side to a digital input pin.
 
-![Pull-up mode circuit.]()
+![Pull-up mode circuit.](assets/pull-up.png)
 
 After completing the circuit diagram, copy the following code into your editor, and run the script.
 
@@ -181,7 +177,7 @@ In pull-down mode, the input pin is internally connected to GND. When the input 
 - Connect one side of the button to **3.3V** (or **5V**, depending on your board's logic level).
 - Connect the other side to a digital input pin.
 
-![Pull-down mode circuit.]()
+![Pull-down mode circuit.](assets/pull-down.png)
 
 After completing the circuit diagram, copy the following code into your editor, and run the script.
 
