@@ -204,20 +204,15 @@ Go to the **sketch editor** and uncomment the library and setup function code li
 In this case the following configurations are used:
 
 ```arduino
-// Enable usage of EtherClass, to set static IP address and other
-#include <PortentaEthernet.h>
-arduino::EthernetClass eth(&m_netInterface);
-
 void setup()
 {
 	// Configure static IP address
-	IPAddress ip(10, 0, 0, 227);    // Opta IP address
-	IPAddress dns(10, 0, 0, 1);     // gateway IP address
-	IPAddress gateway(10, 0, 0, 1); // gateway IP address
-	IPAddress subnet(255, 255, 255, 0); 
+	IPAddress ip(10, 0, 0, 227);
+	IPAddress dns(10, 0, 0, 1);
+	IPAddress gateway(10, 0, 0, 1);
+	IPAddress subnet(255, 255, 255, 0);
 	// If cable is not connected this will block the start of PLC with about 60s of timeout!
-	eth.begin(ip, dns, gateway, subnet);
-
+	Ethernet.begin(ip, dns, gateway, subnet);
 }
 ```
 ![Network settings for Modbus TCP](assets/ip-setup-opta.png)
