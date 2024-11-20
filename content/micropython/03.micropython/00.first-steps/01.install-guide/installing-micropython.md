@@ -47,11 +47,11 @@ MicroPython is officially supported on several Arduino boards. Here’s a list o
 
 1. First, download the [Micropython Firmware Installer](https://labs.arduino.cc/en/labs/micropython-installer) and launch it.
 2. Connect your board to your computer, it should be recognized by the installer.
-    ![Arduino Nano ESP32 detected!](./assets/board-selected.png)
+    ![Arduino Nano ESP32 detected!](./assets/select-board.png)
 3. Press **INSTALL MICROPYTHON**. A loading animation will appear.
 
     Once the firmware is installed a "Installation successful" message will appear. At this point you can safely close the  installer as your board is now ready for tinkering!
-    ![Firmware Successfully Uploaded!](./assets/flashed.png)
+    ![Firmware Successfully Uploaded!](./assets/installation-success.png)
 
 ## Editor Setup
 
@@ -63,20 +63,16 @@ First, download the latest version of [Arduino Lab for MicroPython](https://labs
 
 #### MacOS
 
-Run the downloaded file, and move it to your **"Applications"** folder.
-
-![Installation MacOS.]()
+Unzip the downloaded file, and run the application.
 
 #### Windows
 
 Unzip the downloaded file, and run the executable file (`.exe`). 
 
-![Installation Windows]()
-
 ### Online Setup
 
 Alternatively, we can use the IDE without the need of installing anything. Simply visit the link below:
-- [Arduino Lab for MicroPython (online).](https://lab-micropython.arduino.cc/).
+- [Arduino Lab for MicroPython (online)](https://lab-micropython.arduino.cc/).
 
 ## Connecting Board and IDE
 
@@ -87,11 +83,9 @@ At this point in the tutorial, we have
 We will now try out running a script on the board, to make sure things are working properly.
 
 1. Plug the Arduino board into the computer using a USB cable.
-    ![Connect board to computer.]()
-2. Press the connection button on the top left corner of the window.
-    ![Connect the editor to the board.]()
-3. The connected Arduino board should appear, and we can click it:
-    ![Select board.]()
+    ![Connect board to computer.](assets/usb-comp.png)
+2. Press the connection button on the top left corner of the window. The connected Arduino board should appear (by its port name), and we can click it:
+    ![Connect to the board in the editor.](assets/select-board-ide.png)
 
 We have now set up all necessary steps for running a script!
 
@@ -99,12 +93,10 @@ We have now set up all necessary steps for running a script!
 
 With the installation and setup complete, let's try out running a very simple script: **Hello World!**
 
-1. In the text area field of the editor, write the following: `print("Hello World!")`
-   ![Write hello world.]()
-2. Click on the play symbol (RUN).
-   ![Run the script.]()
-3. After running it, you should see `Hello World!` in the black box. This is the board sending the **"Hello World!"** back to you, because the script is run on the board, not on the computer. This means everything is successful, and you are ready to start writing MicroPython scripts! 
-   ![Hello world from the board.]()
+1. In the text area field of the editor, write `print("Hello World!")`, and then click on the play symbol (RUN). 
+   ![Write hello world.](assets/write-code-run.png)
+2. After running it, you should see `Hello World!` in the black box. This is the board sending the **"Hello World!"** back to you, because the script is run on the board, not on the computer. This means everything is successful, and you are ready to start writing MicroPython scripts! 
+   ![Hello world from the board.](assets/repl-print.png)
 
 ## Troubleshooting
 
