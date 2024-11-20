@@ -43,11 +43,9 @@ MicroPython is officially supported on several Arduino boards. Here’s a list o
 
 1. Open the [Arduino Lab for MicroPython]() application.
 2. Plug the Arduino board into the computer using a USB cable.
-    ![Connect board to computer.]()
-3. Press the connection button on the top left corner of the window.
-    ![Connect the editor to the board.]()
-4. The connected Arduino board should appear, and we can click it:
-    ![Select board.]()
+    ![Connect board to computer.](assets/usb-comp.png)
+3. Press the connection button on the top left corner of the window. The connected Arduino board should appear (by its port name), and we can click it:
+    ![Connect to the board in the editor.](assets/select-board-ide.png)
 
 ***Need help installing MicroPython on your board? Visit the [MicroPython installation guide]().***
 
@@ -63,11 +61,8 @@ To better understand these loops, let’s imagine them as tasks at the supermark
 
 - **for loops** - imagine walking down a supermarket aisle with a shopping list that specifies exactly how many items to pick up, one by one, in order. Once you’ve gathered all the items on your list, your task is complete. This is like a `for` loop iterating over a sequence, handling each specified item one at a time.
 
-![How for loops work.]()
-
 - **while loops** - imagine going to the supermarket to buy a certain product that’s on sale, as long as it stays in stock. You keep coming back, day after day, until the sale ends or the stock runs out. In a `while` loop, you keep “coming back” as long as a condition (like the sale continuing) remains true.
 
-![How while loops work.]()
 
 ## For Loops
 

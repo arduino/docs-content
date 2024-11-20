@@ -54,11 +54,9 @@ In this guide, we will be using some additional electronic components:
 
 1. Open the [Arduino Lab for MicroPython]() application.
 2. Plug the Arduino board into the computer using a USB cable.
-    ![Connect board to computer.]()
-3. Press the connection button on the top left corner of the window.
-    ![Connect the editor to the board.]()
-4. The connected Arduino board should appear, and we can click it:
-    ![Select board.]()
+    ![Connect board to computer.](assets/usb-comp.png)
+3. Press the connection button on the top left corner of the window. The connected Arduino board should appear (by its port name), and we can click it:
+    ![Connect to the board in the editor.](assets/select-board-ide.png)
 
 ***Need help installing MicroPython on your board? Visit the [MicroPython installation guide]().***
 
@@ -87,7 +85,7 @@ For this example, we will need the following external components:
 
 Connect the photoresistor to the Arduino board, following the circuit diagram below:
 
-![Photoresistor circuit.]()
+![Photoresistor circuit.](assets/photoresistor.png)
 
 After completing the circuit diagram, copy the following code into your editor, and run the script.
 
@@ -126,7 +124,7 @@ PWM is especially useful in applications where true analog output is not possibl
 
 The main advantage of PWM is that it allows you to control analog-like behavior using digital pins, adding versatility to your projects while keeping power consumption efficient.
 
-![How PWM works.]()
+![How PWM works.](assets/pwm.gif)
 
 ### Code Example: Dimming an LED with PWM
 
@@ -141,7 +139,7 @@ For this example, we will need the following external components:
 
 Connect the LED to the Arduino board, following the circuit diagram below:
 
-![Photoresistor circuit.]()
+![LED circuit.](assets/LED.png)
 
 After completing the circuit diagram, copy the following code into your editor, and run the script.
 
