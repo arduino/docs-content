@@ -12,7 +12,7 @@ In this tutorial, we will take a look at how we can access it, and test it out b
 
 ## Requirements
 
-- **Google Chrome** - this is currently the only supported browser.
+- **Google Chrome, Opera, Edge** - these are the currently supported browsers.
 - [Arduino Cloud account registered]()
 - [A MicroPython compatible board]()
 
