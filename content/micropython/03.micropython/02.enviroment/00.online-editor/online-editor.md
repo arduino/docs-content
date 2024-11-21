@@ -4,7 +4,7 @@ description: 'The Arduino Lab for MicroPython is an online code editor for writi
 author: 'Karl Söderby'  
 ---
 
-The [Arduino Lab for MicroPython]() is an online code editor that allows you to load MicroPython scripts to your Arduino board. This editor is part of the [Arduino Cloud](), and is free to use for everyone.
+The [Arduino Lab for MicroPython](https://lab-micropython.arduino.cc/) is an online code editor that allows you to load MicroPython scripts to your Arduino board. This editor is part of the [Arduino Cloud](), and is free to use for everyone.
 
 In this tutorial, we will take a look at how we can access it, and test it out by writing a simple script.
 
