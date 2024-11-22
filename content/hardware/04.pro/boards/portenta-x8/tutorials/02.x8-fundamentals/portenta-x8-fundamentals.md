@@ -146,7 +146,8 @@ Furthermore, container isolation protects applications by preventing security th
 
 ![Images and containers](assets/images_containers.png "Images vs containers")
 
-### Foundries.io Factory
+### Portenta X8 Manager
+
 
 With Arduino Cloud's integration with *Foundries.io* via the *Portenta X8 Manager*, you can create a **Foundries.io Factory** to manage Portenta X8 devices and containers. A Factory helps manage, organize, and update devices while simplifying container deployment and team management.
 
