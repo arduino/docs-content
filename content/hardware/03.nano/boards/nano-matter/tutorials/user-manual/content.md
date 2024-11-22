@@ -1270,7 +1270,7 @@ void loop() {
 }
 ```
 
-![Nano Matter built-in LED blink](assets/rgb-blink.gif)
+![Nano Matter built-in LED blink](assets/blink-rgb-2.gif)
 
 ## Pins
 
@@ -1337,7 +1337,7 @@ digitalWrite(pin, LOW);
 
 The example code shown below uses digital pin `D5` to control an LED and reads the state of a button connected to digital pin `D4`:
 
-![Digital I/O example wiring](assets/gpio-wiring.png)
+![Digital I/O example wiring](assets/gpio-wiring-2.png)
 
 ```arduino
 // Define button and LED pin
@@ -1504,7 +1504,7 @@ analogReference(AR_INTERNAL1V2);
 
 The example code shown below reads the analog input value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor. To understand how to properly connect a potentiometer to the Nano Matter, take the following image as a reference:
 
-![ADC input example wiring](assets/adc-input.png)
+![ADC input example wiring](assets/adc-input-2.png)
 
 ```arduino
 int sensorPin = A0;   // select the input pin for the potentiometer
@@ -1590,7 +1590,7 @@ void loop()
 ```
 The DAC output should look like the image below:
 
-![DAC sine wave output](assets/sine-output.png)
+![DAC sine wave output](assets/sine-output-2.png)
 
 The following sketch will create a **sawtooth** wave signal in the `A0` Nano Matter pin:
 
@@ -1618,7 +1618,7 @@ void loop()
 ```
 The DAC output should look like the image below:
 
-![DAC sawtooth wave output](assets/saw-output.png)
+![DAC sawtooth wave output](assets/saw-output-2.png)
 
 ## Communication
 
