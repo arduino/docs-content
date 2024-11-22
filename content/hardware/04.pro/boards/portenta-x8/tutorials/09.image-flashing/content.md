@@ -1,7 +1,7 @@
 ---
 beta: true
 title: '09. How To Update Your Portenta X8'
-description: 'This tutorial teaches you different methods to flash your Portenta X8.'
+description: 'This tutorial teaches you different methods to update your Portenta X8.'
 difficulty: intermediate
 tags:
   - Embedded Linux
