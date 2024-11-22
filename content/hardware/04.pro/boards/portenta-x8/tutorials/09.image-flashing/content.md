@@ -13,7 +13,7 @@ hardware:
 
 ## Overview
 
-In this tutorial, you will learn the different methods to flash your Portenta X8 with the image provided by Arduino. The process involves using the terminal to perform a USB based flashing procedure on a **Windows Operating System**. By the end, you will be able to update your Portenta X8 to the latest version, ensuring optimal performance and security.
+In this tutorial, you will learn the different methods to update your Portenta X8 with the image provided by Arduino. By the end, you will be able to update your Portenta X8 to the latest version, ensuring optimal performance and security.
 
 ## Goals
 
