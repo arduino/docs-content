@@ -1,5 +1,6 @@
 ---
-title: '02. Portenta X8 Fundamentals & Manager'
+title: '02. Portenta X8 Fundamentals'
+
 difficulty: beginner
 tags: [Linux, containers, factories, foundries]
 description: 'Learn about the fundamentals of the Portenta X8 and how to use the Portenta X8 Manager.'
