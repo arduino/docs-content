@@ -149,7 +149,7 @@ If your device is not up to date, you can update it using the FoundriesFactory *
 
 For more information about **Waves**, you can visit the official *Foundries* documentation at [this link](https://docs.foundries.io/latest/reference-manual/factory/fioctl/fioctl_waves.html?highlight=wave).
 
-## Update Using `uuu` Tool
+## Update Using `uuu` Flashing Tool
 
 An alternative method to update the Portenta X8 with the latest OS image is to use the `uuu` tool (or `uuu_mac` for macOS). This approach is particularly useful for users who have built a custom image or prefer a manual update process. The image files can be downloaded from the [Arduino repository](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz) and extracted into a specific directory.
 
