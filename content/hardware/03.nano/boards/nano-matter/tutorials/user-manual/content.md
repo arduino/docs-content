@@ -46,7 +46,7 @@ The **Silicon Labs** core contains the libraries and examples you need to work w
 
 Now navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
 
-![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install.png)
+![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install-2.png)
 
 ## Product Overview
 
@@ -59,7 +59,7 @@ It enables 802.15.4 (Thread®) and Bluetooth® Low Energy connectivity, to inter
 The Nano Matter features a compact and efficient architecture powered by the MGM240S (32-bit Arm® Cortex®-M33) from Silicon Labs, a high-performance wireless module
 optimized for the needs of battery and line-powered IoT devices for 2.4 GHz mesh networks. 
 
-![Nano Matter's main components](assets/architecture.png)
+![Nano Matter's main components](assets/architecture-2.png)
 
 Here is an overview of the board's main components, as shown in the image above:
 
@@ -68,7 +68,7 @@ Here is an overview of the board's main components, as shown in the image above:
 
 ### Pinout
 
-![Nano Matter Simple pinout](assets/simple-pinout.png)
+![Nano Matter Simple pinout](assets/simple-pinout-2.png)
 
 The full pinout is available and downloadable as PDF from the link below:
 
@@ -99,7 +99,7 @@ The Nano Matter board features castellated pins, which are ideal for integrating
 
 You can easily solder the Nano Matter in your custom PCB, since the board does not present any bottom-mounted components.
 
-![Nano Matter castellated pins](assets/castellated-small.png)
+![Nano Matter castellated pins](assets/castellated-2.png)
 
 ## First Use
 ### Powering the Board
@@ -107,16 +107,17 @@ You can easily solder the Nano Matter in your custom PCB, since the board does n
 The Nano Matter can be powered by:
 
 - A USB-C® cable (not included). 
-- An external **5 V power supply** connected to `IN5V` pin (please, refer to the [board pinout section](#pinout) of the user manual).
+- An external **5 V power supply** connected to `5V` pin (please, refer to the [board pinout section](#pinout) of the user manual).
+- An external **6 - 21 V power supply** connected to `VIN` pin (please, refer to the [board pinout section](#pinout) of the user manual).
 
-![Nano Matter externally powered](assets/ext-power.png)
+![Nano Matter externally powered](assets/ext-power-2.png)
 
 For low-power consumption applications, the following hacks are recommended:
 
 - Cut the power status LED jumper off to save energy.
 - Power the board with an external **3.3 V power supply** connected to **3.3V** pin. This will not power the *USB bridge IC*, so more energy will be saved.
 
-![Image showing the LED jumper and external 3.3 V power](assets/lower-power.png)
+![Image showing the LED jumper and external 3.3 V power](assets/lower-power-2.png)
 
 ***To power the board through the VIN pin you need to close the jumper pads with solder. The maximum voltage supported is +5 VDC.***
 
@@ -128,7 +129,7 @@ The **Silicon Labs** core contains the libraries and examples you need to work w
 
 Now navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
 
-![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install.png)
+![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install-2.png)
 
 ### Hello World Example
 
@@ -160,7 +161,7 @@ To upload the code to the Nano Matter, click the **Verify** button to compile th
 
 You should now see the red LED of the built-in RGB LED turning on for one second, then off for one second, repeatedly.
 
-![Hello World example running in the Nano Matter](assets/blink.gif)
+![Hello World example running in the Nano Matter](assets/blink-2.gif)
 
 If everything works as expected, you are ready to continue searching and experimenting with this mighty board.
 
@@ -168,19 +169,19 @@ If everything works as expected, you are ready to continue searching and experim
 
 Developing Matter-compatible IoT solutions has never been easier with the Arduino ecosystem. 
 
-![Nano Matter](assets/nano-matter-banner.png)
+![Nano Matter](assets/nano-matter-banner-2.png)
 
 The Nano Matter can communicate with Matter hubs through a Thread® network, so the hubs used must be **Thread® border routers**.
 
 The Silicon Labs core in the Arduino IDE comes with several Matter examples ready to be tested with the Nano Matter and works as a starting point for almost any IoT device we can imagine building.
 
-![Matter examples](assets/matter-examples.png)
+![Matter examples](assets/matter-examples-2.png)
 
 ***The _matter_lightbulb_ example is the only officially Matter-certified profile for the Nano Matter __Community Preview__. Consequently, while running any of the other available profile examples, it is expected to get an _Uncertified device_ message in the different Matter-compatible apps. This does not prevent the user from prototyping a solution with different configurations.***
 
 First, to start creating *Matter-enabled* solutions, we need to select the Matter protocol in **Tools > Protocol stack > Matter**:
 
-![Matter Protocol stack selected](assets/matter-setup.png)
+![Matter Protocol stack selected](assets/matter-setup-2.png)
 
 In the example below, we are going to use the Nano Matter as a *RGB Lightbulb*. For this, navigate to **File > Examples > Matter** and open the built-in sketch called **nano_matter_lightbulb_color**.
 
@@ -347,7 +348,7 @@ To upload the code to the Nano Matter, click the **Verify** button to compile th
 
 After the code is uploaded, open the Arduino IDE Serial Monitor and reset the board by clicking on the reset button. To commission a Matter device to the network you will need the credentials shown in the terminal.
 
-![Nano Matter Reset Button](assets/rst-button.png)
+![Nano Matter Reset Button](assets/rst-button-2.png)
 
 You will find a **Manual pairing code** and a **QR code URL** as follows:
 
@@ -535,11 +536,12 @@ void decommission_handler() {
         if (!Matter.isDeviceCommissioned()) {
           Serial.println("Decommission done!");
           digitalWrite(LEDR, LOW);
+          Matter.decommission();
         } else {
           Serial.println("Matter device is commissioned-> Starting Decommission process");
-          nvm3_eraseAll(nvm3_defaultHandle);  // Decomission command
           digitalWrite(LED_BUILTIN, LOW);
           Serial.println("Decommission done!");
+          Matter.decommission();
         }
         break;
       }
@@ -673,7 +675,7 @@ Now it is time to commission the Nano Matter with Home Assistant, for this, foll
 
 Once you have everything set up and running you will be able to monitor the Nano Matter temperature in Home Assistant:
 
-![Nano Matter Temperature in Home Assistant](assets/home-assistant-temp.png)
+![Nano Matter Temperature in Home Assistant](assets/home-assistant-temp-2.png)
 
 ***Be aware that the Matter integration for Home Assistant is still in BETA, it can receive major updates and its functionality may vary between different vendors.***
 
@@ -781,7 +783,7 @@ rest_command:
 ```
 The [RESTful command integration](https://www.home-assistant.io/integrations/rest_command/) lets us define the HTTP request structure to be able to send the Nano Matter temperature sensor data to the Arduino Cloud. We can call this service from an automation.
 
-As you may noticed, the sensitive data we stored in the "secrets.yaml" file is being called here with the **!secret** prefix.
+As you may noticed, the sensitive data we stored in the "secrets.yaml" file is being called here with the `!secret` prefix.
 
 ![configuration.yaml file to define services](assets/ha-setup-config.png)
 
@@ -817,7 +819,7 @@ This automation will be triggered if the Nano Matter sensor temperature value ch
 
 ![Automation defining](assets/automation-define.png)
 
-***If you used different names for the services or devices, make sure to update them in the YAML code above.***
+***If you use different names for the services or devices, make sure to update them in the YAML code above.***
 
 ### Final Results
 
@@ -829,20 +831,20 @@ With this done, Home Assistant should be forwarding the Nano Matter sensor data 
 
 To enable Bluetooth® Low Energy communication on the Nano Matter, you must enable the "BLE" protocol stack in the Arduino IDE board configurations. 
 
-In the upper menu, navigate to **Tools > Protocol stack** and select **BLE**.
+In the upper menu, navigate to **Tools > Protocol stack** and select **BLE(Silabs)**.
 
-![Enable "BLE" Protocol Stack](assets/ble-setup.png)
+![Enable "BLE" Protocol Stack](assets/ble-setup-2.png)
 
 For this Bluetooth® Low Energy application example, we are going to control the Nano Matter built-in LED and read the onboard button status. The example sketch to be used can be found in **File > Examples > Silicon Labs > ble_blinky**:
 
 ```arduino
 /*
    BLE blinky example
-*/
+ */
 
 bool btn_notification_enabled = false;
-bool btn_state_changed = false;
-uint8_t btn_state = LOW;
+volatile bool btn_state_changed = false;
+volatile uint8_t btn_state = LOW;
 static void btn_state_change_callback();
 static void send_button_state_notification();
 static void set_led_on(bool state);
@@ -998,7 +1000,7 @@ static void send_button_state_notification()
   }
   sl_status_t sc = sl_bt_gatt_server_notify_all(btn_report_characteristic_handle,
                                                 sizeof(btn_state),
-                                                &btn_state);
+                                                (const uint8_t*)&btn_state);
   if (sc == SL_STATUS_OK) {
     Serial.print("Notification sent, button state: ");
     Serial.println(btn_state);
@@ -1169,14 +1171,14 @@ The `ble_initialize_gatt_db()` function is responsible for:
 
 ***Note that if you want to implement a different or custom Bluetooth® Low Energy service or characteristic, the UUID arrays have to start with the least significant bit (LSB) from left to right.***
 
-After uploading the sketch to the Nano Matter, it is time to communicate with it through Bluetooth® Low Energy. For this, Silicon Labs has developed a **mobile app** that you can download from here:
+After uploading the sketch to the Nano Matter, it is time to communicate with it via Bluetooth® Low Energy. For this, Silicon Labs has developed a **mobile app** that you can download from here:
 
 - [Android](https://play.google.com/store/apps/details?id=com.siliconlabs.bledemo)
 - [iOS](https://itunes.apple.com/us/app/silicon-labs-blue-gecko-wstk/id1030932759)
 
-Open the *EFR Connect BLE Mobile APP* on your smartphone, in the lower menu, navigate to **Demo** and select **Blinky**:
+Open the **Simplicity Connect** app on your smartphone, in the lower menu, navigate to **Demo** and select **Blinky**:
 
-![Blinky demo controlling the Nano Matter through Bluetooth® Low Energy](assets/BlinkyBLE.gif)
+![Blinky demo controlling the Nano Matter via Bluetooth® Low Energy](assets/BlinkyBLE.gif)
 
 ***You can also manage the LED control and button status manually from the Scan tab in the lower menu.***
 
@@ -1186,7 +1188,7 @@ Open the *EFR Connect BLE Mobile APP* on your smartphone, in the lower menu, nav
 
 The Nano Matter includes an onboard **push button** that can be used as an input by the user. The button is connected to the GPIO `PA0` and can be read using the `BTN_BUILTIN` macro.
 
-![Nano Matter Built-in Push Button](assets/button.png)
+![Nano Matter Built-in Push Button](assets/button-2.png)
 
 The button pulls the input to the ground when pressed, so is important to define the **pull-up resistor** to avoid undesired behavior by leaving the input floating.
 
@@ -1238,7 +1240,7 @@ The Nano Matter features a built-in RGB LED that can be a visual feedback indica
 
 ***The RGB LED colors are activated with zeros, this means that you need to set to LOW the color segment you want to turn on.***
 
-![Built-in RGB LED](assets/rgb-led.png)
+![Built-in RGB LED](assets/rgb-led-2.png)
 
 
 Here you can find a complete example code to blink the built-in RGB LED of the Nano Matter:
