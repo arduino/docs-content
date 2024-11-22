@@ -17,6 +17,7 @@ In this tutorial, you will learn the different methods to update your Portenta X
 
 ## Goals
 
+- Learn how to update your Portenta X8 from the Linux Wizard
 - Understand how to download and organize the required files for the flashing process
 - Learn how to set up the correct structure of the image files
 - Learn how to configure the board to enter programming mode
