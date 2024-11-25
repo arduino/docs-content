@@ -558,6 +558,136 @@ int servoMove(int angle) {
 }
 ```
 
+### RTC RPC
+
+This example demonstrates how the RTC can be accessed from the M4:
+
+Each example is written as a **single sketch** intended to be uploaded to **both cores**.
+
+**M4 sketch:**
+```arduino
+#include "mbed.h"
+#include <mbed_mktime.h>
+#include "RPC.h"
+
+constexpr unsigned long printInterval { 1000 };
+unsigned long printNow {};
+
+void setup() {
+    RPC.begin();
+    if (RPC.cpu_id() == CM7_CPUID) {
+      Serial.begin(19200);
+      while (!Serial) {
+        ; // Wait for Serial (USB) connection
+      }
+      Serial.println("M7: Serial connection initiated");
+    } else {
+      //RTCset()  //Uncomment if you need to set the RTC for the first time.
+      RPC.println("M4: Reading the RTC.");
+    }
+}
+
+void loop() {
+    if (RPC.cpu_id() == CM7_CPUID) {
+      if (RPC.available()) {
+        char incomingByte = RPC.read();  // Read byte from RPC
+        Serial.write(incomingByte);  // Forward the byte to Serial (USB)
+      }
+    }
+    else
+    {
+        if (millis() > printNow) {
+        RPC.print("M4 System Clock: ");
+        RPC.println(getLocaltime());
+        printNow = millis() + printInterval;
+      } 
+    }
+}
+
+String getLocaltime()
+{
+    char buffer[32];
+    tm t;
+    _rtc_localtime(time(NULL), &t, RTC_4_YEAR_LEAP_YEAR_SUPPORT);
+    strftime(buffer, 32, "%Y-%m-%d %k:%M:%S", &t);
+    return String(buffer);
+}
+
+void RTCset()  // Set cpu RTC
+{    
+  tm t;
+            t.tm_sec = (0);       // 0-59
+            t.tm_min = (58);        // 0-59
+            t.tm_hour = (11);         // 0-23
+            t.tm_mday = (1);   // 1-31
+            t.tm_mon = (9);       // 0-11  "0" = Jan, -1 
+            t.tm_year = ((24)+100);   // year since 1900,  current year + 100 + 1900 = correct year
+            set_time(mktime(&t));       // set RTC clock                                 
+}
+```
+
+**M7 sketch:**
+```arduino
+#include "mbed.h"
+#include <mbed_mktime.h>
+#include "RPC.h"
+
+constexpr unsigned long printInterval { 1000 };
+unsigned long printNow {};
+
+void setup() {
+    RPC.begin();
+    if (RPC.cpu_id() == CM7_CPUID) {
+      Serial.begin(19200);
+      while (!Serial) {
+        ; // Wait for Serial (USB) connection
+      }
+      Serial.println("M7: Serial connection initiated");
+    } else {
+      //RTCset()  //Uncomment if you need to set the RTC for the first time.
+      RPC.println("M4: Reading the RTC.");
+    }
+}
+
+void loop() {
+    if (RPC.cpu_id() == CM7_CPUID) {
+      if (RPC.available()) {
+        char incomingByte = RPC.read();  // Read byte from RPC
+        Serial.write(incomingByte);  // Forward the byte to Serial (USB)
+      }
+    }
+    else
+    {
+        if (millis() > printNow) {
+        RPC.print("M4 System Clock: ");
+        RPC.println(getLocaltime());
+        printNow = millis() + printInterval;
+      } 
+    }
+}
+
+String getLocaltime()
+{
+    char buffer[32];
+    tm t;
+    _rtc_localtime(time(NULL), &t, RTC_4_YEAR_LEAP_YEAR_SUPPORT);
+    strftime(buffer, 32, "%Y-%m-%d %k:%M:%S", &t);
+    return String(buffer);
+}
+
+void RTCset()  // Set cpu RTC
+{    
+  tm t;
+            t.tm_sec = (0);       // 0-59
+            t.tm_min = (58);        // 0-59
+            t.tm_hour = (11);         // 0-23
+            t.tm_mday = (1);   // 1-31
+            t.tm_mon = (9);       // 0-11  "0" = Jan, -1 
+            t.tm_year = ((24)+100);   // year since 1900,  current year + 100 + 1900 = correct year
+            set_time(mktime(&t));       // set RTC clock                                 
+}
+```
+
 ### MicroPython RPC LED
 
 This example demonstrates how to use MicroPython (running on the M7 core) to remotely control an LED from the M4 core.
