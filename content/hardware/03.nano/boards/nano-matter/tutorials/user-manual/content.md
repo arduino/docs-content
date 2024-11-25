@@ -1174,7 +1174,7 @@ After uploading the sketch to the Nano Matter, it is time to communicate with it
 
 Open the **Simplicity Connect** app on your smartphone, in the lower menu, navigate to **Demo** and select **Blinky**:
 
-![Blinky demo controlling the Nano Matter via Bluetooth® Low Energy](assets/BlinkyBLE.gif)
+![Blinky demo controlling the Nano Matter via Bluetooth® Low Energy](assets/ble-blinky.gif)
 
 ***You can also manage the LED control and button status manually from the Scan tab in the lower menu.***
 
