@@ -22,7 +22,7 @@ software:
 
 This user manual will guide you through a practical journey covering the most interesting features of the Arduino Nano Matter. With this user manual, you will learn how to set up, configure and use this Arduino board.
 
-![RGB Lightbulb with Nano Matter](assets/matter-google.gif)
+![RGB Lightbulb with Nano Matter](assets/google-matter.gif)
 
 ## The Community Preview
 
@@ -377,7 +377,7 @@ Then, wait for the device to be commissioned and added to the Google Home app:
 
 Finally, you will be able to control the Nano Matter built-in RGB LED as a native smart device. You can turn it on and off and control its color and brightness.
 
-![RGB Lightbulb with Nano Matter](assets/matter-google.gif)
+![RGB Lightbulb with Nano Matter](assets/google-matter.gif)
 
 You are also able to control your device using voice commands with your personal assistant.
 
