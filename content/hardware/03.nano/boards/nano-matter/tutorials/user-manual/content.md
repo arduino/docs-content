@@ -437,7 +437,7 @@ Then, follow the steps for adding and naming the Matter Light bulb:
 
 Finally, you will be able to control the Nano Matter built-in RGB LED as a native smart device. You can turn it on and off and control its color and brightness.
 
-![RGB Lightbulb with Nano Matter](assets/apple.gif)
+![RGB Lightbulb with Nano Matter](assets/apple-matter.gif)
 
 You are also able to control your device using voice commands with your personal assistant.
 
@@ -473,7 +473,7 @@ Finally, you will be able to control the Nano Matter built-in RGB LED as a nativ
 
 You can use the Home Assistant web view or mobile app to control your device.
 
-![RGB Lightbulb with Nano Matter](assets/ha.gif)
+![RGB Lightbulb with Nano Matter](assets/ha-matter.gif)
 
 If you want to commission your Nano Matter solution with another service, follow the steps in the [decommissioning](#device-decommissioning) section.
 
