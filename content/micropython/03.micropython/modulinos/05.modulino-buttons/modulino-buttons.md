@@ -31,7 +31,7 @@ We will also need the following software:
 
 Before we start programming, we will need to connect our Modulino Buttons to our Arduino board. For this we can follow the circuit diagram below:
 
-![Circuit Diagram]()
+![Circuit Diagram](./assets/CIRCUIT-BREAKOUT.png)
 
 ## Modulino Buttons Code Example
 
@@ -64,3 +64,10 @@ while True:
       led_c_status = buttons.is_pressed(2) # Turn LED C on if button C is pressed
       buttons.set_led_status(led_a_status, led_b_status, led_c_status)
 ````
+## How it works
+
+The Modulino Buttons is a three-button module, each button capable of having a HIGH or LOW state. Additionally, this Modulino has 3 yellow LEDs which can also be controlled independently.
+
+The button is used in pretty much every electronic circuit, as it is the easiest way to switch between states! The most common example is a light switch, where a button press activates a light.
+
+![REPL](./assets/how-it-works.gif)

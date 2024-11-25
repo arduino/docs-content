@@ -30,7 +30,7 @@ We will also need the following software:
 
 Before we start programming, we will need to connect our Modulino Thermo to our Arduino board. For this we can follow the circuit diagram below:
 
-![Circuit Diagram]()
+![Circuit Diagram](./assets/CIRCUIT-BREAKOUT.png)
 
 ## Modulino Thermo Code Example
 
@@ -53,3 +53,9 @@ while True:
         
     sleep(2)
 ````
+
+## How it works
+
+The Modulino Thermo can read both the temperature and humidity around you. This is a great component when you want to track the changes in indoor environments.
+
+![How it works](./assets/how-it-works.gif)

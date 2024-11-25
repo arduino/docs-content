@@ -30,7 +30,7 @@ We will also need the following software:
 
 Before we start programming, we will need to connect our Modulino Knob to our Arduino board. For this we can follow the circuit diagram below:
 
-![Circuit Diagram]()
+![Circuit Diagram](./assets/CIRCUIT-BREAKOUT.png)
 
 ## Modulino Knob Code Example
 
@@ -55,3 +55,15 @@ while True:
 
     sleep(0.1)
 ````
+
+## How it works
+
+The Modulino Knob is a rotary encoder that increases, or decreases, a number based on which direction it is rotating.
+
+When the knob moves into a new position, it sends a signal to the Arduino board with the new position.
+
+Turning it right increases the number (for example from 1 to 2).
+Turning it left decreases the number (for example from 2 to 1)
+Clicking it will also register a button click (HIGH on click).
+
+![REPL](./assets/how-it-works.gif)
