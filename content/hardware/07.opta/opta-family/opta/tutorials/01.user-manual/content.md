@@ -1798,6 +1798,8 @@ The following clip shows the complete process of updating multiple attached Opta
 
 ![Multiple firmware update process](assets/fw-update-process-multi.gif)
 
+Once the update is complete, all Opta Expansions will have the latest firmware version.
+
 ### General Library Notes
 
 This section aims to clarify some recommendations for your programming experience to be as smooth as possible in your solution-developing process. 
