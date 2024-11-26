@@ -1,9 +1,10 @@
 ---
 title: Nano RP2040 Connect
 description: Learn how to use specific features on the Nano RP2040 Connect using MicroPython
+author: Karl Söderby
 ---
 
-![Nano RP2040 Connect]()
+![Nano RP2040 Connect](assets/rp-2040.png)
 
 In this guide, you will find information specific to the [Nano RP2040 Connect board](), such as supported serial protocols and built-in sensors that can be accessed.
 
@@ -14,7 +15,7 @@ For installation instructions, please visit the link below.
 
 The pinout for the Nano RP2040 Connect can be found in the image below.
 
-![Nano RP2040 Connect Pinout]()
+![Nano RP2040 Connect Pinout](assets/ABX00053-pinout.png)
 
 ***For more details on this product, visit the [hardware product page](/hardware/nano-rp2040-connect/).***
 
@@ -28,15 +29,38 @@ The Nano RP2040 Connect has a number of board-specific features that can be acce
 
 ### RGB LED
 
-To use the RGB pixel, we can control it by using the `X`, `Y` and `Z` pins. Below is an example that will blink the main colors in sequence:
+To use the RGB pixel, we can control it by using the `1`, `2` and `3` pins. Below is an example that will blink the main colors in sequence:
 
 ```python
-# code example RGB
+from board import LED
+import time 
+
+led_red = LED(1)
+led_green = LED(2)
+led_blue = LED(3)
+
+while (True):
+   
+    # Turn on LEDs
+    led_red.on()
+    led_green.on()
+    led_blue.on()
+
+    # Wait 0.25 seconds
+    time.sleep_ms(250)
+    
+    # Turn off LEDs
+    led_red.off()
+    led_green.off()
+    led_blue.off()
+
+    # Wait 0.25 seconds
+    time.sleep_ms(250)
 ```
 
 ### Microphone (MP34DT05)
 
-The Nano RP2040 Connect has a built-in microphone, that can be used through the OpenMV editor. To use it, you will need to install [OpenMV]() and run the following script.
+The Nano RP2040 Connect has a built-in microphone, that can be used through the OpenMV editor. To use it, you will need to install [OpenMV](https://openmv.io/pages/download) and run the following script.
 
 ```python
 import image, audio, time
@@ -135,7 +159,13 @@ The Nano RP2040 Connect supports **I2C**, **UART** and **SPI**. Below you will f
 The I2C bus on the Nano RP2040 Connect is available through the **A4/A5** pins. Below is an example for how to use it:
 
 ```python
+from machine import Pin, I2C
 
+# Initialize I2C with SCL on A5 and SDA on A4
+i2c = I2C(0, scl=Pin(5), sda=Pin(4))
+devices = i2c.scan()
+
+print("I2C devices found:", devices)
 ```
 
 ***Read more about I2C in [this article]().***
@@ -145,7 +175,15 @@ The I2C bus on the Nano RP2040 Connect is available through the **A4/A5** pins. 
 The Nano RP2040 Connect supports **UART** through the **D0/D1** pins. Below is an example for how to use it:
 
 ```python
+from machine import UART
 
+# Initialize UART on pins 16 (TX) and 17 (RX)
+uart = UART(1, baudrate=9600, tx=16, rx=17)
+
+# Send and receive data
+uart.write("Hello from Nano ESP32!")
+data = uart.read()
+print("Received:", data)
 ```
 
 ***Read more about SPI in [this article]().***
@@ -161,13 +199,12 @@ The Nano RP2040 Connect supports **SPI** through the following pins:
 Below is an example for how to use it:
 
 ```python
+from machine import Pin, SPI
 
+# Initialize SPI with SCK on pin 18, MOSI on pin 23, and MISO on pin 19
+spi = SPI(1, baudrate=1000000, polarity=0, phase=0, sck=Pin(18), mosi=Pin(23), miso=Pin(19))
+
+print("SPI initialized")
 ```
 
 ***Read more about UART in [this article]().***
-
-## Wireless 
-
-The Nano RP2040 Connect has a radio module that supports Wi-Fi® and Bluetooth®. To find examples, please visit the links below:
-- [MicroPython - Bluetooth® documentation]()
-- [MicroPython - Wi-Fi® documentation]()
