@@ -211,7 +211,7 @@ In this example:
 
 In MicroPython, exceptions are a powerful way to deal with errors gracefully, ensuring your program doesn’t crash unexpectedly. By catching and handling exceptions, you can recover or retry alternative solutions.
 
-Are we covering exceptions just because it is good practice? **No.** Albeit they may appear scary, exceptions are all bark and no bite. They use logic we are already familiar with, just in a slightly different format, and once you master them, they make debugging your code a breeze making it a very usefull bark.
+Exceptions use logic we are already familiar with, just in a slightly different format, and contribute to making more foolproof code.
 
 ### Basic Structure
 
