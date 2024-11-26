@@ -1211,6 +1211,129 @@ You should be able now to connect to your Opta™ using a central device. The Bl
 
 ![Bluetooth® Low Energy service and characteristic information from an Opta™ device](assets/user-manual-14.png)
 
+## OPC Unified Architecture (OPC UA)
+
+This section explains using the [**OPC UA library**](https://github.com/arduino-libraries/Arduino_OPC_UA) designed for Opta. The library is based on the [**Fraunhofer open62541**](https://github.com/open62541/open62541) implementation of [**OPC UA**](https://en.wikipedia.org/wiki/OPC_Unified_Architecture), tailored specifically for the Opta family.
+
+The [**OPC Unified Architecture (OPC UA)**](https://en.wikipedia.org/wiki/OPC_Unified_Architecture) is an industrial communication protocol widely used in automation and Industrial Internet of Things (IIoT) systems. It provides a platform-independent and secure method for exchanging information between devices and systems. **OPC UA** supports features like custom data modeling, authentication, encryption, and scalable architecture, making it a preferred choice for modern industrial applications.
+
+The [**open62541** library](https://github.com/open62541/open62541) is an open-source implementation of the **OPC UA** standard. It is lightweight, efficient, and written in C, making it ideal for embedded systems like the Opta. The library provides a flexible framework to create **OPC UA** servers and clients, ensuring compatibility with the standard while maintaining high performance.
+
+The [**OPC UA library**](https://github.com/arduino-libraries/Arduino_OPC_UA) supports secure communication and interoperability for industrial automation applications, with the capability to automatically detect, configure, and expose up to two Arduino Opta Expansion Boards via **OPC UA**. Supported expansion boards include:
+
+- Digital Expansion with mechanical relays (D1608E)
+- Digital Expansion with solid-state relays (D1608S)
+- Analog Expansion (A0602)
+
+### Setting up the OPC UA Server
+
+To set up the **OPC UA** server, upload the [**`opta_opcua_server`** example](https://github.com/arduino-libraries/Arduino_OPC_UA/blob/main/examples/opta_opcua_server/opta_opcua_server.ino) to your Opta. This can be done using the Arduino IDE or the Arduino CLI tool with the command:
+
+![Successful Compilation with Arduino IDE](assets/arduino-ide-compilation.png)
+
+```bash
+arduino-cli compile --fqbn arduino:mbed_opta:opta -v examples/opta_opcua_server -u -p /dev/ttyACM0
+```
+
+![Successful Compilation with Arduino CLI](assets/arduino-cli-compilation-upload.png)
+
+***If you are not familiar with the __Arduino CLI tool__, you can refer to the getting started found [here](https://arduino.github.io/arduino-cli/1.1/getting-started/).***
+
+Next, connect the Opta to a network using its Ethernet port, ensuring that the network has a DHCP-enabled router or switch to assign an IP address to the device.
+
+Open a serial monitor to verify the status of the server and retrieve the device’s IP address. The output will include information about the server, including its discovery URL. Use the following command to view the serial output:
+
+```bash
+cat /dev/ttyACM0
+```
+
+You should see output similar to the following:
+
+```bash
+[2024-06-21 02:30:19.000 (UTC+0000)] info/eventloop    Starting the EventLoop
+[2024-06-21 02:30:19.000 (UTC+0000)] warn/server       AccessControl: Unconfigured AccessControl. Users have all permissions.
+[2024-06-21 02:30:19.000 (UTC+0000)] info/server       AccessControl: Anonymous login is enabled
+[2024-06-21 02:30:19.000 (UTC+0000)] warn/server       x509 Certificate Authentication configured, but no encrypting SecurityPolicy. This can leak credentials on the network.
+[2024-06-21 02:30:19.000 (UTC+0000)] info/server       Arduino Opta IP: 192.168.8.137
+[2024-06-21 02:30:19.000 (UTC+0000)] info/server       Arduino Opta Variant: Arduino Opta WiFi
+[2024-06-21 02:30:19.000 (UTC+0000)] info/server       stack: size = 16384 | free = 14936 | used = 1448 | max = 5124
+[2024-06-21 02:30:19.000 (UTC+0000)] info/server       o1heap: capacity: 261984 | allocated: 66784 | peak_allocated: 68896
+[2024-06-21 02:30:19.000 (UTC+0000)] warn/server       Maximum SecureChannels count not enough for the maximum Sessions count
+[2024-06-21 02:30:19.000 (UTC+0000)] info/network      TCP   | Listening on all interfaces
+[2024-06-21 02:30:19.000 (UTC+0000)] info/network      TCP 604353888 | Creating listen socket for "127.0.0.1" (with local hostname "192.168.8.137") on port 4840
+[2024-06-21 02:30:19.000 (UTC+0000)] info/server       New DiscoveryUrl added: opc.tcp://192.168.8.137:4840
+```
+
+In this example, the output displays the IP address:
+
+```bash
+192.168.8.137
+```
+
+And indicate that the OPC UA server is running at:
+
+```bash
+opc.tcp://192.168.8.137:4840
+```
+
+### Connecting to the OPC UA Server
+
+Once the server is running, use any OPC UA-compatible client to connect to the server using the IP address and port printed in the serial monitor output. This allows you to explore and interact with the device and any attached expansion boards.
+
+### Using OPC UA GUI Client for Testing
+
+The **opcua-client-gui** tool can be used if you are interested in testing or further interaction. To install the tool, please use the following commands:
+
+```bash
+cd /tmp
+```
+
+```bash
+git clone https://github.com/FreeOpcUa/opcua-client-gui && cd opcua-client-gui
+```
+
+```bash
+python -m venv .venv
+```
+```bash
+source .venv/bin/activate
+```
+
+```bash
+python3 -m pip install --upgrade pyopenssl
+```
+
+```bash
+python3 -m pip install --upgrade .
+```
+
+Launch the GUI and use it to connect to the OPC UA server running on the Arduino Opta.
+
+### Detailed Memory Debugging
+
+Additional configuration is possible for developers requiring detailed debugging information about heap and stack memory usage. To enable this feature, the `mbed_app.json` configuration file should be modified to include memory and stack statistics macros. 
+
+Add the following macros to enable memory and stack statistics:
+
+```bash
+"target.macros_add": [
+  ...
++  "MBED_HEAP_STATS_ENABLED=1",
++  "MBED_STACK_STATS_ENABLED=1",
++  "MBED_MEM_TRACING_ENABLED=1"
+]
+```
+
+After making these changes, recompile the core library using the following commands:
+
+```bash
+cd ArduinoCore-mbed
+```
+
+```bash
+./mbed-os-to-arduino -a -g OPTA:OPTA
+```
+
 ## Interrupts
 
 **Opta's analog/digital programmable inputs and user-programmable button are interrupt-capable**. An interrupt is a signal that prompts Opta's microcontroller to stop its execution and start executing a special routine known as the Interrupt Service Routine (ISR). Once the ISR finishes, the microcontroller resumes executing its previous routine.
