@@ -1770,11 +1770,11 @@ Upload the program to the Opta™ controller and **open the Arduino IDE Serial M
 
 ***__Ensure the Arduino IDE Serial Monitor is open before starting the firmware update.__ The Opta™ controller will wait until the Serial Monitor is open, displays messages, and prompts you to confirm the update process manually.***
 
-![Firmware update process](assets/fw-update-serial.png)
+![Opening Serial Monitor for firmware update](assets/fw-update-serial.png)
 
 If your expansion is updatable, the Serial Monitor will display its current firmware and the new version that is available for the update.
 
-![Firmware version listing](assets/fw-update-serial-2.png)
+![Expansions firmware version listing](assets/fw-update-serial-2.png)
 
 Enter **`Y`** in the Serial Monitor's input field to confirm and begin the firmware update.
 
@@ -1786,7 +1786,7 @@ The following clip shows the complete process of updating the attached Opta Expa
 
 Once the update is complete, your Opta Expansion will have the latest firmware version.
 
-![Multiple expansions firmware version listing](assets/fw-update-serial-4.png)
+![Expansion firmware version up-to-date](assets/fw-update-serial-4.png)
 
 If you have multiple Opta Expansions connected, the process remains the same. The Serial Monitor will detect and display the current firmware versions for all attached expansions, and updates will be applied where available.
 
