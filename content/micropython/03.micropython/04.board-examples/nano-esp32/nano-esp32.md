@@ -3,7 +3,7 @@ title: Nano ESP32
 description: Learn how to use specific features on the Nano ESP32 using MicroPython  
 ---
 
-![Nano ESP32](./assets/nano-esp32.png)
+![Nano ESP32](./assets/esp32.png)
 
 In this guide, you will find information specific to the [Nano ESP32 board](https://store.arduino.cc/products/nano-esp32), such as supported serial protocols, built-in sensors, and how to access the wireless features.
 
@@ -14,7 +14,7 @@ For installation instructions, please visit the link below:
 
 The pinout for the Nano ESP32 can be found in the image below.
 
-![Nano ESP32 Pinout](./assets/nano-esp32-pinout.png)
+![Nano ESP32 Pinout](./assets/ABX00083-pinout.png)
 
 ***For more details on this product, visit the [hardware product page](/hardware/nano-esp32/).***
 

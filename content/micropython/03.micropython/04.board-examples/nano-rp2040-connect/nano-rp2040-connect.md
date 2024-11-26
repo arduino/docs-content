@@ -36,7 +36,7 @@ To use the RGB pixel, we can control it by using the `X`, `Y` and `Z` pins. Belo
 
 ### Microphone (MP34DT05)
 
-The Nano RP2040 Connect has a built-in microphone, that can be used through the OpenMV editor. To use it, you will need to install [OpenMV]() and run the following script.
+The Nano RP2040 Connect has a built-in microphone, that can be used through the OpenMV editor. To use it, you will need to install [OpenMV](https://openmv.io/pages/download) and run the following script.
 
 ```python
 import image, audio, time
@@ -135,7 +135,13 @@ The Nano RP2040 Connect supports **I2C**, **UART** and **SPI**. Below you will f
 The I2C bus on the Nano RP2040 Connect is available through the **A4/A5** pins. Below is an example for how to use it:
 
 ```python
+from machine import Pin, I2C
 
+# Initialize I2C with SCL on A5 and SDA on A4
+i2c = I2C(0, scl=Pin(5), sda=Pin(4))
+devices = i2c.scan()
+
+print("I2C devices found:", devices)
 ```
 
 ***Read more about I2C in [this article]().***
@@ -145,7 +151,15 @@ The I2C bus on the Nano RP2040 Connect is available through the **A4/A5** pins. 
 The Nano RP2040 Connect supports **UART** through the **D0/D1** pins. Below is an example for how to use it:
 
 ```python
+from machine import UART
 
+# Initialize UART on pins 16 (TX) and 17 (RX)
+uart = UART(1, baudrate=9600, tx=16, rx=17)
+
+# Send and receive data
+uart.write("Hello from Nano ESP32!")
+data = uart.read()
+print("Received:", data)
 ```
 
 ***Read more about SPI in [this article]().***
@@ -161,13 +175,12 @@ The Nano RP2040 Connect supports **SPI** through the following pins:
 Below is an example for how to use it:
 
 ```python
+from machine import Pin, SPI
 
+# Initialize SPI with SCK on pin 18, MOSI on pin 23, and MISO on pin 19
+spi = SPI(1, baudrate=1000000, polarity=0, phase=0, sck=Pin(18), mosi=Pin(23), miso=Pin(19))
+
+print("SPI initialized")
 ```
 
 ***Read more about UART in [this article]().***
-
-## Wireless 
-
-The Nano RP2040 Connect has a radio module that supports Wi-Fi® and Bluetooth®. To find examples, please visit the links below:
-- [MicroPython - Bluetooth® documentation]()
-- [MicroPython - Wi-Fi® documentation]()

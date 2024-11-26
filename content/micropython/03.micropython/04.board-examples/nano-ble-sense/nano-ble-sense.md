@@ -3,7 +3,7 @@ title: Nano BLE Sense
 description: Learn how to use specific features on the Nano BLE Sense using MicroPython
 ---
 
-![Nano BLE Sense]()
+![Nano BLE Sense](assets/ble-sense.png)
 
 In this guide, you will find information specific to the [Nano BLE Sense board](), such as supported serial protocols and built-in sensors that can be accessed.
 
@@ -287,7 +287,13 @@ The Nano BLE Sense supports **I2C**, **UART** and **SPI**. Below you will find e
 The I2C bus on the Nano BLE Sense is available through the **A4/A5** pins. Below is an example for how to use it:
 
 ```python
+from machine import Pin, I2C
 
+# Initialize I2C with SCL on A5 and SDA on A4
+i2c = I2C(0, scl=Pin(5), sda=Pin(4))
+devices = i2c.scan()
+
+print("I2C devices found:", devices)
 ```
 
 ***Read more about I2C in [this article]().***
@@ -297,7 +303,15 @@ The I2C bus on the Nano BLE Sense is available through the **A4/A5** pins. Below
 The Nano BLE Sense supports **UART** through the **D0/D1** pins. Below is an example for how to use it:
 
 ```python
+from machine import UART
 
+# Initialize UART on pins 16 (TX) and 17 (RX)
+uart = UART(1, baudrate=9600, tx=16, rx=17)
+
+# Send and receive data
+uart.write("Hello from Nano BLE Sense!")
+data = uart.read()
+print("Received:", data)
 ```
 
 ***Read more about SPI in [this article]().***
@@ -313,13 +327,12 @@ The Nano BLE Sense supports **SPI** through the following pins:
 Below is an example for how to use it:
 
 ```python
+from machine import Pin, SPI
 
+# Initialize SPI with SCK on pin 18, MOSI on pin 23, and MISO on pin 19
+spi = SPI(1, baudrate=1000000, polarity=0, phase=0, sck=Pin(18), mosi=Pin(23), miso=Pin(19))
+
+print("SPI initialized")
 ```
 
 ***Read more about UART in [this article]().***
-
-## Wireless 
-
-The Nano BLE Sense has a radio module that supports Wi-Fi® and Bluetooth®. To find examples, please visit the links below:
-- [MicroPython - Bluetooth® documentation]()
-- [MicroPython - Wi-Fi® documentation]()
