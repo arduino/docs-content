@@ -30,7 +30,7 @@ We will also need the following software:
 
 Before we start programming, we will need to connect our Modulino Movement to our Arduino board. For this we can follow the circuit diagram below:
 
-![Circuit Diagram]()
+![Circuit Diagram](./assets/CIRCUIT-BREAKOUT.png)
 
 ## Modulino Movement Code Example
 
@@ -48,3 +48,11 @@ while True:
     print("")
     sleep_ms(100)
 ````
+
+## How it works
+
+The Modulino Movement can measure acceleration, which means it measures the rate of change of velocity of an object in terms of its linear acceleration along multiple axes.
+
+The Modulino Movement can, in other words, detect when something moves, and how fast it moves. It is a sensitive sensor that can also measure vibration.
+
+![How it works](./assets/how-it-works.gif)

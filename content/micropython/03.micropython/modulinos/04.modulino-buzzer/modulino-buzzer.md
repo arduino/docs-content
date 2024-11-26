@@ -30,7 +30,7 @@ We will also need the following software:
 
 Before we start programming, we will need to connect our Modulino Buzzer to our Arduino board. For this we can follow the circuit diagram below:
 
-![Circuit Diagram]()
+![Circuit Diagram](./assets/CIRCUIT-BREAKOUT.png)
 
 ## Modulino Buzzer Code Example
 
@@ -92,3 +92,11 @@ siren_melody = generate_siren(440, 880, 4000, 200, 2)
 for note, duration in siren_melody:
     buzzer.tone(note, duration, blocking=True)
 ```
+
+## How it works
+
+The Modulino Buzzer is a tiny speaker that can output sound waves.
+
+The speaker is called a "piezo", which comes from piezoelectricity. When you apply voltage to the speaker with a specific frequency, you generate a specific sound. Changing the frequency will change the tone of the speaker.
+
+![How it wors]()

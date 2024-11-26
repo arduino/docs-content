@@ -30,7 +30,7 @@ We will also need the following software:
 
 Before we start programming, we will need to connect our Modulino Pixels to our Arduino board. For this we can follow the circuit diagram below:
 
-![Circuit Diagram]()
+![Circuit Diagram](./assets/CIRCUIT-BREAKOUT.png)
 
 ## Modulino Pixels Code Example
 
@@ -89,3 +89,9 @@ for j in range(0, 3):
 pixels.clear_all()    
 pixels.show()
 ```
+
+## How it works
+
+The Modulino Pixels is a series of addressable RGB LEDs. These can be controlled by setting the brightness or the color of each LED.
+
+![LED Animation]()
