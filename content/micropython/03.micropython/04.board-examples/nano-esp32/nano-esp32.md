@@ -1,6 +1,7 @@
 ---
 title: Nano ESP32  
-description: Learn how to use specific features on the Nano ESP32 using MicroPython  
+description: Learn how to use specific features on the Nano ESP32 using MicroPython
+author: Pedro Lima
 ---
 
 ![Nano ESP32](./assets/esp32.png)

@@ -1,9 +1,10 @@
 ---
 title: Nano RP2040 Connect
 description: Learn how to use specific features on the Nano RP2040 Connect using MicroPython
+author: Karl Söderby
 ---
 
-![Nano RP2040 Connect]()
+![Nano RP2040 Connect](assets/rp-2040.png)
 
 In this guide, you will find information specific to the [Nano RP2040 Connect board](), such as supported serial protocols and built-in sensors that can be accessed.
 
@@ -14,7 +15,7 @@ For installation instructions, please visit the link below.
 
 The pinout for the Nano RP2040 Connect can be found in the image below.
 
-![Nano RP2040 Connect Pinout]()
+![Nano RP2040 Connect Pinout](assets/ABX00053-pinout.png)
 
 ***For more details on this product, visit the [hardware product page](/hardware/nano-rp2040-connect/).***
 
@@ -28,10 +29,33 @@ The Nano RP2040 Connect has a number of board-specific features that can be acce
 
 ### RGB LED
 
-To use the RGB pixel, we can control it by using the `X`, `Y` and `Z` pins. Below is an example that will blink the main colors in sequence:
+To use the RGB pixel, we can control it by using the `1`, `2` and `3` pins. Below is an example that will blink the main colors in sequence:
 
 ```python
-# code example RGB
+from board import LED
+import time 
+
+led_red = LED(1)
+led_green = LED(2)
+led_blue = LED(3)
+
+while (True):
+   
+    # Turn on LEDs
+    led_red.on()
+    led_green.on()
+    led_blue.on()
+
+    # Wait 0.25 seconds
+    time.sleep_ms(250)
+    
+    # Turn off LEDs
+    led_red.off()
+    led_green.off()
+    led_blue.off()
+
+    # Wait 0.25 seconds
+    time.sleep_ms(250)
 ```
 
 ### Microphone (MP34DT05)

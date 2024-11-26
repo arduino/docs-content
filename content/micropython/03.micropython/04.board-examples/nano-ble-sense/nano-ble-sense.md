@@ -1,6 +1,7 @@
 ---
 title: Nano BLE Sense
 description: Learn how to use specific features on the Nano BLE Sense using MicroPython
+author: Karl Söderby
 ---
 
 ![Nano BLE Sense](assets/ble-sense.png)
