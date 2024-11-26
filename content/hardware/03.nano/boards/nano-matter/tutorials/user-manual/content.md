@@ -825,11 +825,13 @@ With this done, Home Assistant should be forwarding the Nano Matter sensor data 
 
 ## Bluetooth® Low Energy
 
+### Silicon Labs BLE
+
 To enable Bluetooth® Low Energy communication on the Nano Matter, you must enable the "BLE" protocol stack in the Arduino IDE board configurations. 
 
 In the upper menu, navigate to **Tools > Protocol stack** and select **BLE(Silabs)**.
 
-![Enable "BLE" Protocol Stack](assets/ble-setup-2.png)
+![Enable "BLE(Silabs)" Protocol Stack](assets/ble-setup-2.png)
 
 For this Bluetooth® Low Energy application example, we are going to control the Nano Matter built-in LED and read the onboard button status. The example sketch to be used can be found in **File > Examples > Silicon Labs > ble_blinky**:
 
@@ -1176,7 +1178,134 @@ Open the **Simplicity Connect** app on your smartphone, in the lower menu, navig
 
 ![Blinky demo controlling the Nano Matter via Bluetooth® Low Energy](assets/ble-blinky.gif)
 
-***You can also manage the LED control and button status manually from the Scan tab in the lower menu.***
+### Arduino BLE
+
+Now let's do the same but using the `ArduinoBLE` library.
+
+In the upper menu, navigate to **Tools > Protocol stack** and select **BLE(Arduino)**.
+
+![Enable "BLE(Arduino)" Protocol Stack](assets/ble-setup-3.png)
+
+For this Bluetooth® Low Energy application example, we are going to control the Nano Matter built-in LED and read the onboard button status, everything from the **Simplicity Connect** app.
+
+```arduino
+#include <ArduinoBLE.h>
+
+BLEService ledService("de8a5aac-a99b-c315-0c80-60d4cbb51224");  // Bluetooth® Low Energy LED Service
+
+// Bluetooth® Low Energy LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+BLEByteCharacteristic ledCharacteristic("5b026510-4088-c297-46d8-be6c736a087a", BLERead | BLEWrite);
+
+// Bluetooth® Low Energy Push Button Characteristic - custom 128-bit UUID, read and notify by central
+BLEByteCharacteristic switchCharacteristic("61a885a4-41c3-60d0-9a53-6d652a70d29c", BLERead | BLENotify);
+
+const int ledPin = LED_BUILTIN;  // pin to use for the LED
+volatile bool btn_state_changed = false;
+volatile uint8_t btn_state = LOW;
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial)
+    ;
+
+  // set LED pin to output mode
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, HIGH);
+
+  pinMode(BTN_BUILTIN, INPUT_PULLUP);
+  attachInterrupt(BTN_BUILTIN, &btn_handle, CHANGE);
+
+  // begin initialization
+  if (!BLE.begin()) {
+    Serial.println("starting Bluetooth® Low Energy module failed!");
+
+    while (1)
+      ;
+  }
+
+  // set advertised local name and service UUID:
+  BLE.setLocalName("Blinky Example");
+  BLE.setAdvertisedService(ledService);
+
+  // add the characteristic to the service
+  ledService.addCharacteristic(ledCharacteristic);
+  ledService.addCharacteristic(switchCharacteristic);
+
+  // add service
+  BLE.addService(ledService);
+
+  // set the initial value for the characeristic:
+  ledCharacteristic.writeValue(0);
+  switchCharacteristic.writeValue(0);
+
+  // start advertising
+  BLE.advertise();
+
+  Serial.println("BLE LED Peripheral");
+}
+
+void loop() {
+  // listen for Bluetooth® Low Energy peripherals to connect:
+  BLEDevice central = BLE.central();
+
+  // if a central is connected to peripheral:
+  if (central) {
+    Serial.print("Connected to central: ");
+    // print the central's MAC address:
+    Serial.println(central.address());
+
+    // while the central is still connected to peripheral:
+    while (central.connected()) {
+      // if the remote device wrote to the characteristic,
+      // use the value to control the LED:
+      if (ledCharacteristic.written()) {
+        if (ledCharacteristic.value()) {  // any value other than 0
+          Serial.println("LED on");
+          digitalWrite(ledPin, LOW);  // will turn the LED on
+        } else {                      // a 0 value
+          Serial.println(F("LED off"));
+          digitalWrite(ledPin, HIGH);  // will turn the LED off
+        }
+      }
+
+      if (btn_state_changed) {
+        // button state changed, update characteristics
+        btn_state_changed = false;
+        Serial.println("Button toggle");
+        switchCharacteristic.writeValue(btn_state);
+      }
+    }
+
+    // when the central disconnects, print it out:
+    Serial.print(F("Disconnected from central: "));
+    Serial.println(central.address());
+  }
+}
+
+/**************************************************************************/ /**
+ * Called on button state change - stores the current button state and
+ * sets a flag that a button state change occurred.
+ *****************************************************************************/
+static void btn_handle() {
+  // The real button state is inverted - most boards have an active low button configuration
+  btn_state = !digitalRead(BTN_BUILTIN);
+  btn_state_changed = true;
+}
+```
+
+As you can see, using the `ArduinoBLE` library makes everything easier and cleaner. We end up with a simple `setup()` and `loop()` sketch.
+
+- In the `setup()` function the board outputs and inputs are set and configured alongside the BLE service and characteristics.
+- In the `loop()` function we continuously ask if the peripheral is properly connected to a central and then start notifying the push button status and retrieving the app LED status.
+
+After uploading the sketch to the Nano Matter, it is time to communicate with it via Bluetooth® Low Energy. For this, Silicon Labs has developed a **mobile app** that you can download from here:
+
+- [Android](https://play.google.com/store/apps/details?id=com.siliconlabs.bledemo)
+- [iOS](https://itunes.apple.com/us/app/silicon-labs-blue-gecko-wstk/id1030932759)
+
+Open the **Simplicity Connect** app on your smartphone, in the lower menu, navigate to **Demo** and select **Blinky**:
+
+![Blinky demo controlling the Nano Matter via Bluetooth® Low Energy](assets/ble-blinky-3.gif)
 
 ## Onboard User Interface
 
