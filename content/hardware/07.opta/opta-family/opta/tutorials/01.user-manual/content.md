@@ -1760,17 +1760,19 @@ With the library properly installed, we will update the expansion firmware to en
 
 ![Powering the Opta Expansions](assets/power-expansion.png)
 
-***The expansions must be externally powered to be operated and detected by the Opta™ controller for the firmware update and normal operation. The Aux port does not provide power to the expansion.***
+***__The expansions must be externally powered__ to be operated and detected by the Opta™ controller for the firmware update and normal operation. __The Aux port does not provide power to the expansion__.***
 
 In the Arduino IDE, navigate to **File > Examples > Arduino_Opta_Blueprint > updateExpansionFw**.
 
 ![Firmware update example](assets/fw-update.png)
 
-Upload the program to the Opta™ controller and open the Arduino IDE Serial Monitor.
+Upload the program to the Opta™ controller and **open the Arduino IDE Serial Monitor before proceeding with the firmware update process**.
 
 ![Firmware update process](assets/fw-update-serial.png)
 
-If your expansion is updatable, in the Serial Monitor you will see its current firmware version and the new one to which it will be updated.
+***Ensure the Arduino IDE Serial Monitor is open before the firmware update starts. The Opta™ controller will not proceed with the update until the Serial Monitor is ready to display messages and accept input.***
+
+If your expansion is updatable, in the Serial Monitor, you will see its current firmware version and the new one, to which it will be updated.
 
 Type `Y` in the Serial Monitor to confirm the update and wait for it to be completed.
 
