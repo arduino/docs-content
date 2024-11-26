@@ -493,6 +493,8 @@ If you have a Matter device configured and working with a _specific platform_, f
 
 In simple terms, **decommissioning** refers to unpairing your device from a current service to be able to pair it with a new one.
 
+***Use the library built-in example found in __File > Examples > Matter > matter_decommission__.***
+
 You can integrate this method in your solutions to leverage the Nano Matter built-in button to handle decommissioning:
 
 ```arduino
