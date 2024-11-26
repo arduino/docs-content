@@ -1768,21 +1768,35 @@ In the Arduino IDE, navigate to **File > Examples > Arduino_Opta_Blueprint > upd
 
 Upload the program to the Opta™ controller and **open the Arduino IDE Serial Monitor to start the firmware update process**.
 
-***__Make sure the Arduino IDE Serial Monitor is open before beginning the firmware update.__ The Opta™ controller will not proceed with the firmware update until the Serial Monitor is ready to display messages and update procedure has been manually granted.***
+***__Make sure the Arduino IDE Serial Monitor is open before beginning the firmware update.__ The Opta™ controller will not proceed with the firmware update until the Serial Monitor is ready to display messages and prompt you to manually grant the update process.***
 
 ![Firmware update process](assets/fw-update-serial.png)
 
-If your expansion is updatable, in the Serial Monitor, you will see its current firmware version and the new one, to which it will be updated.
+If your expansion is updatable, the Serial Monitor will display its current firmware version and the new version available for the update.
 
 ![Firmware version listing](assets/fw-update-serial-2.png)
 
-Enter `Y` in the Message field of the Serial Monitor to allow starting the firmware update and wait for it to be completed.
+Enter **`Y`** in the Serial Monitor's input field to confirm and begin the firmware update.
 
-![Firmware update grant](assets/fw-update-serial-3.png)
+![Firmware update confirm](assets/fw-update-serial-3.png)
 
-The following clip shows how to update the attached Opta™ Expansion: 
+The following clip shows the complete process of updating the attached Opta Expansion:
 
-Finally, your Opta™ expansion will be updated with the latest firmware version.
+![Complete firmware update process](assets/fw-update-process.gif)
+
+Once the update is complete, your Opta Expansion will have the latest firmware version.
+
+![Multiple expansions firmware version listing](assets/fw-update-serial-4.png)
+
+If you have multiple Opta Expansions connected, the process remains the same. The Serial Monitor will detect and display the current firmware versions for all attached expansions, and updates will be applied where available.
+
+![Multiple expansions firmware version listing](assets/fw-update-serial-5.png)
+
+***The Opta™ controller module supports a maximum of __5 expansion modules__. Exceeding this limit may cause unexpected behavior. __Ensure no more than five modules are connected, and verify that the Aux connector and clips are securely installed__.***
+
+The following clip shows the complete process of updating multiple attached Opta Expansions:
+
+![Multiple firmware update process](assets/fw-update-process-multi.gif)
 
 ### General Library Notes
 
