@@ -1768,11 +1768,11 @@ In the Arduino IDE, navigate to **File > Examples > Arduino_Opta_Blueprint > upd
 
 Upload the program to the Opta™ controller and **open the Arduino IDE Serial Monitor to start the firmware update process**.
 
-***__Make sure the Arduino IDE Serial Monitor is open before beginning the firmware update.__ The Opta™ controller will not proceed with the firmware update until the Serial Monitor is ready to display messages and prompt you to manually grant the update process.***
+***__Ensure the Arduino IDE Serial Monitor is open before starting the firmware update.__ The Opta™ controller will wait until the Serial Monitor is open, displays messages, and prompts you to confirm the update process manually.***
 
 ![Firmware update process](assets/fw-update-serial.png)
 
-If your expansion is updatable, the Serial Monitor will display its current firmware version and the new version available for the update.
+If your expansion is updatable, the Serial Monitor will display its current firmware and the new version that is available for the update.
 
 ![Firmware version listing](assets/fw-update-serial-2.png)
 
