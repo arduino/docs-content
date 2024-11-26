@@ -1756,27 +1756,31 @@ Once installed, you will have access to a variety of sketch examples showcasing 
 
 ### Update Expansion Firmware
 
-With the library properly installed, we will update the expansion firmware to ensure proper functioning and seamless detection.
+With the library installed, you can update the expansion firmware to ensure proper functionality and seamless detection.
 
 ![Powering the Opta Expansions](assets/power-expansion.png)
 
-***__The expansions must be externally powered__ to be operated and detected by the Opta™ controller for the firmware update and normal operation. __The Aux port does not provide power to the expansion__.***
+***__The expansions must be externally powered__ to operate and be detected by the Opta™ controller during the firmware update and regular operation. __The Aux port does not supply power for expansion__.***
 
 In the Arduino IDE, navigate to **File > Examples > Arduino_Opta_Blueprint > updateExpansionFw**.
 
 ![Firmware update example](assets/fw-update.png)
 
-Upload the program to the Opta™ controller and **open the Arduino IDE Serial Monitor before proceeding with the firmware update process**.
+Upload the program to the Opta™ controller and **open the Arduino IDE Serial Monitor to start the firmware update process**.
+
+***__Make sure the Arduino IDE Serial Monitor is open before beginning the firmware update.__ The Opta™ controller will not proceed with the firmware update until the Serial Monitor is ready to display messages and update procedure has been manually granted.***
 
 ![Firmware update process](assets/fw-update-serial.png)
 
-***Ensure the Arduino IDE Serial Monitor is open before the firmware update starts. The Opta™ controller will not proceed with the update until the Serial Monitor is ready to display messages and accept input.***
-
 If your expansion is updatable, in the Serial Monitor, you will see its current firmware version and the new one, to which it will be updated.
 
-Type `Y` in the Serial Monitor to confirm the update and wait for it to be completed.
+![Firmware version listing](assets/fw-update-serial-2.png)
 
-![Firmware update running](assets/fw-update-serial-2.png)
+Enter `Y` in the Message field of the Serial Monitor to allow starting the firmware update and wait for it to be completed.
+
+![Firmware update grant](assets/fw-update-serial-3.png)
+
+The following clip shows how to update the attached Opta™ Expansion: 
 
 Finally, your Opta™ expansion will be updated with the latest firmware version.
 
