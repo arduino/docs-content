@@ -195,11 +195,15 @@ Then, access the page with [**http://localhost:8080**](http://localhost:8080) to
 
 #### Wi-Fi® Configuration
 
-Click **Wi-Fi® Connection** to start configuring your network connectivity. Otherwise, you can connect your Portenta X8 to the Internet through an Ethernet cable using a USB-C® hub with an RJ45 port or a Portenta Carrier. In this tutorial, Wi-Fi® connectivity will be used.
+Click **Wi-Fi® Connection** to start configuring your network connectivity. The Portenta X8 can connect to the network through an Ethernet cable using either a USB-C® hub with an RJ45 port or a Portenta Carrier, via cellular connectivity using a Portenta Carrier and a Pro 4G Module, or through Wi-Fi®. In this tutorial, Wi-Fi® connectivity will be used.
 
 ![Arduino Linux Wizard Wi-Fi® Settings](assets/OOTB_homepage_Wifi.png "Arduino Linux Wizard Wi-Fi® Settings")
 
-Choose **WiFi Network** option to continue network connectivity configuration with Wi-Fi® connectivity.
+***For detailed instructions on using cellular connectivity with the Portenta X8 and a Pro 4G Module, please refer to the [Cellular Connectivity with the Max Carrier & Pro 4G Module tutorial](https://docs.arduino.cc/tutorials/portenta-max-carrier/mpcie-4g-modem/) or the [Cat.4 Modem section](https://docs.arduino.cc/tutorials/portenta-mid-carrier/user-manual/#cat4-modem-cellular-connectivity) of the Portenta Mid Carrier User Manual.***
+
+***For detailed instructions on using Ethernet connectivity with the Portenta X8 and the RJ45 port of the Portenta Carrier, please refer to the [Ethernet section of the Portenta Hat Carrier User Manual](https://docs.arduino.cc/tutorials/portenta-hat-carrier/user-manual/#ethernet) or the [Ethernet section of the Mid Carrier User Manual](https://docs.arduino.cc/tutorials/portenta-mid-carrier/user-manual/#ethernet).***
+
+Choose the **WiFi Network** option to continue network connectivity configuration with Wi-Fi® connectivity.
 
 ![Arduino Linux Wizard Wi-Fi® Network Selection](assets/OOTB_wifi_option.png "Arduino Linux Wizard Wi-Fi® Network Selection")
 
@@ -221,7 +225,7 @@ Now, you can click **OK** and be redirected to the Arduino Linux Wizard homepage
 
 ![Arduino Linux Wizard Homepage](assets/OOTB_homepage.png "Arduino Linux Wizard Homepage")
 
-***You can change your network by clicking on the Settings button and repeat the steps above.***
+***You can change your network by clicking on the Settings button and repeating the above steps.***
 
 #### Arduino Linux Wizard Homepage
 
@@ -257,7 +261,7 @@ There are four ways to update your Portenta X8 are described:
 * [Update through Portenta X8 Manager in your Arduino Cloud for Business account (available for all OS releases)](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-with-portenta-x8-board-manager)
 * [Update using the `uuu` tool (compatible with custom images)](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-using-uuu-tool)
 
-You can find more details in the dedicated tutorial here: [**How To Flash Your Portenta X8**](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing).
+You can find more details in the dedicated tutorial here: [**How To Update Your Portenta X8**](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing).
 
 ## Portenta X8 with Arduino Cloud
 
@@ -363,7 +367,7 @@ Now, you can navigate to your dashboard [here](https://create.arduino.cc/iot/das
 
 ## Portenta X8 Board Manager
 
-***Note: This is an optional step that enables the possibility of performing remote over-the-air updates on your Portenta X8 OS and applications. To proceed, you need an Arduino Cloud for Business plan with Portenta X8 Manager.***
+***__Note:__ This is an optional step that enables the possibility of performing remote over-the-air updates on your Portenta X8 OS and applications. To proceed, you need an Arduino Cloud for Business plan with Portenta X8 Manager.***
 
 Now, you can start connecting your Portenta X8 to the Portenta X8 Board Manager. You need an Arduino Cloud for your business account to leverage this feature.
 
@@ -937,6 +941,8 @@ If you are a more advanced user, you can check [Multi-Protocol Gateway With Port
 The Portenta X8 Board Manager helps you keep your Portenta X8 Linux image and containers up to date, even remotely, using Over-The-Air (OTA) updates via wireless connectivity.
 
 An **Arduino Cloud for Business** plan with a Portenta X8 Board Manager subscription is required to enable these features.
+
+***__Using the Portenta X8 Board Manager is optional and not required for the Portenta X8 to function.__ It leverages Foundries.io's infrastructure to enable features like secure Over-The-Air (OTA) updates for the Portenta X8 OS and applications. __While it simplifies development and management processes, it is not a mandatory component__.***
 
 **For more information on configuration and environment exploration, please refer to the [Portenta X8 Board Manager](#portenta-x8-board-manager) section at the beginning of the user manual.**
 

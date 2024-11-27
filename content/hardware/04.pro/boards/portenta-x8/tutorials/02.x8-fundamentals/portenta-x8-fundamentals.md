@@ -166,11 +166,13 @@ Docker's isolation model means that containers run independently of each other, 
 
 ### Portenta X8 Manager
 
-With Arduino Cloud's integration with *Foundries.io* via the *Portenta X8 Manager*, you can create a **Foundries.io Factory** to manage Portenta X8 devices and containers. A Factory helps manage, organize, and update devices while simplifying container deployment and team management.
+With Arduino Cloud's integration with **Foundries.io** via the **Portenta X8 Manager**, you can create a **Foundries.io Factory** to manage Portenta X8 devices and containers as an optional feature. A *Factory* helps manage, organize, and update devices while simplifying container deployment and team management.
 
 ![Factory page](assets/factory-page.png "Factory page")
 
-***Using __Foundries.io__ and its features is __optional__ and not required for the Portenta X8 to function. It serves as an enhancement option to streamline development and add additional management capabilities.***
+***__Using Foundries.io and its features, including the Portenta X8 Manager, is optional and not required for the Portenta X8 to function.__ It is an enhancement option designed to simplify development, provide secure over-the-air updates, and add additional management capabilities.***
+
+***For more information on configuration and environment exploration, please refer to the [Portenta X8 Board Manager](https://docs.arduino.cc/tutorials/portenta-x8/user-manual/#portenta-x8-board-manager) section of the [Portenta X8 User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual/).***
 
 #### Benefits of Foundries.io
 
