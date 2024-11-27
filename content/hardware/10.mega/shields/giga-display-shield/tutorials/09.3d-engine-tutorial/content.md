@@ -7,7 +7,7 @@ tags: [Display, 3D, TinyGL]
 
 ## Introduction
 
-Using a 3D engine to construct and render objects can be a hardware heavy process. Now with the GIGA R1 WiFi, GIGA Display Shield and the [TinyGL](https://github.com/arduino-libraries/TinyGL) library this can be an easy process! The powerful GIGA R1 WiFi board can run the 3D engine while rendering it on the display shield, utilizing the touch interface of the display to move and interact with the rendered objects. 
+Using a 3D engine to construct and render objects can be a hardware heavy process. Now with the GIGA R1 WiFi, GIGA Display Shield and the [Arduino_TinyGL](https://github.com/arduino-libraries/Arduino_GigaDisplay_TinyGL) library this can be an easy process! The powerful GIGA R1 WiFi board can run the 3D engine while rendering it on the display shield, utilizing the touch interface of the display to move and interact with the rendered objects. 
 
 In this tutorial, we will show you how to make use of these features!
 
@@ -15,7 +15,7 @@ In this tutorial, we will show you how to make use of these features!
 <source src="assets/3d-engine-example.mp4" type="video/mp4" />
 </video>
 
-***Please note that the development status of the [TinyGL](https://github.com/arduino-libraries/TinyGL) library is in an experimental phase.***
+***Please note that the development status of the [Arduino_TinyGL](https://github.com/arduino-libraries/Arduino_GigaDisplay_TinyGL) library is in an experimental phase.***
 
 ## Hardware & Software Needed
 
@@ -27,17 +27,17 @@ In this tutorial, we will show you how to make use of these features!
 
 The Arduino Mbed OS Giga Boards Board Package contains most of the libraries you need to work with the shield's camera connector. To install the Board Package for GIGA boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for giga and install the latest Arduino Mbed OS Giga Boards version, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library is included in the Board Package. 
 
-To install the required libraries for this tutorail, search for **TinyGL**, **LVGL** and **Arduino_GigaDisplayTouch**. Install these libraries as they are needed for the TinyGL example to work.
+To install the required libraries for this tutorail, search for **Arduino_TinyGL**, **LVGL** and **Arduino_GigaDisplayTouch**. Install these libraries as they are needed for the Arduino_TinyGL example to work.
 
-## TinyGL Library
+## Arduino_TinyGL Library
 
-The TinyGL library will enable us to run an engine that can render 3D objects on the GIGA Display Shield. TinyGL is based on OpenGL, meaning the objects that we want to be rendered are defined in a `.c` file. Let's take a closer look at these files!
+The Arduino_TinyGL library will enable us to run an engine that can render 3D objects on the GIGA Display Shield. Arduino_TinyGL is based on OpenGL, meaning the objects that we want to be rendered are defined in a `.c` file. Let's take a closer look at these files!
 
-- The source code for this library is available [here](https://github.com/arduino-libraries/TinyGL)
+- The source code for this library is available [here](https://github.com/arduino-libraries/Arduino_GigaDisplay_TinyGL)
 
 ## Rotating Gears Example
 This example will render a set of rotating gears on your GIGA Display Shield's display, which you can move around and inspect using your fingers.
-Open the example by going to **Files > Examples > TinyGL > Gears** in the Arduino IDE, this will open both the required files in the IDE. You should see a `Gears.ino` and a `gears.c` file as tabs in the IDE. Let's first have a look at the `gears.c` file!
+Open the example by going to **Files > Examples > Arduino_TinyGL > Gears** in the Arduino IDE, this will open both the required files in the IDE. You should see a `Gears.ino` and a `gears.c` file as tabs in the IDE. Let's first have a look at the `gears.c` file!
 
 ### Gears.c
 
@@ -91,7 +91,7 @@ For more information about how to use the touch functions on the display shield,
 
 ## Running the Sketch
 
-Since the sketch requires the `gears.c` file to compile correctly we recommend opening the example directly in the Arduino IDE from the **TinyGL** library. After downloading the library the example can be found in **Files > Examples > TinyGL > Gears**.
+Since the sketch requires the `gears.c` file to compile correctly we recommend opening the example directly in the Arduino IDE from the **Arduino_TinyGL** library. After downloading the library the example can be found in **Files > Examples > Arduino_TinyGL > Gears**.
 
 After uploading the sketch you should see the same result as shown in the gif below:
 

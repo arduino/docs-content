@@ -106,7 +106,7 @@ In this section you will find a series of examples that uses the microphone.
 
 ### PDM Example
 
-This sketch can be found in **File > Examples > PDM** in the Arduino IDE. It reads the microphone data, stores it in a buffer and prints it to the Serial Monitor / Serial Plotter tool in the IDE.
+This sketch can be found in **File > Examples > PDM > PDMSerialPlotter** in the Arduino IDE. It reads the microphone data, stores it in a buffer and prints it to the Serial Monitor / Serial Plotter tool in the IDE.
 
 ```arduino
 #include <PDM.h>
