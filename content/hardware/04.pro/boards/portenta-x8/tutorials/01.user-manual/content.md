@@ -628,32 +628,33 @@ An example of how to use the command:
 journalctl --since "2022-12-22 12:20:00" --until yesterday
 ```
 
-### Developing and Deploying Custom Docker Containers on Portenta X8
+### Working with Docker on Portenta X8
 
-To customize the Portenta X8, you can develop and deploy Docker containers. Start by provisioning your device as described in the [**Portenta X8 with Arduino Cloud**](#portenta-x8-with-arduino-cloud) section.
+To customize the Portenta X8, you can develop and deploy Docker containers. Start by ensuring Docker is correctly set up on your device. A quick way to test Docker functionality is by running the official `Hello World` container from [Docker Hub](https://hub.docker.com/).
 
-Once ready, you can customize Portenta X8, for example, Thing and Dashboard. This can be done by writing your own Python script leveraging the [Arduino IoT Cloud Python library](https://github.com/arduino/arduino-iot-cloud-py). Check the documentation and the examples inside the library to learn more about creating your own Python application.
-
-When your Python script is ready, you have to create a dedicated Dockerfile to integrate your new script. The Dockerfile needs the Arduino Linux Wizard Python container (i.e., `arduino-ootb-python-devel`) to interact with your Arduino Cloud account correctly.
-
-So, open a terminal window and create a Dockerfile integrating the following code with your Python script:
+First, pull the image using the following command:
 
 ```bash
-FROM arduino/arduino-ootb-python-devel:latest
+docker pull hello-world
 ```
 
-```bash
-# Copy custom python cloud scripts
-COPY ./custom-examples /root/custom-examples
-```
+Then, run the container:
 
 ```bash
-RUN chmod -R 755 /root/custom-examples
+docker run hello-world
 ```
+
+This simple process pulls and runs the `Hello World` container, verifying that Docker is available and functional on your Portenta X8. The following clip shows running the `Hello World` container briefly:
+
+![Hello World container on the Portenta X8](assets/docker-run-example.gif)
+
+With this, you can start customizing the Portenta X8 by creating and deploying containers tailored to your needs. For example, you can develop Python applications or other utilities and package them into Docker containers for deployment.
+
+***You can explore [__Arduino's Docker Hub__](https://hub.docker.com/u/arduino) for a repository of preconfigured Docker images designed to simplify development on the Portenta X8.***
 
 #### Build Your Container
 
-You can create your custom containers and build them inside the Portenta X8. Since Portenta X8 is based on an arm64 architecture, you can use the command `build` only if you build the container directly on an arm64 architecture (e.g., Macbook based on M1/M2 processor or Portenta X8). Open a terminal window and type:
+You can create your custom containers and build them inside the Portenta X8. Since Portenta X8 is based on an *arm64 architecture*, you can use the command `build` only if you build the container directly on an *arm64 architecture* (e.g., Macbook based on M1/M2 processor or Portenta X8). Open a terminal window and type:
 
 ```bash
 docker build . -t x8-custom-devel
@@ -671,7 +672,7 @@ It is time for you to deploy the newly created Docker image. To do so, save it s
 
 #### Managing Early Start Services When Building Custom Containers
 
-The Portenta X8 firmware includes **`compose-apps-early-start.service`**, which starts certain Docker Compose applications early during the boot process. This feature helps pre-configured services run smoothly but may sometimes interfere with custom containers you pull or build.
+The Portenta X8 firmware includes the **`compose-apps-early-start.service`**, which starts certain Docker Compose applications early during the boot process. This feature helps pre-configured services run smoothly but may sometimes interfere with custom containers you pull or build.
 
 For example, system tools like [**Skopeo**](https://www.redhat.com/en/topics/containers/what-is-skopeo) may automatically remove containers without warning. This can happen to containers pulled from external sources or locally built on the device. If you notice that your custom containers are being removed unexpectedly, you can solve this by managing the system services with a few command lines.
 
@@ -691,7 +692,6 @@ systemctl stop compose-apps-early-start.service && systemctl stop compose-apps-e
 ```
 
 Stopping and disabling these services will prevent the early start of compose applications, ensuring your custom containers are not removed automatically. Additionally, make sure to check for the [*latest firmware image*](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz) to maintain compatibility and optimal performance of the Portenta X8 with custom container developments.
-
 
 #### Deploy Your Container With Docker Hub
 
@@ -780,7 +780,7 @@ services:
 It is now time to upload the new `docker-compose.yml` to your Portenta X8:
 
 ```bash
-docker-compose up --detach
+docker compose up --detach
 ```
 
 And you are ready to go! Your Portenta X8 Dashboards and Things can be customized using the same process multiple times.
