@@ -254,7 +254,7 @@ void loop() {
 
 ### File Write
 
-Below is an example sketch that can be used to **write** files from a USB mass storage device.
+Below is an example sketch that can be used to **write** files to a USB mass storage device.
 
 ```arduino
 #include <Arduino_USBHostMbed5.h>
@@ -264,8 +264,7 @@ Below is an example sketch that can be used to **write** files from a USB mass s
 USBHostMSD msd;
 mbed::FATFileSystem usb("usb");
 
-// mbed::DigitalOut pin5(PC_6, 0);
-mbed::DigitalOut otg(PB_8, 1);
+mbed::DigitalOut otg(PB_15, 1);
 
 void setup() {
   Serial.begin(115200);
@@ -274,11 +273,13 @@ void setup() {
   digitalWrite(PA_15, HIGH);
   
   while (!Serial);
+
+  delay(2500);
   
   msd.connect();
 
-  while (!msd.connected()) {
-    //while (!port.connected()) {
+  while (!msd.connect()) {
+    //while (!port.connect()) {
     delay(1000);
   }
 
