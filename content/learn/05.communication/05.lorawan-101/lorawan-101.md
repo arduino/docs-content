@@ -12,7 +12,7 @@ The Internet of Things (IoT) is often referred to as a collection of objects con
 
 ***By 2025, there will be more than 25 billion IoT devices connected to the Internet.***
 
-Many of the existing IoT devices will be connected to the Internet using short-range wireless networks such as Wi-Fi®, Bluetooth®, ZigBee, Z-Wave®, etc. Cellular connections using networks such as 2G, 3G, and 4G will also connect IoT devices to the Internet. Still, these **short and medium-range wireless networks are not always suitable for IoT devices** since they were developed for applications where power consumption and battery life are not significant issues. **IoT devices usually have low-power consumption and send and receive low amounts of data**.  
+Many of the existing IoT devices will be connected to the Internet using short-range wireless networks such as Wi-Fi®, Bluetooth®, Zigbee®, Z-Wave®, etc. Cellular connections using networks such as 2G, 3G, and 4G will also connect IoT devices to the Internet. Still, these **short and medium-range wireless networks are not always suitable for IoT devices** since they were developed for applications where power consumption and battery life are not significant issues. **IoT devices usually have low-power consumption and send and receive low amounts of data**.  
 
 ## Low-Power Wide Area Networks
 
