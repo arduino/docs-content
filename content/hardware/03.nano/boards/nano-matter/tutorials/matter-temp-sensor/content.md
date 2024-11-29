@@ -58,7 +58,7 @@ Now navigate to **Tools > Board > Boards Manager** or click the Boards Manager i
 
 ### Schematic Diagram
 
-Use the following conection diagram for the project:
+Use the following connection diagram for the project:
 
 ![Project wiring diagram](assets/diagram-v1.png)
 
