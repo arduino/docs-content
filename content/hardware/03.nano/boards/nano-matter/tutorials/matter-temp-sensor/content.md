@@ -22,9 +22,9 @@ software:
 
 This tutorial will teach you how to create a Matter sensor to monitor your room or workplace temperature. 
 
-![Thumbnail]()
+![Temperature sensor overview](assets/thumbnail-v1.png)
 
-Thanks to the seamless compatibility of the Nano Matter with almost any Matter network we can easily integrate our sensor with Amazon Alexa, Google Asistant, Apple Home, Home Assistant and even custom assistants.
+Thanks to the seamless compatibility of the Nano Matter with almost any Matter network we can easily integrate our sensor with Amazon Alexa, Google Assistant, Apple Home, Home Assistant and even custom assistants.
 
 ## Hardware and Software Requirements
 ### Hardware Requirements
@@ -208,7 +208,9 @@ You can also see the temperature value on the device OLED display.
 
 ## Conclusion
 
-
+In this tutorial we have learned how to create a Matter enabled temperature sensor that can be monitored from our smartphone and personal assistant. The Nano Matter allows us to seamlessly integrate the sensor as a commercial product with our current smart home ecosystem.
 
 ### Next Steps
+
+You can take this solution even further by adding the humidity measuring capability of the DHT11 sensor and integrate it as a 2nd sensor to your Matter network.
 
