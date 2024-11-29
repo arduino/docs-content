@@ -14,6 +14,8 @@ hardware:
 
 ## Overview
 
+![Portenta X8 Custom Image Build](assets/x8-image-build-c.gif)
+
 In this tutorial, you will learn how to build an image for the Portenta X8 with the source code provided at our [GitHub repository for lmp-manifest](https://github.com/arduino/lmp-manifest/). It is an ideal approach for debugging system elements like the bootloader or kernel support by building images locally.
 
 ***Images built locally cannot register with FoundriesFactory and will not be OTA compatible, but this is a good alternative for those who do not have a FoundriesFactory subscription.***

@@ -12,6 +12,8 @@ hardware:
 
 ## Overview
 
+![Portenta X8 RPC](assets/x8-rpc-c.gif)
+
 The container infrastructure provided by Arduino contains a pre-built Python® image that you can use to run Python® applications on the Portenta X8. In this tutorial, we are going to build a container based on a provided one.
 
 While all the peripherals are accessible from the iMX8 processor running the Linux environment, it can be useful to let the onboard microcontroller take care of certain peripheral handling and exchange only the required data between the microcontroller and the Python® application.
@@ -135,13 +137,13 @@ adb push <local directory path>/py-serialrpc /home/fio
 Log into the X8 shell with `adb shell` and navigate into the `serialrpc` folder. Build the container using
 
 ```bash
-sudo docker build . -t py-serialrpc`
+docker build . -t py-serialrpc
 ```
 
 The `-t` flag assigns a tag to the container. Then run the container by executing `cd..` and then:
 
 ```bash
-sudo docker compose up -d
+docker compose up -d
 ```
 
 The `-d` flag detaches the container so it runs in the background. Note that this will run the docker compose app and have the container built persistently across reboots by registering it as a systemd service.
@@ -149,19 +151,19 @@ The `-d` flag detaches the container so it runs in the background. Note that thi
 To stop the container, run:
 
 ```bash
-sudo docker compose stop
+docker compose stop
 ```
 
 Check if the container is running by executing:
 
 ```bash
-sudo docker ps
+docker ps
 ```
 
 You can then access the log of its service at any time by using following command from the **same directory**:
 
 ```bash
-sudo docker compose logs -f --tail 20
+docker compose logs -f --tail 20
 ```
 
 If you do not wish to run the container in the background, skip the `-d` flag, you will get the console output directly in the executing shell. Once the container is running, you will see the messages being sent from the M4.
@@ -187,13 +189,13 @@ adb push <local directory path>/python-sensor-rpc /home/fio
 Log into the X8 via `adb shell`. Then navigate into the `python-sensor-rpc` folder and execute:
 
 ```bash
-sudo docker build . -t python-sensor-rpc
+docker build . -t python-sensor-rpc
 ```
 
 When it has finished, you can run the container with:
 
 ```bash
-sudo docker compose up
+docker compose up
 ```
 
 After a few seconds, you should see the output from the Python application featuring the sensor readings on the M4 that exchanges through the RPC mechanism. The output should look similar to the following:
@@ -219,17 +221,17 @@ adb push python-sensor-rpc /home/fio
 
 ```bash
 # On the Portenta X8
-sudo docker compose down
+docker compose down
 ```
 
 ```bash
 # On the Portenta X8
-sudo docker build . -t python-sensor-rpc
+docker build . -t python-sensor-rpc
 ```
 
 ```bash
 # On the Portenta X8
-sudo docker compose up
+docker compose up
 ```
 
 Alternatively, you could modify the files directly on the X8 using an editor such as **VIM**, so you do not need to upload the files every time. Rebuilding the container will be necessary in any case though.

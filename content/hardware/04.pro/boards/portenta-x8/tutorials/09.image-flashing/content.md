@@ -13,6 +13,8 @@ hardware:
 
 ## Overview
 
+![Portenta X8 OS Image Update](assets/x8-os-image-update.gif)
+
 In this tutorial, you will learn the different methods to update your Portenta X8 with the image provided by Arduino. By the end, you will be able to update your Portenta X8 to the latest version, ensuring optimal performance and security.
 
 ## Goals
