@@ -9,8 +9,8 @@ Maximum Supported Expansion Modules: 5
 Input:
   Configurable digital / analog input: 16
   Digital Operational Range: 0-24 V
-  Digital VIL Max: 4 V
-  Digital VIH Min: 5.9 V
+  Digital Voltage Input Low (VIL) Max: 4 V
+  Digital Voltage Input High (VIH) Min: 5.9 V
   Analog Operational Range: 0-24 V
   Analog Resolution: 14 bit
 Relays:
