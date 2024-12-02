@@ -41,6 +41,8 @@ Industry 4.0, system integrators
 - **4x Analog output channels**
   - DC Voltage output software configurable: 0-10V DC
   - Max 20mA per channel
+  - Analog Out Channel 2 with maximum period of ~1.3 ms (Recommended for high-frequency PWM signals)
+  - Analog Out Channels 0, 1, 3 with standard timers  
 - **12x Digital programmable channels**
   - Non-galvanic isolated 24V power input
   - 12x High-side switches with current limit and inductive load kick-back protection
@@ -190,6 +192,10 @@ At each input of each channel, a PWM from the Portenta board is provided and fil
 The output signal is a DC whose amplitude is a function of the PWM duty cycle.
 
 The maximum output current is 20mA per channel.
+
+Analog Out Channel 2 (AO2) is connected to pin PG7 on the Portenta H7 and features an HRTIM (High-Resolution Timer) function. The HRTIM configuration includes a frequency of 200 MHz (tick time = 5 ns), a clock prescaler of 4, and a maximum period of 65533 ticks (1.31 ms). This results in a maximum period of ~1.3 ms, making AO2 suitable mainly for high-frequency PWM signals.
+
+For applications requiring periods longer than 1.3 ms, consider using Analog Out Channels 0, 1, or 3, which use standard timers.
 
 ### Temperature Measurements
 Three independent temperature measurement channels are available.
@@ -561,6 +567,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**    | **Revision** | **Changes**                                                                                                                                                           |
 |-------------|:------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 19/11/2024  |      9       | Updated analog output channel details                                                                                                                                 |
 | 03/09/2024  |      8       | Cloud Editor updated from Web Editor                                                                                                                                  |
 | 06/02/2024  |      7       | MTBF information                                                                                                                                                      |
 | 08/05/2023  |      6       | RTD and thermocouples new information                                                                                                                                 |

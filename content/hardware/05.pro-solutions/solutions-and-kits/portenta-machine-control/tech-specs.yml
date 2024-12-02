@@ -8,6 +8,8 @@ Input:
   Analog inputs: 3
 Output:
   Analog 0-10V: 4
+  Analog Out Channel 2: Maximum period ~1.3 ms (Recommended for high-frequency PWM signals)
+  Analog Out Channels 0, 1, 3: Standard timers  
 Other I/O:
   Programmable digital I/O (24V logic): 12
 Connectivity:
