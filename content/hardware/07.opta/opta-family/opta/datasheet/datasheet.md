@@ -328,7 +328,7 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input voltage logic level</td>
-            <td>VIL Max: 4.46 VDC. VHL Min: 6.6 VDC</td>
+            <td> Voltage Input Low (VIL) Maximum: 4.46 VDC. Voltage Input High (VIH) Minimum: 6.6 VDC</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input current</td>
@@ -807,6 +807,7 @@ Cet appareil numérique de la classe A est conforme à la norme NMB-003 du Canad
 
 |  **Date**  | **Revision** |             **Changes**              |
 |:----------:|:------------:|:------------------------------------:|
+| 02/12/2024 |      9       |  Digital input specification update  |
 | 24/09/2024 |      8       |        Expansion port updates        |
 | 11/09/2024 |      7       |      ICES certification updates      |
 | 03/09/2024 |      6       | Cloud Editor updated from Web Editor |
