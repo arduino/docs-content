@@ -182,6 +182,10 @@ void decommission_handler() {
 }
 ```
 
+This is a very simple code that consist of the Arduino basic sketch parts:
+- In the `setup()` function we initialize the Matter connectivity, the OLED display and temperature sensor. 
+- In the `loop()` function we measure the temperature and update the device value to be monitored in the Matter network.
+
 Once you uploaded the example code to the Nano Matter, open the Serial Monitor and reset the board.
 
 ![QR Code URL](assets/serial-monitor.png)

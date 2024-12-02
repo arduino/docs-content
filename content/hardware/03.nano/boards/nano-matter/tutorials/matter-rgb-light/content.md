@@ -229,6 +229,10 @@ void handle_button_press() {
   button_pressed = true;
 }
 ```
+This is a very simple code that consist of the Arduino basic sketch parts:
+- In the `setup()` function we initialize the Matter connectivity and the RGB Matrix I2C communication. 
+- In the `loop()` function we listen to any request of controlling the lightbulb state or color and update the matrix respectively.
+- There are some other functions to handle button press or RGB matrix color setup.
 
 Once you uploaded the example code to the Nano Matter, open the Serial Monitor and reset the board.
 
