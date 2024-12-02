@@ -124,7 +124,7 @@ The core of the Nano Matter is the MGM240SD22VNA microcontroller from Silicon La
 
 The Nano-styled header connectors pinout is shown in the figure below.
 
-![](assets/Nano_Matter_Pinout.png)
+![](assets/Nano_Matter_Pinout_2.png)
 
 <div style="page-break-after: always;"></div>
 
