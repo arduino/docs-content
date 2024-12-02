@@ -31,18 +31,17 @@ Thanks to the seamless compatibility of the Nano Matter with almost any Matter n
 ### Hardware Requirements
 
 - [Nano Matter](https://store.arduino.cc/products/nano-matter) (x1)
-- DHT11 Temperature and Humidity sensor (x1)
-- I2C OLED Display SSD1306(x1)
+- Grove - 8x8 RGB LED Matrix (x1)
 - Breadboard (x1)
 - Jumper wires
-- Google Nest Hub Max (Thread Border Router) (x1)
+- Eero 6+ WiFi Extender (Thread Border Router) (x1)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
-- [Google Home App](https://home.google.com/get-app/)
-- [U8g2](https://github.com/olikraus/u8g2) library to control the OLED display. You can install it from the Arduino IDE library manager.
+- [Amazon Alexa](https://www.amazon.com/Alexa-App/b?ie=UTF8&node=18354642011)
+- [Seeed_RGB_LED_Matrix](https://github.com/Seeed-Studio/Seeed_RGB_LED_Matrix) library to control the RGB LED matrix. You can install it as .ZIP using the Arduino IDE.
 - [DHT](https://github.com/mcmchris/DHT-sensor-library/tree/patch-1) library. Download from this [branch](https://github.com/mcmchris/DHT-sensor-library/tree/patch-1) so it support the Nano Matter. 
 
 ### Board Core and Libraries
