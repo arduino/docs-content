@@ -27,20 +27,20 @@ print(type(string_var))   # Output: <class 'str'>
 print(type(boolean_var))  # Output: <class 'bool'>
 ```
 
-
-
 ## Lists
 
 Lists are a versatile way to store collections of items in MicroPython. They can hold any combination of data types and are mutable, meaning you can modify them after creation.
 
-### Creating Lists:
+### Creating Lists
+
+To create a list, we need to define a variable, followed by square brackets `[]`. The content of the list is separated by a comma (`,`).
 
 ```python
 my_list = [1, 2, 3, "Four", True]
 print(my_list)  # Output: [1, 2, 3, 'Four', True]
 ```
 
-### Accessing Elements:
+### Accessing Elements
 
 Lists are zero-indexed, meaning the first element is at index `0`.
 
@@ -49,14 +49,16 @@ print(my_list[0])  # Output: 1
 print(my_list[3])  # Output: Four
 ```
 
-### Modifying Lists:
+### Modifying Lists
+
+We can modify an element inside a list by assigning it a new value.
 
 ```python
 my_list[1] = 20
 print(my_list)  # Output: [1, 20, 3, 'Four', True]
 ```
 
-### Common List Methods:
+### Common List Methods
 
 ```python
 my_list.append("New Item")  # Add an item
@@ -72,7 +74,7 @@ print(my_list)              # Output: [1, 20, 'Four', True, 'New Item']
 
 Tuples are similar to lists but **immutable**, meaning their values cannot be changed after they are created. They are useful for representing fixed collections of items.
 
-### Creating Tuples:
+### Creating Tuples
 
 ```python
 my_tuple = (1, 2, 3, "Four", True)
@@ -104,37 +106,36 @@ print(my_tuple.count(2))  # Output: 2 (number of times 2 appears)
 print(my_tuple.index(3))  # Output: 2 (index of the first occurrence of 3)
 ```
 
-
-
 ## Functions
 
 Functions allow you to encapsulate reusable blocks of code, making your programs more modular and readable.
 
-### Defining Functions:
+To define a function, we use `def` followed by the name of the function and parameters. In this case, let's define a function named `greet()`, which has the parameter `name`.
 
 ```python
 def greet(name):
     print(f"Hello, {name}!")
 ```
 
-### Calling Functions:
+Then, we can call the function, and insert a name.
 
 ```python
 greet("Karl")  # Output: Hello, Karl!
 greet("Alex")    # Output: Hello, Alex!
 ```
 
-### Functions with Default Arguments:
+The result will be: 
 
-```python
-def greet(name="World"):
-    print(f"Hello, {name}!")
-
-greet()          # Output: Hello, World!
-greet("Karl")   # Output: Hello, Karl!
+```cmd
+Hello Karl!
+Hello Alex!
 ```
 
-### Returning Values:
+### Returning Values
+
+A function can also accept numbers, and compute them for you. In this case, we want to find out the **square number** of a number (a number multiplied by itself).
+
+Inside the function we use `number * number` to get the value, and `return` to return the value to where it is called.
 
 ```python
 def square(number):
@@ -142,6 +143,20 @@ def square(number):
 
 result = square(4)
 print(result)  # Output: 16
+```
+
+### Default Arguments
+
+If you have function with parameters, you can set a **default** value, so that if we call the function without a parameter, we get a default value returned.
+
+In this case, we set the default to be `"World"`.
+
+```python
+def greet(name="World"):
+    print(f"Hello, {name}!")
+
+greet()          # Output: Hello, World!
+greet("Karl")   # Output: Hello, Karl!
 ```
 
 ## Objects
@@ -196,9 +211,9 @@ In this example:
 
 In MicroPython, exceptions are a powerful way to deal with errors gracefully, ensuring your program doesn’t crash unexpectedly. By catching and handling exceptions, you can recover or retry alternative solutions.
 
-Are we covering exceptions just because it is good practice? **No.** Albeit they may appear scary, exceptions are all bark and no bite. They use logic we are already familiar with, just in a slightly different format, and once you master them, they make debugging your code a breeze making it a very usefull bark.
+Exceptions use logic we are already familiar with, just in a slightly different format, and contribute to making more foolproof code.
 
-### Basic Structure:
+### Basic Structure
 
 Exceptions follow a simple structure using `try`, `except`, and optionally `finally` blocks:
 
@@ -212,13 +227,15 @@ finally:
     # Code that runs no matter what (optional)
 ```
 
-### Common Exceptions:
+### Common Exceptions
 
 - **`ZeroDivisionError`**: Raised when dividing by zero.
 - **`ValueError`**: Raised when a function receives an invalid argument.
 - **`TypeError`**: Raised when an operation is applied to an unsupported type.
 
 #### Example: Handling a ZeroDivisionError
+
+In this case, we will set up the script to "fail", by providing it with an impossible task: dividing something by `0`.
 
 ```python
 try:
@@ -227,7 +244,11 @@ except ZeroDivisionError:
     print("Cannot divide by zero!")  # Output: Cannot divide by zero!
 ```
 
-### Using `else` and `finally`:
+### Example: Using `else` and `finally`
+
+We can make the decision tree a bit more complex, by using the `else` and `finally` operators.
+
+In this case, we first try a division. If successful, we skip the `except` and jump to the `else`, which will print out the value, and `finally` we print out a statement `"Completed!"`.
 
 ```python
 try:
@@ -237,10 +258,12 @@ except ZeroDivisionError:
 else:
     print(f"Result: {result}")  # Output: Result: 5.0
 finally:
-    print("Cleanup completed.")  # Always executes
+    print("Completed!")  # Always executes
 ```
 
-### Raising Custom Exceptions:
+### Raising Custom Exceptions
+
+We can also implement custom exceptions:
 
 ```python
 def check_positive(number):
