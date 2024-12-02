@@ -2,7 +2,7 @@
 identifier: ABX00112
 title: Arduino® Nano Matter
 type: maker
-author: José Bagur
+author: José Bagur, Christopher Méndez
 ---
 
 ![](assets/Nano-Matter_Top.png)
