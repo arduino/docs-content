@@ -42,7 +42,7 @@ Thanks to the seamless compatibility of the Nano Matter with almost any Matter n
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Google Home App](https://home.google.com/get-app/)
 - [U8g2](https://github.com/olikraus/u8g2) library to control the OLED display. You can install it from the Arduino IDE library manager.
-- [DHT](https://github.com/mcmchris/DHT-sensor-library/tree/patch-1) library. Download from this [branch](https://github.com/mcmchris/DHT-sensor-library/tree/patch-1) so it support the Nano Matter. 
+- [DHT](https://github.com/mcmchris/DHT-sensor-library/tree/patch-1) library. Download from this [branch](https://github.com/mcmchris/DHT-sensor-library/tree/patch-1) so it supports the Nano Matter. 
 
 ### Board Core and Libraries
 
