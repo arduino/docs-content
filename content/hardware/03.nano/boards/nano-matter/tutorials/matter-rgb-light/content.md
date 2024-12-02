@@ -23,7 +23,7 @@ software:
 
 This tutorial will teach you how to create a Matter RGB Lightbulb to light up any room with colors. 
 
-![RGB lightbulb overview](assets/thumbnail-v1.png)
+![RGB lightbulb overview](assets/thumbnail-v2.png)
 
 Thanks to the seamless compatibility of the Nano Matter with almost any Matter network we can easily integrate our RGB light with Amazon Alexa, Google Assistant, Apple Home, Home Assistant and even custom assistants.
 
@@ -232,7 +232,7 @@ void handle_button_press() {
 
 Once you uploaded the example code to the Nano Matter, open the Serial Monitor and reset the board.
 
-![QR Code URL](assets/serial-monitor.png)
+![QR Code URL](assets/serial-monitor-v2.png)
 
 There you will find the URL that generates the QR for the Matter device commissioning.
 
@@ -240,24 +240,24 @@ There you will find the URL that generates the QR for the Matter device commissi
 
 Copy and paste the QR code URL on your favorite web browser and a unique QR code will be generated for your board.
 
-Go to your **Google Home** app, navigate to **devices** and tap on **Add**, select the **Matter-enabled device** option and scan the QR code.
+Go to your **Amazon Alexa** app, navigate to **Devices > Add Device > Other**, select the **Matter** option and scan the QR code.
 
-![Adding the device to Google Home app](assets/add-device.png)
+![Adding the device to Google Home app](assets/add-device-alexa.png)
 
-![Your device is successfully added](assets/add-device-2.png)
+![Your device is successfully added](assets/add-device-alexa-2.png)
 
 ## Final Results
 
-Finally, you will be able to monitor your room temperature from your smartphone, hub or asking to your personal assistant.
+Finally, you will be able to control the RGB light from your smartphone, hub or asking your personal assistant.
 
-![Temperature sensor final result](assets/temp-sensor.png)
+![RGB light final result](assets/rgb-light.png)
 
 You can also see the temperature value on the device OLED display.
 
 ## Conclusion
 
-In this tutorial we have learned how to create a Matter enabled temperature sensor that can be monitored from our smartphone and personal assistant. The Nano Matter allows us to seamlessly integrate the sensor as a commercial product with our current smart home ecosystem.
+In this tutorial we have learned how to create a Matter enabled RGB light that can be controlled from our smartphone and personal assistant. The Nano Matter allows us to seamlessly integrate the light as a commercial product with our current smart home ecosystem.
 
 ### Next Steps
 
-You can take this solution even further by adding the humidity measuring capability of the DHT11 sensor and integrate it as a 2nd sensor to your Matter network.
+You can take this solution even further by adding fading animations or even using the matrix to display text or graphics.

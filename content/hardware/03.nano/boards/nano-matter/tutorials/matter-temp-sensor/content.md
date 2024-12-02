@@ -200,7 +200,7 @@ Go to your **Google Home** app, navigate to **devices** and tap on **Add**, sele
 
 ## Final Results
 
-Finally, you will be able to monitor your room temperature from your smartphone, hub or asking to your personal assistant.
+Finally, you will be able to monitor your room temperature from your smartphone, hub or asking your personal assistant.
 
 ![Temperature sensor final result](assets/temp-sensor.png)
 
