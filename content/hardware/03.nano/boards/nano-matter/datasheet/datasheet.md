@@ -148,7 +148,7 @@ The Nano Matter can be powered through one of the following interfaces:
 
 A detailed figure below illustrates the power options available on the Nano Matter and the main system power architecture.
 
-![](assets/Nano_Matter_Power_Tree.png)
+![](assets/Nano_Matter_Power_Tree_1.png)
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <strong>Low-Power Tip:</strong> For power efficiency, safely cut the LED jumper and connect an external +3.3 VDC power supply to the board's 3V3 pin. This configuration does not power the board's USB bridge.
