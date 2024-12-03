@@ -213,7 +213,7 @@ Go to your **Google Home** app, navigate to **devices** and tap on **Add**, sele
 
 Finally, you will be able to control the fan from your smartphone, hub or asking your personal assistant.
 
-![Matter fan final result](assets/matter-fan.gif)
+![Matter fan final result](assets/animation.gif)
 
 ## Conclusion
 
