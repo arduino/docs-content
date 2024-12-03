@@ -1,14 +1,14 @@
 ---
-title: 'Nano Matter RGB Ligthbulb'
+title: 'Nano Matter RGB Light'
 difficulty: beginner
 compatible-products: [nano-matter]
-description: 'Learn how to build a Matter RGB ligthbulb.'
+description: 'Learn how to build a Matter RGB light.'
 tags:
   - IoT
   - Matter
   - BLE
   - RGB
-  - Lightbulb
+  - Light
 author: 'Christopher Méndez'
 hardware:
   - hardware/03.nano/boards/nano-matter
@@ -23,7 +23,7 @@ software:
 
 This tutorial will teach you how to create a Matter RGB Lightbulb to light up any room with colors. 
 
-![RGB lightbulb overview](assets/thumbnail-v2.png)
+![RGB light overview](assets/thumbnail-v2.png)
 
 Thanks to the seamless compatibility of the Nano Matter with almost any Matter network we can easily integrate our RGB light with Amazon Alexa, Google Assistant, Apple Home, Home Assistant and even custom assistants.
 
