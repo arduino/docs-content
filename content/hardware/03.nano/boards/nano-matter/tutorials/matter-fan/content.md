@@ -1,5 +1,5 @@
 ---
-title: 'Nano Matter Fan'
+title: 'Matter Smart Fan'
 difficulty: beginner
 compatible-products: [nano-matter]
 description: 'Learn how to build a Matter fan with speed control.'

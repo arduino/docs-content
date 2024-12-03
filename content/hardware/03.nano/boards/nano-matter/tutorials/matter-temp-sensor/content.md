@@ -1,5 +1,5 @@
 ---
-title: 'Nano Matter Temperature Sensor'
+title: 'Matter Temperature Sensor'
 difficulty: beginner
 compatible-products: [nano-matter]
 description: 'Learn how to build a Matter temperature sensor.'
@@ -35,7 +35,7 @@ We have prepared a short demo in video format in case you are a visual learner.
 
 - [Nano Matter](https://store.arduino.cc/products/nano-matter) (x1)
 - DHT11 Temperature and Humidity sensor (x1)
-- I2C OLED Display SSD1306(x1)
+- I2C OLED Display SSD1306 (x1)
 - Breadboard (x1)
 - Jumper wires
 - Google Nest Hub Max (Thread Border Router) (x1)
@@ -51,7 +51,6 @@ We have prepared a short demo in video format in case you are a visual learner.
 ### Download the Project Code
 
 [![ ](assets/download.png)](assets/matter_temperature_sensor.zip)
-
 Download the complete project code [here](assets/matter_temperature_sensor.zip).
 
 ### Board Core and Libraries

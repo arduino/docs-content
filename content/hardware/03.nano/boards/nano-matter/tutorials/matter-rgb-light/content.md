@@ -1,5 +1,5 @@
 ---
-title: 'Nano Matter RGB Light'
+title: 'Matter RGB Light'
 difficulty: beginner
 compatible-products: [nano-matter]
 description: 'Learn how to build a Matter RGB light.'

@@ -1,8 +1,8 @@
 ---
-title: 'Nano Matter Smart Relay'
+title: 'Matter Smart Relay'
 difficulty: beginner
 compatible-products: [nano-matter]
-description: 'Learn how to build a Matter smart relay to control a lightbulb.'
+description: 'Learn how to build a Matter smart relay to control an AC lightbulb.'
 tags:
   - IoT
   - Matter
