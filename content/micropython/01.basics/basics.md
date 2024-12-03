@@ -1,4 +1,4 @@
 ---
 title: Basics
-description: Basics Description
+description: Learn about the basics of MicroPython
 ---
