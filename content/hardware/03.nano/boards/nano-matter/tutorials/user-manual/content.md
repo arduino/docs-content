@@ -827,9 +827,9 @@ With this done, Home Assistant should be forwarding the Nano Matter sensor data 
 
 ## Bluetooth® Low Energy
 
-### Silicon Labs BLE
+### Silicon Labs BLE Library
 
-To enable Bluetooth® Low Energy communication on the Nano Matter, you must enable the "BLE" protocol stack in the Arduino IDE board configurations. 
+To enable Bluetooth® Low Energy communication on the Nano Matter, you must enable the "BLE" protocol stack in the Arduino IDE board configurations. In this section we will use the official Silabs Bluetooth library.
 
 In the upper menu, navigate to **Tools > Protocol stack** and select **BLE(Silabs)**.
 
@@ -1171,7 +1171,7 @@ The `ble_initialize_gatt_db()` function is responsible for:
 
 ***Note that if you want to implement a different or custom Bluetooth® Low Energy service or characteristic, the UUID arrays have to start with the least significant bit (LSB) from left to right.***
 
-After uploading the sketch to the Nano Matter, it is time to communicate with it via Bluetooth® Low Energy. For this, Silicon Labs has developed a **mobile app** that you can download from here:
+After uploading the sketch to the Nano Matter, it is time to communicate with it via Bluetooth® Low Energy. To do this Silicon Labs has developed a **mobile app** that you can download from here:
 
 - [Android](https://play.google.com/store/apps/details?id=com.siliconlabs.bledemo)
 - [iOS](https://itunes.apple.com/us/app/silicon-labs-blue-gecko-wstk/id1030932759)
@@ -1180,7 +1180,9 @@ Open the **Simplicity Connect** app on your smartphone, in the lower menu, navig
 
 ![Blinky demo controlling the Nano Matter via Bluetooth® Low Energy](assets/ble-blinky.gif)
 
-### Arduino BLE
+***You can also manage the LED and button status manually from the Scan tab in the lower menu of the app.***
+
+### Arduino BLE Library
 
 Now let's do the same but using the `ArduinoBLE` library.
 
@@ -1295,12 +1297,12 @@ static void btn_handle() {
 }
 ```
 
-As you can see, using the `ArduinoBLE` library makes everything easier and cleaner. We end up with a simple `setup()` and `loop()` sketch.
+As you can see, using the `ArduinoBLE` library makes the Bluetooth example more similar to the Bluetooth implementation of other Arduino boards, making it easier to migrate code from one board to another. We end up with a simple `setup()` and `loop()` sketch.
 
 - In the `setup()` function the board outputs and inputs are set and configured alongside the BLE service and characteristics.
 - In the `loop()` function we continuously ask if the peripheral is properly connected to a central and then start notifying the push button status and retrieving the app LED status.
 
-After uploading the sketch to the Nano Matter, it is time to communicate with it via Bluetooth® Low Energy. For this, Silicon Labs has developed a **mobile app** that you can download from here:
+After uploading the sketch to the Nano Matter, it is time to communicate with it via Bluetooth® Low Energy. To do this Silicon Labs has developed a **mobile app** that you can download from here:
 
 - [Android](https://play.google.com/store/apps/details?id=com.siliconlabs.bledemo)
 - [iOS](https://itunes.apple.com/us/app/silicon-labs-blue-gecko-wstk/id1030932759)
@@ -1308,6 +1310,8 @@ After uploading the sketch to the Nano Matter, it is time to communicate with it
 Open the **Simplicity Connect** app on your smartphone, in the lower menu, navigate to **Demo** and select **Blinky**:
 
 ![Blinky demo controlling the Nano Matter via Bluetooth® Low Energy](assets/ble-blinky-3.gif)
+
+***You can also manage the LED and button status manually from the Scan tab in the lower menu of the app.***
 
 ## Onboard User Interface
 
