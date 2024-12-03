@@ -264,9 +264,7 @@ Go to your **Amazon Alexa** app, navigate to **Devices > Add Device > Other**, s
 
 Finally, you will be able to control the RGB light from your smartphone, hub or asking your personal assistant.
 
-![RGB light final result](assets/rgb-light.png)
-
-You can also see the temperature value on the device OLED display.
+![RGB light final result](assets/animation.gif)
 
 ## Conclusion
 

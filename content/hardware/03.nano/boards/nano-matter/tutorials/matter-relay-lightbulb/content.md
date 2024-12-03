@@ -217,7 +217,6 @@ Finally, you will be able to control the AC lightbulb from your smartphone, hub 
 
 ![Smart relay final result](assets/animation.gif)
 
-
 ## Conclusion
 
 In this tutorial we have learned how to create a Matter enabled smart relay that can be controlled from our smartphone and personal assistant. The Nano Matter allows us to seamlessly integrate the smart relay as a commercial product with our current smart home ecosystem.
