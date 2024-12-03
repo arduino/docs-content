@@ -215,7 +215,7 @@ Go to your **Google Home** app, navigate to **devices** and tap on **Add**, sele
 
 Finally, you will be able to control the AC lightbulb from your smartphone, hub or asking your personal assistant.
 
-![Smart relay final result](assets/smart-relay.gif)
+![Smart relay final result](assets/animation.gif)
 
 
 ## Conclusion
