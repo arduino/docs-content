@@ -71,7 +71,7 @@ Use the following connection diagram for the project:
 
 ![Project wiring diagram](assets/diagram-v2.png)
 
-The RGB LED matrix is powered by the Nano Matter `3.3V` pin, and it is controlled using an I2C connection.
+The RGB LED matrix is powered by the Nano Matter `3.3V` output pin, and it is controlled using an I2C connection.
 
 ### Programming
 

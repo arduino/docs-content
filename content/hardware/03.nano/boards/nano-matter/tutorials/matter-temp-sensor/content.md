@@ -71,7 +71,7 @@ Use the following connection diagram for the project:
 
 ![Project wiring diagram](assets/diagram-v1.png)
 
-The OLED display and the DHT temperature sensor are powered by the Nano Matter `3.3V` pin. The OLED display uses I2C for communication and the DHT sensor uses a one-wire digital communication connected to `D4`.
+The OLED display and the DHT temperature sensor are powered by the Nano Matter `3.3V` output pin. The OLED display uses I2C for communication and the DHT sensor uses a one-wire digital communication connected to `D4`.
 
 ### Programming
 

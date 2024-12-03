@@ -73,7 +73,7 @@ Use the following connection diagram for the project:
 
 ![Project wiring diagram](assets/diagram-v3.png)
 
-The relay module is powered by the Nano Matter `3.3V` pin and the relay is controlled with the `D4` pin. Wire the AC cable with the lightbulb so the relay interrupts the current path when open.
+The relay module is powered by the Nano Matter `3.3V` output pin and the relay is controlled with the `D4` pin. Wire the AC cable with the lightbulb so the relay interrupts the current path when open.
 
 ***Be careful when handling with main voltages.***
 
