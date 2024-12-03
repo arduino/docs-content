@@ -27,6 +27,10 @@ This tutorial will teach you how to create a Matter smart relay to control an AC
 
 Thanks to the seamless compatibility of the Nano Matter with almost any Matter network we can easily integrate our smart relay with Amazon Alexa, Google Assistant, Apple Home, Home Assistant and even custom assistants.
 
+We have prepared a short demo in video format in case you are a visual learner.
+
+<iframe width="100%" height="480" src="https://www.youtube.com/embed/8w-XDghqdEw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Hardware and Software Requirements
 ### Hardware Requirements
 
@@ -44,6 +48,12 @@ Thanks to the seamless compatibility of the Nano Matter with almost any Matter n
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Google Home App](https://home.google.com/get-app/)
+
+### Download the Project Code
+
+[![ ](assets/download.png)](assets/matter_smart_relay.zip)
+
+Download the complete project code [here](assets/matter_smart_relay.zip).
 
 ### Board Core and Libraries
 

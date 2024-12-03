@@ -27,6 +27,10 @@ This tutorial will teach you how to create a Matter RGB Lightbulb to light up an
 
 Thanks to the seamless compatibility of the Nano Matter with almost any Matter network we can easily integrate our RGB light with Amazon Alexa, Google Assistant, Apple Home, Home Assistant and even custom assistants.
 
+We have prepared a short demo in video format in case you are a visual learner.
+
+<iframe width="100%" height="480" src="https://www.youtube.com/embed/OsZ8-_djK9c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Hardware and Software Requirements
 ### Hardware Requirements
 
@@ -42,6 +46,12 @@ Thanks to the seamless compatibility of the Nano Matter with almost any Matter n
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Amazon Alexa](https://www.amazon.com/Alexa-App/b?ie=UTF8&node=18354642011)
 - [Seeed_RGB_LED_Matrix](https://github.com/Seeed-Studio/Seeed_RGB_LED_Matrix) library to control the RGB LED matrix. You can install it as .ZIP using the Arduino IDE.
+
+### Download the Project Code
+
+[![ ](assets/download.png)](assets/matter_rgb_light.zip)
+
+Download the complete project code [here](assets/matter_rgb_light.zip).
 
 ### Board Core and Libraries
 

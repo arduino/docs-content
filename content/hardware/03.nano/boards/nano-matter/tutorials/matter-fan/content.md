@@ -27,6 +27,10 @@ This tutorial will teach you how to create a Matter fan for keeping you cool.
 
 Thanks to the seamless compatibility of the Nano Matter with almost any Matter network we can easily integrate our fan with Amazon Alexa, Google Assistant, Apple Home, Home Assistant and even custom assistants.
 
+We have prepared a short demo in video format in case you are a visual learner.
+
+<iframe width="100%" height="480" src="https://www.youtube.com/embed/AiFm4T9EfnA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Hardware and Software Requirements
 ### Hardware Requirements
 
@@ -42,6 +46,12 @@ Thanks to the seamless compatibility of the Nano Matter with almost any Matter n
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Google Home App](https://home.google.com/get-app/)
+
+### Download the Project Code
+
+[![ ](assets/download.png)](assets/matter_fan.zip)
+
+Download the complete project code [here](assets/matter_fan.zip).
 
 ### Board Core and Libraries
 

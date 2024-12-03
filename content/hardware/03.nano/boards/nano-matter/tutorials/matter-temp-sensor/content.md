@@ -26,6 +26,10 @@ This tutorial will teach you how to create a Matter sensor to monitor your room 
 
 Thanks to the seamless compatibility of the Nano Matter with almost any Matter network we can easily integrate our sensor with Amazon Alexa, Google Assistant, Apple Home, Home Assistant and even custom assistants.
 
+We have prepared a short demo in video format in case you are a visual learner.
+
+<iframe width="100%" height="480" src="https://www.youtube.com/embed/kYcF_HjyLeg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Hardware and Software Requirements
 ### Hardware Requirements
 
@@ -43,6 +47,12 @@ Thanks to the seamless compatibility of the Nano Matter with almost any Matter n
 - [Google Home App](https://home.google.com/get-app/)
 - [U8g2](https://github.com/olikraus/u8g2) library to control the OLED display. You can install it from the Arduino IDE library manager.
 - [DHT](https://github.com/mcmchris/DHT-sensor-library/tree/patch-1) library. Download from this [branch](https://github.com/mcmchris/DHT-sensor-library/tree/patch-1) so it supports the Nano Matter. 
+
+### Download the Project Code
+
+[![ ](assets/download.png)](assets/matter_temperature_sensor.zip)
+
+Download the complete project code [here](assets/matter_temperature_sensor.zip).
 
 ### Board Core and Libraries
 
