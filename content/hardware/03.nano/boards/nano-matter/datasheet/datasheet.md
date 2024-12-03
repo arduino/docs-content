@@ -2,10 +2,10 @@
 identifier: ABX00112
 title: Arduino® Nano Matter
 type: maker
-author: José Bagur
+author: José Bagur, Christopher Méndez
 ---
 
-![](assets/Nano_Matter_Top_View.png)
+![](assets/Nano-Matter_Top.png)
 
 # Description
 
@@ -53,7 +53,7 @@ The main features are highlighted in the table shown below.
 | Connectivity        | 802.15.4 Thread, Bluetooth® Low Energy 5.3, and Bluetooth® Mesh                                                                                                  |
 | Security            | Secure Vault® from Silicon Labs                                                                                                                                  |
 | USB Connectivity    | USB-C® port for power and data                                                                                                                                   |
-| Power Supply        | Various options for easily powering the board: USB-C® port and external power supply connected through the board's Nano-styled header connector pins (IN5V, VIN) |
+| Power Supply        | Various options for easily powering the board: USB-C® port and external power supply connected through the board's Nano-styled header connector pins (5V, VIN) |
 | Analog Peripherals  | 12-bit ADC (x20), up to 12-bit DAC (x4)                                                                                                                          |
 | Digital Peripherals | GPIO (x22 - All exposed I/O can be used as digital), UART (x2), I2C (x2), SPI (x2), PWM (x22) with a maximum of 5 simultaneously operational channels            |
 | Debugging           | JTAG/SWD debug port (accessible through the board's test pads)                                                                                                   |
@@ -86,14 +86,13 @@ The table below provides a comprehensive guideline for the optimal use of the Na
 <div style="text-align:center;">
 
 |          **Parameter**           |   **Symbol**    | **Min** | **Typ** | **Max** | **Unit** |
-|:--------------------------------:|:---------------:|:-------:|:-------:|:-------:|:--------:|
-|     USB Supply Input Voltage     | V<sub>USB</sub> |    -    |   5.0   |    -    |    V     |
-| Supply Input Voltage<sup>1</sup> | V<sub>IN</sub>  |    -    |   5.0   |   5.5   |    V     |
+| :------------------------------: | :-------------: | :-----: | :-----: | :-----: | :------: |
+| Input voltage from USB connector | V<sub>USB</sub> |   4.8   |   5.0   |   5.5   |    V     |
+|    Input voltage from VIN pad    | V<sub>IN</sub>  |    6    |   7.0   |   21    |    V     |
 |      Operating Temperature       | T<sub>OP</sub>  |   -40   |    -    |   85    |    °C    |
 
 </div>
 
-<sup>1</sup> Nano Matter powered through the IN5V pin (+5 VDC).
 
 ### Power Consumption
 
@@ -106,10 +105,10 @@ The table below summarizes the power consumption of the Nano Matter in different
 | Typical Mode Current Consumption² | I<sub>NM</sub> |  -  | 16  |  -  |  mA  |
 
 
-<sup>2</sup> Nano Matter powered through the IN5V pin (+5 VDC), running a Matter color lightbulb example.
+<sup>2</sup> Nano Matter powered through the 5V pin (+5 VDC), running a Matter color lightbulb example.
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-To use the Nano Matter in <strong>low-power mode</strong>, the board must be powered through the <strong>pin IN5V</strong>.
+To use the Nano Matter in <strong>low-power mode</strong>, the board must be powered through the <strong>pin 3.3V</strong>.
 </div>
 
 
@@ -125,7 +124,7 @@ The core of the Nano Matter is the MGM240SD22VNA microcontroller from Silicon La
 
 The Nano-styled header connectors pinout is shown in the figure below.
 
-![](assets/Nano_Matter_Pinout.png)
+![](assets/Nano_Matter_Pinout_2.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -133,7 +132,7 @@ The Nano-styled header connectors pinout is shown in the figure below.
 
 An overview of the high-level architecture of the Nano Matter is illustrated in the figure below.
 
-![](assets/Nano_Matter_Block_Diagram.png)
+![](assets/Nano_Matter_Block_Diagram-v2.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -144,11 +143,12 @@ An overview of the high-level architecture of the Nano Matter is illustrated in 
 The Nano Matter can be powered through one of the following interfaces:
 
 - **Onboard USB-C® port**: Provides a convenient way to power the board using standard USB-C® cables and adapters.
-- **External +5 VDC power supply**: This can be connected to the IN5V pin or the VIN pin of the Nano-styled header connector. For the VIN pin, ensure the VIN jumper is shorted to enable the power supply.
+- **VIN pad**: Applying 6 to 21 VDC to the VIN pin of the Nano-styled header connector. 
+- **5V pad**: Applying +5 VDC to the 5V pin of the Nano-styled header connector.
 
 A detailed figure below illustrates the power options available on the Nano Matter and the main system power architecture.
 
-![](assets/Nano_Matter_Power_Tree.png)
+![](assets/Nano_Matter_Power_Tree_2.png)
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <strong>Low-Power Tip:</strong> For power efficiency, safely cut the LED jumper and connect an external +3.3 VDC power supply to the board's 3V3 pin. This configuration does not power the board's USB bridge.
@@ -360,8 +360,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |        **Changes**        |
-|:----------:|:------------:|:-------------------------:|
-| 05/09/2024 |      3       | Cloud Editor updated from Web Editor |
-| 07/05/2024 |      2       | Board update |
-| 21/03/2024 |      1       | Community Preview Release |
+|  **Date**  | **Revision** |                 **Changes**                 |
+| :--------: | :----------: | :-----------------------------------------: |
+| 14/11/2024 |      4       | Board revision and power information update |
+| 05/09/2024 |      3       |    Cloud Editor updated from Web Editor     |
+| 07/05/2024 |      2       |                Board update                 |
+| 21/03/2024 |      1       |          Community Preview Release          |
