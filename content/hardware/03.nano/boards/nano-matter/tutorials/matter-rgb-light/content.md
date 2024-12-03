@@ -1,8 +1,8 @@
 ---
-title: 'Matter RGB Light'
+title: 'Matter RGB Light with the Arduino Nano Matter'
 difficulty: beginner
 compatible-products: [nano-matter]
-description: 'Learn how to build a Matter RGB light.'
+description: 'Learn how to build a Matter RGB light using the Arduino Nano Matter'
 tags:
   - IoT
   - Matter
@@ -21,11 +21,11 @@ software:
 
 ## Overview
 
-This tutorial will teach you how to create a Matter RGB Lightbulb to light up any room with colors. 
+This tutorial will teach you how to use the Arduino Nano Matter to create a Matter RGB Lightbulb to light up any room with colors. 
 
 ![RGB light overview](assets/thumbnail-v2.png)
 
-Thanks to the seamless compatibility of the Nano Matter with almost any Matter network we can easily integrate our RGB light with Amazon Alexa, Google Assistant, Apple Home, Home Assistant and even custom assistants.
+Thanks to the seamless compatibility of the Nano Matter with almost any Matter network we can easily integrate our RGB light with Amazon Alexa, Google Assistant, Apple Home, Home Assistant and even any professional custom solution.
 
 We have prepared a short demo in video format in case you are a visual learner.
 
@@ -34,7 +34,7 @@ We have prepared a short demo in video format in case you are a visual learner.
 ## Hardware and Software Requirements
 ### Hardware Requirements
 
-- [Nano Matter](https://store.arduino.cc/products/nano-matter) (x1)
+- [Arduino Nano Matter](https://store.arduino.cc/products/nano-matter) (x1)
 - Grove - 8x8 RGB LED Matrix (x1)
 - Breadboard (x1)
 - Jumper wires
@@ -70,6 +70,8 @@ Now navigate to **Tools > Board > Boards Manager** or click the Boards Manager i
 Use the following connection diagram for the project:
 
 ![Project wiring diagram](assets/diagram-v2.png)
+
+The RGB LED matrix is powered by the Nano Matter `3.3V` pin, and it is controlled using an I2C connection.
 
 ### Programming
 
@@ -239,7 +241,8 @@ void handle_button_press() {
   button_pressed = true;
 }
 ```
-This is a very simple code that consist of the Arduino basic sketch parts:
+The structure of this example code is very simple, the main functions are explained below:
+
 - In the `setup()` function we initialize the Matter connectivity and the RGB Matrix I2C communication. 
 - In the `loop()` function we listen to any request of controlling the lightbulb state or color and update the matrix respectively.
 - There are some other functions to handle button press or RGB matrix color setup.
@@ -248,9 +251,9 @@ Once you uploaded the example code to the Nano Matter, open the Serial Monitor a
 
 ![QR Code URL](assets/serial-monitor-v2.png)
 
-There you will find the URL that generates the QR for the Matter device commissioning.
+After the reset you will find on the serial port the URL that generates the QR for the Matter device commissioning.
 
-### Commissioning 
+### Adding the Device (Commissioning) 
 
 Copy and paste the QR code URL on your favorite web browser and a unique QR code will be generated for your board.
 
@@ -268,7 +271,7 @@ Finally, you will be able to control the RGB light from your smartphone, hub or 
 
 ## Conclusion
 
-In this tutorial we have learned how to create a Matter enabled RGB light that can be controlled from our smartphone and personal assistant. The Nano Matter allows us to seamlessly integrate the light as a commercial product with our current smart home ecosystem.
+In this tutorial we have learned how to create a Matter enabled RGB light that can be controlled from our smartphone and personal assistant. The Nano Matter allows us to seamlessly integrate our own light as a commercial product with our current smart home ecosystem.
 
 ### Next Steps
 

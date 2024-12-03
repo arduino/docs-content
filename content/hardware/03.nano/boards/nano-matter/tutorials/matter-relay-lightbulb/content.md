@@ -1,8 +1,8 @@
 ---
-title: 'Matter Smart Relay'
+title: 'Matter Smart Relay with the Arduino Nano Matter'
 difficulty: beginner
 compatible-products: [nano-matter]
-description: 'Learn how to build a Matter smart relay to control an AC lightbulb.'
+description: 'Learn how to build a Matter smart relay to control an AC lightbulb using the Arduino Nano Matter'
 tags:
   - IoT
   - Matter
@@ -21,11 +21,11 @@ software:
 
 ## Overview
 
-This tutorial will teach you how to create a Matter smart relay to control an AC lightbulb. 
+This tutorial will teach you how to use the Arduino Nano Matter to create a Matter smart relay to control an AC lightbulb. 
 
 ![Smart relay overview](assets/thumbnail-v3.png)
 
-Thanks to the seamless compatibility of the Nano Matter with almost any Matter network we can easily integrate our smart relay with Amazon Alexa, Google Assistant, Apple Home, Home Assistant and even custom assistants.
+Thanks to the seamless compatibility of the Nano Matter with almost any Matter network we can easily integrate our smart relay with Amazon Alexa, Google Assistant, Apple Home, Home Assistant and even any professional custom solution.
 
 We have prepared a short demo in video format in case you are a visual learner.
 
@@ -34,7 +34,7 @@ We have prepared a short demo in video format in case you are a visual learner.
 ## Hardware and Software Requirements
 ### Hardware Requirements
 
-- [Nano Matter](https://store.arduino.cc/products/nano-matter) (x1)
+- [Arduino Nano Matter](https://store.arduino.cc/products/nano-matter) (x1)
 - Grove Relay Module (x1)
 - Lightbulb socket (x1)
 - AC lightbulb (x1)
@@ -72,6 +72,8 @@ Now navigate to **Tools > Board > Boards Manager** or click the Boards Manager i
 Use the following connection diagram for the project:
 
 ![Project wiring diagram](assets/diagram-v3.png)
+
+The relay module is powered by the Nano Matter `3.3V` pin and the relay is controlled with the `D4` pin. Wire the AC cable with the lightbulb so the relay interrupts the current path when open.
 
 ***Be careful when handling with main voltages.***
 
@@ -191,7 +193,8 @@ void decommission_handler()
 
 ```
 
-This is a very simple code that consist of the Arduino basic sketch parts:
+The structure of this example code is very simple, the main functions are explained below:
+
 - In the `setup()` function we initialize the Matter connectivity and the relay output pin. 
 - In the `loop()` function we listen to any relay toggle command sent from the smartphone or voice assistant.
 
@@ -199,9 +202,9 @@ Once you uploaded the example code to the Nano Matter, open the Serial Monitor a
 
 ![QR Code URL](assets/serial-monitor-v3.png)
 
-There you will find the URL that generates the QR for the Matter device commissioning.
+After the reset you will find on the serial port the URL that generates the QR for the Matter device commissioning.
 
-### Commissioning 
+### Adding the Device (Commissioning)
 
 Copy and paste the QR code URL on your favorite web browser and a unique QR code will be generated for your board.
 
@@ -219,7 +222,7 @@ Finally, you will be able to control the AC lightbulb from your smartphone, hub 
 
 ## Conclusion
 
-In this tutorial we have learned how to create a Matter enabled smart relay that can be controlled from our smartphone and personal assistant. The Nano Matter allows us to seamlessly integrate the smart relay as a commercial product with our current smart home ecosystem.
+In this tutorial we have learned how to create a Matter enabled smart relay that can be controlled from our smartphone and personal assistant. The Nano Matter allows us to seamlessly integrate our own smart relay as a commercial product with our current smart home ecosystem.
 
 ### Next Steps
 
