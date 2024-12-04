@@ -53,14 +53,14 @@ It enables 802.15.4 (Thread®) and Bluetooth® Low Energy connectivity, to inter
 ### Board Architecture Overview
 
 The Nano Matter features a compact and efficient architecture powered by the MGM240S (32-bit Arm® Cortex®-M33) from Silicon Labs, a high-performance wireless module
-optimized for the needs of battery and line-powered IoT devices for 2.4 GHz mesh networks. 
+optimized for the needs of battery and line-powered IoT devices for 2.4 GHz mesh networks.
 
 ![Nano Matter's main components](assets/architecture-2.png)
 
 Here is an overview of the board's main components, as shown in the image above:
 
-- **Microcontroller**: at the heart of the Nano Matter is the MGM240S, a high-performance wireless module from Silicon Labs. The MGM240S is built around a 32-bit Arm® Cortex®-M33 processor running at 78 MHz. 
-- **Wireless connectivity**: the Nano Matter microcontroller also features multi-protocol connectivity to enable Matter IoT protocol and Bluetooth® Low Energy. This allows the Nano Matter to be integrated with smart home systems and communicate wirelessly with other devices.
+- **Microcontroller**: at the heart of the Nano Matter is the MGM240S, a high-performance wireless module from Silicon Labs. The MGM240S is built around a 32-bit Arm® Cortex®-M33 processor running at 78 MHz.
+- **Wireless connectivity**: the Nano Matter microcontroller also features multiprotocol connectivity to enable Matter IoT protocol and Bluetooth® Low Energy. This allows the Nano Matter to be integrated with smart home systems and communicate wirelessly with other devices.
 
 ### Pinout
 
@@ -102,9 +102,9 @@ You can easily solder the Nano Matter in your custom PCB, since the board does n
 
 The Nano Matter can be powered by:
 
-- A USB-C® cable (not included). 
+- A USB-C® cable (not included).
 - An external **5 V power supply** connected to `5V` pin (please, refer to the [board pinout section](#pinout) of the user manual).
-- An external **6 - 21 V power supply** connected to `VIN` pin (please, refer to the [board pinout section](#pinout) of the user manual).
+- An external **6-21 V power supply** connected to `VIN` pin (please, refer to the [board pinout section](#pinout) of the user manual).
 
 ![Nano Matter externally powered](assets/ext-power-2.png)
 

@@ -46,7 +46,7 @@ We have prepared a short demo in video format in case you are a visual learner.
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Google Home App](https://home.google.com/get-app/)
 - [U8g2](https://github.com/olikraus/u8g2) library to control the OLED display. You can install it from the Arduino IDE library manager.
-- [DHT](https://github.com/mcmchris/DHT-sensor-library/tree/patch-1) library. Download from this [branch](https://github.com/mcmchris/DHT-sensor-library/tree/patch-1) so it supports the Nano Matter. 
+- [DHT](https://github.com/mcmchris/DHT-sensor-library/tree/patch-1) library. Download from this [branch](https://github.com/mcmchris/DHT-sensor-library/tree/patch-1) so it supports the Nano Matter.
 
 ### Download the Project Code
 

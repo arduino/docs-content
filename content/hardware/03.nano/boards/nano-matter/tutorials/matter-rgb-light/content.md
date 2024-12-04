@@ -253,7 +253,7 @@ Once you uploaded the example code to the Nano Matter, open the Serial Monitor a
 
 After the reset you will find on the serial port the URL that generates the QR for the Matter device commissioning.
 
-### Adding the Device (Commissioning) 
+### Adding the Device (Commissioning)
 
 Copy and paste the QR code URL on your favorite web browser and a unique QR code will be generated for your board.
 
