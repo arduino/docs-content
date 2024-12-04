@@ -560,7 +560,9 @@ int servoMove(int angle) {
 
 ### RTC RPC
 
-This example demonstrates how the RTC can be accessed from the M4:
+The Real-time Clock (RTC) can be accessed from the M4 core, and using RPC, we can read the values.
+
+In this example, we set the RTC to a specific date (can be adjusted in the example), send it to the M7 via RPC, and finally prints it out in the Serial Monitor using the M7 core. 
 
 **M4 sketch:**
 ```arduino
@@ -580,7 +582,7 @@ unsigned long printNow{};
 void setup() {
   if (RPC.begin()) {
     RPC.println("M4: Reading the RTC.");
-    //RTCset()  //Uncomment if you need to set the RTC for the first time.
+    RTCset(); //sets the RTC to start from a specific time & date
   }
 }
 
@@ -612,6 +614,8 @@ void RTCset()  // Set cpu RTC
   set_time(mktime(&t));      // set RTC clock
 }
 ```
+
+The M7 sketch is found below, and uses RPC to print out the incoming data from the M4.
 
 **M7 sketch:**
 ```arduino
