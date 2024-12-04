@@ -173,7 +173,7 @@ The Silicon Labs core in the Arduino IDE comes with several Matter examples read
 
 ![Matter examples](assets/matter-examples-2.png)
 
-***The _matter_lightbulb_ example is the only officially Matter-certified profile for the Nano Matter __Community Preview__. Consequently, while running any of the other available profile examples, it is expected to get an _Uncertified device_ message in the different Matter-compatible apps. This does not prevent the user from prototyping a solution with different configurations.***
+***The _matter_lightbulb_ example is the only officially Matter-certified profile for the Nano Matter. Consequently, while running any of the other available profile examples, it is expected to get an _Uncertified device_ message in the different Matter-compatible apps. This does not prevent the user from prototyping a solution with different configurations.***
 
 First, to start creating *Matter-enabled* solutions, we need to select the Matter protocol in **Tools > Protocol stack > Matter**:
 
