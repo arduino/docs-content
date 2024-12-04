@@ -9,6 +9,7 @@ When working with MicroPython, we’re not limited to a single program file like
 
 In this article, we'll explore how the MicroPython file system works, how to organize files effectively, and the typical structure of MicroPython projects.
 
+
 ## The MicroPython File System: Key Differences
 
 In traditional Arduino programming, we upload a single compiled file directly to the microcontroller, where it runs immediately. In MicroPython we work within a file system that can store multiple files. This file system allows us to:
@@ -26,7 +27,7 @@ To interact with the MicroPython file system, we’ll use Arduino Labs for Micro
 2. **Upload and Download Files**: Use the file manager to upload files from our computer to the microcontroller or download files back to our computer.
 3. **Organize Files**: We can create folders and store multiple files, making it easy to organize our project.
 
-![Accessing the file system.]()
+![IDE's File Manager](./assets/IDEFileManager.png)
 
 ## Basic MicroPython File Structure
 
@@ -51,30 +52,30 @@ To run code from a separate script in our `main.py` file, we can follow the inst
 
 1. Create a file named `my_new_script.py`, and add the following function:
 
-    ```python
-    def test():
-        print("This runs from my_new_script.py")
-    ```
+```python
+def test():
+ print("This runs from my_new_script.py")
+```
 
 2. In `main.py`, we run some initial code and then switches to executing a function from `my_new_script.py`. Here's an example:
     
-    ```python
-    import my_new_script
-    print("This runs from main.py")
+```python
+import my_new_script
+print("This runs from main.py")
 
-    my_new_script.test()
-    ```
+my_new_script.test()
+```
 
 3. Check the REPL, we should see:
 
-    ```bash
-    This runs from main.py # executed from main.py
-    This runs from my_new_script.py #executed from my_new_script.py
-    ```
+```bash
+This runs from main.py # executed from main.py
+This runs from my_new_script #executed from my_new_script
+```
 
 Essentially, this is how [modules]() work. You import a module, and use a function from that module.
 
-![Import code from a script.]()
+![Import code from a script.](assets/ImportScript.png)
 
 ## Example: Directly Executing a Script
 
@@ -99,7 +100,7 @@ We can also directly execute another script stored on the device. For this examp
 
 As a result, we should read `"I was run from main.py"` in the REPL. How this differs from the previous example, is that the `run_directly.py` script was just run from top to bottom, as opposed to importing a specific segment of code.
 
-![Executing a script directly.]()
+![Executing a script directly.](assets/RunningScript.png)
 
 
 ## Organizing Code with Modules and Libraries
