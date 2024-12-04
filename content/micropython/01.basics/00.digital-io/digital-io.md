@@ -3,6 +3,7 @@ title: 'Digital I/O'
 description: 'A guide to digital inputs and outputs using MicroPython.'
 author: 'Pedro Lima'
 tags: [MicroPython, Digital I/O]
+micropython_type: basics
 ---
 
 Digital pins are fundamental for interacting with the physical world using your Arduino board. With them, you can:
