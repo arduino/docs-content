@@ -22,11 +22,7 @@ software:
 
 This user manual will guide you through a practical journey covering the most interesting features of the Arduino Nano Matter. With this user manual, you will learn how to set up, configure and use this Arduino board.
 
-![RGB Lightbulb with Nano Matter](assets/matter-google.gif)
-
-## The Community Preview
-
-The actual Arduino Nano Matter board available in the market is a community preview. **The Matter Color Light will be the only officially Matter-certified profile for the Nano Matter Community Preview. Currently under certification.**
+![RGB Lightbulb with Nano Matter](assets/google-matter.gif)
 
 ## Hardware and Software Requirements
 ### Hardware Requirements
@@ -46,7 +42,7 @@ The **Silicon Labs** core contains the libraries and examples you need to work w
 
 Now navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
 
-![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install.png)
+![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install-2.png)
 
 ## Product Overview
 
@@ -57,18 +53,18 @@ It enables 802.15.4 (Thread®) and Bluetooth® Low Energy connectivity, to inter
 ### Board Architecture Overview
 
 The Nano Matter features a compact and efficient architecture powered by the MGM240S (32-bit Arm® Cortex®-M33) from Silicon Labs, a high-performance wireless module
-optimized for the needs of battery and line-powered IoT devices for 2.4 GHz mesh networks. 
+optimized for the needs of battery and line-powered IoT devices for 2.4 GHz mesh networks.
 
-![Nano Matter's main components](assets/architecture.png)
+![Nano Matter's main components](assets/architecture-2.png)
 
 Here is an overview of the board's main components, as shown in the image above:
 
-- **Microcontroller**: at the heart of the Nano Matter is the MGM240S, a high-performance wireless module from Silicon Labs. The MGM240S is built around a 32-bit Arm® Cortex®-M33 processor running at 78 MHz. 
-- **Wireless connectivity**: the Nano Matter microcontroller also features multi-protocol connectivity to enable Matter IoT protocol and Bluetooth® Low Energy. This allows the Nano Matter to be integrated with smart home systems and communicate wirelessly with other devices.
+- **Microcontroller**: at the heart of the Nano Matter is the MGM240S, a high-performance wireless module from Silicon Labs. The MGM240S is built around a 32-bit Arm® Cortex®-M33 processor running at 78 MHz.
+- **Wireless connectivity**: the Nano Matter microcontroller also features multiprotocol connectivity to enable Matter IoT protocol and Bluetooth® Low Energy. This allows the Nano Matter to be integrated with smart home systems and communicate wirelessly with other devices.
 
 ### Pinout
 
-![Nano Matter Simple pinout](assets/simple-pinout.png)
+![Nano Matter Simple pinout](assets/simple-pinout-2.png)
 
 The full pinout is available and downloadable as PDF from the link below:
 
@@ -99,24 +95,25 @@ The Nano Matter board features castellated pins, which are ideal for integrating
 
 You can easily solder the Nano Matter in your custom PCB, since the board does not present any bottom-mounted components.
 
-![Nano Matter castellated pins](assets/castellated-small.png)
+![Nano Matter castellated pins](assets/castellated-2.png)
 
 ## First Use
 ### Powering the Board
 
 The Nano Matter can be powered by:
 
-- A USB-C® cable (not included). 
-- An external **5 V power supply** connected to `IN5V` pin (please, refer to the [board pinout section](#pinout) of the user manual).
+- A USB-C® cable (not included).
+- An external **5 V power supply** connected to `5V` pin (please, refer to the [board pinout section](#pinout) of the user manual).
+- An external **6-21 V power supply** connected to `VIN` pin (please, refer to the [board pinout section](#pinout) of the user manual).
 
-![Nano Matter externally powered](assets/ext-power.png)
+![Nano Matter externally powered](assets/ext-power-2.png)
 
 For low-power consumption applications, the following hacks are recommended:
 
 - Cut the power status LED jumper off to save energy.
 - Power the board with an external **3.3 V power supply** connected to **3.3V** pin. This will not power the *USB bridge IC*, so more energy will be saved.
 
-![Image showing the LED jumper and external 3.3 V power](assets/lower-power.png)
+![Image showing the LED jumper and external 3.3 V power](assets/lower-power-2.png)
 
 ***To power the board through the VIN pin you need to close the jumper pads with solder. The maximum voltage supported is +5 VDC.***
 
@@ -128,7 +125,7 @@ The **Silicon Labs** core contains the libraries and examples you need to work w
 
 Now navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
 
-![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install.png)
+![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install-2.png)
 
 ### Hello World Example
 
@@ -160,7 +157,7 @@ To upload the code to the Nano Matter, click the **Verify** button to compile th
 
 You should now see the red LED of the built-in RGB LED turning on for one second, then off for one second, repeatedly.
 
-![Hello World example running in the Nano Matter](assets/blink.gif)
+![Hello World example running in the Nano Matter](assets/blink-2.gif)
 
 If everything works as expected, you are ready to continue searching and experimenting with this mighty board.
 
@@ -168,19 +165,19 @@ If everything works as expected, you are ready to continue searching and experim
 
 Developing Matter-compatible IoT solutions has never been easier with the Arduino ecosystem. 
 
-![Nano Matter](assets/nano-matter-banner.png)
+![Nano Matter](assets/nano-matter-banner-2.png)
 
 The Nano Matter can communicate with Matter hubs through a Thread® network, so the hubs used must be **Thread® border routers**.
 
 The Silicon Labs core in the Arduino IDE comes with several Matter examples ready to be tested with the Nano Matter and works as a starting point for almost any IoT device we can imagine building.
 
-![Matter examples](assets/matter-examples.png)
+![Matter examples](assets/matter-examples-2.png)
 
 ***The _matter_lightbulb_ example is the only officially Matter-certified profile for the Nano Matter __Community Preview__. Consequently, while running any of the other available profile examples, it is expected to get an _Uncertified device_ message in the different Matter-compatible apps. This does not prevent the user from prototyping a solution with different configurations.***
 
 First, to start creating *Matter-enabled* solutions, we need to select the Matter protocol in **Tools > Protocol stack > Matter**:
 
-![Matter Protocol stack selected](assets/matter-setup.png)
+![Matter Protocol stack selected](assets/matter-setup-2.png)
 
 In the example below, we are going to use the Nano Matter as a *RGB Lightbulb*. For this, navigate to **File > Examples > Matter** and open the built-in sketch called **nano_matter_lightbulb_color**.
 
@@ -347,7 +344,7 @@ To upload the code to the Nano Matter, click the **Verify** button to compile th
 
 After the code is uploaded, open the Arduino IDE Serial Monitor and reset the board by clicking on the reset button. To commission a Matter device to the network you will need the credentials shown in the terminal.
 
-![Nano Matter Reset Button](assets/rst-button.png)
+![Nano Matter Reset Button](assets/rst-button-2.png)
 
 You will find a **Manual pairing code** and a **QR code URL** as follows:
 
@@ -376,7 +373,7 @@ Then, wait for the device to be commissioned and added to the Google Home app:
 
 Finally, you will be able to control the Nano Matter built-in RGB LED as a native smart device. You can turn it on and off and control its color and brightness.
 
-![RGB Lightbulb with Nano Matter](assets/matter-google.gif)
+![RGB Lightbulb with Nano Matter](assets/google-matter.gif)
 
 You are also able to control your device using voice commands with your personal assistant.
 
@@ -411,7 +408,7 @@ Read the QR code generated by the Nano Matter sketch, select the **Thread®** ne
 
 Finally, you will be able to control the Nano Matter built-in RGB LED as a native smart device. You can turn it on and off and control its color and brightness.
 
-![RGB Lightbulb with Nano Matter](assets/matter-alexa.gif)
+![RGB Lightbulb with Nano Matter](assets/alexa-matter.gif)
 
 You are also able to control your device using voice commands with your personal assistant.
 
@@ -440,7 +437,7 @@ Then, follow the steps for adding and naming the Matter Light bulb:
 
 Finally, you will be able to control the Nano Matter built-in RGB LED as a native smart device. You can turn it on and off and control its color and brightness.
 
-![RGB Lightbulb with Nano Matter](assets/apple.gif)
+![RGB Lightbulb with Nano Matter](assets/apple-matter.gif)
 
 You are also able to control your device using voice commands with your personal assistant.
 
@@ -476,7 +473,7 @@ Finally, you will be able to control the Nano Matter built-in RGB LED as a nativ
 
 You can use the Home Assistant web view or mobile app to control your device.
 
-![RGB Lightbulb with Nano Matter](assets/ha.gif)
+![RGB Lightbulb with Nano Matter](assets/ha-matter.gif)
 
 If you want to commission your Nano Matter solution with another service, follow the steps in the [decommissioning](#device-decommissioning) section.
 
@@ -495,6 +492,8 @@ If you want to commission your Nano Matter solution with another service, follow
 If you have a Matter device configured and working with a _specific platform_, for example with the Google Home ecosystem, and you want to integrate it with Alexa or Apple Home instead, you need to decommission it first from the previous service.
 
 In simple terms, **decommissioning** refers to unpairing your device from a current service to be able to pair it with a new one.
+
+***Use the library built-in example found in __File > Examples > Matter > matter_decommission__.***
 
 You can integrate this method in your solutions to leverage the Nano Matter built-in button to handle decommissioning:
 
@@ -535,11 +534,12 @@ void decommission_handler() {
         if (!Matter.isDeviceCommissioned()) {
           Serial.println("Decommission done!");
           digitalWrite(LEDR, LOW);
+          Matter.decommission();
         } else {
           Serial.println("Matter device is commissioned-> Starting Decommission process");
-          nvm3_eraseAll(nvm3_defaultHandle);  // Decomission command
           digitalWrite(LED_BUILTIN, LOW);
           Serial.println("Decommission done!");
+          Matter.decommission();
         }
         break;
       }
@@ -673,7 +673,7 @@ Now it is time to commission the Nano Matter with Home Assistant, for this, foll
 
 Once you have everything set up and running you will be able to monitor the Nano Matter temperature in Home Assistant:
 
-![Nano Matter Temperature in Home Assistant](assets/home-assistant-temp.png)
+![Nano Matter Temperature in Home Assistant](assets/home-assistant-temp-2.png)
 
 ***Be aware that the Matter integration for Home Assistant is still in BETA, it can receive major updates and its functionality may vary between different vendors.***
 
@@ -781,7 +781,7 @@ rest_command:
 ```
 The [RESTful command integration](https://www.home-assistant.io/integrations/rest_command/) lets us define the HTTP request structure to be able to send the Nano Matter temperature sensor data to the Arduino Cloud. We can call this service from an automation.
 
-As you may noticed, the sensitive data we stored in the "secrets.yaml" file is being called here with the **!secret** prefix.
+As you may noticed, the sensitive data we stored in the "secrets.yaml" file is being called here with the `!secret` prefix.
 
 ![configuration.yaml file to define services](assets/ha-setup-config.png)
 
@@ -817,7 +817,7 @@ This automation will be triggered if the Nano Matter sensor temperature value ch
 
 ![Automation defining](assets/automation-define.png)
 
-***If you used different names for the services or devices, make sure to update them in the YAML code above.***
+***If you use different names for the services or devices, make sure to update them in the YAML code above.***
 
 ### Final Results
 
@@ -827,22 +827,24 @@ With this done, Home Assistant should be forwarding the Nano Matter sensor data 
 
 ## Bluetooth® Low Energy
 
-To enable Bluetooth® Low Energy communication on the Nano Matter, you must enable the "BLE" protocol stack in the Arduino IDE board configurations. 
+### Silicon Labs BLE Library
 
-In the upper menu, navigate to **Tools > Protocol stack** and select **BLE**.
+To enable Bluetooth® Low Energy communication on the Nano Matter, you must enable the "BLE" protocol stack in the Arduino IDE board configurations. In this section we will use the official Silabs Bluetooth library.
 
-![Enable "BLE" Protocol Stack](assets/ble-setup.png)
+In the upper menu, navigate to **Tools > Protocol stack** and select **BLE(Silabs)**.
+
+![Enable "BLE(Silabs)" Protocol Stack](assets/ble-setup-2.png)
 
 For this Bluetooth® Low Energy application example, we are going to control the Nano Matter built-in LED and read the onboard button status. The example sketch to be used can be found in **File > Examples > Silicon Labs > ble_blinky**:
 
 ```arduino
 /*
    BLE blinky example
-*/
+ */
 
 bool btn_notification_enabled = false;
-bool btn_state_changed = false;
-uint8_t btn_state = LOW;
+volatile bool btn_state_changed = false;
+volatile uint8_t btn_state = LOW;
 static void btn_state_change_callback();
 static void send_button_state_notification();
 static void set_led_on(bool state);
@@ -998,7 +1000,7 @@ static void send_button_state_notification()
   }
   sl_status_t sc = sl_bt_gatt_server_notify_all(btn_report_characteristic_handle,
                                                 sizeof(btn_state),
-                                                &btn_state);
+                                                (const uint8_t*)&btn_state);
   if (sc == SL_STATUS_OK) {
     Serial.print("Notification sent, button state: ");
     Serial.println(btn_state);
@@ -1169,16 +1171,147 @@ The `ble_initialize_gatt_db()` function is responsible for:
 
 ***Note that if you want to implement a different or custom Bluetooth® Low Energy service or characteristic, the UUID arrays have to start with the least significant bit (LSB) from left to right.***
 
-After uploading the sketch to the Nano Matter, it is time to communicate with it through Bluetooth® Low Energy. For this, Silicon Labs has developed a **mobile app** that you can download from here:
+After uploading the sketch to the Nano Matter, it is time to communicate with it via Bluetooth® Low Energy. To do this Silicon Labs has developed a **mobile app** that you can download from here:
 
 - [Android](https://play.google.com/store/apps/details?id=com.siliconlabs.bledemo)
 - [iOS](https://itunes.apple.com/us/app/silicon-labs-blue-gecko-wstk/id1030932759)
 
-Open the *EFR Connect BLE Mobile APP* on your smartphone, in the lower menu, navigate to **Demo** and select **Blinky**:
+Open the **Simplicity Connect** app on your smartphone, in the lower menu, navigate to **Demo** and select **Blinky**:
 
-![Blinky demo controlling the Nano Matter through Bluetooth® Low Energy](assets/BlinkyBLE.gif)
+![Blinky demo controlling the Nano Matter via Bluetooth® Low Energy](assets/ble-blinky.gif)
 
-***You can also manage the LED control and button status manually from the Scan tab in the lower menu.***
+***You can also manage the LED and button status manually from the Scan tab in the lower menu of the app.***
+
+### Arduino BLE Library
+
+Now let's do the same but using the `ArduinoBLE` library.
+
+In the upper menu, navigate to **Tools > Protocol stack** and select **BLE(Arduino)**.
+
+![Enable "BLE(Arduino)" Protocol Stack](assets/ble-setup-3.png)
+
+For this Bluetooth® Low Energy application example, we are going to control the Nano Matter built-in LED and read the onboard button status, everything from the **Simplicity Connect** app.
+
+```arduino
+#include <ArduinoBLE.h>
+
+BLEService ledService("de8a5aac-a99b-c315-0c80-60d4cbb51224");  // Bluetooth® Low Energy LED Service
+
+// Bluetooth® Low Energy LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+BLEByteCharacteristic ledCharacteristic("5b026510-4088-c297-46d8-be6c736a087a", BLERead | BLEWrite);
+
+// Bluetooth® Low Energy Push Button Characteristic - custom 128-bit UUID, read and notify by central
+BLEByteCharacteristic switchCharacteristic("61a885a4-41c3-60d0-9a53-6d652a70d29c", BLERead | BLENotify);
+
+const int ledPin = LED_BUILTIN;  // pin to use for the LED
+volatile bool btn_state_changed = false;
+volatile uint8_t btn_state = LOW;
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial)
+    ;
+
+  // set LED pin to output mode
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, HIGH);
+
+  pinMode(BTN_BUILTIN, INPUT_PULLUP);
+  attachInterrupt(BTN_BUILTIN, &btn_handle, CHANGE);
+
+  // begin initialization
+  if (!BLE.begin()) {
+    Serial.println("starting Bluetooth® Low Energy module failed!");
+
+    while (1)
+      ;
+  }
+
+  // set advertised local name and service UUID:
+  BLE.setLocalName("Blinky Example");
+  BLE.setAdvertisedService(ledService);
+
+  // add the characteristic to the service
+  ledService.addCharacteristic(ledCharacteristic);
+  ledService.addCharacteristic(switchCharacteristic);
+
+  // add service
+  BLE.addService(ledService);
+
+  // set the initial value for the characeristic:
+  ledCharacteristic.writeValue(0);
+  switchCharacteristic.writeValue(0);
+
+  // start advertising
+  BLE.advertise();
+
+  Serial.println("BLE LED Peripheral");
+}
+
+void loop() {
+  // listen for Bluetooth® Low Energy peripherals to connect:
+  BLEDevice central = BLE.central();
+
+  // if a central is connected to peripheral:
+  if (central) {
+    Serial.print("Connected to central: ");
+    // print the central's MAC address:
+    Serial.println(central.address());
+
+    // while the central is still connected to peripheral:
+    while (central.connected()) {
+      // if the remote device wrote to the characteristic,
+      // use the value to control the LED:
+      if (ledCharacteristic.written()) {
+        if (ledCharacteristic.value()) {  // any value other than 0
+          Serial.println("LED on");
+          digitalWrite(ledPin, LOW);  // will turn the LED on
+        } else {                      // a 0 value
+          Serial.println(F("LED off"));
+          digitalWrite(ledPin, HIGH);  // will turn the LED off
+        }
+      }
+
+      if (btn_state_changed) {
+        // button state changed, update characteristics
+        btn_state_changed = false;
+        Serial.println("Button toggle");
+        switchCharacteristic.writeValue(btn_state);
+      }
+    }
+
+    // when the central disconnects, print it out:
+    Serial.print(F("Disconnected from central: "));
+    Serial.println(central.address());
+  }
+}
+
+/**************************************************************************/ /**
+ * Called on button state change - stores the current button state and
+ * sets a flag that a button state change occurred.
+ *****************************************************************************/
+static void btn_handle() {
+  // The real button state is inverted - most boards have an active low button configuration
+  btn_state = !digitalRead(BTN_BUILTIN);
+  btn_state_changed = true;
+}
+```
+
+As you can see, using the `ArduinoBLE` library makes the Bluetooth example more similar to the Bluetooth implementation of other Arduino boards, making it easier to migrate code from one board to another. We end up with a simple `setup()` and `loop()` sketch.
+
+- In the `setup()` function the board outputs and inputs are set and configured alongside the BLE service and characteristics.
+- In the `loop()` function we continuously ask if the peripheral is properly connected to a central and then start notifying the push button status and retrieving the app LED status.
+
+After uploading the sketch to the Nano Matter, it is time to communicate with it via Bluetooth® Low Energy. To do this Silicon Labs has developed a **mobile app** that you can download from here:
+
+- [Android](https://play.google.com/store/apps/details?id=com.siliconlabs.bledemo)
+- [iOS](https://itunes.apple.com/us/app/silicon-labs-blue-gecko-wstk/id1030932759)
+
+Open the **Simplicity Connect** app on your smartphone, in the lower menu, navigate to **Demo** and select **Blinky**:
+
+![Blinky demo controlling the Nano Matter via Bluetooth® Low Energy](assets/ble-blinky-3.gif)
+
+***You can also manage the LED and button status manually from the Scan tab in the lower menu of the app.***
 
 ## Onboard User Interface
 
@@ -1186,7 +1319,7 @@ Open the *EFR Connect BLE Mobile APP* on your smartphone, in the lower menu, nav
 
 The Nano Matter includes an onboard **push button** that can be used as an input by the user. The button is connected to the GPIO `PA0` and can be read using the `BTN_BUILTIN` macro.
 
-![Nano Matter Built-in Push Button](assets/button.png)
+![Nano Matter Built-in Push Button](assets/button-2.png)
 
 The button pulls the input to the ground when pressed, so is important to define the **pull-up resistor** to avoid undesired behavior by leaving the input floating.
 
@@ -1238,7 +1371,7 @@ The Nano Matter features a built-in RGB LED that can be a visual feedback indica
 
 ***The RGB LED colors are activated with zeros, this means that you need to set to LOW the color segment you want to turn on.***
 
-![Built-in RGB LED](assets/rgb-led.png)
+![Built-in RGB LED](assets/rgb-led-2.png)
 
 
 Here you can find a complete example code to blink the built-in RGB LED of the Nano Matter:
@@ -1268,7 +1401,7 @@ void loop() {
 }
 ```
 
-![Nano Matter built-in LED blink](assets/rgb-blink.gif)
+![Nano Matter built-in LED blink](assets/blink-rgb-2.gif)
 
 ## Pins
 
@@ -1335,7 +1468,7 @@ digitalWrite(pin, LOW);
 
 The example code shown below uses digital pin `D5` to control an LED and reads the state of a button connected to digital pin `D4`:
 
-![Digital I/O example wiring](assets/gpio-wiring.png)
+![Digital I/O example wiring](assets/gpio-wiring-2.png)
 
 ```arduino
 // Define button and LED pin
@@ -1502,7 +1635,7 @@ analogReference(AR_INTERNAL1V2);
 
 The example code shown below reads the analog input value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor. To understand how to properly connect a potentiometer to the Nano Matter, take the following image as a reference:
 
-![ADC input example wiring](assets/adc-input.png)
+![ADC input example wiring](assets/adc-input-2.png)
 
 ```arduino
 int sensorPin = A0;   // select the input pin for the potentiometer
@@ -1588,7 +1721,7 @@ void loop()
 ```
 The DAC output should look like the image below:
 
-![DAC sine wave output](assets/sine-output.png)
+![DAC sine wave output](assets/sine-output-2.png)
 
 The following sketch will create a **sawtooth** wave signal in the `A0` Nano Matter pin:
 
@@ -1616,7 +1749,7 @@ void loop()
 ```
 The DAC output should look like the image below:
 
-![DAC sawtooth wave output](assets/saw-output.png)
+![DAC sawtooth wave output](assets/saw-output-2.png)
 
 ## Communication
 
