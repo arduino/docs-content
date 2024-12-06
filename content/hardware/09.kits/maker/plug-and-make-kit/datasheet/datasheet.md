@@ -729,6 +729,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 |  **Date**  | **Revision** |                      **Changes**                       |
 | ---------- | ------------ | ------------------------------------------------------ |
-| 05/09/2024 |      1       | Cloud Editor updated from Web Editor |
+| 06/12/2024 |      3       | Updated I2C information |
+| 05/09/2024 |      2       | Cloud Editor updated from Web Editor |
 | 11/07/2024 |      1       | First release |
 
