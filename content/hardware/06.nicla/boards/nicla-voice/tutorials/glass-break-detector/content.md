@@ -294,7 +294,75 @@ You can also use the Arduino IDE's Serial Monitor to observe similar results fou
 
 ## Expanding Glass Breaking Detector
 
-XXX
+You can expand the Glass Breaking Detector system described in this application note to include real-time alerts and interesting automation by integrating the Nicla Voice, Portenta H7 and the Arduino IoT Cloud.
+
+This enhanced functionality will allow you to perform improved safety and monitoring capabilities specific to environments with glass structures.
+
+### Expanded System Overview
+
+The system starts with the Nicla Voice, which runs a trained machine learning model to detect high-accuracy glass-breaking sounds. When a glass-breaking sound is detected, the Nicla Voice sends a notification via Bluetooth® Low Energy (BLE) to the Portenta H7.
+
+Working as the host, the Portenta H7 forwards the alert to the Arduino IoT Cloud, where you can monitor updates on a dashboard and actions triggered in real time.
+
+This integration also includes an escalation mechanism. The system will activate a Security Alert upon detecting the initial glass-breaking event.
+
+If additional glass-breaking events are detected, the system will escalate the response by activating a Lockdown Motor to secure the environment that could be connected to reinforced shutters.
+
+This feature provides you with an adaptable solution for possible scenarios.
+
+### Nicla Voice Integration
+
+The Nicla Voice identifies glass-breaking sounds and sends alerts to the Portenta H7. The following code shows how part of the alert mechanism works:
+
+```arduino
+void sendAlert(char* label) {
+  if (strcmp(label, "NN0:glassbreak") == 0) {
+    Serial.println("Glass break detected. Sending BLE alert...");
+    glassBreakAlert.writeValue(1);  // Write to BLE characteristic
+    NDP.noInterrupts();
+    nicla::leds.begin();
+    nicla::leds.setColor(red);
+    delay(3000);
+    nicla::leds.end();
+    NDP.interrupts();
+  } else {
+    Serial.println("No relevant event detected.");
+  }
+}
+```
+
+This part of the code ensures that the Nicla Voice communicates detected events to the host device, allowing you to have rapid responses.
+
+### Portenta H7 Integration
+
+The Portenta H7 will handle BLE notifications from the Nicla Voice and work as the bridge between the detection hardware and the Arduino IoT Cloud.
+
+Using the Portenta H7, you can update the cloud with event details and manage system responses based on the alert level.
+
+The following code snippet shows how the Portenta H7 processes these specific alerts:
+
+```arduino
+if (AlertValue == 1) {
+    alertStatus = true; // General alert status triggered
+    if (!SecurityAlert) {
+        SecurityAlert = true; // Turn on security alert
+        GlassEvent = "Security Alert ON: Glass break detected";
+        Serial.println("Security Alert activated.");
+    } else {
+        LockdownMotor = true; // Turn on lockdown motor
+        GlassEvent = "Lockdown activated: Additional glass break detected";
+        Serial.println("Lockdown motor activated.");
+    }
+}
+```
+
+This structure ensures the system determines between initial and subsequent alerts, escalating responses as needed so you can handle possible complex scenarios.
+
+### IoT Cloud Integration
+
+By integrating with the Arduino IoT Cloud, you can access a user-friendly dashboard to monitor the system status. You can view real-time event logs, track BLE connection status, and observe the Security Alert or Lockdown Motor activation.
+
+The cloud integration also enables you to receive updates and take action from anywhere, making the system more accessible and responsive.
 
 ## Full Glass-Breaking Detector Resources
 
