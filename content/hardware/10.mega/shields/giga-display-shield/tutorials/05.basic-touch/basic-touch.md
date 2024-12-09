@@ -85,6 +85,7 @@ int lastTouch;
 int threshold = 250; //time in milliseconds
 
 void setup() {
+  delay(3000);
   Serial.begin(115200);
   while(!Serial) {}
 
@@ -147,6 +148,7 @@ int threshold = 250;
 bool switch_1;
 
 void setup() {
+  delay(3000);
   // put your setup code here, to run once:
   Serial.begin(9600);
   display.begin();

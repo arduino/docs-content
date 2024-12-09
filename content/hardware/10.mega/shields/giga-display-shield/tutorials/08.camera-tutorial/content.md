@@ -113,6 +113,7 @@ void blinkLED(uint32_t count = 0xFFFFFFFF)
 uint32_t palette[256];
 
 void setup() {
+  delay(3000);
   // Init the cam QVGA, 30FPS
   if (!cam.begin(CAMERA_R320x240, IMAGE_MODE, 30)) {
     blinkLED();

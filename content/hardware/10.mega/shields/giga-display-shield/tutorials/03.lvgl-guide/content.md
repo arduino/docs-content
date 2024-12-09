@@ -64,6 +64,7 @@ In the `setup()`, we begin by initializing the display and the touch detector.
 
 ```arduino
 void setup(){
+  delay(3000);
   Display.begin();
   TouchDetector.begin();
 }
@@ -154,6 +155,7 @@ Arduino_H7_Video Display(800, 480, GigaDisplayShield);
 Arduino_GigaDisplayTouch TouchDetector;
 
 void setup() {
+  delay(3000);
   Display.begin();
   TouchDetector.begin();
 
@@ -236,6 +238,7 @@ To make sure we see the image use the align function to make it centered. Then a
 Arduino_H7_Video          Display(800, 480, GigaDisplayShield);
 
 void setup() {
+  delay(3000);
   Display.begin();
 
   lv_obj_t * screen = lv_obj_create(lv_scr_act());
@@ -335,6 +338,7 @@ Arduino_H7_Video          Display(800, 480, GigaDisplayShield);
 Arduino_GigaDisplayTouch  TouchDetector;
 
 void setup() {
+  delay(3000);
   Display.begin();
   TouchDetector.begin();
 
@@ -410,6 +414,7 @@ Arduino_H7_Video          Display(800, 480, GigaDisplayShield);
 Arduino_GigaDisplayTouch  TouchDetector;
 
 void setup() {
+  delay(3000);
   Display.begin();
   TouchDetector.begin();
 
@@ -506,6 +511,7 @@ Arduino_H7_Video          Display(800, 480, GigaDisplayShield); /* Arduino_H7_Vi
 Arduino_GigaDisplayTouch  TouchDetector;
 
 void setup() {
+  delay(3000);
   Display.begin();
   TouchDetector.begin();
 
@@ -634,6 +640,7 @@ static void set_slider_val(void * bar, int32_t val) {
 }
 
 void setup() {
+  delay(3000);
   Display.begin();
   TouchDetector.begin();
 
@@ -752,6 +759,7 @@ static void btn_event_cb(lv_event_t * e) {
 }
 
 void setup() {
+  delay(3000);
   Display.begin();
   TouchDetector.begin();
 

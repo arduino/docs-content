@@ -40,6 +40,7 @@ LV_IMG_DECLARE(img_arduinologo);
 lv_obj_t * img;
 
 void setup() {
+  delay(3000);
   Serial.begin(115200);
   
   Display.begin();
@@ -91,6 +92,7 @@ The easiest way to tell what values you are getting depending on the orientation
 BoschSensorClass imu(Wire1);
 
 void setup(){
+  delay(3000);
   Serial.begin(115200);
   imu.begin();
 }
@@ -131,6 +133,7 @@ LV_IMG_DECLARE(img_arduinologo);
 lv_obj_t * img;
 
 void setup() {
+  delay(3000);
   Serial.begin(115200);
   
   Display.begin();

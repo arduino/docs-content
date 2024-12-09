@@ -52,6 +52,7 @@ When creating elements, information about the screen and placement needs to be p
 
 ```arduino
 void setup() {
+  delay(3000);
   /* Init SEGGER emWin library. It also init display and touch controller */
   GUI_Init();
 
@@ -73,6 +74,7 @@ Here is an example that sets the screen background color to green and prints the
 #include <DIALOG.h>
 
 void setup() {
+  delay(3000);
   GUI_Init();
   GUI_MULTIBUF_Begin();
   GUI_SetBkColor(GUI_GREEN);
@@ -261,6 +263,7 @@ static void _cbWin(WM_MESSAGE * pMsg) {
 }
 
 void setup() {
+  delay(3000);
   GUI_Init();
   WM_MULTIBUF_Enable(1);
   WM_CreateWindowAsChild(0, 0, LCD_GetXSize(), LCD_GetYSize(), WM_HBKWIN, WM_CF_SHOW, _cbWin, 0);
@@ -358,6 +361,7 @@ static void _cbChildWinCheck(WM_MESSAGE * pMsg) {
 }
 
 void setup() {
+  delay(3000);
   /* Init SEGGER emWin library. It also init display and touch controller */
   GUI_Init();
 
@@ -469,6 +473,7 @@ static void _cbChildWinSlider(WM_MESSAGE * pMsg) {
 }
 
 void setup() {
+  delay(3000);
   /* Init SEGGER emWin library. It also init display and touch controller */
   GUI_Init();
 
@@ -608,6 +613,7 @@ int progbarCnt = 0;
 unsigned long previousMillis = 0;
 
 void setup() {
+  delay(3000);
   /* Init SEGGER emWin library. It also init display and touch controller */
   GUI_Init();
 
@@ -732,6 +738,7 @@ static void _cbChildWinBtn(WM_MESSAGE * pMsg) {
 }
 
 void setup() {
+  delay(3000);
   /* Init SEGGER emWin library. It also init display and touch controller */
   GUI_Init();
 
