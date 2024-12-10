@@ -1,1 +1,8 @@
 Opta
+Nano
+kB
+GPIO
+UART
+mA
+RoHS
+ECHA
