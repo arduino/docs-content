@@ -53,7 +53,7 @@ At the end of the application note, you will have all resources and details for 
 - The [Arduino Create Agent](https://cloud.arduino.cc/download-agent/)
 - The [Arduino Cloud](https://cloud.arduino.cc/). If you do not have an account, you can create one for free inside [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
 
-### Additional Resources  
+### Additional Resources
 
 - Pre-recorded glass-breaking sound samples (or access to the [**DCASE**](http://dcase.community/challenge2017/task-rare-sound-event-detection-results) dataset).  
 - A speaker or audio playback device for live testing.
@@ -765,12 +765,11 @@ The cloud integration enables you to receive updates and take action from anywhe
 
 ## Full Glass-Breaking Detector Resources
 
-All the necessary files to replicate this application notes can be found below:
+All the codes and files of this application note can be found below:
 
-* The complete code can be downloaded here:
-  - [Base glass-breaking detector example](assets/glass-break-detector.zip)
-  - [Extended glass-breaking detector with Arduino Cloud](assets/glass-break-detection-building.zip)
-* The Machine Learning Tools project is public [here](https://mltools.arduino.cc/public/210541/latest) by Aurelien Lequertier. You can clone it and modify it to adapt it to your needs by improving the dataset or model architecture for a custom deployment.
+- [Base glass-breaking detector example](assets/glass-break-detector.zip)
+- [Extended glass-breaking detector with Arduino Cloud](assets/glass-break-detection-building.zip)
+- The Machine Learning Tools project is public [here](https://mltools.arduino.cc/public/210541/latest) by Aurelien Lequertier. You can clone it and modify it to adapt it to your needs by improving the dataset or model architecture for a custom deployment.
 
 ## Conclusion 
 
@@ -786,5 +785,5 @@ This system can be adapted to recognize other sounds or events by retraining the
 - Monitoring animal sounds in wildlife conservation.  
 - Recognizing spoken keywords for voice-controlled systems.  
 
-You can also explore the [Door Intruder Detector Using ML with the Nicla Voice](https://docs.arduino.cc/tutorials/nicla-voice/ei-intruder-detector/) applicatio note that shows how machine learning can detect door-opening and intrusion events, providing additional insights into creating versatile sound detection systems for enhanced domestic security.
+You can also explore the [Door Intruder Detector Using ML with the Nicla Voice](https://docs.arduino.cc/tutorials/nicla-voice/ei-intruder-detector/) application note that shows how machine learning can detect door-opening and intrusion events, providing additional insights into creating versatile sound detection systems for enhanced domestic security.
 
