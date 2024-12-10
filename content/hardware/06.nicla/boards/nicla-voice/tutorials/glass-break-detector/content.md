@@ -198,15 +198,15 @@ The animation below shows the firmware update process and uploading the trained 
 If you prefer to update manually, navigate to the **`ndp120`** directory and run the following commands in sequence:
 
 ```bash
-./syntiant-uploader-win send -m "Y" -w "Y" -p COM17 mcu_fw_120_v91.synpkg
+./syntiant-uploader-win send -m "Y" -w "Y" -p COM<Port Number> mcu_fw_120_v91.synpkg
 ```
 
 ```bash
-./syntiant-uploader-win send -m "Y" -w "Y" -p COM17 dsp_firmware_v91.synpkg
+./syntiant-uploader-win send -m "Y" -w "Y" -p COM<Port Number> dsp_firmware_v91.synpkg
 ```
 
 ```bash
-./syntiant-uploader-win send -m "Y" -w "Y" -p COM17 ei_model.synpkg
+./syntiant-uploader-win send -m "Y" -w "Y" -p COM<Port Number> ei_model.synpkg
 ```
 
 ***If you are not familiar with updating the NDP120 processor firmware and uploading the trained machine learning model, please refer to [this section](https://docs.arduino.cc/tutorials/nicla-voice/user-manual/#ndp120-processor-firmware-update) of the Nicla Voice User Manual.***
