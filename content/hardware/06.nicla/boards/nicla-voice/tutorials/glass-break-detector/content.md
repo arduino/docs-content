@@ -1,5 +1,5 @@
 ---
-title: ' Glass-Breaking Detection Using Edge Impulse & Nicla Voice'
+title: 'Glass-Breaking Detection Using Edge Impulse & Nicla Voice'
 description: "This application note describes creating a glass-breaking detection system using the Arduino Nicla Voice, Machine Learning Tools, and the Edge Impulse platform."
 difficulty: intermediate
 tags:
@@ -64,7 +64,11 @@ Edge Impulse and Nicla Voice provide a highly flexible and adaptable solution fo
 
 This adaptability provides comprehensive coverage and flexible response mechanisms for various scenarios. Additionally, integrating BLE communication and Arduino Cloud makes the system even more versatile and responsive.
 
-## Machine Learning Model Development
+## Glass Break Machine Learning Model Development
+
+The application will be based on a preconfigured example model created by Aurelien Lequertier that is available on the [Arduino Machine Learning Tools](https://mltools.arduino.cc/public/210541/latest).
+
+This example detects anomalous sounds of glass breaking using the [DCASE rare sound events dataset](http://dcase.community/challenge2017/task-rare-sound-event-detection-results). With this example, you will learn how to build and deploy a glass-breaking detection system.
 
 ### Data Collection
 
@@ -72,7 +76,7 @@ Data collection is the foundation of any machine learning project. An existing d
 
 This dataset provides high-quality audio samples of glass-breaking sounds and background noise, which is essential for training and testing the model.
 
-You will have a total of 300 audio samples for training and 54 samples for testing. These samples represent two main categories:
+You will have *300 audio samples* for training and *54 samples* for testing. These samples represent two main categories:
 
 - Glass-breaking events
 - Non-glass-breaking ambient noise
@@ -91,7 +95,7 @@ Additionally, Edge Impulse allows you to collect data directly from your devices
 
 ### Data Processing
 
-In this step, you will use an audio processing block optimized for the NDP120 processor found on the Nicla Voice. This block uses a Fast Fourier Transform (FFT) to convert audio data from the time domain to the frequency domain, helping in extracting meaningful features for classification.
+In this step, you will use an audio processing block optimized for the NDP120 processor found on the Nicla Voice. This block uses a *Fast Fourier Transform (FFT)* to convert audio data from the time domain to the frequency domain, helping in extracting meaningful features for classification.
 
 Dimensionality reduction techniques visualize the features, describing different clusters for glass-breaking and non-glass-breaking sounds.
 
@@ -111,11 +115,9 @@ You will use a dense neural network architecture that is well-suited for audio c
 
 Edge Impulse’s Eon tuner can automatically optimize model parameters, simplifying the process for you without extensive machine learning expertise.
 
-The model achieved an accuracy of 89% during training, showing its efficacy in differentiating between glass-breaking and background noises.
+The model achieved an accuracy of *89%* during training, showing its capability to differentiate between glass-breaking and background noises.
 
 ![Model Testing Results](assets/edge-model-test-result.png)
-
-In summary, the neural network for this application note was designed to classify audio signals effectively for glass-breaking scenarios:
 
 - **Architecture**: Dense neural network  
 - **Window Size**: 968 milliseconds  
@@ -128,13 +130,15 @@ The image shows the training settings and the neural network architecture used i
 
 ### Model Testing
 
-After training, the model is evaluated using a test dataset comprising previously unseen audio samples. This evaluation helps ensure the model generalizes nicely to new data and accurately determines glass-breaking events under various conditions.
+After training, the model is evaluated using a test dataset that includes previously unseen audio samples. This evaluation helps ensure the model generalizes adequately to new data and determine glass-breaking events under various conditions.
 
 ![Model Testing Results](assets/edge-model-test.png)
 
-The image above shows the testing results with an accuracy of 99.12%. The confusion matrix highlights the model's ability to classify audio samples correctly while identifying potential areas for improvement.
+The image above shows the testing results with an accuracy of **99.12%**.
 
-Misclassifications mainly occurred for short-duration glass-breaking sounds, suggesting the need for additional data or refinement of the processing pipeline to improve robustness. Regular updates to the dataset with new samples can address such limitations and enhance performance.
+The confusion matrix highlights the model's capability to classify audio samples correctly while identifying potential areas for improvement.
+
+Misclassifications mainly happened for short-duration glass-breaking sounds, suggesting the need for additional data or refinement of the processing pipeline to improve robustness. Regular updates to the dataset with new samples can address such limitations and improve performance.
 
 ***The model performance can be affected if the application is implemented in a very different environment than the one used for training. It is recommended that the datasets be provided with new samples and the model be retrained for a new and upgraded deployment.***
 
@@ -144,54 +148,78 @@ For a new model deployment, use the [Syntiant® uploader](assets/Syntiant_Upload
 
 ### Model Deployment
 
-Once the model is trained, you will deploy it to the Nicla Voice using **Edge Impulse’s binary firmware builder**. The firmware includes the trained model and the necessary scripts for on-device inference, removing the need for internet connectivity during operation.
+After training the model, it can be deployed to the Nicla Voice using **binary firmware builder from Edge Impulse**. This builder creates firmware that includes the trained model and the necessary scripts for on-device inference, allowing operation without internet connectivity.
 
-You will learn to connect the Nicla Voice via USB, select the deployment target, and flash the firmware using Edge Impulse CLI. The deployment process will be shown step-by-step, focusing on using the CLI to manage device setup.
-
-Additionally, the model can be deployed as a library, allowing you to customize it further for specific applications.
+To begin, navigate to the **Deployment** section in the Edge Impulse platform. The following image shows the deployment configuration screen, where you can select Nicla Voice as the deployment target.
 
 ![Configure Deployment for Nicla Voice](assets/edge-deployment-target.png)
 
-The image above shows the deployment configuration screen, where you will select Nicla Voice as the deployment target. Configuring posterior parameters and building the deployment model ensures it is ready for real-time inference. The following clip shows the expected firmware build process:
+Once the Nicla Voice is selected as the deployment target, click on **Build** to start the firmware build process. The animation below provides an overview of how this process looks:
 
 ![Deployment Build for Nicla Voice](assets/nicla-edge-impulse-fw-build-process.gif)
 
-### Build And Flash
+After the build is complete, the firmware files will automatically download. You can retrieve them later from the **Latest build** tab in the **Deployment** section if needed.
 
-1. Connect the Nicla Voice to your computer via USB.  
-2. Load the prebuilt firmware onto the board.
+![Nicla Voice Firmware Build Files](assets/edge-fw-build.png)
 
-![Edge Impulse CLI Firmware Flash](assets/nicla-edge-impulse-fw-flash.gif)
+The downloaded firmware comes as a compressed file. Extract it to your preferred directory. You will find several files in the extracted folder, including a directory named **`ndp120`**.
 
-3. Wait for the LED indicator to have visual readiness indicator.  
+This folder contains the NDP120 processor firmware and the trained machine learning model. There are four scripts for each supported operating system:
+
+- **flash_<os>:** Runs the MCU firmware and model flash scripts.
+- **flash_<os>_mcu:** Flashes only the MCU firmware.
+- **flash_<os>_model:** Flashes the NDP firmware, DSP firmware (if not present), and updates the model.
+- **format_<os>_ext_flash:** Erases the external flash memory.
+
+**`<os>`** refers to the operating system: linux, mac, or windows.
+
+To install the required dependencies, run the `install_lib` script for your operating system. This script only needs to be run once. The model update process uses the Python package [`pyserial`](https://pyserial.readthedocs.io/en/latest/).
+
+After preparing the firmware, connect the Nicla Voice to your computer. 
+
+Use the corresponding script to automatically proceed with the firmware update and model upload. For Windows users, for example, the following command can be used in a terminal:
+
+```bash
+flash_windows
+```
+
+The animation below shows the firmware update process and uploading the trained model:
 
 ![Build & Flash for Nicla Voice](assets/nicla-edge-impulse-glass-break-detect-cmd.gif)
 
-### Manual Flash Process
+If you prefer to update manually, navigate to the **`ndp120`** directory and run the following commands in sequence:
 
 ```bash
-./syntiant-uploader send -m "Y" -w "Y" -p COM17 mcu_fw_120_v91.synpkg
+./syntiant-uploader-win send -m "Y" -w "Y" -p COM17 mcu_fw_120_v91.synpkg
 ```
 
 ```bash
-./syntiant-uploader send -m "Y" -w "Y" -p COM17 dsp_firmware_v91.synpkg
+./syntiant-uploader-win send -m "Y" -w "Y" -p COM17 dsp_firmware_v91.synpkg
 ```
 
 ```bash
-./syntiant-uploader send -m "Y" -w "Y" -p COM17 ei_model.synpkg
+./syntiant-uploader-win send -m "Y" -w "Y" -p COM17 ei_model.synpkg
 ```
+
+***If you are not familiar with updating the NDP120 processor firmware and uploading the trained machine learning model, please refer to [this section](https://docs.arduino.cc/tutorials/nicla-voice/user-manual/#ndp120-processor-firmware-update) of the Nicla Voice User Manual.***
 
 ### Running with Edge Impulse CLI
 
-Once Nicla Voice has been flashed with the firmware build, you can use the following Edge Impulse CLI command to run the trained glass-breaking detector model:
+Once the Nicla Voice is updated with the firmware and model, you can run the trained glass-breaking detector model using the Edge Impulse CLI:
 
 ```bash
 edge-impulse-run-impulse
 ```
 
+If everything is set up correctly, the terminal will display information similar to the image below:
+
+![Build & Flash for Nicla Voice](assets/edge-voice-window.png)
+
 ### Running with Arduino IDE
 
-If you wish to run with an Arduino script, the following script can be uploaded to Nicla Voice and observe within the Arduino IDE Serial Monitor:
+Alternatively, you can monitor the inference process using an Arduino script uploaded to the Nicla Voice.
+
+Open the Arduino IDE and use the following example script to visualize results in the Serial Monitor:
 
 ```arduino
 #include "NDP.h"
@@ -276,49 +304,53 @@ void loop() {
 
 ## Glass Breaking Detection
 
-With firmware flashed and script uploaded to Nicla Voice, you can play recorded glass-breaking sounds through a speaker to simulate rupture conditions. The model will detect these sounds in real-time, showing its effectiveness. You could also try using real-world glass to test the model's effectiveness.
+With the firmware and model successfully deployed, you can simulate glass-breaking events by playing recorded sounds through a speaker or testing with real-world glass.
 
-***Although the sound of the real-world glass structure breaking presents the best method to test and validate the trained model, please take precautions to avoid possible accidents or injuries.***
+The trained model processes the sound in real-time and detects glass-breaking events, showing its capability.
 
-The Edge Impulse Command Line Interface (CLI) will show you monitoring information for the inference process and allow you to view real-time classification results. The Arduino IDE Serial Monitor will also provide you with the same information.
+***Although the sound of the real-world glass structure breaking presents the best method to test and validate the trained model, please take precautions and safety measures to avoid possible accidents or injuries.***
 
-The capability of the Nicla Voice to detect glass-breaking sounds in real-time using machine learning is now possible. The integration of Edge Impulse simplified the process, making it accessible even for users with minimal machine learning experience.  
+The Edge Impulse CLI provides real-time monitoring and classification results. The Arduino IDE Serial Monitor also allows you to observe the same information.
 
-The following clip shows the real-time classification result. The model identified the glass-breaking sound when a signal representing glass structure failure was present.
+Below is an example of a real-time glass break classification result:
 
-![Live Inference Classification](assets/nicla-edge-impulse-glass-break-detect-action.gif)
+![Live Inference Classification (CLI)](assets/nicla-edge-impulse-glass-break-detect-action.gif)
 
 You can also use the Arduino IDE's Serial Monitor to observe similar results found within the Edge Impulse CLI.
 
-![Live Inference Classification](assets/nicla-edge-impulse-glass-break-detect.gif)
+![Live Inference Classification (Arduino IDE)](assets/nicla-edge-impulse-glass-break-detect.gif)
 
 ## Expanding Glass Breaking Detector
 
-You can expand the Glass Breaking Detector system described in this application note to include real-time alerts and interesting automation by integrating the Nicla Voice, Portenta H7 and the Arduino IoT Cloud.
+You can expand the Glass Breaking Detector system described in this application note to include real-time alerts and interesting automation by integrating the Nicla Voice, Portenta H7 and the Arduino Cloud.
 
-This enhanced functionality will allow you to perform improved safety and monitoring capabilities specific to environments with glass structures.
+This enhanced functionality will allow you to design flexible safety and monitoring capabilities specific to environments with glass structures.
 
 ### Expanded System Overview
 
-The system starts with the Nicla Voice, which runs a trained machine learning model to detect high-accuracy glass-breaking sounds. When a glass-breaking sound is detected, the Nicla Voice sends a notification via Bluetooth® Low Energy (BLE) to the Portenta H7.
+The system begins with the Nicla Voice, which runs a trained machine learning model to detect glass-breaking sounds. For this, we will use the model as discussed in the [Machine Learning Model Development](#machine-learning-model-development) section. Upon recognizing such an event, the Nicla Voice sends a notification via Bluetooth® Low Energy (BLE) to the Portenta H7.
 
-Working as the host, the Portenta H7 forwards the alert to the Arduino IoT Cloud, where you can monitor updates on a dashboard and actions triggered in real time.
+The Portenta H7 is the host device, bridging the detection hardware with the Arduino Cloud. It receives the BLE notification, processes the alert, and updates the cloud dashboard in real-time. Additionally, the Portenta H7 triggers specific actions based on the alert level:
 
-This integration also includes an escalation mechanism. The system will activate a Security Alert upon detecting the initial glass-breaking event.
+- **Security Alert Call:** It is activated upon recognizing the first glass-breaking event. This is to provide an immediate warning that a critical event may have occurred, enabling early intervention.
 
-If additional glass-breaking events are detected, the system will escalate the response by activating a Lockdown Motor to secure the environment that could be connected to reinforced shutters.
+- **Lockdown Motor:** It is triggered if additional glass-breaking events are detected, escalating the response by activating mechanisms such as reinforced shutters to secure the environment.
 
-This feature provides you with an adaptable solution for possible scenarios.
+This escalation mechanism shows an adaptable response system tailored to various scenarios.
 
 ### Nicla Voice Integration
 
-The Nicla Voice identifies glass-breaking sounds and sends alerts to the Portenta H7. The following code shows how part of the alert mechanism works:
+The Nicla Voice identifies glass-breaking sounds and communicates alerts to the Portenta H7 via BLE.
+
+When the Nicla Voice recognizes a glass-breaking sound, it triggers the **`sendAlert`** function to notify the Portenta H7. The following code shows how part of the alert mechanism works:
 
 ```arduino
 void sendAlert(char* label) {
   if (strcmp(label, "NN0:glassbreak") == 0) {
     Serial.println("Glass break detected. Sending BLE alert...");
-    glassBreakAlert.writeValue(1);  // Write to BLE characteristic
+
+    // Write to BLE characteristic
+    glassBreakAlert.writeValue(1); 
     NDP.noInterrupts();
     nicla::leds.begin();
     nicla::leds.setColor(red);
@@ -331,13 +363,175 @@ void sendAlert(char* label) {
 }
 ```
 
-This part of the code ensures that the Nicla Voice communicates detected events to the host device, allowing you to have rapid responses.
+This part of the code ensures that the Nicla Voice communicates detected events to the host device, allowing you to have rapid responses. In this case, the function ensures the Nicla Voice can notify the Portenta H7 as soon as a glass-breaking sound is detected.
+
+The full implementation of the Nicla Voice includes the BLE setup, NDP configuration, and event handling routines. The complete code for the Nicla Voice for Arduino IDE is as follows:
+
+```arduino
+/**
+  Glass-Breaking Detection Using Edge Impulse & Nicla Voice
+
+  Nicla Voice code to identify glass-breaking sounds with a trained ML model with Edge Impulse
+    and notifying the Portenta H7 host via BLE.
+*/
+
+#include "NDP.h"
+#include <ArduinoBLE.h>
+
+// BLE Service for Glass Break Detection
+BLEService alertService("180D");  // Custom Glass Break Detection Service
+
+// BLE Alert Characteristic
+BLEByteCharacteristic glassBreakAlert("2A56", BLERead | BLENotify);  // Glass Break Alert Characteristic
+
+// Global Parameters
+const bool lowestPower = false;  // Flag to minimize power consumption if set to true
+
+/*************************************
+ * Nicla Voice ML Node Routines
+ *************************************/
+
+/**
+  Inference Interruption Callback to be run when a glass-breaking sound is detected and recognized.
+  It triggers the built-in LED and sends an alert through BLE.
+  - Trigger label: NN0:glass_break
+*/
+
+void sendAlert(char* label) {
+  if (strcmp(label, "NN0:glassbreak") == 0) {
+    Serial.println("Glass break detected. Sending BLE alert...");
+
+    // Write to BLE characteristic
+    glassBreakAlert.writeValue(1); 
+    NDP.noInterrupts();
+    nicla::leds.begin();
+    nicla::leds.setColor(red);
+    delay(3000);
+    nicla::leds.end();
+    NDP.interrupts();
+  } else {
+    Serial.println("No relevant event detected.");
+  }
+}
+
+/**
+  Blinking green LED to indicate system readiness.
+*/
+void ledGreenOn() {
+  nicla::leds.begin();
+  nicla::leds.setColor(green);
+  delay(200);
+  nicla::leds.setColor(off);
+  nicla::leds.end();
+}
+
+/**
+  Red LED Blink loop to indicate a system error.
+*/
+void ledRedBlink() {
+  while (1) {
+    nicla::leds.begin();
+    nicla::leds.setColor(red);
+    delay(200);
+    nicla::leds.setColor(off);
+    delay(200);
+    nicla::leds.end();
+  }
+}
+
+/**
+  Blinking blue LED to indicate BLE connection.
+*/
+void ledBlueBlink() {
+  for (int i = 0; i < 3; i++) {
+    nicla::leds.begin();
+    nicla::leds.setColor(blue);
+    delay(200);
+    nicla::leds.setColor(off);
+    delay(200);
+    nicla::leds.end();
+  }
+}
+
+/**
+  Setup section
+*/
+void setup() {
+  Serial.begin(115200);
+
+  // Nicla System Setup
+  nicla::begin();
+  nicla::disableLDO();
+  nicla::leds.begin();
+
+  // BLE Initialization
+  if (!BLE.begin()) {
+    Serial.println("Starting BLE failed!");
+    while (1);
+  }
+
+  // BLE Service and Characteristic Setup
+  BLE.setLocalName("NiclaGlassDetector");             // Device Name
+  BLE.setAdvertisedService(alertService);             // Add the Service UUID
+  alertService.addCharacteristic(glassBreakAlert);    // Add the Alert Characteristic
+  BLE.addService(alertService);                       // Add the Service
+  glassBreakAlert.writeValue(0);                      // Set initial value for the Alert Characteristic
+
+  // Neural Decision Processor Callbacks
+  NDP.onError(ledRedBlink);
+  NDP.onMatch(sendAlert);
+  NDP.onEvent(ledGreenOn);
+
+  Serial.println("Loading synpackages");
+
+  // Load NDP Firmware and Model
+  NDP.begin("mcu_fw_120_v91.synpkg");
+  NDP.load("dsp_firmware_v91.synpkg");
+  NDP.load("ei_model.synpkg");
+  Serial.println("Packages loaded");
+  NDP.getInfo();
+  Serial.println("Configure mic");
+  NDP.turnOnMicrophone();
+
+  // Start BLE Advertising
+  BLE.advertise();
+  Serial.println("BLE advertising started");
+
+  nicla::leds.end();
+
+  // Minimize power consumption if enabled
+  if (lowestPower) {
+    NRF_UART0->ENABLE = 0;
+  }
+}
+
+void loop() {
+  BLEDevice central = BLE.central();
+
+  if (central) {
+    // Start inferencing after BLE connection
+    ledBlueBlink();
+    NDP.interrupts();
+
+    while (central.connected()) {
+      delay(1000);                  // Run inference during BLE connection
+    }
+
+    // Handle disconnection
+    Serial.println("Disconnected from central device.");
+    NDP.noInterrupts();
+    glassBreakAlert.writeValue(0);  // Reset alert characteristic
+  }
+
+  delay(1000);
+}
+```
+
+***If you have not yet deployed and tested the Nicla Voice with trained machine learning model for glass-break detection, please refer to how to [deploy the model](#deployment) or to its [development process](#machine-learning-model-development).***
 
 ### Portenta H7 Integration
 
-The Portenta H7 will handle BLE notifications from the Nicla Voice and work as the bridge between the detection hardware and the Arduino IoT Cloud.
-
-Using the Portenta H7, you can update the cloud with event details and manage system responses based on the alert level.
+The Portenta H7 is responsible for processing BLE notifications from the Nicla Voice and interfacing with the Arduino Cloud. It interprets alerts and manages the system's response through cloud updates and hardware control routines with event level details.
 
 The following code snippet shows how the Portenta H7 processes these specific alerts:
 
@@ -356,28 +550,219 @@ if (AlertValue == 1) {
 }
 ```
 
-This structure ensures the system determines between initial and subsequent alerts, escalating responses as needed so you can handle possible complex scenarios.
+- **Initial Alert:** When the first glass-breaking event is detected, the system sets `SecurityAlert` to `true`. This activates the **Security Alert Call** orutine, warning connected users or systems via the cloud dashboard.
 
-### IoT Cloud Integration
+- **Escalated Alert:** If further glass-breaking events occur, the system sets `LockdownMotor` to `true`, activating physical mechanisms like shutters to secure the environment.
 
-By integrating with the Arduino IoT Cloud, you can access a user-friendly dashboard to monitor the system status. You can view real-time event logs, track BLE connection status, and observe the Security Alert or Lockdown Motor activation.
+The logic exemplifies how the subsequent events escalated appropriately, providing a dynamic and layered response to potential threats and handle possible complex scenarios.
 
-The cloud integration also enables you to receive updates and take action from anywhere, making the system more accessible and responsive.
+The full implementation for the Portenta H7 includes BLE initialization, Cloud updates, and response routines. The complete code for the Portenta H7 is as follows:
+
+```arduino
+/**
+  Glass-Breaking Detection Using Edge Impulse & Nicla Voice
+
+  This code sets the Portenta H7 to behave as a host for receiving BLE notifications
+    from the Nicla Voice and forwarding real-time glass-breaking event data to the
+    Arduino Cloud. The system escalates responses based on the received alerts,
+    activating a Security Alert and optionally triggering a Lockdown Motor.
+*/
+
+#include <ArduinoIoTCloud.h>
+#include <Arduino_ConnectionHandler.h>
+#include "thingProperties.h"
+#include <ArduinoBLE.h>
+
+// Global Parameters
+byte AlertValue = 0;    // Last alert value received
+
+/**
+  Main setup section
+*/
+void setup() {
+  // Initialize serial and wait for port to open
+  Serial.begin(115200);
+  while (!Serial);
+
+  // Cloud connection status LED
+  pinMode(LEDG, OUTPUT);
+
+  // Initialize Cloud properties
+  initProperties();
+
+  // Connect to Arduino Cloud
+  Serial.println("Connecting to Arduino Cloud...");
+  while (!ArduinoCloud.begin(ArduinoIoTPreferredConnection)) {
+    Serial.println("Retrying connection to Arduino Cloud...");
+    delay(5000);
+  }
+
+  Serial.println("Connected to Arduino Cloud.");
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+
+  // Initialize BLE
+  Serial.println("Initializing BLE...");
+  if (!BLE.begin()) {
+    Serial.println("Starting BLE failed!");
+    while (1);
+  }
+
+#ifndef TARGET_PORTENTA_H7
+  Serial.println("Unsupported board!");
+  while (1);
+#endif
+
+  // Start scanning for peripherals
+  BLE.scan();
+  Serial.println("Scanning for peripherals.");
+}
+
+/**
+  Main loop section
+*/
+void loop() {
+  ArduinoCloud.update();
+
+  // Check if a peripheral has been discovered
+  BLEDevice peripheral = BLE.available();
+
+  // Update Cloud connection LED status
+  if (ArduinoCloud.connected()) {
+    digitalWrite(LEDG, LOW);  // Turn on the LED
+  } else {
+    digitalWrite(LEDG, HIGH); // Turn off the LED
+  }
+
+
+  if (peripheral) {
+    // Print out the discovered peripheral details
+    Serial.print("Found ");
+    Serial.print(peripheral.address());
+    Serial.print(" '");
+    Serial.print(peripheral.localName());
+    Serial.print("' ");
+    Serial.print(peripheral.advertisedServiceUuid());
+    Serial.println();
+
+    // Check if the peripheral is the Glass Detector
+    if (peripheral.localName() == "NiclaGlassDetector") {
+      // Stop scanning and handle the peripheral
+      BLE.stopScan();
+      GlassDetectorHandler(peripheral);
+
+      // Resume scanning after disconnection
+      BLE.scan();
+    }
+  }
+}
+
+/*************************************
+* Portenta H7 Host Routines
+*************************************/
+
+/**
+  Handles the BLE connection to the Glass Detector and manages received alerts.
+
+  @param peripheral Nicla Glass Detector peripheral and its characteristics
+*/
+void GlassDetectorHandler(BLEDevice peripheral) {
+  // Connect to the peripheral
+  Serial.println("Connecting ...");
+  if (!peripheral.connect()) {
+    Serial.println("Failed to connect!");
+    return;
+  }
+
+  Serial.println("Connected to Glass Detector");
+
+  // Discover services and characteristics
+  if (!peripheral.discoverService("180D")) {
+    Serial.println("Service discovery failed.");
+    peripheral.disconnect();
+    return;
+  }
+
+  BLECharacteristic alertLevel = peripheral.characteristic("2A56");
+
+  // Subscribe to the alert characteristic
+  if (!alertLevel || !alertLevel.canSubscribe() || !alertLevel.subscribe()) {
+    Serial.println("Subscription to alert characteristic failed!");
+    peripheral.disconnect();
+    return;
+  }
+
+  Serial.println("Subscribed to Alert Characteristic");
+  BLEstatus = true;
+  ArduinoCloud.update();
+
+  // While the peripheral is connected
+  while (peripheral.connected()) {
+    // Check if the alert value has been updated
+    if (alertLevel.valueUpdated()) {
+      alertLevel.readValue(AlertValue);
+      Serial.print("Alert received: ");
+      Serial.println(AlertValue);
+
+      // Update Cloud variables based on alert values
+      if (AlertValue == 1) {
+        alertStatus = true;              // General alert status triggered
+        if (!securityAlert) {
+          securityAlert = true;          // Turn on security alert
+          GlassEvent = "Security Alert ON: Glass break detected";
+
+          // Insert Code with preferred security alert routine  
+
+          Serial.println("Security Alert activated.");
+        } else {
+          lockdownMotor = true;           // Turn on lockdown motor
+          GlassEvent = "Lockdown activated: Additional glass break detected";
+
+          // Insert Code with preferred lockdown or defensive routine 
+
+          Serial.println("Lockdown motor activated.");
+        }
+      }
+    }
+
+    // Update Cloud connection LED status
+    digitalWrite(LEDG, ArduinoCloud.connected() ? LOW : HIGH);
+    ArduinoCloud.update();
+  }
+
+  Serial.println("Disconnected from Glass Detector.");
+  BLEstatus = false;
+  alertStatus = false;                     // Reset alert status on disconnect
+  ArduinoCloud.update();
+}
+```
+
+### Arduino Cloud Integration
+
+By integrating the system with the Arduino IoT Cloud, you will have the access to a centralized dashboard that provides real-time monitoring and control of your Glass Breaking Detector system.
+
+In this example, you can view real-time event logs, track BLE connection status, and observe the *Security Alert* or *Lockdown* activation:
+
+- **Real-Time Event Monitoring:** The dashboard logs and displays events as they occur, allowing you to stay informed about glass-breaking incidents.
+- **Connection Status:** The BLE connection status between the Nicla Voice and Portenta H7 is shown, to provide present system operation.
+- **Security Alert and Lockdown Mechanism Indicators:** You can monitor the activation status of the *Security Alert* and *Lockdown* mechanism directly from the dashboard.
+
+The cloud integration enables you to receive updates and take action from anywhere, making the system more accessible and responsive.
 
 ## Full Glass-Breaking Detector Resources
 
 All the necessary files to replicate this application notes can be found below:
 
 * The complete code can be downloaded here:
-  - Base glass-breaking detector example
-  - Extended glass-breaking detector with Arduino Cloud
-* The Machine Learning Tools project is public here, so you can clone it and modify it to adapt it to your needs by improving the dataset or model architecture for a custom deployment.
+  - [Base glass-breaking detector example](assets/glass-break-detector.zip)
+  - [Extended glass-breaking detector with Arduino Cloud](assets/glass-break-detection-building.zip)
+* The Machine Learning Tools project is public [here](https://mltools.arduino.cc/public/210541/latest) by Aurelien Lequertier. You can clone it and modify it to adapt it to your needs by improving the dataset or model architecture for a custom deployment.
 
 ## Conclusion 
 
-This application note shows how Edge Impulse and the Nicla Voice enable real-time, on-device sound classification with a streamlined workflow from data acquisition to local inference. This integration simplifies the development of low-power AI applications, even for users with minimal machine learning experience.  
+This application note shows how Edge Impulse and the Nicla Voice enable real-time, on-device sound classification with a streamlined workflow from data management to local inference. This integration simplifies the development of low-power AI applications, even for users with minimal machine learning experience.  
 
-Beyond glass-breaking detection, this solution can be adapted for applications like fall detection and other audio-based classifications. With Edge Impulse’s flexible deployment and the Nicla Voice's capabilities, you can create versatile edge AI systems to address various safety and monitoring challenges.  
+Beyond glass-breaking detection, this process can be adapted for applications like fall detection and other audio-based classifications. With the capabilities of the Nicla Voice and flexible deployment of Edge Impulse, you can create versatile edge AI systems to address various safety and monitoring challenges.  
 
 ## Next Steps
 
@@ -387,5 +772,5 @@ This system can be adapted to recognize other sounds or events by retraining the
 - Monitoring animal sounds in wildlife conservation.  
 - Recognizing spoken keywords for voice-controlled systems.  
 
-For further experimentation, the Edge Impulse provides tools to customize and refine your machine learning models.
+You can also explore the [Door Intruder Detector Using ML with the Nicla Voice](https://docs.arduino.cc/tutorials/nicla-voice/ei-intruder-detector/) applicatio note that shows how machine learning can detect door-opening and intrusion events, providing additional insights into creating versatile sound detection systems for enhanced domestic security.
 
