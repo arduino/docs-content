@@ -8,7 +8,7 @@ tags:
   - Machine Learning Tools
   - Audio Classification
   - Sound Detection
-author: 'Taddy Ho Chung'
+author: 'Taddy Ho Chung & Christopher Mendez'
 software:
   - arduino-cli
   - machine-learning-tools
