@@ -66,7 +66,7 @@ Edge Impulse and Nicla Voice provide a highly flexible and adaptable solution fo
 
 ![Nicla Voice & Edge Impulse integration versatility](assets/nicla-implementation-scenario.png)
 
-It can be integrated and trained to operate in:
+These applications, such as monitoring buildings, vehicles, and public spaces, are some examples that can develop into a comprehensive system integrated with the Arduino Cloud:
 
 - **Buildings:** Identify glass-breaking incidents in residential, commercial, or industrial properties. Alerts can trigger lockdown protocols, notify security teams, and log incidents in real time.
 
@@ -74,7 +74,7 @@ It can be integrated and trained to operate in:
 
 - **Custom Environments:** Deploy in specific setups like public transportation, specialized labs, or sensitive equipment areas where glass-related incidents require immediate attention.
 
-This adaptability provides comprehensive coverage and flexible response mechanisms for various scenarios. Additionally, integrating BLE communication and Arduino Cloud makes the system even more versatile and responsive.
+This adaptability provides comprehensive coverage and flexible response mechanisms for various scenarios. Additionally, integrating BLE communication and Arduino Cloud makes the system more versatile and responsive.
 
 ***If you are new to the Nicla Voice, it is recommended that you review the [Nicla Voice User Manual](https://docs.arduino.cc/tutorials/nicla-voice/user-manual) to familiarize yourself with its features and setup before continuing with this application note.***
 
@@ -99,7 +99,13 @@ Using the [**DCASE**](http://dcase.community/challenge2017/task-rare-sound-event
 
 The audio data was preprocessed with **Edge Impulse**. Its user interface allows you to manage audio files, including cropping unnecessary segments and splitting longer recordings into manageable pieces.
 
-This preprocessing step ensures that only relevant data is provided into the training pipeline, maximizing the model's performance.
+This preprocessing step ensures that only relevant data is provided into the training pipeline, maximizing the model performance.
+
+The preprocessing step includes following steps:
+
+- **Audio Segmentation:** Splitting long audio recordings into smaller, manageable clips for more effective training.
+- **Noise Handling:** Removing background noise or irrelevant segments to ensure the dataset focuses on the target sounds.
+- **Normalization:** Ensuring consistent audio levels across all samples to improve model reliability. Using Edge Impulse GUI, you can crop unnecessary segments, annotate audio clips, and simplify this process.
 
 ![Dataset Overview in Edge Impulse](assets/edge-dataset-overview.png)
 
@@ -334,13 +340,17 @@ You can also use the Arduino IDE's Serial Monitor to observe similar results fou
 
 ![Live Inference Classification (Arduino IDE)](assets/nicla-edge-impulse-glass-break-detect.gif)
 
+With the machine learning model trained, validated, and deployed onto the Nicla Voice, the system is ready for real-world use case applications. As an example, the following section shows how to validate the setup and test the system in practical scenarios.
+
 ## Expanding Glass Breaking Detector
 
-You can expand the Glass Breaking Detector system described in this application note to include real-time alerts and interesting automation by integrating the Nicla Voice, Portenta H7 and the Arduino Cloud.
+Nicla Voice is now capable of detecting glass-breaking sounds using a trained machine learning model. You can create an expanded system by integrating the Nicla Voice with the Portenta H7 and Arduino Cloud to add functionality and scalability.
+
+This expanded Glass Breaking Detector system introduces real-time alerts and automation, using the Nicla Voice, Portenta H7, and Arduino Cloud capabilities. This integration provides a solution for monitoring and managing glass-related events.
 
 ![Possible expanded glass break detection system](assets/nicla-vehicle-install.png)
 
-This enhancement allows for scalable solutions designed for environments such as buildings or other closed spaces with simple yet helpful monitoring and safety features, for example.
+The upgraded example offers practical and scalable safety features designed for applications in buildings or other enclosed spaces. Its adaptability allows for implementation in various scenarios, providing distinct monitoring and security needs.
 
 ### Expanded System Overview
 
@@ -559,16 +569,22 @@ The following code snippet shows how the Portenta H7 processes these specific al
 
 ```arduino
 if (AlertValue == 1) {
-    alertStatus = true; // General alert status triggered
-    if (!SecurityAlert) {
-        SecurityAlert = true; // Turn on security alert
-        GlassEvent = "Security Alert ON: Glass break detected";
-        Serial.println("Security Alert activated.");
-    } else {
-        LockdownMotor = true; // Turn on lockdown motor
-        GlassEvent = "Lockdown activated: Additional glass break detected";
-        Serial.println("Lockdown motor activated.");
-    }
+  alertStatus = true;              // General alert status triggered
+  if (!securityAlert) {
+    securityAlert = true;          // Turn on security alert
+    GlassEvent = "Security Alert ON: Glass break detected";
+
+    // Insert Code with preferred security alert routine  
+
+    Serial.println("Security Alert activated.");
+  } else {
+    lockdownMotor = true;           // Turn on lockdown motor
+    GlassEvent = "Lockdown activated: Additional glass break detected";
+
+    // Insert Code with preferred lockdown or defensive routine 
+
+    Serial.println("Lockdown motor activated.");
+  }
 }
 ```
 
@@ -762,6 +778,8 @@ void GlassDetectorHandler(BLEDevice peripheral) {
 Once the Nicla Voice and Portenta H7 are ready with the scripts and configurations, you can expect to observe behavior similar to the animation below:
 
 ![Nicla Voice & Portenta H7 - Live Inference](assets/glass-break-pre-cloud.gif)
+
+The expanded system integrates cloud connectivity via the Portenta H7, allowing real-time updates to the Arduino Cloud and automated responses such as activating a lockdown mechanism for motor activated shutters.
 
 ### Arduino Cloud Integration
 
