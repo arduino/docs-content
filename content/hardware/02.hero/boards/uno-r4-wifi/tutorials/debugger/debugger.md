@@ -46,11 +46,11 @@ First, if you haven't done it yet, install the [Arduino IDE](https://www.arduino
 
 ![Blink Example](./assets/blink_example.png)
 
-## Set correct Programmer
+## Set Correct Programmer
 
 To access and debug the mcu it's important that we set the correct programmer. Select **Tools** > **Programmer** > **ARM CMSIS-DAP compatible**.
 
-![Set Programer](./assets/set_programmer.png)
+![Set Programmer](./assets/set_programmer.png)
 
 ## Setting Breakpoints
 
