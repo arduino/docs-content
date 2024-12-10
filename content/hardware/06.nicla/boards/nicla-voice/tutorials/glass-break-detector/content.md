@@ -13,24 +13,28 @@ software:
   - arduino-cli
   - machine-learning-tools
   - edge-impulse-cli
+  - iot-cloud
+  - arduino-agent
 hardware:
   - hardware/06.nicla/boards/nicla-voice
 ---
 
 ## Introduction
 
-The Nicla Voice and Edge Impulse offer adaptable solutions for monitoring environments with glass structures, enabling applications in various domains. This system ensures timely detection and actionable responses, whether for buildings, vehicles, or specialized facilities. You can create scalable AI-powered solutions for specific security needs by leveraging these tools.
+The Nicla Voice and Edge Impulse offer powerful tools for monitoring environments like spaces with glass structures. This system allows timely detection and responses for environments like buildings, vehicles, or specialized facilities. You can create scalable AI solutions for security needs by leveraging these tools.
 
-This application note provides a comprehensive walkthrough on building and deploying a machine learning model to detect glass-breaking sounds using the Nicla Voice and Edge Impulse. You will learn how to collect, process, and train audio data, then deploy the trained model on the Nicla Voice to create an effective sound classification system.
+This application note will show you how to build and deploy a machine learning model on Nicla Voice with Edge Impulse that detects glass-breaking sounds. The content will cover how audio data is processed and used for training for efficient sound classification.
 
 ## Goals
 
-The goal of this application note is to showcase an glass-breaking detection system for the environments with glass builds using Nicla Voice and the Edge Impulse. The project's objectives are the following:
+This application note will show you how to create a glass-breaking detection system using the Nicla Voice and Edge Impulse. The objectives are:
 
-- Process audio data of glass-breaking sounds and background noise based on [**DCASE**](http://dcase.community/challenge2017/task-rare-sound-event-detection-results) dataset.
-- Train a machine learning model capable of distinguishing glass-breaking sounds from other noises.
-- Deploy the trained model to the Nicla Voice for on-device inference.
-- Showcase the real-time glass-breaking detection capabilities of the model.
+- Process audio data of glass-breaking sounds and background noise using the [**DCASE**](http://dcase.community/challenge2017/task-rare-sound-event-detection-results) dataset.
+- Train a machine learning model to distinguish glass-breaking sounds from other noises reliably.
+- Deploy the trained model to the Nicla Voice for on-device inference, removing the need for external computation.
+- Showcase the model’s real-time detection capabilities through practical examples.
+
+At the end of the application note, you will have all resources and details for implementing a glass-breaking detection system in various environments.
 
 ## Hardware and Software Requirements
 
@@ -46,6 +50,8 @@ The goal of this application note is to showcase an glass-breaking detection sys
 - [Edge Impulse® CLI](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-overview), to easily flash any Machine Learning model created with the Arduino Machine Learning Tools, we can install the Edge Impulse® Cli tool following these [instructions](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-installation).
 - Nicla Voice audio [firmware](https://cdn.edgeimpulse.com/firmware/arduino-nicla-voice-firmware.zip) to upload recordings to Machine Learning Tools.
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor) (Optional)
+- The [Arduino Create Agent](https://cloud.arduino.cc/download-agent/)
+- The [Arduino Cloud](https://cloud.arduino.cc/). If you do not have an account, you can create one for free inside [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
 
 ### Additional Resources  
 
@@ -63,6 +69,8 @@ Edge Impulse and Nicla Voice provide a highly flexible and adaptable solution fo
 - **Custom Environments:** Deploy in specific setups like public transportation, specialized labs, or sensitive equipment areas where glass-related incidents require immediate attention.
 
 This adaptability provides comprehensive coverage and flexible response mechanisms for various scenarios. Additionally, integrating BLE communication and Arduino Cloud makes the system even more versatile and responsive.
+
+***If you are new to the Nicla Voice, it is recommended that you review the [Nicla Voice User Manual](https://docs.arduino.cc/tutorials/nicla-voice/user-manual) to familiarize yourself with its features and setup before continuing with this application note.***
 
 ## Glass Break Machine Learning Model Development
 
@@ -737,6 +745,10 @@ void GlassDetectorHandler(BLEDevice peripheral) {
 }
 ```
 
+Once the Nicla Voice and Portenta H7 are ready with the scripts and configurations, you can expect to observe behavior similar to the animation below:
+
+![Nicla Voice & Portenta H7 - Live Inference](assets/glass-break-pre-cloud.gif)
+
 ### Arduino Cloud Integration
 
 By integrating the system with the Arduino IoT Cloud, you will have the access to a centralized dashboard that provides real-time monitoring and control of your Glass Breaking Detector system.
@@ -747,7 +759,9 @@ In this example, you can view real-time event logs, track BLE connection status,
 - **Connection Status:** The BLE connection status between the Nicla Voice and Portenta H7 is shown, to provide present system operation.
 - **Security Alert and Lockdown Mechanism Indicators:** You can monitor the activation status of the *Security Alert* and *Lockdown* mechanism directly from the dashboard.
 
-The cloud integration enables you to receive updates and take action from anywhere, making the system more accessible and responsive.
+The cloud integration enables you to receive updates and take action from anywhere, making the system more accessible and responsive. The following clip shows a brief insight of the inference process and communication of Nicla Voice and the Portenta H7:
+
+![Nicla Voice & Portenta H7 - Brief Insight](assets/glass-break-brief-insight.gif)
 
 ## Full Glass-Breaking Detector Resources
 
