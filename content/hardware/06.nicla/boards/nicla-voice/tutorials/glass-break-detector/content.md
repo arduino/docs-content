@@ -23,6 +23,8 @@ hardware:
 
 The Nicla Voice and Edge Impulse offer powerful tools for monitoring environments like spaces with glass structures. This system allows timely detection and responses for environments like buildings, vehicles, or specialized facilities. You can create scalable AI solutions for security needs by leveraging these tools.
 
+![Nicla Voice & Edge Impulse with Arduino Cloud for glass break detection](assets/edge-glass-break-building-dashboard.gif)
+
 This application note will show you how to build and deploy a machine learning model on Nicla Voice with Edge Impulse that detects glass-breaking sounds. The content will cover how audio data is processed and used for training for efficient sound classification.
 
 ## Goals
@@ -60,7 +62,11 @@ At the end of the application note, you will have all resources and details for 
 
 ## Edge Impulse and Nicla Voice Versatility
 
-Edge Impulse and Nicla Voice provide a highly flexible and adaptable solution for various monitoring applications, including glass structure monitoring systems. It can be integrated and trained to operate in:
+Edge Impulse and Nicla Voice provide a highly flexible and adaptable solution for various monitoring applications, including glass structure monitoring systems.
+
+![Nicla Voice & Edge Impulse integration versatility](assets/nicla-implementation-scenario.png)
+
+It can be integrated and trained to operate in:
 
 - **Buildings:** Identify glass-breaking incidents in residential, commercial, or industrial properties. Alerts can trigger lockdown protocols, notify security teams, and log incidents in real time.
 
@@ -322,7 +328,7 @@ The Edge Impulse CLI provides real-time monitoring and classification results. T
 
 Below is an example of a real-time glass break classification result:
 
-![Live Inference Classification (CLI)](assets/nicla-edge-impulse-glass-break-detect-action.gif)
+![Live Inference Classification (CLI)](assets/edge-glass-break-model.gif)
 
 You can also use the Arduino IDE's Serial Monitor to observe similar results found within the Edge Impulse CLI.
 
@@ -337,6 +343,8 @@ This enhanced functionality will allow you to design flexible safety and monitor
 ### Expanded System Overview
 
 The system begins with the Nicla Voice, which runs a trained machine learning model to detect glass-breaking sounds. For this, we will use the model as discussed in the [Machine Learning Model Development](#machine-learning-model-development) section. Upon recognizing such an event, the Nicla Voice sends a notification via Bluetooth® Low Energy (BLE) to the Portenta H7.
+
+![Expanded glass break detection system overview](assets/nicla-edge-overall-system-flow.png)
 
 The Portenta H7 is the host device, bridging the detection hardware with the Arduino Cloud. It receives the BLE notification, processes the alert, and updates the cloud dashboard in real-time. Additionally, the Portenta H7 triggers specific actions based on the alert level:
 
@@ -759,9 +767,11 @@ In this example, you can view real-time event logs, track BLE connection status,
 - **Connection Status:** The BLE connection status between the Nicla Voice and Portenta H7 is shown, to provide present system operation.
 - **Security Alert and Lockdown Mechanism Indicators:** You can monitor the activation status of the *Security Alert* and *Lockdown* mechanism directly from the dashboard.
 
+![Glass break detection within glass structures example](assets/edge-glass-break-building-dashboard.gif)
+
 The cloud integration enables you to receive updates and take action from anywhere, making the system more accessible and responsive. The following clip shows a brief insight of the inference process and communication of Nicla Voice and the Portenta H7:
 
-![Nicla Voice & Portenta H7 - Brief Insight](assets/glass-break-brief-insight.gif)
+![Nicla Voice & Portenta H7 - Brief Insight](assets/glass-break-insight-operation.gif)
 
 ## Full Glass-Breaking Detector Resources
 
