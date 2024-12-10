@@ -338,21 +338,27 @@ You can also use the Arduino IDE's Serial Monitor to observe similar results fou
 
 You can expand the Glass Breaking Detector system described in this application note to include real-time alerts and interesting automation by integrating the Nicla Voice, Portenta H7 and the Arduino Cloud.
 
-This enhanced functionality will allow you to design flexible safety and monitoring capabilities specific to environments with glass structures.
+![Possible expanded glass break detection system](assets/nicla-vehicle-install.png)
+
+This enhancement allows for scalable solutions designed for environments such as buildings or other closed spaces with simple yet helpful monitoring and safety features, for example.
 
 ### Expanded System Overview
 
-The system begins with the Nicla Voice, which runs a trained machine learning model to detect glass-breaking sounds. For this, we will use the model as discussed in the [Machine Learning Model Development](#machine-learning-model-development) section. Upon recognizing such an event, the Nicla Voice sends a notification via Bluetooth® Low Energy (BLE) to the Portenta H7.
+The system begins with the Nicla Voice, which runs a trained machine learning model to detect glass-breaking sounds. Here you will use the model discussed in the [Machine Learning Model Development](#machine-learning-model-development) section, providing a nice foundation for real-world implementations in controlled environments.
+
+Upon recognizing such an event, the Nicla Voice sends a notification via Bluetooth® Low Energy (BLE) to the Portenta H7.
 
 ![Expanded glass break detection system overview](assets/nicla-edge-overall-system-flow.png)
 
-The Portenta H7 is the host device, bridging the detection hardware with the Arduino Cloud. It receives the BLE notification, processes the alert, and updates the cloud dashboard in real-time. Additionally, the Portenta H7 triggers specific actions based on the alert level:
+The Portenta H7 is the host device, bridging the detection hardware with the Arduino Cloud. It receives the BLE notification, processes the alert, and updates the cloud dashboard in real-time.
+
+In addition, it provides an action-based response system that can be customized to comply with the required standards if needed:
 
 - **Security Alert Call:** It is activated upon recognizing the first glass-breaking event. This is to provide an immediate warning that a critical event may have occurred, enabling early intervention.
 
 - **Lockdown Motor:** It is triggered if additional glass-breaking events are detected, escalating the response by activating mechanisms such as reinforced shutters to secure the environment.
 
-This escalation mechanism shows an adaptable response system tailored to various scenarios.
+This example shows a possible practical example of how the system can be applied to monitor and safeguard buildings or enclosed areas with an escalation mechanism. The approach combines simplicity and adaptability, ensuring the system can address specific needs while providing reliable and responsive features.
 
 ### Nicla Voice Integration
 
