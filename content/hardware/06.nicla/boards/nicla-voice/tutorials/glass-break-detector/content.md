@@ -173,11 +173,9 @@ The confusion matrix highlights the model's capability to classify audio samples
 - Correctly classified "glassbreak" events: 94.4 %
 - Correctly classified "unknown" samples: 100 %
 
-Misclassifications mainly happened for short-duration glass-breaking sounds, suggesting the need for additional data or refinement of the processing pipeline to improve robustness. Regular updates to the dataset with new samples can address such limitations and improve performance.
+Misclassifications could have happened for short-duration glass-breaking sounds, suggesting the need for additional data or refinement of the processing pipeline to improve robustness. Regular updates to the dataset with new samples can address such limitations and improve performance.
 
 ***The model performance can be affected if the application is implemented in a very different environment than the one used for training. It is recommended that the datasets be provided with new samples and the model be retrained for a new and upgraded deployment.***
-
-For a new model deployment, use the [Syntiant® uploader](assets/Syntiant_Uploader.zip) and replace the `ei_model.synpkg`, which you can find inside the downloaded folder with yours.
 
 ## Deployment
 
@@ -238,6 +236,8 @@ If you prefer to update manually, navigate to the **`ndp120`** directory and run
 
 ***If you are not familiar with updating the NDP120 processor firmware and uploading the trained machine learning model, please refer to [this section](https://docs.arduino.cc/tutorials/nicla-voice/user-manual/#ndp120-processor-firmware-update) of the Nicla Voice User Manual.***
 
+For a new model deployment with manual approach, use the [Syntiant® uploader](assets/Syntiant_Uploader.zip) and replace the `ei_model.synpkg`, which you can find inside the downloaded folder with yours.
+
 ### Running with Edge Impulse CLI
 
 Once the Nicla Voice is updated with the firmware and model, you can run the trained glass-breaking detector model using the Edge Impulse CLI:
@@ -254,7 +254,7 @@ If everything is set up correctly, the terminal will display information similar
 
 Alternatively, you can monitor the inference process using an Arduino script uploaded to the Nicla Voice.
 
-Open the Arduino IDE and use the following example script to visualize results in the Serial Monitor:
+Open the Arduino IDE and use the following example script to observe results in the Serial Monitor:
 
 ```arduino
 #include "NDP.h"
@@ -361,11 +361,9 @@ With the machine learning model trained, validated, and deployed onto the Nicla 
 
 Nicla Voice is now capable of detecting glass-breaking sounds using a trained machine learning model. You can create an expanded system by integrating the Nicla Voice with the Portenta H7 and Arduino Cloud to add functionality and scalability.
 
-This expanded Glass Breaking Detector system introduces real-time alerts and automation, using the Nicla Voice, Portenta H7, and Arduino Cloud capabilities. This integration provides a solution for monitoring and managing glass-related events.
-
 ![Possible expanded glass break detection system](assets/nicla-vehicle-install.png)
 
-The upgraded example offers practical and scalable safety features designed for applications in buildings or other enclosed spaces. Its adaptability allows for implementation in various scenarios, providing distinct monitoring and security needs.
+The expanded glass breaking detector uses the Nicla Voice, Portenta H7, and Arduino Cloud to provide practical and scalable safety features for buildings and other enclosed spaces. Its adaptability makes it suitable for various monitoring and security scenarios.
 
 ### Expanded System Overview
 
@@ -806,9 +804,11 @@ In this example, you can view real-time event logs, track BLE connection status,
 - **Connection Status:** The BLE connection status between the Nicla Voice and Portenta H7 is shown, to provide present system operation.
 - **Security Alert and Lockdown Mechanism Indicators:** You can monitor the activation status of the *Security Alert* and *Lockdown* mechanism directly from the dashboard.
 
+The following image shows an example of Arduino Cloud dashboard displaying the ongoing events:
+
 ![Glass break detection within glass structures example](assets/edge-glass-break-building-dashboard.gif)
 
-The cloud integration enables you to receive updates and take action from anywhere, making the system more accessible and responsive. The following clip shows a brief insight of the inference process and communication of Nicla Voice and the Portenta H7:
+The cloud integration allows you to receive updates and take action from anywhere, making the system more accessible and responsive. The following clip shows a brief insight of the inference process and communication of Nicla Voice and the Portenta H7:
 
 ![Nicla Voice & Portenta H7 - Brief Insight](assets/glass-break-insight-operation.gif)
 
@@ -822,9 +822,9 @@ All the codes and files of this application note can be found below:
 
 ## Conclusion 
 
-This application note shows how Edge Impulse and the Nicla Voice enable real-time, on-device sound classification with a streamlined workflow from data management to local inference. This integration simplifies the development of low-power AI applications, even for users with minimal machine learning experience.  
+This application note explains how to use Edge Impulse and Nicla Voice for real-time sound classification directly on the device. The process is straightforward, covering from managing data to running the model, making it accessible even for those with limited experience in machine learning.
 
-Beyond glass-breaking detection, this process can be adapted for applications like fall detection and other audio-based classifications. With the capabilities of the Nicla Voice and flexible deployment of Edge Impulse, you can create versatile edge AI systems to address various safety and monitoring challenges.  
+While this application note focuses on detecting glass-breaking sounds, the same approach can be used for other tasks like fall detection or identifying different audio events. With the Nicla Voice and Edge Impulse, you can develop flexible systems for various safety and monitoring needs.
 
 ## Next Steps
 
