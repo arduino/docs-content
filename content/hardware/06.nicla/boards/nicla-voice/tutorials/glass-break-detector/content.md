@@ -51,12 +51,16 @@ At the end of the application note, you will have all resources and details for 
 - [Arduino Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/)
 - [Edge Impulse® CLI](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-overview), to easily flash any Machine Learning model created with the Arduino Machine Learning Tools, we can install the Edge Impulse® Cli tool following these [instructions](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-installation).
 - Nicla Voice audio [firmware](https://cdn.edgeimpulse.com/firmware/arduino-nicla-voice-firmware.zip) to upload recordings to Machine Learning Tools.
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor) (Optional)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor) (Optional).
 - The [Arduino Create Agent](https://cloud.arduino.cc/download-agent/)
 - The [Arduino Cloud](https://cloud.arduino.cc/). If you do not have an account, you can create one for free inside [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
 
 ### Additional Resources
 
+- Complete example code and Edge Impulse project:
+- [Glass-breaking detection model](https://mltools.arduino.cc/public/210541/latest)
+- [Base glass-breaking detector example](assets/glass-break-detector.zip)
+- [Extended glass-breaking detector with Arduino Cloud](assets/glass-break-detection-building.zip)
 - Pre-recorded glass-breaking sound samples (or access to the [**DCASE**](http://dcase.community/challenge2017/task-rare-sound-event-detection-results) dataset).  
 - A speaker or audio playback device for live testing.
 
