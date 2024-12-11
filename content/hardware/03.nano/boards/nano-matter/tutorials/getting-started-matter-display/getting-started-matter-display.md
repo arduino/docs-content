@@ -146,7 +146,7 @@ Screen_EPD_EXT4_Fast EPD(eScreen_EPD_290_KS_0F, nano_matter);  // Pervasive Disp
 #define MATTER_EXAMPLE_NAME "Nano Matter RGB"
 
 static uint8_t countFlush = 1;          // Counter for global update
-const uint8_t FAST_BEFORE_GLOBAL = 16;  // Number of fast updates before golbal update
+const uint8_t FAST_BEFORE_GLOBAL = 16;  // Number of fast updates before global update
 
 volatile bool button_pressed = false;
 
