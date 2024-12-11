@@ -10,16 +10,16 @@ difficulty: beginner
 
 ## Overview
 
-The Nano Matter Display is an evaluation kit for the Nano Matter that features an extension board from Pervasive Displays. It includes a 2.9 inches (384x168) E-ink monochrome high-definition display, a temperature and humidity sensor, a 3-axis accelerometer and an addressable RGB LED.
+The Nano Matter Display is a development kit for the Nano Matter that features an extension board from Pervasive Displays. It includes a 2.9 inches (384x168 resolution) E-ink monochrome high-definition display, a temperature and humidity sensor, a 3-axis accelerometer and an addressable RGB LED.
 
-![Nano Matter Display](assets/thumbnail.jpg)
+![Nano Matter Display](assets/living-2.gif)
 
-These features are meant to be leveraged with the Arduino Nano Matter to extend the board capabilities and allow the user to create interesting and useful applications around the E-ink display.
+The Nano Matter Display has been created to be used along the Arduino Nano Matter to extend its capabilities and allow the user to create interesting and useful applications around the E-ink display technology.
 
 ## Goals
 
 - Learn how to use the Nano Matter Display and all its features
-- Learn how to develop a Matter application using the Nano Matter Display
+- Learn how to develop a Matter application using the Nano Matter Display with the Arduino Nano Matter
 
 ## Required Hardware and Software
 
@@ -33,12 +33,14 @@ These features are meant to be leveraged with the Arduino Nano Matter to extend 
 
 ### Software Requirements
 
-- [Arduino IDE 2](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
+- [Arduino IDE](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Silicon Labs boards package](https://github.com/SiliconLabs/arduino) (to support the Nano Matter within the Arduino IDE)
 
-## Instructions
+### Pervasive Displays EXT4 Official Documentation
 
-### Nano Matter Display Main Features
+To learn more about the EXT4 Development Kit read the Pervasive Displays [documentation](https://docs.pervasivedisplays.com/epd-usage/development-kits/ext4). 
+
+## Nano Matter Display Main Features
 
 ![Nano Matter Hardware Overview](assets/features-c2.jpg)
 
@@ -50,12 +52,12 @@ The Nano Matter Display include the following features:
 - **Temperature and humidity sensor:** a HDC2080 Low-Power humidity and temperature digital sensor.
 - **Flexible power options:** can be powered by a pair of CR2032 3V batteries or through the USB connector of the Arduino Nano.
 
-### Nano Matter Display Kit Assembly
+## Nano Matter Display Kit Assembly
 
 In the Nano Matter Display kit you will find the following parts:
 
-- Pervasive Displays EPD extension board (Gen 4).
 - E-ink display (2.9" 384x168).
+- Pervasive Displays EPD extension board (Gen 4).
 - Pervasive Displays EXT4-to-Nano adapter.
 - Brass spacer standoffs (x4).
 - M3 nuts for the standoffs (x4).
@@ -64,37 +66,64 @@ In the Nano Matter Display kit you will find the following parts:
 
 Follow the next animation for the assembly steps:
 
-![Nano Matter Display Assembly](assets/assembly-animation.gif)
+![Nano Matter Display Assembly](assets/assembly-animation-2.gif)
 
-### Configuring the Development Environment
+- To connect the E-ink display, pull up gently the black lever on the connector and slide in the display flat cable with the copper contacts facing down, it will go in like 2mm. Finally, push down the connector lever so it latches the cable.
+- Align the E-ink display with the white silkscreen outlines in the other side of the PCB. Use a thin double-sided tape to fix it (not included).
+- The EXT4-to-Nano adapter must be connected so its **11-10** white mark is aligned with the **11-10** breakout pins of the Matter Display board.
+  
+![Adapter connection](assets/adapter-align.jpg)
+
+## Configuring the Development Environment
 
 To start using the Nano Matter Display we first need to install some basic dependencies for the Arduino IDE.
 
-#### Arduino IDE Download
+### Arduino IDE Download
 
-We are going to use the Arduino IDE to develop around the Nano Matter Display. Follow this guide to learn how to install the IDE if you haven't done so.
+We are going to use the Arduino IDE to develop around the Nano Matter Display. Follow this guide to learn how to install the IDE if you have not done so.
 
 - [Arduino IDE Installation Guide](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing/)
 
-#### Library Installation
+### Board Core and Library Installation
+
+The **Silicon Labs** core contains the libraries and examples you need to work with the board's components, such as its Matter, Bluetooth® Low Energy, and I/Os. To install the Nano Matter core, navigate to **File > Preferences** and in the **Additional boards manager URLs**, add the following:
+
+`https://siliconlabs.github.io/arduino/package_arduinosilabs_index.json`
+
+Now navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
+
+![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install-2.png)
 
 Download the following libraries:
 
-- `PDLS_EXT4_Basic_Matter.h`: enables support for Pervasive Displays extension board to control the E-ink display and every other features. Download it from this [repository](https://github.com/rei-vilo/PDLS_EXT4_Basic_Matter).
+- `PDLS_EXT4_Basic_Matter.h`: enables support for Pervasive Displays extension board to control the E-ink display and every other features. You can install it from the Library Manager on the Arduino IDE or from its [repository](https://github.com/rei-vilo/PDLS_EXT4_Basic_Matter).
   
 - `qrcode.h`: allows you to create QR codes to then be displayed on the E-ink display. You can install it from the Library Manager on the Arduino IDE or from its [repository](https://github.com/ricmoo/qrcode/).
 
+![Libraries installation using the Library Manager](assets/libraries.png)
+
 ***Follow these guides to learn more about library installation process ([Library Manager](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-installing-a-library/), [.zip install](https://docs.arduino.cc/software/ide-v1/tutorials/installing-libraries/))***
+
+## Powering the Kit
+
+![Matter Display power options](assets/power-options-1.jpg)
+
+You have several options to power your EXT4 EPD development board that are listed below:
+
+- **USB power**: you can power the board using a USB-C cable connected to the Arduino Nano Matter.
+- **Battery power**: you can use two CR2450 batteries to power your kit. Recommended for remote deployments without access to wired power.
+
+***To avoid damaging your board only use one power source at a time. If USB power is used make sure not to have batteries installed.***
 
 ## Matter RGB Lightbulb
 
-In order to quickly understand the product capabilities we are going to jump straight to a hands-on section based on the [RGB Lightbulb example](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#matter) showcased in the **Nano Matter User Manual**.
+In order to quickly understand the product capabilities we are going to jump straight to a hands-on section based on the [RGB Lightbulb example](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#matter) showcased in the **[Nano Matter User Manual](https://docs.arduino.cc/tutorials/nano-matter/user-manual)**.
 
 ![RGB Lightbulb Overview](assets/led-rgb.jpg)
 
-***As this examples uses the Matter network you will need a __Thread Border Router__ to replicate it. See the supported ones on the [Matter section of the Nano Matter User Manual](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#matter).***
+***As this example uses the Matter network you will need a __Thread Border Router__ to replicate it. See the supported ones on the [Matter section of the Nano Matter User Manual](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#matter).***
 
-The following example code is based on the Matter library built-in example called **nano_matter_lightbulb_color** and the **Pervasive Displays library API**:
+The following example code is based on the Matter library built-in example called **nano_matter_lightbulb_color** and the **Pervasive Displays library API**, copy and paste it from the code snippet below:
 
 ```arduino
 #include <Matter.h>
@@ -104,15 +133,11 @@ The following example code is based on the Matter library built-in example calle
 #include "ezWS2812gpio.h"
 #include "qrcode.h"
 
-#define LED_R LED_BUILTIN
-#define LED_G LED_BUILTIN_1
-#define LED_B LED_BUILTIN_2
-
 uint8_t r, g, b;
 
 MatterColorLightbulb matter_color_bulb;  // RGB LED Matter UI instance
 
-pins_t nano_matter = boardArduinoNanoMatter;
+const pins_t nano_matter = boardArduinoNanoMatter;
 
 ezWS2812gpio myRGB(1, nano_matter.ledData);  // Pervasive Displays onboard WS2813C LED set up (Number of LEDs, LED Pin)
 
@@ -120,8 +145,8 @@ Screen_EPD_EXT4_Fast EPD(eScreen_EPD_290_KS_0F, nano_matter);  // Pervasive Disp
 
 #define MATTER_EXAMPLE_NAME "Nano Matter RGB"
 
-static uint8_t countFlush = 1;         // Counter for global update
-const uint8_t FAST_BEFORE_GLOBAL = 16;  // Number of fast updates before global update
+static uint8_t countFlush = 1;          // Counter for global update
+const uint8_t FAST_BEFORE_GLOBAL = 16;  // Number of fast updates before golbal update
 
 volatile bool button_pressed = false;
 
@@ -145,7 +170,6 @@ void setup() {
 
   // Pervasive Displays onboard WS2813C LED set up
   myRGB.begin();
-
   // Turn the LED off
   led_off();
 
@@ -230,6 +254,7 @@ void loop() {
   if (matter_lightbulb_current_state && !matter_lightbulb_last_state) {
     matter_lightbulb_last_state = matter_lightbulb_current_state;
     Serial.println("Bulb ON");
+    matter_color_bulb.set_onoff(1);
     // Set the LEDs to the last received state
     update_led_color();
     countFlush += 1;
@@ -250,7 +275,6 @@ void loop() {
 
   if (countFlush == 0) {
     EPD.regenerate();
-    
   }
 
   static uint8_t hue_prev = 0;
@@ -278,7 +302,7 @@ void update_led_color() {
   }
 
   matter_color_bulb.get_rgb(&r, &g, &b);
-  myRGB.set_pixel(r, g, b);
+  myRGB.set_all(r, g, b);
 
   Serial.printf("Setting bulb color to > r: %u  g: %u  b: %u\n", r, g, b);
 
@@ -289,7 +313,8 @@ void update_led_color() {
 // Turns the RGB LED off
 void led_off() {
   // set the RGB LED to OFF
-  myRGB.set_pixel(0, 0, 0);
+  myRGB.set_all( 0, 0, 0);
+  matter_color_bulb.set_onoff(0);
 }
 
 void handle_button_press() {
@@ -332,7 +357,7 @@ void displayQR(const char* code) {
   uint16_t x = EPD.screenSizeX();
   uint16_t y = EPD.screenSizeY();
   uint8_t k = qrcode.size;
-  uint16_t dxy = min(x, y);
+  uint16_t dxy = hV_HAL_min(x, y);
   uint16_t dz = dxy / k;
   uint16_t dxy0 = (dxy - k * dz) / 2;
   uint16_t dx0 = x - dxy + dxy0;
@@ -437,7 +462,7 @@ void displayValue() {
 }
 ```
 
-Some of the code main functions will be briefly explained below:
+Some of the code main functions to pay attention to are:
 
 - The `displayCommissioning()` function displays the commissioning steps on the screen, letting you know how to device status and showing the QR code.
 - The `displayQR()` function converts the Nano Matter onboarding QR payload on an image to be shown in the E-ink display. 
@@ -452,12 +477,13 @@ Using the Nano Matter Display will allow you to enjoy the following new features
 
 - Real time data monitoring on the E-ink display showing the lightbulb state and colors.
   
+![Real time RGB color data](assets/led-rgb.jpg)
 
 ### Upload the Example Sketch
 
-[![Download the complete code here](assets/download.png)](assets/rgb-matter-code.zip)
+You can copy the code from the previous section and paste it on the Arduino IDE or download it from this [link](assets/rgb-matter-code.zip) or by clicking on the image below: 
 
-***Download the complete example code from [here](assets/rgb-matter-code.zip) since it needs the `ezWS2812gpio.h` header to control the RGB LED.***
+[![Download the complete code here](assets/download.png)](assets/rgb-matter-code.zip)
 
 In the Arduino IDE select the **Arduino Nano Matter** inside the _Silicon Labs_ board package and make sure the **Protocol Stack** is set to _Matter_.
 
@@ -475,21 +501,21 @@ See the following video that shows the whole process with the Amazon Alexa app.
   </video>
 </div>
 
-***Make sure to use the right assistant app respectively to your Thread Border Router brand.***
+***Make sure to use the right assistant app respectively to your Thread Border Router brand. Here are the suggestions for [Google Home](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#with-google-home), [Amazon Alexa](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#with-amazon-alexa) and [Apple Home](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#with-apple-home)***
 
 ## Matter Weather Station
 
-As another hands-on application, we are going to create a **weather station** using our Matter Display that measures `temperature` and `relative humidity` at the same time of showing it on the screen and sharing the measurements with our preferred personal assistant.
+As another hands-on application, we are going to create a **weather station** using our Matter Display that measures `temperature` and `humidity` while showing the readings on the screen and sharing the measurements with our preferred personal assistant.
 
 ![Weather Station Overview](assets/weather-c.jpg)
 
-***As this examples uses the Matter network you will need a __Thread Border Router__ to replicate it. See the supported ones on the [Matter section of the Nano Matter User Manual](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#matter).***
+***As this example uses the Matter network you will need a __Thread Border Router__ to replicate it. See the supported ones on the [Matter section of the Nano Matter User Manual](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#matter).***
 
-Download the following library:
+Download the following library using the Arduino IDE Library Manager:
 
 - `HDC2080.h`: includes the support for the temperature and humidity sensor. You can install it from the Library Manager on the Arduino IDE or from its [repository](https://github.com/lime-labs/HDC2080-Arduino).
 
-The following code is based on the **Pervasive Displays** example included in the library called **EXT4_Matter_Weather**:
+The following code is based on the **Pervasive Displays** example included in the library called **EXT4_Matter_Weather**, copy and paste it from the code snippet below:
 
 ```arduino
 #include <Matter.h>
@@ -515,7 +541,7 @@ Screen_EPD_EXT4_Fast EPD(eScreen_EPD_290_KS_0F, nano_matter);
 HDC2080 sensor(HDC_ADDR);
 
 unsigned long previousMillis = 0;
-const long interval = 10000;
+const long interval = 5000;
 
 struct measure_s {
   float value;
@@ -527,7 +553,7 @@ struct measure_s {
 measure_s temperature;
 measure_s humidity;
 
-static uint8_t countFlush = 1;         // Counter for global update
+static uint8_t countFlush = 1;          // Counter for global update
 const uint8_t FAST_BEFORE_GLOBAL = 16;  // Number of fast updates before global update
 bool flagDisplay = true;
 
@@ -645,7 +671,6 @@ void loop() {
 
     if (countFlush == 0) {
       EPD.regenerate();
-     
     }
 
     displayValue(0, "Temperature", &temperature, "°C");
@@ -653,13 +678,19 @@ void loop() {
     EPD.flush();
 
     countFlush += 1;
-    
+
     // Serial
     Serial.print(formatString("Temperature = %5.1f < %5.1f < %5.1f oC, Humidity= %5.1f < %5.1f < %5.1f %%",
                               temperature.minimum, temperature.value, temperature.maximum,
                               humidity.minimum, humidity.value, humidity.maximum));
     Serial.println();
   }
+
+  delay(2000);
+
+  temperature.value = sensor.readTemp();
+  // Humidity
+  humidity.value = sensor.readHumidity();
 
   decommission_handler();
 }
@@ -673,7 +704,7 @@ void displayQR(const char* code) {
   uint16_t x = EPD.screenSizeX();
   uint16_t y = EPD.screenSizeY();
   uint8_t k = qrcode.size;
-  uint16_t dxy = min(x, y);
+  uint16_t dxy = hV_HAL_min(x, y);
   uint16_t dz = dxy / k;
   uint16_t dxy0 = (dxy - k * dz) / 2;
   uint16_t dx0 = x - dxy + dxy0;
@@ -705,8 +736,8 @@ bool displayValue(uint8_t slot, String name, measure_s* value, String unit) {
   (*value).value = ((int32_t)(10 * (*value).value + 5)) / 10.0;
   bool result = ((*value).value != (*value).oldValue);
   (*value).oldValue = (*value).value;
-  (*value).maximum = max((*value).maximum, (*value).value);
-  (*value).minimum = min((*value).minimum, (*value).value);
+  (*value).maximum = hV_HAL_max((*value).maximum, (*value).value);
+  (*value).minimum = hV_HAL_min((*value).minimum, (*value).value);
 
   EPD.setPenSolid(true);
   EPD.setFontSolid(true);
@@ -808,9 +839,8 @@ void decommission_handler() {
     }
   }
 }
-
 ```
-Some of the code main functions will be briefly explained below:
+Some of the code main functions to pay attention to are:
 
 - The `displayCommissioning()` function displays the commissioning steps on the screen, letting you know how to device status and showing the QR code.
 - The `displayQR()` function converts the Nano Matter onboarding QR payload on an image to be shown in the E-ink display. 
@@ -818,6 +848,8 @@ Some of the code main functions will be briefly explained below:
 - The `setup()` function initiates the Matter service, E-ink display and other peripherals.
 
 ### Upload the Example Sketch
+
+You can copy the code from the previous section and paste it on the Arduino IDE or download it from this [link](assets/weather-matter-code.zip) or by clicking on the image below: 
 
 [![Download the complete code here](assets/download.png)](assets/weather-matter-code.zip)
 
@@ -835,7 +867,7 @@ Once the code is uploaded, the display will show the commissioning steps alongsi
 
 With the Weather Station properly commissioned, now you can deploy it on an interesting place at home to monitor.
 
-![Weather Station Deployment at home](assets/living-2.gif)
+![Weather Station Deployment at home](assets/thumbnail.jpg)
 
 ## Nano Matter Display Sensors and Actuators
 
@@ -870,7 +902,7 @@ Define the screen orientation using the following function:
 ```arduino
 EPD.setOrientation(7);
 ```
-![Screen Orientation](assets/orientation.gif)
+![Screen Orientation](assets/orientation-2.gif)
 
 ***Test the library example called __Common_Orientation__***
 
@@ -1110,7 +1142,7 @@ void loop() {
 
 If you rotate the Nano Matter Display you will notice how the screen orientation will change making the arrow always to point upward.
 
-![Accelerometer controlling orientation](assets/accel.gif)
+![Accelerometer controlling orientation](assets/accel-animation.gif)
 
 ### Temperature and Humidity Sensor
 
@@ -1257,7 +1289,9 @@ After uploading the example sketch you will be able to monitor the environment t
 
 ## Conclusion
 
-In this tutorial you learned how to use the Nano Matter Display expansion kit, leveraging all its features like the E-ink screen to display high-contrast graphics with a low power consumption on a 2.9" (384x168) EPD. Other included features were explained like the built-in RGB LED, the 3-axis accelerometer and the temperature and humidity sensor. All these features were showcased using the user-friendly Arduino environment.
+In this tutorial you learned how to use the Nano Matter Display expansion kit, leveraging all its features like the E-ink screen to display high-contrast graphics with a low power consumption on 2.9" 384x168 resolution. Features like the built-in RGB LED, the 3-axis accelerometer and the temperature and humidity sensor were explained.
+
+Thanks to the E-ink display, your IoT oriented products can have a better and more natural user experience while maintaining a low power consumption. Allowing you to set up and commission your solution scanning the QR code and showing real-time sensor data on the screen it's a game changer feature for your IoT solutions.
 
 ### Next Steps
 
