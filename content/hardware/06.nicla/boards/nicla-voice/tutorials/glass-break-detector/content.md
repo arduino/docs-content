@@ -98,7 +98,7 @@ This dataset provides a broad collection of audio samples designed for rare soun
 - **Isolated Events:** 474 unique events across three target categories: baby crying, **glass breaking**, and gunshot.
 - **Background Recordings:** 1121 of 30 second recordings of ambient sounds totaling 9 hours and 20 minutes of audio.
 
-For this application note, we focus on glass-breaking sounds. From this dataset, *300 audio samples* are used for training and *54 samples* for testing. These samples represent two main categories:
+For this application note, we focus on glass-breaking sounds. From this dataset, *313 audio samples* are used for training and *54 samples* for testing. These samples represent two main categories:
 
 - Glass-breaking events
 - Non-glass-breaking ambient noise
@@ -123,19 +123,23 @@ Additionally, Edge Impulse allows you to collect data directly from your devices
 
 ### Data Processing
 
-In this step, you will use an audio processing block optimized for the NDP120 processor found on the Nicla Voice. This block uses a *Fast Fourier Transform (FFT)* to convert audio data from the time domain to the frequency domain, helping in extracting meaningful features for classification.
+In this step, you will use an audio processing block specifically optimized for the NDP120 processor integrated into the Nicla Voice. This block uses a *Fast Fourier Transform (FFT)* to convert audio signals from the time domain into the frequency domain, extracting meaningful features for classification.
 
-Dimensionality reduction techniques visualize the features, describing different clusters for glass-breaking and non-glass-breaking sounds.
+Dimensionality reduction techniques help visualize and cluster features, effectively distinguishing between glass-breaking and non-glass-breaking sounds.
 
-The image below shows the time series and audio processing block configuration in Edge Impulse. Configuring parameters like window size and frequency is important for extracting meaningful audio data features. It can be found within the **Create Impulse** section in the Edge Impulse platform.
+The first image below shows the time series configuration and audio processing block in Edge Impulse. Configurable parameters, such as window size and frequency, are important in extracting the most meaningful features for audio data classification.
+
+These configurations are available in the **Create Impulse** section of the Edge Impulse platform.
 
 ![Signal Processing Configuration](assets/edge-impulse-config.png)
 
-The processing block provides configurable parameters such as window size and feature scaling, allowing you to fine-tune signal processing. This application note emphasizes the ease with which these configurations can be adjusted.
+The processing block includes customizable settings such as window size and feature scaling, allowing users to fine-tune signal processing based on specific application requirements. This flexibility provides optimal feature extraction and improved classification accuracy.
 
 ![Feature Generation and Visualization](assets/edge-generation-visualization.png)
 
-In the image above, you can see the feature generation output. The data is visualized in clusters, which helps you understand the different features of the glass-breaking and non-glass-breaking classes. It can be found within the **Parameters** tab from **Syntiant** section in the Edge Impulse platform.
+The second image shows the output of feature generation. The data visualization reveals clusters corresponding to glass-breaking and non-glass-breaking audio samples.
+
+This helps us understand how well the system can separate these two types of sounds, which can be accessed under the **Parameters** tab of the **Syntiant** section in Edge Impulse.
 
 ### Model Training
 
@@ -143,7 +147,7 @@ You will use a dense neural network architecture that is well-suited for audio c
 
 Edge Impulse’s Eon tuner can help automatically optimize model parameters, simplifying the process for you without extensive machine learning expertise.
 
-The model achieved an accuracy of *89%* during training, showing its capability to differentiate between glass-breaking and background noises. This can be found within the **Classifier** section in the Edge Impulse platform.
+The model achieved an accuracy of *89 %* during training, showing its capability to differentiate between glass-breaking and background noises. This can be found within the **Classifier** section in the Edge Impulse platform.
 
 ![Model Testing Results](assets/edge-model-test-result.png)
 
@@ -162,9 +166,12 @@ After training, the model is evaluated using a test dataset that includes previo
 
 ![Model Testing Results](assets/edge-model-test.png)
 
-The image above shows the testing results with an accuracy of **99.12%**. This can be found within the **Model testing** section in the Edge Impulse platform.
+The image above shows the testing results with an accuracy of **99.12 %**. This can be found within the **Model testing** section in the Edge Impulse platform.
 
-The confusion matrix highlights the model's capability to classify audio samples correctly while identifying potential areas for improvement.
+The confusion matrix highlights the model's capability to classify audio samples correctly while identifying potential areas for improvement:
+
+- Correctly classified "glassbreak" events: 94.4 %
+- Correctly classified "unknown" samples: 100 %
 
 Misclassifications mainly happened for short-duration glass-breaking sounds, suggesting the need for additional data or refinement of the processing pipeline to improve robustness. Regular updates to the dataset with new samples can address such limitations and improve performance.
 
