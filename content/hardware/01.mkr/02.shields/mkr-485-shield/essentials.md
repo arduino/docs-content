@@ -1,3 +1,9 @@
+---
+productsLibrariesMap:
+  - arduinors485
+---
+
+
 <EssentialsColumn title="First Steps">
   <EssentialElement title="Quickstart Guide" type="getting-started" link="/tutorials/mkr-485-shield/mkr-485-communication">
     All you need to know to get started with your new Arduino Shield.
@@ -5,17 +11,9 @@
 
 </EssentialsColumn>
 
-<EssentialsColumn title="Suggested Libraries">
-
-  <EssentialElement title="ArduinoRS485" type="library" link="https://www.arduino.cc/reference/en/libraries/arduinors485/">
-    The ArduinoRS485 library enables sending and receiving data using the RS-485 standard with RS-485 shields, like the MKR 485 Shield.
-  </EssentialElement>
-
-</EssentialsColumn>
-
 <EssentialsColumn title="Arduino Basics">
   <EssentialElement title="Built-in Examples" type="tutorial" link="/built-in-examples/">
-    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands. 
+    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands.
   </EssentialElement>
   <EssentialElement title="Learn" type="resource" link="/learn/">
     Discover interesting articles, principles and techniques related to the Arduino ecosystem.

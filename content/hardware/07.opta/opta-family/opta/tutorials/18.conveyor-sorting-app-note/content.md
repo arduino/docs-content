@@ -667,7 +667,7 @@ In addition to tracking the sorted items, the Arduino Cloud also allows you to c
 
 This real-time integration ensures that you can both observe the performance of your sorting system and take direct action when needed, making it a versatile and effective tool for managing your operations instantly and efficiently.
 
-![Arduino Cloud Dashboard](assets/conveyor-dashboard.gif)
+![Arduino Cloud Dashboard](assets/dashboard.gif)
 
 Within the Arduino Cloud's dashboard, the system variables can be monitored with the following widgets:
 

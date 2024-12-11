@@ -358,7 +358,7 @@ The **EMEA (EC200A-EU) Module** mainly uses raw AT commands over a USB serial in
 mmcli -m 0 --simple-connect='apn=iot.1nce.net,ip-type=ipv4v6'
 ```
 
-***The **EC200A-EU** modem is not compatible with __QMI__. It requires raw AT commands over a USB serial interface. For more information, refer to the [Quectel EC200A-EU documentation](https://python.quectel.com/en/products/ec200a-eu).***
+***The __EC200A-EU__ modem is not compatible with __QMI__. It requires raw AT commands over a USB serial interface. For more information, refer to the [Quectel EC200A-EU documentation](https://python.quectel.com/en/products/ec200a-eu).***
 
 The latest images include the necessary `udev` rules to automatically manage the `ec200aeu` interface. You can verify this by checking the `75-ec200aeu.rules` file using the following command:
 
@@ -397,7 +397,7 @@ sudo systemctl disable ModemManager
 
 Once **ModemManager** has been disabled, you can use **qmicli** to communicate reliably with the QMI interface for modem operations.
 
-***The **EC200A-EU** modem is not compatible with __QMI__. It requires raw AT commands over a USB serial interface. For more information, refer to the [Quectel EC200A-EU documentation](https://python.quectel.com/en/products/ec200a-eu).***
+***The __EC200A-EU__ modem is not compatible with __QMI__. It requires raw AT commands over a USB serial interface. For more information, refer to the [Quectel EC200A-EU documentation](https://python.quectel.com/en/products/ec200a-eu).***
 
 #### Raw IP Mode Setup for QMI Based Modems
 
@@ -498,7 +498,7 @@ Inside the container, an **entrypoint.sh** script can control the modem's power 
 gpioset gpiochip5 5=1
 ```
 
-***It is required to have **PCIE Enable (GPIO5)** pin connected to the **VCC (3V3)** pin to secure the power supply line.***
+***It is required to have __PCIE Enable (GPIO5)__ pin connected to the __VCC (3V3)__ pin to secure the power supply line.***
 
 This will enable the power to the modem and add a delay for proper modem initialization:
 

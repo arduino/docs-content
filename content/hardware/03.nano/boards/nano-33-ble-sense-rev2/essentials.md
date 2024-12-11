@@ -1,3 +1,11 @@
+---
+productsLibrariesMap:
+  - arduinoble
+  - arduino_bmi270_bmm150
+  - arduino_hs300x
+  - arduino_apds9960
+---
+
 <EssentialsColumn title="Guides">
   <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v2/tutorials/ide-v2-board-manager#mbed-os-nano">
     Set up your Arduino board in the Arduino IDE.
@@ -19,31 +27,15 @@
 
 <EssentialsColumn title="Suggested Libraries">
 
-  <EssentialElement title="ArduinoBLE" type="library" link="https://www.arduino.cc/en/Reference/ArduinoBLE">
-The ArduinoBLE library is designed for Arduino boards that have hardware enabled for Bluetooth® Low Energy and Bluetooth® 4.0 and above. 
-  </EssentialElement>
-
-  <EssentialElement title="Arduino_BMI270_BMM150" type="library" link="https://www.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/">
-The Arduino_BMI270_BMM150 library is designed to be used with the BMI270_BMM150 IMU system, which includes a 3-axis accelerometer, 3-axis gyroscope and a 3-axis magnetometer. 
-  </EssentialElement>
-
-  <EssentialElement title="Arduino_HS300x" type="library" link="https://www.arduino.cc/reference/en/libraries/arduino_hs300x/">
-The HS300x library is designed for reading temperature and humidity values from the HS300x sensor.
-  </EssentialElement>
-
   <EssentialElement title="PDM" type="library" link="https://www.arduino.cc/en/Reference/PDM">
 The PDM library allows you to use PDM (Pulse-density modulation) microphones, like the MP34DT06JTR onboard the Arduino Nano 33 BLE Sense Rev2.
-  </EssentialElement>
-
-  <EssentialElement title="Arduino_APDS9960" type="library" link="https://www.arduino.cc/en/Reference/ArduinoAPDS9960">
-The Arduino_APDS9960 library allows you to use the APDS9960 sensor available on the Arduino Nano 33 BLE Sense Rev2 to read gestures, color, light intensity and proximity.
   </EssentialElement>
 
 </EssentialsColumn>
 
 <EssentialsColumn title="Arduino Basics">
   <EssentialElement title="Built-in Examples" type="tutorial" link="/built-in-examples/">
-    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands. 
+    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands.
   </EssentialElement>
   <EssentialElement title="Learn" type="resource" link="/learn/">
     Discover interesting articles, principles and techniques related to the Arduino ecosystem.

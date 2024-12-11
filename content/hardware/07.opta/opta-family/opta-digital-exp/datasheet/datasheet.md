@@ -62,12 +62,12 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 ***The inputs are marked on plastic as DGT/0-10 V to maintain uniformity with the main Opta module and as conventionally the majority of industrial analog sensors work in the 0-10 V range.***
 
 #### Digital Inputs
-| Characteristics                   | Details                                |
-|-----------------------------------|----------------------------------------|
-| Digital Input voltage             | 0...24 V                               |
-| Digital Input voltage logic level | VIL Max: 4 VDC. VHL Min: 5.9 VDC       |
-| Digital Input current             | 4.12 mA at 24 V, 2.05 mA at 10 V       |
-| Digital Input frequency           | 300 Hz                                 |
+| Characteristics                   | Details                                                                   |
+|-----------------------------------|---------------------------------------------------------------------------|
+| Digital Input voltage             | 0...24 V                                                                  |
+| Digital Input voltage logic level | Voltage Input Low (VIL) Max: 4 VDC. Voltage Input High (VIH) Min: 5.9 VDC |
+| Digital Input current             | 4.12 mA at 24 V, 2.05 mA at 10 V                                          |
+| Digital Input frequency           | 300 Hz                                                                    |
 
 ***The expansion digital inputs are compatible with 0-10 V and 0-24 V digital sensors.***
 
@@ -296,6 +296,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 | Date       | **Revision** | **Changes**                          |
 |------------|--------------|--------------------------------------|
+| 02/12/2024 | 5            | Digital input specification update   |
 | 24/09/2024 | 4            | Expansion port updates               |
 | 24/09/2024 | 3            | SSR operating current update         |
 | 03/09/2024 | 2            | Cloud Editor updated from Web Editor |

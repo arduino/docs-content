@@ -1,26 +1,20 @@
+---
+productsLibrariesMap:
+  - mkrgsm
+  - arduino-low-power
+---
+
 <EssentialsColumn title="First Steps">
   <EssentialElement title="Quickstart Guide" type="getting-started">
     All you need to know to get started with your new Arduino board.
   </EssentialElement>
 
-  
-</EssentialsColumn>
-
-<EssentialsColumn title="Suggested Libraries">
-
-  <EssentialElement title="MKRGSM" type="library" link="https://www.arduino.cc/en/Reference/MKRGSM">
-   The MKRGSM library together with the MKR GSM 1400 board allows you can do most of the operations you can do with a GSM phone: place and receive voice calls, send and receive SMS, and connect to the internet over a GPRS network. The on board module, operates in 3G with a 2G fallback.
-  </EssentialElement>
-
-  <EssentialElement title="ArduinoLowPower" type="library" link="https://www.arduino.cc/en/Reference/ArduinoLowPower">
-    The ArduinoLowPower library allows you to use the low power features of the SAMD21 MCU to minimize power consumption and maximize battery duration.
-  </EssentialElement>
 
 </EssentialsColumn>
 
 <EssentialsColumn title="Arduino Basics">
   <EssentialElement title="Built-in Examples" type="tutorial" link="/built-in-examples/">
-    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands. 
+    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands.
   </EssentialElement>
   <EssentialElement title="Learn" type="resource" link="/learn">
     Discover interesting articles, principles and techniques related to the Arduino ecosystem.
