@@ -25,7 +25,7 @@ The Nicla Voice and Edge Impulse offer powerful tools for monitoring environment
 
 ![Nicla Voice & Edge Impulse with Arduino Cloud for glass break detection](assets/edge-glass-break-building-dashboard.gif)
 
-This application note will show you how to build and deploy a machine learning model on Nicla Voice with Edge Impulse that detects glass-breaking sounds. The content will cover how audio data is processed and used for training for efficient sound classification.
+This application note will show you how to build and deploy a machine learning model on Nicla Voice with Edge Impulse that detects glass-breaking sounds. The content will cover how audio dataset is managed and used for training for efficient sound classification.
 
 ## Goals
 
@@ -68,9 +68,9 @@ Edge Impulse and Nicla Voice provide a highly flexible and adaptable solution fo
 
 These applications, such as monitoring buildings, vehicles, and public spaces, are some examples that can develop into a comprehensive system integrated with the Arduino Cloud:
 
-- **Buildings:** Identify glass-breaking incidents in residential, commercial, or industrial properties. Alerts can trigger lockdown protocols, notify security teams, and log incidents in real time.
+- **Buildings:** Identify glass-breaking incidents in residential, commercial, or industrial properties. Programmed alerts can trigger lockdown protocols, notify security teams, and log incidents in real time.
 
-- **Vehicles:** Detect windshield breakage and provide real-time SOS signals, vehicle location, or license plate details. This feature is particularly beneficial for enhancing vehicle security.
+- **Vehicles:** Detect windshield breakage and provide real-time SOS signals, vehicle location, or license plate details. This feature is particularly beneficial for improving vehicle security.
 
 - **Custom Environments:** Deploy in specific setups like public transportation, specialized labs, or sensitive equipment areas where glass-related incidents require immediate attention.
 
@@ -82,15 +82,19 @@ This adaptability provides comprehensive coverage and flexible response mechanis
 
 The application will be based on a preconfigured example model created by Aurelien Lequertier that is available on the [Arduino Machine Learning Tools](https://mltools.arduino.cc/public/210541/latest).
 
-This example detects anomalous sounds of glass breaking using the [DCASE rare sound events dataset](http://dcase.community/challenge2017/task-rare-sound-event-detection-results). With this example, you will learn how to build and deploy a glass-breaking detection system.
+This example detects anomalous sounds of glass breaking using the [**DCASE** rare sound events dataset](http://dcase.community/challenge2017/task-rare-sound-event-detection-results). With this example, you will learn how to build and deploy a glass-breaking detection system.
 
 ### Data Collection
 
-Data collection is the foundation of any machine learning project. An existing dataset known as [**DCASE dataset** (Detection and Classification of Acoustic Scenes and Events)](http://dcase.community/challenge2017/task-rare-sound-event-detection-results) will be used in this application note to avoid the practical challenges of recording actual glass-breaking sounds.
+Data collection is the foundation of any machine learning project. This application note will use an existing [**DCASE dataset** (Detection and Classification of Acoustic Scenes and Events)](http://dcase.community/challenge2017/task-rare-sound-event-detection-results) to avoid the practical challenges of recording actual glass-breaking sounds.
 
-This dataset provides high-quality audio samples of glass-breaking sounds and background noise, which is essential for training and testing the model.
+This dataset provides a broad collection of audio samples designed for rare sound event detection, including glass-breaking sounds and background noise. It includes:
 
-You will have *300 audio samples* for training and *54 samples* for testing. These samples represent two main categories:
+- **Mixtures:** 1500 of 30 second audio mixtures, totaling 12 hours and 30 minutes of audio, created by combining isolated events with background recordings.
+- **Isolated Events:** 474 unique events across three target categories: baby crying, **glass breaking**, and gunshot.
+- **Background Recordings:** 1121 of 30 second recordings of ambient sounds totaling 9 hours and 20 minutes of audio.
+
+For this application note, we focus on glass-breaking sounds. From this dataset, *300 audio samples* are used for training and *54 samples* for testing. These samples represent two main categories:
 
 - Glass-breaking events
 - Non-glass-breaking ambient noise
@@ -99,13 +103,13 @@ Using the [**DCASE**](http://dcase.community/challenge2017/task-rare-sound-event
 
 The audio data was preprocessed with **Edge Impulse**. Its user interface allows you to manage audio files, including cropping unnecessary segments and splitting longer recordings into manageable pieces.
 
-This preprocessing step ensures that only relevant data is provided into the training pipeline, maximizing the model performance.
-
-The preprocessing step includes following steps:
+This preprocessing step ensures that only relevant data is provided into the training pipeline, maximizing the model performance. The preprocessing step includes following steps:
 
 - **Audio Segmentation:** Splitting long audio recordings into smaller, manageable clips for more effective training.
 - **Noise Handling:** Removing background noise or irrelevant segments to ensure the dataset focuses on the target sounds.
 - **Normalization:** Ensuring consistent audio levels across all samples to improve model reliability. Using Edge Impulse GUI, you can crop unnecessary segments, annotate audio clips, and simplify this process.
+
+Using Edge Impulse, you can simplify these preprocessing steps with tools to crop unnecessary segments, annotate audio clips, and visualize the processed data. The dataset can be found within the **Data acquisition** section in the Edge Impulse platform.
 
 ![Dataset Overview in Edge Impulse](assets/edge-dataset-overview.png)
 
@@ -119,7 +123,7 @@ In this step, you will use an audio processing block optimized for the NDP120 pr
 
 Dimensionality reduction techniques visualize the features, describing different clusters for glass-breaking and non-glass-breaking sounds.
 
-The image below shows the time series and audio processing block configuration in Edge Impulse. Configuring parameters like window size and frequency is important for extracting meaningful audio data features.
+The image below shows the time series and audio processing block configuration in Edge Impulse. Configuring parameters like window size and frequency is important for extracting meaningful audio data features. It can be found within the **Create Impulse** section in the Edge Impulse platform.
 
 ![Signal Processing Configuration](assets/edge-impulse-config.png)
 
@@ -127,15 +131,15 @@ The processing block provides configurable parameters such as window size and fe
 
 ![Feature Generation and Visualization](assets/edge-generation-visualization.png)
 
-In the image above, you can see the feature generation output. The data is visualized in clusters, which helps you understand the different features of the glass-breaking and non-glass-breaking classes.
+In the image above, you can see the feature generation output. The data is visualized in clusters, which helps you understand the different features of the glass-breaking and non-glass-breaking classes. It can be found within the **Parameters** tab from **Syntiant** section in the Edge Impulse platform.
 
 ### Model Training
 
-You will use a dense neural network architecture that is well-suited for audio classification tasks. The configuration ensures compatibility with the hardware, using a 968-millisecond audio window for processing requirements.
+You will use a dense neural network architecture that is well-suited for audio classification tasks. The configuration ensures compatibility with the hardware, using a 968 millisecond audio window for processing requirements.
 
-Edge Impulse’s Eon tuner can automatically optimize model parameters, simplifying the process for you without extensive machine learning expertise.
+Edge Impulse’s Eon tuner can help automatically optimize model parameters, simplifying the process for you without extensive machine learning expertise.
 
-The model achieved an accuracy of *89%* during training, showing its capability to differentiate between glass-breaking and background noises.
+The model achieved an accuracy of *89%* during training, showing its capability to differentiate between glass-breaking and background noises. This can be found within the **Classifier** section in the Edge Impulse platform.
 
 ![Model Testing Results](assets/edge-model-test-result.png)
 
@@ -146,7 +150,7 @@ The model achieved an accuracy of *89%* during training, showing its capability 
 
 ![Model Training Settings](assets/edge-model-training.png)
 
-The image shows the training settings and the neural network architecture used in Edge Impulse. The Eon tuner can help you optimize hyperparameters like learning rate, number of neurons, and layer configurations to achieve the best balance between model size, accuracy, and latency.
+The image shows the training settings and the neural network architecture used in Edge Impulse. This window can be found within the **Generate features** tab from **Syntiant** section in the Edge Impulse platform. The Eon tuner can help you optimize hyperparameters like learning rate, number of neurons, and layer configurations to achieve the best balance between model size, accuracy, and latency.
 
 ### Model Testing
 
@@ -154,7 +158,7 @@ After training, the model is evaluated using a test dataset that includes previo
 
 ![Model Testing Results](assets/edge-model-test.png)
 
-The image above shows the testing results with an accuracy of **99.12%**.
+The image above shows the testing results with an accuracy of **99.12%**. This can be found within the **Model testing** section in the Edge Impulse platform.
 
 The confusion matrix highlights the model's capability to classify audio samples correctly while identifying potential areas for improvement.
 
