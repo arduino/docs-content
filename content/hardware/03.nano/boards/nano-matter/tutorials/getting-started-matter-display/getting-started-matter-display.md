@@ -1291,7 +1291,7 @@ After uploading the example sketch you will be able to monitor the environment t
 
 In this tutorial you learned how to use the Nano Matter Display expansion kit, leveraging all its features like the E-ink screen to display high-contrast graphics with a low power consumption on 2.9" 384x168 resolution. Features like the built-in RGB LED, the 3-axis accelerometer and the temperature and humidity sensor were explained.
 
-Thanks to the E-ink display, your IoT oriented products can have a better and more natural user experience while maintaining a low power consumption. Allowing you to set up and commission your solution scanning the QR code and showing real-time sensor data on the screen it's a game changer feature for your IoT solutions.
+Thanks to the E-ink display, your IoT-oriented products can have a better and more natural user experience while maintaining a low power consumption. Allowing you to set up and commission your solution by scanning the QR code and showing real-time sensor data on the screen, being a game-changer feature for your IoT solutions.
 
 ### Next Steps
 
