@@ -1219,7 +1219,7 @@ The library is based on the [**Fraunhofer open62541**](https://github.com/open62
 
 The [**OPC Unified Architecture (OPC UA)**](https://en.wikipedia.org/wiki/OPC_Unified_Architecture) is an industrial communication protocol widely used in automation and Industrial Internet of Things (IIoT) systems.
 
-It provides a platform-independent and secure method for exchanging information between devices and systems. **OPC UA** supports features like custom data modeling, authentication, encryption, and scalable architecture, making it a preferred choice for modern industrial applications.
+It provides a platform independent and secure method for exchanging information between devices and systems. **OPC UA** supports features like custom data modeling, authentication, encryption, and scalable architecture, making it a preferred choice for modern industrial applications.
 
 The [**open62541** library](https://github.com/open62541/open62541) is an open-source implementation of the **OPC UA** standard. It is lightweight, efficient and written in C, making it ideal for embedded systems like the Opta. The library provides a flexible framework to create **OPC UA** servers and clients, ensuring compatibility with the standard while maintaining high performance.
 
@@ -1231,7 +1231,7 @@ The [**OPC UA library**](https://github.com/arduino-libraries/Arduino_OPC_UA) su
 
 ### Setting up the OPC UA Server
 
-To set up the **OPC UA** server, upload the [**`opta_opcua_server`** example](https://github.com/arduino-libraries/Arduino_OPC_UA/blob/main/examples/opta_opcua_server/opta_opcua_server.ino) to your Opta. This can be done using the Arduino IDE or the Arduino CLI tool with the command:
+To set up the **OPC UA** server, upload the [**`opta_opcua_server`** example](https://github.com/arduino-libraries/Arduino_OPC_UA/blob/main/examples/opta_opcua_server/opta_opcua_server.ino) to your Opta. This can be done using the Arduino IDE or the Arduino CLI tool with the command.
 
 ![Successful Compilation with Arduino IDE](assets/arduino-ide-compilation.png)
 
@@ -1249,17 +1249,17 @@ Next, connect the Opta to a network using its Ethernet port, ensuring that the n
 
 Open a serial monitor to verify the status of the server and obtain the device's IP address. The output will include information about the server, including its **discovery URL**.
 
-The Arduino IDE Serial Monitor can be used to get information about the server or programs like [Putty](https://www.putty.org/) to open a Serial connection.
+The Arduino IDE Serial Monitor can be used to get information about the server or programs like [**Putty**](https://www.putty.org/) to open a Serial connection.
 
 The following clip shows Opta running OPC UA server script and showing server information on the Serial Monitor:
 
 ![Server information with discovery URL - Arduino IDE](assets/opta-opc-ua-arduino-ide.gif)
 
-With [Putty](https://www.putty.org/), the following serial monitor shows the server information:
+With [**Putty**](https://www.putty.org/), the following serial connection shows the server information:
 
 ![Server information with discovery URL - Putty](assets/opta-opc-ua-cmd.gif)
 
-The output information extracted is as follows and you should see similar to the following:
+The output information extracted is as follows and you should see similar information:
 
 ```bash
 [2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/eventloop[0m	Starting the EventLoop
@@ -1293,7 +1293,7 @@ In this example, the output displays the IP address:
 192.168.100.191
 ```
 
-And indicate that the OPC UA server is running at:
+The discovery URL is as follows, which indicates the OPC UA server is running at:
 
 ```bash
 opc.tcp://192.168.100.191:4840
@@ -1305,9 +1305,11 @@ You can now connect to the OPC UA server running on Opta.
 
 Once the server is running, use any OPC UA compatible client to connect to the server using the IP address and port printed in the serial monitor output. This allows you to explore and interact with the device and any attached expansion boards.
 
+The [**opcua-client-gui**](https://github.com/FreeOpcUa/opcua-client-gui) client will be used to connect to the OPC UA server running on Opta.
+
 ### Using OPC UA GUI Client for Testing
 
-The [**opcua-client-gui**](https://github.com/FreeOpcUa/opcua-client-gui) client can be used if you are interested in testing or further interaction. To install the tool, please use the following commands:
+The [**opcua-client-gui**](https://github.com/FreeOpcUa/opcua-client-gui) client can be used if you are interested in testing or further interaction with the OPC UA server. To install the tool, please use the following commands:
 
 ```bash
 cd /tmp
@@ -1335,13 +1337,14 @@ python3 -m pip install --upgrade .
 If you are on a Windows OS platform, please follow the next steps:
 
 1. Install [**WinPython**](https://winpython.github.io/) and install the version including **`pyqt5`**.
+
 2. Use `pip` to install **opcua-client**:
 
 ```bash
 pip install opcua-client
 ```
 
-It is recommended that the command be run within the WinPython Command Prompt downloaded with [winpython](https://winpython.github.io/).
+It is recommended that the command be run within the *`WinPython Command Prompt`* downloaded with [winpython](https://winpython.github.io/).
 
 3. Run via the script `pip` created: `YOUR_INSTALL_PATH\Python\Python35\Scripts\opcua-client.exe`
 
@@ -1349,9 +1352,9 @@ It will launch the GUI and connect to the OPC UA server running on the Opta usin
 
 ![OPC UA GUI client](assets/opta-opc-ua-gui.gif)
 
-With this, Opta is now ready to handle the OPC UA protocol through simple [OPC UA GUI client](https://github.com/FreeOpcUa/opcua-client-gui).
+With this, Opta is ready to handle the OPC UA protocol through simple [OPC UA GUI client](https://github.com/FreeOpcUa/opcua-client-gui).
 
-The client allows for connection management, browsing, attribute or reference viewing, variable subscription, event subscription, value writing, secure communication, method invocation, data plotting, and state persistence.
+The client allows connection management, browsing, attribute or reference viewing, variable subscription, event subscription, value writing, secure communication, method invocation, data plotting, and state persistence.
 
 ***For more information about the simple OPC UA GUI client and dedicatd installation instruction sets, please refer to [**opcua-client-gui** repository](https://github.com/FreeOpcUa/opcua-client-gui).***
 
