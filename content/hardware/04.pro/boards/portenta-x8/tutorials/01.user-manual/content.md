@@ -149,7 +149,7 @@ The table below describes the meaning and functionalities of LEDs.
 
 Once the Portenta X8 is correctly powered up, you can start interacting with it. 
 
-Open your browser and navigate to [www.arduino.cc/start](www.arduino.cc/start). The following page will be displayed.
+Open your browser and navigate to [www.arduino.cc/start](http://www.arduino.cc/start). The following page will be displayed.
 
 ![First Setup](assets/registration-homepage.png "First Setup")
 
