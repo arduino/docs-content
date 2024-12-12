@@ -1213,11 +1213,13 @@ You should be able now to connect to your Opta™ using a central device. The Bl
 
 ## OPC Unified Architecture (OPC UA)
 
-This section explains using the [**OPC UA library**](https://github.com/arduino-libraries/Arduino_OPC_UA) designed for Opta. The library is based on the [**Fraunhofer open62541**](https://github.com/open62541/open62541) implementation of [**OPC UA**](https://en.wikipedia.org/wiki/OPC_Unified_Architecture), tailored specifically for the Opta family.
+This section explains using the [**OPC UA library**](https://github.com/arduino-libraries/Arduino_OPC_UA) designed for Opta. The library is based on the [**Fraunhofer open62541**](https://github.com/open62541/open62541) implementation of [**OPC UA**](https://en.wikipedia.org/wiki/OPC_Unified_Architecture), created specifically for the Opta family.
 
-The [**OPC Unified Architecture (OPC UA)**](https://en.wikipedia.org/wiki/OPC_Unified_Architecture) is an industrial communication protocol widely used in automation and Industrial Internet of Things (IIoT) systems. It provides a platform-independent and secure method for exchanging information between devices and systems. **OPC UA** supports features like custom data modeling, authentication, encryption, and scalable architecture, making it a preferred choice for modern industrial applications.
+The [**OPC Unified Architecture (OPC UA)**](https://en.wikipedia.org/wiki/OPC_Unified_Architecture) is an industrial communication protocol widely used in automation and Industrial Internet of Things (IIoT) systems.
 
-The [**open62541** library](https://github.com/open62541/open62541) is an open-source implementation of the **OPC UA** standard. It is lightweight, efficient, and written in C, making it ideal for embedded systems like the Opta. The library provides a flexible framework to create **OPC UA** servers and clients, ensuring compatibility with the standard while maintaining high performance.
+It provides a platform-independent and secure method for exchanging information between devices and systems. **OPC UA** supports features like custom data modeling, authentication, encryption, and scalable architecture, making it a preferred choice for modern industrial applications.
+
+The [**open62541** library](https://github.com/open62541/open62541) is an open-source implementation of the **OPC UA** standard. It is lightweight, efficient and written in C, making it ideal for embedded systems like the Opta. The library provides a flexible framework to create **OPC UA** servers and clients, ensuring compatibility with the standard while maintaining high performance.
 
 The [**OPC UA library**](https://github.com/arduino-libraries/Arduino_OPC_UA) supports secure communication and interoperability for industrial automation applications, with the capability to automatically detect, configure, and expose up to two Arduino Opta Expansion Boards via **OPC UA**. Supported expansion boards include:
 
@@ -1231,6 +1233,8 @@ To set up the **OPC UA** server, upload the [**`opta_opcua_server`** example](ht
 
 ![Successful Compilation with Arduino IDE](assets/arduino-ide-compilation.png)
 
+For running with the Arduino CLI tool, the following command can be used:
+
 ```bash
 arduino-cli compile --fqbn arduino:mbed_opta:opta -v examples/opta_opcua_server -u -p /dev/ttyACM0
 ```
@@ -1241,48 +1245,67 @@ arduino-cli compile --fqbn arduino:mbed_opta:opta -v examples/opta_opcua_server 
 
 Next, connect the Opta to a network using its Ethernet port, ensuring that the network has a DHCP-enabled router or switch to assign an IP address to the device.
 
-Open a serial monitor to verify the status of the server and retrieve the device’s IP address. The output will include information about the server, including its discovery URL. Use the following command to view the serial output:
+Open a serial monitor to verify the status of the server and obtain the device's IP address. The output will include information about the server, including its **discovery URL**.
+
+The Arduino IDE Serial Monitor can be used to get information about the server or programs like [Putty](https://www.putty.org/) to open a Serial connection.
+
+The following clip shows Opta running OPC UA server script and showing server information on the Serial Monitor:
+
+![Server information with discovery URL - Arduino IDE](assets/opta-opc-ua-arduino-ide.gif)
+
+With [Putty](https://www.putty.org/), the following serial monitor shows the server information:
+
+![Server information with discovery URL - Putty](assets/opta-opc-ua-cmd.gif)
+
+The output information extracted is as follows and you should see similar to the following:
 
 ```bash
-cat /dev/ttyACM0
-```
-
-You should see output similar to the following:
-
-```bash
-[2024-06-21 02:30:19.000 (UTC+0000)] info/eventloop    Starting the EventLoop
-[2024-06-21 02:30:19.000 (UTC+0000)] warn/server       AccessControl: Unconfigured AccessControl. Users have all permissions.
-[2024-06-21 02:30:19.000 (UTC+0000)] info/server       AccessControl: Anonymous login is enabled
-[2024-06-21 02:30:19.000 (UTC+0000)] warn/server       x509 Certificate Authentication configured, but no encrypting SecurityPolicy. This can leak credentials on the network.
-[2024-06-21 02:30:19.000 (UTC+0000)] info/server       Arduino Opta IP: 192.168.8.137
-[2024-06-21 02:30:19.000 (UTC+0000)] info/server       Arduino Opta Variant: Arduino Opta WiFi
-[2024-06-21 02:30:19.000 (UTC+0000)] info/server       stack: size = 16384 | free = 14936 | used = 1448 | max = 5124
-[2024-06-21 02:30:19.000 (UTC+0000)] info/server       o1heap: capacity: 261984 | allocated: 66784 | peak_allocated: 68896
-[2024-06-21 02:30:19.000 (UTC+0000)] warn/server       Maximum SecureChannels count not enough for the maximum Sessions count
-[2024-06-21 02:30:19.000 (UTC+0000)] info/network      TCP   | Listening on all interfaces
-[2024-06-21 02:30:19.000 (UTC+0000)] info/network      TCP 604353888 | Creating listen socket for "127.0.0.1" (with local hostname "192.168.8.137") on port 4840
-[2024-06-21 02:30:19.000 (UTC+0000)] info/server       New DiscoveryUrl added: opc.tcp://192.168.8.137:4840
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/eventloop[0m	Starting the EventLoop
+[2024-12-11 22:19:08.000 (UTC+0000)] [33mwarn/server[0m	AccessControl: Unconfigured AccessControl. Users have all permissions.
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/server[0m	AccessControl: Anonymous login is enabled
+[2024-12-11 22:19:08.000 (UTC+0000)] [33mwarn/server[0m	x509 Certificate Authentication configured, but no encrypting SecurityPolicy. This can leak credentials on the network.
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/server[0m	Arduino Opta IP: 192.168.100.191
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/server[0m	Arduino Opta Variant: Arduino Opta WiFi
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/server[0m	OptaController 0 expansion modules detected.
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/server[0m	stack: size = 16384 | free = 15400 | used = 984 | max = 4248
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/server[0m	o1heap: capacity: 327520 | allocated: 66784 | peak_allocated: 68896
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/server[0m	Thread: 0x2405ADA4 ("application_unnamed_thread"), Stack size: 4248 / 16384
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/server[0m	Thread: 0x2405C960 ("rtx_idle"), Stack size: 328 / 896
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/server[0m	Thread: 0x2405D338 ("lwip_tcpip"), Stack size: 792 / 1200
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/server[0m	Thread: 0x2405DB60 ("shared_event_queue"), Stack size: 392 / 2048
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/server[0m	Thread: 0x2405D090 ("main"), Stack size: 2224 / 32768
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/server[0m	Thread: 0x2405C91C ("rtx_timer"), Stack size: 104 / 768
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/server[0m	Thread: 0x2406AE40 ("USBevt"), Stack size: 136 / 256
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/server[0m	Thread: 0x2405D250 ("stm32_emac_thread"), Stack size: 192 / 1024
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/server[0m	Heap size: 10393 / 90272 bytes
+[2024-12-11 22:19:08.000 (UTC+0000)] [33mwarn/server[0m	Maximum SecureChannels count not enough for the maximum Sessions count
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/network[0m	TCP	| Listening on all interfaces
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/network[0m	TCP 604424824	| Creating listen socket for "192.168.100.191" (with local hostname "192.168.100.191") on port 4840
+[2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/server[0m	New DiscoveryUrl added: opc.tcp://192.168.100.191:4840
+[2024-12-11 22:19:14.000 (UTC+0000)] [32minfo/server[0m	Arduino Opta IP: 192.168.100.191
 ```
 
 In this example, the output displays the IP address:
 
 ```bash
-192.168.8.137
+192.168.100.191
 ```
 
 And indicate that the OPC UA server is running at:
 
 ```bash
-opc.tcp://192.168.8.137:4840
+opc.tcp://192.168.100.191:4840
 ```
+
+You can now connect to the OPC UA server running on Opta.
 
 ### Connecting to the OPC UA Server
 
-Once the server is running, use any OPC UA-compatible client to connect to the server using the IP address and port printed in the serial monitor output. This allows you to explore and interact with the device and any attached expansion boards.
+Once the server is running, use any OPC UA compatible client to connect to the server using the IP address and port printed in the serial monitor output. This allows you to explore and interact with the device and any attached expansion boards.
 
 ### Using OPC UA GUI Client for Testing
 
-The **opcua-client-gui** tool can be used if you are interested in testing or further interaction. To install the tool, please use the following commands:
+The [**opcua-client-gui**](https://github.com/FreeOpcUa/opcua-client-gui) client can be used if you are interested in testing or further interaction. To install the tool, please use the following commands:
 
 ```bash
 cd /tmp
@@ -1307,20 +1330,45 @@ python3 -m pip install --upgrade pyopenssl
 python3 -m pip install --upgrade .
 ```
 
-Launch the GUI and use it to connect to the OPC UA server running on the Arduino Opta.
+If you are on a Windows OS platform, please follow the next steps:
 
-### Detailed Memory Debugging
+1. Install [**WinPython**](https://winpython.github.io/) and install the version including **`pyqt5`**.
+2. Use `pip` to install **opcua-client**:
 
-Additional configuration is possible for developers requiring detailed debugging information about heap and stack memory usage. To enable this feature, the `mbed_app.json` configuration file should be modified to include memory and stack statistics macros. 
+```bash
+pip install opcua-client
+```
+
+It is recommended that the command be run within the WinPython Command Prompt downloaded with [winpython](https://winpython.github.io/).
+
+3. Run via the script `pip` created: `YOUR_INSTALL_PATH\Python\Python35\Scripts\opcua-client.exe`
+
+It will launch the GUI and connect to the OPC UA server running on the Opta using the discovery URL. You will be able to see similar results as in the following clip:
+
+![OPC UA GUI client](assets/opta-opc-ua-gui.gif)
+
+With this, Opta is now ready to handle the OPC UA protocol related issues using a simple [OPC UA GUI client](https://github.com/FreeOpcUa/opcua-client-gui).
+
+### Memory Debugging Insight
+
+Additional configuration is possible for developers requiring detailed heap and stack memory usage information. The `mbed_app.json` configuration file should be modified to include memory and stack statistics macros to enable this feature.
+
+The `mbed_app.json` file is found within [**`ArduinoCore-mbed`**](https://github.com/arduino/ArduinoCore-mbed/tree/main) at:
+
+```bash
+variants/OPTA/conf/mbed_app.json
+```
+
+Or the location can be referenced [here](https://github.com/arduino/ArduinoCore-mbed/blob/main/variants/OPTA/conf/mbed_app.json).
 
 Add the following macros to enable memory and stack statistics:
 
 ```bash
 "target.macros_add": [
-  ...
-+  "MBED_HEAP_STATS_ENABLED=1",
-+  "MBED_STACK_STATS_ENABLED=1",
-+  "MBED_MEM_TRACING_ENABLED=1"
+  ...
++  "MBED_HEAP_STATS_ENABLED=1",
++  "MBED_STACK_STATS_ENABLED=1",
++  "MBED_MEM_TRACING_ENABLED=1"
 ]
 ```
 
