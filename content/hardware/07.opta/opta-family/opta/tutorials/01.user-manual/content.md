@@ -1231,11 +1231,11 @@ The [**OPC UA library**](https://github.com/arduino-libraries/Arduino_OPC_UA) su
 
 ### Setting up the OPC UA Server
 
-To set up the **OPC UA** server, upload the [**`opta_opcua_server`** example](https://github.com/arduino-libraries/Arduino_OPC_UA/blob/main/examples/opta_opcua_server/opta_opcua_server.ino) to your Opta. This can be done using the Arduino IDE or the Arduino CLI tool with the command.
+To set up the **OPC UA** server, upload the [**`opta_opcua_server`** example](https://github.com/arduino-libraries/Arduino_OPC_UA/blob/main/examples/opta_opcua_server/opta_opcua_server.ino) to your Opta. This can be done using either the Arduino IDE or the Arduino CLI.
 
 ![Successful Compilation with Arduino IDE](assets/arduino-ide-compilation.png)
 
-For running with the Arduino CLI tool, the following command can be used:
+Run the following command to compile and upload the example if used with the Arduino CLI:
 
 ```bash
 arduino-cli compile --fqbn arduino:mbed_opta:opta -v examples/opta_opcua_server -u -p /dev/ttyACM0
@@ -1243,15 +1243,13 @@ arduino-cli compile --fqbn arduino:mbed_opta:opta -v examples/opta_opcua_server 
 
 ![Successful Compilation with Arduino CLI](assets/arduino-cli-compilation-upload.png)
 
-***If you are not familiar with the __Arduino CLI tool__, you can refer to the getting started found [here](https://arduino.github.io/arduino-cli/1.1/getting-started/).***
+***If you are not familiar with the __Arduino CLI tool__, you can refer to the getting started documentation found [here](https://arduino.github.io/arduino-cli/1.1/getting-started/).***
 
-Next, connect the Opta to a network using its Ethernet port, ensuring that the network has a DHCP-enabled router or switch to assign an IP address to the device.
+Next, connect the Opta to a network via its Ethernet port. Please make sure the network has a DHCP-enabled router or switch to assign an IP address to the device.
 
-Open a serial monitor to verify the status of the server and obtain the device's IP address. The output will include information about the server, including its **discovery URL**.
+Use a serial monitor to check the server status and retrieve the device's IP address. You can use the Arduino IDE Serial Monitor or other programs like [**Putty**](https://www.putty.org/) to establish a serial connection.
 
-The Arduino IDE Serial Monitor can be used to get information about the server or programs like [**Putty**](https://www.putty.org/) to open a Serial connection.
-
-The following clip shows Opta running OPC UA server script and showing server information on the Serial Monitor:
+The output will display details such as the **discovery URL**. Below is an example of the server log output on the Arduino IDE Serial Monitor:
 
 ![Server information with discovery URL - Arduino IDE](assets/opta-opc-ua-arduino-ide.gif)
 
@@ -1259,7 +1257,7 @@ With [**Putty**](https://www.putty.org/), the following serial connection shows 
 
 ![Server information with discovery URL - Putty](assets/opta-opc-ua-cmd.gif)
 
-The output information extracted is as follows and you should see similar information:
+The output information is as follows and you should see similar information:
 
 ```bash
 [2024-12-11 22:19:08.000 (UTC+0000)] [32minfo/eventloop[0m	Starting the EventLoop
@@ -1287,13 +1285,13 @@ The output information extracted is as follows and you should see similar inform
 [2024-12-11 22:19:14.000 (UTC+0000)] [32minfo/server[0m	Arduino Opta IP: 192.168.100.191
 ```
 
-In this example, the output displays the IP address:
+In this example, the output displays the **IP address**:
 
 ```bash
 192.168.100.191
 ```
 
-The discovery URL is as follows, which indicates the OPC UA server is running at:
+The **discovery URL** is as follows, which indicates the OPC UA server is running at:
 
 ```bash
 opc.tcp://192.168.100.191:4840
@@ -1303,9 +1301,9 @@ You can now connect to the OPC UA server running on Opta.
 
 ### Connecting to the OPC UA Server
 
-Once the server is running, use any OPC UA compatible client to connect to the server using the IP address and port printed in the serial monitor output. This allows you to explore and interact with the device and any attached expansion boards.
+Once the server is running, you can use any OPC UA compatible client to connect to the server using the discovery URL. This allows interaction with the device and any connected expansion modules.
 
-The [**opcua-client-gui**](https://github.com/FreeOpcUa/opcua-client-gui) client will be used to connect to the OPC UA server running on Opta.
+The [**opcua-client-gui**](https://github.com/FreeOpcUa/opcua-client-gui) client will be used to connect to the OPC UA server running on Opta in this section.
 
 ### Using OPC UA GUI Client for Testing
 
@@ -1352,11 +1350,9 @@ It will launch the GUI and connect to the OPC UA server running on the Opta usin
 
 ![OPC UA GUI client](assets/opta-opc-ua-gui.gif)
 
-With this, Opta is ready to handle the OPC UA protocol through simple [OPC UA GUI client](https://github.com/FreeOpcUa/opcua-client-gui).
+With this, Opta is ready to handle the OPC UA protocol through simple [OPC UA GUI client](https://github.com/FreeOpcUa/opcua-client-gui). The interface allows browsing, subscribing to variables, writing values, and performing other interactions.
 
-The client allows connection management, browsing, attribute or reference viewing, variable subscription, event subscription, value writing, secure communication, method invocation, data plotting, and state persistence.
-
-***For more information about the simple OPC UA GUI client and dedicatd installation instruction sets, please refer to [**opcua-client-gui** repository](https://github.com/FreeOpcUa/opcua-client-gui).***
+***For more information about the simple OPC UA GUI client and dedicatd installation instruction sets, please refer to [__opcua-client-gui__ repository](https://github.com/FreeOpcUa/opcua-client-gui).***
 
 ### Memory Debugging Insight
 
