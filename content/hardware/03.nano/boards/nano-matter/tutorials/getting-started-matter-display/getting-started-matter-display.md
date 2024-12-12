@@ -1000,8 +1000,6 @@ EPD.setPenSolid(false);  // print wire frame forms
 
 The Nano Matter Display features an addressable WS2813C RGB LED that can be easily used for visual status feedback.
 
-To control the onboard LED the `ezWS2812gpio.h` header is needed.
-
 The LED object is configured using the `ezWS2812gpio` class as follows:
 
 ```arduino
@@ -1009,10 +1007,10 @@ const pins_t myBoard = boardArduinoNanoMatter; // myBoard stores the Nano Matter
 ezWS2812gpio myRGB(1, myBoard.ledData); // (<LED_quantity>, <data_pin>)
 ```
 
-To control the LED color use the `set_pixel` function as follows:
+To control the LED color use the `set_all` function as follows:
 
 ```arduino
-myRGB.set_pixel(<R>, <G>, <B>); // pass the RGB color code in the (0 - 255) range
+myRGB.set_all(<R>, <G>, <B>); // pass the RGB color code in the (0 - 255) range
 ```
 
 ![LED demo](assets/led-demo.jpg)
