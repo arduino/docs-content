@@ -1349,7 +1349,9 @@ It will launch the GUI and connect to the OPC UA server running on the Opta usin
 
 ![OPC UA GUI client](assets/opta-opc-ua-gui.gif)
 
-With this, Opta is now ready to handle the OPC UA protocol related issues using a simple [OPC UA GUI client](https://github.com/FreeOpcUa/opcua-client-gui).
+With this, Opta is now ready to handle the OPC UA protocol through simple [OPC UA GUI client](https://github.com/FreeOpcUa/opcua-client-gui).
+
+The client allows for connection management, browsing, attribute or reference viewing, variable subscription, event subscription, value writing, secure communication, method invocation, data plotting, and state persistence.
 
 ***For more information about the simple OPC UA GUI client and dedicatd installation instruction sets, please refer to [**opcua-client-gui** repository](https://github.com/FreeOpcUa/opcua-client-gui).***
 
