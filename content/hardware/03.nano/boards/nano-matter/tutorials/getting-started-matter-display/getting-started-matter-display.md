@@ -904,7 +904,7 @@ EPD.setOrientation(7);
 ```
 ![Screen Orientation](assets/orientation-2.gif)
 
-***Test the library example called __Common_Orientation__***
+***Test the library example called __[Common_Orientation](https://github.com/rei-vilo/PDLS_EXT4_Basic_Matter/blob/main/examples/Common/Common_Orientation/Common_Orientation.ino)__***
 
 #### Text
 
@@ -972,7 +972,7 @@ EPD.flush(); // update the screen to show the text on buffer
 
 ![Text display](assets/text.png)
 
-***Test the library example called __Common_Text__***
+***Test the library example called __[Common_Text](https://github.com/rei-vilo/PDLS_EXT4_Basic_Matter/blob/main/examples/Common/Common_Text/Common_Text.ino)__***
 
 #### Graphics
 
@@ -1015,7 +1015,7 @@ myRGB.set_all(<R>, <G>, <B>); // pass the RGB color code in the (0 - 255) range
 
 ![LED demo](assets/led-demo.jpg)
 
-***Test the library example called __EXT4_WS2813C__***
+***Test the library example called __[EXT4_WS2813C](https://github.com/rei-vilo/PDLS_EXT4_Basic_Matter/blob/main/examples/EXT4/EXT4_WS2813C/EXT4_WS2813C.ino)__***
 
 ### 3-Axis Accelerometer
 
