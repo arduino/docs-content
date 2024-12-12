@@ -1215,6 +1215,8 @@ You should be able now to connect to your Opta™ using a central device. The Bl
 
 This section explains using the [**OPC UA library**](https://github.com/arduino-libraries/Arduino_OPC_UA) designed for Opta.
 
+![OPC UA GUI client with Opta](assets/opta-opc-ua-gui.gif)
+
 The library is based on the [**Fraunhofer open62541**](https://github.com/open62541/open62541) implementation of [**OPC UA**](https://en.wikipedia.org/wiki/OPC_Unified_Architecture), created specifically for the Opta family.
 
 The [**OPC Unified Architecture (OPC UA)**](https://en.wikipedia.org/wiki/OPC_Unified_Architecture) is an industrial communication protocol widely used in automation and Industrial Internet of Things (IIoT) systems.
