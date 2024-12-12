@@ -1213,7 +1213,9 @@ You should be able now to connect to your Opta™ using a central device. The Bl
 
 ## OPC Unified Architecture (OPC UA)
 
-This section explains using the [**OPC UA library**](https://github.com/arduino-libraries/Arduino_OPC_UA) designed for Opta. The library is based on the [**Fraunhofer open62541**](https://github.com/open62541/open62541) implementation of [**OPC UA**](https://en.wikipedia.org/wiki/OPC_Unified_Architecture), created specifically for the Opta family.
+This section explains using the [**OPC UA library**](https://github.com/arduino-libraries/Arduino_OPC_UA) designed for Opta.
+
+The library is based on the [**Fraunhofer open62541**](https://github.com/open62541/open62541) implementation of [**OPC UA**](https://en.wikipedia.org/wiki/OPC_Unified_Architecture), created specifically for the Opta family.
 
 The [**OPC Unified Architecture (OPC UA)**](https://en.wikipedia.org/wiki/OPC_Unified_Architecture) is an industrial communication protocol widely used in automation and Industrial Internet of Things (IIoT) systems.
 
@@ -1348,6 +1350,8 @@ It will launch the GUI and connect to the OPC UA server running on the Opta usin
 ![OPC UA GUI client](assets/opta-opc-ua-gui.gif)
 
 With this, Opta is now ready to handle the OPC UA protocol related issues using a simple [OPC UA GUI client](https://github.com/FreeOpcUa/opcua-client-gui).
+
+***For more information about the simple OPC UA GUI client and dedicatd installation instruction sets, please refer to [**opcua-client-gui** repository](https://github.com/FreeOpcUa/opcua-client-gui).***
 
 ### Memory Debugging Insight
 
