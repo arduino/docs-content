@@ -202,12 +202,12 @@ The downloaded firmware comes as a compressed file. Extract it to your preferred
 
 This folder contains the NDP120 processor firmware and the trained machine learning model. There are four scripts for each supported operating system:
 
-- **flash_<os>:** Runs the MCU firmware and model flash scripts.
-- **flash_<os>_mcu:** Flashes only the MCU firmware.
-- **flash_<os>_model:** Flashes the NDP firmware, DSP firmware (if not present), and updates the model.
-- **format_<os>_ext_flash:** Erases the external flash memory.
+- **flash_(os):** Runs the MCU firmware and model flash scripts.
+- **flash_(os)_mcu:** Flashes only the MCU firmware.
+- **flash_(os)_model:** Flashes the NDP firmware, DSP firmware (if not present), and updates the model.
+- **format_(os)_ext_flash:** Erases the external flash memory.
 
-**`<os>`** refers to the operating system: linux, mac, or windows.
+**`(os)`** refers to the operating system: linux, mac, or windows.
 
 To install the required dependencies, run the `install_lib` script for your operating system. This script only needs to be run once. The model update process uses the Python package [`pyserial`](https://pyserial.readthedocs.io/en/latest/).
 
