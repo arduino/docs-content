@@ -61,6 +61,8 @@ At the end of the application note, you will have all resources and details for 
 - [Glass-breaking detection model](https://mltools.arduino.cc/public/210541/latest)
 - [Base glass-breaking detector example](assets/glass-break-detector.zip)
 - [Extended glass-breaking detector with Arduino Cloud](assets/glass-break-detection-building.zip)
+Dataset resources:
+
 - Pre-recorded glass-breaking sound samples (or access to the [**DCASE**](http://dcase.community/challenge2017/task-rare-sound-event-detection-results) dataset).  
 - A speaker or audio playback device for live testing.
 
