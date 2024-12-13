@@ -20,9 +20,6 @@ The REPL process involves four basic steps:
 
 Think of REPL as a conversation between you and your MicroPython environment, where each line you type gets an instant response, making it ideal for exploring ideas and troubleshooting.
 
-
-
-
 ## How REPL Works in MicroPython
 
 In MicroPython, REPL can be accessed via Arduino Labs for MicroPython terminal, enabling you to run code in real-time directly on your device. Here’s a step-by-step guide on using it:
