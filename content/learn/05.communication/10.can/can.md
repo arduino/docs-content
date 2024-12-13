@@ -39,7 +39,7 @@ These methods provide the core functionality for sending and receiving messages 
 
 ## Arduino CAN Pins
 
-***Depending on which Arduino board you are using, you will need a transceiver/receiver to read the differential signal properly. Check the product page or cheat sheet of the board you are using for more information.***
+***Depending on which Arduino board you are using, you will need a transceiver/receiver to read the differential signal properly. Check the product page or User Manual of the board you are using for more information.***
 
 ## Technical Specifications
 

@@ -54,7 +54,7 @@ There are three ways to read from the on-board sensors:
 2. Read sensor values through Bluetooth® Low Energy
 3. Read sensor values through UART by connecting an ESLOV cable.
 
-For further tips on how to operate the Nicla module check the [cheat sheet](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-data-over-eslov).
+For further tips on how to operate the Nicla module check the [User Manual](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-data-over-eslov).
 
 ### Client Board (Nicla Sense ME)
 
@@ -247,7 +247,7 @@ In this tutorial you learned how to upload the temperature values from the Nicla
 
 ### Next Steps
 
-- Try to upload other sensor data from he Nicla Sense ME. You can see the available sensors in the [cheat sheet](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-data-over-eslov).
+- Try to upload other sensor data from he Nicla Sense ME. You can see the available sensors in the [User Manual](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-data-over-eslov).
 - Experiment with the dashboard to add more data for a more sophisticated project.
 
 ## Troubleshooting

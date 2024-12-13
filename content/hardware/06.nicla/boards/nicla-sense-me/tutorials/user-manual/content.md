@@ -668,7 +668,7 @@ void loop() {
 
 ```
 
-***To learn how to work with every sensor class and predefined objects to get all the needed readings, go to our [Nicla Sense ME Cheat Sheet](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-classes).***
+***To learn how to work with every sensor class and predefined objects to get all the needed readings, go to our [Nicla Sense ME User Manual](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-classes).***
 
 
 ### On-Board Sensors WebBLE Dashboard

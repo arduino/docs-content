@@ -5,7 +5,7 @@ url_guide: /tutorials/portenta-cat-m1-nb-iot-gnss-shield/getting-started
 primary_button_url: /tutorials/portenta-cat-m1-nb-iot-gnss-shield/getting-started
 primary_button_title: Get Started
 secondary_button_url: /tutorials/portenta-cat-m1-nb-iot-gnss-shield/cheat-sheet
-secondary_button_title: Cheat Sheet
+secondary_button_title: User Manual
 core: arduino:mbed_portenta
 certifications: [CE, RoHS, FCC, UKCA]
 sku: [ASX00027]

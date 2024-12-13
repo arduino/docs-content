@@ -87,7 +87,7 @@ If you want to learn more about the technologies of the kit, we propose the foll
 |       [Using the Portenta Vision Shield - Ethernet with OpenMV](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-openmv)     |  +  |       +       |              |
 |                        [Getting Started with Nicla Vision](https://docs.arduino.cc/tutorials/nicla-vision/getting-started)                         |     |               |     Yes      |
 |           [Flashing MicroPython Firmware to your Arduino Board](https://docs.arduino.cc/tutorials/portenta-h7/micropython-installation)            | Yes |               |              |
-|                  [Arduino Portenta H7 MicroPython Cheat Sheet](https://docs.arduino.cc/tutorials/portenta-h7/openmv-cheat-sheet)                   | Yes |               |              |
+|                  [Arduino Portenta H7 MicroPython User Manual](https://docs.arduino.cc/tutorials/portenta-h7/openmv-cheat-sheet)                   | Yes |               |              |
 |            [Over-The-Air (OTA) Updates with the Arduino Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/over-the-air-update)            | Yes |               |              |
 |                   [Reading and Writing Flash Memory](https://docs.arduino.cc/tutorials/portenta-h7/reading-writing-flash-memory)                   | Yes |               |              |
 |                              [Secure Boot on Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/secure-boot)                               | Yes |               |              |

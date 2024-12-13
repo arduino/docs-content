@@ -11,7 +11,7 @@ productsLibrariesMap:
     Set up your Arduino board in the Arduino IDE.
   </EssentialElement>
 
-  <EssentialElement title="BLE Sense Rev2 Cheat Sheet" type="tutorial" link="/tutorials/nano-33-ble-sense-rev2/cheat-sheet">
+  <EssentialElement title="User Manual" type="tutorial" link="/tutorials/nano-33-ble-sense-rev2/cheat-sheet">
     Learn about the Nano 33 BLE Sense Rev2's onboard sensors, supported serial & wireless protocols, pins and much more.
   </EssentialElement>
 

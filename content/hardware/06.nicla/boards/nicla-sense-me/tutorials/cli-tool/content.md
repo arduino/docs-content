@@ -86,7 +86,7 @@ Click the button "Open sensor page" and you will see:
 
 To pair your Nicla Sense ME, first make sure you have uploaded the **App.ino** from the examples. Then click on the **connect** button; if the WebBLE is configured, a window will open that will ask you to allow/block the access to Bluetooth®. Now select the Nicla Sense ME device on the list; if the connection succeeded, the current status will change to **connected** and it will turn green.
 
-Now you need to configure the sensors you want to get data from. Check the [Nicla Sense ME Cheat sheet sensor IDs](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-ids) for the ID number of the desired sensor.
+Now you need to configure the sensors you want to get data from. Check the [Nicla Sense ME User Manual sensor IDs](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-ids) for the ID number of the desired sensor.
 
 To configure the sensor and get the data, enter the sensor ID, e.g Gyroscope is #10. Entering a sample rate that is greater than 0 will enable the sensor. Now press the **configure** button, it will be visible in the table below, as shown in the image.
 
@@ -95,7 +95,7 @@ To configure the sensor and get the data, enter the sensor ID, e.g Gyroscope is 
 ### Configure a Sensor with CLI Commands
 
 ### Enable
-You can set the rate and the latency of each sensor, please check the [Nicla Sense ME Cheat sheet sensor IDs](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-ids) to configure the right one.
+You can set the rate and the latency of each sensor, please check the [Nicla Sense ME User Manual sensor IDs](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-ids) to configure the right one.
 
 The syntax for configuring a sensor is:
 

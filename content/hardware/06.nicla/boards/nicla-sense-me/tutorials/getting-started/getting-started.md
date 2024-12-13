@@ -273,7 +273,7 @@ After you have uploaded the sketch to the board, open the Serial Monitor in the 
 
 
 ## Next Step
-In this sketch you only get the readings of the sensor. A good next step could be to use these readings as parameters to trigger different reactions on the board, for example on the board LED. Please take a look at our [cheat sheet](/tutorials/nicla-sense-me/cheat-sheet) if you want quick references for the boards features. Test other tutorials we have for the [Nicla Sense ME](https://docs.arduino.cc/hardware/nicla-sense-me#tutorials) to discover more about this board.
+In this sketch you only get the readings of the sensor. A good next step could be to use these readings as parameters to trigger different reactions on the board, for example on the board LED. Please take a look at our [User Manual](/tutorials/nicla-sense-me/cheat-sheet) if you want quick references for the boards features. Test other tutorials we have for the [Nicla Sense ME](https://docs.arduino.cc/hardware/nicla-sense-me#tutorials) to discover more about this board.
 
 ## Conclusion
 

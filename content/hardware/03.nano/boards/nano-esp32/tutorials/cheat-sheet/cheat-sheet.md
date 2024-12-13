@@ -1,5 +1,5 @@
 ---
-title: 'Arduino Nano ESP32 Cheat Sheet'
+title: 'Arduino Nano ESP32 User Manual'
 description: 'A technical summary of the Nano ESP32 development board, including installation, pin reference, communication ports and microcontroller specifics.'
 tags:
   - ESP32

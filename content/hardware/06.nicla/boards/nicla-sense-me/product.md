@@ -5,7 +5,7 @@ url_guide: /tutorials/nicla-sense-me/user-manual
 primary_button_url: /tutorials/nicla-sense-me/user-manual
 primary_button_title: User Manual
 secondary_button_url: /tutorials/nicla-sense-me/cheat-sheet
-secondary_button_title: Cheat Sheet
+secondary_button_title: User Manual
 core: arduino:mbed_nicla
 certifications: [CE, FCC, UKCA, RoHS, IC, MIC, RCM]
 productCode: '043'

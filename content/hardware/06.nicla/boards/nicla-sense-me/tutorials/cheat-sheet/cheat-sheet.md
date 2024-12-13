@@ -1,5 +1,5 @@
 ---
-title: 'Arduino Nicla Sense ME Cheat Sheet'
+title: 'Arduino Nicla Sense ME User Manual'
 description: 'Learn how to set up the Arduino Nicla Sense ME and get a quick overview of the components. Obtain information regarding pins and how to use the different sensors.'
 difficulty: beginner
 tags:
@@ -921,4 +921,4 @@ BLEDevice central = BLE.central();
 
 ## Conclusion
 
-This cheat sheet is written as a quick reference mainly to look up the features of this product. For a more in-depth walk though experience, please have a look at the other tutorials.
+This user manual is written as a quick reference mainly to look up the features of this product. For a more in-depth walk though experience, please have a look at the other tutorials.

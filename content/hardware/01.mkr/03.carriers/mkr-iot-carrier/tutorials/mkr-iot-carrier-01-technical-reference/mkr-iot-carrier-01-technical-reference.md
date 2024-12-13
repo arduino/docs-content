@@ -1,5 +1,5 @@
 ---
-title: 'MKR IoT Carrier Cheat Sheet'
+title: 'MKR IoT Carrier User Manual'
 description: 'Learn how to set up the MKR IoT Carrier, get a quick overview of the compatible boards, components, and the library.'
 author: 'Liam Aljundi'
 tags: 
