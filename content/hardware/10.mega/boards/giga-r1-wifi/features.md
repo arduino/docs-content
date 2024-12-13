@@ -8,10 +8,10 @@ With a fast dual core microcontroller (480MHz / 240MHz), 76 GPIOs, several commu
 
 <FeatureList>
 
-<Feature title="Cheat Sheet" image="mega-form-factor">
+<Feature title="User Manual" image="mega-form-factor">
 A reference to all technical features on this board, with pointers to additional documents.
 <FeatureWrapper>
-  <FeatureLink title="Cheat Sheet" url="/tutorials/giga-r1-wifi/cheat-sheet"/>
+  <FeatureLink title="User Manual" url="/tutorials/giga-r1-wifi/cheat-sheet"/>
 </FeatureWrapper>
 </Feature>
 

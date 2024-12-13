@@ -1,5 +1,5 @@
 ---
-title: 'Nano RP2040 Connect Cheat Sheet'
+title: 'Nano RP2040 Connect User Manual'
 description: 'Learn how to set up the Nano RP2040 Connect, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART) and Wireless (Wi-Fi, Bluetooth®) protocols.'
 tags:
   - Installation
