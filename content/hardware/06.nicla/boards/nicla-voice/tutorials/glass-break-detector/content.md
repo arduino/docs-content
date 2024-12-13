@@ -57,7 +57,8 @@ At the end of the application note, you will have all resources and details for 
 
 ### Additional Resources
 
-- Complete example code and Edge Impulse project:
+Complete example code and Edge Impulse project:
+
 - [Glass-breaking detection model](https://mltools.arduino.cc/public/210541/latest)
 - [Base glass-breaking detector example](assets/glass-break-detector.zip)
 - [Extended glass-breaking detector with Arduino Cloud](assets/glass-break-detection-building.zip)
