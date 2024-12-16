@@ -277,7 +277,7 @@ void setup() {
   
   msd.connect();
 
-  while (!msd.connected()) {
+  while (!msd.connect()) {
     //while (!port.connected()) {
     delay(1000);
   }
