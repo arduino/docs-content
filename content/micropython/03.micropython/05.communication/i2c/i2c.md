@@ -13,7 +13,7 @@ I2C communication relies on two wires:
 - **SDA (Serial Data):** Transfers data between devices.
 - **SCL (Serial Clock):** Synchronizes data transmission.
 
-Each device on an I2C bus has a unique address, allowing the controller to communicate directly with a specific device. This capability makes it possible to connect up to 128 devices on the same two wires (128 is the maximum number of different adresses you can have as the adress is a 7 bit value and you can only express 128 unique values using 7 bits).
+Each device on an I2C bus has a unique address, allowing the controller to communicate directly with a specific device. This capability makes it possible to connect up to 128 devices on the same two wires (128 is the maximum number of different addresses you can have as the address is a 7 bit value and you can only express 128 unique values using 7 bits).
 
 ![I2C Diagram](assets/i2c.png)
 
