@@ -11,7 +11,7 @@ productsLibrariesMap:
     All you need to know to get started with your new Arduino board.
   </EssentialElement>
 
-  <EssentialElement title="BLE Sense Cheat Sheet" type="tutorial" link="/tutorials/nano-33-ble-sense/cheat-sheet">
+  <EssentialElement title="User Manual" type="tutorial" link="/tutorials/nano-33-ble-sense/cheat-sheet">
     Learn about the Nano 33 BLE Sense's onboard sensors, supported serial & wireless protocols, pins and much more.
   </EssentialElement>
 

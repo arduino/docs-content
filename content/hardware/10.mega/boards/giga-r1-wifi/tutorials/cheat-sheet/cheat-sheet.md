@@ -1,5 +1,5 @@
 ---
-title: 'Arduino GIGA R1 Cheat Sheet'
+title: 'Arduino GIGA R1 User Manual'
 description: 'Learn how to set up the GIGA R1, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART), and much, much more.'
 tags:
   - Installation

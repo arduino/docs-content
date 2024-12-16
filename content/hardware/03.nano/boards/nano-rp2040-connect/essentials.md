@@ -7,7 +7,7 @@ productsLibrariesMap:
     <EssentialElement link="/software/ide-v2/tutorials/ide-v2-board-manager" title="Quickstart Guide" type="getting-started">
         A quick guide to installing your board with the Arduino IDE.
     </EssentialElement>
-    <EssentialElement link="/tutorials/nano-rp2040-connect/rp2040-01-technical-reference" title="Cheat Sheet" type="tutorial">
+    <EssentialElement link="/tutorials/nano-rp2040-connect/rp2040-01-technical-reference" title="User Manual" type="tutorial">
         Learn about the Nano RP2040 Connect's onboard sensors, supported serial & wireless protocols, pins and much more.
     </EssentialElement>
     <EssentialElement link="/tutorials/nano-rp2040-connect/rp2040-python-api" title="Python® API Guide" type="tutorial">
