@@ -1,6 +1,6 @@
 ---
 title: 'File System'
-description: 'Learn how to use the File Sytem in MicroPython.'
+description: 'Learn how to use the File System in MicroPython.'
 author: 'Pedro Lima'
 tags: [MicroPython, File System]
 ---

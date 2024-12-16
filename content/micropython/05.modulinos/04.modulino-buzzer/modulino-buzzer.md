@@ -99,4 +99,4 @@ The Modulino Buzzer is a tiny speaker that can output sound waves.
 
 The speaker is called a "piezo", which comes from piezoelectricity. When you apply voltage to the speaker with a specific frequency, you generate a specific sound. Changing the frequency will change the tone of the speaker.
 
-![How it wors]()
+![How it works](./assets/how-it-works.gif)
