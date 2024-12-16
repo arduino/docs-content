@@ -1,12 +1,13 @@
 <FeatureDescription>
 
-**Arduino Opta® Digital Expansions** are designed to multiply your Opta® micro PLC capabilities with the addition of 16 programmable inputs for connecting your digital sensors and 8 more relays to operate your machines.
+The **Arduino Opta® Digital Expansion D1608E** and the **Arduino Opta® Digital Expansion D1608S** are designed to multiply your Opta® micro PLC capabilities with the addition of 16 programmable inputs for connecting your digital sensors and 8 more relays to operate your machines.
 
 Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
 
-Arduino Opta® Digital Expansion is available in two variants:
-* AFX00005 - Arduino Opta® Ext D1608E: Electromechanical Relay outputs
-* AFX00006 - Arduino Opta® Ext D1608S: Solid State Relay outputs
+Arduino Opta® Digital Expansions are available in two variants:
+
+* AFX00005 - Arduino Opta® Ext D1608E: Electromechanical relay outputs
+* AFX00006 - Arduino Opta® Ext D1608S: Solid State relay outputs
 
 </FeatureDescription>
 

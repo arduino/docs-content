@@ -372,6 +372,44 @@ The expected result of the generated sine wave measured with an oscilloscope in 
 
 ![Generated sine wave using analog output channel AO0 of the Portenta Machine Control](assets/user-manual-11.png)
 
+### Working With Analog Output Channel 2 (AO2)
+
+**Analog output channel 2 (AO2)** of the Portenta Machine Control is connected to pin *PG7* on the Portenta H7, which features an **HRTIM (High-Resolution TIMer)** function. It is the only Analog Out pin on the Portenta Machine Control with an **HRTIM (High-Resolution Timer)** function.
+
+The *HRTIM* on *PG7* is mainly applicable for high-frequency PWM signals, which have constraints on the maximum period that can be achieved. With the availability of the *HRTIM_EEV2* function, which serves as an external event input, its configuration allows **AO2** to support high-resolution PWM signals with very short periods but also results in a constraint.
+
+The *HRTIM* is configured with a frequency of **200 MHz** (tick time = **5 ns**), a clock prescaler set to **4**, and a maximum period of **0xFFFD** ticks (**65533 * 5 ns * 4 = 1.31 ms**). This configuration results in a maximum allowed period of **1.31 ms** for *AO2*. 
+
+Knowing that the maximum allowable period for *AO2* is approximately **1.3 ms**, it makes it suitable only for high-frequency PWM signals. For applications requiring periods longer than *1.3 ms*, we recommend using other analog output channels, such as **Analog output channel 0 (AO0)**, **1 (AO1)**, or **3 (AO3)**, which can use standard timers. Please consider this characteristic when selecting the appropriate output channel for the development application.
+
+The following code shows the setup of the *Analog Out* channels, including *AO2*. Please be aware that attempting to set a period longer than *1.3 ms* for *AO2* is not recommended.
+
+```cpp
+#include <Arduino_PortentaMachineControl.h>
+
+#define PERIOD_MS_AO2 1   /* 1 ms for AO2 */
+#define PERIOD_MS 4       /* 4 ms - 250Hz for other channels */
+
+void setup() {
+  Serial.begin(9600);
+
+  MachineControl_AnalogOut.begin();
+
+  MachineControl_AnalogOut.setPeriod(0, PERIOD_MS);
+  MachineControl_AnalogOut.setPeriod(1, PERIOD_MS);
+  MachineControl_AnalogOut.setPeriod(2, PERIOD_MS_AO2);  // AO2 - Adjusted period to fit limitation
+  MachineControl_AnalogOut.setPeriod(3, PERIOD_MS);
+
+  MachineControl_AnalogOut.write(0, 5);
+  MachineControl_AnalogOut.write(1, 5);
+  MachineControl_AnalogOut.write(2, 5);
+  MachineControl_AnalogOut.write(3, 5);
+}
+
+void loop() {
+}
+```
+
 ## Digital Inputs
 
 The Portenta Machine Control has up to eight digital input channels, as shown in the image below. Each channel incorporates a voltage divider comprising a 680 kΩ and a 100 kΩ resistor, which scales an input from 0 to 24 VDC down to 0 to 3 VDC.

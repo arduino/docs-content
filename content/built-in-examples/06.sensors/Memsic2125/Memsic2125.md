@@ -13,7 +13,7 @@ The Memsic 2125 ([datasheet](https://www.parallax.com/sites/default/files/downlo
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - Memsic 2125 Accelerometer
 

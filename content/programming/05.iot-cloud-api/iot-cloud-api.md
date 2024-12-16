@@ -1,15 +1,16 @@
 ---
 title: IoT Cloud API
-url: https://www.arduino.cc/reference/en/iot/api/
+url: /cloud-api
 external: true
 icon: IconBell
 links:
   [
-    { title: "Dashboard V2 Create", url: https://www.arduino.cc/reference/en/iot/api/#api-DashboardsV2-dashboardsV2Create },
-    { title: "Dashboard V2 Delete", url: https://www.arduino.cc/reference/en/iot/api/#api-DashboardsV2-dashboardsV2Delete },
-    { title: "Dashboard V2 Delete Share", url: https://www.arduino.cc/reference/en/iot/api/#api-DashboardsV2-dashboardsV2DeleteShare },
-    { title: "Dashboard V2 Link", url: https://www.arduino.cc/reference/en/iot/api/#api-DashboardsV2-dashboardsV2Link },
-    { title: "Dashboard V2 List", url: https://www.arduino.cc/reference/en/iot/api/#api-DashboardsV2-dashboardsV2List },
-    { title: "Dashboard V2 list Shares", url: https://www.arduino.cc/reference/en/iot/api/#api-DashboardsV2-dashboardsV2ListShares },
+    { title: "Dashboard V2 Create", url: /cloud-api/dashboards-api#Dashboards V2 List },
+    { title: "Dashboard V2 Delete", url: /cloud-api/dashboards-api#Dashboards V2 },
+    { title: "Dashboard V2 Delete", url: /cloud-api/dashboards-api#Dashboards V2 List },
+    { title: "Dashboard V2 DeleteShare", url: /cloud-api/dashboards-api#Dashboards V2 Dashboard V2 DeleteShare },
+    { title: "Dashboard V2 Link", url: /cloud-api/dashboards-api#Dashboards V2 Link },
+    { title: "Dashboard V2 List", url: /cloud-api/dashboards-api#Dashboards V2 List },
+    { title: "Dashboard V2 ListShares", url: /cloud-api/dashboards-api#Dashboards V2 ListShares },
   ]
 ---

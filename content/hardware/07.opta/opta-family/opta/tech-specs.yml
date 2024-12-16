@@ -10,8 +10,8 @@ Microcontroller:
 Input:
   Configurable digital / analog input: 8
   Digital Operational Range: 0-24 V
-  Digital VIL Max: 4.46 V
-  Digital VIH Min: 6.6 V
+  Digital Voltage Input Low (VIL) Max: 4.46 V
+  Digital Voltage Input High (VIH) Min: 6.6 V
   Analog Operational Range: 0-10 V
 Relays:
   Nº of relays: 4
@@ -21,6 +21,7 @@ Relays:
   Maximum current per relay: 10 A
   Maximum peak current per relay: 15 A
 Connectivity and communication:
+  Expansion Port: Up to 5 expansion modules (e.g., AFX00005, AFX00006, AFX00007)
   USB-C®: 
     For programming and data logging: All variants
   Ethernet: 

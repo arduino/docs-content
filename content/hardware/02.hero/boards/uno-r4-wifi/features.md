@@ -15,10 +15,10 @@ The UNO R4 WiFi is compatible with the Arduino Cloud platform. Build IoT project
 </FeatureWrapper>
 </Feature>
 
-<Feature title="Cheat Sheet" image="uno-form-factor">
+<Feature title="User Manual" image="uno-form-factor">
 A reference to all technical features on this board, with pointers to additional documents.
 <FeatureWrapper>
-  <FeatureLink title="Cheat Sheet" url="/tutorials/uno-r4-wifi/cheat-sheet"/>
+  <FeatureLink title="User Manual" url="/tutorials/uno-r4-wifi/cheat-sheet"/>
 </FeatureWrapper>
 </Feature>
 

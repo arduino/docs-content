@@ -52,10 +52,10 @@ The M4 supports:
 
 The M4 does **not** support:
 - Wi-Fi®
-- Serial communication\*
-- [Arduino Cloud](https://app.arduino.cc) sketches.
+- [Arduino Cloud](https://app.arduino.cc) sketches
+- Serial over USB\*
 
-***\*Serial Communication from the M4 can be enabled by setting up an RPC that allows the M4 & M7 cores to communicate. Using `RPC.print()` (M4) and `RPC.read()` (M7) helps achieve this. See [RPC Serial Example](#rpc-serial).***
+***\*Serial communication over USB on the M4 can be enabled only by setting up an RPC that allows the M4 & M7 cores to communicate. Using `RPC.print()` (M4) and `RPC.read()` (M7) helps achieve this. See [RPC Serial Example](#rpc-serial).***
 
 ### Boot / Disable M4
 
@@ -88,7 +88,7 @@ When programming the GIGA R1 WiFi's M7 and M4, we **create a sketch for each cor
 Some essential things to consider when programming the cores are:
 - You need to [partition the memory](#partitioning-the-flash-memory), allocating flash memory to the M4 core.
 - You need to select the [target core](#target-core), which is either **Main Core** or **M4 Co-processor**.
-- The M4 has no serial communication enabled, here we need to use RPC (see [RPC Serial example](#rpc-serial)).
+- The M4 does not *directly* support serial over USB. To enable it, we need to use RPC (see [RPC Serial example](#rpc-serial)).
 
 When writing multiple sketches, there are some things to consider to make your development experience easier:
 - Name your sketches with either `_M4` or `_M7` suffix or prefix. This will make it easier if the code is intended to be shared with others.
@@ -342,7 +342,7 @@ That covered most of the `msgpackrpc` library's API and use cases. For a complet
 
 In this section, you will find a series of examples that is based on the `RPC` library. 
 
-### RPC Serial
+### USB Serial Using RPC
 
 The `Serial.print()` command only works on the **M7 core**. In order to print values on the **M4**, we need to:
 - Use `RPC.println()` on the M4. This will print the values to the RPC1 stream.
@@ -556,6 +556,94 @@ int servoMove(int angle) {
   verifies it has been passed correctly.
   */
 }
+```
+
+### RTC RPC
+
+The Real-time Clock (RTC) can be accessed from the M4 core, and using RPC, we can read the values.
+
+In this example, we set the RTC to a specific date (can be adjusted in the example), send it to the M7 via RPC, and finally prints it out in the Serial Monitor using the M7 core. 
+
+**M4 sketch:**
+```arduino
+/**
+* Initial author: Henatu (https://forum.arduino.cc/u/henatu/summary)
+* modified 03 December 2024
+* by Hannes Siebeneicher
+*/
+
+#include "mbed.h"
+#include <mbed_mktime.h>
+#include "RPC.h"
+
+constexpr unsigned long printInterval{ 1000 };
+unsigned long printNow{};
+
+void setup() {
+  if (RPC.begin()) {
+    RPC.println("M4: Reading the RTC.");
+    RTCset(); //sets the RTC to start from a specific time & date
+  }
+}
+
+void loop() {
+  if (millis() > printNow) {
+    RPC.print("M4 System Clock: ");
+    RPC.println(getLocaltime());
+    printNow = millis() + printInterval;
+  }
+}
+
+String getLocaltime() {
+  char buffer[32];
+  tm t;
+  _rtc_localtime(time(NULL), &t, RTC_4_YEAR_LEAP_YEAR_SUPPORT);
+  strftime(buffer, 32, "%Y-%m-%d %k:%M:%S", &t);
+  return String(buffer);
+}
+
+void RTCset()  // Set cpu RTC
+{
+  tm t;
+  t.tm_sec = (0);            // 0-59
+  t.tm_min = (58);           // 0-59
+  t.tm_hour = (11);          // 0-23
+  t.tm_mday = (1);           // 1-31
+  t.tm_mon = (9);            // 0-11  "0" = Jan, -1
+  t.tm_year = ((24) + 100);  // year since 1900,  current year + 100 + 1900 = correct year
+  set_time(mktime(&t));      // set RTC clock
+}
+```
+
+The M7 sketch is found below, and uses RPC to print out the incoming data from the M4.
+
+**M7 sketch:**
+```arduino
+/**
+* Initial author: Henatu (https://forum.arduino.cc/u/henatu/summary)
+* modified 03 December 2024
+* by Hannes Siebeneicher
+*/
+
+#include "mbed.h"
+#include "RPC.h"
+
+void setup() {
+  RPC.begin();
+  Serial.begin(9600);
+  while (!Serial) {
+    ;  // Wait for Serial (USB) connection
+  }
+  Serial.println("M7: Serial connection initiated");
+}
+
+void loop() {
+  if (RPC.available()) {
+    char incomingByte = RPC.read();  // Read byte from RPC
+    Serial.write(incomingByte);      // Forward the byte to Serial (USB)
+  }
+}
+
 ```
 
 ### MicroPython RPC LED

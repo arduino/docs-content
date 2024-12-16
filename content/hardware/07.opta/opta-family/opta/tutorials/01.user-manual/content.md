@@ -218,11 +218,13 @@ Opta's maximum power consumption at +12 VDC is 2 W, and at +24 VDC is 2.2 W.
 
 ### Programmable Inputs
 
-The image below shows Opta™ devices have **eight analog/digital programmable inputs** accessible through terminals `I1`, `I2`, `I3`, `I4`, `I5`, `I6`, `I7`, and `I8`. 
+The image below shows Opta™ devices have **eight digital/analog programmable inputs** accessible through terminals `I1`, `I2`, `I3`, `I4`, `I5`, `I6`, `I7`, and `I8`. 
 
 ![Programmable input terminals in Opta™ devices](assets/user-manual-9-2.png)
 
-Analog/digital input terminals are mapped as described in the following table:
+***The Opta™ digital inputs also support 0 to +10 VDC logic level sensors.***
+
+Digital/analog input terminals are mapped as described in the following table:
 
 | **Opta™ Terminal** | **Arduino Pin Mapping** |
 |:------------------:|:-----------------------:|
@@ -234,6 +236,71 @@ Analog/digital input terminals are mapped as described in the following table:
 |        `I6`        |      `A5`/`PIN_A5`      |
 |        `I7`        |      `A6`/`PIN_A6`      |
 |        `I8`        |      `A7`/`PIN_A7`      |
+
+#### Digital Inputs
+<br></br>
+
+The input voltage range for each digital input terminal is the following:
+
+- **Input voltage range**: 0 to +24 VDC
+
+***The Opta™ digital inputs also support 0 to +10 VDC logic level sensors.***
+
+The input terminals can be used through the built-in functions of the [Arduino programming language](https://www.arduino.cc/reference/en/). To use the input terminals as digital inputs:
+
+- Add the `pinMode(pinName, INPUT)` instruction in your sketch's `setup()` function.
+
+The sketch below shows how to monitor digital states on Opta's input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, and interprets them as either `HIGH` or `LOW` digital states. These states are then output through the Arduino IDE's Serial Monitor. The state readings are looped every second, allowing you to monitor real-time changes.
+
+```arduino
+/**
+  Opta's Digital Input Terminals
+  Name: opta_digital_inputs_example.ino
+  Purpose: This sketch demonstrates the use of I1, I2, and I3 input
+  terminals as digital inputs on Opta.
+
+  @author Arduino PRO Content Team
+  @version 2.0 23/07/23
+*/
+
+// Array of terminals.
+const int TERMINALS[] = {A0, A1, A2};
+
+// Number of terminals.
+const int NUM_PINS = 3;
+
+void setup() {
+  // Initialize serial communication at 9600 bits per second.
+  Serial.begin(9600);
+
+  // Set the mode of the pins as digital inputs.
+  for (int i = 0; i < NUM_PINS; i++) {
+    pinMode(TERMINALS[i], INPUT);
+  }
+}
+
+void loop() {
+  // Loop through each of the terminal, read the terminal digital value, and print the result.
+  for (int i = 0; i < NUM_PINS; i++) {
+    readAndPrint(TERMINALS[i], i + 1);
+  }
+
+  // Delay for a second before reading the terminals again.
+  delay(1000);
+}
+
+// This function reads the digital value from the specified pin and prints the result.
+void readAndPrint(int terminal, int terminalNumber) {
+  // Read the input value from the digital pin.
+  int terminalValue = digitalRead(terminal);
+  
+  // Print the terminal value.
+  Serial.print("I");
+  Serial.print(terminalNumber);
+  Serial.print(" value: ");
+  Serial.println(terminalValue);
+}
+```
 
 #### Analog Inputs
 <br></br>
@@ -305,69 +372,6 @@ void readAndPrint(int terminal, int terminalNumber) {
   Serial.print(" corresponding to ");
   Serial.print(voltage, 5);
   Serial.println(" VDC");
-}
-```
-
-#### Digital Inputs
-<br></br>
-
-The input voltage range for each digital input terminal is the following:
-
-- **Input voltage range**: 0 to +24 VDC
-
-The input terminals can be used through the built-in functions of the [Arduino programming language](https://www.arduino.cc/reference/en/). To use the input terminals as digital inputs:
-
-- Add the `pinMode(pinName, INPUT)` instruction in your sketch's `setup()` function.
-
-The sketch below shows how to monitor digital states on Opta's input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, and interprets them as either `HIGH` or `LOW` digital states. These states are then output through the Arduino IDE's Serial Monitor. The state readings are looped every second, allowing you to monitor real-time changes.
-
-```arduino
-/**
-  Opta's Digital Input Terminals
-  Name: opta_digital_inputs_example.ino
-  Purpose: This sketch demonstrates the use of I1, I2, and I3 input
-  terminals as digital inputs on Opta.
-
-  @author Arduino PRO Content Team
-  @version 2.0 23/07/23
-*/
-
-// Array of terminals.
-const int TERMINALS[] = {A0, A1, A2};
-
-// Number of terminals.
-const int NUM_PINS = 3;
-
-void setup() {
-  // Initialize serial communication at 9600 bits per second.
-  Serial.begin(9600);
-
-  // Set the mode of the pins as digital inputs.
-  for (int i = 0; i < NUM_PINS; i++) {
-    pinMode(TERMINALS[i], INPUT);
-  }
-}
-
-void loop() {
-  // Loop through each of the terminal, read the terminal digital value, and print the result.
-  for (int i = 0; i < NUM_PINS; i++) {
-    readAndPrint(TERMINALS[i], i + 1);
-  }
-
-  // Delay for a second before reading the terminals again.
-  delay(1000);
-}
-
-// This function reads the digital value from the specified pin and prints the result.
-void readAndPrint(int terminal, int terminalNumber) {
-  // Read the input value from the digital pin.
-  int terminalValue = digitalRead(terminal);
-  
-  // Print the terminal value.
-  Serial.print("I");
-  Serial.print(terminalNumber);
-  Serial.print(" value: ");
-  Serial.println(terminalValue);
 }
 ```
 
@@ -1719,6 +1723,17 @@ To learn more about Opta™ and the Arduino IoT Cloud, check out the following r
 
 ## Opta Expansions
 
+| Characteristics                     | Details                                                                                               |
+|-------------------------------------|-------------------------------------------------------------------------------------------------------|
+| Supply Voltage                      | 12...24 V                                                                                             |
+| Antipolarity protection             | Yes                                                                                                   |
+| Overvoltage protection              | Yes (+20%)                                                                                            |
+| Maximum Supported Expansion Modules | Up to 5                                                                                               |
+| Inputs                              | 16x Digital (0-24 V) / Analog (0-10 V or 0-24 V) inputs                                               |
+| Outputs                             | AFX00005: 8x Electromechanical Relays (250 VAC - 6 A), AFX00006: 8x Solid State Relays (24 VDC - 3 A) |
+| Degree of Protection                | IP20                                                                                                  |
+| Certifications                      | FCC, CE, UKCA                                                                                         |
+
 ### Snapping the Expansion
 
 You can snap up to five expansions to your Opta™ Base module to multiply and mix your set of I/Os with seamless detection.
@@ -1741,27 +1756,49 @@ Once installed, you will have access to a variety of sketch examples showcasing 
 
 ### Update Expansion Firmware
 
-With the library properly installed, we will update the expansion firmware to ensure proper functioning and seamless detection.
+With the library installed, you can update the expansion firmware to ensure proper functionality and seamless detection.
 
 ![Powering the Opta Expansions](assets/power-expansion.png)
 
-***The expansions must be externally powered to be operated and detected by the Opta™ controller for the firmware update and normal operation. The Aux port does not provide power to the expansion.***
+***__The expansions must be externally powered__ to operate and be detected by the Opta™ controller during the firmware update and regular operation. __The Aux port does not supply power for expansion__.***
 
 In the Arduino IDE, navigate to **File > Examples > Arduino_Opta_Blueprint > updateExpansionFw**.
 
 ![Firmware update example](assets/fw-update.png)
 
-Upload the program to the Opta™ controller and open the Arduino IDE Serial Monitor.
+Upload the program to the Opta™ controller and **open the Arduino IDE Serial Monitor to start the firmware update process**.
 
-![Firmware update process](assets/fw-update-serial.png)
+***__Ensure the Arduino IDE Serial Monitor is open before starting the firmware update.__ The Opta™ controller will wait until the Serial Monitor is open, displays messages, and prompts you to confirm the update process manually.***
 
-If your expansion is updatable, in the Serial Monitor you will see its current firmware version and the new one to which it will be updated.
+![Opening Serial Monitor for firmware update](assets/fw-update-serial.png)
 
-Type `Y` in the Serial Monitor to confirm the update and wait for it to be completed.
+If your expansion is updatable, the Serial Monitor will display its current firmware and the new version that is available for the update.
 
-![Firmware update running](assets/fw-update-serial-2.png)
+![Expansions firmware version listing](assets/fw-update-serial-2.png)
 
-Finally, your Opta™ expansion will be updated with the latest firmware version.
+Enter **`Y`** in the Serial Monitor's input field to confirm and begin the firmware update.
+
+![Firmware update confirm](assets/fw-update-serial-3.png)
+
+The following clip shows the complete process of updating the attached Opta Expansion:
+
+![Complete firmware update process](assets/fw-update-process.gif)
+
+Once the update is complete, your Opta Expansion will have the latest firmware version.
+
+![Expansion firmware version up-to-date](assets/fw-update-serial-4.png)
+
+If you have multiple Opta Expansions connected, the process remains the same. The Serial Monitor will detect and display the current firmware versions for all attached expansions, and updates will be applied where available.
+
+![Multiple expansions firmware version listing](assets/fw-update-serial-5.png)
+
+***The Opta™ controller module supports a maximum of __5 expansion modules__. Exceeding this limit may cause unexpected behavior. __Ensure no more than five modules are connected, and verify that the Aux connector and clips are securely installed__.***
+
+The following clip shows the complete process of updating multiple attached Opta Expansions:
+
+![Multiple firmware update process](assets/fw-update-process-multi.gif)
+
+Once the update is complete, all Opta Expansions will have the latest firmware version.
 
 ### General Library Notes
 
@@ -1833,11 +1870,13 @@ In the image below there is an example of the power wiring of the expansions:
 
 ***The expansions must be externally powered to be operated and detected by the Opta™ controller.***
 
+***The Opta™ controller module supports a maximum of __5 expansion modules__. Exceeding this limit may cause unexpected behavior. __Ensure no more than five modules are connected, and verify that the Aux connector and clips are securely installed__.***
+
 #### Programmable Inputs
 
-The Opta™ Expansions have **16 analog/digital programmable inputs** accessible through terminals `I1` to `I16`.
+The Opta™ Expansions have **16x analog/digital programmable inputs** accessible through terminals `I1` to `I16`.
 
-Both Ext D1608E and Ext D1608S variant inputs can be used as **digital** with a 0-24 VDC range or as **analog** inputs with a 0-24 VDC range. The inputs are capable of operating with 0-10V analog sensors as well as 0-24V sensors. 
+Both Ext D1608E and Ext D1608S variant inputs can be used as **digital** within the 0-24 VDC range or as **analog** inputs within the 0-10 VDC or 0-24 VDC range. The analog inputs are capable of operating with 0-10 VDC analog sensors as well as 0-24 VDC sensors. 
 
 ***The inputs are marked on plastic as DGT/0-10 V to maintain uniformity with the main Opta module and as conventionally the majority of industrial analog sensors work in the 0-10 V range.***
 
@@ -2183,6 +2222,12 @@ void loop() {
 ```
 To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
+The voltage of an analog input can be read using the built-in function `pinVoltage()` as shown below:
+
+```arduino
+float V = exp.pinVoltage(<input>, false); // read the <input> and returns a voltage value
+```
+
 After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input voltage as follows:
 
 ```
@@ -2195,7 +2240,7 @@ Expansion[0]: type DIGITAL [Mechanical], I2C address: 11
 
 #### Outputs
 
-The Opta™ Expansions have **8 relay outputs** accessible through terminals pairs `1` to `8`.
+The Opta™ Expansions have **8x relay outputs** accessible through terminals pairs `1` to `8`.
 
 ![Opta Digital Expansions outputs](assets/variants-emr-ssr-new.png)
 
@@ -2213,21 +2258,21 @@ Relay Output terminals are mapped as described in the following table:
 |               Relay 8               |            7            |
 
 
-The **Ext D1608E (EMR)** variant features 8 electromechanical relays with the following characteristics:
+The **Ext D1608E (EMR)** variant features 8x electromechanical relays with the following characteristics:
 
 |             **Characteristics**             |                    **Details**                     |
 |:-------------------------------------------:|:--------------------------------------------------:|
 |              Number of outputs              | 8x Electromechanical Relays (Normally Open - SPST) |
-|            Max current per relay            |                         6A                         |
-|         Max peak current per relay          |                        10A                         |
-|       Continuous current per terminal       |                         6A                         |
+|            Max current per relay            |                         6 A                         |
+|         Max peak current per relay          |                        10 A                         |
+|       Continuous current per terminal       |                         6 A                         |
 |          Short-circuit protection           |             No, external fuse required             |
 |             Relay rated voltage             |                      250 VAC                       |
 |              Relay Max voltage              |                      400 VAC                       |
 |               Rated load AC1                |                      1500 VA                       |
 |          Rated load AC15 (230 VAC)          |                       300 VA                       |
-|     Breaking capacity DC1: 24/110/220V      |                    6/0.2/0.12A                     |
-|           Minimum switching load            |                  500mW (12V/10mA)                  |
+|     Breaking capacity DC1: 24/110/220V      |                    6/0.2/0.12 A                     |
+|           Minimum switching load            |                  500 mW (12 V/10 mA)                  |
 |     Max output line length (unshielded)     |                       100 m                        |
 | Relay response time from state 0 to state 1 |               5 ms for relay output                |
 | Relay response time from state 1 to state 0 |               3 ms for relay output                |
@@ -2236,14 +2281,14 @@ The **Ext D1608E (EMR)** variant features 8 electromechanical relays with the fo
 |         Relay mechanical durability         |               10 million cycles (DC)               |
 |         Relay electrical durability         |   60 thousand cycles with a resistive load (AC1)   |
 
-The **Ext D1608S (SSR)** variant features 8 solid state relays with the following characteristics:
+The **Ext D1608S (SSR)** variant features 8x solid state relays with the following characteristics:
 
 |          **Characteristics**          |                 **Details**                  |
 |:-------------------------------------:|:--------------------------------------------:|
 |           Number of outputs           | 8x Solid State Relays (Normally Open - SPST) |
-|         Max current per relay         |                      2A                      |
-|      Max peak current per relay       |                 50A (10 ms)                  |
-|    Continuous current per terminal    |                      2A                      |
+|         Max current per relay         |                      3 A                      |
+|      Max peak current per relay       |                 50 A (10 ms)                  |
+|    Continuous current per terminal    |                      3 A                      |
 |       Short-circuit protection        |          No, external fuse required          |
 |          Relay rated voltage          |                    24 VDC                    |
 |        Switching voltage range        |                 1.5...30 VDC                 |
@@ -2454,6 +2499,8 @@ Here is an example of how to connect a DC load to the Opta Digital Ext D1608S (S
 
 ![SSR expansion wiring example](assets/ssr-output.png)
 
+***The Opta™ controller module can support up to __5 expansion modules__. Connecting more than this may result in unexpected behavior. __Ensure the module limit is not exceeded and the Aux connector and clips are properly secured.__***
+
 You can buy and find more information about the Opta™ Digital Expansions on the links below:
 
 - [Opta™ Digital Expansion Product Page](https://docs.arduino.cc/hardware/opta-digital-ext)
@@ -2486,6 +2533,8 @@ In the image below there is an example of the power wiring of the expansions:
 ![Powering the Opta Analog Expansions](assets/power-expansion-2.png)
 
 ***The expansions must be externally powered to be operated and detected by the Opta™ controller.***
+
+***The Opta™ controller module supports a maximum of __5 expansion modules__. Exceeding this limit may cause unexpected behavior. __Ensure no more than five modules are connected, and verify that the Aux connector and clips are securely installed__.***
 
 #### Programmable Inputs
 
@@ -4109,6 +4158,8 @@ After the Opta™ controller is programmed with the example sketch, you can see 
 To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 The function `optaAnalogTask()` turns on sequentially the **LEDs** and turns them off again.
+
+***The Opta™ controller module can support up to __5 expansion modules__. Connecting more than this may result in unexpected behavior. __Ensure the module limit is not exceeded and the Aux connector and clips are properly secured.__***
 
 You can buy and find more information about the Opta™ Analog Expansions on the links below:
 

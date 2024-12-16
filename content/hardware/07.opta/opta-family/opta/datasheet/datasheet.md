@@ -111,7 +111,7 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
         </tr>
         <tr>
             <td style="vertical-align: top;">Outputs</td>
-            <td>4x Relays - Normally Open (NO) - Max: 10A each</td>
+            <td>4x Relays - Normally Open (NO) - Max: 10 A each</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Processor</td>
@@ -225,7 +225,7 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
         <tr style="text-align: middle;">
             <th width="30%">Interfaces</th>
             <th>Type</th>
-            <th>Protocols/Technologies supported</th>
+            <th>Protocols/Technologies Supported</th>
         </tr>
     </thead>
     <tbody>
@@ -240,12 +240,17 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
             <td>MODBUS RTU, Custom serial communication</td>
         </tr>
         <tr>
-            <td style="vertical-align: top;">Wireless connectivity</td>
+            <td style="vertical-align: top;">Expansion Port</td>
+            <td>Proprietary Port</td>
+            <td>Expansion module communication</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Wireless Connectivity</td>
             <td>Wi-Fi®</td>
             <td>2.4 GHz</td>
         </tr>
         <tr>
-            <td style="vertical-align: top;">Wireless connectivity</td>
+            <td style="vertical-align: top;">Wireless Connectivity</td>
             <td>Bluetooth® Low Energy</td>
             <td>4.2 supported by firmware, 5.1 supported by hardware</td>
         </tr>
@@ -267,11 +272,11 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
         </tr>
         <tr>
             <td style="vertical-align: top;">Inputs overvoltage protection</td>
-            <td>yes</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Antipolarity protection</td>
-            <td>yes</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Input impedance</td>
@@ -291,7 +296,7 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
     <tbody>
         <tr>
             <td style="vertical-align: top;">Analog Input voltage</td>
-            <td>0...10V </td>
+            <td>0...10 V </td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Analog Input resolution</td>
@@ -319,15 +324,15 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
     <tbody>
         <tr>
             <td style="vertical-align: top;">Digital Input voltage</td>
-            <td>0...24V</td>
+            <td>0...24 V</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input voltage logic level</td>
-            <td>VIL Max: 4.46 VDC. VHL Min: 6.6 VDC</td>
+            <td>Voltage Input Low (VIL) Maximum: 4.46 VDC. Voltage Input High (VIH) Minimum: 6.6 VDC</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input current</td>
-            <td>1.12mA at 10V</td>
+            <td>1.12 mA at 10 V</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input frequency</td>
@@ -355,15 +360,15 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
         </tr>
         <tr>
             <td style="vertical-align: top;">Max current per relay</td>
-            <td>10A</td>
+            <td>10 A</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Max peak current per relay</td>
-            <td>15A</td>
+            <td>15 A</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Continuous current per terminal</td>
-            <td>10A</td>
+            <td>10 A</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Short-circuit protection</td>
@@ -387,11 +392,11 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
         </tr>
         <tr>
             <td style="vertical-align: top;">Breaking capacity DC1: 24/30/110/220V</td>
-            <td>10/4/0.3/0.12A</td>
+            <td>10/4/0.3/0.12 A</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Minimum switching load</td>
-            <td>300mW (5V/5mA)</td>
+            <td>300 mW (5 V/5 mA)</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Max output line length (unshielded)</td>
@@ -441,8 +446,8 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
 |----------------------- |------ |-----|------|------|
 | Supply voltage         | 12    | -   | 24   | V    |
 | Permissible range      | 10.2  | -   | 27.6 | V    |
-| Power consumption (12V)| 0.6   | -   | 2    | W    |
-| Power consumption (24V)| 0.6   | -   | 2.2  | W    |
+| Power consumption (12 V)| 0.6   | -   | 2    | W    |
+| Power consumption (24 V)| 0.6   | -   | 2.2  | W    |
 
 <div style="page-break-after:always;"></div>
 
@@ -518,14 +523,16 @@ The *Rated Load* is the maximum resistive load that a contact can make, carry an
 - For resistive or slightly inductive loads (AC1 classification), Arduino Opta's *Rated Load* is 2500 VA.
 - For small electromagnetic loads (> 72 VA) (AC15 classification) like power contactors, magnetic solenoid valves, electromagnets and AC single-phase supplies, Arduino Opta's *Rated Load* is 500 VA. This value assumes a peak inrush current of approximately 10 times the rated current and keeping it within the maximum peak current.
 
-For controlling DC loads (DC1 classification), the *Breaking Capacity* or maximum value of DC resistive current that a contact can make, carry and break repeatedly, is 10/4/0.3/0.12A for respectively 24/30/110/220V.
+For controlling DC loads (DC1 classification), the *Breaking Capacity* or maximum value of DC resistive current that a contact can make, carry and break repeatedly, is 10/4/0.3/0.12 A for respectively 24/30/110/220 V.
 
 In the case of the minimum switching load parameters, the minimum values of power, voltage and current that the relays can reliably switch, are 300 mW/ 5V / 5mA. This implies that with 5V the current must be at least 60mA, with 24V, it must be at least 12.5mA, and with 5mA the voltage must be at least 60V.
 
 The relays on Arduino Opta® provide a very fast response time of 6/4 ms to change state for closing/reopening, and a bounce time NO/NC of 3/6 ms.
 
 ### Expansion Port
-The expansion port can be used to expand the Arduino Opta® capabilities with the help of additional modules. Reserved for future functionality.
+The expansion port can be used to expand the Arduino Opta® capabilities with the help of additional modules. It supports up to 5 expansion modules. To avoid potential communication issues, ensure the total number of connected modules does not exceed 5.
+
+If any issues occur with module detection or data exchange, double-check the connections and ensure the **Aux connector and clips are securely installed** within the expansion port. If problems persist, inspect for any loose or improperly connected cables.
 
 ### Programmable User Button
 A pushbutton is accessible on the front panel of the Arduino Opta®. The functionality of this button can be configured via software. Note that the LED above the *User button* is only available on Arduino Opta® WiFi (AFX00002).
@@ -799,7 +806,9 @@ Cet appareil numérique de la classe A est conforme à la norme NMB-003 du Canad
 ## Revision History
 
 |  **Date**  | **Revision** |             **Changes**              |
-| :--------: | :----------: | :----------------------------------: |
+|:----------:|:------------:|:------------------------------------:|
+| 02/12/2024 |      9       |  Digital input specification update  |
+| 24/09/2024 |      8       |        Expansion port updates        |
 | 11/09/2024 |      7       |      ICES certification updates      |
 | 03/09/2024 |      6       | Cloud Editor updated from Web Editor |
 | 24/07/2024 |      5       |        Wiring specifications         |

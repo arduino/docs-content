@@ -123,6 +123,10 @@ When fully charged it will stay GREEN.
 
 ***Don't confuse the RGB status LED with the power ON LED of the Nano ESP32, which is always green.***
 
+To preserve the battery life of your Alvik, always store it fully charged. **We recommend charging Alvik completely between working sessions**. If you won’t be using it for an extended period, it's best to remove the battery until you're ready to use it again.
+
+If Alvik is left unused for several months with the battery level below 20%, it may become fully depleted, leading to a voltage drop. In such cases, the battery will need to be charged externally using a compatible battery charger.
+
 
 ### Replacing The Battery
 
@@ -134,14 +138,11 @@ The battery is located in the bottom part of Alvik, if you need to access it you
 Follow the steps below to replace Alvik's battery and reset the battery management system (BMS):
 
 1. **Turn Alvik OFF**.
-2. **Unplug Arduino Nano ESP32** board from the Alvik's body.
-3. **Re-install Arduino Nano ESP32’s MicroPython bootloader** by following [**this guide**](https://docs.arduino.cc/micropython/basics/board-installation/).
-4. **Remove the existing battery**: carefully take the old battery out of its compartment.
-5. **Tighten the battery holder terminals** pull the + and – terminals slightly toward the center to ensure they make good contact with the battery terminals.
-6. **Insert the new battery**: place the new battery into the holder, ensuring it is securely connected. To confirm proper contact, use a multimeter (set to 20V) to measure the battery holder terminals (+ & -); it should show the battery's voltage.
-7. **Reconnect the Nano ESP32**: If you are using a different controller or have used the robot in another manner, reconnect the Nano ESP32.
-8. **Connect the Nano ESP32 to your computer** using the USB cable, while the Alvik switch is in OFF position.
-9. **Once the battery begins charging**, switch ON Alvik, like the image below.
+2. **Remove the existing battery**: carefully take the old battery out of its compartment.
+3. **Tighten the battery holder terminals** pull the + and – terminals slightly toward the center to ensure they make good contact with the battery terminals.
+4. **Insert the new battery**: place the new battery into the holder, ensuring it is securely connected. To confirm proper contact, use a multimeter (set to 20V) to measure the battery holder terminals (+ & -); it should show the battery's voltage.
+5. **Connect the Nano ESP32 to your computer** using the USB cable, while the Alvik switch is in OFF position.
+6. **Switch ON Alvik,** like the image below.
 
 ![Charging blink](assets/charging.gif)
 
@@ -353,6 +354,8 @@ After executing these commands, there will be updates of the process on the prom
 ### Hello Alvik! Your First Program!
 
 Alvik is intended to be programmed with MicroPyton. We recommend you to install the [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython) editor.
+
+***If you're using a Chromebook, you'll need to use the [**online version**](https://lab-micropython.arduino.cc/) of Arduino Lab for MicroPython, using Chrome. You'll need to login with an Arduino account to use it.***
 
 Now that all the previous steps have been set, let's see how to create custom programs for Alvik to move forward until detecting an object in front of it, Alvik will detect it, dodge it and continue on its way.
 
@@ -599,42 +602,42 @@ The Arduino Alvik robot is equipped with several touch buttons that can be used 
 
 - Detect **any** button pressed.
 
-   The `[get_touch_any](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_any)` function returns true if any of the buttons is pressed.
+    [`get_touch_any`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_any) function returns true if any of the buttons is pressed.
 
 
 - Detect the **OK** button pressed.
 
-   The `[get_touch_ok](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_ok)` function returns true if the OK button is pressed.
+    [`get_touch_ok`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_ok) function returns true if the OK button is pressed.
 
 
 - Detect the **Cancel** button pressed.
 
-   The `[get_touch_cancel](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_cancel)` function returns true if the Cancel button is pressed.
+    [`get_touch_cancel`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_cancel) function returns true if the Cancel button is pressed.
 
 
 - Detect the **Center** button pressed.
 
-   The `[get_touch_center](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_center)` function returns true if the Center button is pressed.
+    [`get_touch_center`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_center) function returns true if the Center button is pressed.
 
 
 - Detect the **Up** button pressed.
 
-   The `[get_touch_up](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_up)` function returns true if the Up button is pressed.
+    [`get_touch_up`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_up) function returns true if the Up button is pressed.
 
 
 - Detect the **Left** button pressed.
 
-   The `[get_touch_left](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_left)` function returns true if the Left button is pressed.
+    [`get_touch_left`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_left) function returns true if the Left button is pressed.
 
 
 - Detect the **Down** button pressed.
 
-   The `[get_touch_down](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_down)` function returns true if the Down button is pressed.
+    [`get_touch_down`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_down) function returns true if the Down button is pressed.
 
 
 - Detect the **Right** button pressed.
 
-   The `[get_touch_right](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_right)` function returns true if the Right button is pressed.
+    [`get_touch_right`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_right) function returns true if the Right button is pressed.
 
 
 **Example**

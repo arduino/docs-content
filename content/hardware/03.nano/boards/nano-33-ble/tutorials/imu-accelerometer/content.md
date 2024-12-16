@@ -68,12 +68,12 @@ An accelerometer is an electromechanical device used to measure acceleration for
 In this example, we will use the accelerometer as a "level" that will provide information about the position of the board. With this application we will be able to read what the relative position of the board is as well as the degrees, by tilting the board up, down, left or right.
 
 
-
 ## Creating the Program
 
 **1. Setting up**
 
-Let's start by opening the Arduino Cloud Editor, click on the **Libraries** tab and search for the **LSM9DS1** library. Then in **> Examples**, open the **SimpleAccelerometer** sketch and once it opens, rename it as **Accelerometer**.
+
+Let's start by opening the Arduino Cloud Editor, click on the **Libraries** tab and search for the **LSM9DS1** library. Then in **Examples**, open the **SimpleAccelerometer** sketch and once it opens, rename it as **Accelerometer**.
 
 ![Finding the library in the Cloud Editor.](./assets/nano33BLE_01_include_library.png)
 
@@ -81,109 +81,38 @@ Let's start by opening the Arduino Cloud Editor, click on the **Libraries** tab 
 
 Now, connect the Arduino Nano 33 BLE to the computer and make sure that the Cloud Editor recognizes it, if so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognize your board.
 
+Now, connect the Arduino Nano 33 BLE to the computer and make sure that the Cloud Editor recognizes it. If so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognize your board.
 
 ![Selecting the board.](assets/nano33BLE_01_board_port.png)
 
-**3. Printing the relative position**
+### 3. Writing the Code
 
-Now we will need to modify the code on the example, in order to print the relative position of the board as we move it in different angles.
+Now we will write the code to read the accelerometer data, calculate the tilt angles, and print the relative position of the board as we move it at different angles.
 
-Let's start by initializing the the x, y, z axes as `float` data types, and the `int degreesX = 0;` and `int degreesY = 0;` variables before the  `setup()`.
-
-In the `setup()` we should **remove** the following lines of code:
-
+Include the LSM9DS1 library at the top of your sketch:
 
 ```arduino
-Serial.println();
-Serial.println("Acceleration in G's");
-Serial.println("X\tY\tZ");
-```
-
-Since the raw values of the three axes will not be required, we can remove the lines which will print these. Similarly, we should **remove** the following lines from the `loop()`:
-
-
-```arduino
-Serial.print(x);
-Serial.print('\t');
-Serial.print(y);
-Serial.print('\t');
-Serial.println(z);
-```
-
-Instead, in the `loop()`  we tell the sensor to begin reading the values for the three axes. In this example we will not be using the readings from the Z axis as it is not required for this application to function, therefore you could remove it.
-
-After the `IMU.readAcceleration` initialization, we add four `if` statements for the board's different positions. The statements will calculate the direction in which the board will be tilting towards, as well as provide the axe's degree values.
-
-```arduino
-if(x > 0.1){
-    x = 100*x;
-    degreesX = map(x, 0, 97, 0, 90);
-    Serial.print("Tilting up ");
-    Serial.print(degreesX);
-    Serial.println("  degrees");
-    }
-  if(x < -0.1){
-    x = 100*x;
-    degreesX = map(x, 0, -100, 0, 90);
-    Serial.print("Tilting down ");
-    Serial.print(degreesX);
-    Serial.println("  degrees");
-    }
-  if(y > 0.1){
-    y = 100*y;
-    degreesY = map(y, 0, 97, 0, 90);
-    Serial.print("Tilting left ");
-    Serial.print(degreesY);
-    Serial.println("  degrees");
-    }
-  if(y < -0.1){
-    y = 100*y;
-    degreesY = map(y, 0, -100, 0, 90);
-    Serial.print("Tilting right ");
-    Serial.print(degreesY);
-    Serial.println("  degrees");
-    }
-
-```
-
-Lastly, we `Serial.print` the results value and add a `delay(1000);`.
-
->**Note:** For the following code to properly work, the board's facing direction and inclination during the initialization of the code, need to be specific. More information will be shared on the "testing it out" section.
-
-
-
-
-**4. Complete code**
-
-If you choose to skip the code building section, the complete code can be found below:
-```arduino
-/*
-  Arduino LSM9DS1 - Accelerometer Application
-
-  This example reads the acceleration values as relative direction and degrees,
-  from the LSM9DS1 sensor and prints them to the Serial Monitor or Serial Plotter.
-
-  The circuit:
-  - Arduino Nano 33 BLE
-
-  Created by Riccardo Rizzo
-
-  Modified by Jose García
-  27 Nov 2020
-
-  This example code is in the public domain.
-*/
-
 #include <Arduino_LSM9DS1.h>
+```
+
+Initialize variables before the `setup()` function:
+
+```arduino
+#define MINIMUM_TILT 5    // Threshold for tilt detection in degrees
+#define WAIT_TIME 500     // How often to run the code (in milliseconds)
 
 float x, y, z;
-int degreesX = 0;
-int degreesY = 0;
+int angleX = 0;
+int angleY = 0;
+unsigned long previousMillis = 0;
+```
 
+In the `setup()`, initialize the IMU and start serial communication:
+
+```arduino
 void setup() {
   Serial.begin(9600);
   while (!Serial);
-  Serial.println("Started");
 
   if (!IMU.begin()) {
     Serial.println("Failed to initialize IMU!");
@@ -192,47 +121,130 @@ void setup() {
 
   Serial.print("Accelerometer sample rate = ");
   Serial.print(IMU.accelerationSampleRate());
-  Serial.println("Hz");
+  Serial.println(" Hz");
+}
+```
+
+**Write the `loop()` function to read accelerometer data and calculate tilt angles:**
+
+```arduino
+void loop() {
+  unsigned long currentMillis = millis();
+
+  if (IMU.accelerationAvailable() && (currentMillis - previousMillis >= WAIT_TIME)) {
+    previousMillis = currentMillis;
+
+    IMU.readAcceleration(x, y, z);
+
+    // Calculate tilt angles in degrees
+    angleX = atan2(x, sqrt(y * y + z * z)) * 180 / PI;
+    angleY = atan2(y, sqrt(x * x + z * z)) * 180 / PI;
+
+    // Determine the tilting direction based on angleX and angleY
+    if (angleX > MINIMUM_TILT) {  // Tilting up
+      Serial.print("Tilting up ");
+      Serial.print(angleX);
+      Serial.println(" degrees");
+    } else if (angleX < -MINIMUM_TILT) {  // Tilting down
+      Serial.print("Tilting down ");
+      Serial.print(-angleX);
+      Serial.println(" degrees");
+    }
+
+    if (angleY > MINIMUM_TILT) {  // Tilting left
+      Serial.print("Tilting left ");
+      Serial.print(angleY);
+      Serial.println(" degrees");
+    } else if (angleY < -MINIMUM_TILT) {  // Tilting right
+      Serial.print("Tilting right ");
+      Serial.print(-angleY);
+      Serial.println(" degrees");
+    }
+  }
+}
+```
+
+In this code, we use trigonometric functions to calculate the tilt angles from the accelerometer data. The `MINIMUM_TILT` variable is used to ignore small movements below a certain threshold.
+
+> **Note:** For the following code to work properly, the board's facing direction and inclination during the initialization of the code need to be specific. More information will be shared in the "Testing It Out" section.
+
+**Complete Code**
+
+If you choose to skip the code-building section, the complete code can be found below:
+
+```arduino
+/*
+  Arduino LSM9DS1 - Accelerometer Application
+
+  This example reads the acceleration values as relative direction and degrees,
+  from the LSM9DS1 sensor and prints them to the Serial Monitor.
+
+  The circuit:
+  - Arduino Nano 33 BLE
+
+  Created by Pedro Lima
+
+  This example code is in the public domain.
+*/
+
+#include <Arduino_LSM9DS1.h>
+
+#define MINIMUM_TILT 5    // Threshold for tilt detection in degrees
+#define WAIT_TIME 500     // How often to run the code (in milliseconds)
+
+float x, y, z;
+int angleX = 0;
+int angleY = 0;
+unsigned long previousMillis = 0;
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU!");
+    while (1);
+  }
+
+  Serial.print("Accelerometer sample rate = ");
+  Serial.print(IMU.accelerationSampleRate());
+  Serial.println(" Hz");
 }
 
 void loop() {
+  unsigned long currentMillis = millis();
 
-  if (IMU.accelerationAvailable()) {
+  if (IMU.accelerationAvailable() && (currentMillis - previousMillis >= WAIT_TIME)) {
+    previousMillis = currentMillis;
+
     IMU.readAcceleration(x, y, z);
 
-  }
+    // Calculate tilt angles in degrees
+    angleX = atan2(x, sqrt(y * y + z * z)) * 180 / PI;
+    angleY = atan2(y, sqrt(x * x + z * z)) * 180 / PI;
 
-  if (x > 0.1) {
-    x = 100 * x;
-    degreesX = map(x, 0, 97, 0, 90);
-    Serial.print("Tilting up ");
-    Serial.print(degreesX);
-    Serial.println("  degrees");
+    // Determine the tilting direction based on angleX and angleY
+    if (angleX > MINIMUM_TILT) {  // Tilting up
+      Serial.print("Tilting up ");
+      Serial.print(angleX);
+      Serial.println(" degrees");
+    } else if (angleX < -MINIMUM_TILT) {  // Tilting down
+      Serial.print("Tilting down ");
+      Serial.print(-angleX);
+      Serial.println(" degrees");
+    }
+
+    if (angleY > MINIMUM_TILT) {  // Tilting left
+      Serial.print("Tilting left ");
+      Serial.print(angleY);
+      Serial.println(" degrees");
+    } else if (angleY < -MINIMUM_TILT) {  // Tilting right
+      Serial.print("Tilting right ");
+      Serial.print(-angleY);
+      Serial.println(" degrees");
+    }
   }
-  if (x < -0.1) {
-    x = 100 * x;
-    degreesX = map(x, 0, -100, 0, 90);
-    Serial.print("Tilting down ");
-    Serial.print(degreesX);
-    Serial.println("  degrees");
-  }
-  if (y > 0.1) {
-    y = 100 * y;
-    degreesY = map(y, 0, 97, 0, 90);
-    Serial.print("Tilting left ");
-    Serial.print(degreesY);
-    Serial.println("  degrees");
-  }
-  if (y < -0.1) {
-    y = 100 * y;
-    degreesY = map(y, 0, -100, 0, 90);
-    Serial.print("Tilting right ");
-    Serial.print(degreesY);
-    Serial.println("  degrees");
-  }
-  delay(1000);
 }
-
 ```
 
 

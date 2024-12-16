@@ -1,26 +1,20 @@
+---
+productsLibrariesMap:
+  - mkrnb
+  - arduino-low-power
+---
+
 <EssentialsColumn title="First Steps">
   <EssentialElement title="Quickstart Guide" type="getting-started">
     All you need to know to get started with your new Arduino board.
   </EssentialElement>
 
-  
-</EssentialsColumn>
-
-<EssentialsColumn title="Suggested Libraries">
-
-  <EssentialElement title="MKRNB" type="library" link="https://www.arduino.cc/en/Reference/MKRNB">
-    With the Arduino MKR NB 1500 and the MKRNB library you can connect to the internet over a GSM network. The on board module operates in 4G, using LTE Cat M1 or NB1.
-  </EssentialElement>
-
-  <EssentialElement title="ArduinoLowPower" type="library" link="https://www.arduino.cc/en/Reference/ArduinoLowPower">
-    The ArduinoLowPower library allows you to use the low power features of the SAMD21 MCU to minimize power consumption and maximize battery duration.
-  </EssentialElement>
 
 </EssentialsColumn>
 
 <EssentialsColumn title="Arduino Basics">
   <EssentialElement title="Built-in Examples" type="tutorial" link="/built-in-examples/">
-    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands. 
+    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands.
   </EssentialElement>
   <EssentialElement title="Learn" type="resource" link="/learn/">
     Discover interesting articles, principles and techniques related to the Arduino ecosystem.
