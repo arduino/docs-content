@@ -94,4 +94,4 @@ pixels.show()
 
 The Modulino Pixels is a series of addressable RGB LEDs. These can be controlled by setting the brightness or the color of each LED.
 
-![LED Animation]()
+![LED Animation](./assets/how-it-works.gif)
