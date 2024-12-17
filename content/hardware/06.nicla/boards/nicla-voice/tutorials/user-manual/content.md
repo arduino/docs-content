@@ -61,7 +61,7 @@ Here is an overview of the board's architecture's main components shown in the i
 The **Arduino Mbed OS Nicla Boards** core contains the libraries and examples you need to work with the board's components, such as its IMU, magnetometer, and onboard microphone. To install the core for Nicla boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `nicla` and install the latest `Arduino Mbed OS Nicla Boards` version.
 
 
-![Installing the Arduino Mbed OS Nicla Boards core in the Arduino IDE bootloader](assets/user-manual-1.png)
+![Installing the Arduino Mbed OS Nicla Boards core in the Arduino IDE bootloader](assets/dsp-install.png)
 
 ### Pinout
 
@@ -128,52 +128,61 @@ nicla::disableCharging();
 
 ### NDP120 Processor Firmware Update
 
+![NDP Syntiant AI Processor](assets/ndp.png)
+
 It is recommended to update the NDP120 processor firmware and the built-in speech recognition model to the latest release. Follow these three steps to complete the update process:
 
-1. Upload the `Syntiant_upload_fw_ymodem` sketch. This sketch can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> Syntiant_upload_fw_ymodem**. **Remember to select the board in the Arduino IDE first before navigating to the examples**.
-2. After uploading the sketch, **format your board's external Flash memory** before uploading the updated NDP120 processor firmwares files. You can do this by navigating to the Arduino IDE Serial Monitor and typing `F` and then Enter.
-3. Extract [this .zip file](assets/nicla_voice_uploader_and_firmwares.zip), which contains the compiled uploaders for various operating systems, and the updated NDP120 processor firmware and speech recognition model, in a known location on your computer. 
-4. Open a new terminal in the location where the .zip file was extracted and execute the following command:
+1. Select the Nicla Voice board in the Arduino IDE so you can have access to the board built-in examples.
+2. Upload the `Syntiant_upload_fw_ymodem` sketch. This sketch can be found in the board's built-in examples by navigating to **File > Examples > NDP > Syntiant_upload_fw_ymodem**. 
+3. After uploading the sketch, **format your board's external Flash memory** before uploading the updated NDP120 processor firmware files. You can do this by navigating to the Arduino IDE Serial Monitor and typing `F` and then `Enter`.
+4. Extract [this .zip file](assets/nicla_voice_uploader_and_firmwares.zip), which contains the compiled uploaders for various operating systems, and the updated NDP120 processor firmware and speech recognition model, in a known location on your computer. 
+5. Open a new terminal in the location where the .zip file was extracted and execute the following command:
 
     ```bash
-    syntiant-uploader send -m "Y" -w "Y" -p $portName $filename
+    syntiant-uploader-<OS> send -m "Y" -w "Y" -p $portName $filename
     ```
 
-    Replace `portName` and `filename` with the relevant information. Three different files must be uploaded to the board by executing the following three commands, for example in Windows the commands are the following:
+    Replace `portName` and `filename` with the relevant information. Three different files must be uploaded to the board by executing the following three commands, for example on **Windows** the commands are the following:
 
     ```bash
-    ./syntiant-uploader send -m "Y" -w "Y" -p COM6 mcu_fw_120_v91.synpkg
-    ```
-
-    ```bash
-    ./syntiant-uploader send -m "Y" -w "Y" -p COM6 dsp_firmware_v91.synpkg
+    ./syntiant-uploader-win send -m "Y" -w "Y" -p COM12 mcu_fw_120_v91.synpkg
     ```
 
     ```bash
-    ./syntiant-uploader send -m "Y" -w "Y" -p COM6 model_name.synpkg
+    ./syntiant-uploader-win send -m "Y" -w "Y" -p COM12 dsp_firmware_v91.synpkg
     ```
+
+    ```bash
+    ./syntiant-uploader-win send -m "Y" -w "Y" -p COM12 alexa_334_NDP120_B0_v11_v91.synpkg
+    ```
+
+    ***As we are using Windows, the command used is `syntiant-uploader-win`, use your OS respective one.***
 
     Ensure all executed commands return a `filename sent successful` message in the console, as shown in the image below. 
 
-    ![Uploader feedback messages](assets/user-manual-4.png)
+    ![Uploader feedback messages](assets/fw_update.png)
 
 After uploading the three files, your board's firmware is updated to the latest release and ready to be used.
 
 #### External Memory Format
-<br></br>
 
 Your board NDP120 processor files (firmware and models) are stored in your board's external Flash memory. It is recommended to **format your Nicla Voice external Flash memory** every time you are going to update the processor firmware or when you are going to update/add models to the external Flash memory.
 
 Follow these steps to perform the external memory format process:
 
-1. Upload the `Syntiant_upload_fw_ymodem` sketch. This sketch can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> Syntiant_upload_fw_ymodem**. **Remember to select the board in the Arduino IDE first before navigating to the examples**.
-2. After uploading the sketch, navigate to the IDE's Serial Monitor, type `F`, and press `Enter`. Your board's external memory should be formatted now, you can confirm this by typing an `L` and pressing `Enter`.
+1. Select the Nicla Voice board in the Arduino IDE so you can have access to the board built-in examples.
+2. Upload the `Syntiant_upload_fw_ymodem` sketch. This sketch can be found in the board's built-in examples by navigating to **File > Examples > NDP > Syntiant_upload_fw_ymodem**. 
+3. After uploading the sketch, navigate to the IDE's Serial Monitor, type `F`, and press `Enter`. Your board's external memory should be formatted now, you can confirm this by typing an `L` and pressing `Enter`.
 
 After completing this process, you can upload NDP processor's firmware and model files to your board's external memory without issues as explained before.
 
 ### Built-in Speech Recognition Example
 
-The speech recognition example can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> AlexaDemo**. After successfully updating the NDP120 processor firmware and the speech recognition model to the latest release, we can upload the speech recognition example to the Nicla Voice. To test the example, say "Alexa"; this should make the onboard LED of the Nicla Voice blink blue if the keyword "Alexa" is recognized. If there is no response from the board, try speaking from a closer proximity or louder. You should also see in the Serial Monitor if the word "Alexa" was detected, as shown in the image below:
+The speech recognition example can be found in the board's built-in examples by navigating to **File > Examples > NDP > AlexaDemo**. 
+
+![Alexa speech recognition example](assets/alexa.png)
+
+After successfully updating the NDP120 processor firmware and the speech recognition model to the latest release, we can upload the speech recognition example to the Nicla Voice. To test the example, say "Alexa"; this should make the onboard LED of the Nicla Voice blink blue if the keyword "Alexa" is recognized. If there is no response from the board, try speaking from a closer proximity or louder. You should also see in the Serial Monitor if the word "Alexa" was detected, as shown in the image below:
 
 ![AlexaDemo example feedback in the Arduino IDE Serial Monitor](assets/user-manual-5.png)
 
@@ -192,30 +201,43 @@ The Nicla Voice has **two analog input pins**, mapped as follows:
 |      `ADC1`/`P0_02`     |           `A0`          |
 |      `ADC2`/`P0_30`     |           `A1`          |
 
-Both pins can be used through the built-in functions of the Arduino programming language. The example code shown below reads the voltage value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor:
+Both pins can be used through the built-in functions of the Arduino programming language.
+
+Nicla boards ADC can be configured to 8, 10 or 12 bits defining the argument of the following function respectively (default is 10 bits):
 
 ```arduino
-// Define the potentiometer pin and variable to store its value
-int potentiometerPin = A0;
-int potentiometerValue = 0;
+analogReadResolution(12);  // ADC resolution set to 12 bits (0-4095)
+```
+
+***The Nicla boards ADC reference voltage is fixed to 1.8V, this means that it will map the ADC range from 0 to 1.8 volts.***
+
+The example code shown below reads the voltage value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor. To understand how to properly connect a potentiometer to the Nicla Voice pins, take the following image as a reference:
+
+![ADC input example wiring](assets/ADC-input.svg)
+
+```arduino
+#include "Nicla_System.h"
+
+int sensorPin = A0;   // select the input pin for the potentiometer
+int sensorValue = 0;  // variable to store the value coming from the sensor
 
 void setup() {
-  // Initialize Serial communication
-  Serial1.begin(9600);
+
+  analogReadResolution(12); // ADC bits configuration
+  nicla::begin();           // Nicla peripherals initialization, this enables the VDDIO_EXT 3.3V output.
+  Serial.begin(115200);     // Serial initialization
 }
 
 void loop() {
-  // Read the voltage value from the potentiometer
-  potentiometerValue = analogRead(potentiometerPin);
-
-  // Print the potentiometer voltage value to the Serial Monitor
-  Serial1.print("- Potentiometer voltage value: ");
-  Serial1.println(potentiometerValue);
-
-  // Wait for 1000 milliseconds
+  // read the value from the sensor:
+  sensorValue = analogRead(sensorPin);
+  // print the value
+  Serial.println(sensorValue);
   delay(1000);
 }
 ```
+
+***The ADC inputs support 3.3V even when the ADC reference is 1.8V. In this perspective, the ADC will not sense any change from 1.8V and above.***
 
 ### Digital Pins
 
@@ -238,7 +260,11 @@ The Nicla Voice has **twelve digital pins**, mapped as follows:
 
 Notice that analog pins `A0` and `A1` (`P0_02` and `P0_30`) can also be used as digital pins. Please, refer to the [board pinout section](#pins) of the user manual to find them on the board.
 
-The digital pins of the Nicla Voice can be used as inputs or outputs through the built-in functions of the Arduino programming language. The configuration of a digital pin is done in the `setup()` function with the built-in function `pinMode()` as shown below:
+The digital pins of the Nicla Voice can be used as inputs or outputs through the built-in functions of the Arduino programming language. 
+
+***The Nicla Voice digital I/O's are low power, so to drive output devices like LEDs, resistive loads, buzzers, etc, it is recommended to use a MOSFET driver or a buffer to guarantee the required current flow. Learn more about the Nicla I/O's considerations [here](https://docs.arduino.cc/learn/hardware/nicla-form-factor).***
+
+The configuration of a digital pin is done in the `setup()` function with the built-in function `pinMode()` as shown below:
 
 ```arduino
 // Pin configured as an input
@@ -270,7 +296,11 @@ digitalWrite(pin, LOW);
 
 The example code shown below uses digital pin `3` to control an LED and reads the state of a button connected to digital pin `2`:
 
+![Digital I/O example wiring](assets/digital-io-mosfet.svg)
+
 ```arduino
+#include "Nicla_System.h"
+
 // Define button and LED pin
 int buttonPin = 2;
 int ledPin = 3;
@@ -279,6 +309,9 @@ int ledPin = 3;
 int buttonState = 0;
 
 void setup() {
+
+  nicla::begin();           // Nicla peripherals initialization, this enables the VDDIO_EXT 3.3V output.
+
   // Configure button and LED pins
   pinMode(buttonPin, INPUT_PULLUP);
   pinMode(ledPin, OUTPUT);
@@ -307,41 +340,87 @@ void loop() {
 ```
 ### PWM Pins
 
-Most digital and analog pins of the Nicla Voice can be used as PWM (Pulse Width Modulation) pins. This functionality  of the Nicla Voice pins can be used with the built-in function `analogWrite()` as shown below:
+Most digital and analog pins of the Nicla Voice can be used as PWM (Pulse Width Modulation) pins. This functionality of the Nicla Voice pins can be used with the built-in function `analogWrite()` as shown below:
 
 ```arduino
 analogWrite(pin, value);  
 ```
 
-The example code shown below uses digital pin `9` PWM functionality to control the brightness of an LED connected to it:
+By default, the output resolution is 8 bits, so the output value should be between 0 and 255. To set a greater resolution, do it using the built-in function `analogWriteResolution` as shown below:
 
 ```arduino
-// Define the LED pin, brightness, and fade amount variables
-int ledPin = 9;
-int brightness = 0;
-int fadeAmount = 5;
+analogWriteResolution(bits);
+```
+
+Here is a complete example code that outputs a 50% duty-cycle PWM signal through pin 3 of the Nicla Voice:
+
+```arduino
+#include "Nicla_System.h"
+
+#define out_pwm 3 // Nicla Voice pin 3
 
 void setup() {
-  // Configure the LED pin as an output
-  pinMode(ledPin, OUTPUT);
+  // put your setup code here, to run once:
+  nicla::begin();  // Nicla peripherals initialization, this enables the VDDIO_EXT 3.3V output.
+  analogWriteResolution(12);
+  analogWrite(out_pwm, 2048);
 }
 
 void loop() {
-  // Set the brightness of the LED
-  analogWrite(ledPin, brightness);
-
-  // Update the brightness value
-  brightness += fadeAmount;
-
-  // Reverse the fade direction when reaching the limits
-  if (brightness <= 0 || brightness >= 255) {
-    fadeAmount = -fadeAmount;
-  }
-
-  // Wait for 30 milliseconds
-  delay(30);
+  // put your main code here, to run repeatedly:
 }
 ```
+
+Using this function has some limitations, for example, the PWM signal frequency is fixed at 500 Hz, and this could not be ideal for every application.
+
+![PWM output signal using analogWrite()](assets/500-Hz.png)
+
+If you need to work with a higher frequency PWM signal, you must do it by working with the PWM peripheral at a lower level as shown in the example code below:
+
+```arduino
+#include "Nicla_System.h"
+#include "nrfx_pwm.h"
+
+static nrfx_pwm_t pwm1 = NRFX_PWM_INSTANCE(0);
+
+static uint16_t /*const*/ seq1_values[] = {0};
+
+static nrf_pwm_sequence_t seq1 = {
+  .values = { .p_common = seq1_values },
+  .length = NRF_PWM_VALUES_LENGTH(seq1_values),
+  .repeats = 0,
+  .end_delay = 0
+};
+
+void setup() {
+
+  nicla::begin();           // Nicla peripherals initialization, this enables the VDDIO_EXT 3.3V output.
+  nrfx_pwm_config_t config1 = {
+    .output_pins = {
+      32 + 23,  // Nicla Voice pin 3  = pin P0_23 in the ANNAB112 MCU
+    },
+    .irq_priority = APP_IRQ_PRIORITY_LOWEST,
+    .base_clock = NRF_PWM_CLK_1MHz,   // 1 us period
+    .count_mode = NRF_PWM_MODE_UP,
+    .top_value = 1000,                //  PWM counter limit, this will set the final output frequency 1MHz / 1000 = 1KHz
+    .load_mode = NRF_PWM_LOAD_COMMON,
+    .step_mode = NRF_PWM_STEP_AUTO,
+  };
+
+  nrfx_pwm_init(&pwm1, &config1, NULL);
+
+  (*seq1_values) = 500;   // this variable sets the signal duty cycle, for a 50% we are using 500. (1000 / 500  = 1/2)
+  (void)nrfx_pwm_simple_playback(&pwm1, &seq1, 1, NRFX_PWM_FLAG_LOOP);
+}
+
+void loop() {
+
+}
+```
+
+The code above results in a 1KHz square waveform with a 50% duty cycle as in the image below. The frequency is defined by the `.base_clock` and `.top_value` variables, and the duty cycle by the `seq1_values` variable.
+
+![PWM output signal using the PWM at a lower level](assets/1000-Hz.png)
 
 ## Onboard Sensors
 
@@ -357,7 +436,7 @@ An external PDM microphone can be connected to the board via an onboard Zero Ins
 
 ![Nicla Voice onboard ZIF connector](assets/user-manual-10.png)
 
-The example code shown below captures audio from the onboard microphone of the Nicla Voice, compresses the audio using the G722 codec, and streams the compressed audio data to the serial port. The example can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> Record_and_stream**. 
+The example code shown below captures audio from the onboard microphone of the Nicla Voice, compresses the audio using the G722 codec, and streams the compressed audio data to the serial port. The example can be found in the board's built-in examples by navigating to **File > Examples > NDP > Record_and_stream**. 
 
 Keep in mind that this example code requires the following libraries:
 
