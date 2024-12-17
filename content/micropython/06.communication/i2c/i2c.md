@@ -1,14 +1,13 @@
 ---
-title: Communication Protocol - I2C  
+title: Inter-Integrated Circuit (I2C)
 description: Learn how to use I2C on Micropython
 author: Pedro Sousa Lima
 ---
 
-#### Introduction
 Inter-Integrated Circuit, or **I2C**, is one of the most widely used serial communication protocols, especially in the Arduino ecosystem. It enables multiple devices to communicate over just two wires, making it both efficient and versatile as you can easily add new modules more easily as the connections all happen across the same bus and standetizes them across manufacturers (and product lines).
 
 
-#### How I2C Works
+## How I2C Works
 I2C communication relies on two wires:
 - **SDA (Serial Data):** Transfers data between devices.
 - **SCL (Serial Clock):** Synchronizes data transmission.
@@ -17,14 +16,15 @@ Each device on an I2C bus has a unique address, allowing the controller to commu
 
 ![I2C Diagram](assets/i2c.png)
 
+### Key Features of I2C
 
-#### Key Features of I2C
 1. **Two-Wire Simplicity:** Reduces hardware complexity.
 2. **Address-Based Communication:** Each device has a unique address.
 3. **Bidirectional Communication:** Enables data transfer in both directions.
 
 
-#### Example: Reading Sensor Data Using I2C
+## Example: Reading Sensor Data Using I2C
+
 In this example, we will connect an **LIS3DHTR accelerometer** to an Arduino and read its data via I2C.
 
 **Circuit Diagram:**
@@ -40,7 +40,7 @@ In this example, we will connect an **LIS3DHTR accelerometer** to an Arduino and
 
 3. Copy the following code to your `main.py` file and run it.
 
-**Code:**
+**Code Example:**
 ```python
 import lis3dh, time, math
 from machine import Pin, I2C
@@ -92,7 +92,8 @@ if imu.device_check():
 ```
 
 **Expected Output:**
-In the REPL terminal, you will see accelerometer data displayed every second. For example:
+In the REPL terminal, you will see accelerometer data displayed every second. 
+
 ![Expected Output](assets/repl-i2c-sensor.gif)
 
 ```
@@ -100,7 +101,7 @@ x = 0.001 G, y = -0.002 G, z = 1.000 G
 pitch = -0.12, roll = 0.04
 ```
 
+## Summary
 
-#### Summary
 I2C is a highly efficient protocol that enables multiple devices to communicate on just two wires. In this example, we demonstrated how to read data from an I2C-connected sensor, opening the door to integrating even more devices into your Arduino projects.
 
