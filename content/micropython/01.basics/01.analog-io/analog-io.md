@@ -52,13 +52,13 @@ In this guide, we will be using some additional electronic components:
 
 ## Board and Editor Setup
 
-1. Open the [Arduino Lab for MicroPython]() application.
+1. Open the [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython) application.
 2. Plug the Arduino board into the computer using a USB cable.
     ![Connect board to computer.](assets/usb-comp.png)
 3. Press the connection button on the top left corner of the window. The connected Arduino board should appear (by its port name), and we can click it:
     ![Connect to the board in the editor.](assets/select-board-ide.png)
 
-***Need help installing MicroPython on your board? Visit the [MicroPython installation guide]().***
+***Need help installing MicroPython on your board? Visit the [MicroPython installation guide](/micropython/first-steps/install-guide).***
 
 ## Analog Inputs
 

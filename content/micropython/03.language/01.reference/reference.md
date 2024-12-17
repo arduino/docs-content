@@ -1336,7 +1336,7 @@ print("Hello World!")
 
 `while True:`
 
-A loop is not required in a MicroPython script, but is required in order to run a script continuously on the board. To have a loop in a program, we need to use a [while loop]().
+A loop is not required in a MicroPython script, but is required in order to run a script continuously on the board. To have a loop in a program, we need to use a [while loop](/micropython/basics/loops/#while-loops).
 
 **Example:**
 

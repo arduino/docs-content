@@ -6,10 +6,10 @@ author: Karl Söderby
 
 ![Nano BLE Sense](assets/ble-sense.png)
 
-In this guide, you will find information specific to the [Nano BLE Sense board](), such as supported serial protocols and built-in sensors that can be accessed.
+In this guide, you will find information specific to the [Nano BLE Sense board](https://store.arduino.cc/products/nano-33-ble-sense-rev2), such as supported serial protocols and built-in sensors that can be accessed.
 
 For installation instructions, please visit the link below.
-- [Installing MicroPython]()
+- [Installing MicroPython](/micropython/first-steps/install-guide)
 
 ## Pinout
 
@@ -17,7 +17,7 @@ The pinout for the Nano BLE Sense can be found in the image below.
 
 ![Nano BLE Sense Pinout](assets/ABX00031-pinout.png)
 
-***For more details on this product, visit the [hardware product page](/hardware/nano-rp2040-connect/).***
+***For more details on this product, visit the [hardware product page](/hardware/nano-33-ble-sense-rev2/).***
 
 ## Board Specific Features
 
@@ -297,7 +297,7 @@ devices = i2c.scan()
 print("I2C devices found:", devices)
 ```
 
-***Read more about I2C in [this article]().***
+***Read more about I2C in [this article](/micropython/communication/i2c).***
 
 ### UART
 
@@ -315,7 +315,7 @@ data = uart.read()
 print("Received:", data)
 ```
 
-***Read more about SPI in [this article]().***
+***Read more about SPI in [this article](/micropython/communication/spi).***
 
 ### SPI
 
@@ -336,4 +336,4 @@ spi = SPI(1, baudrate=1000000, polarity=0, phase=0, sck=Pin(18), mosi=Pin(23), m
 print("SPI initialized")
 ```
 
-***Read more about UART in [this article]().***
+***Read more about UART in [this article](/micropython/communication/uart).***

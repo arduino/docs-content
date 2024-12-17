@@ -9,10 +9,10 @@ Arduino Lab for MicroPython includes a user-friendly code editor that helps us w
 
 ## Requirements
 
-- [Arduino Lab for MicroPython]()
+- [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython)
 - **MicroPython compatible board** (not required for using the editor, but for running any code).
 
-***Note that the Arduino Lab for MicroPython is now also available online, as part of the Arduino Cloud platform. You will find it here: [Arduino Cloud - Arduino Lab for MicroPython]().***
+***Note that the Arduino Lab for MicroPython is now also available online, as part of the Arduino Cloud platform. You will find it here: [Arduino Cloud - Arduino Lab for MicroPython](/micropython/environment/code-editor).***
 
 ## Arduino Labs for MicroPython
 
@@ -47,14 +47,14 @@ Managing files in the Arduino Lab for MicroPython is straightforward and allows 
 
 ![Managing files in Arduino Lab for MicroPython](assets/IDEFileManager.png)
 
-***For a detailed tutorial on using the file system, please refer to the [File System Tutorial]().***
+***For a detailed tutorial on using the file system, please refer to the [File System Tutorial](/micropython/environment/file-system).***
 
 ### REPL
 
 The REPL can be found by expanding the terminal. Here you can interact with the terminal. The buttons allow for basic features like copy and pasting as the shortcuts like ```CTRL+C will´´´ not work on this window.
 
 ![The REPL.](assets/consoleTerminal.png)
-***For a detailed tutorial on using the file system, please refer to the [File System Tutorial]().***
+***For a detailed tutorial on using the file system, please refer to the [File System Tutorial](/micropython/environment/file-system).***
 
 ## Code Editor
 

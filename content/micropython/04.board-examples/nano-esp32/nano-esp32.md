@@ -27,15 +27,6 @@ The Nano ESP32 has several board-specific features that we can access through Mi
 - **Touch Pins**: Capacitive touch sensors available on multiple pins.
 - **ESP-NOW**: A wireless communication protocol developed by Espressif that enables low-power, peer-to-peer communication without the need for a Wi-Fi router. ESP-NOW is particularly useful for creating mesh networks or communicating with other ESP32 devices with low latency and minimal setup.
 
-
-## Wireless Connectivity
-
-The Nano ESP32 has a radio module that supports **Wi-Fi®** and **Bluetooth®**. To find examples, please visit the links below:
-
-- **[MicroPython - Bluetooth® documentation]()**
-- **[MicroPython - Wi-Fi® documentation]()**
-
-
 ### ESP-NOW
 
 ESP-NOW is a powerful feature of the ESP32 that allows devices to communicate directly with each other using a simple, lightweight protocol. This is useful for applications where quick data transfer is needed between devices, such as in sensor networks or remote control systems.
@@ -90,7 +81,7 @@ devices = i2c.scan()
 print("I2C devices found:", devices)
 ```
 
-***Read more about I2C in [this article]().***
+***Read more about I2C in [this article](/micropython/communication/i2c).***
 
 ### UART
 
@@ -108,7 +99,7 @@ data = uart.read()
 print("Received:", data)
 ```
 
-***Read more about UART in [this article]().***
+***Read more about UART in [this article](/micropython/communication/uart).***
 
 ### SPI
 
@@ -123,7 +114,7 @@ spi = SPI(1, baudrate=1000000, polarity=0, phase=0, sck=Pin(18), mosi=Pin(23), m
 print("SPI initialized")
 ```
 
-***Read more about SPI in [this article]().***
+***Read more about SPI in [this article](/micropython/communication/spi).***
 
 ## Additional Features
 

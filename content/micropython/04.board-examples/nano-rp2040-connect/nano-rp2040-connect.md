@@ -6,10 +6,10 @@ author: Karl Söderby
 
 ![Nano RP2040 Connect](assets/rp-2040.png)
 
-In this guide, you will find information specific to the [Nano RP2040 Connect board](), such as supported serial protocols and built-in sensors that can be accessed.
+In this guide, you will find information specific to the [Nano RP2040 Connect board](https://store.arduino.cc/products/arduino-nano-rp2040-connect), such as supported serial protocols and built-in sensors that can be accessed.
 
 For installation instructions, please visit the link below.
-- [Installing MicroPython]()
+- [Installing MicroPython](/micropython/first-steps/install-guide)
 
 ## Pinout
 
@@ -168,7 +168,7 @@ devices = i2c.scan()
 print("I2C devices found:", devices)
 ```
 
-***Read more about I2C in [this article]().***
+***Read more about I2C in [this article](/micropython/communication/i2c).***
 
 ### UART
 
@@ -186,7 +186,7 @@ data = uart.read()
 print("Received:", data)
 ```
 
-***Read more about SPI in [this article]().***
+***Read more about SPI in [this article](/micropython/communication/spi).***
 
 ### SPI
 
@@ -207,4 +207,4 @@ spi = SPI(1, baudrate=1000000, polarity=0, phase=0, sck=Pin(18), mosi=Pin(23), m
 print("SPI initialized")
 ```
 
-***Read more about UART in [this article]().***
+***Read more about UART in [this article](/micropython/communication/uart).***
