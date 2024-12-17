@@ -539,99 +539,67 @@ In the `loop()` function:
 - The length of the extracted audio data is stored in the `len` variable.
 - The extracted audio data is passed to the G722 encoder, which compresses the audio and sends it to the serial port.
 
-To extract the audio data on a computer, you will need to set up the serial port as raw and dump the data to a file (e.g., test.g722). Then, you can open the file with a software like [Audacity](https://www.audacityteam.org/) to play back the audio.
+To extract the audio data on a **Linux computer**, you will need to set up the serial port as raw:
+
+```bash
+stty -F /dev/ttyACM0 115200 raw
+```
+Dump the data to a file (e.g., test.g722):
+
+```bash
+cat /dev/ttyACM0 > test.g722
+```
+Then, you can open the file with a software like [Audacity](https://www.audacityteam.org/) to play back the audio.
 
 #### Machine Learning and Audio Analysis
 
 You can use the Nicla Voice and the [Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/) of the Arduino Cloud to create your own audio analysis Machine Learning models. Check out this [tutorial](https://docs.arduino.cc/tutorials/nicla-voice/getting-started-ml) and start with Machine Learning with the Nicla Voice. 
 
-### IMU and Magnetometer
+### IMU
 
 The Nicla Voice features an advanced IMU and a magnetometer, which allows the board to sense motion, orientation, and magnetic fields. The IMU on the Nicla Voice board is the BMI270 from Bosch®. It consists of a 3-axis accelerometer and a 3-axis gyroscope. They can provide information about the board's motion, orientation, and rotation in a 3D space. The BMI270 is designed for wearables and offers low power consumption and high performance, making it suitable for various applications, such as gesture recognition, motion tracking, or stabilization.
 
 ![Nicla Voice onboard IMU](assets/user-manual-11.png)
 
-The onboard magnetometer of the Nicla Voice can be used to determine the board's orientation relative to Earth's magnetic field, which is helpful for compass applications, navigation, or detecting the presence of nearby magnetic objects. The magnetometer on the Nicla Voice board is the BMM150, also from Bosch®. It is a 3-axis sensor that measures the strength and direction of magnetic fields surrounding the board.
-
-![Nicla Voice onboard magnetometer](assets/user-manual-12.png)
-
 #### Accelerometer and Gyroscope Data
 
-The example sketch below shows how to get acceleration (m/s<sup>2</sup>) and angular velocity (in °/s) data from the onboard IMU and streams it to the Arduino IDE Serial Monitor and Serial Plotter. The sketch needs the `BMI270_Init.h` header file to be in the same directory as the sketch. You can download the example sketch and the header files [here](assets/nv_acc_gyro_test.rar).
+The example sketch below shows how to get acceleration (m/s<sup>2</sup>) and angular velocity (in °/s) data from the onboard IMU and streams it to the Arduino IDE Serial Monitor and Serial Plotter. The sketch needs the `BMI270_Init.h` header file to be in the same directory as the sketch. You can download the example sketch and the header files [here](assets/nv_acc_gyro_test.zip).
+
+***For this example to work you must update the NDP processor, see the details on this [section](#ndp120-processor-firmware-update).***
 
 ```arduino
-/**
-  Nicla Voice accelerometer and gyroscope test sketch
-  Name: nv_acc_gyro_test.ino
-  Purpose: Sketch tests onboard accelerometer and gyroscope (BMI270)
-
-  @author Arduino PRO Content Team
-  @version 1.0 22/05/23
-*/
-
 #include "NDP.h"
 #include "BMI270_Init.h"
 
 // Named constants
-#define READ_START_ADDRESS  0x0C
-#define READ_BYTE_COUNT     16
-#define SENSOR_DATA_LENGTH  16
+#define READ_START_ADDRESS 0x0C
+#define READ_BYTE_COUNT 16
+#define SENSOR_DATA_LENGTH 16
 
 // Accelerometer range is set to +/-2g
-// Raw accelerometer data is represented as a signed 16-bit integer 
-// Raw accelerometer data can be converted to acceleration in m/s^2 units using the following scale factor: 
-#define ACCEL_SCALE_FACTOR  ((2.0 / 32767.0) * 9.8)
+// Raw accelerometer data is represented as a signed 16-bit integer
+// Raw accelerometer data can be converted to acceleration in m/s^2 units using the following scale factor:
+#define ACCEL_SCALE_FACTOR ((2.0 / 32767.0) * 9.8)
 
 // Gyroscope has a sensitivity of 16.4 LSB/dps
-#define GYRO_SCALE_FACTOR   (1 / 16.4)
-
-/**
-  Turns on and off the onboard blue LED.
-  
-  @param label to be printed on the Serial Monitor.
-*/
-void ledBlueOn(char* label) {
-  nicla::leds.begin();
-  nicla::leds.setColor(blue);
-  delay(200);
-  nicla::leds.setColor(off);
-  Serial.println(label);
-  nicla::leds.end();
-}
-
-/**
-  Turns on and off the onboard green LED.
-*/
-void ledGreenOn() {
-  nicla::leds.begin();
-  nicla::leds.setColor(green);
-  delay(200);
-  nicla::leds.setColor(off);
-  nicla::leds.end();
-}
-
-/**
-  Blinks onboard red LED periodically every 200 ms.
-*/
-void ledRedBlink() {
-  while (1) {
-    nicla::leds.begin();
-    nicla::leds.setColor(red);
-    delay(200);
-    nicla::leds.setColor(off);
-    delay(200);
-    nicla::leds.end();
-  }
-}
+#define GYRO_SCALE_FACTOR (1 / 16.4)
 
 // Macros for checking the sensor status.
-#define CHECK_STATUS(s) do {if (s) {Serial.print("SPI access error in line "); Serial.println(__LINE__); for(;;);}} while (0)
+#define CHECK_STATUS(s) \
+  do { \
+    if (s) { \
+      Serial.print("SPI access error in line "); \
+      Serial.println(__LINE__); \
+      for (;;) \
+        ; \
+    } \
+  } while (0)
 
 void setup() {
   int status;
   uint8_t __attribute__((aligned(4))) sensor_data[SENSOR_DATA_LENGTH];
 
-  // Initiate Serial communication for debugging and monitoring. 
+  // Initiate Serial communication for debugging and monitoring.
   Serial.begin(115200);
 
   // Initialize Nicla Voice board's system functions.
@@ -641,19 +609,10 @@ void setup() {
   nicla::disableLDO();
   nicla::leds.begin();
 
-  // Set up error and event handlers:
-  // - In case of error, the red LED will blink.
-  // - In case of match, the blue LED will turn on.
-  // - In case of any event, the green LED will turn on.
-  NDP.onError(ledRedBlink);
-  NDP.onMatch(ledBlueOn);
-  NDP.onEvent(ledGreenOn);
-
   // NDP processor initialization with firmwares and models
   Serial.println("- NDP processor initialization...");
   NDP.begin("mcu_fw_120_v91.synpkg");
   NDP.load("dsp_firmware_v91.synpkg");
-  NDP.load("ei_model.synpkg");
   Serial.println("- NDP processor initialization done!");
 
   // Set the BMI270 sensor in SPI mode, then read sensor data.
@@ -682,7 +641,7 @@ void setup() {
   status = NDP.sensorBMI270Write(0x59, 0x00);
   CHECK_STATUS(status);
 
-  // Sensor configuration. 
+  // Sensor configuration.
   Serial.println("- BMI270 initialization starting...");
   status = NDP.sensorBMI270Write(0x5E, sizeof(bmi270_maximum_fifo_config_file), (uint8_t*)bmi270_maximum_fifo_config_file);
   CHECK_STATUS(status);
@@ -697,13 +656,13 @@ void setup() {
 
   // Configure the device to normal power mode with both accelerometer and gyroscope operational.
   // Set the accelerometer and gyroscope settings such as measurement range and data rate.
-  status = NDP.sensorBMI270Write(0x7D, 0x0E);  // Normal power mode 
+  status = NDP.sensorBMI270Write(0x7D, 0x0E);  // Normal power mode
   CHECK_STATUS(status);
   status = NDP.sensorBMI270Write(0x40, 0xA8);  // Accelerometer configuration.
   CHECK_STATUS(status);
   status = NDP.sensorBMI270Write(0x41, 0x00);  // Set the accelerometer range to +/- 2g.
   CHECK_STATUS(status);
-  status = NDP.sensorBMI270Write(0x42, 0xA9);  // Gyroscope configuration. 
+  status = NDP.sensorBMI270Write(0x42, 0xA9);  // Gyroscope configuration.
   CHECK_STATUS(status);
   status = NDP.sensorBMI270Write(0x43, 0x00);  // Set the gyroscope range to +/- 2000 dps.
   CHECK_STATUS(status);
@@ -737,7 +696,7 @@ void loop() {
   y_gyr_raw = (0x0000 | sensor_data[8] | sensor_data[9] << 8);
   z_gyr_raw = (0x0000 | sensor_data[10] | sensor_data[11] << 8);
 
-  // Convert raw accelerometer data to acceleration expressed in m/s^2. 
+  // Convert raw accelerometer data to acceleration expressed in m/s^2.
   x_acc = x_acc_raw * ACCEL_SCALE_FACTOR;
   y_acc = y_acc_raw * ACCEL_SCALE_FACTOR;
   z_acc = z_acc_raw * ACCEL_SCALE_FACTOR;
@@ -746,8 +705,8 @@ void loop() {
   x_gyr = x_gyr_raw * GYRO_SCALE_FACTOR;
   y_gyr = y_gyr_raw * GYRO_SCALE_FACTOR;
   z_gyr = z_gyr_raw * GYRO_SCALE_FACTOR;
-  
-  // Print accelerometer data (expressed in m/s^2). 
+
+  // Print accelerometer data (expressed in m/s^2).
   Serial.print("x_acc:");
   Serial.print(x_acc);
   Serial.print(",");
@@ -767,7 +726,7 @@ void loop() {
   Serial.print("z_gyr:");
   Serial.println(z_gyr);
 
-  delay(1000);
+  delay(10);
 }
 ```
 
@@ -778,22 +737,18 @@ First, the necessary libraries are included:
 - `NDP.h` and `BMI270_Init.h` for the Nicla Voice board's basic functions and the IMU control.
 - Macros are defined for checking the status of the IMU; these macros allow the sketch to detect and handle sensor errors. 
 
-Next, user functions `ledBlueOn()`, `ledGreenOn()`, and `ledRedBlink()` definition: 
-
-- These functions allow the onboard LEDs to flash specific colors to indicate different states: blue for a successful match, green for an event, and red to indicate an error.
-
 Next, in the `setup()` function:
 
-- The serial communication is initialized at a baud rate of 115200.
+- The serial communication is initialized at a baud rate of `115200`.
 - The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving mode) is disabled to avoid communication problems with the IMU. 
 - Error and event handlers are initialized.
-- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the Machine Learning model (`ei_model.synpkg`). 
+- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), and the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`).
 - The BMI270 sensor is initialized; this includes a software reset, loading the sensor configuration, and setting it into normal power mode with the accelerometer and gyroscope operational. 
 
 Finally, in the `loop()` function:
 
 - Memory is allocated for the sensor data; data is then read from the sensor and stored in this allocated space.
-- Raw sensor data is then parsed and extracted into raw accelerometer and gyroscope data. This data is represented as 16-bit signed integers ranging from -32 768 to 32 767.
+- Raw sensor data is then parsed and extracted into raw accelerometer and gyroscope data. This data is represented as 16-bit signed integers ranging from -32768 to 32767.
 - Raw sensor data is converted into understandable and standard unit measurements; for the accelerometer, data is converted to meters per second squared, and for the gyroscope, data is converted to degrees per second. 
 - Converted accelerometer and gyroscope data are printed on the Serial Monitor, allowing the user to observe sensor data in real-time.
 
@@ -801,36 +756,17 @@ After uploading the example code, you should see accelerometer and gyroscope dat
 
 ![Nicla Voice onboard IMU data on the IDE's Serial Monitor](assets/user-manual-13.png)
 
-Let's use also the Arduino IDE Serial Plotter to test the example IMU sketch; let's start visualizing only accelerometer data. To do so, comment the gyroscope data output as shown below:
+Let's use also the Arduino IDE Serial Plotter to test the example IMU sketch, open the IDE's Serial Plotter by navigating to **Tools > Serial Plotter**. After a while, you should see a real-time graph showing data from the board's onboard accelerometer and gyroscope, as shown below:
 
-```arduino 
-  // Print accelerometer data (expressed in meters per second squared). 
-  Serial.print("x_acc:");
-  Serial.print(x_acc);
-  Serial.print(",");
-  Serial.print("y_acc:");
-  Serial.print(y_acc);
-  Serial.print(",");
-  Serial.print("z_acc:");
-  Serial.println(z_acc);
+![Nicla Voice onboard IMU data on the IDE's Serial Plotter](assets/imu_gyro.gif)
 
-  /* Print gyroscope data (expressed in degrees per second). 
-  Serial.print("x_gyr:");
-  Serial.print(x_gyr);
-  Serial.print(",");
-  Serial.print("y_gyr:");
-  Serial.print(y_gyr);
-  Serial.print(",");
-  Serial.print("z_gyr:");
-  Serial.println(z_gyr); */
-```
+When the board is not moving, you should see acceleration measurements close to zero on the x and y-axis, while the z-axis will be close to 1g (approximately 9.81 m/s<sup>2</sup>), the gyroscope measurements on the three-axis will stay close to zero.
 
-Upload the example sketch again and open the IDE's Serial Plotter by navigating to **Tools > Serial Plotter**. After a while, you should see a real-time graph showing data from the board's onboard accelerometer, as shown below (move the board):
+### Magnetometer
 
+The onboard magnetometer of the Nicla Voice can be used to determine the board's orientation relative to Earth's magnetic field, which is helpful for compass applications, navigation, or detecting the presence of nearby magnetic objects. The magnetometer on the Nicla Voice board is the BMM150, also from Bosch®. It is a 3-axis sensor that measures the strength and direction of magnetic fields surrounding the board.
 
-![Nicla Voice onboard accelerometer data on the IDE's Serial Plotter](assets/user-manual-14.gif)
-
-When the board is not moving, you should see acceleration measurements close to zero on the x and y-axis, while the z-axis will be close to 1g (approximately 9.81 m/s<sup>2</sup>). If you want to visualize gyroscope readings, uncomment the gyroscope data output and comment on the accelerometer data output; when the board is not moving, you should see gyroscope measurements on the three-axis close to zero.
+![Nicla Voice onboard magnetometer](assets/user-manual-12.png)
 
 #### Magnetometer Data
 
