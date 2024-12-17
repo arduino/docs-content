@@ -213,7 +213,7 @@ analogReadResolution(12);  // ADC resolution set to 12 bits (0-4095)
 
 The example code shown below reads the voltage value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor. To understand how to properly connect a potentiometer to the Nicla Voice pins, take the following image as a reference:
 
-![ADC input example wiring](assets/ADC-input.svg)
+![ADC input example wiring](assets/adc-input.svg)
 
 ```arduino
 #include "Nicla_System.h"
