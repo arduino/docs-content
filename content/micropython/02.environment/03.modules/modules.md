@@ -38,7 +38,7 @@ In this example, `time.sleep()` introduces a delay. Built-in modules like `time`
 
 ## External Modules
 
-Some modules aren’t included with the default MicroPython installation and need to be installed separately. External modules, often provided by the community or specific hardware packages, extend MicroPython’s functionality. For example, the [Modulino library]() is an external module that provides tools for working with Arduino Modulinos.
+Some modules aren’t included with the default MicroPython installation and need to be installed separately. External modules, often provided by the community or specific hardware packages, extend MicroPython’s functionality. For example, the [Modulino library](https://github.com/arduino/arduino-modulino-mpy) is an external module that provides tools for working with Arduino Modulinos.
 
 To demonstrate how to use external modules, we’ll go through the steps to install the Modulino package on an Arduino board.
 
@@ -51,7 +51,7 @@ Before we can install external modules, we need to have MicroPython running on o
 - Press the "Refresh" button if the board does not appear.
 - Click "**Install MicroPython**" and wait for the installation to complete.
 
-***For more details, visit the [MicroPython installation guide]()***
+***For more details, visit the [MicroPython installation guide](/micropython/first-steps/install-guide)***
 
 ### Step 2: Install the Modulino Package
 

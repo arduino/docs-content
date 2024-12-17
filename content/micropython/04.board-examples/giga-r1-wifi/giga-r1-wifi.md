@@ -1,7 +1,9 @@
 ---
 title: GIGA R1 WiFi
 description: Learn how to use specific features on the GIGA R1 WiFi using MicroPython
+author: Pedro Sousa Lima
 ---
+
 ![GIGA R1 WiFi](./assets/giga-r1.png)
 
 In this guide, you will find information specific to the [GIGA R1 WiFi board](https://store.arduino.cc/products/giga-r1-wifi), such as supported serial protocols, built-in peripherals, and how to access the wireless features.
@@ -25,16 +27,6 @@ The GIGA R1 WiFi has several board-specific features that we can access through 
 - **RGB LED**: A built-in RGB LED that can be controlled by setting `r`, `g`, and `b` values.
 - **Wireless Connectivity**: Supports both **Wi-Fi®** and **Bluetooth®** using the integrated Murata 1DX module.
 - **High-speed Connectivity**: Includes a USB-C® connector, high-speed UART, and CAN bus support.
-
-
-## Wireless Connectivity
-
-The GIGA R1 WiFi features a Murata 1DX module that provides both **Wi-Fi®** and **Bluetooth®** connectivity. To find examples, please visit the links below:
-
-- **[MicroPython - Bluetooth® documentation]()**
-- **[MicroPython - Wi-Fi® documentation]()**
-
-
 
 ## Dual-Core Programming
 
@@ -60,9 +52,7 @@ def main_task():
 main_task()
 ```
 
-> **Note**: Dual-core programming is an advanced topic and requires proper synchronization to avoid resource conflicts.
-
-
+**Note**: Dual-core programming is an advanced topic and requires proper synchronization to avoid resource conflicts.
 
 ## RGB LED
 
@@ -140,20 +130,21 @@ ch.pulse_width_percent(25)  # 25% duty cycle
 
 The **msgpackrpc** library provides the same functionality as the Arduino RPC library for MicroPython, allowing seamless communication between the two cores (M7 and M4) on the GIGA R1 WiFi. This library enables binding of local functions or objects, starting the M4 core, and invoking remote calls from Python scripts.
 
-#### Key Features:
+### Key Features:
 - **Dual-Core Support**: Execute tasks on the M4 core while the main MicroPython code runs on the M7 core.
 - **Ease of Use**: The library is built-in and enabled by default in compatible Arduino boards, starting with MicroPython release v1.23.
 - **No External Dependencies**: The library is included in the MicroPython firmware and does not require additional installations.
 
 
-#### Restrictions:
+### Restrictions:
+
 While powerful, the **msgpackrpc** library has some limitations:
 1. Arduino sketches can only run on the **M4 core**.
 2. **SDRAM-based firmware** is not supported.
 3. **Flash-based firmware** must use a 1.5MB M7 + 0.5MB M4 flash partitioning scheme.
 
 
-#### Example
+### Example
 
 Here’s how to bind a function on the M7 core and call it from the M4 core:
 
@@ -188,15 +179,6 @@ print(result)  # Outputs: Hello from M7!
 ```
 
 For a detailed explanation of the RPC library, including advanced use cases and configuration, visit the [RPC Library with MicroPython guide](https://docs.arduino.cc/tutorials/giga-r1-wifi/giga-dual-core/#using-the-rpc-library-with-micropython).
-
-
-## Additional Features
-
-The GIGA R1 WiFi includes other features that can be explored:
-
-- **Analog Pins**: Use `ADC` to read analog values from sensors.
-- **PWM**: Use `PWM` for pulse-width modulation to control motors or LEDs.
-
 
 ## Summary
 

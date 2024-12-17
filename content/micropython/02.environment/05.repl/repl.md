@@ -46,8 +46,6 @@ When writing `name` in the REPL, (after `name = "Pedro"`), we should get:
 'Pedro'
 ```
 
-![TODO: GIF showing step by step so people understand to run each individually]()
-
 ## Example: Perform a Calculation in the REPL
 
 Now let's create a REPL session that performs a calculation, by adding two numbers together:
@@ -58,8 +56,6 @@ Now let's create a REPL session that performs a calculation, by adding two numbe
 >>> a + b
 8
 ```
-
-![TODO: GIF showing step by step so people understand to run each individually]()
 
 In this REPL session, we:
 

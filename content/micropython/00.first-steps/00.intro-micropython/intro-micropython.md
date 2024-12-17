@@ -12,7 +12,7 @@ MicroPython is a lightweight implementation of Python 3 designed to run on micro
 
 ![MicroPython with Arduino](assets/micropython-arduino.png)
 
-When using MicroPython on Arduino boards, the software is first installed on your Arduino. This allows the board to interpret and run Python code. Once MicroPython is installed on your board (don't worry, we'll cover this [here]()), you can start writing and executing Python scripts instantly.
+When using MicroPython on Arduino boards, the software is first installed on your Arduino. This allows the board to interpret and run Python code. Once MicroPython is installed on your board (don't worry, we'll cover this [here](/micropython/first-steps/install-guide)), you can start writing and executing Python scripts instantly.
 
 Unlike traditional development approaches, where you compile code and then flash it to the board, with MicroPython you write Python scripts and run them instantly on your Arduino. This makes the development process much faster and more interactive. 
 
@@ -38,7 +38,7 @@ The MicroPython installation includes several key components:
 
 ## How to Program for MicroPython
 
-Programming in MicroPython involves writing Python scripts in a text editor and then running them on your board. For this, we can use the [Arduino Lab for MicroPython]().
+Programming in MicroPython involves writing Python scripts in a text editor and then running them on your board. For this, we can use the [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython).
 
 When writing MicroPython code, it's essential to think in terms of **modularity**. A good practice is to break down your code into smaller, reusable modules rather than writing everything in one large file. This approach makes it easier to manage and maintain code, especially for larger projects.
 

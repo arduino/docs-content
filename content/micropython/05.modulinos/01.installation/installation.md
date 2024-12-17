@@ -36,7 +36,7 @@ To follow this tutorial, we will need to install MicroPython on our Arduino boar
 
 ![MicroPython Installer](./assets/microPythonInstaller.png)
 
-***More details on installing MicroPython on our board are available in the [MicroPython Installation guide]().***
+***More details on installing MicroPython on our board are available in the [MicroPython installation guide](/micropython/first-steps/install-guide).***
 
 ## Install Modulino Package
 

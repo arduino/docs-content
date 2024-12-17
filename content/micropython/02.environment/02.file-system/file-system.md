@@ -73,7 +73,7 @@ This runs from main.py # executed from main.py
 This runs from my_new_script #executed from my_new_script
 ```
 
-Essentially, this is how [modules]() work. You import a module, and use a function from that module.
+Essentially, this is how [modules](/micropython/environment/modules) work. You import a module, and use a function from that module.
 
 ![Import code from a script.](assets/ImportScript.png)
 

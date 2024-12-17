@@ -113,6 +113,6 @@ By following these steps, you should be able to successfully install MicroPython
 ### Next Steps
 
 This tutorial is **Part Two** of the **"First Steps"** series. We recommend you following the next tutorial that will allow you to control the Arduino board's LED.
-- [First Steps - Part Three]()
+- [First Steps - My First Script](/micropython/first-steps/first-script)
  
 
