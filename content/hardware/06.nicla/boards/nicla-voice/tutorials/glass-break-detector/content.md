@@ -46,6 +46,12 @@ At the end of the application note, you will have all resources and details for 
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 - 3.7 V LiPo battery (Optional)
 
+For [expanded Glass Breaking detector section](#expanding-glass-breaking-detector), it requires:
+
+- [Portenta H7](https://store.arduino.cc/portenta-h7)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
+- Wi-Fi® Access Point (x1)
+
 ### Software Requirements
 
 - [Arduino Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/)
@@ -62,6 +68,7 @@ Complete example code and Edge Impulse project:
 - [Glass-breaking detection model](https://mltools.arduino.cc/public/210541/latest)
 - [Base glass-breaking detector example](assets/glass-break-detector.zip)
 - [Extended glass-breaking detector with Arduino Cloud](assets/glass-break-detection-building.zip)
+
 Dataset resources:
 
 - Pre-recorded glass-breaking sound samples (or access to the [**DCASE**](http://dcase.community/challenge2017/task-rare-sound-event-detection-results) dataset).  
