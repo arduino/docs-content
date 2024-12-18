@@ -52,26 +52,26 @@ To run code from a separate script in our `main.py` file, we can follow the inst
 
 1. Create a file named `my_new_script.py`, and add the following function:
 
-```python
-def test():
- print("This runs from my_new_script.py")
-```
+    ```python
+    def test():
+     print("This runs from my_new_script.py")
+    ```
 
 2. In `main.py`, we run some initial code and then switches to executing a function from `my_new_script.py`. Here's an example:
     
-```python
-import my_new_script
-print("This runs from main.py")
+    ```python
+    import my_new_script
+    print("This runs from main.py")
 
-my_new_script.test()
-```
+    my_new_script.test()
+    ```
 
 3. Check the REPL, we should see:
 
-```bash
-This runs from main.py # executed from main.py
-This runs from my_new_script #executed from my_new_script
-```
+    ```bash
+    This runs from main.py # executed from main.py
+    This runs from my_new_script #executed from my_new_script
+    ```
 
 Essentially, this is how [modules](/micropython/environment/modules) work. You import a module, and use a function from that module.
 

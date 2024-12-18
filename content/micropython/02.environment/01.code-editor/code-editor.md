@@ -28,11 +28,11 @@ As we get familiar with the editor, remember that MicroPython has a few syntax r
 
 The Arduino Lab for MicroPython editor provides several essential tools to make coding intuitive and efficient:
 
-1.**Connect/Disconnect Board**: Use this button to connect or disconnect your MicroPython-compatible board. This allows the code editor to communicate with your board for running and testing code.
-2.**Run/Stop Script**: Click this button to run or stop your script. The output will be displayed in the REPL, providing immediate feedback or error messages.
-3.**File Management**: This option lets you manage files on your MicroPython board. You can upload, download, and organize your scripts.
-4.**Edit Script**: The main area of the editor where you write and modify your MicroPython code. It provides features like syntax highlighting to enhance readability.
-5.**Expand Terminal**: Use this button to expand or collapse the terminal section, which displays the REPL output, helping you debug and interact with your code in real time.
+1. **Connect/Disconnect Board**: Use this button to connect or disconnect your MicroPython-compatible board. This allows the code editor to communicate with your board for running and testing code.
+2. **Run/Stop Script**: Click this button to run or stop your script. The output will be displayed in the REPL, providing immediate feedback or error messages.
+3. **File Management**: This option lets you manage files on your MicroPython board. You can upload, download, and organize your scripts.
+4. **Edit Script**: The main area of the editor where you write and modify your MicroPython code. It provides features like syntax highlighting to enhance readability.
+5. **Expand Terminal**: Use this button to expand or collapse the terminal section, which displays the REPL output, helping you debug and interact with your code in real time.
 
 ![Overview of the code editor.](assets/IDEOverview.png)
 
@@ -51,10 +51,10 @@ Managing files in the Arduino Lab for MicroPython is straightforward and allows 
 
 ### REPL
 
-The REPL can be found by expanding the terminal. Here you can interact with the terminal. The buttons allow for basic features like copy and pasting as the shortcuts like ```CTRL+C will´´´ not work on this window.
+The REPL can be found by expanding the terminal. Here you can interact with the terminal. The buttons allow for basic features like copy and pasting as the shortcuts like `CTRL+C will` not work on this window.
 
 ![The REPL.](assets/consoleTerminal.png)
-***For a detailed tutorial on using the file system, please refer to the [File System Tutorial](/micropython/environment/file-system).***
+***For a detailed tutorial on using the REPL, please refer to the [REPL Tutorial](/micropython/environment/repl).***
 
 ## Code Editor
 

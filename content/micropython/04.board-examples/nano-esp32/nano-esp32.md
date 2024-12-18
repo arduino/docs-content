@@ -99,8 +99,6 @@ data = uart.read()
 print("Received:", data)
 ```
 
-***Read more about UART in [this article](/micropython/communication/uart).***
-
 ### SPI
 
 SPI communication is also supported on the Nano ESP32, which is useful for high-speed data transfer with peripherals:
@@ -113,8 +111,6 @@ spi = SPI(1, baudrate=1000000, polarity=0, phase=0, sck=Pin(18), mosi=Pin(23), m
 
 print("SPI initialized")
 ```
-
-***Read more about SPI in [this article](/micropython/communication/spi).***
 
 ## Additional Features
 

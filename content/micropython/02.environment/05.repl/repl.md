@@ -11,6 +11,8 @@ In this guide, we’ll go through how the REPL functions, why it’s useful, and
 
 ## What is REPL?
 
+![REPL.](assets/replcover.png)
+
 The REPL process involves four basic steps:
 
 - **R - ead**: Reads and accepts your code input line-by-line.
@@ -45,6 +47,8 @@ When writing `name` in the REPL, (after `name = "Pedro"`), we should get:
 ```
 'Pedro'
 ```
+
+![How the REPL works.](assets/replgif.gif)
 
 ## Example: Perform a Calculation in the REPL
 
