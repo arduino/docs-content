@@ -4,7 +4,7 @@ url_shop: https://store.arduino.cc/products/plug-and-make-kit
 url_guide: https://courses.arduino.cc/plugandmake
 primary_button_url: https://courses.arduino.cc/plugandmake
 primary_button_title: Get Started
-certifications: [CE, UKCA]
+certifications: [CE, UKCA, FCC, RoHS]
 sku: [AKX00069]
 ---
 
