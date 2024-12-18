@@ -186,8 +186,6 @@ data = uart.read()
 print("Received:", data)
 ```
 
-***Read more about SPI in [this article](/micropython/communication/spi).***
-
 ### SPI
 
 The Nano RP2040 Connect supports **SPI** through the following pins:
@@ -206,5 +204,3 @@ spi = SPI(1, baudrate=1000000, polarity=0, phase=0, sck=Pin(18), mosi=Pin(23), m
 
 print("SPI initialized")
 ```
-
-***Read more about UART in [this article](/micropython/communication/uart).***

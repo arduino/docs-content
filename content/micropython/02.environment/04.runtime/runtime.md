@@ -32,12 +32,13 @@ MicroPython's runtime environment consists of several key components:
 1. **REPL (Read-Eval-Print Loop)**: One of the standout features of MicroPython's runtime is the REPL. The REPL is an interactive shell where we can type and execute Python code line by line, get immediate feedback, and test ideas quickly. It’s especially useful for debugging and learning how the hardware responds to different commands.
 
 2. **Boot and Main Scripts**: When the microcontroller starts up, the MicroPython runtime automatically looks for two scripts:
+   
    - **`boot.py`**: This script is executed first and is typically used for system configuration, such as setting up Wi-Fi or initializing hardware settings.
    - **`main.py`**: After `boot.py` runs, `main.py` is executed. This is where we typically put our main application logic.
 
 3. **Concurrency with `uasyncio`**: MicroPython provides support for asynchronous programming using the `uasyncio` module. This allows us to handle multiple tasks concurrently, such as reading a sensor while controlling an LED, without blocking the main program.
 
-### Micro vs Python
+### MicroPython vs Python
 
 While MicroPython aims to be as compatible as possible with standard Python, there are some important differences due to the limited resources available on microcontrollers:
 

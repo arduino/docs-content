@@ -28,10 +28,8 @@ The Nano BLE Sense has a number of board-specific features that can be accessed 
 - **Microphone (MP34DT05)** - a microphone for recording audio samples.
 - **Gesture Sensor (APDS9960)** - measure ambient light and proximity.
 - **Pressure Sensor (LPS22)** - measure air pressure for weather applications.
-- **Temperature and Humidity (HTS221 & HS3003)** - record temperature and relative humidity.
-- **IMU (LSM9DS1, BMI270 + BMM150)** - read gyroscope and accelerometer data.
-
-***Note that there are multiple revisions of the Nano BLE Sense (Rev1 and Rev2), where different sensors are used.***
+- **Temperature and Humidity - HTS221 (Rev1), HS3003 (Rev2)** - record temperature and relative humidity.
+- **IMU - LSM9DS1 (Rev1), BMI270 + BMM150 (Rev2)** - read gyroscope and accelerometer data.
 
 ## RGB LED
 
@@ -315,8 +313,6 @@ data = uart.read()
 print("Received:", data)
 ```
 
-***Read more about SPI in [this article](/micropython/communication/spi).***
-
 ### SPI
 
 The Nano BLE Sense supports **SPI** through the following pins:
@@ -335,5 +331,3 @@ spi = SPI(1, baudrate=1000000, polarity=0, phase=0, sck=Pin(18), mosi=Pin(23), m
 
 print("SPI initialized")
 ```
-
-***Read more about UART in [this article](/micropython/communication/uart).***
