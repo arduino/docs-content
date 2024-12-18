@@ -7,7 +7,7 @@ tags:
   - Serial Monitor
 libraries:
   - name: SPI Library
-    url: https://www.arduino.cc/en/reference/SPI
+    url: https://reference.arduino.cc/reference/en/language/functions/communication/spi/
   - name: WiFi101 Library
     url: https://www.arduino.cc/en/Reference/WiFi101
   - name: WiFiNINA Library
@@ -43,7 +43,7 @@ With this tutorial you will use the Real Time Clock (RTC) alarm function and int
 - Arduino MKR1000 WiFi or Arduino MKR WiFi 1010, MKR Vidor 4000 [Link to store](https://store.arduino.cc/)
 - Wi-Fi access to the Internet
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
-- [SPI Library](https://www.arduino.cc/en/reference/SPI)
+- [SPI Library](https://reference.arduino.cc/reference/en/language/functions/communication/spi/)
 - [WiFi101 Library](https://www.arduino.cc/en/Reference/WiFi101)
 - [WiFiNINA Library](https://www.arduino.cc/en/Reference/WiFiNINA) (For MKR WiFi 1010 or MKR VIDOR 4000)
 - [RTCZero Library](https://www.arduino.cc/reference/en/libraries/rtczero/)

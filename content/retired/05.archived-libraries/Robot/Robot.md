@@ -37,7 +37,7 @@ For more information about the Robot, visit the getting started guide and the ha
 
 ## Library structure
 
-This library enables easy access to the functionality of the Arduino Robot. It relies on a number of 3rd party libraries including Fat16, [EasyTransfer](https://github.com/madsci1016/Arduino-EasyTransfer), [Squawk](https://github.com/stg/Squawk), and [IRRemote](https://github.com/Arduino-IRremote/Arduino-IRremote). It also relies on a number of Arduino libraries like [TFT](https://www.arduino.cc/en/Reference/TFTLibrary), [SPI](https://www.arduino.cc/en/Reference/SPI), and [Wire](https://www.arduino.cc/en/reference/wire). Their functionality has been replicated inside the robot's library to optimize the code's size.
+This library enables easy access to the functionality of the Arduino Robot. It relies on a number of 3rd party libraries including Fat16, [EasyTransfer](https://github.com/madsci1016/Arduino-EasyTransfer), [Squawk](https://github.com/stg/Squawk), and [IRRemote](https://github.com/Arduino-IRremote/Arduino-IRremote). It also relies on a number of Arduino libraries like [TFT](https://www.arduino.cc/en/Reference/TFTLibrary), [SPI](https://reference.arduino.cc/reference/en/language/functions/communication/spi/), and [Wire](https://www.arduino.cc/en/reference/wire). Their functionality has been replicated inside the robot's library to optimize the code's size.
 
 It is possible to program both the Control and the Motor boards. However, it is recommended that novice programmers begin with programming the control board, leaving the motor board for later. The library exposes the sensors on both boards through a single object.
 

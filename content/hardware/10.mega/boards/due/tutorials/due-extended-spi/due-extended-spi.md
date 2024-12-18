@@ -14,7 +14,7 @@ author: "Arduino"
 ---
 
 
-> These APIs should not be used in new projects. Use [SPISettings](https://www.arduino.cc/en/Reference/SPISettings) with [SPI.beginTransaction()](https://www.arduino.cc/en/Tutorial/SPITransaction) to configure SPI parameters.
+> These APIs should not be used in new projects. Use [SPISettings](https://reference.arduino.cc/reference/en/language/functions/communication/spi/Settings) with [SPI.beginTransaction()](https://www.arduino.cc/en/Tutorial/SPITransaction) to configure SPI parameters.
 
 On the Arduino Due, the SAM3X has advanced SPI capabilities. It is possible to use these extended methods, or the AVR-based ones.
 
@@ -84,6 +84,6 @@ byte response2 = SPI.transfer(10, 0×00);
 
 The parameter SPI_CONTINUE ensures that chip selection is keep active between transfers. On the last transfer SPI_CONTINUE is not specified as it's the last byte transferred.
 
-See the individual reference pages for [setClockDivider()](https://www.arduino.cc/en/Reference/SPISetClockDivider), [setDataMode()](https://www.arduino.cc/en/Reference/SPISetDataMode), [transfer()](https://www.arduino.cc/en/Reference/SPITransfer), [setBitOrder()](https://www.arduino.cc/en/Reference/SPISetBitOrder) for proper syntax when using the extended methods.
+See the individual reference pages for [setClockDivider()](https://reference.arduino.cc/reference/en/language/functions/communication/spi/SetClockDivider), [setDataMode()](https://reference.arduino.cc/reference/en/language/functions/communication/spi/SetDataMode), [transfer()](https://reference.arduino.cc/reference/en/language/functions/communication/spi/Transfer), [setBitOrder()](https://reference.arduino.cc/reference/en/language/functions/communication/spi/SetBitOrder) for proper syntax when using the extended methods.
 
 >NB : once SPI.begin() is called, the declared pin will not be available as a general purpose I/O pin.

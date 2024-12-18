@@ -12,7 +12,7 @@ libraries:
   - name: Arduino WifiNINA
     url: https://www.arduino.cc/en/Reference/WiFiNINA
   - name: Arduino SPI
-    url: https://www.arduino.cc/en/reference/SPI
+    url: https://reference.arduino.cc/reference/en/language/functions/communication/spi/
 hardware:
   - hardware/03.nano/boards/nano-rp2040-connect
 software:
