@@ -8,7 +8,7 @@ tags:
   - Cheat sheet
   - RGB
   - Communication
-author: 'José Bagur and Benjamin Dannegård'
+author: 'José Bagur, Benjamin Dannegård and Christopher Méndez'
 hardware:
   - hardware/06.nicla/boards/nicla-voice
 software:
@@ -762,6 +762,108 @@ Let's use also the Arduino IDE Serial Plotter to test the example IMU sketch, op
 
 When the board is not moving, you should see acceleration measurements close to zero on the x and y-axis, while the z-axis will be close to 1g (approximately 9.81 m/s<sup>2</sup>), the gyroscope measurements on the three-axis will stay close to zero.
 
+#### IMU and Machine Learning
+
+The example code below demonstrates how to use the Nicla Voice board to perform Machine Learning inference on IMU data. The code sets up event indicators using the onboard RGB LED and sends IMU data to the NDP processor for inference. The example can be found in the board's built-in examples by navigating to **File > Examples > NDP > IMUDemo**.
+
+
+```arduino
+#include "NDP.h"
+
+// Set to 'true' for the lowest power consumption mode, 'false' otherwise
+const bool lowestPower = false;
+
+// Function to turn on the blue LED and print a label to the serial monitor if not in the lowest power mode
+void ledBlueOn(char* label) {
+  nicla::leds.begin();
+  nicla::leds.setColor(blue);
+  delay(200);
+  nicla::leds.setColor(off);
+  if (!lowestPower) {
+    Serial.println(label);
+  }
+  nicla::leds.end();
+}
+
+// Function to turn on the green LED briefly
+void ledGreenOn() {
+  nicla::leds.begin();
+  nicla::leds.setColor(green);
+  delay(200);
+  nicla::leds.setColor(off);
+  nicla::leds.end();
+}
+
+// Function to make the red LED blink continuously
+void ledRedBlink() {
+  while (1) {
+    nicla::leds.begin();
+    nicla::leds.setColor(red);
+    delay(200);
+    nicla::leds.setColor(off);
+    delay(200);
+    nicla::leds.end();
+  }
+}
+
+void setup() {
+  Serial.begin(115200);
+  nicla::begin();
+  nicla::disableLDO();
+  nicla::leds.begin();
+
+  // Register event handlers for error, match, and event
+  NDP.onError(ledRedBlink);
+  NDP.onMatch(ledBlueOn);
+  NDP.onEvent(ledGreenOn);
+
+  // Load Edge Impulse model and related firmware
+  Serial.println("Loading synpackages");
+  NDP.begin("mcu_fw_120_v91.synpkg");
+  NDP.load("dsp_firmware_v91.synpkg");
+  NDP.load("ei_model_imu.synpkg");
+  Serial.println("packages loaded");
+
+  NDP.getInfo();
+  NDP.configureInferenceThreshold(1088);
+  NDP.interrupts();
+
+  // Enter the lowest power mode, if set
+  nicla::leds.end();
+  if (lowestPower) {
+    NRF_UART0->ENABLE = 0;
+  }
+}
+
+// Predefined IMU data for testing
+extern "C" const unsigned char data_opensset_bin[];
+extern "C" const unsigned char data_circ_bin[];
+extern "C" const unsigned int data_opensset_bin_len;
+extern "C" const unsigned int data_circ_bin_len;
+
+void loop() {
+  // Send openset data (no match expected)
+  Serial.println("Sending openset data... (no match expected)");
+  NDP.sendData((uint8_t*)data_opensset_bin, data_opensset_bin_len);
+  delay(1000);
+
+  // Send circular IMU data (match expected)
+  Serial.println("Sending circular IMU data.... (match expected)");
+  NDP.sendData((uint8_t*)data_circ_bin, data_circ_bin_len);
+  delay(5000);
+}
+```
+
+In the example code above, a Machine Learning model is loaded into the Nicla Voice board, and predefined IMU data is sent to the Machine Learning model for inferencing. Depending on the result, the board will light its built-in RGB LED with different colors:
+
+- If the model matches the input data with a known motion pattern, the built-in RGB LED is turned blue, and the event label is printed to the IDE's Serial Monitor.
+- If an error occurs, the built-in RGB LED will blink red continuously. 
+- While an event is recognized, the built-in RGB LED is turned on green.
+
+To learn more about your Nicla Voice board Machine Learning capabilities, check out the following tutorial and learn how to create a simple motion detection application: 
+
+- [Motion Detection with Nicla Voice and Machine Learning Tools](https://docs.arduino.cc/tutorials/nicla-voice/motion-detection-ml)
+
 ### Magnetometer
 
 The onboard magnetometer of the Nicla Voice can be used to determine the board's orientation relative to Earth's magnetic field, which is helpful for compass applications, navigation, or detecting the presence of nearby magnetic objects. The magnetometer on the Nicla Voice board is the BMM150, also from Bosch®. It is a 3-axis sensor that measures the strength and direction of magnetic fields surrounding the board.
@@ -961,108 +1063,6 @@ Now open the IDE's Serial Plotter by navigating to **Tools > Serial Plotter**. A
 
 ![Nicla Voice onboard raw magnetometer data on the IDE's Serial Plotter](assets/user-manual-16.gif)
 
-#### IMU and Machine Learning
-
-The example code below demonstrates how to use the Nicla Voice board to perform Machine Learning inference on IMU data. The code sets up event indicators using the onboard RGB LED and sends IMU data to the NDP processor for inference. The example can be found in the board's built-in examples by navigating to **File > Examples > NDP > IMUDemo**.
-
-
-```arduino
-#include "NDP.h"
-
-// Set to 'true' for the lowest power consumption mode, 'false' otherwise
-const bool lowestPower = false;
-
-// Function to turn on the blue LED and print a label to the serial monitor if not in the lowest power mode
-void ledBlueOn(char* label) {
-  nicla::leds.begin();
-  nicla::leds.setColor(blue);
-  delay(200);
-  nicla::leds.setColor(off);
-  if (!lowestPower) {
-    Serial.println(label);
-  }
-  nicla::leds.end();
-}
-
-// Function to turn on the green LED briefly
-void ledGreenOn() {
-  nicla::leds.begin();
-  nicla::leds.setColor(green);
-  delay(200);
-  nicla::leds.setColor(off);
-  nicla::leds.end();
-}
-
-// Function to make the red LED blink continuously
-void ledRedBlink() {
-  while (1) {
-    nicla::leds.begin();
-    nicla::leds.setColor(red);
-    delay(200);
-    nicla::leds.setColor(off);
-    delay(200);
-    nicla::leds.end();
-  }
-}
-
-void setup() {
-  Serial.begin(115200);
-  nicla::begin();
-  nicla::disableLDO();
-  nicla::leds.begin();
-
-  // Register event handlers for error, match, and event
-  NDP.onError(ledRedBlink);
-  NDP.onMatch(ledBlueOn);
-  NDP.onEvent(ledGreenOn);
-
-  // Load Edge Impulse model and related firmware
-  Serial.println("Loading synpackages");
-  NDP.begin("mcu_fw_120_v91.synpkg");
-  NDP.load("dsp_firmware_v91.synpkg");
-  NDP.load("ei_model_imu.synpkg");
-  Serial.println("packages loaded");
-
-  NDP.getInfo();
-  NDP.configureInferenceThreshold(1088);
-  NDP.interrupts();
-
-  // Enter the lowest power mode, if set
-  nicla::leds.end();
-  if (lowestPower) {
-    NRF_UART0->ENABLE = 0;
-  }
-}
-
-// Predefined IMU data for testing
-extern "C" const unsigned char data_opensset_bin[];
-extern "C" const unsigned char data_circ_bin[];
-extern "C" const unsigned int data_opensset_bin_len;
-extern "C" const unsigned int data_circ_bin_len;
-
-void loop() {
-  // Send openset data (no match expected)
-  Serial.println("Sending openset data... (no match expected)");
-  NDP.sendData((uint8_t*)data_opensset_bin, data_opensset_bin_len);
-  delay(1000);
-
-  // Send circular IMU data (match expected)
-  Serial.println("Sending circular IMU data.... (match expected)");
-  NDP.sendData((uint8_t*)data_circ_bin, data_circ_bin_len);
-  delay(5000);
-}
-```
-
-In the example code above, a Machine Learning model is loaded into the Nicla Voice board, and predefined IMU data is sent to the Machine Learning model for inferencing. Depending on the result, the board will light its built-in RGB LED with different colors:
-
-- If the model matches the input data with a known motion pattern, the built-in RGB LED is turned blue, and the event label is printed to the IDE's Serial Monitor.
-- If an error occurs, the built-in RGB LED will blink red continuously. 
-- While an event is recognized, the built-in RGB LED is turned on green.
-
-To learn more about your Nicla Voice board Machine Learning capabilities, check out the following tutorial and learn how to create a simple motion detection application: 
-
-- [Motion Detection with Nicla Voice and Machine Learning Tools](https://docs.arduino.cc/tutorials/nicla-voice/motion-detection-ml)
-
 ## Actuators
 
 ### RGB LED
@@ -1213,9 +1213,9 @@ digitalWrite(SS, HIGH);
 The Nicla Voice supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. The pins used in the Nicla Voice for the I2C communication protocol are the following:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
-|:-----------------------:|:-----------------------:|
-|         `P0_23`         |       `SCL` or `3`      |
-|         `P0_22`         |       `SDA` or `4`      |
+| :---------------------: | :---------------------: |
+|         `P0_23`         |    `I2C_SCL` or `3`     |
+|         `P0_22`         |    `I2C_SDA` or `4`     |
 
 Please, refer to the [board pinout section](#pins) of the user manual to find them on the board. The I2C pins are also available through the onboard ESLOV connector of the Nicla Voice.
 
@@ -1280,9 +1280,9 @@ while (Wire.available()) {
 The pins used in the Nicla Voice for the UART communication protocol are the following:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
-|:-----------------------:|:-----------------------:|
-|         `P0_09`         |       `TX` or `1`       |
-|         `P0_20`         |       `RX` or `2`       |
+| :---------------------: | :---------------------: |
+|         `P0_09`         |   `SERIAL1_TX` or `1`   |
+|         `P0_20`         |   `SERIAL1_RX` or `2`   |
 
 Please, refer to the [board pinout section](#board-pinout) of the user manual to find them on the board.
 
