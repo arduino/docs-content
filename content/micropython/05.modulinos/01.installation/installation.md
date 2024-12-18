@@ -42,13 +42,9 @@ To follow this tutorial, we will need to install MicroPython on our Arduino boar
 
 To program Modulinos using MicroPython we must first install the Modulino package. It's where all the code, necessary to interact with the Modulinos is being stored.
 
-There are two ways of installing a package:
-- Through a terminal
-- 
-
 ### Terminal Installation
 
-The easiest way of installing it is using `mpremote`. Currently, we will need a version of Python installed on our computer.
+To install a module, we can use `mpremote`. Currently, we will need a version of Python installed on our computer.
 
 1. Open a terminal, and write the following line:
    ```bash
@@ -65,9 +61,9 @@ The easiest way of installing it is using `mpremote`. Currently, we will need a 
    ```bash
    /dev/cu.usbmodem101 ecda3b60a4dccb3f 2341:056b Arduino Nano ESP32
    ```
-   - The port here is `/dev/cu.usbmodem101`. Copy this.
+   The port here is `/dev/cu.usbmodem101`. Copy this.
 
-3. Now, run the following the command. Make sure to replace `<PORT>` with the port of our device obtained in the previous step.
+1. Now, run the following the command. Make sure to replace `<PORT>` with the port of our device obtained in the previous step.
     ```bash
     mpremote connect <PORT> mip install github:arduino/arduino-modulino-mpy
     ```
@@ -75,7 +71,7 @@ The easiest way of installing it is using `mpremote`. Currently, we will need a 
     Upon completion, we should see something like this in the terminal, to verify the success of the installation:
     ![Successful installation.](assets/package-installed.png)
 
-4. Great job. We have now installed the Modulino package on our board!
+2. Great job. We have now installed the Modulino package on our board!
 
 **Troubleshooting:**
 - Make sure your board is connected to your computer.

@@ -18,7 +18,7 @@ In this tutorial, we will take a look at how we can access it, and test it out b
 
 ## Setting Up
 
-***To follow these steps, you will need to have MicroPython installed on your board. Haven't done this yet? Don't worry, check out the [Installing MicroPython](/micropython/environment/code-editor) guide.***
+***To follow these steps, you will need to have MicroPython installed on your board. Haven't done this yet? Don't worry, check out the [Installing MicroPython](/micropython/first-steps/install-guide) guide.***
 
 Setting up the online environment is quick and easy. Follow the steps below to achieve it:
 
