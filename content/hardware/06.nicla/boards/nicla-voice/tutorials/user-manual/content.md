@@ -875,46 +875,12 @@ The onboard magnetometer of the Nicla Voice can be used to determine the board's
 The example code below shows how to get raw magnetic field and Hall resistance data from the onboard magnetometer and stream it to the Arduino IDE Serial Monitor and Serial Plotter. You can download the example sketch [here](assets/nv_mag_test.rar).
 
 ```arduino
-/**
-  Nicla Voice magnetometer test sketch
-  Name: nv_mag_test.ino
-  Purpose: Sketch tests onboard magnetometer (BMM150)
-
-  @author Arduino PRO Content Team
-  @version 1.0 30/05/23
-*/
-
 #include "NDP.h"
 
 // Named constants
-#define READ_START_ADDRESS  0x42
-#define READ_BYTE_COUNT     8
-#define SENSOR_DATA_LENGTH  16
-
-/**
-  Turns on and off the onboard blue LED.
-  
-  @param label to be printed on the Serial Monitor.
-*/
-void ledBlueOn(char* label) {
-  nicla::leds.begin();
-  nicla::leds.setColor(blue);
-  delay(200);
-  nicla::leds.setColor(off);
-  Serial.println(label);
-  nicla::leds.end();
-}
-
-/**
-  Turns on and off the onboard green LED.
-*/
-void ledGreenOn() {
-  nicla::leds.begin();
-  nicla::leds.setColor(green);
-  delay(200);
-  nicla::leds.setColor(off);
-  nicla::leds.end();
-}
+#define READ_START_ADDRESS 0x42
+#define READ_BYTE_COUNT 8
+#define SENSOR_DATA_LENGTH 16
 
 /**
   Blinks onboard red LED periodically every 200 ms.
@@ -931,19 +897,21 @@ void ledRedBlink() {
 }
 
 // Macro definition used for checking the sensor status, print error if SPI access fails.
-#define CHECK_STATUS(s) do {\
-    if (s) {\
-        Serial.print("SPI access error in line ");\
-        Serial.println(__LINE__);\
-        for(;;);\
-    }\
-} while (0)
+#define CHECK_STATUS(s) \
+  do { \
+    if (s) { \
+      Serial.print("SPI access error in line "); \
+      Serial.println(__LINE__); \
+      for (;;) \
+        ; \
+    } \
+  } while (0)
 
 void setup() {
   int status;
   uint8_t __attribute__((aligned(4))) sensor_data[SENSOR_DATA_LENGTH];
 
-  // Initiate Serial communication for debugging and monitoring. 
+  // Initiate Serial communication for debugging and monitoring.
   Serial.begin(115200);
 
   // Initialize Nicla Voice board's system functions.
@@ -955,17 +923,13 @@ void setup() {
 
   // Set up error and event handlers:
   // - In case of error, the red LED will blink.
-  // - In case of match, the blue LED will turn on.
-  // - In case of any event, the green LED will turn on.
+
   NDP.onError(ledRedBlink);
-  NDP.onMatch(ledBlueOn);
-  NDP.onEvent(ledGreenOn);
 
   // NDP processor initialization with firmwares and models.
   Serial.println("- NDP processor initialization...");
   NDP.begin("mcu_fw_120_v91.synpkg");
   NDP.load("dsp_firmware_v91.synpkg");
-  NDP.load("ei_model.synpkg");
   Serial.println("- NDP processor initialization done!");
 
   // Enable power control bit
@@ -973,7 +937,7 @@ void setup() {
   CHECK_STATUS(status);
   delay(20);
 
-  // Read power control byte 
+  // Read power control byte
   status = NDP.sensorBMM150Read(0x4B, 1, sensor_data);
   CHECK_STATUS(status);
 
@@ -988,10 +952,10 @@ void setup() {
 
 void loop() {
   // Allocate space for raw sensor data.
-  uint8_t __attribute__((aligned(4)))  sensor_data[SENSOR_DATA_LENGTH];
+  uint8_t __attribute__((aligned(4))) sensor_data[SENSOR_DATA_LENGTH];
 
   // Declare variables for magnetometer data.
-  int16_t x_mag_raw, y_mag_raw, z_mag_raw, hall_raw ;
+  int16_t x_mag_raw, y_mag_raw, z_mag_raw, hall_raw;
   float x_mag, y_mag, z_mag;
 
   // Read operation status variable.
@@ -1008,6 +972,7 @@ void loop() {
   // The sensor data is read into an array of bytes (8-bit values). Each measurement from the magnetometer consists
   // of two bytes, hence the bit shifting and bitwise OR operations to combine these two bytes into one 16-bit value.
   // Data for each axis (X, Y, Z) of the magnetometer is extracted from the array.
+
   x_mag_raw = (0x0000 | sensor_data[0] >> 3 | sensor_data[1] << 5);
   y_mag_raw = (0x0000 | sensor_data[2] >> 3 | sensor_data[3] << 5);
   z_mag_raw = (0x0000 | sensor_data[4] >> 1 | sensor_data[5] << 7);
@@ -1026,7 +991,7 @@ void loop() {
   Serial.print("hall_raw:");
   Serial.println(hall_raw);
 
-  delay(1000);
+  delay(100);
 }
 ```
 
