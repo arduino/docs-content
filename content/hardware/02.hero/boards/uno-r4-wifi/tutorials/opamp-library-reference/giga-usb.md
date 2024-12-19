@@ -2,12 +2,6 @@
 title: OPAMP Library API Documentation
 description: 'Learn how to use the on-board OPAMP on the Arduino R4 boards.'
 author: Pedro Sousa Lima
-hardware:
-  - hardware/10.mega/boards/giga-r1-wifi
-software:
-  - ide-v1
-  - ide-v2
-  - web-editor
 tags: [AMPOP, OPAMP]
 ---
 
@@ -29,7 +23,7 @@ Initializes the default op-amp channel. You can specify the speed mode as either
 
 #### Parameters
 
-- `speed` (optional): The speed mode of the op-amp. Options are:
+  `speed` (optional): The speed mode of the op-amp. Options are:
   - `OPAMP_SPEED_LOWSPEED`
   - `OPAMP_SPEED_HIGHSPEED` (default)
 
