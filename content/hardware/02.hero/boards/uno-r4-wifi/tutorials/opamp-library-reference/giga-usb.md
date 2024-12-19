@@ -13,15 +13,8 @@ tags: [AMPOP, OPAMP]
 
 ## Overview
 
-The OPAMP library provides an interface to initialize and manage operational amplifiers (op-amps) on supported Arduino boards. This documentation details the public functions available for user interaction.
-
-## Accessing the Library
-
-The library provides an instance of the `OpampClass`, which represents the operational amplifier controller:
-```cpp
-OpampClass OPAMP;
-```
-This instance is used to call the library's methods.
+The OPAMP library allows control over the on-board OP AMP encontered on Arduino R4 boards.
+More information on implementation can be found [here](https://docs.arduino.cc/tutorials/uno-r4-wifi/opamp/).
 
 ## Supported Boards
 
