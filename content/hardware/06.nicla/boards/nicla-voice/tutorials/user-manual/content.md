@@ -555,7 +555,9 @@ Then, you can open the file with a software like [Audacity](https://www.audacity
 
 You can use the Nicla Voice and the [Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/) of the Arduino Cloud to create your own audio analysis Machine Learning models. Check out this [tutorial](https://docs.arduino.cc/tutorials/nicla-voice/getting-started-ml) and start with Machine Learning with the Nicla Voice. 
 
-You can learn more about the Nicla Voice integration with Edge Impulse [here](https://docs.edgeimpulse.com/docs/edge-ai-hardware/mcu-+-ai-accelerators/arduino-nicla-voice).
+![Edge Impulse Studio for ML and AI](assets/edge-impulse.png)
+
+Learn more about the Nicla Voice integration with Edge Impulse [here](https://docs.edgeimpulse.com/docs/edge-ai-hardware/mcu-+-ai-accelerators/arduino-nicla-voice).
 
 ### IMU
 
