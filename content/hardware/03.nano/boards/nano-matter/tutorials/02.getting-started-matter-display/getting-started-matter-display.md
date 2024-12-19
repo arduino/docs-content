@@ -10,7 +10,7 @@ difficulty: beginner
 
 ## Overview
 
-The Nano Matter Display is a development kit for the Nano Matter that features an extension board from Pervasive Displays. It includes a 2.9 inches (384x168 resolution) E-ink monochrome high-definition display, a temperature and humidity sensor, a 3-axis accelerometer and an addressable RGB LED.
+The [Nano Matter Display](https://www.pervasivedisplays.com/product/epdk-matter/) is a development kit for the Nano Matter that features an extension board from [Pervasive Displays](https://www.pervasivedisplays.com/). It includes a [2.9 inches (384x168 resolution) E-ink monochrome high-definition display](https://www.pervasivedisplays.com/product/2-9-e-ink-displays/), a temperature and humidity sensor, a 3-axis accelerometer and an addressable RGB LED.
 
 ![Nano Matter Display](assets/living-2.gif)
 
@@ -36,28 +36,28 @@ The Nano Matter Display has been created to be used along the Arduino Nano Matte
 - [Arduino IDE](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Silicon Labs boards package](https://github.com/SiliconLabs/arduino) (to support the Nano Matter within the Arduino IDE)
 
-### Pervasive Displays EXT4 Official Documentation
+### Pervasive Displays EPDK-Matter Official Documentation
 
-To learn more about the EXT4 Development Kit read the Pervasive Displays [documentation](https://docs.pervasivedisplays.com/epd-usage/development-kits/ext4). 
+To learn more about the EPDK-Matter Development Kit read the Pervasive Displays [documentation](https://docs.pervasivedisplays.com/epd-usage/development-kits/ext4). 
 
 ## Nano Matter Display Main Features
 
 ![Nano Matter Hardware Overview](assets/features-c2.jpg)
 
-The Nano Matter Display include the following features:
+The [Nano Matter Display](https://www.pervasivedisplays.com/product/epdk-matter/) include the following features:
 
-- **E-ink display:** a 2.9 inches (384x168) E-ink monochrome high-definition display with a wide temperature working range and fast update.
+- **[E-ink display:](https://www.pervasivedisplays.com/product/2-9-e-ink-displays/)** a 2.9 inches (384x168) E-ink monochrome high-definition display with a wide temperature working range and fast update.
 - **RGB LED:** a WS2813C addressable RGB LED for visual status feedback.
 - **3-axis accelerometer:** a MEMS digital output motion sensor (LIS2DH12).
 - **Temperature and humidity sensor:** a HDC2080 Low-Power humidity and temperature digital sensor.
-- **Flexible power options:** can be powered by a pair of CR2032 3V batteries or through the USB connector of the Arduino Nano.
+- **Flexible power options:** can be powered by a pair of CR2450 3V batteries or through the USB connector of the Arduino Nano.
 
 ## Nano Matter Display Kit Assembly
 
-In the Nano Matter Display kit you will find the following parts:
+In the [Nano Matter Display kit](https://www.pervasivedisplays.com/product/epdk-matter/) you will find the following parts:
 
-- E-ink display (2.9" 384x168).
-- Pervasive Displays EPD extension board (Gen 4).
+- [E-ink display (2.9" 384x168)](https://www.pervasivedisplays.com/product/2-9-e-ink-displays/).
+- [Pervasive Displays EPD Extension Kit Gen 4 (EXT4)](https://www.pervasivedisplays.com/product/epd-extension-kit-gen-4-ext4/).
 - Pervasive Displays EXT4-to-Nano adapter.
 - Brass spacer standoffs (x4).
 - M3 nuts for the standoffs (x4).
@@ -871,11 +871,11 @@ With the Weather Station properly commissioned, now you can deploy it on an inte
 
 ## Nano Matter Display Sensors and Actuators
 
-In the following sections we are going to highlight some of the Nano Matter Display main features and learn how to use them.
+In the following sections we are going to highlight some of the [Nano Matter Display](https://www.pervasivedisplays.com/product/epdk-matter/) main features and learn how to use them.
 
 ### E-Ink Display
 
-The API basic functions to control the E-ink display are shown below.
+The API basic functions to control the [E-ink display](https://www.pervasivedisplays.com/product/2-9-e-ink-displays/) are shown below.
 
 - Define the screen object using the Pervasive Displays class and initialize it:
 
@@ -1284,6 +1284,17 @@ bool displayValue(uint8_t slot, String name, measure_s* value, String unit) {
 After uploading the example sketch you will be able to monitor the environment temperature and relative humidity alongside their historical minimum and maximums.
 
 ![Temperature and Humidity](assets/weather-c.jpg)
+
+## Where to Buy
+
+You can buy the Nano Matter Display Kit directly from the [Pervasive Displays](https://www.pervasivedisplays.com/) official store referenced below:
+
+- [Nano Matter Display Kit](https://www.pervasivedisplays.com/product/epdk-matter/)
+
+You can also buy some kit main components separately.
+
+- [2.9" E-ink display](https://www.pervasivedisplays.com/product/2-9-e-ink-displays/)
+- [EPD Extension Kit Gen 4 (EXT4)](https://www.pervasivedisplays.com/product/epd-extension-kit-gen-4-ext4/)
 
 ## Conclusion
 
