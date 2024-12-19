@@ -27,7 +27,7 @@ Initializes the default op-amp channel. You can specify the speed mode as either
   - `OPAMP_SPEED_LOWSPEED`
   - `OPAMP_SPEED_HIGHSPEED` (default)
 
-#### Returns
+**Returns**
 
 - `true` if initialization was successful.
 - `false` if initialization failed.
@@ -38,7 +38,7 @@ Checks whether a specific op-amp channel is currently running.
 **Parameters**
 - `channel`: The channel number to check (0 to 3).
 
-#### Returns
+**Returns**
 - `true` if the channel is active.
 - `false` if the channel is inactive.
 
