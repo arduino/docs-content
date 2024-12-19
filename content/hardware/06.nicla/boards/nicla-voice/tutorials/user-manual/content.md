@@ -555,6 +555,8 @@ Then, you can open the file with a software like [Audacity](https://www.audacity
 
 You can use the Nicla Voice and the [Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/) of the Arduino Cloud to create your own audio analysis Machine Learning models. Check out this [tutorial](https://docs.arduino.cc/tutorials/nicla-voice/getting-started-ml) and start with Machine Learning with the Nicla Voice. 
 
+You can learn more about the Nicla Voice integration with Edge Impulse [here](https://docs.edgeimpulse.com/docs/edge-ai-hardware/mcu-+-ai-accelerators/arduino-nicla-voice).
+
 ### IMU
 
 The Nicla Voice features an advanced IMU and a magnetometer, which allows the board to sense motion, orientation, and magnetic fields. The IMU on the Nicla Voice board is the BMI270 from Bosch®. It consists of a 3-axis accelerometer and a 3-axis gyroscope. They can provide information about the board's motion, orientation, and rotation in a 3D space. The BMI270 is designed for wearables and offers low power consumption and high performance, making it suitable for various applications, such as gesture recognition, motion tracking, or stabilization.
@@ -1002,16 +1004,16 @@ First, the necessary libraries are included:
 - `NDP.h` for the Nicla Voice board's basic functions and the magnetometer control.
 - Macros are defined for checking the status of the magnetometer; these macros allow the sketch to detect and handle sensor errors. 
 
-Next, user functions `ledBlueOn()`, `ledGreenOn()`, and `ledRedBlink()` definition: 
+Next, user function `ledRedBlink()` definition: 
 
-- These functions allow the onboard LEDs to flash specific colors to indicate different states: blue for a successful match, green for an event, and red to indicate an error.
+- These functions allow the onboard LEDs to flash red to indicate an error.
 
 Next, in the `setup()` function:
 
 - The serial communication is initialized at a baud rate of 115200.
 - The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving mode) is disabled to avoid communication problems with the magnetometer. 
 - Error and event handlers are initialized.
-- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the Machine Learning model (`ei_model.synpkg`). 
+- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`) and the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`).
 - The BMM150 sensor is initialized; this includes setting it into normal operation with an output data rate (ODR) of 10 Hz. 
 
 Finally, in the `loop()` function:
