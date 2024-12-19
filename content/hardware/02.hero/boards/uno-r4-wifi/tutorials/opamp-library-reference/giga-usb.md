@@ -21,7 +21,7 @@ More information on implementation can be found [here](https://docs.arduino.cc/t
 
 Initializes the default op-amp channel. You can specify the speed mode as either high-speed or low-speed. If no speed mode is specified, the op-amp will default to high-speed mode.
 
-#### Parameters
+**Parameters**
 
   `speed` (optional): The speed mode of the op-amp. Options are:
   - `OPAMP_SPEED_LOWSPEED`
@@ -35,7 +35,7 @@ Initializes the default op-amp channel. You can specify the speed mode as either
 ### `bool isRunning(uint8_t channel)`
 Checks whether a specific op-amp channel is currently running.
 
-#### Parameters
+**Parameters**
 - `channel`: The channel number to check (0 to 3).
 
 #### Returns
@@ -48,7 +48,7 @@ Deactivates all op-amp channels.
 ### `void end(uint8_t channel_mask)`
 Deactivates specified op-amp channels.
 
-#### Parameters
+**Parameters**
 - `channel_mask`: A bitmask specifying which channels to deactivate.
 
 ## Example Usage
