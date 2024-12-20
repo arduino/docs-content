@@ -18,7 +18,7 @@ info:
       icon: IconBooks,
       title: MicroPython Basics,
       description: An introduction to MicroPython,
-      link: /micropython/basics/micropython-basics,
+      link: /micropython/first-steps/intro-micropython,
     },
     {
       icon: IconSmartDashBoard,
