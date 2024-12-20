@@ -271,7 +271,7 @@ Now that you have gone through the basics of what you can do with the device, yo
 | **REACH**           | Yes               |
 | **FCC (USA)**       | Yes               |
 | **IC (Canada)**     | Yes               |
-| **FCC (USA)**       | Yes               |
+| **RoHS (EU)**       | Yes               |
 | **WEEE**            | Yes               |
 
 ### Declaration of Conformity CE DoC (EU)
