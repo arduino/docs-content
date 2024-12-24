@@ -83,13 +83,13 @@ The supported frequency bands, GNSS, and digital audio functions of the Global v
 | Type Allocation Code (TAC) | 86408106                                             |
 |        FCC ID (USA)        | XMR201903EG25G                                       |
 
+<div style="page-break-after: always;"></div>
+
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <p style="text-align: justify;">
 <strong>Note:</strong> Both Pro 4G Module variants are compatible with the Arduino Portenta Mid Carrier and can work with any Portenta Family board. The Arduino Portenta Max Carrier is compatible with both Pro 4G Module variants but only with the Portenta X8 board.
 </p>
 </div>
-
-<div style="page-break-after: always;"></div>
 
 ### Key Features
 
@@ -814,6 +814,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |  **Changes**  |
-| :--------: | :----------: | :-----------: |
-| 09/04/2024 |      1       | First release |
+|  **Date**  | **Revision** |             **Changes**              |
+| :--------: | :----------: | :----------------------------------: |
+| 23/12/2024 |      2       | TAC and FCC/NCC ID information added |
+| 09/04/2024 |      1       |            First release             |
