@@ -580,7 +580,7 @@ The Arduino Pro 4G Module, both variants, is mounted with three antenna connecto
 
 #### Operating Frequency
 
-The following table shows the operating frequencies of the Pro 4G Module.
+The following table shows the operating frequencies of the Pro 4G Module Global (TPX00200).
 
 | **3GPP Band** | **Transmit** | **Receive** | **Unit** |
 |:-------------:|:------------:|:-----------:|:--------:|
@@ -614,6 +614,26 @@ The following table shows the operating frequencies of the Pro 4G Module.
 |  LTE-TDD B39  |   1880–1920  |  1880–1920  |    MHz   |
 |  LTE-TDD B40  |   2300–2400  |  2300–2400  |    MHz   |
 |  LTE-TDD B41  |   2496–2690  |  2496–2690  |    MHz   |
+
+The following table shows the operating frequencies of the Pro 4G Module EMEA (TPX00201).
+
+| **3GPP Band** | **Transmit** | **Receive** | **Unit** |
+| :-----------: | :----------: | :---------: | :------: |
+|    EGSM900    |   880–915    |   925–960   |   MHz    |
+|    DCS1800    |  1710–1785   |  1805–1880  |   MHz    |
+|   WCDMA B1    |  1922–1978   |  2112–2168  |   MHz    |
+|   WCDMA B5    |   826–847    |   871–892   |   MHz    |
+|   WCDMA B8    |   882–913    |   927–958   |   MHz    |
+|  LTE-FDD B1   |  1920–1980   |  2110–2170  |   MHz    |
+|  LTE-FDD B3   |  1710–1785   |  1805–1880  |   MHz    |
+|  LTE-FDD B5   |   824–849    |   869–894   |   MHz    |
+|  LTE-FDD B7   |  2500–2570   |  2620–2690  |   MHz    |
+|  LTE-FDD B8   |   880–915    |   925–960   |   MHz    |
+|  LTE-FDD B20  |   832–862    |   791–821   |   MHz    |
+|  LTE-FDD B28  |   703–748    |   758–803   |   MHz    |
+|  LTE-TDD B38  |  2570–2620   |  2570–2620  |   MHz    |
+|  LTE-TDD B40  |  2300–2400   |  2300–2400  |   MHz    |
+|  LTE-TDD B41  |  2535–2675   |  2535–2675  |   MHz    |
 
 #### Antenna Design Requirements
 
@@ -814,7 +834,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |             **Changes**              |
-| :--------: | :----------: | :----------------------------------: |
-| 23/12/2024 |      2       | TAC and FCC/NCC ID information added |
-| 09/04/2024 |      1       |            First release             |
+|  **Date**  | **Revision** |                      **Changes**                      |
+| :--------: | :----------: | :---------------------------------------------------: |
+| 23/12/2024 |      2       | TAC, FCC/NCC ID and frequency range information added |
+| 09/04/2024 |      1       |                     First release                     |
