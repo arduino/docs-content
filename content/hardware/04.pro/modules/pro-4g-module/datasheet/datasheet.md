@@ -25,6 +25,7 @@ Remote maintenance, fleet management, pipeline monitoring, smart cities, smart b
 
 <div style="text-align:justify;">
 The Arduino Pro 4G Module, with its advanced LTE capabilities and GNSS functionality (Global variant only), opens the door to various innovative applications across different sectors. Beyond its core feature of providing robust cellular connectivity, this module facilitates deploying solutions in urban and industrial environments where reliability and precision are paramount. Whether for real-time monitoring, asset tracking, or enhancing operational efficiencies, the Pro 4G Module is a versatile foundation for IoT development. Here are some practical examples showcasing the module's potential to transform various applications:
+</div>
 
 - **Remote maintenance**: Connect to all your Portenta-based machines remotely and guarantee on-time support with the Pro 4G Module, regardless of location. Perform error analysis directly from your office, leveraging a reliable 4G connection and updating the firmware of your products thanks to the Arduino Cloud compatibility.
 - **Fleet management**: Start tracking all your vehicle's location, movement history, and geofencing by integrating the Pro 4G GNSS Module. Calculate run hours and traveled distance to understand and optimize heavy equipment and vehicle utilization.
@@ -36,9 +37,9 @@ The Arduino Pro 4G Module, with its advanced LTE capabilities and GNSS functiona
 - **Waste management**: Deploy a Portenta family board with the Pro 4G GNSS Module into waste bins to establish the level of filling and report anomalies so that recycling rate, collection timing, and waste volume are improved.
 **Smart buildings**: The Pro 4G Module can be used in different smart building applications such as:
 - **Smart vending machines**: Let your customers purchase what they need, when and where they need it, by integrating the Pro 4G GNSS Module into your vending machine or smart kiosk. Install your vending machine without location constraints and monitor its usage and performance remotely.
-- **Building safety inspection**: Even in remote areas, combine a Portenta family board with the Pro 4G Module to allow building owners or inspectors to remotely control deformation, temperature, moisture level, and other buildings’ chemical, mechanical and physical parameters.
+- **Building safety inspection**: Even in remote areas, combine a Portenta family board with the Pro 4G Module to allow building owners or inspectors to remotely control deformation, temperature, moisture level, and other buildings chemical, mechanical and physical parameters.
 - **Smart building security**: Leverage the integrated 4G connectivity of the Pro 4G Module to build your own Wi-Fi® independent alarm infrastructures. Monitor gas leakages, fires and glass breaking from anywhere and receive on-time SMS notifications in case of unauthorized entrances.
-</div>
+
 
 <div style="page-break-after: always;"></div>
 
