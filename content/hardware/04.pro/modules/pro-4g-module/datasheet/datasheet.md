@@ -55,7 +55,7 @@ The supported frequency bands, and digital audio functions of the EMEA variant (
 </p>
 
 |        **Feature**         | **Description**        |
-| ------------------------ | ---------------------- |
+| :------------------------: | ---------------------- |
 |          Variant           | EMEA (SKU: TPX00201)   |
 |           Modem            | Quectel® EC200A        |
 |          LTE-FDD           | B1/B3/B5/B7/B8/B20/B28 |
@@ -71,7 +71,7 @@ The supported frequency bands, GNSS, and digital audio functions of the Global v
 </p>
 
 |        **Feature**         | **Description**                                      |
-| ------------------------ | ---------------------------------------------------- |
+| :------------------------: | ---------------------------------------------------- |
 |          Variant           | Global (SKU: TPX00200)                               |
 |           Modem            | Quectel® EG25-G                                      |
 |          LTE-FDD           | B1/B2/B3/B4/B5/B7/B8/B12/B13/B18/B19/B20/B25/B26/B28 |
@@ -95,25 +95,6 @@ The supported frequency bands, GNSS, and digital audio functions of the Global v
 
 The main features of the Pro 4G Module, both variants, are summarized and highlighted in the table below.
 
-|        **Feature**         | **Details**                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|           Modem            | EMEA (SKU: TPX00201): Quectel® EC200AGlobal (SKU: TPX00200): Quectel® EG25-G                                                                                                                                                                                                                                                                                                                                                                              |
-|     Function Interface     | PCI Express Mini Card 1.2 Standard Interface                                                                                                                                                                                                                                                                                                                                                                                                              |
-|        Power Supply        | - Supply voltage: 3.0–3.6 VDC- Typical supply voltage: 3.3 VDC                                                                                                                                                                                                                                                                                                                                                                                            |
-|     Transmitting Power     | - Class 4 (33 dBm ±2 dB) for GSM850- Class 4 (33 dBm ±2 dB) for EGSM900- Class 1 (30 dBm ±2 dB) for DCS1800- Class 1 (30 dBm ±2 dB) for PCS1900- Class E2 (27 dBm ±3 dB) for GSM850 8-PSK- Class E2 (27 dBm ±3 dB) for EGSM900 8-PSK- Class E2 (26 dBm ±3 dB) for DCS1800 8-PSK- Class E2 (26 dBm ±3 dB) for PCS1900 8-PSK- Class 3 (24 dBm +1/-3 dB) for WCDMA bands- Class 3 (23 dBm ±2 dB) for LTE-FDD bands- Class 3 (23 dBm ±2 dB) for LTE-TDD bands |
-|        LTE Features        | - Supports up to non-CA Cat 4 FDD and TDD- Supports 1.4/3/5/10/15/20 MHz RF bandwidth- Supports MIMO in DL direction- Max. transmission data rates:  LTE-FDD: 150 Mbps (DL), 50 Mbps (UL)  LTE-TDD: 130 Mbps (DL), 30 Mbps (UL)                                                                                                                                                                                                                           |
-|       UMTS Features        | - Supports 3GPP Rel-8 DC-HSDPA, HSPA+, HSDPA, HSUPA, and WCDMA- Supports QPSK,16QAM and 64QAM modulation- Max. transmission data rates:  DC-HSDPA: 42 Mbps (DL)  HSUPA: 5.76 Mbps (UL)  WCDMA: 384 kbps (DL), 384 kbps (UL)                                                                                                                                                                                                                               |
-|        GSM Features        | - GPRS: Supports GPRS multi-slot class 33 (33 by default), Coding scheme: CS-1, CS-2, CS-3 and CS-4, Max. 107 kbps (DL), Max. 85.6 kbps (UL)- EDGE: Supports EDGE multi-slot class 33 (33 by default), Supports GMSK and 8-PSK for different MCS (Modulation and Coding Scheme), Downlink coding schemes: MCS 1-9, Uplink coding schemes: MCS 1-9, Max. 296 kbps (DL), Max. 236.8 kbps (UL)                                                               |
-| Internet Protocol Features | Supports TCP/UDP/PPP/FTP/FTPS/HTTP/HTTPS/NTP/PING/QMI/NITZ/SMTP/SSL/MQTT/CMUX/SMTPS/FILE/MMS protocols, Supports PAP and CHAP for PPP connections                                                                                                                                                                                                                                                                                                         |
-|            SMS             | - Text and PDU modes- Point-to-point MO and MT- SMS cell broadcast- SMS storage: ME by default                                                                                                                                                                                                                                                                                                                                                            |
-|      (U)SIM Interface      | Supports USIM/SIM card: 1.8 V, 3.0 V                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|       UART Interface       | - Main UART: Supports RTS and CTS hardware flow control- Baud rate can reach up to 230400 bps, 115200 bps by default- Used for AT command communication and data transmission                                                                                                                                                                                                                                                                             |
-|       Audio Features       | - Supports one digital audio interface: PCM interface- GSM: HR/FR/EFR/AMR/AMR-WB- WCDMA: AMR/AMR-WB- LTE: AMR/AMR-WB- Supports echo cancellation and noise suppression                                                                                                                                                                                                                                                                                    |
-|       PCM Interface        | - Supports 16-bit linear data format- Supports long frame synchronization and short frame synchronization- Supports master and slave modes, but must be the master for long frame synchronization                                                                                                                                                                                                                                                         |
-|       USB Interface        | - Compliant with USB 2.0 specification (slave only); the data transfer rate can reach up to 480 Mbps- Used for AT command communication, data transmission, firmware upgrade, software debugging and GNSS NMEA output- Supports USB serial drivers for: Windows 7/8/8.1/10, Linux 2.6–5.12, Android 4.x–11.x, etc.                                                                                                                                        |
-|     Antenna Connectors     | Includes main antenna, diversity antenna, and GNSS antenna receptacle connectors                                                                                                                                                                                                                                                                                                                                                                          |
-|  Rx-diversity (Optional)   | Supports LTE/WCDMA Rx-diversity                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| GNSS (Global variant only) | GPS, GLONASS, BeiDou (COMPASS), Galileo, QZSS                                                                                                                                                                                                                                                                                                                                                                                                             |
 
 <div style="page-break-after: always;"></div>
 
@@ -132,7 +113,7 @@ The following tables show the full pinout of the Pro 4G Module, beginning with t
 #### I/O Parameters Definition
 
 | **Pin Type** |    **Description**   |
-|------------|--------------------|
+|:------------:|:--------------------:|
 |      AIO     |  Analog Input/Output |
 |      DI      |     Digital Input    |
 |      DO      |    Digital Output    |
@@ -145,7 +126,7 @@ The following tables show the full pinout of the Pro 4G Module, beginning with t
 #### Pin Description
 
 | **Pin Number** | **Mini PCI Express Standard Pin Name** | **Pro 4G Module Mini PCIe Pin Name** | **Pin Type** |                      **Description**                       |                          **Details**                           |
-| ------------ | ------------------------------------ | ----------------------------------| ---------- | -------------------------------------------------------- | ------------------------------------------------------------ |
+| :------------: | :------------------------------------: | :----------------------------------: | :----------: | :--------------------------------------------------------: | :------------------------------------------------------------: |
 |       1        |                 WAKE#                  |                WAKE#                 |      OC      |                      Wake up the host                      |                                                                |
 |       2        |                3.3Vaux                 |               VCC_3V3                |      PI      |              3.0–3.6 V, typ. 3.3 V DC supply               | It is prohibited to be pulled up to high level before startup. |
 |       3        |                 COEX1                  |               RESERVED               |              |                          Reserved                          |                                                                |
@@ -210,7 +191,7 @@ The Arduino Pro 4G Module Global variant (SKU: TPX00200) includes a fully integr
 The following table shows the GNSS performance of the Pro 4G Module Global variant (SKU: TPX00200).
 
 |    **Parameter**   |    **Description**    |     **Conditions**    | **Typical** | **Unit** |
-|------------------|---------------------|---------------------|-----------|--------|
+|:------------------:|:---------------------:|:---------------------:|:-----------:|:--------:|
 | Sensitivity (GNSS) |       Cold start      |       Autonomous      |     -146    |    dBm   |
 |                    |     Reacquisition     |       Autonomous      |     -156    |    dBm   |
 |                    |        Tracking       |       Autonomous      |     -157    |    dBm   |
@@ -225,7 +206,7 @@ The following table shows the GNSS performance of the Pro 4G Module Global varia
 The following table shows the GNSS frequency of the Pro 4G Module Global variant. 
 
 |     **Type**     |  **Frequency**  | **Unit** |
-|----------------|---------------|--------|
+|:----------------:|:---------------:|:--------:|
 |        GPS       |  1575.42 ±1.023 |    MHz   |
 |      GLONASS     |  1597.5–1605.8  |    MHz   |
 |      Galileo     |  1575.42 ±2.046 |    MHz   |
@@ -244,7 +225,7 @@ Below is a table summarizing the power supply requirements and digital I/O chara
 
 
 |          **Parameter**          |       **Description**       |  **Min**  |  **Typ**  |  **Max**  | **Unit** |
-|-------------------------------|---------------------------|---------|---------|---------|--------|
+|:-------------------------------:|:---------------------------:|:---------:|:---------:|:---------:|:--------:|
 |         **Power Supply**        |                             |           |           |           |          |
 |               VCC               | Power supply for the module |    3.0    |    3.3    |    3.6    |     V    |
 | **Digital I/O Characteristics** |                             |           |           |           |          |
@@ -260,7 +241,7 @@ The following table show the conducted Tx power of the Pro 4G Module EMEA varian
 </p>
 
 |            **Frequency Bands**           | **Maximum Tx power** | **Minimum Tx Power** |
-|----------------------------------------|--------------------|--------------------|
+|:----------------------------------------:|:--------------------:|:--------------------:|
 |                  GSM850                  |     33 dBm ±2 dB     |      5 dBm ±5 dB     |
 |                  EGSM900                 |     33 dBm ±2 dB     |      5 dBm ±5 dB     |
 |                  DCS1800                 |     30 dBm ±2 dB     |      0 dBm ±5 dB     |
@@ -278,7 +259,7 @@ The following table show the Rx sensitivity of the Pro 4G Module EMEA variant (S
 </p>
 
 |  **Frequency Bands** | **Primary** | **Diversity** | **SIMO 4** | **3GPP (SIMO)** |
-|--------------------|-----------|-------------|----------|---------------|
+|:--------------------:|:-----------:|:-------------:|:----------:|:---------------:|
 |        EGSM900       | -108.7 dBm  |       -       |      -     |    -102.0 dBm   |
 |        DCS1800       | -107 dBm    |       -       |      -     |    -102.0 dBm   |
 |       WCDMA B1       | -109.7 dBm  |       -       |      -     |    -106.7 dBm   |
@@ -300,7 +281,7 @@ The following table show the conducted Tx power of the Pro 4G Module Global vari
 </p>
 
 |   **Frequency Bands**   | **Maximum RF Output Power** | **Minimum RF Output Power** |
-|-----------------------|---------------------------|---------------------------|
+|:-----------------------:|:---------------------------:|:---------------------------:|
 |      GSM850/EGSM900     |         33 dBm ±2 dB        |         5 dBm ±5 dB         |
 |     DCS1800/PCS1900     |         30 dBm ±2 dB        |         0 dBm ±5 dB         |
 |  GSM850/EGSM900 (8-PSK) |         27 dBm ±3 dB        |         5 dBm ±5 dB         |
@@ -314,7 +295,7 @@ The following table show the Rx sensitivity of the Pro 4G Module EMEA variant (S
 </p>
 
 |  **Frequency Bands** | **Primary** | **Diversity** | **SIMO 3** | **3GPP (SIMO)** |
-|--------------------|-----------|-------------|----------|---------------|
+|:--------------------:|:-----------:|:-------------:|:----------:|:---------------:|
 |        GSM850        |   -108 dBm  |       -       |      -     |     -102 dBm    |
 |        EGSM900       |   -108 dBm  |       -       |      -     |     -102 dBm    |
 |        DCS1800       |  -107.5 dBm |       -       |      -     |     -102 dBm    |
@@ -355,7 +336,7 @@ The following table shows the ESD characteristics of the Pro 4G Module, both var
 </p>
 
 | **Tested Interfaces** | **Contact Discharge** | **Air Discharge** | **Unit** |
-|---------------------|---------------------|-----------------|--------|
+|:---------------------:|:---------------------:|:-----------------:|:--------:|
 |  Power Supply and GND |           ±5          |        ±10        |    kV    |
 |   Antenna Interfaces  |           ±4          |         ±8        |    kV    |
 |     USB Interface     |           ±4          |         ±8        |    kV    |
@@ -369,7 +350,7 @@ The following table show the power consumption of the Pro 4G Module EMEA variant
 </p>
 
 |            **Conditions**             | **Typ** | **Unit** |
-| ----------------------------------- | ----- | ------ |
+| :-----------------------------------: | :-----: | :------: |
 |            **Sleep Mode**             |         |          |
 |     AT+CFUN=0 (USB disconnected)      |  3.25   |    mA    |
 | EGSM900 @ DRX = 2 (USB disconnected)  |  5.59   |    mA    |
@@ -452,7 +433,7 @@ The following table show the power consumption of the Pro 4G Module Global varia
 </p>
 
 |             **Conditions**            | **Typ** | **Unit** |
-|-------------------------------------|-------|--------|
+|:-------------------------------------:|:-------:|:--------:|
 |             **Sleep Mode**            |         |          |
 |      AT+CFUN=0 (USB Disconnected)     |   2.1   |    mA    |
 |  EGSM900 @ DRX = 2 (USB Disconnected) |   4.2   |    mA    |
@@ -567,7 +548,7 @@ The following table show the current consumption of the onboard GNSS of the Pro 
 </p>
 
 |      **Description**      |     **Conditions**     | **Typ** | **Unit** |
-|-------------------------|----------------------|-------|--------|
+|:-------------------------:|:----------------------:|:-------:|:--------:|
 | **Searching (AT+CFUN=0)** |                        |         |          |
 |         Cold start        |    @ Passive antenna   |    67   |    mA    |
 |         Lost state        |    @ Passive antenna   |    66   |    mA    |
@@ -582,7 +563,7 @@ The Arduino Pro 4G Module, both variants, is mounted with three antenna connecto
 The following table shows the operating frequencies of the Pro 4G Module Global (TPX00200).
 
 | **3GPP Band** | **Transmit** | **Receive** | **Unit** |
-|-------------|------------|-----------|--------|
+|:-------------:|:------------:|:-----------:|:--------:|
 |     GSM850    |    824–849   |   869–894   |    MHz   |
 |    EGSM900    |    880–915   |   925–960   |    MHz   |
 |    DCS1800    |   1710–1785  |  1805–1880  |    MHz   |
@@ -617,7 +598,7 @@ The following table shows the operating frequencies of the Pro 4G Module Global 
 The following table shows the operating frequencies of the Pro 4G Module EMEA (TPX00201).
 
 | **3GPP Band** | **Transmit** | **Receive** | **Unit** |
-| ----------- | ---------- | --------- | ------ |
+| :-----------: | :----------: | :---------: | :------: |
 |    EGSM900    |   880–915    |   925–960   |   MHz    |
 |    DCS1800    |  1710–1785   |  1805–1880  |   MHz    |
 |   WCDMA B1    |  1922–1978   |  2112–2168  |   MHz    |
@@ -639,7 +620,7 @@ The following table shows the operating frequencies of the Pro 4G Module EMEA (T
 The following table shows the requirements on main antenna, Rx-diversity antenna and GNSS antenna.
 
 |     **Type**     |              **Requirements**             |
-|----------------|-----------------------------------------|
+|:----------------:|:-----------------------------------------:|
 |     **GNSS**     |       Frequency range: 1559–1609 MHz      |
 |                  |        Polarization: RHCP or linear       |
 |                  |              VSWR: < 2 (typ.)             |
@@ -713,7 +694,7 @@ The following figure describes the space factor of mating plugs.
 ### Certifications Summary
 
 | **Certification** | **EMEA Variant (SKU: TPX00201)** | **Global variant (SKU: TPX00200)** |
-| --------------- | ------------------------------ | -------------------------------- |
+| :---------------: | :------------------------------: | :--------------------------------: |
 |  CE/RED (Europe)  |               Yes                |                Yes                 |
 |     UKCA (UK)     |               Yes                |                Yes                 |
 |     FCC (USA)     |                No                |                Yes                 |
