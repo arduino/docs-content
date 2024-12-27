@@ -684,7 +684,7 @@ Both Pro 4G Module variants adopt a standard Mini PCI Express connector which co
 standards listed in the PCI Express Mini Card Electromechanical Specification Revision 1.2. The following figure takes the Molex 679105700 connector as an example.
 </p>
 
-<img src="assets/4G_Module_Mechanical_2.png" width="600">
+<img src="assets/4G_Module_Mechanical_2.png" width="600"></img>
 
 ### Recommended Mating Plugs for Antenna Connection
 
@@ -692,7 +692,7 @@ standards listed in the PCI Express Mini Card Electromechanical Specification Re
 Both Pro 4G Module variants are mounted with RF connectors (receptacles) for convenient antenna connection. The dimensions of the module antenna connectors are shown below.
 </p>
 
-<img src="assets/4G_Module_Mechanical_3.png" width="500">
+<img src="assets/4G_Module_Mechanical_3.png" width="500"></img>
 
 U.FL-LP mating plugs listed in the following figure can be used to match the receptacles.
 
