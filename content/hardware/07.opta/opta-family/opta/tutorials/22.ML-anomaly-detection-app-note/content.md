@@ -1,7 +1,7 @@
 ---
 title: 'ML for Motor Anomaly Detection with Nicla Sense ME & Opta™'
 difficulty: advanced
-description: "This application note explains how to detect motor anomalies by analyzing vibration patterns using the Arduino Nicla Sense ME, machine learning tools on the Edge Impulse platform, and the Arduino Opta™. The process begins with the Nicla Sense ME capturing vibration data from the motor and transmitting it to the Opta™ via Bluetooth BLE. The Opta™ then forwards the collected data to the Edge Impulse platform, where a machine learning model is created and trained to identify anomalies in motor behavior. Once trained, the model is deployed back to the Opta™, enabling it to perform real-time motor monitoring and predictive maintenance in industrial environments."
+description: "This application note explains how to detect motor anomalies by analyzing vibration patterns using the Arduino Nicla Sense ME, machine learning tools on the Edge Impulse platform, and the Arduino Opta™"
 tags:
   - Edge Impulse
   - Machine Learning
@@ -20,7 +20,7 @@ hardware:
 
 ## Introduction
 
-Motor health is crucial for ensuring the efficiency and reliability of industrial systems. Undetected performance anomalies can lead to costly downtime, unplanned maintenance, and even complete system failure. By closely monitoring deviations in motor operating patterns, it becomes possible to perform preventive maintenance and address potential issues before they escalate. For instance, an increase in motor vibration outside normal operating parameters may indicate the need for maintenance, helping to prevent breakdowns and ensure continued operation. The rise of connected technologies has made real-time monitoring of motor behavior more accessible and effective, enabling proactive maintenance and improved operational performance in industrial environments.
+Motor health is crucial for ensuring the efficiency and reliability of industrial systems. Undetected performance anomalies can lead to costly downtime, unplanned maintenance, and even complete system failure. By closely monitoring deviations in motor operating patterns, it is possible to perform preventive maintenance and address potential issues before they escalate. For instance, an increase in motor vibration outside normal operating parameters may indicate the need for maintenance, helping to prevent breakdowns and ensure continued operation. The rise of connected technologies has made real-time monitoring of motor behavior more accessible and effective, enabling proactive maintenance and improved operational performance in industrial environments.
 
 ![ML for Detecting Anomalies System Thumbnail](assets/thumbnail.png)
 
@@ -161,7 +161,7 @@ In this application note, key code sections will be explored to ensure the motor
 
 The Bluetooth® Low Energy (BLE) services and characteristics are specifically configured to support the features of this application. The primary service is designed to handle the transmission of accelerometer data for monitoring motor anomalies, making it ideal for real-time vibration analysis. A characteristic is defined to send the accelerometer's X, Y, and Z-axis data, which correspond to the motor's vibration levels. These three data points are combined and transmitted together in a single buffer. Both the service and characteristic are assigned unique and standardized BLE UUIDs to ensure seamless interaction between the Nicla Sense ME and the Opta™.
 
-The code bellow represents the first part of the Nicla Sense ME code, and it is responsible for sets up the Nicla Sense ME for Bluetooth® Low Energy (BLE) communication to transmit accelerometer data (X, Y, and Z axes) as a single 6-byte buffer (`bufferSize`). It uses the `ArduinoBLE` and `Arduino_BHY2` libraries to initialize BLE functionality and access the accelerometer sensor. A BLE service (`niclaService`) and characteristic (`sensorCharacteristic`) are defined with unique UUIDs, allowing the central device (Opta™) to recognize and read vibration data efficiently. Data is sent every 100 milliseconds.
+The code below represents the first part of the Nicla Sense ME code, and it is responsible for sets up the Nicla Sense ME for Bluetooth® Low Energy (BLE) communication to transmit accelerometer data (X, Y, and Z axes) as a single 6-byte buffer (`bufferSize`). It uses the `ArduinoBLE` and `Arduino_BHY2` libraries to initialize BLE functionality and access the accelerometer sensor. A BLE service (`niclaService`) and characteristic (`sensorCharacteristic`) are defined with unique UUIDs, allowing the central device (Opta™) to recognize and read vibration data efficiently. Data is sent every 100 milliseconds.
 
 The code can be downloaded [here](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip).
 
@@ -187,7 +187,7 @@ BLECharacteristic sensorCharacteristic(deviceServiceCharacteristicUuid, BLERead 
 const long interval = 100;         // Interval of 100ms between data transmissions
 ```
 
-The code bellow represents the second part of the Nicla Sense ME code and is responsible for initializing the system components necessary for its functionality. This includes setting up Serial communication, initializing the sensor system (BHY2) to access the onboard accelerometer, and configuring Bluetooth® Low Energy (BLE) communication for data transmission.
+The code below represents the second part of the Nicla Sense ME code and is responsible for initializing the system components necessary for its functionality. This includes setting up Serial communication, initializing the sensor system (BHY2) to access the onboard accelerometer, and configuring Bluetooth® Low Energy (BLE) communication for data transmission.
 
 Using the `ArduinoBLE` and `Arduino_BHY2` libraries, the code prepares the Nicla Sense ME to act as a BLE peripheral device. It initializes the BHY2 sensor system and the accelerometer to collect vibration data. Bluetooth functionality is then configured with a BLE service (`niclaService`) and a characteristic (`sensorCharacteristic`) that enable a central device, such as the Opta™, to connect and interact with the Nicla Sense ME. The BLE device name is set to `Nicla` making it easily recognizable during device discovery.
 
@@ -231,7 +231,7 @@ void setup() {
 }
 ```
 
-The code bellow represents the main loop of the Nicla Sense ME program and is responsible for managing the continuous operation of the system. This includes monitoring for Bluetooth® Low Energy (BLE) connections, retrieving data from the onboard accelerometer, and transmitting the data to a connected central device.
+The code below represents the main loop of the Nicla Sense ME program and is responsible for managing the continuous operation of the system. This includes monitoring for Bluetooth® Low Energy (BLE) connections, retrieving data from the onboard accelerometer, and transmitting the data to a connected central device.
 
 The program ensures that the Nicla Sense ME can maintain a BLE connection with a central device, such as the Opta™. It continuously checks if a central device is connected. Once a connection is established, the program enters a loop to regularly retrieve accelerometer data, update sensor values, and transmit the motion data to the connected device.
 
@@ -610,7 +610,7 @@ bool connectToPeripheral() {
 
 ## Full Motor Anomaly Detection Example
 
-All the necessary files to replicate this application notes can be found bellow:
+All the necessary files to replicate this application notes can be found below:
 
 - You can download a compressed file containing all the necessary codes [here](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip). This file contains the following codes: Nicla Sense ME Firmware, Opta™ Firmware, and Opta™ Deployment Firmware.
 - **Nicla Sense ME Firmware:** This code configures the Nicla Sense ME as a BLE peripheral to collect vibration data from the motor and transmit it wirelessly via Bluetooth® Low Energy (BLE).
