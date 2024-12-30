@@ -24,15 +24,15 @@ Motor health is crucial for ensuring the efficiency and reliability of industria
 
 ![ML for Detecting Anomalies System Thumbnail](assets/thumbnail.png)
 
-This application note introduces an innovative approach to motor anomaly detection by combining the power of the Arduino Nicla Sense ME, machine learning using the Edge Impulse platform, and the Arduino Opta™. The Nicla Sense ME, equipped with accelerometer sensor, captures vibration data directly from the motor. This data is wirelessly transmitted via Bluetooth Low Energy (BLE) from the Nicla Sense ME to the Opta™, which then forwards it to the Edge Impulse platform. Using Edge Impulse's intuitive interface, a machine learning model is created, configured, and trained to detect anomalies by analyzing the collected data.
+This application note introduces an innovative approach to motor anomaly detection by combining the power of the Arduino Nicla Sense ME, Machine Learning using the Edge Impulse platform, and the Arduino Opta™. The Nicla Sense ME, equipped with accelerometer sensor, captures vibration data directly from the motor. This data is wirelessly transmitted via Bluetooth® Low Energy (BLE) from the Nicla Sense ME to the Opta™, which then forwards it to the Edge Impulse platform. Using Edge Impulse's intuitive interface, a Machine Learning model is created, configured, and trained to detect anomalies by analyzing the collected data.
 
-By deploying the trained model back to the Opta™, the system is capable of performing real-time motor monitoring, enabling interventions when abnormal motor behavior is detected. This approach not only enables early detection of potential motor issues but also minimizes unplanned downtime and ensures a seamless, data-driven maintenance workflow. The integration of advanced sensing, machine learning, and industrial-grade hardware makes this solution scalable and adaptable to a wide range of industrial applications. Whether for manufacturing, energy production, or other sectors reliant on motor-driven operations, this solution provides a robust tool for enhancing system reliability and efficiency, aligning seamlessly with the principles of Industry 4.0 by enabling smart, connected, and data-driven industrial environments.
+By deploying the trained model back to the Opta™, the system is capable of performing real-time motor monitoring, enabling interventions when abnormal motor behavior is detected. This approach not only enables early detection of potential motor issues but also minimizes unplanned downtime and ensures a seamless, data-driven maintenance workflow. The integration of advanced sensing, Machine Learning, and industrial-grade hardware makes this solution scalable and adaptable to a wide range of industrial applications. Whether for manufacturing, energy production, or other sectors reliant on motor-driven operations, this solution provides a robust tool for enhancing system reliability and efficiency, aligning seamlessly with the principles of Industry 4.0 by enabling smart, connected, and data-driven industrial environments.
 
 **Target audience:** PLC programmers, Automation engineers, Industrial IoT engineers and Electrical engineers.
 
 ### Goals
 
-The goal of this application note is to demonstrate a motor anomaly detection and monitoring system using a combination of the Arduino Nicla Sense ME, Opta™, and machine learning with the Edge Impulse platform. The project's objectives are the following:
+The goal of this application note is to demonstrate a motor anomaly detection and monitoring system using a combination of the Arduino Nicla Sense ME, Opta™, and Machine Learning with the Edge Impulse platform. The project's objectives are the following:
 
 - Capture motor vibration data using the onboard accelerometer sensor of the Nicla Sense ME.
 - Transmit vibration data wirelessly via Bluetooth® Low Energy from the Nicla Sense ME to the Opta™.
@@ -48,36 +48,36 @@ The goal of this application note is to demonstrate a motor anomaly detection an
 ### Hardware Requirements
 
 - [Arduino Opta™](https://store.arduino.cc/products/opta-wifi).
-- [Arduino Nicla Sense ME](https://store.arduino.cc/products/nicla-sense-me?queryID=3c7201e519a8c8fc5b6c32a342879e88).
+- [Arduino Nicla Sense ME](https://store.arduino.cc/products/nicla-sense-me).
 - 24 VDC Power Supply.
 - 3.7 V LiPo battery.
 - [USB Type-C® Cable](https://store.arduino.cc/products/usb-cable2in1-type-c).
 - [USB Type-A/Micro Cable](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro?queryID=24d4c7013937ee2a44100ee69986d54f).
 - A motor.
-- A computer with internet access
+- A computer with internet access.
 
 ### Software Requirements
 
 - [Arduino PLC IDE](https://docs.arduino.cc/software/plc-ide/)
-- You must install the following libraries: `ArduinoBLE` and `Arduino_BHY2`. To install them using the Arduino IDE Library Manager, go to `Sketch` > `Include Library` > `Manage Libraries`, search for `ArduinoBLE`, and install it. Then, repeat the process to the `Arduino_BHY2` library.
+- You must install the following libraries: `ArduinoBLE` and `Arduino_BHY2`. To install them using the Arduino IDE Library Manager, go to **Sketch > Include Library > Manage Libraries**, search for **ArduinoBLE**, and install it. Repeat the process for the **Arduino_BHY2** library.
 - You will need an account on the Edge Impulse platform and to install the Edge Impulse® CLI. By clicking [here](https://docs.edgeimpulse.com/docs), you will be redirected to the `Getting Started` page, where you can follow the necessary step-by-step instructions.
-- The [Arduino Nicla Sense ME Firmware](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip) to capture the data and send to the Opta™ via Bluetooth BLE.
-- The [Arduino Opta™ Firmware](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip) to capture the vibration data sent by the Nicla Sense ME via Bluetooth BLE and transfer it to the Edge Impulse platform.
+- The [Arduino Nicla Sense ME Firmware](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip) to capture the data and send to the Opta™ via Bluetooth® Low Energy.
+- The [Arduino Opta™ Firmware](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip) to capture the vibration data sent by the Nicla Sense ME via Bluetooth® Low Energy and transfer it to the Edge Impulse platform.
 - The [Opta™ Deployment Firmware](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip) to enables real-time monitoring of the motor's condition.
 
-> **Note:** The deployment code may not work for your motor, as it contains the machine learning algorithm trained specifically for the motor used in this application note.
+***The model performance can be affected if the application is implemented on a very different environment than the one used for training. It's recommended to feed the dataset with new samples and retrain the model for a new and upgraded deployment.***
 
 ### Machine Learning Model for Motor Anomaly Detection
 
-Machine learning is a programming approach that enables devices to analyze raw sensor data, extract key features, and use them to recognize patterns or make predictions based on prior training. In this application note, machine learning is applied to identify motor anomalies by analyzing vibration data collected through the Nicla Sense ME.
+Machine Learning is a programming approach that enables devices to analyze raw sensor data, extract key features, and use them to recognize patterns or make predictions based on prior training. In this application note, machine learning is applied to identify motor anomalies by analyzing vibration data collected through the Nicla Sense ME.
 
 To identify potential issues with the motor, a machine learning model was trained using the Edge Impulse platform. This model analyzes vibration patterns from the motor and predicts whether the motor is operating normally or exhibiting signs of anomalies.
 
-First, the Nicla Sense ME was flashed with [Arduino Nicla Sense ME Firmware](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip) that collects and transmits vibration data to the Opta™ via Bluetooth BLE. Similarly, the Opta™ was flashed with [Arduino Opta™ Firmware](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip) designed to receive the vibration data from the Nicla Sense ME and forward it to the Edge Impulse platform for further processing.
+First, the Nicla Sense ME was flashed with the [Arduino Nicla Sense ME Firmware](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip) that collects and transmits vibration data to the Opta™ via Bluetooth® Low Energy. Similarly, the Opta™ was flashed with the [Arduino Opta™ Firmware](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip) designed to receive the vibration data from the Nicla Sense ME and forward it to the Edge Impulse platform for further processing.
 
 To transmit the data collected on the Opta™, it is necessary to use the Edge Impulse CLI, which must have been previously installed and configured. Using the Data Forwarder, it is possible to send the data to the Edge Impulse platform. To learn how to use the Data Forwarder, click [here](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-data-forwarder).
 
-Once the data was collected, we used Edge Impulse’s machine learning tools to design a machine learning model capable of identifying anomalies in motor vibrations. The trained model is then deployed back to the Opta™ to monitor motor health in real-time and detect anomalies as they occur.
+Once the data was collected, we used Edge Impulse to design a machine learning model capable of identifying anomalies in motor vibrations. The trained model is then deployed back to the Opta™ to monitor the motor health in real-time and detect anomalies as they occur.
 
 Here is our model design:
 
@@ -93,15 +93,15 @@ In the time series data block:
 - **Window increase**: 1000 ms
 - **Frequency**: 7 Hz
 
-**Time series data** is critical in this application as it captures vibration measurements over consistent time intervals. The vibration data is composed of readings from the three accelerometers on the Nicla Sense ME, corresponding to the X, Y, and Z axes. By analyzing these three-dimensional vibration values, the machine learning model can more accurately detect how vibrations evolve over time, identify patterns, and pinpoint deviations indicative of motor anomalies.
+**Time series data** is critical in this application as it captures vibration measurements over consistent time intervals. The vibration data is composed of readings from the accelerometer on the Nicla Sense ME, corresponding to the X, Y, and Z axes. By analyzing these three-dimensional vibration values, the machine learning model can more accurately detect how vibrations evolve over time, identify patterns, and pinpoint deviations indicative of motor anomalies.
 
-In the spectral analysis block:
+In the processing block:
 
 ![Spectral Analysis block](assets/spectral-analysis.png)
 
 **Spectral Analysis** plays a crucial role in this application as it transforms raw vibration data into the frequency domain, uncovering patterns or anomalies that are not readily apparent in time-series data. By highlighting unique frequency components, this process significantly enhances the model's ability to detect motor issues, such as imbalance or misalignment, with improved precision.
 
-In the K-means:
+In the learning block:
 
 ![Anomaly Detection block](assets/k-means.png)
 
