@@ -3,18 +3,14 @@ title: 'ML for Motor Anomaly Detection with Nicla Sense ME & Opta™'
 difficulty: advanced
 description: "This application note explains how to detect motor anomalies by analyzing vibration patterns using the Arduino Nicla Sense ME, machine learning tools on the Edge Impulse platform, and the Arduino Opta™. The process begins with the Nicla Sense ME capturing vibration data from the motor and transmitting it to the Opta™ via Bluetooth BLE. The Opta™ then forwards the collected data to the Edge Impulse platform, where a machine learning model is created and trained to identify anomalies in motor behavior. Once trained, the model is deployed back to the Opta™, enabling it to perform real-time motor monitoring and predictive maintenance in industrial environments."
 tags:
-  - edge
-  - impulse
-  - ml
-  - machine learning
-  - ai
-  - nicla
-  - nicla sense me
-  - opta
-  - industrial
-  - motor
-  - anomaly detection
-  - bluetooth
+  - Edge Impulse
+  - Machine Learning
+  - AI
+  - Nicla Sense Me
+  - Opta
+  - Industrial
+  - Motor
+  - Anomaly detection
   - BLE
 
 author: 'Davidson Dantas and Thiago Alves'
