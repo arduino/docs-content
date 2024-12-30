@@ -1,5 +1,5 @@
 ---
-title: 'Machine Learning for Motor Anomaly Detection with Nicla Sense ME & Opta™'
+title: 'ML for Motor Anomaly Detection with Nicla Sense ME & Opta™'
 difficulty: advanced
 description: "This application note explains how to detect motor anomalies by analyzing vibration patterns using the Arduino Nicla Sense ME, machine learning tools on the Edge Impulse platform, and the Arduino Opta™. The process begins with the Nicla Sense ME capturing vibration data from the motor and transmitting it to the Opta™ via Bluetooth BLE. The Opta™ then forwards the collected data to the Edge Impulse platform, where a machine learning model is created and trained to identify anomalies in motor behavior. Once trained, the model is deployed back to the Opta™, enabling it to perform real-time motor monitoring and predictive maintenance in industrial environments."
 tags:
@@ -191,7 +191,7 @@ BLECharacteristic sensorCharacteristic(deviceServiceCharacteristicUuid, BLERead 
 const long interval = 100;         // Interval of 100ms between data transmissions
 ```
 
-The code below represents the second part of the Nicla Sense ME code and is responsible for initializing the system components necessary for its functionality. This includes setting up Serial communication, initializing the sensor system (BHY2) to access the onboard accelerometer, and configuring Bluetooth® Low Energy (BLE) communication for data transmission.
+The code bellow represents the second part of the Nicla Sense ME code and is responsible for initializing the system components necessary for its functionality. This includes setting up Serial communication, initializing the sensor system (BHY2) to access the onboard accelerometer, and configuring Bluetooth® Low Energy (BLE) communication for data transmission.
 
 Using the `ArduinoBLE` and `Arduino_BHY2` libraries, the code prepares the Nicla Sense ME to act as a BLE peripheral device. It initializes the BHY2 sensor system and the accelerometer to collect vibration data. Bluetooth functionality is then configured with a BLE service (`niclaService`) and a characteristic (`sensorCharacteristic`) that enable a central device, such as the Opta™, to connect and interact with the Nicla Sense ME. The BLE device name is set to `Nicla` making it easily recognizable during device discovery.
 
@@ -235,7 +235,7 @@ void setup() {
 }
 ```
 
-The code below represents the main loop of the Nicla Sense ME program and is responsible for managing the continuous operation of the system. This includes monitoring for Bluetooth® Low Energy (BLE) connections, retrieving data from the onboard accelerometer, and transmitting the data to a connected central device.
+The code bellow represents the main loop of the Nicla Sense ME program and is responsible for managing the continuous operation of the system. This includes monitoring for Bluetooth® Low Energy (BLE) connections, retrieving data from the onboard accelerometer, and transmitting the data to a connected central device.
 
 The program ensures that the Nicla Sense ME can maintain a BLE connection with a central device, such as the Opta™. It continuously checks if a central device is connected. Once a connection is established, the program enters a loop to regularly retrieve accelerometer data, update sensor values, and transmit the motion data to the connected device.
 
@@ -295,9 +295,9 @@ void loop() {
 }
 ```
 
-###  Opta™ Code
+### Opta™ Code
 
-![Opta™](assets/opta.png)
+![Arduino Opta™](assets/opta.png)
 
 This code demonstrates the configuration of the Opta™ as a central Bluetooth Low Energy (BLE) device, designed to connect to the Nicla Sense ME, which functions as a BLE peripheral. The program scans for BLE devices advertising a specific service UUID, connects to the first matching peripheral, and retrieves accelerometer data from its X, Y, and Z axes. The data is transmitted in real-time using a BLE characteristic.
 
@@ -414,7 +414,7 @@ void loop() {
 ```
 With both codes running — the Nicla Sense ME code functioning as a peripheral, sending accelerometer data via BLE, and the Opta™ code acting as a central device, receiving this data via BLE and transmitting the readings to the computer via serial communication over a USB connection — you need a computer with internet access to forward the data to the Edge Impulse platform. To do this, run the command `edge-impulse-data-forwarder` in the terminal. Once the program is running and the necessary configurations are selected, the computer will forward the data to the Edge Impulse platform. You can then access your project under the `Data Acquisition` tab to start collecting data samples. For more information, refer to the official [Edge Impulse documentation](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-data-forwarder).
 
-###  Opta™ Deployment Code
+### Opta™ Deployment Code
 
 ![Opta™ Deployment](assets/edge-impulse-deploy.png)
 
@@ -614,7 +614,7 @@ bool connectToPeripheral() {
 
 ## Full Motor Anomaly Detection Example
 
-All the necessary files to replicate this application notes can be found below:
+All the necessary files to replicate this application notes can be found bellow:
 
 - You can download a compressed file containing all the necessary codes [here](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip). This file contains the following codes: Nicla Sense ME Firmware, Opta™ Firmware, and Opta™ Deployment Firmware.
 - **Nicla Sense ME Firmware:** This code configures the Nicla Sense ME as a BLE peripheral to collect vibration data from the motor and transmit it wirelessly via Bluetooth® Low Energy (BLE).
