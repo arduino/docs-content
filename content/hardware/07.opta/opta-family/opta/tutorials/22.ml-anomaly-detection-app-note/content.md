@@ -52,7 +52,7 @@ The goal of this application note is to demonstrate a motor anomaly detection an
 - 24 VDC Power Supply.
 - 3.7 V LiPo battery.
 - [USB Type-C® Cable](https://store.arduino.cc/products/usb-cable2in1-type-c).
-- [USB Type-A/Micro Cable](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro?queryID=24d4c7013937ee2a44100ee69986d54f).
+- [USB Type-A/Micro Cable](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro).
 - A motor.
 - A computer with internet access.
 
@@ -64,14 +64,17 @@ The goal of this application note is to demonstrate a motor anomaly detection an
 - The [Arduino Nicla Sense ME Firmware](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip) to capture the data and send to the Opta™ via Bluetooth® Low Energy.
 - The [Arduino Opta™ Firmware](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip) to capture the vibration data sent by the Nicla Sense ME via Bluetooth® Low Energy and transfer it to the Edge Impulse platform.
 - The [Opta™ Deployment Firmware](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip) to enables real-time monitoring of the motor's condition.
-
+- The [Edge Impulse public project](https://studio.edgeimpulse.com/public/580971/live).
+  
 ***The model performance can be affected if the application is implemented on a very different environment than the one used for training. It's recommended to feed the dataset with new samples and retrain the model for a new and upgraded deployment.***
 
-### Machine Learning Model for Motor Anomaly Detection
+## Machine Learning Model for Motor Anomaly Detection
 
 Machine Learning is a programming approach that enables devices to analyze raw sensor data, extract key features, and use them to recognize patterns or make predictions based on prior training. In this application note, machine learning is applied to identify motor anomalies by analyzing vibration data collected through the Nicla Sense ME.
 
 To identify potential issues with the motor, a machine learning model was trained using the Edge Impulse platform. This model analyzes vibration patterns from the motor and predicts whether the motor is operating normally or exhibiting signs of anomalies.
+
+![Machine Learning Model blocks](assets/machine-learning-overview.png)
 
 First, the Nicla Sense ME was flashed with the [Arduino Nicla Sense ME Firmware](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip) that collects and transmits vibration data to the Opta™ via Bluetooth® Low Energy. Similarly, the Opta™ was flashed with the [Arduino Opta™ Firmware](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip) designed to receive the vibration data from the Nicla Sense ME and forward it to the Edge Impulse platform for further processing.
 
@@ -79,13 +82,11 @@ To transmit the data collected on the Opta™, it is necessary to use the Edge I
 
 Once the data was collected, we used Edge Impulse to design a machine learning model capable of identifying anomalies in motor vibrations. The trained model is then deployed back to the Opta™ to monitor the motor health in real-time and detect anomalies as they occur.
 
-Here is our model design:
-
-![Machine Learning Model blocks](assets/machine-learning-overview.png)
+### Model design:
 
 As the Nicla Sense ME communicates with the Opta™ via Bluetooth BLE, the following characteristics can be applied as an example to ensure compatibility with the onboard Bosch sensors:
 
-In the time series data block:
+**In the time series data block:**
 
 ![Time Series Data block](assets/time-series-data.png)
 
@@ -95,13 +96,13 @@ In the time series data block:
 
 **Time series data** is critical in this application as it captures vibration measurements over consistent time intervals. The vibration data is composed of readings from the accelerometer on the Nicla Sense ME, corresponding to the X, Y, and Z axes. By analyzing these three-dimensional vibration values, the machine learning model can more accurately detect how vibrations evolve over time, identify patterns, and pinpoint deviations indicative of motor anomalies.
 
-In the processing block:
+**In the processing block:**
 
 ![Spectral Analysis block](assets/spectral-analysis.png)
 
 **Spectral Analysis** plays a crucial role in this application as it transforms raw vibration data into the frequency domain, uncovering patterns or anomalies that are not readily apparent in time-series data. By highlighting unique frequency components, this process significantly enhances the model's ability to detect motor issues, such as imbalance or misalignment, with improved precision.
 
-In the learning block:
+**In the learning block:**
 
 ![Anomaly Detection block](assets/k-means.png)
 
@@ -123,7 +124,7 @@ Here is our Anomaly Explorer:
 
 The "Anomaly Explorer" shows training data based on two features: "accX RMS" (Root Mean Square of acceleration along the X-axis) and "accY RMS" (along the Y-axis), which are related to vibration signals. The blue dots represent the training data, showing a central clustering pattern, while the two concentric ellipses define confidence regions: the inner ellipse encompasses most normal data, and the outer ellipse marks the threshold for anomalies. Data outside the outer ellipse would be flagged as anomalous, helping identify deviations from normal behavior. Currently, no test data is displayed, as indicated by the "No test data" selection.
 
-> **Note**: It is important to note that the model’s performance may vary if implemented in an environment different from the one used for training. To ensure consistent results, it is recommended to gather new datasets from the specific deployment environment, retrain the model, and redeploy it for better adaptability.
+***It is important to note that the model’s performance may vary if implemented in an environment different from the one used for training. To ensure consistent results, it is recommended to gather new datasets from the specific deployment environment, retrain the model, and redeploy it for better adaptability.***
 
 For redeployment, use the Edge Impulse uploader to replace the existing model with the updated version, ensuring the system uses the most current model for anomaly detection.
 
@@ -149,9 +150,9 @@ Using the trained machine learning model, a code is generated to embed the model
 
 ### Nicla Sense ME Code
 
-![Nicla Sense ME](assets/nicla-sense-me.png)
-
 This is the initial code required for the setup. It runs on the Nicla Sense ME, configuring it to function as a Bluetooth Low Energy (BLE) peripheral. The code reads real-time accelerometer data from the X, Y, and Z axes and transmits it wirelessly to the Opta™, which operates as the BLE central device.
+
+![Nicla Sense ME](assets/nicla-sense-me.png)
 
 In this application note, key code sections will be explored to ensure the motor anomaly detection system becomes fully operational. The discussion will commence with a review of the necessary libraries:
 
@@ -161,9 +162,9 @@ In this application note, key code sections will be explored to ensure the motor
 
 The Bluetooth® Low Energy (BLE) services and characteristics are specifically configured to support the features of this application. The primary service is designed to handle the transmission of accelerometer data for monitoring motor anomalies, making it ideal for real-time vibration analysis. A characteristic is defined to send the accelerometer's X, Y, and Z-axis data, which correspond to the motor's vibration levels. These three data points are combined and transmitted together in a single buffer. Both the service and characteristic are assigned unique and standardized BLE UUIDs to ensure seamless interaction between the Nicla Sense ME and the Opta™.
 
-The code below represents the first part of the Nicla Sense ME code, and it is responsible for sets up the Nicla Sense ME for Bluetooth® Low Energy (BLE) communication to transmit accelerometer data (X, Y, and Z axes) as a single 6-byte buffer (`bufferSize`). It uses the `ArduinoBLE` and `Arduino_BHY2` libraries to initialize BLE functionality and access the accelerometer sensor. A BLE service (`niclaService`) and characteristic (`sensorCharacteristic`) are defined with unique UUIDs, allowing the central device (Opta™) to recognize and read vibration data efficiently. Data is sent every 100 milliseconds.
+The code below represents the first part of the Nicla Sense ME code, and it is responsible for setting up the Nicla Sense ME Bluetooth® Low Energy (BLE) communication to transmit accelerometer data (X, Y, and Z axes) as a single 6-byte buffer (`bufferSize`). It uses the `ArduinoBLE` and `Arduino_BHY2` libraries to initialize BLE functionality and access the accelerometer sensor. A BLE service (`niclaService`) and characteristic (`sensorCharacteristic`) are defined with unique UUIDs, allowing the central device (Opta™) to recognize and read vibration data efficiently. Data is sent every 100 milliseconds.
 
-The code can be downloaded [here](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip).
+The full code can be downloaded [here](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip).
 
 ```arduino
 #include <ArduinoBLE.h>   // Include the ArduinoBLE library for Bluetooth functionality
@@ -276,7 +277,7 @@ void loop() {
         // Copy accelerometer data into the buffer
         memcpy(data, &accX, sizeof(accX));     // Copy X-axis data
         memcpy(data + 2, &accY, sizeof(accY)); // Copy Y-axis data
-        memcpy(data + 4, &accZ, sizeof(accZ)); // Copy Z-axis da
+        memcpy(data + 4, &accZ, sizeof(accZ)); // Copy Z-axis data
 
         // Write the buffer data to the BLE characteristic
         sensorCharacteristic.writeValue(data, sizeof(data));
@@ -291,15 +292,15 @@ void loop() {
 }
 ```
 
-### Opta™ Code
-
-![Arduino Opta™](assets/opta.png)
+### Opta™ Model Training Code
 
 This code demonstrates the configuration of the Opta™ as a central Bluetooth Low Energy (BLE) device, designed to connect to the Nicla Sense ME, which functions as a BLE peripheral. The program scans for BLE devices advertising a specific service UUID, connects to the first matching peripheral, and retrieves accelerometer data from its X, Y, and Z axes. The data is transmitted in real-time using a BLE characteristic.
 
+![Arduino Opta™](assets/opta.png)
+
 This code is a critical part of a motor anomaly detection system, enabling the Opta™ to receive vibration data wirelessly for further processing in the Edge Impulse Platform.
 
-- Similar to its use in the Nicla Sense ME code, the `ArduinoBLE.h` library will be utilized to implement Bluetooth® Low Energy (BLE) communication. In this code, it enables the Opta™ to function as a BLE central device, capable of discovering and connecting to BLE peripherals like the Nicla Sense ME. To install this library, search for `ArduinoBLE` in the Arduino IDE Library Manager. For more information and detailed documentation, visit the official [ArduinoBLE library documentation](https://docs.arduino.cc/libraries/arduinoble/).
+- The `ArduinoBLE.h` library will be utilized to implement Bluetooth® Low Energy (BLE) communication. In this code, it enables the Opta™ to function as a BLE central device, capable of discovering and connecting to BLE peripherals like the Nicla Sense ME. To install this library, search for `ArduinoBLE` in the Arduino IDE Library Manager. For more information and detailed documentation, visit the official [ArduinoBLE library documentation](https://docs.arduino.cc/libraries/arduinoble/).
 
 The code is configured to scan for a BLE peripheral that advertises a specific service UUID. Once connected, the Opta™ accesses a characteristic that provides accelerometer data from the peripheral. The accelerometer's X, Y, and Z data points are transmitted together in a single 6-byte buffer.
 
@@ -330,9 +331,11 @@ void setup() {
 }
 ```
 
-The second part enable the Opta™ to function as a BLE central device for real-time data acquisition. The code begins by scanning for BLE peripherals advertising a specific service UUID, identifying compatible devices, such as the Nicla Sense ME. Once a peripheral is discovered, the Opta™ attempts to connect, retrieves its attributes, and accesses the defined BLE characteristic containing accelerometer data.
+The second part enables the Opta™ to function as a **BLE central device** for real-time data acquisition. The code begins by scanning for BLE peripherals advertising a specific service UUID, identifying compatible devices, such as the Nicla Sense ME. Once a peripheral is discovered, the Opta™ attempts to connect, retrieves its attributes, and accesses the defined BLE characteristic containing accelerometer data.
 
-After establishing a connection, the code continuously reads accelerometer data from the X, Y, and Z axes, transmitted as a 6-byte buffer from the peripheral. The accelerometer values are parsed, processed, and sent via the Serial monitor, which is used by the Edge Impulse platform to acquire the data necessary for training the Machine Learning model. The data is sent with the accelerometer value for each axis followed by a comma (",") because this is the standard format for data transmission via serial in Edge Impulse. The protocol is straightforward: the device should send data at a baud rate of 115,200, with one line per reading, and individual sensor data separated by either a comma (",") or a TAB. If the connection is lost, the system handles the disconnection and restarts the scanning process to find another compatible device.
+After establishing a connection, the code continuously reads accelerometer data from the X, Y, and Z axes, transmitted as a 6-byte buffer from the peripheral. The accelerometer values are parsed, processed, and sent via the **Serial Monitor**, which is used by the Edge Impulse platform to acquire the data necessary for training the Machine Learning model. The data is sent with the accelerometer value for each axis followed by a comma (",") because this is the standard format for data transmission via serial in Edge Impulse. 
+
+The **protocol** is straightforward: the device should send data at a baud rate of 115,200, with one line per reading, and individual sensor data separated by either a comma (",") or a TAB. If the connection is lost, the system handles the disconnection and restarts the scanning process to find another compatible device.
 
 ```arduino
 void loop() {
@@ -408,13 +411,15 @@ void loop() {
   delay(500);
 }
 ```
-With both codes running — the Nicla Sense ME code functioning as a peripheral, sending accelerometer data via BLE, and the Opta™ code acting as a central device, receiving this data via BLE and transmitting the readings to the computer via serial communication over a USB connection — you need a computer with internet access to forward the data to the Edge Impulse platform. To do this, run the command `edge-impulse-data-forwarder` in the terminal. Once the program is running and the necessary configurations are selected, the computer will forward the data to the Edge Impulse platform. You can then access your project under the `Data Acquisition` tab to start collecting data samples. For more information, refer to the official [Edge Impulse documentation](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-data-forwarder).
+With both codes running, the Nicla Sense ME code functioning as a peripheral, sending accelerometer data via BLE, and the Opta™ code acting as a central device, receiving this data via BLE and transmitting the readings to the computer via serial communication over a USB connection, a computer with internet access is needed to forward the data to the Edge Impulse platform. 
+
+To do this, run the command `edge-impulse-data-forwarder` in the terminal. Once the program is running and the necessary configurations are selected, the computer will forward the data to the Edge Impulse platform. You can then access your project under the `Data Acquisition` tab to start collecting data samples. For more information, refer to the official [Edge Impulse documentation](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-data-forwarder).
 
 ### Opta™ Deployment Code
 
-![Opta™ Deployment](assets/edge-impulse-deploy.png)
-
 To deploy a trained Edge Impulse model, go to the `Deployment` tab in the Edge Impulse project, select `Arduino Library`, and click `Build` to generate the complete library. Download the generated library `Your_project_name.zip` file and import it into Arduino IDE by selecting `Sketch` > `Include Library` > Add `Your_project_name.ZIP` Library. This allows the model to run locally on the device without an internet connection, reducing latency, enhancing real-time performance, and minimizing power consumption. For more details, visit the [Edge Impulse documentation](https://docs.edgeimpulse.com/docs/run-inference/arduino-library#download-the-arduino-library).
+
+![Opta™ Deployment](assets/edge-impulse-deploy.png)
 
 After the deployment, it was possible to create the code that integrates Bluetooth Low Energy (BLE) functionality with Edge Impulse's machine learning inferencing framework to classify accelerometer data in real-time. It starts by initializing BLE communication and scanning for a specific peripheral device broadcasting a service with a known UUID. Once the device is found, it connects, discovers its attributes, and accesses a characteristic that provides accelerometer data. The code continuously reads 6 bytes of accelerometer data (representing the X, Y, and Z axes) from the BLE characteristic, processes it, and stores it in a buffer. This data is then transformed into a signal format compatible with Edge Impulse's inferencing engine. Using the pre-trained machine learning model deployed as a custom library generated by Edge Impulse's deployment feature, the code classifies accelerometer data, specifically vibration data, to detect anomalies. If the BLE connection is lost, the program automatically attempts to reconnect. Throughout the process, debug information and classification results are printed to the Serial monitor for real-time feedback.
 
