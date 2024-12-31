@@ -8,7 +8,7 @@ author: Taddy Chung
 ![](assets/featured.png)
 
 # Description
-<p style="text-align: justify;">The Arduino Portenta Mid Carrier Proto Shield integrates Nicla, Modulino®, Uno Shield, and Portenta, allowing environmental monitoring, motion detection, machine vision, and air quality analysis capabilities. The Modulino® nodes deliver a versatile and user-friendly platform for IoT and electronics, designed to expand effortlessly with additional sensors and components. With easy connectivity using Qwiic cables, they support straightforward daisy-chaining via I2C, making them ideal for beginners and advanced users. Combined with the scalability of Portenta and the adaptability of the Uno Shield, the Portenta Mid Carrier Proto Shield provides a flexible solution for diverse prototyping needs, providing an accessible and powerful development experience.</p>
+<p style="text-align: justify;">The Arduino Portenta Mid Carrier Proto Shield integrates Nicla, Modulino®, UNO Shield, and Portenta, allowing environmental monitoring, motion detection, machine vision, and air quality analysis capabilities. The Modulino® nodes deliver a versatile and user-friendly platform for IoT and electronics, designed to expand effortlessly with additional sensors and components. With easy connectivity using Qwiic cables, they support straightforward daisy-chaining via I2C, making them ideal for beginners and advanced users. Combined with the scalability of Portenta and the adaptability of the UNO Shield, the Portenta Mid Carrier Proto Shield provides a flexible solution for diverse prototyping needs, providing an accessible and powerful development experience.</p>
 
 # Target Areas:
 
@@ -18,7 +18,7 @@ Industrial automation, building automation, smart cities
 
 ## Application Examples
 
-The Arduino Portenta Mid Carrier Proto Shield, when combined with the Portenta, Nicla, Modulino®, or Uno Shield, provides a comprehensive solution for diverse applications across industries. Below are some examples demonstrating its potential:
+The Arduino Portenta Mid Carrier Proto Shield, when combined with the Portenta, Nicla, Modulino®, or UNO Shield, provides a comprehensive solution for diverse applications across industries. Below are some examples demonstrating its potential:
 
 - **Industrial automation:** The Portenta Mid Carrier Proto Shield enables advanced monitoring, control, and data processing, enhancing efficiency and reliability in industrial processes.
   - **Predictive maintenance prototyping:** Develop prototypes for industrial machinery using Nicla Vision for real-time equipment inspection and Nicla Sense ME and Sense Env for environmental monitoring. The Portenta H7 processes data, while Cloud integration enables predictive algorithms for proactive maintenance and reduced downtime.
@@ -38,7 +38,7 @@ The Arduino Portenta Mid Carrier Proto Shield provides a ready-to-use platform f
 ### General Specifications Overview
 
 <p style="text-align: justify;">
-The Portenta Mid Carrier Proto Shield is a versatile solution for prototyping and automation applications. It integrates seamlessly with Portenta, Nicla, Modulino®, and Uno Shield, offering advanced sensing, data processing, and connectivity support. With components like Nicla Vision for machine vision and Nicla Sense ME for environmental monitoring, it enables real-time analysis and Cloud integration, making it ideal for industrial automation, building automation, and smart city solutions.
+The Portenta Mid Carrier Proto Shield is a versatile solution for prototyping and automation applications. It integrates seamlessly with Portenta, Nicla, Modulino®, and UNO Shield, offering advanced sensing, data processing, and connectivity support. With components like Nicla Vision for machine vision and Nicla Sense ME for environmental monitoring, it enables real-time analysis and Cloud integration, making it ideal for industrial automation, building automation, and smart city solutions.
 </p>
 
 The main features of the shield are detailed in the table shown below.
@@ -281,11 +281,11 @@ All Arduino IoT-enabled products are supported on Arduino Cloud, which allows yo
 
 ### Sample Sketches
 
-Sample sketches for the Portenta Mid Carrier Proto Shield are available in the **Examples** menu in the Arduino IDE or the **Portenta Mid Carrier Proto Shield Documentation** section of Arduino documentation **[6]**.
+Sample sketches for the Portenta Mid Carrier Proto Shield are available in the **Examples** menu in the Arduino IDE or the **Portenta Mid Carrier Proto Shield Documentation** section of Arduino documentation **[4]**.
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[7]**, the Arduino Library Reference **[8]**, and the online store **[9]** where you will be able to complement your Portenta Mid Carrier Proto Shield board with additional extensions, sensors, and actuators.
+Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]**, the Arduino Library Reference **[6]**, and the online store **[7]** where you will be able to complement your Portenta Mid Carrier Proto Shield board with additional extensions, sensors, and actuators.
 </div>
 
 <div style="page-break-after: always;"></div>
@@ -382,10 +382,10 @@ As a global supplier of electronic and electrical components, Arduino is aware o
 |    1    | Arduino IDE (Desktop)                           | https://www.arduino.cc/en/Main/Software                             |
 |    2    | Arduino IDE (Cloud)                             | https://create.arduino.cc/editor                                    |
 |    3    | Arduino Cloud - Getting Started                 | https://docs.arduino.cc/arduino-cloud/guides/overview/              |
-|    6    | Portenta Mid Carrier Proto Shield Documentation | https://docs.arduino.cc/hardware/portenta-mid-carrier-proto-shield/ |
-|    7    | Project Hub                                     | https://create.arduino.cc/projecthub                                |
-|    8    | Library Reference                               | https://www.arduino.cc/reference/en/                                |
-|    9    | Online Store                                    | https://store.arduino.cc/                                           |
+|    4    | Portenta Mid Carrier Proto Shield Documentation | https://docs.arduino.cc/hardware/portenta-mid-carrier-proto-shield/ |
+|    5    | Project Hub                                     | https://create.arduino.cc/projecthub                                |
+|    6    | Library Reference                               | https://www.arduino.cc/reference/en/                                |
+|    7    | Online Store                                    | https://store.arduino.cc/                                           |
 
 ## Document Revision History
 
