@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The **Portenta Proto Kit Motion ME** is a versatile kit designed for prototyping environmental monitoring and motion detection applications. It includes powerful components such as the Portenta H7 board, the Portenta Mid Carrier, the Proto Shield, several Modulinos, the Arduino Pro 4G Module and the Nicla Sense ME board, allowing users to collect accurate data and develop innovative solutions for predictive maintenance, asset tracking, smart building systems and more.
+The **Portenta Proto Kit Vision VE** is a versatile kit designed for prototyping machine vision and environmental monitoring applications. It includes powerful components such as the Portenta H7 board, the Portenta Mid Carrier, the Proto Shield, several Modulinos, the Arduino Pro 4G Module and the Nicla Vision board, enabling users to develop advanced solutions for object recognition, people counting, air quality monitoring and more.
 
 </FeatureDescription>
 
@@ -13,10 +13,10 @@ The Portenta H7 is a versatile and powerful microcontroller board with dual-core
 </FeatureWrapper>
 </Feature>
 
-<Feature title="Nicla Sense ME Microcontroller Board" image="mkr-form-factor">
-The Nicla Sense ME is a compact and robust microcontroller board that measures motion and environmental parameters such as rotation, acceleration, pressure, humidity, temperature, indoor air quality and CO2 levels. It is ideal for projects requiring sensor fusion and edge processing.
+<Feature title="Nicla Vision Microcontroller Board" image="mkr-form-factor">
+The Nicla Vision is a compact and powerful microcontroller board designed for machine vision applications. It features a camera module and additional sensors, making it ideal for object recognition, people counting and other vision-based projects.
 <FeatureWrapper>
-<FeatureLink title="Read More" url="/hardware/nicla-sense-me"/>
+<FeatureLink title="Read More" url="/hardware/nicla-vision"/>
 </FeatureWrapper>
 </Feature>
 
