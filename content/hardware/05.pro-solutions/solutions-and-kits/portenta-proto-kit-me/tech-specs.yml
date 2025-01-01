@@ -3,13 +3,13 @@ Kit:
   SKU: AKX00073
 Components:
   Portenta H7:
-    Dual-core processing, advanced graphics capabilities and an industrial operating range (-40 °C to 85 °C).
+    Dual-core processing (ARM Cortex® M7 at 480 MHz and M4 at 240 MHz) with advanced graphics capabilities at an industrial operating range (-40 °C to 85 °C).
   Nicla Sense ME:
-    Features advanced onboard motion and environmental sensors, Bluetooth® connectivity and a compact size for Edge AI applications.
+    Equipped with advanced sensors for motion, pressure, temperature, humidity and indoor air quality monitoring, this board combines Bluetooth® connectivity with edge AI capabilities in a compact design (22.86 mm x 22.86 mm).
   Portenta Mid Carrier:
-    Expands Portenta family boards connectivity with Ethernet, USB-A, mPCIe, CAN and MicroSD support. It also provides debugging capabilities.
+    Expands the connectivity of Portenta family boards by providing Ethernet, USB-A, mPCIe, CAN, and MicroSD support. It includes debugging features via onboard JTAG pins and supports additional interfaces such as I2C, SPI, PWM, digital and analog I/Os.
   Portenta Mid Carrier Proto Shield:
-    Supports Nicla family boards, Modulino boards, Arduino UNO shields and includes ESLOV (x2) and Qwiic (x1) connectors.
+    Supports Nicla family boards, Modulinos, Arduino UNO shields and includes ESLOV (x2) and Qwiic (x1) connectors.
   Arduino Pro 4G Module Global:
     Provides global LTE Cat.4 connectivity and GNSS support.
   Modulinos:
@@ -22,5 +22,5 @@ Components:
     THERMO: For temperature and humidity readings (x1)
 Power:
   Input Voltage:
-    +5 VDC: Through USB-C® connector of the Portenta H7 or in the Portenta Mid Carrier.
+    +5 VDC: Through USB-C® connector of the Portenta H7 or in the Portenta Mid Carrier terminal pins.
     +7-30 VDC: Via Portenta Mid Carrier Proto Shield onboard dedicated power jack.
