@@ -417,7 +417,7 @@ To do this, run the command `edge-impulse-data-forwarder` in the terminal. Once 
 
 ### Opta™ Deployment Code
 
-To deploy a trained Edge Impulse model, go to the `Deployment` tab in the Edge Impulse project, select `Arduino Library`, and click `Build` to generate the complete library. Download the generated library `Your_project_name.zip` file and import it into Arduino IDE by selecting `Sketch` > `Include Library` > Add `Your_project_name.ZIP` Library. This allows the model to run locally on the device without an internet connection, reducing latency, enhancing real-time performance, and minimizing power consumption. For more details, visit the [Edge Impulse documentation](https://docs.edgeimpulse.com/docs/run-inference/arduino-library#download-the-arduino-library).
+To deploy a trained Edge Impulse model, go to the `Deployment` tab in the Edge Impulse project, select `Arduino Library`, and click `Build` to generate the complete library. Download the generated library `Your_project_name.zip` file and import it into Arduino IDE by navigating to **Sketch > Include Library > Add Your_project_name.ZIP**. This allows the model to run locally on the device without an internet connection, reducing latency, enhancing real-time performance, and minimizing power consumption. For more details, visit the [Edge Impulse documentation](https://docs.edgeimpulse.com/docs/run-inference/arduino-library#download-the-arduino-library).
 
 ![Opta™ Deployment](assets/edge-impulse-deploy.png)
 
