@@ -2,7 +2,7 @@ Board:
   Name: Arduino® Portenta Mid Carrier Proto Shield
   SKU: ASX00072
 Interfaces:
-  Portenta Mid Carrier Interface: 2x 44-pin male headers
+  Portenta Mid Carrier Interface: 2x 44-pin female headers
   Arduino UNO Shield Interface: 20-pin female headers
   ESLOV Connectors: 2
   QWIIC Connector: 1
