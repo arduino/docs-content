@@ -1213,7 +1213,8 @@ You should be able now to connect to your Opta™ using a central device. The Bl
 
 ## OPC Unified Architecture (OPC UA)
 
-This section explains using the [**OPC UA library**](https://github.com/arduino-libraries/Arduino_OPC_UA) designed for Opta.
+This section explains the use of the [**OPC UA library**](https://github.com/arduino-libraries/Arduino_OPC_UA) designed for Opta.
+
 
 ![OPC UA GUI client with Opta](assets/opta-opc-ua-gui.gif)
 
