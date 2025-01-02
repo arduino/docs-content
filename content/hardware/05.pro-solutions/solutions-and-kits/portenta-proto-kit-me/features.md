@@ -32,7 +32,7 @@ The Portenta Mid Carrier Proto Shield simplifies hardware prototyping with inter
 </Feature>
 
 <Feature title="Modulinos" image="connection">
-Modulinos are plug-and-play sensors and actuators that connect easily via the Portenta Mid Carrier Proto Shield's Qwiic connector. Designed for intuitive use, they include options like knobs for fine adjustments, LEDs for visual feedback, and sensors for measuring distance, movement, temperature and humidity, making them ideal for building and expanding projects without complexity.
+Modulinos are plug-and-play sensors and actuators that connect easily via the Portenta Mid Carrier Proto Shield's Qwiic connector. Designed for intuitive use, they include options like knobs for fine adjustments, LEDs for visual feedback, and sensors for measuring distance, movement, temperature and humidity, making them ideal for building and expanding projects in a fast way and with minimum complexity.
 <FeatureWrapper>
 <FeatureLink title="Read More" url="/hardware/plug-and-make-kit"/>
 </FeatureWrapper>
