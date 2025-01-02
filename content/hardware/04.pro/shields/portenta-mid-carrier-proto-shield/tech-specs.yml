@@ -7,9 +7,6 @@ Interfaces:
   ESLOV Connectors: 2
   QWIIC Connector: 1
   ADC, GPIO, SPI: Accessible through Arduino UNO shield headers
-  Dedicated Interfaces:
-    Nicla Sensorized Nodes: Dedicated mechanical interface for Nicla sensorized nodes
-    Modulino®: Modular connectivity for Modulino® nodes
 Communication:
   I2C: Supported via ESLOV and QWIIC connectors
   SPI, ADC, GPIO: Accessible through Arduino UNO headers
