@@ -3,7 +3,7 @@ Kit:
   SKU: AKX00073
 Components:
   Portenta H7:
-    Dual-core processing (ARM Cortex® M7 at 480 MHz and M4 at 240 MHz) with advanced graphics capabilities at an industrial operating range (-40 °C to 85 °C).
+    Dual-core processing (ARM Cortex® M7 at 480 MHz and M4 at 240 MHz) microcontroller with advanced graphics capabilities at an industrial operating range (-40 °C to 85 °C).
   Nicla Sense ME:
     Equipped with advanced sensors for motion, pressure, temperature, humidity and indoor air quality monitoring, this board combines Bluetooth® connectivity with edge AI capabilities in a compact design (22.86 mm x 22.86 mm).
   Portenta Mid Carrier:
