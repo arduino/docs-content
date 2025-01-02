@@ -2,7 +2,7 @@
 
 The **Portenta Mid Carrier Proto Shield** is a flexible platform for prototyping and integration within the Arduino ecosystem. It has **Portenta Mid Carrier Interface via dual 44-pin header** for compatibility with Portenta Mid Carrier and core Portenta family boards, **two ESLOV connectors** and **a QWIIC connector** for I²C communication.
 
-It features **Arduino UNO shield headers**, offering ADC, GPIO, SPI, and I²C interfaces and provides compatibility with the UNO Shield family. Dedicated **mechanical interfaces for Nicla sensorized nodes and Modulino®** allow scalable sensing and data acquisition for diverse applications. Designed for standalone and integrated systems, the shield supports rapid prototyping and scalability for IoT, automation, and environmental monitoring projects.
+It features **Arduino UNO shield headers**, offering ADC, GPIO, SPI, and I²C interfaces and provides compatibility with the UNO Shield family. Dedicated **mechanical interfaces for Nicla sensorized nodes and Modulino®** allow scalable sensing and data acquisition for diverse applications. Designed for standalone and integrated systems, the shield supports rapid prototyping and scalability for IoT, automation and environmental monitoring projects.
 
 </FeatureDescription>
 
