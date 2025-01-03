@@ -88,41 +88,45 @@ As the Nicla Sense ME communicates with the Opta™ via Bluetooth BLE, the follo
 
 **In the time series data block:**
 
-![Time Series Data block](assets/time-series-data.png)
+![Time Series Data block](assets/time-h.png)
 
 - **Window size**: 1000 ms
 - **Window increase**: 1000 ms
-- **Frequency**: 7 Hz
+- **Frequency**: 10 Hz
 
 **Time series data** is critical in this application as it captures vibration measurements over consistent time intervals. The vibration data is composed of readings from the accelerometer on the Nicla Sense ME, corresponding to the X, Y, and Z axes. By analyzing these three-dimensional vibration values, the machine learning model can more accurately detect how vibrations evolve over time, identify patterns, and pinpoint deviations indicative of motor anomalies.
 
 **In the processing block:**
 
-![Spectral Analysis block](assets/spectral-analysis.png)
+![Spectral Analysis block](assets/processing-h.png)
 
 **Spectral Analysis** plays a crucial role in this application as it transforms raw vibration data into the frequency domain, uncovering patterns or anomalies that are not readily apparent in time-series data. By highlighting unique frequency components, this process significantly enhances the model's ability to detect motor issues, such as imbalance or misalignment, with improved precision.
 
 **In the learning block:**
 
-![Anomaly Detection block](assets/k-means.png)
+![Anomaly Detection block](assets/learning-h.png)
 
 **Anomaly Detection (K-means)** is a key component of this application, enabling the system to differentiate between normal and abnormal motor behavior. By organizing the processed data into clusters based on shared characteristics, this method identifies deviations that signify potential anomalies. Specifically, the system separates the data into two clusters: one representing normal behavior and the other representing anomalous behavior. This approach effectively improves the system's capability to recognize unusual vibrations, which may indicate issues like wear, imbalance, or misalignment.
 
-Here is our Spectral features:
+#### The Vibration Analysis Steps
 
-![Raw Data](assets/raw-data-sample1.png)
+Here is a raw reading from the accelerometer:
 
-The "Raw Data" image shows a single vibration sample with acceleration data along three axes: accX (red), accY (green), and accZ (blue). The x-axis represents time in milliseconds, while the y-axis displays acceleration values. The accZ axis exhibits higher amplitude vibrations compared to accX and accY, which remain relatively flat, indicating minimal activity along those directions. This sample highlights raw sensor behavior, serving as a foundational step for identifying patterns or anomalies during further analysis.
+![Raw Data](assets/raw-signal-h.png)
 
-![DSP Result](assets/dsp-results-data.png)
+The **Raw Data** image shows a single vibration sample with acceleration data along three axes: `accX (orange)`, `accY (green)`, and `accZ (blue)`. The x-axis represents time in milliseconds, while the y-axis displays acceleration values. This sample highlights raw sensor behavior, serving as a foundational step for identifying patterns or anomalies during further analysis.
 
-The "DSP Result" image shows the processed vibration data after applying digital signal processing (DSP). The "After Filter" graph illustrates the filtered time-series signals for the three axes: accX (red), accY (green), and accZ (blue), with the x-axis representing sample numbers and the y-axis showing the signal amplitude. These filtered signals are cleaned to remove noise, making them suitable for further analysis. The "Spectral Power (log)" graph displays the frequency-domain representation of the data, where the x-axis represents frequency (Hz) and the y-axis indicates the logarithmic power of each frequency component. Each colored line corresponds to an axis, emphasizing dominant frequency components. This step is essential for extracting features used in machine learning to identify motor anomalies effectively.
+![DSP Result](assets/dsp-result.png)
+
+The **DSP Result** image shows the processed vibration data after applying digital signal processing (DSP). The **After Filter** graph illustrates the filtered time-series signals for the three axes: accX (red), accY (green), and accZ (blue), with the x-axis representing sample numbers and the y-axis showing the signal amplitude. These filtered signals are cleaned to remove noise, making them suitable for further analysis. 
+
+The **Spectral Power (log)** graph displays the frequency-domain representation of the data, where the x-axis represents frequency (Hz) and the y-axis indicates the logarithmic power of each frequency component. Each colored line corresponds to an axis, emphasizing dominant frequency components. This step is essential for extracting features used in machine learning to identify motor anomalies effectively.
 
 Here is our Anomaly Explorer:
 
 ![Anomaly Explorer](assets/anomaly-explorer.png)
 
-The "Anomaly Explorer" shows training data based on two features: "accX RMS" (Root Mean Square of acceleration along the X-axis) and "accY RMS" (along the Y-axis), which are related to vibration signals. The blue dots represent the training data, showing a central clustering pattern, while the two concentric ellipses define confidence regions: the inner ellipse encompasses most normal data, and the outer ellipse marks the threshold for anomalies. Data outside the outer ellipse would be flagged as anomalous, helping identify deviations from normal behavior. Currently, no test data is displayed, as indicated by the "No test data" selection.
+The **Anomaly Explorer** shows training data based on two features: "accX RMS" (Root Mean Square of acceleration along the X-axis) and "accY RMS" (along the Y-axis), which are related to vibration signals. The blue dots represent the training data, showing a central clustering pattern, while the two concentric ellipses define confidence regions: the inner ellipse encompasses most normal data, and the outer ellipse marks the threshold for anomalies. Data outside the outer ellipse would be flagged as anomalous, helping identify deviations from normal behavior. Currently, no test data is displayed, as indicated by the "No test data" selection.
 
 ***It is important to note that the model’s performance may vary if implemented in an environment different from the one used for training. To ensure consistent results, it is recommended to gather new datasets from the specific deployment environment, retrain the model, and redeploy it for better adaptability.***
 
