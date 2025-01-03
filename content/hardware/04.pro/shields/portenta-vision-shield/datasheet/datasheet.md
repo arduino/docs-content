@@ -12,7 +12,7 @@ variant: 'Collective Datasheet'
 <p style="text-align: justify;">Enhance your industrial automation and surveillance projects with the Arduino Portenta Vision Shield. This add-on board integrates with the Portenta family, offering advanced machine vision capabilities and extended connectivity. The Portenta Vision Shield's compact design and High-Fensity connector ensure a quick and efficient setup. It transforms your Portenta family board into a powerful tool for real-time image processing and edge computing, suitable for demanding industrial environments.</p>
 
 # Target Areas
-Industrial automation, surveillance, machine vision, edge computing
+Industrial automation, surveillance, machine vision and edge computing
 
 # CONTENTS
 ## Application Examples
@@ -21,13 +21,13 @@ Industrial automation, surveillance, machine vision, edge computing
 The Portenta Vision Shield is an add-on and a gateway to innovative solutions in various industries. Explore the possibilities of integrating advanced machine vision and edge computing into your projects with the following application examples:
 
 - **Industrial automation**: Elevate your automation systems with the Portenta Vision Shield, enabling precise and real-time image processing for:
-  - **Quality control**: Implement the Portenta Vision Shield in production lines to automatically detect product defects and ensure that only high-quality items pass through.
+  - **Quality control**: Use the Portenta Vision Shield in production lines to automatically detect product defects and ensure that only high-quality items pass through.
   - **Predictive maintenance**: Use machine vision to monitor equipment and identify early signs of wear or failure, reducing downtime and maintenance costs.
   - **Automated sorting**: Integrate the Portenta Vision Shield into conveyor systems to automatically sort items based on color, shape, or size, improving efficiency and accuracy.
 
 - **Surveillance**: Enhance security and monitoring systems with advanced visual capabilities provided by the Portenta Vision Shield for:
   - **Real-time threat detection**: Deploy the Portenta Vision Shield in security systems to identify and alert authorities of potential threats, such as unauthorized access or suspicious activities, in real-time.
-  - **Environmental monitoring**: Utilize the Portenta Vision Shield's imaging capabilities to monitor environmental conditions in critical areas, such as chemical plants, to ensure safety and compliance with regulations.
+  - **Environmental monitoring**: Use the Portenta Vision Shield's imaging capabilities to monitor environmental conditions in critical areas, such as chemical plants, to ensure safety and compliance with regulations.
   - **Perimeter surveillance**: Implement the Portenta Vision Shield in perimeter security to detect intrusions or breaches, triggering immediate responses and minimizing risks.
 
 - **Machine vision and edge computing**: Unlock the potential of edge computing with the Portenta Vision Shield, bringing powerful processing capabilities directly to the field for:
@@ -40,20 +40,31 @@ The Portenta Vision Shield is an add-on and a gateway to innovative solutions in
 
 ### General Specifications Overview
 
-<p style="text-align: justify;">The Portenta Vision Shield expands the capabilities of the Portenta H7 (any variant) or Portenta C33 boards, adding advanced vision and audio processing features to them.  
+<p style="text-align: justify;">The Portenta Vision Shield expands the capabilities of the Portenta H7 (any variant) or Portenta C33* family boards, adding advanced vision and audio processing features to them.</p>
 
-Below is a summary of the shield's key components and their specifications.</p>
+<p style="text-align: justify;"> 
 
-| **Feature**            | **Description**                                                                      |
-|------------------------|--------------------------------------------------------------------------------------|
-| Onboard Camera         | 1/6″ 640 x 480 VGA 60FPS CMOS image sensor (HM0360)                                  |
-| Onboard Microphone     | Ultra-compact, low-power, omnidirectional, digital MEMS microphone (x2) (MP34DT06J)  |
-| External Memory        | Onboard microSD card slot                                                            |
-| Onboard LoRa® Module   | CMWX1ZZABZ-078 (only in LoRa® variant, SKU: ASX00026)                                |
-| Onboard RJ45 Connector | For Ethernet capabilities (only in Ethernet variant, SKU: ASX00021)                  |
-| Dimensions             | 66.04 x 25.40 mm                                                                     |
-| Weight                 | 8 g                                                                                  |
-| Pinout Features        | Onboard High-Density connectors easily connect the shield to Portenta family boards  |
+**Important note**: The Portenta Vision Shield has two hardware revisions, distinguished only by the onboard camera sensor; all other features of the shield remain identical across both revisions.
+
+</p>
+
+Below is a summary of the shield's key components and their specifications.
+
+| **Feature**            | **Description**                                                                     |
+|------------------------|-------------------------------------------------------------------------------------|
+| Onboard Camera (Rev 1) | 1/11″ 320 x 320 VGA 60FPS CMOS image sensor (HM01B0)                                |
+| Onboard Camera (Rev 2) | 1/6″ 640 x 480 VGA 60FPS CMOS image sensor (HM0360)                                 |
+| Onboard Microphone     | Ultra-compact, low-power, omnidirectional, digital MEMS microphone (x2) (MP34DT06J) |
+| External Memory        | Onboard microSD card slot                                                           |
+| Onboard LoRa® Module   | CMWX1ZZABZ-078 (only in LoRa® variant, SKU: ASX00026)                               |
+| Onboard RJ45 Connector | For Ethernet capabilities (only in Ethernet variant, SKU: ASX00021)                 |
+| Dimensions             | 66.04 x 25.40 mm                                                                    |
+| Weight                 | 8 g                                                                                 |
+| Pinout Features        | Onboard High-Density connectors easily connect the shield to Portenta family boards |
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<strong>The Portenta C33 board is not compatible with the onboard camera of the Portenta Vision Shield</strong>, it is only compatible with the shield's advanced audio and connectivity features (Ethernet or LoRa® depending of the variant).
+</div>
 
 <div style="page-break-after: always;"></div>
 
@@ -69,9 +80,6 @@ Below is a summary of the shield's key components and their specifications.</p>
 - Portenta C33 (SKU: ABX00074)
 - Arduino USB Type-C® Cable 2-in-1 (SKU: TPX00094)
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>The Portenta C33 board is not compatible with the onboard camera of the Portenta Vision Shield</strong>, it is only compatible with the shield's advanced audio and connectivity features (Ethernet or LoRa® depending of the variant).
-</div>
 
 <div style="page-break-after: always;"></div>
 
@@ -115,29 +123,37 @@ The Portenta Vision Shield can be only powered through its High-Density Connecto
 
 ## Functional Overview
 
-<p style="text-align: justify;">The core of the Portenta Vision Shield is its integration with the Portenta family boards, leveraging their processing power for advanced vision and audio applications. The Portenta Vision Shield is equipped with key peripherals, such as dual MEMS microphones (MP34DT06J) and a high-performance camera module (HM0360), all directly interfaced with the main Portenta family board. Two different variants of the shield offer advanced connectivity capabilities, via Ethernet (variant SKU: ASX00021) and via LoRa® variant (SKU: ASX00026).</p>
+<p style="text-align: justify;">The core of the Portenta Vision Shield is its integration with the Portenta family boards, leveraging their processing power for advanced vision and audio applications. The Portenta Vision Shield is equipped with key peripherals, such as dual MEMS microphones (MP34DT06J) and a high-performance camera module (HM01B0 on Rev 1 and HM0360 on Rev 2), all directly interfaced with the main Portenta family board. Two different variants of the shield offer advanced connectivity capabilities, via Ethernet (variant SKU: ASX00021) and via LoRa® variant (SKU: ASX00026).</p>
 
 ### Pinout
 
 <p style="text-align: justify;">The pinout for the Portenta Vision Shield Ethernet is shown in the figure below.</p>
 
-![](assets/Vision_Shield_Pinout.png)
+![](assets/Vision_Shield_Ethernet_Pinout.png)
+
+<div style="page-break-after: always;"></div>
+
+<p style="text-align: justify;">The pinout for the Portenta Vision Shield LoRa® is shown in the figure below.</p>
+
+![](assets/Vision_Shield_LoRa_Pinout.png)
 
 <div style="page-break-after: always;"></div>
 
 ### Block Diagram
 
-<p style="text-align: justify;">An overview of the high-level architecture of the Portenta Vision Shield Ethernet variant (SKU: ASX00021) is illustrated in the figure below.</p>
+<p style="text-align: justify;">An overview of the high-level architecture of the Portenta Vision Shield (Ethernet variant in the left and LoRa® variant on the right) is illustrated in the figure below.</p>
 
-<p style="text-align: justify;">An overview of the high-level architecture of the Portenta Vision Shield LoRa® variant (SKU: ASX00026) is illustrated in the figure below.</p>
+![](assets/Vision_Shield_Block_Diagram.png)
 
 <div style="page-break-after: always;"></div>
 
 ### Power Supply
 
-<p style="text-align: justify;">The Portenta Vision Shield is powered exclusively through the VCC pins (+3V3) of its High Density Connectors. These connectors are designed to be used with boards from the Portenta family, such as the Portenta H7 board (any variant) or the Portenta C33 board. The power is supplied directly from the connected Portenta family board, which acts as the power source for the Portenta Vision Shield.</p>
+<p style="text-align: justify;">The Portenta Vision Shield is powered exclusively through the VCC pins (+3V3) of its High Density Connectors (J1-J2). These connectors are designed to be used with boards from the Portenta family, such as the Portenta H7 board (any variant) or the Portenta C33 board. The power is supplied directly from the connected Portenta family board, which acts as the power source for the Portenta Vision Shield.</p>
 
-The detailed figure below illustrates the power architecture of the Portenta Vision Shield.
+The detailed figure below illustrates the power architecture of the Portenta Vision Shield (Ethernet variant in the left and LoRa® variant on the right).
+
+![](assets/Vision_Shield_Power_Tree.png)
 
 <div style="page-break-after: always;"></div>
 
