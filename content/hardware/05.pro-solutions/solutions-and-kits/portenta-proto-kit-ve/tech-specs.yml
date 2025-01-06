@@ -22,5 +22,5 @@ Components:
     THERMO: For temperature and humidity readings (x1)
 Power:
   Input Voltage:
-    +5 VDC: Through USB-C® connector of the Portenta H7 or in the Portenta Mid Carrier terminal pins.
     +7-30 VDC: Via Portenta Mid Carrier Proto Shield onboard dedicated power jack.
+    +5 VDC: Through USB-C® connector of the Portenta H7 or in the Portenta Mid Carrier terminal pins.
