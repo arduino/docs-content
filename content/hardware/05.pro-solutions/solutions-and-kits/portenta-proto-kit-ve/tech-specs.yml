@@ -14,7 +14,7 @@ Components:
     Provides global LTE Cat.4 connectivity and GNSS support.
   Modulinos:
     KNOB: Encoder with a push button for fine value adjustments (x1)
-    PIXELS: 8 RGB LEDs for visual feedback (x1)
+    PIXELS: 8x RGB LEDs for visual feedback (x1)
     DISTANCE: Time-of-Flight sensor for measuring proximity (x1)
     MOVEMENT: 6-axis IMU to capture movement (x1)
     BUTTONS: Three push buttons and three yellow LEDs (x1)
