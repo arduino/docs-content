@@ -89,7 +89,7 @@ The main features of the shield are detailed in the table shown below.
         </tr>
         <tr>
             <td style="vertical-align: top; text-align: right;">Dimensions</td>
-            <td style="text-align: left;">61.3 mm x 86.5 mm</td>
+            <td style="text-align: left;">61.28 mm x 86.5 mm</td>
         </tr>
         <tr>
             <td style="vertical-align: top; text-align: right;">Power</td>
