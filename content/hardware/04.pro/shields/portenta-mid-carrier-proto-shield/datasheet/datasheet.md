@@ -8,7 +8,10 @@ author: Taddy Chung
 ![](assets/featured.png)
 
 # Description
-<p style="text-align: justify;">The Arduino Portenta Mid Carrier Proto Shield integrates Nicla, Modulino®, UNO Shield, and Portenta, allowing environmental monitoring, motion detection, machine vision, and air quality analysis capabilities. The Modulino® nodes deliver a versatile and user-friendly platform for IoT and electronics, designed to expand effortlessly with additional sensors and components. With easy connectivity using Qwiic cables, they support straightforward daisy-chaining via I2C, making them ideal for beginners and advanced users. Combined with the scalability of Portenta and the adaptability of the UNO Shield, the Portenta Mid Carrier Proto Shield provides a flexible solution for diverse prototyping needs, providing an accessible and powerful development experience.</p>
+
+<p style="text-align: justify;">
+The Arduino Portenta Mid Carrier Proto Shield is a versatile platform designed for advanced prototyping within the Arduino ecosystem. It integrates seamlessly with Portenta boards, Nicla modules, Modulino® and Arduino UNO shields to enable environmental monitoring, motion detection, machine vision and air quality analysis. The shield features QWIIC and ESLOV connectors, supporting modular and scalable development with compatible devices. It is also compatible with Modulino® nodes, providing additional flexibility for sensor integration and component expansion. The Proto Shield is the central hub, offering compatibility and adaptability for diverse IoT, industrial and electronics projects. This design ensures a robust and accessible development experience for beginners and advanced users.
+</p>
 
 # Target Areas:
 
@@ -20,14 +23,14 @@ Industrial automation, building automation, smart cities
 
 The Arduino Portenta Mid Carrier Proto Shield, when combined with the Portenta, Nicla, Modulino®, or UNO Shield, provides a comprehensive solution for diverse applications across industries. Below are some examples demonstrating its potential:
 
-- **Industrial automation:** The Portenta Mid Carrier Proto Shield enables advanced monitoring, control, and data processing, enhancing efficiency and reliability in industrial processes.
+- **Industrial automation:** The Portenta Mid Carrier Proto Shield enables advanced monitoring, control, and data processing, enhancing efficiency and reliability in industrial processes. Some examples are described below:
   - **Predictive maintenance prototyping:** Develop prototypes for industrial machinery using Nicla Vision for real-time equipment inspection and Nicla Sense ME and Sense Env for environmental monitoring. The Portenta H7 processes data, while Cloud integration enables predictive algorithms for proactive maintenance and reduced downtime.
-  - **EV charging station prototyping:** Prototype EV charging stations with features like real-time data collection, anomaly detection, and power load management. Integrate Portenta H7 and Cloud connectivity for remote management and performance analytics.
+  - **EV charging station prototyping:** Prototype EV charging stations with features like real-time data collection, anomaly detection, and power load management. Integrate Cloud connectivity via a Portenta family board for remote management and performance analytics.
   - **Remotely controlled machine prototyping:** Establish machine control networks with Portenta Mid Carrier and CAN communication. Enable real-time data exchange, remote monitoring, and control via the Cloud to optimize machine performance and reduce downtime.
   - **High-speed test rigs:** Build scalable test rigs for sensor calibration, load testing, and functional validation. Use the Portenta Mid Carrier Proto Shield for central control, environmental monitoring, anomaly detection, and real-time Cloud data transmission.
 
 - **Building automation / Smart cities:** The Portenta Mid Carrier Proto Shield facilitates innovative solutions for environmental monitoring and security systems in smart environments.
-  - **Environmental monitoring prototypes:** Use Nicla and Modulino® sensors with Portenta H7 to monitor air quality, noise, and other parameters in real time, supporting informed decision-making.
+  - **Environmental monitoring prototypes:** Use Nicla and Modulino® sensors with the Portenta H7 to monitor air quality, noise, and other parameters in real time, supporting informed decision-making.
   - **Intruder detection prototypes:** Leverage Nicla Vision’s motion detection and face recognition for robust security monitoring. Integrate with Portenta H7 and the Arduino Pro 4G module for real-time alerts and remote monitoring.
   - **Asset tracking prototypes:** Create logistics solutions to monitor environmental conditions such as temperature and humidity during transit. Use 4G network and GNSS for seamless Cloud data transmission and analytics to ensure goods integrity.
 
@@ -38,7 +41,7 @@ The Arduino Portenta Mid Carrier Proto Shield provides a ready-to-use platform f
 ### General Specifications Overview
 
 <p style="text-align: justify;">
-The Portenta Mid Carrier Proto Shield is a versatile solution for prototyping and automation applications. It integrates seamlessly with Portenta, Nicla, Modulino®, and UNO Shield, offering advanced sensing, data processing, and connectivity support. With components like Nicla Vision for machine vision and Nicla Sense ME for environmental monitoring, it enables real-time analysis and Cloud integration, making it ideal for industrial automation, building automation, and smart city solutions.
+The Portenta Mid Carrier Proto Shield is a versatile solution for prototyping and automation applications. It integrates seamlessly with Portenta and Nicla family boards, Modulino® and UNO Shields offering, advanced sensing, data processing and connectivity support. Boards like Nicla Vision for machine vision and Nicla Sense ME for environmental monitoring enable real-time analysis and cloud integration, making it ideal for industrial automation, building automation and smart city solutions.
 </p>
 
 The main features of the shield are detailed in the table shown below.
@@ -212,6 +215,12 @@ The table below provides a comprehensive guideline for the optimal use of the Po
 
 <sup>1</sup> The Portenta Mid Carrier Proto Shield is powered via the power barrel jack (J5), supporting an input voltage range of 7.0 to 30.0 VDC.
 
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;">
+<strong>The onboard barrel jack is the only regulated way to power the Portenta Mid Carrier Proto Shield.</strong> While it is possible to supply power through the shield's pin, <strong>caution is advised as these pins are not regulated</strong>. Their functionality depends on the components connected to them. Using the <strong>onboard barrel jack (J5)</strong> ensures stable and reliable operation of the shield.
+</p>
+</div>
+
 <div style="page-break-after: always;"></div>
 
 ## Functional Overview
@@ -228,12 +237,12 @@ An overview of the Portenta Mid Carrier Proto Shield topology is illustrated and
 
 ![](assets/Proto_Shield_topology.png)
 
-| **Ref.** | **Description**                                                           | **Ref.** | **Description**                                                                                                      |
-|----------|---------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------|
-| J1, J4   | ESLOV SM05B-SRSS-TB(LF)(SN) SMD JST Connector, 5 Position, 1.0 mm Pitch   | J2       | QWIIC SM04B-SRSS-TB(LF)(SN) JST Connector, 4 Position, Side Entry, 1.0 mm Pitch                                      |
-| J3       | PH2-06-UA Through-Hole Header, 6 Position, 2.54 mm (0.100") Pitch         | J5       | 19TW-746 Power Jack Connector, 2.1 x 5.5 mm, DC 30 V 0.5 A                                                           |
-| J6       | 10166143-00024C1LF SMD Header Connector, 24 Position, 2x12, 1.27 mm Pitch | J14, J15 | Portenta Mid Carrier Interface X6521FV-2x22-C85D32 Through-Hole Vertical Female Header, 2x22 Position, 2.54 mm Pitch |
-| JANALOG  | UNO Shield 20TW-995 Connector Strip, Female, Single Pin, 14V Rated        | JDIGITAL | UNO Shield 20TW-994 Connector Strip, Female, Single Pin, 18V Rated                                                   |
+| **Ref.** | **Description**                                                                  | **Ref.** | **Description**                                                                                                              |
+|----------|----------------------------------------------------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------|
+| J1, J4   | ESLOV connector (P/N: SM05B-SRSS-TB(LF)(SN))                                     | J2       | QWIIC connector (P/N: SM04B-SRSS-TB(LF)(SN))                                                                                 |
+| J3       | Through-hole header, 6 position, 2.54 mm pitch (P/N: PH2-06-UA)                  | J5       | Power jack connector, 2.1 x 5.5 mm, DC 30 V 0.5 A (P/N: 19TW-746)                                                            |
+| J6       | SMD header connector, 24 position, 2x12, 1.27 mm pitch (P/N: 10166143-00024C1LF) | J14, J15 | Portenta Mid Carrier interface, through-hole vertical female header, 2x22 position, 2.54 mm pitch (P/N: X6521FV-2x22-C85D32) |
+| JANALOG  | UNO Shield connector strip, female, single pin, 14 V rated (P/N: 20TW-995)       | JDIGITAL | UNO Shield connector strip, female, single pin, 18 V rated (P/N: 20TW-994)                                                   |
 
 ### Pinout
 
@@ -258,6 +267,12 @@ An overview of the high-level architecture of the Portenta Mid Carrier Proto Shi
 The Portenta Mid Carrier Proto Shield requires external power through the onboard power barrel jack:
 
 - **Power Barrel Jack (J5):** Accepts an external power supply with an input voltage range of 7.0 to 30.0 VDC.
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;">
+<strong>The onboard barrel jack is the only regulated way to power the Portenta Mid Carrier Proto Shield.</strong> While it is possible to supply power through the shield's pin, <strong>caution is advised as these pins are not regulated</strong>. Their functionality depends on the components connected to them. Using the <strong>onboard barrel jack (J5)</strong> ensures stable and reliable operation of the shield.
+</p>
+</div>
 
 The figure below provides a detailed overview of the power option and the main system power architecture of the Portenta Mid Carrier Proto Shield.
 
@@ -325,6 +340,18 @@ The connectors of the Portenta Mid Carrier Proto Shield are mainly found along i
 <div style="page-break-after: always;"></div>
 
 ## Product Compliance
+
+### Product Compliance Summary
+
+| **Product Compliance** |
+| :--------------------: |
+|  CE (European Union)   |
+|       FCC (USA)        |
+|      IC (Canada)       |
+|       UKCA (UK)        |
+|          RoHS          |
+|         REACH          |
+|          WEEE          |
 
 ### Declaration of Conformity CE DoC (EU)
 
