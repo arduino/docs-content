@@ -40,10 +40,11 @@ The goal of this application note is to demonstrate a motor anomaly detection an
 - Create, configure, and train a Machine Learning model in Edge Impulse platform to identify motor anomalies based on the collected data.
 - Deploy the trained Machine Learning model to the Opta™ to enable real-time anomaly detection and predictive maintenance.
 - Provide a scalable and efficient solution aligned with Industry 4.0 principles for smarter, data-driven industrial applications.
+- Create a real-time monitoring dashboard using Arduino Cloud.
 
 ## Hardware and Software Requirements
 
-![Hardware Used](assets/hardware-setting.png)
+![Hardware Used](assets/materials.png)
 
 ### Hardware Requirements
 
@@ -136,13 +137,15 @@ For redeployment, use the Edge Impulse uploader to replace the existing model wi
 
 This application does not require complex wiring for operation. However, the Nicla Sense ME and Opta™ must be connected to appropriate power supplies and positioned within the range of Bluetooth® Low Energy (BLE) to ensure communication. Additionally, the Opta™ needs to be connected to a computer via a USB-C cable, with the computer having internet access to transmit the data to the Edge Impulse platform.
 
+![System Setup](assets/setup.png)
+
 The Nicla Sense ME will be mounted on the motor to accurately capture vibrations during its operational state. The collected vibration data is transmitted wirelessly via Bluetooth® Low Energy (BLE) to the Opta™, which then forwards the data to a computer. The computer, with an active internet connection, sends this data to the Edge Impulse platform. This process ensures that the vibration data from the Nicla Sense ME is effectively transmitted to the Edge Impulse platform, where it can be used to train the machine learning model created within the platform.
 
 Deployment Setup:
 
 - **Nicla Sense ME**: Positioned securely on the motor housing to measure vibration data and powered by a LiPo battery.
 - **Opta™**: Installed within BLE communication range (a few meters) of the Nicla Sense ME. The Opta™ is powered via a 24 VDC power source.
-- **Computer**: Ensures internet connectivity for transmitting data from the Opta™ to the Edge Impulse platform.
+- **Computer**: Ensures internet connectivity for transmitting data from the Opta™ to the Edge Impulse platform (only needed for model training).
 
 ## Anomaly Detection System Overview
 
@@ -155,8 +158,6 @@ Using the trained machine learning model, a code is generated to embed the model
 ### Nicla Sense ME Code
 
 This is the initial code required for the setup. It runs on the Nicla Sense ME, configuring it to function as a Bluetooth Low Energy (BLE) peripheral. The code reads real-time accelerometer data from the X, Y, and Z axes and transmits it wirelessly to the Opta™, which operates as the BLE central device.
-
-![Nicla Sense ME](assets/nicla-sense-me.png)
 
 In this application note, key code sections will be explored to ensure the motor anomaly detection system becomes fully operational. The discussion will commence with a review of the necessary libraries:
 
@@ -186,7 +187,7 @@ SensorXYZ accel(SENSOR_ID_ACC);
 
 // BLE Service and Characteristic
 BLEService niclaService(deviceServiceUuid);
-BLECharacteristic sensorCharacteristic(deviceServiceCharacteristicUuid, BLERead | BLEWrite, bufferSize);
+BLECharacteristic sensorCharacteristic(deviceServiceCharacteristicUuid, BLERead | BLENotify, bufferSize);
 
 // Timing Variables
 const long interval = 100;         // Interval of 100ms between data transmissions
@@ -202,7 +203,7 @@ Once all components are initialized, the program starts advertising the BLE serv
 void setup() {
   // Initialize Serial Communication
   Serial.begin(115200);  // Set baud rate to 115200
-  while (!Serial);       // Wait until the Serial monitor is opened
+  delay(2000);
 
    // Initialize the BHY2 sensor system
   if (!BHY2.begin()) {
@@ -223,7 +224,7 @@ void setup() {
   }
 
   // Set the Bluetooth device name
-  BLE.setDeviceName("Nicla"); // Name of the BLE device (visible to central devices)
+  BLE.setDeviceName("NICLA"); // Name of the BLE device (visible to central devices)
 
   // Configure BLE service and characteristics
   BLE.setAdvertisedService(niclaService);               // Set the BLE service to be advertised
@@ -299,8 +300,6 @@ void loop() {
 ### Opta™ Model Training Code
 
 This code demonstrates the configuration of the Opta™ as a central Bluetooth Low Energy (BLE) device, designed to connect to the Nicla Sense ME, which functions as a BLE peripheral. The program scans for BLE devices advertising a specific service UUID, connects to the first matching peripheral, and retrieves accelerometer data from its X, Y, and Z axes. The data is transmitted in real-time using a BLE characteristic.
-
-![Arduino Opta™](assets/opta.png)
 
 This code is a critical part of a motor anomaly detection system, enabling the Opta™ to receive vibration data wirelessly for further processing in the Edge Impulse Platform.
 
@@ -383,9 +382,27 @@ void loop() {
   BLEService niclaService = peripheral.service(serviceUuid);
   BLECharacteristic sensorCharacteristic = peripheral.characteristic(characteristicUuid);
 
+  // subscribe to the simple key characteristics process
+  Serial.println("Subscribing to simple key characteristic ...");
+  if (!sensorCharacteristic) {
+    Serial.println("no simple key characteristic found!");
+    peripheral.disconnect();
+    return;
+  } else if (!sensorCharacteristic.canSubscribe()) {
+    Serial.println("simple key characteristic is not subscribable!");
+    peripheral.disconnect();
+    return;
+  } else if (!sensorCharacteristic.subscribe()) {
+    Serial.println("subscription failed!");
+    peripheral.disconnect();
+    return;
+  } else {
+    Serial.println("Subscribed to Accelerometer Characteristic");
+  }
+
   while (peripheral.connected()) {
-    // Check if the characteristic can be read
-    if (sensorCharacteristic.canRead()) {
+    // Check if the characteristic has been updated
+    if (sensorCharacteristic.valueUpdated()) {
       byte data[bufferSize];  // Array to store the 6 bytes of data received
       int16_t accX, accY, accZ; // Variables for accelerometer values
 
@@ -396,7 +413,7 @@ void loop() {
       memcpy(&accX, data, sizeof(accX));     // X-axis
       memcpy(&accY, data + 2, sizeof(accY)); // Y-axis
       memcpy(&accZ, data + 4, sizeof(accZ)); // Z-axis
-      
+
       // Print accelerometer data to the Serial monitor
       Serial.print(accX);
       Serial.print(",");
@@ -405,7 +422,6 @@ void loop() {
       Serial.println(accZ);
     }
 
-    delay(100); // Wait 100ms before the next read
   }
 
   // Handle disconnection from the peripheral
@@ -425,199 +441,227 @@ To deploy a trained Edge Impulse model, go to the `Deployment` tab in the Edge I
 
 ![Opta™ Deployment](assets/edge-impulse-deploy.png)
 
-After the deployment, it was possible to create the code that integrates Bluetooth Low Energy (BLE) functionality with Edge Impulse's machine learning inferencing framework to classify accelerometer data in real-time. It starts by initializing BLE communication and scanning for a specific peripheral device broadcasting a service with a known UUID. Once the device is found, it connects, discovers its attributes, and accesses a characteristic that provides accelerometer data. 
+After the deployment, let's create the code that integrates Bluetooth® Low Energy (BLE) functionality with Edge Impulse's machine learning inferencing framework to classify accelerometer data in real-time. It starts by initializing BLE communication and scanning for a specific peripheral device broadcasting a service with a known UUID. Once the device is found, it connects, discovers its attributes, and accesses a characteristic that provides accelerometer data. 
 
 The code continuously reads 6 bytes of accelerometer data (representing the X, Y, and Z axes) from the BLE characteristic, processes it, and stores it in a buffer. This data is then transformed into a signal format compatible with Edge Impulse's inferencing engine. Using the pre-trained machine learning model deployed as a custom library generated by Edge Impulse's deployment feature, the code classifies accelerometer data, specifically vibration data, to detect anomalies. If the BLE connection is lost, the program automatically attempts to reconnect. Throughout the process, debug information and classification results are printed to the Serial monitor for real-time feedback.
 
 The code is divided into four parts for better understanding, similar to what was done previously.
 
-The first part of the code sets up the foundational elements for Bluetooth Low Energy (BLE) communication and machine learning inferencing using the `ArduinoBLE` library and the Edge Impulse generate library. It includes constants for defining the `BLE service` and `characteristic UUIDs`, which are used to identify and interact with a BLE peripheral device. The `bufferSize` is set to 6 to handle accelerometer data (X, Y, Z axes). Two key BLE variables are defined: `peripheral`, which represents the BLE device to connect to, and `sensorCharacteristic`, which represents the characteristic that provides accelerometer data. The `debug_nn` variable is used to toggle debug output for machine learning inferencing. The prototype of the function `connectToPeripheral()` is also declared, which is responsible for connecting to a BLE peripheral and initializing the characteristic.
+The first part of the code sets up the foundational elements for Bluetooth® Low Energy (BLE) communication and machine learning inferencing using the `ArduinoBLE` library, the Edge Impulse generated library and the `thingProperties.h` header for the cloud support. It includes constants for defining the `BLE service` and `characteristic UUIDs`, which are used to identify and interact with a BLE peripheral device. The `bufferSize` is set to 6 to handle accelerometer data (X, Y, Z axes). Two key BLE variables are defined: `peripheral`, which represents the BLE device to connect to, and `sensorCharacteristic`, which represents the characteristic that provides accelerometer data. The `debug_nn` variable is used to toggle debug output for machine learning inferencing. The prototype of the function `inference_run()` is also declared, which is responsible to run the inference with the accelerometer data received.
 
 ```arduino
-#include <ArduinoBLE.h>             // Include the ArduinoBLE library for Bluetooth functionality
-#include <OptaAppNote_inferencing.h> // Include Edge Impulse inferencing library
+#include <ArduinoBLE.h>               // Include the ArduinoBLE library for Bluetooth functionality
+#include <OptaAppNote_inferencing.h>  // Include Edge Impulse inferencing library
+#include "thingProperties.h"
 
 // Constants and Definitions
-#define bufferSize 6                // BLE buffer size for accelerometer data
-const char* serviceUuid = "19b10000-e8f2-537e-4f6c-d104768a1214"; // Service UUID
-const char* characteristicUuid = "19b10001-e8f2-537e-4f6c-d104768a1214"; // Characteristic UUID
+#define bufferSize 6                                                      // BLE buffer size for accelerometer data
+const char* serviceUuid = "19b10000-e8f2-537e-4f6c-d104768a1214";         // Service UUID
+const char* characteristicUuid = "19b10001-e8f2-537e-4f6c-d104768a1214";  // Characteristic UUID
 
 // Private variables
-static bool debug_nn = false;       // Set this to true to see debug info
+static bool debug_nn = false;  // Set this to true to see debug info
 
 // BLE variables
-BLEDevice peripheral;               // BLE peripheral device object
-BLECharacteristic sensorCharacteristic; // BLE characteristic object to interact with the peripheral
+BLEDevice peripheral;                    // BLE peripheral device object
+BLECharacteristic sensorCharacteristic;  // BLE characteristic object to interact with the peripheral
+
+// Allocate a buffer for the inference input
+float buffer[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE] = { 0 };
 
 // Prototype of the function
-bool connectToPeripheral();
+#define ANOMALY_TH 200
+
+unsigned long previousMillis = 0;  // store time count to manage timeout
+
+int timeout = 2000;
+
+void inference_run();
 ```
 
-The second part of the code, begins by establishing Serial communication at a baud rate of `115,200` and waits for the connection to ensure debugging output is displayed correctly. A message indicating the start of Edge Impulse inferencing is printed to the Serial monitor. The function then initializes the BLE stack using the `BLE.begin()` method, and if BLE fails to initialize, it halts execution and reports an error. Finally, it validates the Edge Impulse classifier configuration to ensure the raw sample frame matches the expected format of three axes (X, Y, Z). If the configuration is invalid, an error message is printed, and the function stops further execution.
+The second part of the code, begins by establishing Serial communication at a baud rate of `115,200`. The Arduino Cloud initialization functions are called. The function then initializes the BLE stack using the `BLE.begin()` method, and if BLE fails to initialize, it halts execution and reports an error. Finally, it validates the Edge Impulse classifier configuration to ensure the raw sample frame matches the expected format of three axes (X, Y, Z). If the configuration is invalid, an error message is printed, and the function stops further execution.
 
 ```arduino
 void setup() {
-    Serial.begin(115200);           // Start Serial communication
-    while (!Serial);                // Wait for the Serial connection (for debugging)
+  Serial.begin(115200);  // Start Serial communication
+  delay(1500);
 
-    Serial.println("Edge Impulse Inferencing with BLE Data");
+  // Defined in thingProperties.h
+  initProperties();
 
-    // Initialize BLE functionality
-    if (!BLE.begin()) {
-        Serial.println("Failed to initialize Bluetooth!");
-        while (1);
-    }
+  // Connect to Arduino IoT Cloud
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
 
-    // Ensure classifier configuration is valid
-    if (EI_CLASSIFIER_RAW_SAMPLES_PER_FRAME != 3) {
-        ei_printf("ERR: EI_CLASSIFIER_RAW_SAMPLES_PER_FRAME should be equal to 3 (the 3 sensor axes)\n");
-        return;
-    }
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
 
-    Serial.println("Scanning for BLE devices...");
+  pinMode(LED_BUILTIN, OUTPUT);
+
+  Serial.println("Edge Impulse Inferencing with BLE Data");
+
+  // wait for the WiFi to connect
+  while (!ArduinoCloud.connected()) {
+    Serial.print(".");
+    delay(200);
+    ArduinoCloud.update();
+  }
+
+  // Initialize BLE functionality
+  if (!BLE.begin()) {
+    Serial.println("Failed to initialize Bluetooth!");
+    while (1)
+      ;
+  } else {
+    Serial.println("Bluetooth initialized!");
+  }
+
+  // Ensure classifier configuration is valid
+  if (EI_CLASSIFIER_RAW_SAMPLES_PER_FRAME != 3) {
+    ei_printf("ERR: EI_CLASSIFIER_RAW_SAMPLES_PER_FRAME should be equal to 3 (the 3 sensor axes)\n");
+    return;
+  }
+
+  BLE.scanForUuid(serviceUuid);
+  Serial.println("Scanning for BLE devices...");
 }
 ```
 
-The third part of the code is responsible for managing the main operational loop, which includes maintaining the BLE connection, collecting accelerometer data, and performing machine learning inference. It begins by checking if the BLE peripheral is connected. If the connection is lost, the `connectToPeripheral()` function is called to re-establish the connection. If reconnection fails, the program pauses briefly and retries.
-
-Once the connection is confirmed, the code introduces a 2-second delay to stabilize the process and prepare for data sampling. It then allocates a buffer to store accelerometer data and enters a loop to read data from the BLE characteristic. The accelerometer data is transmitted as a 6-byte buffer (X, Y, and Z axes), which is parsed and stored in the inference buffer. This raw data is also printed to the Serial monitor.
-
-After the data is collected, it is converted into a signal format compatible with Edge Impulse's inferencing engine. The program then runs the classifier on the processed data using the pre-trained machine learning model. The classification results, including predictions and timing metrics, are printed to the Serial monitor. If anomaly detection is enabled, the anomaly score is also displayed. The loop ensures continuous data acquisition and inference, dynamically reconnecting to the BLE peripheral if necessary.
+The third part of the code is responsible for managing the main operational loop, which includes maintaining the BLE connection.
 
 ```arduino
 void loop() {
-    // Reconnect if the peripheral is disconnected
-    if (!peripheral || !peripheral.connected()) {
-        if (!connectToPeripheral()) {
-            delay(500);
-            return;
-        }
+
+  digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+
+  // check if a peripheral has been discovered
+  BLEDevice peripheral = BLE.available();
+
+  if (peripheral) {
+    // peripheral discovered, print out address, local name, and advertised service
+    Serial.print("Found ");
+    Serial.print(peripheral.address());
+    Serial.print(" '");
+    Serial.print(peripheral.localName());
+    Serial.println();
+
+    // Check if the peripheral is a Nicla Lock:
+    if (peripheral.localName() == "NICLA") {
+      // stop scanning
+      BLE.stopScan();
+      ble_status = true;
+      // Nicla Sense ME node connection handler
+      NiclaHandler(peripheral);
+
+      // If the connection is lost, print a message
+      Serial.println("Peripheral disconnected!");
+      ble_status = false;
+      // peripheral disconnected, start scanning again
+      BLE.scanForUuid(serviceUuid);
     }
+  }
+  
+  ArduinoCloud.update();
 
-    ei_printf("\nStarting inferencing in 2 seconds...\n");
-    delay(2000); // Delay for 2 seconds before starting
-
-    ei_printf("Sampling BLE Data...\n");
-
-    // Allocate a buffer for the inference input
-    float buffer[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE] = { 0 };
-
-    for (size_t ix = 0; ix < EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE; ix += 3) {
-        if (sensorCharacteristic.canRead()) {
-            byte data[bufferSize]; // Temporary buffer for BLE data (6 bytes)
-            int16_t accX, accY, accZ; // Variables to store accelerometer values
-
-            // Read BLE characteristic value
-            sensorCharacteristic.readValue(data, sizeof(data));
-
-            // Extract accelerometer values (X, Y, Z) from the buffer
-            memcpy(&accX, data, sizeof(accX));     // X-axis
-            memcpy(&accY, data + 2, sizeof(accY)); // Y-axis
-            memcpy(&accZ, data + 4, sizeof(accZ)); // Z-axis
-
-            // Store the extracted values into the inference buffer
-            buffer[ix + 0] = static_cast<float>(accX);
-            buffer[ix + 1] = static_cast<float>(accY);
-            buffer[ix + 2] = static_cast<float>(accZ);
-
-            // Print the received data to the Serial monitor
-            Serial.print("Received Data: ");
-            Serial.print(accX);
-            Serial.print(",");
-            Serial.print(accY);
-            Serial.print(",");
-            Serial.println(accZ);
-        }
-
-        delay(10); // Simulate continuous sampling
-    }
-
-    // Convert the raw buffer into a signal for Edge Impulse inferencing
-    signal_t signal;
-    int err = numpy::signal_from_buffer(buffer, EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE, &signal);
-    if (err != 0) {
-        ei_printf("Failed to create signal from buffer (%d)\n", err);
-        return;
-    }
-
-    // Run the classifier on the collected data
-    ei_impulse_result_t result = { 0 };
-    err = run_classifier(&signal, &result, debug_nn);
-    if (err != EI_IMPULSE_OK) {
-        ei_printf("ERR: Failed to run classifier (%d)\n", err);
-        return;
-    }
-
-    // Print classification results
-    ei_printf("Predictions ");
-    ei_printf("(DSP: %d ms., Classification: %d ms., Anomaly: %d ms.)",
-        result.timing.dsp, result.timing.classification, result.timing.anomaly);
-    ei_printf(": \n");
-    for (size_t ix = 0; ix < EI_CLASSIFIER_LABEL_COUNT; ix++) {
-        ei_printf("    %s: %.5f\n", result.classification[ix].label, result.classification[ix].value);
-    }
-#if EI_CLASSIFIER_HAS_ANOMALY == 1
-    ei_printf("    anomaly score: %.3f\n", result.anomaly);
-#endif
 }
-
-#if !defined(EI_CLASSIFIER_SENSOR) || EI_CLASSIFIER_SENSOR != EI_CLASSIFIER_SENSOR_ACCELEROMETER
-#error "Invalid model for current sensor"
-#endif
 ```
 
-The fourth part of the code is the `connectToPeripheral()`, a function responsible for connecting to a BLE peripheral device and initializing the characteristic that provides accelerometer data. It scans for devices advertising the specified service UUID, retrieves and prints the device's address and name, and attempts to connect. If the connection or attribute discovery fails, the function disconnects and retries. Once connected, it accesses the service and characteristic using predefined UUIDs and verifies their availability. If successful, it returns true, indicating the peripheral is ready for data acquisition, otherwise, it returns false.
+The fourth part of the code is the `NiclaHandler()`, a function responsible for connecting to a BLE peripheral device and initializing the characteristic that provides accelerometer data. It scans for devices advertising the specified service UUID, retrieves and prints the device's address and name, and attempts to connect. If the connection or attribute discovery fails, the function disconnects and retries. Once connected, it accesses the service and characteristic using predefined UUIDs and verifies their availability. 
+
+Once the connection is confirmed, the code allocates a buffer to store accelerometer data and enters a while loop to read data from the BLE characteristic. The accelerometer data is transmitted as a 6-byte buffer (X, Y, and Z axes), which is parsed and stored in the inference buffer.
+
+After the data is collected, the `inference_run()` function converts data into a signal format compatible with Edge Impulse's inferencing engine. The program then runs the classifier on the processed data using the pre-trained machine learning model. The classification results, including predictions and timing metrics, are printed to the Serial monitor. If anomaly detection is enabled, the anomaly score is also displayed. The loop ensures continuous data acquisition and inference, dynamically reconnecting to the BLE peripheral if necessary.
 
 ```arduino
-// Connect to a BLE peripheral and initialize the characteristic
-bool connectToPeripheral() {
-    // Start scanning for BLE devices advertising the specified service UUID
-    BLE.scanForUuid(serviceUuid);
-    peripheral = BLE.available(); // Get the first discovered peripheral
+void NiclaHandler(BLEDevice peripheral) {
+  // connect to the peripheral
+  Serial.println("Connecting ...");
+  if (peripheral.connect()) {
+    Serial.println("Connected");
+  } else {
+    Serial.println("Failed to connect!");
+    return;
+  }
 
-    if (!peripheral) {
-        Serial.println("No BLE device found. Retrying...");
-        delay(1000); // Retry after 1 second
-        return false;
-    }
+  // Discover attributes of the connected peripheral
+  Serial.println("Discovering peripheral device attributes...");
+  if (peripheral.discoverAttributes()) {
+    Serial.println("Peripheral device attributes discovered!");
+  } else {
+    Serial.println("Failed to discover peripheral attributes!");
+    return;
+  }
 
-    // Print peripheral information
-    Serial.print("Device found: ");
-    Serial.println(peripheral.address());
-    Serial.print("Name: ");
-    Serial.println(peripheral.localName());
+  BLEService niclaService = peripheral.service(serviceUuid);
+  sensorCharacteristic = niclaService.characteristic(characteristicUuid);
 
-    // Stop scanning and connect
-    BLE.stopScan();
-    if (!peripheral.connect()) {
-        Serial.println("Failed to connect to peripheral device!");
-        return false;
-    }
+  // subscribe to the simple key characteristics process
+  Serial.println("Subscribing to simple key characteristic ...");
+  if (!sensorCharacteristic) {
+    Serial.println("no simple key characteristic found!");
+    return;
+  } else if (!sensorCharacteristic.canSubscribe()) {
+    Serial.println("simple key characteristic is not subscribable!");
+    return;
+  } else if (!sensorCharacteristic.subscribe()) {
+    Serial.println("subscription failed!");
+    return;
+  } else {
+    Serial.println("Subscribed to Accelerometer Characteristic");
+  }
 
-    Serial.println("Connected to peripheral device!");
+  while (peripheral.connected()) {
 
-    // Discover attributes
-    if (!peripheral.discoverAttributes()) {
-        Serial.println("Failed to discover peripheral attributes!");
+    int samples = 0;
+    byte data[bufferSize];     // Temporary buffer for BLE data (6 bytes)
+    int16_t accX, accY, accZ;  // Variables to store accelerometer values
+
+
+    previousMillis = millis();
+
+    while (samples < EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE) {
+      unsigned long currentMillis = millis();
+
+      if (currentMillis - previousMillis >= 2000) {
+        Serial.println("Data receiving timeout!");
         peripheral.disconnect();
-        return false;
+        break;
+      }
+
+      ArduinoCloud.update();
+      
+      if (sensorCharacteristic.valueUpdated()) {
+        previousMillis = currentMillis;
+        // Read BLE characteristic value
+        sensorCharacteristic.readValue(data, sizeof(data));
+
+        // Extract accelerometer values (X, Y, Z) from the buffer
+        memcpy(&accX, data, sizeof(accX));      // X-axis
+        memcpy(&accY, data + 2, sizeof(accY));  // Y-axis
+        memcpy(&accZ, data + 4, sizeof(accZ));  // Z-axis
+
+        // Store the extracted values into the inference buffer
+        buffer[samples + 0] = accX;
+        buffer[samples + 1] = accY;
+        buffer[samples + 2] = accZ;
+
+        samples += EI_CLASSIFIER_RAW_SAMPLES_PER_FRAME;
+      }
     }
+    samples = 0;
 
-    // Access service and characteristic
-    BLEService niclaService = peripheral.service(serviceUuid);
-    sensorCharacteristic = niclaService.characteristic(characteristicUuid);
-
-    // Check if the characteristic is available
-    if (!sensorCharacteristic) {
-        Serial.println("Characteristic not found!");
-        peripheral.disconnect();
-        return false;
-    }
-
-    Serial.println("Characteristic found!");
-    return true;
+    inference_run();
+  }
 }
 ```
+
+Finally, in the `inference_run()` function we also update the following cloud variables:
+
+- **`anomaly_score`**: the bigger this number, the more anomalous is the vibration signal.
+- **`fault`**: this variable is set to *true* if the *anomaly_score* is bigger than an empirically defined threshold (`ANOMALY_TH`).
+
+## Arduino Cloud
+
+
 
 ## Full Motor Anomaly Detection Example
 
