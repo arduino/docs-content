@@ -192,8 +192,6 @@ The communication interfaces and other important features of the shield are deta
 - Arduino® Ethernet Shield Rev 2 (A000024)
 - Arduino® Motor Shield Rev 3 (A000079)
 
-<div style="page-break-after: always;"></div>
-
 ## Ratings
 
 ### Recommended Operating Conditions
@@ -212,8 +210,6 @@ The table below provides a comprehensive guideline for the optimal use of the Po
 </div>
 
 <sup>1</sup> The Portenta Mid Carrier Proto Shield is powered via the power barrel jack (J5), supporting an input voltage range of 7.0 to 30.0 VDC.
-
-<div style="page-break-after: always;"></div>
 
 ## Functional Overview
 
@@ -241,13 +237,12 @@ An overview of the high-level architecture of the Portenta Mid Carrier Proto Shi
 
 ### Shield Topology
 
-| **Ref.** | **Description**                                                                                                      | **Ref.** | **Description**                                                           |
-|----------|----------------------------------------------------------------------------------------------------------------------|----------|---------------------------------------------------------------------------|
-| U1       | RAA211450GNP#HA0 42V 5A Synchronous Step-Down DC/DC Buck Regulator                                                   | J1, J4   | ESLOV SM05B-SRSS-TB(LF)(SN) SMD JST Connector, 5 Position, 1.0 mm Pitch   |
-| J2       | QWIIC SM04B-SRSS-TB(LF)(SN) JST Connector, 4 Position, Side Entry, 1.0 mm Pitch                                      | J3       | PH2-06-UA Through-Hole Header, 6 Position, 2.54 mm (0.100") Pitch         |
-| J5       | 19TW-746 Power Jack Connector, 2.1 x 5.5 mm, DC 30 V 0.5 A                                                           | J6       | 10166143-00024C1LF SMD Header Connector, 24 Position, 2x12, 1.27 mm Pitch |
-| J14, J15 | Portenta Mid Carrier Interface X6521FV-2x22-C85D32 Through-Hole Vertical Female Header, 2x22 Position, 2.54 mm Pitch | JANALOG  | UNO Shield 20TW-995 Connector Strip, Female, Single Pin, 14V Rated        |
-| JDIGITAL | UNO Shield 20TW-994 Connector Strip, Female, Single Pin, 18V Rated                                                   |          |                                                                           |
+| **Ref.** | **Description**                                                           | **Ref.** | **Description**                                                                                                      |
+|----------|---------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------|
+| J1, J4   | ESLOV SM05B-SRSS-TB(LF)(SN) SMD JST Connector, 5 Position, 1.0 mm Pitch   | J2       | QWIIC SM04B-SRSS-TB(LF)(SN) JST Connector, 4 Position, Side Entry, 1.0 mm Pitch                                      |
+| J3       | PH2-06-UA Through-Hole Header, 6 Position, 2.54 mm (0.100") Pitch         | J5       | 19TW-746 Power Jack Connector, 2.1 x 5.5 mm, DC 30 V 0.5 A                                                           |
+| J6       | 10166143-00024C1LF SMD Header Connector, 24 Position, 2x12, 1.27 mm Pitch | J14, J15 | Portenta Mid Carrier Interface X6521FV-2x22-C85D32 Through-Hole Vertical Female Header, 2x22 Position, 2.54 mm Pitch |
+| JANALOG  | UNO Shield 20TW-995 Connector Strip, Female, Single Pin, 14V Rated        | JDIGITAL | UNO Shield 20TW-994 Connector Strip, Female, Single Pin, 18V Rated                                                   |
 
 ### Power Supply
 
@@ -293,14 +288,14 @@ Now that you have gone through the basics of what you can do with the device, yo
 ## Mechanical Information
 
 <p style="text-align: justify;">
-The Portenta Mid Carrier Proto Shield is a double-sided board measuring 61.3 mm x 86.5 mm. It includes two ESLOV connectors, one QWIIC connector, a Modulino®, a Nicla mechanical interface, an Arduino UNO Shield interface, and a Portenta Mid Carrier interface with two 44-pin female headers.
+The Portenta Mid Carrier Proto Shield is a double-sided board measuring 61.28 mm x 86.5 mm. It includes two ESLOV connectors, one QWIIC connector, a Modulino®, a Nicla mechanical interface, an Arduino UNO Shield interface, and a Portenta Mid Carrier interface with two 44-pin female headers.
 </p>
 
 ### Shield Dimensions
 
 The outline of the Portenta Mid Carrier Proto Shield is shown in the figure below, with all dimensions provided in millimeters (mm).
 
-![](assets/Proto_Shield_Outline.png)
+![](assets/Proto_Shield_Outline_top.png)
 
 <p style="text-align: justify;">
 The shield includes mounting holes for the Modulino®.
@@ -311,23 +306,18 @@ The shield includes mounting holes for the Modulino®.
 ### Shield Connectors
 
 <p style="text-align: justify;">
-The connectors of the Portenta Mid Carrier Proto Shield are mainly found along its edges, with additional connectors positioned within the shield’s interior. Their placement is illustrated in the figure below, with all dimensions provided in millimeters (mm).
+The connectors of the Portenta Mid Carrier Proto Shield are mainly found along its edges, with additional connectors positioned within the shield’s interior. Their placement is illustrated in the figures below, with all dimensions provided in millimeters (mm).
 </p>
 
-![](assets/Proto_Shield_Connectors.png)
+![](assets/Proto_Shield_Connectors_top.png)
+
+![](assets/Proto_Shield_Connectors_side.png)
+
+![](assets/Proto_Shield_Connectors_bottom.png)
 
 <div style="page-break-after: always;"></div>
 
 ## Product Compliance
-
-### Product Compliance Summary
-
-| **Product Compliance** |
-|:----------------------:|
-|  CE (European Union)   |
-|          RoHS          |
-|         REACH          |
-|          WEEE          |
 
 ### Declaration of Conformity CE DoC (EU)
 
