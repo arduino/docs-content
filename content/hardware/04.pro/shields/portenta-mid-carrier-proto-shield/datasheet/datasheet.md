@@ -67,8 +67,9 @@ The main features of the shield are detailed in the table shown below.
             <td style="vertical-align: top; text-align: right;">Connectors</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>2x ESLOV connectors (I2C bus)</li>
+                    <li>2x ESLOV connectors</li>
                     <li>1x QWIIC connector</li>
+                    <li>1x Nicla Holder (Mechanical Interface)</li>
                 </ul>
             </td>
         </tr>
@@ -84,16 +85,16 @@ The main features of the shield are detailed in the table shown below.
             </td>
         </tr>
         <tr>
+            <td style="vertical-align: top; text-align: right;">Power</td>
+            <td style="text-align: left;">7-30 VDC via dedicated power jack</td>
+        </tr>
+        <tr>
             <td style="vertical-align: top; text-align: right;">Operating Temperatures</td>
             <td style="text-align: left;">-40° C to +85° C (-40° F to 185° F)</td>
         </tr>
         <tr>
             <td style="vertical-align: top; text-align: right;">Dimensions</td>
             <td style="text-align: left;">61.28 mm x 86.5 mm</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">Power</td>
-            <td style="text-align: left;">7-30 VDC via dedicated power jack</td>
         </tr>
     </tbody>
 </table>
@@ -128,7 +129,7 @@ The communication interfaces and other important features of the shield are deta
             <td style="vertical-align: top; text-align: right;">Modulino® Mounting Holes</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Supports modular sensor and component connections</li>
+                    <li>Supports Modulino® mounting</li>
                 </ul>
             </td>
         </tr>
@@ -145,7 +146,7 @@ The communication interfaces and other important features of the shield are deta
             <td style="vertical-align: top; text-align: right;">QWIIC Connector</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>1x QWIIC (I2C)</li>
+                    <li>1x QWIIC</li>
                     <li>Enables quick and simple sensor integration with daisy-chain capabilities</li>
                 </ul>
             </td>
@@ -154,13 +155,13 @@ The communication interfaces and other important features of the shield are deta
             <td style="vertical-align: top; text-align: right;">ESLOV Connector</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>2x ESLOV (I2C)</li>
+                    <li>2x ESLOV</li>
                     <li>Supports scalable module integration and communication</li>
                 </ul>
             </td>
         </tr>
         <tr>
-            <td style="vertical-align: top; text-align: right;">Nicla Mechanical Interface</td>
+            <td style="vertical-align: top; text-align: right;">Nicla Holder (Mechanical Interface)</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Dedicated connectors for Nicla modules</li>
@@ -177,10 +178,6 @@ The communication interfaces and other important features of the shield are deta
 - ESLOV cable
 - Qwiic cable
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The Portenta Mid Carrier Proto Shield requires the Portenta Mid Carrier with a a compatible Portenta family board to operate.
-</div>
-
 ### Related Products
 
 - Arduino® Portenta Mid Carrier (ASX00055)
@@ -191,6 +188,10 @@ The communication interfaces and other important features of the shield are deta
 - Arduino® 9 Axis Motion Shield (A000070)
 - Arduino® Ethernet Shield Rev 2 (A000024)
 - Arduino® Motor Shield Rev 3 (A000079)
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<strong>Note:</strong> The Portenta Mid Carrier Proto Shield requires the Portenta Mid Carrier with a a compatible Portenta family board to operate.
+</div>
 
 ## Ratings
 
@@ -211,6 +212,8 @@ The table below provides a comprehensive guideline for the optimal use of the Po
 
 <sup>1</sup> The Portenta Mid Carrier Proto Shield is powered via the power barrel jack (J5), supporting an input voltage range of 7.0 to 30.0 VDC.
 
+<div style="page-break-after: always;"></div>
+
 ## Functional Overview
 
 <p style="text-align: justify;">
@@ -218,6 +221,19 @@ The Portenta Mid Carrier Proto Shield is designed for modular integration and ad
 
 The shield also features Arduino UNO headers that provide ADC, GPIO, SPI, and I2C interfaces compatible with standard Arduino shields. Dedicated mechanical interfaces for Nicla and Modulino® modules enable specialized sensing and data acquisition. These features make the Portenta Mid Carrier Proto Shield a robust, functional, and scalable platform for project development.
 </p>
+
+### Shield Topology
+
+An overview of the Portenta Mid Carrier Proto Shield topology is illustrated and described in the gure and table below.
+
+![](assets/Proto_Shield_topology.png)
+
+| **Ref.** | **Description**                                                           | **Ref.** | **Description**                                                                                                      |
+|----------|---------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------|
+| J1, J4   | ESLOV SM05B-SRSS-TB(LF)(SN) SMD JST Connector, 5 Position, 1.0 mm Pitch   | J2       | QWIIC SM04B-SRSS-TB(LF)(SN) JST Connector, 4 Position, Side Entry, 1.0 mm Pitch                                      |
+| J3       | PH2-06-UA Through-Hole Header, 6 Position, 2.54 mm (0.100") Pitch         | J5       | 19TW-746 Power Jack Connector, 2.1 x 5.5 mm, DC 30 V 0.5 A                                                           |
+| J6       | 10166143-00024C1LF SMD Header Connector, 24 Position, 2x12, 1.27 mm Pitch | J14, J15 | Portenta Mid Carrier Interface X6521FV-2x22-C85D32 Through-Hole Vertical Female Header, 2x22 Position, 2.54 mm Pitch |
+| JANALOG  | UNO Shield 20TW-995 Connector Strip, Female, Single Pin, 14V Rated        | JDIGITAL | UNO Shield 20TW-994 Connector Strip, Female, Single Pin, 18V Rated                                                   |
 
 ### Pinout
 
@@ -234,15 +250,6 @@ An overview of the high-level architecture of the Portenta Mid Carrier Proto Shi
 ![](assets/Proto_Shield_Env_Block_Diagram.png)
 
 <div style="page-break-after: always;"></div>
-
-### Shield Topology
-
-| **Ref.** | **Description**                                                           | **Ref.** | **Description**                                                                                                      |
-|----------|---------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------|
-| J1, J4   | ESLOV SM05B-SRSS-TB(LF)(SN) SMD JST Connector, 5 Position, 1.0 mm Pitch   | J2       | QWIIC SM04B-SRSS-TB(LF)(SN) JST Connector, 4 Position, Side Entry, 1.0 mm Pitch                                      |
-| J3       | PH2-06-UA Through-Hole Header, 6 Position, 2.54 mm (0.100") Pitch         | J5       | 19TW-746 Power Jack Connector, 2.1 x 5.5 mm, DC 30 V 0.5 A                                                           |
-| J6       | 10166143-00024C1LF SMD Header Connector, 24 Position, 2x12, 1.27 mm Pitch | J14, J15 | Portenta Mid Carrier Interface X6521FV-2x22-C85D32 Through-Hole Vertical Female Header, 2x22 Position, 2.54 mm Pitch |
-| JANALOG  | UNO Shield 20TW-995 Connector Strip, Female, Single Pin, 14V Rated        | JDIGITAL | UNO Shield 20TW-994 Connector Strip, Female, Single Pin, 18V Rated                                                   |
 
 ### Power Supply
 
