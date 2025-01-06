@@ -21,7 +21,7 @@ The Nicla Sense ME is a compact and robust microcontroller board that measures m
 </Feature>
 
 <Feature title="Portenta Mid Carrier" image="connection">
-The Portenta Mid Carrier is a versatile prototyping tool that enhances Portenta family boards with access to its high-density signals and features like Ethernet, Mini PCIe, camera connectors, CAN lines and microSD support. It is ideal for applications such as machine vision, smart cities and remote maintenance.
+The Portenta Mid Carrier is a versatile prototyping tool that enhances Portenta family boards with access to its high-density signals and features like Ethernet, Mini PCIe, camera connectors, CAN lines, microSD support, and 4G connectivity via the Arduino Pro 4G Module. It is ideal for applications such as machine vision, smart cities, and remote maintenance.
 <FeatureWrapper>
 <FeatureLink title="Read More" url="/hardware/portenta-mid-carrier"/>
 </FeatureWrapper>
@@ -29,6 +29,9 @@ The Portenta Mid Carrier is a versatile prototyping tool that enhances Portenta 
 
 <Feature title="Portenta Mid Carrier Proto Shield" image="connection">
 The Portenta Mid Carrier Proto Shield simplifies hardware prototyping with interfaces for Arduino UNO shields, Qwiic and ESLOV connectors, and a Modulino mechanical interface. It is designed to integrate with the Portenta Mid Carrier, enabling the quickly development and testing of custom hardware solutions.
+<FeatureWrapper>
+<FeatureLink title="Read More" url="/hardware/portenta-mid-carrier-proto-shield"/>
+</FeatureWrapper>
 </Feature>
 
 <Feature title="Modulinos" image="connection">

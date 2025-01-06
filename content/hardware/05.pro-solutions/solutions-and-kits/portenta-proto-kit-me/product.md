@@ -1,7 +1,7 @@
 ---
 title: Portenta Proto Kit ME
 url_shop: https://store.arduino.cc/portenta-proto-kit-me
-hasSetupGuide: true
+hasSetupGuide: false
 core: arduino:mbed_portenta
 certifications: [RoHS, UKCA, CE, FCC, RCM]
 sku: [AKX00073]
