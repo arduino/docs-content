@@ -3,3 +3,9 @@ software:
   - arduino-cli
   - iot-cloud
   - cloud-editor
+hardware:
+  boards:
+  - portenta-c33
+  - portenta-x8
+  - nicla-voice
+  - nicla-vision

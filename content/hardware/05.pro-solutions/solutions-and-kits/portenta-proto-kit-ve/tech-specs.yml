@@ -7,11 +7,11 @@ Components:
   Nicla Vision:
     Features an integrated camera module and sensors for machine vision applications such as object recognition, people counting and indoor air quality monitoring, all in a compact design (22.86 mm x 22.86 mm).
   Portenta Mid Carrier:
-    Expands the connectivity of Portenta family boards by providing Ethernet, USB-A, mPCIe, CAN, and MicroSD support. It includes debugging features via onboard JTAG pins and supports additional interfaces such as I2C, SPI, PWM, digital and analog I/Os.
+    Expands the connectivity of Portenta family boards by providing Ethernet, USB-A, mPCIe, CAN, MicroSD support and 4G connectivity via the Arduino Pro 4G Module. It includes debugging features via onboard JTAG pins and supports additional interfaces such as I2C, SPI, PWM, digital and analog I/Os.
   Portenta Mid Carrier Proto Shield:
     Supports Nicla family boards, Modulinos, Arduino UNO shields and includes ESLOV (x2) and Qwiic (x1) connectors.
   Arduino Pro 4G Module Global:
-    Provides global LTE Cat.4 connectivity and GNSS support.
+    Provides global LTE Cat.4 connectivity, 4G support and GNSS capabilities.
   Modulinos:
     KNOB: Encoder with a push button for fine value adjustments (x1)
     PIXELS: 8x RGB LEDs for visual feedback (x1)

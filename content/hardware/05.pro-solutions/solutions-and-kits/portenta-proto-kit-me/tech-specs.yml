@@ -7,7 +7,7 @@ Components:
   Nicla Sense ME:
     Equipped with advanced sensors for motion, pressure, temperature, humidity and indoor air quality monitoring, this board combines Bluetooth® connectivity with edge AI capabilities in a compact design (22.86 mm x 22.86 mm).
   Portenta Mid Carrier:
-    Expands the connectivity of Portenta family boards by providing Ethernet, USB-A, mPCIe, CAN, MicroSD support, and 4G connectivity via the Arduino Pro 4G Module. It includes debugging features via onboard JTAG pins and supports additional interfaces such as I2C, SPI, PWM, digital and analog I/Os.
+    Expands the connectivity of Portenta family boards by providing Ethernet, USB-A, mPCIe, CAN, MicroSD support and 4G connectivity via the Arduino Pro 4G Module. It includes debugging features via onboard JTAG pins and supports additional interfaces such as I2C, SPI, PWM, digital and analog I/Os.
   Portenta Mid Carrier Proto Shield:
     Supports Nicla family boards, Modulinos, Arduino UNO shields and includes ESLOV (x2) and Qwiic (x1) connectors.
   Arduino Pro 4G Module Global:

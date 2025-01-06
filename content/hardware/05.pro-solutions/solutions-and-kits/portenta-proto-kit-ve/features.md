@@ -21,7 +21,7 @@ The Nicla Vision is a compact and powerful microcontroller board designed for ma
 </Feature>
 
 <Feature title="Portenta Mid Carrier" image="connection">
-The Portenta Mid Carrier is a versatile prototyping tool that enhances Portenta family boards with access to its high-density signals and features like Ethernet, Mini PCIe, camera connectors, CAN lines and microSD support. It is ideal for applications such as machine vision, smart cities and remote maintenance.
+The Portenta Mid Carrier is a versatile prototyping tool that enhances Portenta family boards with access to its high-density signals and features like Ethernet, Mini PCIe, camera connectors, CAN lines, microSD support and 4G connectivity via the Arduino Pro 4G Module. It is ideal for applications such as machine vision, smart cities, and remote maintenance.
 <FeatureWrapper>
 <FeatureLink title="Read More" url="/hardware/portenta-mid-carrier"/>
 </FeatureWrapper>
@@ -29,10 +29,13 @@ The Portenta Mid Carrier is a versatile prototyping tool that enhances Portenta 
 
 <Feature title="Portenta Mid Carrier Proto Shield" image="connection">
 The Portenta Mid Carrier Proto Shield simplifies hardware prototyping with interfaces for Arduino UNO shields, Qwiic and ESLOV connectors, and a Modulino mechanical interface. It is designed to integrate with the Portenta Mid Carrier, enabling the quickly development and testing of custom hardware solutions.
+<FeatureWrapper>
+<FeatureLink title="Read More" url="/hardware/portenta-mid-carrier-proto-shield"/>
+</FeatureWrapper>
 </Feature>
 
 <Feature title="Modulinos" image="connection">
-Modulinos are plug-and-play sensors and actuators that connect easily via the Portenta Mid Carrier Proto Shield's Qwiic connector. Designed for intuitive use, they include options like knobs for fine adjustments, LEDs for visual feedback, and sensors for measuring distance, movement, temperature and humidity, making them ideal for building and expanding projects without complexity.
+Modulinos are plug-and-play sensors and actuators that connect easily via the Portenta Mid Carrier Proto Shield's Qwiic connector. Designed for intuitive use, they include options like knobs for fine adjustments, LEDs for visual feedback, and sensors for measuring distance, movement, temperature and humidity, making them ideal for building and expanding projects in a fast way and with minimum complexity.
 <FeatureWrapper>
 <FeatureLink title="Read More" url="/hardware/plug-and-make-kit"/>
 </FeatureWrapper>
