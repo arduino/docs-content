@@ -17,7 +17,7 @@ Components:
     PIXELS: 8x RGB LEDs for visual feedback (x1)
     DISTANCE: Time-of-Flight sensor for measuring proximity (x1)
     MOVEMENT: 6-axis IMU to capture movement (x1)
-    BUTTONS: Three push buttons and three yellow LEDs (x1)
+    BUTTONS: 3x push buttons and 3x yellow LEDs (x1)
     BUZZER: For generating alarms or tunes (x1)
     THERMO: For temperature and humidity readings (x1)
 Power:
