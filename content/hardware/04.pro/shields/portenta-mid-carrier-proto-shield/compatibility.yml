@@ -1,0 +1,15 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - cloud-editor
+
+hardware:
+  boards:
+    - portenta-mid-carrier
+    - nicla-sense-me
+    - nicla-vision
+    - nicla-voice
+    - 4-relays-shield
+    - 9-axis-motion-shield
+    - ethernet-shield-rev2
+    - motor-shield-rev3
