@@ -344,8 +344,6 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 | Dibutyl phthalate (DBP)                | 1000                    |
 | Diisobutyl phthalate (DIBP)            | 1000                    |
 
-<div style="page-break-after: always;"></div>
-
 Exemptions: No exemptions are claimed.
 
 <p style="text-align: justify;">
