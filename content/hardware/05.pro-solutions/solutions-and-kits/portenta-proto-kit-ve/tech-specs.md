@@ -1,0 +1,1 @@
+These are the technical specifications for the Portenta Proto Kit VE. **For detailed specifications of each component in the kit, please visit its respective page on Arduino Docs**.
