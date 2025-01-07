@@ -46,135 +46,30 @@ The Portenta Mid Carrier Proto Shield is a versatile solution for prototyping an
 
 The main features of the shield are detailed in the table shown below.
 
-<div style="text-align:center;">
+| **Feature**                            | **Description**                                                                               |
+| -------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Compatible Modules                     | Nicla sensorized nodes<br></br>Modulino®<br></br>Arduino® UNO Shields                         |
+| Connectors                             | 2x ESLOV connectors<br></br>1x QWIIC connector<br></br>1x Nicla Holder (Mechanical Interface) |
+| Arduino UNO Shields Headers Interfaces | ADC<br></br>GPIO<br></br>SPI<br></br>I2C                                                      |
+| Power                                  | 7-30 VDC via dedicated power jack                                                             |
+| Operating Temperatures                 | -40° C to +85° C (-40° F to 185° F)                                                           |
+| Dimensions                             | 61.28 mm x 86.5 mm                                                                            |
 
-<table>
-    <thead>
-        <tr>
-            <th width="30%" style="text-align: right;">Feature</th>
-            <th style="text-align: left;">Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">Compatible Modules</td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>Nicla sensorized nodes</li>
-                    <li>Modulino®</li>
-                    <li>Arduino® UNO Shields</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">Connectors</td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>2x ESLOV connectors</li>
-                    <li>1x QWIIC connector</li>
-                    <li>1x Nicla Holder (Mechanical Interface)</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">Arduino UNO Shields Headers Interfaces</td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>ADC</li>
-                    <li>GPIO</li>
-                    <li>SPI</li>
-                    <li>I2C</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">Power</td>
-            <td style="text-align: left;">7-30 VDC via dedicated power jack</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">Operating Temperatures</td>
-            <td style="text-align: left;">-40° C to +85° C (-40° F to 185° F)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">Dimensions</td>
-            <td style="text-align: left;">61.28 mm x 86.5 mm</td>
-        </tr>
-    </tbody>
-</table>
-</div>
-
-<div style="page-break-after: always;"></div>
 
 ### Communication Interfaces
 
 The communication interfaces and other important features of the shield are detailed in the table shown below.
 
-<div style="text-align:center;">
+| **Interface**                       | **Details**                                                                                                    |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Portenta Mid Carrier Headers        | 2x 44-pin female headers<br></br>Provides high-density connectivity with Portenta family board                 |
+| Modulino® Mounting Holes            | Supports Modulino® mounting                                                                                    |
+| Arduino UNO Shield Headers          | ADC, GPIO, SPI, I2C<br></br>Expands functionality with standard Arduino UNO Shields                            |
+| QWIIC Connector                     | 1x QWIIC<br></br>Enables quick and simple sensor integration with daisy-chain capabilities                     |
+| ESLOV Connector                     | 2x ESLOV<br></br>Supports scalable module integration and communication                                        |
+| Nicla Holder (Mechanical Interface) | Dedicated connectors for Nicla modules<br></br>Enables advanced sensing and processing with Nicla family board |
 
-<table>
-    <thead>
-        <tr>
-            <th width="30%" style="text-align: right;">Interface</th>
-            <th style="text-align: left;">Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">Portenta Mid Carrier Headers</td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>2x 44-pin female headers</li>
-                    <li>Provides high-density connectivity with Portenta family board</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">Modulino® Mounting Holes</td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>Supports Modulino® mounting</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">Arduino UNO Shield Headers</td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>ADC, GPIO, SPI, I2C</li>
-                    <li>Expands functionality with standard Arduino UNO Shields</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">QWIIC Connector</td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>1x QWIIC</li>
-                    <li>Enables quick and simple sensor integration with daisy-chain capabilities</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">ESLOV Connector</td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>2x ESLOV</li>
-                    <li>Supports scalable module integration and communication</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">Nicla Holder (Mechanical Interface)</td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>Dedicated connectors for Nicla modules</li>
-                    <li>Enables advanced sensing and processing with Nicla family board</li>
-                </ul>
-            </td>
-        </tr>
-    </tbody>
-</table>
-</div>
+
 
 ### Related Accessories
 
@@ -227,7 +122,8 @@ The table below provides a comprehensive guideline for the optimal use of the Po
 
 <p style="text-align: justify;">
 The Portenta Mid Carrier Proto Shield is designed for modular integration and advanced prototyping within the Arduino ecosystem. It features dual 44-pin Portenta Mid Carrier headers, offering high-density connectivity for advanced applications and integration with the Portenta ecosystem. It has two ESLOV connectors and one QWIIC connector for I2C communication, ensuring uninterrupted connectivity with sensors and peripherals.
-
+</p>
+<p style="text-align: justify;">
 The shield also features Arduino UNO headers that provide ADC, GPIO, SPI, and I2C interfaces compatible with standard Arduino shields. Dedicated mechanical interfaces for Nicla and Modulino® modules enable specialized sensing and data acquisition. These features make the Portenta Mid Carrier Proto Shield a robust, functional, and scalable platform for project development.
 </p>
 
