@@ -13,7 +13,7 @@ tags:
   - Anomaly detection
   - BLE
 
-author: 'Davidson Dantas and Thiago Alves'
+author: 'Davidson Dantas, Thiago Alves and Christopher Méndez'
 hardware:
   - hardware/07.opta/opta-family/opta
 ---
@@ -22,7 +22,7 @@ hardware:
 
 Motor health is crucial for ensuring the efficiency and reliability of industrial systems. Undetected performance anomalies can lead to costly downtime, unplanned maintenance, and even complete system failure. By closely monitoring deviations in motor operating patterns, it is possible to perform preventive maintenance and address potential issues before they escalate. For instance, an increase in motor vibration outside normal operating parameters may indicate the need for maintenance, helping to prevent breakdowns and ensure continued operation. The rise of connected technologies has made real-time monitoring of motor behavior more accessible and effective, enabling proactive maintenance and improved operational performance in industrial environments.
 
-![ML for Detecting Anomalies System Thumbnail](assets/thumbnail.png)
+![ML for Detecting Anomalies System Thumbnail](assets/thumbnail-c.png)
 
 This application note introduces an innovative approach to motor anomaly detection by combining the power of the Arduino Nicla Sense ME, Machine Learning using the Edge Impulse platform, and the Arduino Opta™. The Nicla Sense ME, equipped with accelerometer sensor, captures vibration data directly from the motor. This data is wirelessly transmitted via Bluetooth® Low Energy (BLE) from the Nicla Sense ME to the Opta™, which then forwards it to the Edge Impulse platform. Using Edge Impulse's intuitive interface, a Machine Learning model is created, configured, and trained to detect anomalies by analyzing the collected data.
 
@@ -68,6 +68,12 @@ The goal of this application note is to demonstrate a motor anomaly detection an
 - The [Edge Impulse public project](https://studio.edgeimpulse.com/public/580971/live).
   
 ***The model performance can be affected if the application is implemented on a very different environment than the one used for training. It's recommended to feed the dataset with new samples and retrain the model for a new and upgraded deployment.***
+
+### Download the Project Code
+
+[![ ](assets/download.png)](assets/Packaging_and_labeling.zip)
+
+Download the whole project code [here](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip).
 
 ## Machine Learning Model for Motor Anomaly Detection
 
@@ -661,13 +667,25 @@ Finally, in the `inference_run()` function we also update the following cloud va
 
 ## Arduino Cloud
 
+By leveraging the Arduino Cloud, we can seamlessly integrate a simple yet powerful dashboard to monitor and visualize the system status in real-time:
 
+![Cloud Dashboard](assets/dashboard.gif)
+
+Within the Arduino Cloud's dashboard, the system variables can be monitored with the following widgets:
+
+- Line charts for historical review of anomaly.
+- Vibration and fault state alert widgets for easy understanding of the motor state.
+- Bluetooth® connectivity status.
+
+This dashboard can be easily accessed from a PC, mobile phone, or tablet anywhere, providing instantaneous updates wherever we are.
+
+Additionally, we can set up various integrations to complement our project. For example, we can forward the dashboard data to an external service using Webhook, IFTTT automation, and Smart Home integrations.
 
 ## Full Motor Anomaly Detection Example
 
-All the necessary files to replicate this application notes can be found [here](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip):
+All the necessary files to replicate this application note can be found [here](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip):
 
-This file contains the following codes: Nicla Sense ME firmware, Opta™ training firmware and Opta™ deployment firmware.
+This file contains the following codes:
 
 - **Nicla Sense ME firmware:** This code configures the Nicla Sense ME as a BLE peripheral to collect vibration data from the motor and transmit it wirelessly via Bluetooth® Low Energy (BLE).
 - **Opta™ training firmware:** This code sets up the Opta™ as a BLE central device to receive vibration data from the Nicla Sense ME and forward it to the connected computer via serial communication.
