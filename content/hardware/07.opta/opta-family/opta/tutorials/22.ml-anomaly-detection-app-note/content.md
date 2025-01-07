@@ -71,7 +71,7 @@ The goal of this application note is to demonstrate a motor anomaly detection an
 
 ### Download the Project Code
 
-[![ ](assets/download.png)](assets/Packaging_and_labeling.zip)
+[![ ](assets/download.png)](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip)
 
 Download the whole project code [here](assets/Nicla_Opta_ML_Vibration_Anomaly_Detection.zip).
 
