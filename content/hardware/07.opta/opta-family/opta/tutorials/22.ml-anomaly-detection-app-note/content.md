@@ -453,7 +453,13 @@ The code continuously reads 6 bytes of accelerometer data (representing the X, Y
 
 The code is divided into four parts for better understanding, similar to what was done previously.
 
-The first part of the code sets up the foundational elements for Bluetooth® Low Energy (BLE) communication and machine learning inferencing using the `ArduinoBLE` library, the Edge Impulse generated library and the `thingProperties.h` header for the cloud support. It includes constants for defining the `BLE service` and `characteristic UUIDs`, which are used to identify and interact with a BLE peripheral device. The `bufferSize` is set to 6 to handle accelerometer data (X, Y, Z axes). Two key BLE variables are defined: `peripheral`, which represents the BLE device to connect to, and `sensorCharacteristic`, which represents the characteristic that provides accelerometer data. The `debug_nn` variable is used to toggle debug output for machine learning inferencing. The prototype of the function `inference_run()` is also declared, which is responsible to run the inference with the accelerometer data received.
+- The first part of the code sets up the foundational elements for Bluetooth® Low Energy (BLE) communication and machine learning inferencing using the `ArduinoBLE` library, the Edge Impulse generated library and the `thingProperties.h` header for the cloud support.
+
+  It includes constants for defining the `BLE service` and `characteristic UUIDs`, which are used to identify and interact with a BLE peripheral device. The `bufferSize` is set to 6 to handle accelerometer data (X, Y, Z axes).
+
+  Two key BLE variables are defined: `peripheral`, which represents the BLE device to connect to, and `sensorCharacteristic`, which represents the characteristic that provides accelerometer data. The `debug_nn` variable is used to toggle debug output for machine learning inferencing. 
+  
+  The prototype of the function `inference_run()` is also declared, which is responsible to run the inference with the accelerometer data received.
 
 ```arduino
 #include <ArduinoBLE.h>               // Include the ArduinoBLE library for Bluetooth functionality
@@ -485,7 +491,9 @@ int timeout = 2000;
 void inference_run();
 ```
 
-The second part of the code, begins by establishing Serial communication at a baud rate of `115,200`. The Arduino Cloud initialization functions are called. The function then initializes the BLE stack using the `BLE.begin()` method, and if BLE fails to initialize, it halts execution and reports an error. Finally, it validates the Edge Impulse classifier configuration to ensure the raw sample frame matches the expected format of three axes (X, Y, Z). If the configuration is invalid, an error message is printed, and the function stops further execution.
+- The second part of the code, begins by establishing Serial communication at a baud rate of `115,200`. The Arduino Cloud initialization functions are called. The function then initializes the BLE stack using the `BLE.begin()` method, and if BLE fails to initialize, it halts execution and reports an error. 
+
+  Finally, it validates the Edge Impulse classifier configuration to ensure the raw sample frame matches the expected format of three axes (X, Y, Z). If the configuration is invalid, an error message is printed, and the function stops further execution.
 
 ```arduino
 void setup() {
@@ -532,7 +540,7 @@ void setup() {
 }
 ```
 
-The third part of the code is responsible for managing the main operational loop, which includes maintaining the BLE connection.
+- The third part of the code is responsible for managing the main operational loop, which includes maintaining the BLE connection.
 
 ```arduino
 void loop() {
@@ -571,11 +579,11 @@ void loop() {
 }
 ```
 
-The fourth part of the code is the `NiclaHandler()`, a function responsible for connecting to a BLE peripheral device and initializing the characteristic that provides accelerometer data. It scans for devices advertising the specified service UUID, retrieves and prints the device's address and name, and attempts to connect. If the connection or attribute discovery fails, the function disconnects and retries. Once connected, it accesses the service and characteristic using predefined UUIDs and verifies their availability. 
+- The fourth part of the code is the `NiclaHandler()`, a function responsible for connecting to a BLE peripheral device and initializing the characteristic that provides accelerometer data. It scans for devices advertising the specified service UUID, retrieves and prints the device's address and name, and attempts to connect. If the connection or attribute discovery fails, the function disconnects and retries. Once connected, it accesses the service and characteristic using predefined UUIDs and verifies their availability. 
 
-Once the connection is confirmed, the code allocates a buffer to store accelerometer data and enters a while loop to read data from the BLE characteristic. The accelerometer data is transmitted as a 6-byte buffer (X, Y, and Z axes), which is parsed and stored in the inference buffer.
+  Once the connection is confirmed, the code allocates a buffer to store accelerometer data and enters a while loop to read data from the BLE characteristic. The accelerometer data is transmitted as a 6-byte buffer (X, Y, and Z axes), which is parsed and stored in the inference buffer.
 
-After the data is collected, the `inference_run()` function converts data into a signal format compatible with Edge Impulse's inferencing engine. The program then runs the classifier on the processed data using the pre-trained machine learning model. The classification results, including predictions and timing metrics, are printed to the Serial monitor. If anomaly detection is enabled, the anomaly score is also displayed. The loop ensures continuous data acquisition and inference, dynamically reconnecting to the BLE peripheral if necessary.
+  After the data is collected, the `inference_run()` function converts data into a signal format compatible with Edge Impulse's inferencing engine. The program then runs the classifier on the processed data using the pre-trained machine learning model. The classification results, including predictions and timing metrics, are printed to the Serial monitor. If anomaly detection is enabled, the anomaly score is also displayed. The loop ensures continuous data acquisition and inference, dynamically reconnecting to the BLE peripheral if necessary.
 
 ```arduino
 void NiclaHandler(BLEDevice peripheral) {
@@ -665,7 +673,7 @@ Finally, in the `inference_run()` function we also update the following cloud va
 - **`anomaly_score`**: the bigger this number, the more anomalous is the vibration signal.
 - **`fault`**: this variable is set to *true* if the *anomaly_score* is bigger than an empirically defined threshold (`ANOMALY_TH`).
 
-## Arduino Cloud
+### Arduino Cloud
 
 By leveraging the Arduino Cloud, we can seamlessly integrate a simple yet powerful dashboard to monitor and visualize the system status in real-time:
 
