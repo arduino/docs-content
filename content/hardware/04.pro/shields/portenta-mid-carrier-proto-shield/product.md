@@ -1,5 +1,5 @@
 ---
-title: Arduino® Portenta Mid Carrier Proto Shield
+title: Portenta Mid Carrier Proto Shield
 url_shop: https://store.arduino.cc/products/portenta-mid-carrier-proto-shield
 url_guide: /tutorials/portenta-mid-carrier-proto-shield/user-manual
 primary_button_url: https://docs.arduino.cc/hardware/portenta-proto-kit-me
