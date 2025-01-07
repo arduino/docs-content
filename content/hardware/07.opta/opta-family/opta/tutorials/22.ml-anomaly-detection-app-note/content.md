@@ -1,5 +1,5 @@
 ---
-title: 'Edge AI for Motor Anomaly Detection with Opta™ & Nicla Sense ME'
+title: 'Edge AI Motor Anomaly Detection with Opta™ & Nicla Sense ME'
 difficulty: advanced
 description: "This application note explains how to detect motor anomalies by analyzing vibration patterns using the Arduino Nicla Sense ME, machine learning tools on the Edge Impulse platform, and the Arduino Opta™"
 tags:
