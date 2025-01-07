@@ -26,6 +26,8 @@ In this document you will find:
 
 ## Supported Boards
 
+***Check the GitHub repository [here](https://github.com/arduino-libraries/ArduinoIoTCloud?tab=readme-ov-file#what).*** 
+
 The following boards connect to the Arduino Cloud via [The Things Stack](https://www.thethingsindustries.com/stack/), a LoRaWAN® Network Server connected to thousands of public LoRa® gateways.
 
 - [MKR WAN 1300](https://store.arduino.cc/arduino-mkr-wan-1300-lora-connectivity-1414)

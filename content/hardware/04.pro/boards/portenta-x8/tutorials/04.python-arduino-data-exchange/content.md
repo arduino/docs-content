@@ -12,11 +12,13 @@ hardware:
 
 ## Overview
 
+![Portenta X8 RPC](assets/x8-rpc-c.gif)
+
 The container infrastructure provided by Arduino contains a pre-built Python® image that you can use to run Python® applications on the Portenta X8. In this tutorial, we are going to build a container based on a provided one.
 
 While all the peripherals are accessible from the iMX8 processor running the Linux environment, it can be useful to let the onboard microcontroller take care of certain peripheral handling and exchange only the required data between the microcontroller and the Python® application.
 
-You will be guided on how to achieve this setup. It is recommendable to familiarize yourself with the foundational elements of the Portenta X8 and its infrastructure by reading the [user manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual) if you have not already done so.
+You will be guided on how to achieve this setup. It is recommendable to familiarize yourself with the foundational elements of the Portenta X8 and its infrastructure by reading [fundamentals of the Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/x8-fundamentals) if you have not already done so.
 
 ## Goals
 
@@ -30,7 +32,41 @@ You will be guided on how to achieve this setup. It is recommendable to familiar
 - [Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - [Portenta breakout](https://docs.arduino.cc/hardware/portenta-breakout)
 - Any sensor (in this example, we will use an [BME680](https://www.bosch-sensortec.com/products/environmental-sensors/gas-sensors/bme680/) I<sup>2</sup>C module)
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
+
+## Remote Procedure Call - RPC
+
+The two processors within the Portenta X8 require a communication mechanism to exchange data, known as an **RPC (Remote Procedure Call)**.
+
+**RPC** allows a program to trigger a **`procedure`** or **`function`** on another computer over a network rather than locally. It lets a program execute procedures **remotely**, with the details of network communication hidden to maintain transparency, making the remote call appear similar to a local one.
+
+It is particularly useful for distributed computing in a client-server model. The **`procedure call`** behaves as a **`request`** from the client, and the **`return value`** serves as the server's **`response`**. This model uses multiple computers connected over a network (often the Internet) to solve large computational tasks.
+
+While RPC aims to closely replicate local procedure calls, complete equivalence is not possible due to network communication challenges, which can introduce communication failures. To manage these issues, different RPC mechanisms adopt distinct semantics:
+
+- **`At most once` semantics** ensures that a remote call may fail but will not be run multiple times.
+- **`At least once` semantics** guarantees that the call is made at least once, even if it results in multiple activations.
+
+The Portenta X8 uses **MessagePack-RPC** for its communication (see the [library repository](https://github.com/msgpack-rpc/msgpack-rpc) for details). *MessagePack-RPC* relies on *MessagePack* as the serialization protocol, encoding data in *MsgPack* format, and is supported over:
+
+- OpenAMP via Shared Memory
+- SPI
+- Linux Char Device
+- TCP/IP
+
+![Linux Arduino RPC](assets/linux_arduino_RPC.png "Linux Arduino RPC")
+
+In the image above, the **M7 core** of the **STM32H7** manages communication between the Linux and Arduino environments. If an Arduino sketch runs on the **M4 core**, the **M7 core** acts as an intermediary, handling data requests between the M4 core and the Linux environment. Due to this setup, traditional dual-core processing is not supported on the Portenta X8.
+
+On the Linux side, a service called `m4-proxy` handles data transfer between Linux and Arduino.
+
+The communication process works as follows:
+
+- A program registers as the RPC server on port X, listing the procedures available for the M4 to call.
+- `m4-proxy` then forwards the calls from the M4 to the appropriate program/port.
+
+![RPC M4 proxy](assets/m4-proxy.png "RPC M4 proxy")
 
 ## Python® on the X8
 
@@ -102,13 +138,13 @@ adb push <local directory path>/py-serialrpc /home/fio
 Log into the X8 shell with `adb shell` and navigate into the `serialrpc` folder. Build the container using
 
 ```bash
-sudo docker build . -t py-serialrpc`
+docker build . -t py-serialrpc
 ```
 
 The `-t` flag assigns a tag to the container. Then run the container by executing `cd..` and then:
 
 ```bash
-sudo docker compose up -d
+docker compose up -d
 ```
 
 The `-d` flag detaches the container so it runs in the background. Note that this will run the docker compose app and have the container built persistently across reboots by registering it as a systemd service.
@@ -116,19 +152,19 @@ The `-d` flag detaches the container so it runs in the background. Note that thi
 To stop the container, run:
 
 ```bash
-sudo docker compose stop
+docker compose stop
 ```
 
 Check if the container is running by executing:
 
 ```bash
-sudo docker ps
+docker ps
 ```
 
 You can then access the log of its service at any time by using following command from the **same directory**:
 
 ```bash
-sudo docker compose logs -f --tail 20
+docker compose logs -f --tail 20
 ```
 
 If you do not wish to run the container in the background, skip the `-d` flag, you will get the console output directly in the executing shell. Once the container is running, you will see the messages being sent from the M4.
@@ -154,13 +190,13 @@ adb push <local directory path>/python-sensor-rpc /home/fio
 Log into the X8 via `adb shell`. Then navigate into the `python-sensor-rpc` folder and execute:
 
 ```bash
-sudo docker build . -t python-sensor-rpc
+docker build . -t python-sensor-rpc
 ```
 
 When it has finished, you can run the container with:
 
 ```bash
-sudo docker compose up
+docker compose up
 ```
 
 After a few seconds, you should see the output from the Python application featuring the sensor readings on the M4 that exchanges through the RPC mechanism. The output should look similar to the following:
@@ -186,17 +222,17 @@ adb push python-sensor-rpc /home/fio
 
 ```bash
 # On the Portenta X8
-sudo docker compose down
+docker compose down
 ```
 
 ```bash
 # On the Portenta X8
-sudo docker build . -t python-sensor-rpc
+docker build . -t python-sensor-rpc
 ```
 
 ```bash
 # On the Portenta X8
-sudo docker compose up
+docker compose up
 ```
 
 Alternatively, you could modify the files directly on the X8 using an editor such as **VIM**, so you do not need to upload the files every time. Rebuilding the container will be necessary in any case though.
@@ -204,7 +240,7 @@ Alternatively, you could modify the files directly on the X8 using an editor suc
 If you wonder how to specify the Python® script that is executed when running a container, have a look at the `Dockerfile` file. There you will find the `ENTRYPOINT` command that takes multiple arguments. In our example:
 
 ```python
-ENTRYPOINT [ "python3", "m4_to_python.py"]`
+ENTRYPOINT ["python3", "m4_to_python.py"]
 ```
 
 ## Conclusion

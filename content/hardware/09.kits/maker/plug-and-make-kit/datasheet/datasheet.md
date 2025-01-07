@@ -206,18 +206,21 @@ Each Modulino® node of the kit is designed to be connected to the Arduino® UNO
 
 In the case multiple nodes of the same kind are connected to the I2C "daisy-chain", they may have the same I2C default address, causing communication problems. All Modulino® nodes are designed to have the possibility of having different I2C addresses via hardware or firmware changes as presented in the following table.
 
-| **Board Silk Name** | **Sensor/Actuator**     | **Default I2C Address (HEX)** | **Editable Addresses (HEX)**                    |
-| ------------------- | ----------------------- | ----------------------------- | ----------------------------------------------- |
-| MODULINO MOVEMENT            | LSM6DSOXTR              | 0x6A                          | 0x6A, 0x6B (via Solder Jumper)                  |
-| MODULINO DISTANCE            | VL53L4CDV0DH/1          | 0x29                          | Any custom address (via software configuration) |
-| MODULINO THERMO              | HS3003                  | 0x44                          | Any custom address (via software configuration) |
-| MODULINO BUZZER              | PKLCS1212E4001          | 0x3C                          | Any custom address (via software configuration) |
-| MODULINO KNOB                | PEC11J-9215F-S0015      | 0x76                          | Any custom address (via software configuration) |
-| MODULINO PIXELS              | Eight LC8822-2020       | 0x6C                          | Any custom address (via software configuration) |
-| MODULINO BUTTONS             | Three SPST Push Buttons | 0x7C                          | Any custom address (via software configuration) |
+| **Board Silk Name**    | **Sensor/Actuator**     | **Modulino I2C Address (HEX)** | **Editable Addresses (HEX)**                    | **Hardware I2C Address (HEX)** |
+|------------------------|-------------------------|-------------------------------|------------------------------------------------|------------------------------|
+| MODULINO MOVEMENT      | LSM6DSOXTR              | 0x6A                          | 0x6A, 0x6B (via solder jumper)                 | 0x6A & 0x7E                  |
+| MODULINO DISTANCE      | VL53L4CDV0DH/1          | 0x29                          | Any custom address (via software configuration)| 0x29                         |
+| MODULINO THERMO        | HS3003                  | 0x44                          | Any custom address (via software configuration)| 0x44                         |
+| MODULINO BUZZER        | PKLCS1212E4001          | 0x3C                          | Any custom address (via software configuration)| 0x1E                         |
+| MODULINO KNOB          | PEC11J-9215F-S0015      | 0x76                          | Any custom address (via software configuration)| 0x3A                         |
+| MODULINO PIXELS        | Eight LC8822-2020       | 0x6C                          | Any custom address (via software configuration)| 0x36                         |
+| MODULINO BUTTONS       | Three SPST Push Buttons | 0x7C                          | Any custom address (via software configuration)| 0x3E                         |
+
+**Please note:** When scanning for I2C addresses connected to the bus, the boards might identify themselves using the **Hardware I2C Address** listed in the last column of the table. However, you should always use the **Modulino I2C Address** provided in your code if using the official Modulino library.
 
 With the provided software, users can change the default I2C address of the dedicated I2C interface controller firmware. Assigning different addresses allows users to connect multiple boards of the same type in a chain.
 To facilitate this, a white rectangle is positioned on the bottom silk of the board, where users can write the new I2C address directly on the board itself.
+
 ![Blank silk for identification](assets/I2CTag.png)
 
 <div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
@@ -596,11 +599,11 @@ If you want to program your Arduino® Plug and Make Kit while offline you need t
 
 To learn more about how to use this kit and quickly build useful and interesting projects with it, please refer to the dedicated course available at **[2]** as well as the official documentation **[3]**.
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[4]**, by just installing a simple plugin.
+All Arduino® boards, including this one, work out-of-the-box on the Arduino® Cloud Editor **[4]**, by just installing a simple plugin.
 
-The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[5]** to start coding on the browser and upload your sketches onto your board.
+The Arduino® Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[5]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 
@@ -726,5 +729,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 |  **Date**  | **Revision** |                      **Changes**                       |
 | ---------- | ------------ | ------------------------------------------------------ |
-| 11/07/2024 |      1       |                     First release                      |
+| 06/12/2024 |      3       | Updated I2C information |
+| 05/09/2024 |      2       | Cloud Editor updated from Web Editor |
+| 11/07/2024 |      1       | First release |
 

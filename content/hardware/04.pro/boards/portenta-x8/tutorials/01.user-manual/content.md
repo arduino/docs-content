@@ -18,62 +18,70 @@ software:
   - iot-cloud
 ---
 
-
 ## Introduction
 
-Portenta X8 is a powerful, industrial-grade System on Module with Linux OS preloaded onboard, capable of running device-independent software thanks to its modular container architecture. In this user manual, we will go through the foundations of the Portenta X8 to help you understand how the board works and how you can benefit from its advanced features.
+Portenta X8 is a powerful, industrial-grade System on a Module with Linux OS preloaded onboard that can run device-independent software thanks to its modular container architecture.
+
+![Portenta X8](assets/x8-user-manual-front.png "Portenta X8")
+
+In this user manual, we will go through the foundations of the Portenta X8 to help you understand how the board works and how you can benefit from its advanced features.
 
 ## Required Hardware
 
-* 1x [Portenta X8](https://store.arduino.cc/products/portenta-x8) board
-* 1x USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
-* 1x Wi-Fi® Access Point or Ethernet with Internet access
+* [Portenta X8](https://store.arduino.cc/products/portenta-x8) (x1)
+* [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
+* Wi-Fi® Access Point or Ethernet with Internet access (x1)
 
 ## Required Software
 
-* [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
-* Latest "Arduino Mbed OS Portenta Boards" Core > 3.0.1
-* Latest Linux image available, check [this section](#portenta-x8-os-image-update) to verify if your Portenta X8 is already updated.
+* For Linux programming, leverage the latest Linux image available, and check [this section](#portenta-x8-os-image-update) to verify if your Portenta X8 has already been updated.
+* For Arduino programming, leverage [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor), and the latest **Arduino Mbed OS Portenta Boards** Core > 3.0.1.
 
 ## Product Overview
 
-Portenta X8 offers the best of two approaches: flexibility of usage of Linux combined with real-time applications through the Arduino environment. Developers can now execute real-time tasks, while simultaneously performing high-performance processing on Linux cores.
-So, let's have a look at its technical specification.
+The Portenta X8 combines the best of two approaches, offering the flexibility of Linux and the capability for real-time applications within the Arduino environment. Developers can execute real-time tasks while simultaneously handling high-performance processing on Linux cores.
 
-### Architecture Overview
+So, let's have a look at its technical specifications.
 
-Portenta X8 is a powerful, industrial-grade System on Module combining a Yocto Linux distribution with the well-known Arduino environment.
+### Board Architecture Overview
+
+Portenta X8 is a powerful, industrial-grade System-on-Module (SoM) that combines a Yocto Linux distribution with the well-known Arduino environment.
 
 ![Portenta X8 Tech Specs](assets/portenta_x8_call_outs.png "Portenta X8 Tech Specs")
 
-As you can see, Portenta X8 features two powerful computing units:
+As reported in the image above, Portenta X8 features two powerful computing units:
 
 * **NXP® i.MX 8M Mini** Cortex®-A53 quad-core up to 1.8GHz per core + 1x Cortex®-M4 up to 400 MHz. This microprocessor is the one where the Yocto Linux distribution is running together with Docker containers (check [this section](#linux-environment) of this user manual to learn more).
 
-* **STMicroelectronics STM32H747XI** dual-core Cortex®-M7 up to 480 MHz + M4 32 bit Arm® MCU up to 240 MHz. This microcontroller is the one where the "Arduino Mbed OS Portenta Boards" Core is running. M4 core is accessible and programmable by the user, while M7 is dedicated to establishing and guaranteeing the communication between i.MX 8M Mini and M4 as well as to manage peripherals through RPC. Check [this section](#arduino-environment) of this user manual to learn more.
+* **STMicroelectronics STM32H747AII6** featuring 1x Arm® Cortex®-M7 core running up to 480 MHz and 1x Arm® Cortex®-M4 core running up to 240 MHz. This microcontroller hosts the ["Arduino Mbed OS Portenta Boards" Core](https://github.com/arduino/ArduinoCore-mbed). M4 core is accessible and programmable by the user, while M7 is dedicated to establishing and guaranteeing the communication between i.MX 8M Mini and M4, as well as to manage peripherals through RPC. For more details, refer to [this section](#arduino-environment) of the user manual.
 
 The two computing units are responsible for different tasks, which are summarized in the table below.
 
-  | NXP® i.MX 8M Mini                                       | STMicroelectronics STM32H747XI (M4)                            |
-  | ------------------------------------------------------- | -------------------------------------------------------------- |
-  | Running Yocto Linux distribution with Docker containers | Running Arduino sketches with the Mbed OS Portenta Boards Core |
-  | Dedicated to high level tasks                           | Dedicated to real-time tasks                                   |
-  | Manage network connectivity                             | No direct connection to any network stack                      |
-  | Manage network-based buses (e.g. Modbus TCP, etc.)      | Manage field buses (e.g. Modbus RTU, CANbus, etc.)             |
-  | Access to peripherals without concurrent access control | Access to peripherals without concurrent access control        |
+| **NXP® i.MX 8M Mini**                                   | **STMicroelectronics STM32H747AII6**                           |
+|---------------------------------------------------------|----------------------------------------------------------------|
+| Running Yocto Linux distribution with Docker containers | Running Arduino sketches with the Mbed OS Portenta Boards Core |
+| Dedicated to high level tasks                           | Dedicated to real-time tasks                                   |
+| Manage network connectivity                             | No direct connection to any network stack                      |
+| Manage network-based buses (e.g., Modbus TCP, etc.)     | Manage field buses (e.g., Modbus RTU, CANbus, etc.)            |
+| Access to peripherals without concurrent access control | Access to peripherals without concurrent access control        |
 
-In addition to the above features, Portenta X8 guarantees security over time. A crypto element (i.e. [NXP® SE050C2](https://www.nxp.com/docs/en/data-sheet/SE050-DATASHEET.pdf)) ensures a secure connection at the hardware level and allows the board to be PSA certified from ARM® (click [here](https://www.psacertified.org/products/portenta-x8/) to learn more).
+In addition to the above features, here is an overview of the board's main components:
 
-Moreover, Portenta X8 can be further customized to get a continuously maintained Linux kernel distribution and to keep security at first by Over-The-Air (OTA) device updates and fleet management. In order to activate these features, you need to create an Arduino Cloud for business account including the so-called **Portenta X8 Board Manager**. Portenta X8 Board Manager has been developed together with [Foundries.io](https://foundries.io/) and allows a user to:
+* **External memory**: The board features an onboard 16 GB eMMC Flash memory and 2 GB Low Power DDR4 DRAM.
 
-* Securely maintain Linux distribution inside a FoundriesFactory, i.e. a dedicated workspace where all your Portenta X8 are provisioned and maintained.
-* Deploy and update applications packaged into containers, including both containers provided by Arduino or custom containers.
-* Get individual provisioning keys for each device.
-* Perform secure Over-the-air (OTA) updates to target Portenta X8 devices/fleets.
+* **Wireless connectivity**: The board supports 2.4 GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® 5.1, provided by the Murata® 1DX module. This high-performance Wi-Fi® and Bluetooth® module allows the Portenta X8 to communicate wirelessly with other devices and systems.
 
-***Click [here](https://cloud.arduino.cc/plans#business) to learn more about Arduino Cloud for business and the Portenta X8 Board Manager add-on. Otherwise, check the [dedicated section](#working-with-portenta-x8-board-manager) of this user manual to start working with Portenta X8 Manager.***
+* **Ethernet connectivity**: The board features an onboard, high-performance 1 Gbps Ethernet transceiver accessible through its High-Density connectors.
+
+* **Secure element**: The board includes a ready-to-use secure element, the SE050C2 from NXP®, tailored for IoT devices and offering advanced security features. This allows Portenta X8 to achieve PSA certification from ARM®. For more information, click [here](https://www.psacertified.org/products/portenta-x8/).
+
+* **USB connectivity**: The board features a USB-C port for power and data, which is also accessible through the board's High-Density connectors. This port is linked to a MIPI to USB-C/DisplayPort converter, enabling video output through the USB-C connection.
+
+* **Power management**: The Portenta X8 includes a power management integrated circuit (PMIC) to meet the demands of always-connected IoT devices.
 
 ### Pinout
+
+![Portenta X8 Pinout](assets/ABX00049-pinout.jpg)
 
 The full pinout is available and downloadable as PDF from the link below:
 * [Portenta X8 Pinout](https://docs.arduino.cc/static/019dd9ac3b08f48192dcb1291d37aab9/ABX00049-full-pinout.pdf)
@@ -93,491 +101,205 @@ The full schematics are available and downloadable as PDF from the link below:
 The full _STEP_ files are available and downloadable from the link below:
 * [Portenta X8 STEP files](../../downloads/ABX00049-step.zip)
 
-### Linux Environment
+### Features Overview
 
-As you already know, Portenta X8 is based on a Yocto Linux distribution.
+Portenta X8 integrates two main programming experiences: the **Yocto Linux** and popular **Arduino** environments.
 
-Before going into the details of Yocto distribution, it is important to understand how embedded Linux works.
+![Portenta X8 Features Overview](assets/portenta-x8-functionality-overview.png "Portenta X8 Features Overview")
 
-The term **Embedded Linux** is used to define embedded systems based on the Linux Kernel and other open-source components. Over the years, Linux has established itself as the best operating system to be installed on embedded devices. This achievement is due to the fact that Linux is an open-source and completely free operating system.
+To explore specific sections in more detail, please click on the links below that interest you:
 
-An **Embedded Linux** system is composed of the following items:
+* [Linux Environment](#linux-environment)
+* [Arduino Environment](#arduino-environment)
+* [Arduino Cloud](#portenta-x8-with-arduino-cloud)
 
-* **Bootloader:** The first program executed right after powering the board. It has the task of initializing the hardware and loading the operating system loading the **device tree** and its configuration file into the RAM. The **device tree** is basically a database containing information on the hardware components of the board and it is used to forward information from the bootloader to the Kernel at the hardware level.
-* **Linux Kernel:** The core of the operating system. It deals with resource management, scheduling, hardware access and all the low-level operations which the user does not want to worry about. In particular, the Linux Kernel manages all the hardware resources, like CPU, memory and I/Os, and it provides a set of APIs that abstracts those resources allowing the user applications and libraries to be easily deployed.
-* **Root Filesystem:** It contains all system programs and utilities, configurations and user data (roughly speaking, the equivalent of the `C:\` drive on Windows). The Root Filesystem can be mounted from a USB stick, SD card or flash memory, being the case of the Portenta X8.
+### Portenta X8: Linux & Arduino Interoperability
 
-![Embedded Linux Start-Up](assets/Embedded_Linux_Start.png "Embedded Linux Start-Up")
+The Portenta X8 runs on a **Yocto-based Linux distribution** with Docker container support, offering robust capabilities for deploying and managing device independent applications. In addition, it allows users to upload Arduino sketches to the M4 core of the STM32H7 using the Arduino IDE. 
 
-#### Linux Yocto Distribution
+This integration leverages a service called `monitor-m4-elf-file.service`, which monitors for updated sketches and flashes the M4 core using *OpenOCD*, ensuring seamless interaction between Linux and Arduino environments. The Portenta X8 also supports **Remote Procedure Call (RPC)** communication between its Linux system and Arduino cores. It uses **MessagePack-RPC** to efficiently exchange data.
 
-In order to install a Linux operating system on a board, you need to decide which packages, applications and libraries you want to use, so basically you need to decide which Linux distribution better suits your needs. As a matter of fact, a Linux distribution is an operating system consisting of the Linux Kernel, GNU tools, additional software and a package manager. It may also include a display server and a desktop environment for using it as a regular desktop operating system. There are more than 300 Linux distributions available in the market, like Ubuntu, Debian, Fedora, Red Hat, etc.
-
-Portenta X8 is running a [Yocto Linux distribution](https://www.yoctoproject.org/). Yocto is built on the basis of [OpenEmbedded (OE)](http://www.openembedded.org/wiki/Main_Page), which uses [BitBake](https://docs.yoctoproject.org/bitbake/) build to generate a full Linux image. BitBake and OE are combined together to form the Yocto reference project, historically called [Poky](https://www.yoctoproject.org/software-item/poky/).
-
-In addition, a full selection of metadata is defined to select which tasks to be performed. The following metadata is used in a Yocto project:
-
-* **Recipes:** They deliver information regarding each package (i.e. author, homepage, license, etc.), recipe version, existing dependencies, source code location and how to retrieve it, configuration settings and target path where the created package will be saved. Files with the `.bb` extension are recipe files.
-* **Configuration file:** They contain metadata that define how to perform the build process. These files (with `.conf` file extension) determine the configuration options for the machine, the compiler, the distribution and general and user configurations. They allow you to set the target where you want to create the image and where you want to save the downloaded sources and other particular configurations.
-* **Classes:** Class files, which have the extension `.bbclass`, contain common functionalities that can be shared between various recipes within the distribution. When a recipe inherits a class, it also inherits its settings and functions.
-* **File append:** With the extension `.bbappend`, File append extends or overwrites information for an existing recipe.
-
-OpenEmbedded Core contains a recipe layer, classes and a set of associated files, common to all OE-based systems, including Yocto. This set of metadata is in fact maintained by both the Yocto project and the OpenEmbedded project.
-
-The development environment of the Yocto distribution is made up of various functional areas, as shown in the figure below.
-
-![Yocto Distribution Architecture](assets/Yocto_Architecture.png "Yocto Distribution Architecture")
-
-* **Layer:** The layers allow you to separate metadata by differentiating them according to: software, hardware information, metadata concerning distribution and adopted policies. Within each layer, there are the `conf` (with layer-specific configuration files) and `recipes-` directories. To illustrate how to use layers to maintain modularity, consider the example of recipes to support a specific target, which usually resides in a BSP layer. In this scenario, those recipes should be isolated from other recipes and supporting metadata, like a new Graphical User Interface (GUI). You would then have a couple of layers: one for the configurations of the machine and one for the GUI environment. This would allow a specific machine to present special GUI features within the BSP layer, without affecting the recipes inside the GUI layer itself. All of this is possible via an append file.
-* **Source file:** To cross-compile any software module, being it a distribution or an application, we must have access to various source files. The latter can be sourced from three different upstream areas: Upstream Project Releases (archived at a specific location), Local Projects (available at a certain local path) and Source Control Managers (like GitHub).
-* **Package feeds:** This area contains packages generated by the build system and they will be used later to generate operating system images or Software Development Kits (SDKs).
-* **Build System:** The Build System macroblock is the heart of the Yocto distribution. It contains various processes controlled by BitBake, a tool written in Python language. The Build System is responsible for parsing the metadata, from which it extracts the list of tasks to be performed. BitBake checks the software build process by using the recipes and, for each successfully completed task, it writes a *stamp* file in the Build Directory.
-* **Images:** They are compressed forms of the Root Filesystem, ready to be installed on the target. BitBake releases multiple lists of images saved into the Build Directory, including *kernel-image*, *root-filesystem-image* and *bootloaders*.
-* **SDK:** From the SDK generation process you can get a standard SDK or an extensible SDK. In both cases, the output is an installation script of the SDK, which installs: a cross-development toolchain, a set of libraries and headers files; generating an environment setup script. The toolchain can be considered as part of the build system, while libraries and headers as target parts, since they are generated for the target hardware.
-
-***If you want to learn more about how to work with Yocto Distribution on your Portenta X8, please check the [dedicated section](#working-with-linux) of this user manual.***
-
-#### Docker Containers
-
-With Portenta X8 it is possible to deploy device-independent software thanks to its modular container architecture.
-
-To explain how containers work, imagine the classic containers that transport goods around the world by ship. These containers "blocks" can be moved in multiple ways and to multiple locations: from a ship to a truck or from a truck to a warehouse. The same thing happens in computer science: you can consider an application, package it with everything needed to make it work and take it out of the environment in which it runs. This is a container!
-
-![Virtual Machine vs Containers](assets/Virtual_Machine_Containers.png "Virtual Machine vs Containers")
-
-On one side, classic virtualization is able to virtualize an entire machine; on the other side, containers are able to virtualize even just a small subset of resources of the same machine.
-
-Traditional virtual machines share hardware resources, but the operating system and applications are on the host. This translates into long start-up times (it takes minutes) and considerable use of resources (several Gigabytes). Containers, on the other hand, share the operating system as well as the infrastructure with the host. This means that start-up times are short (a few seconds) and dimensions are significantly reduced (even a few KB).
-
-Being able to "pack" applications and distribute them in any environment leads to a series of advantages in terms of: performance, time, costs and integration. As a matter of fact, containers can be an interesting way to simplify infrastructure complexity, provide maximum performance and optimize costs by eliminating virtual machine licenses.
-
-But let's see in detail some of the advantages of this technology:
-
-* **Simple development, test and deployment:** The decoupling between applications and the environments in which they run allows you to deploy a container everywhere: on a public Cloud, in a private data center or on a PC. Whatever the chosen environment, the container will always remain the same. This means that even applications updates can be released easily without involving the operating system hosting the container, or all the other containers in use. In a nutshell, if you have to update an application, it will not be necessary to restart the whole machine.
-* **Control version:** In the case that the deployment of an update was not successful, thanks to the containers architecture it is easier to roll back and to have the previous version working again in few time.
-* **Isolation and security:** In containers, applications and resources are isolated. This means that if an application has to be deleted, it will be sufficient to remove its container and the operation will delete everything that concerns it, such as temporary or configuration files. At the same time, since containers are isolated, each of them "sees" only their own processes, while the others will remain unknown. Security first!
-* **Granularity:** It is possible to containerize not only an entire application, but also a single component. In this way, resources can be reduced into micro-services, guaranteeing greater control and improved performance.
-
-At this point, it is worth mentioning that Portenta X8 containers are based on [Docker](https://www.docker.com/). Docker is an open-source software platform, developed by the company with the same name, which allows you to create, test and distribute containerized applications. The goal of Docker is therefore to facilitate the creation and management of containers, in order to distribute the resources required for an application in any environment, always keeping the executed code under control. Docker containers can run everywhere, in on-premises data centers or in public and private Clouds. Thanks to the virtualization at the operating system level, typical of this technology, Docker allows you to natively create containers in Linux environments.
-
-To understand the purpose of a platform like Docker, it is sufficient to focus on the differences between Docker containers and the more generic Linux containers. Docker mainly serves to simplify the construction and management of containers compared to the standard approach. Although it is based on the same technology, i.e. the **LXC (Linux Container)**, Docker guarantees a much more advanced experience than the standard implementation. LXC basically permits a light virtualization, independent from the underlying hardware, but basically cumbersome to implement. In other words, basic LXC presents critical issues in terms of user experience.
-
-Docker specifically facilitates the interface between the container and the end user, for example through a series of automated procedures that guide the user step-by-step during container development, with correct versioning of all the generated images. Docker also simplifies the management of the applications to be run on the different containers, to make the overall orchestration more practical and faster, especially when dealing with applications made of a very large number of components.
-
-The reasons for using Docker are therefore closely connected to the usefulness of the containers themselves, now indispensable tools for developing software based on a microservices architecture. In particular, this applies to the DevOps methodologies used for the development of native Cloud applications, which provide for continuous integration / continuous deployment cycles, to guarantee the end user always and only the most up-to-date version.
-
-The technology behind containers, and therefore of Docker itself, can be extremely summarized in three key terms:
-
-* **Builder:** tools used to create containers. In the case of Docker, this tool corresponds to the **Dockerfile**.
-* **Engine:** it is the engine that allows you to run containers, as in the case of **Docker command** and **Docker Daemon**.
-* **Orchestration:** technology used to manage containers, with full visibility of their execution status (tasks, servers / VMs, etc.), as in the case of **Docker Swarm** or the famous **Kubernetes**.
-
-The fundamental advantage of a container is that it makes both the application and the execution environment configuration available. This allows you to manage the various images as instances, without having to install the application each time, as happens in the case of traditional procedures.
-
-As already mentioned, containers running with Docker are absolutely isolated and independent from each other and it is therefore possible to have complete control over their visibility and management, without any constraints whatsoever. The advantages in terms of IT security are obvious: if a container is corrupted, for example by exploiting a vulnerability of the application it is running, this event does not affect the functioning of the other running containers. Isolation prevents, or at least makes it more difficult, the propagation of the threat within the host system, allowing Docker to terminate the corrupted instance and restart it in completely safe conditions, as well as having traces of what happened in the system logs.
-
-Thus, Docker is able to ensure application security without sacrificing anything in terms of portability, guaranteeing full operation both on-premise and in the Cloud, using open and closed APIs to respond optimally to any business need.
-
-As shown in the image below, Docker needs to be installed in the host operating system and it is composed of three main items:
-
-* ***docker-daemon:*** It is a service that runs on the host operating system and leverages Linux Kernel features to work. It allows the user to create a container and run it, starting from an image developed by the user or downloaded from a registry.
-* ***docker-cli:*** It is a command-line tool that allows the user to properly communicate with the *docker-daemon*. As a matter of fact, any operation on images or containers always starts via *docker-cli*. When Docker is installed, both the *docker-daemon* and the *docker-cli* are installed together and any operation always takes place via *docker-cli*, even if managed via *docker-daemon*.
-* ***docker-hub:*** It is a [Docker image repository](https://hub.docker.com/) from which it is possible to download all the images of interest and run them to create containers. Alternatively, a user can create the needed images through a *dockerfile*, using the repository only to download the required base images (like Linux-alpine).
-
-![Docker host](assets/Docker_host.png "Docker host vs client")
-
-Now it is time to highlight better which is the difference between an image and a container. In programming languages, an image can be assimilated to a class, while a container to an object. It is possible to create a container starting from an image and then run it, stop it or pause it. When it is no longer needed, it can be deleted without removing the corresponding image.
-
-As already mentioned, images can be downloaded from a registry like Docker or they can be defined through a *dockerfile*. A *dockerfile* is a text file that contains all the commands (*FROM, COPY, CMD, ENTRYPOINT, etc.*) that a user can call from the command line to build various image layers. The *dockerfile* represents a definition of the image but not the final image, which can be built through `docker build` command.
-
-A Docker image is made up of many layers and includes everything needed to configure a container. In particular, all the layers an image contains are read-only and, consequently, the image itself is also read-only. In this way, it is possible to launch the image several times always creating the same container. When the container is created, a thin writable layer will be placed on top of the existing image layers and will be prepared to execute the main process command. This last writable layer will contain any changes made when the container is running, but will not affect the original underlying image. When the container is deleted, this thin writable layer is removed.
-
-An important thing to keep in mind is that, even if Docker shares the Linux Kernel with the underlying host, it is always necessary to add a full operating system or a Linux distribution as the first layer.
-
-![Images and containers](assets/images_containers.png "Images vs containers")
-
-On the other hand, a container represents a process, which runs starting from an image. The important thing to understand is that a container has a lifecycle and, for this reason, it can reach different states depending on whether it is running or not. The lifecycle of a Container consists of the following states:
-
-* **Created:** This is the first state of the container lifecycle and it occurs after an image has been created with the command `docker create`. A writable thin layer is created on the specified image and prepared to execute the main process commands. Consider that in this state the container is created but not started.
-* **Running:** This is the state in which the container is actually running. A container created through `docker create` or interrupted can be restarted through the command `docker start`.
-* **Paused:**  A running container can be paused through the command `docker pause`. As a consequence, all the processes of the specified container are suspended or blocked. When a container is paused, both the file system and the RAM are not affected.
-* **Stopped:** A stopped container does not have any running process. When a container is stopped through the command `docker stop`, the file system is not affected, but the RAM gets deleted. This is the main difference between stopped and paused states.
-* **Deleted:** A container can be removed through the command `docker rm`. This implies the complete cancellation of all the data associated with the container, including file system, volume and network mapping.
-
-Let's now have a look at the main Docker commands. The full list can be found [here](https://docs.docker.com/engine/reference/commandline/docker/).
-Through the command `docker image ls` it is possible to check all the images installed on your Portenta. These images may have been downloaded from a repository using the command `docker pull XXX` or created from scratch with the command `docker build XXX` starting from a *dockerfile*.
-
-Through the command `docker run XXX`, it is possible to run the image downloaded from the repository. But, if a user tries to launch a container through the command `docker run XXX` for a container whose image has not been downloaded yet, first the image will be downloaded and then the container will start running.
-
-To verify whether a container is running as expected, it is possible to launch the command `docker ps`.
-
-So, to summarize, Docker is a very powerful technology that allows a user to avoid installing an infinite number of servers and services on a machine. Furthermore, since it runs in an isolated environment makes it possible to move the container or rather the image to another machine or to a production server without friction.
-
-***If you want to learn more about how to work with Docker containers on your Portenta X8, please check the [dedicated section](#working-with-linux) of this user manual.***
-
-### Arduino Environment
-
-In addition to what has been addressed before, the user has the possibility to upload sketches on **M4 core** of **STM32H7** through the **Arduino IDE 1.8.10 or above**.
-
-In order to do that, it is sufficient to open the Arduino IDE, make sure you have selected the Portenta X8 in the board selector and start writing your sketch.
-
-***Have a look at [this section](#portenta-x8-with-arduino-ide) of this user manual if you would like to start uploading your sketch on Portenta X8.***
-
-From a user perspective, the process may appear to be the same as for other Arduino boards, but there are major differences in what happens behind the scenes: the Portenta X8 includes a service that waits for a sketch to be uploaded to a folder. This service is called `monitor-m4-elf-file.service`: it monitors the directory `/tmp/arduino/` looking for an updated version of the `m4-user-sketch.elf` and, each time it detects a new file, it proceeds to flash the M4 with the new sketch using `openOCD` (check [openOCD website](https://openocd.org/doc/html/About.html) if you want to learn more).
-
-### Communication Between Linux And Arduino
-
-The two processors inside Portenta X8 need a communication mechanism to exchange data with one another. The communication mechanism that is used is called **RPC (Remote Procedure Call)**.
-
-The expression RPC refers to the activation of a "procedure" or "function" by a program on a computer other than the one on which the program itself is executed. In other words, RPC allows a program to execute procedures "remotely" on "remote" computers (but accessible through a network).
-
-Essential to the concept of RPC is also the idea of transparency: the remote procedure call must in fact be performed in a way similar to that of the traditional "local" procedure call; the details of the network communication must therefore be "hidden" (i.e. made transparent) for the user.
-
-The RPC paradigm is particularly suitable for distributed computing based on the client-server model: the "call procedure" corresponds to the "request" sent by the "client" and the "return value" of the procedure corresponds to the "response" sent by the "server". In fact, distributed computing uses the resources of several computers connected to each other in a network (usually via the Internet) to solve large-scale computational problems.
-
-Although the ultimate goal of the RPC paradigm is to provide a remote procedure call mechanism whose semantics is essentially equivalent to that of the local procedure call (hence the aforementioned transparency of the mechanism), this equivalence is never fully achieved, due to difficulties that can arise in network communication (always subjected to failure).
-
-Since there is no single obviously "right" way to handle these complications, RPC mechanisms can differ subtly in the exact semantics of the remote call. Some mechanisms, for example, have "at most once" semantics: in other words, a remote procedure call can fail (i.e. not be executed) but it is guaranteed not to result in multiple activations. The opposite approach is represented by the "at least once" semantics, which guarantees that the procedure is called at least once (it could therefore happen that it is activated several times).
-
-As a consequence, there are multiple types of RPC implementations. In the case of Portenta X8, **MessagePack-RPC** is used (check the [library repository](https://github.com/msgpack-rpc/msgpack-rpc) to get more details). It is an RPC implementation that uses MessagePack as a serialization protocol, i.e. data exchange is encoded in MsgPack format.
-
-It is transported over different protocols:
-
-* OpenAMP via Shared Memory
-* SPI
-* Linux Char Device
-* TCP/IP
-
-![Linux Arduino RPC](assets/linux_arduino_RPC.png "Linux Arduino RPC")
-
-As you can see in the image above, the **M7 core** of **STM32H7** is used to facilitate the communication between the Linux and the Arduino environments. If an Arduino sketch is running on the **M4 core**, the **M7 core** will hand over any data/request between the M4 core and the Linux side. Due to this hardware design, traditional dual-core processing is not supported in the Portenta X8.
-
-At the same time, on the Linux side, there is a service that takes care of sending data between the two worlds, `m4-proxy`.
-
-So, the communication between Arduino and Linux side will proceed as follow (check the image below):
-
-* A program registers as the RPC server on port X for a list of procedures that the M4 may call
-* `m4-proxy` will forward the calls from the M4 to the registered program/port
-
-![RPC M4 proxy](assets/m4-proxy.png "RPC M4 proxy")
-
-***If you want to learn more about how to work with RPC on your Portenta X8, please check the [dedicated section](#working-with-arduino) of this user manual.***
-
-## Portenta X8 OS Image Update
-
-It is recommended to check every now and then if your Portenta X8 image version is up to date, in order to have the latest security updates.
-
-In the next sections, four major ways to update your Portenta X8 are described:
-
-* Update for OS release V.399
-* Update through Out-of-the-box experience (available for OS release XXXX or newer)
-* Update through Portenta X8 Manager in your Arduino Cloud for Business account (available for all OS releases)
-* Update using `uuu` tool (compatible with custom images)
-
-### Check Portenta X8 OS Release
-
-In order to verify which OS release is flashed on your Portenta X8, you need to connect to your board through **ADB**, as explained in [this section](#working-with-linux) of this user manual.
-
-At this point, you can type `cat /etc/os-release` in your command line window to get the OS release currently running on your device.
-
-![Get OS release](assets/adb-shell-os-release.png "Get OS Release")
-
-As shown in the image above, the OS release of this Portenta X8 corresponds to `IMAGE_VERSION=569`.
-
-### Update For OS Release V.399
-
-If your Portenta X8 is flashed with the OS release V.399 and you have a carrier compatible with Portenta X8 (like Portenta Breakout), we recommend you to update it to the latest image release by following [this tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing#flashing-mode-with-carrier).
-
-Otherwise, you can also open a new Command Line window and connect to your Portenta X8 as explained [here](#working-with-linux). At this point, verify that your Portenta X8 is connected to the Internet and type the following commands:
-
-```arduino
-wget https://downloads.arduino.cc/portentax8image/399-install-update
-```
-
-```arduino
-chmod +x 399-install-update
-```
-
-```arduino
-sudo ./399-install-update
-```
-
-Remember to set a new admin password at your first access.
-
-***For image versions earlier than 844, the default password for admin access is `fio`.*** 
-
-Now you need to reboot the board by pressing its pushbutton for around 10 seconds. After that, connect again to your Portenta X8 through the Command Line and type the following commands:
-
-```arduino
-wget https://downloads.arduino.cc/portentax8image/399-finalize-update
-```
-
-```arduino
-chmod +x 399-finalize-update
-```
-
-```arduino
-sudo ./399-finalize-update
-```
-
-These commands will make your V.399 compatible with [aklite-offline](https://docs.foundries.io/latest/user-guide/offline-update/offline-update.html) tool and will allow you to update your Portenta X8 to the latest image version Arduino released at that point in time. Arduino provides this tool for free for any Portenta X8 user to enable offline secure updates to all devices, even if those devices are not connected to any FoundriesFactory.
-
-After the update process is finalized, your Portenta X8 will immediately start running the latest OS release.
-
-### Update Through Out-Of-The-Box Experience
-
-Leverage the integrated Out-of-the-box experience to update your Portenta X8 to the latest release.
-
-***Warning: The Out-of-the-box update feature is not a complete Over-The-Air (OTA) update, it allows the user to update only Portenta X8 default image and containers. It will overwrite any custom container application. Thus, it is recommended to make a local copy of your containers before updating your Portenta X8.***
-
-Open your Out-of-the-box as explained in [this section](#first-use-of-your-portenta-x8).
-
-![Out-of-the-box homepage](assets/OOTB_homepage.png "Out-of-the-box homepage")
-
-Click on **CHECK FOR UPDATES** in the lower right corner.
-
-At this point, you have to select whether you would like to proceed with the update. If yes, click on **UPDATE**.
-
-![Proceed with update](assets/OOTB_update_select.png "Proceed with update")
-
-During the update, do not turn off your Portenta X8 or disconnect it from the network. This process may take few minutes.
-
-![Successful update](assets/OOTB-succesful-OS-update.png "Successful update")
-
-Once the update is finished, your Portenta X8 will automatically restart with the new Linux image in place.
-
-At this point, if you would to continue to use your Out-of-the-box, you can open a new command line window and launch again the command `adb forward tcp:8080 tcp:80`. Now open your browser, go to [http://localhost:8080](http://localhost:8080) and the same Out-of-the-box dashboard will appear.
-
-#### Troubleshooting
-
-If something gets wrong during the update, you still have the possibility to manually flash your Portenta X8 with the latest Linux image provided at [this link](https://github.com/arduino/lmp-manifest/releases). You can follow [this section](#update-using-uuu-tool) to learn to use `uuu` tool and update your device manually with the latest OS Image version. Follow [this dedicated tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing) to learn how to flash your device manually.
-
-### Update With Portenta X8 Board Manager
-
-If you have an *Arduino Cloud for business* account with the Portenta X8 Manager, check if the target installed on your Portenta X8 is the latest one available in your FoundriesFactory.  
-
-![FoundriesFactory device overview](assets/web_board_manager_factory_device-overview.png "FoundriesFactory device overview")
-
-If this is not the case, you can update your device using FoundriesFactory **Waves** functionality. Check [this tutorial](https://docs.arduino.cc/tutorials/portenta-x8/waves-fleet-managment) to read the complete instructions. More information about Waves can be found in the official Foundries documentation at [this link](https://docs.foundries.io/latest/reference-manual/factory/fioctl/fioctl_waves.html?highlight=wave).
-
-### Update Using `uuu` Tool
-
-An alternative method to updating the Portenta X8 with the latest OS image is to use the `uuu` command (`uuu_mac` command in case you are using MAC OS). This flash method is helpful if you have built a custom image or desire a more manual approach. Nonetheless, you will need to prepare the OS image files and the board must be set into programming mode for this flashing process.
-
-***To learn more about creating a custom image for Portenta X8, please check out [How To Build a Custom Image for Your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/image-building) tutorial.***
-
-You will need to download the latest OS image file via [Arduino Download repository](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz) and extract the files in a desired directory. The structure should be similar as follows after also extracting `mfgtool-files-portenta-x8.tar.gz` and `lmp-partner-arduino-image-portenta-x8.wic.gz` that came within the original compressed file:
-
-```
-Unzipped folder
-├── mfgtool-files-portenta-x8/
-├── imx-boot-portenta-x8
-├── lmp-partner-arduino-image-portenta-x8.wic
-├── lmp-partner-arduino-image-portenta-x8.wic.gz **(Compressed)**
-├── mfgtool-files-portenta-x8.tar.gz **(Compressed)**
-├── sit-portenta-x8.bin
-└── u-boot-portenta-x8.itb
-```
-
-#### Set Flashing Mode with Carrier
-
-The Portenta X8 can be set into programming mode by using a carrier platform, such as Max Carrier, Breakout, or Hat Carrier, which provides DIP switches for convenient access; or using a few more lines of command with barebone Portenta X8 via ADB.
-
-If you plan to use a carrier, please check the carrier's configuration to be paired with Portenta X8.
-
-For the **Portenta Max Carrier**, set the `BOOT SEL` and `BOOT` DIP switches to ON position as depicted in the figure:
-
-![Portenta Max Carrier DIP switches](assets/max-carrier-dip-switches.png)
-
-Upon executing the `uuu` tool and ensuring the DIP switches are correctly configured, the Portenta Max Carrier will automatically start the flashing operation for the Portenta X8.
-
-For the **Portenta Breakout**, the `BT_SEL` and `BOOT` DIP switches should be set to the ON position, as illustrated in the figure:
-
-![Portenta Breakout DIP switches](assets/breakout-dip-switches.png)
-
-After running the `uuu` tool, perform a long press on the `ON` button of the Portenta Breakout to begin the flashing process. This action enables the tool to identify and connect with the device, continuing with the flashing operation.
-
-For the **Portenta Hat Carrier**, the `BTSEL` DIP switch must be set to the ON position, as depicted in the figure below:
-
-![Portenta Hat Carrier DIP switches](assets/hatCarrier-dip-switches.png)
-
-The `ETH CENTER TAP` DIP switch position does not affect the flashing mode state for the Portenta Hat Carrier.
-
-Like with the Portenta Max Carrier, once the `uuu` tool is run and starts searching for the device, the flashing process will commence.
-
-#### Set Flashing Mode without Carrier
-
-If you decide to flash Portenta X8 without using the carrier, use the following command sequence inside the Portenta X8's terminal via ADB while you are in the root environment with root permission to reset Portenta X8's bootloader sector:
-
-```arduino
-echo 0 > /sys/block/mmcblk2boot0/force_ro
-```
-
-```arduino
-dd if=/dev/zero of=/dev/mmcblk2boot0 bs=1024 count=4096 && sync
-```
-
-```arduino
-echo 0 > /sys/block/mmcblk2boot1/force_ro
-```
-
-```arduino
-dd if=/dev/zero of=/dev/mmcblk2boot1 bs=1024 count=4096 && sync
-```
-
-#### Flashing the Portenta X8 Using `uuu` Command
-
-Now that we have the Portenta X8 in programming mode, we need to flash the OS image. Within the previously described OS image file structure, you need to navigate to `mfgtool-files-portenta-x8` directory. Inside the directory, you will find the `uuu` executable and its components. Here, you will open a terminal and run the following command:
-
-```
-uuu full_image.uuu
-```
-
-If Portenta X8 is to be flashed without a carrier, you will want to execute the command **first** to let it search for the board. Subsequently, you will recycle the power source for Portenta X8 by unplugging and reconnecting the USB-C® cable. It will let the board begin its boot sequence, allowing it to enter programming mode as set with the defaulted internal bootloader. When the active `uuu` instance detects board has entered programming mode, it will continue with its flashing process.
-
-Once the flashing operation finishes, you will be greeted with a similar message in the terminal as the following figure:
-
-![Successful uuu flashing operation](assets/uuu-flashing-success.png)
-
-This applies to both flashing scenarios. If you have the carrier attached and decide to continue using docked with the platform, you must reset the DIP switch positions for either `BOOT SEL`, `BTSEL`, or `BT_SEL` and `BOOT` to OFF state. Reconnect the board and wait approximately 10 seconds until the Blue LED blinks, confirming the boot was successful.
-
-In case the Portenta X8 was flashed barebone, you will just need to recycle the power and should be ready with the latest OS image.
-
-***For more in-depth tutorial for flashing Portenta X8, please check out [How To Flash Your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing) tutorial.***
+***For more details on Portenta X8’s Linux capabilities, Docker support, and Arduino integration, please refer to the [__Portenta X8 Fundamentals documentation__](https://docs.arduino.cc/tutorials/portenta-x8/x8-fundamentals/).***
 
 ## First Use Of Your Portenta X8
 
-You can now start interacting with your Portenta X8. Portenta X8 comes with an embedded Out-of-the-box experience that will guide you step-by-step in the configuration of your board.  
+You can now start interacting with your Portenta X8. Portenta X8 has an embedded configuration console that will guide you step-by-step in configuring your board.  
 
 ### Power The Board
 
-Connect the Portenta X8 to your PC via a USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®).
+Connect the Portenta X8 to your PC via a [USB-C® cable (either USB-C® to USB-A)](https://store.arduino.cc/products/usb-cable2in1-type-c).
 
-Once connected, you will see the Portenta X8 LEDs start blinking. Portenta X8 features two LEDs, a Power LED and a Status LED, which can blink in parallel.
+Once connected, you will see the Portenta X8 LEDs start blinking. Portenta X8 features two LEDs, a Power LED, and a Status LED, which can blink in parallel.
 
 ![Portenta X8 LEDs](assets/portenta_x8_leds.png "Portenta X8 LEDs")
 
-The table below describes LEDs meaning and functionalities.
+The table below describes the meaning and functionalities of LEDs.
 
-  | LED Type     | Colour       | Meaning                                         |
-  | ------------ | ------------ | ------------------------------------------------|
-  | Power LED    | Red          | Power ON                                        |
-  | Status LED   | White        | OS booting in progress                          |
-  | Status LED   | Blue         | Linux Kernel running                            |
-  | Status LED   | Green        | Board connected to the Internet                 |
-  | Status LED   | Red          | STM32H7 LED, blinking when triggered in the IDE |
+| **LED Type** | **Colour** | **Meaning**                                     |
+|--------------|------------|-------------------------------------------------|
+| Power LED    | Red        | Power ON                                        |
+| Status LED   | White      | OS booting in progress                          |
+| Status LED   | Blue       | Linux Kernel running                            |
+| Status LED   | Green      | Board connected to the Internet                 |
+| Status LED   | Red        | STM32H7 LED, blinking when triggered in the IDE |
 
-### Out-Of-The-Box Experience
+### Setup with the Arduino Linux Wizard
 
-***It is recommended to have your Portenta X8 with the latest OS version. Check [this section](#portenta-x8-os-image-update) to learn how to have your Portenta X8 up-to-date.***
+***It is recommended that you have your Portenta X8 with the latest OS version. Check [this section](#portenta-x8-os-image-update) to learn how to have your Portenta X8 up-to-date.***
 
-Once the Portenta X8 is correctly powered up, you can start interacting with it.
+Once the Portenta X8 is correctly powered up, you can start interacting with it. 
 
-In order to do that, you have the possibility to connect to your Portenta X8 through [**ADB**](https://developer.android.com/studio/command-line/adb). Android Debug Bridge (ADB) is a tool included in the SDK software (Software Development Kit) and used, inter alia, to make an Android device and a computer to communicate with each other.
+Open your browser and navigate to [www.arduino.cc/start](http://www.arduino.cc/start). The following page will be displayed.
 
-In the case of the Portenta X8, ADB allows to establish a reliable communication between Portenta X8 and a command-line interface of a computer. In order to check if you have already installed ADB on your computer, you have to verify you installed the latest **Mbed OS Portenta Core** from the IDE. Portenta core contains ADB in it.
+![First Setup](assets/registration-homepage.png "First Setup")
 
-***If you need to install ADB, you can also download the right tool for your Operating System directly from the [official Android website](https://developer.android.com/studio/releases/platform-tools).***
+Click on **Linux boards** and sign in to your Arduino Cloud account. If you do not have an account, create a new one from the same webpage.
 
-At this point, you can open your terminal window and look for ADB inside the directory **Arduino15/packages/arduino/tools/adb/32.0.0**.
+![Sign into Arduino Cloud](assets/registration-signin.png "Sign into Arduino Cloud")
 
-***The Arduino15 folder may have a different location depending on the Operating System you are using. Check [this article](https://support.arduino.cc/hc/en-us/articles/360018448279-Open-the-Arduino15-folder) to learn where your Arduino15 folder is located.***
+When successfully logged in, you will be asked to download the **Arduino Create Agent** if you have not done so yet. Click on **DOWNLOAD**.
 
-To check if ADB is working correctly, you can type `adb devices`. Your Portenta X8 will be listed there.
+![Create Agent Installation](assets/agent-installation.png "Create Agent Installation")
 
-![Connection with ADB](assets/adb-connection.png "Connection with ADB")
+The agent will be installed on your computer. This activity might take a few minutes. Once installed, your Portenta X8 will be automatically detected by your PC after a few seconds.
 
-To start the Out-of-the-box experience, you can continue typing in your terminal `adb forward tcp:8080 tcp:80`. With this command, ADB allows to forward the requests of the `8080 TCP-IP port` of your computer to the `80 TCP-IP port` of your device, that for this case it is the device with the name _Portenta X8_.
+![Portenta X8 successfully detected](assets/board-detection.png "Portenta X8 successfully detected")
 
-![ADB forward command](assets/adb-tcp-port.png "ADB forward command")
+Now click on **START CONFIGURATION**. The tool will install all the required add-ons to make your Portenta X8 work efficiently with your PC via serial communication.
 
-Now you can open your browser, go to [http://localhost:8080](http://localhost:8080) and the same Out-of-the-box dashboard will appear to allow you to configure your Portenta X8.
+You can now proceed to the setup of the board connectivity by clicking **OK, GOT IT**. 
 
-![Out-of-the-box Homepage](assets/OOTB_homepage.png "Out-of-the-box Homepage")
+![Arduino Linux Wizard Connectivity Configuration](assets/ootb-wifi-config.png "Arduino Linux Wizard Connectivity Configuration")
 
-#### Portenta X8 Out-Of-The-Box Homepage
+***If you face any issue with this flow or prefer to interact directly with your Portenta X8 through the command line, please refer to [this section](#working-with-linux) to learn how to connect with the board leveraging ADB service.***
 
-This web page is hosted on the Portenta X8 and allows a user to:
+Once the setup is complete, the browser page will automatically switch to the Arduino Linux Wizard page.
+
+The Arduino Linux Wizard page is accessible at [**http://localhost:8080**](http://localhost:8080). You can use this link to open the Arduino Linux Wizard dashboard anytime.
+
+![Arduino Linux Wizard Home Screen](assets/OOTB_homepage_init.png "Arduino Linux Wizard Home Screen")
+
+The **SYSTEM INFO** button is located at the bottom left corner of the Arduino Linux Wizard page.
+
+![Arduino Linux Wizard System Info](assets/OOTB_system_info.png "Arduino Linux Wizard System Info")
+
+This section displays details about the Portenta X8, such as hardware and software specifications, network status, and active containers.
+
+If you disconnect the Portenta X8 and need to reopen the Arduino Linux Wizard page, use the command line and run the TCP port forwarding command:
+
+```bash
+adb forward tcp:8080 tcp:80
+```
+
+Then, access the page with [**http://localhost:8080**](http://localhost:8080) to open the Arduino Linux Wizard dashboard.
+
+#### Wi-Fi® Configuration
+
+Click **Wi-Fi® Connection** to start configuring your network connectivity. The Portenta X8 can connect to the network through an Ethernet cable using either a USB-C® hub with an RJ45 port or a Portenta Carrier, via cellular connectivity using a Portenta Carrier and a Pro 4G Module, or through Wi-Fi®. In this tutorial, Wi-Fi® connectivity will be used.
+
+![Arduino Linux Wizard Wi-Fi® Settings](assets/OOTB_homepage_Wifi.png "Arduino Linux Wizard Wi-Fi® Settings")
+
+***For detailed instructions on using cellular connectivity with the Portenta X8 and a Pro 4G Module, please refer to the [Cellular Connectivity with the Max Carrier & Pro 4G Module tutorial](https://docs.arduino.cc/tutorials/portenta-max-carrier/mpcie-4g-modem/) or the [Cat.4 Modem section](https://docs.arduino.cc/tutorials/portenta-mid-carrier/user-manual/#cat4-modem-cellular-connectivity) of the Portenta Mid Carrier User Manual.***
+
+***For detailed instructions on using Ethernet connectivity with the Portenta X8 and the RJ45 port of the Portenta Carrier, please refer to the [Ethernet section of the Portenta Hat Carrier User Manual](https://docs.arduino.cc/tutorials/portenta-hat-carrier/user-manual/#ethernet) or the [Ethernet section of the Mid Carrier User Manual](https://docs.arduino.cc/tutorials/portenta-mid-carrier/user-manual/#ethernet).***
+
+Choose the **WiFi Network** option to continue network connectivity configuration with Wi-Fi® connectivity.
+
+![Arduino Linux Wizard Wi-Fi® Network Selection](assets/OOTB_wifi_option.png "Arduino Linux Wizard Wi-Fi® Network Selection")
+
+Select your Wi-Fi® SSID. You can select a network from the available list or introduce your SSID manually.
+
+![Arduino Linux Wizard Wi-Fi® SSID set-up](assets/OOTB_wifi_selection.png "Arduino Linux Wizard Wi-Fi® SSID set-up")
+
+Type your Wi-Fi® password.
+
+![Arduino Linux Wizard Wi-Fi® password set-up](assets/OOTB_wifi_SSID.png "Arduino Linux Wizard Wi-Fi® password set-up")
+
+Once connected, you will get a notification confirming your Portenta X8 has connected to the selected network, and its LED will start blinking green.
+
+Moreover, you can check the network you are connected to in the bottom left section of this dashboard.
+
+![Arduino Linux Wizard Wi-Fi® connection successful](assets/OOTB_wifi_connected.png "Arduino Linux Wizard Wi-Fi® connection successful")
+
+Now, you can click **OK** and be redirected to the Arduino Linux Wizard homepage below.
+
+![Arduino Linux Wizard Homepage](assets/OOTB_homepage.png "Arduino Linux Wizard Homepage")
+
+***You can change your network by clicking on the Settings button and repeating the above steps.***
+
+#### Arduino Linux Wizard Homepage
+
+The Arduino Linux Wizard, hosted on the Portenta X8, allows a user to leverage the following capabilities:
 
 - Get board details
 - [Configure Portenta X8 Wi-Fi®](#wi-fi-configuration)
 - [Interact with the board through the embedded Python® Alpine Shell](#portenta-x8-with-python-alpine-shell)
 - [Provision your device to Arduino Cloud](#portenta-x8-with-arduino-cloud)
 - Manage the Linux distribution with the dedicated [Portenta X8 Board Manager](#portenta-x8-board-manager)
-
-#### Wi-Fi® Configuration
-
-Click **Wi-Fi® Settings** to start configuring your network connectivity. Otherwise, you can also connect your Portenta X8 to the Internet through an Ethernet cable, using a USB-C® hub with an RJ45 port or a Portenta Carrier. In this tutorial, Wi-Fi® connectivity will be used.
-
-![Out-of-the-box Wi-Fi® Settings](assets/OOTB_homepage_Wifi.png "Out-of-the-box Wi-Fi® Settings")
-
-Select your Wi-Fi® SSID. You can either select a network from the available list or insert your SSID manually.
-
-![Out-of-the-box Wi-Fi® SSID set-up](assets/OOTB_wifi_selection.png "Out-of-the-box Wi-Fi® SSID set-up")
-
-Type your Wi-Fi® password.
-
-![Out-of-the-box Wi-Fi® password set-up](assets/OOTB_wifi_SSID.png "Out-of-the-box Wi-Fi® password set-up")
-
-Once it is connected, you will get a notification confirming your Portenta X8 is now connected to the selected network.
-
-Moreover, you can check the network you are connected to in the bottom left section of this dashboard.
-
-![Out-of-the-box Wi-Fi® connection successful](assets/OOTB_wifi_connected.png "Out-of-the-box Wi-Fi® connection successful")
-
-Now you can click **OK** and you will be redirected to the Out-of-the-box homepage shown below.
-
-![Out-of-the-box Homepage](assets/OOTB_homepage.png "Out-of-the-box Homepage")
-
-***You can change your network by clicking on the Wi-Fi® Settings button and repeat the steps from above.***
+- [Update the board's operating system](#portenta-x8-os-image-update)
 
 #### Portenta X8 with Python Alpine Shell
 
 Click the **Shell** button to start using your Portenta X8 with Python-Alpine.
 
-![Out-of-the-box Shell button](assets/OOTB_homepage_shell.png "Out-of-the-box Shell button")
+![Arduino Linux Wizard Shell button](assets/OOTB_homepage_shell.png "Arduino Linux Wizard Shell button")
 
-This shell is running in a Python-Alpine container embedded in Portenta X8. In this shell, you will find multiple examples under the directory `/root/examples`. Additionally, you can either add your own package through the command `apk add <packagename>` or start exploring the packages available online at [this link]( https://pkgs.alpinelinux.org/packages).
+This shell is running in a Python-Alpine container embedded in Portenta X8. You will find multiple examples under the directory `/root/examples` in this shell. Additionally, you can either add your own package through the command `apk add <packagename>` or start exploring the packages available online at [this link]( https://pkgs.alpinelinux.org/packages).
 
-![Out-of-the-box Python-Alpine Shell](assets/OOTB_alpine_shell.png "Out-of-the-box Python-Alpine Shell")
+![Arduino Linux Wizard Python-Alpine Shell](assets/OOTB_alpine_shell.png "Arduino Linux Wizard Python-Alpine Shell")
 
-#### Portenta X8 with Arduino Cloud
+## Portenta X8 OS Image Update
 
-***Note: this is an optional step. The Portenta X8 can be also used with a local IDE without the need for any internet connection.***
+It is recommended that you check every now and then to see if your Portenta X8 image version is up to date to have the latest security updates.
 
-Making Portenta X8 compatible with Arduino Cloud means opening a wide range of new applications. This compatibility is guaranteed by a brand-new Python container, which includes a dedicated [Arduino IoT Cloud Python library](https://github.com/arduino/arduino-iot-cloud-py). Through Arduino Cloud APIs, the Python container ensures full interaction and simple porting of any Python developed application in the Arduino Cloud.
+***To review the image version history, refer to the [__Portenta X8 firmware release notes__](https://docs.arduino.cc/tutorials/portenta-x8/x8-firmware-release-notes/).***
+
+There are four ways to update your Portenta X8 are described:
+
+* [Update for OS release V.399](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-for-os-release-v399)
+* [Update through Arduino Linux Wizard experience](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-through-arduino-linux-wizard-experience)
+* [Update through Portenta X8 Manager in your Arduino Cloud for Business account (available for all OS releases)](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-with-portenta-x8-board-manager)
+* [Update using the `uuu` tool (compatible with custom images)](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/#update-using-uuu-tool)
+
+You can find more details in the dedicated tutorial here: [**How To Update Your Portenta X8**](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing).
+
+## Portenta X8 with Arduino Cloud
+
+***Note: this is an optional step. The Portenta X8 can also be used with locally without an internet connection.***
+
+Making Portenta X8 compatible with Arduino Cloud means opening many new applications. This compatibility is guaranteed by a brand-new Python container, which includes a dedicated [Arduino IoT Cloud Python library](https://github.com/arduino/arduino-iot-cloud-py). Through Arduino Cloud APIs, the Python container ensures full interaction and simple porting of any Python developed application in the Arduino Cloud.
 
 ***Check all the available Arduino Cloud plans [here](https://cloud.arduino.cc/plans#business) and create your Arduino Cloud account in a couple of steps (see the dedicated documentation at [this link](https://docs.arduino.cc/arduino-cloud/)).***
 
-With the Out-of-the-box experience, your Portenta X8 can be securely self-provisioned in Arduino Cloud, you just need to create API keys and the Python container running on X8 will do the rest. When provisioned, you can start directly interacting with an example Thing and Dashboard that will be automatically generated for you to guide you step-by-step in this new journey.
+With the Arduino Linux Wizard experience, your Portenta X8 can be securely self-provisioned in Arduino Cloud; you need to create API keys, and the Python container running on X8 will do the rest. When provisioned, you can start directly interacting with an example Thing and Dashboard that will be automatically generated to guide you in this new journey.
 
 Click the **Arduino Cloud** button to start provisioning your Portenta X8 in Arduino Cloud.
 
-![Out-of-the-box Arduino Cloud](assets/OOTB_homepage_cloud.png "Out-of-the-box Arduino Cloud")
+![Arduino Linux Wizard Arduino Cloud](assets/OOTB_homepage_cloud.png "Arduino Linux Wizard Arduino Cloud")
 
-Start setting up the device name for your Portenta X8 (in this case *portenta-x8-test*) and click on **CONTINUE**. The same device name will be used and visualized into your Arduino Cloud space, but you can freely change it in the future.
+Start setting up the device name for your Portenta X8 (in this case, *portenta-x8-test*) and click on **CONTINUE**. The same device name will be used and visualized in your Arduino Cloud space, but you can freely change it in the future.
 
-![Out-of-the-box Arduino Cloud Device Name](assets/OOTB_cloud_device_name.png "Out-of-the-box Arduino Cloud Device Name")
+![Arduino Linux Wizard Arduino Cloud Device Name](assets/OOTB_cloud_device_name.png "Arduino Linux Wizard Arduino Cloud Device Name")
 
-At this point, you will be asked to insert your API Key credentials and Organization ID. Organization ID is optional and should be filled in only in case you are using a Shared Space in Arduino Cloud for Business.
+At this point, you will be asked to insert your API Key credentials and Organization ID. Organization ID is optional and should be filled in only if you use a Shared Space in Arduino Cloud for Business.
 
-![Out-of-the-box Arduino Cloud API Keys](assets/OOTB_cloud_generate_API.png "Out-of-the-box Arduino Cloud API Keys")
+![Arduino Linux Wizard Arduino Cloud API Keys](assets/OOTB_cloud_generate_API.png "Arduino Linux Wizard Arduino Cloud API Keys")
 
-In order to get API keys, you need to log into your Arduino Cloud account and select the Space you would like your X8 to be provisioned into.
+To get API keys, log into your Arduino Cloud account and select the Space you would like your X8 to be provisioned into.
 
-Thus, click on **GENERATE API KEY** in your Out-of-the-box dashboard. A new window will open in your web browser to allow you to login to your Arduino Cloud space.
+Thus, click on **GENERATE API KEY** in your Arduino Linux Wizard dashboard. A new window in your web browser will allow you to log in to your Arduino Cloud space.
 
 ***If you want to learn more about what API keys are and how they work, please take a look at the dedicated documentation available at [this link](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-iot-api).***
 
 ![Arduino Cloud Login](assets/web_Cloud_login.png "Arduino Cloud Login")
 
-Click on **SIGN IN**. If you do not have an Arduino Cloud account yet, create a new one from the same webpage.
+Click on **SIGN IN**. If you do not have an Arduino Cloud account, create a new one from the same webpage.
 
-Sign in to your Arduino Cloud account by adding your credentials, i.e. Username/email and Password.
+Sign in to your Arduino Cloud account by adding your credentials, i.e., Username/email and Password.
 
 ![Arduino Cloud Sign in](assets/web_cloud_signin.png "Arduino Cloud Sign in")
 
-You are now logged into your Arduino Cloud space. Go on by clicking on **API keys** found within the account banner located at the top right corner.
+You are now logged into your Arduino Cloud space. Go on by clicking on **API keys** within the account banner in the top right corner.
 
 ![Arduino Cloud Homepage](assets/web_cloud_homepage.png "Arduino Cloud Homepage")
 
@@ -585,62 +307,69 @@ It is time to generate your API keys. Click on **CREATE API KEY** in the upper r
 
 ![Arduino Cloud New API Key](assets/web_cloud_new_api.png "Arduino Cloud New API Key")
 
-Define a name for your API key, in this case *portenta-x8-test-API*, and click on **CREATE**. These API Keys are personal and visible just from your account.
+Define a name for your API key, in this case, *portenta-x8-test-API*, and click on **CREATE**. These API keys are personal and visible only from your account.
 
 ![Arduino Cloud API Key name](assets/web_cloud_API_name.png "Arduino Cloud API Key name")
 
 At this point, your API key has been created. Save the correspondent credentials in a safe storage space by clicking on **download the PDF**.
 
-Keep this file safely stored, your API credentials cannot be recovered otherwise. If you lose it, you will have to generate new API keys by repeating the above procedure.
+Keep this file safely stored; otherwise, your API credentials cannot be recovered. If you lose it, you will have to generate new API keys by repeating the above procedure.
 
 ![Arduino Cloud API Key](assets/web_cloud_API_key.png "Arduino Cloud API Key")
 
-The PDF file will look like the image below and it will include the credentials you need to copy and paste into the Out-of-the-box page.
+The PDF file will look like the image below and include the credentials you need to copy and paste into the Arduino Linux Wizard page.
 
 ![Arduino Cloud API Key PDF](assets/web_cloud_API_key_PDF.png "Arduino Cloud API Key PDF")
 
-Thus, copy the **Client ID** and the **Client Secret** credentials and paste them into your Out-of-the-box dashboard as shown below.
+Thus, copy the **Client ID** and the **Client Secret** credentials and paste them into your Arduino Linux Wizard dashboard as shown below.
 
-![Out-of-the-box with API Keys](assets/OOTB_cloud_API_copy.png "Out-of-the-box with API Keys")
+![Arduino Linux Wizard with API Keys](assets/OOTB_cloud_API_copy.png "Arduino Linux Wizard with API Keys")
 
-If you are using an Arduino Cloud for Business account with Shared Spaces, you need to add also the Organization ID you would like your Portenta X8 to be provisioned into by clicking on **ADD ORGANIZATION**.
+If you are using an Arduino Cloud for Business account with Shared Spaces. In that case, you also need to add the Organization ID you would like your Portenta X8 to be provisioned into by clicking on **ADD ORGANIZATION**.
 
-![Out-of-the-box successful Cloud provisioning](assets/OOTB_cloud_success.png "Out-of-the-box successful Cloud provisioning")
+![Arduino Linux Wizard successful Cloud provisioning](assets/OOTB_cloud_success.png "Arduino Linux Wizard successful Cloud provisioning")
 
-In order to recover the Organization ID, known as Space ID, of your Shared Space on Arduino Cloud for Business, open your Arduino Cloud homepage and navigate to **Space Settings > General** in the sidebar on the left.
+To recover the Organization ID, known as Space ID, of your Shared Space on Arduino Cloud for Business, open your Arduino Cloud homepage and navigate to **Space Settings > General** in the sidebar on the left.
 
 ![Space ID on Cloud Settings](assets/shared-space-settings.png "Space ID on Cloud Settings")
 
-At this point, you can copy the **Space ID** of your Shared Space and paste it into your Out-of-the-box dashboard together with your API keys.
+At this point, you can copy the **Space ID** of your Shared Space and paste it into your Arduino Linux Wizard dashboard together with your API keys.
 
 ![API keys and Organization ID](assets/OOTB_cloud_organization_ID.png "API keys and Organization ID")
 
-Click on **SETUP DEVICE** and you are ready to go, your Portenta X8 is now provisioned into your Arduino Cloud space.
+Click on **SETUP DEVICE**, and you are ready to go, your Portenta X8 is now provisioned into your Arduino Cloud space.
 
-![Out-of-the-box successful Cloud provisioning](assets/OOTB_cloud_success.png "Out-of-the-box successful Cloud provisioning")
+![Arduino Linux Wizard successful Cloud provisioning](assets/OOTB_cloud_success.png "Arduino Linux Wizard successful Cloud provisioning")
 
-Once provisioned, the Portenta X8 will be automatically linked to an example [Thing](https://create.arduino.cc/iot/things) and [Dashboard](https://create.arduino.cc/iot/dashboards). You can freely check them by clicking on the corresponding links embedded in the Out-of-the-box.
+Once provisioned, the Portenta X8 will be automatically linked to an example [Thing](https://create.arduino.cc/iot/things) and [Dashboard](https://create.arduino.cc/iot/dashboards). You can freely check them by clicking on the corresponding links embedded in the Arduino Linux Wizard.
 
 ![Portenta X8 example Thing](assets/cloud_thing_created.png "Portenta X8 example Thing")
 
-As already said, Arduino provides you with an example dashboard that will automatically set up and be visible live after your Portenta X8 has been provisioned. In order to make this dashboard to automatically update its data, you need to go back to your Out-of-the-box and launch the example.
+As mentioned, Arduino provides an example dashboard that will automatically set up and be visible live after your Portenta X8 has been provisioned. To make this dashboard update its data automatically, you need to go back to your Arduino Linux Wizard and launch the example.
 
-To do so, it is sufficient to copy the shown code `python3 examples/arduino_iot_cloud_example.py` and click on **Launch Example**. An Alpine-Python shell will open and you will have to paste the previous code here to launch the example.
+To do so, copying the shown code:
+
+```bash
+python3 examples/arduino_iot_cloud_example.py
+```
+
+And clicking on **Launch Example** is sufficient. An Alpine-Python shell will open, and you will have to paste the previous code here to launch the example.
 
 ![Launching dashboard example](assets/OOTB_example_dashboard_launch.png "Launching dashboard example")
 
-Now you can navigate to your dashboard [here](https://create.arduino.cc/iot/dashboards) to see your Portenta X8 LED blinking as well as the live temperature inside the microprocessor.
+Now, you can navigate to your dashboard [here](https://create.arduino.cc/iot/dashboards) to see your Portenta X8 LED blinking and the live temperature inside the microprocessor.
 
-![Portenta X8 dashboard working](assets/cloud_dashboard_working.png "Portenta X8 dashboard working")
+![Portenta X8 dashboard working](assets/cloud_dashboard_working.gif "Portenta X8 dashboard working")
 
 ***If you face any issues during the provisioning of your Portenta X8, feel free to repeat the procedure above.***
-***If you would like to customize your Portenta X8 Things/Dashboards with your own data, check [this section](#working-with-arduino-cloud) of the user manual.***
 
-#### Portenta X8 Board Manager
+***If you would like to customize your Portenta X8 Things/Dashboards with your custom data, check [this section](#working-with-arduino-cloud) of the user manual.***
 
-***Note: this is an optional step. Although the Portenta X8 Board manager opens a wide range of possibilities that are important for business applications, the Portenta X8 can be used for free without the need of any additional paid license***
+## Portenta X8 Board Manager
 
-Now you can start connecting your Portenta X8 to the Portenta X8 Board Manager. To enjoy this feature, you need an Arduino Cloud for business account.
+***__Note:__ This is an optional step that enables the possibility of performing remote over-the-air updates on your Portenta X8 OS and applications. To proceed, you need an Arduino Cloud for Business plan with Portenta X8 Manager.***
+
+Now, you can start connecting your Portenta X8 to the Portenta X8 Board Manager. You need an Arduino Cloud for your business account to leverage this feature.
 
 Check the Arduino Cloud for business plan with Portenta X8 Manager [here](https://cloud.arduino.cc/plans#business) and create your Arduino Cloud account in a couple of steps (see the dedicated documentation at [this link](https://docs.arduino.cc/arduino-cloud/)).
 
@@ -656,31 +385,31 @@ Add all your credentials and click on **Sign up**.
 
 ![Foundries.io sign up](assets/web_board_manager_signup.png "Foundries.io sign up")
 
-So, let's create your brand new FoundriesFactory. Select **Arduino Portenta X8**, define a **Factory name** for your Factory and then click on **Create Factory**.
+So, let's create your brand new FoundriesFactory. Select **Arduino Portenta X8**, define a **Factory name** for your Factory, and then click on **Create Factory**.
 
 ![FoundriesFactory name](assets/web_board_manager_factory_name.png "FoundriesFactory name")
 
-Your FoundriesFactory is correctly set-up. As you can see, the Factory does not have any device connected to it.
+Your FoundriesFactory is correctly set up. As you can see, the Factory does not have any device connected to it.
 
 ![FoundriesFactory homepage with no devices](assets/web_board_manager_factory_overview.png "FoundriesFactory homepage with no devices")
 
-To provision your Portenta X8, you need to go back to your Out-of-the-box webpage and click on **Portenta X8 Manager** button.
+To provision your Portenta X8, go back to your Arduino Linux Wizard webpage and click on the **Portenta X8 Manager** button.
 
-![Out-of-the-box Portenta X8 Manager](assets/OOTB_homepage_portenta_x8_manager.png "Out-of-the-box Portenta X8 Manager")
+![Arduino Linux Wizard Portenta X8 Manager](assets/OOTB_homepage_portenta_x8_manager.png "Arduino Linux Wizard Portenta X8 Manager")
 
-Enter the Factory name you have just registered, in this case *user-test*, and assign a Board Name to your Portenta X8. This Board Name will be used to correctly identify your Portenta X8 into your FoundriesFactory. You can now click on **REGISTER**.
+Enter the Factory name you have just registered, in this case, *user-test*, and assign a Board Name to your Portenta X8. This Board Name will be used to correctly identify your Portenta X8 in your FoundriesFactory. You can now click on **REGISTER**.
 
-![Out-of-the-box Factory and device registration](assets/OOTB_board_manager_factory_registration.png "Out-of-the-box Factory and device registration")
+![Arduino Linux Wizard Factory and device registration](assets/OOTB_board_manager_factory_registration.png "Arduino Linux Wizard Factory and device registration")
 
-To complete the registration of the Board with the FoundriesFactory, copy the code that appeared in your Out-of-the-box.
+To complete the registration of the Board with the FoundriesFactory, copy the code that appeared in your Arduino Linux Wizard.
 
-![Out-of-the-box Factory code challenge](assets/OOTB_board_manager_factory_challenge.png "Out-of-the-box Factory code challenge")
+![Arduino Linux Wizard Factory code challenge](assets/OOTB_board_manager_factory_challenge.png "Arduino Linux Wizard Factory code challenge")
 
-Click on **COMPLETE REGISTRATION** to be re-directed to the Foundries.io activation page.
+Click on **COMPLETE REGISTRATION** to be re-directed to the *Foundries.io* activation page.
 
 Paste your token in the text box and press **Next**.
 
-***The token code is valid for 15 minutes; if you do not paste it in this time span, you have to repeat all the above registration steps in your Out-of-the-box to generate a new code.***
+***The token code is valid for __15 minutes__. If you do not use it in this time span, you will have to repeat all the above registration steps in your Arduino Linux Wizard to generate a new code.***
 
 ![FoundriesFactory pasted token](assets/web_board_manager_factory_challenge.png "FoundriesFactory pasted token")
 
@@ -698,92 +427,55 @@ Now you will see the number of devices associated with your FoundriesFactory to 
 
 Your Portenta X8 is correctly provisioned into your FoundriesFactory.
 
-To verify your device status, click on your FoundriesFactory, go to **Devices** section and check its target update and the installed containers Apps.
+To verify your device status, click on your FoundriesFactory, go to the **Devices** section, and check its target update and the installed containers Apps.
 
 ![FoundriesFactory device overview](assets/web_board_manager_factory_device-overview.png "FoundriesFactory device overview")
 
+You can also check within the Arduino Linux Wizard home screen for factory registration if it was successfully registered.
+
+![Arduino Linux Wizard Factory registration confirmation](assets/OOTB_board_manager_factory_confirm.png "Arduino Linux Wizard Factory registration confirmation")
+
 ***If you want to learn more about Portenta X8 Manager features, check the dedicated section of this user manual called [Working with Portenta X8 Board Manager](#working-with-portenta-x8-board-manager).***
-
-## Portenta X8 with Arduino IDE
-
-In this section you will learn how to upload a sketch to the M4 core on the STM32H747XI MCU.
-
-Open the Arduino IDE and make sure you downloaded the latest Arduino Mbed OS Portenta Boards Core. Learn how to do it by following [this tutorial](https://docs.arduino.cc/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta).
-
-Select Portenta X8 in the board selector.
-
-![IDE Board Selector](assets/x8-IDE.png "IDE Board Selector")
-
-Create a custom sketch or open one of the example sketches e.g. the blink sketch:
-
-```arduino
-void setup(){
-  pinMode(LED_BUILTIN ,OUTPUT);
-}
-
-void loop(){
-  digitalWrite(LED_BUILTIN , HIGH);
-  delay(1000);
-  digitalWrite(LED_BUILTIN , LOW);
-  delay(1000);
-}
-```
-
-At this point, select the port of your device in the port selector menu and then press the Compile and Upload button.
-
-Behind the curtains, the sketch gets compiled into a binary. That binary file is then uploaded to the Linux side of the Portenta X8. The flashing is done on the board itself by the RPC service running on Linux (see [Communication between Linux and Arduino section](#communication-between-linux-and-arduino) of this user manual to learn more).
-
-When the sketch has been uploaded successfully, the onboard LED of your Portenta X8 will start blinking at an interval of one second.
-
-You can also upload the firmware manually if you like. To do so, you first need to compile the sketch: select **Export compiled binary** from the Sketch menu in the Arduino IDE. It will compile the sketch and save the binary file in the sketch folder. Alternatively, you can use the [Arduino CLI](https://arduino.github.io/arduino-cli/0.29/) to create an `elf` file.
-
-To upload the firmware you can use the ADB tool that has been installed as part of the Portenta X8 core. It can be found at `Arduino15\packages\arduino\tools\adb\32.0.0`.
-
-From that directory, you can use the `adb` tool. To upload your compiled sketch, you just need to type the following command into your terminal window:
-
-```
-adb push <sketchBinaryPath> /tmp/arduino/m4-user-sketch.elf
-```
-
-![ADB upload with a terminal](assets/x8-terminal-ADB-push.png)
 
 ## Working with Linux
 
-Now it is time to start interacting with the Linux OS embedded in your Portenta X8. To do that, you need to open your terminal window and look for ADB inside the directory **Arduino15/packages/arduino/tools/adb/32.0.0**.
+It is time to start interacting with the Linux OS embedded in your Portenta X8. To do that, you need to open your terminal window and look for [**ADB**](https://developer.android.com/studio/command-line/adb) inside the directory **Arduino15/packages/arduino/tools/adb/32.0.0**. The Arduino15 folder may have a different location depending on your Operating System. Check [this article](https://support.arduino.cc/hc/en-us/articles/360018448279-Open-the-Arduino15-folder) to learn where your Arduino15 folder is located.
 
-To check if ADB is working correctly, you can type `adb devices`. Your Portenta X8 will be listed there.
+Android Debug Bridge (ADB) is a tool included in the SDK software (Software Development Kit) and used, among other things, to make an Android device and a computer communicate. To check if ADB is working correctly, you can type `adb devices`. Your Portenta X8 will be listed there.
 
 ![Connection with ADB](assets/adb-connection.png "Connection with ADB")
 
-At this point, you can type `adb shell` to start communicating with your Portenta X8.
+***If you need to install ADB, you can also download the right tool for your Operating System directly from the [official Android website](https://developer.android.com/studio/releases/platform-tools).***
+
+If you want to start the embedded Arduino Linux Wizard from the command line, you can continue typing in your terminal:
+
+```bash
+adb forward tcp:8080 tcp:80
+```
+
+With this command, ADB allows you to forward the requests of your computer's `8080 TCP-IP port` to the `80 TCP-IP port` of your device, which, in this case, is the device with the name *Portenta X8*.
+
+![ADB forward command](assets/adb-tcp-port.png "ADB forward command")
+
+Now you can open your browser, go to [http://localhost:8080](http://localhost:8080) and the same Arduino Linux Wizard dashboard will appear to allow you to configure your Portenta X8.
+
+![Arduino Linux Wizard Homepage](assets/OOTB_homepage.png "Arduino Linux Wizard Homepage")
+
+Now, you can type `adb shell` to start communicating with your Portenta X8.
 
 ![ADB shell command](assets/adb-shell-command.png "ADB shell command")
 
-As it is a Linux device, you can do tasks like creating files, changing directories, etc.
+As it is a Linux device, you can create files, change directories, etc.
 
-To gain admin (root) access, type `sudo su -` and set your own password. 
-
-***For image versions earlier than 844, the default password for admin access is `fio`.*** 
-
-After that, the terminal prefix should turn red.
+To gain admin (root) access, type `sudo su -`. The terminal prefix should turn red.
 
 ![ADB shell with admin access](assets/adb-sudo-su.png "ADB shell with admin access")
 
-You can now freely program your Portenta X8 Linux OS. In the sections below you can check some basic commands to get started.
-
-### Change Default User Password
-
-For image versions earlier than 844, our Portenta X8 comes with the default user fio with password fio.
-
-For security reasons, we strongly suggest changing the default password. To do so, when logged in to your Portenta X8, launch this command to change the password of the fio account:
-
-```arduino
-passwd fio
-```
+You can now freely program your Portenta X8 Linux OS. In the sections below, you can check out some basic commands to get started.
 
 ### Manage Your Network Via CLI
 
-In order to connect to a Wi-Fi® Access Point via CLI, you can use the network manager tool **nmcli**. These are some of the most used commands:
+To connect to a Wi-Fi® Access Point via CLI, you can use the network manager tool **nmcli**. These are some of the most used commands:
 
 * `nmcli device wifi connect <SSID> password <PASSWORD>` to connect to a specific SSID
 * `nmcli de` to check the connection status
@@ -791,18 +483,17 @@ In order to connect to a Wi-Fi® Access Point via CLI, you can use the network m
 
 ### Accessing Over SSH Session
 
-Establishing communication with the Portenta X8 via an SSH session is possible. To do so, a network connection is needed, either over Wi-Fi® or Ethernet. For Ethernet connections, using a device with DHCP server capabilities, such as a network router, is recommended. After setting up the network connection and DHCP, the Portenta X8 will be ready for SSH communication.
+Establishing communication with the Portenta X8 via an SSH session is possible. To do so, a network connection is needed, either over Wi-Fi® , cellular or Ethernet. Using a device with DHCP server capabilities, such as a network router, is recommended for Ethernet connections. After setting up the network connection and DHCP, the Portenta X8 will be ready for SSH communication.
 
 For Windows users, it is necessary to install a service tool to ease the following procedures. While Bonjour, Apple's implementation of zero-configuration networking, comes built into macOS, it is not natively included in Windows and must be installed separately.
 
 ***Before proceeding on __Windows__, please install [Bonjour Print Services for Windows](https://support.apple.com/kb/DL999?locale=en_US) before continuing the following steps.***
 
-For macOS and Linux users, _Bonjour_ is pre-installed on macOS, and _Avahi-Browse_ is typically available on Linux by default. Thus, additional installation steps may be unnecessary for these operating systems.
+For macOS and Linux users, *Bonjour* is pre-installed on macOS, and *Avahi-Browse* is typically available on Linux by default. Thus, additional installation steps may be unnecessary for these operating systems.
 
-In the subsequent sections, we will first guide you through the process on Windows, followed by details and instructions for Linux and macOS.
+In the subsequent sections, we will first walk you through the process on Windows, followed by details and instructions for Linux and macOS.
 
 #### Using the Terminal
-<br></br>
 
 ![SSH Services Availability Discovery](assets/ssh-x8-dns-sd-service.png "SSH Services Availability Discovery")
 
@@ -856,23 +547,23 @@ ssh fio@portenta-x8-<UUID>.local
 
 When executing the command, substitute the `<UUID>` placeholder with the actual UUID of the Portenta X8 you are attempting to connect to. You can confirm this UUID by checking the results of a prior SSH services scan with a network query or ADB shell.
 
-If the device is configured correctly to accept SSH connections and the _fio_ account exists with SSH access, this command will prompt for the password associated with the _fio_ user.
+If the device is configured correctly to accept SSH connections and the *`fio`* account exists with SSH access, this command will prompt for the password associated with the *`fio`* user.
 
 Upon successful authentication, it will open a secure shell session to the device, allowing for command-line interface access and the execution of commands remotely on the Portenta X8.
 
 The password and the rest of the configuration for using the Portenta X8 inside the shell remain the same.
 
-The process is similar for _GNU/Linux_ and _macOS_, with minor differences in the initial steps when browsing for SSH services on the local network.
+The process is similar for *GNU/Linux* and *macOS*, with minor differences in the initial steps when browsing for SSH services on the local network.
 
-- __For GNU/Linux__:
+- **For GNU/Linux**:
 
-Use _Avahi-Browse_ to search for SSH services on the local network:
+Use *Avahi-Browse* to search for SSH services on the local network:
 
 ```bash
 avahi-browse -d local _sftp-ssh._tcp --resolve -t
 ```
 
-- __macOS__:
+- **macOS**:
 
 On macOS, you can use the similar command:
 
@@ -880,18 +571,17 @@ On macOS, you can use the similar command:
 dns-sd -B _sftp-ssh._tcp local
 ```
 
-Alternatively, you can use a software called "_Discovery_", which is available [here](https://apps.apple.com/it/app/discovery-dns-sd-browser/id1381004916?l=en&mt=12).
+Alternatively, you can use a software called *Discovery*, which is available [here](https://apps.apple.com/it/app/discovery-dns-sd-browser/id1381004916?l=en&mt=12).
 
 #### Using Software With GUI
-<br></br>
 
-The SSH session can be initialized using third-party software with a Graphical User Interface (GUI) for easy access. An example is a software called "_Bonjour Browser_", which can be downloaded [here](https://hobbyistsoftware.com/bonjourbrowser).
+The SSH session can be initialized using third-party software with a Graphical User Interface (GUI) for easy access. An example is a software called *Bonjour Browser*, which can be downloaded [here](https://hobbyistsoftware.com/bonjourbrowser).
 
 ![SSH Services Availability Discovery with GUI](assets/ssh-x8-bonjour.png "SSH Services Availability Discovery with GUI")
 
-This software simplifies browsing SSH services on the local network advertised over mDNS using a GUI. The image above, for example, shows all available services on the network, including those for the Portenta X8. By simply clicking on a service item, you can retrieve the IP address information.
+This software simplifies browsing SSH services on the local network advertised over mDNS using a GUI. The image above, for example, shows all available services on the network, including those for the Portenta X8. You can retrieve the IP address information by simply clicking on a service item.
 
-Once the information is verified, you can use that data with software such as [_PuTTY_](https://www.putty.org/). _PuTTY_ is a free and open-source terminal emulator, serial console, and network file transfer application. It supports several network protocols, including _SSH (Secure Shell)_ and _SFTP (SSH File Transfer Protocol)_.
+Once the information is verified, you can use that data with software such as [*PuTTY*](https://www.putty.org/). *PuTTY* is a free and open-source terminal emulator, serial console, and network file transfer application. It supports several network protocols, including *SSH (Secure Shell)* and *SFTP (SSH File Transfer Protocol)*.
 
 ![Portenta X8 SSH Session with PuTTY - Setup](assets/ssh-x8-putty.png "Portenta X8 SSH Session with PuTTY - Setup")
 
@@ -911,34 +601,193 @@ After verifying the security alert and proceeding, you have an SSH session that 
 
 ### Inspect Real-Time Tasks And Logs Via CLI
 
-Run `journalctl -f` to check the status of active services and possibly their errors, but also various system event logs.
+Run `journalctl -f` to check the status of active services and possibly their errors, as well as various system event logs.
 
 ![ADB shell journalctl package](assets/adb-shell-real-time-tasks.png "ADB shell journalctl package")
 
-By calling `journalctl` it is possible to take a look at the log of all the running activities, by specifying also the type of log you are looking for. Some logs may be a warning which can be ignored or some may be critical errors. Type `journalctl -p 0` to view emergency system messages, otherwise change the number 0 with the error code you want to investigate according to the following error code numbers:
+By calling `journalctl`, it is possible to look at the log of all the running activities by specifying the type of log you are looking for. Some logs may be a warning that can be ignored, while some may be critical errors. Type `journalctl -p 0` to view emergency system messages; otherwise, change the number 0 with the error code you want to investigate according to the following error code numbers:
 
-| Error code | Meaning   |
-|------------|-----------|
-| 0          | Emergency |
-| 1          | Alerts    |
-| 2          | Critical  |
-| 3          | Errors    |
-| 4          | Warning   |
-| 5          | Notice    |
-| 6          | Info      |
-| 7          | Debug     |
+| **Error code** | **Meaning** |
+|----------------|-------------|
+| 0              | Emergency   |
+| 1              | Alerts      |
+| 2              | Critical    |
+| 3              | Errors      |
+| 4              | Warning     |
+| 5              | Notice      |
+| 6              | Info        |
+| 7              | Debug       |
 
-When you specify the error code, it shows all messages from that code and above. For example, if you specify error code 2, then it shows all messages with priority 2, 1 and 0.
+When you specify the error code, it shows all messages from that code and above. For example, if you specify error code 2, it shows all messages with priority 2, 1 and 0.
 
-Additionally, you can also view logs for a specific time and date duration. You can use the `-- since` switch with a combination of `"yesterday"`, `"now"`, or a specific date and time `"YYYY-MM-DD HH:MM:SS"`.
+You can also view logs for a specific time and date duration. You can use the `-- since` switch with a combination of `"yesterday"`, `"now"`, or a specific date and time `"YYYY-MM-DD HH:MM:SS"`.
 
 An example of how to use the command:
 
-```arduino
+```bash
 journalctl --since "2022-12-22 12:20:00" --until yesterday
 ```
 
-### Create And Upload Docker Containers To Portenta X8
+### Working with Docker on Portenta X8
+
+To customize the Portenta X8, you can develop and deploy Docker containers. Start by ensuring Docker is correctly set up on your device. A quick way to test Docker functionality is by running the official `Hello World` container from [Docker Hub](https://hub.docker.com/).
+
+First, pull the image using the following command:
+
+```bash
+docker pull hello-world
+```
+
+Then, run the container:
+
+```bash
+docker run hello-world
+```
+
+This simple process pulls and runs the `Hello World` container, verifying that Docker is available and functional on your Portenta X8. The following clip shows running the `Hello World` container briefly:
+
+![Hello World container on the Portenta X8](assets/docker-run-example.gif)
+
+With this, you can start customizing the Portenta X8 by creating and deploying containers tailored to your needs. For example, you can develop Python applications or other utilities and package them into Docker containers for deployment.
+
+***You can explore [__Arduino's Docker Hub__](https://hub.docker.com/u/arduino) for a repository of preconfigured Docker images designed to simplify development on the Portenta X8.***
+
+#### Build Your Container
+
+You can create your custom containers and build them inside the Portenta X8. Since Portenta X8 is based on an *arm64 architecture*, you can use the command `build` only if you build the container directly on an *arm64 architecture* (e.g., Macbook based on M1/M2 processor or Portenta X8). Open a terminal window and type:
+
+```bash
+docker build . -t x8-custom-devel
+```
+
+Otherwise, if you are using a different architecture or building machine, use the `buildx` command to specify which architecture your build should compile for:
+
+```bash
+docker buildx build --platform linux/arm64 -t x8-custom-devel --load .
+```
+
+This way, your Docker image will be built and tagged with the name `x8-custom-devel`.
+
+It is time for you to deploy the newly created Docker image. To do so, save it somewhere and deploy it on your Portenta X8.
+
+#### Managing Early Start Services When Building Custom Containers
+
+The Portenta X8 firmware includes the **`compose-apps-early-start.service`**, which starts certain Docker Compose applications early during the boot process. This feature helps pre-configured services run smoothly but may sometimes interfere with custom containers you pull or build.
+
+For example, system tools like [**Skopeo**](https://www.redhat.com/en/topics/containers/what-is-skopeo) may automatically remove containers without warning. This can happen to containers pulled from external sources or locally built on the device. If you notice that your custom containers are being removed unexpectedly, you can solve this by managing the system services with a few command lines.
+
+To prevent automatic container removal and ensure your custom containers stay intact, the early start services can be stopped and disabled by running the following commands in the ADB shell:
+
+```bash
+systemctl stop compose-apps-early-start.service
+systemctl stop compose-apps-early-start-recovery.service
+systemctl disable compose-apps-early-start.service
+systemctl disable compose-apps-early-start-recovery.service
+```
+
+Alternatively, you can use this single line of command:
+
+```bash
+systemctl stop compose-apps-early-start.service && systemctl stop compose-apps-early-start-recovery.service && systemctl disable compose-apps-early-start.service && systemctl disable compose-apps-early-start-recovery.service
+```
+
+Stopping and disabling these services will prevent the early start of compose applications, ensuring your custom containers are not removed automatically. Additionally, make sure to check for the [*latest firmware image*](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz) to maintain compatibility and optimal performance of the Portenta X8 with custom container developments.
+
+#### Deploy Your Container With Docker Hub
+
+If you have a [Docker Hub account](https://hub.docker.com/), you can freely upload your Docker image to your registry (e.g., `yourhubusername`):
+
+```bash
+docker push yourhubusername/x8-custom-devel
+```
+
+Your image is now available in your Docker Hub registry `yourhubusername`.
+
+At this point, you can directly pull the image to your Portenta X8. To do so, connect to your Portenta X8 through ADB. It can be found at `Arduino15\packages\arduino\tools\adb\32.0.0`.
+
+You can pull the image from that directory to the preferred location.
+
+```bash
+adb shell
+```
+
+With the Portenta X8's terminal, the following command is used.
+
+```bash
+docker pull x8-custom-devel
+```
+
+Now, your image is correctly deployed on your Portenta X8.
+
+#### Deploy Your Container Without Docker Hub
+
+If you do not have a Docker Hub account, you can also save the Docker container locally as a **.tar** file. Then, you can easily load that to an image.
+
+You can use the 'docker save' command to save a Docker image after you have built it. For example, let's save a local copy of the `x8-custom-devel` docker image you made:
+
+```bash
+docker save x8-custom-devel:latest | gzip > x8-custom-devel_latest.tar.gz
+```
+
+At this point, you can directly pull the image to your Portenta X8. To do so, connect to your Portenta X8 through ADB. It can be found at `Arduino15\packages\arduino\tools\adb\32.0.0`.
+
+```bash
+docker import /home/fio/x8-custom-devel_latest.tar.gz x8-custom-devel:latest
+```
+
+Now, your image is correctly deployed on your Portenta X8.
+
+#### Launch Your Container
+
+To launch your brand new image, you need to create a new `docker-compose.yml`. To do so, first, you must stop the current `docker-compose.yml`.
+
+```bash
+cd /var/sota/compose-apps/arduino-ootb && docker compose stop
+```
+
+You can now create the path for the new `docker-compose.yml`:
+
+```bash
+mkdir /var/sota/compose-apps/custom-devel && cd /var/sota/compose-apps/custom-devel && touch docker-compose.yml
+```
+
+Before uploading, open the `docker-compose.yml` and edit it as follows to make it use the Docker image you have just created:
+
+```
+services:
+ custom:
+  container_name: custom-devel
+  hostname: "portenta-x8"
+  image: x8-custom-devel:latest
+      
+  restart: unless-stopped
+  tty: true
+  read_only: false
+  user: "0"
+  volumes:
+    #- '/dev:/dev'
+    - '/run/arduino_hw_info.env:/run/arduino_hw_info.env:ro'
+    - '/sys/devices:/sys/devices'
+    - '/sys/class/pwm:/sys/class/pwm'
+    - '/sys/bus/iio:/sys/bus/iio'
+    - '/var/sota:/var/sota'
+    - './keys:/tmp/keys:ro'
+  devices:
+    - '/dev/gpiochip5'
+    - '/dev/tee0'
+```
+
+It is now time to upload the new `docker-compose.yml` to your Portenta X8:
+
+```bash
+docker compose up --detach
+```
+
+And you are ready to go! Your Portenta X8 Dashboards and Things can be customized using the same process multiple times.
+
+***If you are using the Portenta X8 Manager, go to [this documentation](https://docs.foundries.io/latest/tutorials/getting-started-with-docker/getting-started-with-docker.html) to learn how to upload the newly created container in your FoundriesFactory.***
+
+#### In-Depth Docker Container Management On Portenta X8
 
 We created dedicated tutorials covering this topic. Go check them out:
 
@@ -948,7 +797,7 @@ We created dedicated tutorials covering this topic. Go check them out:
 
 ### Output Video Content On A Screen
 
-The USB-C® port on your Portenta X8 supports video output. As a consequence, you can freely connect a USB-C® monitor or a USB-C® to HDMI hub to your Portenta X8 to start visualizing video or other visual renders.
+The USB-C® port on your Portenta X8 supports video output. Consequently, you can connect a USB-C® monitor or a USB-C® to the HDMI hub to your Portenta X8 to start visualizing video or other visual renders.
 
 Here you can find a list of validated compatible USB-C® to HDMI hubs:
 
@@ -959,168 +808,143 @@ Here you can find a list of validated compatible USB-C® to HDMI hubs:
 
 ### Build A Custom Image For Portenta X8
 
-You may want to build a custom image for the Portenta X8 with the source code provided in the public [GitHub repository of lmp-manifest](https://github.com/arduino/lmp-manifest). Building an image locally can help debug certain aspects of the system, such as the bootloader or kernel support.
+You may want to build a custom image for the Portenta X8 with the source code provided in the public [GitHub repository of lmp-manifest](https://github.com/arduino/lmp-manifest/). Building an image locally can help debug certain aspects of the system, such as the bootloader or kernel support.
 
 ***Have a look at [this dedicated tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-building) to understand how to build your own custom image.***
 
+### Using the Integrated Overlay Configurator
+
+**tenta-config** is a configuration tool for managing hardware settings and device tree overlays on compatible carriers. It provides a graphical interface for customizing system configurations with compatible carriers, such as peripheral management, adjusting video output settings, and managing pin mappings.
+
+![Portenta X8 tenta-config Main Screen](assets/tenta-config-main.png)
+
+The image above shows the main window when accessing the `tenta-config`. It lists all compatible carriers, the option to automatically probe the attached carriers, and additional operations for debugging and configuring purposes for the Portneta X8.
+
+This tool simplifies hardware customization, allowing users to modify their setup without modifying the core device tree, which is essential for tasks like configuring display settings or activating specific hardware features.
+
+To access the `tenta-config` window, please follow these instructions.
+
+First, access the Docker container named **x8-devel** with the following command:
+
+```bash
+docker exec -it x8-devel sh
+```
+
+This command uses **docker exec** to start a new shell session inside the running **x8-devel** container. The `-it` flags provide an interactive terminal session for executing commands within the container. This is useful for development, enabling direct code editing, monitoring processes, or debugging in an isolated environment.
+
+Next, search for the **tenta_runner** Python script by running:
+
+```bash
+find / -name *.py
+```
+
+This command recursively searches from the root directory for any Python script, helping locate utilities or applications spread across the system.
+
+Once you find **tenta_runner.py**, navigate to its directory using:
+
+```bash
+cd /root/examples/tenta-config
+```
+
+Then run the script:
+
+```bash
+python tenta_runner.py
+```
+
+This command launches a GUI within the `tent` framework, opening the `tenta-config` window as seen in the image below:
+
+![Portenta X8 tenta-config Main Screen](assets/tenta-config-main.png)
+
+If you have a Pro 4G Module or a GIGA Display Shield with the Portenta Mid Carrier, you can choose the `Portenta Mid Carrier` option and set the necessary overlays to prepare essential environment configuration with a few steps.
+
+You can find more information on how to use the `tanta-config` to set up the Pro 4G Module [here](https://docs.arduino.cc/tutorials/portenta-mid-carrier/user-manual/#using-linux-4) and the GIGA Displaye Shield [here](https://docs.arduino.cc/tutorials/portenta-mid-carrier/user-manual/#giga-display-shield-connector-j19).
+
 ### Additional Tutorials
 
-If you want to continue working with your Portenta X8, you can find tons of additional tutorials in the **Tutorials** section of our [Arduino Docs](https://docs.arduino.cc/hardware/portenta-x8). Go check them out!
+If you want to continue working with your Portenta X8, you can find tons of additional tutorials in the **Tutorials** section of our [Arduino Docs](https://docs.arduino.cc/hardware/portenta-x8). Please go check them out!
 
 ## Working With Arduino
 
-You have learned how to use your Portenta X8 with the Arduino IDE in the section [Portenta X8 with Arduino IDE](#portenta-x8-with-arduino-ide), but you can do much more with the Arduino environment, in particular leveraging the RPC communication between the Arduino layer and the Linux layer.
+### Working With Arduino IDE
 
-You can have a look at this [GitHub repository](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/RPC/examples) to have access to multiple IDE examples showing how to use RPC communication with Portenta X8.
+In this section, you will learn how to upload a sketch to the M4 core on the STM32H747XI MCU.
 
-***Check [Communication between Linux and Arduino](#communication-between-linux-and-arduino) section of this user manual to learn more about RPC.***
+Open the Arduino IDE and download the latest **Arduino Mbed OS Portenta Boards Core** following [this tutorial](https://docs.arduino.cc/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta). Then, select **Portenta X8** from the board selector.
 
-You can build an Arduino sketch to manage all the tasks requiring real-time, including sensors communication, Fieldbus management, etc., and then send those data to a Cloud or remote server via multiple connectivity options, by leveraging the high-performance network management capabilities of Linux OS.
+![IDE Board Selector](assets/x8-IDE.png "IDE Board Selector")
 
-For instance, try [Data Exchange Between Python® on Linux and an Arduino Sketch](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange) tutorial to learn how to exchange sensor data between the Python® container embedded on Portenta X8 and an Arduino sketch.
-
-Additionally, if you are a more advanced user, you can check [Multi-Protocol Gateway With Portenta X8 & Max Carrier](https://docs.arduino.cc/tutorials/portenta-x8/multi-protocol-gateway) tutorial to develop your own multi-protocol gateway: receive data from a sensor with the Arduino layer via MQTT protocol, take advantage of RPC to establish communication between Arduino and Linux, and then send the acquired data to The Things Network via LoRaWAN® managed by the Linux layer.
-
-## Working With Arduino Cloud
-
-To start using your Portenta X8 with Arduino Cloud, provision your device as described in [this section](#portenta-x8-with-arduino-cloud).
-
-Once ready, you will have the chance to customize Portenta X8 example Thing and Dashboard. This can be done by writing your own Python script leveraging the [Arduino IoT Cloud Python library](https://github.com/arduino/arduino-iot-cloud-py). Check the documentation and the examples inside the library to learn more about how to create your own Python application.
-
-When your Python script is ready, you have to create a dedicated Dockerfile integrating your new script. The Dockerfile needs the Out-of-the-box Python container (i.e. `arduino-ootb-python-devel`) to be able to correctly interact with your Arduino Cloud account.
-
-So, open a terminal window and create a Dockerfile integrating the following code together with your Python script:
+Create a custom sketch or open an example like the blink sketch:
 
 ```arduino
-FROM arduino/arduino-ootb-python-devel:latest
+void setup(){
+ pinMode(LED_BUILTIN ,OUTPUT);
+}
+
+void loop(){
+ digitalWrite(LED_BUILTIN , HIGH);
+ delay(1000);
+ digitalWrite(LED_BUILTIN , LOW);
+ delay(1000);
+}
 ```
 
-```arduino
-# Copy custom python cloud scripts
-COPY ./custom-examples /root/custom-examples
+Select the device port and press **Compile and Upload**. The sketch is compiled into a binary, uploaded to the Linux side of the Portenta X8, and flashed by the RPC service running on Linux.
+
+***Please refer to the [Communication Between Arduino and Linux](#communication-between-arduino-and-linux) section for details on how Remote Procedure Call enables this communication.***
+
+Once the upload is successful, the onboard LED of your Portenta X8 will blink at a one second interval.
+
+If you prefer to upload the firmware manually, first compile the sketch by selecting **Export compiled binary** from the Sketch menu in the Arduino IDE. It will compile the sketch and save the binary file in the sketch folder. Alternatively, you can use the [Arduino CLI](https://arduino.github.io/arduino-cli/0.29/) to create an `elf` file.
+
+You can use the ADB tool installed as part of the Portenta X8 core to upload the firmware. It can be found at `Arduino15\packages\arduino\tools\adb\32.0.0`.
+
+From that directory, you can use the `adb` tool. To upload your compiled sketch, you need to type the following command into your terminal window:
+
+```bash
+adb push <sketchBinaryPath> /tmp/arduino/m4-user-sketch.elf
 ```
 
-```arduino
-RUN chmod -R 755 /root/custom-examples
-```
+![ADB upload with a terminal](assets/x8-terminal-ADB-push.png)
 
-### Build Your Container
+### Communication Between Arduino and Linux
 
-You can create your own custom container and build them inside the Portenta X8. Since Portenta X8 is based on an arm64 architecture, you can use the command `build` only if you are actually building the container directly on an arm64 architecture (e.g. Macbook based on M1/M2 processor or Portenta X8). Open a terminal window and type:
+The Portenta X8 uses **RPC (Remote Procedure Call)** to exchange data between processors, allowing remote **procedures** or **functions** to run over a network while appearing as local calls.
 
-```arduino
-docker build . -t x8-custom-devel
-```
+In a client-server model, **RPC** supports distributed computing by treating **procedure calls** as client **requests** and **return values** as server **responses**. To ensure reliability, two semantics are used:
 
-Otherwise, if you are using a different architecture or building machine, use `buildx` command to specify which architecture your build should compile for:
+- **`At most once`**: Prevents duplicate execution if a failure occurs.
+- **`At least once`**: Guarantees at least one execution, even if repeated.
 
-```arduino
-docker buildx build --platform linux/arm64 -t x8-custom-devel --load .
-```
+The Portenta X8 relies on [**MessagePack-RPC**](https://github.com/msgpack-rpc/msgpack-rpc) for communication, supporting *OpenAMP*, *SPI*, *Linux Char Device*, and *TCP/IP*.
 
-In this way, your Docker image will be built and tagged with the name `x8-custom-devel`.
+The **M7 core** of the **STM32H7** manages data flow between the Linux and Arduino environments, working as an intermediary when the **M4 core** runs an Arduino sketch. At the same time, `m4-proxy` eases data transfer on the Linux side. This design does not support traditional dual-core processing.
 
-Now it is time for you to deploy the newly created Docker image. To do so, you need to save it somewhere and then deploy it on your Portenta X8.
+![Linux Arduino RPC](assets/linux_arduino_RPC.png "Linux Arduino RPC")
 
-### Deploy Your Container With Docker Hub
+![RPC M4 proxy](assets/m4-proxy.png "RPC M4 proxy")
 
-If you have a [Docker Hub account](https://hub.docker.com/), you can freely upload your Docker image to your registry (e.g. `yourhubusername`):
+You can make interesting systems with the Arduino environment by leveraging the RPC communication between the Arduino and Linux layers. Check out this [GitHub repository](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/RPC/examples) for examples of using RPC with the Portenta X8.
 
-```arduino
-docker push yourhubusername/x8-custom-devel
-```
+***For further details about Remote Procedure Call and its implementation, please refer to [this dedicated tutorial](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange/).***
 
-Your image is now available in your Docker Hub registry `yourhubusername`.
+### Advanced Arduino-Linux Integration
 
-At this point, you can directly pull the image to your Portenta X8. To do so, connect to your Portenta X8 through ADB. It can be found at `Arduino15\packages\arduino\tools\adb\32.0.0`.
+Build Arduino sketches for real-time tasks like sensor communication and Fieldbus management. Then, send data to the cloud or remote servers using Linux's networking capabilities.
 
-From that directory, you can pull the image to the location you prefer.
+For example, the [Data Exchange Between Python® on Linux and an Arduino Sketch](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange) tutorial will help you understand how to exchange sensor data between the Python® container embedded on Portenta X8 and an Arduino sketch.
 
-```arduino
-adb shell
-```
-
-With the Portenta X8's terminal, following command is used.
-
-```arduino
-docker pull x8-custom-devel
-```
-
-Now your image is correctly deployed on your Portenta X8.
-
-### Deploy Your Container Without Docker Hub
-
-If you do not have a Docker Hub account, you can also save the Docker container locally as a .tar archive, and then you can easily load that to an image.
-
-To save a Docker image after you have built it, you can use the `docker save` command. For example, let's save a local copy of the `x8-custom-devel` docker image you made:
-
-```arduino
-docker save x8-custom-devel:latest | gzip > x8-custom-devel_latest.tar.gz
-```
-
-At this point, you can directly pull the image to your Portenta X8. To do so, connect to your Portenta X8 through ADB. It can be found at `Arduino15\packages\arduino\tools\adb\32.0.0`.
-
-```arduino
-docker import /home/fio/x8-custom-devel_latest.tar.gz x8-custom-devel:latest
-```
-
-Now your image is correctly deployed on your Portenta X8.
-
-### Launch Your Container
-
-In order to launch your brand new image, you need to create a new `docker-compose.yml`. To do so, first you must stop the current `docker-compose.yml`.
-
-```arduino
-cd /var/sota/compose-apps/arduino-ootb && docker compose stop
-```
-
-You can now create the path for the new `docker-compose.yml`:
-
-```arduino
-mkdir /var/sota/compose-apps/custom-devel && cd /var/sota/compose-apps/custom-devel && touch docker-compose.yml
-```
-
-Before uploading, open the `docker-compose.yml` and edit it as follow to make it use the Docker image you have just created:
-
-```arduino
-services:
-  custom:
-    container_name: custom-devel
-    hostname: "portenta-x8"
-    image: x8-custom-devel:latest
-    
-    restart: unless-stopped
-    tty: true
-    read_only: false
-    user: "0"
-    volumes:
-      #- '/dev:/dev'
-      - '/run/arduino_hw_info.env:/run/arduino_hw_info.env:ro'
-      - '/sys/devices:/sys/devices'
-      - '/sys/class/pwm:/sys/class/pwm'
-      - '/sys/bus/iio:/sys/bus/iio'
-      - '/var/sota:/var/sota'
-      - './keys:/tmp/keys:ro'
-    devices:
-      - '/dev/gpiochip5'
-      - '/dev/tee0'
-```
-
-It is now time to upload the new `docker-compose.yml` to your Portenta X8:
-
-```arduino
-docker-compose up --detach
-```
-
-And you are ready to go! Your Portenta X8 Dashboards and Things can be customized multiple times with the same process.
-
-***If you are using the Portenta X8 Manager, go to [this documentation](https://docs.foundries.io/latest/tutorials/getting-started-with-docker/getting-started-with-docker.html) to learn how to upload the newly created container in your FoundriesFactory.***
+If you are a more advanced user, you can check [Multi-Protocol Gateway With Portenta X8 & Max Carrier](https://docs.arduino.cc/tutorials/portenta-x8/multi-protocol-gateway) tutorial on developing your multi-protocol gateway. It aims to receive data from a sensor with the Arduino layer via MQTT protocol, take advantage of RPC to establish communication between Arduino and Linux, and then send the acquired data to *The Things Network* via *LoRaWAN®* managed by the Linux layer.
 
 ## Working With Portenta X8 Board Manager
 
-As already mentioned, Portenta X8 Board Manager allows you to easily keep your Portenta X8 Linux image and corresponding containers up to date, even from remote through Over-The-Air (OTA) updates (via wireless connectivity).
+The Portenta X8 Board Manager helps you keep your Portenta X8 Linux image and containers up to date, even remotely, using Over-The-Air (OTA) updates via wireless connectivity.
 
-Subscribe to an *Arduino Cloud for business* plan with Portenta X8 Board Manager to have access to all these features. Take a look at [this section](#portenta-x8-board-manager) of the user manual to learn more.
+An **Arduino Cloud for Business** plan with a Portenta X8 Board Manager subscription is required to enable these features.
+
+***__Using the Portenta X8 Board Manager is optional and not required for the Portenta X8 to function.__ It leverages Foundries.io's infrastructure to enable features like secure Over-The-Air (OTA) updates for the Portenta X8 OS and applications. __While it simplifies development and management processes, it is not a mandatory component__.***
+
+**For more information on configuration and environment exploration, please refer to the [Portenta X8 Board Manager](#portenta-x8-board-manager) section at the beginning of the user manual.**
 
 ### Device And Fleet Management With Portenta X8 Board Manager
 
@@ -1128,27 +952,27 @@ Verify that your Portenta X8 is correctly added to your FoundriesFactory by chec
 
 ![FoundriesFactory device overview](assets/web_board_manager_factory_device-overview.png "FoundriesFactory device overview")
 
-If you want to check if your Portenta X8 is updated according to the latest available Target (i.e. update), you can check the color of the bulb under the status column. There are three main color options:
+If you want to check if your Portenta X8 is updated according to the latest available Target (i.e., update), you can check the bulb's color under the status column. There are three main color options:
 
-| Bulb color  | Meaning                        |
-|-------------|--------------------------------|
-| Green       | Device online and updated      |
-| Yellow      | Device online and not updated  |
-| Red         | Device offline and not updated |
+| **Bulb color** | **Meaning**                    |
+|----------------|--------------------------------|
+| Green          | Device online and updated      |
+| Yellow         | Device online and not updated  |
+| Red            | Device offline and not updated |
 
-In this case, the Portenta X8 is connected to the network (and so to the FoundriesFactory), but it is not updated.
+In this case, the Portenta X8 is connected to the network (and to the FoundriesFactory) but has not been updated.
 
-You can see the Target uploaded on your device under the Target column, i.e. *portenta-x8-lmp-569*, and get additional information about what is included in this specific Target by clicking on it.
+You can see the Target uploaded on your device under the Target column, i.e., *portenta-x8-lmp-569*, and get additional information about what is included in this specific Target by clicking on it.
 
 ![FoundriesFactory device target specs](assets/web_board_manager_factory_device_specs.png "FoundriesFactory device target specs")
 
-The above window also shows you all the container apps you have installed on your device and you can start using.
+The above window also shows you all the container apps you have installed on your device, and you can start using them.
 
-If you scroll down in the same window, you can also have a look at the update history of that specific device.
+If you scroll down in the same window, you can also look at the update history of that specific device.
 
 ![FoundriesFactory device update history](assets/web_board_manager_factory_update_history.png "FoundriesFactory update history")
 
-At this point, you can compare the Target uploaded on your Portenta X8 with the Target available in the **Targets** section and decide whether to update your device or not.
+You can now compare the Target uploaded on your Portenta X8 with the Target available in the **Targets** section and decide whether to update your device.
 
 ![FoundriesFactory target overview](assets/web_board_manager_factory_target.png "FoundriesFactory target overview")
 
@@ -1158,16 +982,18 @@ This **Target** page contains the Linux images built each time something is comm
 
 * **ci-scripts.git:** Scripts that define the platform and container build jobs on the FoundriesFactory system.
 * **containers.git:** This is where containers and docker-compose apps are defined. It allows you to define which containers to build/deploy and how to orchestrate them on the platform.
-* **lmp-manifest.git:** The repo manifest for the platform build. It defines which layer versions are included in the platform image. This includes **meta-partner-arduino**, the layer containing Arduino-specific customizations (machine definition, device drivers, etc.).
+* **lmp-manifest.git:** The repo manifest for the platform build. It defines which layer versions are included in the platform image. This includes [**meta-partner-arduino**](https://github.com/arduino/meta-partner-arduino/), the layer containing Arduino-specific customizations (machine definition, device drivers, etc.).
 * **meta-subscriber-overrides.git:** *OE* layer that defines what is included in your FoundriesFactory image. You can add board-specific customizations and overrides or add and remove packages provided in the default Linux microPlatform.
 
-Committing to **lmp-manifest.git** or **meta-subscriber-overrides.git** repositories will create a platform Target, i.e. base Linux platform image. On the other hand, committing to **containers.git** will create a container Target including all the containers and docker-compose apps you would like to upload on your Portenta X8. Both these Targets will generate the artifacts specified in the **ci-scripts.git**, which includes all the required files to program the Target in case of platform build.  
+Committing to **lmp-manifest.git** or **meta-subscriber-overrides.git** repositories will create a platform Target, i.e. base Linux platform image. On the other hand, committing to **containers.git** will create a container Target, including all the containers and docker-compose apps you would like to upload on your Portenta X8.
+
+Both these Targets will generate the artifacts specified in the **ci-scripts.git**, which includes all the required files to program the Target in case of platform build.  
 
 ### RBAC With Portenta X8 Board Manager
 
 You do not have to be the only one in your organization with permission to update your Portenta X8 devices. The FoundriesFactory integrates a Role-Based-Access-Control functionality (RBAC) to allow users to add multiple teams with multiple members each.
 
-You can start defining a new team by clicking on **Teams** section.
+You can start defining a new team by clicking the **Teams** section.
 
 ![FoundriesFactory Teams](assets/web_board_manager_team.png "FoundriesFactory Teams")
 
@@ -1179,13 +1005,13 @@ Once you created the team, you can go to the **Members** section of your Foundri
 
 ![FoundriesFactory new member](assets/web_board_manager_factory_member.png "FoundriesFactory new member")
 
-You can type the email addresses of your teammates and they will receive an automatic email with the invitation to join the corresponding team in your FoundriesFactory.
+You can type the email addresses of your teammates, and they will receive an automatic email with the invitation to join the corresponding team in your FoundriesFactory.
 
 ### FoundriesFactory FIOCTL
 
-The FoundriesFactory includes a command line tool called [FIOCTL](https://docs.foundries.io/latest/getting-started/install-fioctl/index.html) which allows you to manage your Portenta X8 through your CLI.
+The FoundriesFactory includes a command line tool called [FIOCTL](https://docs.foundries.io/latest/getting-started/install-fioctl/index.html), which allows you to manage your Portenta X8 through your CLI.
 
-With this tool, you can easily upload containers to a board that is linked to your FoundriesFactory just by stating the FoundriesFactory name, the board name and the app you would like to upload.
+With this tool, you can easily upload containers to a board linked to your FoundriesFactory just by stating the FoundriesFactory name, the board name, and the app you would like to upload.
 
 ***Learn how to use this tool by checking the dedicated tutorial at [this link](https://docs.arduino.cc/tutorials/portenta-x8/custom-container) or the corresponding [Foundries documentation](https://docs.foundries.io/latest/getting-started/install-fioctl/index.html).***
 
@@ -1197,10 +1023,11 @@ In order to learn how to properly call GPIOs or other peripherals both in the Ar
 * [Portenta Breakout pinout](https://docs.arduino.cc/static/8d54d1a01d6174ed60fc9698e881ad4c/ASX00031-full-pinout.pdf)
 * [Portenta Max Carrier pinout](https://docs.arduino.cc/static/d0bd73b17e97af0fe376b7d518b18660/ABX00043-full-pinout.pdf)
 * [Portenta Hat Carrier pinout](https://docs.arduino.cc/resources/pinouts/ASX00049-full-pinout.pdf)
+* [Portenta Mid Carrier pinout](https://docs.arduino.cc/resources/pinouts/ASX00055-full-pinout.pdf)
 
 ## Communication
 
-In this section you will learn how to make your Portenta X8 to communicate with multiple types of sensors or other external devices, leveraging the vast variety of supported interfaces:
+In this section, you will learn how to make your Portenta X8 communicate with multiple types of sensors or other external devices, leveraging the wide variety of supported interfaces:
 
 * [SPI](#spi)
 * [I2C](#i2c)
@@ -1209,7 +1036,7 @@ In this section you will learn how to make your Portenta X8 to communicate with 
 
 ### SPI
 
-In this case, a Portenta X8 with Portenta Breakout board is used to connect an external SPI device.
+In this case, a Portenta X8 with a Portenta Breakout board is used to connect an external SPI device.
 
 #### SPI With Linux
 
@@ -1217,42 +1044,33 @@ You need to enable SPI support before using SPI devices.
 
 Open Portenta X8 Shell as explained [here](#working-with-linux).
 
-```arduino
-sudo modprobe spi-dev
+With root privileges on the Portenta X8, you can enable the SPI device interface by loading the `spidev` module using the following command:
+
+```bash
+sudo modprobe spidev
 ```
 
-Insert the user password.
+To ensure the `spidev` module loads automatically at startup, add it to the system's module configuration and reboot:
 
-An upcoming image release for the X8 will load the `spi-dev` modules automatically at boot. In the current version, please create a `/etc/modules-load.d/spi-dev.conf` file with the following content:
-
-```arduino
-spi-dev
-```
-
-and restart the board.
-
-```arduino
-echo "spi-dev" | sudo tee > /etc/modules-load.d/spi-dev.conf
-```
-
-```arduino
+```bash
+echo "spidev" | sudo tee /etc/modules-load.d/spidev.conf
 sudo systemctl reboot
 ```
 
-Add the device you want to communicate within a container in a `docker-compose.yml` file: 
+To set up a service named `my_spi_service` that utilizes the SPI device at `/dev/spidev0.0`, include the following configuration in your service definition:
 
-```arduino
+```yaml
 services:
-    my_spi_service:
-       devices:
-          - /dev/spi-1
-          - /dev/spi-2
-          - /dev/spi-3
+  my_spi_service:
+    devices:
+      - "/dev/spidev0.0"
 ```
+
+This configuration is typically added to a _docker-compose.yml_ file, allowing the service to interact with the specified SPI device.
 
 If the Linux user on which the container is running is not `root`, you need to set up the permissions for the user to access the SPI devices. You might add the required comments to an `entrypoint.sh` shell file (to be added to the `Dockerfile` or the `docker-compose.yml` file).
 
-```arduino
+```bash
 #!/usr/bin/env sh
 
 # entrypoint.sh example
@@ -1279,16 +1097,16 @@ gosu <container user> /usr/bin/python my_spi_service.py
 
 The `SPI` object is [mapped](https://github.com/arduino/ArduinoCore-mbed/blob/23e4a5ff8e9c16bece4f0e810acc9760d3dd4462/variants/PORTENTA_X8/pins_arduino.h#L85) as follows on the Portenta Breakout Board and can be deployed as usual:
 
-| SPI Pin | Arduino Portenta Breakout |
-|---------|---------------------------|
-| CIPO    | Pin 0 (Header GPIO0)      |
-| COPI    | Pin A6 (Header Analog)    |
-| SCK     | Pin A5 (Header Analog)    |
-| CS      | Pin 1 (Header GPIO0)      |
+| **SPI Pin** | **Arduino Portenta Breakout** |
+|-------------|-------------------------------|
+| CIPO        | Pin 0 (Header GPIO0)          |
+| COPI        | Pin A6 (Header Analog)        |
+| SCK         | Pin A5 (Header Analog)        |
+| CS          | Pin 1 (Header GPIO0)          |
 
 ### I2C
 
-In this case, a Portenta X8 with Portenta Breakout board is used to connect an external I2C device.
+In this case, a Portenta X8 with a Portenta Breakout board is used to connect an external I2C device.
 
 #### I2C With Linux
 
@@ -1296,44 +1114,39 @@ You need to enable I2C support before using I2C devices.
 
 Open Portenta X8 Shell as explained [here](#working-with-linux).
 
-Thus, execute the following command:
+With administrative (root) privileges on the Portenta X8, you can enable the I2C device interface using the following command:
 
-```arduino
+```bash
 sudo modprobe i2c-dev
 ```
 
-Insert the user password `fio`.
+Use the following commands to ensure the `i2c-dev` module is automatically loaded at system startup. A system reboot is required for the changes to take effect:
 
-An upcoming image release for the X8 will load the `i2c-dev` modules automatically at boot. In the current version, please create a `/etc/modules-load.d/i2c-dev.conf` file with the following content:
-
-```arduino
-i2c-dev
+```bash
+echo "i2c-dev" | sudo tee /etc/modules-load.d/i2c-dev.conf
 ```
 
-and restart the board.
-
-```arduino
-echo "i2c-dev" | sudo tee > /etc/modules-load.d/i2c-dev.conf
-```
-
-```arduino
+```bash
 sudo systemctl reboot
 ```
 
-Add the device you want to communicate within a container in a `docker-compose.yml` file: 
+These commands activate and configure the I2C device interface on the system. The following section demonstrates how to set up I2C services within a Docker environment by defining them under `my_i2c_service` in a _docker-compose.yml_ file:
 
-```arduino
+```yaml
 services:
-    my_i2c_service:
-       devices:
-          - /dev/i2c-1
-          - /dev/i2c-2
-          - /dev/i2c-3
+  my_i2c_service:
+    devices:
+      - "/dev/i2c-0"
+      - "/dev/i2c-1"
+      - "/dev/i2c-2"
+      - "/dev/i2c-3"
 ```
+
+You can configure I2C services for all available interfaces (from 0 to 3) or specify particular services as needed.
 
 If the Linux user on which the container is running is not `root`, you need to set up the permissions for the user to access the I2C devices. You might add the required comments to an `entrypoint.sh` shell file (to be added to the `Dockerfile` or the `docker-compose.yml` file).
 
-```arduino
+```bash
 #!/usr/bin/env sh
 
 # entrypoint.sh example
@@ -1349,32 +1162,97 @@ gosu <container user> /usr/bin/python my_i2c_service.py
 
 #### I2C Port Mappings
 
-| Linux      | Arduino Portenta Breakout | Notes         |
-|------------|---------------------------|---------------|
-|`/dev/i2c-1`| **`I2C1`**                |               |
-|`/dev/i2c-2`| **`I2C0`**                | Recommended   |
-|`/dev/i2c-3`| **`I2C1`**                |               |
+| **Linux**    | **Arduino Portenta Breakout** | **Notes**   |
+|--------------|-------------------------------|-------------|
+| `/dev/i2c-1` | **`I2C1`**                    |             |
+| `/dev/i2c-2` | **`I2C0`**                    | Recommended |
+| `/dev/i2c-3` | **`I2C2`**                    |             |
 
 #### Examples
 
+Within the Portenta X8 shell, you can quickly test I2C communication with compatible devices using specific commands. To list all connected I2C devices, use:
+
+```bash
+i2cdetect -y <I2C bus>
+```
+
+To interact with a specific I2C device and retrieve data, the command format is:
+
+```bash
+i2cget -y <I2C bus> <device address> <register address>
+```
+
+For example:
+
+```bash
+# List I2C devices on bus 2
+i2cdetect -y 2
+
+# Read data from a device at address 0x77 on bus 2, register 0xD0
+i2cget -y 2 0x77 0xD0
+```
+
+If a BME280 sensor is connected to *I2C0* and the above commands are used, the Portenta X8 will show **`0x60`** value to tell the sensor is alive.
+
+Here are some simple examples of implementing I2C communication on the Portenta X8 with Portenta Mid Carrier using Python.
+
+The following code uses the SMBus (System Management Bus) protocol, with SMBus-compatible [libraries](https://github.com/kplindegaard/smbus2), to read a data byte from a device on `/dev/i2c-3`. The byte is read from address 80, offset 0, and then printed.
+
 Examples of using SMBus-compatible [libraries](https://github.com/kplindegaard/smbus2):
 
-```arduino
+```python
 from smbus2 import SMBus
 
-# Connect to /dev/i2c-2
-bus = SMBus(2)
+# Connect to /dev/i2c-3
+bus = SMBus(3)
 b = bus.read_byte_data(80, 0)
 print(b)
 ```
 
-Example of using [python-periphery](https://python-periphery.readthedocs.io/en/latest/index.html):
+The next example shows how to initialize the I2C bus using the _smbus2_ library and read multiple bytes from a device. The `read_i2c_block_data` function retrieves a block of bytes from the I2C device at the specified address.
 
-```arduino
+```python
+from smbus2 import SMBus
+
+# Initialize the I2C bus
+bus = SMBus(3)  # 3 represents /dev/i2c-3
+
+device_address = 0x1
+num_bytes = 2
+
+# Read from the I2C device
+data = bus.read_i2c_block_data(device_address, 0, num_bytes)  # Starting address is 0 to read from
+
+# Data is a list of bytes
+for byte in data:
+    print(byte)
+```
+
+The following example shows how to write data to an I2C device using the _smbus2_ library. A data byte (`value`) is sent to a specific address (`device_address`) with a given instruction.
+
+```python
+from smbus2 import SMBus
+
+# Initialize the I2C bus
+bus = SMBus(3)  # 3 represents /dev/i2c-3
+
+device_address = 0x1
+instruction = 0x00
+value = 0xFF
+
+# Write to the I2C device
+bus.write_byte_data(device_address, instruction, value)
+```
+
+In the following example, the [python-periphery](https://python-periphery.readthedocs.io/en/latest/index.html) library is used to communicate with the I2C device. This library integrates a broad range of protocols within the same script. The `I2C.transfer()` method performs read and write operations on the I2C bus.
+
+The code reads a byte from an EEPROM at address `0x50`, offsets `0x100`, and then prints it.
+
+```python
 from periphery import I2C
 
-# Open i2c-0 controller
-i2c = I2C("/dev/i2c-2")
+# Open i2c-3 controller
+i2c = I2C("/dev/i2c-3")
 
 # Read byte at address 0x100 of EEPROM at 0x50
 msgs = [I2C.Message([0x01, 0x00]), I2C.Message([0x00], read=True)]
@@ -1388,21 +1266,71 @@ i2c.close()
 
 The `Wire` object is [mapped](https://github.com/arduino/ArduinoCore-mbed/blob/23e4a5ff8e9c16bece4f0e810acc9760d3dd4462/variants/PORTENTA_X8/pins_arduino.h#L113) to pins `PWM6` (I2C `SCL`) and `PWM8` (I2C `SDA`) on the Portenta Breakout Board and can be deployed as usual.
 
-Since one of the `I2C` pins is GPIO-multiplexed, you need to detach it from the other GPIO. Just add the following line in the `setup()` definition to have it fully functional for `I2C` operations.
+Since one of the `I2C` pins is GPIO-multiplexed, you need to detach it from the other GPIO. Just add the following line to the `setup()` definition to make it fully functional for `I2C` operations.
 
  ```arduino
  void setup() {
-    pinMode(PA_12, INPUT);
- }    
+  pinMode(PA_12, INPUT);
+ }    
  ```
- 
+ 
 ### UART
 
-In this case, a Portenta X8 with Portenta Breakout board is used to explore UART communication.
+In this case, a Portenta X8 with a Portenta Breakout board can be used to explore UART communication. The Portenta Mid Carrier and Portenta Hat Carrier also provides the capability to use the UART communication.
 
 #### UART With Linux
 
 A standard UART is available as `/dev/ttymxc1` in Linux and is mapped to the **`UART1`** port on the Portenta Breakout.
+
+With root access on the Portenta X8, you can list the available serial ports in Linux using the following command:
+
+```bash
+ls /dev/ttyUSB* /dev/ttyACM* /dev/ttymxc*
+
+// Example output:
+/dev/ttyUSB0   /dev/ttyUSB2   /dev/ttymxc1   /dev/ttymxc3
+/dev/ttyUSB1   /dev/ttyUSB3   /dev/ttymxc2
+```
+
+Common serial devices are typically labeled as _/dev/ttyUSBx_, _/dev/ttyACMx_, or _/dev/ttymxcx_. For instance, you might see _/dev/ttymxc1_ listed.
+
+The following Python script uses the _pyserial_ library for UART communication. The _processData_ function is defined to handle incoming data, which can be customized according to your needs.
+
+```python
+import serial
+import time
+
+# Define the processData function (customize based on your requirements)
+def processData(data):
+    print("Received:", data)  # Currently, it just prints the data. Modify as needed.
+
+# Set up the serial port
+ser = serial.Serial('/dev/ttymxc1', 9600)  # Replace with the correct port and baud rate for your setup
+
+incoming = ""
+
+while True:
+    # Check for available data and read individual characters
+    while ser.in_waiting:
+        c = ser.read().decode('utf-8')  # Read a single character and decode from bytes to string
+
+        # Check if the character is a newline (line-ending)
+        if c == '\n':
+            # Process the received data
+            processData(incoming)
+
+            # Clear the incoming data string for the next message
+            incoming = ""
+        else:
+            # Add the character to the incoming data string
+            incoming += c
+
+        time.sleep(0.002)  # Delay for data buffering, similar to Arduino's delay(2);
+```
+
+This script maintains a serial connection on _/dev/ttymxc1_ with a baud rate of _9600_. It reads incoming data character by character until it encounters a newline (`\n`), which indicates the end of a data packet.
+
+After processing the data, the script resets and is ready for the next message. The `time.sleep(0.002)` introduces a brief delay for data buffering, similar to `delay(2);` in the Arduino environment.
 
 ### Bluetooth®
 

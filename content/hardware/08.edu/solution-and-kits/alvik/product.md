@@ -1,7 +1,7 @@
 ---
 title: Alvik
 url_shop: https://store.arduino.cc/products/alvik
-certifications: [CE, UKCA, RoHS]
+certifications: [CE, UKCA, RoHS, FCC, IC, RCM]
 primary_button_url: /tutorials/alvik/getting-started
 primary_button_title: Get Started
 secondary_button_url: https://courses.arduino.cc/explore-robotics-micropython/

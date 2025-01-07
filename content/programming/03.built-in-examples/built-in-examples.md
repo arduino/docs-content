@@ -7,7 +7,7 @@ links:
   [
     {
       title: "How to Wire and Program a Button",
-      url: /built-in-examples/digita/Button,
+      url: /built-in-examples/digital/Button,
     },
     { title: "Blink", url: /built-in-examples/basics/Blink },
     {

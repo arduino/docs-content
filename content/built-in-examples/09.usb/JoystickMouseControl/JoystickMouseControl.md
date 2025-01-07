@@ -23,7 +23,7 @@ The pushbutton allows you to toggle mouse control on and off. As an option you m
 
 ### Hardware Required
 
-- Arduino Leonardo, Micro, or Due board
+- [Arduino Leonardo, Micro, or Due board](https://store.arduino.cc/collections/boards-modules)
 - 2 axis joystick
 - momentary pushbutton (possibly integrated in the joystick)
 - LED

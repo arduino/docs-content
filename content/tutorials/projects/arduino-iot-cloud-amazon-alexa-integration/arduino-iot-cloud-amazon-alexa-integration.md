@@ -20,7 +20,7 @@ source: "https://create.arduino.cc/projecthub/303628/arduino-iot-cloud-amazon-al
 
 ## Apps and Online Services
 
-- [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Arduino Cloud](https://cloud.arduino.cc)
 - [Arduino Amazon Alexa Official Arduino Skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H)
 
@@ -52,11 +52,11 @@ When adding properties make sure you only use types listed under the **Smart Hom
 
 The Smart Home section
 
-Now go to the **Web Editor** by clicking the **Edit Sketch** button in your **Thing**'s edit view.
+Now go to the **Cloud Editor** by clicking the **Edit Sketch** button in your **Thing**'s edit view.
 
-### Part 2: Arduino Web Editor
+### Part 2: Arduino Cloud Editor
 
-In the Web Editor we need to add some code to the **Sketch** automatically generated for us.
+In the Cloud Editor we need to add some code to the **Sketch** automatically generated for us.
 
 Because we want to read some some environmental data (namely temperature, but feel free to add light, humidity and pressure if you please), we'll import the **Arduino_MKRENV** library at the top of our **Sketch**
 

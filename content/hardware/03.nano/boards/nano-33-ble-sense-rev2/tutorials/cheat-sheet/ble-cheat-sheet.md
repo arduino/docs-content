@@ -1,5 +1,5 @@
 ---
-title: 'Nano 33 BLE Sense Rev2 Cheat Sheet'
+title: 'Nano 33 BLE Sense Rev2 User Manual'
 description: 'Learn how to set up the Nano 33 BLE Sense Rev2, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART) and Wireless (Wi-Fi®, Bluetooth®) protocols.'
 tags:
   - Installation
@@ -61,11 +61,11 @@ The Nano 33 BLE Sense Rev2 can be programmed through the **Arduino IDE 2**. To i
 
 - [How to use the board manager with the Arduino IDE 2](/software/ide-v2/tutorials/ide-v2-board-manager)
 
-### Web Editor
+### Cloud Editor
 
-The Nano 33 BLE Sense Rev2 can be programmed through the **Web Editor**. To get started with your board, you will only need to install a plugin, which is explained in the guide below:
+The Nano 33 BLE Sense Rev2 can be programmed through the **Cloud Editor**. To get started with your board, you will only need to install a plugin, which is explained in the guide below:
 
-- [Getting started with the Web Editor](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)
+- [Getting started with the Cloud Editor](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)
 
 
 ## MicroPython

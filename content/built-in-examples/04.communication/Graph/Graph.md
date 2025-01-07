@@ -16,7 +16,7 @@ You can use the serial monitor of the Arduino Software (IDE) to view the sent da
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - Analog Sensor (potentiometer, photocell, FSR, etc.)
 

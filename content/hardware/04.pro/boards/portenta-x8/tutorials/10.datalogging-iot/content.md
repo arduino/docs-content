@@ -41,7 +41,7 @@ These four blocks will be running locally on the [Arduino® Portenta X8](https:/
 
 - [Arduino® Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - [Arduino® MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010)
-- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - Wi-Fi® Access Point (AP) with Internet access
 - ADB or SSH
 - Command-line interface

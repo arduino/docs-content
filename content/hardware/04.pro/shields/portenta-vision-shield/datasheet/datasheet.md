@@ -168,7 +168,7 @@ The Portenta Vision Shield and the Portenta H7 boards are supported under OpenMV
 
 If you want to program your Portenta family board offline, install the Arduino Desktop IDE **[3]**. To connect the Portenta family board to your computer, you will need a USB-C® cable.
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
 All Arduino devices work out of the box on the Arduino Cloud Editor **[4]** by installing a simple plugin. The Arduino Cloud Editor is hosted online. Therefore, it will always be up-to-date with all the latest features and support for all boards and devices. Follow **[5]** to start coding on the browser and upload your sketches onto your device.
 
@@ -288,10 +288,11 @@ FCC RF Radiation Exposure Statement:
 
 ## Document Revision History
 
-| **Date**   | **Revision** | **Changes**                                      |
-|------------|--------------|--------------------------------------------------|
-| 30/08/2024 | 5            | Datasheet structure revamp                       |
-| 20/11/2023 | 4            | Datasheet structure updated, FCC Caution updated |
-| 15/11/2023 | 3            | Datasheet updated as a collective datasheet      |
-| 13/01/2022 | 2            | Datasheet information update                     |
-| 03/03/2021 | 1            | First release                                    |
+| **Date**   | **Revision** | **Changes**                            |
+|------------|--------------|----------------------------------------|
+| 30/12/2024 | 6            | Datasheet structure revamp             |
+| 03/09/2024 | 5            | Cloud Editor updated from Web Editor   |
+| 20/11/2023 | 4            | Structure Updates. FCC Caution Updated |
+| 15/11/2023 | 3            | Updates as a Collective Datasheet      |
+| 13/01/2022 | 2            | Information update                     |
+| 03/03/2021 | 1            | First Release                          |

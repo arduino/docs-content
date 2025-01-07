@@ -23,8 +23,8 @@ This tutorial shows you how to capture frames from the Arduino Portenta Vision S
 
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 - Portenta Vision Shield ([LoRa](https://store.arduino.cc/portenta-vision-shield-lora) or [Ethernet](https://store.arduino.cc/portenta-vision-shield))
-- 1x USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
-- Arduino IDE 1.8.10+
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (X1)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software) or [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
 - Processing 3.5.4+
 
 ## Instructions
@@ -47,13 +47,23 @@ To capture the frames you will need to use the functions contained in `camera.h`
 
 ```cpp
 #include "camera.h"
-#include "himax.h"
+//For the Vision Shield Rev.1
+//#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield Rev.1
+
+//For the Vision Shield Rev.2
+#include "hm0360.h" // API to read from the Himax camera found on the Portenta Vision Shield Rev.2
 ```
+
+***Left uncommented the library of your Vision Shield version.***
 
 Next, let's initialize a camera object and a frame buffer of the size 320*240 (76'800 bytes).
 
 ```cpp
-HM01B0 himax;
+
+//HM01B0 himax; // for Vision Shield Rev.1
+
+HM0360 himax; // for Vision Shield Rev.2
+
 Camera cam(himax);
 #define IMAGE_MODE CAMERA_GRAYSCALE
 FrameBuffer fb(320,240,2);
@@ -268,9 +278,15 @@ The `CaptureRawBytes.ino` Sketch.
 
 ```cpp
 #include "camera.h"
-#include "himax.h"
 
-HM01B0 himax;
+/*-----Uncomment the library and class for your specific hardware-----*/
+
+//#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield Rev.1
+//HM01B0 himax;
+
+#include "hm0360.h" // API to read from the Himax camera found on the Portenta Vision Shield Rev.2
+HM0360 himax;
+
 Camera cam(himax);
 #define IMAGE_MODE CAMERA_GRAYSCALE
 FrameBuffer fb(320,240,2);

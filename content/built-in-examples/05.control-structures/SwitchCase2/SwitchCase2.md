@@ -16,7 +16,7 @@ This tutorial shows you how to use switch to turn on one of several different LE
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - 5 LEDs
 

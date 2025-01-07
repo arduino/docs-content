@@ -14,7 +14,7 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/intel-math-kernel-
 
 ## Apps and Online Services
 
-- [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino Cloud Editor](https://create.arduino.cc/editor)
 
 ## About This Project
 

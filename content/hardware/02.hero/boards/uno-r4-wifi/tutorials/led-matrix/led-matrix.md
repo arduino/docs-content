@@ -291,6 +291,8 @@ The LED Matrix now supports printing characters via the [ArduinoGraphics](https:
 
 The example below simply prints out **"Hello World!"** on the matrix.
 
+***For this example to work, you need to install the [ArduinoGraphics](/libraries/arduinographics/) library to enable character printing on the LED matrix using the library manager.***
+
 ```arduino
 // To use ArduinoGraphics APIs, please include BEFORE Arduino_LED_Matrix
 #include "ArduinoGraphics.h"
@@ -426,7 +428,7 @@ The available animations are:
 ## Animation Generation
 We have developed a tool that is used to generate frames and animations to be rendered on the LED Matrix in your browser. This tool is part of [Arduino labs](https://labs.arduino.cc), and is therefore considered experimental software. 
 
-To use the tool you need to upload the following sketch, allowing the board to read serial inputs send by the browser. 
+To use the tool you need to upload the following sketch, allowing the board to read serial inputs sent by the browser. 
 
 You can also find the sketch in **File > Examples > LED_Matrix > LivePreview**
 
@@ -459,7 +461,7 @@ void loop() {
 
 ![LED Matrix Editor](assets/led-matrix-tool.png)
 
-Once you've made your animations, you can export them from the tool in the format that lets you use them like [previously discussed](#how-to-write-a-frame).
+Once you've made your animations, you can export them from the tool in the format that lets you use them as [previously discussed](#how-to-write-a-frame).
 
 You can find more tips on how to use this tool on [its site](https://ledmatrix-editor.arduino.cc).
 

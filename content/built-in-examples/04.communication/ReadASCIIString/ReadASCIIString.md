@@ -14,7 +14,7 @@ This sketch uses the [Serial.parseInt](https://www.arduino.cc/en/Reference/Parse
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - common anode RGB LED
 

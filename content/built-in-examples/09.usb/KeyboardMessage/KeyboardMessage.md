@@ -15,7 +15,7 @@ When the button is pressed in this example, a text string is sent to the compute
 
 ### Hardware Required
 
-- Arduino Leonardo, Micro, or Due board
+- [Arduino Leonardo, Micro, or Due board](https://store.arduino.cc/collections/boards-modules)
 
 - momentary pushbutton
 

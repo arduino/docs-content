@@ -17,7 +17,7 @@ The ADXL3xx outputs the acceleration on each axis as an analog voltage between 0
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - ADXL3xx Accelerometer
 
