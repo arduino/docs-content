@@ -9,11 +9,11 @@ Interfaces:
   ADC, GPIO, SPI: Accessible through Arduino UNO shield headers
 Communication:
   I2C: Supported via ESLOV and QWIIC connectors
-  SPI, ADC, GPIO: Accessible through Arduino UNO headers
+  SPI, ADC, GPIO: Accessible through Arduino UNO Shield Interface headers
 Power:
-  Supply Input Voltage (VJACK): 7-30 VDC (via dedicated power jack)
+  Supply Input Voltage (VJACK): 7-30 VDC (via dedicated power jack connector)
 Pinout features:
-  Compatibility: Arduino UNO Shield, Nicla sensorized nodes, and Modulino®
+  Compatibility: Arduino UNO Shields, Nicla sensorized nodes, and Modulino®
 Operating Temperature: -40 °C to + 85 °C
 Dimensions:
   Width: 61.28 mm
