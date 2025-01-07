@@ -23,16 +23,16 @@ Industrial automation, building automation, smart cities
 
 The Arduino Portenta Mid Carrier Proto Shield, when combined with the Portenta, Nicla, Modulino®, or UNO Shield, provides a comprehensive solution for diverse applications across industries. Below are some examples demonstrating its potential:
 
-- **Industrial automation:** The Portenta Mid Carrier Proto Shield enables advanced monitoring, control, and data processing, enhancing efficiency and reliability in industrial processes. Some examples are described below:
-  - **Predictive maintenance prototyping:** Develop prototypes for industrial machinery using Nicla Vision for real-time equipment inspection and Nicla Sense ME and Sense Env for environmental monitoring. The Portenta H7 processes data, while Cloud integration enables predictive algorithms for proactive maintenance and reduced downtime.
-  - **EV charging station prototyping:** Prototype EV charging stations with features like real-time data collection, anomaly detection, and power load management. Integrate Cloud connectivity via a Portenta family board for remote management and performance analytics.
-  - **Remotely controlled machine prototyping:** Establish machine control networks with Portenta Mid Carrier and CAN communication. Enable real-time data exchange, remote monitoring, and control via the Cloud to optimize machine performance and reduce downtime.
-  - **High-speed test rigs:** Build scalable test rigs for sensor calibration, load testing, and functional validation. Use the Portenta Mid Carrier Proto Shield for central control, environmental monitoring, anomaly detection, and real-time Cloud data transmission.
+**Industrial automation:** The Portenta Mid Carrier Proto Shield enables advanced monitoring, control, and data processing, enhancing efficiency and reliability in industrial processes. Some examples are described below:
+- **Predictive maintenance prototyping:** Develop prototypes for industrial machinery using Nicla Vision for real-time equipment inspection and Nicla Sense ME and Sense Env for environmental monitoring. The Portenta H7 processes data, while Cloud integration enables predictive algorithms for proactive maintenance and reduced downtime.
+- **EV charging station prototyping:** Prototype EV charging stations with features like real-time data collection, anomaly detection, and power load management. Integrate Cloud connectivity via a Portenta family board for remote management and performance analytics.
+- **Remotely controlled machine prototyping:** Establish machine control networks with Portenta Mid Carrier and CAN communication. Enable real-time data exchange, remote monitoring, and control via the Cloud to optimize machine performance and reduce downtime.
+- **High-speed test rigs:** Build scalable test rigs for sensor calibration, load testing, and functional validation. Use the Portenta Mid Carrier Proto Shield for central control, environmental monitoring, anomaly detection, and real-time Cloud data transmission.
 
-- **Building automation / Smart cities:** The Portenta Mid Carrier Proto Shield facilitates innovative solutions for environmental monitoring and security systems in smart environments.
-  - **Environmental monitoring prototypes:** Use Nicla and Modulino® sensors with the Portenta H7 to monitor air quality, noise, and other parameters in real time, supporting informed decision-making.
-  - **Intruder detection prototypes:** Leverage Nicla Vision’s motion detection and face recognition for robust security monitoring. Integrate with Portenta H7 and the Arduino Pro 4G module for real-time alerts and remote monitoring.
-  - **Asset tracking prototypes:** Create logistics solutions to monitor environmental conditions such as temperature and humidity during transit. Use 4G network and GNSS for seamless Cloud data transmission and analytics to ensure goods integrity.
+**Building automation / Smart cities:** The Portenta Mid Carrier Proto Shield facilitates innovative solutions for environmental monitoring and security systems in smart environments.
+- **Environmental monitoring prototypes:** Use Nicla and Modulino® sensors with the Portenta H7 to monitor air quality, noise, and other parameters in real time, supporting informed decision-making.
+- **Intruder detection prototypes:** Leverage Nicla Vision’s motion detection and face recognition for robust security monitoring. Integrate with Portenta H7 and the Arduino Pro 4G module for real-time alerts and remote monitoring.
+- **Asset tracking prototypes:** Create logistics solutions to monitor environmental conditions such as temperature and humidity during transit. Use 4G network and GNSS for seamless Cloud data transmission and analytics to ensure goods integrity.
 
 The Arduino Portenta Mid Carrier Proto Shield provides a ready-to-use platform for developers, enabling rapid prototyping and scalability for production, with intuitive tools like Arduino IDE and seamless Cloud integration.
 
