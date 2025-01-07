@@ -158,8 +158,6 @@ An overview of the high-level architecture of the Portenta Mid Carrier Proto Shi
 
 ### Power Supply
 
-<div style="text-align:justify;">
-
 The Portenta Mid Carrier Proto Shield requires external power through the onboard power barrel jack:
 
 - **Power Barrel Jack (J5):** Accepts an external power supply with an input voltage range of 7.0 to 30.0 VDC.
