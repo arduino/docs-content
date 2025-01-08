@@ -46,7 +46,8 @@ The Portenta Vision Shield is an add-on and a gateway to innovative solutions in
 
 ### General Specifications Overview
 
-<p style="text-align: justify;">The Portenta Vision Shield expands the capabilities of the Portenta H7 (any variant) or Portenta C33* family boards, adding advanced vision and audio processing features to them.</p>
+<p style="text-align: justify;">The Portenta Vision Shield expands the capabilities of the Portenta H7 (any variant) or Portenta C33 family boards, adding advanced vision and audio processing features to them.</p>
+
 
 <p style="text-align: justify;"> 
 
