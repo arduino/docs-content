@@ -35,6 +35,11 @@ The Portenta Vision Shield is an add-on and a gateway to innovative solutions in
   - **Smart agriculture**: Use the Portenta Vision Shield to monitor crops and soil conditions, identifying issues such as pest infestations or nutrient deficiencies, and enabling precise interventions to optimize yield.
   - **Autonomous vehicles**: Integrate the Portenta Vision Shield into autonomous systems to enhance navigation and obstacle detection, ensuring safe and efficient operation in various environments.
   - **Robotics**: Empower robots with the ability to see and interpret their surroundings using the Portenta Vision Shield, enabling complex tasks such as object recognition and manipulation in dynamic settings.
+
+- **Audio analysis and sound-based applications**: Leverage the high-performance microphone of the Portenta Vision Shield for advanced audio processing and sound recognition in various scenarios:
+  - **Acoustic monitoring**: Monitor environments for specific sounds, such as machinery noise patterns, to detect anomalies or predict maintenance needs in industrial settings.
+  - **Voice-activated systems**: Integrate the microphone into hands-free control systems, enabling voice commands for enhanced accessibility and convenience in smart devices.
+  - **Anomaly detection**: Use the microphone for real-time detection of unusual sounds, such as breaking glass or alarms in security or safety systems.
 </div>
 
 ## Features
