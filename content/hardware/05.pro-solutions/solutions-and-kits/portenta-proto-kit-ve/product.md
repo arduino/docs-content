@@ -1,6 +1,6 @@
 ---
 title: Portenta Proto Kit VE
-url_shop: https://store.arduino.cc/products/portenta-proto-kit-VE
+url_shop: https://store.arduino.cc/products/portenta-proto-kit-ve
 hasSetupGuide: false
 primary_button_url: https://academy.arduino.cc/courses/ace-220
 primary_button_title:  PROTO KIT COURSE
