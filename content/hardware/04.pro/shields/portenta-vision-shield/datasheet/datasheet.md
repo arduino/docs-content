@@ -109,19 +109,6 @@ The table below provides a comprehensive guideline for the optimal use of the Po
 
 <sup>1</sup> Portenta Vision Shield powered through a Portenta family board.
 
-### Power Consumption
-
-<p style="text-align: justify;">
-The table below summarizes the power consumption of the Portenta Vision Shield in different test cases. Notice that the board's operating current will depend greatly on the application.
-</p>
-
-|             Parameter             |     Symbol     | Min | Typ | Max | Unit |
-|:---------------------------------:|:--------------:|:---:|:---:|:---:|:----:|
-| Typical Mode Current Consumption² | I<sub>NM</sub> |  -  | TBD |  -  |  mA  |
-
-
-<sup>2</sup> Portenta Vision Shield powered through a Portenta family board.
-
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 The Portenta Vision Shield can be only powered through its High-Density Connectors (VCC pin).
 </div>
