@@ -1,8 +1,8 @@
 ---
-title: 'MKR Zero User Manual'
+title: 'MKR ETH Shield User Manual'
 difficulty: beginner
 compatible-products: []
-description: 'Learn about and how to use the MKR Zero board'
+description: ''
 tags:
   - Cheat sheet
   - User manual
@@ -15,7 +15,7 @@ software:
   - web-editor
 ---
 
-This user manual provides a comprehensive overview of the MKR Zero board, highlighting its hardware and software elements. With it, you will learn how to set up, configure, and use all the main features of a MKR Zero board.
+This user manual provides a comprehensive overview of the MKR ETH Shield, highlighting its hardware and software elements. With it, you will learn how to set up, configure, and use all the main features of a MKR ETH Shield.
 
 ![ ](assets/hero-banner.png)
 
@@ -23,18 +23,18 @@ This user manual provides a comprehensive overview of the MKR Zero board, highli
 
 ### Hardware Requirements
 
-- [Arduino MKR Zero](https://store.arduino.cc/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)
+- [Arduino MKR ETH Shield](https://store.arduino.cc/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)
 - [USB-B® cable](https://store.arduino.cc/products/usb-cable-type-a-male-to-micro-type-b-male)
 
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
 - [SD library](https://docs.arduino.cc/libraries/sd/)
-- [Arduino SAMD boards core](https://github.com/arduino/ArduinoCore-samd) (required to work with the MKR Zero board)
+- [Arduino SAMD boards core](https://github.com/arduino/ArduinoCore-samd) (required to work with the MKR ETH Shield board)
 
 ## Maker Zero Overview
 
-The MKR ZERO brings you the power of a Zero in the smaller format established by the MKR form factor. The MKR ZERO board acts as a great educational tool for learning about 32-bit application development. It has an on-board SD connector with dedicated SPI interfaces (SPI1) that allows you to play with MUSIC files with no extra hardware!  The board is powered by Atmel’s SAMD21 MCU, which features a 32-bit ARM® Cortex® M0+ core.
+The MKR ETH Shield brings you the power of a Zero in the smaller format established by the MKR form factor. The MKR ETH Shield acts as a great educational tool for learning about 32-bit application development. It has an on-board SD connector with dedicated SPI interfaces (SPI1) that allows you to play with MUSIC files with no extra hardware! The board is powered by Atmel’s SAMD21 MCU, which features a 32-bit ARM® Cortex® M0+ core.
 
 ![ ](assets/front_page.png)
 
@@ -52,19 +52,19 @@ To install the `SD` library, navigate to `Tools > Manage libraries...` or click 
 
 The full pinout is available and downloadable as PDF from the link below:
 
-- [MKR Zero pinout](https://docs.arduino.cc/resources/pinouts/ABX00012-full-pinout.pdf)
+- [MKR ETH Shield pinout](https://docs.arduino.cc/resources/pinouts/ABX00012-full-pinout.pdf)
 
 ### Tech Specs
 
 The tech specs are available from the link below:
 
-- [MKR Zero tech specs](https://docs.arduino.cc/hardware/mkr-zero/#tech-specs)
+- [MKR ETH Shield tech specs](https://docs.arduino.cc/hardware/mkr-zero/#tech-specs)
 
 ### Schematics
 
 The complete schematics are available and downloadable as PDF from the link below:
 
-- [MKR Zero schematics](https://docs.arduino.cc/resources/schematics/ABX00012-schematics.pdf)
+- [MKR ETH Shield schematics](https://docs.arduino.cc/resources/schematics/ABX00012-schematics.pdf)
 
 ## First Use
 
@@ -74,6 +74,8 @@ As shown in the image below, the Nicla Sense Env can be connected to a Portenta 
 
 ![Connecting the Nicla Sense Env](assets/user-manual-23.png)
 
+For other compatible boards, such as those from the Nano family, the Nicla Sense Env can also be connected using the 2.54 mm pins of the Nicla Sense Env board.
+
 ### Powering the Board
 
 The Nicla Sense Env can be powered by:
@@ -81,44 +83,9 @@ The Nicla Sense Env can be powered by:
 - Using the onboard **ESLOV connector**, which has a dedicated +5 VDC power line regulated onboard to +3.3 VDC.
 - Using an **external +3.3 VDC power supply** connected to the `VCC` pin (please refer to the [board pinout section](#pinout) of the user manual).
 
-### Installing the SAMD core
-
-After we have downloaded, installed and opened the Arduino IDE, let's continue to installing the `SAMD boards (32-bits ARM Coretx-M0+)` core. When we open the editor, we will see an empty sketch.
-
-![An empty Arduino IDE sketch window]()
-
-Here we need to navigate to **Tools > Board > Board Manager**.
-
-![Selecting board manager]()
-
-This will open up a new window, with all available cores. Type in "samd" in the search field, and install the `Arduino SAMD Boards (32-bits ARM Cortex-M0+)` core.
-
-![List of cores]()
-
-This process may take some time, and you may need to accept the installation window that comes up (depending on your operative system). When it is finished, it should say "INSTALLED" under the title.
-
-Exit the board manager, and go to **Tools > Board > Arduino SAMD Boards (32-bits ARM Cortex-M0+)**. Here you can see all the SAMD boards listed, where you can select the MKR board you are using. You have now successfully installed the core.
-
-![List of available boards]()
-
-### Selecting the port
-
-Now, let's make sure that our board is found by our computer, by selecting the port. Regardless what kind of program we are uploading to the board, we always need to choose the port for the board we are using. This is simply done by navigating to Tools > Port, where you select your board from the list.
-
-![Selecting the right board and port]()
-
-This will look different depending on what kind of operative system you are
-using. For Windows users, it could look like this:
-
-- `<COM29> (Arduino MKR Zero)`
-
-For MAC users, it could look like this:
-
-- `/dev/cu.usbmodem14112 (Arduino MKR Zero)`
-
 ### Blink Example
 
-Let's control the MKR Zero board to reproduce the classic `blink` example used in the Arduino ecosystem. We will use this example to verify the MKR Zero board's connection to the Arduino IDE.
+Let's control the MKR ETH Shield to reproduce the classic `blink` example used in the Arduino ecosystem. We will use this example to verify the MKR ETH Shield board's connection to the Arduino IDE.
 
 Now, connect the host board to your computer using a USB-B® cable, open the Arduino IDE, and connect the board to it.
 
@@ -196,17 +163,17 @@ You can download the example sketch [here](assets/nicla_sense_env_low_power_mode
 
 ## Support
 
-If you encounter any issues or have questions while working with your MKR Zero board, we provide various support resources to help you find answers and solutions.
+If you encounter any issues or have questions while working with your MKR ETH Shield board, we provide various support resources to help you find answers and solutions.
 
 ### Help Center
 
-Explore our Help Center, which offers a comprehensive collection of articles and guides for MKR family boards. The Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+Explore our Help Center, which offers a comprehensive collection of articles and guides for MKR family boards and shields. The Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
 - [MKR family help center page](https://support.arduino.cc/hc/en-us/sections/360004641919-MKR-Family)
 
 ### Forum
 
-Join our community forum to connect with other MKR family board users, share your experiences, and ask questions. The Forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the MKR Zero.
+Join our community forum to connect with other MKR family board users, share your experiences, and ask questions. The Forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the MKR ETH Shield.
 
 - [MKR category in the Arduino Forum](https://forum.arduino.cc/c/official-hardware/mkr-boards/79)
 
