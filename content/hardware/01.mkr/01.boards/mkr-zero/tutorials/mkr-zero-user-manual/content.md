@@ -1,14 +1,14 @@
 ---
 title: 'MKR Zero User Manual'
 difficulty: beginner
-compatible-products: []
+compatible-products: [mkr-zero]
 description: 'Learn about and how to use the MKR Zero board'
 tags:
   - Cheat sheet
   - User manual
 author: 'Benjamin Dannegård'
 hardware:
-  - hardware/
+  - hardware/01.mkr/01.boards/mkr-zero
 software:
   - ide-v1
   - ide-v2
@@ -36,17 +36,7 @@ This user manual provides a comprehensive overview of the MKR Zero board, highli
 
 The MKR ZERO brings you the power of a Zero in the smaller format established by the MKR form factor. The MKR ZERO board acts as a great educational tool for learning about 32-bit application development. It has an on-board SD connector with dedicated SPI interfaces (SPI1) that allows you to play with MUSIC files with no extra hardware!  The board is powered by Atmel’s SAMD21 MCU, which features a 32-bit ARM® Cortex® M0+ core.
 
-![ ](assets/front_page.png)
-
 The board contains everything needed to support the microcontroller; simply connect it to a computer with a micro-USB cable or power it by a LiPo battery. The battery voltage can also be monitored since a connection between the battery and the analog converter of the board exists.
-
-### Board Libraries
-
-The [`SD` library](https://www.arduino.cc/reference/en/libraries/sd/) enables reading and writing on SD cards. Once an SD memory card is connected to the SPI interface of the Arduino board you can create files and read/write on them. You can also move through directories on the SD card.
-
-To install the `SD` library, navigate to `Tools > Manage libraries...` or click the **Library Manager** icon in the left tab of the Arduino IDE. In the Library Manager tab, search for `SD` and install the latest version of the library.
-
-![Installing the board's library in the Arduino IDE](assets/user-manual-3.png)
 
 ### Pinout
 
@@ -68,131 +58,95 @@ The complete schematics are available and downloadable as PDF from the link belo
 
 ## First Use
 
-### Connecting the Board
+### Installing the SAMD Core
 
-As shown in the image below, the Nicla Sense Env can be connected to a Portenta or MKR family board using the onboard ESLOV connector and the included ESLOV cable. Alternatively, you can connect the Nicla Sense Env as a shield by using the MKR-style pins on the Portenta or MKR family boards.
+After we have downloaded, installed and opened the Arduino IDE, let's continue to installing the `SAMD boards (32-bits ARM Coretx-M0+)` core. When we open the editor, we will see an empty sketch. Here we need to navigate to the **Board Manager** on the left side of the IDE.
 
-![Connecting the Nicla Sense Env](assets/user-manual-23.png)
+![Selecting board manager](assets/installing-a-core-img01.png)
 
-### Powering the Board
+This will open up a new tab, with all available cores. Type in "samd" in the search field, and install the `Arduino SAMD Boards (32-bits ARM Cortex-M0+)` core.
 
-The Nicla Sense Env can be powered by:
-
-- Using the onboard **ESLOV connector**, which has a dedicated +5 VDC power line regulated onboard to +3.3 VDC.
-- Using an **external +3.3 VDC power supply** connected to the `VCC` pin (please refer to the [board pinout section](#pinout) of the user manual).
-
-### Installing the SAMD core
-
-After we have downloaded, installed and opened the Arduino IDE, let's continue to installing the `SAMD boards (32-bits ARM Coretx-M0+)` core. When we open the editor, we will see an empty sketch.
-
-![An empty Arduino IDE sketch window]()
-
-Here we need to navigate to **Tools > Board > Board Manager**.
-
-![Selecting board manager]()
-
-This will open up a new window, with all available cores. Type in "samd" in the search field, and install the `Arduino SAMD Boards (32-bits ARM Cortex-M0+)` core.
-
-![List of cores]()
+![List of cores](assets/installing-a-core-img02.png)
 
 This process may take some time, and you may need to accept the installation window that comes up (depending on your operative system). When it is finished, it should say "INSTALLED" under the title.
 
-Exit the board manager, and go to **Tools > Board > Arduino SAMD Boards (32-bits ARM Cortex-M0+)**. Here you can see all the SAMD boards listed, where you can select the MKR board you are using. You have now successfully installed the core.
+Now go to **Tools > Board > Arduino SAMD Boards (32-bits ARM Cortex-M0+) > MKR Zero**. Here you can see all the SAMD boards listed, where you can select the MKR board you are using. You have now successfully installed the core.
 
-![List of available boards]()
+### Selecting the Port
 
-### Selecting the port
+Now, let's make sure that our board is found by our computer, by selecting the port. Connect the board to your computer using a USB-B® cable and open the Arduino IDE. Then by pressing the white bar, as seen in the image below, the board and port can be selected.
 
-Now, let's make sure that our board is found by our computer, by selecting the port. Regardless what kind of program we are uploading to the board, we always need to choose the port for the board we are using. This is simply done by navigating to Tools > Port, where you select your board from the list.
-
-![Selecting the right board and port]()
-
-This will look different depending on what kind of operative system you are
-using. For Windows users, it could look like this:
-
-- `<COM29> (Arduino MKR Zero)`
-
-For MAC users, it could look like this:
-
-- `/dev/cu.usbmodem14112 (Arduino MKR Zero)`
+![Selecting the right board and port](assets/uploading-a-sketch-img03.png)
 
 ### Blink Example
 
 Let's control the MKR Zero board to reproduce the classic `blink` example used in the Arduino ecosystem. We will use this example to verify the MKR Zero board's connection to the Arduino IDE.
 
-Now, connect the host board to your computer using a USB-B® cable, open the Arduino IDE, and connect the board to it.
+Connect the board to your computer using a USB-B® cable and open the Arduino IDE.
 
 Copy and paste the example sketch below into a new sketch in the Arduino IDE: 
 
 ```arduino
-
-```
-
-To upload the sketch to the host board, click the **Verify** button to compile the sketch and check for errors, then click the **Upload** button to program the device with the sketch.
-
-![Uploading a sketch to the board in the Arduino IDE](assets/user-manual-7.png)
-
-You should see the onboard orange LED of your Nicla Sense Env board turn on for one second, then off for one second, repeatedly.
-
-### SD card example
-
-
-
-### Low Power Mode Management
-
-Saving energy is vital for many projects, particularly those deployed in remote areas or with a limited power supply. The Nicla Sense Env supports a deep sleep mode that can help to minimize the board's power consumption.
-
-***Deep sleep is essential for extending battery life and minimizing energy consumption when the board is not collecting data or performing tasks. It is necessary for battery-powered or power-constrained applications.***
-
-The example sketch shown below demonstrates how to put the Nicla Sense Env board into deep sleep mode using the `Arduino_NiclaSenseEnv` library API: 
-
-```arduino
-/**
-  Low Power Mode Management Example for Nicla Sense Env
-  Name: nicla_sense_env_low_power_mode_example.ino
-  Purpose: This sketch demonstrates how to put the Nicla Sense Env 
-  into deep sleep mode using the Arduino_NiclaSenseEnv library API.
-  
-  @author Arduino Product Experience Team
-  @version 1.0 31/05/24
-*/
-
-// Include the NiclaSenseEnv library
-#include "NiclaSenseEnv.h"
-
-// Global device object for Nicla Sense Env
-NiclaSenseEnv device;
-
+// the setup function runs once when you press reset or power the board
 void setup() {
-    // Initialize serial communication and wait up to 2.5 seconds for a connection
-    Serial.begin(115200);
-    for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
-
-    if (device.begin()) {
-        // Putting the device to sleep
-        Serial.println("- Going to deep sleep mode...");
-        device.deepSleep();
-    } else {
-        Serial.println("- Device could not be found. Please double-check the wiring!");
-    }
+  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(LED_BUILTIN, OUTPUT);
 }
 
+// the loop function runs over and over again forever
 void loop() {
-    // Nothing to do here. The device is in deep sleep mode.
+  digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
+  delay(1000);                      // wait for a second
+  digitalWrite(LED_BUILTIN, LOW);   // turn the LED off by making the voltage LOW
+  delay(1000);                      // wait for a second
 }
 ```
 
-Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
+To upload the sketch to the board, click the **Verify** button to compile the sketch and check for errors, then click the **Upload** button to program the device with the sketch.
 
-- `device.deepSleep()`: This function puts the Nicla Sense Env board into a deep sleep state, minimizing power consumption to the lowest possible level.
+![Uploading a sketch to the board in the Arduino IDE](assets/uploading-a-sketch-img01.png)
 
-After uploading the example sketch to the host board, you should see the following output in the Arduino IDE's Serial Monitor:
+You should see the onboard orange LED of your MKR Zero board turn on for one second, then off for one second, repeatedly.
 
-![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-12.png)
+### Board Libraries
 
-***Waking up a Nicla Sense Env board from deep sleep mode can only be done by a hardware reset.***
+The [`SD` library](https://www.arduino.cc/reference/en/libraries/sd/) enables reading and writing on SD cards. Once an SD memory card is connected to the SPI interface of the Arduino board you can create files and read/write on them. You can also move through directories on the SD card.
 
-You can download the example sketch [here](assets/nicla_sense_env_low_power_mode_example.zip).
+To install the `SD` library, navigate to the `Manage libraries` tab on the left side of the IDE.
+
+![Library manager in the Arduino IDE](assets/installing-a-library-img01.png)
+
+In the Library Manager tab, search for `SD` and install the latest version of the library.
+
+![Installing a library in the Arduino IDE](assets/installing-a-library-img02.png)
+
+### SD Library Examples
+
+In the `SD` library there are a few examples that makes use of the libraries functions. Access the examples by navigating to **File > Examples > SD**.
+
+![Accessing the examples]()
+
+To use this library put an SD card into the MKR Zero boards SD card slot.
+
+![Inserting the SD card to the MKR Zero board](<assets/circuit-sd-card.png)
+
+The examples can be used to test the SD card connection. Here are the examples in the library:
+
+- **CardInfo** - This sketch gets info about your SD card. Very useful for testing a card when you're not sure whether its working or not. Prints info about the SD card in the serial monitor. Change the `chipSelect` variable in the sketch so that it matches the required settings for the MKR Zero, as seen in the comments of the sketch.
+
+- **Datalogger** - Logs data from three analog sensors to an SD card. The sketch will create a `datalog.txt` file on the SD card where the information will be stored. Change the `chipSelect` variable in the sketch so that it matches the required settings for the MKR Zero, as seen in the comments of the sketch.
+
+- **DumpFile** - Reads a file from the SD card and sends it over the serial port. Change the `chipSelect` variable in the sketch so that it matches the required settings for the MKR Zero, as seen in the comments of the sketch.
+
+- **Files** - Creates and destroys an SD card file. Change the `chipSelect` variable in the sketch so that it matches the required settings for the MKR Zero, as seen in the comments of the sketch.
+
+- **listfiles** - Prints out the files in a directory on a SD card. Change the `chipSelect` variable in the sketch so that it matches the required settings for the MKR Zero, as seen in the comments of the sketch.
+
+- **NonBlockingWrite** - This example demonstrates how to perform non-blocking writes to a file on a SD card. The file will contain the current millis() value every 10ms. If the SD card is busy, the data will be dataBuffered in order to not block the sketch. Change the `chipSelect` variable in the sketch so that it matches the required settings for the MKR Zero, as seen in the comments of the sketch.
+
+- **ReadWrite** - This example shows how to read and write data to and from an SD card file. Change the `chipSelect` variable in the sketch so that it matches the required settings for the MKR Zero, as seen in the comments of the sketch.
+
+For more information about the API of the SD library, [go here](https://docs.arduino.cc/libraries/sd/). For more in-depth tutorials for the MKR Zero, [go here](https://docs.arduino.cc/hardware/mkr-zero/#tutorials).
 
 ## Support
 
