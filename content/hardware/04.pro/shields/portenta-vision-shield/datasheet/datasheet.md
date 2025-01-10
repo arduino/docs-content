@@ -18,29 +18,28 @@ Industrial automation, surveillance, machine vision and edge computing
 # CONTENTS
 ## Application Examples
 
-<div style="text-align:justify;">
+<p style="text-align:justify;">
 The Portenta Vision Shield is an add-on and a gateway to innovative solutions in various industries. Explore the possibilities of integrating advanced machine vision and edge computing into your projects with the following application examples:
+</p>
 
-- **Industrial automation**: Elevate your automation systems with the Portenta Vision Shield, enabling precise and real-time image processing for:
-  - **Quality control**: Use the Portenta Vision Shield in production lines to automatically detect product defects and ensure that only high-quality items pass through.
-  - **Predictive maintenance**: Use machine vision to monitor equipment and identify early signs of wear or failure, reducing downtime and maintenance costs.
-  - **Automated sorting**: Integrate the Portenta Vision Shield into conveyor systems to automatically sort items based on color, shape, or size, improving efficiency and accuracy.
+- **Industrial automation:** Elevate your automation systems with the Portenta Vision Shield, enabling precise and real-time image processing for:
+  - <p style="text-align:justify;"><strong>Quality control:</strong> Use the Portenta Vision Shield in production lines to automatically detect product defects and ensure that only high-quality items pass through.</p>
+  - <p style="text-align:justify;"><strong>Predictive maintenance:</strong> Use machine vision to monitor equipment and identify early signs of wear or failure, reducing downtime and maintenance costs.</p>
+  - <p style="text-align:justify;"><strong>Automated sorting:</strong> Integrate the Portenta Vision Shield into conveyor systems to automatically sort items based on color, shape, or size, improving efficiency and accuracy.</p>
 
-- **Surveillance**: Enhance security and monitoring systems with advanced visual capabilities provided by the Portenta Vision Shield for:
-  - **Real-time threat detection**: Deploy the Portenta Vision Shield in security systems to identify and alert authorities of potential threats, such as unauthorized access or suspicious activities, in real-time.
-  - **Environmental monitoring**: Use the Portenta Vision Shield's imaging capabilities to monitor environmental conditions in critical areas, such as chemical plants, to ensure safety and compliance with regulations.
-  - **Perimeter surveillance**: Implement the Portenta Vision Shield in perimeter security to detect intrusions or breaches, triggering immediate responses and minimizing risks.
+- **Surveillance:** Enhance security and monitoring systems with advanced visual capabilities provided by the Portenta Vision Shield for:</p>
+  - <p style="text-align:justify;"><strong>Real-time threat detection:</strong> Deploy the Portenta Vision Shield in security systems to identify and alert authorities of potential threats, such as unauthorized access or suspicious activities, in real-time.</p>
+  - <p style="text-align:justify;"><strong>Perimeter surveillance:</strong> Implement the Portenta Vision Shield in perimeter security to detect intrusions or breaches, triggering immediate responses and minimizing risks.</p>
 
-- **Machine vision and edge computing**: Unlock the potential of edge computing with the Portenta Vision Shield, bringing powerful processing capabilities directly to the field for:
-  - **Smart agriculture**: Use the Portenta Vision Shield to monitor crops and soil conditions, identifying issues such as pest infestations or nutrient deficiencies, and enabling precise interventions to optimize yield.
-  - **Autonomous vehicles**: Integrate the Portenta Vision Shield into autonomous systems to enhance navigation and obstacle detection, ensuring safe and efficient operation in various environments.
-  - **Robotics**: Empower robots with the ability to see and interpret their surroundings using the Portenta Vision Shield, enabling complex tasks such as object recognition and manipulation in dynamic settings.
+- **Machine vision and edge computing:** Unlock the potential of edge computing with the Portenta Vision Shield, bringing powerful processing capabilities directly to the field for:</p>
+  - <p style="text-align:justify;"><strong>Smart agriculture:</strong> Use the Portenta Vision Shield to monitor crops and soil conditions, identifying issues such as pest infestations or nutrient deficiencies, and enabling precise interventions to optimize yield.</p>
+  - <p style="text-align:justify;"><strong>Autonomous vehicles:</strong> Integrate the Portenta Vision Shield into autonomous systems to enhance navigation and obstacle detection, ensuring safe and efficient operation in various environments.</p>
+  - <p style="text-align:justify;"><strong>Robotics:</strong> Empower robots with the ability to see and interpret their surroundings using the Portenta Vision Shield, enabling complex tasks such as object recognition and manipulation in dynamic settings.</p>
 
-- **Audio analysis and sound-based applications**: Leverage the high-performance microphone of the Portenta Vision Shield for advanced audio processing and sound recognition in various scenarios:
-  - **Acoustic monitoring**: Monitor environments for specific sounds, such as machinery noise patterns, to detect anomalies or predict maintenance needs in industrial settings.
-  - **Voice-activated systems**: Integrate the microphone into hands-free control systems, enabling voice commands for enhanced accessibility and convenience in smart devices.
-  - **Anomaly detection**: Use the microphone for real-time detection of unusual sounds, such as breaking glass or alarms in security or safety systems.
-</div>
+- **Audio analysis and sound-based applications:** Leverage the high-performance microphone of the Portenta Vision Shield for advanced audio processing and sound recognition in various scenarios:</p>
+  - <p style="text-align:justify;"><strong>Acoustic monitoring:</strong> Monitor environments for specific sounds, such as machinery noise patterns, to detect anomalies or predict maintenance needs in industrial settings.</p>
+  - <p style="text-align:justify;"><strong>Voice-activated systems:</strong> Integrate the microphone into hands-free control systems, enabling voice commands for enhanced accessibility and convenience in smart devices.</p>
+  - <p style="text-align:justify;"><strong>Anomaly detection:</strong> Use the microphone for real-time detection of unusual sounds, such as breaking glass or alarms in security or safety systems.</p>
 
 ## Features
 
@@ -48,12 +47,9 @@ The Portenta Vision Shield is an add-on and a gateway to innovative solutions in
 
 <p style="text-align: justify;">The Portenta Vision Shield expands the capabilities of the Portenta H7 (any variant) or Portenta C33 family boards, adding advanced vision and audio processing features to them.</p>
 
-
-<p style="text-align: justify;"> 
-
-**Important note**: The Portenta Vision Shield has two hardware revisions, distinguished only by the onboard camera sensor; all other features of the shield remain identical across both revisions.
-
-</p>
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;"><strong>Important note:</strong> The Portenta Vision Shield has <strong>two hardware revisions</strong>, distinguished only by the onboard camera sensor; all other features of the shield remain identical across both revisions.
+</p></div>
 
 Below is a summary of the shield's key components and their specifications.
 
@@ -69,9 +65,9 @@ Below is a summary of the shield's key components and their specifications.
 | Weight                 | 8 g                                                                                 |
 | Pinout Features        | Onboard High-Density connectors easily connect the shield to Portenta family boards |
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>The Portenta C33 board is not compatible with the onboard camera of the Portenta Vision Shield</strong>, it is only compatible with the shield's advanced audio and connectivity features (Ethernet or LoRa® depending of the variant).
-</div>
+<div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;"><strong>The Portenta C33 board is not compatible with the onboard camera of the Portenta Vision Shield</strong>, it is only compatible with the shield's advanced audio and connectivity features (Ethernet or LoRa® depending of the variant).
+</p></div>
 
 <div style="page-break-after: always;"></div>
 
