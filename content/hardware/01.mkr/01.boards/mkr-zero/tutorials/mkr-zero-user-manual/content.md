@@ -17,8 +17,6 @@ software:
 
 This user manual provides a comprehensive overview of the MKR Zero board, highlighting its hardware and software elements. With it, you will learn how to set up, configure, and use all the main features of a MKR Zero board.
 
-![ ](assets/hero-banner.png)
-
 ## Hardware and Software Requirements
 
 ### Hardware Requirements
@@ -32,7 +30,7 @@ This user manual provides a comprehensive overview of the MKR Zero board, highli
 - [SD library](https://docs.arduino.cc/libraries/sd/)
 - [Arduino SAMD boards core](https://github.com/arduino/ArduinoCore-samd) (required to work with the MKR Zero board)
 
-## Maker Zero Overview
+## MKR Zero Overview
 
 The MKR ZERO brings you the power of a Zero in the smaller format established by the MKR form factor. The MKR ZERO board acts as a great educational tool for learning about 32-bit application development. It has an on-board SD connector with dedicated SPI interfaces (SPI1) that allows you to play with MUSIC files with no extra hardware!  The board is powered by Atmel’s SAMD21 MCU, which features a 32-bit ARM® Cortex® M0+ core.
 
@@ -124,11 +122,11 @@ In the Library Manager tab, search for `SD` and install the latest version of th
 
 In the `SD` library there are a few examples that makes use of the libraries functions. Access the examples by navigating to **File > Examples > SD**.
 
-![Accessing the examples]()
+![Accessing the examples](assets/sd-examples.png)
 
-To use this library put an SD card into the MKR Zero boards SD card slot.
+To use this library put a micro SD card into the MKR Zero boards SD card slot.
 
-![Inserting the SD card to the MKR Zero board](<assets/circuit-sd-card.png)
+![Inserting the SD card to the MKR Zero board](assets/circuit-sd-card.png)
 
 The examples can be used to test the SD card connection. Here are the examples in the library:
 

@@ -1,14 +1,14 @@
 ---
 title: 'MKR ETH Shield User Manual'
 difficulty: beginner
-compatible-products: []
-description: ''
+compatible-products: [mkr-eth-shield]
+description: 'Learn about and how to use the MKR ETH shield'
 tags:
   - Cheat sheet
   - User manual
 author: 'Benjamin Dannegård'
 hardware:
-  - hardware/
+  - hardware/01.mkr/02.shields/mkr-eth-shield
 software:
   - ide-v1
   - ide-v2
@@ -17,149 +17,240 @@ software:
 
 This user manual provides a comprehensive overview of the MKR ETH Shield, highlighting its hardware and software elements. With it, you will learn how to set up, configure, and use all the main features of a MKR ETH Shield.
 
-![ ](assets/hero-banner.png)
-
 ## Hardware and Software Requirements
 
 ### Hardware Requirements
 
-- [Arduino MKR ETH Shield](https://store.arduino.cc/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)
+- [Arduino MKR ETH Shield](https://store.arduino.cc/products/arduino-mkr-eth-shield)
+- [Arduino MKR board](https://store.arduino.cc/collections/boards-modules?filter.p.m.hardware_func.form_factor=MKR)
 - [USB-B® cable](https://store.arduino.cc/products/usb-cable-type-a-male-to-micro-type-b-male)
 
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
 - [SD library](https://docs.arduino.cc/libraries/sd/)
-- [Arduino SAMD boards core](https://github.com/arduino/ArduinoCore-samd) (required to work with the MKR ETH Shield board)
+- [Ethernet Library](https://docs.arduino.cc/libraries/ethernet/)
 
-## Maker Zero Overview
+## MKR ETH Shield Overview
 
-The MKR ETH Shield brings you the power of a Zero in the smaller format established by the MKR form factor. The MKR ETH Shield acts as a great educational tool for learning about 32-bit application development. It has an on-board SD connector with dedicated SPI interfaces (SPI1) that allows you to play with MUSIC files with no extra hardware! The board is powered by Atmel’s SAMD21 MCU, which features a 32-bit ARM® Cortex® M0+ core.
+The MKR ETH shield allows to have a wired Ethernet connection between your MKR board and your network or the Internet. This is particularly useful for devices located where either electromagnetic noise is a problem or there are special safety requirements.
 
-![ ](assets/front_page.png)
-
-The board contains everything needed to support the microcontroller; simply connect it to a computer with a micro-USB cable or power it by a LiPo battery. The battery voltage can also be monitored since a connection between the battery and the analog converter of the board exists.
-
-### Board Libraries
-
-The [`SD` library](https://www.arduino.cc/reference/en/libraries/sd/) enables reading and writing on SD cards. Once an SD memory card is connected to the SPI interface of the Arduino board you can create files and read/write on them. You can also move through directories on the SD card.
-
-To install the `SD` library, navigate to `Tools > Manage libraries...` or click the **Library Manager** icon in the left tab of the Arduino IDE. In the Library Manager tab, search for `SD` and install the latest version of the library.
-
-![Installing the board's library in the Arduino IDE](assets/user-manual-3.png)
+The MKR ETH Shield features the W5500 Ethernet controller, that provides Internet to embedded systems, and a Micro SD Card holder for storing larger files.
 
 ### Pinout
 
-The full pinout is available and downloadable as PDF from the link below:
+The pinout is available on the page below:
 
-- [MKR ETH Shield pinout](https://docs.arduino.cc/resources/pinouts/ABX00012-full-pinout.pdf)
+- [MKR ETH Shield pinout](https://docs.arduino.cc/hardware/mkr-eth-shield/#features)
 
 ### Tech Specs
 
 The tech specs are available from the link below:
 
-- [MKR ETH Shield tech specs](https://docs.arduino.cc/hardware/mkr-zero/#tech-specs)
+- [MKR ETH Shield tech specs](https://docs.arduino.cc/hardware/mkr-eth-shield/#tech-specs)
 
 ### Schematics
 
 The complete schematics are available and downloadable as PDF from the link below:
 
-- [MKR ETH Shield schematics](https://docs.arduino.cc/resources/schematics/ABX00012-schematics.pdf)
+- [MKR ETH Shield schematics](https://docs.arduino.cc/resources/schematics/ASX00006-schematics.pdf)
 
 ## First Use
 
-### Connecting the Board
+### Connecting the Shield
 
-As shown in the image below, the Nicla Sense Env can be connected to a Portenta or MKR family board using the onboard ESLOV connector and the included ESLOV cable. Alternatively, you can connect the Nicla Sense Env as a shield by using the MKR-style pins on the Portenta or MKR family boards.
+To begin using the shield, first mount the MKR ETH Shield on top of an Arduino MKR board.
 
-![Connecting the Nicla Sense Env](assets/user-manual-23.png)
+![Connecting the MKR ETH Shield](assets/MKRETH_T1_IMG02.png)
 
-For other compatible boards, such as those from the Nano family, the Nicla Sense Env can also be connected using the 2.54 mm pins of the Nicla Sense Env board.
+Then connect an Ethernet cable to the connector on the shield:
 
-### Powering the Board
+![Connecting Ethernet cable to shield](assets/MKRETH_T1_IMG03.png)
 
-The Nicla Sense Env can be powered by:
+### Board Libraries
 
-- Using the onboard **ESLOV connector**, which has a dedicated +5 VDC power line regulated onboard to +3.3 VDC.
-- Using an **external +3.3 VDC power supply** connected to the `VCC` pin (please refer to the [board pinout section](#pinout) of the user manual).
+The [`SD` library](https://www.arduino.cc/reference/en/libraries/sd/) enables reading and writing on SD cards. Once an SD memory card is connected to the SPI interface of the Arduino board you can create files and read/write on them. You can also move through directories on the SD card.
 
-### Blink Example
+The [`Ethernet` library](https://docs.arduino.cc/libraries/ethernet/) enables network connection (local and Internet). With this library you can use the Arduino Ethernet shield to connect to Internet. The library provides both client and server functionalities. The library permits you to connect to a local network also with DHCP and to resolve DNS.
 
-Let's control the MKR ETH Shield to reproduce the classic `blink` example used in the Arduino ecosystem. We will use this example to verify the MKR ETH Shield board's connection to the Arduino IDE.
+### Installing Libraries
 
-Now, connect the host board to your computer using a USB-B® cable, open the Arduino IDE, and connect the board to it.
+To install the `SD` and `Ethernet` library, navigate to the `Manage libraries` tab on the left side of the IDE.
 
-Copy and paste the example sketch below into a new sketch in the Arduino IDE: 
+![Library manager in the Arduino IDE](assets/installing-a-library-img01.png)
 
-```arduino
+In the Library Manager tab, search for `SD` and install the latest version of the library. And then do the same for the `Ethernet` library.
 
-```
+![Installing a library in the Arduino IDE](assets/installing-a-library-img02.png)
 
-To upload the sketch to the host board, click the **Verify** button to compile the sketch and check for errors, then click the **Upload** button to program the device with the sketch.
+### Ethernet Example
 
-![Uploading a sketch to the board in the Arduino IDE](assets/user-manual-7.png)
+In the `Ethernet` library there are examples that makes use of the libraries functions. Access the examples by navigating to **File > Examples > Ethernet**.
 
-You should see the onboard orange LED of your Nicla Sense Env board turn on for one second, then off for one second, repeatedly.
+![Accessing the examples](assets/ethernet-examples.png)
 
-### SD card example
+To use this library first connect an Ethernet cable into the slot on the shield.
 
+![Connecting an Ethernet cable](assets/MKRETH_T1_IMG03.png)
 
+Now let's have a look at an example sketch that uses the `Ethernet` library. First you will have to have installed the core for the MKR board that the Ethernet shield is mounted on. If you are having issues with this, please find the board on our [docs site](https://docs.arduino.cc/hardware/) and follow the set up instructions.
 
-### Low Power Mode Management
-
-Saving energy is vital for many projects, particularly those deployed in remote areas or with a limited power supply. The Nicla Sense Env supports a deep sleep mode that can help to minimize the board's power consumption.
-
-***Deep sleep is essential for extending battery life and minimizing energy consumption when the board is not collecting data or performing tasks. It is necessary for battery-powered or power-constrained applications.***
-
-The example sketch shown below demonstrates how to put the Nicla Sense Env board into deep sleep mode using the `Arduino_NiclaSenseEnv` library API: 
+Here is an example sketch on how to set up a web server, feel free to copy this code into the IDE sketch:
 
 ```arduino
-/**
-  Low Power Mode Management Example for Nicla Sense Env
-  Name: nicla_sense_env_low_power_mode_example.ino
-  Purpose: This sketch demonstrates how to put the Nicla Sense Env 
-  into deep sleep mode using the Arduino_NiclaSenseEnv library API.
-  
-  @author Arduino Product Experience Team
-  @version 1.0 31/05/24
-*/
+#include <SPI.h>
+#include <Ethernet.h>
 
-// Include the NiclaSenseEnv library
-#include "NiclaSenseEnv.h"
+// Enter a MAC address and IP address for your controller below.
+// The IP address will be dependent on your local network:
+byte mac[] = {
+  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED
+};
+IPAddress ip(192, 168, 0, 78);
 
-// Global device object for Nicla Sense Env
-NiclaSenseEnv device;
+// Initialize the Ethernet server library
+// with the IP address and port you want to use
+// (port 80 is default for HTTP):
+EthernetServer server(80);
 
 void setup() {
-    // Initialize serial communication and wait up to 2.5 seconds for a connection
-    Serial.begin(115200);
-    for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
 
-    if (device.begin()) {
-        // Putting the device to sleep
-        Serial.println("- Going to deep sleep mode...");
-        device.deepSleep();
-    } else {
-        Serial.println("- Device could not be found. Please double-check the wiring!");
+Ethernet.init(5); //MKR ETH Shield
+
+  // Open serial communications and wait for port to open:
+  Serial.begin(9600);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
+  Serial.println("Ethernet WebServer Example");
+
+  // start the Ethernet connection and the server:
+  Ethernet.begin(mac, ip);
+
+  // Check for Ethernet hardware present
+  if (Ethernet.hardwareStatus() == EthernetNoHardware) {
+    Serial.println("Ethernet shield was not found.  Sorry, can't run without hardware. :(");
+    while (true) {
+      delay(1); // do nothing, no point running without Ethernet hardware
     }
+  }
+  if (Ethernet.linkStatus() == LinkOFF) {
+    Serial.println("Ethernet cable is not connected.");
+  }
+
+  // start the server
+  server.begin();
+  Serial.print("server is at ");
+  Serial.println(Ethernet.localIP());
 }
 
+
 void loop() {
-    // Nothing to do here. The device is in deep sleep mode.
+  // listen for incoming clients
+  EthernetClient client = server.available();
+  if (client) {
+    Serial.println("new client");
+    // an http request ends with a blank line
+    boolean currentLineIsBlank = true;
+    while (client.connected()) {
+      if (client.available()) {
+        char c = client.read();
+        Serial.write(c);
+        // if you've gotten to the end of the line (received a newline
+        // character) and the line is blank, the http request has ended,
+        // so you can send a reply
+        if (c == '\n' && currentLineIsBlank) {
+          // send a standard http response header
+          client.println("HTTP/1.1 200 OK");
+          client.println("Content-Type: text/html");
+          client.println("Connection: close");  // the connection will be closed after completion of the response
+          client.println("Refresh: 5");  // refresh the page automatically every 5 sec
+          client.println();
+          client.println("<!DOCTYPE HTML>");
+          client.println("<html>");
+          // output the value of each analog input pin
+          for (int analogChannel = 0; analogChannel < 6; analogChannel++) {
+            int sensorReading = analogRead(analogChannel);
+            client.print("analog input ");
+            client.print(analogChannel);
+            client.print(" is ");
+            client.print(sensorReading);
+            client.println("<br />");
+          }
+          client.println("</html>");
+          break;
+        }
+        if (c == '\n') {
+          // you're starting a new line
+          currentLineIsBlank = true;
+        } else if (c != '\r') {
+          // you've gotten a character on the current line
+          currentLineIsBlank = false;
+        }
+      }
+    }
+    // give the web browser time to receive the data
+    delay(1);
+    // close the connection:
+    client.stop();
+    Serial.println("client disconnected");
+  }
 }
 ```
 
-Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
+Now let's take a look at some of the core functions that are uses in the sketch:
 
-- `device.deepSleep()`: This function puts the Nicla Sense Env board into a deep sleep state, minimizing power consumption to the lowest possible level.
+- `IPAddress ip(192, 168, 0, 78)` - IP address for your controller.
+- `EthernetServer server(80)` - set the port (default is 80).
+- `Ethernet.begin(mac, ip)`- start the Ethernet connection.
+- `Ethernet.linkStatus()` - checks whether a cable is connected or not.
+- `client.available()` - check if a client is available.
+- `connected()` - checks if a client is connected.
+- `read()` - reads the data from the client.
+- `client.println()` - prints to the client.
 
-After uploading the example sketch to the host board, you should see the following output in the Arduino IDE's Serial Monitor:
+### Uploading the Sketch
 
-![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-12.png)
+Now, let's make sure that our board is found by our computer, by selecting the port. Connect the board to your computer using a USB-B® cable. Then by pressing the white bar, as seen in the image below, the board and port can be selected.
 
-***Waking up a Nicla Sense Env board from deep sleep mode can only be done by a hardware reset.***
+![Selecting the right board and port](assets/uploading-a-sketch-img03.png)
 
-You can download the example sketch [here](assets/nicla_sense_env_low_power_mode_example.zip).
+To upload the sketch to the board, click the **Verify** button to compile the sketch and check for errors, then click the **Upload** button to program the device with the sketch.
+
+![Uploading a sketch to the board in the Arduino IDE](assets/uploading-a-sketch-img01.png)
+
+Now that we uploaded our code to the board, we can test and see if it is working! After it has successfully uploaded, let's open the Serial Monitor. We should now see the following printed:
+
+```
+Ethernet WebServer Example
+server is at 192.168.0.78
+```
+
+### SD Library Examples
+
+In the `SD` library there are a few examples that makes use of the libraries functions. Access the examples by navigating to **File > Examples > SD**.
+
+![Accessing the examples](assets/sd-examples.png)
+
+To use this library put a micro SD card into the MKR ETH shields SD card slot.
+
+The examples can be used to test the SD card connection. Here are the examples in the library:
+
+- **CardInfo** - This sketch gets info about your SD card. Very useful for testing a card when you're not sure whether its working or not. Prints info about the SD card in the serial monitor. Change the `chipSelect` variable in the sketch so that it matches the required settings for the MKR board you are using, as seen in the comments of the sketch.
+
+- **Datalogger** - Logs data from three analog sensors to an SD card. The sketch will create a `datalog.txt` file on the SD card where the information will be stored. Change the `chipSelect` variable in the sketch so that it matches the required settings for the MKR board you are using, as seen in the comments of the sketch.
+
+- **DumpFile** - Reads a file from the SD card and sends it over the serial port. Change the `chipSelect` variable in the sketch so that it matches the required settings for the MKR board you are using, as seen in the comments of the sketch.
+
+- **Files** - Creates and destroys an SD card file. Change the `chipSelect` variable in the sketch so that it matches the required settings for the MKR board you are using, as seen in the comments of the sketch.
+
+- **listfiles** - Prints out the files in a directory on a SD card. Change the `chipSelect` variable in the sketch so that it matches the required settings for the MKR board you are using, as seen in the comments of the sketch.
+
+- **NonBlockingWrite** - This example demonstrates how to perform non-blocking writes to a file on a SD card. The file will contain the current millis() value every 10ms. If the SD card is busy, the data will be dataBuffered in order to not block the sketch. Change the `chipSelect` variable in the sketch so that it matches the required settings for the MKR board you are using, as seen in the comments of the sketch.
+
+- **ReadWrite** - This example shows how to read and write data to and from an SD card file. Change the `chipSelect` variable in the sketch so that it matches the required settings for the MKR board you are using, as seen in the comments of the sketch.
+
+For more information about the API of the SD library, [go here](https://docs.arduino.cc/libraries/sd/).
 
 ## Support
 
