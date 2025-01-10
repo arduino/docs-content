@@ -45,13 +45,13 @@ Predictive maintenance, asset tracking, smart building systems, industrial autom
 - Portenta Mid Carrier Proto Shield (x1)
 - Arduino Pro 4G GNSS Module Global (SKU: TPX00200) (x1)
 - Modulinos (x6):
-  - KNOB (x1)
-  - PIXELS (x1)
-  - DISTANCE (x1)
-  - MOVEMENT (x1)
-  - BUTTONS (x1)
-  - BUZZER (x1)
-  - THERMO (x1)
+  - Knob (x1)
+  - Pixels (x1)
+  - Distance (x1)
+  - Movement (x1)
+  - Buttons (x1)
+  - Buzzer (x1)
+  - Thermo (x1)
 
 ![Exploded view of the Portenta Proto Kit ME, showcasing most of the kit's components.](assets/proto-kit-perspective-dismounted.png)
 
