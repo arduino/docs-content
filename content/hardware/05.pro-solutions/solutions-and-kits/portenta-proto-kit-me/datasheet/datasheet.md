@@ -39,11 +39,11 @@ Predictive maintenance, asset tracking, smart building systems, industrial autom
 
 <p style="text-align: justify;">The Arduino Portenta Proto Kit ME includes all the hardware components necessary to prototype motion detection and environmental monitoring applications effectively. Below is the list of included items:</p>
 
-- Portenta H7 (x1)
-- Nicla Sense ME (x1)
-- Portenta Mid Carrier (x1)
+- Portenta H7 (SKU: ABX00042) (x1)
+- Nicla Sense ME (SKU: ABX00050) (x1)
+- Portenta Mid Carrier (SKU: ASX00055) (x1)
 - Portenta Mid Carrier Proto Shield (x1)
-- Arduino Pro 4G Module (x1)
+- Arduino Pro 4G GNSS Module Global (SKU: TPX00200) (x1)
 - Modulinos (x6):
   - KNOB (x1)
   - PIXELS (x1)
@@ -77,16 +77,22 @@ Predictive maintenance, asset tracking, smart building systems, industrial autom
 
 ### Included Accessories
 
-- 4G antenna (x2)
-- GNSS antenna (x1)
+- +24 VDC/1A power supply (x1) 
+- M2.5 nut (x2)
+- M2.5 screw (x2)
+- M2.5 washer (x2)
+- M2.5 x 7 spacer (x2)
+- QWIIC cable (x7)
+- USB-A to USB-C® cable (x1)
+- USB-A to Micro USB cable (x1)
+- Arduino Pro 4G Module antennas kit (SKU: TPX002199) (x1)
 
 ### Related Products
 
+- Arduino X8 (SKU:ABX00074)
 - Arduino Nicla Voice (SKU:ABX00061)
 - Arduino Nicla Vision (SKU: ABX00051)
 - Arduino Portenta C33 (SKU: ABX00049)
-- Arduino X8 (SKU:ABX00074)
-- Arduino USB Type-C® Cable 2-in-1 (SKU: TPX00094)
 
 <div style="page-break-after: always;"></div>
 
