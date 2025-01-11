@@ -122,7 +122,7 @@ The table below provides a comprehensive guideline for the optimal use of the Ar
 
 <div style="page-break-after: always;"></div>
 
-### Power Supply
+## Kit Power Supply
 
 <div style="text-align:justify;">
 
