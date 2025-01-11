@@ -197,114 +197,22 @@ The figures below show the main dimensions of the kit in a stacked configuration
 
 ## Product Compliance
 
-### Product Compliance Summary
+<p style="text-align: justify;">The Arduino Portenta Proto Kit ME is composed of multiple individual Arduino products, each of which complies with specific regulations and certifications. For detailed product compliance information, please refer to the corresponding datasheets of each component included in the kit:</p>
 
-| **Product Compliance** |
-|:----------------------:|
-|  CE (European Union)   |
-|          RoHS          |
-|         REACH          |
-|          WEEE          |
-|       FCC (USA)        |
-|      IC (Canada)       |
-|       UKCA (UK)        |
-|       Bluetooth®       |
+- [Portenta H7 Documentation](https://docs.arduino.cc/hardware/portenta-h7/) **[8]**
+- [Nicla Sense ME Documentation](https://docs.arduino.cc/hardware/nicla-sense-me/) **[9]**
+- [Portenta Mid Carrier Documentation](https://docs.arduino.cc/hardware/portenta-mid-carrier/) **[10]**
+- [Arduino Pro 4G Module Documentation](https://docs.arduino.cc/hardware/pro-4g-module/) **[11]**
 
-### Declaration of Conformity CE DoC (EU)
-
-<p style="text-align: justify;">
-We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
-</p>
-
-### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
-
-<p style="text-align: justify;">
-Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
-</p>
-
-| **Substance**                          | **Maximum Limit (ppm)** |
-|----------------------------------------|-------------------------|
-| Lead (Pb)                              | 1000                    |
-| Cadmium (Cd)                           | 100                     |
-| Mercury (Hg)                           | 1000                    |
-| Hexavalent Chromium (Cr6+)             | 1000                    |
-| Poly Brominated Biphenyls (PBB)        | 1000                    |
-| Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
-| Bis(2-Ethylhexyl) phthalate (DEHP)     | 1000                    |
-| Benzyl butyl phthalate (BBP)           | 1000                    |
-| Dibutyl phthalate (DBP)                | 1000                    |
-| Diisobutyl phthalate (DIBP)            | 1000                    |
-
-<div style="page-break-after: always;"></div>
-
-Exemptions: No exemptions are claimed.
-
-<p style="text-align: justify;">Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.</p>
-
-### Conflict Minerals Declaration
-
-As a global supplier of electronic and electrical components, Arduino is aware of our obligations concerning laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 
 ## FCC Caution
 
-Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
+<p style="text-align: justify;">The components of the Arduino Portenta Proto Kit ME are subject to individual FCC regulations. Please refer to the FCC documentation linked in each Arduino component's datasheet for specific compliance details:</p>
 
-This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
-
-1. This device may not cause harmful interference
-
-2. This device must accept any interference received, including interference that may cause undesired operation.
-
-**FCC RF Radiation Exposure Statement:**
-
-1. This Transmitter must not be co-located or operating in conjunction with any other antenna or transmitter
-
-2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment
-
-3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
-
-<div style="page-break-after: always;"></div>
-
-**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
-device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
-reasonable protection against harmful interference in a residential installation. This equipment
-generates, uses and can radiate radio frequency energy and, if not installed and used in
-accordance with the instructions, may cause harmful interference to radio communications.
-However, there is no guarantee that interference will not occur in a particular installation. If
-this equipment does cause harmful interference to radio or television reception, which can be
-determined by turning the equipment off and on, the user is encouraged to try to correct the
-interference by one or more of the following measures:
-- Reorient or relocate the receiving antenna.
-- Increase the separation between the equipment and receiver.
-- Connect the equipment into an outlet on a circuit different from that to which the
-receiver is connected.
-- Consult the dealer or an experienced radio/TV technician for help.
-
-English:
-User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
-
-1. This device may not cause interference
-
-2. This device must accept any interference, including interference that may cause undesired operation of the device.
-
-French:
-Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes:
-
-1. L’ appareil nedoit pas produire de brouillage
-
-2. L’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
-
-**IC SAR Warning:**
-
-English:
-This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
-
-French:
-Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
-
-**Important:** The operating temperature of the EUT can’t exceed 85 °C and shouldn’t be lower than -40 °C.
-
-Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
+- [Portenta H7 Documentation](https://docs.arduino.cc/hardware/portenta-h7/) **[8]**
+- [Nicla Sense ME Documentation](https://docs.arduino.cc/hardware/nicla-sense-me/) **[9]**
+- [Portenta Mid Carrier Documentation](https://docs.arduino.cc/hardware/portenta-mid-carrier/) **[10]**
+- [Arduino Pro 4G Module Documentation](https://docs.arduino.cc/hardware/pro-4g-module/) **[11]**
 
 ## Company Information
 
@@ -314,15 +222,19 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-|          **Reference**          | **Link**                                                                        |
-|:-------------------------------:|---------------------------------------------------------------------------------|
-|      Arduino IDE (Desktop)      | https://www.arduino.cc/en/Main/Software                                         |
-|       Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                |
-| Arduino Cloud - Getting started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
-|           Project Hub           | https://create.arduino.cc/projecthub                                            |
-|        Library Reference        | https://www.arduino.cc/reference/en/                                            |
-|           Online Store          | https://store.arduino.cc/                                                       |
-|          ACE-220 Course         | https://academy.arduino.cc/courses/ace-220                                      |
+| **No.** |            **Reference**            | **Link**                                                |
+|:-------:|:-----------------------------------:|---------------------------------------------------------|
+|    1    |        Arduino IDE (Desktop)        | https://www.arduino.cc/en/software                      |
+|    2    |         Arduino Cloud Editor        | https://create.arduino.cc/editor                        |
+|    3    |   Arduino Cloud - Getting Started   | https://docs.arduino.cc/arduino-cloud/guides/overview/  |
+|    4    | Portenta Proto Kit ME Documentation | https://docs.arduino.cc/hardware/portenta-proto-kit-me/ |
+|    5    |         Arduino Project Hub         | https://create.arduino.cc/projecthub                    |
+|    6    |      Arduino Library Reference      | https://docs.arduino.cc/language-reference/             |
+|    7    |        ACE-220 Online Course        | https://academy.arduino.cc/courses/ace-220              |
+|    8    |      Portenta H7 Documentation      | https://docs.arduino.cc/hardware/portenta-h7/           |
+|    9    |     Nicla Sense ME Documentation    | https://docs.arduino.cc/hardware/nicla-sense-me/        |
+|    10   |  Portenta Mid Carrier Documentation | https://docs.arduino.cc/hardware/portenta-mid-carrier/  |
+|    11   | Arduino Pro 4G Module Documentation | https://docs.arduino.cc/hardware/pro-4g-module/         |
 
 ## Document Revision History
 
