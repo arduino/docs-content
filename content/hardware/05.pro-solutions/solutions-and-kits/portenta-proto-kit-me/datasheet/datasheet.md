@@ -37,7 +37,7 @@ Predictive maintenance, asset tracking, smart building systems, industrial autom
 ## Features
 ### Kit Contents
 
-<p style="text-align: justify;">The Arduino Portenta Proto Kit ME includes all the hardware components necessary to prototype motion detection and environmental monitoring applications effectively. Below is the list of included items:</p>
+<p style="text-align: justify;">The Arduino Portenta Proto Kit ME includes all the hardware components necessary to prototype motion detection and environmental monitoring applications effectively. Below is the list of included items and its main features and specifications:</p>
 
 - Portenta H7 (SKU: ABX00042) (x1)
 - Nicla Sense ME (SKU: ABX00050) (x1)
@@ -45,37 +45,69 @@ Predictive maintenance, asset tracking, smart building systems, industrial autom
 - Portenta Mid Carrier Proto Shield (x1)
 - Arduino Pro 4G GNSS Module Global (SKU: TPX00200) (x1)
 - Modulinos (x6):
-  - Knob (x1)
-  - Pixels (x1)
-  - Distance (x1)
-  - Movement (x1)
-  - Buttons (x1)
+  - Knob (encoder with push button) (x1)
+  - Pixels (8x RGB LEDs) (x1)
+  - Distance (Time-of-Flight sensor) (x1)
+  - Movement (6-axis IMU) (x1)
+  - Buttons (3x push buttons and LEDs) (x1)
   - Buzzer (x1)
-  - Thermo (x1)
+  - Thermo (temperature and humidity sensor) (x1)
 
 ![Exploded view of the Portenta Proto Kit ME, showcasing most of the kit's components.](assets/proto-kit-perspective-dismounted.png)
 
 <div style="page-break-after: always;"></div>
 
-### General Specifications Overview
+#### Portenta H7 (SKU: ABX00042)
 
-<p style="text-align: justify;">The Arduino Portenta Proto Kit ME integrates advanced sensors, connectivity modules, and versatile prototyping shields. Designed for industrial automation, smart buildings, and logistics, the kit enables efficient motion detection and environmental monitoring solutions.</p>
+<p style="text-align: justify;">Dual-core microcontroller board with ARM Cortex® M7 at 480 MHz and M4 at 240 MHz. Includes advanced graphics capabilities and operates in an industrial temperature range (-40 °C to 85 °C).</p>
 
-<p style="text-align: justify;">Below are the main features and specifications of the kit's components. For detailed specifications of each individual component, please refer to the corresponding documentation available on Arduino Docs.</p>
+<p style="text-align: center;">
+<img src="assets/portenta_h7.jpg" alt="Portenta H7 board" style="width: 50%; height: auto;">
+</p>
 
-|                  **Feature** | **Description**                                                                                                                                                                                                    |
-|-----------------------------:|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|              **Portenta H7** | Dual-core microcontroller board with ARM Cortex® M7 at 480 MHz and M4 at 240 MHz. Includes advanced graphics capabilities and operates in an industrial temperature range (-40 °C to 85 °C).                       |
-|           **Nicla Sense ME** | Compact board (22.86 mm x 22.86 mm) with sensors for motion, pressure, temperature, humidity and indoor air quality. Features Bluetooth® connectivity and edge AI capabilities.                                    |
-|     **Portenta Mid Carrier** | Expands connectivity with Ethernet, USB-A, mPCIe, CAN, MicroSD and 4G. Includes JTAG pins for debugging and supports I2C, SPI, PWM, digital and analog I/Os.                                                       |
-| **Mid Carrier Proto Shield** | Supports Nicla family boards, Modulinos, Arduino UNO shields, ESLOV connectors (x2), and Qwiic connector (x1).                                                                                                     |
-|    **Arduino Pro 4G Module** | Provides global LTE Cat.4 connectivity, 4G support and GNSS capabilities.                                                                                                                                          |
-|                **Modulinos** | Includes: KNOB (encoder with push button), PIXELS (8x RGB LEDs), DISTANCE (Time-of-Flight sensor), MOVEMENT (6-axis IMU), BUTTONS (3x push buttons and LEDs), BUZZER and THERMO (temperature and humidity sensor). |
-|      **Power Input Voltage** | +7–30 VDC via the Portenta Mid Carrier Proto Shield power jack, +5 VDC via USB-C® on the Portenta H7 or Portenta Mid Carrier terminal pins.                                                                        |
+<p style="text-align: justify;">For  detailed  information of the Portenta H7,  please  check its corresponding documentation available on Arduino Docs:</p>
+
+- [Portenta H7 Official Documentation](https://docs.arduino.cc/hardware/portenta-h7/) **[8]**
+
+#### Nicla Sense ME (SKU: ABX00050)
+
+<p style="text-align: justify;">Compact board (22.86 mm x 22.86 mm) with sensors for motion, pressure, temperature, humidity and indoor air quality. Features Bluetooth® connectivity and edge AI capabilities.</p>
+
+<p style="text-align: center;">
+<img src="assets/nicla_sense_me.jpg" alt="Nicla Sense ME board" style="width: 30%; height: auto;">
+</p>
+
+<p style="text-align: justify;">For  detailed  information of the Nicla Sense ME,  please  check its corresponding documentation available on Arduino Docs:</p>
+
+- [Nicla Sense ME Official Documentation](https://docs.arduino.cc/hardware/nicla-sense-me/) **[9]**
+
+#### Portenta Mid Carrier (SKU: ASX00055)
+
+<p style="text-align: justify;">Expands connectivity with Ethernet, USB-A, mPCIe, CAN, MicroSD and 4G. Includes JTAG pins for debugging and supports I2C, SPI, PWM, digital and analog I/Os.</p>
+
+<p style="text-align: center;">
+<img src="assets/portenta_mid_carrier.jpg" alt="Portenta Mid Carrier" style="width: 50%; height: auto;">
+</p>
+
+<p style="text-align: justify;">For  detailed  information of the Portenta Mid Carrier,  please  check its corresponding documentation available on Arduino Docs:</p>
+
+- [Portenta Mid Carrier Official Documentation](https://docs.arduino.cc/hardware/portenta-mid-carrier/) **[10]**
+
+#### Arduino Pro 4G GNSS Module Global (SKU: TPX00200)
+
+<p style="text-align: justify;">Designed in the widely used Mini PCI Express (mPCIe) format, this module provides global LTE Cat.4 connectivity, 4G support and GNSS capabilities.</p>
+
+<p style="text-align: center;">
+<img src="assets/4g_module.jpg" alt="Arduino Pro 4G GNSS Module" style="width: 40%; height: auto;">
+</p>
+
+<p style="text-align: justify;">For  detailed  information of the Arduino Pro 4G Module,  please  check its corresponding documentation available on Arduino Docs:</p>
+
+- [Arduino Pro 4G Module Official Documentation](https://docs.arduino.cc/hardware/pro-4g-module/) **[11]**
 
 <div style="page-break-after: always;"></div>
 
-### Included Accessories
+### Kit Included Accessories
 
 - +24 VDC/1A power supply (x1) 
 - M2.5 nut (x2)
@@ -87,7 +119,7 @@ Predictive maintenance, asset tracking, smart building systems, industrial autom
 - USB-A to Micro USB cable (x1)
 - Arduino Pro 4G Module antennas kit (SKU: TPX002199) (x1)
 
-### Related Products
+### Kit Related Products
 
 - Arduino X8 (SKU:ABX00074)
 - Arduino Nicla Voice (SKU:ABX00061)
@@ -109,7 +141,7 @@ The table below provides a comprehensive guideline for the optimal use of the Ar
 |                **Parameter**               |    **Symbol**   | **Min** | **Typ** | **Max** | **Unit** |
 |:------------------------------------------:|:---------------:|:-------:|:-------:|:-------:|:--------:|
 | Input Voltage of the Power Jack Connector¹ | V<sub>PJC</sub> |   7.0   |    -    |    30   |     V    |
-|           Operating Temperature²           |  T<sub>OP</sub> |   -40   |    -    |    85   |    °C    |
+|           Operating Temperature²           |  T<sub>OT</sub> |   -40   |    -    |    85   |    °C    |
 
 </div>
 
