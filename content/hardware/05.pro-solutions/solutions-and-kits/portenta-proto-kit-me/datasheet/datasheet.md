@@ -165,7 +165,7 @@ Sample sketches for the Portenta Proto Kit ME can be found either in the “Exam
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the Portenta Proto Kit ME, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]**, the Arduino Library Reference **[6]** and the ACE-220 online course **[7]**. The Enterprise Prototyping with Portenta Proto Kit ME (ACE-220) course is a FREE resource designed to help you master prototyping in embedded electronics and IoT. Gain hands-on experience with the kit and accelerate your journey from concept to innovation by building functional prototypes tailored for industrial and IoT applications.
+Now that you have gone through the basics of what you can do with the Portenta Proto Kit ME, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]**, the Arduino Library Reference **[6]** and the ACE-220 online course **[7]**. The Enterprise Prototyping with Portenta Proto Kit ME (ACE-220) course is a resource designed to help you master prototyping in embedded electronics and IoT. Gain hands-on experience with the kit and accelerate your journey from concept to innovation by building functional prototypes tailored for industrial and IoT applications.
 
 </div>
 
@@ -180,7 +180,7 @@ The Arduino Portenta Proto Kit ME offers significant mechanical flexibility, sup
 ### Kit Dimensions
 
 <p style="text-align: justify;">
-The figures below show the main dimensions of the kit in a stacked configuration that includes the Portenta H7 board, the Portenta Mid Carrier, the Portenta Mid Carrier Proto Shield, the Arduino Pro 4G Module, one Modulino (PIXELS), and the Nicla Sense ME board. All dimensions are in millimeters (mm).
+The figures below show the main dimensions of the kit in a stacked configuration that includes the Portenta H7 board, the Portenta Mid Carrier, the Portenta Mid Carrier Proto Shield, the Arduino Pro 4G Module, one Modulino (Pixels), and the Nicla Sense ME board. All dimensions are in millimeters (mm).
 </p>
 
 - <p style="text-align: justify;"><strong>Top View</strong>: Displays the width and length of the stacked components configuration of the kit.</p>
@@ -218,7 +218,7 @@ The figures below show the main dimensions of the kit in a stacked configuration
 
 | **Company name** |              **Arduino S.r.l.**              |
 |:----------------:|:--------------------------------------------:|
-| Company address  | Via Andrea Appiani, 25 - 20900 Mpnza (Italy) |
+| Company address  | Via Andrea Appiani, 25 - 20900 Monza (Italy) |
 
 ## Reference Documentation
 
