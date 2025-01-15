@@ -90,7 +90,7 @@ With this overview complete, we can now create an example.
 
 ### Setting Up the Arduino PLC IDE
 
-To get the Arduino PLC IDE software, go to the [official software website ](https://www.arduino.cc/pro/software-plc-ide)and choose to download the PLC IDE installer file. The software is named **`Arduino PLC IDE Installer`**.
+To get the Arduino PLC IDE software, go to the [official software website](https://www.arduino.cc/pro/software-plc-ide) and choose to download the PLC IDE installer file. The software is named **`Arduino PLC IDE Installer`**.
 
 ![Arduino PLC IDE Software Download Section](assets/plcide_software_download.png)
 
