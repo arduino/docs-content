@@ -1,5 +1,5 @@
 ---
-title: 'Arduino UNO R4 Minima Cheat Sheet'
+title: 'Arduino UNO R4 Minima User Manual'
 description: 'Learn how to set up the UNO R4 Minima, the fourth revision of our most popular and important development board.'
 tags:
   - Installation
@@ -50,7 +50,7 @@ The UNO R4 Minima is based on the [UNO R4 Board Package](/tutorials/uno-r4-minim
 
 ## Installation
 
-The UNO R4 Minima can be programmed either via the Arduino IDE, Arduino Web Editor, or Arduino CLI.
+The UNO R4 Minima can be programmed either via the Arduino IDE, Arduino Cloud Editor, or Arduino CLI.
 
 ### Arduino IDE
 
@@ -58,11 +58,11 @@ To use the board in the Arduino IDE, you need to install the latest version of t
 
 Read more in the [Getting Started with the UNO R4 Minima](/tutorials/uno-r4-minima/minima-getting-started) guide.
 
-### Arduino Web Editor
+### Arduino Cloud Editor
 
-The Web Editor is an online IDE that includes all official boards, no need for installing the Board Package. You will need the Create Plugin installed on your computer to use the Web Editor.
+The Cloud Editor is an online IDE that includes all official boards, no need for installing the Board Package. You will need the Create Plugin installed on your computer to use the Cloud Editor.
 
-Read more in the [Getting Started with the Web Editor](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor) guide.
+Read more in the [Getting Started with the Cloud Editor](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor) guide.
 
 ## Renesas RA4M1
 
@@ -209,30 +209,30 @@ The reference voltage of all digital pins is 5 V.
 The UNO R4 Minima has a total of four LEDs, three of which are programmable:
 - **ON** - power LED, cannot be programmed.
 - `LED_BUILTIN` - classic "built-in LED", attached to pin 13.
-- `RX_LED` - LED labelled "RX" on the board.
-- `TX_LED` - LED labelled "TX" on the board.
+- `LED_RX` - LED labelled "RX" on the board.
+- `LED_TX` - LED labelled "TX" on the board.
 
-To control these, define them as outputs and write desired state. The below example blinks each LED every second.
+To control these, define them as outputs and write the desired state. The below example blinks each LED every second.
 
 ```arduino
 void setup(){
   //define pins as output
   pinMode(LED_BUILTIN, OUTPUT);
-  pinMode(RX_LED, OUTPUT);
-  pinMode(TX_LED, OUTPUT);
+  pinMode(LED_RX, OUTPUT);
+  pinMode(LED_TX, OUTPUT);
 }
 
 void loop(){
   //turn on all LEDs
   digitalWrite(LED_BUILTIN, HIGH);
-  digitalWrite(LED_RX, HIGH);
-  digitalWrite(LED_TX, HIGH);
+  digitalWrite(LED_RX, LOW);
+  digitalWrite(LED_TX, LOW);
   delay(1000);
 
   //turn off all LEDs
   digitalWrite(LED_BUILTIN, LOW);
-  digitalWrite(LED_RX, LOW);
-  digitalWrite(LED_TX, LOW);
+  digitalWrite(LED_RX, HIGH);
+  digitalWrite(LED_TX, HIGH);
   delay(1000);
 }
 ```

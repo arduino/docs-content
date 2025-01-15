@@ -1,6 +1,7 @@
 ---
 title: 'Displaying on-Board Sensor Values on a WebBLE Dashboard'
 coverImage: hero-banner.svg
+difficulty: beginner
 tags:
   - Bluetooth®
   - WEB-BLE
@@ -42,228 +43,229 @@ In this tutorial, we will focus on the Arduino® Nicla Sense ME.
 
 - [Nicla Sense ME](https://store.arduino.cc/products/nicla-sense-me)
 - Micro USB-A cable (USB-A to Micro USB-AB)
-- Arduino IDE 1.8.10+, Arduino IDE 2 or Arduino Web Editor
+- Arduino IDE 1.8.10+, Arduino IDE 2 or Arduino Cloud Editor
 - If you choose the Arduino IDE, you will need to install 2 libraries: [**Arduino_BHY2**](https://github.com/arduino-libraries/Arduino_BHY2) and [**ArduinoBLE**](https://github.com/arduino-libraries/ArduinoBLE)
 
 ## Instructions
 
 ### Set up the Board
 
-If you use the Web Editor to upload the [sketch](https://create.arduino.cc/editor/FT-CONTENT/333e2e07-ecc4-414c-bf08-005b611ddd75/preview) you don't need to install any library. They are all included automatically. If you use the Arduino IDE or the CLI, you need to download the **Arduino_BHY2** and the **ArduinoBLE** libraries.
+If you use the Cloud Editor to upload the [sketch](https://create.arduino.cc/editor/FT-CONTENT/333e2e07-ecc4-414c-bf08-005b611ddd75/preview) you don't need to install any library. They are all included automatically. If you use the Arduino IDE or the CLI, you need to download the **Arduino_BHY2** and the **ArduinoBLE** libraries.
 
 These libraries can be found within the Library Manager in the Arduino IDE, or it can be downloaded separately following the links attached within required hardware and software section.
 
 If you use a local IDE, you can copy & paste the following sketch:
+
 ```arduino
-  /*
-  Arduino Nicla Sense ME WEB Bluetooth® Low Energy Sense dashboard demo
-  Hardware required: https://store.arduino.cc/nicla-sense-me
-  1) Upload this sketch to the Arduino Nano Bluetooth® Low Energy sense board
-  2) Open the following web page in the Chrome browser:
-  https://arduino.github.io/ArduinoAI/NiclaSenseME-dashboard/
-  3) Click on the green button in the web page to connect the browser to the board over Bluetooth® Low Energy
-  Web dashboard by D. Pajak
-  Device sketch based on example by Sandeep Mistry and Massimo Banzi
-  Sketch and web dashboard copy-fixed to be used with the Nicla Sense ME by Pablo Marquínez
-  */
+/*
+Arduino Nicla Sense ME WEB Bluetooth® Low Energy Sense dashboard demo
+Hardware required: https://store.arduino.cc/nicla-sense-me
+1) Upload this sketch to the Arduino Nano Bluetooth® Low Energy sense board
+2) Open the following web page in the Chrome browser:
+https://arduino.github.io/ArduinoAI/NiclaSenseME-dashboard/
+3) Click on the green button in the web page to connect the browser to the board over Bluetooth® Low Energy
+Web dashboard by D. Pajak
+Device sketch based on example by Sandeep Mistry and Massimo Banzi
+Sketch and web dashboard copy-fixed to be used with the Nicla Sense ME by Pablo Marquínez
+*/
 
-  #include "Nicla_System.h"
-  #include "Arduino_BHY2.h"
-  #include <ArduinoBLE.h>
+#include "Nicla_System.h"
+#include "Arduino_BHY2.h"
+#include <ArduinoBLE.h>
 
-  #define BLE_SENSE_UUID(val) ("19b10000-" val "-537e-4f6c-d104768a1214")
+#define BLE_SENSE_UUID(val) ("19b10000-" val "-537e-4f6c-d104768a1214")
 
-  const int VERSION = 0x00000000;
+const int VERSION = 0x00000000;
 
-  BLEService service(BLE_SENSE_UUID("0000"));
+BLEService service(BLE_SENSE_UUID("0000"));
 
-  BLEUnsignedIntCharacteristic versionCharacteristic(BLE_SENSE_UUID("1001"), BLERead);
-  BLEFloatCharacteristic temperatureCharacteristic(BLE_SENSE_UUID("2001"), BLERead);
-  BLEUnsignedIntCharacteristic humidityCharacteristic(BLE_SENSE_UUID("3001"), BLERead);
-  BLEFloatCharacteristic pressureCharacteristic(BLE_SENSE_UUID("4001"), BLERead);
+BLEUnsignedIntCharacteristic versionCharacteristic(BLE_SENSE_UUID("1001"), BLERead);
+BLEFloatCharacteristic temperatureCharacteristic(BLE_SENSE_UUID("2001"), BLERead);
+BLEUnsignedIntCharacteristic humidityCharacteristic(BLE_SENSE_UUID("3001"), BLERead);
+BLEFloatCharacteristic pressureCharacteristic(BLE_SENSE_UUID("4001"), BLERead);
 
-  BLECharacteristic accelerometerCharacteristic(BLE_SENSE_UUID("5001"), BLERead | BLENotify, 3 * sizeof(float));  // Array of 3x 2 Bytes, XY
-  BLECharacteristic gyroscopeCharacteristic(BLE_SENSE_UUID("6001"), BLERead | BLENotify, 3 * sizeof(float));    // Array of 3x 2 Bytes, XYZ
-  BLECharacteristic quaternionCharacteristic(BLE_SENSE_UUID("7001"), BLERead | BLENotify, 4 * sizeof(float));     // Array of 4x 2 Bytes, XYZW
+BLECharacteristic accelerometerCharacteristic(BLE_SENSE_UUID("5001"), BLERead | BLENotify, 3 * sizeof(float));  // Array of 3x 2 Bytes, XY
+BLECharacteristic gyroscopeCharacteristic(BLE_SENSE_UUID("6001"), BLERead | BLENotify, 3 * sizeof(float));    // Array of 3x 2 Bytes, XYZ
+BLECharacteristic quaternionCharacteristic(BLE_SENSE_UUID("7001"), BLERead | BLENotify, 4 * sizeof(float));     // Array of 4x 2 Bytes, XYZW
 
-  BLECharacteristic rgbLedCharacteristic(BLE_SENSE_UUID("8001"), BLERead | BLEWrite, 3 * sizeof(byte)); // Array of 3 bytes, RGB
+BLECharacteristic rgbLedCharacteristic(BLE_SENSE_UUID("8001"), BLERead | BLEWrite, 3 * sizeof(byte)); // Array of 3 bytes, RGB
 
-  BLEFloatCharacteristic bsecCharacteristic(BLE_SENSE_UUID("9001"), BLERead);
-  BLEIntCharacteristic  co2Characteristic(BLE_SENSE_UUID("9002"), BLERead);
-  BLEUnsignedIntCharacteristic gasCharacteristic(BLE_SENSE_UUID("9003"), BLERead);
+BLEFloatCharacteristic bsecCharacteristic(BLE_SENSE_UUID("9001"), BLERead);
+BLEIntCharacteristic  co2Characteristic(BLE_SENSE_UUID("9002"), BLERead);
+BLEUnsignedIntCharacteristic gasCharacteristic(BLE_SENSE_UUID("9003"), BLERead);
 
-  // String to calculate the local and device name
-  String name;
+// String to calculate the local and device name
+String name;
 
-  Sensor temperature(SENSOR_ID_TEMP);
-  Sensor humidity(SENSOR_ID_HUM);
-  Sensor pressure(SENSOR_ID_BARO);
-  Sensor gas(SENSOR_ID_GAS);
-  SensorXYZ gyroscope(SENSOR_ID_GYRO);
-  SensorXYZ accelerometer(SENSOR_ID_ACC);
-  SensorQuaternion quaternion(SENSOR_ID_RV);
-  SensorBSEC bsec(SENSOR_ID_BSEC);
+Sensor temperature(SENSOR_ID_TEMP);
+Sensor humidity(SENSOR_ID_HUM);
+Sensor pressure(SENSOR_ID_BARO);
+Sensor gas(SENSOR_ID_GAS);
+SensorXYZ gyroscope(SENSOR_ID_GYRO);
+SensorXYZ accelerometer(SENSOR_ID_ACC);
+SensorQuaternion quaternion(SENSOR_ID_RV);
+SensorBSEC bsec(SENSOR_ID_BSEC);
 
-  void setup(){
-    Serial.begin(115200);
+void setup(){
+  Serial.begin(115200);
 
-    Serial.println("Start");
+  Serial.println("Start");
 
-    nicla::begin();
-    nicla::leds.begin();
-    nicla::leds.setColor(green);
+  nicla::begin();
+  nicla::leds.begin();
+  nicla::leds.setColor(green);
 
-    //Sensors initialization
-    BHY2.begin(NICLA_STANDALONE);
-    temperature.begin();
-    humidity.begin();
-    pressure.begin();
-    gyroscope.begin();
-    accelerometer.begin();
-    quaternion.begin();
-    bsec.begin();
-    gas.begin();
+  //Sensors initialization
+  BHY2.begin(NICLA_STANDALONE);
+  temperature.begin();
+  humidity.begin();
+  pressure.begin();
+  gyroscope.begin();
+  accelerometer.begin();
+  quaternion.begin();
+  bsec.begin();
+  gas.begin();
 
-    if (!BLE.begin()){
-      Serial.println("Failed to initialized BLE!");
+  if (!BLE.begin()){
+    Serial.println("Failed to initialized BLE!");
 
-      while (1)
-        ;
+    while (1)
+      ;
+  }
+
+  String address = BLE.address();
+
+  Serial.print("address = ");
+  Serial.println(address);
+
+  address.toUpperCase();
+
+  name = "NiclaSenseME-";
+  name += address[address.length() - 5];
+  name += address[address.length() - 4];
+  name += address[address.length() - 2];
+  name += address[address.length() - 1];
+
+  Serial.print("name = ");
+  Serial.println(name);
+
+  BLE.setLocalName(name.c_str());
+  BLE.setDeviceName(name.c_str());
+  BLE.setAdvertisedService(service);
+
+  // Add all the previously defined Characteristics
+  service.addCharacteristic(temperatureCharacteristic);
+  service.addCharacteristic(humidityCharacteristic);
+  service.addCharacteristic(pressureCharacteristic);
+  service.addCharacteristic(versionCharacteristic);
+  service.addCharacteristic(accelerometerCharacteristic);
+  service.addCharacteristic(gyroscopeCharacteristic);
+  service.addCharacteristic(quaternionCharacteristic);
+  service.addCharacteristic(bsecCharacteristic);
+  service.addCharacteristic(co2Characteristic);
+  service.addCharacteristic(gasCharacteristic);
+  service.addCharacteristic(rgbLedCharacteristic);
+
+  // Disconnect event handler
+  BLE.setEventHandler(BLEDisconnected, blePeripheralDisconnectHandler);
+
+  // Sensors event handlers
+  temperatureCharacteristic.setEventHandler(BLERead, onTemperatureCharacteristicRead);
+  humidityCharacteristic.setEventHandler(BLERead, onHumidityCharacteristicRead);
+  pressureCharacteristic.setEventHandler(BLERead, onPressureCharacteristicRead);
+  bsecCharacteristic.setEventHandler(BLERead, onBsecCharacteristicRead);
+  co2Characteristic.setEventHandler(BLERead, onCo2CharacteristicRead);
+  gasCharacteristic.setEventHandler(BLERead, onGasCharacteristicRead);
+
+  rgbLedCharacteristic.setEventHandler(BLEWritten, onRgbLedCharacteristicWrite);
+
+  versionCharacteristic.setValue(VERSION);
+
+  BLE.addService(service);
+  BLE.advertise();
+}
+
+void loop(){
+  while (BLE.connected()){
+    BHY2.update();
+
+    if (gyroscopeCharacteristic.subscribed()){
+      float x, y, z;
+
+      x = gyroscope.x();
+      y = gyroscope.y();
+      z = gyroscope.z();
+
+      float gyroscopeValues[3] = {x, y, z};
+
+      gyroscopeCharacteristic.writeValue(gyroscopeValues, sizeof(gyroscopeValues));
     }
 
-    String address = BLE.address();
+    if (accelerometerCharacteristic.subscribed()){
+      float x, y, z;
+      x = accelerometer.x();
+      y = accelerometer.y();
+      z = accelerometer.z();
 
-    Serial.print("address = ");
-    Serial.println(address);
-
-    address.toUpperCase();
-
-    name = "NiclaSenseME-";
-    name += address[address.length() - 5];
-    name += address[address.length() - 4];
-    name += address[address.length() - 2];
-    name += address[address.length() - 1];
-
-    Serial.print("name = ");
-    Serial.println(name);
-
-    BLE.setLocalName(name.c_str());
-    BLE.setDeviceName(name.c_str());
-    BLE.setAdvertisedService(service);
-
-    // Add all the previously defined Characteristics
-    service.addCharacteristic(temperatureCharacteristic);
-    service.addCharacteristic(humidityCharacteristic);
-    service.addCharacteristic(pressureCharacteristic);
-    service.addCharacteristic(versionCharacteristic);
-    service.addCharacteristic(accelerometerCharacteristic);
-    service.addCharacteristic(gyroscopeCharacteristic);
-    service.addCharacteristic(quaternionCharacteristic);
-    service.addCharacteristic(bsecCharacteristic);
-    service.addCharacteristic(co2Characteristic);
-    service.addCharacteristic(gasCharacteristic);
-    service.addCharacteristic(rgbLedCharacteristic);
-
-    // Disconnect event handler
-    BLE.setEventHandler(BLEDisconnected, blePeripheralDisconnectHandler);
-
-    // Sensors event handlers
-    temperatureCharacteristic.setEventHandler(BLERead, onTemperatureCharacteristicRead);
-    humidityCharacteristic.setEventHandler(BLERead, onHumidityCharacteristicRead);
-    pressureCharacteristic.setEventHandler(BLERead, onPressureCharacteristicRead);
-    bsecCharacteristic.setEventHandler(BLERead, onBsecCharacteristicRead);
-    co2Characteristic.setEventHandler(BLERead, onCo2CharacteristicRead);
-    gasCharacteristic.setEventHandler(BLERead, onGasCharacteristicRead);
-
-    rgbLedCharacteristic.setEventHandler(BLEWritten, onRgbLedCharacteristicWrite);
-
-    versionCharacteristic.setValue(VERSION);
-
-    BLE.addService(service);
-    BLE.advertise();
-  }
-
-  void loop(){
-    while (BLE.connected()){
-      BHY2.update();
-
-      if (gyroscopeCharacteristic.subscribed()){
-        float x, y, z;
-
-        x = gyroscope.x();
-        y = gyroscope.y();
-        z = gyroscope.z();
-
-        float gyroscopeValues[3] = {x, y, z};
-
-        gyroscopeCharacteristic.writeValue(gyroscopeValues, sizeof(gyroscopeValues));
-      }
-
-      if (accelerometerCharacteristic.subscribed()){
-        float x, y, z;
-        x = accelerometer.x();
-        y = accelerometer.y();
-        z = accelerometer.z();
-
-        float accelerometerValues[] = {x, y, z};
-        accelerometerCharacteristic.writeValue(accelerometerValues, sizeof(accelerometerValues));
-      }
-
-      if(quaternionCharacteristic.subscribed()){
-        float x, y, z, w;
-        x = quaternion.x();
-        y = quaternion.y();
-        z = quaternion.z();
-        w = quaternion.w();
-
-        float quaternionValues[] = {x,y,z,w};
-        quaternionCharacteristic.writeValue(quaternionValues, sizeof(quaternionValues));
-      }
-
+      float accelerometerValues[] = {x, y, z};
+      accelerometerCharacteristic.writeValue(accelerometerValues, sizeof(accelerometerValues));
     }
-  }
 
-  void blePeripheralDisconnectHandler(BLEDevice central){
-    nicla::leds.setColor(red);
-  }
+    if(quaternionCharacteristic.subscribed()){
+      float x, y, z, w;
+      x = quaternion.x();
+      y = quaternion.y();
+      z = quaternion.z();
+      w = quaternion.w();
 
-  void onTemperatureCharacteristicRead(BLEDevice central, BLECharacteristic characteristic){
-    float temperatureValue = temperature.value();
-    temperatureCharacteristic.writeValue(temperatureValue);
-  }
+      float quaternionValues[] = {x,y,z,w};
+      quaternionCharacteristic.writeValue(quaternionValues, sizeof(quaternionValues));
+    }
 
-  void onHumidityCharacteristicRead(BLEDevice central, BLECharacteristic characteristic){
-    uint8_t humidityValue = humidity.value() + 0.5f;  //since we are truncating the float type to a uint8_t, we want to round it
-    humidityCharacteristic.writeValue(humidityValue);
   }
+}
 
-  void onPressureCharacteristicRead(BLEDevice central, BLECharacteristic characteristic){
-    float pressureValue = pressure.value();
-    pressureCharacteristic.writeValue(pressureValue);
-  }
+void blePeripheralDisconnectHandler(BLEDevice central){
+  nicla::leds.setColor(red);
+}
 
-  void onBsecCharacteristicRead(BLEDevice central, BLECharacteristic characteristic){
-    float airQuality = float(bsec.iaq());
-    bsecCharacteristic.writeValue(airQuality);
-  }
+void onTemperatureCharacteristicRead(BLEDevice central, BLECharacteristic characteristic){
+  float temperatureValue = temperature.value();
+  temperatureCharacteristic.writeValue(temperatureValue);
+}
 
-  void onCo2CharacteristicRead(BLEDevice central, BLECharacteristic characteristic){
-    uint32_t co2 = bsec.co2_eq();
-    co2Characteristic.writeValue(co2);
-  }
+void onHumidityCharacteristicRead(BLEDevice central, BLECharacteristic characteristic){
+  uint8_t humidityValue = humidity.value() + 0.5f;  //since we are truncating the float type to a uint8_t, we want to round it
+  humidityCharacteristic.writeValue(humidityValue);
+}
 
-  void onGasCharacteristicRead(BLEDevice central, BLECharacteristic characteristic){
-    unsigned int g = gas.value();
-    gasCharacteristic.writeValue(g);
-  }
+void onPressureCharacteristicRead(BLEDevice central, BLECharacteristic characteristic){
+  float pressureValue = pressure.value();
+  pressureCharacteristic.writeValue(pressureValue);
+}
 
-  void onRgbLedCharacteristicWrite(BLEDevice central, BLECharacteristic characteristic){
-    byte r = rgbLedCharacteristic[0];
-    byte g = rgbLedCharacteristic[1];
-    byte b = rgbLedCharacteristic[2];
+void onBsecCharacteristicRead(BLEDevice central, BLECharacteristic characteristic){
+  float airQuality = float(bsec.iaq());
+  bsecCharacteristic.writeValue(airQuality);
+}
 
-    nicla::leds.setColor(r, g, b);
-  }
+void onCo2CharacteristicRead(BLEDevice central, BLECharacteristic characteristic){
+  uint32_t co2 = bsec.co2_eq();
+  co2Characteristic.writeValue(co2);
+}
+
+void onGasCharacteristicRead(BLEDevice central, BLECharacteristic characteristic){
+  unsigned int g = gas.value();
+  gasCharacteristic.writeValue(g);
+}
+
+void onRgbLedCharacteristicWrite(BLEDevice central, BLECharacteristic characteristic){
+  byte r = rgbLedCharacteristic[0];
+  byte g = rgbLedCharacteristic[1];
+  byte b = rgbLedCharacteristic[2];
+
+  nicla::leds.setColor(r, g, b);
+}
 ```
 
 Once you have these tools, you can select the Nicla Sense ME as target board and its corresponding port. Now you are ready to upload the sketch.

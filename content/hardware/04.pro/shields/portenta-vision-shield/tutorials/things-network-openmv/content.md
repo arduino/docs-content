@@ -28,10 +28,10 @@ This tutorial explains how to connect your Portenta H7 to The Things Network (TT
 
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 - [Portenta Vision Shield - LoRa](https://store.arduino.cc/portenta-vision-shield-lora)
-- 1x [Dipole Pentaband antenna](https://store.arduino.cc/antenna) or a UFL Antenna of the H7 
+- [Dipole Pentaband antenna](https://store.arduino.cc/antenna) or a UFL Antenna of the H7 (x1)
 - [OpenMV IDE](https://openmv.io/pages/download)
-- Arduino IDE 1.8.10+ or Arduino Pro IDE 0.0.4+ or Arduino CLI 0.13.0+
-- 1x USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino CLI 0.13.0+](https://arduino.github.io/arduino-cli)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 - An account on [The Things Network](https://console.cloud.thethings.network/)
 
 ## Instructions
@@ -92,7 +92,7 @@ It is now time to connect your Portenta H7 and Portenta Vision Shield - LoRa to 
 
 Plug the Portenta Vision Shield - LoRa to the Portenta H7 and them to your PC through the USB port. If the Portenta board does not show up on OpenMV, try double-pressing the reset button on the Portenta. Now update to the latest firmware in OpenMV.
 
-The only line you may need to change before uploading the code is the one that sets the frequency. Set the frequency code according to your country if needed. You can find more information about frequency by country at [this TTN link](https://www.thethingsnetwork.org/docs/lorawan/frequency-plans.html).
+The only line you may need to change before uploading the code is the one that sets the frequency. Set the frequency code according to your country if needed. You can find more information about frequency by country at [this TTN link](https://www.thethingsnetwork.org/docs/lorawan/frequency-plans/).
 
 ***Consider that in Australia the boards connect correctly to TTN gateways on AS923 frequencies; AU915 frequencies requires the selection of sub band 2 which is not yet implemented in the firmware.***
 
@@ -142,7 +142,7 @@ In order to select the way in which the board is going to connect with TTN (OTAA
 
 ### 5. Registering the Portenta on TTN
 
-Before your Portenta H7 can start communicating with the TTN, you need to [register](https://www.thethingsnetwork.org/docs/devices/registration.html) the board with an application. Go back to the TTN portal and scroll to **End devices** section on your Application dashboard, then click **Add end device**.
+Before your Portenta H7 can start communicating with the TTN, you need to [register](https://www.thethingsnetwork.org/docs/devices/registration/) the board with an application. Go back to the TTN portal and scroll to **End devices** section on your Application dashboard, then click **Add end device**.
 
 ![Registering a Device](assets/vs_ard_ttn_click_register.png)
 
@@ -169,7 +169,7 @@ After pressing the Register button, your board will show up on the **Device Over
 
 Once your board has been registered, you can send information to TTN. Let's go back to the sketch to fill in the appEui and appKey. The sketch you use here will leverage OTA connection.
 
-You can read more into OTA vs ABP activation mode at [this link](https://www.thethingsnetwork.org/docs/devices/registration.html)
+You can read more into OTA vs ABP activation mode at [this link](https://www.thethingsnetwork.org/docs/devices/registration/)
 
 Once your board has been registered, you can send information to TTN. Let's proceed in OpenMV. In the sketch the application EUI and the app key needs to be filled in. Find the EUI and the App key from TTN **Device Overview** page.
 

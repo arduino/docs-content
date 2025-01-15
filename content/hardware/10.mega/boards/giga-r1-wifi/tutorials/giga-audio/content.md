@@ -45,26 +45,24 @@ The image below shows the position of the audio pins and connectors of the GIGA 
 
 ![ADC/DAC pins and connectors of the GIGA R1](assets/audio-pins.png)
 
-The table below explains the full functionality of the listed on it; notice that some pins have more than one functionality, such as `DAC0`, `DAC1`, `CANRX`, and `CANTX`:
+The table below explains the full functionality of the listed on it; notice that `A12` and `A13` can be used as DACs (`DAC0`, `DAC1`).
 
-|  Pin  |  Functionality |
-|:-----:|:--------------:|
-|   A0  |       ADC      |
-|   A1  |       ADC      |
-|   A2  |       ADC      |
-|   A3  |       ADC      |
-|   A4  |       ADC      |
-|   A5  |       ADC      |
-|   A6  |       ADC      |
-|   A7  |       ADC      |
-|   A8  |       ADC      |
-|   A9  |       ADC      |
-|  A10  |       ADC      |
-|  A11  |       ADC      |
-|  DAC0 |   ADC and DAC  |
-|  DAC1 |   ADC and DAC  |
-| CANRX | ADC and CAN RX |
-| CANTX | ADC and CAN TX |
+|    Pin     | Functionality  |
+| :--------: | :------------: |
+|     A0     |      ADC       |
+|     A1     |      ADC       |
+|     A2     |      ADC       |
+|     A3     |      ADC       |
+|     A4     |      ADC       |
+|     A5     |      ADC       |
+|     A6     |      ADC       |
+|     A7     |      ADC       |
+|     A8     |      ADC       |
+|     A9     |      ADC       |
+|    A10     |      ADC       |
+|    A11     |      ADC       |
+| A12 / DAC0 |  ADC and DAC   |
+| A13 / DAC1 |  ADC and DAC   |
 
 Pins `A7`, `DAC0`, and `DAC1` can also be accessed via the built-in TRRS 3.5mm jack. `DAC0` is connected to ring 1 (right channel), `DAC1` is connected to the tip (left channel), and `A7` is connected to ring 2 (microphone) of the jack, as shown in the schematic below:
 
@@ -72,7 +70,7 @@ Pins `A7`, `DAC0`, and `DAC1` can also be accessed via the built-in TRRS 3.5mm j
 
 ## Analog-to-Digital Converter (ADC)
 
-An analog-to-digital converter (ADC) is a device that converts an analog voltage, or signal, into digital data. The GIGA R1 microcontroller, the STM32H747XI, embeds three ADCs whose resolution can be configured to 8, 10, 12, 14, or 16 bits. Each ADC shares up to 20 external channels that can be accessed in the GIGA R1 board through pins `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, and `A11`; pins `DAC0`, `DAC1`, `CANRX`, and `CANTX` can also be used as ADCs.
+An analog-to-digital converter (ADC) is a device that converts an analog voltage, or signal, into digital data. The GIGA R1 microcontroller, the STM32H747XI, embeds three ADCs whose resolution can be configured to 8, 10, 12, 14, or 16 bits. Each ADC shares up to 20 external channels that can be accessed in the GIGA R1 board through pins `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, and `A11`; pins `DAC0`, `DAC1` can also be used as ADCs.
 
 ![ADC pins of the GIGA R1](assets/adcs.png)
 

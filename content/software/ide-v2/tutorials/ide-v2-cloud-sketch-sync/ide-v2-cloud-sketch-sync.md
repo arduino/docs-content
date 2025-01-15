@@ -18,7 +18,7 @@ In this tutorial, we will describe the benefits of this new feature, go through 
 Write your Arduino sketches on one computer and access them on another, with a single click! Do not worry about synchronisation or USB drives: the Arduino IDE 2 provides the Remote Sketches feature which allows you to store your sketches in the Arduino secure Cloud and retrieve them easily on any other workstation.
 
 - **Code from your browser**:
-If you want to work on a computer that doesn’t have the Arduino IDE installed, just open the Arduino Web Editor: you’ll get an online IDE with all your sketches just there, plus all the libraries.
+If you want to work on a computer that doesn’t have the Arduino IDE installed, just open the Arduino Cloud Editor: you’ll get an online IDE with all your sketches just there, plus all the libraries.
 
 - **Backup your code**:
 Your sketches are too important to risk losing them! And life is too short to make copies manually. With Remote Sketches you only need one click and they will be saved in the Arduino secure Cloud.
@@ -200,7 +200,7 @@ The integration of the Remote Sketchbook in the IDE 2 is an important milestone.
 
 ## Next Steps
 
-You can find more tutorials in the [Arduino IDE 2 documentation page](/software/ide-v2/).
+You can find more tutorials in the [Arduino IDE 2 documentation page](/software/ide/#ide-v2).
 
 ## FAQ
 

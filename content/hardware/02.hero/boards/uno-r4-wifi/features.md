@@ -8,10 +8,17 @@ The UNO R4 WiFi also features an ESP32-S3 for Wi-Fi®/Bluetooth® connectivity, 
 
 <FeatureList>
 
-<Feature title="Cheat Sheet" image="uno-form-factor">
+<Feature title="Arduino Cloud" image="wifi">
+The UNO R4 WiFi is compatible with the Arduino Cloud platform. Build IoT projects in just minutes!
+<FeatureWrapper>
+  <FeatureLink title="Go to Platform" url="https://app.arduino.cc/"/>
+</FeatureWrapper>
+</Feature>
+
+<Feature title="User Manual" image="uno-form-factor">
 A reference to all technical features on this board, with pointers to additional documents.
 <FeatureWrapper>
-  <FeatureLink title="Cheat Sheet" url="/tutorials/uno-r4-wifi/cheat-sheet"/>
+  <FeatureLink title="User Manual" url="/tutorials/uno-r4-wifi/cheat-sheet"/>
 </FeatureWrapper>
 </Feature>
 

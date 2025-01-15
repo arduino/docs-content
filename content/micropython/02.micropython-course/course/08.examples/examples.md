@@ -46,13 +46,13 @@ mip.install(URL)
 
 Running this script will install the module on your board, inside a folder called `lib`. You can check this out under **"Files"** while your board is connected via your MicroPython editor.
 
-***How to install modules are explained in more detail in the [Introduction to MicroPython](/micropython-course/course/introduction-python) chapter.***
+***How to install modules are explained in more detail in the [Introduction to MicroPython](/micropython/micropython-course/course/introduction-python) chapter.***
 
 ### Removing Modules
 
 If you install too many modules, you will run out of space. You can remove a module directly in the editor, by selecting the file and clicking on the **"Delete"** icon.
 
-***For more detailed instructions, see the [Removing Modules](/micropython-course/course/introduction-python#removing-modules) section in the second chapter.***
+***For more detailed instructions, see the [Removing Modules](/micropython/micropython-course/course/introduction-python#removing-modules) section in the second chapter.***
 
 ## Button
 
@@ -89,7 +89,7 @@ while True:
 Now whenever you press the button you should see `Button pressed` being printed in the REPL. 
 
 <video width="100%" loop autoplay>
-<source src="assets/Button.mp4" type="video/mp4" />
+<source src="assets/button.mp4" type="video/mp4" />
 </video>
 
 ## LED
@@ -449,7 +449,7 @@ if imu.device_check():
 Move around your sensor to see the numbers in the REPL change. This is the acceleration data recorded. This data can be used to trigger specific things whenever a specific movements is initialized.
 
 <video width="100%" loop autoplay>
-<source src="assets/Accelerometer.mp4" type="video/mp4" />
+<source src="assets/accelerometer.mp4" type="video/mp4" />
 </video>
 
 ## Sound Sensor
@@ -490,7 +490,7 @@ while True:
 After running the script, test it out by clapping your hands or making other loud noises next to the sensor. You should see the output change in the REPL. 
 
 <video width="100%" loop autoplay>
-<source src="assets/SoundSensor.mp4" type="video/mp4" />
+<source src="assets/soundSensor.mp4" type="video/mp4" />
 </video>
 
 ## 4 Digit Display

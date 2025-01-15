@@ -3,14 +3,14 @@ title: "Getting Started with Intel-Based Platforms on Arduino Create © CC BY-
 description: "Follow a guided installation wizard to get your IoT Gateway configured, and ready to be used on Arduino Create."
 coverImage: "assets/intel_gettingstarted_MCXEgoQ813.png"
 tags: [first configuration, gateway, internet of things]
-difficulty: "easy"
+difficulty: beginner
 author: "Arduino_Genuino"
 source: "https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-intel-based-platforms-on-arduino-create-dcf1bc"
 ---
 
 ## Apps and Online Services
 
-- [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino Cloud Editor](https://create.arduino.cc/editor)
 
 ## About This Project
 
@@ -34,7 +34,7 @@ All you need to get started is an Arduino Profile.
 
 Note that you can also use this account to write posts on [Arduino’s official Forum](https://forum.arduino.cc/c/software/intel-based-platforms/144), buy products on the [online store](https://store.arduino.cc/), add comments on the [blog](https://blog.arduino.cc/), as well as create tutorials on the Arduino Project Hub (YAY!).
 
-### Logging In To The Arduino Web Editor
+### Logging In To The Arduino Cloud Editor
 
 Once you have successfully registered for an Arduino account, go to the [Getting Started Web app ](https://create-intel.arduino.cc/getting-started)and log in[. ](https://create-intel.arduino.cc/getting-started)Then press [Set Up a generic Intel-based platform](https://create-intel.arduino.cc/getting-started/device).
 
@@ -138,7 +138,7 @@ You have successfully completed the installation (using either the USB, the IP o
 
 ### Run a Test Sketch
 
-At the end of the installation flow you will be redirected to the web editor. For more infos on how to use it [follow this tutorial.](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-the-arduino-web-editor-4b3e4a)
+At the end of the installation flow you will be redirected to the Cloud editor. For more infos on how to use it [follow this tutorial.](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-the-arduino-web-editor-4b3e4a)
 
 Let's run a test sketch! Open the DebugSerial example included in the UP Squared Grove IoT Development Kit library.
 
@@ -219,4 +219,4 @@ You are not limited to running one sketch at a time and can run multiple sketche
 
 ### Troubleshooting
 
-If something goes wrong in this installation process you can let us know [on the Arduino Forum](http://forum.arduino.cc/index.php?board=105.0). Keep in mind that this guide has been tested in depth only on the [Intel Nuc ](https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html)and the[ UP2 Board.](https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html)
+If something goes wrong in this installation process you can let us know [on the Arduino Forum](https://forum.arduino.cc/c/software/intel-based-platforms/144). Keep in mind that this guide has been tested in depth only on the [Intel Nuc ](https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html)and the[ UP2 Board.](https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html)

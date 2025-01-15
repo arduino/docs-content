@@ -10,6 +10,7 @@ core: arduino:mbed_portenta
 forumCategorySlug: '/hardware/portenta/91'
 certifications: [CE, FCC, MIC, RCM, UKCA, RoHS]
 productCode: '041'
+sku: [ABX00042]
 ---
 
 The Portenta H7 follows the Arduino MKR form factor, but enhanced with the Portenta family 80 pin high-density connector. Program it with high-level languages and AI while performing low-latency operations on its customizable hardware.

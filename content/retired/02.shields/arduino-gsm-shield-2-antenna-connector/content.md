@@ -2,11 +2,9 @@
 title: "Arduino GSM Shield 2 (Antenna Connector)"
 description: "Did you miss this board? No worries! The NEW Arduino MKR GSM 1400, more capable and richer of functions, is the perfect solution for you!"
 coverImage: "assets/a000106_featured.jpg"
-sku: "A000106"
+sku: [A000106]
 source: "https://store.arduino.cc/arduino-gsm-shield-2-antenna-connector"
 ---
-
-***Note: This page refers to a product that is retired.***
 
 ![The Arduino GSM Shield 2 with antenna connector](./assets/a000106_featured.jpg)
 

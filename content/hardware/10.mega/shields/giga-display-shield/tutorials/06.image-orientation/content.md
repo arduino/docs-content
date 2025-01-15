@@ -33,13 +33,14 @@ BoschSensorClass imu(Wire1);
 
 Start receiving IMU readings with `imu.begin();` and start the display with `Display.begin();`.
 
-Then we can assign attributes to the images such as its source, alignment and how the rotation should behave. For more information on image attributes with LVGL, check out our [LVGL tutorial](lvgl-guide#image).
+Then we can assign attributes to the images such as its source, alignment and how the rotation should behave. For more information on image attributes with LVGL, check out our [LVGL tutorial](/tutorials/giga-display-shield/lvgl-guide).
 
 ```arduino
 LV_IMG_DECLARE(img_arduinologo);
 lv_obj_t * img;
 
 void setup() {
+  delay(3000);
   Serial.begin(115200);
   
   Display.begin();
@@ -91,6 +92,7 @@ The easiest way to tell what values you are getting depending on the orientation
 BoschSensorClass imu(Wire1);
 
 void setup(){
+  delay(3000);
   Serial.begin(115200);
   imu.begin();
 }
@@ -131,6 +133,7 @@ LV_IMG_DECLARE(img_arduinologo);
 lv_obj_t * img;
 
 void setup() {
+  delay(3000);
   Serial.begin(115200);
   
   Display.begin();

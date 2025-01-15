@@ -2,7 +2,7 @@ software:
   - arduino-ide
   - arduino-cli
   - iot-cloud
-  - web-editor
+  - cloud-editor
   #- openmv-ide
 hardware:
   boards:
@@ -16,3 +16,8 @@ hardware:
     - portenta-breakout
     - portenta-max-carrier
     - portenta-hat-carrier
+    - portenta-mid-carrier
+  modules:
+    - pro-4g-module
+    #- 4g-module-emea
+    #- 4g-module-global

@@ -87,7 +87,7 @@ The **AVR boards package** is based on the **Arduino AVR Core**, and includes th
 
 - [UNO R3](/hardware/uno-rev3)
 - [UNO R3 SMD](/hardware/uno-rev3-smd)
-- [UNO Mini Limited Edition](/hardware/uno-mini-le)
+- [UNO Mini Limited Edition](/hardware/uno-mini-limited-edition)
 - [Leonardo](/hardware/leonardo)
 - [Micro](/hardware/micro)
 - [Nano](/hardware/nano)
@@ -147,8 +147,8 @@ The **SAMD Boards** package is based on the **Arduino SAMD Core**, and includes 
 - [MKR Zero](/hardware/mkr-zero)
 - [MKR WiFi 1010](/hardware/mkr-wifi-1010)
 - [MKR FOX 1200](/hardware/mkr-fox-1200)
-- [MKR WAN 1300](/hardware/mkr-wan1300)
-- [MKR WAN 1310](/hardware/mkr-wan1310)
+- [MKR WAN 1300](/hardware/mkr-wan-1300/)
+- [MKR WAN 1310](/hardware/mkr-wan-1310)
 - [MKR GSM 1400](/hardware/mkr-gsm-1400)
 - [MKR NB 1500](/hardware/mkr-nb-1500)
 - [MKR Vidor 4000](/hardware/mkr-vidor-4000)
@@ -178,6 +178,7 @@ The **Mbed OS Nano Boards** package is based on the **Arduino Mbed Core**, and i
 
 - [Nano RP2040 Connect](/hardware/nano-rp2040-connect)
 - [Nano 33 BLE](/hardware/nano-33-ble)
+- [Nano 33 BLE Rev2](/hardware/nano-33-ble-rev2)
 - [Nano 33 BLE Sense](/hardware/nano-33-ble-sense)
 - [Nano 33 BLE Sense Rev2](/hardware/nano-33-ble-sense-rev2)
 
@@ -254,4 +255,4 @@ For source code and reporting issues, please visit the official GitHub repositor
 
 ## More Tutorials
 
-You can find more tutorials in the [Arduino IDE 2 documentation page](/software/ide-v2/).
+You can find more tutorials in the [Arduino IDE 2 documentation page](/software/ide/#ide-v2).

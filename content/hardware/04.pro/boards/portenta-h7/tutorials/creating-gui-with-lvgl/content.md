@@ -54,7 +54,7 @@ This tutorial will guide you through building a basic user interface using the L
 
 ### 1. The Basic Setup
 
-Begin by plugging your Portenta board into the computer using a USB-C® cable and open the Arduino IDE. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [set up the Portenta H7 for Arduino](setting-up-portenta) before you proceed.
+Begin by plugging your Portenta board into the computer using a USB-C® cable and open the Arduino IDE. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [set up the Portenta H7 for Arduino](https://docs.arduino.cc/tutorials/portenta-h7/setting-up-portenta/) before you proceed.
 
 ![The Portenta H7 can be connected to the computer using an appropriate USB-C® cable](assets/por_ard_lvgl_basic_setup.svg)
 

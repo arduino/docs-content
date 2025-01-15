@@ -5,9 +5,10 @@ url_guide: /software/ide-v2/tutorials/ide-v2-board-manager#samd
 primary_button_url: /software/ide-v2/tutorials/ide-v2-board-manager#samd
 primary_button_title: Get Started
 core: arduino:samd
-forumCategorySlug: '/hardware/mkr-boards/mkrwan1310/161'
+forumCategorySlug: '/hardware/mkr-boards/mkrwan1300/145'
 certifications: [CE, UKCA]
 productCode: '129'
+sku: [ABX00017]
 ---
 
 

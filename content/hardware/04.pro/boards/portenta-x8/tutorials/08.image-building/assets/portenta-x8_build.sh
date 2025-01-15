@@ -23,7 +23,7 @@ repo init -u https://github.com/arduino/lmp-manifest.git -m arduino.xml -b relea
 echo Pulling git-repo files
 repo sync
 
-# Build 'lmp-partner-arduino-image' image
+# Build 'lmp-factory-image' image. lmp-partner-arduino-image is now known as lmp-factory-image
 echo Building Portenta-X8 image
 DISTRO=lmp-xwayland MACHINE=portenta-x8 . setup-environment
 echo "ACCEPT_FSL_EULA = \"1\"" >> conf/local.conf
@@ -36,7 +36,7 @@ cd ..
 echo Building tools
 DISTRO=lmp-mfgtool MACHINE=portenta-x8 . setup-environment
 echo "ACCEPT_FSL_EULA = \"1\"" >> conf/local.conf
-echo "MFGTOOL_FLASH_IMAGE = \"lmp-partner-arduino-image\"" >> conf/local.conf
+echo "MFGTOOL_FLASH_IMAGE = \"lmp-factory-image\"" >> conf/local.conf
 bitbake mfgtool-files
 
 echo Exit tools folder
@@ -52,7 +52,7 @@ cp -L build-lmp-mfgtool/deploy/images/portenta-x8/mfgtool-files-portenta-x8.tar.
 cp -L build-lmp-xwayland/deploy/images/portenta-x8/imx-boot-portenta-x8 $DEPLOY_FOLDER
 cp -L build-lmp-xwayland/deploy/images/portenta-x8/u-boot-portenta-x8.itb $DEPLOY_FOLDER
 cp -L build-lmp-xwayland/deploy/images/portenta-x8/sit-portenta-x8.bin $DEPLOY_FOLDER
-cp -L build-lmp-xwayland/deploy/images/portenta-x8/lmp-partner-arduino-image-portenta-x8.wic $DEPLOY_FOLDER
+cp -L build-lmp-xwayland/deploy/images/portenta-x8/lmp-factory-image-portenta-x8.wic $DEPLOY_FOLDER
 
 cd $DEPLOY_FOLDER
 tar xvf mfgtool-files-portenta-x8.tar.gz

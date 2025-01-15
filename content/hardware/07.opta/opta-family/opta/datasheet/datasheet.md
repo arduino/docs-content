@@ -111,7 +111,7 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
         </tr>
         <tr>
             <td style="vertical-align: top;">Outputs</td>
-            <td>4x Relays - Normally Open (NO) - Max: 10A each</td>
+            <td>4x Relays - Normally Open (NO) - Max: 10 A each</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Processor</td>
@@ -225,7 +225,7 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
         <tr style="text-align: middle;">
             <th width="30%">Interfaces</th>
             <th>Type</th>
-            <th>Protocols/Technologies supported</th>
+            <th>Protocols/Technologies Supported</th>
         </tr>
     </thead>
     <tbody>
@@ -240,12 +240,17 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
             <td>MODBUS RTU, Custom serial communication</td>
         </tr>
         <tr>
-            <td style="vertical-align: top;">Wireless connectivity</td>
+            <td style="vertical-align: top;">Expansion Port</td>
+            <td>Proprietary Port</td>
+            <td>Expansion module communication</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Wireless Connectivity</td>
             <td>Wi-Fi®</td>
             <td>2.4 GHz</td>
         </tr>
         <tr>
-            <td style="vertical-align: top;">Wireless connectivity</td>
+            <td style="vertical-align: top;">Wireless Connectivity</td>
             <td>Bluetooth® Low Energy</td>
             <td>4.2 supported by firmware, 5.1 supported by hardware</td>
         </tr>
@@ -267,11 +272,11 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
         </tr>
         <tr>
             <td style="vertical-align: top;">Inputs overvoltage protection</td>
-            <td>yes</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Antipolarity protection</td>
-            <td>yes</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Input impedance</td>
@@ -291,7 +296,7 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
     <tbody>
         <tr>
             <td style="vertical-align: top;">Analog Input voltage</td>
-            <td>0...10V </td>
+            <td>0...10 V </td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Analog Input resolution</td>
@@ -319,15 +324,15 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
     <tbody>
         <tr>
             <td style="vertical-align: top;">Digital Input voltage</td>
-            <td>0...24V</td>
+            <td>0...24 V</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input voltage logic level</td>
-            <td>VIL Max: 4.46 VDC. VHL Min: 6.6 VDC</td>
+            <td>Voltage Input Low (VIL) Maximum: 4.46 VDC. Voltage Input High (VIH) Minimum: 6.6 VDC</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input current</td>
-            <td>1.12mA at 10V</td>
+            <td>1.12 mA at 10 V</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input frequency</td>
@@ -355,15 +360,15 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
         </tr>
         <tr>
             <td style="vertical-align: top;">Max current per relay</td>
-            <td>10A</td>
+            <td>10 A</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Max peak current per relay</td>
-            <td>15A</td>
+            <td>15 A</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Continuous current per terminal</td>
-            <td>10A</td>
+            <td>10 A</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Short-circuit protection</td>
@@ -387,11 +392,11 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
         </tr>
         <tr>
             <td style="vertical-align: top;">Breaking capacity DC1: 24/30/110/220V</td>
-            <td>10/4/0.3/0.12A</td>
+            <td>10/4/0.3/0.12 A</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Minimum switching load</td>
-            <td>300mW (5V/5mA)</td>
+            <td>300 mW (5 V/5 mA)</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Max output line length (unshielded)</td>
@@ -429,11 +434,11 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
 ## Ratings
 ### Recommended Operating Conditions
 
-| Description                                       | Value                     |
-|---------------------------------------------------|---------------------------|
-| Temperature Operating Range                       | -20...50 °C                |
-| Protection degree rating                          | IP20                      |
-| Pollution degree                                  | 2 conforming to IEC 61010 |
+| Description                 | Value                     |
+| --------------------------- | ------------------------- |
+| Temperature Operating Range | -20...50 °C               |
+| Protection degree rating    | IP20                      |
+| Pollution degree            | 2 conforming to IEC 61010 |
 
 ### Power Specification
 
@@ -441,8 +446,8 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
 |----------------------- |------ |-----|------|------|
 | Supply voltage         | 12    | -   | 24   | V    |
 | Permissible range      | 10.2  | -   | 27.6 | V    |
-| Power consumption (12V)| 0.6   | -   | 2    | W    |
-| Power consumption (24V)| 0.6   | -   | 2.2  | W    |
+| Power consumption (12 V)| 0.6   | -   | 2    | W    |
+| Power consumption (24 V)| 0.6   | -   | 2.2  | W    |
 
 <div style="page-break-after:always;"></div>
 
@@ -457,12 +462,29 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
 | 3A   | Power Supply Terminals 12...24 VDC                                  | 3H   | Ethernet Port Status LEDs                                           |
 | 3B   | I1...I8 digital/analog input terminals (0-10V) configurable via IDE | 3I   | Label Holder                                                        |
 | 3C   | Reset Button                                                        | 3J   | RS-485 terminal block (for Modbus RTU or proprietary communication) |
-| 3D   | User Programmable button                                            | 3K   | USB-C® for programming and data logging                                |
+| 3D   | User Programmable button                                            | 3K   | USB-C® for programming and data logging                             |
 | 3E   | Status LEDs 1...4 (User Programmable)                               | 3M   | Ethernet port                                                       |
 | 3F   | Relay Output Terminals 1...4, NO contact (SPST) 10A 250 VAC         | 3N   | Port for communication and connection of auxiliary modules          |
 | 3G   | Functional Earth                                                    |      |                                                                     |
 
 **Note:** The LED above the *User Programmable button* (Ref: 3D) is only available on Arduino Opta® WiFi (AFX00002).
+
+### Wiring Specifications
+
+Following Opta's wiring specifications is important to ensure proper connection and operation of its electrical terminals. The tables shown below provide recommendations for torque application, cable preparation, and accepted wire types of Opta's electrical terminals.
+
+#### Recommended Torque and Cable Preparation
+
+| **Torque** |     **Recommended Tool**     | **Stripping Length** |
+|:----------:|:----------------------------:|:--------------------:|
+|  0.80 Nm  | #1 Phillips-head screwdriver |         9 mm         |
+
+#### Accepted Wire Types
+
+|    **Wire Type**   | **Minimum Size** |           **Maximum Size**          |
+|:------------------:|:----------------:|:-----------------------------------:|
+|   Solid Conductor  | 0.5 mm² (20 AWG) |  6 mm² (10 AWG)/2x4 mm² (2x12 AWG)  |
+| Stranded Conductor | 0.5 mm² (20 AWG) | 4 mm² (12 AWG)/2x2.5 mm² (2x14 AWG) |
 
 ### Microcontroller
 The microcontroller is a dual-core *STM32H747XI*. The main processor is a *Cortex®-M7* running at up to 480 MHz and the second one is a Cortex®-M4 running at up to 240 MHz.
@@ -501,14 +523,16 @@ The *Rated Load* is the maximum resistive load that a contact can make, carry an
 - For resistive or slightly inductive loads (AC1 classification), Arduino Opta's *Rated Load* is 2500 VA.
 - For small electromagnetic loads (> 72 VA) (AC15 classification) like power contactors, magnetic solenoid valves, electromagnets and AC single-phase supplies, Arduino Opta's *Rated Load* is 500 VA. This value assumes a peak inrush current of approximately 10 times the rated current and keeping it within the maximum peak current.
 
-For controlling DC loads (DC1 classification), the *Breaking Capacity* or maximum value of DC resistive current that a contact can make, carry and break repeatedly, is 10/4/0.3/0.12A for respectively 24/30/110/220V.
+For controlling DC loads (DC1 classification), the *Breaking Capacity* or maximum value of DC resistive current that a contact can make, carry and break repeatedly, is 10/4/0.3/0.12 A for respectively 24/30/110/220 V.
 
 In the case of the minimum switching load parameters, the minimum values of power, voltage and current that the relays can reliably switch, are 300 mW/ 5V / 5mA. This implies that with 5V the current must be at least 60mA, with 24V, it must be at least 12.5mA, and with 5mA the voltage must be at least 60V.
 
 The relays on Arduino Opta® provide a very fast response time of 6/4 ms to change state for closing/reopening, and a bounce time NO/NC of 3/6 ms.
 
 ### Expansion Port
-The expansion port can be used to expand the Arduino Opta® capabilities with the help of additional modules. Reserved for future functionality.
+The expansion port can be used to expand the Arduino Opta® capabilities with the help of additional modules. It supports up to 5 expansion modules. To avoid potential communication issues, ensure the total number of connected modules does not exceed 5.
+
+If any issues occur with module detection or data exchange, double-check the connections and ensure the **Aux connector and clips are securely installed** within the expansion port. If problems persist, inspect for any loose or improperly connected cables.
 
 ### Programmable User Button
 A pushbutton is accessible on the front panel of the Arduino Opta®. The functionality of this button can be configured via software. Note that the LED above the *User button* is only available on Arduino Opta® WiFi (AFX00002).
@@ -516,14 +540,16 @@ A pushbutton is accessible on the front panel of the Arduino Opta®. The functio
 ### Functional Earth
 To avoid and reduce electrical noise, Arduino Opta® has a *Functional Earth* connector (Ref: 3G) near the Ethernet connector. *Functional Earth*, not to be confused with *Ground*, helps the device to reduce electrical interferences in industrial environments, being crucial for having stable Fieldbus communications.
 
+<div style="page-break-after:always;"></div>
+
 ## Device Operation
 ### Getting Started - IDE
 If you want to program your Arduino Opta® while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Arduino Opta® to your computer, you will need a USB-C® cable.
 
-### Getting Started - Arduino Web Editor
-All Arduino® devices work out-of-the-box on the Arduino® Web Editor **[2]** by just installing a simple plugin.
+### Getting Started - Arduino Cloud Editor
+All Arduino® devices work out-of-the-box on the Arduino® Cloud Editor **[2]** by just installing a simple plugin.
 
-The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
+The Arduino® Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
 
 ### Getting Started - Arduino PLC IDE
 Arduino Opta® can be also programmed using the industrial-standard **_IEC 61131-3_** programming languages. Download the Arduino® PLC IDE **[4]** software and connect your Arduino Opta® to your computer, using a simple USB-C® cable, to start creating your own PLC industrial solutions.
@@ -537,13 +563,22 @@ Sample sketches for Arduino Opta® can be found either in the “Examples” men
 ### Online Resources
 Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[6]**, the Arduino® Library Reference **[7]** and the online store **[8]** where you will be able to complement your Arduino Opta® product with additional extensions, sensors and actuators.
 
-<div style="page-break-after: always;"></div>
+## Mean Time Between Failure (MTBF)
+
+MTBF, which stands for Mean Time Between Failure, is calculated according to statistical device failures and indicates the reliability of a device.
+
+The MTBF figure (in hours/years) for each Arduino Opta® variant can be found in the table below. The MTBF figure was calculated according to the MIL-HDBK-217F parts count method.
+
+|  **Standard** | **All Opta® Variants** | **Environmental Conditions** |
+|:-------------:|:----------------------:|:----------------------------:|
+| MIL-HDBK-217F |    766205 h/87 years   |             25 ºC            |
+
+**Important note**: MTBF is the statistical representation of the likelihood of a unit failing and _does not necessarily represent a product's life_.
 
 ## Mechanical Information
 ### Product Dimensions
-![Arduino Opta® Outline. Dimensions are in mm](assets/opta_mechanical.svg)
 
-***Note: Terminals can be used with both solid and stranded core wire (min: 0.5 mm<sup>2</sup> / 20 AWG).***
+![Arduino Opta® Outline. Dimensions are in mm](assets/opta_mechanical.svg)
 
 ## Certifications
 
@@ -632,6 +667,18 @@ Now that you have gone through the basics of what you can do with the device, yo
          </td>
          <td style="vertical-align: middle;text-align: center;">
             <p>Yes</p>
+         </td>
+      </tr>
+      <tr>
+         <td style="vertical-align: middle;text-align: center;"><strong>IC (Canada)</strong></td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>-</p>
+         </td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>Yes</p>
+         </td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>-</p>
          </td>
       </tr>
       <tr>
@@ -727,7 +774,15 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 2402-2480 MHz (BLE)       | 2.41 dBm                    |
 | 2402-2480 MHz (EDR)       | -6.27 dBm                   |
 
+## Industry Canada Statement:
 
+Radio apparatus containing digital circuitry which can function separately from the operation of a transmitter or an associated transmitter, shall comply with ICES-003. In such cases, the labelling
+requirements of the applicable RSS apply, rather than the labelling requirements in ICES-003. 
+
+This Class A digital apparatus complies with Canadian ICES-003.
+
+French:
+Cet appareil numérique de la classe A est conforme à la norme NMB-003 du Canada.
 
 ## Company Information
 
@@ -750,8 +805,14 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**        |
-|------------|--------------|------------------- |
-| 16/05/2023 | 3            | Legal updates      |
-| 13/04/2023 | 2            | Tech Specs Updates |
-| 02/03/2023 | 1            | First Release      |
+|  **Date**  | **Revision** |             **Changes**              |
+|:----------:|:------------:|:------------------------------------:|
+| 02/12/2024 |      9       |  Digital input specification update  |
+| 24/09/2024 |      8       |        Expansion port updates        |
+| 11/09/2024 |      7       |      ICES certification updates      |
+| 03/09/2024 |      6       | Cloud Editor updated from Web Editor |
+| 24/07/2024 |      5       |        Wiring specifications         |
+| 07/02/2023 |      4       |           MTBF information           |
+| 16/05/2023 |      3       |            Legal updates             |
+| 13/04/2023 |      2       |          Tech Specs Updates          |
+| 02/03/2023 |      1       |            First Release             |

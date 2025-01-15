@@ -1,21 +1,17 @@
+---
+productsLibrariesMap:
+  - arduino_mkrenv
+---
+
 <EssentialsColumn title="First Steps">
   <EssentialElement title="Quickstart Guide" type="getting-started" link="/tutorials/mkr-env-shield/mkr-env-shield-basic">
     All you need to know to get started with your new Arduino Shield.
   </EssentialElement>
-
-</EssentialsColumn>
-
-<EssentialsColumn title="Suggested Libraries">
-
-  <EssentialElement title="Arduino-MKRENV" type="library" link="https://www.arduino.cc/reference/en/libraries/arduino_mkrenv/">
-    The ArduinoMKRENV library lets you access the different sensors, such as temperature, humidity & pressure that you can find on the MKR ENV Shield.
-  </EssentialElement>
-
 </EssentialsColumn>
 
 <EssentialsColumn title="Arduino Basics">
   <EssentialElement title="Built-in Examples" type="tutorial" link="/built-in-examples/">
-    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands. 
+    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands.
   </EssentialElement>
   <EssentialElement title="Learn" type="resource" link="/learn/">
     Discover interesting articles, principles and techniques related to the Arduino ecosystem.

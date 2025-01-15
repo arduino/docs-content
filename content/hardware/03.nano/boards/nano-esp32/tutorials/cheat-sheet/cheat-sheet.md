@@ -1,5 +1,5 @@
 ---
-title: 'Arduino Nano ESP32 Cheat Sheet'
+title: 'Arduino Nano ESP32 User Manual'
 description: 'A technical summary of the Nano ESP32 development board, including installation, pin reference, communication ports and microcontroller specifics.'
 tags:
   - ESP32
@@ -106,6 +106,44 @@ In addition to the normal bootloader-mode, the Arduino Nano ESP32 lets you enter
 - Restore the ability to upload regular Arduino sketches to a Nano ESP32 that has been flashed with a third party firmware.
 
 If you need to reflash the bootloader, you can follow the steps of this [Help Center article](https://support.arduino.cc/hc/en-us/articles/9810414060188-Reset-the-Arduino-bootloader-on-the-Nano-ESP32)
+
+### Default Sketch
+
+The default sketch loaded on the Nano ESP32 board is found in the code snippet below:
+
+```arduino
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(LED_RED, OUTPUT);
+  pinMode(LED_GREEN, OUTPUT);
+  pinMode(LED_BLUE, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(LED_RED, LOW);
+  digitalWrite(LED_GREEN, HIGH);
+  digitalWrite(LED_BLUE, HIGH);
+
+  delay(1000);
+
+  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(LED_RED, HIGH);
+  digitalWrite(LED_GREEN, LOW);
+  digitalWrite(LED_BLUE, HIGH);
+
+  delay(1000);
+
+  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(LED_RED, HIGH);
+  digitalWrite(LED_GREEN, HIGH);
+  digitalWrite(LED_BLUE, LOW);
+
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+}
+```
 
 ## MicroPython
 
@@ -366,12 +404,14 @@ void setup() {
 
 ## USB Serial & UART
 
-The Nano ESP32 board features 2 separate hardware serial ports.
+The Nano ESP32 board features 3 hardware serial ports, as well as a port exposed via USB.
 
-One port is exposed via USB-C®, and
-One is exposed via RX/TX pins.
+- `Serial` refers to the USB port.
+- `Serial0` refers to the first hardware serial port (UART), accessible via the board's RX/TX pins (D0, D1).
+- `Serial1` is the second UART port, which can be assigned to any free GPIOs.
+- `Serial2` is the third UART port, which can also be assigned to any free GPIOs.
 
-### Native USB
+### Serial (Native USB)
 
 Sending serial data to your computer is done using the standard `Serial` object.
 
@@ -382,9 +422,11 @@ Serial.print("hello world");
 
 To send and receive data through UART, we will first need to set the baud rate inside `void setup()`.
 
-### UART
+### Serial0 (UART)
 
-The pins used for UART on the Nano ESP32 are the following:
+***Please note: `Serial0` is shared with the bootloader/kernel, which prints a few messages at boot/reset, and in the event of a crash, the crash dumps is printed via FreeRTOS on this serial port. For these reasons, you may want to use the `Serial1` or `Serial2` ports to avoid any interference ([read more](#serial1--serial2-uart)).***
+
+The default pins for UART communication on the Nano ESP32 are the following:
 
 | Pin | Function | Description          |
 | --- | -------- | -------------------- |
@@ -414,6 +456,30 @@ And to write something, we can use the following command:
 ```arduino
 Serial0.write("Hello world!");
 ```
+
+### Serial1 & Serial2 (UART)
+
+The Nano ESP32 features 2 additional hardware serial ports that have no pre-defined pins, and can be connected to any free GPIO. Therefore, to use them, their TX and RX pins need to be manually assigned.
+
+To use `Serial1` and `Serial2`, you need to initialize them in your program's `setup()` function:
+
+```arduino
+//initialization
+Serial1.begin(9600, SERIAL_8N1, RX1PIN, TX1PIN);
+Serial2.begin(9600, SERIAL_8N1, RX2PIN, TX2PIN);
+
+//usage
+Serial1.write("Hello world!");
+Serial2.write("Hello world!");
+```
+
+- Replace `RXPIN` and `TXPIN` with the GPIOs you want to assign (e.g. `D4`, `D5`).
+- You can then use commands such as `Serial1.write()` and `Serial1.read()`.
+
+The `SERIAL_8N1` parameter is the configuration for serial communication.
+- `8` = data word length (8-bit). Can be changed to 5,6,7-bits.
+- `N` = parity, in this case "none". Can be changed to "even" (E) or "odd" (O).
+- `1` = stop bit, other option available is 2.
 
 ## I2S
 

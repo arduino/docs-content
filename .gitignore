@@ -8,3 +8,8 @@ public
 src
 .DS_Store
 .vscode/settings.json
+.vscode/ltex.hiddenFalsePositives.en-US.txt
+.vscode/ltex.dictionary.en-US.txt
+content/en
+content/de
+content/pt

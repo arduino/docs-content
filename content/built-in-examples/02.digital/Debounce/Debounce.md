@@ -14,7 +14,7 @@ Pushbuttons often generate spurious open/close transitions when pressed, due to 
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - momentary button or switch
 

@@ -184,7 +184,7 @@ The complete sketch is below.
 
  This sketch connects to a website through a GSM shield. Specifically,
 
- this example downloads the URL "http://www.arduino.cc/asciilogo.txt" and
+ this example downloads the URL "http://arduino.tips/asciilogo.txt" and
 
  prints it to the Serial monitor.
 
@@ -222,7 +222,7 @@ GPRS gprs;
 GSM gsmAccess;
 
 // URL, path & port (for example: arduino.cc)
-char server[] = "arduino.cc";
+char server[] = "arduino.tips";
 char path[] = "/asciilogo.txt";
 int port = 80; // port 80 is the default for HTTP
 

@@ -41,7 +41,7 @@ These four blocks will be running locally on the [Arduino® Portenta X8](https:/
 
 - [Arduino® Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - [Arduino® MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010)
-- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - Wi-Fi® Access Point (AP) with Internet access
 - ADB or SSH
 - Command-line interface
@@ -77,23 +77,23 @@ Let's start by configuring the MQTT broker!
 
 Let's start by creating a new directory in our Portenta X8 `home` directory called `mqtt`; inside this directory, we are going to make a file named `docker-compose.yml` using the following commands:
 
-```
+```bash
 mkdir mqtt
 ```
 
-```
+```bash
 cd mqtt
 ```
 
-```
+```bash
 export TERM=xterm
 ```
 
-```
+```bash
 stty rows 36 cols 150
 ```
 
-```
+```bash
 sudo vi docker-compose.yml
 ```
 
@@ -101,7 +101,7 @@ sudo vi docker-compose.yml
 
 Inside the VI editor, copy and paste the following:
 
-```
+```yaml
 services:
         mqtt:
                 container_name: mosquitto
@@ -125,7 +125,7 @@ volumes:
 
 Save the file and exit the VI editor. Return to the `mqtt` directory and run the following command:
 
-```
+```bash
 docker-compose up -d
 ```
 
@@ -133,13 +133,13 @@ The Mosquitto broker should be available on your Portenta X8 `IP address`. You c
 
 We should see inside the `mqtt` directory three folders (`config`, `data`, and `log`) and the `docker-compose.yml` file we created before. When we launch the Mosquitto container using the `docker-compose up -d` command, the logs will fill with errors about being unable to open the configuration file. To fix this issue, we can download a default configuration file and store it in the newly created `config` directory:
 
-```
+```bash
 sudo wget https://raw.githubusercontent.com/eclipse/mosquitto/master/mosquitto.conf
 ```
 
 Let's add the following lines at the end of the `config` file
 
-```
+```bash
 # Listen on port 1883 
 listener 1883
 listener 9001
@@ -159,7 +159,7 @@ Save the file and exit the VI editor. Now, let's restart the Mosquitto container
 
 Now, we need to manage password files by adding a user to a new password file. For this, we need to run the `sh` command in the mosquitto container with the mosquitto `CONTAINER ID` found before, as shown below:
 
-```
+```bash
 docker exec -it CONTAINER ID sh
 ```
 
@@ -170,20 +170,20 @@ Let's dissect that command:
 
 Now, in the terminal session with the Mosquitto container, run the following command:
 
-```
+```bash
 mosquitto_passwd -c /mosquitto/config/mosquitto.passwd guest
 ```
 
 This command creates a new password file (`mosquitto.passwd`); if the file already exists, it will overwrite; `guest` is the username. After entering the `username` we want, we must define a password for the username and then exit the terminal session with the `exit` command. Now, let's return to the `config` directory; you should see now inside this directory the `mosquitto.passwd` file. Open the `mosquitto.config` file and add the following information to it:
 
-```
+```bash
 password_file /mosquitto/config/mosquitto.passwd
 allow_anonymous true
 ```
 
 The file should see now like this:
 
-```
+```bash
 # Password file
 password_file /mosquitto/config/mosquitto.passwd
 allow_anonymous true
@@ -225,7 +225,7 @@ When MQTTBox client connects to the local Mosquitto broker deployed in our Porte
 
 Node-RED is an open-source programming tool that connects hardware with API's and online services. It is a visual tool designed for Internet of Things devices and applications, but it can also be used for other applications. The simplest form to run Node-RED with Docker is by using the following command:
 
-```
+```bash
 docker run -it -p 1880:1880 -v node_red_data:/data --name mynodered nodered/node-red    
 ```
 
@@ -284,7 +284,7 @@ InfluxDB is an open-source, high-performance, time series database; with InfluxD
 
 The simplest form to run InfluxDB with Docker is by using the following command:
 
-```
+```bash
 docker run --detach --name influxdb -p 8086:8086 influxdb:2.2.0 
 ```
 
@@ -353,7 +353,7 @@ Grafana is an open-source, multi-platform data analytics and interactive data vi
 
 The simplest form to run Grafana with Docker is by using the following command:
 
-```
+```bash
 docker run -d --name=grafana -p 3000:3000 grafana/grafana
 ```
 

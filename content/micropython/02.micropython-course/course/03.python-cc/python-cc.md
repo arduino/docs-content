@@ -6,7 +6,7 @@ title: '4. Python Crash Course'
 description: 'Learn some Python fundamentals that will help you create MicroPython scripts.'
 ---
 
-We ended last chapter by making **a light blink**, to make sure our setup was working properly. In this chapter, we will take you through some useful Python® syntax that will be of help when you are creating MicroPython scripts.
+In this chapter, we will take you through some useful Python® syntax that will be of help when you are creating MicroPython scripts.
 
 ***In this chapter we will cover a small part of the Python programming language. This will help you to better understand the rest of the course. If you are familiar with Python, this chapter is not a requirement.***
 
@@ -107,7 +107,7 @@ Now take a look at what happens after each statement. Notice the empty space jus
 Anything inside of this indentation will execute if the statement is met, and this is a fundamental principle that is used in every Python program that you write!
 
 Now since we already defined `x` to be `5+5`, the terminal will of course print:
-- `"x is larger than 10"` 
+- `"x is exactly 10"` 
 
 ## While Loop
 
@@ -205,4 +205,4 @@ In this Python crash course, we've covered some of the very fundamental aspects 
 
 In this course, we are focused on MicroPython, which is a micro-implementation of the language. This means that most core functionalities of the language is available, such as **operators, statements, loops and functions**.
 
-- [Next Chapter: Digital Signals](/micropython-course/course/digital)
+- [Next Chapter: Digital Signals](/micropython/micropython-course/course/digital)

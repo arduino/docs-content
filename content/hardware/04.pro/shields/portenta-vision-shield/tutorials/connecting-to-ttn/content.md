@@ -26,9 +26,9 @@ This tutorial explains how to connect your Portenta H7 to The Things Network (TT
 
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 - [Portenta Vision Shield - LoRa](https://store.arduino.cc/portenta-vision-shield-lora)
-- [1x Dipole Pentaband antenna](https://store.arduino.cc/antenna) or a UFL Antenna of the H7 
-- Arduino [offline](https://www.arduino.cc/en/main/software) IDE or Arduino [Web Editor](https://create.arduino.cc/)
-- USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
+- [Dipole Pentaband antenna](https://store.arduino.cc/antenna) or a UFL Antenna of the H7 (x1)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or the [Arduino Cloud Editor](https://create.arduino.cc/editor)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - An [account](https://console.cloud.thethings.network/) with The Things Network
 
 ### Updating the LoRa® Module Firmware
@@ -87,7 +87,7 @@ Let's take a closer look at these sections:
 
 It iss now time to connect your Portenta H7 and  Portenta Vision Shield - LoRa to TTN. You will need to upload code to the board, so, as you probably already know, there are two options:
 
-- Use the [Arduino Web Editor](https://create.arduino.cc/editor) 
+- Use the [Arduino Cloud Editor](https://create.arduino.cc/editor) 
 - Use the [Arduino IDE](https://www.arduino.cc/en/software), (this is the option this guide will follow)
 
 Plug the Portenta Vision Shield - LoRa to the Portenta H7 and them to your PC through the USB port. Be sure to have selected the right board "Arduino Portenta H7 (M7 core)" and the right port.
@@ -98,7 +98,7 @@ The LoRa® module on the Portenta Vision Shield - LoRa can be accessed by using 
 
 ![Upload code to IDE](assets/vs_ard_select_example.png)
 
-The only line you may need to change before uploading the code is the one that sets the frequency. Set the frequency code according to your country if needed. You can find more information about frequency by country at [this TTN link](https://www.thethingsnetwork.org/docs/lorawan/frequency-plans.html).
+The only line you may need to change before uploading the code is the one that sets the frequency. Set the frequency code according to your country if needed. You can find more information about frequency by country at [this TTN link](https://www.thethingsnetwork.org/docs/lorawan/frequency-plans/).
 
 ```cpp
 // change this to your regional band (eg. US915, AS923, ...)
@@ -118,7 +118,7 @@ In order to select the way in which the board is going to connect with TTN  (OTA
 
 ### 4. Registering the Portenta on TTN
 
-Before your Portenta H7 can start communicating with the TTN, you need to [register](https://www.thethingsnetwork.org/docs/devices/registration.html) the board with an application. Go back to the TTN portal and scroll to **End devices** section on your Application dashboard, then click **Add end device**.
+Before your Portenta H7 can start communicating with the TTN, you need to [register](https://www.thethingsnetwork.org/docs/devices/registration/) the board with an application. Go back to the TTN portal and scroll to **End devices** section on your Application dashboard, then click **Add end device**.
 
 ![Registering a Device](assets/vs_ard_ttn_click_register.png)
 
@@ -144,7 +144,7 @@ Once your board has been registered you can send information to TTN. Let's come 
 - The Application EUI
 - The App Key.
 
-Lets start by making a connection Over-The-Air (OTA). Enter "1" in the Serial Monitor input box and press ENTER. Then, find the EUI and the App key from TTN **Device Overview** page. You can read more into OTA vs ABP activation mode [here](https://www.thethingsnetwork.org/docs/devices/registration.html).
+Lets start by making a connection Over-The-Air (OTA). Enter "1" in the Serial Monitor input box and press ENTER. Then, find the EUI and the App key from TTN **Device Overview** page. You can read more into OTA vs ABP activation mode [here](https://www.thethingsindustries.com/docs/).
 
 ```
 Your module version is: ARD-078 1.1.9

@@ -78,13 +78,28 @@ Before we can make requests to the API, we will need to generate an **access tok
 
 ![Authorization (step 1).](assets/postman-1.png)
 
-Now, click on the **"Advanced Options"** tab, and add `https://api2.arduino.cc/iot` to the **"Audience"** field.
+- Set **"Auth Type"** to **"OAuth 2.0"** with a **"Request Header"**
+- Select **"Token Name"**, and **"Bearer"**
+
+Then scroll down to the **"Configure New Token"**.
 
 ![Authorization (step 2).](assets/postman-2.png)
 
-Finally, click on the **"Get New Access Token"**.
+- Set **"Grant Type"** to **"Client Credentials"** and set `https://api2.arduino.cc/iot/v1/clients/token` for the **"Access Token URL"**.
+- Add your Client ID & Client Secret (obtained in Arduino Cloud API Keys / Devices).
+- Set the **"Client Authentication"** to **"Send client credentials in body"**.
 
-![Token button.](assets/access-token.png)
+Then, click on the **"Advanced"** tab, and populate the fields according to the image below:
+
+![Authorization (step 3).](assets/postman-3.png)
+
+- **Key** is set to `audience`
+- **Value** is set to `https://api2.arduino.cc/iot`
+- **Send In** is set to **Request Body**
+
+Finally, click on the **"Get New Access Token"**. You should get a pop-up window. On success, it should look like this:
+
+![Authentication complete.](assets/auth-complete.png)
 
 You now have an access token that has an expiry of `300` seconds, and we can make requests to the API.
 

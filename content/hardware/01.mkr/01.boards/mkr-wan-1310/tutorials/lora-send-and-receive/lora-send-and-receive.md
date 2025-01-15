@@ -31,7 +31,7 @@ There are many different terms to be familiar with in the world of LoRa® techno
 
 LoRa® is short for long range modulation technique based on a technology called chirp spread spectrum (CSS). It is designed to carry out long-range transmissions with minimal power consumption. LoRa® defines as the "lower layer" or **"physical layer"**, according to the **OSI model**. The physical layer is defined by hardware, signals and frequencies.
 
-LoRa® uses different radio frequencies depending on where you are located in the world. The most common are Europe (868 MHz) and North America & Australia (915 MHz), but it differs from country to country. You can also read more about a [country's unique radio frequency](https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country.html).
+LoRa® uses different radio frequencies depending on where you are located in the world. The most common are Europe (868 MHz) and North America & Australia (915 MHz), but it differs from country to country. You can also read more about a [country's unique radio frequency](https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country/).
 
 LoRa® is also often used to describe hardware devices supported by LoRa®, e.g. modules or gateways. The Arduino MKR WAN 1310 has a LoRa® module called **Murata CMWX1ZZABZ**.
 
@@ -99,7 +99,7 @@ We are going to create two sketches: one for the sender, and one for the receive
 
 We are going to program two separate MKR WAN 1310's in this tutorial. We will start with the **sender** device and later on, we will create a sketch for the **receiver** device.
 
-**1.** First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it.
+**1.** First, let's make sure we have the drivers installed. If we are using the Cloud Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it.
 
 **2.** Now we need to download the **LoRa** library from [this repository](https://github.com/sandeepmistry/arduino-LoRa), where you can install it by navigating to **Sketch > Include Library > Add .ZIP Library...** in the offline IDE.
 

@@ -8,15 +8,6 @@ difficulty: 'intermediate'
 ## Introduction
 A good way of adding complexity of features to your projects without adding complexity of wiring, is to make use of the Inter-integrated circuit (I2C) protocol. The I2C protocol is supported on all Arduino boards. It allows you to connect several peripheral devices, such as sensors, displays, motor drivers, and so on, with only a few wires. Giving you lots of flexibility and speeding up your prototyping, without an abundancy of wires. Keep reading to learn about how it works, how it is implemented into different standards, as well as how to use the [Wire Library](#wire-library) to build your own I2C devices.
 
-## Overview
-This section provides an overview of the topics covered in the article.
-
-- [What Is I2C?](#what-is-i2c)
-- [Arduino I2C Pins](#arduino-i2c-pins)
-- [I2C Wiring](#i2c-wiring)
-- [Wire Library](#wire-library)
-- [Examples](#examples)
-
 ## What Is I2C?
 The I2C protocol involves using two lines to send and receive data: a serial clock pin **(SCL)** that the Arduino Controller board pulses at a regular interval, and a serial data pin **(SDA)** over which data is sent between the two devices.
 
@@ -59,7 +50,7 @@ Below is a table that lists the different board form factors and what pins are f
 Below you'll find a couple ways to wire I2C breakout modules. Which way is best depends on each module, and your needs.
 
 ### Breakout Boards
-Some brekout board modules let you wire them directly, with bare wires on a breadboard. To connect a module like this to your Arduino board, connect it as follows:
+Some breakout board modules let you wire them directly, with bare wires on a breadboard. To connect a module like this to your Arduino board, connect it as follows:
 
 - VCC* - 5V/3V3 pin (depending on breakout module)
 - GND* - GND

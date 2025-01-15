@@ -35,7 +35,7 @@ In order to use the 4-digit-display you will need to install the following modul
 mip.install("https://raw.githubusercontent.com/mcauser/micropython-tm1637/master/tm1637.py")
 ```
 
-***If you are unsure how to install external modules you can read up on it [here](https://docs.arduino.cc/micropython-course/course/introduction-python#external-modules)***
+***If you are unsure how to install external modules you can read up on it [here](https://docs.arduino.cc/micropython/micropython-course/course/examples/#module-installation)***
 
 ```python
 from machine import Pin, PWM, RTC

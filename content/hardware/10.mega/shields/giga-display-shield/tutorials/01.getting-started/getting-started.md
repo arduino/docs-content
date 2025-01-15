@@ -24,7 +24,7 @@ To use the GIGA Display Shield, there are currently three supported alternatives
 
 ### Option 1: GFX Library
 
-The [Arduino_GigaDisplay_GFX](https://github.com/arduino/Arduino_GigaDisplay_GFX) library is a layer library for the [Adafruit_GFX](https://github.com/adafruit/Adafruit-GFX-Library) graphic core library. This library makes it easy to draw geometrical shapes, printing values, drawing pixels and more. 
+The [Arduino_GigaDisplay_GFX](https://github.com/arduino-libraries/Arduino_GigaDisplay_GFX) library is a layer library for the [Adafruit_GFX](https://github.com/adafruit/Adafruit-GFX-Library) graphic core library. This library makes it easy to draw geometrical shapes, printing values, drawing pixels and more. 
 
 ***To get started with the GFX library, visit the [GIGA Display Shield GFX Guide](/tutorials/giga-display-shield/gfx-guide).***
 
@@ -100,7 +100,10 @@ To use the GIGA Display Shield, mount it on the **bottom** side of the GIGA R1 W
 
 ![Bottom View](assets/mounted.png)
 
+
 This makes it possible to freely use the GIGA R1 WiFi's pins while the display shield is connected.
+
+***When connecting a module or shield to the GIGA R1 WiFi board, be careful to not connect it at an angle or your board may be damaged.***
 
 ## Camera Connector
 
@@ -313,3 +316,23 @@ void loop() {
   delay(1000);
 }
 ```
+
+## Power Consumption
+
+The following test results were recorded with some sample sketches. The setup consist of a GIGA R1 WiFi and a GIGA Display Shield mounted, using the following equipment & software:
+- [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-Desktop/Download)
+- [Power Profiler Kit II](https://www.nordicsemi.com/Products/Development-hardware/Power-Profiler-Kit-2)
+
+| Sketch | Min       | Max       | Average   |
+| ------ | --------- | --------- | --------- |
+| GFX    | 327.20 mA | 382.15 mA | 363.50 mA |
+| LVGL   | 294.90 mA | 412.49 mA | 347.97 mA |
+
+Links to the sketches used for these tests are found below: 
+
+- [GFX Hello World](https://github.com/arduino-libraries/Arduino_GigaDisplay/blob/main/examples/gfx/hello-world/hello-world.ino)
+- [LVGL Demo](https://github.com/arduino/ArduinoCore-mbed/blob/main/libraries/Arduino_H7_Video/examples/LVGLDemo/LVGLDemo.ino)
+
+When selecting an appropriate power source (battery), use the measurements above as guidelines. For example, running one of the above sketches with a 1000 mAh battery will only last approx. 2 hours.
+
+***Note that there are other factors at play, such as the battery's discharge rate and the general quality of the battery. The above formulas and measurements are to be considered guidelines, please consult the technical information of your battery for more accurate results.***

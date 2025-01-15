@@ -85,6 +85,7 @@ int lastTouch;
 int threshold = 250; //time in milliseconds
 
 void setup() {
+  delay(3000);
   Serial.begin(115200);
   while(!Serial) {}
 
@@ -121,7 +122,7 @@ void loop() {
 
 ## GFX Touch Example
 
-The below example requires uses the [Arduino_GigaDisplay_GFX](https://github.com/arduino/Arduino_GigaDisplay_GFX) library, and demonstrates how to change a boolean whenever you touch the screen. It implements the `millis()` function to limit the number of executions. 
+The below example requires uses the [Arduino_GigaDisplay_GFX](https://github.com/arduino-libraries/Arduino_GigaDisplay_GFX) library, and demonstrates how to change a boolean whenever you touch the screen. It implements the `millis()` function to limit the number of executions. 
 
 Anytime the screen is touched, the background and text color inverts (black and white). 
 
@@ -147,6 +148,7 @@ int threshold = 250;
 bool switch_1;
 
 void setup() {
+  delay(3000);
   // put your setup code here, to run once:
   Serial.begin(9600);
   display.begin();

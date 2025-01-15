@@ -15,7 +15,7 @@ This example shows you how to monitor the state of a switch by establishing [ser
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - A momentary switch, button, or toggle switch
 

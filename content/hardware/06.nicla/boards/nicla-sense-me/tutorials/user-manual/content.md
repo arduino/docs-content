@@ -3,7 +3,7 @@ title: 'Nicla Sense ME User Manual'
 difficulty: beginner
 compatible-products: [nicla-sense-me]
 description: 'Learn about the hardware and software features of the Arduino® Nicla Sense ME.'
-tags: 
+tags:
   - IMU
   - Cheat sheet
   - User manual
@@ -32,7 +32,7 @@ This user manual will guide you through a practical journey covering the most in
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - To create custom Machine Learning models, the Machine Learning Tools add-on integrated into the [Arduino Cloud](https://create.arduino.cc/iot/) is needed. In case you do not have an Arduino Cloud account, you will need to create one first.
 
 ## Product Overview
@@ -52,7 +52,7 @@ Here is an overview of main components of the board, as shown in the images abov
 - **Onboard advanced motion sensors**: the board features the BHI260AP, a smart IMU that includes a 3-axis accelerometer and a 3-axis gyroscope. It is trained with Machine Learning algorithms able to perform step counting, position tracking, and activity recognition. The board also features the BMM150, a compact geomagnetic sensor from Bosch® Sensortec including a 3-axis magnetometer.
 - **Onboard environment sensors**: the Nicla Sense ME is equipped with the BME688, this is the first gas sensor with Artificial Intelligence (AI) and integrated high-linearity and high-accuracy pressure, humidity and temperature sensors. The gas sensor can detect Volatile Organic Compounds (VOCs), volatile sulfur compounds (VSCs) and other gases, such as carbon monoxide and hydrogen, in the part per billion (ppb) range.
 - **Wireless connectivity**: the board supports Bluetooth® Low Energy connectivity, provided by the ANNA-B112 module developed by u-blox®. This compact, high-performance Bluetooth® Low Energy module allows the Nicla Sense ME to communicate wirelessly with other devices and systems.
-- **Power management**: the Nicla Sense ME is designed for ultra-low power operations, with efficient power management features that ensure minimal energy consumption even when using always-on motion recognition and environment analysis sensors. The Nicla Sense ME features the BQ25120 from Texas Instruments®, a highly integrated battery charge management integrated circuit (IC) designed for wearables and Internet of Things (IoT) devices. 
+- **Power management**: the Nicla Sense ME is designed for ultra-low power operations, with efficient power management features that ensure minimal energy consumption even when using always-on motion recognition and environment analysis sensors. The Nicla Sense ME features the BQ25120 from Texas Instruments®, a highly integrated battery charge management integrated circuit (IC) designed for wearables and Internet of Things (IoT) devices.
 
 ### Board Core and Libraries
 
@@ -66,7 +66,7 @@ The **Arduino Mbed OS Nicla Boards** core contains the libraries and examples yo
 
 The full pinout is available and downloadable as PDF from the link below:
 
-- [Nicla Sense ME pinout](https://docs.arduino.cc/static/b35956b631d757a0455c286da441641b/ABX00050-full-pinout.pdf)
+- [Nicla Sense ME pinout](https://docs.arduino.cc/resources/pinouts/ABX00050-full-pinout.pdf)
 
 ### Datasheet
 
@@ -84,7 +84,7 @@ The complete schematics are available and downloadable as PDF from the link belo
 
 The complete STEP files are available and downloadable from the link below:
 
-- [Nicla Sense ME STEP files](https://docs.arduino.cc/static/10c0953581f489a9a136ff00f2d2fa9d/ABX00050-step.zip)
+- [Nicla Sense ME STEP files](../../downloads/ABX00050-step.zip)
 
 
 ## First Use
@@ -92,16 +92,16 @@ The complete STEP files are available and downloadable from the link below:
 
 The Nicla Sense ME can be powered by:
 
-- A Micro USB cable (not included). 
+- A Micro USB cable (not included).
 - An external **5V power supply** connected to `VIN_BQ25120` pin (please, refer to the [board pinout section](#pinout) of the user manual).
-- A **3.7V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended minimum battery capacity for the Nicla Sense ME is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
+- A **3.7V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended minimum battery capacity for the Nicla Sense ME is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection.
 - The onboard **ESLOV connector**, which has a dedicated 5V power line.
 
 ![Nicla Sense ME battery powered](assets/battery-white.png)
 
 ### Hello World Example
 
-Let's program the Nicla Sense ME with the classic `hello world` example typical of the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the board is correctly connected to the Arduino IDE and that the Nicla Sense ME core and the board itself are working as expected. 
+Let's program the Nicla Sense ME with the classic `hello world` example typical of the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the board is correctly connected to the Arduino IDE and that the Nicla Sense ME core and the board itself are working as expected.
 
 Copy and paste the code below into a new sketch in the Arduino IDE.
 
@@ -133,7 +133,7 @@ You should now see all the LEDs of the built-in RGB LED turn on for one second, 
 
 ![Hello World example running in the Nicla Sense ME](assets/White-blink.gif)
 
-### Battery Charging 
+### Battery Charging
 
 One of the characteristic features of the Nicla Sense ME is power management, the BQ25120 battery charger IC is configurable by the user, which means that its charging parameters can be customized by software. We listed the main ones below:
 
@@ -146,7 +146,7 @@ One of the characteristic features of the Nicla Sense ME is power management, th
 
   When the function parameter is left blank, the default current is 20mA.
 
-- **Battery NTC:** If your battery has an NTC to measure its temperature, you can enable it by calling this function: `nicla::setBatteryNTCEnabled(true)`, if not, set the argument to *false*. 
+- **Battery NTC:** If your battery has an NTC to measure its temperature, you can enable it by calling this function: `nicla::setBatteryNTCEnabled(true)`, if not, set the argument to *false*.
 
 - **Battery maximum charging time:** To get an estimation of the charging time, you can use the following formula:
 
@@ -156,7 +156,7 @@ One of the characteristic features of the Nicla Sense ME is power management, th
 
   To set a charging time of nine hours, define it as follows:
 
-  `nicla::configureChargingSafetyTimer(ChargingSafetyTimerOption::NineHours)`
+  `nicla::configureChargingSafetyTimer (ChargingSafetyTimerOption::NineHours)`
 
 - **Get the battery voltage:** To monitor the battery voltage you just need to store the returned value of the following function in a *float* variable:
 
@@ -173,7 +173,7 @@ auto operatingStatus = nicla::getOperatingStatus();
         break;
       case OperatingStatus::ChargingComplete:
         nicla::leds.setColor(green);
-        
+
         // This will stop further charging until enableCharging() is called again.
         nicla::disableCharging();
         break;
@@ -204,7 +204,7 @@ The Nicla Sense ME has **two analog input pins**, mapped as follows:
 |      ADC1/P0_02     |           A0          |
 |      ADC2/P0_30     |           A1          |
 
-Both pins can be used through the built-in functions of the Arduino programming language. 
+Both pins can be used through the built-in functions of the Arduino programming language.
 
 Nicla boards ADC can be configured to 8, 10 or 12 bits defining the argument of the following function respectively (default is 10 bits):
 
@@ -263,7 +263,7 @@ The Nicla Sense ME has **twelve digital pins**, mapped as follows:
 
 Notice that analog pins `A0` and `A1` (`P0_02` and `P0_30`) can also be used as digital pins. Please, refer to the [board pinout section](#pinout) of the user manual to check their location.
 
-The digital pins of the Nicla Sense ME can be used as inputs or outputs through the built-in functions of the Arduino programming language. 
+The digital pins of the Nicla Sense ME can be used as inputs or outputs through the built-in functions of the Arduino programming language.
 
 ***The Nicla Sense ME digital I/O's are low power, so to drive output devices like LEDs, resistive loads, buzzers, etc, it is recommended to use a MOSFET driver or a buffer to guarantee the required current flow. Learn more about the Nicla I/O's considerations [here](https://docs.arduino.cc/learn/hardware/nicla-form-factor).***
 
@@ -271,13 +271,13 @@ The configuration of a digital pin is done in the `setup()` function with the bu
 
 ```arduino
 // Pin configured as an input
-pinMode(pin, INPUT);        
+pinMode(pin, INPUT);
 
 // Pin configured as an output
-pinMode(pin, OUTPUT);        
+pinMode(pin, OUTPUT);
 
 // Pin configured as an input, internal pull-up resistor enabled
-pinMode(pin, INPUT_PULLUP);  
+pinMode(pin, INPUT_PULLUP);
 ```
 
 The state of a digital pin, configured as an input, can be read using the built-in function `digitalRead()` as shown below:
@@ -291,10 +291,10 @@ The state of a digital pin, configured as an output, can be changed using the bu
 
 ```arduino
 // Set pin on
-digitalWrite(pin, HIGH);    
+digitalWrite(pin, HIGH);
 
 // Set pin off
-digitalWrite(pin, LOW);    
+digitalWrite(pin, LOW);
 ```
 
 The example code shown below uses digital pin `3` to control an LED and reads the state of a button connected to digital pin `2`:
@@ -342,12 +342,12 @@ void loop() {
 Most digital and analog pins of the Nicla Sense ME can be used as PWM (Pulse Width Modulation) pins. This functionality can be used with the built-in function `analogWrite()` as shown below:
 
 ```arduino
-analogWrite(pin, value);  
+analogWrite(pin, value);
 ```
 By default, the output resolution is 8 bits, so the output value should be between 0 and 255. To set a greater resolution, do it using the built-in function `analogWriteResolution` as shown below:
 
 ```arduino
-analogWriteResolution(bits);  
+analogWriteResolution(bits);
 ```
 
 Using this function has some limitations, for example, the PWM signal frequency is fixed at 500 Hz, and this could not be ideal for every application.
@@ -507,10 +507,10 @@ void loop() {
   unsigned long currentMillis = millis();
 
   if (currentMillis - previousMillis >= interval) {
-    
+
     previousMillis = currentMillis;
     Serial.println(String("Activity info: ") + active.toString());
-  
+
   }
 
 }
@@ -576,7 +576,7 @@ The BME688 lets you measure pressure, humidity, temperature, and gas sensor resi
 - Index for Air Quality (IAQ)
 - CO<sub>2</sub> equivalents
 - b-VOC equivalents
-- Gas % 
+- Gas %
 
 To extract these measurements from the sensor use the below example code:
 
@@ -642,7 +642,7 @@ unsigned long previousMillis = 0;  // will store last time the sensor was update
 
 const long interval = 1000;
 
-Sensor pressure(SENSOR_ID_BARO);    
+Sensor pressure(SENSOR_ID_BARO);
 
 void setup() {
 
@@ -689,7 +689,7 @@ Follow this [dedicated guide](https://docs.arduino.cc/tutorials/nicla-sense-me/w
 
 ### RGB LED
 
-The Nicla Sense ME features a built-in I2C RGB LED that can be a visual feedback indicator for the user. The LED is connected through the boards' I2C port; therefore, specific functions must be used to operate the LED colors. 
+The Nicla Sense ME features a built-in I2C RGB LED that can be a visual feedback indicator for the user. The LED is connected through the boards' I2C port; therefore, specific functions must be used to operate the LED colors.
 
 ![Built-in RGB LED](assets/rgb-led.png)
 
@@ -697,7 +697,7 @@ To use the RGB LED, include the `Nicla System` header:
 
 ```arduino
 // Include the Nicla System header to access the built-in RGB LED functions
-#include "Nicla_System.h" 
+#include "Nicla_System.h"
 ```
 
 Since the functions are scoped under a class name called `nicla`, you must explicitly write it before each statement. To initialize the board's built-in RGB LED along with the Nicla system inside the void `setup()` function:
@@ -728,7 +728,7 @@ delay(1000);
 
 // Set the LED color to blue, wait for 1000 milliseconds
 nicla::leds.setColor(blue);
-delay(1000);  
+delay(1000);
 ```
 
 To turn off the built-in RGB LED:
@@ -753,7 +753,7 @@ delay(1000);
 
 // Turn off the LED and wait, wait for 1000 milliseconds
 nicla::leds.setColor(off);
-delay(1000); 
+delay(1000);
 ```
 Here you can find a complete example code to blink the built-in I2C RGB LED of the Nicla Sense ME:
 
@@ -764,7 +764,7 @@ Here you can find a complete example code to blink the built-in I2C RGB LED of t
 void setup() {
   // Initialize the Nicla system and the built-in RGB LED
   nicla::begin();
-  nicla::leds.begin();  
+  nicla::leds.begin();
 }
 
 void loop() {
@@ -774,7 +774,7 @@ void loop() {
 
   // Turn off the LED and wait, wait for 1000 milliseconds
   nicla::leds.setColor(off);
-  delay(1000); 
+  delay(1000);
 }
 ```
 
@@ -808,11 +808,11 @@ In the `setup()` function, initialize the SPI library, define and configure the 
 ```arduino
 void setup() {
   // Set the chip select pin as output
-  pinMode(SS, OUTPUT); 
+  pinMode(SS, OUTPUT);
 
   // Pull the CS pin HIGH to unselect the device
-  digitalWrite(SS, HIGH); 
-  
+  digitalWrite(SS, HIGH);
+
   // Initialize the SPI communication
   SPI.begin();
 }
@@ -822,22 +822,22 @@ To transmit data to an SPI-compatible device, you can use the following commands
 
 ```arduino
 // Replace with the target device's address
-byte address = 0x35; 
+byte address = 0x35;
 
 // Replace with the value to send
-byte value = 0xFA; 
+byte value = 0xFA;
 
 // Pull the CS pin LOW to select the device
-digitalWrite(SS, LOW); 
+digitalWrite(SS, LOW);
 
 // Send the address
-SPI.transfer(address); 
+SPI.transfer(address);
 
 // Send the value
-SPI.transfer(value); 
+SPI.transfer(value);
 
 // Pull the CS pin HIGH to unselect the device
-digitalWrite(SS, HIGH); 
+digitalWrite(SS, HIGH);
 ```
 
 The example code above should output this:
@@ -872,25 +872,25 @@ To transmit data to an I2C-compatible device, you can use the following commands
 
 ```arduino
 // Replace with the target device's I2C address
-byte deviceAddress = 0x35; 
+byte deviceAddress = 0x35;
 
 // Replace with the appropriate instruction byte
-byte instruction = 0x00; 
+byte instruction = 0x00;
 
 // Replace with the value to send
-byte value = 0xFA; 
+byte value = 0xFA;
 
 // Begin transmission to the target device
-Wire.beginTransmission(deviceAddress); 
+Wire.beginTransmission(deviceAddress);
 
 // Send the instruction byte
-Wire.write(instruction); 
+Wire.write(instruction);
 
 // Send the value
-Wire.write(value); 
+Wire.write(value);
 
 // End transmission
-Wire.endTransmission(); 
+Wire.endTransmission();
 ```
 
 The output data should look like the image below, where we can see the device address data frame:
@@ -902,17 +902,17 @@ To read data from an I2C-compatible device, you can use the `requestFrom()` func
 
 ```arduino
 // The target device's I2C address
-byte deviceAddress = 0x1; 
+byte deviceAddress = 0x1;
 
 // The number of bytes to read
-int numBytes = 2; 
+int numBytes = 2;
 
 // Request data from the target device
 Wire.requestFrom(deviceAddress, numBytes);
 
 // Read while there is data available
 while (Wire.available()) {
-  byte data = Wire.read(); 
+  byte data = Wire.read();
 }
 ```
 
@@ -931,32 +931,32 @@ To begin with UART communication, you will need to configure it first. In the `s
 
 ```arduino
 // Start UART communication at 115200 baud
-Serial1.begin(115200); 
+Serial1.begin(115200);
 ```
 
 To read incoming data, you can use a `while()` loop to continuously check for available data and read individual characters. The code shown below stores the incoming characters in a String variable and processes the data when a line-ending character is received:
 
 ```arduino
 // Variable for storing incoming data
-String incoming = ""; 
+String incoming = "";
 
 void loop() {
   // Check for available data and read individual characters
   while (Serial1.available()) {
     // Allow data buffering and read a single character
-    delay(2); 
+    delay(2);
     char c = Serial1.read();
-    
+
     // Check if the character is a newline (line-ending)
     if (c == '\n') {
       // Process the received data
       processData(incoming);
 
       // Clear the incoming data string for the next message
-      incoming = ""; 
+      incoming = "";
     } else {
       // Add the character to the incoming data string
-      incoming += c; 
+      incoming += c;
     }
   }
 }
@@ -972,7 +972,7 @@ Serial1.write("Hello world!");
 You can also use the `print` and `println()` to send a string without a newline character or followed by a newline character:
 
 ```arduino
-// Transmit the string "Hello world!" 
+// Transmit the string "Hello world!"
 Serial1.print("Hello world!");
 
 // Transmit the string "Hello world!" followed by a newline character
@@ -1016,7 +1016,7 @@ void setup() {
 
   // run this code once when Nicla Sense ME board turns on
   nicla::begin();       // initialize library
-  nicla::leds.begin();  // initialize LEDs support 
+  nicla::leds.begin();  // initialize LEDs support
 
   nicla::setBatteryNTCEnabled(false);  // Set to false if your battery doesn't have an NTC thermistor.
   nicla::enableCharging(100);  // enable the battery charger and define the charging current in mA
@@ -1097,7 +1097,7 @@ void updateBatteryLevel() {
 
 ```
 
-The example code shown above creates a Bluetooth® Low Energy service and characteristics according to the [BLE standard](https://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf) for transmitting a battery percentage value read by Nicla Sense ME power management IC. 
+The example code shown above creates a Bluetooth® Low Energy service and characteristics according to the [BLE standard](https://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf) for transmitting a battery percentage value read by Nicla Sense ME power management IC.
 
 - The code begins by importing all the necessary libraries and defining the Bluetooth® Low Energy service and characteristics for a battery-level application.
 
@@ -1115,7 +1115,7 @@ Using the nRF Connect app (available for [Android](https://play.google.com/store
 
 ![Battery level monitored from the nRF Connect app](assets/battery-monitor.png)
 
-### ESLOV Connector 
+### ESLOV Connector
 
 The Nicla Sense ME board features an onboard ESLOV connector meant as an **extension** of the I2C communication bus. This connector simplifies the interaction between the Nicla Sense ME and various sensors, actuators, and other modules, without soldering or wiring.
 
@@ -1123,7 +1123,7 @@ The Nicla Sense ME board features an onboard ESLOV connector meant as an **exten
 
 The ESLOV connector is a small 5-pin connector with a 1.00 mm pitch; the mechanical details of the connector can be found in the connector's datasheet.
 
-The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
+The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B.
 
 The pin layout of the ESLOV connector is the following:
 
@@ -1211,34 +1211,34 @@ void setup() {
   }
 
   delay(1500);
-  
+
   Serial.println("Initialize the Nicla as a ESLOV connected device");
-  BHY2Host.begin(false, NICLA_VIA_ESLOV);  // use NICLA_VIA_BLE if a wireless connection is desired    
-  
+  BHY2Host.begin(false, NICLA_VIA_ESLOV);  // use NICLA_VIA_BLE if a wireless connection is desired
+
   tempSensor.configure(1,0);
   temperature = tempSensor.value();   // take a first sample
 }
 
 void loop() {
-  
+
   BHY2Host.update();
-  
+
   temperature = tempSensor.value();
- 
+
   ArduinoCloud.update();
-  
+
   Serial.print("Temperature: ");
   Serial.println(temperature);
-  
+
   delay(2000);
-  
+
 }
 ```
 ***If you are interested in using a different sensor from the onboard options of the Nicla Sense ME, check all the sensors IDs on this [list](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-ids)***
 
 ### Portenta C33 Setup
 
-Before uploading the code to the Portenta C33 code ready on the Arduino Cloud, let's connect everything together. 
+Before uploading the code to the Portenta C33 code ready on the Arduino Cloud, let's connect everything together.
 
 Using the ESLOV cable included with the Nicla Sense ME, connect both boards by their respective connectors as shown below:
 
@@ -1296,4 +1296,4 @@ Join our community forum to connect with other Nicla Sense ME users, share your 
 
 Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Nicla Sense ME.
 
-- [Contact us page](https://www.arduino.cc/en/contact-us/) 
+- [Contact us page](https://www.arduino.cc/en/contact-us/)

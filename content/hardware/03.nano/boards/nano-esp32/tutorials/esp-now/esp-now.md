@@ -11,6 +11,8 @@ tags: [ESP32, Debugging, IDE]
 
 ESP-NOW is a wireless communication protocol developed by Espressif, the company behind the ESP32 microcontroller (MCU). Since the Arduino Nano ESP32 is equipped with that MCU it also supports the ESP-NOW protocol out of the box. It's designed for efficient and low-latency communication between devices, capable of sending up to 250 bytes.
 
+***Note: The Nano ESP32 utilizes the Arduino ESP32 Boards core based on the 2.x branch of the arduino-esp32 core, leveraging ESP-IDF version [v5.1.4](https://docs.espressif.com/projects/esp-idf/en/v5.1.4/esp32/api-reference/network/esp_now.html). Please be aware that functions and features may differ between versions, so ensure you reference the correct documentation for this setup.***
+
 ## Hardware Requirements
 
 ESP-NOW is supported on the following microcontrollers: 

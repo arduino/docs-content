@@ -13,7 +13,7 @@ libraries:
 
 ## Introduction 
 
-This tutorial guides you on how to use the MicroPython library to connect your Arduino device to the Arduino Cloud. 
+This tutorial guides you on how to use the MicroPython library to connect your Arduino device to the Arduino Cloud. As a minimal example we will toggle the on-board LED using an Arduino Cloud dashboard widget.
 
 It requires your board to have a version of MicroPython installed, which is covered in [this article](/micropython/basics/board-installation).
 
@@ -61,7 +61,7 @@ Next step is to create some Cloud variables, which we will later interact with v
 1. While in Thing configuration, click on **"Add Variable"** which will open a new window.
 2. Name your variable `led` and select it to be of an `boolean` type.
 3. Click on **"Add Variable"** at the bottom of the window.
-4. Create another variable, name it `ledSwitch` and select it to be `int` type.
+4. Create another variable, name it `ledSwitch` and select it to be `boolean` type.
 
 You should now have **two variables**:
 - `led` - boolean 
@@ -134,7 +134,99 @@ For more options on how to install libraries on your board, check out our [Insta
 
 ## Programming the Board
 
-Here is the example code to copy and paste into your sketch. It connects your device
+### Cloud Connection
+There are two main methods to create this connection `async` and `sync`.
+
+#### Async (Default)
+This is the method currently implemented by default with the Cloud. Asynchronous operations allow tasks to run independently of the main program flow. Functions can start and continue without waiting for other tasks to finish. This non-blocking behavior is achieved using techniques like callbacks, coroutines, or the async and await keywords in MicroPython. 
+
+Asynchronous functions are particularly useful for handling network communication, as they enable the boards to perform other operations (like reading sensors or updating outputs) while waiting for data from the Arduino Cloud.
+
+
+**Code example:**
+```python
+from secrets import DEVICE_ID
+from secrets import SECRET_KEY
+
+# Switch callback, toggles the LED.
+def on_switch_changed(client, value):
+    # Note the client object passed to this function can be used to access
+    # and modify any registered cloud object. The following line updates
+    # the LED value.
+    client["led"] = value
+
+# 1. Create a client object, which is used to connect to the IoT cloud and link local
+# objects to cloud objects. Note a username and password can be used for basic authentication
+# on both CPython and MicroPython. For more advanced authentication methods, please see the examples.
+client = ArduinoCloudClient(device_id=DEVICE_ID, username=DEVICE_ID, password=SECRET_KEY)
+
+# 2. Register cloud objects.
+# Note: The following objects must be created first in the dashboard and linked to the device.
+# When the switch is toggled from the dashboard, the on_switch_changed function is called with
+# the client object and new value args.
+client.register("sw1", value=None, on_write=on_switch_changed)
+
+# The LED object is updated in the switch's on_write callback.
+client.register("led", value=None)
+
+# 3. Start the Arduino cloud client.
+client.start()
+```
+
+Remember that our `secrets.py` file should look like:
+```python
+WIFI_SSID  = ""  # WiFi network SSID (for MicroPython)
+WIFI_PASS  = ""  # WiFi network key  (for MicroPython)
+DEVICE_ID  = "" # Provided by Arduino cloud when creating a device.
+SECRET_KEY = "" # Provided by Arduino cloud when creating a device.
+```
+
+#### Sync
+In synchronous operations, tasks are executed one after another in a sequential manner. Each function call waits for the previous one to complete before starting. This approach is straightforward and easier to implement but can cause delays if a task takes a long time to finish, as it blocks the execution of subsequent code. In the context of network communication with the Arduino Cloud, synchronous functions may lead to unresponsiveness during data transmission or reception.
+
+Alternatively, you can select the synchronous method by passing sync_mode=True when creating the client object and calling client.update() periodically after connecting.
+
+Code example:
+```python
+from secrets import DEVICE_ID
+from secrets import SECRET_KEY
+
+# Switch callback, toggles the LED.
+def on_switch_changed(client, value):
+    # Note the client object passed to this function can be used to access
+    # and modify any registered cloud object. The following line updates
+    # the LED value.
+    client["led"] = value
+
+# 1. Create a client object, which is used to connect to the IoT cloud and link local
+# objects to cloud objects. Note a username and password can be used for basic authentication
+# on both CPython and MicroPython. For more advanced authentication methods, please see the examples.
+client = ArduinoCloudClient(device_id=DEVICE_ID, username=DEVICE_ID, password=SECRET_KEY, sync_mode=True)
+
+# 2. Register cloud objects.
+# Note: The following objects must be created first in the dashboard and linked to the device.
+# When the switch is toggled from the dashboard, the on_switch_changed function is called with
+# the client object and new value args.
+client.register("sw1", value=None, on_write=on_switch_changed)
+
+# The LED object is updated in the switch's on_write callback.
+client.register("led", value=None)
+
+# In synchronous mode, this function returns immediately after connecting to the cloud.
+client.start()
+
+# Update the client periodically.
+while True:
+    client.update()
+    time.sleep(0.100)
+```
+
+`secrets.py` file should look the same on both implementations.
+
+### Project example
+
+Here is the example code to copy and paste into your program. It connects your device to Arduino Cloud over Wi-Fi® and toggles the LED of the board using the Arduino Cloud dashboard.
+
 
 ```python
 from machine import Pin
@@ -148,11 +240,13 @@ from secrets import WIFI_PASSWORD
 from secrets import DEVICE_ID
 from secrets import CLOUD_PASSWORD
 
-led = Pin("LEDB", Pin.OUT) # Configure the desired LED pin as an output.
+led = Pin("LED_BUILTIN", Pin.OUT) # Configure the desired LED pin as an output.
 
 def on_switch_changed(client, value):
     # Toggles the hardware LED on or off.
     led.value(not value)
+    # Depending on the board you use you may need to use "led.value(value)" instead
+    # so that the LED's state reflects correctly the boolean value.
     
     # Sets the value of the Cloud variable "led" to the current state of the LED
     # and thus mirrors the hardware state in the Cloud.
@@ -211,6 +305,212 @@ if __name__ == "__main__":
 ## Testing It Out
 
 Open Arduino Lab for MicroPython and connect to your board. Pasting the above code and run the script. Then open your Arduino Cloud dashboard. You should see the registered "ledSwitch" and "led" widgets. Toggle the "ledSwitch", and the LED on your Arduino board should light up accordingly. The state of the "led" variable should also change, mirroring the state of the physical LED.
+
+## Using Advanced Cloud Variables
+
+To use variables in Arduino Cloud that are not of a basic type, you can set them up like you would do with any other variable. For example, to control a colored light such as the on-board RGB led on some Arduino boards, you can create a variable of type `CloudColoredLight`. 
+
+![Variable creation in Arduino Cloud](./assets/colored-light-variable.png)
+
+
+
+On the programming side, you need to import the corresponding class in MicroPython. For the colored light example, you need to import the `ColoredLight` class:
+
+```python
+from arduino_iot_cloud import ColoredLight
+```
+
+The cloud variable needs then to be registered with the client using that type and the name that you gave it ("light" in our example):
+
+```python
+client.register(ColoredLight("light", swi=True, on_write=on_colored_light_changed))
+```
+
+In the callback function for this variable ("on_colored_light_changed") you will receive an object of the same type with populated properties. Those properties depend on the type. For example the `ColoredLight` class has the following properties:
+
+- `swi`: The on-value of the light switch (True/False)
+- `hue`: The hue value of the color
+- `sat`: The saturation of the color
+- `bri`: The brightness of the color
+
+Once you receive these values from the Cloud you will need to convert them to RGB so you can set the RGB LEDs accordingly. For reasons of brevity we won't go into the code for the color conversion, it is provided however in the full example code further down. Also we need to make all three RGB LEDs available in the code so their value can be set:
+
+```python
+led_red = Pin("LEDR", Pin.OUT)
+led_green = Pin("LEDG", Pin.OUT)
+led_blue = Pin("LEDB", Pin.OUT)
+```
+
+Then each of the three LEDs' brightness needs to be set so that the resulting color is as desired. This is done using a technique called [PWM](/learn/microcontrollers/analog-output/):
+
+```python
+def set_led_brightness(led, brightness):
+    """
+    Sets the brightness (0 - 255) of an LED using PWM.
+    """
+    pwm = PWM(led)
+    max_brightness = 255
+
+    # Ensure brightness is between 0 and max_brightness.
+    brightness = max(0, min(max_brightness, brightness))
+
+    # Map input brightness from 0-max_brightness to 0-65535.
+    duty_cycle = int(brightness * 65535 / max_brightness)
+    pwm.duty_u16(duty_cycle)
+```
+
+With that defined we can set the corresponding values of the RGBs:
+
+```python
+def set_leds_from_rgb(rgb, common_cathode=True):
+    # For common cathode RGB LEDs, invert the RGB values
+    # since the LED is on when the pin is low.
+    if common_cathode:
+        rgb = (255 - rgb[0], 255 - rgb[1], 255 - rgb[2])
+    set_led_brightness(led_red, rgb[0])
+    set_led_brightness(led_green, rgb[1])
+    set_led_brightness(led_blue, rgb[2])
+```
+
+The missing piece is the callback handler for when the cloud variable changes that was defined when registering the variable:
+
+```python
+def on_colored_light_changed(client, light):
+    # Do nothing if the hue, saturation or brightness is None.
+    if light.hue is None or light.sat is None or light.bri is None:
+        return    
+    
+    light_enabled = light.swi
+    
+    if light_enabled:
+        rgb_value = convert_hs_to_rgb(light.hue, light.sat, light.bri)
+        set_leds_from_rgb(rgb_value)
+    else:
+        set_leds_from_rgb((0, 0, 0)) # Turn LEDs off
+```
+
+### Full Code Example
+
+Here is the complete code to try it out:
+
+
+```python
+# This file is part of the Python Arduino Cloud.
+
+# Any copyright is dedicated to the Public Domain.
+# https://creativecommons.org/publicdomain/zero/1.0/
+from machine import Pin, PWM
+import time
+import network
+import logging
+from arduino_iot_cloud import ArduinoCloudClient
+from arduino_iot_cloud import ColoredLight
+
+from secrets import *
+
+led_red = Pin("LEDR", Pin.OUT)
+led_green = Pin("LEDG", Pin.OUT)
+led_blue = Pin("LEDB", Pin.OUT)
+
+def set_led_brightness(led, brightness):
+    """
+    Sets the brightness (0 - 255) of an LED using PWM.
+    """
+    pwm = PWM(led)
+    max_brightness = 255
+
+    # Ensure brightness is between 0 and max_brightness.
+    brightness = max(0, min(max_brightness, brightness))
+
+    # Map input brightness from 0-max_brightness to 0-65535.
+    duty_cycle = int(brightness * 65535 / max_brightness)
+    pwm.duty_u16(duty_cycle)
+
+def convert_hs_to_rgb(hue, sat, bri):
+    # Convert hue, saturation and brightness to RGB.
+    # This function is based on the algorithm described at
+    # https://www.developers.meethue.com/documentation/color-conversions-rgb-xy
+    # and https://gist.github.com/mjackson/5311256
+    h = hue / 360
+    s = sat / 100
+    v = bri / 100
+    if s == 0.0:
+        return (int(v * 255), int(v * 255), int(v * 255))
+    i = int(h * 6)
+    f = (h * 6) - i
+    p = v * (1 - s)
+    q = v * (1 - s * f)
+    t = v * (1 - s * (1 - f))
+    if i % 6 == 0:
+        return (int(v * 255), int(t * 255), int(p * 255))
+    if i % 6 == 1:
+        return (int(q * 255), int(v * 255), int(p * 255))
+    if i % 6 == 2:
+        return (int(p * 255), int(v * 255), int(t * 255))
+    if i % 6 == 3:
+        return (int(p * 255), int(q * 255), int(v * 255))
+    if i % 6 == 4:
+        return (int(t * 255), int(p * 255), int(v * 255))
+    if i % 6 == 5:
+        return (int(v * 255), int(p * 255), int(q * 255))    
+
+def set_leds_from_rgb(rgb, common_cathode=True):
+    # For common cathode RGB LEDs, invert the RGB values
+    # since the LED is on when the pin is low.
+    if common_cathode:
+        rgb = (255 - rgb[0], 255 - rgb[1], 255 - rgb[2])
+    set_led_brightness(led_red, rgb[0])
+    set_led_brightness(led_green, rgb[1])
+    set_led_brightness(led_blue, rgb[2])
+
+def on_colored_light_changed(client, light):
+    # Do nothing if the hue, saturation or brightness is None.
+    if light.hue is None or light.sat is None or light.bri is None:
+        return    
+    
+    light_enabled = light.swi
+    
+    if light_enabled:
+        rgb_value = convert_hs_to_rgb(light.hue, light.sat, light.bri)
+        set_leds_from_rgb(rgb_value)
+    else:
+        set_leds_from_rgb((0, 0, 0))
+
+def wifi_connect():
+    if not WIFI_SSID or not WIFI_PASSWORD:
+        raise (Exception("Network is not configured. Set SSID and passwords in secrets.py"))
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+    wlan.connect(WIFI_SSID, WIFI_PASSWORD)
+    while not wlan.isconnected():
+        logging.info("Trying to connect. Note this may take a while...")
+        time.sleep_ms(500)
+    logging.info(f"WiFi Connected {wlan.ifconfig()}")
+
+if __name__ == "__main__":
+    # Configure the logger.
+    # All message equal or higher to the logger level are printed.
+    # To see more debugging messages, set level=logging.DEBUG.
+    logging.basicConfig(
+        datefmt="%H:%M:%S",
+        format="%(asctime)s.%(msecs)03d %(message)s",
+        level=logging.INFO,
+    )
+    
+    # NOTE: Add networking code here or in boot.py
+    wifi_connect()
+    
+    # Create a client object to connect to the Arduino Cloud.
+
+    # For MicroPython, the key and cert files must be stored in DER format on the filesystem.
+    # Alternatively, a username and password can be used to authenticate:
+    client = ArduinoCloudClient(device_id=DEVICE_ID, username=DEVICE_ID, password=CLOUD_PASSWORD)
+    client.register(ColoredLight("light", swi=True, on_write=on_colored_light_changed))
+
+    # Start the Arduino Cloud client.
+
+    client.start()
+```
 
 ## Troubleshoot
 

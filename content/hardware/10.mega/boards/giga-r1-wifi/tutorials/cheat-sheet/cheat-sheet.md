@@ -1,5 +1,5 @@
 ---
-title: 'Arduino GIGA R1 Cheat Sheet'
+title: 'Arduino GIGA R1 User Manual'
 description: 'Learn how to set up the GIGA R1, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART), and much, much more.'
 tags:
   - Installation
@@ -289,6 +289,8 @@ The pinout for the display connector is shown in the image below:
 
 ![MIPI/DSI connector.](assets/mipi-dsi.png)
 
+***When connecting a module or shield to the GIGA R1 WiFi board, be careful to not connect it at an angle or your board may be damaged.***
+
 The following pins are directly connected to the STM32H747XI and cannot be used as GPIOs.
 - D1N
 - D1P
@@ -383,7 +385,7 @@ String getLocaltime()
 
 To get accurate time, you'll want to change the values in `void RTCset()` to whatever time it is when you're starting this clock. As long as the VRTC pin is connected to power, the clock will keep ticking and time will be kept accurately.
 
-### RTC Wi-Fi® Example
+### RTC / UDP / NTP Example
 
 With the following sketch, you can automatically set the time by requesting the time from a Network Time Protocol (NTP), using the UDP protocol.
 
@@ -571,9 +573,195 @@ void printWifiStatus()
     Serial.print(rssi);
     Serial.println(" dBm");
 }
-
 ```
+### RTC / UDP / NTP Example (Timezone)
 
+This example provides an option to set the timezone. As the received epoch is based on GMT time, you can input e.g. `-1` or `5` which represents the hours. The `timezone` variable is changed at the top of the example.
+
+```arduino
+/*
+ Udp NTP Client with Timezone Adjustment
+
+ Get the time from a Network Time Protocol (NTP) time server
+ Demonstrates use of UDP sendPacket and ReceivePacket
+ For more on NTP time servers and the messages needed to communicate with them,
+ see http://en.wikipedia.org/wiki/Network_Time_Protocol
+
+ created 4 Sep 2010
+ by Michael Margolis
+ modified 9 Apr 2012
+ by Tom Igoe
+ modified 28 Dec 2022
+ by Giampaolo Mancini
+ modified 29 Jan 2024
+ by Karl Söderby
+
+This code is in the public domain.
+ */
+
+#include <WiFi.h>
+#include <WiFiUdp.h>
+#include <mbed_mktime.h>
+
+int timezone = -1; //this is GMT -1. 
+
+int status = WL_IDLE_STATUS;
+
+char ssid[] = "Flen";        // your network SSID (name)
+char pass[] = "";  // your network password (use for WPA, or use as key for WEP)
+
+int keyIndex = 0;  // your network key index number (needed only for WEP)
+
+unsigned int localPort = 2390;  // local port to listen for UDP packets
+
+// IPAddress timeServer(162, 159, 200, 123); // pool.ntp.org NTP server
+
+constexpr auto timeServer{ "pool.ntp.org" };
+
+const int NTP_PACKET_SIZE = 48;  // NTP timestamp is in the first 48 bytes of the message
+
+byte packetBuffer[NTP_PACKET_SIZE];  // buffer to hold incoming and outgoing packets
+
+// A UDP instance to let us send and receive packets over UDP
+WiFiUDP Udp;
+
+constexpr unsigned long printInterval{ 1000 };
+unsigned long printNow{};
+
+void setup() {
+  // Open serial communications and wait for port to open:
+  Serial.begin(9600);
+  while (!Serial) {
+    ;  // wait for serial port to connect. Needed for native USB port only
+  }
+
+  // check for the WiFi module:
+  if (WiFi.status() == WL_NO_SHIELD) {
+    Serial.println("Communication with WiFi module failed!");
+    // don't continue
+    while (true)
+      ;
+  }
+
+  // attempt to connect to WiFi network:
+  while (status != WL_CONNECTED) {
+    Serial.print("Attempting to connect to SSID: ");
+    Serial.println(ssid);
+    // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
+    status = WiFi.begin(ssid, pass);
+
+    // wait 10 seconds for connection:
+    delay(10000);
+  }
+
+  Serial.println("Connected to WiFi");
+  printWifiStatus();
+
+  setNtpTime();
+}
+
+void loop() {
+  if (millis() > printNow) {
+    Serial.print("System Clock:          ");
+    Serial.println(getLocaltime());
+    printNow = millis() + printInterval;
+  }
+}
+
+void setNtpTime() {
+  Udp.begin(localPort);
+  sendNTPpacket(timeServer);
+  delay(1000);
+  parseNtpPacket();
+}
+
+// send an NTP request to the time server at the given address
+unsigned long sendNTPpacket(const char* address) {
+  memset(packetBuffer, 0, NTP_PACKET_SIZE);
+  packetBuffer[0] = 0b11100011;  // LI, Version, Mode
+  packetBuffer[1] = 0;           // Stratum, or type of clock
+  packetBuffer[2] = 6;           // Polling Interval
+  packetBuffer[3] = 0xEC;        // Peer Clock Precision
+  // 8 bytes of zero for Root Delay & Root Dispersion
+  packetBuffer[12] = 49;
+  packetBuffer[13] = 0x4E;
+  packetBuffer[14] = 49;
+  packetBuffer[15] = 52;
+
+  Udp.beginPacket(address, 123);  // NTP requests are to port 123
+  Udp.write(packetBuffer, NTP_PACKET_SIZE);
+  Udp.endPacket();
+}
+
+unsigned long parseNtpPacket() {
+  if (!Udp.parsePacket())
+    return 0;
+
+  Udp.read(packetBuffer, NTP_PACKET_SIZE);
+  const unsigned long highWord = word(packetBuffer[40], packetBuffer[41]);
+  const unsigned long lowWord = word(packetBuffer[42], packetBuffer[43]);
+  const unsigned long secsSince1900 = highWord << 16 | lowWord;
+  constexpr unsigned long seventyYears = 2208988800UL;
+  const unsigned long epoch = secsSince1900 - seventyYears;
+  
+  const unsigned long new_epoch = epoch + (3600 * timezone); //multiply the timezone with 3600 (1 hour)
+
+  set_time(new_epoch);
+
+#if defined(VERBOSE)
+  Serial.print("Seconds since Jan 1 1900 = ");
+  Serial.println(secsSince1900);
+
+  // now convert NTP time into everyday time:
+  Serial.print("Unix time = ");
+  // print Unix time:
+  Serial.println(epoch);
+
+  // print the hour, minute and second:
+  Serial.print("The UTC time is ");       // UTC is the time at Greenwich Meridian (GMT)
+  Serial.print((epoch % 86400L) / 3600);  // print the hour (86400 equals secs per day)
+  Serial.print(':');
+  if (((epoch % 3600) / 60) < 10) {
+    // In the first 10 minutes of each hour, we'll want a leading '0'
+    Serial.print('0');
+  }
+  Serial.print((epoch % 3600) / 60);  // print the minute (3600 equals secs per minute)
+  Serial.print(':');
+  if ((epoch % 60) < 10) {
+    // In the first 10 seconds of each minute, we'll want a leading '0'
+    Serial.print('0');
+  }
+  Serial.println(epoch % 60);  // print the second
+#endif
+
+  return epoch;
+}
+
+String getLocaltime() {
+  char buffer[32];
+  tm t;
+  _rtc_localtime(time(NULL), &t, RTC_FULL_LEAP_YEAR_SUPPORT);
+  strftime(buffer, 32, "%Y-%m-%d %k:%M:%S", &t);
+  return String(buffer);
+}
+
+void printWifiStatus() {
+  // print the SSID of the network you're attached to:
+  Serial.print("SSID: ");
+  Serial.println(WiFi.SSID());
+
+  // print your board's IP address:
+  IPAddress ip = WiFi.localIP();
+  Serial.print("IP Address: ");
+  Serial.println(ip);
+
+  // print the received signal strength:
+  long rssi = WiFi.RSSI();
+  Serial.print("signal strength (RSSI):");
+  Serial.print(rssi);
+  Serial.println(" dBm");
+}
+```
 
 ### VRTC Pin
 
@@ -813,106 +1001,111 @@ Serial1.write("Hello world!");
 
 ## Pins
 
-The **GIGA R1** gives you access to more pins than any other Arduino board that is this accessible for makers. Many of them have special features that will be accounted for in the upcoming sections of this article. Keep reading to learn what you can do with them. 
+The **GIGA R1** gives you access to more pins than any other Arduino board that is this accessible for makers. Many of them have special features that will be accounted for in the upcoming sections of this article. Keep reading to learn what you can do with them.
 
-If you just need a quick overview of the pins functionality, this is a full table of all the IO pins on the **GIGA R1**  
+If you just need a quick overview of the pins functionality, this is a full table of all the IO pins on the **GIGA R1**
 
-| Pin | Function  | Notes                |
-| --- | --------- | -------------------- |
-| 0   | TX        | Serial communication |
-| 1   | RX        | Serial communication |
-| 2   | PWM       | PWM, Digital IO pin  |
-| 3   | PWM       | PWM, Digital IO pin  |
-| 4   | PWM       | PWM, Digital IO pin  |
-| 5   | PWM       | PWM, Digital IO pin  |
-| 6   | PWM       | PWM, Digital IO pin  |
-| 7   | PWM       | PWM, Digital IO pin  |
-| 8   | PWM/SCL2  | PWM, Digital IO, I2C |
-| 9   | PWM/SDA2  | PWM, Digital IO, I2C |
-| 10  | PWM/CS    | PWM, Digital IO, SPI |
-| 11  | PWM/COPI  | PWM, Digital IO, SPI |
-| 12  | PWM/CIPO  | PWM, Digital IO, SPI |
-| 13  | PWM/SCK   | PWM, Digital IO, SPI |
-| 14  | TX3       | Serial communication |
-| 15  | RX3       | Serial communication |
-| 16  | TX2       | Serial communication |
-| 17  | RX2       | Serial communication |
-| 18  | TX1       | Serial communication |
-| 19  | RX1       | Serial communication |
-| 20  | SDA       | Digital IO, I2C      |
-| 21  | SCL       | Digital IO, I2C      |
-| 22  | GPIO      | Digital IO pin       |
-| 23  | GPIO      | Digital IO pin       |
-| 24  | GPIO      | Digital IO pin       |
-| 25  | GPIO      | Digital IO pin       |
-| 26  | GPIO      | Digital IO pin       |
-| 27  | GPIO      | Digital IO pin       |
-| 28  | GPIO      | Digital IO pin       |
-| 29  | GPIO      | Digital IO pin       |
-| 30  | GPIO      | Digital IO pin       |
-| 31  | GPIO      | Digital IO pin       |
-| 32  | GPIO      | Digital IO pin       |
-| 33  | GPIO      | Digital IO pin       |
-| 34  | GPIO      | Digital IO pin       |
-| 35  | GPIO      | Digital IO pin       |
-| 36  | GPIO      | Digital IO pin       |
-| 37  | GPIO      | Digital IO pin       |
-| 38  | GPIO      | Digital IO pin       |
-| 39  | GPIO      | Digital IO pin       |
-| 40  | GPIO      | Digital IO pin       |
-| 41  | GPIO      | Digital IO pin       |
-| 42  | GPIO      | Digital IO pin       |
-| 43  | GPIO      | Digital IO pin       |
-| 44  | GPIO      | Digital IO pin       |
-| 45  | GPIO      | Digital IO pin       |
-| 46  | GPIO      | Digital IO pin       |
-| 47  | GPIO      | Digital IO pin       |
-| 48  | GPIO      | Digital IO pin       |
-| 49  | GPIO      | Digital IO pin       |
-| 50  | GPIO      | Digital IO pin       |
-| 51  | GPIO      | Digital IO pin       |
-| 52  | GPIO      | Digital IO pin       |
-| 53  | GPIO      | Digital IO pin       |
-| 54  | GPIO      | Digital IO pin       |
-| 55  | GPIO      | Digital IO pin       |
-| 56  | GPIO      | Digital IO pin       |
-| 57  | GPIO      | Digital IO pin       |
-| 58  | GPIO      | Digital IO pin       |
-| 59  | GPIO      | Digital IO pin       |
-| 60  | GPIO      | Digital IO pin       |
-| 61  | GPIO      | Digital IO pin       |
-| 62  | GPIO      | Digital IO pin       |
-| 63  | GPIO      | Digital IO pin       |
-| 64  | GPIO      | Digital IO pin       |
-| 65  | GPIO      | Digital IO pin       |
-| 66  | GPIO      | Digital IO pin       |
-| 67  | GPIO      | Digital IO pin       |
-| 68  | GPIO      | Digital IO pin       |
-| 69  | GPIO      | Digital IO pin       |
-| 70  | GPIO      | Digital IO pin       |
-| 71  | GPIO      | Digital IO pin       |
-| 72  | GPIO      | Digital IO pin       |
-| 73  | GPIO      | Digital IO pin       |
-| 74  | GPIO      | Digital IO pin       |
-| 75  | GPIO      | Digital IO pin       |
-| A0  | Analog in | Analog In            |
-| A1  | Analog in | Analog In            |
-| A2  | Analog in | Analog In            |
-| A3  | Analog in | Analog In            |
-| A4  | Analog in | Analog In            |
-| A5  | Analog in | Analog In            |
-| A6  | Analog in | Analog In            |
-| A7  | Analog in | Analog In            |
-| A8  | Analog in | Analog In            |
-| A9  | Analog in | Analog In            |
-| A10 | Analog in | Analog In            |
-| A11 | Analog in | Analog In            |
-| A12 | DAC0      | Analog In, DAC       |
-| A13 | DAC1      | Analog In, DAC       |
-| A14 | CANRX     | Analog In, CAN       |
-| A15 | CANTX     | Analog In, CAN       |
-
-
+| Pin       | Function        | Notes                                   |
+| --------- | --------------- | --------------------------------------- |
+| D0        | TX              | Serial communication                    |
+| D1        | RX              | Serial communication                    |
+| D2        | PWM             | PWM, Digital IO pin                     |
+| D3        | PWM             | PWM, Digital IO pin                     |
+| D4        | PWM             | PWM, Digital IO pin                     |
+| D5        | PWM             | PWM, Digital IO pin                     |
+| D6        | PWM             | PWM, Digital IO pin                     |
+| D7        | PWM             | PWM, Digital IO pin                     |
+| D8        | PWM/SCL2        | PWM, Digital IO, I2C                    |
+| D9        | PWM/SDA2        | PWM, Digital IO, I2C                    |
+| D10       | PWM/CS          | PWM, Digital IO, SPI                    |
+| D11       | PWM/COPI        | PWM, Digital IO, SPI                    |
+| D12       | PWM/CIPO        | PWM, Digital IO, SPI                    |
+| D13       | PWM/SCK         | PWM, Digital IO, SPI                    |
+| D14       | TX3             | Serial communication                    |
+| D15       | RX3             | Serial communication                    |
+| D16       | TX2             | Serial communication                    |
+| D17       | RX2             | Serial communication                    |
+| D18       | TX1             | Serial communication                    |
+| D19       | RX1             | Serial communication                    |
+| D20       | SDA             | Digital IO, I2C                         |
+| D21       | SCL             | Digital IO, I2C                         |
+| D22       | GPIO            | Digital IO pin                          |
+| D23       | GPIO            | Digital IO pin                          |
+| D24       | GPIO            | Digital IO pin                          |
+| D25       | GPIO            | Digital IO pin                          |
+| D26       | GPIO            | Digital IO pin                          |
+| D27       | GPIO            | Digital IO pin                          |
+| D28       | GPIO            | Digital IO pin                          |
+| D29       | GPIO            | Digital IO pin                          |
+| D30       | GPIO            | Digital IO pin                          |
+| D31       | GPIO            | Digital IO pin                          |
+| D32       | GPIO            | Digital IO pin                          |
+| D33       | GPIO            | Digital IO pin                          |
+| D34       | GPIO            | Digital IO pin                          |
+| D35       | GPIO            | Digital IO pin                          |
+| D36       | GPIO            | Digital IO pin                          |
+| D37       | GPIO            | Digital IO pin                          |
+| D38       | GPIO            | Digital IO pin                          |
+| D39       | GPIO            | Digital IO pin                          |
+| D40       | GPIO            | Digital IO pin                          |
+| D41       | GPIO            | Digital IO pin                          |
+| D42       | GPIO            | Digital IO pin                          |
+| D43       | GPIO            | Digital IO pin                          |
+| D44       | GPIO            | Digital IO pin                          |
+| D45       | GPIO            | Digital IO pin                          |
+| D46       | GPIO            | Digital IO pin                          |
+| D47       | GPIO            | Digital IO pin                          |
+| D48       | GPIO            | Digital IO pin                          |
+| D49       | GPIO            | Digital IO pin                          |
+| D50       | GPIO            | Digital IO pin                          |
+| D51       | GPIO            | Digital IO pin                          |
+| D52       | GPIO            | Digital IO pin                          |
+| D53       | GPIO            | Digital IO pin                          |
+| D54       | GPIO            | Digital IO pin                          |
+| D55       | GPIO            | Digital IO pin                          |
+| D56       | GPIO            | Digital IO pin                          |
+| D57       | GPIO            | Digital IO pin                          |
+| D58       | GPIO            | Digital IO pin                          |
+| D59       | GPIO            | Digital IO pin                          |
+| D60       | GPIO            | Digital IO pin                          |
+| D61       | GPIO            | Digital IO pin                          |
+| D62       | GPIO            | Digital IO pin                          |
+| D63       | GPIO            | Digital IO pin                          |
+| D64       | GPIO            | Digital IO pin                          |
+| D65       | GPIO            | Digital IO pin                          |
+| D66       | GPIO            | Digital IO pin                          |
+| D67       | GPIO            | Digital IO pin                          |
+| D68       | GPIO            | Digital IO pin                          |
+| D69       | GPIO            | Digital IO pin                          |
+| D70       | GPIO            | Digital IO pin                          |
+| D71       | GPIO            | Digital IO pin                          |
+| D72       | GPIO            | Digital IO pin                          |
+| D73       | GPIO            | Digital IO pin                          |
+| D74       | GPIO            | Digital IO pin                          |
+| D75       | GPIO            | Digital IO pin                          |
+| A0 / D76  | Analog in       | Analog In                               |
+| A1 / D77  | Analog in       | Analog In                               |
+| A2 / D78  | Analog in       | Analog In                               |
+| A3 / D79  | Analog in       | Analog In                               |
+| A4 / D80  | Analog in       | Analog In                               |
+| A5 / D81  | Analog in       | Analog In                               |
+| A6 / D82  | Analog in       | Analog In                               |
+| A7 / D83  | Analog in       | Analog In                               |
+| A8        | Analog in       | Analog In                               |
+| A9        | Analog in       | Analog In                               |
+| A10       | Analog in       | Analog In                               |
+| A11       | Analog in       | Analog In                               |
+| A12 / D84 | DAC0            | Analog In, DAC                          |
+| A13 / D85 | DAC1            | Analog In, DAC                          |
+| D86       | RGB (red)       | Only RGB, not accessible as GPIO        |
+| D87       | RGB (green)     | Only RGB, not accessible as GPIO        |
+| D88       | RGB (blue)      | Only RGB, not accessible as GPIO        |
+| D89       | SPI1 (CIPO)     | SPI connector                           |
+| D90       | SPI1 (COPI)     | SPI connector                           |
+| D91       | SPI1 (SCK)      | SPI connector                           |
+| D92       | USB Host Enable | USB-A connector, not accessible as GPIO |
+| D93       | CANRX           | Digital IO pin, CAN                     |
+| D94       | CANTX           | Digital IO pin, CAN                     |
 
 ### Analog Pins
 

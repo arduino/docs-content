@@ -56,7 +56,8 @@ In case you are interested in unlocking the full potential of the tool, the tuto
 
 To use the Arduino Speech Recognition Engine, you will need one of the following boards:
 
-- [Arduino Portenta H7 (any variant)](https://store.arduino.cc/portenta-h7) + Portenta Vision Shield ([LoRa](https://store.arduino.cc/portenta-vision-shield-lora) or [Ethernet](https://store.arduino.cc/portenta-vision-shield))
+- [Arduino Portenta H7 (any variant)](https://store.arduino.cc/portenta-h7) + Portenta Vision Shield ([LoRa](https://store.arduino.cc/products/arduino-portenta-vision-shield-lora%C2%AE) or [Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet))
+- [Arduino Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 - [Arduino Nano 33 BLE Sense Rev 1](https://store.arduino.cc/products/arduino-nano-33-ble-sense)
 - [Arduino Nano 33 BLE Sense Rev 2](https://store.arduino.cc/products/nano-33-ble-sense-rev2)
 - [Arduino Nano RP2040](https://store.arduino.cc/products/arduino-nano-rp2040-connect)
@@ -64,8 +65,8 @@ To use the Arduino Speech Recognition Engine, you will need one of the following
 In the case of the Portenta H7, remember that is always possible to add an external microphone as additional hardware, instead of using the Portenta Vision Shield.
 
 Additionally, you will need the following hardware and software:
-- 1x USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
-- [Arduino IDE 2](https://www.arduino.cc/en/software), [Arduino Cloud](https://cloud.arduino.cc), or [Arduino-cli](https://arduino.github.io/arduino-cli)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), [Arduino Cloud Editor](https://create.arduino.cc/editor), or [Arduino-cli](https://arduino.github.io/arduino-cli)
 
 ## Instructions
 
@@ -91,7 +92,7 @@ There are three libraries, you will need to install one or another depending on 
 
 Go to the Library Manager, search for the library that you need for your board and install it.
 
-In case you need more instructions about how to install libraries, visit: https://docs.arduino.cc/hacking/software/Libraries
+In case you need more instructions about how to install libraries, read this [guide](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-installing-a-library/).
 
 #### Get The Serial Number
 
@@ -133,7 +134,7 @@ Once everything is ready, click on the **submit** button to get your license, it
       };
   ```
 
-**Remember to replace the g_lpdwLicense values with your license ones.**
+***Remember to replace the `g_lpdwLicense` values with your license ones.***
 
 Now switch back to the `VoiceRecognition` tab and upload the sketch.
 
@@ -149,7 +150,7 @@ Please note that the sketch and license that you are using are a "demo" version 
 
 ### Customized Commands
 
-To expand the features and human interaction of your projects, you can create your own voice commands with the Arduino Speech Recognition Engine. In this section, you will learn about how to use the _Cyberon Model Configuration_ webpage to create a new project with custom voice commands.
+To expand the features and human interaction of your projects, you can create your own voice commands with the Arduino Speech Recognition Engine. In this section, you will learn about how to use the [Cyberon Model Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CTMain.php) webpage to create a new project with custom voice commands.
 
 ***These steps are compatible with the trial license, used in this tutorial, and the paid license***
 
@@ -169,18 +170,18 @@ Click next, you will see a new page to:
 
 ***Warning: each project is bound to a single Arduino board with the declared Serial Number. If you would like to use the Arduino Speech Recognition Engine on another Arduino board, you need to create a new project from scratch and assign it to the new Serial Number.***
 
-To create a new project first you need to select the desired language for the speech recognition. Once is set, click **create**.
+To create a new project first you need to select the desired language for the speech recognition. Once is set, click **Create**.
 
 ![Cyberon, New Project](assets/newProject.png)
 
 Now you need to configure the following steps to create a new trigger:
 
 * Create the **Input Trigger word**, for example "Hey Arduino".
-  The **Input Trigger word** will trigger the device, to let the board know that you are going to say a command after that.
-  ![Cyberon Adding the Input trigger](assets/newProjectTrigger.png)
+  The **Input Trigger word** will trigger the device to let the board know that you are going to say a command after that.
+![Cyberon Adding the Input trigger](assets/newProjectTrigger.png)
 * Add the **Command** list.
-  These commands will be used to do tasks on your sketch. For example, if you have a command which is "Play", later you will be able to get that command and proceed with some job inside the sketch easily.
-  ![Cyberon Adding the Command list](assets/newProjectCommands.png)
+  These commands will be used to do tasks on your sketch. For example, if you have a command which is `share`, later you will be able to get that command and proceed with some job inside the sketch easily.
+![Cyberon Adding the Command list](assets/newProjectCommands.png)
 * The next step is just to confirm that the data written is correct. Click on **Next** to finish.
 
 On the next page you will see all the configurations already set. Check it out to confirm that everything is correct. In case something is wrong, click on **Back** to fix it.
@@ -201,9 +202,9 @@ On your sketch directory, paste the files you have got in your e-mail inbox befo
 * `CybLicense_<id>.h`
 * `Model_<id>.h`
 
-Now to implement the **Input Trigger Command** and the **Command List** open the sketch and change the following `#include`
+Now to implement the **Input Trigger Command** and the **Command List** open the sketch and change the following headers with the downloaded ones:
 
-```cpp
+```arduino
 ...
 
 #include "CybLicense.h" -> #include "CybLicense_<id>.h"
@@ -219,6 +220,128 @@ Now to implement the **Input Trigger Command** and the **Command List** open the
 ```
 
 At this point, the project is set to be used. Upload the sketch and open the Serial Monitor. Now you can test your new **Input Trigger Word** and the **Command** list that you have created. Pronounce the new trigger words out loud, you will see the recognized words on the **Serial Monitor**.
+
+#### Modify the Example Codes
+
+If you want to execute custom actions with the **trigger** and **commands** you defined, you can do it inside the `VRCallback` function.
+
+First you need to know your trigger and commands IDs. You can find them listed in your Serial Monitor, in this case are the following:
+
+| **Keyword** | **ID** |
+| :---------: | :----: |
+| Hey Arduino |  100   |
+|    read     | 10000  |
+|   upload    | 10001  |
+|    share    | 10002  |
+
+Here is the `VRCallback` function modified so you can easily give functionality to the commands detection:
+
+```arduino
+// Callback function for VR engine
+void VRCallback(int nFlag, int nID, int nScore, int nSG, int nEnergy)
+{
+  if (nFlag==DSpotterSDKHL::InitSuccess)
+  {
+      //ToDo
+  }
+  else if (nFlag==DSpotterSDKHL::GetResult)
+  {
+      /*
+      When getting an recognition result,
+      the following index and scores are also return to the VRCallback function:
+          nID        The result command id
+          nScore     nScore is used to evaluate how good or bad the result is.
+                     The higher the score, the more similar the voice and the result command are.
+          nSG        nSG is the gap between the voice and non-command (Silence/Garbage) models.
+                     The higher the score, the less similar the voice and non-command (Silence/Garbage) models are.
+          nEnergy    nEnergy is the voice energy level.
+                     The higher the score, the louder the voice.
+      */
+      //ToDo
+      switch(nID)
+      {
+          case 100:
+            Serial.println("The Trigger was heard");
+            // Add your own code here
+            break;
+          case 10000:
+            Serial.println("The Command -read- was heard");
+            // Add your own code here
+            break;
+          case 10001:
+            Serial.println("The Command -upload- was heard");
+            // Add your own code here
+            break;
+          case 10002:
+            Serial.println("The Command -share- was heard");
+            // Add your own code here
+            break;
+          default:
+            break;
+      }
+
+  }
+  else if (nFlag==DSpotterSDKHL::ChangeStage)
+  {
+      switch(nID)
+      {
+          case DSpotterSDKHL::TriggerStage:
+            LED_RGB_Off();
+            LED_BUILTIN_Off();
+            break;
+          case DSpotterSDKHL::CommandStage:
+            LED_BUILTIN_On();
+            break;
+          default:
+            break;
+      }
+  }
+  else if (nFlag==DSpotterSDKHL::GetError)
+  {
+      if (nID == DSpotterSDKHL::LicenseFailed)
+      {
+          //Serial.print("DSpotter license failed! The serial number of your device is ");
+          //Serial.println(DSpotterSDKHL::GetSerialNumber());
+      }
+      g_oDSpotterSDKHL.Release();
+      while(1);//hang loop
+  }
+  else if (nFlag == DSpotterSDKHL::LostRecordFrame)
+  {
+      //ToDo
+  }
+}
+```
+We added a `switch...case` that evaluates the `nID` variable and compares it with the different IDs.
+Inside each case add your custom code to be executed with the trigger or commands.
+
+```arduino
+...
+      switch(nID)
+      {
+          case 100:
+            Serial.println("The Trigger was heard");
+            // Add your own code here
+            break;
+          case 10000:
+            Serial.println("The Command -read- was heard");
+            // Add your own code here
+            break;
+          case 10001:
+            Serial.println("The Command -upload- was heard");
+            // Add your own code here
+            break;
+          case 10002:
+            Serial.println("The Command -share- was heard");
+            // Add your own code here
+            break;
+          default:
+            break;
+      }
+...
+
+```
+
 
 #### Unlock Limitations (License)
 

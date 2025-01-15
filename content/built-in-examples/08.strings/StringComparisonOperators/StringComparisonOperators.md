@@ -31,7 +31,7 @@ String comparison operators can be confusing when you're comparing numeric strin
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 ### Circuit
 
