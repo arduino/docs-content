@@ -7,7 +7,7 @@ tags:
   - Camera
   - Sensors
   - Machine Learning
-author: 'Christopher Mendez'
+author: 'Christopher Méndez'
 hardware:
   - hardware/04.pro/shields/portenta-vision-shield
 software:
@@ -38,22 +38,27 @@ This user manual will guide you through a practical journey covering the most in
 
 The Arduino Portenta Vision Shield is an add-on board providing machine vision capabilities and additional connectivity to the Portenta family of Arduino boards, designed to meet the needs of industrial automation. The Portenta Vision Shield connects via a high-density connector to the Portenta boards with minimal hardware and software setup.
 
-The included HM-01B0 camera module has been pre-configured to work with the OpenMV libraries provided by Arduino. Based on the specific application requirements, the Portenta Vision Shield is available in two configurations with either Ethernet or LoRa® connectivity.
+***The Portenta Vision Shield has two hardware revisions, distinguished only by the onboard camera sensor; all other features of the shield remain identical across both revisions.***
+
+- The Portenta Vision Shield (**Rev 1**) includes the **HM01B0** (1/11" 320 x 320 VGA 60FPS) CMOS camera module.
+- The Portenta Vision Shield (**Rev 2**) includes the **HM0360** (1/6" 640 x 480 VGA 60FPS) CMOS camera module.
+
+The included camera module has been pre-configured to work with the OpenMV libraries provided by Arduino. Based on the specific application requirements, the Portenta Vision Shield is available in two configurations with either Ethernet or LoRa® connectivity.
 
 ### Board Architecture Overview
 
 The Portenta Vision Shield LoRa® brings industry-rated features to your Portenta. This hardware add-on will let you run embedded computer vision applications, connect wirelessly via LoRa® to the Arduino Cloud or your own infrastructure, and activate your system upon the detection of sound events.
 
-![Vision Shield main components (top view)](assets/arch-top.png)
+![Vision Shield main components (top view)](assets/arch-top-c.png)
 ![Vision Shield main components (bottom view)](assets/arch-bottom.png)
 
 Here is an overview of the board's main components, as shown in the images above:
 
 - **Power Regulator**: the Portenta H7/C33 supplies 3.3 V power to the LoRa® module (ASX00026 only), Ethernet communication (ASX00021 only), Micro SD slot and dual microphones via the 3.3 V output of the high-density connectors. An onboard LDO regulator supplies a 2.8 V output (300 mA) for the camera module.
 
-- **Camera**: the Himax HM-01B0 Module is a very low-power camera with 320x320 resolution and a maximum of 60 FPS depending on the operating mode. Video data is transferred over a configurable 8-bit interconnect with support for frame and line synchronization. The module delivered with the Portenta Vision Shield is the monochrome version. Configuration is achieved via an I2C connection with the compatible Portenta boards microcontrollers.
+- **Camera**: the Himax HM01B0 (320x320) and HM0360 (640x480) modules are very low-power cameras with a maximum of 60 FPS depending on the operating mode. Video data is transferred over a configurable 8-bit interface with support for frame and line synchronization. The module delivered with the Portenta Vision Shield is the monochrome version. Configuration is achieved via an I2C connection with the compatible Portenta boards microcontrollers.
 
-    HM-01B0 offers very low-power image acquisition and provides the possibility to perform motion detection without main processor interaction. The“Always-on” operation provides the ability to turn on the main processor when movement is detected with minimal power consumption.
+    Himax modules offers very low-power image acquisition and provides the possibility to perform motion detection without main processor interaction. The “Always-on” operation provides the ability to turn on the main processor when movement is detected with minimal power consumption.
 
     ***The Portenta C33 is not compatible with the camera of the Portenta Vision Shield***
 
@@ -76,7 +81,7 @@ along with a Semtech SX1276 Radio. The processor is running on Arduino open-sour
 Connect the Vision Shield with a Portenta H7 through their High-Density connectors and verify they are correctly aligned.
 
 <div style="text-align: center;">
-  <video width="100%" controls="true">
+  <video width="100%" autoplay loop>
   <source src="assets/h7_vision-shield.mp4" type="video/mp4"/>
   </video>
 </div>
@@ -189,15 +194,21 @@ From the above example script, we can highlight the main functions:
 
 - `sensor.set_framesize(<Resolution>)` lets you define the image frame size in terms of pixels. [Here](https://docs.openmv.io/library/omv.sensor.html#sensor.set_framesize) you can find all the different options.
 
-  To leverage full sensor resolution with the Vision Shield camera module `HM01B0`, use `sensor.B320X320`.
+  ![Different resolutions examples](assets/resolutions-2.png)
 
-  ![Different resolutions examples](assets/resolutions.png)
+  Here are some tested settings for your camera setup:
+
+  | **Resolution** |    **Setting**    | **Compatibility** |        **Note**        |
+  | :------------: | :---------------: | :---------------: | :--------------------: |
+  |   320 x 240    |   `sensor.QVGA`   | HM01B0 and HM0360 |                        |
+  |   320 x 320    | `sensor.B320X320` |      HM01B0       | Full sensor resolution |
+  |   640 x 480    |   `sensor.VGA`    |      HM0360       | Full sensor resolution |
 
 - `sensor.snapshot()` lets you take a picture and return the image so you can save it, stream it or process it.
 
 ## Camera
 
-The Portenta Vision Shields's main feature is its onboard camera, based on the HM01B0 ultralow power CMOS image sensor. It is perfect for Machine Learning applications such as object detection, image classification, machine/computer vision, robotics, IoT, and more.
+The Portenta Vision Shields's main feature is its onboard camera, based on the HM01B0 or HM0360 ultra low power CMOS image sensor. It is perfect for Machine Learning applications such as object detection, image classification, machine/computer vision, robotics, IoT, and more.
 
 ![Onboard camera sensor](assets/camera.png)
 
