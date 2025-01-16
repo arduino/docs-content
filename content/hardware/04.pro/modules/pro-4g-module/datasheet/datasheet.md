@@ -67,8 +67,7 @@ The supported frequency bands, and digital audio functions of the EMEA variant (
 |           WCDMA            | B1/B5/B8               |
 |            GSM             | EGSM900/DCS1800        |
 |    Digital Audio (PCM)     | Supported              |
-| Type Allocation Code (TAC) | 86335307               |
-|        NCC ID (EU)         | CCAJ22Y00010T2         |
+| Type Allocation Code (TAC) | 86194007               |
 
 <p style="text-align: justify;">
 The supported frequency bands, GNSS, and digital audio functions of the Global variant (SKU: TPX00200) of the Pro 4G Module are shown in the table below.
@@ -84,8 +83,8 @@ The supported frequency bands, GNSS, and digital audio functions of the Global v
 |            GSM             | 850/900/1800/1900                                    |
 |      GNSS (Optional)       | GPS, GLONASS, BeiDou (COMPASS), Galileo, QZSS        |
 |    Digital Audio (PCM)     | Supported                                            |
-| Type Allocation Code (TAC) | 86408106                                             |
-|        FCC ID (USA)        | XMR201903EG25G                                       |
+| Type Allocation Code (TAC) | 86340907                                             |
+|        FCC ID (USA)        | 2AN9S-TPX00200                                       |
 
 <div style="page-break-after: always;"></div>
 
@@ -720,7 +719,6 @@ The following figure describes the space factor of mating plugs.
 |    IC (Canada)    |                No                |                Yes                 |
 |       RoHS        |               Yes                |                Yes                 |
 |       REACH       |               Yes                |                Yes                 |
-|     NCC (EU)      |               Yes                |                 No                 |
 
 ### Declaration of Conformity CE DoC (EU)
 
@@ -835,5 +833,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 |  **Date**  | **Revision** |                      **Changes**                      |
 | :--------: | :----------: | :---------------------------------------------------: |
+| 16/01/2025 |      3       |          TAC and FCC ID information updated           |
 | 23/12/2024 |      2       | TAC, FCC/NCC ID and frequency range information added |
 | 09/04/2024 |      1       |                     First release                     |
