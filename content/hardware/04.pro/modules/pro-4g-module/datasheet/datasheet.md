@@ -833,5 +833,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 |  **Date**  | **Revision** |                      **Changes**                      |
 | :--------: | :----------: | :---------------------------------------------------: |
+| 16/01/2025 |      3       |          TAC and FCC ID information updated           |
 | 23/12/2024 |      2       | TAC, FCC/NCC ID and frequency range information added |
 | 09/04/2024 |      1       |                     First release                     |
