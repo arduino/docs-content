@@ -59,51 +59,140 @@ Predictive maintenance, asset tracking, smart building systems, industrial autom
 
 #### Portenta H7 (SKU: ABX00042)
 
-<p style="text-align: justify;">Dual-core microcontroller board with ARM Cortex® M7 at 480 MHz and M4 at 240 MHz. Includes advanced graphics capabilities and operates in an industrial temperature range (-40 °C to 85 °C).</p>
+<p style="text-align: justify;">The Portenta H7 is a dual-core microcontroller board powered by the STMicroelectronics® STM32H747XI, featuring a 32-bit Arm® Cortex®-M7 running at 480 MHz and a Cortex®-M4 at 240 MHz. It includes advanced graphics capabilities and operates within an industrial temperature range (-40 °C to 85 °C). 
 
 <p style="text-align: center;">
-<img src="assets/portenta_h7.jpg" alt="Portenta H7 board" style="width: 50%; height: auto;">
+<img src="assets/portenta_h7.jpg" alt="Portenta H7 board" style="width: 60%; height: auto;">
 </p>
 
-<p style="text-align: justify;">For  detailed  information of the Portenta H7,  please  check its corresponding documentation available on Arduino Docs:</p>
+Below is a summary of the most important specifications of the Portenta H7 board:</p>
 
-- [Portenta H7 Official Documentation](https://docs.arduino.cc/hardware/portenta-h7/) **[8]**
+| **Feature**                | **Specification**                                                                         |
+|----------------------------|-------------------------------------------------------------------------------------------|
+| **Microcontroller**        | STMicroelectronics® STM32H747XI Dual 32-bit Arm® Cortex®-M7 and Cortex®-M4                |
+| **USB Connector**          | USB-C®                                                                                    |
+| **Digital I/O Pins**       | 78 (High-Density Pins)                                                                    |
+| **Analog Input Pins**      | 8 (High-Density Pins)                                                                     |
+| **PWM Pins**               | 10 (High-Density Pins)                                                                    |
+| **Wireless Connectivity**  | Wi-Fi® 2.4 GHz 802.11 b/g/n, Bluetooth® 4.1 (Murata® LBEE5KL1DX)                          |
+| **Ethernet Connectivity**  | RMII 10/100 Mbps (LAN8742AI)                                                              |
+| **Secure Element**         | NXP® SE050C2 and Microchip® ATECC608                                                      |
+| **Clock Speed**            | 480 MHz (M7 core), 240 MHz (M4 core)                                                      |
+| **Memory**                 | 2 MB Flash, 1 MB RAM (internal); 16 MB NOR Flash, 8 MB SDRAM (external)                   |
+| **Board Dimensions**       | 66.04 mm x 25.40 mm                                                                       |
+
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+  <p style="text-align: justify;">
+    For detailed information about the Portenta H7 board, please refer to its corresponding documentation available on Arduino Docs:
+    <a href="https://docs.arduino.cc/hardware/portenta-h7/" target="_blank" style="color: #0056b3; text-decoration: underline;">
+      Portenta H7 Official Documentation [8]
+    </a>
+  </p>
+</div>
+
+<div style="page-break-after: always;"></div>
 
 #### Nicla Sense ME (SKU: ABX00050)
 
-<p style="text-align: justify;">Compact board (22.86 mm x 22.86 mm) with sensors for motion, pressure, temperature, humidity and indoor air quality. Features Bluetooth® connectivity and edge AI capabilities.</p>
+<p style="text-align: justify;">The Nicla Sense ME is a compact microcontroller board powered by the Nordic Semiconductor® nRF52832, featuring a 32-bit Arm® Cortex®-M4 running at 64 MHz. This board is designed for environmental monitoring and motion sensing applications, integrating multiple high-performance sensors. 
 
 <p style="text-align: center;">
-<img src="assets/nicla_sense_me.jpg" alt="Nicla Sense ME board" style="width: 30%; height: auto;">
+    <img src="assets/nicla_sense_me.jpg" alt="Nicla Sense ME board" style="width: 55%; height: auto;">
 </p>
 
-<p style="text-align: justify;">For  detailed  information of the Nicla Sense ME,  please  check its corresponding documentation available on Arduino Docs:</p>
+Below is a summary of the most important specifications of the Nicla Sense ME board:</p>
 
-- [Nicla Sense ME Official Documentation](https://docs.arduino.cc/hardware/nicla-sense-me/) **[9]**
+| **Feature**               | **Specification**                                                                                                    |
+|---------------------------|----------------------------------------------------------------------------------------------------------------------|
+| **Microcontroller**       | Nordic Semiconductor® nRF52832 32-bit Arm® Cortex®-M4                                                                |
+| **USB Connector**         | Micro-USB                                                                                                            |
+| **Digital I/O Pins**      | 10                                                                                                                   |
+| **Analog Input Pins**     | 2                                                                                                                    |
+| **PWM Pins**              | 12                                                                                                                   |
+| **Wireless Connectivity** | Bluetooth® 5.0 (u-blox® ANNA-B112)                                                                                   |
+| **Onboard Sensors**       | BHI260AP (IMU), BMP390 (barometric sensor), BMM150 (geomagnetic sensor), BME688 (gas, temperature, humidity sensors) |
+| **Clock Speed**           | 64 MHz                                                                                                               |
+| **Memory**                | 512 kB Flash, 64 kB SRAM (internal); 2 MB QSPI Flash (external)                                                      |
+| **Onboard Interfaces**    | SPI (x1), I2C (x1), UART (x1)                                                                                        |
+| **Dimensions**            | 22.86 mm x 22.86 mm                                                                                                  |
+
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+  <p style="text-align: justify;">
+    For detailed information about the Nicla Sense ME board, please refer to its corresponding documentation available on Arduino Docs:
+    <a href="https://docs.arduino.cc/hardware/nicla-sense-me/" target="_blank" style="color: #0056b3; text-decoration: underline;">
+      Nicla Sense ME Official Documentation [9]
+    </a>
+  </p>
+</div>
+
+<div style="page-break-after: always;"></div>
 
 #### Portenta Mid Carrier (SKU: ASX00055)
 
-<p style="text-align: justify;">Expands connectivity with Ethernet, USB-A, mPCIe, CAN, MicroSD and 4G. Includes JTAG pins for debugging and supports I2C, SPI, PWM, digital and analog I/Os.</p>
+<p style="text-align: justify;">The Arduino Portenta Mid Carrier expands connectivity options for Portenta family boards, including Ethernet, USB-A, mPCIe, CAN, MicroSD, and 4G. It also features JTAG pins for debugging and supports I2C, SPI, PWM, digital, and analog I/Os. 
 
 <p style="text-align: center;">
-<img src="assets/portenta_mid_carrier.jpg" alt="Portenta Mid Carrier" style="width: 50%; height: auto;">
+    <img src="assets/portenta_mid_carrier.jpg" alt="Portenta Mid Carrier" style="width: 70%; height: auto;">
 </p>
 
-<p style="text-align: justify;">For  detailed  information of the Portenta Mid Carrier,  please  check its corresponding documentation available on Arduino Docs:</p>
+Below is a summary of the most important specifications of the Portenta Mid Carrier:</p>
 
-- [Portenta Mid Carrier Official Documentation](https://docs.arduino.cc/hardware/portenta-mid-carrier/) **[10]**
+| **Feature**                  | **Specification**                                                                                                                            |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| **Compatible Boards**        | Portenta X8, Portenta H7 (except MIPI Camera), Portenta C33 (except MIPI Camera)                                                             |
+| **Camera Interfaces**        | MIPI Connector (x1), Arducam Connector (x1), USB-A (x1)                                                                                      |
+| **Display Interface**        | DSI (x1)                                                                                                                                     |
+| **Communication Interfaces** | 4G (mPCIe, x1), Ethernet (x1), SPI (x2), I2C (x3), UART (x4), CAN FD (x2, one without transceiver), I2S (x1), SAI (x1), PDM (x1), SPDIF (x1) |
+| **User Interface**           | Power On Push Button (x1)                                                                                                                    |
+| **Storage**                  | MicroSD card slot (x1)                                                                                                                       |
+| **Hardware Debugging**       | JTAG/SWD                                                                                                                                     |
+| **Power Supply**             | Board operating voltage (VIN): +5 VDC; Maximum current provided: 2 A                                                                         |
+| **Dimensions**               | 114 mm x 86.5 mm                                                                                                                             |
+
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+  <p style="text-align: justify;">
+    For detailed information about the Portenta Mid Carrier, please refer to its corresponding documentation available on Arduino Docs:
+    <a href="https://docs.arduino.cc/hardware/portenta-mid-carrier/" target="_blank" style="color: #0056b3; text-decoration: underline;">
+      Portenta Mid Carrier Official Documentation [10]
+    </a>
+  </p>
+</div>
+
+<div style="page-break-after: always;"></div>
 
 #### Arduino Pro 4G GNSS Module Global (SKU: TPX00200)
 
-<p style="text-align: justify;">Designed in the widely used Mini PCI Express (mPCIe) format, this module provides global LTE Cat.4 connectivity, 4G support and GNSS capabilities.</p>
+<p style="text-align: justify;">Designed in the widely used Mini PCI Express (mPCIe) format, this module provides global LTE Cat.4 connectivity, 4G support, and GNSS capabilities.
 
 <p style="text-align: center;">
-<img src="assets/4g_module.jpg" alt="Arduino Pro 4G GNSS Module" style="width: 40%; height: auto;">
+    <img src="assets/4g_module.jpg" alt="Arduino Pro 4G GNSS Module" style="width: 40%; height: auto;">
 </p>
 
-<p style="text-align: justify;">For  detailed  information of the Arduino Pro 4G Module,  please  check its corresponding documentation available on Arduino Docs:</p>
+Below is a summary of the most important specifications of the Arduino Pro 4G GNSS Module Global:</p>
 
-- [Arduino Pro 4G Module Official Documentation](https://docs.arduino.cc/hardware/pro-4g-module/) **[11]**
+| **Feature**               | **Specification**                                                                             |
+|---------------------------|-----------------------------------------------------------------------------------------------|
+| **Module Format**         | Mini PCI Express (mPCIe), PCI Express Mini Card 1.2 Standard Interface                        |
+| **Cellular Connectivity** | LTE Cat.4 with 2G/3G fallback                                                                 |
+| **GNSS**                  | GPS, GLONASS, BeiDou, Galileo, QZSS (Protocol: NMEA 0180, Update Rate: 1 Hz)                  |
+| **LTE Characteristics**   | RF Bandwidth: 1.4, 3, 5, 10, 15, 20 MHz; Download: 150 Mbps; Upload: 50 Mbps                  |
+| **UMTS Characteristics**  | DC-HSDPA: 42 Mbps (Download); HSUPA: 5.76 Mbps (Upload); WCDMA: 384 kbps                      |
+| **GSM Characteristics**   | EDGE: 296 kbps (Download), 236.8 kbps (Upload); GPRS: 107 kbps (Download), 85.6 kbps (Upload) |
+| **Antenna Connectors**    | Main, diversity and GNSS antenna receptacles                                                  |
+| **Power Supply**          | +3.3 VDC                                                                                      |
+| **Interfaces**            | USB, UART, PCM/I2C                                                                            |
+| **Certifications**        | CE, ROHS, REACH, UKCA, FCC, IC                                                                |
+| **Dimensions**            | 30 mm x 51 mm                                                                                 |
+| **Temperature Range**     | Operating: -35 °C to +75 °C; Extended: -40 °C to +80 °C; Storage: -40 °C to +90 °C            |
+
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+  <p style="text-align: justify;">
+    For detailed information about the Arduino Pro 4G GNSS Module Global, please refer to its corresponding documentation available on Arduino Docs:
+    <a href="https://docs.arduino.cc/hardware/pro-4g-module/" target="_blank" style="color: #0056b3; text-decoration: underline;">
+      Arduino Pro 4G GNSS Module Official Documentation [11]
+    </a>
+  </p>
+</div>
 
 <div style="page-break-after: always;"></div>
 
