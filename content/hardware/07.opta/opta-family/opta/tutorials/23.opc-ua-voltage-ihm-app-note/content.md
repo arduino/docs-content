@@ -1,7 +1,7 @@
 ---
 title: 'HMI for Voltage Monitoring Using OPC UA Protocol & Opta™'
 difficulty: advanced
-description: "This application note explains how to monitor voltage levels using the Arduino Opta™, the Open Platform Communications Unified Architecture (OPC-UA) protocol, and the Ignition platform. The Ignition platform provides a Human-Machine Interface (HMI) designed to analyze an analog input on the Opta™ and display indicator lights."
+description: "This application note explains how to monitor voltage levels using the Arduino Opta™, the Open Platform Communications Unified Architecture (OPC-UA) protocol, and the Ignition platform. The Ignition platform provides a Human-Machine Interface (HMI) designed to analyze an Opta™ analog input and display the status of indicator lights."
 tags:
   - OPC-UA
   - Opta
@@ -21,15 +21,13 @@ Human-Machine Interfaces (HMIs) play a vital role in enabling effective interact
 
 The functionality of HMIs depends on efficient and reliable communication across all connected components. This is achieved through the integration of robust communication protocols. One such protocol is Open Platform Communications Unified Architecture (OPC-UA), recognized for its flexibility, security, and compatibility with a wide range of automation platforms. Through OPC-UA, HMIs can ensure reliable data exchange and interoperability, further optimizing industrial system performance.
 
-![IHM for Voltage Monitoring using OPC-UA System Thumbnail](assets/thumbnail.png)
+![HMI for Voltage Monitoring using OPC-UA System](assets/thumbnail.png)
 
 This application note highlights the OPTA™ device's capability to utilize the OPC-UA protocol for seamless communication. Specifically, OPC-UA facilitates data exchange between the Ignition platform and the Opta™ device to create an HMI (Human-Machine Interface) that monitors the voltage level from an analog input on the Opta™. This HMI displays the voltage level and provides visual indicators to represent the status of the voltage.
 
 As an open, standardized architecture, OPC-UA enables interoperability between devices and systems, regardless of manufacturer or technology. When integrated with HMIs, it supports reliable data exchange, enabling remote monitoring, detailed information collection, and precise process control. Its ability to handle data enables features such as configuration parameters, alarms, events, and historical data, enhancing operational efficiency and supporting informed decision-making.
 
-Moreover, OPC-UA is highly scalable, making it ideal for various industrial environments, from small installations to large, distributed automation systems. It ensures secure, reliable communication, which is essential in industries where data integrity and security are paramount.
-
-In summary, this application note demonstrates how integrating OPC-UA with HMIs, specifically in connecting the Ignition platform and Opta™, showcases the device's ability to utilize the OPC-UA protocol. This integration enables the creation of intuitive operator interfaces, supports digital transformation, and enhances productivity in the Industry 4.0 era while ensuring secure and efficient system communication.
+Moreover, OPC-UA is highly scalable, making it ideal for various industrial environments, from small installations to large distributed automation systems. It ensures secure, reliable communication, which is essential in industries where data integrity and security are paramount.
 
 **Target audience:** PLC programmers, Automation engineers, Industrial IoT engineers and Electrical engineers.
 
@@ -37,9 +35,9 @@ In summary, this application note demonstrates how integrating OPC-UA with HMIs,
 
 The goal of this application note is to demonstrate the Opta™ device's capability to utilize the OPC-UA protocol for communication with the Ignition platform to create an intuitive HMI, showcasing how this protocol can facilitate efficient and secure data exchange in industrial environments. The project's objectives are the following:
 
-- Create an Arduino Sketch program that converts the Opta™ into an OPC-UA server accessible to clients on the OPC-UA network. 
+- Create an Arduino sketch that converts the Opta™ into an OPC-UA server accessible to clients on the OPC-UA network. 
 - Include a function to capture the voltage level from the analog input of the Opta™ and activate output relays accordingly.
-- Transmit the voltage level and active output relay data from the Opta™ to the Ignition platform using the OPC-UA protocol.
+- Transmit the voltage level and relay status data from the Opta™ to the Ignition platform using the OPC-UA protocol.
 - Create an HMI in the Ignition platform that utilizes the data fed from the Opta™ via the OPC-UA protocol.
 - Use the created HMI to monitor the voltage level read by the Opta™ and display statuses.
 
@@ -49,24 +47,31 @@ The goal of this application note is to demonstrate the Opta™ device's capabil
 
 ### Hardware Requirements
 
-- [Arduino IDE Opta™ Kit PLC Trainer Pro](https://www.plccable.com/arduino-ide-opta-kit-plc-trainer-pro-industrial-iot-ethernet-afx00003/).
-- [USB Type-C® Cable](https://store.arduino.cc/products/usb-cable2in1-type-c).
-- A Ethernet RJ45 cable.
-- A computer with internet access.
+- [Opta™ Kit PLC Trainer Pro](https://www.plccable.com/arduino-ide-opta-kit-plc-trainer-pro-industrial-iot-ethernet-afx00003/) (x1)
+- [USB Type-C® Cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
+- Ethernet RJ45 cable (x1)
+- A computer with internet access
 
-***Note: We will use the Arduino IDE Opta™ Kit PLC Trainer Pro because it already includes output light displays, an analog voltage read feature, and comes pre-assembled, making it easy and convenient to use. If you don't have the Arduino Opta™ Kit PLC Trainer, you can build your own circuit using LEDs to display the Opta™ outputs and a potentiometer connected to the analog input.***
+<div style="text-align:justify;">
+
+***We will use the Opta™ Kit PLC Trainer Pro because it already includes output lights, analog voltage read feature, and comes pre-assembled, making it easy and convenient to use. If you don't have the Opta™ Kit PLC Trainer, you can build your own circuit using LEDs to monitor the Opta™ outputs and a potentiometer connected to the analog input.***
+
+</div>
 
 ### Software Requirements
 
-- [Arduino PLC IDE](https://docs.arduino.cc/software/plc-ide/)
-- You must install the following library: `Arduino_OPC_UA`. To install it using the Arduino IDE Library Manager, go to **Sketch > Include Library > Manage Libraries**, search for **Arduino_OPC_UA**, and install it. 
-- You will need an account on the `Ignition platform`. By clicking [here](https://www.ignitionapp.com/), you will be redirected to the `Get Started` page, where you can follow the necessary step-by-step instructions.
-- The [Arduino Opta™ Firmware](assets/opta-project-code.zip) configures the Opta™ as an OPC-UA server, allowing it to share voltage level data captured from its analog input, as well as the status of its output relays, with clients on the OPC-UA network. Additionally, the firmware controls the output relays to activate indicator lights based on the captured voltage levels.
-- The [Ignition IHM Design](assets/opta-project-code.zip). This file contains the designed IHM for this application note and must be opened in the `Ignition Designer` program.
+- [Arduino PLC IDE](https://docs.arduino.cc/software/plc-ide/).
+- [Arduino_OPC_UA library](https://github.com/arduino-libraries/Arduino_OPC_UA), install it using the Arduino IDE Library Manager. 
+- [Ignition platform](https://www.ignitionapp.com/) account. Create one for free [here](https://www.ignitionapp.com/).
+- The [Arduino Opta™ Firmware](assets/opta-project-code.zip).
+- The [Ignition HMI Design](assets/opta-project-code.zip), to be opened with the Ignition Designer software.
 
-***Note 1: The `Arduino_OPC_UA` library is based on the `Fraunhofer open62541` implementation of OPC UA, optimized for the Opta family. It supports secure and efficient communication for industrial automation applications. Additionally, it allows for automatic detection and configuration of up to two Arduino Opta Expansion Boards, such as the Digital Expansion (D1608E/D1608S) and Analog Expansion (A0602). For more details and documentation, visit the library's [Github repository](https://github.com/arduino-libraries/Arduino_OPC_UA).***
+<div style="text-align:justify;">
 
-***Note 2: The trial account of the Ignition platform can be used without any limitations for this application. It provides all the necessary features.***
+***The `Arduino_OPC_UA` library is based on the _Fraunhofer open62541_ implementation of OPC UA, optimized for the Opta family. It supports secure and efficient communication for industrial automation applications. Additionally, it allows for automatic detection and configuration of up to two Arduino Opta Expansion Boards, such as the Digital Expansion (D1608E/D1608S) and Analog Expansion (A0602). For more details and documentation, visit the library's [Github repository](https://github.com/arduino-libraries/Arduino_OPC_UA).***
+
+***The trial account of the Ignition platform can be used without any limitations for this application. It provides all the necessary features.***
+</div>
 
 ### Download the Project Code
 
@@ -78,11 +83,9 @@ Download the whole project code [here](assets/opta-project-code.zip).
 
 Before continuing to discuss this application note, let's briefly explain what the OPC-UA protocol is.
 
-The [OPC Foundation](https://opcfoundation.org/), established in 1994, is a global organization dedicated to developing and maintaining open communication standards for industrial automation. The foundation’s primary mission is to enable secure and reliable interoperability between diverse devices, systems, and applications, regardless of the manufacturer or platform. Over the years, the foundation has introduced several standards, with OPC-UA (Unified Architecture) being its most advanced and versatile protocol. OPC-UA builds upon the earlier OPC standards by providing a platform-independent, secure, and scalable solution designed to meet the demands of modern industrial automation and IIoT (Industrial Internet of Things) applications.
+The OPC-UA protocol is a modern communication standard designed for industrial automation and IIoT applications. It provides a secure, platform-independent, and scalable framework for exchanging data between devices and systems. In this application, the protocol facilitates seamless communication between the Arduino Opta™ and the Ignition platform, enabling the creation of an HMI for real-time monitoring and control.
 
 ![OPC-UA Logo](assets/opc-ua-logo.png)
-
-The OPC-UA protocol is a modern communication standard designed for industrial automation and IIoT applications. It provides a secure, platform-independent, and scalable framework for exchanging data between devices and systems. In this application, the protocol facilitates seamless communication between the Arduino Opta™ and the Ignition platform, enabling the creation of an HMI for real-time monitoring and control.
 
 OPC-UA operates on a client-server model, where the server (e.g., the Arduino Opta™) gathers and organizes data, making it accessible as structured nodes. The client (e.g., the Ignition platform) requests or subscribes to this data to receive real-time updates. Additionally, the protocol supports bidirectional communication, allowing clients to send commands back to servers to trigger specific actions. 
 
@@ -104,16 +107,16 @@ This application does not require complex wiring for operation. However, the Ard
 
 ![Voltage Detection System Setup](assets/setup.png)
 
-A voltage sensor captures field data, such as voltage levels, and transmits it to the analog input of the Arduino Opta™. The Opta™ reads the voltage level, controls relay outputs, and acts as an OPC-UA server. It organizes this data into structured nodes and makes it accessible via a TCP/IP connection to the Ignition platform, which functions as an OPC-UA client. The Ignition platform uses this data to create a Human-Machine Interface (HMI), enabling real-time monitoring of voltage levels and relay statuses.
+The Opta™ reads the voltage level, controls relay outputs, and acts as an OPC-UA server. It organizes this data into structured nodes and makes it accessible via a TCP/IP connection to the Ignition platform, which functions as an OPC-UA client. The Ignition platform uses this data to create a Human-Machine Interface (HMI), enabling real-time monitoring of voltage levels and relay statuses.
 
 Deployment Setup:
 - **Arduino Opta™**: Connected to an analog voltage source for monitoring and powered by a 24 VDC power supply. The Opta™ reads voltage levels, controls relay outputs, and communicates with the Ignition platform via the OPC-UA protocol, acting as an OPC-UA server.
 - **Ignition Platform**: Functions as an OPC-UA client, hosting the HMI for real-time visualization of voltage data and relay statuses. The platform also supports bidirectional communication with the Opta™, enabling control of the relays directly from the HMI.
-- **Computer**: Used for the initial configuration of the Opta™, creating the design of the HMI in the Ignition Designer software, and running the HMI using the Ignition Vision software. The computer must be connected to the internet for firmware updates, library installations, and any required setup tasks.
+- **Computer**: Used for the initial configuration of the Opta™, creating the design of the HMI in the Ignition Designer software, and running the HMI using the Ignition Vision software. The computer must be connected to the internet for firmware updates, library installations, and any required setup task.
 
 ## OPC-UA Voltage Detection System Overview
 
-The Arduino Opta™, connected to an analog voltage sensor, acts as a central device for monitoring voltage levels. The voltage sensor captures field data, such as voltage levels, and transmits it to the analog input of the Opta™, which processes this data and acts as an OPC-UA server.
+The Arduino Opta™, connected to an analog voltage sensor, acts as a central device for monitoring voltage levels. The voltage sensor captures field data and transmits it to the analog input of the Opta™, which processes it and acts as an OPC-UA server.
 
 ![Voltage Detection System Setup](assets/overview-setup.png)
 
@@ -132,8 +135,6 @@ This section of the code establishes the foundational elements required for impl
 - `Arduino_OPC_UA` for OPC UA communication, enabling the Opta™ to act as an OPC UA server.
 - `PortentaEthernet` for network connectivity.
 - `OptaBlue` for handling Opta-specific features.
-
-The `Arduino_OPC_UA` library allows the Opta™ to expose its analog input readings and relay states as OPC UA nodes. These nodes are continuously updated and transmitted to the Ignition platform, where the data is visualized on the HMI. The relays, controlled dynamically based on voltage thresholds, are also exposed as OPC UA nodes, enabling monitoring and control through the platform. To install this library, search for `Arduino_OPC_UA` in the **Arduino IDE Library Manager**.
 
 To ensure efficient operation, memory allocation for the OPC UA server is configured with a dedicated `stack` and `heap`. Key global variables are declared, including the OPC UA server instance (`UA_Server`), memory heap instance (`O1HeapInstance`), and pointers for managing the Opta™ device and its expansion modules.
 
@@ -215,15 +216,15 @@ static PinStatus arduino_opta_digital_read(pin_size_t const pin)
 static void controlRelaysBasedOnVoltage();
 ```
 
-This section of the code is the `setup()` function, which initializes the Arduino Opta™ system and prepares it to operate as an OPC UA server. It begins by configuring serial communication at a baud rate of `115200`, primarily for debugging purposes. A short delay ensures the serial interface is fully initialized before proceeding.
+This section of the code is the `setup()` function, which initializes the Arduino Opta™ system and prepares it to operate as an OPC UA server. It begins by configuring serial communication at a baud rate of `115200`, primarily for debugging purposes.
 
 The Ethernet interface is then initialized to establish network connectivity. If this step fails, the program enters an infinite loop, signaling a critical error. Upon successful Ethernet initialization, the code attempts to synchronize the Opta™’s onboard Real-Time Clock (RTC) with a Network Time Protocol (NTP) server to ensure accurate timestamps for OPC UA operations. If NTP synchronization is unsuccessful, it defaults to using the compilation date and time.
 
-The Opta™’s expansion module controller is initialized and updated to detect any connected expansion modules, enabling dynamic configuration for additional I/O capabilities. The code then allocates memory for the `OPC UA server` using the `o1heapInit` function, ensuring sufficient resources for server operations. If heap initialization fails, the program halts with an error message.
+The Opta’s expansion module controller is initialized and updated to detect any connected expansion modules, enabling dynamic configuration for additional I/O capabilities. The code then allocates memory for the `OPC UA server` using the `o1heapInit` function, ensuring sufficient resources for server operations. If heap initialization fails, the program halts with an error message.
 
 A new thread is started to run the OPC UA server. Within this thread, the server is created and configured to listen on the default OPC UA port, `4840`. The server’s IP address is logged for reference. The hardware variant of the Opta™ is identified and logged, and all analog input pins (A0 to A7) are pre-initialized for voltage readings with a 12-bit resolution for accurate measurement.
 
-The code defines the Opta™ as an OPC UA object, exposing its analog inputs, digital inputs, and relay outputs as OPC UA nodes. These nodes allow external systems, such as the Ignition platform, to monitor and interact with the Opta™’s inputs and outputs. Additionally, expansion modules, if detected, are dynamically exposed as OPC UA nodes, including their analog inputs, digital inputs, relay outputs, PWM channels, and LEDs.
+The code defines the Opta™ as an OPC UA object, exposing its analog inputs, digital inputs, and relay outputs as OPC UA nodes. These nodes allow external systems, such as the Ignition platform, to monitor and interact with the Opta’s inputs and outputs. Additionally, expansion modules, if detected, are dynamically exposed as OPC UA nodes, including their analog inputs, digital inputs, relay outputs, PWM channels, and LEDs.
 
 Debugging information about thread stack usage and heap memory allocation is logged to monitor the system's resource utilization. Optional diagnostic information, such as heap and stack statistics, is also printed if enabled.
 
@@ -613,7 +614,7 @@ void loop()
 }
 ```
 
-This part of the code implements the `controlRelaysBasedOnVoltage()` function, which dynamically manages the states of four relays based on the voltage level read from the analog pin `A4`. This pin corresponds to the voltage input on the Arduino IDE Opta™ Kit PLC Trainer. The function integrates directly with the OPC UA server, updating the relay states in real time to ensure efficient communication and monitoring.
+This part of the code implements the `controlRelaysBasedOnVoltage()` function, which dynamically manages the states of four relays based on the voltage level read from the analog pin `A4`. This pin corresponds to the voltage input on the Opta™ Kit PLC Trainer. The function integrates directly with the OPC UA server, updating the relay states in real time to ensure efficient communication and monitoring.
 
 The function starts by reading the voltage from the analog input pin `A4` using the `arduino_opta_analog_read()` function. The measured voltage is stored in the variable `voltage`, which is the primary input for determining the state of each relay. Four boolean variables, `relay1State`, `relay2State`, `relay3State`, and `relay4State`, are initialized to `false`. These variables represent the states of each relay and will be updated based on the voltage level.
 
