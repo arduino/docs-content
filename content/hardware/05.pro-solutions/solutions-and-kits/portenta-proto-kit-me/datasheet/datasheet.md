@@ -230,7 +230,7 @@ The table below provides a comprehensive guideline for the optimal use of the Ar
 |                **Parameter**               |    **Symbol**   | **Min** | **Typ** | **Max** | **Unit** |
 |:------------------------------------------:|:---------------:|:-------:|:-------:|:-------:|:--------:|
 | Input Voltage of the Power Jack Connector¹ | V<sub>PJC</sub> |   7.0   |    -    |    30   |     V    |
-|           Operating Temperature²           |  T<sub>OT</sub> |   -40   |    -    |    85   |    °C    |
+|           Operating Temperature²           |  T<sub>O</sub>  |   -40   |    -    |    85   |    °C    |
 
 </div>
 
@@ -361,6 +361,7 @@ The figures below show the main dimensions of the kit in a stacked configuration
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |  **Changes**  |
-|:----------:|:------------:|:-------------:|
-| 10/01/2025 |       1      | First release |
+|  **Date**  | **Revision** |   **Changes**  |
+|:----------:|:------------:|:--------------:|
+| 16/01/2025 |       2      | Review changes |
+| 10/01/2025 |       1      |  First release |
