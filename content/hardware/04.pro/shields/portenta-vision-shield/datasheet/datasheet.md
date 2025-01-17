@@ -94,14 +94,10 @@ Below is a summary of the shield's key components and their specifications.
 The table below provides a comprehensive guideline for the optimal use of the Portenta Vision Shield, outlining typical operating conditions and design limits. The operating conditions of the Portenta Vision Shield are largely a function based on its component's specifications.
 </p>
 
-<div style="text-align:center;">
-
 |          **Parameter**           |   **Symbol**    | **Min** | **Typ** | **Max** | **Unit** |
 |:--------------------------------:|:---------------:|:-------:|:-------:|:-------:|:--------:|
 | Supply Input Voltage<sup>1</sup> | V<sub>IN</sub>  |    -    |   3.3   |   3.3   |    V     |
 |      Operating Temperature       | T<sub>OP</sub>  |   -40   |    -    |   85    |    °C    |
-
-</div>
 
 <sup>1</sup> Portenta Vision Shield powered through a Portenta family board.
 
