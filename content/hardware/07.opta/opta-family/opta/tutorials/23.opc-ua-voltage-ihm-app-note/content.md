@@ -661,7 +661,7 @@ static void controlRelaysBasedOnVoltage() {
 
 This code turns an Arduino Opta™ into an OPC UA-compatible device, enabling real-time data monitoring and control via Ethernet. It initializes an OPC UA server, reads analog/digital inputs, controls relays based on voltage thresholds, and exposes device states as OPC UA nodes for external systems. The system supports expansion modules, synchronizes time using NTP, and provides real-time feedback through LEDs and logs.
 
-## Ignition Plataform
+## Ignition Platform
 
 The Ignition, developed by Inductive Automation, is a comprehensive industrial automation software suite designed to build and deploy applications for monitoring, control, data acquisition, and analytics in industrial environments. It combines ease of use with powerful capabilities, enabling seamless integration with a wide range of devices and systems. Ignition is widely adopted across various industries, including manufacturing, energy, water/wastewater, and transportation, due to its flexibility, scalability and open architecture. 
 
@@ -727,7 +727,7 @@ The process involved using the Ignition Designer to design and configure the HMI
 
 ![Voltage Monitor](assets/dashboard.gif)
 
-The HMI, developed using the Ignition Plataform, is a **Voltage Level Monitor** specifically designed for real-time monitoring and management of system voltage levels. The interface categorizes voltage states into **No Voltage**, **Safe Voltage**, **Alert Voltage**, and **Critical Voltage**, using clear color-coded indicators for immediate operator recognition. A dedicated Voltage Measurement section displays precise, real-time readings, while a **System Status** indicator ensures operators are informed of the system's operational state.
+The HMI, developed using the Ignition Platform, is a **Voltage Level Monitor** specifically designed for real-time monitoring and management of system voltage levels. The interface categorizes voltage states into **No Voltage**, **Safe Voltage**, **Alert Voltage**, and **Critical Voltage**, using clear color-coded indicators for immediate operator recognition. A dedicated Voltage Measurement section displays precise, real-time readings, while a **System Status** indicator ensures operators are informed of the system's operational state.
 
 The gif below showcases the functionality of the Opta™ as it reads voltage from the analog input and activates the LED indicators based on the measured voltage levels. This visually represents the real-world application illustrated in the HMI.
 
