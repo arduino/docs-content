@@ -730,7 +730,7 @@ The process involved using the Ignition Designer to design and configure the HMI
 
 The HMI, developed using the Ignition Platform, is a **Voltage Level Monitor** specifically designed for real-time monitoring and management of system voltage levels. The interface categorizes voltage states into **No Voltage**, **Safe Voltage**, **Alert Voltage**, and **Critical Voltage**, using clear color-coded indicators for immediate operator recognition. A dedicated Voltage Measurement section displays precise, real-time readings, while a **System Status** indicator ensures operators are informed of the system's operational state.
 
-The gif below showcases the functionality of the Opta™ as it reads voltage from the analog input and activates the LED indicators based on the measured voltage levels. This visually represents the real-world application illustrated in the HMI.
+The animation below showcases the functionality of the Opta™ as it reads voltage from the analog input and activates the LED indicators based on the measured voltage levels. This visually represents the real-world application illustrated in the HMI.
 
 ![Opta Trainer Kit](assets/opta-trainer-kit.gif)
 
