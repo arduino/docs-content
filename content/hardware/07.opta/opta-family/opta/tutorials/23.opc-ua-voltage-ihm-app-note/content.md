@@ -1,5 +1,5 @@
 ---
-title: 'HMI for Voltage Monitoring using OPC UA Protocol & Opta™'
+title: 'HMI for Voltage Monitoring Using OPC UA Protocol & Opta™'
 difficulty: advanced
 description: "This application note explains how to monitor voltage levels using the Arduino Opta™, the Open Platform Communications Unified Architecture (OPC-UA) protocol, and the Ignition platform. The Ignition platform provides a Human-Machine Interface (HMI) designed to analyze an analog input on the Opta™ and display indicator lights."
 tags:
@@ -80,7 +80,7 @@ Before continuing to discuss this application note, let's briefly explain what t
 
 The [OPC Foundation](https://opcfoundation.org/), established in 1994, is a global organization dedicated to developing and maintaining open communication standards for industrial automation. The foundation’s primary mission is to enable secure and reliable interoperability between diverse devices, systems, and applications, regardless of the manufacturer or platform. Over the years, the foundation has introduced several standards, with OPC-UA (Unified Architecture) being its most advanced and versatile protocol. OPC-UA builds upon the earlier OPC standards by providing a platform-independent, secure, and scalable solution designed to meet the demands of modern industrial automation and IIoT (Industrial Internet of Things) applications.
 
-![OPC-UA](assets/opc-ua-logo.png)
+![OPC-UA Logo](assets/opc-ua-logo.png)
 
 The OPC-UA protocol is a modern communication standard designed for industrial automation and IIoT applications. It provides a secure, platform-independent, and scalable framework for exchanging data between devices and systems. In this application, the protocol facilitates seamless communication between the Arduino Opta™ and the Ignition platform, enabling the creation of an HMI for real-time monitoring and control.
 
