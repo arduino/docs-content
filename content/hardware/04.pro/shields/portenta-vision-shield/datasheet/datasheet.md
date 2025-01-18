@@ -91,8 +91,7 @@ Below is a summary of the shield's key components and their specifications.
 ### Recommended Operating Conditions
 
 <p style="text-align: justify;">
-The table below provides a comprehensive guideline for the optimal use of the Portenta Vision Shield, outlining typical operating conditions and design limits. The operating conditions of the Portenta Vision Shield are largely a function based on its component's specifications.
-</p>
+The table below provides a comprehensive guideline for the optimal use of the Portenta Vision Shield, outlining typical operating conditions and design limits. The operating conditions of the Portenta Vision Shield are largely a function based on its component's specifications.</p>
 
 |          **Parameter**           |   **Symbol**    | **Min** | **Typ** | **Max** | **Unit** |
 |:--------------------------------:|:---------------:|:-------:|:-------:|:-------:|:--------:|
@@ -137,7 +136,7 @@ The Portenta Vision Shield can be only powered through its High-Density Connecto
 
 <p style="text-align: justify;">The Portenta Vision Shield is powered exclusively through the VCC pins (+3V3) of its High Density Connectors (J1-J2). These connectors are designed to be used with boards from the Portenta family, such as the Portenta H7 board (any variant) or the Portenta C33 board. The power is supplied directly from the connected Portenta family board, which acts as the power source for the Portenta Vision Shield.</p>
 
-The detailed figure below illustrates the power architecture of the Portenta Vision Shield (Ethernet variant in the left and LoRa® variant on the right).
+<p style="text-align: justify;">The detailed figure below illustrates the power architecture of the Portenta Vision Shield (Ethernet variant in the left and LoRa® variant on the right).</p>
 
 ![](assets/Vision_Shield_Power_Tree.png)
 
@@ -146,27 +145,28 @@ The detailed figure below illustrates the power architecture of the Portenta Vis
 ## Device Operation
 
 ### Getting Started – OpenMV IDE
-The Portenta Vision Shield and the Portenta H7 boards are supported under OpenMV. In order to easily use OpenMV download the latest OpenMV IDE version **[1]** and follow the Portenta Vision Shield official documentation **[2]** to learn how to create OpenMV vision applications.
+
+<p style="text-align: justify;">The Portenta Vision Shield and the Portenta H7 boards are supported under OpenMV. In order to easily use OpenMV download the latest OpenMV IDE version <strong>[1]</strong> and follow the Portenta Vision Shield official documentation <strong>[2]</strong> to learn how to create OpenMV vision applications.</p>
 
 ### Getting Started - Arduino IDE
 
-If you want to program your Portenta family board offline, install the Arduino Desktop IDE **[3]**. To connect the Portenta family board to your computer, you will need a USB-C® cable.
+<p style="text-align: justify;">If you want to program your Portenta family board offline, install the Arduino Desktop IDE <strong>[3]</strong>. To connect the Portenta family board to your computer, you will need a USB-C® cable.</p>
 
 ### Getting Started - Arduino Cloud Editor
 
-All Arduino devices work out of the box on the Arduino Cloud Editor **[4]** by installing a simple plugin. The Arduino Cloud Editor is hosted online. Therefore, it will always be up-to-date with all the latest features and support for all boards and devices. Follow **[5]** to start coding on the browser and upload your sketches onto your device.
+<p style="text-align: justify;">All Arduino devices work out of the box on the Arduino Cloud Editor <strong>[4]</strong> by installing a simple plugin. The Arduino Cloud Editor is hosted online. Therefore, it will always be up-to-date with all the latest features and support for all boards and devices. Follow <strong>[5]</strong> to start coding on the browser and upload your sketches onto your device.</p>
 
 ### Getting Started - Arduino Cloud
 
-All Arduino IoT-enabled products are supported on Arduino Cloud, which allows you to log, graph, and analyze sensor data, trigger events, and automate your home or business. Take a look at the official documentation to know more.
+<p style="text-align: justify;">All Arduino IoT-enabled products are supported on Arduino Cloud, which allows you to log, graph, and analyze sensor data, trigger events, and automate your home or business. Take a look at the official documentation <strong>[5]</strong> to know more.</p>
 
 ### Sample Sketches
 
-Sample sketches for the Portenta Vision Shield can be found either in the “Examples” menu in the Arduino IDE or the “Portenta Vision Shield Documentation” section of Arduino documentation **[6]**.
+<p style="text-align: justify;">Sample sketches for the Portenta Vision Shield can be found either in the “Examples” menu in the Arduino IDE or the “Portenta Vision Shield Documentation” section of Arduino documentation <strong>[2]</strong>.</p>
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[7]**, the Arduino Library Reference **[8]**, and the online store **[9]** where you will be able to complement your Portenta family board with additional extensions, sensors, and actuators.
+<p style="text-align: justify;">Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub <strong>[6]</strong>, the Arduino Library Reference <strong>[7]</strong>, and the online store <strong>[8]</strong> where you will be able to complement your Portenta family board with additional extensions, sensors, and actuators.</p>
 
 <div style="page-break-after: always;"></div>
 
@@ -258,24 +258,25 @@ FCC RF Radiation Exposure Statement:
 
 ## Reference Documentation
 
-| **Reference**                        | **Link**                                                                 |
-|--------------------------------------|--------------------------------------------------------------------------|
-| OpenMV IDE                           | https://openmv.io/pages/download                                         |
-| Portenta Vision Shield Documentation | https://docs.arduino.cc/hardware/portenta-vision-shield                  |
-| Arduino IDE (Desktop)                | https://www.arduino.cc/en/Main/Software                                  |
-| Arduino IDE (Cloud)                  | https://create.arduino.cc/editor                                         |
-| Cloud IDE Getting Started            | https://docs.arduino.cc/arduino-cloud/guides/overview                    |
-| Project Hub                          | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
-| Library Reference                    | https://www.arduino.cc/reference/en/                                     |
-| Arduino Store                        | https://store.arduino.cc/                                                |
+| **No.** |             **Reference**            | **Link**                                                |
+|:-------:|:------------------------------------:|---------------------------------------------------------|
+|    1    |              OpenMV IDE              | https://openmv.io/pages/download                        |
+|    2    | Portenta Vision Shield Documentation | https://docs.arduino.cc/hardware/portenta-vision-shield |
+|    3    |         Arduino IDE (Desktop)        | https://www.arduino.cc/en/software                      |
+|    4    |          Arduino IDE (Cloud)         | https://create.arduino.cc/editor                        |
+|    5    |       Cloud IDE Getting Started      | https://docs.arduino.cc/arduino-cloud/guides/overview   |
+|    6    |              Project Hub             | https://projecthub.arduino.cc/                          |
+|    7    |           Library Reference          | https://www.arduino.cc/reference/en/                    |
+|    8    |             Arduino Store            | https://store.arduino.cc/                               |
 
 ## Document Revision History
 
-| **Date**   | **Revision** | **Changes**                            |
-|------------|--------------|----------------------------------------|
-| 30/12/2024 | 6            | Datasheet structure revamp             |
-| 03/09/2024 | 5            | Cloud Editor updated from Web Editor   |
-| 20/11/2023 | 4            | Structure Updates. FCC Caution Updated |
-| 15/11/2023 | 3            | Updates as a Collective Datasheet      |
-| 13/01/2022 | 2            | Information update                     |
-| 03/03/2021 | 1            | First Release                          |
+|  **Date**  | **Revision** | **Changes**                            |
+|:----------:|:------------:|----------------------------------------|
+|  17/01/25  |       7      | Revamp fixes                           |
+| 30/12/2024 |       6      | Datasheet structure revamp             |
+| 03/09/2024 |       5      | Cloud Editor updated from Web Editor   |
+| 20/11/2023 |       4      | Structure Updates, FCC Caution updated |
+| 15/11/2023 |       3      | Updates as a collective datasheet      |
+| 13/01/2022 |       2      | Information update                     |
+| 03/03/2021 |       1      | First release                          |
