@@ -59,13 +59,11 @@ Predictive maintenance, asset tracking, smart building systems, industrial autom
 
 #### Portenta H7 (SKU: ABX00042)
 
-<p style="text-align: justify;">The Portenta H7 is a dual-core microcontroller board powered by the STMicroelectronics® STM32H747XI, featuring a 32-bit Arm® Cortex®-M7 running at 480 MHz and a Cortex®-M4 at 240 MHz. It includes advanced graphics capabilities and operates within an industrial temperature range (-40 °C to 85 °C). 
+<p style="text-align: justify;">The Portenta H7 is a dual-core microcontroller board powered by the STMicroelectronics® STM32H747XI, featuring a 32-bit Arm® Cortex®-M7 running at 480 MHz and a Cortex®-M4 at 240 MHz. It includes advanced graphics capabilities and operates within an industrial temperature range (-40 °C to 85 °C).</p>
 
-<p style="text-align: center;">
-<img src="assets/portenta_h7.jpg" alt="Portenta H7 board" style="width: 60%; height: auto;">
-</p>
+<img src="assets/portenta_h7.jpg" alt="Portenta H7 board" style="width: 60%; height: auto;"></img>
 
-Below is a summary of the most important specifications of the Portenta H7 board:</p>
+Below is a summary of the most important specifications of the Portenta H7 board:
 
 | **Feature**                | **Specification**                                                                         |
 |----------------------------|-------------------------------------------------------------------------------------------|
@@ -94,13 +92,11 @@ Below is a summary of the most important specifications of the Portenta H7 board
 
 #### Nicla Sense ME (SKU: ABX00050)
 
-<p style="text-align: justify;">The Nicla Sense ME is a compact microcontroller board powered by the Nordic Semiconductor® nRF52832, featuring a 32-bit Arm® Cortex®-M4 running at 64 MHz. This board is designed for environmental monitoring and motion sensing applications, integrating multiple high-performance sensors. 
+<p style="text-align: justify;">The Nicla Sense ME is a compact microcontroller board powered by the Nordic Semiconductor® nRF52832, featuring a 32-bit Arm® Cortex®-M4 running at 64 MHz. This board is designed for environmental monitoring and motion sensing applications, integrating multiple high-performance sensors.</p> 
 
-<p style="text-align: center;">
-    <img src="assets/nicla_sense_me.jpg" alt="Nicla Sense ME board" style="width: 55%; height: auto;">
-</p>
+<img src="assets/nicla_sense_me.jpg" alt="Nicla Sense ME board" style="width: 55%; height: auto;"></img>
 
-Below is a summary of the most important specifications of the Nicla Sense ME board:</p>
+Below is a summary of the most important specifications of the Nicla Sense ME board:
 
 | **Feature**               | **Specification**                                                                                                    |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------|
@@ -129,13 +125,11 @@ Below is a summary of the most important specifications of the Nicla Sense ME bo
 
 #### Portenta Mid Carrier (SKU: ASX00055)
 
-<p style="text-align: justify;">The Arduino Portenta Mid Carrier expands connectivity options for Portenta family boards, including Ethernet, USB-A, mPCIe, CAN, MicroSD, and 4G. It also features JTAG pins for debugging and supports I2C, SPI, PWM, digital, and analog I/Os. 
+<p style="text-align: justify;">The Arduino Portenta Mid Carrier expands connectivity options for Portenta family boards, including Ethernet, USB-A, mPCIe, CAN, MicroSD, and 4G. It also features JTAG pins for debugging and supports I2C, SPI, PWM, digital, and analog I/Os.</p> 
 
-<p style="text-align: center;">
-    <img src="assets/portenta_mid_carrier.jpg" alt="Portenta Mid Carrier" style="width: 70%; height: auto;">
-</p>
+<img src="assets/portenta_mid_carrier.jpg" alt="Portenta Mid Carrier" style="width: 70%; height: auto;"></img>
 
-Below is a summary of the most important specifications of the Portenta Mid Carrier:</p>
+Below is a summary of the most important specifications of the Portenta Mid Carrier:
 
 | **Feature**                  | **Specification**                                                                                                                            |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -162,13 +156,11 @@ Below is a summary of the most important specifications of the Portenta Mid Carr
 
 #### Arduino Pro 4G GNSS Module Global (SKU: TPX00200)
 
-<p style="text-align: justify;">Designed in the widely used Mini PCI Express (mPCIe) format, this module provides global LTE Cat.4 connectivity, 4G support, and GNSS capabilities.
+<p style="text-align: justify;">Designed in the widely used Mini PCI Express (mPCIe) format, this module provides global LTE Cat.4 connectivity, 4G support, and GNSS capabilities.</p>
 
-<p style="text-align: center;">
-    <img src="assets/4g_module.jpg" alt="Arduino Pro 4G GNSS Module" style="width: 40%; height: auto;">
-</p>
+<img src="assets/4g_module.jpg" alt="Arduino Pro 4G GNSS Module" style="width: 40%; height: auto;"></img>
 
-Below is a summary of the most important specifications of the Arduino Pro 4G GNSS Module Global:</p>
+Below is a summary of the most important specifications of the Arduino Pro 4G GNSS Module Global:
 
 | **Feature**               | **Specification**                                                                             |
 |---------------------------|-----------------------------------------------------------------------------------------------|
@@ -225,16 +217,12 @@ Below is a summary of the most important specifications of the Arduino Pro 4G GN
 The table below provides a comprehensive guideline for the optimal use of the Arduino Portenta Proto Kit ME, outlining typical operating conditions and design limits. The operating conditions of the Portenta Proto Kit ME are largely a function based on its component's specifications.
 </p>
 
-<div style="text-align:center;">
-
 |                **Parameter**               |    **Symbol**   | **Min** | **Typ** | **Max** | **Unit** |
 |:------------------------------------------:|:---------------:|:-------:|:-------:|:-------:|:--------:|
 | Input Voltage of the Power Jack Connector¹ | V<sub>PJC</sub> |   7.0   |    -    |    30   |     V    |
 |           Operating Temperature²           |  T<sub>O</sub>  |   -40   |    -    |    85   |    °C    |
 
-</div>
-
-<sup>1</sup> Onboard power jack connector of the Portenta Mid Carrier Proto Shield.<br>
+<sup>1</sup> Onboard power jack connector of the Portenta Mid Carrier Proto Shield.
 <sup>2</sup> The operating temperature represents the range for the entire kit and not just an individual component.
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
@@ -245,12 +233,10 @@ The table below provides a comprehensive guideline for the optimal use of the Ar
 
 ## Kit Power Supply
 
-<div style="text-align:justify;">
+<p style="text-align: justify;">The Arduino Portenta Proto Kit ME can be powered through one of the following recommended methods:</p>
 
-The Arduino Portenta Proto Kit ME can be powered through one of the following recommended methods:
-
-- **Portenta Mid Carrier Proto Shield onboard power jack**: Provides a dedicated connection to power the kit using a +7 to 30 VDC input. The kit includes a compatible +24 VDC/1A power supply intended to be used with this power jack.
-- **USB-C® connector on the Portenta H7 board**: Allows powering the kit with +5 VDC through the Portenta H7's USB-C® port or the terminal pins on the Portenta Mid Carrier.
+- <p style="text-align: justify;"><strong>Portenta Mid Carrier Proto Shield onboard power jack</strong>: Provides a dedicated connection to power the kit using a +7 to 30 VDC input. The kit includes a compatible +24 VDC/1A power supply intended to be used with this power jack.</p>
+- <p style="text-align: justify;"><strong>USB-C® connector on the Portenta H7 board</strong>: Allows powering the kit with +5 VDC through the Portenta H7's USB-C® port or the terminal pins on the Portenta Mid Carrier.</p>
 
 ![Power options of the Portenta Proto Kit ME](assets/kit_power_supply.png)
 
@@ -262,35 +248,29 @@ The Arduino Portenta Proto Kit ME can be powered through one of the following re
 <p style="text-align: justify;"><strong>Safety Note:</strong> Always disconnect power before making hardware changes to the kit. Ensure that power specifications are within the recommended limits to avoid damage to components.</p>
 </div>
 
-</div>
-
 <div style="page-break-after: always;"></div>
 
 ## Device Operation
 
-<div style="text-align:justify;">
-
 ### Getting Started - IDE
 
-If you want to program your Arduino Portenta Proto Kit ME offline, install the Arduino Desktop IDE **[1]**. To connect the Portenta H7 to your computer, you will need a USB-C® cable. Additionally, to program or interact with the Nicla Sense ME, ensure you have a Micro USB cable compatible with the board.
+<p style="text-align: justify;">If you want to program your Arduino Portenta Proto Kit ME offline, install the Arduino Desktop IDE <strong>[1]</strong>. To connect the Portenta H7 to your computer, you will need a USB-C® cable. Additionally, to program or interact with the Nicla Sense ME, ensure you have a Micro USB cable compatible with the board.</p>
 
 ### Getting Started - Arduino Cloud Editor
 
-All components of the Portenta Proto Kit ME work seamlessly on the Arduino Cloud Editor **[2]** by installing a simple plugin. The Arduino Cloud Editor is hosted online, ensuring it is always up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding in the browser and upload your sketches onto the Portenta H7 or other components.
+<p style="text-align: justify;">All components of the Portenta Proto Kit ME work seamlessly on the Arduino Cloud Editor <strong>[2]</strong> by installing a simple plugin. The Arduino Cloud Editor is hosted online, ensuring it is always up-to-date with the latest features and support for all boards and devices. Follow <strong>[3]</strong> to start coding in the browser and upload your sketches onto the Portenta H7 or other components.</p>
 
 ### Getting Started - Arduino Cloud
 
-The Portenta Proto Kit ME is fully supported on Arduino Cloud, enabling you to log, graph, and analyze sensor data, trigger events and automate processes for industrial, business, or smart home applications via the Portenta H7 board. Take a look at the official documentation to learn more about how to integrate the kit into your IoT projects.
+<p style="text-align: justify;">The Portenta Proto Kit ME is fully supported on Arduino Cloud, enabling you to log, graph, and analyze sensor data, trigger events and automate processes for industrial, business, or smart home applications via the Portenta H7 board. Take a look at the official documentation <strong>[3]</strong> to learn more about how to integrate the kit into your IoT projects.</p>
 
 ### Sample Sketches
 
-Sample sketches for the Portenta Proto Kit ME can be found either in the “Examples” menu in the Arduino IDE or the “Portenta Proto Kit ME Documentation” section of Arduino documentation **[4]**. These examples include basic and advanced applications showcasing motion and environmental monitoring capabilities.
+<p style="text-align: justify;">Sample sketches for the Portenta Proto Kit ME can be found either in the “Examples” menu in the Arduino IDE or the “Portenta Proto Kit ME Documentation” section of Arduino documentation <strong>[4]</strong>. These examples include basic and advanced applications showcasing motion and environmental monitoring capabilities.</p>
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the Portenta Proto Kit ME, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]**, the Arduino Library Reference **[6]** and the ACE-220 online course **[7]**. The Enterprise Prototyping with Portenta Proto Kit ME (ACE-220) course is a resource designed to help you master prototyping in embedded electronics and IoT. Gain hands-on experience with the kit and accelerate your journey from concept to innovation by building functional prototypes tailored for industrial and IoT applications.
-
-</div>
+<p style="text-align: justify;">Now that you have gone through the basics of what you can do with the Portenta Proto Kit ME, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub <strong>[5]</strong>, the Arduino Library Reference <strong>[6]</strong> and the ACE-220 online course <strong>[7]</strong>. The Enterprise Prototyping with Portenta Proto Kit ME (ACE-220) course is a resource designed to help you master prototyping in embedded electronics and IoT. Gain hands-on experience with the kit and accelerate your journey from concept to innovation by building functional prototypes tailored for industrial and IoT applications.</p>
 
 <div style="page-break-after: always;"></div>
 
@@ -363,5 +343,6 @@ The figures below show the main dimensions of the kit in a stacked configuration
 
 |  **Date**  | **Revision** |   **Changes**  |
 |:----------:|:------------:|:--------------:|
+| 20/01/2025 |       3      |  Format fixes  |
 | 16/01/2025 |       2      | Review changes |
 | 10/01/2025 |       1      |  First release |
