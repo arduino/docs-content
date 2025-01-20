@@ -28,6 +28,14 @@ Keeping your Alvik’s firmware updated ensures it has the latest features, bug 
 
 ## Checking The State Of The Battery
 
+Alvik's battery is protected by a pull-tab protective sticker. Remove the sticker to start working with the robot.
+
+![Alvik pull tab](assets/Alvik-battery-pull-tab.jpg)
+
+**Step 1**: Locate the **pull-tab protective sticker** on the bottom of the robot, near the battery compartment. Grasp the tab and pull it upward firmly to remove the insulator and enable the battery connection.
+
+**Step 2**: After the pull-tab is removed, turn the robot over and slide the power button to ensure it powers on.
+
 Once the firmware of your Alvik is up to date and before start playing with it, let's verify your battery works as it should by following these steps:
 
 1. Reset your Alvik by turning it OFF and disconnecting it from the PC.
@@ -45,7 +53,7 @@ Once the firmware of your Alvik is up to date and before start playing with it, 
 
 - **No lights** 
   ![Faulty battery](assets/faulty_battery.gif)
-  The battery may be faulty. To check it, turn Alvik ON; if an orange light near the QWIIC connector blinks every 10 seconds, contact our customer support for a replacement.
+  The battery may be faulty. To check it, turn Alvik ON; if an orange light near the QWIIC connector blinks every 10 seconds, contact our customer support for a replacement. A user-uploaded sketch will not run unless Alvik has a charged battery. If the battery is low, the sketch will halt its execution at the initialization phase.
 
 ## Unboxing Alvik
 
