@@ -90,7 +90,7 @@ Before continuing to discuss this application note, let's briefly explain what t
 
 The OPC-UA protocol is a modern communication standard designed for industrial automation and IIoT applications. It provides a secure, platform-independent, and scalable framework for exchanging data between devices and systems. In this application, the protocol facilitates seamless communication between the Arduino Opta™ and the Ignition platform, enabling the creation of an HMI for real-time monitoring and control.
 
-![](assets/opc-ua-logo.png)
+![Application architecture](assets/overview.png)
 
 OPC-UA operates on a client-server model, where the server (e.g., the Arduino Opta™) gathers and organizes data, making it accessible as structured nodes. The client (e.g., the Ignition platform) requests or subscribes to this data to receive real-time updates. Additionally, the protocol supports bidirectional communication, allowing clients to send commands back to servers to trigger specific actions. 
 
@@ -671,7 +671,7 @@ This code turns an Arduino Opta™ into an OPC UA-compatible device, enabling re
 
 The Ignition, developed by Inductive Automation, is a comprehensive industrial automation software suite designed to build and deploy applications for monitoring, control, data acquisition, and analytics in industrial environments. It combines ease of use with powerful capabilities, enabling seamless integration with a wide range of devices and systems. Ignition is widely adopted across various industries, including manufacturing, energy, water/wastewater, and transportation, due to its flexibility, scalability and open architecture. 
 
-![](assets/ignition-logo.png)
+![Ignition](assets/ignition-logo.png)
 
 You will need an account on the `Ignition platform`. Click [here](https://docs.inductiveautomation.com/docs/8.1/getting-started/quick-start-guide/download-and-install) to be redirected to the `Get Started` page, where you can follow the step-by-step instructions to create your account and begin using the platform.
 
@@ -731,13 +731,13 @@ This application note highlights the capabilities of the Opta™ device in lever
 
 The process involved using the Ignition Designer to design and configure the HMI, where data consumed from the Ignition Gateway was utilized. The Ignition Gateway facilitated communication and data exchange between the Opta™ device and the Ignition platform via the OPC-UA protocol, acting as the system's core. With the Gateway providing real-time data to the Designer, the finalized HMI is accessible as a desktop application through the Ignition Vision software. Below is a gif showcasing the HMI in action, allowing users to monitor voltage levels in real time.
 
-![Voltage Monitor](assets/dashboard.gif)
+![Voltage Monitor](assets/dash-c.gif)
 
 The HMI, developed using the Ignition Platform, is a **Voltage Level Monitor** specifically designed for real-time monitoring and management of system voltage levels. The interface categorizes voltage states into **No Voltage**, **Safe Voltage**, **Alert Voltage**, and **Critical Voltage**, using clear color-coded indicators for immediate operator recognition. A dedicated Voltage Measurement section displays precise, real-time readings, while a **System Status** indicator ensures operators are informed of the system's operational state.
 
 The animation below showcases the functionality of the Opta™ as it reads voltage from the analog input and activates the LED indicators based on the measured voltage levels. This visually represents the real-world application illustrated in the HMI.
 
-![Opta Trainer Kit](assets/opta-trainer-kit.gif)
+![Opta Trainer Kit](assets/animation2.gif)
 
 ## HMI for Voltage Monitoring Full Example
 
