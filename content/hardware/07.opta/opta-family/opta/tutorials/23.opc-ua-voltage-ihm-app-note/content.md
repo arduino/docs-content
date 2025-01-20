@@ -671,7 +671,7 @@ This code turns an Arduino Opta™ into an OPC UA-compatible device, enabling re
 
 The Ignition, developed by Inductive Automation, is a comprehensive industrial automation software suite designed to build and deploy applications for monitoring, control, data acquisition, and analytics in industrial environments. It combines ease of use with powerful capabilities, enabling seamless integration with a wide range of devices and systems. Ignition is widely adopted across various industries, including manufacturing, energy, water/wastewater, and transportation, due to its flexibility, scalability and open architecture. 
 
-![Ignition](assets/ignition-logo.png)
+![ Ignition ](assets/ignition-logo.png)
 
 You will need an account on the `Ignition platform`. Click [here](https://docs.inductiveautomation.com/docs/8.1/getting-started/quick-start-guide/download-and-install) to be redirected to the `Get Started` page, where you can follow the step-by-step instructions to create your account and begin using the platform.
 
