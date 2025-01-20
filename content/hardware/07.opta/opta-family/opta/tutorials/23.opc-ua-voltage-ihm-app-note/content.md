@@ -21,7 +21,7 @@ Human-Machine Interfaces (HMIs) play a vital role in enabling effective interact
 
 The functionality of HMIs depends on efficient and reliable communication across all connected components. This is achieved through the integration of robust communication protocols. One such protocol is Open Platform Communications Unified Architecture (OPC-UA), recognized for its flexibility, security, and compatibility with a wide range of automation platforms. Through OPC-UA, HMIs can ensure reliable data exchange and interoperability, further optimizing industrial system performance.
 
-![HMI for Voltage Monitoring using OPC-UA System](assets/thumbnail.png)
+![HMI for Voltage Monitoring using OPC-UA System](assets/thumbnail-c.png)
 
 This application note highlights the OPTA™ device's capability to utilize the OPC-UA protocol for seamless communication. Specifically, OPC-UA facilitates data exchange between the Ignition platform and the Opta™ device to create an HMI (Human-Machine Interface) that monitors the voltage level from an analog input on the Opta™. This HMI displays the voltage level and provides visual indicators to represent the status of the voltage.
 
@@ -43,14 +43,19 @@ The goal of this application note is to demonstrate the Opta™ device's capabil
 
 ## Hardware and Software Requirements
 
-![Hardware Used](assets/materials.png)
+![Hardware Used](assets/materials-c.png)
 
 ### Hardware Requirements
 
-- [Opta™ Kit PLC Trainer Pro](https://www.plccable.com/arduino-ide-opta-kit-plc-trainer-pro-industrial-iot-ethernet-afx00003/) (x1)
-- [USB Type-C® Cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
+- [Arduino Opta™](https://store.arduino.cc/products/opta-wifi) (x1)
+- 24 VDC Power Supply (x1)
 - Ethernet RJ45 cable (x1)
-- A computer with internet access
+- [USB Type-C® Cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
+- Wired internet access
+  
+Optionally, to leverage the pre-built setup, we recommend the following kit:
+
+- [Opta™ Kit PLC Trainer Pro](https://www.plccable.com/arduino-ide-opta-kit-plc-trainer-pro-industrial-iot-ethernet-afx00003/) (x1)
 
 <div style="text-align:justify;">
 
@@ -62,7 +67,7 @@ The goal of this application note is to demonstrate the Opta™ device's capabil
 
 - [Arduino PLC IDE](https://docs.arduino.cc/software/plc-ide/).
 - [Arduino_OPC_UA library](https://github.com/arduino-libraries/Arduino_OPC_UA), install it using the Arduino IDE Library Manager. 
-- [Ignition platform](https://www.ignitionapp.com/) account. Create one for free [here](https://www.ignitionapp.com/).
+- [Ignition platform](https://inductiveautomation.com/scada-software/) account. Create one for free [here](https://docs.inductiveautomation.com/docs/8.1/getting-started/quick-start-guide/download-and-install).
 - The [Arduino Opta™ Firmware](assets/opta-project-code.zip).
 - The [Ignition HMI Design](assets/opta-project-code.zip), to be opened with the Ignition Designer software.
 
@@ -85,7 +90,7 @@ Before continuing to discuss this application note, let's briefly explain what t
 
 The OPC-UA protocol is a modern communication standard designed for industrial automation and IIoT applications. It provides a secure, platform-independent, and scalable framework for exchanging data between devices and systems. In this application, the protocol facilitates seamless communication between the Arduino Opta™ and the Ignition platform, enabling the creation of an HMI for real-time monitoring and control.
 
-![OPC-UA Logo](assets/opc-ua-logo.png)
+![](assets/opc-ua-logo.png)
 
 OPC-UA operates on a client-server model, where the server (e.g., the Arduino Opta™) gathers and organizes data, making it accessible as structured nodes. The client (e.g., the Ignition platform) requests or subscribes to this data to receive real-time updates. Additionally, the protocol supports bidirectional communication, allowing clients to send commands back to servers to trigger specific actions. 
 
@@ -105,7 +110,7 @@ By leveraging OPC-UA, this solution offers a robust and efficient framework for 
 
 This application does not require complex wiring for operation. However, the Arduino Opta™ must be connected to an appropriate power supply and an RJ45 Ethernet cable to establish the TCP/IP connection for OPC-UA communication with the Ignition platform. Ensure that the Ignition platform can detect and access the network address of the Arduino Opta™. Additionally, the Opta™ must be connected to a computer via a USB-C cable for initial setup and configuration.
 
-![Voltage Detection System Setup](assets/setup.png)
+![Voltage detection system setup](assets/setup-c.png)
 
 The Opta™ reads the voltage level, controls relay outputs, and acts as an OPC-UA server. It organizes this data into structured nodes and makes it accessible via a TCP/IP connection to the Ignition platform, which functions as an OPC-UA client. The Ignition platform uses this data to create a Human-Machine Interface (HMI), enabling real-time monitoring of voltage levels and relay statuses.
 
@@ -118,7 +123,7 @@ Deployment Setup:
 
 The Arduino Opta™, connected to an analog voltage sensor, acts as a central device for monitoring voltage levels. The voltage sensor captures field data and transmits it to the analog input of the Opta™, which processes it and acts as an OPC-UA server.
 
-![Voltage Detection System Setup](assets/overview-setup.png)
+![Voltage detection system overview](assets/overview-setup.png)
 
 The voltage readings are organized into structured nodes and transmitted via a TCP/IP connection using the OPC-UA protocol to the Ignition platform, which functions as an OPC-UA client. The Ignition platform hosts a Human-Machine Interface (HMI) that visualizes voltage data, allowing operators to monitor system performance and voltage levels effectively.
 
@@ -666,11 +671,11 @@ This code turns an Arduino Opta™ into an OPC UA-compatible device, enabling re
 
 The Ignition, developed by Inductive Automation, is a comprehensive industrial automation software suite designed to build and deploy applications for monitoring, control, data acquisition, and analytics in industrial environments. It combines ease of use with powerful capabilities, enabling seamless integration with a wide range of devices and systems. Ignition is widely adopted across various industries, including manufacturing, energy, water/wastewater, and transportation, due to its flexibility, scalability and open architecture. 
 
-![Voltage Detection System Setup](assets/ignition-logo.png)
+![](assets/ignition-logo.png)
 
-You will need an account on the `Ignition platform`. Click [here](https://www.ignitionapp.com/) to be redirected to the `Get Started` page, where you can follow the step-by-step instructions to create your account and begin using the platform.
+You will need an account on the `Ignition platform`. Click [here](https://docs.inductiveautomation.com/docs/8.1/getting-started/quick-start-guide/download-and-install) to be redirected to the `Get Started` page, where you can follow the step-by-step instructions to create your account and begin using the platform.
 
-***Note: Use the official provider installer to install the Ignition software, including the Ignition Designer and Ignition Vision tools, by following the step-by-step guides provided on the Ignition platform. If you need assistance, click [here](https://www.docs.inductiveautomation.com/) to access the official documentation.***
+***Use the [official provider installer](https://docs.inductiveautomation.com/docs/8.1/getting-started/quick-start-guide/download-and-install) to install the Ignition software, including the Ignition Designer and Ignition Vision tools, by following the step-by-step guides provided on the Ignition platform. If you need assistance, click [here](https://www.docs.inductiveautomation.com/) to access the official documentation.***
 
 The Ignition Platform serves as a comprehensive industrial application platform designed to connect, monitor, and control a wide range of industrial devices and systems. With its open architecture, it integrates seamlessly with various hardware, databases, and communication protocols, making it a key component for SCADA, HMI, IIoT, and MES applications. Ignition allows users to visualize and interact with real-time and historical data through web-based interfaces and customizable dashboards.
 
@@ -692,7 +697,7 @@ After completing the installation, access the Gateway Web Interface by navigatin
 
 Once logged in, you can decide to continue using the trial mode or activate a license by navigating to the **Config > Licensing** section in the Gateway Web Interface. To extend the functionality of your project, additional modules can be installed under **Config > Modules**. These modules allow you to add specific features to your application as needed.
 
-![Ignition Home Page](assets/ignition-config.png)
+![Ignition features configuration](assets/ignition-config.png)
 
 To connect your devices to Ignition, navigate to **Config > OPC Client > OPC Connections** in the Gateway Web Interface. Add a new OPC connection, such as for an Arduino Opta™, and configure the necessary settings, including its IP address, OPC UA server endpoint, and authentication credentials. Once the configuration is complete, verify the connection to ensure successful communication. Additionally, the Config tab allows you to manage and customize the entire Ignition Gateway, making it the central location for all system configurations. 
 
