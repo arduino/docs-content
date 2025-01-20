@@ -225,14 +225,10 @@ Below is a summary of the most important specifications of the Arduino Pro 4G GN
 The table below provides a comprehensive guideline for the optimal use of the Arduino Portenta Proto Kit ME, outlining typical operating conditions and design limits. The operating conditions of the Portenta Proto Kit ME are largely a function based on its component's specifications.
 </p>
 
-<div style="text-align:center;">
-
 |                **Parameter**               |    **Symbol**   | **Min** | **Typ** | **Max** | **Unit** |
 |:------------------------------------------:|:---------------:|:-------:|:-------:|:-------:|:--------:|
 | Input Voltage of the Power Jack Connector¹ | V<sub>PJC</sub> |   7.0   |    -    |    30   |     V    |
 |           Operating Temperature²           |  T<sub>O</sub>  |   -40   |    -    |    85   |    °C    |
-
-</div>
 
 <sup>1</sup> Onboard power jack connector of the Portenta Mid Carrier Proto Shield.<br>
 <sup>2</sup> The operating temperature represents the range for the entire kit and not just an individual component.
@@ -245,12 +241,10 @@ The table below provides a comprehensive guideline for the optimal use of the Ar
 
 ## Kit Power Supply
 
-<div style="text-align:justify;">
+<p style="text-align: justify;">The Arduino Portenta Proto Kit ME can be powered through one of the following recommended methods:</p>
 
-The Arduino Portenta Proto Kit ME can be powered through one of the following recommended methods:
-
-- **Portenta Mid Carrier Proto Shield onboard power jack**: Provides a dedicated connection to power the kit using a +7 to 30 VDC input. The kit includes a compatible +24 VDC/1A power supply intended to be used with this power jack.
-- **USB-C® connector on the Portenta H7 board**: Allows powering the kit with +5 VDC through the Portenta H7's USB-C® port or the terminal pins on the Portenta Mid Carrier.
+- <p style="text-align: justify;"><strong>Portenta Mid Carrier Proto Shield onboard power jack</strong>: Provides a dedicated connection to power the kit using a +7 to 30 VDC input. The kit includes a compatible +24 VDC/1A power supply intended to be used with this power jack.</p>
+- <p style="text-align: justify;"><strong>USB-C® connector on the Portenta H7 board</strong>: Allows powering the kit with +5 VDC through the Portenta H7's USB-C® port or the terminal pins on the Portenta Mid Carrier.</p>
 
 ![Power options of the Portenta Proto Kit ME](assets/kit_power_supply.png)
 
@@ -260,8 +254,6 @@ The Arduino Portenta Proto Kit ME can be powered through one of the following re
 
 <div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
 <p style="text-align: justify;"><strong>Safety Note:</strong> Always disconnect power before making hardware changes to the kit. Ensure that power specifications are within the recommended limits to avoid damage to components.</p>
-</div>
-
 </div>
 
 <div style="page-break-after: always;"></div>
