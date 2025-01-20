@@ -222,7 +222,7 @@ The table below provides a comprehensive guideline for the optimal use of the Ar
 | Input Voltage of the Power Jack Connector¹ | V<sub>PJC</sub> |   7.0   |    -    |    30   |     V    |
 |           Operating Temperature²           |  T<sub>O</sub>  |   -40   |    -    |    85   |    °C    |
 
-<sup>1</sup> Onboard power jack connector of the Portenta Mid Carrier Proto Shield.<br>
+<sup>1</sup> Onboard power jack connector of the Portenta Mid Carrier Proto Shield.
 <sup>2</sup> The operating temperature represents the range for the entire kit and not just an individual component.
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
