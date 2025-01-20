@@ -62,7 +62,7 @@ Predictive maintenance, asset tracking, smart building systems, industrial autom
 <p style="text-align: justify;">The Portenta H7 is a dual-core microcontroller board powered by the STMicroelectronics® STM32H747XI, featuring a 32-bit Arm® Cortex®-M7 running at 480 MHz and a Cortex®-M4 at 240 MHz. It includes advanced graphics capabilities and operates within an industrial temperature range (-40 °C to 85 °C).</p>
 
 <p style="text-align: center;">
-    <img src="assets/portenta_h7.jpg" alt="Portenta H7 board" style="width: 60%; height: auto;">
+    <img src="assets/portenta_h7.jpg" alt="Portenta H7 board" style="width: 60%; height: auto;"></img>
 </p>
 
 Below is a summary of the most important specifications of the Portenta H7 board:
@@ -97,7 +97,7 @@ Below is a summary of the most important specifications of the Portenta H7 board
 <p style="text-align: justify;">The Nicla Sense ME is a compact microcontroller board powered by the Nordic Semiconductor® nRF52832, featuring a 32-bit Arm® Cortex®-M4 running at 64 MHz. This board is designed for environmental monitoring and motion sensing applications, integrating multiple high-performance sensors.</p> 
 
 <p style="text-align: center;">
-    <img src="assets/nicla_sense_me.jpg" alt="Nicla Sense ME board" style="width: 55%; height: auto;">
+    <img src="assets/nicla_sense_me.jpg" alt="Nicla Sense ME board" style="width: 55%; height: auto;"></img>
 </p>
 
 Below is a summary of the most important specifications of the Nicla Sense ME board:
@@ -132,7 +132,7 @@ Below is a summary of the most important specifications of the Nicla Sense ME bo
 <p style="text-align: justify;">The Arduino Portenta Mid Carrier expands connectivity options for Portenta family boards, including Ethernet, USB-A, mPCIe, CAN, MicroSD, and 4G. It also features JTAG pins for debugging and supports I2C, SPI, PWM, digital, and analog I/Os.</p> 
 
 <p style="text-align: center;">
-    <img src="assets/portenta_mid_carrier.jpg" alt="Portenta Mid Carrier" style="width: 70%; height: auto;">
+    <img src="assets/portenta_mid_carrier.jpg" alt="Portenta Mid Carrier" style="width: 70%; height: auto;"></img>
 </p>
 
 Below is a summary of the most important specifications of the Portenta Mid Carrier:
@@ -165,7 +165,7 @@ Below is a summary of the most important specifications of the Portenta Mid Carr
 <p style="text-align: justify;">Designed in the widely used Mini PCI Express (mPCIe) format, this module provides global LTE Cat.4 connectivity, 4G support, and GNSS capabilities.</p>
 
 <p style="text-align: center;">
-    <img src="assets/4g_module.jpg" alt="Arduino Pro 4G GNSS Module" style="width: 40%; height: auto;">
+    <img src="assets/4g_module.jpg" alt="Arduino Pro 4G GNSS Module" style="width: 40%; height: auto;"></img>
 </p>
 
 Below is a summary of the most important specifications of the Arduino Pro 4G GNSS Module Global:
