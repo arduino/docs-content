@@ -690,48 +690,70 @@ With this script running you will be able to see the Fast Fourier Transform resu
 
 You can easily implement sound/voice recognition applications using Machine Learning on the edge, this means that the Portenta H7 plus the Vision Shield can run these algorithms locally. 
 
-For this example, we are going to test a [pre-trained model]((https://raw.githubusercontent.com/iabdalkader/microspeech-yesno-model/main/model.tflite)) that can recognize the `yes` and `no` keywords
-
-First, download the `.tflite` [model](https://raw.githubusercontent.com/iabdalkader/microspeech-yesno-model/main/model.tflite) and copy it to the H7 local storage. 
-
 Use the following script to run the example. It can also be found on **File > Examples > Audio > micro_speech.py** in the OpenMV IDE.
 
 ```python
-import audio
 import time
-import tf
-import micro_speech
-import pyb
+from ml.apps import MicroSpeech
+
+
+def callback(label, scores):
+    print(f'\nHeard: "{label}" @{time.ticks_ms()}ms Scores: {scores}')
+
+
+# By default, the MicroSpeech object uses the built-in audio preprocessor (float) and the
+# micro speech module for audio preprocessing and speech recognition, respectively. The
+# user can override both by passing two models:
+# MicroSpeech(preprocessor=ml.Model(...), micro_speech=ml.Model(...), labels=["label",...])
+speech = MicroSpeech()
+
+# Starts the audio streaming and processes incoming audio to recognize speech commands.
+# If a callback is passed, listen() will loop forever and call the callback when a keyword
+# is detected. Alternatively, `listen()` can be called with a timeout (in ms), and it
+# returns if the timeout expires before detecting a keyword.
+speech.listen(callback=callback, threshold=0.70)
+```
+
+In the example from above you can notice that there is no model defined explicitly, this is because it will use the default built-in model pre-trained to recognize the **yes** and **no** keywords.
+
+You can run the script and say the keywords, if any is recognized, the *Serial Terminal* will print the heard word and the inference scores.
+
+#### Custom Speech Recognition Model
+
+You can easily run custom speech recognition models also. To show you how, we are going to replicate the **yes** and **no** example but this time using the `.tflite` model file.
+
+First, download the `.tflite` [model](https://raw.githubusercontent.com/iabdalkader/microspeech-yesno-model/main/model.tflite) and copy it to the H7 local storage. 
+
+![Speech recognition model directory](assets/model-speech.png)
+
+Copy and paste the following script based in the original example:
+
+```python
+import time
+import ml
+from ml.apps import MicroSpeech
 
 labels = ["Silence", "Unknown", "Yes", "No"]
 
-led_red = pyb.LED(1)
-led_green = pyb.LED(2)
+def callback(label, scores):
+    print(f'\nHeard: "{label}" @{time.ticks_ms()}ms Scores: {scores}')
 
-model = tf.load("/model.tflite")
-speech = micro_speech.MicroSpeech()
-audio.init(channels=1, frequency=16000, gain_db=24, highpass=0.9883)
+speech = MicroSpeech(micro_speech=ml.Model('model.tflite', load_to_fb=True), labels=labels)
 
-# Start audio streaming
-audio.start_streaming(speech.audio_callback)
-
-while True:
-    # Run micro-speech without a timeout and filter detections by label index.
-    idx = speech.listen(model, timeout=0, threshold=0.70, filter=[2, 3])
-    led = led_green if idx == 2 else led_red
-    print(labels[idx])
-    for i in range(0, 4):
-        led.on()
-        time.sleep_ms(25)
-        led.off()
-        time.sleep_ms(25)
-
-# Stop streaming
-audio.stop_streaming()
+speech.listen(callback=callback, threshold=0.70)
 ```
-Now, just say `yes` or `no` and you will see the inference result in the OpenMV Serial Monitor.
+
+As you can see, there are some differences between the original example from which we can highlight the following:
+
+- The `ml` module is imported
+- A labels list was created including the model labels in a specific order
+- The `MicroSpeech()` function has been populated with the model and labels list as arguments.
+
+Now, just say `yes` or `no` and you will see the inference result in the OpenMV Serial Terminal just as with the original example.
 
 ![Speech recognition example](assets/ml-inference.png)
+
+***If you want to create a custom model `.tflite` file, you can do it with your own keywords or sounds using [Edge Impulse](https://docs.edgeimpulse.com/docs/edge-ai-hardware/mcu/arduino-portenta-h7).***
 
 ## Machine Learning Tool
 
