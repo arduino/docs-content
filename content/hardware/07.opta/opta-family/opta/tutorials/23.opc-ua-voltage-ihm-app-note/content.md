@@ -21,7 +21,7 @@ Human-Machine Interfaces (HMIs) play a vital role in enabling effective interact
 
 The functionality of HMIs depends on efficient and reliable communication across all connected components. This is achieved through the integration of robust communication protocols. One such protocol is Open Platform Communications Unified Architecture (OPC-UA), recognized for its flexibility, security, and compatibility with a wide range of automation platforms. Through OPC-UA, HMIs can ensure reliable data exchange and interoperability, further optimizing industrial system performance.
 
-![HMI for Voltage Monitoring using OPC-UA System](assets/thumbnail-c.png)
+![HMI for Voltage Monitoring using OPC-UA System](assets/thumbnail.png)
 
 This application note highlights the OPTA™ device's capability to utilize the OPC-UA protocol for seamless communication. Specifically, OPC-UA facilitates data exchange between the Ignition platform and the Opta™ device to create an HMI (Human-Machine Interface) that monitors the voltage level from an analog input on the Opta™. This HMI displays the voltage level and provides visual indicators to represent the status of the voltage.
 
