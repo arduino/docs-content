@@ -106,7 +106,7 @@ The board exposes two 15 pin connectors which can either be assembled with pin h
 ## Mechanical Information
 ### Board Outline and Mounting Holes
 
-![Board layout](assets/mechanical.svg)
+![Board layout (units in mm)](assets/BoardDimentions.png)
 
 ## Certifications
 ### Declaration of Conformity CE DoC (EU)
@@ -188,3 +188,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Date       | **Revision** | **Changes**               |
 | ---------- | ------------ | ------------------------- |
 | 17/06/2022 | 1            | First release             |
+| 21/01/2025 | 2            | Fixed board dimentions    |
