@@ -745,7 +745,7 @@ speech.listen(callback=callback, threshold=0.70)
 
 As you can see, there are some differences between the original example from which we can highlight the following:
 
-- The `ml` module is imported
+- The `ml` module was imported
 - A labels list was created including the model labels in a specific order
 - The `MicroSpeech()` function has been populated with the model and labels list as arguments.
 
