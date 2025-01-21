@@ -51,7 +51,7 @@ Keeping your Alvik’s firmware updated ensures it has the latest features, bug 
 5. **A pop-up window will appear** prompting you to select the COM port. Choose the correct port and confirm.
 6. Once connected, click the "Update" button and wait for the process to complete.
 
-## Ready-to-go examples
+## Ready-to-go Examples
 
 ![Selecting one of the ready-to-go examples](assets/select-examples.gif)
 
