@@ -19,10 +19,6 @@ Alvik's battery is protected by a pull-tab protective sticker. Remove the sticke
 
 ![Alvik pull tab](assets/Alvik-battery-pull-tab.jpg)
 
-**Step 1**: Locate the **pull-tab protective sticker** on the bottom of the robot, near the battery compartment. Grasp the tab and pull it upward firmly to remove the insulator and enable the battery connection.
-
-**Step 2**: After the pull-tab is removed, turn the robot over and slide the power button to ensure it powers on.
-
 Once the firmware of your Alvik is up to date and before start playing with it, let's verify your battery works as it should by following these steps:
 
 1. Makes sure Alvik is OFF and disconnected it from the PC.

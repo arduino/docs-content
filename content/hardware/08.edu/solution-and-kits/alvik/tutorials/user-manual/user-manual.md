@@ -113,7 +113,7 @@ Alvik's battery is protected by a pull-tab protective sticker. Remove the sticke
 
 **Step 1**: Locate the **pull-tab protective sticker** on the bottom of the robot, near the battery compartment. Grasp the tab and pull it upward firmly to remove the insulator and enable the battery connection.
 
-**Step 2**: After the pull-tab is removed, turn the robot over and slide the power button to ensure it powers on.
+**Step 2**: After the pull-tab is removed, turn the robot over, connect the robot to your computer and slide the power button to ensure it powers on.
 
 The battery is a rechargeable Li-ion 18650, it allows to run Alvik for 8+ hours non stop.
 
