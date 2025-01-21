@@ -751,7 +751,7 @@ As you can see, there are some differences between the original example from whi
 
 Now, just say `yes` or `no` and you will see the inference result in the OpenMV Serial Terminal just as with the original example.
 
-![Speech recognition example](assets/ml-inference.png)
+![Speech recognition example](assets/ml-inference-2.png)
 
 ***If you want to create a custom model `.tflite` file, you can do it with your own keywords or sounds using [Edge Impulse](https://docs.edgeimpulse.com/docs/edge-ai-hardware/mcu/arduino-portenta-h7).***
 
