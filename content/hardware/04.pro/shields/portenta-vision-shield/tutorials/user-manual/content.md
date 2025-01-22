@@ -831,7 +831,7 @@ The **Portenta Vision Shield - Ethernet** gives you the possibility of connectin
 
 First, connect the Vision Shield - Ethernet to the Portenta H7. Now connect the USB-C® cable to the Portenta H7 and your computer. Lastly, connect the Ethernet cable to the Portenta Vision Shield's Ethernet port and your router or modem.
 
-Now you are ready to test the connectivity with the following Python script. This example lets you know if an Ethernet cable is connected successfully to the shield. 
+Now you are ready to test the connectivity with the following MicroPython script. This example lets you know if an Ethernet cable is connected successfully to the shield. 
 
 ```python
 import network
@@ -886,6 +886,8 @@ Run the script and the current date and time will be printed in the OpenMV IDE S
 
 ![Ethernet connection example script](assets/ntp.png)
 
+***If you want to learn more, check the other Ethernet examples in the OpenMV IDE.***
+
 ## LoRa® (ASX00026)
 
 The **Vision Shield - LoRa®** can extend our project connectivity by leveraging it LoRa® module for long-range communication in remote areas with a lack of internet access. Powered by the Murata CMWX1ZZABZ module which contains an STM32L0 processor along with a Semtech SX1276 Radio.
@@ -896,7 +898,14 @@ To test the LoRa® connectivity, first, connect the Vision Shield - LoRa® to th
 
 ***Follow this [guide](https://docs.arduino.cc/tutorials/portenta-vision-shield/things-network-openmv) to learn how to set up and create your __end device__ on The Things Network.***
 
-The following Python script lets you connect to The Things Network using LoRaWAN® and send a `Hello World` message to it.
+Important hardware LoRa® configurations are listed below:
+
+|     **Setting**     | **Compatibility** |
+| :-----------------: | :---------------: |
+| LoRaWAN MAC Version |      V1.0.2       |
+|        Class        |      A or C       |
+
+The following MicroPython script lets you connect to The Things Network using LoRaWAN® and send a `Hello World` message to it.
 
 ```python
 from lora import *
@@ -951,7 +960,7 @@ Find the frequency used in your country for **The Things Network** on this [list
 ```python
 lora = Lora(band=BAND_AU915, poll_ms=60000, debug=False) # change the band with yours e.g BAND_US915
 ```
-Define your application `appEUI` and `appKey` in the Python script so the messages are correctly authenticated by the network server.
+Define your application `appEUI` and `appKey` in the MicroPython script so the messages are correctly authenticated by the network server.
 
 ```python
 appEui = "*****************"  # now called JoinEUI
