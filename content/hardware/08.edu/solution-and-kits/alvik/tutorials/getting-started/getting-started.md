@@ -21,7 +21,7 @@ Alvik's battery is protected by a pull-tab protective sticker. Remove the sticke
 
 Once the firmware of your Alvik is up to date and before start playing with it, let's verify your battery works as it should by following these steps:
 
-1. Makes sure Alvik is OFF and disconnected it from the PC.
+1. Make sure Alvik is OFF and disconnected it from the PC.
 2. Open the battery compartment and check that the clips are making contact with the battery. If they aren’t, remove the battery, adjust the clips to ensure proper alignment, and then reinsert the battery securely.
 3. Connect the Alvik to the PC keeping Alvik OFF.
 4. At this point some lights should turn ON in your Alvik:
