@@ -22,7 +22,7 @@ productCertifications:
     sourceTitle: "echa.europa.eu"
     files:
       - title: "Download REACH certification document for Arduino boards."
-        url: "https://docs.arduino.cc/resources/reach/arduino-reach.pdf"
+        url: "resources/reach/arduino-reach.pdf"
   - name: "CE"
     title: "CE"
     id: 3
@@ -80,9 +80,9 @@ productCertifications:
     sourceTitle: "www.responsiblemineralsinitiative.org"
     files:
       - title: "Download CMRT certification document for Arduino boards - First CMRT certification document"
-        url: "https://docs.arduino.cc/resources/cmrt/arduino-cmrt_1.docx"
+        url: "resources/cmrt/arduino-cmrt_1.docx"
       - title: "Download CMRT certification document for Arduino boards - Second CMRT certification document"
-        url: "https://docs.arduino.cc/resources/cmrt/arduino-cmrt_2.xlsx"
+        url: "resources/cmrt/arduino-cmrt_2.xlsx"
   - name: "ENEC"
     title: "ENEC"
     id: 11
@@ -108,5 +108,5 @@ productCertifications:
     sourceTitle: "www.legislation.gov.uk"
     files:
       - title: "Download PSTI certification document for Arduino boards."
-        url: "https://docs.arduino.cc/resources/psti/arduino-psti.pdf"
+        url: "resources/psti/arduino-psti.pdf"
 ---
