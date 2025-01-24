@@ -55,9 +55,11 @@ This tutorial's main objective is to guide you through the build and configurati
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
+- [Silicon Labs Core](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#board-core-and-libraries)
 - [Simplicity Studio](https://www.silabs.com/developers/simplicity-studio)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
+  
 ## Setting up the OTBR
 
 ### The RCP: Nano Matter
@@ -66,7 +68,32 @@ This section outlines the steps to build the RCP firmware for the Nano Matter.
 
 ![Nano Matter Configuration](assets/matter-banner.png)
 
-#### Create a New Project
+#### Ready to Flash Binary
+
+We recommend you to use this pre-compiled binary to flash your Nano Matter board.
+
+- Download the `.hex` binary from [here]() and locate it on a known directory.
+- Open any text editor and paste the following command:
+
+```bash
+/Users/<username>/AppData/Local/Arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/bin/openocd -d2 -s /Users/<username>/AppData/Local/Arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/share/openocd/scripts/ -f interface/cmsis-dap.cfg -f target/efm32s2_g23.cfg -c "init; reset_config srst_nogate; reset halt; program <project-directory>; reset; exit"
+```
+
+- Update the `username` field with yours.
+- Update the `project-directory` field with the binary directory you downloaded in the previous step.
+- Open the Command Prompt and paste the formatted command.
+- Connect the Nano Matter to your PC using a USB-C® cable.
+- Run the command and verify the download process was successful.
+
+![Binary flash process](assets/binary-flash.png)
+
+***Make sure to have the [Silicon Labs core](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#board-core-and-libraries) installed on your Arduino IDE so you can use the __openocd__ tool for flashing.***
+
+From here, jump directly to the [Matter Controller section](http://localhost:8000/tutorials/nano-matter/open-thread-border-router/#the-matter-controller-nano-esp32).
+
+#### Build the Binary from Scratch
+
+If you want to build the Nano Matter program by yourself, follow the steps below:
 
 - Download Simplicity Studio. Silicon Labs provides this IDE, which is designed to simplify the development process for Silicon Labs hardware platforms. Download latest version [here](https://www.silabs.com/developers/simplicity-studio).
 
@@ -159,11 +186,20 @@ cd esp-idf
 . ./export.sh
 ```
 
+- Navigate to the `ot_rcp` example included in the `esp-idf` directory, and build it using the `esp32h2` target:
+  
+```bash
+cd examples/openthread/ot_rcp
+idf.py set-target esp32h2
+idf.py build
+```
+
 - Clone the ESP Thread Border Router example repository:
   
 ```bash
+cd ..
 git clone -b v1.0 --recursive https://github.com/espressif/esp-thread-br.git
-cd /esp-thread-br/examples/basic_thread_border_router/
+cd esp-thread-br/examples/basic_thread_border_router/
 ```
 - For the `sdkconfig` file to be generated, and we can later modify it with our Nano ESP32 custom settings, set the device target from the command line:
 
