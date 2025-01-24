@@ -7,7 +7,7 @@ tags:
   - Camera
   - Sensors
   - Machine Learning
-author: 'Christopher Mendez'
+author: 'Christopher Méndez'
 hardware:
   - hardware/04.pro/shields/portenta-vision-shield
 software:
@@ -38,22 +38,27 @@ This user manual will guide you through a practical journey covering the most in
 
 The Arduino Portenta Vision Shield is an add-on board providing machine vision capabilities and additional connectivity to the Portenta family of Arduino boards, designed to meet the needs of industrial automation. The Portenta Vision Shield connects via a high-density connector to the Portenta boards with minimal hardware and software setup.
 
-The included HM-01B0 camera module has been pre-configured to work with the OpenMV libraries provided by Arduino. Based on the specific application requirements, the Portenta Vision Shield is available in two configurations with either Ethernet or LoRa® connectivity.
+***The Portenta Vision Shield has two hardware revisions, distinguished only by the onboard camera sensor; all other features of the shield remain identical across both revisions.***
+
+- The Portenta Vision Shield (**Rev 1**) includes the **HM01B0** (1/11" 320 x 320 VGA 60FPS) CMOS camera module.
+- The Portenta Vision Shield (**Rev 2**) includes the **HM0360** (1/6" 640 x 480 VGA 60FPS) CMOS camera module.
+
+The included camera module has been pre-configured to work with the OpenMV libraries provided by Arduino. Based on the specific application requirements, the Portenta Vision Shield is available in two configurations with either Ethernet or LoRa® connectivity.
 
 ### Board Architecture Overview
 
 The Portenta Vision Shield LoRa® brings industry-rated features to your Portenta. This hardware add-on will let you run embedded computer vision applications, connect wirelessly via LoRa® to the Arduino Cloud or your own infrastructure, and activate your system upon the detection of sound events.
 
-![Vision Shield main components (top view)](assets/arch-top.png)
+![Vision Shield main components (top view)](assets/arch-top-c.png)
 ![Vision Shield main components (bottom view)](assets/arch-bottom.png)
 
 Here is an overview of the board's main components, as shown in the images above:
 
 - **Power Regulator**: the Portenta H7/C33 supplies 3.3 V power to the LoRa® module (ASX00026 only), Ethernet communication (ASX00021 only), Micro SD slot and dual microphones via the 3.3 V output of the high-density connectors. An onboard LDO regulator supplies a 2.8 V output (300 mA) for the camera module.
 
-- **Camera**: the Himax HM-01B0 Module is a very low-power camera with 320x320 resolution and a maximum of 60 FPS depending on the operating mode. Video data is transferred over a configurable 8-bit interconnect with support for frame and line synchronization. The module delivered with the Portenta Vision Shield is the monochrome version. Configuration is achieved via an I2C connection with the compatible Portenta boards microcontrollers.
+- **Camera**: the Himax HM01B0 (320x320) and HM0360 (640x480) modules are very low-power cameras with a maximum of 60 FPS depending on the operating mode. Video data is transferred over a configurable 8-bit interface with support for frame and line synchronization. The module delivered with the Portenta Vision Shield is the monochrome version. Configuration is achieved via an I2C connection with the compatible Portenta boards microcontrollers.
 
-    HM-01B0 offers very low-power image acquisition and provides the possibility to perform motion detection without main processor interaction. The“Always-on” operation provides the ability to turn on the main processor when movement is detected with minimal power consumption.
+    Himax modules offers very low-power image acquisition and provides the possibility to perform motion detection without main processor interaction. The “Always-on” operation provides the ability to turn on the main processor when movement is detected with minimal power consumption.
 
     ***The Portenta C33 is not compatible with the camera of the Portenta Vision Shield***
 
@@ -76,7 +81,7 @@ along with a Semtech SX1276 Radio. The processor is running on Arduino open-sour
 Connect the Vision Shield with a Portenta H7 through their High-Density connectors and verify they are correctly aligned.
 
 <div style="text-align: center;">
-  <video width="100%" controls="true">
+  <video width="100%" autoplay loop>
   <source src="assets/h7_vision-shield.mp4" type="video/mp4"/>
   </video>
 </div>
@@ -189,19 +194,25 @@ From the above example script, we can highlight the main functions:
 
 - `sensor.set_framesize(<Resolution>)` lets you define the image frame size in terms of pixels. [Here](https://docs.openmv.io/library/omv.sensor.html#sensor.set_framesize) you can find all the different options.
 
-  To leverage full sensor resolution with the Vision Shield camera module `HM01B0`, use `sensor.B320X320`.
+  ![Different resolutions examples](assets/resolutions-2.png)
 
-  ![Different resolutions examples](assets/resolutions.png)
+  Here are some tested settings for your camera setup:
+
+  | **Resolution** |    **Setting**    | **Compatibility** |        **Note**        |
+  | :------------: | :---------------: | :---------------: | :--------------------: |
+  |   320 x 240    |   `sensor.QVGA`   | HM01B0 and HM0360 |                        |
+  |   320 x 320    | `sensor.B320X320` |      HM01B0       | Full sensor resolution |
+  |   640 x 480    |   `sensor.VGA`    |      HM0360       | Full sensor resolution |
 
 - `sensor.snapshot()` lets you take a picture and return the image so you can save it, stream it or process it.
 
 ## Camera
 
-The Portenta Vision Shields's main feature is its onboard camera, based on the HM01B0 ultralow power CMOS image sensor. It is perfect for Machine Learning applications such as object detection, image classification, machine/computer vision, robotics, IoT, and more.
+The Portenta Vision Shields's main feature is its onboard camera, based on the HM01B0 or HM0360 ultra low power CMOS image sensor. It is perfect for Machine Learning applications such as object detection, image classification, machine/computer vision, robotics, IoT, and more.
 
 ![Onboard camera sensor](assets/camera.png)
 
-**Main Camera Features**
+### HM01B0 Camera Features
 
 - Ultra-Low-Power Image Sensor designed for always-on vision devices and applications
 - High-sensitivity 3.6 μ BrightSenseTM pixel technology Window, vertical flip and horizontal mirror readout
@@ -211,14 +222,34 @@ The Portenta Vision Shields's main feature is its onboard camera, based on the H
 
 **Supported Resolutions**
 
-- QQVGA (160x120) at 15, 30, 60 and 120 FPS
+- QQVGA (160x120) at 15, 30, and 60 FPS
 - QVGA (320x240) at 15, 30 and 60 FPS
 - B320X320 (320x320) at 15, 30 and 45 FPS
 
 **Power Consumption**
-- < 1.1 mW QQVGA resolution at 30 FPS,
+- < 1.1 mW QQVGA resolution at 30 FPS
 - < 2 mW QVGA resolution at 30 FPS
 - < 4 mW QVGA resolution at 60 FPS
+
+### HM0360 Camera Features
+
+- Ultra-Low-Power, high sensitivity, low noise VGA sensor
+- On-chip auto exposure / gain and zone detection
+- Automatic wake and sleep operation with programmable event interrupt to host processor
+- Pre-metered exposure provides well exposed first frame and after extended sleep (blanking) period
+- Embedded line provides metadata such as frame count, AE statistics, zone trigger and other interrupt event information
+
+**Supported Resolutions**
+
+- QQVGA (160x120) at 15, 30, and 60 FPS
+- QVGA (320x240) at 15, 30 and 60 FPS
+- VGA (640x480) at 15, 30 and 60 FPS
+
+**Power Consumption**
+
+- 140 µA QVGA resolution at 2 FPS
+- 3.2 mA QVGA resolution at 60 FPS
+- 7.8 mA VGA resolution at 60 FPS
 
 The Vision Shield is primarily intended to be used with the OpenMV MicroPython ecosystem. So, it's recommended to use this IDE for machine vision applications.
 
@@ -233,7 +264,7 @@ import machine
 
 sensor.reset()  # Reset and initialize the sensor.
 sensor.set_pixformat(sensor.GRAYSCALE)  # Set pixel format to RGB565 (or GRAYSCALE)
-sensor.set_framesize(sensor.B320X320)  # Set frame size to QVGA (320x240)
+sensor.set_framesize(sensor.QVGA)  # Set frame size to QVGA (320x240)
 sensor.skip_frames(time=2000)  # Wait for settings take effect.
 
 led = machine.LED("LED_BLUE")
@@ -412,7 +443,7 @@ import time
 
 sensor.reset()
 sensor.set_pixformat(sensor.GRAYSCALE)
-sensor.set_framesize(sensor.B320X320)
+sensor.set_framesize(sensor.QVGA)
 sensor.skip_frames(time=2000)
 sensor.set_auto_gain(False)  # must turn this off to prevent image washout...
 clock = time.clock()
@@ -439,8 +470,10 @@ This script will draw a circle on each detected face and will print their coordi
 ```python
 import sensor
 import time
-import tf
+import ml
+from ml.utils import NMS
 import math
+import image
 
 sensor.reset()  # Reset and initialize the sensor.
 sensor.set_pixformat(sensor.GRAYSCALE)  # Set pixel format to RGB565 (or GRAYSCALE)
@@ -449,12 +482,14 @@ sensor.set_windowing((240, 240))  # Set 240x240 window.
 sensor.skip_frames(time=2000)  # Let the camera adjust.
 
 min_confidence = 0.4
+threshold_list = [(math.ceil(min_confidence * 255), 255)]
 
 # Load built-in FOMO face detection model
-labels, net = tf.load_builtin_model("fomo_face_detection")
+model = ml.Model("fomo_face_detection")
+print(model)
 
 # Alternatively, models can be loaded from the filesystem storage.
-# net = tf.load('<object_detection_network>', load_to_fb=True)
+# model = ml.Model('<object_detection_modelwork>.tflite', load_to_fb=True)
 # labels = [line.rstrip('\n') for line in open("labels.txt")]
 
 colors = [  # Add more colors if you are detecting more than 7 types of classes at once.
@@ -467,31 +502,50 @@ colors = [  # Add more colors if you are detecting more than 7 types of classes 
     (255, 255, 255),
 ]
 
+
+# FOMO outputs an image per class where each pixel in the image is the centroid of the trained
+# object. So, we will get those output images and then run find_blobs() on them to extract the
+# centroids. We will also run get_stats() on the detected blobs to determine their score.
+# The Non-Max-Supression (NMS) object then filters out overlapping detections and maps their
+# position in the output image back to the original input image. The function then returns a
+# list per class which each contain a list of (rect, score) tuples representing the detected
+# objects.
+def fomo_post_process(model, inputs, outputs):
+    n, oh, ow, oc = model.output_shape[0]
+    nms = NMS(ow, oh, inputs[0].roi)
+    for i in range(oc):
+        img = image.Image(outputs[0][0, :, :, i] * 255)
+        blobs = img.find_blobs(
+            threshold_list, x_stride=1, area_threshold=1, pixels_threshold=1
+        )
+        for b in blobs:
+            rect = b.rect()
+            x, y, w, h = rect
+            score = (
+                img.get_statistics(thresholds=threshold_list, roi=rect).l_mean() / 255.0
+            )
+            nms.add_bounding_box(x, y, x + w, y + h, score, i)
+    return nms.get_bounding_boxes()
+
+
 clock = time.clock()
 while True:
     clock.tick()
 
     img = sensor.snapshot()
 
-    # detect() returns all objects found in the image (split out per class already)
-    # we skip class index 0, as that is the background, and then draw circles of the center
-    # of our objects
-
-    for i, detection_list in enumerate(
-        net.detect(img, thresholds=[(math.ceil(min_confidence * 255), 255)])
-    ):
+    for i, detection_list in enumerate(model.predict([img], callback=fomo_post_process)):
         if i == 0:
             continue  # background class
         if len(detection_list) == 0:
             continue  # no detections for this class?
 
-        print("********** %s **********" % labels[i])
-        for d in detection_list:
-            [x, y, w, h] = d.rect()
+        print("********** %s **********" % model.labels[i])
+        for (x, y, w, h), score in detection_list:
             center_x = math.floor(x + (w / 2))
             center_y = math.floor(y + (h / 2))
-            print(f"x {center_x}\ty {center_y}")
-            img.draw_circle((center_x, center_y, 12), color=colors[i], thickness=2)
+            print(f"x {center_x}\ty {center_y}\tscore {score}")
+            img.draw_circle((center_x, center_y, 12), color=colors[i])
 
     print(clock.fps(), "fps", end="\n")
 ```
@@ -506,9 +560,7 @@ Use the following example script to run the **person detection** model.
 ```python
 import sensor
 import time
-import tf
-import math
-import uos, gc
+import ml
 
 sensor.reset()  # Reset and initialize the sensor.
 sensor.set_pixformat(sensor.GRAYSCALE)  # Set pixel format to RGB565 (or GRAYSCALE)
@@ -516,30 +568,28 @@ sensor.set_framesize(sensor.QVGA)  # Set frame size to QVGA (320x240)
 sensor.set_windowing((240, 240))  # Set 240x240 window.
 sensor.skip_frames(time=2000)  # Let the camera adjust.
 
-net = tf.load('person_detection.tflite', load_to_fb=True)
+model = ml.Model('person_detection.tflite', load_to_fb=True)
 labels = [line.rstrip('\n') for line in open("person_detection.txt")]
-
+sorted_labels = sorted(labels, reverse=False)
 
 clock = time.clock()
 while True:
     clock.tick()
 
     img = sensor.snapshot()
-
-    for obj in net.classify(img, min_scale = 1.0, scale_mul= 0.8, x_overlap = 0.5, y_overlap = 0.5):
-        print("*********** \nDetections at [x=%d,y=%d, w=%d, h=%d]" % obj.rect())
-        img.draw_rectangle(obj.rect())
-        predictions_list = list(zip(labels,obj.output()))
-        
-        for i in range(len(predictions_list)):                 
-            print ("%s = %f" % (predictions_list[i][0], predictions_list[i][1]))
-            
-    print(clock.fps(), "fps", end="\n")
+    
+    sorted_list = sorted(
+        zip(sorted_labels, model.predict([img])[0].flatten().tolist()), key=lambda x: x[1]
+    )
+    for i in range(len(sorted_labels)):
+        print("%s = %f" % (sorted_list[i][0], sorted_list[i][1]))
+    
+    print(clock.fps(), "fps")
 ```
 
 When a person is in the field of view of the camera, you should see the inference result for `person` rising above 70% of certainty.
 
-![Person detection example running](assets/person-detect.gif)
+![Person detection example running](assets/person-detect-4.gif)
 
 ## Microphone
 
@@ -640,48 +690,70 @@ With this script running you will be able to see the Fast Fourier Transform resu
 
 You can easily implement sound/voice recognition applications using Machine Learning on the edge, this means that the Portenta H7 plus the Vision Shield can run these algorithms locally. 
 
-For this example, we are going to test a [pre-trained model]((https://raw.githubusercontent.com/iabdalkader/microspeech-yesno-model/main/model.tflite)) that can recognize the `yes` and `no` keywords
-
-First, download the `.tflite` [model](https://raw.githubusercontent.com/iabdalkader/microspeech-yesno-model/main/model.tflite) and copy it to the H7 local storage. 
-
 Use the following script to run the example. It can also be found on **File > Examples > Audio > micro_speech.py** in the OpenMV IDE.
 
 ```python
-import audio
 import time
-import tf
-import micro_speech
-import pyb
+from ml.apps import MicroSpeech
+
+
+def callback(label, scores):
+    print(f'\nHeard: "{label}" @{time.ticks_ms()}ms Scores: {scores}')
+
+
+# By default, the MicroSpeech object uses the built-in audio preprocessor (float) and the
+# micro speech module for audio preprocessing and speech recognition, respectively. The
+# user can override both by passing two models:
+# MicroSpeech(preprocessor=ml.Model(...), micro_speech=ml.Model(...), labels=["label",...])
+speech = MicroSpeech()
+
+# Starts the audio streaming and processes incoming audio to recognize speech commands.
+# If a callback is passed, listen() will loop forever and call the callback when a keyword
+# is detected. Alternatively, `listen()` can be called with a timeout (in ms), and it
+# returns if the timeout expires before detecting a keyword.
+speech.listen(callback=callback, threshold=0.70)
+```
+
+In the example from above you can notice that there is no model defined explicitly, this is because it will use the default built-in model pre-trained to recognize the **yes** and **no** keywords.
+
+You can run the script and say the keywords, if any is recognized, the *Serial Terminal* will print the heard word and the inference scores.
+
+#### Custom Speech Recognition Model
+
+You can easily run custom speech recognition models also. To show you how, we are going to replicate the **yes** and **no** example but this time using the `.tflite` model file.
+
+First, download the `.tflite` [model](https://raw.githubusercontent.com/iabdalkader/microspeech-yesno-model/main/model.tflite) and copy it to the H7 local storage. 
+
+![Speech recognition model directory](assets/model-speech.png)
+
+Copy and paste the following script based in the original example:
+
+```python
+import time
+import ml
+from ml.apps import MicroSpeech
 
 labels = ["Silence", "Unknown", "Yes", "No"]
 
-led_red = pyb.LED(1)
-led_green = pyb.LED(2)
+def callback(label, scores):
+    print(f'\nHeard: "{label}" @{time.ticks_ms()}ms Scores: {scores}')
 
-model = tf.load("/model.tflite")
-speech = micro_speech.MicroSpeech()
-audio.init(channels=1, frequency=16000, gain_db=24, highpass=0.9883)
+speech = MicroSpeech(micro_speech=ml.Model('model.tflite', load_to_fb=True), labels=labels)
 
-# Start audio streaming
-audio.start_streaming(speech.audio_callback)
-
-while True:
-    # Run micro-speech without a timeout and filter detections by label index.
-    idx = speech.listen(model, timeout=0, threshold=0.70, filter=[2, 3])
-    led = led_green if idx == 2 else led_red
-    print(labels[idx])
-    for i in range(0, 4):
-        led.on()
-        time.sleep_ms(25)
-        led.off()
-        time.sleep_ms(25)
-
-# Stop streaming
-audio.stop_streaming()
+speech.listen(callback=callback, threshold=0.70)
 ```
-Now, just say `yes` or `no` and you will see the inference result in the OpenMV Serial Monitor.
 
-![Speech recognition example](assets/ml-inference.png)
+As you can see, there are some differences between the original example from which we can highlight the following:
+
+- The `ml` module was imported
+- A labels list was created including the model labels in a specific order
+- The `MicroSpeech()` function has been populated with the model and labels list as arguments.
+
+Now, just say `yes` or `no` and you will see the inference result in the OpenMV Serial Terminal just as with the original example.
+
+![Speech recognition example](assets/ml-inference-2.png)
+
+***If you want to create a custom model `.tflite` file, you can do it with your own keywords or sounds using [Edge Impulse](https://docs.edgeimpulse.com/docs/edge-ai-hardware/mcu/arduino-portenta-h7).***
 
 ## Machine Learning Tool
 
@@ -759,7 +831,7 @@ The **Portenta Vision Shield - Ethernet** gives you the possibility of connectin
 
 First, connect the Vision Shield - Ethernet to the Portenta H7. Now connect the USB-C® cable to the Portenta H7 and your computer. Lastly, connect the Ethernet cable to the Portenta Vision Shield's Ethernet port and your router or modem.
 
-Now you are ready to test the connectivity with the following Python script. This example lets you know if an Ethernet cable is connected successfully to the shield. 
+Now you are ready to test the connectivity with the following MicroPython script. This example lets you know if an Ethernet cable is connected successfully to the shield. 
 
 ```python
 import network
@@ -814,6 +886,8 @@ Run the script and the current date and time will be printed in the OpenMV IDE S
 
 ![Ethernet connection example script](assets/ntp.png)
 
+***If you want to learn more, check the other Ethernet examples in the OpenMV IDE.***
+
 ## LoRa® (ASX00026)
 
 The **Vision Shield - LoRa®** can extend our project connectivity by leveraging it LoRa® module for long-range communication in remote areas with a lack of internet access. Powered by the Murata CMWX1ZZABZ module which contains an STM32L0 processor along with a Semtech SX1276 Radio.
@@ -824,7 +898,14 @@ To test the LoRa® connectivity, first, connect the Vision Shield - LoRa® to th
 
 ***Follow this [guide](https://docs.arduino.cc/tutorials/portenta-vision-shield/things-network-openmv) to learn how to set up and create your __end device__ on The Things Network.***
 
-The following Python script lets you connect to The Things Network using LoRaWAN® and send a `Hello World` message to it.
+Important hardware LoRa® configurations are listed below:
+
+|     **Setting**     | **Compatibility** |
+| :-----------------: | :---------------: |
+| LoRaWAN MAC Version |      V1.0.2       |
+|        Class        |      A or C       |
+
+The following MicroPython script lets you connect to The Things Network using LoRaWAN® and send a `Hello World` message to it.
 
 ```python
 from lora import *
@@ -879,7 +960,7 @@ Find the frequency used in your country for **The Things Network** on this [list
 ```python
 lora = Lora(band=BAND_AU915, poll_ms=60000, debug=False) # change the band with yours e.g BAND_US915
 ```
-Define your application `appEUI` and `appKey` in the Python script so the messages are correctly authenticated by the network server.
+Define your application `appEUI` and `appKey` in the MicroPython script so the messages are correctly authenticated by the network server.
 
 ```python
 appEui = "*****************"  # now called JoinEUI
