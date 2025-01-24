@@ -18,6 +18,10 @@ When unboxing Alvik, you should find the following items:
 - Alvik robot
 - USB-C® cable (located under the cardboard tray)
 
+Alvik's battery is protected by a pull-tab protective sticker. Remove the sticker to start working with the robot.
+
+![Alvik pull tab](assets/Alvik-battery-pull-tab.jpg)
+
 ## Update Firmware with Alvik Updater
 
 Updating the firmware on your Alvik ensures it has the latest features, bug fixes, and performance improvements. Regular updates help maintain compatibility with the mBlock software and ensure optimal performance of your robot.
