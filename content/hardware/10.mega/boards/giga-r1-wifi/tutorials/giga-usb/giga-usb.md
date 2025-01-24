@@ -277,7 +277,7 @@ void setup() {
   
   msd.connect();
 
-  while (!msd.connected()) {
+  while (!msd.connect()) {
     //while (!port.connected()) {
     delay(1000);
   }
@@ -358,7 +358,7 @@ void setup() {
 
   msd.connect();
 
-  while (!msd.connected()) {
+  while (!msd.connect()) {
     Serial.print("MSD not found.");
     delay(1000);
   }

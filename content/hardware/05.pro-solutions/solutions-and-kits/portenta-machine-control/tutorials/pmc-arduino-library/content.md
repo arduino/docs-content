@@ -169,6 +169,8 @@ In the new approach, the `begin()` function is explicitly called to initialize t
 
 This update enhances the user experience by making the code more intuitive and aligned with the familiar Arduino programming style.
 
+***When using the Analog Output channels, please consider following detail: The High-Resolution Timer (HRTIM) function on PG7 allows for high-frequency PWM signals with precise control over short periods. However, it is limited to a maximum period of __approximately 1.3 ms__. This constraint makes __Analog Out Channel 2__ optimal for high-frequency PWM applications but unsuitable for periods exceeding 1.3 ms. For longer periods, alternative __Analog Out channels (AO0, AO1, AO3)__ with standard timers are recommended. Please refer to the [Portenta Machine Control User Manual: Analog Outputs section](https://docs.arduino.cc/tutorials/portenta-machine-control/user-manual/#analog-outputs) for more details.***
+
 ### Encoders
 
 The handling of encoders has been updated in the `Arduino_PortentaMachineControl` Library for a more streamlined and intuitive approach. One key new feature is the **removal of array object access**. In the previous library version, encoder objects were accessed using array notation (`[]`). The latest version has simplified this approach, enhancing code readability and reducing potential errors.

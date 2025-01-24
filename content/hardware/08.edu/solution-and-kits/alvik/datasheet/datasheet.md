@@ -263,11 +263,16 @@ Now that you have gone through the basics of what you can do with the device, yo
 
 ### Certifications Summary
 
-| Cert          | Arduino Alvik (AKX00066) |
-| ------------- | ------------------------ |
-| **CE (EU)**   | Yes                      |
-| **UKCA (UK)** | Yes                      |
-
+| Certification       | Status (AKX00066) |
+| ------------------- | ----------------- |
+| **CE (EU)**         | Yes               |
+| **UKCA (UK)**       | Yes               |
+| **RCM (Australia)** | Yes               |
+| **REACH**           | Yes               |
+| **FCC (USA)**       | Yes               |
+| **IC (Canada)**     | Yes               |
+| **RoHS (EU)**       | Yes               |
+| **WEEE**            | Yes               |
 
 ### Declaration of Conformity CE DoC (EU)
 
@@ -379,5 +384,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date       | **Revision** |             **Changes**             |
 | ---------- | :----------: | :---------------------------------: |
+| 20/12/2024 |      3       |         Add Certifications          |
 | 13/05/2024 |      2       | Robot's Expandability section added |
 | 24/04/2024 |      1       |            First Release            |

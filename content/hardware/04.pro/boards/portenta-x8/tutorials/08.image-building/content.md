@@ -14,6 +14,8 @@ hardware:
 
 ## Overview
 
+![Portenta X8 Custom Image Build](assets/x8-image-build-c.gif)
+
 In this tutorial, you will learn how to build an image for the Portenta X8 with the source code provided at our [GitHub repository for lmp-manifest](https://github.com/arduino/lmp-manifest/). It is an ideal approach for debugging system elements like the bootloader or kernel support by building images locally.
 
 ***Images built locally cannot register with FoundriesFactory and will not be OTA compatible, but this is a good alternative for those who do not have a FoundriesFactory subscription.***
@@ -60,10 +62,18 @@ cd lmp-manifest
 Build the Docker image with the following command:
 
 ```bash
-docker build -t yocto-build ./lmp-manifest
+docker build -t yocto-build .
 ```
 
+***If you encounter issues running Docker commands, you may need to install the necessary Docker components. You can install the Docker CLI by running: __`winget install --id=Docker.DockerCLI -e`__ or install [__Docker Desktop__](https://docs.docker.com/desktop/install/windows-install/), which includes all needed components.***
+
 ![Building a Docker Image](assets/docker_build.png)
+
+If you are building the Docker image one directory up, please use the following command:
+
+```bash
+docker build -t yocto-build ./lmp-manifest
+```
 
 You will see a confirmation message indicating the image's readiness if the build completes successfully.
 
@@ -77,6 +87,12 @@ To run the *`yocto-build`* image and begin an interactive session, use the follo
 
 ```bash
 docker run -v <source>:/dockerVolume -it yocto-build bash
+```
+
+If it encounters errors that may relate to entrypoint, you can use the following command instead of the previous command:
+
+```bash
+docker run --entrypoint /bin/bash -v <source>:/dockerVolume -it yocto-build
 ```
 
 Once inside the container, switch to the *`builder`* user to proceed with the build process. The password for the builder user is **builder**:
@@ -153,7 +169,7 @@ Choose the appropriate distribution with the command below:
 DISTRO=lmp-xwayland MACHINE=portenta-x8 . setup-environment
 ```
 
-***Support for `lmp-partner-arduino-image` is anticipated to improve continuously.***
+***Support for `lmp-factory-image` is anticipated to improve continuously. Starting from image __version 888__, _`lmp-partner-arduino-image`_ is now known as __`lmp-factory-image`__.***
 
 Following the environment setup, the process will navigate to a new directory. Here, accept the EULA with:
 
@@ -170,7 +186,7 @@ The setup completion should resemble the output shown here:
 Start the image build with Bitbake using:
 
 ```bash
-bitbake lmp-partner-arduino-image
+bitbake lmp-factory-image
 ```
 
 ***This process may take ~7 hours depending on the build host***
@@ -194,7 +210,7 @@ To flash your board, you will need to compile **lmp-mfgtool distro** to get addi
 cd ..
 DISTRO=lmp-mfgtool MACHINE=portenta-x8 . setup-environment
 echo "ACCEPT_FSL_EULA = \"1\"" >> conf/local.conf
-echo "MFGTOOL_FLASH_IMAGE = \"lmp-partner-arduino-image\"" >> conf/local.conf
+echo "MFGTOOL_FLASH_IMAGE = \"lmp-factory-image\"" >> conf/local.conf
 ```
 
 You should be able to see similar results as the following image when successful:
@@ -230,7 +246,7 @@ cp -L build-lmp-mfgtool/deploy/images/portenta-x8/mfgtool-files-portenta-x8.tar.
 cp -L build-lmp-xwayland/deploy/images/portenta-x8/imx-boot-portenta-x8 $DEPLOY_FOLDER
 cp -L build-lmp-xwayland/deploy/images/portenta-x8/u-boot-portenta-x8.itb $DEPLOY_FOLDER
 cp -L build-lmp-xwayland/deploy/images/portenta-x8/sit-portenta-x8.bin $DEPLOY_FOLDER
-cp -L build-lmp-xwayland/deploy/images/portenta-x8/lmp-partner-arduino-image-portenta-x8.wic $DEPLOY_FOLDER
+cp -L build-lmp-xwayland/deploy/images/portenta-x8/lmp-factory-image-portenta-x8.wic $DEPLOY_FOLDER
 
 cd $DEPLOY_FOLDER
 tar xvf mfgtool-files-portenta-x8.tar.gz

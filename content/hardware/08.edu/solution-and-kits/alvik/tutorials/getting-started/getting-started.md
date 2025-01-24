@@ -13,7 +13,41 @@ Arduino® Alvik is a powerful and versatile robot specifically designed for prog
 
 Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through different programming languages including MicroPython, the Arduino language, and block-based coding; enabling different possibilities to explore Robotics, IoT and Artificial Intelligence.
 
-### Unboxing Alvik
+## Update The Firmware Of Your Alvik
+
+Keeping your Alvik’s firmware updated ensures it has the latest features, bug fixes, and performance enhancements. Regular updates also help maintain compatibility with other software, providing optimal performance for your robot.
+
+![Alvik Firmware Updater](assets/AlvikFirmwareUpdater30sec.gif)
+
+1. Visit https://alvikupdate.arduino.cc.
+2. Connect Alvik to your computer.
+3. Turn ON your Alvik.
+4. Click the "Connect" button.
+5. **A pop-up window will appear** prompting you to select the COM port. Choose the correct port and confirm.
+6. Once connected, click the "Update" button and wait for the process to complete.
+
+## Checking The State Of The Battery
+
+Once the firmware of your Alvik is up to date and before start playing with it, let's verify your battery works as it should by following these steps:
+
+1. Reset your Alvik by turning it OFF and disconnecting it from the PC.
+2. Open the battery compartment and check that the clips are making contact with the battery. If they aren’t, remove the battery, adjust the clips to ensure proper alignment, and then reinsert the battery securely.
+3. Connect the Alvik to the PC keeping Alvik OFF.
+4. At this point some lights should turn ON in your Alvik:
+
+- **Green LED** (not confuse it with the PWR LED of the Nano ESP32) will turn ON in the ESP32
+  ![Alvik fully charged - Green LED](assets/charged.png)
+  The battery is fully charged. Proceed to "Unboxing Alvik" paragraph.
+  
+- **Red LED blinking**
+  ![Charging blink](assets/charging.gif)
+  The battery is still charging from the PC. Continue to the Unboxing Alvik.
+
+- **No lights** 
+  ![Faulty battery](assets/faulty_battery.gif)
+  The battery may be faulty. To check it, turn Alvik ON; if an orange light near the QWIIC connector blinks every 10 seconds, contact our customer support for a replacement.
+
+## Unboxing Alvik
 
 ![Selecting one of the ready-to-go examples](assets/select-examples.gif)
 
@@ -27,19 +61,6 @@ Your Alvik robot is equipped with three ready-to-go examples. To choose one of t
 
 Now that you have played with Alvik and have seen it moving, it is time to know more in-depth how it is built and how to program Alvik to do amazing things.
 
-## Update Firmware with Alvik Updater
-
-Keeping your Alvik’s firmware updated ensures it has the latest features, bug fixes, and performance enhancements. Regular updates also help maintain compatibility with other software, providing optimal performance for your robot.
-
-![Alvik Firmware Updater](assets/AlvikFirmwareUpdater30sec.gif)
-
-1. Visit https://alvikupdate.arduino.cc.
-2. Connect Alvik to your computer.
-3. Turn ON your Alvik.
-4. Click the "Connect" button.
-5. **A pop-up window will appear** prompting you to select the COM port. Choose the correct port and confirm.
-6. Once connected, click the "Update" button and wait for the process to complete.
-
 ### Let's Start Coding Alvik
 
 Alvik is intended to be programmed with MicroPython. We recommend you to install the [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython) editor. Follow the instructions next to the download link to install it and open the IDE.
@@ -48,7 +69,7 @@ If you're using a **Chromebook**, there is no installable version of the softwar
 
 ![Online Lab Micropython](assets/online-lab-micropython.jpg)
 
-Alternatively, on par with other Arduino products, you can also program your Alvik using Arduino IDE and C++. If this is the case you can find setup instructions over at [Setting up Alvik on Arduino IDE](../setting-alvik-arduino-ide/setting-alvik-arduino-ide.md).
+Alternatively, on par with other Arduino products, you can also program your Alvik using Arduino IDE and C++. If this is the case you can find setup instructions over at [Setting up Alvik on Arduino IDE](https://docs.arduino.cc/tutorials/alvik/setting-alvik-arduino-ide/).
 
 Now that all the previous steps have been set, let's see how to make Alvik moving across your room while avoiding objects! Let's create custom program for Alvik that:
 
@@ -73,19 +94,16 @@ Now that all the previous steps have been set, let's see how to make Alvik movin
 ``` python
 from arduino_alvik import ArduinoAlvik
 from time import sleep_ms
-import sys
 
 alvik = ArduinoAlvik()
 alvik.begin()
-sleep_ms(5000)  # waiting for the robot to setup
-distance = 12
+distance = 15
 degrees = 45.00
 speed = 10.00
 
 while (True):
 
     distance_l, distance_cl, distance_c, distance_r, distance_cr  = alvik.get_distance()
-    sleep_ms(50)
     print(distance_c)
 
     if distance_c < distance:
@@ -101,6 +119,7 @@ while (True):
     else:
         alvik.drive(speed, 0.0, linear_unit='cm/s')
 
+    sleep_ms(100)
 ```
 
 **4. **Connect Alvik to your PC using the cable included in the box, under the tray.

@@ -1,5 +1,5 @@
 ---
-title: 'Arduino UNO R4 WiFi Cheat Sheet'
+title: 'Arduino UNO R4 WiFi User Manual'
 description: 'Learn how to set up the Arduino UNO R4 WiFi, the fourth revision of our most popular and important development board.'
 tags:
   - Installation

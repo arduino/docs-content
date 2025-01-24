@@ -62,6 +62,7 @@ Arduino_H7_Video          Display(800, 480, GigaDisplayShield);
 Arduino_GigaDisplayTouch  Touch;
 
 void setup() {
+  delay(3000);
   Display.begin();
   Touch.begin();
 
@@ -119,6 +120,7 @@ Then it is as simple as using the names of the widgets in a LVGL function. For e
 
 ```arduino
 void setup() {
+    delay(3000);
     Display.begin();
     Touch.begin();
 
@@ -182,6 +184,7 @@ static void ButtonDec_evt_handler(lv_event_t * e) {
 }
 
 void setup() {
+    delay(3000);
     Display.begin();
     Touch.begin();
 

@@ -1,5 +1,5 @@
 ---
-title: 'Arduino UNO R4 Minima Cheat Sheet'
+title: 'Arduino UNO R4 Minima User Manual'
 description: 'Learn how to set up the UNO R4 Minima, the fourth revision of our most popular and important development board.'
 tags:
   - Installation

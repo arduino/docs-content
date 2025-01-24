@@ -43,7 +43,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: "0"
 
       - name: Cleanup runner disk
         uses: ./.github/actions/cleanup-disk # Cleanup machine before starting the build
