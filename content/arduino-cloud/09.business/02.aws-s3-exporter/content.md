@@ -62,18 +62,91 @@ The exporter setup involves deploying resources using a [**CloudFormation templa
 * EventBridge rule configuration (policy: `AmazonEventBridgeFullAccess`)
 * Parameter management in SSM (policy: `AmazonSSMFullAccess`)
 
-## Pre-Requisite
+## S3 Buckets (Pre-Requisite)
 
 Before continuing and creating the CloudFormation stack, two S3 buckets need to be created:
 
-- **Temporary bucket**: This is where the Lambda binaries and **CloudFormation template (CFT)** will be uploaded.
-- **CSV destination bucket**: This is where all generated CSV files will be uploaded. Ensure this bucket is in the same AWS region where the stack will be created.
+- **Temporary bucket**: This is where the Lambda binaries and **CloudFormation template (CFT)** will be uploaded and stored.
+- **CSV destination bucket**: This is where all generated CSV files will be uploaded. Make sure this bucket is in the same AWS region where the stack will be created.
 
-## Setting Up
+![S3 Buckets](assets/s3_bucket_complete.png)
 
-Download the [Lambda binaries](https://github.com/arduino/aws-s3-integration/releases) (`.zip` file) and the [CloudFormation template](https://github.com/arduino/aws-s3-integration/releases) (`.yaml` file).
+### Creating S3 Bucket
 
-Upload the binaries and the template to an accessible S3 bucket. Note the following object URL for use in the stack creation process:
+To create the temporary bucket and the CSV destination bucket, you need to go to **Amazon S3** or search for **S3**. Then, you can click on **Create bucket** to start creating the first bucket.
+
+When creating a bucket, you will see several different options of the bucket configuration required for the creation as follows:
+
+- General configuration
+- Object ownership
+- Block public access for this bucket
+- Bucket versioning
+- Tags (Optional)
+- Default encryption
+- Advanced settings
+
+All these parameters are explained briefly within the bucket creation process.
+
+![Bucket creation (1)](assets/s3_bucket_create_1.png)
+
+![Bucket creation (2)](assets/s3_bucket_create_2.png)
+
+The important configuration here is the **General configuration** in our case. The bucket name **must be** defined and **General purpose** bucket is selected for the purpose of the present integration.
+
+The rest of the configuration can be left with **Default** values that were selected and configured when the bucket creation process started. 
+
+Proceed to **Submit** bucket creation with the defined configuration. The following image shows when a general purpose bucket has been created successfully after submission.
+
+In this process, we created the **Temporary bucket** to store the Lambda binaries and **CloudFormation template (CFT)**. The name assigned to this bucket is: **lambdas3binaries**.
+
+![Lambda Binary & CFT Bucket](assets/s3_bucket_lambdas3bin.png)
+
+#### Temporary Bucket
+
+The **lambdas3binaries** bucket needs to have:
+
+- [Lambda binaries](https://github.com/arduino/aws-s3-integration/releases) (`.zip` file)
+- [CloudFormation template (CFT)](https://github.com/arduino/aws-s3-integration/releases) (`.yaml` file)
+
+Please download the binaries and CFT file to upload to the **lambdas3binaries** bucket.
+
+Enter the **lambdas3binaries** bucket within the general purpose buckets and you will able to see different options available for the bucket as shown in the image below:
+
+![lambdas3binaries Bucket Setup (1)](assets/s3_bucket_lambdas3bin_setup_1.png)
+
+Choose the **Upload** option within the **Objects** tab. You can manually upload the binaries and CFT files using the browser explorer or drag and drop the files into the *Upload* area. Once the files are selected, the screen should resemble the following image:
+
+![lambdas3binaries Bucket Setup (2)](assets/s3_bucket_lambdas3bin_setup_2.png)
+
+Click **Upload** button to upload the files and you will have similar screen as shown in the image below:
+
+![lambdas3binaries Bucket Setup (3)](assets/s3_bucket_lambdas3bin_setup_3.png)
+
+Once every file is uploaded, the binaries and CFT file will be listed within the **Objects** tab of the **lambdas3binaries** bucket:
+
+![lambdas3binaries Bucket Setup (4)](assets/s3_bucket_lambdas3bin_setup_4.png)
+
+#### CSV Destination Bucket
+
+Another bucket needs to be created following a similar process used to create [Temporary bucket](#temporary-bucket). This bucket will be the **CSV destination bucket**, where all generated CSV files will be uploaded. Make sure this bucket is in the same AWS region where the stack will be created.
+
+![lambdas3binaries Bucket Setup (1)](assets/s3_bucket_csvdests3int_1.png)
+
+![lambdas3binaries Bucket Setup (2)](assets/s3_bucket_csvdests3int_2.png)
+
+![lambdas3binaries Bucket Setup (3)](assets/s3_bucket_csvdests3int_3.png)
+
+![lambdas3binaries Bucket Setup (4)](assets/s3_bucket_csvdests3int_4.png)
+
+![S3 Buckets](assets/s3_bucket_complete.png)
+
+## Creating CloudFormation Stack
+
+![Stack Creation (1)](assets/cloud_stack_create_1.png)
+
+![Stack Creation (2)](assets/cloud_stack_create_2.png)
+
+Note the following object URL for use in the stack creation process:
 
 ```bash
 https://arduino-s3-data-exporter-deployment.s3.amazonaws.com/deployment.yaml
@@ -81,18 +154,38 @@ https://arduino-s3-data-exporter-deployment.s3.amazonaws.com/deployment.yaml
 
 The **Object URL** is required for the **Amazon S3 URL** field within the stack creation.
 
+![Stack Creation (3)](assets/cloud_stack_create_3.png)
+
 Use the CloudFormation console to create a new stack.
 
-![Stack creation](assets/cft-stack-1.png)
+![Stack Creation (4)](assets/cloud_stack_create_4.png)
 
 ### Stack Parameters
+
+![Stack Creation - Paramters (5)](assets/cloud_stack_create_5.png)
 
 Enter the following parameters required for creating the stack:
   
 - **Mandatory:** Arduino API key and secret, the S3 bucket for code, and the destination S3 bucket.
 - **Optional:** Tag filter, organization ID, and data resolution settings.
 
-![Stack parameters](assets/cft-stack-2.png)
+![Stack Creation - Paramters (6)](assets/cloud_stack_create_6.png)
+
+![Stack Creation - Review (7)](assets/cloud_stack_create_7.png)
+
+![Stack Creation - Review (8)](assets/cloud_stack_create_8.png)
+
+![Stack Creation - Complete Review](assets/cloudformation_stack_step4.gif)
+
+### Stack Build
+
+![Stack Build (1)](assets/cloud_stack_creation_1.png)
+
+![Stack Build (2)](assets/cloud_stack_creation_2.png)
+
+![Stack Build Process](assets/cloudformation_stack_creation.png)
+
+![Stack Build Information](assets/cloud_stack_info.png)
 
 ## Configuration Parameters
 
