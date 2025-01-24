@@ -242,6 +242,13 @@ The Nicla Sense Env has one reset button and two LEDs, an orange and an RGB LED,
 |          RoHS          |
 |         REACH          |
 |          WEEE          |
+|      VCCI (Japan)      |
+
+### Japan VCCI Statement
+
+<p style="text-align: justify;">
+This is a VCCI Class B compliant product.
+</p>
 
 ### Declaration of Conformity CE DoC (EU)
 
@@ -305,6 +312,7 @@ As a global supplier of electronic and electrical components, Arduino is aware o
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |     **Changes**     |
-|:----------:|:------------:|:-------------------:|
-| 10/10/2024 |       1      |    First release    |
+|  **Date**  | **Revision** |                      **Changes**                       |
+|:----------:|:------------:|:------------------------------------------------------:|
+| 14/01/2025 |      2       | Update on Product Compliance with Japan VCCI Statement |
+| 10/10/2024 |      1       |                     First release                      |
