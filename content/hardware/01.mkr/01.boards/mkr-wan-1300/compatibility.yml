@@ -8,7 +8,6 @@ hardware:
   carriers: ~
   shields:
     - mkr-485-shield
-    - mkr-can-shield
     - mkr-env-shield
     - mkr-eth-shield
     - mkr-imu-shield
