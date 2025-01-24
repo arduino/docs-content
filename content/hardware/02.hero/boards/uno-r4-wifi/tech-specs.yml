@@ -1,6 +1,6 @@
 Board:
   Name: Arduino® UNO R4 WiFi
-  SKU: ABX00087
+  SKU: ABX00087 / ABX00087_CN / ABX00087_IN
 Microcontroller: Renesas RA4M1 (Arm® Cortex®-M4)
 Radio Module: ESP32-S3-MINI-1-N8
 USB:
@@ -15,7 +15,7 @@ Communication:
   UART: Yes, 1x
   I2C: Yes, 1x
   SPI: Yes, 1x
-  CAN: Yes 1 CAN Bus
+  CAN: Yes 1x CAN Bus
 Power:
   Circuit operating voltage: 5 V (ESP32-S3 is 3.3 V)
   Input voltage (VIN): 6-24 V
