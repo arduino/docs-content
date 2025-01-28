@@ -13,7 +13,7 @@ Arduino® Alvik is a powerful and versatile robot specifically designed for prog
 
 Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through different programming languages including MicroPython, the Arduino language, and block-based coding; enabling different possibilities to explore Robotics, IoT and Artificial Intelligence.
 
-## Checking The State Of The Battery
+## Check The State Of The Battery
 
 Alvik's battery is protected by a pull-tab protective sticker. Remove the sticker to start working with the robot.
 
