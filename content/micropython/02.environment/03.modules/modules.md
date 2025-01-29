@@ -57,7 +57,7 @@ There are multiple ways to install external modules in MicroPython. We’ll cove
 - **Using the MicroPython Package Installer (GUI)** (Recommended for ease of use)
 - **Using `mpremote` (Command-line installation)**
 
-#### **Option 1: Using the MicroPython Package Installer (Recommended)**
+#### Option 1: Using the MicroPython Package Installer (Recommended)
 The **MicroPython Package Installer** is a graphical tool that makes it easy to install external modules without needing to use the command line.
 
 1. **Download and install** the [MicroPython Package Installer](https://github.com/arduino/lab-micropython-package-installer/releases).
