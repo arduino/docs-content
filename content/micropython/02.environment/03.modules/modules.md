@@ -73,7 +73,7 @@ If the board is still not detected, ensure no other programs (e.g., a code edito
 
 ![Package Installer UI](assets/package-installer.png)  
 
-#### **Option 2: Using `mpremote` (Command Line Installation)**
+#### Option 2: Using `mpremote` (Command Line Installation)
 For those who prefer the command line, we can use `mpremote`, a Python tool that allows direct installation from the terminal.
 
 1. Make sure **Python** is installed on your computer.  
