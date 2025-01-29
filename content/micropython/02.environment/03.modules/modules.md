@@ -4,8 +4,6 @@ description: 'Understanding modules in MicroPython and how to use them.'
 author: 'Pedro Lima'
 tags: [MicroPython, Modules]
 ---
-
-
 In this guide, we’ll cover how modules work in MicroPython, explore a few built-in modules, and demonstrate how to install an external package like Modulino to extend our MicroPython project’s functionality.
 
 ## What Are Modules?
@@ -53,8 +51,6 @@ Before we can install external modules, we need to have MicroPython running on o
 
 ***For more details, visit the [MicroPython installation guide](/micropython/first-steps/install-guide)***
 
-I’ll integrate the **Package Installer Tool** section into your article under **Step 2: Install the Modulino Package** while maintaining consistency with the existing structure. Here’s the revised section:
-
 ### Step 2: Install the Modulino Package
 
 There are multiple ways to install external modules in MicroPython. We’ll cover two common methods:  
@@ -68,8 +64,8 @@ The **MicroPython Package Installer** is a graphical tool that makes it easy to 
 2. **Open the tool** and plug in your board.
 ![Board connected via USB](assets/usb-comp.png)
    
-   If the board does not appear in the `Detected Boards` section, click `Reload`.
-   If the board is still not detected, ensure no other programs (e.g., a code editor) are using the board's COM port.
+If the board does not appear in the `Detected Boards` section, click `Reload`.
+If the board is still not detected, ensure no other programs (e.g., a code editor) are using the board's COM port.
 
 3. **Search for the Modulino package** using the search feature.
 4. Click **Install** and wait for the installation confirmation.
