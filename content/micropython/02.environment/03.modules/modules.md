@@ -53,41 +53,63 @@ Before we can install external modules, we need to have MicroPython running on o
 
 ***For more details, visit the [MicroPython installation guide](/micropython/first-steps/install-guide)***
 
+I’ll integrate the **Package Installer Tool** section into your article under **Step 2: Install the Modulino Package** while maintaining consistency with the existing structure. Here’s the revised section:
+
 ### Step 2: Install the Modulino Package
 
-To install the Modulino package, we’ll use `mpremote`, a tool that allows us to install MicroPython packages directly onto our board from the command line.
+There are multiple ways to install external modules in MicroPython. We’ll cover two common methods:  
+- **Using the MicroPython Package Installer (GUI)** (Recommended for ease of use)
+- **Using `mpremote` (Command-line installation)**
 
-1. Make sure Python is installed on your computer
-2. Open a terminal on your machine.
-3. Run the following command to install `mpremote`.
+#### **Option 1: Using the MicroPython Package Installer (Recommended)**
+The **MicroPython Package Installer** is a graphical tool that makes it easy to install external modules without needing to use the command line.
+
+1. **Download and install** the [MicroPython Package Installer](https://github.com/arduino/lab-micropython-package-installer/releases).
+2. **Open the tool** and plug in your board.
+![Board connected via USB](assets/usb-comp.png)
+   
+   If the board does not appear in the `Detected Boards` section, click `Reload`.
+   If the board is still not detected, ensure no other programs (e.g., a code editor) are using the board's COM port.
+
+3. **Search for the Modulino package** using the search feature.
+4. Click **Install** and wait for the installation confirmation.
+5. **Disconnect the board** from the tool before returning to your code editor to avoid conflicts due to the COM port being busy.
+
+![Package Installer UI](assets/package-installer.png)  
+
+#### **Option 2: Using `mpremote` (Command Line Installation)**
+For those who prefer the command line, we can use `mpremote`, a Python tool that allows direct installation from the terminal.
+
+1. Make sure **Python** is installed on your computer.  
+2. Open a terminal and install `mpremote` with:
 
    ```bash
    pip install mpremote 
-   ```
+   ```  
 
-4. With `mpremote` installed, run the following script to find our board's serial port.
+3. Run the following command to find your board's serial port:  
 
    ```bash
    mpremote connect list
+   ```  
+
+   Example output:  
+
    ```
-
-   This command should return something akin to:
-
-   ```bash
    /dev/cu.usbmodem101 ecda3b60a4dccb3f 2341:056b Arduino Nano ESP32
    ```
 
-   - Copy the port, e.g., `/dev/cu.usbmodem101`.
+   - Copy the **port**, e.g., `/dev/cu.usbmodem101`.
 
-5. Use the following command to install the Modulino package (or any other package we want to install), replacing `<PORT>` with our board’s port retrieved in the previous step.
+4. Use the following command to install the Modulino package (or any other package), replacing `<PORT>` with your board’s serial port:
 
    ```bash
    mpremote connect <PORT> mip install github:arduino/arduino-modulino-mpy
    ```
 
-6. After the installation, open Arduino Labs for MicroPython, and connect your board. In the board's files, we should see a `/lib` folder with the Modulino library inside, indicating a successful installation.
+5. After installation, open **Arduino Labs for MicroPython** and connect your board. You should see a `/lib` folder with the Modulino library inside, confirming a successful installation.
 
-   ![MicroPython Lab Files](./assets/microPythonLabsFiles.png)
+![MicroPython Lab Files](./assets/microPythonLabsFiles.png)
 
 ## Organizing and Using Modules
 

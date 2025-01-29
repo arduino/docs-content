@@ -23,26 +23,28 @@ We will also need the following software:
 - [MicroPython Labs](https://lab-micropython.arduino.cc/)
 - [MicroPython Installer](https://labs.arduino.cc/en/labs/micropython-installer)
 - [Modulino MicroPython package](https://github.com/arduino/arduino-modulino-mpy)
+- [MicroPython package installer](https://github.com/arduino/lab-micropython-package-installer/releases)
 
 ## Install MicroPython
 
-To follow this tutorial, we will need to install MicroPython on our Arduino board. The easiest way is to install it using the [MicroPython Installer](https://labs.arduino.cc/en/labs/micropython-installer).
 
-- Open the installer.
-- Connect the board to the computer. 
-- If it does not appear press the refresh button.
-- Press "Install MicroPython".
-- Wait for the installation to finish.
+### Option 1: Using the MicroPython Package Installer **(Recommended)**  
 
-![MicroPython Installer](./assets/microPythonInstaller.png)
+The **MicroPython Package Installer** is a graphical tool that simplifies the installation of external modules without requiring command-line interaction.
 
-***More details on installing MicroPython on our board are available in the [MicroPython installation guide](/micropython/first-steps/install-guide).***
+1. **Download and install** the [MicroPython Package Installer](https://github.com/arduino/lab-micropython-package-installer/releases).  
+2. **Open the tool** and plug in your board.  
 
-## Install Modulino Package
+   ![Board connected via USB](assets/usb-comp.png)
+  If the board does not appear in the `Detected Boards` section, click `Reload`.  
+  If the board is still not detected, ensure no other programs (e.g., a code editor) are using the board's COM port.  
+1. **Search for the Modulino package** using the search feature.  
+2. Click **Install** and wait for the installation confirmation.  
+3. **Disconnect the board** from the tool before returning to your code editor to avoid conflicts due to the COM port being busy.  
 
-To program Modulinos using MicroPython we must first install the Modulino package. It's where all the code, necessary to interact with the Modulinos is being stored.
+![Package Installer UI](assets/package-installer.png)  
 
-### Terminal Installation
+### Option 2: Terminal Installation
 
 To install a module, we can use `mpremote`. Currently, we will need a version of Python installed on our computer.
 
@@ -63,7 +65,7 @@ To install a module, we can use `mpremote`. Currently, we will need a version of
    ```
    The port here is `/dev/cu.usbmodem101`. Copy this.
 
-1. Now, run the following the command. Make sure to replace `<PORT>` with the port of our device obtained in the previous step.
+3. Now, run the following the command. Make sure to replace `<PORT>` with the port of our device obtained in the previous step.
     ```bash
     mpremote connect <PORT> mip install github:arduino/arduino-modulino-mpy
     ```
@@ -71,7 +73,7 @@ To install a module, we can use `mpremote`. Currently, we will need a version of
     Upon completion, we should see something like this in the terminal, to verify the success of the installation:
     ![Successful installation.](assets/package-installed.png)
 
-2. Great job. We have now installed the Modulino package on our board!
+4. Great job. We have now installed the Modulino package on our board!
 
 **Troubleshooting:**
 - Make sure your board is connected to your computer.
