@@ -35,12 +35,12 @@ The **MicroPython Package Installer** is a graphical tool that simplifies the in
 1. **Download and install** the [MicroPython Package Installer](https://github.com/arduino/lab-micropython-package-installer/releases).  
 2. **Open the tool** and plug in your board.  
 
-   ![Board connected via USB](assets/usb-comp.png)
-  If the board does not appear in the `Detected Boards` section, click `Reload`.  
-  If the board is still not detected, ensure no other programs (e.g., a code editor) are using the board's COM port.  
+![Board connected via USB](assets/usb-comp.png)
+If the board does not appear in the `Detected Boards` section, click `Reload`.  
+If the board is still not detected, ensure no other programs (e.g., a code editor) are using the board's COM port.  
 1. **Search for the Modulino package** using the search feature.  
 2. Click **Install** and wait for the installation confirmation.  
-3. **Disconnect the board** from the tool before returning to your code editor to avoid conflicts due to the COM port being busy.  
+3. **Disconnect the board** before returning to your code editor to avoid conflicts due to the COM port being busy.  
 
 ![Package Installer UI](assets/package-installer.png)  
 
