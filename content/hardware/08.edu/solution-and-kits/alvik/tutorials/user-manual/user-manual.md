@@ -107,6 +107,14 @@ At the back-right side of Alvik there is the main switch of the robot. When ON t
 
 ### Battery
 
+Alvik's battery is protected by a pull-tab protective sticker. Remove the sticker to start working with the robot.
+
+![Alvik pull tab](assets/Alvik-battery-pull-tab.jpg)
+
+**Step 1**: Locate the **pull-tab protective sticker** on the bottom of the robot, near the battery compartment. Grasp the tab and pull it upward firmly to remove the insulator and enable the battery connection.
+
+**Step 2**: After the pull-tab is removed, turn the robot over, connect the robot to your computer and slide the power button to ensure it powers on.
+
 The battery is a rechargeable Li-ion 18650, it allows to run Alvik for 8+ hours non stop.
 
 When you connect your Alvik to the computer, the Nano ESP32 reports the status of the battery through the terminal of the Arduino Lab for MicroPython and with its RGB status LED. In order to see the state of the battery, you need to call the `Alvik.begin()` function in any program or directly at the command line area.

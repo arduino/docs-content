@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run spell check
         run: |
-          pip install codespell
+          pip install codespell==2.3.0
           codespell -I "scripts/resources/spell-check-ignore-list.txt" --skip="*.svg,*.dxf,*.pdf" ./content/
 
   lint:
