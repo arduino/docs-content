@@ -26,7 +26,7 @@ Each device directly connects TX to RX and RX to TX.
 To observe the output of your UART communication, you’ll need a secondary board (or a USB-to-UART adapter) to act as a receiver. Here’s how you can set it up:
 
 1. **Primary Board (Transmitter):** Runs the main UART code examples provided below.  
-2. **Secondary Board (Receiver):** Reads from the UART interface and displays the output on a serial monitor like Arduino IDE, PuTTY, or CoolTerm.
+2. **Secondary Board (Receiver):** Reads from the UART interface and displays the output on a serial monitor like Arduino IDE or PuTTY.
 
 ### Circuit Setup
 - Connect the **TX1 (GPIO43)** of the primary board to the **RX** of the secondary board.  
@@ -36,7 +36,7 @@ To observe the output of your UART communication, you’ll need a secondary boar
 ![How to wire](assets/UARTTestingSetup.png)
 
 ### Code for Secondary Board
-The secondary board simply forwards received UART data to its serial monitor. Use the following code:
+The board simply forwards received UART data to its serial monitor. Use the following code:
 
 ```python
 from machine import UART
@@ -50,7 +50,6 @@ while True:
         print(ch, end="")  # Print to the console
 ```
 
-### Using the Secondary Board
 1. Flash the above code to the secondary board.  
 2. Open a serial monitor for the secondary board (e.g., Arduino Lab for Micropython, Arduino IDE Serial Monitor, Putty).  
    
@@ -68,7 +67,7 @@ For this example:
 
 ### Code Example
 
-Copy the following code into your `main.py` file and run it:
+Copy the following code into your `main.py` file and run it on the board you designated as "primary":
 
 ```python
 from machine import UART, Timer
@@ -110,6 +109,8 @@ Use the same circuit as before. Ensure TX, RX, and GND are properly connected.
 
 ### Code Example
 
+Copy the following code into your `main.py` file and run it on the board you designated as "primary":
+
 ```python
 from machine import UART
 
@@ -128,6 +129,27 @@ while True:
             if buffer.strip().lower() == "ping":
                 uart.write("pong\n")
             buffer = ""  # Clear the buffer
+```
+Now copy the following code into your `main.py` file and run it on the board you designated as "secondary". In this case we are exanding the secondary board to be able to write via UART too:
+
+```python
+from machine import UART
+import sys
+import 
+
+# Initialize UART
+uart = UART(1, baudrate=9600, tx=43, rx=44)  # Adjust TX/RX pins as needed
+
+while True:
+    # Check if there's data coming from UART
+    if uart.any():
+        ch = uart.read(1).decode()  # Read one character from UART
+        print(ch, end="")  # Print to USB serial monitor
+
+    # Check if there's data enselecttered in REPL
+    if sys.stdin in select.select([sys.stdin], [], [], 0)[0]:
+        input_text = sys.stdin.read().strip()  # Read user input
+        uart.write(input_text + "\n")  # Send via UART
 ```
 
 ### Expected Output
