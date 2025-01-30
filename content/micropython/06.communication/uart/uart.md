@@ -1,6 +1,6 @@
 ---
 title: Serial communication (UART)
-description: Learn how to use UART on Micropython
+description: Learn how to use UART with Micropython
 author: Pedro Sousa Lima
 ---
 
@@ -15,9 +15,6 @@ UART communication relies on:
 Unlike other protocols like I2C or SPI, UART is asynchronous, meaning it doesn’t use a clock line. Instead, the sender and receiver agree on a common data rate (baud rate), such as 9600 bits per second.
 
 Each device directly connects TX to RX and RX to TX.
-
-
-
 ### Key Features of UART
 
 1. **Simple Point-to-Point Communication:** Ideal for connecting two devices.  
