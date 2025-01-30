@@ -130,7 +130,7 @@ while True:
                 uart.write("pong\n")
             buffer = ""  # Clear the buffer
 ```
-Now copy the following code into your `main.py` file and run it on the board you designated as "secondary". In this case we are exanding the secondary board to be able to write via UART too:
+Now copy the following code into your `main.py` file and run it on the board you designated as "secondary". In this case we are expanding the secondary board to be able to write via UART too:
 
 ```python
 from machine import UART
