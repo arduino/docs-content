@@ -71,7 +71,7 @@ cs.value(1)  # start with CS inactive
 def loopback_test(command):
     """
     Sends a command (as bytes) over SPI.
-    IF MOSI and MISO are connected together (loopback), the respons
+    IF MOSI and MISO are connected together (loopback), the response
     will be identical to the command.
     """
     # Prepare a response buffer of the same length as the command.
