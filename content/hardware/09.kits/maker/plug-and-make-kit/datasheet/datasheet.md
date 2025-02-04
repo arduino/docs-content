@@ -58,21 +58,21 @@ The Plug and Make Kit offers an intuitive and effortless introduction to the wor
 
 ### Microcontroller
 
-| **Feature**             | **Description**                                                                                                               |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| **Product Name**        | Arduino® UNO R4 WiFi                                                                                                          |
-| **Microcontroller**     | Renesas RA4M1 (R7FA4M1AB3CFM#AA0)                                                                                             |
-| **Clock Speed**         | 48 MHz                                                                                                                        |
-| **Power Supply**        | 6-24 VDC via VIN, 5 VDC via USB-C®                                                                                            |
-| **Operating Voltage**   | 5 V (RA4M1)                                                                                                                   |
-| **Memory**              | 256 kB Flash, 32 kB SRAM, 8 kB EEPROM                                                                                         |
-| **Peripherals**         | Capacitive Touch Sensing Unit (CTSU), USB® 2.0 Full-Speed Module, 14-bit ADC, Up to 12-bit DAC, Operational Amplifier (OPAMP) |
-| **Communication**       | 1x UART, 1x SPI, 1x I2C, 1x CAN (external transceiver required)                                                               |
-| **Wi-Fi®**              | 802.11 b/g/n (Wi-Fi® 4), up to 150 Mbps                                                                                       |
-| **Bluetooth®**          | Bluetooth® 5                                                                                                                  |
-| **LED Matrix**          | 12x8 red LEDs, fully programmable                                                                                             |
-| **Additional Features** | Real-time Clock (RTC), Memory Protection Unit (MPU), DAC, DMA                                                                 |
-| **Certifications**      | CE/RED, UKCA, FCC, IC, RoHS, REACH, WEEE                                                                                      |
+| **Feature**                                                  | **Description**                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **Product Name**                                             | Arduino® UNO R4 WiFi                                         |
+| **Microcontroller**                                          | Renesas RA4M1 (R7FA4M1AB3CFM#AA0)                            |
+| **Clock Speed**                                              | 48 MHz                                                       |
+| **Power Supply**                                             | 6-24 VDC via VIN, 5 VDC via USB-C®                           |
+| **Operating Voltage**                                        | 5 V (RA4M1)                                                  |
+| **Memory**                                                   | 256 kB Flash, 32 kB SRAM, 8 kB EEPROM                        |
+| **Peripherals**                                              | Capacitive Touch Sensing Unit (CTSU), USB® 2.0 Full-Speed Module, 14-bit ADC, Up to 12-bit DAC, Operational Amplifier (OPAMP) |
+| **Communication**                                            | 1x UART, 1x SPI, 1x I2C, 1x CAN (external transceiver required) |
+| **Wi-Fi®**                                                   | 802.11 b/g/n (Wi-Fi® 4), up to 150 Mbps                      |
+| **Bluetooth®**                                               | Bluetooth® 5                                                 |
+| **LED Matrix**                                               | 12x8 red LEDs, fully programmable                            |
+| **Additional Features**                                      | Real-time Clock (RTC), Memory Protection Unit (MPU), DAC, DMA |
+| **[Certifications](https://docs.arduino.cc/certifications/)** | CE/RED, UKCA, FCC, IC, RoHS, REACH, WEEE                     |
 
 
 ## Related Products
@@ -621,6 +621,8 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 
 ## Certifications Summary
 
+Visit this page for the full [Product Compliance list](Product Compliance). 
+
 | **Certification** | **Status** |
 |:-----------------:|:----------:|
 |  CE/RED (Europe)  |     Yes    |
@@ -714,22 +716,23 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 # Reference Documentation
 
-| Ref                       | Link                                                                                                                                                                                           |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                                                                                                             |
-| Arduino Courses           | [https://www.arduino.cc/education/courses](https://www.arduino.cc/education/courses)                                                                                                           |
-| Arduino Documentation     | [https://docs.arduino.cc/](https://docs.arduino.cc/)                                                                                                           |
-| Arduino IDE (Cloud)       | [https://create.arduino.cc/editor](https://create.arduino.cc/editor)                                                                                                                           |
-| Cloud IDE Getting Started | [https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor) |
-| Project Hub               | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/)                                                                                                                               |
-| Library Reference         | [https://github.com/arduino-libraries/](https://github.com/arduino-libraries/)                                                                                                                 |
-| Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                                         |
+| Ref                       | Link                                                         |
+| ------------------------- | ------------------------------------------------------------ |
+| Arduino IDE (Desktop)     | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software) |
+| Arduino Courses           | [https://www.arduino.cc/education/courses](https://www.arduino.cc/education/courses) |
+| Arduino Documentation     | [https://docs.arduino.cc/](https://docs.arduino.cc/)         |
+| Arduino Cloud Editor      | [https://app.arduino.cc/sketches](https://app.arduino.cc/sketches) |
+| Cloud IDE Getting Started | [https://docs.arduino.cc/arduino-cloud/guides/editor/](https://docs.arduino.cc/arduino-cloud/guides/editor/) |
+| Project Hub               | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/) |
+| Library Reference         | [https://docs.arduino.cc/libraries/](https://docs.arduino.cc/libraries/) |
+| Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)       |
 
 # Revision History
 
-|  **Date**  | **Revision** |                      **Changes**                       |
-| ---------- | ------------ | ------------------------------------------------------ |
-| 06/12/2024 |      3       | Updated I2C information |
-| 05/09/2024 |      2       | Cloud Editor updated from Web Editor |
-| 11/07/2024 |      1       | First release |
+| **Date**   | **Revision** | **Changes**                          |
+| ---------- | ------------ | ------------------------------------ |
+| 04/02/2025 | 4            | Add Certification Link               |
+| 06/12/2024 | 3            | Updated I2C information              |
+| 05/09/2024 | 2            | Cloud Editor updated from Web Editor |
+| 11/07/2024 | 1            | First release                        |
 
