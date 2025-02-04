@@ -317,6 +317,9 @@ scripts/examples/gn_build_example.sh examples/chip-tool out/debug
 ```
 
 ![CHIP Tool environment set](assets/out-debug.png)
+
+Wait for the packages installation process to finish.
+
 - To check if the CHIP Tool runs correctly, execute the following command:
 
 ```bash
@@ -366,7 +369,9 @@ For example:
 
 Connect through USB to the Nano ESP32 and run the following command from the Arduino IDE Serial Monitor:
 
-`dataset active -x`
+```bash
+dataset active -x
+```
 
 ***This command will display the active Thread network dataset as a hexadecimal string.***
 
@@ -377,6 +382,31 @@ For example:
 ```bash
 0e080000000000010000000300000f35060004001fffe00208dead00beef00cafe0708fd000db800a00000051000112233445566778899aabbccddeeff030e4f70656e5468726561642d455350010212340410104810e2315100afd6bc9215a6bfac530c0402a0f7f8
 ```
+
+If an **error** appears, for example: 
+
+```bash
+Error 23: NotFound
+```
+
+This means that there is no active Thread Network dataset configured. The following steps will help fix the error:
+
+- Check if the OpenThread is enabled, sending this command through the Serial Monitor:
+  
+```bash
+state
+```
+- If the response is **disabled**, it means OpenThread has not started. To start it, use:
+
+```bash
+ifconfig up
+```
+```bash
+thread start
+```
+- Then, try `dataset active -x` command again.
+
+Now you should see the dataset string.
 
 ### Matter Commissioning
 
