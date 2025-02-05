@@ -516,7 +516,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 
 | **Date**   | **Revision** | **Changes**                                          |
-|------------|--------------|------------------------------------------------------|
+| ---------- | ------------ | ---------------------------------------------------- |
+| 05/02/2025 | 8            | Description updates                                  |
 | 03/09/2024 | 7            | Cloud Editor updated from Web Editor                 |
 | 09/01/2024 | 6            | High-Performance Pressure Sensor information updated |
 | 03/07/2023 | 5            | Certification Summary Table Updated                  |
