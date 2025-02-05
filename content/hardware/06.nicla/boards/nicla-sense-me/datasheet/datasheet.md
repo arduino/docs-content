@@ -23,7 +23,7 @@ Wireless sensor networks, data fusion, artificial intelligence, and gas detectio
 ### Bluetooth® Module
 
 | **Feature**               | **Description**                                     |
-|---------------------------|-----------------------------------------------------|
+| ------------------------- | --------------------------------------------------- |
 | **Model**                 | ANNA-B112 Bluetooth® Module                         |
 | **Microcontroller**       | nRF52832 System-on-chip                             |
 | **CPU Core**              | 64 MHz Arm® Cortex®-M4F                             |
@@ -32,7 +32,7 @@ Wireless sensor networks, data fusion, artificial intelligence, and gas detectio
 | **External Flash Memory** | 2 MB                                                |
 | **Interfaces**            | 2x SPI, 2x I2C (one accessible via pin header each) |
 | **ADC**                   | 12-bit/200 ksps                                     |
-| **Bluetooth® Frequency**  | 2402 - 2480 MHz                                     |
+| **Bluetooth® Frequency**  | 2402–2480 MHz                                       |
 | **Antenna**               | Internal                                            |
 | **Oscillator**            | Internal 32 MHz                                     |
 | **Operating Voltage**     | 1.8 VDC                                             |
@@ -61,12 +61,12 @@ Wireless sensor networks, data fusion, artificial intelligence, and gas detectio
 
 ### 3-Axis Magnetometer
 
-| **Feature**        | **Description**                      |
-|--------------------|--------------------------------------|
-| **Model**          | Bosch® BMM150                        |
-| **Magnetic Range** | X,Y axis: ±1300 μT, Z axis: ±2500 μT |
-| **Resolution**     | 0.3 μT                               |
-| **Non-linearity**  | <1% FS                               |
+| **Feature**        | **Description**                       |
+| ------------------ | ------------------------------------- |
+| **Model**          | Bosch® BMM150                         |
+| **Magnetic Range** | X, Y axis: ±1300 μT, Z axis: ±2500 μT |
+| **Resolution**     | 0.3 μT                                |
+| **Non-linearity**  | <1% FS                                |
 
 ### Environmental Sensor
 
@@ -91,14 +91,14 @@ Wireless sensor networks, data fusion, artificial intelligence, and gas detectio
 ### Application Examples
 The Arduino® Nicla Sense ME is your gateway to develop wireless networking solutions with rapid development and high robustness. Get real-time insight into the operational characteristics of your processes. Take advantage of the high-quality sensors and networking capabilities to evaluate novel WSN architectures. Ultra-low power consumption and integrated battery management allow for deployment in various capabilities. WebBLE allows for easy OTA updates of the firmware as well as remote monitoring.
 
-- **Warehouse & Inventory Management**: 
+- **Warehouse & Inventory Management**:
 The environmental sensor of the Arduino® Nicla Sense ME can detect the ripening state of fruits, vegetables and meat allowing for intelligent management of perishable assets alongside the Arduino Cloud.
 
 - **Distributed Industrial Sensing**:
 Identify operating conditions within your machine, factory or greenhouse remotely and even in hard-to-access or hazardous areas. Detect natural gas, toxic gases or other hazardous fumes using the AI capabilities on the **Arduino® Nicla Sense ME**. Improve safety levels with remote analysis. Mesh capabilities allow for simple deployment of WSN with minimal infrastructure requirements.
 
 - **Wireless Sensor Network Reference Design**:
-The Nicla form factor has been specifically developed at Arduino® as a standard for wireless sensor networks which can be adapted by partners to develop custom-designed industrial solutions. Get a head start by developing custom end-user solutions including Cloud-connected smart wearables and autonomous robotics. Researchers and educators can use this platform to work on an industrially-recognized standard for wireless sensor research and development that can shorten the time from concept to market.
+The Nicla form factor has been specifically developed at Arduino® as a standard for wireless sensor networks which can be adapted by partners to develop custom-designed industrial solutions. Get a head start by developing custom end-user solutions including Cloud-connected battery-powered IoT devices and autonomous robotics. Researchers and educators can use this platform to work on an industrially-recognized standard for wireless sensor research and development that can shorten the time from concept to market.
 
 ### Accessories (Not Included)
 - Single-cell Li-ion/Li-Po battery
@@ -150,8 +150,8 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 
 
 | **Ref.** | **Description**                                  | **Ref.** | **Description**                  |
-|----------|--------------------------------------------------|----------|----------------------------------|
-| MD1      | ANNA B112 Bluetooth®  Module                     | U2, U7   | MX25R1635FZUIH0 2 MB FLASH IC    |
+| -------- | ------------------------------------------------ | -------- | -------------------------------- |
+| MD1      | ANNA B112 Bluetooth® Module                      | U2, U7   | MX25R1635FZUIH0 2 MB FLASH IC    |
 | U3       | BMP390 Pressure Sensor IC                        | U4       | BMM150 3-axis Magnetic Sensor IC |
 | U5       | BHI260AP 6 axis IMU and AI core IC               | U6       | BME688 Environmental Sensor IC   |
 | U8       | IS31FL3194-CLS2-TR 3-channel LED IC              | U9       | BQ25120AYFPR Battery Charger IC  |
@@ -159,7 +159,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 | U12      | NTS0304EUKZ 4-bit translating transceiver        | J1       | ADC, SPI and LPIO Pin headers    |
 | J2       | I2C, JTAG, Power and LPIO pin headers            | J3       | Battery pin headers              |
 | Y1       | SIT1532AI-J4-DCC MEMS 32.7680 kHz Oscillator     | DL1      | SMLP34RGB2W3 RGB SMD LED         |
-| PB1      | Reset button                                     |
+| PB1      | Reset button                                     |          |                                  |
 
 <div style="page-break-after:always;"></div>
 
@@ -196,7 +196,7 @@ The SAMD11 microcontroller (U1) is dedicated to act as both the USB bridge as we
 ### Power Tree
 ![Nicla Sense ME Back View](assets/niclaSenseMEPowerTree.svg)
 
-The **Arduino Nicla Sense ME** can be powered via micro USB (J7), ESLOV (J5) or VIN. This is converted into the relevant voltages via the BQ2512BAYFPR IC (U9). A Schottky diode provides reverse polarity protection to the USB and ESLOV voltages. When voltage is supplied via the micro USB, a linear 3.3V regulator also provides power to the SAMD11 microcontroller used for programming the board as well as for JTAG and SWD. The LED driver (U8) and RGB LEDs (DL1) are driven by a boost voltage of 5V. All other components operate off the 1.8V rail regulated by a buck converter. PMID acts as an OR switch between VIN and BATT and operates the LED driver. All I/O broken out to the pins are fed through a bi-directional voltage translator running at V<sub>DDIO_EXT</sub>. 
+The **Arduino Nicla Sense ME** can be powered via micro USB (J7), ESLOV (J5) or VIN. This is converted into the relevant voltages via the BQ2512BAYFPR IC (U9). A Schottky diode provides reverse polarity protection to the USB and ESLOV voltages. When voltage is supplied via the micro USB, a linear 3.3V regulator also provides power to the SAMD11 microcontroller used for programming the board as well as for JTAG and SWD. The LED driver (U8) and RGB LEDs (DL1) are driven by a boost voltage of 5V. All other components operate off the 1.8V rail regulated by a buck converter. PMID acts as an OR switch between VIN and BATT and operates the LED driver. All I/O broken out to the pins are fed through a bidirectional voltage translator running at V<sub>DDIO_EXT</sub>. 
 
 Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V LiPo/Li-ion battery pack connected to J4, allowing the use of the board as a wireless sensor network. The battery charging current is set to 40mA with a termination current of 4mA (10%).
 
@@ -499,7 +499,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Company name    | Arduino SRL                                  |
 |-----------------|----------------------------------------------|
-| Company Address | Via Andrea Appiani, 25 - 20900 MONZA（Italy) |
+| Company Address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
 ## Reference Documentation
 
@@ -543,7 +543,7 @@ ARDUINO DOES NOT ALWAYS ENCRYPT COMMUNICATIONS BETWEEN PRODUCTS AND THEIR PERIPH
 
 THE ABILITY OF ARDUINO PRODUCTS AND SOFTWARE TO WORK PROPERLY DEPENDS ON A NUMBER OF PRODUCTS AND SERVICES MADE AVAILABLE BY THIRD PARTIES OVER WHICH ARDUINO HAS NO CONTROL INCLUDING, BUT NOT LIMITED TO, INTERNET, CELLULAR AND LANDLINE CONNECTIVITY; MOBILE DEVICE AND OPERATING SYSTEM COMPATIBILITY; AND PROPER INSTALLATION AND MAINTENANCE. ARDUINO SHALL NOT BE LIABLE FOR ANY DAMAGES CAUSED BY ACTIONS OR OMISSIONS OF THIRD PARTIES.
 
-BATTERY OPERATED SENSORS, DETECTORS, KEYFOBS, DEVICES AND OTHER PANEL ACCESSORIES HAVE A LIMITED BATTERY LIFE.  WHILE THESE PRODUCTS MAY BE DESIGNED TO PROVIDE SOME WARNING OF IMMINENT BATTERY DEPLETION, THE ABILITY TO DELIVER SUCH WARNINGS IS LIMITED AND SUCH WARNINGS MAY NOT BE PROVIDED IN ALL CIRCUMSTANCES.  PERIODIC TESTING OF THE SYSTEM IN ACCORDANCE WITH PRODUCT DOCUMENTATION IS THE ONLY WAY TO DETERMINE IF ALL SENSORS, DETECTORS, KEYFOBS, DEVICES AND OTHER PANEL ACCESSORIES ARE FUNCTIONING PROPERLY. 
+BATTERY OPERATED SENSORS, DETECTORS, KEYFOBS, DEVICES AND OTHER PANEL ACCESSORIES HAVE A LIMITED BATTERY LIFE.  WHILE THESE PRODUCTS MAY BE DESIGNED TO PROVIDE SOME WARNING OF IMMINENT BATTERY DEPLETION, THE ABILITY TO DELIVER SUCH WARNINGS IS LIMITED AND SUCH WARNINGS MAY NOT BE PROVIDED IN ALL CIRCUMSTANCES.  PERIODIC TESTING OF THE SYSTEM IN ACCORDANCE WITH PRODUCT DOCUMENTATION IS THE ONLY WAY TO DETERMINE IF ALL SENSORS, DETECTORS, KEYFOBS, DEVICES AND OTHER PANEL ACCESSORIES ARE FUNCTIONING PROPERLY.
 
 CERTAIN SENSORS, DEVICES AND OTHER PANEL ACCESSORIES MAY BE PROGRAMMED INTO PANEL AS “SUPERVISORY” SO THAT THE PANEL WILL INDICATE IF IT DOES NOT RECEIVE A REGULAR SIGNAL FROM THE DEVICE WITHIN A CERTAIN PERIOD OF TIME.  CERTAIN DEVICES CANNOT BE PROGRAMMED AS SUPERVISORY. DEVICES CAPABLE OF BEING PROGRAMMED AS SUPERVISORY MAY NOT BE PROPERLY PROGRAMMED AT INSTALLATION, RESULTING IN A FAILURE TO REPORT TROUBLE WHICH COULD RESULT IN DEATH, SERIOUS INJURY AND/OR PROPERTY DAMAGE.
 
@@ -553,7 +553,7 @@ BUYER SHALL PASS ON THE FOREGOING INFORMATION ON PRODUCT RISKS, WARNINGS AND DIS
 
 **WARRANTY DISCLAIMERS AND OTHER DISCLAIMERS**
 
-ARDUINO HEREBY DISCLAIMS ALL WARRANTIES AND REPRESENTATIONS, WHETHER EXPRESS, IMPLIED, STATUTORY OR OTHERWISE INCLUDING (BUT NOT LIMITED TO) ANY WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE WITH RESPECT TO ITS PRODUCTS AND RELATED SOFTWARE.   
+ARDUINO HEREBY DISCLAIMS ALL WARRANTIES AND REPRESENTATIONS, WHETHER EXPRESS, IMPLIED, STATUTORY OR OTHERWISE INCLUDING (BUT NOT LIMITED TO) ANY WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE WITH RESPECT TO ITS PRODUCTS AND RELATED SOFTWARE.
 
 ARDUINO MAKES NO REPRESENTATION, WARRANTY, COVENANT OR PROMISE THAT  ITS PRODUCTS AND/OR RELATED SOFTWARE (I) WILL NOT BE HACKED, COMPROMISED AND/OR CIRCUMVENTED; (II) WILL PREVENT, OR PROVIDE ADEQUATE WARNING OR PROTECTION FROM, BREAK-INS, BURGLARY, ROBBERY, FIRE; OR (III) WILL WORK PROPERLY IN ALL ENVIRONMENTS AND APPLICATIONS.
 
