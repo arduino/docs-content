@@ -91,11 +91,13 @@ The complete STEP files are available and downloadable from the link below:
 
 ### Form Factor
 
-The Nano Matter board features castellated pins, which are ideal for integrating the board into final solutions.
+The Nano Matter (ABX00112) board features castellated pins, which are ideal for integrating the board into final solutions.
 
-You can easily solder the Nano Matter in your custom PCB, since the board does not present any bottom-mounted components.
+You can easily solder the Nano Matter (ABX00112) in your custom PCB, since the board does not present any bottom-mounted components.
 
-![Nano Matter castellated pins](assets/castellated-2.png)
+![Nano Matter (ABX00112) castellated pins](assets/castellated-2.png)
+
+The Nano Matter with pre-installed headers (ABX00137) is also available, providing easy access for probing and testing through the headers.
 
 ## First Use
 ### Powering the Board
