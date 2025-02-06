@@ -91,7 +91,7 @@ We recommend you to use this pre-compiled binary to flash your Nano Matter board
 
 From here, jump directly to the [Matter Controller section](http://localhost:8000/tutorials/nano-matter/open-thread-border-router/#the-matter-controller-nano-esp32).
 
-#### Build the Binary From Scratch
+#### Build the Binary From Scratch (Optional)
 
 If you want to build the Nano Matter program by yourself, follow the steps below:
 
