@@ -46,20 +46,20 @@ The main features are highlighted in the table shown below.
 </p>
 
 
-| Feature             | Description                                                                                                                                                                 |
-|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Microcontroller     | 78 MHz, 32-bit Arm® Cortex®-M33 core (MGM240SD22VNA)                                                                                                                        |
-| Internal Memory     | 1536 kB Flash and 256 kB RAM                                                                                                                                                |
-| Connectivity        | 802.15.4 Thread, Bluetooth® Low Energy 5.3, and Bluetooth® Mesh                                                                                                             |
-| Security            | Secure Vault® from Silicon Labs                                                                                                                                             |
-| USB Connectivity    | USB-C® port for power and data                                                                                                                                              |
-| Power Supply        | Various options for easily powering the board: USB-C® port and external power supply connected through the board's Nano-styled header connector pins (5V, VIN)              |
-| Analog Peripherals  | 12-bit ADC (x20), up to 12-bit DAC (x4)                                                                                                                                     |
-| Digital Peripherals | GPIO (x22 - All exposed I/O can be used as digital), UART (x2), I2C (x2), SPI (x2), PWM (x22) with a maximum of 5 simultaneously operational channels                       |
-| Debugging           | JTAG/SWD debug port (accessible through the board's test pads)                                                                                                              |
-| Dimensions          | 18 mm x 45 mm                                                                                                                                                               |
-| Weight              | 4 g                                                                                                                                                                         |
-| Pinout features     | The Nano Matter (ABX00112) has castellated/through-hole pins along both long edges, while the Nano Matter (ABX00137) comes with headers pre-installed for easy prototyping. |
+| Feature             | Description                                                                                                                                                            |
+|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Microcontroller     | 78 MHz, 32-bit Arm® Cortex®-M33 core (MGM240SD22VNA)                                                                                                                   |
+| Internal Memory     | 1536 kB Flash and 256 kB RAM                                                                                                                                           |
+| Connectivity        | 802.15.4 Thread, Bluetooth® Low Energy 5.3, and Bluetooth® Mesh                                                                                                        |
+| Security            | Secure Vault® from Silicon Labs                                                                                                                                        |
+| USB Connectivity    | USB-C® port for power and data                                                                                                                                         |
+| Power Supply        | Various options for easily powering the board: USB-C® port and external power supply connected through the board's Nano-styled header connector pins (5V, VIN)         |
+| Analog Peripherals  | 12-bit ADC (x20), up to 12-bit DAC (x4)                                                                                                                                |
+| Digital Peripherals | GPIO (x22 - All exposed I/O can be used as digital), UART (x2), I2C (x2), SPI (x2), PWM (x22) with a maximum of 5 simultaneously operational channels                  |
+| Debugging           | JTAG/SWD debug port (accessible through the board's test pads)                                                                                                         |
+| Dimensions          | 18 mm x 45 mm                                                                                                                                                          |
+| Weight              | 4 g                                                                                                                                                                    |
+| Pinout features     | The Nano Matter (ABX00112) has castellated/through-hole pins for SMD mounting, while the Nano Matter (ABX00137) comes with headers pre-installed for easy prototyping. |
 
 
 <div style="page-break-after: always;"></div>
