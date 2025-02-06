@@ -97,7 +97,7 @@ You can easily solder the Nano Matter (ABX00112) in your custom PCB, since the b
 
 ![Nano Matter (ABX00112) castellated pins](assets/castellated-2.png)
 
-The Nano Matter with pre-installed headers (ABX00137) is also available, providing easy access for probing and testing through the headers.
+The Nano Matter with headers (ABX00137) out of the box is also available, providing easy access for probing and testing through the headers.
 
 ## First Use
 ### Powering the Board
