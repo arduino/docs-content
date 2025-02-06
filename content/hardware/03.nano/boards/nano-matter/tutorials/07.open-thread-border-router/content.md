@@ -72,7 +72,7 @@ This section outlines the steps to build the RCP firmware for the Nano Matter.
 
 We recommend you to use this pre-compiled binary to flash your Nano Matter board.
 
-- Download the `.hex` binary from [here]() and locate it on a known directory.
+- Download the `.hex` binary from [here](assets/nano-matter-ot-rcp-uart.zip) and locate it on a known directory.
 - Open any text editor and paste the following command:
 
 ```bash
