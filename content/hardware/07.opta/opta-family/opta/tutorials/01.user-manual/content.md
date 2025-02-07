@@ -1226,11 +1226,13 @@ It provides a platform independent and secure method for exchanging information 
 
 The [**open62541** library](https://github.com/open62541/open62541) is an open-source implementation of the **OPC UA** standard. It is lightweight, efficient and written in C, making it ideal for embedded systems like the Opta. The library provides a flexible framework to create **OPC UA** servers and clients, ensuring compatibility with the standard while maintaining high performance.
 
-The [**OPC UA library**](https://github.com/arduino-libraries/Arduino_OPC_UA) supports secure communication and interoperability for industrial automation applications, with the capability to automatically detect, configure, and expose up to two Arduino Opta Expansion Boards via **OPC UA**. Supported expansion boards include:
+The [**OPC UA library**](https://github.com/arduino-libraries/Arduino_OPC_UA) supports secure communication and interoperability for industrial automation applications, with the capability to automatically detect, configure, and expose up to **two** Arduino Opta Expansion Boards via **OPC UA**. Supported expansion boards include:
 
 - Digital Expansion with mechanical relays (D1608E)
 - Digital Expansion with solid-state relays (D1608S)
 - Analog Expansion (A0602)
+
+***The OPC UA library supports a maximum of __two__ Opta expansions connected simultaneously.***
 
 ### Setting up the OPC UA Server
 
