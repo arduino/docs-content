@@ -55,9 +55,11 @@ This tutorial's main objective is to guide you through the build and configurati
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
+- [Silicon Labs Core](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#board-core-and-libraries)
 - [Simplicity Studio](https://www.silabs.com/developers/simplicity-studio)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
+  
 ## Setting up the OTBR
 
 ### The RCP: Nano Matter
@@ -66,7 +68,32 @@ This section outlines the steps to build the RCP firmware for the Nano Matter.
 
 ![Nano Matter Configuration](assets/matter-banner.png)
 
-#### Create a New Project
+#### Ready to Flash Binary
+
+We recommend you to use this pre-compiled binary to flash your Nano Matter board.
+
+- Download the `.hex` binary from [here](assets/nano-matter-ot-rcp-uart.zip) and locate it on a known directory.
+- Open any text editor and paste the following command:
+
+```bash
+/Users/<username>/AppData/Local/Arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/bin/openocd -d2 -s /Users/<username>/AppData/Local/Arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/share/openocd/scripts/ -f interface/cmsis-dap.cfg -f target/efm32s2_g23.cfg -c "init; reset_config srst_nogate; reset halt; program <project-directory>; reset; exit"
+```
+
+- Update the `username` field with yours.
+- Update the `project-directory` field with the binary directory you downloaded in the previous step.
+- Open the Command Prompt and paste the formatted command.
+- Connect the Nano Matter to your PC using a USB-C® cable.
+- Run the command and verify the download process was successful.
+
+![Binary flash process](assets/binary-flash.png)
+
+***Make sure to have the [Silicon Labs core](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#board-core-and-libraries) installed on your Arduino IDE so you can use the __openocd__ tool for flashing.***
+
+From here, jump directly to the [Matter Controller section](http://localhost:8000/tutorials/nano-matter/open-thread-border-router/#the-matter-controller-nano-esp32).
+
+#### Build the Binary From Scratch (Optional)
+
+If you want to build the Nano Matter program by yourself, follow the steps below:
 
 - Download Simplicity Studio. Silicon Labs provides this IDE, which is designed to simplify the development process for Silicon Labs hardware platforms. Download latest version [here](https://www.silabs.com/developers/simplicity-studio).
 
@@ -159,11 +186,20 @@ cd esp-idf
 . ./export.sh
 ```
 
+- Navigate to the `ot_rcp` example included in the `esp-idf` directory, and build it using the `esp32h2` target:
+  
+```bash
+cd examples/openthread/ot_rcp
+idf.py set-target esp32h2
+idf.py build
+```
+
 - Clone the ESP Thread Border Router example repository:
   
 ```bash
+cd ..
 git clone -b v1.0 --recursive https://github.com/espressif/esp-thread-br.git
-cd /esp-thread-br/examples/basic_thread_border_router/
+cd esp-thread-br/examples/basic_thread_border_router/
 ```
 - For the `sdkconfig` file to be generated, and we can later modify it with our Nano ESP32 custom settings, set the device target from the command line:
 
@@ -281,6 +317,9 @@ scripts/examples/gn_build_example.sh examples/chip-tool out/debug
 ```
 
 ![CHIP Tool environment set](assets/out-debug.png)
+
+Wait for the packages installation process to finish.
+
 - To check if the CHIP Tool runs correctly, execute the following command:
 
 ```bash
@@ -330,7 +369,9 @@ For example:
 
 Connect through USB to the Nano ESP32 and run the following command from the Arduino IDE Serial Monitor:
 
-`dataset active -x`
+```bash
+dataset active -x
+```
 
 ***This command will display the active Thread network dataset as a hexadecimal string.***
 
@@ -341,6 +382,31 @@ For example:
 ```bash
 0e080000000000010000000300000f35060004001fffe00208dead00beef00cafe0708fd000db800a00000051000112233445566778899aabbccddeeff030e4f70656e5468726561642d455350010212340410104810e2315100afd6bc9215a6bfac530c0402a0f7f8
 ```
+
+If an **error** appears, for example: 
+
+```bash
+Error 23: NotFound
+```
+
+This means that there is no active Thread Network dataset configured. The following steps will help fix the error:
+
+- Check if the OpenThread is enabled, sending this command through the Serial Monitor:
+  
+```bash
+state
+```
+- If the response is **disabled**, it means OpenThread has not started. To start it, use:
+
+```bash
+ifconfig up
+```
+```bash
+thread start
+```
+- Then, try `dataset active -x` command again.
+
+Now you should see the dataset string.
 
 ### Matter Commissioning
 
