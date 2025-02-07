@@ -621,7 +621,7 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 
 ## Certifications Summary
 
-Visit this page for the full [Product Compliance list](https://docs.arduino.cc/certifications/). 
+Visit the following website to learn more about the full Product Compliance of Arduino products: [Product Compliance list](https://docs.arduino.cc/certifications/)](https://docs.arduino.cc/certifications/).
 
 | **Certification** | **Status** |
 |:-----------------:|:----------:|
