@@ -58,21 +58,21 @@ The Plug and Make Kit offers an intuitive and effortless introduction to the wor
 
 ### Microcontroller
 
-| **Feature**                                                  | **Description**                                              |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **Product Name**                                             | Arduino® UNO R4 WiFi                                         |
-| **Microcontroller**                                          | Renesas RA4M1 (R7FA4M1AB3CFM#AA0)                            |
-| **Clock Speed**                                              | 48 MHz                                                       |
-| **Power Supply**                                             | 6-24 VDC via VIN, 5 VDC via USB-C®                           |
-| **Operating Voltage**                                        | 5 V (RA4M1)                                                  |
-| **Memory**                                                   | 256 kB Flash, 32 kB SRAM, 8 kB EEPROM                        |
-| **Peripherals**                                              | Capacitive Touch Sensing Unit (CTSU), USB® 2.0 Full-Speed Module, 14-bit ADC, Up to 12-bit DAC, Operational Amplifier (OPAMP) |
-| **Communication**                                            | 1x UART, 1x SPI, 1x I2C, 1x CAN (external transceiver required) |
-| **Wi-Fi®**                                                   | 802.11 b/g/n (Wi-Fi® 4), up to 150 Mbps                      |
-| **Bluetooth®**                                               | Bluetooth® 5                                                 |
-| **LED Matrix**                                               | 12x8 red LEDs, fully programmable                            |
-| **Additional Features**                                      | Real-time Clock (RTC), Memory Protection Unit (MPU), DAC, DMA |
-| **[Certifications](https://docs.arduino.cc/certifications/)** | CE/RED, UKCA, FCC, IC, RoHS, REACH, WEEE                     |
+| **Feature**             | **Description**                                              |
+| ----------------------- | ------------------------------------------------------------ |
+| **Product Name**        | Arduino® UNO R4 WiFi                                         |
+| **Microcontroller**     | Renesas RA4M1 (R7FA4M1AB3CFM#AA0)                            |
+| **Clock Speed**         | 48 MHz                                                       |
+| **Power Supply**        | 6-24 VDC via VIN, 5 VDC via USB-C®                           |
+| **Operating Voltage**   | 5 V (RA4M1)                                                  |
+| **Memory**              | 256 kB Flash, 32 kB SRAM, 8 kB EEPROM                        |
+| **Peripherals**         | Capacitive Touch Sensing Unit (CTSU), USB® 2.0 Full-Speed Module, 14-bit ADC, Up to 12-bit DAC, Operational Amplifier (OPAMP) |
+| **Communication**       | 1x UART, 1x SPI, 1x I2C, 1x CAN (external transceiver required) |
+| **Wi-Fi®**              | 802.11 b/g/n (Wi-Fi® 4), up to 150 Mbps                      |
+| **Bluetooth®**          | Bluetooth® 5                                                 |
+| **LED Matrix**          | 12x8 red LEDs, fully programmable                            |
+| **Additional Features** | Real-time Clock (RTC), Memory Protection Unit (MPU), DAC, DMA |
+| **Certifications**      | CE/RED, UKCA, FCC, IC, RoHS, REACH, WEEE                     |
 
 
 ## Related Products
@@ -621,7 +621,7 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 
 ## Certifications Summary
 
-Visit the following website to learn more about the full Product Compliance of Arduino products: [Product Compliance list](https://docs.arduino.cc/certifications/)](https://docs.arduino.cc/certifications/).
+Visit the following website to learn more about the full Product Compliance of Arduino products: [Product Compliance list](https://docs.arduino.cc/certifications/)(https://docs.arduino.cc/certifications/).
 
 | **Certification** | **Status** |
 |:-----------------:|:----------:|
