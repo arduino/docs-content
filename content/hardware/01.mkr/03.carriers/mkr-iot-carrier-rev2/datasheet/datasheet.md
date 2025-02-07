@@ -260,7 +260,7 @@ Detailed information on the pinouts are available in a separate document: <u>[MK
 
 ## Certifications
 
-Visit this page for the full [Product Compliance list](https://docs.arduino.cc/certifications/). 
+Visit the following website to learn more about the full Product Compliance of Arduino products: [Product Compliance list](https://docs.arduino.cc/certifications/)](https://docs.arduino.cc/certifications/). 
 
 ### Declaration of Conformity CE DoC (EU)
 
