@@ -10,6 +10,10 @@ author: Ali Jahangiri
 # Description 
 Enable edge AI for high performance industrial, building automation and robotics applications with the Portenta Max Carrier. The Portenta Max Carrier transforms the Arduino® Portenta family into a standardized industrial platform, ready for use as a single board computer or as a reference design. The Portenta Max Carrier provides easy access to the onboard peripherals of the Arduino® Portenta X8 including Gigabit Ethernet, microSD and PCIe. This board further augments the capabilities of the Portenta X8 with Fieldbus, LoRa®, 4G, Cat-M1 and NB-IoT connectivity providing a platform for Industry 4.0. 
 
+# About this Document
+
+This document serves as the official reference for the technical specifications of the Portenta Max Carrier. It provides a detailed overview of the board's capabilities, features and supported components. For additional information on using the board, including setup guides and practical applications, please visit [docs.arduino.cc](https://docs.arduino.cc/).
+
 # Target areas:
 Industry 4.0, prototyping, robotics, data logging 
 
@@ -24,8 +28,12 @@ Industry 4.0, prototyping, robotics, data logging
     *   Power Jack for external supply (6-36V)
     *   On-board 18650 Li-ion battery connector with battery charger (3.7V). It can be used as backup power source if the external power supply fails.
 *   **Wireless modules**
-    *   Murata CMWX1ZZABZ-078 LoRa® module,  SMA connector for antenna
+    *   Murata CMWX1ZZABZ-078 LoRa® module, SMA connector for antenna
+        Brand and Model: Murata CMWX1ZZABZ-078, FCC ID: VPYCMABZ
+        
+        **Note**: The module integrates a Semtech SX1276 transceiver and an STMicroelectronics STM32L0 series microcontroller.
     *   SARA-R412M-02B (4G/Cat-M1/NBIoT), micro SIM, SMA connector for antenna
+        Brand and Model: u-blox SARA-R412M-02B, FCC ID: XPYUBX18ZO01, TAC Number: Specific TAC numbers are assigned by the manufacturer; refer to u-blox documentation for details.
 *   **Connectors**
     *   2x USB-A female connectors
     *   1x Gigabit Ethernet connector (RJ45)
@@ -61,6 +69,7 @@ The Portenta Max Carrier provides the user with almost limitless possibilities t
 ### Related Products
 *   Portenta H7 (Partial support)
 *   Portenta X8
+*   Portenta C33
 
 ## Ratings
 
@@ -137,6 +146,13 @@ The Portenta Max Carrier includes one female mini PCI Express card slot (J8). Th
 
 **Note:** USB, I2C and SIM functionality over PCIe is available only for the X8. Full PCIe functionality not provided at this time.
 
+### Mini PCIe Connector and Cellular Capability
+The Portenta Max Carrier does not have built-in cellular capability but includes a Mini PCIe slot (J8) that allows for the integration of optional 4G modules with GNSS capabilities. This slot supports USB, I2C and USIM interfaces, allowing the system to add cellular connectivity and GNSS functionality. Users can install a compatible 4G module to provide cellular connectivity.
+
+The Mini PCIe interface on the Portenta Max Carrier is optimized for integrating cellular and GNSS modules, supporting multiple communication protocols and power management features. It enables IoT, remote monitoring and edge computing applications with reliable connectivity. An external power source of 6V to 36V is required to use the Mini PCIe slot.
+
+Compatible modules include the Arduino Pro 4G Module (EMEA / GNSS Global), which provides LTE Cat.4 speeds of up to 150 Mbps download and 50 Mbps upload. The Portenta Max Carrier supports modem integration via the Qualcomm MSM Interface (QMI) and raw AT command based communication. Users can configure the module using Linux commands or the Arduino Linux Wizard for simplified setup.
+
 ### USB
 The Portenta Max Carrier also includes a USB 2.0 Hi-Speed Hub controller based on the USB2514B/M2 (U3) that manages the 2 USB devices from the USB type A connector (J15) plus the LoRa® (U23) and PCIe (J8) modules. J15 is protected by a NCP383LMUAJAATXG (U7) power switch and current limiter. 
 
@@ -158,7 +174,15 @@ Default configuration:
 The Portenta Max Carrier includes a high speed CAN transceiver based on the TJA1049T/3J IC. It is connected to a 4P4C connector (RJ9, RJ10, RJ22).
 
 ### Micro SD Card Slot
-The on board Micro SD card can be used for data logging operations.
+The onboard microSD card slot (J11) can be used for data logging and storage expansion. It supports high-capacity microSD cards, making it ideal for long-term data collection and logging applications. The microSD slot is accessible from the Portenta X8, allowing direct storage management.
+
+For microSD card usage in Linux environments, users can mount and manage storage through the terminal. The carrier supports file systems such as FAT32 and ext4, allowing flexible storage management for applications requiring large data handling.
+
+### Micro SIM Card Slot
+
+The Portenta Max Carrier features a micro SIM card slot (SIM1) designed for use with the SARA-R412M-02B module. Please note that the carrier itself does not provide cellular radio capability. Cellular functionality is available only when the appropriate module is installed.
+
+The micro SIM slot enables network connectivity for the cellular module and does not function independently. It works with the SARA-R412M-02B modem, providing access to LTE, Cat-M1 and NB-IoT networks. The dedicated SMA connector allows for the attachment of an external antenna to provide stable signal reception and performance.
 
 ### Features Supported By Portenta Boards
 The supported features depend upon your choice of Portenta board used together with the Portenta Max Carrier.
@@ -500,6 +524,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 | Date       | **Revision** | **Changes**                          |
 |------------|--------------|--------------------------------------|
+| 12/02/2025 | 4            | General datasheet update |
 | 03/09/2024 | 3            | Cloud Editor updated from Web Editor |
 | 11/20/2023 | 2            | Recommended antennas added           |
 | 10/05/2022 | 1            | First Release                        |
