@@ -28,12 +28,17 @@ Industry 4.0, prototyping, robotics, data logging
     *   Power Jack for external supply (6-36V)
     *   On-board 18650 Li-ion battery connector with battery charger (3.7V). It can be used as backup power source if the external power supply fails.
 *   **Wireless modules**
-    *   Murata CMWX1ZZABZ-078 LoRa® module, SMA connector for antenna
-        Brand and Model: Murata CMWX1ZZABZ-078, FCC ID: VPYCMABZ
-        
-        **Note**: The module integrates a Semtech SX1276 transceiver and an STMicroelectronics STM32L0 series microcontroller.
-    *   SARA-R412M-02B (4G/Cat-M1/NBIoT), micro SIM, SMA connector for antenna
-        Brand and Model: u-blox SARA-R412M-02B, FCC ID: XPYUBX18ZO01, TAC Number: 35467909
+    *   **Murata CMWX1ZZABZ-078 LoRa®** module, SMA connector for antenna  
+        *   Brand and Model: Murata CMWX1ZZABZ-078  
+        *   FCC ID: VPYCMABZ  
+        *   Integrated components:  
+            *   Semtech SX1276 transceiver  
+            *   STMicroelectronics STM32L0 series microcontroller  
+        *   **Note**: The module integrates a transceiver and a microcontroller. As it is designed for low-power wide-area network (LPWAN) applications and does not operate on cellular networks, it does not possess an IMEI number or a TAC.
+    *   **SARA-R412M-02B (4G/Cat-M1/NB-IoT)**, micro SIM, SMA connector for antenna  
+        *   Brand and Model: u-blox SARA-R412M-02B  
+        *   FCC ID: XPYUBX18ZO01  
+        *   TAC Number: 35467909  
 *   **Connectors**
     *   2x USB-A female connectors
     *   1x Gigabit Ethernet connector (RJ45)
