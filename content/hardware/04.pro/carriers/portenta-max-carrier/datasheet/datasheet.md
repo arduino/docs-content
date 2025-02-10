@@ -33,7 +33,7 @@ Industry 4.0, prototyping, robotics, data logging
         
         **Note**: The module integrates a Semtech SX1276 transceiver and an STMicroelectronics STM32L0 series microcontroller.
     *   SARA-R412M-02B (4G/Cat-M1/NBIoT), micro SIM, SMA connector for antenna
-        Brand and Model: u-blox SARA-R412M-02B, FCC ID: XPYUBX18ZO01, TAC Number: Specific TAC numbers are assigned by the manufacturer; refer to u-blox documentation for details.
+        Brand and Model: u-blox SARA-R412M-02B, FCC ID: XPYUBX18ZO01, TAC Number: 35467909
 *   **Connectors**
     *   2x USB-A female connectors
     *   1x Gigabit Ethernet connector (RJ45)
