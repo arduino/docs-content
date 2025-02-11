@@ -12,7 +12,7 @@ Enable edge AI for high performance industrial, building automation and robotics
 
 # About This Document
 
-This document serves as the official reference for the technical specifications of the Portenta Max Carrier. It provides a detailed overview of the board's capabilities, features and supported components. For additional information on using the board, including setup guides and practical applications, please visit [docs.arduino.cc](https://docs.arduino.cc/).
+This document serves as the official reference for the technical specifications of the Portenta Max Carrier. It provides a detailed overview of the board's capabilities, features and supported components. For additional information on using the board, including setup guides and practical applications, please visit [**docs.arduino.cc**](https://docs.arduino.cc/).
 
 # Target areas:
 Industry 4.0, prototyping, robotics, data logging 
@@ -153,32 +153,32 @@ The Portenta Max Carrier has a built-in cellular capability and includes a Mini 
 
 The Mini PCIe interface on the Portenta Mid Carrier is characterized by optimization with cellular and GNSS modules, supporting multiple communication protocols and power management features. It enables IoT, remote monitoring and edge computing applications with reliable connectivity.
 
-An **external power source of 6 V to 36 V is required** to use the Mini PCIe connector to maintain stable operation, especially for high-power consumption applications. To enable the Mini PCIe interface on the Portenta Max Carrier, the PCIE ENABLE (PWM6) pin requires 3.3 V and a compatible Mini PCIe module. The PCIE ENABLE (PWM6) is the 33rd pin of the High-Density Connector (HDC) Stacker Connector (J5).
+An **external power source of 6 V to 36 V is required** to use the Mini PCIe connector to maintain stable operation, especially for high-power consumption applications. To enable the Mini PCIe interface on the Portenta Max Carrier, the **PCIE ENABLE (PWM6)** pin requires 3.3 V and a compatible Mini PCIe module. The PCIE ENABLE (PWM6) is the 33rd pin of the High-Density Connector (HDC) Stacker Connector (J5).
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <p style="text-align: justify;">
-For stable Mini PCIe operation, cables compliant with ASTM B 258 and support up to 2 A of current are recommended (Cables with a cross-sectional area of 0.82 mm² to 1.3 mm² (AWG 18-16)).
+For stable Mini PCIe operation, cables compliant with ASTM B 258 and support up to 2 A of current are recommended <strong>(Cables with a cross-sectional area of 0.82 mm² to 1.3 mm² (AWG 18-16))</strong>.
 </p>
 </div>
 
-Compatible modules include the Arduino Pro 4G Module Global variant (SKU: TPX00200) and Pro 4G Module EMEA variant (SKU: TPX00201), which provides LTE Cat.4 speeds of up to 150 Mbps download and 50 Mbps upload. The Portenta Max Carrier supports modem integration via the Qualcomm MSM Interface (QMI) and raw AT command based communication. Users can configure the module using Linux commands or the Arduino Linux Wizard for simplified setup.
+Compatible modules include the **Arduino Pro 4G Module Global variant (SKU: TPX00200) and Pro 4G Module EMEA variant (SKU: TPX00201)**, which provides LTE Cat.4 speeds of up to 150 Mbps download and 50 Mbps upload. The Portenta Max Carrier supports modem integration via the Qualcomm MSM Interface (QMI) and raw AT command based communication. Users can configure the module using Linux commands or the Arduino Linux Wizard for simplified setup.
 
-The complete pinout characteristics of the onboard Mini PCIe slot of the Portenta Max Carrier can be found in the [PCIe Connector section](#pcie-connector). The [full pinout document of the Portenta Max Carrier](https://docs.arduino.cc/resources/pinouts/ABX00043-full-pinout.pdf) includes a graphical representation of the mini PCIe interface pinout layout. The image below shows the relevant section from the complete pinout documentation:
+The complete pinout characteristics of the onboard Mini PCIe slot of the Portenta Max Carrier can be found in the [**PCIe Connector section**](#pcie-connector). The [**full pinout document of the Portenta Max Carrier**](https://docs.arduino.cc/resources/pinouts/ABX00043-full-pinout.pdf) includes a graphical representation of the mini PCIe interface pinout layout. The image below shows the relevant section from the complete pinout documentation:
 
 ![Portenta Max Carrier Mini PCIe connector](assets/portentaMAXcarrier_mpcie_pinout.png)
 
-For detailed implementation instructions, refer to the [Portenta Max Carrier documentation on integrating the Pro 4G Module](https://docs.arduino.cc/tutorials/portenta-max-carrier/mpcie-4g-modem/).
+For detailed implementation instructions, refer to the [**Portenta Max Carrier documentation on integrating the Pro 4G Module**](https://docs.arduino.cc/tutorials/portenta-max-carrier/mpcie-4g-modem/).
 
 ### Pro 4G Module Compatibility
 The Pro 4G Module Global variant (SKU: TPX00200) and Pro 4G Module EMEA variant (SKU: TPX00201) are compatible with the Portenta Max Carrier. The Portenta X8 (SKU: ABX00049) is the only compatible Portenta family board required for operation with the Portenta Max Carrier and the Pro 4G Module.
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <p style="text-align: justify;">
-The Pro 4G Module (GNSS Global / EMEA) requires external antennas to work correctly with wireless signals. There are three external antenna connectors: a main antenna connector, an Rx-diversity antenna connector and a GNSS antenna connector. The impedance of the antenna connectors are 50 Ω.
+The Pro 4G Module (GNSS Global / EMEA) requires external antennas to work correctly with wireless signals. There are three external antenna connectors: a main antenna connector, an Rx-diversity antenna connector and a GNSS antenna connector. <strong>The impedance of the antenna connectors are 50 Ω</strong>.
 </p>
 </div>
 
-The integration of the Pro 4G Modules is facilitated by a dedicated Arduino library. For detailed instructions on how to implement and use these modules, refer to the [dedicated documentation for in-depth implementation](https://docs.arduino.cc/tutorials/pro-4g-module/mpcie-4g-modem/). This documentation provides all necessary steps to ensure proper setup and functionality.
+The integration of the Pro 4G Modules is facilitated by a dedicated Arduino library. For detailed instructions on how to implement and use these modules, refer to the [**dedicated documentation for in-depth implementation**](https://docs.arduino.cc/tutorials/pro-4g-module/mpcie-4g-modem/). This documentation provides all necessary steps to ensure proper setup and functionality.
 
 ### Cell Modem 
 The SARA-R412M-02B (U1) is a multi-region modem capable of connecting to 2G/Cat-M1/NBIoT networks worldwide.
@@ -202,7 +202,7 @@ A dedicated SMA connector (J3) allows for an external antenna. The chip operates
 ### Micro SIM Card Slot
 The Portenta Max Carrier features a micro SIM card slot (SIM1) designed for use with the SARA-R412M-02B module. Cellular functionality is available or when the appropriate module is installed and configured.s
 
-The micro SIM slot enables network connectivity for the cellular module. It works with the SARA-R412M-02B modem, providing access to LTE, Cat-M1, and NB-IoT networks. The dedicated SMA connector (J3) allows for the attachment of an external antenna (e.g., ANT-5GW-SPS1-2) to ensure stable signal reception and performance. For detailed implementation process, please refer to the [user manual of the Portenta Max Carrier](https://docs.arduino.cc/tutorials/portenta-max-carrier/user-manual/#lte-catm1-nb-iot)
+The micro SIM slot enables network connectivity for the cellular module. It works with the SARA-R412M-02B modem, providing access to LTE, Cat-M1, and NB-IoT networks. The dedicated SMA connector (J3) allows for the attachment of an external antenna (e.g., ANT-5GW-SPS1-2) to ensure stable signal reception and performance. For detailed implementation process, please refer to the [**user manual of the Portenta Max Carrier**](https://docs.arduino.cc/tutorials/portenta-max-carrier/user-manual/#lte-catm1-nb-iot)
 
 ### LoRa® Module
 The Portenta Max Carrier provides long range wireless connectivity for low bandwidth applications with the on-board Murata CMWX1ZZABZ-078 LoRa® transceiver module (U23).
@@ -211,8 +211,7 @@ The Portenta Max Carrier provides long range wireless connectivity for low bandw
 |--------------------------------|-------------------------------------------------------------------------|
 | **Brand and Model**            | Murata CMWX1ZZABZ-078                                                   |
 | **FCC ID**                     | VPYCMABZ                                                                |
-| **Integrated Components**      | - Semtech SX1276 transceiver                                            |
-|                                | - STMicroelectronics STM32L0 series MCU                                 |
+| **Integrated Components**      | Semtech SX1276 transceiver, STMicroelectronics STM32L0 series MCU       |
 | **Network Compatibility**      | LoRa® (LPWAN)                                                           |
 | **SMA Connector for Antenna**  | Yes - J9                                                                |
 | **SIM Slot**                   | Not applicable (LoRa® is non-cellular)                                  |

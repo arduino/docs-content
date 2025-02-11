@@ -13,7 +13,7 @@ The Arduino Portenta Mid Carrier streamlines project development for Portenta SO
 
 # About This Document
 
-This document serves as the official reference for the technical specifications of the Portenta Mid Carrier. It provides a detailed overview of the board's capabilities, features and supported components. For additional information on using the board, including setup guides and practical applications, please visit [docs.arduino.cc](https://docs.arduino.cc/).
+This document serves as the official reference for the technical specifications of the Portenta Mid Carrier. It provides a detailed overview of the board's capabilities, features and supported components. For additional information on using the board, including setup guides and practical applications, please visit [**docs.arduino.cc**](https://docs.arduino.cc/).
 
 # Target Areas
 
@@ -701,7 +701,7 @@ These modules provide high speed LTE connectivity capable of up to 150 Mbps down
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <p style="text-align: justify;">
-The Pro 4G Module (GNSS Global / EMEA) requires external antennas to work correctly with wireless signals. There are three external antenna connectors: a main antenna connector, an Rx-diversity antenna connector and a GNSS antenna connector. The impedance of the antenna connectors are 50 Ω.
+The Pro 4G Module (GNSS Global / EMEA) requires external antennas to work correctly with wireless signals. There are three external antenna connectors: a main antenna connector, an Rx-diversity antenna connector and a GNSS antenna connector. <strong>The impedance of the antenna connectors are 50 Ω</strong>.
 </p>
 </div>
 
