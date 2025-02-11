@@ -31,9 +31,7 @@ Industry 4.0, prototyping, robotics, data logging
     *   **Murata CMWX1ZZABZ-078 LoRa®** module, SMA connector for antenna  
         *   Brand and Model: Murata CMWX1ZZABZ-078  
         *   FCC ID: VPYCMABZ  
-        *   Integrated components:  
-            *   Semtech SX1276 transceiver  
-            *   STMicroelectronics STM32L0 series microcontroller  
+        *   Integrated components: Semtech SX1276 transceiver, STMicroelectronics STM32L0 series microcontroller
         *   **Note**: The module integrates a transceiver and a microcontroller. As it is designed for low-power wide-area network (LPWAN) applications and does not operate on cellular networks, it does not possess an IMEI number or a TAC.
     *   **SARA-R412M-02B (4G/Cat-M1/NB-IoT)**, micro SIM, SMA connector for antenna  
         *   Brand and Model: u-blox SARA-R412M-02B  
