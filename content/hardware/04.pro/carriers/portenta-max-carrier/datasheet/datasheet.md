@@ -139,25 +139,21 @@ There are four analog audio interfaces accessible on the Portenta Max Carrier:
 
 **Note:** Audio not supported with the Portenta H7.
 
-### Cell Modem 
-The SARA-R412M-02B (U1) is a multi-region modem capable of connecting to 2G/Cat-M1/NBIoT networks worldwide. A dedicated SMA connector (J3) allows for an external antenna. The chip operates over the 1V8 power line. A microSIM slot is available (SIM1). SN74LVC1T45 bidirectional logic level shifters (U8, U20, U21, U22) act as middleware for connecting to 3V3 serial connections. The chip is powered by 3V8 and an internal regulator provides 1V8 that is used for the SIM card and the I/O. The corresponding SIM card slot for the cell modem is on the top side of the board, directly adjacent to the module.
-
->  (2) Functionality dependent upon connected Portenta board. Check the respective datasheet.
-
-### LoRa® Module
-The Portenta Max Carrier provides long range wireless connectivity for low bandwidth applications with the on-board Murata CMWX1ZZABZ-078 LoRa® transceiver module (U23). This module operates on 3V3. A dedicated SMA connector (J9) allows for an external antenna. Serial wire debug (SWD) headers are accessible via CN2.
-
 ### Mini PCIe 
 The Portenta Max Carrier includes one female mini PCI Express card slot (J8). The connector is right angled and the board includes 2 removable standoffs for external module support. To use the spacer, add the plastic spacer on the top side of the board then attach the M2.5 screw from the back together with the washer. The Max Carrier supports two different Mini PCIe sizes. Pins 8, 10, 12 and 14 are reserved for UIM (in this case SIM).
 
-**Note:** USB, I2C and SIM functionality over PCIe is available only for the X8. Full PCIe functionality not provided at this time.
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;">
+<strong>Note:</strong> USB, I2C and SIM functionality over PCIe is available only for the X8. Full PCIe functionality not provided at this time.
+</p>
+</div>
 
 ### Mini PCIe Connector and Cellular Capability
-The Portenta Max Carrier does not have built-in cellular capability but includes a Mini PCIe slot (J8) that allows for the integration of optional 4G modules with GNSS capabilities. This slot supports USB, I2C and USIM interfaces and allows the system to add cellular connectivity and GNSS functionality. Users can install a compatible 4G module to provide cellular connectivity.
+The Portenta Max Carrier has a built-in cellular capability and includes a Mini PCIe slot (J8) that allows for the integration of optional 4G modules with GNSS capabilities. This slot supports USB, I2C, USIM interfaces and allows the system to add cellular connectivity and GNSS functionality.
 
-The Mini PCIe interface on the Portenta Max Carrier is optimized for integrating cellular and GNSS modules, supporting multiple communication protocols and power management features. It enables IoT, remote monitoring and edge computing applications with reliable connectivity.
+The Mini PCIe interface on the Portenta Mid Carrier is characterized by optimization with cellular and GNSS modules, supporting multiple communication protocols and power management features. It enables IoT, remote monitoring and edge computing applications with reliable connectivity.
 
-An external power source of 6 V to 36 V is required to use the Mini PCIe connector to maintain stable operation, especially for high-power consumption applications. To enable the Mini PCIe interface on the Portenta Max Carrier, the PCIE ENABLE (PWM6) pin requires 3.3 V and a compatible Mini PCIe module. The PCIE ENABLE (PWM6) is the 33rd pin of the High-Density Connector (HDC) Stacker Connector (J5).
+An **external power source of 6 V to 36 V is required** to use the Mini PCIe connector to maintain stable operation, especially for high-power consumption applications. To enable the Mini PCIe interface on the Portenta Max Carrier, the PCIE ENABLE (PWM6) pin requires 3.3 V and a compatible Mini PCIe module. The PCIE ENABLE (PWM6) is the 33rd pin of the High-Density Connector (HDC) Stacker Connector (J5).
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <p style="text-align: justify;">
@@ -174,14 +170,60 @@ The complete pinout characteristics of the onboard Mini PCIe slot of the Portent
 For detailed implementation instructions, refer to the [Portenta Max Carrier documentation on integrating the Pro 4G Module](https://docs.arduino.cc/tutorials/portenta-max-carrier/mpcie-4g-modem/).
 
 ### Pro 4G Module Compatibility
-Pro 4G Module Global variant (SKU: TPX00200) and Pro 4G Module EMEA variant (SKU: TPX00201) are compatible with the Portenta Max Carrier. The Portenta X8 (SKU: ABX00049) is the only compatible Portenta family board required for operation with the Portenta Max Carrier.
+The Pro 4G Module Global variant (SKU: TPX00200) and Pro 4G Module EMEA variant (SKU: TPX00201) are compatible with the Portenta Max Carrier. The Portenta X8 (SKU: ABX00049) is the only compatible Portenta family board required for operation with the Portenta Max Carrier and the Pro 4G Module.
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;">
+The Pro 4G Module (GNSS Global / EMEA) requires external antennas to work correctly with wireless signals. There are three external antenna connectors: a main antenna connector, an Rx-diversity antenna connector and a GNSS antenna connector. The impedance of the antenna connectors are 50 Ω.
+</p>
+</div>
 
 The integration of the Pro 4G Modules is facilitated by a dedicated Arduino library. For detailed instructions on how to implement and use these modules, refer to the [dedicated documentation for in-depth implementation](https://docs.arduino.cc/tutorials/pro-4g-module/mpcie-4g-modem/). This documentation provides all necessary steps to ensure proper setup and functionality.
 
-### Micro SIM Card Slot
-The Portenta Max Carrier features a micro SIM card slot (SIM1) designed for use with the SARA-R412M-02B module. Please note that the carrier itself does not provide cellular radio capability. Cellular functionality is available only when the appropriate module is installed.
+### Cell Modem 
+The SARA-R412M-02B (U1) is a multi-region modem capable of connecting to 2G/Cat-M1/NBIoT networks worldwide.
 
-The micro SIM slot enables network connectivity for the cellular module and does not function independently. It works with the SARA-R412M-02B modem, providing access to LTE, Cat-M1 and NB-IoT networks. The dedicated SMA connector allows for the attachment of an external antenna to provide stable signal reception and performance. For detailed implementation process, please refer to the [user manual of the Portenta Max Carrier](https://docs.arduino.cc/tutorials/portenta-max-carrier/user-manual/)
+| **Feature**                    | **Details**                                                            |
+|--------------------------------|------------------------------------------------------------------------|
+| **Brand and Model**            | u-blox SARA-R412M-02B                                                  |
+| **FCC ID**                     | XPYUBX18ZO01                                                           |
+| **Type Allocation Code (TAC)** | 35467909                                                               |
+| **Network Compatibility**      | 2G, Cat-M1, NB-IoT                                                     |
+| **SMA Connector for Antenna**  | Yes - J3                                                               |
+| **SIM Slot**                   | Micro SIM                                                              |
+| **Power Supply**               | 1.8V                                                                   |
+| **IMEI Number**                | Required for cellular networks                                         |
+| **Notes**                      | External antenna required for LTE connectivity. (e.g., ANT-5GW-SPS1-2) |
+
+A dedicated SMA connector (J3) allows for an external antenna. The chip operates over the 1V8 power line. A microSIM slot is available (SIM1). SN74LVC1T45 bidirectional logic level shifters (U8, U20, U21, U22) act as middleware for connecting to 3V3 serial connections. The chip is powered by 3V8 and an internal regulator provides 1V8 that is used for the SIM card and the I/O. The corresponding SIM card slot for the cell modem is on the top side of the board, directly adjacent to the module.
+
+>  (2) Functionality dependent upon connected Portenta board. Check the respective datasheet.
+
+### Micro SIM Card Slot
+The Portenta Max Carrier features a micro SIM card slot (SIM1) designed for use with the SARA-R412M-02B module. Cellular functionality is available or when the appropriate module is installed and configured.s
+
+The micro SIM slot enables network connectivity for the cellular module. It works with the SARA-R412M-02B modem, providing access to LTE, Cat-M1, and NB-IoT networks. The dedicated SMA connector (J3) allows for the attachment of an external antenna (e.g., ANT-5GW-SPS1-2) to ensure stable signal reception and performance. For detailed implementation process, please refer to the [user manual of the Portenta Max Carrier](https://docs.arduino.cc/tutorials/portenta-max-carrier/user-manual/#lte-catm1-nb-iot)
+
+### LoRa® Module
+The Portenta Max Carrier provides long range wireless connectivity for low bandwidth applications with the on-board Murata CMWX1ZZABZ-078 LoRa® transceiver module (U23).
+
+| **Feature**                    | **Details**                                                             |
+|--------------------------------|-------------------------------------------------------------------------|
+| **Brand and Model**            | Murata CMWX1ZZABZ-078                                                   |
+| **FCC ID**                     | VPYCMABZ                                                                |
+| **Integrated Components**      | - Semtech SX1276 transceiver                                            |
+|                                | - STMicroelectronics STM32L0 series MCU                                 |
+| **Network Compatibility**      | LoRa® (LPWAN)                                                           |
+| **SMA Connector for Antenna**  | Yes - J9                                                                |
+| **SIM Slot**                   | Not applicable (LoRa® is non-cellular)                                  |
+| **Power Supply**               | Integrated low-power design                                             |
+| **Type Allocation Code (TAC)** | Not applicable (LoRa® is non-cellular)                                  |
+| **IMEI Number**                | Not applicable                                                          |
+| **Notes**                      | Integrates both a transceiver and MCU. Designed for LPWAN applications. |
+
+This module operates on 3V3. A dedicated SMA connector (J9) allows for an external antenna. Serial wire debug (SWD) headers are accessible via CN2.
+
+For detailed implementation process, please refer to the [user manual of the Portenta Max Carrier](https://docs.arduino.cc/tutorials/portenta-max-carrier/user-manual/#lora)
 
 ### USB
 The Portenta Max Carrier also includes a USB 2.0 Hi-Speed Hub controller based on the USB2514B/M2 (U3) that manages the 2 USB devices from the USB type A connector (J15) plus the LoRa® (U23) and PCIe (J8) modules. J15 is protected by a NCP383LMUAJAATXG (U7) power switch and current limiter. 
@@ -546,9 +588,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Arduino Max Carrier Docs     | https://docs.arduino.cc/hardware/portenta-max-carrier                           |
 
 ## Revision History
-| Date       | **Revision** | **Changes**                          |
-|------------|--------------|--------------------------------------|
-| 12/02/2025 | 4            | General datasheet update             |
-| 03/09/2024 | 3            | Cloud Editor updated from Web Editor |
-| 11/20/2023 | 2            | Recommended antennas added           |
-| 10/05/2022 | 1            | First Release                        |
+| Date       | **Revision** | **Changes**                                                                                          |
+|------------|--------------|------------------------------------------------------------------------------------------------------|
+| 12/02/2025 | 4            | General datasheet update with revised Mini PCIe, cellular and SIM details (including FCC ID and TAC) |
+| 03/09/2024 | 3            | Cloud Editor updated from Web Editor                                                                 |
+| 11/20/2023 | 2            | Recommended antennas added                                                                           |
+| 10/05/2022 | 1            | First Release                                                                                        |
