@@ -1,5 +1,5 @@
 ---
-identifier: ABX00112
+identifier: ABX00112-ABX00137
 title: Arduino® Nano Matter
 type: maker
 author: José Bagur, Christopher Méndez
@@ -46,20 +46,20 @@ The main features are highlighted in the table shown below.
 </p>
 
 
-| Feature             | Description                                                                                                                                                      |
-|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Microcontroller     | 78 MHz, 32-bit Arm® Cortex®-M33 core (MGM240SD22VNA)                                                                                                             |
-| Internal Memory     | 1536 kB Flash and 256 kB RAM                                                                                                                                     |
-| Connectivity        | 802.15.4 Thread, Bluetooth® Low Energy 5.3, and Bluetooth® Mesh                                                                                                  |
-| Security            | Secure Vault® from Silicon Labs                                                                                                                                  |
-| USB Connectivity    | USB-C® port for power and data                                                                                                                                   |
-| Power Supply        | Various options for easily powering the board: USB-C® port and external power supply connected through the board's Nano-styled header connector pins (5V, VIN) |
-| Analog Peripherals  | 12-bit ADC (x20), up to 12-bit DAC (x4)                                                                                                                          |
-| Digital Peripherals | GPIO (x22 - All exposed I/O can be used as digital), UART (x2), I2C (x2), SPI (x2), PWM (x22) with a maximum of 5 simultaneously operational channels            |
-| Debugging           | JTAG/SWD debug port (accessible through the board's test pads)                                                                                                   |
-| Dimensions          | 18 mm x 45 mm                                                                                                                                                    |
-| Weight              | 4 g                                                                                                                                                              |
-| Pinout features     | Castellated pins allow the board to be SMD soldered on a custom carrier                                                                                          |
+| Feature             | Description                                                                                                                                                            |
+|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Microcontroller     | 78 MHz, 32-bit Arm® Cortex®-M33 core (MGM240SD22VNA)                                                                                                                   |
+| Internal Memory     | 1536 kB Flash and 256 kB RAM                                                                                                                                           |
+| Connectivity        | 802.15.4 Thread, Bluetooth® Low Energy 5.3, and Bluetooth® Mesh                                                                                                        |
+| Security            | Secure Vault® from Silicon Labs                                                                                                                                        |
+| USB Connectivity    | USB-C® port for power and data                                                                                                                                         |
+| Power Supply        | Various options for easily powering the board: USB-C® port and external power supply connected through the board's Nano-styled header connector pins (5V, VIN)         |
+| Analog Peripherals  | 12-bit ADC (x20), up to 12-bit DAC (x4)                                                                                                                                |
+| Digital Peripherals | GPIO (x22 - All exposed I/O can be used as digital), UART (x2), I2C (x2), SPI (x2), PWM (x22) with a maximum of 5 simultaneously operational channels                  |
+| Debugging           | JTAG/SWD debug port (accessible through the board's test pads)                                                                                                         |
+| Dimensions          | 18 mm x 45 mm                                                                                                                                                          |
+| Weight              | 4 g                                                                                                                                                                    |
+| Pinout features     | The Nano Matter (ABX00112) has castellated/through-hole pins for SMD mounting, while the Nano Matter (ABX00137) comes with headers pre-installed for easy prototyping. |
 
 
 <div style="page-break-after: always;"></div>
@@ -124,7 +124,11 @@ The core of the Nano Matter is the MGM240SD22VNA microcontroller from Silicon La
 
 The Nano-styled header connectors pinout is shown in the figure below.
 
-![](assets/Nano_Matter_Pinout_2.png)
+![](assets/Nano_Matter_Pinout.png)
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+The <strong>Nano Matter with headers (ABX00137)</strong> shares the same architecture as the <strong>Nano Matter (ABX00112)</strong> but comes with headers pre-installed.
+</div>
 
 <div style="page-break-after: always;"></div>
 
@@ -132,7 +136,7 @@ The Nano-styled header connectors pinout is shown in the figure below.
 
 An overview of the high-level architecture of the Nano Matter is illustrated in the figure below.
 
-![](assets/Nano_Matter_Block_Diagram-v2.png)
+![](assets/Nano_Matter_Block_Diagram.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -148,7 +152,7 @@ The Nano Matter can be powered through one of the following interfaces:
 
 A detailed figure below illustrates the power options available on the Nano Matter and the main system power architecture.
 
-![](assets/Nano_Matter_Power_Tree_2.png)
+![](assets/Nano_Matter_Power_Tree.png)
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <strong>Low-Power Tip:</strong> For power efficiency, safely cut the LED jumper and connect an external +3.3 VDC power supply to the board's 3V3 pin. This configuration does not power the board's USB bridge.
@@ -192,8 +196,11 @@ Now that you have gone through the basics of what you can do with the device, yo
 ## Mechanical Information
 
 <p style="text-align: justify;">
-The Nano Matter is a double-sided 18 mm x 45 mm board with a USB-C® port overhanging the top edge and dual
-castellated/through-hole pins around the two long edges; the onboard wireless antenna is located in the center of the bottom edge of the board.
+The Nano Matter is a double-sided 18 mm x 45 mm board featuring a USB-C® port extending from the top edge. The onboard wireless antenna is positioned at the center of the bottom edge.
+
+The Nano Matter (ABX00112) has dual castellated/through-hole pins along both long edges, making it easy to solder onto a custom PCB for direct integration.
+
+The Nano Matter with headers pre-installed (ABX00137) is also available, providing convenient access for probing and testing.
 </p>
 
 ### Board Dimensions
@@ -360,9 +367,10 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |                 **Changes**                 |
-| :--------: | :----------: | :-----------------------------------------: |
+|  **Date**  | **Revision** |                      **Changes**                      |
+| :--------: | :----------: | :---------------------------------------------------: |
+| 11/02/2025 |      5       | Header Version and SKU added as Collective Datasheet  |
 | 14/11/2024 |      4       | Official launch revision and power information update |
-| 05/09/2024 |      3       |    Cloud Editor updated from Web Editor     |
-| 07/05/2024 |      2       |                Board update                 |
-| 21/03/2024 |      1       |          Community Preview Release          |
+| 05/09/2024 |      3       |         Cloud Editor updated from Web Editor          |
+| 07/05/2024 |      2       |                     Board update                      |
+| 21/03/2024 |      1       |               Community Preview Release               |
