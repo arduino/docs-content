@@ -154,9 +154,29 @@ The Portenta Max Carrier includes one female mini PCI Express card slot (J8). Th
 ### Mini PCIe Connector and Cellular Capability
 The Portenta Max Carrier does not have built-in cellular capability but includes a Mini PCIe slot (J8) that allows for the integration of optional 4G modules with GNSS capabilities. This slot supports USB, I2C and USIM interfaces, allowing the system to add cellular connectivity and GNSS functionality. Users can install a compatible 4G module to provide cellular connectivity.
 
-The Mini PCIe interface on the Portenta Max Carrier is optimized for integrating cellular and GNSS modules, supporting multiple communication protocols and power management features. It enables IoT, remote monitoring and edge computing applications with reliable connectivity. An external power source of 6V to 36V is required to use the Mini PCIe slot.
+The Mini PCIe interface on the Portenta Max Carrier is optimized for integrating cellular and GNSS modules, supporting multiple communication protocols and power management features. It enables IoT, remote monitoring and edge computing applications with reliable connectivity.
 
-Compatible modules include the Arduino Pro 4G Module (EMEA / GNSS Global), which provides LTE Cat.4 speeds of up to 150 Mbps download and 50 Mbps upload. The Portenta Max Carrier supports modem integration via the Qualcomm MSM Interface (QMI) and raw AT command based communication. Users can configure the module using Linux commands or the Arduino Linux Wizard for simplified setup. For detailed implementation process, please refer to the [user manual of the Portenta Max Carrier](https://docs.arduino.cc/tutorials/portenta-max-carrier/user-manual/)
+An external power source of 6V to 36V is required to use the Mini PCIe slot to maintain stable operation, especially for high-power consumption applications. To enable the Mini PCIe interface on the Portenta Max Carrier, power the PCIE ENABLE (PWM6) pin with 3.3 V and install a compatible Mini PCIe module, such as the Pro 4G GNSS Module Global (SKU: TPX00200) or Pro 4G EMEA (SKU: TPX00201) Module. The PCIE ENABLE (PWM6) is the 33rd pin of the High-Density Connector (HDC) Stacker Connector (J5).
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;">
+For stable Mini PCIe operation, jumper cables compliant with ASTM B 258 and support up to 2 A of current are recommended (Cables with a cross-sectional area of 0.82 mm² to 1.3 mm² (AWG 18-16)).
+</p>
+</div>
+
+Compatible modules include the Arduino Pro 4G Module Global variant (SKU: TPX00200) and Pro 4G Module EMEA variant (SKU: TPX00201), which provides LTE Cat.4 speeds of up to 150 Mbps download and 50 Mbps upload. The Portenta Max Carrier supports modem integration via the Qualcomm MSM Interface (QMI) and raw AT command based communication. Users can configure the module using Linux commands or the Arduino Linux Wizard for simplified setup.
+
+The complete pinout characteristics of the onboard Mini PCIe slot of the Portenta Max Carrier can be found in the [PCIe Connector section](#pcie-connector). The [full pinout document of the Portenta Max Carrier](https://docs.arduino.cc/resources/pinouts/ABX00043-full-pinout.pdf) includes a graphical representation of the mini PCIe interface pinout layout. The image below shows the relevant section from the complete pinout documentation:
+
+![Portenta Max Carrier Mini PCIe connector](assets/portentaMAXcarrier_mpcie_pinout.png)
+
+For detailed implementation process, please refer to the [user manual of the Portenta Max Carrier](https://docs.arduino.cc/tutorials/portenta-max-carrier/user-manual/)
+
+### Pro 4G Module Compatibility
+
+Pro 4G Module Global variant (SKU: TPX00200) and Pro 4G Module EMEA variant (SKU: TPX00201) are compatible with the Portenta Max Carrier. The Portenta X8 (SKU:	ABX00049) is the only compatible Portenta family board required for operation with the Portenta Max Carrier
+
+The use of the Pro 4G Modules is eased through a dedicated Arduino library. For detailed instructions on how to implement and use these modules, refer to the [dedicated documentation for in-depth implementation](https://docs.arduino.cc/tutorials/pro-4g-module/mpcie-4g-modem/). This documentation provides all necessary steps to ensure proper setup and functionality.
 
 ### USB
 The Portenta Max Carrier also includes a USB 2.0 Hi-Speed Hub controller based on the USB2514B/M2 (U3) that manages the 2 USB devices from the USB type A connector (J15) plus the LoRa® (U23) and PCIe (J8) modules. J15 is protected by a NCP383LMUAJAATXG (U7) power switch and current limiter. 
@@ -368,7 +388,7 @@ Note: Functions of pins 2-5 are dependent upon the configured protocol for the S
 
 
 ### PCIe Connector
-**Note:** Only USB, I2C and USIM is available. PCIe functionality is reserved for future use and is not supported at this time
+**Note:** The Mini PCIe slot supports USB, I2C, and USIM interfaces. PCIe functionality is available for use with the Arduino Pro 4G Module Global variant (SKU: TPX00200), Pro 4G Module EMEA variant (SKU: TPX00201) and other compatible modules.
 
 | Pin | **Function** | **Type**     | **Description**                         |
 | --- | ------------ | ------------ | --------------------------------------- |

@@ -9,9 +9,7 @@ author: José Bagur
 
 # Description 
 
-<p style="text-align: justify;">
 The Arduino Portenta Mid Carrier streamlines project development for Portenta SOMs boards by offering easy access to high-density signals through specialized and dedicated headers. It is compatible with the Portenta C33, H7, and X8 boards and is perfect for many projects, including the Internet of Things applications, asset tracking, machine vision, robotics, and automation. This carrier boasts a variety of ports and interfaces like two CAN bus lines, Ethernet, microSD, and USB, along with camera and display connectors. It features debug pins and a real-time clock battery backup, easing development. Its onboard mini PCIe connector also enables quick cellular connectivity testing, ensuring reliable data transmission even in Wi-Fi® in scarce areas. These features make the Portenta Mid Carrier a vital tool for efficiently creating innovative, connected devices.
-</p>
 
 # About This Document
 
@@ -679,7 +677,9 @@ The Portenta Mid Carrier includes one mini PCI Express card slot (J8). The conne
 
 The Portenta Mid Carrier does not have built-in cellular capability but includes a Mini PCIe slot that allows for the integration of 4G modules with GNSS capabilities. This slot supports USB, I2C and USIM interfaces, allowing the system to add cellular connectivity and GNSS functionality. Users can install a compatible 4G module to provide cellular connectivity.
 
-The Mini PCIe interface on the Portenta Mid Carrier is optimized for integrating cellular and GNSS modules, supporting multiple communication protocols and power management features. It allows IoT, remote monitoring and edge computing applications with reliable connectivity. An external power source of 5.0 V is required to use the Mini PCIe slot. For detailed implementation process, please refer to the [user manual of the Portenta Mid Carrier](https://docs.arduino.cc/tutorials/portenta-mid-carrier/user-manual/).
+The Mini PCIe interface on the Portenta Mid Carrier is optimized for integrating cellular and GNSS modules, supporting multiple communication protocols and power management features. It allows IoT, remote monitoring and edge computing applications with reliable connectivity. An external power source of 5.0 V is required to use the Mini PCIe slot. 
+
+The complete pinout characteristics of the onboard Mini PCIe slot of the Portenta Mid Carrier can be found in the [Mini PCIe Connector (J8) section](#mini-pcie-connector-j8). For detailed implementation process, please refer to the [user manual of the Portenta Mid Carrier](https://docs.arduino.cc/tutorials/portenta-mid-carrier/user-manual/).
 
 ### Nano SIM Card Slot Integration
 
