@@ -22,7 +22,7 @@ Industry 4.0, prototyping, robotics, data logging
 
 *   **High Density connectors compatible with Portenta family**
 *   **Memory**
-    *   Flash  memory (2Mb QSPI)
+    *   Flash memory (2Mb QSPI)
     *   Micro SD Card slot
 *   **Power**
     *   Power Jack for external supply (6-36V)
@@ -38,7 +38,7 @@ Industry 4.0, prototyping, robotics, data logging
     *   **SARA-R412M-02B (4G/Cat-M1/NB-IoT)**, micro SIM, SMA connector for antenna  
         *   Brand and Model: u-blox SARA-R412M-02B  
         *   FCC ID: XPYUBX18ZO01  
-        *   TAC Number: 35467909  
+        *   Type Allocation Code (TAC) Number: 35467909  
 *   **Connectors**
     *   2x USB-A female connectors
     *   1x Gigabit Ethernet connector (RJ45)
@@ -66,7 +66,7 @@ The Portenta Max Carrier provides the user with almost limitless possibilities t
 ### Accessories (Not Included)
 *   LoRa® antenna (e.g. ANT-8/9-IPW1-SMA)
 *   Cellular LTE / CAT.M1 / NB-IoT antenna (e.g. ANT-5GW-SPS1-2)
-*   Mini PCIe expansion boards
+*   Mini PCIe expansion boards (e.g. Pro 4G Module)
 *   SIM card
 *   3.7V 18650 Li-ion battery
 *   microSD card
@@ -75,6 +75,7 @@ The Portenta Max Carrier provides the user with almost limitless possibilities t
 *   Portenta H7 (Partial support)
 *   Portenta X8
 *   Portenta C33
+*   Pro 4G Module
 
 ## Ratings
 
@@ -97,31 +98,31 @@ The Portenta Max Carrier provides the user with almost limitless possibilities t
 ### Board Topology 
 ![Board topology](assets/maxCarrierDesignators.png)
 
-| **Ref.** | **Description**                                        | **Ref.**       | **Description**                                           |
-| -------- | ------------------------------------------------------ | -------------- | --------------------------------------------------------- |
-| U1       | SARA-R412M-02B 4G LTE/Cat-M1/NB-IoT Modem IC           | U2             | CS42L52-CNZ Stereo Codec IC                               |
-| U3       | USB2514Bi/M2 4-port USB 2.0 Hub IC                     | U4             | SP335EER1-L RS232/RS485/RS422 Transceiver IC              |
-| U5       | TJA1049 CAN Transceiver IC                             | U6             | MPM3550EGLE Non-isolated DC-DC IC                         |
-| U7       | NCP383 Current Limiting IC                             | U8,U20,U21,U22 | SN74LVC1T45 Bi-directional logic level converter IC       |
-| U9       | DSC6111HI2B 12MHz MEMS Oscillator IC                   | U10            | SN74LVC1G125 Single Bus Buffer Gate IC                    |
-| U11      | BQ24195RGET 4.5A Single Cell Charger IC                | U12            | AP7311 1.8V 150mA LDO Linear Regulator IC                 |
-| U13      | TPS54620 6A Buck Regulator IC                          | U14            | AP2112K-3.3TRG1 3.3V 600mA LDO Regulator IC               |
-| U15      | STM32F405RG 168MHz 32 bit Arm® Cortex®-M4 MCU IC         | U16-U19        | 74LVC1G157 Single 2-input multiplexer IC                  |
-| U23      | CMWX1ZZABZ-078 Murrata LoRa® module                    | U24, U25       | LM73100 Ideal Diode with Reverse Polarity Protection      |
-| J1, J2   | DF40HC(3.5)-80DS-0.4V(51) High Density Connectors      | J3             | Right-Angle SMA Connector for Modem                       |
-| J4       | 2-1734248-0 FPC Connector                              | J5             | FW-20-05-G-D-254-150 Signal Break                         |
-| J6       | 615006138421 RS232/RS485 Connector                     | J7             | 615006138421 CAN Connector                                |
-| J8       | 1759546-1 Mini PCIe Connector                          | J9             | Right-Angle SMA Connector for LoRa®                       |
-| J10      | ZX62-AB-5PA(31) Micro USB Debugger Connector with VBUS | J11            | 114-00841-68 Micro SD Connector                           |
-| J12      | SJ-3524-SMT-TR 3.5mm Headphone Out                     | J13            | SJ-3524-SMT-TR 3.5mm Line In Right                        |
-| J14      | SJ-3524-SMT-TR 3.5mm Line In Left                      | J15            | 61400826021 2-port USB 2.0 Female Connector               |
-| J16      | 254TR Positive Li-ion Terminal                         | J17            | TRJK7003A97NL Gigabit Ethernet Connector                  |
-| J18      | 254TR Negative Li-ion Terminal                         |             |  |
-| J20      | 110990030 Connector for Speaker                  | X1             | PJ-102A 5.5mm Power Jack Adapter                          |
-| CN1      | FTSH-105-01-F-DV 10-pin JTAG Header                    | CN2            | Debug Header                                              |
-| CN3      | LoRa® Debug Header                                     | SIM1           | 2199337-5 microSIM Card Holder (for on-board modem)       |
-| SW1      | 218-2LPST Boot Select Switch                           | SW2            | 218-2LPST Switch *(2)*                                    |
-| PB1      | PTS820J25KSMTRLFS Power On Button                      | PB2            | PTS820J25KSMTRLFS Reset Button                            |
+| **Ref.** | **Description**                                        | **Ref.**       | **Description**                                      |
+|----------|--------------------------------------------------------|----------------|------------------------------------------------------|
+| U1       | SARA-R412M-02B 4G LTE/Cat-M1/NB-IoT Modem IC           | U2             | CS42L52-CNZ Stereo Codec IC                          |
+| U3       | USB2514Bi/M2 4-port USB 2.0 Hub IC                     | U4             | SP335EER1-L RS232/RS485/RS422 Transceiver IC         |
+| U5       | TJA1049 CAN Transceiver IC                             | U6             | MPM3550EGLE Non-isolated DC-DC IC                    |
+| U7       | NCP383 Current Limiting IC                             | U8,U20,U21,U22 | SN74LVC1T45 Bi-directional logic level converter IC  |
+| U9       | DSC6111HI2B 12MHz MEMS Oscillator IC                   | U10            | SN74LVC1G125 Single Bus Buffer Gate IC               |
+| U11      | BQ24195RGET 4.5A Single Cell Charger IC                | U12            | AP7311 1.8V 150mA LDO Linear Regulator IC            |
+| U13      | TPS54620 6A Buck Regulator IC                          | U14            | AP2112K-3.3TRG1 3.3V 600mA LDO Regulator IC          |
+| U15      | STM32F405RG 168MHz 32 bit Arm® Cortex®-M4 MCU IC       | U16-U19        | 74LVC1G157 Single 2-input multiplexer IC             |
+| U23      | CMWX1ZZABZ-078 Murrata LoRa® module                    | U24, U25       | LM73100 Ideal Diode with Reverse Polarity Protection |
+| J1, J2   | DF40HC(3.5)-80DS-0.4V(51) High Density Connectors      | J3             | Right-Angle SMA Connector for Modem                  |
+| J4       | 2-1734248-0 FPC Connector                              | J5             | FW-20-05-G-D-254-150 Signal Break                    |
+| J6       | 615006138421 RS232/RS485 Connector                     | J7             | 615006138421 CAN Connector                           |
+| J8       | 1759546-1 Mini PCIe Connector                          | J9             | Right-Angle SMA Connector for LoRa®                  |
+| J10      | ZX62-AB-5PA(31) Micro USB Debugger Connector with VBUS | J11            | 114-00841-68 Micro SD Connector                      |
+| J12      | SJ-3524-SMT-TR 3.5mm Headphone Out                     | J13            | SJ-3524-SMT-TR 3.5mm Line In Right                   |
+| J14      | SJ-3524-SMT-TR 3.5mm Line In Left                      | J15            | 61400826021 2-port USB 2.0 Female Connector          |
+| J16      | 254TR Positive Li-ion Terminal                         | J17            | TRJK7003A97NL Gigabit Ethernet Connector             |
+| J18      | 254TR Negative Li-ion Terminal                         |                |                                                      |
+| J20      | 110990030 Connector for Speaker                        | X1             | PJ-102A 5.5mm Power Jack Adapter                     |
+| CN1      | FTSH-105-01-F-DV 10-pin JTAG Header                    | CN2            | Debug Header                                         |
+| CN3      | LoRa® Debug Header                                     | SIM1           | 2199337-5 microSIM Card Holder (for on-board modem)  |
+| SW1      | 218-2LPST Boot Select Switch                           | SW2            | 218-2LPST Switch *(2)*                               |
+| PB1      | PTS820J25KSMTRLFS Power On Button                      | PB2            | PTS820J25KSMTRLFS Reset Button                       |
 
 ### Debugger 
 Debugging capabilities are integrated directly into the Portenta Max Carrier and are accessible via microUSB (J10). The J-link debugger is compatible with the Segger® J-Link OB and Blackmagic probes, driven by the STM32F405RGT6 controller (U15). In addition to providing access to the Portenta board JTAG ports, different sniffer channels for I2C, CAN and UART lines.  The debugger firmware can be updated via SWD on CN3. Additionally, headers for debugging the LoRa® are accessible via CN2 with SWD.
@@ -152,15 +153,15 @@ The Portenta Max Carrier includes one female mini PCI Express card slot (J8). Th
 **Note:** USB, I2C and SIM functionality over PCIe is available only for the X8. Full PCIe functionality not provided at this time.
 
 ### Mini PCIe Connector and Cellular Capability
-The Portenta Max Carrier does not have built-in cellular capability but includes a Mini PCIe slot (J8) that allows for the integration of optional 4G modules with GNSS capabilities. This slot supports USB, I2C and USIM interfaces, allowing the system to add cellular connectivity and GNSS functionality. Users can install a compatible 4G module to provide cellular connectivity.
+The Portenta Max Carrier does not have built-in cellular capability but includes a Mini PCIe slot (J8) that allows for the integration of optional 4G modules with GNSS capabilities. This slot supports USB, I2C and USIM interfaces and allows the system to add cellular connectivity and GNSS functionality. Users can install a compatible 4G module to provide cellular connectivity.
 
 The Mini PCIe interface on the Portenta Max Carrier is optimized for integrating cellular and GNSS modules, supporting multiple communication protocols and power management features. It enables IoT, remote monitoring and edge computing applications with reliable connectivity.
 
-An external power source of 6V to 36V is required to use the Mini PCIe slot to maintain stable operation, especially for high-power consumption applications. To enable the Mini PCIe interface on the Portenta Max Carrier, power the PCIE ENABLE (PWM6) pin with 3.3 V and install a compatible Mini PCIe module, such as the Pro 4G GNSS Module Global (SKU: TPX00200) or Pro 4G EMEA (SKU: TPX00201) Module. The PCIE ENABLE (PWM6) is the 33rd pin of the High-Density Connector (HDC) Stacker Connector (J5).
+An external power source of 6 V to 36 V is required to use the Mini PCIe connector to maintain stable operation, especially for high-power consumption applications. To enable the Mini PCIe interface on the Portenta Max Carrier, the PCIE ENABLE (PWM6) pin requires 3.3 V and a compatible Mini PCIe module. The PCIE ENABLE (PWM6) is the 33rd pin of the High-Density Connector (HDC) Stacker Connector (J5).
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <p style="text-align: justify;">
-For stable Mini PCIe operation, jumper cables compliant with ASTM B 258 and support up to 2 A of current are recommended (Cables with a cross-sectional area of 0.82 mm² to 1.3 mm² (AWG 18-16)).
+For stable Mini PCIe operation, cables compliant with ASTM B 258 and support up to 2 A of current are recommended (Cables with a cross-sectional area of 0.82 mm² to 1.3 mm² (AWG 18-16)).
 </p>
 </div>
 
@@ -170,13 +171,17 @@ The complete pinout characteristics of the onboard Mini PCIe slot of the Portent
 
 ![Portenta Max Carrier Mini PCIe connector](assets/portentaMAXcarrier_mpcie_pinout.png)
 
-For detailed implementation process, please refer to the [user manual of the Portenta Max Carrier](https://docs.arduino.cc/tutorials/portenta-max-carrier/user-manual/)
+For detailed implementation instructions, refer to the [Portenta Max Carrier documentation on integrating the Pro 4G Module](https://docs.arduino.cc/tutorials/portenta-max-carrier/mpcie-4g-modem/).
 
 ### Pro 4G Module Compatibility
+Pro 4G Module Global variant (SKU: TPX00200) and Pro 4G Module EMEA variant (SKU: TPX00201) are compatible with the Portenta Max Carrier. The Portenta X8 (SKU: ABX00049) is the only compatible Portenta family board required for operation with the Portenta Max Carrier.
 
-Pro 4G Module Global variant (SKU: TPX00200) and Pro 4G Module EMEA variant (SKU: TPX00201) are compatible with the Portenta Max Carrier. The Portenta X8 (SKU:	ABX00049) is the only compatible Portenta family board required for operation with the Portenta Max Carrier
+The integration of the Pro 4G Modules is facilitated by a dedicated Arduino library. For detailed instructions on how to implement and use these modules, refer to the [dedicated documentation for in-depth implementation](https://docs.arduino.cc/tutorials/pro-4g-module/mpcie-4g-modem/). This documentation provides all necessary steps to ensure proper setup and functionality.
 
-The use of the Pro 4G Modules is eased through a dedicated Arduino library. For detailed instructions on how to implement and use these modules, refer to the [dedicated documentation for in-depth implementation](https://docs.arduino.cc/tutorials/pro-4g-module/mpcie-4g-modem/). This documentation provides all necessary steps to ensure proper setup and functionality.
+### Micro SIM Card Slot
+The Portenta Max Carrier features a micro SIM card slot (SIM1) designed for use with the SARA-R412M-02B module. Please note that the carrier itself does not provide cellular radio capability. Cellular functionality is available only when the appropriate module is installed.
+
+The micro SIM slot enables network connectivity for the cellular module and does not function independently. It works with the SARA-R412M-02B modem, providing access to LTE, Cat-M1 and NB-IoT networks. The dedicated SMA connector allows for the attachment of an external antenna to provide stable signal reception and performance. For detailed implementation process, please refer to the [user manual of the Portenta Max Carrier](https://docs.arduino.cc/tutorials/portenta-max-carrier/user-manual/)
 
 ### USB
 The Portenta Max Carrier also includes a USB 2.0 Hi-Speed Hub controller based on the USB2514B/M2 (U3) that manages the 2 USB devices from the USB type A connector (J15) plus the LoRa® (U23) and PCIe (J8) modules. J15 is protected by a NCP383LMUAJAATXG (U7) power switch and current limiter. 
@@ -202,12 +207,6 @@ The Portenta Max Carrier includes a high speed CAN transceiver based on the TJA1
 The onboard microSD card slot (J11) can be used for data logging and storage expansion. It supports high-capacity microSD cards, making it ideal for long-term data collection and logging applications. The microSD slot is accessible from the Portenta X8, allowing direct storage management.
 
 For microSD card usage in Linux environments, users can mount and manage storage through the terminal. The carrier supports file systems such as FAT32 and ext4, allowing flexible storage management for applications requiring large data handling.
-
-### Micro SIM Card Slot
-
-The Portenta Max Carrier features a micro SIM card slot (SIM1) designed for use with the SARA-R412M-02B module. Please note that the carrier itself does not provide cellular radio capability. Cellular functionality is available only when the appropriate module is installed.
-
-The micro SIM slot enables network connectivity for the cellular module and does not function independently. It works with the SARA-R412M-02B modem, providing access to LTE, Cat-M1 and NB-IoT networks. The dedicated SMA connector allows for the attachment of an external antenna to provide stable signal reception and performance. For detailed implementation process, please refer to the [user manual of the Portenta Max Carrier](https://docs.arduino.cc/tutorials/portenta-max-carrier/user-manual/)
 
 ### Features Supported By Portenta Boards
 The supported features depend upon your choice of Portenta board used together with the Portenta Max Carrier.
@@ -549,7 +548,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 | Date       | **Revision** | **Changes**                          |
 |------------|--------------|--------------------------------------|
-| 12/02/2025 | 4            | General datasheet update |
+| 12/02/2025 | 4            | General datasheet update             |
 | 03/09/2024 | 3            | Cloud Editor updated from Web Editor |
 | 11/20/2023 | 2            | Recommended antennas added           |
 | 10/05/2022 | 1            | First Release                        |

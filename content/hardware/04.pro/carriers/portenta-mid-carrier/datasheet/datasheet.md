@@ -121,6 +121,8 @@ In the following sections, as well as the tables presented in those sections, th
 - CR1225 (3 VDC) coin cell
 - Arducam® DVP camera modules
 - SIM card (only data compatible)
+- Pro 4G Module
+- Portenta Mid Carrier Proto Shield
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <strong>Note:</strong> The Portenta Mid Carrier requires a compatible Portenta family board to operate.
@@ -838,6 +840,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
          
 ## Document Revision History
 
-|  **Date**  | **Revision** |  **Changes**  |
-|:----------:|:------------:|:-------------:|
-| 27/03/2024 |       1      | First release |
+|  **Date**  | **Revision** |       **Changes**        |
+|:----------:|:------------:|:------------------------:|
+| 12/02/2025 |      2       | General datasheet update |
+| 27/03/2024 |      1       |      First release       |
