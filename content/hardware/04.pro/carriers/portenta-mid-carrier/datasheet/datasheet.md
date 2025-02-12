@@ -13,7 +13,7 @@ The Arduino Portenta Mid Carrier streamlines project development for Portenta SO
 
 # About This Document
 
-This document serves as the official reference for the technical specifications of the Portenta Mid Carrier. It provides a detailed overview of the board's capabilities, features and supported components. For additional information on using the board, including setup guides and practical applications, please visit [**docs.arduino.cc**](https://docs.arduino.cc/hardware/portenta-mid-carrier/#tutorials).
+This document serves as the official reference for the technical specifications of the Portenta Mid Carrier. It provides a detailed overview of the board's capabilities, features and supported components. For additional information on using the board, including setup guides and practical applications, [please visit **docs.arduino.cc**](https://docs.arduino.cc/hardware/portenta-mid-carrier/#tutorials).
 
 # Target Areas
 
