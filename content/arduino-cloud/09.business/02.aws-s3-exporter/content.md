@@ -157,9 +157,11 @@ Once the folder is created, it will be displayed under the Objects tab of the CS
 
 ![S3 Buckets](assets/s3_bucket_complete.png)
 
-## Creating CloudFormation Stack
+## CloudFormation Stack
 
-To create the CloudFormation stack, navigate to the AWS CloudFormation service and select Create stack. This process involves specifying a template source.
+### Preparing CloudFormation Stack
+
+The CloudFormation stack will be deployed via a template after the stack has been created with required parameters. To begin, navigate to the AWS CloudFormation service and select **Create stack**. This process involves specifying a template source.
 
 ![Stack Creation (1)](assets/cloud_stack_create_1.png)
 
@@ -189,7 +191,7 @@ Once all parameters are set, review the configuration to ensure all details are 
 
 In the **Specify stack details** step, provide a stack name and enter the necessary parameters.
 
-The **`DestinationS3Bucket`** is the location where the CSV files will be stored.
+The **`csvdests3int`** is the location where the CSV files will be stored.
 
 The **`LambdaCodeS3Bucket`** refers to the bucket containing the Lambda function ZIP file.
 
@@ -212,6 +214,52 @@ Once all parameters are filled in, proceed to the review stage. This allows you 
 
 ![Stack Creation - Complete Review](assets/cloudformation_stack_step4.gif)
 
+#### Supported Configurable Parameters
+
+Below are the supported configuration parameters that are editable in the AWS Parameter Store. These parameters are pre-filled during stack creation but can be modified later:
+
+| **Parameter**                                                  | **Description**                           |
+|----------------------------------------------------------------|-------------------------------------------|
+| `/arduino/s3-exporter/{stack-name}/iot/api-key`                | IoT API key                               |
+| `/arduino/s3-exporter/{stack-name}/iot/api-secret`             | IoT API secret                            |
+| `/arduino/s3-exporter/{stack-name}/iot/org-id`                 | Organization ID (Optional)                |
+| `/arduino/s3-exporter/{stack-name}/iot/filter/tags`            | Tag filter (e.g., `tag=value`) (Optional) |
+| `/arduino/s3-exporter/{stack-name}/iot/samples-resolution`     | Aggregation resolution (Optional)         |
+| `/arduino/s3-exporter/{stack-name}/iot/scheduling`             | Execution schedule                        |
+| `/arduino/s3-exporter/{stack-name}/iot/align_with_time_window` | Align data extraction with time windows   |
+| `/arduino/s3-exporter/{stack-name}/destination-bucket`         | S3 destination bucket                     |
+| `/arduino/s3-exporter/{stack-name}/enable_compression`         | Enable gzip compression for CSV uploads   |
+
+#### Tag Filtering
+
+To export specific Arduino Things from the Arduino Cloud, **tag filtering** is applied.
+
+**Tags** can be added in the Arduino Cloud under the **Metadata** section of each device, referred to as **Things**.
+
+![Things Metadata](assets/cloud_tag_2.png)
+
+When you click on **ADD**, it will ask you to provide a **key** and its **value** for the tag.
+
+![Things Metadata Tag](assets/cloud_tag_1.png)
+
+During CloudFormation stack creation, configure tag filters using:
+
+```bash
+/arduino/s3-exporter/{stack-name}/iot/filter/tags
+```
+
+![Tag Filter from CFT Creation](assets/tag-filter.png)
+
+#### Time Alignment
+
+The data extraction is aligned with the function's execution time.
+
+If required, the extraction can be configured to align with specific time windows by adjusting the following parameter:
+
+```bash
+/arduino/s3-exporter/{stack-name}/iot/align_with_time_window
+```
+
 ### Stack Build
 
 After confirming the stack creation, AWS CloudFormation will begin deploying the required resources.
@@ -230,43 +278,25 @@ This setup ensures that AWS S3 integrates with the Arduino Cloud for automated C
 
 ![Stack Build Information](assets/cloud_stack_info.png)
 
-## Configuration Parameters
+## AWS S3 CSV Exporter Runtime
 
-Below are the supported configuration parameters that are editable in the AWS Parameter Store. These parameters are pre-filled during stack creation but can be modified later:
+With the successful CloudFormation stack deployment, we will have a AWS S3 CSV exporter with execution handling of 1 hour as configured in stack configuration stage. Every 1 hour, the Lambda function will be invoked and retrieve data from relevant Arduino Cloud Thing with the key metadata configured.
 
-| **Parameter**                                                  | **Description**                           |
-|----------------------------------------------------------------|-------------------------------------------|
-| `/arduino/s3-exporter/{stack-name}/iot/api-key`                | IoT API key                               |
-| `/arduino/s3-exporter/{stack-name}/iot/api-secret`             | IoT API secret                            |
-| `/arduino/s3-exporter/{stack-name}/iot/org-id`                 | Organization ID (Optional)                |
-| `/arduino/s3-exporter/{stack-name}/iot/filter/tags`            | Tag filter (e.g., `tag=value`) (Optional) |
-| `/arduino/s3-exporter/{stack-name}/iot/samples-resolution`     | Aggregation resolution (Optional)         |
-| `/arduino/s3-exporter/{stack-name}/iot/scheduling`             | Execution schedule                        |
-| `/arduino/s3-exporter/{stack-name}/iot/align_with_time_window` | Align data extraction with time windows   |
-| `/arduino/s3-exporter/{stack-name}/destination-bucket`         | S3 destination bucket                     |
-| `/arduino/s3-exporter/{stack-name}/enable_compression`         | Enable gzip compression for CSV uploads   |
+### CSV File Structure
 
-## Tag Filtering
+The CSV file are created inside the `csvdests3int` S3 bucket. Files are organized by date and time stamp, with a structured naming convention for easy identification. The `csvdests3int` bucket will show directories containing CSV files with dates first as image below:
 
-To export specific Arduino Things from the Arduino Cloud, you can apply **tag filtering**.
+![S3 Bucket main directory](assets/s3_csv_bucket_directory.png)
 
-**Tags** can be added in the Arduino Cloud under the **Metadata** section of each device, referred to as **Things**.
+Each date defined directories will have CSV files organized with tiemstamps as well as the dates to clarify time of the file creation, which is useful when the CSBV files are exported to local machines:
 
-![Things Metadata](assets/cloud_tag_2.png)
+![S3 Bucket date defined organization](assets/s3_csv_bucket_files.png)
 
-When you click on **ADD**, it will ask you to provide a **key** and its **value** for the tag.
+It is possible to look deeper into each generated CSV files as an object if detailed information is required for certain purposes:
 
-![Things Metadata Tag](assets/cloud_tag_1.png)
+![Generated CSV file details](assets/s3_csv_file_details.png)
 
-During CloudFormation stack creation, configure tag filters using:
-
-```bash
-/arduino/s3-exporter/{stack-name}/iot/filter/tags
-```
-
-![Tag Filter from CFT Creation](assets/tag-filter.png)
-
-## CSV File Structure
+You can download the CSV file within object window shown in the image above or within list of objects from the bucket itself.
 
 The CSV files generated by the exporter follow this structure:
 
@@ -277,19 +307,56 @@ timestamp,thing_id,thing_name,property_id,property_name,property_type,value,aggr
 The following is an example of how the CSV files would look with data:
 
 ```
-2024-09-04T11:00:00Z,07846f3c-37ae-4722-a3f5-65d7b4449ad3,H7,137c02d0-b50f-47fb-a2eb-b6d23884ec51,m3,FLOAT,3,AVG
-2024-09-04T11:01:00Z,07846f3c-37ae-4722-a3f5-65d7b4449ad3,H7,137c02d0-b50f-47fb-a2eb-b6d23884ec51,m3,FLOAT,7,AVG
+2025-02-09T21:46:39Z,7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6,C33Proto_AWSS3Bench,f75dcacf-dadd-406e-b1d0-239a9c624dce,measuredAirQualityInterpreted,CHARSTRING,Very Good,LAST_VALUE
+2025-02-09T23:10:23Z,7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6,C33Proto_AWSS3Bench,12dfa2f0-8a36-4973-acda-d5551e170ffc,measuredAirQuality,FLOAT,1.3084187507629395,LAST_VALUE
+2025-02-09T23:10:23Z,7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6,C33Proto_AWSS3Bench,9e94245d-fe3a-4f6a-9b4c-1afb74a10fab,measuredCO2,FLOAT,430.4429931640625,LAST_VALUE
+2025-02-09T23:10:23Z,7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6,C33Proto_AWSS3Bench,441cc611-24e5-4de7-ae44-cef7dcc2f1fa,measuredEthanol,FLOAT,0.063101977,LAST_VALUE
+2025-02-09T21:46:39Z,7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6,C33Proto_AWSS3Bench,74dc97cd-db46-404f-b13e-ae6d42e13598,measuredOdorIntensity,FLOAT,0,LAST_VALUE
+2025-02-09T23:10:23Z,7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6,C33Proto_AWSS3Bench,79aa255e-8c0d-456c-a5e1-8dee12f9ee10,measuredRelativeAirQuality,FLOAT,94.35742950439453,LAST_VALUE
+2025-02-09T23:10:23Z,7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6,C33Proto_AWSS3Bench,30454a65-42c3-4083-8141-7f5341eba68c,measuredTVOC,FLOAT,0.11863171309232712,LAST_VALUE
+2025-02-09T21:46:39Z,7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6,C33Proto_AWSS3Bench,30bac618-1d9c-4846-9cde-5466efd4c782,measuredSulfurOdor,BOOLEAN,FALSE,LAST_VALUE
 ```
 
-Files are organized by date and time stamp, with a structured naming convention for easy identification:
+In a more elaborate form, it looks as following:
 
-```bash
-<bucket>:2024-09-04/2024-09-04-10-00.csv
-<bucket>:2024-09-04/2024-09-04-11-00.csv
-<bucket>:2024-09-04/2024-09-04-12-00.csv
-```
+| **Timestamp**        | **Thing ID**                         | **Thing Name**      | **Property ID**                      | **Property Name**             | **Property Type** | **Value**           | **Aggregation Statistic** |
+|----------------------|--------------------------------------|---------------------|--------------------------------------|-------------------------------|-------------------|---------------------|---------------------------|
+| 2025-02-09T21:46:39Z | 7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6 | C33Proto_AWSS3Bench | f75dcacf-dadd-406e-b1d0-239a9c624dce | measuredAirQualityInterpreted | CHARSTRING        | Very Good           | LAST_VALUE                |
+| 2025-02-09T23:10:23Z | 7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6 | C33Proto_AWSS3Bench | 12dfa2f0-8a36-4973-acda-d5551e170ffc | measuredAirQuality            | FLOAT             | 1.3084187507629395  | LAST_VALUE                |
+| 2025-02-09T23:10:23Z | 7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6 | C33Proto_AWSS3Bench | 9e94245d-fe3a-4f6a-9b4c-1afb74a10fab | measuredCO2                   | FLOAT             | 430.4429931640625   | LAST_VALUE                |
+| 2025-02-09T23:10:23Z | 7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6 | C33Proto_AWSS3Bench | 441cc611-24e5-4de7-ae44-cef7dcc2f1fa | measuredEthanol               | FLOAT             | 0.063101977         | LAST_VALUE                |
+| 2025-02-09T21:46:39Z | 7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6 | C33Proto_AWSS3Bench | 74dc97cd-db46-404f-b13e-ae6d42e13598 | measuredOdorIntensity         | FLOAT             | 0                   | LAST_VALUE                |
+| 2025-02-09T23:10:23Z | 7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6 | C33Proto_AWSS3Bench | 79aa255e-8c0d-456c-a5e1-8dee12f9ee10 | measuredRelativeAirQuality    | FLOAT             | 94.35742950439453   | LAST_VALUE                |
+| 2025-02-09T23:10:23Z | 7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6 | C33Proto_AWSS3Bench | 30454a65-42c3-4083-8141-7f5341eba68c | measuredTVOC                  | FLOAT             | 0.11863171309232712 | LAST_VALUE                |
+| 2025-02-09T21:46:39Z | 7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6 | C33Proto_AWSS3Bench | 30bac618-1d9c-4846-9cde-5466efd4c782 | measuredSulfurOdor            | BOOLEAN           | FALSE               | LAST_VALUE                |
 
-## Building the Code
+## Lambda, CloudWatch & EventBridge
+
+Once the CloudFormatio stack has been deployed getting CSV destination bucket getting filled every hour, there are three useful tools to monitor stack deployment. These are Lambda, CloudWatch and EventBridge.
+
+### Lambda
+
+![S3 Bucket date defined organization](assets/lambda_function.png)
+
+![S3 Bucket date defined organization](assets/lambda_function_overview.png)
+
+### CloudWatch
+
+![S3 Bucket date defined organization](assets/lambda_function_cloudwatch_metrics.png)
+
+![S3 Bucket date defined organization](assets/lambda_function_cloudwatch_logs.png)
+
+![S3 Bucket date defined organization](assets/lambda_function_cloudwatch_log_detail.png)
+
+### EventBridge
+
+![S3 Bucket date defined organization](assets/eventbridge_rules.png)
+
+![S3 Bucket date defined organization](assets/eventbridge_rule_details.png)
+
+![S3 Bucket date defined organization](assets/lambda_function_eventbridge_trigger.png)
+
+## Building the Code (Optional)
 
 Ensure that at least [**Go version 1.22**](https://go.dev/) is installed to build the exporter locally. The core code can be built using the following command:
 
@@ -301,16 +368,6 @@ This creates a **`arduino-s3-integration-lambda.zip`** file. Alternatively, you 
 
 ```bash
 task go:build
-```
-
-## Time Alignment
-
-The data extraction is aligned with the function's execution time.
-
-If required, the extraction can be configured to align with specific time windows by adjusting the following parameter:
-
-```bash
-/arduino/s3-exporter/{stack-name}/iot/align_with_time_window
 ```
 
 ## Additional Documentation
