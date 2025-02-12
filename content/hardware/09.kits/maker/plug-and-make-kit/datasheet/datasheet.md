@@ -16,6 +16,7 @@ The Arduino® Plug and Make Kit features the Arduino® UNO R4 WiFi with built-in
 Maker, beginner, education
 
 # Contents
+
 ## Application Examples
 
 The Plug and Make Kit, featuring the Arduino® UNO R4 WiFi, offers a seamless and user-friendly introduction to IoT and electronics. With its extensive array of modular sensors and components, this kit is designed to simplify project development and enhance learning experiences. The I2C Qwiic cable connectivity ensures quick and easy customization of your projects, making it an ideal choice for a variety of applications. Below are some examples of how this kit can be utilized:
@@ -74,14 +75,13 @@ The Plug and Make Kit offers an intuitive and effortless introduction to the wor
 | **Additional Features** | Real-time Clock (RTC), Memory Protection Unit (MPU), DAC, DMA                                                                 |
 | **Certifications**      | CE/RED, UKCA, FCC, IC, RoHS, REACH, WEEE                                                                                      |
 
-
 ## Related Products
 
-- *SKU: ASX00027* - [Arduino® Sensor Kit](https://store.arduino.cc/products/arduino-sensor-kit)
+- _SKU: ASX00027_ - [Arduino® Sensor Kit](https://store.arduino.cc/products/arduino-sensor-kit)
 
-- *SKU: K000007* - [Arduino® Starter Kit](https://store.arduino.cc/products/arduino-starter-kit-multi-language)
+- _SKU: K000007_ - [Arduino® Starter Kit](https://store.arduino.cc/products/arduino-starter-kit-multi-language)
 
-- *SKU: AKX00026* - [Arduino® Oplà IoT Kit](https://store.arduino.cc/products/opla-iot-kit)
+- _SKU: AKX00026_ - [Arduino® Oplà IoT Kit](https://store.arduino.cc/products/opla-iot-kit)
 
 ## Rating
 
@@ -100,7 +100,6 @@ The Plug and Make Kit offers an intuitive and effortless introduction to the wor
 The Plug and Make Kit is a combination of the Arduino UNO R4 Wifi board connected to different Modulino® nodes boards through and I2C bus as can be seen in the following block diagram.
 
 ![ Plug and Make Kit block diagram](assets/Block_Diagram_Plug_and_Make.svg)
-
 
 ## Functional Overview - Arduino UNO R4 WiFi
 
@@ -173,7 +172,6 @@ The Modulino® Base is designed to provide a stable and secure mounting solution
 | Dimensions            | 140x140x1.6 mm |
 | Holes size (diameter) | 3.5 mm         |
 
-
 ## Modulino® Nodes
 
 The Modulino® nodes offer a versatile and user-friendly introduction to IoT and electronics. Designed for seamless integration, these nodes allow for easy expansion with additional sensors and components, providing a flexible platform to meet diverse project requirements. The Modulino® nodes can be easily connected using Qwiic cables, enabling straightforward daisy-chaining of multiple nodes via I2C. This design makes it perfect for both beginners and advanced users, enabling them to experiment and create with ease.
@@ -199,22 +197,21 @@ All Modulinos® share common features such as standardized connectors, blue sold
 
 All Modulino® nodes have at least two 4-pin surface mount connectors from the JST SM Series with a 1.0 mm pitch. These connectors are used to connect nodes between them and to the microcontroller.
 
-
 #### I2C Address Reference
 
 Each Modulino® node of the kit is designed to be connected to the Arduino® UNO R4 WiFi microcontroller using the Qwiic connectors available on both sides of the Modulino® nodes. The first node is connected to the microcontroller while the rest are connected to the latest one creating a physical "daisy-chain" connection that, from the communication point of view, is an I2C bus line where all the devices are connected acting the Arduino® UNO R4 WiFi as the controller and the Modulino® nodes as the targets.
 
 In the case multiple nodes of the same kind are connected to the I2C "daisy-chain", they may have the same I2C default address, causing communication problems. All Modulino® nodes are designed to have the possibility of having different I2C addresses via hardware or firmware changes as presented in the following table.
 
-| **Board Silk Name**    | **Sensor/Actuator**     | **Modulino I2C Address (HEX)** | **Editable Addresses (HEX)**                    | **Hardware I2C Address (HEX)** |
-|------------------------|-------------------------|-------------------------------|------------------------------------------------|------------------------------|
-| MODULINO MOVEMENT      | LSM6DSOXTR              | 0x6A                          | 0x6A, 0x6B (via solder jumper)                 | 0x6A & 0x7E                  |
-| MODULINO DISTANCE      | VL53L4CDV0DH/1          | 0x29                          | Any custom address (via software configuration)| 0x29                         |
-| MODULINO THERMO        | HS3003                  | 0x44                          | Any custom address (via software configuration)| 0x44                         |
-| MODULINO BUZZER        | PKLCS1212E4001          | 0x3C                          | Any custom address (via software configuration)| 0x1E                         |
-| MODULINO KNOB          | PEC11J-9215F-S0015      | 0x76                          | Any custom address (via software configuration)| 0x3A                         |
-| MODULINO PIXELS        | Eight LC8822-2020       | 0x6C                          | Any custom address (via software configuration)| 0x36                         |
-| MODULINO BUTTONS       | Three SPST Push Buttons | 0x7C                          | Any custom address (via software configuration)| 0x3E                         |
+| **Board Silk Name** | **Sensor/Actuator**     | **Modulino I2C Address (HEX)** | **Editable Addresses (HEX)**                    | **Hardware I2C Address (HEX)** |
+| ------------------- | ----------------------- | ------------------------------ | ----------------------------------------------- | ------------------------------ |
+| MODULINO MOVEMENT   | LSM6DSOXTR              | 0x6A                           | 0x6A, 0x6B (via solder jumper)                  | 0x6A & 0x7E                    |
+| MODULINO DISTANCE   | VL53L4CDV0DH/1          | 0x29                           | Any custom address (via software configuration) | 0x29                           |
+| MODULINO THERMO     | HS3003                  | 0x44                           | Any custom address (via software configuration) | 0x44                           |
+| MODULINO BUZZER     | PKLCS1212E4001          | 0x3C                           | Any custom address (via software configuration) | 0x1E                           |
+| MODULINO KNOB       | PEC11J-9215F-S0015      | 0x76                           | Any custom address (via software configuration) | 0x3A                           |
+| MODULINO PIXELS     | Eight LC8822-2020       | 0x6C                           | Any custom address (via software configuration) | 0x36                           |
+| MODULINO BUTTONS    | Three SPST Push Buttons | 0x7C                           | Any custom address (via software configuration) | 0x3E                           |
 
 **Please note:** When scanning for I2C addresses connected to the bus, the boards might identify themselves using the **Hardware I2C Address** listed in the last column of the table. However, you should always use the **Modulino I2C Address** provided in your code if using the official Modulino library.
 
@@ -227,7 +224,6 @@ To facilitate this, a white rectangle is positioned on the bottom silk of the bo
 <strong>Note:</strong> The maximum number of Modulino® nodes that can be connected together using this configuration is dependent on the power source and total consumption of the system plus the total length of the cables used. In our tests the maximum number of Modulino® nodes connected together and powered via the USB Type-C of the microcontroller is approximately 50 nodes.
 </div>
 
-
 ### Modulino® Nodes With Dedicated I2C Interface Controller
 
 These nodes use an additional chip to handle I2C communication when there is a lack of native I2C support, ensuring the experience is consistent across every Modulino® node within the Plug and Make Kit.
@@ -239,9 +235,7 @@ These nodes have pads for optional I2C pull-up mounting in both data lines to av
 These are positioned near the Qwiic connector on the power LED side except on the Modulino® Buttons where it can be found between the button B and C.
 ![Generic pull-up resistor position](assets/ResistorsPullupGen.png)
 
-
 ![Pull-up resistor positions for Modulino® Buttons](assets/ResistorsPullupBtn.png)
-
 
 ### Modulino® Movement
 
@@ -265,12 +259,12 @@ The Modulino® Movement, featuring the LSM6DSOXTR sensor, measures acceleration,
 
 **1x4 Header**
 
-| **Pin** | **Function**  |
-|---------|---------------|
-| GND     | Ground        |
-| 3.3 V   | Power Supply  |
-| SDA     | I2C Data      |
-| SCL     | I2C Clock     |
+| **Pin** | **Function** |
+| ------- | ------------ |
+| GND     | Ground       |
+| 3.3 V   | Power Supply |
+| SDA     | I2C Data     |
+| SCL     | I2C Clock    |
 
 The above pads are generic to all Modulino® nodes and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
 
@@ -278,18 +272,18 @@ The above pads are generic to all Modulino® nodes and they are on the same bus 
 
 **1x10 Header with LSM6DSOXTR signals**
 
-| **Pin**   | **Function**             |
-|-----------|--------------------------|
-| VDDIO     | 3.3 V (cuttable)         |
-| GND       | Ground                   |
-| INT1      | Interrupt 1 (Sensor)     |
-| INT2      | Interrupt 2 (Sensor)     |
-| SDO/SA0   | SPI Data Out / I2C Addr  |
-| SDX       | SPI Data X               |
-| SCX       | SPI Clock X              |
-| CS        | SPI Chip Select          |
-| SDOAUX    | Auxiliary Output         |
-| OCSAUX    | Auxiliary Output         |
+| **Pin** | **Function**            |
+| ------- | ----------------------- |
+| VDDIO   | 3.3 V (cuttable)        |
+| GND     | Ground                  |
+| INT1    | Interrupt 1 (Sensor)    |
+| INT2    | Interrupt 2 (Sensor)    |
+| SDO/SA0 | SPI Data Out / I2C Addr |
+| SDX     | SPI Data X              |
+| SCX     | SPI Clock X             |
+| CS      | SPI Chip Select         |
+| SDOAUX  | Auxiliary Output        |
+| OCSAUX  | Auxiliary Output        |
 
 ![Cuttable jumper for VVDIO](assets/VDDIO.png)
 
@@ -321,12 +315,12 @@ The Modulino® Distance, featuring the VL53L4CDV0DH/1 sensor, provides accurate 
 
 **1x4 Header**
 
-| **Pin** |  **Function**  |
-|---------| ---------------|
-| GND     |  Ground        |
-| 3.3 V   |  Power Supply  |
-| SDA     |  I2C Data      |
-| SCL     |  I2C Clock     |
+| **Pin** | **Function** |
+| ------- | ------------ |
+| GND     | Ground       |
+| 3.3 V   | Power Supply |
+| SDA     | I2C Data     |
+| SCL     | I2C Clock    |
 
 The above pads are generic to all Modulino® nodes and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
 
@@ -388,16 +382,16 @@ The Modulino® Knob includes a quadrature rotary encoder with an SPST switch, us
 
 #### Technical Specifications
 
-| **Specification**   | **Details**                                         |
-|---------------------|-----------------------------------------------------|
-| Sensor              | Quadrature Rotary Encoder                           |
-| Microcontroller     | STM32C011F4                                         |
-| Supply Voltage      | Min: 2.0 V, Max: 3.6 V                              |
-| Power Consumption   | 3.4 mA                                              |
-| Range               | 360°                                                |
-| Accuracy            | Internal Oscillator: ±1%                            |
-| Resolution          | 12-bit ADC                                          |
-| Communication       | I2C, USART, SPI, I2S                                |
+| **Specification** | **Details**               |
+| ----------------- | ------------------------- |
+| Sensor            | Quadrature Rotary Encoder |
+| Microcontroller   | STM32C011F4               |
+| Supply Voltage    | Min: 2.0 V, Max: 3.6 V    |
+| Power Consumption | 3.4 mA                    |
+| Range             | 360°                      |
+| Accuracy          | Internal Oscillator: ±1%  |
+| Resolution        | 12-bit ADC                |
+| Communication     | I2C, USART, SPI, I2S      |
 
 #### Pinout
 
@@ -491,14 +485,14 @@ The Modulino® Pixels includes eight LC8822-2020 RGB LEDs and uses the STM32C011
 
 #### Technical Specifications
 
-| **Specification** | **Details**               |
-| ----------------- | ------------------------- |
-| Actuator          | Eight LC8822-2020         |
-| Microcontroller   | STM32C011F4               |
-| Supply Voltage    | Min: 2.0 V, Max: 3.6 V    |
-| Power Consumption | 33mA @ 3.3 V * 8 + 3.4 mA |
-| Resolution        | 12-bit ADC                |
-| Communication     | I2C, USART, SPI, I2S      |
+| **Specification** | **Details**                |
+| ----------------- | -------------------------- |
+| Actuator          | Eight LC8822-2020          |
+| Microcontroller   | STM32C011F4                |
+| Supply Voltage    | Min: 2.0 V, Max: 3.6 V     |
+| Power Consumption | 33mA @ 3.3 V \* 8 + 3.4 mA |
+| Resolution        | 12-bit ADC                 |
+| Communication     | I2C, USART, SPI, I2S       |
 
 #### Pinout
 
@@ -547,7 +541,7 @@ The Modulino® Buttons includes three SPST push buttons and three yellow LEDs, u
 | Sensor            | 3x SPST Push Buttons    |
 | Microcontroller   | STM32C011F4             |
 | Supply Voltage    | Min: 2.0 V, Max: 3.6 V  |
-| Power Consumption | 2.5 mA * 3 + 3.4 mA     |
+| Power Consumption | 2.5 mA \* 3 + 3.4 mA    |
 | Accuracy          | ADC: ±2 LSB typical INL |
 | Resolution        | 12-bit ADC              |
 | Communication     | I2C, USART, SPI, I2S    |
@@ -588,7 +582,6 @@ This header can be used to read the push-button status from an external 3.3 V co
 
 ![Modulino® Buttons Mechanical Information](assets/BtnMec.png)
 
-
 ## Device Operation
 
 ### Getting Started - IDE
@@ -622,25 +615,29 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 ## Certifications Summary
 
 | **Certification** | **Status** |
-|:-----------------:|:----------:|
-|  CE/RED (Europe)  |     Yes    |
-|     UKCA (UK)     |     Yes    |
-|     FCC (USA)     |     Yes    |
-|    IC (Canada)    |     Yes    |
-|        RoHS       |     Yes    |
-|       REACH       |     Yes    |
-|        WEEE       |     Yes    |
+| :---------------: | :--------: |
+|  CE/RED (Europe)  | Certified  |
+|     UKCA (UK)     | Certified  |
+|     FCC (USA)     | Certified  |
+|    IC (Canada)    | Certified  |
+|       RoHS        | Certified  |
+|       REACH       | Certified  |
+|       WEEE        | Certified  |
 
 ## Declaration of Conformity CE DoC (EU)
 
-<p style="text-align: justify;">We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).</p>
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the **Radio Equipment Directive (RED) 2014/53/EU** and **RoHS Directive 2011/65/EU** and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
+
+The full text of the EU Declaration of Conformity is available at the following link:
+
+- [Product Compliance list](https://docs.arduino.cc/certifications/)(https://docs.arduino.cc/certifications/).
 
 ## Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
 
 <p style="text-align: justify;">Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.</p>
 
 | Substance                              | **Maximum limit (ppm)** |
-|----------------------------------------|-------------------------|
+| -------------------------------------- | ----------------------- |
 | Lead (Pb)                              | 1000                    |
 | Cadmium (Cd)                           | 100                     |
 | Mercury (Hg)                           | 1000                    |
@@ -708,28 +705,28 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 # Company Information
 
-| Company name    | Arduino SRL                                   |
-|-----------------|-----------------------------------------------|
-| Company Address | Via Andrea Appiani, 25 - 20900 MONZA（Italy)  |
+| Company name    | Arduino SRL                                  |
+| --------------- | -------------------------------------------- |
+| Company Address | Via Andrea Appiani, 25 - 20900 MONZA（Italy) |
 
 # Reference Documentation
 
-| Ref                       | Link                                                                                                                                                                                           |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                                                                                                             |
-| Arduino Courses           | [https://www.arduino.cc/education/courses](https://www.arduino.cc/education/courses)                                                                                                           |
-| Arduino Documentation     | [https://docs.arduino.cc/](https://docs.arduino.cc/)                                                                                                           |
-| Arduino IDE (Cloud)       | [https://create.arduino.cc/editor](https://create.arduino.cc/editor)                                                                                                                           |
-| Cloud IDE Getting Started | [https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor) |
-| Project Hub               | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/)                                                                                                                               |
-| Library Reference         | [https://github.com/arduino-libraries/](https://github.com/arduino-libraries/)                                                                                                                 |
-| Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                                         |
+| Ref                       | Link                                                                                                         |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Arduino IDE (Desktop)     | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                           |
+| Arduino Courses           | [https://www.arduino.cc/education/courses](https://www.arduino.cc/education/courses)                         |
+| Arduino Documentation     | [https://docs.arduino.cc/](https://docs.arduino.cc/)                                                         |
+| Arduino Cloud Editor      | [https://app.arduino.cc/sketches](https://app.arduino.cc/sketches)                                           |
+| Cloud IDE Getting Started | [https://docs.arduino.cc/arduino-cloud/guides/editor/](https://docs.arduino.cc/arduino-cloud/guides/editor/) |
+| Project Hub               | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/)                                             |
+| Library Reference         | [https://docs.arduino.cc/libraries/](https://docs.arduino.cc/libraries/)                                     |
+| Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                       |
 
 # Revision History
 
-|  **Date**  | **Revision** |                      **Changes**                       |
-| ---------- | ------------ | ------------------------------------------------------ |
-| 06/12/2024 |      3       | Updated I2C information |
-| 05/09/2024 |      2       | Cloud Editor updated from Web Editor |
-| 11/07/2024 |      1       | First release |
-
+| **Date**   | **Revision** | **Changes**                          |
+| ---------- | ------------ | ------------------------------------ |
+| 04/02/2025 | 4            | Add Certification Link               |
+| 06/12/2024 | 3            | Updated I2C information              |
+| 05/09/2024 | 2            | Cloud Editor updated from Web Editor |
+| 11/07/2024 | 1            | First release                        |

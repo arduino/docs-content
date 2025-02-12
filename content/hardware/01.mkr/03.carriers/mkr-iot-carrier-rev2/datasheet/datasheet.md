@@ -262,7 +262,11 @@ Detailed information on the pinouts are available in a separate document: <u>[MK
 
 ### Declaration of Conformity CE DoC (EU)
 
-We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the **Radio Equipment Directive (RED) 2014/53/EU** and **RoHS Directive 2011/65/EU** and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
+
+The full text of the EU Declaration of Conformity is available at the following link:
+
+- [Product Compliance list](https://docs.arduino.cc/certifications/)(https://docs.arduino.cc/certifications/).
 
 ### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
 
@@ -345,20 +349,21 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| **Id** | **Ref**                        | **Link**                                                                 |
-| ------ | ------------------------------ | ------------------------------------------------------------------------ |
-| 1      | Arduino IDE (Desktop)          | https://www.arduino.cc/en/Main/Software                                  |
-| 2      | Arduino Cloud Editor           | https://create.arduino.cc/editor                                         |
-| 3      | Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/                     |
+| **Id** | **Ref**                        | **Link**                                                     |
+| ------ | ------------------------------ | ------------------------------------------------------------ |
+| 1      | Arduino IDE (Desktop)          | https://www.arduino.cc/en/Main/Software                      |
+| 2      | Arduino Cloud Editor           | https://app.arduino.cc/sketches                              |
+| 3      | Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/         |
 | 4      | Arduino Project Hub            | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
-| 5      | Library Reference              | https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/     |
-| 6      | Online Store                   | https://store.arduino.cc/mkr-iot-carrier-rev2                            |
-| 7      | Arduino Documentation          | https://docs.arduino.cc/hardware/mkr-iot-carrier-rev2                    |
+| 5      | Library Reference              | https://docs.arduino.cc/libraries/arduino_mkriotcarrier/     |
+| 6      | Online Store                   | https://store.arduino.cc/mkr-iot-carrier-rev2                |
+| 7      | Arduino Documentation          | https://docs.arduino.cc/hardware/mkr-iot-carrier-rev2        |
 
 ## Revision History
 
 | **Date DD/MM/YY** | **Revision** | **Changes**                                           |
 | ----------------- | ------------ | ----------------------------------------------------- |
+| 04/02/2025        | 5            | Update link for Certification                         |
 | 25/04/2024        | 4            | Updated link to new Cloud Editor                      |
 | 20/02/2023        | 3            | Change grove connector power rail from +5.0V to +3.3V |
 | 16/01/2023        | 2            | Update Pinout graphic                                 |
