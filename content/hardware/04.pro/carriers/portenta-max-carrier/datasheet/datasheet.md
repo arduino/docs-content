@@ -34,7 +34,7 @@ Industry 4.0, prototyping, robotics, data logging
         *   FCC ID: VPYCMABZ  
         *   Integrated components: Semtech SX1276 transceiver, STMicroelectronics STM32L0 series microcontroller
         *   **Note**: The module integrates a transceiver and a microcontroller. As it is designed for low-power wide-area network (LPWAN) applications and does not operate on cellular networks, it does not possess an IMEI number or a TAC.
-    *   **SARA-R412M-02B (4G/Cat-M1/NB-IoT)**, micro SIM, SMA connector for antenna  
+    *   **SARA-R412M-02B (Cat-M1/NB-IoT/EGPRS)**, micro SIM, SMA connector for antenna  
         *   Brand and Model: u-blox SARA-R412M-02B  
         *   FCC ID: XPYUBX18ZO01  
         *   Type Allocation Code (TAC) Number: 35467909  
@@ -179,20 +179,32 @@ The Pro 4G Module (GNSS Global / EMEA) requires external antennas to work correc
 
 The integration of the Pro 4G Modules is facilitated by a dedicated Arduino library. For detailed instructions on how to implement and use these modules, refer to the [**dedicated documentation for in-depth implementation**](https://docs.arduino.cc/tutorials/pro-4g-module/mpcie-4g-modem/). This documentation provides all necessary steps to ensure proper setup and functionality.
 
-### Cell Modem 
-The SARA-R412M-02B (U1) is a multi-region modem capable of connecting to 2G/Cat-M1/NBIoT networks worldwide.
+### Cell Modem
+The SARA-R412M-02B (U1) is a multi-region cellular module supporting LTE Cat M1, NB-IoT (Cat NB1) and 2G (GPRS/EGPRS) networks. It operates on LTE bands 2, 3, 4, 5, 8, 12, 13, 20, 26 and 28, and GSM bands 850, 900, 1800 and 1900 MHz.
 
 | **Feature**                    | **Details**                                                            |
 |--------------------------------|------------------------------------------------------------------------|
 | **Brand and Model**            | u-blox SARA-R412M-02B                                                  |
 | **FCC ID**                     | XPYUBX18ZO01                                                           |
 | **Type Allocation Code (TAC)** | 35467909                                                               |
-| **Network Compatibility**      | 2G, Cat-M1, NB-IoT                                                     |
+| **Network Compatibility**      | LTE Cat M1, NB-IoT (Cat NB1), 2G (GPRS/EGPRS)                          |
 | **SMA Connector for Antenna**  | Yes - J3                                                               |
 | **SIM Slot**                   | Micro SIM                                                              |
 | **Power Supply**               | 1.8V                                                                   |
 | **IMEI Number**                | Required for cellular networks                                         |
 | **Notes**                      | External antenna required for LTE connectivity. (e.g., ANT-5GW-SPS1-2) |
+
+Designed for low power IoT applications, it features:
+
+| **Feature**       | **Specification**                                                              |
+|-------------------|--------------------------------------------------------------------------------|
+| **Power Classes** | LTE Cat M1/NB1: Class 3 (23 dBm)                                               |
+|                   | 2G GMSK: Class 4 (33 dBm) at 850/900 MHz, Class 1 (30 dBm) at 1800/1900 MHz    |
+|                   | 2G 8-PSK: Class E2 (27 dBm) at 850/900 MHz, Class E2 (26 dBm) at 1800/1900 MHz |
+| **Data Rates**    | LTE Cat M1: 375 kb/s UL, 300 kb/s DL                                           |
+|                   | NB-IoT (Cat NB1): 62.5 kb/s UL, 27.2 kb/s DL                                   |
+|                   | GPRS: 85.6 kb/s UL, 107 kb/s DL                                                |
+|                   | EGPRS: 236.8 kb/s UL, 296 kb/s DL                                              |
 
 A dedicated SMA connector (J3) allows for an external antenna. The chip operates over the 1V8 power line. A microSIM slot is available (SIM1). SN74LVC1T45 bidirectional logic level shifters (U8, U20, U21, U22) act as middleware for connecting to 3V3 serial connections. The chip is powered by 3V8 and an internal regulator provides 1V8 that is used for the SIM card and the I/O. The corresponding SIM card slot for the cell modem is on the top side of the board, directly adjacent to the module.
 
