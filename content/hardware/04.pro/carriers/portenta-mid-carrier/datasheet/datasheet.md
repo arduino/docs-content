@@ -695,12 +695,6 @@ To maintain stable power delivery, it is recommended to use cables compliant wit
 
 The carrier features a **dedicated PCIe breakout header (J16)**, allowing access to each Mini PCIe pin for manual probing or prototyping.
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;">
-The Pro 4G Module (GNSS Global / EMEA) requires external antennas to work correctly with wireless signals. There are three external antenna connectors: a main antenna connector, an Rx-diversity antenna connector and a GNSS antenna connector. <strong>The impedance of the antenna connectors are 50 Ω</strong>.
-</p>
-</div>
-
 #### Pro 4G Module Integration and Configuration
 
 For the Pro 4G Module (GNSS Global / EMEA), only the USB overlay (`ov_carrier_breakout_usbfs`) is required. The mPCIe overlay (`ov_carrier_mid_pcie_mini`) is not required for USB based modems.
@@ -725,6 +719,12 @@ The Pro 4G GNSS Module Global supports Qualcomm MSM Interface (QMI), making it c
 The Pro 4G Module EMEA uses AT commands over USB serial and does not support QMI. It is not natively managed by ModemManager but can still establish a connection using `mmcli`. For Docker based setups, ModemManager should be disabled to avoid conflicts and the module can be controlled via `qmicli`.
 
 The integration of the Pro 4G Modules is facilitated by a [dedicated **Arduino library** for the Portenta H7/C33](https://github.com/arduino-libraries/Arduino_cellular).
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;">
+The Pro 4G Module (GNSS Global / EMEA) requires external antennas to work correctly with wireless signals. There are three external antenna connectors: a main antenna connector, an Rx-diversity antenna connector and a GNSS antenna connector. <strong>The impedance of the antenna connectors are 50 Ω</strong>.
+</p>
+</div>
 
 The complete pinout characteristics of the onboard Mini PCIe slot of the Portenta Mid Carrier can be found beginning in the [Mini PCIe Connector (J8) section](#mini-pcie-connector-j8). For a detailed implementation process, please refer to the user manual of the Portenta Mid Carrier at [here](https://docs.arduino.cc/tutorials/portenta-mid-carrier/user-manual/#mini-pci-express-interface-j8) and [here](https://docs.arduino.cc/tutorials/portenta-mid-carrier/user-manual/#cat4-modem-cellular-connectivity).
 
