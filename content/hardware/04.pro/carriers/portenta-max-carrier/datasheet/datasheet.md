@@ -15,7 +15,7 @@ The Portenta Max Carrier provides easy access to the onboard peripherals of the 
 <div style="page-break-after: always;"></div>
 
 # About This Document
-This document is the official reference for the Portenta Max Carrier, detailing its capabilities, features and supported components. For setup documentation and practical applications, [please visit **docs.arduino.cc**](https://docs.arduino.cc/hardware/portenta-max-carrier/#tutorials).
+This document is the official reference for the Portenta Max Carrier, detailing its capabilities, features and supported components. For setup documentation and practical applications, [please visit the official Arduino Documentation page](https://docs.arduino.cc/hardware/portenta-max-carrier/#tutorials).
 
 # Target areas:
 Industry 4.0, prototyping, robotics, data logging 
