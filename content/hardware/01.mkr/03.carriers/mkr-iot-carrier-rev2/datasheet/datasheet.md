@@ -260,11 +260,13 @@ Detailed information on the pinouts are available in a separate document: <u>[MK
 
 ## Certifications
 
-Visit the following website to learn more about the full Product Compliance of Arduino products: [Product Compliance list](https://docs.arduino.cc/certifications/)(https://docs.arduino.cc/certifications/). 
-
 ### Declaration of Conformity CE DoC (EU)
 
-We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the **Radio Equipment Directive (RED) 2014/53/EU** and **RoHS Directive 2011/65/EU** and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
+
+The full text of the EU Declaration of Conformity is available at the following link:
+
+- [Product Compliance list](https://docs.arduino.cc/certifications/)(https://docs.arduino.cc/certifications/).
 
 ### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
 
