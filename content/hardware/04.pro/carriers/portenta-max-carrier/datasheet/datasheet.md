@@ -8,14 +8,15 @@ author: Ali Jahangiri
 ![Max Carrier board](assets/featured.png)
 
 # Description 
-Enable edge AI for high performance industrial, building automation and robotics applications with the Portenta Max Carrier. The Portenta Max Carrier transforms the Arduino® Portenta family into a standardized industrial platform, ready for use as a single board computer or as a reference design. The Portenta Max Carrier provides easy access to the onboard peripherals of the Arduino® Portenta X8 including Gigabit Ethernet, microSD and PCIe. This board further augments the capabilities of the Portenta X8 with Fieldbus, LoRa®, 4G, Cat-M1 and NB-IoT connectivity providing a platform for Industry 4.0. 
+The Portenta Max Carrier enhances edge AI applications in industrial automation, robotics applications and building automation. It transforms the Arduino® Portenta family into a standardized industrial platform, ready for use as a single-board computer or reference design. Providing seamless access to Gigabit Ethernet, microSD and PCIe on the Portenta X8, it expands capabilities with Fieldbus, LoRa®, 4G, Cat-M1 and NB-IoT, making it an ideal platform for Industry 4.0.
 
 # About This Document
-
-This document serves as the official reference for the technical specifications of the Portenta Max Carrier. It provides a detailed overview of the board's capabilities, features and supported components. For additional information on using the board, including setup guides and practical applications, please visit [**docs.arduino.cc**](https://docs.arduino.cc/).
+This document is the official reference for the Portenta Max Carrier, detailing its capabilities, features and supported components. For setup documentation and practical applications, please visit [**docs.arduino.cc**](https://docs.arduino.cc/).
 
 # Target areas:
 Industry 4.0, prototyping, robotics, data logging 
+
+<div style="page-break-after: always;"></div>
 
 # Features
 **Note**: This board needs the Portenta X8 for full functionality. Not all features are available with the Arduino® Portenta H7.  
