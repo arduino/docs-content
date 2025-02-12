@@ -13,7 +13,7 @@ The Arduino Portenta Mid Carrier streamlines project development for Portenta SO
 
 # About This Document
 
-This document serves as the official reference for the technical specifications of the Portenta Mid Carrier. It provides a detailed overview of the board's capabilities, features and supported components. For additional information on using the board, including setup guides and practical applications, please visit [**docs.arduino.cc**](https://docs.arduino.cc/).
+This document serves as the official reference for the technical specifications of the Portenta Mid Carrier. It provides a detailed overview of the board's capabilities, features and supported components. For additional information on using the board, including setup guides and practical applications, please visit [**docs.arduino.cc**](https://docs.arduino.cc/hardware/portenta-mid-carrier/#tutorials).
 
 # Target Areas
 
@@ -677,11 +677,14 @@ The Portenta Mid Carrier includes one mini PCI Express card slot (J8). The conne
 
 #### Mini PCIe Connector and Cellular Capability
 
-The Portenta Mid Carrier does not have built-in cellular capability but includes a Mini PCIe slot that allows for the integration of 4G modules with GNSS capabilities. This slot supports USB, I2C and USIM interfaces, allowing the system to add cellular connectivity and GNSS functionality via a compatible 4G module.
+The Portenta Mid Carrier does not have built-in cellular capability but features a full-size Mini PCIe slot that supports USB 2.0, I2C and USIM interfaces, allowing the integration of compatible cellular modules with GNSS functionality.
 
-The Mini PCIe interface on the Portenta Mid Carrier is characterized by optimization with cellular and GNSS modules, supporting multiple communication protocols and power management features. It enables IoT, remote monitoring and edge computing applications with reliable connectivity.
+The **Arduino Pro 4G Module** is a module that provides cellular connectivity and GNSS functionality. It is a Cat.4 modem mini PCIe card available in two variants:
 
-The Portenta Mid Carrier includes a full-size Mini PCIe slot that supports USB 2.0 and I2C interfaces, making it compatible with various expansion modules such as **the Arduino Pro 4G Module in EMEA (TPX00201) and GNSS Global (TPX00200) variants**. 
+- Pro 4G GNSS Module Global variant (TPX00200)
+- Pro 4G Module EMEA variant (TPX00201)
+
+These modules deliver high speed LTE connectivity with download speeds of up to 150 Mbps and upload speeds of up to 50 Mbps. They also support backward compatibility with 3G and 2G networks, ensuring reliable coverage across diverse locations.
 
 When a Pro 4G Module is installed or any other high-power mPCIe module, an **external 5.0V power supply is required** to maintain consistent power delivery to the Portenta SOM, the carrier and the module, particularly for extended periods with proper power configuration:
 
@@ -692,18 +695,13 @@ To maintain stable power delivery, it is recommended to use cables compliant wit
 
 The carrier features a **dedicated PCIe breakout header (J16)**, allowing access to each Mini PCIe pin for manual probing or prototyping.
 
-The **Arduino Pro 4G Module**, a Cat.4 modem mini PCIe card, is available in two variants:
-
-- Pro 4G GNSS Module Global variant (SKU: TPX00200)
-- Pro 4G Module EMEA variant (SKU: TPX00201)
-
-These modules provide high speed LTE connectivity capable of up to 150 Mbps download and 50 Mbps upload speeds. They also maintain backward compatibility with 3G and 2G networks, ensuring reliable coverage in diverse locations.
-
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <p style="text-align: justify;">
 The Pro 4G Module (GNSS Global / EMEA) requires external antennas to work correctly with wireless signals. There are three external antenna connectors: a main antenna connector, an Rx-diversity antenna connector and a GNSS antenna connector. <strong>The impedance of the antenna connectors are 50 Ω</strong>.
 </p>
 </div>
+
+#### Pro 4G Module Integration and Configuration
 
 For the Pro 4G Module (GNSS Global / EMEA), only the USB overlay (`ov_carrier_breakout_usbfs`) is required. The mPCIe overlay (`ov_carrier_mid_pcie_mini`) is not required for USB based modems.
 
@@ -725,6 +723,8 @@ The hardware configuration for modem setup is as follows:
 The Pro 4G GNSS Module Global supports Qualcomm MSM Interface (QMI), making it compatible with NetworkManager and configurable via `nmcli`.
 
 The Pro 4G Module EMEA uses AT commands over USB serial and does not support QMI. It is not natively managed by ModemManager but can still establish a connection using `mmcli`. For Docker based setups, ModemManager should be disabled to avoid conflicts and the module can be controlled via `qmicli`.
+
+The integration of the Pro 4G Modules is facilitated by a [dedicated **Arduino library** for the Portenta H7/C33](https://github.com/arduino-libraries/Arduino_cellular).
 
 The complete pinout characteristics of the onboard Mini PCIe slot of the Portenta Mid Carrier can be found beginning in the [Mini PCIe Connector (J8) section](#mini-pcie-connector-j8). For a detailed implementation process, please refer to the user manual of the Portenta Mid Carrier at [here](https://docs.arduino.cc/tutorials/portenta-mid-carrier/user-manual/#mini-pci-express-interface-j8) and [here](https://docs.arduino.cc/tutorials/portenta-mid-carrier/user-manual/#cat4-modem-cellular-connectivity).
 
