@@ -182,17 +182,17 @@ The integration of the Pro 4G Modules is facilitated by a dedicated Arduino libr
 ### Cell Modem
 The SARA-R412M-02B (U1) is a multi-region cellular module supporting LTE Cat M1, NB-IoT (Cat NB1) and 2G (GPRS/EGPRS) networks. It operates on LTE bands 2, 3, 4, 5, 8, 12, 13, 20, 26 and 28, and GSM bands 850, 900, 1800 and 1900 MHz.
 
-| **Feature**                    | **Details**                                                            |
-|--------------------------------|------------------------------------------------------------------------|
-| **Brand and Model**            | u-blox SARA-R412M-02B                                                  |
-| **FCC ID**                     | XPYUBX18ZO01                                                           |
-| **Type Allocation Code (TAC)** | 35467909                                                               |
-| **Network Compatibility**      | LTE Cat M1, NB-IoT (Cat NB1), 2G (GPRS/EGPRS)                          |
-| **SMA Connector for Antenna**  | Yes - J3                                                               |
-| **SIM Slot**                   | Micro SIM                                                              |
-| **Power Supply**               | 1.8V                                                                   |
-| **IMEI Number**                | Required for cellular networks                                         |
-| **Notes**                      | External antenna required for LTE connectivity. (e.g., ANT-5GW-SPS1-2) |
+| **Feature**                    | **Details**                                                                  |
+|--------------------------------|------------------------------------------------------------------------------|
+| **Brand and Model**            | u-blox SARA-R412M-02B                                                        |
+| **FCC ID**                     | XPYUBX18ZO01                                                                 |
+| **Type Allocation Code (TAC)** | 35467909                                                                     |
+| **Network Compatibility**      | LTE Cat M1, NB-IoT (Cat NB1), 2G (GPRS/EGPRS)                                |
+| **SMA Connector for Antenna**  | Yes - J3                                                                     |
+| **SIM Slot**                   | Micro SIM                                                                    |
+| **Power Supply**               | 1.8V                                                                         |
+| **IMEI Number**                | Required for cellular networks                                               |
+| **Notes**                      | An external antenna is required for LTE connectivity. (e.g., ANT-5GW-SPS1-2) |
 
 Designed for low power IoT applications, it features:
 
