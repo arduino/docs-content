@@ -146,7 +146,7 @@ The Portenta Max Carrier includes one female mini PCI Express card slot (J8). Th
 </p>
 </div>
 
-### Mini PCIe Connector and Cellular Capability
+#### Mini PCIe Connector and Cellular Capability
 The Portenta Max Carrier has a built-in cellular capability and includes a Mini PCIe slot (J8) that allows for the integration of optional 4G modules with GNSS capabilities. This slot supports USB, I2C, USIM interfaces and allows the system to add cellular connectivity and GNSS functionality.
 
 The Mini PCIe interface on the Portenta Mid Carrier is characterized by optimization with cellular and GNSS modules, supporting multiple communication protocols and power management features. It enables IoT, remote monitoring and edge computing applications with reliable connectivity.
@@ -167,7 +167,7 @@ The complete pinout characteristics of the onboard Mini PCIe slot of the Portent
 
 For detailed implementation instructions, refer to the [**Portenta Max Carrier documentation on integrating the Pro 4G Module**](https://docs.arduino.cc/tutorials/portenta-max-carrier/mpcie-4g-modem/).
 
-### Pro 4G Module Compatibility
+#### Pro 4G Module Compatibility
 The Pro 4G Module Global variant (SKU: TPX00200) and Pro 4G Module EMEA variant (SKU: TPX00201) are compatible with the Portenta Max Carrier. The Portenta X8 (SKU: ABX00049) is the only compatible Portenta family board required for operation with the Portenta Max Carrier and the Pro 4G Module.
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
@@ -197,7 +197,7 @@ A dedicated SMA connector (J3) allows for an external antenna. The chip operates
 
 >  (2) Functionality dependent upon connected Portenta board. Check the respective datasheet.
 
-### Micro SIM Card Slot
+#### Micro SIM Card Slot
 The Portenta Max Carrier features a micro SIM card slot (SIM1) designed for use with the SARA-R412M-02B module. Cellular functionality is available or when the appropriate module is installed and configured.s
 
 The micro SIM slot enables network connectivity for the cellular module. It works with the SARA-R412M-02B modem, providing access to LTE, Cat-M1, and NB-IoT networks. The dedicated SMA connector (J3) allows for the attachment of an external antenna (e.g., ANT-5GW-SPS1-2) to ensure stable signal reception and performance. For detailed implementation process, please refer to the [**user manual of the Portenta Max Carrier**](https://docs.arduino.cc/tutorials/portenta-max-carrier/user-manual/#lte-catm1-nb-iot)

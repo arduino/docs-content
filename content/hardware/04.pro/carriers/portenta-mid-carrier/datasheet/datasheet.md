@@ -675,7 +675,7 @@ Now that you have gone through the basics of what you can do with the device, yo
 
 The Portenta Mid Carrier includes one mini PCI Express card slot (J8). The connector is right-angled and the board includes two removable standoffs for external module support. To use the spacer, add the plastic spacer on the top side of the board, then attach the M2.5 screw from the back together with the washer.
 
-### Mini PCIe Connector and Cellular Capability
+#### Mini PCIe Connector and Cellular Capability
 
 The Portenta Mid Carrier does not have built-in cellular capability but includes a Mini PCIe slot that allows for the integration of 4G modules with GNSS capabilities. This slot supports USB, I2C and USIM interfaces, allowing the system to add cellular connectivity and GNSS functionality via a compatible 4G module.
 
@@ -728,7 +728,7 @@ The Pro 4G Module EMEA uses AT commands over USB serial and does not support QMI
 
 The complete pinout characteristics of the onboard Mini PCIe slot of the Portenta Mid Carrier can be found beginning in the [Mini PCIe Connector (J8) section](#mini-pcie-connector-j8). For a detailed implementation process, please refer to the user manual of the Portenta Mid Carrier at [here](https://docs.arduino.cc/tutorials/portenta-mid-carrier/user-manual/#mini-pci-express-interface-j8) and [here](https://docs.arduino.cc/tutorials/portenta-mid-carrier/user-manual/#cat4-modem-cellular-connectivity).
 
-### Nano SIM Card Slot
+#### Nano SIM Card Slot
 
 The Portenta Mid Carrier features a nano SIM card slot designed for use with cellular modules installed via the Mini PCIe interface. Please note that the carrier itself does not provide cellular radio capability, as explained in the [previous section](#mini-pcie-connector-and-cellular-capability). Cellular functionality is available only when an appropriate 4G module is installed.
 
