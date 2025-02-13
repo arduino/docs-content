@@ -16,17 +16,20 @@ software:
 
 ## Overview
 
-The **Arduino AWS S3 CSV Exporter** is designed to extract time series data from **Arduino Cloud** and publish it to an **AWS S3** bucket.
+The **Arduino AWS S3 CSV Exporter** is designed to extract time series data from **Arduino Cloud** and publish it to an **AWS S3** bucket in CSV format.
 
-The data extraction is managed by a scheduled AWS Lambda function that operates at configurable intervals, with samples aggregated based on the user’s preference. Data is stored in CSV format and uploaded to S3, providing a structured way to manage and store data.
+A scheduled AWS Lambda function manages the data extraction process, running at configurable intervals. The extraction frequency, sampling resolution and filters can be customized to refine the data stored in S3.
+
+At the end of this tutorial, the stack will be configured to extract data from Arduino Cloud every hour, aggregate samples at a five minute resolution and store structured CSV files in AWS S3. The setup will also allow filtering by tags to include only specific data, providing a scalable and structured approach to managing cloud connected device data and ensuring easy retrieval and long term storage.
 
 ## Goals
 
-* Learn to create S3 Bucket and CloudFormation Stack
-* Understand the functionality of the Arduino AWS S3 CSV Exporter
-* Learn how to configure and deploy the Lambda function for data extraction
-* Set up filtering and resolution options for optimized data aggregation
-* Get started with configuring the exporter using CloudFormation
+* Set up the required AWS S3 bucket and deploy resources using CloudFormation.  
+* Understand the functionality of the Arduino AWS S3 CSV Exporter.  
+* Configure and deploy the Lambda function for automated data extraction using the Arduino AWS S3 CSV Exporter’s pre-defined template.  
+* Apply filters and resolution settings to optimize data aggregation.  
+* Use CloudFormation templates to simplify deployment and configuration.  
+* Learn how Lambda, CloudWatch and EventBridge help monitor the deployed CloudFormation stack.  
 
 ## Required Software
 
@@ -37,24 +40,26 @@ The data extraction is managed by a scheduled AWS Lambda function that operates 
 
 ## How It Works
 
-The **Arduino AWS S3 CSV Exporter** extracts time series data from **Arduino Cloud** and publishes it to an **AWS S3** bucket. Data is extracted at a specified resolution using a **GO based AWS Lambda** function triggered periodically by **AWS EventBridge**.
+The **Arduino AWS S3 CSV Exporter** extracts time series data from **Arduino Cloud** and publishes it to an **AWS S3** bucket. Data extraction is handled by an AWS Lambda function written in **GO**, which runs at scheduled intervals using **AWS EventBridge**.
 
-Each function execution generates a CSV file containing samples from the selected **Arduino Things**, which are then uploaded to **S3** for data storage and management.
+Each function execution retrieves data from the selected **Arduino Things** and generates a CSV file. The file is then uploaded to **S3** for structured storage and accessibility.
 
-Data is extracted every hour by default, with samples aggregated at a 5 minute resolution. Both the extraction period and the aggregation rate are configurable.
+Data is extracted every hour by default, with samples aggregated at a 5 minute resolution. Both the extraction period and the aggregation rate are configurable. Aggregation is performed by calculating the average over the aggregation period, while non-numeric values, such as strings, are sampled at the specified resolution.
 
-Aggregation is performed as an average over the aggregation period, and non-numeric values, such as strings, are sampled at the specified resolution. Time series data is exported in **UTC** by default, and all Arduino Things in the account are exported unless filtered using [*tags*](#tag-filtering).
+Time-series data is exported in **UTC** by default. All Arduino Things in the account are included in the export unless filtered using [**tags**](#tag-filtering). 
 
-This setup allows you to easily manage and store time series data from connected devices, offering flexibility with configurable parameters like sampling intervals and data filtering.
+This setup provides a structured and scalable approach for managing time series data from connected devices, providing configurable parameters such as sampling intervals and data filtering.
 
 ## AWS Account & CloudFormation Template
 
-If you do not have an existing AWS account and user, refer to the [online AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html) for setting up your account. To get started, follow these steps:
+An active AWS account is required to deploy the **Arduino AWS S3 CSV Exporter**. If an account is not available, refer to the [online AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html) for account setup. The following steps can help you to get started:
 
 - [Sign up for an AWS account](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#aws-registration)
 - [Create an administrative user](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#create-an-admin)
 
-The exporter setup involves deploying resources using a [**CloudFormation template**](https://github.com/arduino/aws-s3-integration/blob/0.3.0/deployment/cloud-formation-template/deployment.yaml). The AWS account will be set to have permission for:
+The exporter setup involves deploying resources using a [**CloudFormation template**](https://github.com/arduino/aws-s3-integration/blob/0.3.0/deployment/cloud-formation-template/deployment.yaml). This template provisions and configures the necessary AWS resources automatically.
+
+CloudFormation requires the following **IAM permissions** to automatically provision and manage the AWS resources used in this deployment.
 
 * CloudFormation stack creation (policy: `AWSCloudFormationFullAccess`)
 * S3 bucket management (policy: `AmazonS3FullAccess`)
@@ -63,20 +68,22 @@ The exporter setup involves deploying resources using a [**CloudFormation templa
 * EventBridge rule configuration (policy: `AmazonEventBridgeFullAccess`)
 * Parameter management in SSM (policy: `AmazonSSMFullAccess`)
 
+These permissions allow CloudFormation to create and manage the required resources automatically. The stack will deploy an AWS Lambda function, configure an EventBridge rule to trigger executions and set up S3 buckets for data storage.
+
 ## S3 Buckets (Pre-Requisite)
 
-Before continuing and creating the CloudFormation stack, two S3 buckets need to be created:
+Before continuing with the CloudFormation stack deployment, two **S3** buckets need to be created:
 
-- **Temporary bucket**: This is where the Lambda binaries and **CloudFormation template (CFT)** will be uploaded and stored.
-- **CSV destination bucket**: This is where all generated CSV files will be uploaded. Make sure this bucket is in the same AWS region where the stack will be created.
+- **Temporary bucket**: Stores the Lambda binaries and the **CloudFormation template (CFT)** required for deployment.  
+- **CSV destination bucket**: This is the storage location for all generated CSV files. This bucket must be created in the same AWS region where the CloudFormation stack will be deployed.
 
 ![S3 Buckets](assets/s3_bucket_complete.png)
 
 ### Creating S3 Bucket
 
-To create the temporary bucket and the CSV destination bucket, you need to go to **Amazon S3** or search for **S3**. Then, you can click on **Create bucket** to start creating the first bucket.
+To create the **temporary bucket** and the **CSV destination bucket**, navigate to **Amazon S3** or search for **S3** in the AWS Management Console. Click on **Create bucket** to begin the setup.
 
-When creating a bucket, you will see several different options of the bucket configuration required for the creation as follows:
+During an S3 bucket creation, several configuration options will be presented:
 
 - General configuration
 - Object ownership
@@ -86,44 +93,44 @@ When creating a bucket, you will see several different options of the bucket con
 - Default encryption
 - Advanced settings
 
-All these parameters are explained briefly within the bucket creation process.
+Each configuration option is briefly explained within the S3 bucket creation process.
 
 ![Bucket creation (1)](assets/s3_bucket_create_1.png)
 
 ![Bucket creation (2)](assets/s3_bucket_create_2.png)
 
-The important configuration here is the **General configuration** in our case. The bucket name **must be** defined and **General purpose** bucket is selected for the purpose of the present integration.
+For this integration, the key configuration is the bucket name, and the bucket type is set to **General purpose** under the **General configuration** section.
 
-The rest of the configuration can be left with **Default** values that were selected and configured when the bucket creation process started. 
+Other settings can remain at their **default values** unless specific customizations are needed.
 
-Proceed to **Submit** bucket creation with the defined configuration. The following image shows when a general purpose bucket has been created successfully after submission.
+After defining the required settings, proceed to **Submit** the bucket creation. Once successfully created, the bucket will be listed under **General purpose buckets**.
 
-In this process, we created the **Temporary bucket** to store the Lambda binaries and **CloudFormation template (CFT)**. The name assigned to this bucket is: **lambdas3binaries**.
+This process creates the **temporary bucket** to store the **Lambda binaries** and the **CloudFormation template (CFT)**. The assigned bucket name is **lambdas3binaries** in this example.
 
 ![Lambda Binary & CFT Bucket](assets/s3_bucket_lambdas3bin.png)
 
 #### Temporary Bucket
 
-The **lambdas3binaries** bucket needs to have:
+The **lambdas3binaries** bucket is used to store the required deployment files. The following files must be uploaded to this bucket:
 
 - [Lambda binaries](https://github.com/arduino/aws-s3-integration/releases) (`.zip` file)
 - [CloudFormation template (CFT)](https://github.com/arduino/aws-s3-integration/releases) (`.yaml` file)
 
-Please download the binaries and CFT file to upload to the **lambdas3binaries** bucket.
-
-Enter the **lambdas3binaries** bucket within the general purpose buckets and you will able to see different options available for the bucket as shown in the image below:
+To upload the files, navigate to **Amazon S3** and open the **`lambdas3binaries`** bucket. The available options for managing the bucket will be displayed:
 
 ![lambdas3binaries Bucket Setup (1)](assets/s3_bucket_lambdas3bin_setup_1.png)
 
-Choose the **Upload** option within the **Objects** tab. You can manually upload the binaries and CFT files using the browser explorer or drag and drop the files into the *Upload* area. Once the files are selected, the screen should resemble the following image:
+Select the **Upload** option within the **Objects** panel.
+
+Manually upload the required files by either using the file browser to select the `.zip` and `.yaml` files or dragging and dropping them into the designated upload area. Once the files are recognized, the screen should resemble the following image:
 
 ![lambdas3binaries Bucket Setup (2)](assets/s3_bucket_lambdas3bin_setup_2.png)
 
-Click **Upload** button to upload the files and you will have similar screen as shown in the image below:
+Click the **Upload** button to begin the upload. Once the upload is complete, a confirmation screen will be displayed:
 
 ![lambdas3binaries Bucket Setup (3)](assets/s3_bucket_lambdas3bin_setup_3.png)
 
-Once every file is uploaded, the binaries and CFT file will be listed within the **Objects** tab of the **lambdas3binaries** bucket:
+After a successful upload, the files will be listed under the **Objects** tab within the **`lambdas3binaries`** bucket:
 
 ![lambdas3binaries Bucket Setup (4)](assets/s3_bucket_lambdas3bin_setup_4.png)
 
@@ -131,29 +138,29 @@ Once every file is uploaded, the binaries and CFT file will be listed within the
 
 A second bucket needs to be created following the same process as the [Temporary bucket](#temporary-bucket). This bucket will be the **CSV destination bucket**, where all generated CSV files will be stored. It is important to make sure this bucket is created in the same AWS region where the CloudFormation stack will be deployed.
 
-Navigate to the Amazon S3 service and select Create bucket. In the bucket creation interface, specify the bucket name and confirm that the correct AWS region is selected.
+Navigate to the **Amazon S3** service and select **Create bucket**. In the bucket creation window, specify the bucket name and check that the same AWS region is selected.
 
-Keep the recommended default settings for Object Ownership and Public Access to maintain security compliance. Once all settings are verified, proceed with the bucket creation.
+Keep the recommended default settings for **Object Ownership** and **Public Access** to maintain security compliance. Once all settings are verified, proceed with the bucket creation.
 
 ![lambdas3binaries Bucket Setup (1)](assets/s3_bucket_csvdests3int_1.png)
 
-After the bucket has been successfully created, it will be listed among other existing buckets. Select the newly created CSV destination bucket to continue with additional configurations if necessary.
+After the bucket has been successfully created, it will be listed among the available S3 buckets. Select the newly created **CSV destination bucket** to proceed with additional configurations if necessary.
 
 ![lambdas3binaries Bucket Setup (2)](assets/s3_bucket_csvdests3int_2.png)
 
-Inside the CSV destination bucket, navigate to the **Objects** tab. Here, you can organize files by creating folders if needed.
+Inside the **CSV destination bucket**, navigate to the **Objects** tab. Files can be organized by creating directories if needed.
 
-Click on the **Create folder** button and specify a name for the directory that will store the exported CSV files.
+Click on the **Create folder** button and specify a name for the directory where the exported CSV files will be stored.
 
 ![lambdas3binaries Bucket Setup (3)](assets/s3_bucket_csvdests3int_3.png)
 
-When creating a folder, you will see options for server-side encryption to protect data at rest. By default, encryption settings are inherited from the bucket's global configuration.
+During folder creation, options for **server-side encryption** will be displayed for data protection. By default, encryption settings derives from the bucket’s global configuration.
 
-If needed, specify a custom encryption key before creating the folder.
+A **custom encryption key** can be specified before finishing the folder creation.
 
 ![lambdas3binaries Bucket Setup (4)](assets/s3_bucket_csvdests3int_4.png)
 
-Once the folder is created, it will be displayed under the Objects tab of the CSV destination bucket. This ensures that all exported CSV files will be stored well-organized within the dedicated bucket.
+Once the folder is created, it will be displayed under the **Objects** tab of the **CSV destination bucket**. This makes sure that all exported CSV files are well organized within the dedicated bucket.
 
 ![S3 Buckets](assets/s3_bucket_complete.png)
 
@@ -161,29 +168,40 @@ Once the folder is created, it will be displayed under the Objects tab of the CS
 
 ### Preparing CloudFormation Stack
 
-The CloudFormation stack will be deployed via a template after the stack has been created with required parameters. To begin, navigate to the AWS CloudFormation service and select **Create stack**. This process involves specifying a template source.
+The CloudFormation stack is deployed using a [predefined template](https://github.com/arduino/aws-s3-integration/releases). This process involves specifying the required parameters and selecting the appropriate template source.
+
+Navigate to the **AWS CloudFormation** service and select **Create stack**.
 
 ![Stack Creation (1)](assets/cloud_stack_create_1.png)
 
-Choose the option to use an existing template and enter the Amazon S3 URL for the CloudFormation template.
+Select **Choose an existing template** and enter the Amazon S3 URL where the CloudFormation template is stored.
 
 ![Stack Creation (2)](assets/cloud_stack_create_2.png)
 
-The following **Object URL** is an example of how it looks for use in the stack creation process:
+An example of the **Object URL** format for stack creation is as follows:
 
 ```bash
 https://arduino-s3-data-exporter-deployment.s3.amazonaws.com/deployment.yaml
 ```
 
-The **Object URL** is required for the **Amazon S3 URL** field within the stack creation.
+This **Object URL** needs to be provided in the **Amazon S3 URL** field when creating the stack.
 
 Proceed with the stack creation by following the steps. The configuration requires specifying parameters, including the Arduino API key and secret, the S3 bucket for code storage and the CSV destination bucket.
 
-Optional parameters such as tag filters, organization ID and data resolution settings can also be configured.
+Configure the following required parameters before proceeding with stack creation:
+
+* Arduino API key
+* Arduino API secret
+* S3 bucket for code storage
+* CSV destination bucket
+
+***For more information about Arduino Cloud API, please refer to the [APIs Overview](https://docs.arduino.cc/arduino-cloud/api/api-overview/) or [Arduino Cloud API from Getting started with Arduino Cloud for Business](https://docs.arduino.cc/arduino-cloud/business/arduino-cloud-for-business/#arduino-cloud-api).***
+
+You can also configure optional parameters like **tag filters**, **organization ID (Space ID for Arduino Cloud)** and **data resolution settings**.
 
 ![Stack Creation (3)](assets/cloud_stack_create_3.png)
 
-Once all parameters are set, review the configuration to ensure all details are correct before proceeding to create a new stack.
+Before proceeding with stack creation, review the configuration to ensure all details are correct.
 
 ![Stack Creation (4)](assets/cloud_stack_create_4.png)
 
@@ -191,26 +209,30 @@ Once all parameters are set, review the configuration to ensure all details are 
 
 In the **Specify stack details** step, provide a stack name and enter the necessary parameters.
 
-The **`csvdests3int`** is the location where the CSV files will be stored.
+The **`csvdests3int`** bucket is the designated location where the CSV files will be stored.
 
 The **`LambdaCodeS3Bucket`** refers to the bucket containing the Lambda function ZIP file.
 
 Specify the corresponding API key and secret in the `IotApiKey` and `IotApiSecret` fields.
 
+***For more information about Arduino Cloud API, please refer to the [APIs Overview](https://docs.arduino.cc/arduino-cloud/api/api-overview/) or [Arduino Cloud API from Getting started with Arduino Cloud for Business](https://docs.arduino.cc/arduino-cloud/business/arduino-cloud-for-business/#arduino-cloud-api).***
+
 ![Stack Creation - Parameters (5)](assets/cloud_stack_create_5.png)
 
 The parameters required for creating the stack are categorized as follows:
   
-- **Mandatory:** Arduino API key and secret, the S3 bucket for code, and the destination S3 bucket.
+- **Mandatory:** Arduino API key and secret, the S3 bucket for code and the destination S3 bucket.
 - **Optional:** Tag filter, organization ID, and data resolution settings.
 
 ![Stack Creation - Parameters (6)](assets/cloud_stack_create_6.png)
 
 Additional parameters include scheduling execution frequency, resolution settings and optional filters. These settings define how often data is exported and the aggregation method applied to collected data.
 
-Once all parameters are filled in, proceed to the review stage. This allows you to verify the stack configuration before finalizing the deployment.
+Once all parameters are filled in, proceed to the review stage. This allows you to verify the stack configuration before finishing the deployment.
 
 ![Stack Creation - Review (7)](assets/cloud_stack_create_7.png)
+
+The following animation shows the final review stage, which summarizes all stack parameters before starting the deployment process. The review screen confirms the selected CloudFormation template, stack name and all defined configuration parameters.
 
 ![Stack Creation - Complete Review](assets/cloudformation_stack_step4.gif)
 
@@ -234,15 +256,15 @@ Below are the supported configuration parameters that are editable in the AWS Pa
 
 To export specific Arduino Things from the Arduino Cloud, **tag filtering** is applied.
 
-**Tags** can be added in the Arduino Cloud under the **Metadata** section of each device, referred to as **Things**.
+**Tags** can be added in the Arduino Cloud under each device's **Metadata** section, referred to as **Things**.
 
 ![Things Metadata](assets/cloud_tag_2.png)
 
-When you click on **ADD**, it will ask you to provide a **key** and its **value** for the tag.
+Click on **ADD** to define a tag by specifying a **key** and its **value**.
 
 ![Things Metadata Tag](assets/cloud_tag_1.png)
 
-During CloudFormation stack creation, configure tag filters using:
+During CloudFormation stack creation, tag filters are configured using:
 
 ```bash
 /arduino/s3-exporter/{stack-name}/iot/filter/tags
@@ -264,47 +286,61 @@ If required, the extraction can be configured to align with specific time window
 
 After confirming the stack creation, AWS CloudFormation will begin deploying the required resources.
 
-The stack creation process can be monitored from the AWS CloudFormation Stacks section.
+The **Stacks** section displays the newly created stack and its status. At this stage, the status appears as **`CREATE_IN_PROGRESS`**, indicating that AWS is actively provisioning resources.
 
 ![Stack Build (1)](assets/cloud_stack_creation_1.png)
 
+The **Events - updated** tab logs real time updates for each resource creation. The status **`CREATE_IN_PROGRESS`** is shown alongside timestamps and event details, allowing visibility of the deployment process.
+
 ![Stack Build (2)](assets/cloud_stack_creation_2.png)
 
-The deployment status can be tracked, and once completed, the stack should display the status **`CREATE_COMPLETE`**, indicating that all resources have been successfully deployed.
+Once all resources are successfully deployed, the **stack status** updates to **`CREATE_COMPLETE`**. This confirms that the deployment is finished without errors.
 
 ![Stack Build Process](assets/cloudformation_stack_creation.gif)
 
-This setup ensures that AWS S3 integrates with the Arduino Cloud for automated CSV data export.
+The **Stack info** tab provides an overview of the stack, including its Stack ID, description, creation time and other metadata.
 
 ![Stack Build Information](assets/cloud_stack_info.png)
 
-## AWS S3 CSV Exporter Runtime
+Now, the stack is ready for operation with AWS S3 is integrated with the Arduino Cloud and automated CSV data export functionality. 
 
-With the successful CloudFormation stack deployment, we will have a AWS S3 CSV exporter with execution handling of 1 hour as configured in stack configuration stage. Every 1 hour, the Lambda function will be invoked and retrieve data from relevant Arduino Cloud Thing with the key metadata configured.
+## AWS S3 CSV Exporter Result
 
-### CSV File Structure
+Once the CloudFormation stack is successfully deployed, the AWS S3 CSV Exporter will function based on the configured execution schedule. Based on the configuration, the [**Lambda function**](#lambda) is triggered every hour, retrieving data from relevant Arduino Cloud Thing tagged with the appropriate metadata key.
 
-The CSV file are created inside the `csvdests3int` S3 bucket. Files are organized by date and time stamp, with a structured naming convention for easy identification. The `csvdests3int` bucket will show directories containing CSV files with dates first as image below:
+![Arduino Cloud Thing Metadata Key](assets/arduino_cloud_thing_metadata.png)
+
+This process allows only the selected Arduino Cloud Things to export data to the generated CSV files, which are then stored in an AWS S3 bucket for further processing, retrieval or integration with other services.
+
+### CSV File Storage and Organization
+
+The generated CSV files are stored in the `csvdests3int` S3 bucket. Within this bucket, files are structured in a date-based hierarchy for organized storage and easy access. Each folder corresponds to a specific date and within those folders, CSV files are named according to their respective timestamps.
+
+The top-level structure of the `csvdests3int` bucket appears as follows:
 
 ![S3 Bucket main directory](assets/s3_csv_bucket_directory.png)
 
-Each date defined directories will have CSV files organized with tiemstamps as well as the dates to clarify time of the file creation, which is useful when the CSBV files are exported to local machines:
+CSV files are stored inside date-specific folders within the `csvdests3int` S3 bucket. These folders are named according to the extraction date and within them, CSV files are organized by timestamp. This structure provides a chronological view of the exported data.
+
+It also helps with data retrieval, processing, and analysis, particularly when exporting multiple data sets over extended periods:
 
 ![S3 Bucket date defined organization](assets/s3_csv_bucket_files.png)
 
-It is possible to look deeper into each generated CSV files as an object if detailed information is required for certain purposes:
+To view a specific CSV file, navigate to its **object details page** within the S3 bucket. You can access metadata such as file size, storage class, last modified timestamp and the AWS S3 URI for automated access here:
 
 ![Generated CSV file details](assets/s3_csv_file_details.png)
 
-You can download the CSV file within object window shown in the image above or within list of objects from the bucket itself.
+The CSV files can be downloaded directly from the object view or by selecting them from the list of objects within the bucket. This provides methods to analyze data locally, integrate it into external workflows or visualize trends.
 
-The CSV files generated by the exporter follow this structure:
+### CSV File Format and Data Structure
+
+The exported CSV files follow a standardized column based structure, ensuring consistency across all data sets. Each row represents a data sample from a specific Arduino Cloud Thing, including timestamp, thing ID, property values and aggregation type:
 
 ```csv
 timestamp,thing_id,thing_name,property_id,property_name,property_type,value,aggregation_statistic
 ```
 
-The following is an example of how the CSV files would look with data:
+The following is an example of how the CSV files store the data:
 
 ```
 2025-02-09T21:46:39Z,7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6,C33Proto_AWSS3Bench,f75dcacf-dadd-406e-b1d0-239a9c624dce,measuredAirQualityInterpreted,CHARSTRING,Very Good,LAST_VALUE
@@ -317,7 +353,7 @@ The following is an example of how the CSV files would look with data:
 2025-02-09T21:46:39Z,7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6,C33Proto_AWSS3Bench,30bac618-1d9c-4846-9cde-5466efd4c782,measuredSulfurOdor,BOOLEAN,FALSE,LAST_VALUE
 ```
 
-In a more elaborate form, it looks as following:
+For a more structured representation, the CSV data can be visualized as follows:
 
 | **Timestamp**        | **Thing ID**                         | **Thing Name**      | **Property ID**                      | **Property Name**             | **Property Type** | **Value**           | **Aggregation Statistic** |
 |----------------------|--------------------------------------|---------------------|--------------------------------------|-------------------------------|-------------------|---------------------|---------------------------|
@@ -329,6 +365,8 @@ In a more elaborate form, it looks as following:
 | 2025-02-09T23:10:23Z | 7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6 | C33Proto_AWSS3Bench | 79aa255e-8c0d-456c-a5e1-8dee12f9ee10 | measuredRelativeAirQuality    | FLOAT             | 94.35742950439453   | LAST_VALUE                |
 | 2025-02-09T23:10:23Z | 7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6 | C33Proto_AWSS3Bench | 30454a65-42c3-4083-8141-7f5341eba68c | measuredTVOC                  | FLOAT             | 0.11863171309232712 | LAST_VALUE                |
 | 2025-02-09T21:46:39Z | 7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6 | C33Proto_AWSS3Bench | 30bac618-1d9c-4846-9cde-5466efd4c782 | measuredSulfurOdor            | BOOLEAN           | FALSE               | LAST_VALUE                |
+
+AWS S3 and Arduino Cloud are now connected with the stack successfully deployed. Data extraction will follow the defined schedule, storing CSV files in the designated S3 bucket.
 
 ## Lambda, CloudWatch & EventBridge
 
