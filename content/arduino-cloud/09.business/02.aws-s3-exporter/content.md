@@ -20,6 +20,8 @@ The **Arduino AWS S3 CSV Exporter** is designed to extract time series data from
 
 A scheduled AWS Lambda function manages the data extraction process, running at configurable intervals. The extraction frequency, sampling resolution and filters can be customized to refine the data stored in S3.
 
+![Arduino AWS S3 CSV Exporter Build](assets/cloudformation_stack_creation.gif)
+
 At the end of this tutorial, the stack will be configured to extract data from Arduino Cloud every hour, aggregate samples at a five minute resolution and store structured CSV files in AWS S3. The setup will also allow filtering by tags to include only specific data, providing a scalable and structured approach to managing cloud connected device data and ensuring easy retrieval and long term storage.
 
 ## Goals
