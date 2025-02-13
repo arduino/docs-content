@@ -70,6 +70,11 @@ The sketch file is generated with a set of additional Cloud-specific methods inc
 - `ArduinoCloud.begin()` starts the library with the preferred connection (e.g. Wi-Fi® or LoRaWAN®).
 - `ArduinoCloud.update()` - synchronizes all data between the board and the Arduino Cloud.
 
+There are a few different options when it comes to synchronization of your cloud sketch:
+- `MOST_RECENT_WINS` - Best for real-time applications where the latest data should always be used, regardless of source.
+- `CLOUD_WINS` - Useful when the cloud holds critical configurations or settings that should always be enforced on the device.
+- `DEVICE_WINS` - Used when the device generates important real-time data (sensor readings) that should always be preserved over cloud updates.
+
 In addition, any variable created with a read/write permission will also generate a callback function that executes whenever the variable's value changes.
 - If you create a variable called `test`, the function will render as `void onTestChange(){}`
 
