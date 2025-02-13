@@ -370,43 +370,77 @@ AWS S3 and Arduino Cloud are now connected with the stack successfully deployed.
 
 ## Lambda, CloudWatch & EventBridge
 
-Once the CloudFormatio stack has been deployed getting CSV destination bucket getting filled every hour, there are three useful tools to monitor stack deployment. These are Lambda, CloudWatch and EventBridge.
+Once the CloudFormation stack is deployed and the CSV destination bucket receives data every hour, three AWS services can help us provide monitoring and troubleshooting capabilities: **Lambda**, **CloudWatch** and **EventBridge**. These tools can help us provide visibility to the execution status, performance metrics and event triggers of the AWS S3 CSV Exporter.
 
 ### Lambda
 
+The **AWS Lambda function** is the core component responsible for running the data extraction process at scheduled intervals. It retrieves specified data from Arduino Cloud and stores it in the AWS S3 bucket.
+
+The Lambda function overview displays key details such as the function name, assigned **Amazon Resource Name (ARN)** and the trigger responsible for the execution, **EventBridge (CloudWatch Events)**. Additional function metadata includes the application name and the last modification date.
+
 ![S3 Bucket date defined organization](assets/lambda_function.png)
+
+The configuration section provides insights into the execution environment. It includes details about the function runtime, execution history and triggers. Other important parameters, such as destinations, environment variables and error-handling configurations, can also be managed here.
 
 ![S3 Bucket date defined organization](assets/lambda_function_overview.png)
 
 ### CloudWatch
 
+**Amazon CloudWatch** monitors the Lambda function and related resources in real time. It logs each function execution and generates performance metrics to analyze execution behavior, track invocation counts and detect failures.
+
+The CloudWatch metrics dashboard presents data such as invocation frequency, execution duration and success rate. Metrics related to event processing, error rates and memory consumption provide additional insights into function efficiency and stability.
+
 ![S3 Bucket date defined organization](assets/lambda_function_cloudwatch_metrics.png)
 
+CloudWatch logs have execution records for every function run, including timestamps, request IDs, memory consumption and billed execution duration. This information is critical for debugging and verifying execution consistency.
+
 ![S3 Bucket date defined organization](assets/lambda_function_cloudwatch_logs.png)
+
+Detailed logs display function specific messages, showing configuration settings such as applied filters, aggregation parameters and time window alignment. Logs also corroborate successful data exports, including file upload status, highlighting any warnings or errors encountered during execution. This helps us verify if it could establish communication with configured Arduino keys.
 
 ![S3 Bucket date defined organization](assets/lambda_function_cloudwatch_log_detail.png)
 
 ### EventBridge
 
+**Amazon EventBridge** manages the scheduling of Lambda function executions. It makes sure that the data extraction process runs at predefined intervals without manual intervention.
+
+The **EventBridge Rules** dashboard shows the rule responsible for triggering the *AWS S3 CSV Exporter Lambda function*. The rule type is **Scheduled Standard**, meaning it executes the function at fixed intervals, with its status appearing as Enabled, indicating that it is active and operational.
+
 ![S3 Bucket date defined organization](assets/eventbridge_rules.png)
+
+The rule details section provides more information about the execution schedule, including the assigned **ARN** of the event rule, the designated target Lambda function and the configured schedule for triggering the function at regular intervals.
 
 ![S3 Bucket date defined organization](assets/eventbridge_rule_details.png)
 
+The Lambda function's EventBridge trigger confirms the active connection between EventBridge and the Lambda function. The trigger state is Enabled, ensuring scheduled execution. This section also displays additional configurations related to event targeting and optional input parameters.
+
 ![S3 Bucket date defined organization](assets/lambda_function_eventbridge_trigger.png)
+
+The combination of Lambda, CloudWatch and EventBridge provides monitoring and maintenance of the AWS S3 CSV Exporter. Lambda handles function execution and triggers, CloudWatch logs real time function activity and performance metrics. At the same time, EventBridge schedules the execution process to maintain continuous data exports.
+
+Together, these services provide the tools to track performance, detect errors and optimize the automated CSV data extraction from Arduino Cloud to AWS S3.
 
 ## Building the Code (Optional)
 
-Ensure that at least [**Go version 1.22**](https://go.dev/) is installed to build the exporter locally. The core code can be built using the following command:
+The [**AWS S3 CSV Exporter repository**](https://github.com/arduino/aws-s3-integration/tree/0.3.0) contains the source code required to build and deploy the exporter. While precompiled binaries are available, building the exporter locally allows customization and testing before deployment.
+
+### Building Locally
+
+To build the AWS S3 CSV Exporter, make sure that at least [**Go version 1.22**](https://go.dev/) is installed. The exporter can be compiled using:
 
 ```bash
 ./compile-lambda.sh
 ```
 
-This creates a **`arduino-s3-integration-lambda.zip`** file. Alternatively, you can run the following command to build the exporter:
+This script creates an **`arduino-s3-integration-lambda.zip`** file, which is the packaged Lambda function ready for deployment.
+
+Alternatively, the following command can be used to build the exporter:
 
 ```bash
 task go:build
 ```
+
+This approach is useful for developers who want to test or modify the exporter before deploying it using AWS CloudFormation.
 
 ## Additional Documentation
 
@@ -424,6 +458,6 @@ To help you get the most out of the exporter, the following documentation resour
 
 ## Conclusion
 
-In this tutorial, you have learned to use the **Arduino AWS S3 CSV Exporter** to capture time series data from **Arduino Cloud** and store it in **AWS S3** for management and analysis. With configurable options for aggregation intervals, tag filtering, and data compression, the exporter offers flexibility for various project needs.
+This tutorial showed how to use the **Arduino AWS S3 CSV Exporter** to extract time series data from **Arduino Cloud** and store it in **AWS S3** for structured management and analysis. The exporter can be adapted to different use cases with configurable settings for aggregation intervals, tag-based filtering and optional data compression.
 
-Following this tutorial, you can deploy and configure the exporter using a CloudFormation template, making it a useful tool for integrating cloud based data storage into your IoT projects.
+By deploying the exporter using a CloudFormation template, you have simplified cloud based data storage for IoT applications. This setup automates data collection, simplifying trend analysis, device monitoring and long-term storage management.
