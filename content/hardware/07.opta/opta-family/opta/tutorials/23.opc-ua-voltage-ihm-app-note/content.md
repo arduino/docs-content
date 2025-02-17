@@ -1,5 +1,5 @@
 ---
-title: 'Integrate Arduino Opta with Ignition HMI through OPC-UA'
+title: 'Integrate Arduino Opta with Ignition HMI Through OPC-UA'
 difficulty: advanced
 description: "This application note explains how to monitor voltage levels using the Arduino Opta™, the Open Platform Communications Unified Architecture (OPC-UA) protocol, and the Ignition platform. The Ignition platform provides a Human-Machine Interface (HMI) designed to analyze an Opta™ analog input and display the status of indicator lights."
 tags:
