@@ -89,7 +89,7 @@ We recommend you to use this pre-compiled binary to flash your Nano Matter board
 
 ***Make sure to have the [Silicon Labs core](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#board-core-and-libraries) installed on your Arduino IDE so you can use the __openocd__ tool for flashing.***
 
-From here, jump directly to the [Matter Controller section](http://localhost:8000/tutorials/nano-matter/open-thread-border-router/#the-matter-controller-nano-esp32).
+From here, jump directly to the [Matter Controller section](https://docs.arduino.cc/tutorials/nano-matter/open-thread-border-router/#the-matter-controller-nano-esp32).
 
 #### Build the Binary From Scratch (Optional)
 
