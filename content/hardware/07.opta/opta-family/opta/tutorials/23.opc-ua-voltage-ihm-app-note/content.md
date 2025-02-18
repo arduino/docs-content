@@ -19,6 +19,8 @@ hardware:
 
 Human-Machine Interfaces (HMIs) play a vital role in enabling effective interaction between operators and industrial systems, supporting efficient control, monitoring, and decision-making processes. By providing clear visualization and intuitive controls, HMIs enable operators to monitor system status and respond to issues in real time. For example, visual indicators for voltage levels can help operators identify and address potential problems before they impact operations.
 
+HMIs can be implemented locally, via a dedicated hardware unit or via a server with thin clients. In this application note we will focus on the latter, due to a growing trend in adopting this approach for new industrial systems. We have chosen Ignition HMI software from the [Ignition Platform suite](https://inductiveautomation.com/ignition/), a powerful software that simplifies the creation of high-performance HMIs.
+
 The functionality of HMIs depends on efficient and reliable communication across all connected components. This is achieved through the integration of robust communication protocols. One such protocol is Open Platform Communications Unified Architecture (OPC-UA), recognized for its flexibility, security, and compatibility with a wide range of automation platforms. Through OPC-UA, HMIs can ensure reliable data exchange and interoperability, further optimizing industrial system performance.
 
 ![HMI for Voltage Monitoring using OPC-UA System](assets/thumbnail.png)
