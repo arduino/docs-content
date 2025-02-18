@@ -51,7 +51,7 @@ With an SPI connection there is always one Controller device (usually a microcon
 | Slave Select pin (SS)      | Chip Select Pin (CS)                 |
 
 
-The difficult part about SPI is that the standard is loose and each device implements it a little differently. This means you have to pay special attention to the datasheet when writing your interface code. Generally speaking there are three modes of transmission numbered 0 - 3. These modes control whether data is shifted in and out on the rising or falling edge of the data clock signal, and whether the clock is idle when high or low.
+The difficult part about SPI is that the standard is loose and each device implements it a little differently. This means you have to pay special attention to the datasheet when writing your interface code. Generally speaking there are four modes of transmission numbered 0 - 3. These modes control whether data is shifted in and out on the rising or falling edge of the data clock signal, and whether the clock is idle when high or low.
 
 All SPI settings are determined by the Arduino SPI Control Register (SPCR). A register is just a byte of microcontroller memory that can be read from or written to. Registers generally serve three purposes, control, data and  status.
 
