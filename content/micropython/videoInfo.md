@@ -5,26 +5,26 @@ info:
     {
       icon: IconBoard,
       title: Board Installation,
-      description: Create smart dashboards to control connected devices using few coding,
-      link: /micropython/basics/board-installation,
+      description: Install MicroPython on your board,
+      link: /micropython/first-steps/install-guide,
     },
     {
       icon: IconBrackets,
       title: Code Editors,
-      description: Create smart dashboards to control connected devices using few coding,
-      link: /micropython/basics/code-editors,
+      description: Learn more about the Arduino Lab for MicroPython and how to use the code editor for your MicroPython projects,
+      link: /micropython/environment/code-editor,
     },
     {
       icon: IconBooks,
       title: MicroPython Basics,
-      description: An introduction to MicroPython,
-      link: /micropython/basics/micropython-basics,
+      description: A brief introduction to MicroPython,
+      link: /micropython/first-steps/intro-micropython,
     },
     {
       icon: IconSmartDashBoard,
       title: Examples by Board,
-      description: Create smart dashboards to control connected devices using few coding,
-      link: /micropython/basics/board-examples,
+      description: Take full advantage of board-specific features,
+      link: /micropython/board-examples/giga-r1-wifi,
     },
   ]
 ---
