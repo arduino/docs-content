@@ -53,4 +53,4 @@ The Arduino TFT library extends the [Adafruit GFX](https://github.com/adafruit/A
 
 The library is backwards compatible, which means you can still use the Adafruit functions[described here](http://learn.adafruit.com/adafruit-gfx-graphics-library/overview).
 
-The TFT library relies on the [SPI library](https://www.arduino.cc/en/Reference/SPI), which must be included in any sketch that uses the scree. If you wish to use the SD card, you need to include the [SD library](https://www.arduino.cc/en/Reference/SD) as well.
+The TFT library relies on the [SPI library](https://reference.arduino.cc/reference/en/language/functions/communication/spi/), which must be included in any sketch that uses the scree. If you wish to use the SD card, you need to include the [SD library](https://www.arduino.cc/en/Reference/SD) as well.

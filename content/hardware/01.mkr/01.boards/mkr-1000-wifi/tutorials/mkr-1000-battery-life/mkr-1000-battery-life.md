@@ -6,7 +6,7 @@ tags:
   - Rechargeable batteries
 libraries:
   - name: SPI library
-    url: https://www.arduino.cc/en/reference/SPI
+    url: https://reference.arduino.cc/reference/en/language/functions/communication/spi/
   - name: WiFi101 library
     url: https://www.arduino.cc/en/Reference/WiFi101
 author: "Arduino"
@@ -36,7 +36,7 @@ This tutorial gives an overview on how to determine the duration of a rechargeab
 - Ammeter
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
-- [SPI library](https://www.arduino.cc/en/reference/SPI)
+- [SPI library](https://reference.arduino.cc/reference/en/language/functions/communication/spi/)
 - [WiFi101 library](https://www.arduino.cc/en/Reference/WiFi101)
 
 
