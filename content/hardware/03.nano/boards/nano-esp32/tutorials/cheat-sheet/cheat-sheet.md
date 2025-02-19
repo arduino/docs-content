@@ -270,6 +270,8 @@ Note that all analog pins can be used as digital pins as well, but not vice vers
 
 There are 8 analog input pins on the Nano ESP32, with 2 reserved for I2C communication (A4/A5). The ESP32-S3 embeds two SAR ADCs, `ADC1` and `ADC2`, where each ADC uses 4 channels each. 
 
+The default resolution for the ADC pins are 12-bit (returns a value between 0-4095).
+
 | Pin | Type   | Function                                    | ADC channel |
 | --- | ------ | ------------------------------------------- | ----------- |
 | A0  | Analog | Analog input 0                              | `ADC1_CH0`  |
