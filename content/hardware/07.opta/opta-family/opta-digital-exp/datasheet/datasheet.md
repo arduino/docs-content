@@ -120,7 +120,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | Rated load DC13                             | 36 W                              |
 | Minimum switching current                   | 1 mA                              |
 | Max "OFF-state" leakage current             | 0.001 mA                          |
-| Max "OFF-state" voltage drop                | 0.4 V                             |
+| Max "ON-state" voltage drop                 | 0.4 V                             |
 | Relay response time from state 0 to state 1 | 0.02 ms for relay output          |
 | Relay response time from state 1 to state 0 | 0.2 ms for relay output           |
 | Electrical life at rated load               | > 10 million cycles               |
