@@ -78,7 +78,6 @@ Enter the world of global asset tracking with the **Arduino® Portenta Cat. M1/N
 - Arduino® Portenta H7 (SKU: ABX00042)
 - Arduino® Portenta H7 Lite (SKU: ABX00045)
 - Arduino® Portenta H7 Lite Connected (SKU: ABX00046)
-- Arduino® Portenta X8 (SKU: ABX00049)
 
 ### Assembly Overview
 ![Example of a typical assembly including an Arduino® Portenta H7 and Arduino® Portenta Cat. M1/NB IoT GNSS Shield.](assets/thalesShieldSolutionOverview_60.png)
@@ -274,6 +273,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 
 | **Date**   | **Revision** | **Changes**                                       |
-| ---------- | ------------ | ------------------------------------------------- |
+|------------|--------------|---------------------------------------------------|
+| 13/02/2025 | 3            | Updated board compatibility list                  |
 | 09/05/2024 | 2            | Additional notes and warnings added. Format fixes |
 | 31/01/2022 | 1            | Initial Version                                   |
