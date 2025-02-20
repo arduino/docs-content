@@ -182,47 +182,54 @@ The Portenta X8’s M4 microcontroller captures real time flow sensor data and o
 #include <FlowSensor.h>
 
 #if defined(ARDUINO_PORTENTA_X8)
-// Use Serial1 (UART0) for Portenta Max Carrier / Breakout Carrier
-#define SerialDebug Serial1
+#define SerialDebug Serial1  // Use Serial1 for Portenta Carrier family
 #else
 #define SerialDebug Serial
 #endif
 
 // Define Flow Sensor Type (Change if using another model)
 #define SENSOR_TYPE YFS201  
-#define SENSOR_PIN D2  // Connect signal to pin D2 (interrupt pin)
+#define SENSOR_PIN PD_15  // Flow sensor signal pin
 
 FlowSensor flowSensor(SENSOR_TYPE, SENSOR_PIN);
-unsigned long lastReadTime = 0;  // Stores last measurement time
+
+// Define 1Hz Sampling Frequency
+#define INTERVAL_MS 1000  // 1 sample per second
+
+static unsigned long last_interval_ms = 0;
 
 // Interrupt function for counting pulses
 void count() {
-   flowSensor.count();
+  flowSensor.count();
 }
 
 void setup() {
-   SerialDebug.begin(115200);
-   while (!SerialDebug);  // Wait for Serial to be ready
+  SerialDebug.begin(115200);
+  while (!SerialDebug);
 
-   // Initialize Flow Sensor
-   flowSensor.begin(count);
+  pinMode(LED_BUILTIN, OUTPUT);
+  flowSensor.begin(count);
 
-   // Print CSV header for Edge Impulse Data Forwarder
-   SerialDebug.println("Timestamp (ms),Flow Rate (L/min)");
+  SerialDebug.println("Setup complete. Streaming flow rate at 1 Hz");
 }
 
 void loop() {
-   if (millis() - lastReadTime >= 1000) {  // Read data every second
-      flowSensor.read();  // Get new reading
-      float flowRate = flowSensor.getFlowRate_m();  // Flow rate in L/min
+  if (millis() - last_interval_ms >= INTERVAL_MS) { 
+    last_interval_ms = millis(); 
 
-      // Print CSV format: "Timestamp, Flow Rate"
-      SerialDebug.print(millis());
-      SerialDebug.print(",");
-      SerialDebug.println(flowRate, 2);
+    flowSensor.read();
+    float flowRate = flowSensor.getFlowRate_m();      // Flow rate in L/min
 
-      lastReadTime = millis();  // Update last read time
-   }
+    // Avoid NaN or Inf issues
+    if (isnan(flowRate) || isinf(flowRate)) {
+        SerialDebug.println("0.00");                  // Send 0 if no valid reading
+    } else {
+        SerialDebug.println(flowRate, 2);             // Print flow rate
+    }
+
+    // Blink LED to indicate data collection
+    digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+  }
 }
 ```
 
@@ -239,6 +246,46 @@ edge-impulse-data-forwarder
 Follow the prompts to select the correct serial port and map the flow rate variable to Edge Impulse. Upload the collected data and configure a custom target with Portenta X8 (Linux aarch64). Select Sensor Fusion as the processing block. Train the model using different flow rate conditions as normal, low, high, and anomaly.
 
 After training and validating the model, export it as a Docker container for deployment.
+
+```
+networks:
+  sensorfusion:
+
+services:
+  cad:
+    image: arduino/python-sf:latest
+    build: .
+    restart: unless-stopped
+    depends_on:
+      - inference
+    tty: true
+    environment:
+      M4_PROXY_HOST: m4proxy
+      M4_PROXY_PORT: 5001
+    extra_hosts:
+      - "m4proxy:host-gateway"
+    networks:
+      sensorfusion:
+        aliases:
+          - collect-and-dispatch
+    command: ["inference", "1337"]
+
+  inference:
+    image: public.ecr.aws/g7a8t7v6/inference-container:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    restart: unless-stopped
+    ports:
+      - 1337:1337
+    networks:
+      sensorfusion:
+        aliases:
+          - ei-inference
+    command: [
+      "--api-key", "ei_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "--run-http-server", "1337",
+      "--force-target", "runner-linux-aarch64",
+      "--model-variant", "int8"
+    ]
+```
 
 Once connected with the Portenta X8, upload the required files using ADB:
 
@@ -268,82 +315,159 @@ docker-compose logs -f -n 10
 
 ### Classifying Flow Rate in Real-Time
 
+```arduino
+#include <Arduino.h>
+#include <RPC.h>
+#include <SerialRPC.h>
+#include <FlowSensor.h>
+
+// Define Flow Sensor Type and Pin
+#define SENSOR_TYPE YFS201  
+#define SENSOR_PIN PD_15  // Flow sensor signal pin
+
+FlowSensor flowSensor(SENSOR_TYPE, SENSOR_PIN);
+
+// Interrupt function for counting pulses
+void count() {
+    flowSensor.count();
+}
+
+// Function to calculate and return flow rate (for RPC)
+float getFlowRate() {
+    flowSensor.read();
+    float flowRate = flowSensor.getFlowRate_m();  // Get flow rate in L/min
+
+    // Avoid NaN or Inf issues
+    if (isnan(flowRate) || isinf(flowRate)) {
+        return 0.0;  // Default to 0 if no valid reading
+    }
+    return flowRate;
+}
+
+void setup() {
+    flowSensor.begin(count);
+
+    // Register the RPC function
+    RPC.bind("flow_rate", getFlowRate);
+}
+
+void loop() {
+    // Nothing needed in loop, RPC handles function calls when requested
+}
+```
+
 The `main.py` script reads flow sensor data, sends it to Edge Impulse for classification and forwards the results to the M4 microcontroller for further action.
 
 ```python
-#!/usr/bin/env python3
 import os
 import time
-import requests  # type: ignore
 import json
 import argparse
-from msgpackrpc import Address as RpcAddress, Client as RpcClient, error as RpcError  # type: ignore
+from msgpackrpc import Address as RpcAddress, Client as RpcClient, error as RpcError
 
-# RPC Configuration for M4 Microcontroller
-M4_PROXY_HOST = os.getenv('M4_PROXY_HOST', 'm4proxy')
-M4_PROXY_PORT = int(os.getenv('M4_PROXY_PORT', '5001'))
-m4_proxy_address = RpcAddress(M4_PROXY_HOST, M4_PROXY_PORT)
+# Retrieve M4 Proxy settings from environment variables (or use defaults)
+m4_proxy_host = os.getenv("M4_PROXY_HOST", "m4proxy")
+m4_proxy_port = int(os.getenv("M4_PROXY_PORT", "5001"))
+m4_proxy_address = RpcAddress(m4_proxy_host, m4_proxy_port)
 
-# Flow Sensor Data Source (Serial Port)
-SERIAL_PORT = os.getenv("SERIAL_PORT", "/dev/ttyUSB0")  # Adjust if needed
-BAUD_RATE = 115200
+# Define the single sensor we are using
+sensors = ("flow_rate",)  # Tuple with one element to keep extend() valid
 
-# Inference Server Configuration
-INFERENCE_HOST = os.getenv("INFERENCE_HOST", "inference")
-INFERENCE_PORT = int(os.getenv("INFERENCE_PORT", 1337))
-INFERENCE_URL = f"http://{INFERENCE_HOST}:{INFERENCE_PORT}/api/features"
-
-def read_flow_sensor():
-    """ Reads flow rate from the flow sensor via serial. """
-    import serial
+def get_sensors_data_from_m4():
+    """
+    Get flow sensor data from the M4 via RPC (MessagePack-RPC).
+    The Arduino sketch on the M4 must implement the "flow_rate" method.
+    """
     try:
-        with serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=1) as ser:
-            line = ser.readline().decode("utf-8").strip()
-            if "," in line:
-                _, flow_rate = line.split(",")
-                return float(flow_rate)
-    except Exception as e:
-        print(f"Error reading flow sensor: {e}")
-        return None
+        get_value = lambda value: RpcClient(m4_proxy_address).call(value)  # Ensure this returns a value
+        data = [get_value(sensor) for sensor in sensors]  # Ensure it's a list
+        
+        print(f"Sensor Data: {data}")  # Debug output
+        return data
 
-def classify_flow_rate(flow_rate):
-    """ Sends flow rate data to Edge Impulse and retrieves the classification result. """
-    data = {"features": [flow_rate]}
-    try:
-        response = requests.post(INFERENCE_URL, json=data)
-        if response.status_code == 200:
-            result = response.json().get("result", {}).get("classification", {})
-            if result:
-                label = max(result, key=result.get)
-                confidence = result[label]
-                print(f"Classified as: {label} ({confidence:.2f})")
-                return label, confidence
-    except requests.ConnectionError:
-        print("Error: Unable to reach Edge Impulse inference server.")
-    return None, None
-
-def send_classification_to_m4(label, confidence):
-    """ Sends classification results to M4 via RPC. """
-    try:
-        client = RpcClient(m4_proxy_address)
-        response = client.call("classification", json.dumps({"label": label, "value": confidence}))
-        print(f"Sent to M4: {label} ({confidence:.2f}), Response: {response}")
     except RpcError.TimeoutError:
-        print("Error: RPC Timeout while sending classification.")
+        print("Unable to retrieve sensor data from the M4: RPC Timeout")
+        return []  # Ensure an empty list is returned instead of `None`
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Classify flow rate using Edge Impulse")
-    args = parser.parse_args()
-
-    print("Starting Flow Sensor Classification... Press Ctrl+C to stop.")
+def get_sensors_and_classify(host, port):
+    """
+    Collect sensor data and send it for classification to Edge Impulse.
+    """
+    url = f"http://{host}:{port}/api/features"
 
     while True:
-        flow_rate = read_flow_sensor()
-        if flow_rate is not None:
-            label, confidence = classify_flow_rate(flow_rate)
-            if label:
-                send_classification_to_m4(label, confidence)
-        time.sleep(1)  # Adjust sampling rate if needed
+        print("Collecting 400 features from sensors... ", end="")
+
+        data = {
+            "features": [],
+            "model_type": "int8"  # Force quantized inference mode
+        }
+        start = time.time()
+
+        for _ in range(100):  # Collect data in chunks
+            sensor_values = get_sensors_data_from_m4()
+
+            if not isinstance(sensor_values, list):  # Validate that we get a list
+                print(f"Error: Expected list but got {type(sensor_values)} with value {sensor_values}")
+                sensor_values = []  # Default to an empty list
+            
+            data["features"].extend(sensor_values)  # Avoid TypeError
+
+            time.sleep(100e-6)  # Small delay to match sampling rate
+
+        stop = time.time()
+        print(f"Done in {stop - start:.2f} seconds.")
+
+        try:
+            response = requests.post(url, json=data)
+        except ConnectionError:
+            print("Connection Error: retrying later")
+            time.sleep(5)
+            continue
+
+        # Check the response
+        if response.status_code != 200:
+            print(f"Failed to submit features. Status Code: {response.status_code}")
+            continue
+
+        print("Successfully submitted features.")
+
+        # Process the JSON response to extract classification results
+        response_data = response.json()
+        classification = response_data.get("result", {}).get("classification", {})
+
+        print(f"Classification: {classification}")
+
+        if classification:
+            label = max(classification, key=classification.get)
+            value = classification[label]
+
+            print(f"{label}: {value}")
+
+            request_data = json.dumps({"label": label, "value": value})
+
+            try:
+                client = RpcClient(m4_proxy_address)
+                result = client.call("classification", request_data)
+                print(f"Sent to {m4_proxy_host}:{m4_proxy_port}: {request_data}. Result: {result}")
+            except RpcError.TimeoutError:
+                print("Unable to send classification data to M4: RPC Timeout.")
+        else:
+            print("No classification found.")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Get flow sensor data and send it to inference container for classification")
+    parser.add_argument("host", help="The hostname or IP address of the inference server")
+    parser.add_argument("port", type=int, help="The port number of the inference server")
+
+    args = parser.parse_args()
+
+    print("Classifying Flow Sensor Data with AI... Press Ctrl+C to stop.")
+
+    try:
+        get_sensors_and_classify(args.host, args.port)
+    except KeyboardInterrupt:
+        print("Exiting gracefully...")
 ```
 
 ## Additional Resources
