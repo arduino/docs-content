@@ -25,9 +25,9 @@ Flow sensors play an important role in industrial systems by monitoring fluid mo
 
 IMAGE
 
-This application note shows how to implement a flow anomaly detection system using the **Portenta X8**, a **flow sensor** and an **Edge Impulse-trained machine learning model** deployed within a **Docker container**. The system continuously captures flow rate data, processes it using the trained model and classifies flow conditions in real-time. 
+This application note shows how to implement a flow anomaly detection system using the Portenta X8, a flow sensor and an Edge Impulse trained machine learning model deployed within a Docker container. The system will capture flow rate data, process it using the trained model and classify flow conditions. 
 
-Classification results can be used for immediate decision-making, such as triggering an **alarm**, sending **commands to the M4 microcontroller** for additional processing or forwarding **data to Arduino Cloud** for remote monitoring and visualization. By leveraging Edge AI capabilities, this approach reduces reliance on cloud processing for anomaly detection while maintaining connectivity for advanced analytics and long-term data tracking.
+Classification results can be used for quick decision making, such as triggering an alarm, additional processing based on the available peripherals or forwarding data to Arduino Cloud for remote monitoring and visualization. By leveraging Edge AI capabilities, this approach reduces reliance on cloud processing for anomaly detection while maintaining connectivity for analytics and long-term data tracking.
 
 ## Goals
 
@@ -47,13 +47,13 @@ This project uses the Portenta X8, integrating a flow sensor for real time fluid
 
 - [Portenta X8](https://store.arduino.cc/products/portenta-x8) (x1)
 - Portenta Carrier Family: [Hat Carrier](https://store.arduino.cc/products/portenta-hat-carrier) / [Mid Carrier](https://store.arduino.cc/products/portenta-mid-carrier) (x1)
-- Flow Sensor (e.g., YFS201) (x1)
+- Flow Sensor (e.g. YFS201) (x1)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 - Wi-Fi® Access Point or Ethernet with Internet access (x1)
 
 ### Software Requirements
 
-To start with this application, ensure your Portenta X8 runs the latest Linux image.
+To start with this application, make sure to have your Portenta X8 running on the latest Linux image.
 
 - Ensure your Portenta X8 has the latest Linux image. Check [this section of Portenta X8's user manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual/#portenta-x8-os-image-update) to verify that your Portenta X8 is up-to-date.
 
@@ -68,6 +68,13 @@ To develop and deploy the flow monitoring system, the following software tools a
 - The [Arduino Create Agent](https://cloud.arduino.cc/download-agent/)
 - The [Arduino Cloud](https://cloud.arduino.cc/). If you do not have an account, you can create one for free inside [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
 
+### Download the Project Code
+
+The complete project files can be downloaded here:
+
+- [Portenta X8 onboard inference](assets/python-ei-sensorfusion-rpc-flow.zip)
+- [Portenta X8 onboard inference with Arduino Cloud](assets/python-ei-sensorfusion-rpc-flow-cloud.zip)
+
 ## Machine Learning Model for Flow Anomaly Detection
 
 Machine learning enables industrial systems to analyze sensor data, recognize patterns and make data-driven decisions. This application implements a machine learning model to classify flow patterns in real-time, detecting anomalies that may indicate leaks, blockages or irregular pressure fluctuations.
@@ -76,17 +83,13 @@ By leveraging Edge Impulse, the model is trained to distinguish between normal a
 
 IMAGE
 
-Flow anomaly detection is particularly useful in systems that rely on consistent mass airflow or liquid circulation to maintain optimal performance. For example, vehicle powerplants require stable coolant delivery to regulate engine temperature.
+Flow anomaly detection is particularly useful in systems that rely on consistent mass airflow or liquid circulation to maintain optimal performance. For example, most vehicle powerplants require stable coolant delivery to regulate engine temperature.
 
 At the same time, industrial and medical cooling systems must maintain actual flow rates to prevent overheating or component degradation. The system can detect early warning signs of potential failures by classifying flow conditions, allowing proactive intervention.
 
 ### Applications of Flow Rate Categorization
 
 This machine learning model can be applied in different industrial and automotive domains where monitoring and controlling fluid flow at different points are important, based on the key application areas where it involves small systems:
-
-### Applications of Flow Rate Categorization
-
-IMAGE
 
 | **Application Area**                           | **Examples**                                                                                                                                                                                                                                   |
 |------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -97,8 +100,6 @@ IMAGE
 ### Flow Rate Categorization and Anomaly Detection
 
 The trained model categorizes flow conditions based on real-time measurements from the sensor. The following classification table defines normal and anomalous flow conditions for this application note:
-
-IMAGE
 
 | **Flow Rate (L/min)** | **Category**             | **Potential Issues & Notes**                                                      |
 |-----------------------|--------------------------|-----------------------------------------------------------------------------------|
@@ -118,7 +119,7 @@ This application does not require complex wiring for operation. However, proper 
 
 - **Portenta X8**: The main processing unit, running Edge Impulse inference inside a Docker container.
 - **Portenta Hat/Mid Carrier**: Provides easy access to peripherals and power connections.
-- **Flow Sensor (e.g., YFS201)**: Measures real-time flow rate and detects anomalies.
+- **Flow Sensor (e.g. YFS201)**: Measures real-time flow rate and detects anomalies.
 - **USB-C Cable**: Connects the Portenta X8 to a development PC for setup and debugging.
 - **Wi-Fi/Ethernet Access**: Enables cloud connectivity for data visualization in Arduino Cloud.
 
@@ -128,22 +129,18 @@ The system wiring follows a straightforward configuration:
 
 ![System Wiring Overview](assets/system-wiring.png)
 
-- **Portenta X8**: mounted on the **Portenta Mid/Hat Carrier**, which provides access to pinout interfaces. Any other Portenta family can also be used for this step.
+- **Portenta X8**: mounted on the **Portenta Mid/Hat Carrier**, which provides access to pinout interfaces. Any other Portenta family can also be used for this step. It is also used to connect to **Wi-Fi** or **Ethernet** for cloud communication.
 - **flow sensor**: connected to the corresponding pins on the **Portenta Mid/Hat Carrier**.
 - **USB-C cable**: used for initial setup, debugging and Edge Impulse data collection.
-- **Portenta X8**: connected to **Wi-Fi** or **Ethernet** for cloud communication.
 
 ### Powering Options
 
 Both the **Portenta Mid Carrier** and **Portenta Hat Carrier** support multiple power input options, depending on the deployment requirements:
 
-#### Portenta Mid Carrier Power Configuration
-- **USB-C Power (5V)**: For development, debugging and short-term testing.
-- **External DC Power (7-24V)**: For field deployments requiring stable and continuous operation.
-
-#### Portenta Hat Carrier Power Configuration
-- **USB-C Power (5V)**: For development, debugging and short-term testing.
-- **External DC Power (5-12V)**: For reliable operation in embedded applications.
+| **Carrier Board**    | **USB-C Power (5V)**                              | **External DC Power** |
+|----------------------|---------------------------------------------------|-----------------------|
+| Portenta Mid Carrier | For development, debugging and short-term testing | 5 VDC                 |
+| Portenta Hat Carrier | For development, debugging and short-term testing | 7 - 32 VDC            |
 
 ![Powering Options](assets/power-options.png)
 
@@ -163,16 +160,11 @@ Sensor data needs to be collected across different flow conditions to build a re
 
 The flow sensor connected to the Portenta X8 captures flow rate readings and sends the data to Edge Impulse using the Edge Impulse Data Forwarder. This process allows real-time monitoring and labeling of flow patterns under different operating conditions.
 
-The data acquisition process consists of the following steps:
+To collect training data, the Portenta X8 (or compatible Portenta family) continuously measures the real-time flow rate (L/min) from the sensor. It streams it to Edge Impulse via the Data Forwarder.
 
-1. Uploading the Arduino sketch on the Portenta X8’s M4 core to capture real-time flow rate readings.
-2. Initializing Edge Impulse Data Forwarder on the host system.
-3. Connecting the Portenta X8 to Edge Impulse for live data streaming.
-4. Setting up data labels corresponding to different flow states (stable, low, high, anomalous).
-5. Sampling flow rate data at 1Hz frequency and storing it in Edge Impulse.
-6. Organizing and labeling datasets for model training and evaluation.
+The M4 Core captures sensor readings at a 1Hz sampling rate and sends them over serial output. These values are labeled as `Normal`, `Low`, `High` or `Anomalous`, providing a balanced dataset for training and validation.
 
-Once enough labeled data is collected, it is split into training and testing datasets, ensuring that the model is trained on different flow conditions while maintaining a separate set for validation.
+Once enough labeled data is collected, it is split into training and testing datasets. The model is then trained on different flow conditions while maintaining a separate set for validation.
 
 #### Capturing Flow Sensor Data on the Portenta X8
 
@@ -192,12 +184,12 @@ The following Arduino sketch (`sensor-data-generation.ino`) configures the Porte
 
 // Define Flow Sensor Type (Change if using another model)
 #define SENSOR_TYPE YFS201  
-#define SENSOR_PIN PD_15  // Flow sensor signal pin
+#define SENSOR_PIN PD_15                              // Flow sensor signal pin
 
 FlowSensor flowSensor(SENSOR_TYPE, SENSOR_PIN);
 
 // Define 1Hz Sampling Frequency
-#define INTERVAL_MS 1000  // 1 sample per second
+#define INTERVAL_MS 1000                              // 1 sample per second
 
 static unsigned long last_interval_ms = 0;
 
@@ -432,91 +424,145 @@ Here, it is possible to look into following details:
 
 Refining the model can improve classification accuracy and improve real-time flow anomaly detection.
 
-**CONTINUE HERE REFINE**
-
 ### Deployment and Real-Time Inference
 
-Once trained, the machine learning model is deployed to the Portenta X8 inside a Docker container. This allows real-time inference directly at the edge.
+Once trained, the machine learning model will be used to deploy to the Portenta X8 inside a Docker container, allowing real-time inference directly at the edge. Instead of pulling the container directly, we will use the container image, arguments and ports provided by Edge Impulse to build a custom Docker container for the Portenta X8.
 
-As new sensor data is collected, the model continuously classifies flow conditions, providing immediate feedback to the system. If an anomaly is detected, the system can trigger predefined actions, such as:
+This allows the model to run within our system configuration while keeping compatibility with the hardware and software constraints.
 
-- Activating an alarm to alert operators.
-- Sending notifications to Arduino Cloud for remote monitoring.
-- Adjusting system parameters to mitigate potential failures.
+As new sensor data is collected, the model classifies flow conditions, providing feedback to the system. If an anomaly is detected, the system can trigger predefined actions, such as:
 
-This edge AI approach improves system reliability by detecting anomalies as they happen, reducing downtime and improving operation consistency.
+- Activating an alarm to alert operators of potential system failures.
+- Sending notifications to Arduino Cloud for remote monitoring and logging.
+- Adjusting system parameters dynamically to prevent failures or improve efficiency.
+
+By processing data locally on the Portenta X8, this approach reduces dependence on external servers, reducing response time and providing continuous operation in network-limited environments.
+
+#### Preparing the Docker Deployment for Portenta X8
+
+Instead of pulling the container directly, Edge Impulse provides the necessary components to build a custom Docker container for Portenta X8. These include:
+
+- **Container Image URL:**The base inference container.
+- **Arguments:** API key for authentication and runtime configuration.
+- **Ports to Expose:** Defines how external applications can access the inference server.
+
+This setup allows for custom integration with the Portenta X8’s existing Docker-based environment, providing compatibility with other applications and services running on the device.
+
+#### Selecting Docker Deployment
+
+The deployment process starts by selecting a Docker container as the target environment within Edge Impulse:
+
+![Docker container as deployment method](assets/edge-impulse-deployment-docker1.png)
+
+Edge Impulse provides multiple options, including Jetson based deployments and general-purpose Docker containers. **The standard Docker container with an HTTP interface is used for this application.**
+
+#### Building a Custom Docker Container for Portenta X8
+
+For deployment on the Portenta X8, we use the provided container image, arguments and ports to build a custom container that integrates with the system’s existing services.
+
+![Docker container deployemnt parameters](assets/edge-impulse-deployment-docker1.png)
+
+The inference workflow consists of the following steps:
+
+- **Sensor Data Acquisition:** The flow rate sensor measures real-time values.
+- **Feature Extraction:** DSP and spectral analysis are applied to structure data.
+- **Model Prediction:** The trained model classifies the current flow condition.
+- **Response Actions:** If an anomaly is detected, the system takes corresponding action.
+
+By running inference directly on the Portenta X8, this approach can provide latency reduction and autonomous anomaly detection.
+
+#### Running the Model as a Docker Container (Optional)
+
+When docker container is selected as the deployment option, he system generates a Docker command to pull and run the model:
+
+```bash
+docker run --rm -it \
+    -p 1337:1337 \
+    public.ecr.aws/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+    --api-key ei_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+    --run-http-server 1337
+```
+
+This command pulls the latest model from the Edge Impulse container registry and runs an HTTP server on port `1337`, allowing external applications to send sensor data and receive model predictions. It uses an API key to authenticate requests.
+
+This method provides an alternative way to run the model on a general purpose Docker environment, which can be used for quick testing and validation.
+
+***For additional details on Docker based inference, refer to the [official Edge Impulse Docker Deployment documentation](https://docs.edgeimpulse.com/docs/run-inference/docker).***
 
 ## System Architecture and Data Flow
 
-The flow anomaly detection system has real-time sensor data acquisition, machine learning inference and cloud-based monitoring. The architecture consists of three main layers:
+The flow anomaly detection system has real-time sensor data acquisition, machine learning inference and cloud-based monitoring. The structure consists of three main layers:
 
-- Data Collection Layer: The Portenta X8 reads flow sensor data, capturing variations in fluid movement.
-- Processing & Inference Layer: The Edge Impulse trained model runs inside a Docker container on the Portenta X8, classifying flow patterns and detecting anomalies.
-- Cloud & Visualization Layer: The system forwards classification results to Arduino Cloud, allowing remote monitoring, notifications and real-time dashboards.
+- **Data Collection Layer:** The Portenta X8 reads flow sensor data, capturing variations in fluid movement.
+- **Processing & Inference Layer:** The Edge Impulse trained model runs inside a Docker container on the Portenta X8, classifying flow patterns and detecting anomalies.
+- **Cloud & Visualization Layer:** The system forwards classification results to Arduino Cloud, allowing remote monitoring, notifications and real-time dashboards.
 
 ### Data Flow Overview
 
-The flow sensor continuously measures fluid movement and sends readings to the Portenta X8.
+The flow sensor measures fluid movement and sends data to the Portenta X8. The M4 core collects and processes this data before making it accessible to the Linux side of the Portenta X8 using **Remote Procedure Call (RPC)**.
 
-The Portenta X8 preprocesses the raw data and forwards it to a Docker container running the Edge Impulse inference model.
+***For more details about Remote Procedure Call (RPC) and its implementation, refer to the [dedicated tutorial](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange/).***
 
-The model classifies the flow state, determining whether the condition is normal or anomalous.
+A Python script on the Linux side receives flow data from the M4 core. It sends to the Edge Impulse inference model, which runs inside the Docker container. The model classifies the flow condition as **Normal, Low, High, or Anomalous**.
 
-If an anomaly is detected, the system triggers an alert and sends the data to Arduino Cloud for remote visualization.
+The system logs an alert and records the classification results if an anomaly is detected. The data is stored locally on the Portenta X8 and sent to Arduino Cloud for visualization and anomaly tracking. This combined edge cloud processing approach allows real-time response while allowing for historical analysis and remote monitoring.
 
-Optionally, the Portenta X8’s M4 core can receive classification results for further embedded processing.
+### Edge AI and Cloud Integration for Flow Monitoring
 
-### Communication Between Components
+The Portenta X8 performs onboard inference on the device, providing low-latency anomaly detection and reducing dependency on cloud connectivity. The system reduces bandwidth usage by processing data locally, as only classification results are sent instead of raw sensor data. This allows for quick responses to anomalies, making it ideal for applications requiring real-time monitoring.
 
-- Flow Sensor & Portenta X8: The sensor outputs flow rate data, which the Portenta X8 reads at a fixed sampling interval.
-- Portenta X8 & Docker Container (Edge Impulse Model): A Python script collects sensor readings and passes them to the inference engine. The Edge Impulse model classifies the flow state and returns a prediction.
-- Portenta X8 & Arduino Cloud: Classification results are sent to the Arduino Cloud. Anomalies trigger cloud-based actions, such as alerts or data logging.
+While edge processing ensures fast decision-making, Arduino Cloud can help extend the system capabilities by allowing long-term data storage, historical trend analysis and alert triggering. Classification results are saved in the cloud, allowing for predictive maintenance and anomaly tracking over time. 
 
-### System Workflow
+This integration provides benefits of edge inference and cloud based monitoring, providing both on-time detection of irregularities and long-term system analysis for optimized performance and maintenance planning.
 
-- Data Acquisition: The Portenta X8 reads real-time flow sensor data. Raw readings are formatted for Edge Impulse inference.
-- Edge AI Processing: The inference container analyzes the data. The model classifies the flow condition (e.g., normal, low, high or anomalous). The result is stored locally and optionally sent to the M4 core for additional processing.
-- Cloud Integration & Alerts: The system pushes an alert to Arduino Cloud if an anomaly is detected. Cloud dashboards visualize flow trends and anomaly history. Notifications can be triggered for system operators.
+## Running Flow Rate Inference with Docker
 
-### Edge Processing vs. Cloud Processing
+We need to have the [hardware setup as explained here](#anomaly-detection-system-setup) before proceeding.
 
-The system leverages a hybrid processing approach, combining edge inference on the Portenta X8 with cloud based monitoring and analysis in Arduino Cloud.
+The M4 core needs to have the **`rpc-flow-sensor.ino`** uploaded to collect and send sensor data via RPC.
 
-#### Edge Processing
+```arduino
+#include <Arduino.h>
+#include <RPC.h>
+#include <SerialRPC.h>
+#include <FlowSensor.h>
 
-The Portenta X8 directly performs real-time inference on the device, running the trained Edge Impulse model inside a Docker container.
+// Define Flow Sensor Type and Pin
+#define SENSOR_TYPE YFS201  
+#define SENSOR_PIN PD_15  // Flow sensor signal pin
 
-By running the machine learning model locally, the system can classify flow conditions and detect anomalies with minimal latency. This immediate response is critical for time-sensitive applications, such as detecting blockages or leaks before they cause operational disturbances.
+FlowSensor flowSensor(SENSOR_TYPE, SENSOR_PIN);
 
-Additionally, edge processing reduces dependency on continuous cloud connectivity, ensuring the system remains operational even in network restricted environments. This is particularly valuable in industrial settings, where stable internet access may not always be available. The system minimizes bandwidth usage by processing data at the edge, as only essential classification results are sent to the cloud.
+void count() {
+    flowSensor.count();
+}
 
-#### Cloud Processing
+// Function to calculate and return flow rate (for RPC)
+float getFlowRate() {
+    flowSensor.read();
+    float flowRate = flowSensor.getFlowRate_m();  // Get flow rate in L/min
 
-While edge processing allows fast, on-device decision making, Arduino Cloud integration extends the system’s capabilities beyond real time inference. Classification results, including detected anomalies, are logged and stored in the cloud for remote access. This allows users to monitor flow conditions using cloud dashboards and historical trend analysis to gain deeper insights into system performance over time.
+    if (isnan(flowRate) || isinf(flowRate)) {
+        return 0.0;                               // Default to 0 if no valid reading
+    }
+    return flowRate;
+}
 
-Furthermore, cloud connectivity allows alerts and notifications, ensuring that users are informed when anomalies occur. By combining edge inference with cloud based monitoring, the system can identify long-term trends in fluid movement, helping predict potential failures before they escalate.
+void setup() {
+    flowSensor.begin(count);
 
-#### Optimizing Real-Time Response and Data Storage
+    // Register the RPC function
+    RPC.bind("flow_rate", getFlowRate);
+}
 
-The system can benefit from its advantages by balancing local processing and cloud analytics. Edge AI ensures low latency and real time responses, while cloud based logging and visualization allow for comprehensive trend analysis.
+void loop() {
+    // Nothing needed in loop, RPC handles function calls when requested
+}
+```
 
-This approach could be useful in industrial automation, where immediate anomaly detection and historical performance tracking are important for predictive maintenance and system optimization.
+The inference engine runs inside a Docker container, providing compatibility with the system.
 
-## Instructions
-
-This section details the technical steps to implement the setup, including the necessary code and commands.
-
-### Data Acquisition with Flow Sensor
-
-REACCOMODATED
-
-### Sending Data to Edge Impulse for Model Training
-
-REACCOMODATED
-
-Follow the prompts to select the correct serial port and map the flow rate variable to Edge Impulse. Upload the collected data and configure a custom target with Portenta X8 (Linux aarch64). Select Sensor Fusion as the processing block. Train the model using different flow rate conditions as normal, low, high, and anomaly.
-
-After training and validating the model, export it as a Docker container for deployment.
+The *Docker Compose* configuration defines the inference container and sensor data collection service.
 
 ```
 networks:
@@ -554,80 +600,12 @@ services:
       "--api-key", "ei_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
       "--run-http-server", "1337",
       "--force-target", "runner-linux-aarch64",
-      "--model-variant", "int8"
-    ]
+      "--model-variant", "int8"]
 ```
 
-Once connected with the Portenta X8, upload the required files using ADB:
+The compose file will require the **container, arguments and port values** that were generated when deployed the machine learning model as explained [here](#deployment-and-real-time-inference).
 
-```bash
-adb push
-```
-
-### Running the Inference Model on Docker
-
-With all files in place, navigate to the project directory and build the container:
-
-```bash
-docker build -t arduino/python-sf .
-```
-
-Start the application:
-
-```bash
-docker-compose up -d
-```
-
-To verify the inference engine is running, check logs:
-
-```bash
-docker-compose logs -f -n 10
-```
-
-### Classifying Flow Rate in Real-Time
-
-```arduino
-#include <Arduino.h>
-#include <RPC.h>
-#include <SerialRPC.h>
-#include <FlowSensor.h>
-
-// Define Flow Sensor Type and Pin
-#define SENSOR_TYPE YFS201  
-#define SENSOR_PIN PD_15  // Flow sensor signal pin
-
-FlowSensor flowSensor(SENSOR_TYPE, SENSOR_PIN);
-
-// Interrupt function for counting pulses
-void count() {
-    flowSensor.count();
-}
-
-// Function to calculate and return flow rate (for RPC)
-float getFlowRate() {
-    flowSensor.read();
-    float flowRate = flowSensor.getFlowRate_m();  // Get flow rate in L/min
-
-    // Avoid NaN or Inf issues
-    if (isnan(flowRate) || isinf(flowRate)) {
-        return 0.0;  // Default to 0 if no valid reading
-    }
-    return flowRate;
-}
-
-void setup() {
-    flowSensor.begin(count);
-
-    // Register the RPC function
-    RPC.bind("flow_rate", getFlowRate);
-}
-
-void loop() {
-    // Nothing needed in loop, RPC handles function calls when requested
-}
-```
-
-The `main.py` script reads flow sensor data, sends it to Edge Impulse for classification and forwards the results to the M4 microcontroller for further action.
+The `main.py` script receives flow sensor data from the M4 core and sends it to the inference container.
 
 ```python
 import os
@@ -651,14 +629,14 @@ def get_sensors_data_from_m4():
     """
     try:
         get_value = lambda value: RpcClient(m4_proxy_address).call(value)  # Ensure this returns a value
-        data = [get_value(sensor) for sensor in sensors]  # Ensure it's a list
+        data = [get_value(sensor) for sensor in sensors]                   # Ensure it is a list
         
-        print(f"Sensor Data: {data}")  # Debug output
+        print(f"Sensor Data: {data}")                                      # Debug output
         return data
 
     except RpcError.TimeoutError:
         print("Unable to retrieve sensor data from the M4: RPC Timeout")
-        return []  # Ensure an empty list is returned instead of `None`
+        return []                                                          # Ensure an empty list is returned instead of `None`
 
 def get_sensors_and_classify(host, port):
     """
@@ -671,20 +649,20 @@ def get_sensors_and_classify(host, port):
 
         data = {
             "features": [],
-            "model_type": "int8"  # Force quantized inference mode
+            "model_type": "int8"                                           # Force quantized inference mode
         }
         start = time.time()
 
-        for _ in range(100):  # Collect data in chunks
+        for _ in range(100):                                               # Collect data in chunks
             sensor_values = get_sensors_data_from_m4()
 
-            if not isinstance(sensor_values, list):  # Validate that we get a list
+            if not isinstance(sensor_values, list):                        # Validate that we get a list
                 print(f"Error: Expected list but got {type(sensor_values)} with value {sensor_values}")
-                sensor_values = []  # Default to an empty list
+                sensor_values = []                                         # Default to an empty list
             
-            data["features"].extend(sensor_values)  # Avoid TypeError
+            data["features"].extend(sensor_values)                         # Avoid TypeError
 
-            time.sleep(100e-6)  # Small delay to match sampling rate
+            time.sleep(100e-6)                                             # Small delay to match sampling rate
 
         stop = time.time()
         print(f"Done in {stop - start:.2f} seconds.")
@@ -741,14 +719,196 @@ if __name__ == "__main__":
         print("Exiting gracefully...")
 ```
 
-### Arduino Cloud
+The complete project files can be downloaded in [this section](#download-the-project-code).
 
-***For registering the Portenta X8 in [Arduino Cloud](https://docs.arduino.cc/tutorials/portenta-x8/user-manual/#portenta-x8-with-arduino-cloud).***
+Once the docker files are ready, please upload the required files using ADB:
+
+```bash
+adb push .\python-ei-sensorfusion-rpc-flow\ /home/fio
+```
+
+### Running the Inference Model on Docker
+
+With all files in place, navigate to the project directory and build the container:
+
+```bash
+docker build -t arduino/python-sf .
+```
+
+Start the application:
+
+```bash
+docker compose up
+```
+
+***You can add `-d` prefix in the end of the command to start the container in the background, allowing you to continue using the terminal without keeping the container logs displayed. If you skip `-d`, the logs from the containers will be shown in the terminal and it will remain attached to the process until you manually stop it.***
+
+To verify the inference engine is running, check logs:
+
+```bash
+docker compose logs -f -n 10
+```
+
+The system will now collect flow sensor data, process it with the Edge Impulse model inside a Docker container and detect anomalies.
+
+### Arduino Cloud Integration
+
+Now that the Portenta X8 is running the Docker container with the trained inference model, the next step is integrating Arduino Cloud for real-time monitoring and logging of anomaly detection results.
+
+***To register and configure the Portenta X8 with Arduino Cloud, please refer to [this user manual section](https://docs.arduino.cc/tutorials/portenta-x8/user-manual/#portenta-x8-with-arduino-cloud).***
+
+The `main.py` script from [previous section](#running-the-inference-model-on-docker) is updated to forward flow rate classification results to Arduino Cloud. Before proceeding, an Arduino Cloud Thing must be set up with a flow rate variable to obtain the Thing ID and Variable ID.
+
+```python
+import os
+import time
+import json
+import requests
+from msgpackrpc import Address, Client
+
+# Retrieve environment variables
+CLIENT_ID = os.getenv("CLIENT_ID")
+CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+THING_ID = os.getenv("THING_ID")
+FLOWRATE_VARIABLE_ID = os.getenv("FLOWRATE_VARIABLE_ID")
+
+# M4 proxy settings
+M4_PROXY_HOST = os.getenv("M4_PROXY_HOST", "m4proxy")
+M4_PROXY_PORT = int(os.getenv("M4_PROXY_PORT", "5001"))
+
+# Define RPC address
+m4_proxy = Address(M4_PROXY_HOST, M4_PROXY_PORT)
+
+def get_sensor_data():
+    client = Client(m4_proxy)
+    return [client.call("flow_rate")]
+
+def update_arduino_cloud(value):
+    url = f"https://api2.arduino.cc/iot/v2/things/{THING_ID}/properties/{FLOWRATE_VARIABLE_ID}/publish"
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {CLIENT_ID}"
+    }
+    payload = {"value": value}
+    
+    try:
+        response = requests.put(url, headers=headers, json=payload)
+        if response.status_code == 200:
+            print(f"Updated Arduino Cloud: Flow Rate = {value} L/min")
+        else:
+            print(f"Failed to update Arduino Cloud: {response.status_code}, {response.text}")
+    except requests.exceptions.RequestException as e:
+        print(f"Error updating Arduino Cloud: {e}")
+
+def classify_flow(host, port):
+    url = f"http://{host}:{port}/api/features"
+
+    while True:
+        data = {"features": [], "model_type": "int8"}
+        for _ in range(100):
+            data["features"].extend(get_sensor_data())
+            time.sleep(0.1)
+
+        response = requests.post(url, json=data)
+        if response.status_code == 200:
+            classification = response.json().get("result", {}).get("classification", {})
+            print(f"Classification: {classification}")
+            
+            if classification:
+                label = max(classification, key=classification.get)
+                update_arduino_cloud(label)  # Send classification to Arduino Cloud
+        else:
+            print(f"Failed classification: {response.status_code}")
+
+if __name__ == "__main__":
+    classify_flow("localhost", 1337)
+```
+
+The script gets API credentials and device identifiers from a `.env` file. Create this file in the project directory with the following content:
+
+```bash
+CLIENT_ID=cloud_api_key
+CLIENT_SECRET=cloud_api_secret
+THING_ID=cloud_thing_id
+SPACE_ID=cloud_space_id
+FLOWRATE_VARIABLE_ID=cloud_flowrate_key
+```
+
+The `docker-compose` file is updated to include Arduino Cloud credentials:
+
+```
+networks:
+  sensorfusion:
+
+services:
+  cad:
+    image: arduino/python-sf:latest
+    build: .
+    restart: unless-stopped
+    depends_on:
+      - inference
+    tty: true
+    environment:
+      M4_PROXY_HOST: m4proxy
+      M4_PROXY_PORT: 5001
+      PYTHONUNBUFFERED: 1
+      LOOP_INTERVAL: 1
+      CLIENT_ID: ${CLIENT_ID}
+      CLIENT_SECRET: ${CLIENT_SECRET}
+      THING_ID: ${THING_ID}
+      FLOWRATE_VARIABLE_ID: ${FLOWRATE_VARIABLE_ID}
+    volumes:
+      - "/tmp:/tmp"
+    extra_hosts:
+      - "m4proxy:host-gateway"
+    networks:
+      sensorfusion:
+        aliases:
+          - collect-and-dispatch
+    command: ["inference", "1337"]
+
+  inference:
+    image: public.ecr.aws/g7a8t7v6/inference-container:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    restart: unless-stopped
+    ports:
+      - 1337:1337
+    networks:
+      sensorfusion:
+        aliases:
+          - ei-inference
+    command: [
+      "--api-key", "ei_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "--run-http-server", "1337",
+      "--force-target", "runner-linux-aarch64",
+      "--model-variant", "int8"]
+```
+
+Once the files are updated, it needs to be pushed to the Portenta X8 again, navigate to the project directory and use the following commands:
+
+```bash
+docker build -t arduino/python-sf .
+```
+
+```bash
+docker compose --env-file .env up
+```
+
+***You can add `-d` prefix in the end of the command to start the container in the background, allowing you to continue using the terminal without keeping the container logs displayed. If you skip `-d`, the logs from the containers will be shown in the terminal and it will remain attached to the process until you manually stop it.***
+
+The following command can be used to verify the inference engine is running:
+
+```bash
+docker compose logs -f -n 10
+```
+
+Once deployed, the system will begin to get flow sensor data, classify it using the trained model and send the results to Arduino Cloud for real-time monitoring and anomaly tracking.
+
+This integration allows real-time anomaly detection and cloud-based monitoring, combining edge inference on Portenta X8 with Arduino Cloud analytics. Users can remotely track flow rate anomalies, set up alerts and analyze historical trends to improve predictive maintenance of the system's point of interest.
 
 ## Additional Resources
 
-- Portenta X8 Documentation: [docs.arduino.cc](https://docs.arduino.cc/hardware/portenta-x8/)
-- Edge Impulse Documentation: [docs.edgeimpulse.com](https://docs.edgeimpulse.com/)
+- [Portenta X8 Documentation](https://docs.arduino.cc/hardware/portenta-x8/)
+- [Edge Impulse Documentation](https://docs.edgeimpulse.com/)
 - GitHub Repository: [portenta-x8/webinars](https://github.com/arduino/fae-artifacts-public/tree/main/portenta-x8/webinars/2025-01-23_eletkor-edge-ai-solutions)
 
 ## Support
