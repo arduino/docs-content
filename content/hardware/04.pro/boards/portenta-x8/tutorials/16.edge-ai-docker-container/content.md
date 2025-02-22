@@ -79,7 +79,7 @@ The complete project files can be downloaded here:
 
 Machine learning enables industrial systems to analyze sensor data, recognize patterns and make data-driven decisions. This application implements a machine learning model to classify flow patterns in real-time, detecting anomalies that may indicate leaks, blockages or irregular pressure fluctuations.
 
-By leveraging Edge Impulse, the model is trained to distinguish between normal and abnormal flow conditions based on real-time sensor data, allowing for predictive maintenance and operational efficiency.
+By leveraging Edge Impulse, the model is trained to distinguish between normal and abnormal flow conditions based on present sensor data, allowing for predictive maintenance and operational efficiency.
 
 IMAGE
 
@@ -156,9 +156,9 @@ The raw sensor data is preprocessed using digital signal processing (DSP) techni
 
 ### Data Acquisition
 
-Sensor data needs to be collected across different flow conditions to build a reliable machine learning model. This ensures that the model can accurately distinguish between normal and abnormal flow states based on real-time measurements.
+Sensor data needs to be collected across different flow conditions to build a reliable machine learning model. This ensures that the model can accurately distinguish between normal and abnormal flow states based on continuous measurements.
 
-The flow sensor connected to the Portenta X8 captures flow rate readings and sends the data to Edge Impulse using the Edge Impulse Data Forwarder. This process allows real-time monitoring and labeling of flow patterns under different operating conditions.
+The flow sensor connected to the Portenta X8 captures flow rate readings and sends the data to Edge Impulse using the Edge Impulse Data Forwarder. This process allows active monitoring and labeling of flow patterns under different operating conditions.
 
 To collect training data, the Portenta X8 (or compatible Portenta family) continuously measures the real-time flow rate (L/min) from the sensor. It streams it to Edge Impulse via the Data Forwarder.
 
@@ -168,7 +168,7 @@ Once enough labeled data is collected, it is split into training and testing dat
 
 #### Capturing Flow Sensor Data on the Portenta X8
 
-The Portenta X8’s M4 microcontroller reads real-time flow sensor data and transmits it via serial output in CSV format, making it compatible with Edge Impulse for model training.
+The Portenta X8’s M4 microcontroller reads flow sensor data and sends it via serial output in CSV format, making it compatible with Edge Impulse for model training.
 
 The following Arduino sketch (`sensor-data-generation.ino`) configures the Portenta X8 to read and send flow rate values at one second intervals.
 
@@ -283,12 +283,14 @@ These extracted features form the input dataset used to train the machine learni
 The *Impulse Design* in Edge Impulse structures the feature extraction pipeline, ensuring data is properly preprocessed before being passed to the learning model.
 
 **Time-Series Data Block:**
-- Window size: 10,000 ms (10 seconds)
-- Window increase (stride): 1,000 ms (1 second)
-- Frequency: 1 Hz
-- Zero-padding enabled: Ensures consistency in data length.
+| **Parameter**       | **Value**                                    |
+|---------------------|----------------------------------------------|
+| **Window size**     | 10,000 ms (10 seconds)                       |
+| **Window increase** | 1,000 ms (1 second)                          |
+| **Frequency**       | 1 Hz                                         |
+| **Zero-padding**    | Enabled (Ensures consistency in data length) |
 
-This configuration allows real-time flow rate sampling at one second intervals, providing a detailed view of flow dynamics. The following image shows how the flow rate input is structured before processing:
+This configuration allows flow rate sampling at one second intervals, providing a detailed view of flow dynamics. The following image shows how the flow rate input is structured before processing:
 
 ![Impulse Creation](assets/edge-impulse-impulse-creation.png)
 
@@ -385,11 +387,14 @@ The network uses *ReLU activation functions* in hidden layers and *Softmax activ
 
 The Neural Network Training Configuration is as follows:
 
-- **Training cycles:** 150
-- **Learning rate:** 0.0005
-- **Processor:** CPU-based training
-- **Validation set size:** 30% of the dataset
-- **Batch size:** 32 (not enabled in this run)
+| **Parameter**           | **Value**                    |
+|-------------------------|------------------------------|
+| **Training cycles**     | 150                          |
+| **Learning rate**       | 0.0005                       |
+| **Processor**           | CPU based training           |
+| **Validation set size** | 30% of the dataset           |
+| **Batch size**          | 32 (not enabled in this run) |
+
 
 The model's *quantized (int8) version* is used for deployment to optimize inference speed and reduce memory usage.
 
@@ -397,11 +402,13 @@ The model's *quantized (int8) version* is used for deployment to optimize infere
 
 Once training is complete, the model's accuracy is evaluated using a confusion matrix and performance scores. The key results include:
 
-- **Overall Model Accuracy:** 73.3%
-- **Weighted Average Precision:** 0.87
-- **Weighted Average Recall:** 0.73
-- **Weighted Average F1 Score:** 0.77
-- **Area Under ROC Curve (AUC):** 0.86
+| **Metric**                     | **Value** |
+|--------------------------------|-----------|
+| **Overall Model Accuracy**     | 73.3%     |
+| **Weighted Average Precision** | 0.87      |
+| **Weighted Average Recall**    | 0.73      |
+| **Weighted Average F1 Score**  | 0.77      |
+| **Area Under ROC Curve (AUC)** | 0.86      |
 
 The confusion matrix provides insights into model performance across different categories:
 
@@ -412,19 +419,18 @@ The confusion matrix provides insights into model performance across different c
 
 #### Interpreting Training Results
 
-The trained model successfully detects high flow and anomalous conditions, achieving comforting accuracy in these categories. Additionally, the quantized model maintains a balance between accuracy and computational efficiency, making it appropriate for embedded deployment on the Portenta X8. The model is capable to reduce false positives with a precision score of 0.87, allowing reliable anomaly detection.
+The trained model is capable of detecting high flow and anomalous conditions, performing accurate recognition in these categories. Additionally, the quantized model keeps a balance between accuracy and computational efficiency, making it appropriate for embedded deployment on the Portenta X8. The model is capable of reducing false positives with a precision score of 0.87, allowing reliable anomaly detection.
 
-However, low flow conditions present the most significant challenge, with the highest misclassification rate. The model occasionally misclassifies low flow as normal, indicating difficulty distinguishing borderline cases. To address this, additional training cycles, adjustments in feature selection and further data augmentation may be required to improve recall. Integrating feature scaling techniques could also help refine classification accuracy, particularly for subtle variations in flow conditions.
+However, low flow conditions present the most significant challenge, with the highest misclassification rate. The model occasionally misclassifies low flow as normal, indicating difficulty distinguishing borderline cases. To address this, additional training cycles, adjustments in feature selection and further data augmentation may be required to improve recognition. Integrating feature scaling techniques could also help refine classification accuracy, particularly for subtle variations in flow conditions.
 
-Here, it is possible to look into following details:
+Here, it is possible to look into the following details:
 
 - **Hyperparameter tuning:** Adjust the learning rate and number of neurons to improve classification.
 - **Data balancing:** Ensure equal representation of all flow conditions to reduce bias.
-- **Edge deployment:** Convert the trained model for real-time inference on the Portenta X8.
 
 Refining the model can improve classification accuracy and improve real-time flow anomaly detection.
 
-### Deployment and Real-Time Inference
+### Deployment and Onboard Inference
 
 Once trained, the machine learning model will be used to deploy to the Portenta X8 inside a Docker container, allowing real-time inference directly at the edge. Instead of pulling the container directly, we will use the container image, arguments and ports provided by Edge Impulse to build a custom Docker container for the Portenta X8.
 
@@ -464,7 +470,7 @@ For deployment on the Portenta X8, we use the provided container image, argument
 
 The inference workflow consists of the following steps:
 
-- **Sensor Data Acquisition:** The flow rate sensor measures real-time values.
+- **Sensor Data Acquisition:** The flow rate sensor measures present values.
 - **Feature Extraction:** DSP and spectral analysis are applied to structure data.
 - **Model Prediction:** The trained model classifies the current flow condition.
 - **Response Actions:** If an anomaly is detected, the system takes corresponding action.
@@ -495,25 +501,24 @@ The flow anomaly detection system has real-time sensor data acquisition, machine
 
 - **Data Collection Layer:** The Portenta X8 reads flow sensor data, capturing variations in fluid movement.
 - **Processing & Inference Layer:** The Edge Impulse trained model runs inside a Docker container on the Portenta X8, classifying flow patterns and detecting anomalies.
-- **Cloud & Visualization Layer:** The system forwards classification results to Arduino Cloud, allowing remote monitoring, notifications and real-time dashboards.
+- **Cloud & Visualization Layer:** The system forwards classification results to Arduino Cloud, allowing remote monitoring with visualized information.
 
 ### Data Flow Overview
 
-The flow sensor measures fluid movement and sends data to the Portenta X8. The M4 core collects and processes this data before making it accessible to the Linux side of the Portenta X8 using **Remote Procedure Call (RPC)**.
+The flow sensor will measure fluid movement continuously and send data to the Portenta X8’s M4 core. The M4 core processes this data and makes it accessible to the Linux layer using **Remote Procedure Call (RPC)**.
 
 ***For more details about Remote Procedure Call (RPC) and its implementation, refer to the [dedicated tutorial](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange/).***
 
-A Python script on the Linux side receives flow data from the M4 core. It sends to the Edge Impulse inference model, which runs inside the Docker container. The model classifies the flow condition as **Normal, Low, High, or Anomalous**.
+A Python script on the Linux side receives sensor data from the M4 core. It forwards it to the Edge Impulse inference model, which runs inside a Docker container. The model classifies the flow condition as **Normal, Low, High or Anomalous**.
 
-The system logs an alert and records the classification results if an anomaly is detected. The data is stored locally on the Portenta X8 and sent to Arduino Cloud for visualization and anomaly tracking. This combined edge cloud processing approach allows real-time response while allowing for historical analysis and remote monitoring.
+The system logs an alert and records classification results if an anomaly is detected. These results are stored locally for quick decision making and sent to Arduino Cloud for remote monitoring, historical analysis and anomaly tracking.
 
-### Edge AI and Cloud Integration for Flow Monitoring
+This integration optimizes performance by balancing edge processing with cloud integration:
 
-The Portenta X8 performs onboard inference on the device, providing low-latency anomaly detection and reducing dependency on cloud connectivity. The system reduces bandwidth usage by processing data locally, as only classification results are sent instead of raw sensor data. This allows for quick responses to anomalies, making it ideal for applications requiring real-time monitoring.
+- **Onboard Inference:** The Portenta X8 processes sensor data locally, working on low-latency anomaly detection while reducing bandwidth usage.
+- **Cloud Based Monitoring:** Arduino Cloud stores classification results, enabling long-term data tracking, predictive maintenance and real-time alerts if configured.
 
-While edge processing ensures fast decision-making, Arduino Cloud can help extend the system capabilities by allowing long-term data storage, historical trend analysis and alert triggering. Classification results are saved in the cloud, allowing for predictive maintenance and anomaly tracking over time. 
-
-This integration provides benefits of edge inference and cloud based monitoring, providing both on-time detection of irregularities and long-term system analysis for optimized performance and maintenance planning.
+The system performs on demand anomaly detection by combining active edge inference with cloud analytics while providing historical insights for predictive maintenance and system optimization.
 
 ## Running Flow Rate Inference with Docker
 
@@ -753,7 +758,7 @@ The system will now collect flow sensor data, process it with the Edge Impulse m
 
 ### Arduino Cloud Integration
 
-Now that the Portenta X8 is running the Docker container with the trained inference model, the next step is integrating Arduino Cloud for real-time monitoring and logging of anomaly detection results.
+Now that the Portenta X8 is running the Docker container with the trained inference model, the next step is integrating Arduino Cloud for active monitoring and logging of anomaly detection results.
 
 ***To register and configure the Portenta X8 with Arduino Cloud, please refer to [this user manual section](https://docs.arduino.cc/tutorials/portenta-x8/user-manual/#portenta-x8-with-arduino-cloud).***
 
@@ -901,7 +906,7 @@ The following command can be used to verify the inference engine is running:
 docker compose logs -f -n 10
 ```
 
-Once deployed, the system will begin to get flow sensor data, classify it using the trained model and send the results to Arduino Cloud for real-time monitoring and anomaly tracking.
+Once deployed, the system will begin to get flow sensor data, classify it using the trained model and send the results to Arduino Cloud for monitoring and anomaly tracking.
 
 This integration allows real-time anomaly detection and cloud-based monitoring, combining edge inference on Portenta X8 with Arduino Cloud analytics. Users can remotely track flow rate anomalies, set up alerts and analyze historical trends to improve predictive maintenance of the system's point of interest.
 
