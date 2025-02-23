@@ -776,6 +776,7 @@ CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 THING_ID = os.getenv("THING_ID")
 FLOWRATE_VARIABLE_ID = os.getenv("FLOWRATE_VARIABLE_ID")
+CLASSIFICATION_VARIABLE_ID = os.getenv("CLASSIFICATION_VARIABLE_ID")  # New variable for classification
 
 # M4 proxy settings
 M4_PROXY_HOST = os.getenv("M4_PROXY_HOST", "m4proxy")
@@ -785,45 +786,69 @@ M4_PROXY_PORT = int(os.getenv("M4_PROXY_PORT", "5001"))
 m4_proxy = Address(M4_PROXY_HOST, M4_PROXY_PORT)
 
 def get_sensor_data():
+    """
+    Retrieve the flow rate from the M4 via RPC.
+    """
     client = Client(m4_proxy)
-    return [client.call("flow_rate")]
+    try:
+        return client.call("flow_rate")
+    except Exception as e:
+        print(f"Error retrieving sensor data: {e}")
+        return None
 
-def update_arduino_cloud(value):
-    url = f"https://api2.arduino.cc/iot/v2/things/{THING_ID}/properties/{FLOWRATE_VARIABLE_ID}/publish"
+def update_arduino_cloud(variable_id, value):
+    """
+    Send data to Arduino Cloud.
+    """
+    url = f"https://api2.arduino.cc/iot/v2/things/{THING_ID}/properties/{variable_id}/publish"
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {CLIENT_ID}"
+        "Authorization": f"Bearer {CLIENT_ID}"  # Ensure valid token
     }
     payload = {"value": value}
     
     try:
         response = requests.put(url, headers=headers, json=payload)
         if response.status_code == 200:
-            print(f"Updated Arduino Cloud: Flow Rate = {value} L/min")
+            print(f"Updated Arduino Cloud: {variable_id} = {value}")
         else:
-            print(f"Failed to update Arduino Cloud: {response.status_code}, {response.text}")
+            print(f"Failed to update {variable_id}: {response.status_code}, {response.text}")
     except requests.exceptions.RequestException as e:
         print(f"Error updating Arduino Cloud: {e}")
 
 def classify_flow(host, port):
+    """
+    Collects flow rate data, sends it for classification, and updates Arduino Cloud.
+    """
     url = f"http://{host}:{port}/api/features"
 
     while True:
         data = {"features": [], "model_type": "int8"}
+
+        # Collect 100 sensor readings
         for _ in range(100):
-            data["features"].extend(get_sensor_data())
+            flow_rate = get_sensor_data()
+            
+            if flow_rate is not None:
+                data["features"].append(flow_rate)
+                update_arduino_cloud(FLOWRATE_VARIABLE_ID, flow_rate)  # Send flow rate to Arduino Cloud
+            
             time.sleep(0.1)
 
-        response = requests.post(url, json=data)
-        if response.status_code == 200:
-            classification = response.json().get("result", {}).get("classification", {})
-            print(f"Classification: {classification}")
-            
-            if classification:
-                label = max(classification, key=classification.get)
-                update_arduino_cloud(label)  # Send classification to Arduino Cloud
-        else:
-            print(f"Failed classification: {response.status_code}")
+        # Send collected data for classification
+        try:
+            response = requests.post(url, json=data)
+            if response.status_code == 200:
+                classification = response.json().get("result", {}).get("classification", {})
+                print(f"Classification: {classification}")
+                
+                if classification:
+                    label = max(classification, key=classification.get)  # Get highest confidence label
+                    update_arduino_cloud(CLASSIFICATION_VARIABLE_ID, label)  # Send classification to Arduino Cloud
+            else:
+                print(f"Failed classification: {response.status_code}, {response.text}")
+        except requests.exceptions.RequestException as e:
+            print(f"Error sending classification request: {e}")
 
 if __name__ == "__main__":
     classify_flow("localhost", 1337)
@@ -837,6 +862,7 @@ CLIENT_SECRET=cloud_api_secret
 THING_ID=cloud_thing_id
 SPACE_ID=cloud_space_id
 FLOWRATE_VARIABLE_ID=cloud_flowrate_key
+CLASSIFICATION_VARIABLE_ID=cloud_classification_key
 ```
 
 The `docker-compose` file is updated to include Arduino Cloud credentials:
@@ -862,6 +888,7 @@ services:
       CLIENT_SECRET: ${CLIENT_SECRET}
       THING_ID: ${THING_ID}
       FLOWRATE_VARIABLE_ID: ${FLOWRATE_VARIABLE_ID}
+      CLASSIFICATION_VARIABLE_ID: ${CLASSIFICATION_VARIABLE_ID}
     volumes:
       - "/tmp:/tmp"
     extra_hosts:
@@ -907,6 +934,8 @@ docker compose logs -f -n 10
 ```
 
 Once deployed, the system will begin to get flow sensor data, classify it using the trained model and send the results to Arduino Cloud for monitoring and anomaly tracking.
+
+![Flow data visualization with Arduino Cloud](assets/arduino-cloud-visualization-example.gif)
 
 This integration allows real-time anomaly detection and cloud-based monitoring, combining edge inference on Portenta X8 with Arduino Cloud analytics. Users can remotely track flow rate anomalies, set up alerts and analyze historical trends to improve predictive maintenance of the system's point of interest.
 
