@@ -91,11 +91,11 @@ At the same time, industrial and medical cooling systems must maintain actual fl
 
 This machine learning model can be applied in different industrial and automotive domains where monitoring and controlling fluid flow at different points are important, based on the key application areas where it involves small systems:
 
-| **Application Area**                           | **Examples**                                                                                                                                                                                                                                   |
-|------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Small Automotive Cooling Systems**           | - Engine cooling for motorcycles, ATVs, and small passenger vehicles (<1.5L displacement).<br>- Electric vehicle (EV) battery thermal management to prevent overheating.<br>- Turbo intercooler water circuits for efficient heat dissipation. |
-| **Industrial Equipment & Electronics Cooling** | - CNC spindle cooling systems ensuring precision machining.<br>- Laser cooling loops for maintaining stable laser operation.<br>- Small heat exchanger loops used in industrial automation and process control.                                |
-| **Medical & Laboratory Cooling**               | - Medical imaging devices (MRI, CT scanners) requiring controlled cooling loops.<br>- Laboratory chillers used in chemical processing and biomedical research.                                                                                 |
+| **Application Area**                           | **Examples**                                                                                                                                                                                                                                       |
+|------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Small Automotive Cooling Systems**           | - Engine cooling for motorcycles, ATVs, and small passenger vehicles (<1.5L displacement).<br />- Electric vehicle (EV) battery thermal management to prevent overheating.<br />- Turbo intercooler water circuits for efficient heat dissipation. |
+| **Industrial Equipment & Electronics Cooling** | - CNC spindle cooling systems ensuring precision machining.<br />- Laser cooling loops for maintaining stable laser operation.<br />- Small heat exchanger loops used in industrial automation and process control.                                |
+| **Medical & Laboratory Cooling**               | - Medical imaging devices (MRI, CT scanners) requiring controlled cooling loops.<br/ >- Laboratory chillers used in chemical processing and biomedical research.                                                                                   |
 
 ### Flow Rate Categorization and Anomaly Detection
 
