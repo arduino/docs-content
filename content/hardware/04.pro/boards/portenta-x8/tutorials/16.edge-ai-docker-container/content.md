@@ -1,7 +1,7 @@
 ---
 title: 'Edge Impulse on Portenta X8 with Docker'
 difficulty: intermediate
-description: 'Learn how to deploy and run an Edge Impulse model on Portenta X8 using Docker containers and a Flow Sensor for real time anomaly detection.'
+description: 'Learn how to create and deploy an Edge Impulse model on Portenta X8 using Docker containers and a flow sensor for real time anomaly detection.'
 tags:
   - Portenta X8
   - Edge Impulse
@@ -31,7 +31,7 @@ Classification results can be used for quick decision making, such as triggering
 
 ## Goals
 
-The project showcased in this application note has the following objectives:
+The application note has the following objectives:
 
 - Monitor fluid movement using a flow sensor.
 - Classify flow patterns in real time with a machine learning model trained in Edge Impulse.
@@ -43,7 +43,7 @@ The project showcased in this application note has the following objectives:
 
 ### Hardware Requirements
 
-This project uses the Portenta X8, integrating a flow sensor for real time fluid monitoring. The required hardware includes:
+This application note uses the Portenta X8, integrating a flow sensor for real time fluid monitoring. The required hardware includes:
 
 - [Portenta X8](https://store.arduino.cc/products/portenta-x8) (x1)
 - Portenta Carrier Family: [Hat Carrier](https://store.arduino.cc/products/portenta-hat-carrier) / [Mid Carrier](https://store.arduino.cc/products/portenta-mid-carrier) (x1)
@@ -95,7 +95,7 @@ This machine learning model can be applied in different industrial and automotiv
 |------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Small Automotive Cooling Systems**           | - Engine cooling for motorcycles, ATVs, and small passenger vehicles (<1.5L displacement).<br />- Electric vehicle (EV) battery thermal management to prevent overheating.<br />- Turbo intercooler water circuits for efficient heat dissipation. |
 | **Industrial Equipment & Electronics Cooling** | - CNC spindle cooling systems ensuring precision machining.<br />- Laser cooling loops for maintaining stable laser operation.<br />- Small heat exchanger loops used in industrial automation and process control.                                |
-| **Medical & Laboratory Cooling**               | - Medical imaging devices (MRI, CT scanners) requiring controlled cooling loops.<br/ >- Laboratory chillers used in chemical processing and biomedical research.                                                                                   |
+| **Medical & Laboratory Cooling**               | - Medical imaging devices (MRI, CT scanners) requiring controlled cooling loops.<br />- Laboratory chillers used in chemical processing and biomedical research.                                                                                   |
 
 ### Flow Rate Categorization and Anomaly Detection
 
@@ -182,7 +182,7 @@ The following Arduino sketch (`sensor-data-generation.ino`) configures the Porte
 
 // Define Flow Sensor Type (Change if using another model)
 #define SENSOR_TYPE YFS201  
-#define SENSOR_PIN PD_15                              // Flow sensor signal pin
+#define SENSOR_PIN PC_7                               // Flow sensor signal pin
 
 FlowSensor flowSensor(SENSOR_TYPE, SENSOR_PIN);
 
@@ -281,6 +281,7 @@ These extracted features form the input dataset used to train the machine learni
 The *Impulse Design* in Edge Impulse structures the feature extraction pipeline, ensuring data is properly preprocessed before being passed to the learning model.
 
 **Time-Series Data Block:**
+
 | **Parameter**       | **Value**                                    |
 |---------------------|----------------------------------------------|
 | **Window size**     | 10,000 ms (10 seconds)                       |
@@ -532,7 +533,7 @@ The M4 core needs to have the **`rpc-flow-sensor.ino`** uploaded to collect and 
 
 // Define Flow Sensor Type and Pin
 #define SENSOR_TYPE YFS201  
-#define SENSOR_PIN PD_15  // Flow sensor signal pin
+#define SENSOR_PIN PC_7    // Flow sensor signal pin
 
 FlowSensor flowSensor(SENSOR_TYPE, SENSOR_PIN);
 
@@ -582,8 +583,21 @@ services:
     environment:
       M4_PROXY_HOST: m4proxy
       M4_PROXY_PORT: 5001
+    volumes:
+      - '/run/arduino_hw_info.env:/run/arduino_hw_info.env:ro'
+      - '/sys/devices:/sys/devices'
+      - '/sys/class/pwm:/sys/class/pwm'
+      - '/sys/bus/iio:/sys/bus/iio'
+      - '/var/sota:/var/sota'
     extra_hosts:
-      - "m4proxy:host-gateway"
+    - "m4proxy:host-gateway"
+    devices:
+      - '/dev/gpiochip0'
+      - '/dev/gpiochip1'
+      - '/dev/gpiochip2'
+      - '/dev/gpiochip3'
+      - '/dev/gpiochip4'
+      - '/dev/gpiochip5'
     networks:
       sensorfusion:
         aliases:
@@ -746,13 +760,17 @@ docker compose up
 
 ***You can add `-d` prefix in the end of the command to start the container in the background, allowing you to continue using the terminal without keeping the container logs displayed. If you skip `-d`, the logs from the containers will be shown in the terminal and it will remain attached to the process until you manually stop it.***
 
+When the application starts for the first time, the shell shows similar output as follows:
+
+![Application Start](assets/ei-docker-start-inteference.gif)
+
 To verify the inference engine is running, check logs:
 
 ```bash
 docker compose logs -f -n 10
 ```
 
-The system will now collect flow sensor data, process it with the Edge Impulse model inside a Docker container and detect anomalies.
+The system will start to collect flow sensor data, process it with the Edge Impulse model inside a Docker container and detect anomalies.
 
 ### Arduino Cloud Integration
 
@@ -888,9 +906,20 @@ services:
       FLOWRATE_VARIABLE_ID: ${FLOWRATE_VARIABLE_ID}
       CLASSIFICATION_VARIABLE_ID: ${CLASSIFICATION_VARIABLE_ID}
     volumes:
-      - "/tmp:/tmp"
+      - '/run/arduino_hw_info.env:/run/arduino_hw_info.env:ro'
+      - '/sys/devices:/sys/devices'
+      - '/sys/class/pwm:/sys/class/pwm'
+      - '/sys/bus/iio:/sys/bus/iio'
+      - '/var/sota:/var/sota'
     extra_hosts:
-      - "m4proxy:host-gateway"
+    - "m4proxy:host-gateway"
+    devices:
+      - '/dev/gpiochip0'
+      - '/dev/gpiochip1'
+      - '/dev/gpiochip2'
+      - '/dev/gpiochip3'
+      - '/dev/gpiochip4'
+      - '/dev/gpiochip5'
     networks:
       sensorfusion:
         aliases:
