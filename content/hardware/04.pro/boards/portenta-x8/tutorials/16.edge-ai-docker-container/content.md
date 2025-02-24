@@ -247,21 +247,21 @@ edge-impulse-data-forwarder --frequency 1
 
 When prompted, select the Edge Impulse project to which you want to send data.
 
-![Machine Learning Model blocks](assets/edge-impulse-data-forward-setup.png)
+![Data forwarder initialization](assets/edge-impulse-data-forward-setup.png)
 
 The data forwarder automatically detects the flow sensor and prompts for naming the data channels.
 
-![Machine Learning Model blocks](assets/edge-impulse-device-connected.png)
+![Data forwarder connected with Edge Impulse](assets/edge-impulse-device-connected.png)
 
-![Machine Learning Model blocks](assets/edge-impulse-data-forward-set.png)
+![Data acquisition with Edge Impulse](assets/edge-impulse-data-forward-set.png)
 
 Once configured, Edge Impulse begins receiving real time flow rate data.
 
-![Machine Learning Model blocks](assets/edge-impulse-data-forward-running.png)
+![Continuous data acquisition with Edge Impulse](assets/edge-impulse-data-forward-running.png)
 
 The collected flow rate samples are labeled and stored in the Edge Impulse dataset.
 
-![Machine Learning Model blocks](assets/edge-impulse-data-acquisction.png)
+![Initial Edge Impulse dataset](assets/edge-impulse-data-acquisction.png)
 
 ***For more detailed information on data forwarding, please refer to [Edge Impulse’s official guide](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-data-forwarder).***
 
@@ -464,7 +464,7 @@ Edge Impulse provides multiple options, including Jetson based deployments and g
 
 For deployment on the Portenta X8, we use the provided container image, arguments and ports to build a custom container that integrates with the system’s existing services.
 
-![Docker container deployemnt parameters](assets/edge-impulse-deployment-docker2.png)
+![Docker container deployment parameters](assets/edge-impulse-deployment-docker2.png)
 
 The inference workflow consists of the following steps:
 
