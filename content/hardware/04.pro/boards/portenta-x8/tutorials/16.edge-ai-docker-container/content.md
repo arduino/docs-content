@@ -36,7 +36,6 @@ The application note has the following objectives:
 - Monitor fluid movement using a flow sensor.
 - Classify flow patterns in real time with a machine learning model trained in Edge Impulse.
 - Deploy the trained model inside a Docker container on the Portenta X8.
-- Send classification results to the M4 microcontroller for onboard processing.
 - Share all collected data and classification results to Arduino Cloud for remote monitoring.
 
 ## Hardware and Software Requirements
