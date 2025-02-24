@@ -23,7 +23,7 @@ software:
 
 Flow sensors play an important role in industrial systems by monitoring fluid movement within pipelines to provide stability and detect anomalies such as leaks, blockages or irregular pressure variations. Traditional flow monitoring methods rely on threshold-based detection, which may fail to capture subtle deviations that indicate potential failures. Real-time pattern classification can improve flow monitoring by integrating machine learning with Edge Impulse, allowing early anomaly detection and predictive maintenance.
 
-IMAGE
+![](assets/flow-sense-banner-ref.gif)
 
 This application note shows how to implement a flow anomaly detection system using the Portenta X8, a flow sensor and an Edge Impulse trained machine learning model deployed within a Docker container. The system will capture flow rate data, process it using the trained model and classify flow conditions. 
 
@@ -81,7 +81,7 @@ Machine learning enables industrial systems to analyze sensor data, recognize pa
 
 By leveraging Edge Impulse, the model is trained to distinguish between normal and abnormal flow conditions based on present sensor data, allowing for predictive maintenance and operational efficiency.
 
-IMAGE
+![Flow anomaly detection with ML generalized application example](assets/flow-anomaly-detection-example.png)
 
 Flow anomaly detection is particularly useful in systems that rely on consistent mass airflow or liquid circulation to maintain optimal performance. For example, most vehicle powerplants require stable coolant delivery to regulate engine temperature.
 
@@ -127,7 +127,7 @@ This application does not require complex wiring for operation. However, proper 
 
 The system wiring follows a straightforward configuration:
 
-![System Wiring Overview](assets/system-wiring.png)
+![System wiring & power options](assets/system-wiring.png)
 
 - **Portenta X8**: mounted on the **Portenta Mid/Hat Carrier**, which provides access to pinout interfaces. Any other Portenta family can also be used for this step. It is also used to connect to **Wi-Fi** or **Ethernet** for cloud communication.
 - **flow sensor**: connected to the corresponding pins on the **Portenta Mid/Hat Carrier**.
@@ -141,8 +141,6 @@ Both the **Portenta Mid Carrier** and **Portenta Hat Carrier** support multiple 
 |----------------------|---------------------------------------------------|-----------------------|
 | Portenta Mid Carrier | For development, debugging and short-term testing | 5 VDC                 |
 | Portenta Hat Carrier | For development, debugging and short-term testing | 7 - 32 VDC            |
-
-![Powering Options](assets/power-options.png)
 
 Setting up the system correctly ensures smooth data collection, machine learning inference, and cloud-based monitoring. With the hardware configured, the next steps focus on data acquisition, model training and deployment.
 
