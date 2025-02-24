@@ -23,7 +23,7 @@ software:
 
 Flow sensors play an important role in industrial systems by monitoring fluid movement within pipelines to provide stability and detect anomalies such as leaks, blockages or irregular pressure variations. Traditional flow monitoring methods rely on threshold-based detection, which may fail to capture subtle deviations that indicate potential failures. Real-time pattern classification can improve flow monitoring by integrating machine learning with Edge Impulse, allowing early anomaly detection and predictive maintenance.
 
-![](assets/flow-sense-banner-ref.gif)
+![Flow anomaly detection with ML and Arduino Cloud](assets/flow-sense-banner-ref.gif)
 
 This application note shows how to implement a flow anomaly detection system using the Portenta X8, a flow sensor and an Edge Impulse trained machine learning model deployed within a Docker container. The system will capture flow rate data, process it using the trained model and classify flow conditions. 
 
@@ -464,7 +464,7 @@ Edge Impulse provides multiple options, including Jetson based deployments and g
 
 For deployment on the Portenta X8, we use the provided container image, arguments and ports to build a custom container that integrates with the system’s existing services.
 
-![Docker container deployemnt parameters](assets/edge-impulse-deployment-docker1.png)
+![Docker container deployemnt parameters](assets/edge-impulse-deployment-docker2.png)
 
 The inference workflow consists of the following steps:
 
