@@ -604,7 +604,7 @@ services:
     command: ["inference", "1337"]
 
   inference:
-    image: public.ecr.aws/g7a8t7v6/inference-container:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    image: public.ecr.aws/g7a8t7v6/inference-container:48cd3f0d76c701a6070a27a8d9487d1733c155aa
     restart: unless-stopped
     ports:
       - 1337:1337
@@ -613,7 +613,7 @@ services:
         aliases:
           - ei-inference
     command: [
-      "--api-key", "ei_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "--api-key", "ei_38f54891ee062462d3d28bd9648dd6ae766b2093796e4d384f0ae2c0e56d0a5b",
       "--run-http-server", "1337",
       "--force-target", "runner-linux-aarch64",
       "--model-variant", "int8"]
@@ -926,7 +926,7 @@ services:
     command: ["inference", "1337"]
 
   inference:
-    image: public.ecr.aws/g7a8t7v6/inference-container:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    image: public.ecr.aws/g7a8t7v6/inference-container:48cd3f0d76c701a6070a27a8d9487d1733c155aa
     restart: unless-stopped
     ports:
       - 1337:1337
@@ -935,7 +935,7 @@ services:
         aliases:
           - ei-inference
     command: [
-      "--api-key", "ei_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "--api-key", "ei_38f54891ee062462d3d28bd9648dd6ae766b2093796e4d384f0ae2c0e56d0a5b",
       "--run-http-server", "1337",
       "--force-target", "runner-linux-aarch64",
       "--model-variant", "int8"]
