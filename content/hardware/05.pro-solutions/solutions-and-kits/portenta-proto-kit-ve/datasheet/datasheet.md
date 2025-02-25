@@ -230,7 +230,7 @@ Below is a summary of the most important specifications of the Arduino Pro 4G GN
 - QWIIC cable (x7)
 - USB-A to USB-C® cable (x1)
 - USB-A to Micro USB cable (x1)
-- Arduino Pro 4G Module antennas kit (SKU: TPX002199) (x1)
+- Arduino Pro 4G Module antennas kit (SKU: TPX00219) (x1)
 
 ### Kit Related Products
 
