@@ -138,7 +138,7 @@ Below is a summary of the most important specifications of the Nicla Sense Env b
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------|
 | **Dimensions**            | 22.86 mm x 22.86 mm                                                                                                   |
 | **Weight**                | 2 g                                                                                                                   |
-| **Operating Voltage**     | 3.3 VDC                                                                                                               |
+| **Operating Voltage**     | +3.3 VDC                                                                                                               |
 | **Microcontroller**       | Renesas® RA2E1, 48 MHz Arm® Cortex®-M23 (not user-accessible)                                                         |
 | **Onboard Sensors**       | HS4001 (temperature and humidity sensor), ZMOD4410 (indoor air quality sensor), ZMOD4510 (outdoor air quality sensor) |
 | **Connectivity**          | Onboard ESLOV connector                                                                                               |
@@ -157,7 +157,7 @@ Below is a summary of the most important specifications of the Nicla Sense Env b
 
 #### Portenta Mid Carrier (SKU: ASX00055)
 
-<p style="text-align: justify;">The Arduino Portenta Mid Carrier expands connectivity options for Portenta family boards, including Ethernet, USB-A, mPCIe, CAN, MicroSD and 4G. It also features JTAG pins for debugging and supports I2C, SPI, PWM, digital and analog I/Os.</p> 
+<p style="text-align: justify;">The Portenta Mid Carrier expands connectivity options for Portenta family boards, including Ethernet, USB-A, mPCIe, CAN, MicroSD and 4G. It also features JTAG pins for debugging and supports I2C, SPI, PWM, digital and analog I/Os.</p> 
 
 <img src="assets/portenta_mid_carrier.jpg" alt="Portenta Mid Carrier" style="width: 70%; height: auto;"></img>
 
@@ -180,6 +180,33 @@ Below is a summary of the most important specifications of the Portenta Mid Carr
     For detailed information about the Portenta Mid Carrier, please refer to its corresponding documentation available on Arduino Docs:
     <a href="https://docs.arduino.cc/hardware/portenta-mid-carrier/" target="_blank" style="color: #0056b3; text-decoration: underline;">
       Portenta Mid Carrier Official Documentation [11]
+    </a>
+  </p>
+</div>
+
+<div style="page-break-after: always;"></div>
+
+#### Portenta Mid Carrier Proto Shield (SKU: ASX00072)
+
+<p style="text-align: justify;">The Portenta Mid Carrier Proto Shield is a versatile expansion board designed to enhance prototyping capabilities within the Arduino ecosystem. It seamlessly integrates with Portenta family boards, Nicla modules, Modulino® devices and Arduino UNO shields, providing a robust and accessible development experience for both beginners and advanced users.</p>
+
+<img src="assets/portenta_mid_carrier_proto_shield.png" alt="Portenta Mid Carrier Proto Shield" style="width: 55%; height: auto;"></img>
+
+Below is a summary of the most important specifications of the Portenta Mid Carrier Proto Shield:
+
+| **Feature**               | **Specification**                                                                                                                                                                                                 |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Compatibility**         | Portenta family boards, Nicla modules, Modulinos and Arduino UNO shields                                                                                                                                          |
+| **Connectors**            | 44-pin headers for the Portenta Mid Carrier interface (x2), ESLOV connectors (x2), QWIIC connector (x1), Arduino UNO shields headers (x2), dedicated mechanical interfaces for Nicla boards and Modulino® modules |
+| **Operating Voltage**     | +7-30 VDC (via dedicated power jack)                                                                                                                                                                              |
+| **Operating Temperature** | -40 °C to +85 °C                                                                                                                                                                                                  |
+| **Dimensions**            | 61.28 mm x 86.5 mm                                                                                                                                                                                                |
+
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+  <p style="text-align: justify;">
+    For detailed information about the Portenta Mid Carrier Proto Shield, please refer to its official documentation available on Arduino Docs:
+    <a href="https://docs.arduino.cc/hardware/portenta-mid-carrier-proto-shield/" target="_blank" style="color: #0056b3; text-decoration: underline;">
+      Portenta Mid Carrier Proto Shield Official Documentation [12]
     </a>
   </p>
 </div>
@@ -213,7 +240,7 @@ Below is a summary of the most important specifications of the Arduino Pro 4G GN
   <p style="text-align: justify;">
     For detailed information about the Arduino Pro 4G GNSS Module Global, please refer to its corresponding documentation available on Arduino Docs:
     <a href="https://docs.arduino.cc/hardware/pro-4g-module/" target="_blank" style="color: #0056b3; text-decoration: underline;">
-      Arduino Pro 4G GNSS Module Official Documentation [12]
+      Arduino Pro 4G GNSS Module Official Documentation [13]
     </a>
   </p>
 </div>
@@ -338,7 +365,8 @@ The figures below show the main dimensions of the kit in a stacked configuration
 - [Nicla Vision Documentation](https://docs.arduino.cc/hardware/nicla-vision/) **[9]**
 - [Nicla Sense Env Documentation](https://docs.arduino.cc/hardware/nicla-sense-env/) **[10]**
 - [Portenta Mid Carrier Documentation](https://docs.arduino.cc/hardware/portenta-mid-carrier/) **[11]**
-- [Arduino Pro 4G Module Documentation](https://docs.arduino.cc/hardware/pro-4g-module/) **[12]**
+- [Portenta Mid Carrier Proto Shield Documentation](https://docs.arduino.cc/hardware/portenta-mid-carrier-proto-shield/) **[12]**
+- [Arduino Pro 4G Module Documentation](https://docs.arduino.cc/hardware/pro-4g-module/) **[13]**
 
 
 ## FCC Caution
@@ -348,7 +376,7 @@ The figures below show the main dimensions of the kit in a stacked configuration
 - [Portenta H7 Documentation](https://docs.arduino.cc/hardware/portenta-h7/) **[8]**
 - [Nicla Vision Documentation](https://docs.arduino.cc/hardware/nicla-vision/) **[9]**
 - [Portenta Mid Carrier Documentation](https://docs.arduino.cc/hardware/portenta-mid-carrier/) **[11]**
-- [Arduino Pro 4G Module Documentation](https://docs.arduino.cc/hardware/pro-4g-module/) **[12]**
+- [Arduino Pro 4G Module Documentation](https://docs.arduino.cc/hardware/pro-4g-module/) **[13]**
 
 ## Company Information
 
@@ -358,23 +386,25 @@ The figures below show the main dimensions of the kit in a stacked configuration
 
 ## Reference Documentation
 
-| **No.** |            **Reference**            | **Link**                                                |
-|:-------:|:-----------------------------------:|---------------------------------------------------------|
-|    1    | Arduino IDE (Desktop)               | https://www.arduino.cc/en/software                      |
-|    2    | Arduino Cloud Editor                | https://create.arduino.cc/editor                        |
-|    3    | Arduino Cloud - Getting Started     | https://docs.arduino.cc/arduino-cloud/guides/overview/  |
-|    4    | Portenta Proto Kit ME Documentation | https://docs.arduino.cc/hardware/portenta-proto-kit-me/ |
-|    5    | Arduino Project Hub                 | https://create.arduino.cc/projecthub                    |
-|    6    | Arduino Library Reference           | https://docs.arduino.cc/language-reference/             |
-|    7    | ACE-220 Online Course               | https://academy.arduino.cc/courses/ace-220              |
-|    8    | Portenta H7 Documentation           | https://docs.arduino.cc/hardware/portenta-h7/           |
-|    9    | Nicla Vision Documentation          | https://docs.arduino.cc/hardware/nicla-vision/          |
-|    10   | Nicla Sense Env Documentation       | https://docs.arduino.cc/hardware/nicla-sense-env/       |
-|    11   | Portenta Mid Carrier Documentation  | https://docs.arduino.cc/hardware/portenta-mid-carrier/  |
-|    12   | Arduino Pro 4G Module Documentation | https://docs.arduino.cc/hardware/pro-4g-module/         |
+| **No.** |                  **Reference**                  | **Link**                                                            |
+|:-------:|:-----------------------------------------------:|---------------------------------------------------------------------|
+|    1    | Arduino IDE (Desktop)                           | https://www.arduino.cc/en/software                                  |
+|    2    | Arduino Cloud Editor                            | https://create.arduino.cc/editor                                    |
+|    3    | Arduino Cloud - Getting Started                 | https://docs.arduino.cc/arduino-cloud/guides/overview/              |
+|    4    | Portenta Proto Kit ME Documentation             | https://docs.arduino.cc/hardware/portenta-proto-kit-me/             |
+|    5    | Arduino Project Hub                             | https://create.arduino.cc/projecthub                                |
+|    6    | Arduino Library Reference                       | https://docs.arduino.cc/language-reference/                         |
+|    7    | ACE-220 Online Course                           | https://academy.arduino.cc/courses/ace-220                          |
+|    8    | Portenta H7 Documentation                       | https://docs.arduino.cc/hardware/portenta-h7/                       |
+|    9    | Nicla Vision Documentation                      | https://docs.arduino.cc/hardware/nicla-vision/                      |
+|    10   | Nicla Sense Env Documentation                   | https://docs.arduino.cc/hardware/nicla-sense-env/                   |
+|    11   | Portenta Mid Carrier Documentation              | https://docs.arduino.cc/hardware/portenta-mid-carrier/              |
+|    12   | Portenta Mid Carrier Proto Shield Documentation | https://docs.arduino.cc/hardware/portenta-mid-carrier-proto-shield/ |
+|    13   | Arduino Pro 4G Module Documentation             | https://docs.arduino.cc/hardware/pro-4g-module/                     |
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |   **Changes**  |
-|:----------:|:------------:|:--------------:|
-| 12/02/2025 |       1      |  First release |
+|  **Date**  | **Revision** |                      **Changes**                     |
+|:----------:|:------------:|:----------------------------------------------------:|
+| 12/02/2025 |       1      |                     First release                    |
+| 25/02/2025 |       2      | Portenta Mid Carrier Proto Shield information update |
