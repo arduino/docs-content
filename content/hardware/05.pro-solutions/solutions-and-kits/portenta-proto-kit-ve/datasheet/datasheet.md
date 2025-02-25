@@ -188,7 +188,7 @@ Below is a summary of the most important specifications of the Portenta Mid Carr
 
 #### Arduino Pro 4G GNSS Module Global (SKU: TPX00200)
 
-<p style="text-align: justify;">Designed in the widely used Mini PCI Express (mPCIe) format, this module provides global LTE Cat.4 connectivity, 4G support, and GNSS capabilities.</p>
+<p style="text-align: justify;">Designed in the widely used Mini PCI Express (mPCIe) format, this module provides global LTE Cat.4 connectivity, 4G support and GNSS capabilities.</p>
 
 <img src="assets/4g_module.jpg" alt="Arduino Pro 4G GNSS Module" style="width: 40%; height: auto;"></img>
 
