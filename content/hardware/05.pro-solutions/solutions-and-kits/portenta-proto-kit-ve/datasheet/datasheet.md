@@ -44,7 +44,7 @@ Quality inspection, automated object detection, industrial automation, machine v
 - Nicla Vision (SKU: ABX00051) (x1)
 - Nicla Sense Env (SKU: ABX00089) (x1)
 - Portenta Mid Carrier (SKU: ASX00055) (x1)
-- Portenta Mid Carrier Proto Shield (x1)
+- Portenta Mid Carrier Proto Shield (SKU: ASX00072) (x1)
 - Arduino Pro 4G GNSS Module Global (SKU: TPX00200) (x1)
 - Modulinos (x6):
   - Knob (encoder with push button) (x1)
