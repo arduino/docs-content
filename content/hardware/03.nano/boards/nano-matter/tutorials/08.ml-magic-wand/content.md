@@ -24,9 +24,13 @@ software:
 
 This tutorial describes how to build a gesture recognition system based on a machine learning model using TensorFlow and the Arduino Nano Matter.
 
-![Thumbnail](assets/)
+![Nano Matter Magic Wand](assets/thumbnail.png)
 
 The Arduino Nano Matter acts as a digital magic wand 🪄, where sensor data from its movements is processed by a model to classify and detect specific gestures. The inference results will tur
+
+### Goals
+
+The goal of this project tutorial is to showcase the capabilities of the Arduino Nano Matter running Tiny Machine Learning models on the edge for gesture recognition. The wand can detect two gestures drawn in the air: **"W" (wing gesture)** and **"O" (ring gesture)**.
 
 ## Hardware and Software Requirements
 
@@ -78,6 +82,12 @@ The Modulino are daisy-chained leveraging the Qwiic I2C connection with the Nano
 |         SDA          |   Blue    |       A4        |
 |         VCC          |    Red    |      3.3V       |
 |         GND          |   Black   |       GND       |
+
+### 3D Printed Parts
+
+You can mount the Nano Matter and the Modulinos on a custom 3D printed or laser cut base. Download the 3D files from [here](assets/3d-files.zip).
+
+[3D Printed Base]()
 
 ### Programming
 
@@ -601,7 +611,7 @@ You can download the code from [here](assets/magic_wand_modulino.zip) or by clic
 
 In the Arduino IDE select the **Arduino Nano Matter** inside the _Silicon Labs_ board package and make sure the **Protocol Stack** is set to _None_.
 
-[Nano Matter Sketch Upload](assets/code.png)
+![Nano Matter Sketch Upload](assets/code.png)
 
 
 
