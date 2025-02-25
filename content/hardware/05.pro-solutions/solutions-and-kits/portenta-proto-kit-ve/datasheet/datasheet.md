@@ -157,7 +157,7 @@ Below is a summary of the most important specifications of the Nicla Sense Env b
 
 #### Portenta Mid Carrier (SKU: ASX00055)
 
-<p style="text-align: justify;">The Arduino Portenta Mid Carrier expands connectivity options for Portenta family boards, including Ethernet, USB-A, mPCIe, CAN, MicroSD, and 4G. It also features JTAG pins for debugging and supports I2C, SPI, PWM, digital, and analog I/Os.</p> 
+<p style="text-align: justify;">The Arduino Portenta Mid Carrier expands connectivity options for Portenta family boards, including Ethernet, USB-A, mPCIe, CAN, MicroSD and 4G. It also features JTAG pins for debugging and supports I2C, SPI, PWM, digital and analog I/Os.</p> 
 
 <img src="assets/portenta_mid_carrier.jpg" alt="Portenta Mid Carrier" style="width: 70%; height: auto;"></img>
 
