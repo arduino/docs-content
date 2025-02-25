@@ -32,6 +32,20 @@ Setting up the online environment is quick and easy. Follow the steps below to a
    print("Hello World!")
    ```
 
+## What Changes
+
+Note that some features might look different if you are using the Online IDE. Fear not, all code and files are interpreted the same regardless of the IDE you choose; however, the UI of the Online IDE displays files differently.
+
+You can open the file manager using the button:  
+![File Manager Button](assets/filemanageronline.png)
+
+The files will then be displayed in a side bar, also in a different arrangement. In the online IDE, files can be viewed in a side bar:  
+![Files side window](assets/filesidebaronline.png)
+
+A few options are available at the bottom, these are: `create new a file`, `create new a folder`, `delete a file`, `rename`, `upload` and `download`, located at the bottom:  
+![Buttons Online IDE](assets/onlinebuttons.png)
+
+
 We should now see `Hello World!` printed in the REPL.
 
 ## Troubleshooting
