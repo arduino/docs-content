@@ -39,7 +39,7 @@ The Arduino Nano Matter acts as a digital magic wand 🪄, where sensor data fro
 - Modulino Pixels (x1)
 - Qwiic cables (x2)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
-- Custom 3D printed parts
+- [Custom 3D printed parts](assets/3d-files.zip)
 
 ### Software Requirements
 
@@ -81,19 +81,270 @@ The Modulino are daisy-chained leveraging the Qwiic I2C connection with the Nano
 
 ### Programming
 
+Let's go through some important code sections to make this project fully operational, starting with the Protocol Stack setting and required libraries:
+
 In the Arduino IDE upper menu, after selecting the **Nano Matter board** from the Silicon Labs core, navigate to **Tools > Protocol stack** and select **None**.
 
 ![Protocol stack configuration](assets/stack.png)
 
 ***The code will only compile if the Protocol Stack is set to None.***
 
-You can download the complete project code from [here](assets/magic_wand_modulino.zip). 
-
-Let's go through some important code sections to make this application fully operational, starting with the required libraries:
-
 Download the `Modulino.h` library from the Arduino IDE Library Manager. This will enable the support for the Modulino Pixels and the Modulino Movement.
 
 ![Modulino Library Installation](assets/modulino.png)
+
+You can download the **complete project code** from [here](assets/magic_wand_modulino.zip) or copy and paste it from the snippet below:
+
+```arduino
+#include "SilabsTFLiteMicro.h"
+#include "Modulino.h" 
+
+#define SEQUENCE_LENGTH          200
+#define SIGNAL_CHANNELS          3
+
+#define GESTURE_COUNT            3
+#define WING_GESTURE             0
+#define RING_GESTURE             1
+#define NO_GESTURE               2
+
+#define DETECTION_THRESHOLD      0.5f
+
+static TfLiteTensor* model_input;
+static tflite::MicroInterpreter* interpreter;
+static int input_length;
+static TfLiteTensor *output;
+
+typedef struct model_output {
+  float gesture[GESTURE_COUNT];
+} model_output_t;
+
+typedef float acc_data_t;
+
+ModulinoColor OFF(0, 0, 0);
+ModulinoColor YELLOW(255, 255, 0);
+
+ModulinoMovement imu;
+ModulinoPixels leds;
+
+void setPixel(int pixel, ModulinoColor color) {
+  leds.set(pixel, color, 25);
+  leds.show();
+}
+
+bool accelerometer_setup();
+void accelerometer_read(acc_data_t* dst, int n);
+
+void setup() {
+  Serial.begin(115200);
+  Serial.println("Magic Wand - Silabs TensorFlowLite");
+  Serial.println("init...");
+
+  // Init TFLite model
+  sl_tflite_micro_init();
+
+  // Obtain pointer to the model's input tensor.
+  model_input = sl_tflite_micro_get_input_tensor();
+  interpreter = sl_tflite_micro_get_interpreter();
+  output = sl_tflite_micro_get_output_tensor();
+
+  // Print model input parameters
+  Serial.print("model_input->dims->size = ");
+  Serial.println(model_input->dims->size);
+  Serial.print("model_input->dims->data[0] = ");
+  Serial.println(model_input->dims->data[0]);
+  Serial.print("model_input->dims->data[1] = ");
+  Serial.println(model_input->dims->data[1]);
+  Serial.print("model_input->dims->data[2] = ");
+  Serial.println(model_input->dims->data[2]);
+  Serial.print("model_input->type = ");
+  Serial.println(model_input->type);
+
+  // Check model input parameters
+  if ((model_input->dims->size != 2) || (model_input->dims->data[0] != 1)
+      || (model_input->dims->data[1] != SEQUENCE_LENGTH * SIGNAL_CHANNELS)
+      || (model_input->type != kTfLiteFloat32)) {
+    Serial.println("error: bad input tensor parameters in model");
+    while(1) ;
+  }
+
+  // Print model input length
+  input_length = model_input->bytes / sizeof(float);
+  Serial.print("input_length = ");
+  Serial.println(input_length);
+
+  // Initialize accelerometer
+  bool setup_status = accelerometer_setup();
+  if (!setup_status) {
+    Serial.println("error: accelerometer setup failed\n");
+    while(1) ;
+  }
+  
+  // Init led to steady state (blue)
+  leds.begin();
+  for (int i = 0; i < 8; i++) {
+    setPixel(i, BLUE);
+  }
+
+  Serial.println("ready");
+}
+
+void loop() {
+  acc_data_t *dst = (acc_data_t *) model_input->data.f;
+
+  // Wait until a significant movement is detected
+  bool movementDetected = false;
+  Serial.println("Waiting for significant movement...");
+
+  while (!movementDetected) {
+    uint8_t acceleroStatus;
+    acceleroStatus = imu.available();
+
+    // Proceed only if new data is available
+    if (acceleroStatus == 1) {
+      float acceleration[3];
+      imu.update();
+      
+      acceleration[0] = imu.getX();
+      acceleration[1] = imu.getY();  
+      acceleration[2] = imu.getZ();
+
+      // Calculate the absolute sum of the acceleration components
+      float absSum = fabs(acceleration[0]) + fabs(acceleration[1]) + fabs(acceleration[2]);
+
+      // If the movement exceeds the threshold, update the state
+      if (absSum > 1.8) {
+          movementDetected = true;
+          Serial.println("Movement detected: start collecting data!");
+      }
+    }
+  }
+
+  // Turn off leds when movement is detected
+  for (int i = 0; i < 8; i++) {
+    setPixel(i, OFF);
+  }
+
+  // Get accelerometer values
+  accelerometer_read(dst, input_length);
+
+  // Run inference
+  TfLiteStatus invoke_status = interpreter->Invoke();
+
+  if (invoke_status == kTfLiteOk) {
+    // Analyze the results to obtain a prediction
+    const model_output_t *output = (const model_output_t *)interpreter->output(0)->data.f;
+
+    // Print inference results (Gesture, probability)
+    int max_i = -1;
+    float max_val = 0;
+    for (int i = 0; i < GESTURE_COUNT; i++) {
+      switch(i) {
+        case WING_GESTURE: Serial.print("W"); break;
+        case RING_GESTURE: Serial.print("O"); break;
+        case NO_GESTURE: Serial.print("No gesture"); break;
+      }
+      Serial.print(": ");
+      Serial.print(interpreter->output(0)->data.f[i]);
+      Serial.println();
+      if (output->gesture[i] > max_val) {
+        max_val = output->gesture[i];
+        max_i = i;
+      }
+    }
+
+    // Print the graphical representation of the recognized gesture
+    if (max_val >= DETECTION_THRESHOLD) {
+      switch(max_i) {
+        case WING_GESTURE:
+          Serial.println("detection = wing (W)");
+          Serial.println("*       *");
+          Serial.println("*       *");
+          Serial.println("*   *   *");
+          Serial.println(" * * * * ");
+          Serial.println("  *   *  ");
+
+          // Green leds for W gesture
+          for (int i = 0; i < 10; i++) { 
+            for (int j = 0; j < 8; j++) {
+              setPixel(j, GREEN);
+            }
+            delay(200); 
+
+            for (int j = 0; j < 8; j++) {
+              setPixel(j, OFF);
+            }
+            delay(200); 
+          }
+          break;
+        case RING_GESTURE:
+          Serial.println("detection = ring (O)");
+          Serial.println("  *****  ");
+          Serial.println(" *     * ");
+          Serial.println("*       *");
+          Serial.println(" *     * ");
+          Serial.println("  *****  ");
+
+          // Yellow leds for O gesture
+          for (int i = 0; i < 10; i++) { 
+            for (int j = 0; j < 8; j++) {
+              setPixel(j, YELLOW);
+            }
+            delay(200); 
+
+            for (int j = 0; j < 8; j++) {
+              setPixel(j, OFF);
+            }
+            delay(200); 
+          }
+          break;
+        case NO_GESTURE:
+          Serial.println("No gesture");
+          break;
+      }
+    }
+
+    // reset LEDs to steady state (blue)
+    for (int i = 0; i < 8; i++) {
+      setPixel(i, BLUE);
+    }
+  } else {
+    printf("error: inference failed");
+  }
+}
+
+bool accelerometer_setup() {
+  Modulino.begin();
+  bool status = imu.begin();
+
+  return status;
+}
+
+void accelerometer_read(acc_data_t* dst, int n) {
+  int i = 0;
+
+  while (i < n) {
+    uint8_t acceleroStatus;
+    acceleroStatus = imu.available();
+
+    if (acceleroStatus == 1) {
+      float acceleration[3];
+
+      imu.update();
+
+      acceleration[0] = imu.getX();
+      acceleration[1] = imu.getY();  
+      acceleration[2] = imu.getZ();
+      
+      dst[i]    = (acceleration[0]*1000+4000)/8000;
+      dst[i+1]  = (acceleration[1]*1000+4000)/8000;
+      dst[i+2]  = (acceleration[2]*1000+4000)/8000;
+
+      i+=SIGNAL_CHANNELS;
+    }
+  }
+}
+```
+***Be aware that your sketch needs the model header `sl_tflite_micro_model.c` that is included in the [complete code download file](assets/magic_wand_modulino.zip).***
 
 After the libraries import, several variables and structures are declared that has to be with the Machine Learning implementation:
 
@@ -182,7 +433,7 @@ void setup() {
     while(1) ;
   }
 
-  // Print model input lenght
+  // Print model input length
   input_length = model_input->bytes / sizeof(float);
   Serial.print("input_length = ");
   Serial.println(input_length);
@@ -342,7 +593,15 @@ In addition, some helper functions are used:
 - `accelerometer_setup()`: This function initialize the Modulino Movement accelerometer and returns true if it did it successfully.
 - `accelerometer_read(acc_data_t* dst, int n)`: This function read the accelerometer data, normalize it and prepare the model input buffer.
 
+### Upload the Project Sketch
 
+You can download the code from [here](assets/magic_wand_modulino.zip) or by clicking on the image below: 
+
+[![ ](assets/download.png)](assets/magic_wand_modulino.zip)
+
+In the Arduino IDE select the **Arduino Nano Matter** inside the _Silicon Labs_ board package and make sure the **Protocol Stack** is set to _None_.
+
+[Nano Matter Sketch Upload](assets/code.png)
 
 
 
