@@ -109,7 +109,7 @@ productCertifications:
     files:
       - title: "Download PSTI certification document for Arduino boards."
         url: "resources/psti/arduino-psti.pdf"
-   - name: "VCCI"
+  - name: "VCCI"
     title: "VCCI (Voluntary Control Council for Interference by Information Technology Equipment)"
     id: 13
     description: "VCCI is Japan’s alternative to EMC certification. Even though the certification is completely voluntary, it is common practice to carry out VCCI compliance test to ensure users and customers of the product’s quality. VCCI approval can only be achieved by testing the product in organizations accredited by VCCI."
