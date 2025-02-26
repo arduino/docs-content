@@ -646,12 +646,12 @@ DEMO HERE
 
 ## Conclusion
 
-In this tutorial you learned how to use the Arduino Nano Matter as a Machine Learning gesture recognizer, leveraging the optimized Silicon Labs library for Tiny Machine Learning we showcased the board capabilites of running TinyML algorithms with ease thanks to the **hardware acceleration** achieved with the **Mathematical Vector Processor (MVP)** integrated in the Nano Matter microcontroller.
+In this tutorial you learned how to use the Arduino Nano Matter as a Machine Learning gesture recognizer, leveraging the optimized Silicon Labs library for Tiny Machine Learning we showcased the board capabilities of running TinyML algorithms with ease thanks to the **hardware acceleration** achieved with the **Mathematical Vector Processor (MVP)** integrated in the Nano Matter microcontroller.
 
 ### Next Steps
 
 - Extend your knowledge about the Nano Matter following the [Arduino Documentation](https://docs.arduino.cc/hardware/nano-matter/).
-- Create your own custom gestures reconition model.
+- Create your own custom gestures recognition model.
 - Create machine learning models leveraging other Modulino sensors.
 
 
