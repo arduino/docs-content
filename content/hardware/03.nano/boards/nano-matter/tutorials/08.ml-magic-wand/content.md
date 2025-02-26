@@ -28,23 +28,6 @@ This tutorial describes how to build a gesture recognition system based on a mac
 
 The Arduino Nano Matter acts as a digital magic wand 🪄, where sensor data from its movements is processed by a model to classify and detect specific gestures. The inference results will tur
 
-### How to Magic Wand Works?
-
-In its **idle state**, the wand's LEDs remain **solid blue**, indicating that it is ready to detect a gesture.
-
-When the wand is moved, the LEDs **turn off**, showing that gesture recognition has started.
-
-Once the recognition process is complete:
-
-If a gesture is successfully detected, the LEDs **blink rapidly for 4 seconds** in the color assigned to the recognized gesture:
-
-- **Green** for "W" (wing gesture)
-- **Yellow** for "O" (ring gesture)
-  
-After this, the wand returns to its **idle state**, with the LEDs **solid blue** again.
-
-***Gestures should be performed with wide and slow movements, lasting approximately 1-2 seconds for optimal recognition.***
-
 ### Goals
 
 The goal of this project tutorial is to showcase the capabilities of the Arduino Nano Matter running Tiny Machine Learning models on the edge for gesture recognition. The wand can detect two gestures drawn in the air: **"W" (wing gesture)** and **"O" (ring gesture)**.
@@ -68,7 +51,6 @@ The goal of this project tutorial is to showcase the capabilities of the Arduino
 - [Modulino library](https://github.com/arduino-libraries/Modulino). This library adds the support for the Modulinos, you can install it from the **Library Manager** in the Arduino IDE.
 - [Silicon Labs core](https://github.com/SiliconLabs/arduino). This enables the Silicon Labs hardware including the Arduino Nano Matter support. You can install it from the **Boards Manager** in the Arduino IDE. 
 
-
 ### Download the Project Code
 
 [![ ](assets/download.png)](assets/magic_wand_modulino.zip)
@@ -82,6 +64,28 @@ The **Silicon Labs** core contains the libraries and examples you need to work w
 ![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install.png)
 
 ***The core version for this tutorial must be 2.3.0 or greater for the support of the Silabs Tensorflow Lite library.***
+
+## How to Magic Wand Works?
+
+In its **idle state**, the wand's LEDs remain **solid blue**, indicating that it is ready to detect a gesture.
+
+When the wand is moved, the LEDs **turn off**, showing that gesture recognition has started.
+
+Once the recognition process is complete:
+
+If a gesture is successfully detected, the LEDs **blink rapidly for 4 seconds** in the color assigned to the recognized gesture:
+- **Green** for "W" (wing gesture)
+- **Yellow** for "O" (ring gesture)
+
+![Recognizable Gestures](assets/gestures.png)
+  
+After this, the wand returns to its **idle state**, with the LEDs **solid blue** again.
+
+***Gestures should be performed with wide and slow movements, lasting approximately 1-2 seconds for optimal recognition.***
+
+### Data Collection
+
+Accelerometer sensor readings are collected at a frequency of **104 Hz**, with a sample duration of approximately **2 seconds**. This results in **200** tuples of accelerometer (aX, aY, aZ) sensor data for each sample (`200 * 1/104 Hz = 1.92s`). Therefore, a total of **600 data points** are collected for each gesture (200 * 3 = 600).
 
 ## Project Setup
 
@@ -104,7 +108,7 @@ The Modulino are daisy-chained leveraging the Qwiic I2C connection with the Nano
 
 You can mount the Nano Matter and the Modulinos on a custom 3D printed or laser cut base. Download the 3D files from [here](assets/3d-files.zip).
 
-[3D Printed Base](assets/piece.PNG)
+![3D Printed Base](assets/piece.PNG)
 
 ### Programming
 
@@ -629,6 +633,26 @@ You can download the code from [here](assets/magic_wand_modulino.zip) or by clic
 In the Arduino IDE select the **Arduino Nano Matter** inside the _Silicon Labs_ board package and make sure the **Protocol Stack** is set to _None_.
 
 ![Nano Matter Sketch Upload](assets/code.png)
+
+After the code is uploaded successfully, you can test your Nano Matter Magic Wand.
+
+## Project Testing
+
+Power the Nano Matter of your Magic Wand using a USB cable and start moving it following the Wing or Ring gesture to see if.
+
+DEMO HERE
+
+## Conclusion NEED UPDATE
+
+In this tutorial you learned how to use the Nano Matter Display expansion kit, leveraging all its features like the E-ink screen to display high-contrast graphics with a low power consumption on 2.9" 384x168 resolution. Features like the built-in RGB LED, the 3-axis accelerometer and the temperature and humidity sensor were explained.
+
+Thanks to the E-ink display, your IoT-oriented products can have a better and more natural user experience while maintaining a low power consumption. Allowing you to set up and commission your solution by scanning the QR code and showing real-time sensor data on the screen, being a game-changer feature for your IoT solutions.
+
+### Next Steps
+
+- Extend your knowledge with E-ink displays following the [Pervasive Displays documentation](https://docs.pervasivedisplays.com/).
+- Try all the examples included in the library for a deeper understanding on the API.
+- Start creating your own graphics to display custom data on the screen.
 
 
 
