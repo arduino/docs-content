@@ -19,7 +19,7 @@ software:
   - web-editor
 ---
 
-The Arduino MKR WAN 1300 is an excellent entry point to get started with low-powered, wide-area networks (LPWAN). In this tutorial, we will go through some of the core concepts such as long range (LoRa®) and the LoRaWAN® protocol.
+The Arduino MKR WAN 1300 is an excellent entry point to get started with low-power, wide-area networks (LPWAN). In this tutorial, we will explore some of the core concepts behind LoRa® technology and set up direct communication between two MKR WAN 1300 boards.
 
 We will create a basic sketch that will allow communication between two **MKR WAN 1300** boards. The communication will be established firstly through the radio module on the board, where we will also attach an antenna to each board.
 
@@ -27,17 +27,13 @@ We will create a basic sketch that will allow communication between two **MKR WA
 
 There are many different terms to be familiar with in the world of LoRa® technology, so let's go through some of them!
 
-### LoRa®
+### LoRa® Technology
 
 LoRa® is short for long range modulation technique based on a technology called chirp spread spectrum (CSS). It is designed to carry out long-range transmissions with minimal power consumption. LoRa® defines as the "lower layer" or **"physical layer"**, according to the **OSI model**. The physical layer is defined by hardware, signals and frequencies.
 
 LoRa® uses different radio frequencies depending on where you are located in the world. The most common are Europe (868 MHz) and North America & Australia (915 MHz), but it differs from country to country. You can also read more about a [country's unique radio frequency](https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country/).
 
 LoRa® is also often used to describe hardware devices supported by LoRa®, e.g. modules or gateways. The Arduino MKR WAN 1300 has a LoRa® module called **Murata CMWX1ZZABZ**.
-
-### LoRaWAN®
-
-LoRaWAN® can be defined as the networking protocol used in an Low-Power, Wide-Area networks (LPWAN). The architecture of the network consists of different gateways that relay messages from low-power devices over long ranges, to central network servers. The protocol is defined as the **upper networking layers**.
 
 ### The Benefits of LoRa®
 

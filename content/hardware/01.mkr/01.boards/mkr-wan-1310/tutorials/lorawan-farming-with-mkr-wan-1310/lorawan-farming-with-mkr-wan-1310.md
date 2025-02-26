@@ -1,5 +1,5 @@
 ---
-title: "LoRaWAN Farming with MKR WAN 1310"
+title: "LoRa®-based network Farming with MKR WAN 1310"
 description: "Let's collect sensor data with MKR WAN 1300 or 1310 and combine it with weather forecast in order to optimize watering in a wide area!"
 coverImage: "assets/blob_KruXU85KZx.png"
 tags: [mkr1300, mkr1310, nodered, ttn]
@@ -29,9 +29,9 @@ source: "https://create.arduino.cc/projecthub/145678/lorawan-farming-with-mkr-wa
 
 If you need to control a watering system (or lighting system or other generic actuators) in a smart way and collect sensor data over a large area where WiFi coverage is optional, you have to switch to other ways to communicate.
 
-LoRa is maybe the better choice: low power consumption, long range and inexpensive hardware. Last but not least, we can use LoRa under a LoRaWAN network, that means you can place your devices all around the world no matter if you have your own receiver there!
+LoRa is maybe the better choice: low power consumption, long range and inexpensive hardware. Last but not least, we can use LoRa under a LoRa®-based network, that means you can place your devices all around the world no matter if you have your own receiver there!
 
-In this project we'll use the most known global LoRaWAN network: [The Things Network](https://www.thethingsnetwork.org/).
+In this project we'll use the most known global LoRa®-based network: [The Things Network](https://www.thethingsnetwork.org/).
 
 We'll then integrate everything with [Node-RED](https://nodered.org/), so it will be easy to plot the received data and create rules to send back commands!
 

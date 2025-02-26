@@ -1,9 +1,7 @@
 ---
-title: 'The Arduino Guide to LoRa® and LoRaWAN®'
-description: 'Learn the basics of LoRa® and LoRaWAN® and how to use them with Arduino hardware and software.'
-tags: 
-  - LoRa®
-  - LoRaWAN®
+title: 'The Arduino Guide to LoRa® and LPWAN Technologies'
+description: 'Learn the basics of LoRa® technology and how to use it with Arduino hardware and software.'
+tags:
   - MKR WAN 1310
 author: 'José Bagur, Taddy Chung'
 ---
@@ -12,11 +10,11 @@ The Internet of Things (IoT) is often referred to as a collection of objects con
 
 ***By 2025, there will be more than 25 billion IoT devices connected to the Internet.***
 
-Many of the existing IoT devices will be connected to the Internet using short-range wireless networks such as Wi-Fi®, Bluetooth®, ZigBee, Z-Wave®, etc. Cellular connections using networks such as 2G, 3G, and 4G will also connect IoT devices to the Internet. Still, these **short and medium-range wireless networks are not always suitable for IoT devices** since they were developed for applications where power consumption and battery life are not significant issues. **IoT devices usually have low-power consumption and send and receive low amounts of data**.  
+Many of the existing IoT devices will be connected to the Internet using short-range wireless networks such as Wi-Fi®, Bluetooth®, ZigBee, Z-Wave®, etc. Cellular connections using networks such as 2G, 3G, and 4G will also connect IoT devices to the Internet. Still, these **short and medium-range wireless networks are not always suitable for IoT devices** since they were developed for applications where power consumption and battery life are not significant issues. **IoT devices usually have low-power consumption and send and receive low amounts of data**.
 
-## Low-Power Wide Area Networks
+## Low-Power Wide Area Networks (LPWANs)
 
-**Low-Power Wide Area Networks** (LPWAN) is a group of wireless networks technologies well suited to the specific needs of IoT devices: **low-bandwidth** and **low-power** devices, usually battery-powered. This type of networks provide **low-bit rates** over **long ranges** with a **low-power** consumption. LPWAN's can accommodate data packets sizes from 10 bytes to 1 kB at uplink speeds up to 200 kbps; long-range connectivity varies from 2 to 1,000 km depending on the network technology. Most LPWAN's technologies have a **star topology**; this means that each device connects directly to a central access point.
+**Low-Power Wide Area Networks** (LPWANs) is a group of wireless network technologies well suited to the specific needs of IoT devices: **low-bandwidth** and **low-power** devices, usually battery-powered. These types of networks provide **low-bit rates** over **long ranges** with **low-power** consumption. LPWANs can accommodate data packet sizes from 10 bytes to 1 kB at uplink speeds up to 200 kbps; long-range connectivity varies from 2 to 1,000 km depending on the network technology. Most LPWAN technologies have a **star topology**; this means that each device connects directly to a central access point.
 
 Some of the important use cases for LPWAN's include the following applications:
 
@@ -25,35 +23,33 @@ Some of the important use cases for LPWAN's include the following applications:
 - **Smart grids**: electricity, water, and gas metering.
 - **Smart agriculture**: land condition monitoring, animal tracking, geofencing. 
 
-***If you want to read more about LPWAN's, check out [this article](/learn/communication/low-power-wide-area-networks-101) from the Learn section.***
+***If you want to read more about LPWANs, check out [this article](/learn/communication/low-power-wide-area-networks-101) from the Learn section.***
 
-Several LPWAN technologies use **licensed** or **unlicensed frequencies** and **proprietary** or **open** specifications. **LoRa®** and its Media Access Control (MAC) layer protocol implementation, **LoRaWAN®**, is currently one of the existing LPWAN gaining the most traction to support IoT devices and services. 
+Several LPWAN technologies use **licensed** or **unlicensed frequencies** and **proprietary** or **open** specifications. **LoRa®** and its Media Access Control (MAC) layer protocol implementation is one of the LPWAN technologies gaining traction to support IoT devices and services.
 
 ![Bandwidth vs. range of short distance, cellullar and LPWA networks. Image credits: The Things Network.](assets/lorawan-101_img01.png)
 
-## LoRa® and LoRaWAN®
+## LoRa® Technology
 
-### What are LoRa® and LoRaWAN®?
+### What is LoRa®?
 
-**LoRa®** is a **wireless modulation technique** derived from **Chirp Spread Spectrum** (CSS) technology. CSS uses wideband linear frequency modulated chirp pulses to encode information. LoRa® can operate on the following license-free sub-gigahertz ISM (Industrial, Scientific, and Medical) bands: **433 MHz**, **868 MHz**, and **915 MHz**. ISM bands are internationally reserved for industrial, scientific and, medical uses. 
+**LoRa** is a **wireless modulation technique** derived from **Chirp Spread Spectrum** (CSS) technology. CSS uses wideband linear frequency modulated chirp pulses to encode information. It can operate on the following license-free sub-gigahertz ISM (Industrial, Scientific, and Medical) bands: **433 MHz**, **868 MHz**, and **915 MHz**. ISM bands are internationally reserved for industrial, scientific and, medical uses.
 
-***LoRa® modulation technique was invented in 2010 by the French startup Cycleo; then, it was acquired in 2012 by Semtech.***
+***The Long Range modulation technique was invented in 2010 by the French startup Cycleo and was later acquired in 2012 by Semtech.*** 
 
-Based on LoRa®, the **LoRaWAN®** (LoRa for Wide Area Networks) specification extended the LoRa® physical communication layer into the Internet by adding a **MAC layer**. The LoRaWAN® specification is a software layer that defines how devices must use the LoRa, for example, when they transmit or receive messages. The LoRaWAN specification is open-source; it has been supported and maintained by the LoRa Alliance® since 2015. 
+LoRa® is widely used in LPWAN deployments for applications requiring long-distance connectivity with minimal power consumption.
 
-***The LoRa Alliance® is an open, nonprofit organization that collaborates and shares experiences to promote and drive the success of the LoRaWAN® standard as the leading open global standard for secure IoT LPWAN connectivity.***
+### LoRa® Network Architecture
 
-### LoRaWAN® Network Architecture
+A typical network using LoRa® technology consists of the following essential parts: **end devices** (usually sensors), a base station or **gateway**, a **network server** and an **operations support system (OSS)** for provisioning and managing the network.
 
-A typical LoRaWAN® network architecture includes the following essential parts: **end-devices** (usually sensors), a base station or **gateway**, also known as Long Range Relay (LRR), a **network server** also known as Long Range Controller (LRC), and the **Operation Support System** (OSS) for provisioning and management of the network.
+![Typical LoRa® network architecture example. Image credits: The Things Network.](assets/lorawan-101_img02.png)
 
-![Typical LoRaWAN® network architecture example. Image credits: The Things Network.](assets/lorawan-101_img02.png)
+From the image above, notice there is a fundamental difference between a network server and a gateway. The **network server** manages message routing, while **gateways** function as relays that forward data between end devices and the server. LoRa®-based networks can be **public or private**, depending on the deployment needs.
 
-From the image above, notice there is a fundamental difference between a network server and a gateway. The **network server** controls the virtualized MAC layer of the LoRaWAN® network while **gateways** are devices pre-integrated with the network server to ease the LPWAN rollout and provisioning. LoRaWAN® network servers and gateways access can be public or private.
+***[The Things Network (TTN)](https://www.thethingsnetwork.org/) is a crowdsourced, open, and decentralized LoRa®-based network server. This network is a great way to start testing devices, applications, integrations and get familiar with LoRa. To connect to TTN, you will need to be in the range of a gateway. Check the [world map](https://www.thethingsnetwork.org/map) to see if your local community already has a gateway installed; if not, consider installing one!***
 
-***[The Things Network (TTN)](https://www.thethingsnetwork.org/) is a crowdsourced, open, and decentralized LoRaWAN® network server. This network is a great way to start testing devices, applications, integrations and get familiar with LoRaWAN®. To connect to TTN, you will need to be in the range of a gateway. Check the [world map](https://www.thethingsnetwork.org/map) to see if your local community already has a gateway installed; if not, consider installing one!***
-
-LoRaWAN® networks are usually deployed in a **star-of-stars topology**; this means that **gateways manage data between end-devices and a network server**. Gateways are connected to the central network server via the Internet, while end-devices use LoRa® to send and receive data to and from the gateways; end-devices are not exclusively tied to a single gateway, end-devices broadcast information to all the gateways in range. Communication in LoRaWAN® networks is natively **bi-directional**, although uplink communication between end-devices and the central network server is expected to be predominant in the network.
+LoRa®-based networks are usually deployed in a **star-of-stars topology**; this means that **gateways manage data between end-devices and a network server**. Gateways are connected to the central network server via the Internet, while end-devices use LoRa® to send and receive data to and from the gateways; end-devices are not exclusively tied to a single gateway, end-devices broadcast information to all the gateways in range. Communication in LoRa®-based networks is natively **bi-directional**, although uplink communication between end-devices and the central network server is expected to be predominant in the network.
 
 ***Star networks topologies provide the best relationship between long-range communications, the number of gateways or base stations in the network, end-devices power consumption, and battery life.***
 
@@ -64,11 +60,11 @@ Star networks present several advantages compared to other network topologies:
 
 ### Data Rates
 
-Communication between end-devices and gateways in LoRaWAN® networks is spread out on different **frequency channels** and **data rates** (communications using different data rates do not interfere with each other).
+Communication between end-devices and gateways in LoRa®-based networks is spread out on different **frequency channels** and **data rates** (communications using different data rates do not interfere with each other).
 
 ***LoRa® supports data rates ranging from 300 bps to 5 kbps for a 125 kHz bandwidth.***
 
-To maximize the battery life of each end-device and the overall capacity available through the network, LoRaWAN® uses an **Adaptive Data Rate** (ADR) mechanism for **optimizing data rates, airtime, and power consumption**. ADR controls the following transmission parameters on end-devices:
+To maximize the battery life of each end-device and the overall capacity available through the network, LoRa® technology uses an **Adaptive Data Rate** (ADR) mechanism for **optimizing data rates, airtime, and power consumption**. ADR controls the following transmission parameters on end-devices:
 
 - **Spreading factor**: the **speed of data transmission**. Lower spreading factors mean a higher data transmission rate. 
 - **Bandwidth**: the **amount of data that can be transmitted** from one point to another within the network. 
@@ -94,23 +90,23 @@ Also, local regulations must be respected, for example:
 - In the EU868 band, the end-device must respect the maximum transmit duty cycle relative to the sub-band used and local regulations (1% for end-devices).
 - In the US915 band, the end-device must respect the maximum transmit duration (or dwell time) relative to the sub-band used and local regulations (400ms).
 
-![LoRaWAN® network layers. Image credits: Semtech.](assets/lorawan-101_img03.png)
+![LoRa®-based network layers. Image credits: Semtech.](assets/lorawan-101_img03.png)
 
 ### Regional Parameters
 
-The **LoRaWAN® Regional Parameters specification** is a companion to the LoRaWAN® network layer specification. While the LoRaWAN® network layer specification defines the air interface between a compliant end-device (sensor, actuator, tracker, etc.) and a compliant network core, the LoRaWAN® Regional Parameters specification defines the **adaptation of the LoRaWAN® network layer specification to comply with the various regulations enforced throughout the world on the use of various frequency bands of the unlicensed spectrum which are available**. 
+The **LoRa® technology Regional Parameters specification** is a companion to the LoRa®-based network layer specification. While the LoRa®-based network layer specification defines the air interface between a compliant end-device (sensor, actuator, tracker, etc.) and a compliant network core, the LoRa® technology Regional Parameters specification defines the **adaptation of the LoRa®-based network layer specification to comply with the various regulations enforced throughout the world on the use of various frequency bands of the unlicensed spectrum which are available**. 
 
-Also, the LoRaWAN® Regional Parameters specification documents the **physical layer configurations required for the compliant operation of LoRaWAN® Link Layer radios** using various radio frequency modulation techniques. 
+Also, the LoRa® technology Regional Parameters specification documents the **physical layer configurations required for the compliant operation of LoRa® technology Link Layer radios** using various radio frequency modulation techniques. 
 
-***The idea behind the LoRaWAN® Regional Parameters specification is to create the smallest number of regional channel plans covering the largest possible number of regulatory regions. With this, complexity is decreased to implementers as well as the certification cost (end-device certification is enumerated by network layer, Regional Parameters and channel plan revision).***
+***The idea behind the LoRa® technology Regional Parameters specification is to create the smallest number of regional channel plans covering the largest possible number of regulatory regions. With this, complexity is decreased to implementers as well as the certification cost (end-device certification is enumerated by network layer, Regional Parameters and channel plan revision).***
 
-LoRaWAN® Regional Parameters specifications do not specify everything. They only cover a region by specifying the common denominator. For example, the LoRaWAN® Regional Parameters for Asia only specify a common subset of channels, but there are variations between regulations in Asian countries. Furthermore, each network server, for example TTN, is free to select additional parameters, such as additional emission channels. 
+LoRa® technology Regional Parameters specifications do not specify everything. They only cover a region by specifying the common denominator. For example, the LoRa® technology Regional Parameters for Asia only specify a common subset of channels, but there are variations between regulations in Asian countries. Furthermore, each network server, for example TTN, is free to select additional parameters, such as additional emission channels. 
 
-For more information, you can read the RP002-1.0.2 LoRaWAN® Regional Parameters document [here](https://lora-alliance.org/wp-content/uploads/2020/11/RP_2-1.0.2.pdf), we also have a more detailed tutorial about LoRaWAN® Regional Parameters and Arduino hardware; the tutorial can be found here [here](https://docs.arduino.cc/tutorials/mkr-wan-1310/lorawan-regional-parameters)
+For more information, you can read the RP002-1.0.2 LoRa® technology Regional Parameters document [here](https://lora-alliance.org/wp-content/uploads/2020/11/RP_2-1.0.2.pdf), we also have a more detailed tutorial about LoRa® technology Regional Parameters and Arduino hardware; the tutorial can be found here [here](https://docs.arduino.cc/tutorials/mkr-wan-1310/lorawan-regional-parameters)
 
 ### Classes
 
-The LoRaWAN® specification has **three** different communication profiles between devices and applications: **Class A**, **Class B**, and **Class C**. Each class serves different application needs and has optimized requirements for specific purposes. The main difference between the three classes is latency and power consumption; end-devices can always send uplinks when needed, but its class will determine when to receive downlinks.
+The LoRa® technology specification has **three** different communication profiles between devices and applications: **Class A**, **Class B**, and **Class C**. Each class serves different application needs and has optimized requirements for specific purposes. The main difference between the three classes is latency and power consumption; end-devices can always send uplinks when needed, but its class will determine when to receive downlinks.
 
 ***All LoRaWAN devices must implement Class A; Class B, and Class C are extensions of Class A profile.***
 
@@ -134,17 +130,17 @@ Class C communication profile is used in applications with enough power availabl
 
 ### Authentication and Security
 
-Authentication and security are also important in LoRaWAN® networks. Any LoRaWAN® network has a baseline authentication and security framework based on the AES 128 encryption scheme. Compared to other LPWAN's, which rely on a single key for authentication and encryption, the LoRaWAN® framework separates both. Authentication and integrity control use a **network session key** (NwkSKey) while user data encryption uses an **application session key** (AppSKey). 
+Authentication and security are also important in LoRa®-based networks. Any LoRa®-based network has a baseline authentication and security framework based on the AES 128 encryption scheme. Compared to other LPWAN's, which rely on a single key for authentication and encryption, the LoRa® technology framework separates both. Authentication and integrity control use a **network session key** (NwkSKey) while user data encryption uses an **application session key** (AppSKey). 
 
 ***NwkSKey and AppSKey are AES-128 root keys specific to the end-device, end-devices manufacturers, or application owners assigned them.***
 
-LoRaWAN® supports two authentication and activation methods: **Over-The-Air-Activation** (OTAA) and **Activation by Personalization** (ABP). 
+LoRa® technology supports two authentication and activation methods: **Over-The-Air-Activation** (OTAA) and **Activation by Personalization** (ABP). 
 
-- **Over-The-Air Activation (OTAA)**: In this method, end-devices are not initialized for any particular network; they send a JOIN request to a specific LoRaWAN® network and then receive a device address and an authorization token from which session keys are derived; NwkSKey and AppSKey are derived during this procedure from a root AppKey pre-provisioned in the end-devices by its manufacturer. 
+- **Over-The-Air Activation (OTAA)**: In this method, end-devices are not initialized for any particular network; they send a JOIN request to a specific LoRa®-based network and then receive a device address and an authorization token from which session keys are derived; NwkSKey and AppSKey are derived during this procedure from a root AppKey pre-provisioned in the end-devices by its manufacturer. 
 
 ![Over-The-Air activation process. Image credits: Heath Raftery.](assets/lorawan-101_img08.png)
 
-- **Activation by Personalization (ABP)**: In this method, end-devices are personalized to work with a given LoRaWAN® network. End-devices are pre-provisioned with the NwkSKey and AppSKey and the 32-bits device network address. 
+- **Activation by Personalization (ABP)**: In this method, end-devices are personalized to work with a given LoRa®-based network. End-devices are pre-provisioned with the NwkSKey and AppSKey and the 32-bits device network address. 
 
 ![Activation by Personalization process. Image credits: Heath Raftery.](assets/lorawan-101_img09.png)
 
@@ -170,7 +166,7 @@ The Arduino® [Edge Control](https://store.arduino.cc/products/arduino-edge-cont
 
 ### Arduino® Libraries for LoRa® Connectivity
 
-You can use several Arduino libraries with the CMCMWX1ZZABZ LoRa® module from Murata®; we recommend two: The [MKRWAN library](https://github.com/arduino-libraries/MKRWAN), developed by Arduino, and the [Arduino LoRa](https://github.com/sandeepmistry/arduino-LoRa) library, developed by Sandeep Mistry. The MKRWAN and the Arduino LoRa libraries provide you the APIs to communicate with LoRa® and LoRaWAN networks®.
+You can use several Arduino libraries with the CMCMWX1ZZABZ LoRa module from Murata®; we recommend two: The [MKRWAN library](https://github.com/arduino-libraries/MKRWAN), developed by Arduino, and the [Arduino LoRa](https://github.com/sandeepmistry/arduino-LoRa) library, developed by Sandeep Mistry. The MKRWAN and the Arduino LoRa libraries provide you the APIs to communicate with and LoRaWAN networks.
 
 You can use both libraries in the Arduino IDE, [online](https://store.arduino.cc/digital/create) and [offline](https://www.arduino.cc/en/software). If you are using the online IDE, you don't need to do anything, both libraries are already installed and ready to be used. If you are using the offline IDE, you must install the libraries manually. Installing libraries can be done easily by navigating to **Tools > Manage Libraries...** and then look for **MKRWAN** library by Arduino and **LoRa** by Sandeep Mistry; **remember to install the latest version of the libraries**. 
 
@@ -178,7 +174,7 @@ You can use both libraries in the Arduino IDE, [online](https://store.arduino.cc
 
 ### Example: Sending and Receiving Data to a Network Server
 
-Using Arduino® hardware and software to communicate with LoRa® and LoRaWAN® networks is simple; let's check out an example. This example uses an MKR WAN 1310 board and the MKRWAN library to send data to a LoRaWAN® network, in this case, TTN. The circuit for this example is shown in the image below:
+Using Arduino hardware and software to communicate with LoRa and LoRaWAN networks is simple; let's check out an example. This example uses an MKR WAN 1310 board and the MKRWAN library to send data to a LoRaWAN network, in this case, TTN. The circuit for this example is shown in the image below:
 
 ![Circuit used in the example.](assets/lorawan-101_img13.png)
 
@@ -294,9 +290,8 @@ Check out more detailed tutorials we have about sending data between a MKR WAN b
 
 ## Further Reading and Resources
 
-LoRa® and LoRaWAN® are pretty extensive but exciting topics to study. If you want to learn more about these technologies, check out the following links:
+LoRa and LoRaWAN are pretty extensive but exciting topics to study. If you want to learn more about these technologies, check out the following links:
 
-- [The LoRa Alliance® Resource Hub](https://lora-alliance.org/resource-hub/). Here you can access LoRaWAN® technical documents and Whitepapers from The LoRa Alliance®.
 - [LoRa Developer Portal from Semtech](https://lora-alliance.org/resource-hub/). Here you can find technical papers and user guides as well as specifications and datasheets from Semtech. 
-- [The Things Network documentation](https://www.thethingsnetwork.org/docs/). Here you can learn all about LoRaWAN® and The Things Network!
-- [The Things Academy online course in Udemy](https://www.udemy.com/course/lorawan-fundamentals/). A free online course where you'll learn all about LoRa® and LoRaWAN®, and get ready to start building your own Low Power Wide Area Network applications.
+- [The Things Network documentation](https://www.thethingsnetwork.org/docs/). Here you can learn all about LoRa® technology and The Things Network!
+- [The Things Academy online course in Udemy](https://www.udemy.com/course/lorawan-fundamentals/). A free online course where you'll learn all about LoRa® technology, and get ready to start building your own Low Power Wide Area Network applications.
