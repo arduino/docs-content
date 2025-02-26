@@ -30,7 +30,8 @@ The Arduino Nano Matter acts as a digital magic wand 🪄, where sensor data fro
 
 ### Goals
 
-The goal of this project tutorial is to showcase the capabilities of the Arduino Nano Matter running Tiny Machine Learning models on the edge for gesture recognition. The wand can detect two gestures drawn in the air: **"W" (wing gesture)** and **"O" (ring gesture)**.
+The goal of this project tutorial is to showcase the capabilities of the Arduino Nano Matter running Tiny Machine Learning models on the edge for gesture recognition. 
+The wand can detect two gestures drawn in the air: **"W" (wing gesture)** and **"O" (ring gesture)**.
 
 ## Hardware and Software Requirements
 
@@ -118,7 +119,7 @@ In the Arduino IDE upper menu, after selecting the **Nano Matter board** from th
 
 ![Protocol stack configuration](assets/stack.png)
 
-***The code will only compile if the Protocol Stack is set to None.***
+***The code will only compile if the __Protocol Stack__ is set to __None__.***
 
 Download the `Modulino.h` library from the Arduino IDE Library Manager. This will enable the support for the Modulino Pixels and the Modulino Movement.
 
