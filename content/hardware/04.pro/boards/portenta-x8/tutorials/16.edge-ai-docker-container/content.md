@@ -481,10 +481,11 @@ When docker container is selected as the deployment option, he system generates 
 
 ```bash
 docker run --rm -it \
-    -p 1337:1337 \
-    public.ecr.aws/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
-    --api-key ei_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
-    --run-http-server 1337
+  -p 1337:1337 \
+  public.ecr.aws/g7a8t7v6/inference-container:54c41c953772c053251634beec512d15f41073d1 \
+    --api-key ei_38f54891ee062462d3d28bd9648dd6ae766b2093796e4d384f0ae2c0e56d0a5b \
+    --run-http-server 1337 \
+    --model-type int8
 ```
 
 This command pulls the latest model from the Edge Impulse container registry and runs an HTTP server on port `1337`, allowing external applications to send sensor data and receive model predictions. It uses an API key to authenticate requests.
@@ -528,38 +529,67 @@ The M4 core needs to have the **`rpc-flow-sensor.ino`** uploaded to collect and 
 #include <Arduino.h>
 #include <RPC.h>
 #include <SerialRPC.h>
-#include <FlowSensor.h>
+#include <FlowSensor.h>  // Include the FlowSensor library
+
+// Define Serial Debug Output (For Portenta X8 Carrier Usage)
+#if defined(ARDUINO_PORTENTA_X8)
+#define SerialDebug Serial1  // Use Serial1 for debugging on Portenta X8 Carrier
+#else
+#define SerialDebug Serial
+#endif
 
 // Define Flow Sensor Type and Pin
 #define SENSOR_TYPE YFS201  
-#define SENSOR_PIN PC_7    // Flow sensor signal pin
+#define SENSOR_PIN PC_7   // Flow sensor signal pin
 
+// Create Flow Sensor Object
 FlowSensor flowSensor(SENSOR_TYPE, SENSOR_PIN);
 
 void count() {
     flowSensor.count();
 }
 
-// Function to calculate and return flow rate (for RPC)
+// Function to get Flow Rate (for RPC)
 float getFlowRate() {
     flowSensor.read();
     float flowRate = flowSensor.getFlowRate_m();  // Get flow rate in L/min
 
     if (isnan(flowRate) || isinf(flowRate)) {
-        return 0.0;                               // Default to 0 if no valid reading
+        return 0.0;  // Default to 0 if no valid reading
     }
     return flowRate;
 }
 
 void setup() {
-    flowSensor.begin(count);
+    SerialDebug.begin(115200);
+    //while (!SerialDebug);
 
-    // Register the RPC function
-    RPC.bind("flow_rate", getFlowRate);
+    SerialDebug.println("Starting Flow Sensor ");
+
+    flowSensor.begin(count);  // Initialize the Flow Sensor
+
+    // RPC Binding: Function to get flow rate
+    RPC.bind("flow_rate", [] {
+        return 11;
+    });
+
+    // RPC Binding: Receive classification results
+    RPC.bind("classification", [](std::string const& input) {
+        SerialDebug.print("Classification Received: ");
+        SerialDebug.println(input.c_str());
+        return 1;
+    });
+
+    SerialDebug.println("Setup complete.");
 }
 
 void loop() {
-    // Nothing needed in loop, RPC handles function calls when requested
+    float flowRate = getFlowRate();
+    SerialDebug.print("Flow Rate: ");
+    SerialDebug.print(flowRate);
+    SerialDebug.println(" L/min");
+
+    delay(1000); 
 }
 ```
 
@@ -604,7 +634,7 @@ services:
     command: ["inference", "1337"]
 
   inference:
-    image: public.ecr.aws/g7a8t7v6/inference-container:48cd3f0d76c701a6070a27a8d9487d1733c155aa
+    image: public.ecr.aws/g7a8t7v6/inference-container:54c41c953772c053251634beec512d15f41073d1
     restart: unless-stopped
     ports:
       - 1337:1337
@@ -612,11 +642,14 @@ services:
       sensorfusion:
         aliases:
           - ei-inference
+    environment:
+      EI_MODEL_VERSION: ${EI_MODEL_VERSION:-float32}  # Default to float32 if not set
     command: [
       "--api-key", "ei_38f54891ee062462d3d28bd9648dd6ae766b2093796e4d384f0ae2c0e56d0a5b",
       "--run-http-server", "1337",
       "--force-target", "runner-linux-aarch64",
-      "--model-variant", "int8"]
+      "--model-variant", "${EI_MODEL_VERSION}"
+    ]
 ```
 
 The compose file will require the **container, arguments and port values** that were generated when deployed the machine learning model as explained [here](#deployment-and-real-time-inference).
@@ -624,115 +657,122 @@ The compose file will require the **container, arguments and port values** that 
 The `main.py` script receives flow sensor data from the M4 core and sends it to the inference container.
 
 ```python
+#!/usr/bin/env python3
 import os
 import time
+import requests # type: ignore
+import signal
+import sys
 import json
 import argparse
-from msgpackrpc import Address as RpcAddress, Client as RpcClient, error as RpcError
 
-# Retrieve M4 Proxy settings from environment variables (or use defaults)
-m4_proxy_host = os.getenv("M4_PROXY_HOST", "m4proxy")
-m4_proxy_port = int(os.getenv("M4_PROXY_PORT", "5001"))
+from msgpackrpc import Address as RpcAddress, Client as RpcClient, error as RpcError # type: ignore
+
+m4_proxy_host = os.getenv('M4_PROXY_HOST', 'm4proxy')
+m4_proxy_port = int(os.getenv('M4_PROXY_PORT', '5001'))
 m4_proxy_address = RpcAddress(m4_proxy_host, m4_proxy_port)
-
-# Define the single sensor we are using
-sensors = ("flow_rate",)  # Tuple with one element to keep extend() valid
+model_type = os.getenv("EI_MODEL_VERSION", "float32")
 
 def get_sensors_data_from_m4():
+    """Get data from the M4 via RPC (MessagePack-RPC)
+
+    The Arduino sketch on the M4 must implement the methods contained in the `sensors`
+    list and returning values from the attached sensor.
+
     """
-    Get flow sensor data from the M4 via RPC (MessagePack-RPC).
-    The Arduino sketch on the M4 must implement the "flow_rate" method.
-    """
+    data = {}
+    sensors = ('flow_rate')
     try:
-        get_value = lambda value: RpcClient(m4_proxy_address).call(value)  # Ensure this returns a value
-        data = [get_value(sensor) for sensor in sensors]                   # Ensure it is a list
-        
-        print(f"Sensor Data: {data}")                                      # Debug output
-        return data
+        # MsgPack-RPC client to call the M4
+        # We need a new client for each call
+        get_value = lambda value: RpcClient(m4_proxy_address).call(value)
+        data = {get_value(sensors) for sensors in sensors}
 
     except RpcError.TimeoutError:
-        print("Unable to retrieve sensor data from the M4: RPC Timeout")
-        return []                                                          # Ensure an empty list is returned instead of `None`
+        print("Unable to retrieve sensors data from the M4: RPC Timeout - A")
+    return data
 
 def get_sensors_and_classify(host, port):
-    """
-    Collect sensor data and send it for classification to Edge Impulse.
-    """
+    # Construct the URL for the Edge Impulse API for the features upload
     url = f"http://{host}:{port}/api/features"
 
     while True:
         print("Collecting 400 features from sensors... ", end="")
-
-        data = {
-            "features": [],
-            "model_type": "int8"                                           # Force quantized inference mode
-        }
+        
+        data = { "features": [] }
         start = time.time()
-
-        for _ in range(100):                                               # Collect data in chunks
-            sensor_values = get_sensors_data_from_m4()
-
-            if not isinstance(sensor_values, list):                        # Validate that we get a list
-                print(f"Error: Expected list but got {type(sensor_values)} with value {sensor_values}")
-                sensor_values = []                                         # Default to an empty list
-            
-            data["features"].extend(sensor_values)                         # Avoid TypeError
-
-            time.sleep(100e-6)                                             # Small delay to match sampling rate
-
+        for i in range(100):
+            sensors = get_sensors_data_from_m4()
+            if sensors:
+                print("flow: ", data.get('flow_rate', 'N/A'))
+                data["features"].extend(sensors)                            
+            time.sleep(100e-6)        
         stop = time.time()
         print(f"Done in {stop - start:.2f} seconds.")
-
+        # print(data)
+        
         try:
             response = requests.post(url, json=data)
         except ConnectionError:
             print("Connection Error: retrying later")
             time.sleep(5)
-            continue
+            break
 
         # Check the response
         if response.status_code != 200:
-            print(f"Failed to submit features. Status Code: {response.status_code}")
-            continue
+            print(f"Failed to submit the features. Status Code: {response.status_code}")
+            break
+            
+        print("Successfully submitted features. ", end="")
 
-        print("Successfully submitted features.")
+        # Process the JSON response to extract the bounding box with the maximum value
+        data = response.json()
+        classification = data['result']['classification']
+        print(f'Classification: {classification}')
 
-        # Process the JSON response to extract classification results
-        response_data = response.json()
-        classification = response_data.get("result", {}).get("classification", {})
-
-        print(f"Classification: {classification}")
-
+        # Find the class with the maximum value
         if classification:
             label = max(classification, key=classification.get)
             value = classification[label]
 
             print(f"{label}: {value}")
 
-            request_data = json.dumps({"label": label, "value": value})
+            # Create a JSON string with the label and value
+            request_data = json.dumps({'label': label, 'value': value})
+
+            res = 0
 
             try:
                 client = RpcClient(m4_proxy_address)
-                result = client.call("classification", request_data)
-                print(f"Sent to {m4_proxy_host}:{m4_proxy_port}: {request_data}. Result: {result}")
+                res = client.call('classification', request_data)
             except RpcError.TimeoutError:
-                print("Unable to send classification data to M4: RPC Timeout.")
+                print("Unable to retrieve data from the M4: RPC Timeout. - B")
+
+            print(f"Sent to {m4_proxy_host} on port {m4_proxy_port}: {request_data}. Result is {res}.")
         else:
             print("No classification found.")
 
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Get flow sensor data and send it to inference container for classification")
+    parser = argparse.ArgumentParser(description="Get 1 second of sensors data and send to inference container for classification")
     parser.add_argument("host", help="The hostname or IP address of the inference server")
     parser.add_argument("port", type=int, help="The port number of the inference server")
 
+    # Parse the arguments
     args = parser.parse_args()
 
-    print("Classifying Flow Sensor Data with AI... Press Ctrl+C to stop.")
+    # Signal handler to handle Ctrl+C (SIGINT) gracefully
+    def signal_handler(_sig, _frame):
+        print("Exiting...")
+        sys.exit(0)
 
-    try:
-        get_sensors_and_classify(args.host, args.port)
-    except KeyboardInterrupt:
-        print("Exiting gracefully...")
+    # Register signal handler for graceful exit on Ctrl+C
+    signal.signal(signal.SIGINT, signal_handler)
+
+    print("Classifying Flow Sensor Data with AI... Press Ctrl+C to stop.")
+    print(f"Running model type: {model_type}")
+    # Run the capture, upload, and process function
+    get_sensors_and_classify(args.host, args.port)
 ```
 
 The complete project files can be downloaded in [this section](#download-the-project-code).
@@ -770,6 +810,20 @@ docker compose logs -f -n 10
 ```
 
 The system will start to collect flow sensor data, process it with the Edge Impulse model inside a Docker container and detect anomalies.
+
+For more controlled execution:
+
+```bash
+docker compose up -d
+```
+
+```bash
+docker exec -it <container-id> sh
+```
+
+```bash
+python3 -u /app/python/main.py ei-inference 1337
+```
 
 ### Arduino Cloud Integration
 
@@ -926,7 +980,7 @@ services:
     command: ["inference", "1337"]
 
   inference:
-    image: public.ecr.aws/g7a8t7v6/inference-container:48cd3f0d76c701a6070a27a8d9487d1733c155aa
+    image: public.ecr.aws/g7a8t7v6/inference-container:54c41c953772c053251634beec512d15f41073d1
     restart: unless-stopped
     ports:
       - 1337:1337
@@ -934,11 +988,14 @@ services:
       sensorfusion:
         aliases:
           - ei-inference
+    environment:
+      EI_MODEL_VERSION: ${EI_MODEL_VERSION:-float32}  # Default to float32 if not set
     command: [
       "--api-key", "ei_38f54891ee062462d3d28bd9648dd6ae766b2093796e4d384f0ae2c0e56d0a5b",
       "--run-http-server", "1337",
       "--force-target", "runner-linux-aarch64",
-      "--model-variant", "int8"]
+      "--model-variant", "${EI_MODEL_VERSION}"
+    ]
 ```
 
 Once the files are updated, it needs to be pushed to the Portenta X8 again, navigate to the project directory and use the following commands:
@@ -962,6 +1019,20 @@ docker compose logs -f -n 10
 Once deployed, the system will begin to get flow sensor data, classify it using the trained model and send the results to Arduino Cloud for monitoring and anomaly tracking.
 
 ![Flow data visualization with Arduino Cloud](assets/arduino-cloud-visualization-example.gif)
+
+For more controlled execution:
+
+```bash
+docker compose --env-file .env up -d
+```
+
+```bash
+docker exec -it <container-id> sh
+```
+
+```bash
+python3 -u /app/python/main.py ei-inference 1337
+```
 
 This integration allows real-time anomaly detection and cloud-based monitoring, combining edge inference on Portenta X8 with Arduino Cloud analytics. Users can remotely track flow rate anomalies, set up alerts and analyze historical trends to improve predictive maintenance of the system's point of interest.
 
