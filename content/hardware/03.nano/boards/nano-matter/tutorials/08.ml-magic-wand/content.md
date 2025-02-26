@@ -28,6 +28,23 @@ This tutorial describes how to build a gesture recognition system based on a mac
 
 The Arduino Nano Matter acts as a digital magic wand 🪄, where sensor data from its movements is processed by a model to classify and detect specific gestures. The inference results will tur
 
+### How to Magic Wand Works?
+
+In its **idle state**, the wand's LEDs remain **solid blue**, indicating that it is ready to detect a gesture.
+
+When the wand is moved, the LEDs **turn off**, showing that gesture recognition has started.
+
+Once the recognition process is complete:
+
+If a gesture is successfully detected, the LEDs **blink rapidly for 4 seconds** in the color assigned to the recognized gesture:
+
+- **Green** for "W" (wing gesture)
+- **Yellow** for "O" (ring gesture)
+  
+After this, the wand returns to its **idle state**, with the LEDs **solid blue** again.
+
+***Gestures should be performed with wide and slow movements, lasting approximately 1-2 seconds for optimal recognition.***
+
 ### Goals
 
 The goal of this project tutorial is to showcase the capabilities of the Arduino Nano Matter running Tiny Machine Learning models on the edge for gesture recognition. The wand can detect two gestures drawn in the air: **"W" (wing gesture)** and **"O" (ring gesture)**.
@@ -87,7 +104,7 @@ The Modulino are daisy-chained leveraging the Qwiic I2C connection with the Nano
 
 You can mount the Nano Matter and the Modulinos on a custom 3D printed or laser cut base. Download the 3D files from [here](assets/3d-files.zip).
 
-[3D Printed Base]()
+[3D Printed Base](assets/piece.PNG)
 
 ### Programming
 
