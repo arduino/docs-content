@@ -33,6 +33,8 @@ The Arduino Nano Matter acts as a digital magic wand 🪄, where sensor data fro
 The goal of this project tutorial is to showcase the capabilities of the Arduino Nano Matter running Tiny Machine Learning models on the edge for gesture recognition. 
 The wand can detect two gestures drawn in the air: **"W" (wing gesture)** and **"O" (ring gesture)**.
 
+![Project working demo](assets/ani2.gif)
+
 ## Hardware and Software Requirements
 
 ![Hardware Required](assets/hardware.png)
@@ -641,8 +643,11 @@ After the code is uploaded successfully, you can test your Nano Matter Magic Wan
 
 Power the Nano Matter of your Magic Wand using a USB cable and start moving it following the **Wing** or **Ring** gesture to see if it recognizes it.
 
-DEMO HERE
-
+<div style="text-align: center;">
+  <video width="100%" controls="true" autoplay loop>
+  <source src="assets/animation2.mp4" type="video/mp4"/>
+  </video>
+</div>
 
 ## Conclusion
 
