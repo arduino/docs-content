@@ -638,21 +638,20 @@ After the code is uploaded successfully, you can test your Nano Matter Magic Wan
 
 ## Project Testing
 
-Power the Nano Matter of your Magic Wand using a USB cable and start moving it following the Wing or Ring gesture to see if.
+Power the Nano Matter of your Magic Wand using a USB cable and start moving it following the **Wing** or **Ring** gesture to see if it recognizes it.
 
 DEMO HERE
 
-## Conclusion NEED UPDATE
 
-In this tutorial you learned how to use the Nano Matter Display expansion kit, leveraging all its features like the E-ink screen to display high-contrast graphics with a low power consumption on 2.9" 384x168 resolution. Features like the built-in RGB LED, the 3-axis accelerometer and the temperature and humidity sensor were explained.
+## Conclusion
 
-Thanks to the E-ink display, your IoT-oriented products can have a better and more natural user experience while maintaining a low power consumption. Allowing you to set up and commission your solution by scanning the QR code and showing real-time sensor data on the screen, being a game-changer feature for your IoT solutions.
+In this tutorial you learned how to use the Arduino Nano Matter as a Machine Learning gesture recognizer, leveraging the optimized Silicon Labs library for Tiny Machine Learning we showcased the board capabilites of running TinyML algorithms with ease thanks to the **hardware acceleration** achieved with the **Mathematical Vector Processor (MVP)** integrated in the Nano Matter microcontroller.
 
 ### Next Steps
 
-- Extend your knowledge with E-ink displays following the [Pervasive Displays documentation](https://docs.pervasivedisplays.com/).
-- Try all the examples included in the library for a deeper understanding on the API.
-- Start creating your own graphics to display custom data on the screen.
+- Extend your knowledge about the Nano Matter following the [Arduino Documentation](https://docs.arduino.cc/hardware/nano-matter/).
+- Create your own custom gestures reconition model.
+- Create machine learning models leveraging other Modulino sensors.
 
 
 
