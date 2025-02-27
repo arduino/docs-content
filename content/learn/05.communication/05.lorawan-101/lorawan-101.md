@@ -49,7 +49,7 @@ From the image above, notice there is a fundamental difference between a network
 
 ***[The Things Network (TTN)](https://www.thethingsnetwork.org/) is a crowdsourced, open, and decentralized LoRa®-based network server. This network is a great way to start testing devices, applications, integrations and get familiar with LoRa. To connect to TTN, you will need to be in the range of a gateway. Check the [world map](https://www.thethingsnetwork.org/map) to see if your local community already has a gateway installed; if not, consider installing one!***
 
-LoRa®-based networks are usually deployed in a **star-of-stars topology**; this means that **gateways manage data between end-devices and a network server**. Gateways are connected to the central network server via the Internet, while end-devices use LoRa® to send and receive data to and from the gateways; end-devices are not exclusively tied to a single gateway, end-devices broadcast information to all the gateways in range. Communication in LoRa®-based networks is natively **bi-directional**, although uplink communication between end-devices and the central network server is expected to be predominant in the network.
+LoRa®-based networks are usually deployed in a **star-of-stars topology**; this means that **gateways manage data between end-devices and a network server**. Gateways are connected to the central network server via the Internet, while end-devices use LoRa to send and receive data to and from the gateways; end-devices are not exclusively tied to a single gateway, end-devices broadcast information to all the gateways in range. Communication in LoRa-based networks is natively **bi-directional**, although uplink communication between end-devices and the central network server is expected to be predominant in the network.
 
 ***Star networks topologies provide the best relationship between long-range communications, the number of gateways or base stations in the network, end-devices power consumption, and battery life.***
 
@@ -94,21 +94,21 @@ Also, local regulations must be respected, for example:
 
 ### Regional Parameters
 
-The **LoRa® technology Regional Parameters specification** is a companion to the LoRa®-based network layer specification. While the LoRa®-based network layer specification defines the air interface between a compliant end-device (sensor, actuator, tracker, etc.) and a compliant network core, the LoRa® technology Regional Parameters specification defines the **adaptation of the LoRa®-based network layer specification to comply with the various regulations enforced throughout the world on the use of various frequency bands of the unlicensed spectrum which are available**. 
+The **LoRa® technology Regional Parameters specification** is a companion to the LoRa-based network layer specification. While the LoRa-based network layer specification defines the air interface between a compliant end-device (sensor, actuator, tracker, etc.) and a compliant network core, the LoRa technology Regional Parameters specification defines the **adaptation of the LoRa-based network layer specification to comply with the various regulations enforced throughout the world on the use of various frequency bands of the unlicensed spectrum which are available**. 
 
-Also, the LoRa® technology Regional Parameters specification documents the **physical layer configurations required for the compliant operation of LoRa® technology Link Layer radios** using various radio frequency modulation techniques. 
+Also, the LoRa® technology Regional Parameters specification documents the **physical layer configurations required for the compliant operation of LoRa technology Link Layer radios** using various radio frequency modulation techniques. 
 
 ***The idea behind the LoRa® technology Regional Parameters specification is to create the smallest number of regional channel plans covering the largest possible number of regulatory regions. With this, complexity is decreased to implementers as well as the certification cost (end-device certification is enumerated by network layer, Regional Parameters and channel plan revision).***
 
-LoRa® technology Regional Parameters specifications do not specify everything. They only cover a region by specifying the common denominator. For example, the LoRa® technology Regional Parameters for Asia only specify a common subset of channels, but there are variations between regulations in Asian countries. Furthermore, each network server, for example TTN, is free to select additional parameters, such as additional emission channels. 
+LoRa® technology Regional Parameters specifications do not specify everything. They only cover a region by specifying the common denominator. For example, the LoRa technology Regional Parameters for Asia only specify a common subset of channels, but there are variations between regulations in Asian countries. Furthermore, each network server, for example TTN, is free to select additional parameters, such as additional emission channels. 
 
-For more information, you can read the RP002-1.0.2 LoRa® technology Regional Parameters document [here](https://lora-alliance.org/wp-content/uploads/2020/11/RP_2-1.0.2.pdf), we also have a more detailed tutorial about LoRa® technology Regional Parameters and Arduino hardware; the tutorial can be found here [here](https://docs.arduino.cc/tutorials/mkr-wan-1310/lorawan-regional-parameters)
+For more information, you can read the RP002-1.0.2 LoRa® technology Regional Parameters document [here](https://lora-alliance.org/wp-content/uploads/2020/11/RP_2-1.0.2.pdf), we also have a more detailed tutorial about LoRa technology Regional Parameters and Arduino hardware; the tutorial can be found here [here](https://docs.arduino.cc/tutorials/mkr-wan-1310/lorawan-regional-parameters)
 
 ### Classes
 
 The LoRa® technology specification has **three** different communication profiles between devices and applications: **Class A**, **Class B**, and **Class C**. Each class serves different application needs and has optimized requirements for specific purposes. The main difference between the three classes is latency and power consumption; end-devices can always send uplinks when needed, but its class will determine when to receive downlinks.
 
-***All LoRaWAN devices must implement Class A; Class B, and Class C are extensions of Class A profile.***
+***All network devices using LoRa® technology must implement Class A; Class B, and Class C are extensions of Class A profile.***
 
  #### Class A: "Aloha"
 
@@ -130,7 +130,7 @@ Class C communication profile is used in applications with enough power availabl
 
 ### Authentication and Security
 
-Authentication and security are also important in LoRa®-based networks. Any LoRa®-based network has a baseline authentication and security framework based on the AES 128 encryption scheme. Compared to other LPWAN's, which rely on a single key for authentication and encryption, the LoRa® technology framework separates both. Authentication and integrity control use a **network session key** (NwkSKey) while user data encryption uses an **application session key** (AppSKey). 
+Authentication and security are also important in LoRa®-based networks. Any LoRa-based network has a baseline authentication and security framework based on the AES 128 encryption scheme. Compared to other LPWAN's, which rely on a single key for authentication and encryption, the LoRa technology framework separates both. Authentication and integrity control use a **network session key** (NwkSKey) while user data encryption uses an **application session key** (AppSKey). 
 
 ***NwkSKey and AppSKey are AES-128 root keys specific to the end-device, end-devices manufacturers, or application owners assigned them.***
 
@@ -152,13 +152,13 @@ Arduino® brings LoRa® connectivity to your projects with several boards, addon
 
 ### Arduino® Boards with LoRa® Connectivity
 
-The MKR WAN [1300](https://store.arduino.cc/products/arduino-mkr-wan-1300-lora-connectivity) and [1310](https://store.arduino.cc/products/arduino-mkr-wan-1310) boards provide you with a practical and cost-effective solution to applications that require LoRa® connectivity and low-power consumption. The MKR WAN 1300 and 1310 boards are based on a [SAMD21 microcontroller](https://content.arduino.cc/assets/mkr-microchip_samd21_family_full_datasheet-ds40001882d.pdf) from Microchip®; they also features a [CMCMWX1ZZABZ](https://content.arduino.cc/assets/mkrwan1310-murata_lora_module-type_abz.pdf) module from Murata® for LoRa® connectivity, the [ATECC508](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/20005928A.pdf) cryptoauthentication device for security, and a 2MB SPI Flash memory for onboard storage. 
+The MKR WAN [1300](https://store.arduino.cc/products/arduino-mkr-wan-1300-lora-connectivity) and [1310](https://store.arduino.cc/products/arduino-mkr-wan-1310) boards provide you with a practical and cost-effective solution to applications that require LoRa® connectivity and low-power consumption. The MKR WAN 1300 and 1310 boards are based on a [SAMD21 microcontroller](https://content.arduino.cc/assets/mkr-microchip_samd21_family_full_datasheet-ds40001882d.pdf) from Microchip®; they also features a [CMCMWX1ZZABZ](https://content.arduino.cc/assets/mkrwan1310-murata_lora_module-type_abz.pdf) module from Murata® for LoRa connectivity, the [ATECC508](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/20005928A.pdf) cryptoauthentication device for security, and a 2MB SPI Flash memory for onboard storage. 
 
 ![The Arduino® MKR WAN 1310 board.](assets/lorawan-101_img10.png)
 
-PRO hardware also has  LoRa® connectivity. The Arduino® [Portenta H7](https://store.arduino.cc/collections/boards/products/portenta-h7) board can have LoRa® connectivity with the [Portenta Vision Shield - LoRa](https://store.arduino.cc/products/arduino-portenta-vision-shield-lora%C2%AE); this addon board also features a [CMCMWX1ZZABZ](https://content.arduino.cc/assets/mkrwan1310-murata_lora_module-type_abz.pdf?_gl=1*54znn6*_ga*NzQ5Mzk2MDcwLjE2MjU2MDQ2MjA.*_ga_NEXN8H46L5*MTY0MDAzOTY0Ny4yNTIuMS4xNjQwMDM5NzQ2LjA.) module from Murata® for LoRa® connectivity, the same module present in the MKR 1300 and 1310 boards. 
+PRO hardware also has  LoRa® connectivity. The Arduino® [Portenta H7](https://store.arduino.cc/collections/boards/products/portenta-h7) board can have LoRa connectivity with the [Portenta Vision Shield - LoRa](https://store.arduino.cc/products/arduino-portenta-vision-shield-lora%C2%AE); this addon board also features a [CMCMWX1ZZABZ](https://content.arduino.cc/assets/mkrwan1310-murata_lora_module-type_abz.pdf?_gl=1*54znn6*_ga*NzQ5Mzk2MDcwLjE2MjU2MDQ2MjA.*_ga_NEXN8H46L5*MTY0MDAzOTY0Ny4yNTIuMS4xNjQwMDM5NzQ2LjA.) module from Murata® for LoRa connectivity, the same module present in the MKR 1300 and 1310 boards. 
 
-![The Arduino Portenta Vision Shield - LoRa.](assets/lorawan-101_img11.png)
+![The Arduino Portenta Vision Shield - LoRa](assets/lorawan-101_img11.png)
 
 The Arduino® [Edge Control](https://store.arduino.cc/products/arduino-edge-control), a remote monitoring and control solution optimized for outdoor environments, can expand its wireless connectivity capabilities by adding an MKR WAN 1300 or 1310 board. Edge Control can be positioned anywhere and is well suited for smart agriculture and other applications that require intelligent control in remote locations. 
 
@@ -166,7 +166,7 @@ The Arduino® [Edge Control](https://store.arduino.cc/products/arduino-edge-cont
 
 ### Arduino® Libraries for LoRa® Connectivity
 
-You can use several Arduino libraries with the CMCMWX1ZZABZ LoRa module from Murata®; we recommend two: The [MKRWAN library](https://github.com/arduino-libraries/MKRWAN), developed by Arduino, and the [Arduino LoRa](https://github.com/sandeepmistry/arduino-LoRa) library, developed by Sandeep Mistry. The MKRWAN and the Arduino LoRa libraries provide you the APIs to communicate with and LoRaWAN networks.
+You can use several Arduino libraries with the CMCMWX1ZZABZ LoRa® module from Murata®; we recommend two: The [MKRWAN library](https://github.com/arduino-libraries/MKRWAN), developed by Arduino, and the [Arduino LoRa](https://github.com/sandeepmistry/arduino-LoRa) library, developed by Sandeep Mistry. The MKRWAN and the Arduino LoRa libraries provide you the APIs to communicate with networks that support LoRa technology.
 
 You can use both libraries in the Arduino IDE, [online](https://store.arduino.cc/digital/create) and [offline](https://www.arduino.cc/en/software). If you are using the online IDE, you don't need to do anything, both libraries are already installed and ready to be used. If you are using the offline IDE, you must install the libraries manually. Installing libraries can be done easily by navigating to **Tools > Manage Libraries...** and then look for **MKRWAN** library by Arduino and **LoRa** by Sandeep Mistry; **remember to install the latest version of the libraries**. 
 
@@ -174,7 +174,7 @@ You can use both libraries in the Arduino IDE, [online](https://store.arduino.cc
 
 ### Example: Sending and Receiving Data to a Network Server
 
-Using Arduino hardware and software to communicate with LoRa and LoRaWAN networks is simple; let's check out an example. This example uses an MKR WAN 1310 board and the MKRWAN library to send data to a LoRaWAN network, in this case, TTN. The circuit for this example is shown in the image below:
+Using Arduino hardware and software to communicate with LoRa®-based networks is simple; let's check out an example. This example uses an MKR WAN 1310 board and the MKRWAN library to send data to a LoRa-based networks, in this case, TTN. The circuit for this example is shown in the image below:
 
 ![Circuit used in the example.](assets/lorawan-101_img13.png)
 
@@ -184,7 +184,7 @@ Once your device is registered on TTN, you can start sending and receiving data 
 
 ```arduino
 /*
-  Send and receive data from a LoRaWAN network
+  Send and receive data from a LoRa®-based network
   This sketch demonstrates how to send and receive data with the MKR WAN 1300/1310 board.
   This example code is in the public domain.
 */
@@ -290,8 +290,12 @@ Check out more detailed tutorials we have about sending data between a MKR WAN b
 
 ## Further Reading and Resources
 
-LoRa and LoRaWAN are pretty extensive but exciting topics to study. If you want to learn more about these technologies, check out the following links:
+LoRa® technology is pretty extensive but exciting topic to study. If you want to learn more about these technologies, check out the following links:
 
 - [LoRa Developer Portal from Semtech](https://lora-alliance.org/resource-hub/). Here you can find technical papers and user guides as well as specifications and datasheets from Semtech. 
 - [The Things Network documentation](https://www.thethingsnetwork.org/docs/). Here you can learn all about LoRa® technology and The Things Network!
 - [The Things Academy online course in Udemy](https://www.udemy.com/course/lorawan-fundamentals/). A free online course where you'll learn all about LoRa® technology, and get ready to start building your own Low Power Wide Area Network applications.
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

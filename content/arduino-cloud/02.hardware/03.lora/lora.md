@@ -27,7 +27,7 @@ In this document you will find:
 
 ***Check the GitHub repository [here](https://github.com/arduino-libraries/ArduinoIoTCloud?tab=readme-ov-file#what).*** 
 
-The following boards connect to the Arduino Cloud via [The Things Stack](https://www.thethingsindustries.com/stack/), a LoRa®-based network server connected to thousands of public LoRa® gateways.
+The following boards connect to the Arduino Cloud via [The Things Stack](https://www.thethingsindustries.com/stack/), a LoRa®-based network server connected to thousands of public LoRa gateways.
 
 - [MKR WAN 1300](https://store.arduino.cc/arduino-mkr-wan-1300-lora-connectivity-1414)
 - [MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310)
@@ -45,9 +45,9 @@ In this tutorial, we will walk you through the steps needed to successfully prov
 ###  Terminology Run-Trough
 
 - **LoRa®** - short for **Lo**ng **Ra**nge, is a modulation technique used to send and receive data over low-power, wide-area networks (LPWAN). 
-- **LoRa®-based network** - a type of network that uses LoRa® modulation for communication between end devices and gateways.
-- **LoRa® gateway** - a network router able to send and receive LoRa® RF packets and forward them to the internet.
-- **MKR WAN 1300/1310** - development boards that feature a LoRa® module capable of sending and receiving packets of data.
+- **LoRa®-based network** - a type of network that uses LoRa modulation for communication between end devices and gateways.
+- **LoRa® gateway** - a network router able to send and receive LoRa RF packets and forward them to the internet.
+- **MKR WAN 1300/1310** - development boards that feature a LoRa module capable of sending and receiving packets of data.
 - **End device/node** - a term used for deployed devices such as the MKR WAN 1310, which read and process sensor data.
 - **The Things Network (TTN)** - a nonprofit association providing a public LoRa®-based network service.
 - **The Things Stack Network (TTS)** - a cloud platform used by TTN and TTI for network infrastructure.
