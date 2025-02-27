@@ -2,10 +2,10 @@
 title: 'Arduino Pro Gateway Assembly'
 author: 'Arduino'
 description: 'Learn how to assemble your Arduino Pro Gateway.'
-tags: [LoRa, Gateway]
+tags: [LoRa®, Gateway]
 ---
 
-In this page we are going to give you all the information needed to assemble your Arduino Pro Gateway LoRa Connectivity Kit. We will guide you through the process needed to have a device fully assembled and ready to be configured on the software and network side as documented in the [Arduino Pro Gateway Setup](https://create.arduino.cc/getting-started/loragw/welcome).
+In this page we are going to give you all the information needed to assemble your Arduino Pro Gateway LoRa® Connectivity Kit. We will guide you through the process needed to have a device fully assembled and ready to be configured on the software and network side as documented in the [Arduino Pro Gateway Setup](https://create.arduino.cc/getting-started/loragw/welcome).
 
 
 ## Hardware list
@@ -15,7 +15,7 @@ In the box you have several pieces and it is important to locate them all before
 - Aluminum enclosure
 - Raspberry Pi 3 model B+
 - Arduino Radio Module Adapter
-- LoRa Radio module
+- LoRa® Radio module
 - Fan
 - Micro UFL to SMA Pigtail
 - SMA Antenna
@@ -27,7 +27,7 @@ In the box you have several pieces and it is important to locate them all before
 
 ## Preliminary operations
 
-The LoRa Radio module has a label on top that contains some very important numbers. Take a picture of it or take note on paper of the codes because they will be used to register and activate your gateway. The components are sensitive to static electricity and we strongly suggest that you properly earth yourself before you touch them, keeping the grounding connection for all the assembly process.
+The LoRa® Radio module has a label on top that contains some very important numbers. Take a picture of it or take note on paper of the codes because they will be used to register and activate your gateway. The components are sensitive to static electricity and we strongly suggest that you properly earth yourself before you touch them, keeping the grounding connection for all the assembly process.
 
 ## Assembly
 
@@ -63,8 +63,12 @@ Now it is time to connect the external antenna to its connector, as in picture 5
 
 Connect the Ethernet cable to your wired internet access.
 
-Connect the Power Adapter to a plug that won’t be disconnected easily from the mains because any power interruption will require a reboot of the Arduino Pro Gateway LoRa Connectivity and may disrupt your LoRa network.
+Connect the Power Adapter to a plug that won’t be disconnected easily from the mains because any power interruption will require a reboot of the Arduino Pro Gateway LoRa® Connectivity and may disrupt your LoRa® technology-based network.
 
 ![Step 6 out 6.](assets/picture_6.jpg)
 
 You should hear the fan and see some LEDs flashing inside. Everything is now ready to proceed to the [Arduino Pro Gateway Setup](https://create.arduino.cc/getting-started/loragw/welcome).
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.
