@@ -26,7 +26,7 @@ This tutorial describes how to build a gesture recognition system based on a mac
 
 ![Nano Matter Magic Wand](assets/thumbnail.png)
 
-The Arduino Nano Matter acts as a digital magic wand 🪄, where sensor data from its movements is processed by a model to classify and detect specific gestures. The inference results will tur
+The Arduino Nano Matter acts as a digital magic wand 🪄, where sensor data from its movements is processed by a model to classify and detect specific gestures. The inference results will turn on a LEDs array on a specific color respectively to the detected gesture.
 
 ### Goals
 
