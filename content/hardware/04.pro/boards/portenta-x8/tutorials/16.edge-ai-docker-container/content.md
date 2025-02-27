@@ -609,9 +609,6 @@ services:
     depends_on:
       - inference
     tty: true
-    environment:
-      M4_PROXY_HOST: m4proxy
-      M4_PROXY_PORT: 5001
     volumes:
       - '/run/arduino_hw_info.env:/run/arduino_hw_info.env:ro'
       - '/sys/devices:/sys/devices'
@@ -634,7 +631,7 @@ services:
     command: ["inference", "1337"]
 
   inference:
-    image: public.ecr.aws/g7a8t7v6/inference-container:54c41c953772c053251634beec512d15f41073d1
+    image: public.ecr.aws/g7a8t7v6/inference-container:f5f7fa7b1af67797a08d3c943c51b896b1e58368
     restart: unless-stopped
     ports:
       - 1337:1337
@@ -668,111 +665,101 @@ import argparse
 
 from msgpackrpc import Address as RpcAddress, Client as RpcClient, error as RpcError # type: ignore
 
-m4_proxy_host = os.getenv('M4_PROXY_HOST', 'm4proxy')
-m4_proxy_port = int(os.getenv('M4_PROXY_PORT', '5001'))
+m4_proxy_host = 'm4-proxy'
+m4_proxy_port = 5001
 m4_proxy_address = RpcAddress(m4_proxy_host, m4_proxy_port)
 model_type = os.getenv("EI_MODEL_VERSION", "float32")
 
 def get_sensors_data_from_m4():
-    """Get data from the M4 via RPC (MessagePack-RPC)
+  """Get data from the M4 via RPC (MessagePack-RPC)."""
+  data = {}
+  sensors = ('flow_rate',)  # Fixed tuple declaration
 
-    The Arduino sketch on the M4 must implement the methods contained in the `sensors`
-    list and returning values from the attached sensor.
+  try:
+      client = RpcClient(m4_proxy_address)  # Use a single client instance
+      data = {sensor: client.call(sensor) for sensor in sensors}
 
-    """
-    data = {}
-    sensors = ('flow_rate')
-    try:
-        # MsgPack-RPC client to call the M4
-        # We need a new client for each call
-        get_value = lambda value: RpcClient(m4_proxy_address).call(value)
-        data = {get_value(sensors) for sensors in sensors}
+  except RpcError.TimeoutError:
+      print("Unable to retrieve sensors data from the M4: RPC Timeout - A")
 
-    except RpcError.TimeoutError:
-        print("Unable to retrieve sensors data from the M4: RPC Timeout - A")
-    return data
+  except Exception as e:
+      print(f"Unexpected error in get_sensors_data_from_m4(): {e}")
+
+  return data
 
 def get_sensors_and_classify(host, port):
-    # Construct the URL for the Edge Impulse API for the features upload
-    url = f"http://{host}:{port}/api/features"
+  url = f"http://{host}:{port}/api/features"
 
-    while True:
-        print("Collecting 400 features from sensors... ", end="")
+  while True:
+    print("Collecting 400 features from sensors... ", end="")
+    
+    data = {"features": []}
+    start = time.time()
+
+    for i in range(100):
+      sensors = get_sensors_data_from_m4()
+      if sensors:
+          print("flow: ", sensors.get('flow_rate', 'N/A'))  # Fixed dictionary reference
+          data["features"].extend(sensors.values())  # Correctly extract numerical values
+      time.sleep(100e-6)        
+
+    stop = time.time()
+    print(f"Done in {stop - start:.2f} seconds.")
+    
+    try:
+      response = requests.post(url, json=data)
+    except requests.ConnectionError:  # Corrected exception type
+      print("Connection Error: retrying later")
+      time.sleep(5)
+      break
+
+    if response.status_code != 200:
+      print(f"Failed to submit the features. Status Code: {response.status_code}")
+      break
         
-        data = { "features": [] }
-        start = time.time()
-        for i in range(100):
-            sensors = get_sensors_data_from_m4()
-            if sensors:
-                print("flow: ", data.get('flow_rate', 'N/A'))
-                data["features"].extend(sensors)                            
-            time.sleep(100e-6)        
-        stop = time.time()
-        print(f"Done in {stop - start:.2f} seconds.")
-        # print(data)
-        
-        try:
-            response = requests.post(url, json=data)
-        except ConnectionError:
-            print("Connection Error: retrying later")
-            time.sleep(5)
-            break
+    print("Successfully submitted features. ", end="")
 
-        # Check the response
-        if response.status_code != 200:
-            print(f"Failed to submit the features. Status Code: {response.status_code}")
-            break
-            
-        print("Successfully submitted features. ", end="")
+    classification_data = response.json()
+    classification = classification_data.get('result', {}).get('classification', {})
 
-        # Process the JSON response to extract the bounding box with the maximum value
-        data = response.json()
-        classification = data['result']['classification']
-        print(f'Classification: {classification}')
+    if classification:
+      label = max(classification, key=classification.get)
+      value = classification[label]
 
-        # Find the class with the maximum value
-        if classification:
-            label = max(classification, key=classification.get)
-            value = classification[label]
+      print(f"{label}: {value}")
 
-            print(f"{label}: {value}")
+      request_data = json.dumps({'label': label, 'value': value})
 
-            # Create a JSON string with the label and value
-            request_data = json.dumps({'label': label, 'value': value})
+      res = 0
+      try:
+          client = RpcClient(m4_proxy_address)
+          res = client.call('classification', json.loads(request_data))  # Fixed JSON handling
+      except RpcError.TimeoutError:
+          print("Unable to retrieve data from the M4: RPC Timeout. - B")
+      except Exception as e:
+          print(f"Error calling classification RPC: {e}")
 
-            res = 0
-
-            try:
-                client = RpcClient(m4_proxy_address)
-                res = client.call('classification', request_data)
-            except RpcError.TimeoutError:
-                print("Unable to retrieve data from the M4: RPC Timeout. - B")
-
-            print(f"Sent to {m4_proxy_host} on port {m4_proxy_port}: {request_data}. Result is {res}.")
-        else:
-            print("No classification found.")
-
+      print(f"Sent to {m4_proxy_host} on port {m4_proxy_port}: {request_data}. Result is {res}.")
+    else:
+      print("No classification found.")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Get 1 second of sensors data and send to inference container for classification")
-    parser.add_argument("host", help="The hostname or IP address of the inference server")
-    parser.add_argument("port", type=int, help="The port number of the inference server")
+  parser = argparse.ArgumentParser(description="Get 1 second of sensors data and send to inference container for classification")
+  parser.add_argument("host", help="The hostname or IP address of the inference server")
+  parser.add_argument("port", type=int, help="The port number of the inference server")
 
-    # Parse the arguments
-    args = parser.parse_args()
+  args = parser.parse_args()
 
-    # Signal handler to handle Ctrl+C (SIGINT) gracefully
-    def signal_handler(_sig, _frame):
-        print("Exiting...")
-        sys.exit(0)
+  def signal_handler(_sig, _frame):
+    print("Exiting...")
+    sys.exit(0)
 
-    # Register signal handler for graceful exit on Ctrl+C
-    signal.signal(signal.SIGINT, signal_handler)
+  signal.signal(signal.SIGINT, signal_handler)
 
-    print("Classifying Flow Sensor Data with AI... Press Ctrl+C to stop.")
-    print(f"Running model type: {model_type}")
-    # Run the capture, upload, and process function
-    get_sensors_and_classify(args.host, args.port)
+  print("Classifying Flow Sensor Data with AI... Press Ctrl+C to stop.")
+  print(f"Running model type: {model_type}")
+  # Run the capture, upload, and process function
+  get_sensors_and_classify(args.host, args.port)
 ```
 
 The complete project files can be downloaded in [this section](#download-the-project-code).
@@ -834,93 +821,188 @@ Now that the Portenta X8 is running the Docker container with the trained infere
 The `main.py` script from [previous section](#running-the-inference-model-on-docker) is updated to forward flow rate classification results to Arduino Cloud. Before proceeding, an Arduino Cloud Thing must be set up with a flow rate variable to obtain the Thing ID and Variable ID.
 
 ```python
+#!/usr/bin/env python3
 import os
 import time
-import json
 import requests
-from msgpackrpc import Address, Client
+import signal
+import sys
+import json
+import argparse
+from msgpackrpc import Address as RpcAddress, Client as RpcClient, error as RpcError
 
-# Retrieve environment variables
+# Environment variables
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 THING_ID = os.getenv("THING_ID")
-FLOWRATE_VARIABLE_ID = os.getenv("FLOWRATE_VARIABLE_ID")
-CLASSIFICATION_VARIABLE_ID = os.getenv("CLASSIFICATION_VARIABLE_ID")  # New variable for classification
+CLASSIFICATION_VARIABLE_ID = os.getenv("CLASSIFICATION_VARIABLE_ID")
+CONFIDENCE_VARIABLE_ID = os.getenv("CONFIDENCE_VARIABLE_ID")
+LOOP_INTERVAL = int(os.getenv("LOOP_INTERVAL", 5))
 
-# M4 proxy settings
-M4_PROXY_HOST = os.getenv("M4_PROXY_HOST", "m4proxy")
-M4_PROXY_PORT = int(os.getenv("M4_PROXY_PORT", "5001"))
+# Arduino IoT Cloud API URLs
+TOKEN_URL = "https://api2.arduino.cc/iot/v1/clients/token"
+PROPERTY_UPDATE_URL = "https://api2.arduino.cc/iot/v2/things/{thing_id}/properties/{variable_id}"
 
-# Define RPC address
-m4_proxy = Address(M4_PROXY_HOST, M4_PROXY_PORT)
+# M4 Proxy Configuration
+m4_proxy_host = "m4-proxy"
+m4_proxy_port = 5001
+m4_proxy_address = RpcAddress(m4_proxy_host, m4_proxy_port)
 
-def get_sensor_data():
-    """
-    Retrieve the flow rate from the M4 via RPC.
-    """
-    client = Client(m4_proxy)
+# Inference Server Configuration (via script arguments)
+inference_host = None
+inference_port = None
+
+
+def get_access_token():
+  """Retrieve OAuth2 token for Arduino Cloud API."""
+  try:
+    print(f"CLIENT_ID: {CLIENT_ID}")
+    print(f"CLIENT_SECRET: {'*' * len(CLIENT_SECRET)} (hidden)")
+
+    response = requests.post(
+      TOKEN_URL,
+      headers={"Content-Type": "application/x-www-form-urlencoded"},
+      data={
+        "grant_type": "client_credentials",
+        "client_id": CLIENT_ID,
+        "client_secret": CLIENT_SECRET,
+        "audience": "https://api2.arduino.cc/iot"
+      },
+    )
+
+    print("Response Status:", response.status_code)
+    print("Response Text:", response.text)
+
+    response.raise_for_status()
+    return response.json().get("access_token")
+
+  except requests.RequestException as e:
+    print(f"Error getting access token: {e}")
+    sys.exit(1)
+
+
+def update_property(token, variable_id, value):
+  """Update an Arduino Cloud property using REST API."""
+  url = PROPERTY_UPDATE_URL.format(thing_id=THING_ID, variable_id=variable_id)
+  headers = {
+    "Authorization": f"Bearer {token}",
+    "Content-Type": "application/json"
+  }
+  payload = json.dumps({"value": value})
+
+  try:
+    response = requests.put(url, headers=headers, data=payload)
+    print(f"Updating {variable_id}: {value} → {url} (PUT)")
+    print("Response Status:", response.status_code)
+    print("Response Text:", response.text)
+
+    response.raise_for_status()
+    print(f"Successfully updated {variable_id}")
+
+  except requests.RequestException as e:
+    print(f"Error updating {variable_id}: {e}")
+
+
+def get_sensors_data_from_m4():
+  """Retrieve sensor data from the M4 using RPC (MessagePack-RPC)."""
+  data = {}
+  sensors = ("flow_rate",)
+
+  try:
+    client = RpcClient(m4_proxy_address)
+    data = {sensor: client.call(sensor) for sensor in sensors}
+
+  except RpcError.TimeoutError:
+    print("RPC Timeout: Unable to retrieve sensors data from M4.")
+  except Exception as e:
+    print(f"Unexpected error in get_sensors_data_from_m4(): {e}")
+
+  return data
+
+
+def get_sensors_and_classify():
+  """Collect sensor data, send to inference server, and update Arduino Cloud."""
+  global inference_host, inference_port
+
+  token = get_access_token()  # Get OAuth2 token once and reuse
+  url = f"http://{inference_host}:{inference_port}/api/features"
+
+  while True:
+    print("Collecting 400 features from sensors... ", end="")
+
+    data = {"features": []}
+    start = time.time()
+
+    for _ in range(100):
+      sensors = get_sensors_data_from_m4()
+      if sensors:
+        print("flow_rate:", sensors.get("flow_rate", "N/A"))
+        data["features"].extend(sensors.values())
+      time.sleep(100e-6)
+
+    stop = time.time()
+    print(f"Done in {stop - start:.2f} seconds.")
+
     try:
-        return client.call("flow_rate")
-    except Exception as e:
-        print(f"Error retrieving sensor data: {e}")
-        return None
+      response = requests.post(url, json=data)
+    except requests.ConnectionError:
+      print("Connection Error: retrying later")
+      time.sleep(5)
+      break
 
-def update_arduino_cloud(variable_id, value):
-    """
-    Send data to Arduino Cloud.
-    """
-    url = f"https://api2.arduino.cc/iot/v2/things/{THING_ID}/properties/{variable_id}/publish"
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {CLIENT_ID}"  # Ensure valid token
-    }
-    payload = {"value": value}
-    
-    try:
-        response = requests.put(url, headers=headers, json=payload)
-        if response.status_code == 200:
-            print(f"Updated Arduino Cloud: {variable_id} = {value}")
-        else:
-            print(f"Failed to update {variable_id}: {response.status_code}, {response.text}")
-    except requests.exceptions.RequestException as e:
-        print(f"Error updating Arduino Cloud: {e}")
+    if response.status_code != 200:
+      print(f"Failed to submit the features. Status Code: {response.status_code}")
+      break
 
-def classify_flow(host, port):
-    """
-    Collects flow rate data, sends it for classification, and updates Arduino Cloud.
-    """
-    url = f"http://{host}:{port}/api/features"
+    print("Successfully submitted features. ", end="")
 
-    while True:
-        data = {"features": [], "model_type": "int8"}
+    classification_data = response.json()
+    classification = classification_data.get("result", {}).get("classification", {})
 
-        # Collect 100 sensor readings
-        for _ in range(100):
-            flow_rate = get_sensor_data()
-            
-            if flow_rate is not None:
-                data["features"].append(flow_rate)
-                update_arduino_cloud(FLOWRATE_VARIABLE_ID, flow_rate)  # Send flow rate to Arduino Cloud
-            
-            time.sleep(0.1)
+    if classification:
+      label = max(classification, key=classification.get)
+      confidence = classification[label]
 
-        # Send collected data for classification
-        try:
-            response = requests.post(url, json=data)
-            if response.status_code == 200:
-                classification = response.json().get("result", {}).get("classification", {})
-                print(f"Classification: {classification}")
-                
-                if classification:
-                    label = max(classification, key=classification.get)  # Get highest confidence label
-                    update_arduino_cloud(CLASSIFICATION_VARIABLE_ID, label)  # Send classification to Arduino Cloud
-            else:
-                print(f"Failed classification: {response.status_code}, {response.text}")
-        except requests.exceptions.RequestException as e:
-            print(f"Error sending classification request: {e}")
+      print(f"Classification: {label} ({confidence:.2f})")
+
+      # Update Arduino IoT Cloud with classification results
+      update_property(token, CLASSIFICATION_VARIABLE_ID, label)
+      update_property(token, CONFIDENCE_VARIABLE_ID, confidence)
+
+    else:
+      print("No classification found.")
+
+    time.sleep(LOOP_INTERVAL)
+
+
+def main():
+  """Main function to start classification and cloud updates."""
+  global inference_host, inference_port
+
+  parser = argparse.ArgumentParser(description="Get sensor data and classify with AI, updating Arduino Cloud.")
+  parser.add_argument("host", help="The hostname or IP address of the inference server")
+  parser.add_argument("port", type=int, help="The port number of the inference server")
+
+  args = parser.parse_args()
+  inference_host = args.host
+  inference_port = args.port
+
+  def signal_handler(_sig, _frame):
+    print("Exiting...")
+    sys.exit(0)
+
+  signal.signal(signal.SIGINT, signal_handler)
+
+  print("\n============================================")
+  print("==   Portenta X8 M4 Sensor Classification to Arduino Cloud ==")
+  print("============================================\n")
+  print("🔍 Running model type:", os.getenv("EI_MODEL_VERSION", "float32"))
+
+  get_sensors_and_classify()
+
 
 if __name__ == "__main__":
-    classify_flow("localhost", 1337)
+  main()
 ```
 
 The script gets API credentials and device identifiers from a `.env` file. Create this file in the project directory with the following content:
@@ -948,9 +1030,6 @@ services:
     depends_on:
       - inference
     tty: true
-    environment:
-      M4_PROXY_HOST: m4proxy
-      M4_PROXY_PORT: 5001
       PYTHONUNBUFFERED: 1
       LOOP_INTERVAL: 1
       CLIENT_ID: ${CLIENT_ID}
@@ -980,7 +1059,7 @@ services:
     command: ["inference", "1337"]
 
   inference:
-    image: public.ecr.aws/g7a8t7v6/inference-container:54c41c953772c053251634beec512d15f41073d1
+    image: public.ecr.aws/g7a8t7v6/inference-container:f5f7fa7b1af67797a08d3c943c51b896b1e58368
     restart: unless-stopped
     ports:
       - 1337:1337
