@@ -103,6 +103,17 @@ void onTestChange(){
 }
 ```
 
+There are a few different options available for synchronizing your sketch with the Arduino Cloud:
+- `MOST_RECENT_WINS` - The latest update whether from the device or the cloud is used. Best for real-time applications where the latest data should always be used, regardless of source.
+- `CLOUD_WINS` - The cloud value always overwrites the device value. Useful when the cloud holds critical configurations or settings that should always be enforced on the device.
+- `DEVICE_WINS` - The device value always overwrites the cloud value. Used when the device generates important real-time data (sensor readings) that should always be preserved over cloud updates.
+
+It can be set in your sketch with:
+
+```arduino
+setSyncPolicy(MOST_RECENT_WINS);  // or CLOUD_WINS, DEVICE_WINS
+```
+
 ### Configuration Header File
 
 The `thingProperties.h` file is a non-editable file that updates based on changes made in your Thing. For example:
