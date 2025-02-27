@@ -1,5 +1,5 @@
 ---
-title: "LoRa® Communication Between MKR WAN 1300 Boards"
+title: "LoRa®-Based Messaging with MKR WAN 1300"
 difficulty: intermediate
 compatible-products: [mkr-wan-1300]
 description: 'Learn how to use the Serial Monitor to send messages between two MKR WAN 1300 boards using LoRa® technology.'
