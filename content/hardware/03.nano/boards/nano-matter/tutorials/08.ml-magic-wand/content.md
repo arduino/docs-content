@@ -618,7 +618,7 @@ Power the Nano Matter of your Magic Wand using a USB cable and start moving it f
 
 ## Conclusion
 
-In this tutorial you learned how to use the Arduino Nano Matter as a Machine Learning gesture recognizer, leveraging the optimized Silicon Labs library for Tiny Machine Learning we showcased the board capabilities of running TinyML algorithms with ease thanks to the **hardware acceleration** achieved with the **Matrix Vector Processor (MVP)** integrated in the Nano Matter microcontroller.
+In this tutorial you learned how to use the Arduino Nano Matter as a Machine Learning gesture recognizer; leveraging the optimized Silicon Labs library for Tiny Machine Learning, we showcased the board capabilities of running TinyML algorithms with ease thanks to the **hardware acceleration** achieved with the **Matrix Vector Processor (MVP)** integrated into the Nano Matter microcontroller.
 
 ### Next Steps
 
