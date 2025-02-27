@@ -24,7 +24,7 @@ This tutorial describes how to build a gesture recognition system based on a mac
 
 ![Nano Matter Magic Wand](assets/thumbnail.png)
 
-The Arduino Nano Matter acts as a digital magic wand 🪄, where sensor data from its movements is processed by a model to classify and detect specific gestures. The inference results will turn on a LEDs array on a specific color respectively to the detected gesture.
+The Arduino Nano Matter acts as a digital magic wand 🪄, where sensor data from its movements is processed by a model to classify and detect specific gestures. The inference results will turn on Modulino Pixels on a specific color respectively to the detected gesture.
 
 ### Goals
 
@@ -71,6 +71,8 @@ The **Silicon Labs** core contains the libraries and examples you need to work w
 In its **idle state**, the wand's LEDs remain **solid blue**, indicating that it is ready to detect a gesture.
 
 When the wand is moved, the LEDs **turn off**, showing that gesture recognition has started.
+
+![Gesture Colors](assets/colors.jpg)
 
 Once the recognition process is complete:
 
