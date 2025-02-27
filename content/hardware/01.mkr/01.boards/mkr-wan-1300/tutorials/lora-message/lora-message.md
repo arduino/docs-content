@@ -1,5 +1,5 @@
 ---
-title: "LoRa® Message Service with MKR WAN 1300"
+title: "LoRa® Communication Between MKR WAN 1300 Boards"
 difficulty: intermediate
 compatible-products: [mkr-wan-1300]
 description: 'Learn how to use the Serial Monitor to send messages between two MKR WAN 1300 boards using LoRa® technology.'
@@ -48,7 +48,7 @@ ___
 
 ## Let's Start
 
-In this tutorial, we will create a message service that utilizes the LoRa® network. In our other tutorials for the MKR WAN 1300 board, we have typically set up one board as a sender, and one as a receiver. Now, we will instead set them up as **both sender and receiver**. This will allow us to both send and receive packets simultaneously, which works very similar to any messenger service you might be used to!
+In this tutorial, we will create a message service that uses a LoRa®-based communication channel. In our other tutorials for the MKR WAN 1300 board, we have typically set up one board as a sender, and one as a receiver. Now, we will instead set them up as **both sender and receiver**. This will allow us to both send and receive packets simultaneously, which works very similar to any messenger service you might be used to!
 
 To do this, we basically only need to create one sketch that we will upload to each of the MKR WAN 1300 boards, with only some minor adjustments made in the code for each.
 
@@ -146,7 +146,7 @@ Whenever the `onReceive()` function is called upon, it first checks whether a pa
 
 But if a packet comes in, there are two major things that happen. First, we read the packet, using the command `int recipient = LoRa.read();`, which contains the `localAddress` (sent from the other board). We then create a string called `incoming`, which we then store the incoming message in.
 
-We then compare `recipient` to `localAddress` and `0xFF`, and if it doesn't match, we print "This message is not for me" in the Serial Monitor. As there are many people using the LoRa® network, we might intercept other messages, and if we do, that is the message we will see instead.
+We then compare `recipient` to `localAddress` and `0xFF`, and if it doesn't match, we print "This message is not for me" in the Serial Monitor. As there are many people using the LoRa®-based network, we might intercept other messages, and if we do, that is the message we will see instead.
 
 Finally, we print the message stored in the `incoming` string in the Serial Monitor, along with RSSI.
 
@@ -349,9 +349,9 @@ void loop() {
 
 ## Upload Sketch and Testing the Program
 
-Once we are finished with the code, we can upload the sketches to each board. At this point, we will need **two computers**, as we are going to write messages between them. When the code has been uploaded, **open the Serial Monitor on each computer**.
+Once we are finished with the code, we can upload the sketches to each board. At this point, we will need **two computers**, as we are going to exchange messages between them. When the code has been uploaded, **open the Serial Monitor on each computer**.
 
-If everything goes right, we should be able to write messages over the LoRa® network. This is done by simply typing a message in the Serial Monitor of either device, and hit "enter" once finished. This will store the entered message in a string called `message`. In the code, we also created a packet and printed `message` to it. This is done automatically after we have hit "enter", and should now be sent to the other device.
+If everything goes right, we should be able to write messages over the LoRa®-based network. This is done by simply typing a message in the Serial Monitor of either device, and hit "enter" once finished. This will store the entered message in a string called `message`. In the code, we also created a packet and printed `message` to it. This is done automatically after we have hit "enter", and should now be sent to the other device.
 
 >**Important:** the Serial Monitor needs to be open for both devices in order to send and receive messages. If we send a message from **Device #1**, we will need to have the Serial Monitor open on **Device #2**.
 
