@@ -656,6 +656,7 @@ In this tutorial you learned how to use the Arduino Nano Matter as a Machine Lea
 ### Next Steps
 
 - Extend your knowledge about the Nano Matter following the [Arduino Documentation](https://docs.arduino.cc/hardware/nano-matter/).
+- Improve gesture recognition model accuracy by incorporating gyroscope data.
 - Create your own custom gestures recognition model.
 - Create machine learning models leveraging other Modulino sensors.
 
