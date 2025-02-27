@@ -392,3 +392,6 @@ If the code is not working, there are some common issues we might need to troubl
 
 In this tutorial, we have created a LoRa®-based messaging service application, using two MKR WAN 1310 boards and two antennas. In the right conditions, these boards can send messages over very long distances, and can be an ideal solution for remote places where internet access is limited. 
 
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.
