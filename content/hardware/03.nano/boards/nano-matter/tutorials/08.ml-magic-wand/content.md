@@ -14,10 +14,8 @@ author: 'Christopher Méndez, Leonardo Cavagnis and Andrea Richetta'
 hardware:
   - hardware/03.nano/boards/nano-matter
 software:
-  - ide-v1
   - ide-v2
   - web-editor
-  - iot-cloud
 ---
 
 ## Overview
@@ -181,17 +179,6 @@ void setup() {
   interpreter = sl_tflite_micro_get_interpreter();
   output = sl_tflite_micro_get_output_tensor();
 
-  // Print model input parameters
-  Serial.print("model_input->dims->size = ");
-  Serial.println(model_input->dims->size);
-  Serial.print("model_input->dims->data[0] = ");
-  Serial.println(model_input->dims->data[0]);
-  Serial.print("model_input->dims->data[1] = ");
-  Serial.println(model_input->dims->data[1]);
-  Serial.print("model_input->dims->data[2] = ");
-  Serial.println(model_input->dims->data[2]);
-  Serial.print("model_input->type = ");
-  Serial.println(model_input->type);
 
   // Check model input parameters
   if ((model_input->dims->size != 2) || (model_input->dims->data[0] != 1)
@@ -200,11 +187,6 @@ void setup() {
     Serial.println("error: bad input tensor parameters in model");
     while(1) ;
   }
-
-  // Print model input length
-  input_length = model_input->bytes / sizeof(float);
-  Serial.print("input_length = ");
-  Serial.println(input_length);
 
   // Initialize accelerometer
   bool setup_status = accelerometer_setup();
@@ -219,7 +201,6 @@ void setup() {
     setPixel(i, BLUE);
   }
 
-  Serial.println("ready");
 }
 
 void loop() {
@@ -456,10 +437,6 @@ void setup() {
     while(1) ;
   }
 
-  // Print model input length
-  input_length = model_input->bytes / sizeof(float);
-  Serial.print("input_length = ");
-  Serial.println(input_length);
 
   // Initialize accelerometer
   bool setup_status = accelerometer_setup();
@@ -474,7 +451,6 @@ void setup() {
     setPixel(i, BLUE);
   }
 
-  Serial.println("ready");
 }
 ```
 
@@ -640,7 +616,7 @@ Power the Nano Matter of your Magic Wand using a USB cable and start moving it f
 
 ## Conclusion
 
-In this tutorial you learned how to use the Arduino Nano Matter as a Machine Learning gesture recognizer, leveraging the optimized Silicon Labs library for Tiny Machine Learning we showcased the board capabilities of running TinyML algorithms with ease thanks to the **hardware acceleration** achieved with the **Mathematical Vector Processor (MVP)** integrated in the Nano Matter microcontroller.
+In this tutorial you learned how to use the Arduino Nano Matter as a Machine Learning gesture recognizer, leveraging the optimized Silicon Labs library for Tiny Machine Learning we showcased the board capabilities of running TinyML algorithms with ease thanks to the **hardware acceleration** achieved with the **Matrix Vector Processor (MVP)** integrated in the Nano Matter microcontroller.
 
 ### Next Steps
 
