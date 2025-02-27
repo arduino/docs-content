@@ -22,7 +22,7 @@ software:
 
 ## Overview
 
-This tutorial describes how to build a gesture recognition system based on a machine learning model using TensorFlow and the Arduino Nano Matter.
+This tutorial describes how to build a gesture recognition system based on a machine learning model using TensorFlow Lite and the Arduino Nano Matter.
 
 ![Nano Matter Magic Wand](assets/thumbnail.png)
 
