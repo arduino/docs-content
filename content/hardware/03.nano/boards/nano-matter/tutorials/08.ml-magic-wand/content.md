@@ -10,7 +10,7 @@ tags:
   - Modulino
   - Matter
 
-author: 'Christopher Méndez'
+author: 'Christopher Méndez, Leonardo Cavagnis and Andrea Richetta'
 hardware:
   - hardware/03.nano/boards/nano-matter
 software:
