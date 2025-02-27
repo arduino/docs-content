@@ -447,17 +447,6 @@ void setup() {
   interpreter = sl_tflite_micro_get_interpreter();
   output = sl_tflite_micro_get_output_tensor();
 
-  // Print model input parameters
-  Serial.print("model_input->dims->size = ");
-  Serial.println(model_input->dims->size);
-  Serial.print("model_input->dims->data[0] = ");
-  Serial.println(model_input->dims->data[0]);
-  Serial.print("model_input->dims->data[1] = ");
-  Serial.println(model_input->dims->data[1]);
-  Serial.print("model_input->dims->data[2] = ");
-  Serial.println(model_input->dims->data[2]);
-  Serial.print("model_input->type = ");
-  Serial.println(model_input->type);
 
   // Check model input parameters
   if ((model_input->dims->size != 2) || (model_input->dims->data[0] != 1)
