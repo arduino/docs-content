@@ -33,23 +33,23 @@ The following boards connect to the Arduino Cloud via [The Things Stack](https:/
 - [MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310)
 
 ## The Things Stack
-  
-If you are interested in building low-cost, low-power and long-range devices, you will be excited to hear that Arduino Cloud is interfaced with [The Things Stack](https://www.thethingsindustries.com/stack/) (TTS). When configuring a device such as the MKR WAN 1300/1310, it will automatically be registered on The Things Stack platform.
+
+If you are interested in building low-cost, low-power, and long-range devices, you will be excited to hear that Arduino Cloud interfaces with [The Things Stack](https://www.thethingsindustries.com/stack/) (TTS). When configuring a device such as the MKR WAN 1300/1310, it will automatically be registered on The Things Stack platform.
 
 So, what does that mean for you? It means that you can connect to any of the **22,000+ public gateways** making up the network. With coverage in most parts of the world, LoRa® technology has become increasingly popular. Your end devices (such as the MKR WAN 1310) can be set up in remote locations (or cities) without an internet connection. These devices can then send data to nearby gateways connected to the TTS service, which in turn forwards the data to the Arduino Cloud. Data can also be sent in the opposite direction, from the Arduino Cloud to the end device via TTS.
 
 In this tutorial, we will walk you through the steps needed to successfully provision devices that use the Arduino Cloud & The Things Network, from unboxing your device to viewing data on a dashboard!
-  
-***Please note that when working with long-range wireless networks, data rates are limited. Messages sent from devices should be restricted to once every several minutes. For more information on network limitations, visit [The Things Network Limitations article](https://www.thethingsnetwork.org/docs/lorawan/limitations/).***  
+
+***When working with long-range wireless networks, data rates are limited. Messages sent from devices should be restricted to once every several minutes. For more information on network limitations, visit [The Things Network Limitations](https://www.thethingsnetwork.org/docs/lorawan/limitations/).***
   
 ###  Terminology Run-Trough
 
 - **LoRa®** - short for **Lo**ng **Ra**nge, is a modulation technique used to send and receive data over low-power, wide-area networks (LPWAN). 
 - **LoRa®-based network** - a type of network that uses LoRa® modulation for communication between end devices and gateways.
-- **LoRa gateway** - a network router able to send and receive LoRa® RF packets and forward them to the internet.
+- **LoRa® gateway** - a network router able to send and receive LoRa® RF packets and forward them to the internet.
 - **MKR WAN 1300/1310** - development boards that feature a LoRa® module capable of sending and receiving packets of data.
 - **End device/node** - a term used for deployed devices such as the MKR WAN 1310, which read and process sensor data.
-- **The Things Network (TTN)** - a nonprofit association providing a public LoRa®-based network service for free.
+- **The Things Network (TTN)** - a nonprofit association providing a public LoRa®-based network service.
 - **The Things Stack Network (TTS)** - a cloud platform used by TTN and TTI for network infrastructure.
 - **The Things Industries (TTI)** -  a company that runs and manages The Things Network and offers private network services.
 - **The Things Stack Console (TTC)** - a service that allows you to register devices and handle incoming or outgoing data.
@@ -60,7 +60,7 @@ In this tutorial, we will walk you through the steps needed to successfully prov
 
 ###  Related Resources
   
-If you want to learn more about Arduino and LoRa®, you can check out the resources below:
+If you want to learn more about Arduino and LoRa®, check out these resources:
   
 - [MKR WAN 1300 documentation page.](/hardware/mkr-wan-1300)
 - [MKR WAN 1310 documentation page](/hardware/mkr-wan-1310)
@@ -163,8 +163,7 @@ In this step, we will complete the registration so we can access the **The Thing
   
 **8.** You are now in the application overview. Here you will find a lot of useful information, such as **DevEUI, AppEUI & AppKey**, and see the live data that is sent to and from your device. You do not need to make any changes here, but it acts as a great troubleshooting tool to check if your device is working.
   
-###  TTI Email Expiration
-  
+### TTI Email Expiration
   
 After some time, the automatic email sent out by TTI will expire. If the link is expired and you wish to access the Things Stack Network, you can click on the **"Forgot Password"** link which will restart the activation.
   
@@ -316,4 +315,9 @@ See the link below for more resources on adding gateways to the Things Stack net
   
 - [Adding Gateways | The Things Industries](https://www.thethingsindustries.com/docs/gateways/adding-gateways/ )
 - [Recommended Gateways | YouTube](https://www.youtube.com/watch?v=h_6dIte_IxI&ab_channel=TheThingsNetwork )
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.
+
   
