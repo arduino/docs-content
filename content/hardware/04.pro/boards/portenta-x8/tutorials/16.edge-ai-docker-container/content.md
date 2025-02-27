@@ -66,6 +66,7 @@ To develop and deploy the flow monitoring system, the following software tools a
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
 - The [Arduino Create Agent](https://cloud.arduino.cc/download-agent/)
 - The [Arduino Cloud](https://cloud.arduino.cc/). If you do not have an account, you can create one for free inside [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
+- [Edge Impulse project example](https://studio.edgeimpulse.com/public/208861/live)
 
 ### Download the Project Code
 
