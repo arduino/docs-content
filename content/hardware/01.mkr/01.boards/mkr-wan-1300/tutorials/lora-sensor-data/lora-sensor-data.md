@@ -298,7 +298,10 @@ If the code is not working, there are some common issues we might need to troubl
 - We have not opened the Serial Monitor.
 - We are using the same computer for both boards without a serial interfacing program.
 
-
 ## Conclusion
 
 This tutorial demonstrates a simple communication between two MKR WAN 1300 boards and a MKR ENV shield, using LoRa® technology.
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.
