@@ -67,7 +67,7 @@ Sketches with an attached Thing are more complex and are generated automatically
 
 The sketch file is generated with a set of additional Cloud-specific methods included, the essentials being:
 - `initProperties()` - initializes properties/variables from your Thing.
-- `ArduinoCloud.begin()` starts the library with the preferred connection (e.g. Wi-Fi® or LoRaWAN®).
+- `ArduinoCloud.begin()` starts the library with the preferred connection (e.g. Wi-Fi® or LoRa®-based networks).
 - `ArduinoCloud.update()` - synchronizes all data between the board and the Arduino Cloud.
 
 In addition, any variable created with a read/write permission will also generate a callback function that executes whenever the variable's value changes.
@@ -119,7 +119,7 @@ setSyncPolicy(MOST_RECENT_WINS);  // or CLOUD_WINS, DEVICE_WINS
 The `thingProperties.h` file is a non-editable file that updates based on changes made in your Thing. For example:
 
 - Creating a variable will add it to this file, along with parameters such as permission, update policy, variable type etc. 
-- Changing from a Wi-Fi® device to a LoRa® device will update the **connection method** stored in this file,
+- Changing from a Wi-Fi® device to a LoRa®-enabled device will update the **connection method** stored in this file,
 
 The file cannot be edited in the Arduino Cloud as it is in sync with the platform and changes frequently.
 
@@ -239,3 +239,7 @@ The [Arduino Create Agent](https://github.com/arduino/arduino-create-agent) is a
 Downloading and installing the Arduino Create Agent plugin can be done following [this quick and easy process](https://create.arduino.cc/getting-started/plugin/welcome).
 
 The full documentation of the [Arduino Create Agent is available here](https://github.com/arduino/arduino-create-agent#readme) for more advanced usage.
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

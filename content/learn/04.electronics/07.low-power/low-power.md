@@ -3,14 +3,14 @@ title: 'The Arduino Guide to Low Power Design'
 description: 'Learn the basics of low-power design using Arduino hardware and software.'
 tags: 
   - Low Power
-  - LoRa®
+  - LoRa® Technology
   - Voltage Detection
 author: 'Taddy Chung, José Bagur'
 ---
 
 The objective of **Low Power** is to reduce the device’s power consumption by controlling its behavior to extend its operation lifetime. Electronic devices fed directly from a power source usually do not require the implementation of Low Power or similar techniques to extend their life. On the other hand, it is necessary to save its power consumption to expand its operation lifetime for the devices running from a power source such as batteries. 
 
-The present guide for achieving low power system are applicable for every Arduino boards. For example, [Arm Cortex-M0 32-bit SAMD21](https://content.arduino.cc/assets/mkr-microchip_samd21_family_full_datasheet-ds40001882d.pdf) processor based Arduino boards can take advantage of low-power features. The Arduino SAMD21 boards with wireless protocol with LoRaWAN® network capability, with module as [Murata CMWX1ZZABZ](https://content.arduino.cc/assets/mkrwan1310-murata_lora_module-type_abz.pdf) featured from [MKR WAN 1310](https://docs.arduino.cc/hardware/mkr-wan-1310), can be combined with low power features to operate for an extensive period. With advanced techniques, such tools as power source guide and self-discharge rates design applies to every Arduino boards for designing power efficient systems. You can check out [Arduino Documentation Hardware](https://docs.arduino.cc/) page to find out about Arduino boards. 
+The present guide for achieving low power system are applicable for every Arduino boards. For example, [Arm Cortex-M0 32-bit SAMD21](https://content.arduino.cc/assets/mkr-microchip_samd21_family_full_datasheet-ds40001882d.pdf) processor based Arduino boards can take advantage of low-power features. The Arduino SAMD21 boards with wireless protocol using LoRa® technology, with module as [Murata CMWX1ZZABZ](https://content.arduino.cc/assets/mkrwan1310-murata_lora_module-type_abz.pdf) featured from [MKR WAN 1310](https://docs.arduino.cc/hardware/mkr-wan-1310), can be combined with low power features to operate for an extensive period. With advanced techniques, such tools as power source guide and self-discharge rates design applies to every Arduino boards for designing power efficient systems. You can check out [Arduino Documentation Hardware](https://docs.arduino.cc/) page to find out about Arduino boards. 
 
 ## Low Power Library
 
@@ -27,8 +27,6 @@ To learn more about the Arduino IDE, follow the links below:
 
 - [Arduino IDE 1](https://docs.arduino.cc/software/ide-v1)
 - [Arduino IDE 2](https://docs.arduino.cc/software/ide-v2)
-
-
 
 ## Low-Power Design Techniques 
 
@@ -270,15 +268,15 @@ LowPower.detachAdcInterrupt();
 
 Callback functions are to be used when the system wakes up from sleep state via configured interruption. In this function, and as an entire software architecture, usually it is a good practice to avoid using delay() and long running functions. This is to avoid what is called **Blocking Operation** and to be designed in **Non-Blocking Operation** fashion, which very helpful for this types of design cases. In this instances, this will help design power efficient system in parallel being a responsive system. 
 
-### LoRa Transmitter With Low Power Example
+### Low Power Example Using LoRa® Technology Transmitter
 
 - Hardware Needed: MKR WAN 1300/1310 (On-Board Murata Module)
 
-***Extended detail and example about LoRa® using MKR WAN 1310 with its Murata Module, please check [Send Data Using LoRa® with MKR WAN 1310](https://docs.arduino.cc/tutorials/mkr-wan-1310/lora-send-and-receive)***
+***For extended detail and example about LoRa® Technology using MKR WAN 1310 with its Murata Module, please [this documentation](https://docs.arduino.cc/tutorials/mkr-wan-1310/lora-send-and-receive)***
 
 This example shows MKR WAN1300/1310 as a remote transmitter device that sends alive beacon status message periodically. This is to simulate a device broadcasting beacon data every certain amount of time and requires extensive operation lifetime. The receiver device will be stationary as reception tower. The remote transmitter device will have the SAMD21 go into sleep state, but also the On-Board Murata module to remove unnecessary power consumption.
 
-***For more information on the LoRa library, please visit the [Arduino LoRa](https://github.com/sandeepmistry/arduino-LoRa) repository on GitHub.***
+***For more information on the `LoRa` library, please refer to [this library](https://github.com/sandeepmistry/arduino-LoRa) repository on GitHub.***
 
 ```arduino
 // Low Power Library
@@ -334,7 +332,7 @@ void GoToSleep(){
 
 It is important to know that the Low Power task applies only to microcontroller. This means that external modules such as Murata module we used here, found on MKR WAN 1310 board, must be coded in the task separately to make the module go into sleep state. 
 
-***If external modules such as Murata (LoRa) Module and sensors are to be used, please remember to put into sleep state before making the MCU go into sleep. Otherwise the device will not go into complete sleep state and maximum power saving will not be possible. This includes turning off for example peripheral interfaces such as TWI and SPI.***
+***If external modules such as Murata (LPWAN) Module and sensors are to be used, please remember to put into sleep state before making the MCU go into sleep. Otherwise the device will not go into complete sleep state and maximum power saving will not be possible. This includes turning off for example peripheral interfaces such as TWI and SPI.***
 
 ### Simple Low Voltage Detection Example
 
@@ -696,3 +694,7 @@ void loop () { }
 ```
 
 ***To read more about the Low Power systems topic In-Depth, you can check the following link: https://www.gammon.com.au/power***
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

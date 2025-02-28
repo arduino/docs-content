@@ -536,4 +536,8 @@ Thanks to the Edge Control capabilities to connect to the Cloud and be remotely 
 
 Since you already know how to develop a Smart Irrigation System with Arduino Edge Control and the MKR WiFi 1010, it is time for you to continue exploring all the capabilities of the Arduino Pro portfolio and integrating it into your professional setup.
 
-You can extend the capabilities of your Edge Control-based system by adding different connectivity options, leveraging the [Arduino MKR family](https://store-usa.arduino.cc/collections/mkr-family) like LoRaWAN®, GSM, RS-485 or Ethernet.
+You can extend the capabilities of your Edge Control-based system by adding different connectivity options, leveraging the [Arduino MKR family](https://store-usa.arduino.cc/collections/mkr-family) like LoRa® technology, GSM, RS-485 or Ethernet.
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

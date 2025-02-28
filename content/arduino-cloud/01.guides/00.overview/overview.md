@@ -5,7 +5,7 @@ tags: [Arduino Cloud, Getting Started]
 author: 'Karl Söderby'
 ---
 
-The [Arduino Cloud](https://app.arduino.cc/) is a platform for developing Arduino projects and connecting them to the world. It supports secure connections with boards via [Wi-Fi®](/arduino-cloud/hardware/wifi), [LoRa®](/arduino-cloud/hardware/lora), [Ethernet](/arduino-cloud/hardware/ethernet) and [Cellular (GSM/NB-IoT)](/arduino-cloud/hardware/cellular), and lets you create a system for sending any variable information you can think of from one board to another within minutes of unboxing them.
+The [Arduino Cloud](https://app.arduino.cc/) is a platform for developing Arduino projects and connecting them to the world. It supports secure connections with boards via [Wi-Fi®](/arduino-cloud/hardware/wifi), [LoRa®-enabled devices](/arduino-cloud/hardware/lora), [Ethernet](/arduino-cloud/hardware/ethernet) and [Cellular (GSM/NB-IoT)](/arduino-cloud/hardware/cellular), and lets you create a system for sending any variable information you can think of from one board to another within minutes of unboxing them.
 
 The Arduino Cloud platform includes:
 - an **Integrated Development Environment (IDE)** for programming your boards,
@@ -46,7 +46,7 @@ Compatibility with the Arduino Cloud is divided into two categories:
 
 For more information and list of supported boards, see the links below:
 - [Wi-Fi®](/arduino-cloud/hardware/wifi)
-- [LoRa®](/arduino-cloud/hardware/lora)
+- [LoRa®-enabled devices](/arduino-cloud/hardware/lora)
 - [Ethernet](/arduino-cloud/hardware/ethernet)
 - [Cellular (GSM/NB-IoT)](/arduino-cloud/hardware/cellular).
 
@@ -148,3 +148,7 @@ Make sure to explore the various features of the Arduino Cloud through the links
 - [**Webhooks**](/arduino-cloud/features/webhooks) - integrate your project with another service, such as IFTTT.
 - [**Amazon Alexa Support**](/arduino-cloud/guides/alexa) - make your project voice controlled with the Amazon Alexa integration. 
 - [**Dashboard Sharing**](/arduino-cloud/features/sharing-dashboards) - share your data with other people around the world. 
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

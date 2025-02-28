@@ -233,7 +233,7 @@ The Arduino Cloud for Business allows for device management with Over-The-Air up
 
 ### Compatible Hardware
 
-The Arduino Cloud for Business is compatible with multiple Arduino boards or devices based on the ESP32 / ESP8266 microcontrollers. The Arduino Cloud currently supports devices connected via Wi-Fi®, Ethernet, LoRaWAN® (via The Things Network), and cellular connectivity.
+The Arduino Cloud for Business is compatible with multiple Arduino boards or devices based on the ESP32 / ESP8266 microcontrollers. The Arduino Cloud currently supports devices connected via Wi-Fi®, Ethernet, LoRa®-based networks (via The Things Network), and cellular connectivity.
 
 To check the full list of compatible Hardware, have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/guides/overview).
 
@@ -490,3 +490,7 @@ You are just a few easy steps from deploying your very own IoT project. Having a
 What will you create?
 
 [Start your Cloud journey now](https://cloud.arduino.cc/plans#business).
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

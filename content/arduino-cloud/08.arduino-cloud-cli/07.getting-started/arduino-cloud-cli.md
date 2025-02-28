@@ -126,15 +126,15 @@ Here's follows the FQBN's list of the supported devices:
 * `arduino:samd:mkrgsm1400` [Arduino MKR GSM 1400](https://docs.arduino.cc/hardware/mkr-gsm-1400)
 * `arduino:samd:mkrnb1500` [Arduino MKR NB 1500](https://docs.arduino.cc/hardware/mkr-nb-1500) 
 
-### LoRaWAN® Devices
+### LoRa®-Enabled Devices
 
-To configure LoRaWAN® devices, use the additional `create-lora` and the `--frequency-plan` flag. This  
+To configure LoRa®-enabled devices, use the additional `create-lora` and the `--frequency-plan` flag. This  
 
 ```
 arduino-cloud-cli device create-lora --name <deviceName> --frequency-plan <freqID> --port <port> --fqbn <deviceFqbn>
 ```
 
-LoRaWAN® devices that are supported: 
+LoRa®-enabled devices that are supported: 
 
 * `arduino:samd:mkrwan1310`
 * `arduino:samd:mkrwan1300`
@@ -457,3 +457,6 @@ To recap, this tool can be used to:
 - List all available components from the Cloud (like `thing list`).
 - Tag your devices & Things with the `--tags <key0>=<value0>` command.
 
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

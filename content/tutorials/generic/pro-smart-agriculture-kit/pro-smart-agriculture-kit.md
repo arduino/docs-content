@@ -73,11 +73,11 @@ Additionally, you may need the following accessories:
 
 If you want to learn more about the technologies of the kit, we propose the following experiences:
 
-|                                                             Experience                                                              | Edge Control | MKR WAN 1310 | MKR WiFi 1010 | WisGate |
-|:-----------------------------------------------------------------------------------------------------------------------------------:|:------------:|:------------:|:-------------:|:-------:|
-|      [Connecting and Controlling a Motorized Ball Valve](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve)       |     Yes      |              |               |         |
-| [Smart Farm Irrigation System Using Arduino® Edge Control](https://docs.arduino.cc/tutorials/edge-control/smart-irrigation-system)  |     Yes      |              |      Yes      |         |
-| [LoRaWAN® Irrigation System Using Arduino® Edge Control](https://docs.arduino.cc/tutorials/edge-control/smart-irrigation-system-v2) |     Yes      |     Yes      |               |   Yes   |
+|                                                             Experience                                                             | Edge Control | MKR WAN 1310 | MKR WiFi 1010 | WisGate |
+|:----------------------------------------------------------------------------------------------------------------------------------:|:------------:|:------------:|:-------------:|:-------:|
+|      [Connecting and Controlling a Motorized Ball Valve](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve)      |     Yes      |              |               |         |
+| [Smart Farm Irrigation System Using Arduino® Edge Control](https://docs.arduino.cc/tutorials/edge-control/smart-irrigation-system) |     Yes      |              |      Yes      |         |
+|  [LPWAN Irrigation System Using Arduino® Edge Control](https://docs.arduino.cc/tutorials/edge-control/smart-irrigation-system-v2)  |     Yes      |     Yes      |               |   Yes   |
 
 
 The experiences marked with a `Yes` are the ones related to the product. Experiences marked with a `+` means that to follow the tutorial you must use all the products with the `+` symbol.
@@ -87,3 +87,7 @@ The experiences marked with a `Yes` are the ones related to the product. Experie
 ## Support
 
 If you encounter any issues or have questions, we offer various support resources to help you find answers and solutions. In case of any issues with the redemption process, please contact us by filling out the form available [here](https://www.arduino.cc/en/contact-us/).
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

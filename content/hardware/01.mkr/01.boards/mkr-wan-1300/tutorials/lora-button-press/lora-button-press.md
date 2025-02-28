@@ -2,7 +2,7 @@
 title: "LoRa® LED Control with MKR WAN 1300"
 difficulty: intermediate
 compatible-products: [mkr-wan-1300]
-description: 'Learn how to connect two boards using LoRa®, and how to control an LED remotely from another board.'
+description: 'Learn how to connect two boards using LoRa® technology and control an LED remotely from another board.'
 tags:
   - IoT
   - LoRa®
@@ -57,7 +57,7 @@ ___
 
 ## Let's Start
 
-In this tutorial, we will achieve a basic trigger over the LoRa® network. When we press a button on one of the MKR WAN 1300 boards, an LED will light up on another. This is quite a simple setup, but it can be useful for long range, low power communication! 
+In this tutorial, we will achieve a basic trigger using the LoRa® technology. When we press a button on one of the MKR WAN 1300 boards, an LED will light up on another. This is quite a simple setup, but it can be useful for long range, low power communication! 
 
 But let's take a look at what we need to include in the code. As we are using two different boards, we will also need to create two separate sketches.
 
@@ -363,5 +363,9 @@ If the code is not working, there are some common issues we might need to troubl
 
 ## Conclusion
 
-This tutorial demonstrates a simple, yet powerful communication setup, featuring two MKR WAN 1300 boards and how to remotely control an LED using LoRa®.
+This tutorial demonstrates a simple, yet powerful communication setup, featuring two MKR WAN 1300 boards and how to remotely control an LED using LoRa® technology.
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.
 
