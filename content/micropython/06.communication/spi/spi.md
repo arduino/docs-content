@@ -24,13 +24,13 @@ Unlike UART, SPI is synchronous, meaning it uses a clock signal for precise data
 
 ## Key Features of SPI
 
--**High-Speed Communication:** Supports much higher data rates than UART, making it suitable for applications requiring rapid data transfer.
+- **High-Speed Communication:** Supports much higher data rates than UART, making it suitable for applications requiring rapid data transfer.
 
--**Multi-Peripheral Support:** Multiple devices can share the SPI bus, each being activated by a separate Chip Select line.
+- **Multi-Peripheral Support:** Multiple devices can share the SPI bus, each being activated by a separate Chip Select line.
 
--**Full-Duplex Data Transfer:** Unlike I2C, SPI allows data to be transmitted and received simultaneously, improving efficiency.
+- **Full-Duplex Data Transfer:** Unlike I2C, SPI allows data to be transmitted and received simultaneously, improving efficiency.
 
--**Flexible Configuration:** SPI supports various clock phase and polarity settings, allowing it to be tailored to different peripheral requirements.
+- **Flexible Configuration:** SPI supports various clock phase and polarity settings, allowing it to be tailored to different peripheral requirements.
 
 ## Common Use Cases
 
