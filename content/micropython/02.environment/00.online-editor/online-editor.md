@@ -33,7 +33,7 @@ Setting up the online environment is quick and easy. Follow the steps below to a
    ```
 5. We should now see `Hello World!` printed in the REPL.
 
-## What Changes
+## Online vs. Offline Editors: Key Differences
 
 Note that some features might look different if you are using the Online IDE. Fear not, all code and files are interpreted the same regardless of the IDE you choose; however, the UI of the Online IDE displays files differently.
 
