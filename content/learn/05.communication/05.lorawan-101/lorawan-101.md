@@ -31,13 +31,13 @@ Several LPWAN technologies use **licensed** or **unlicensed frequencies** and **
 
 ## LoRa® Technology
 
-### What is LoRa®?
+### What is LoRa® Technology?
 
-**LoRa** is a **wireless modulation technique** derived from **Chirp Spread Spectrum** (CSS) technology. CSS uses wideband linear frequency modulated chirp pulses to encode information. It can operate on the following license-free sub-gigahertz ISM (Industrial, Scientific, and Medical) bands: **433 MHz**, **868 MHz**, and **915 MHz**. ISM bands are internationally reserved for industrial, scientific and, medical uses.
+**LoRa® Technology** is a **wireless modulation technique** derived from **Chirp Spread Spectrum** (CSS) technology. CSS uses wideband linear frequency modulated chirp pulses to encode information. It can operate on the following license-free sub-gigahertz ISM (Industrial, Scientific, and Medical) bands: **433 MHz**, **868 MHz** and **915 MHz**. ISM bands are internationally reserved for industrial, scientific and medical uses.
 
 ***The Long Range modulation technique was invented in 2010 by the French startup Cycleo and was later acquired in 2012 by Semtech.*** 
 
-LoRa® is widely used in LPWAN deployments for applications requiring long-distance connectivity with minimal power consumption.
+LoRa® technology is widely used in LPWAN deployments for applications requiring long-distance connectivity with minimal power consumption.
 
 ### LoRa® Network Architecture
 
@@ -62,7 +62,7 @@ Star networks present several advantages compared to other network topologies:
 
 Communication between end-devices and gateways in LoRa®-based networks is spread out on different **frequency channels** and **data rates** (communications using different data rates do not interfere with each other).
 
-***LoRa® supports data rates ranging from 300 bps to 5 kbps for a 125 kHz bandwidth.***
+***LoRa® technology supports data rates ranging from 300 bps to 5 kbps for a 125 kHz bandwidth.***
 
 To maximize the battery life of each end-device and the overall capacity available through the network, LoRa® technology uses an **Adaptive Data Rate** (ADR) mechanism for **optimizing data rates, airtime, and power consumption**. ADR controls the following transmission parameters on end-devices:
 
@@ -146,7 +146,7 @@ LoRa® technology supports two authentication and activation methods: **Over-The
 
 ***The recommended authentication and activation method is OTAA since it provides a high level of security; ABP method should be used only for specific situations.***
 
-## Arduino® and LoRa®
+## Arduino® and LoRa® Technology
 
 Arduino® brings LoRa® connectivity to your projects with several boards, addons and libraries. 
 
@@ -156,9 +156,9 @@ The MKR WAN [1300](https://store.arduino.cc/products/arduino-mkr-wan-1300-lora-c
 
 ![The Arduino® MKR WAN 1310 board.](assets/lorawan-101_img10.png)
 
-PRO hardware also has  LoRa® connectivity. The Arduino® [Portenta H7](https://store.arduino.cc/collections/boards/products/portenta-h7) board can have LoRa connectivity with the [Portenta Vision Shield - LoRa](https://store.arduino.cc/products/arduino-portenta-vision-shield-lora%C2%AE); this addon board also features a [CMCMWX1ZZABZ](https://content.arduino.cc/assets/mkrwan1310-murata_lora_module-type_abz.pdf?_gl=1*54znn6*_ga*NzQ5Mzk2MDcwLjE2MjU2MDQ2MjA.*_ga_NEXN8H46L5*MTY0MDAzOTY0Ny4yNTIuMS4xNjQwMDM5NzQ2LjA.) module from Murata® for LoRa connectivity, the same module present in the MKR 1300 and 1310 boards. 
+PRO hardware also has LoRa® connectivity. The Arduino® [Portenta H7](https://store.arduino.cc/collections/boards/products/portenta-h7) board can have LoRa connectivity with the [Portenta Vision Shield with LoRa® technology](https://store.arduino.cc/products/arduino-portenta-vision-shield-lora%C2%AE); this addon board also features a [CMCMWX1ZZABZ](https://content.arduino.cc/assets/mkrwan1310-murata_lora_module-type_abz.pdf?_gl=1*54znn6*_ga*NzQ5Mzk2MDcwLjE2MjU2MDQ2MjA.*_ga_NEXN8H46L5*MTY0MDAzOTY0Ny4yNTIuMS4xNjQwMDM5NzQ2LjA.) module from Murata® for LoRa connectivity, the same module present in the MKR 1300 and 1310 boards. 
 
-![The Arduino Portenta Vision Shield - LoRa](assets/lorawan-101_img11.png)
+![Portenta Vision Shield with LoRa® technology](assets/lorawan-101_img11.png)
 
 The Arduino® [Edge Control](https://store.arduino.cc/products/arduino-edge-control), a remote monitoring and control solution optimized for outdoor environments, can expand its wireless connectivity capabilities by adding an MKR WAN 1300 or 1310 board. Edge Control can be positioned anywhere and is well suited for smart agriculture and other applications that require intelligent control in remote locations. 
 
@@ -166,7 +166,7 @@ The Arduino® [Edge Control](https://store.arduino.cc/products/arduino-edge-cont
 
 ### Arduino® Libraries for LoRa® Connectivity
 
-You can use several Arduino libraries with the CMCMWX1ZZABZ LoRa® module from Murata®; we recommend two: The [MKRWAN library](https://github.com/arduino-libraries/MKRWAN), developed by Arduino, and the [Arduino LoRa](https://github.com/sandeepmistry/arduino-LoRa) library, developed by Sandeep Mistry. The MKRWAN and the Arduino LoRa libraries provide you the APIs to communicate with networks that support LoRa technology.
+You can use several Arduino libraries with the CMCMWX1ZZABZ LoRa® module from Murata®; we recommend two: The [MKRWAN library](https://github.com/arduino-libraries/MKRWAN), developed by Arduino, and the [`Arduino LoRa`](https://github.com/sandeepmistry/arduino-LoRa) library, developed by Sandeep Mistry. The MKRWAN and the Arduino `LoRa` libraries provide you the APIs to communicate with networks that support LoRa technology.
 
 You can use both libraries in the Arduino IDE, [online](https://store.arduino.cc/digital/create) and [offline](https://www.arduino.cc/en/software). If you are using the online IDE, you don't need to do anything, both libraries are already installed and ready to be used. If you are using the offline IDE, you must install the libraries manually. Installing libraries can be done easily by navigating to **Tools > Manage Libraries...** and then look for **MKRWAN** library by Arduino and **LoRa** by Sandeep Mistry; **remember to install the latest version of the libraries**. 
 
