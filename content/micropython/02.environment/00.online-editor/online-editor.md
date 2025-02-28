@@ -31,6 +31,7 @@ Setting up the online environment is quick and easy. Follow the steps below to a
    ```python
    print("Hello World!")
    ```
+5. We should now see `Hello World!` printed in the REPL.
 
 ## What Changes
 
@@ -45,8 +46,6 @@ The files will then be displayed in a side bar, also in a different arrangement.
 A few options are available at the bottom, these are: `create new a file`, `create new a folder`, `delete a file`, `rename`, `upload` and `download`, located at the bottom:  
 ![Buttons Online IDE](assets/onlinebuttons.png)
 
-
-We should now see `Hello World!` printed in the REPL.
 
 ## Troubleshooting
 
