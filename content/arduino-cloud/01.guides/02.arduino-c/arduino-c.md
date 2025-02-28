@@ -24,7 +24,7 @@ For this guide, you will need to have a registered account at Arduino. Register 
 You will also need a supported board:
 - [Official Arduino Wi-Fi® boards](/arduino-cloud/hardware/wifi)
 - [ESP32 / ESP8266 boards](/arduino-cloud/hardware/wifi#configure-esp-boards)
-- [Official LoRaWAN® boards](/arduino-cloud/hardware/lora) 
+- [Official boards compatible with LoRa®-based networks](/arduino-cloud/hardware/lora) 
 - [Official Ethernet setups](/arduino-cloud/hardware/ethernet)
 - [Official cellular boards (GSM/NB-IoT)](/arduino-cloud/hardware/cellular)
 
@@ -125,3 +125,7 @@ To control the state of the `test` variable, we can setup a **dashboard** and a 
 ![Dashboard in the Arduino Cloud.](assets/dashboard.png)
 
 ***You can find more details in the [dashboards documentation](/arduino-cloud/cloud-interface/dashboard-widgets).***
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.
