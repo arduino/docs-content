@@ -1,5 +1,5 @@
 ---
-title: 'Send Data Using LoRa® with MKR WAN 1310'
+title: 'Send Data Using LoRa® Technology with MKR WAN 1310'
 difficulty: intermediate
 compatible-products: [mkr-wan-1310]
 description: 'Learn how to setup a continuous stream of data between two devices using LoRa® technology.'
@@ -19,7 +19,7 @@ software:
   - web-editor
 ---
 
-The Arduino MKR WAN 1310 is an excellent entry point to get started with low-powered, wide-area networks (LPWAN). In this tutorial, we will go through some of the core concepts such as long range (LoRa®) and set up communication using LoRa® technology.
+The Arduino MKR WAN 1310 is an excellent entry point to get started with low-powered, wide-area networks (LPWAN). In this tutorial, we will go through some of the core concepts such as LoRa® technology and set up communication using LoRa technology.
 
 We will create a basic sketch that will allow communication between two **MKR WAN 1310** boards. The communication will be established firstly through the radio module on the board, where we will also attach an antenna to each board.
 
@@ -29,11 +29,11 @@ There are many different terms to be familiar with in the world of LoRa® techno
 
 ### LoRa® Technology
 
-LoRa® is short for long range modulation technique based on a technology called chirp spread spectrum (CSS). It is designed to carry out long-range transmissions with minimal power consumption. LoRa® defines as the "lower layer" or **"physical layer"**, according to the **OSI model**. The physical layer is defined by hardware, signals and frequencies.
+LoRa® is short for long range modulation technique based on a technology called chirp spread spectrum (CSS). It is designed to carry out long-range transmissions with minimal power consumption. LoRa serves as the `lower layer` or **`physical layer`**, according to the **OSI model**. The physical layer is defined by hardware, signals and frequencies.
 
 LoRa® uses different radio frequencies depending on where you are located in the world. The most common are Europe (868 MHz) and North America & Australia (915 MHz), but it differs from country to country. You can also read more about a [country's unique radio frequency](https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country/).
 
-LoRa® is also often used to describe hardware devices supported by LoRa®, e.g. modules or gateways. The Arduino MKR WAN 1310 has a LoRa® module called **Murata CMWX1ZZABZ**.
+LoRa® is also often used to describe hardware devices supported by LoRa, e.g. modules or gateways. The Arduino MKR WAN 1310 has a LoRa module called **Murata CMWX1ZZABZ**.
 
 ### The Benefits of LoRa®
 
@@ -55,7 +55,7 @@ ___
 -   2x Micro USB cable
 -   Arduino IDE (offline and online versions available)
 -   Arduino SAMD Board Package installed, [follow this link for instructions](https://www.arduino.cc/en/Guide/MKRWiFi1010#installing-drivers-for-the-mkr-wifi-1010)
--   LoRa library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)
+-   `LoRa` library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)
 
 
 ### Circuit
@@ -310,6 +310,10 @@ If the code is not working, there are some common issues we might need to troubl
 
 ## Conclusion
 
-In this tutorial, we have introduced some fundamental concepts around LoRa®, where we have setup a basic communication line between two boards using the LoRa® network. With this basic framework, you can go on to combine this tutorial with sensors and other software libraries, so that you can create your own long-range, low-powered devices!
+In this tutorial, we have introduced some fundamental concepts around LoRa® technology, where we have setup a basic communication line between two boards using the LoRa® technology-based communication. With this basic framework, you can go on to combine this tutorial with sensors and other software libraries, so that you can create your own long-range, low-powered devices!
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.
 
 

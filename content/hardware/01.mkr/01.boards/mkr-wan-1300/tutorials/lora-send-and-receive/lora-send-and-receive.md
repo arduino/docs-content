@@ -278,7 +278,7 @@ If the code is not working, there are some common issues we might need to troubl
 
 ## Conclusion
 
-In this tutorial, we have introduced some fundamental concepts around LoRa® technology, where we have setup a basic communication line between two boards using the LoRa®-based network. With this basic framework, you can go on to combine this tutorial with sensors and other software libraries, so that you can create your own long-range, low-powered devices!
+In this tutorial, we have introduced some fundamental concepts around LoRa® technology, where we have setup a basic communication line between two boards using the LoRa® technology-based communication. With this basic framework, you can go on to combine this tutorial with sensors and other software libraries, so that you can create your own long-range, low-powered devices!
 
 ## Trademark Acknowledgments
 
