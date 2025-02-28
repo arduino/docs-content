@@ -934,7 +934,7 @@ Build Arduino sketches for real-time tasks like sensor communication and Fieldbu
 
 For example, the [Data Exchange Between Python® on Linux and an Arduino Sketch](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange) tutorial will help you understand how to exchange sensor data between the Python® container embedded on Portenta X8 and an Arduino sketch.
 
-If you are a more advanced user, you can check [Multi-Protocol Gateway With Portenta X8 & Max Carrier](https://docs.arduino.cc/tutorials/portenta-x8/multi-protocol-gateway) tutorial on developing your multi-protocol gateway. It aims to receive data from a sensor with the Arduino layer via MQTT protocol, take advantage of RPC to establish communication between Arduino and Linux, and then send the acquired data to *The Things Network* via *LoRaWAN®* managed by the Linux layer.
+If you are a more advanced user, you can check [Multi-Protocol Gateway With Portenta X8 & Max Carrier](https://docs.arduino.cc/tutorials/portenta-x8/multi-protocol-gateway) tutorial on developing your multi-protocol gateway. It aims to receive data from a sensor with the Arduino layer via MQTT protocol, take advantage of RPC to establish communication between Arduino and Linux, and then send the acquired data to *The Things Network* via *LoRa®-based network* managed by the Linux layer.
 
 ## Working With Portenta X8 Board Manager
 
@@ -1366,3 +1366,7 @@ Join our community forum to connect with other Portenta X8 users, share your exp
 Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Portenta X8.
 
 - [Contact us page](https://www.arduino.cc/en/contact-us/)
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.
