@@ -19,7 +19,8 @@ software:
   - web-editor
 ---
 
-The Arduino MKR WAN 1310 is an excellent entry point to get started with low-powered, wide-area networks (LPWAN). In this tutorial, we will go through some of the core concepts such as LoRa® technology and set up communication using LoRa technology.
+The Arduino MKR WAN 1310 is an excellent entry point to get started with low-powered, wide-area networks (LPWAN). In this tutorial, we will go through some of the core concepts such as LoRa® technology and set up communication using it.
+
 
 We will create a basic sketch that will allow communication between two **MKR WAN 1310** boards. The communication will be established firstly through the radio module on the board, where we will also attach an antenna to each board.
 
