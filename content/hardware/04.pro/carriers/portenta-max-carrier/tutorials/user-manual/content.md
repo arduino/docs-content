@@ -112,7 +112,7 @@ __Note:__ USB, I2C and SIM functionality over PCIe is available only for the X8.
 | U11      | BQ24195RGET 4.5A Single Cell Charger IC                | U12            | AP7311 1.8V 150mA LDO Linear Regulator IC            |
 | U13      | TPS54620 6A Buck Regulator IC                          | U14            | AP2112K-3.3TRG1 3.3V 600mA LDO Regulator IC          |
 | U15      | STM32F405RG 168MHz 32 bit Arm® Cortex®-M4 MCU IC       | U16-U19        | 74LVC1G157 Single 2-input multiplexer IC             |
-| U23      | CMWX1ZZABZ-078 Murrata LPWAN module                    | U24, U25       | LM73100 Ideal Diode with Reverse Polarity Protection |
+| U23      | CMWX1ZZABZ-078 Murata LPWAN module                    | U24, U25       | LM73100 Ideal Diode with Reverse Polarity Protection |
 | J1, J2   | DF40HC(3.5)-80DS-0.4V(51) High Density Connectors      | J3             | Right-Angle SMA Connector for Modem                  |
 | J4       | Camera 2-1734248-0 FPC Connector                       | J5             | FW-20-05-G-D-254-150 Signal Break                    |
 | J6       | 615006138421 RS232/RS485 Connector                     | J7             | 615006138421 CAN Connector                           |
