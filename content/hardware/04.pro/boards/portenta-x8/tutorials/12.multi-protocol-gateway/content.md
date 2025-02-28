@@ -19,9 +19,9 @@ hardware:
 
 ## Overview
 
-Portenta X8 has the NXP® i.MX 8M Mini MPU (Linux) and STM32H747XI dual Cortex®-M7+M4 32bit low power ARM® MCU (Arduino) stacked together and can be used to design different workloads for these two different microprocessors. We will use the Portenta Max Carriers onboard CMWX1ZZABZ-078 LoRaWAN® module from Murata® and the Wi-Fi® connectivity from Portenta X8 to build a Multi-Protocol Gateway.
+Portenta X8 has the NXP® i.MX 8M Mini MPU (Linux) and STM32H747XI dual Cortex®-M7+M4 32bit low power ARM® MCU (Arduino) stacked together and can be used to design different workloads for these two different microprocessors. We will use the Portenta Max Carrier's onboard CMWX1ZZABZ-078 LoRa® module from Murata® and the Wi-Fi® connectivity from Portenta X8 to build a Multi-Protocol Gateway.
 
-In this tutorial, we will go through the steps on how to set up both the Linux and Arduino sides. A device collecting sensor data will transfer the data via Wi-Fi®, receive the data, and exchange them between the Arduino and Linux layers, finally using LoRaWAN® to send the information to *The Things Network*. We will also configure and expose a local communication lane to further expand its capability if a local sensor is desired.
+In this tutorial, we will go through the steps on how to set up both the Linux and Arduino sides. A device collecting sensor data will transfer the data via Wi-Fi®, receive the data and exchange them between the Arduino and Linux layers, finally using LoRa® technology to send the information to *The Things Network*. We will also configure and expose a local communication lane to further expand its capability if a local sensor is desired.
 
 ## Goals
 
@@ -52,7 +52,7 @@ The Portenta X8 paired with the Portenta Max Carrier has the potential to create
 
 - Wi-Fi® (MQTT Protocol, API calls, custom protocols)
 - Bluetooth® Low Energy
-- LoRaWAN® (*The Things Network*)
+- LoRa®-based networks (*The Things Network*)
 - NB-IoT & Cat-M1
 
 The following image illustrates an architecture overview of a multi-protocol gateway composed of Portenta X8 and Max Carrier as the gateway system.
@@ -78,9 +78,9 @@ The Arduino layer extends within the M4 Core, which is the layer dedicated to re
 
 ## The Linux Layer
 
-It is important to understand that **all networking processes are made within the Linux layer**. All network processes are Wi-Fi®, Bluetooth® Low Energy, LoRa®, NB-IoT, and Cat. M1. We will focus on using Wi-Fi® with MQTT protocol and LoRa® connectivities to establish a multiple protocol gateway.
+It is important to understand that **all networking processes are made within the Linux layer**. All network processes are Wi-Fi®, Bluetooth® Low Energy, LoRa® technology, NB-IoT, and Cat. M1. We will focus on using Wi-Fi® with MQTT protocol and LoRa connectivities to establish a multiple protocol gateway.
 
-The Portenta X8 provides Wi-Fi® connectivity and the Portenta Max Carrier provides a LoRaWAN® module that can help to communicate with *The Things Network*. We will use the MQTT protocol to receive sensor data transmitted by an end device.
+The Portenta X8 provides Wi-Fi® connectivity and the Portenta Max Carrier provides a LoRa®-based network module that can help to communicate with *The Things Network*. We will use the MQTT protocol to receive sensor data transmitted by an end device.
 
 We will use a Python® script to configure and handle the connectivity modules and their sensor data. The RPC calls will expose the received sensor data to the Arduino layer, setting up data exchange configuration to expand the capability of the Portenta X8 and Max Carrier. The process can also be done vice-versa, using the Arduino layer to transmit the data to the Linux layer from the local end device.
 
@@ -92,7 +92,7 @@ Now that we know the roles of Arduino and Linux layer, we will need a clear pict
 
 To showcase the ability of the Linux layer and Arduino layer extended by M4 Core, we will build a multi-protocol gateway that will receive MQTT protocol packages using EMQX as the broker, retrieve the data from a local sensor attached to Portenta via RPC mechanism, wrap the data together and send to *The Things Network* using LoRa® connectivity within Cayenne Low Power Payload Encoder.
 
-The Cayenne Low Power Payload Encoder is one of the payload formatters for data exchange between end devices and has compatibility support for Arduino boards. The encoder has the capability to decode CayenneLPP payload formats without additional custom code, and it helps simplify data transmission over LPWAN networks as LoRaWAN®.
+The Cayenne Low Power Payload Encoder is one of the payload formatters for data exchange between end devices and has compatibility support for Arduino boards. The encoder has the capability to decode CayenneLPP payload formats without additional custom code and it helps simplify data transmission over LPWAN networks.
 
 ***You can find more information regarding Cayenne Low Power Payload Encoder by following [here](https://www.thethingsindustries.com/docs/integrations/payload-formatters/cayenne/)***
 
@@ -149,13 +149,13 @@ nmcli device wifi connect "SSID" password "PASSWORD"
 
 ### Setting Up The Things Network
 
-You now have the prerequisites for the Portenta X8 ready, but since you are using the LoRa® connectivity, you will need a platform capable of receiving data transmitted from the Portenta X8 and Max Carrier. **The Things Network** will be the platform we will use to communicate using LoRaWAN®. On the platform, you will need to create an application to add the Portenta Max Carrier as an End-Device.
+You now have the prerequisites for the Portenta X8 ready, but since you are using the LoRa® connectivity, you will need a platform capable of receiving data transmitted from the Portenta X8 and Max Carrier. **The Things Network** will be the platform we will use to communicate using LoRa technology. On the platform, you will need to create an application to add the Portenta Max Carrier as an End-Device.
 
-**Manual** option will be used when adding the End-Device. The Portenta Max Carrier will be added under Arduino SA to be included within the LoRaWAN® Device Repository. The LoRaWAN® version and parameters compatible with the Portenta Max Carrier are as follows. The frequency plan will depend on the region in which you are going to install the device.
+**Manual** option will be used when adding the End-Device. The Portenta Max Carrier will be added under Arduino SA to be included within the LoRa®-enabled Device Repository. The LoRa-based network version and parameters compatible with the Portenta Max Carrier are as follows. The frequency plan will depend on the region in which you are going to install the device.
 
 ![General End-Device Configuration](assets/ttn-end-device.png)
 
-***To learn more about LoRa® and LoRaWAN®, please have a look at our [Arduino Guide to LoRa® and LoRaWAN®](https://docs.arduino.cc/learn/communication/lorawan-101). Additionally, if you wish to learn how to properly set up the End-Device in The Things Network, please read [this tutorial](https://docs.arduino.cc/tutorials/mkr-wan-1310/the-things-network) reference***
+***To learn more about LoRa® and its networks, please have a look in [this documentation](https://docs.arduino.cc/learn/communication/lorawan-101). Additionally, if you wish to learn how to properly set up the End-Device in The Things Network, please read [this tutorial](https://docs.arduino.cc/tutorials/mkr-wan-1310/the-things-network) reference***
 
 We will now build a multi-protocol gateway using Portenta X8 and Max Carrier.
 
@@ -258,7 +258,7 @@ mqtt_username = 'emqx'
 mqtt_password = 'public'
 ```
 
-These 2 parameters are required to establish a connection with *The Things Network*. The `APP_EUI` and `APP_KEY` are required to be configured, as they are provided by *The Things Network* or from the LoRaWAN® platform that you may try to establish the connection. Additionally the `DEV_EUI` will be predefined as the device will request and apply the EUI. However, if it requires different `DEV_EUI`, you can make the change in this section.
+These 2 parameters are required to establish a connection with *The Things Network*. The `APP_EUI` and `APP_KEY` are required to be configured, as they are provided by *The Things Network* or from the LoRa®-based network platform that you may try to establish the connection. Additionally the `DEV_EUI` will be predefined as the device will request and apply the EUI. However, if it requires different `DEV_EUI`, you can make the change in this section.
 
 ```python
 # Obtained during the first registration of the device
@@ -552,11 +552,11 @@ If you are curious about what to expect from the build you have made in this tut
 
 ## Conclusion
 
-In this tutorial, you have learned how to set up a Multi-Protocol Gateway composed of MQTT protocol, RPC, and LoRaWAN®, by using the Portenta X8 and the Portenta Max Carrier. You have built the gateway that will connect to *The Things Network* to send the desired data. Also, the gateway is capable of exchanging data between Arduino and Linux layers using RPC, in which you have exposed the ports to be able to receive data from the local sensor to be sent directly to *The Things Network*.
+In this tutorial, you have learned how to set up a Multi-Protocol Gateway composed of MQTT protocol, RPC and LoRa® technology, by using the Portenta X8 and the Portenta Max Carrier. You have built the gateway that will connect to *The Things Network* to send the desired data. Also, the gateway is capable of exchanging data between Arduino and Linux layers using RPC, in which you have exposed the ports to be able to receive data from the local sensor to be sent directly to *The Things Network*.
 
 ### Next Steps
 
-- Now that you have developed a multi-protocol gateway, using Wi-Fi® and LoRaWAN® connectivity, expand the gateway's capability by adding other connectivity types such as Cat. M1 and NB-IoT.
+- Now that you have developed a multi-protocol gateway, using Wi-Fi® and LoRa® connectivity, expand the gateway's capability by adding other connectivity types such as Cat. M1 and NB-IoT.
 - Expand functionalities for data processing using RPC while using multi-protocol architecture.
 
 ## Troubleshooting
@@ -568,3 +568,7 @@ You might encounter some errors or misbehaviors while working on the code, preve
 * If you encounter an issue regarding terminal input inconvenience, please enter `export TERM=xterm` as the command in the terminal to get readable inputs.
 * In case an internal Wi-Fi® connection cannot be established through the command input due to "unavailable" SSID, although it is in range. Please try using a different SSID if available or a hotspot from a different device to host network connectivity.  
 * If you encounter a docker image conflict when running after building, please make sure you have used a name tag that matches the one from the `docker-compose.yml` file.
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.
