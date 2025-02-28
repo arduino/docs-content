@@ -36,11 +36,11 @@ Unlike UART, SPI is synchronous, meaning it uses a clock signal for precise data
 
 SPI is commonly used in a variety of applications, including:
 
--**Interfacing with Sensors:** Many modern sensors, such as temperature and accelerometers, communicate using SPI.
+- **Interfacing with Sensors:** Many modern sensors, such as temperature and accelerometers, communicate using SPI.
 
--**Display Modules:** OLED, LCD, and LED matrix displays often rely on SPI for data transfer.
+- **Display Modules:** OLED, LCD, and LED matrix displays often rely on SPI for data transfer.
 
--**Memory Storage:** Flash memory and SD card modules utilize SPI for high-speed data access.
+- **Memory Storage:** Flash memory and SD card modules utilize SPI for high-speed data access.
 
 Embedded Communication: SPI is often used in microcontroller-based projects to enable communication between different modules.
 
