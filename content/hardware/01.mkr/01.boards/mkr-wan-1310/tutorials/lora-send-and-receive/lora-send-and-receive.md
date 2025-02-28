@@ -33,7 +33,7 @@ LoRa® is short for long range modulation technique based on a technology called
 
 LoRa® uses different radio frequencies depending on where you are located in the world. The most common are Europe (868 MHz) and North America & Australia (915 MHz), but it differs from country to country. You can also read more about a [country's unique radio frequency](https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country/).
 
-LoRa® is also often used to describe hardware devices supported by LoRa, e.g. modules or gateways. The Arduino MKR WAN 1310 has a LoRa module called **Murata CMWX1ZZABZ**.
+LoRa® is also often used to describe hardware devices supported by LoRa, e.g. modules or gateways. The Arduino MKR WAN 1310 has a LPWAN module called **Murata CMWX1ZZABZ**.
 
 ### The Benefits of LoRa®
 

@@ -11,13 +11,13 @@ author: 'José Bagur'
 
 ## Introduction
 
-In this tutorial, we will learn how to set up specific LoRa® regional parameters for the LoRa module (Murata CMWX1ZZABZ-078) of the [Arduino® MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310) and [Arduino® MKR WAN 1300](https://store.arduino.cc/arduino-mkr-wan-1300-lora-connectivity-1414) boards. For doing this, we are going to use the [Arduino MKRWAN library](https://github.com/arduino-libraries/MKRWAN) functionalities. 
+In this tutorial, we will learn how to set up specific LoRa® regional parameters for the LPWAN module (Murata CMWX1ZZABZ-078) of the [Arduino® MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310) and [Arduino® MKR WAN 1300](https://store.arduino.cc/arduino-mkr-wan-1300-lora-connectivity-1414) boards. For doing this, we are going to use the [Arduino MKRWAN library](https://github.com/arduino-libraries/MKRWAN) functionalities. 
 
 ### Goals
 
 - Learn LoRa®-based network protocol basics. 
 - Learn about the [LoRa® Regional Parameters](https://lora-alliance.org/wp-content/uploads/2020/11/RP_2-1.0.2.pdf) specification.
-- Use the Arduino [MKRWAN library](https://github.com/arduino-libraries/MKRWAN) for setting up specific LoRa® regional parameters in the LoRa module (Murata CMWX1ZZABZ-078) of the [Arduino® MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310) board.
+- Use the Arduino [MKRWAN library](https://github.com/arduino-libraries/MKRWAN) for setting up specific LoRa® regional parameters in the LPWAN module with LoRa® technology (Murata CMWX1ZZABZ-078) of the [Arduino® MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310) board.
 
 ### Required Hardware and Software
 
@@ -208,7 +208,7 @@ That's it! Now you should be able to configure your own LoRa® Regional Paramete
 
 ## Conclusion
 
-In this tutorial we learned how to set up specific LoRa® Regional Parameters for the LoRa module (Murata CMWX1ZZABZ-078) of the [Arduino® MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310) board using the `enableChannel()`, `disableChannel()` and `sendMask()` functions from the [MKRWAN library](https://github.com/arduino-libraries/MKRWAN).
+In this tutorial we learned how to set up specific LoRa® Regional Parameters for the LPWAN module (Murata CMWX1ZZABZ-078) of the [Arduino® MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310) board using the `enableChannel()`, `disableChannel()` and `sendMask()` functions from the [MKRWAN library](https://github.com/arduino-libraries/MKRWAN).
 
 ## Trademark Acknowledgments
 

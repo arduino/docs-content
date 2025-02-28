@@ -19,7 +19,7 @@ hardware:
 
 ## Overview
 
-Portenta X8 has the NXP® i.MX 8M Mini MPU (Linux) and STM32H747XI dual Cortex®-M7+M4 32bit low power ARM® MCU (Arduino) stacked together and can be used to design different workloads for these two different microprocessors. We will use the Portenta Max Carrier's onboard CMWX1ZZABZ-078 LoRa® module from Murata® and the Wi-Fi® connectivity from Portenta X8 to build a Multi-Protocol Gateway.
+Portenta X8 has the NXP® i.MX 8M Mini MPU (Linux) and STM32H747XI dual Cortex®-M7+M4 32bit low power ARM® MCU (Arduino) stacked together and can be used to design different workloads for these two different microprocessors. We will use the Portenta Max Carrier's onboard CMWX1ZZABZ-078 LPWAN module from Murata® and the Wi-Fi® connectivity from Portenta X8 to build a Multi-Protocol Gateway.
 
 In this tutorial, we will go through the steps on how to set up both the Linux and Arduino sides. A device collecting sensor data will transfer the data via Wi-Fi®, receive the data and exchange them between the Arduino and Linux layers, finally using LoRa® technology to send the information to *The Things Network*. We will also configure and expose a local communication lane to further expand its capability if a local sensor is desired.
 
