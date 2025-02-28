@@ -6,6 +6,8 @@ It supports 8 configurable LoRa® channels, multi backhaul with Ethernet, Wi-Fi�
 
 The gateway is powered by OpenWRT which allows to develop custom applications.
 
+>LoRa® is a registered trademark of Semtech Corporation.
+
 </FeatureDescription>
 
 
