@@ -96,7 +96,7 @@ The Arduino Cloud supports a range of official and third-party boards which are 
 
 ![Device tab in the Cloud homepage](assets/device-list.png)
 
-The Arduino Cloud currently supports devices connected via Wi-Fi®, Ethernet, LoRaWAN® (via The Things Network), and cellular connectivity. You can check the [full list of compatible hardware here](https://support.arduino.cc/hc/en-us/articles/360016077320-What-devices-can-be-used-with-Arduino-IoT-Cloud-).
+The Arduino Cloud currently supports devices connected via Wi-Fi®, Ethernet, LoRa®-based networks (via The Things Network), and cellular connectivity. You can check the [full list of compatible hardware here](https://support.arduino.cc/hc/en-us/articles/360016077320-What-devices-can-be-used-with-Arduino-IoT-Cloud-).
 
 ### Things 
 
@@ -214,3 +214,7 @@ If you are a enthusiast and would like to explore more about our Cloud platform,
 - [Dashboards & Widgets](https://docs.arduino.cc/arduino-cloud/cloud-interface/dashboard-widgets)
 - [Cloud Remote App](https://docs.arduino.cc/arduino-cloud/iot-remote-app/getting-started)
 - [Setup a Shared Space for your class](https://docs.arduino.cc/arduino-cloud/education/shared-spaces)
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.
