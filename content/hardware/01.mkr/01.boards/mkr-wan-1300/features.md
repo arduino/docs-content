@@ -4,9 +4,9 @@ The MKR WAN 1300 brings LoRa® connectivity to your projects. Using the popular 
 
 <FeatureList>
 
-<Feature title="LoRaWAN® Connectivity" image="cellular">
+<Feature title="LoRa®-Based Network Connectivity" image="cellular">
 
-Use LoRaWAN® in remote places to send data to nearby gateways connected to the TTS service, which in turn forwards the data to the Arduino Cloud.
+Use LoRa®-based networks in remote places to send data to nearby gateways connected to the TTS service, which in turn forwards the data to the Arduino Cloud.
 
 <FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/arduino-cloud/getting-started/cloud-lora-getting-started"/>
@@ -16,7 +16,7 @@ Use LoRaWAN® in remote places to send data to nearby gateways connected to the 
 
 <Feature title="The Things Network" image="world-map">
 
-Use the LoRa® wireless protocol to implement your own networks, or connect to various LoRaWAN® networks, such as [The Things Network](https://www.thethingsnetwork.org/).
+Use the LoRa® wireless protocol to implement your own networks or connect to public networks such as [The Things Network](https://www.thethingsnetwork.org/).
 <FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-wan-1300/the-things-network"/>
   <FeatureLink variant="secondary" title="library" url="https://www.arduino.cc/reference/en/libraries/mkrwan/"/>
@@ -26,7 +26,7 @@ Use the LoRa® wireless protocol to implement your own networks, or connect to v
 
 <Feature title="Board-to-board" image="communication">
 
-Set up two Arduino MKR WAn 1300 to host a remote LED control. Learn more about board-to-board communication and using LoRa® in your projects.
+Set up two Arduino MKR WAN 1300 to host a remote LED control system. Learn more about board-to-board communication and using LoRa® technology in your projects.
 <FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-wan-1300/lora-button-press"/>
   <FeatureLink variant="secondary" title="library" url="https://github.com/sandeepmistry/arduino-LoRa"/>
