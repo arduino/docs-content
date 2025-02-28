@@ -146,6 +146,19 @@ while (True):
 
 You are now all set, disconnect Alvik from the computer, put some obstacles around Alvik, turn it ON, and see how Alvik navigates around your room avoiding them.
 
+#### Let's Start Coding Alvik (Online IDE)
+
+Note that some features might look different if you are using the Online IDE. Fear not, all code and files are interpreted the same independently of the IDE you choose. However, the UI of the Online IDE displays files differently.
+
+You can open the file manager using the button:  
+![File Manager Button](assets/filemanageronline.png)
+
+The files will then be displayed in a sidebar, also in a different arrangement. In the online IDE, files can be viewed in a sidebar:  
+![Files side window](assets/filesidebaronline.png)
+
+A few options are available at the bottom. These are: `create a new file`, `create a new folder`, `delete a file`, `rename`, `upload` and `download`:  
+![Buttons Online IDE](assets/onlinebuttons.png)
+
 ### Next Steps
 
 * There is a set of already built examples that will help you to better understand how Alvik works, you can download them from [this link](https://github.com/arduino/arduino-alvik-mpy/releases), unzip them in your already created _alvik_ folder and you will be able to see them straight away in the Arduino Labs for MicroPython.
