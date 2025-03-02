@@ -29,9 +29,9 @@ The Arduino Portenta Machine Control (PMC) is a fully-centralized, low-power, in
 In order to configure the Portenta Machine Control you will need to connect to the device through the Arduino PLC IDE.
 
 1. Connect the device to the computer through USB
-2. Click "Connect to the target" button on the PLC IDE
+2. Click **Connect to the target** button on the PLC IDE
 
-***The device needs to be activated with a license, check the steps on the [PLC IDE Set-up tutorial](./plc-ide-setup-license)***
+***The device needs to be activated with a license, check the steps on the [PLC IDE Set-up tutorial](./plc-ide-setup-license).***
 
 ***Both Modbus RTU and Modbus TCP can run at the same time in parallel***
 
@@ -41,9 +41,9 @@ In order to configure the Portenta Machine Control you will need to connect to t
 
 ### Modbus RTU Configuration
 
-Inside the Arduino PLC IDE navigate to the left side panel and click on the "Resources" tab.
+Inside the Arduino PLC IDE navigate to the left side panel and click on the **Resources** tab.
 
-To configure the Modbus communication click on the "RS485 Serialport" label, it will open a new window in the middle to customize:
+To configure the Modbus communication click on the **RS485 Serialport** label, it will open a new window in the middle to customize:
 
 ![Arduino PLC IDE Resources panel, -> RS-485 settings](assets/PLC-IDE-ModBus.png)
 
@@ -54,15 +54,12 @@ Then you can attach some functions to the Generic Modbus item, they will appear 
 ![Modbus catalog select new item](assets/modbusCatalog-add-prompt.png)
 
 #### Mode
-<br></br>
 
 * Not used
 * Modbus RTU Master
 * Modbus RTU Slave
 
 #### Baud Rate
-<br></br>
-
 
 Baud rate, options:
   * 600
@@ -76,18 +73,16 @@ Baud rate, options:
   * 115200
 
 #### Serial Mode
-<br></br>
 
-| Name    | Parity      | data bits | stop bits |
-| ------- | ----------- | --------- | ----------|
-| N, 8, 1 | No parity   | 8         | 1         |
-| E, 8, 1 | Even parity | 8         | 1         |
-| O, 8, 1 | Odd parity  | 8         | 2         |
-| N, 8, 2 | No parity   | 8         | 2         |
-| O, 8, 2 | Odd parity  | 8         | 2         |
+| **Name** | **Parity**  | **data bits** | **stop bits** |
+|----------|-------------|---------------|---------------|
+| N, 8, 1  | No parity   | 8             | 1             |
+| E, 8, 1  | Even parity | 8             | 1             |
+| O, 8, 1  | Odd parity  | 8             | 2             |
+| N, 8, 2  | No parity   | 8             | 2             |
+| O, 8, 2  | Odd parity  | 8             | 2             |
 
 #### Slave Settings
-<br></br>
 
 (Only available on slave mode)
 
@@ -95,9 +90,9 @@ Baud rate, options:
   Address of the device: from 1 to 247. It can not be repeated within the same Modbus net.
 
 #### Modbus Node Configuration
-<br></br>
 
-Once you have configured your device as a **Modbus Master** you can attach some blocks to configure it, you can see them while you have the **RS485 SerialPort** on the **Catalog Tile Window**
+Once you have configured your device as a **Modbus Master** you can attach some blocks to configure it, you can see them while you have the **RS485 SerialPort** on the **Catalog Tile Window**:
+
 ![Modbus catalog](assets/modBusCatalog.png)
 
 * Generic Modbus
@@ -127,11 +122,14 @@ Then you can attach some functions to the Generic Modbus item, they will appear 
 Settings:
 * Name
 * IP address
+* Modbus address
 * Minimum polling time
+* Address type
 
 ## Modbus Parametrization
 
-On the Generic
+On the Generic:
+
 ![Generic Modbus Parametrization Tab](assets/modbusParametrization.png)
 
 ## Modbus Devices Functions (Modbus FC)
@@ -146,13 +144,16 @@ On the Generic
 * Modbus FC-16: Write multiple registers
 
 To configure the block you can click on it and it will show the configuration panel on the main window.
+
 ![Modbus item catalog](assets/genericModbus-catalog.png)
 
 Inside each of the "devices" (functions) you can set its:
+
 **General**
 * Start address
 * Polling time
 * Time Out
+* Oneshot variable
 
 ![Modbus item general configuration](assets/genericModbus-catalog-setting-general.png)
 
