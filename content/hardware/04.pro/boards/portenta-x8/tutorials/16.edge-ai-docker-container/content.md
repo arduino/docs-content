@@ -329,7 +329,7 @@ Now, the image below shows the DSP feature extraction process, where the raw flo
 
 ![DSP feature extraction process](assets/edge-impulse-spectral-features-param.png)
 
-- **Raw Data Processing:** The top left section displays the original time series flow rate signal.
+**Raw Data Processing:** The top left section displays the original time series flow rate signal.
 - **Spectral Power Analysis:** The lower right section shows the frequency-domain representation, highlighting dominant spectral components.
 - **Feature Extraction Parameters:** The left panel includes key configuration options such as:
 
