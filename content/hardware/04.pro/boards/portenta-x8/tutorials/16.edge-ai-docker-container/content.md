@@ -331,7 +331,7 @@ Now, the image below shows the DSP feature extraction process, where the raw flo
 
 **Raw Data Processing:** The top left section displays the original time series flow rate signal.
 **Spectral Power Analysis:** The lower right section shows the frequency-domain representation, highlighting dominant spectral components.
-- **Feature Extraction Parameters:** The left panel includes key configuration options such as:
+**Feature Extraction Parameters:** The left panel includes key configuration options such as:
 
 * **FFT length:** Determines the frequency resolution of the spectral transformation.
 * **Log of spectrum:** Enhances feature scaling by applying logarithmic compression.
