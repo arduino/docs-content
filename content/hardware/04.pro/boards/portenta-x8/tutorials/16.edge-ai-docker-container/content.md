@@ -21,13 +21,13 @@ software:
 
 ## Overview
 
-Flow sensors play an important role in industrial systems by monitoring fluid movement within pipelines to provide stability and detect anomalies such as leaks, blockages or irregular pressure variations. Traditional flow monitoring methods rely on threshold-based detection, which may fail to capture subtle deviations that indicate potential failures. Real-time pattern classification can improve flow monitoring by integrating machine learning with Edge Impulse, allowing early anomaly detection and predictive maintenance.
+Flow sensors provide valuable insights for fluid-based industrial systems by monitoring circulation with observable points of interest and detecting anomalies such as leaks, blockages or pressure variations. Traditional methods often rely on threshold-based detection, which may miss subtle deviations indicating potential failures. Integrating machine learning with Edge Impulse enables real-time pattern classification, improving anomaly detection and predictive maintenance processes.
 
 ![Flow anomaly detection with ML and Arduino Cloud](assets/flow-sense-banner-ref.gif)
 
-This application note shows how to implement a flow anomaly detection system using the Portenta X8, a flow sensor and an Edge Impulse trained machine learning model deployed within a Docker container. The system will capture flow rate data, process it using the trained model and classify flow conditions. 
+This application note shows how to implement a flow anomaly detection system example using the Portenta X8, a flow sensor and a Docker deployed Edge Impulse model. The Portenta X8 is ideal for this task, offering sensor data acquisition, real-time processing and on-device AI inference in a Linux-based environment using Remote Procedure Call (RPC) for data exchange.
 
-Classification results can be used for quick decision making, such as triggering an alarm, additional processing based on the available peripherals or forwarding data to Arduino Cloud for remote monitoring and visualization. By leveraging Edge AI capabilities, this approach reduces reliance on cloud processing for anomaly detection while maintaining connectivity for analytics and long-term data tracking.
+The system captures flow rate data, processes it with a trained model and classifies flow conditions. Results can be used to develop alerts, system responses or cloud updates via Arduino Cloud for remote monitoring and analysis. This approach can help optimize and develop fluid-based industrial systems by combining local AI processing with cloud connectivity and analytics.
 
 ## Goals
 
