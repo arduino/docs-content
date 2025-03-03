@@ -130,7 +130,7 @@ The system wiring follows a straightforward configuration:
 ![System wiring & power options](assets/system-wiring.png)
 
 - **Portenta X8**: mounted on the **Portenta Mid/Hat Carrier**, which provides access to pinout interfaces. Any other Portenta family can also be used for this step. It is also used to connect to **Wi-Fi** or **Ethernet** for cloud communication.
-- **flow sensor**: connected to the corresponding pins on the **Portenta Mid/Hat Carrier**.
+- **Flow sensor**: connected to the corresponding pins on the **Portenta Mid/Hat Carrier**.
 - **USB-C cable**: used for initial setup, debugging and Edge Impulse data collection.
 
 ### Powering Options
