@@ -447,7 +447,7 @@ By processing data locally on the Portenta X8, this approach reduces dependence 
 
 Instead of pulling the container directly, Edge Impulse provides the necessary components to build a custom Docker container for Portenta X8. These include:
 
-- **Container Image URL:**The base inference container.
+- **Container Image URL:** The base inference container.
 - **Arguments:** API key for authentication and runtime configuration.
 - **Ports to Expose:** Defines how external applications can access the inference server.
 
