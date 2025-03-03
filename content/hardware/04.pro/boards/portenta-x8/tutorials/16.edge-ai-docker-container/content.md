@@ -478,7 +478,7 @@ By running inference directly on the Portenta X8, this approach can provide late
 
 #### Running the Model as a Docker Container (Optional)
 
-When docker container is selected as the deployment option, he system generates a Docker command to pull and run the model:
+When docker container is selected as the deployment option, the system generates a Docker command to pull and run the model:
 
 ```bash
 docker run --rm -it \
