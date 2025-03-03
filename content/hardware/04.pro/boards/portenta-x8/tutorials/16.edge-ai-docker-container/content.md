@@ -61,7 +61,7 @@ To start with this application, make sure to have your Portenta X8 running on th
 To develop and deploy the flow monitoring system, the following software tools and platforms are required:
 
 - Edge Impulse for model training and deployment
-- [Edge Impulse® CLI](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-overview), to manage Machine Learning models, we can install the Edge Impulse® Cli tool following these [instructions](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-installation).
+- [Edge Impulse® CLI](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-overview), to manage Machine Learning models, we can install it following these [instructions](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-installation).
 - Docker for running inference models on Portenta X8
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
 - The [Arduino Create Agent](https://cloud.arduino.cc/download-agent/)
