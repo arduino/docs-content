@@ -406,5 +406,5 @@ The figures below show the main dimensions of the kit in a stacked configuration
 
 |  **Date**  | **Revision** |                      **Changes**                     |
 |:----------:|:------------:|:----------------------------------------------------:|
-| 12/02/2025 |       1      |                     First release                    |
 | 25/02/2025 |       2      | Portenta Mid Carrier Proto Shield information update |
+| 12/02/2025 |       1      |                     First release                    |
