@@ -535,50 +535,50 @@ The M4 core needs to have the **`rpc-flow-sensor.ino`** uploaded to collect and 
 FlowSensor flowSensor(SENSOR_TYPE, SENSOR_PIN);
 
 void count() {
-    flowSensor.count();
+  flowSensor.count();
 }
 
 // Function to get Flow Rate (for RPC)
 float getFlowRate() {
-    flowSensor.read();
-    float flowRate = flowSensor.getFlowRate_m();  // Get flow rate in L/min
+  flowSensor.read();
+  float flowRate = flowSensor.getFlowRate_m();  // Get flow rate in L/min
 
-    if (isnan(flowRate) || isinf(flowRate)) {
-        return 0.0;  // Default to 0 if no valid reading
-    }
-    return flowRate;
+  if (isnan(flowRate) || isinf(flowRate)) {
+    return 0.0;  // Default to 0 if no valid reading
+  }
+  return flowRate;
 }
 
 void setup() {
-    SerialDebug.begin(115200);
-    //while (!SerialDebug);
+  SerialDebug.begin(115200);
+  //while (!SerialDebug);
 
-    SerialDebug.println("Starting Flow Sensor ");
+  SerialDebug.println("Starting Flow Sensor ");
 
-    flowSensor.begin(count);  // Initialize the Flow Sensor
+  flowSensor.begin(count);  // Initialize the Flow Sensor
 
-    // RPC Binding: Function to get flow rate
-    RPC.bind("flow_rate", [] {
-        return 11;
-    });
+  // RPC Binding: Function to get flow rate
+  RPC.bind("flow_rate", [] {
+    return getFlowRate();
+  });
 
-    // RPC Binding: Receive classification results
-    RPC.bind("classification", [](std::string const& input) {
-        SerialDebug.print("Classification Received: ");
-        SerialDebug.println(input.c_str());
-        return 1;
-    });
+  // RPC Binding: Receive classification results
+  RPC.bind("classification", [](std::string const& input) {
+    SerialDebug.print("Classification Received: ");
+    SerialDebug.println(input.c_str());
+    return 1;
+  });
 
-    SerialDebug.println("Setup complete.");
+  SerialDebug.println("Setup complete.");
 }
 
 void loop() {
-    float flowRate = getFlowRate();
-    SerialDebug.print("Flow Rate: ");
-    SerialDebug.print(flowRate);
-    SerialDebug.println(" L/min");
+  float flowRate = getFlowRate();
+  SerialDebug.print("Flow Rate: ");
+  SerialDebug.print(flowRate);
+  SerialDebug.println(" L/min");
 
-    delay(1000); 
+  delay(1000); 
 }
 ```
 
