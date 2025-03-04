@@ -1,5 +1,5 @@
 ---
-title: 'Edge Impulse on Portenta X8 with Docker'
+title: '15. Edge AI Flow Monitoring on Portenta X8 with Docker'
 difficulty: intermediate
 description: 'Learn how to create and deploy an Edge Impulse model on Portenta X8 using Docker containers and a flow sensor for real time anomaly detection.'
 tags:
@@ -40,6 +40,8 @@ The application note has the following objectives:
 
 ## Hardware and Software Requirements
 
+![Required hardwares](assets/hardware.png)
+
 ### Hardware Requirements
 
 This application note uses the Portenta X8, integrating a flow sensor for real time fluid monitoring. The required hardware includes:
@@ -66,7 +68,8 @@ To develop and deploy the flow monitoring system, the following software tools a
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
 - The [Arduino Create Agent](https://cloud.arduino.cc/download-agent/)
 - The [Arduino Cloud](https://cloud.arduino.cc/). If you do not have an account, you can create one for free inside [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
-- [Edge Impulse project example](https://studio.edgeimpulse.com/public/208861/live)
+
+- [Edge Impulse project example](https://studio.edgeimpulse.com/public/208861/live). This is a ready-to-use public Edge Impulse project for this application. You can clone it to explore the dataset, model architecture and training pipeline.
 
 ### Download the Project Code
 
@@ -129,7 +132,7 @@ The system wiring follows a straightforward configuration:
 
 ![System wiring & power options](assets/system-wiring.png)
 
-- **Portenta X8**: mounted on the **Portenta Mid/Hat Carrier**, which provides access to pinout interfaces. Any other Portenta family can also be used for this step. It is also used to connect to **Wi-Fi** or **Ethernet** for cloud communication.
+- **Portenta X8**: mounted on the **Portenta Mid/Hat Carrier**, provides access to pinout interfaces and **Wi-Fi** or **Ethernet** connection management for cloud communication.
 - **Flow sensor**: connected to the corresponding pins on the **Portenta Mid/Hat Carrier**.
 - **USB-C cable**: used for initial setup, debugging and Edge Impulse data collection.
 
@@ -474,24 +477,7 @@ The inference workflow consists of the following steps:
 - **Model Prediction:** The trained model classifies the current flow condition.
 - **Response Actions:** If an anomaly is detected, the system takes corresponding action.
 
-By running inference directly on the Portenta X8, this approach can provide latency reduction and autonomous anomaly detection.
-
-#### Running the Model as a Docker Container (Optional)
-
-When docker container is selected as the deployment option, the system generates a Docker command to pull and run the model:
-
-```bash
-docker run --rm -it \
-  -p 1337:1337 \
-  public.ecr.aws/g7a8t7v6/inference-container:54c41c953772c053251634beec512d15f41073d1 \
-    --api-key ei_38f54891ee062462d3d28bd9648dd6ae766b2093796e4d384f0ae2c0e56d0a5b \
-    --run-http-server 1337 \
-    --model-type int8
-```
-
-This command pulls the latest model from the Edge Impulse container registry and runs an HTTP server on port `1337`, allowing external applications to send sensor data and receive model predictions. It uses an API key to authenticate requests.
-
-This method provides an alternative way to run the model on a general purpose Docker environment, which can be used for quick testing and validation.
+By running inference directly on the Portenta X8, this approach can provide latency reduction and autonomous anomaly detection. With the Docker container ready, the next step is to compose and integrate the necessary components for deployment on the Portenta X8.
 
 ***For additional details on Docker based inference, refer to the [official Edge Impulse Docker Deployment documentation](https://docs.edgeimpulse.com/docs/run-inference/docker).***
 
