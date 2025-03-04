@@ -412,7 +412,7 @@ Once training is complete, the model's accuracy is evaluated using a confusion m
 | **Weighted Average F1 Score**  | 0.77      |
 | **Area Under ROC Curve (AUC)** | 0.86      |
 
-***For a detailed explanation of each metric, please refer to the [Edge Impulse concept documentation](https://docs.edgeimpulse.com/docs/concepts/glossary-of-terms).***
+***For a detailed explanation of each metric, please refer to the [evaluation metrics documentation from Edge Impulse](https://docs.edgeimpulse.com/docs/concepts/machine-learning/evaluation-metrics).***
 
 The confusion matrix provides insights into model performance across different categories:
 
