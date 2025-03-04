@@ -124,7 +124,7 @@ In the Arduino IDE upper menu, after selecting the **Nano Matter board** from th
 
 Download the `Modulino` library from the Arduino IDE Library Manager. This will enable the support for the Modulino Pixels and the Modulino Movement.
 
-![Modulino Library Installation](assets/modulino.png)
+![Modulino Library Installation](assets/modulino-lib.png)
 
 ***The Modulino library for this tutorial must be 0.4.3 or greater.***
 
