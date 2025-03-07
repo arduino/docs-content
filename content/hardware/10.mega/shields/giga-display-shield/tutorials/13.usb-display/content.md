@@ -116,7 +116,7 @@ bool displayRawRowByRow(const char* path) {
 
 ### Clearing the Display
 
-Users can reset the display by entering `clear` in the Serial Monitor.
+Reset the display by entering `clear` in to the Serial Monitor.
 
 ```cpp
 void forceScreenClear() {
