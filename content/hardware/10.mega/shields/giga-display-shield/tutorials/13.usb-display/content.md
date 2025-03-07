@@ -1,5 +1,5 @@
 ---
-title: GIGA Display Shield Display from USB guide
+title: GIGA Display Shield Display Image From USB
 description: 'Learn to display RAW Images on the GIGA Display from USB Storage.'
 author: Pedro Sousa Lima
 tags: [Display, USB]
@@ -131,7 +131,7 @@ void forceScreenClear() {
 }
 ```
 
-### Full code
+### Full Code
 
 ```arduino
 #include <Arduino_USBHostMbed5.h>
