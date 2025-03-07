@@ -111,7 +111,8 @@ The example implementation comprises the following sequence:
 - [Hardware and Software Requirements](#hardware-and-software-requirements)
   - [Hardware Requirements](#hardware-requirements)
   - [Software Requirements](#software-requirements)
-- [PLC IDE \& Arduino Cloud Integration](#plc-ide--arduino-cloud-integration)
+- [PLC IDE & Arduino Cloud Integration](#plc-ide--arduino-cloud-integration)
+
   - [Understanding the Process](#understanding-the-process)
 - [Example Implementation](#example-implementation)
   - [Setting Up the Arduino Cloud](#setting-up-the-arduino-cloud)
