@@ -21,7 +21,7 @@ This guide explores how to read and display raw RGB565 images from a USB drive o
 
 - **USBHostMbed5** (for USB host functionality)
 - **FATFileSystem** (to read files from USB)
-- **ArduinoH7Video** and **ArduinoGraphics** (for handling display rendering)
+- **ArduinoH7Video**(Included in the core) and [**ArduinoGraphics**](https://docs.arduino.cc/libraries/arduinographics/) libraries (for handling display rendering)
 
 ## Features
 
