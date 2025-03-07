@@ -122,9 +122,11 @@ In the Arduino IDE upper menu, after selecting the **Nano Matter board** from th
 
 ***The code will only compile if the __Protocol Stack__ is set to __None__.***
 
-Download the `Modulino.h` library from the Arduino IDE Library Manager. This will enable the support for the Modulino Pixels and the Modulino Movement.
+Download the `Modulino` library from the Arduino IDE Library Manager. This will enable the support for the Modulino Pixels and the Modulino Movement.
 
-![Modulino Library Installation](assets/modulino.png)
+![Modulino Library Installation](assets/modulino-lib.png)
+
+***The Modulino library for this tutorial must be 0.4.3 or greater.***
 
 You can download the **complete project code** from [here](assets/magic_wand_modulino.zip) or copy and paste it from the snippet below:
 
