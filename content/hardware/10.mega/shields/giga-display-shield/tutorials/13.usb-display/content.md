@@ -9,7 +9,7 @@ tags: [Display, USB]
 
 This guide explores how to read and display raw RGB565 images from a USB drive onto an Arduino GIGA Display Shield. Making it possible for you to list files from a USB drive, select an image, and render it.
 
-![Display with image from USB](assets/image-example.png)
+![Display with image from USB](assets/image-example.jpg)
 
 ## Hardware Requirements
 
