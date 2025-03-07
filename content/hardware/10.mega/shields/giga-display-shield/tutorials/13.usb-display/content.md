@@ -132,6 +132,6 @@ void forceScreenClear() {
 
 ### Conclusion
 
-This project demonstrates how to read and display **16-bit RGB565 images** from a USB drive onto the Arduino GIGA Display. The row-by-row approach optimizes memory usage while ensuring smooth rendering. This technique is useful for **digital signage, interactive kiosks, and embedded GUI projects**.
+This project demonstrates how to read and display **16-bit RGB565 images** from a USB drive onto the Arduino GIGA Display Shield. The row-by-row approach optimizes memory usage while ensuring smooth rendering. This technique is useful for **digital signage, interactive kiosks, and embedded GUI projects**.
 
 
