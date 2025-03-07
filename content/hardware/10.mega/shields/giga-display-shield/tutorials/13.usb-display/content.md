@@ -36,7 +36,7 @@ To ensure your image is in the correct format (800x480, 16-bit RGB565), you can 
 For testing we used the image:
 ![Unprepared test image](assets/lupe800x480.jpg)
 
-For image convertion we selected the following settings:
+For image conversion we selected the following settings:
 ![Image settings](assets/lvgl-converter-settings.png)
 
 ## Code Breakdown
