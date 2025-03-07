@@ -106,13 +106,32 @@ The following diagram shows the main steps to connect Opta™ to the Arduino Clo
 
 The example implementation comprises the following sequence:
 
-1. [Setting up the Arduino Cloud](#setting-up-the-arduino-iot-cloud)
-2. [Setting up the PLC IDE](#setting-up-the-plc-ide)
-   1. [Shared variables configuration](#shared-variables-configuration)
-   2. [Analog port](#analog-port-configuration) & [user programmable LED](#user-programmable-led-configuration) configuration
-   3. [Library management](#library-components)
-3. [Setting up the Arduino Cloud dashboard](#arduino-iot-cloud-dashboard)
-4. [System integration test](#testing-plc-ide-with-arduino-iot-cloud)
+- [Overview](#overview)
+- [Goals](#goals)
+- [Hardware and Software Requirements](#hardware-and-software-requirements)
+  - [Hardware Requirements](#hardware-requirements)
+  - [Software Requirements](#software-requirements)
+- [PLC IDE \& Arduino Cloud Integration](#plc-ide--arduino-cloud-integration)
+  - [Understanding the Process](#understanding-the-process)
+- [Example Implementation](#example-implementation)
+  - [Setting Up the Arduino Cloud](#setting-up-the-arduino-cloud)
+  - [Setting Up the PLC IDE](#setting-up-the-plc-ide)
+    - [Shared Variables Configuration](#shared-variables-configuration)
+    - [Analog Port Configuration](#analog-port-configuration)
+    - [User Programmable LED Configuration](#user-programmable-led-configuration)
+    - [Library Components](#library-components)
+    - [Arduino Sketch](#arduino-sketch)
+    - [PLC Program](#plc-program)
+  - [Arduino Cloud Dashboard](#arduino-cloud-dashboard)
+  - [Testing PLC IDE with Arduino Cloud](#testing-plc-ide-with-arduino-cloud)
+- [Conclusion](#conclusion)
+  - [Next Steps](#next-steps)
+- [Support](#support)
+  - [Security Information about ASEC-25-001](#security-information-about-asec-25-001)
+    - [Update Instructions for Arduino Cloud and the PLC IDE](#update-instructions-for-arduino-cloud-and-the-plc-ide)
+  - [Help Center](#help-center)
+  - [Forum](#forum)
+  - [Contact Us](#contact-us)
 
 ### Setting Up the Arduino Cloud
 
@@ -465,6 +484,55 @@ As you progress, feel free to dig into the vast Arduino ecosystem. To better und
 ## Support
 
 If you encounter any issues or have questions while working with the PLC IDE or Arduino Cloud, we provide various support resources to help you find answers and solutions.
+
+### Security Information about ASEC-25-001
+
+As announced in our [security bulletin ASEC-25-001](https://support.arduino.cc/hc/en-us/articles/18669669929244-ASEC-25-001-Security-incident-on-Arduino-infrastructure) (Feb 24th, 2025), we identified a security incident affecting Arduino web infrastructure. Due to this incident, some internal infrastructure configuration information, including the certificate authority of Arduino Cloud used to verify IoT devices, was exfiltrated.
+
+In response, we have released [a new version of the PLC IDE](https://www.arduino.cc/en/software#arduino-plc-ide) and implemented a new identity certificate authority for Arduino Cloud connectivity. To ensure your connected devices remain secure, please follow the update instructions listed below.
+
+#### Update Instructions for Arduino Cloud and the PLC IDE
+
+**On Arduino Cloud:**
+
+- Detach your Opta™ device from the corresponding Thing
+- Delete the device from your Arduino Cloud 
+- Restore the Opta™ device to the factory defaults using [the memory partitioning guide](https://docs.arduino.cc/tutorials/opta/memory-partitioning/)
+- Add your Opta™ device to the Arduino Cloud again using the **+ Device** button
+- Attach the newly added Opta™ device to its Thing
+
+***<strong>Note:</strong> These steps are necessary to re-provision the secure element with the new Arduino CA certificates and device signed certificate.***
+
+**On the Computer with the PLC IDE:**
+
+- Launch a PowerShell window
+- Execute the following commands:
+
+```console
+arduino-cli --config-file $env:LOCALAPPDATA\T\arduino-cli.yaml lib update-index
+arduino-cli --config-file $env:LOCALAPPDATA\T\arduino-cli.yaml lib install ArduinoIoTCloud
+```
+
+***<strong>Note:</strong> This library-index update aligns your local index with library versions containing the mandatory security fixes. If you're using PLC IDE version 1.0.8 or newer, this update happens automatically through the IDE.***
+
+- Open your PLC IDE project
+- Perform a "Manual Download" to load the PLC runtime (as you would for first-time setup)
+- Update all library dependencies in the library panel to these latest versions:
+
+```console
+ArduinoIoTCloud 2.3.1
+Arduino_ConnectionHandler 1.0.0
+ArduinoECCX08 1.3.8
+ArduinoMqttClient 0.1.8
+Arduino_DebugUtils 1.4.0
+Arduino_Portenta_OTA 1.2.1
+Arduino_SecureElement 0.3.0
+ArduinoHttpClient 0.6.1
+```
+
+- Compile your PLC project and upload it to your Opta™ device
+
+For any security-related questions or concerns, please contact our security team at <security@arduino.cc>.
 
 ### Help Center
 
