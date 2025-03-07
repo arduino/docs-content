@@ -38,7 +38,7 @@ To ensure your image is in the correct format (800x480, 16-bit RGB565), you can 
 
 ### Setting Up USB Host and Display
 
-The USB host is initialized, enabling support for mass storage devices. The display is also set up using the `Arduino_H7_Video` class.
+With the following code the USB host is initialized, enabling support for mass storage devices. The display is also set up using the `Arduino_H7_Video` class.
 
 ```cpp
 USBHostMSD msd;
