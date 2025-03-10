@@ -72,7 +72,7 @@ void listRootDirectory() {
 
 ### Selecting an Image via Serial Input
 
-Users can enter a file number in the Serial Monitor to select an image for display.
+Now by entering a file number in the Serial Monitor an image is selected and will be displayed on the GIGA Display Shield.
 
 ```arduino
 void handleUserInput() {
