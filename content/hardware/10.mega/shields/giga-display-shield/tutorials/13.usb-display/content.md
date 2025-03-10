@@ -86,6 +86,7 @@ void handleUserInput() {
   }
 }
 ```
+![File list](assets/file-list.png)
 
 ### Reading and Displaying RAW Images
 
