@@ -58,7 +58,7 @@ In the device section, you can select either a previously configured device, or 
 
 You can connect one of the following devices:
 - [Arduino Wi-Fi® devices](/arduino-cloud/hardware/wifi) - official Arduino devices with a Wi-Fi® enabled module.
-- [Arduino LoRaWAN® devices](/arduino-cloud/hardware/lora) - official Arduino devices with a LoRaWAN® module.
+- [Arduino LoRa®-enabled devices](/arduino-cloud/hardware/lora) - official Arduino devices with a LoRa® technology.
 - [Third-party ESP32/ESP8266 devices](/arduino-cloud/hardware/wifi) - third party devices with an ESP32/ESP8266 SoC.
 - [Manual devices](/arduino-cloud/hardware/devices#manual-devices) - a virtual device using MicroPython, Python or JavaScript. These devices do not have a sketch associated.
 
@@ -68,7 +68,7 @@ The status of your device is also displayed in this section (online/offline).
 
 ## Network
 
-In the network section, you configure the credentials for your network, such as your Wi-Fi® network, secret key (for ESP32 boards) and other credentials e.g. LoRaWAN® & cellular. The network details are securely stored.
+In the network section, you configure the credentials for your network, such as your Wi-Fi® network, secret key (for ESP32 boards) and other credentials e.g. LoRa®-based networks & cellular. The network details are securely stored.
 
 ![Network configuration.](assets/network-creds.png)
 
@@ -133,3 +133,7 @@ For example:
 This is implemented so that the connection and synchronization between the board and Cloud is handled automatically, meaning you do not need to do any networking code when using the Arduino / C++ language.
 
 ***Please note that if you are using an offline environment, [Arduino IDE](/software/ide-v2), changes will only be made in the Cloud environment and will manually need to be adjusted. If you plan on using the offline IDE, you make use of the [sketch synchronisation](/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync) feature that allows you to push/pull your Cloud sketches from the offline IDE.***
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

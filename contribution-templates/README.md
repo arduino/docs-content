@@ -140,7 +140,6 @@ Right: `1.75 μm pixel size`
 |Bluetooth® / Bluetooth® Low Energy|https://www.bluetooth.com/develop-with-bluetooth/marketing-branding/|
 |Wi-Fi®|https://www.wi-fi.org/who-we-are/our-brands|
 |LoRa®|https://blog.semtech.com/how-to-name-and-brand-your-lora-application|
-|LoRaWAN®|https://lora-alliance.org/resource_hub/lora-alliance-marks-logo-usage-policy-and-guidelines/|
 |Arm® / Cortex®|https://www.arm.com/company/policies/trademarks/arm-trademark-list|
 |MathWorks®|https://www.mathworks.com/company/aboutus/policies_statements/trademarks.html|
 |Microchip®|https://www.microchip.com/en-us/about/legal-information/microchip-trademarks|

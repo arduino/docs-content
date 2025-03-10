@@ -4,7 +4,6 @@ software:
   - cloud-editor
 hardware:
   boards:
-    - portenta-breakout
     - portenta-h7
     - portenta-h7-lite
     - portenta-h7-lite-connected

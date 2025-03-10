@@ -33,7 +33,7 @@ The goals of this article are:
 
 The package includes:
 
-* LoRa® Gateway
+* WisGate Edge Gateway (supports LoRa® technology)
 * PoE Injector (with its power cable, IEC)
 * Pole mounting mechanical pieces
 
@@ -89,8 +89,8 @@ Fill the information:
 * Gateway ID: unique ID for your gateway inside the things network platform.
 * Gateway EUI: The EUI of your WisGate Gateway (Get it on the overview page on the WisGate dashboard)
 * Gateway name: Name of the Gateway on your TTN's profile
-* Gateway Server Address: the Address of the LoRa® network (format: `wss://<cloudServer>`)
-* LoRaWAN® options, Frequency plan: select the recommended plan or the one that fits your project
+* Gateway Server Address: the Address of the LoRa®-based network (format: `wss://<cloudServer>`)
+* LoRa® network options, Frequency plan: select the recommended plan or the one that fits your project
 
 Click the "Create gateway" button at the end of the page.
 
@@ -144,4 +144,8 @@ Set up the gateway to be a Network Server and MQTT client to connect directly to
 
 ## Conclusion
 
-In this tutorial you learned how to setup the LoRa® Gateway.
+In this tutorial you learned how to setup the LoRa® technology-based Gateway.
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.
