@@ -90,7 +90,7 @@ With this overview complete, we can now create an example.
 
 ### Setting Up the Arduino PLC IDE
 
-To get the Arduino PLC IDE software, go to the [official software website ](https://www.arduino.cc/pro/software-plc-ide)and choose to download the PLC IDE installer file. The software is named **`Arduino PLC IDE Installer`**.
+To get the Arduino PLC IDE software, go to the [official software website](https://www.arduino.cc/pro/software-plc-ide) and choose to download the PLC IDE installer file. The software is named **`Arduino PLC IDE Installer`**.
 
 ![Arduino PLC IDE Software Download Section](assets/plcide_software_download.png)
 
@@ -122,7 +122,7 @@ We highly recommend reviewing [this tutorial](https://docs.arduino.cc/tutorials/
 
 #### Portenta Machine Control Basic Configuration
 
-Identify the IP address assigned to each Portenta Machine Control device to establish Modbus TCP communication. Connecting the Portenta Machine Control to a computer via an RJ-45 cable and an Ethernet port with standard settings will automatically assign an IP address from an external *DHCP* server. Tools like this [scanner](https://angryip.org/) can be useful for locating these auto-assigned IP addresses.
+Identify the IP address assigned to each Portenta Machine Control device to establish Modbus TCP communication. Connecting the Portenta Machine Control to a network infrastructure via an RJ-45 cable and an Ethernet port with standard settings will automatically assign an IP address from an external *DHCP* server. Tools like this [scanner](https://angryip.org/) can be useful for locating these auto-assigned IP addresses.
 
 You can also assign a custom IP address to the Portenta Machine Control using the **Ethernet.begin()** method. This is helpful when you need specific addresses because of operational needs. To do this, we will use the sketch available in the `Resources` tab of the PLC IDE. The image below provides an overview of the setup options within the sketch.
 
