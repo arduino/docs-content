@@ -105,7 +105,11 @@ The table below provides a comprehensive guideline for the optimal use of the Ni
 <sup>1</sup> Nicla Sense Env powered through the VCC pin (+3.3 VDC).
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-To put the Nicla Sense Env in <strong>deep sleep mode</strong>, use the API provided by the <strong>Nicla Sense Env Arduino library</strong>.
+<p style="text-align: justify;"><strong>Tip:</strong>To put the Nicla Sense Env in <strong>deep sleep mode</strong>, use the API provided by the <strong>Nicla Sense Env Arduino library</strong>.</p>
+</div>
+
+<div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;"><strong>Safety Note:</strong> The Nicla Sense Env board operates at 3.3 VDC, and while its pins are 5 VDC tolerant, we recommend using a level translator when connecting it to 5 VDC-compatible Arduino boards to ensure safe communication and prevent potential damage to the components.</p>
 </div>
 
 
