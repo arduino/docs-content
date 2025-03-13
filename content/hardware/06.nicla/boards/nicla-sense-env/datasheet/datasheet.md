@@ -109,7 +109,7 @@ The table below provides a comprehensive guideline for the optimal use of the Ni
 </div>
 
 <div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;"><strong>Safety Note:</strong> The Nicla Sense Env board operates at 3.3 VDC, and while its pins are 5 VDC tolerant, we recommend using a level translator when connecting it to 5 VDC-compatible Arduino boards to ensure safe communication and prevent potential damage to the components.</p>
+<p style="text-align: justify;"><strong>Safety Note:</strong> The Nicla Sense Env board operates at 3.3 VDC, and while its pins are 5 VDC tolerant, we recommend using a level translator when connecting it to 5 VDC-compatible Arduino boards to ensure safe communication and prevent potential damage to the components. This connection can be made either through the Nicla Sense Env’s ESLOV connector or its dedicated I2C pins (I2C0), as illustrated in the image below.</p>
 </div>
 
 

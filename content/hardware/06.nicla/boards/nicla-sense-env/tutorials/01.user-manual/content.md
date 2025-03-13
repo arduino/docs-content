@@ -129,7 +129,7 @@ As shown in the image below, the Nicla Sense Env can be connected to a Portenta 
 
 For other compatible boards, such as those from the Nano family, the Nicla Sense Env can also be connected using the 2.54 mm pins of the Nicla Sense Env board.
 
-***<strong>Important note:</strong> The Nicla Sense Env board operates at 3.3 VDC, and while its pins are 5 VDC tolerant, we recommend using a level translator when connecting it to 5 VDC-compatible Arduino boards to ensure safe communication and prevent potential damage to the components, as illustrated in the image below.***
+***<strong>Important note:</strong> The Nicla Sense Env board operates at 3.3 VDC, and while its pins are 5 VDC tolerant, we recommend using a level translator when connecting it to 5 VDC-compatible Arduino boards to ensure safe communication and prevent potential damage to the components. This connection can be made either through the Nicla Sense Env’s ESLOV connector or its dedicated I2C pins (`I2C0`), as illustrated in the image below.***
 
 ### Powering the Board
 
