@@ -191,7 +191,7 @@ The LoRa® functionality is provided by SX1303 concentrator modules, offering ex
 | Receiver Sensitivity (Min) | -139 dBm                                                       |
 | Additional Features        | Listen Before Talk (LBT) support                               |
 
-#### Cellular Radio Specifications (RAK7289CV2 variant)
+#### Cellular Radio Specifications (RAK7289CV2 Variant)
 
 The cellular variant (RAK7289CV2) integrates a robust LTE module to ensure reliable connectivity in IoT and M2M applications, supporting multiple regional LTE standards.
 
