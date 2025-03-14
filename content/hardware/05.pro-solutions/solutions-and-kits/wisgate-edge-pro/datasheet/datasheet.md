@@ -180,7 +180,7 @@ The gateway supports high-performance Wi-Fi® connectivity with the following sp
 
 #### LoRa® Radio Specifications
 
-The LoRa® functionality is provided by **SX1303** (RAK5146) based concentrator modules, offering great performance for long range communication. The gateway can support either 8 or optionally 16 LoRa channels, allowing flexible scalability.
+The LoRa® functionality is provided by **SX1303** (RAK5146) based concentrator modules, offering great performance for long range communication. The gateway can support either 8x or optionally 16x LoRa channels, allowing flexible scalability.
 
 | **Specification**          | **Details**                                                    |
 |----------------------------|----------------------------------------------------------------|
