@@ -41,6 +41,8 @@ First add a **screen** element to your project, this will be the base that conta
 
 ![Screen and Box highlighted](assets/appwizard-screen-box.png)
 
+## Creating Objects
+
 ### Button
 
 Add a button from the object menu. On the right hand properties menu you can set the color of the button when it is unpressed and pressed.
@@ -49,53 +51,25 @@ Add a button from the object menu. On the right hand properties menu you can set
 
 In the right hand properties menu you can also add text to the button. Press the **set text** option. This will bring up a window that contains all the text elements in the project. Press **add text**, this will create a new text object with a unique id. Now to set the text that will be displayed press **New language** and enter **En**, we will be using English in this tutorial. Under the new **En** tab you can set the text that will be visible, change the **-** to **Button** and this text will be displayed on the button.
 
-![Text objects box](assets/appwizard-button-text.png)
+![Text objects box](assets/appwizard-text-box.png)
 
-## Adding Interactions
-
-### Textbox
-
-Let's add a textbox which will display a value that will increase when the button is pressed.
-
-First add a textbox by clicking the **Text** box in the "Add objects" section. Then feel free to set the text color and background color to your desired color in the properties menu. Here the textbox needs to be set to decimal mode, do that by clicking the "Set decimal mode" button and then putting a "0" in the mask box.
-
-![Textbox added](assets/appwizard-text-box.png)
-
-Next a variable is needed to keep track of the value. In the bottom left "Resources" section press the **Open variables window** button. This will open a window where variables can be managed. Press **Add variable** and then rename the variable to something relevant so it is easier to keep track of later, here we will name it "ID_BUTTON_VAR".
-
-![Variables window highlighted in App Wizard](assets/appwizard-variable-window.png)
-
-Now we need to add interactions for the button and text. Press the **+** button in the interactions box to add an interaction. Set the variable as the "Emitter", the signal should be "VALUE_CHANGED", job should be "SETVALUE" and the receiver should be the text box which here is "ID_TEXT_00". Now the text will be set to the same value as the variable.
-
-To add the buttons interaction, set the emitter as the button, the signal should be "RELEASED", so that the value increases when the button is released. The job should be "ADDVALUE" and the receiver should be the variable, so the value gets added to the variable. In the window that pops up the increment of the value added to the variable, here we set it to "1". You can try out the interaction by pressing the **Start play mode** in the upper right corner of the "Editor" window.
-
-![Button interactions added](assets/appwizard-button-text-interactions.png)
-
-### Progress Bar
-
-Now lets try adding a progress bar to the previous interaction. Start by pressing the **progbar** button and set the initial value to "0". Set the min value to "0" and max value to "100". Now add an interaction with the emitter as the button variable, the signal to "VALUE_CHANGED", job as "SETVALUE" and the receiver as the progress bar. Now try it out in play mode and you will see the progress bar increase whenever the button is pressed.
-
-![Progress bar and interactions](assets/appwizard-progbar-interactions.png)
-
-### Slider And Gauge
-
-Now let's try adding a slider and gauge to the project. Press the **Gauge** button in the top left menu. Set initial value to "0", the min value to "0" and max value to "100".
-
-![Project with the gauge added](assets/appwizard-create-gauge.png)
+### Slider
 
 Next create a slider by pressing the **Slider** button on the top left menu. You can configure the visual elements of the slider in the right "Properties" menu.
 
-![Project with slider and gauge](assets/appwizard-create-slider.png)
+![Project with slider and gauge](assets/appwizard-slider.png)
 
-Now there needs to be a variable that will keep track of the value, press the **Open variables window** button in the bottom left.
+### Switch
 
-Press **Add variable** and then rename the variable to something relevant so it is easier to keep track of later, here we will name it "ID_SLIDER_VAR".
+Next create a slider by pressing the **Switch** button on the top left menu. You can configure the visual elements of the switch in the right "Properties" menu.
 
-![Variable window](assets/appwizard-variable-window-final.png)
+![Project with switch](assets/appwizard-switch.png)
 
-Now to add the interaction that will fill the gauge when the slider is moved. First, create a new interaction, set the emitter as the slider variable, the signal should be "VALUE_CHANGED". The job should be "SETVALUE" and the receiver should be the gauge. Now create the interaction that makes the slider change the variable. Create a new interaction and set the emitter as the slider, the signal should be "VALUE_CHANGED". The job should be "SETVALUE" and the receiver should be the slider variable.
+### Rotary
 
-![Image of all the interactions](assets/appwizard-final-project.png)
+Next create a slider by pressing the **Rotary** button on the top left menu. You can configure the visual elements of the rotary in the right "Properties" menu.
+
+![Project with rotary](assets/appwizard-rotary.png)
 
 ## Exporting the Project
 
@@ -152,4 +126,4 @@ Now select your board and upload the sketch. The GUI created in AppWizard should
 
 ### Conclusion
 
-Now you have an idea of how to use the basic features of AppWizard! With interactions and visual elements the possibilities of design solutions are endless. This tutorial also showed how easy it is to import your design to your Arduino board using the Arduino IDE. You are now ready to create your own design and play around with AppWizard! 
+Now you have an idea of how to use the basic features of AppWizard! This tutorial went through how easy it is to import your design to your Arduino board using the Arduino IDE. You are now ready to create your own design and play around with AppWizard!
