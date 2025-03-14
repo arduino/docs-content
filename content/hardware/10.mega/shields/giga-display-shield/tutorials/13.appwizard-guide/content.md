@@ -32,7 +32,7 @@ To install this, open the library manager and install the latest version by sear
 
 ## Creating an App Wizard Project
 
-First go to  **File -> New Project** to start your new project. Here we need to configure certain settings so it will work on the GIGA Display Shield. Set the  display size x to **480** and display size y to **800**. Then we need to disable the **Enable simulation** and **Generate loop in MainTask()** options. It should look like the image below.
+First go to **File -> New Project** to start your new project. Here we need to configure certain settings so it will work on the GIGA Display Shield. Set the `display size x` to **480** and `display size y` to **800**. Then we need to disable the `Enable simulation` and `Generate loop in MainTask()` options. It should look like the image below.
 
 ![Create project settings](assets/start-project.png)
 
