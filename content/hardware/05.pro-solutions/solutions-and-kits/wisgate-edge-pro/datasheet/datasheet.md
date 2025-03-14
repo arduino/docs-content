@@ -185,7 +185,7 @@ The LoRa® functionality is provided by **SX1303** (RAK5146) based concentrator 
 | **Specification**          | **Details**                                                    |
 |----------------------------|----------------------------------------------------------------|
 | LoRa® Module               | SX1303 (RAK5146) mPCIe (up to 2 modules)                       |
-| Channel Configuration      | 8 channels standard, 16 channels optional                      |
+| Channel Configuration      | 8x channels standard, 16x channels optional                      |
 | Operating Frequency Bands  | EU868, IN865, US915, AU915, KR920, AS923-1/2/3/4, EU433, CN470 |
 | Transmit Power (Max)       | 27 dBm                                                         |
 | Receiver Sensitivity (Min) | -139 dBm                                                       |
