@@ -120,7 +120,7 @@ void loop() {
 
 ![Examples folder structure](assets/appwizard-examples-folder.gif)
 
-Now all that is left is to import this whole folder as a library into the Arduino IDE. First compress the folder into a .zip format. And then in the Arduino IDE go to **Sketch -> Include library -> Add .ZIP Library**. Then select the created .zip file and add it.
+Now all that is left is to import this whole folder as a library into the Arduino IDE. First, **compress** the folder into a **.zip** format, then in the Arduino IDE go to **Sketch -> Include library -> Add .ZIP Library**, select the created .zip file and add it.
 
 ![Importing library in Arduino IDE](assets/appwizard-library-include.png)
 
