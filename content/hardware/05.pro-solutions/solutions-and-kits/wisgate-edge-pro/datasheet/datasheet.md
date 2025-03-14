@@ -123,7 +123,7 @@ The following table shows the physical interfaces and control elements available
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <p style="text-align: justify;">
-<strong>Warning:</strong> The microSD card in the SD card slot should not be ejected during operation, as doing so may affect the gateway's performance or lead to data loss. The card is reserved for system logs and operational data management.
+<strong>Warning:</strong> The microSD card should not be ejected during operation, as doing so may affect the gateway's performance or lead to data loss. The card is reserved for system logs and operational data management.
 </p>
 </div>
 
