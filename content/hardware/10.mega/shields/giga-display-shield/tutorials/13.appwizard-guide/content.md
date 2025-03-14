@@ -82,7 +82,7 @@ and `#include "../Generated/ID_SCREEN_00.h"` to `#include "Resource.h"` and `#in
 
 ![Screenshot of code](assets/appwizard-demo-folder-library-code.png)
 
-When this is done create a **library.properties** file inside the root of the newly created folder. Then put this text into the file:
+When this is done create a **library.properties** file inside the root of the newly created folder. Then put this text into the file, you can change the name to whatever you like:
 
 ```arduino
 name=AppWizardDemoLib
