@@ -265,7 +265,7 @@ The WisGate Edge Pro gateway supports multiple power supply options suitable for
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <p style="text-align: justify;">
-<strong>Warning:</strong> Always use IEEE 802.3af compliant PoE injectors or switches to prevent potential damage or malfunction. If using a DC power supply, ensure it is a regulated 12V source capable of supplying at least 2A to accommodate peak power consumption.
+<strong>Warning:</strong> Always use IEEE 802.3af compliant PoE injectors or switches to prevent potential damage or malfunction. If using a DC power supply, ensure it is a regulated 12 VDC source capable of supplying at least 2 A to accommodate peak power consumption.
 </p>
 </div>
 
