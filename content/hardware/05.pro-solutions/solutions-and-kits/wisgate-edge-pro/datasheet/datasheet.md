@@ -301,7 +301,7 @@ Now that you have gone through the basics of what you can do with the board, you
 In the event the WisGate Edge Pro gateway becomes unresponsive or requires resetting to factory defaults:
 
 - **Short press** the reset button to restart the gateway (soft reset).
-- **Long press** (≥5 seconds): Restores gateway to factory default settings, erasing user configured parameters and resetting network settings. Use this option cautiously, as all user configurations and data will be permanently lost.
+- **Long press** (≥ 5 seconds): Restores gateway to factory default settings, erasing user configured parameters and resetting network settings. Use this option cautiously, as all user configurations and data will be permanently lost.
 
 ## Mechanical Information
 
