@@ -37,7 +37,7 @@ First go to **File -> New Project** to start your new project. Here we need to c
 ![Create project settings](assets/start-project.png)
 
 ## Setting Up The Project
-First add a **screen** element to your project, this will be the base that contains all the other elements of the project. To add a background color add the **Box** object and set the color on the right side properties menu.
+First add a **screen** element to your project, this will be the base that contains all the other elements of the project. To add a background color add the **Box** object and set the color on the right side "Properties" menu.
 
 ![Screen and Box highlighted](assets/appwizard-screen-box.png)
 
