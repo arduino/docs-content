@@ -3,24 +3,28 @@ identifier: TPX00095-TPX00096-TPX00097
 title: WisGate Edge Pro
 type: pro
 variant: 'Collective Datasheet'
-author: Julián Caro Linares
+author: Julián Caro Linares, Taddy Ho Chung
 ---
 
-![](assets/featured.png)
+![](assets/wisgate-outdoor-front-with-antennas.png)
 
 # Description
 
+<p style="text-align: justify;">
 The WisGate Edge Pro gateway, powered by RAKwireless technology, is an industrial-grade outdoor gateway optimized for robust, professional IoT deployments using LoRa® technology. Supporting EU868, US915 and AU915 frequency bands, it ensures seamless connectivity for smart cities, agriculture, industrial IoT and remote monitoring globally.
+</p>
 
 # Target Areas
 
-LoRa applications, Industrial, Agriulture, Professional IoT
+LoRa® applications, Industrial, Agriulture, Professional IoT
 
 # Contents
 
 ## Application Examples
 
+<p style="text-align: justify;">
 The WisGate Edge Pro gateway is designed for professional IoT applications requiring robust outdoor performance and reliable connectivity through LoRa®, Wi-Fi® and LTE networks. Its versatility allows seamless integration into various environments including agriculture, industrial automation, smart cities and remote monitoring scenarios. Below are some examples showing the gateway's potential:
+</p>
 
 - **Smart Agriculture**: Deploy WisGate Edge Pro gateways to collect sensor data from distributed environmental sensors across extensive agricultural sites. Monitor soil conditions, weather and crop health to optimize resource use and boost yields.
 
@@ -30,13 +34,17 @@ The WisGate Edge Pro gateway is designed for professional IoT applications requi
 
 - **Smart Farming**: Provide seamless, long range connectivity to manage livestock tracking, irrigation systems and automated equipment. Implement WisGate Edge Pro in agricultural settings to enable smart farming applications and improved productivity.
 
-- **Environmental Monitoring**: Deploy WisGate Edge Pro for air quality monitoring, water management and disaster prevention systems in remote areas. Ensure constant and reliable data transmission in challenging conditions thanks to its IP67-rated enclosure and optional cellular connectivity.
+- **Environmental Monitoring**: Deploy WisGate Edge Pro for air quality monitoring, water management and disaster prevention systems in remote areas. Ensure constant and reliable data transmission in challenging conditions thanks to its IP67-rated enclosure and cellular connectivity.
+
+<div style="page-break-after: always;"></div>
 
 ## Features
 
 ### General Specifications Overview
 
-The WisGate Edge Pro (RAK7289V2/RAK7289CV2) is a high performance industrial grade gateway designed specifically for demanding outdoor IoT deployments. It supports multiple global frequency bands, it features robust LoRa® communications through SX1303 concentrators, dual-channel Wi-Fi® connectivity and optional LTE cellular communication. Its rugged, IP67 rating, aluminum and plastic enclosure ensures reliability under extreme environmental conditions, making it ideal for smart city, agriculture, industrial and remote monitoring applications.
+<p style="text-align: justify;">
+The WisGate Edge Pro (RAK7289CV2) is a high performance industrial grade gateway designed specifically for demanding outdoor IoT deployments. It supports multiple global frequency bands, it features robust LoRa® communications through SX1303 concentrators, dual-channel Wi-Fi® connectivity and LTE cellular communication. Its rugged, IP67 rating, aluminum and plastic enclosure ensures reliability under extreme environmental conditions, making it ideal for smart city, agriculture, industrial and remote monitoring applications.
+</p>
 
 The following table summarizes the main features of the WisGate Edge Pro:
 
@@ -65,18 +73,20 @@ The following table summarizes the main features of the WisGate Edge Pro:
 
 ### Module Variant SKU
 
-The WisGate Edge Pro gateway is available in three variants, each specifically tuned to different regional frequency bands:
+The WisGate Edge Pro gateway is available in three variants, each specifically tuned to different regional frequency bands for different global regions:
 
-| **SKU**  | **Description**        |
-|----------|------------------------|
-| TPX00095 | WisGate Edge Pro EU868 |
-| TPX00096 | WisGate Edge Pro AU915 |
-| TPX00097 | WisGate Edge Pro US915 |
+| **SKU**  | **Description**                | **Region** | **Gateway Type**                                                                                           | **Certified Regions** |
+|----------|--------------------------------|------------|------------------------------------------------------------------------------------------------------------|-----------------------|
+| TPX00095 | WisGate Edge Pro EU868         | EU         | WisGate Edge Pro RAK7289CV2, 16 Channels, LTE (EG95-E), Half Duplex, 32M Flash, Arduino customized, EU868  | EU, UK, TR            |
+| TPX00096 | WisGate Edge Pro AU915 & AS923 | ANZ        | WisGate Edge Pro RAK7289CV2, 16 Channels, LTE (EG95-E), Half Duplex, 32M Flash, Arduino customized, AU915  | AU, NZ                |
+| TPX00097 | WisGate Edge Pro US915         | US         | WisGate Edge Pro RAK7289CV2, 16 Channels, LTE (EG95-NA), Half Duplex, 32M Flash, Arduino customized, US915 | US                    |
+
+This table shows the WisGate Edge Pro gateway variants that meet your regional frequency regulations and certification requirements.
 
 ## Accessories
 
-- LoRa antenna (Included)
-- GPS/Wi-Fi internal antennas (Included)
+- LoRa® antenna (Included)
+- GPS/Wi-Fi® internal antennas (Included)
 - Mounting kit for pole/wall installation (Included)
 - Ethernet cable (Not included)
 
@@ -86,6 +96,8 @@ The WisGate Edge Pro gateway is available in three variants, each specifically t
 - Arduino MKR WAN 1310 (SKU: ABX00029)
 - Portenta Vision Shield w/ LoRa® technology (SKU: ASX00026)
 - Portenta Max Carrier (SKU: ABX00043)
+
+<div style="page-break-after: always;"></div>
 
 ## Functional Overview
 
@@ -131,12 +143,12 @@ The WisGate Edge Pro gateway features multiple LED indicators on the enclosure t
   - **Flickering:** LoRa channel 1 transmitting/receiving packets.
 
 **LED 4 (WLAN): Access Point (AP) Mode:**
-  - **ON:** Wi-Fi Access Point is active.
+  - **ON:** Wi-Fi® Access Point is active.
   - **Flickering:** Data being transmitted or received in AP mode.
 
 **LED 4 (WLAN): Station (STA) Mode:**
-  - **Slow Flicker (1 Hz):** Wi-Fi disconnected.
-  - **ON:** Wi-Fi connected.
+  - **Slow Flicker (1 Hz):** Wi-Fi® disconnected.
+  - **ON:** Wi-Fi® connected.
   - **Flickering:** Data being transmitted or received in STA mode.
 
 **LED 5 (LTE)** *(RAK7289CV2 cellular version only)*  
@@ -149,47 +161,54 @@ The WisGate Edge Pro gateway features multiple LED indicators on the enclosure t
   - **OFF:** LoRa channel 2 inactive or disabled.
   - **Flickering:** LoRa channel 2 transmitting/receiving packets.
 
-
-### Cellular Module
-
-The optional LTE cellular module enhances remote deployment capability, providing robust cellular connectivity for IoT and M2M communications:
-
-| **Component**       | **Details**                             |
-|---------------------|-----------------------------------------|
-| GSM Module Part No. | Quectel EG95-E                          |
-| SIM Card Type       | Nano SIM (12.30 mm x 8.80 mm x 0.67 mm) |
-| FCC ID              | XMR202106EG95AUX                        |
-| TAC                 | -                                       |
-
 #### RF Specifications
 
 The WisGate Edge Pro provides robust radio frequency performance, optimized for extended coverage and reliable communications:
 
 #### Wi-Fi® Radio Specifications
 
-The gateway supports high-performance Wi-Fi connectivity with the following specifications:
+The gateway supports high performance Wi-Fi® connectivity with the following specifications:
 
-| **Specification**              | **Description**                                                                                                                                                                                                |
-|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wireless Standard              | IEEE 802.11b/g/n                                                                                                                                                                                               |
-| Operating Frequency            | ISM band: 2.412~2.472 GHz                                                                                                                                                                                      |
-| Operation Channels             | 2.4 GHz: Channels 1-13                                                                                                                                                                                         |
-| Antenna Configuration          | 2x2 MIMO (internal antenna)                                                                                                                                                                                    |
-| Transmit Power (Max)           | **802.11b:** 19 dBm @1 Mbps, 19 dBm @11 Mbps <br> **802.11g:** 18 dBm @6 Mbps, 16 dBm @54 Mbps <br> **802.11n (HT20):** 18 dBm @MCS0, 16 dBm @MCS7 <br> **802.11n (HT40):** 17 dBm @MCS0, 15 dBm @MCS7         |
-| Receiver Sensitivity (Typical) | **802.11b:** −95 dBm @1 Mbps, −88 dBm @11 Mbps <br> **802.11g:** −90 dBm @6 Mbps, −75 dBm @54 Mbps <br> **802.11n (HT20):** −89 dBm @MCS0, −72 dBm @MCS7 <br> **802.11n (HT40):** −86 dBm @MCS0, −68 dBm @MCS7 |
+| **Specification**              | **Description**                                                                                                                                                                                |
+|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wireless Standard              | IEEE 802.11b/g/n                                                                                                                                                                               |
+| Operating Frequency            | ISM band: 2.412~2.472 GHz                                                                                                                                                                      |
+| Operation Channels             | 2.4 GHz: Channels 1-13                                                                                                                                                                         |
+| Antenna Configuration          | 2x2 MIMO (internal antenna)                                                                                                                                                                    |
+| Transmit Power (Max)           | 802.11b: 19 dBm @1 Mbps, 19 dBm @11 Mbps <br> 802.11g: 18 dBm @6 Mbps, 16 dBm @54 Mbps <br> 802.11n (HT20): 18 dBm @MCS0, 16 dBm @MCS7 <br> 802.11n (HT40): 17 dBm @MCS0, 15 dBm @MCS7         |
+| Receiver Sensitivity (Typical) | 802.11b: −95 dBm @1 Mbps, −88 dBm @11 Mbps <br> 802.11g: −90 dBm @6 Mbps, −75 dBm @54 Mbps <br> 802.11n (HT20): −89 dBm @MCS0, −72 dBm @MCS7 <br> 802.11n (HT40): −86 dBm @MCS0, −68 dBm @MCS7 |
 
 #### LoRa® Radio Specifications
 
-The LoRa® functionality is provided by SX1303 concentrator modules, offering exceptional performance for long range communication. The gateway can support either 8 or optionally 16 LoRa channels, allowing flexible scalability:
+The LoRa® functionality is provided by RAK5146 SX1303 based concentrator modules, offering great performance for long range communication. The gateway can support either 8 or optionally 16 LoRa channels, allowing flexible scalability.
 
 | **Specification**          | **Details**                                                    |
 |----------------------------|----------------------------------------------------------------|
-| LoRa Module                | SX1303 mPCIe (up to 2 modules)                                 |
+| LoRa® Module               | SX1303 (RAK5146) mPCIe (up to 2 modules)                       |
 | Channel Configuration      | 8 channels standard, 16 channels optional                      |
 | Operating Frequency Bands  | EU868, IN865, US915, AU915, KR920, AS923-1/2/3/4, EU433, CN470 |
 | Transmit Power (Max)       | 27 dBm                                                         |
 | Receiver Sensitivity (Min) | -139 dBm                                                       |
-| Additional Features        | Listen Before Talk (LBT) support                               |
+| FCC ID (LoRa® Module)      | 2AF6B-RAK5146 (RAK5146 SX1303 mPCIe concentrator)              |
+| Additional Features        | Listen Before Talk (LBT) support, Fine Timestamping            |
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;">
+<strong>Note:</strong> No IMEI number or Type Allocation Code (TAC) is provided since this module does not operate on cellular networks.
+</p>
+</div>
+
+### Cellular Module
+
+The LTE cellular module enhances remote deployment capability, providing robust cellular connectivity for IoT and M2M communications:
+
+| **Component**              | **Details**                                     |
+|----------------------------|-------------------------------------------------|
+| GSM Module Part Number     | Quectel EG95 (EG95-E for EMEA, EG95-NA for NA)  |
+| SIM Card Type              | Nano SIM (12.30 mm x 8.80 mm x 0.67 mm)         |
+| FCC ID                     | 2AF6B-RAK7289CV2H (WisGate Edge Pro RAK7289CV2) |
+| Modem FCC ID               | XMR201807EG95NA (EG95-NA)                       |
+| TAC (Type Allocation Code) | 86939403 (EG95-NA)                              |
 
 #### Cellular Radio Specifications (RAK7289CV2 Variant)
 
@@ -204,9 +223,13 @@ The cellular variant (RAK7289CV2) integrates a robust LTE module to ensure relia
 | EC25-J (Japan Region)          | LTE FDD: B1/B3/B8/B18/B19/B26 <br> LTE TDD: B41 <br> WCDMA: B1/B6/B8/B19                               |
 | EC25-AU (Brazil Region)        | LTE-FDD: B1/B2/B3/B4/B5/B7/B8/B28 <br> LTE-TDD: B40 <br> WCDMA: B1/B2/B5/B8 <br> GSM/EDGE: B2/B3/B5/B8 |
 
+<div style="page-break-after: always;"></div>
+
 ## Rating
 
+<p style="text-align: justify;">
 The following section provides electrical and environmental parameters for the safe and reliable operation of the WisGate Edge Pro. Always use the device within these specified conditions to ensure longevity and optimal performance.
+</p>
 
 ### Recommended Operating Conditions
 
@@ -227,48 +250,55 @@ The following section provides electrical and environmental parameters for the s
 
 ### Power Specification
 
+<p style="text-align: justify;">
 The WisGate Edge Pro gateway supports multiple power supply options suitable for various installation scenarios:
+</p>
 
-- **Power over Ethernet (PoE)**: Supports PoE according to IEEE 802.3af standards (37 to 57 VDC input voltage). Use an IEEE 802.3af compliant PoE injector or switch.
-- **External DC Power Supply**: Supply using a dedicated external 12 VDC power source. Use the appropriate DC cable provided or recommended by Arduino.
+- **Power over Ethernet (PoE)**: Supports IEEE 802.3af standard (37 to 57 VDC input voltage). Use an IEEE 802.3af-compliant PoE injector or switch for proper operation. The PoE port provides 10/100 Mbps Ethernet connectivity.
+- **External DC Power Supply**: Supports a dedicated external 12 VDC power source via the DC barrel jack. Use the 12V/1A power adapter or a regulated 12 VDC supply with at least 2 A capacity to ensure stable operation.
 
 | **Property**                | **Min** | **Typical** | **Max** | **Unit** |
 |-----------------------------|---------|-------------|---------|----------|
 | PoE Input Voltage (802.3af) | 37      | -           | 57      | VDC      |
-| DC Input Voltage            | -       | 12          | -       | VDC      |
-| Power Consumption (Typical) | -       | 12          | -       | W        |
-| Power Consumption (Maximum) | -       | 17          | -       | W        |
+| DC Input Voltage            | 11      | 12          | 13      | VDC      |
+| Power Consumption           | -       | 12          | 17      | W        |
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <p style="text-align: justify;">
-<strong>Warning:</strong> Always use IEEE 802.3af compliant PoE injectors or switches to prevent potential damage or malfunction. Ensure external DC power supplies remain within specified limits to avoid device damage.
+<strong>Warning:</strong> Always use IEEE 802.3af compliant PoE injectors or switches to prevent potential damage or malfunction. If using a DC power supply, ensure it is a regulated 12V source, capable of supplying at least 2 A, to accommodate peak power consumption.
 </p>
 </div>
 
 ### Current Consumption
 
-The table below provides the typical current consumption values under normal operating conditions:
+The table below provides the typical current consumption values under different normal operating conditions:
 
 | **Condition**           | **Min** | **Typical** | **Max** | **Unit** |
 |-------------------------|---------|-------------|---------|----------|
-| PoE powered (at 48 VDC) | -       | 0.35        | 0.5     | A        |
+| PoE powered (at 48 VDC) | -       | 0.3 - 0.35  | 0.5     | A        |
 | DC Powered (12 V input) | -       | 1.0         | 1.5     | A        |
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <p style="text-align: justify;">
-<strong>Note:</strong> Current consumption may vary depending on the operational load (LoRa® traffic, Wi-Fi®, LTE usage), environmental conditions and peripheral device connections.
+<strong>Note:</strong> Current consumption may vary depending on the operational load (LoRa® traffic, Wi-Fi®, LTE usage), environmental conditions and peripheral device connections. If operating at maximum load, use DC power instead of PoE, as 802.3af PoE may not supply sufficient power under peak conditions.
 </p>
 </div>
 
 ## Device Operation
 
-The WisGate Edge Pro gateway is designed for professional IoT environments requiring reliable LoRa®, Wi-Fi® and cellular connectivity. The gateway provides easy setup and deployment, supporting various connectivity options including Ethernet, Wi-Fi® and cellular LTE (with optional module). The device includes dedicated interfaces for ease of configuration, operation and monitoring.
+<p style="text-align: justify;">
+The WisGate Edge Pro gateway is designed for professional IoT environments requiring reliable LoRa®, Wi-Fi® and cellular connectivity. The gateway provides easy setup and deployment, supporting various connectivity options including Ethernet, Wi-Fi and cellular LTE (with optional module). The device includes dedicated interfaces for ease of configuration, operation and monitoring.
+</p>
 
+<p style="text-align: justify;">
 The WisGate Edge Pro gateway can easily be configured and managed through a built-in web interface accessible via Ethernet or Wi-Fi®. For step by step instructions, please refer to [the WisGate Edge Pro Getting Started documentation](https://docs.arduino.cc/tutorials/wisgate-edge-pro/getting-started/).
+</p>
 
 ### Online Resources
 
+<p style="text-align: justify;">
 Now that you have gone through the basics of what you can do with the board, you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
+</p>
 
 ### Device Recovery
 
@@ -279,47 +309,61 @@ In the event the WisGate Edge Pro gateway becomes unresponsive or requires reset
 
 ## Mechanical Information
 
+<p style="text-align: justify;">
 This section details the mechanical characteristics of the WisGate Edge Pro gateway, covering dimensions, enclosure build and installation methods. All dimensions provided are in millimeters (mm) and tolerances are ±0.15 mm unless otherwise noted.
+</p>
 
+<p style="text-align: justify;">
 The WisGate Edge Pro gateway features a robust, IP67-rated enclosure for industrial outdoor installations. Built from a durable aluminum body combined with reinforced plastic components, it ensures maximum protection against harsh environmental conditions, including dust and water ingress.
+</p>
 
-| **Specification** | **Details** |
+| **Specification**  | **Details**                  |
 |--------------------|------------------------------|
-| Dimensions         | 240 mm x 240 mm x 89.5 mm    |
-| Weight             | 4.6 kg (gateway only)        |
+| Dimensions         | 240 mm x 240 mm x 89.5 mm    |
+| Weight             | 4.6 kg (gateway only)        |
 | Ingress Protection | IP67 (waterproof, dustproof) |
-| Enclosure Material | Aluminum alloy and plastic   |
-| Mounting Method    | Pole or wall mounting        |
+| Enclosure Material | Aluminum alloy and plastic   |
+| Mounting Method    | Pole or wall mounting        |
 
 ### Installation Method
 
+<p style="text-align: justify;">
 The WisGate Edge Pro gateway is designed for flexible installation options including pole or wall mounting. Use the provided mounting brackets and hardware for secure installation in outdoor environments.
+</p>
+
+![WisGate Edge Pro Components](assets/wisgate-components.png)
 
 **Installation Recommendations:**
 - Ensure the gateway is vertically oriented.
 - Install the device at a suitable height for optimal antenna coverage.
 - Keep sufficient clearance around the device to maintain optimal antenna performance and airflow for cooling.
 
+![WisGate Edge Pro Installation with Front (1) and Rear (2) view](assets/installation-mount.png)
+
 For comprehensive instructions on gateway installation, please refer to [the installation documentation](https://docs.arduino.cc/tutorials/wisgate-edge-pro/pole-mounting/).
 
 ### Connectors and Interfaces Layout
 
-The following table provides an overview of the connectors and interfaces available on the WisGate Edge Pro gateway.
+![WisGate Edge Pro Interface (by RAKwireless)](assets/wisgate-edge-pro-interface.png)
 
-| **Connectors / Interfaces** | **Remarks** |
-|----------------------------------------|--------------------------------------------|
-| Ethernet RJ45 Connector                | 10/100BASE-T, PoE input                    |
-| N-Type Antenna Connector (LoRa 1)      | LoRa antenna                               |
-| N-Type Antenna Connector (optional)    | Second antenna for 16-channel gateway only |
-| SIM Card Slot (Nano SIM)               | Cellular connectivity variant only         |
-| DC Power Input Connector               | 12 VDC input                               |
-| Reset Button                           | Gateway reset and restore factory defaults |
-| Power LED                              | Indicates gateway power status             |
-| Ethernet Status LED                    | Indicates Ethernet link/activity           |
-| LoRa 1 Status LED                      | LoRa Channel 1 status/activity             |
-| WLAN LED                               | Wi-Fi® connection status/activity          |
-| LTE Status LED (optional)              | Cellular connectivity variant only         |
-| LoRa 2 Status LED (16-ch version only) | Indicates status/activity of LoRa 2        |
+<p style="text-align: justify;">
+The following table provides an overview of the connectors and interfaces available on the WisGate Edge Pro gateway.
+</p>
+
+| **Connectors / Interfaces**             | **Remarks**                                |
+|-----------------------------------------|--------------------------------------------|
+| Ethernet RJ45 Connector                 | 10/100BASE-T, PoE input                    |
+| N-Type Antenna Connector (LoRa® 1)      | LoRa® antenna                              |
+| N-Type Antenna Connector (optional)     | Second antenna for 16-channel gateway only |
+| SIM Card Slot (Nano SIM)                | Cellular connectivity variant only         |
+| DC Power Input Connector                | 12 VDC input                               |
+| Reset Button                            | Gateway reset and restore factory defaults |
+| Power LED                               | Indicates gateway power status             |
+| Ethernet Status LED                     | Indicates Ethernet link/activity           |
+| LoRa® 1 Status LED                      | LoRa® Channel 1 status/activity            |
+| WLAN LED                                | Wi-Fi® connection status/activity          |
+| LTE Status LED (optional)               | Cellular connectivity variant only         |
+| LoRa® 2 Status LED (16-ch version only) | Indicates status/activity of LoRa® 2       |
 
 ## Certifications
 
