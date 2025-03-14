@@ -11,19 +11,19 @@ author: Julián Caro Linares, Taddy Ho Chung
 # Description
 
 <p style="text-align: justify;">
-The WisGate Edge Pro gateway, powered by RAKwireless technology, is an industrial-grade outdoor gateway optimized for robust, professional IoT deployments using LoRa® technology. Supporting EU868, US915 and AU915 frequency bands, it ensures seamless connectivity for smart cities, agriculture, industrial IoT and remote monitoring globally.
+The WisGate Edge Pro gateway, powered by RAKWireless<sup>TM</sup> technology, is an industrial-grade outdoor gateway optimized for robust, professional IoT deployments using LoRa® technology. It supports EU868, US915 and AU915 frequency bands and provides seamless connectivity for smart cities, agriculture, industrial IoT and global remote monitoring.
 </p>
 
 # Target Areas
 
-LoRa® applications, Industrial, Agriulture, Professional IoT
+LoRa® applications, Industrial, Agriculture, Professional IoT
 
 # Contents
 
 ## Application Examples
 
 <p style="text-align: justify;">
-The WisGate Edge Pro gateway is designed for professional IoT applications requiring robust outdoor performance and reliable connectivity through LoRa®, Wi-Fi® and LTE networks. Its versatility allows seamless integration into various environments including agriculture, industrial automation, smart cities and remote monitoring scenarios. Below are some examples showing the gateway's potential:
+The WisGate Edge Pro gateway is designed for professional IoT applications requiring robust outdoor performance and reliable connectivity through LoRa®, Wi-Fi® and LTE networks. Its versatility allows seamless integration into different environments including agriculture, industrial automation, smart cities and remote monitoring scenarios. Below are some examples showing the gateway's potential:
 </p>
 
 - **Smart Agriculture**: Deploy WisGate Edge Pro gateways to collect sensor data from distributed environmental sensors across extensive agricultural sites. Monitor soil conditions, weather and crop health to optimize resource use and boost yields.
@@ -32,7 +32,7 @@ The WisGate Edge Pro gateway is designed for professional IoT applications requi
 
 - **Industrial IoT (IIoT)**: Use WisGate Edge Pro to remotely monitor industrial assets, machinery or equipment conditions in challenging environments. Ensure reliable data transmission and continuous system monitoring, minimizing downtime and maintenance costs.
 
-- **Smart Farming**: Provide seamless, long range connectivity to manage livestock tracking, irrigation systems and automated equipment. Implement WisGate Edge Pro in agricultural settings to enable smart farming applications and improved productivity.
+- **Smart Farming**: Provide long range connectivity to manage livestock tracking, irrigation systems and automated equipment. Implement WisGate Edge Pro in agricultural settings to enable smart farming applications and improved productivity.
 
 - **Environmental Monitoring**: Deploy WisGate Edge Pro for air quality monitoring, water management and disaster prevention systems in remote areas. Ensure constant and reliable data transmission in challenging conditions thanks to its IP67-rated enclosure and cellular connectivity.
 
@@ -43,33 +43,33 @@ The WisGate Edge Pro gateway is designed for professional IoT applications requi
 ### General Specifications Overview
 
 <p style="text-align: justify;">
-The WisGate Edge Pro (RAK7289CV2) is a high performance industrial grade gateway designed specifically for demanding outdoor IoT deployments. It supports multiple global frequency bands, it features robust LoRa® communications through SX1303 concentrators, dual-channel Wi-Fi® connectivity and LTE cellular communication. Its rugged, IP67 rating, aluminum and plastic enclosure ensures reliability under extreme environmental conditions, making it ideal for smart city, agriculture, industrial and remote monitoring applications.
+The WisGate Edge Pro (RAK7289CV2) is a high performance industrial grade gateway designed specifically for demanding outdoor IoT deployments. It supports multiple global frequency bands, it features robust LoRa® communications through SX1303 concentrators, dual-channel Wi-Fi® connectivity and LTE cellular communication. Its rugged, IP67 rating, aluminum and plastic enclosure provides reliability under extreme environmental conditions, making it ideal for smart city, agriculture, industrial and remote monitoring applications.
 </p>
 
 The following table summarizes the main features of the WisGate Edge Pro:
 
-| **Feature**                     | **Description**                                                                                                                                                                                                                                                                                                                                                                          |
-|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Computing Unit                  | MT7628, DDR2 RAM 128 MB                                                                                                                                                                                                                                                                                                                                                                  |
-| Wi-Fi® Connectivity             | IEEE 802.11b/g/n, 2.4 GHz (2x2 MIMO) <br> **RX Sensitivity:** −95 dBm (Min) <br> **TX Power:** 20 dBm (Max) <br> **Operation Channels:** 1-13 (2.4 GHz)                                                                                                                                                                                                                                  |
-| LoRa® Module                    | SX1303 mPCIe card (up to two modules) <br> 8 Channels (standard), 16 channels (optional) <br> **RX Sensitivity:** −139 dBm (Min) <br> **TX Power:** 27 dBm (Max) <br> Listen Before Talk (LBT)                                                                                                                                                                                           |
-| Supported LoRa® Frequency Bands | EU868, IN865, US915, AU915, KR920, AS923-1/2/3/4, EU433, CN470                                                                                                                                                                                                                                                                                                                           |
-| Cellular Connectivity           | Supports Quectel EG95-E / EG95-NA / EC25-J / EC25-AU LTE Cat 4 Modules (with RAK7289CV2 variant) <br> **SIM Card:** Nano SIM (12.30 mm x 8.80 mm x 0.67 mm)                                                                                                                                                                                                                              |
-| LTE Regional Support            | **EG95-E (EMEA):** LTE FDD (B1/B3/B7/B8/B20/B28A), WCDMA (B1/B8), GSM/EDGE (B3/B8) <br> **EG95-NA (North America):** LTE FDD (B2/B4/B5/B12/B13), WCDMA (B2/B4/B5) <br> **EC25-J (Japan):** LTE FDD (B1/B3/B8/B18/B19/B26), LTE TDD (B41), WCDMA (B1/B6/B8/B19) <br> **EC25-AU (Brazil):** LTE-FDD (B1/B2/B3/B4/B5/B7/B8/B28), LTE-TDD (B40), WCDMA (B1/B2/B5/B8), GSM/EDGE (B2/B3/B5/B8) |
-| Ethernet Interface              | RJ45 (10/100BASE-T), supports TCP/IP, MODBUS TCP                                                                                                                                                                                                                                                                                                                                         |
-| Additional Interfaces           | SD card slot (not removable, used for logs/data), RS-485 half-duplex, supports MODBUS RTU                                                                                                                                                                                                                                                                                                |
-| Power Supply                    | PoE (IEEE 802.3af, 37~57 VDC) <br> 12 VDC input (compatible with RAK Battery Plus)                                                                                                                                                                                                                                                                                                       |
-| Antennas                        | LoRa®: External N-Type connector (one for 8-channel variant, two for 16-channel variant) <br> Wi-Fi®, GPS, LTE: Internal antennas                                                                                                                                                                                                                                                        |
-| Ingress Protection              | IP67 (waterproof and dustproof)                                                                                                                                                                                                                                                                                                                                                          |
-| Enclosure Material              | Aluminum and plastic                                                                                                                                                                                                                                                                                                                                                                     |
-| Dimensions                      | 240 mm x 240 mm x 89.5 mm                                                                                                                                                                                                                                                                                                                                                                |
-| Weight                          | 4.6 kg (gateway only)                                                                                                                                                                                                                                                                                                                                                                    |
-| Operating Temperature           | −30 °C to +55 °C                                                                                                                                                                                                                                                                                                                                                                         |
-| Storage Temperature             | −40 °C to +85 °C                                                                                                                                                                                                                                                                                                                                                                         |
-| Operating Humidity              | 0% to 95% (non-condensing)                                                                                                                                                                                                                                                                                                                                                               |
-| Storage Humidity                | 0% to 95% (non-condensing)                                                                                                                                                                                                                                                                                                                                                               |
-| Installation Method             | Pole or wall mounting                                                                                                                                                                                                                                                                                                                                                                    |
-| Certifications                  | CE, FCC, IC, RoHS, REACH, UKCA, WEEE, RCM                                                                                                                                                                                                                                                                                                                                                |
+| **Feature**                     | **Description**                                                                                                                                                                                                                                                                                                                                                          |
+|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Computing Unit                  | MT7628, DDR2 RAM 128 MB                                                                                                                                                                                                                                                                                                                                                  |
+| Wi-Fi® Connectivity             | IEEE 802.11b/g/n, 2.4 GHz (2x2 MIMO) <br> RX Sensitivity: −95 dBm (Min) <br> TX Power: 20 dBm (Max) <br> Operation Channels: 1-13 (2.4 GHz)                                                                                                                                                                                                                              |
+| LoRa® Module                    | SX1303 mPCIe card (up to two modules) <br> 8 Channels (standard), 16 channels (optional) <br> RX Sensitivity: −139 dBm (Min) <br> TX Power: 27 dBm (Max) <br> Listen Before Talk (LBT)                                                                                                                                                                                   |
+| Supported LoRa® Frequency Bands | EU868, IN865, US915, AU915, KR920, AS923-1/2/3/4, EU433, CN470                                                                                                                                                                                                                                                                                                           |
+| Cellular Connectivity           | Supports Quectel EG95-E / EG95-NA / EC25-J / EC25-AU LTE Cat 4 Modules (with RAK7289CV2 variant) <br> SIM Card: Nano SIM (12.30 mm x 8.80 mm x 0.67 mm)                                                                                                                                                                                                                  |
+| LTE Regional Support            | EG95-E (EMEA): LTE FDD (B1/B3/B7/B8/B20/B28A), WCDMA (B1/B8), GSM/EDGE (B3/B8) <br> EG95-NA (North America): LTE FDD (B2/B4/B5/B12/B13), WCDMA (B2/B4/B5) <br> EC25-J (Japan): LTE FDD (B1/B3/B8/B18/B19/B26), LTE TDD (B41), WCDMA (B1/B6/B8/B19) <br> EC25-AU (Brazil): LTE-FDD (B1/B2/B3/B4/B5/B7/B8/B28), LTE-TDD (B40), WCDMA (B1/B2/B5/B8), GSM/EDGE (B2/B3/B5/B8) |
+| Ethernet Interface              | RJ45 (10/100BASE-T), supports TCP/IP, MODBUS TCP                                                                                                                                                                                                                                                                                                                         |
+| Additional Interfaces           | SD card slot (not removable, used for logs/data), RS-485 half-duplex, supports MODBUS RTU                                                                                                                                                                                                                                                                                |
+| Power Supply                    | PoE (IEEE 802.3af, 37~57 VDC) <br> 12 VDC input (compatible with RAK Battery Plus)                                                                                                                                                                                                                                                                                       |
+| Antennas                        | LoRa®: External N-Type connector (one for 8-channel variant, two for 16-channel variant) <br> Wi-Fi®, GPS, LTE: Internal antennas                                                                                                                                                                                                                                        |
+| Ingress Protection              | IP67 (waterproof and dustproof)                                                                                                                                                                                                                                                                                                                                          |
+| Enclosure Material              | Aluminum and plastic                                                                                                                                                                                                                                                                                                                                                     |
+| Dimensions                      | 240 mm x 240 mm x 89.5 mm                                                                                                                                                                                                                                                                                                                                                |
+| Weight                          | 4.6 kg (gateway only)                                                                                                                                                                                                                                                                                                                                                    |
+| Operating Temperature           | −30 °C to +55 °C                                                                                                                                                                                                                                                                                                                                                         |
+| Storage Temperature             | −40 °C to +85 °C                                                                                                                                                                                                                                                                                                                                                         |
+| Operating Humidity              | 0% to 95% (non-condensing)                                                                                                                                                                                                                                                                                                                                               |
+| Storage Humidity                | 0% to 95% (non-condensing)                                                                                                                                                                                                                                                                                                                                               |
+| Installation Method             | Pole or wall mounting                                                                                                                                                                                                                                                                                                                                                    |
+| Certifications                  | CE, FCC, IC, RoHS, REACH, UKCA, WEEE, RCM                                                                                                                                                                                                                                                                                                                                |
 
 ### Module Variant SKU
 
@@ -81,7 +81,7 @@ The WisGate Edge Pro gateway is available in three variants, each specifically t
 | TPX00096 | WisGate Edge Pro AU915 & AS923 | ANZ        | WisGate Edge Pro RAK7289CV2, 16 Channels, LTE (EG95-E), Half Duplex, 32M Flash, Arduino customized, AU915  | AU, NZ                |
 | TPX00097 | WisGate Edge Pro US915         | US         | WisGate Edge Pro RAK7289CV2, 16 Channels, LTE (EG95-NA), Half Duplex, 32M Flash, Arduino customized, US915 | US                    |
 
-This table shows the WisGate Edge Pro gateway variants that meet your regional frequency regulations and certification requirements.
+This table shows the WisGate Edge Pro gateway variants that meet your regional frequency regulations and respective requirements.
 
 ## Accessories
 
@@ -103,9 +103,9 @@ This table shows the WisGate Edge Pro gateway variants that meet your regional f
 
 ### Block Diagram
 
-The block diagram with the main parts of the module can be checked in the following image:
+The block diagram with the main parts of the gateway can be checked in the following image:
 
-![WisGate Edge Pro Block Diagram (by RAKwireless)](assets/wisgate-edge-pro-block-diagram.png)
+![WisGate Edge Pro Block Diagram](assets/wisgate-edge-pro-block-diagram.png)
 
 ### Hardware Interfaces and Controls
 
@@ -254,7 +254,7 @@ The following section provides electrical and environmental parameters for the s
 The WisGate Edge Pro gateway supports multiple power supply options suitable for various installation scenarios:
 </p>
 
-- **Power over Ethernet (PoE)**: Supports IEEE 802.3af standard (37 to 57 VDC input voltage). Use an IEEE 802.3af-compliant PoE injector or switch for proper operation. The PoE port provides 10/100 Mbps Ethernet connectivity.
+- **Power over Ethernet (PoE)**: Supports IEEE 802.3af standard (37 to 57 VDC input voltage). Use an IEEE 802.3af compliant PoE injector or switch for proper operation. The PoE port provides 10/100 Mbps Ethernet connectivity.
 - **External DC Power Supply**: Supports a dedicated external 12 VDC power source via the DC barrel jack. Use the 12V/1A power adapter or a regulated 12 VDC supply with at least 2 A capacity to ensure stable operation.
 
 | **Property**                | **Min** | **Typical** | **Max** | **Unit** |
@@ -265,7 +265,7 @@ The WisGate Edge Pro gateway supports multiple power supply options suitable for
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <p style="text-align: justify;">
-<strong>Warning:</strong> Always use IEEE 802.3af compliant PoE injectors or switches to prevent potential damage or malfunction. If using a DC power supply, ensure it is a regulated 12V source, capable of supplying at least 2 A, to accommodate peak power consumption.
+<strong>Warning:</strong> Always use IEEE 802.3af compliant PoE injectors or switches to prevent potential damage or malfunction. If using a DC power supply, ensure it is a regulated 12V source capable of supplying at least 2A to accommodate peak power consumption.
 </p>
 </div>
 
@@ -287,18 +287,14 @@ The table below provides the typical current consumption values under different 
 ## Device Operation
 
 <p style="text-align: justify;">
-The WisGate Edge Pro gateway is designed for professional IoT environments requiring reliable LoRa®, Wi-Fi® and cellular connectivity. The gateway provides easy setup and deployment, supporting various connectivity options including Ethernet, Wi-Fi and cellular LTE (with optional module). The device includes dedicated interfaces for ease of configuration, operation and monitoring.
+The WisGate Edge Pro gateway is designed for professional IoT environments requiring reliable LoRa®, Wi-Fi® and cellular connectivity. The gateway provides easy setup and deployment, supporting various connectivity options including Ethernet, Wi-Fi and cellular LTE (with an optional module). The device includes dedicated interfaces for ease of configuration, operation and monitoring.
 </p>
 
-<p style="text-align: justify;">
-The WisGate Edge Pro gateway can easily be configured and managed through a built-in web interface accessible via Ethernet or Wi-Fi®. For step by step instructions, please refer to [the WisGate Edge Pro Getting Started documentation](https://docs.arduino.cc/tutorials/wisgate-edge-pro/getting-started/).
-</p>
+The WisGate Edge Pro gateway can easily be configured and managed through a built-in web interface accessible via Ethernet or Wi-Fi®. For step-by-step instructions, please refer to [the WisGate Edge Pro Getting Started documentation](https://docs.arduino.cc/tutorials/wisgate-edge-pro/getting-started/).
 
 ### Online Resources
 
-<p style="text-align: justify;">
 Now that you have gone through the basics of what you can do with the board, you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
-</p>
 
 ### Device Recovery
 
@@ -309,13 +305,9 @@ In the event the WisGate Edge Pro gateway becomes unresponsive or requires reset
 
 ## Mechanical Information
 
-<p style="text-align: justify;">
 This section details the mechanical characteristics of the WisGate Edge Pro gateway, covering dimensions, enclosure build and installation methods. All dimensions provided are in millimeters (mm) and tolerances are ±0.15 mm unless otherwise noted.
-</p>
 
-<p style="text-align: justify;">
-The WisGate Edge Pro gateway features a robust, IP67-rated enclosure for industrial outdoor installations. Built from a durable aluminum body combined with reinforced plastic components, it ensures maximum protection against harsh environmental conditions, including dust and water ingress.
-</p>
+The WisGate Edge Pro gateway features a robust, IP67-rated enclosure for industrial outdoor installations. Built from a durable aluminum body and reinforced plastic components, it ensures maximum protection against harsh environmental conditions, including dust and water ingress.
 
 | **Specification**  | **Details**                  |
 |--------------------|------------------------------|
@@ -344,7 +336,7 @@ For comprehensive instructions on gateway installation, please refer to [the ins
 
 ### Connectors and Interfaces Layout
 
-![WisGate Edge Pro Interface (by RAKwireless)](assets/wisgate-edge-pro-interface.png)
+![WisGate Edge Pro Interface (by RAKWireless<sup>TM</sup>)](assets/wisgate-edge-pro-interface.png)
 
 <p style="text-align: justify;">
 The following table provides an overview of the connectors and interfaces available on the WisGate Edge Pro gateway.
