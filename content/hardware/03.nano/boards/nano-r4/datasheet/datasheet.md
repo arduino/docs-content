@@ -182,6 +182,17 @@ This connector also shares the following pin connections:
 
 \*CIPO/COPI/CS replaces the MISO/MOSI/SS terminology.
 
+#### SWD/JTAG
+
+<!---Section to be defined-->
+
+| Pin | Function | Type     | Description         |
+| --- | -------- | -------- | ------------------- |
+| 1   | +5V      | Internal | Power Supply of 5 V |
+| 2   | SWDIO    | Internal | Data I/O pin        |
+| 3   | GND      | Internal | Ground              |
+| 4   | SWCLK    | Internal | Clock Pin           |
+
 ### Block Diagram
 
 ![Arduino Nano R4 Block Diagram](assets/Nano_R4_Block_Diagram.png)
@@ -214,11 +225,17 @@ In case you need to power external devices that require more power, e.g. servo m
 
 ### Getting Started - IDE
 
+If you want to program your Nano R4 while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Nano R4 to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL3).
+
 ### Getting Started - Arduino Cloud Editor
 
-### Samles Sketches
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor **[2]**, by just installing a simple plugin.
+
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload sketches onto your board.
 
 ### Online Resources
+
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
 
 ## Mechanical Information
 ### Board Dimensions
@@ -227,3 +244,21 @@ In case you need to power external devices that require more power, e.g. servo m
 
 ### Board Connectors
 ### Board Peripherals and Actuators
+
+
+## Company Information
+
+| Company name    | Arduino S.r.l.                                |
+| --------------- | --------------------------------------------- |
+| Company Address | Via Andrea Appiani, 25 Monza, MB, 20900 Italy |
+
+## Reference Documentation
+
+| Reference                              | Link                                                 |
+| -------------------------------------- | ---------------------------------------------------- |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/Main/Software              |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                     |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/ |
+| Arduino Project Hub                    | https://projecthub.arduino.cc/                       |
+| Library Reference                      | https://github.com/arduino-libraries/                |
+| Online Store                           | https://store.arduino.cc/                            |
