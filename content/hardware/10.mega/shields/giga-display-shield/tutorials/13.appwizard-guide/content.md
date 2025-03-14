@@ -106,7 +106,7 @@ depends=
 
 ![Folder with library properties file](assets/appwizard-demo-folder-library.png)
 
-And lastly to create the Arduino sketch. Create an **examples** folder inside the root of the newly created folder, inside this **examples** folder you can create another folder containing the **demo.ino** file. Use the following code for the **demo.ino**:
+Finally, to create the Arduino sketch, create an **examples** folder inside the root of the newly created folder, inside this **examples** folder you can create another folder containing the **demo.ino** file. Use the following code for the **demo.ino**:
 
 ```arduino
 #include <Resource.h>
