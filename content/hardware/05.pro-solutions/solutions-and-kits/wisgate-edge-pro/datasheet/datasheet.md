@@ -3,7 +3,7 @@ identifier: TPX00095-TPX00096-TPX00097
 title: WisGate Edge Pro
 type: pro
 variant: 'Collective Datasheet'
-author: Julián Caro Linares, Taddy Ho Chung
+author: Taddy Ho Chung, Julián Caro Linares
 ---
 
 ![](assets/wisgate-outdoor-front-with-antennas.png)
