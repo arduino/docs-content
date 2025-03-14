@@ -294,7 +294,7 @@ The WisGate Edge Pro gateway can easily be configured and managed through a buil
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the board, you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board, you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[1]**, the Arduino Library Reference **[2]**, and the online store **[3]**; where you will be able to complement your board with sensors, actuators and more.
 
 ### Device Recovery
 
