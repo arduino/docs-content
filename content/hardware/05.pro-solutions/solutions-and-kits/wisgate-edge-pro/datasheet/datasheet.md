@@ -167,7 +167,7 @@ The WisGate Edge Pro provides robust radio frequency performance, optimized for 
 
 #### Wi-Fi® Radio Specifications
 
-The gateway supports high performance Wi-Fi® connectivity with the following specifications:
+The gateway supports high-performance Wi-Fi® connectivity with the following specifications:
 
 | **Specification**              | **Description**                                                                                                                                                                                |
 |--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
