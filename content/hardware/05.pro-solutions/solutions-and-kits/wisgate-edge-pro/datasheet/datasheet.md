@@ -476,11 +476,12 @@ Company information: Make sure is updated and always the same.
 
 ## Reference Documentation
 
-|             **Ref**             | **Link**                                                                        |
-|:-------------------------------:|---------------------------------------------------------------------------------|
-|           Project Hub           | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending        |
-|        Library Reference        | https://www.arduino.cc/reference/en/                                            |
-|          Online Store           | https://store.arduino.cc/                                                       |
+|        **Ref**        | **Link**                                                                 |
+|:---------------------:|--------------------------------------------------------------------------|
+|      Project Hub      | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
+|   Library Reference   | https://www.arduino.cc/reference/en/                                     |
+|     Online Store      | https://store.arduino.cc/                                                |
+| WisGate Edge Pro Docs | https://docs.arduino.cc/hardware/wisgate-edge-pro/                       |
 
 ## Revision History
 
