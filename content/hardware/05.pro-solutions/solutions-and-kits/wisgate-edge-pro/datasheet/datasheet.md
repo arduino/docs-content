@@ -486,4 +486,5 @@ Company information: Make sure is updated and always the same.
 
 |  **Date**  | **Revision** |                      **Changes**                       |
 | :--------: | :----------: | :----------------------------------------------------: |
+| 14/03/2025 |      2       |                     Format improvements       |
 | 12/03/2025 |      1       |                     First release                      |
