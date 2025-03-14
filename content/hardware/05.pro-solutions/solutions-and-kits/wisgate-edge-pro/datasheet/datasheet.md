@@ -163,7 +163,7 @@ The WisGate Edge Pro gateway features multiple LED indicators on the enclosure t
 
 #### RF Specifications
 
-The WisGate Edge Pro provides robust radio frequency performance, optimized for extended coverage and reliable communications:
+The WisGate Edge Pro provides robust radio frequency performance, optimized for extended coverage and reliable communications.
 
 #### Wi-Fi® Radio Specifications
 
