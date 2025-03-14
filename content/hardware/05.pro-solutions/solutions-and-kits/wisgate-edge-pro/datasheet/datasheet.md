@@ -365,11 +365,9 @@ The following table provides an overview of the connectors and interfaces availa
 |:-----------------:|:----------:|
 |        CE         |    Yes     |
 |        FCC        |    Yes     |
-|        IC         |    Yes     |
 |       RoHS        |    Yes     |
 |       REACH       |    Yes     |
 |       UKCA        |    Yes     |
-|       WEEE        |    Yes     |
 |        RCM        |    Yes     |
 
 ### Declaration of Conformity CE DoC (EU)
