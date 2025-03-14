@@ -71,6 +71,12 @@ Next create a slider by pressing the **Rotary** button on the top left menu. You
 
 ![Project with rotary](assets/appwizard-rotary.png)
 
+Now the complete project should look like this:
+
+![Complete project](assets/appwizard-complete-gui.png)
+
+Let's move on to how we can export this project to be displayed on the GIGA Display Shield.
+
 ## Exporting the Project
 
 In AppWizard, go to **File -> Export & Save** in the upper left of the window. Now open the folder of the project. Create a new folder which we will put the exported files into, in this new folder create another folder named **src**. Now from the exported project folder, copy all the files contained in the **Resource** and **Source** subfolders (without copying the subfolders themselves) into the newly created **src** folder. Take all the files out of the folders before putting them in the **src** folder, if you have any folders inside of the **src** folder it will not import into the Arduino IDE later.
