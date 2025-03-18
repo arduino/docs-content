@@ -13,6 +13,8 @@ The Arduino® Nano R4 is  a Nano form factor board based on the RA4M1 series mic
 
 The Nano R4 board's operating voltage is 5 V, making it hardware compatible with Nano form factor accessories with the same operating voltage. Shields designed for previous Nano revisions are therefore safe to use with this board but are not guaranteed to be software compatible due to the change of microcontroller.
 
+Customize the on-board RGB LED to indicate different operating states, making debugging and system monitoring more intuitive.
+
 # Target areas:
 
 Maker, Beginner, Education
@@ -27,28 +29,31 @@ The board features the standard 14 digital I/O ports, 6 analog channels, dedicat
 connections. Compared to its predecessors the board has a much larger memory: 8 times more flash memory (256
 kB) and 16 times more SRAM (32 kB).
 
+**Effortless Transition:** Move seamlessly from prototyping to production with the familiar RA4M1 microcontroller present already in the UNO R4 family.
 
 **Entry level projects:** If this is your first project within coding and electronics, the Nano R4 is a good fit. It is easy to get started with and has a lot of online documentation (both official + third party).
 
-**Easy power management:** the Nano R4 supports input voltages from 6-24 V. Removes the need for additional circuitry required to step down the voltage.
+**Easy power management:** the Nano R4 supports input voltages from 6-21 V. Removes the need for additional circuitry required to step down the voltage.
 
-**Cross compatibility:** the Nano form factor automatically makes it compatible with hundreds of existing third-party shields and other accessories.
+**Enhanced Connectivity:** Features an on-board QWIIC connector for easy integration with a wide range of sensors and peripherals. An extra I2C port at 5V on pins A4 and A5 offers further connectivity options
+
+**Cross compatibility:** the Nano form factor automatically makes it compatible with hundreds of existing third-party shields and other accessories. 
 </div>
 
 ## Features
 ### General Specifications Overview
 
-| Feature               | Description                                                             |
-| --------------------- | ----------------------------------------------------------------------- |
-| Microcontroller       | **R7FA4M1AB3CFM#HA0** 32-bit Arm® Cortex®-M4                            |
-| Internal Memory       | 256 kB Flash / 32 kB RAM / 8 kB EEPROM                                  |
-| USB Connectivity      | USB-C® port for power and data                                          |
-| Power                 | Input voltage (VIN): 6-24 V / Power via USB-C® at 5 V                   |
-| Digital Inputs        | GPIO (x21 - All exposed I/O can be used as digital), PWM (x15)          |
-| Analog Inputs         | 14-bit ADC (x8)                                                         |
-| Communication         | UART (x2), I2C (x2), SPI (x2), CAN (external transceiver required) (x1) |
-| Dimensions            | 18 mm x 45 mm                                                           |
-| Operating Temperature | -40 °C to +85 °C                                                        |
+| Feature               | Description                                                                                        |
+| --------------------- | -------------------------------------------------------------------------------------------------- |
+| Microcontroller       | **R7FA4M1AB3CFM#HA0** 32-bit Arm® Cortex®-M4                                                       |
+| Internal Memory       | 256 kB Flash / 32 kB RAM / 8 kB EEPROM                                                             |
+| USB Connectivity      | USB-C® port for power and data                                                                     |
+| Power                 | Input voltage (VIN): 6-21 V / Power via USB-C® at 5 V                                              |
+| Digital Inputs        | GPIO (x21 - All exposed I/O can be used as digital), PWM (x6)                                      |
+| Analog Inputs         | 14-bit ADC (x8)                                                                                    |
+| Communication         | UART (x1), I2C (x2) (5 V and 3.3 V over QWIIC), SPI (x1), CAN (external transceiver required) (x1) |
+| Dimensions            | 18 mm x 45 mm                                                                                      |
+| Operating Temperature | -40 °C to +85 °C                                                                                   |
 
 ### Microcontroller
 
@@ -60,8 +65,8 @@ On the Nano R4, the operating voltage is fixed at 5 V to be fully retro compatib
 | --------------------------- | ------------------------------------- |
 | R7FA4M1AB3CFM#HA0 Processor | Arm® Cortex®-M4 core at up to 480 MHz |
 | Flash Memory                | 256 kB of Flash Memory                |
-| Programming Memory          | 32kB MB of RAM                        |
-| Data Memory                 | 8kB MB of RAM                         |
+| Programming Memory          | 32kB of RAM                        |
+| Data Memory                 | 8kB of EEPROM                         |
 
 For more technical details on this microcontroller, visit [Renesas - RA4M1 series](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ra4m1-32-bit-microcontrollers-48mhz-arm-cortex-m4-and-lcd-controller-and-cap-touch-hmi).
 
@@ -103,7 +108,7 @@ This connector also shares the following pin connections:
 
 | Symbol          | Description                          | Min | Typ | Max | Unit |
 | --------------- | ------------------------------------ | --- | --- | --- | ---- |
-| V<sub>IN</sub>  | Input voltage from VIN pad / DC Jack | 6   | 7.0 | 24  | V    |
+| V<sub>IN</sub>  | Input voltage from VIN pad / DC Jack | 6   | 7.0 | 21  | V    |
 | V<sub>USB</sub> | Input voltage from USB connector     | 4.8 | 5.0 | 5.5 | V    |
 | T<sub>OP</sub>  | Operating Temperature                | -40 | 25  | 85  | °C   |
 
