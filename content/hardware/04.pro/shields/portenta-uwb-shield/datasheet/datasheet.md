@@ -168,9 +168,15 @@ The core of the Portenta UWB Shield is the DCU150 module from Truesense®. The b
 
 <p style="text-align: justify;">The Portenta UWB Shield board outline dimensions can be seen in the figure below.</p>
 
+![](assets/portenta-uwb-board_dimensions.png)
+
+<div style="page-break-after: always;"></div>
+
 ### Board Connectors
 
 <p style="text-align: justify;">The connectors of the Portenta UWB Shield are placed on the top side of the board<> their placement can be seen in the figure below.</p>
+
+![](assets/portenta-uwb-board_connectors.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -280,4 +286,5 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 |  **Date**  | **Revision** | **Changes**                            |
 |:----------:|:------------:|----------------------------------------|
-| 17/02/2025 |       1      | First release                          |
+| 17/03/2025 |       2      | Mechanical drawings updated            |
+| 14/03/2025 |       1      | First release                          |
