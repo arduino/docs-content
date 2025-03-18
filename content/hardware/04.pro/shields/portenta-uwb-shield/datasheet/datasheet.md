@@ -36,7 +36,7 @@ author: Arduino
   - <p style="text-align: justify;"><strong>Collision avoidance:</strong> Integrate the Portenta UWB Shield into autonomous robots or vehicles to detect obstacles and other moving objects with precise distance measurements, enabling safe navigation in dynamic environments.</p>
   - <p style="text-align: justify;"><strong>Gesture recognition:</strong> Leverage the UWB technology's precise ranging capabilities to detect subtle hand movements and gestures, creating touchless interfaces for various control applications.</p>
 
-- **Access control and secure transactions:**: Enhance security systems with the reliable and secure UWB technology of the Portenta UWB Shield for:
+- **Access control and secure transactions:** Enhance security systems with the reliable and secure UWB technology of the Portenta UWB Shield for:
   - <p style="text-align: justify;"><strong>Contactless access control:</strong> Implement UWB-based authentication for doors, gates, and secure areas that automatically grant access when authorized personnel approach without requiring physical contact or explicit actions.</p>
   - <p style="text-align: justify;"><strong>Secure vehicle access:</strong> Create passive entry systems for vehicles that authenticate users based on precise UWB positioning, providing better security than traditional RF technologies that are vulnerable to relay attacks.</p>
   - <p style="text-align: justify;"><strong>Point-of-sale systems:</strong> Enable secure, direction-aware payment systems that can precisely identify which customer is making a transaction, even in crowded environments, improving both security and user experience.</p>
@@ -49,7 +49,7 @@ author: Arduino
 
 <p style="text-align: justify;">The Portenta UWB Shield is a specialized 2D Angle of Arrival (AOA) Ultra-Wideband (UWB) technology board engineered specifically for anchor applications in positioning systems.</p>
 
-Below is a summary of the shields's key features. 
+Below is a summary of the shield's key features. 
 
 | **Feature**   | **Description**                                                                                 |
 |---------------|-------------------------------------------------------------------------------------------------|
@@ -102,7 +102,7 @@ Below is a summary of the onboard UWB module's (DCU150) key features.
 |                       **Parameter**                       |    **Symbol**   | **Min** | **Typ** | **Max** | **Unit** |
 |:---------------------------------------------------------:|:---------------:|:-------:|:-------:|:-------:|:--------:|
 | Normal mode with UWB 200 ms ranging round, including DPD¹ |  I<sub>NM</sub> |    -    |    5    |    -    |    mA    |
-|                       UWB DPD mode²                       | I<sub>DPD</sub> |    -    |    30   |    -    |    uA    |
+|                       UWB DPD mode²                       | I<sub>DPD</sub> |    -    |    30   |    -    |    μA    |
 
 <p><sup>1</sup> SR150 DS-TWR frame: responder, dual RX, 2 ms slot duration.<br><sup>2</sup> DPD: Deep Power Down mode.</p>
 
@@ -130,7 +130,7 @@ The core of the Portenta UWB Shield is the DCU150 module from Truesense®. The b
 
 ### Power Supply
 
-<p style="text-align: justify;">The Portenta UWB Shield is powered exclusively through the VCC pins (+3V3) of its High Density Connectors. These connectors are designed to be used with boards from the Portenta family, such as the Portenta C33 board. The power is supplied directly from the connected Portenta family board, which acts as the power source for the Portenta UWB Shield.</p>
+<p style="text-align: justify;">The Portenta UWB Shield is powered exclusively through the VCC pins (+3.3 VDC) of its High-Density Connectors. These connectors are designed to be used with boards from the Portenta family, such as the Portenta C33 board. The power is supplied directly from the connected Portenta family board, which acts as the power source for the Portenta UWB Shield.</p>
 
 ![](assets/portenta_uwb_power_tree.png)
 
@@ -174,7 +174,7 @@ The core of the Portenta UWB Shield is the DCU150 module from Truesense®. The b
 
 ### Board Connectors
 
-<p style="text-align: justify;">The connectors of the Portenta UWB Shield are placed on the top side of the board<> their placement can be seen in the figure below.</p>
+<p style="text-align: justify;">The connectors of the Portenta UWB Shield are placed on the top side of the board, their placement can be seen in the figure below.</p>
 
 ![](assets/portenta-uwb-board_connectors.png)
 
@@ -251,7 +251,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 <p style="text-align: justify;">French: Le présent appareil est conforme aux CNR d'Industrie Canada applicables aux appareils radio exempts de licence. L'exploitation est autorisée aux deux conditions suivantes:</p>
 
-1. L'appareil nedoit pas produire de brouillage
+1. L'appareil ne doit pas produire de brouillage
 2. L'utilisateur de l'appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d'en compromettre le fonctionnement.
 
 **IC SAR Warning:**
