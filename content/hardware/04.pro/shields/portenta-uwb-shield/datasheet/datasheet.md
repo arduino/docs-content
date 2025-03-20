@@ -286,5 +286,6 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 |  **Date**  | **Revision** | **Changes**                            |
 |:----------:|:------------:|----------------------------------------|
+| 20/03/2025 |       3      | Shield pinout       updated            |
 | 17/03/2025 |       2      | Mechanical drawings updated            |
 | 14/03/2025 |       1      | First release                          |
