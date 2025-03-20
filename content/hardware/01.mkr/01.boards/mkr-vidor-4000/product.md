@@ -7,6 +7,7 @@ primary_button_title: Get Started
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrvidor4000/150'
 certifications: [CE, UKCA, RoHS, FCC]
+status: end-of-life
 productCode: '024'
 sku: [ABX00022]
 ---

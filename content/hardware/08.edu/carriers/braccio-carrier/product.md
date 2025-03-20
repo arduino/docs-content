@@ -2,6 +2,7 @@
 title: Braccio Carrier 
 url_shop: https://store.arduino.cc/products/braccioplusplus
 forumCategorySlug: '/hardware/12'
+status: end-of-life
 sku: [ASX00032]
 ---
 
