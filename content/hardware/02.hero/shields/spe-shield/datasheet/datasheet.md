@@ -23,7 +23,7 @@ Industrial automation, building automation, factory automation, automotive netwo
 
 The Arduino SPE Shield expands industrial and IoT communication capabilities, offering a seamless interface for Single Pair Ethernet (10BASE-T1S) and RS485 networks. Its versatility makes it ideal for applications requiring low-power Ethernet, robust serial communication, and industrial automation.  Below are some examples demonstrating its potential across various applications: 
 
-**Industrial Automation & Networking:** Expand your industrial operations with the ASX00073 Shield, enabling reliable communication and data exchange for:
+**Industrial Automation & Networking:** Expand your industrial operations with the SPE Shield, enabling reliable communication and data exchange for:
 - **Industrial IoT Gateways:** Bridge RS485 devices with modern Ethernet (10BASE-T1S) networks to enable real-time data collection, remote monitoring, and Cloud integration for predictive analytics.
 - **Factory Automation & Control Systems:** Integrate RS485-based PLCs and sensors into a unified Ethernet infrastructure, allowing for centralized control and efficient machine-to-machine communication.
 - **Energy & Smart Grid Monitoring:** Use RS485 metering devices and Ethernet communication to collect, transmit, and analyze energy data, contributing to smart grid management and optimized energy use.
@@ -32,15 +32,18 @@ The Arduino SPE Shield expands industrial and IoT communication capabilities, of
 - **HVAC & Environmental Monitoring:** Integrate temperature, humidity, and air quality sensors via RS485 and transmit data via Ethernet (10BASE-T1S) for effective climate control in buildings.
 - **Access Control & Security Systems:** Link RS485 door controllers and biometric scanners to networked security systems for real-time authentication and access logging.
 - **Industrial Asset Tracking:** Combine RS485-connected RFID readers with Ethernet-based asset management systems to monitor equipment and inventory in large facilities.
-- **Remote Monitoring & Edge Computing:** With multiple communication protocol support, the ASX00073 Shield provides powerful remote monitoring and edge processing for:
+- **Remote Monitoring & Edge Computing:** With multiple communication protocol support, the SPE Shield provides powerful remote monitoring and edge processing for:
     
     - **Remote Equipment Diagnostics:** Use RS485 sensors to monitor industrial machinery, transmitting diagnostics via Ethernet to cloud-based maintenance systems for predictive maintenance.
     -  **Real-time Data Logging:** Capture sensor data through RS485 and transmit it via Ethernet (10BASE-T1S) for centralized high-speed industrial data logging and analysis.
     -  **Smart Agriculture Solutions:** Connect soil and weather sensors via RS485, transmitting data over Ethernet to optimize irrigation, climate control, and precision farming strategies.
 
-The Arduino ASX00073 Shield offers a scalable, open-source platform for developers, enabling rapid prototyping and seamless integration with industrial and IoT networks. Its support for SPI, UART, and I2C, alongside RS485 and Ethernet capabilities, makes it a versatile solution for building resilient and connected systems across industrial, smart infrastructure, and automation applications.
+The Arduino SPE Shield offers a scalable, open-source platform for developers, enabling rapid prototyping and seamless integration with industrial and IoT networks. Its support for SPI, UART, and I2C, alongside RS485 and Ethernet capabilities, makes it a versatile solution for building resilient and connected systems across industrial, smart infrastructure, and automation applications.
 
 ## Features
+
+
+
 ### General Specifications Overview
 
 ### Communication Interfaces
