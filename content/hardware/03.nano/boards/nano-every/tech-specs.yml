@@ -15,11 +15,11 @@ Communication:
 Power:
   I/O Voltage: 5V
   Input voltage (nominal): 7-21V
-  DC Current per I/O Pin: 15 mA
+  DC Current per I/O Pin: 20 mA
 Clock speed:
   Processor: ATMega4809 20 MHz
 Memory:
-  ATmega328P: 6KB SRAM, 48KB flash 256 byte EEPROM
+  ATmega4809: 6KB SRAM, 48KB flash 256 byte EEPROM
 Dimensions:
   Weight: 5gr
   Width: 18 mm
