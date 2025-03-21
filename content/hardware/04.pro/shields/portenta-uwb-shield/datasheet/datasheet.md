@@ -9,7 +9,7 @@ author: Arduino
 
 # Description
 
-<p style="text-align: justify;">The Portenta UWB Shield, based on the Truesense DCU150 module, is a versatile Ultra-Wideband (UWB) communication solution. It integrates with the Arduino Portenta C33 board via its High-Density connectors and functions as a base station for two-way ranging and real-time location services (RTLS). The shield features the Truesense DCU150 module, which incorporates the NXP Trimension™ SR150 UWB integrated circuit (IC), three embedded PCB antennas, onboard power management, clock control, filters and peripheral components. With 1.8 to 3.3 VDC level shifters and dual High-Density board-to-board connectors, it plugs directly into the Portenta C33 board.</p>
+<p style="text-align: justify;">The Portenta UWB Shield, based on the Truesense DCU150 module, is a versatile Ultra-Wideband (UWB) communication solution. It integrates with the Arduino Portenta C33 board via its High-Density connectors and functions as a base station for two-way ranging and real-time location services (RTLS). The shield features the Truesense DCU150 module, which incorporates the NXP® Trimension™ SR150 UWB integrated circuit (IC), three embedded PCB antennas, onboard power management, clock control, filters and peripheral components. With 1.8 to 3.3 VDC level shifters and dual High-Density board-to-board connectors, it plugs directly into the Portenta C33 board.</p>
 
 # Target Areas
 <p style="text-align: justify;">Smart logistics, precision proximity sensing, high precision RTLS, industrial applications, access control and secure payments</p>
@@ -66,7 +66,7 @@ Below is a summary of the onboard UWB module's (DCU150) key features.
 | Transceiver          | NXP® SR150 UWB transceiver, IEEE 802.15.4z HRP UWB standard, 6.0-8.5GHz, CH5&CH9                                                                        |
 | Ranging Capabilities | Supports two-way ranging and one-way ranging (TDoA)                                                                                                     |
 | Angle Measurement    | Supports Angle of Arrival (AoA) measurement                                                                                                             |
-| Processor            | ARM® Cortex-M33 32-bit processor running at 125 MHz with 128 kB code RAM, 128 kB data RAM, 128 kB ROM, ARM® TrustZone technology and S-DMA for security |
+| Processor            | Arm® Cortex®-M33 32-bit processor running at 125 MHz with 128 kB code RAM, 128 kB data RAM, 128 kB ROM, Arm® TrustZone technology and S-DMA for security |
 | DSP                  | Onboard programmable DSP (BSP32 CoolFlux DSP core), 32 kB RAM for code, 2x 16kB RAM for data                                                            |
 | Clock                | Onboard Real Time Clock (RTC)                                                                                                                           |
 
@@ -110,7 +110,7 @@ Below is a summary of the onboard UWB module's (DCU150) key features.
 
 ## Functional Overview
 
-The core of the Portenta UWB Shield is the DCU150 module from Truesense®. The board also contains two High-Density connectors which can be used to connect the Portenta C33 board to the shield.
+The core of the Portenta UWB Shield is the DCU150 module from Truesense. The board also contains two High-Density connectors which can be used to connect the Portenta C33 board to the shield.
 
 ### Pinout
 
