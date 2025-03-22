@@ -23,9 +23,9 @@ The Memory Map of an ATmega328P
 To program the bootloader and provide to the microcontroller the compatibility with the Arduino Software (IDE) you need to use an In-circuit Serial Programmer (ISP) that is the device that connects to a specific set of pins of the microcontroller to perform the programming of the whole flash memory of the microcontroller, bootloader included.
 The ISP programming procedure also includes the writing of fuses: a special set of bits that define how the microcontroller works under specific circumstances.
 
-### Use Arduino as ISP
+### Use Arduino as an ISP
 
-The whole process of loading the bootloader code and burning properly the fuses to make an ATmega microcontroller an "Arduino" is managed by the Arduino Software (IDE): it provides a specific menu item and allows you to use a variety of programming devices.
+The whole process of loading the bootloader code and burning the fuses properly to make an ATmega microcontroller an "Arduino" is managed by the Arduino Software (IDE): it provides a specific menu item and allows you to use a variety of programming devices.
 Among the programmers, the "Arduino as ISP" is the cheapest and most practical solution to burn a bootloader on another Arduino board with ATmega, 32U4 or ATtiny.
 
 ![](assets/ISP_Programmers.jpg)
@@ -34,7 +34,7 @@ The programming process uses VCC, GND and four data pins. Three pins connect MIS
 
 #### How to wire your boards
 
-The following table display on which pins the MOSI, MISO and SCK are broken out on the different Arduino boards:
+The following table displays on which pins the MOSI, MISO and SCK are broken out on the different Arduino boards:
 
 | **Arduino Board**    | **MOSI**     | **MISO**     | **SCK**      | **Level** |
 | -------------------- | ------------ | ------------ | ------------ | --------- |
@@ -49,15 +49,15 @@ The SPI interface - and therefore these pins - is the interface used to program 
 
 ![](assets/ICSPHeader.jpg)
 
-On the Arduino UNO in the following image, we have highlighted in red the connections on the female strips; in yellow the ICSP connector that connects to the ATmega328P. Please note that the Rev.3 board has an ATMega 16U2 chip that manages the USB connection and also that chip can be reprogrammed via a dedicated connector labeled ICSP2, just above the ATMega 16U2 itself.
+On the Arduino UNO in the following image, we have highlighted in red the connections on the female strips; in yellow the ICSP connector that connects to the ATmega328P. Please note that the Rev.3 board has an ATMega 16U2 chip that manages the USB connection and also that chip can be reprogrammed via a dedicated connector labelled ICSP2, just above the ATMega 16U2 itself.
 
 ![](assets/Uno_Connect.jpg)
 
-On some Arduino boards (see table above), pins MOSI, MISO and SCK are the same pins as digital pin 11, 12 and 13, respectively. That is why many tutorials instruct you to hook up the target to these pins. If you find this wiring more practical, have a define USE_OLD_STYLE_WIRING. This will work even when not using an UNO. (With the UNO board this is not needed).
+On some Arduino boards (see table above), pins MOSI, MISO and SCK are the same pins as digital pins 11, 12 and 13, respectively. That is why many tutorials instruct you to hook up the target to these pins. If you find this wiring more practical, have a define USE_OLD_STYLE_WIRING. This will work even when not using an UNO. (With the UNO board this is not needed).
 
 ![](assets/ArduinoUNOtoUNO_ISP2.jpg)
 
-In the picture above we are connecting two UNO boards for bootloader burning with the "old style" connections: the top board is the Target, the bottom board is the Programmer. Note the yellow connection from D10 of the programmer to RESET of the target. *On MKR family of boards, you can't use D10 for reset; we suggest D6 and you must remember to change the line 73 of the ArduinoISP sketch - `#define RESET 10` - putting "6" instead of 10.*
+In the picture above we are connecting two UNO boards for bootloader burning with the "old style" connections: the top board is the Target, and the bottom board is the Programmer. Note the yellow connection from D10 of the programmer to RESET of the target. *On MKR family of boards, you can't use D10 for reset; we suggest D6 and you must remember to change line 73 of the ArduinoISP sketch - `#define RESET 10` - putting "6" instead of 10.*
 
 ![](assets/Arduino_ISP_wires.jpg)
 
@@ -67,7 +67,7 @@ This Arduino NANO is programmed through its ICSP connector with wires coming fro
 
 The Arduino MEGA above is programming an Arduino UNO connecting D51-D11, D50-D12, D52-D13, GND-GND, 5V-5V and D10 to RESET. This type of board needs a 10&#xB5;F electrolytic capacitor connected to RESET and GND with the positive (long leg) connected to RESET.  The capacitor has to be placed after the programmer board has been loaded with the ISP sketch.
 
-The 10&#xB5;F electrolytic capacitor connected to RESET and GND of the programming board is needed only for the boards that have an interface between the microcontroller and the computer's USB, like Mega, UNO, Mini, Nano. Boards like Leonardo, Esplora and Micro, with the USB directly managed by the microcontroller, don't need the capacitor.
+The 10&#xB5;F electrolytic capacitor connected to RESET and GND of the programming board is needed only for the boards that have an interface between the microcontroller and the computer's USB, like Mega, UNO, Mini, and Nano. Boards like Leonardo, Esplora and Micro, with the USB directly managed by the microcontroller, don't need the capacitor.
 
 #### About voltages
 
@@ -75,26 +75,26 @@ The Arduino family of boards includes 5V and 3.3V devices. When using an Arduino
 
 ![](assets/MKR1000_ISP_UNO_2.jpg)
 
-In the above picture you see the wiring between a MKR1000 and a UNO. As described above, everything runs on 3.3V, taken from VCC  and GND of the MKR1000 and sent to 5V and GND of the UNO. The same connection could be made to the ICSP of the UNO following the pinout explained in the page. We have used the same colors for the wires as in the other pictures to help you switch from the "old wiring" to the ICSP connector with ease. Please note that the MKR family of boards share the same pinout, therefore you can use any MKR board as ISP programmer. If you use a MKR board as ISP programmer, remember to change the line 73 of the ArduinoISP defining the actual pin used on the MKR board to Reset the target (6 in the picture above).
+In the above picture you see the wiring between a MKR1000 and a UNO. As described above, everything runs on 3.3V, taken from VCC  and GND of the MKR1000 and sent to 5V and GND of the UNO. The same connection could be made to the ICSP of the UNO following the pinout explained on the page. We have used the same colors for the wires as in the other pictures to help you switch from the "old wiring" to the ICSP connector with ease. Please note that the MKR family of boards share the same pinout, therefore you can use any MKR board as an ISP programmer. If you use a MKR board as an ISP programmer, remember to change line 73 of the ArduinoISP defining the actual pin used on the MKR board to Reset the target (6 in the picture above).
 
-**Note: Please do not connect to USB or power supply the boards while you set up the connections and wires. We also suggest that you first program the Arduino used as ISP programmer before you proceed with the wiring to the target board.**
+**Note: Please do not connect to USB or power supply the boards while you set up the connections and wires. We also suggest that you first program the Arduino used as an ISP programmer before you proceed with the wiring to the target board.**
 
 ### Load the sketch
 
-The Arduino that you will use as programmer needs a specific sketch. You find it under Examples > 11. ArduinoISP > ArduinoISP .
+The Arduino that you will use as a programmer needs a specific sketch. You find it under Examples > 11. ArduinoISP > ArduinoISP .
 
 ![](assets/LoadSketch.jpg)
 
 Going through the lines of the sketch you find a number of parameters that need to be set according to the target board. These parameters are, however, set by a specific file available for each bootloader/board supported by the Arduino Software (IDE). Other parameters are clearly explained by the comments and should be changed only if you know what you are doing.
-The sketch also supports three LEDs that give you a visual feedback about the programming process.
+The sketch also supports three LEDs that give you visual feedback about the programming process.
 
 ![](assets/Arduino_ISP_LEDSOK.jpg)
 
-To upload the sketch to your Arduino board - the one that you will use as the programmer - you need to select board type and port, then you can proceed as usual.
+To upload the sketch to your Arduino board - the one that you will use as the programmer - you need to select board type and port, and then you can proceed as usual.
 
 ### Program the bootloader
 
-If all the wires are set, you need to switch to the board type you want to program with the bootloader. This step is mandatory to select the proper bootloader code and the fuses configurations. The programming procedure checks the signature of the microcontroller before any writing action is taken, but many boards share the same microcontroller and each board has its own bootloader. The port remains the one of the ArduinoISP.
+If all the wires are set, you need to switch to the board type you want to program with the bootloader. This step is mandatory to select the proper bootloader code and the fuse configurations. The programming procedure checks the signature of the microcontroller before any writing action is taken, but many boards share the same microcontroller and each board has its own bootloader. The port remains the one of the ArduinoISP.
 
 Choose "Burn bootloader" under tools and wait  for the confirmation message in the lower part of the Arduino Software (IDE) interface. If you connected the LEDs you may follow the process visually.
 
@@ -104,19 +104,19 @@ Choose "Burn bootloader" under tools and wait  for the confirmation message in t
 
 The programming process manages the three SPI lines (MISO, MOSI and SCK) according to the standard SPI programming protocol, the same used to read and write SD memory cards. The only difference with memory cards is the lack of a CS (Chip select) pin. On our AVR microcontrollers we use the RESET pin that halts the execution of any sketch or bootloader and puts the microcontroller in a specific state where it listens to the commands arriving from the SPI interface. The very first command that the protocol requires is the one that enters the microcontroller in the *Serial Programming Mode*.
 
-Once this specific mode is active, we can write and read all the microcontroller programmable areas: Flash, EEPROM and Fuses. At the end of the Flash memory, we have the bootloader code area, as highlighted in the image at the beginning of this article. The "Burn Bootloader" procedure also sets properly the fuses of the microcontroller according to the design of the board. This is one of the reasons why you have to burn the bootloader selecting your exact board model in the list.
+Once this specific mode is active, we can write and read all the microcontroller programmable areas: Flash, EEPROM and Fuses. At the end of the Flash memory, we have the bootloader code area, as highlighted in the image at the beginning of this article. The "Burn Bootloader" procedure also sets properly the fuses of the microcontroller according to the design of the board. This is one of the reasons why you have to burn the bootloader by selecting your exact board model in the list.
 
 ### Technical aspects of programming
 
-The open source software tool used to program the microcontroller is [avrdude](http://www.nongnu.org/avrdude/). The process goes through four steps: unlocking the bootloader section of the chip, setting the fuses on the chip, uploading the bootloader code to the chip, locking back the bootloader section of the chip.
+The open source software tool used to program the microcontroller is [avrdude](http://www.nongnu.org/avrdude/). The process goes through four steps: unlocking the bootloader section of the chip, setting the fuses on the chip, uploading the bootloader code to the chip, and locking back the bootloader section of the chip.
 
 The fuses are managed according to the preferences stored into each parameter file associated with the board, avoiding potential mistakes.
 
 The management of fuses, usually a set of three bytes - low, high and extended -, is the most delicate aspect of the bootloader programming: a wrong fuse setting could brick the microcontroller and the board.
-Fuses define many aspects of the microcontroller's functions like: selecting different clock sources and change how fast the chip runs, setting the minimum voltage required before the chip works (brownout), setting whether or not a bootloader is used, setting how much memory is allocated to the boot loader (from 256 to 2048 words - 512 to 4096 bytes),
-disabling reset or serial programming and stop EEPROM data being erased when uploading a new sketch.
+Fuses define many aspects of the microcontroller's functions like: selecting different clock sources and changing how fast the chip runs, setting the minimum voltage required before the chip works (brownout), setting whether or not a bootloader is used, setting how much memory is allocated to the boot loader (from 256 to 2048 words - 512 to 4096 bytes),
+disabling reset or serial programming and stopping EEPROM data from being erased when uploading a new sketch.
 
-Detailed description of the fuses can be found on the datasheet of each microcontroller.
+Detailed descriptions of the fuses can be found on the datasheet of each microcontroller.
 
 Every setting has its own usage and it is logical to allow the developer to lock the chip and protect it from ISP programming, but it might happen to mistakenly set a fuse in the wrong way, locking you out of the programming process through the ISP interface. To recover the microcontroller, you have to rely on a High Voltage Serial Programmer that uses 12V to reset the fuses.
 
