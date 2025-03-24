@@ -172,6 +172,23 @@
                 "panel": "shared"
             },
             "problemMatcher": []
-        }
+        },
+        {
+            "label": "SEO Check (current article)",
+            "type": "shell",
+            "command": "node scripts/seo-check/seo-check.js \"${file}\"",
+            "options": {
+              "cwd": "${workspaceFolder}"
+            },
+            "windows": {
+              "command": "node .\\scripts\\seo-check\\seo-check.js \"${file}\""
+            },
+            "group": "none",
+            "presentation": {
+              "reveal": "always",
+              "panel": "shared"
+            },
+            "problemMatcher": []
+          }
     ]
   }
