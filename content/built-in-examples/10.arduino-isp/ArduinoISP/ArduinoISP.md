@@ -49,7 +49,7 @@ The SPI interface - and therefore these pins - is the interface used to program 
 
 ![](assets/ICSPHeader.jpg)
 
-On the Arduino UNO in the following image, we have highlighted in red the connections on the female strips; in yellow the ICSP connector that connects to the ATmega328P. Please note that the Rev.3 board has an ATMega 16U2 chip that manages the USB connection and also that chip can be reprogrammed via a dedicated connector labelled ICSP2, just above the ATMega 16U2 itself.
+On the Arduino UNO in the following image, we have highlighted in red the connections on the female strips; in yellow the ICSP connector that connects to the ATmega328P. Please note that the Rev.3 board has an ATMega 16U2 chip that manages the USB connection and also that chip can be reprogrammed via a dedicated connector labeled ICSP2, just above the ATMega 16U2 itself.
 
 ![](assets/Uno_Connect.jpg)
 
