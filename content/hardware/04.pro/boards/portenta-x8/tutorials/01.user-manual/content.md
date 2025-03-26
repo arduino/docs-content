@@ -84,7 +84,7 @@ In addition to the above features, here is an overview of the board's main compo
 ![Portenta X8 Pinout](assets/ABX00049-pinout.jpg)
 
 The full pinout is available and downloadable as PDF from the link below:
-* [Portenta X8 Pinout](https://docs.arduino.cc/static/019dd9ac3b08f48192dcb1291d37aab9/ABX00049-full-pinout.pdf)
+* [Portenta X8 Pinout](/resources/pinouts/ABX00049-full-pinout.pdf)
 
 ### Datasheet
 
@@ -1019,9 +1019,9 @@ With this tool, you can easily upload containers to a board linked to your Found
 
 In order to learn how to properly call GPIOs or other peripherals both in the Arduino environment or in Linux, with or without a carrier, you can check the following pinout diagrams:
 
-* [Portenta X8 pinout](https://docs.arduino.cc/static/019dd9ac3b08f48192dcb1291d37aab9/ABX00049-full-pinout.pdf)
-* [Portenta Breakout pinout](https://docs.arduino.cc/static/8d54d1a01d6174ed60fc9698e881ad4c/ASX00031-full-pinout.pdf)
-* [Portenta Max Carrier pinout](https://docs.arduino.cc/static/d0bd73b17e97af0fe376b7d518b18660/ABX00043-full-pinout.pdf)
+* [Portenta X8 pinout](/resources/pinouts/ABX00049-full-pinout.pdf)
+* [Portenta Breakout pinout](/resources/pinouts/ASX00031-full-pinout.pdf)
+* [Portenta Max Carrier pinout](/resources/pinouts/ABX00043-full-pinout.pdf)
 * [Portenta Hat Carrier pinout](https://docs.arduino.cc/resources/pinouts/ASX00049-full-pinout.pdf)
 * [Portenta Mid Carrier pinout](https://docs.arduino.cc/resources/pinouts/ASX00055-full-pinout.pdf)
 
