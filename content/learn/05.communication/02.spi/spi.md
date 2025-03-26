@@ -22,7 +22,7 @@ difficulty: 'intermediate'
 
 The SPI Library is included in every Arduino core/platform, so you do not need to install it externally. You can read more about SPI functions in the links below:
 
-- [SPI Library](https://www.arduino.cc/en/reference/SPI)
+- [SPI Library](https://reference.arduino.cc/reference/en/language/functions/communication/spi/)
 - [GitHub (ArduinoCore-avr)](https://github.com/arduino/ArduinoCore-avr/tree/master/libraries/SPI)
 
 ## Serial Peripheral Interface (SPI)
