@@ -1,5 +1,5 @@
 ---
-identifier: ABXXXXX
+identifier: ABX00142
 title: Arduino® Nano R4
 type: maker
 author: 
@@ -84,15 +84,11 @@ The Nano R4 has a DAC with up to 12-bit resolution attached to the A0 analog pin
 
 The I2C connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. Note that this connector is powered via 3.3 V.
 
-<!---Posible connector pic-->
-
 This connector also shares the following pin connections:
 
 **JP1 header**
 - A4
 - A5
-
-<!---Is not this a separated I2C bus? I get this from the UNO R4 WiFi-->
 
 **Note:** as A4/A5 is connected to the main I2C bus, these should not be used as ADC inputs whenever the bus is in use. You can however connect I2C devices to each of these pins and connectors simultaneously.
 
@@ -142,7 +138,7 @@ This connector also shares the following pin connections:
 
 ### Pinout
 
-![Pinout for Nano R4](assets/ABXXXXX-pinout.png)
+![Pinout for Nano R4](assets/ABX00142-pinout.png)
 
 ### Full Pinout Table
 #### Analog (JP1)
@@ -212,7 +208,7 @@ Power via USB supplies about ~4.7 V (due to Schottky drop) to the RA4M1 microcon
 
 #### Power Tree
 
-![Arduino UNO R4 Minima power tree.](assets/UNO_R4_Minima_Power_Tree.png)
+![Arduino Nano R4 power tree.](assets/Nano_R4_Power_Tree.png)
 
 ### Pin Voltage
 
@@ -245,11 +241,10 @@ Now that you have gone through the basics of what you can do with the board you 
 ## Mechanical Information
 ### Board Dimensions
 
-![Mechanical View of Arduino Nano R4](assets/mechanicalDrawingNanoR4.png)
+![Mechanical View of Arduino Nano R4](assets/mechanicalDrawingNanoR4.svg)
 
 ### Board Connectors
 ### Board Peripherals and Actuators
-
 
 ## Company Information
 
