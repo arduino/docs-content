@@ -1,28 +1,29 @@
-<EssentialsColumn title="First Steps">
-    <EssentialElement link="/tutorials/edge-control/getting-started-edge-control" title="Quickstart Guide" type="getting-started">
-        A quick guide to installing and testing your board with the Arduino IDE.
-    </EssentialElement>
-
-</EssentialsColumn>
+---
+productsLibrariesMap:
+  - arduinoble
+---
 
 <EssentialsColumn title="Suggested Libraries">
     <EssentialElement link="https://github.com/arduino-libraries/Arduino_EdgeControl" title="Edge Control" type="library">
         Arduino Library for Arduino Edge Control.
     </EssentialElement>
-    
-<EssentialElement link="https://www.arduino.cc/en/Reference/ArduinoBLE" title="Arduino BLE" type="library">
-        Bluetooth® 4.0 includes both traditional Bluetooth, now labeled " Bluetooth® Classic", and the Bluetooth® Low Energy
-</EssentialElement>
 
 <EssentialElement link="https://github.com/arduino-libraries/Arduino_Pro_Tutorials" title="Arduino Pro Tutorials" type="library">
-        The complete Arduino sketches from the Pro tutorials.     
+        The complete Arduino sketches from the Pro tutorials.
 </EssentialElement>
+
+</EssentialsColumn>
+
+<EssentialsColumn title="Suggested Sensors">
+    <EssentialElement link="https://store-usa.arduino.cc/products/soil-humidity-sensor-watermark-2-m-75-cm-pack-of-6" title="Soil Humidity Sensor" type="getting-started">
+        A professional tensiometric sensor that measures water availability in the soil.
+    </EssentialElement>
 
 </EssentialsColumn>
 
 <EssentialsColumn title="Arduino Basics">
     <EssentialElement link="https://www.arduino.cc/en/Tutorial/BuiltInExamples" title="Built-in Examples" type="resource">
-        Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands. 
+        Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands.
     </EssentialElement>
     <EssentialElement link="/learn" title="Learn" type="resource">
         Discover interesting articles, principles and techniques related to the Arduino ecosystem.

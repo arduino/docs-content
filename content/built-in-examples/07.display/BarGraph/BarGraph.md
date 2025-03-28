@@ -11,7 +11,7 @@ tags:
   - Visualisation
 ---
 
-The bar graph - a series of LEDs in a line, such as you see on an audio display - is a common hardware display for analog sensors.  It's made up of a series of LEDs in a row, an analog input like a potentiometer, and a little code in between.  You can  buy multi-LED bar graph displays fairly cheaply, like [this one](http://www.digikey.com/product-detailhttps://www.arduino.cc/en/MV54164/1080-1183-ND/2675674).  This tutorial demonstrates how to control a series of LEDs in a row, but can be applied to any series of digital outputs.
+The bar graph - a series of LEDs in a line, such as you see on an audio display - is a common hardware display for analog sensors.  It's made up of a series of LEDs in a row, an analog input like a potentiometer, and a little code in between.  You can  buy multi-LED bar graph displays fairly cheaply, like [this one](https://www.digikey.com/en/products/detail/everlight-electronics-co-ltd/MV54164/2675674).  This tutorial demonstrates how to control a series of LEDs in a row, but can be applied to any series of digital outputs.
 
 This tutorial borrows from the [**For Loop and Arrays**](https://www.arduino.cc/en/Tutorial/Loop) tutorial as well as the [**Analog Input**](/built-in-examples/analog/AnalogInput) tutorial.
 
@@ -19,7 +19,7 @@ This tutorial borrows from the [**For Loop and Arrays**](https://www.arduino.cc/
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - LED bar graph display or 10 LEDs
 - Potentiometer

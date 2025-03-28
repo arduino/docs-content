@@ -7,19 +7,19 @@ High-Density Pins:
   Digital I/O pins: 78
   Analog input pins: 8
   PWM pins: 10
-  SPI pins: 8 
-  I2C pins: 6 
+  SPI pins: 8
+  I2C pins: 6
   UART pins: 16
   CAN pins: 4
   I2S pins: 4
   USB pins: 8
   JTAG/SWD pins: 6
 MKR-styled Pins:
-  Digital I/O pins: 22 
+  Digital I/O pins: 22
   Analog input pins: 7
   PWM pins: 7
-  SPI pins: 4 
-  I2C pins: 2 
+  SPI pins: 4
+  I2C pins: 2
   UART pins: 2
 Wireless connectivity:
   Chipset: ESP32-C3-MINI-1U
@@ -33,13 +33,13 @@ Analog-to-digital converter (ADC):
   Resolution: 12 bits
 Digital-to-analog converter (DAC):
   Channels: 2
-  Resolution: 12 bits 
+  Resolution: 12 bits
 Secure element: NXP® SE050C2
 Communication:
-  I2C: 3
+  I2C: 3 ports (I2C0, I2C1, and I2C2)
   UART: 4
   CAN FD: 2
-  I2S: 1
+  I2S: 1 
   SPI: 2
   PWM: 10
   USB: 2 (1x USB 2.0 Full Speed + 1x USB 2.0 High Speed)
@@ -48,7 +48,7 @@ Power:
   Board input voltage (VIN): 5 V
   Supported battery: Li-ion/Li-Po Single Cell 3.7 V
   Battery connector: JST 3-pin 1.2 mm pitch
-Clock speed: 200 MHz 
+Clock speed: 200 MHz
 Memory:
   Internal: 2 MB Flash, 512 KB RAM
   External: 16 MB (QSPI Flash)

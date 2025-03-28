@@ -15,7 +15,7 @@ source: "https://create.arduino.cc/projecthub/officine-innesto/control-your-iot-
 
 ## Apps and Online Services
 
-- [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [MQTT](http://mqtt.org/)
 - [Node-RED](https://nodered.org/)
 
@@ -27,13 +27,13 @@ The connection is going to be held through [MQTT](https://en.wikipedia.org/wiki/
 
 In order to do this we need to do some work on the server side. I'm using a Raspberry PI with Node-RED on it, but you can host an instance of Node-RED on Windows/MAC/Linux or on the Cloud (Bluemix, AWS, etc..).
 
-This tutorial heavily relies on [Interfacing Arduino MKR or ESP via MQTT - Node-RED 101 ](https://www.hackster.io/officine/interfacing-arduino-mkr-or-esp-via-mqtt-node-red-101-4833bc)we did back in January. We are touching all the points and adding the data visualisation, but don't hesitate to go through that tutorial in order to see all the steps in the setup of the cloud instance. 
+This tutorial heavily relies on [Interfacing Arduino MKR or ESP via MQTT - Node-RED 101 ](https://www.hackster.io/officine/interfacing-arduino-mkr-or-esp-via-mqtt-node-red-101-4833bc)we did back in January. We are touching all the points and adding the data visualisation, but don't hesitate to go through that tutorial in order to see all the steps in the setup of the Cloud instance. 
 
 ### The Server
 
 In order to prepare your Node-RED instance properly you need to install two Nodes: [Node-RED Dashboard](https://flows.nodered.org/node/node-red-dashboard) and [an MQTT brocker written in node.js](https://flows.nodered.org/node/node-red-contrib-mqtt-broker).
 
-Once you are done, copy the flow you find in the sowftare section in your palette by doing *import > clipboard*
+Once you are done, copy the flow you find in the software section in your palette by doing *import > clipboard*
 
 ![Node-RED Flow you can download from this hackster tutorial ](assets/uploads2ftmp2f4df72ff0-f295-4160-ad26-1825584f1b322fimmagine_9Voi7OWFjm.png)
 
@@ -45,14 +45,14 @@ Once you are done, copy the flow you find in the sowftare section in your palett
 
 We are using the **Iot Prime MKR Bundle** to visualise **Light**, **Humidity**, **Pressure** and **Temperature** using **MQTT**. We are going to create a channel for each one of this data, as well as the two relays.
 
-We'll be using the [MQTT Library](https://github.com/256dpi/arduino-mqtt) by [Joël Gähwiler 256dpi](https://github.com/256dpi) (you should be able to run everything from your Arduino Online Editor sketch, by adding Wifi information to have the board conneting to the internet. 
+We'll be using the [MQTT Library](https://github.com/256dpi/arduino-mqtt) by [Joël Gähwiler 256dpi](https://github.com/256dpi) (you should be able to run everything from your Arduino Online Editor sketch, by adding Wifi information to have the board connecting to the internet. 
 
-Don't forget the [MKR\_ENV Library](https://github.com/arduino-libraries/Arduino_MKRENV) you need to use the data from the board (if going with the online IDE, it's going to be impoted automatically 👌
+Don't forget the [MKR\_ENV Library](https://github.com/arduino-libraries/Arduino_MKRENV) you need to use the data from the board (if going with the online IDE, it's going to be imported automatically 👌
 
 The sending of the data is done in loop: 
  
 ```arduino
- // read enrivornmental data
+ // read environmental data
  float t = ENV.readTemperature();
  float h = ENV.readHumidity();
  float p = ENV.readPressure();

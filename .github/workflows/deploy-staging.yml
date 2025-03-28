@@ -1,0 +1,118 @@
+name: Deploy to docs-content.oniudra.cc
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - ghaction
+
+concurrency:
+  group: deploy-staging
+  cancel-in-progress: true
+
+# Allow installation of dependencies
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  # This job is used to render datasheets, but only if they have changed.
+  # It's a separate job so we don't have to cleanup the machine afterwards.
+  render-datasheets:
+    name: Render Datasheets
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: ./.github/actions/generate-datasheets
+        with:
+          artifact-name: datasheets
+          datasheets-path: static/resources/datasheets
+
+  build:
+    name: Build and Deploy
+    needs: render-datasheets
+    runs-on: ubuntu-latest
+    environment: staging
+    env:
+      REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+      APP_ENV: staging
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: "0"
+
+      - name: Cleanup runner disk
+        uses: ./.github/actions/cleanup-disk # Cleanup machine before starting the build
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: "npm"
+          cache-dependency-path: "package-lock.json"
+
+      - name: Retrieve Datasheets
+        uses: actions/download-artifact@v4 # Retrieve the datasheets generated in the previous job
+        with:
+          name: datasheets
+          path: static/resources/datasheets
+
+      - name: Debug datasheet list
+        run: ls -lah static/resources/datasheets
+
+      - name: Copy Static Files
+        run: |
+          mkdir -p static/resources/schematics static/resources/pinouts static/resources/models
+          find ./content/hardware -type f -name "*-schematics.pdf" -exec cp {} ./static/resources/schematics/ \;
+          find ./content/hardware -type f -name "*-full-pinout.pdf" -exec cp {} ./static/resources/pinouts/ \;
+          find ./content/hardware -type f -name "*-pinout.png" -exec cp {} ./static/resources/pinouts/ \;
+          find ./content/hardware -type f -name "*-step.zip" -exec cp {} ./static/resources/models/ \;
+
+      - name: Gatsby main cache
+        uses: actions/cache@v4
+        id: gatsby-cache-folder
+        with:
+          path: .cache
+          key: ${{ runner.os }}-cache-gatsby-${{ github.ref_name }}
+          restore-keys: |
+            ${{ runner.os }}-cache-gatsby-main
+
+      - name: Gatsby Public Folder cache
+        uses: actions/cache@v4
+        id: gatsby-public-folder
+        with:
+          path: public/
+          key: ${{ runner.os }}-public-gatsby-${{ github.ref_name }}
+          restore-keys: |
+            ${{ runner.os }}-public-gatsby-main
+
+      - run: npm install
+
+      - run: npm run build
+
+      - name: Clean up node_modules # Just to save space
+        run: rm -rf node_modules
+
+      - name: Deploy to S3
+        uses: ./.github/actions/sync-s3
+        with:
+          role-to-assume: ${{ secrets.STAGING_IAM_ROLE }}
+          bucket-name: ${{ secrets.STAGING_BUCKET_NAME }}
+
+  purge-datasheets:
+    name: Purge Datasheets cache
+    needs: build
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Purge Cloudflare Cache
+        shell: bash
+        run: |
+          echo "Purging Cloudflare cache for prefix: ${{ vars.DATASHEETS_BASE_URL }}, zone: ${{ vars.CLOUDFLARE_ZONE }}"
+          curl -f -X POST "https://api.cloudflare.com/client/v4/zones/${{ vars.CLOUDFLARE_ZONE }}/purge_cache" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_PURGE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{"prefixes":["${{ vars.DATASHEETS_BASE_URL }}"]}'

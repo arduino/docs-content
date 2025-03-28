@@ -31,26 +31,33 @@ This tutorial shows you how to capture a frame from the Portenta Vision Shield C
 
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 - Portenta Vision Shield ([LoRa](https://store.arduino.cc/portenta-vision-shield-lora) or [Ethernet](https://store.arduino.cc/portenta-vision-shield))
-- 1x USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - Micro SD card
-- Arduino IDE or Arduino-cli
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino-cli](https://arduino.github.io/arduino-cli)
 
 ## Instructions
 
 ### 1. The Setup
-Connect the Vision Shield to your Portenta H7 as shown in the figure. The top and bottom high density connectors are connected to the corresponding ones on the underside of the H7 board. Plug in the H7 to your computer using the USB-C® cable.
+Connect the Portenta Vision Shield to your Portenta H7 as shown in the figure. The top and bottom high density connectors are connected to the corresponding ones on the underside of the H7 board. Plug in the H7 to your computer using the USB-C® cable.
 
-![Connecting the Vision Shield to Portenta](assets/vs_ard_gs_attach_boards.svg)
+![Connecting the Portenta Vision Shield to Portenta](assets/vs_ard_gs_attach_boards.svg)
 
 #### The Camera
 
-You will be using the **Himax HM-01B0 camera module** which has a resolution of 320 by 240 and the output data its in grayscale with 8 bits per pixel (bpp). It is important to have this in mind as the `.bmp` (bitmap) format has some needed configuration depending on the data being used.
+The Vision Shield Rev.1 uses the **Himax HM-01B0 (320x240) camera module**, the Vision Shield Rev.2 uses the **Himax HM0360 (640x480) camera module**, both output data are grayscale with 8 bits per pixel (bpp). It is important to have this in mind as the `.bmp` (bitmap) format has some needed configuration depending on the data being used.
 
 Inside the sketch, you can use these libraries to access the camera APIs, also compatible with the [Arduino Nicla Vision](https://docs.arduino.cc/hardware/nicla-vision)
 ```cpp
 #include "camera.h" // Multi Media Card APIs
-#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield
+
+//For the Vision Shield Rev.1
+#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield Rev.1
+
+//For the Vision Shield Rev.2
+#include "hm0360.h" // API to read from the Himax camera found on the Portenta Vision Shield Rev.2
 ```
+
+***Left uncommented the library of your Vision Shield version.***
 
 #### Bitmap File Format
 
@@ -80,7 +87,12 @@ First you need to include the needed libraries
 #include "FATFileSystem.h"    // Mbed API for portable  and embedded systems
 
 #include "camera.h" // Arduino Mbed Core Camera APIs
-#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield
+
+/*-----Uncomment the library and class for your specific hardware-----*/
+
+//#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield Rev.1
+// OR
+#include "hm0360.h" // API to read from the Himax camera found on the Portenta Vision Shield Rev.2
 ```
 
 Then define the following objects with their respective constructor (`blockDevice` and `fileSystem` objects), needed for getting access to the SD Card and the file system.
@@ -92,8 +104,17 @@ SDMMCBlockDevice blockDevice;
 mbed::FATFileSystem fileSystem("fs");
 
 #include "camera.h" // Arduino Mbed Core Camera APIs
-#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield
-HM01B0 himax;
+
+/*-----Uncomment the library and class for your specific hardware-----*/
+
+//#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield Rev.1
+//HM01B0 himax;
+
+// OR
+
+#include "hm0360.h" // API to read from the Himax camera found on the Portenta Vision Shield Rev.2
+HM0360 himax;
+
 Camera cam(himax);
 
 FrameBuffer frameBuffer; // Buffer to save the camera stream
@@ -271,7 +292,7 @@ Select the right serial port on your IDE and upload the Arduino sketch to your P
 
 Insert a micro SD Card into the Portenta Vision Shield.
 
-Connect the Portenta Vision shield to the Portenta H7.
+Connect the Portenta Vision Shield to the Portenta H7.
 
 Once the sketch is uploaded, open the Serial Monitor or wait 5 seconds: you should see that everything is fine and the capture has been taken.
 
@@ -288,8 +309,15 @@ SDMMCBlockDevice blockDevice;
 mbed::FATFileSystem fileSystem("fs");
 
 #include "camera.h" // Arduino Mbed Core Camera APIs
-#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield
-HM01B0 himax;
+
+/*-----Uncomment the library and class for your specific hardware-----*/
+
+//#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield Rev.1
+//HM01B0 himax;
+
+#include "hm0360.h" // API to read from the Himax camera found on the Portenta Vision Shield Rev.2
+HM0360 himax;
+
 Camera cam(himax);
 
 FrameBuffer frameBuffer; // Buffer to save the camera stream
@@ -430,7 +458,7 @@ void countDownBlink(){
 
 ## Conclusion
 
-In this tutorial you learned how to capture frames with your Vision Shield's Camera in the Arduino IDE, encode it with the bitmap standards and save it to an SD Card. 
+In this tutorial you learned how to capture frames with your Portenta Vision Shield's Camera in the Arduino IDE, encode it with the bitmap standards and save it to an SD Card. 
 
 ## Next Steps
 

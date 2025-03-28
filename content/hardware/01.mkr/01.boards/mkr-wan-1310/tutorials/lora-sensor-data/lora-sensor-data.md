@@ -32,7 +32,7 @@ ___
 - 1x MKR ENV shield* ([link to store](https://store.arduino.cc/arduino-mkr-env-shield))
 - 2x Micro USB cable
 - Arduino IDE (offline and online versions available).
-- Arduino SAMD core installed, [follow this link for instructions](https://www.arduino.cc/en/Guide/MKRWiFi1010#installing-drivers-for-the-mkr-wifi-1010).
+- Arduino SAMD Board Package installed, [follow this link for instructions](https://www.arduino.cc/en/Guide/MKRWiFi1010#installing-drivers-for-the-mkr-wifi-1010).
 - **LoRa** library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa).
 - **Arduino_MKRENV** installed, [click here for more documentation](https://www.arduino.cc/en/Reference/ArduinoMKRENV).
 
@@ -100,7 +100,7 @@ int counter = 0;
 
 In the `setup()` we will begin serial communication, where we will use the command `while(!Serial);` to prevent the program from running until we open the Serial Monitor.
 
-We will then initialize the **LoRa** library, where we will set the radio frequency to 868E6, which is used in Europe for LoRa® communication. If we are located in North America, we need to change this to 915E6.
+We will then initialize the **LoRa** library, where we will set the radio frequency to 868E6, which is used in Europe for communication based on LoRa® technology. If we are located in North America, we need to change this to 915E6.
 
 As we are using the MKR ENV shield, we also need to initialize the **Arduino_MKRENV** library by using the line `if (!ENV.begin())` followed by an error message in case it failed to initialize.
 
@@ -239,7 +239,10 @@ If the code is not working, there are some common issues we might need to troubl
 - We have not opened the Serial Monitor.
 - We are using the same computer for both boards without a serial interfacing program.
 
-
 ## Conclusion
 
-This tutorial demonstrates a simple, yet powerful communication setup with the MKR WAN 1310 board and a MKR ENV Shield over the LoRa® network.   
+This tutorial demonstrates a simple, yet powerful communication setup with the MKR WAN 1310 board and a MKR ENV Shield over the LoRa®-based network.
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

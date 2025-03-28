@@ -13,7 +13,7 @@ This example demonstrates one technique for calibrating sensor input.  The board
 
 ### Hardware Required
 
-- Arduino board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - LED
 

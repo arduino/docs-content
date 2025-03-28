@@ -1,0 +1,26 @@
+Kit:
+  Name: Arduino Portenta Proto Kit VE
+  SKU: AKX00074
+Components:
+  Portenta H7:
+    Dual-core processing (ARM Cortex® M7 at 480 MHz and M4 at 240 MHz) with advanced graphics capabilities at an industrial operating range (-40 °C to 85 °C).
+  Nicla Vision:
+    Features an integrated camera module and sensors for machine vision applications such as object recognition, people counting and indoor air quality monitoring, all in a compact design (22.86 mm x 22.86 mm).
+  Portenta Mid Carrier:
+    Expands the connectivity of Portenta family boards by providing Ethernet, USB-A, mPCIe, CAN, MicroSD support and 4G connectivity via the Arduino Pro 4G Module. It includes debugging features via onboard JTAG pins and supports additional interfaces such as I2C, SPI, PWM, digital and analog I/Os.
+  Portenta Mid Carrier Proto Shield:
+    Supports Nicla family boards, Modulinos, Arduino UNO shields and includes ESLOV (x2) and Qwiic (x1) connectors.
+  Arduino Pro 4G Module Global:
+    Provides global LTE Cat.4 connectivity, 4G support and GNSS capabilities.
+  Modulinos:
+    KNOB: Encoder with a push button for fine value adjustments (x1)
+    PIXELS: 8x RGB LEDs for visual feedback (x1)
+    DISTANCE: Time-of-Flight sensor for measuring proximity (x1)
+    MOVEMENT: 6-axis IMU to capture movement (x1)
+    BUTTONS: 3x push buttons and 3x yellow LEDs (x1)
+    BUZZER: For generating alarms or tunes (x1)
+    THERMO: For temperature and humidity readings (x1)
+Power:
+  Input Voltage:
+    +7-30 VDC: Via Portenta Mid Carrier Proto Shield onboard dedicated power jack.
+    +5 VDC: Through USB-C® connector of the Portenta H7 or in the Portenta Mid Carrier terminal pins.

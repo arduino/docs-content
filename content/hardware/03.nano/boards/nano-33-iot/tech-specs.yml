@@ -5,7 +5,7 @@ Microcontroller: SAMD21 Cortex®-M0+ 32bit low power ARM MCU
 USB connector: Micro USB
 Pins:
   Built-in LED Pin: 13
-  Digital I/O Pins: 14
+  Digital I/O Pins: 22
   Analog input pins: 8
   PWM pins: 5
   External interrupts: All digital pins

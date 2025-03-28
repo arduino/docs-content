@@ -1,19 +1,21 @@
 <FeatureDescription>
 
-The **WisGate Edge Lite 2** gateway is a device with a high reliability that allows to set up home and small medium-sized industrial indoor LoRaWAN® applications with a high execution efficiency.
+The **WisGate Edge Lite 2** gateway is a device with a high reliability that allows to set up home and small medium-sized industrial indoor LPWAN applications with a high execution efficiency.
 
-It supports 8 LoRa® channels, multi backhaul with Ethernet, Wi-Fi®, and Cellular connectivity.
+It supports 8 configurable LoRa® channels, multi backhaul with Ethernet, Wi-Fi® and Cellular connectivity.
 
 The gateway is powered by OpenWRT which allows to develop custom applications.
+
+>LoRa® is a registered trademark of Semtech Corporation.
 
 </FeatureDescription>
 
 
 <FeatureList>
 
-<Feature title="Connectivity" image="wifi-bluetooth">
-  8 configurable channels. Wi-Fi, LTE and Ethernet.
-  Internal antenna for Wi-Fi, GPS, and LTE, external antenna for LoRa.
+<Feature title="Connectivity" image="communication">
+  8 configurable LoRa® channels. Wi-Fi, LTE and Ethernet.
+  Internal antenna for Wi-Fi, GPS, and LTE, external antenna for LoRa® connectivity.
 </Feature>
 
 <Feature title="Wi-Fi Access Point" image="wifi">

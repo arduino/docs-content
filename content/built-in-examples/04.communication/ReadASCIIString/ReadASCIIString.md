@@ -14,7 +14,7 @@ This sketch uses the [Serial.parseInt](https://www.arduino.cc/en/Reference/Parse
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - common anode RGB LED
 
@@ -131,15 +131,15 @@ Once you have programmed the board, open your Arduino Software (IDE) serial moni
 
   It parses them into ints, and uses those to fade an RGB LED.
 
-  Circuit: Common-Cathode RGB LED wired like so:
+  Circuit: Common-Anode RGB LED wired like so:
 
-  - red anode: digital pin 3
+  - red cathode: digital pin 3
 
-  - green anode: digital pin 5
+  - green cathode: digital pin 5
 
-  - blue anode: digital pin 6
+  - blue cathode: digital pin 6
 
-  - cathode: GND
+  - Anode: GND
 
   created 13 Apr 2012
 

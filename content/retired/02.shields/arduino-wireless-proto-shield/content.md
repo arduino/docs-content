@@ -2,11 +2,9 @@
 title: "Arduino Wireless Proto Shield"
 description: "The Wireless Proto shield allows an Arduino board to communicate wirelessly using a wireless Xbee module or similar"
 coverImage: "assets/A000064_featured_2.jpg"
-sku: "A000064"
+sku: [A000064]
 source: "https://store.arduino.cc/arduino-wireless-proto-shield"
 ---
-
-***Note: This page refers to a product that is retired.***
 
 ![The Arduino Wireless Proto Shield](./assets/A000064_featured_2.jpg)
 
@@ -32,7 +30,7 @@ You can find in the [Getting Started section](https://www.arduino.cc/en/Guide/Ho
 
 Arduino Wireless Proto Shield is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-wireless-proto-shield-reference-design.zip) 
+[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-wireless-proto-shield-reference-design.zip)
 
 [SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/arduino-wireless-proto-shield-schematc.pdf)
 
@@ -50,7 +48,7 @@ With the switch in the USB position, the DOUT pin the wireless module is connect
 
 Empty sketch:
 
-void **setup**() { }  
+void **setup**() { }
 void **loop**() { }
 
 [\[Get Code\]](https://www.arduino.cc/en/Main/ArduinoWirelessShield?action=sourceblock&num=1)

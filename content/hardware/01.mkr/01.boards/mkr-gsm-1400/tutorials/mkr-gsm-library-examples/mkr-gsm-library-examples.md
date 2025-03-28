@@ -1020,7 +1020,7 @@ int readSerial(char result[]) {
 
 ### MKR GSM SSL Web Client
 
-This sketch connects an Arduino MKR GSM 1400 board to the Arduino homepage, [http://arduino.cc](http://arduino.cc), through the GSM network. It then prints the content of the page through the serial monitor of the Arduino Software (IDE).
+This sketch connects an Arduino MKR GSM 1400 board to the Arduino homepage, through the GSM network. It then prints the content of the page through the serial monitor of the Arduino Software (IDE).
 
 ```arduino
 /*
@@ -1028,7 +1028,7 @@ This sketch connects an Arduino MKR GSM 1400 board to the Arduino homepage, [htt
 
  This sketch connects to a website using SSL through a MKR GSM 1400 board. Specifically,
 
- this example downloads the URL "http://www.arduino.cc/asciilogo.txt" and
+ this example downloads the URL "http://arduino.tips/asciilogo.txt" and
 
  prints it to the Serial monitor.
 
@@ -1070,8 +1070,8 @@ GPRS gprs;
 
 GSM gsmAccess;
 
-// URL, path and port (for example: arduino.cc)
-char server[] = "arduino.cc";
+// URL, path and port (for example: arduino.tips)
+char server[] = "arduino.tips";
 char path[] = "/asciilogo.txt";
 int port = 443; // port 443 is the default for HTTPS
 
@@ -1184,7 +1184,7 @@ void loop() {
 
 ### MKR GSM Web Client
 
-This sketch connects an Arduino MKR GSM 1400 board to the Arduino homepage, [http://arduino.cc](http://arduino.cc), through the GSM network. It then prints the content of the page through the serial monitor of the Arduino Software (IDE).
+This sketch connects an Arduino MKR GSM 1400 board to the Arduino homepage, through the GSM network. It then prints the content of the page through the serial monitor of the Arduino Software (IDE).
 
 ```arduino
 /*

@@ -26,7 +26,7 @@ software:
 
 In this tutorial, we will learn how to turn on the blue pixel onboard the Arduino® Nano RP2040 Connect board, from another board. For this, we will need two Bluetooth® Low Energy compatible boards, such as the Nano RP2040 Connect board, where we will use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoLSM6DS3) library to make the connection. 
 
->**Note:** if you need help setting up your environment to use your Arduino Nano RP2040 board, please refer to [this installation guide](/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nano).
+>**Note:** if you need help setting up your environment to use your Arduino Nano RP2040 board, please refer to [this installation guide](/software/ide-v2/tutorials/ide-v2-board-manager).
 
 ## Goals
 
@@ -60,9 +60,9 @@ For the central device, we do not need any additional circuit.
 
 We will now get to the programming part of this tutorial. 
 
-1. First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino Mbed OS Nano Boards** and install it. 
+1. First, let's make sure we have the drivers installed. If we are using the Cloud Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino Mbed OS Nano Boards** and install it. 
 
-2. Now, we need to install the libraries needed. If we are using the Web Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **ArduinoBLE** and install it.
+2. Now, we need to install the libraries needed. If we are using the Cloud Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **ArduinoBLE** and install it.
 
 3. We can now take a look at some of the core functions of the sketches we will use:
 

@@ -43,7 +43,7 @@ You'll use if statements all the time.  The example below turns on an LED on pin
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - Potentiometer or variable resistor
 

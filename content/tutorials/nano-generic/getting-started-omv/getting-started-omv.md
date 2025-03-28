@@ -20,7 +20,7 @@ The updated bootloader will first look for a valid sketch at the memory address 
 
 ### Updating the Bootloader
 
-With your board connected, open up the Arduino IDE. This step is the same for both the IDE 1 and the IDE 2. Open the board manager and search for **"mbed"**. Find the "Arduino Mbed OS Nano Boards" core and click on **"Install"** to install the latest version.
+With your board connected, open up the Arduino IDE. This step is the same for both the IDE 1 and the IDE 2. Open the board manager and search for **"mbed"**. Find the "Arduino Mbed OS Nano Boards" Board Package and click on **"Install"** to install the latest version.
 
 ![Arduino IDE board manager](assets/nano33_update_bootloader_ard_core.png)
 
@@ -42,7 +42,7 @@ Open the [OpenMV download](https://openmv.io/pages/download) page in your browse
 
 Connect the Nano 33 BLE sense to your computer via the USB cable if you haven't done so yet. Make sure you have installed the latest bootloader and softdevice as indicated in the previous step.
 
-After updating the bootloader put the Nano 33 BLE sense in bootloader mode if necessary. The board automatically goes into booloader mode after the update is finished. However, if you restarted the board in the mean time, double click the reset button to bring it into bootloader mode.
+After updating the bootloader put the Nano 33 BLE sense in bootloader mode if necessary. The board automatically goes into bootloader mode after the update is finished. However, if you restarted the board in the mean time, double click the reset button to bring it into bootloader mode.
 
 ![The OpenMV IDE after starting it](assets/nano_openmv_open_ide.png)
 
@@ -165,7 +165,7 @@ Here are some reasons why the softdevice may have to be re-flashed:
 
 If the code is not working, there are some common issues you can troubleshoot:
 
-- You haven't installed the core required for the board so the updater sketch doesn't show up.
+- You haven't installed the Board Package required for the board so the updater sketch doesn't show up.
 - You haven't opened the Serial Monitor to initialize the updater sketch.
 - You haven't uploaded the latest OpenMV firmware for the board.
 

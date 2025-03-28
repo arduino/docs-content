@@ -1,9 +1,8 @@
 ---
 title: "Arduino BT (Bluetooth)"
 source: "https://arduino.cc/en/Main/ArduinoBoardBT"
+sku: [A000002]
 ---
-
-***Note: This page refers to a product that is retired.***
 
 ## Arduino BT (Bluetooth)
 

@@ -7,7 +7,7 @@ hardware:
 tags: [UNO R4 WiFi, Installation, IDE]
 ---
 
-To use the [Arduino UNO R4 WiFi](/hardware/uno-r4-wifi) board, you will need to install the UNO R4 WiFi board package, which is part of the [Arduino UNO R4 Core](https://github.com/arduino/ArduinoCore-renesas).
+To use the [Arduino UNO R4 WiFi](/hardware/uno-r4-wifi) board, you will need to install the UNO R4 WiFi board package, which is part of the [Arduino UNO R4 Board Package](/tutorials/uno-r4-wifi/r4-wifi-getting-started).
 
 To install it, you will need the Arduino IDE, which you can download from the [Arduino Software page](https://www.arduino.cc/en/software). In this guide, we will use the latest version of the IDE 2.
 
@@ -16,7 +16,7 @@ To install it, you will need the Arduino IDE, which you can download from the [A
 - [Arduino UNO R4 WiFi](https://store.arduino.cc/uno-r4-wifi)
 - [Arduino IDE](/software/ide-v2)
 
-***You can also use the [Web Editor](https://create.arduino.cc/editor) which comes with all Arduino boards pre-installed.*** 
+***You can also use the [Cloud Editor](https://create.arduino.cc/editor) which comes with all Arduino boards pre-installed.*** 
 
 ## Download & Install IDE
 
@@ -32,7 +32,7 @@ To install the board package, open the "Board Manager" from the menu to the left
 
 ![Install UNO R4 WiFi boards package.](assets/install-wifi-core.png)
 
-You should now be able to select your board in the board selector. You will need to have your board connected to your computer via the USB-C® connector at this point.
+You're now able to select your board in the board selector. You will need to have your board connected to your computer via the USB-C® connector at this point.
 
 ![Arduino UNO R4 WiFi board found.](assets/wifi-connected.png)
 

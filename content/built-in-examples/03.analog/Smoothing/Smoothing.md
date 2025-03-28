@@ -14,7 +14,7 @@ This sketch reads repeatedly from an analog input, calculating a running average
 
 ### Hardware
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - 10k ohm potentiometer
 

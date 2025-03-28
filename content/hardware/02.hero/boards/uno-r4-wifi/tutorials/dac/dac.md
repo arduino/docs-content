@@ -46,7 +46,7 @@ For example when dimming an LED, you can freely use a PWM enabled digital pin as
 However this will not always be the case, and for many uses you will need to use a genuine analog output to get your desired results. One such case is in audio purposes, where a PWM output simply will not give the same quality of sound as a genuine analog output, and requires some fiddling to work in the first place.
 
 ## Code
-The code for this tutorial is split in two parts, one main sketch and a header file containing a pre-generated sawtooth-waveform.
+The code for this tutorial is split in two parts, one main sketch and a header file containing a pre-generated sine waveform.
 
 With this sketch, we have pre-generated a sine waveform. You could also dynamically generate it either at the beginning of your sketch or during, but doing so would be less efficient without gaining any performance. So going this route is the best practice. 
 
@@ -60,6 +60,24 @@ Open a new sketch and paste the following code into your window.
 Once you have uploaded the code to the board, it should start generating a sine wave oscillation on the DAC, that depending on the frequency could be used to produce sound on a piezo buzzer or speaker. If you have an oscilloscope at hand, connecting its probe to the DAC output might be an interesting exercise so see what the wave looks like. 
 
 Now try twisting the potentiometer, and listen to how the sound changes.
+
+### Analog Wave Types
+
+The sketch above generates what is known as a sine wave. It is called a sine wave because if you were to plot the voltage against time, you'd notice that the line looks just like a sine function.
+
+There are other types of analog waves that will produce a distinctly different type of sound compared to a sine wave. The library we're using in this sketch also allows you to create sawtooth and square waves. These types of wave also gets their names from how they look when the voltages are plotted against time.
+
+Try changing the wave type and listen how it changes the feel of the sound. 
+
+Change the wave by replacing **Line 18 in the sketch** "`wave.sine(freq);`" with either
+
+ ```arduino
+ wave.square(freq);
+ ```
+or 
+```arduino
+wave.saw(freq);
+```
 
 Now that you know your setup is working, you can experiment further with different examples and see how you can use the DAC of the UNO R4 to generate sounds and even melodies.
 

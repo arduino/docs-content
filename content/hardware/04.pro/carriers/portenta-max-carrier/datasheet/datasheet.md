@@ -44,13 +44,15 @@ Industry 4.0, prototyping, robotics, data logging
 ### Application Examples
 The Portenta Max Carrier provides the user with almost limitless possibilities to create edge computing applications. Together with the Portenta X8, there is a wide range of application options.
 
-**Industrial IoT:** The Portenta Max Carrier enables connectivity between the Portenta boards and Fieldbus (MODBUS/CAN bus). Join the Industry 4.0 bandwagon with edge computing and a range of connectivity options to increase the revenue on your specific application. Remotely control machinery through the Arduino IoT Cloud or your own choice of third-party services without concern for vendor lock-in and identify process bottlenecks with continuous flow monitoring. The low power consumption and integrated Li-ion battery power management ensure reliable operation even in the face of external power failures.
+**Industrial IoT:** The Portenta Max Carrier enables connectivity between the Portenta boards and Fieldbus (MODBUS/CAN bus). Join the Industry 4.0 bandwagon with edge computing and a range of connectivity options to increase the revenue on your specific application. Remotely control machinery through the Arduino Cloud or your own choice of third-party services without concern for vendor lock-in and identify process bottlenecks with continuous flow monitoring. The low power consumption and integrated Li-ion battery power management ensure reliable operation even in the face of external power failures.
 
 **Digital Smart Kiosk:** Develop fully-fledged Information Kiosks, Point of Sales devices or other HMI solutions with the Portenta Max Carrier. Increase the productivity and satisfaction of your personnel and customers with real time information. The Portenta Max Carrier can be part of your solution for real time assessment of production environments, just-in-time management of warehouses, patient centric healthcare experiences and mobility management with a streamlined development process
 
 **Reference Design:** The Portenta Max Carrier is a great reference design for developing your own custom products around the Portenta ecosystem that conforms to the industry standard specifications. Arduino Pro also provides full development, production and operation support to develop solutions tailored to your business needs.
 
 ### Accessories (Not Included)
+*   LoRa® antenna (e.g. ANT-8/9-IPW1-SMA)
+*   Cellular LTE / CAT.M1 / NB-IoT antenna (e.g. ANT-5GW-SPS1-2)
 *   Mini PCIe expansion boards
 *   SIM card
 *   3.7V 18650 Li-ion battery
@@ -81,31 +83,31 @@ The Portenta Max Carrier provides the user with almost limitless possibilities t
 ### Board Topology 
 ![Board topology](assets/maxCarrierDesignators.png)
 
-| **Ref.** | **Description**                                        | **Ref.**       | **Description**                                           |
-| -------- | ------------------------------------------------------ | -------------- | --------------------------------------------------------- |
-| U1       | SARA-R412M-02B 4G LTE/Cat-M1/NB-IoT Modem IC           | U2             | CS42L52-CNZ Stereo Codec IC                               |
-| U3       | USB2514Bi/M2 4-port USB 2.0 Hub IC                     | U4             | SP335EER1-L RS232/RS485/RS422 Transceiver IC              |
-| U5       | TJA1049 CAN Transceiver IC                             | U6             | MPM3550EGLE Non-isolated DC-DC IC                         |
-| U7       | NCP383 Current Limiting IC                             | U8,U20,U21,U22 | SN74LVC1T45 Bi-directional logic level converter IC       |
-| U9       | DSC6111HI2B 12MHz MEMS Oscillator IC                   | U10            | SN74LVC1G125 Single Bus Buffer Gate IC                    |
-| U11      | BQ24195RGET 4.5A Single Cell Charger IC                | U12            | AP7311 1.8V 150mA LDO Linear Regulator IC                 |
-| U13      | TPS54620 6A Buck Regulator IC                          | U14            | AP2112K-3.3TRG1 3.3V 600mA LDO Regulator IC               |
-| U15      | STM32F405RG 168MHz 32 bit Arm® Cortex®-M4 MCU IC         | U16-U19        | 74LVC1G157 Single 2-input multiplexer IC                  |
-| U23      | CMWX1ZZABZ-078 Murrata LoRa® module                    | U24, U25       | LM73100 Ideal Diode with Reverse Polarity Protection      |
-| J1, J2   | DF40HC(3.5)-80DS-0.4V(51) High Density Connectors      | J3             | Right-Angle SMA Connector for Modem                       |
-| J4       | 2-1734248-0 FPC Connector                              | J5             | FW-20-05-G-D-254-150 Signal Break                         |
-| J6       | 615006138421 RS232/RS485 Connector                     | J7             | 615006138421 CAN Connector                                |
-| J8       | 1759546-1 Mini PCIe Connector                          | J9             | Right-Angle SMA Connector for LoRa®                       |
-| J10      | ZX62-AB-5PA(31) Micro USB Debugger Connector with VBUS | J11            | 114-00841-68 Micro SD Connector                           |
-| J12      | SJ-3524-SMT-TR 3.5mm Headphone Out                     | J13            | SJ-3524-SMT-TR 3.5mm Line In Right                        |
-| J14      | SJ-3524-SMT-TR 3.5mm Line In Left                      | J15            | 61400826021 2-port USB 2.0 Female Connector               |
-| J16      | 254TR Positive Li-ion Terminal                         | J17            | TRJK7003A97NL Gigabit Ethernet Connector                  |
-| J18      | 254TR Negative Li-ion Terminal                         |             |  |
-| J20      | 110990030 Connector for Speaker                  | X1             | PJ-102A 5.5mm Power Jack Adapter                          |
-| CN1      | FTSH-105-01-F-DV 10-pin JTAG Header                    | CN2            | Debug Header                                              |
-| CN3      | LoRa® Debug Header                                     | SIM1           | 2199337-5 microSIM Card Holder (for on-board modem)       |
-| SW1      | 218-2LPST Boot Select Switch                           | SW2            | 218-2LPST Switch *(2)*                                    |
-| PB1      | PTS820J25KSMTRLFS Power On Button                      | PB2            | PTS820J25KSMTRLFS Reset Button                            |
+| **Ref.** | **Description**                                        | **Ref.**       | **Description**                                      |
+|----------|--------------------------------------------------------|----------------|------------------------------------------------------|
+| U1       | SARA-R412M-02B 4G LTE/Cat-M1/NB-IoT Modem IC           | U2             | CS42L52-CNZ Stereo Codec IC                          |
+| U3       | USB2514Bi/M2 4-port USB 2.0 Hub IC                     | U4             | SP335EER1-L RS232/RS485/RS422 Transceiver IC         |
+| U5       | TJA1049 CAN Transceiver IC                             | U6             | MPM3550EGLE Non-isolated DC-DC IC                    |
+| U7       | NCP383 Current Limiting IC                             | U8,U20,U21,U22 | SN74LVC1T45 Bi-directional logic level converter IC  |
+| U9       | DSC6111HI2B 12MHz MEMS Oscillator IC                   | U10            | SN74LVC1G125 Single Bus Buffer Gate IC               |
+| U11      | BQ24195RGET 4.5A Single Cell Charger IC                | U12            | AP7311 1.8V 150mA LDO Linear Regulator IC            |
+| U13      | TPS54620 6A Buck Regulator IC                          | U14            | AP2112K-3.3TRG1 3.3V 600mA LDO Regulator IC          |
+| U15      | STM32F405RG 168MHz 32 bit Arm® Cortex®-M4 MCU IC       | U16-U19        | 74LVC1G157 Single 2-input multiplexer IC             |
+| U23      | CMWX1ZZABZ-078 Murata LoRa® module                     | U24, U25       | LM73100 Ideal Diode with Reverse Polarity Protection |
+| J1, J2   | DF40HC(3.5)-80DS-0.4V(51) High Density Connectors      | J3             | Right-Angle SMA Connector for Modem                  |
+| J4       | 2-1734248-0 FPC Connector                              | J5             | FW-20-05-G-D-254-150 Signal Break                    |
+| J6       | 615006138421 RS232/RS485 Connector                     | J7             | 615006138421 CAN Connector                           |
+| J8       | 1759546-1 Mini PCIe Connector                          | J9             | Right-Angle SMA Connector for LoRa®                  |
+| J10      | ZX62-AB-5PA(31) Micro USB Debugger Connector with VBUS | J11            | 114-00841-68 Micro SD Connector                      |
+| J12      | SJ-3524-SMT-TR 3.5mm Headphone Out                     | J13            | SJ-3524-SMT-TR 3.5mm Line In Right                   |
+| J14      | SJ-3524-SMT-TR 3.5mm Line In Left                      | J15            | 61400826021 2-port USB 2.0 Female Connector          |
+| J16      | 254TR Positive Li-ion Terminal                         | J17            | TRJK7003A97NL Gigabit Ethernet Connector             |
+| J18      | 254TR Negative Li-ion Terminal                         |                |                                                      |
+| J20      | 110990030 Connector for Speaker                        | X1             | PJ-102A 5.5mm Power Jack Adapter                     |
+| CN1      | FTSH-105-01-F-DV 10-pin JTAG Header                    | CN2            | Debug Header                                         |
+| CN3      | LoRa® Debug Header                                     | SIM1           | 2199337-5 microSIM Card Holder (for on-board modem)  |
+| SW1      | 218-2LPST Boot Select Switch                           | SW2            | 218-2LPST Switch *(2)*                               |
+| PB1      | PTS820J25KSMTRLFS Power On Button                      | PB2            | PTS820J25KSMTRLFS Reset Button                       |
 
 ### Debugger 
 Debugging capabilities are integrated directly into the Portenta Max Carrier and are accessible via microUSB (J10). The J-link debugger is compatible with the Segger® J-Link OB and Blackmagic probes, driven by the STM32F405RGT6 controller (U15). In addition to providing access to the Portenta board JTAG ports, different sniffer channels for I2C, CAN and UART lines.  The debugger firmware can be updated via SWD on CN3. Additionally, headers for debugging the LoRa® are accessible via CN2 with SWD.
@@ -485,17 +487,21 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Company Address | Via Andrea Appiani 25, 20900 Monza MB, Italy |
 
 ## Reference Documentation
-| Reference                        | **Link**                                                                        |
-| -------------------------------- | ------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)            | https://www.arduino.cc/en/Main/Software                                         |
-| Arduino IDE (Cloud)              | https://create.arduino.cc/editor                                                |
-| Cloud Web Editor Getting Started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
-| Arduino Pro Website              | https://www.arduino.cc/pro                                                      |
-| Library Reference                | https://www.arduino.cc/reference/en/                                            |
-| Online Store                     | https://store.arduino.cc/                                                       |
-| Arduino Max Carrier Docs         | https://docs.arduino.cc/hardware/portenta-max-carrier                           |
+| Reference                    | **Link**                                                                        |
+|------------------------------|---------------------------------------------------------------------------------|
+| Arduino IDE (Desktop)        | https://www.arduino.cc/en/Main/Software                                         |
+| Arduino IDE (Cloud)          | https://create.arduino.cc/editor                                                |
+| Cloud Editor Getting Started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
+| Arduino Pro Website          | https://www.arduino.cc/pro                                                      |
+| Library Reference            | https://www.arduino.cc/reference/en/                                            |
+| Online Store                 | https://store.arduino.cc/                                                       |
+| Arduino Max Carrier Docs     | https://docs.arduino.cc/hardware/portenta-max-carrier                           |
 
 ## Revision History
-| Date       | **Revision** | **Changes**   |
-| ---------- | ------------ | ------------- |
-| 10/05/2022 | 1            | First Release |
+| Date       | **Revision** | **Changes**                               |
+|------------|--------------|-------------------------------------------|
+| 28/02/2025 | 3            | General information and trademark revision |
+
+| 03/09/2024 | 3            | Cloud Editor updated from Web Editor      |
+| 11/20/2023 | 2            | Recommended antennas added                |
+| 10/05/2022 | 1            | First Release                             |

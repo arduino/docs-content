@@ -1,5 +1,5 @@
 ---
-title: 'Send Data Using LoRa® with MKR WAN 1310'
+title: 'Send Data Using LoRa® Technology with MKR WAN 1310'
 difficulty: intermediate
 compatible-products: [mkr-wan-1310]
 description: 'Learn how to setup a continuous stream of data between two devices using LoRa® technology.'
@@ -7,7 +7,7 @@ tags:
  - IoT
  - LoRa®
 author: 'Karl Söderby'
-libraries: 
+libraries:
   - name: LoRa
     url: https://github.com/sandeepmistry/arduino-LoRa
 hardware:
@@ -19,7 +19,8 @@ software:
   - web-editor
 ---
 
-The Arduino MKR WAN 1310 is an excellent entry point to get started with low-powered, wide-area networks (LPWAN). In this tutorial, we will go through some of the core concepts such as long range (LoRa®) and the LoRaWAN® protocol.
+The Arduino MKR WAN 1310 is an excellent entry point to get started with low-powered, wide-area networks (LPWAN). In this tutorial, we will go through some of the core concepts such as LoRa® technology and set up communication using it.
+
 
 We will create a basic sketch that will allow communication between two **MKR WAN 1310** boards. The communication will be established firstly through the radio module on the board, where we will also attach an antenna to each board.
 
@@ -27,17 +28,13 @@ We will create a basic sketch that will allow communication between two **MKR WA
 
 There are many different terms to be familiar with in the world of LoRa® technology, so let's go through some of them!
 
-### LoRa®
+### LoRa® Technology
 
-LoRa® is short for long range modulation technique based on a technology called chirp spread spectrum (CSS). It is designed to carry out long-range transmissions with minimal power consumption. LoRa® defines as the "lower layer" or **"physical layer"**, according to the **OSI model**. The physical layer is defined by hardware, signals and frequencies.
+LoRa® is short for long range modulation technique based on a technology called chirp spread spectrum (CSS). It is designed to carry out long-range transmissions with minimal power consumption. LoRa serves as the `lower layer` or **`physical layer`**, according to the **OSI model**. The physical layer is defined by hardware, signals and frequencies.
 
-LoRa® uses different radio frequencies depending on where you are located in the world. The most common are Europe (868 MHz) and North America & Australia (915 MHz), but it differs from country to country. You can also read more about a [country's unique radio frequency](https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country.html). 
+LoRa® uses different radio frequencies depending on where you are located in the world. The most common are Europe (868 MHz) and North America & Australia (915 MHz), but it differs from country to country. You can also read more about a [country's unique radio frequency](https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country/).
 
-LoRa® is also often used to describe hardware devices supported by LoRa®, e.g. modules or gateways. The Arduino MKR WAN 1310 has a LoRa® module called **Murata CMWX1ZZABZ**. 
-
-### LoRaWAN®
-
-LoRaWAN® can be defined as the networking protocol used in an Low-Power, Wide-Area networks (LPWAN). The architecture of the network consists of different gateways that relay messages from low-power devices over long ranges, to central network servers. The protocol is defined as the **upper networking layers**.
+LoRa® is also often used to describe hardware devices supported by LoRa, e.g. modules or gateways. The Arduino MKR WAN 1310 has a LPWAN module called **Murata CMWX1ZZABZ**.
 
 ### The Benefits of LoRa®
 
@@ -56,10 +53,10 @@ ___
 
 -   2x Arduino MKR WAN 1310  ([link to store](https://store.arduino.cc/mkr-wan-1310))
 -   2x Antenna ([link to store](https://store.arduino.cc/antenna))
--   2x Micro USB cable 
+-   2x Micro USB cable
 -   Arduino IDE (offline and online versions available)
--   Arduino SAMD core installed, [follow this link for instructions](https://www.arduino.cc/en/Guide/MKRWiFi1010#installing-drivers-for-the-mkr-wifi-1010)
--   LoRa library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)
+-   Arduino SAMD Board Package installed, [follow this link for instructions](https://www.arduino.cc/en/Guide/MKRWiFi1010#installing-drivers-for-the-mkr-wifi-1010)
+-   `LoRa` library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)
 
 
 ### Circuit
@@ -68,7 +65,7 @@ Follow the wiring diagram below to connect the antennas to the MKR WAN 1310 boar
 
 ![Sender & Receiver circuit with antenna.](assets/WAN1310_T1_IMG01.png)
 
-### Schematic 
+### Schematic
 
 This is the schematic of our circuit.
 
@@ -99,9 +96,9 @@ We are going to create two sketches: one for the sender, and one for the receive
 
 We are going to program two separate MKR WAN 1310's in this tutorial. We will start with the **sender** device and later on, we will create a sketch for the **receiver** device.
 
-**1.** First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install it. 
+**1.** First, let's make sure we have the drivers installed. If we are using the Cloud Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it.
 
-**2.** Now we need to download the **LoRa** library from [this repository](https://github.com/sandeepmistry/arduino-LoRa), where you can install it by navigating to **Sketch > Include Library > Add .ZIP Library...** in the offline IDE. 
+**2.** Now we need to download the **LoRa** library from [this repository](https://github.com/sandeepmistry/arduino-LoRa), where you can install it by navigating to **Sketch > Include Library > Add .ZIP Library...** in the offline IDE.
 
 ### Programming the Sender
 
@@ -134,9 +131,9 @@ void setup() {
 
 ```
 
-In the `loop()` we start by printing "Sending packet" in the Serial Monitor + the value of `counter`. We then begin a packet by using the command, `LoRa.beginPacket()`, and print "hello" and the value of `counter`. This is done using the `LoRa.print()` function, then we broadcast it by using `LoRa.endPacket()`. 
+In the `loop()` we start by printing "Sending packet" in the Serial Monitor + the value of `counter`. We then begin a packet by using the command, `LoRa.beginPacket()`, and print "hello" and the value of `counter`. This is done using the `LoRa.print()` function, then we broadcast it by using `LoRa.endPacket()`.
 
-Finally, we add increase counter by 1 each time the loop has run, and a delay of 5 seconds, to limit the message rate. 
+Finally, we add increase counter by 1 each time the loop has run, and a delay of 5 seconds, to limit the message rate.
 
 ```arduino
 void loop() {
@@ -159,9 +156,9 @@ void loop() {
 
 ### Programming the Receiver
 
-The initialization and setup of the receiver is more or less identical to the **sender** sketch. 
+The initialization and setup of the receiver is more or less identical to the **sender** sketch.
 
-But inside the loop, we will not be creating any packets. Instead, we will listen to incoming ones. This is done by first using the command `int packetSize = LoRa.parsePacket();`, and then check for an incoming packet. If we receive one, it is parsed and printed in the Serial Monitor. 
+But inside the loop, we will not be creating any packets. Instead, we will listen to incoming ones. This is done by first using the command `int packetSize = LoRa.parsePacket();`, and then check for an incoming packet. If we receive one, it is parsed and printed in the Serial Monitor.
 
 ```cpp
 #include <SPI.h>
@@ -199,7 +196,7 @@ void loop() {
 
 ```
 
-<!-- Here we link the full program from create -->
+{/* Here we link the full program from create */}
 ## Complete Code
 
 If you choose to skip the code building section, the complete code can be found below:
@@ -279,7 +276,7 @@ void loop() {
 
 ## Upload Sketch and Testing the Program
 
-Once we are finished with the coding, we can upload the sketches to the different boards. Remember that we need to upload the **sender sketch to the sender board** and the **receiver sketch to the receiver board.** This will require us to switch between the ports listed in the board manager. 
+Once we are finished with the coding, we can upload the sketches to the different boards. Remember that we need to upload the **sender sketch to the sender board** and the **receiver sketch to the receiver board.** This will require us to switch between the ports listed in the board manager.
 
 When we open the Serial Monitor, we start the program. Let's start with the **sender** device. First, choose the **port** for your board, and open the Serial Monitor. The output should now be:
 
@@ -301,7 +298,7 @@ Hello 2
 Hello 3
 ```
 
-If we are receiving 
+If we are receiving
 
 ### Troubleshoot
 
@@ -314,6 +311,10 @@ If the code is not working, there are some common issues we might need to troubl
 
 ## Conclusion
 
-In this tutorial, we have introduced some fundamental concepts around LoRa®, where we have setup a basic communication line between two boards using the LoRa® network. With this basic framework, you can go on to combine this tutorial with sensors and other software libraries, so that you can create your own long-range, low-powered devices! 
+In this tutorial, we have introduced some fundamental concepts around LoRa® technology, where we have setup a basic communication line between two boards using the LoRa® technology-based communication. With this basic framework, you can go on to combine this tutorial with sensors and other software libraries, so that you can create your own long-range, low-powered devices!
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.
 
 

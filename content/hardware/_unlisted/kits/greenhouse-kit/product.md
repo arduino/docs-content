@@ -1,4 +1,5 @@
 ---
 title: Greenhouse Kit
-certifications: [UKCA]
+certifications: [CE, UKCA]
+sku: [AKX00040]
 ---

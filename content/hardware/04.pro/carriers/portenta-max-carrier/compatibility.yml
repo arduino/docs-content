@@ -3,10 +3,15 @@ software:
   - arduino-ide-v2
   - arduino-cli
   - iot-cloud
-  - web-editor
+  - cloud-editor
+  - linux
 hardware:
   boards:
     - portenta-h7
     - portenta-h7-lite
     - portenta-h7-lite-connected
     - portenta-x8
+  modules:
+    - pro-4g-module
+    #- 4g-module-emea
+    #- 4g-module-global

@@ -13,7 +13,7 @@ Sometimes, one serial port just isn't enough! When trying to communicate with mu
 
 ### Hardware Required
 
-- Arduino Mega Board
+- [Arduino Mega Board](https://store.arduino.cc/products/arduino-mega-2560-rev3)
 
 - Serial enabled device  (a Xbee Radio, a Bluetooth® module, or RFID reader, or another board, for instance).
 

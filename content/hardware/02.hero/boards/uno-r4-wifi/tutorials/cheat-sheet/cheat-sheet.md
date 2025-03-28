@@ -1,5 +1,5 @@
 ---
-title: 'Arduino UNO R4 WiFi Cheat Sheet'
+title: 'Arduino UNO R4 WiFi User Manual'
 description: 'Learn how to set up the Arduino UNO R4 WiFi, the fourth revision of our most popular and important development board.'
 tags:
   - Installation
@@ -19,9 +19,11 @@ software:
 
 The **Arduino UNO** is our most popular and globally recognized development board, and has become a staple in the maker community and education since its release. The **Arduino UNO R4 WiFi** board is part of the 4th revision of UNO boards, and the first to feature a 32-bit MCU (RA4M1 series from Renesas).
 
-This document serves as a technical overview for the UNO R4 WiFi, where you will a collection of links to resources and guides to help you get started with your next project. 
+This document serves as a technical overview for the UNO R4 WiFi, where you will find a collection of links to resources and guides to help you get started with your next project. 
 
 The ESP32 module and the Renesas RA4M1-chip are part of a sophisticated USB-Serial system that is highly flexible and adaptive to allow for HID features while still keeping the ability to program both the main MCU, and the ESP32, if you so wish (although this is an advanced option and requires some hacking).
+
+***The on board ESP32 module is by default running firmware that handles connectivity for the UNO R4 WiFi. You may need to update this firmware to enable new features, or resolve bugs and other issues. There are a few methods of updating this firmware, and you can find them all detailed in our [Help Center article](https://support.arduino.cc/hc/en-us/articles/9670986058780-Update-the-connectivity-module-firmware-on-UNO-R4-WiFi).***
 
 You can also visit the documentation platform for the [Arduino UNO R4 WiFi](/hardware/uno-r4-wifi).
 
@@ -32,19 +34,23 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 ## Power Supply
 
-To power the UNO R4 WiFi you may either use a USB-C® cable, or the VIN pin.
-
-If you’re using the USB-C® connector you must power it with 5 V.
-
 The board can be powered via the VIN pin, supporting a range between 6-24 V. The VIN pin is also connected to the DC-jack (barrel plug connector).
 
-## Core
+When powered via the VIN pin, you are using the onboard regulator to bring down the voltage to 5V, which means that the 5 V pin can provide up to 1.2 A. Keep in mind that this voltage regulator also powers the rest of the circuit board, including the MCU, LEDs among other components.
 
-The UNO R4 WiFi is based on the [Arduino UNO R4 Core](https://github.com/arduino/ArduinoCore-renesas).
+***External devices with a high current draw (e.g. servo motors) should never be powered via the 5 V pin. It is mainly intended for devices drawing lower current such as sensor modules.***
+
+If you’re using the USB-C® connector you must power it with 5 V. 
+
+When powered via USB, you are bypassing the onboard voltage regulator completely. In this case, the 5 V pin can provide up to 2 A without damaging the board. 
+
+## Board Package
+
+The UNO R4 WiFi is based on the [Arduino UNO R4 Board Package](/tutorials/uno-r4-minima/r4-wifi-getting-starteds).
 
 ## Installation
 
-The UNO R4 WiFi can be programmed either via the Arduino IDE, Arduino Web Editor or Arduino CLI.
+The UNO R4 WiFi can be programmed either via the Arduino IDE, Arduino Cloud Editor or Arduino CLI.
 
 ### Arduino IDE
 
@@ -52,21 +58,21 @@ To use the board in the Arduino IDE, you need to install the latest version of t
 
 Read more in the [Getting Started with the UNO R4 WiFi](/tutorials/uno-r4-wifi/r4-wifi-getting-started) guide.
 
-### Arduino Web Editor
+### Arduino Cloud Editor
 
-The Web Editor is an online IDE that includes all official boards, no need for installing the core/package. You will need the Create Plugin installed on your computer to use the Web Editor.
+The Cloud Editor is an online IDE that includes all official boards, no need for installing the Board Package. You will need the Create Plugin installed on your computer to use the Cloud Editor.
 
-Read more in the [Getting Started with the Web Editor](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor) guide.
+Read more in the [Getting Started with the Cloud Editor](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor) guide.
 
-## Arduino IoT Cloud
+## Arduino Cloud
 
-The Arduino UNO R4 WiFi is compatible with the [Arduino IoT Cloud](https://create.arduino.cc/iot/things), a cloud service that allows you to create IoT applications in just minutes.
+The Arduino UNO R4 WiFi is compatible with the [Arduino Cloud](https://create.arduino.cc/iot/things), a Cloud service that allows you to create IoT applications in just minutes.
 
-***Visit the [Getting Started with Arduino IoT Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) guide for more information.***
+***Visit the [Getting Started with Arduino Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) guide for more information.***
 
 ## Renesas RA4M1
 
-The UNO R4 WiFi features the powerful and very robust Renesas microcontroller also found on the UNO R4 Minima. Renesas microcontrollers are known for their high performance and robustness, including their built-in peripheral set. 
+The UNO R4 WiFi features the powerful and robust Renesas microcontroller also found on the UNO R4 Minima. Renesas microcontrollers are known for their high performance and robustness, including their built-in peripheral set. 
 
 These peripherals include analog-to-digital converters, timers, pulse width modulation (PWM) units, communication interfaces (such as UART, SPI, and I2C) and more.
 
@@ -101,10 +107,10 @@ If you just need a quick overview of the pins functionality, this is a full tabl
 | D11 | Digital   | SPI (COPI), GPIO pin, PWM         |
 | D12 | Digital   | SPI (CIPO), GPIO pin              |
 | D13 | Digital   | SPI (SCK), GPIO pin, Built-in LED |
-| A0  | Digital   | Analog In, DAC                    |
+| A0  | Analog    | Analog In, DAC OUT                |
 | A1  | Analog in | Analog In, OPAMP +                |
 | A2  | Analog in | Analog In, OPAMP -                |
-| A3  | Analog in | Analog In, OPAMP OUT              |
+| A3  | Analog    | Analog In, OPAMP OUT              |
 | A4  | Analog in | Analog In, SDA\*                  |
 | A5  | Analog in | Analog In, SCL\*                  |
 
@@ -129,7 +135,10 @@ The UNO R4 WiFi has six analog input pins (A0-A5) that can be read by using the 
 value = analogRead(pin);
 ```
 
-The reference voltage of these pins is 5 V.
+The default reference voltage of these pins is 5 V, but this can be changed as follows:
+
+- `analogReference(AR_DEFAULT)` (Default reference of 5 V)
+- `analogReference(AR_INTERNAL)` (Built in reference of 1.5 V.)
 
 The default resolution is set to 10-bit, but can be updated to 12 and 14-bit resolutions. To do so, use the following method in the `setup()` of your sketch.
 - `analogReadResolution(10)` (default)
@@ -174,7 +183,7 @@ The reference voltage of all digital pins is 5 V.
 
 ### PWM
 
-PWM (Pulse Width Modulation) capability allows a digital pin to emulate analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins. 
+PWM (Pulse Width Modulation) capability allows a digital pin to emulate an analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins. 
 
 The UNO R4 WiFi supports PWM on pins marked with ~ on the headers. Officially supported pins are:
 
@@ -193,7 +202,13 @@ You may use them as analog output pins with the function:
 analogWrite(pin, value);
 ```
 
-**Please Note:** the following pins are PWM capable but may interfere with other functionalities of the UNO R4 WiFi board. When writing library functions, please do not use this as they are not officially supported PWM pins. 
+By default, the resolution is 8 bit (0-255), You can use `analogWriteResolution()` to change this, supporting up to 12 bit (0-4096) resolution.
+
+```arduino
+analogWriteResolution(resolution);
+```
+
+Please note that the following pins are PWM capable but may interfere with other functionalities of the UNO R4 WiFi board. When writing library functions, please do not use these as they are not officially supported PWM pins. 
 
 | Pin       | RA4M1 | Timer   |
 | --------- | ----- | ------- |
@@ -211,7 +226,7 @@ analogWrite(pin, value);
 
 ## LED Matrix
 
-The LED Matrix on the UNO R4 WiFi is available to use in your program, to display still graphics, animations, or even play games on. The Renesas core includes the [Arduino_LED_Matrix](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/Arduino_LED_Matrix) library for displaying frames on the matrix.
+The LED Matrix on the UNO R4 WiFi is available to use in your program, to display still graphics, animations, or even play games on. The UNO R4 Board Package includes the [Arduino_LED_Matrix](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/Arduino_LED_Matrix) library for displaying frames on the matrix.
 
 To learn about the LED matrix in depth, check out the [LED Matrix Guide](/tutorials/uno-r4-wifi/led-matrix/).
 
@@ -253,7 +268,7 @@ analogWrite(pin, value);
 
 This DAC pin has a default write resolution of 8-bits. This means that values that are written to the pin should be between 0-255.
 
-However you may change this write resolution if you need to, to up to 12-bits, and in this case the values you write to the pin should be between 0-4096.
+However you may change this write resolution if you need to, up to 12-bits, and in this case the values you write to the pin should be between 0-4096.
 
 ```arduino
 analogWriteResolution(12);
@@ -364,13 +379,13 @@ void loop() {
 
 ## I2C
 
-I2C lets you connect multiple I2C compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7-bit address, meaning that the technical limit of I2C devices on a single line is 128. Practically, you're never gonna reach 128 devices before other limitations kick in.
+I2C lets you connect multiple I2C compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7-bit address, meaning that the technical limit of I2C devices on a single line is 128. Practically, you're never going to reach 128 devices before other limitations kick in.
 
 The UNO R4 WiFi has one I2C bus which is marked with SCL and SDA. They are shared with A4 (SDA) and A5 (SCL) which owners of previous UNO's are familiar with. The pullups are not mounted on the PCB but there are footprints to do so if needed.
 
 The pins used for I2C on the UNO R4 WiFi are the following:
-- SDA - D14
-- SCL - D15
+- SDA - D18
+- SCL - D19
 
 ![I2C Pins](assets/i2cpins.png)
 
@@ -405,7 +420,7 @@ Wire.endTransmission(); //stop transmit
 
 The UNO R4 WiFi features a Qwiic/STEMMA connector that you can use to connect modules, often allowing you to daisy chain several modules and control all of them through a single connector.
 
-Qwiic or STEMMA are both names for a type of connector developed by SparkFun and Adafruit respectively, that bundles the I2C pins of a development board and breakout modules. What this means is that if you have a development board (such as for example the Arduino UNO R4 WiFi) and a breakout module, and both have a Qwiic or STEMMA connector, you can hook them up together and with absolutely minimal wiring you can quickly create multi-faceted projects. 
+Qwiic or STEMMA are both names for a type of connector developed by SparkFun and Adafruit respectively, which bundles the I2C pins of a development board and breakout modules. What this means is that if you have a development board (such as for example the Arduino UNO R4 WiFi) and a breakout module, and both have a Qwiic or STEMMA connector, you can hook them up together and with absolutely minimal wiring you can quickly create multi-faceted projects. 
 
 If your breakout board features more than one of these connectors, which many do, you can use the second one to daisychain *another* Qwiic module to add another interactive node to your project.
 
@@ -481,7 +496,56 @@ And to write something, we can use the following command:
 Serial1.write("Hello world!");
 ```
 
+### Serial Event
+
+The [serialEvent()](https://www.arduino.cc/reference/en/language/functions/communication/serial/serialevent/) method is supported on older revisions of the UNO board, but **not** on the UNO R4 boards (or any other newer Arduino boards).
+
+However, as this method is only used to detect serial data and execute a function, you can also use `Serial.available()` to detect when new data is available:
+
+```arduino
+if(Serial.available() > 0) {
+  //code goes here
+}
+```
+
+### Timers
+
+In the Ardunio API there is a [`FspTimer`](https://github.com/arduino/ArduinoCore-renesas/blob/149f78b6490ccbafeb420f68919c381a5bdb6e21/cores/arduino/FspTimer.h#L87) class which provides all the necessary functionality for using timers in a sketch.
+
+The UNO R4 WiFi has two timer peripherals, an Asynchronous General Purpose Timer (AGT) and a General PWM Timer (GPT). There are two AGT timers on the board, one is used for time measuring methods such as `millis()` and `microseconds()`.
+
+The board has 7 GPT timers to help perform PWM tasks, such as calculating duty cycles by measuring how long a signal is active. It is possible to use these reserved PWM timers by using the previously mentioned [`FspTimer`](https://github.com/arduino/ArduinoCore-renesas/blob/main/cores/arduino/FspTimer.h#L87) library. Using this function will explicitly request a PWM timer:
+
+```arduino
+FspTimer::force_use_of_pwm_reserved_timer();
+```
+
+When using the timer functions of the library you will need to enter the timer's type. Which is either AGT or GPT. This can be declared in the sketch like this:
+
+```arduino
+uint8_t gpt_timer_type = GPT_TIMER;
+uint8_t agt_timer_type = AGT_TIMER;
+```
+
+### SerialUSB
+
+The UNO R4 WiFi has an extended set of Serial methods that can be enabled whenever you include the `<HID.h>` library in your sketch.
+
+- `Serial.baud()` - Returns the baud rate **(int)** currently used.
+- `Serial.stopbits()` - Returns the number of stop bits **(int)** used in the communication.
+- `Serial.paritytype()` - Returns the type of parity **(int)** used in the communication.
+- `Serial.numbits()` - Returns the number of data bits **(int)** used in the communication.
+- `Serial.dtr()` - Returns the status of the Data Terminal Ready (DTR) signal **(bool)** and also sets the- ignore_dtr flag to true if the DTR signal is actively used.
+- `Serial.rts()` - Returns the status of the Request to Send (RTS) signal **(bool)**.
+
+The `<HID.h>` library remaps the `Serial` object to `SerialUSB`, which enables these additional features. 
+
+Supported links:
+- [SerialUSB.h](https://github.com/arduino/ArduinoCore-renesas/blob/main/cores/arduino/usb/SerialUSB.h) (Github).
+
 ## USB HID
+
+***Please note that due to how the USB port is implemented on the UNO R4 WiFi, when using HID the board may show up as a different USB port. If this happens, simply double-tap the reset button, and select your board again.***
 
 This board can act as an HID (keyboard/mouse) and send keystrokes or coordinates to your computer via native USB.
 
@@ -493,6 +557,13 @@ mouse.move(x,y);
 This support is enabled by the [keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) and [mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/) libraries that you can install from the library manager in the IDE.
 
 To learn more about the HID capabilities of the UNO R4 WiFi, check out the [HID Guide](/tutorials/uno-r4-wifi/usb-hid).
+
+### Serial Remap
+
+Whenever the `<HID.h>` library is included in a sketch, the serial object is switched from `Serial` to `SerialUSB` to support HID features. This enables more methods, which are listed [here](#serialusb).
+
+Supported links:
+- [HID.h](https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/HID/HID.h) (Github)
 
 ## CAN Module
 
@@ -537,7 +608,7 @@ By default, the ESP32-S3 module onboard the UNO R4 WiFi acts as a Serial bridge,
 
 On the UNO R3, the ATMEGA16U2 serves the same purpose. The onboard ESP32 module is a more advanced SoC, adding Wi-Fi® & Bluetooth® connectivity to the board.
 
-The ESP32 also exposes the ESP32's data lines, so that you can program the ESP32 directly. These data lines are exposed by 3x2 header at the top of the board, or through pads on the bottom side.
+The ESP32 also exposes the ESP32's data lines, so you can program the ESP32 directly. These data lines are exposed by 3x2 header at the top of the board, or through pads on the bottom side.
 
 ***Please note that the ESP32 has a default firmware installed, which is set to communicate with the RA4M1 chip. Any direct programming of the ESP32 will override that firmware and the communication between the chips may be disrupted until the default firmware is restored.***
 
@@ -551,11 +622,11 @@ By default the ESP32 acts as a serial bridge between a computer and the RA4M1 MC
 
 If you wish you can change this and get direct access to the serial bus on the RA4M1 MCU either with software or hardware. See the instructions below:
 
-1. Software - By pulling D40 to HIGH you will close the circuit that controls which MCU is connected to USB. While D40 is HIGH, the RA4M1 is connected to the USB Serial port, and while D40 is LOW the ESP32 is connected, like the default configuration.
+1. Software - By pulling D21 to HIGH you will close the circuit that controls which MCU is connected to USB. While D21 is HIGH, the RA4M1 is connected to the USB Serial port, and while D21 is LOW the ESP32 is connected, like the default configuration.
   You can do this by including the following code in `void setup()`
   ```arduino
-  pinMode(40, OUTPUT);
-  digitalWrite(40, HIGH);
+  pinMode(21, OUTPUT);
+  digitalWrite(21, HIGH);
   ```
 2. On the back of the UNO R4 WiFi you will find solder pads labelled "RA4M1 USB". If you create a short circuit between these pads, by for example creating a bridge across them with solder, the RA4M1 will be connected to the USB Serial port, instead of the ESP32.
 
@@ -563,21 +634,187 @@ If you wish you can change this and get direct access to the serial bus on the R
 
 ### Wi-Fi®
 
-The ESP32 onboard the UNO R4 WiFi is used to give the board Wi-Fi® capabilities. The Wi-Fi® module has a bitrate of up to 150 Mbps. The ESP32 module has a built in trace-antenna, meaning that you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means that you cannot use Bluetooth® and Wi-Fi® at the same time.
+The ESP32 onboard the UNO R4 WiFi is used to give the board Wi-Fi® capabilities. The Wi-Fi® module has a bitrate of up to 150 Mbps. The ESP32 module has a built in trace-antenna, meaning you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means you cannot use Bluetooth® and Wi-Fi® at the same time.
 
-To use the Wi-Fi® features of the UNO R4 WiFi, use the **WiFiS3** library that is built in to the UNO R4 Core.
+To use the Wi-Fi® features of the UNO R4 WiFi, use the **WiFiS3** library that is built in to the UNO R4 Board Package.
 
 To learn more about the Wi-Fi® capabilities of the UNO R4 WiFi, try out the [Network Examples](/tutorials/uno-r4-wifi/wifi-examples).
 
 ### Bluetooth®
 
-Thanks to the ESP32 module, the UNO R4 WiFi has Bluetooth® LE and Bluetooth® 5 capabilities, at a speed of up to 2 Mbps. The ESP32 module has a built in trace-antenna, meaning that you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means that you cannot use Bluetooth® and Wi-Fi® at the same time.
+Thanks to the ESP32 module, the UNO R4 WiFi has Bluetooth® LE and Bluetooth® 5 capabilities, at a speed of up to 2 Mbps. The ESP32 module has a built in trace-antenna, meaning you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means that you cannot use Bluetooth® and Wi-Fi® at the same time.
+
+Below is an example sketch scans for bluetooth devices:
+
+```arduino
+#include <ArduinoBLE.h>
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+
+  // begin initialization
+  if (!BLE.begin()) {
+    Serial.println("starting Bluetooth® Low Energy module failed!");
+
+    while (1);
+  }
+
+  Serial.println("Bluetooth® Low Energy Central - Peripheral Explorer");
+
+  // start scanning for peripherals
+  BLE.scan();
+}
+
+void loop() {
+  // check if a peripheral has been discovered
+  BLEDevice peripheral = BLE.available();
+
+  if (peripheral) {
+    // discovered a peripheral, print out address, local name, and advertised service
+    Serial.print("Found ");
+    Serial.print(peripheral.address());
+    Serial.print(" '");
+    Serial.print(peripheral.localName());
+    Serial.print("' ");
+    Serial.print(peripheral.advertisedServiceUuid());
+    Serial.println();
+
+    // check for peripheral's name
+    if (peripheral.localName() == "<PERIPHERAL_NAME>") {
+      // stop scanning
+      BLE.stopScan();
+
+      explorerPeripheral(peripheral);
+
+      // peripheral disconnected, we are done
+      while (1) {
+        // do nothing
+      }
+    }
+  }
+}
+
+void explorerPeripheral(BLEDevice peripheral) {
+  // connect to the peripheral
+  Serial.println("Connecting ...");
+
+  if (peripheral.connect()) {
+    Serial.println("Connected");
+  } else {
+    Serial.println("Failed to connect!");
+    return;
+  }
+
+  // discover peripheral attributes
+  Serial.println("Discovering attributes ...");
+  if (peripheral.discoverAttributes()) {
+    Serial.println("Attributes discovered");
+  } else {
+    Serial.println("Attribute discovery failed!");
+    peripheral.disconnect();
+    return;
+  }
+
+  // read and print device name of peripheral
+  Serial.println();
+  Serial.print("Device name: ");
+  Serial.println(peripheral.deviceName());
+  Serial.print("Appearance: 0x");
+  Serial.println(peripheral.appearance(), HEX);
+  Serial.println();
+
+  // loop the services of the peripheral and explore each
+  for (int i = 0; i < peripheral.serviceCount(); i++) {
+    BLEService service = peripheral.service(i);
+
+    exploreService(service);
+  }
+
+  Serial.println();
+
+  // we are done exploring, disconnect
+  Serial.println("Disconnecting ...");
+  peripheral.disconnect();
+  Serial.println("Disconnected");
+}
+
+void exploreService(BLEService service) {
+  // print the UUID of the service
+  Serial.print("Service ");
+  Serial.println(service.uuid());
+
+  // loop the characteristics of the service and explore each
+  for (int i = 0; i < service.characteristicCount(); i++) {
+    BLECharacteristic characteristic = service.characteristic(i);
+
+    exploreCharacteristic(characteristic);
+  }
+}
+
+void exploreCharacteristic(BLECharacteristic characteristic) {
+  // print the UUID and properties of the characteristic
+  Serial.print("\tCharacteristic ");
+  Serial.print(characteristic.uuid());
+  Serial.print(", properties 0x");
+  Serial.print(characteristic.properties(), HEX);
+
+  // check if the characteristic is readable
+  if (characteristic.canRead()) {
+    // read the characteristic value
+    characteristic.read();
+
+    if (characteristic.valueLength() > 0) {
+      // print out the value of the characteristic
+      Serial.print(", value 0x");
+      printData(characteristic.value(), characteristic.valueLength());
+    }
+  }
+  Serial.println();
+
+  // loop the descriptors of the characteristic and explore each
+  for (int i = 0; i < characteristic.descriptorCount(); i++) {
+    BLEDescriptor descriptor = characteristic.descriptor(i);
+
+    exploreDescriptor(descriptor);
+  }
+}
+
+void exploreDescriptor(BLEDescriptor descriptor) {
+  // print the UUID of the descriptor
+  Serial.print("\t\tDescriptor ");
+  Serial.print(descriptor.uuid());
+
+  // read the descriptor value
+  descriptor.read();
+
+  // print out the value of the descriptor
+  Serial.print(", value 0x");
+  printData(descriptor.value(), descriptor.valueLength());
+
+  Serial.println();
+}
+
+void printData(const unsigned char data[], int length) {
+  for (int i = 0; i < length; i++) {
+    unsigned char b = data[i];
+
+    if (b < 16) {
+      Serial.print("0");
+    }
+
+    Serial.print(b, HEX);
+  }
+}
+```
+
+If you want to learn more about Bluetooth LE check out our article [here](/learn/communication/bluetooth).
 
 ### Programming the ESP32 (Advanced)
 
 The ESP32 module and the Renesas RA4M1-chip are part of a sophisticated USB-Serial system that is highly flexible and adaptive to allow for HID features while still keeping the ability to program both the main MCU, and the ESP32, if you so wish. By default, the ESP32's is used mainly as a radio module using Wi-Fi® and Bluetooth®.
 
-Overwriting the ESP32's firmware disrupts the communication between the two MCUs, but enables them to act independently. 
+Overwriting the ESP32's firmware disrupts the communication between the two MCUs, but enables them to act independently. If you wish to restore the board to its initial state, you can follow the steps for espflash in our [Help Center article](https://support.arduino.cc/hc/en-us/articles/9670986058780-Update-the-connectivity-module-firmware-on-UNO-R4-WiFi#espflash). 
 
 ***Note: To reprogram the ESP32 module, you need to short the ESP_Download pin to GND while resetting the board. This will put the ESP32 module in a bootloader state where you can establish a connection to it and reprogram the module.***
 

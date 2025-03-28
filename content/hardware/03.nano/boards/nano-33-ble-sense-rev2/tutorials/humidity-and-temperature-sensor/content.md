@@ -72,11 +72,11 @@ If you want to read more about the HS3003 sensor you can take a look at the [dat
 
 **1. Setting up**
 
-Let's start by opening the [Arduino Web Editor](https://create.arduino.cc/editor), click on the **Libraries** tab, search for the **HS300x** library, then in **Examples**, open the **ReadSensors** example. Once the sketch is open, rename it as **Temp_Humidity**. 
+Let's start by opening the [Arduino Cloud Editor](https://create.arduino.cc/editor), click on the **Libraries** tab, search for the **HS300x** library, then in **Examples**, open the **ReadSensors** example. Once the sketch is open, rename it as **Temp_Humidity**. 
 
 **2. Connecting the board**
 
-Now, connect the Arduino Nano 33 BLE Sense Rev2 to the computer to check that the Web Editor recognises it, if so, the  board and port should appear as shown in the image. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognise your board.
+Now, connect the Arduino Nano 33 BLE Sense Rev2 to the computer to check that the Cloud Editor recognises it, if so, the  board and port should appear as shown in the image. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognise your board.
 
 ![Selecting the board.](assets/nano33BS_01_board_port.png)
 

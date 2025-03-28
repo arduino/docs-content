@@ -26,7 +26,7 @@ This tutorial will show you how to define fleets and how to construct a Wave tha
 ### Required Hardware and Software
 
 - [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
-- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - Arduino Create account
 - Arduino Cloud for business subscription with Portenta X8 Manager add-on: [Learn more about here](https://cloud.arduino.cc/plans#business)
 - Foundries.io™ account (linked with the Arduino Cloud for business subscription)
@@ -46,19 +46,21 @@ For security purposes, we recommend that you rotate your FoundriesFactory keys. 
 
 First, we will rotate the root keys. These are the most important keys, as they are used to create new target keys. Rotate them with the command:
 
-```
-fioctl keys rotate-root --initial /absolute/path/to/root.keys.tgz
+```bash
+fioctl keys tuf rotate-offline-keys -r root -k /absolute/path/to/root.keys.tgz
 ```
 
 Now we can rotate the target-only keys with following command:
 
+```bash
+fioctl keys tuf rotate-offline-keys -r targets -k /absolute/path/to/root.keys.tgz
 ```
-fioctl keys rotate-targets /absolute/path/to/root.keys.tgz
-```
+
+***The above commands have been updated from the older __fioctl keys rotate-root__ and __fioctl keys rotate-targets__ commands to reflect the latest security practices recommended by [Foundries.io](https://docs.foundries.io/latest/reference-manual/security/offline-keys.html).***
 
 And finally, for security reasons, we separating the target keys from the root using the following command:
 
-```
+```bash
 fioctl keys copy-targets /absolute/path/to/root.keys.tgz /path/to/target.only.key.tgz
 ```
 
@@ -68,13 +70,13 @@ Now we can move on to creating our Wave.
 
 Before a Factory can start making production OTAs, an initial production Targets file must be created. For more information, please check out [here](https://docs.foundries.io/latest/reference-manual/ota/production-targets.html). We can begin by creating a dummy wave with the command:
 
-```
+```bash
 fioctl wave init -k /absolute/path/to/targets.only.key.tgz populate-targets
 ```
 
 Then complete the Wave with:
 
-```
+```bash
 fioctl wave complete populate-targets
 ```
 
@@ -84,19 +86,19 @@ This creates a new `targets.json` file for production devices, subscribing to th
 
 Now we can start creating our Wave. The command below will create a Wave that is pushable to our devices. To create a Wave, we will sign it with a key, and here we will use the targets-only key. Then we give the Wave a name, target number, and tag. The `target number` needs to correspond to the target that we want the Wave to contain for our devices. The `tag` can be set as production or development.
 
-```
+```bash
 fioctl wave init -k /absolute/path/to/targets.only.key.tgz <waveName> <targetNumber> <tag>
 ```
 
 And then we can complete the Wave by passing the name to the "complete" function:
 
-```
+```bash
 fioctl wave complete <waveName>
 ```
 
 If you decide to cancel, the following command will help you to do that:
 
-```
+```bash
 fioctl waves cancel <waveName>
 ```
 
@@ -108,13 +110,13 @@ After creating the Wave, you should see it on your Factory page. It should also 
 
 With this command, we create our group, giving it a name and a short description:
 
-```
+```bash
 fioctl config device-group create <groupName> "<shortDescription>"
 ```
 
 The name and the short description should be as explicit and concise as possible to highlight its group. Now to assign a device to our group we use the following command:
 
-```
+```bash
 fioctl device config group <deviceName> <groupName>
 ```
 
@@ -124,7 +126,7 @@ On your FoundriesFactory device page, you can sort and view devices by the group
 
 To roll out our Wave to our device group, use the following command:
 
-```
+```bash
 fioctl waves rollout <waveName> <deviceGroupName>
 ```
 

@@ -2,6 +2,8 @@
 title: MicroPython on the GIGA R1
 description: Get started with MicroPython on the GIGA R1.
 author: Karl Söderby
+hardware:
+  - hardware/10.mega/boards/giga-r1-wifi
 tags: [MicroPython, dfu-util]
 ---
 
@@ -74,7 +76,7 @@ print("Hello world!")
 
 If it is printed in the REPL, it means it works, and you're ready to take on bigger challenges!
 
-To find out examples and more fundamental knowledge, please visit the [MicroPython with Arduino documentation](/learn/programming/arduino-and-python). Here you will find an introduction to this environment and useful examples to get started.
+To find out examples and more fundamental knowledge, please visit the [MicroPython with Arduino documentation](/micropython). Here you will find an introduction to this environment and useful examples to get started.
 
 ***It is important to note that different Arduino boards have different implementations. This is mainly due to what microcontroller the board is based on. For example, to access digital pin 2, on the GIGA R1, you will need to use `'PA3'` (with the quotation marks). See more in [GIGA R1 Pin Map](#pin-map)***
 

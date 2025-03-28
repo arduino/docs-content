@@ -25,7 +25,7 @@ This is a style guide to writing library APIs in an Arduino style. Some of these
 **Use the established core libraries and styles.**
 
 * Use `read()` to read inputs, and `write()` to write to outputs, e.g. `digitalRead()`, `analogWrite()`, etc.
-* Use the `Stream` and `Print` classes when dealing with byte streams. If it’s not appropriate, at least try to use its API as a model. For more on this, see below
+* Use the [`Stream`](https://www.arduino.cc/reference/en/language/functions/communication/stream/) and `Print` classes when dealing with byte streams. If it’s not appropriate, at least try to use its API as a model. For more on this, see below
 * For network applications, use the `Client` and `Server` classes as the basis.
 * Use `begin()` to initialize a library instance, usually with some settings. Use `end()` to stop it.
 * Use camel case function names, not underscore. For example, **analogRead**, not **analog_read**. Or **myNewFunction**, not **my_new_function**. We've adopted this from Processing.org for readability's sake.
@@ -60,7 +60,7 @@ use something like this:
   zAxis = adxl.readZ();
 ```
 
-When using serial communication, allow the user to specify any `Stream` object, rather than hard-coding `Serial`. This will make your library compatible with all serial ports on boards with multiple (e.g., Mega), and can also use alternate interfaces like SoftwareSerial. The Stream object can be passed to your library's constructor or to a `begin()` function (as a reference, not a pointer). See [Firmata 2.3](http://www.firmata.org/wiki/Main_Page) or [XBee 0.4](https://github.com/andrewrapp/xbee-arduino) for examples of each approach.
+When using serial communication, allow the user to specify any `Stream` object, rather than hard-coding `Serial`. This will make your library compatible with all serial ports on boards with multiple (e.g., Mega), and can also use alternate interfaces like SoftwareSerial. The Stream object can be passed to your library's constructor or to a `begin()` function (as a reference, not a pointer). See [Firmata 2.3](https://www.arduino.cc/reference/en/libraries/firmata/) or [XBee 0.4](https://github.com/andrewrapp/xbee-arduino) for examples of each approach.
 
 When writing a library that provides byte-stream communication, inherit Arduino's `Stream` class, so your library can be used with all other libraries that accept `Stream` objects. If possible, buffer incoming data, so that `read()` immediately accesses the buffer but does not wait for more data to arrive. If possible, your `write()` method should store data to a transmit buffer, but `write()` must wait if the buffer does not have enough space to immediately store all outgoing data. The `yield()` function should be called while waiting.
 

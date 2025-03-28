@@ -14,7 +14,7 @@ The [**SEN136B5B**](http://wiki.seeed.cc/Ultra_Sonic_range_measurement_module/) 
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 - [Ultrasonic Range Finder](http://wiki.seeed.cc/Ultra_Sonic_range_measurement_module/)
 - hook-up wires
 

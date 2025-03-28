@@ -17,12 +17,12 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/arduino-linux-on-u
 
 ## Apps and Online Services
 
-- [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino Cloud Editor](https://create.arduino.cc/editor)
 
 ## About This Project
 
 
-This experiment shows how to interact with a Linux Single Board Computer (UP^2 in this case) using Arduino language and Create Web Editor. To begin, we need a suitable OS running on the board. As of writing, we need to install UbiLinux 4.0 beta 2 to be able to access all the IO functionalities of the board.
+This experiment shows how to interact with a Linux Single Board Computer (UP^2 in this case) using Arduino language and Create Cloud Editor. To begin, we need a suitable OS running on the board. As of writing, we need to install UbiLinux 4.0 beta 2 to be able to access all the IO functionalities of the board.
 
 ### Steps
 

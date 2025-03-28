@@ -6,7 +6,7 @@ type: maker
 
 ![](assets/featured.png)
 # Description
-The **Arduino Make Your UNO Kit** is the perfect kit to learn the basics of electronics and coding by assembling your own **Arduino UNO**. Become familiar with soldering by mounting every single component, unleash your creativity with the **Audio Synth Shield**, and learn how to code using your new **Arduino UNO** board to create amazing projects!
+The **Arduino® Make Your UNO Kit** is the perfect kit to learn the basics of electronics and coding by assembling your own **Arduino® UNO**. Become familiar with soldering by mounting every single component, unleash your creativity with the **Audio Synth Shield**, and learn how to code using your new **UNO** board to create amazing projects!
 
 # Target areas:
 Maker, introduction, education
@@ -28,9 +28,9 @@ Maker, introduction, education
          <td>Memory</td>
          <td colspan="2">
             <p>AVR CPU at up to 16 MHz</p>
-            <p>32kB Flash</p>
-            <p>2kB SRAM</p>
-            <p>1kB EEPROM</p>
+            <p>32 kB Flash</p>
+            <p>2 kB SRAM</p>
+            <p>1 kB EEPROM</p>
          </td>
         </tr>
         <tr>
@@ -127,26 +127,27 @@ Maker, introduction, education
 # CONTENTS
 ## The Kit
 ### Application Examples
-The **Arduino Make Your UNO kit** is like any **Arduino UNO** board but created by yourself. The **Arduino UNO** (from here on referred to as UNO) board is the flagship product of Arduino
+The **Make Your UNO Kit** is like any **UNO** board but created by yourself. The **UNO** board is the flagship product of Arduino.
+
 Regardless if you are new to the world of electronics or will use the **UNO** as a tool for education purposes or industry-related tasks.
 
-**First entry to electronics:** If this is your first project within coding and electronics, get started with our most used and documented board **UNO** and create one by yourself using the **Arduino Make Your UNO kit** is a great choice. It is equipped with the well-known ATmega328P processor, 14 digital input/output pins, 6 analog inputs, USB connections, ICSP header and a reset button. This board includes everything you will need for a great first experience with Arduino.
+**First entry to electronics:** If this is your first project within coding and electronics, get started with our most used and documented board **UNO** and create one by yourself using the **Make Your UNO Kit** is a great choice. It is equipped with the well-known ATmega328P processor, 14 digital input/output pins, 6 analog inputs, USB connections, ICSP header and a reset button. This board includes everything you will need for a great first experience with Arduino.
 
-**Education purposes:** Although the UNO board has been with us for about ten years, it is still widely used for various educational purposes and scientific projects. The **Arduino Make Your UNO kit** is the perfect way to teach and learn about basic circuits, electronics components, soldering and coding microcontrollers, being the perfect board to create basic and advanced projects of all kinds.
+**Education purposes:** Although the UNO board has been with us for about ten years, it is still widely used for various educational purposes and scientific projects. The **Make Your UNO Kit** is the perfect way to teach and learn about basic circuits, electronics components, soldering and coding microcontrollers, being the perfect board to create basic and advanced projects of all kinds.
 
-**Audio synthesizer for educational and artistic performances**: The kit comes with an **Audio Synth Shield** that can be attached to the **Arduino Make Your UNO** to learn about and experiment with audio synthesizers, being a perfect device to play and experiment in the classroom and at the same time a great instrument for artistic performances.
+**Audio synthesizer for educational and artistic performances**: The kit comes with an **Audio Synth Shield** that can be attached to the **Make Your UNO Kit** to learn about and experiment with audio synthesizers, being a perfect device to play and experiment in the classroom and at the same time a great instrument for artistic performances.
 
 ### Related Products (Not Included)
-* [Arduino UNO R3 (A000066)](https://store.arduino.cc/products/arduino-uno-rev3) and [Arduino UNO R3 SMD (A000066)](https://store.arduino.cc/products/arduino-uno-rev3-smd)
-* [Arduino Starter Kit (K000007)](https://store.arduino.cc/products/arduino-starter-kit-multi-language)
-* [Tinkerkit Braccio Robot (T050000)](https://store.arduino.cc/products/tinkerkit-braccio-robot)
-* [Arduino 4 Relays Shield (A000110)](https://store.arduino.cc/products/arduino-4-relays-shield)
-* [Arduino 9 Axis Motion Shield (A000070)](https://store.arduino.cc/products/arduino-9-axis-motion-shield)
-* [Arduino Ethernet Shield 2 (A000024)](https://store.arduino.cc/products/arduino-ethernet-shield-2)
-* [Arduino Motor Shield Rev3 (A000079)](https://store.arduino.cc/products/arduino-motor-shield-rev3)
+* Arduino UNO R3 (A000066) and Arduino UNO R3 SMD (A000066)
+* Arduino Starter Kit (K000007)
+* Tinkerkit Braccio Robot (T050000)
+* Arduino 4 Relays Shield (A000110)
+* Arduino 9 Axis Motion Shield (A000070)
+* Arduino Ethernet Shield 2 (A000024)
+* Arduino Motor Shield Rev3 (A000079)
 
 ### Solution Overview
-The **Arduino Make Your UNO kit** contains different boards. Besides the **UNO** board, the kit contains two additional small boards that helps the user to learn to solder its first components before starting to solder the main board. The small board with the heart shape is just for practising and it does not have any circuit or utility while the small board that contains the LED and the resistor can be powered with a 9V battery to turn on the LED.
+The **Make Your UNO Kit** contains different boards. Besides the **UNO** board, the kit contains two additional small boards that helps the user to learn to solder its first components before starting to solder the main board. The small board with the heart shape is just for practising and it does not have any circuit or utility while the small board that contains the LED and the resistor can be powered with a 9V battery to turn on the LED.
 
 ![Make Your UNO overview](assets/unoOverview.png)
 
@@ -159,7 +160,7 @@ Once the kit is assembled, the user can solder and assemble the **Audio Synth Sh
 
 | Description                                      | Min            | Max            |
 | ------------------------------------------------ | -------------- | -------------- |
-| Conservative thermal limits for the whole board | -40 °C (-40°F) | 85 °C ( 185°F) |
+| Conservative thermal limits for the whole board | -40 °C (-40 °F) | 85 °C ( 185 °F) |
 
 **NOTE:** In extreme temperatures, the EEPROM, voltage regulator, and the crystal oscillator, might not work as expected due to the temperature conditions.
 
@@ -179,9 +180,9 @@ Once the kit is assembled, the user can solder and assemble the **Audio Synth Sh
 
 ![Make Your UNO components showcase](assets/unoComponentsView.png)
 
-The **BOM** or **Bill Of Materials** of the **Arduino Make Your UNO kit** is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the board source files.
+The **BOM** or **Bill Of Materials** of the **Make Your UNO Kit** is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the board source files.
 
-![Make Your UNO board topology](assets/fusionOutline.svg)
+![Make Your UNO board topology](assets/fusionOutline.png)
 
 | **Designator**                | **Quantity** | **Description**                                  |
 | ----------------------------- | ------------ | ------------------------------------------------ |
@@ -224,19 +225,19 @@ The official documentation provided by Arduino to solder the entire kit is hoste
 #### Getting Started - IDE
 If you want to program your **UNO** while offline you need to install the Arduino Desktop IDE [1]. To connect the **UNO** to your computer, you’ll need a USB-C® cable. This also provides power to the board, as indicated by the LED.
 
-#### Getting Started - Arduino Web Editor
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [2] by just installing a simple plugin.
+#### Getting Started - Arduino Cloud Editor
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor [2] by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [3] to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [3] to start coding on the browser and upload your sketches onto your board.
 
-#### Getting Started - Arduino IoT Cloud
-All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business. In the case of the **UNO** and the **Make Your UNO** boards, you will need additional hardware to connect them to the cloud.
+#### Getting Started - Arduino Cloud
+All Arduino IoT-enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business. In the case of the **UNO** and the **Make Your UNO** boards, you will need additional hardware to connect them to the Cloud.
 
 #### Sample Sketches
 Sample sketches for the **UNO** can be found either in the “Examples” menu in the Arduino IDE.
 
 #### Online Resources
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub [4], the Arduino Library Reference [5] and the online store [6] where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub [4], the Arduino Library Reference [5] and the online store [6] where you will be able to complement your board with sensors, actuators and more.
 
 ### Connector Pinouts
 ![Make Your UNO main board pinout](assets/pinout.png)
@@ -287,12 +288,12 @@ Now that you have gone through the basics of what you can do with the board you 
 
 ### Mechanical Information
 #### Board Outline & Mounting Holes
-The **Arduino Make Your UNO kit** shares with the standard **UNO** boards the same shape and external mechanical board outline. The most important difference is the new USB-C® connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard **UNO** board, being compatible with most of the shields and peripheral devices done for the **UNO** board.
+The **Make Your UNO Kit** shares with the standard **UNO** boards the same shape and external mechanical board outline. The most important difference is the new USB-C® connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard **UNO** board, being compatible with most of the shields and peripheral devices done for the **UNO** board.
 
 ![Make Your UNO boards outline](assets/boardOutline.svg)
 
 ## The Audio Synth Shield
-The kit comes with an **Audio Synth Shield** that can be attached to the **Arduino Make Your UNO** to learn about and experiment with audio synthesizers. The shield has six trimmers to control different audio signal parameters plus a mono amplifier that can be connected to the 8 ohm speaker that comes with the kit or to any other audio output.
+The kit comes with an **Audio Synth Shield** that can be attached to the **Make Your UNO** to learn about and experiment with audio synthesizers. The shield has six trimmers to control different audio signal parameters plus a mono amplifier that can be connected to the 8 ohm speaker that comes with the kit or to any other audio output.
 
 ![Audio Synth Shield assembled](assets/synthMounted.png)
 
@@ -348,7 +349,7 @@ The **BOM** (Bill Of Materials) of the **Audio Synth Shield** is made up of comm
 
 ### Mechanical Information
 #### Board Outline & Mounting Holes
-The **Arduino Make Your UNO kit** shares with the standard **UNO** boards the same shape and external mechanical board outline. The most important difference is the new USB-C® connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard **UNO** board, being compatible with most of the shields and peripheral devices done for the **UNO** board.
+The **Make Your UNO Kit** shares with the standard **UNO** boards the same shape and external mechanical board outline. The most important difference is the new USB-C® connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard **UNO** board, being compatible with most of the shields and peripheral devices done for the **UNO** board.
 
 ![Arduino Synth Shield board outline measures](assets/synthOutline.svg)
 
@@ -444,17 +445,18 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| Reference                 | **Link**                                                                                            |
-| ------------------------- | --------------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                                                                  |
-| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                                    |
-| Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
-| Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
-| Library Reference         | https://www.arduino.cc/reference/en/                                                                |
-| Online Store              | https://store.arduino.cc/                                                                           |
+| Reference                              | **Link**                                                                 |
+| -------------------------------------- | ------------------------------------------------------------------------ |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/software                                       |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                                         |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/                     |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
+| Library Reference                      | https://www.arduino.cc/reference/en/                                     |
+| Arduino Store                          | https://store.arduino.cc/                                                |
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**       |
-| ---------- | ------------ | ----------------- |
-| 01/11/2022 | 1            | First release     |
+| Date       | **Revision** | **Changes**                      |
+| ---------- | ------------ | -------------------------------- |
+| 25/04/2024 | 2            | Updated link to new Cloud Editor |
+| 01/11/2022 | 1            | First release                    |

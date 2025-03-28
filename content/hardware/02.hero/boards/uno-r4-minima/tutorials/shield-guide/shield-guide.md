@@ -15,7 +15,7 @@ The Arduino UNO family and its form factor have become a type of standard in the
 
 Over the years, a wide range of accessories such as shields and sensors have been made, and in this guide, you will find information that will help you create your own customized hardware for the UNO family.
 
-![The UNO Family](assets/hero-family.png)
+![The UNO Family](./assets/hero-family.png)
 
  ***This guide focuses mainly on making accessories for the UNO R4 Minima & WiFi boards. In case you want to design a shield for another UNO make sure to check the respective data sheet and documentation.***
 
@@ -36,7 +36,7 @@ Inside the documentation page, you will find design files such as full pinout, C
 
 ### Dimensions
 
-![UNO dimensions](assets/UNO-dimensions.png)
+![UNO dimensions](./assets/UNO-dimensions.png)
 
 The following dimensions apply to all UNO boards.
 
@@ -53,7 +53,7 @@ The following dimensions apply to all UNO boards.
 
 Below you can find the pinout for the Arduino UNO R4 Minima. All UNO boards largely share the placement of many pins, to make it easy for accessories to be designed for different UNO boards but if you create accessories for an older UNO be sure to check its respective pinout.
 
-![Arduino UNO R4 Minima Pinout](assets/ABX00080-pinout.png)
+![Arduino UNO R4 Minima Pinout](./assets/ABX00080-pinout.png)
 
 For more information about each pin be sure to check out the advanced section in the pinout which you can see [here](assets/ABX00080-full-pinout.pdf).
 
@@ -98,7 +98,7 @@ The UNO R4 boards have serial buses attached to the following pins:
 | SPI      | COPI (11), CIPO (12), SCK (13), CS(10)     |
 | I2C      | D14 (SDA), D15 (SCL) or A4 (SDA), A5 (SCL) |  
 
-![Communication pins](assets/connections.png)
+![Communication pins](./assets/connections.png)
 
 The location of these pins is located in the pinout for each board. These are found in the **Resources Section** [product page](#documentation) of each board.
 
@@ -118,7 +118,7 @@ In this section, you will find some useful instructions when it comes to solderi
 
 Once you have gathered all your materials it's time to start the assembly. The first step is to assemble the Proto Shield and make sure it fits nicely on top of the UNO. If you are new to soldering check out our soldering tutorial [here](https://docs.arduino.cc/learn/electronics/soldering-basics).
 
-![Proto Shield Parts](assets/protoShieldRev3.png)
+![Proto Shield Parts](./assets/protoShieldRev3.png)
 
 **Step 2 Prototype Circuit**
 
@@ -126,7 +126,7 @@ Now it's time to put your components onto your shield. But before you get all ex
 
 You don't want to spend a bunch of time soldering everything neatly into place just to realize afterward that you are missing a resistor or something else and then spend even more time desoldering everything again.
 
-![Prototyping on a breadboard](assets/breaboardPrototyping.png)
+![Prototyping on a breadboard](./assets/breaboardPrototyping.png)
 
 **Step 3 Solder Components**
 

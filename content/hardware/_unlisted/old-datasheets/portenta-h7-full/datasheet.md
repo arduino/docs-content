@@ -175,10 +175,10 @@ Due to the dual core processing and the low-power capabilities, Portenta support
 
 **AI & Machine Learning:**  Thanks to the power of the two cores it can simultaneously read data from sensors or other devices on one core while the other core processes the data stream and uses machine learning to make sense of the data. When used with the Portenta Vision Shield its camera module or the two directional microphones can be used as data sources.
 
-**Connectivity:** The Portenta features on-board Bluetooth®  and Wi-Fi capabilities which makes it the perfect candidate for reliable IoT applications. When used together with the Portenta Vision Shield it enables LoRa communication in places where it needs to communicate efficiently over a long distance. The Vision Shield also features an Ethernet port that allows for wired networking applications.
+**Connectivity:** The Portenta features on-board Bluetooth®  and Wi-Fi capabilities which makes it the perfect candidate for reliable IoT applications. When used together with the Portenta Vision Shield it enables LoRa communication in places where it needs to communicate efficiently over a long distance. The Portenta Vision Shield also features an Ethernet port that allows for wired networking applications.
 
 ### Accessories
-The [Portenta H7 Vision Shield](https://docs.arduino.cc/hardware/portenta-vision-shield) is a rapid pathway to developing applications that combine vision, audio and connectivity. The ultra low power HM-01B0 CMOS image sensor is designed with always-on applications in mind. The 324x324 data stream can be used with either the Arduino toolchain or OpenMV for gestures, ambient light, proximity sensing, and object identification. The large pixel size (3.6μm) provides a high signal-to-noise ratio. The two omnidirectional digital-microphones (MP34DB02) allows concurrent capture of stereo sounds alongside the video stream on the MicroSD Card, as well as for beamforming uses. Connectivity is provided by either ethernet or LoRa technology. LoRa technology enables the use of this platform as part of wireless sensor network solutions.
+The [Portenta Vision Shield](https://docs.arduino.cc/hardware/portenta-vision-shield) is a rapid pathway to developing applications that combine vision, audio and connectivity. The ultra low power HM-01B0 CMOS image sensor is designed with always-on applications in mind. The 324x324 data stream can be used with either the Arduino toolchain or OpenMV for gestures, ambient light, proximity sensing, and object identification. The large pixel size (3.6μm) provides a high signal-to-noise ratio. The two omnidirectional digital-microphones (MP34DB02) allows concurrent capture of stereo sounds alongside the video stream on the MicroSD Card, as well as for beamforming uses. Connectivity is provided by either ethernet or LoRa technology. LoRa technology enables the use of this platform as part of wireless sensor network solutions.
 
 ### Related Products
 * Portenta H7 Lite
@@ -308,8 +308,8 @@ All Arduino and Genuino boards, including this one, work out-of-the-box on the A
 
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding in the browser and upload your sketches onto your board.
 
-### Getting Started – Arduino IoT Cloud
-All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your business or your personal environment. 
+### Getting Started – Arduino Cloud
+All Arduino IoT enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your business or your personal environment. 
 
 ### Sample Sketches 
 Sample sketches for the Arduino Portenta H7 can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the Arduino Pro website **[5]**.

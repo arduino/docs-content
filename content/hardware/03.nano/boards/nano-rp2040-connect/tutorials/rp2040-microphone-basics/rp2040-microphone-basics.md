@@ -24,7 +24,7 @@ software:
 
 The Nano RP2040 connect comes with the **MP34DT06JTR** microphone, which can be used to record audio. In this tutorial, we will setup a basic application that simply turns ON or OFF the built in RGB LED whenever a loud noise is recorded (for example snapping our fingers).
 
->**Note:** if you need help setting up your environment to use your Arduino Nano RP2040 board, please refer to [this installation guide](/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nano).
+>**Note:** if you need help setting up your environment to use your Arduino Nano RP2040 board, please refer to [this installation guide](/software/ide-v2/tutorials/ide-v2-board-manager).
 
 ## Goals
 
@@ -64,12 +64,12 @@ This tutorial requires no additional circuit. You will only need to connect the 
 
 We will now get to the programming part of this tutorial. 
 
-1. First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino Mbed OS Nano Boards** and install it. 
+1. First, let's make sure we have the drivers installed. If we are using the Cloud Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino Mbed OS Nano Boards** and install it. 
 
 2. We can now take a look at some of the core functions of this sketch:
 
 - `static const char channels = 1;` - sets the number of output channels. 
-- `static const int frequency = 16000;` - sets the sampling frequency to 20 KHz. 
+- `static const int frequency = 20000;` - sets the sampling frequency to 20 KHz. 
 - `short sampleBuffer[512]` - buffer to read samples into, each sample is 16-bits.
 - `while (!Serial)` - prevents program from running until Serial Monitor is opened.
 - `PDM.begin(channels, frequency)` - initializes the PDM library.
@@ -87,7 +87,7 @@ bool LED_SWITCH = false;
 static const char channels = 1;
 
 // default PCM output frequency
-static const int frequency = 16000;
+static const int frequency = 20000;
 
 // Buffer to read samples into, each sample is 16-bits
 short sampleBuffer[512];

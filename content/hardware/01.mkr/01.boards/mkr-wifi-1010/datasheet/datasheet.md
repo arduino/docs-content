@@ -7,7 +7,7 @@ type: maker
 ![Arduino® MKR WiFi 1010](assets/featured.png)
 
 # Description
-The MKR WiFi 1010 is a miniature sized module containing a SAMD21G18A Processor, the Nina W102 Module and a crypto chip (the ATECC508). 
+The Arduino® MKR WiFi 1010 is a miniature sized module containing a SAMD21G18A Processor, the Nina W102 Module and a crypto chip (the ATECC508). 
 
 
 # Target Areas
@@ -17,9 +17,9 @@ Prototyping, IoT application examples
 # Features
 - **SAMD21G18A**
   - **Processor**
-      - ARM Cortex M0+ at up to 48 MHz
-      - 256KB Flash
-      - 32KB SRAM
+      - Arm® Cortex®-M0+ at up to 48 MHz
+      - 256 kB Flash
+      - 32 kB SRAM
       - Power On Reset (POR) and Brown Out Detection (BOD)
 
   - **Peripherals**
@@ -48,20 +48,20 @@ Prototyping, IoT application examples
 - **Nina W102 Module**
     - Dual Core Tensilica LX6 CPU at up to 240MHz
 
-  - **WiFi**
+  - **Wi-Fi®**
       - IEEE 802.11b up to 11Mbit
       - IEEE 802.11g up to 54MBit
       - IEEE 802.11n up to 72MBit
       - 2.4 GHz, 13 channels
       - 96 dBm sensitivity
 
-  - **Bluetooth BR/EDR**
+  - **Bluetooth® BR/EDR**
       - Max 7 Clients
       - 2.4 GHz, 79 channels
       - Up to 3 Mbit/s
       - -88 dBm sensitivity
-      - Bluetooth Low Energy
-      - Bluetooth 5.0 dual mode
+      - Bluetooth® Low Energy
+      - Bluetooth® 5.0 dual mode
       - 2.4GHz 40 channels
       - -88 dBm sensitivity
       - Up to 1 Mbit/s
@@ -75,18 +75,23 @@ Prototyping, IoT application examples
 
 ## The Board
 
-Like most Arduino MKR form factor boards the MKR WiFi 1010  can be powered via USB, via headers or connecting a Lithium or Lithium Polymer battery to the embedded battery charger (the BQ24195L).
-**NOTE:** Arduino MKR WiFi 1010 battery charger has a minimum of 512 mA charge current. Please ensure this charging is compatible with the battery you will be using.
-**NOTE:** Arduino MKR WiFi 1010 only supports 3.3V I/Os and is NOT 5V tolerant.
-Please make sure you are not directly connecting 5V signals to this board, or it will be damaged.
+Like most Arduino MKR form factor boards the MKR WiFi 1010 can be powered via USB, via headers or connecting a Lithium or Lithium Polymer battery to the embedded battery charger (the BQ24195L).
+
+**NOTE:** MKR WiFi 1010 battery charger has a minimum of 512 mA charge current. Please ensure this charging is compatible with the battery you will be using.
+
+**NOTE:** MKR WiFi 1010 only supports 3.3 V I/Os and is NOT 5 V tolerant.
+
+Please make sure you are not directly connecting 5 V signals to this board, or it will be damaged.
+
+
 Also the 5V pin does NOT supply voltage but is rather connected, through a jumper, to the USB power input.
 
 
 ### Application Examples
 
-**Bluetooth:** The communications chipset on the MKR WiFi 1010 is something pretty unique in the world of microcontroller platforms, since this can be both a BLE and Bluetooth® client and host device. 
+**Bluetooth®:** The communications chipset on the MKR WiFi 1010 is something pretty unique in the world of microcontroller platforms, since this can be both a Bluetooth® LE and Bluetooth® client and host device. 
 
-**WiFi:**  The WiFi connectivity is performed with a module from u-blox, the NINA-W10, a low power chipset operating in the 2.4GHz range. 
+**Wi-Fi®:**  The Wi-Fi® connectivity is performed with a module from u-blox®, the NINA-W10, a low power chipset operating in the 2.4GHz range. 
 
 **IoT:** Whether you are looking at building a sensor network connected to your office or home router, or if you want to create a BLE device sending data to a cell phone, the MKR WiFi 1010 is your one-stop-solution for many of the basic IoT application scenarios.
 
@@ -109,7 +114,8 @@ Also the 5V pin does NOT supply voltage but is rather connected, through a jumpe
 
 ### Processor
 
-The Main Processor is a ARM Cortex M0+  running at up to 48 MHz
+The Main Processor is a Arm® Cortex®-M0+ running at up to 48 MHz.
+
 Most of its pins are connected to the external headers, however some are reserved for internal communication to the communication module and to the internal SPI and  I2C peripherals (Crypto).
 Communication with  NINA Module W102 happens through UART and SPI through the following pins.
 
@@ -127,10 +133,12 @@ Communication with  NINA Module W102 happens through UART and SPI through the fo
 | 38  | PB23    | 22       | UART\_RXD | Serial1\_RX |
 | 37  | PA22    | 23       | UART\_TXD | Serial1\_TX |
 
-### WiFi Module
+### Wi-Fi® Module
 
-WiFi connectivity is provided by a Nina W102 Module. This module contains a STM32L0 processor along with a Semtech SX1276 Radio. The processor is running on Arduino open source firmware based on Semtech code.
-NOTE: Although Firmware is open source, modifying it will require recertification of the radio stack.
+### Wi-Fi®/Bluetooth® Communication Module
+Nina W102 is based on ESP32 and is delivered with a pre-certified software stack from Arduino. Source code for the firmware is available [1].
+
+**NOTE:** Reprogramming the wireless module’s firmware with a custom one will invalidate compliance with radio standards as certified by Arduino, hence this is not recommended unless the application is used in private laboratories far from other electronic equipment and people. Usage of custom firmware on radio modules is the sole responsibility of the user.
 
 ### Crypto Chips
 The crypto chip in Arduino IoT boards is what makes the difference with other less secure boards as it provides a secure way to store secrets such as certificates and it also allows accelerating secure protocols while never exposing secrets in plain text.
@@ -142,20 +150,21 @@ The crypto chip in Arduino IoT boards is what makes the difference with other le
 
 ## Board Operation
 ### Getting Started - IDE
-If you want to program your Arduino MKR WiFi 1010 while offline you need to install the Arduino Desktop IDE [1] To connect the Arduino MKR WiFi 1010 to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your MKR WiFi 1010 while offline you need to install the Arduino Desktop IDE [2] To connect the MKR WiFi 1010 to your computer, you’ll need a micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [2], by just installing a simple plugin.
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [3] to start coding on the browser and upload your sketches onto your board.
+### Getting Started - Arduino Cloud Editor
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor [3], by just installing a simple plugin.
 
-### Getting Started - Arduino IoT Cloud
-All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [4] to start coding on the browser and upload your sketches onto your board.
+
+### Getting Started - Arduino Cloud
+All Arduino IoT enabled products are supported on Arduino Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Arduino Forum
-Discussions and ideas for the Arduino MKR WiFi 1010 can be found in the Arduino Forum [4].
+Discussions and ideas for the MKR WiFi 1010 can be found in the Arduino Forum [5].
 
 ### Online Resources
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub [5], the Arduino Library Reference [6] and the online store [7] where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub [6], the Arduino Library Reference [7] and the online store [8] where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
@@ -326,21 +335,24 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| Ref                       | Link                                                                                                |
-| ------------------------- | --------------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                                                                  |
-| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                                    |
-| Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
-| Arduino Documentation     | https://docs.arduino.cc/hardware/mkr-wifi-1010                                                      |
-| Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
-| Library Reference         | https://www.arduino.cc/reference/en/libraries/                                                      |
-| Online Store              | https://store.arduino.cc/                                                                           |
+| Ref                                    | Link                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------ |
+| NINA Firmware                          | https://github.com/arduino/nina-fw                                       |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/software                                       |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                                         |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/                     |
+| Arduino Documentation                  | https://docs.arduino.cc/hardware/mkr-wifi-1010                           |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
+| Library Reference                      | https://www.arduino.cc/reference/en/libraries/                           |
+| Online Store                           | https://store.arduino.cc/                                                |
 
 
 ## Revision History
 
 | **Date**   | **Revision** | **Changes**                           |
 | ---------- | ------------ | ------------------------------------- |
-|27/09/2022|3|Rendering problems fixed|
-|20/09/2022|2|Migration to Markdown, links updated, small typos fixed|
-|22/03/2021|1|First Release|
+| 25/04/2024 | 5            | Updated Wi-Fi module information      |
+| 25/04/2024 | 4            | Updated link to new Cloud Editor      |
+| 27/09/2022 | 3            | Rendering problems fixed              |
+| 20/09/2022 | 2            | Migration to Markdown, links updated, small typos fixed|
+| 22/03/2021 | 1            | First Release                         |

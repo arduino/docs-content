@@ -1,7 +1,7 @@
 ---
 title: 'Downloading and installing the Arduino IDE 2'
 difficulty: beginner
-description: 'A quick guide on how to install the IDE 2 on your operative system.'
+description: 'A quick guide on how to install the IDE 2 on your operating system.'
 tags:
  - Installation
 author: 'Karl Söderby'
@@ -17,7 +17,7 @@ You can easily download the editor from the [Arduino Software page](https://www.
 
 - **Windows** - Win 10 and newer, 64 bits
 - **Linux** - 64 bits
-- **Mac OS X** - Version 10.14: "Mojave" or newer, 64 bits
+- **macOS** - Version 10.15: "Catalina" or newer, 64 bits
 
 ### The Arduino IDE 2
 
