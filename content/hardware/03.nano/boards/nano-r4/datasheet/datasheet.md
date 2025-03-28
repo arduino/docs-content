@@ -49,7 +49,7 @@ kB) and 16 times more SRAM (32 kB).
 | Internal Memory       | 256 kB Flash / 32 kB RAM / 8 kB EEPROM                                                             |
 | USB Connectivity      | USB-C® port for power and data                                                                     |
 | Power                 | Input voltage (VIN): 6-21 V / Power via USB-C® at 5 V                                              |
-| Digital Inputs        | GPIO (x21 - All exposed I/O can be used as digital), PWM (x6)                                      |
+| Digital Inputs        | GPIO (x21 - All exposed I/O can be used as digital), PWM (x8)                                      |
 | Analog Inputs         | 14-bit ADC (x8)                                                                                    |
 | Communication         | UART (x1), I2C (x2) (5 V and 3.3 V over QWIIC), SPI (x1), CAN (external transceiver required) (x1) |
 | Dimensions            | 18 mm x 45 mm                                                                                      |
@@ -65,7 +65,7 @@ On the Nano R4, the operating voltage is fixed at 5 V to be fully retro compatib
 | --------------------------- | ------------------------------------- |
 | R7FA4M1AB3CFM#HA0 Processor | Arm® Cortex®-M4 core at up to 480 MHz |
 | Flash Memory                | 256 kB of Flash Memory                |
-| Programming Memory          | 32kB of RAM                        |
+| Programming Memory          | 32kB of RAM                           |
 | Data Memory                 | 8kB of EEPROM                         |
 
 For more technical details on this microcontroller, visit [Renesas - RA4M1 series](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ra4m1-32-bit-microcontrollers-48mhz-arm-cortex-m4-and-lcd-controller-and-cap-touch-hmi).
@@ -111,15 +111,14 @@ This connector also shares the following pin connections:
 **Note:** V<sub>DD</sub> controls the logic level and is connected to the 5V power rail. V<sub>AREF</sub> is for the analog logic.
 
 ## Functional Overview
-### Board Topology
-#### Front View
+### Front View
 
-![Top View of Arduino Nano R4](assets/topViewNanoR4.svg)
+![Top View of Arduino Nano R4](assets/topViewNanoR4.png)
 
 | **Ref.** | **Description**                          |
 | -------- | ---------------------------------------- |
-| U1       | R7FA4M1AB3CFM#AA0 Microcontroller IC     |
-| U2       | MP2322GQH Step-Down                      |
+| U1       | R7FA4M1AB3CFM#HA0 Microcontroller IC     |
+| U2       | MP2322GQH Buck Converter                 |
 | U3       | AP2112K-3.3TRG1 Dropout linear regulator |
 | PB1      | RESET Button                             |
 | JP1      | Analog input/output headers              |
@@ -127,14 +126,6 @@ This connector also shares the following pin connections:
 | J1       | CX90B-16P USB-C® connector               |
 | J2       | SM04B-SRSS-TB(LF)(SN) I2C connector      |
 | DL1      | RGB LED                                  |
-| DL2      | LED L                                    |
-| DL3      | LED Power (green)                        |
-| PB1      | RESET Button                             |
-
-
-#### Back View
-
-![Back View of Arduino Nano R4](assets/backViewNanoR4.svg)
 
 ### Pinout
 
@@ -183,17 +174,6 @@ This connector also shares the following pin connections:
 
 \*CIPO/COPI/CS replaces the MISO/MOSI/SS terminology.
 
-#### SWD/JTAG
-
-<!---Section to be defined-->
-
-| Pin | Function | Type     | Description         |
-| --- | -------- | -------- | ------------------- |
-| 1   | +5V      | Internal | Power Supply of 5 V |
-| 2   | SWDIO    | Internal | Data I/O pin        |
-| 3   | GND      | Internal | Ground              |
-| 4   | SWCLK    | Internal | Clock Pin           |
-
 ### Block Diagram
 
 ![Arduino Nano R4 Block Diagram](assets/Nano_R4_Block_Diagram.png)
@@ -241,11 +221,10 @@ Now that you have gone through the basics of what you can do with the board you 
 ## Mechanical Information
 ### Board Dimensions
 
-![Mechanical View of Arduino Nano R4](assets/mechanicalDrawingNanoR4.svg)
+![Mechanical View of Arduino Nano R4](assets/mechanicalDrawingNanoR4.png)
 
 ### Board Connectors
-### Board Peripherals and Actuators
-
+![Mechanical View of Arduiuno Nano R4's Connectors](assets/board-connectors.png)
 ## Company Information
 
 | Company name    | Arduino S.r.l.                                |
