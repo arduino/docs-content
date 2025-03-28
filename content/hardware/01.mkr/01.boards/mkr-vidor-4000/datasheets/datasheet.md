@@ -30,119 +30,31 @@ The MKR Vidor 4000 is nothing less than a powerhouse of a board, packing a huge 
 The board's microcontroller is a low power Arm® Cortex®-M0 32-bit SAMD21, like in the other boards within the Arduino MKR family. The Wi-Fi® and Bluetooth® connectivity is performed with a module from u-blox, the NINA-W10, a low power chipset operating in the 2.4GHz range. On top of that, secure communication is ensured through the Microchip® ECC508 crypto chip. Also, you can find a battery charger, and a directionable RGB LED on-board.
 
 
-<div style="text-align:center;">
-
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="25%">Component</th>
-            <th colspan="2">Details</th>
-        </tr>
-    </thead>
-	<tbody>
-		<tr>
-			<td rowspan="1">Microcontroller</td>
-			<td colspan="2">SAMD21 Arm® Cortex®-M0+ 32bit low power ARM MCU</td>
-		</tr>
-		<tr>
-			<td rowspan="1">USB connector</td>
-			<td colspan="2">Micro USB (USB-B)</td>
-		</tr>
-		<tr>
-			<td rowspan="6">Pins</td>
-			<td rowspan="1">Built-in LED Pin</td>
-			<td colspan="1">Pin 6</td>
-		</tr>
-		<tr>
-			<td rowspan="1">Digital I/O Pins</td>
-			<td colspan="1">x8</td>
-		</tr>
-		<tr>
-			<td rowspan="1">Analog Input Pins</td>
-			<td colspan="1">x7 (ADC 8/10/12 bit)</td>
-		</tr>
-		<tr>
-			<td rowspan="1">Analog Output Pins</td>
-			<td colspan="1">x1 (DAC 10 bit)</td>
-		</tr>
-		<tr>
-			<td rowspan="1">PMW Pins</td>
-			<td colspan="1">x13 (0 - 8, 10, 12, A3, A4)</td>
-		</tr>
-		<tr>
-			<td rowspan="1">External interrupts</td>
-			<td colspan="1">x10 (Pin 0, 1, 4, 5, 6, 7, 8,9, A1, A2)</td>
-		</tr>
-		<tr>
-			<td rowspan="3">Connectivity</td>
-			<td rowspan="1">Bluetooth®</td>
-			<td colspan="1">Nina W102 u-blox® module</td>
-		</tr>
-		<tr>
-			<td rowspan="1">Wi-Fi®</td>
-			<td colspan="1">Nina W102 u-blox® module</td>
-		</tr>
-		<tr>
-			<td rowspan="1">Secure element</td>
-			<td colspan="1">ATECC508A</td>
-		</tr>
-		<tr>
-			<td rowspan="3">Communication</td>
-			<td rowspan="1">UART</td>
-			<td colspan="1">Yes</td>
-		</tr>
-		<tr>
-			<td rowspan="1">I2C</td>
-			<td colspan="1">Yes</td>
-		</tr>
-		<tr>
-			<td rowspan="1">SPI</td>
-			<td colspan="1">Yes</td>
-		</tr>
-		<tr>
-			<td rowspan="5">Power</td>
-			<td rowspan="1">I/O Voltage</td>
-			<td colspan="1">3.3 V</td>
-		</tr>
-		<tr>
-			<td rowspan="1">Input Voltage (nominal)</td>
-			<td colspan="1">5-7 V</td>
-		</tr>
-		<tr>
-			<td rowspan="1">DC Current per I/O pin</td>
-			<td colspan="1">7 mA</td>
-		</tr>
-		<tr>
-			<td rowspan="1">Supported battery</td>
-			<td colspan="1">Li-Po Single Cell, 3.7 V, 1024 mAh Minimum</td>
-		</tr>
-		<tr>
-			<td rowspan="1">Battery connector</td>
-			<td colspan="1">JST PH</td>
-		</tr>
-		<tr>
-			<td rowspan="2">Clock speed</td>
-			<td rowspan="1">Processor</td>
-			<td colspan="1">48 MHz</td>
-		</tr>
-		<tr>
-			<td rowspan="1">RTC</td>
-			<td colspan="1">32.768 kHz</td>
-		</tr>
-		<tr>
-			<td rowspan="2">Memory</td>
-			<td rowspan="1">SAMD21G18A</td>
-			<td colspan="1">256 kB Flash, 32 kB SRAM</td>
-		</tr>
-		<tr>
-			<td rowspan="1">Nina W102 u-blox® module</td>
-			<td colspan="1">448 kB ROM, 520 kB SRAM, 2 MB Flash</td>
-		</tr>
-	</tbody>
-</table>
-
-</div>
-
+|          Component           |                     Details                     |
+| :--------------------------: | :---------------------------------------------: |
+|     **Microcontroller**      | SAMD21 Arm® Cortex®-M0+ 32bit low power ARM MCU |
+|      **USB connector**       |                Micro USB (USB-B)                |
+|     **Built-in LED Pin**     |                      Pin 6                      |
+|     **Digital I/O Pins**     |                       x8                        |
+|    **Analog Input Pins**     |              x7 (ADC 8/10/12 bit)               |
+|    **Analog Output Pins**    |                 x1 (DAC 10 bit)                 |
+|         **PMW Pins**         |           x13 (0 - 8, 10, 12, A3, A4)           |
+|   **External interrupts**    |     x10 (Pin 0, 1, 4, 5, 6, 7, 8,9, A1, A2)     |
+|        **Bluetooth®**        |            Nina W102 u-blox® module             |
+|          **Wi-Fi®**          |            Nina W102 u-blox® module             |
+|      **Secure element**      |                    ATECC508A                    |
+|           **UART**           |                       Yes                       |
+|           **I2C**            |                       Yes                       |
+|           **SPI**            |                       Yes                       |
+|       **I/O Voltage**        |                      3.3 V                      |
+| **Input Voltage (nominal)**  |                      5-7 V                      |
+|  **DC Current per I/O pin**  |                      7 mA                       |
+|    **Supported battery**     |   Li-Po Single Cell, 3.7 V, 1024 mAh Minimum    |
+|    **Battery connector**     |                     JST PH                      |
+|        **Processor**         |                     48 MHz                      |
+|           **RTC**            |                   32.768 kHz                    |
+|        **SAMD21G18A**        |            256 kB Flash, 32 kB SRAM             |
+| **Nina W102 u-blox® module** |       448 kB ROM, 520 kB SRAM, 2 MB Flash       |
 
 ### FPGA Block
 
@@ -213,7 +125,7 @@ The FPGA is the Intel® Cyclone® 10CL016. It contains 16K logic elements, 504 k
         <tr>
           <td rowspan="1">Clock Speed</td>
           <td colspan="2">48 MHz - up to 200 MHz</td>
-        </tr>    
+        </tr>
     </tbody>
 </table>
 </div>
