@@ -7,7 +7,7 @@ author: Julián Caro Linares
 
 ![](assets/image.svg)
 
-# Description 
+# Description
 
 <p style="text-align: justify;">The Arduino MKR Vidor 4000 (from now on referred to as MKR Vidor 4000) is without a doubt the most advanced and featured-packed board in the MKR family and the only one with a FPGA chip on board. With a camera & HDMI connector, a Wi-Fi® / Bluetooth® module and up to 25 configurable pins, the board offers a huge range of possibilities to implement solutions in different environments and applications.</p>
 
@@ -246,7 +246,7 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 | Hexavalent Chromium (Cr6+)             | 1000                    |
 | Poly Brominated Biphenyls (PBB)        | 1000                    |
 | Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
-| Bis(2-Ethylhexyl} phthalate (DEHP)     | 1000                    |
+| Bis(2-Ethylhexyl) phthalate (DEHP)     | 1000                    |
 | Benzyl butyl phthalate (BBP)           | 1000                    |
 | Dibutyl phthalate (DBP)                | 1000                    |
 | Diisobutyl phthalate (DIBP)            | 1000                    |
@@ -338,7 +338,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Arduino Project Hub                                 | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                    |
 | Library Reference                                   | https://www.arduino.cc/reference/en/                                                        |
 | Online Store                                        | https://store.arduino.cc/                                                                   |
-         
+
 
 ## Document Revision History
 
