@@ -20,10 +20,8 @@ FPGA, IoT, automation, industry, smart cities, signal processing
 
 ## Features
 
-<p style="text-align: justify;">
 The MKR Vidor 4000 is nothing less than a powerhouse of a board, packing a huge set of features into a small form factor. It features the Intel® Cyclone® 10CL016 for FPGA (Field Programming Gate Array), allowing you to configure a large set of pins to accommodate any of your preferences. But why stop there? The board also has a camera connector, a Micro HDMI connector, Wi-Fi® / Bluetooth® connectivity through the NINA-W102 module, and cyber-security through the ECC508 crypto chip. Just like the other members of the MKR family, it uses the popular Arm® Cortex®-M0 32-bit SAMD21 microprocessor.
 
-</p>
 
 ### Microcontroller Block
 
@@ -103,7 +101,7 @@ The board comes with 8 MB of SRAM to support the FPGA operations on video and au
 
 ### Related Products
 
-- Arduino MKR Family boards 
+- Arduino MKR Family boards
 - Arduino MKR Family shields
 - Arduino MKR Family carriers
 
@@ -133,14 +131,11 @@ The following table is a comprehensive guideline for the optimal use of the MKR 
 
 ## Functional Overview
 
-<p style="text-align: justify;">
 The cores of the MKR Vidor 4000 are the SAMD21 Arm® Cortex®-M0+ microcontroller and the Intel® Cyclone® 10CL016 FPGA. The board also contains several peripherals connected to the microcontroller and the FPGA blocks.
-
-</p>
 
 **![Board Overview](assets/Vidor_Mappa.jpg)**
 
-### Pinout 
+### Pinout
 
 The basic pinout is shown in Figure 1.
 
@@ -164,8 +159,6 @@ An overview of the MKR Vidor 4000 high-level architecture is showed in the next 
 
 ### Power Supply
 
-<div style="text-align:justify;">
-
 The MKR Vidor can be powered through one of these interfaces:
 
 - **USB:** Micro USB-B port. Used to power the board at 5 V.
@@ -174,11 +167,7 @@ The MKR Vidor can be powered through one of these interfaces:
 - **VCC:** This pin outputs 3.3 V through the on-board voltage regulator. This voltage is 3.3 V if USB or VIN is used.
 - **Battery:** 3.7 V single-cell lithium-ion/lithium-polymer battery, connected through the onboard battery connector JST S2B-PH-SM4-TB(LF)(SN). The mating connector is JST PHR-2.
 
-</div>
-
 ## Device Operation
-
-<div style="text-align:justify;">
 
 ### Getting Started - IDE
 
