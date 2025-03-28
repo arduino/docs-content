@@ -390,8 +390,6 @@ Sample sketches for MKR Vidor 4000 can be found either in the “Examples” men
 
 Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[6]**, the Arduino Library Reference **[7]** and the online store **[8]** where you will be able to complement your MKR Vidor 4000 product with additional extensions, sensors and actuators.
 
-</div>
-
 ## Mechanical Information
 
 ### Board Dimensions
@@ -404,15 +402,15 @@ MKR Vidor 4000 board dimensions and weight are the following:
     <tbody>
       <tr>
         <th rowspan="3">Dimensions & Weight</th>
-        <td rowspan="1">Width</th>
+        <td rowspan="1">Width</td>
         <td colspan="1">25 mm</td>
       </tr>
       <tr>
-        <td rowspan="1">Length</th>
+        <th rowspan="1">Length</th>
         <td colspan="1">83 mm</td>
       </tr>
-      <tr>  
-        <td rowspan="1">Weight</th>
+      <tr>
+        <th rowspan="1">Weight</th>
         <td colspan="1">43.5 g</td>
       </tr>
     </tbody>
