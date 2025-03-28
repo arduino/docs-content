@@ -60,137 +60,46 @@ The board's microcontroller is a low power Arm® Cortex®-M0 32-bit SAMD21, like
 
 The FPGA is the Intel® Cyclone® 10CL016. It contains 16K logic elements, 504 kB of embedded RAM, and x56 18x18 bits HW multipliers for high-speed DSP operations. Each pin can toggle at over 150 MHz and can be configured for functions such as UARTs, (Q)SPI, high-resolution/high-frequency PWM, quadrature encoder, I2C, I2S, Sigma Delta DAC, etc.
 
-<div style="text-align:center;">
+|           Component           |                   Details                    |
+| :---------------------------: | :------------------------------------------: |
+|           **FPGA**            |           Intel® Cyclone® 10CL016            |
+|            **PCI**            | Mini PCI Express port with programmable pins |
+|     **Camera Connector**      |            MIPI camera connector             |
+|       **Video Output**        |                  Micro HDMI                  |
+| **Circuit Operating Voltage** |                    3.3 V                     |
+|     **Digital I/O Pins**      |       22 headers + 25 Mini PCI Express       |
+|         **PWM Pins**          |                   All Pins                   |
+|           **UART**            |   Up to 7 (depends on FPGA configuration)    |
+|            **SPI**            |   Up to 7 (depends on FPGA configuration)    |
+|            **I2C**            |   Up to 7 (depends on FPGA configuration)    |
+|  **DC Current per I/O Pin**   |                  4 or 8 mA                   |
+|       **Flash Memory**        |                     2 MB                     |
+|           **SDRAM**           |                     8 MB                     |
+|        **Clock Speed**        |            48 MHz - up to 200 MHz            |
 
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="25%">Component</th>
-            <th colspan="2">Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td rowspan="1">FPGA</td>
-          <td colspan="2">Intel® Cyclone® 10CL016</td>
-        </tr>
-        <tr>
-          <td rowspan="1">PCI</td>
-          <td colspan="2">Mini PCI Express port with programmable pins</td>
-        </tr>
-        <tr>
-          <td rowspan="1">Camera Connector</td>
-          <td colspan="2">MIPI camera connector</td>
-        </tr>
-        <tr>
-          <td rowspan="1">Video Output</td>
-          <td colspan="2">Micro HDMI</td>
-        </tr>
-        <tr>
-          <td rowspan="1">Circuit Operating Voltage</td>
-          <td colspan="2">3.3 V</td>
-        </tr>
-        <tr>
-          <td rowspan="1">Digital I/O Pins</td>
-          <td colspan="2">22 headers + 25 Mini PCI Express</td>
-        </tr>
-        <tr>
-          <td rowspan="1">PWM Pins</td>
-          <td colspan="2">All Pins</td>
-        </tr>
-        <tr>
-          <td rowspan="1">UART</td>
-          <td colspan="2">Up to 7 (depends on FPGA configuration)</td>
-        </tr>
-        <tr>
-          <td rowspan="1">SPI</td>
-          <td colspan="2">Up to 7 (depends on FPGA configuration)</td>
-        </tr>
-        <tr>
-          <td rowspan="1">I2C</td>
-          <td colspan="2">Up to 7 (depends on FPGA configuration)</td>
-        </tr>
-        <tr>
-          <td rowspan="1">DC Current per I/O Pin</td>
-          <td colspan="2">4 or 8 mA</td>
-        </tr>
-        <tr>
-          <td rowspan="1">Flash Memory</td>
-          <td colspan="2">2 MB</td>
-        </tr>
-        <tr>
-          <td rowspan="1">SDRAM</td>
-          <td colspan="2">8 MB</td>
-        </tr>
-        <tr>
-          <td rowspan="1">Clock Speed</td>
-          <td colspan="2">48 MHz - up to 200 MHz</td>
-        </tr>
-    </tbody>
-</table>
-</div>
 
 The board comes with 8 MB of SRAM to support the FPGA operations on video and audio. The FPGA code is stored in a 2 MB QSPI Flash chip, of which 1 MB is allocated for user applications. It is possible to perform high-speed DSP operations for audio and video processing. Therefore, the Vidor includes a Micro HDMI connector for audio and video output and a MIPI camera connector for video input. All of the board's pins are driven both by SAMD21 and FPGA while respecting the MKR family format. Finally, there is a Mini PCI Express connector with up to x25 user-programmable pins that can be used for connecting your FPGA as a peripheral to a computer or to create your own PCI interfaces.
 
 
 ### Wireless Communication
 
-<div style="text-align:center;">
-  <table>
-    <thead>
-      <tr>
-        <th>Component</th>
-        <th>Details</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td rowspan="2">Nina W102 u-blox® module</td>
-        <td>2.4 GHz Wi-­Fi® (802.11 b/g/n) support</td>
-      </tr>
-      <tr>
-        <td>Bluetooth® 4.2 Low Energy dual-mode</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+|          Component           |                Details                |
+| :--------------------------: | :-----------------------------------: |
+| **Nina W102 u-blox® module** | 2.4 GHz Wi-Fi® (802.11 b/g/n) support |
+|                              |  Bluetooth® 4.2 Low Energy dual-mode  |
+
 
 ### Security
 
-<div style="text-align:center;">
-  <table>
-    <thead>
-      <tr>
-        <th>Component</th>
-        <th>Details</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td rowspan="7">ATECC508A</td>
-        <td>Secure boot process that verifies the authenticity and integrity of the firmware before it is loaded into the device</td>
-      </tr>
-      <tr>
-        <td>Performs High-Speed Public Key (PKI) Algorithms</td>
-      </tr>
-      <tr>
-        <td>NIST Standard P256 Elliptic Curve Support</td>
-      </tr>
-      <tr>
-        <td>SHA-256 Hash Algorithm with HMAC Option</td>
-      </tr>
-      <tr>
-        <td> Host and Client Operations</td>
-      </tr>
-      <tr>
-        <td>256-bit Key Length</td>
-      </tr>
-      <tr>
-        <td>Storage for up to 16 Keys</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+|   Component   |                                               Details                                                |
+| :-----------: | :--------------------------------------------------------------------------------------------------: |
+| **ATECC508A** | Secure boot process that verifies the authenticity and integrity of the firmware before it is loaded |
+|               |                           Performs High-Speed Public Key (PKI) Algorithms                            |
+|               |                              NIST Standard P256 Elliptic Curve Support                               |
+|               |                               SHA-256 Hash Algorithm with HMAC Option                                |
+|               |                                      Host and Client Operations                                      |
+|               |                                          256-bit Key Length                                          |
+|               |                                      Storage for up to 16 Keys                                       |
 
 ### Related Products
 
@@ -308,27 +217,11 @@ Now that you have gone through the basics of what you can do with the device, yo
 
 MKR Vidor 4000 board dimensions and weight are the following:
 
-
-<div style="text-align:center;">
-  <table>
-    <tbody>
-      <tr>
-        <th rowspan="3">Dimensions & Weight</th>
-        <td rowspan="1">Width</td>
-        <td colspan="1">25 mm</td>
-      </tr>
-      <tr>
-        <th rowspan="1">Length</th>
-        <td colspan="1">83 mm</td>
-      </tr>
-      <tr>
-        <th rowspan="1">Weight</th>
-        <td colspan="1">43.5 g</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
+| Dimensions & Weight |            |        |
+| :-----------------: | :--------: | :----: |
+|                     | **Width**  | 25 mm  |
+|                     | **Length** | 83 mm  |
+|                     | **Weight** | 43.5 g |
 
 The MKR Vidor 4000 has two 2.22 mm drilled mounting holes to provide for mechanical fixing.
 
