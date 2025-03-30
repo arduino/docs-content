@@ -73,7 +73,7 @@ We will now get to the programming part of this tutorial. It focuses on two main
 
 **2.** Now, we need to install the libraries needed. If we are using the Cloud Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **MKRNB** and install it.
 
-**3.** With the drivers and library installed, we can now move on to create the sketch. This sketch is available as an example in the **MKRNB** library, and can be accessed directly through the editor by navigating to **File > Examples > MKRNB > Tools > ChangeRadioAccessTechnology**. 
+**3.** With the drivers and library installed, we can now move on to create the sketch. This sketch is available as an example in the **MKRNB** library, and can be accessed directly through the editor by navigating to **File > Examples > MKRNB > Tools > ChooseRadioAccessTechnology**. 
 
 The full code is also available further down this tutorial. But we will now also go through it step by step to understand the sketch a bit better.
 
