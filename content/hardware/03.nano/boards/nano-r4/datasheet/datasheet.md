@@ -95,7 +95,6 @@ The standard I2C is accessible through the following pin connections:
 
 **Note:** as A4/A5 is connected to the main I2C bus, these should not be used as ADC inputs whenever the bus is in use. You can however connect I2C devices to each of these pins and connectors simultaneously.
 
-
 ### Related Products
 
 - Arduino Nano (A000005)
@@ -220,6 +219,7 @@ The Arduino Cloud Editor is hosted online, therefore it will always be up-to-dat
 ### Online Resources
 
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
+<div style="page-break-after: always;"> </div>
 
 ## Mechanical Information
 ### Board Dimensions
