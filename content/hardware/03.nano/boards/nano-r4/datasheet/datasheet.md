@@ -27,6 +27,8 @@ The Nano R4 is an evolution of its predecessor, the Nano Classic, which was prev
 The board features the standard 14 digital I/O ports, 6 analog channels, dedicated pins for I2C, SPI and UART
 connections. Compared to its predecessors the board has a much larger memory: 8 times more flash memory (256 kB) and 16 times more SRAM (32 kB).
 
+### Application Examples
+
 **Effortless Transition:** Move seamlessly from prototyping to production with the familiar RA4M1 microcontroller present already in the UNO R4 family.
 
 **Entry level projects:** If this is your first project within coding and electronics, the Nano R4 is a good fit. It is easy to get started with and has a lot of online documentation (both official + community).
@@ -79,7 +81,7 @@ The Nano R4 has one USB-C® port, used to power and program your board as well a
 
 The Nano R4 has a DAC with up to 12-bit resolution attached to the A0 analog pin. A DAC is used to convert a digital signal to an analog signal.
 
-### I2C Connector
+### Qwiic I2C Connector
 
 ![Arduino Nano R4 Qwiic Connector](assets/Nano_R4-Qwiic-connector.png)
 
