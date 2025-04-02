@@ -60,7 +60,7 @@ Below is a list of all available firmware versions with their release notes.
 ### OS Image 846
 
 <details>
-  <summary><strong>2024.05 (Release arduino-91.1, OS Image 846)</strong></summary>
+  <summary><strong>2024.05.15 (Release arduino-91.1, OS Image 846)</strong></summary>
 
 #### Image Access
   - Full image [download](https://downloads.arduino.cc/portentax8image/846.tar.gz)
@@ -77,7 +77,7 @@ Below is a list of all available firmware versions with their release notes.
 ### OS Image 844
 
 <details>
-  <summary><strong>2024.05 (Release arduino-91, OS Image 844)</strong></summary>
+  <summary><strong>2024.05.10 (Release arduino-91, OS Image 844)</strong></summary>
 
 #### Image Access
   - Full image [download](https://downloads.arduino.cc/portentax8image/844.tar.gz)
@@ -108,7 +108,7 @@ Below is a list of all available firmware versions with their release notes.
 ### OS Image 822
 
 <details>
-  <summary><strong>2024.04 (Release arduino-88.94, OS Image 822)</strong></summary>
+  <summary><strong>2024.04.08 (Release arduino-88.94, OS Image 822)</strong></summary>
 
 #### Image Access
   - Full image [download](https://downloads.arduino.cc/portentax8image/822.tar.gz)
@@ -138,7 +138,7 @@ Below is a list of all available firmware versions with their release notes.
 ### OS Image 746
 
 <details>
-  <summary><strong>2023.10 (Release arduino-88.91, OS Image 746)</strong></summary>
+  <summary><strong>2023.10.25 (Release arduino-88.91, OS Image 746)</strong></summary>
 
 #### Image Access
   - Full image [download](https://downloads.arduino.cc/portentax8image/746.tar.gz)
@@ -166,7 +166,7 @@ Below is a list of all available firmware versions with their release notes.
 ### OS Image 719
 
 <details>
-  <summary><strong>2023.09 (Release arduino-88.7, OS Image 719)</strong></summary>
+  <summary><strong>2023.09.27 (Release arduino-88.7, OS Image 719)</strong></summary>
 
 #### Image Access
   - Full image [download](https://downloads.arduino.cc/portentax8image/719.tar.gz)
