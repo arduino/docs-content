@@ -58,6 +58,7 @@ connections. Compared to its predecessors the board has a much larger memory: 8 
 | Power                 | Input voltage (VIN): 6-21 V / Power via USB-C® at 5 V                                              |
 | Digital Inputs        | GPIO (x21 - All exposed I/O can be used as digital), PWM (x6)                                      |
 | Analog Inputs         | 14-bit ADC (x8)                                                                                    |
+| Real-time Clock (RTC) | Yes                                                                                                |
 | Communication         | UART (x1), I2C (x2) (5 V and 3.3 V over Qwiic), SPI (x1), CAN (external transceiver required) (x1) |
 | Dimensions            | 18 mm x 45 mm                                                                                      |
 | Operating Temperature | -40 °C to +85 °C                                                                                   |
@@ -149,12 +150,19 @@ The Nano R4 is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1AB3CFM
 
 On the Nano R4, the operating voltage is fixed at 5 V to be fully retro compatible with shields, accessories & circuits originally designed for older Nano revisions.
 
-| Component                   | Details                              |
-| --------------------------- | ------------------------------------ |
-| R7FA4M1AB3CFM#HA0 Processor | Arm® Cortex®-M4 core at up to 48 MHz |
-| Flash Memory                | 256 kB of Flash Memory               |
-| Programming Memory          | 32kB of RAM                          |
-| Data Memory                 | 8kB of EEPROM                        |
+| Component                              | Details                              |
+| -------------------------------------- | ------------------------------------ |
+| R7FA4M1AB3CFM#HA0 Processor            | Arm® Cortex®-M4 core at up to 48 MHz |
+| Flash Memory                           | 256 kB of Flash Memory               |
+| Programming Memory                     | 32kB of RAM                          |
+| Data Memory                            | 8kB of EEPROM                        |
+| Real-time Clock (RTC)                  | Yes                                  |
+| Direct Memory Access Controller (DMAC) | Yes (x4)                             |
+| ADC                                    | Yes (14-bit)                         |
+| DAC                                    | Yes (12-bit)                         |
+| Operation Amplifier (OPAMP)            | Yes                                  |
+| CAN bus                                | Yes                                  |
+
 
 For more technical details on this microcontroller, visit [Renesas - RA4M1 series](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ra4m1-32-bit-microcontrollers-48mhz-arm-cortex-m4-and-lcd-controller-and-cap-touch-hmi).
 
@@ -181,6 +189,15 @@ The standard I2C is accessible through the following pin connections:
 - A5
 
 **Note:** as A4/A5 is connected to the main I2C bus, these should not be used as ADC inputs whenever the bus is in use. You can however connect I2C devices to each of these pins and connectors simultaneously.
+
+### Real-time Clock (RTC)
+
+The Nano R4 features a Real-time Clock allowing you to keep accurate time (date and clock), even when the board is powered off. This is ideal for data logging, scheduling tasks, or timestamping events.
+
+The Realtime Clock (RTC) has two counting modes, calendar count mode and binary count mode, that are controlled by the register settings.
+
+- For calendar count mode, the RTC has a 100-year calendar from 2000 to 2099 and automatically adjusts dates for leap years.
+- For binary count mode, the RTC counts seconds and retains the information as a serial value. Binary count mode can be used for calendars other than the Gregorian (Western) calendar.
 
 ### Power Options
 
