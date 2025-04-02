@@ -190,7 +190,7 @@ The standard I2C is accessible through the following pin connections:
 
 **Note:** as A4/A5 is connected to the main I2C bus, these should not be used as ADC inputs whenever the bus is in use. You can however connect I2C devices to each of these pins and connectors simultaneously.
 
-### Real-time Clock (RTC)
+### Realtime Clock (RTC)
 
 The Nano R4 features a Real-time Clock allowing you to keep accurate time (date and clock), even when the board is powered off. This is ideal for data logging, scheduling tasks, or timestamping events.
 
