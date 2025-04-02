@@ -50,7 +50,7 @@ connections. Compared to its predecessors the board has a much larger memory: 8 
 | Internal Memory       | 256 kB Flash / 32 kB RAM / 8 kB EEPROM                                                             |
 | USB Connectivity      | USB-C® port for power and data                                                                     |
 | Power                 | Input voltage (VIN): 6-21 V / Power via USB-C® at 5 V                                              |
-| Digital Inputs        | GPIO (x21 - All exposed I/O can be used as digital), PWM (x8)                                      |
+| Digital Inputs        | GPIO (x21 - All exposed I/O can be used as digital), PWM (x6)                                      |
 | Analog Inputs         | 14-bit ADC (x8)                                                                                    |
 | Communication         | UART (x1), I2C (x2) (5 V and 3.3 V over Qwiic), SPI (x1), CAN (external transceiver required) (x1) |
 | Dimensions            | 18 mm x 45 mm                                                                                      |
@@ -83,9 +83,9 @@ The Nano R4 has a DAC with up to 12-bit resolution attached to the A0 analog pin
 
 ### Qwiic I2C Connector
 
-![Arduino Nano R4 Qwiic Connector](assets/Nano_R4-Qwiic-connector.png)
-
 The I2C Qwiic connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. Note that this connector is powered via 3.3 V.
+
+![Arduino Nano R4 Qwiic Connector](assets/Nano_R4-Qwiic-connector.png)
 
 The standard I2C is accessible through the following pin connections:
 
@@ -159,15 +159,15 @@ The standard I2C is accessible through the following pin connections:
 | Pin | Function     | Type     | Description                             |
 | --- | ------------ | -------- | --------------------------------------- |
 | 1   | D12 / CIPO\* | Digital  | Controller In Peripheral Out            |
-| 2   | D11 / COPI\* | Digital  | Controller Out Peripheral In            |
-| 3   | D10 / CS\*   | Digital  | Chip Select                             |
-| 4   | D9           | Digital  | Digital pin 9                           |
+| 2   | D11 / COPI\* | Digital  | Controller Out Peripheral In / PWM      |
+| 3   | D10 / CS\*   | Digital  | Chip Select / PWM                       |
+| 4   | D9           | Digital  | Digital pin 9 / PWM                     |
 | 5   | D8           | Digital  | Digital pin 8                           |
 | 6   | D7           | Digital  | Digital pin 7                           |
-| 7   | D6           | Digital  | Digital pin 6                           |
-| 8   | D5           | Digital  | Digital pin 5                           |
+| 7   | D6           | Digital  | Digital pin 6 / PWM                     |
+| 8   | D5           | Digital  | Digital pin 5 / PWM                     |
 | 9   | D4           | Digital  | Digital pin 4                           |
-| 10  | D3           | Digital  | Digital pin 3                           |
+| 10  | D3           | Digital  | Digital pin 3 / PWM                     |
 | 11  | D2           | Digital  | Digital pin 2                           |
 | 12  | GND          | Power    | Ground                                  |
 | 13  | RST          | Internal | Reset                                   |
