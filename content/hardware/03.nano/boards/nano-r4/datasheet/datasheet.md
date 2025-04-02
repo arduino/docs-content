@@ -246,7 +246,7 @@ Now that you have gone through the basics of what you can do with the board you 
 ![Mechanical View of Arduino Nano R4](assets/mechanicalDrawingNanoR4.png)
 
 ### Board Connectors
-![Mechanical View of Arduiuno Nano R4's Connectors](assets/board-connectors.png)
+![Mechanical View of Arduino Nano R4's Connectors](assets/board-connectors.png)
 ## Company Information
 
 | Company name    | Arduino S.r.l.                                |
