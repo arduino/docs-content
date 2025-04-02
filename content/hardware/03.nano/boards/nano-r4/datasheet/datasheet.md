@@ -40,6 +40,12 @@ connections. Compared to its predecessors the board has a much larger memory: 8 
 **Cross compatibility:** The Nano form factor automatically makes it compatible with hundreds of existing third-party shields and other official accessories.
 </div>
 
+### Related Products
+
+- Arduino Nano (A000005)
+- Arduino® UNO R4 Minima (ABX00080)
+- Arduino® UNO R4 WiFi (ABX00087)
+
 ## Features
 ### General Specifications Overview
 
@@ -56,51 +62,6 @@ connections. Compared to its predecessors the board has a much larger memory: 8 
 | Dimensions            | 18 mm x 45 mm                                                                                      |
 | Operating Temperature | -40 °C to +85 °C                                                                                   |
 
-### Microcontroller
-
-The Nano R4 is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1AB3CFM#HA0**, from Renesas, which uses a 48 MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU).
-
-On the Nano R4, the operating voltage is fixed at 5 V to be fully retro compatible with shields, accessories & circuits originally designed for older Nano revisions.
-
-| Component                   | Details                              |
-| --------------------------- | ------------------------------------ |
-| R7FA4M1AB3CFM#HA0 Processor | Arm® Cortex®-M4 core at up to 48 MHz |
-| Flash Memory                | 256 kB of Flash Memory               |
-| Programming Memory          | 32kB of RAM                          |
-| Data Memory                 | 8kB of EEPROM                        |
-
-For more technical details on this microcontroller, visit [Renesas - RA4M1 series](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ra4m1-32-bit-microcontrollers-48mhz-arm-cortex-m4-and-lcd-controller-and-cap-touch-hmi).
-
-### USB-C® Connector
-
-The Nano R4 has one USB-C® port, used to power and program your board as well as send & receive serial communication.
-
-**_Note: You should not power the board with more than 5 V via the USB-C® port._**
-
-### Digital Analog Converter (DAC)
-
-The Nano R4 has a DAC with up to 12-bit resolution attached to the A0 analog pin. A DAC is used to convert a digital signal to an analog signal.
-
-### Qwiic I2C Connector
-
-The I2C Qwiic connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. Note that this connector is powered via 3.3 V.
-
-![Arduino Nano R4 Qwiic Connector](assets/Nano_R4-Qwiic-connector.png)
-
-The standard I2C is accessible through the following pin connections:
-
-**JP1 header**
-- A4
-- A5
-
-**Note:** as A4/A5 is connected to the main I2C bus, these should not be used as ADC inputs whenever the bus is in use. You can however connect I2C devices to each of these pins and connectors simultaneously.
-
-### Related Products
-
-- Arduino Nano (A000005)
-- Arduino® UNO R4 Minima (ABX00080)
-- Arduino® UNO R4 WiFi (ABX00087)
-
 ## Ratings
 ### Recommended Operating Conditions
 
@@ -113,21 +74,6 @@ The standard I2C is accessible through the following pin connections:
 **Note:** V<sub>DD</sub> controls the logic level and is connected to the 5V power rail. V<sub>AREF</sub> is for the analog logic.
 
 ## Functional Overview
-### Front View
-
-![Top View of Arduino Nano R4](assets/topViewNanoR4.png)
-
-| **Ref.** | **Description**                          |
-| -------- | ---------------------------------------- |
-| U1       | R7FA4M1AB3CFM#HA0 Microcontroller IC     |
-| U2       | MP2322GQH Buck Converter                 |
-| U3       | AP2112K-3.3TRG1 Dropout linear regulator |
-| PB1      | RESET Button                             |
-| JP1      | Analog input/output headers              |
-| JP2      | Digital input/output headers             |
-| J1       | CX90B-16P USB-C® connector               |
-| J2       | SM04B-SRSS-TB(LF)(SN) I2C connector      |
-| DL1      | RGB LED                                  |
 
 ### Pinout
 
@@ -179,6 +125,62 @@ The standard I2C is accessible through the following pin connections:
 ### Block Diagram
 
 ![Arduino Nano R4 Block Diagram](assets/Nano_R4_Block_Diagram.png)
+
+## Board Topology
+### Front View
+
+![Top View of Arduino Nano R4](assets/topViewNanoR4.png)
+
+| **Ref.** | **Description**                          |
+| -------- | ---------------------------------------- |
+| U1       | R7FA4M1AB3CFM#HA0 Microcontroller IC     |
+| U2       | MP2322GQH Buck Converter                 |
+| U3       | AP2112K-3.3TRG1 Dropout linear regulator |
+| PB1      | RESET Button                             |
+| JP1      | Analog input/output headers              |
+| JP2      | Digital input/output headers             |
+| J1       | CX90B-16P USB-C® connector               |
+| J2       | SM04B-SRSS-TB(LF)(SN) I2C connector      |
+| DL1      | RGB LED                                  |
+
+### Microcontroller
+
+The Nano R4 is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1AB3CFM#HA0**, from Renesas, which uses a 48 MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU).
+
+On the Nano R4, the operating voltage is fixed at 5 V to be fully retro compatible with shields, accessories & circuits originally designed for older Nano revisions.
+
+| Component                   | Details                              |
+| --------------------------- | ------------------------------------ |
+| R7FA4M1AB3CFM#HA0 Processor | Arm® Cortex®-M4 core at up to 48 MHz |
+| Flash Memory                | 256 kB of Flash Memory               |
+| Programming Memory          | 32kB of RAM                          |
+| Data Memory                 | 8kB of EEPROM                        |
+
+For more technical details on this microcontroller, visit [Renesas - RA4M1 series](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ra4m1-32-bit-microcontrollers-48mhz-arm-cortex-m4-and-lcd-controller-and-cap-touch-hmi).
+
+### USB-C® Connector
+
+The Nano R4 has one USB-C® port, used to power and program your board as well as send & receive serial communication.
+
+**_Note: You should not power the board with more than 5 V via the USB-C® port._**
+
+### Digital Analog Converter (DAC)
+
+The Nano R4 has a DAC with up to 12-bit resolution attached to the A0 analog pin. A DAC is used to convert a digital signal to an analog signal.
+
+### Qwiic I2C Connector
+
+The I2C Qwiic connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. Note that this connector is powered via 3.3 V.
+
+![Arduino Nano R4 Qwiic Connector](assets/Nano_R4-Qwiic-connector.png)
+
+The standard I2C is accessible through the following pin connections:
+
+**JP1 header**
+- A4
+- A5
+
+**Note:** as A4/A5 is connected to the main I2C bus, these should not be used as ADC inputs whenever the bus is in use. You can however connect I2C devices to each of these pins and connectors simultaneously.
 
 ### Power Options
 
