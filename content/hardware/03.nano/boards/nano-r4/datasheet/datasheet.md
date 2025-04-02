@@ -170,7 +170,7 @@ For more technical details on this microcontroller, visit [Renesas - RA4M1 serie
 
 The Nano R4 has one USB-C® port, used to power and program your board as well as send & receive serial communication.
 
-**_Note: You should not power the board with more than 5 V via the USB-C® port._**
+**Note:** You should not power the board with more than 5 V via the USB-C® port.
 
 ### Digital Analog Converter (DAC)
 
