@@ -3,6 +3,8 @@ title: Nano Matter
 url_shop: https://arduino.to/nano-matter
 primary_button_url: /tutorials/nano-matter/user-manual/
 primary_button_title: User Manual
+secondary_button_url: /downloads/nano-matter/ABX00112-technical-documentation.zip
+secondary_button_title: Technical Documentation
 sku: [ABX00112, ABX00137]
 core: arduino:mbed_nano
 certifications: [CE, UKCA, RoHS, FCC, IC]
