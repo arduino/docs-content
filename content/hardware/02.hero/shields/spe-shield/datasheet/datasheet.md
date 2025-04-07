@@ -94,6 +94,19 @@ For detailed information about the supported protocols **RS485** and **Single Pa
 
 ### Shield Topology
 
+![](assets/topology-outline.png)
+
+| Ref.        | Description                                                                                              |
+| ----------- | -------------------------------------------------------------------------------------------------------- |
+| U1          | Level Shifter IC (P/N: TXB0108DQSR)                                                                      |
+| U2          | 10BASE-T1S MAC-PHY Ethernet Controller (P/N: LAN8651B1-E/LMX )                                           |
+| U3_1, U3_2  | High-Side Power Switch (P/N: MAX17613AATP+T )                                                            |
+| J1          | Header Connector 2.54mm, 2x3 positions, female height 8.5mm, male height 11.4mm (P/N: RSE2-1-06-SG-3)    |
+| J2, J5, J7  | Screw Terminal Connector, 4 positions, pitch 2.54mm, height 8.6mm, black (P/N: DG308-2.54-04P-13-00Z(H)) |
+| J3, J4, J12 | Male Vertical Pin Header, 2 positions, pitch 2.54mm, THT, single row (P/N: 61300211121)                  |
+| J6          | Connector 10BASE-T1S, Category B, Single Pair Ethernet (P/N: 1163797)                                    |
+| JANALOG     | ANALOG UNO SHIELDS Header, 2.54mm, 8+6 pins, custom 5.08mm pitch, 14.95mm pin length (P/N: 20TW-988)     |
+| JDIGITAL    | DIGITAL UNO SHIELDS Header, 2.54mm, 8+10 pins, custom 4.06mm pitch, 14.95mm pin length (P/N: 20TW-987)   |
 
 ### Pinout
 
@@ -216,16 +229,10 @@ Now that you have gone through the basics of what you can do with the device, yo
 
 The outline of the Arduino UNO SPE Shield is shown in the figure below, with all dimensions provided in millimeters (mm).
 
-
+![](assets/mechanical.png)
 
 
 <div style="page-break-after: always;"></div>
-
-### Shield Connectors
-
-<p style="text-align: justify;">
-The connectors of the Arduino UNO SPE Shield are mainly found along its edges. Their placement is illustrated in the figures below, with all dimensions provided in millimeters (mm).
-</p>
 
 
 <div style="page-break-after: always;"></div>
