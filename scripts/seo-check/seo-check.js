@@ -21,17 +21,26 @@ const openai = new OpenAI({
 // 4. Send to OpenAI
 (async () => {
   try {
+    const prompt = `Please review the following markdown content, and recommend SEO improvements.
+    The SEO improvements should be made in coordination with the following guidelines:
+    - https://developers.google.com/search/docs/fundamentals/creating-helpful-content
+    - https://developers.google.com/search/docs/crawling-indexing/url-structure
+
+    Please extract non-generic focus points from the content and suggest specific improvements.
+    You can extract specific sections from the content, place it in markdown code block, and then below, 
+    make a markdown codeblock containing a new suggestion for the section.
+    
+    :\n\n${content}`;
+
     const chatCompletion = await openai.chat.completions.create({
       model: 'gpt-4',
       messages: [
         { role: 'system', content: 'You are a helpful SEO and content writing assistant.' },
-        { role: 'user', content: `Please review and improve this Markdown article for SEO:\n\n${content}` }
+        { role: 'user', content: prompt }
       ],
     });
 
     const result = chatCompletion.choices[0].message.content;
-    console.log('\n💬 Response from OpenAI:\n');
-    console.log(result);
 
     // Optional: write to file
     const outputPath = filePath.replace(/\.md$/, '.openai.md');
