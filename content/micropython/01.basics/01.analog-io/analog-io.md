@@ -167,9 +167,9 @@ Let's take a look at what's included in this code example:
 
 The resolution of an ADC can simply be explained as how detailed it is. When using MicroPython, the default is **16-bits**, while using the Arduino programming language it is **10-bits**. So what is the difference?
 
-When we read something in 16-bit resolution, we receive a range of 0-65355. Let's say the voltage range is 0-3.3V, as is standard in most modern boards. If we were to read 3.3V, it means "max" or "65355". If we read half of that voltage (1.65V), it would be 65355/2 = 32677.
+When we read something in 16-bit resolution, we receive a range of 0-65535. Let's say the voltage range is 0-3.3V, as is standard in most modern boards. If we were to read 3.3V, it means "max" or "65535". If we read half of that voltage (1.65V), it would be 65535/2 = 32767.
 
-Now let's say we have an analog sensor reading temperature. If the temperature is at its very max for that component, and it outputs 3.3V, we will read 65355. If it is not outputting any voltage (which is unlikely), we would read 0.
+Now let's say we have an analog sensor reading temperature. If the temperature is at its very max for that component, and it outputs 3.3V, we will read 65535. If it is not outputting any voltage (which is unlikely), we would read 0.
 
 If we are using a different resolution, such as **10-bits**, the range would instead be **0-1023**. The voltage remains the same, but the value we read is different.
 
@@ -179,7 +179,7 @@ Why does it work this way? See, bits are used to represent information. A single
 - 4-bits = 0-8
 - 8-bits = 0-255
 - 10-bits = 0-1023
-- 16-bits = 0-65355
+- 16-bits = 0-65535
 - 32-bits = 0-4,294,967,295
 
 ## Summary
