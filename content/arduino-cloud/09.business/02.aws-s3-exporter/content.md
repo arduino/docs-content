@@ -240,7 +240,7 @@ The following animation shows the final review stage, which summarizes all stack
 
 #### Supported Configurable Parameters
 
-Below are the supported configuration parameters that are editable in the AWS Parameter Store. These parameters are pre-filled during stack creation but can be modified later:
+Below are the supported configuration parameters editable in the AWS Parameter Store. These parameters are pre-filled during stack creation but can be modified later:
 
 | **Parameter**                                                  | **Description**                           |
 |----------------------------------------------------------------|-------------------------------------------|
