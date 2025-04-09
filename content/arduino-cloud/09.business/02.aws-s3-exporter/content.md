@@ -54,7 +54,7 @@ This setup provides a structured and scalable approach for managing time series 
 
 ## AWS Account & CloudFormation Template
 
-An active AWS account is required to deploy the **Arduino AWS S3 CSV Exporter**. If an account is not available, refer to the [online AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html) for account setup. The following steps can help you to get started:
+An active AWS account is required to deploy the **Arduino AWS S3 CSV Exporter**. If an account is unavailable, refer to the [online AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html) for account setup. The following steps can help you get started:
 
 - [Sign up for an AWS account](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#aws-registration)
 - [Create an administrative user](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#create-an-admin)
