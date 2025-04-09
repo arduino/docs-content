@@ -162,7 +162,7 @@ A **custom encryption key** can be specified before finishing the folder creatio
 
 ![lambdas3binaries Bucket Setup (4)](assets/s3_bucket_csvdests3int_4.png)
 
-Once the folder is created, it will be displayed under the **Objects** tab of the **CSV destination bucket**. This makes sure that all exported CSV files are well organized within the dedicated bucket.
+Once the folder is created, it will be displayed under the **Objects** tab of the **CSV destination bucket**. This ensures that all exported CSV files are well-organized within the dedicated bucket.
 
 ![S3 Buckets](assets/s3_bucket_complete.png)
 
