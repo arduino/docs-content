@@ -404,7 +404,7 @@ Detailed logs display function-specific messages and show configuration settings
 
 ### EventBridge
 
-**Amazon EventBridge** manages the scheduling of Lambda function executions. It makes sure that the data extraction process runs at predefined intervals without manual intervention.
+**Amazon EventBridge** manages the scheduling of Lambda function executions. It ensures that the data extraction process runs at predefined intervals without manual intervention.
 
 The **EventBridge Rules** dashboard shows the rule responsible for triggering the *AWS S3 CSV Exporter Lambda function*. The rule type is **Scheduled Standard**, meaning it executes the function at fixed intervals, with its status appearing as Enabled, indicating that it is active and operational.
 
