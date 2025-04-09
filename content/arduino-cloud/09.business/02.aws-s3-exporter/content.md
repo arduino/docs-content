@@ -316,7 +316,7 @@ This process allows only the selected Arduino Cloud Things to export data to the
 
 ### CSV File Storage and Organization
 
-The generated CSV files are stored in the `csvdests3int` S3 bucket. Within this bucket, files are structured in a date-based hierarchy for organized storage and easy access. Each folder corresponds to a specific date and within those folders, CSV files are named according to their respective timestamps.
+The generated CSV files are stored in the `csvdests3int` S3 bucket. This bucket's files are structured in a date-based hierarchy for organized storage and easy access. Each folder corresponds to a specific date and within those folders, CSV files are named according to their respective timestamps.
 
 The top-level structure of the `csvdests3int` bucket appears as follows:
 
