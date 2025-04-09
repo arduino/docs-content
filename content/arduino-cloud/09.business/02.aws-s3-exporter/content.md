@@ -199,7 +199,7 @@ Configure the following required parameters before proceeding with stack creatio
 
 ***For more information about Arduino Cloud API, please refer to the [APIs Overview](https://docs.arduino.cc/arduino-cloud/api/api-overview/) or [Arduino Cloud API from Getting started with Arduino Cloud for Business](https://docs.arduino.cc/arduino-cloud/business/arduino-cloud-for-business/#arduino-cloud-api).***
 
-You can also configure optional parameters like **tag filters**, **organization ID (Space ID for Arduino Cloud)** and **data resolution settings**.
+You can also configure optional parameters such as **tag filters**, **organization ID (Space ID for Arduino Cloud)**, and **data resolution settings**.
 
 ![Stack Creation (3)](assets/cloud_stack_create_3.png)
 
