@@ -232,11 +232,11 @@ The UNO R4 WiFi has a DAC with up to 12-bit resolution attached to the A0 analog
 
 The DAC can be used for signal generation for e.g. audio applications, like generating and altering sawtooth waves.
 
-## I2C Connector
+## Qwiic I2C Connector
 
-The I2C connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. Note that this connector is powered via 3.3 V.
+The I2C Qwiic connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. Note that this connector is powered via 3.3 V.
 
-![I2C connector.](assets/i2c-connector.png)
+![I2C qwiic connector.](assets/i2c-connector.png)
 
 This connector also shares the following pin connections:
 
