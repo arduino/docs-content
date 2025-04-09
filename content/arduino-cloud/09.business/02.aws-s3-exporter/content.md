@@ -308,7 +308,7 @@ Now, the stack is ready for operation with AWS S3, which is integrated with the 
 
 ## AWS S3 CSV Exporter Result
 
-Once the CloudFormation stack is successfully deployed, the AWS S3 CSV Exporter will function based on the configured execution schedule. Based on the configuration, the [**Lambda function**](#lambda) is triggered every hour, retrieving data from relevant Arduino Cloud Thing tagged with the appropriate metadata key.
+Once the CloudFormation stack is successfully deployed, the AWS S3 CSV Exporter will function based on the configured execution schedule. Based on the configuration, the [**Lambda function**](#lambda) is triggered every hour, retrieving data from relevant Arduino Cloud Things tagged with the appropriate metadata key.
 
 ![Arduino Cloud Thing Metadata Key](assets/arduino_cloud_thing_metadata.png)
 
