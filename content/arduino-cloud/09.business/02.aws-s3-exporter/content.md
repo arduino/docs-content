@@ -61,7 +61,7 @@ An active AWS account is required to deploy the **Arduino AWS S3 CSV Exporter**.
 
 The exporter setup involves deploying resources using a [**CloudFormation template**](https://github.com/arduino/aws-s3-integration/blob/0.3.0/deployment/cloud-formation-template/deployment.yaml). This template provisions and configures the necessary AWS resources automatically.
 
-CloudFormation requires the following **IAM permissions** to automatically provision and manage the AWS resources used in this deployment.
+AWS CloudFormation requires specific [**IAM permissions**](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) to automatically provision and manage AWS resources during this deployment. AWS Identity and Access Management (IAM) is a web service that helps you securely control access to AWS resources by managing permissions and determining which resources users can access.
 
 * CloudFormation stack creation (policy: `AWSCloudFormationFullAccess`)
 * S3 bucket management (policy: `AmazonS3FullAccess`)
