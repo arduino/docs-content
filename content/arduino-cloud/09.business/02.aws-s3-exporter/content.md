@@ -368,7 +368,7 @@ For a more structured representation, the CSV data can be visualized as follows:
 | 2025-02-09T23:10:23Z | 7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6 | C33Proto_AWSS3Bench | 30454a65-42c3-4083-8141-7f5341eba68c | measuredTVOC                  | FLOAT             | 0.11863171309232712 | LAST_VALUE                |
 | 2025-02-09T21:46:39Z | 7d715bb9-96ce-4cf1-8f86-c9f3dfbebfb6 | C33Proto_AWSS3Bench | 30bac618-1d9c-4846-9cde-5466efd4c782 | measuredSulfurOdor            | BOOLEAN           | FALSE               | LAST_VALUE                |
 
-AWS S3 and Arduino Cloud are now connected with the stack successfully deployed. Data extraction will follow the defined schedule, storing CSV files in the designated S3 bucket.
+AWS S3 and Arduino Cloud are now connected and the stack has been successfully deployed. Data extraction will follow the defined schedule, storing CSV files in the designated S3 bucket.
 
 ## Lambda, CloudWatch & EventBridge
 
