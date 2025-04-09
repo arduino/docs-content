@@ -292,7 +292,7 @@ The **Stacks** section displays the newly created stack and its status. At this 
 
 ![Stack Build (1)](assets/cloud_stack_creation_1.png)
 
-The **Events - updated** tab logs real time updates for each resource creation. The status **`CREATE_IN_PROGRESS`** is shown alongside timestamps and event details, allowing visibility of the deployment process.
+The **Events - updated** tab logs real-time updates for each resource creation. The status **`CREATE_IN_PROGRESS`** is shown alongside timestamps and event details, allowing visibility of the deployment process.
 
 ![Stack Build (2)](assets/cloud_stack_creation_2.png)
 
