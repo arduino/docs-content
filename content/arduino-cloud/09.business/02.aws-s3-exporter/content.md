@@ -418,7 +418,7 @@ The Lambda function's EventBridge trigger confirms the active connection between
 
 ![S3 Bucket date defined organization](assets/lambda_function_eventbridge_trigger.png)
 
-The combination of Lambda, CloudWatch and EventBridge provides monitoring and maintenance of the AWS S3 CSV Exporter. Lambda handles function execution and triggers, CloudWatch logs real time function activity and performance metrics. At the same time, EventBridge schedules the execution process to maintain continuous data exports.
+The combination of Lambda, CloudWatch, and EventBridge monitors and maintains the AWS S3 CSV Exporter. Lambda handles function execution and triggers, while CloudWatch logs real-time function activity and performance metrics. At the same time, EventBridge schedules the execution process to maintain continuous data exports.
 
 Together, these services provide the tools to track performance, detect errors and optimize the automated CSV data extraction from Arduino Cloud to AWS S3.
 
