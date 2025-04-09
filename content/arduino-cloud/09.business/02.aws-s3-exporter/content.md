@@ -16,7 +16,7 @@ software:
 
 ## Overview
 
-The **Arduino AWS S3 CSV Exporter** is designed to extract time series data from **Arduino Cloud** and publish it to an **AWS S3** bucket in CSV format.
+The Arduino AWS S3 CSV Exporter is designed to extract time series data from Arduino Cloud and publish it in CSV format to an AWS S3 bucket.
 
 A scheduled AWS Lambda function manages the data extraction process, running at configurable intervals. The extraction frequency, sampling resolution and filters can be customized to refine the data stored in S3.
 
