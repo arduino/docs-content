@@ -296,7 +296,7 @@ The **Events - updated** tab logs real-time updates for each resource creation. 
 
 ![Stack Build (2)](assets/cloud_stack_creation_2.png)
 
-Once all resources are successfully deployed, the **stack status** updates to **`CREATE_COMPLETE`**. This confirms that the deployment is finished without errors.
+Once all resources are successfully deployed, the **stack status** updates to **`CREATE_COMPLETE`**, confirming that the deployment is finished without errors.
 
 ![Stack Build Process](assets/cloudformation_stack_creation.gif)
 
