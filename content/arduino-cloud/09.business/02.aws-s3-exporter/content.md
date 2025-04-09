@@ -22,7 +22,7 @@ A scheduled AWS Lambda function runs the data extraction process at configurable
 
 ![Arduino AWS S3 CSV Exporter Build](assets/cloudformation_stack_creation.gif)
 
-At the end of this tutorial, the stack will be configured to extract data from Arduino Cloud every hour, aggregate samples at a five minute resolution and store structured CSV files in AWS S3. The setup will also allow filtering by tags to include only specific data, providing a scalable and structured approach to managing cloud connected device data and ensuring easy retrieval and long term storage.
+At the end of this tutorial, the stack will be configured to extract data from Arduino Cloud every hour, aggregate samples at a five-minute resolution, and store structured CSV files in AWS S3. The setup will also allow filtering by tags to include only specific data, providing a scalable and structured approach to managing cloud-connected device data and ensuring easy retrieval and long-term storage.
 
 ## Goals
 
