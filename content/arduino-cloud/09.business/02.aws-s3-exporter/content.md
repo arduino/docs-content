@@ -142,7 +142,7 @@ A second bucket must be created following the same process as the [Temporary buc
 
 Navigate to the **Amazon S3** service and select **Create bucket**. In the bucket creation window, specify the bucket name and check that the same AWS region is selected.
 
-Keep the recommended default settings for **Object Ownership** and **Public Access** to maintain security compliance. Once all settings are verified, proceed with the bucket creation.
+To maintain security compliance, keep the recommended default settings for **Object Ownership** and **Public Access**. Once all settings are verified, you can create the bucket.
 
 ![lambdas3binaries Bucket Setup (1)](assets/s3_bucket_csvdests3int_1.png)
 
