@@ -138,7 +138,7 @@ After a successful upload, the files will be listed under the **Objects** tab wi
 
 #### CSV Destination Bucket
 
-A second bucket needs to be created following the same process as the [Temporary bucket](#temporary-bucket). This bucket will be the **CSV destination bucket**, where all generated CSV files will be stored. It is important to make sure this bucket is created in the same AWS region where the CloudFormation stack will be deployed.
+A second bucket must be created following the same process as the [Temporary bucket](#temporary-bucket). This bucket will be the **CSV destination bucket**, where all generated CSV files will be stored. Ensuring this bucket is created in the same AWS region where the CloudFormation stack will be deployed is important.
 
 Navigate to the **Amazon S3** service and select **Create bucket**. In the bucket creation window, specify the bucket name and check that the same AWS region is selected.
 
