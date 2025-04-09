@@ -462,4 +462,4 @@ To help you get the most out of the exporter, the following documentation resour
 
 This tutorial showed how to use the **Arduino AWS S3 CSV Exporter** to extract time series data from **Arduino Cloud** and store it in **AWS S3** for structured management and analysis. The exporter can be adapted to different use cases with configurable settings for aggregation intervals, tag-based filtering and optional data compression.
 
-By deploying the exporter using a CloudFormation template, you have simplified cloud based data storage for IoT applications. This setup automates data collection, simplifying trend analysis, device monitoring and long-term storage management.
+By deploying the exporter using a CloudFormation template, you have simplified cloud-based data storage for IoT applications. This setup automates data collection, simplifying trend analysis, device monitoring and long-term storage management.
