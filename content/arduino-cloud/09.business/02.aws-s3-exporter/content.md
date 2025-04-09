@@ -304,7 +304,7 @@ The **Stack info** tab provides an overview of the stack, including its Stack ID
 
 ![Stack Build Information](assets/cloud_stack_info.png)
 
-Now, the stack is ready for operation with AWS S3 is integrated with the Arduino Cloud and automated CSV data export functionality. 
+Now, the stack is ready for operation with AWS S3, which is integrated with the Arduino Cloud and automated CSV data export functionality. 
 
 ## AWS S3 CSV Exporter Result
 
