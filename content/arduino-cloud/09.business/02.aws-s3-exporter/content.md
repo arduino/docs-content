@@ -150,7 +150,7 @@ After the bucket has been successfully created, it will be listed among the avai
 
 ![lambdas3binaries Bucket Setup (2)](assets/s3_bucket_csvdests3int_2.png)
 
-Inside the **CSV destination bucket**, navigate to the **Objects** tab. Files can be organized by creating directories if needed.
+Inside the **CSV destination bucket**, navigate to the **Objects** tab. If necessary, you can organize files by creating directories.
 
 Click on the **Create folder** button and specify a name for the directory where the exported CSV files will be stored.
 
