@@ -46,7 +46,7 @@ The **Arduino AWS S3 CSV Exporter** extracts time series data from **Arduino Clo
 
 Each function execution retrieves data from the selected **Arduino Things** and generates a CSV file. The file is then uploaded to **S3** for structured storage and accessibility.
 
-Data is extracted every hour by default, with samples aggregated at a 5 minute resolution. Both the extraction period and the aggregation rate are configurable. Aggregation is performed by calculating the average over the aggregation period, while non-numeric values, such as strings, are sampled at the specified resolution.
+Data is extracted every hour by default, with samples aggregated at a 5-minute resolution. Both the extraction period and the aggregation rate are configurable. Aggregation is performed by calculating the average over the aggregation period, while non-numeric values, such as strings, are sampled at the specified resolution.
 
 Time-series data is exported in **UTC** by default. All Arduino Things in the account are included in the export unless filtered using [**tags**](#tag-filtering). 
 
