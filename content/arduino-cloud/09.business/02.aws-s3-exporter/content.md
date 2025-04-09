@@ -188,7 +188,7 @@ https://arduino-s3-data-exporter-deployment.s3.amazonaws.com/deployment.yaml
 
 This **Object URL** needs to be provided in the **Amazon S3 URL** field when creating the stack.
 
-Proceed with the stack creation by following the steps. The configuration requires specifying parameters, including the Arduino API key and secret, the S3 bucket for code storage and the CSV destination bucket.
+Follow the steps to proceed with the stack creation. The configuration requires specifying parameters, including the Arduino API key and secret, the S3 bucket for code storage, and the CSV destination bucket.
 
 Configure the following required parameters before proceeding with stack creation:
 
