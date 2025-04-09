@@ -336,7 +336,7 @@ The CSV files can be downloaded directly from the object view or by selecting th
 
 ### CSV File Format and Data Structure
 
-The exported CSV files follow a standardized column based structure, ensuring consistency across all data sets. Each row represents a data sample from a specific Arduino Cloud Thing, including timestamp, thing ID, property values and aggregation type:
+The exported CSV files follow a standardized column-based structure, ensuring consistency across all data sets. Each row represents a data sample from a specific Arduino Cloud Thing, including timestamp, thing ID, property values and aggregation type:
 
 ```csv
 timestamp,thing_id,thing_name,property_id,property_name,property_type,value,aggregation_statistic
