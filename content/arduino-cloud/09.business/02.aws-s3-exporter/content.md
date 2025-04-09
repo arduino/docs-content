@@ -398,7 +398,7 @@ CloudWatch logs have execution records for every function run, including timesta
 
 ![S3 Bucket date defined organization](assets/lambda_function_cloudwatch_logs.png)
 
-Detailed logs display function specific messages, showing configuration settings such as applied filters, aggregation parameters and time window alignment. Logs also corroborate successful data exports, including file upload status, highlighting any warnings or errors encountered during execution. This helps us verify if it could establish communication with configured Arduino keys.
+Detailed logs display function-specific messages and show configuration settings such as applied filters, aggregation parameters and time window alignment. Logs also corroborate successful data exports, including file upload status, highlighting any warnings or errors encountered during execution. This helps us verify whether it could establish communication with configured Arduino keys.
 
 ![S3 Bucket date defined organization](assets/lambda_function_cloudwatch_log_detail.png)
 
