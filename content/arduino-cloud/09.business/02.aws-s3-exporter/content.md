@@ -146,7 +146,7 @@ To maintain security compliance, keep the recommended default settings for **Obj
 
 ![lambdas3binaries Bucket Setup (1)](assets/s3_bucket_csvdests3int_1.png)
 
-After the bucket has been successfully created, it will be listed among the available S3 buckets. Select the newly created **CSV destination bucket** to proceed with additional configurations if necessary.
+After the bucket has been successfully created, it will be listed among the available S3 buckets. If necessary, you can select the newly created **CSV destination bucket** to proceed with additional configurations.
 
 ![lambdas3binaries Bucket Setup (2)](assets/s3_bucket_csvdests3int_2.png)
 
