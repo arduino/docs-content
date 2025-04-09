@@ -372,7 +372,7 @@ AWS S3 and Arduino Cloud are now connected and the stack has been successfully d
 
 ## Lambda, CloudWatch & EventBridge
 
-Once the CloudFormation stack is deployed and the CSV destination bucket receives data every hour, three AWS services can help us provide monitoring and troubleshooting capabilities: **Lambda**, **CloudWatch** and **EventBridge**. These tools can help us provide visibility to the execution status, performance metrics and event triggers of the AWS S3 CSV Exporter.
+Once the CloudFormation stack is deployed and the CSV destination bucket receives data every hour, three AWS services can help us provide monitoring and troubleshooting capabilities: **Lambda**, **CloudWatch** and **EventBridge**. These tools can help us give visibility to the execution status, performance metrics and event triggers of the AWS S3 CSV Exporter.
 
 ### Lambda
 
