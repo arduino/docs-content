@@ -324,7 +324,7 @@ The top-level structure of the `csvdests3int` bucket appears as follows:
 
 CSV files are stored inside date-specific folders within the `csvdests3int` S3 bucket. These folders are named according to the extraction date, and CSV files are organized by timestamp. This structure provides a chronological view of the exported data.
 
-It also helps with data retrieval, processing, and analysis, particularly when exporting multiple data sets over extended periods:
+It also helps with data retrieval, processing, and analysis, mainly when exporting multiple data sets over extended periods:
 
 ![S3 Bucket date defined organization](assets/s3_csv_bucket_files.png)
 
