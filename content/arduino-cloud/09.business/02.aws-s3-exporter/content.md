@@ -156,7 +156,7 @@ Click on the **Create folder** button and specify a name for the directory where
 
 ![lambdas3binaries Bucket Setup (3)](assets/s3_bucket_csvdests3int_3.png)
 
-During folder creation, options for **server-side encryption** will be displayed for data protection. By default, encryption settings derives from the bucket’s global configuration.
+During folder creation, options for **server-side encryption** are displayed for data protection. By default, encryption settings derive from the bucket's global configuration.
 
 A **custom encryption key** can be specified before finishing the folder creation.
 
