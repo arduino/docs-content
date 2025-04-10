@@ -127,7 +127,7 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 | JDIGITAL    | Digital input/output headers                     |
 | JOFF        | OFF, VRTC header                                 |
 | J1          | CX90B-16P USB-C® connector                       |
-| J2          | QWIIC Connector for I2C communication protocol   |
+| J2          | Qwiic Connector for I2C communication protocol   |
 | J3          | ICSP header (SPI)                                |
 | J5          | DC Jack                                          |
 | J6          | ESP header                                       |
