@@ -43,7 +43,7 @@ The **R7FA4M1AB3CFM#AA0**, often referred to as RA4M1 in this datasheet, is the 
 * **Communication**
   * 1x UART (pin D0, D1)
   * 1x SPI (pin D10-D13, ICSP header)
-  * 2x I2C (pin A4, A5, SDA, SCL), (Qwiic connector)
+  * 2x I2C (pin A4, A5, SDA, SCL) and (Qwiic connector)
   * 1x CAN (pin D4, D5, external transceiver is required)
 
 See the full datasheet for the R7FA4M1AB3CFM#AA0 in the link below:
