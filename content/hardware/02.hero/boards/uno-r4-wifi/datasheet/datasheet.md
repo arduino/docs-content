@@ -539,7 +539,7 @@ RA4M1的工作电压固定为5V，而ESP32-S3模块为3.3V。这两个MCU之间�
 * **通信**
   * 1个UART（引脚D0、D1）
   * 1个SPI（引脚D10-D13，ICSP针座）
-  * 2个I2C（引脚A4、A5、SDA、SCL, (QWIIC connector)
+  * 2个I2C（引脚A4、A5、SDA、SCL, (Qwiic connector)
   * 1个CAN（引脚D4、D5，需要外部收发器）
 
 请通过以下链接查看 R7FA4M1AB3CFM#AA0 的完整数据表：
