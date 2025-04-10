@@ -238,7 +238,7 @@ The I2C Qwiic connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bu
 
 ![I2C qwiic connector.](assets/i2c-connector.png)
 
-This connector also shares the following pin connections:
+The standard I2C is accessible through the following pin connections:
 
 **JANALOG header**
 - A4
