@@ -236,7 +236,7 @@ The DAC can be used for signal generation for e.g. audio applications, like gene
 
 The I2C Qwiic connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. Note that this connector is powered via 3.3 V.
 
-![I2C qwiic connector.](assets/i2c-connector.png)
+![I2C Qwiic connector.](assets/i2c-connector.png)
 
 The standard I2C is accessible through the following pin connections:
 
