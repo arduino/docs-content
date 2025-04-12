@@ -35,8 +35,8 @@ At the end of this tutorial, the stack will be configured to extract data from A
 
 ## Required Software
 
-* [Arduino Cloud](https://cloud.arduino.cc/). **If you do not have an account, you can create one for free in [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true)**.
-* [AWS CLI](https://aws.amazon.com/cli/). **If you do not have an AWS account, please refer to the [online AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html)**.
+* [Arduino Cloud](https://cloud.arduino.cc/). If you do not have an account, you can create one for free in [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
+* [AWS Account](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#sign-up-for-aws). If you do not have an AWS account yet, please refer to the [online AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html) to create one. Once your account is set up, you'll need to ensure it has the appropriate IAM permissions to deploy Lambda functions and other resources, as detailed in the [AWS Account & CloudFormation Template](#aws-account--cloudformation-template) section below.
 * [Go Programming Language](https://go.dev/) (version 1.22 or higher) (Optional)
 * [Official Arduino AWS S3 CSV Exporter Repository](https://github.com/arduino/aws-s3-integration)
 
@@ -56,12 +56,12 @@ This setup provides a structured and scalable approach for managing time series 
 
 An active AWS account is required to deploy the **Arduino AWS S3 CSV Exporter**. If an account is unavailable, refer to the [online AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html) for account setup. The following steps can help you get started:
 
-- [Sign up for an AWS account](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#aws-registration)
+- [Sign up for an AWS account](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#sign-up-for-aws)
 - [Create an administrative user](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#create-an-admin)
 
 The exporter setup involves deploying resources using a [**CloudFormation template**](https://github.com/arduino/aws-s3-integration/blob/0.3.0/deployment/cloud-formation-template/deployment.yaml). This template provisions and configures the necessary AWS resources automatically.
 
-AWS CloudFormation requires specific [**IAM permissions**](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) to automatically provision and manage AWS resources during this deployment. AWS Identity and Access Management (IAM) is a web service that helps you securely control access to AWS resources by managing permissions and determining which resources users can access.
+AWS CloudFormation requires specific [**IAM permissions**](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) to automatically provision and manage AWS resources during this deployment. **AWS Identity and Access Management (IAM)** is a web service that helps you securely control access to AWS resources by managing permissions and determining which resources users can access.
 
 * CloudFormation stack creation (policy: `AWSCloudFormationFullAccess`)
 * S3 bucket management (policy: `AmazonS3FullAccess`)
@@ -142,13 +142,15 @@ A second bucket must be created following the same process as the [Temporary buc
 
 Navigate to the **Amazon S3** service and select **Create bucket**. In the bucket creation window, specify the bucket name and check that the same AWS region is selected.
 
-To maintain security compliance, keep the recommended default settings for **Object Ownership** and **Public Access**. Once all settings are verified, you can create the bucket.
+For security best practices, you can use the default **Object Ownership** and **Block Public Access** settings, which keep the bucket private and secure.
 
 ![lambdas3binaries Bucket Setup (1)](assets/s3_bucket_csvdests3int_1.png)
 
 After the bucket has been successfully created, it will be listed among the available S3 buckets. If necessary, you can select the newly created **CSV destination bucket** to proceed with additional configurations.
 
 ![lambdas3binaries Bucket Setup (2)](assets/s3_bucket_csvdests3int_2.png)
+
+***While you can organize files by creating directories within the CSV destination bucket, this is _optional_ for the exporter to function properly. The exporter will automatically create the necessary structure for storing CSV files.***
 
 Inside the **CSV destination bucket**, navigate to the **Objects** tab. If necessary, you can organize files by creating directories.
 
@@ -424,25 +426,7 @@ Together, these services provide the tools to track performance, detect errors a
 
 ## Building the Code (Optional)
 
-The [**AWS S3 CSV Exporter repository**](https://github.com/arduino/aws-s3-integration/tree/0.3.0) contains the source code required to build and deploy the exporter. While precompiled binaries are available, building the exporter locally allows customization and testing before deployment.
-
-### Building Locally
-
-To build the AWS S3 CSV Exporter, make sure that at least [**Go version 1.22**](https://go.dev/) is installed. The exporter can be compiled using:
-
-```bash
-./compile-lambda.sh
-```
-
-This script creates an **`arduino-s3-integration-lambda.zip`** file, which is the packaged Lambda function ready for deployment.
-
-Alternatively, the following command can be used to build the exporter:
-
-```bash
-task go:build
-```
-
-This approach is useful for developers who want to test or modify the exporter before deploying it using AWS CloudFormation.
+The [**AWS S3 CSV Exporter repository**](https://github.com/arduino/aws-s3-integration/tree/0.3.0) contains the source code required to build and deploy the exporter. While precompiled binaries are available, building the exporter locally allows customization and testing before deployment. Please refer to the [AWS S3 CSV Exporter repository](https://github.com/arduino/aws-s3-integration/tree/0.3.0) documentation for information about building the code locally.
 
 ## Additional Documentation
 
