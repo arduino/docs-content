@@ -1,6 +1,7 @@
 ---
 identifier: ABX00142
 title: Arduino® Nano R4
+variant: 'Datasheet'
 type: maker
 ---
 
@@ -8,26 +9,18 @@ type: maker
 
 # Description
 
-The Arduino® Nano R4 is a Nano form factor board based on the RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#HA0), which embeds a 48 MHz Arm® Cortex®-M4 microprocessor. The Nano R4's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB data memory (EEPROM).
-
-The Nano R4 board operates at 5 V, making it hardware compatible with Nano form factor accessories with the same operating voltage. Shields designed for previous Nano revisions are therefore safe to use with this board but are not guaranteed to be software compatible due to the change of microcontroller.
+The Arduino® Nano R4 is a Nano form factor board based on the RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#HA0), which embeds a 48 MHz Arm® Cortex®-M4 microprocessor. The Nano R4's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB data memory (EEPROM). The Nano R4 board operates at 5 V, making it hardware compatible with Nano form factor accessories with the same operating voltage.
 
 Leverage the on-board Qwiic connector for seamless integration with Modulinos, enabling quick and reliable expansion of your project.
 
 # Target areas:
 
-Maker, Beginner, Education
+Digital Signal Processing, System on Module, Edge Computing, Rapid Prototyping
 
 # Contents
-## The Board
 
+## Application Examples
 <div style="text-align:justify;">
-The Nano R4 is an evolution of its predecessor, the Nano Classic, which was previously based on 8-bit AVR microcontrollers. There are thousands of guides, tutorials and books written about the Nano board, where Nano R4 continues its legacy.
-
-The board features the standard 14 digital I/O ports, 6 analog channels, dedicated pins for I2C, SPI and UART
-connections. Compared to its predecessors the board has a much larger memory: 8 times more flash memory (256 kB) and 16 times more SRAM (32 kB).
-
-### Application Examples
 
 **Effortless Transition:** Move seamlessly from prototyping to production with the familiar RA4M1 microcontroller present already in the UNO R4 family.
 
@@ -35,95 +28,208 @@ connections. Compared to its predecessors the board has a much larger memory: 8 
 
 **Easy power management:** The Nano R4 supports input voltages from 6 to 21 V. It removes the need for additional circuitry required to step down the voltage.
 
-**Enhanced Connectivity:** Features an onboard Qwiic connector for easy integration with a wide range of sensors and peripherals. Exposing a new I2C connection apart from the standard one found on A4 and A5 pins. The Qwiic connector makes the Nano R4 compatible with the Modulinos.
+**Enhanced Connectivity:** Features an onboard Qwiic connector for easy integration with a wide range of sensors and peripherals. Exposing a new I2C connection apart from the standard one found on A4 and A5 pins. The Qwiic connector makes the Nano R4 compatible with the Arduino Modulino boards.
 
 **Cross compatibility:** The Nano form factor automatically makes it compatible with hundreds of existing third-party shields and other official accessories.
 </div>
+
+## Features
+### General Specifications Overview
+
+The Nano R4 is an evolution of its predecessor, the Nano Classic, which was previously based on 8-bit AVR microcontrollers. There are thousands of guides, tutorials and books written about the Nano board, where Nano R4 continues its legacy.
+
+The board features the standard 14x digital I/O ports, 6x analog channels, dedicated pins for I2C, SPI and UART
+connections. Compared to its predecessors the board has a much larger memory: 8x times more flash memory (256 kB) and 16x times more SRAM (32 kB).
+
+| Feature               | Description                                                                                                      |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Microcontroller       | R7FA4M1AB3CFM 32-bit Arm® Cortex®-M4                                                                             |
+| Frequency             | 48 MHz                                                                                                           |
+| Internal Memory       | 256 kB Flash / 32 kB RAM / 8 kB EEPROM                                                                           |
+| USB Connectivity      | USB-C® port for power and data                                                                                   |
+| Power                 | Input voltage (VIN): 6-21 V / Power via USB-C® at 5 V                                                            |
+| Digital Inputs        | GPIO (x21 - All exposed I/O can be used as digital), PWM (x6)                                                    |
+| Analog Inputs         | 14-bit ADC (x8)                                                                                                  |
+| Real-time Clock (RTC) | Yes (external crystal oscillator included)                                                                       |
+| Communication         | UART (x1), I2C (x2) (5 V over breakout and 3.3 V over Qwiic), SPI (x1), CAN (external transceiver required) (x1) |
+| Dimensions            | 18 mm x 45 mm                                                                                                    |
+| Operating Temperature | -40 °C to +85 °C                                                                                                 |
+
+### Microcontroller
+
+The Nano R4 is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1AB3CFM#HA0**, from Renesas, which uses a 48 MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU).
+
+On the Nano R4, the operating voltage is fixed at 5 V to be fully retro compatible with shields, accessories & circuits originally designed for older Nano revisions.
+
+| Component                              | Details                                     |
+| -------------------------------------- | ------------------------------------------- |
+| R7FA4M1AB3CFM#HA0 Processor            | Arm® Cortex®-M4 core at up to 48 MHz        |
+| Flash Memory                           | 256 kB of Flash Memory                      |
+| Programming Memory                     | 32kB of RAM                                 |
+| Data Memory                            | 8kB of EEPROM                               |
+| Real-time Clock (RTC)                  | Yes (external crystal oscillator included)  |
+| Direct Memory Access Controller (DMAC) | Yes (x4)                                    |
+| ADC                                    | Yes (14-bit)                                |
+| DAC                                    | Yes (12-bit)                                |
+| Operational Amplifier (OPAMP)          | Yes (ranges specified on dedicated section) |
+| CAN bus                                | Yes (external transceiver required)         |
+
+
+For more technical details on this microcontroller, visit [Renesas - RA4M1 series official documentation](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ra4m1-32-bit-microcontrollers-48mhz-arm-cortex-m4-and-lcd-controller-and-cap-touch-hmi).
+
+### USB-C® Connector
+
+The Nano R4 has one USB-C® port, used to power and program your board as well as send and receive serial communication.
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+You should not power the board with more than <strong>5 V</strong> via the USB-C® port.
+</div>
+
+### Digital Analog Converter (DAC)
+
+The Nano R4 has a DAC with up to 12-bit resolution attached to the A0 analog pin. A DAC is used to convert a digital signal to an analog signal.
+
+### Operational Amplifier (OPAMP)
+
+The Nano R4 features one Operational Amplifier accesible through the board analog pins. See the [pinout](#pinout) section for details.
+
+| Parameter               | Conitions       | Min | Typ | Max     | Unit |
+| ----------------------- | --------------- | --- | --- | ------- | ---- |
+| Common mode input range | Low power mode  | 0.2 | -   | VCC-0.5 | V    |
+| Common mode input range | High-speed mode | 0.3 | -   | VCC-0.6 | V    |
+| Output voltage range    | Low power mode  | 0.1 | -   | VCC-0.1 | V    |
+| Output voltage range    | High-speed mode | 0.1 | -   | VCC-0.1 | V    |
+
+### Qwiic I2C Connector
+
+The I2C Qwiic connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. This connector is powered via 3.3 V following the Qwiic standard system and makes the Nano R4 compatible with the Arduino Modulino nodes.
+
+![Arduino Nano R4 Qwiic Connector](assets/Nano_R4-Qwiic-connector.png)
+
+The standard I2C is accessible through the Nano breakout pins A4 for SDA and A5 for SCL as its predecessors.
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+A4 and A5 are connected to the main I2C bus, these pins should not be used as ADC inputs whenever the bus is in use. You can however connect I2C devices to each of these pins and connectors simultaneously.
+</div>
+
+### Realtime Clock (RTC)
+
+The Nano R4 features a Real-time Clock allowing you to keep accurate time (date and clock), even when the board is powered off. This is ideal for data logging, scheduling tasks, or timestamping events.
+
+The Realtime Clock (RTC) has two counting modes: calendar count mode and binary count mode, both are controlled by the register settings.
+
+- For calendar count mode, the RTC has a 100-year calendar from 2000 to 2099 and automatically adjusts dates for leap years.
+- For binary count mode, the RTC counts seconds and retains the information as a serial value. Binary count mode can be used for calendars other than the Gregorian (Western) calendar.
 
 ### Related Products
 
 - Arduino Nano (A000005)
 - Arduino® UNO R4 Minima (ABX00080)
 - Arduino® UNO R4 WiFi (ABX00087)
+- Arduino Modulino nodes
 
-## Features
-### General Specifications Overview
-
-| Feature               | Description                                                                                        |
-| --------------------- | -------------------------------------------------------------------------------------------------- |
-| Microcontroller       | **R7FA4M1AB3CFM#HA0** 32-bit Arm® Cortex®-M4                                                       |
-| Frequency             | 48 MHz                                                                                             |
-| Internal Memory       | 256 kB Flash / 32 kB RAM / 8 kB EEPROM                                                             |
-| USB Connectivity      | USB-C® port for power and data                                                                     |
-| Power                 | Input voltage (VIN): 6-21 V / Power via USB-C® at 5 V                                              |
-| Digital Inputs        | GPIO (x21 - All exposed I/O can be used as digital), PWM (x6)                                      |
-| Analog Inputs         | 14-bit ADC (x8)                                                                                    |
-| Real-time Clock (RTC) | Yes                                                                                                |
-| Communication         | UART (x1), I2C (x2) (5 V and 3.3 V over Qwiic), SPI (x1), CAN (external transceiver required) (x1) |
-| Dimensions            | 18 mm x 45 mm                                                                                      |
-| Operating Temperature | -40 °C to +85 °C                                                                                   |
-
-## Ratings
+## Power and Ratings
 ### Recommended Operating Conditions
 
-| Symbol          | Description                          | Min | Typ | Max | Unit |
-| --------------- | ------------------------------------ | --- | --- | --- | ---- |
-| V<sub>IN</sub>  | Input voltage from VIN pad / DC Jack | 6   | 7.0 | 21  | V    |
-| V<sub>USB</sub> | Input voltage from USB connector     | 4.8 | 5.0 | 5.5 | V    |
-| T<sub>OP</sub>  | Operating Temperature                | -40 | 25  | 85  | °C   |
+| Symbol          | Description                      | Min | Typ | Max  | Unit |
+| --------------- | -------------------------------- | --- | --- | ---- | ---- |
+| V<sub>IN</sub>  | Input voltage from VIN pad       | 6.0 | 7.0 | 21.0 | V    |
+| V<sub>USB</sub> | Input voltage from USB connector | 4.8 | 5.0 | 5.5  | V    |
+| T<sub>OP</sub>  | Operating Temperature            | -40 | 25  | 85   | °C   |
 
-**Note:** V<sub>DD</sub> controls the logic level and is connected to the 5V power rail. V<sub>AREF</sub> is for the analog logic.
+**Note:** V<sub>DD</sub> controls the logic level and is connected to the 5 V power rail. V<sub>AREF</sub> set the reference for the analog logic.
+
+### Power Options
+
+Power can either be supplied via the VIN pin, or via USB-C® connector. If power is supplied via VIN, the MP2322GQH buck converter steps the voltage down to 5 V.
+The 5 V output of the buck converter is connected to a Schottky diode in place for reverse polarity & overvoltage protection respectively.
+
+#### Power Tree
+
+The following diagram illustrates the Nano R4 main system power architecture.
+
+![Arduino Nano R4 Power Tree](assets/Nano_R4_Power_Tree.png)
+
+### Battery Backup
+
+The Nano R4 features a battery backup function. It can be powered through the **VBATT** pin (see [pinout](#pinout) section).
+The battery backup will power the RTC, the 32.768 kHz oscillators, the wakeup control and the backup memory.
+
+During normal operation, the battery powered area is powered by the main power supply, which is the VCC pin. When a VCC voltage drop is detected, the power source is switched to
+the dedicated battery backup power pin, the VBATT pin. When the voltage rises again, the power source is switched from the VBATT pin to the VCC pin.
+
+| Parameter                                               | Min  | Typ  | Max  | Unit |
+| ------------------------------------------------------- | ---- | ---- | ---- | ---- |
+| VBATT power supply voltage                              | 1.6  | -    | 3.6  | V    |
+| Voltage level for switching to battery backup (falling) | 1.99 | 2.09 | 2.19 | V    |
+
+### GPIO Voltage
+
+The Nano R4 operates at 5 V as do all pins on this board except for the **Qwiic** connector that works at **3.3 V**. This connector draws power from the AP2112K-3.3TRG1 regulator.
+
+### GPIO Current
+
+The GPIOs on the R7FA4M1AB3CFM#HA0 microcontroller can handle up to **8 mA**. Never connect devices that draw higher current directly to a GPIO.
+
+In case you need to power external devices that require more power, e.g. servo motors, use an external power supply.
+
+<div style="page-break-after: always;"> </div>
 
 ## Functional Overview
 
+The core of the Nano R4 is the R7FA4M1AB3CFM microcontroller from Renesas. The board also contains
+several peripherals connected to its microcontroller.
+
 ### Pinout
+
+The Nano breakout connectors pinout is shown in the following figure.
 
 ![Pinout for Nano R4](assets/ABX00142-pinout.png)
 
-### Full Pinout Table
 #### Analog (JP1)
 
 | Pin | Function  | Type      | Description                             |
 | --- | --------- | --------- | --------------------------------------- |
-| 1   | D13 / SCK | NC        | Serial Clock                            |
+| 1   | D13 / SCK | Digital   | Serial Clock                            |
 | 2   | +3V3      | Power Out | +3V3 Power Rail                         |
 | 3   | B0 / AREF | Analog    | Analog Reference                        |
 | 4   | A0        | Analog    | Analog input 0 / DAC                    |
-| 5   | A1        | Analog    | Analog input 1 / OPAMP+                 |
-| 6   | A2        | Analog    | Analog input 2 / OPAMP-                 |
-| 7   | A3        | Analog    | Analog input 3 / AMPOut                 |
+| 5   | A1        | Analog    | Analog input 1 / OPAMP +                |
+| 6   | A2        | Analog    | Analog input 2 / OPAMP -                |
+| 7   | A3        | Analog    | Analog input 3 / OPAMP Out              |
 | 8   | A4        | Analog    | Analog input 4 / I²C Serial Data (SDA)  |
 | 9   | A5        | Analog    | Analog input 5 / I²C Serial Clock (SCL) |
 | 10  | A6        | Analog    | Analog input 6                          |
 | 11  | A7        | Analog    | Analog input 7                          |
-| 12  | 5V        | Power     | USB power (5V)                          |
+| 12  | 5V        | Power     | USB power (5 V)                         |
 | 13  | BOOT1     | Mode      | Board Reset 1                           |
 | 14  | GND       | Power     | Ground                                  |
 | 15  | VIN       | Power     | Voltage Input                           |
 
 #### Digital (JP2)
 
-| Pin | Function     | Type     | Description                             |
-| --- | ------------ | -------- | --------------------------------------- |
-| 1   | D12 / CIPO\* | Digital  | Controller In Peripheral Out            |
-| 2   | D11 / COPI\* | Digital  | Controller Out Peripheral In / PWM      |
-| 3   | D10 / CS\*   | Digital  | Chip Select / PWM                       |
-| 4   | D9           | Digital  | Digital pin 9 / PWM                     |
-| 5   | D8           | Digital  | Digital pin 8                           |
-| 6   | D7           | Digital  | Digital pin 7                           |
-| 7   | D6           | Digital  | Digital pin 6 / PWM                     |
-| 8   | D5           | Digital  | Digital pin 5 / PWM                     |
-| 9   | D4           | Digital  | Digital pin 4                           |
-| 10  | D3           | Digital  | Digital pin 3 / PWM                     |
-| 11  | D2           | Digital  | Digital pin 2                           |
-| 12  | GND          | Power    | Ground                                  |
-| 13  | RST          | Internal | Reset                                   |
-| 14  | D0/RX        | Digital  | Digital pin 1 / Serial Receiver (RX)    |
-| 15  | D1/TX        | Digital  | Digital pin 0 / Serial Transmitter (TX) |
+| Pin | Function   | Type     | Description                             |
+| --- | ---------- | -------- | --------------------------------------- |
+| 15  | D12 / CIPO | Digital  | Controller In Peripheral Out            |
+| 14  | D11 / COPI | Digital  | Controller Out Peripheral In / PWM      |
+| 13  | D10 / CS   | Digital  | Chip Select / PWM                       |
+| 12  | D9         | Digital  | Digital pin 9 / PWM                     |
+| 11  | D8         | Digital  | Digital pin 8                           |
+| 10  | D7         | Digital  | Digital pin 7                           |
+| 9   | D6         | Digital  | Digital pin 6 / PWM                     |
+| 8   | D5         | Digital  | Digital pin 5 / PWM / CAN (RX)          |
+| 7   | D4         | Digital  | Digital pin 4 / CAN (TX)                |
+| 6   | D3         | Digital  | Digital pin 3 / PWM                     |
+| 5   | D2         | Digital  | Digital pin 2                           |
+| 4   | GND        | Power    | Ground                                  |
+| 3   | RST        | Internal | Reset (features a button)               |
+| 2   | D0/RX      | Digital  | Digital pin 0 / Serial Receiver (RX)    |
+| 1   | D1/TX      | Digital  | Digital pin 1 / Serial Transmitter (TX) |
 
-\*CIPO/COPI/CS replaces the MISO/MOSI/SS terminology.
 
 ### Block Diagram
+
+An overview of the Nano R4 high-level architecture is illustrated in the figure below.
 
 ![Arduino Nano R4 Block Diagram](assets/Nano_R4_Block_Diagram.png)
 
@@ -132,96 +238,18 @@ connections. Compared to its predecessors the board has a much larger memory: 8 
 
 ![Top View of Arduino Nano R4](assets/topViewNanoR4.png)
 
-| **Ref.** | **Description**                          |
-| -------- | ---------------------------------------- |
-| U1       | R7FA4M1AB3CFM#HA0 Microcontroller IC     |
-| U2       | MP2322GQH Buck Converter                 |
-| U3       | AP2112K-3.3TRG1 Dropout linear regulator |
-| PB1      | RESET Button                             |
-| JP1      | Analog input/output headers              |
-| JP2      | Digital input/output headers             |
-| J1       | CX90B-16P USB-C® connector               |
-| J2       | SM04B-SRSS-TB(LF)(SN) I2C connector      |
-| DL1      | RGB LED                                  |
+| **Reference** | **Description**                          |
+| ------------- | ---------------------------------------- |
+| U1            | R7FA4M1AB3CFM#HA0 Microcontroller IC     |
+| U2            | MP2322GQH Buck Converter                 |
+| U3            | AP2112K-3.3TRG1 Dropout linear regulator |
+| PB1           | RESET Button                             |
+| JP1           | Analog input/output headers              |
+| JP2           | Digital input/output headers             |
+| J1            | CX90B-16P USB-C® connector               |
+| J2            | SM04B-SRSS-TB(LF)(SN) I2C connector      |
+| DL1           | RGB LED                                  |
 
-### Microcontroller
-
-The Nano R4 is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1AB3CFM#HA0**, from Renesas, which uses a 48 MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU).
-
-On the Nano R4, the operating voltage is fixed at 5 V to be fully retro compatible with shields, accessories & circuits originally designed for older Nano revisions.
-
-| Component                              | Details                              |
-| -------------------------------------- | ------------------------------------ |
-| R7FA4M1AB3CFM#HA0 Processor            | Arm® Cortex®-M4 core at up to 48 MHz |
-| Flash Memory                           | 256 kB of Flash Memory               |
-| Programming Memory                     | 32kB of RAM                          |
-| Data Memory                            | 8kB of EEPROM                        |
-| Real-time Clock (RTC)                  | Yes                                  |
-| Direct Memory Access Controller (DMAC) | Yes (x4)                             |
-| ADC                                    | Yes (14-bit)                         |
-| DAC                                    | Yes (12-bit)                         |
-| Operation Amplifier (OPAMP)            | Yes                                  |
-| CAN bus                                | Yes                                  |
-
-
-For more technical details on this microcontroller, visit [Renesas - RA4M1 series](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ra4m1-32-bit-microcontrollers-48mhz-arm-cortex-m4-and-lcd-controller-and-cap-touch-hmi).
-
-### USB-C® Connector
-
-The Nano R4 has one USB-C® port, used to power and program your board as well as send & receive serial communication.
-
-**Note:** You should not power the board with more than 5 V via the USB-C® port.
-
-### Digital Analog Converter (DAC)
-
-The Nano R4 has a DAC with up to 12-bit resolution attached to the A0 analog pin. A DAC is used to convert a digital signal to an analog signal.
-
-### Qwiic I2C Connector
-
-The I2C Qwiic connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. Note that this connector is powered via 3.3 V.
-
-![Arduino Nano R4 Qwiic Connector](assets/Nano_R4-Qwiic-connector.png)
-
-The standard I2C is accessible through the following pin connections:
-
-**JP1 header**
-- A4
-- A5
-
-**Note:** as A4/A5 is connected to the main I2C bus, these should not be used as ADC inputs whenever the bus is in use. You can however connect I2C devices to each of these pins and connectors simultaneously.
-
-### Realtime Clock (RTC)
-
-The Nano R4 features a Real-time Clock allowing you to keep accurate time (date and clock), even when the board is powered off. This is ideal for data logging, scheduling tasks, or timestamping events.
-
-The Realtime Clock (RTC) has two counting modes, calendar count mode and binary count mode, that are controlled by the register settings.
-
-- For calendar count mode, the RTC has a 100-year calendar from 2000 to 2099 and automatically adjusts dates for leap years.
-- For binary count mode, the RTC counts seconds and retains the information as a serial value. Binary count mode can be used for calendars other than the Gregorian (Western) calendar.
-
-### Power Options
-
-Power can either be supplied via the VIN pin, or via USB-C® connector. If power is supplied via VIN, the MP2322GQH buck converter steps the voltage down to 5 V.
-
-The 5 V output of the buck converter is connected to a Schottky diode in place for reverse polarity & overvoltage protection respectively.
-
-Power via USB supplies about ~4.7 V (due to Schottky drop) to the RA4M1 microcontroller.
-
-#### Power Tree
-
-![Arduino Nano R4 Power Tree](assets/Nano_R4_Power_Tree.png)
-
-### Pin Voltage
-
-The Nano R4 operates at 5 V, as do all pins on this board except for the **Qwiic** connector that works with **3.3 V**. This connector draws power from the AP2112K-3.3TRG1 regulator.
-
-### Pin Current
-
-The GPIOs on the R7FA4M1AB3CFM#HA0 microcontroller can handle up to **8 mA**. Never connect devices that draw higher current directly to a GPIO.
-
-In case you need to power external devices that require more power, e.g. servo motors, use an external power supply.
-
-<div style="page-break-after: always;"> </div>
 
 ## Device Operation
 
@@ -241,19 +269,40 @@ Now that you have gone through the basics of what you can do with the board you 
 <div style="page-break-after: always;"> </div>
 
 ## Mechanical Information
+
+The Nano R4 is a one side 43.18 mm x 17.78 mm board with a USB-C® port overhanging the top edge, dual castellated/through-hole pins around the two long edges and a Qwiic connector on the bottom edge.
+
 ### Board Dimensions
+Nano R4 board outline and mounting holes dimensions can be seen in following figure; all the dimensions are in mm.
 
 ![Mechanical View of Arduino Nano R4](assets/mechanicalDrawingNanoR4.png)
 
-### Board Connectors
-![Mechanical View of Arduino Nano R4's Connectors](assets/board-connectors.png)
-## Company Information
+The Nano R4 has four 1.65 mm drilled mounting holes for mechanical fixing.
 
-| Company name    | Arduino S.r.l.                                |
-| --------------- | --------------------------------------------- |
-| Company Address | Via Andrea Appiani, 25 Monza, MB, 20900 Italy |
+### Board Connectors
+
+Connectors of the Nano R4 are place on the top side of the board, their placement can be seen in the figure below; all the dimensions are in mm.
+
+![Mechanical View of Arduino Nano R4's Connectors](assets/board-connectors.png)
+
+<p style="text-align: justify;">
+The Nano R4 was designed to be usable as a surface-mount module and presents a dual inline package (DIP) format with the Nano-styled header connectors on a 2.54 mm pitch grid with 1 mm holes.
+</p>
 
 # Certifications
+
+## Certificactions Summary
+
+|  **Certification**  | **Status** |
+| :-----------------: | :--------: |
+| CE (European Union) |    Yes     |
+|        RoHS         |    Yes     |
+|        REACH        |    Yes     |
+|        WEEE         |    Yes     |
+|      FCC (USA)      |    Yes     |
+|     IC (Canada)     |    Yes     |
+|      UKCA (UK)      |    Yes     |
+|   RCM (Australia)   |    Yes     |
 
 ## Declaration of Conformity CE DoC (EU)
 
