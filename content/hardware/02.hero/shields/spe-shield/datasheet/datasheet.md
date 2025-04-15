@@ -160,7 +160,14 @@ The **Arduino UNO SPE Shield** is designed with a robust and efficient power man
 - **+7-24 VDC** from **T1SP** screw terminal block, enabling **Power over Data Line (PoDL)** functionality.
 - **+7-24 VDC** from **VIN** screw terminal block, allowing external DC power input.
 
+### Power Tree
+
+The following diagram illustrates the UNO SPE Shield main system power architecture.
+
+![Power architecture of the UNO SPE Shield](assets/)
+
 #### Power Management and Protection Features
+
 To ensure a stable and secure power system, the shield includes several protection mechanisms:
 
 - **Under-Voltage Lockout (UVLO):** Prevents operation below **4.2 V**, avoiding instability.
@@ -169,8 +176,8 @@ To ensure a stable and secure power system, the shield includes several protecti
 - **Transient Voltage Suppression (TVS):** Absorbs sudden voltage spikes (24 V rated diodes).
 - **Electrostatic Discharge (ESD) Protection:** Shields critical components from electrical surges.
 
-
 #### Switching System
+
 The shield includes an intelligent **switching system** to control power distribution efficiently:
 
 | **Switch**    | **Function**                                                          |
@@ -191,15 +198,25 @@ To ensure safe operation, the system includes:
 - Startup Delay (TSTART): Default 100 ms delay before power activation.
 - Automatic Retry Mode: Enables recovery after transient faults for continuous stability.
 
-
-#### Communication Protocols
-For detailed information about the supported protocols **RS-485** and **Single Pair Ethernet (SPE)**, including speeds, distances, and jumper configurations, please refer to the **Protocols** section.
-
 ## Functional Overview
 
-### Shield Topology
+The core of the UNO SPE Shield is the LAN8651B1 Single Pair Ethernet controller from Microchip® and the XR33058IDTR-F RS-485 transceiver. The shield also exposes the access to several host board peripherals.
 
-![](assets/topology-outline.png)
+### Pinout
+
+The UNO SPE Shield pinout is shown in the following figure:
+
+![Pinout of the UNO SPE Shield](assets/)
+
+### Block Diagram
+
+An overview of the UNO SPE Shield high-level architecture is illustrated in the figure below:
+
+## Shield Topology
+
+### Overall View
+
+![Top view of the UNO SPE Shield](assets/topology-outline.png)
 
 | Reference   | Description                                            |
 | ----------- | ------------------------------------------------------ |
@@ -219,7 +236,7 @@ For detailed information about the supported protocols **RS-485** and **Single P
 
 ### Getting Started - IDE
 
-To program your Arduino UNO SPE Shield with an Arduino UNO R4 WiFi board, install the Arduino Desktop IDE **[1]**. You will need a compatible USB cable to connect the board to your computer.
+To program your Arduino UNO SPE Shield with an Arduino UNO R4 WiFi board, install the Arduino Desktop IDE **[1]**. You will need a compatible USB cable to connect the board to your computer which can also provide power to the board,
 
 ### Getting Started - Arduino Web Editor
 
@@ -238,11 +255,13 @@ Now that you have gone through the basics of what you can do with the device, yo
 
 ## Mechanical Information
 
+The UNO SPE Shield is a double-sided 53.34 mm x 68.58 mm board with an array of terminal blocks and a dedicated SPE connector on the top edge, Arduino UNO standard shield headers around the two long edges and a ICSP connector on the bottom edge.
+
 ### Shield Dimensions
 
 The outline of the Arduino UNO SPE Shield is shown in the figure below, with all dimensions provided in millimeters (mm).
 
-![](assets/mechanical.png)
+![UNO SPE Shield dimensions](assets/mechanical.png)
 
 
 <div style="page-break-after: always;"></div>
