@@ -7,7 +7,7 @@ tags:
   - AWS
   - CSV Export
   - Data Aggregation  
-author: 'Taddy Ho Chung'
+author: Taddy Ho Chung, Marco Colombo
 software:
   - iot-cloud
   - aws-lambda
