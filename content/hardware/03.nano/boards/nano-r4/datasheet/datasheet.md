@@ -91,7 +91,7 @@ The Nano R4 has a DAC with up to 12-bit resolution attached to the A0 analog pin
 
 ### Operational Amplifier (OPAMP)
 
-The Nano R4 features one Operational Amplifier accesible through the board analog pins. See the [pinout](#pinout) section for details.
+The Nano R4 features one Operational Amplifier accessible through the board analog pins. See the [pinout](#pinout) section for details.
 
 | Parameter               | Conitions       | Min | Typ | Max     | Unit |
 | ----------------------- | --------------- | --- | --- | ------- | ---- |
@@ -124,7 +124,7 @@ The Realtime Clock (RTC) has two counting modes: calendar count mode and binary 
 - For binary count mode, the RTC counts seconds and retains the information as a serial value. Binary count mode can be used for calendars other than the Gregorian (Western) calendar.
 
 <div style="background-color:rgb(206, 255, 201); border-left: 6px solid rgb(138, 255, 128); margin: 20px 0; padding: 15px;">
-The Nano R4 features an external crystal oscillator that improve considerably the timing of timers like the RTC and other sub-clock dependant peripherals.
+The Nano R4 features an external crystal oscillator that improve considerably the timing of timers like the RTC and other sub-clock dependent peripherals.
 </div>
 
 ### Board Actuators 
