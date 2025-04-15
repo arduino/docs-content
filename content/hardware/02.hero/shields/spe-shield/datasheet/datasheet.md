@@ -1,7 +1,7 @@
 ---
 identifier: ASX00073
 title: Arduino® UNO SPE Shield
-type: shield
+type: maker
 variant: 'Datasheet'
 author: Elizabeth Esparza
 ---
@@ -201,17 +201,17 @@ For detailed information about the supported protocols **RS-485** and **Single P
 
 ![](assets/topology-outline.png)
 
-| Reference   | Description                                                                                                |
-| ----------- | ---------------------------------------------------------------------------------------------------------- |
-| U1          | Level Shifter IC (P/N: TXB0108DQSR)                                                                        |
-| U2          | 10BASE-T1S MAC-PHY Ethernet Controller (P/N: LAN8651B1-E/LMX)                                              |
-| U3_1, U3_2  | High-Side Power Switch (P/N: MAX17613AATP+T)                                                               |
-| J1          | Header Connector 2.54 mm, 2x3 positions, female height 8.5 mm, male height 11.4 mm (P/N: RSE2-1-06-SG-3)   |
-| J2, J5, J7  | Screw Terminal Connector, 4 positions, pitch 2.54 mm, height 8.6 mm, black (P/N: DG308-2.54-04P-13-00Z(H)) |
-| J3, J4, J12 | Male Vertical Pin Header, 2 positions, pitch 2.54 mm, THT, single row (P/N: 61300211121)                   |
-| J6          | Connector 10BASE-T1S, Category B, Single Pair Ethernet (P/N: 1163797)                                      |
-| JANALOG     | ANALOG UNO SHIELDS Header, 2.54 mm, 8+6 pins, custom 5.08 mm pitch, 14.95 mm pin length (P/N: 20TW-988)    |
-| JDIGITAL    | DIGITAL UNO SHIELDS Header, 2.54 mm, 8+10 pins, custom 4.06 mm pitch, 14.95 mm pin length (P/N: 20TW-987)  |
+| Reference   | Description                                            |
+| ----------- | ------------------------------------------------------ |
+| U1          | Level Shifter IC (P/N: TXB0108DQSR)                    |
+| U2          | 10BASE-T1S MAC-PHY Ethernet Controller                 |
+| U3_1, U3_2  | High-Side Power Switch                                 |
+| J1          | Header Connector 2.54 mm, 2x3 positions                |
+| J2, J5, J7  | Screw Terminal Connector, 4 positions, pitch 2.54 mm   |
+| J3, J4, J12 | Male Vertical Pin Header, 2 positions, pitch 2.54 mm   |
+| J6          | Connector 10BASE-T1S, Category B, Single Pair Ethernet |
+| JANALOG     | ANALOG UNO SHIELDS Header, 2.54 mm, 8+6 pins           |
+| JDIGITAL    | DIGITAL UNO SHIELDS Header, 2.54 mm, 8+10 pins         |
 
 ## Device Operation
 
