@@ -59,14 +59,14 @@ connections. Compared to its predecessors the board has a much larger memory: 8x
 
 The Nano R4 is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1AB3CFM#HA0**, from Renesas, which uses a 48 MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU).
 
-On the Nano R4, the operating voltage is fixed at 5 V to be fully retro compatible with shields, accessories & circuits originally designed for older Nano revisions.
+On the Nano R4, the operating voltage is fixed at 5 V to be fully retro compatible with shields, accessories and circuits originally designed for older Nano revisions.
 
 | Component                              | Details                                     |
 | -------------------------------------- | ------------------------------------------- |
 | R7FA4M1AB3CFM Processor            | Arm® Cortex®-M4 core at up to 48 MHz        |
 | Flash Memory                           | 256 kB of Flash Memory                      |
-| Programming Memory                     | 32kB of RAM                                 |
-| Data Memory                            | 8kB of EEPROM                               |
+| Programming Memory                     | 32 kB of RAM                                 |
+| Data Memory                            | 8 kB of EEPROM                               |
 | Real-time Clock (RTC)                  | Yes (external crystal oscillator included)  |
 | Direct Memory Access Controller (DMAC) | Yes (x4)                                    |
 | ADC                                    | Yes (14-bit)                                |
@@ -124,7 +124,7 @@ The Realtime Clock (RTC) has two counting modes: calendar count mode and binary 
 - For binary count mode, the RTC counts seconds and retains the information as a serial value. Binary count mode can be used for calendars other than the Gregorian (Western) calendar.
 
 <div style="background-color:rgb(206, 255, 201); border-left: 6px solid rgb(138, 255, 128); margin: 20px 0; padding: 15px;">
-The Nano R4 features an external crystal oscillator that improve considerably the accuracy of the RTC and other sub-clock dependent peripherals.
+The Nano R4 features an external 16 MHz crystal oscillator that improve considerably the accuracy of the RTC and other sub-clock dependent peripherals.
 </div>
 
 ### Board Actuators 
@@ -153,7 +153,7 @@ The Nano R4 features an RGB LED and single color built-in LED, both can be contr
 
 Power can either be supplied via the VIN pin, or via USB-C® connector. If power is supplied via VIN, the MP2322GQH buck converter steps the voltage down to 5 V.
 
-The 5 V output of the buck converter is connected to a Schottky diode in place for reverse polarity & overvoltage protection respectively.
+The 5 V output of the buck converter is connected to a Schottky diode in place for reverse polarity and overvoltage protection respectively.
 
 #### Power Tree
 
