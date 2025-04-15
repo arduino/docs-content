@@ -129,7 +129,7 @@ The Nano R4 features an external crystal oscillator that improve considerably th
 
 ### Board Actuators 
 
-The Nano R4 features an RGB
+The Nano R4 features an RGB LED and single color built-in LED, both can be controlled through the Nano R4 GPIOs. See the [pinout](#pinout) section for a detailed overview.
 
 ### Related Products
 
