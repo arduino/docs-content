@@ -63,7 +63,7 @@ On the Nano R4, the operating voltage is fixed at 5 V to be fully retro compatib
 
 | Component                              | Details                                     |
 | -------------------------------------- | ------------------------------------------- |
-| R7FA4M1AB3CFM#HA0 Processor            | Arm® Cortex®-M4 core at up to 48 MHz        |
+| R7FA4M1AB3CFM Processor            | Arm® Cortex®-M4 core at up to 48 MHz        |
 | Flash Memory                           | 256 kB of Flash Memory                      |
 | Programming Memory                     | 32kB of RAM                                 |
 | Data Memory                            | 8kB of EEPROM                               |
@@ -71,7 +71,7 @@ On the Nano R4, the operating voltage is fixed at 5 V to be fully retro compatib
 | Direct Memory Access Controller (DMAC) | Yes (x4)                                    |
 | ADC                                    | Yes (14-bit)                                |
 | DAC                                    | Yes (12-bit)                                |
-| Operational Amplifier (OPAMP)          | Yes (ranges specified on dedicated section) |
+| Operational Amplifier (OPAMP)          | Yes (ranges specified on dedicated [section](#operational-amplifier-opamp)) |
 | CAN bus                                | Yes (external transceiver required)         |
 
 
@@ -104,6 +104,8 @@ The Nano R4 features one Operational Amplifier accesible through the board analo
 
 The I2C Qwiic connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. This connector is powered via 3.3 V following the Qwiic standard system and makes the Nano R4 compatible with the Arduino Modulino nodes.
 
+The Qwiic connector logic level is fixed to 3.3 V, and it is translated to 5 V to communicate with the RA4M1 microcontroller as illustrated in the figure below:
+
 ![Arduino Nano R4 Qwiic Connector](assets/Nano_R4-Qwiic-connector.png)
 
 The standard I2C is accessible through the Nano breakout pins A4 for SDA and A5 for SCL as its predecessors.
@@ -124,6 +126,10 @@ The Realtime Clock (RTC) has two counting modes: calendar count mode and binary 
 <div style="background-color:rgb(206, 255, 201); border-left: 6px solid rgb(138, 255, 128); margin: 20px 0; padding: 15px;">
 The Nano R4 features an external crystal oscillator that improve considerably the timing of timers like the RTC and other sub-clock dependant peripherals.
 </div>
+
+### Board Actuators 
+
+The Nano R4 features an RGB
 
 ### Related Products
 
@@ -155,6 +161,16 @@ The following diagram illustrates the Nano R4 main system power architecture.
 
 ![Arduino Nano R4 Power Tree](assets/Nano_R4_Power_Tree.png)
 
+### GPIO Voltage
+
+The Nano R4 operates at 5 V as do all pins on this board except for the **Qwiic** connector that works at **3.3 V**. This connector draws power from the AP2112K-3.3TRG1 regulator.
+
+### GPIO Current
+
+The GPIOs on the R7FA4M1AB3CFM microcontroller can handle up to **8 mA**. Never connect devices that draw higher current directly to a GPIO.
+
+In case you need to power external devices that require more power, e.g. servo motors, use an external power supply.
+
 ### Battery Backup
 
 The Nano R4 features a battery backup function. It can be powered through the **VBATT** pin (see [pinout](#pinout) section).
@@ -167,16 +183,6 @@ the dedicated battery backup power pin, the VBATT pin. When the voltage rises ag
 | ------------------------------------------------------- | ---- | ---- | ---- | ---- |
 | VBATT power supply voltage                              | 1.6  | -    | 3.6  | V    |
 | Voltage level for switching to battery backup (falling) | 1.99 | 2.09 | 2.19 | V    |
-
-### GPIO Voltage
-
-The Nano R4 operates at 5 V as do all pins on this board except for the **Qwiic** connector that works at **3.3 V**. This connector draws power from the AP2112K-3.3TRG1 regulator.
-
-### GPIO Current
-
-The GPIOs on the R7FA4M1AB3CFM#HA0 microcontroller can handle up to **8 mA**. Never connect devices that draw higher current directly to a GPIO.
-
-In case you need to power external devices that require more power, e.g. servo motors, use an external power supply.
 
 <div style="page-break-after: always;"> </div>
 
@@ -245,7 +251,7 @@ An overview of the Nano R4 high-level architecture is illustrated in the figure 
 
 | **Reference** | **Description**                          |
 | ------------- | ---------------------------------------- |
-| U1            | R7FA4M1AB3CFM#HA0 Microcontroller IC     |
+| U1            | R7FA4M1AB3CFM Microcontroller IC     |
 | U2            | MP2322GQH Buck Converter                 |
 | U3            | AP2112K-3.3TRG1 Dropout linear regulator |
 | PB1           | RESET Button                             |
@@ -271,6 +277,11 @@ The Arduino Cloud Editor is hosted online, therefore it will always be up-to-dat
 ### Online Resources
 
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
+
+### Board Recovery
+
+All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by double-tapping the reset button right after the power-up.
+
 <div style="page-break-after: always;"> </div>
 
 ## Mechanical Information
