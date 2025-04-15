@@ -9,9 +9,9 @@ author: Elizabeth Esparza
 
 # Description
 
-<p style="text-align: justify;">
-The Arduino UNO SPE Shield is a versatile solution for industrial communication, IoT, and automation, combining Single Pair Ethernet (10BASE-T1S) and RS-485. It enables integration into low-power Ethernet networks and robust serial communication systems, ensuring efficient connectivity in embedded environments. Compatible with the Arduino UNO, it supports SPI, UART, and I2C, facilitating interoperability with various devices. Additionally, it features screw terminals for additional connections. Its open-source design and advanced protection make it ideal for applications in industrial environments for remote monitoring and automated control.
-</p>
+The Arduino UNO SPE Shield is a versatile solution for industrial communication, IoT, and automation, combining Single Pair Ethernet (10BASE-T1S) and RS-485. It enables integration into low-power Ethernet networks and robust serial communication systems, ensuring efficient connectivity in embedded environments. Compatible with the Arduino UNO, it supports SPI, UART, and I2C, facilitating interoperability with various devices. Additionally, it features screw terminals for additional connections. 
+
+Its robust design and advanced protection make it ideal for applications in industrial environments for remote monitoring and automated control.
 
 # Target Areas:
 
@@ -23,15 +23,15 @@ Industrial automation, building automation, factory automation, automotive netwo
 
 The Arduino UNO SPE Shield expands industrial and IoT communication capabilities, offering a seamless interface for Single Pair Ethernet (10BASE-T1S) and RS-485 networks. Its versatility makes it ideal for applications requiring low-power Ethernet, robust serial communication and industrial automation.  Below are some examples demonstrating its potential across various applications:  
 
-**Industrial Automation & Networking:** Enable reliable communication and data exchange for:
+**Industrial Automation and Networking:** Enable reliable communication and data exchange for:
 - **Industrial IoT Gateways:** Bridge RS-485 devices with modern Ethernet (10BASE-T1S) networks to enable real-time data collection, remote monitoring, and Cloud integration for predictive analytics.
-- **Factory Automation & Control Systems:** Integrate RS-485-based PLCs and sensors into a unified Ethernet infrastructure, allowing for centralized control and efficient machine-to-machine communication.
-- **Energy & Smart Grid Monitoring:** Use RS-485 metering devices and Ethernet communication to collect, transmit, and analyze energy data, contributing to smart grid management and optimized energy use.
-**Building Automation & Smart Infrastructure:** Connect industrial controllers, smart sensors, and Ethernet-based networks for enhanced automation and monitoring, such as:
-- **HVAC & Environmental Monitoring:** Integrate temperature, humidity, and air quality sensors via RS-485 and transmit data via Ethernet (10BASE-T1S) for effective climate control in buildings.
-- **Access Control & Security Systems:** Link RS-485 door controllers and biometric scanners to networked security systems for real-time authentication and access logging.
+- **Factory Automation and Control Systems:** Integrate RS-485-based PLCs and sensors into a unified Ethernet infrastructure, allowing for centralized control and efficient machine-to-machine communication.
+- **Energy and Smart Grid Monitoring:** Use RS-485 metering devices and Ethernet communication to collect, transmit, and analyze energy data, contributing to smart grid management and optimized energy use.
+**Building Automation and Smart Infrastructure:** Connect industrial controllers, smart sensors, and Ethernet-based networks for enhanced automation and monitoring, such as:
+- **HVAC and Environmental Monitoring:** Integrate temperature, humidity, and air quality sensors via RS-485 and transmit data via Ethernet (10BASE-T1S) for effective climate control in buildings.
+- **Access Control and Security Systems:** Link RS-485 door controllers and biometric scanners to networked security systems for real-time authentication and access logging.
 - **Industrial Asset Tracking:** Combine RS-485-connected RFID readers with Ethernet-based asset management systems to monitor equipment and inventory in large facilities.
-- **Remote Monitoring & Edge Computing:** With support for multiple communication protocols, the UNO SPE Shield provides powerful remote monitoring and edge processing for remote equipment diagnostics, real-time data logging and smart agriculture solutions.
+- **Remote Monitoring and Edge Computing:** With support for multiple communication protocols, the UNO SPE Shield provides powerful remote monitoring and edge processing for remote equipment diagnostics, real-time data logging and smart agriculture solutions.
 
 The Arduino UNO SPE Shield offers a scalable, open-source platform for developers, enabling rapid prototyping and seamless integration with industrial and IoT networks. Its support for SPI, UART, and I2C, alongside RS-485 and Ethernet capabilities, makes it a versatile solution for building resilient and connected systems across industrial, smart infrastructure, and automation applications.
 
@@ -40,21 +40,77 @@ The Arduino UNO SPE Shield offers a scalable, open-source platform for developer
 
 The main features of the Arduino UNO SPE shield are detailed in the table shown below.
 
-| **Feature**                    | **Description**                                                                                                                                                                                                       |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Connectors                     | T1S SPE screws terminal (x1) <br></br> RS-485 terminal screws (x1) <br></br>1x T1S SPE dedicated connector  (x1)                                                                                                      |
-| Arduino UNO Headers Interfaces | UART<br></br>SPI<br></br>I2C<br>                                                                                                                                                                                      |
-| Power Options                  | +5 VDC from the USB-C® connector of the connected UNO board<br></br>+7-24 VDC from T1SP on screw terminal block, enabling Power over Data Line(PoDL) functionality<br></br>+7-24 VDC from VIN on screw terminal block |
-| Operating Temperatures         | Min: -40 °C, Typ: 25 °C, Max: 85 °C                                                                                                                                                                                   |
-| Dimensions                     | 68.85 mm x 53.34 mm                                                                                                                                                                                                   |
+| **Feature**                    | **Description**                                                                                                                                                                                                    |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| T1S SPE Controller             | LAN8651B1 from Microchip®                                                                                                                                                                                          |
+| SPE Data Rate                  | 10 Mbit/s                                                                                                                                                                                                          |
+| RS-485 Transceiver             | XR33058IDTR-F                                                                                                                                                                                                      |
+| RS-485 Communication Method    | Half-duplex                                                                                                                                                                                                        |
+| RS-485 Data Rate               | 20 Mbit/s                                                                                                                                                                                                          |
+| Connectors                     | T1S SPE screws terminal (x1) <br></br> RS-485 terminal screws (x1) <br></br>1x T1S SPE dedicated connector  (x1)                                                                                                   |
+| Arduino UNO Headers Interfaces | UART<br></br>SPI<br></br>I2C<br>                                                                                                                                                                                   |
+| Power Options                  | +5 VDC from the USB connector of the connected UNO board<br></br>+7-24 VDC from T1SP on screw terminal block, enabling Power over Data Line(PoDL) functionality<br></br>+7-24 VDC from VIN on screw terminal block |
+| Dimensions                     | 68.85 mm x 53.34 mm                                                                                                                                                                                                |
+| Operating Temperatures         | -40 °C to +85 °C                                                                                                                                                                                                   |
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;">
-<strong> Note: </strong>  The UNO SPE Shield can safely operate with a 24 VDC power supply. While the Arduino UNO R4 is designed to handle this voltage without issue, caution is advised—24 V can potentially damage UNO R3 boards or any third-party UNO-compatible boards.
-</p>
+The UNO SPE Shield can safely operate with a 24 VDC power supply. While the Arduino UNO R4 is designed to handle this voltage without issue, caution is advised, 24 V can potentially damage UNO R3 boards or any third-party UNO-compatible board.
 </div>
 
+### Single Pair Ethernet (SPE)
+  
+Single Pair Ethernet (SPE) enables Ethernet communication over a single twisted pair of wires, reducing cabling complexity without sacrificing performance in IoT and industrial applications.
+
+**Key Features**  
+- **Speed:** Operates at **10 Mbps** under the 10BASE-T1S standard.  
+- **Maximum Distance:** Supports up to **25 meters** in multidrop topology (multiple nodes on a single segment).  
+- **Topology:** Allows up to 8 nodes in a multidrop network.  
+- **Applications:** IoT devices, sensors, and controllers for industrial automation.  
+
+**SPE Implementation in the Arduino UNO SPE Shield**  
+- **Ethernet PHY IC:** The shield uses a 10BASE-T1S PHY, which supports multidrop communication and noise suppression.
+  - Includes onboard common-mode chokes to filter high-frequency interference.
+- **Connection Points:**
+  - **Screw Terminals** for single pair wiring.
+  - **Dedicated SPE Connector** for robust direct connections to compatible devices.  
+- **Jumper Configuration:** Termination resistors are configurable:
+  - **Point-to-Point Setup:** Use jumpers to enable the termination at endpoints for proper signal integrity.
+  - **Multidrop Setup:** Terminations are disabled internally; only the furthest nodes in the network should be terminated.  
+  - **Detailed Setup:** For nodes at the **start or end of the network**, activate the onboard termination closing by jumpers, ensuring proper impedance matching. Intermediate nodes should leave the jumper unconnected.
+- **PoDL (Power over Data Line):** Capable of transmitting power (+7-24 VDC) along with data on the same pair of wires.
+
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+  <strong>Node Distance:</strong> Each node should maintain a maximum distance of <strong>5 cm</strong> from the bus to ensure stable communication and signal integrity.
+</div>
+
+#### Interoperability Between RS-485 and SPE
+
+The shield supports simultaneous operation of RS-485 and SPE protocols.  
+- **Electrical Isolation:** Both systems are decoupled via onboard filters and protection circuits, preventing interference.  
+- **Practical Design Considerations:** To maximize performance, use short, high-quality cables for both protocols, adhering to recommended lengths and shielding practices.
+
+### RS-485
+
+RS-485 is a robust communication protocol designed for industrial settings. It features differential signaling that ensures noise immunity and reliability over long distances. 
+
+**Key Features**  
+- **Speed:** Up to **20 Mbps** for short distances (<15 m), and typically up to 115.2 kbps for longer distances.  
+- **Maximum Distance:** Supports up to 1,200 meters with reduced speeds.  
+- **Topology:** Works in a bus topology, supporting up to 80 nodes.  
+- **Applications:** Commonly used in industrial automation (PLCs, HVAC systems, motor controllers).  
+
+**RS-485 Implementation in the Arduino UNO SPE Shield**  
+- **RS-485 Driver IC:** The shield uses an XR33058IDTR-F transceiver, which manages signal transmission and reception with high noise tolerance.
+  - Includes support for fail-safe biasing (ensuring stable idle-state signals).
+- **Connection Points:** RS-485 screw terminals allow direct wiring of RS-485 devices.  
+- **Termination:** Includes a 120Ω termination jumper to match the bus impedance.  
+  - Proper termination minimizes signal reflections, critical for long-distance communication stability.
+
 ### Communication Interfaces
+
+The UNO SPE Shield exposes all the UNO host board connections and communication interfaces through the header pins.  
+
 | Interfaces   | Connector                                                  |
 | ------------ | ---------------------------------------------------------- |
 | T1S SPE (x1) | - Screws terminal <br></br>- Dedicated connector           |
@@ -63,17 +119,30 @@ The main features of the Arduino UNO SPE shield are detailed in the table shown 
 | SPI (x1)     | - UNO header connector (pin D10-D13)<br></br>- ICSP header |
 | I2C (x1)     | - UNO header connector (pin A4, A5, SDA, SCL)<br></br>     |
 
-
 ### Related Accessories
+
 - T1S SPE dedicated connector
+- SPE IEC 63171-2 cable (not included)
+
 ### Related Products
+
 - UNO R4 WiFi (SKU: ABX00087)
-## Ratings
 
+## Power and Ratings
 
-### Operating Conditions
+### Recommended Operating Conditions
 
 The Arduino UNO SPE Shield is designed for reliable operation across diverse environments, integrating advanced protection mechanisms and flexible power options.
+
+|          **Parameter**          |   **Symbol**    | **Min** | **Typ** | **Max** | **Unit** |
+| :-----------------------------: | :-------------: | :-----: | :-----: | :-----: | :------: |
+| USB Supply Voltage (Host board) | V<sub>USB</sub> |    -    |   5.0   |    -    |    V     |
+|      Supply Input Voltage       | V<sub>IN</sub>  |   7.0   |    -    |  24.0   |    V     |
+|      Power over Data Line       |      PoDL       |   7.0   |    -    |  24.0   |    V     |
+|      Operating Temperature      | T<sub>OP</sub>  |   -40   |    -    |   85    |    °C    |
+
+
+
 
 | **Parameter**          | **Value**                                | **Description**                                                                                                                     |
 | ---------------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -83,42 +152,15 @@ The Arduino UNO SPE Shield is designed for reliable operation across diverse env
 | Operating Temperatures | Min: -40 °C, Typ: 25 °C, Max: 85 °C      |
 | ESD Protection         | ±24 V surge protection                   | TVS diodes safeguard the shield against electrostatic discharge and electrical surges.                                              |
 
-#### Communication Protocols
-For detailed information about the supported protocols **RS-485** and **Single Pair Ethernet (SPE)**, including speeds, distances, and jumper configurations, please refer to the **Protocols** section.
+### Power Options
 
-## Functional Overview
-
-### Shield Topology
-
-![](assets/topology-outline.png)
-
-| Ref.        | Description                                                                                              |
-| ----------- | -------------------------------------------------------------------------------------------------------- |
-| U1          | Level Shifter IC (P/N: TXB0108DQSR)                                                                      |
-| U2          | 10BASE-T1S MAC-PHY Ethernet Controller (P/N: LAN8651B1-E/LMX )                                           |
-| U3_1, U3_2  | High-Side Power Switch (P/N: MAX17613AATP+T )                                                            |
-| J1          | Header Connector 2.54mm, 2x3 positions, female height 8.5mm, male height 11.4mm (P/N: RSE2-1-06-SG-3)    |
-| J2, J5, J7  | Screw Terminal Connector, 4 positions, pitch 2.54mm, height 8.6mm, black (P/N: DG308-2.54-04P-13-00Z(H)) |
-| J3, J4, J12 | Male Vertical Pin Header, 2 positions, pitch 2.54mm, THT, single row (P/N: 61300211121)                  |
-| J6          | Connector 10BASE-T1S, Category B, Single Pair Ethernet (P/N: 1163797)                                    |
-| JANALOG     | ANALOG UNO SHIELDS Header, 2.54mm, 8+6 pins, custom 5.08mm pitch, 14.95mm pin length (P/N: 20TW-988)     |
-| JDIGITAL    | DIGITAL UNO SHIELDS Header, 2.54mm, 8+10 pins, custom 4.06mm pitch, 14.95mm pin length (P/N: 20TW-987)   |
-
-### Pinout
-
-### Block Diagram
-
-### Power Supply
 The **Arduino UNO SPE Shield** is designed with a robust and efficient power management system to ensure reliable operation in industrial and noisy environments. It supports multiple power input sources and incorporates advanced protection mechanisms.
-
-#### Power Sources
-The shield can be powered in the following ways:
 
 - **+5 VDC** from the **USB** connector of the connected Arduino UNO board.
 - **+7-24 VDC** from **T1SP** screw terminal block, enabling **Power over Data Line (PoDL)** functionality.
 - **+7-24 VDC** from **VIN** screw terminal block, allowing external DC power input.
 
-#### Power Management & Protection Features
+#### Power Management and Protection Features
 To ensure a stable and secure power system, the shield includes several protection mechanisms:
 
 - **Under-Voltage Lockout (UVLO):** Prevents operation below **4.2 V**, avoiding instability.
@@ -144,63 +186,32 @@ The shield includes an intelligent **switching system** to control power distrib
 </p>
 </div>
 
-#### Startup & Recovery Mechanisms
+#### Startup and Recovery Mechanisms
 To ensure safe operation, the system includes:
 - Startup Delay (TSTART): Default 100 ms delay before power activation.
 - Automatic Retry Mode: Enables recovery after transient faults for continuous stability.
 
-### Protocols
 
-#### RS-485
+#### Communication Protocols
+For detailed information about the supported protocols **RS-485** and **Single Pair Ethernet (SPE)**, including speeds, distances, and jumper configurations, please refer to the **Protocols** section.
 
-RS-485 is a robust communication protocol designed for industrial settings. It features differential signaling that ensures noise immunity and reliability over long distances. 
+## Functional Overview
 
-**Key Features**  
-- **Speed:** Up to **10 Mbps** for short distances (<15 m), and typically up to 115.2 kbps for longer distances.  
-- **Maximum Distance:** Supports up to 1,200 meters with reduced speeds.  
-- **Topology:** Works in a bus topology, supporting up to 32 nodes per segment (expandable with repeaters).  
-- **Applications:** Commonly used in industrial automation (PLCs, HVAC systems, motor controllers).  
+### Shield Topology
 
-**RS-485 Implementation in the Arduino UNO SPE Shield**  
-- **RS-485 Driver IC:** The shield uses an XR33058IDTR-F transceiver, which manages signal transmission and reception with high noise tolerance.
-  - Includes support for fail-safe biasing (ensuring stable idle-state signals).
-- **Connection Points:** RS-485 screw terminals allow direct wiring of RS-485 devices.  
-- **Jumper Configuration:** Includes a 120Ω termination jumper to match the bus impedance.  
-  - Proper termination minimizes signal reflections, critical for long-distance communication stability.
+![](assets/topology-outline.png)
 
-
-#### Single Pair Ethernet (SPE)
-  
-Single Pair Ethernet (SPE) enables Ethernet communication over a single twisted pair of wires, reducing cabling complexity without sacrificing performance in IoT and industrial applications.
-
-**Key Features**  
-- **Speed:** Operates at **10 Mbps** under the 10BASE-T1S standard.  
-- **Maximum Distance:** Supports up to **25 meters** in multidrop topology (multiple nodes on a single segment).  
-- **Topology:** Allows up to 8 nodes in a multidrop network.  
-- **Applications:** IoT devices, sensors, and controllers for industrial automation.  
-
-**SPE Implementation in the Arduino UNO SPE Shield**  
-- **Ethernet PHY IC:** The shield uses a 10BASE-T1S PHY, which supports multidrop communication and noise suppression.
-  - Includes onboard common-mode chokes to filter high-frequency interference.
-- **Connection Points:**
-  - **Screw Terminals** for single pair wiring.
-  - **Dedicated SPE Connector** for robust direct connections to compatible devices.  
-- **Jumper Configuration:** Termination resistors are configurable:
-  - *Point-to-Point Setup:* Use jumpers to enable the termination at endpoints for proper signal integrity.
-  - *Multidrop Setup:* Terminations are disabled internally; only the furthest nodes in the network should be terminated.  
-  - *Detailed Setup:* For nodes at the **start or end of the network**, activate the onboard termination closing by jumpers, ensuring proper impedance matching. Intermediate nodes should leave the jumper unconnected.
-- **PoDL (Power over Data Line):** Capable of transmitting power (+7-24 VDC) along with data on the same pair of wires.
-
-
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-  <strong>Node Distance:</strong> Each node should maintain a maximum distance of <strong>10 cm</strong> from the bus to ensure stable communication and signal integrity.
-</div>
-
-#### Interoperability Between RS-485 and SPE
-The shield supports simultaneous operation of RS-485 and SPE protocols.  
-- **Electrical Isolation:** Both systems are decoupled via onboard filters and protection circuits, preventing interference.  
-- **Practical Design Considerations:** To maximize performance, use short, high-quality cables for both protocols, adhering to recommended lengths and shielding practices.
-
+| Reference   | Description                                                                                                |
+| ----------- | ---------------------------------------------------------------------------------------------------------- |
+| U1          | Level Shifter IC (P/N: TXB0108DQSR)                                                                        |
+| U2          | 10BASE-T1S MAC-PHY Ethernet Controller (P/N: LAN8651B1-E/LMX)                                              |
+| U3_1, U3_2  | High-Side Power Switch (P/N: MAX17613AATP+T)                                                               |
+| J1          | Header Connector 2.54 mm, 2x3 positions, female height 8.5 mm, male height 11.4 mm (P/N: RSE2-1-06-SG-3)   |
+| J2, J5, J7  | Screw Terminal Connector, 4 positions, pitch 2.54 mm, height 8.6 mm, black (P/N: DG308-2.54-04P-13-00Z(H)) |
+| J3, J4, J12 | Male Vertical Pin Header, 2 positions, pitch 2.54 mm, THT, single row (P/N: 61300211121)                   |
+| J6          | Connector 10BASE-T1S, Category B, Single Pair Ethernet (P/N: 1163797)                                      |
+| JANALOG     | ANALOG UNO SHIELDS Header, 2.54 mm, 8+6 pins, custom 5.08 mm pitch, 14.95 mm pin length (P/N: 20TW-988)    |
+| JDIGITAL    | DIGITAL UNO SHIELDS Header, 2.54 mm, 8+10 pins, custom 4.06 mm pitch, 14.95 mm pin length (P/N: 20TW-987)  |
 
 ## Device Operation
 
@@ -232,9 +243,6 @@ Now that you have gone through the basics of what you can do with the device, yo
 The outline of the Arduino UNO SPE Shield is shown in the figure below, with all dimensions provided in millimeters (mm).
 
 ![](assets/mechanical.png)
-
-
-<div style="page-break-after: always;"></div>
 
 
 <div style="page-break-after: always;"></div>
