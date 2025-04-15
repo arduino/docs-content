@@ -121,6 +121,10 @@ The Realtime Clock (RTC) has two counting modes: calendar count mode and binary 
 - For calendar count mode, the RTC has a 100-year calendar from 2000 to 2099 and automatically adjusts dates for leap years.
 - For binary count mode, the RTC counts seconds and retains the information as a serial value. Binary count mode can be used for calendars other than the Gregorian (Western) calendar.
 
+<div style="background-color:rgb(206, 255, 201); border-left: 6px solid rgb(138, 255, 128); margin: 20px 0; padding: 15px;">
+The Nano R4 features an external crystal oscillator that improve considerably the timing of timers like the RTC and other sub-clock dependant peripherals.
+</div>
+
 ### Related Products
 
 - Arduino Nano (A000005)
@@ -142,6 +146,7 @@ The Realtime Clock (RTC) has two counting modes: calendar count mode and binary 
 ### Power Options
 
 Power can either be supplied via the VIN pin, or via USB-C® connector. If power is supplied via VIN, the MP2322GQH buck converter steps the voltage down to 5 V.
+
 The 5 V output of the buck converter is connected to a Schottky diode in place for reverse polarity & overvoltage protection respectively.
 
 #### Power Tree
@@ -234,7 +239,7 @@ An overview of the Nano R4 high-level architecture is illustrated in the figure 
 ![Arduino Nano R4 Block Diagram](assets/Nano_R4_Block_Diagram.png)
 
 ## Board Topology
-### Front View
+### Overall View
 
 ![Top View of Arduino Nano R4](assets/topViewNanoR4.png)
 
@@ -247,7 +252,7 @@ An overview of the Nano R4 high-level architecture is illustrated in the figure 
 | JP1           | Analog input/output headers              |
 | JP2           | Digital input/output headers             |
 | J1            | CX90B-16P USB-C® connector               |
-| J2            | SM04B-SRSS-TB(LF)(SN) I2C connector      |
+| J2            | I2C Qwiic connector                      |
 | DL1           | RGB LED                                  |
 
 
