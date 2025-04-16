@@ -9,9 +9,11 @@ author: Elizabeth Esparza
 
 # Description
 
-The Arduino UNO SPE Shield is a versatile solution for industrial communication, IoT, and automation, combining Single Pair Ethernet (10BASE-T1S) and RS-485. It enables integration into low-power Ethernet networks and robust serial communication systems, ensuring efficient connectivity in embedded environments. Compatible with the Arduino UNO, it supports SPI, UART, and I2C, facilitating interoperability with various devices. Additionally, it features screw terminals for additional connections. 
+The Arduino UNO SPE Shield is a versatile solution for industrial communication, IoT, and automation, combining Single Pair Ethernet (10BASE-T1S) and RS-485. It enables integration into low-power Ethernet networks and robust serial communication systems, ensuring efficient connectivity in embedded environments.
 
-Its robust design and advanced protection make it ideal for applications in industrial environments for remote monitoring and automated control.
+Compatible with the Arduino UNO form factor, it supports SPI, UART, and I2C, facilitating interoperability with various devices. Additionally, it features screw terminals for additional connectivity and power options. 
+
+Its robust design and advanced protection makes it ideal for applications in industrial environments for remote monitoring and automated control.
 
 # Target Areas:
 
@@ -47,14 +49,14 @@ The main features of the Arduino UNO SPE shield are detailed in the table shown 
 | RS-485 Transceiver             | XR33058IDTR-F                                                                                                                                                                                                      |
 | RS-485 Communication Method    | Half-duplex                                                                                                                                                                                                        |
 | RS-485 Data Rate               | 20 Mbit/s                                                                                                                                                                                                          |
-| Connectors                     | T1S SPE screws terminal (x1) <br></br> RS-485 terminal screws (x1) <br></br>1x T1S SPE dedicated connector  (x1)                                                                                                   |
+| Connectors                     | T1S SPE screws terminal (x1) <br></br>T1S SPE dedicated connector (x1)<br></br> RS-485 screws terminal (x1)                                                                                                   |
 | Arduino UNO Headers Interfaces | UART<br></br>SPI<br></br>I2C<br>                                                                                                                                                                                   |
-| Power Options                  | +5 VDC from the USB connector of the connected UNO board<br></br>+7-24 VDC from T1SP on screw terminal block, enabling Power over Data Line(PoDL) functionality<br></br>+7-24 VDC from VIN on screw terminal block |
+| Power Options                  | +5 VDC from the USB connector of the connected UNO board<br></br>+7-24 VDC from T1SP on screw terminal block, enabling Power over Data Line (PoDL) functionality<br></br>+7-24 VDC from VIN on screw terminal block |
 | Dimensions                     | 68.85 mm x 53.34 mm                                                                                                                                                                                                |
 | Operating Temperatures         | -40 °C to +85 °C                                                                                                                                                                                                   |
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-The UNO SPE Shield can safely operate with a 24 VDC power supply. While the Arduino UNO R4 is designed to handle this voltage without issue, caution is advised, 24 V can potentially damage UNO R3 boards or any third-party UNO-compatible board.
+<strong>Note:</strong> The UNO SPE Shield can safely operate with a 24 VDC power supply. While the Arduino UNO R4 is designed to handle this voltage without issue, caution is advised, 24 V can potentially damage UNO R3 boards or any third-party UNO-compatible board.
 </div>
 
 ### Single Pair Ethernet (SPE)
@@ -110,7 +112,7 @@ The shield supports simultaneous operation of RS-485 and SPE protocols.
 RS-485 is a robust communication protocol designed for industrial settings. It features differential signaling that ensures noise immunity and reliability over long distances. 
 
 **Key Features**  
-- **Speed:** Up to **20 Mbps** for short distances (<15 m), and typically up to 115.2 kbps for longer distances.  
+- **Speed:** Up to **20 Mbps** for short distances (<15 m).  
 - **Maximum Distance:** Supports up to 1,200 meters with reduced speeds.  
 - **Topology:** Works in a bus topology, supporting up to 80 nodes.  
 - **Applications:** Commonly used in industrial automation (PLCs, HVAC systems, motor controllers).  
@@ -141,7 +143,7 @@ The UNO SPE Shield exposes all the UNO host board connections and communication 
 
 ### Related Products
 
-- UNO R4 WiFi (SKU: ABX00087)
+- Arduino UNO R4 WiFi (SKU: ABX00087)
 
 ## Power and Ratings
 
@@ -155,16 +157,7 @@ The Arduino UNO SPE Shield is designed for reliable operation across diverse env
 |      Supply Input Voltage       | V<sub>IN</sub>  |   7.0   |    -    |  24.0   |    V     |
 |      Power over Data Line       |      PoDL       |   7.0   |    -    |  24.0   |    V     |
 |      Operating Temperature      | T<sub>OP</sub>  |   -40   |    -    |   85    |    °C    |
-
-
-
-
-| **Parameter**          | **Value**                                | **Description**                                                                                                                     |
-| ---------------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Input Voltage          | +5 VDC (via host USB)<br></br> +7-24 VDC | - Supports power input from host board<br></br> - PoDL (Power over Data Line)<br></br> - External power via screw terminal blocks. |
-| Operating Current      | Up to 2A                                 | Ensures stable operation, protected by overcurrent limits based on circuit design.                                                  |
-| Communication Voltage  | TTL levels (3.3V or 5V)                  | Compatible with Arduino UNO R4 for digital signals (UART, SPI, I2C). Voltage defined by IOREF pin.                                  |
-| ESD Protection         | ±24 V surge protection                   | TVS diodes safeguard the shield against electrostatic discharge and electrical surges.                                              |
+|        Operating Current        | I<sub>MAX</sub> |    -    |    -    |   2.0   |    A     |
 
 ### Power Options
 
@@ -178,7 +171,7 @@ The **Arduino UNO SPE Shield** is designed with a robust and efficient power man
 
 The following diagram illustrates the UNO SPE Shield main system power architecture.
 
-![Power architecture of the UNO SPE Shield](assets/)
+![Power architecture of the UNO SPE Shield](assets/SPE_SHIELD_POWER_TREE.png)
 
 #### Power Management and Protection Features
 
@@ -201,7 +194,7 @@ The shield includes an intelligent **switching system** to control power distrib
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <p style="text-align: justify;">
-<strong>Note:</strong> By default, the board is powered by T1S, but you can activate local power through software.
+<strong>Note:</strong> By default, the board is set to be powered by SPE (PoDL), but you can activate local power through software.
 </p>
 </div>
 
