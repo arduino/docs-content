@@ -217,6 +217,8 @@ The UNO SPE Shield pinout is shown in the following figure:
 
 An overview of the UNO SPE Shield high-level architecture is illustrated in the figure below:
 
+![Block diagram of the UNO SPE Shield](assets/SPE_Shield_Block_Diagram.png)
+
 ## Shield Topology
 
 ### Overall View
