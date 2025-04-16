@@ -84,6 +84,21 @@ Single Pair Ethernet (SPE) enables Ethernet communication over a single twisted 
   <strong>Node Distance:</strong> Each node should maintain a maximum distance of <strong>5 cm</strong> from the bus to ensure stable communication and signal integrity.
 </div>
 
+#### Connection Recomendations
+
+When using the UNO SPE Shield screw terminals to wire the 10BASE‑T1S network you must meet the following recomendations:
+
+- The cable used must be a twisted pair.
+- The maximum lenght of the multidrop mixing segment of the bus must be ≤ 25 m.
+- The multidrop mode can support up to 8 nodes on one mixing segment.
+- On a multidrop configuration, the stub distance must be ≤ 5 cm.
+
+![Wiring configuration to meet the SPE standard](assets/wiring.png)
+
+- Short the termination jumpers on the first and last nodes of the SPE bus.
+
+![Termination usage on SPE networks with the UNO SPE Shield](assets/jumpers.png)
+
 #### Interoperability Between RS-485 and SPE
 
 The shield supports simultaneous operation of RS-485 and SPE protocols.  
