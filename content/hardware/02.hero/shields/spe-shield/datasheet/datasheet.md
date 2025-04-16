@@ -121,7 +121,7 @@ RS-485 is a robust communication protocol designed for industrial settings. It f
 - **RS-485 Driver IC:** The shield uses an XR33058IDTR-F transceiver, which manages signal transmission and reception with high noise tolerance.
   - Includes support for fail-safe biasing (ensuring stable idle-state signals).
 - **Connection Points:** RS-485 screw terminals allow direct wiring of RS-485 devices.  
-- **Termination:** Includes a 120Ω termination jumper to match the bus impedance.  
+- **Termination:** Includes a 120 Ω termination jumper to match the bus impedance.  
   - Proper termination minimizes signal reflections, critical for long-distance communication stability.
 
 ### Communication Interfaces
@@ -406,6 +406,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Document Revision History
 
-| **Date** | **Revision** |  **Changes**  |
-| :------: | :----------: | :-----------: |
-|          |      1       | First release |
+|  **Date**  | **Revision** |  **Changes**  |
+| :--------: | :----------: | :-----------: |
+| 16/04/2025 |      1       | First release |
