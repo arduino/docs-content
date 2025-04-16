@@ -146,10 +146,9 @@ The Arduino UNO SPE Shield is designed for reliable operation across diverse env
 
 | **Parameter**          | **Value**                                | **Description**                                                                                                                     |
 | ---------------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Input Voltage          | +5 VDC (via host USB)<br></br> +7-24 VDC | -- Supports power input from host board<br></br> - PoDL (Power over Data Line)<br></br> - External power via screw terminal blocks. |
+| Input Voltage          | +5 VDC (via host USB)<br></br> +7-24 VDC | - Supports power input from host board<br></br> - PoDL (Power over Data Line)<br></br> - External power via screw terminal blocks. |
 | Operating Current      | Up to 2A                                 | Ensures stable operation, protected by overcurrent limits based on circuit design.                                                  |
 | Communication Voltage  | TTL levels (3.3V or 5V)                  | Compatible with Arduino UNO R4 for digital signals (UART, SPI, I2C). Voltage defined by IOREF pin.                                  |
-| Operating Temperatures | Min: -40 °C, Typ: 25 °C, Max: 85 °C      |
 | ESD Protection         | ±24 V surge protection                   | TVS diodes safeguard the shield against electrostatic discharge and electrical surges.                                              |
 
 ### Power Options
@@ -174,18 +173,16 @@ To ensure a stable and secure power system, the shield includes several protecti
 - **Over-Voltage Lockout (OVLO):** Limits voltage to **29.9 V**, protecting against excessive input.
 - **Over-Current Protection:** Restricts power draw to **2 A**, preventing circuit damage.
 - **Transient Voltage Suppression (TVS):** Absorbs sudden voltage spikes (24 V rated diodes).
-- **Electrostatic Discharge (ESD) Protection:** Shields critical components from electrical surges.
+- **Electrostatic Discharge (ESD) Protection:** Shields critical components from electrical surges on the SPE connection.
 
 #### Switching System
 
 The shield includes an intelligent **switching system** to control power distribution efficiently:
 
-| **Switch**    | **Function**                                                          |
-| ------------- | --------------------------------------------------------------------- |
-| LOCAL_ENABLE  | Activates internal power for shield operation.                        |
-| T1S_DISABLE   | Disables Single Pair Ethernet (10BASE-T1S) power when unused.         |
-| INPUT SWITCH  | Ensures RS-485/UART circuits receive power when the shield is active. |
-| OUTPUT SWITCH | Controls external device power usage, defaulting to an off state.     |
+| **Switch**    | **Function**                                                                            |
+| ------------- | --------------------------------------------------------------------------------------- |
+| LOCAL_ENABLE  | Activates internal power from VIN for shield operation. Disabled by default.            |
+| T1S_DISABLE   | Disables Single Pair Ethernet (PoDL) power. Power over Data Line is enabled by default. |
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <p style="text-align: justify;">
