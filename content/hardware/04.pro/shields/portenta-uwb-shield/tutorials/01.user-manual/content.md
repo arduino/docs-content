@@ -32,7 +32,9 @@ This user manual provides a comprehensive overview of the Portenta UWB Shield, h
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
-- ardUWBSr150 library
+- [`ardUWBSr040` library](https://github.com/arduino-libraries/ardUWBSr040)
+- [`ardUWBSr150` library](https://github.com/arduino-libraries/ardUWBSr150)
+- [`ArduinoBLE` library](https://github.com/arduino/ArduinoBLE) 
 - [Arduino Renesas Portenta Boards core](https://github.com/arduino/ArduinoCore-renesas) (required to work with the Portenta C33 board)
 
 ***The Portenta UWB Shield is not intended as a standalone device but as a shield to work alongside a Portenta family board. In this user manual, we will use the Portenta C33 as the main board and show how to use the Portenta UWB Shield with it.***
@@ -40,6 +42,8 @@ This user manual provides a comprehensive overview of the Portenta UWB Shield, h
 ## Portenta UWB Shield Overview
 
 Enhance your positioning and real-time location capabilities with the Portenta UWB Shield. Based on the Truesense DCU150 module, this versatile Ultra-Wideband (UWB) communication solution integrates with the Portenta C33 board via its High-Density connectors and functions as a base station for two-way ranging and real-time location services (RTLS).
+
+![The Portenta UWB Shield](assets/front-page.png)
 
 The Portenta UWB Shield incorporates the NXP® Trimension™ SR150 UWB integrated circuit (IC) within the DCU150 module, three embedded PCB antennas, onboard power management, clock control, filters and peripheral components. With +1.8 to +3.3 VDC level shifters and dual High-Density board-to-board connectors, it plugs directly into the Portenta C33 board, making it an excellent choice for projects that require precise positioning and real-time location tracking.
 
@@ -49,7 +53,7 @@ Ultra-Wideband (UWB) is a radio technology that uses very low energy levels for 
 
 #### UWB vs. Traditional Narrowband Technologies
 
-The fundamental difference between UWB and traditional wireless technologies (Wi-Fi®, Bluetooth®, Zigbee® and Cellular) lies in their transmission methods:
+The fundamental difference between UWB and traditional wireless technologies (Wi-Fi, Bluetooth, Zigbee® and Cellular) lies in their transmission methods:
 
 |   **Feature**  |   **Traditional Narrowband Radio**   |  **Ultra-Wideband Impulse Radio**  |
 |:--------------:|:------------------------------------:|:----------------------------------:|
@@ -63,7 +67,7 @@ Traditional narrowband systems use frequency or amplitude modulation to send dat
 
 #### Key Characteristics of UWB
 
-- **High precision**: UWB can determine the relative position of devices with centimeter-level accuracy (typically 5-10 cm), far more precise than GPS (meters), Bluetooth® (1-3 meters) or Wi-Fi® (2-15 meters).
+- **High precision**: UWB can determine the relative position of devices with centimeter-level accuracy (typically 5-10 cm), far more precise than GPS (meters), Bluetooth (1-3 meters) or Wi-Fi (2-15 meters).
 - **Low-power consumption**: Despite its high data rates, UWB consumes very little power, making it suitable for battery-operated devices and long-term deployments.
 - **Short range**: Typically effective within 10-30 meters, making it ideal for indoor positioning applications where GPS signals are weak or unavailable.
 - **Strong security**: The unique physical layer characteristics of UWB, including its wide bandwidth and low power spectral density, make it more resistant to jamming, eavesdropping, and relay attacks compared to other wireless technologies.
@@ -131,27 +135,27 @@ The bottom view of the Portenta UWB Shield is shown in the image below:
 
 Here's an overview of the shield's main components shown in the images:
 
-- **UWB module**: At the heart of the Portenta UWB Shield is the DCU150 module from Truesense, which incorporates the NXP® Trimension™ SR150 UWB IC. This module supports UWB channels CH5 and CH9 in the 6.0-8.5 GHz range and complies with the IEEE 802.15.4 HRP UWB standard.
-- **UWB antennas**: The shield features three embedded PCB antennas for optimal signal reception and transmission.
-- **Processor**: The module includes an Arm® Cortex®-M33 32-bit processor running at 125 MHz with 128 kB code RAM, 128 kB data RAM, 128 kB ROM, Arm® TrustZone technology and S-DMA for security.
-- **DSP**: An onboard programmable DSP (BSP32 CoolFlux DSP core) with 32 kB RAM for code and 2x 16kB RAM for data enhances signal processing capabilities.
-- **Level shifters**: The shield includes +1.8 to +3.3 VDC level shifters for compatible communication with the Portenta C33 board.
-- **High-Density connectors**: Dual High-Density board-to-board connectors allow the shield to plug directly into the Portenta C33 board.
+- **UWB module**: At the heart of the Portenta UWB Shield is the DCU150 module from Truesense, which incorporates the NXP Trimension SR150 UWB IC. This module supports UWB channels CH5 and CH9 in the 6.0-8.5 GHz range and complies with the IEEE 802.15.4 HRP UWB standard.
+- **UWB antennas**: The DCU150 module features three embedded PCB antennas for optimal signal reception and transmission.
+- **Processor**: The DCU150 module features an Arm® Cortex®-M33 32-bit processor running at 125 MHz with 128 kB code RAM, 128 kB data RAM, 128 kB ROM, TrustZone® technology and S-DMA for security.
+- **DSP**: The DCU150 module features an onboard programmable DSP (BSP32 CoolFlux DSP core) with 32 kB RAM for code and 2x 16kB RAM for data enhances signal processing capabilities.
+- **Level shifters**: The shield includes +1.8 to +3.3 VDC level shifters for compatible communication with Portenta family boards.
+- **High-Density connectors**: Dual High-Density board-to-board connectors allow the shield to plug directly into the Portenta family boards.
 - **Shielding can**: Located on top of the DCU150 module, it enhances anti-interference performance.
 
 ### Board Libraries
 
-The Portenta UWB Shield and Arduino Stella use different libraries and board cores due to their different microcontrollers and UWB modules:
+The Portenta UWB Shield and the Arduino Stella use different libraries and board cores due to their different microcontrollers and onboard UWB modules:
 
 #### Portenta UWB Shield Library
 
 The [`ardUWBSr150` library](https://github.com/arduino-libraries/ardUWBSr150) contains an application programming interface (API) to read data from the Portenta UWB Shield and control its parameters and behavior. This library is designed to work with the DCU150 module on the shield and supports the following:
 
 - One-way ranging (Time Difference of Arrival - TDoA) and two-way ranging (TWR).
-- Angle of Arrival (AoA) measurement for 2D positioning.
+- Angle of Arrival (AoA) measurement for 2D and 3D positioning.
 - SPI and GPIO communication with the host board through dedicated level translators.
 
-***The [Arduino Renesas Portenta Boards core](https://github.com/arduino/ArduinoCore-renesas) is required to work with the Portenta C33 board that hosts the UWB Shield.***
+***The [Arduino Renesas Portenta Boards core](https://github.com/arduino/ArduinoCore-renesas) is required to work with the Portenta C33 board that hosts the UWB Shield in this User Manual.***
 
 #### Arduino Stella Library
 
@@ -178,6 +182,8 @@ To install the required board cores:
 1. Navigate to `Tools > Board > Boards Manager...`
 2. For the Portenta C33: Search for "Arduino Renesas Boards" and install the latest version.
 3. For the Arduino Stella (if using two-way ranging examples): Search for "Arduino mbed OS Boards" and install the latest version.
+
+![Installing the board's core in the Arduino IDE](assets/user-manual-4.png)
 
 ***<strong>Important note:</strong> Make sure to install both the appropriate library and board core for your specific hardware. The Portenta UWB Shield with Portenta C33 requires the `ardUWBSr150` library and Arduino Renesas Boards core. For examples involving Arduino Stella, you'll need the `ardUWBSr040` library and Arduino mbed OS Boards core. For examples involving BLE communication, both devices will need the `ArduinoBLE` library installed.***
 
@@ -211,19 +217,19 @@ The complete STEP files are available and downloadable from the link below:
 
 When you open the box of the Portenta UWB Shield, you will find the shield itself featuring two High-Density connectors designed to interface with compatible boards from the Portenta family. The shield also includes three pins for UART communications, which can be used primarily for debugging purposes.
 
-![Unboxing the Portenta UWB Shield](assets/user-manual-4.png)
-
 **It's important to note that the Portenta UWB Shield is not designed to function as a standalone device. Rather, it works as a shield that must be paired with a compatible Arduino board from the Portenta family.** Throughout this user manual, we will be using the Portenta C33 as the main (host) board and the Portenta UWB Shield as the client board, connected via the High-Density pins.
 
 ***When properly configured, the combined Portenta C33 and Portenta UWB Shield function as a <strong>UWB anchor node</strong> in a positioning system. This anchor can receive signals from UWB tags (mobile devices with UWB capability), precisely calculate their distance using time-of-flight principles, and when used in a network of anchors, determine their exact position in space.***
 
 ### Connecting the Shield
 
-Connect the Portenta UWB Shield directly to a Portenta C33 board through its High-Density connectors as shown in the animation below:
+Connect the Portenta UWB Shield directly to a Portenta C33 board through its High-Density connectors as shown in the image below:
 
-![Connecting the Portenta UWB Shield](assets/user-manual-5.gif)
+![Connecting the Portenta UWB Shield to the Portenta C33 board](assets/user-manual-5.png)
 
-To connect the shield to the board, align first the shield's High-Density connectors with those on the Portenta C33 board. Then, gently press the shield onto the Portenta C33 until it is firmly seated.
+To connect the shield to the board, align first the shield's High-Density connectors with those on the Portenta C33 board. Then, gently press the shield onto the Portenta C33 until it is firmly seated as shown in the image below:
+
+![The Portenta UWB Shield with the Portenta C33 board](assets/user-manual-6.png)
 
 ***<strong>Important note:</strong> Ensure that the Portenta C33 is powered off before connecting or disconnecting the shield to prevent potential damage to either of the boards.***
 
@@ -231,11 +237,11 @@ To connect the shield to the board, align first the shield's High-Density connec
 
 The Portenta UWB Shield is powered exclusively through the `VCC` pins (+3.3 VDC) of its High-Density Connectors. These connectors are designed to be used with boards from the Portenta family, such as the Portenta C33 board. The power is supplied directly from the connected Portenta family board, which acts as the power source for the Portenta UWB Shield.
 
-***<strong>Important note:</strong> The Portenta UWB Shield does not have an independent power input. It receives power only through the High-Density connectors when properly connected to a Portenta C33 board.***
+***<strong>Important note:</strong> The Portenta UWB Shield does not have an independent power input. It receives power only through the High-Density connectors when properly connected to a Portenta C33 board. Additionally, if you plan to use Bluetooth Low Energy (BLE) functionality, make sure to connect an antenna to the Wi-Fi/Bluetooth module of the Portenta C33 for optimal wireless performance.***
 
 ### Nearby World Example
 
-Let's use the Portenta UWB Shield with the Portenta C33 to create a real-time distance measurement system using UWB technology. We will implement what we call the `Nearby World` example (based on the `NearbyDemo` sketch), which serves as our `Hello World` sketch for UWB technology. This example will verify the Portenta UWB Shield's connection to the host board, the host board's connection to the Arduino IDE and that the `ardUWBSr150` library and both boards are working as expected.
+Let's use the Portenta UWB Shield with the Portenta C33 to create a real-time distance measurement system using UWB technology. We will implement what we call the `Nearby World` example (based on the `NearbyDemo` sketch), which serves as our `Hello World` sketch for UWB technology. This example will verify the Portenta UWB Shield's connection to the host board, the host board's connection to the Arduino IDE and that the `ardUWBSr150` library and both the board and the shield are working as expected.
 
 ***This example sketch leverages Apple's Nearby Interaction protocol and similar UWB implementations on Android devices to establish a communication channel between the Portenta UWB Shield and a UWB-enabled smartphone, allowing precise distance and angle measurements.***
 
@@ -252,7 +258,7 @@ This process demonstrates the working principle of many UWB applications, where 
 
 #### Uploading the Sketch
 
-First, connect the Portenta UWB Shield to the Portenta C33 as described in the [Connecting the Shield section](#connecting-the-shield). Now, connect the Portenta C33 to your computer using a USB-C® cable, open the Arduino IDE and connect the board to it.
+First, connect the Portenta UWB Shield to the Portenta C33 as described in the [Connecting the Shield section](#connecting-the-shield). Now, connect the Portenta C33 to your computer using a USB-C cable, open the Arduino IDE and connect the board to it.
 
 ***If you are new to the Portenta C33, please refer to the board's [user manual](https://docs.arduino.cc/tutorials/portenta-c33/user-manual/) for more detailed information.***
 
@@ -378,11 +384,7 @@ void loop() {
 
 To upload the sketch to the Portenta C33, click the Verify button to compile the sketch and check for errors, then click the Upload button to program the device with the sketch.
 
-![Uploading a sketch to the Portenta C33 board in the Arduino IDE](assets/user-manual-6.png)
-
 Once the sketch is uploaded, open the Serial Monitor by clicking on the icon in the top right corner of the Arduino IDE. You should see the message `- Nearby interaction app start...` in the IDE's Serial Monitor.
-
-![Arduino IDE Serial monitor](assets/user-manual-7.png)
 
 #### Try it Yourself
 
@@ -409,8 +411,6 @@ Install one of these apps on your smartphone and follow these steps:
 5. Move your phone closer to and further from the Portenta UWB Shield.
 
 You should see the distance measurements updating in real-time both on your smartphone app and in the IDE's Serial Monitor. The distances are shown in millimeters, providing centimeter-level accuracy characteristic of the UWB technology.
-
-![Distance measurements from the Portenta UWB Shield to the smartphone](assets/user-manual-8.png)
 
 ## NearbyDemo Example
 
@@ -567,7 +567,7 @@ uint16_t numConnected = 0;
 
 The code includes two essential libraries:
 
-- `ArduinoBLE`: Provides Bluetooth Low Energy functionality for device discovery and initial connection.
+- `ArduinoBLE`: Provides Bluetooth Low Energy (BLE) functionality for device discovery and initial connection.
 - `ardUWBSr150`: The core library that enables interaction with the UWB hardware on the Portenta UWB Shield.
 
 The `numConnected` variable tracks how many BLE clients are currently connected to the Portenta UWB Shield.
