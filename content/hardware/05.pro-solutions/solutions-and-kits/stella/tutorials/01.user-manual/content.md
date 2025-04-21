@@ -1,8 +1,8 @@
 ---
-title: 'Arduino Stella User Manual'
+title: 'Arduino® Stella User Manual'
 difficulty: intermediate
 compatible-products: [arduino-stella]
-description: 'Learn about the hardware and software features of the Arduino® Stella.'
+description: 'Learn about the hardware and software features of the Arduino Stella.'
 tags:
   - UWB
   - Positioning
@@ -16,7 +16,7 @@ software:
   - ide-v2
 ---
 
-This user manual provides a comprehensive overview of the Stella, highlighting its hardware and software elements. With it, you will learn how to set up, configure and use all the main features of the Stella.
+This user manual provides a comprehensive overview of the Arduino Stella, highlighting its hardware and software elements. With it, you will learn how to set up, configure and use all the main features of the Arduino Stella.
 
 ![ ](assets/hero-banner.png)
 
@@ -33,12 +33,18 @@ This user manual provides a comprehensive overview of the Stella, highlighting i
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
-- ardUWBSr040 library
-- [Arduino mbed OS Boards core](https://github.com/arduino/ArduinoCore-mbed) (required for the nRF52840 microcontroller of the Stella)
+- [`ardUWBSr040` library](https://github.com/arduino-libraries/ardUWBSr040)
+- [`ardUWBSr150` library](https://github.com/arduino-libraries/ardUWBSr150)
+- [`ArduinoBLE` library](https://github.com/arduino/ArduinoBLE) 
+- [Arduino mbed OS Boards core](https://github.com/arduino/ArduinoCore-mbed) (required for the nRF52840 microcontroller of the Arduino Stella)
 
 ## Arduino Stella Overview
 
-The Stella redefines location tracking with its advanced microcontroller, the nRF52840 from Nordic Semiconductor, and the DCU040 Ultra-Wide Band (UWB) module from Truesense. Tailored for modern tracking needs, the Stella excels in pinpointing warehouse assets, ensuring healthcare safety and automating smart buildings. Seamlessly integrating with the Portenta UWB Shield and UWB-enabled smartphones through the dedicated NXP® Trimension App, Apple's Nearby Interaction APIs or Android's UWB Jetpack library, the Stella delivers robust finder functionality, precise point-to-point triggering and comprehensive tracking capabilities for applications demanding reliable, real-time location data.
+The Arduino Stella redefines location tracking with its advanced microcontroller, the nRF52840 from Nordic Semiconductor, and the DCU040 Ultra-Wide Band (UWB) module from Truesense. Tailored for modern tracking needs, the Arduino Stella excels in pinpointing warehouse assets, ensuring healthcare safety and automating smart buildings.
+
+![The Arduino Stella](assets/front-page.png)
+
+Seamlessly integrating with the Portenta UWB Shield and UWB-enabled smartphones through the dedicated NXP® Trimension™ App, Apple's Nearby Interaction APIs or Android's UWB Jetpack library, the Arduino Stella delivers robust finder functionality, precise point-to-point triggering and comprehensive tracking capabilities for applications demanding reliable, real-time location data.
 
 ### Understanding UWB Technology
 
@@ -46,7 +52,7 @@ Ultra-Wideband (UWB) is a radio technology that uses very low energy levels for 
 
 #### UWB vs. Traditional Narrowband Technologies
 
-The fundamental difference between UWB and traditional wireless technologies (Wi-Fi®, Bluetooth®, Zigbee® and Cellular) lies in their transmission methods:
+The fundamental difference between UWB and traditional wireless technologies (Wi-Fi, Bluetooth, Zigbee® and Cellular) lies in their transmission methods:
 
 |   **Feature**  |   **Traditional Narrowband Radio**   |  **Ultra-Wideband Impulse Radio**  |
 |:--------------:|:------------------------------------:|:----------------------------------:|
@@ -60,7 +66,7 @@ Traditional narrowband systems use frequency or amplitude modulation to send dat
 
 #### Key Characteristics of UWB
 
-- **High precision**: UWB can determine the relative position of devices with centimeter-level accuracy (typically 5-10 cm), far more precise than GPS (meters), Bluetooth® (1-3 meters) or Wi-Fi® (2-15 meters).
+- **High precision**: UWB can determine the relative position of devices with centimeter-level accuracy (typically 5-10 cm), far more precise than GPS (meters), Bluetooth (1-3 meters) or Wi-Fi (2-15 meters).
 - **Low-power consumption**: Despite its high data rates, UWB consumes very little power, making it suitable for battery-operated devices like the Arduino Stella, which is optimized for energy efficiency.
 - **Short range**: Typically effective within 10-30 meters, making it ideal for indoor positioning applications where GPS signals are weak or unavailable.
 - **Strong security**: The unique physical layer characteristics of UWB, including its wide bandwidth and low power spectral density, make it more resistant to jamming, eavesdropping, and relay attacks compared to other wireless technologies.
@@ -106,36 +112,36 @@ In an UWB positioning system, devices typically operate in one of two roles:
 The Arduino Stella's combination of UWB technology, compact form factor, and battery operation makes it ideal for numerous applications:
 
 - **Asset tracking**: Attach Stella tags to valuable items in warehouses, hospitals, or construction sites to monitor their location with centimeter-level accuracy.
-- **Wearable positioning**: Incorporate Stella into wearable devices for personnel tracking in industrial environments, healthcare settings, or event venues.
+- **Wearable positioning**: Incorporate Arduino Stella into wearable devices for personnel tracking in industrial environments, healthcare settings, or event venues.
 - **Robot and drone navigation**: Enable precise indoor navigation for autonomous systems where GPS is unavailable.
 - **Social distancing solutions**: Create personal tags that can alert wearers when they come too close to others.
 - **Interactive installations**: Power location-aware exhibits in museums or public spaces that respond to visitors' precise positions.
 - **Sports performance analysis**: Track athletes' movements with high precision for training analysis and performance optimization.
 - **Security applications**: Create authorized personnel tags that can trigger secure access systems only when physically present (resistant to relay attacks).
-- **IoT sensor networks**: Deploy Stella devices as mobile sensor nodes that can report both environmental data and precise location information.
+- **IoT sensor networks**: Deploy Arduino Stella devices as mobile sensor nodes that can report both environmental data and precise location information.
 
-The Stella's programmability, combined with its UWB capabilities, accelerometer, and Bluetooth connectivity, makes it an extremely versatile platform for developing innovative positioning solutions.
+The Arduino Stella's programmability, combined with its UWB capabilities, accelerometer, and Bluetooth connectivity, makes it an extremely versatile platform for developing innovative positioning solutions.
 
 ### Arduino Stella Architecture Overview
 
 The Arduino Stella features a secure, certified and durable design that suits various applications, such as asset tracking, healthcare monitoring, smart building automation and consumer applications.
 
-The top view of the Stella is shown in the image below:
+The top view of the Arduino Stella is shown in the image below:
 
-![The Stella's main components (top view)](assets/user-manual-1.png)
+![The Arduino Stella's main components (top view)](assets/user-manual-1.png)
 
 The bottom view of the Arduino Stella is shown in the image below:
 
-![The Stella's main components (bottom view)](assets/user-manual-2.png)
+![The Arduino Stella's main components (bottom view)](assets/user-manual-2.png)
 
 Here's an overview of the board's main components shown in the images:
 
-- **Microcontroller**: At the heart of the Stella is the nRF52840 microcontroller from Nordic Semiconductor. This powerful 32-bit ARM Cortex-M4 processor runs at 64 MHz and features 1 MB Flash and 256 kB RAM, providing ample processing power and memory for sophisticated applications.
+- **Microcontroller**: At the heart of the Arduino Stella is the nRF52840 microcontroller from Nordic Semiconductor. This powerful 32-bit Arm® Cortex®-M4 processor runs at 64 MHz and features 1 MB Flash and 256 kB RAM, providing ample processing power and memory for sophisticated applications.
 - **UWB Module**: The Truesense DCU040 module (based on the NXP Trimension SR040 UWB IC) enables precise distance measurement with accuracy better than ±10 cm using two-way ranging techniques.
-- **Connectivity**: Besides UWB, the Stella includes Bluetooth 5.0 connectivity through the nRF52840's integrated radio, supporting IEEE 802.15.4-2006 and 2.4 GHz transceiver capabilities.
+- **Connectivity**: Besides UWB, the Arduino Stella includes Bluetooth 5.0 connectivity through the nRF52840's integrated radio, supporting IEEE 802.15.4-2006 and 2.4 GHz transceiver capabilities.
 - **Accelerometer**: A 3-axis MEMS digital output accelerometer (SC7A20) enhances the board's motion detection capabilities, with programmable sensitivity ranges of ±2G/±4G/±8G/±16G and features like orientation detection, free-fall detection, and click detection.
 - **User interfaces**: The board includes a user-programmable button, a user-programmable LED and a buzzer (FUET-5020) that can be used for audible alerts.
-- **Connectors**: The Stella features a USB-C® port for power and data, a QWIIC connector for I²C expansion, a CR2032 battery holder and a J-Link connector for debugging and alternative power input.
+- **Connectors**: The Arduino Stella features a USB-C port for power and data, a QWIIC connector for I²C expansion, a CR2032 battery holder and a J-Link connector for debugging and alternative power input.
 
 ### Board Libraries
 
@@ -143,18 +149,18 @@ The Arduino Stella and Portenta UWB Shield use different libraries and board cor
 
 #### Arduino Stella Library
 
-The [`ardUWBSr040` library](https://github.com/arduino-libraries/ardUWBSr040) contains an application programming interface (API) to read data from the Stella and control its parameters and behavior. This library is designed to work with the DCU040 module on the Stella and supports the following:
+The [`ardUWBSr040` library](https://github.com/arduino-libraries/ardUWBSr040) contains an application programming interface (API) to read data from the Arduino Stella and control its parameters and behavior. This library is designed to work with the DCU040 module on the Arduino Stella and supports the following:
 
 - One-way ranging (Time Difference of Arrival - TDoA) and two-way ranging (TWR).
 - Power management for battery-efficient operation.
 - Accelerometer control for motion detection.
 - BLE connectivity for configuration and communication.
 
-***The [Arduino mbed OS Boards core](https://github.com/arduino/ArduinoCore-mbed) is required to work with the Stella's nRF52840 microcontroller.***
+***The [Arduino mbed OS Boards core](https://github.com/arduino/ArduinoCore-mbed) is required to work with the Arduino Stella's nRF52840 microcontroller.***
 
 #### Portenta UWB Shield Library
 
-If you plan to use the Stella with a Portenta UWB Shield for two-way ranging experiments, you'll also need the [`ardUWBSr150` library](https://github.com/arduino-libraries/ardUWBSr150) for the Portenta UWB Shield. This library is specifically designed for the DCU150 module used in the shield.
+If you plan to use the Arduino Stella with a Portenta UWB Shield for two-way ranging experiments, you'll also need the [`ardUWBSr150` library](https://github.com/arduino-libraries/ardUWBSr150) for the Portenta UWB Shield. This library is specifically designed for the DCU150 module used in the shield.
 
 ***The [Arduino Renesas Portenta Boards core](https://github.com/arduino/ArduinoCore-renesas) is required to work with the Portenta C33 board that hosts the UWB Shield.***
 
@@ -178,87 +184,89 @@ To install the required board cores:
 2. For the Arduino Stella: Search for "Arduino mbed OS Boards" and install the latest version.
 3. For the Portenta C33: Search for "Arduino Renesas Boards" and install the latest version.
 
+![Installing the board's core in the Arduino IDE](assets/user-manual-4.png)
+
 ***<strong>Important note:</strong> Make sure to install both the appropriate library and board core for your specific hardware. The Arduino Stella requires the `ardUWBSr040` library and Arduino mbed OS Boards core, while the Portenta UWB Shield with Portenta C33 requires the `ardUWBSr150` library and Arduino Renesas Boards core. For examples involving BLE communication, both devices will need the `ArduinoBLE` library installed.***
 
 ### Pinout
 
 The full pinout is available and downloadable as PDF from the link below:
 
-- [Stella pinout](https://docs.arduino.cc/resources/pinouts/ABX00131-full-pinout.pdf)
+- [Arduino Stella pinout](https://docs.arduino.cc/resources/pinouts/ABX00131-full-pinout.pdf)
 
 ### Datasheet
 
 The complete datasheet is available and downloadable as PDF from the link below:
 
-- [Stella datasheet](https://docs.arduino.cc/resources/datasheets/ABX00131-datasheet.pdf)
+- [Arduino Stella datasheet](https://docs.arduino.cc/resources/datasheets/ABX00131-datasheet.pdf)
 
 ### Schematics
 
 The complete schematics are available and downloadable as PDF from the link below:
 
-- [Stella schematics](https://docs.arduino.cc/resources/schematics/ABX00131-schematics.pdf)
+- [Arduino Stella schematics](https://docs.arduino.cc/resources/schematics/ABX00131-schematics.pdf)
 
 ### STEP Files 
 
 The complete STEP files are available and downloadable from the link below:
 
-- [Stella STEP files](../../downloads/ABX00131-step.zip)
+- [Arduino Stella STEP files](../../downloads/ABX00131-step.zip)
 
 ## First Use
 
 ### Unboxing the Product
 
-When you open the box of the Stella, you will find the board itself with its distinctive octagonal shape, featuring a USB-C® port on one edge. The Stella is a compact board with dimensions of 38 mm x 38 mm, designed to be easily integrated into various tracking applications.
+When you open the box of the Arduino Stella, you will find the board itself with its distinctive octagonal shape, featuring a USB-C port on one edge. The Arduino Stella is a compact board with dimensions of 38 mm x 38 mm, designed to be easily integrated into various tracking applications.
 
-![Unboxing the Stella](assets/user-manual-4.png)
-
-The Stella comes ready to use, but you may want to add a CR2032 battery if you plan to use it in portable applications that require battery power.
+The Arduino Stella comes ready to use, but you may want to add a CR2032 battery if you plan to use it in portable applications that require battery power.
 
 ### Powering the Board
 
 The Arduino Stella can be powered through one of these interfaces:
 
-- **USB-C® port**: The simplest way to power the Stella is through its onboard USB-C® port.
-- **+3 VDC battery**: For portable applications, you can use the onboard CR2032 battery holder.
-- **J-Link connector**: The Stella can also be powered through the board's J-Link connector, primarily used for debugging purposes.
+The Arduino Stella can be powered through its USB-C port or Qwiic connector for stationary applications. The USB-C port is the simplest and most common method, providing a stable +5 VDC power source when connected to a computer or wall adapter. The Qwiic connector can also supply power when connecting the board to a system that provides power through the Qwiic bus, enabling integration with other Qwiic-compatible components.
 
-![Powering options for the Stella](assets/user-manual-5.png)
+![Powering options for the Arduino Stella (stationary applications)](assets/user-manual-6.png)
 
-***<strong>Important note:</strong> When using battery power, ensure the correct polarity when inserting the CR2032 battery into the holder. The positive (+) side should face up, away from the PCB.***
+For portable and wireless applications, the Arduino Stella offers two additional power options: the onboard CR2032 battery holder. The CR2032 battery holder allows you to install a +3 VDC coin cell battery, making the board completely wireless for mobile projects. The J-Link connector, while primarily used for debugging purposes, can also serve as a power input when needed.
+
+![Powering options for the Arduino Stella (portable and wireles applications)](assets/user-manual-7.png)
+
+***<strong>Important note:</strong> When using battery power, ensure the correct polarity when inserting the CR2032 battery into the holder. The positive (+) side should face up, away from the PCB, as shown in the image below.***
+
+![Correct battery placement in the Arduino Stella (positive side facing up)](assets/user-manual-8.png)
 
 ### Connecting to Your Computer
 
-To program the Stella, connect it to your computer using a USB-C® cable:
+To program the Arduino Stella, connect it to your computer using a USB-C cable:
 
-1. Insert the USB-C® connector into the port on the Stella.
+1. Insert the USB-C connector into the port on the Arduino Stella.
 2. Connect the other end to an available USB port on your computer.
-
-![Connecting the Arduino Stella to your computer](assets/user-manual-6.png)
 
 Once connected, you should see a power indicator light up on the board, indicating it's receiving power from the USB port.
 
 ## Nearby World Example
 
-Let's use the Arduino Stella to create a real-time distance measurement system using UWB technology. We will implement what we call the `Nearby World` example, which serves as our `Hello World` sketch for UWB technology. This example will verify the Stella's UWB capabilities and its ability to communicate with UWB-enabled smartphones.
+Let's use the Arduino Stella to create a real-time distance measurement system using UWB technology. We will implement what we call the `Nearby World` example, which serves as our `Hello World` sketch for UWB technology. This example will verify the Arduino Stella's UWB capabilities and its ability to communicate with UWB-enabled smartphones.
 
-***This example sketch leverages Apple's Nearby Interaction protocol and similar UWB implementations on Android devices to establish a communication channel between the Stella and a UWB-enabled smartphone, allowing precise distance and angle measurements.***
+***This example sketch leverages Apple's Nearby Interaction protocol and similar UWB implementations on Android devices to establish a communication channel between the Arduino Stella and a UWB-enabled smartphone, allowing precise distance and angle measurements.***
 
 #### How it Works
 
 The `Nearby World` example demonstrates the core functionality of UWB technology through a simple example sketch that can be described in the following key steps:
 
-1. **BLE connection setup**: The Stella broadcasts using Bluetooth® Low Energy (BLE) to make itself discoverable to compatible smartphone apps.
-2. **Configuration exchange**: The BLE connection is used to exchange necessary UWB configuration parameters between the Stella and the smartphone.
+1. **BLE connection setup**: The Arduino Stella broadcasts using Bluetooth Low Energy (BLE) to make itself discoverable to compatible smartphone apps.
+2. **Configuration exchange**: The BLE connection is used to exchange necessary UWB configuration parameters between the Arduino Stella and the smartphone.
 3. **UWB ranging**: Once configured, the actual UWB ranging session begins, providing precise distance measurements.
-4. **Real-time feedback**: Distance data is continuously updated and can be viewed both on the IDE's Serial Monitor and on the smartphone app. The Stella's buzzer and LED can also provide feedback based on distance.
+4. **Real-time feedback**: Distance data is continuously updated and can be viewed both on the IDE's Serial Monitor and on the smartphone app. The Arduino Stella's buzzer and LED can also provide feedback based on distance.
 
 This process demonstrates the working principle of many UWB applications, where BLE is used primarily for discovery and configuration, while UWB handles the precise ranging.
 
 #### Uploading the Sketch
 
-First, connect the Stella to your computer using a USB-C® cable, open the Arduino IDE and connect the board to it.
+First, connect the Arduino Stella to your computer using a USB-C cable, open the Arduino IDE and connect the board to it.
 
-***If you are new to the Stella, ensure you have installed the required board support package by going to Tools > Board > Boards Manager and searching for "mbed OS Boards".***
+***If you are new to the Arduino Stella, ensure you have installed the required board support package by going to Tools > Board > Boards Manager and searching for "mbed OS Boards".***
 
 Copy and paste the example sketch below into a new sketch in the Arduino IDE:
 
@@ -445,13 +453,9 @@ void loop() {
 }
 ```
 
-To upload the sketch to the Stella, click the Verify button to compile the sketch and check for errors, then click the Upload button to program the device with the sketch.
+To upload the sketch to the Arduino Stella, click the Verify button to compile the sketch and check for errors, then click the Upload button to program the device with the sketch.
 
-![Uploading a sketch to the Stella in the Arduino IDE](assets/user-manual-7.png)
-
-Once the sketch is uploaded, open the Serial Monitor by clicking on the icon in the top right corner of the Arduino IDE. You should see the message `- Nearby interaction app start...` in the IDE's Serial Monitor, followed by three short beeps from the Stella's buzzer.
-
-![Arduino IDE Serial Monitor](assets/user-manual-8.png)
+Once the sketch is uploaded, open the Serial Monitor by clicking on the icon in the top right corner of the Arduino IDE. You should see the message `- Nearby interaction app start...` in the IDE's Serial Monitor, followed by three short beeps from the Arduino Stella's buzzer.
 
 #### Try it Yourself
 
@@ -474,18 +478,16 @@ Install one of these apps on your smartphone and follow these steps:
 1. Open the app on your smartphone.
 2. Look for a device named `Arduino Stella` in the app's device list.
 3. Connect to the device.
-4. Once connected, the app will initiate a UWB ranging session, and you'll hear a single beep from the Stella.
+4. Once connected, the app will initiate a UWB ranging session, and you'll hear a single beep from the Arduino Stella.
 5. Move your phone closer to and further from the Arduino Stella.
 
-You should see the distance measurements updating in real-time both on your smartphone app and in the IDE's Serial Monitor. The distances are shown in millimeters, providing centimeter-level accuracy characteristic of UWB technology. Additionally, the Stella's LED and buzzer will provide feedback based on the measured distance, with more frequent responses as you get closer to the device.
-
-![Distance measurements from the Stella to the smartphone](assets/user-manual-9.png)
+You should see the distance measurements updating in real-time both on your smartphone app and in the IDE's Serial Monitor. The distances are shown in millimeters, providing centimeter-level accuracy characteristic of UWB technology. Additionally, the Arduino Stella's LED and buzzer will provide feedback based on the measured distance, with more frequent responses as you get closer to the device.
 
 ## NearbyDemo Example
 
 ### About the NearbyDemo Example
 
-The NearbyDemo example sketch is a fundamental demonstration of the Stella's core capabilities. This example showcases how to implement a direct distance measurement system between the Stella (acting as a UWB tag) and a UWB-enabled smartphone (acting as a UWB anchor).
+The NearbyDemo example sketch is a fundamental demonstration of the Arduino Stella's core capabilities. This example showcases how to implement a direct distance measurement system between the Arduino Stella (acting as a UWB tag) and a UWB-enabled smartphone (acting as a UWB anchor).
 
 This example sketch demonstrates the following:
 
@@ -495,8 +497,8 @@ This example sketch demonstrates the following:
 
 Some of the real-life applications for this example sketch are the following:
 
-- **Asset tracking:** Creating systems where Stella boards attached to valuable items can be precisely located within warehouses or facilities.
-- **Smart building automation:** Implementing room-level presence detection that can adjust lighting, temperature, and other environmental factors based on the location of people wearing or carrying Stella devices.
+- **Asset tracking:** Creating systems where Arduino Stella boards attached to valuable items can be precisely located within warehouses or facilities.
+- **Smart building automation:** Implementing room-level presence detection that can adjust lighting, temperature, and other environmental factors based on the location of people wearing or carrying Arduino Stella devices.
 - **Healthcare:** Tracking the movement of patients, staff, and medical equipment with high accuracy within hospital environments.
 - **Retail analytics:** Analyzing customer movement patterns in stores to optimize layout and product placement.
 - **Consumer item finding:** Creating tag-based systems that allow users to precisely locate misplaced items through smartphone interactions.
@@ -635,9 +637,9 @@ uint16_t numConnected = 0;
 The code includes two essential libraries:
 
 - `ArduinoBLE`: Provides Bluetooth Low Energy functionality for device discovery and initial connection.
-- `ArduinoStella`: The core library that enables interaction with the UWB hardware on the Stella.
+- `ArduinoStella`: The core library that enables interaction with the UWB hardware on the Arduino Stella.
 
-The `numConnected` variable tracks how many BLE clients are currently connected to the Stella.
+The `numConnected` variable tracks how many BLE clients are currently connected to the Arduino Stella.
 
 2. **Ranging Data Handler**
 
@@ -978,7 +980,7 @@ The Two-Way Ranging example demonstrates a more direct approach to UWB communica
 Both devices use their respective UWB libraries:
 
 - The Portenta UWB Shield uses `ardUWBSr150.h` (for the DCU150 module)
-- The Stella uses ardUWBSr040.h (for the DCU040 module)
+- The Arduino Stella uses ardUWBSr040.h (for the DCU040 module)
 
 Both sketches configure MAC addresses for identification:
 
@@ -1160,12 +1162,12 @@ Explore our Help Center, which offers a comprehensive collection of articles and
 
 ### Forum
 
-Join our community forum to connect with other Stella users, share your experiences, and ask questions. The Forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Stella.
+Join our community forum to connect with other Arduino Stella users, share your experiences, and ask questions. The Forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Arduino Stella.
 
 - [Arduino Stella in the Arduino Forum](https://forum.arduino.cc/c/hardware/stella/91)
 
 ### Contact Us
 
-Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Stella.
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Arduino Stella.
 
 - [Contact us page](https://www.arduino.cc/en/contact-us/)
