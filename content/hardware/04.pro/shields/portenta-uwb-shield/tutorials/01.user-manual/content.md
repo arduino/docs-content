@@ -1049,7 +1049,7 @@ void loop() {
 
 The actual ranging operations happen asynchronously through the callback system, so the main loop primarily handles visual feedback and timing.
 
-### Try it Yourself
+### Try It Yourself
 
 To test this two-device ranging setup:
 
