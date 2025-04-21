@@ -245,7 +245,7 @@ Let's use the Portenta UWB Shield with the Portenta C33 to create a real-time di
 
 ***This example sketch leverages Apple's Nearby Interaction protocol and similar UWB implementations on Android devices to establish a communication channel between the Portenta UWB Shield and a UWB-enabled smartphone, allowing precise distance and angle measurements.***
 
-#### How it Works
+#### How It Works
 
 The `Nearby World` example demonstrates the core functionality of UWB technology through a simple example sketch that can be described in the following key steps:
 
@@ -386,7 +386,7 @@ To upload the sketch to the Portenta C33, click the Verify button to compile the
 
 Once the sketch is uploaded, open the Serial Monitor by clicking on the icon in the top right corner of the Arduino IDE. You should see the message `- Nearby interaction app start...` in the IDE's Serial Monitor.
 
-#### Try it Yourself
+#### Try It Yourself
 
 To complete the test, you will need an UWB-enabled smartphone with one of the compatible applications installed:
 

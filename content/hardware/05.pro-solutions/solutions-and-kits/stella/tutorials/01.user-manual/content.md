@@ -245,13 +245,13 @@ To program the Arduino Stella, connect it to your computer using a USB-C cable:
 
 Once connected, you should see a power indicator light up on the board, indicating it's receiving power from the USB port.
 
-## Nearby World Example
+### Nearby World Example
 
 Let's use the Arduino Stella to create a real-time distance measurement system using UWB technology. We will implement what we call the `Nearby World` example, which serves as our `Hello World` sketch for UWB technology. This example will verify the Arduino Stella's UWB capabilities and its ability to communicate with UWB-enabled smartphones.
 
 ***This example sketch leverages Apple's Nearby Interaction protocol and similar UWB implementations on Android devices to establish a communication channel between the Arduino Stella and a UWB-enabled smartphone, allowing precise distance and angle measurements.***
 
-#### How it Works
+#### How It Works
 
 The `Nearby World` example demonstrates the core functionality of UWB technology through a simple example sketch that can be described in the following key steps:
 
@@ -457,7 +457,7 @@ To upload the sketch to the Arduino Stella, click the Verify button to compile t
 
 Once the sketch is uploaded, open the Serial Monitor by clicking on the icon in the top right corner of the Arduino IDE. You should see the message `- Nearby interaction app start...` in the IDE's Serial Monitor, followed by three short beeps from the Arduino Stella's buzzer.
 
-#### Try it Yourself
+#### Try It Yourself
 
 To complete the test, you will need a UWB-enabled smartphone with one of the compatible applications installed:
 
