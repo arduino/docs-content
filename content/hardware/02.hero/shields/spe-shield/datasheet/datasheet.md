@@ -193,15 +193,15 @@ The shield includes an intelligent **switching system** to control power distrib
 | T1S_DISABLE   | Disables Single Pair Ethernet (PoDL) power. Power over Data Line is enabled by default. |
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;">
 <strong>Note:</strong> By default, the board is set to be powered by SPE (PoDL), but you can activate local power through software.
-</p>
 </div>
 
 #### Startup and Recovery Mechanisms
 To ensure safe operation, the system includes:
 - Startup Delay (TSTART): Default 100 ms delay before power activation.
 - Automatic Retry Mode: Enables recovery after transient faults for continuous stability.
+
+<div style="page-break-after: always;"></div>
 
 ## Functional Overview
 
@@ -223,7 +223,7 @@ An overview of the UNO SPE Shield high-level architecture is illustrated in the 
 
 ### Overall View
 
-![Top view of the UNO SPE Shield](assets/topology-outline.png)
+![Top view of the UNO SPE Shield](assets/topology.png)
 
 | Reference   | Description                                            |
 | ----------- | ------------------------------------------------------ |
@@ -268,7 +268,7 @@ The UNO SPE Shield is a double-sided 53.34 mm x 68.58 mm board with an array of 
 
 The outline of the Arduino UNO SPE Shield is shown in the figure below, with all dimensions provided in millimeters (mm).
 
-![UNO SPE Shield dimensions](assets/mechanical.png)
+![UNO SPE Shield dimensions](assets/dimensions.png)
 
 The UNO SPE Shield was designed to be usable as a stackable shield on top of Arduino UNO form factor boards.
 
@@ -406,4 +406,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 |  **Date**  | **Revision** |  **Changes**  |
 | :--------: | :----------: | :-----------: |
-| 16/04/2025 |      1       | First release |
+| 21/04/2025 |      1       | First release |
