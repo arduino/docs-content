@@ -211,7 +211,7 @@ The core of the UNO SPE Shield is the LAN8651B1 Single Pair Ethernet controller 
 
 The UNO SPE Shield pinout is shown in the following figure:
 
-![Pinout of the UNO SPE Shield](assets/)
+![Pinout of the UNO SPE Shield](assets/UNO_SPE_Pinout.png)
 
 ### Block Diagram
 
@@ -271,8 +271,6 @@ The outline of the Arduino UNO SPE Shield is shown in the figure below, with all
 ![UNO SPE Shield dimensions](assets/mechanical.png)
 
 The UNO SPE Shield was designed to be usable as a stackable shield on top of Arduino UNO form factor boards.
-
-<div style="page-break-after: always;"></div>
 
 ## Certifications
 
