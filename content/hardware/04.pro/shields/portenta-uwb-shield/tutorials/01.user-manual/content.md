@@ -1063,7 +1063,7 @@ You should see distance measurements appearing in both Serial Monitors. Try movi
 
 **Tips for optimal performance:**
 
-- For best results, position the devices so their antennas have clear line-of-sight to each other.
+- For best results, position the devices so their antennas have a clear line-of-sight to each other.
 - Keep the devices at least 20 cm away from large metal objects, as these can reflect UWB signals and interfere with measurements.
 - Maintain the devices in a similar orientation (parallel to each other) for more consistent results, as antenna positioning affects signal strength.
 - Start testing at distances between 0.5 to 3 meters, as extremely close or far distances might produce less reliable measurements.
