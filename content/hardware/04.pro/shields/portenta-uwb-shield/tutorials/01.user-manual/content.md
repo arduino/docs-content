@@ -63,7 +63,7 @@ The fundamental difference between UWB and traditional wireless technologies (Wi
 |     Ranging    | Poor ranging (signal strength based) | Excellent ranging (time of flight) |
 |    Multipath   |       Poor multipath robustness      |   Very good multipath robustness   |
 
-Traditional narrowband systems use frequency or amplitude modulation to send data, requiring a reference carrier frequency to be established between the transmitter and the receiver. This slows down the initialization process and restricts data transmission speed. UWB, in contrast, uses impulse radio technology. This technology consists of short pulses of energy (typically less than 5 nanoseconds) spread across a wide frequency band that allows for quick link initialization and extremely fast data transmission.
+Traditional narrowband systems use frequency or amplitude modulation to send data, requiring a reference carrier frequency between the transmitter and the receiver. This slows down the initialization process and restricts data transmission speed. UWB, in contrast, uses impulse radio technology. This technology consists of short pulses of energy (typically less than 5 nanoseconds) spread across a wide frequency band, allowing quick link initialization and extremely fast data transmission.
 
 #### Key Characteristics of UWB
 
