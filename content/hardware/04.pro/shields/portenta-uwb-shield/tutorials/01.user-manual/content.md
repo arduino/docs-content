@@ -105,7 +105,7 @@ In UWB systems, there's no need to establish a stable carrier signal for the rec
 
 In an UWB positioning system, devices typically operate in one of two roles:
 
-- **Anchors**: Fixed-position devices (like the Portenta UWB Shield with a Portenta C33) that provide reference points for the positioning system. A minimum of three anchors is typically needed for 2D positioning, and four for 3D positioning.
+- **Anchors**: Fixed-position devices (like the Portenta UWB Shield with a Portenta C33) that provide reference points for the positioning system. A minimum of three anchors is typically needed for 2D positioning and four for 3D positioning.
 - **Tags**: Mobile devices that communicate with anchors to determine their position in space. Tags can be standalone devices like the Arduino Stella or integrated into smartphones, wearables, or other IoT devices.
 
 #### Applications of UWB Technology
