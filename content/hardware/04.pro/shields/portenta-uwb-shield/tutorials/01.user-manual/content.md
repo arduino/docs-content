@@ -161,7 +161,7 @@ The [`ardUWBSr150` library](https://github.com/arduino-libraries/ardUWBSr150) co
 
 For two-way ranging experiments between the Portenta UWB Shield and Arduino Stella, you'll also need the [`ardUWBSr040` library](https://github.com/arduino-libraries/ardUWBSr040). This library provides similar functionality but is specifically optimized for the DCU040 module in the Stella board.
 
-***The Arduino mbed OS Boards core is required to work with the Stella's nRF52840 microcontroller.***
+***The Arduino mbed OS Boards core is required to work with Stella's nRF52840 microcontroller.***
 
 #### Bluetooth Communication
 
