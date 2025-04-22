@@ -980,7 +980,7 @@ The Two-Way Ranging example demonstrates a more direct approach to UWB communica
 Both devices use their respective UWB libraries:
 
 - The Portenta UWB Shield uses `ardUWBSr150.h` (for the DCU150 module)
-- The Arduino Stella uses ardUWBSr040.h (for the DCU040 module)
+- The Arduino Stella uses `ardUWBSr040.h` (for the DCU040 module)
 
 Both sketches configure MAC addresses for identification:
 
