@@ -6,9 +6,9 @@ The **Arduino Stella** redefines location tracking with its advanced nRF52840 mi
 
 
 <FeatureList>
-<Feature title="Portenta H7 Microcontroller" image="nano-form-factor">
+<Feature title="TrueSense UWB module DCU040" image="nano-form-factor">
 
-  The Portenta H7 allows for programming with high-level languages and AI while performing low-latency operations on its customizable hardware.
+  
 <FeatureWrapper>
   <FeatureLink title="Datasheet" url="https://docs.arduino.cc/resources/datasheets/ABX00042-ABX00045-ABX00046-datasheet.pdf" download blank/>
 </FeatureWrapper>
