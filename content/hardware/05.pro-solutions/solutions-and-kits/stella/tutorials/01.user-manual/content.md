@@ -468,7 +468,7 @@ To complete the test, you will need a UWB-enabled smartphone with one of the com
 
 **For Android (UWB-enabled Android devices):**
 
-- [Truesense Android demo](https://github.com/Truesense-it/TSUwbDemo-Android) (recommended)
+- [Truesense Android demo](https://github.com/Truesense-it/TSUwbDemo-Android)
 - [NXP Android demo](https://github.com/nxp-uwb/UWBJetpackExample)
 
 ***<strong>Important note for Android devices:</strong> If Developer Options is currently enabled on your Android device, please ensure all radio-related options remain at their default settings. We recommend keeping Developer Options disabled for optimal UWB functionality. If you previously enabled it, consider disabling it for the most stable device operation.***
