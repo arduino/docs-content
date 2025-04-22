@@ -283,7 +283,7 @@ Copy and paste the example sketch below into a new sketch in the Arduino IDE:
 
 // Include required libraries
 #include <ArduinoBLE.h>
-#include <ArduinoStella.h>
+#include <ardUWBSr040.h>
 
 // Track the number of connected BLE clients
 uint16_t numConnected = 0;
@@ -629,7 +629,7 @@ The `NearbyDemo` code follows an event-driven architecture that employs callback
    
 ```arduino
 #include <ArduinoBLE.h>
-#include <ArduinoStella.h>
+#include <ardUWBSr040.h>
 
 uint16_t numConnected = 0;
 ```
@@ -900,7 +900,7 @@ Here's the code for the Arduino Stella, which acts as the Controller (Initiator)
 */
 
 // Include required UWB library
-#include "ardUWBSr040.h"
+#include <ardUWBSr040.h>
 
 /**
   Processes ranging data received from UWB communication.
