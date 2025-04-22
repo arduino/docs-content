@@ -687,7 +687,7 @@ These functions handle BLE connection events:
 - `clientConnected` initializes the UWB subsystem when the first client connects.
 - `clientDisconnected` shuts down the UWB subsystem when no clients are connected.
 
-This approach saves power by only running the board's UWB hardware when it's actually needed, which is crucial for battery-powered applications.
+This approach saves power by only running the board's UWB hardware when it's needed, which is crucial for battery-powered applications.
 
 4. **Session Management**
 
