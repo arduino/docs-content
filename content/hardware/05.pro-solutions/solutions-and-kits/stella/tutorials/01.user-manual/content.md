@@ -33,8 +33,8 @@ This user manual provides a comprehensive overview of the Arduino Stella, highli
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
-- [`ardUWBSr040` library](https://github.com/arduino-libraries/ardUWBSr040)
-- [`ardUWBSr150` library](https://github.com/arduino-libraries/ardUWBSr150)
+- [`ardUWBSr040` library](https://github.com/arduino-libraries/ardUWBSr040) (designed for the Arduino Stella)
+- [`ardUWBSr150` library](https://github.com/arduino-libraries/ardUWBSr150) (designed for the Portenta UWB Shield)
 - [`ArduinoBLE` library](https://github.com/arduino/ArduinoBLE) 
 - [Arduino mbed OS Boards core](https://github.com/arduino/ArduinoCore-mbed) (required for the nRF52840 microcontroller of the Arduino Stella)
 
