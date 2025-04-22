@@ -221,7 +221,7 @@ When you open the box of the Portenta UWB Shield, you will find the shield itsel
 
 Throughout this user manual, we will use the Portenta C33 as the main (host) board and the Portenta UWB Shield as the client board, connected via the High-Density pins.
 
-***When properly configured, the combined Portenta C33 and Portenta UWB Shield function as a <strong>UWB anchor node</strong> in a positioning system. This anchor can receive signals from UWB tags (mobile devices with UWB capability), precisely calculate their distance using time-of-flight principles, and when used in a network of anchors, determine their exact position in space.***
+***When properly configured, the combined Portenta C33 and Portenta UWB Shield function as a <strong>UWB anchor node</strong> in a positioning system. This anchor can receive signals from UWB tags (mobile devices with UWB capability), precisely calculate their distance using time-of-flight principles, and determine their exact position in space when used in a network of anchors.***
 
 ### Connecting the Shield
 
