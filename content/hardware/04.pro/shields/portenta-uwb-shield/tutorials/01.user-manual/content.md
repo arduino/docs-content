@@ -593,7 +593,7 @@ void rangingHandler(UWBRangingData &rangingData) {
 This callback function is the heart of the UWB functionality:
 
 - It's triggered whenever new ranging data is received from the UWB subsystem.
-- It checks if the measurement type is Two-Way Ranging (TWR).
+- It checks if the measurement type is *Two-Way Ranging (TWR)*.
 - It validates the measurement (`status = 0` indicates a valid measurement, while `distance = 0xFFFF` is a reserved value indicating an invalid distance).
 - It extracts the distance measurements in millimeters and prints them to the IDE's Serial Monitor.
 
