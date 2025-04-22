@@ -399,7 +399,7 @@ To complete the test, you will need an UWB-enabled smartphone with one of the co
 
 **For Android (UWB-enabled Android devices):**
 
-- [Truesense Android demo](https://github.com/Truesense-it/TSUwbDemo-Android) (recommended)
+- [Truesense Android demo](https://github.com/Truesense-it/TSUwbDemo-Android)
 - [NXP Android demo](https://github.com/nxp-uwb/UWBJetpackExample)
 
 ***<strong>Important note for Android devices:</strong> It is recommended to enable Developer Mode to ensure proper UWB functionality. To activate Developer Mode, go to Settings > About phone and tap "Build number" seven times. Some UWB features may require additional developer permissions that can be granted through this menu.***
