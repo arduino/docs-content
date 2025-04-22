@@ -96,7 +96,7 @@ The Arduino Stella is typically configured as a Controller/Initiator in Two-Way 
 
 #### Low Latency Advantage
 
-The impulse radio technology of UWB provides an inherent advantage in terms of latency. Since each pulse is extremely short (5 nanoseconds or less), the data latency is very low. Narrowband systems must modulate their carrier signals more slowly to maintain their frequency allocation, resulting in longer data latency and startup times. 
+The impulse radio technology of UWB provides an inherent advantage in terms of latency. The data latency is very low since each pulse is extremely short (5 nanoseconds or less). Narrowband systems must modulate their carrier signals more slowly to maintain their frequency allocation, resulting in longer data latency and startup times.
 
 In UWB systems, there's no need to establish a stable carrier signal for the receiver to lock onto, allowing data transmission to start immediately, representing a significant advantage for time-sensitive applications.
 
