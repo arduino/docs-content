@@ -254,7 +254,7 @@ The `Nearby World` example demonstrates the core functionality of UWB technology
 1. **BLE connection setup**: The Portenta UWB Shield establishes a Bluetooth Low Energy (BLE) connection with a compatible smartphone app.
 2. **Configuration exchange**: The BLE connection is used to exchange necessary UWB configuration parameters.
 3. **UWB ranging**: Once configured, the actual UWB ranging session begins, providing precise distance measurements.
-4. **Real-time feedback**: Distance data is continuously updated and can be viewed both on the IDE's Serial Monitor and on the smartphone app.
+4. **Real-time feedback**: Distance data is continuously updated and can be viewed on the IDE's Serial Monitor and the smartphone app.
 
 This process demonstrates the working principle of many UWB applications, where BLE is used primarily for discovery and configuration, while UWB handles the precise ranging.
 
