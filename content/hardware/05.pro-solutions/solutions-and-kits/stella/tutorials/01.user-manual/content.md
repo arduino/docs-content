@@ -487,7 +487,7 @@ You should see the distance measurements updating in real-time both on your smar
 
 ### About the NearbyDemo Example
 
-The NearbyDemo example sketch is a fundamental demonstration of the Arduino Stella's core capabilities. This example showcases how to implement a direct distance measurement system between the Arduino Stella (acting as a UWB tag) and a UWB-enabled smartphone (acting as a UWB anchor).
+The `NearbyDemo` example sketch is a fundamental demonstration of the Arduino Stella's core capabilities. This example showcases how to implement a direct distance measurement system between the Arduino Stella (acting as a UWB tag) and a UWB-enabled smartphone (acting as a UWB anchor).
 
 This example sketch demonstrates the following:
 
