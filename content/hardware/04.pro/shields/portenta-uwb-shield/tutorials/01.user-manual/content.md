@@ -987,7 +987,7 @@ Let's examine some of the key configuration parameters:
 - `sessionID`: A unique 32-bit identifier (`0x11223344`) that must match between devices in the same session.
 - `deviceRole`: Defines whether the device is a Responder (Controlee) or Initiator (Controller).
 - `multiNodeMode`: Set to UniCast for direct device-to-device communication.
-- `rangingRoundUsage`: Set to DS_TWR (Double-Sided Two-Way Ranging) for highest accuracy.
+- `rangingRoundUsage`: Set to DS_TWR (Double-Sided Two-Way Ranging) for the highest accuracy.
 - `scheduledMode`: `TimeScheduled` mode allows the Controller to manage the timing of ranging exchanges.
 
 The initialization follows a specific sequence on both devices:
