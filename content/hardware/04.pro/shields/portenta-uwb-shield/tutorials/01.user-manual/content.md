@@ -384,7 +384,7 @@ void loop() {
 }
 ```
 
-To upload the sketch to the Portenta C33, click the Verify button to compile the sketch and check for errors, then click the Upload button to program the device with the sketch.
+To upload the sketch to the Portenta C33, click the **Verify** button to compile the sketch and check for errors, then click the **Upload** button to program the device with the sketch.
 
 Once the sketch is uploaded, open the Serial Monitor by clicking on the icon in the top right corner of the Arduino IDE. You should see the message `- Nearby interaction app start...` in the IDE's Serial Monitor.
 
