@@ -181,7 +181,7 @@ To install the required board cores:
 
 1. Navigate to `Tools > Board > Boards Manager...`
 2. For the Portenta C33: Search for "Arduino Renesas Boards" and install the latest version.
-3. For the Arduino Stella (if using two-way ranging examples): Search for "Arduino mbed OS Boards" and install the latest version.
+3. For the Arduino Stella (if using two-way ranging examples): Search for `Arduino mbed OS Boards` and install the latest version.
 
 ![Installing the board's core in the Arduino IDE](assets/user-manual-4.png)
 
