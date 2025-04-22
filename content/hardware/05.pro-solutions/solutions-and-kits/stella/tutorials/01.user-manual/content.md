@@ -1129,7 +1129,7 @@ To test this two-device ranging setup:
 4. Upload the Controller/Initiator example sketch to the Arduino Stella.
 5. Open two separate Serial Monitor windows (one for each device) set to 115200 baud.
 
-You should see distance measurements appearing in both Serial Monitors. Try moving the devices closer together and further apart to see the distance values change in real-time.
+You should see distance measurements on both Serial Monitors. Try moving the devices closer together and further apart to see the distance values change in real time.
 
 **Tips for optimal performance:**
 
