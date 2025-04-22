@@ -928,7 +928,7 @@ uint8_t destination[]={0x22,0x22};
 
 ***<strong>Important note:</strong> Notice how the MAC addresses are reversed between the two devices; this is critical for proper communication. In UWB communication, each device must know both its own address (`devAddr`) and the address of the device it is communicating with (`destination`). The Portenta UWB Shield identifies itself as `0x2222` and expects to communicate with `0x1111`, while the Arduino Stella identifies itself as `0x1111` and expects to communicate with `0x2222`. If these addresses don't match correctly, the devices won't be able to establish a ranging session. The prefix `0x` indicates these are hexadecimal values, which is a common notation in programming for representing memory addresses and identifiers.***
 
-The MAC addresses used in this example are short (2-byte) addresses for simplicity, but UWB also supports extended (8-byte) addressing for larger networks where unique identification is required. For basic two-device setups, these short addresses are enough, but for multi-node positioning systems, you may want to use extended addressing to avoid conflicts.
+The MAC addresses used in this example are short (2-byte) addresses for simplicity, but UWB also supports extended (8-byte) addresses for larger networks where unique identification is required. For basic two-device setups, these short addresses are enough, but for multi-node positioning systems, you may want to use extended addressing to avoid conflicts.
 
 2. **Setup and Initialization**
 
