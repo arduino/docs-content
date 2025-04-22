@@ -32,8 +32,8 @@ This user manual provides a comprehensive overview of the Portenta UWB Shield, h
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
-- [`ardUWBSr040` library](https://github.com/arduino-libraries/ardUWBSr040)
-- [`ardUWBSr150` library](https://github.com/arduino-libraries/ardUWBSr150)
+- [`ardUWBSr150` library](https://github.com/arduino-libraries/ardUWBSr150) (designed for the Portenta UWB Shield)
+- [`ardUWBSr040` library](https://github.com/arduino-libraries/ardUWBSr040) (designed for the Arduino Stella)
 - [`ArduinoBLE` library](https://github.com/arduino/ArduinoBLE) 
 - [Arduino Renesas Portenta Boards core](https://github.com/arduino/ArduinoCore-renesas) (required to work with the Portenta C33 board)
 
