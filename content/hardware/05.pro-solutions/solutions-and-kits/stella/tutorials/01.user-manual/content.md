@@ -1092,7 +1092,7 @@ void rangingHandler(UWBRangingData &rangingData) {
 This function:
 
 - Is triggered whenever new ranging data is available.
-- Checks if the measurement type is Two-Way Ranging (TWR).
+- Checks if the measurement type is *Two-Way Ranging (TWR)*.
 - Validates the data (`status = 0` indicates a valid measurement, while `distance = 0xFFFF` is a reserved value indicating an invalid distance).
 - Outputs the distance measurements in millimeters and prints them to the IDE's Serial Monitor.
 
