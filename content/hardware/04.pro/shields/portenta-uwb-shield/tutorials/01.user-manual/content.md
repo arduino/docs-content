@@ -225,7 +225,7 @@ Throughout this user manual, we will use the Portenta C33 as the main (host) boa
 
 ### Connecting the Shield
 
-Connect the Portenta UWB Shield directly to a Portenta C33 board through its High-Density connectors as shown in the image below:
+Connect the Portenta UWB Shield directly to a Portenta C33 board through its High-Density connectors, as shown in the image below:
 
 ![Connecting the Portenta UWB Shield to the Portenta C33 board](assets/user-manual-5.png)
 
