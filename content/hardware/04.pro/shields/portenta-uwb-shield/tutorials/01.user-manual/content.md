@@ -229,7 +229,7 @@ Connect the Portenta UWB Shield directly to a Portenta C33 board through its Hig
 
 ![Connecting the Portenta UWB Shield to the Portenta C33 board](assets/user-manual-5.png)
 
-To connect the shield to the board, align first the shield's High-Density connectors with those on the Portenta C33 board. Then, gently press the shield onto the Portenta C33 until it is firmly seated as shown in the image below:
+Align the shield's High-Density connectors with those on the Portenta C33 board to connect the shield to the board. Then, gently press the shield onto the Portenta C33 until it is firmly seated, as shown in the image below:
 
 ![The Portenta UWB Shield with the Portenta C33 board](assets/user-manual-6.png)
 
