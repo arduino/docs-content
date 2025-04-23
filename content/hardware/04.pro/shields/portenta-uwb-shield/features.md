@@ -14,7 +14,7 @@ Based on NXP Trimension™ SR150 UWB IC, with 3 Pcb Antennas embedded, power man
 </FeatureWrapper>
 </Feature>
 
-<Feature title="Portenta C33 compatability" image="portenta-form-factor">
+<Feature title="Portenta C33 compatibility" image="portenta-form-factor">
 The Portenta Cat.M1/NB IoT GNSS Shield has been specifically designed to provide reliable connectivity to the Portenta family of boards for a wide range of telemetry applications.
 
 </Feature>
