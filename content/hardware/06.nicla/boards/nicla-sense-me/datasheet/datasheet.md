@@ -497,7 +497,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## SRRC
 
-This equipment contains a radio transmitter module with model approval code: CMIIT ID: 2022DP6085.
+This equipment contains a radio transmitter module with model approval code: CMIIT ID: XXXXXXXXX.
 
 ## Company Information
 
