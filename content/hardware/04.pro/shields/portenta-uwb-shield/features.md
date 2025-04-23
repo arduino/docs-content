@@ -6,25 +6,16 @@
 
 
 <FeatureList>
-<Feature title="Truesense UWB module DCU150" image="nano-form-factor">
+<Feature title="Truesense UWB module DCU150" image="world-map">
+Based on NXP Trimension™ SR150 UWB IC, with 3 Pcb Antennas embedded, power management, clock control, filters and peripheral components. The module is a switch-less 2D AoA solution without extra-antenna overhead, no phase/amplitude skew, no SPST insertion loss and low-cost design.
 
-  
 <FeatureWrapper>
   <FeatureLink title="Datasheet" url="" download blank/>
 </FeatureWrapper>
 </Feature>
 
-<Feature title="Sensors" image="wifi-bluetooth">
-
-  
-<FeatureWrapper>
-  <FeatureLink title="Datasheet" url="" download blank/>
-</FeatureWrapper>
-</Feature>
-
-<Feature title="Chrom-ART graphical hardware Accelerator™" image="mcu">
-
-  Probably one of the most exciting features of the Portenta H7 is the possibility of connecting an external monitor to build your own dedicated embedded computer with a user interface. This is possible thanks to the STM32H747 processor's on-chip GPU, the Chrom-ART Accelerator™. Besides the GPU, the chip includes a dedicated JPEG encoder and decoder.
+<Feature title="Portenta C33 compatability" image="portenta-form-factor">
+The Portenta Cat.M1/NB IoT GNSS Shield has been specifically designed to provide reliable connectivity to the Portenta family of boards for a wide range of telemetry applications.
 
 </Feature>
 
