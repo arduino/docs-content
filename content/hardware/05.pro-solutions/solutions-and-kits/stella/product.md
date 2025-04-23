@@ -10,7 +10,7 @@ core: arduino:mbed_portenta
 forumCategorySlug: '/hardware/'
 certifications: []
 productCode: ''
-sku: []
+sku: [ABX000131]
 ---
 
 The Arduino Stella powered by Truesense®. Harness the advanced Ultra-Wideband (UWB) technology for unmatched accuracy and real-time tracking capabilities within the Portenta family.

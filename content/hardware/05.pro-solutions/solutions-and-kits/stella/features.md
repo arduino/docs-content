@@ -7,26 +7,27 @@ The **Arduino Stella** redefines location tracking with its advanced nRF52840 mi
 
 <FeatureList>
 <Feature title="TrueSense UWB module DCU040" image="nano-form-factor">
-
+Enjoy pinpoint accuracy in real-time location tracking, making it easy to find and manage assets, even in complex environments. Take advantage of the ready-to-use Arduino IDE library, making development faster and easier with plenty of examples and tutorials
+Seamlessly integrate with Arduino Cloud for streamlined data management, remote monitoring, and advanced analytics
   
 <FeatureWrapper>
-  <FeatureLink title="Datasheet" url="https://docs.arduino.cc/resources/datasheets/ABX00042-ABX00045-ABX00046-datasheet.pdf" download blank/>
+  <FeatureLink title="Datasheet" url="" download blank/>
 </FeatureWrapper>
 </Feature>
 
-<Feature title="STM32H747XI dual Cortex®-M7+M4 32bit low power Arm® MCU" image="mcu">
+<Feature title="nRF52840 ARM® Cortex®: Cortex M4 32-bit processor with FPU" image="mcu">
 
-  H7's main microcontroller is the dual core STM32H747, including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
+
 <FeatureWrapper>
   <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino-Portenta-H7_Datasheet_stm32h747xi.pdf" download/>
 </FeatureWrapper>
 </Feature>
 
-<Feature title="Murata 1DX dual WiFi and Bluetooth® 5.1" image="wifi-bluetooth">
+<Feature title="Sensors" image="wifi-bluetooth">
 
-  The onboard wireless module allows to simultaneously manage WiFi and Bluetooth® connectivity.
+  
 <FeatureWrapper>
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino-Portenta-H7_Datasheet_Murata-1dx.pdf" download blank/>
+  <FeatureLink title="Datasheet" url="" download blank/>
 </FeatureWrapper>
 </Feature>
 
