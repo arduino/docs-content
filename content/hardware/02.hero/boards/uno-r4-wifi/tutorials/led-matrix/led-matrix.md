@@ -83,7 +83,7 @@ byte frame[8][12] = {
 
 This option is simple to understand, because you can see the image in the pattern of the array, and it is easy to edit in runtime. The ones in the array above form a heart, and that's the image you'd see on the screen.
 
-To target an individual pixel you select its address and change the value, remember that you'll need to start counting at 0. So, the following line will target the third pixel from the left and the second from the top, then turn it on:
+To target an individual pixel you select its address and change the value, remember that you'll need to start counting at 0. So, the following line will target the third pixel from the top and the second from the left, then turn it on:
 
 ```arduino
 frame[2][1] = 1;
