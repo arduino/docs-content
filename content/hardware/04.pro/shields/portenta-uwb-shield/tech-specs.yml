@@ -1,0 +1,13 @@
+Board:
+  Name: Arduino® Portenta UWB Shield
+  SKU: ASX00074
+High-Density Connectors: 2
+Ultra-wideband:
+  Module: Truesense DCU150 UWB Module based on NXP Trimension™ SR150 UWB IC
+  Pcb embedded antenna: 3
+  Channels: 5, 9
+  Ranging Mode: 2D Ranging
+Power: 3.3 V DC from Portenta Main Board
+Dimensions:
+  Width: 37.5 mm
+  Length: 53.4 mm
