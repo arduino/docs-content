@@ -7,7 +7,7 @@ High-Density pins:
   UART pins: 
 Ultra-wideband:
   Module: TrueSense DCU040 UWB Module (NXP® Trimension™ SR040 UWB IC)
-  Pcb ebedded antenna: 1
+  Pcb embedded antenna: 1
   Channels: 5, 9
   Frequency range: 6.24GHz~8.24GHz
   Max Output Power: 14.7 dBm
