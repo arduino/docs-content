@@ -495,6 +495,10 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 低功率射頻器材須忍受合法通信或工業、科學及醫療用電波輻射性電機設備之干擾。
 
+## SRRC
+
+This equipment contains a radio transmitter module with model approval code: CMIIT ID: xxx.
+
 ## Company Information
 
 | Company name    | Arduino SRL                                  |
