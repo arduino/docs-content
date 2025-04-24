@@ -174,7 +174,7 @@ start(setup, loop)
 
 - `delay(time)`
 
-Freezes the program for the duration specified in _microseconds_.
+Freezes the program for the duration specified in _milliseconds_.
 
 Below is a demonstration of the classic blink example:
 
