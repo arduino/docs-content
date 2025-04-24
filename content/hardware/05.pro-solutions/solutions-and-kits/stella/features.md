@@ -6,7 +6,7 @@ The **Arduino Stella** redefines location tracking with its advanced nRF52840 mi
 
 
 <FeatureList>
-<Feature title="TrueSense UWB module DCU040" image="nano-form-factor">
+<Feature title="TrueSense UWB module DCU040" image="world-map">
 Enjoy pinpoint accuracy in real-time location tracking, making it easy to find and manage assets, even in complex environments. Take advantage of the ready-to-use Arduino IDE library, making development faster and easier with plenty of examples and tutorials
 Seamlessly integrate with Arduino Cloud for streamlined data management, remote monitoring, and advanced analytics
   
@@ -16,25 +16,20 @@ Seamlessly integrate with Arduino Cloud for streamlined data management, remote 
 </Feature>
 
 <Feature title="nRF52840 ARM® Cortex®: Cortex M4 32-bit processor with FPU" image="mcu">
-
-
+The nRF52840 is fully multiprotocol capable with full protocol concurrency. It has protocol support for Bluetooth LE, Bluetooth mesh, Thread, Zigbee, 802.15.4, ANT and 2.4 GHz proprietary stacks.
 <FeatureWrapper>
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino-Portenta-H7_Datasheet_stm32h747xi.pdf" download/>
+  <FeatureLink title="Datasheet" url="https://docs.nordicsemi.com/bundle/ps_nrf52840/page/keyfeatures_html5.html" download blank/>
 </FeatureWrapper>
 </Feature>
 
-<Feature title="Sensors" image="wifi-bluetooth">
-
+<Feature title="Sensors" image="accelerometer">
+Onbaord sensors include a buzzer and an accelerometer (Silan SC7A20 3-axis) to help you create the perfect solution for your use case.
   
 <FeatureWrapper>
   <FeatureLink title="Datasheet" url="" download blank/>
 </FeatureWrapper>
 </Feature>
 
-<Feature title="Chrom-ART graphical hardware Accelerator™" image="mcu">
 
-  Probably one of the most exciting features of the Portenta H7 is the possibility of connecting an external monitor to build your own dedicated embedded computer with a user interface. This is possible thanks to the STM32H747 processor's on-chip GPU, the Chrom-ART Accelerator™. Besides the GPU, the chip includes a dedicated JPEG encoder and decoder.
-
-</Feature>
 
 </FeatureList>
