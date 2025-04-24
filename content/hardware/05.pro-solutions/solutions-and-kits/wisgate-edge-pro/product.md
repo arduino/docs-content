@@ -4,8 +4,8 @@ url_shop: https://store.arduino.cc/pages/wisgate-lora-gateways
 url_guide: /tutorials/wisgate-edge-pro/getting-started
 primary_button_url: /tutorials/wisgate-edge-pro/getting-started
 primary_button_title:  Get Started
-secondary_button_url: /tutorials/wisgate-edge-pro/update-firmware
-secondary_button_title: Update Firmware
+secondary_button_url: https://docs.rakwireless.com/Product-Categories/WisGate/RAK7289/Datasheet
+secondary_button_title: Datasheet
 url_datasheet: https://docs.rakwireless.com/Product-Categories/WisGate/RAK7289/Datasheet
 certifications: [CE, UKCA]
 sku: [TPX00095, TPX00096, TPX00097]
