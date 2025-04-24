@@ -236,6 +236,8 @@ For portable and wireless applications, the Arduino Stella offers two additional
 
 ![Correct battery placement in the Arduino Stella (positive side facing up)](assets/user-manual-8.png)
 
+***<strong>Warning:</strong> When using Arduino Stella with USB-C power, remove the CR2032 battery; never power the Arduino Stella from both battery and USB simultaneously. The board is designed to prioritize USB power when connected. Removing the battery when working with USB will extend its life, ensure the most reliable operation and maximize battery lifespan.***
+
 ### Connecting to Your Computer
 
 To program the Arduino Stella, connect it to your computer using a USB-C cable:
