@@ -82,6 +82,10 @@ Now that we have everything installed, and our basic example tested out, let's t
 
 ***The API is listed at [the end of this article](#runtime-api). You can also view the [source code on GitHub](https://github.com/arduino/arduino-runtime-mpy/tree/main) for further understanding.***
 
+### Definitions
+
+Pin definitions such as `'LED_BUILTIN'` (built-in LED), `'D1'` (digital pin 1) and `'A0'` (analog pin 0), are only available to official Arduino boards. This definitions are used throughout the examples in this tutorial. If you are not using an official Arduino board, these definitions will not work.
+
 ### Pin Mode
 
 - `pin_mode(pin, mode)`
