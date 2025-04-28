@@ -44,7 +44,7 @@ Predictive maintenance, asset tracking, smart building systems, industrial autom
 - Portenta Mid Carrier (SKU: ASX00055) (x1)
 - Portenta Mid Carrier Proto Shield (x1)
 - Arduino Pro 4G GNSS Module Global (SKU: TPX00200) (x1)
-- Modulinos (x6):
+- Modulinos (x7):
   - Knob (encoder with push button) (x1)
   - Pixels (8x RGB LEDs) (x1)
   - Distance (Time-of-Flight sensor) (x1)
