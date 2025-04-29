@@ -11,3 +11,4 @@ hardware:
     - motor-shield-rev3
     - ethernet-shield-rev2
     - 9-axis-motion-shield
+    - giga-display-shield
