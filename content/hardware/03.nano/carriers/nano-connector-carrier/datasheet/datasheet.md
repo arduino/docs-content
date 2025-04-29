@@ -90,7 +90,7 @@ The Nano Connector Carrier features 4x Grove connectors that expose the host boa
 ![Nano Connector Carrier Grove Connectors](assets/grove.png)
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The Grove connectors voltage is controlled by the board selector switch.
+<strong>Note:</strong> The Grove connectors VCC voltage is controlled by the board selector switch.
 </div>
 
 ### Micro SD Card 
@@ -100,7 +100,7 @@ The onboard microSD card slot unlocks new possibilities for data logging, edge A
 ![Nano Connector Carrier Grove Connectors](assets/sd.png)
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The microSD card SPI Slave Select (SS) pin can be changed using the solder jumpers on the carrier. See [pinout section](#pinout) for more details.
+<strong>Note:</strong> The microSD card SPI Slave Select (SS) pin can be changed using the solder jumpers on the carrier. See <a href = "#pinout">pinout section</a> for more details.
 </div>
 
 ### Communication Interfaces
@@ -209,12 +209,19 @@ An overview of the Nano Connector Carrier high-level architecture is illustrated
 ## Board Topology
 ### Overall View
 
-![Top View of Nano Connector Carrier](assets/top.png)
+![Top View of Nano Connector Carrier](assets/topology.jpg)
 
-| **Reference** | **Description**                          |
-| ------------- | ---------------------------------------- |
-
-
+| **Reference**  | **Description**                          |
+| -------------- | ---------------------------------------- |
+| U1, U2, U3, U5 | Push pull translators (SN74LVC1G125DCKR) |
+| U4             | Open drain translator (TCA9406DCUR)      |
+| J2, J3         | Nano board headers                       |
+| S1             | Board selector switch                    |
+| J5             | Grove analog connector                   |
+| J7             | Grove analog connector                   |
+| J4             | Grove UART connector                     |
+| J8             | Qwiic I2C connector                      |
+| J9             | microSD card connector                   |
 ## Device Operation
 
 ### Getting Started - IDE
@@ -259,7 +266,6 @@ The Nano Connector Carrier was designed to be usable as a surface-mount module a
 |      FCC (USA)      |    Yes     |
 |     IC (Canada)     |    Yes     |
 |      UKCA (UK)      |    Yes     |
-|   RCM (Australia)   |    Yes     |
 
 ### Declaration of Conformity CE DoC (EU)
 
