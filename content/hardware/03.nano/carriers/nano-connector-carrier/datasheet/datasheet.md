@@ -56,6 +56,8 @@ The main features of the Nano Connector Carrier are detailed in the table shown 
 
 The Nano Connector Carrier lets you select between 5 V or 3.3 V Nano boards to ensure compatibility with the whole Nano family. For this, toggle the carrier onboard switch to its respective position following the table below.
 
+![Board Selector Switch](assets/board-selector.png)
+
 | **3V3**                | **5V**       |
 | ---------------------- | ------------ |
 | Nano ESP32             | Arduino Nano |
@@ -66,8 +68,6 @@ The Nano Connector Carrier lets you select between 5 V or 3.3 V Nano boards to e
 | Nano 33 BLE Sense Rev2 |              |
 | Nano RP2040 Connect    |              |
 | Nano Matter            |              |
-
-![Board Selector Switch](assets/board-selector.png)
 
 Setting the switch to a certain position (3V3 or 5V) also manages the voltage output on the Grove connector VCC pin.
 
@@ -92,6 +92,8 @@ The Nano Connector Carrier features 4x Grove connectors that expose the host boa
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <strong>Note:</strong> The Grove connectors VCC voltage is controlled by the board selector switch.
 </div>
+
+<div style="page-break-after: always;"></div>
 
 ### Micro SD Card 
 
@@ -200,11 +202,15 @@ The Nano Connector Carrier pinout is shown in the following figure.
 
 __*SD_SS__ are optional SPI Slave Select (SS) pins for the Micro SD card communication. See [pinout](#pinout) for more details.
 
+<div style="page-break-after: always;"></div>
+
 ### Block Diagram
 
 An overview of the Nano Connector Carrier high-level architecture is illustrated in the figure below.
 
 ![Nano Connector Carrier Block Diagram](assets/Block_Diagram.png)
+
+<div style="page-break-after: always;"></div>
 
 ## Board Topology
 ### Overall View
@@ -240,15 +246,15 @@ The Nano Connector Carrier is a double-sided 28 mm x 43 mm board with female dou
 ### Board Dimensions
 Nano Connector Carrier outline and mounting holes dimensions can be seen in following figure; all the dimensions are in mm.
 
-![Mechanical View of Nano Connector Carrier](assets/dimensions.jpg)
+![Mechanical View of Nano Connector Carrier](assets/dimensions-rect.png)
 
 The Nano Connector Carrier has two 3.2 mm drilled mounting holes for mechanical fixing.
 
 ### Board Connectors
 
-Connectors of the Nano Connector Carrier are place on the top side of the board, their placement can be seen in the figure below; all the dimensions are in mm.
+Connectors of the Nano Connector Carrier are placed on the top side of the board, their placement can be seen in the figure below; all the dimensions are in mm.
 
-![Mechanical View of Nano Connector Carrier's Connectors](assets/connectors.jpg)
+![Mechanical View of Nano Connector Carrier's Connectors](assets/connectors-rect.png)
 
 ## Certifications
 
@@ -339,20 +345,21 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Company Information
 
-| Company name    | Arduino S.r.l.                               |
+| Company Information    | Details                               |
 | --------------- | -------------------------------------------- |
+| Company Name    | Arduino S.r.l.                               |
 | Company Address | Via Andrea Appiani, 25 - 20900 MONZA（Italy) |
 
 ## Reference Documentation
 
-| Ref                       | Link                                                                                                                                                                                           |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                                                                                                             |
-| Arduino IDE (Cloud)       | [https://create.arduino.cc/editor](https://create.arduino.cc/editor)                                                                                                                           |
-| Cloud IDE Getting Started | [https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor) |
-| Project Hub               | [https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending](https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending)                                           |
-| Library Reference         | [https://github.com/arduino-libraries/](https://github.com/arduino-libraries/)                                                                                                                 |
-| Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                                         |
+| Ref                             | Link                                                                                                                                                 |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)           | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                                                                   |
+| Arduino IDE (Cloud)             | [https://app.arduino.cc/sketches](https://app.arduino.cc/sketches)                                                                                   |
+| Arduino Cloud - Getting Started | [https://docs.arduino.cc/arduino-cloud/guides/overview/](https://docs.arduino.cc/arduino-cloud/guides/overview/)                                     |
+| Project Hub                     | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/) |
+| Language Reference               | [https://docs.arduino.cc/language-reference/](https://docs.arduino.cc/language-reference/)                                                                       |
+| Online Store                    | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                               |
 
 ## Change Log
 
