@@ -6,7 +6,7 @@ variant: 'Datasheet'
 author: Christopher Méndez
 ---
 
-![](assets/nano_connector_top.png)
+![](assets/nano-connector-top.png)
 
 # Description
 
