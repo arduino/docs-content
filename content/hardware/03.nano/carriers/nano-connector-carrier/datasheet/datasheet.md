@@ -222,6 +222,7 @@ An overview of the Nano Connector Carrier high-level architecture is illustrated
 | J4             | Grove UART connector                     |
 | J8             | Qwiic I2C connector                      |
 | J9             | microSD card connector                   |
+
 ## Device Operation
 
 ### Getting Started - IDE
@@ -234,12 +235,12 @@ Now that you have gone through the basics of what you can do with the board you 
 
 ## Mechanical Information
 
-The Nano Connector Carrier is a two side 28 mm x 43 mm board with female double row Nano headers around the top long edges, 4x Grove horizontal connectors, one on each corner of the bottom side, a Micro SD card slot and a Qwiic connector on the bottom edges.
+The Nano Connector Carrier is a double-sided 28 mm x 43 mm board with female double row Nano headers around the top long edges, 4x Grove horizontal connectors, one on each corner of the bottom side, a Micro SD card slot and a Qwiic connector on the bottom edges.
 
 ### Board Dimensions
 Nano Connector Carrier outline and mounting holes dimensions can be seen in following figure; all the dimensions are in mm.
 
-![Mechanical View of Nano Connector Carrier](assets/mechanicalDrawing.png)
+![Mechanical View of Nano Connector Carrier](assets/dimensions.jpg)
 
 The Nano Connector Carrier has two 3.2 mm drilled mounting holes for mechanical fixing.
 
@@ -247,11 +248,7 @@ The Nano Connector Carrier has two 3.2 mm drilled mounting holes for mechanical 
 
 Connectors of the Nano Connector Carrier are place on the top side of the board, their placement can be seen in the figure below; all the dimensions are in mm.
 
-![Mechanical View of Nano Connector Carrier's Connectors](assets/board-connectors.png)
-
-<p style="text-align: justify;">
-The Nano Connector Carrier was designed to be usable as a surface-mount module and presents a dual inline package (DIP) format with the Nano-styled header connectors on a 2.54 mm pitch grid with 1 mm holes.
-</p>
+![Mechanical View of Nano Connector Carrier's Connectors](assets/connectors.jpg)
 
 ## Certifications
 
@@ -361,4 +358,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date       | **Revision** | **Changes**   |
 | ---------- | ------------ | ------------- |
-| 22/04/2025 | 1            | First Release |
+| 30/04/2025 | 1            | First Release |
