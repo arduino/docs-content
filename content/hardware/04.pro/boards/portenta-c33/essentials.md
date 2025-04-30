@@ -1,7 +1,7 @@
 ---
 productsLibrariesMap:
-  - wifi
   - arduinoble
+  - se05x
 ---
 
 <EssentialsColumn title="First Steps">
