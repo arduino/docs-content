@@ -4,7 +4,7 @@ description: 'Control a AD5206 digital potentiometer using the SPI protocol.'
 tags: [SPI, Digital Potentiometer]
 ---
 
-In this tutorial you will learn how to control the AD5206 digital potentiometer using Serial Peripheral Interface (SPI).  For an explanation of SPI see the [SPI Library reference](https://www.arduino.cc/en/Reference/SPI).
+In this tutorial you will learn how to control the AD5206 digital potentiometer using Serial Peripheral Interface (SPI).  For an explanation of SPI see the [SPI Library reference](https://reference.arduino.cc/reference/en/language/functions/communication/spi/).
 
 Digital potentiometers are useful when you need to vary the resistance in a circuit electronically rather than by hand. Example applications include LED dimming, audio signal conditioning and tone generation. In this example we will use a six channel digital potentiometer to control the brightness of six LEDs. The steps we will cover for implementing SPI communication can be modified for use with most other SPI devices.
 
