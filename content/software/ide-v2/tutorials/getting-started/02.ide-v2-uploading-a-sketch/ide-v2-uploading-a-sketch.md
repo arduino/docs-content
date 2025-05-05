@@ -56,6 +56,8 @@ So connect your board to the computer and select it from the drop down menu. You
 
 Congratulations, you have now uploaded a sketch to your Arduino board!
 
+*** NOTE: If you are having any issues with uploading with the IDE, please have a look at our support page [here](https://support.arduino.cc/hc/en-us/articles/9207690465436-IDE-Support) ***
+
 ### Please Read (Only Linux Users)
 
 It might happen that when you upload a sketch - after you have selected your board and the serial port - you get an error such as **"... Permission denied"**. If you get this error, you need to set serial port permission.
