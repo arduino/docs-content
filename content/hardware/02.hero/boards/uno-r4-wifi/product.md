@@ -6,6 +6,7 @@ certifications: [CE, UKCA, RCM, MIC, FCC, IC, KC]
 primary_button_url: /tutorials/uno-r4-wifi/r4-wifi-getting-started
 primary_button_title: Get Started
 forumCategorySlug: '/hardware/uno-r4/uno-r4-wifi/189'
+productCode: '161'
 sku: [ABX00087]
 ---
 
