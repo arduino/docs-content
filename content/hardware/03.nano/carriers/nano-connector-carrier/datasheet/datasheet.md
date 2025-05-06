@@ -152,7 +152,7 @@ The following diagram illustrates the Nano Connector Carrier's main system power
 
 ## Functional Overview
 
-The Nano Connector Carrier expands the connectivity of the Nano boards family featuring a variety of Grove and Qwiic connectors. It also includes a Micro SD card interface for data logging.  
+The Nano Connector Carrier expands the connectivity of the Nano boards family, featuring a variety of Grove and Qwiic connectors. It also includes a Micro SD card interface for data logging.  
 
 ### Pinout
 
