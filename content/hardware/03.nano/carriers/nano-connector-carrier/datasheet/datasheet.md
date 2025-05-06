@@ -146,7 +146,7 @@ The Nano Connector Carrier exposes all the Nano host board connections and commu
 
 ### Power Tree
 
-The following diagram illustrates the Nano Connector Carrier main system power architecture.
+The following diagram illustrates the Nano Connector Carrier's main system power architecture.
 
 ![Nano Connector Carrier Power Tree](assets/power-tree.png)
 
