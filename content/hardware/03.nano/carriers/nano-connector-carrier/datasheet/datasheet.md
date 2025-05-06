@@ -54,7 +54,7 @@ The main features of the Nano Connector Carrier are detailed in the table shown 
 
 ### Board Selection
 
-The Nano Connector Carrier lets you select between 5 V or 3.3 V Nano boards to ensure compatibility with the whole Nano family. For this, toggle the carrier onboard switch to its respective position following the table below.
+The Nano Connector Carrier lets you select +5 VDC or +3.3 VDC Nano boards to ensure compatibility with the whole Nano family. To do this, toggle the carrier onboard switch to its respective position, following the table below.
 
 ![Board Selector Switch](assets/board-selector.png)
 
