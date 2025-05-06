@@ -18,7 +18,7 @@ The onboard microSD card slot unlocks new possibilities for data logging, Edge A
 
 # Target Areas:
 
-Industrial Automation, Rapid Prototyping, Proof of Concept, Edge AI
+Industrial Automation, Rapid Prototyping, Proof of Concept, Edge AI, Research and Development
 
 # CONTENTS
 
