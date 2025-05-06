@@ -22,7 +22,7 @@ The carrier is designed to work with all Arduino Nano form factor boards. Its st
 
 The Arduino Connector Carrier comes packed with useful features to enhance your Arduino Nano projects:
 
-#### Voltage Level Switch
+### Voltage Level Switch
 
 To ensure compatibility and as some Arduino Nano boards can be configured to change its voltage level the carrier includes a switch to select 3.3V or 5V voltage levels. The voltage selector switch allows you to choose the appropriate voltage for your specific Nano board and connected peripherals.
 
