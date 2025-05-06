@@ -27,16 +27,16 @@ Industrial Automation, Rapid Prototyping, Proof of Concept, Edge AI, Research an
 **Industrial Automation:** 
 - **Data Logging:** Data Logger as a compact, all-in-one device for efficient data collection and storage, ideal for IoT and sensor-based applications. With Nano boards advanced features and a compact design, it simplifies sensor interfacing, data management, and storage, making it perfect for smart homes, industrial monitoring, and research projects.
 - **Predictive Maintenance:** Leverage the powerful features of the Nano Connector Carrier to develop a robust predictive maintenance prototype for industrial machinery. Utilize Modulino to monitor key operational parameters and detect anomalies or early signs of wear, enabling proactive maintenance and reducing downtime. Enhance this system with the Nano 33 BLE Sense, which continuously gathers crucial environmental data, including temperature, humidity, and vibrations to assess the overall health of the machinery.
-- **Proof of Concept:** Expand your Nano boards capabilities with Nano Connector Carrier. The Nano Connector Carrier is ready to be used with a wide range of external hardware components or modules, covering all your needs, from embedded sensing to actuation.
+- **Proof of Concept:** Expand your Nano board's capabilities with Nano Connector Carrier. The Nano Connector Carrier is ready for use with a wide range of external hardware components or modules, covering all your needs, from embedded sensing to actuation.
 
 **Prototyping:**
-- **Compact Device:** Effortlessly integrate the Connector Carrier into your interactive prototype, whether Nano board is based on. Its plug and play sensors and actuators make development seamless. Whether you're using modules from our Qwiic or Grove series, its compact design allows you to experiment in small spaces, making it a perfect platform for testing and validating your tech ideas.
+- **Compact Device:** Effortlessly integrate the Connector Carrier into your interactive prototype, regardless of whether the Nano board is based on. Its plug-and-play sensors and actuators make development seamless. Whether using modules from our Qwiic or Grove series, its compact design allows you to experiment in small spaces, making it a perfect platform for testing and validating your tech ideas.
 - **Smart Home:** Easily prototype any smart device that can monitor and adjust temperature, humidity, or occupancy levels by combining Nano Connector Carrier, Modulinos and Nano Matter. Integrate with Matter-compatible smart home systems like Alexa or Google Home for frictionless voice control and automation.
-- **Controller:** By using the Nano Connector Carrier, you can easily prototype versatile RC - MIDI - RF - BLE - HID - DMX controller for your projects. With plug-and-play support for sensors and actuators, you can create custom interfaces that respond to touch, motion, or even pressure. Whether you're using Modulinos or 3rd party sensors, the compact design allows for a fully portable setup.
+- **Controller:** Using the Nano Connector Carrier, you can easily prototype a versatile RC - MIDI - RF - BLE - HID - DMX controller for your projects. With plug-and-play support for sensors and actuators, you can create custom interfaces that respond to touch, motion or even pressure. The compact design allows for a fully portable setup using Modulinos or third-party sensors.
 
 **Education:**
 - **Micropython Learning:** Easily dive into MicroPython with the Nano Connector Carrier, Modulinos and Nano ESP32 as your learning platform. Its plug-and-play support for sensors and actuators allows you to experiment with real-world applications right away, whether you're reading sensor data, controlling LEDs, or building interactive projects. 
-- **Cross-Disciplinary Student Projects:** The Connector Carrier accelerates interdisciplinary collaboration by enabling rapid prototyping in both classroom and lab environments. Its compact, modular design allows students across various fields—including engineering, computer science and arts, to quickly develop, test, and refine ideas using Arduino Nano boards. With built-in connectivity and expansion options, students can seamlessly integrate sensors, actuators, and communication modules, fostering hands-on experimentation and innovation. 
+- **Cross-Disciplinary Student Projects:** The Connector Carrier accelerates interdisciplinary collaboration by enabling rapid prototyping in classroom and lab environments. Its compact, modular design allows students across various fields (including engineering, computer science and the arts) to quickly develop, test, and refine ideas using Arduino Nano boards. Students can seamlessly integrate sensors, actuators and communication modules with built-in connectivity and expansion options, fostering hands-on experimentation and innovation. 
 - **Sustainability and Green Tech:** Energy Management project where students can design and test systems that monitor or reduce energy use in buildings or devices, promoting sustainability and teaching about renewable energy or energy efficiency, within integrated solar or wind power systems.
 
 ## Features
@@ -146,13 +146,13 @@ The Nano Connector Carrier exposes all the Nano host board connections and commu
 
 ### Power Tree
 
-The following diagram illustrates the Nano Connector Carrier main system power architecture.
+The following diagram illustrates the Nano Connector Carrier's main system power architecture.
 
 ![Nano Connector Carrier Power Tree](assets/power-tree.png)
 
 ## Functional Overview
 
-The Nano Connector Carrier expands the connectivity of the Nano boards family featuring a variety of Grove and Qwiic connectors. It also includes a Micro SD card interface for data logging.  
+The Nano Connector Carrier expands the connectivity of the Nano boards family, featuring a variety of Grove and Qwiic connectors. It also includes a Micro SD card interface for data logging.  
 
 ### Pinout
 
@@ -237,14 +237,14 @@ If you want to program your Nano board to use the Nano Connector Carrier while o
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
+Now that you have learned the basics of what you can do with the carrier, you can explore its endless possibilities by checking out exciting projects on Arduino Project Hub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**. Here, you can complement your board with sensors, actuators and more.
 
 ## Mechanical Information
 
 The Nano Connector Carrier is a double-sided 28 mm x 43 mm board with female double row Nano headers around the top long edges, 4x Grove horizontal connectors, one on each corner of the bottom side, a Micro SD card slot and a Qwiic connector on the bottom edges.
 
 ### Board Dimensions
-Nano Connector Carrier outline and mounting holes dimensions can be seen in following figure; all the dimensions are in mm.
+The outline and dimensions of the Nano Connector Carrier and mounting holes can be seen in the following figure; all the dimensions are in mm.
 
 ![Mechanical View of Nano Connector Carrier](assets/dimensions-rect.png)
 
@@ -252,7 +252,7 @@ The Nano Connector Carrier has two 3.2 mm drilled mounting holes for mechanical 
 
 ### Board Connectors
 
-Connectors of the Nano Connector Carrier are placed on the top side of the board, their placement can be seen in the figure below; all the dimensions are in mm.
+The Nano Connector Carrier's connectors are placed on the top side of the board, as shown in the figure below; all the dimensions are in mm.
 
 ![Mechanical View of Nano Connector Carrier's Connectors](assets/connectors-rect.png)
 
