@@ -4,7 +4,7 @@ url_shop: https://store.arduino.cc/products/nicla-sense-env
 url_guide: /tutorials/nicla-sense-env/user-manual
 primary_button_url: /tutorials/nicla-sense-env/user-manual
 primary_button_title: User Manual
-certifications: [CE, UKCA, VCCI, FCC, IC]
+certifications: [CE, UKCA, VCCI, FCC, IC, RoHS]
 sku: [ABX00089]
 ---
 
