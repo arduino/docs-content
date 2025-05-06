@@ -141,7 +141,7 @@ The Nano Connector Carrier exposes all the Nano host board connections and commu
 | T<sub>OP</sub> | Operating Temperature           | -40 | 25  | 85  | °C   |
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The Nano Connector Carrier is powered by the host board nominal voltage.
+<strong>Note:</strong> The Nano Connector Carrier is powered by the host board's nominal voltage.
 </div>
 
 ### Power Tree
