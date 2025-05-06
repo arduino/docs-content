@@ -10,7 +10,7 @@ author: Christopher Méndez
 
 # Description
 
-The Nano Connector Carrier is a practical solution for expanding the capabilities of our Nano product family, this carrier brings plug-and-play compatibility with Qwiic and Grove modules, making rapid prototyping easier than ever.
+The Nano Connector Carrier is a practical solution for expanding the capabilities of our Nano product family. It is plug-and-play compatible with Qwiic and Grove modules, making rapid prototyping easier than ever.
 
 Whether you're diving into MicroPython, Matter, building with Modulinos, or developing AI-powered applications, this carrier provides a simple platform to bring your ideas to life.
 
