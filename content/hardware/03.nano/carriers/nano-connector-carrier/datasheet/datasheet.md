@@ -47,7 +47,7 @@ The main features of the Nano Connector Carrier are detailed in the table shown 
 | **Feature**            | **Description**                                                                                                                                                        |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Interfaces             | 2x Grove analog/digital connector <br></br> 1x Grove I2C connector <br></br> 1x Grove UART connector <br></br> 1x Qwiic I2C connector <br></br> 1x microSD card reader |
-| I/O Voltage            | Switch between +3.3 VDC and +5 VDC                                                                                                                                           |
+| I/O Voltage            | Switch between +3.3 VDC and +5 VDC                                                                                                                                     |
 | Dimensions             | 28 mm x 43 mm                                                                                                                                                          |
 | Operating Temperatures | -40 °C to +85 °C                                                                                                                                                       |
 
@@ -348,21 +348,21 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Company Information    | Details                               |
 | --------------- | -------------------------------------------- |
 | Company Name    | Arduino S.r.l.                               |
-| Company Address | Via Andrea Appiani, 25 - 20900 MONZA（Italy) |
+| Company Address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
 ## Reference Documentation
 
-| Ref                             | Link                                                                                                                                                 |
-| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)           | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                                                                   |
-| Arduino IDE (Cloud)             | [https://app.arduino.cc/sketches](https://app.arduino.cc/sketches)                                                                                   |
-| Arduino Cloud - Getting Started | [https://docs.arduino.cc/arduino-cloud/guides/overview/](https://docs.arduino.cc/arduino-cloud/guides/overview/)                                     |
-| Project Hub                     | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/) |
-| Language Reference               | [https://docs.arduino.cc/language-reference/](https://docs.arduino.cc/language-reference/)                                                                       |
-| Online Store                    | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                               |
+| Reference                       | Link                                                                                                             |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)           | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                               |
+| Arduino IDE (Cloud)             | [https://app.arduino.cc/sketches](https://app.arduino.cc/sketches)                                               |
+| Arduino Cloud - Getting Started | [https://docs.arduino.cc/arduino-cloud/guides/overview/](https://docs.arduino.cc/arduino-cloud/guides/overview/) |
+| Project Hub                     | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/)                                                 |
+| Language Reference              | [https://docs.arduino.cc/language-reference/](https://docs.arduino.cc/language-reference/)                       |
+| Online Store                    | [https://store.arduino.cc/](https://store.arduino.cc/)                                                           |
 
 ## Change Log
 
-| Date       | **Revision** | **Changes**   |
-| ---------- | ------------ | ------------- |
-| 30/04/2025 | 1            | First Release |
+| Date      | **Revision** | **Changes**   |
+| --------- | ------------ | ------------- |
+| 6/06/2025 | 1            | First Release |
