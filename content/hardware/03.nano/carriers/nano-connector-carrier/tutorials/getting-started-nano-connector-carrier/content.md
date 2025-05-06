@@ -167,7 +167,7 @@ The Teamometer is a practical demonstration of how different Modulino sensor mod
 ![Connection guide](assets/moduleConnection.png)
 
 **Code Example:**
-```Arduino
+```ARDUINO
 #include <Modulino.h>
 
 // Create object instances
@@ -341,7 +341,7 @@ The Motion Tracker demonstrates how the Nano Connector Carrier can integrate wit
 7. Press button A again to stop recording
 
 **Code Example:**
-```Arduino
+```ARDUINO
 /*
  * Modulino Movement Logger
  *
