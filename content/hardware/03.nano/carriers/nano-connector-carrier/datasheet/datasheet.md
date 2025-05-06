@@ -47,7 +47,7 @@ The main features of the Nano Connector Carrier are detailed in the table shown 
 | **Feature**            | **Description**                                                                                                                                                        |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Interfaces             | 2x Grove analog/digital connector <br></br> 1x Grove I2C connector <br></br> 1x Grove UART connector <br></br> 1x Qwiic I2C connector <br></br> 1x microSD card reader |
-| I/O Voltage            | Switch between 3.3 V and 5 V                                                                                                                                           |
+| I/O Voltage            | Switch between +3.3 VDC and +5 VDC                                                                                                                                           |
 | Dimensions             | 28 mm x 43 mm                                                                                                                                                          |
 | Operating Temperatures | -40 °C to +85 °C                                                                                                                                                       |
 
