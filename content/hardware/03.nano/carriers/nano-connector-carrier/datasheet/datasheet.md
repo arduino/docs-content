@@ -77,7 +77,7 @@ Setting the switch to a certain position (3V3 or 5V) also manages the voltage ou
 
 ### Qwiic I2C Connector
 
-The Qwiic connector is connected to the standard I2C bus on the board (A4, A5). This connector is powered via 3.3 V following the Qwiic standard system and making the Nano Connector Carrier compatible with the Arduino Modulino nodes.
+The Qwiic connector is connected to the standard I2C bus on the board (via A4 and A5 pins). It is powered via +3.3 VDC, following the Qwiic standard system, making the Nano Connector Carrier compatible with the Arduino Modulino nodes.
 
 Its logic level is fixed to 3.3 V, and it is translated to the host Nano board voltage defined by the board selector switch.
 
