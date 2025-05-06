@@ -97,7 +97,7 @@ The Nano Connector Carrier features 4x Grove connectors that expose the host boa
 
 ### Micro SD Card 
 
-The onboard microSD card slot unlocks new possibilities for data logging, edge AI, and real-time storage needs.
+The onboard microSD card slot unlocks new possibilities for data logging, Edge AI and real-time storage needs.
 
 ![Nano Connector Carrier Grove Connectors](assets/sd.png)
 
