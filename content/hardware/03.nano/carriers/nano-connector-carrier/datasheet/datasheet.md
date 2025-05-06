@@ -244,7 +244,7 @@ Now that you have learned the basics of what you can do with the carrier, you ca
 The Nano Connector Carrier is a double-sided 28 mm x 43 mm board with female double row Nano headers around the top long edges, 4x Grove horizontal connectors, one on each corner of the bottom side, a Micro SD card slot and a Qwiic connector on the bottom edges.
 
 ### Board Dimensions
-Nano Connector Carrier outline and mounting holes dimensions can be seen in following figure; all the dimensions are in mm.
+The outline and dimensions of the Nano Connector Carrier and mounting holes can be seen in the following figure; all the dimensions are in mm.
 
 ![Mechanical View of Nano Connector Carrier](assets/dimensions-rect.png)
 
