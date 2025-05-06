@@ -54,7 +54,7 @@ The main features of the Nano Connector Carrier are detailed in the table shown 
 
 ### Board Selection
 
-The Nano Connector Carrier lets you select between 5 V or 3.3 V Nano boards to ensure compatibility with the whole Nano family. For this, toggle the carrier onboard switch to its respective position following the table below.
+The Nano Connector Carrier lets you select +5 VDC or +3.3 VDC Nano boards to ensure compatibility with the whole Nano family. To do this, toggle the carrier onboard switch to its respective position, following the table below.
 
 ![Board Selector Switch](assets/board-selector.png)
 
@@ -72,20 +72,20 @@ The Nano Connector Carrier lets you select between 5 V or 3.3 V Nano boards to e
 Setting the switch to a specific position (3V3 or 5V) also manages the voltage output on the Grove connector VCC pin.
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The logic and power voltage of the Qwiic connector and the microSD card slot is always 3.3 V regardless of the board selector switch position.
+<strong>Note:</strong> The logic and power voltage of the Qwiic connector and the microSD card slot are always +3.3 VDC regardless of the board selector switch position.
 </div>
 
 ### Qwiic I2C Connector
 
-The Qwiic connector is connected to the standard I2C bus on the board (A4, A5). This connector is powered via 3.3 V following the Qwiic standard system and making the Nano Connector Carrier compatible with the Arduino Modulino nodes.
+The Qwiic connector is connected to the standard I2C bus on the board (via A4 and A5 pins). It is powered via +3.3 VDC, following the Qwiic standard system, making the Nano Connector Carrier compatible with the Arduino Modulino nodes.
 
-Its logic level is fixed to 3.3 V, and it is translated to the host Nano board voltage defined by the board selector switch.
+Its logic level is fixed to +3.3 VDC, which is translated to the host Nano board voltage defined by the board selector switch.
 
 ![Nano Connector Carrier Qwiic Connector](assets/qwiic.png)
 
 ### Grove Connectors
 
-The Nano Connector Carrier features 4x Grove connectors that expose the host board main communication interfaces.
+The Nano Connector Carrier features 4x Grove connectors that expose the host board's main communication interfaces.
 
 ![Nano Connector Carrier Grove Connectors](assets/grove.png)
 
@@ -97,7 +97,7 @@ The Nano Connector Carrier features 4x Grove connectors that expose the host boa
 
 ### Micro SD Card 
 
-The onboard microSD card slot unlocks new possibilities for data logging, edge AI, and real-time storage needs.
+The onboard microSD card slot unlocks new possibilities for data logging, Edge AI and real-time storage needs.
 
 ![Nano Connector Carrier Grove Connectors](assets/sd.png)
 
