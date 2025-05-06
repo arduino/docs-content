@@ -85,7 +85,7 @@ Its logic level is fixed to +3.3 VDC, which is translated to the host Nano board
 
 ### Grove Connectors
 
-The Nano Connector Carrier features 4x Grove connectors that expose the host board main communication interfaces.
+The Nano Connector Carrier features 4x Grove connectors that expose the host board's main communication interfaces.
 
 ![Nano Connector Carrier Grove Connectors](assets/grove.png)
 
