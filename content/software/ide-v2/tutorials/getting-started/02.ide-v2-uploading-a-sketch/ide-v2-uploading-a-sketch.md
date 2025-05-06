@@ -56,7 +56,7 @@ So connect your board to the computer and select it from the drop down menu. You
 
 Congratulations, you have now uploaded a sketch to your Arduino board!
 
-*** NOTE: If you are having any issues with uploading with the IDE, please have a look at our support page [here](https://support.arduino.cc/hc/en-us/articles/9207690465436-IDE-Support) ***
+*** NOTE: If you are having any issues uploading a sketch, please have a look at our support page [here](https://support.arduino.cc/hc/en-us/articles/9207690465436-IDE-Support) ***
 
 ### Please Read (Only Linux Users)
 
