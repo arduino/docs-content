@@ -24,7 +24,7 @@ The Arduino Connector Carrier comes packed with useful features to enhance your 
 
 ### Voltage Level Switch
 
-To ensure compatibility and as some Arduino Nano boards can be configured to change its voltage level the carrier includes a switch to select 3.3V or 5V voltage levels. The voltage selector switch allows you to choose the appropriate voltage for your specific Nano board and connected peripherals.
+To ensure compatibility and as some Arduino Nano boards can be [configured to a different Input voltage level](https://docs.arduino.cc/tutorials/nano-esp32/cheat-sheet/#Input:~:text=otherwise%20be%20damaged.-,Input%20Voltage%20(VIN),-If%20you%27re%20using) the carrier includes a switch to select 3.3V or 5V voltage levels. The voltage selector switch allows you to choose the appropriate voltage for your specific Nano board and connected peripherals.
 
 ![Onboard Voltage Switch](assets/power-switch-01.gif)
 
@@ -32,7 +32,7 @@ This flexibility ensures compatibility with a wide range of sensors and modules 
 
 ### Connectors
 
-The Carrier includes a both QWIIC and Grove connectors for expanding the board capability with external sensors aswell a MicroSD:
+The Carrier includes both QWIIC and Grove connectors for expanding the board capability with external sensors as well as MicroSD:
 ![Available Connectors](assets/connector-list.png)
 
 #### Qwiic Connector
