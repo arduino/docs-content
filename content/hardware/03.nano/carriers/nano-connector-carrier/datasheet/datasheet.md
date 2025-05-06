@@ -72,7 +72,7 @@ The Nano Connector Carrier lets you select +5 VDC or +3.3 VDC Nano boards to ens
 Setting the switch to a certain position (3V3 or 5V) also manages the voltage output on the Grove connector VCC pin.
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The logic and power voltage of the Qwiic connector and the microSD card slot is always 3.3 V regardless of the board selector switch position.
+<strong>Note:</strong> The logic and power voltage of the Qwiic connector and the microSD card slot are always +3.3 VDC regardless of the board selector switch position.
 </div>
 
 ### Qwiic I2C Connector
