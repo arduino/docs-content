@@ -14,7 +14,7 @@ The Nano Connector Carrier is a practical solution for expanding the capabilitie
 
 Whether diving into MicroPython or Matter, building with Modulinos, or developing AI-powered applications, this carrier provides a simple platform for bringing your ideas to life.
 
-The onboard microSD card slot unlocks new possibilities for data logging, edge AI, and real-time storage needs.
+The onboard microSD card slot unlocks new possibilities for data logging, Edge AI and real-time storage needs.
 
 # Target Areas:
 
