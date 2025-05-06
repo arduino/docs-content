@@ -252,7 +252,7 @@ The Nano Connector Carrier has two 3.2 mm drilled mounting holes for mechanical 
 
 ### Board Connectors
 
-Connectors of the Nano Connector Carrier are placed on the top side of the board, their placement can be seen in the figure below; all the dimensions are in mm.
+The Nano Connector Carrier's connectors are placed on the top side of the board, as shown in the figure below; all the dimensions are in mm.
 
 ![Mechanical View of Nano Connector Carrier's Connectors](assets/connectors-rect.png)
 
