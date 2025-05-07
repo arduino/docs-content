@@ -1,7 +1,7 @@
 ---
 productsLibrariesMap:
   - arduinoble
-  - se05x
+  - arduino_secureelement
 ---
 
 <EssentialsColumn title="First Steps">
