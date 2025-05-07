@@ -7,7 +7,7 @@
 
 <FeatureList>
 <Feature title="Truesense UWB module DCU150" image="world-map">
-Based on NXP Trimension™ SR150 UWB IC, with 3 Pcb Antennas embedded, power management, clock control, filters and peripheral components. The module is a switch-less 2D AoA solution without extra-antenna overhead, no phase/amplitude skew, no SPST insertion loss and low-cost design.
+Based on NXP Trimension™ SR150 UWB IC, with 3 PCB antennas embedded, power management, clock control, filters and peripheral components. The module is a switch-less 2D AoA solution without extra-antenna overhead, no phase/amplitude skew, no SPST insertion loss and low-cost design.
 
 <FeatureWrapper>
   <FeatureLink title="Datasheet" url="" download blank/>
