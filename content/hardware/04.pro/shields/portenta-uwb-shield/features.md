@@ -1,6 +1,6 @@
 <FeatureDescription>
 
- The **Portenta UWB Shield**, based on the Truesense DCU150, functions as a base station facilitating two-way ranging and real-time location services (RTLS). Ideal for smart logistics, interactive environments, and precision proximity sensing applications, its dual role as both base station and client device enhances connectivity and responsiveness across IoT systems. Designed to integrate with the Arduino Portenta C33 via the high-density connectors.
+ The **Portenta UWB Shield**, based on the Truesense DCU150, functions as a base station facilitating two-way ranging and real-time location services (RTLS). Ideal for smart logistics, interactive environments and precision proximity sensing applications. Its dual role as both base station and client device enhances connectivity and responsiveness across IoT systems. Designed to integrate with the Arduino Portenta C33 via the high-density connectors.
 
 </FeatureDescription>
 
