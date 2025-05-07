@@ -1,6 +1,6 @@
 ---
 productsLibrariesMap:
-  - wifi
+  - lvgl
   - arduinoble
 ---
 
