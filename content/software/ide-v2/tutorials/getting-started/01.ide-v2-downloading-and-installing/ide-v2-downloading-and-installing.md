@@ -27,6 +27,8 @@ The Arduino IDE 2 is an open-source project. It is a big step from its sturdy pr
 
 Downloading the Arduino IDE 2 is done through the [Arduino Software page](https://www.arduino.cc/en/software). Here you will also find information on the other editors available to use. 
 
+[![ ](assets/download-ide.png)](https://www.arduino.cc/en/software)
+
 ### Installation
 
 #### Windows
