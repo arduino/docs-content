@@ -54,4 +54,4 @@ Now that you are all set up, **let’s try to make your board blink!**
 
 ![On-board LED blinking](./assets/onboard-led-blinking.gif)
 
-**Congratulations!** You have successfully programmed your board to blink its on-board LED! You can find more information about the [Arduino Cloud Editor here](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-on-various-platforms-4b3e4a).
+**Congratulations!** You have successfully programmed your board to blink its on-board LED! You can find more information about the [Arduino Cloud Editor here](arduino-cloud/guides/overview/).
