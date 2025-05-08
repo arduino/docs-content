@@ -28,7 +28,7 @@ Communication Interfaces:
 Power:
   Board operating voltage: +3.3 VDC
   Board input voltage (VIN): 5 V
-Clock speed:
+Clock speed: 64 MHz
   M4 core: 64MHz
 Memory:
   Internal: 1 MB Flash, 256 kB RAM
