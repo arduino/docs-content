@@ -6,7 +6,7 @@ USB connector: USB-C®
 High-Density pins:
   UART pins: 
 Ultra-wideband:
-  Module: TrueSense DCU040 UWB Module (NXP® Trimension™ SR040 UWB IC)
+  Module: DCU040 from TrueSense
   Pcb embedded antenna: 1
   Channels: 5, 9
   Frequency range: 6.24GHz~8.24GHz
