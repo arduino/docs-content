@@ -1,5 +1,6 @@
 ---
 productsLibrariesMap:
+  - arduino_portenta_ota
   - arduinoble
 ---
 
