@@ -5,7 +5,7 @@ High-Density Connectors: 2
 Ultra-wideband:
   Module: Truesense DCU150 UWB Module based on NXP Trimension™ SR150 UWB IC
   PCB embedded antennas: 3
-  Channels: 5, 9
+  Channels: 5, 6, 8, 9
   Ranging Mode: 2D Ranging
   Frequency range: 6.0-8.5GHz
 Power: 3.3 V DC from Portenta Main Board
