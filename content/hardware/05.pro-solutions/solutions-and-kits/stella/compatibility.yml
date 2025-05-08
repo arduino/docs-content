@@ -3,5 +3,4 @@ software:
   - arduino-cli
   - iot-cloud
   - cloud-editor
-  - openmv-ide
 hardware:

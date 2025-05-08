@@ -3,8 +3,6 @@ Board:
   SKU: ABX000131
 Microcontroller: nRF52840 Arm® Cortex®-M4 32-bit processor
 USB connector: USB-C®
-High-Density pins:
-  UART pins: 
 Ultra-wideband:
   Module: DCU040 from TrueSense
   Antenna: x1 (embedded PCB antenna)
@@ -14,9 +12,8 @@ Ultra-wideband:
 Connectivity:
   Bluetooth®: Bluetooth® 5.0
 Secure element: Arm® TrustZone® CryptoCell cryptographic unit
-Sensors:
-  Sound: Buzzer (80dB min)
-  Accelerometer: Silan SC7A20 3-axis
+Actuator: Buzzer (80dB min)
+Accelerometer: Silan SC7A20 3-axis
 Communication Interfaces:
   I2C: Yes, 1
   UART: Yes, 1
@@ -27,9 +24,10 @@ Communication Interfaces:
   USB: USB 2.0
 Power:
   Board operating voltage: +3.3 VDC
-  Board input voltage (VIN): 5 V
+  Board input voltage battery holder: +3 VDC
+  Board input voltage USB-C connector: +5 VDC
+  Board input voltage onboard JTAG connector: +3.3 VDC
 Clock speed: 64 MHz
-  M4 core: 64MHz
 Memory:
   Internal: 1 MB Flash, 256 kB RAM
   External: 16 MB NOR Flash, 8 MB SDRAM

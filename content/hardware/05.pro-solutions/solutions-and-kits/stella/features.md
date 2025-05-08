@@ -16,15 +16,15 @@ Seamlessly integrate with Arduino Cloud for streamlined data management, remote 
 </Feature>
 
 <Feature title="nRF52840 Arm® Cortex®-M4 32-bit processor" image="mcu">
-The nRF52840 is fully multiprotocol capable with full protocol concurrency. It has protocol support for Bluetooth LE, Bluetooth mesh, Thread, Zigbee, 802.15.4, ANT and 2.4 GHz proprietary stacks.
+The nRF52840 is fully multiprotocol capable with full protocol concurrency. It supports Bluetooth Low Energy, Bluetooth Mesh, Thread, Zigbee, 802.15.4 and 2.4 GHz proprietary stacks.
 <FeatureWrapper>
   <FeatureLink title="Datasheet" url="https://docs.nordicsemi.com/bundle/ps_nrf52840/page/keyfeatures_html5.html" download blank/>
 </FeatureWrapper>
 </Feature>
 
-<Feature title="Sensors" image="accelerometer">
-Onbaord sensors include a buzzer and an accelerometer (Silan SC7A20 3-axis) to help you create the perfect solution for your use case.
-  
+<Feature title="Sensor and actuator" image="accelerometer">
+The onboard sensor and actuator, which include a buzzer and a 3-axis accelerometer (the SC7A20 from Silan), help you create the perfect solution for your use case.
+
 <FeatureWrapper>
   <FeatureLink title="Datasheet" url="" download blank/>
 </FeatureWrapper>
