@@ -7,7 +7,7 @@ The **Arduino Stella** redefines location tracking using the advanced nRF52840 m
 
 <FeatureList>
 <Feature title="TrueSense UWB module DCU040" image="world-map">
-Enjoy pinpoint accuracy in real-time location tracking, making it easy to find and manage assets, even in complex environments. Take advantage of the ready-to-use Arduino IDE library, making development faster and easier with plenty of examples and tutorials
+Enjoy pinpoint accuracy in real-time location tracking, making finding and managing assets easy even in complex environments. Take advantage of the ready-to-use Arduino IDE library, making development faster and easier with plenty of examples and tutorials.
 Seamlessly integrate with Arduino Cloud for streamlined data management, remote monitoring, and advanced analytics.
   
 <FeatureWrapper>
