@@ -26,7 +26,7 @@ Communication Interfaces:
   PWM: Yes, 1
   USB: USB 2.0
 Power:
-  Board operating voltage: 3.3 V
+  Board operating voltage: +3.3 VDC
   Board input voltage (VIN): 5 V
 Clock speed:
   M4 core: 64MHz
