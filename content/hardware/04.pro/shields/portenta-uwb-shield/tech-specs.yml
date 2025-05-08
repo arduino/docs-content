@@ -7,7 +7,7 @@ Ultra-wideband:
   PCB embedded antennas: 3
   Channels: 5, 6, 8, 9
   Ranging Mode: 2D Ranging
-  Frequency range: 6.0-8.5GHz
+  Frequency range: 6.24 GHz ~ 8.24 GHz
 Power: 3.3 V DC from Portenta Main Board
 Max Output Power (EIRP): 3.6 V
 Operating temperature:
