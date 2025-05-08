@@ -10,12 +10,12 @@
 Based on NXP Trimension™ SR150 UWB IC, with 3 PCB antennas embedded, power management, clock control, filters and peripheral components. The module is a switch-less 2D AoA solution without extra-antenna overhead, no phase/amplitude skew, no SPST insertion loss and low-cost design.
 
 <FeatureWrapper>
-  <FeatureLink title="Datasheet" url="" download blank/>
+  <FeatureLink title="Datasheet" url="https://ultrawideband.truesense.it/wp-content/uploads/2023/08/TRUESENSE-DCU150_Datasheet-DRAFT_V1.7.pdf" download blank/>
 </FeatureWrapper>
 </Feature>
 
 <Feature title="Portenta C33 compatibility" image="portenta-form-factor">
-The Portenta Cat.M1/NB IoT GNSS Shield has been specifically designed to provide reliable connectivity to the Portenta family of boards for a wide range of telemetry applications.
+The Portenta UWB Shield has been specifically designed to add robust UWB communication to the Portenta family, ensuring reliable and efficient device interactions.
 
 </Feature>
 
