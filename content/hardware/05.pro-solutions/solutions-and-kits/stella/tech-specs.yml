@@ -7,7 +7,7 @@ High-Density pins:
   UART pins: 
 Ultra-wideband:
   Module: DCU040 from TrueSense
-  Pcb embedded antenna: 1
+  Antenna: x1 (embedded PCB antenna)
   Channels: 5, 9
   Frequency range: 6.24GHz~8.24GHz
   Max Output Power: 14.7 dBm
