@@ -1,7 +1,7 @@
 Board:
   Name: Arduino® Stella
   SKU: ABX000131
-Microcontroller: nRF52840 ARM® Cortex® M4 32-bit
+Microcontroller: nRF52840 Arm® Cortex®-M4 32-bit processor
 USB connector: USB-C®
 High-Density pins:
   UART pins: 
