@@ -9,7 +9,7 @@ Ultra-wideband:
   Ranging Mode: 2D Ranging
   Frequency range: 6.24 GHz ~ 8.24 GHz
 Power: 3.3 V DC from Portenta Main Board
-Max Output Power (EIRP): 3.6 V
+Max Output Power (EIRP): 14.1 dBm @ CH9
 Operating temperature:
   Min: -30 °C
   Max: 85 °C
