@@ -1,6 +1,7 @@
 ---
 productsLibrariesMap:
   - lvgl
+  - arduino_portenta_ota
   - arduinoble
 ---
 
