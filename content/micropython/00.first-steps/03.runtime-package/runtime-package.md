@@ -114,6 +114,7 @@ def setup():
 def loop():
   value = analog_read(pin)
   print(value)
+  delay(50)
 
 start(setup, loop)
 ```
