@@ -15,7 +15,7 @@ Seamlessly integrate with Arduino Cloud for streamlined data management, remote 
 </FeatureWrapper>
 </Feature>
 
-<Feature title="nRF52840 ARM® Cortex®: Cortex M4 32-bit processor with FPU" image="mcu">
+<Feature title="nRF52840 Arm® Cortex®-M4 32-bit processor" image="mcu">
 The nRF52840 is fully multiprotocol capable with full protocol concurrency. It has protocol support for Bluetooth LE, Bluetooth mesh, Thread, Zigbee, 802.15.4, ANT and 2.4 GHz proprietary stacks.
 <FeatureWrapper>
   <FeatureLink title="Datasheet" url="https://docs.nordicsemi.com/bundle/ps_nrf52840/page/keyfeatures_html5.html" download blank/>
