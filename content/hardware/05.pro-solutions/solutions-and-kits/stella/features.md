@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The **Arduino Stella** redefines location tracking with its advanced nRF52840 microcontroller and TrueSense UWB module DCU040. Tailored for modern tracking needs, it excels in pinpointing assets in warehouses, ensuring safety in healthcare, and automating smart buildings. Seamlessly integrating with the **Portenta UWB Shield** and UWB-enabled smartphones through the dedicated NXP® Trimension App, Apple's Nearby Interaction APIs, or Android's UWB Jetpack library, it delivers robust finder functionality, precise point-to-point triggering, and comprehensive tracking capabilities for applications demanding reliable, real-time location data.
+The **Arduino Stella** redefines location tracking using the advanced nRF52840 microcontroller from Nordic Semiconductor and the DCU040 UWB module from TrueSense. Tailored for modern tracking needs, it excels in pinpointing warehouse assets, ensuring healthcare safety and automating smart buildings. Seamlessly integrating with the **Portenta UWB Shield** and UWB-enabled smartphones through the dedicated NXP® Trimension App, Apple's Nearby Interaction APIs or Android's UWB Jetpack library, it delivers robust finder functionality, precise point-to-point triggering and comprehensive tracking capabilities for applications demanding reliable, real-time location data.
 
 </FeatureDescription>
 
