@@ -58,4 +58,13 @@ This board supports analog read resolutions at up to 14-bit.
 </FeatureWrapper>
 </Feature>
 
+<Feature title="3 month of Cloud Maker plan included" image="cloud">
+
+With Arduino UNO R4 you will get 1 year of cloud maker plan for free
+
+<FeatureWrapper>
+<FeatureLink variant="primary" title="Register product" url="https://digital-store.arduino.cc/subscriptions/redeem"/>
+</FeatureWrapper>
+</Feature>
+
 </FeatureList>

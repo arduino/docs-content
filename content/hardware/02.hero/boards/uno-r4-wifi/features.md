@@ -58,4 +58,13 @@ Build game controllers by emulating a mouse/keyboard.
 Power your UNO R4 board through the VIN pin or the barrel jack at up to 6-24 V.
 </Feature>
 
+<Feature title="3 month of Cloud Maker plan included" image="cloud">
+
+With Arduino UNO R4 you will get 1 year of cloud maker plan for free
+
+<FeatureWrapper>
+<FeatureLink variant="primary" title="Register product" url="https://digital-store.arduino.cc/subscriptions/redeem"/>
+</FeatureWrapper>
+</Feature>
+
 </FeatureList>
