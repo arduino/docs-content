@@ -24,9 +24,9 @@ The Modulino® connects to your UNO R4 WiFi with Qwiic cables, letting you focus
 
 </Feature>
 
-<Feature title="3 month of Cloud Maker plan included" image="cloud">
+<Feature title="3 months of Cloud Maker plan included" image="cloud">
 
-With Plug and Make kit you will get 1 year of cloud maker plan for free
+With Plug and Make kit you will get 3 months of cloud maker plan for free
 
 <FeatureWrapper>
 <FeatureLink variant="primary" title="Register product" url="https://digital-store.arduino.cc/subscriptions/redeem"/>

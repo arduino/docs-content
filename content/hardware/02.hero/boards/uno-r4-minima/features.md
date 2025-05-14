@@ -19,6 +19,15 @@ A reference to all technical features on this board, with pointers to additional
 The UNO R4 Minima is the first UNO to feature a USB-C® connector.
 </Feature>
 
+<Feature title="3 months of Cloud Maker plan included" image="cloud">
+
+With Arduino UNO R4 you will get 3 months of cloud maker plan for free
+
+<FeatureWrapper>
+<FeatureLink variant="primary" title="Register product" url="https://digital-store.arduino.cc/subscriptions/redeem"/>
+</FeatureWrapper>
+</Feature>
+
 <Feature title="Real-Time Clock (RTC)" image="mcu">
 Keep track of time & date and set alarms with the built-in RTC.
 <FeatureWrapper>
@@ -55,15 +64,6 @@ Connect your board to other CAN devices. This requires an external transceiver.
 This board supports analog read resolutions at up to 14-bit.
 <FeatureWrapper>
   <FeatureLink title="Documentation" url="/tutorials/uno-r4-minima/adc-resolution"/>
-</FeatureWrapper>
-</Feature>
-
-<Feature title="3 month of Cloud Maker plan included" image="cloud">
-
-With Arduino UNO R4 you will get 1 year of cloud maker plan for free
-
-<FeatureWrapper>
-<FeatureLink variant="primary" title="Register product" url="https://digital-store.arduino.cc/subscriptions/redeem"/>
 </FeatureWrapper>
 </Feature>
 
