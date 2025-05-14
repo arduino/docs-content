@@ -44,7 +44,6 @@ In this tutorial, we will use an Opta™ and Portenta Machine Control to learn h
 ### Software Requirements
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
-- [The memory partitioning sketch and the certificate file](assets/memory_partitioning.zip)
 
 ## Memory Partitioning
 
@@ -66,263 +65,70 @@ For the *Portenta Machine Control*, in the __Boards Manager__ tab, search for `p
 
 We are now ready to compile and upload Arduino sketches to an Opta™ or a Portenta Machine Control using the Arduino IDE. 
 
-***Memory partitioning of an Opta™ or a Portenta Machine Control should use the latest core and libraries to ensure the system is up-to-date with the intended default configuration.***
+***Memory partitioning of an Opta™ or a Portenta Machine Control should use the __latest core__ and __libraries__ to ensure the system is up-to-date with the intended default configuration.***
 
 ## Partitioning the Memory of an Opta™
 
-To partition the memory of an Opta™, you need an Arduino sketch that includes memory partition operations and a certificate file. These files can be downloaded directly from the [Software Requirements section](#software-requirements) or [here](assets/memory_partitioning.zip). Ensure both files are stored in the same directory, as shown in the following layout:
+To partition the memory of an Opta™ device, you need an Arduino sketch that includes memory partition operations and a certificate file. The required sketch is called **QSPIFormat** and can be found in the Arduino IDE by navigating to **File > Examples > STM32H747_System**. The necessary files are organized in the following directory structure:
 
 ```
-memory_partitioning
+QSPIFormat
 ├── certificates.h
-└── memory_partitioning.ino
+└── QSPIFormat.ino
 ```
 
-***The complete sketch and the certificate files can be downloaded [__here__](assets/memory_partitioning.zip). __Please store both files in the same directory__.***
+***If you cannot find the __QSPIFormat__ sketch in your board's examples, please make sure you have installed the __latest Arduino Mbed OS Opta Boards core (version 4.3.1 or higher)__.***
 
 The sketch below shows the memory partition process to be applied for Opta™.
 
 ```arduino
-// Include necessary libraries for working
-#include <BlockDevice.h>
-#include <FATFileSystem.h>
-#include <LittleFileSystem.h>
-#include <MBRBlockDevice.h>
+#include "BlockDevice.h"
+#include "MBRBlockDevice.h"
+#include "LittleFileSystem.h"
+#include "FATFileSystem.h"
 #include "wiced_resource.h"
 #include "certificates.h"
 
-// Ensure that the M7 core is being used instead of the M4 core
 #ifndef CORE_CM7
-#error Update the WiFi firmware by uploading the sketch to the M7 core instead of the M4 core.
+  #error Format QSPI flash by uploading the sketch to the M7 core instead of the M4 core.
 #endif
 
 using namespace mbed;
 
-// Create instances of block devices and filesystems for the QSPI Flash memory
-BlockDevice* root;
-MBRBlockDevice* wifi_data;
-MBRBlockDevice* ota_data;
+BlockDevice* root = BlockDevice::get_default_instance();
+MBRBlockDevice wifi_data(root, 1);
+MBRBlockDevice ota_data(root, 2);
+MBRBlockDevice kvstore_data(root, 3);
+MBRBlockDevice user_data(root, 4);
 FATFileSystem wifi_data_fs("wlan");
 FATFileSystem ota_data_fs("fs");
+FileSystem * user_data_fs;
 
-void setup() {
-  // Set the built-in LED pin as an output and turn it off
-  pinMode(LED_BUILTIN, OUTPUT);
-  digitalWrite(LED_BUILTIN, LOW);
-
-  // Initialize serial communication and wait up to 2.5 seconds for a connection
-  Serial.begin(115200);
-  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500))
-    ;
-
-  // Blink the built-in LED 10 times as a visual indicator that the process is starting
-  for (auto i = 0u; i < 10; i++) {
-    digitalWrite(LED_BUILTIN, HIGH);
-    delay(25);
-    digitalWrite(LED_BUILTIN, LOW);
-    delay(50);
-  }
-
-  // Initialize and erase the QSPI flash memory.
-  Serial.println("Erasing the QSPIF");
-  root = BlockDevice::get_default_instance();
-  auto err = root->init();
-  if (err != 0) {
-    Serial.print("Error Initializing the QSPIF: ");
-    Serial.println(err);
-    while (true) {
-      digitalWrite(LED_BUILTIN, HIGH);
-      delay(50);
-      digitalWrite(LED_BUILTIN, LOW);
-      delay(150);
-    }
-  }
-
-  // Create partitions for Wi-Fi firmware, OTA updates, and certificate storage
-  // Get device geometry.
-  const auto erase_size = root->get_erase_size();
-  const auto size = root->size();
-  const auto eraseSectors = size / erase_size;
-
-  for (auto i = 0u; i < eraseSectors; i++) {
-    err = root->erase(i * erase_size, erase_size);
-    if (i % 64 == 0) {
-      digitalWrite(LED_BUILTIN, HIGH);
-      delay(25);
-      digitalWrite(LED_BUILTIN, LOW);
-    }
-    if (err != 0) {
-      Serial.print("Error erasing sector ");
-      Serial.println(i);
-      Serial.print(" [");
-      Serial.print(i * erase_size);
-      Serial.print(" - ");
-      Serial.print(float{ i } / float{ eraseSectors } * 100);
-      Serial.print("%] -> ");
-      Serial.print(err ? "KO" : "OK");
-      Serial.println();
-      for (auto i = 0u; i < 2; i++) {
-        digitalWrite(LED_BUILTIN, HIGH);
-        delay(50);
-        digitalWrite(LED_BUILTIN, LOW);
-        delay(150);
+bool waitResponse() {
+  bool confirmation = false;
+  bool proceed = false;
+  while (confirmation == false) {
+    if (Serial.available()) {
+      char choice = Serial.read();
+      switch (choice) {
+        case 'y':
+        case 'Y':
+          confirmation = true;
+          proceed = true;
+          break;
+        case 'n':
+        case 'N':
+          confirmation = true;
+          proceed = false;
+          break;
+        default:
+          continue;
       }
     }
   }
-
-  Serial.println("Done");
-  for (auto i = 0u; i < 5; i++) {
-    digitalWrite(LED_BUILTIN, HIGH);
-    delay(25);
-    digitalWrite(LED_BUILTIN, LOW);
-    delay(50);
-  }
-
-  // Format the partitions and create filesystem instances
-  // WiFi Firmware and TLS TA certificates: 1 MB
-  // Arduino OTA: 13 MB
-  MBRBlockDevice::partition(root, 1, 0x0B, 0 * 1024 * 1024, 1 * 1024 * 1024);
-  MBRBlockDevice::partition(root, 3, 0x0B, 14 * 1024 * 1024, 14 * 1024 * 1024);
-  MBRBlockDevice::partition(root, 2, 0x0B, 1024 * 1024, 14 * 1024 * 1024);
-
-  // Create the filesystem references
-  wifi_data = new MBRBlockDevice(root, 1);
-  ota_data = new MBRBlockDevice(root, 2);
-
-  // Write Wi-Fi firmware and certificate data to the appropriate partitions
-  Serial.print("Formatting WiFi partition... ");
-  err = wifi_data_fs.reformat(wifi_data);
-  if (err != 0) {
-    Serial.println("Error formatting WiFi partition");
-    while (true) {
-      digitalWrite(LED_BUILTIN, HIGH);
-      delay(50);
-      digitalWrite(LED_BUILTIN, LOW);
-      delay(150);
-    }
-  }
-
-  Serial.println("done.");
-  Serial.print("Formatting OTA partition...");
-  err = ota_data_fs.reformat(ota_data);
-  if (err != 0) {
-    Serial.println("Error formatting OTA partition");
-    while (true) {
-      digitalWrite(LED_BUILTIN, HIGH);
-      delay(50);
-      digitalWrite(LED_BUILTIN, LOW);
-      delay(150);
-    }
-  }
-
-  Serial.println("done.");
-  for (auto i = 0u; i < 10; i++) {
-    digitalWrite(LED_BUILTIN, HIGH);
-    delay(25);
-    digitalWrite(LED_BUILTIN, LOW);
-    delay(50);
-  }
-
-  Serial.println("QSPI Flash Storage Ready.");
-
-  // Flash the memory-mapped Wi-Fi firmware and certificates
-  extern const unsigned char wifi_firmware_image_data[];
-  extern const resource_hnd_t wifi_firmware_image;
-  FILE* fp = fopen("/wlan/4343WA1.BIN", "wb");
-  const int file_size = 421098;
-  int chunck_size = 1024;
-  int byte_count = 0;
-
-  Serial.println("Flashing /wlan/4343WA1.BIN file");
-  printProgress(byte_count, file_size, 10, true);
-  while (byte_count < file_size) {
-    if (byte_count + chunck_size > file_size)
-      chunck_size = file_size - byte_count;
-    int ret = fwrite(&wifi_firmware_image_data[byte_count], chunck_size, 1, fp);
-    if (ret != 1) {
-      Serial.println("Error writing firmware data");
-      break;
-    }
-    byte_count += chunck_size;
-    printProgress(byte_count, file_size, 10, false);
-  }
-  fclose(fp);
-
-  chunck_size = 1024;
-  byte_count = 0;
-  const uint32_t offset = 15 * 1024 * 1024 + 1024 * 512;
-
-  Serial.println("Flashing memory mapped firmware");
-  printProgress(byte_count, file_size, 10, true);
-  while (byte_count < file_size) {
-    if (byte_count + chunck_size > file_size)
-      chunck_size = file_size - byte_count;
-    int ret = root->program(wifi_firmware_image_data, offset + byte_count, chunck_size);
-    if (ret != 0) {
-      Serial.println("Error writing firmware data");
-      break;
-    }
-    byte_count += chunck_size;
-    printProgress(byte_count, file_size, 10, false);
-  }
-
-  chunck_size = 128;
-  byte_count = 0;
-  fp = fopen("/wlan/cacert.pem", "wb");
-
-  Serial.println("Flashing certificates");
-  printProgress(byte_count, cacert_pem_len, 10, true);
-  while (byte_count < cacert_pem_len) {
-    if (byte_count + chunck_size > cacert_pem_len)
-      chunck_size = cacert_pem_len - byte_count;
-    int ret = fwrite(&cacert_pem[byte_count], chunck_size, 1, fp);
-    if (ret != 1) {
-      Serial.println("Error writing certificates");
-      break;
-    }
-    byte_count += chunck_size;
-    printProgress(byte_count, cacert_pem_len, 10, false);
-  }
-  fclose(fp);
-
-  fp = fopen("/wlan/cacert.pem", "rb");
-  char buffer[128];
-  int ret = fread(buffer, 1, 128, fp);
-  Serial.write(buffer, ret);
-  while (ret == 128) {
-    ret = fread(buffer, 1, 128, fp);
-    Serial.write(buffer, ret);
-  }
-  fclose(fp);
-
-  Serial.println("\nFirmware and certificates updated!");
-  Serial.println("It's now safe to reboot or disconnect your board.");
+  return proceed;
 }
 
-void loop() {
-  // Empty loop function, main task is performed in the setup function
-}
-
-/**
-  Get the size of a file
-  
-  @param bootloader fp (FP)
-  @return files size
-*/
-long getFileSize(FILE* fp) {
-  fseek(fp, 0, SEEK_END);
-  int size = ftell(fp);
-  fseek(fp, 0, SEEK_SET);
-
-  return size;
-}
-
-/**
-  Display the progress of the flashing process
-  
-  @params offset (uint32_t), size (uint32_t), threshold (uint32_t) and reset (bool)
-  @return none
-*/
 void printProgress(uint32_t offset, uint32_t size, uint32_t threshold, bool reset) {
   static int percent_done = 0;
   if (reset == true) {
@@ -336,6 +142,180 @@ void printProgress(uint32_t offset, uint32_t size, uint32_t threshold, bool rese
     }
   }
 }
+
+void setup() {
+
+  Serial.begin(115200);
+  while (!Serial);
+
+  Serial.println("\nWARNING! Running the sketch all the content of the QSPI flash will be erased.");
+  Serial.println("The following partitions will be created:");
+  Serial.println("Partition 1: WiFi firmware and certificates 1MB");
+  Serial.println("Partition 2: OTA 5MB");
+  Serial.println("Partition 3: Provisioning KVStore 1MB");
+  Serial.println("Partition 4: User data / OPTA PLC runtime 7MB"),
+  Serial.println("Do you want to proceed? Y/[n]");
+
+  if (true == waitResponse()) {
+    if (root->init() != BD_ERROR_OK) {
+      Serial.println(F("Error: QSPI init failure."));
+      return;
+    }
+
+    Serial.println("Do you want to perform a full erase of the QSPI flash before proceeding? Y/[n]");
+    Serial.println("Note: Full flash erase can take up to one minute.");
+    bool fullErase = waitResponse();
+    if (fullErase == true) {
+      Serial.println("Full erase started, please wait...");
+      root->erase(0x0, root->size());
+      Serial.println("Full erase completed.");
+    } else {
+      // Erase only the first sector containing the MBR
+      root->erase(0x0, root->get_erase_size());
+    }
+
+    MBRBlockDevice::partition(root, 1, 0x0B, 0, 1 * 1024 * 1024);
+    MBRBlockDevice::partition(root, 2, 0x0B, 1 * 1024 * 1024,  6 * 1024 * 1024);
+    MBRBlockDevice::partition(root, 3, 0x0B, 6 * 1024 * 1024,  7 * 1024 * 1024);
+    MBRBlockDevice::partition(root, 4, 0x0B, 7 * 1024 * 1024, 14 * 1024 * 1024);
+    // use space from 15.5MB to 16 MB for another fw, memory mapped
+
+    bool reformat = true;
+    if (!wifi_data_fs.mount(&wifi_data)) {
+      Serial.println("\nPartition 1 already contains a filesystem, do you want to reformat it? Y/[n]");
+      wifi_data_fs.unmount();
+
+      reformat = waitResponse();
+    }
+
+    if (reformat && wifi_data_fs.reformat(&wifi_data)) {
+      Serial.println("Error formatting WiFi partition");
+      return;
+    }
+
+    bool restore = true;
+    if (reformat || fullErase) {
+      Serial.println("\nDo you want to restore the WiFi firmware and certificates? Y/[n]");
+      restore = waitResponse();
+    }
+
+    if (reformat && restore) {
+      flashWiFiFirmwareAndCertificates();
+    }
+
+    if (fullErase && restore) {
+      flashWiFiFirmwareMapped();
+    }
+
+    reformat = true;
+    if (!ota_data_fs.mount(&ota_data)) {
+      Serial.println("\nPartition 2 already contains a filesystem, do you want to reformat it? Y/[n]");
+      ota_data_fs.unmount();
+
+      reformat = waitResponse();
+    }
+
+    if (reformat && ota_data_fs.reformat(&ota_data)) {
+      Serial.println("Error formatting OTA partition");
+      return;
+    }
+
+    Serial.println("\nDo you want to use LittleFS to format user data partition? Y/[n]");
+    Serial.println("If No, FatFS will be used to format user partition.");
+    Serial.println("Note: LittleFS is not supported by the OPTA PLC runtime.");
+    if (true == waitResponse()) {
+      Serial.println("Formatting user partition with LittleFS.");
+      user_data_fs = new mbed::LittleFileSystem("user");
+    } else {
+      Serial.println("Formatting user partition with FatFS.");
+      user_data_fs = new mbed::FATFileSystem("user");
+    }
+
+    reformat = true;
+    if (!user_data_fs->mount(&user_data)) {
+      Serial.println("\nPartition 4 already contains a filesystem, do you want to reformat it? Y/[n]");
+      user_data_fs->unmount();
+
+      reformat = waitResponse();
+    }
+
+    if (reformat && user_data_fs->reformat(&user_data)) {
+      Serial.println("Error formatting user partition");
+      return;
+    }
+
+    Serial.println("\nQSPI Flash formatted!");
+  }
+
+  Serial.println("It's now safe to reboot or disconnect your board.");
+}
+
+const uint32_t file_size = 421098;
+extern const unsigned char wifi_firmware_image_data[];
+
+void flashWiFiFirmwareAndCertificates() {
+  FILE* fp = fopen("/wlan/4343WA1.BIN", "wb");
+  uint32_t chunck_size = 1024;
+  uint32_t byte_count = 0;
+
+  Serial.println("Flashing WiFi firmware");
+  printProgress(byte_count, file_size, 10, true);
+  while (byte_count < file_size) {
+    if(byte_count + chunck_size > file_size)
+      chunck_size = file_size - byte_count;
+    int ret = fwrite(&wifi_firmware_image_data[byte_count], chunck_size, 1, fp);
+    if (ret != 1) {
+      Serial.println("Error writing firmware data");
+      break;
+    }
+    byte_count += chunck_size;
+    printProgress(byte_count, file_size, 10, false);
+  }
+  fclose(fp);
+
+  fp = fopen("/wlan/cacert.pem", "wb");
+
+  Serial.println("Flashing certificates");
+  chunck_size = 128;
+  byte_count = 0;
+  printProgress(byte_count, cacert_pem_len, 10, true);
+  while (byte_count < cacert_pem_len) {
+    if(byte_count + chunck_size > cacert_pem_len)
+      chunck_size = cacert_pem_len - byte_count;
+    int ret = fwrite(&cacert_pem[byte_count], chunck_size, 1 ,fp);
+    if (ret != 1) {
+      Serial.println("Error writing certificates");
+      break;
+    }
+    byte_count += chunck_size;
+    printProgress(byte_count, cacert_pem_len, 10, false);
+  }
+  fclose(fp);
+}
+
+void flashWiFiFirmwareMapped() {
+  uint32_t chunck_size = 1024;
+  uint32_t byte_count = 0;
+  const uint32_t offset = 15 * 1024 * 1024 + 1024 * 512;
+
+  Serial.println("Flashing memory mapped WiFi firmware");
+  printProgress(byte_count, file_size, 10, true);
+  while (byte_count < file_size) {
+    if (byte_count + chunck_size > file_size)
+      chunck_size = file_size - byte_count;
+    int ret = root->program(wifi_firmware_image_data, offset + byte_count, chunck_size);
+    if (ret != 0) {
+      Serial.println("Error writing memory mapped firmware");
+      break;
+    }
+    byte_count += chunck_size;
+    printProgress(byte_count, file_size, 10, false);
+  }
+}
+
+void loop() {
+
+}
 ```
 
 ***If you encounter an error while in the compilation process, __please remember to have both script and certificate files in the same folder__. The certificate file is crucial for the memory partitioning process. The complete sketch and the certificate files can be downloaded [__here__](assets/memory_partitioning.zip).***
@@ -344,9 +324,17 @@ The sketch shown above performs four main tasks:
 
 1. **Initialize and erase the QSPI Flash memory**: The sketch initializes the QSPI Flash memory of the Opta™ and erases its content to prepare the memory for new firmware and data. One of the built-in LEDs of the device is used to indicate the progress of the memory-erasing process.
 
-2. **Create partitions and format them in the QSPI Flash memory**: The sketch creates and formats partitions in the QSPI Flash memory for the Wi-Fi firmware, Over-The-Air (OTA) updates functionality and certificates storage.
+2. **Create partitions and format them in the QSPI Flash memory**: The sketch creates four partitions in the QSPI Flash memory:
+- Partition 1: WiFi firmware and certificates (1MB)
+- Partition 2: OTA (5MB)
+- Partition 3: Provisioning KVStore (1MB)
+- Partition 4: User data / OPTA PLC runtime (7MB)
 
 3. **Write Wi-Fi firmware and certificate data**: The sketch writes the Wi-Fi firmware and certificate data to the appropriate partitions in the QSPI Flash memory and flashes the memory-mapped Wi-Fi firmware and certificates.
+
+4. **Format the user data partition:** The sketch prompts you to choose between **LittleFS** or **FatFS** for formatting the user data partition. When planning to use the Opta™ with the PLC IDE, you should select **"n" (No)** when prompted with user data partition format to use. This will use *FatFS* instead, which is required for proper compatibility with the PLC runtime.
+
+***As indicated in the sketch output, __LittleFS__ is not supported by the OPTA PLC runtime.***
 
 4. **Display progress in the Arduino IDE Serial Monitor**: The sketch provides a visual indication of the progress of the flashing process using one of the built-in LEDs of the Opta™ and displays messages through the Arduino IDE Serial Monitor to inform the user about the current status of the flashing process.
 
@@ -358,265 +346,74 @@ After a while, you should see information on the progress of the flashing proces
 
 ![Memory partitioning results of the Opta™ as shown in the Arduino IDE's Serial Monitor](assets/arduino-ide-3.png)
 
-If everything went as intended, you should see a success message in the Serial Monitor. Now, we are ready to start using the full capabilities of the Opta™ with the Arduino IDE.
+If everything went as intended, you should see a brief success message in the Serial Monitor. Now, we are ready to start using the full capabilities of the Opta™ with the Arduino IDE. The following clip shows briefly what to expect of complete memory partitioning process:
+
+![Memory partitioning process of the Opta™](assets/qspi_format_memPartitioning.gif)
 
 ## Partitioning the Memory of a Portenta Machine Control
 
 **The memory partitioning process for the Portenta Machine Control follows the same procedure as the Opta™.** You will need the latest `Arduino Mbed OS Portenta Boards` core version. If you do not have the latest version, please refer to the [Setting Up the Arduino IDE](#setting-up-the-arduino-ide) section before proceeding.
 
-You will need an Arduino sketch with memory partition operations and a certificate file. These files can be downloaded from the [Software Requirements section](#software-requirements) or directly [here](assets/memory_partitioning.zip). Ensure both files are stored in the same directory, as shown below:
+You will need an Arduino sketch with memory partition operations and a certificate file. The required sketch is called **QSPIFormat** and can be found in the Arduino IDE by navigating to **File > Examples > STM32H747_System**. The necessary files are organized in the following directory structure:
 
 ```
-memory_partitioning
+QSPIFormat
 ├── certificates.h
-└── memory_partitioning.ino
+└── QSPIFormat.ino
 ```
 
-***The complete sketch and the certificate files can be downloaded [__here__](assets/memory_partitioning.zip). __Please store both files in the same directory__.***
+***If you cannot find the __QSPIFormat__ sketch in your board's examples, please make sure you have installed the __latest Arduino Mbed OS Portenta Boards core (version 4.3.1 or higher)__.***
 
 Compile and upload the following code to partition the memory of a Portenta Machine Control:
 
 ```arduino
-// Include necessary libraries for working
-#include <BlockDevice.h>
-#include <FATFileSystem.h>
-#include <LittleFileSystem.h>
-#include <MBRBlockDevice.h>
+#include "BlockDevice.h"
+#include "MBRBlockDevice.h"
+#include "LittleFileSystem.h"
+#include "FATFileSystem.h"
 #include "wiced_resource.h"
 #include "certificates.h"
 
-// Ensure that the M7 core is being used instead of the M4 core
 #ifndef CORE_CM7
-#error Update the WiFi firmware by uploading the sketch to the M7 core instead of the M4 core.
+  #error Format QSPI flash by uploading the sketch to the M7 core instead of the M4 core.
 #endif
 
 using namespace mbed;
 
-// Create instances of block devices and filesystems for the QSPI Flash memory
-BlockDevice* root;
-MBRBlockDevice* wifi_data;
-MBRBlockDevice* ota_data;
+BlockDevice* root = BlockDevice::get_default_instance();
+MBRBlockDevice wifi_data(root, 1);
+MBRBlockDevice ota_data(root, 2);
+MBRBlockDevice kvstore_data(root, 3);
+MBRBlockDevice user_data(root, 4);
 FATFileSystem wifi_data_fs("wlan");
 FATFileSystem ota_data_fs("fs");
+FileSystem * user_data_fs;
 
-void setup() {
-  // Set the built-in LED pin as an output and turn it off
-  pinMode(LED_BUILTIN, OUTPUT);
-  digitalWrite(LED_BUILTIN, LOW);
-
-  // Initialize serial communication and wait up to 2.5 seconds for a connection
-  Serial.begin(115200);
-  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500))
-    ;
-
-  // Blink the built-in LED 10 times as a visual indicator that the process is starting
-  for (auto i = 0u; i < 10; i++) {
-    digitalWrite(LED_BUILTIN, HIGH);
-    delay(25);
-    digitalWrite(LED_BUILTIN, LOW);
-    delay(50);
-  }
-
-  // Initialize and erase the QSPI flash memory.
-  Serial.println("Erasing the QSPIF");
-  root = BlockDevice::get_default_instance();
-  auto err = root->init();
-  if (err != 0) {
-    Serial.print("Error Initializing the QSPIF: ");
-    Serial.println(err);
-    while (true) {
-      digitalWrite(LED_BUILTIN, HIGH);
-      delay(50);
-      digitalWrite(LED_BUILTIN, LOW);
-      delay(150);
-    }
-  }
-
-  // Create partitions for Wi-Fi firmware, OTA updates, and certificate storage
-  // Get device geometry.
-  const auto erase_size = root->get_erase_size();
-  const auto size = root->size();
-  const auto eraseSectors = size / erase_size;
-
-  for (auto i = 0u; i < eraseSectors; i++) {
-    err = root->erase(i * erase_size, erase_size);
-    if (i % 64 == 0) {
-      digitalWrite(LED_BUILTIN, HIGH);
-      delay(25);
-      digitalWrite(LED_BUILTIN, LOW);
-    }
-    if (err != 0) {
-      Serial.print("Error erasing sector ");
-      Serial.println(i);
-      Serial.print(" [");
-      Serial.print(i * erase_size);
-      Serial.print(" - ");
-      Serial.print(float{ i } / float{ eraseSectors } * 100);
-      Serial.print("%] -> ");
-      Serial.print(err ? "KO" : "OK");
-      Serial.println();
-      for (auto i = 0u; i < 2; i++) {
-        digitalWrite(LED_BUILTIN, HIGH);
-        delay(50);
-        digitalWrite(LED_BUILTIN, LOW);
-        delay(150);
+bool waitResponse() {
+  bool confirmation = false;
+  bool proceed = false;
+  while (confirmation == false) {
+    if (Serial.available()) {
+      char choice = Serial.read();
+      switch (choice) {
+        case 'y':
+        case 'Y':
+          confirmation = true;
+          proceed = true;
+          break;
+        case 'n':
+        case 'N':
+          confirmation = true;
+          proceed = false;
+          break;
+        default:
+          continue;
       }
     }
   }
-
-  Serial.println("Done");
-  for (auto i = 0u; i < 5; i++) {
-    digitalWrite(LED_BUILTIN, HIGH);
-    delay(25);
-    digitalWrite(LED_BUILTIN, LOW);
-    delay(50);
-  }
-
-  // Format the partitions and create filesystem instances
-  // WiFi Firmware and TLS TA certificates: 1 MB
-  // Arduino OTA: 13 MB
-  MBRBlockDevice::partition(root, 1, 0x0B, 0 * 1024 * 1024, 1 * 1024 * 1024);
-  MBRBlockDevice::partition(root, 3, 0x0B, 14 * 1024 * 1024, 14 * 1024 * 1024);
-  MBRBlockDevice::partition(root, 2, 0x0B, 1024 * 1024, 14 * 1024 * 1024);
-
-  // Create the filesystem references
-  wifi_data = new MBRBlockDevice(root, 1);
-  ota_data = new MBRBlockDevice(root, 2);
-
-  // Write Wi-Fi firmware and certificate data to the appropriate partitions
-  Serial.print("Formatting WiFi partition... ");
-  err = wifi_data_fs.reformat(wifi_data);
-  if (err != 0) {
-    Serial.println("Error formatting WiFi partition");
-    while (true) {
-      digitalWrite(LED_BUILTIN, HIGH);
-      delay(50);
-      digitalWrite(LED_BUILTIN, LOW);
-      delay(150);
-    }
-  }
-
-  Serial.println("done.");
-  Serial.print("Formatting OTA partition...");
-  err = ota_data_fs.reformat(ota_data);
-  if (err != 0) {
-    Serial.println("Error formatting OTA partition");
-    while (true) {
-      digitalWrite(LED_BUILTIN, HIGH);
-      delay(50);
-      digitalWrite(LED_BUILTIN, LOW);
-      delay(150);
-    }
-  }
-
-  Serial.println("done.");
-  for (auto i = 0u; i < 10; i++) {
-    digitalWrite(LED_BUILTIN, HIGH);
-    delay(25);
-    digitalWrite(LED_BUILTIN, LOW);
-    delay(50);
-  }
-
-  Serial.println("QSPI Flash Storage Ready.");
-
-  // Flash the memory-mapped Wi-Fi firmware and certificates
-  extern const unsigned char wifi_firmware_image_data[];
-  extern const resource_hnd_t wifi_firmware_image;
-  FILE* fp = fopen("/wlan/4343WA1.BIN", "wb");
-  const int file_size = 421098;
-  int chunck_size = 1024;
-  int byte_count = 0;
-
-  Serial.println("Flashing /wlan/4343WA1.BIN file");
-  printProgress(byte_count, file_size, 10, true);
-  while (byte_count < file_size) {
-    if (byte_count + chunck_size > file_size)
-      chunck_size = file_size - byte_count;
-    int ret = fwrite(&wifi_firmware_image_data[byte_count], chunck_size, 1, fp);
-    if (ret != 1) {
-      Serial.println("Error writing firmware data");
-      break;
-    }
-    byte_count += chunck_size;
-    printProgress(byte_count, file_size, 10, false);
-  }
-  fclose(fp);
-
-  chunck_size = 1024;
-  byte_count = 0;
-  const uint32_t offset = 15 * 1024 * 1024 + 1024 * 512;
-
-  Serial.println("Flashing memory mapped firmware");
-  printProgress(byte_count, file_size, 10, true);
-  while (byte_count < file_size) {
-    if (byte_count + chunck_size > file_size)
-      chunck_size = file_size - byte_count;
-    int ret = root->program(wifi_firmware_image_data, offset + byte_count, chunck_size);
-    if (ret != 0) {
-      Serial.println("Error writing firmware data");
-      break;
-    }
-    byte_count += chunck_size;
-    printProgress(byte_count, file_size, 10, false);
-  }
-
-  chunck_size = 128;
-  byte_count = 0;
-  fp = fopen("/wlan/cacert.pem", "wb");
-
-  Serial.println("Flashing certificates");
-  printProgress(byte_count, cacert_pem_len, 10, true);
-  while (byte_count < cacert_pem_len) {
-    if (byte_count + chunck_size > cacert_pem_len)
-      chunck_size = cacert_pem_len - byte_count;
-    int ret = fwrite(&cacert_pem[byte_count], chunck_size, 1, fp);
-    if (ret != 1) {
-      Serial.println("Error writing certificates");
-      break;
-    }
-    byte_count += chunck_size;
-    printProgress(byte_count, cacert_pem_len, 10, false);
-  }
-  fclose(fp);
-
-  fp = fopen("/wlan/cacert.pem", "rb");
-  char buffer[128];
-  int ret = fread(buffer, 1, 128, fp);
-  Serial.write(buffer, ret);
-  while (ret == 128) {
-    ret = fread(buffer, 1, 128, fp);
-    Serial.write(buffer, ret);
-  }
-  fclose(fp);
-
-  Serial.println("\nFirmware and certificates updated!");
-  Serial.println("It's now safe to reboot or disconnect your board.");
+  return proceed;
 }
 
-void loop() {
-  // Empty loop function, main task is performed in the setup function
-}
-
-/**
-  Get the size of a file
-  
-  @param bootloader fp (FP)
-  @return files size
-*/
-long getFileSize(FILE* fp) {
-  fseek(fp, 0, SEEK_END);
-  int size = ftell(fp);
-  fseek(fp, 0, SEEK_SET);
-
-  return size;
-}
-
-/**
-  Display the progress of the flashing process
-  
-  @params offset (uint32_t), size (uint32_t), threshold (uint32_t) and reset (bool)
-  @return none
-*/
 void printProgress(uint32_t offset, uint32_t size, uint32_t threshold, bool reset) {
   static int percent_done = 0;
   if (reset == true) {
@@ -629,6 +426,180 @@ void printProgress(uint32_t offset, uint32_t size, uint32_t threshold, bool rese
       Serial.println("Flashed " + String(percent_done) + "%");
     }
   }
+}
+
+void setup() {
+
+  Serial.begin(115200);
+  while (!Serial);
+
+  Serial.println("\nWARNING! Running the sketch all the content of the QSPI flash will be erased.");
+  Serial.println("The following partitions will be created:");
+  Serial.println("Partition 1: WiFi firmware and certificates 1MB");
+  Serial.println("Partition 2: OTA 5MB");
+  Serial.println("Partition 3: Provisioning KVStore 1MB");
+  Serial.println("Partition 4: User data / OPTA PLC runtime 7MB"),
+  Serial.println("Do you want to proceed? Y/[n]");
+
+  if (true == waitResponse()) {
+    if (root->init() != BD_ERROR_OK) {
+      Serial.println(F("Error: QSPI init failure."));
+      return;
+    }
+
+    Serial.println("Do you want to perform a full erase of the QSPI flash before proceeding? Y/[n]");
+    Serial.println("Note: Full flash erase can take up to one minute.");
+    bool fullErase = waitResponse();
+    if (fullErase == true) {
+      Serial.println("Full erase started, please wait...");
+      root->erase(0x0, root->size());
+      Serial.println("Full erase completed.");
+    } else {
+      // Erase only the first sector containing the MBR
+      root->erase(0x0, root->get_erase_size());
+    }
+
+    MBRBlockDevice::partition(root, 1, 0x0B, 0, 1 * 1024 * 1024);
+    MBRBlockDevice::partition(root, 2, 0x0B, 1 * 1024 * 1024,  6 * 1024 * 1024);
+    MBRBlockDevice::partition(root, 3, 0x0B, 6 * 1024 * 1024,  7 * 1024 * 1024);
+    MBRBlockDevice::partition(root, 4, 0x0B, 7 * 1024 * 1024, 14 * 1024 * 1024);
+    // use space from 15.5MB to 16 MB for another fw, memory mapped
+
+    bool reformat = true;
+    if (!wifi_data_fs.mount(&wifi_data)) {
+      Serial.println("\nPartition 1 already contains a filesystem, do you want to reformat it? Y/[n]");
+      wifi_data_fs.unmount();
+
+      reformat = waitResponse();
+    }
+
+    if (reformat && wifi_data_fs.reformat(&wifi_data)) {
+      Serial.println("Error formatting WiFi partition");
+      return;
+    }
+
+    bool restore = true;
+    if (reformat || fullErase) {
+      Serial.println("\nDo you want to restore the WiFi firmware and certificates? Y/[n]");
+      restore = waitResponse();
+    }
+
+    if (reformat && restore) {
+      flashWiFiFirmwareAndCertificates();
+    }
+
+    if (fullErase && restore) {
+      flashWiFiFirmwareMapped();
+    }
+
+    reformat = true;
+    if (!ota_data_fs.mount(&ota_data)) {
+      Serial.println("\nPartition 2 already contains a filesystem, do you want to reformat it? Y/[n]");
+      ota_data_fs.unmount();
+
+      reformat = waitResponse();
+    }
+
+    if (reformat && ota_data_fs.reformat(&ota_data)) {
+      Serial.println("Error formatting OTA partition");
+      return;
+    }
+
+    Serial.println("\nDo you want to use LittleFS to format user data partition? Y/[n]");
+    Serial.println("If No, FatFS will be used to format user partition.");
+    Serial.println("Note: LittleFS is not supported by the OPTA PLC runtime.");
+    if (true == waitResponse()) {
+      Serial.println("Formatting user partition with LittleFS.");
+      user_data_fs = new mbed::LittleFileSystem("user");
+    } else {
+      Serial.println("Formatting user partition with FatFS.");
+      user_data_fs = new mbed::FATFileSystem("user");
+    }
+
+    reformat = true;
+    if (!user_data_fs->mount(&user_data)) {
+      Serial.println("\nPartition 4 already contains a filesystem, do you want to reformat it? Y/[n]");
+      user_data_fs->unmount();
+
+      reformat = waitResponse();
+    }
+
+    if (reformat && user_data_fs->reformat(&user_data)) {
+      Serial.println("Error formatting user partition");
+      return;
+    }
+
+    Serial.println("\nQSPI Flash formatted!");
+  }
+
+  Serial.println("It's now safe to reboot or disconnect your board.");
+}
+
+const uint32_t file_size = 421098;
+extern const unsigned char wifi_firmware_image_data[];
+
+void flashWiFiFirmwareAndCertificates() {
+  FILE* fp = fopen("/wlan/4343WA1.BIN", "wb");
+  uint32_t chunck_size = 1024;
+  uint32_t byte_count = 0;
+
+  Serial.println("Flashing WiFi firmware");
+  printProgress(byte_count, file_size, 10, true);
+  while (byte_count < file_size) {
+    if(byte_count + chunck_size > file_size)
+      chunck_size = file_size - byte_count;
+    int ret = fwrite(&wifi_firmware_image_data[byte_count], chunck_size, 1, fp);
+    if (ret != 1) {
+      Serial.println("Error writing firmware data");
+      break;
+    }
+    byte_count += chunck_size;
+    printProgress(byte_count, file_size, 10, false);
+  }
+  fclose(fp);
+
+  fp = fopen("/wlan/cacert.pem", "wb");
+
+  Serial.println("Flashing certificates");
+  chunck_size = 128;
+  byte_count = 0;
+  printProgress(byte_count, cacert_pem_len, 10, true);
+  while (byte_count < cacert_pem_len) {
+    if(byte_count + chunck_size > cacert_pem_len)
+      chunck_size = cacert_pem_len - byte_count;
+    int ret = fwrite(&cacert_pem[byte_count], chunck_size, 1 ,fp);
+    if (ret != 1) {
+      Serial.println("Error writing certificates");
+      break;
+    }
+    byte_count += chunck_size;
+    printProgress(byte_count, cacert_pem_len, 10, false);
+  }
+  fclose(fp);
+}
+
+void flashWiFiFirmwareMapped() {
+  uint32_t chunck_size = 1024;
+  uint32_t byte_count = 0;
+  const uint32_t offset = 15 * 1024 * 1024 + 1024 * 512;
+
+  Serial.println("Flashing memory mapped WiFi firmware");
+  printProgress(byte_count, file_size, 10, true);
+  while (byte_count < file_size) {
+    if (byte_count + chunck_size > file_size)
+      chunck_size = file_size - byte_count;
+    int ret = root->program(wifi_firmware_image_data, offset + byte_count, chunck_size);
+    if (ret != 0) {
+      Serial.println("Error writing memory mapped firmware");
+      break;
+    }
+    byte_count += chunck_size;
+    printProgress(byte_count, file_size, 10, false);
+  }
+}
+
+void loop() {
+
 }
 ```
 
