@@ -6,6 +6,7 @@ primary_button_title: Get Started
 core: arduino:mbed_nano
 forumCategorySlug: '/hardware/nano-family/nano-33-ble/159'
 certifications: [CE, UKCA]
+productCode: '170'
 sku: [ABX00071, ABX00072]
 ---
 
