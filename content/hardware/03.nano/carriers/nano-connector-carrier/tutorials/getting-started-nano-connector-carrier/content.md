@@ -8,131 +8,131 @@ hardware:
   - hardware/03.nano/carriers/nano-connector-carrier
 ---
 
-The Arduino Connector Carrier is a versatile expansion board designed for the Arduino Nano form factor. It provides an easy way to interface your Arduino Nano with various sensors, modules, and storage options through industry-standard connectors. This carrier board eliminates the need for complex wiring and breadboarding, allowing you to focus on your project's functionality rather than connectivity challenges.
+The Nano Connector Carrier is a versatile expansion board designed for the Arduino Nano form factor. It provides an easy way to interface your Arduino Nano with various sensors, modules and storage options through industry-standard connectors. This carrier board eliminates the need for complex wiring and breadboarding, allowing you to focus on your project's functionality rather than connectivity challenges.
 
 ![The Nano Connector Carrier](assets/cover.gif)
 
 ## Compatibility
 
-The carrier is designed to work with all Arduino Nano form factor boards. Its standardized layout ensures compatibility with current and future Arduino Nano boards, giving you flexibility in your project development.
+The carrier is designed to work with all Arduino Nano form factor boards. Its standardized layout ensures compatibility with current and future Arduino Nano family boards, giving you flexibility in developing your current and future projects.
 
 ![Carrier With a Nano Board](assets/nano-formfactor.png)
 
 ## Features
 
-The Arduino Connector Carrier comes packed with useful features to enhance your Arduino Nano projects:
+The Nano Connector Carrier comes packed with the following key features to enhance your projects based on Nano family boards:
 
 ### Input Selector Switch
 
-To ensure compatibility and as some Arduino Nano boards can be [configured to a different Input voltage levels](https://docs.arduino.cc/tutorials/nano-esp32/cheat-sheet/#Input:~:text=otherwise%20be%20damaged.-,Input%20Voltage%20(VIN),-If%20you%27re%20using) the carrier includes a switch to select 3.3V or 5V voltage levels. The selector switch allows you to choose the appropriate input voltage selection for your specific Nano board.
+To ensure full compatibility with the Nano family boards, as some boards can be [configured to different input voltage levels](https://docs.arduino.cc/tutorials/nano-esp32/cheat-sheet/#Input:~:text=otherwise%20be%20damaged.-,Input%20Voltage%20(VIN),-If%20you%27re%20using) the carrier includes a switch to select +3.3 VDC or +5 VDC input voltage levels. The selector switch lets you choose the appropriate input voltage for your Nano board.
 
 ![Onboard Voltage Switch](assets/power-switch-01.gif)
 
-This flexibility ensures compatibility with a wide range of sensors and modules that operate at different voltage levels, eliminating the need for additional level shifters in most cases.
+This feature also ensures compatibility with a wide range of sensors and modules that operate at different voltage levels, eliminating the need for additional level shifters in most cases.
 
 ### Connectors
 
-The Carrier includes both QWIIC and Grove connectors for expanding the board capability with external sensors as well as MicroSD:
+The Nano Connector Carrier includes both QWIIC and Grove connectors for expanding the Nano board's capability with external sensors, as well as an onboard microSD card slot to expand the board's memory capabilities :
 ![Available Connectors](assets/connector-list.png)
 
 #### Qwiic Connector
 
-The carrier features a single Qwiic connector, allowing you to easily interface with Arduino Modulinos and other I²C-based sensors and modules.
+The Nano Connector Carrier features a single Qwiic connector, allowing you to easily interface with Arduino Modulinos and other Qwiic-based sensors and modules.
 
 ![QWIIC Connector](assets/qwiic-01.gif)
 
-The Qwiic connector uses a 4-pin JST SH connector with standardized pinout:
+The Qwiic connector uses a 4-pin JST SH connector (P/N: SM04B-SRSS-TB(LF)(SN)) with the following standardized pinout:
 
 | Pin | Connection                               |
 |-----|------------------------------------------|
 | GND | Ground                                   |
-| VCC | 3.3V/5V (selected by the voltage switch) |
-| SDA | I²C Data (connected to A4 on the Nano)   |
-| SCL | I²C Clock (connected to A5 on the Nano)  |
+| VCC | +3.3 VDC/ +5 VDC (selected by the input selector switch) |
+| SDA | I²C Data (connected to the A4 pin of the Nano board)   |
+| SCL | I²C Clock (connected to the A5 pin of the Nano board) |
 
-A single Qwiic connector is all you need since it's designed to be daisy-chainable, allowing you to connect multiple Modulinos or other Qwiic-compatible devices in series. This connector makes it plug-and-play simple to add sensors, displays, and other I²C devices to your project.
+A single Qwiic connector is all you need since it's designed to be daisy-chainable, allowing you to connect multiple Modulinos or other Qwiic-compatible devices in series. This connector makes it plug-and-play simple to add sensors, displays and other Qwicc-compatible devices to your project.
 
 #### Grove Connectors
 
-The board includes 4 Grove connectors, compatible with the extensive ecosystem of Grove modules.
+The Nano Connector Carrier also includes four Grove connectors, compatible with the extensive ecosystem of Grove modules.
 
 ![Grove Connector](assets/grove-01.gif)
 
-Each Grove connector has a specific pin configuration:
+The Grove connector uses a 4-pin DIP-2.0 mm connector (P/N: 114020164) with four different standardized pinouts:
 
 **Grove (J5) - Analog**
 
 | Pin | Connection                           |
 |-----|--------------------------------------|
 | GND | Ground                               |
-| VCC | 5V or 3.3V (based on voltage switch) |
-| A3  | Analog pin A3                        |
-| A2  | Analog pin A2                        |
+| VCC | +3.3 VDC/ +5 VDC (selected by the input selector switch) |
+| A3  | Analog pin A3 on the Nano board|
+| A2  | Analog pin A2 on the Nano board|
 
 **Grove (J7) - Analog**
 
 | Pin | Connection                           |
 |-----|--------------------------------------|
 | GND | Ground                               |
-| VCC | 5V or 3.3V (based on voltage switch) |
-| A1  | Analog pin A1                        |
-| A0  | Analog pin A0                        |
+| VCC | +3.3 VDC/ +5 VDC (selected by the input selector switch) |
+| A1  | Analog pin A1 on the Nano board|
+| A0  | Analog pin A0 on the Nano board|
 
 **Grove (J4) - SPI**
 
 | Pin  | Connection                           |
 |------|--------------------------------------|
 | GND  | Ground                               |
-| VCC  | 5V or 3.3V (based on voltage switch) |
-| MOSI | SPI MOSI (D11)                       |
-| MISO | SPI MISO (D12)                       |
+| VCC | +3.3 VDC/ +5 VDC (selected by the input selector switch) |
+| MOSI | SPI MOSI (D11 pin on the Nano board)|
+| MISO | SPI MISO (D12 pin on the Nano board)|
 
 **Grove (J6) - I²C**
 
 | Pin | Connection                           |
 |-----|--------------------------------------|
 | GND | Ground                               |
-| VCC | 5V or 3.3V (based on voltage switch) |
-| SDA | I²C Data (A4, shared with Qwiic)     |
-| SCL | I²C Clock (A5, shared with Qwiic)    |
+| VCC | +3.3 VDC/ +5 VDC (selected by the input selector switch) |
+| SDA | I²C Data (A4 pin on the Nano board, shared with the Qwiic connector) |
+| SCL | I²C Clock (A5 pin on the Nano board, shared with the Qwiic connector)|
 
-These standardized connectors eliminate the need for soldering or breadboarding and simplify connecting various sensors, actuators, and displays to your Arduino Nano.
+With the standardized pinouts mentioned, using Groove connectors eliminates the need for soldering or breadboarding and simplifies connecting various and different sensors, actuators and displays to your Nano family board.
 
 #### Micro SD Card Slot
 
-For projects requiring data logging or file storage, the carrier includes a Micro SD card slot.
+The Nano Connector Carrier includes an onboard microSD card slot for projects requiring data logging or file storage.
 
 ![MicroSD Card Slot](assets/sd-card-01.gif)
 
-The Micro SD card connects to the Arduino Nano through the SPI interface:
+The microSD card slot is connected to the Nano family board through the SPI interface as follows:
 
 | SPI Signal | Arduino Pin                            |
 |------------|----------------------------------------|
-| MISO       | D12                                    |
-| MOSI       | D11                                    |
-| SCK        | D13                                    |
-| CS         | D4 (default, configurable to D2 or D3) |
+| MISO       | D12 pin on the Nano board|
+| MOSI       | D11 pin on the Nano board|
+| SCK        | D13 pin on the Nano board|
+| CS         | D4 pin on the Nano board (configurable also to D2 or D3 pins) |
 
-By default, pin D4 is used as the SPI SS (Chip Select) for the Micro SD card, but you can configure solder jumpers to use D2 or D3 instead if needed.
+***By default, pin D4 is used as the SPI CS (Chip Select) for the microSD card, but you can also configure solder jumpers on the Nano Connector Carrier to use D2 or D3 pins if needed.***
 
-![SS Pin Selector Jumpers](assets/solder-jumper-01.gif)
+![CS Pin Selector Jumpers](assets/solder-jumper-01.gif)
 
-With this feature, your Arduino Nano can read and write files on a Micro SD card, perfect for data logging applications, playing audio files, or storing configuration data.
+With this feature, your Nano family board can read and write files on a microSD card, making it perfect for data logging applications, playing audio files or storing configuration data.
 
 ## Pinout
 
-The Arduino Connector Carrier features a comprehensive pinout that makes it easy to connect various peripherals to your Arduino Nano. The board is divided into two main sections:
+The Nano Connector Carrier features the intuitive and straightforward Nano family board pinout that easily connects various peripherals to your Nano family board. The carrier is divided into two main sections:
 
-![Nano Carrier Pinout](assets/ASX00061-pinout-v2.png)
+![Nano Connector Carrier Pinout](assets/ASX00061-pinout-v2.png)
 
-The pinout includes clearly labeled connections for all interfaces:
-- Arduino Nano pins (Digital and Analog)
+The pinout includes labeled connections for all the interfaces:
+- Nano family pins (digital and analog pins)
 - SPI interface pins
 - I²C interface pins
-- Power lines (5V, 3.3V, GND)
-- UART/Serial pins
+- Power lines (+5 VDC, +3.3 VDC and GND)
+- Serial interface pins
 
-All connectors on the board are mapped to specific Arduino Nano pins, making it straightforward to program your projects. The voltage level switch affects all VCC pins on the Grove and Qwiic connectors, allowing you to match your peripherals voltage requirements.
+The board's connectors are mapped to specific Nano family pins, making it straightforward to program your projects. The voltage level switch affects all VCC pins on the Grove and Qwiic connectors, allowing you to match your peripheral's voltage requirements.
 
 ## What to Do Next?
 
@@ -142,7 +142,7 @@ I'll add a snippet of the code to your section:
 
 ### Example Project: Teamometer
 
-The Teamometer is a practical demonstration of how different Modulino sensor modules can work together to solve a real-world problem. This project combines temperature sensing, LED visual feedback, button interaction, and audio alerts to create a smart tea temperature monitor. It's a fun way to see how easily the Connector Carrier can connect to different sensors and modules at once, giving you visual cues, sounds, and temperature readings all in one simple project even with different connectors.
+The Teamometer demonstrates how different Modulino sensor modules can work together to solve a real-world problem. This project combines temperature sensing, LED visual feedback, button interaction and audio alerts to create a smart tea temperature monitor. It's a fun way to see how easily the Nano Connector Carrier can connect to different sensors and modules simultaneously, giving you visual cues, sounds and temperature readings in a straightforward project, even with different connectors.
 
 ![Teamometer overview](assets/teamometer.png)
 
@@ -156,9 +156,9 @@ The Teamometer is a practical demonstration of how different Modulino sensor mod
 - Your favorite tea
 
 **Assembly instructions:**
-1. Connect the Modulino Buttons, Pixels, and Thermo modules to your Arduino
+1. Connect the Modulino Buttons, Pixels and Thermo modules to your Nano family board through the Nano Connector Carrier.
 2. Attach the Thermo module to the outside of your cup using the thick rubber band
-3. Connect the Grove Buzzer sensor (connected to pin A0)
+3. Connect the Grove Buzzer sensor to your Nano family board through the Nano Connector Carrier. 
 4. Upload the code provided below
 5. Fill your cup with hot tea
 6. Wait a few seconds to allow the temperature to transfer to the sensor
@@ -319,28 +319,28 @@ void updateTemperatureDisplay(float celsius) {
 }
 ```
 
-The temperature information will be displayed on both the serial console and the Modulino Pixels. As your tea cools, fewer LEDs will light up, and the colors will change from red (very hot) through violet, white, and green, to blue (cool). When your tea reaches the perfect drinking temperature, the buzzer will sound to let you know it's ready!
+The temperature information will be displayed on the serial console and the Modulino Pixels. As your tea cools, fewer LEDs will light up, and the colors will change from red (very hot) through violet, white, and green, to blue (cool). When your tea reaches the perfect drinking temperature, the buzzer will tell you it is ready.
 
 ### Example Project: Motion Logger
 
-The Motion Tracker demonstrates how the Nano Connector Carrier can integrate with the Movement sensor to record precise motion data. This project showcases real-time motion sensing, button control, and data logging to create a portable motion capture system that can be used for activity tracking, sports analysis, or interactive projects.
+The Motion Tracker demonstrates how the Nano Connector Carrier can integrate with the Movement sensor to record motion data. This project showcases real-time motion sensing, button control and data logging to create a portable motion capture system that can be used for activity tracking, sports analysis or interactive projects.
 
 **Components needed:**
 - Modulino Movement module
 - Modulino Buttons module  
-- SD card
+- MicroSD card
 - Nano Connector Carrier
 
 **Assembly instructions:**
 1. Connect the Modulino Movement and Buttons modules to your Nano Connector Carrier
-2. Insert a micro SD card into the Nano Connector Carrier
-3. Upload the code provided below
-4. Open the serial monitor to view real-time motion data
-5. Press button A to start recording motion data to the SD card
-6. Move the sensor to capture the desired motion
+2. Insert a microSD card into the Nano Connector Carrier
+3. Upload the example sketch provided below
+4. Open the Arduino IDE's Serial Monitor to view real-time motion data
+5. Press button A to start recording motion data to the microSD card
+6. Move the sensor to capture motion data
 7. Press button A again to stop recording
 
-**Code Example:**
+**Example sketch:**
 ```ARDUINO
 /*
  * Modulino Movement Logger
@@ -500,18 +500,18 @@ void loop() {
 }
 ```
 
-The Motion Tracker continuously reads acceleration and orientation data from the Movement sensor, displaying it in real-time on the serial monitor. When recording is activated, the data is saved to a CSV file on the SD card, creating a detailed motion profile that can be analyzed later in spreadsheet software or data visualization tools. This project is perfect for capturing movement patterns, analyzing sports techniques, or creating interactive motion-controlled devices.
+The Motion Tracker continuously reads acceleration and orientation data from the Modulino Movement, displaying it in real-time on the Arduino IDE Serial Monitor. When recording is activated, the data is saved to a CSV file on the microSD card, creating a detailed motion profile that can be analyzed later in a spreadsheet or data visualization tools. This project is perfect for capturing movement patterns, analyzing sports techniques or creating interactive motion-controlled devices.
 
 
-Now that you understand the features of the Arduino Connector Carrier, here are some exciting project ideas to get you started:
+Now that you understand the features of the Nano Connector Carrier, here are some exciting project ideas to get you started:
 
-- **Weather Station**: Connect temperature, humidity, and pressure sensors via Grove connectors to create a simple weather monitoring system
-- **Plant Monitor**: Use soil moisture and light sensors to monitor your houseplants and alert you when they need attention
-- **Data Logger**: Use the Micro SD card slot to record sensor readings over time - perfect for environmental monitoring or tracking experiments
-- **Smart Home Interface**: Create a hub that interfaces with multiple sensors around your home and logs data or sends alerts
+- **Weather Station**: Collect temperature, humidity and pressure data via sensors connected to the Grove connectors to create a simple weather monitoring system.
+- **Plant Monitor**: Use soil moisture and light sensors to monitor your houseplants and alert you when they need attention.
+- **Data Logger**: Use the microSD card slot to record sensor readings over time, which is perfect for environmental monitoring or tracking experiments.
+- **Smart Home interface**: Create a hub with multiple sensors around your home that log data or send alerts.
 
 For additional project inspiration, check out the Arduino Project Hub or join the Arduino community forums to share your creations and learn from others.
 
 ## Conclusion
 
-The Arduino Connector Carrier transforms your Arduino Nano into a versatile platform capable of interfacing with numerous sensors, displays, and storage options. By eliminating complex wiring and providing standardized connectors, the carrier allows you to focus on developing your application rather than dealing with connection issues.
+The Nano Connector Carrier transforms your Nano family board into a versatile platform capable of interfacing with different sensors, displays and storage options. By eliminating complex wiring and providing standardized pinouts, the Nano Connector Carrier allows you to focus on developing your application rather than dealing with connection issues.
