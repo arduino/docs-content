@@ -318,35 +318,42 @@ void loop() {
 }
 ```
 
-***If you encounter an error while in the compilation process, __please remember to have both script and certificate files in the same folder__. The certificate file is crucial for the memory partitioning process. The complete sketch and the certificate files can be downloaded [__here__](assets/memory_partitioning.zip).***
-
 The sketch shown above performs four main tasks:
 
 1. **Initialize and erase the QSPI Flash memory**: The sketch initializes the QSPI Flash memory of the Opta™ and erases its content to prepare the memory for new firmware and data. One of the built-in LEDs of the device is used to indicate the progress of the memory-erasing process.
 
 2. **Create partitions and format them in the QSPI Flash memory**: The sketch creates four partitions in the QSPI Flash memory:
-- Partition 1: WiFi firmware and certificates (1MB)
-- Partition 2: OTA (5MB)
+- Partition 1: Wi-Fi firmware and certificates (1MB)
+- Partition 2: OTA (Over-The-Air) (5MB)
 - Partition 3: Provisioning KVStore (1MB)
 - Partition 4: User data / OPTA PLC runtime (7MB)
 
 3. **Write Wi-Fi firmware and certificate data**: The sketch writes the Wi-Fi firmware and certificate data to the appropriate partitions in the QSPI Flash memory and flashes the memory-mapped Wi-Fi firmware and certificates.
 
-4. **Format the user data partition:** The sketch prompts you to choose between **LittleFS** or **FatFS** for formatting the user data partition. When planning to use the Opta™ with the PLC IDE, you should select **"n" (No)** when prompted with user data partition format to use. This will use *FatFS* instead, which is required for proper compatibility with the PLC runtime.
+4. **Format the user data partition:** The sketch prompts you to choose between **LittleFS** or **FatFS** for formatting the user data partition. When using the Opta™ with the PLC IDE, you should select **`n` (No)** when prompted to choose user data partition format. This will use **FatFS** instead, which is required for proper compatibility with the PLC runtime.
 
 ***As indicated in the sketch output, __LittleFS__ is not supported by the OPTA PLC runtime.***
 
-4. **Display progress in the Arduino IDE Serial Monitor**: The sketch provides a visual indication of the progress of the flashing process using one of the built-in LEDs of the Opta™ and displays messages through the Arduino IDE Serial Monitor to inform the user about the current status of the flashing process.
+5. **Display progress in the Arduino IDE Serial Monitor**: The sketch provides a visual indication of the progress of the flashing process using one of the built-in LEDs of the Opta™ and displays messages through the Arduino IDE Serial Monitor to inform the user about the current status of the flashing process.
 
 To upload the code, click the **Verify** button to compile the sketch and check for errors. Then, click the **Upload** button to program the device with the sketch. If two COM ports are available, which might happen after using the PLC IDE to program the device, select the COM port with the lower number.
 
 ![Uploading a sketch to the Opta™ the Arduino IDE](assets/arduino-ide-2.png)
 
-After a while, you should see information on the progress of the flashing process in the Serial Monitor, as shown in the image below.
+When you run the **QSPIFormat** sketch on your Opta™ device, follow the prompts displayed in the Arduino IDE's Serial Monitor:
+
+1. You'll first see a warning that all content of the QSPI flash will be erased, as well as information about the partitions that will be created.
+2. The Serial Monitor will ask, `Do you want to proceed? Y/[n]`, type **`Y`** and press *Enter* to continue.
+3. Next, it will ask, `Do you want to perform a full erase of the QSPI flash before proceeding? Y/[n]`. Please answer according to your needs.
+4. The system will then erase the flash memory and show progress indicators for the Wi-Fi firmware, certificates and memory mapped Wi-Fi firmware.
+
+At the end of the memory partitioning process, you'll be prompted if you want to use **LittleFS** to format user data partition.
 
 ![Memory partitioning results of the Opta™ as shown in the Arduino IDE's Serial Monitor](assets/arduino-ide-3.png)
 
-If everything went as intended, you should see a brief success message in the Serial Monitor. Now, we are ready to start using the full capabilities of the Opta™ with the Arduino IDE. The following clip shows briefly what to expect of complete memory partitioning process:
+When planning to use the Opta™ with the PLC IDE, you must enter **`n`** to format the user data partition with **FatFS**. This is required for proper compatibility with the PLC runtime. If you need to use **LittleFS** to format the user data partition, please enter **`Y`**.
+
+You should see a brief success message in the Serial Monitor if everything went as intended. Your Opta™ device should now be properly partitioned and formatted, making it ready for use. The process typically takes a few minutes to complete, with progress indicators keeping you informed. The following clip shows the complete memory partitioning process from start to finish:
 
 ![Memory partitioning process of the Opta™](assets/qspi_format_memPartitioning.gif)
 
@@ -603,15 +610,13 @@ void loop() {
 }
 ```
 
-***If you encounter an error during the compilation process, __please ensure both the script and certificate files are in the same folder__. The certificate file is crucial for the memory partitioning process. The complete sketch and the certificate files can be downloaded [here](assets/memory_partitioning.zip).***
+Once the memory partition code is uploaded, follow the instructions and wait for the process to finish. The upload target for the Portenta Machine Control is `Arduino Portenta H7`, which will be automatically detected by the Arduino IDE.
 
-Once the memory partition code is uploaded, wait for the process to finish. The upload target for the Portenta Machine Control is `Arduino Portenta H7`, which will be automatically detected by the Arduino IDE.
+The Arduino IDE's Serial Monitor should display memory partition process and results similar to those of the Opta™.
 
-The Arduino IDE's Serial Monitor should display memory partition results similar to those of the Opta™.
+![Memory partitioning results of the Portenta Machine Control as shown in the Arduino IDE's Serial Monitor](assets/arduino-ide-4.gif)
 
-![Memory partitioning results of the Portenta Machine Control as shown in the Arduino IDE's Serial Monitor](assets/arduino-ide-4.png)
-
-After this, you will be ready to use the full functionalities of the Portenta Machine Control with the Arduino IDE.
+After this, you will be ready to use the full functionalities of the Portenta Machine Control.
 
 ## Conclusion
 
