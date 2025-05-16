@@ -6,7 +6,7 @@ primary_button_url: /software/ide-v2/tutorials/ide-v2-board-manager#samd
 primary_button_title: Get Started
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrnb1500/156'
-certifications: [RCM, CE, UKCA]
+certifications: [CE, UKCA]
 productCode: '022'
 sku: [ABX00019]
 ---
