@@ -65,7 +65,7 @@ The Nano 33 BLE Sense Rev2 can be programmed through the **Arduino IDE 2**. To i
 
 The Nano 33 BLE Sense Rev2 can be programmed through the **Cloud Editor**. To get started with your board, you will only need to install a plugin, which is explained in the guide below:
 
-- [Getting started with the Cloud Editor](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)
+- [Getting started with the Cloud Editor](/learn/starting-guide/the-arduino-web-editor/)
 
 
 ## MicroPython
