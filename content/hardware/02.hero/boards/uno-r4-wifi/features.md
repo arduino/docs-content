@@ -22,6 +22,15 @@ A reference to all technical features on this board, with pointers to additional
 </FeatureWrapper>
 </Feature>
 
+<Feature title="3 months of Cloud Maker plan included" image="cloud">
+
+With Arduino UNO R4 you will get 3 months of cloud maker plan for free
+
+<FeatureWrapper>
+<FeatureLink variant="primary" title="Register product" url="https://digital-store.arduino.cc/subscriptions/redeem"/>
+</FeatureWrapper>
+</Feature>
+
 <Feature title="5 V Operating Voltage" image="power">
 The RA4M1 and the GPIOs of this board operates on 5 V.
 </Feature>

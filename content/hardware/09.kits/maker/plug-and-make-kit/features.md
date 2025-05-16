@@ -14,9 +14,19 @@ This kit includes instructions for 7 projects that use the Modulino® nodes, giv
 
 <Feature title="Modulino® Base" image="configurability">
 
-The kit includes a mounting plate for you to build your projects on, enabling you to quickly build physical interfaces.  
+The kit includes a mounting plate for you to build your projects on, enabling you to quickly build physical interfaces.
 
 </Feature>
+
+<Feature title="3 months of Cloud Maker plan included" image="cloud">
+
+With Plug and Make kit you will get 3 months of cloud maker plan for free
+
+<FeatureWrapper>
+<FeatureLink variant="primary" title="Register product" url="https://digital-store.arduino.cc/subscriptions/redeem"/>
+</FeatureWrapper>
+</Feature>
+
 
 <Feature title="Qwiic Connectors" image="connection">
 
