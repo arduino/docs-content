@@ -5,7 +5,7 @@ on:
 
 jobs:
   render-datasheets:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     env:
       REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
 

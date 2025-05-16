@@ -14,7 +14,7 @@ concurrency:
 jobs:
   run:
     if: ${{ contains(github.event.pull_request.labels.*.name, 'preview') || github.ref_name == 'main' }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     concurrency:
       group: netlify
       cancel-in-progress: false
