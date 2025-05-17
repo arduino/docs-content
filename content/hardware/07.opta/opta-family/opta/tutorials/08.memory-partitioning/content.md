@@ -43,13 +43,19 @@ In this tutorial, we will use an Opta™ and Portenta Machine Control to learn h
 
 ### Software Requirements
 
+Before beginning the memory partitioning process, ensure you have the following software requirements:
+
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
+- `Arduino Mbed OS Opta Boards` core
+- [`Arduino Mbed OS Portenta Boards`](https://docs.arduino.cc/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta/) core
+
+***The __QSPIFormat__ sketch required for memory partitioning is available in core __version 4.3.1 or higher__. To install or update your core, open the Arduino IDE, go to __Tools > Board > Boards Manager__, search for `Opta` or `Portenta`, and install or update to the latest version.***
 
 ## Memory Partitioning
 
-Memory partitioning involves dividing a device's available memory into separate regions or partitions, each serving a specific purpose. This process is used to manage memory efficiently and ensure that different programs or functionalities of the device can coexist without interfering with each other.
+Memory partitioning involves dividing a device's available memory into separate regions or partitions, each serving a specific purpose. This process is used to manage memory efficiently and ensure that different programs or functionalities of the device can coexist without interfering.
 
-In the context of the Opta™, partitioning the memory allows the device to accommodate different functionalities, such as its Wi-Fi® module firmware, Over-The-Air (OTA) updates functionality, and certificates storage, while still providing memory space for user programs developed in the Arduino IDE and the Arduino programming language. Similarly, it applies to the Portenta Machine Control as well.
+In the context of the Opta™, partitioning the memory allows the device to accommodate different functionalities, such as its Wi-Fi® module firmware, Over-The-Air (OTA) updates functionality, and certificate storage, while still providing memory space for user programs developed in the Arduino IDE and the Arduino programming language. Similarly, it applies to the Portenta Machine Control as well.
 
 Now, we will guide you through partitioning the memory of an Opta™ and Portenta Machine Control to enable full programming capabilities using the Arduino IDE and the Arduino programming language.
 
@@ -318,7 +324,7 @@ void loop() {
 }
 ```
 
-The sketch shown above performs four main tasks:
+The sketch shown above performs following tasks:
 
 1. **Initialize and erase the QSPI Flash memory**: The sketch initializes the QSPI Flash memory of the Opta™ and erases its content to prepare the memory for new firmware and data. One of the built-in LEDs of the device is used to indicate the progress of the memory-erasing process.
 
@@ -620,7 +626,7 @@ After this, you will be ready to use the full functionalities of the Portenta Ma
 
 ## Conclusion
 
-In this tutorial, we showed how to partition the memory of an Opta™ and a Portenta Machine Control, enabling its full range of functionalities to be programmed using Arduino ecosystem tools such as the Arduino IDE and the Arduino programming language.
+In this tutorial, we showed how to partition the memory of an Opta™ and a Portenta Machine Control, enabling its full range of functionalities to be programmed using the Arduino ecosystem tools such as the Arduino IDE and the Arduino programming language.
 
 We walked through initializing and erasing the QSPI Flash memory, partitioning and formatting the memory, and writing the Wi-Fi firmware and certificate data onto the device's memory.
 
