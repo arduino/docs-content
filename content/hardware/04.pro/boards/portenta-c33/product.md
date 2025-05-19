@@ -7,7 +7,7 @@ primary_button_title: User Manual
 core: arduino:mbed_portenta
 certifications: [CE, UKCA, RoHS, MIC, FCC, IC]
 #forumCategorySlug: '/hardware/portenta/91'
-#productCode: '041'
+productCode: '041'
 sku: [ABX00074]
 ---
 

@@ -5,6 +5,7 @@ url_guide: /tutorials/nicla-sense-env/user-manual
 primary_button_url: /tutorials/nicla-sense-env/user-manual
 primary_button_title: User Manual
 certifications: [CE, UKCA, VCCI, FCC, IC]
+productCode: '194'
 sku: [ABX00089]
 ---
 
