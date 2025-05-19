@@ -319,7 +319,7 @@ void updateTemperatureDisplay(float celsius) {
 
 The temperature information will be displayed on the serial console and the Modulino Pixels. As your tea cools, fewer LEDs will light up, and the colors will change from red (very hot) through violet, white, and green, to blue (cool). When your tea reaches the perfect drinking temperature, the buzzer will tell you it is ready.
 
-Keep in mind that because the sensor is designed for atmospheric temperature monitoring you might have to tinker the values a bit(depending on your setup) as the measurment will not be as accurate measuring a different medium.
+Keep in mind that because the sensor is designed for atmospheric temperature monitoring you might have to tinker the values a bit(depending on your setup) as the measurement will not be as accurate measuring a different medium.
 
 ### Example Project: Motion Logger
 
