@@ -98,7 +98,7 @@ The Grove connector uses a 4-pin DIP-2.0 mm connector (P/N: 114020164) with four
 
 With the standardized pinouts mentioned, using Groove connectors eliminates the need for soldering or breadboarding and simplifies connecting various and different sensors, actuators and displays to your Nano family board.
 
-#### Micro SD Card Slot
+#### MicroSD Card Slot
 
 The Nano Connector Carrier includes an onboard microSD card slot for projects requiring data logging or file storage.
 
@@ -136,10 +136,6 @@ The board's connectors are mapped to specific Nano family pins, making it straig
 
 ## What to Do Next?
 
-I'll add a snippet of the code to your section:
-
-## What to Do Next?
-
 ### Example Project: Teamometer
 
 The Teamometer demonstrates how different Modulino sensor modules can work together to solve a real-world problem. This project combines temperature sensing, LED visual feedback, button interaction and audio alerts to create a smart tea temperature monitor. It's a fun way to see how easily the Nano Connector Carrier can connect to different sensors and modules simultaneously, giving you visual cues, sounds and temperature readings in a straightforward project, even with different connectors.
@@ -147,28 +143,30 @@ The Teamometer demonstrates how different Modulino sensor modules can work toget
 ![Teamometer overview](assets/teamometer.png)
 
 **Components needed:**
-- Modulino Buttons module
-- Modulino Pixels module
-- Modulino Thermo module
-- Grove Buzzer sensor 
+- [Modulino Buttons](https://store.arduino.cc/products/modulino-buttons) - ABX00110
+- [Modulino Pixels](https://store.arduino.cc/products/modulino-pixels) - ABX00109
+- [Modulino Thermo](https://store.arduino.cc/products/modulino-thermo) - ABX00103
+- [Nano family board](https://docs.arduino.cc/hardware/)
+- [Nano Connector Carrier](https://store.arduino.cc/products/nano-connector-carrier) - ASX00061
+- Grove Buzzer sensor
 - Thick rubber band (for securing the Thermo module to your cup)
 - Cup
 - Your favorite tea
 
 **Assembly instructions:**
 1. Connect the Modulino Buttons, Pixels and Thermo modules to your Nano family board through the Nano Connector Carrier.
-2. Attach the Thermo module to the outside of your cup using the thick rubber band
+2. Attach the Thermo module to the outside of your cup using the thick rubber band.
 3. Connect the Grove Buzzer sensor to your Nano family board through the Nano Connector Carrier. 
-4. Upload the code provided below
-5. Fill your cup with hot tea
-6. Wait a few seconds to allow the temperature to transfer to the sensor
-7. Press button A to begin monitoring
+4. Upload the code provided below.
+5. Fill your cup with hot tea.
+6. Wait a few seconds to allow the heat to transfer to the sensor.
+7. Press button A to begin monitoring.
 
 ![Connection guide](assets/moduleConnection.png)
 
 **Code Example:**
-```ARDUINO
-#include <Modulino.h>
+```arduino
+#include <Arduino_Modulino.h>
 
 // Create object instances
 ModulinoThermo thermo;
@@ -321,15 +319,21 @@ void updateTemperatureDisplay(float celsius) {
 
 The temperature information will be displayed on the serial console and the Modulino Pixels. As your tea cools, fewer LEDs will light up, and the colors will change from red (very hot) through violet, white, and green, to blue (cool). When your tea reaches the perfect drinking temperature, the buzzer will tell you it is ready.
 
+Keep in mind that because the sensor is designed for atmospheric temperature monitoring you might have to tinker the values a bit(depending on your setup) as the measurment will not be as accurate measuring a different medium.
+
 ### Example Project: Motion Logger
 
 The Motion Tracker demonstrates how the Nano Connector Carrier can integrate with the Movement sensor to record motion data. This project showcases real-time motion sensing, button control and data logging to create a portable motion capture system that can be used for activity tracking, sports analysis or interactive projects.
 
+![Motion Logger overview](assets/movement_monitor.png)
+
 **Components needed:**
-- Modulino Movement module
-- Modulino Buttons module  
+- [Modulino Movement](https://store.arduino.cc/products/modulino-movement) - ABX00101
+- [Modulino Buttons ](https://store.arduino.cc/products/modulino-buttons) - ABX00110
 - MicroSD card
-- Nano Connector Carrier
+- [Nano Connector Carrier](https://store.arduino.cc/products/nano-connector-carrier) - ASX00061
+
+![Connection guide](assets/movement-connector.png)
 
 **Assembly instructions:**
 1. Connect the Modulino Movement and Buttons modules to your Nano Connector Carrier
@@ -341,14 +345,14 @@ The Motion Tracker demonstrates how the Nano Connector Carrier can integrate wit
 7. Press button A again to stop recording
 
 **Example sketch:**
-```ARDUINO
+```arduino
 /*
  * Modulino Movement Logger
  *
  * Records movement data from a Modulino Movement sensor to an SD card.
  * Press Button A to start/stop recording.
  */
-#include "Modulino.h"
+#include "Arduino_Modulino.h"
 #include <SD.h>
 
 // Create objects for the modules
@@ -499,9 +503,140 @@ void loop() {
   delay(50);
 }
 ```
-
 The Motion Tracker continuously reads acceleration and orientation data from the Modulino Movement, displaying it in real-time on the Arduino IDE Serial Monitor. When recording is activated, the data is saved to a CSV file on the microSD card, creating a detailed motion profile that can be analyzed later in a spreadsheet or data visualization tools. This project is perfect for capturing movement patterns, analyzing sports techniques or creating interactive motion-controlled devices.
 
+### Example Project: Enclosure Monitor in MicroPython
+
+The Enclosure Monitor demonstrates how MicroPython and Modulino modules can work together to create a smart environmental monitoring system. This project uses temperature sensing and LED visual feedback to monitor conditions inside an enclosure, like a terrarium, server cabinet, or food storage area. It logs data over time while providing immediate visual indicators if temperatures fall outside the ideal range.
+Note that the temperature settings can be changed to your specific use-case.
+
+To get started with MicroPython and install the Modulino library on your Arduino board, follow the official guide [here](https://docs.arduino.cc/micropython/modulinos/installation/). This guide will walk you through installing both MicroPython and the necessary Modulino libraries to work with your modules.
+
+![Enclosure Monitor overview](assets/enclosure-monitor.png)
+
+**Components needed:**
+- [Modulino Thermo](https://store.arduino.cc/products/modulino-thermo) - ABX00103
+- [Modulino Pixels](https://store.arduino.cc/products/modulino-pixels) - ABX00109
+- [Nano family board](https://docs.arduino.cc/hardware/)
+- [Nano Connector Carrier](https://store.arduino.cc/products/nano-connector-carrier) - ASX00061
+- Optional enclosure for permanent installation
+
+**Assembly instructions:**
+1. Connect the Modulino Thermo and Pixels modules to your Nano family board through the Nano Connector Carrier.
+2. Position the Thermo module where you want to monitor temperature (inside your enclosure).
+3. Place the Pixels module where it's visible for status monitoring.
+4. Upload the MicroPython code provided below.
+5. Open the serial monitor to view real-time readings.
+6. The system will automatically begin monitoring and logging data.
+
+![Connection guide](assets/enclosure-connection.png)
+
+**Code Example:**
+```python
+"""
+Enclosure Temperature Monitor using Modulino Thermo and Pixels modules.
+- BLUE LEDs: Too cold (below MIN_TEMP)
+- GREEN LEDs: Ideal temperature (between MIN_TEMP and MAX_TEMP)
+- RED LEDs: Too hot (above MAX_TEMP)
+
+Logs temperature data to both the console and internal file system.
+"""
+from modulino import ModulinoThermo, ModulinoPixels, ModulinoColor
+from time import sleep
+import os
+
+# Create module instances
+thermo = ModulinoThermo()
+pixels = ModulinoPixels()
+
+# Configuration
+MIN_TEMP = 20.0        # Below this is too cold (BLUE)
+MAX_TEMP = 25.0        # Above this is too hot (RED)
+BRIGHTNESS = 50        # LED brightness (0-100)
+LOG_FILE = "templog.csv"  # Log file name in the internal file system
+LOG_INTERVAL = 5       # Log every 5 readings
+
+# Create log file with headers if it doesn't exist
+try:
+    # Check if file exists
+    files = os.listdir()
+    if LOG_FILE not in files:
+        with open(LOG_FILE, 'w') as f:
+            f.write('Reading,Temperature,Humidity,Status\n')
+        print(f"Created new log file: {LOG_FILE}")
+    else:
+        print(f"Using existing log file: {LOG_FILE}")
+except Exception as e:
+    print(f"File system error: {e}")
+
+# Initialize LEDs to off
+pixels.clear_all().show()
+
+# Main loop
+print("=== Enclosure Temperature Monitor ===")
+print(f"Cold: < {MIN_TEMP}°C | Ideal: {MIN_TEMP}-{MAX_TEMP}°C | Hot: > {MAX_TEMP}°C")
+
+counter = 0  # Simple counter for readings
+
+while True:
+    counter += 1
+    
+    # Read temperature and humidity
+    temp = thermo.temperature
+    humidity = thermo.relative_humidity
+    
+    # Update display if temperature reading is valid
+    if temp is not None:
+        # Determine temperature status
+        if temp < MIN_TEMP:
+            status = "Cold"
+            color = ModulinoColor.BLUE
+        elif temp > MAX_TEMP:
+            status = "Hot"
+            color = ModulinoColor.RED
+        else:
+            status = "Ideal"
+            color = ModulinoColor.GREEN
+        
+        # Print to console
+        print(f"Temp: {temp:.1f}°C - {status}", end="")
+        if humidity is not None:
+            print(f", Humidity: {humidity:.1f}%")
+        else:
+            print("")
+        
+        # Update LED display
+        pixels.clear_all()
+        # Calculate how many LEDs to light (1-8)
+        led_count = int(max(1, min(8, (temp - MIN_TEMP + 5) / 15 * 8)))
+        for i in range(led_count):
+            pixels.set_color(i, color, BRIGHTNESS)
+        pixels.show()
+        
+        # Log to file at interval
+        if counter % LOG_INTERVAL == 0:
+            try:
+                with open(LOG_FILE, 'a') as f:
+                    humidity_str = f"{humidity:.1f}" if humidity is not None else "N/A"
+                    f.write(f"{counter},{temp:.1f},{humidity_str},{status}\n")
+                print("Data logged to file ✓")
+            except Exception as e:
+                print(f"Failed to write to file: {e}")
+    else:
+        print("Waiting for temperature reading...")
+        # Blink white LED to indicate waiting
+        pixels.set_all_color(ModulinoColor.WHITE, 20).show()
+        sleep(0.5)
+        pixels.clear_all().show()
+        sleep(0.5)
+    
+    # Wait before next reading
+    sleep(1)
+```
+
+The Enclosure Monitor provides immediate visual feedback about environmental conditions through the Modulino Pixels. LEDs glow BLUE when it's too cold, GREEN when the temperature is in the ideal range, and RED when it's too hot. The number of illuminated LEDs indicates where the temperature falls within each range - more LEDs light up as temperature increases.
+
+Temperature and humidity readings are displayed in real time on the serial monitor and logged to a CSV file on the internal storage. This data can be retrieved later for analysis of environmental trends over time.
 
 Now that you understand the features of the Nano Connector Carrier, here are some exciting project ideas to get you started:
 
