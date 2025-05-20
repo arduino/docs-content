@@ -6,9 +6,6 @@ The Modulino® Thermo module measures temperature and humidity, making it perfec
   <Feature title="Beginner Friendly" image="led">
     Guided examples show you how to read and log environmental data, making it ideal for classroom experiments or home projects involving temperature and humidity.
   </Feature>
-  <Feature title="Modulino® Base" image="configurability">
-    Easily mount the Modulino® Thermo on the Modulino® Base, creating a stable workspace for your environmental monitoring projects.
-  </Feature>
   <Feature title="Qwiic & Solderable Pins" image="connection">
     The Modulino® Thermo module connects via Qwiic cables to your UNO R4 WiFi or other boards with a Qwiic interface. If needed, solderable pins let you wire it directly.
   </Feature>

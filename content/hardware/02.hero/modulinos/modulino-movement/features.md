@@ -6,9 +6,6 @@ The Modulino® Movement module incorporates a 6-axis sensor for measuring both a
   <Feature title="Beginner Friendly" image="led">
     This module includes instructions for projects that use the Modulino® nodes, giving you a quick start for motion-based applications. The built-in sensor measures acceleration and gyro data, perfect for experimenting with orientation and movement detection.
   </Feature>
-  <Feature title="Modulino® Base" image="configurability">
-    The module can be easily mounted on the Modulino® Base, providing a stable platform to experiment with interactive, motion-controlled interfaces.
-  </Feature>
   <Feature title="Qwiic & Solderable Pins" image="connection">
     The Modulino® Movement module connects via Qwiic cables to your UNO R4 WiFi or other compatible boards. For projects where Qwiic isn’t available, solderable pins allow direct wiring, so you never miss a connection.
   </Feature>

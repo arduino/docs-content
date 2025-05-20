@@ -6,9 +6,6 @@ The Modulino® Distance module provides accurate distance measurements using tim
   <Feature title="Beginner Friendly" image="led">
     This module includes step-by-step guides for projects that use the Modulino® nodes, helping newcomers build applications that involve measuring and reacting to distances.
   </Feature>
-  <Feature title="Modulino® Base" image="configurability">
-    Mount the Modulino® Distance module on the Modulino® Base to ensure a secure and tidy setup for your distance-measurement experiments.
-  </Feature>
   <Feature title="Qwiic & Solderable Pins" image="connection">
     The Modulino® Distance module connects using Qwiic cables to your UNO R4 WiFi or other compatible boards. Additionally, solderable pins are provided for direct wiring if a Qwiic connector isn’t available.
   </Feature>

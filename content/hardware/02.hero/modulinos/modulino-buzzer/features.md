@@ -6,9 +6,6 @@ The Modulino® Buzzer module adds audio feedback to your projects with an integr
   <Feature title="Beginner Friendly" image="led">
     Follow example projects to learn how to produce beeps and tunes for notifications or interactive feedback, even if you’re just starting with electronics.
   </Feature>
-  <Feature title="Modulino® Base" image="configurability">
-    Securely attach the Modulino® Buzzer to the Modulino® Base, resulting in an organized and stable audio-enabled prototype.
-  </Feature>
   <Feature title="Qwiic & Solderable Pins" image="connection">
     The Modulino® Buzzer links via Qwiic cables to your UNO R4 WiFi or other boards with a Qwiic interface. Solderable pins allow for direct wiring when Qwiic isn’t available.
   </Feature>
