@@ -5,7 +5,7 @@ type: maker
 author: Pedro Sousa Lima
 ---
 
-![](assets/featuredBut.png)
+![](assets/featured.png)
 
 # Description
 
