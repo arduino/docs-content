@@ -1,8 +1,0 @@
-software:
-  - arduino-ide
-  - arduino-cli
-  - web-editor
-hardware:
-  shields: ~
-  carriers: ~
-  boards: ~
