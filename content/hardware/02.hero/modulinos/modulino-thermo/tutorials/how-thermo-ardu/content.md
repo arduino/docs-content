@@ -50,9 +50,9 @@ Depending on the board connected to the modulino, the I²C pin names to program 
 
 The board is typically powered by +3.3 VDC when using the QWIIC interface as per the I²C standard. However, different power levels can be used when powering through the solderable pins, making this board compatible with both +3.3 and +5 VDC.
 
-| Parameter       | Condition                                                                                                           | Minimum | Typical     | Maximum | Unit |
-|-----------------|---------------------------------------------------------------------------------------------------------------------|---------|-------------|---------|------|
-| Supply Voltage  | \-                                                                                                                  | 2.3     | 3.3 (QWIIC) | 5.5     | V    |
+| Parameter       | Condition                                                         | Minimum | Typical     | Maximum | Unit |
+|-----------------|-------------------------------------------------------------------|---------|-------------|---------|------|
+| Supply Voltage  | \-                                                                | 2.3     | 3.3 (QWIIC) | 5.5     | V    |
 | Average Current | 1 humidity + temperature measurement/s 3.3 VDD - Max 5,5@ 3.3 VDD | \-      | 1024.4      | 24.4    | µA   |
 
 The module includes a power LED that draws 1 mA and turns on as soon as it is powered.
