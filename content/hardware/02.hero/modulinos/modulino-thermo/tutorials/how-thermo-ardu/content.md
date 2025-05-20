@@ -164,22 +164,22 @@ void loop(){
 The code example provided shows how to initialize the sensor, read the data, and display it on the serial monitor. The data is updated every second, showing the current temperature and humidity values in real time.
 It can be easily adapted to trigger actions at certain temperature/humidity thresholds or to log data for analysis.
 
-### Troubleshooting
+## Troubleshooting
 
- #### Sensor Not Reachable
+ ### Sensor Not Reachable
   
   If your Modulino's power LED isn't on or the sensor isn't responsive, first check that the board is properly connected: 
 
   - Ensure both the board and the Modulino are connected to your computer, and that the power LEDs on both are lit.  
   - If the issue persists, make sure the Qwiic cable is properly clicked into place.
 
-  #### Library Not Installed Properly
+  ### Library Not Installed Properly
   
   If you encounter an issue with the `#include "modulino.h"` command, verify that the Modulino library is correctly installed:  
   - Check your IDE to ensure the library is installed and up-to-date.  
   - Re-install the library through the Library Manager.
 
-  #### Inaccurate Values
+  ### Inaccurate Values
   
 If the sensor values are not accurate, make sure:
 - The sensor is not placed near any components that might generate heat (like motors or power supplies).
