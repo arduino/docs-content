@@ -324,7 +324,8 @@ void loop() {
 }
 ```
 
-The sketch shown above performs following tasks:
+The sketch shown above performs the following tasks:
+
 
 1. **Initialize and erase the QSPI Flash memory**: The sketch initializes the QSPI Flash memory of the Opta™ and erases its content to prepare the memory for new firmware and data. One of the built-in LEDs of the device is used to indicate the progress of the memory-erasing process.
 
