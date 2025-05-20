@@ -341,7 +341,8 @@ The sketch shown above performs the following tasks:
 
 ***As indicated in the sketch output, __LittleFS__ is not supported by the OPTA PLC runtime.***
 
-5. **Display progress in the Arduino IDE Serial Monitor**: The sketch provides a visual indication of the progress of the flashing process using one of the built-in LEDs of the Opta™ and displays messages through the Arduino IDE Serial Monitor to inform the user about the current status of the flashing process.
+5. **Display progress in the Arduino IDE Serial Monitor**: The sketch provides a visual indication of the progress of the flashing process using one of the built-in LEDs of the Opta™ and through messages in the Arduino IDE Serial Monitor.
+
 
 To upload the code, click the **Verify** button to compile the sketch and check for errors. Then, click the **Upload** button to program the device with the sketch. If two COM ports are available, which might happen after using the PLC IDE to program the device, select the COM port with the lower number.
 
