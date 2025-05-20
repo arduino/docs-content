@@ -27,7 +27,7 @@ A reference to all technical features on this board, with pointers to additional
 With Arduino UNO R4 you will get 3 months of cloud maker plan for free
 
 <FeatureWrapper>
-<FeatureLink variant="primary" title="Register product" url="https://digital-store.arduino.cc/subscriptions/redeem"/>
+<FeatureLink variant="primary" title="Register product" url="https://arduino.cc/start"/>
 </FeatureWrapper>
 </Feature>
 
