@@ -21,7 +21,7 @@ The Modulino Thermo is capable of measuring temperature and relative humidity. T
 
 
 | Parameter | Condition   | Minimum | Typical | Maximum | Unit |
-| --------- | ----------- | ------- | ------- | ------- | ---- |
+|-----------|-------------|---------|---------|---------|------|
 | Range     | Temperature | \-40    | \-      | +125    | °C   |
 | \-        | Humidity    | 0       | \-      | 100%    | φ RH |
 | Accuracy  | Temperature | \-      | ±0,25   | \-      | °C   |
@@ -33,7 +33,7 @@ The HS3003 sensor from Renesas is the core component of this module. This temper
 
 The default address for the Module is:
 | Modulino I²C Address | Hardware I²C Address |
-| -------------------- | -------------------- |
+|----------------------|----------------------|
 | 0x44                 | 0x44                 |
 
 ***Note: Since the address cannot be changed on this Modulino specifically, using two or more identical modules on the same I²C bus will result in address conflicts and cause communication issues.***
@@ -50,10 +50,10 @@ Depending on the board connected to the modulino, the I²C pin names to program 
 
 The board is typically powered by +3.3 VDC when using the QWIIC interface as per the I²C standard. However, different power levels can be used when powering through the solderable pins, making this board compatible with both +3.3 and +5 VDC.
 
-| Parameter       | Condition                                                                                                            | Minimum | Typical     | Maximum | Unit |
-| --------------- | -------------------------------------------------------------------------------------------------------------------- | ------- | ----------- | ------- | ---- |
-| Supply Voltage  | \-                                                                                                                   | 2.3     | 3.3 (QWIIC) | 5.5     | V    |
-| Average Current | 1 humidity + temperature measurement/s<br>14-bit resolution<br>Typical@ 3.3 VDD<br>Typical@ 5.5 VDDMax 5,5@ 3.3 VDD | \-      | 1024.4      | 24.4    | µA   |
+| Parameter       | Condition                                                                                                           | Minimum | Typical     | Maximum | Unit |
+|-----------------|---------------------------------------------------------------------------------------------------------------------|---------|-------------|---------|------|
+| Supply Voltage  | \-                                                                                                                  | 2.3     | 3.3 (QWIIC) | 5.5     | V    |
+| Average Current | 1 humidity + temperature measurement/s<br>14-bit resolution<br/>Typical@ 3.3 VDD<br>Typical@ 5.5 VDDMax 5,5@ 3.3 VDD<br/> | \-      | 1024.4      | 24.4    | µA   |
 
 The module includes a power LED that draws 1 mA and turns on as soon as it is powered.
 J1 (Qwiic connector), J2 (Qwiic connector), and the headers all share the same power branch. The power distribution of the module is therefore as follows:
