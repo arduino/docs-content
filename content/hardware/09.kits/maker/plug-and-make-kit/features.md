@@ -23,7 +23,7 @@ The kit includes a mounting plate for you to build your projects on, enabling yo
 With Plug and Make kit you will get 3 months of cloud maker plan for free
 
 <FeatureWrapper>
-<FeatureLink variant="primary" title="Register product" url="https://digital-store.arduino.cc/subscriptions/redeem"/>
+<FeatureLink variant="primary" title="Register product" url="https://arduino.cc/start"/>
 </FeatureWrapper>
 </Feature>
 
