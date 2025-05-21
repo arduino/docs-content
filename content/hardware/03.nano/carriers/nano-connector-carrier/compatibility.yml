@@ -6,12 +6,11 @@ hardware:
   shields: ~
   carriers: ~
   boards:
-    - nano-33-iot
     - nano
-    - nano-33-ble-sense
+    - nano-33-iot
     - nano-33-ble
+    - nano-33-ble-sense
     - nano-every
     - nano-rp2040-connect
     - nano-esp32
-    - nano-every
     - nano-matter
