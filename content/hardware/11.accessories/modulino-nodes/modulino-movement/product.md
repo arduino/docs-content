@@ -1,5 +1,5 @@
 ---
-title: Modulino® Movement
+title: Modulino Movement
 url_shop: https://store.arduino.cc/products/modulino-movement
 url_guide: https://courses.arduino.cc/plugandmake
 primary_button_url: https://docs.arduino.cc/tutorials/modulino-movement/how-movement-ardu/

@@ -1,6 +1,6 @@
 ---
-title: "How To Use The Modulino Thermo And MicroPython"
-description: "Learn how to get the most out of your Modulino Thermo in a MicroPython environment."
+title: "How To Use The Modulino Buttons And MicroPython"
+description: "Learn how to get the most out of your Modulino Buttons in a MicroPython environment."
 tags:
  - Modulino
  - QWIIC

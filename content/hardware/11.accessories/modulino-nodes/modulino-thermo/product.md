@@ -1,5 +1,5 @@
 ---
-title: Modulino® Thermo
+title: Modulino Thermo
 url_shop: https://store.arduino.cc/products/modulino-thermo
 url_guide: https://courses.arduino.cc/plugandmake
 primary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-thermo-ardu/

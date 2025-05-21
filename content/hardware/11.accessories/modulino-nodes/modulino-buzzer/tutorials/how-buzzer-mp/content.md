@@ -1,13 +1,13 @@
 ---
-title: "How To Use The Modulino Movement And MicroPython"
-description: "Learn how to get the most out of your Modulino Movement in a MicroPython environment."
+title: "How To Use The Modulino Buzzer And MicroPython"
+description: "Learn how to get the most out of your Modulino Buzzer in a MicroPython environment."
 tags:
  - Modulino
  - QWIIC
  - I2C
 author: 'Pedro Sousa Lima'
 hardware:
- - hardware/11.modulinos/modulinos/modulino-movement
+ - hardware/11.modulinos/modulinos/modulino-buzzer
 software:
  - ide-v2
  - web-editor
@@ -34,9 +34,9 @@ One unique feature of this setup is the ability to change the I²C address via s
 
 The default I²C address for the **Modulino Buzzer** module is:
 
-| Modulino I²C Address | Hardware I²C Address |Editable Addresses (HEX)|
-|----------------------|----------------------|----------------------|
-| 0x3C                 | 0x1E         |Any custom address (via software configuration)
+| Modulino I²C Address | Hardware I²C Address | Editable Addresses (HEX)                        |
+|----------------------|----------------------|-------------------------------------------------|
+| 0x3C                 | 0x1E                 | Any custom address (via software configuration) |
 
 
 When scanning for I²C address on the bus, you might find the modulino using the **Hardware I²C Address**. However, you should always use the **Modulino I²C Address** when using the official Modulino library.
