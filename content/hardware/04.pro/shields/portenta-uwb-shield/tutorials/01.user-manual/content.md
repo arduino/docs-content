@@ -115,11 +115,16 @@ UWB's unique combination of precision, low latency, and security opens up numero
 - **Asset tracking**: Monitor the location of valuable items in warehouses, hospitals, or construction sites with centimeter-level accuracy.
 - **Secure access**: Implement contactless entry systems that unlock only when an authorized device is in proximity, with resistance to relay attacks that plague other wireless technologies.
 - **Precision navigation**: Guide robots, vehicles, or drones in environments where GPS is unavailable, such as indoor spaces or underground facilities.
-- **Social distancing**: Measure precise distances between individuals in workplaces or public venues to maintain safe separation.
 - **Smart homes**: Enable context-aware automation based on the precise location of people within a space.
 - **Augmented reality**: Provide accurate spatial mapping and tracking for immersive experiences.
 - **Industrial safety**: Create geofencing solutions that can trigger alerts or machinery shutdowns when personnel enter dangerous areas.
-- **High-speed data transfer**: Leverage UWB's high data rates for wireless communications in personal area networks (PANs), outperforming Bluetooth and Zigbee for short-range data transmission.
+- **High-speed data transfer**: Leverage UWB's high data rates for wireless communications in personal area networks (PANs), outperforming Bluetooth® and Zigbee® for short-range data transmission.
+- **Autonomous guided vehicles**: Create follow-me systems where vehicles dynamically adjust routes and speeds based on real-time distance measurements, reducing logistics costs and workplace hazards in warehouses and industrial settings.
+- **Production operator tracking**: Automate operator log-in through UWB presence detection in production cells, eliminating the need for manual data entry and enabling accurate cycle time assessment in lean manufacturing environments.
+- **Maintenance equipment management**: Track tools, vehicles, and equipment assigned to maintenance personnel, ensuring assets are returned to their designated storage areas and improving team effectiveness without manual reporting.
+- **Access control automation**: Enable hands-free portal openings where authorized personnel with UWB-enabled devices are automatically granted access as they approach entry points, while unauthorized individuals are denied.
+- **Machine safety systems**: Implement dual authentication through proximity detection for machinery operation, enforcing security protocols when anomalies are detected after operator intervention.
+- **Anti-collision systems**: Enhance material handling equipment like forklifts and pallet trucks with UWB technology to detect operators or obstacles in blind spots, preventing collisions that might not be visible through other sensing technologies.
 
 ### Portenta UWB Shield Architecture Overview
 
