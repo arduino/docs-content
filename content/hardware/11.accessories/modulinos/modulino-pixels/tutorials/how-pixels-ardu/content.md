@@ -74,11 +74,11 @@ Later in this article we teach how to [change the address](#how-to-change-i2c-ad
 
 ## Power Specifications
 
-The board is typically powered by +3.3 VDC when using the QWIIC interface as per the I²C standard. However, different power levels can be used when powering through the solderable pins, making this board compatible with both +3.3 and +5 VDC.
+The board is typically powered by +3.3 VDC when using the QWIIC interface as per the I²C standard.
 
 | Parameter              | Condition      | Minimum | Typical | Maximum | Unit |
 |------------------------|----------------|---------|---------|---------|------|
-| Operating Voltage      | -              | 4.5     | 3.3     | 5.5     | V    |
+| Operating Voltage      | -              | 4.5     | 3.3     | 3.6     | V    |
 | Power Dissipation      | -              | -       | -       | 350     | mW   |
 | Standby Current        | No data signal | -       | -       | 1       | mA   |
 | Max LED Output Current | Per Channel    | -       | 18      | -       | mA   |

@@ -83,7 +83,7 @@ The board is typically powered by +3.3 VDC when using the QWIIC interface as per
 
 | Parameter           | Condition       | Minimum | Typical | Maximum | Unit |
 |---------------------|-----------------|---------|---------|---------|------|
-| Operating Voltage   | -               | 2.5     | 3.3     | 5.5     | V    |
+| Operating Voltage   | -               | 2.5     | 3.3     | 3.6     | V    |
 | Current Consumption | @ 3.3V, 2.7 kHz | -       | 120     | -       | μA   |
 
 The module includes a power LED that draws 1 mA and turns on as soon as it is powered.

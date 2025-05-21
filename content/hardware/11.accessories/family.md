@@ -1,6 +1,6 @@
 ---
-title: Mega
-description: The largest Arduino form factor with a lot of GPIOs.
+title: Accessories
+description: To make your projects even greater.
 businessUnit: maker
-anchor: mega-family
+anchor: accessories-family
 ---

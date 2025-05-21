@@ -69,11 +69,11 @@ The pinout for the Modulino Buttons is shown below. While the recommended connec
 
 ## Power Specifications
 
-The board is typically powered by +3.3 VDC when using the QWIIC interface as per the I²C standard. However, different power levels can be used when powering through the solderable pins, making this board compatible with both +3.3 and +5 VDC.
+The board is typically powered by +3.3 VDC when using the QWIIC interface as per the I²C standard.
 
 | Parameter        | Condition         | Minimum | Typical     | Maximum | Unit |
 |------------------|-------------------|---------|-------------|---------|------|
-| Supply Voltage   | -                 | 2.3     | 3.3 (QWIIC) | 5.5     | V    |
+| Supply Voltage   | -                 | 2.3     | 3.3 (QWIIC) | 3.6     | V    |
 | LED Current Draw | Single LED Active | -       | 2.5         | -       | mA   |
 
 The module includes a power LED that draws 1 mA and turns on as soon as it is powered. J1 (Qwiic connector), J2 (Qwiic connector), and the headers all share the same power branch. The power distribution of the module is therefore as follows:

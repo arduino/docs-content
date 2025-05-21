@@ -48,7 +48,7 @@ Depending on the board connected to the modulino, the I²C pin names to program 
 
 ## Power Specifications
 
-The board is typically powered by +3.3 VDC when using the QWIIC interface as per the I²C standard. However, different power levels can be used when powering through the solderable pins, making this board compatible with both +3.3 and +5 VDC.
+The board is typically powered by +3.3 VDC when using the QWIIC interface as per the I²C standard.
 
 | Parameter       | Condition                                                         | Minimum | Typical     | Maximum | Unit |
 |-----------------|-------------------------------------------------------------------|---------|-------------|---------|------|
