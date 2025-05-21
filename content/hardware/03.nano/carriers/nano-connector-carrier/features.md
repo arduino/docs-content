@@ -11,7 +11,7 @@ The Nano Connector Carrier is ready to be used with a wide range of external har
 
 </Feature>
 
-<Feature title="Onboard microSD card slot" image="memory">
+<Feature title="Onboard microSD card slot" image="file-icon">
 
 Unlocks new possibilities for data logging, edge AI, and real-time storage needs.
 

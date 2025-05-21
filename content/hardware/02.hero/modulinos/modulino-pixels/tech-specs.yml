@@ -1,5 +1,5 @@
 Node:
-  Name: Modulino® Pixels
+  Name: Modulino Pixels
   SKU: ABX00109
   Board recommended: Arduino® UNO R4 WiFi (ABX00087)
   Communications: I2C (over Qwiic connector or solderable pin)
