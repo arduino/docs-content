@@ -145,7 +145,7 @@ These are positioned between the button B and C.
 ![Generic pull-up resistor position](assets/ResistorsPullupBtn.png)
 
 ## Device Operation
-By default, the board is an I2C target device. It manages button inputs and LED outputs through integrated firmware. Simply connect it to a 3.3 V Qwiic interface. If needed, you can reprogram the STM32C011F4 via SWD to modify or extend functionality. A LED positioned near each button indicates operation, this is hardware connected by the button directly and cannot be altered with firmware.
+By default, the board is an I2C target device. It manages button inputs and LED outputs through integrated firmware. Simply connect it to a 3.3 V Qwiic interface. If needed, you can reprogram the STM32C011F4 via SWD to modify or extend functionality. A LED positioned near each button can be controlled through the microcontroller's GPIOs PA3, PA4 and PA5.
 
 # Certifications
 
@@ -256,6 +256,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                                    |
 
 # Revision History
-| **Date**    | **Revision** | **Changes**                                   |
-|------------ |------------ |------------------------------------------------|
-| 11/07/2024  | 1           | First release                                  |
+| **Date**   | **Revision** | **Changes**        |
+|------------|--------------|--------------------|
+| 21/05/2025 | 2            | Fixed info on LEDs |
+| 14/05/2025 | 1            | First release      |

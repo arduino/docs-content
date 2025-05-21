@@ -236,6 +236,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                      |
 
 # Revision History
-| **Date**    | **Revision** | **Changes**                                      |
+| **Date**    | **Revision** | **Changes**                                   |
 |------------ |------------ |------------------------------------------------|
-| 11/07/2024  | 1           | First release                                  |
+| 14/05/2025  | 1           | First release                                  |
+
