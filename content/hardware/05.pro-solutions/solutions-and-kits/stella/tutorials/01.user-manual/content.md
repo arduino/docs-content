@@ -160,7 +160,7 @@ The [`ardUWBSr040` library](https://github.com/arduino-libraries/ardUWBSr040) co
 
 #### Portenta UWB Shield Library
 
-If you plan to use the Arduino Stella with a Portenta UWB Shield for two-way ranging experiments, you'll also need the [`ardUWBSr150` library](https://github.com/arduino-libraries/ardUWBSr150) for the Portenta UWB Shield. This library is specifically designed for the DCU150 module used in the shield.
+If you plan to use the Arduino Stella with a Portenta UWB Shield for two-way ranging, you'll also need the [`ardUWBSr150` library](https://github.com/arduino-libraries/ardUWBSr150) for the Portenta UWB Shield. This library is specifically designed for the DCU150 module used in the shield.
 
 ***The [Arduino Renesas Portenta Boards core](https://github.com/arduino/ArduinoCore-renesas) is required to work with the Portenta C33 board that hosts the UWB Shield.***
 
