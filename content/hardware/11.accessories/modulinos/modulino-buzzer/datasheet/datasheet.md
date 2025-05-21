@@ -1,5 +1,5 @@
 ---
-identifier: ABX00101
+identifier: ABX00108
 title: Arduino® Modulino® Buzzer
 type: maker
 author: Pedro Sousa Lima
