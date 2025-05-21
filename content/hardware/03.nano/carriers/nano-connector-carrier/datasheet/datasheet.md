@@ -62,7 +62,7 @@ The Nano Connector Carrier lets you select +5 VDC or +3.3 VDC Nano boards to ens
 | ---------------------- | ------------ |
 | Nano ESP32             | Arduino Nano |
 | Nano 33 IoT            | Nano Every   |
-| Nano 33 BLE            | Nano R4      |
+| Nano 33 BLE            |              |
 | Nano 33 BLE Rev2       |              |
 | Nano 33 BLE Sense      |              |
 | Nano 33 BLE Sense Rev2 |              |
@@ -128,7 +128,6 @@ The Nano Connector Carrier exposes all the Nano host board connections and commu
 - Nano Every (ABX00028)
 - Nano Matter (ABX00112 / ABX00137)
 - Nano RP2040 Connect (ABX00053)
-- Nano R4 (ABX00142)
 - Arduino Modulino nodes
 
 ## Power and Ratings
