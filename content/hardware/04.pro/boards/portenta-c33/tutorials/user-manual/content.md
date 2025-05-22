@@ -559,7 +559,7 @@ The Portenta C33 supports SPI communication via two dedicated ports named `SPI0`
 |  `47` or `PIN_SPI1_SCK` |          `P102`         |
 |  `48` or `PIN_SPI1_CS`  |          `P103`         |
 
-Please refer to the [board pinout section](#pinout) of the user manual to find them on the board. Include the [`SPI` library](https://reference.arduino.cc/reference/en/language/functions/communication/spi/) at the top of your sketch to use the SPI communication protocol. The SPI library provides functions for SPI communication:
+Please refer to the [board pinout section](#pinout) of the user manual to find them on the board. Include the [`SPI` library](https://docs.arduino.cc/language-reference/en/functions/communication/SPI/) at the top of your sketch to use the SPI communication protocol. The SPI library provides functions for SPI communication:
 
 ```arduino
 #include <SPI.h>

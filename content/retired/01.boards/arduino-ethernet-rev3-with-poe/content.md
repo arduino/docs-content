@@ -88,7 +88,7 @@ Each of the 14 digital pins on the Ethernet board can be used as an input or out
 * Serial: 0 (RX) and 1 (TX). Used to receive (RX) and transmit (TX) TTL serial data.
 * External Interrupts: 2 and 3\. These pins can be configured to trigger an interrupt on a low value, a rising or falling edge, or a change in value. See the [attachInterrupt()](https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/) function for details.
 * PWM: 3, 5, 6, 9, and 10\. Provide 8-bit PWM output with the [analogWrite()](https://www.arduino.cc/en/Reference/AnalogWrite) function.
-* SPI: 10 (SS), 11 (MOSI), 12 (MISO), 13 (SCK). These pins support SPI communication using the[SPI library](https://www.arduino.cc/en/Reference/SPI).
+* SPI: 10 (SS), 11 (MOSI), 12 (MISO), 13 (SCK). These pins support SPI communication using the[SPI library](https://docs.arduino.cc/language-reference/en/functions/communication/SPI/).
 * LED: 9\. There is a built-in LED connected to digital pin 9\. When the pin is HIGH value, the LED is on, when the pin is LOW, it's off. On most other arduino boards, this LED is found on pin 13\. It is on pin 9 on the Ethernet board because pin 13 is used as part of the SPI connection.
 
 The Ethernet board has 6 analog inputs, labeled A0 through A5, each of which provide 10 bits of resolution (i.e. 1024 different values). By default they measure from ground to 5 volts, though is it possible to change the upper end of their range using the AREF pin and the [analogReference](https://www.arduino.cc/reference/en/language/functions/analog-io/analogreference/)() function. Additionally, some pins have specialized functionality:
@@ -108,7 +108,7 @@ The Arduino Ethernet has a number of facilities for communicating with a compute
 
 A [SoftwareSerial library](http://www.arduino.cc/en/Reference/SoftwareSerial) allows for serial communication on any of the Uno's digital pins.
 
-The ATmega328 also supports TWI and SPI communication. The Arduino software includes a Wire library to simplify use of the TWI bus; see the [documentation](https://www.arduino.cc/en/Reference/Wire) for details. For SPI communication, use the [SPI library](https://www.arduino.cc/en/Reference/SPI).
+The ATmega328 also supports TWI and SPI communication. The Arduino software includes a Wire library to simplify use of the TWI bus; see the [documentation](https://www.arduino.cc/en/Reference/Wire) for details. For SPI communication, use the [SPI library](https://docs.arduino.cc/language-reference/en/functions/communication/SPI/).
 
 The board also can connect to a wired network via ethernet. When connecting to a network, you will need to provide an IP address and a MAC address. The [Ethernet Library](https://www.arduino.cc/en/Reference/Ethernet) is fully supported.
 
