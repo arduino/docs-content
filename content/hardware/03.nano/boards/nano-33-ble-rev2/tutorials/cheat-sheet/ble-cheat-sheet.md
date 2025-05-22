@@ -17,7 +17,7 @@ libraries:
   - name: Arduino APDS9960
     url: https://www.arduino.cc/en/Reference/ArduinoAPDS9960
   - name: Arduino SPI
-    url: hhttps://docs.arduino.cc/language-reference/en/functions/communication/SPI/
+    url: https://docs.arduino.cc/language-reference/en/functions/communication/SPI/
   - name: Arduino Wire
     url: https://www.arduino.cc/en/Reference/Wire
   - name: ArduinoBLE
