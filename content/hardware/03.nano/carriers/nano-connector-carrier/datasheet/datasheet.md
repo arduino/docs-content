@@ -69,7 +69,7 @@ The Nano Connector Carrier lets you select +5 V or +3.3 V Nano boards to ensure 
 | Nano RP2040 Connect    |              |
 | Nano Matter            |              |
 
-Setting the switch to a specific position (3V3 or 5V) also manages the voltage output on the Grove connector VCC pin.
+Setting the switch to a specific position (3.3 V or 5V) also manages the voltage output on the Grove connector VCC pin.
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <strong>Note:</strong> The logic and power voltage of the Qwiic connector and the microSD card slot are always +3.3 V regardless of the board selector switch position.
@@ -164,7 +164,7 @@ The Nano Connector Carrier pinout is shown in the following figure.
 | Pin | Function  | Type      | Description                             |
 | --- | --------- | --------- | --------------------------------------- |
 | 1   | D13 / SCK | Digital   | Serial Clock                            |
-| 2   | +3V3      | Power Out | +3V3 Power Rail                         |
+| 2   | +3.3 V      | Power Out | +3.3 V Power Rail                         |
 | 3   | B0 / AREF | Analog    | Analog Reference                        |
 | 4   | A0        | Analog    | Analog input 0                          |
 | 5   | A1        | Analog    | Analog input 1                          |
