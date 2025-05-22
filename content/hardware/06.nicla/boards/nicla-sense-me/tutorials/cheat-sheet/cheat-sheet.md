@@ -15,7 +15,7 @@ libraries:
   - name: Arduino PDM
     url: https://www.arduino.cc/en/Reference/PDM
   - name: Arduino SPI
-    url: https://www.arduino.cc/en/reference/SPI
+    url: https://docs.arduino.cc/language-reference/en/functions/communication/SPI/
   - name: Arduino Wire
     url: https://www.arduino.cc/en/Reference/Wire
   - name: ArduinoBLE
@@ -748,7 +748,7 @@ The pins used for SPI (Serial Peripheral Interface) on the Nicla Sense ME are th
 
 You can refer to the [pinout](#pins) above to find them on the board.
 
-To use SPI, you first need to include the [SPI](https://www.arduino.cc/en/reference/SPI) library.
+To use SPI, you first need to include the [SPI](hhttps://docs.arduino.cc/language-reference/en/functions/communication/SPI/) library.
 
 ```arduino
 #include <SPI.h>

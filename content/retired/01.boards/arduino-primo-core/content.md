@@ -67,7 +67,7 @@ In addition, some pins have specialized functions:
 * Serial: RX and TX: these pins are used to receive (RX) and transmit (TX) TTL serial data.
 * External Interrupts: all pins can be used as external interrupts. Keep in mind that you can’t use more than eight interrupt pins at the same time. These pins can be configured to trigger an interrupt on a low value, a rising or falling edge, or a change in value. See the [attachInterrupt()](https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/) function for details.
 * PWM: pulse width modulation is available on all pins. The 12-bit PWM output resolution can be adjusted using the [analogWriteResolution()](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwriteresolution/) function.
-* SPI: a Serial Peripheral Interface (SPI) bus is available using pins 4 (MOSI), 5 (MISO), and 6 (SCK) and 7 (SS) but it is possible to change them and use other pins. For more information about it visit the [SPI library](https://www.arduino.cc/en/Reference/SPI).
+* SPI: a Serial Peripheral Interface (SPI) bus is available using pins 4 (MOSI), 5 (MISO), and 6 (SCK) and 7 (SS) but it is possible to change them and use other pins. For more information about it visit the [SPI library](https://docs.arduino.cc/language-reference/en/functions/communication/SPI/).
 * TWI: Two-wire interface (TWI) communication is available from the serial data line (SDA) and serial clock line (SCL) pins. TWI communication is supported using the [Wire library](https://www.arduino.cc/en/Reference/Wire).
 * RESET. Bringing the reset line LOW will reset the microcontroller.
 * NFC1 and NFC2 for NFC communication
@@ -90,7 +90,7 @@ The board supports also the NFC communication until to 106 kbps as bit rate and 
 
 Furthermore the [nRF52832](/resources/datasheets/nRF52832_PS_v1.1.pdf) supports also the I2C (TWI) communication. The Arduino software includes a [Wire library](https://www.arduino.cc/en/Reference/Wire) to simplify use of the I2C bus.
 
-In the Arduino Primo Core is also possible to use the SPI communication, using the default configuration (MOSI=4, MISO=5, SCK=6, SS=7) or defining the pins that you use directly in the sketch. For more information visit the [SPI library](https://www.arduino.cc/en/Reference/SPI).
+In the Arduino Primo Core is also possible to use the SPI communication, using the default configuration (MOSI=4, MISO=5, SCK=6, SS=7) or defining the pins that you use directly in the sketch. For more information visit the [SPI library](https://docs.arduino.cc/language-reference/en/functions/communication/SPI/).
 
 ### Programming
 
