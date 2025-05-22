@@ -748,7 +748,7 @@ The pins used for SPI (Serial Peripheral Interface) on the Nicla Sense ME are th
 
 You can refer to the [pinout](#pins) above to find them on the board.
 
-To use SPI, you first need to include the [SPI](hhttps://docs.arduino.cc/language-reference/en/functions/communication/SPI/) library.
+To use SPI, you first need to include the [SPI](https://docs.arduino.cc/language-reference/en/functions/communication/SPI/) library.
 
 ```arduino
 #include <SPI.h>
