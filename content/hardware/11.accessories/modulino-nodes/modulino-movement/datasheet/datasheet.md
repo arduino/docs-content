@@ -71,7 +71,7 @@ Accelerometer: ~170 µA
 Gyroscope: ~0.55 mA
 
 ## Power Tree
-The power tree for the modulino can be consulted below:
+The power tree for the Modulino® node can be consulted below:
 
 ![Modulino® Movement Power Tree](assets/Modulino_Movement_Power_Tree.png)
 
@@ -139,7 +139,7 @@ These pads and the Qwiic connectors share the same I2C bus. You can optionally s
   - Hole spacing: 16 mm vertically, 32 mm horizontally
 
 ### I2C Address Reference
-| **Board Silk Name** | **Sensor**    | **Modulino I2C Address (HEX)** | **Editable Addresses (HEX)**       | **Hardware I2C Address (HEX)** |
+| **Board Silk Name** | **Sensor**    | **Modulino® I2C Address (HEX)** | **Editable Addresses (HEX)**       | **Hardware I2C Address (HEX)** |
 |---------------------|--------------|--------------------------------|------------------------------------|--------------------------------|
 | MODULINO MOVEMENT   | LSM6DSOXTR   | 0x6A                           | 0x6A, 0x6B (via solder jumper)     | 0x6A & 0x7E                    |
 
