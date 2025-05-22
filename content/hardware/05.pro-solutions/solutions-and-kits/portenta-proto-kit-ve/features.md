@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The **Portenta Proto Kit Vision VE** is a versatile kit designed for prototyping machine vision and environmental monitoring applications. It includes powerful components such as the Portenta H7 board, the Portenta Mid Carrier, the Proto Shield, several Modulinos, the Arduino Pro 4G Module and the Nicla Vision board, enabling users to develop advanced solutions for object recognition, people counting, air quality monitoring and more.
+The **Portenta Proto Kit Vision VE** is a versatile kit designed for prototyping machine vision and environmental monitoring applications. It includes powerful components such as the Portenta H7 board, the Portenta Mid Carrier, the Proto Shield, several Modulino nodes, the Arduino Pro 4G Module and the Nicla Vision board, enabling users to develop advanced solutions for object recognition, people counting, air quality monitoring and more.
 
 </FeatureDescription>
 
@@ -35,7 +35,7 @@ The Portenta Mid Carrier Proto Shield simplifies hardware prototyping with inter
 </Feature>
 
 <Feature title="Modulinos" image="connection">
-Modulinos are plug-and-play sensors and actuators that connect easily via the Portenta Mid Carrier Proto Shield's Qwiic connector. Designed for intuitive use, they include options like knobs for fine adjustments, LEDs for visual feedback, and sensors for measuring distance, movement, temperature and humidity, making them ideal for building and expanding projects in a fast way and with minimum complexity.
+Modulino nodes are plug-and-play sensors and actuators that connect easily via the Portenta Mid Carrier Proto Shield's Qwiic connector. Designed for intuitive use, they include options like knobs for fine adjustments, LEDs for visual feedback, and sensors for measuring distance, movement, temperature and humidity, making them ideal for building and expanding projects in a fast way and with minimum complexity.
 <FeatureWrapper>
 <FeatureLink title="Read More" url="/hardware/plug-and-make-kit"/>
 </FeatureWrapper>
