@@ -13,7 +13,7 @@ software:
  - web-editor
 ---
 The Modulino Pixels is a modular sensor that generates RGB light effects, making it perfect to add colorful visual feedback to your projects! 
-The Modulino form factor is shaped with two QWIIC connectors and the I²C protocol integration, allowing the connection and programming of multiple modulinos in a very simple way. In addition to the QWIIC's connectors, the Modulinos also expose solderable pins that can be used in multiple ways and make them compatible with boards that are not QWIIC compatible.
+The Modulino form factor is shaped with two QWIIC connectors and the I²C protocol integration, allowing the connection and programming of multiple Modulino nodes in a very simple way. In addition to the QWIIC's connectors, the Modulino nodes also expose solderable pins that can be used in multiple ways and make them compatible with boards that are not QWIIC compatible.
 
 ## Hardware Specifications
 
@@ -134,7 +134,7 @@ When QWIIC is not available, you can use the exposed solderable pins on the modu
 
 ![Connection Guide Solder Pads](assets/connection-guide-pixels-jumper.png)
 
-## Daisy-Chaining Multiple Modulinos
+## Daisy-Chaining Multiple Modulino Nodes
 
 Regardless of whether you connect the first Modulino via QWIIC or through the solderable pins, you can still take advantage of the extra QWIIC connector to daisy-chain additional modules.
 
