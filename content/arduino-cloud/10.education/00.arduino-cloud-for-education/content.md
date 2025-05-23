@@ -66,7 +66,7 @@ The **Sidebar** on the left provides you quick access to all the important tools
 - **Devices, Things, Dashboards, Triggers** - these are the core functionalities of the Cloud Platform, enabling  you to build IoT projects that allows you to collect, analyze and monitor data from the environment. 
 - **Resources, Courses & Templates** - These are learning materials and ready-made IoT projects to get you started with your educational kits or other Arduino hardware. 
 - **Integrations** - Integrate with third-party APIs and extend your projects functionality. 
-- **Plans Usage** - Here you can track the usage of your free plans. You can always upgrade to a School Plan whenever you want. If you are curious, take a look at our [School Plans options](https://cloud.arduino.cc/#schools).
+- **Plans Usage** - Here you can track the usage of your free plans.
 
 ***If you are new to the platform, make sure you try out the interactive walkthrough for a faster onboarding experience.***
 
