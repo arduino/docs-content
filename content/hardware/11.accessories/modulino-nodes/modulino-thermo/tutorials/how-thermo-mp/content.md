@@ -45,6 +45,16 @@ The pinout for the Modulino Thermo is shown below. Please note that the exposed 
 
 ![Arduino Thermo Pinout](assets/ThermoPinouts.jpg)
 
+### 1x4 Header (I2C)
+The pinout for the Modulino Buzzer is shown below. While the recommended connection method is via the QWIIC connectors, this solderable header provides a connection option when using the modulino with a non-QWIIC compatible board.
+
+| Pin   | Function     |
+|-------|--------------|
+| GND   | Ground       |
+| 3V3   | Power Supply |
+| SDA   | I²C Data     |
+| SCL   | I²C Clock    |
+
 Depending on the board connected to the modulino, the I²C pin names to program it may differ. Please check the [board tutorials](https://docs.arduino.cc/hardware/) on your modulino's compatible board or the [Modulino library](https://github.com/arduino-libraries/Modulino/tree/main/docs) to learn more.
 
 ## Power Specifications
@@ -56,7 +66,7 @@ The board is typically powered by +3.3 VDC when using the QWIIC interface as per
 | Supply Voltage  | \-                                                                | 2.3     | 3.3 (QWIIC) | 5.5     | V    |
 | Average Current | 1 humidity + temperature measurement/s 3.3 VDD - Max 5,5@ 3.3 VDD | \-      | 1024.4      | 24.4    | µA   |
 
-The module includes a power LED that draws 1 mA and turns on as soon as it is powered.
+The module additionally includes a power LED that draws 1 mA and turns on as soon as it is powered.
 J1 (Qwiic connector), J2 (Qwiic connector), and the headers all share the same power branch. The power distribution of the module is therefore as follows:
 ![Power Tree Modulino Thermo](assets/Modulino_Thermo_Power_Tree.png)
 

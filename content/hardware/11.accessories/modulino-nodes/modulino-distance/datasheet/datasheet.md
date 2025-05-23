@@ -95,8 +95,10 @@ These pads and the Qwiic connectors share the same I2C bus. You can optionally s
 **Additional 1×4 Header (Distance Sensor Signals)**  
 | **Pin** | **Function**                         |
 | ------- | ------------------------------------ |
-| GPIO1   | Interrupt output (open-drain)        |
-| XSHUT   | Active-low shutdown input            |
+| GND   | Ground         |
+| 3V3   | 3.3 V Power    |
+| GPIO1 | Digital Output |
+| XSHUT | Xshutdown      |
 
 **Note:** On-board 10 kΩ pull-ups to 3.3 V exist for GPIO1 and XSHUT.
 
@@ -236,7 +238,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                      |
 
 # Revision History
-| **Date**    | **Revision** | **Changes**                                   |
-|------------ |------------ |------------------------------------------------|
-| 14/05/2025  | 1           | First release                                  |
+| **Date**   | **Revision** | **Changes**                       |
+| ---------- | ------------ | --------------------------------- |
+| 23/05/2025 | 2            | Fixed pinout table and power info |
+| 14/05/2025 | 1            | First release                     |
 

@@ -74,7 +74,7 @@ The Modulino® Thermo node uses the HS3003 sensor to measure both temperature an
 | **Specification**       | **Details**                                 |
 | ----------------------- | ------------------------------------------- |
 | **Sensor**              | HS3003                                      |
-| **Supply Voltage**      | Min: 2.3 V, Max: 5.5 V                      |
+| **Supply Voltage**      | 3.3 V                   |
 | **Power Consumption**   | 24.4 µA (14-bit resolution, 3.3 V supply)   |
 | **Range**               | 0–100% RH, –40 °C to +125 °C                |
 | **Accuracy**            | Humidity: ±2.8% RH, Temperature: ±0.25 °C   |
@@ -98,8 +98,7 @@ These pads and the Qwiic connectors share the same I2C bus. You can optionally s
 
 
 ### Power Specifications
-- **Nominal operating voltage:** 3.3 V via Qwiic  
-- **Sensor voltage range:** 2.3 V–5.5 V  
+- **Nominal operating voltage:** 3.3 V via Qwiic 
 
 ### Mechanical Information
 ![Modulino® Thermo Mechanical Information](assets/TempMec.png)
@@ -134,14 +133,16 @@ Use the Arduino IDE or Arduino Cloud Editor to program your microcontroller. Lib
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Arduino IDE (Desktop)     | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                                                                                                             |
 | Arduino Courses           | [https://www.arduino.cc/education/courses](https://www.arduino.cc/education/courses)                                                                                                           |
-| Arduino Documentation     | [https://docs.arduino.cc/](https://docs.arduino.cc/)                                                                                                           |
+| Arduino Documentation     | [https://docs.arduino.cc/](https://docs.arduino.cc/)                                                                                                                                           |
 | Arduino IDE (Cloud)       | [https://create.arduino.cc/editor](https://create.arduino.cc/editor)                                                                                                                           |
 | Cloud IDE Getting Started | [https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor) |
 | Project Hub               | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/)                                                                                                                               |
 | Library Reference         | [https://github.com/arduino-libraries/](https://github.com/arduino-libraries/)                                                                                                                 |
-| Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                      |
+| Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                                         |
+|                           |                                                                                                                                                                                                |
 
 # Revision History
-| **Date**    | **Revision** | **Changes**                                   |
-|------------ |------------ |------------------------------------------------|
-| 14/05/2025  | 1           | First release                                  |
+| **Date**   | **Revision** | **Changes**   |
+| ---------- | ------------ | ------------- |
+| 23/05/2025 | 2            | Power info    |
+| 14/05/2025 | 1            | First release |

@@ -19,7 +19,19 @@ The Modulino form factor is shaped with two QWIIC connectors and the I²C protoc
 
 Pressing a button pulls the signal LOW, and each button has an onboard pull-up resistor. The LEDs can be controlled independently through the onboard microcontroller.
 
+
+# General Characteristics
+
 The **Modulino Buttons** module uses three tactile buttons and LEDs, which do not have native I²C capabilities. Instead, the buttons and LEDs are controlled by the Modulino's onboard microcontroller (STM32C011F4U6TR). This microcontroller provides I²C communication, allowing for flexible reading of button states and control of the LEDs. One unique feature of this setup is the ability to change the I²C address via software. This means the address can be modified based on your application needs, making it adaptable to different system configurations. 
+
+| Specification     | Details                     |
+|-------------------|-----------------------------|
+| Buttons           | 3 × Tactile pushbuttons     |
+| LEDs              | 3 × Indicator LEDs (orange) |
+| Power Supply      | 3.3 V                       |
+| Interface         | UART, SWD, I2C              |
+| Pull-up Resistors | Integrated on button inputs |
+
 
 The default I²C address for the **Modulino Buttons** module is:
 
@@ -36,25 +48,31 @@ The tactile buttons and LEDs are the core components of this module. These input
 
 ![Arduino Buttons Pinout](assets/ButtonsPinouts.png)
 
-### Input/Output Headers
+### 1x10 Header
 
-| Pin      | Function        |
-|----------|-----------------|
-| Button A | Button A Signal |
-| Button B | Button B Signal |
-| Button C | Button C Signal |
-| RX1      | UART Receive    |
-| TX1      | UART Transmit   |
-| SWDIO    | SWD Data        |
-| SWCLK    | SWD Clock       |
-| PF2      | NRST            |
+| Pin   | Function       |
+|-------|----------------|
+| A     | Button A       |
+| GND   | Ground         |
+| 3V3   | 3.3 V Power    |
+| PF2   | RESET          |
+| SWCLK | SWD Clock      |
+| SWDIO | SWD Data       |
+| TX1   | USART Transmit |
+| RX1   | USART Receive  |
+| B     | Button B       |
+| C     | Button C       |
 
-- **Button A/B/C** – These pins connect directly to the three tactile buttons on the board.
-- **RX1: UART Receive** – Used for receiving data over UART communication.
-- **TX1: UART Transmit** – Used for transmitting data over UART communication.
-- **SWDIO: SWD Data** – Used for debugging, as part of the Serial Wire Debug (SWD) interface.
+- **A: Button A** – This pin connects directly to button A.
+- **GND: Ground** – Ground connection for power and signal reference.
+- **3V3: Power** – 3.3 V power supply input.
+- **PF2: RESET** – The reset pin for the microcontroller, which can be used to reset the system.
 - **SWCLK: SWD Clock** – Used for providing the clock signal in the SWD interface.
-- **PF2: NRST** – The reset pin for the microcontroller, which can be used to reset the system.
+- **SWDIO: SWD Data** – Used for debugging, as part of the Serial Wire Debug (SWD) interface.
+- **TX1: USART Transmit** – Used for transmitting data over UART communication.
+- **RX1: USART Receive** – Used for receiving data over UART communication.
+- **B: Button B** – This pin connects directly to button B.
+- **C: Button C** – This pin connects directly to button C.
 
 ### 1x4 Header (I2C)
 
@@ -73,10 +91,10 @@ The board is typically powered by +3.3 VDC when using the QWIIC interface as per
 
 | Parameter        | Condition         | Minimum | Typical     | Maximum | Unit |
 |------------------|-------------------|---------|-------------|---------|------|
-| Supply Voltage   | -                 | 2.3     | 3.3 (QWIIC) | 3.6     | V    |
-| LED Current Draw | Single LED Active | -       | 2.5         | -       | mA   |
+| Supply Voltage   | -                 | -       | 3.3 (QWIIC) | -       | V    |
+| LED Current Draw | Single LED Active (A,B or C) | -       | 2.5         | -       | mA   |
 
-The module includes a power LED that draws 1 mA and turns on as soon as it is powered. J1 (Qwiic connector), J2 (Qwiic connector), and the headers all share the same power branch. The power distribution of the module is therefore as follows:
+The module additionally includes a power LED that draws 1 mA and turns on as soon as it is powered. J1 (Qwiic connector), J2 (Qwiic connector), and the headers all share the same power branch. The power distribution of the module is therefore as follows:
 
 ![Power Tree Modulino Buttons](assets/Modulino_Buttons_Power_Tree.png)
 

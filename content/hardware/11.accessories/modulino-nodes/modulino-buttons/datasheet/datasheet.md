@@ -96,17 +96,20 @@ The Modulino® Buttons node has a dedicated microcontroller (STM32C011F4) which 
 
 These pads and the Qwiic connectors share the same I2C bus at 3.3 V.
 
-**Additional 1×10 Header (STM32C011F4 Signals)**  
-| **Pin** | **Function**           |
-|---------|------------------------|
-| PA0     | Button/LED line (MCU)  |
-| PA1     | Button/LED line (MCU)  |
-| PA2     | Button/LED line (MCU)  |
-| RX1     | UART Receive (optional)|
-| TX1     | UART Transmit (optional)|
-| SWDIO   | SWD Data               |
-| SWCLK   | SWD Clock              |
-| PF2     | NRST (Reset)           |
+**Additional 1×10 Header**  
+
+| **Pin** | **Function** |
+|---------|--------------|
+| A     | Button A       |
+| GND   | Ground         |
+| 3V3   | 3.3 V Power    |
+| PF2   | RESET          |
+| SWCLK | SWD Clock      |
+| SWDIO | SWD Data       |
+| TX1   | USART Transmit |
+| RX1   | USART Receive  |
+| B     | Button B       |
+| C     | Button C       |
 
  **Note:**
  - The board can be reprogrammed via SWD to implement custom functionality.  
@@ -258,5 +261,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 # Revision History
 | **Date**   | **Revision** | **Changes**        |
 |------------|--------------|--------------------|
+| 23/05/2025 | 3            | Fixed pinout table and power info |
 | 21/05/2025 | 2            | Fixed info on LEDs |
 | 14/05/2025 | 1            | First release      |

@@ -72,17 +72,13 @@ This module features an STM32C011F4 microcontroller that drives a PKLCS1212E4001
 The Modulino® Buzzer node receives sound commands or frequency/tone data via I2C. The STM32C011F4 microcontroller then drives the buzzer, producing audible tones or beeps. For more advanced usage, users can re-flash the firmware via SWD to generate custom waveforms or integrate additional logic.
 
 ### Technical Specifications (Module-Specific)
-| **Specification**       | **Details**                                  |
-| ----------------------- | -------------------------------------------- |
-| **Microcontroller**     | STM32C011F4                                  |
-| **Accuracy**     | ADC: ±2 LSB typical INL                               |
-| **Resolution**     | 12-bit ADC                               |
-| **Actuator**            | PKLCS1212E4001 buzzer                        |
-| **Supply Voltage**      | Min: 2.0 V, Max: 3.6 V                        |
-| **Power Consumption**   | ~6.4 mA (buzzer active)                       |
-| **Accuracy**            | ADC: ±2 LSB typical INL (for advanced usage)  |
-| **Resolution**          | 12-bit ADC (potential for custom expansions)  |
-| **Communication**       | I2C (Qwiic), SWD, optional UART if reprogrammed |
+| **Specification**     | **Details**                                     |
+| --------------------- | ----------------------------------------------- |
+| **Microcontroller**   | STM32C011F4                                     |
+| **Actuator**          | PKLCS1212E4001 buzzer                           |
+| **Supply Voltage**    | Min: 2.0 V, Max: 3.6 V                          |
+| **Power Consumption** | ~6.4 mA (buzzer active)                         |
+| **Communication**     | I2C (Qwiic), SWD, optional UART if reprogrammed |
 
 ### Pinout
 
@@ -97,14 +93,16 @@ The Modulino® Buzzer node receives sound commands or frequency/tone data via I2
 These pads and the Qwiic connectors share the same I2C bus at 3.3 V.
 
 **Additional 1×8 Header (Buzzer & MCU Signals)**
-| **Pin** | **Function**       |
-|---------|--------------------|
-| PA0     | Buzzer signal (PWM)|
-| RX1     | UART Receive       |
-| TX1     | UART Transmit      |
-| SWDIO   | SWD Data           |
-| SWCLK   | SWD Clock          |
-| PF2     | NRST (Reset)       |
+| **Pin** | **Function**   |
+|---------|----------------|
+| GND    | Ground          |
+| 3V3    | 3.3 V Power      |
+| RESET  | Reset           |
+| SWCLK  | SWD Clock       |
+| SWDIO  | SWD Data        |
+| TX1    | USART Transmit  |
+| RX1    | USART Receive   |
+| PA0    | Buzzer          |
 
 **Note:** You can drive the buzzer with custom signals (PWM supplied to the PA0 pin) or reprogram the STM32C011F4 via SWD for alternate modes or advanced functionality.
 
@@ -249,6 +247,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                                         |
 
 # Revision History
-| **Date**    | **Revision** | **Changes**                                   |
-|------------ |------------ |------------------------------------------------|
-| 14/05/2025  | 1           | First release                                  |
+| **Date**   | **Revision** | **Changes**                                                   |
+| ---------- | ------------ | ------------------------------------------------------------- |
+| 23/05/2025 | 2            | Fixed pinout table, power info, and unrelated characteristics |
+| 14/05/2025 | 1            | First release                                                 |

@@ -69,16 +69,14 @@ This module includes an STM32C011F4 microcontroller managing eight LC8822-2020 R
 The Modulino® Pixels node uses the on-board **STM32C011F4** to handle LED data and provide an I2C interface. Each of the eight **LC8822-2020 RGB LEDs** can be addressed and controlled individually for color and brightness. Advanced users may reprogram the MCU (via SWD) to alter LED control logic or to interface via other protocols.
 
 ### Technical Specifications
+
 | **Specification**       | **Details**                                                                  |
 | ----------------------- | ---------------------------------------------------------------------------- |
 | **Microcontroller**     | STM32C011F4 (handles I2C, LED driving logic)                                 |
-| **Accuracy**     | ADC: ±2 LSB typical INL                               |
-| **Resolution**     | 12-bit ADC                               |
-| **Actuator**            | 8× LC8822-2020 RGB LEDs                                                      |
-| **Supply Voltage**      | Min: 2.0 V, Max: 3.6 V                                                        |
-| **Power Consumption**   | Up to 33 mA/LED at full white brightness × 8 = 264 mA, plus ~3.4 mA for MCU   |
+| **LEDs**                | 8× LC8822-2020 RGB LEDs                                                      |
+| **Supply Voltage**      | 3.3 V                                                                        |
+| **Power Consumption**   | ~80 mA                                                                       |
 | **Communication**       | I2C (Qwiic), SWD (debug/reprogram), optional UART/SPI if reprogrammed         |
-| **Resolution**          | 12-bit ADC in MCU (optional for other expansions)                             |
 
 ### Pinout
 
@@ -95,13 +93,16 @@ These pads and the Qwiic connectors share the same I2C bus at 3.3 V.
 **Additional 1×10 Header (LED & MCU Signals)**
 | **Pin** | **Function**      |
 |---------|-------------------|
-| CO      | Clock Out (for chained LEDs) |
-| DO      | Data Out (for chained LEDs)  |
-| RX1     | UART Receive                |
-| TX1     | UART Transmit               |
-| SWDIO   | SWD Data                    |
-| SWCLK   | SWD Clock                   |
-| PF2     | NRST (Reset)                |
+| GND    | Ground          |
+| GND    | Ground          |
+| 3V3    | 3.3 V Power      |
+| RESET  | Reset           |
+| SWCLK  | SWD Clock       |
+| SWDIO  | SWD Data        |
+| TX1    | USART Transmit  |
+| RX1    | USART Receive   |
+| D0     | Pixels Data Out |
+| C0     | Pixels Clock Out|
 
 ![Pinout Overview](assets/PixelsPinouts.png)
 
@@ -246,9 +247,10 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                      |
 
 # Revision History
-| **Date**    | **Revision** | **Changes**                                   |
-|------------ |------------ |------------------------------------------------|
-| 14/05/2025  | 1           | First release                                  |
+| **Date**   | **Revision** | **Changes**                                                          |
+| ---------- | ------------ | -------------------------------------------------------------------- |
+| 23/05/2025 | 2            | Fixed pinout table and power info, removed unrelated characteristics |
+| 14/05/2025 | 1            | First release                                                        |
 
 
 
