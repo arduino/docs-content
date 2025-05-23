@@ -137,6 +137,7 @@ The Nano R4 features an RGB LED and single color built-in LED, both can be contr
 - Arduino® UNO R4 Minima (ABX00080)
 - Arduino® UNO R4 WiFi (ABX00087)
 - Arduino Modulino nodes
+- Nano Connector Carrier (ASX00061)
 
 ## Power and Ratings
 ### Recommended Operating Conditions
