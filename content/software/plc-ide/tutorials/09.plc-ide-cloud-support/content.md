@@ -111,8 +111,7 @@ The example implementation comprises the following sequence:
 - [Hardware and Software Requirements](#hardware-and-software-requirements)
   - [Hardware Requirements](#hardware-requirements)
   - [Software Requirements](#software-requirements)
-- [PLC IDE & Arduino Cloud Integration](#plc-ide--arduino-cloud-integration)
-
+- [PLC IDE \& Arduino Cloud Integration](#plc-ide--arduino-cloud-integration)
   - [Understanding the Process](#understanding-the-process)
 - [Example Implementation](#example-implementation)
   - [Setting Up the Arduino Cloud](#setting-up-the-arduino-cloud)
@@ -518,16 +517,16 @@ arduino-cli --config-file $env:LOCALAPPDATA\T\arduino-cli.yaml lib install Ardui
 
 - Open your PLC IDE project
 - Perform a "Manual Download" to load the PLC runtime (as you would for first-time setup)
-- Update all library dependencies in the library panel to these latest versions:
+- Update all library dependencies in the library panel to these versions:
 
 ```console
-ArduinoIoTCloud 2.3.1
-Arduino_ConnectionHandler 1.0.0
+ArduinoIoTCloud 2.4.1
+Arduino_ConnectionHandler 1.0.1
 ArduinoECCX08 1.3.8
 ArduinoMqttClient 0.1.8
 Arduino_DebugUtils 1.4.0
 Arduino_Portenta_OTA 1.2.1
-Arduino_SecureElement 0.3.0
+Arduino_SecureElement 0.3.1
 ArduinoHttpClient 0.6.1
 ```
 

@@ -384,8 +384,8 @@ I2C lets you connect multiple I2C compatible devices in series using only two pi
 The UNO R4 WiFi has one I2C bus which is marked with SCL and SDA. They are shared with A4 (SDA) and A5 (SCL) which owners of previous UNO's are familiar with. The pullups are not mounted on the PCB but there are footprints to do so if needed.
 
 The pins used for I2C on the UNO R4 WiFi are the following:
-- SDA - D14
-- SCL - D15
+- SDA - D18
+- SCL - D19
 
 ![I2C Pins](assets/i2cpins.png)
 

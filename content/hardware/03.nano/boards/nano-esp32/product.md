@@ -7,6 +7,7 @@ primary_button_title: Get Started
 core: arduino:esp32
 certifications: [CE, UKCA, RoHS, FCC, MIC, IC, RCM]
 forumCategorySlug: '/hardware/nano-family/nano-esp32/190'
+productCode: '160'
 sku: [ABX00083, ABX00092]
 ---
 

@@ -1,7 +1,7 @@
 ---
 productsLibrariesMap:
-  - wifi
   - arduinoble
+  - arduino_secureelement
 ---
 
 <EssentialsColumn title="First Steps">

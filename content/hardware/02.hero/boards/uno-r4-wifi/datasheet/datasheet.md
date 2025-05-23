@@ -43,7 +43,7 @@ The **R7FA4M1AB3CFM#AA0**, often referred to as RA4M1 in this datasheet, is the 
 * **Communication**
   * 1x UART (pin D0, D1)
   * 1x SPI (pin D10-D13, ICSP header)
-  * 1x I2C (pin A4, A5, SDA, SCL)
+  * 2x I2C (pin A4, A5, SDA, SCL), (Qwiic connector)
   * 1x CAN (pin D4, D5, external transceiver is required)
 
 See the full datasheet for the R7FA4M1AB3CFM#AA0 in the link below:
@@ -127,7 +127,7 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 | JDIGITAL    | Digital input/output headers                     |
 | JOFF        | OFF, VRTC header                                 |
 | J1          | CX90B-16P USB-C® connector                       |
-| J2          | SM04B-SRSS-TB(LF)(SN) I2C connector              |
+| J2          | Qwiic Connector for I2C communication protocol   |
 | J3          | ICSP header (SPI)                                |
 | J5          | DC Jack                                          |
 | J6          | ESP header                                       |
@@ -232,13 +232,13 @@ The UNO R4 WiFi has a DAC with up to 12-bit resolution attached to the A0 analog
 
 The DAC can be used for signal generation for e.g. audio applications, like generating and altering sawtooth waves.
 
-## I2C Connector
+## Qwiic I2C Connector
 
-The I2C connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. Note that this connector is powered via 3.3 V.
+The I2C Qwiic connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. Note that this connector is powered via 3.3 V.
 
-![I2C connector.](assets/i2c-connector.png)
+![I2C Qwiic connector.](assets/i2c-connector.png)
 
-This connector also shares the following pin connections:
+The standard I2C is accessible through the following pin connections:
 
 **JANALOG header**
 - A4
@@ -491,6 +491,7 @@ This equipment contains a radio transmitter module with model approval code: CMI
 
 | Date       | **Revision** | **Changes**        |
 | ---------- | ------------ | ------------------ |
+| 09/04/2025 | 7            | Fixed I2C information |
 | 05/09/2024 | 6            | Cloud Editor updated from Web Editor |
 | 03/07/2024 | 5            | Update Assets      |
 | 19/09/2023 | 4            | Update FCC section |
@@ -538,7 +539,7 @@ RA4M1的工作电压固定为5V，而ESP32-S3模块为3.3V。这两个MCU之间�
 * **通信**
   * 1个UART（引脚D0、D1）
   * 1个SPI（引脚D10-D13，ICSP针座）
-  * 1个I2C（引脚A4、A5、SDA、SCL）
+  * 2个I2C（引脚A4、A5、SDA、SCL, (Qwiic connector)
   * 1个CAN（引脚D4、D5，需要外部收发器）
 
 请通过以下链接查看 R7FA4M1AB3CFM#AA0 的完整数据表：
