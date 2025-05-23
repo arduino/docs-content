@@ -17,7 +17,7 @@ libraries:
   - name: Arduino APDS9960
     url: https://www.arduino.cc/en/Reference/ArduinoAPDS9960
   - name: Arduino SPI
-    url: https://www.arduino.cc/en/reference/SPI
+    url: https://docs.arduino.cc/language-reference/en/functions/communication/SPI/
   - name: Arduino Wire
     url: https://www.arduino.cc/en/Reference/Wire
   - name: ArduinoBLE
@@ -393,7 +393,7 @@ The pins used for SPI (Serial Peripheral Interface) on the Nano 33 BLE Sense are
 
 ***The signal names MOSI, MISO and SS has been replaced by COPI (Controller Out, Peripheral In), CIPO (Controller In, Peripheral Out) and CS (Chip Select).***
 
-To use SPI, we first need to include the [SPI](https://www.arduino.cc/en/reference/SPI) library.
+To use SPI, we first need to include the [SPI](https://docs.arduino.cc/language-reference/en/functions/communication/SPI/) library.
 
 ```arduino
 #include <SPI.h>
