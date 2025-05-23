@@ -111,16 +111,16 @@ These pads and the Qwiic connectors share the same I2C bus. You can optionally s
 **Additional 1×10 Header (LSM6DSOXTR Signals)**  
 | **Pin** | **Function**                  |
 |---------|------------------------------|
-| VDDIO   | 3.3 V (cuttable jumper)      |
-| GND     | Ground                       |
-| INT1    | Interrupt 1 (Sensor)         |
-| INT2    | Interrupt 2 (Sensor)         |
-| SDO/SA0 | SPI Data Out / I2C Address   |
-| SDX     | SPI Data X                   |
-| SCX     | SPI Clock X                  |
-| CS      | SPI Chip Select              |
-| SDOAUX  | Auxiliary Output             |
-| OCSAUX  | Auxiliary Output             |
+| VDDIO   | Power            |
+| GND     | Ground           |
+| INT1    | Interrupt 1      |
+| INT2    | Interrupt 2      |
+| SDO/SA0 | SPI Data Out     |
+| SCx     | SPI Clock        |
+| SDx     | SPI Data         |
+| CS      | SPI Chip Select  |
+| SDOAUX  | Auxiliary Output |
+| OCSAUX  | Auxiliary Output |
 
 **Note:** By cutting its solder jumper, you can isolate **VDDIO** from 3.3 V if needed.
 
@@ -265,7 +265,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                      |
 
 # Revision History
-| **Date**    | **Revision** | **Changes**                                   |
-|------------ |------------ |------------------------------------------------|
-| 14/05/2025  | 1           | First release                                  |
+| **Date**   | **Revision** | **Changes**                       |
+| ---------- | ------------ | --------------------------------- |
+| 23/05/2025 | 2            | Fixed pinout table and power info |
+| 14/05/2025 | 1            | First release                     |
 
