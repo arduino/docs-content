@@ -17,7 +17,7 @@ A **shared space** is a virtual classroom environment where you can optimize cla
 
 In this article, we're spilling the beans on all the necessary tips and tricks you could do with a shared space and how to set it up for your classroom. Let's get started! 
 
-***Note: In order to get started with Arduino Cloud, you need to [have an Arduino account](https://login.arduino.cc/login). If you do not have an account yet, feel free to create a new one. You can follow [this tutorial](https://support.arduino.cc/hc/en-us/articles/360016724040-Create-an-Arduino-account) for a step-by-step explanation on how to do it.***
+***Note: In order to get started with Arduino Cloud, you need to [have an Arduino account](https://login.arduino.cc/login) and a Team, Custom or School cloud plan. If you do not have an account yet, feel free to create a new one. You can follow [this tutorial](https://support.arduino.cc/hc/en-us/articles/360016724040-Create-an-Arduino-account) for a step-by-step explanation on how to do it.***
 
 ## What you will learn 
 
@@ -193,7 +193,7 @@ If you have more than three spaces, there will be pop up listing out all the sha
 
 ![More than three spaces preview](assets/mote-than-3.png)
 
-***Note: with a Free Plan or School Plan there are no limitations in the number of shared spaces you can have.***
+***Note: with a School Plan there are no limitations in the number of shared spaces you can have.***
 
 ### Keep track on plan usage
 
