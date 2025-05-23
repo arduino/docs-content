@@ -15,7 +15,7 @@ software:
 
 The Modulino Movement is a modular sensor that measures acceleration and angular velocity, making it perfect to add motion sensing to your projects! The Modulino form factor is shaped with two QWIIC connectors and the I²C protocol integration, allowing the connection and programming of multiple modulinos in a very simple way. In addition to the QWIIC's connectors, the Modulinos also expose solderable pins that can be used in multiple ways and make them compatible with boards that are not QWIIC compatible.
 
-# General Characteristics
+## General Characteristics
 
 The Modulino Movement is capable of measuring acceleration and angular velocity. Take a look at the following table to know more about its measuring ranges:
 
@@ -51,19 +51,31 @@ The pinout for the Modulino Movement is shown below. Please note that the expose
 
 Depending on the board connected to the modulino, the I²C pin names to program it may differ. Please check the [board tutorials](https://docs.arduino.cc/hardware/) on your modulino's compatible board or the [Modulino library](https://github.com/arduino-libraries/Modulino/tree/main/docs) to learn more.
 
-### 1x10 Header (LSM6DSOXTR)
-| Pin     | Function             |
-|---------|----------------------|
-| VDDIO   | 3.3 V (cuttable)     |
-| GND     | Ground               |
-| INT1    | Interrupt 1 (Sensor) |
-| INT2    | Interrupt 2 (Sensor) |
-| SDO/SA0 | SPI Data Out         |
-| SDX     | SPI Data X           |
-| SCX     | SPI Clock X          |
-| CS      | SPI Chip Select      |
-| SDOAUX  | Auxiliary Output     |
-| OCSAUX  | Auxiliary Output     |
+### 1x10 Header
+
+| Pin     | Function         |
+|---------|------------------|
+| VDDIO   | Power            |
+| GND     | Ground           |
+| INT1    | Interrupt 1      |
+| INT2    | Interrupt 2      |
+| SDO/SA0 | SPI Data Out     |
+| SCx     | SPI Clock        |
+| SDx     | SPI Data         |
+| CS      | SPI Chip Select  |
+| SDOAUX  | Auxiliary Output |
+| OCSAUX  | Auxiliary Output |
+
+- **VDDIO: Power** – I/O voltage supply pin for the sensor.
+- **GND: Ground** – Ground connection for power and signal reference.
+- **INT1: Interrupt 1** – Programmable interrupt output pin.
+- **INT2: Interrupt 2** – Programmable interrupt output pin.
+- **SDO/SA0: SPI Data Out** – SPI data output pin, also used as I2C address selection.
+- **SCx: SPI Clock** – Clock signal for SPI communication.
+- **SDx: SPI Data** – SPI data input pin.
+- **CS: SPI Chip Select** – Chip select pin for SPI communication.
+- **SDOAUX: Auxiliary Output** – Auxiliary data output pin.
+- **OCSAUX: Auxiliary Output** – Auxiliary output control signal pin.
 
 ### 1x4 Header (I2C)
 | Pin   | Function     |
@@ -77,16 +89,16 @@ Depending on the board connected to the modulino, the I²C pin names to program 
 
 The board is typically powered by +3.3 VDC when using the QWIIC interface as per the I²C standard.
 
-| Parameter                                     | Condition                      | Minimum | Typical | Maximum | Unit |
-|-----------------------------------------------|--------------------------------|---------|---------|---------|------|
-| Supply Voltage                                | -                              | 1.71    | 3.3 (QWIIC) | 3.6     | V    |
-| I/O Voltage                                   | -                              | 1.62    | -       | 3.6     | V    |
-| Gyro + Accel Current (High Performance Mode)  | Both sensors active            | -       | 0.55    | -       | mA   |
-| Accelerometer Current (High Performance Mode) | -                              | -       | 170     | -       | µA   |
-| Accelerometer Current (Low Power Mode)        | ODR = 50 Hz                    | -       | 26      | -       | µA   |
-| Accelerometer Current (Ultra-Low Power Mode)  | ODR = 50 Hz                    | -       | 9.5     | -       | µA   |
+| Parameter                                     | Condition           | Minimum | Typical     | Maximum | Unit |
+|-----------------------------------------------|---------------------|---------|-------------|---------|------|
+| Supply Voltage                                | -                   | 1.71    | 3.3 (QWIIC) | 3.6     | V    |
+| I/O Voltage                                   | -                   | 1.62    | -           | 3.6     | V    |
+| Gyro + Accel Current (High Performance Mode)  | Both sensors active | -       | 0.55        | -       | mA   |
+| Accelerometer Current (High Performance Mode) | -                   | -       | 170         | -       | µA   |
+| Accelerometer Current (Low Power Mode)        | ODR = 50 Hz         | -       | 26          | -       | µA   |
+| Accelerometer Current (Ultra-Low Power Mode)  | ODR = 50 Hz         | -       | 9.5         | -       | µA   |
 
-The module includes a power LED that draws 1 mA and turns on as soon as it is powered. J1 (Qwiic connector), J2 (Qwiic connector), and the headers all share the same power branch. The power distribution of the module is therefore as follows:
+The module additionally includes a power LED that draws 1 mA and turns on as soon as it is powered. J1 (Qwiic connector), J2 (Qwiic connector), and the headers all share the same power branch. The power distribution of the module is therefore as follows:
 
 ![Power Tree Modulino Movement](assets/Modulino_Movement_Power_Tree.png)
 

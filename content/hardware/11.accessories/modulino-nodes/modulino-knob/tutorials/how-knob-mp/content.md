@@ -12,7 +12,6 @@ software:
  - ide-v2
  - web-editor
 ---
-
 The Modulino Knob is a modular sensor based on a quadrature rotary encoder that translates angular motion (rotation) into a digital signal. The sensor value will increase or decrease according to the rotation direction. Also, it includes an SPST switch that is activated when the knob is pressed.  
 It uses the Modulino form factor, streamlining integration through the I2C protocol. It provides QWIIC connectors and exposed solderable pins (for boards without a QWIIC interface).
 
@@ -48,26 +47,31 @@ The rotary encoder is the core component of this module. This input device is co
 
 The board also includes direct connections to the rotary encoder bypassing the built-in microcontroller.
 
-### Input/Output Headers
+### 1x10 Header
 
-| Pin | Function |
-|----------|-----------------| 
-| Button | PA2 Button Signal |
-| Encoder A | PA0 Encoder A Signal |
-| Encoder B | PA1 Encoder B Signal |
-| RX1 | UART Receive |
-| TX1 | UART Transmit |
-| SWDIO | SWD Data |
-| SWCLK | SWD Clock |
-| PF2 | NRST |
+| Pin   | Function       |
+|-------|----------------|
+| PA2   | Button         |
+| GND   | Ground         |
+| 3V3   | 3.3 V Power    |
+| PF2   | RESET          |
+| SWCLK | SWD Clock      |
+| SWDIO | SWD Data       |
+| TX1   | USART Transmit |
+| RX1   | USART Receive  |
+| PA0   | Encoder A      |
+| PA1   | Encoder B      |
 
-- **Button** – This pin connects directly to the built-in button of the rotary encoder.
-- **Encoder A/B** – These pins connect directly to the rotary encoder's quadrature outputs.
-- **RX1: UART Receive** – Used for receiving data over UART communication.
-- **TX1: UART Transmit** – Used for transmitting data over UART communication.
-- **SWDIO: SWD Data** – Used for debugging, as part of the Serial Wire Debug (SWD) interface.
-- **SWCLK: SWD Clock** – Used for providing the clock signal in the SWD interface.
-- **PF2: NRST** – The reset pin for the microcontroller, which can be used to reset the system.
+- **PA2: Button:**This pin connects directly to the built-in button of the rotary encoder.
+- **GND: Ground:**Ground connection for power and signal reference.
+- **3V3: Power:**3.3 V power supply input.
+- **PF2: RESET:**The reset pin for the microcontroller, which can be used to reset the system.
+- **SWCLK: SWD Clock:**Used for providing the clock signal in the SWD interface.
+- **SWDIO: SWD Data:**Used for debugging, as part of the Serial Wire Debug (SWD) interface.
+- **TX1: USART Transmit:**Used for transmitting data over UART communication.
+- **RX1: USART Receive:**Used for receiving data over UART communication.
+- **PA0: Encoder A:**These pins connect directly to the rotary encoder's quadrature outputs.
+- **PA1: Encoder B:**These pins connect directly to the rotary encoder's quadrature outputs.
 
 ### 1x4 Header (I2C)
 
@@ -84,12 +88,12 @@ The pinout for the Modulino Knob is shown below. While the recommended connectio
 
 The board must be powered **only** by +3.3 VDC when using the solderable pins or the QWIIC interface as per the standard. 
 
-| Parameter       | Minimum | Typical | Maximum | Unit |
-| --------------- | ------- | ------- | ------- | ---- |
-| Supply Voltage  | 2.0     | 3.3     | 3.6     | V    |
-| Average Current |         | 3.4     |         | mA   |
+| Parameter       | Typical | Unit |
+| --------------- | ------- | ---- |
+| Supply Voltage  | 3.3     | V    |
+| Average Current | 3.4     | mA   |
 
-The module includes a power LED that draws 1 mA and turns on as soon as it is powered. J1 (Qwiic connector), J2 (Qwiic connector), and the headers all share the same power branch. The power distribution of the module is therefore as follows:
+The module additionally includes a power LED that draws 1 mA and turns on as soon as it is powered. J1 (Qwiic connector), J2 (Qwiic connector), and the headers all share the same power branch. The power distribution of the module is therefore as follows:
 ![Power Tree Modulino Knob](assets/Modulino_Knob_Power_Tree.png)
 
 ## Schematic

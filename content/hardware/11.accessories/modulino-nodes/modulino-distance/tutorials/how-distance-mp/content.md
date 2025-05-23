@@ -28,12 +28,11 @@ The Modulino Distance is capable of measuring distances using Time-of-Flight tec
 
 ## Sensor Details
 
-The VL53L5CX sensor from STMicroelectronics is the core component of this module. This ToF sensor natively supports digital communication (I²C), meaning it connects directly to the I²C bus on the module without requiring additional conversion circuitry.
+The VL53L4CDV0DH/1 sensor from STMicroelectronics is the core component of this module. This ToF sensor natively supports digital communication (I²C), meaning it connects directly to the I²C bus on the module without requiring additional conversion circuitry.
 
 | Parameter     | Condition     | Minimum | Typical | Maximum | Unit |
 |---------------|---------------|---------|---------|---------|------|
 | Field of View | -             | -       | 18      | -       | °    |
-| Sampling Rate | -             | -       | 100     | -       | Hz   |
 | Wavelength    | Laser Emitter | -       | 940     | -       | nm   |
 
 The default address for the Module is:
@@ -50,6 +49,31 @@ The pinout for the Modulino Distance is shown below. Please note that the expose
 
 ![Arduino Distance Pinout](assets/DistancePinouts.png)
 
+### 1x4 Header (Sensor GPIO)
+
+| Pin   | Function       |
+|-------|----------------|
+| GND   | Ground         |
+| 3V3   | 3.3V Power     |
+| GPIO1 | Digital Output |
+| XSHUT | Xshutdown      |
+
+- **GND: Ground** – Ground connection for power and signal reference.
+- **3V3: Power** – 3.3V power supply input.
+- **GPIO1: Digital Output** – General purpose digital output pin.
+- **XSHUT: Xshutdown** – Shutdown control pin for the sensor.
+
+
+### 1x4 Header (I2C)
+The pinout for the Modulino Buzzer is shown below. While the recommended connection method is via the QWIIC connectors, this solderable header provides a connection option when using the modulino with a non-QWIIC compatible board.
+
+| Pin   | Function     |
+|-------|--------------|
+| GND   | Ground       |
+| 3.3 V | Power Supply |
+| SDA   | I²C Data     |
+| SCL   | I²C Clock    |
+
 Depending on the board connected to the modulino, the I²C pin names to program it may differ. Please check the [board tutorials](https://docs.arduino.cc/hardware/) on your modulino's compatible board or the [Modulino library](https://github.com/arduino-libraries/Modulino/tree/main/docs) to learn more.
 
 ## Power Specifications
@@ -57,14 +81,12 @@ Depending on the board connected to the modulino, the I²C pin names to program 
 The board is typically powered by +3.3 VDC when using the QWIIC interface as per the I²C standard.
 
 | Parameter             | Condition               | Minimum | Typical     | Maximum | Unit |
-|-----------------------|-------------------------|---------|-------------|---------|------|
-| Supply Voltage        | -                       | 2.6     | 3.3 (QWIIC) | 3.5     | V    |
-| Current Consumption   | Active measurement mode | -       | 18          | 21      | mA   |
-| Current Consumption   | Standby mode            | -       | 2           | 5       | µA   |
-| Current Consumption   | Power-down mode         | -       | 0.5         | 1       | µA   |
+| --------------------- | ----------------------- | ------- | ----------- | ------- | ---- |
+| Supply Voltage        | -                       | -       | 3.3 (QWIIC) | -       | V    |
+| Current Consumption   | Active measurement mode | -       | 24          | 40      | mA   |
 | Operating Temperature | -                       | -30     | -           | 85      | °C   |
 
-The module includes a power LED that draws 1 mA and turns on as soon as it is powered. J1 (Qwiic connector), J2 (Qwiic connector), and the headers all share the same power branch. The power distribution of the module is therefore as follows:
+The module additionally includes a power LED that draws 1 mA and turns on as soon as it is powered. J1 (Qwiic connector), J2 (Qwiic connector), and the headers all share the same power branch. The power distribution of the module is therefore as follows:
 
 ![Power Tree Modulino Distance](assets/Modulino_Distance_Power_Tree.png)
 
