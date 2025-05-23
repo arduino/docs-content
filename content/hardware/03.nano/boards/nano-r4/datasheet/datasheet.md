@@ -1,5 +1,5 @@
 ---
-identifier: ABX00142
+identifier: ABX00142-ABX00143
 title: Arduino® Nano R4
 variant: 'Datasheet'
 type: maker
@@ -286,7 +286,11 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ## Mechanical Information
 
-The Nano R4 is a one side 43.18 mm x 17.78 mm board with a USB-C® port overhanging the top edge, dual castellated/through-hole pins around the two long edges and a Qwiic connector on the bottom edge.
+The Nano R4 is a one side 43.18 mm x 17.78 mm board with a USB-C® port overhanging the top edge.
+
+The Nano R4 (ABX00142) has dual castellated/through-hole pins around the two long edges and a Qwiic connector on the bottom edge.
+
+The Nano R4 with headers pre-installed (ABX00143) is also available, providing convenient access for probing and testing.
 
 ### Board Dimensions
 Nano R4 board outline and mounting holes dimensions can be seen in following figure; all the dimensions are in mm.
@@ -397,7 +401,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Company name    | Arduino S.r.l.                               |
 | --------------- | -------------------------------------------- |
-| Company Address | Via Andrea Appiani, 25 - 20900 MONZA（Italy) |
+| Company Address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
 ## Reference Documentation
 
@@ -412,6 +416,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| Date       | **Revision** | **Changes**   |
-| ---------- | ------------ | ------------- |
-| 31/03/2025 | 1            | First Release |
+| Date       | **Revision** | **Changes**           |
+| ---------- | ------------ | --------------------- |
+| 23/05/2025 | 2            | Headers variant added |
+| 31/03/2025 | 1            | First Release         |
