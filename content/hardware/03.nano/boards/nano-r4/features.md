@@ -1,5 +1,5 @@
 <FeatureDescription>
-The Arduino Nano R4 features the powerful Renesas RA4M1 microcontroller with a 32-bit Arm® Cortex®-M4 core running at 48 MHz. Its classic Nano form factor ensures compatibility with countless accessories, while modern features like USB-C®, CAN bus, and Qwiic I²C connector make it a versatile choice for embedded, automation, and prototyping projects.
+The Arduino Nano R4 features the powerful Renesas RA4M1 microcontroller with a 32-bit Arm® Cortex®-M4 core running at 48 MHz. Its Nano family board form factor ensures compatibility with countless accessories. At the same time, modern features like USB-C®, CAN bus and an onboard Qwiic connector make it a versatile choice for embedded, automation and prototyping projects.
 </FeatureDescription>
 
 <FeatureList>
@@ -16,7 +16,7 @@ The Nano R4 is compatible with the Arduino Cloud platform, allowing you to rapid
 </Feature>
 
 <Feature title="Built-in DAC & OPAMP" image="mcu">
-With a 12-bit DAC on A0 and an integrated operational amplifier, the Nano R4 enables analog signal generation and advanced signal conditioning right out of the box.
+With a 12-bit DAC on the A0 pin and an integrated operational amplifier, the Nano R4 enables analog signal generation and advanced signal conditioning.
 </Feature>
 
 <Feature title="USB-C®" image="usb">
@@ -24,15 +24,15 @@ The first Nano board to feature a USB-C® connector for streamlined power and da
 </Feature>
 
 <Feature title="CAN Bus Support" image="communication">
-The Nano R4 includes support for CAN communication (with external transceiver), making it suitable for industrial and automotive applications.
+The Nano R4 supports CAN communication (with external transceivers), making it suitable for industrial and automotive applications.
 </Feature>
 
 <Feature title="Real-Time Clock (RTC)" image="clock">
-The built-in RTC and 16 MHz external crystal ensure accurate timekeeping — ideal for data logging and scheduled task applications.
+The built-in RTC and 16 MHz external crystal ensure accurate timekeeping, making it ideal for data logging and scheduled task applications.
 </Feature>
 
 <Feature title="5 V Operating Voltage" image="power">
-Fully 5 V compatible on all GPIOs, making it easy to use with existing Arduino shields and 5 V peripherals without level shifting.
+Fully +5 VDC compatible on all GPIOs, making it easy to use with existing Arduino shields and +5 VDC peripherals without level shifting.
 </Feature>
 
 </FeatureList>
