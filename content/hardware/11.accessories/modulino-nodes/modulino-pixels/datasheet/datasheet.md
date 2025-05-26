@@ -56,7 +56,7 @@ Maker, beginner, education
 - Up to **33 mA per RGB LED** at full brightness * 8 LEDs (264 mA total), plus ~3.4 mA for the microcontroller. Actual usage depends on brightness and color settings.
 
 ## Power Tree
-The power tree for the modulino can be consulted below:
+The power tree for the Modulino® node can be consulted below:
 
 ![Modulino® Pixels Power Tree](assets/Modulino_Pixels_Power_Tree.png)
 
@@ -126,7 +126,7 @@ It also has other I2C interface controller IC pins usable for other purposes or 
 
 ### I2C Address Reference
 
-| **Board Silk Name** | **Sensor/Actuator**      | **Modulino I2C Address (HEX)** | **Editable Addresses (HEX)**             | **Hardware I2C Address (HEX)** |
+| **Board Silk Name** | **Sensor/Actuator**      | **Modulino® I2C Address (HEX)** | **Editable Addresses (HEX)**             | **Hardware I2C Address (HEX)** |
 |---------------------|--------------------------|--------------------------------|------------------------------------------|--------------------------------|
 | MODULINO PIXELS     | 8× LC8822-2020 RGB LEDs  | 0x6C                           | Any custom address (via FW config)       | 0x36                           |
 
