@@ -20,11 +20,10 @@ The Modulino form factor is shaped with two QWIIC connectors and the I²C protoc
 
 The Modulino Buzzer based on the buzzer (PKLCS1212E4001-R1) is capable of generating different tones and sound patterns. Take a look at the following table to know more about its characteristics:
 
-| Parameter            | Condition         | Minimum | Typical | Maximum | Unit |
-|----------------------|-------------------|---------|---------|---------|------|
-| Frequency Range      | -                 | 2,000   | -       | 4,000   | Hz   |
-| Resonant Frequency   | -                 | 2,400   | 2,700   | 3,000   | Hz   |
-| Sound Pressure Level | @ 2.7 kHz, 3.3Vpp | -       | 75      | -       | dB   |
+| Parameter            | Condition | Minimum | Typical | Maximum | Unit |
+|----------------------|-----------|---------|---------|---------|------|
+| Frequency            | -         | -       | 4,000   | -       | Hz   |
+| Sound Pressure Level | -         | 75      | 85      | -       | dB   |
 
 ## Sensor Details
 
@@ -34,13 +33,14 @@ One unique feature of this setup is the ability to change the I²C address via s
 
 The default I²C address for the **Modulino Buzzer** module is:
 
-| Modulino I²C Address | Hardware I²C Address | Editable Addresses (HEX)                        |
-|----------------------|----------------------|-------------------------------------------------|
-| 0x3C                 | 0x1E                 | Any custom address (via software configuration) |
+| Modulino I²C Address | Hardware I²C Address |Editable Addresses (HEX)|
+|----------------------|----------------------|----------------------|
+| 0x3C                 | 0x1E         |Any custom address (via software configuration)
 
 
 When scanning for I²C address on the bus, you might find the modulino using the **Hardware I²C Address**. However, you should always use the **Modulino I²C Address** when using the official Modulino library.
 Later in this article we teach how to [change the address](#how-to-change-i2c-address).
+
 
 ## Pinout
 
@@ -48,23 +48,27 @@ The PKLCS1212E4001-R1 buzzer is the core component of this module. This audio ou
 
 ![Arduino Buzzer Pinout](assets/BuzzerPinouts.png)
 
-### 1x6 Header (LSM6DSOXTR)
-| Pin   | Function      |
-|-------|---------------|
-| PA0   | Buzzer Signal |
-| RX1   | UART Receive  |
-| TX1   | UART Transmit |
-| SWDIO | SWD Data      |
-| SWCLK | SWD Clock     |
-| PF2   | NRST          |
+| Pin    | Function        |
+|--------|-----------------|
+| GND    | Ground          |
+| 3V3    | 3.3V Power      |
+| RESET  | Reset           |
+| SWCLK  | SWD Clock       |
+| SWDIO  | SWD Data        |
+| TX1    | USART Transmit  |
+| RX1    | USART Receive   |
+| PA0    | Buzzer          |
 
-- **PA0: Buzzer Signal** – This pin is used to control the buzzer's output signal. In fact, this pin can be used to bypass the I²C interface and control the buzzer directly using a square wave.
+- **GND:** Provides ground reference for the circuit. 
+- **3V3:** Supplies 3.3 V power to connected components and modules.
+- **Reset:** The reset pin for the microcontroller, which can be used to reset the system.
+- **SWCLK:** Used for providing the clock signal in the SWD interface.
+- **SWDIO:** Used for debugging, as part of the Serial Wire Debug (SWD) interface.
+- **TX1:** Used for transmitting data over UART communication.
+- **RX1:** Used for receiving data over UART communication.
+- **PA0:** This pin is used to control the buzzer's output signal. In fact, this pin can be used to bypass the I²C interface and control the buzzer directly using a square wave.
 ![Direct control via signal](assets/buzzerPA0.gif)
-- **RX1: UART Receive** – Used for receiving data over UART communication.
-- **TX1: UART Transmit** – Used for transmitting data over UART communication.
-- **SWDIO: SWD Data** – Used for debugging, as part of the Serial Wire Debug (SWD) interface.
-- **SWCLK: SWD Clock** – Used for providing the clock signal in the SWD interface.
-- **PF2: NRST** – The reset pin for the microcontroller, which can be used to reset the system.
+
 
 ### 1x4 Header (I2C)
 The pinout for the Modulino Buzzer is shown below. While the recommended connection method is via the QWIIC connectors, this solderable header provides a connection option when using the modulino with a non-QWIIC compatible board.
@@ -81,12 +85,12 @@ The pinout for the Modulino Buzzer is shown below. While the recommended connect
 
 The board is typically powered by +3.3 VDC when using the QWIIC interface as per the I²C standard.
 
-| Parameter           | Condition       | Minimum | Typical | Maximum | Unit |
-|---------------------|-----------------|---------|---------|---------|------|
-| Operating Voltage   | -               | 2.5     | 3.3     | 3.6     | V    |
-| Current Consumption | @ 3.3V, 2.7 kHz | -       | 120     | -       | μA   |
+| Parameter           | Condition | Typical | Unit |
+|---------------------|-----------|---------|------|
+| Operating Voltage   | -         | 3.3     | V    |
+| Current Consumption | -         | ~6.4    | mA   |
 
-The module includes a power LED that draws 1 mA and turns on as soon as it is powered.
+The module additionally includes a power LED that draws 1 mA and turns on as soon as it is powered.
 J1 (Qwiic connector), J2 (Qwiic connector), and the headers all share the same power branch. The power distribution of the module is therefore as follows:
 ![Power Tree Modulino Buzzer](assets/Modulino_Buzzer_Power_Tree.png)
 

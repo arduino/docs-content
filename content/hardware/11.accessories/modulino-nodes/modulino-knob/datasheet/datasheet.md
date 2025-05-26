@@ -71,17 +71,15 @@ This module includes an STM32C011F4 microcontroller, reading the quadrature sign
 The Modulino® Knob node reads a **quadrature rotary encoder** (including push-switch action), translating positional and switch states into data accessible via I2C. The on-board MCU (STM32C011F4) can also support other protocols (UART, SPI, I2S) if reprogrammed. By default, I2C data allows host microcontrollers (e.g., Arduino® UNO R4 WiFi) to read knob rotation and button states easily.
 
 ### Technical Specifications
-| **Specification**       | **Details**                                       |
-| ----------------------- | ------------------------------------------------- |
-| **Microcontroller**     | STM32C011F4 (handles I2C, rotary encoder logic)   |
-| **Accuracy**     | ADC: ±2 LSB typical INL                               |
-| **Resolution**     | 12-bit ADC                               |
-| **Encoder**            | PEC11J-9215F-S0015 (quadrature + push switch)      |
-| **Supply Voltage**      | Min: 2.0 V, Max: 3.6 V                             |
-| **Power Consumption**   | ~3.4 mA                                           |
-| **Encoder Range**       | 360° (continuous rotation)                        |
+
+| **Specification**       | **Details**                                     |
+| ----------------------- | ----------------------------------------------- |
+| **Microcontroller**     | STM32C011F4 (handles I2C, rotary encoder logic)|
+| **Encoder**             | PEC11J-9215F-S0015 (quadrature + push switch)  |
+| **Encoder Range**       | 360° (continuous rotation)                      |
+| **Supply Voltage**      | 3.3 V                                           |
+| **Power Consumption**   | ~3.4 mA                                         |
 | **Communication**       | I2C (Qwiic), SWD (debug/reprogram), optional UART |
-| **Resolution**          | Internal 12-bit ADC (for custom expansions)       |
 
 ### Pinout
 
@@ -98,14 +96,16 @@ These pads and the Qwiic connectors share the same I2C bus at 3.3 V.
 **Additional 1×10 Header (Knob & MCU Signals)**
 | **Pin** | **Function**      |
 |---------|-------------------|
-| PA0     | Encoder Pin A     |
-| PA1     | Encoder Pin B     |
-| PA2     | Push Switch       |
-| RX1     | UART Receive      |
-| TX1     | UART Transmit     |
-| SWDIO   | SWD Data          |
-| SWCLK   | SWD Clock         |
-| PF2     | NRST (Reset)      |
+| PA2   | Button         |
+| GND   | Ground         |
+| 3V3   | 3.3 V Power    |
+| PF2   | RESET          |
+| SWCLK | SWD Clock      |
+| SWDIO | SWD Data       |
+| TX1   | USART Transmit |
+| RX1   | USART Receive  |
+| PA0   | Encoder A      |
+| PA1   | Encoder B      |
 
 **Note:** By default, the STM32C011F4 firmware manages the rotary encoder via I2C registers. Advanced users may modify this behavior by flashing custom code through SWD.
 
@@ -259,7 +259,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                      |
 
 # Revision History
-| **Date**    | **Revision** | **Changes**                                   |
-|------------ |------------ |------------------------------------------------|
-| 14/05/2025  | 1           | First release                                  |
+| **Date**   | **Revision** | **Changes**                                                       |
+| ---------- | ------------ | ----------------------------------------------------------------- |
+| 23/05/2025 | 2            | Fixed pinout table, power info, removed unrelated characteristics |
+| 14/05/2025 | 1            | First release                                                     |
 

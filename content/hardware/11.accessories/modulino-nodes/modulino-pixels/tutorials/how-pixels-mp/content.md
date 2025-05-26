@@ -23,7 +23,7 @@ The Modulino Pixels based on 8 LC8822-2020 addressable LEDs is capable of genera
 |------------------|-------------------|---------|---------|---------|------|
 | Supply Voltage   | -                 | 2.0     | 3.3     | 3.6     | V    |
 | Resolution (ADC) | Default           | -       | 12-bit  | -       | mcd  |
-| Communication    | I²C,USART,SPI,I2S | -       | I²C     | -       | -    |
+| Communication    | I²C,USART,SPI | -       | I²C     | -       | -    |
 
 ## Pinout
 
@@ -31,24 +31,27 @@ The LC8822-2020 addressable LEDs are the core components of this module. These R
 ![Modulino Pixels Pinout](assets/PixelsPinouts.png)
 
 ### 1x10 Header (LC8822-2020 and Microcontroller Signals)
-| Pin  | Function       |
-|------|----------------|
-| PA0  | Clock Out (CO) |
-| PA1  | Data Out (DO)  |
-| PA2  | User Defined   |
-| PA3  | User Defined   |
-| PA4  | User Defined   |
-| PA5  | User Defined   |
-| PA9  | USART TX       |
-| PA10 | USART RX       |
-| PA14 | SWCLK          |
-| PA13 | SWDIO          |
 
-- **PA0: Clock Out (CO)**:  Used to send the clock signal to the first LED in the daisy chain. (Expand LED strip)
-- **PA1: Data Out (DO)**: Used to send data to the first LED in the daisy chain.  (Expand LED strip)
-- **PA2-PA5: Free pins**: Available for user defined functionality.  
-- **PA9 and PA10: UART TX/RX**: Can be used for serial communication.  
-- **PA14 and PA13: SWD Interface**: Used for debugging or reprogramming the microcontroller.
+| Pin    | Function        |
+|--------|-----------------|
+| GND    | Ground          |
+| GND    | Ground          |
+| 3V3    | 3.3V Power      |
+| RESET  | Reset           |
+| SWCLK  | SWD Clock       |
+| SWDIO  | SWD Data        |
+| TX1    | USART Transmit  |
+| RX1    | USART Receive   |
+| D0     | Pixels Data Out |
+| C0     | Pixels Clock Out|
+
+- **GND: Ground**: Provides ground reference for the circuit. Multiple ground pins ensure stable power distribution.
+- **3V3: 3.3V Power**: Supplies 3.3V power to connected components and modules.
+- **RESET: Reset**: Used to reset the microcontroller or connected system.
+- **SWCLK and SWDIO: SWD Interface**: Used for debugging, programming, and reprogramming the microcontroller via Serial Wire Debug protocol.
+- **TX1 and RX1: USART Communication**: Enable serial communication for data transmission and reception with other devices or modules.
+- **D0: Pixels Data Out**: Sends pixel data to addressable LED strips in a daisy chain configuration for lighting control.
+- **C0: Pixels Clock Out**: Provides clock signal synchronization for addressable LED strips, ensuring proper timing for pixel data.
 
 ### 1x4 Header (I2C)
 The pinout for the Modulino Pixels is shown below. While the recommended connection method is via the QWIIC connectors, this solderable header provides a connection option when using the modulino with a non-QWIIC compatible board.
@@ -72,20 +75,18 @@ One unique feature of this setup is the ability to change the I²C address via s
 When scanning for I²C address on the bus, you might find the modulino using the **Hardware I²C Address**. However, you should always use the **Modulino I²C Address** when using the official Modulino library.
 Later in this article we teach how to [change the address](#how-to-change-i2c-address).
 
-
 ## Power Specifications
 
 The board is typically powered by +3.3 VDC when using the QWIIC interface as per the I²C standard.
 
-| Parameter              | Condition      | Minimum | Typical | Maximum | Unit |
-|------------------------|----------------|---------|---------|---------|------|
-| Operating Voltage      | -              | 4.5     | 3.3     | 5.5     | V    |
-| Power Dissipation      | -              | -       | -       | 350     | mW   |
-| Standby Current        | No data signal | -       | -       | 1       | mA   |
-| Max LED Output Current | Per Channel    | -       | 18      | -       | mA   |
+| Parameter              | Condition      | Typical | Maximum | Unit |
+|------------------------|----------------|---------|---------|------|
+| Operating Voltage      | -              | 3.3     | -       | V    |
+| Power Dissipation      | -              | -       | 350     | mW   |
+| Standby Current        | No data signal | -       | 1       | mA   |
+| Max LED Output Current | Per Channel    | 18      | -       | mA   |
 
-
-The module includes a power LED  that draws 1 mA and turns on as soon as it is powered.
+The module additionally includes a power LED  that draws 1 mA and turns on as soon as it is powered.
 J1 (Qwiic connector), J2 (Qwiic connector), and the headers all share the same power branch. The power distribution of the module is therefore as follows:
 ![Power Tree Modulino Pixels](assets/Modulino_Pixels_Power_Tree.png)
 
