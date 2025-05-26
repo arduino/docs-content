@@ -17,10 +17,6 @@ Accelerometer: Silan SC7A20 3-axis
 Communication Interfaces:
   I2C: Yes, 1
   UART: Yes, 1
-  I2S: Yes, 1
-  PDM: Yes, 1
-  SPI: Yes, 1
-  PWM: Yes, 1
   USB: USB 2.0
 Power:
   Board operating voltage: +3.3 VDC
