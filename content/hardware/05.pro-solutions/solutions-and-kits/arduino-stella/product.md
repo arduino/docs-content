@@ -8,7 +8,7 @@ secondary_button_url: /tutorials/
 secondary_button_title: Bootloader Guide
 core: arduino:mbed_portenta
 forumCategorySlug: '/hardware/'
-certifications: []
+certifications: [CE, FCC, UKCA, ROHS, REACH, WEEE, Bluetooth declaration]
 productCode: '211'
 sku: [ABX00131]
 ---
