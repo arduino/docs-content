@@ -1,0 +1,9 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - iot-cloud
+  - cloud-editor
+  - openmv-ide
+hardware:
+  boards:
+    - portenta-c33

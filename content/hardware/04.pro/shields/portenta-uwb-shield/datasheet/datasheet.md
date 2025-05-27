@@ -54,7 +54,7 @@ Below is a summary of the shield's key features.
 
 | **Feature**   | **Description**                                                                                 |
 |---------------|-------------------------------------------------------------------------------------------------|
-| Connectivity  | UWB CH5, CH6, CH8, CH9                                                                                     |
+| Connectivity  | UWB CH5, CH6, CH8, CH9                                                                          |
 | Level Shifter | 1.8 to 3.3 VDC                                                                                  |
 | Power Supply  | External 3.3 VDC power supply connected through the dual High-Density board-to-board connectors |
 | Shielding Can | On the top of DCU150 module, enhancing the anti-interference performance of the module          |
@@ -71,6 +71,7 @@ Below is a summary of the onboard UWB module's (DCU150) key features.
 | Processor               | Arm® Cortex®-M33 32-bit processor running at 125 MHz with 128 kB code RAM, 128 kB data RAM, 128 kB ROM, Arm® TrustZone technology and S-DMA for security |
 | DSP                     | Onboard programmable DSP (BSP32 CoolFlux DSP core), 32 kB RAM for code, 2x 16kB RAM for data                                                             |
 | Clock                   | Onboard Real Time Clock (RTC)                                                                                                                            |
+
 
 <div style="page-break-after: always;"></div>
 
