@@ -58,7 +58,7 @@ Below is a summary of the board's key features.
 |------------------|-----------------------------------------------------------------------------------------------------------------------|
 | Microcontroller  | Nordic Semiconductor nRF52840 Arm® Cortex®-M4 32-bit processor running at 64MHz                                       |
 | Internal Memory  | 1 MB Flash and 256 kB RAM                                                                                             |
-| Connectivity     | UWB CH5&CH9 and Bluetooth® 5.0                                                                                        |
+| Connectivity     | UWB CH5, CH9 and Bluetooth® 5.0                                                                                        |
 | USB Connectivity | USB-C® port for power and data                                                                                        |
 | Power Supply     | Various options: USB-C® port, single-cell CR2032 battery and external power supply connected through J-Link connector |
 | Peripherals      | Buzzer x1, I2C (x1) on QWIIC connector, reset button (x1), user-programmable button (x1), user-programmable LED (x1)  |
@@ -75,27 +75,29 @@ Below is a summary of the board's microcontroller features.
 | Security Features          | ARM TrustZone® CryptoCell cryptographic unit                                                        |
 | Interfaces and Peripherals | UART, SPI, TWI, PDM, I2S, QSPI, PWM, 12-bit ADC, NFC-A, USB 2.0                                     |
 
-Below is a summary of the board's UWB module features.
+Below is a summary of the board's UWB module's (DCU040) key features.
 
-| **Feature** | **Description**                                                                                                                       |
-|-------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| Module      | Truesense DCU040 (based on the NXP Trimension™ SR040 UWB IC, with power management, clock control, filters and peripheral components) |
-| Ranging     | 2-way ranging, achieving an accuracy of <±10 cm                                                                                       |
+| **Feature**             | **Description**                                                                                                                       |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Module                  | Truesense DCU040 (based on the NXP Trimension™ SR040 UWB IC, with power management, clock control, filters and peripheral components) |
+| Ranging                 | 2-way ranging, achieving an accuracy of <±10 cm                                                                                       |
+| Frequency Range         | 6.24–8.24 GHz                                                                                                                         |
+| Max Output Power (EIRP) | 14.7 dBm                                                                                                                              |
 
 <div style="page-break-after: always;"></div>
 
 Below is a summary of the board's accelerometer features.
 
 | **Feature**        | **Description**                                                        |
-|--------------------|------------------------------------------------------------------------|
+| ------------------ | ---------------------------------------------------------------------- |
 | Accelerometer      | 3-axis MEMS digital output accelerometer (SC7A20)                      |
-| Scale Range        | ±2G/±4G/±8G/±16G (user-selectable)                                     |
+| Scale Range        | ±2 G / ±4 G / ±8 G / ±16 G (user-selectable)                           |
 | Detection Features | 6D/4D orientation, free-fall, single/double click and motion detection |
 | Interrupt          | Programmable interrupt generator                                       |
 | Self Test          | Embedded self test                                                     |
 | Memory             | Embedded FIFO                                                          |
-| Durability         | 10000g                                                                 |
-| Power              | Low power mode consumption (down to 2µA)                               |
+| Durability         | 10000 G (high shock survivability)                                     |
+| Power              | Low power mode consumption (down to 2 µA)                              |
 
 Below is a summary of the board's buzzer features.
 
@@ -103,7 +105,7 @@ Below is a summary of the board's buzzer features.
 |-------------|--------------------------|
 | Model       | FUET-5020                |
 | Frequency   | 4 kHz                    |
-| Sound Level | 75dB at 10 cm            |
+| Sound Level | 75 dB at 10 cm            |
 | Dimensions  | 5.0 mm x 5.0 mm x 2.0 mm |
 
 <div style="page-break-after: always;"></div>
@@ -142,7 +144,7 @@ Below is a summary of the board's buzzer features.
 | Normal Mode with BLE Advertising¹ | I<sub>NM1</sub> |    -    |    7    |    -    |    mA    |
 |   Normal Mode with UWB Ranging²   | I<sub>NM2</sub> |    -    |   10.6  |    -    |    mA    |
 
-<p><sup>1</sup> BLE advertising, frequency is 10 Hz (100 ms).<br><sup>2</sup> UWB ranging, frequency is 5 Hz (200 ms).</p>
+<p><sup>1</sup> BLE advertising, frequency is 10 Hz (100 ms).<br><sup>2</sup> UWB ranging, frequency is 5 Hz (200 ms).</br></p>
 
 <div style="page-break-after: always;"></div>
 
