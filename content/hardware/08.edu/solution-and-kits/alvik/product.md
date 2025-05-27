@@ -6,6 +6,7 @@ primary_button_url: /tutorials/alvik/getting-started
 primary_button_title: Get Started
 secondary_button_url: https://courses.arduino.cc/explore-robotics-micropython/
 secondary_button_title: Course & Projects
+productCode: '181'
 sku: [AKX00066]
 ---
 

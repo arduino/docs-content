@@ -479,13 +479,13 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states. 
 
-| Frequency bands      | Typical Output Power |
-|----------------------|----------------------|
-| 2.4 GHz, 40 channels | +6dBm                |
+| Frequency bands             | Typical Output Power |
+| --------------------------- | -------------------- |
+| 2.402-2480 MHz, 40 channels | +6dBm                |
 
 ## NCC Low Power Warning
 
-警語:
+**警語:**
 
 取得審驗證明之低功率射頻器材，非經核准，公司、商號或使用者均不得擅自變更頻率、加大功率或變更原設計之特性及功能。
 
@@ -494,6 +494,10 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 前述合法通信，指依電信管理法規定作業之無線電通信。
 
 低功率射頻器材須忍受合法通信或工業、科學及醫療用電波輻射性電機設備之干擾。
+
+## SRRC
+
+This equipment contains a radio transmitter module with model approval code: CMIIT ID: XXXXXXXXX.
 
 ## Company Information
 
