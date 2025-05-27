@@ -7,7 +7,7 @@ primary_button_title: Get Started
 core: arduino:mbed_portenta
 forumCategorySlug: '/hardware/'
 certifications: [CE, FCC, UKCA, ROHS, REACH, WEEE]
-productCode: ''
+productCode: '213'
 sku: [ASX00074]
 ---
 
