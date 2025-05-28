@@ -45,13 +45,13 @@ When scanning for I²C address on the bus, you might find the modulino using the
 
 Later in this article we teach how to [change the address](#how-to-change-i2c-address).
 
-### Pinout
+## Pinout
 
 The tactile buttons and LEDs are the core components of this module. These input and output devices are controlled by an onboard STM32 microcontroller, which supports digital communication (I²C), meaning it connects directly to the I²C bus on the module without requiring additional conversion circuitry.
 
 ![Arduino Buttons Pinout](assets/ButtonsPinouts.png)
 
-#### 1x10 Header
+### 1x10 Header
 
 | Pin   | Function       |
 |-------|----------------|
@@ -77,7 +77,7 @@ The tactile buttons and LEDs are the core components of this module. These input
 - **B: Button B** – This pin connects directly to button B.
 - **C: Button C** – This pin connects directly to button C.
 
-#### 1x4 Header (I2C)
+### 1x4 Header (I2C)
 
 The pinout for the Modulino Buttons is shown below. While the recommended connection method is via the QWIIC connectors, this solderable header provides a connection option when using the modulino with a non-QWIIC compatible board.
 
