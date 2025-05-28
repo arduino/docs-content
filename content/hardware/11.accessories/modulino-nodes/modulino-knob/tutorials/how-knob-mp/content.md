@@ -254,7 +254,7 @@ The **Modulino Knob** provides a simple solution for UI interface, volume contro
 
 By leveraging the **Modulino package**, users can quickly access sensor data and implement functionalities such as **user interface control and angle measurement tool**. With just a few lines of code, you can start **controlling your projects**, making it easier than ever to bring intelligent sensing to your applications.
 
-## What Next?
+## What Is Next?
 
 After mastering the basics of the Modulino Knob, try these project ideas:
 

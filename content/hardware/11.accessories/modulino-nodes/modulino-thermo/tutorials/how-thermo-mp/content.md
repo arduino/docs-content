@@ -165,9 +165,12 @@ The module should now be includable in your program using:
 ### Get Temperature And Humidity Data
 
 Getting data from the sensor is fairly simple using the ```Modulino``` library.
+
 For the **Thermo** there are two crucial functions:
+
 - ```.temperature``` - Provides the temperature measurement from the sensor. (Default in °C)
 - ```.relative_humidity``` - Provides the relative humidity from the sensor. (Default in %)
+
 By default the Modulino library uses ```Wire1``` if your board model has a different pinout for the dedicated I²C pins you might have to edit it as instructed [here](https://github.com/arduino/arduino-modulino-mpy/tree/main/docs#%E2%84%B9%EF%B8%8F-using-3rd-party-boards). More information on **Wire** can be found [here](https://docs.arduino.cc/language-reference/en/functions/communication/wire/).
 
 Here is an example of how to implement these functions to acquire data:

@@ -169,7 +169,6 @@ Regardless of whether you connect the first Modulino via QWIIC or through the so
 ![Modulino Wiring Options](assets/connection-guide-movement-qwiic-chain.png)
 
 ***The number of modules you can connect will depend on what modules you are chaining together, as this system allows for multiple sensors from different manufacturers to be added. Also, the cables you use for these connections will play a significant role in the setup's performance. Ensure your cables are correctly connected and capable of handling the required data transfer.
-
 Each module should have a unique address on a chain if you plan to address them individually. Later in this article we teach how to [change the address](#how-to-change-i2c-address). Multiple modules with the same address will cause conflicts on the I²C bus and will not allow you to address them individually.***
 
 ### Changing I2C Address
