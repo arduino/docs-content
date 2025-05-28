@@ -27,13 +27,13 @@ The Modulino Pixels based on 8 LC8822-2020 addressable LEDs is capable of genera
 | Resolution (ADC) | Default           | -       | 12-bit  | -       | mcd  |
 | Communication    | I²C,USART,SPI | -       | I²C     | -       | -    |
 
-### Pinout
+## Pinout
 
 The LC8822-2020 addressable LEDs are the core components of this module. These RGB light output devices are controlled by an onboard STM32C011F4U6TR microcontroller, which supports digital communication (I²C), meaning it connects directly to the I²C bus on the module without requiring additional conversion circuitry.
 
 ![Modulino Pixels Pinout](assets/PixelsPinouts.png)
 
-#### 1x10 Header (LC8822-2020 and Microcontroller Signals)
+### 1x10 Header (LC8822-2020 and Microcontroller Signals)
 
 | Pin    | Function        |
 |--------|-----------------|
@@ -56,7 +56,7 @@ The LC8822-2020 addressable LEDs are the core components of this module. These R
 - **D0: Pixels Data Out**: Sends pixel data to addressable LED strips in a daisy chain configuration for lighting control.
 - **C0: Pixels Clock Out**: Provides clock signal synchronization for addressable LED strips, ensuring proper timing for pixel data.
 
-#### 1x4 Header (I2C)
+### 1x4 Header (I2C)
 
 The pinout for the Modulino Pixels is shown below. While the recommended connection method is via the QWIIC connectors, this solderable header provides a connection option when using the modulino with a non-QWIIC compatible board.
 

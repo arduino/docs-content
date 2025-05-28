@@ -45,13 +45,13 @@ When scanning for I²C address on the bus, you might find the modulino using the
 Later in this article we teach how to [change the address](#how-to-change-i2c-address).
 
 
-### Pinout
+## Pinout
 
 The PKLCS1212E4001-R1 buzzer is the core component of this module. This audio output device is controlled by an onboard STM32 microcontroller, which supports digital communication (I²C), meaning it connects directly to the I²C bus on the module without requiring additional conversion circuitry.
 
 ![Arduino Buzzer Pinout](assets/BuzzerPinouts.png)
 
-#### 1x8 Header
+### 1x8 Header
 
 | Pin    | Function        |
 |--------|-----------------|
@@ -75,7 +75,7 @@ The PKLCS1212E4001-R1 buzzer is the core component of this module. This audio ou
 ![Direct control via signal](assets/buzzerPA0.gif)
 
 
-#### 1x4 Header (I2C)
+### 1x4 Header (I2C)
 
 The pinout for the Modulino Buzzer is shown below. While the recommended connection method is via the QWIIC connectors, this solderable header provides a connection option when using the modulino with a non-QWIIC compatible board.
 

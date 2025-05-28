@@ -45,7 +45,7 @@ The default address for the Module is:
 When scanning for I²C address on the bus, you might find the modulino using the **Hardware I²C Address**. However, you should always use the **Modulino I²C Address** when using the official Modulino library.
 Later in this article we teach how to [change the address](#how-to-change-i2c-address).
 
-### Pinout
+## Pinout
 
 The pinout for the Modulino Movement is shown below. Please note that the exposed solderable pins are directly connected to the QWIIC connectors using the same I²C interface.
 
@@ -53,7 +53,7 @@ The pinout for the Modulino Movement is shown below. Please note that the expose
 
 Depending on the board connected to the modulino, the I²C pin names to program it may differ. Please check the [board tutorials](https://docs.arduino.cc/hardware/) on your modulino's compatible board or the [Modulino library](https://github.com/arduino-libraries/Modulino/tree/main/docs) to learn more.
 
-#### 1x10 Header
+### 1x10 Header
 
 | Pin     | Function         |
 |---------|------------------|
@@ -79,7 +79,7 @@ Depending on the board connected to the modulino, the I²C pin names to program 
 - **SDOAUX: Auxiliary Output** – Auxiliary data output pin.
 - **OCSAUX: Auxiliary Output** – Auxiliary output control signal pin.
 
-#### 1x4 Header (I2C)
+### 1x4 Header (I2C)
 
 | Pin   | Function     |
 |-------|--------------|

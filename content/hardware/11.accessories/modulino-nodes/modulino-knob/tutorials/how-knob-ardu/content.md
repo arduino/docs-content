@@ -17,7 +17,7 @@ The Modulino Knob is a modular sensor based on a quadrature rotary encoder that 
 
 It uses the Modulino form factor, streamlining integration through the I2C protocol. It provides QWIIC connectors and exposed solderable pins (for boards without a QWIIC interface).
 
-### General Characteristics
+## General Characteristics
 
 The Modulino Knob has the following measurement specifications:
 
@@ -43,7 +43,7 @@ When scanning for I²C address on the bus, you might find the modulino using the
 Later in this article we teach how to [change the address](#how-to-change-i2c-address).
 
 
-### Pinout
+## Pinout
 
 The rotary encoder is the core component of this module. This input device is controlled by an onboard STM32 microcontroller, which supports digital communication (I²C), meaning it connects directly to the I²C bus on the module without requiring additional conversion circuitry.
 
@@ -51,7 +51,7 @@ The rotary encoder is the core component of this module. This input device is co
 
 The board also includes direct connections to the rotary encoder bypassing the built-in microcontroller.
 
-#### 1x10 Header
+### 1x10 Header
 
 | Pin   | Function       |
 |-------|----------------|
@@ -77,7 +77,7 @@ The board also includes direct connections to the rotary encoder bypassing the b
 - **PA0: Encoder A:**These pins connect directly to the rotary encoder's quadrature outputs.
 - **PA1: Encoder B:**These pins connect directly to the rotary encoder's quadrature outputs.
 
-#### 1x4 Header (I2C)
+### 1x4 Header (I2C)
 
 The pinout for the Modulino Knob is shown below. While the recommended connection method is via the QWIIC connectors, this solderable header provides a connection option when using the modulino with a non-QWIIC compatible board.
 
@@ -154,7 +154,7 @@ Each module should have a unique address on a chain if you plan to address them 
 
 ## How To Use Your Modulino
 
-#### Installing The Modulino Library
+### Installing The Modulino Library
 
 You need the official Modulino library available [here](https://github.com/arduino-libraries/Modulino) to use the Modulino Knob.
 

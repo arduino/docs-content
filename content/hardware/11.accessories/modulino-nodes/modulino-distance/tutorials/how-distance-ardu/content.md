@@ -45,13 +45,13 @@ The default address for the Module is:
 
 ***Note: Since the address cannot be changed on this Modulino specifically, using two or more identical modules on the same I²C bus will result in address conflicts and cause communication issues.***
 
-### Pinout
+## Pinout
 
 The pinout for the Modulino Distance is shown below. Please note that the exposed solderable pins are directly connected to the QWIIC connectors using the same I²C interface.
 
 ![Arduino Distance Pinout](assets/DistancePinouts.png)
 
-#### 1x4 Header (Sensor GPIO)
+### 1x4 Header (Sensor GPIO)
 
 | Pin   | Function       |
 |-------|----------------|
@@ -65,7 +65,7 @@ The pinout for the Modulino Distance is shown below. Please note that the expose
 - **GPIO1: Digital Output** – General purpose digital output pin.
 - **XSHUT: Xshutdown** – Shutdown control pin for the sensor.
 
-#### 1x4 Header (I2C)
+### 1x4 Header (I2C)
 
 The pinout for the Modulino Buzzer is shown below. While the recommended connection method is via the QWIIC connectors, this solderable header provides a connection option when using the modulino with a non-QWIIC compatible board.
 

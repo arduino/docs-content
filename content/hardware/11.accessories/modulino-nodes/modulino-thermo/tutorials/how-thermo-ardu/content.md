@@ -41,7 +41,7 @@ The default address for the Module is:
 
 ***Note: Since the address cannot be changed on this Modulino specifically, using two or more identical modules on the same I²C bus will result in address conflicts and cause communication issues.***
 
-### Pinout
+## Pinout
 
 The pinout for the Modulino Thermo is shown below. Please note that the exposed solderable pins are directly connected to the QWIIC connectors using the same I²C interface.
 
@@ -49,7 +49,7 @@ The pinout for the Modulino Thermo is shown below. Please note that the exposed 
 
 Depending on the board connected to the modulino, the I²C pin names to program it may differ. Please check the [board tutorials](https://docs.arduino.cc/hardware/) on your modulino's compatible board or the [Modulino library](https://github.com/arduino-libraries/Modulino/tree/main/docs) to learn more.
 
-#### 1x4 Header (I2C)
+### 1x4 Header (I2C)
 
 The pinout for the Modulino Buzzer is shown below. While the recommended connection method is via the QWIIC connectors, this solderable header provides a connection option when using the modulino with a non-QWIIC compatible board.
 
