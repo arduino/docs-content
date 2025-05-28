@@ -12,6 +12,7 @@ software:
  - ide-v2
  - web-editor
 ---
+
 The Modulino Movement is a modular sensor that measures acceleration and angular velocity, making it perfect to add motion sensing to your projects! The Modulino form factor is shaped with two QWIIC connectors and the I²C protocol integration, allowing the connection and programming of multiple modulinos in a very simple way. In addition to the QWIIC's connectors, the Modulinos also expose solderable pins that can be used in multiple ways and make them compatible with boards that are not QWIIC compatible.
 
 ## General Characteristics
@@ -30,9 +31,10 @@ The Modulino Movement is capable of measuring acceleration and angular velocity.
 | **FIFO Buffer**                 | -                       | -       | 9       | -       | KB       |
 | **Sampling Rate**               | Output Data Rate        | 1.6     | -       | 6664    | Hz       |
 
-## Sensor Details
+### Sensor Details
 
 The LSM6DSOXTR sensor from STMicroelectronics is the core component of this module. This 6-axis IMU (accelerometer and gyroscope) natively supports digital communication (I²C and SPI), meaning it connects directly to the I²C bus on the module without requiring additional conversion circuitry.
+
 The default address for the Module is:
 
 | Modulino I²C Address | Hardware I²C Address |
@@ -40,6 +42,7 @@ The default address for the Module is:
 | 0x6A or 0x7E         | 0x6A or 0x7E         |
 
 When scanning for I²C address on the bus, you might find the modulino using the **Hardware I²C Address**. However, you should always use the **Modulino I²C Address** when using the official Modulino library.
+
 Later in this article we teach how to [change the address](#how-to-change-i2c-address).
 
 ## Pinout
@@ -77,6 +80,7 @@ Depending on the board connected to the modulino, the I²C pin names to program 
 - **OCSAUX: Auxiliary Output** – Auxiliary output control signal pin.
 
 ### 1x4 Header (I2C)
+
 | Pin   | Function     |
 |-------|--------------|
 | GND   | Ground       |
@@ -116,16 +120,18 @@ There's also a small power indicator LED that lights up when the board is on.
 Some options for customizing the module's features via onboard solder jumpers are available:
 
 ### **VDDIO Independence:**  
+
 - By default, **VDDIO is connected to +3V3**.  
 - To make **VDDIO independent**, cut the corresponding solder jumper.
 
 ### SPI Mode Selection: 
+
 - The LSM6DSOXTR supports both **3-wire and 4-wire SPI**.  
 - You can configure SPI communication and connect additional sensors by cutting or soldering the appropriate jumpers. Please take a look at the IMU's datasheet for more information.
 
 You can grab the full schematic and PCB files from the [Modulino Movement](https://docs.arduino.cc/hardware/modulinos/modulino-movement) product page.
 
-# How To Connect Your Modulino
+## How To Connect Your Modulino
 
 The easiest and most reliable way to connect your Modulino is through the QWIIC Connect System. It's plug-and-play, uses standard I²C, and makes it easy to join multiple modules. If your board supports QWIIC, this is the recommended way to go. Note that the dedicated I²C pins will differ from board to board meaning it is always a good idea to check your specific model.
 
@@ -133,7 +139,7 @@ If your board doesn't have a QWIIC connector, you can still access the same I²C
 
 ![Modulino Wiring Options QWIIC(A - recommended) and Header(B)](assets/connection-guide-movement.png)
 
-## QWIIC Connector
+### QWIIC Connector
 
 Whenever available, the **QWIIC Connect System** is the preferred method. Connecting to the Modulino is extremely simple, just use a standard QWIIC cable to connect your board to either of the QWIIC connectors on the Modulino. Because the cable and connectors are polarized, there is no need to worry about accidentally swapping connections.
 
@@ -149,13 +155,13 @@ The Modulino features two QWIIC connectors, which are internally connected in pa
 
 When connecting multiple I²C devices, address conflicts may occur if two or more devices share the same default I²C address. The Modulino addresses this potential issue by allowing you to select a different address through a simple hardware modification. We cover this process in detail in the [**Changing I²C Address**](#changing-i2c-address) section, enabling you to integrate multiple identical modules or different devices that share the same default address in your project.
 
-## Solderable Header
+### Solderable Header
 
 When QWIIC is not available, you can use the exposed solderable pins on the module. You can solder pins to the unpopulated pads; just remember the pinout provided in this guide to connect to the right pins of your board.
 
 ![Connection Guide Solder Pads](assets/connection-guide-movement-jumper.png)
 
-## Daisy-Chaining Multiple Modulinos
+### Daisy-Chaining Multiple Modulinos
 
 Regardless of whether you connect the first Modulino via QWIIC or through the solderable pins, you can still take advantage of the extra QWIIC connector to daisy-chain additional modules. Each Modulino includes two QWIIC connectors wired in parallel, allowing you to connect one module to the next in a chain. As long as each module is configured with a unique I²C address, they can all communicate on the same bus as long as you select the correct I²C pins depending on your board. This approach keeps your setup clean, modular, and expandable without adding extra wiring complexity.
 
@@ -165,7 +171,7 @@ Regardless of whether you connect the first Modulino via QWIIC or through the so
 
 Each module should have a unique address on a chain if you plan to address them individually. Later in this article we teach how to [change the address](#how-to-change-i2c-address). Multiple modules with the same address will cause conflicts on the I²C bus and will not allow you to address them individually.***
 
-## Changing I2C Address
+### Changing I2C Address
 
 The Modulino Movement can be configured to use an alternative I2C address (0x6B) instead of the default address (0x6A). To change the address, follow these steps carefully:
 
@@ -186,31 +192,37 @@ movement_module = ModulinoMovement(address=0x7E)
 ```
 
 
-### How To Program Your Modulino
-To program your Modulino it is recommended you use the official ```Modulino``` micropython library available [here](https://github.com/arduino/arduino-modulino-mpy). The library is fully compatible with the no **Arduino Lab for MicroPython**.
-For information on installing the **Arduino Lab for MicroPython** please visit our [page](https://docs.arduino.cc/micropython/first-steps/install-guide/).
+## How To Program Your Modulino
 
 ### Installing The Modulino Library
+
+To program your Modulino it is recommended you use the official ```Modulino``` micropython library available [here](https://github.com/arduino/arduino-modulino-mpy). The library is fully compatible with the no **Arduino Lab for MicroPython**.
+
+For information on installing the **Arduino Lab for MicroPython** please visit our [page](https://docs.arduino.cc/micropython/first-steps/install-guide/).
+
 The ```Modulino``` library is not available by default on MicroPython devices hence installation is needed.
+
 To simplify the process the [MicroPython Package Installer](https://github.com/arduino/lab-micropython-package-installer/releases) is recommended as it will provide a graphical interface to guide installation.
 After installation, you should now be able to:
 
 1. Open the tool.
 2. Plug in your board to the computer.
-![USB Connection](assets/mp-usb-connection.png)
 
-If the board does not appear in the Detected Boards section, click Reload. If the board is still undetected, ensure no other programs (e.g., a code editor) are using the board's COM port.
+    ![USB Connection](assets/mp-usb-connection.png)
 
-4. Search for the ```Modulino``` package by filling in the text box on the search feature.
-5. Click Install and wait for the installation confirmation.
-6. Disconnect the board from the tool before returning to your code editor to avoid conflicts due to a busy COM port.
+    If the board does not appear in the Detected Boards section, click Reload. If the board is still undetected, ensure no other programs (e.g., a code editor) are using the board's COM port.
+
+3. Search for the ```Modulino``` package by filling in the text box on the search feature.
+4. Click Install and wait for the installation confirmation.
+5. Disconnect the board from the tool before returning to your code editor to avoid conflicts due to a busy COM port.
 
 ![Package Installer Overview](assets/package-installer-overview.png)
 
 The module should now be includable in your program using:
+
 ```from modulino import ModulinoThermo```
 
-## Get Acceleration and Gyroscope Data
+### Get Acceleration and Gyroscope Data
 
 Getting motion data from the **Modulino Movement** module is simple using the `Modulino` library. The module provides two crucial functions for motion sensing:
 
@@ -236,36 +248,45 @@ while True:
     print("")
     sleep_ms(100)
 ```
+
 The code example provided shows how to initialize the sensor, read the acceleration data, and display it on the console.
+
 The data is continuously updated, showing the current acceleration values in real time.
 It can be easily adapted to trigger actions at certain movement thresholds or to detect specific motion patterns in your projects.
 
-### Troubleshooting
+## Troubleshooting
 
-#### Sensor Not Reachable
+### Sensor Not Reachable
+
 If your Modulino's power LED isn't on or the sensor isn't responsive, first check that the board is properly connected:
+
 - Ensure both the board and the Modulino are connected to your computer, and that the power LEDs on both are lit.
 - If the issue persists, make sure the Qwiic cable is properly clicked into place.
 
-#### Library Not Installed Properly
+### Library Not Installed Properly
+
 If you encounter an issue with the `import ModulinoMovement` command, verify that the Modulino library is correctly installed:
+
 - Check your Library installer to ensure the library is installed and up-to-date.
 - Re-install the library through the Library Manager.
 
-#### Inaccurate Values
+### Inaccurate Values
+
 If the sensor values are not accurate, make sure:
+
 - The sensor is not placed on an unstable surface that might cause unwanted vibrations.
 - All exposed electronics are not touching any conductive surfaces, as this could interfere with readings.
 - The board is mounted securely when measuring precise movements.
 
-# What Is Next?
+## Conclusion
+
+The **Modulino Movement** is a digital 6-axis IMU sensor that communicates over I²C and follows the Modulino form factor. It includes standard Qwiic connectors for quick, solderless connections and easy daisy-chaining with other modules. Paired with the Modulino library, it makes accessing motion data straightforward, allowing you to focus on experimenting or building your system logic. It's a small, reliable module suited for both quick tests and longer-term setups.
+
+## What Is Next?
 
 Now that you've learned how to use your Modulino Movement, you're all set to integrate it into your projects!
+
 - Use the movement data to detect different patterns and use these as inputs for your projects.
 - Create a motion-activated alarm that triggers when unexpected movement is detected.
 - Build a balance game that challenges players to keep the sensor level within certain parameters.
 - Make a pedometer that counts steps based on the characteristic motion patterns of walking.
-
-# Conclusion
-
-The **Modulino Movement** is a digital 6-axis IMU sensor that communicates over I²C and follows the Modulino form factor. It includes standard Qwiic connectors for quick, solderless connections and easy daisy-chaining with other modules. Paired with the Modulino library, it makes accessing motion data straightforward, allowing you to focus on experimenting or building your system logic. It's a small, reliable module suited for both quick tests and longer-term setups.
