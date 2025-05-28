@@ -6,7 +6,8 @@ primary_button_url: /tutorials/nano-r4/getting-started-nano-r4
 primary_button_title: Get Started
 core: 
 certifications: []
-forumCategorySlug: '/hardware/nano-family/nano-r4/212'
+forumCategorySlug: '/hardware/nano-family/nano-r4/190'
+productCode: '212'
 sku: [ABX00142]
 ---
 
