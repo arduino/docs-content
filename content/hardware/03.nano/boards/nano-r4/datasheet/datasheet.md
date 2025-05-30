@@ -11,6 +11,8 @@ type: maker
 
 The Arduino® Nano R4 is a Nano form factor board based on the RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#HA0), which embeds a 48 MHz Arm® Cortex®-M4 microprocessor. The Nano R4's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB data memory (EEPROM). The Nano R4 board operates at 5 V, making it hardware compatible with Nano form factor accessories with the same operating voltage.
 
+The Nano R4 is available in two variants: without headers (SKU: ABX00142) and with pre-installed headers (SKU: ABX00143).
+
 Leverage the on-board Qwiic connector for seamless integration with Modulinos, enabling quick and reliable expansion of your project.
 
 # Target areas:
