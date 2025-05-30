@@ -365,6 +365,8 @@ You should see a brief success message in the Serial Monitor if everything went 
 
 ![Memory partitioning process of the Opta™](assets/qspi_format_memPartitioning.gif)
 
+***__Note:__ If you encounter issues with the Opta™ when using the PLC IDE after memory partitioning with the __QSPIFormat__ sketch, please use the dedicated Opta memory partitioning code available for download [__here__](assets/opta_memory_partitioning.zip). __Please store both files in the same directory__.***
+
 ## Partitioning the Memory of a Portenta Machine Control
 
 **The memory partitioning process for the Portenta Machine Control follows the same procedure as the Opta™.** You will need the latest `Arduino Mbed OS Portenta Boards` core version. If you do not have the latest version, please refer to the [Setting Up the Arduino IDE](#setting-up-the-arduino-ide) section before proceeding.
