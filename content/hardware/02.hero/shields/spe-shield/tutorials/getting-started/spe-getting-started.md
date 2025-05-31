@@ -12,8 +12,8 @@ In this guide, you'll learn how to set up your first SPE network, understand the
 
 ### Hardware Requirements
 
-- Arduino® UNO SPE Shield (x2 minimum for network communication)
-- Compatible Arduino boards (x2):
+- Arduino® UNO SPE Shield
+- Compatible Arduino board:
   - Arduino® UNO R4 WiFi (recommended)
   - Arduino® UNO R4 Minima
   - Arduino® UNO R3
@@ -22,27 +22,56 @@ In this guide, you'll learn how to set up your first SPE network, understand the
 
 ### Software Requirements
 
-- [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 2.0](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
 - [Arduino_10BASE_T1S library](https://github.com/arduino-libraries/Arduino_10BASE_T1S) (available through Library Manager)
 - [ArduinoModbus library](https://github.com/arduino-libraries/ArduinoModbus) (for industrial protocols)
 
 ## Product Overview
 
-The Arduino UNO SPE Shield is a versatile communication solution that integrates:
+The Arduino UNO SPE Shield is a versatile solution for industrial communication, IoT, and automation, combining Single Pair Ethernet (10BASE-T1S) and RS-485. It enables integration into low-power Ethernet networks and robust serial communication systems, ensuring efficient connectivity in embedded environments.
 
-- **10BASE-T1S Single Pair Ethernet**: Enables up to 10 Mbps communication over a single twisted pair
-- **RS-485 Transceiver**: For legacy industrial device integration
-- **Multiple Power Options**: USB power, external VIN (7-24V), or Power over Data Line (PoDL)
-- **Industrial-Grade Protection**: Including under-voltage lockout, over-voltage protection, and ESD protection
+Compatible with the Arduino UNO form factor, it supports SPI, UART, and I2C, facilitating interoperability with various devices. Additionally, it features screw terminals for additional connectivity and power options. Its robust design and advanced protection makes it ideal for applications in industrial environments for remote monitoring and automated control.
 
-### Carrier Architecture Overview
 
-The shield features the Microchip® LAN8651B1 controller for SPE communication, providing:
+### Key Features
 
-- Support for up to 8 nodes in multidrop configuration
-- Maximum 25 meters cable length
-- Built-in termination resistors (configurable via jumpers)
-- Common-mode chokes for noise suppression
+- **Single Pair Ethernet**: 10BASE-T1S standard with 10 Mbps data rate, supporting up to 25 meters in multidrop topology with up to 8 nodes
+- **RS-485 Communication**: Half-duplex operation at 20 Mbps with 120Ω termination jumper and fail-safe biasing
+- **Multiple Interfaces**: UART, SPI, and I2C connectivity through Arduino UNO headers
+- **Robust Design**: Operating temperature range -40°C to +85°C with advanced protection features
+- **Dimensions**: Standard Arduino shield form factor at 68.58 mm x 53.34 mm
+
+### Pinout
+
+The full pinout is available below:
+
+![Arduino UNO SPE Shield Pinout](assets/UNO_SPE_Pinout.png)
+
+### Datasheet
+
+The complete datasheet is available and downloadable as PDF from the link below:
+- [Arduino UNO SPE Shield datasheet](https://docs.arduino.cc/resources/datasheets/ASX00073-datasheet.pdf)
+
+### Schematics
+
+The complete schematics are available and downloadable as PDF from the link below:
+
+- [Arduino UNO SPE Shield schematics](https://docs.arduino.cc/resources/schematics/ASX00073-schematics.pdf)
+
+### STEP Files
+
+The complete STEP files are available and downloadable from the link below:
+
+- [Arduino UNO SPE Shield STEP files](../../downloads/ASX00073-step.zip)
+
+### Form Factor
+
+The Arduino UNO SPE Shield follows the standard Arduino UNO shield form factor, ensuring compatibility with all Arduino UNO boards and enabling stackable designs. With dimensions of 68.58 mm x 53.34 mm, the shield maintains the familiar Arduino ecosystem layout while adding industrial-grade communication capabilities.
+The shield features the standard Arduino UNO header arrangement with digital and analog pin access, ICSP connector placement, and proper mounting hole alignment.
+
+![Simplified Form Factor Dimentions](assets/SPE-form-factor.png)
+
+This standardized form factor allows seamless integration into existing Arduino UNO projects and ensures that the shield can be easily incorporated into enclosures and mounting systems designed for the Arduino UNO ecosystem.
 
 ## First Use of Your Arduino UNO SPE Shield
 
@@ -61,408 +90,246 @@ The shield can be powered through multiple sources:
 - **External Power**: Through the VIN terminal.
 - **Power over Data Line (PoDL)**: 7-24V DC through the T1SP terminal.
 
-![Powering your board](assets/SPE-ping-pong-01.gif)
+![Powering your board](assets/SPE-power.gif)
 
+## Simple broadcast Example 
 
-### Recommended Operating Conditions
+This example demonstrates a simple broadcast communication system between multiple nodes on an SPE network. Each node can broadcast messages to all other nodes, and automatically responds with "pong" when it receives a "ping" message. This creates an interactive network where you can test connectivity and response times between different devices.
 
-| Parameter | Min | Typical | Max | Unit |
-|-----------|-----|---------|-----|------|
-| USB Supply Voltage | - | 5.0 | - | V |
-| External Supply Voltage | 7.0 | 12.0 | 24.0 | V |
-| Operating Temperature | -40 | 25 | 85 | °C |
-
-## Check Board/Shield Connection
-
-
-
-## Hello World Example
-
-### Setting Up a Point-to-Point SPE Connection
-
-Let's create a simple point-to-point connection between two Arduino boards with SPE shields.
+![Overview of the Ping/Pong example](assets/SPE-ping-pong.gif)
 
 ### Hardware Setup
 
 1. **Configure Termination Jumpers**: For point-to-point connections, close the termination jumpers on both shields
 2. **Connect the SPE Cable**: Wire the twisted pair between the two shields' SPE terminals (N and P pins)
-3. **Power Both Systems**: Ensure both Arduino boards are powered
+3. **Apply terminator caps**: On edge nodes (first and last) in the bus
+4. **Power Both Systems**: Ensure both Arduino boards are powered
 
-![Point-to-Point Connection Diagram](assets/p2p-connection.png)
-
-### Ping/Pong
-
-This example demonstrates a simple ping-pong communication system between multiple nodes on an SPE network. Each node can broadcast messages to all other nodes, and automatically responds with "pong" when it receives a "ping" message. This creates an interactive network where you can test connectivity and response times between different devices.
+### Sketch
 
 The system uses UDP broadcasting to send messages to all nodes simultaneously, making it perfect for testing your SPE network setup and verifying that all nodes are communicating properly. Each node operates independently, listening for incoming messages while also being able to send its own broadcasts.
 
-![Overview of the Ping/Pong example](assets/SPE-ping-pong.gif)
-
 **Important**: Before uploading this code to each board, you must change the `NODE_ID` constant to a unique value between 0 and 7. Each node on the network must have a different ID to ensure proper communication and avoid conflicts. For example:
-- First board: `const uint8_t NODE_ID = 0;`
-- Second board: `const uint8_t NODE_ID = 1;`
-- Third board: `const uint8_t NODE_ID = 2;`
+- First board: `MY_NODE_NUMBER = 0;`
+- Second board: `MY_NODE_NUMBER = 1;`
+- Third board(optional): `MY_NODE_NUMBER = 2;`
 
-Remember that any termination nodes should have the termination headers properly closed.
+Remember that any termination nodes should have the termination headers properly closed, more info on the [Arduino UNO SPE Shield datasheet](https://docs.arduino.cc/resources/datasheets/ASX00073-datasheet.pdf).
 
 The node ID determines the device's IP address (192.168.42.100 + NODE_ID) and its position in the PLCA (Physical Layer Collision Avoidance) cycle. When you type a message in the Serial Monitor and press Enter, it's broadcast to all nodes on the network. If any node receives the word "ping", it automatically responds with "pong" to the sender.
 
 ```arduino
-// 10BASE-T1S Ping-Pong Communication
-// Broadcasts messages between nodes, auto-responds "pong" to "ping"
+// Simple 10BASE-T1S Ping-Pong Network
+// Each board can send messages to all others
+// Automatically replies "pong" when it receives "ping"
 
 #include <Arduino_10BASE_T1S.h>
-
 #include <SPI.h>
 
-// Set unique ID for each board (0-7)
-const uint8_t NODE_ID = 1;  // <-- Change this for each board!
+// CHANGE THIS NUMBER FOR EACH BOARD (0, 1, 2, 3, etc.)
+const int MY_NODE_NUMBER = 0;
 
-// Network setup
-const IPAddress IP(192, 168, 42, 100 + NODE_ID);
-const IPAddress NETMASK(255, 255, 255, 0);
-const IPAddress GATEWAY(192, 168, 42, 100);
-const IPAddress BROADCAST(192, 168, 42, 255);
-const uint16_t UDP_PORT = 8888;
+// Network addresses (like house addresses on a street)
+const IPAddress MY_IP_ADDRESS(192, 168, 42, 100 + MY_NODE_NUMBER);
+const IPAddress SUBNET_MASK(255, 255, 255, 0);
+const IPAddress GATEWAY_ADDRESS(192, 168, 42, 100);
+const IPAddress BROADCAST_ADDRESS(192, 168, 42, 255);  // Sends to everyone
+const int NETWORK_PORT = 8888;
 
-// Hardware instances
-TC6::TC6_Io* tc6_io = nullptr;
-TC6::TC6_Arduino_10BASE_T1S* tc6_inst = nullptr;
-Arduino_10BASE_T1S_UDP* udp = nullptr;
+// Hardware objects (think of these as your network components)
+TC6::TC6_Io* networkIO = nullptr;
+TC6::TC6_Arduino_10BASE_T1S* networkController = nullptr;
+Arduino_10BASE_T1S_UDP* messageService = nullptr;
 
-// Serial input buffer
-char inputBuffer[128];
-int bufferIndex = 0;
+// For reading typed messages
+char typedMessage[128];
+int messageLength = 0;
 
 void setup() {
+  // Start serial communication
   Serial.begin(115200);
   delay(1000);
   
-  Serial.print("\n10BASE-T1S Node ");
-  Serial.println(NODE_ID);
-  Serial.print("IP: ");
-  Serial.println(IP);
+  // Show which node this is
+  Serial.print("\n=== Network Node #");
+  Serial.print(MY_NODE_NUMBER);
+  Serial.println(" ===");
+  Serial.print("My IP address: ");
+  Serial.println(MY_IP_ADDRESS);
   
-  if (!initializeHardware()) {
-    Serial.println("Hardware init failed!");
-    while(1) delay(1000);
+  // Set up the network hardware
+  if (!setupNetwork()) {
+    Serial.println("ERROR: Network setup failed!");
+    while(1) {
+      delay(1000);  // Stop here if network won't start
+    }
   }
   
-  Serial.println("\nReady! Type messages to broadcast.");
-  Serial.println("Sends automatic 'pong' reply to any 'ping'\n");
+  Serial.println("\n✓ Ready to communicate!");
+  Serial.println("Type a message and press Enter to send to everyone");
+  Serial.println("I'll automatically reply 'pong' if someone sends 'ping'\n");
 }
 
 void loop() {
-  tc6_inst->service();
+  // Keep the network running (like keeping your phone connected to WiFi)
+  (*networkController).service();
   
-  handleSerialInput();
-  handleIncomingPackets();
+  // Check if user typed something
+  checkForTypedMessages();
   
-  // Status heartbeat every 10 seconds
-  static unsigned long lastBeat = 0;
-  if (millis() - lastBeat > 10000) {
-    lastBeat = millis();
-    Serial.println("[Running]");
-  }
+  // Check if someone sent us a message
+  checkForIncomingMessages();
+  
+  // Show we're still alive every 10 seconds
+  showHeartbeat();
 }
 
-bool initializeHardware() {
-  // Create hardware objects
-  tc6_io = new TC6::TC6_Io(SPI, CS_PIN, RESET_PIN, IRQ_PIN);
-  tc6_inst = new TC6::TC6_Arduino_10BASE_T1S(tc6_io);
-  udp = new Arduino_10BASE_T1S_UDP();
+bool setupNetwork() {
+  Serial.println("Setting up network hardware...");
   
-  // Setup interrupt pin
+  // Create the network components
+  networkIO = new TC6::TC6_Io(SPI, CS_PIN, RESET_PIN, IRQ_PIN);
+  networkController = new TC6::TC6_Arduino_10BASE_T1S(networkIO);
+  messageService = new Arduino_10BASE_T1S_UDP();
+  
+  // Set up interrupt (this lets the network chip tell us when data arrives)
   pinMode(IRQ_PIN, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(IRQ_PIN), []() {
-    if (tc6_io) tc6_io->onInterrupt();
+    if (networkIO) (*networkIO).onInterrupt();
   }, FALLING);
   
-  // Initialize IO
-  if (!tc6_io->begin()) {
-    Serial.println("TC6_Io init failed");
-    return false;
-
-  }
-  
-  // Setup network with unique MAC
-  MacAddress mac = MacAddress::create_from_uid();
-  T1SPlcaSettings plca_settings(NODE_ID);
-  T1SMacSettings mac_settings;
-  
-  if (!tc6_inst->begin(IP, NETMASK, GATEWAY, mac, plca_settings, mac_settings)) {
-    Serial.println("Network init failed");
+  // Start the low-level network interface
+  if (!(*networkIO).begin()) {
+    Serial.println("Failed to start network interface");
     return false;
   }
   
-  // Configure pins
-  tc6_inst->digitalWrite(TC6::DIO::A0, false);
-  tc6_inst->digitalWrite(TC6::DIO::A1, false);
+  // Create unique network identity
+  MacAddress myMacAddress = MacAddress::create_from_uid();
+  T1SPlcaSettings plcaSettings(MY_NODE_NUMBER);
+  T1SMacSettings macSettings;
   
-  // Start UDP
-  if (!udp->begin(UDP_PORT)) {
-    Serial.println("UDP init failed");
+  // Connect to the network with our address
+  if (!(*networkController).begin(MY_IP_ADDRESS, SUBNET_MASK, GATEWAY_ADDRESS, 
+                                myMacAddress, plcaSettings, macSettings)) {
+    Serial.println("Failed to join network");
     return false;
   }
   
-  Serial.print("MAC: ");
-  Serial.println(mac);
+  // Configure output pins (not used in this simple example)
+  (*networkController).digitalWrite(TC6::DIO::A0, false);
+  (*networkController).digitalWrite(TC6::DIO::A1, false);
+  
+  // Start the message service
+  if (!(*messageService).begin(NETWORK_PORT)) {
+    Serial.println("Failed to start message service");
+    return false;
+  }
+  
+  Serial.print("Network ID (MAC): ");
+  Serial.println(myMacAddress);
+  Serial.println("✓ Network setup complete");
+  
   return true;
 }
 
-void handleSerialInput() {
+void checkForTypedMessages() {
+  // Read characters as user types
   while (Serial.available()) {
-    char c = Serial.read();
+    char newChar = Serial.read();
     
-    if (c == '\n' || c == '\r') {
-      if (bufferIndex > 0) {
-        inputBuffer[bufferIndex] = '\0';
-        broadcast(inputBuffer);
-        bufferIndex = 0;
+    // If user pressed Enter, send the message
+    if (newChar == '\n' || newChar == '\r') {
+      if (messageLength > 0) {
+        typedMessage[messageLength] = '\0';  // End the string
+        sendMessageToEveryone(typedMessage);
+        messageLength = 0;  // Reset for next message
       }
-    } 
-    else if (bufferIndex < sizeof(inputBuffer) - 1) {
-      inputBuffer[bufferIndex++] = c;
+    }
+    // Add character to our message (if there's room)
+    else if (messageLength < sizeof(typedMessage) - 1) {
+      typedMessage[messageLength] = newChar;
+      messageLength++;
     }
   }
 }
 
-void broadcast(const char* message) {
-  if (!udp || strlen(message) == 0) return;
+void sendMessageToEveryone(const char* message) {
+  // Don't send empty messages
+  if (!messageService || strlen(message) == 0) {
+    return;
+  }
   
-  udp->beginPacket(BROADCAST, UDP_PORT);
-  udp->write((const uint8_t*)message, strlen(message));
-  udp->endPacket();
+  // Send to broadcast address (everyone on network gets it)
+  (*messageService).beginPacket(BROADCAST_ADDRESS, NETWORK_PORT);
+  (*messageService).write((const uint8_t*)message, strlen(message));
+  (*messageService).endPacket();
   
-  Serial.print("Sent: ");
+  Serial.print("📤 Sent to all: ");
   Serial.println(message);
 }
 
-void handleIncomingPackets() {
-  int packetSize = udp->parsePacket();
-  if (packetSize <= 0 || packetSize >= 256) return;
+void checkForIncomingMessages() {
+  // See if a message arrived
+  int messageSize = (*messageService).parsePacket();
   
-  char buffer[256] = {0};
-  IPAddress sender = udp->remoteIP();
+  // No message or message too big
+  if (messageSize <= 0 || messageSize >= 256) {
+    return;
+  }
   
-  int bytesRead = udp->read((uint8_t*)buffer, min(packetSize, 255));
-  if (bytesRead <= 0) return;
+  // Read the message
+  char receivedMessage[256] = {0};
+  IPAddress senderAddress = (*messageService).remoteIP();
   
-  buffer[bytesRead] = '\0';
+  int bytesRead = (*messageService).read((uint8_t*)receivedMessage, 
+                                       min(messageSize, 255));
+  if (bytesRead <= 0) {
+    return;
+  }
   
-  Serial.print("From ");
-  Serial.print(sender);
-  Serial.print(" -> ");
-  Serial.println(buffer);
+  receivedMessage[bytesRead] = '\0';  // End the string properly
   
-  // Auto-respond to ping
-  if (strcmp(buffer, "ping") == 0) {
-    delay(10 + (NODE_ID * 5));  // Avoid collision
-    sendPong(sender);
+  // Show who sent what
+  Serial.print("📥 From ");
+  Serial.print(senderAddress);
+  Serial.print(": ");
+  Serial.println(receivedMessage);
+  
+  // If someone sent "ping", automatically reply "pong"
+  if (strcmp(receivedMessage, "ping") == 0) {
+    // Small delay to avoid message collisions (each node waits different time)
+    delay(10 + (MY_NODE_NUMBER * 5));
+    replyPongTo(senderAddress);
   }
 }
 
-void sendPong(IPAddress target) {
-  udp->beginPacket(target, UDP_PORT);
-  udp->write((const uint8_t*)"pong", 4);
-  udp->endPacket();
-  Serial.println("Auto-replied: pong");
-}
-```
-
-### Setting Up a Multidrop Network
-
-For connecting multiple devices on a single SPE bus:
-
-#### Hardware Configuration
-
-1. **Termination Setup**: Only terminate the first and last nodes on the bus
-2. **Stub Length**: Keep connections to the main bus under 5 cm
-3. **Total Bus Length**: Maximum 25 meters
-
-![Multidrop Network Diagram](assets/multidrop-network.png)
-
-#### Multidrop Node Code
-
-```arduino
-#include <Arduino_10BASE_T1S.h>
-
-// Create SPE instance
-Arduino_10BASE_T1S spe;
-
-// Unique node ID (change for each device)
-const uint8_t NODE_ID = 1;
-
-void setup() {
-  Serial.begin(115200);
-  while (!Serial) {
-    ; // Wait for serial port to connect
-  }
+void replyPongTo(IPAddress targetAddress) {
+  // Send "pong" back to whoever sent "ping"
+  (*messageService).beginPacket(targetAddress, NETWORK_PORT);
+  (*messageService).write((const uint8_t*)"pong", 4);
+  (*messageService).endPacket();
   
-  Serial.print("SPE Node ");
-  Serial.print(NODE_ID);
-  Serial.println(" Starting...");
-  
-  // Initialize SPE with node ID for multidrop
-  if (!spe.begin(NODE_ID)) {
-    Serial.println("Failed to initialize SPE!");
-    while (1);
-  }
-  
-  Serial.println("SPE initialized in multidrop mode!");
+  Serial.println("🏓 Auto-replied: pong");
 }
 
-void loop() {
-  // Send a message with node ID
-  String message = "Node " + String(NODE_ID) + " data: " + String(analogRead(A0));
+void showHeartbeat() {
+  static unsigned long lastHeartbeat = 0;
   
-  if (spe.send(message, 0xFF)) { // 0xFF = broadcast to all nodes
-    Serial.println("Broadcast: " + message);
+  // Every 10 seconds, show we're still running
+  if (millis() - lastHeartbeat > 10000) {
+    lastHeartbeat = millis();
+    Serial.println("💓 [System running normally]");
   }
-  
-  // Check for incoming messages
-  if (spe.available()) {
-    String received = spe.receive();
-    Serial.println("Received: " + received);
-  }
-  
-  delay(2000); // Avoid bus congestion
-}
-```
-
-## SPE Shield as an RS-485 transceiver
-
-The Arduino UNO SPE Shield's dual communication capabilities make it an ideal bridge between SPE networks and RS-485 industrial systems. In this section, we'll create a distributed control system where Arduino Opta boards connected via RS-485 are managed through a central SPE network. This architecture demonstrates how to integrate different communication standards, combining the benefits of SPE's simplified wiring with RS-485.
-The system consists of three components:
-
-- A central SPE control node that sends commands across the network
-- Gateway nodes with SPE shields that bridge between SPE and RS-485 protocols
-- Arduino Opta boards that receive commands via RS-485 and control their I/O pins
-
-This setup demonstrates how the SPE shield can act as a protocol translator, enabling seamless integration of different communication standards in a single industrial network.
-
-### SPE Main Controller Node
-
-The central control board acts as the command center of your distributed system. It runs on an Arduino board with an SPE shield and sends UDP packets containing control commands to specific nodes on the SPE network. The controller provides a simple serial interface where you can type commands to read or write pin states on remote Opta boards.
-
-This node operates as node 7 on the SPE network and listens for responses from the gateway nodes. When you send a command, it's packaged as a UDP packet and transmitted to the target node's IP address. The controller then waits for and displays any responses received from the remote devices.
-
-```arduino
-// SPE Server Node - Sends commands to control remote Opta boards
-#include <Arduino_10BASE_T1S.h>
-#include <SPI.h>
-
-const uint8_t NODE_ID = 7;  // Server is node 7
-const uint16_t UDP_PORT = 8888;
-
-// Network setup
-const IPAddress IP(192, 168, 42, 100 + NODE_ID);
-const IPAddress NETMASK(255, 255, 255, 0);
-const IPAddress GATEWAY_IP(192, 168, 42, 100);
-
-TC6::TC6_Io* tc6_io = nullptr;
-TC6::TC6_Arduino_10BASE_T1S* tc6_inst = nullptr;
-Arduino_10BASE_T1S_UDP* udp = nullptr;
-
-void setup() {
-  Serial.begin(115200);
-  delay(1000);
-  
-  Serial.println("\n=== SPE Server Node ===");
-  Serial.println("Commands:");
-  Serial.println("  read <node> <pin>  - Read pin state");
-  Serial.println("  write <node> <pin> <0/1> - Set pin state");
-  Serial.println("  readall <node> - Read all pins\n");
-  
-  if (!initNetwork()) {
-    Serial.println("Network init failed!");
-    while(1);
-  }
-}
-
-void loop() {
-  tc6_inst->service();
-  
-  // Handle serial commands
-  if (Serial.available()) {
-    String cmd = Serial.readStringUntil('\n');
-    cmd.trim();
-    processCommand(cmd);
-  }
-  
-  // Handle responses
-  int packetSize = udp->parsePacket();
-  if (packetSize > 0) {
-    char buffer[256] = {0};
-    udp->read((uint8_t*)buffer, min(packetSize, 255));
-    Serial.print("Response: ");
-    Serial.println(buffer);
-  }
-}
-
-void processCommand(String cmd) {
-  // Parse command
-  char cmdType[10];
-  int targetNode, pin, value;
-  
-  if (sscanf(cmd.c_str(), "%s %d %d %d", cmdType, &targetNode, &pin, &value) >= 2) {
-    IPAddress targetIP(192, 168, 42, 100 + targetNode);
-    char message[64];
-    
-    if (strcmp(cmdType, "read") == 0) {
-      snprintf(message, sizeof(message), "READ:%d", pin);
-    }
-    else if (strcmp(cmdType, "write") == 0) {
-      snprintf(message, sizeof(message), "WRITE:%d:%d", pin, value);
-    }
-    else if (strcmp(cmdType, "readall") == 0) {
-      snprintf(message, sizeof(message), "READALL");
-    }
-    else {
-      Serial.println("Unknown command");
-      return;
-    }
-    
-    udp->beginPacket(targetIP, UDP_PORT);
-    udp->write((uint8_t*)message, strlen(message));
-    udp->endPacket();
-    
-    Serial.print("Sent to node ");
-    Serial.print(targetNode);
-    Serial.print(": ");
-    Serial.println(message);
-  }
-}
-
-bool initNetwork() {
-  tc6_io = new TC6::TC6_Io(SPI, CS_PIN, RESET_PIN, IRQ_PIN);
-  tc6_inst = new TC6::TC6_Arduino_10BASE_T1S(tc6_io);
-  udp = new Arduino_10BASE_T1S_UDP();
-  
-  pinMode(IRQ_PIN, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(IRQ_PIN), []() {
-    if (tc6_io) tc6_io->onInterrupt();
-  }, FALLING);
-  
-  if (!tc6_io->begin()) return false;
-  
-  MacAddress mac = MacAddress::create_from_uid();
-  T1SPlcaSettings plca(NODE_ID);
-  T1SMacSettings mac_settings;
-  
-  if (!tc6_inst->begin(IP, NETMASK, GATEWAY_IP, mac, plca, mac_settings)) 
-    return false;
-  
-  tc6_inst->digitalWrite(TC6::DIO::A0, false);
-  tc6_inst->digitalWrite(TC6::DIO::A1, false);
-  
-  return udp->begin(UDP_PORT);
 }
 ```
 
 ### Transducer Node SPE/RS-485
 
 The gateway nodes serve as protocol translators between the SPE network and RS-485 devices. Each gateway consists of an Arduino board with an SPE shield, where the board's hardware serial port (Serial1) connects to the RS-485 transceiver on the shield. These nodes receive UDP packets from the SPE network, extract the command data, and forward it to the RS-485 bus.
+
+![Shields Adressing the Endpoints Across Protocols](assets/SPE-rs485-transducer-transducer.png)
+
 When an Opta board responds via RS-485, the gateway captures the response and sends it back to the central controller as a UDP packet. This bidirectional translation allows transparent communication between the SPE-based control system and RS-485 devices, making it possible to control multiple Opta boards from a single point on the network.
 
 ```arduino
@@ -559,6 +426,8 @@ bool initNetwork() {
 ### Opta RS-485 interface
 
 The Arduino Opta boards represent the end devices in this system, receiving commands via RS-485 and executing the requested actions. Each Opta configures pins 2-13 as digital outputs and listens for specific command formats on its serial interface. The boards can process three types of commands: reading individual pin states, writing to specific pins, or reading all pin states at once.
+
+![Opta as Endpoint](assets/SPE-rs485-transducer-end.png)
 
 When an Opta receives a command, it parses the instruction, performs the requested operation, and sends back a formatted response. This simple protocol allows the central SPE controller to remotely monitor and control multiple Opta boards across the RS-485 network, creating a flexible and scalable industrial control system.
 
