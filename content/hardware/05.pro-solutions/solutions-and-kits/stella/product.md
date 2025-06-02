@@ -1,5 +1,5 @@
 ---
-title: Arduino Stella
+title: Stella
 url_shop: https://store.arduino.cc/
 url_guide: /tutorials/
 primary_button_url: /tutorials/
