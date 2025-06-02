@@ -21,9 +21,9 @@ In this guide, you'll learn how to set up your first SPE network, understand the
 
 - Arduino® UNO SPE Shield
 - Compatible Arduino board:
-     Arduino® UNO R4 WiFi (recommended)
-     Arduino® UNO R4 Minima
-     Arduino® UNO R3
+Arduino® UNO R4 WiFi (recommended)
+Arduino® UNO R4 Minima
+Arduino® UNO R3
 - USB cables for programming
 - Twisted pair cable for SPE connection
 
@@ -89,7 +89,7 @@ The shield offers two primary ways to connect to a Single Pair Ethernet (SPE) 10
 
 ![SPE Connectors](assets/spi-connectors.png)
 
-- **SPE using dedicated T1S Connector:** The shield includes a dedicated connector for robust, direct SPE connections to compatible devices.  This is labeled as "Connector 10BASE-T1S" or "10BASE-T1S CONNECTOR" in the documentation and schematics.
+- **SPE using dedicated T1S Connector:** The shield includes a dedicated connector for robust, direct SPE connections to compatible devices.
 - **SPE using Screw Terminals:** Screw terminals marked for N (Negative) and P (Positive) pins are also available.
 
 **Technical/Physical Limitations for SPE Connection:**
@@ -111,8 +111,8 @@ The shield offers two primary ways to connect to a Single Pair Ethernet (SPE) 10
 - Half-duplex. 
 
 ### Power
-A screw connector for powering the board and Shield assembly is provided with two positions for VIN and two for VIN.
-![Power Screw Connector](power-connector.png)
+A screw connector for powering the board and Shield assembly is provided with two positions for GND and two for VIN.
+![Power Screw Connector](assets/power-connector.png)
 
 
 ## Termination Jumpers:
@@ -126,7 +126,7 @@ These are necessary always in the edge nodes both when using a multidrop or poin
 ### RS-485 Termination Jumper:
 
 The same principle applies to the RS-485 connector however in this case there is only a single jumper that needs to be bridged.
-![Termination jumpers](RS485-termination.png)
+![Termination jumpers](assets/RS485-termination.png)
 
 ## First Use of Your Arduino UNO SPE Shield
 
@@ -143,7 +143,7 @@ The shield can be powered through multiple sources:
 - **USB Power**: Via the board's USB connection.
 - **Power Jack**: Via the board's power jack.
 - **External Power**: Through the VIN terminal.
-- **Power over Data Line (PoDL)**: 7-24V DC through the T1SP terminal.
+- **Power over Data Line (PoDL)**: through the T1SP terminal.
 
 ![Powering your board](assets/SPE-power.gif)
 
