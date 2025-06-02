@@ -73,6 +73,54 @@ The shield features the standard Arduino UNO header arrangement with digital and
 
 This standardized form factor allows seamless integration into existing Arduino UNO projects and ensures that the shield can be easily incorporated into enclosures and mounting systems designed for the Arduino UNO ecosystem.
 
+
+## Connectors
+The Arduino UNO SPE Shield features several connectors for establishing communication and providing power.
+
+### SPE
+The shield offers two primary ways to connect to a Single Pair Ethernet (SPE) 10BASE-T1S network:
+
+![SPE Connectors](assets/spi-connectors.png)
+
+- **SPE using dedicated T1S Connector:** The shield includes a dedicated connector for robust, direct SPE connections to compatible devices.  This is labeled as "Connector 10BASE-T1S" or "10BASE-T1S CONNECTOR" in the documentation and schematics.
+- **SPE using Screw Terminals:** Screw terminals marked for N (Negative) and P (Positive) pins are also available.
+
+**Technical/Physical Limitations for SPE Connection:**
+
+- A twisted pair cable must be used.
+- Maximum bus length of the bus is 25 meters 
+- Allows up to eight nodes in a multidrop network. 
+- Stub distance (the length of the cable connecting a node to the main bus) must be 5 cm to ensure stable communication and signal integrity.
+
+### RS-485
+
+- **Screw Terminals:** Screw terminals marked for A and B with both GND and +5V positions also available on the terminal.
+ ![RS-485 Connector](assets/spi-connectors.png)
+
+**Technical/Physical Limitations:**
+
+- Supports distances up to 1,200 meters with reduced speeds. 
+- In a bus topology, supports up to 80 nodes. 
+- Half-duplex. 
+
+### Power
+A screw connector for powering the board and Shield assembly is provided with two positions for VIN and two for VIN.
+![Power Screw Connector](power-connector.png)
+
+
+## Termination Jumpers:
+
+### SPI Termination Jumper:
+
+To enable or disable the onboard termination resistors for the SPE bus there are two pairs of contact you can bridge. 
+![Termination jumpers](assets/jumpers.png)
+These are necessary always in the edge nodes both when using a multidrop or point-to-point conenction.
+
+### RS-485 Termination Jumper:
+
+The same principle applies to the RS-485 connector however in this case there is only a single jumper that needs to be bridged.
+![alt text](RS485-termination.png)
+
 ## First Use of Your Arduino UNO SPE Shield
 
 ### Stack the Shield
@@ -333,94 +381,7 @@ The gateway nodes serve as protocol translators between the SPE network and RS-4
 When an Opta board responds via RS-485, the gateway captures the response and sends it back to the central controller as a UDP packet. This bidirectional translation allows transparent communication between the SPE-based control system and RS-485 devices, making it possible to control multiple Opta boards from a single point on the network.
 
 ```arduino
-// SPE/RS-485 Gateway - Bridges between SPE network and RS-485
-#include <Arduino_10BASE_T1S.h>
-#include <SPI.h>
-
-const uint8_t NODE_ID = 0;  // Gateway node ID
-const uint16_t UDP_PORT = 8888;
-
-// Network setup
-const IPAddress IP(192, 168, 42, 100 + NODE_ID);
-const IPAddress NETMASK(255, 255, 255, 0);
-const IPAddress GATEWAY_IP(192, 168, 42, 100);
-const IPAddress SERVER_IP(192, 168, 42, 107);  // Server at node 7
-
-TC6::TC6_Io* tc6_io = nullptr;
-TC6::TC6_Arduino_10BASE_T1S* tc6_inst = nullptr;
-Arduino_10BASE_T1S_UDP* udp = nullptr;
-
-void setup() {
-  Serial.begin(115200);  // Debug
-  Serial1.begin(9600);   // RS-485
-  delay(1000);
-  
-  Serial.println("\n=== SPE/RS-485 Gateway ===");
-  
-  if (!initNetwork()) {
-    Serial.println("Network init failed!");
-    while(1);
-  }
-  
-  Serial.println("Gateway ready!");
-}
-
-void loop() {
-  tc6_inst->service();
-  
-  // SPE -> RS-485
-  int packetSize = udp->parsePacket();
-  if (packetSize > 0) {
-    char buffer[256] = {0};
-    udp->read((uint8_t*)buffer, min(packetSize, 255));
-    
-    // Forward to RS-485
-    Serial1.println(buffer);
-    Serial.print("SPE->RS485: ");
-    Serial.println(buffer);
-  }
-  
-  // RS-485 -> SPE
-  if (Serial1.available()) {
-    String response = Serial1.readStringUntil('\n');
-    response.trim();
-    
-    if (response.length() > 0) {
-      // Forward to server
-      udp->beginPacket(SERVER_IP, UDP_PORT);
-      udp->write((uint8_t*)response.c_str(), response.length());
-      udp->endPacket();
-      
-      Serial.print("RS485->SPE: ");
-      Serial.println(response);
-    }
-  }
-}
-
-bool initNetwork() {
-  tc6_io = new TC6::TC6_Io(SPI, CS_PIN, RESET_PIN, IRQ_PIN);
-  tc6_inst = new TC6::TC6_Arduino_10BASE_T1S(tc6_io);
-  udp = new Arduino_10BASE_T1S_UDP();
-  
-  pinMode(IRQ_PIN, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(IRQ_PIN), []() {
-    if (tc6_io) tc6_io->onInterrupt();
-  }, FALLING);
-  
-  if (!tc6_io->begin()) return false;
-  
-  MacAddress mac = MacAddress::create_from_uid();
-  T1SPlcaSettings plca(NODE_ID);
-  T1SMacSettings mac_settings;
-  
-  if (!tc6_inst->begin(IP, NETMASK, GATEWAY_IP, mac, plca, mac_settings)) 
-    return false;
-  
-  tc6_inst->digitalWrite(TC6::DIO::A0, false);
-  tc6_inst->digitalWrite(TC6::DIO::A1, false);
-  
-  return udp->begin(UDP_PORT);
-}
+In Progress
 ```
 
 ### Opta RS-485 interface
@@ -432,60 +393,7 @@ The Arduino Opta boards represent the end devices in this system, receiving comm
 When an Opta receives a command, it parses the instruction, performs the requested operation, and sends back a formatted response. This simple protocol allows the central SPE controller to remotely monitor and control multiple Opta boards across the RS-485 network, creating a flexible and scalable industrial control system.
 
 ```arduino
-// Arduino Opta - Receives commands via RS-485 and controls pins
-void setup() {
-  Serial.begin(9600);  // RS-485 communication
-  
-  // Setup pins 2-13 as outputs
-  for (int pin = 2; pin <= 13; pin++) {
-    pinMode(pin, OUTPUT);
-    digitalWrite(pin, LOW);
-  }
-}
-
-void loop() {
-  if (Serial.available()) {
-    String cmd = Serial.readStringUntil('\n');
-    cmd.trim();
-    processCommand(cmd);
-  }
-}
-
-void processCommand(String cmd) {
-  if (cmd.startsWith("READ:")) {
-    int pin = cmd.substring(5).toInt();
-    if (pin >= 2 && pin <= 13) {
-      int state = digitalRead(pin);
-      Serial.print("PIN:");
-      Serial.print(pin);
-      Serial.print(":");
-      Serial.println(state);
-    }
-  }
-  else if (cmd.startsWith("WRITE:")) {
-    int colonPos = cmd.indexOf(':', 6);
-    if (colonPos > 0) {
-      int pin = cmd.substring(6, colonPos).toInt();
-      int value = cmd.substring(colonPos + 1).toInt();
-      
-      if (pin >= 2 && pin <= 13) {
-        digitalWrite(pin, value);
-        Serial.print("OK:PIN:");
-        Serial.print(pin);
-        Serial.print(":");
-        Serial.println(value);
-      }
-    }
-  }
-  else if (cmd == "READALL") {
-    Serial.print("PINS:");
-    for (int pin = 2; pin <= 13; pin++) {
-      Serial.print(digitalRead(pin));
-      if (pin < 13) Serial.print(",");
-    }
-    Serial.println();
-  }
-}
+In progress
 ```
 
 ## Troubleshooting
