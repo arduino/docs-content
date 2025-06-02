@@ -2,7 +2,7 @@
 title: Stella
 url_shop: https://store.arduino.cc/
 url_guide: /tutorials/
-primary_button_url: /tutorials/
+primary_button_url: /tutorials/01.user-manual
 primary_button_title: Get Started
 secondary_button_url: /tutorials/
 secondary_button_title: Bootloader Guide
