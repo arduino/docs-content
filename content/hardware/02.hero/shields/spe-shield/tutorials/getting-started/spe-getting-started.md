@@ -1,3 +1,10 @@
+---
+title: 'Getting Started With the Arduino SPE Shield'
+difficulty: beginner
+tags: [Getting Started]
+description: 'This tutorial will give you an overview of the core features of the SPE Shield.'
+author: 'Pedro Lima'
+---
 Learn how to establish Single Pair Ethernet (SPE) communication using the Arduino® UNO SPE Shield, enabling industrial IoT connectivity with minimal wiring complexity.
 
 ## Overview
@@ -6,7 +13,7 @@ The Arduino® UNO SPE Shield brings industrial-grade Single Pair Ethernet (10BAS
 
 In this guide, you'll learn how to set up your first SPE network, understand the fundamentals of 10BASE-T1S communication, and implement both point-to-point and multidrop network configurations.
 
-![Arduino UNO SPE Shield](assets/uno-spe-shield-overview.png)
+![Arduino UNO SPE Shield](assets/overview.png)
 
 ## Hardware and Software Requirements
 
@@ -14,9 +21,9 @@ In this guide, you'll learn how to set up your first SPE network, understand the
 
 - Arduino® UNO SPE Shield
 - Compatible Arduino board:
-  - Arduino® UNO R4 WiFi (recommended)
-  - Arduino® UNO R4 Minima
-  - Arduino® UNO R3
+     Arduino® UNO R4 WiFi (recommended)
+     Arduino® UNO R4 Minima
+     Arduino® UNO R3
 - USB cables for programming
 - Twisted pair cable for SPE connection
 
@@ -110,7 +117,7 @@ A screw connector for powering the board and Shield assembly is provided with tw
 
 ## Termination Jumpers:
 
-### SPI Termination Jumper:
+### SPE Termination Jumper:
 
 To enable or disable the onboard termination resistors for the SPE bus there are two pairs of contact you can bridge. 
 ![Termination jumpers](assets/jumpers.png)
@@ -119,7 +126,7 @@ These are necessary always in the edge nodes both when using a multidrop or poin
 ### RS-485 Termination Jumper:
 
 The same principle applies to the RS-485 connector however in this case there is only a single jumper that needs to be bridged.
-![alt text](RS485-termination.png)
+![Termination jumpers](RS485-termination.png)
 
 ## First Use of Your Arduino UNO SPE Shield
 
@@ -140,11 +147,11 @@ The shield can be powered through multiple sources:
 
 ![Powering your board](assets/SPE-power.gif)
 
-## Simple broadcast Example 
+## Simple Broadcast Example 
 
 This example demonstrates a simple broadcast communication system between multiple nodes on an SPE network. Each node can broadcast messages to all other nodes, and automatically responds with "pong" when it receives a "ping" message. This creates an interactive network where you can test connectivity and response times between different devices.
 
-![Overview of the Ping/Pong example](assets/SPE-ping-pong.gif)
+![Overview of the Ping/Pong example](assets/SPE-ping-pong-01.gif)
 
 ### Hardware Setup
 
@@ -372,6 +379,22 @@ void showHeartbeat() {
 }
 ```
 
+### SPI/RS-485 Network Example
+
+This example demonstrates a hierarchical control system where a central SPE controller manages multiple Arduino Opta boards through gateway nodes. The system uses SPE (Single Pair Ethernet) for the main network backbone and RS-485 for connecting to end devices, combining the benefits of modern Ethernet with the reliability of industrial serial communication.
+
+The architecture consists of three layers: a central control node that issues commands, gateway nodes that translate between SPE and RS-485 protocols, and Opta boards that execute the actual control operations. This design allows for scalable industrial automation where multiple Opta boards can be distributed across a facility while being managed from a single control point.
+
+### Central Control Node (Server)
+
+The central control node (Node 7) acts as the command center of the system, sending LED control commands to specific Opta boards through their associated gateway nodes. Operating on the SPE network, this node provides a simple serial interface where operators can type commands like "LED 3" to toggle specific LEDs on remote Optas.
+
+![Central SPE Controller](assets/SPE-rs485-transducer-main.png)
+
+```arduino 
+work in progress
+```
+
 ### Transducer Node SPE/RS-485
 
 The gateway nodes serve as protocol translators between the SPE network and RS-485 devices. Each gateway consists of an Arduino board with an SPE shield, where the board's hardware serial port (Serial1) connects to the RS-485 transceiver on the shield. These nodes receive UDP packets from the SPE network, extract the command data, and forward it to the RS-485 bus.
@@ -384,7 +407,7 @@ When an Opta board responds via RS-485, the gateway captures the response and se
 In Progress
 ```
 
-### Opta RS-485 interface
+### Opta RS-485 Interface
 
 The Arduino Opta boards represent the end devices in this system, receiving commands via RS-485 and executing the requested actions. Each Opta configures pins 2-13 as digital outputs and listens for specific command formats on its serial interface. The boards can process three types of commands: reading individual pin states, writing to specific pins, or reading all pin states at once.
 
