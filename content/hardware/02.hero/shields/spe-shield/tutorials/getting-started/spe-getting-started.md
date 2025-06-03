@@ -9,19 +9,20 @@ Learn how to establish Single Pair Ethernet (SPE) communication using the Arduin
 
 ## Overview
 
-The Arduino® UNO SPE Shield brings industrial-grade Single Pair Ethernet (10BASE-T1S) connectivity to Arduino boards, revolutionizing how we connect devices in industrial and IoT applications. This shield combines the simplicity of Ethernet communication with the efficiency of using just a single twisted pair of wires, making it ideal for environments where cable reduction and reliable communication are crucial.
+The Arduino® UNO SPE Shield brings industrial-grade Single Pair Ethernet (10BASE-T1S) as well as RS-485 connectivity to Arduino boards, revolutionizing how we connect devices in industrial and IoT applications. This shield combines the simplicity of Ethernet communication with the efficiency of using just a single twisted pair of wires, making it ideal for environments where cable reduction and reliable communication are crucial while still allowing for legacy devices to be part of your network with the option of RS-485.
+
+![Arduino UNO SPE Shield](assets/overview.png)
 
 In this guide, you'll learn how to set up your first SPE network, understand the fundamentals of 10BASE-T1S communication, and implement both **point-to-point** and **multidrop** network configurations.
 
-![Arduino UNO SPE Shield](assets/overview.png)
 
 ## Hardware and Software Requirements
 
 ### Hardware Requirements
 
-- Arduino® UNO SPE Shield
-- Compatible Arduino UNO board
-- USB cables for programming
+- [Arduino® UNO SPE Shield](https://store.arduino.cc/collections/shields-carriers/products/uno-spe-shield)
+- [Arduino® UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi) or any other UNO form factor board.
+- [USB cables](https://store.arduino.cc/products/usb-cable2in1-type-c) for programming
 - Twisted pair cable for SPE connection
 
 ### Software Requirements
@@ -92,26 +93,26 @@ The shield offers two primary ways to connect to a Single Pair Ethernet (SPE) 10
 
 **Key Features:**
 
-- A twisted pair cable must be used.
-- Maximum bus length of the bus is 25 meters.
-- Allows up to eight nodes in a multidrop network. 
-- Stub distance (the length of the cable connecting a node to the main bus) must be 5 cm to ensure stable communication and signal integrity.
+**- Speed:** Operates at 10 Mbps under the 10BASE-T1S standard.
+**- Maximum Distance:** Supports up to 25 meters in multidrop topology (multiple nodes on a single segment).
+**- Topology:** Allows up to eight nodes in a multidrop network.
 
 ### RS-485
 
 - The shield exposes the RS-485 connections marked as **A** and **B**, with both **GND** and **+5V** through a dedicated screw terminal.
- ![RS-485 Connector](assets/spi-connectors.png)
+ ![RS-485 Connector](assets/RS-485-connector.png)
 
 **Key Features:**
 
-- Supports distances up to 1,200 meters with reduced speeds. 
-- In a bus topology, supports up to 80 nodes. 
-- Half-duplex. 
+**- Speed:** Up to 20 Mbps for short distances (<15 m).
+**- Maximum Distance:** Supports up to 1,200 m with reduced speeds.
+**- Topology:** Works in a bus topology, supporting up to 80 nodes.
 
 ### Power
-A screw connector for powering the board and Shield assembly is provided with two positions for GND and two for VIN.
+A screw connector for powering the board and Shield assembly is provided with two positions for GND and two for VIN (7.0 to 24.0 V).
 ![Power Screw Connector](assets/power-connector.png)
 
+***Note: The UNO SPE Shield can safely operate with a 24 VDC power supply. While the Arduino UNO R4 is designed to handle this voltage without issue, caution is advised, 24 V can potentially damage UNO R3 boards or any third-party UNO-compatible board.***
 
 ## Termination Jumpers:
 
@@ -141,8 +142,9 @@ The shield can be powered through multiple sources:
 
 - **A - USB Power**: Via the host board USB connection.
 - **B - Power Jack**: Via the host board power jack.
-- **C - External Power**: Through the VIN screw terminal.
-- **Power over Data Line (PoDL)**: through the T1SP terminal.
+- **C - External Power**: Through the VIN screw terminal (7.0 to 24.0 V).
+***Note: The UNO SPE Shield can safely operate with a 24 VDC power supply. While the Arduino UNO R4 is designed to handle this voltage without issue, caution is advised, 24 V can potentially damage UNO R3 boards or any third-party UNO-compatible board.***
+- **D - Power over Data Line (PoDL)**: Through the T1SP screw terminal or dedicated connector.
 
 ![Powering your board](assets/SPE-power.gif)
 
@@ -156,8 +158,7 @@ This example demonstrates a simple broadcast communication system between multip
 
 1. **Configure Termination Jumpers**: For point-to-point connections, close the termination jumpers on both shields
 2. **Connect the SPE Cable**: Wire the twisted pair between the two shields' SPE screw terminals or using a T1S dedicated cable.
-3. **Apply terminator caps**: On edge nodes (first and last) in the bus
-4. **Power Both Systems**: Ensure both Arduino boards are powered
+3. **Power Both Systems**: Ensure both Arduino boards are powered
 
 ### Sketch
 
@@ -408,11 +409,11 @@ In Progress
 
 ### Opta RS-485 Interface
 
-The Arduino Opta boards represent the end devices in this system, receiving commands via RS-485 and executing the requested actions. Each Opta configures pins 2-13 as digital outputs and listens for specific command formats on its serial interface. The boards can process three types of commands: reading individual pin states, writing to specific pins, or reading all pin states at once.
+The Arduino Opta boards represent the end devices in this system, receiving commands via RS-485 and executing the requested actions.
 
 ![Opta as Endpoint](assets/SPE-rs485-transducer-end.png)
 
-When an Opta receives a command, it parses the instruction, performs the requested operation, and sends back a formatted response. This simple protocol allows the central SPE controller to remotely monitor and control multiple Opta boards across the RS-485 network, creating a flexible and scalable industrial control system.
+When an Opta receives a command, it parses the instruction, performs the requested operation. This simple protocol allows the central SPE controller to remotely monitor and control multiple Opta boards across the RS-485 network, creating a flexible and scalable industrial control system.
 
 ```arduino
 In progress
