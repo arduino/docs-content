@@ -73,7 +73,7 @@ The complete STEP files are available and downloadable from the link below:
 The Arduino UNO SPE Shield follows the standard Arduino UNO shield form factor, ensuring compatibility with all Arduino UNO boards and enabling stackable designs. With dimensions of 68.58 mm x 53.34 mm, the shield maintains the familiar Arduino ecosystem layout while adding industrial-grade communication capabilities.
 The shield features the standard Arduino UNO header arrangement with digital and analog pin access, ICSP connector placement, and proper mounting hole alignment.
 
-![Simplified Form Factor Dimentions](assets/SPE-form-factor.png)
+![Simplified Form Factor Dimensions](assets/SPE-form-factor.png)
 
 This standardized form factor allows seamless integration into existing Arduino UNO projects and ensures that the shield can be easily incorporated into enclosures and mounting systems designed for the Arduino UNO ecosystem.
 
@@ -118,7 +118,7 @@ A screw connector for powering the board and Shield assembly is provided with tw
 
 To enable or disable the onboard termination resistors for the SPE bus there are two pairs of contact you can bridge. 
 ![Termination jumpers](assets/jumpers.png)
-These are necessary always in the edge nodes both when using a multidrop or point-to-point conenction.
+These are necessary always in the edge nodes both when using a multidrop or point-to-point connection.
 
 ### RS-485 Termination Jumper:
 
@@ -396,7 +396,7 @@ work in progress
 
 The gateway nodes serve as protocol translators between the SPE network and RS-485 devices. Each gateway consists of an Arduino board with an SPE shield, where the board's hardware serial port (Serial1) connects to the RS-485 transceiver on the shield. These nodes receive UDP packets from the SPE network, extract the command data, and forward it to the RS-485 bus.
 
-![Shields Adressing the Endpoints Across Protocols](assets/SPE-rs485-transducer-transducer.png)
+![Shields Addressing the Endpoints Across Protocols](assets/SPE-rs485-transducer-transducer.png)
 
 When an Opta board responds via RS-485, the gateway captures the response and sends it back to the central controller as a UDP packet. This bidirectional translation allows transparent communication between the SPE-based control system and RS-485 devices, making it possible to control multiple Opta boards from a single point on the network.
 
