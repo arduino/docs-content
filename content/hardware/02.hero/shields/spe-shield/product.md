@@ -1,0 +1,11 @@
+---
+title: UNO SPE Shield
+url_shop: TODO
+certifications: [CE, FCC, REACH, RoHS, WEEE, UKCA]
+primary_button_url: /tutorials/getting-started/
+primary_button_title: Get Started
+productCode: '221'
+sku: [ASX00073]
+---
+
+The Arduino® UNO SPE Shield is built around the advanced **[LAN8651B1](https://www.microchip.com/en-us/product/lan8651) from Microchip®** while also featuring integrated **RS485 communication** for versatile connectivity options. Its cutting-edge **single pair Ethernet (T1S)** technology makes it possible to achieve high-speed data transfer over just a single twisted pair cable, and with **plug-and-play compatibility** with the UNO form factor, you can create industrial-grade projects effortlessly.
