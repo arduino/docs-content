@@ -52,7 +52,7 @@ Once the chip is set to the right mode we use esptool to flash custom firmware t
 pip3 install esptool
 ```
 
-Next, `esptool.py` should be added to your **PATH** so you can run it from anywhere, instead of navigating to the installation folder each time. The PATH variable allows you to run commands and programs from any location on your computer without having to specify the full path to the executable file. This is done differently depending on your operating system, you can read more about it [here](https://learn.sparkfun.com/tutorials/configuring-the-path-system-variable/all). 
+Next, `esptool.py` should be added to your **PATH** so you can run it from anywhere, instead of navigating to the installation folder each time. The PATH variable allows you to run commands and programs from any location on your computer without having to specify the full path to the executable file. This is done differently depending on your operating system, you can read more about it [here](https://learn.sparkfun.com/tutorials/configuring-the-path-system-variable/all). To locate where `esptool.py` installed on your Windows computer, click the Windows Start icon and type its name in the search.
 
 Flashing a new firmware is done in two steps, first erasing the firmware currently on the module and then flashing the new one. Once everything is set up it's just a matter of running the following two commands:
 
