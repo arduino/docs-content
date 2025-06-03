@@ -208,6 +208,6 @@ To add termination resistors, connect a 120-ohm resistor between the CAN_H and C
 
 Below you can find an overview of tutorials we have created for our different products.
 
-- [Arduino UNO R4 WiFi CAN Bus](tutorials/uno-r4-wifi/can/)
+- [Arduino UNO R4 WiFi CAN Bus](/tutorials/uno-r4-wifi/can/)
 
 - [Sending Data Between Two MKR CAN Shields](https://docs.arduino.cc/tutorials/mkr-can-shield/mkr-can-communication/)
