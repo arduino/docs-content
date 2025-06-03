@@ -1,6 +1,6 @@
 ---
 title: UNO SPE Shield
-url_shop: TODO
+url_shop: https://store.arduino.cc/collections/shields-carriers/products/uno-spe-shield
 certifications: [CE, FCC, REACH, RoHS, WEEE, UKCA]
 primary_button_url: /tutorials/getting-started/
 primary_button_title: Get Started
