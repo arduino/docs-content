@@ -63,12 +63,16 @@ Before we can launch the editor, we need to first make it an **executable file**
 
 ![Allow execution of file.](assets/linux-installation.gif)
 
-You can now double click the file to launch the Arduino IDE 2 on your Linux machine. In case you cannot run the AppImage file, make sure that FUSE is installed on your system.
+You can now double click the file to launch the Arduino IDE 2 on your Linux machine. 
+
+##### Troubleshooting
+In case you cannot run the AppImage file, make sure that FUSE and libsecret are installed on your system.
 
 In Ubuntu (>= 22.04):
 ```bash
 sudo add-apt-repository universe
 sudo apt install libfuse2
+sudo apt install libsecret-1-0
 ```
 
 In Fedora
@@ -78,7 +82,9 @@ dnf install fuse
 
 See instructions for installing FUSE on your distribution [here](https://github.com/AppImage/AppImageKit/wiki/FUSE).
 
+##### Serial port access
 To enable the Arduino IDE to access the serial port and upload code to your board, the following rule can be added to `/etc/udev/rules.d/99-arduino.rules`. 
 ```
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", GROUP="plugdev", MODE="0666"
 ```
+You may need other different rules for different boards. More info [here](https://support.arduino.cc/hc/en-us/articles/9005041052444-Fix-udev-rules-on-Linux).
