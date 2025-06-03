@@ -20,10 +20,7 @@ In this guide, you'll learn how to set up your first SPE network, understand the
 ### Hardware Requirements
 
 - Arduino® UNO SPE Shield
-- Compatible Arduino board:
-Arduino® UNO R4 WiFi (recommended)
-Arduino® UNO R4 Minima
-Arduino® UNO R3
+- Compatible Arduino UNO board
 - USB cables for programming
 - Twisted pair cable for SPE connection
 
@@ -423,17 +420,17 @@ In progress
 
 ### Common Issues and Solutions
 
-1. **No Communication**
+   **No Communication**
    - Verify termination jumpers are correctly set (closed for P2P, only endpoints for multidrop)
    - Check cable connections and polarity
    - Ensure twisted pair cable is used
 
-2. **Intermittent Communication**
+   **Intermittent Communication**
    - Reduce cable length (maximum 25m)
    - Check for proper grounding
    - Verify stub lengths in multidrop (< 5cm)
 
-3. **Power Issues**
+   **Power Issues**
    - When using PoDL, ensure power supply can provide sufficient current
    - Check voltage levels are within specification (7-24V)
    - Verify Arduino board voltage compatibility
