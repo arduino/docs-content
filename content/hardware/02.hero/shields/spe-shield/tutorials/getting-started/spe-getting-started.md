@@ -5,13 +5,13 @@ tags: [Getting Started]
 description: 'This tutorial will give you an overview of the core features of the SPE Shield.'
 author: 'Pedro Lima'
 ---
-Learn how to establish Single Pair Ethernet (SPE) communication using the Arduino® UNO SPE Shield, enabling industrial IoT connectivity with minimal wiring complexity.
+Learn how to establish Single Pair Ethernet (SPE) communication using the Arduino® UNO SPE Shield, enabling Industrial IoT (IIoT) connectivity with minimal wiring complexity.
 
 ## Overview
 
 The Arduino® UNO SPE Shield brings industrial-grade Single Pair Ethernet (10BASE-T1S) connectivity to Arduino boards, revolutionizing how we connect devices in industrial and IoT applications. This shield combines the simplicity of Ethernet communication with the efficiency of using just a single twisted pair of wires, making it ideal for environments where cable reduction and reliable communication are crucial.
 
-In this guide, you'll learn how to set up your first SPE network, understand the fundamentals of 10BASE-T1S communication, and implement both point-to-point and multidrop network configurations.
+In this guide, you'll learn how to set up your first SPE network, understand the fundamentals of 10BASE-T1S communication, and implement both **point-to-point** and **multidrop** network configurations.
 
 ![Arduino UNO SPE Shield](assets/overview.png)
 
@@ -71,6 +71,7 @@ The complete STEP files are available and downloadable from the link below:
 ### Form Factor
 
 The Arduino UNO SPE Shield follows the standard Arduino UNO shield form factor, ensuring compatibility with all Arduino UNO boards and enabling stackable designs. With dimensions of 68.58 mm x 53.34 mm, the shield maintains the familiar Arduino ecosystem layout while adding industrial-grade communication capabilities.
+
 The shield features the standard Arduino UNO header arrangement with digital and analog pin access, ICSP connector placement, and proper mounting hole alignment.
 
 ![Simplified Form Factor Dimensions](assets/SPE-form-factor.png)
@@ -81,27 +82,27 @@ This standardized form factor allows seamless integration into existing Arduino 
 ## Connectors
 The Arduino UNO SPE Shield features several connectors for establishing communication and providing power.
 
-### SPE
+### Single Pair Ethernet (SPE)
 The shield offers two primary ways to connect to a Single Pair Ethernet (SPE) 10BASE-T1S network:
 
 ![SPE Connectors](assets/spi-connectors.png)
 
-- **SPE using dedicated T1S Connector:** The shield includes a dedicated connector for robust, direct SPE connections to compatible devices.
-- **SPE using Screw Terminals:** Screw terminals marked for N (Negative) and P (Positive) pins are also available.
+- **T1S Connector:** The shield includes a dedicated connector for robust, direct SPE connections to compatible devices.
+- **Screw Terminals:** Screw terminals marked for N (Negative) and P (Positive) pins are also available.
 
-**Technical/Physical Limitations for SPE Connection:**
+**Key Features:**
 
 - A twisted pair cable must be used.
-- Maximum bus length of the bus is 25 meters 
+- Maximum bus length of the bus is 25 meters.
 - Allows up to eight nodes in a multidrop network. 
 - Stub distance (the length of the cable connecting a node to the main bus) must be 5 cm to ensure stable communication and signal integrity.
 
 ### RS-485
 
-- **Screw Terminals:** Screw terminals marked for A and B with both GND and +5V positions also available on the terminal.
+- The shield exposes the RS-485 connections marked as **A** and **B**, with both **GND** and **+5V** through a dedicated screw terminal.
  ![RS-485 Connector](assets/spi-connectors.png)
 
-**Technical/Physical Limitations:**
+**Key Features:**
 
 - Supports distances up to 1,200 meters with reduced speeds. 
 - In a bus topology, supports up to 80 nodes. 
@@ -116,16 +117,17 @@ A screw connector for powering the board and Shield assembly is provided with tw
 
 ### SPE Termination Jumper:
 
-To enable or disable the onboard termination resistors for the SPE bus there are two pairs of contact you can bridge. 
+To enable the onboard termination resistors for the SPE bus, there are two pairs of contacts you can bridge. 
 ![Termination jumpers](assets/jumpers.png)
-These are necessary always in the edge nodes both when using a multidrop or point-to-point connection.
+**Point-to-Point Setup:** Use jumpers to enable the termination at endpoints for proper signal integrity.
+**Multidrop Setup:** Terminations are disabled internally; only the furthest nodes in the network should be terminated.
 
 ### RS-485 Termination Jumper:
 
 The same principle applies to the RS-485 connector however in this case there is only a single jumper that needs to be bridged.
 ![Termination jumpers](assets/RS485-termination.png)
-
-## First Use of Your Arduino UNO SPE Shield
+**Termination:** Includes a 120 Ω termination jumper to match the bus impedance. Proper termination minimizes signal reflections, critical for long-distance communication stability.
+## First Use of the UNO SPE Shield
 
 ### Stack the Shield
 
@@ -137,9 +139,9 @@ The same principle applies to the RS-485 connector however in this case there is
 
 The shield can be powered through multiple sources:
 
-- **USB Power**: Via the board's USB connection.
-- **Power Jack**: Via the board's power jack.
-- **External Power**: Through the VIN terminal.
+- **A - USB Power**: Via the host board USB connection.
+- **B - Power Jack**: Via the host board power jack.
+- **C - External Power**: Through the VIN screw terminal.
 - **Power over Data Line (PoDL)**: through the T1SP terminal.
 
 ![Powering your board](assets/SPE-power.gif)
@@ -153,7 +155,7 @@ This example demonstrates a simple broadcast communication system between multip
 ### Hardware Setup
 
 1. **Configure Termination Jumpers**: For point-to-point connections, close the termination jumpers on both shields
-2. **Connect the SPE Cable**: Wire the twisted pair between the two shields' SPE terminals (N and P pins)
+2. **Connect the SPE Cable**: Wire the twisted pair between the two shields' SPE screw terminals or using a T1S dedicated cable.
 3. **Apply terminator caps**: On edge nodes (first and last) in the bus
 4. **Power Both Systems**: Ensure both Arduino boards are powered
 
@@ -164,7 +166,7 @@ The system uses UDP broadcasting to send messages to all nodes simultaneously, m
 **Important**: Before uploading this code to each board, you must change the `NODE_ID` constant to a unique value between 0 and 7. Each node on the network must have a different ID to ensure proper communication and avoid conflicts. For example:
 - First board: `MY_NODE_NUMBER = 0;`
 - Second board: `MY_NODE_NUMBER = 1;`
-- Third board(optional): `MY_NODE_NUMBER = 2;`
+- Third board (optional): `MY_NODE_NUMBER = 2;`
 
 Remember that any termination nodes should have the termination headers properly closed, more info on the [Arduino UNO SPE Shield datasheet](https://docs.arduino.cc/resources/datasheets/ASX00073-datasheet.pdf).
 
@@ -426,13 +428,13 @@ In progress
    - Ensure twisted pair cable is used
 
    **Intermittent Communication**
-   - Reduce cable length (maximum 25m)
+   - Reduce cable length (maximum 25 m)
    - Check for proper grounding
-   - Verify stub lengths in multidrop (< 5cm)
+   - Verify stub lengths in multidrop (< 5 cm)
 
    **Power Issues**
    - When using PoDL, ensure power supply can provide sufficient current
-   - Check voltage levels are within specification (7-24V)
+   - Check voltage levels are within specification (7 - 24 VDC)
    - Verify Arduino board voltage compatibility
 
 ### LED Indicators
@@ -448,7 +450,7 @@ In this guide, you've learned how to:
 - Set up the Arduino UNO SPE Shield for Single Pair Ethernet communication
 - Implement point-to-point and multidrop network configurations
 - Use Power over Data Line for remote device powering
-- Integrate industrial protocols like Modbus over SPE
+- Bridge industrial protocols like RS-485 over SPE
 - Troubleshoot common connectivity issues
 
 The Arduino UNO SPE Shield opens up new possibilities for industrial IoT applications, providing reliable, cost-effective communication with minimal wiring requirements.
