@@ -387,12 +387,101 @@ The architecture consists of three layers: a central control node that issues co
 
 ### Central Control Node (Server)
 
-The central control node (Node 7) acts as the command center of the system, sending LED control commands to specific Opta boards through their associated gateway nodes. Operating on the SPE network, this node provides a simple serial interface where operators can type commands like "LED 3" to toggle specific LEDs on remote Optas.
+The central control node (Node 7) acts as the command center of the system, sending LED control commands to specific Opta boards through their associated gateway nodes. Operating on the SPE network, this node provides a simple serial interface where operators can type commands like "LED 3" to toggle the LEDs on remote Optas.
 
 ![Central SPE Controller](assets/SPE-rs485-transducer-main.png)
 
 ```arduino 
-work in progress
+// SPE Server Node 7 - Sends LED commands
+#include <Arduino_10BASE_T1S.h>
+#include <SPI.h>
+
+const uint8_t MY_ID = 7;  // Server is node 7
+
+// Network setup
+IPAddress myIP(192, 168, 42, 100 + MY_ID);
+IPAddress netmask(255, 255, 255, 0);
+IPAddress gateway(192, 168, 42, 100);
+
+TC6::TC6_Io* io;
+TC6::TC6_Arduino_10BASE_T1S* network;
+Arduino_10BASE_T1S_UDP* udp;
+
+void setup() {
+  Serial.begin(115200);
+  delay(1000);
+  
+  Serial.println("\n=== SPE LED Control Server ===");
+  Serial.println("Commands:");
+  Serial.println("  LED 0 - Toggle LED on Opta at node 0");
+  Serial.println("  LED 1 - Toggle LED on Opta at node 1");
+  Serial.println("  (etc. for other nodes)");
+  Serial.println("\nType command and press Enter\n");
+  
+  // Initialize hardware
+  io = new TC6::TC6_Io(SPI, CS_PIN, RESET_PIN, IRQ_PIN);
+  network = new TC6::TC6_Arduino_10BASE_T1S(io);
+  udp = new Arduino_10BASE_T1S_UDP();
+  
+  pinMode(IRQ_PIN, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(IRQ_PIN), []() {
+    io->onInterrupt();
+  }, FALLING);
+  
+  if (!io->begin()) {
+    Serial.println("IO failed!");
+    while(1);
+  }
+  
+  MacAddress mac = MacAddress::create_from_uid();
+  T1SPlcaSettings plca(MY_ID);
+  T1SMacSettings mac_settings;
+  
+  if (!network->begin(myIP, netmask, gateway, mac, plca, mac_settings)) {
+    Serial.println("Network failed!");
+    while(1);
+  }
+  
+  network->digitalWrite(TC6::DIO::A0, false);
+  network->digitalWrite(TC6::DIO::A1, false);
+  
+  if (!udp->begin(8888)) {
+    Serial.println("UDP failed!");
+    while(1);
+  }
+  
+  Serial.println("Ready! Enter LED commands:");
+}
+
+void loop() {
+  network->service();
+  
+  // Check for user commands
+  if (Serial.available()) {
+    String cmd = Serial.readStringUntil('\n');
+    cmd.trim();
+    cmd.toUpperCase();
+    
+    // Check if it's a valid LED command
+    if (cmd.startsWith("LED ")) {
+      int targetNode = cmd.substring(4).toInt();
+      
+      // Send to the target node
+      IPAddress targetIP(192, 168, 42, 100 + targetNode);
+      
+      udp->beginPacket(targetIP, 8888);
+      udp->print(cmd);
+      udp->endPacket();
+      
+      Serial.print("Sent '");
+      Serial.print(cmd);
+      Serial.print("' to node ");
+      Serial.println(targetNode);
+    } else {
+      Serial.println("Invalid command. Use: LED 0, LED 1, etc.");
+    }
+  }
+}
 ```
 
 ### Transducer Node SPE/RS-485
@@ -401,10 +490,125 @@ The gateway nodes serve as protocol translators between the SPE network and RS-4
 
 ![Shields Addressing the Endpoints Across Protocols](assets/SPE-rs485-transducer-transducer.png)
 
-When an Opta board responds via RS-485, the gateway captures the response and sends it back to the central controller as a UDP packet. This bidirectional translation allows transparent communication between the SPE-based control system and RS-485 devices, making it possible to control multiple Opta boards from a single point on the network.
 
 ```arduino
-In Progress
+// SPE/RS-485 Gateway Node - Forwards LED commands to Opta
+#include <Arduino_10BASE_T1S.h>
+#include <SPI.h>
+
+const uint8_t MY_ID = 0;  // Gateway node ID (change for each gateway)
+
+// Network setup
+IPAddress myIP(192, 168, 42, 100 + MY_ID);
+IPAddress netmask(255, 255, 255, 0);
+IPAddress gateway(192, 168, 42, 100);
+
+// RS-485 control pins
+#define RS485_DE_PIN 7
+#define RS485_RE_PIN 8
+
+TC6::TC6_Io* io;
+TC6::TC6_Arduino_10BASE_T1S* network;
+Arduino_10BASE_T1S_UDP* udp;
+
+void setup() {
+  Serial.begin(115200);   // USB debug
+  Serial1.begin(9600);    // RS-485 to Opta
+  delay(1000);
+  
+  Serial.print("\n=== SPE/RS-485 Gateway Node ");
+  Serial.print(MY_ID);
+  Serial.println(" ===");
+  Serial.println("Forwarding LED commands to Opta");
+  
+  // Setup RS-485 pins
+  pinMode(RS485_DE_PIN, OUTPUT);
+  pinMode(RS485_RE_PIN, OUTPUT);
+  setTransmitMode(); // We only transmit to Opta
+  
+  // Initialize SPE network
+  io = new TC6::TC6_Io(SPI, CS_PIN, RESET_PIN, IRQ_PIN);
+  network = new TC6::TC6_Arduino_10BASE_T1S(io);
+  udp = new Arduino_10BASE_T1S_UDP();
+  
+  pinMode(IRQ_PIN, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(IRQ_PIN), []() {
+    io->onInterrupt();
+  }, FALLING);
+  
+  if (!io->begin()) {
+    Serial.println("IO failed!");
+    while(1);
+  }
+  
+  MacAddress mac = MacAddress::create_from_uid();
+  T1SPlcaSettings plca(MY_ID);
+  T1SMacSettings mac_settings;
+  
+  if (!network->begin(myIP, netmask, gateway, mac, plca, mac_settings)) {
+    Serial.println("Network failed!");
+    while(1);
+  }
+  
+  network->digitalWrite(TC6::DIO::A0, false);
+  network->digitalWrite(TC6::DIO::A1, false);
+  
+  if (!udp->begin(8888)) {
+    Serial.println("UDP failed!");
+    while(1);
+  }
+  
+  Serial.println("Gateway ready!");
+}
+
+void loop() {
+  network->service();
+  
+  // Check for SPE packets
+  int packetSize = udp->parsePacket();
+  if (packetSize > 0) {
+    char buffer[64];
+    int len = udp->read((byte*)buffer, 63);
+    buffer[len] = '\0';
+    
+    String cmd = String(buffer);
+    cmd.trim();
+    
+    Serial.print("SPE received: ");
+    Serial.println(cmd);
+    
+    // Check if this LED command is for our node
+    if (cmd.startsWith("LED ")) {
+      int targetNode = cmd.substring(4).toInt();
+      if (targetNode == MY_ID) {
+        sendRS485("T");  // Send 'T' to toggle
+        Serial.println("Command for this node - sent toggle to Opta");
+      } else {
+        Serial.println("Command for different node, ignoring");
+      }
+    }
+  }
+}
+
+void setTransmitMode() {
+  digitalWrite(RS485_RE_PIN, HIGH);  // Disable receiver
+  digitalWrite(RS485_DE_PIN, HIGH);  // Enable driver
+  delay(10);
+}
+
+void sendRS485(String msg) {
+  setTransmitMode();
+  
+  // Clear any garbage first
+  while(Serial1.available()) {
+    Serial1.read();
+  }
+  
+  delay(10);
+  Serial1.println(msg);
+  Serial1.flush();
+  delay(10);
+}
 ```
 
 ### Opta RS-485 Interface
@@ -413,10 +617,54 @@ The Arduino Opta boards represent the end devices in this system, receiving comm
 
 ![Opta as Endpoint](assets/SPE-rs485-transducer-end.png)
 
-When an Opta receives a command, it parses the instruction, performs the requested operation. This simple protocol allows the central SPE controller to remotely monitor and control multiple Opta boards across the RS-485 network, creating a flexible and scalable industrial control system.
+When an Opta receives a command, it parses the instruction, performs the requested operation. This simple protocol allows the central SPE controller to remotely monitor and control multiple Opta boards across the RS-485 network, creating a flexible and scalable system.
 
 ```arduino
-In progress
+// Arduino Opta - Toggles built-in LED on command
+#include <ArduinoRS485.h>
+
+bool ledState = false;
+
+void setup() {
+  Serial.begin(115200);  // USB debug
+  delay(2000);
+  
+  Serial.println("\n=== Opta LED Controller ===");
+  Serial.println("Toggles built-in LED on command");
+  
+  // Initialize RS-485 with delays
+  RS485.begin(9600);
+  RS485.setDelays(1000, 1000);  // Pre and post delays in microseconds
+  RS485.receive();  // Set to receive mode
+  
+  // Setup built-in LED
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, LOW);
+  
+  // Flash LED to show ready
+  for (int i = 0; i < 3; i++) {
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(200);
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(200);
+  }
+  
+  Serial.println("Ready for commands!");
+}
+
+void loop() {
+  // Read RS-485 character by character
+  while (RS485.available()) {
+    char c = RS485.read();
+    
+    // 0xDE = toggle
+    if ((byte)c == 0xDE) {
+      Serial.println("LED Toggle - received");
+      ledState = !ledState;
+      digitalWrite(LED_BUILTIN, ledState);
+    }
+  }
+}
 ```
 
 ## Troubleshooting
