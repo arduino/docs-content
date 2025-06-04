@@ -1,4 +1,3 @@
-
 <EssentialsColumn title="Suggested Libraries">
 
 <EssentialElement title="Arduino 10BASE T1S" type="library" link="https://docs.arduino.cc/libraries/arduino_10base_t1s/">

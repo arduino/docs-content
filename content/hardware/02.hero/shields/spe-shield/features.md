@@ -1,5 +1,5 @@
 <FeatureDescription>
-The Arduino UNO SPE Shield combines industrial-grade Single Pair Ethernet (10BASE-T1S) and RS-485 communication in a single, compact solution. Featuring the **LAN8651B1 controller from Microchip®** and **XR33058IDTR-F RS-485 transceiver**, this shield transforms your Arduino UNO into a powerful industrial communication hub capable of bridging legacy systems with modern Ethernet networks.
+The Arduino UNO SPE Shield combines industrial-grade Single Pair Ethernet (10BASE-T1S) and RS-485 communication in a single, compact solution. This shield transforms your Arduino UNO into a powerful industrial communication hub capable of bridging legacy systems with modern Ethernet networks.
 </FeatureDescription>
 
 <FeatureList>
@@ -16,7 +16,7 @@ Multiple power options including USB, external DC, and Power over Data Line for 
 </Feature>
 
 <Feature title="UNO Form Factor Compatible" image="uno-form-factor">
-Designed as a stackable shield that seamlessly integrates with Arduino UNO R4 and other UNO form factor boards. Standard pin layout preserves access to all GPIO pins while adding industrial communication capabilities through convenient screw terminals.
+Designed as a stackable shield that seamlessly integrates with Arduino UNO R4 (both WiFi and Minima) and other UNO form factor boards. Standard pin layout preserves access to all GPIO pins while adding industrial communication capabilities through convenient screw terminals.
 </Feature>
 
 </FeatureList>
