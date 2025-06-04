@@ -183,7 +183,7 @@ Getting sound feedback from the buzzer is fairly simple using the ```Modulino```
 Here is an example sketch of how to implement this function to control the buzzer:
 
 ```arduino
-#include <Arduino_Modulino.h>
+#include <Modulino.h>
 
 ModulinoBuzzer buzzer;
 
