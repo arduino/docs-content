@@ -195,9 +195,13 @@ void loop() {
 
 To upload the sketch to the board, click the **Verify** button to compile the sketch and check for errors, then click the **Upload** button to program the device with the sketch.
 
-![Uploading a sketch to the Nano R4 in the Arduino IDE](assets/user-manual-6.gif)
+![Uploading a sketch to the Nano R4 in the Arduino IDE](assets/user-manual-5.png)
 
-As shown in the image above, you should see the built-in orange user LED of your Nano R4 board turn on for one second, then turn off for one second, repeating this cycle continuously. Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the sketch sends each time the LED state changes.
+As shown in the image above, you should see the built-in orange user LED of your Nano R4 board turn on for one second, then turn off for one second, repeating this cycle continuously. 
+
+![Onboard orange user LED blinking](assets/user-manual-6.gif)
+
+Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the sketch sends each time the LED state changes.
 
 ![Arduino IDE Serial Monitor output for the Blink sketch](assets/user-manual-7.png)
 
