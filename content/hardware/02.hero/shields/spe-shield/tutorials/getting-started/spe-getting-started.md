@@ -20,7 +20,7 @@ In this guide, you'll learn how to set up your first SPE network, understand the
 
 ### Hardware Requirements
 
-- [Arduino® UNO SPE Shield](https://store.arduino.cc/collections/shields-carriers/products/uno-spe-shield)
+- [Arduino® UNO SPE Shield](https://store.arduino.cc/uno-spe-shield)
 - [Arduino® UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi) or any other UNO form factor board.
 - [USB cables](https://store.arduino.cc/products/usb-cable2in1-type-c) for programming
 - Twisted pair cable for SPE connection
