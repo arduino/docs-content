@@ -84,7 +84,7 @@ The Arduino UNO R4 Boards core provides support for the following:
 - HID emulation capabilities (keyboard and mouse)
 - Standard Arduino libraries compatibility
 
-***Since the Nano R4 uses the same RA4M1 microcontroller as the UNO R4 WiFi and the UNO R4 Minima, it shares complete code and library compatibility, making it easy to transition projects between these boards.***
+***<strong>Important note:</strong> Since the Nano R4 uses the same RA4M1 microcontroller as the UNO R4 WiFi and the UNO R4 Minima, it shares complete code and library compatibility, making it easy to transition projects between these boards.***
 
 ### Pinout
 
@@ -109,3 +109,104 @@ The complete schematics are available and downloadable as PDF from the link belo
 The complete STEP files are available and downloadable from the link below:
 
 - Nano R4 STEP files
+
+## First Use
+
+### Unboxing the Product
+
+When opening the Nano R4 box, you will find the board and its corresponding documentation. Unlike other Arduino products, **the Nano R4 does not include additional cables**, so you will need a USB-C cable (available separately) to connect the board to your computer.
+
+The Nano R4 is a standalone device that can be programmed directly without requiring additional boards. However, for more complex projects, you can easily combine it with Arduino shields compatible with the Nano family or connect it to other Arduino devices through its onboard Qwicc connector.
+
+### Connecting the Board
+
+The Nano R4 can be connected to your computer very simply using its onboard USB-C connector. It can also be integrated into larger projects using the following:
+
+- **Direct USB-C connection**: For programming, power supply and serial communication with the computer
+- **Pin connection**: For integration into breadboards or custom PCBs
+- **Qwicc connection**: For rapid expansion with compatible sensors and modules
+- **Module mounting**: Using the board's castellated pins for direct soldering to PCBs
+
+***<strong>Important note:</strong> The Nano R4 operates at +5 VDC natively. When connecting sensors or modules that operate at +3.3 VDC, make sure to verify voltage compatibility to avoid component damage.***
+
+### Powering the Board
+
+The Nano R4 can be powered in several ways:
+
+- **Via USB-C connector**: The most common method during development and programming
+- **Via `VIN` pin**: Using an external +6-21 VDC power supply that will be internally regulated to +5 VDC
+- **Via `5V` pin**: Directly connecting a regulated +5 VDC source (with caution)
+
+![Different ways to power the Nano R4 board](assets/user-manual-4.png)
+
+***<strong>Important note:</strong> The Nano R4's `VIN` pin accepts a voltage range of +6-21 VDC. Do not connect voltages outside this range as you could permanently damage the board. Always verify all the connections before applying power.***
+
+The Nano R4 also includes an onboard +3.3 VDC regulator ([AP2112K](https://www.diodes.com/assets/Datasheets/AP2112.pdf)) that provides power for the following:
+
+- **Qwicc connector**: Supplies +3.3 VDC power to connected I²C devices
+- **I²C level translation**: Enables communication between the +5 VDC microcontroller and +3.3 VDC Qwicc devices
+- **Internal +3.3 VDC peripherals**: Powers certain internal circuits that require +3.3 VDC operation
+
+This internal +3.3 VDC supply allows the board to interface seamlessly with both +5 VDC and +3.3 VDC devices through the Qwicc ecosystem while maintaining the +5 VDC operation of the board's main microcontroller.
+
+### Hello World Example
+
+Let's program the Nano R4 to reproduce the classic `Hello World` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the Nano R4's connection to the computer works correctly, that the Arduino IDE is properly configured, and that both the board and development environment function as expected.
+
+First, connect your Nano R4 to your computer using a USB-C cable, open the Arduino IDE, and make sure that the board is connected correctly. If you are new to the Arduino IDE, please refer to the official Arduino documentation for more detailed information about initial setup. Copy and paste the following example sketch into a new Arduino IDE file:
+
+```arduino
+/**
+Blink Example for the Arduino Nano R4 Board
+Name: nano_r4_blink.ino
+Purpose: This sketch demonstrates how to blink the built-in
+user LED of the Arduino Nano R4 board.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+// Built-in LED pin
+#define LED_PIN LED_BUILTIN
+
+void setup() {
+  // Initialize serial communication at 115200 baud
+  Serial.begin(115200);
+  
+  // Configure LED pin as output
+  pinMode(LED_PIN, OUTPUT);
+  
+  // Startup message
+  Serial.println("- Arduino Nano R4 - Blink Example started...");
+}
+
+void loop() {
+  // Turn on the LED, wait 1 second
+  digitalWrite(LED_PIN, HIGH);
+  Serial.println("- LED on!");
+  delay(1000);
+  
+  // Turn off the LED, wait 1 second
+  digitalWrite(LED_PIN, LOW);
+  Serial.println("- LED off!");
+  delay(1000);  
+}
+```
+
+To upload the sketch to the board, click the **Verify** button to compile the sketch and check for errors, then click the **Upload** button to program the device with the sketch.
+
+![Uploading a sketch to the Nano R4 in the Arduino IDE](assets/user-manual-6.gif)
+
+As shown in the image above, you should see the built-in orange user LED of your Nano R4 board turn on for one second, then turn off for one second, repeating this cycle continuously. Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the sketch sends each time the LED state changes.
+
+![Arduino IDE Serial Monitor output for the Blink sketch](assets/user-manual-7.png)
+
+This example confirms the following:
+
+- The Nano R4 board is correctly connected
+- The Arduino IDE is properly configured
+- The board is functioning correctly
+- USB communication is working
+- Digital pins respond to commands
+
+Congratulations! You have successfully completed your first program on the Nano R4 board. You are now ready to explore the more advanced features of this tiny but powerful board.
