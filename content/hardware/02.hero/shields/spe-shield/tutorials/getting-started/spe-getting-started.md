@@ -55,13 +55,13 @@ The full pinout is available below:
 ### Datasheet
 
 The complete datasheet is available and downloadable as PDF from the link below:
-- [Arduino UNO SPE Shield datasheet](https://docs.arduino.cc/resources/datasheets/ASX00073-datasheet.pdf)
+- [Arduino UNO SPE Shield datasheet](../../downloads/ASX00073-datasheet.pdf)
 
 ### Schematics
 
 The complete schematics are available and downloadable as PDF from the link below:
 
-- [Arduino UNO SPE Shield schematics](https://docs.arduino.cc/resources/schematics/ASX00073-schematics.pdf)
+- [Arduino UNO SPE Shield schematics](../../downloads/ASX00073-schematics.pdf)
 
 ### STEP Files
 
@@ -93,9 +93,9 @@ The shield offers two primary ways to connect to a Single Pair Ethernet (SPE) 10
 
 **Key Features:**
 
-**- Speed:** Operates at 10 Mbps under the 10BASE-T1S standard.
-**- Maximum Distance:** Supports up to 25 meters in multidrop topology (multiple nodes on a single segment).
-**- Topology:** Allows up to eight nodes in a multidrop network.
+- **Speed:** Operates at 10 Mbps under the 10BASE-T1S standard.
+- **Maximum Distance:** Supports up to 25 meters in multidrop topology (multiple nodes on a single segment).
+- **Topology:** Allows up to eight nodes in a multidrop network.
 
 ### RS-485
 
@@ -104,9 +104,9 @@ The shield offers two primary ways to connect to a Single Pair Ethernet (SPE) 10
 
 **Key Features:**
 
-**- Speed:** Up to 20 Mbps for short distances (<15 m).
-**- Maximum Distance:** Supports up to 1,200 m with reduced speeds.
-**- Topology:** Works in a bus topology, supporting up to 80 nodes.
+- **Speed:** Up to 20 Mbps for short distances (<15 m).
+- **Maximum Distance:** Supports up to 1,200 m with reduced speeds.
+- **Topology:** Works in a bus topology, supporting up to 80 nodes.
 
 ### Power
 A screw connector for powering the board and Shield assembly is provided with two positions for GND and two for VIN (7.0 to 24.0 V).
@@ -120,8 +120,8 @@ A screw connector for powering the board and Shield assembly is provided with tw
 
 To enable the onboard termination resistors for the SPE bus, there are two pairs of contacts you can bridge. 
 ![Termination jumpers](assets/jumpers.png)
-**Point-to-Point Setup:** Use jumpers to enable the termination at endpoints for proper signal integrity.
-**Multidrop Setup:** Terminations are disabled internally; only the furthest nodes in the network should be terminated.
+- **Point-to-Point Setup:** Use jumpers to enable the termination at endpoints for proper signal integrity.
+- **Multidrop Setup:** Terminations are disabled internally; only the furthest nodes in the network should be terminated.
 
 ### RS-485 Termination Jumper:
 
