@@ -396,10 +396,9 @@ The central control node (Node 7) acts as the command center of the system, send
 #include <Arduino_10BASE_T1S.h>
 #include <SPI.h>
 
-const uint8_t MY_ID = 7;  // Server is node 7
+const uint8_t MY_ID = 7;
 
-// Network setup
-IPAddress myIP(192, 168, 42, 100 + MY_ID);
+IPAddress myIP(192, 168, 42, 107);
 IPAddress netmask(255, 255, 255, 0);
 IPAddress gateway(192, 168, 42, 100);
 
@@ -411,14 +410,9 @@ void setup() {
   Serial.begin(115200);
   delay(1000);
   
-  Serial.println("\n=== SPE LED Control Server ===");
-  Serial.println("Commands:");
-  Serial.println("  LED 0 - Toggle LED on Opta at node 0");
-  Serial.println("  LED 1 - Toggle LED on Opta at node 1");
-  Serial.println("  (etc. for other nodes)");
-  Serial.println("\nType command and press Enter\n");
+  Serial.println("\nSPE LED Control Server");
+  Serial.println("Type: LED 0, LED 1, etc.\n");
   
-  // Initialize hardware
   io = new TC6::TC6_Io(SPI, CS_PIN, RESET_PIN, IRQ_PIN);
   network = new TC6::TC6_Arduino_10BASE_T1S(io);
   udp = new Arduino_10BASE_T1S_UDP();
@@ -428,57 +422,39 @@ void setup() {
     io->onInterrupt();
   }, FALLING);
   
-  if (!io->begin()) {
-    Serial.println("IO failed!");
-    while(1);
-  }
+  io->begin();
   
   MacAddress mac = MacAddress::create_from_uid();
   T1SPlcaSettings plca(MY_ID);
   T1SMacSettings mac_settings;
   
-  if (!network->begin(myIP, netmask, gateway, mac, plca, mac_settings)) {
-    Serial.println("Network failed!");
-    while(1);
-  }
-  
+  network->begin(myIP, netmask, gateway, mac, plca, mac_settings);
   network->digitalWrite(TC6::DIO::A0, false);
   network->digitalWrite(TC6::DIO::A1, false);
   
-  if (!udp->begin(8888)) {
-    Serial.println("UDP failed!");
-    while(1);
-  }
+  udp->begin(8888);
   
-  Serial.println("Ready! Enter LED commands:");
+  Serial.println("Ready!");
 }
 
 void loop() {
   network->service();
   
-  // Check for user commands
   if (Serial.available()) {
     String cmd = Serial.readStringUntil('\n');
     cmd.trim();
     cmd.toUpperCase();
     
-    // Check if it's a valid LED command
     if (cmd.startsWith("LED ")) {
-      int targetNode = cmd.substring(4).toInt();
-      
-      // Send to the target node
-      IPAddress targetIP(192, 168, 42, 100 + targetNode);
+      int node = cmd.substring(4).toInt();
+      IPAddress targetIP(192, 168, 42, 100 + node);
       
       udp->beginPacket(targetIP, 8888);
       udp->print(cmd);
       udp->endPacket();
       
-      Serial.print("Sent '");
-      Serial.print(cmd);
-      Serial.print("' to node ");
-      Serial.println(targetNode);
-    } else {
-      Serial.println("Invalid command. Use: LED 0, LED 1, etc.");
+      Serial.print("Sent to node ");
+      Serial.println(node);
     }
   }
 }
@@ -492,41 +468,33 @@ The gateway nodes serve as protocol translators between the SPE network and RS-4
 
 
 ```arduino
-// SPE/RS-485 Gateway Node - Forwards LED commands to Opta
+// SPE/RS-485 Gateway
 #include <Arduino_10BASE_T1S.h>
 #include <SPI.h>
 
-const uint8_t MY_ID = 0;  // Gateway node ID (change for each gateway)
+const uint8_t MY_ID = 0;  // Change for each gateway
 
-// Network setup
 IPAddress myIP(192, 168, 42, 100 + MY_ID);
 IPAddress netmask(255, 255, 255, 0);
 IPAddress gateway(192, 168, 42, 100);
-
-// RS-485 control pins
-#define RS485_DE_PIN 7
-#define RS485_RE_PIN 8
 
 TC6::TC6_Io* io;
 TC6::TC6_Arduino_10BASE_T1S* network;
 Arduino_10BASE_T1S_UDP* udp;
 
 void setup() {
-  Serial.begin(115200);   // USB debug
-  Serial1.begin(9600);    // RS-485 to Opta
+  Serial.begin(115200);
+  Serial1.begin(9600);
   delay(1000);
   
-  Serial.print("\n=== SPE/RS-485 Gateway Node ");
-  Serial.print(MY_ID);
-  Serial.println(" ===");
-  Serial.println("Forwarding LED commands to Opta");
+  Serial.print("\nGateway Node ");
+  Serial.println(MY_ID);
   
-  // Setup RS-485 pins
-  pinMode(RS485_DE_PIN, OUTPUT);
-  pinMode(RS485_RE_PIN, OUTPUT);
-  setTransmitMode(); // We only transmit to Opta
+  pinMode(7, OUTPUT);  // RS485_DE
+  pinMode(8, OUTPUT);  // RS485_RE
+  digitalWrite(7, HIGH);
+  digitalWrite(8, HIGH);
   
-  // Initialize SPE network
   io = new TC6::TC6_Io(SPI, CS_PIN, RESET_PIN, IRQ_PIN);
   network = new TC6::TC6_Arduino_10BASE_T1S(io);
   udp = new Arduino_10BASE_T1S_UDP();
@@ -536,78 +504,37 @@ void setup() {
     io->onInterrupt();
   }, FALLING);
   
-  if (!io->begin()) {
-    Serial.println("IO failed!");
-    while(1);
-  }
+  io->begin();
   
   MacAddress mac = MacAddress::create_from_uid();
   T1SPlcaSettings plca(MY_ID);
   T1SMacSettings mac_settings;
   
-  if (!network->begin(myIP, netmask, gateway, mac, plca, mac_settings)) {
-    Serial.println("Network failed!");
-    while(1);
-  }
-  
+  network->begin(myIP, netmask, gateway, mac, plca, mac_settings);
   network->digitalWrite(TC6::DIO::A0, false);
   network->digitalWrite(TC6::DIO::A1, false);
   
-  if (!udp->begin(8888)) {
-    Serial.println("UDP failed!");
-    while(1);
-  }
+  udp->begin(8888);
   
-  Serial.println("Gateway ready!");
+  Serial.println("Ready!");
 }
 
 void loop() {
   network->service();
   
-  // Check for SPE packets
-  int packetSize = udp->parsePacket();
-  if (packetSize > 0) {
-    char buffer[64];
-    int len = udp->read((byte*)buffer, 63);
-    buffer[len] = '\0';
+  if (udp->parsePacket()) {
+    char buffer[64] = {0};
+    udp->read((byte*)buffer, 63);
     
     String cmd = String(buffer);
     cmd.trim();
     
-    Serial.print("SPE received: ");
-    Serial.println(cmd);
-    
-    // Check if this LED command is for our node
-    if (cmd.startsWith("LED ")) {
-      int targetNode = cmd.substring(4).toInt();
-      if (targetNode == MY_ID) {
-        sendRS485("T");  // Send 'T' to toggle
-        Serial.println("Command for this node - sent toggle to Opta");
-      } else {
-        Serial.println("Command for different node, ignoring");
-      }
+    if (cmd == "LED " + String(MY_ID)) {
+      Serial1.println("T");
+      Serial1.flush();
+      Serial.println("Toggle sent");
     }
   }
-}
-
-void setTransmitMode() {
-  digitalWrite(RS485_RE_PIN, HIGH);  // Disable receiver
-  digitalWrite(RS485_DE_PIN, HIGH);  // Enable driver
-  delay(10);
-}
-
-void sendRS485(String msg) {
-  setTransmitMode();
-  
-  // Clear any garbage first
-  while(Serial1.available()) {
-    Serial1.read();
-  }
-  
-  delay(10);
-  Serial1.println(msg);
-  Serial1.flush();
-  delay(10);
 }
 ```
 
@@ -671,20 +598,23 @@ void loop() {
 
 ### Common Issues and Solutions
 
-   **No Communication**
-   - Verify termination jumpers are correctly set (closed for P2P, only endpoints for multidrop)
-   - Check cable connections and polarity
-   - Ensure twisted pair cable is used
+**No Communication**
 
-   **Intermittent Communication**
-   - Reduce cable length (maximum 25 m)
-   - Check for proper grounding
-   - Verify stub lengths in multidrop (< 5 cm)
+- Verify termination jumpers are correctly set (closed for P2P, only endpoints for multidrop)
+- Check cable connections and polarity
+- Ensure twisted pair cable is used
 
-   **Power Issues**
-   - When using PoDL, ensure power supply can provide sufficient current
-   - Check voltage levels are within specification (7 - 24 VDC)
-   - Verify Arduino board voltage compatibility
+**Intermittent Communication**
+
+- Reduce cable length (maximum 25 m)
+- Check for proper grounding
+- Verify stub lengths in multidrop (< 5 cm)
+
+**Power Issues**
+
+- When using PoDL, ensure power supply can provide sufficient current
+- Check voltage levels are within specification (7/24 VDC)
+- Verify Arduino board voltage compatibility
 
 ### LED Indicators
 
