@@ -192,7 +192,7 @@ For the **Pixels**, there are two important functions:
 Here is an example of how to implement these functions to control the LEDs:
 
 ```arduino
-#include <Arduino_Modulino.h>
+#include <Modulino.h>
 
 ModulinoPixels leds;
 

@@ -187,7 +187,7 @@ For the **Buttons** module, there are two key functions:
 Here is an example sketch demonstrating how to use these functions to detect button presses:
 
 ```arduino
-#include <Arduino_Modulino.h>
+#include <Modulino.h>
 
 // Create object instance
 ModulinoButtons buttons;
@@ -233,7 +233,7 @@ For the **Button Events** functionality, there are several key functions:
 Here is an example sketch demonstrating how to implement button event detection:
 
 ```arduino
-#include "Arduino_Modulino.h"
+#include "Modulino.h"
 #include "Button2.h"
 
 Button2 button;
