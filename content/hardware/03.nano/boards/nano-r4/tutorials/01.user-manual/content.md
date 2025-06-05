@@ -116,13 +116,17 @@ The complete STEP files are available and downloadable from the link below:
 
 ### Unboxing the Product
 
-When opening the Nano R4 box, you will find the board and its corresponding documentation. Unlike other Arduino products, **the Nano R4 does not include additional cables**, so you will need a USB-C cable (available separately) to connect the board to your computer.
+When opening the Nano R4 box, you will find the board and its corresponding documentation. **The Nano R4 does not include additional cables**, so you will need a USB-C cable ([available separately here](https://store.arduino.cc/products/usb-cable2in1-type-c)) to connect the board to your computer.
+
+![Unboxing the Nano R4 board](assets/user-manual-11.png)
+
+*** ***
 
 The Nano R4 is a standalone device that can be programmed directly without requiring additional boards. However, for more complex projects, you can easily combine it with Arduino shields compatible with the Nano family or connect it to other Arduino devices through its onboard Qwicc connector.
 
 ### Connecting the Board
 
-The Nano R4 can be connected to your computer very simply using its onboard USB-C connector. It can also be integrated into larger projects using the following:
+The Nano R4 can be connected to your computer using its onboard USB-C connector. It can also be integrated into larger projects using the following:
 
 - **Direct USB-C connection**: For programming, power supply and serial communication with the computer
 - **Pin connection**: For integration into breadboards or custom PCBs
@@ -317,3 +321,65 @@ You should now see the built-in RGB LED cycling through red, green, and blue col
 Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the example sketch sends each time the RGB LEDs state changes.
 
 ![Arduino IDE Serial Monitor output for the RGB LED example sketch](assets/user-manual-10.png)
+
+### Orange LED
+
+The Nano R4 also features a built-in orange user LED that can be used for basic status indications and debugging purposes.
+
+![Built-in user LED of the Nano R4 board](assets/user-manual-12.png)
+
+
+The built-in user LED can be accessed through the following macro definition:
+
+| **Built-in LED** | **Macro Definition** | **Microcontroller Pin** |
+|:----------------:|:--------------------:|:-----------------------:|
+|  Orange User LED |    `LED_BUILTIN`     |          `P204`         |
+
+***Unlike the RGB LED, the built-in user LED on the Nano R4 operates with standard logic levels. This means that a voltage level of `HIGH` will turn the LED on, and a voltage level of `LOW` will turn it off.***
+
+The following example sketch demonstrates how to control the built-in user LED:
+
+```arduino
+/**
+User LED Example for the Arduino Nano R4 Board
+Name: nano_r4_user_led.ino
+Purpose: This sketch demonstrates how to control the built-in
+user LED of the Arduino Nano R4 board.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+void setup() {
+  // Initialize serial communication at 115200 baud
+  Serial.begin(115200);
+  
+  // Configure LED_BUILTIN pin as output
+  pinMode(LED_BUILTIN, OUTPUT);
+  
+  // Turn off LED initially
+  digitalWrite(LED_BUILTIN, LOW);
+  
+  Serial.println("- Arduino Nano R4 - User LED Example started...");
+}
+
+void loop() {
+  // Turn on the built-in user LED
+  digitalWrite(LED_BUILTIN, HIGH);
+  Serial.println("- User LED on!");
+  delay(1000);
+  
+  // Turn off the built-in user LED
+  digitalWrite(LED_BUILTIN, LOW);
+  Serial.println("- User LED off!");
+  delay(1000);
+}
+```
+
+You should now see the built-in orange user LED blinking on and off at 1-second intervals, repeating this pattern continuously.
+
+![Onboard RGB user LED blinking](assets/user-manual-13.gif)
+
+Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the example sketch sends each time the user LED state changes.
+
+![Arduino IDE Serial Monitor output for the orange LED example sketch](assets/user-manual-7.png)
