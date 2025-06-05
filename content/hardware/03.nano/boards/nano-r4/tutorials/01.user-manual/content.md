@@ -120,8 +120,6 @@ When opening the Nano R4 box, you will find the board and its corresponding docu
 
 ![Unboxing the Nano R4 board](assets/user-manual-11.png)
 
-*** ***
-
 The Nano R4 is a standalone device that can be programmed directly without requiring additional boards. However, for more complex projects, you can easily combine it with Arduino shields compatible with the Nano family or connect it to other Arduino devices through its onboard Qwicc connector.
 
 ### Connecting the Board
@@ -383,3 +381,38 @@ You should now see the built-in orange user LED blinking on and off at 1-second 
 Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the example sketch sends each time the user LED state changes.
 
 ![Arduino IDE Serial Monitor output for the orange LED example sketch](assets/user-manual-7.png)
+
+## Pins
+
+This user manual section provides comprehensive information about the Nano R4's pin capabilities and functionality Understanding the board's pins capabilities and configurations is important for making the most of your projects with the Nano R4 board.
+
+### Pin Overview
+
+The Nano R4 features a total of **20 accessible pins** arranged in the classic Nano form factor, maintaining compatibility with existing Nano shields and breadboard layouts. These pins provide various functionalities including digital I/O, analog input, PWM output and several communication protocols.
+
+![Nano R4 pinout overview](assets/simple-pinout.png)
+
+### Pin Specifications and Characteristics
+
+The Nano R4's pins are organized into the following categories:
+
+|   **Pin Type**   | **Count** |      **Pin Numbers**      |            **Primary Functions**           |
+|:----------------:|:---------:|:-------------------------:|:------------------------------------------:|
+| **Digital Pins** |     14    |        `D0` - `D13`       |    Digital I/O, PWM (6 pins), SPI, UART    |
+|  **Analog Pins** |     8     |        `A0` - `A7`        | Analog input, Digital I/O, I²C, DAC (`A0`) |
+|  **Power Pins**  |     4     | `VIN`, `5V`, `3V3`, `GND` |           Power supply and ground          |
+| **Special Pins** |     2     |      `RESET`, `VBATT`     |          System control and backup         |
+
+The Nano R4 offers several advanced pin capabilities including multi-function pins that can serve multiple purposes depending on your project needs, native +5 VDC operation for compatibility with classic Arduino shields, internal +3.3 VDC level translation for modern sensors and electronic components via Qwicc, and built-in advanced peripherals such as DAC, CAN bus and operational amplifiers on specific pins of the board.
+
+The following table shows the electrical specifications and operating limits for all pins on the Nano R4 board:
+
+|    **Specification**    |   **Value**  |             **Notes**            |
+|:-----------------------:|:------------:|:--------------------------------:|
+|  **Operating Voltage**  |    +5 VDC    | Logic level for all digital pins |
+| **Input Voltage Range** | 0 - +5.5 VDC |      +5 VDC tolerant inputs      |
+| **Max Current per Pin** |     8 mA     |     Source/sink current limit    |
+|  **Max Total Current**  |    200 mA    |   Combined current for all pins  |
+|   **Analog Reference**  |    +5 VDC    |      Default `AREF` voltage      |
+
+***<strong>Important safety considerations when working with the Nano R4 pins:</strong> Never exceed +5.5 VDC on any pin to avoid permanent damage, respect the 8 mA per pin and 200 mA total current limits, handle the board with proper anti-static precautions, avoid connecting pins directly to ground or power and always verify voltage levels when connecting +3.3 VDC devices.***
