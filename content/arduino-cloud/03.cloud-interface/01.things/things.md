@@ -68,7 +68,7 @@ The status of your device is also displayed in this section (online/offline).
 
 ## Network
 
-In the network section, you configure the credentials for your network, such as your Wi-Fi® network, secret key (for ESP32 boards) and other credentials e.g. LoRa®-based networks & cellular. The network details are securely stored.
+In the network section, you can configure your network connection, such as your Wi-Fi® network, secret key (for ESP32 boards) and other credentials e.g. LoRa®-based networks & cellular. The network details are securely stored.
 
 ![Network configuration.](assets/network-creds.png)
 
