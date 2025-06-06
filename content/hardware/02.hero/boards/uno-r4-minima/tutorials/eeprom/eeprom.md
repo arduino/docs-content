@@ -57,7 +57,7 @@ int addr = 0;
 byte value = 100; 
 
 void setup() {
-  EEPROM.write(addr, val);
+  EEPROM.write(addr, value);
 }
 void loop(){ 
 }
@@ -81,7 +81,7 @@ void setup() {
   }
 
   Serial.print("Address 0: ");
-  Serial.println(addr);
+  Serial.println(value);
 }
 
 void loop() {
