@@ -189,7 +189,7 @@ For the **Knob** there are two important functions:
 Here is an example sketch of how to implement these functions to acquire data:
 
 ```arduino
-#include <Arduino_Modulino.h>
+#include <Modulino.h>
 
 ModulinoKnob knob;
 

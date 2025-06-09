@@ -231,7 +231,7 @@ Getting data from the sensor is fairly simple using the ```Modulino``` library. 
 Here is an example sketch of how to implement these functions to acquire data and show it using the serial monitor:
 
 ```arduino
-#include "Arduino_Modulino.h"
+#include "Modulino.h"
 
 // Create a ModulinoMovement
 ModulinoMovement movement;
