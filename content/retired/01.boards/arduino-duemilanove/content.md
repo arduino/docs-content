@@ -61,7 +61,7 @@ Each of the 14 digital pins on the Duemilanove can be used as an input or output
 * **Serial: 0 (RX) and 1 (TX).** Used to receive (RX) and transmit (TX) TTL serial data. These pins are connected to the corresponding pins of the FTDI USB-to-TTL Serial chip.
 * **External Interrupts: 2 and 3.** These pins can be configured to trigger an interrupt on a low value, a rising or falling edge, or a change in value. See the [attachInterrupt()](//www.arduino.cc/en/Reference/AttachInterrupt) function for details.
 * **PWM: 3, 5, 6, 9, 10, and 11.** Provide 8-bit PWM output with the [analogWrite()](//www.arduino.cc/en/Reference/AnalogWrite) function.
-* **SPI: 10 (SS), 11 (MOSI), 12 (MISO), 13 (SCK).** These pins support SPI communication using the [SPI library](//www.arduino.cc/en/Reference/SPI).
+* **SPI: 10 (SS), 11 (MOSI), 12 (MISO), 13 (SCK).** These pins support SPI communication using the [SPI library](https://docs.arduino.cc/language-reference/en/functions/communication/SPI/).
 * **LED: 13.** There is a built-in LED connected to digital pin 13\. When the pin is HIGH value, the LED is on, when the pin is LOW, it's off.
 
 The Duemilanove has 6 analog inputs, each of which provide 10 bits of resolution (i.e. 1024 different values). By default they measure from ground to 5 volts, though is it possible to change the upper end of their range using the AREF pin and the [analogReference](//www.arduino.cc/en/Reference/AnalogReference)() function. Additionally, some pins have specialized functionality:
@@ -81,7 +81,7 @@ The Arduino Duemilanove has a number of facilities for communicating with a comp
 
 A [SoftwareSerial library](http://www.arduino.cc/en/Reference/SoftwareSerial) allows for serial communication on any of the Duemilanove's digital pins.
 
-The ATmega168 and ATmega328 also support I2C (TWI) and SPI communication. The Arduino software includes a Wire library to simplify use of the I2C bus; see the [documentation](//www.arduino.cc/en/Reference/Wire) for details. For SPI communication, use the [SPI library](//www.arduino.cc/en/Reference/SPI).
+The ATmega168 and ATmega328 also support I2C (TWI) and SPI communication. The Arduino software includes a Wire library to simplify use of the I2C bus; see the [documentation](//www.arduino.cc/en/Reference/Wire) for details. For SPI communication, use the [SPI library](https://docs.arduino.cc/language-reference/en/functions/communication/SPI/).
 
 ### Programming
 

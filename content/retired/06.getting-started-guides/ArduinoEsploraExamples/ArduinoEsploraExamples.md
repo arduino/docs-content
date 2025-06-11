@@ -276,7 +276,7 @@ You can also use the [USB Mouse and Keyboard libraries](https://arduino.cc/en/Re
 
 ## Communicating With Other Devices
 
-The other Arduinos offer two other forms of serial communication, SPI (using the [SPI library](https://arduino.cc/en/Reference/SPI)) and [I2C (using the Wire library)](https://arduino.cc/en/Reference/Wire). The Esplora can communicate via SPI using the ICSP header that's also used for optional in-circuit serial programming of the board. The ICSP connector's pins are laid out as follows. Pin 1 is the pin nearest the white dot on the Esplora board. It's the bottom right pin if you're holding the Esplora with the USB connector facing up:
+The other Arduinos offer two other forms of serial communication, SPI (using the [SPI library](https://docs.arduino.cc/language-reference/en/functions/communication/SPI/)) and [I2C (using the Wire library)](https://arduino.cc/en/Reference/Wire). The Esplora can communicate via SPI using the ICSP header that's also used for optional in-circuit serial programming of the board. The ICSP connector's pins are laid out as follows. Pin 1 is the pin nearest the white dot on the Esplora board. It's the bottom right pin if you're holding the Esplora with the USB connector facing up:
 
 ![](assets/ICSP_pinout.jpg)
 
