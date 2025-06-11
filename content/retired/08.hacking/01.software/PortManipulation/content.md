@@ -16,14 +16,6 @@ Each port is controlled by three registers, which are also defined variables in 
 
 DDR and PORT registers may be both written to, and read. PIN registers correspond to the state of inputs and may only be read.
 
-**PORTD** maps to Arduino digital pins 0 to 7
-
-DDRD - The Port D Data Direction Register - read/write
-
-PORTD - The Port D Data Register - read/write
-
-PIND - The Port D Input Pins Register - read only
-
 **PORTB** maps to Arduino digital pins 8 to 13 The two high bits (6 & 7) map to the crystal pins and are not usable
 
 DDRB - The Port B Data Direction Register - read/write
@@ -39,6 +31,14 @@ DDRC - The Port C Data Direction Register - read/write
 PORTC - The Port C Data Register - read/write
 
 PINC - The Port C Input Pins Register - read only 
+
+**PORTD** maps to Arduino digital pins 0 to 7
+
+DDRD - The Port D Data Direction Register - read/write
+
+PORTD - The Port D Data Register - read/write
+
+PIND - The Port D Input Pins Register - read only
 
 Each bit of these registers corresponds to a single pin; e.g. the low bit of DDRB, PORTB, and PINB refers to pin PB0 (digital pin 8). For a complete mapping of Arduino pin numbers to ports and bits, see the diagram for your chip: [ATmega8](/hacking/hardware/PinMapping), [ATmega168](/hacking/hardware/PinMapping168). (Note that some bits of a port may be used for things other than i/o; be careful not to change the values of the register bits corresponding to them.)
 
