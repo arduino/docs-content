@@ -1,1 +1,1 @@
-Here you will find the technical specifications for the Arduino® Nano Matter.
+Here you will find the technical specifications for the Arduino® Nano Matter Community Version.

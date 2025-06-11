@@ -1,8 +1,8 @@
 <FeatureDescription>
 
-  The Nano Matter uses Silicon Labs's powerful [MGM240S](https://www.silabs.com/documents/public/data-sheets/mgm240s-datasheet.pdf) chip; making the popular IoT connectivity standard Matter® more accessible in Maker and Professional applications. Its versatile connectivity options, including Bluetooth® Low Energy and Openthread, make it ideal for projects requiring low-power efficiency and broad connectivity.
+  The Nano Matter Community Version uses Silicon Labs's powerful [MGM240S](https://www.silabs.com/documents/public/data-sheets/mgm240s-datasheet.pdf) chip; making the popular IoT connectivity standard Matter® more accessible in Maker and Professional applications. Its versatile connectivity options, including Bluetooth® Low Energy and Openthread, make it ideal for projects requiring low-power efficiency and broad connectivity.
 
-  Thanks to the Nano Matter and its small form factor, you can easily prototype new Matter devices, expanding your home automation and professional IoT implementations to the next level.
+  Thanks to the Nano Matter Community Version and its small form factor, you can easily prototype new Matter devices, expanding your home automation and professional IoT implementations to the next level.
   
 </FeatureDescription>
 
@@ -15,14 +15,14 @@
   </Feature>
 
   <Feature title="OpenThread" image="communication">
-    Nano Matter uses Thread for IoT mesh networking communication in a highly compact form factor.
+    Nano Matter Community Version uses Thread for IoT mesh networking communication in a highly compact form factor.
     <FeatureWrapper>
       <FeatureLink title="OpenThread" url="https://openthread.io/" download blank/>
     </FeatureWrapper>
   </Feature>
 
   <Feature title="MGM240SD22VNA 32-bit Arm® Cortex®-M33" image="mcu">
-    The Nano Matter integrates MGM240SD22VNA, boasting a 32-bit Arm® Cortex®-M33 processor optimized for complex calculations and signal processing in power-sensitive IoT applications.
+    The Nano Matter Community Version integrates MGM240SD22VNA, boasting a 32-bit Arm® Cortex®-M33 processor optimized for complex calculations and signal processing in power-sensitive IoT applications.
     <FeatureWrapper>
       <FeatureLink title="Datasheet" url="https://www.silabs.com/documents/public/data-sheets/mgm240s-datasheet.pdf" download blank/>
     </FeatureWrapper>
@@ -40,11 +40,11 @@
   </Feature>
 
   <Feature title="Low power consumption" image="power">
-    The Nano Matter has been designed as an ultra-low power board, being the perfect solution for IoT battery-powered applications.
+    The Nano Matter Community Version has been designed as an ultra-low power board, being the perfect solution for IoT battery-powered applications.
   </Feature>
 
   <Feature title="Tiny footprint" image="nano-form-factor">
-    With a length of 45 mm and a width of 18 mm, the Nano Matter maintains a tiny footprint of the well-known Nano family, allowing easy upgrades for existing projects.
+    With a length of 45 mm and a width of 18 mm, the Nano Matter Community Version maintains a tiny footprint of the well-known Nano family, allowing easy upgrades for existing projects.
   </Feature>
 
   <Feature title="Secure Vault technology-enabled" image="crypto-chip">

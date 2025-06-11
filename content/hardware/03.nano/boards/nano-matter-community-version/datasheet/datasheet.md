@@ -1,6 +1,6 @@
 ---
 identifier: ABX00112
-title: Arduino® Nano Matter
+title: Arduino® Nano Matter Community Version
 type: maker
 author: José Bagur
 ---
@@ -9,7 +9,7 @@ author: José Bagur
 
 # Description
 
-<p style="text-align: justify;">Expand your home automation and building management projects with the Arduino Nano Matter. This board integrates the high-performance MGM240S microcontroller from Silicon Labs and directly brings the advanced Matter standard for Internet of Things (IoT) connectivity to hobbyists and professionals. The Nano Matter's compact and sturdy build, measuring 18 mm x 45 mm, is perfect for projects that demand energy efficiency and diverse connectivity options, such as Bluetooth® Low Energy and OpenThread. Embrace the simplicity and versatility of the Nano Matter to effortlessly interface with any Matter® compatible devices and leverage the Arduino ecosystem's wide range of peripherals and inputs/outputs to enhance your device connectivity and project capabilities.</p>
+<p style="text-align: justify;">Expand your home automation and building management projects with the Arduino Nano Matter Community Version. This board integrates the high-performance MGM240S microcontroller from Silicon Labs and directly brings the advanced Matter standard for Internet of Things (IoT) connectivity to hobbyists and professionals. The Nano Matter Community Version's compact and sturdy build, measuring 18 mm x 45 mm, is perfect for projects that demand energy efficiency and diverse connectivity options, such as Bluetooth® Low Energy and OpenThread. Embrace the simplicity and versatility of the Nano Matter Community Version to effortlessly interface with any Matter® compatible devices and leverage the Arduino ecosystem's wide range of peripherals and inputs/outputs to enhance your device connectivity and project capabilities.</p>
 
 # Target Areas
 
@@ -18,29 +18,29 @@ Internet of Things, home automation, professional automation, environmental moni
 # CONTENTS
 ## Application Examples
 
-The Arduino Nano Matter is not just an IoT board, it is a gateway to innovation in various sectors, from streamlining manufacturing processes to creating responsive and comfortable living and working environments. Discover more about the transformative potential of the Nano Matter in the following application examples:
+The Arduino Nano Matter Community Version is not just an IoT board, it is a gateway to innovation in various sectors, from streamlining manufacturing processes to creating responsive and comfortable living and working environments. Discover more about the transformative potential of the Nano Matter Community Version in the following application examples:
 
-- **Smart homes**: Transform residential spaces into intelligent environments with the Nano Matter, capable of:
-  - **Voice-controlled smart home**: Integrate the Nano Matter with popular voice assistant platforms like Amazon Alexa or Google Assistant, enabling residents to control smart home devices, such as lights, thermostats, and switches, using simple voice commands, enhancing convenience and accessibility.
-  - **Smart lighting**: Automate your home lighting system with the Nano Matter to adjust the brightness based on occupancy, time of day, or ambient light levels, saving energy and ensuring optimal lighting conditions in every room.
-  - **Automated shades**: Connect the Nano Matter to your motorized shades to automatically adjust them according to sunlight exposure, room occupancy, or specific times of the day, creating the perfect ambiance while improving energy efficiency.
-  - **Home health monitoring**: Use the Nano Matter to connect with environmental sensors, monitor indoor conditions like pressure, humidity, and temperature, and maintain a healthy living environment by providing actionable insights for comfort and well-being.
+- **Smart homes**: Transform residential spaces into intelligent environments with the Nano Matter Community Version, capable of:
+  - **Voice-controlled smart home**: Integrate the Nano Matter Community Version with popular voice assistant platforms like Amazon Alexa or Google Assistant, enabling residents to control smart home devices, such as lights, thermostats, and switches, using simple voice commands, enhancing convenience and accessibility.
+  - **Smart lighting**: Automate your home lighting system with the Nano Matter Community Version to adjust the brightness based on occupancy, time of day, or ambient light levels, saving energy and ensuring optimal lighting conditions in every room.
+  - **Automated shades**: Connect the Nano Matter Community Version to your motorized shades to automatically adjust them according to sunlight exposure, room occupancy, or specific times of the day, creating the perfect ambiance while improving energy efficiency.
+  - **Home health monitoring**: Use the Nano Matter Community Version to connect with environmental sensors, monitor indoor conditions like pressure, humidity, and temperature, and maintain a healthy living environment by providing actionable insights for comfort and well-being.
 
-- **Building automation**: Elevate building management with the Nano Matter, enhancing comfort and efficiency through:
-  - **HVAC control and monitoring**: Implement the Nano Matter to connect and control HVAC systems across various building zones. Monitor environmental conditions and adjust settings for optimal indoor comfort while maximizing energy efficiency.
-  - **Energy management**: Use Nano Matter's connectivity to smart meters and appliances to view a building's energy consumption. Implement energy-saving measures automatically, reducing costs and environmental impact.
-  - **Occupancy sensing and space utilization**: With the Nano Matter and Matter-enabled sensors, gain insights into actual building occupancy and use this data to adjust lighting, heating, and cooling systems, ensuring efficient use of space and resources.
+- **Building automation**: Elevate building management with the Nano Matter Community Version, enhancing comfort and efficiency through:
+  - **HVAC control and monitoring**: Implement the Nano Matter Community Version to connect and control HVAC systems across various building zones. Monitor environmental conditions and adjust settings for optimal indoor comfort while maximizing energy efficiency.
+  - **Energy management**: Use Nano Matter Community Version's connectivity to smart meters and appliances to view a building's energy consumption. Implement energy-saving measures automatically, reducing costs and environmental impact.
+  - **Occupancy sensing and space utilization**: With the Nano Matter Community Version and Matter-enabled sensors, gain insights into actual building occupancy and use this data to adjust lighting, heating, and cooling systems, ensuring efficient use of space and resources.
 
-- **Industrial automation**: Unlock the full potential of modern manufacturing with the Nano Matter. Designed for seamless integration into industrial settings, the Nano Matter streamlines operations through:
-  - **Machine-to-Machine interoperability**: Enhance your factory floor with the Nano Matter boards to enable dynamic supervision between machines. Should one machine begin producing defective parts due to a malfunction, adjacent machines are instantly alerted, halting their operations and notifying a human operator, thus reducing waste and downtime.
-  - **Machine status monitoring**: Integrate the Nano Matter into your industrial systems for real-time monitoring of critical conditions such as temperature, pressure, and humidity, ensuring timely maintenance and intervention, preventing costly breakdowns, and maintaining consistent production quality.
-  - **Worker safety optimization**: Elevate safety standards in your facility with the Nano Matter, which provides real-time monitoring of environmental conditions and detects personnel presence in hazardous areas, enhancing worker safety by preventing machine operation when a human is detected in dangerous zones.
+- **Industrial automation**: Unlock the full potential of modern manufacturing with the Nano Matter Community Version. Designed for seamless integration into industrial settings, the Nano Matter Community Version streamlines operations through:
+  - **Machine-to-Machine interoperability**: Enhance your factory floor with the Nano Matter Community Version boards to enable dynamic supervision between machines. Should one machine begin producing defective parts due to a malfunction, adjacent machines are instantly alerted, halting their operations and notifying a human operator, thus reducing waste and downtime.
+  - **Machine status monitoring**: Integrate the Nano Matter Community Version into your industrial systems for real-time monitoring of critical conditions such as temperature, pressure, and humidity, ensuring timely maintenance and intervention, preventing costly breakdowns, and maintaining consistent production quality.
+  - **Worker safety optimization**: Elevate safety standards in your facility with the Nano Matter Community Version, which provides real-time monitoring of environmental conditions and detects personnel presence in hazardous areas, enhancing worker safety by preventing machine operation when a human is detected in dangerous zones.
 
 ## Features
 ### General Specifications Overview
 
 <p style="text-align: justify;">
-The Arduino Nano Matter merges the well-known Arduino way of making complex technology more accessible, bringing Matter, one of the most popular IoT connectivity standards, closer to the hobbyist and professional world. The powerful MGM240S multi-protocol wireless module from Silicon Labs is the main controller of the board.
+The Arduino Nano Matter Community Version merges the well-known Arduino way of making complex technology more accessible, bringing Matter, one of the most popular IoT connectivity standards, closer to the hobbyist and professional world. The powerful MGM240S multi-protocol wireless module from Silicon Labs is the main controller of the board.
 
 The main features are highlighted in the table shown below.
 </p>
@@ -80,7 +80,7 @@ The main features are highlighted in the table shown below.
 ### Recommended Operating Conditions
 
 <p style="text-align: justify;">
-The table below provides a comprehensive guideline for the optimal use of the Nano Matter, outlining typical operating conditions and design limits. The operating conditions of the Nano Matter are largely a function based on its component's specifications.
+The table below provides a comprehensive guideline for the optimal use of the Nano Matter Community Version, outlining typical operating conditions and design limits. The operating conditions of the Nano Matter Community Version are largely a function based on its component's specifications.
 </p>
 
 <div style="text-align:center;">
@@ -93,12 +93,12 @@ The table below provides a comprehensive guideline for the optimal use of the Na
 
 </div>
 
-<sup>1</sup> Nano Matter powered through the IN5V pin (+5 VDC).
+<sup>1</sup> Nano Matter Community Version powered through the IN5V pin (+5 VDC).
 
 ### Power Consumption
 
 <p style="text-align: justify;">
-The table below summarizes the power consumption of the Nano Matter in different test cases. Notice that the board's operating current will depend greatly on the application.
+The table below summarizes the power consumption of the Nano Matter Community Version in different test cases. Notice that the board's operating current will depend greatly on the application.
 </p>
 
 |             Parameter             |     Symbol     | Min | Typ | Max | Unit |
@@ -106,10 +106,10 @@ The table below summarizes the power consumption of the Nano Matter in different
 | Typical Mode Current Consumption² | I<sub>NM</sub> |  -  | 16  |  -  |  mA  |
 
 
-<sup>2</sup> Nano Matter powered through the IN5V pin (+5 VDC), running a Matter color lightbulb example.
+<sup>2</sup> Nano Matter Community Version powered through the IN5V pin (+5 VDC), running a Matter color lightbulb example.
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-To use the Nano Matter in <strong>low-power mode</strong>, the board must be powered through the <strong>pin IN5V</strong>.
+To use the Nano Matter Community Version in <strong>low-power mode</strong>, the board must be powered through the <strong>pin IN5V</strong>.
 </div>
 
 
@@ -118,7 +118,7 @@ To use the Nano Matter in <strong>low-power mode</strong>, the board must be pow
 ## Functional Overview
 
 <p style="text-align: justify;">
-The core of the Nano Matter is the MGM240SD22VNA microcontroller from Silicon Labs. The board also contains several peripherals and actuators connected to its microcontroller, such as a push button and an RGB LED available for the user. 
+The core of the Nano Matter Community Version is the MGM240SD22VNA microcontroller from Silicon Labs. The board also contains several peripherals and actuators connected to its microcontroller, such as a push button and an RGB LED available for the user. 
 </p>
 
 ### Pinout
@@ -131,7 +131,7 @@ The Nano-styled header connectors pinout is shown in the figure below.
 
 ### Block Diagram
 
-An overview of the high-level architecture of the Nano Matter is illustrated in the figure below.
+An overview of the high-level architecture of the Nano Matter Community Version is illustrated in the figure below.
 
 ![](assets/Nano_Matter_Block_Diagram.png)
 
@@ -141,12 +141,12 @@ An overview of the high-level architecture of the Nano Matter is illustrated in 
 
 <div style="text-align:justify;">
 
-The Nano Matter can be powered through one of the following interfaces:
+The Nano Matter Community Version can be powered through one of the following interfaces:
 
 - **Onboard USB-C® port**: Provides a convenient way to power the board using standard USB-C® cables and adapters.
 - **External +5 VDC power supply**: This can be connected to the IN5V pin or the VIN pin of the Nano-styled header connector. For the VIN pin, ensure the VIN jumper is shorted to enable the power supply.
 
-A detailed figure below illustrates the power options available on the Nano Matter and the main system power architecture.
+A detailed figure below illustrates the power options available on the Nano Matter Community Version and the main system power architecture.
 
 ![](assets/Nano_Matter_Power_Tree.png)
 
@@ -168,7 +168,7 @@ A detailed figure below illustrates the power options available on the Nano Matt
 
 ### Getting Started - IDE
 
-If you want to program your Nano Matter offline, install the Arduino Desktop IDE **[1]**. To connect the Nano Matter to your computer, you will need a USB-C® cable.
+If you want to program your Nano Matter Community Version offline, install the Arduino Desktop IDE **[1]**. To connect the Nano Matter Community Version to your computer, you will need a USB-C® cable.
 
 ### Getting Started - Arduino Cloud Editor
 
@@ -180,11 +180,11 @@ All Arduino IoT-enabled products are supported on Arduino Cloud, which allows yo
 
 ### Sample Sketches
 
-Sample sketches for the Nano Matter can be found either in the “Examples” menu in the Arduino IDE or the “Nano Matter Documentation” section of Arduino documentation **[4]**.
+Sample sketches for the Nano Matter Community Version can be found either in the “Examples” menu in the Arduino IDE or the “Nano Matter Community Version Documentation” section of Arduino documentation **[4]**.
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]**, the Arduino Library Reference **[6]**, and the online store **[7]** where you will be able to complement your Nano Matter board with additional extensions, sensors, and actuators.
+Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]**, the Arduino Library Reference **[6]**, and the online store **[7]** where you will be able to complement your Nano Matter Community Version board with additional extensions, sensors, and actuators.
 </div>
 
 <div style="page-break-after: always;"></div>
@@ -192,38 +192,38 @@ Now that you have gone through the basics of what you can do with the device, yo
 ## Mechanical Information
 
 <p style="text-align: justify;">
-The Nano Matter is a double-sided 18 mm x 45 mm board with a USB-C® port overhanging the top edge and dual
+The Nano Matter Community Version is a double-sided 18 mm x 45 mm board with a USB-C® port overhanging the top edge and dual
 castellated/through-hole pins around the two long edges; the onboard wireless antenna is located in the center of the bottom edge of the board.
 </p>
 
 ### Board Dimensions
 
-The Nano Matter board outline and mounting holes dimensions are shown in the figure below; all the dimensions are in mm. 
+The Nano Matter Community Version board outline and mounting holes dimensions are shown in the figure below; all the dimensions are in mm. 
 
 ![](assets/Nano_Matter_Outline.png)
 
-The Nano Matter has four 1.65 mm drilled mounting holes for mechanical fixing.
+The Nano Matter Community Version has four 1.65 mm drilled mounting holes for mechanical fixing.
 
 ### Board Connectors
 
-Connectors of the Nano Matter are placed on the top side of the board; their placement is shown in the figure below; all the dimensions are in mm. 
+Connectors of the Nano Matter Community Version are placed on the top side of the board; their placement is shown in the figure below; all the dimensions are in mm. 
 
 ![](assets/Nano_Matter_Connectors.png)
 
 <p style="text-align: justify;">
-The Nano Matter was designed to be usable as a surface-mount module and presents a dual inline package (DIP) format with the Nano-styled header connectors on a 2.54 mm pitch grid with 1 mm holes.
+The Nano Matter Community Version was designed to be usable as a surface-mount module and presents a dual inline package (DIP) format with the Nano-styled header connectors on a 2.54 mm pitch grid with 1 mm holes.
 </p>
 
 ### Board Peripherals and Actuators 
 
 <p style="text-align: justify;">
-The Nano Matter has one push button and one RGB LED available for the user; both the push button and the RGB LED are placed on the top side of the board.  Their placement is shown in the figure below; all the dimensions are in mm.
+The Nano Matter Community Version has one push button and one RGB LED available for the user; both the push button and the RGB LED are placed on the top side of the board.  Their placement is shown in the figure below; all the dimensions are in mm.
 </p>
 
 ![](assets/Nano_Matter_PeripheralsActuators.png)
 
 <p style="text-align: justify;">
-The Nano Matter is designed to be usable as a surface-mount module and presents a dual inline package (DIP) format with the Nano-styled header connectors on a 2.54 mm pitch grid with 1 mm holes.
+The Nano Matter Community Version is designed to be usable as a surface-mount module and presents a dual inline package (DIP) format with the Nano-styled header connectors on a 2.54 mm pitch grid with 1 mm holes.
 </p>
 
 <div style="page-break-after: always;"></div>
@@ -352,7 +352,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 |      Arduino IDE (Desktop)      | https://www.arduino.cc/en/Main/Software                                         |
 |       Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                |
 | Arduino Cloud - Getting started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
-|    Nano Matter Documentation    | https://docs.arduino.cc/hardware/nano-matter                                    |
+|    Nano Matter Community Version Documentation    | https://docs.arduino.cc/hardware/nano-matter                                    |
 |           Project Hub           | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending        |
 |        Library Reference        | https://www.arduino.cc/reference/en/                                            |
 |          Online Store           | https://store.arduino.cc/                                                       |

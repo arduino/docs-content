@@ -1,5 +1,5 @@
 ---
-title: Nano Matter
+title: Nano Matter Community Version
 url_shop: https://arduino.to/nano-matter
 primary_button_url: /tutorials/nano-matter/user-manual/
 primary_button_title: User Manual
@@ -11,4 +11,4 @@ certifications: [CE, UKCA, RoHS, FCC, IC]
 ---
 
 
-The Arduino Nano Matter combines Arduino's user-friendly approach with the powerful MGM240S technology from Silicon Labs. This enables Makers and Professionals to work with **[Matter®](https://csa-iot.org/all-solutions/matter/)**, the popular standard for IoT devices, taking advantage of the Nano's low-power and compact design.
+The Arduino Nano Matter Community Version combines Arduino's user-friendly approach with the powerful MGM240S technology from Silicon Labs. This enables Makers and Professionals to work with **[Matter®](https://csa-iot.org/all-solutions/matter/)**, the popular standard for IoT devices, taking advantage of the Nano's low-power and compact design.
