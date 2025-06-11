@@ -20,7 +20,7 @@ With a 12-bit DAC on the A0 pin and an integrated operational amplifier, the Nan
 </Feature>
 
 <Feature title="USB-C®" image="usb">
-The first Nano board to feature a USB-C® connector for streamlined power and data transfer.
+The Nano R4 features a USB-C® connector for streamlined power and data transfer.
 </Feature>
 
 <Feature title="CAN Bus Support" image="communication">
