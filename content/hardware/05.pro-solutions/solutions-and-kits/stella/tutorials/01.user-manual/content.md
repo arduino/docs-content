@@ -33,8 +33,8 @@ This user manual provides a comprehensive overview of the Arduino Stella, highli
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
-- [`ardUWBSr040` library](https://github.com/arduino-libraries/ardUWBSr040) (designed for the Arduino Stella)
-- [`ardUWBSr150` library](https://github.com/arduino-libraries/ardUWBSr150) (designed for the Portenta UWB Shield)
+- [`StellaUWB` library](https://github.com/Truesense-it/StellaUWB) (designed for the Arduino Stella)
+- [`PortentaUWBShield` library](https://github.com/Truesense-it/PortentaUWBShield) (designed for the Portenta UWB Shield)
 - [`ArduinoBLE` library](https://github.com/arduino/ArduinoBLE) 
 - [Arduino mbed OS Boards core](https://github.com/arduino/ArduinoCore-mbed) (required for the nRF52840 microcontroller of the Arduino Stella)
 
@@ -149,7 +149,7 @@ The Arduino Stella and Portenta UWB Shield use different libraries and board cor
 
 #### Arduino Stella Library
 
-The [`ardUWBSr040` library](https://github.com/arduino-libraries/ardUWBSr040) contains an application programming interface (API) to read data from the Arduino Stella and control its parameters and behavior. This library is designed to work with the DCU040 module on the Arduino Stella and supports the following:
+The [`StellaUWB` library](https://github.com/Truesense-it/StellaUWB) contains an application programming interface (API) to read data from the Arduino Stella and control its parameters and behavior. This library is designed to work with the DCU040 module on the Arduino Stella and supports the following:
 
 - One-way ranging (Time Difference of Arrival - TDoA) and two-way ranging (TWR).
 - Power management for battery-efficient operation.
@@ -160,7 +160,7 @@ The [`ardUWBSr040` library](https://github.com/arduino-libraries/ardUWBSr040) co
 
 #### Portenta UWB Shield Library
 
-If you plan to use the Arduino Stella with a Portenta UWB Shield for two-way ranging, you'll also need the [`ardUWBSr150` library](https://github.com/arduino-libraries/ardUWBSr150) for the Portenta UWB Shield. This library is specifically designed for the DCU150 module used in the shield.
+If you plan to use the Arduino Stella with a Portenta UWB Shield for two-way ranging, you'll also need the [`PortentaUWBShield` library](https://github.com/Truesense-it/PortentaUWBShield) for the Portenta UWB Shield. This library is specifically designed for the DCU150 module used in the shield.
 
 ***The [Arduino Renesas Portenta Boards core](https://github.com/arduino/ArduinoCore-renesas) is required to work with the Portenta C33 board that hosts the UWB Shield.***
 
@@ -173,7 +173,7 @@ For examples that use Bluetooth Low Energy (BLE) communication, you'll also need
 To install the required libraries:
 
 1. Navigate to `Tools > Manage libraries...` or click the **Library Manager** icon in the left tab of the Arduino IDE.
-2. In the Library Manager tab, search for the library name (`ardUWBSr040`, `ardUWBSr150`, or `ArduinoBLE`).
+2. In the Library Manager tab, search for the library name (`StellaUWB`, `PortentaUWBShield`, or `ArduinoBLE`).
 3. Click "Install" to install the latest version of each library.
 
 ![Installing the board's library in the Arduino IDE](assets/user-manual-3.png)
@@ -186,7 +186,7 @@ To install the required board cores:
 
 ![Installing the board's core in the Arduino IDE](assets/user-manual-4.png)
 
-***<strong>Important note:</strong> Make sure to install both the appropriate library and board core for your specific hardware. The Arduino Stella requires the `ardUWBSr040` library and Arduino mbed OS Boards core, while the Portenta UWB Shield with Portenta C33 requires the `ardUWBSr150` library and Arduino Renesas Boards core. For examples involving BLE communication, both devices will need the `ArduinoBLE` library installed.***
+***<strong>Important note:</strong> Make sure to install both the appropriate library and board core for your specific hardware. The Arduino Stella requires the `StellaUWB` library and Arduino mbed OS Boards core, while the Portenta UWB Shield with Portenta C33 requires the `PortentaUWBShield` library and Arduino Renesas Boards core. For examples involving BLE communication, both devices will need the `ArduinoBLE` library installed.***
 
 ### Pinout
 
@@ -981,8 +981,8 @@ The Two-Way Ranging example demonstrates a more direct approach to UWB communica
 
 Both devices use their respective UWB libraries:
 
-- The Portenta UWB Shield uses `ardUWBSr150.h` (for the DCU150 module)
-- The Arduino Stella uses `ardUWBSr040.h` (for the DCU040 module)
+- The Portenta UWB Shield uses `PortentaUWBShield.h` (for the DCU150 module)
+- The Arduino Stella uses `StellaUWB.h` (for the DCU040 module)
 
 Both sketches configure MAC addresses for identification:
 

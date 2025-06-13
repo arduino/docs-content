@@ -52,7 +52,7 @@ This application note has the following objectives:
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
 - [Portenta UWB Shield library](https://github.com/Truesense-it/PortentaUWBShield) (for the Portenta UWB Shield)
-- [Arduino Stella library](https://github.com/arduino-libraries/ardUWBSr040) (for the Arduino Stella)
+- [Arduino Stella library](https://github.com/Truesense-it/StellaUWB) (for the Arduino Stella)
 - [Arduino Renesas Portenta Boards core](https://github.com/arduino/ArduinoCore-renesas) (for the Portenta C33)
 - [Arduino mbed OS Boards core](https://github.com/arduino/ArduinoCore-mbed) (for the Arduino Stella)
 

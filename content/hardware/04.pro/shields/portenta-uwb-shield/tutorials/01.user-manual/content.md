@@ -32,8 +32,8 @@ This user manual provides a comprehensive overview of the Portenta UWB Shield, h
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
-- [`ardUWBSr150` library](https://github.com/arduino-libraries/ardUWBSr150) (designed for the Portenta UWB Shield)
-- [`ardUWBSr040` library](https://github.com/arduino-libraries/ardUWBSr040) (designed for the Arduino Stella)
+- [`PortentaUWBShield` library](https://github.com/Truesense-it/PortentaUWBShield) (designed for the Portenta UWB Shield)
+- [`StellaUWB` library](https://github.com/Truesense-it/StellaUWB) (designed for the Arduino Stella)
 - [`ArduinoBLE` library](https://github.com/arduino/ArduinoBLE) 
 - [Arduino Renesas Portenta Boards core](https://github.com/arduino/ArduinoCore-renesas) (required to work with the Portenta C33 board)
 
@@ -53,7 +53,7 @@ Ultra-Wideband (UWB) is a radio technology that uses very low energy levels for 
 
 #### UWB vs. Traditional Narrowband Technologies
 
-The fundamental difference between UWB and traditional wireless technologies (Wi-Fi, Bluetooth, Zigbee® and Cellular) lies in their transmission methods:
+The fundamental difference between UWB and traditional wireless technologies (Wi-Fi®, Bluetooth®, Zigbee® and Cellular) lies in their transmission methods:
 
 |   **Feature**  |   **Traditional Narrowband Radio**   |  **Ultra-Wideband Impulse Radio**  |
 |:--------------:|:------------------------------------:|:----------------------------------:|
@@ -67,7 +67,7 @@ Traditional narrowband systems use frequency or amplitude modulation to send dat
 
 #### Key Characteristics of UWB
 
-- **High precision**: UWB can determine the relative position of devices with centimeter-level accuracy (typically 5-10 cm), far more precise than GPS (meters), Bluetooth (1-3 meters) or Wi-Fi (2-15 meters).
+- **High precision**: UWB can determine the relative position of devices with centimeter-level accuracy (typically 5-10 cm), far more precise than GPS (meters), Bluetooth® (1-3 meters) or Wi-Fi® (2-15 meters).
 - **Low-power consumption**: Despite its high data rates, UWB consumes very little power, making it suitable for battery-operated devices and long-term deployments.
 - **Short range**: Typically effective within 10-30 meters, making it ideal for indoor positioning applications where GPS signals are weak or unavailable.
 - **Strong security**: The unique physical layer characteristics of UWB, including its wide bandwidth and low power spectral density, make it more resistant to jamming, eavesdropping, and relay attacks compared to other wireless technologies.
@@ -154,7 +154,7 @@ The Portenta UWB Shield and the Arduino Stella use different libraries and board
 
 #### Portenta UWB Shield Library
 
-The [`ardUWBSr150` library](https://github.com/arduino-libraries/ardUWBSr150) contains an application programming interface (API) to read data from the Portenta UWB Shield and control its parameters and behavior. This library is designed to work with the DCU150 module on the shield and supports the following:
+The [`PortentaUWBShield` library](https://github.com/Truesense-it/PortentaUWBShield) contains an application programming interface (API) to read data from the Portenta UWB Shield and control its parameters and behavior. This library is designed to work with the DCU150 module on the shield and supports the following:
 
 - One-way ranging (Time Difference of Arrival - TDoA) and two-way ranging (TWR).
 - Angle of Arrival (AoA) measurement for 2D and 3D positioning.
@@ -164,20 +164,20 @@ The [`ardUWBSr150` library](https://github.com/arduino-libraries/ardUWBSr150) co
 
 #### Arduino Stella Library
 
-For two-way ranging experiments between the Portenta UWB Shield and Arduino Stella, you'll also need the [`ardUWBSr040` library](https://github.com/arduino-libraries/ardUWBSr040). This library provides similar functionality but is specifically optimized for the DCU040 module in the Stella board.
+For two-way ranging experiments between the Portenta UWB Shield and Arduino Stella, you'll also need the [`StellaUWB` library](https://github.com/Truesense-it/StellaUWB). This library provides similar functionality but is specifically optimized for the DCU040 module in the Stella board.
 
 ***The Arduino mbed OS Boards core is required to work with Stella's nRF52840 microcontroller.***
 
-#### Bluetooth Communication
+#### Bluetooth® Communication
 
-For examples that use Bluetooth Low Energy (BLE) communication (like the Nearby Demo), you'll also need the [`ArduinoBLE` library](https://github.com/arduino/ArduinoBLE). This library enables BLE functionality for device discovery and initial connection setup before UWB ranging begins.
+For examples that use Bluetooth® Low Energy (BLE) communication (like the Nearby Demo), you'll also need the [`ArduinoBLE` library](https://github.com/arduino/ArduinoBLE). This library enables BLE functionality for device discovery and initial connection setup before UWB ranging begins.
 
 #### Installing the Libraries and Board Cores
 
 To install the required libraries:
 
 1. Navigate to `Tools > Manage libraries...` or click the **Library Manager** icon in the left tab of the Arduino IDE.
-2. In the Library Manager tab, search for the library name (`ardUWBSr150`, `ardUWBSr040`, or `ArduinoBLE`).
+2. In the Library Manager tab, search for the library name (`PortentaUWBShield`, `StellaUWB`, or `ArduinoBLE`).
 3. Click "Install" to install the latest version of each library.
 
 ![Installing the board's library in the Arduino IDE](assets/user-manual-3.png)
@@ -190,7 +190,7 @@ To install the required board cores:
 
 ![Installing the board's core in the Arduino IDE](assets/user-manual-4.png)
 
-***<strong>Important note:</strong> Make sure to install both the appropriate library and board core for your specific hardware. The Portenta UWB Shield with Portenta C33 requires the `ardUWBSr150` library and Arduino Renesas Boards core. For examples involving Arduino Stella, you'll need the `ardUWBSr040` library and Arduino mbed OS Boards core. For examples involving BLE communication, both devices will need the `ArduinoBLE` library installed.***
+***<strong>Important note:</strong> Make sure to install both the appropriate library and board core for your specific hardware. The Portenta UWB Shield with Portenta C33 requires the `PortentaUWBShield` library and Arduino Renesas Boards core. For examples involving Arduino Stella, you'll need the `StellaUWB` library and Arduino mbed OS Boards core. For examples involving BLE communication, both devices will need the `ArduinoBLE` library installed.***
 
 ### Pinout
 
@@ -244,11 +244,11 @@ Align the shield's High-Density connectors with those on the Portenta C33 board 
 
 The Portenta UWB Shield is powered exclusively through the `VCC` pins (+3.3 VDC) of its High-Density Connectors. These connectors are designed to be used with boards from the Portenta family, such as the Portenta C33 board. The power is supplied directly from the connected Portenta family board, which acts as the power source for the Portenta UWB Shield.
 
-***<strong>Important note:</strong> The Portenta UWB Shield does not have an independent power input. It receives power only through the High-Density connectors when properly connected to a Portenta C33 board. Additionally, if you plan to use Bluetooth Low Energy (BLE) functionality, make sure to connect an antenna to the Wi-Fi/Bluetooth module of the Portenta C33 for optimal wireless performance.***
+***<strong>Important note:</strong> The Portenta UWB Shield does not have an independent power input. It receives power only through the High-Density connectors when properly connected to a Portenta C33 board. Additionally, if you plan to use Bluetooth® Low Energy (BLE) functionality, make sure to connect an antenna to the Wi-Fi®/Bluetooth module of the Portenta C33 for optimal wireless performance.***
 
 ### Nearby World Example
 
-Let's use the Portenta UWB Shield with the Portenta C33 to create a real-time distance measurement system using UWB technology. We will implement what we call the `Nearby World` example (based on the `NearbyDemo` sketch), which serves as our `Hello World` sketch for UWB technology. This example will verify the Portenta UWB Shield's connection to the host board, the host board's connection to the Arduino IDE and that the `ardUWBSr150` library and both the board and the shield are working as expected.
+Let's use the Portenta UWB Shield with the Portenta C33 to create a real-time distance measurement system using UWB technology. We will implement what we call the `Nearby World` example (based on the `NearbyDemo` sketch), which serves as our `Hello World` sketch for UWB technology. This example will verify the Portenta UWB Shield's connection to the host board, the host board's connection to the Arduino IDE and that the `PortentaUWBShield` library and both the board and the shield are working as expected.
 
 ***This example sketch leverages Apple's Nearby Interaction protocol and similar UWB implementations on Android devices to establish a communication channel between the Portenta UWB Shield and a UWB-enabled smartphone, allowing precise distance and angle measurements.***
 
@@ -256,7 +256,7 @@ Let's use the Portenta UWB Shield with the Portenta C33 to create a real-time di
 
 The `Nearby World` example demonstrates the core functionality of UWB technology through a simple example sketch that can be described in the following key steps:
 
-1. **BLE connection setup**: The Portenta UWB Shield establishes a Bluetooth Low Energy (BLE) connection with a compatible smartphone app.
+1. **BLE connection setup**: The Portenta UWB Shield establishes a Bluetooth® Low Energy (BLE) connection with a compatible smartphone app.
 2. **Configuration exchange**: The BLE connection is used to exchange necessary UWB configuration parameters.
 3. **UWB ranging**: Once configured, the actual UWB ranging session begins, providing precise distance measurements.
 4. **Real-time feedback**: Distance data is continuously updated and can be viewed on the IDE's Serial Monitor and the smartphone app.
@@ -574,8 +574,8 @@ uint16_t numConnected = 0;
 
 The code includes two essential libraries:
 
-- `ArduinoBLE`: Provides Bluetooth Low Energy (BLE) functionality for device discovery and initial connection.
-- `ardUWBSr150`: The core library that enables interaction with the UWB hardware on the Portenta UWB Shield.
+- `ArduinoBLE`: Provides Bluetooth® Low Energy (BLE) functionality for device discovery and initial connection.
+- `PortentaUWBShield`: The core library that enables interaction with the UWB hardware on the Portenta UWB Shield.
 
 The `numConnected` variable tracks how many BLE clients are currently connected to the Portenta UWB Shield.
 
@@ -916,8 +916,8 @@ The Two-Way Ranging example demonstrates a more direct approach to UWB communica
 
 Both devices use their respective UWB libraries:
 
-- The Portenta UWB Shield uses `ardUWBSr150.h` (for the DCU150 module)
-- The Stella uses `ardUWBSr040.h` (for the DCU040 module)
+- The Portenta UWB Shield uses `PortentaUWBShield.h` (for the DCU150 module)
+- The Stella uses `StellaUWB.h` (for the DCU040 module)
 
 Both sketches configure MAC addresses for identification:
 

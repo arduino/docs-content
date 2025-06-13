@@ -15,6 +15,9 @@ productsLibrariesMap:
     <EssentialElement link="https://github.com/arduino-libraries/Arduino_Pro_Tutorials" title="Arduino Pro Tutorials" type="library">
             The complete Arduino sketches from the Pro tutorials.
     </EssentialElement>
+    <EssentialElement link="https://github.com/Truesense-it/PortentaUWBShield" title="Portenta UWB Shield Library" type="library">
+            Ultra-Wideband communication library for the Portenta UWB Shield.
+    </EssentialElement>
 </EssentialsColumn>
 
 <EssentialsColumn title="Arduino Basics">
