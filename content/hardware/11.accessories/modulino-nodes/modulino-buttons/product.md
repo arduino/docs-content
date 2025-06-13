@@ -6,7 +6,7 @@ primary_button_url: https://docs.arduino.cc/tutorials/modulino-buttons/how-butto
 primary_button_title: With Arduino
 secondary_button_url: https://docs.arduino.cc/tutorials/modulino-buttons/how-buttons-mp/
 secondary_button_title: With MicroPython
-certifications: []
+certifications: [CE, FCC, IC, UKCA]
 forumCategorySlug: '/hardware/accessories/modulino-buttons/214'
 sku: [ABX00110]
 ---

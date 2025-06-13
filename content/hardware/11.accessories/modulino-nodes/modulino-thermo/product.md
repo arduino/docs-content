@@ -6,7 +6,7 @@ primary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-thermo
 primary_button_title: With Arduino
 secondary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-thermo-mp/
 secondary_button_title: With MicroPython
-certifications: []
+certifications: [CE, FCC, IC, UKCA]
 forumCategorySlug: '/hardware/accessories/modulino-thermo/220'
 sku: [ABX00103]
 ---

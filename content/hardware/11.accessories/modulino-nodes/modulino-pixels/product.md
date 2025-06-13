@@ -6,7 +6,7 @@ primary_button_url: https://docs.arduino.cc/tutorials/modulino-pixels/how-pixels
 primary_button_title: With Arduino
 secondary_button_url: https://docs.arduino.cc/tutorials/modulino-pixels/how-pixels-mp/
 secondary_button_title: With MicroPython
-certifications: []
+certifications: [CE, FCC, IC, UKCA]
 forumCategorySlug: '/hardware/accessories/modulino-pixels/219'
 sku: [ABX00109]
 ---
