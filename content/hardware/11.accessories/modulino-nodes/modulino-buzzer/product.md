@@ -7,6 +7,7 @@ primary_button_title: With Arduino
 secondary_button_url: https://docs.arduino.cc/tutorials/modulino-buzzer/how-buzzer-mp/
 secondary_button_title: With MicroPython
 certifications: []
+forumCategorySlug: '/hardware/accessories/modulino-buzzer/215'
 sku: [ABX00108]
 ---
 
