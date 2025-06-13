@@ -126,4 +126,13 @@ productCertifications:
     files:
       - title: "Download SCIP document for Arduino boards"
         url: "resources/scip/arduino-scip.pdf"
+  - name: "EU Battery Regulation 2023/1542"
+    title: "EU Battery Regulation 2023/1542"
+    id: 15
+    description: "Regulation (EU) 2023/1542 is the new EU Battery Regulation, designed to ensure high sustainability standards for batteries sold within the EU. It aims to promote a circular economy and zero pollution by setting requirements for battery production, use, and recycling."
+    source: "http://eur-lex.europa.eu/eli/reg/2023/1542/oj/eng"
+    sourceTitle: "www.eur-lex.europa.eu"
+    files:
+      - title: "Download Declaration of Regulation (EU) 2023/1542 for Arduino products"
+        url: "resources/battery-regulation/arduino-battery-eu-2023-1542.pdf"
 ---
