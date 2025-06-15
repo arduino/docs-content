@@ -1,8 +1,8 @@
 ---
 title: Portenta UWB Shield
-url_shop: https://store.arduino.cc/portenta-uwb-shield
+url_shop: https://store.arduino.cc/products/portenta-uwb-shield
 url_guide: /tutorials/
-primary_button_url: /tutorials/01.user-manual
+primary_button_url: /tutorials/portenta-uwb-shield/01.user-manual
 primary_button_title: Get Started
 core: arduino:mbed_portenta
 forumCategorySlug: '/hardware/portenta/91'
