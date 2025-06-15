@@ -186,18 +186,18 @@ void rangingHandler(UWBRangingData &rangingData) {
           if(newDoorState != doorUnlocked) {
             doorUnlocked = newDoorState;
             digitalWrite(DOOR_CONTROL_PIN, doorUnlocked ? HIGH : LOW);
-#if defined(ARDUINO_PORTENTA_C33)
+            #if defined(ARDUINO_PORTENTA_C33)
             digitalWrite(LEDG, doorUnlocked ? LOW : HIGH); // Green LED for door status
-#endif
+            #endif
           }
           
           // Update machine control
           if(newMachineState != machineEnabled) {
             machineEnabled = newMachineState;
             digitalWrite(MACHINE_CONTROL_PIN, machineEnabled ? HIGH : LOW);
-#if defined(ARDUINO_PORTENTA_C33)
+            #if defined(ARDUINO_PORTENTA_C33)
             digitalWrite(LEDB, machineEnabled ? LOW : HIGH); // Blue LED for machine status
-#endif
+            #endif
           }
           
           lastProximityStateChange = millis();
@@ -322,7 +322,7 @@ Below is the complete code for the Arduino Stella. To compile and upload the cod
 */
 
 // Include required UWB library for Arduino Stella
-#include "ardUWBSr040.h"
+#include <StellaUWB.h>
 
 // Define proximity thresholds (centimeters)
 #define WORKSPACE_ACCESS_THRESHOLD 100        // 1 meter for door unlock
@@ -344,7 +344,10 @@ unsigned long lastBlinkTime = 0;
   @param rangingData Reference to UWB ranging data object
 */
 void rangingHandler(UWBRangingData &rangingData) {
-  if(rangingData.measureType() == MEASUREMENT_TYPE_TWOWAY) {
+  Serial.print("GOT RANGING DATA - Type: ");
+  Serial.println(rangingData.measureType());
+  
+  if(rangingData.measureType() == (uint8_t)uwb::MeasurementType::TWO_WAY) {
     RangingMeasures twr = rangingData.twoWayRangingMeasure();
     
     for(int j = 0; j < rangingData.available(); j++) {
@@ -386,25 +389,45 @@ void setup() {
   digitalWrite(LED_PIN, HIGH);  // Start with LED off
   lastLedPhysicalState = true;
   
-  Serial.println("UWB Personal Access Tag");
+  Serial.println("UWB Personal Access Tag - Stella");
 
+  // Define the source (this device) and destination MAC addresses, using 2-bytes MACs
+  // This device is the controller/initiator, so it uses 0x22,0x22
+  // and targets the responder/controlee at 0x11,0x11
   uint8_t devAddr[] = {0x22, 0x22};
   uint8_t destination[] = {0x11, 0x11};
   UWBMacAddress srcAddr(UWBMacAddress::Size::SHORT, devAddr);
   UWBMacAddress dstAddr(UWBMacAddress::Size::SHORT, destination);
   
+  // Register the ranging notification handler before starting
   UWB.registerRangingCallback(rangingHandler);
-  UWB.begin();
   
+  UWB.begin(); // Start the UWB stack, use Serial for the log output
+  Serial.println("Starting UWB ...");
+  
+  // Wait until the stack is initialized
   while(UWB.state() != 0)
     delay(10);
   
+  Serial.println("Starting session ...");
+  
+  // Setup a session with ID 0x11223344 as Controller/Initiator (default role)
   UWBTracker myTracker(0x11223344, srcAddr, dstAddr);
+  
+  // Add the session to the session manager
   UWBSessionManager.addSession(myTracker);
+  
+  // Prepare the session applying the default parameters
   myTracker.init();
+  
+  // Start the session
   myTracker.start();
   
   Serial.println("Personal tag ready!");
+  Serial.println("Proximity zones:");
+  Serial.println("- Outside workspace: LED off");
+  Serial.println("- Workspace zone (≤" + String(WORKSPACE_ACCESS_THRESHOLD) + "cm): Slow blink");
+  Serial.println("- Equipment zone (≤" + String(EQUIPMENT_OPERATION_THRESHOLD) + "cm): Fast blink");
   
   // Initialization complete signal
   for(int i = 0; i < 3; i++) {
@@ -420,12 +443,14 @@ void loop() {
   
   // Handle LED control based on proximity zones
   if(blinkInterval == 0) {
+    // Outside workspace - LED off
     if(lastLedPhysicalState != true) {
       digitalWrite(LED_PIN, HIGH);
       lastLedPhysicalState = true;
       ledState = false;
     }
   } else {
+    // Inside workspace - blink at appropriate interval
     if(currentTime - lastBlinkTime >= blinkInterval) {
       lastBlinkTime = currentTime;
       ledState = !ledState;
