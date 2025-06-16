@@ -3,3 +3,9 @@ software:
   - arduino-cli
   - cloud-editor
   - iot-cloud
+hardware:
+  boards: ~
+  carriers: ~
+  shields:
+    - nano-connector-carrier
+    - nano-screw-terminal-adapter

@@ -8,13 +8,6 @@ The Arduino Nano R4 features the powerful Renesas RA4M1 microcontroller with a 3
 Easily connect sensors and peripherals using the onboard Qwiic connector, which enables plug-and-play I²C communication at 3.3 V logic levels while interfacing with the 5 V system.
 </Feature>
 
-<Feature title="Arduino Cloud" image="wifi">
-The Nano R4 is compatible with the Arduino Cloud platform, allowing you to rapidly prototype and deploy your connected applications.
-<FeatureWrapper>
-  <FeatureLink title="Go to Platform" url="https://app.arduino.cc/"/>
-</FeatureWrapper>
-</Feature>
-
 <Feature title="Built-in DAC & OPAMP" image="mcu">
 With a 12-bit DAC on the A0 pin and an integrated operational amplifier, the Nano R4 enables analog signal generation and advanced signal conditioning.
 </Feature>
@@ -32,7 +25,7 @@ The built-in RTC and 16 MHz external crystal ensure accurate timekeeping, making
 </Feature>
 
 <Feature title="5 V Operating Voltage" image="power">
-Fully +5 VDC compatible on all GPIOs, making it easy to use with existing Arduino shields and +5 VDC peripherals without level shifting.
+The RA4M1 and the GPIOs of this board operates on 5 V.
 </Feature>
 
 </FeatureList>

@@ -4,8 +4,6 @@ Here you will find the technical specifications for the Arduino® Nano R4.
 
 The **Nano R4** microcontroller operates at +5 VDC, making it fully compatible with traditional Arduino shields, modules, and accessories designed for +5 VDC logic levels. This allows seamless reuse of existing components and simplifies interfacing with various +5 VDC sensors and actuators.
 
-Unlike boards based on +3.3 VDC logic (such as the Nano ESP32), the Nano R4 does not require logic level shifting when connecting to most classic Arduino components.
-
 The board supports multiple power input options:
 
 The VIN pin accepts an input voltage range of +6–21 VDC, which is internally regulated down to +5 VDC.
