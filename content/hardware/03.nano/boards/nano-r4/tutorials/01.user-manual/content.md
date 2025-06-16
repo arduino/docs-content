@@ -386,13 +386,13 @@ Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Moni
 
 This user manual section provides comprehensive information about the Nano R4's pin capabilities and functionality Understanding the board's pins capabilities and configurations is important for making the most of your projects with the Nano R4 board.
 
-### Pin Overview
+### Pins Overview
 
 The Nano R4 features a total of **20 accessible pins** arranged in the classic Nano form factor, maintaining compatibility with existing Nano shields and breadboard layouts. These pins provide various functionalities including digital I/O, analog input, PWM output and several communication protocols.
 
 ![Nano R4 pinout overview](assets/simple-pinout.png)
 
-### Pin Specifications and Characteristics
+### Pins Specifications and Characteristics
 
 The Nano R4's pins are organized into the following categories:
 
@@ -416,3 +416,157 @@ The following table shows the electrical specifications and operating limits for
 |   **Analog Reference**  |    +5 VDC    |      Default `AREF` voltage      |
 
 ***<strong>Important safety considerations when working with the Nano R4 pins:</strong> Never exceed +5.5 VDC on any pin to avoid permanent damage, respect the 8 mA per pin and 200 mA total current limits, handle the board with proper anti-static precautions, avoid connecting pins directly to ground or power and always verify voltage levels when connecting +3.3 VDC devices.***
+
+### Digital Pins
+
+The Nano R4 features 14 digital pins (`D0` to `D13`) that can be configured as either digital inputs or digital outputs. These pins operate at +5 VDC logic levels and can source or sink up to 8 mA of current per pin. Digital pins are the foundation of most Arduino projects, allowing you to control LEDs, read button states, interface with sensors and communicate with other devices.
+
+The Nano R4 digital pins provide the following functionality:
+
+***<strong>Important note:</strong> Pins `D0` and `D1` are used for serial communication (UART) and should be avoided for general digital I/O when using Serial communication. Pins `D4` and `D`5 can be used for CAN bus communication. Pins `D10`, `D11`, `D12,` and `D13` are used for SPI communication.***
+
+Digital pins can be configured and controlled using the following basic Arduino functions:
+Pin Configuration:
+arduinopinMode(pin, mode);
+Digital Output:
+arduinodigitalWrite(pin, value);
+Digital Input:
+arduinodigitalRead(pin);
+
+### PWM (Pulse Width Modulation)
+
+The Nano R4 board  features multiple pins with PWM capability that can be used to generate analog-like output signals. PWM works by rapidly switching a digital output between `HIGH` and `LOW` states, where the ratio of `HIGH` time to the total period determines the effective analog voltage output.
+
+The Nano R4 board provides PWM functionality on the following pins:
+
+| **Arduino Pin** | **Microcontroller Pin** | **PWM Channel** | **Primary Function** |
+|-----------------|-------------------------|-----------------|----------------------|
+|       `D3`      |          `P105`         |    Channel 1A   |      Digital I/O     |
+|       `D5`      |          `P104`         |    Channel 1B   |      Digital I/O     |
+|       `D6`      |          `P105`         |    Channel 0A   |      Digital I/O     |
+|       `D9`      |          `P106`         |    Channel 0B   |      Digital I/O     |
+|      `D10`      |          `P103`         |    Channel 2A   |  Digital I/O/SPI CS  |
+|      `D11`      |          `P101`         |    Channel 5A   | Digital I/O/SPI MOSI |
+
+***<strong>Important note:</strong> Pins `A4` and `A5` also have PWM capability but are primarily used for I²C communication (SDA and SCL respectively). The onboard LEDs (`LEDR`, `LEDG`, `LEDB`, `LED_BUILTIN`) also support PWM for brightness control.***
+
+You can use PWM pins as analog output pins with the `analogWrite()` function:
+
+```arduino
+analogWrite(pin, value);
+```
+
+By default, the resolution is 8-bit (0 to 255). You can use analogWriteResolution() to change this, supporting up to 12-bit (0 to 4095) resolution: 
+
+```arduino
+analogWriteResolution(resolution);
+```
+
+***The following PWM examples use the built-in orange user LED (`LED_BUILTIN`) of the Nano R4 board, which supports PWM for brightness control. This eliminates the need for external components and allows you to test PWM functionality immediately.***
+
+The following example demonstrates how to control the brightness of the built-in orange user LED using PWM:
+
+```arduino
+/**
+PWM Example for the Arduino Nano R4 Board
+Name: nano_r4_pwm_led.ino
+Purpose: This sketch demonstrates how to use PWM to control
+the brightness of the built-in user LED of the Nano R4 board.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+// Built-in LED pin (supports PWM)
+const int ledPin = LED_BUILTIN;
+
+void setup() {
+  // Initialize serial communication at 115200 baud
+  Serial.begin(115200);
+  
+  // No need to set pinMode for PWM pins - analogWrite() handles this
+  
+  Serial.println("- Arduino Nano R4 - PWM LED Example started...");
+  Serial.println("- Built-in LED will fade in and out continuously");
+}
+
+void loop() {
+  // Fade in (0 to 255)
+  for (int brightness = 0; brightness <= 255; brightness++) {
+    analogWrite(ledPin, brightness);
+    delay(5);
+  }
+  
+  Serial.println("- LED at maximum brightness");
+  delay(500);
+  
+  // Fade out (255 to 0)
+  for (int brightness = 255; brightness >= 0; brightness--) {
+    analogWrite(ledPin, brightness);
+    delay(5);
+  }
+  
+  Serial.println("- LED turned off");
+  delay(500);
+}
+```
+
+You should now see the built-in orange user LED of your Nano R4 board gradually fade in and out, creating a smooth breathing effect that repeats continuously.
+
+Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the example sketch sends at key brightness levels.
+
+The following example demonstrates how to use a 12-bit PWM resolution for more precise control of the built-in orange user LED:
+
+```arduino
+/**
+High-Resolution PWM Example for the Arduino Nano R4 Board
+Name: nano_r4_pwm_high_res.ino
+Purpose: This sketch demonstrates how to use 12-bit PWM resolution
+for precise control of the built-in orange user LED brightness.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+// Built-in LED pin (supports PWM)
+const int pwmPin = LED_BUILTIN;
+
+void setup() {
+  // Initialize serial communication at 115200 baud
+  Serial.begin(115200);
+  
+  // Set PWM resolution to 12-bit (0-4095)
+  analogWriteResolution(12);
+  
+  Serial.println("- Arduino Nano R4 - High-Resolution PWM Example started...");
+  Serial.println("- Using 12-bit resolution (0-4095) with built-in LED");
+}
+
+void loop() {
+  // Generate a smooth sine wave using 12-bit PWM
+  for (int i = 0; i < 360; i++) {
+    // Calculate sine wave value and map to 12-bit range
+    float sineValue = sin(i * PI / 180.0);
+    int pwmValue = (int)((sineValue + 1.0) * 2047.5);  // Map -1 to 1 → 0 to 4095
+    
+    analogWrite(pwmPin, pwmValue);
+    
+    // Print current values every 30 degrees
+    if (i % 30 == 0) {
+      Serial.print("- Angle: ");
+      Serial.print(i);
+      Serial.print("°, PWM Value: ");
+      Serial.println(pwmValue);
+    }
+    
+    delay(10);
+  }
+  
+  Serial.println("- Sine wave cycle completed");
+  delay(1000);
+}
+```
+
+This high-resolution example creates a smooth sine wave pattern with the built-in LED brightness, demonstrating the precision available with a 12-bit PWM resolution. You should see a very smooth transition in the LED brightness following a sine wave pattern.
+
+Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the angle and PWM value outputs that demonstrate the precise 12-bit control values being used.
