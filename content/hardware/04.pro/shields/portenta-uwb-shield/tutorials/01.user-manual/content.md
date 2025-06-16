@@ -1,7 +1,7 @@
 ---
 title: 'Portenta UWB Shield User Manual'
 difficulty: intermediate
-compati -products: [portenta-uwb-shield]
+compatible-products: [portenta-uwb-shield]
 description: 'Learn about the hardware and software features of the Arduino® Portenta UWB Shield.'
 tags:
   - UWB
