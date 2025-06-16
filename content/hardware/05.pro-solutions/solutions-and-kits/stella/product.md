@@ -6,7 +6,7 @@ primary_button_url: /tutorials/stella/01.user-manual
 primary_button_title: Get Started
 core: arduino:mbed_nano
 forumCategorySlug: '/hardware/stella/91'
-certifications: [CE, FCC, UKCA, ROHS, REACH, WEEE, Bluetooth declaration]
+certifications: [CE, FCC, UKCA, ROHS, REACH, WEEE]
 productCode: '211'
 sku: [ABX00131]
 ---

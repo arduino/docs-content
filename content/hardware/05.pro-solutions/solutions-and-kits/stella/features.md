@@ -11,7 +11,7 @@ Enjoy pinpoint accuracy in real-time location tracking, making finding and manag
 Seamlessly integrate with Arduino Cloud for streamlined data management, remote monitoring, and advanced analytics.
   
 <FeatureWrapper>
-  <FeatureLink title="Datasheet" url="" download blank/>
+  <FeatureLink title="Datasheet" url="https://ultrawideband.truesense.it/wp-content/uploads/2023/08/TRUESENSE-DCU040_Datasheet_DRAFT-V1.7.pdf" download blank/>
 </FeatureWrapper>
 </Feature>
 
@@ -25,9 +25,6 @@ The nRF52840 is fully multiprotocol capable with full protocol concurrency. It s
 <Feature title="Sensor and actuator" image="accelerometer">
 The onboard sensor and actuator, which include a buzzer and a 3-axis accelerometer (the SC7A20 from Silan), help you create the perfect solution for your use case.
 
-<FeatureWrapper>
-  <FeatureLink title="Datasheet" url="" download blank/>
-</FeatureWrapper>
 </Feature>
 
 
