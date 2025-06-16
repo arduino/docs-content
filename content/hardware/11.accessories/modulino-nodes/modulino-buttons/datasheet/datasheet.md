@@ -60,7 +60,7 @@ Maker, beginner, education
 - Microcontroller idle: ~3.4 mA
 
 ## Power Tree
-The power tree for the modulino can be consulted below:
+The power tree for the Modulino® node can be consulted below:
 
 ![Modulino® Buttons Power Tree](assets/Modulino_Buttons_Power_Tree.png)
 
@@ -130,7 +130,7 @@ These pads and the Qwiic connectors share the same I2C bus at 3.3 V.
   - Hole spacing: 16 mm vertically, 32 mm horizontally
 
 ### I2C Address Reference
-| **Board Silk Name** | **Sensor/Actuator**     | **Modulino I2C Address (HEX)** | **Editable Addresses (HEX)**                | **Hardware I2C Address (HEX)** |
+| **Board Silk Name** | **Sensor/Actuator**     | **Modulino® I2C Address (HEX)** | **Editable Addresses (HEX)**                | **Hardware I2C Address (HEX)** |
 |---------------------|-------------------------|--------------------------------|---------------------------------------------|--------------------------------|
 | MODULINO BUTTONS    | 3× SPST Push Buttons    | 0x7C                           | Any custom address (via software config.)   | 0x3E                           |
 

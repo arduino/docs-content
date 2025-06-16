@@ -57,7 +57,7 @@ Maker, beginner, education
 - ~24 mA during active measurement, ~4 mA I2C idle
 
 ## Power Tree
-The power tree for the modulino can be consulted below:
+The power tree for the Modulino® node can be consulted below:
 
 ![Modulino® Distance Power Tree](assets/Modulino_Distance_Power_Tree.png)
 
@@ -117,7 +117,7 @@ These pads and the Qwiic connectors share the same I2C bus. You can optionally s
   - Hole spacing: 16 mm vertically, 32 mm horizontally
 
 ### I2C Address Reference
-| **Board Silk Name** | **Sensor**       | **Modulino I2C Address (HEX)** | **Editable Addresses (HEX)**              | **Hardware I2C Address (HEX)** |
+| **Board Silk Name** | **Sensor**       | **Modulino® I2C Address (HEX)** | **Editable Addresses (HEX)**              | **Hardware I2C Address (HEX)** |
 |---------------------|------------------|--------------------------------|-------------------------------------------|--------------------------------|
 | MODULINO DISTANCE   | VL53L4CDV0DH/1   | 0x29                           | Any custom address (via software config.) | 0x29                           |
 

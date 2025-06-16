@@ -57,7 +57,7 @@ Maker, beginner, education
 
 
 ## Power Tree
-The power tree for the modulino can be consulted below:
+The power tree for the Modulino® node can be consulted below:
 
 ![Modulino® Buzzer Power Tree](assets/Modulino_Buzzer_Power_Tree.png)
 
@@ -121,7 +121,7 @@ These pads and the Qwiic connectors share the same I2C bus at 3.3 V.
   - Hole spacing: 16 mm vertically, 32 mm horizontally
 
 ### I2C Address Reference
-| **Board Silk Name** | **Sensor/Actuator** | **Modulino I2C Address (HEX)** | **Editable Addresses (HEX)**          | **Hardware I2C Address (HEX)** |
+| **Board Silk Name** | **Sensor/Actuator** | **Modulino® I2C Address (HEX)** | **Editable Addresses (HEX)**          | **Hardware I2C Address (HEX)** |
 |---------------------|---------------------|--------------------------------|---------------------------------------|--------------------------------|
 | MODULINO BUZZER     | 1× Buzzer          | 0x3C                           | Any custom address (via FW config)    | 0x1E                           |
 
