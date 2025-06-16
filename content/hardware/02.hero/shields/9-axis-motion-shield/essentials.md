@@ -10,10 +10,8 @@
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
-
   <EssentialElement title="Arduino_NineAxesMotion" type="library" link="https://github.com/arduino-libraries/Arduino_NineAxesMotion">
     The official library to use the BNO055 sensor onboard the 9 Axis Motion Shield.
   </EssentialElement>
-
 </EssentialsColumn>
 

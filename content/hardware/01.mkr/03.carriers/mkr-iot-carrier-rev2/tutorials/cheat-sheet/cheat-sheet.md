@@ -1,5 +1,5 @@
 ---
-title: 'MKR IoT Carrier Rev2 Cheat Sheet'
+title: 'MKR IoT Carrier Rev2 User Manual'
 description: 'Learn how to set up the MKR IoT Carrier Rev2, get a quick overview of the compatible boards, components, and the library.'
 author: 'Liam Aljundi, Karl Söderby'
 tags: 

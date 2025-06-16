@@ -1,5 +1,5 @@
 ---
-title: "LoRaWAN Farming with MKR WAN 1310"
+title: "LoRa® Farming with MKR WAN 1310"
 description: "Let's collect sensor data with MKR WAN 1300 or 1310 and combine it with weather forecast in order to optimize watering in a wide area!"
 coverImage: "assets/blob_KruXU85KZx.png"
 tags: [mkr1300, mkr1310, nodered, ttn]
@@ -20,7 +20,7 @@ source: "https://create.arduino.cc/projecthub/145678/lorawan-farming-with-mkr-wa
 
 ## Apps and Online Services
 
-- [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [The Things Network](https://www.thethingsnetwork.org/)
 - [Node-RED](https://nodered.org/)
 - [OpenWeatherMap](https://openweathermap.org/)
@@ -29,9 +29,9 @@ source: "https://create.arduino.cc/projecthub/145678/lorawan-farming-with-mkr-wa
 
 If you need to control a watering system (or lighting system or other generic actuators) in a smart way and collect sensor data over a large area where WiFi coverage is optional, you have to switch to other ways to communicate.
 
-LoRa is maybe the better choice: low power consumption, long range and inexpensive hardware. Last but not least, we can use LoRa under a LoRaWAN network, that means you can place your devices all around the world no matter if you have your own receiver there!
+LoRa® technology is an excellent choice due to its low power consumption, long range and cost effective hardware. Most importantly, LoRa devices can operate within public or private networks, allowing flexible deployment anywhere.
 
-In this project we'll use the most known global LoRaWAN network: [The Things Network](https://www.thethingsnetwork.org/).
+In this project we'll use the most known global LoRa®-based network: [The Things Network](https://www.thethingsnetwork.org/).
 
 We'll then integrate everything with [Node-RED](https://nodered.org/), so it will be easy to plot the received data and create rules to send back commands!
 
@@ -76,11 +76,11 @@ Of course you can reach the same setup using a breadboard and spare components!
 
 ### TheThingNetwork Setup
 
-If you have followed our previous guide "MKR WAN 1310 meets TheThingsNetwork!", then you are done.
+If you have followed our previous guide `"MKR WAN 1310 meets TheThingsNetwork!"`, then you are done.
 
 ### The Arduino MKR 1300 / MKR 1310 Code
 
-Only few things to say about the code (that you'll find below). This is based on the LoraSendAndReceive example available in the MKRWAN library.
+Only few things to say about the code (that you'll find below). This is based on the `LoraSendAndReceive` example available in the MKRWAN library.
 
 There are 2 additional libraries imported:
 
@@ -110,7 +110,7 @@ It's available for every OS, and well documented. After [installing it](https://
 
 Now you'll have to install additional palettes (kinda plugins) in order to:
 
-- Connect to TTN for grabbing the _uplinks_ from the MKR WAN 1300 and MKR WAN 1310, and for send back the _downlink_
+- Connect to The Things Network (TTN) to retrieve _uplinks_ from the MKR WAN 1300 and MKR WAN 1310 and send back _downlink_ messages.
 - Create a dashboard for the sensor data visualization
 - Define a calendar for the watering
 - Verify the weather forecast for a close rain (in that case watering won't make sense)
@@ -344,3 +344,7 @@ You can of course add more Arduino MKR WAN 1300 or MKR WAN 1310 devices in the T
 ## Complete Sketch
 
 <iframe src='https://create.arduino.cc/editor/FabLab_CastelfrancoVeneto/04eb8c3b-5dde-4464-8529-4b1f43509842/preview?embed&snippet' style='height:510px;width:100%;margin:10px 0' frameborder='0'></iframe>
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

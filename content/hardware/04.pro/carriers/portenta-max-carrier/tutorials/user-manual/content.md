@@ -9,7 +9,7 @@ tags:
   - RS-485
   - Audio
   - WiFi
-  - LoRa
+  - LoRa® Technology
   - CAT-M1 / NB-IoT
   - Connectivity
 author: 'Christopher Méndez'
@@ -20,6 +20,7 @@ hardware:
   - hardware/04.pro/boards/portenta-h7-lite
   - hardware/04.pro/boards/portenta-h7-lite-connected
   - hardware/04.pro/boards/portenta-c33
+  - hardware/04.pro/modules/pro-4g-module
 software:
   - ide-v1
   - ide-v2
@@ -40,19 +41,20 @@ This user manual offers a detailed guide on the Portenta Max Carrier, consolidat
 * [Portenta X8](https://store.arduino.cc/products/portenta-x8) (x1)
 * [Portenta C33](https://store.arduino.cc/products/portenta-c33) (x1)
 * [Portenta H7](https://store.arduino.cc/products/portenta-h7) (x1)
-* USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®) (x1)
+* [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 * Wi-Fi® Access Point or Ethernet with Internet access (x1)
+* Compatible antennas like the [Arduino Pro 4G Module Antennas Kit](https://store.arduino.cc/products/4g-module-antenna) (x1)
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 
 ## Product Overview
 
 Max Carrier transforms Portenta modules into single-board computers with edge AI capabilities for high-performance industrial, building automation and robotics applications.
 Thanks to its dedicated high-density connectors, Portenta Max Carrier can be paired with Portenta X8, H7, or C33, allowing any user to easily prototype and deploy multiple industrial projects.
 
-This Arduino Pro carrier further augments Portenta connectivity options with Fieldbus, LoRa®, Cat-M1 and NB-IoT.
+This Arduino Pro carrier further augments Portenta connectivity options with Fieldbus, LoRa® technology, Cat-M1 and NB-IoT.
 Among the many available plug-and-play connectors, there are Gigabit Ethernet, USB-A, audio jacks, microSD, mini-PCIe, MIPI camera, FD-CAN, and Serial RS-232/422/485.
 Max Carrier can be powered via external supply (6-36V) or battery via the onboard 18650 Li-ion battery connector.
 
@@ -85,13 +87,13 @@ __Note:__ USB, I2C and SIM functionality over PCIe is available only for the X8.
 
 - **Audio**: The Portenta Max Carrier enables connections to analog audio channels. This is done through the low power CS42L52 stereo CODEC providing ADC/DAC between analog signals and the I2S protocol. An internal Class D amplifier eliminates the need for external audio amplification circuitry. 
 
-- **LoRa® Module**: The Portenta Max Carrier provides long range wireless connectivity for low bandwidth applications with the onboard Murata CMWX1ZZABZ-078 LoRa® transceiver module. This module operates at 3V3. A dedicated SMA connector is provided for connecting an external antenna.
+- **LPWAN Module**: The Portenta Max Carrier provides long range wireless connectivity for low bandwidth applications with the onboard Murata CMWX1ZZABZ-078, which supports LoRa® technology. This module operates at 3V3. A dedicated SMA connector is provided for connecting an external antenna.
 
 - **MIPI Camera**: The Portenta Max Carrier, when combined with a Portenta X8, supports MIPI cameras. The latter can be plugged into the onboard camera connector (J4) via a flexible flat cable. The camera support is perfect for machine/computer vision applications such as product line inspection, object detection, image classification and robotics.
 
 - **Storage**: The board has a MicroSD card slot for data logging operation.
 
-- **Debug interface**: Debugging capabilities are integrated directly into the Portenta Max Carrier and are accessible via micro USB. The J-link debugger is compatible with the Segger® J-Link OB and Blackmagic probes, driven by the STM32F405RGT6 controller. In addition to providing access to the Portenta board JTAG ports, different sniffer channels for I2C, CAN and UART lines are available. The debugger firmware can be updated via SWD on CN3. Additionally, headers for debugging the LoRa® are accessible via CN2 with SWD.
+- **Debug interface**: Debugging capabilities are integrated directly into the Portenta Max Carrier and are accessible via micro USB. The J-link debugger is compatible with the Segger® J-Link OB and Blackmagic probes, driven by the STM32F405RGT6 controller. In addition to providing access to the Portenta board JTAG ports, different sniffer channels for I2C, CAN and UART lines are available. The debugger firmware can be updated via SWD on CN3. Additionally, headers for debugging the LoRa® connectivity are accessible via CN2 with SWD.
    
 - **DIP switch**: The carrier has a DIP switch with two positions and enables different profiles depending on the paired Portenta board. See the [DIP Switches section](#dip-switch-configuration) for more details.
   
@@ -100,31 +102,31 @@ __Note:__ USB, I2C and SIM functionality over PCIe is available only for the X8.
 
 ![Portenta Max Carrier Topology](assets/Top-new.png)
 
-| **Ref.** | **Description**                                        | **Ref.**       | **Description**                                           |
-| -------- | ------------------------------------------------------ | -------------- | --------------------------------------------------------- |
-| U1       | SARA-R412M-02B 4G LTE/Cat-M1/NB-IoT Modem IC           | U2             | CS42L52-CNZ Stereo Codec IC                               |
-| U3       | USB2514Bi/M2 4-port USB 2.0 Hub IC                     | U4             | SP335EER1-L RS232/RS485/RS422 Transceiver IC              |
-| U5       | TJA1049 CAN Transceiver IC                             | U6             | MPM3550EGLE Non-isolated DC-DC IC                         |
-| U7       | NCP383 Current Limiting IC                             | U8,U20,U21,U22 | SN74LVC1T45 Bi-directional logic level converter IC       |
-| U9       | DSC6111HI2B 12MHz MEMS Oscillator IC                   | U10            | SN74LVC1G125 Single Bus Buffer Gate IC                    |
-| U11      | BQ24195RGET 4.5A Single Cell Charger IC                | U12            | AP7311 1.8V 150mA LDO Linear Regulator IC                 |
-| U13      | TPS54620 6A Buck Regulator IC                          | U14            | AP2112K-3.3TRG1 3.3V 600mA LDO Regulator IC               |
-| U15      | STM32F405RG 168MHz 32 bit Arm® Cortex®-M4 MCU IC         | U16-U19        | 74LVC1G157 Single 2-input multiplexer IC                  |
-| U23      | CMWX1ZZABZ-078 Murrata LoRa® module                    | U24, U25       | LM73100 Ideal Diode with Reverse Polarity Protection      |
-| J1, J2   | DF40HC(3.5)-80DS-0.4V(51) High Density Connectors      | J3             | Right-Angle SMA Connector for Modem                       |
-| J4       | Camera 2-1734248-0 FPC Connector                              | J5             | FW-20-05-G-D-254-150 Signal Break                         |
-| J6       | 615006138421 RS232/RS485 Connector                     | J7             | 615006138421 CAN Connector                                |
-| J8       | 1759546-1 Mini PCIe Connector                          | J9             | Right-Angle SMA Connector for LoRa®                       |
-| J10      | ZX62-AB-5PA(31) Micro USB Debugger Connector with VBUS | J11            | 114-00841-68 Micro SD Connector                           |
-| J12      | SJ-3524-SMT-TR 3.5mm Headphone Out                     | J13            | SJ-3524-SMT-TR 3.5mm Line In Right                        |
-| J14      | SJ-3524-SMT-TR 3.5mm Line In Left                      | J15            | 61400826021 2-port USB 2.0 Female Connector               |
-| J16      | 254TR Positive Li-ion Terminal                         | J17            | TRJK7003A97NL Gigabit Ethernet Connector                  |
-| J18      | 254TR Negative Li-ion Terminal                         |             |  |
-| J20      | 110990030 Connector for Speaker                  | X1             | PJ-102A 5.5mm Power Jack Adapter                          |
-| CN1      | FTSH-105-01-F-DV 10-pin JTAG Header                    | CN2            | Debug Header                                              |
-| CN3      | LoRa® Debug Header                                     | SIM1           | 2199337-5 microSIM Card Holder (for on-board modem)       |
-| SW1      | 218-2LPST Boot Select Switch                           | SW2            | 218-2LPST Switch *(2)*                                    |
-| PB1      | PTS820J25KSMTRLFS Power On Button                      | PB2            | PTS820J25KSMTRLFS Reset Button                            |
+| **Ref.** | **Description**                                        | **Ref.**       | **Description**                                      |
+|----------|--------------------------------------------------------|----------------|------------------------------------------------------|
+| U1       | SARA-R412M-02B 4G LTE/Cat-M1/NB-IoT Modem IC           | U2             | CS42L52-CNZ Stereo Codec IC                          |
+| U3       | USB2514Bi/M2 4-port USB 2.0 Hub IC                     | U4             | SP335EER1-L RS232/RS485/RS422 Transceiver IC         |
+| U5       | TJA1049 CAN Transceiver IC                             | U6             | MPM3550EGLE Non-isolated DC-DC IC                    |
+| U7       | NCP383 Current Limiting IC                             | U8,U20,U21,U22 | SN74LVC1T45 Bi-directional logic level converter IC  |
+| U9       | DSC6111HI2B 12MHz MEMS Oscillator IC                   | U10            | SN74LVC1G125 Single Bus Buffer Gate IC               |
+| U11      | BQ24195RGET 4.5A Single Cell Charger IC                | U12            | AP7311 1.8V 150mA LDO Linear Regulator IC            |
+| U13      | TPS54620 6A Buck Regulator IC                          | U14            | AP2112K-3.3TRG1 3.3V 600mA LDO Regulator IC          |
+| U15      | STM32F405RG 168MHz 32 bit Arm® Cortex®-M4 MCU IC       | U16-U19        | 74LVC1G157 Single 2-input multiplexer IC             |
+| U23      | CMWX1ZZABZ-078 Murata LPWAN module                    | U24, U25       | LM73100 Ideal Diode with Reverse Polarity Protection |
+| J1, J2   | DF40HC(3.5)-80DS-0.4V(51) High Density Connectors      | J3             | Right-Angle SMA Connector for Modem                  |
+| J4       | Camera 2-1734248-0 FPC Connector                       | J5             | FW-20-05-G-D-254-150 Signal Break                    |
+| J6       | 615006138421 RS232/RS485 Connector                     | J7             | 615006138421 CAN Connector                           |
+| J8       | 1759546-1 Mini PCIe Connector                          | J9             | Right-Angle SMA Connector for LoRa®                  |
+| J10      | ZX62-AB-5PA(31) Micro USB Debugger Connector with VBUS | J11            | 114-00841-68 Micro SD Connector                      |
+| J12      | SJ-3524-SMT-TR 3.5mm Headphone Out                     | J13            | SJ-3524-SMT-TR 3.5mm Line In Right                   |
+| J14      | SJ-3524-SMT-TR 3.5mm Line In Left                      | J15            | 61400826021 2-port USB 2.0 Female Connector          |
+| J16      | 254TR Positive Li-ion Terminal                         | J17            | TRJK7003A97NL Gigabit Ethernet Connector             |
+| J18      | 254TR Negative Li-ion Terminal                         |                |                                                      |
+| J20      | 110990030 Connector for Speaker                        | X1             | PJ-102A 5.5mm Power Jack Adapter                     |
+| CN1      | FTSH-105-01-F-DV 10-pin JTAG Header                    | CN2            | Debug Header                                         |
+| CN3      | Debug Header for LoRa® connectivity                    | SIM1           | 2199337-5 microSIM Card Holder (for on-board modem)  |
+| SW1      | 218-2LPST Boot Select Switch                           | SW2            | 218-2LPST Switch *(2)*                               |
+| PB1      | PTS820J25KSMTRLFS Power On Button                      | PB2            | PTS820J25KSMTRLFS Reset Button                       |
 
 ### Carrier Characteristics Highlight
 
@@ -136,9 +138,9 @@ The Portenta Max Carrier extends the features of the Portenta X8, H7, and C33. T
 | Ethernet                 | 100 Mbps                | 1 Gbps              |                                                  |
 | CAN                      | Portenta C33 only       | Yes                 |                                                  |
 | Mini PCIe (USB)          | USB 1.0                 | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps |
-| Mini PCIe (PCIe)         | No                      | PCIe 2.0            |    |
+| Mini PCIe (PCIe)         | No                      | PCIe 2.0            |                                                  |
 | Battery Charger          | Yes                     | Yes                 |                                                  |
-| LoRa®                    | Yes                     | Yes                 |                                                  |
+| LoRa® technology         | Yes                     | Yes                 |                                                  |
 | NBIoT/CatM1/2G           | Yes                     | Yes                 |                                                  |
 | Camera                   | No                      | MIPI up to 4 lanes  | No MIPI camera support on H7/C33                 |
 | Audio                    | Limited                 | Yes                 | No firmware support for the H7                   |
@@ -214,9 +216,9 @@ The Portenta Max Carrier incorporates two DIP switches, giving users the ability
 
 For configurations when the Portenta Max Carrier is combined with the Portenta boards, the DIP switch governs these settings:
 
-| **Ethernet DIP Switch Designation** | **Position: ON**  | **Position: OFF** |
-|:-----------------------------------:|:-----------------:|:-----------------:|
-|                1 - 2                | Ethernet Disabled for X8 / Enabled for H7/C33 | Ethernet Enabled for X8 / Disabled for H7/C33  |
+| **Ethernet DIP Switch Designation** |               **Position: ON**                |               **Position: OFF**               |
+|:-----------------------------------:|:---------------------------------------------:|:---------------------------------------------:|
+|                1 - 2                | Ethernet Disabled for X8 / Enabled for H7/C33 | Ethernet Enabled for X8 / Disabled for H7/C33 |
 
 For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
 
@@ -380,8 +382,8 @@ If the connection is successful, you should see your IP address and location inf
 The Portenta X8, H7, and C33 enhance functionality through High-Density connectors. For a comprehensive understanding of these connectors, please refer to the complete pinout documentation for each Portenta model.
 
 - [Complete Portenta X8 pinout information](https://docs.arduino.cc/static/019dd9ac3b08f48192dcb1291d37aab9/ABX00049-full-pinout.pdf)
-- [Complete Portenta H7 pinout information](https://docs.arduino.cc/static/2d38006e78d2abc588a80f12bb9c0c70/ABX00042-full-pinout.pdf)
-- [Complete Portenta C33 pinout information](https://docs.arduino.cc/static/903c16295f3bf076c2ed23eb1b38791c/ABX00074-full-pinout.pdf)
+- [Complete Portenta H7 pinout information](https://docs.arduino.cc/resources/pinouts/ABX00042-full-pinout.pdf)
+- [Complete Portenta C33 pinout information](https://docs.arduino.cc/resources/pinouts/ABX00074-full-pinout.pdf)
 
 
 ## Configuration and Control
@@ -643,19 +645,19 @@ Below you can see what will be printed in the Serial Monitor when connecting to 
 
 ![Results in the Serial Monitor](assets/Cat-M1-serial-monitor.png)
 
-### LoRa®
+### LoRa® Technology
 
-One feature that boosts Portenta Max Carrier possibilities is its onboard LoRa® module, the CMWX1ZZABZ-078 from Murata®. LoRaWAN® is a Low Power Wide Area Network (LPWAN) protocol designed to connect low-power devices to the Internet. It has been developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low power consumption and low data throughput.
+One feature that boosts Portenta Max Carrier possibilities is its onboard LPWAN module, the CMWX1ZZABZ-078 from Murata®. LoRa® technology is a Low Power Wide Area Network (LPWAN) protocol designed to connect low-power devices to the Internet. It has been developed to meet the requirements of Internet of Things (IoT) applications, such as low power consumption and low data throughput.
 
 A dedicated SMA connector (J9) is available for connecting an external antenna.
 
 ![Portenta Max Carrier with LoRa® Antenna](assets/LoRaAntenna.png)
 
-***Recommended LoRa® antenna: ANT-8/9-IPW1-SMA***
+***Recommended antenna for LoRa® connectivity: ANT-8/9-IPW1-SMA***
 
 #### Using Linux
 
-Empower your Portenta X8 connectivity with LoRa® by following this detailed guide on [How to set up a multi-protocol gateway using the Portenta X8 and the Max Carrier](https://docs.arduino.cc/tutorials/portenta-x8/multi-protocol-gateway)
+Empower your Portenta X8 connectivity with LoRa® technology by following this detailed guide on [How to set up a multi-protocol gateway using the Portenta X8 and the Max Carrier](https://docs.arduino.cc/tutorials/portenta-x8/multi-protocol-gateway)
 
 #### Using Arduino IDE
 
@@ -936,7 +938,7 @@ void setup() {
   Serial.println("Mass Storage Device connected.");
 
   /* 
-   *  MOUNTIN SDCARD AS FATFS filesystem
+   *  MOUNTING SDCARD AS FATFS filesystem
    */
 
   Serial.println("Mounting Mass Storage Device...");
@@ -2219,3 +2221,7 @@ Join our community forum to connect with other Portenta Max Carrier users, share
 Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Portenta Max Carrier.
 
 - [Contact us page](https://www.arduino.cc/pro/contact-us)
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

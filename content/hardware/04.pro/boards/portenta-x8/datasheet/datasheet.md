@@ -316,7 +316,7 @@ The Arduino® Portenta X8 has been designed for high-performance embedded comput
 | P<sub>LP</sub>  | Power consumption in low power mode |     | 200  |     |  mW  |
 | P<sub>MAX</sub> | Maximum Power Consumption           |     | 4000 |     |  mW  |
 
-The use of a USB 3.0 compatible port will ensure that the current requirements for the Portenta X8 are met. Dynamic scaling of the Portenta X8 compute units can change the current consumption, leading to current surges during bootup. Average power consumption is provided in the above table for several reference scenarios.
+The use of a USB 3.0 compatible port will ensure that the current requirements for the Portenta X8 are met. Dynamic scaling of the Portenta X8 compute units can change the current consumption, leading to current surges during boot-up. Average power consumption is provided in the above table for several reference scenarios.
 
 ## Functional Overview
 
@@ -414,11 +414,11 @@ Power management is mainly performed by the BD71847AMWV IC (U1).
 
 If you want to program your Arduino® Portenta X8 while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® Edge control to your computer, you’ll need a USB Type-C cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin.
+All Arduino® boards, including this one, work out-of-the-box on the Arduino® Cloud Editor **[2]**, by just installing a simple plugin.
 
-The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino® Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 
@@ -442,7 +442,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ### Pinout
 
-![](assets/x8HDCPinout.jpg)
+![](assets/x8HDCPinout.png)
 
 ### Mounting Holes and Board Outline
 
@@ -524,8 +524,6 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 
 (2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
 
-<div style="page-break-after: always;"></div>
-
 **IC SAR Warning:**
 
 English
@@ -564,6 +562,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                            |
 |------------|--------------|----------------------------------------|
+| 03/09/2024 | 6            | Cloud Editor updated from Web Editor   |
 | 11/12/2023 | 5            | Add Portenta Hat Carrier compatibility |
 | 07/11/2023 | 4            | Add missing board dimensions           |
 | 26/01/2023 | 3            | Clarify open-source nature of M7 core  |

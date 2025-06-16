@@ -1,5 +1,5 @@
 ---
-title: "Send Data Using LoRa® with MKR WAN 1300"
+title: "Send Data Using LoRa® Technology with MKR WAN 1300"
 difficulty: intermediate
 compatible-products: [mkr-wan-1300]
 description: 'Learn how to setup a continuous stream of data between two devices using LoRa® technology.'
@@ -19,7 +19,7 @@ software:
   - web-editor
 ---
 
-The Arduino MKR WAN 1300 is an excellent entry point to get started with low-powered, wide-area networks (LPWAN). In this tutorial, we will go through some of the core concepts such as long range (LoRa®) and the LoRaWAN® protocol.
+The Arduino MKR WAN 1300 is an excellent entry point to get started with low-power, wide-area networks (LPWAN). In this tutorial, we will explore some of the core concepts behind LoRa® technology and set up direct communication between two MKR WAN 1300 boards.
 
 We will create a basic sketch that will allow communication between two **MKR WAN 1300** boards. The communication will be established firstly through the radio module on the board, where we will also attach an antenna to each board.
 
@@ -27,17 +27,13 @@ We will create a basic sketch that will allow communication between two **MKR WA
 
 There are many different terms to be familiar with in the world of LoRa® technology, so let's go through some of them!
 
-### LoRa®
+### LoRa® Technology
 
-LoRa® is short for long range modulation technique based on a technology called chirp spread spectrum (CSS). It is designed to carry out long-range transmissions with minimal power consumption. LoRa® defines as the "lower layer" or **"physical layer"**, according to the **OSI model**. The physical layer is defined by hardware, signals and frequencies.
+LoRa® is short for long range modulation technique based on a technology called chirp spread spectrum (CSS). It is designed to carry out long-range transmissions with minimal power consumption. LoRa defines as the "lower layer" or **"physical layer"**, according to the **OSI model**. The physical layer is defined by hardware, signals and frequencies.
 
-LoRa® uses different radio frequencies depending on where you are located in the world. The most common are Europe (868 MHz) and North America & Australia (915 MHz), but it differs from country to country. You can also read more about a [country's unique radio frequency](https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country.html).
+LoRa® uses different radio frequencies depending on where you are located in the world. The most common are Europe (868 MHz) and North America & Australia (915 MHz), but it differs from country to country. You can also read more about a [country's unique radio frequency](https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country/).
 
-LoRa® is also often used to describe hardware devices supported by LoRa®, e.g. modules or gateways. The Arduino MKR WAN 1300 has a LoRa® module called **Murata CMWX1ZZABZ**.
-
-### LoRaWAN®
-
-LoRaWAN® can be defined as the networking protocol used in an Low-Power, Wide-Area networks (LPWAN). The architecture of the network consists of different gateways that relay messages from low-power devices over long ranges, to central network servers. The protocol is defined as the **upper networking layers**.
+LoRa® is also often used to describe hardware devices supported by LoRa, e.g. modules or gateways. The Arduino MKR WAN 1300 has a LPWAN module called **Murata CMWX1ZZABZ**.
 
 ### The Benefits of LoRa®
 
@@ -57,7 +53,7 @@ ___
 -   2x Micro USB cable .
 -   Arduino IDE (offline and online versions available).
 -   Arduino SAMD Board Package installed ([follow this link for instructions](/software/ide-v2/tutorials/ide-v2-board-manager)).
--   LoRa library installed (see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)).
+-   `LoRa` library installed (see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)).
 
 
 ### Circuit
@@ -188,7 +184,6 @@ void loop() {
 
 ```
 
-{/*  Here we link the full program from create */}
 ## Complete Code
 
 If you choose to skip the code building section, the complete code can be found below:
@@ -281,8 +276,11 @@ If the code is not working, there are some common issues we might need to troubl
 - We have not opened the Serial Monitor.
 - We are using the same computer for both boards without a serial interfacing program.
 
-
 ## Conclusion
 
-In this tutorial, we have introduced some fundamental concepts around LoRa®, where we have setup a basic communication line between two boards using the LoRa® network. With this basic framework, you can go on to combine this tutorial with sensors and other software libraries, so that you can create your own long-range, low-powered devices!
+In this tutorial, we have introduced some fundamental concepts around LoRa® technology, where we have setup a basic communication line between two boards using the LoRa® technology-based communication. With this basic framework, you can go on to combine this tutorial with sensors and other software libraries, so that you can create your own long-range, low-powered devices!
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.
 

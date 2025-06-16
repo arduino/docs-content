@@ -5,11 +5,11 @@ author: Karl Söderby
 tags: [C++, Arduino]
 ---
 
-The default Arduino / C++ library for the Arduino Cloud is the [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud) library. This library depends on the [Arduino_ConnectionHandler](https://github.com/arduino-libraries/Arduino_ConnectionHandler) library which provides connection via various wireless protocols (Wi-Fi®, LoRaWAN®, NB-IoT, GSM, Ethernet). 
+The default Arduino / C++ library for the Arduino Cloud is the [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud) library. This library depends on the [Arduino_ConnectionHandler](https://github.com/arduino-libraries/Arduino_ConnectionHandler) library which provides connection via various wireless protocols (Wi-Fi®, LoRa® technology, NB-IoT, GSM, Ethernet). 
 
 The library is integrated into the Arduino Cloud platform, where [Automatic Sketch Generation](/arduino-cloud/cloud-interface/sketches#iot-sketches) converts your Thing configurations into a set files that relies on aforementioned libraries.
 
-The **ArduinoIoTCloud** library supports either connection via **TCP/IP** or **LoRaWAN®**. Depending on the device you compile for, the library automatically chooses the right configuration.
+The **ArduinoIoTCloud** library supports either connection via **TCP/IP** or using **LoRa® technology**. Depending on the device you compile for, the library automatically chooses the right configuration.
 
 ## GitHub
 
@@ -18,7 +18,7 @@ To view the source code and report issues, follow the links below to the GitHub 
 
 ## Connection Methods
 
-The ArduinoIoTCloud library supports both connection via TCP/IP and via LoRaWAN®, which is enabled via the `ArduinoIoTCloudTCP` and `ArduinoIoTCloudLPWAN` classes. Depending on what [device you configure](/arduino-cloud/hardware/devices), the library will automatically choose the right class, which will externally be available in your sketch file as `ArduinoCloud` class.
+The ArduinoIoTCloud library supports both connection via TCP/IP and via LoRa®-based networks, which is enabled via the `ArduinoIoTCloudTCP` and `ArduinoIoTCloudLPWAN` classes. Depending on what [device you configure](/arduino-cloud/hardware/devices), the library will automatically choose the right class, which will externally be available in your sketch file as `ArduinoCloud` class.
 
 ### TCP / MQTT
 
@@ -26,9 +26,9 @@ When connecting via [TCP/IP](https://en.wikipedia.org/wiki/Internet_protocol_sui
 - [ArduinoIoTCloudTCP.cpp](https://github.com/arduino-libraries/ArduinoIoTCloud/blob/master/src/ArduinoIoTCloudTCP.cpp)
 - [ArduinoIoTCloudTCP.h](https://github.com/arduino-libraries/ArduinoIoTCloud/blob/master/src/ArduinoIoTCloudTCP.h)
 
-### LoRaWAN®
+### LoRa®-Based Network
 
-When connecting via LoRaWAN®, data is sent via [The Things Network](https://www.thethingsnetwork.org/), which is integrated with the Arduino Cloud. This support is enabled in the following files:
+When connecting via LoRa®-based network, data is sent via [The Things Network](https://www.thethingsnetwork.org/), which is integrated with the Arduino Cloud. This support is enabled in the following files:
 - [ArduinoIoTCloudLPWAN.cpp](https://github.com/arduino-libraries/ArduinoIoTCloud/blob/master/src/ArduinoIoTCloudLPWAN.cpp)
 - [ArduinoIoTCloudLPWAN.h](https://github.com/arduino-libraries/ArduinoIoTCloud/blob/master/src/ArduinoIoTCloudLPWAN.h)
 
@@ -83,3 +83,7 @@ function whenever the `CONNECT` event occurs.
 The example below demonstrates how to use events & callbacks in the Arduino Cloud. 
 
 <CodeBlock url="https://github.com/arduino-libraries/ArduinoIoTCloud/blob/master/examples/ArduinoIoTCloud-Callbacks/ArduinoIoTCloud-Callbacks.ino" className="arduino"/>
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

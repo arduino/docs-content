@@ -6,11 +6,9 @@ sku: [AKX00004]
 source: "https://store.arduino.cc/arduino-engineering-kit"
 ---
 
-***Note: This product has been replaced by by the [**Arduino Engineering Kit Rev2**](https://store.arduino.cc/engineering-kit-r2).***
+***Note: This product has been replaced by the [__Arduino Engineering Kit Rev2__](https://store.arduino.cc/engineering-kit-r2).***
 
 ![The Arduino Engineering Kit](./assets/engineering_kit_featured_1.jpg)
-
-This product is retired and
 
 Challenge engineering students and help them develop engineering skills with the Arduino Engineering Kit. The kit is a practical, hands-on tool that demonstrates key engineering concepts, core aspects of mechatronics, and MATLAB and Simulink programming. Ideal for advanced high school and college students, it includes three projects to teach the basics of modeling, controls, image processing, robotics, signal processing, and more.
 
@@ -32,7 +30,7 @@ The kit is sold in a hard plastic, stackable tool box for storage and years of r
 
 In addition, students get access to a dedicated e-learning platform and other learning materials. Additionally, they are granted a one-year individual license of MATLAB and Simulink. This license is for educational use only, not for government, research, commercial, or other organizational use.
 
-### Need Help?
+## Need Help?
 
 * On the Software [on the Arduino Forum](https://forum.arduino.cc/index.php?board=63.0)
 * On Projects [on the Arduino Forum](https://forum.arduino.cc/index.php?board=124.0)

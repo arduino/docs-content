@@ -40,7 +40,7 @@ The Arduino Portenta Machine Control is a versatile industrial control unit for 
 
 ### Software Requirements
 
-- [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Arduino_PortentaMachineControl library](https://github.com/arduino-libraries/Arduino_PortentaMachineControl)
 
 ## The Arduino Portenta Machine Control Library
@@ -168,6 +168,8 @@ void setup() {
 In the new approach, the `begin()` function is explicitly called to initialize the `MachineControl_AnalogOut` module. Following the CamelCase notation, the `setPeriod()` method replaces the older `period_ms()` function, making the function's purpose clearer and the code more consistent with Arduino standards. 
 
 This update enhances the user experience by making the code more intuitive and aligned with the familiar Arduino programming style.
+
+***When using the Analog Output channels, please consider following detail: The High-Resolution Timer (HRTIM) function on PG7 allows for high-frequency PWM signals with precise control over short periods. However, it is limited to a maximum period of __approximately 1.3 ms__. This constraint makes __Analog Out Channel 2__ optimal for high-frequency PWM applications but unsuitable for periods exceeding 1.3 ms. For longer periods, alternative __Analog Out channels (AO0, AO1, AO3)__ with standard timers are recommended. Please refer to the [Portenta Machine Control User Manual: Analog Outputs section](https://docs.arduino.cc/tutorials/portenta-machine-control/user-manual/#analog-outputs) for more details.***
 
 ### Encoders
 

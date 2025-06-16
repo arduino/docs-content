@@ -17,7 +17,7 @@ This example listens for a byte coming from the serial port. When received, the 
 
 ### Hardware Required
 
-- Arduino Leonardo, Micro, or Due board
+- [Arduino Leonardo, Micro, or Due board](https://store.arduino.cc/collections/boards-modules)
 
 ### Circuit
 

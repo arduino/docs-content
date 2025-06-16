@@ -36,7 +36,7 @@ This user manual provides a comprehensive overview of the Portenta Machine Contr
 
 ### Software Requirements
 
-- [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Arduino_PortentaMachineControl](https://github.com/arduino-libraries/Arduino_PortentaMachineControl) library
 
 ***This User Manual shows how to use the Portenta Machine Control using the Arduino IDE environment. To learn more about how to use it with IEC-61131-3 languages and the PLC IDE, check out our tutorials [here](https://docs.arduino.cc/software/plc-ide).***
@@ -149,7 +149,7 @@ The complete datasheet is available and downloadable as PDF from the link below:
 
 The complete STEP files are available and downloadable from the link below:
 
-- [Portenta Machine Control STEP files](https://docs.arduino.cc/static/142bd938b340c767b9343451485aa5d2/AKX00032-step.zip)
+- [Portenta Machine Control STEP files](../../downloads/AKX00032-step.zip)
 
 ## First Use
 
@@ -371,6 +371,44 @@ Notice that the sketch shown above uses the following functions from the `Arduin
 The expected result of the generated sine wave measured with an oscilloscope in the analog output channel `AO0` is shown in the image below.
 
 ![Generated sine wave using analog output channel AO0 of the Portenta Machine Control](assets/user-manual-11.png)
+
+### Working With Analog Output Channel 2 (AO2)
+
+**Analog output channel 2 (AO2)** of the Portenta Machine Control is connected to pin *PG7* on the Portenta H7, which features an **HRTIM (High-Resolution TIMer)** function. It is the only Analog Out pin on the Portenta Machine Control with an **HRTIM (High-Resolution Timer)** function.
+
+The *HRTIM* on *PG7* is mainly applicable for high-frequency PWM signals, which have constraints on the maximum period that can be achieved. With the availability of the *HRTIM_EEV2* function, which serves as an external event input, its configuration allows **AO2** to support high-resolution PWM signals with very short periods but also results in a constraint.
+
+The *HRTIM* is configured with a frequency of **200 MHz** (tick time = **5 ns**), a clock prescaler set to **4**, and a maximum period of **0xFFFD** ticks (**65533 * 5 ns * 4 = 1.31 ms**). This configuration results in a maximum allowed period of **1.31 ms** for *AO2*. 
+
+Knowing that the maximum allowable period for *AO2* is approximately **1.3 ms**, it makes it suitable only for high-frequency PWM signals. For applications requiring periods longer than *1.3 ms*, we recommend using other analog output channels, such as **Analog output channel 0 (AO0)**, **1 (AO1)**, or **3 (AO3)**, which can use standard timers. Please consider this characteristic when selecting the appropriate output channel for the development application.
+
+The following code shows the setup of the *Analog Out* channels, including *AO2*. Please be aware that attempting to set a period longer than *1.3 ms* for *AO2* is not recommended.
+
+```cpp
+#include <Arduino_PortentaMachineControl.h>
+
+#define PERIOD_MS_AO2 1   /* 1 ms for AO2 */
+#define PERIOD_MS 4       /* 4 ms - 250Hz for other channels */
+
+void setup() {
+  Serial.begin(9600);
+
+  MachineControl_AnalogOut.begin();
+
+  MachineControl_AnalogOut.setPeriod(0, PERIOD_MS);
+  MachineControl_AnalogOut.setPeriod(1, PERIOD_MS);
+  MachineControl_AnalogOut.setPeriod(2, PERIOD_MS_AO2);  // AO2 - Adjusted period to fit limitation
+  MachineControl_AnalogOut.setPeriod(3, PERIOD_MS);
+
+  MachineControl_AnalogOut.write(0, 5);
+  MachineControl_AnalogOut.write(1, 5);
+  MachineControl_AnalogOut.write(2, 5);
+  MachineControl_AnalogOut.write(3, 5);
+}
+
+void loop() {
+}
+```
 
 ## Digital Inputs
 
@@ -1232,9 +1270,226 @@ To use the Modbus protocol with your Portenta Machine Control, you will need the
 
 #### Modbus RTU
 
-Modbus RTU, generally operating in half-duplex mode, with its capability to handle noisy and long-distance transmission lines, makes it an excellent choice for industrial environments. Modbus RTU communication is supported using Portenta's Machine Control RS-485 physical interface.
+Modbus RTU, generally operating in half-duplex mode, has the capability to handle noisy and long-distance transmission lines, which makes it an excellent choice for industrial environments. Modbus RTU communication is supported using Portenta Machine Control's RS-485 physical interface.
 
 ***The Portenta Machine Control has onboard termination resistors; its RS-485 interface can be configured as a half or full duplex.***
+
+#### Using Two Portenta Machine Controls
+
+The following example shows how to establish Modbus RTU communication between **two Portenta Machine Control devices**. We will use four LEDs from the Digital Output port of the Portenta Machine Control as the visual indicator to confirm the communication is working as intended. Since Portenta Machine Control supports half-duplex and full-duplex modes, each mode requires a different wiring setup.
+
+We will begin showing the **Full-Duplex mode** example following the connection diagram below between two Portenta Machine Control devices:
+
+![Modbus RTU (Full-Duplex) between two Portenta Machine Control](assets/modbus-full-rtu-pmcs.png)
+
+The following script assigns a Portenta Machine Control as a Client device, which sends four coil values to the Portenta Machine Control assigned as a Server.
+
+```arduino
+// Include the necessary libraries
+#include <Arduino_PortentaMachineControl.h>
+#include <ArduinoRS485.h>
+#include <ArduinoModbus.h>
+
+// Define the baud rate for Modbus communication
+constexpr auto baudrate{ 38400 };
+
+// Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
+// Modbus over serial line specification and implementation guide V1.02
+// Paragraph 2.5.1.1 Modbus Message RTU Framing
+// https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf
+constexpr auto bitduration{ 1.f / baudrate };
+constexpr auto preDelay{ bitduration * 9.6f * 3.5f * 1e6 };
+constexpr auto postDelay{ bitduration * 9.6f * 3.5f * 1e6 };
+
+// Counter variable to demonstrate coil control logic
+int counter = 0;
+
+void setup() {
+  // Begin serial communication at 9600 baud for debug messages
+  Serial.begin(9600);
+
+  // Wait for serial port to connect (necessary for boards with native USB)
+  //while (!Serial);
+  // Initialize RS-485 communication with specified baud rate and delays
+  MachineControl_RS485Comm.begin(baudrate, preDelay, postDelay);
+  
+  MachineControl_RS485Comm.setFullDuplex(true);
+
+  // Short delay to ensure RS-485 communication is stable
+  delay(2500);
+
+  // Indicate start of Modbus RTU client operation
+  Serial.println("- Modbus RTU Coils control");
+
+  // Start the Modbus RTU client with the RS-485 communication settings
+  if (!ModbusRTUClient.begin(MachineControl_RS485Comm, baudrate, SERIAL_8N1)) {
+    Serial.println("- Failed to start Modbus RTU Client!");
+    // Halt execution if unable to start
+    while (1)
+      ;  
+  }
+}
+void loop() {
+  // Increment counter to change coil values on each iteration
+  counter++;
+
+  // Determine coil value based on the counter's parity
+  byte coilValue = ((counter % 2) == 0) ? 0x00 : 0x01;
+
+  // Attempt to write coil values to a Modbus RTU server
+  Serial.print("- Writing coil values ... ");
+
+  // Begin transmission to Modbus server (slave ID 1) to write coil values at address 0x00
+  ModbusRTUClient.beginTransmission(1, COILS, 0x00, 4);
+
+  for (int i = 0; i < 4; i++) {
+    // Write the same value to all 4 coils
+    ModbusRTUClient.write(coilValue);  
+  }
+
+  // Check for successful transmission and report errors if any
+  // Print error code if transmission failed
+  // Or confirm successful coil value writing
+  if (!ModbusRTUClient.endTransmission()) {
+    Serial.print("- Failed! Error code: ");
+    Serial.println(ModbusRTUClient.lastError());  
+  } else {
+    Serial.println("- Success!");  
+  }
+
+  // Delay before next operation to simulate periodic control
+  delay(1000);
+}
+```
+
+Because the Portenta Machine Control is operating in **Full-Duplex mode**, the following line of code is essential and must be included within the code to enable Full-Duplex mode:
+
+```arduino
+MachineControl_RS485Comm.setFullDuplex(true);
+```
+
+The Server Portenta Machine Control uses the script below, which translates received coil values into corresponding Digital Outputs. It will blink four Digital Outputs accordingly in a timely manner.
+
+```arduino
+// Include the necessary libraries 
+#include <ArduinoRS485.h>
+#include <ArduinoModbus.h>
+#include <Arduino_PortentaMachineControl.h>
+
+// Define the number of coils to control LEDs
+const int numCoils = 4;
+
+// Define the baud rate for Modbus communication
+constexpr auto baudrate{ 38400 };
+
+// Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
+// Modbus over serial line specification and implementation guide V1.02
+// Paragraph 2.5.1.1 Modbus Message RTU Framing
+// https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf
+constexpr auto bitduration{ 1.f / baudrate };
+constexpr auto preDelay{ bitduration * 9.6f * 3.5f * 1e6 };
+constexpr auto postDelay{ bitduration * 9.6f * 3.5f * 1e6 };
+
+void setup() {
+  // Begin serial communication at a baud rate of 9600 for debug messages
+  Serial.begin(9600);
+
+  // Print a startup message
+  Serial.println("- Modbus RTU Server");
+
+  // Set RS485 transmission delays as per Modbus specification
+  MachineControl_RS485Comm.begin(baudrate, preDelay, postDelay);
+
+  // Enable full duplex mode and 120 Ohm termination resistors
+  MachineControl_RS485Comm.setFullDuplex(true);
+    
+  // Set the RS-485 interface in receive mode initially
+  MachineControl_RS485Comm.receive();
+
+  // Start the Modbus RTU server with a specific slave ID and baud rate
+  // Halt execution if the server fails to start
+  if (!ModbusRTUServer.begin(MachineControl_RS485Comm, 1, baudrate, SERIAL_8N1)) {
+    Serial.println("- Failed to start Modbus RTU Server!");
+    while (1)
+      ;  
+  }
+
+  //Set over current behavior of all channels to latch mode (true)
+  MachineControl_DigitalOutputs.begin(true);
+  
+  //At startup set all channels to OPEN
+  MachineControl_DigitalOutputs.writeAll(0);
+
+  // Set 7th Digital Output channel ON to show the port has been correctly configured
+  MachineControl_DigitalOutputs.write(7, HIGH);
+
+  // Configure coils for controlling the onboard LEDs
+  ModbusRTUServer.configureCoils(0x00, numCoils);
+}
+
+void loop() {
+  // Poll for Modbus RTU requests and process them
+  int packetReceived = ModbusRTUServer.poll();
+  Serial.println(packetReceived);
+  if (packetReceived) {
+    // Process each coil's state and control LEDs accordingly
+    for (int i = 0; i < numCoils; i++) {
+      // Read coil value
+      // Update discrete input with the coil's state
+      int coilValue = ModbusRTUServer.coilRead(i);       
+      ModbusRTUServer.discreteInputWrite(i, coilValue);  
+
+      // Debug output to the IDE's serial monitor
+      Serial.print("LED ");
+      Serial.print(i);
+      Serial.print(" = ");
+      Serial.println(coilValue);
+
+      // Control the onboard LEDs based on the coil values
+      switch (i) {
+        case 0:
+          MachineControl_DigitalOutputs.write(0, coilValue ? HIGH : LOW);
+          break;
+        case 1:
+          MachineControl_DigitalOutputs.write(1, coilValue ? HIGH : LOW);
+          break;
+        case 2:
+          MachineControl_DigitalOutputs.write(2, coilValue ? HIGH : LOW);
+          break;
+        case 3:
+          MachineControl_DigitalOutputs.write(3, coilValue ? HIGH : LOW);
+          // New line for better readability
+          Serial.println();  
+          break;
+        default:
+          // Error handling for unexpected coil addresses
+          Serial.println("- Output out of scope!"); 
+          break;
+      }
+    }
+  }
+}
+```
+
+With this, we have two Portenta Machine Control devices, each assigned as a Client and Server correspondingly, communicating with Modbus RTU in full-duplex mode.
+
+![Modbus RTU (Full-Duplex) Demo](assets/rtu-full-ani.gif)
+
+Alternatively, to establish communication between two Portenta Machine Control with Modbus RTU in **Half-Duplex mode**, the following wiring setup is required:
+
+![Modbus RTU (Half-Duplex) between two Portenta Machine Control](assets/modbus-half-rtu-pmcs.png)
+
+The previous example can be used in half-duplex mode, but it will require one minor change in the following line of code:
+
+```arduino
+MachineControl_RS485Comm.setFullDuplex(false);
+```
+
+By modifying this line, *Full-Duplex mode* is deactivated. This minor code tweak, plus the appropriate wiring, enable the two units to communicate using Modbus RTU in half-duplex mode.
+
+![Modbus RTU (Half-Duplex) Demo](assets/rtu-half-ani.gif)
+
+#### Using a Portenta Machine Control & Opta™
 
 The example below shows how to enable Modbus RTU communication between a Portenta Machine Control device and an Opta™ device. For wiring both devices, follow the diagram below:
 
@@ -2263,7 +2518,7 @@ The Portenta Machine Control is fully compatible with [Arduino Cloud](https://cl
 In case it is the first time you are using Arduino Cloud:
 
 - To use it, you need an account. If you do not have an account, create one for free [here](https://cloud.arduino.cc/).
-- To use the Arduino Web Editor, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent by downloading it [here](https://create.arduino.cc/getting-started/plugin/welcome).
+- To use the Arduino Cloud Editor, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent by downloading it [here](https://create.arduino.cc/getting-started/plugin/welcome).
 
 Let's walk through a step-by-step demonstration of how to use a Portenta Machine Control device with Arduino Cloud. Log in to your Cloud account; provision your Portenta Machine Control on your Cloud space. To do this, navigate to **Devices** and then click on the **ADD DEVICE** button:
 

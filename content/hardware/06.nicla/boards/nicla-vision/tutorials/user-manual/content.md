@@ -11,7 +11,7 @@ tags:
   - RGB
   - Sensors
   - Machine Learning
-author: 'Christopher Mendez'
+author: 'Christopher Méndez'
 hardware:
   - hardware/06.nicla/boards/nicla-vision
 software:
@@ -34,7 +34,7 @@ This user manual will guide you through a practical journey covering the most in
 ### Software Requirements
 
 - [OpenMV IDE](https://openmv.io/pages/download)
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - To create custom Machine Learning models, the Machine Learning Tools add-on integrated into the [Arduino Cloud](https://create.arduino.cc/iot/) is needed. In case you do not have an Arduino Cloud account, you will need to create one first.
 
 ## Product Overview
@@ -150,7 +150,7 @@ The complete schematics are available and downloadable as PDF from the link belo
 
 The complete STEP files are available and downloadable from the link below:
 
-- [Nicla Vision STEP files](https://docs.arduino.cc/static/24f56d94c6040c9c3a4a187375cf7601/ABX00051-step.zip)
+- [Nicla Vision STEP files](../../downloads/ABX00051-step.zip)
 
 ## First Use
 ### Powering the Board
@@ -246,10 +246,10 @@ You should now repeatedly see the onboard LED turning red, green, and blue.
 The Nicla Vision has **three analog input pins**, mapped as follows:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
-|:-----------------------:|:-----------------------:|
-|      ADC1/PC_4         |           A0            |
-|      ADC2/PF_13        |           A1            |
-|      ADC3/PF_3        |           A2            |
+| :---------------------: | :---------------------: |
+|        ADC1/PC_4        |           A0            |
+|       ADC2/PF_13        |           A1            |
+|        ADC3/PF_3        |           A2            |
 
 All of them can be used through the built-in functions of the Arduino programming language. 
 
@@ -308,18 +308,18 @@ void loop() {
 
 The Nicla Vision has **ten digital pins**, mapped as follows:
 
-| **Microcontroller Pin** | **Arduino Pin Mapping**  |
-|:-----------------------:|:------------------------:|
-|         PG_12         |           D0           |
-|         PA_9          |           D1           |
-|         PA_10         |           D2           |
-|         PG_1          |           D3           |
-|         PE_12         |           SCK          |
-|         PE_13         |           MISO         |
-|         PE_14         |           MOSI         |
-|         PE_11         |           SS           |
-|         PB_8          |           I2C_SCL      |
-|         PB_9          |           I2C_SDA      |
+| **Microcontroller Pin** | **Arduino Pin Mapping** |
+| :---------------------: | :---------------------: |
+|          PG_12          |           D0            |
+|          PA_9           |           D1            |
+|          PA_10          |           D2            |
+|          PG_1           |           D3            |
+|          PE_12          |          SCKL           |
+|          PE_13          |          CIPO           |
+|          PE_14          |          COPI           |
+|          PE_11          |           CS            |
+|          PB_8           |           SCL           |
+|          PB_9           |           SDA           |
 
 
 Notice that I2C and SPI pins can also be used as digital pins. Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
@@ -457,16 +457,16 @@ First, we need to identify the `Timer` and `Channel` used by the `PWM` output to
 
 Here is a table with the details of the exposed pins on the Nicla Vision:
 
-| **Microcontroller Pin** | **Arduino Pin Mapping**  | **Timer**  |**Channel** |
-|:-----------------------:|:------------------------:|:----------:|:----------:|
-|         PA_9            |           D1             |   TIMER1   |    CH2     |
-|         PA_10           |           D2             |   TIMER1   |    CH3     |
-|         PB_8            |           I2C_SCL        |   TIMER4   |    CH3     |
-|         PB_9            |           I2C_SDA        |   TIMER4   |    CH4     |
-|         PE_11           |           SS             |   TIMER1   |    CH2     |
-|         PE_12           |           SCK            |   TIMER1   |    CH3     |
-|         PE_13           |           MISO           |   TIMER1   |    CH3     |
-|         PE_14           |           MOSI           |   TIMER1   |    CH4     |
+| **Microcontroller Pin** | **Arduino Pin Mapping** | **Timer** | **Channel** |
+| :---------------------: | :---------------------: | :-------: | :---------: |
+|          PA_9           |           D1            |  TIMER1   |     CH2     |
+|          PA_10          |           D2            |  TIMER1   |     CH3     |
+|          PB_8           |           SCL           |  TIMER4   |     CH3     |
+|          PB_9           |           SDA           |  TIMER4   |     CH4     |
+|          PE_11          |           CS            |  TIMER1   |     CH2     |
+|          PE_12          |          SCKL           |  TIMER1   |     CH3     |
+|          PE_13          |          CIPO           |  TIMER1   |     CH3     |
+|          PE_14          |          COPI           |  TIMER1   |     CH4     |
 
 
 To use the PWM functions, you need to import the `time`, `Pin`, and `Timer` modules.
@@ -499,7 +499,7 @@ Get or set the pulse width value on a channel. To get, pass no arguments. To set
 ```python
 channel1.pulse_width_percentage(Width) # Width (0-100)
 ```
-As a complete example here is a code to generate a __50% duty cycle__ PWM signal at __1 Mhz__.
+As a complete example here is a code to generate a __50% duty cycle__ PWM signal at __10 Khz__.
 
 ```python
 import time
@@ -509,7 +509,7 @@ from pyb import Pin, Timer
 
 OUT = Pin("D1")
 
-timer1 = Timer(1, freq=1000000)
+timer1 = Timer(1, freq=10000)
 channel1 = timer1.channel(2, Timer.PWM, pin=OUT, pulse_width_percent=0)
 
 channel1.pulse_width_percent(50)
@@ -730,44 +730,47 @@ The onboard high-performance microphone of the Nicla Vision is the MP34DT06JTR f
 
 The OpenMV IDE includes some examples to get started using the Nicla Vision onboard microphone that can be found on **File > Examples > Audio**. We are going to use the one called `micro_speech.py` to test the machine-learning speech recognition capabilities of the board.
 
-First, download the pre-trained model file from the [example repository](https://raw.githubusercontent.com/iabdalkader/microspeech-yesno-model/main/model.tflite) and copy it to the Nicla Vision storage drive.
+First, download the pre-trained model file from the [example repository](https://raw.githubusercontent.com/iabdalkader/microspeech-yesno-model/main/model.tflite) and **copy** it to the Nicla Vision **storage drive**.
 
 ![Tflite Machine Learning model in the drive](assets/tflite-model.png)
 
 Reset the board and run the following code on the OpenMV IDE.
 
 ```python
-import audio
 import time
-import tf
-import micro_speech
+from ml.apps import MicroSpeech
 import pyb
 
-labels = ["Silence", "Unknown", "Yes", "No"]
 
 led_red = pyb.LED(1)
 led_green = pyb.LED(2)
 
-model = tf.load("/model.tflite")
-speech = micro_speech.MicroSpeech()
-audio.init(channels=1, frequency=16000, gain=24, highpass=0.9883)
 
-# Start audio streaming
-audio.start_streaming(speech.audio_callback)
+def callback(label, scores):
+    print(f'\nHeard: "{label}" @{time.ticks_ms()}ms Scores: {scores}')
+    
+    led = led_green if label == "Yes" else led_red
 
-while True:
-    # Run micro-speech without a timeout and filter detections by label index.
-    idx = speech.listen(model, timeout=0, threshold=0.70, filter=[2, 3])
-    led = led_green if idx == 2 else led_red
-    print(labels[idx])
     for i in range(0, 4):
         led.on()
         time.sleep_ms(25)
         led.off()
         time.sleep_ms(25)
 
-# Stop streaming
-audio.stop_streaming()
+        
+
+
+# By default, the MicroSpeech object uses the built-in audio preprocessor (float) and the
+# micro speech module for audio preprocessing and speech recognition, respectively. The
+# user can override both by passing two models:
+# MicroSpeech(preprocessor=ml.Model(...), micro_speech=ml.Model(...), labels=["label",...])
+speech = MicroSpeech()
+
+# Starts the audio streaming and processes incoming audio to recognize speech commands.
+# If a callback is passed, listen() will loop forever and call the callback when a keyword
+# is detected. Alternatively, `listen()` can be called with a timeout (in ms), and it
+# returns if the timeout expires before detecting a keyword.
+speech.listen(callback=callback, threshold=0.8)
 ```
 After running the code, the matches will be printed on the Serial Monitor if the board hears a `No` or a `Yes`, turning on the red and green LED respectively.
 
@@ -1226,11 +1229,11 @@ This section of the user manual covers the different communication protocols tha
 The Nicla Vision supports SPI communication, which allows data transmission between the board and other SPI-compatible devices. The pins used in the Nicla Vision for the SPI communication protocol are the following:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
-|:-----------------------:|:-----------------------:|
-|         SCLK / PE_12       |      SCK or 9        |
-|         CIPO / PE_13       |      MISO or 10      |
-|         COPI / PE_14       |      MOSI or 8       |
-|         CS / PE_11         |      SS or 7         |
+| :---------------------: | :---------------------: |
+|      SCLK / PE_12       |      SCKL or PE12       |
+|      CIPO / PE_13       |      CIPO or PE13       |
+|      COPI / PE_14       |      COPI or PE14       |
+|       CS / PE_11        |       CS or PE11        |
 
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
@@ -1264,7 +1267,7 @@ Here is a simple example showing how to send data over SPI.
 import time
 from pyb import Pin, SPI
 
-cs = Pin("SS", Pin.OUT_OD) # CS pin = PE11
+cs = Pin("CS", Pin.OUT_OD) # CS pin = PE11
 
 spi = SPI(4, SPI.MASTER, baudrate=int(480000000 / 256), polarity=0, phase=0)
 
@@ -1367,62 +1370,58 @@ The example code above should output this:
 The Nicla Vision supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. The pins used in the Nicla Vision for the I2C communication protocol are the following:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
-|:-----------------------:|:-----------------------:|
-|          PB_8           |       I2C_SCL or 12     |
-|          PB_9           |       I2C_SDA or 11     |
+| :---------------------: | :---------------------: |
+|       PB_8 / SCL        |  SCL / I2C1_SCL / PB8   |
+|       PB_9 / SDA        |  SDA / I2C1_SDA / PB9   |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board. The I2C pins are also available through the onboard ESLOV connector of the Nicla Vision.
 
 
 #### With OpenMV
 
-To use I2C communication with OpenMV, import `I2C` from the `pyb` module as follows.
+To use I2C communication with OpenMV, import `I2C` from the `machine` module as follows.
 
 ```python
-from pyb import I2C
+from machine import I2C
 ```
-Create the I2C objects and initialize them attached to a specific bus, below are some of the available commands to do it.
+Create the I2C object and initialize it attached to defined pins, below is the available command to do it.
 
 ```python
-i2c = I2C(1)                         # create on bus 1
-i2c = I2C(1, I2C.MASTER)             # create and init as a master
-i2c.init(I2C.MASTER, baudrate=20000) # init as a master
-i2c.init(I2C.SLAVE, addr=0x42)       # init as a slave with given address
-i2c.deinit()                         # turn off the peripheral
+i2c = I2C(scl="PB8",sda="PB9",freq=400000)          # create I2C peripheral at frequency of 400kHz on defined pins
 ```
 
-The basic methods are `send` and `recv` implemented as follows:
+The basic methods are `writeto` and `readfrom` implemented as follows:
 
 ```python
-# For Masters / Controllers (must include addr in send)
-i2c.send('abc', 0x42)      # send 3 bytes to device on address 0x42
+i2c.writeto(42, b'123')         # write 3 bytes to peripheral with 7-bit address 42
 
-# For Slaves / Peripherals
-i2c.send('abc')      # send 3 bytes
-i2c.send(0x42)       # send a single byte, given by the number
+i2c.readfrom(42, 4)             # read 4 bytes from peripheral with 7-bit address 42
+```
 
-data = i2c.recv(3)   # receive 3 bytes
+You can scan for peripherals with the following function:
+
+```python
+i2c.scan()                      # scan for peripherals, returning a list of 7-bit addresses
 ```
 
 This is a simple example showing how to send data over I2C from a master to a slave.
 
 ```python
-from pyb import I2C
+from machine import I2C
 
-i2c = I2C(1, I2C.MASTER)
+i2c = I2C(scl="PB8",sda="PB9",freq=400000)          # create I2C peripheral at frequency of 400kHz
 
 buf = bytearray(2)
-
 buf[0] = 0x00
 buf[1] = 0xFA
 
-i2c.send(buf, 0x35)
+i2c.writeto(0x35, buf) 
 ```
 The output data should look like the image below, where we can see the device address data frame:
 
 ![I2C output data](assets/i2c.png)
 
-To learn more about the I2C class on MicroPython, continue [here](https://docs.openmv.io/library/pyb.I2C.html). 
+To learn more about the I2C class on MicroPython, continue [here](https://docs.micropython.org/en/latest/library/machine.I2C.html). 
 
 #### With Arduino IDE
 To use I2C communication, include the `Wire` library at the top of your sketch. The `Wire` library provides functions for I2C communication:
@@ -1510,9 +1509,9 @@ while (Wire.available()) {
 The pins used in the Nicla Vision for the UART (external) communication protocol are the following:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
-|:-----------------------:|:-----------------------:|
-|         PA_10           |        SERIAL1_RX       |
-|         PA_9            |        SERIAL1_TX       |
+| :---------------------: | :---------------------: |
+|          PA_10          |     UART_RX or PA10     |
+|          PA_9           |     UART_TX or PA9      |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
 
@@ -1529,6 +1528,13 @@ Then, initialize the UART object defining the __bus number__ and __baudrate__.
 ```python
 uart = UART(9, 115200)  # bus 9 uses PA9 and PA10 as (TX and RX) respectively
 ```
+
+You can define UART settings with the following function:
+
+```python
+uart.init(9600, bits=8, parity=None, stop=1) # init with given parameters
+```
+
 To read incoming data, you can use different functions as the following.
 
 ```python
@@ -1630,99 +1636,54 @@ We are going to build a Bluetooth® LE temperature monitor that using the __nRF 
 For this Bluetooth® LE application example, we are going to emulate the temperature sensor.  Below you will find the complete sketch.
 
 ```python
+from micropython import const
+import uasyncio as asyncio
+import aioble
 import bluetooth
 import random
 import struct
-import time
-from ble_advertising import advertising_payload
-from machine import LED
-from micropython import const
-
-_IRQ_CENTRAL_CONNECT = const(1)
-_IRQ_CENTRAL_DISCONNECT = const(2)
-_IRQ_GATTS_INDICATE_DONE = const(20)
-
-_FLAG_READ = const(0x0002)
-_FLAG_NOTIFY = const(0x0010)
-_FLAG_INDICATE = const(0x0020)
-
 # org.bluetooth.service.environmental_sensing
 _ENV_SENSE_UUID = bluetooth.UUID(0x181A)
 # org.bluetooth.characteristic.temperature
-_TEMP_CHAR = (
-    bluetooth.UUID(0x2A6E),
-    _FLAG_READ | _FLAG_NOTIFY | _FLAG_INDICATE,
-)
-_ENV_SENSE_SERVICE = (
-    _ENV_SENSE_UUID,
-    (_TEMP_CHAR,),
-)
-
+_ENV_SENSE_TEMP_UUID = bluetooth.UUID(0x2A6E)
 # org.bluetooth.characteristic.gap.appearance.xml
 _ADV_APPEARANCE_GENERIC_THERMOMETER = const(768)
-
-
-class BLETemperature:
-    def __init__(self, ble, name="Py Temp Sensor"):
-        self._ble = ble
-        self._ble.active(True)
-        self._ble.irq(self._irq)
-        ((self._handle,),) = self._ble.gatts_register_services((_ENV_SENSE_SERVICE,))
-        self._connections = set()
-        self._payload = advertising_payload(
-            name=name,
+# How frequently to send advertising beacons.
+_ADV_INTERVAL_MS = 250_000
+# Register GATT server.
+temp_service = aioble.Service(_ENV_SENSE_UUID)
+temp_characteristic = aioble.Characteristic(
+    temp_service, _ENV_SENSE_TEMP_UUID, read=True, notify=True
+)
+aioble.register_services(temp_service)
+# Helper to encode the temperature characteristic encoding (sint16, hundredths of a degree).
+def _encode_temperature(temp_deg_c):
+    return struct.pack("<h", int(temp_deg_c * 100))
+# This would be periodically polling a hardware sensor.
+async def sensor_task():
+    t = 24.5
+    while True:
+        temp_characteristic.write(_encode_temperature(t))
+        t += random.uniform(-0.5, 0.5)
+        await asyncio.sleep_ms(1000)
+# Serially wait for connections. Don't advertise while a central is
+# connected.
+async def peripheral_task():
+    while True:
+        async with await aioble.advertise(
+            _ADV_INTERVAL_MS,
+            name="mpy-temp",
             services=[_ENV_SENSE_UUID],
             appearance=_ADV_APPEARANCE_GENERIC_THERMOMETER,
-        )
-        self._advertise()
-        self.led = LED("LED_BLUE")
-
-    def _irq(self, event, data):
-        # Track connections so we can send notifications.
-        if event == _IRQ_CENTRAL_CONNECT:
-            conn_handle, _, _ = data
-            self._connections.add(conn_handle)
-            self.led.on()
-        elif event == _IRQ_CENTRAL_DISCONNECT:
-            conn_handle, _, _ = data
-            self._connections.remove(conn_handle)
-            # Start advertising again to allow a new connection.
-            self._advertise()
-            self.led.off()
-        elif event == _IRQ_GATTS_INDICATE_DONE:
-            conn_handle, value_handle, status = data
-
-    def set_temperature(self, temp_deg_c, notify=False, indicate=False):
-        # Data is sint16 in degrees Celsius with a resolution of 0.01 degrees Celsius.
-        # Write the local value, ready for a central to read.
-        self._ble.gatts_write(self._handle, struct.pack("<h", int(temp_deg_c * 100)))
-        if notify or indicate:
-            for conn_handle in self._connections:
-                if notify:
-                    # Notify connected centrals.
-                    self._ble.gatts_notify(conn_handle, self._handle)
-                if indicate:
-                    # Indicate connected centrals.
-                    self._ble.gatts_indicate(conn_handle, self._handle)
-
-    def _advertise(self, interval_us=500000):
-        self._ble.gap_advertise(interval_us, adv_data=self._payload)
-
-
-if __name__ == "__main__":
-    ble = bluetooth.BLE()
-    temp = BLETemperature(ble)
-
-    t = 25
-    i = 0
-
-    while True:
-        # Write every second, notify every 10 seconds.
-        i = (i + 1) % 10
-        temp.set_temperature(t, notify=i == 0, indicate=False)
-        # Random walk the temperature.
-        t += random.uniform(-0.5, 0.5)
-        time.sleep_ms(1000)
+        ) as connection:
+            print("Connection from", connection.device)
+            await connection.disconnected()
+# Run both tasks.
+async def main():
+    t1 = asyncio.create_task(sensor_task())
+    t2 = asyncio.create_task(peripheral_task())
+    await asyncio.gather(t1, t2)
+asyncio.run(main())
 ```
 
 The example code shown above creates a Bluetooth® Low Energy service and characteristics according to the [Bluetooth® LE standard](https://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf) for transmitting an emulated temperature value. 
@@ -2009,7 +1970,7 @@ By using the Arduino Cloud, you can, for example, monitor your Nicla's inputs an
 In case it is the first time you are using the Arduino Cloud:
 
 - You need an __account__. If you do not have an account, create one for free [here](https://create.arduino.cc/iot/things).
-- To use the Arduino Web Editor or Arduino Cloud, the __Arduino Create Agent__ must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome?_gl=1*oeovt6*_ga*Mzg1NjE0MjQ0LjE2OTc4NDQxMjk.*_ga_NEXN8H46L5*MTY5OTY0MzEwMS43NC4xLjE2OTk2NTMyMjEuMC4wLjA.).
+- To use the Arduino Cloud Editor or Arduino Cloud, the __Arduino Create Agent__ must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome?_gl=1*oeovt6*_ga*Mzg1NjE0MjQ0LjE2OTc4NDQxMjk.*_ga_NEXN8H46L5*MTY5OTY0MzEwMS43NC4xLjE2OTk2NTMyMjEuMC4wLjA.).
 
 Let's walk through a step-by-step demonstration of how to use a Nicla Vision with the Arduino Cloud.
 

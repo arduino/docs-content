@@ -1,5 +1,5 @@
 ---
-title: 'Arduino UNO R4 Minima Cheat Sheet'
+title: 'Arduino UNO R4 Minima User Manual'
 description: 'Learn how to set up the UNO R4 Minima, the fourth revision of our most popular and important development board.'
 tags:
   - Installation
@@ -50,7 +50,7 @@ The UNO R4 Minima is based on the [UNO R4 Board Package](/tutorials/uno-r4-minim
 
 ## Installation
 
-The UNO R4 Minima can be programmed either via the Arduino IDE, Arduino Web Editor, or Arduino CLI.
+The UNO R4 Minima can be programmed either via the Arduino IDE, Arduino Cloud Editor, or Arduino CLI.
 
 ### Arduino IDE
 
@@ -58,11 +58,11 @@ To use the board in the Arduino IDE, you need to install the latest version of t
 
 Read more in the [Getting Started with the UNO R4 Minima](/tutorials/uno-r4-minima/minima-getting-started) guide.
 
-### Arduino Web Editor
+### Arduino Cloud Editor
 
-The Web Editor is an online IDE that includes all official boards, no need for installing the Board Package. You will need the Create Plugin installed on your computer to use the Web Editor.
+The Cloud Editor is an online IDE that includes all official boards, no need for installing the Board Package. You will need the Create Plugin installed on your computer to use the Cloud Editor.
 
-Read more in the [Getting Started with the Web Editor](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor) guide.
+Read more in the [Getting Started with the Cloud Editor](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor) guide.
 
 ## Renesas RA4M1
 

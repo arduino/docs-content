@@ -58,7 +58,7 @@ In the device section, you can select either a previously configured device, or 
 
 You can connect one of the following devices:
 - [Arduino Wi-Fi® devices](/arduino-cloud/hardware/wifi) - official Arduino devices with a Wi-Fi® enabled module.
-- [Arduino LoRaWAN® devices](/arduino-cloud/hardware/lora) - official Arduino devices with a LoRaWAN® module.
+- [Arduino LoRa®-enabled devices](/arduino-cloud/hardware/lora) - official Arduino devices with a LoRa® technology.
 - [Third-party ESP32/ESP8266 devices](/arduino-cloud/hardware/wifi) - third party devices with an ESP32/ESP8266 SoC.
 - [Manual devices](/arduino-cloud/hardware/devices#manual-devices) - a virtual device using MicroPython, Python or JavaScript. These devices do not have a sketch associated.
 
@@ -68,7 +68,7 @@ The status of your device is also displayed in this section (online/offline).
 
 ## Network
 
-In the network section, you configure the credentials for your network, such as your Wi-Fi® network, secret key (for ESP32 boards) and other credentials e.g. LoRaWAN® & cellular. The network details are securely stored.
+In the network section, you configure the credentials for your network, such as your Wi-Fi® network, secret key (for ESP32 boards) and other credentials e.g. LoRa®-based networks & cellular. The network details are securely stored.
 
 ![Network configuration.](assets/network-creds.png)
 
@@ -76,22 +76,23 @@ The credentials entered are automatically included in your sketch (see [automati
 
 ## Sketch
 
-The sketch tab contains a built-in editor where you can edit, compile and upload sketches to your devices.
+The sketch tab will open the Cloud Editor where you can edit, compile and upload sketches to your devices.
 
 ![Built-in editor.](assets/built-in-editor.png)
 
-- **1. Verify / Upload** - compile and upload code to your devices.
-- **2. Connected devices** - connected devices will appear here.
-- **3. Open full editor** - opens the full Cloud Editor.
-- **4. Serial Monitor** - view serial data from your device.
-- **5. Auto Indentation** - auto indents your code.
-- **6. Notifications** - whenever you change something in your Thing, a notification will appear here with the changes made.
-  
-This editor is a mirror of the [Cloud Editor](https://create.arduino.cc/editor/), which you can access via the **"Open Full Editor"** button.
+1. **Arduino Cloud Menu** - navigation menu for the Arduino Cloud platform and to go back to Cloud homepage.
+2. **Examples** - a set of basic Arduino examples.
+3. **Libraries** - all libraries that are included in the Arduino library manager (5000+).
+4. **Reference** - the Arduino Reference provides an overview of the available methods in the Arduino programming API.
+5. **Editor** - the code editor area, where we write the program for our board.
+6. **Console Log** - this window informs you of the status of your compilation / upload. 
+7. **Verify/Upload** - verify (compile) your code using the checkmark button, and upload it to your board using the right arrow. 
+8. **Board / Port Selection** - the board connected to your computer will be automatically displayed here. You can also manually change this.
+9. **Serial Monitor** - a tool that reads serial data sent from your board to the computer. 
 
 The editor includes all cores for official Arduino boards, and over 6000+ libraries. Many boards also supports **Over-the-air (OTA)** uploads, which is enabled after your first upload via USB.
 
-***For more information on the editor, check out the [Cloud Editor](/arduino-cloud/guides/cloud-editor) tutorial.***
+***For more information on the editor, check out the [Cloud Editor](https://docs.arduino.cc/arduino-cloud/guides/editor/) tutorial.***
 
 ## Metadata
 
@@ -132,3 +133,7 @@ For example:
 This is implemented so that the connection and synchronization between the board and Cloud is handled automatically, meaning you do not need to do any networking code when using the Arduino / C++ language.
 
 ***Please note that if you are using an offline environment, [Arduino IDE](/software/ide-v2), changes will only be made in the Cloud environment and will manually need to be adjusted. If you plan on using the offline IDE, you make use of the [sketch synchronisation](/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync) feature that allows you to push/pull your Cloud sketches from the offline IDE.***
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

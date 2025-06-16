@@ -1,9 +1,9 @@
 Board:
   Name: Arduino® WisGate Edge Lite 2
   SKU: 
-    EU: TXP00098
-    ANZ: TXP00100
-    US: TXP00099
+    EU: TPX00098
+    ANZ: TPX00099
+    US: TPX00100
 Computing: MT7628, DDR2 RAM 128 MB
 Operating temperature: -10 ºC to +55 ºC
 Wi-Fi®:
@@ -28,9 +28,9 @@ Power:
   Consumption: 12 W (typical)
 Console: Through USB-C®
 Frequencies: 
-  EU868: TXP00098 
-  US915: TXP00099
-  AS923 & AU915: TXP00100
+  EU868: TPX00098
+  AS923 & AU915: TPX00099
+  US915: TPX00100
 Enclosure:
   Protection Rating: IP30
   Materials: Plastic

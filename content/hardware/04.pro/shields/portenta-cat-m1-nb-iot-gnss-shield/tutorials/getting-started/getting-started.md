@@ -35,10 +35,11 @@ The goals of this project are:
 
 ## Hardware & Software Needed
 
-- Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
 - [Portenta H7](https://store.arduino.cc/products/portenta-h7)
 - [Portenta Cat. M1/NB IoT GNSS Shield](https://store.arduino.cc/products/portenta-catm1)
-- [Dipole Antenna](https://store.arduino.cc/antenna) (or equivalent product with the same frequency range).
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c)
+- [Dipole Antenna](https://store.arduino.cc/antenna) (or equivalent product with the same frequency range)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software) or [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
 
 ## Instructions
 
@@ -73,6 +74,8 @@ When the GSM module starts, you can connect to a remote server using the server 
 ```arduino
 client.connect(server,port)
 ```
+
+***__Please be aware that the Portenta Cat. M1/NB IoT GNSS Shield is not certified as an End-Device by all cellular network providers__. If you encounter difficulties with network connection, we recommend checking with your service provider to verify if End-Device certification is required for network access. Switching to a provider that does not have such requirements may resolve these issues. We advise reviewing this compatibility information during setup to ensure optimal device performance and to prevent potential service interruptions.***
 
 ### Result of Sketch
 

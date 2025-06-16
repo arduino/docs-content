@@ -1,13 +1,13 @@
 ---
 title: Edge Control
 url_shop: https://store.arduino.cc/edge-control
-url_guide: /tutorials/edge-control/getting-started-edge-control
-primary_button_url: /tutorials/edge-control/getting-started-edge-control
-primary_button_title:  Get Started
+url_guide: /tutorials/edge-control/user-manual
+primary_button_url: /tutorials/edge-control/user-manual
+primary_button_title:  User Manual
 secondary_button_url: /tutorials/edge-control/smart-irrigation-system
 secondary_button_title: Smart Farms
 core: arduino:mbed_edge
-certifications: [RoHS, REACH, WEEE, FCC, CE, RCM, UKCA]
+certifications: [RoHS, FCC, CE, UKCA]
 sku: [AKX00034]
 ---
 

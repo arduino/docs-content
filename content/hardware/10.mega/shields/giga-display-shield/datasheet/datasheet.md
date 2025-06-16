@@ -10,7 +10,7 @@ author: Ali Jahangiri, Benjamin Dannegård
 
 # Description
 
-The Arduino GIGA Display Shield (from now on referred to as GIGA Display Shield) is an easy way to add a touchscreen display with orientation detection to your Arduino GIGA R1 WiFi (from now on referred to as GIGA R1 WiFi) board.
+The Arduino® GIGA Display Shield is an easy way to add a touchscreen display with orientation detection to your Arduino® GIGA R1 WiFi board.
 
 # Target Areas
 Human-Machine Interface, Display, Shield
@@ -130,13 +130,13 @@ The 3V3 voltage power is delivered by the GIGA R1 WiFi (J6 and J7). All onboard 
 
 ### Getting Started - IDE
 
-If you want to program your GIGA Display Shield while offline you need to install the Arduino® Desktop IDE **[1]**. A GIGA R1 WiFi is needed to use it. 
+If you want to program your GIGA Display Shield while offline you need to install the Arduino Desktop IDE **[1]**. A GIGA R1 WiFi is needed to use it. 
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]**, by just installing a simple plugin.
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor **[2]**, by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 
@@ -240,18 +240,19 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| Ref                       | Link                                                                                            |
-| ------------------------- | ----------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | <https://www.arduino.cc/en/Main/Software>                                                       |
-| Arduino IDE (Cloud)       | <https://create.arduino.cc/editor>                                                              |
-| Cloud IDE Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
-| Project Hub               | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
-| Library Reference         | <https://github.com/arduino-libraries/>                                                         |
-| Online Store              | <https://store.arduino.cc/>                                                                     |
+| Ref                                    | Link                                                                      |
+| -------------------------------------- | ------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/Main/Software                                   |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                                          |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/                      |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending  |
+| Library Reference                      | https://github.com/arduino-libraries/                                     |
+| Online Store                           | https://store.arduino.cc/                                                 |
 
 ## Change Log
 
-| **Date**   | **Changes**                  |
-| ---------- | ---------------------------- |
-| 2023/07/24 | Release                      |
-| 2023/11/17 | Update operating temperature |
+| **Date**   | **Changes**                      |
+| ---------- | -------------------------------- |
+| 25/04/2024 | Updated link to new Cloud Editor |
+| 24/07/2023 | Release                          |
+| 17/11/2023 | Update operating temperature     |

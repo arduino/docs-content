@@ -1,0 +1,4 @@
+---
+productsLibrariesMap:
+  - pid
+---

@@ -2,13 +2,12 @@ software:
   - arduino-ide
   - iot-cloud
   - arduino-cli
-  - web-editor
+  - cloud-editor
 hardware:
   boards: ~
   carriers: ~
   shields:
     - mkr-485-shield
-    - mkr-can-shield
     - mkr-env-shield
     - mkr-eth-shield
     - mkr-imu-shield

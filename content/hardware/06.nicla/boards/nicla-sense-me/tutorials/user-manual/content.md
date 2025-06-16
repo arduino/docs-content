@@ -32,7 +32,7 @@ This user manual will guide you through a practical journey covering the most in
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - To create custom Machine Learning models, the Machine Learning Tools add-on integrated into the [Arduino Cloud](https://create.arduino.cc/iot/) is needed. In case you do not have an Arduino Cloud account, you will need to create one first.
 
 ## Product Overview
@@ -66,7 +66,7 @@ The **Arduino Mbed OS Nicla Boards** core contains the libraries and examples yo
 
 The full pinout is available and downloadable as PDF from the link below:
 
-- [Nicla Sense ME pinout](https://docs.arduino.cc/static/b35956b631d757a0455c286da441641b/ABX00050-full-pinout.pdf)
+- [Nicla Sense ME pinout](https://docs.arduino.cc/resources/pinouts/ABX00050-full-pinout.pdf)
 
 ### Datasheet
 
@@ -84,7 +84,7 @@ The complete schematics are available and downloadable as PDF from the link belo
 
 The complete STEP files are available and downloadable from the link below:
 
-- [Nicla Sense ME STEP files](https://docs.arduino.cc/static/10c0953581f489a9a136ff00f2d2fa9d/ABX00050-step.zip)
+- [Nicla Sense ME STEP files](../../downloads/ABX00050-step.zip)
 
 
 ## First Use

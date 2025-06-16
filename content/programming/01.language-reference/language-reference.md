@@ -1,15 +1,15 @@
 ---
 title: Language Reference
-url: https://www.arduino.cc/reference/en/
+url: /language-reference/
 external: true
 icon: IconArduino
 links:
   [
-    { title: "Serial", url: https://www.arduino.cc/reference/en/language/functions/communication/serial/ },
-    { title: "Wire", url: https://www.arduino.cc/reference/en/language/functions/communication/wire/ },
-    { title: "Print", url: https://www.arduino.cc/reference/en/language/functions/communication/print/ },
-    { title: "attachInterrupt()", url: https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/ },
-    { title: "pinMode()", url: https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/ },
-    { title: "String()", url: https://www.arduino.cc/reference/en/language/variables/data-types/stringobject/ },
+    { title: "Serial", url: https://docs.arduino.cc/language-reference/en/functions/communication/serial/ },
+    { title: "Wire", url: https://docs.arduino.cc/language-reference/en/functions/communication/wire/ },
+    { title: "Print", url: https://docs.arduino.cc/language-reference/en/functions/communication/print/ },
+    { title: "attachInterrupt()", url: https://docs.arduino.cc/language-reference/en/functions/external-interrupts/attachInterrupt/ },
+    { title: "pinMode()", url: https://docs.arduino.cc/language-reference/en/functions/digital-io/pinMode/ },
+    { title: "String()", url: https://docs.arduino.cc/language-reference/en/variables/data-types/stringObject/ },
   ]
 ---

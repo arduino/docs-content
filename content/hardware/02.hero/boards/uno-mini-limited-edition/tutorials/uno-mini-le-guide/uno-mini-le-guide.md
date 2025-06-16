@@ -21,7 +21,7 @@ The [Arduino UNO Mini LE](https://store.arduino.cc/uno-mini-le) is a great littl
 
 In this guide, we will go through some requirements, installation instructions, ideas for projects and some technical specifications. If you want to visit the official documentation for this board, you click on the link below:
 
-- [Official documentation for Arduino UNO Mini LE.](/hardware/uno-mini-le).
+- [Official documentation for Arduino UNO Mini LE.](/hardware/uno-mini-limited-edition).
 
 ## Goals
 
@@ -51,11 +51,11 @@ The UNO Mini LE can be programmed through the **Arduino IDE 2**. To install your
 
 - [How to use the board manager with the Arduino IDE 2](/software/ide-v2/tutorials/ide-v2-board-manager)
 
-### Web Editor
+### Cloud Editor
 
-The UNO Mini LE can be programmed through the **Web Editor**. To get started with your board, you will only need to install a plugin, which is explained in the guide below:
+The UNO Mini LE can be programmed through the **Cloud Editor**. To get started with your board, you will only need to install a plugin, which is explained in the guide below:
 
-- [Getting started with the Web Editor](/arduino-cloud/getting-started/getting-started-web-editor)
+- [Getting started with the Cloud Editor](/arduino-cloud/getting-started/getting-started-web-editor)
 
 ## The Blink Example
 
@@ -88,7 +88,7 @@ When the upload is finished, the **built-in LED** will turn on and off every one
 
 In this section, we will explore some of the technical aspects of the UNO Mini LE, such as pinout, datasheet, schematics and external power sources.
 
-These are also available from the [official documentation for the UNO Mini LE board](/hardware/uno-mini-le).
+These are also available from the [official documentation for the UNO Mini LE board](/hardware/uno-mini-limited-edition).
 
 ### Pitch
 
@@ -103,15 +103,15 @@ The pitch (distance between pin holes) is 0.05", or 1.27 mm. This is half the di
 
 ![Arduino UNO Mini LE Pinout](assets/ABX00062-pinout.png)
 
-***If you want a more detailed pinout, please refer to the [UNO Mini LE Resources](/hardware/uno-mini-le#resources) section in the documentation.***
+***If you want a more detailed pinout, please refer to the [UNO Mini LE Resources](/hardware/uno-mini-limited-edition#resources) section in the documentation.***
 
 ### Datasheet
 
-The UNO Mini LE has an in-depth datasheet that covers all of the technical aspects of the board. You can download from the resources section in the [UNO Mini LE's documentation page](/hardware/uno-mini-le#resources).
+The UNO Mini LE has an in-depth datasheet that covers all of the technical aspects of the board. You can download from the resources section in the [UNO Mini LE's documentation page](/hardware/uno-mini-limited-edition#resources).
 
 ### Schematics
 
-The schematics for this board is available through an interactive viewer in the [resources section](/hardware/uno-mini-le#resources) of the UNO Mini LE's documentation page.
+The schematics for this board is available through an interactive viewer in the [resources section](/hardware/uno-mini-limited-edition#resources) of the UNO Mini LE's documentation page.
 
 ### External Power
 

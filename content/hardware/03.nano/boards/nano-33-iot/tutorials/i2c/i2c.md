@@ -80,7 +80,7 @@ To finish, we need to connect the GND pins of both boards to each other.
 
 **1. Setting up** 
 
-First start by connecting your Arduino Nano 33 IoT board to the computer and opening the Arduino Create Web Editor. This board will act as the reader. Start a new sketch and name it **Nano_I2C_Reader**. 
+First start by connecting your Arduino Nano 33 IoT board to the computer and opening the Arduino Create Cloud Editor. This board will act as the reader. Start a new sketch and name it **Nano_I2C_Reader**. 
 
 **2. Reader code explanation**
 

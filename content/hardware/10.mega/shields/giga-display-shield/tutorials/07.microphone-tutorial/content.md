@@ -209,6 +209,7 @@ short sampleBuffer[512];
 volatile int samplesRead;
 
 void setup() {
+  delay(3000);
   Display.begin();
   Display.beginDraw();
   Display.background(255, 255, 255);
@@ -316,6 +317,7 @@ lv_anim_t a;
 int micValue;
 
 void setup() {
+  delay(3000);
   Display.begin();
 
   PDM.onReceive(onPDMdata);

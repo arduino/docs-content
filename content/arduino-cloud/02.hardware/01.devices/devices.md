@@ -10,10 +10,20 @@ The Arduino Cloud supports a range of official and third-party boards which are 
 Currently, the following device types are supported:
 - Wi-Fi® with encryption through on-board crypto chip
 - Wi-Fi® through ESP32 with user credentials
-- LoRaWAN®
+- LoRa®-enabled devices
 - Ethernet
 - Cellular (GSM / NB-IoT)
 - Manual (Python, MicroPython, JavaScript)
+
+| **Type**                                                   | **Arduino Boards**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **[WiFi](/arduino-cloud/hardware/wifi/)**                  | [MKR 1000](https://store.arduino.cc/arduino-mkr1000-wifi), [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010), [Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot), [Portenta H7](https://store.arduino.cc/portenta-h7), [Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect), [Nicla Vision](https://store.arduino.cc/products/nicla-vision), [OPTA WiFi](https://store.arduino.cc/products/opta-wifi), [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi), [Portenta C33](https://store.arduino.cc/products/portenta-c33), [UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi), [Nano ESP32](https://store.arduino.cc/products/nano-esp32), [ESP8266](https://github.com/esp8266/Arduino/releases/tag/2.5.0), [ESP32](https://github.com/espressif/arduino-esp32/releases/tag/2.0.5) |
+| **[GSM](/arduino-cloud/hardware/cellular/)**               | [MKR GSM 1400](https://store.arduino.cc/arduino-mkr-gsm-1400-1415)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **[5G](/arduino-cloud/hardware/cellular/)**                | [MKR NB 1500](https://store.arduino.cc/arduino-mkr-nb-1500-1413)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **[LoRa®-enabled Devices](/arduino-cloud/hardware/lora/)** | [MKR WAN 1300/1310](https://store.arduino.cc/mkr-wan-1310)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **[Ethernet](/arduino-cloud/hardware/ethernet/)**          | [Portenta H7](https://store.arduino.cc/products/portenta-h7) + [Vision Shield Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet), [Max Carrier](https://store.arduino.cc/products/portenta-max-carrier), [Breakout](https://store.arduino.cc/products/arduino-portenta-breakout), [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control), [OPTA WiFi](https://store.arduino.cc/products/opta-wifi), [OPTA RS485](https://store.arduino.cc/products/opta-rs485), [OPTA Lite](https://store.arduino.cc/products/opta-lite), [Portenta C33](https://store.arduino.cc/products/portenta-c33) + [Vision Shield Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet)                                                                                         |
+
+***Check the GitHub repository [here](https://github.com/arduino-libraries/ArduinoIoTCloud?tab=readme-ov-file#what).*** 
 
 ## Configure a Device
 
@@ -40,13 +50,13 @@ Wi-Fi devices require you to enter valid credentials for the Wi-Fi network you a
 
 ***Read more and see the list of all compatible Wi-Fi® boards in the [Arduino Cloud Wi-Fi documentation](/arduino-cloud/hardware/wifi).***
 
-### Official LoRaWAN® Boards
+### Official LoRa®-enabled Devices
 
-LoRaWAN® boards also have a crypto chip on board but connect to the Arduino Cloud through nearby LoRaWAN® gateways. LoRaWAN® devices are designed to use minimal power and transmit over longer ranges, hence the name:
-- **LoRa®** - long-range technology used for transmission of data using minimal amounts of power for long distances.
-- **LoRaWAN®** - a network of gateways connected to the Internet that can receive and send data to LoRa® devices.
+LoRa®-enabled devices also have a crypto chip on board but connect to the Arduino Cloud through nearby LoRa gateways. LoRa-enabled Devices are designed to use minimal power and transmit over longer ranges, hence the name:
+- **LoRa® technology** - long-range technology used for transmission of data using minimal amounts of power for long distances.
+- **LoRa®-based network** - a network of gateways connected to the Internet that can receive and send data to LoRa devices.
 
-***Read more and see the list of all compatible LoRa® boards in the [Arduino Cloud LoRaWAN® documentation](/arduino-cloud/hardware/lora).***
+***Read more and see the list of all compatible LoRa®-enabled Devices in [this documentation](/arduino-cloud/hardware/lora).***
 
 ### ESP32 / ESP8266 (Wi-Fi®)
 
@@ -88,7 +98,7 @@ A device's information can be accessed directly in the Arduino Cloud under **"De
 
 - **ID** - your device's ID, mainly needed for manual device connection.
 - **Type** - name / type of board, e.g. MKR WiFi 1010.
-- **Connection Type** - e.g. Wi-Fi®, LoRaWAN®.
+- **Connection Type** - e.g. Wi-Fi®, LoRa®-based network.
 - **FQBN** - fully qualified board name, used for compilation for a specific board, e.g. `arduino:samd:mkrwifi1010`.
 - **Serial Number** - when configuring an official board, the serial number will be registered.
 - **Connectivity Module Firmware** - for Wi-Fi® boards only, the current firmware on the board's radio module.
@@ -101,4 +111,8 @@ A device's information can be accessed directly in the Arduino Cloud under **"De
 
 All hardware devices connecting to the Arduino Cloud use the following libraries:
 - [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud) - main library for Arduino Cloud, including methods for sending and receiving data, handling callbacks etc. Either via TCP/IP or LPWAN.
-- [Arduino_ConnectionHandler](https://github.com/arduino-libraries/Arduino_ConnectionHandler) - library for handling connection methods to the Arduino Cloud (Wi-Fi®, LoRaWAN®, Ethernet, NB-IoT, GSM).
+- [Arduino_ConnectionHandler](https://github.com/arduino-libraries/Arduino_ConnectionHandler) - library for handling connection methods to the Arduino Cloud (Wi-Fi®, LoRa®-based network, Ethernet, NB-IoT, GSM).
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

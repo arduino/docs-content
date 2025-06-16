@@ -23,7 +23,7 @@ The phone's sensor data is automatically stored in Cloud variables, which you ca
 
 To use the Arduino IoT Remote app, visit Google Play / App Store and search for **"Arduino IoT Remote"**. Links are available just above.
 
-***NOTE: The IoT Remote app requires iOS 12.4 or later for iOS the version. If you are using Android, version 8.0 or later is required. Make sure the iOS or Android version on your device is up to date before downloading the app.***
+***NOTE: The IoT Remote app requires iOS 15.1 or later for iOS the version. If you are using Android, version 8.0 or later is required. Make sure the iOS or Android version on your device is up to date before downloading the app.***
 
 After installing the app, you will need to log in to your Arduino account. If you do not have one, you can [sign up here](https://login.arduino.cc/login).
 
@@ -37,6 +37,12 @@ You can change between the default (light) to the dark theme, by navigating to *
 
 ![Change theme (light/dark)](assets/app-theme.png)
 
+## Edit Dashboards
+
+You can also edit your dashboards directly from the IoT Remote app. Simply select one of your existing dashboards, press three dots in the upper right corner, and click on "Rearrange". To move widgets around press and hold them until they appear in a light blue color. To resize them hold and drag on of the corners and resize to the size you want.
+
+
+![Edit Mode](./assets/edit-dashbaord.png)
 
 ## Access Phone Sensor Data
 

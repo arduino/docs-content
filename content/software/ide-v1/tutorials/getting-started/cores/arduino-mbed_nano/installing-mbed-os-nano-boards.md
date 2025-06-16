@@ -12,7 +12,7 @@ In this tutorial, we will go through a few simple steps on installing the core n
 
 This tutorial uses the **Arduino IDE**. You can download the editor easily from [our software page](https://www.arduino.cc/en/software).
 
-If you are using the **Web Editor**, you can follow the [getting started with the Web Editor tutorial](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor).
+If you are using the **Cloud Editor**, you can follow the [getting started with the Cloud Editor tutorial](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor).
 
 ### Boards using the Mbed core
 

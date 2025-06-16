@@ -14,10 +14,10 @@ jobs:
     name: Spell Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Run spell check
         run: |
-          pip install codespell
+          pip install codespell==2.3.0
           codespell -I "scripts/resources/spell-check-ignore-list.txt" --skip="*.svg,*.dxf,*.pdf" ./content/
 
   lint:
@@ -28,7 +28,7 @@ jobs:
         node_version: [14]
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
 
       - name: Run linter
         run: |
