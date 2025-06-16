@@ -44,11 +44,11 @@ To install your board, you can check out the guides below:
 - [Installing the Arduino Mbed OS Portenta Boards core](/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta)
 - [How to use the board manager with the Arduino IDE 2](https://www.arduino.cc/en/Tutorial/getting-started-with-ide-v2/ide-v2-board-manager)
 
-### Web Editor
+### Cloud Editor
 
-The board can be programmed through the **Web Editor**. To get started with your board, you will only need to install a plug-in, which is explained in the guide below:
+The board can be programmed through the **Cloud Editor**. To get started with your board, you will only need to install a plug-in, which is explained in the guide below:
 
-- [Getting started with the Web Editor](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)
+- [Getting started with the Cloud Editor](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)
 
 ## Pins
 
@@ -129,6 +129,8 @@ If you leave the frequency band `BAND_#` field blank for the `GSM.begin(PIN, APN
 Each country has a compatible frequency band, so it is a good practice to check the if desired band is suitable for its region. You can check the frequency band compatibility of the region by using a website that compiles network status such as [here](https://www.frequencycheck.com/countries).
 
 #### Connect to Your Provider
+
+***__Please be aware that the Portenta Cat. M1/NB IoT GNSS Shield is not certified as an End-Device by all cellular network providers__. If you encounter difficulties with network connection, we recommend checking with your service provider to verify if End-Device certification is required for network access. Switching to a provider that does not have such requirements may resolve these issues. We advise reviewing this compatibility information during setup to ensure optimal device performance and to prevent potential service interruptions.***
 
 You need to enter the Pin code and the APN link of your provider.
 

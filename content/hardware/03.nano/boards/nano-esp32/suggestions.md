@@ -1,5 +1,5 @@
 <EssentialsColumn title="Tutorials for Nano ESP32">
-<EssentialElement title="Nano ESP32 Cheat Sheet" type="tutorial" link="/tutorials/nano-esp32/cheat-sheet">
+<EssentialElement title="User Manual" type="tutorial" link="/tutorials/nano-esp32/cheat-sheet">
     A technical reference to the Nano ESP32 board.
   </EssentialElement>
 

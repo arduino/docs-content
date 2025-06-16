@@ -1,11 +1,11 @@
 software:
   - arduino-ide
   - arduino-cli
-  - web-editor
+  - cloud-editor
 hardware:
   shields: ~
   carriers: ~
-  boards: 
+  boards:
     - nano-33-iot
     - nano
     - nano-33-ble-sense

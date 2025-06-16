@@ -16,7 +16,7 @@ This example shows how to use the tone() command to generate a pitch that follow
 
 ### Hardware Required
 
-- Arduino board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - 8 ohm speaker
 

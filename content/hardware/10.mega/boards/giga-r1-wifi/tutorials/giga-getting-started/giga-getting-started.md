@@ -20,7 +20,7 @@ To install it, you will need a version of the Arduino IDE, which you can downloa
 - [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi)
 - [Arduino IDE](https://docs.arduino.cc/software/ide-v2)
 
-***You can also use the [Web Editor](https://create.arduino.cc/editor) which comes with all Arduino boards pre-installed.*** 
+***You can also use the [Cloud Editor](https://create.arduino.cc/editor) which comes with all Arduino boards pre-installed.*** 
 
 ## Download & Install IDE
 

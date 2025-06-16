@@ -29,7 +29,7 @@ You will learn to set up and access a WordPress site hosted on the X8 via a web 
 ### Required Hardware and Software
 
 - [Portenta X8](https://store.arduino.cc/products/portenta-x8)
-- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - The [docker-compose.yml](assets/docker-compose.rar) file used in this tutorial
 
 ## Instructions
@@ -134,7 +134,7 @@ The `-d` flag runs the containers in the background; omitting it will tie the co
 The installation of the **WordPress** and **MariaDB** containers will begin and may take some time. To monitor the installation process, use:
 
 ```bash
-docker-compose logs -f
+docker compose logs -f
 ```
 
 Upon completion, your WordPress site will be accessible from the Portenta X8.
@@ -187,6 +187,6 @@ In this tutorial, we went through installing and running a WordPress and databas
 
 - If the containers are not being installed or running correctly, check if any other containers are currently running on the same ports as the ones used by the WordPress container. You can check it with ``docker ps -a``.
 
-- If there is any issue running docker commands, ensure you are using ``sudo`` before the commands or having root access using: ``sudo su -r`` with password: ``fio``.
+- If there is any issue running docker commands, ensure you are using ``sudo`` before the commands or having root access using: ``sudo su -r`` with the password you selected at first access.
 
 - If you cannot connect to the site when everything is running, you can double-check the X8's IP address. Run the command `ip -h address` in the **adb shell**. This will display the X8's IP address via USB and Wi-Fi®. Try connecting via those IP addresses if all the rest fails.

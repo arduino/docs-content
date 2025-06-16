@@ -9,12 +9,20 @@
 
 # LoRa® / LoRaWAN® rule
 # Avoids false positives by excluding the word in conjunction with a dash (e.g. URLs) and as part of code)
-- regex: "((?<![a-zA-Z]|[0-9])(?<=\\s)((lora(?:WAN|\\sAlliance)?))(?!®|[a-zA-Z]))|((?<![a-zA-Z]|[0-9])(?<=\\s)((((?<=(Lora\\s|loRa\\s|lora\\s))Alliance)|(?<=(Lora|loRa|lora)[wW][aA][nN])))(?=®))"
+# - regex: "((?<![a-zA-Z]|[0-9])(?<=\\s)((lora(?:WAN|\\sAlliance)?))(?!®|[a-zA-Z]))|((?<![a-zA-Z]|[0-9])(?<=\\s)((((?<=(Lora\\s|loRa\\s|lora\\s))Alliance)|(?<=(Lora|loRa|lora)[wW][aA][nN])))(?=®))"
+#  shouldMatch: false
+#  includeCodeBlocks: false
+#  format: markdown
+#  type: warning
+#  errorMessage: The LoRa® / LoRaWAN® trademark is not used correctly.
+
+# LoRa® rule (Post February, 2025 - Use of LoRaWAN® is not allowed)  
+- regex: "(?<![a-zA-Z0-9])(?<=\\s)(lora)(?!®|[a-zA-Z0-9])(?!.*\\1®)|(?<![a-zA-Z0-9])(?<=\\s)(lorawan)(?![a-zA-Z0-9])"
   shouldMatch: false
   includeCodeBlocks: false
   format: markdown
   type: warning
-  errorMessage: The LoRa® / LoRaWAN® trademark is not used correctly.
+  errorMessage: The LoRa® trademark is not used correctly or the first occurrence of LoRa® must include the ® symbol. LoRaWAN should not be used.
 
 # USB-C® / USB Type-C® / USB4® rule
 - regex: "((?<![a-zA-Z]|[0-9])(?<=\\s)(?:USB-C|USB\\sType[-]C|USB4)(?!®|[a-zA-Z]))"

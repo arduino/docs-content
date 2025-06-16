@@ -24,3 +24,10 @@ Gain direct access to the TX62 hardware using the various pads provided on the s
 </Feature>
 
 </FeatureList>
+
+<FeatureDescription>
+  <br></br>
+
+  **Service Provider Compatibility and End-Device Certification:** Please be aware that the Portenta Cat. M1/NB IoT GNSS Shield is not certified as an End-Device by all cellular network providers. If you encounter difficulties with network connection, we recommend checking with your service provider to verify if End-Device certification is required for network access. Switching to a provider that does not have such requirements may resolve these issues. We advise reviewing this compatibility information during setup to ensure optimal device performance and to prevent potential service interruptions.
+
+</FeatureDescription>

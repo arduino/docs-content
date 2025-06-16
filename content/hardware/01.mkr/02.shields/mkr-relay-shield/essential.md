@@ -1,3 +1,9 @@
+---
+productsLibrariesMap:
+  - mkrgsm
+  - arduino-low-power
+---
+
 <EssentialsColumn title="First Steps">
   <EssentialElement title="Quickstart Guide" type="getting-started" link="/tutorials/mkr-relay-proto-shield/mkr-relay-shield-basic">
     All you need to know to get started with your new Arduino Shield.
@@ -5,15 +11,9 @@
 
 </EssentialsColumn>
 
-<EssentialsColumn title="Suggested Libraries">
-<EssentialElement>
-The MKR Relay Shield requires no external libraries.
-</EssentialElement>
-</EssentialsColumn>
-
 <EssentialsColumn title="Arduino Basics">
   <EssentialElement title="Built-in Examples" type="tutorial" link="/built-in-examples/">
-    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands. 
+    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands.
   </EssentialElement>
   <EssentialElement title="Learn" type="resource" link="/learn/">
     Discover interesting articles, principles and techniques related to the Arduino ecosystem.

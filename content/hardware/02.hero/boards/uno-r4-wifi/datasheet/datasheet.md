@@ -43,7 +43,7 @@ The **R7FA4M1AB3CFM#AA0**, often referred to as RA4M1 in this datasheet, is the 
 * **Communication**
   * 1x UART (pin D0, D1)
   * 1x SPI (pin D10-D13, ICSP header)
-  * 1x I2C (pin A4, A5, SDA, SCL)
+  * 2x I2C (pin A4, A5, SDA, SCL), (Qwiic connector)
   * 1x CAN (pin D4, D5, external transceiver is required)
 
 See the full datasheet for the R7FA4M1AB3CFM#AA0 in the link below:
@@ -110,7 +110,7 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 
 ### Front View
 
-![Top View of Arduino UNO R4 WiFi](assets/topViewWiFi.svg)
+![Top View of Arduino UNO R4 WiFi](assets/topViewWiFi.png)
 
 | **Ref.**    | **Description**                                  |
 | ----------- | ------------------------------------------------ |
@@ -127,7 +127,7 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 | JDIGITAL    | Digital input/output headers                     |
 | JOFF        | OFF, VRTC header                                 |
 | J1          | CX90B-16P USB-C® connector                       |
-| J2          | SM04B-SRSS-TB(LF)(SN) I2C connector              |
+| J2          | Qwiic Connector for I2C communication protocol   |
 | J3          | ICSP header (SPI)                                |
 | J5          | DC Jack                                          |
 | J6          | ESP header                                       |
@@ -232,13 +232,13 @@ The UNO R4 WiFi has a DAC with up to 12-bit resolution attached to the A0 analog
 
 The DAC can be used for signal generation for e.g. audio applications, like generating and altering sawtooth waves.
 
-## I2C Connector
+## Qwiic I2C Connector
 
-The I2C connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. Note that this connector is powered via 3.3 V.
+The I2C Qwiic connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. Note that this connector is powered via 3.3 V.
 
-![I2C connector.](assets/i2c-connector.png)
+![I2C Qwiic connector.](assets/i2c-connector.png)
 
-This connector also shares the following pin connections:
+The standard I2C is accessible through the following pin connections:
 
 **JANALOG header**
 - A4
@@ -349,7 +349,7 @@ For powering e.g. servo motors, always use an external power supply.
 
 ## Mounting Holes And Board Outline
 
-![Top side Mechanical View of Arduino UNO R4 WiFi](assets/mechanicalDrawingwWiFi.svg)
+![Top side Mechanical View of Arduino UNO R4 WiFi](assets/mechanicalDrawingWiFi.png)
 
 ## Board Operation
 
@@ -357,11 +357,11 @@ For powering e.g. servo motors, always use an external power supply.
 
 If you want to program your UNO R4 WiFi while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the UNO R4 WiFi to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin.
+All Arduino boards, including this one, work out-of-the-box on the Arduino® Cloud Editor **[2]**, by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 
@@ -491,6 +491,9 @@ This equipment contains a radio transmitter module with model approval code: CMI
 
 | Date       | **Revision** | **Changes**        |
 | ---------- | ------------ | ------------------ |
+| 09/04/2025 | 7            | Fixed I2C information |
+| 05/09/2024 | 6            | Cloud Editor updated from Web Editor |
+| 03/07/2024 | 5            | Update Assets      |
 | 19/09/2023 | 4            | Update FCC section |
 | 25/07/2023 | 3            | Update Pin Table   |
 | 30/06/2023 | 2            | Update Pinout File |
@@ -536,7 +539,7 @@ RA4M1的工作电压固定为5V，而ESP32-S3模块为3.3V。这两个MCU之间�
 * **通信**
   * 1个UART（引脚D0、D1）
   * 1个SPI（引脚D10-D13，ICSP针座）
-  * 1个I2C（引脚A4、A5、SDA、SCL）
+  * 2个I2C（引脚A4、A5、SDA、SCL, (Qwiic connector)
   * 1个CAN（引脚D4、D5，需要外部收发器）
 
 请通过以下链接查看 R7FA4M1AB3CFM#AA0 的完整数据表：
@@ -603,7 +606,7 @@ UNO R4 WiFi是第一代32位开发板的一部分, 之前基于8位AVR微控制�
 
 ### 正视图
 
-![Arduino UNO R4 WiFi 的正视图](assets/topViewWiFi.svg)
+![Arduino UNO R4 WiFi 的正视图](assets/topViewWiFi.png)
 
 | **参考**      | **描述**                                  |
 | ------------ | ----------------------------------------- |
@@ -843,7 +846,7 @@ R7FA4M1AB3CFM#AA0微控制器上的GPIO可安全处理高达8mA的电流。切�
 
 ## 安装孔和开发板轮廓
 
-![Arduino UNO R4 WiFi 的顶部机械视图](assets/mechanicalDrawingwWiFi.svg)
+![Arduino UNO R4 WiFi 的顶部机械视图](assets/mechanicalDrawingWiFi.png)
 
 ## 开发板操作
 
@@ -851,11 +854,11 @@ R7FA4M1AB3CFM#AA0微控制器上的GPIO可安全处理高达8mA的电流。切�
 
 如果您想在离线状态下对UNO R4 WiFi进行编程，则需要安装Arduino® Desktop IDE **[1]**。要将UNO R4 WiFi连接到计算机，您需要使用Type-C® USB电缆，该电缆还可为开发板供电，LED 指示灯 (DL1) 即可显示。
 
-### 入门 - Arduino Web Editor
+### 入门 - Arduino Cloud Editor
 
-只需安装一个简单的插件，包括本板在内的所有Arduino板都能在Arduino® Web Editor **[2]**上即插即用。
+只需安装一个简单的插件，包括本板在内的所有Arduino板都能在Arduino® Cloud Editor **[2]**上即插即用。
 
-Arduino Web Editor是在线托管的，因此它总是与最新的功能和对所有板的支持保持同步。按照 **[3]** 开始在浏览器上编码，并将草图上传到开发板上。
+Arduino Cloud Editor是在线托管的，因此它总是与最新的功能和对所有板的支持保持同步。按照 **[3]** 开始在浏览器上编码，并将草图上传到开发板上。
 
 ### 入门 - Arduino Cloud
 
@@ -976,6 +979,8 @@ Arduino S.r.l.特此声明，本产品符合欧盟指令 2014/53/EU 的基本要
 
 | 日期       | ** **修订版** ** | **变更内容**  |
 | ---------- | ---------------- | ------------- |
+| 05/09/2024 | 6                | 从web编辑器更新为云编辑器      |
+| 03/07/2024 | 5                | 一般更新      |
 | 19/09/2023 | 4                | 更新 FCC 部分 |
 | 25/07/2023 | 3                | 更新引脚表    |
 | 30/06/2023 | 2                | 更新引脚文件  |

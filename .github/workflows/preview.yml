@@ -1,0 +1,138 @@
+name: Preview Deployment
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, labeled]
+
+concurrency:
+  group: netlify-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  run:
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'preview') || github.ref_name == 'main' }}
+    runs-on: ubuntu-latest
+    concurrency:
+      group: netlify
+      cancel-in-progress: false
+    env:
+      REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+      APP_ENV: staging
+      BRANCH_NAME: ${{ github.ref_name }}
+
+    steps:
+
+      - name: Find PR Preview Comment
+        if: github.event_name == 'pull_request'
+        uses: peter-evans/find-comment@v1
+        id: deploy-preview-comment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: "github-actions[bot]"
+          body-includes: "Preview Deployment"
+
+      - name: Update Comment if exists
+        if: github.event_name == 'pull_request' && steps.deploy-preview-comment.outputs.comment-id != 0
+        uses: peter-evans/create-or-update-comment@v1.4.5
+        with:
+          comment-id: ${{ steps.deploy-preview-comment.outputs.comment-id }}
+          edit-mode: replace
+          body: |
+            ## Preview Deployment
+            Waiting for deployment to complete...
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: "npm"
+          cache-dependency-path: "**/package-lock.json"
+
+      - name: Render Datasheets
+        run: cd ${GITHUB_WORKSPACE}/scripts/datasheet-rendering;./render-datasheets.sh
+
+      - name: Copy Static Files
+        run: |
+          mkdir -p static/resources/datasheets static/resources/schematics static/resources/pinouts static/resources/models
+          find ./content/hardware -type f -name "*-schematics.pdf" -exec cp {} ./static/resources/schematics/ \;
+          find ./content/hardware -type f -name "*-datasheet.pdf" -exec cp {} ./static/resources/datasheets/ \;
+          find ./content/hardware -type f -name "*-full-pinout.pdf" -exec cp {} ./static/resources/pinouts/ \;
+          find ./content/hardware -type f -name "*-pinout.png" -exec cp {} ./static/resources/pinouts/ \;
+          find ./content/hardware -type f -name "*-step.zip" -exec cp {} ./static/resources/models/ \;
+
+      - name: Gatsby main cache
+        uses: actions/cache@v4
+        id: gatsby-cache-folder
+        with:
+          path: .cache
+          key: ${{ runner.os }}-cache-gatsby-${{ github.ref_name }}
+          restore-keys: |
+            ${{ runner.os }}-cache-gatsby-main
+
+      - name: Gatsby Public Folder
+        uses: actions/cache@v4
+        id: gatsby-public-folder
+        with:
+          path: public/
+          key: ${{ runner.os }}-public-gatsby-${{ github.ref_name }}
+          restore-keys: |
+            ${{ runner.os }}-public-gatsby-main
+
+      - run: npm install
+      - run: npm run build
+
+      - name: Install Netlify
+        run: npm install netlify-cli@17.23.2 -g
+
+      - name: Deploy to Netlify Preview
+        if: github.event_name == 'pull_request'
+        run: |
+          netlify deploy \
+            --dir public \
+            --site ${{ secrets.NETLIFY_SITE_ID }} \
+            --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} \
+            --json \
+            > deploy_output.json
+
+      - name: Deploy to Netlify Prod
+        if: github.event_name != 'pull_request'
+        run: |
+          netlify deploy \
+            --prod \
+            --dir public \
+            --site ${{ secrets.NETLIFY_SITE_ID }} \
+            --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} \
+            --json \
+            > deploy_output.json
+
+      - name: Generate URL Preview
+        if: github.event_name == 'pull_request'
+        id: url_preview
+        run: |
+          NETLIFY_PREVIEW_URL=$(jq -r '.deploy_url' deploy_output.json)
+          echo "NETLIFY_PREVIEW_URL=$NETLIFY_PREVIEW_URL" >> "$GITHUB_OUTPUT"
+
+      - name: Create PR Preview Comment
+        if: github.event_name == 'pull_request' && steps.deploy-preview-comment.outputs.comment-id == 0
+        uses: peter-evans/create-or-update-comment@v1.4.5
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            ## Preview Deployment
+            🚀 Preview this PR: ${{ steps.url_preview.outputs.NETLIFY_PREVIEW_URL }}
+            📍 Commit SHA: ${{ github.sha }}
+
+      - name: Update PR Preview Comment
+        if: github.event_name == 'pull_request' && steps.deploy-preview-comment.outputs.comment-id != 0
+        uses: peter-evans/create-or-update-comment@v1.4.5
+        with:
+          comment-id: ${{ steps.deploy-preview-comment.outputs.comment-id }}
+          edit-mode: replace
+          body: |
+            ## Preview Deployment
+            🚀 Preview this PR: ${{ steps.url_preview.outputs.NETLIFY_PREVIEW_URL }}
+            📍 Commit SHA: ${{ github.sha }}

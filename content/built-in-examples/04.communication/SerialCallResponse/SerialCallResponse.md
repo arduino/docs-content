@@ -19,7 +19,7 @@ You can use the Arduino Software (IDE) serial monitor to view the sent data, or 
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - 2 analog sensors (potentiometer, photocell, FSR, etc.)
 

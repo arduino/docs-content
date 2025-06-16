@@ -1,0 +1,13 @@
+Carrier:
+  Name: Arduino® Nano Connector Carrier
+  SKU: ASX00061
+GROVE Connectors:
+  analog/digital I/O: 2
+  I2C: Yes 
+  UART: Yes 
+QWIIC Connector: Yes, I2C
+External memory: SD card Reader
+I/O Voltage: Switch between 3.3v and 5V
+Dimensions:
+  Width: 28 mm
+  Length: 43 mm

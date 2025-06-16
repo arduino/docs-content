@@ -1,5 +1,5 @@
 ---
-title: Opta Digital Expansion
+title: Opta Digital Expansion D1608E - D1608S
 url_shop: https://store.arduino.cc/collections/pro-family
 url_guide: /tutorials/opta-digital-exp/user-manual
 primary_button_url: /tutorials/opta/user-manual#opta-digital-expansions
@@ -11,4 +11,4 @@ certifications: [FCC, CE, UKCA]
 sku: [AFX00005, AFX00006]
 ---
 
-The **Arduino Opta® Digital Expansion** is a plug-and-play extension to the **Opta® PLC Controller** that expands its capabilities with more inputs and outputs. Two variants are available: the AFX00005 - Opta Ext D1608E (with Electromechanical Relays) and the AFX00006 - Opta Ext D1608S (with Solid State Relays), both of them fully compatible with the Arduino Ecosystem.
+The **Arduino Opta® Digital Expansion D1608E** and the **Arduino Opta® Digital Expansion D1608S** are plug-and-play extensions for the Opta® PLC controller, designed to enhance its functionality with additional inputs and outputs. These expansions come in two variants: the AFX00005 - Opta Ext D1608E (with electromechanical relays) and the AFX00006 - Opta Ext D1608S (with solid state relays), both fully compatible with the Arduino ecosystem.

@@ -11,8 +11,8 @@ certifications: [CE, UKCA]
 sku: [TPX00095, TPX00096, TPX00097]
 ---
 
-The WisGate Edge Pro gateway for LoRaWAN® embeds RAKWireless<sup>TM</sup> technology and allows to set up professional applications.
+The WisGate Edge Pro gateway, featuring RAKWireless<sup>TM</sup> technology, is designed for professional applications using LoRa® technology.
 
-Different models (SKU) are compatible with three radio frequencies adopted in different regions of the world: Europe, United States, Australia and New Zealand*
+Different models (SKU) are compatible with three radio frequency bands adopted in different regions: Europe, United States, Australia and New Zealand*.
 
 >(*) The user is responsible for respecting the local regulations of the country of installation and use the model with the approved frequency spectrum only

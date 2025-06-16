@@ -42,6 +42,7 @@ Let's first draw the background of the image. Start by initializing the display 
 
 ```arduino
 void setup() {
+  delay(3000);
   Display.begin();
   
   Display.beginDraw();
@@ -97,6 +98,7 @@ Arduino_H7_Video Display(800, 480, GigaDisplayShield);
 //Arduino_H7_Video Display(1024, 768, USBCVideo);
 
 void setup() {
+  delay(3000);
   Display.begin();
   
   Display.beginDraw();
@@ -193,6 +195,7 @@ Arduino_H7_Video Display(800, 480, GigaDisplayShield);
 Image img_arduinologo(ENCODING_RGB16, (uint8_t *) texture_raw, 300, 300);
 
 void setup() {
+  delay(3000);
   Display.begin();
 
   Display.beginDraw();

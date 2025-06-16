@@ -68,7 +68,7 @@ The following image shows the Portenta Max Carrier's power inputs:
 
 ![Portenta Max Carrier Power Inputs](assets/mc_ard_power.png)
 
-These power feed line options power up different peripherals and modules depending on the line configuration. The Portenta H7 powered by USB-C® cable attached to Portenta Max Carrier enables Audio, LoRa®, USB Hub, SD port, and Fieldbus. The Debugger is also enabled, and it is also possible to upload the code at the same time. This power line use case will be useful to develop and debug the code.
+These power feed line options power up different peripherals and modules depending on the line configuration. The Portenta H7 powered by USB-C® cable attached to Portenta Max Carrier enables Audio, LoRa® connectivity, USB Hub, SD port and Fieldbus. The Debugger is also enabled, and it is also possible to upload the code at the same time. This power line use case will be useful to develop and debug the code.
 
 **If the Arduino IDE throws an error failing to upload the code, please set the Portenta H7 in Bootloader Mode before uploading.**
 
@@ -133,19 +133,21 @@ The Portenta Max Carrier equips two different memory units onboard: Flash Memory
 
 #### 1.4. Wireless Connectivity
 
-The Portenta Max Carrier has on-board Murata CMWX1ZZABZ-078 LoRaWAN® Module and SARA-R412M-02B Cell Modem shown in the following image below:
+The Portenta Max Carrier has on-board Murata CMWX1ZZABZ-078 LPWAN Module and SARA-R412M-02B Cell Modem shown in the following image below:
 
 ![Portenta Max Carrier Connectivity Module](assets/mc_ard_conn_module.png)
 
-#### LoRaWAN® Module - Murata CMWX1ZZABZ-078
+#### Murata CMWX1ZZABZ-078 LPWAN Module
 
-One of the notable features of Portenta Max Carrier is the Murata [CMWX1ZZABZ-078](https://www.murata.com/products/connectivitymodule/lpwa/overview/lineup/type-abz-078) that enables LoRaWAN® connectivity. LoRaWAN® is a Low Power Wide Area Network (LPWAN) designed to connect low-power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput.
+One of the notable features of Portenta Max Carrier is the Murata [CMWX1ZZABZ-078](https://www.murata.com/products/connectivitymodule/lpwa/overview/lineup/type-abz-078), which provides LoRa® technology connectivity. LoRa-based network is a type of Low Power Wide Area Network (LPWAN) designed to connect low-power devices to the Internet.
+
+It was developed to address the specific needs of Internet of Things (IoT) devices, including low power consumption and efficient data transmission over long distances.
 
 Depending on the region, it will require to use an appropriate antenna for the respective frequencies. The common frequencies are 915 MHz for North America and Australia, and 863 MHz for European region. Frequencies are on a range, so for example, Australian region is possible to use a 928 MHz compatible antenna and configuration.
 
-***For more in-depth information about LoRa® and LoRaWAN®, please read [The Arduino Guide to LoRa® and LoRaWAN®](https://docs.arduino.cc/learn/communication/lorawan-101).***
+***For more in-depth information about LoRa® and its networks, please refer to this [documentation](https://docs.arduino.cc/learn/communication/lorawan-101).***
 
-For the LoRa® Connection tutorial with in-depth details on how to power up the module and establish a connection to The Things Network (TTN), please go [here](https://docs.arduino.cc/tutorials/portenta-max-carrier/connecting-to-ttn) for more information.
+For the LoRa® connection tutorial with in-depth details on how to power up the module and establish a connection to The Things Network (TTN), please go [here](https://docs.arduino.cc/tutorials/portenta-max-carrier/connecting-to-ttn) for more information.
 
 #### Cell Modem - SARA-R412M-02B
 
@@ -161,7 +163,7 @@ We will use the `arduino_secrets.h` header file for the PIN and APN configuratio
 
 If you want to learn how to run a sketch with this library or how to switch between Cat M1 and NB IoT, please take a look at our [Portenta Max Carrier and Portenta H7 Cat M1/NB IoT tutorial](https://docs.arduino.cc/tutorials/portenta-max-carrier/catm1-and-nbiot)
 
-The antenna connectors for both LoRaWAN® and cellular modem with the microSIM slot are indicated in the following image:
+The antenna connectors for both LoRa® connectivity and cellular modem with the microSIM slot are indicated in the following image:
 
 ![Portenta Max Carrier Antenna Connectors and microSIM Slot](assets/mc_ard_antenna_sma.png)
 
@@ -197,7 +199,7 @@ The following image indicates the connectors that enable and allows to establish
 
 ### 2. Basic Setup of the Portenta Max Carrier
 
-The Portenta Max Carrier only requires the Portenta H7 as the main unit to be able to use it. External components are required to enable the onboard module's capability and correct operation, such as cellular modem and LoRaWAN® connectivity. As the Portenta H7 is the central control unit of the Portenta Max Carrier, it will need to have the latest **Arduino Mbed OS Portenta Core** installed.
+The Portenta Max Carrier only requires the Portenta H7 as the main unit to be able to use it. External components are required to enable the onboard module's capability and correct operation, such as cellular modem and LoRa® connectivity. As the Portenta H7 is the central control unit of the Portenta Max Carrier, it will need to have the latest **Arduino Mbed OS Portenta Core** installed.
 
 If it is not installed or requires an update, it is possible to navigate under **Tools > Board > Board Manager** and search for the `Arduino Mbed OS Portenta Core` and proceed with the update.
 
@@ -225,11 +227,11 @@ The Arduino IDE 2 allows the developers to design and upload the code to Portent
 
 ***If you want to know how to set up the Arduino IDE 2 adequately, please look into [Quick Guide to Arduino IDE 2](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing).***
 
-#### 4.2. Using Arduino Web Editor
+#### 4.2. Using Arduino Cloud Editor
 
-All Arduino boards work Out-of-the-Box with the Arduino Web Editor, and the Portenta H7 with Portenta Max Carrier is no exception. The Arduino Web Editor requires an online connection with an Arduino account and a simple plugin for development. The features are always up-to-date and support every Arduino board. By following this [link to Arduino® Web Editor](https://create.arduino.cc/editor), you will be able to access and begin developing the code.
+All Arduino boards work Out-of-the-Box with the Arduino Cloud Editor, and the Portenta H7 with Portenta Max Carrier is no exception. The Arduino Cloud Editor requires an online connection with an Arduino account and a simple plugin for development. The features are always up-to-date and support every Arduino board. By following this [link to Arduino® Cloud Editor](https://create.arduino.cc/editor), you will be able to access and begin developing the code.
 
-***If you want to know how to get started with Arduino Web Editor, please look into [Getting started with the Web Editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor).***
+***If you want to know how to get started with Arduino Cloud Editor, please look into [Getting started with the Cloud Editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor).***
 
 #### 4.3. Using Arduino Cloud
 
@@ -345,3 +347,7 @@ One may encounter issues setting up and initializing for the first time the Port
 - When sketch upload fails, please check if the Portenta H7 attached to Portenta Max Carrier is in bootloader mode. Double-press the RESET button and the Green LED will be waving, indicating it has entered bootloader mode. Please retry uploading the sketch afterward.
 
 - Verify that the BOOT DIP switch of the Portenta Max Carrier has been configured to an address. Otherwise, the paired Portenta H7 will go into bootloader mode after power-on and it will not initialize the program.
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

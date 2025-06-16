@@ -26,7 +26,7 @@ This tutorial will show you how to define fleets and how to construct a Wave tha
 ### Required Hardware and Software
 
 - [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
-- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - Arduino Create account
 - Arduino Cloud for business subscription with Portenta X8 Manager add-on: [Learn more about here](https://cloud.arduino.cc/plans#business)
 - Foundries.io™ account (linked with the Arduino Cloud for business subscription)
@@ -47,14 +47,16 @@ For security purposes, we recommend that you rotate your FoundriesFactory keys. 
 First, we will rotate the root keys. These are the most important keys, as they are used to create new target keys. Rotate them with the command:
 
 ```bash
-fioctl keys rotate-root --initial /absolute/path/to/root.keys.tgz
+fioctl keys tuf rotate-offline-keys -r root -k /absolute/path/to/root.keys.tgz
 ```
 
 Now we can rotate the target-only keys with following command:
 
 ```bash
-fioctl keys rotate-targets /absolute/path/to/root.keys.tgz
+fioctl keys tuf rotate-offline-keys -r targets -k /absolute/path/to/root.keys.tgz
 ```
+
+***The above commands have been updated from the older __fioctl keys rotate-root__ and __fioctl keys rotate-targets__ commands to reflect the latest security practices recommended by [Foundries.io](https://docs.foundries.io/latest/reference-manual/security/offline-keys.html).***
 
 And finally, for security reasons, we separating the target keys from the root using the following command:
 

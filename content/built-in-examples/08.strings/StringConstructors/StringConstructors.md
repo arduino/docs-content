@@ -28,7 +28,7 @@ All of these methods are valid ways to declare a String object.  They all result
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 ### Circuit
 

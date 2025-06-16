@@ -19,12 +19,13 @@ Industrial IoT, Building automation, Electrical loads management, Industrial aut
 ## Product Variants
 There are two variants of the Arduino Opta® Digital Expansion created to fit the different needs of each industry and application. The difference between each of the variants can be found in the following table:
 
-| Name    | Arduino Opta® Ext D1608E                           | Arduino Opta® Ext D1608S                           |
-| ------- | -------------------------------------------------- | -------------------------------------------------- |
-| SKU     | AFX00005                                           | AFX00006                                           |
-| Inputs  | 16 x programmable (0-24 V digital / 0-24 V analog) | 16 x programmable (0-24 V digital / 0-24 V analog) |
-| Outputs | 8 x Electromechanical Relays (250 VAC - 6 A)       | 8 x Solid State Relays (24 VDC - 2 A)              |
+| Name    | Arduino Opta® Ext D1608E                                     | Arduino Opta® Ext D1608S                                     |
+| ------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| SKU     | AFX00005                                                     | AFX00006                                                     |
+| Inputs  | 16 x programmable (0-24 V digital / 0-10 V or 0-24 V analog) | 16 x programmable (0-24 V digital / 0-10 V or 0-24 V analog) |
+| Outputs | 8 x Electromechanical Relays (250 VAC - 6 A)                 | 8 x Solid State Relays (24 VDC - 3 A)                        |
 
+***All digital expansion inputs, configured as analog, support analog sensors both 0-10 VDC(industrial standard) and 0-24 VDC.***
 
 ## Application Examples
 Arduino Opta® Expansion is designed for industrial standard machinery control alongside the Opta® micro PLC. It is readily integrated into the Arduino hardware and software ecosystem.
@@ -38,15 +39,16 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 ## Features
 ### General Specifications Overview
 
-| Characteristics         | Details                                                                                               |
-| ----------------------- | ----------------------------------------------------------------------------------------------------- |
-| Supply Voltage          | 12...24 V                                                                                             |
-| Antipolarity protection | Yes                                                                                                   |
-| Overvoltage protection  | Yes (+20%)                                                                                            |
-| Inputs                  | 16x Digital (0-24 V) / Analog (0-24 V) inputs                                                         |
-| Outputs                 | AFX00005: 8x Electromechanical Relays (250 VAC - 6 A), AFX00006: 8x Solid State Relays (24 VDC - 2 A) |
-| Degree of Protection    | IP20                                                                                                  |
-| Certifications          | FCC, CE, UKCA                                                                                         |
+| Characteristics                     | Details                                                                                               |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Supply Voltage                      | 12...24 V                                                                                             |
+| Antipolarity protection             | Yes                                                                                                   |
+| Overvoltage protection              | Yes (+20%)                                                                                            |
+| Maximum Supported Expansion Modules | Up to 5                                                                                               |
+| Inputs                              | 16x Digital (0-24 V) / Analog (0-10 V or 0-24 V) inputs                                               |
+| Outputs                             | AFX00005: 8x Electromechanical Relays (250 VAC - 6 A), AFX00006: 8x Solid State Relays (24 VDC - 3 A) |
+| Degree of Protection                | IP20                                                                                                  |
+| Certifications                      | FCC, CE, UKCA                                                                                         |
 
 ### Inputs
 
@@ -57,24 +59,27 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | Antipolarity protection       | No                        |
 | Input impedance               | 5.85 kΩ                   |
 
+***The inputs are marked on plastic as DGT/0-10 V to maintain uniformity with the main Opta module and as conventionally the majority of industrial analog sensors work in the 0-10 V range.***
+
+#### Digital Inputs
+| Characteristics                   | Details                                                                   |
+|-----------------------------------|---------------------------------------------------------------------------|
+| Digital Input voltage             | 0...24 V                                                                  |
+| Digital Input voltage logic level | Voltage Input Low (VIL) Max: 4 VDC. Voltage Input High (VIH) Min: 5.9 VDC |
+| Digital Input current             | 4.12 mA at 24 V, 2.05 mA at 10 V                                          |
+| Digital Input frequency           | 300 Hz                                                                    |
+
+***The expansion digital inputs are compatible with 0-10 V and 0-24 V digital sensors.***
 
 #### Analog Inputs
 | Characteristics           | Details                          |
 |---------------------------|----------------------------------|
-| Analog Input voltage      | 0...24 V                         |
+| Analog Input voltage      | 0...10 V or 0...24 V             |
 | Analog Input resolution   | 14 bit                           |
 | Analog Input LSB value    | 1.733 mV                         |
 | Accuracy                  | +/- 5%, repeatability +/- 2%     |
 
-
-#### Digital Inputs
-| Characteristics                   | Details                          |
-| --------------------------------- | -------------------------------- |
-| Digital Input voltage             | 0...24 V                         |
-| Digital Input voltage logic level | VIL Max: 4 VDC. VHL Min: 5.9 VDC |
-| Digital Input current             | 4.12 mA at 24 V, 2.05 mA at 10 V |
-| Digital Input frequency           | 300 Hz                           |
-
+***The analog-to-digital converter resolution of 14 bits is considered in the 0-24 VDC range. If you are using a 0-10 VDC sensor, take into account that you will be leveraging half of the ADC scope.***
 
 ### Outputs (AFX00005 Only)
 
@@ -105,9 +110,9 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | Characteristics                             | Details                           |
 | ------------------------------------------- | --------------------------------- |
 | Number of outputs                           | 8x Solid State Relays (NO - SPST) |
-| Max current per relay                       | 2 A                               |
+| Max current per relay                       | 3 A                               |
 | Max peak current per relay                  | 50 A (10 ms)                      |
-| Continuous current per terminal             | 2 A                               |
+| Continuous current per terminal             | 3 A                               |
 | Short-circuit protection                    | No, external fuse required        |
 | Relay rated voltage                         | 24 VDC                            |
 | Switching voltage range                     | 1.5...30 VDC                      |
@@ -115,7 +120,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | Rated load DC13                             | 36 W                              |
 | Minimum switching current                   | 1 mA                              |
 | Max "OFF-state" leakage current             | 0.001 mA                          |
-| Max "OFF-state" voltage drop                | 0.4 V                             |
+| Max "ON-state" voltage drop                 | 0.4 V                             |
 | Relay response time from state 0 to state 1 | 0.02 ms for relay output          |
 | Relay response time from state 1 to state 0 | 0.2 ms for relay output           |
 | Electrical life at rated load               | > 10 million cycles               |
@@ -135,8 +140,8 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | ----------------------- | ---- | --- | ---- | ---- |
 | Supply voltage          | 12   | -   | 24   | V    |
 | Permissible range       | 10.2 | -   | 27.6 | V    |
-| Power consumption (12V) | -    | -   | 3    | W    |
-| Power consumption (24V) | -    | -   | 3    | W    |
+| Power consumption (12 V) | -    | -   | 3    | W    |
+| Power consumption (24 V) | -    | -   | 3    | W    |
 
 ## Functional Overview
 
@@ -149,7 +154,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | 3a   | Power Supply Terminals 12...24 VDC                                                |
 | 3b   | I1...I16 digital/analog input terminals (0-24 V) configurable via IDE             |
 | 3c   | Power Status LED                                                                  |
-| 3d   | Relay Output Terminals 1...8, NO contact (SPST), EMR 6 A 250 VAC - SSR 2 A 24 VDC |
+| 3d   | Relay Output Terminals 1...8, NO contact (SPST), EMR 6 A 250 VAC - SSR 3 A 24 VDC |
 | 3e   | Status LEDs 1...8                                                                 |
 | 3f   | Port for communication and connection of auxiliary modules                        |
 
@@ -161,7 +166,7 @@ The following diagram explains the relation between the main components of the O
 ![Block diagram](assets/Opta_Digital_EXP_Block_Diagram.svg)
 
 ### Relay Outputs
-Arduino Opta® Digital Expansions has eight *Normally Open* (NO) relays. For the **EMR** variant, eight powerful 6 A electromechanical relays capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC, and for the **SSR** variant, eight fast 2 A solid state relays which are capable of actuating on DC loads at a rated voltage of 24 VDC. 
+Arduino Opta® Digital Expansions has eight *Normally Open* (NO) relays. For the **EMR** variant, eight powerful 6 A electromechanical relays capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC, and for the **SSR** variant, eight fast 3 A solid state relays which are capable of actuating on DC loads at a rated voltage of 24 VDC. 
 
 The relay *Maximum Peak Current* is defined as the highest value of inrush current that the relay can endure without undergoing any permanent degradation of its characteristics due to the generated heat. The relay has to be able to hold up that maximum using a duty cycle of less or equal to 10% and for a time equal to or less than 0.5 s.
 
@@ -184,14 +189,18 @@ The **EMR variant** relays on Arduino Opta® Digital Expansions provide a very f
 ### Expansion Port
 The expansion port can be used to daisy-chain several Opta® Expansions and additional modules. To be accessed needs to be freed up from its breakable plastic cover and the connection plug added between each device.
 
+It supports up to 5 expansion modules. To avoid potential communication issues, ensure the total number of connected modules does not exceed 5.
+
+If any issues occur with module detection or data exchange, double-check the connections and ensure the **Aux connector and clips are securely installed** within the expansion port. If problems persist, inspect for any loose or improperly connected cables.
+
 ## Device Operation
 ### Getting Started - IDE
 If you want to program your Arduino Opta® Digital Expansions while offline you need to install the Arduino® Desktop IDE **[1]** and the Arduino_Opta_Blueprint using the Library Manager. To connect the Arduino Opta® to your computer, you will need a USB-C® cable.
 
-### Getting Started - Arduino Web Editor
-All Arduino® devices work out-of-the-box on the Arduino® Web Editor **[2]** by just installing a simple plugin.
+### Getting Started - Arduino Cloud Editor
+All Arduino® devices work out-of-the-box on the Arduino® Cloud Editor **[2]** by just installing a simple plugin.
 
-The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
+The Arduino® Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
 
 ### Getting Started - Arduino PLC IDE
 Arduino Opta® Digital Expansions can be also programmed using the industrial-standard **_IEC 61131-3_** programming languages. Download the Arduino® PLC IDE **[4]** software, attach the Opta® Expansion through the Aux Connector and connect your Arduino Opta® to your computer using a simple USB-C® cable to start creating your own PLC industrial solutions. The PLC IDE will recognize the expansion and will expose the new available I/Os in the resources tree.
@@ -285,6 +294,10 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**        |
-|------------|--------------|------------------- |
-| 06/05/2024 | 1            | First Release      |
+| Date       | **Revision** | **Changes**                          |
+|------------|--------------|--------------------------------------|
+| 02/12/2024 | 5            | Digital input specification update   |
+| 24/09/2024 | 4            | Expansion port updates               |
+| 24/09/2024 | 3            | SSR operating current update         |
+| 03/09/2024 | 2            | Cloud Editor updated from Web Editor |
+| 06/05/2024 | 1            | First Release                        |

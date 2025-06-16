@@ -15,7 +15,7 @@ This example uses the Keyboard library to log you out of your user session on yo
 
 ### Hardware Required
 
-- Arduino Leonardo, Micro, or Due board
+- [Arduino Leonardo, Micro, or Due board](https://store.arduino.cc/collections/boards-modules)
 
 - pushbutton
 

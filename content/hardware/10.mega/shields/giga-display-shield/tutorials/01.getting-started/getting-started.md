@@ -100,7 +100,10 @@ To use the GIGA Display Shield, mount it on the **bottom** side of the GIGA R1 W
 
 ![Bottom View](assets/mounted.png)
 
+
 This makes it possible to freely use the GIGA R1 WiFi's pins while the display shield is connected.
+
+***When connecting a module or shield to the GIGA R1 WiFi board, be careful to not connect it at an angle or your board may be damaged.***
 
 ## Camera Connector
 

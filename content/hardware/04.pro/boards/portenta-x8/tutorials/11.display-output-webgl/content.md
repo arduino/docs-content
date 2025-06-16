@@ -31,7 +31,7 @@ In this tutorial, we will render web content from the internet using WebGL and d
 ### Required Hardware and Software
 
 - [Portenta X8](https://store.arduino.cc/products/portenta-x8)
-- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - USB-C® hub with HDMI
 - External monitor
 - HDMI cable
@@ -127,7 +127,7 @@ Test your IP connection by exiting the `adb shell`, you can use **CTRL+Z** or ty
 ssh fio@<localIP>
 ```
 
-***To connect through SSH, the user's password, "fio," will be requested. If you have trouble connecting with the SSH, please check the troubleshooting section at the end of this tutorial.***
+***To connect through SSH, the user's admin password you setup at first access will be requested. If you have trouble connecting with the SSH, please check the troubleshooting section at the end of this tutorial.***
 
 ### Copy/Push the Docker-Compose.yml
 

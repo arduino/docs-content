@@ -18,18 +18,9 @@ The GIGA Display Shield with the GIGA R1 WiFi board can run LVGL which allows fo
 
 Make sure the latest GIGA Board Package is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) is included in the Board Package. Now you have to install the library needed. Go to **Tools > Manage libraries..**, search for [**lvgl**](https://github.com/lvgl/lvgl)(SquareLine studio is only compatible with LVGL version 8.3.11 or earlier, please keep the version that you install in mind here) and [**Arduino_GigaDisplayTouch**](https://github.com/arduino-libraries/Arduino_GigaDisplayTouch), install both of these libraries.
 
-***SquareLine Studio is only compatible with LVGL version 8.3.11 or earlier.***
-
 ## Using SquareLine Studio
 
-First download SquareLine Studio from the link above. Now in SquareLine Studio go to the "create" section and select the Arduino tab. On the right you can set the "project settings". These needs to be set like so:
-
-- **Project name**: Set the name of your project
-- **Resolution**: 800x480 (to fully use the 800x480 screen in landscape mode, select 480x800 for portrait)
-- **Color depth**: 16 bit
-- **LVGL version**: 8.3.x
-
-As show on this image:
+First download SquareLine Studio from the link above. Now in SquareLine Studio go to the "create" section and select the Arduino tab. Here you can select the GIGA Display Shield as a preset option so the project will be set up for the board and shield. Keep note of the LVGL version selected here on the right side.
 
 ![Project settings in SquareLine Studio](assets/project_settings.png)
 
@@ -71,6 +62,7 @@ Arduino_H7_Video          Display(800, 480, GigaDisplayShield);
 Arduino_GigaDisplayTouch  Touch;
 
 void setup() {
+  delay(3000);
   Display.begin();
   Touch.begin();
 
@@ -128,6 +120,7 @@ Then it is as simple as using the names of the widgets in a LVGL function. For e
 
 ```arduino
 void setup() {
+    delay(3000);
     Display.begin();
     Touch.begin();
 
@@ -191,6 +184,7 @@ static void ButtonDec_evt_handler(lv_event_t * e) {
 }
 
 void setup() {
+    delay(3000);
     Display.begin();
     Touch.begin();
 
@@ -211,6 +205,20 @@ void loop() {
     lv_timer_handler();
 }
 ```
+
+## Rotating the SquareLine UI
+
+If there is a need to rotate the UI created in SquareLine on the GIGA Display Shield, there is a single line that needs to be added to one of the exported library files. In the `/ui/src` folder, find the `ui.c` file and open it.
+
+The code we need to add is:
+
+```arduino
+lv_display_set_rotation(dispp, rotation);
+```
+
+The `rotation` can be set to `0`, `90`, `180` or `270` depending on how much you want to rotate the UI.
+
+![Rotation code added to ui.c file](assets/ui_rotation.png)
 
 ## Next Step
 

@@ -35,7 +35,7 @@ The goals of this project are:
 
 ## Hardware & Software Needed
 * This project uses no external sensors or components.
-* In this tutorial we will use the Arduino Create Web Editor to program the board.
+* In this tutorial we will use the Arduino Create Cloud Editor to program the board.
 
 
 
@@ -71,14 +71,14 @@ In this tutorial we will read the values X, Y and Z and provide visual feedback 
 
 **1. Setting up** 
 
-Let's start by opening the [Arduino Web Editor](https://create.arduino.cc/editor) and creating a new sketch, this can be named "magnetometer". Then, navigate to the **Libraries** tab, search for the **LSM9DS1** library and click on the **Include** button. 
+Let's start by opening the [Arduino Cloud Editor](https://create.arduino.cc/editor) and creating a new sketch, this can be named "magnetometer". Then, navigate to the **Libraries** tab, search for the **LSM9DS1** library and click on the **Include** button. 
 
-![Finding the library in the Web Editor.](./assets/nano33BS_04_include_library.png)
+![Finding the library in the Cloud Editor.](./assets/nano33BS_04_include_library.png)
 
 
 **2. Connecting the board**
 
-Next, connect the Arduino Nano 33 BLE Sense to the computer and make sure that the Web Editor recognizes it. If so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognize your board.
+Next, connect the Arduino Nano 33 BLE Sense to the computer and make sure that the Cloud Editor recognizes it. If so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognize your board.
 
 ![Selecting the board.](./assets/nano33BS_04_board_port.png)
 

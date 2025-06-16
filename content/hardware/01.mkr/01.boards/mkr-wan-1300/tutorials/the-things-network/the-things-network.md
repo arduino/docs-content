@@ -24,9 +24,9 @@ software:
 
 In this tutorial, we will go through how to set up the MKR WAN 1300 board to work with The Things Network (TTN).
 
-It is a good idea to already look at the limitations of using LoRa®. As with any technology, there advantages and disadvantages, and with LoRa®, there's also some limitations of how much data we can send. You can read more about this through the link below:
+It is a good idea to already look at the limitations of using LoRa® technology. As with any technology, there advantages and disadvantages, and with LoRa, there's also some limitations of how much data we can send. You can read more about this through the link below:
 
-- [Limitations of LoRaWAN®](https://www.thethingsnetwork.org/docs/lorawan/limitations/)
+- [Limitations of LoRa®-based networks](https://www.thethingsnetwork.org/docs/lorawan/limitations/)
 
 ## Goals
 
@@ -48,14 +48,14 @@ The goals of this project are:
 - 1x micro USB cable.
 
 
-## LoRaWAN®
+## LoRa®-Based Network
 
-LoRaWAN®, stands for **Long Range Wide Area Network**, which is becoming increasingly popular in the Internet of Things-sphere, due to its capability of sending data over larger distances using minimal battery power and ensuring that data and credentials remain secure. There are also other acronyms that are associated with LoRaWAN® such as:
+LoRa®-based network is becoming increasingly popular in the Internet of Things-sphere, due to its capability of sending data over larger distances using minimal battery power and ensuring that data and credentials remain secure. There are also other acronyms that are associated with LoRa-based Network such as:
 
-- LoRa® which stands for Long Range
+- LoRa® technology which stands for Long Range
 - LP WAN which stands for Low Power Wide Area Network
 
-LoRa® devices come with lower data rates, with longer intervals than i.e. a device connected through WiFi. This is due to  the low-power consumption and long range that LoRa® technology puts emphasis on. 
+LoRa® devices come with lower data rates, with longer intervals than i.e. a device connected through WiFi. This is due to  the low-power consumption and long range that LoRa technology puts emphasis on. 
 
 While the data rate may be a restriction, let’s have a look at some of the amazing features LoRa® technology comes with:
 
@@ -65,7 +65,7 @@ While the data rate may be a restriction, let’s have a look at some of the ama
 
 - **Security:** The MKR WAN 1300 board comes with the crypto chip (ECC-508), which allows us to store data and credentials securely.
 
-In this tutorial, we will be covering the basics of setting up a MKRWAN series device to connect to the LoRa® network, through something called The Things Network (TTN). We can start by looking at [this map](https://www.thethingsnetwork.org/map) to see if we are within reach of a gateway.
+In this tutorial, we will be covering the basics of setting up a MKRWAN series device to connect to the LoRa®-based network, through something called The Things Network (TTN). We can start by looking at [this map](https://www.thethingsnetwork.org/map) to see if we are within reach of a gateway.
 
 ### Circuit
 
@@ -75,9 +75,9 @@ In this tutorial, we will be covering the basics of setting up a MKRWAN series d
 
 The aim with this tutorial is to achieve a connection between a MKR WAN 1300 board and The Things Network (TTN). First, we will need to retrieve our device's Extended Unique Identifier (EUI). Then, we will create an account at [The Things Network](https://console.cloud.thethings.network/), connect to a gateway in range and send a message through the gateway to the TTN service. 
 
-**1.** First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it. 
+**1.** First, let's make sure we have the drivers installed. If we are using the Cloud Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it. 
 
-**2.** Now, we need to install the library needed. If we are using the Web Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **MKRWAN** and install it.
+**2.** Now, we need to install the library needed. If we are using the Cloud Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **MKRWAN** and install it.
 
 **3.** Once we have downloaded the library, we will need to upload an example from the **MKRWAN** library, called **FirstConfiguration**. We will find this in **File > Examples > MKRWAN > FirstConfiguration**. You can also find the code in the snippet below:
 
@@ -179,5 +179,8 @@ This will decode the incoming message and add the text "payload: yourmessage" at
 
 In this tutorial, we have looked at how to connect our MKR WAN 1300 board to the The Things Network (TTN). We have retrieved the device EUI, used it to register the device in the TTN console, and programmed the board using the data provided by TTN.
 
-As long as we are in range of a TTN gateway, we can now send data over the LoRa® network which can be viewed from anywhere in the world (as long as we have an Internet connection). 
+As long as we are in range of a TTN gateway, we can now send data over the LoRa®-based network which can be viewed from anywhere in the world (as long as we have an Internet connection). 
 
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

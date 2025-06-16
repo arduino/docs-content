@@ -13,7 +13,7 @@ hardware:
 ## API List
 
 To access to any of these functions you need first to initialize an instance of the class **ArduinoAlvik()**.
-
+This reference is useful for both **MicroPython** and **C++ environments** as the functions were all created to have the same form across development environments meaning your experience should be easy to carry both options.
 
 ```arduino
 alvik = ArduinoAlvik()
@@ -33,7 +33,7 @@ _Returns true if robot is on_
 
 **Outputs**
 
-- boolean: Returns true if robot is on, false if is off.
+- boolean: Returns true if robot is on, false if it is off.
 
 ### `begin`
 
@@ -75,7 +75,7 @@ _Returns the orientation of the IMU_
 
 get_accelerations()
 
-_Returns the 3-axial acceleration of the IMU_
+_Returns the 3-axial acceleration values of the IMU_
 
 **Outputs**
 
@@ -136,7 +136,7 @@ _Returns last acknowledgement_
 
 **Outputs**
 
-- **last_ack**: last acknowledgement value
+- **last_ack**: last acknowledgement value.
 
 ### `get_battery_charge`
 
@@ -146,7 +146,7 @@ _Returns the battery SOC_
 
 **Outputs**
 
-- **battery_soc**: percentage of charge
+- **battery_soc**: percentage of charge.
 
 ### `get_touch_any`
 
@@ -317,7 +317,7 @@ get_wheels_speed(unit: str = 'rpm')
 
 _Returns the speed of the wheels_
 
-### `set_wheels_speed`
+### `set_wheels_speed`
 
 set_wheels_speed(left_speed: float, right_speed: float, unit: str = 'rpm')
 
@@ -633,7 +633,7 @@ _Register callback when touch button RIGHT is pressed_
 - **callback**: the name of the function to recall
 - **args**: optional arguments of the function
 
-## Extras
+## Function Parameters
 
 ### The Distance Unit
 
@@ -677,6 +677,298 @@ Rotational speed unit of measurement used in the APIs:
 
 ### `"blocking" or "non blocking"`
 
-While programming a microcontroller, the terms "blocking" means that **all the resources are used only in performing a specific action, and no other things can happen at the same time**. Usually this is used when you want to be precise or you don't want anything else that could interact with the action you are performing.
+While programming a microcontroller, the term "blocking" means that **all the resources are used only in performing a specific action, and no other things can happen at the same time**. Usually this is used when you want to be precise or you don't want anything else that could interact with the action you are performing.
 
-On the other hand, "Non blocking", means that the microcontroller is free to do other thing while the action is been performed.
+On the other hand, "Non blocking", means that the microcontroller is free to do other things while the action is been performed.
+
+## Examples
+These examples demonstrate practical implementations on how to use the Arduino Alvik API. Whether you're working with MicroPython or C++, these simple examples will help you understand how to implement various features in your projects, making it easy to get started with the Alvik in the language you're most comfortable with.
+
+### Simple Color Sensing Example
+
+This example demonstrates how to implement basic color sensing. The Alvik's color sensor reads the color of an object placed under it, and the detected color is printed to the console.
+
+- **Reference for MicroPython**
+
+```python
+from arduino_alvik import ArduinoAlvik
+from time import sleep_ms
+
+alvik = ArduinoAlvik()
+alvik.begin()
+
+print("Alvik initialized for color sensing")
+
+while True:
+    color = alvik.get_color_label()
+    print(f"Detected color: {color}")
+    sleep_ms(500)
+```
+
+- **Reference for C++**
+
+```c
+#include "Arduino_Alvik.h"
+
+Arduino_Alvik alvik;
+
+void setup() {
+  Serial.begin(9600);
+  alvik.begin();
+  Serial.println("Alvik initialized for color sensing");
+}
+
+void loop() {
+  char* color = alvik.get_color_label();
+  Serial.print("Detected color: ");
+  Serial.println(color);
+  delay(500);
+}
+```
+
+
+
+
+### Simple Directional Control
+
+This example demonstrates very basic control over the robot's movement based on directional arrow buttons. The Alvik will drive in the direction corresponding to the arrow button pressed (up, down, left, right).
+
+- **Reference for MicroPython**
+```python
+from arduino_alvik import ArduinoAlvik
+from time import sleep_ms
+
+alvik = ArduinoAlvik()
+alvik.begin()
+
+print("Alvik initialized")
+
+while True:
+    if alvik.get_touch_up():
+        print("Moving Up")
+        alvik.drive(100, 0, linear_unit='cm/s')
+        sleep_ms(1000)
+        alvik.brake()
+    elif alvik.get_touch_down():
+        print("Moving Down")
+        alvik.drive(-100, 0, linear_unit='cm/s')
+        sleep_ms(1000)
+        alvik.brake()
+    elif alvik.get_touch_left():
+        print("Turning Left")
+        alvik.drive(0, 100, angular_unit='deg/s')
+        sleep_ms(1000)
+        alvik.brake()
+    elif alvik.get_touch_right():
+        print("Turning Right")
+        alvik.drive(0, -100, angular_unit='deg/s')
+        sleep_ms(1000)
+        alvik.brake()
+    sleep_ms(100)
+
+```
+- **Reference for C++**
+  
+```c
+#include "Arduino_Alvik.h"
+
+Arduino_Alvik alvik;
+
+void setup() {
+  Serial.begin(9600);
+  alvik.begin();
+  Serial.println("Alvik initialized");
+}
+
+void loop() {
+  if (alvik.get_touch_up()) {
+    Serial.println("Moving Up");
+    alvik.drive(100, 0, "cm/s");
+    delay(1000);
+    alvik.brake();
+  } else if (alvik.get_touch_down()) {
+    Serial.println("Moving Down");
+    alvik.drive(-100, 0, "cm/s");
+    delay(1000);
+    alvik.brake();
+  } else if (alvik.get_touch_left()) {
+    Serial.println("Turning Left");
+    alvik.drive(0, 100, "deg/s");
+    delay(1000);
+    alvik.brake();
+  } else if (alvik.get_touch_right()) {
+    Serial.println("Turning Right");
+    alvik.drive(0, -100, "deg/s");
+    delay(1000);
+    alvik.brake();
+  }
+  delay(100);
+}
+```
+
+### Line Following
+
+This example demonstrates how to create a simple line-following robot. The code initializes the Alvik, reads sensor data to detect the line, calculates the error from the center of the line, and adjusts the Alvik's wheel speeds to follow the line. It also uses LEDs to indicate the direction the robot is turning.
+
+The Alvik starts when the OK `✔` button is pressed and stops when the Cancel button is pressed. The Alvik continuously reads the line sensors, calculates the error, and adjusts the wheel speeds to correct its path.
+
+- **Reference for MicroPython**
+
+```python
+from arduino_alvik import ArduinoAlvik
+from time import sleep_ms
+import sys
+
+
+def calculate_center(left: int, center: int, right: int):
+    centroid = 0
+    sum_weight = left + center + right
+    sum_values = left + 2 * center + 3 * right
+    if sum_weight != 0:
+        centroid = sum_values / sum_weight
+        centroid = 2 - centroid
+    return centroid
+
+
+alvik = ArduinoAlvik()
+alvik.begin()
+
+error = 0
+control = 0
+kp = 50.0
+
+alvik.left_led.set_color(0, 0, 1)
+alvik.right_led.set_color(0, 0, 1)
+
+while alvik.get_touch_ok():
+    sleep_ms(50)
+
+while not alvik.get_touch_ok():
+    sleep_ms(50)
+
+try:
+    while True:
+        while not alvik.get_touch_cancel():
+
+            line_sensors = alvik.get_line_sensors()
+            print(f' {line_sensors}')
+
+            error = calculate_center(*line_sensors)
+            control = error * kp
+
+            if control > 0.2:
+                alvik.left_led.set_color(1, 0, 0)
+                alvik.right_led.set_color(0, 0, 0)
+            elif control < -0.2:
+                alvik.left_led.set_color(1, 0, 0)
+                alvik.right_led.set_color(0, 0, 0)
+            else:
+                alvik.left_led.set_color(0, 1, 0)
+                alvik.right_led.set_color(0, 1, 0)
+
+            alvik.set_wheels_speed(30 - control, 30 + control)
+            sleep_ms(100)
+
+        while not alvik.get_touch_ok():
+            alvik.left_led.set_color(0, 0, 1)
+            alvik.right_led.set_color(0, 0, 1)
+            alvik.brake()
+            sleep_ms(100)
+
+except KeyboardInterrupt as e:
+    print('over')
+    alvik.stop()
+    sys.exit()
+```
+
+- **Reference for C++**
+
+```c
+/*
+    This file is part of the Arduino_Alvik library.
+
+    Copyright (c) 2024 Arduino SA
+
+    This Source Code Form is subject to the terms of the Mozilla Public
+    License, v. 2.0. If a copy of the MPL was not distributed with this
+    file, You can obtain one at http://mozilla.org/MPL/2.0/.
+    
+*/
+
+#include "Arduino_Alvik.h"
+
+Arduino_Alvik alvik;
+
+int line_sensors[3];
+float error = 0;
+float control = 0;
+float kp = 50.0;
+
+
+
+void setup() {
+  Serial.begin(115200);
+  while((!Serial)&&(millis()>3000));
+  alvik.begin();
+  alvik.left_led.set_color(0,0,1);
+  alvik.right_led.set_color(0,0,1);
+
+  while(!alvik.get_touch_ok()){
+    delay(50);
+  }
+}
+
+void loop() {
+  while (!alvik.get_touch_cancel()){
+
+    alvik.get_line_sensors(line_sensors[0], line_sensors[1], line_sensors[2]);
+    Serial.print(line_sensors[0]);
+    Serial.print("\t");
+    Serial.print(line_sensors[1]);
+    Serial.print("\t");
+    Serial.print(line_sensors[2]);
+    Serial.print("\n");
+    error = calculate_center(line_sensors[0], line_sensors[1], line_sensors[2]);
+    control = error * kp;
+    if (control > 0.2){
+      alvik.left_led.set_color(1,0,0);
+      alvik.right_led.set_color(0,0,0);
+    }
+    else{
+      if (control < -0.2){
+        alvik.left_led.set_color(0,0,0);
+        alvik.right_led.set_color(1,0,0);
+      }
+      else{
+        alvik.left_led.set_color(0,1,0);
+        alvik.right_led.set_color(0,1,0);
+      }
+    }
+
+    alvik.set_wheels_speed(30-control, 30+control);
+    delay(100);
+  }
+  
+  while (!alvik.get_touch_ok()){
+    alvik.left_led.set_color(0,0,1);
+    alvik.right_led.set_color(0,0,1);
+    alvik.brake();
+    delay(100);
+  }
+}
+
+float calculate_center(const int left, const int center, const int right){
+  float centroid = 0.0; 
+  float sum_weight = left + center + right;
+  float sum_values = left + center * 2 + right * 3;
+  if (sum_weight!=0.0){                                                         // divide by zero protection
+    centroid=sum_values/sum_weight;
+    centroid=-centroid+2.0;                                                     // so it is right on robot axis Y
+  }
+  return centroid;
+}
+```
+
+
+
+

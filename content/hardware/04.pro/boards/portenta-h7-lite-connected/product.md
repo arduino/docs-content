@@ -9,7 +9,7 @@ secondary_button_title: Bootloader Guide
 core: arduino:mbed_portenta
 forumCategorySlug: '/hardware/portenta/91'
 productCode: '116'
-certifications: [CE, UKCA, RCM, FCC, RoHS]
+certifications: [CE, UKCA, FCC, RoHS]
 sku: [ABX00046]
 ---
 

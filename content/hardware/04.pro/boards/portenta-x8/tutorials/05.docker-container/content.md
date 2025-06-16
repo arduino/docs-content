@@ -32,10 +32,10 @@ In this tutorial, we will go through the steps of how to install, run, and remov
 ### Hardware and Software Requirements
 
 - [Portenta X8](https://store.arduino.cc/products/portenta-x8)
-- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - Wi-Fi® Access Point with Internet Access
 - ADB: [Check how to connect to your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience)
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 
 ***Make sure to have the Portenta X8 with the latest image as well as the bootloader. Please check [how to flash your Portenta X8](/tutorials/portenta-x8/image-flashing) to have the latest version.***
 

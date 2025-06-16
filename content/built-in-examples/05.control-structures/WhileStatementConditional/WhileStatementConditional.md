@@ -18,7 +18,7 @@ This technique lets you update the maximum and minimum values for the photoresis
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - pushbutton or switch
 

@@ -40,7 +40,7 @@ In order to get started with Arduino Cloud for Business, you need to [subscribe 
 
 The Arduino Cloud for Business plan consists of two main subscriptions:
 
-* **Enterprise Base Plan.** It includes all the Arduino Cloud for Business features, like data plane, fleet management, Role-Based-Access-Control, Web Editor with Over-the-air updates, IoT Cloud with dashboards, etc. Multiples of 50 devices can be connected under the Enterprise Base Plan – and you can always [contact our team](https://www.arduino.cc/pro/contact-us) for a tailored plan to accelerate your IoT solutions.
+* **Enterprise Base Plan.** It includes all the Arduino Cloud for Business features, like data plane, fleet management, Role-Based-Access-Control, Cloud Editor with Over-the-air updates, IoT Cloud with dashboards, etc. Multiples of 50 devices can be connected under the Enterprise Base Plan – and you can always [contact our team](https://www.arduino.cc/pro/contact-us) for a tailored plan to accelerate your IoT solutions.
 
 * **Optional Add-Ons.** To address additional needs, Arduino Cloud for Business can be customized with optional add-ons. Check the [dedicated section](#optional-add-ons) of this tutorial to learn more.
 
@@ -103,14 +103,62 @@ To change the current settings of your Shared Space, navigate to the **Space Set
 There, you will find multiple options to customize your Shared Space:
 
 * **General** tab to view shared space information and to edit space name
-* **Custom Branding** to assign custom logo
-* **Manage Members** for space member management
-* **Roles & Permissions** for Role-Based-Access-Control management
+* [**Custom Branding**](#custom-branding) to assign custom logo
+* [**Manage Members**](#invite-members-into-your-space) for space member management
+* [**Roles & Permissions**](#members-types) for Role-Based-Access-Control management
 * **Plan Usage** to view features usage
 
 ### Create Additional Spaces
 
 The Arduino Cloud for Business plan allows you to create and manage one Shared Space and one Private Space. If you need additional Spaces, you have to purchase a new Arduino Cloud plan. Check the available plans [here](https://cloud.arduino.cc/plans).
+
+### Custom Branding
+
+The Arduino Cloud for Business provides the option to configure custom branding for your spaces, allowing you to personalize the appearance of your cloud environment with white labeling. This feature lets you customize branding elements to reflect your company's identity, including logos, URLs, and authentication methods.
+
+To access the **Custom Branding** option, navigate to the **Space Settings** on the left sidebar of the Cloud space.
+
+![Custom Branding - Space Settings](assets/custom-branding-1.png "Space Settings")
+
+Select the **Custom Branding** page from the left sidebar inside the **Space Settings**. This page offers **Basic** and **Advanced** options for configuring custom branding and white labeling.
+
+Under the **Basic** option, you can customize your logo and toggle the visibility of the Arduino logo on the sidebar.
+
+![Custom Branding - Basic Options](assets/custom-branding-2.png)
+
+Two configuration blocks will be present to set custom branding:
+
+  - **Your Logo:** You can upload your custom logo in `JPEG` or `PNG` format, with a maximum size of 500 kb. The custom logo will be displayed on the Arduino Cloud sidebar and home page. The **Icon Logo** is used on the platform's sidebar, while the **Horizontal Logo** is used on your space's Home Page. It is recommended to use a ratio of *1:1* for the **Icon Logo** and a ratio of *3:1* for the **Horizontal Logo**.
+
+  - **Arduino Logo:** You can toggle the visibility of the Arduino logo on the sidebar.
+
+If you have applied a custom branding logo and toggled the Arduino logo, your **Basic** configuration page will resemble the following image:
+
+![Custom Branding - Complete Basic Options](assets/custom-branding-2-1.png)
+
+Once the configuration is set, your **Home** page will reflect your custom branding:
+
+![Custom Branding - Home Page with Custom Logo](assets/custom-branding-2-2.png)
+
+For customizations related to *white labeling*, navigate to the **Advanced** tab within the **Custom Branding** page.
+
+![Custom Branding - Advanced Options](assets/custom-branding-3.png "Advanced Options")
+
+In this section, you will find features that allow *white labeling*:
+
+  - **Custom URL:** You can set a custom URL and a name for your site, usually the name of your company, which will be shown as the page title. Avoid using special characters or spaces for the custom subdomain. Once submitted, the custom subdomain will be validated, and a quick preview will be generated.
+
+![Custom Branding - Custom URL (White Labeling)](assets/custom-branding-3-1.png)
+
+  - **Social Sign-in:** By enabling *Social Sign-In*, you can offer faster authentication to your app. The available options for *Social Sign-In* are Google, GitHub, and Apple. **To enable this option, You must first complete the _Custom URL_ information. Otherwise, this feature will not be available.**
+
+![Custom Branding - Social Sign-in (White Labeling)](assets/custom-branding-3-2.png)
+
+  ***The __Social Sign-in__ options can be disabled later by toggling off this option. Be cautious, as it will remove the user's associated account and data corresponding to the authentication method.***
+
+![Custom Branding - Disabling Social Sign-in (White Labeling)](assets/custom-branding-3-4.png)
+
+With these configurations, you will have a complete custom branding setup with white labeling for your Cloud space. Remember to click **Save** to finish the setup.
 
 ### Invite Members Into Your Space
 
@@ -185,7 +233,7 @@ The Arduino Cloud for Business allows for device management with Over-The-Air up
 
 ### Compatible Hardware
 
-The Arduino Cloud for Business is compatible with multiple Arduino boards or devices based on the ESP32 / ESP8266 microcontrollers. The Arduino Cloud currently supports devices connected via Wi-Fi®, Ethernet, LoRaWAN® (via The Things Network), and cellular connectivity.
+The Arduino Cloud for Business is compatible with multiple Arduino boards or devices based on the ESP32 / ESP8266 microcontrollers. The Arduino Cloud currently supports devices connected via Wi-Fi®, Ethernet, LoRa®-based networks (via The Things Network), and cellular connectivity.
 
 To check the full list of compatible Hardware, have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/guides/overview).
 
@@ -263,19 +311,19 @@ The Arduino Cloud has a feature capable of creating some pre-built sections of t
 
 The sketch related to the thing is visible from the tab "Sketch" next to the "Setup" view, where the Thing's list of cloud variables is shown.
 
-![Web Editor - Full Editor](assets/sketch-full-editor.png "Get started with the Web Editor")
+![Cloud Editor - Full Editor](assets/sketch-full-editor.png "Get started with the Cloud Editor")
 
-From this sketch view, by clicking the **Open full editor**, it is fast and smooth to access the Arduino Cloud integrated [Web Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor), which allows you to program your boards from any browser and use the latest Arduino IDE features and libraries without having to install any software locally.
+From this sketch view, by clicking the **Open full editor**, it is fast and smooth to access the Arduino Cloud integrated [Cloud Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor), which allows you to program your boards from any browser and use the latest Arduino IDE features and libraries without having to install any software locally.
 
-Otherwise, to open the Web Editor to retrieve your sketches directly, go to Arduino Cloud Home and click on the [New Sketch File](https://create.arduino.cc/editor) button.
+Otherwise, to open the Cloud Editor to retrieve your sketches directly, go to Arduino Cloud Home and click on the [New Sketch File](https://create.arduino.cc/editor) button.
 
-![Get started with the Web Editor](assets/web-editor-button.png "Get started with the Web Editor")
+![Get started with the Cloud Editor](assets/web-editor-button.png "Get started with the Cloud Editor")
 
-It can also be accessed directly by navigating to **Sketches** within the Shared Space sidebar. It will list all the available developed sketches. Clicking on one of the sketches will directly take you to the [Web Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor).
+It can also be accessed directly by navigating to **Sketches** within the Shared Space sidebar. It will list all the available developed sketches. Clicking on one of the sketches will directly take you to the [Cloud Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor).
 
-***To get started with the Web Editor, check the dedicated tutorial at [this link](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor). However, if you have already developed your sketch and you would like to import it into the Web Editor, see the corresponding documentation [here](https://docs.arduino.cc/arduino-cloud/tutorials/import-your-sketchbook-and-libraries-to-the-web-editor)***
+***To get started with the Cloud Editor, check the dedicated tutorial at [this link](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor). However, if you have already developed your sketch and you would like to import it into the Cloud Editor, see the corresponding documentation [here](https://docs.arduino.cc/arduino-cloud/tutorials/import-your-sketchbook-and-libraries-to-the-web-editor)***
 
-All the created sketches are individual and owned by the user that created them. Other members of the Shared Space can access your sketch in their Web Editor only if you share it with them. If you would like to do so, have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/tutorials/share-your-sketches) on how to do it.
+All the created sketches are individual and owned by the user that created them. Other members of the Shared Space can access your sketch in their Cloud Editor only if you share it with them. If you would like to do so, have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/tutorials/share-your-sketches) on how to do it.
 
 Keep in mind that your sketch may contain some sensitive data that you do not want to share with other members, like Wi-Fi® credentials or API keys. If this is the case, check [this tutorial](https://docs.arduino.cc/arduino-cloud/tutorials/store-your-sensitive-data-safely-when-sharing) to learn how to share sketches without sharing sensitive data.
 
@@ -284,6 +332,22 @@ Keep in mind that your sketch may contain some sensitive data that you do not wa
 Arduino Cloud for Business integrates an amazing feature: Over-The-Air updates. This feature allows you to upload sketches wirelessly to your Arduino boards. This way, as soon as you have a compatible board connected to a Wi-Fi®/Ethernet network and configured to work with OTA, you will not need to physically connect the board to your computer to upload new sketches to it; instead, everything will work Over-The-Air, even from remote.
 
 ***Are you interested in learning how to perform an OTA update? Check [this tutorial](https://docs.arduino.cc/arduino-cloud/features/ota-getting-started#how-does-it-work). If you prefer to use the Arduino Cloud CLI instead, go to [this link](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#ota-over-the-air).***
+
+## Collaborative Coding
+
+**Collaborative Coding** is a powerful feature available with the plan that enables multiple users within the same shared space to work together on the same code. This feature allows team members to share and edit code seamlessly, providing better collaboration overall.
+
+In a collaborative coding environment, everyone can create and modify code simultaneously. Changes are updated and visible to all participants after the last user has finished editing. The code editor highlights the area being edited by others with an orange frame, helping team members stay synchronized and aware of each other's contributions.
+
+The following short clip shows an idea of how the collaborative coding works from two different user perspectives:
+
+![Collaborative Coding](assets/collab-code-demo.gif)
+
+While a user is working on the code, the area they are editing is highlighted with the orange frame, and a warning block appears. This indicates that the user should wait to avoid any loss of change. Please wait for them to finish before editing the code to prevent conflicts and ensure all changes are correctly synchronized.
+
+![Collaborative Coding - Code editor orange frame highlight](assets/collab-code-orange-frame.png)
+
+This functionality ensures that all users remain aligned and can contribute effectively. Collaborative coding improves the overall development experience by making projects more interactive and engaging.
 
 ## Fleet Management
 
@@ -376,19 +440,19 @@ To start exploring it, you will need to download it from either [Google Play Sto
 
 ## Arduino Cloud CLI
 
-As already mentioned, Arduino Cloud for Business fully supports the [Arduino Cloud CLI](https://github.com/arduino/arduino-cloud-cli). The Arduino Cloud CLI allows accessing all the Arduino Cloud features from your terminal window.
+As mentioned, Arduino Cloud for Business fully supports the [Arduino Cloud CLI](https://github.com/arduino/arduino-cloud-cli). This tool allows you to access all Arduino Cloud features from your terminal.
 
-Arduino Cloud CLI is the right choice when you are familiar with command-line interfaces and you would like to manage multiple devices and Things at the same time with few lines of code.
+The Arduino Cloud CLI is a great option if you are familiar with command-line interfaces and want to manage multiple devices and *Things* simultaneously with just a few lines of code.
 
-These are the main features of Arduino Cloud CLI:
+Here are the main features of the Arduino Cloud CLI:
 
-* [Mass provisioning](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#device), i.e. provisioning of multiple devices at the same time.
-* [Mass OTA updates](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#ota-over-the-air), i.e. Over-The-Air update of multiple devices at the same time.
+* [Mass provisioning](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#device), i.e., the ability to provision multiple devices simultaneously.
+* [Mass OTA updates](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#ota-over-the-air), i.e., performing Over-The-Air updates for multiple devices at the same time.
 * Advanced fleet management, including multiple devices [tagging](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#list-devices).
 * Things monitoring and management, such as Things [tagging](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#tag-a-thing), [listing](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#list-things), [cloning](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#clone-things) and [template creation](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#extract-thing-template).
 * Dashboard [creation](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#create-dashboard)/[cancellation](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#delete-dashboards), maintenance and dashboard [template extraction](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#extract-dashboard-template).
 
-***If you would like to learn more about Arduino Cloud CLI and get started with it, check the corresponding documentation available [here](https://docs.google.com/document/d/1UBh5L-GXiAJiZG4LoZ5nY7ldXd7PAXSDax3pyb5DULU/edit).***
+***To learn more about the Arduino Cloud CLI and get started, you can check the official documentation [here](https://docs.arduino.cc/arduino-cloud/arduino-cloud-cli/getting-started/).***
 
 ## Optional Add-Ons
 
@@ -426,3 +490,7 @@ You are just a few easy steps from deploying your very own IoT project. Having a
 What will you create?
 
 [Start your Cloud journey now](https://cloud.arduino.cc/plans#business).
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

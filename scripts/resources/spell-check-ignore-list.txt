@@ -15,3 +15,6 @@ som
 ser
 Manuel
 technic
+shiftin
+forsee
+classe

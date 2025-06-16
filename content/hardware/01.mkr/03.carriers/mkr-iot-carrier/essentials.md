@@ -1,3 +1,8 @@
+---
+productsLibrariesMap:
+  - arduino_mkriotcarrier
+---
+
 <EssentialsColumn title="First Steps">
   <EssentialElement title="Quickstart Guide" type="getting-started" link="https://opla.arduino.cc/">
     All you need to know to get started with your new Arduino Carrier.
@@ -5,17 +10,9 @@
 
 </EssentialsColumn>
 
-<EssentialsColumn title="Suggested Libraries">
-
-  <EssentialElement title="Arduino_MKRIoTCarrier" type="library" link="https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/">
-    The Arduino_MKRIoTCarrier library allows you to control the IoT MKR Carrier and all the components included in the Explore IoT Kit.
-  </EssentialElement>
-
-</EssentialsColumn>
-
 <EssentialsColumn title="Arduino Basics">
   <EssentialElement title="Built-in Examples" type="tutorial" link="/built-in-examples/">
-    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands. 
+    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands.
   </EssentialElement>
   <EssentialElement title="Learn" type="resource" link="/learn/">
     Discover interesting articles, principles and techniques related to the Arduino ecosystem.

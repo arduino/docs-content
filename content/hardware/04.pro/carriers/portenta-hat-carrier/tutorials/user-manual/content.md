@@ -43,7 +43,7 @@ To use the [Portenta Hat Carrier](https://store.arduino.cc/products/portenta-hat
 
 Additionally, the following accessories are needed:
 
-- USB-C® cable (USB-C® to USB-A cable) (x1)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 - Wi-Fi® Access Point or Ethernet with Internet access (x1)
 
 ### Software Requirements
@@ -54,11 +54,11 @@ If you want to use the Portenta Hat Carrier with a Portenta X8, check the follow
 
 ***To ensure a stable operation of the Portenta Hat Carrier with Portenta X8, the minimum Linux image version required for Portenta X8 is __746__. To flash the latest image on your board, you can use the [Portenta X8 Out-of-the-box](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience) or [flash it manually](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool) downloading the latest version directly from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).***
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor) in case you want to use the auxiliary microcontroller of the Portenta X8 to run Arduino code.
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor) in case you want to use the auxiliary microcontroller of the Portenta X8 to run Arduino code.
 
 In case you want to use the Portenta Hat Carrier with a Portenta H7/C33:
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor) is needed to use the Portenta H7/C33 to run Arduino code.
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor) is needed to use the Portenta H7/C33 to run Arduino code.
 
 ## Product Overview
 
@@ -709,7 +709,7 @@ void setup() {
   Serial.println("Mass Storage Device connected.");
 
   /*
-   *  MOUNTIN SDCARD AS FATFS filesystem
+   *  MOUNTING SDCARD AS FATFS filesystem
    */
 
   Serial.println("Mounting Mass Storage Device...");

@@ -63,7 +63,7 @@ GSM gsmAccess;
 GSM_SMS sms;
 ```
 
-After the include section, we provide the two lines of code that refer to your secret pin number and incoming number. With this syntax the web editor generates a new Tab called Secrets where you input the two constants:
+After the include section, we provide the two lines of code that refer to your secret pin number and incoming number. With this syntax the Cloud Editor generates a new Tab called Secrets where you input the two constants:
 
 ```arduino
 char PINNUMBER [] = SECRET_PINNUMBER;
