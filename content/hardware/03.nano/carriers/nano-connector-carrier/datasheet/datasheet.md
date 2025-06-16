@@ -47,14 +47,14 @@ The main features of the Nano Connector Carrier are detailed in the table shown 
 | **Feature**            | **Description**                                                                                                                                                        |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Interfaces             | 2x Grove analog/digital connector <br></br> 1x Grove I2C connector <br></br> 1x Grove UART connector <br></br> 1x Qwiic I2C connector <br></br> 1x microSD card reader |
-| I/O Voltage            | Switch between +3.3 VDC and +5 VDC                                                                                                                                     |
+| I/O Voltage            | Switch between +3.3 V and +5 V                                                                                                                                     |
 | Dimensions             | 28 mm x 43 mm                                                                                                                                                          |
 | Operating Temperatures | -40 °C to +85 °C                                                                                                                                                       |
 
 
 ### Board Selection
 
-The Nano Connector Carrier lets you select +5 VDC or +3.3 VDC Nano boards to ensure compatibility with the whole Nano family. To do this, toggle the carrier onboard switch to its respective position, following the table below.
+The Nano Connector Carrier lets you select +5 V or +3.3 V Nano boards to ensure compatibility with the whole Nano family. To do this, toggle the carrier onboard switch to its respective position, following the table below.
 
 ![Board Selector Switch](assets/board-selector.png)
 
@@ -69,17 +69,17 @@ The Nano Connector Carrier lets you select +5 VDC or +3.3 VDC Nano boards to ens
 | Nano RP2040 Connect    |              |
 | Nano Matter            |              |
 
-Setting the switch to a specific position (3V3 or 5V) also manages the voltage output on the Grove connector VCC pin.
+Setting the switch to a specific position (3.3 V or 5V) also manages the voltage output on the Grove connector VCC pin.
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The logic and power voltage of the Qwiic connector and the microSD card slot are always +3.3 VDC regardless of the board selector switch position.
+<strong>Note:</strong> The logic and power voltage of the Qwiic connector and the microSD card slot are always +3.3 V regardless of the board selector switch position.
 </div>
 
 ### Qwiic I2C Connector
 
-The Qwiic connector is connected to the standard I2C bus on the board (via A4 and A5 pins). It is powered via +3.3 VDC, following the Qwiic standard system, making the Nano Connector Carrier compatible with the Arduino Modulino® nodes.
+The Qwiic connector is connected to the standard I2C bus on the board (via A4 and A5 pins). It is powered via +3.3 V, following the Qwiic standard system, making the Nano Connector Carrier compatible with the Arduino Modulino nodes.
 
-Its logic level is fixed to +3.3 VDC, which is translated to the host Nano board voltage defined by the board selector switch.
+Its logic level is fixed to +3.3 V, which is translated to the host Nano board voltage defined by the board selector switch.
 
 ![Nano Connector Carrier Qwiic Connector](assets/qwiic.png)
 
@@ -111,7 +111,7 @@ The Nano Connector Carrier exposes all the Nano host board connections and commu
 
 | Interfaces     | Connector                                                                     |
 | -------------- | ----------------------------------------------------------------------------- |
-| UART (x1)      | - Grove connector                                                             |
+| UART (x1)      | - Nano header connector <br></br>- Grove connector                                                             |
 | SPI (x1)       | - Nano header connector <br></br>- Micro SD card slot                         |
 | I2C (x1)       | - Nano header connector <br></br>- Qwiic connector <br></br>- Grove connector |
 | Analog/Digital | - Nano header connector <br></br>- 2x Grove connectors                        |
@@ -164,7 +164,7 @@ The Nano Connector Carrier pinout is shown in the following figure.
 | Pin | Function  | Type      | Description                             |
 | --- | --------- | --------- | --------------------------------------- |
 | 1   | D13 / SCK | Digital   | Serial Clock                            |
-| 2   | +3V3      | Power Out | +3V3 Power Rail                         |
+| 2   | +3.3 V      | Power Out | +3.3 V Power Rail                         |
 | 3   | B0 / AREF | Analog    | Analog Reference                        |
 | 4   | A0        | Analog    | Analog input 0                          |
 | 5   | A1        | Analog    | Analog input 1                          |
@@ -364,4 +364,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date      | **Revision** | **Changes**   |
 | --------- | ------------ | ------------- |
-| 6/06/2025 | 1            | First Release |
+| 22/05/2025 | 2            | Technical corrections, voltage notation standardization, nomenclature fixes and change log correction  |
+| 21/05/2025 | 1            | First Release |
