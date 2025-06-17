@@ -259,8 +259,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                                    |
 
 # Revision History
-| **Date**   | **Revision** | **Changes**        |
-|------------|--------------|--------------------|
+| **Date**   | **Revision** | **Changes**                       |
+|------------|--------------|-----------------------------------|
+| 17/06/2025 | 4            | Nomenclature updates              |
 | 23/05/2025 | 3            | Fixed pinout table and power info |
-| 21/05/2025 | 2            | Fixed info on LEDs |
-| 14/05/2025 | 1            | First release      |
+| 21/05/2025 | 2            | Fixed info on LEDs                |
+| 14/05/2025 | 1            | First release                     |
