@@ -170,7 +170,7 @@ For two-way ranging experiments between the Portenta UWB Shield and Arduino Stel
 
 #### Bluetooth® Communication
 
-For examples that use Bluetooth® Low Energy (BLE) communication (like the Nearby Demo), you'll also need the [`ArduinoBLE` library](https://github.com/arduino/ArduinoBLE). This library enables BLE functionality for device discovery and initial connection setup before UWB ranging begins.
+For examples that use Bluetooth® Low Energy communication (like the Nearby Demo), you'll also need the [`ArduinoBLE` library](https://github.com/arduino/ArduinoBLE). This library enables Bluetooth Low Energy communication functionality for device discovery and initial connection setup before UWB ranging begins.
 
 #### Installing the Libraries and Board Cores
 
@@ -190,7 +190,7 @@ To install the required board cores:
 
 ![Installing the board's core in the Arduino IDE](assets/user-manual-4.png)
 
-***<strong>Important note:</strong> Make sure to install both the appropriate library and board core for your specific hardware. The Portenta UWB Shield with Portenta C33 requires the `PortentaUWBShield` library and Arduino Renesas Boards core. For examples involving Arduino Stella, you'll need the `StellaUWB` library and Arduino mbed OS Boards core. For examples involving BLE communication, both devices will need the `ArduinoBLE` library installed.***
+***<strong>Important note:</strong> Make sure to install both the appropriate library and board core for your specific hardware. The Portenta UWB Shield with Portenta C33 requires the `PortentaUWBShield` library and Arduino Renesas Boards core. For examples involving Arduino Stella, you'll need the `StellaUWB` library and Arduino mbed OS Boards core. For examples involving Bluetooth® Low Energy communication, both devices will need the `ArduinoBLE` library installed.***
 
 ### Pinout
 
@@ -244,7 +244,7 @@ Align the shield's High-Density connectors with those on the Portenta C33 board 
 
 The Portenta UWB Shield is powered exclusively through the `VCC` pins (+3.3 VDC) of its High-Density Connectors. These connectors are designed to be used with boards from the Portenta family, such as the Portenta C33 board. The power is supplied directly from the connected Portenta family board, which acts as the power source for the Portenta UWB Shield.
 
-***<strong>Important note:</strong> The Portenta UWB Shield does not have an independent power input. It receives power only through the High-Density connectors when properly connected to a Portenta C33 board. Additionally, if you plan to use Bluetooth® Low Energy (BLE) functionality, make sure to connect an antenna to the Wi-Fi®/Bluetooth module of the Portenta C33 for optimal wireless performance.***
+***<strong>Important note:</strong> The Portenta UWB Shield does not have an independent power input. It receives power only through the High-Density connectors when properly connected to a Portenta C33 board. Additionally, if you plan to use Bluetooth® Low Energy functionality, make sure to connect an antenna to the Wi-Fi®/Bluetooth module of the Portenta C33 for optimal wireless performance.***
 
 ### Nearby World Example
 
@@ -256,12 +256,12 @@ Let's use the Portenta UWB Shield with the Portenta C33 to create a real-time di
 
 The `Nearby World` example demonstrates the core functionality of UWB technology through a simple example sketch that can be described in the following key steps:
 
-1. **BLE connection setup**: The Portenta UWB Shield establishes a Bluetooth® Low Energy (BLE) connection with a compatible smartphone app.
-2. **Configuration exchange**: The BLE connection is used to exchange necessary UWB configuration parameters.
+1. **Bluetooth® Low Energy connection setup**: The Portenta UWB Shield establishes a Bluetooth Low Energy connection with a compatible smartphone app.
+2. **Configuration exchange**: The Bluetooth Low Energy connection is used to exchange necessary UWB configuration parameters.
 3. **UWB ranging**: Once configured, the actual UWB ranging session begins, providing precise distance measurements.
 4. **Real-time feedback**: Distance data is continuously updated and can be viewed on the IDE's Serial Monitor and the smartphone app.
 
-This process demonstrates the working principle of many UWB applications, where BLE is used primarily for discovery and configuration, while UWB handles the precise ranging.
+This process demonstrates the working principle of many UWB applications, where Bluetooth Low Energy is used primarily for discovery and configuration, while UWB handles the precise ranging.
 
 #### Uploading the Sketch
 
@@ -284,9 +284,9 @@ Copy and paste the example sketch below into a new sketch in the Arduino IDE:
 
 // Include required libraries
 #include <ArduinoBLE.h>
-#include <ardUWBSr150.h>
+#include <PortentaUWBShield.h>
 
-// Track the number of connected BLE clients
+// Track the number of connected Bluetooth® Low Energy clients
 uint16_t numConnected = 0;
 
 /**
@@ -298,7 +298,7 @@ void rangingHandler(UWBRangingData &rangingData) {
   Serial.println(rangingData.measureType());
   
   // Nearby interaction uses Double-sided Two-way Ranging method
-  if(rangingData.measureType()==MEASUREMENT_TYPE_TWOWAY) {
+  if(rangingData.measureType()==(uint8_t)uwb::MeasurementType::TWO_WAY) {
     // Get the TWR (Two-Way Ranging) measurements
     RangingMeasures twr = rangingData.twoWayRangingMeasure();
     
@@ -315,8 +315,8 @@ void rangingHandler(UWBRangingData &rangingData) {
 }
 
 /**
-  Handles new BLE client connection events.
-  @param dev The connecting BLE device.
+  Handles new Bluetooth® Low Energy client connection events.
+  @param dev The connecting Bluetooth Low Energy device.
 */
 void clientConnected(BLEDevice dev) {
   // Initialize UWB stack on first connection
@@ -329,10 +329,13 @@ void clientConnected(BLEDevice dev) {
 }
 
 /**
-  Handles BLE client disconnection events.
-  @param dev The disconnecting BLE device.
+  Handles Bluetooth® Low Energy client disconnection events.
+  @param dev The disconnecting Bluetooth Low Energy device.
 */
 void clientDisconnected(BLEDevice dev) {
+  // Find the session related to the device and stop it
+  UWBSession sess = UWBNearbySessionManager.find(dev);
+  sess.stop();
   // Decrement connected clients counter
   numConnected--;
   // Shut down UWB when no clients are connected
@@ -343,7 +346,7 @@ void clientDisconnected(BLEDevice dev) {
 
 /**
   Handles UWB session start events.
-  @param dev The BLE device starting the session.
+  @param dev The Bluetooth® Low Energy device starting the session.
 */
 void sessionStarted(BLEDevice dev) {
   Serial.println("- Session started!");
@@ -351,7 +354,7 @@ void sessionStarted(BLEDevice dev) {
 
 /**
   Handles UWB session termination events.
-  @param dev The BLE device ending the session.
+  @param dev The Bluetooth® Low Energy device ending the session.
 */
 void sessionStopped(BLEDevice dev) {
   Serial.println("- Session stopped!");
@@ -376,7 +379,7 @@ void setup() {
   UWBNearbySessionManager.onSessionStart(sessionStarted);
   UWBNearbySessionManager.onSessionStop(sessionStopped);
   
-  // Initialize BLE services and start advertising as "Portenta UWB Shield"
+  // Initialize Bluetooth® Low Energy services and start advertising as "Portenta UWB Shield"
   UWBNearbySessionManager.begin("Portenta UWB Shield");
 }
 
@@ -384,7 +387,7 @@ void loop() {
   // Small delay to prevent CPU overload
   delay(100);
   
-  // Process BLE events
+  // Process Bluetooth® Low Energy events
   UWBNearbySessionManager.poll();
 }
 ```
@@ -427,7 +430,7 @@ The NearbyDemo example sketch is a fundamental demonstration of the Portenta UWB
 
 This example sketch demonstrates the following:
 
-- **Hybrid communication protocol:** It shows the integration of BLE for device discovery and configuration with UWB for precise distance measurements, a common pattern in production UWB applications.
+- **Hybrid communication protocol:** It shows the integration of Bluetooth® Low Energy for device discovery and configuration with UWB for precise distance measurements, a common pattern in production UWB applications.
 - **Standards compatibility:** The implementation is compatible with Apple's Nearby Interaction API and similar Android standards, demonstrating how the Arduino ecosystem can interact with mainstream consumer devices.
 - **Foundation for advanced applications:**: The ranging capability demonstrated is the building block for more sophisticated applications such as indoor positioning systems, geofencing, secure access and proximity-based automation.
 
@@ -454,7 +457,7 @@ Now, let's take a closer look at the sketch:
 
 // Include required libraries
 #include <ArduinoBLE.h>
-#include <ardUWBSr150.h>
+#include <PortentaUWBShield.h>
 
 // Track the number of connected BLE clients
 uint16_t numConnected = 0;
@@ -468,7 +471,7 @@ void rangingHandler(UWBRangingData &rangingData) {
   Serial.println(rangingData.measureType());
   
   // Nearby interaction uses Double-sided Two-way Ranging method
-  if(rangingData.measureType()==MEASUREMENT_TYPE_TWOWAY) {
+  if(rangingData.measureType()==(uint8_t)uwb::MeasurementType::TWO_WAY) {
     // Get the TWR (Two-Way Ranging) measurements
     RangingMeasures twr = rangingData.twoWayRangingMeasure();
     
@@ -503,6 +506,9 @@ void clientConnected(BLEDevice dev) {
   @param dev The disconnecting BLE device.
 */
 void clientDisconnected(BLEDevice dev) {
+  // Find the session related to the device and stop it
+  UWBSession sess = UWBNearbySessionManager.find(dev);
+  sess.stop();
   // Decrement connected clients counter
   numConnected--;
   // Shut down UWB when no clients are connected
@@ -567,28 +573,28 @@ The `NearbyDemo` code follows an event-driven architecture that employs callback
    
 ```arduino
 #include <ArduinoBLE.h>
-#include <ardUWBSr150.h>
+#include <PortentaUWBShield.h>
 
 uint16_t numConnected = 0;
 ```
 
 The code includes two essential libraries:
 
-- `ArduinoBLE`: Provides Bluetooth® Low Energy (BLE) functionality for device discovery and initial connection.
+- `ArduinoBLE`: Provides Bluetooth® Low Energy functionality for device discovery and initial connection.
 - `PortentaUWBShield`: The core library that enables interaction with the UWB hardware on the Portenta UWB Shield.
 
-The `numConnected` variable tracks how many BLE clients are currently connected to the Portenta UWB Shield.
+The `numConnected` variable tracks how many Bluetooth Low Energy clients are currently connected to the Portenta UWB Shield.
 
-2. **Ranging Data Handler**
+1. **Ranging Data Handler**
 
 ```arduino
 void rangingHandler(UWBRangingData &rangingData) {
   // ...
-  if(rangingData.measureType()==MEASUREMENT_TYPE_TWOWAY) {
+  if(rangingData.measureType()==(uint8_t)uwb::MeasurementType::TWO_WAY) {
     RangingMeasures twr = rangingData.twoWayRangingMeasure();
     // ...
     if(twr[j].status==0 && twr[j].distance!=0xFFFF) {
-      Serial.print("- Distance: ");
+      Serial.print("Distance: ");
       Serial.println(twr[j].distance);
     }
   }
@@ -613,6 +619,8 @@ void clientConnected(BLEDevice dev) {
 }
 
 void clientDisconnected(BLEDevice dev) {
+  UWBSession sess = UWBNearbySessionManager.find(dev);
+  sess.stop();
   numConnected--;
   if(numConnected==0) {
     UWB.end();
@@ -620,7 +628,7 @@ void clientDisconnected(BLEDevice dev) {
 }
 ```
 
-These functions handle BLE connection events:
+These functions handle Bluetooth® Low Energy connection events:
 
 - `clientConnected` initializes the UWB subsystem when the first client connects.
 - `clientDisconnected` shuts down the UWB subsystem when no clients are connected.
@@ -631,17 +639,17 @@ This approach saves power by only running the shield's UWB hardware when it's ne
 
 ```arduino
 void sessionStarted(BLEDevice dev) {
-  Serial.println("- Session started!");
+  Serial.println("Session started!");
 }
 
 void sessionStopped(BLEDevice dev) {
-  Serial.println("- Session stopped!");
+  Serial.println("Session stopped!");
 }
 ```
 
 These callbacks track the UWB session state:
 
-- A session begins after the BLE connection is established and the UWB configuration is exchanged.
+- A session begins after the Bluetooth® Low Energy connection is established and the UWB configuration is exchanged.
 - A session ends when the UWB communication is terminated, either by the client disconnecting or other factors.
 
 5. **Setup and Initialization**
@@ -662,9 +670,9 @@ void setup() {
 The setup function:
 
 - Registers all the callback functions with the UWB subsystem.
-- Initializes the BLE advertising with the name `Portenta UWB Shield`. This name is what will appear in the smartphone app's device list.
+- Initializes the Bluetooth® Low Energy advertising with the name `Portenta UWB Shield`. This name is what will appear in the smartphone app's device list.
 
-6. **Main Loop**
+1. **Main Loop**
 
 ```arduino
 void loop() {
@@ -675,10 +683,10 @@ void loop() {
 
 The main loop is quite simple:
 
-- It calls the `UWBNearbySessionManager.poll()` function to process BLE events.
+- It calls the `UWBNearbySessionManager.poll()` function to process Bluetooth® Low Energy events.
 - The actual UWB ranging happens asynchronously through the callback system.
   
-This event-driven architecture allows the system to respond quickly to UWB and BLE events without blocking the main program flow.
+This event-driven architecture allows the system to respond quickly to UWB and Bluetooth Low Energy events without blocking the main program flow.
 
 ### Extending the Example Sketch
 
@@ -728,7 +736,7 @@ Here's the code for the Portenta UWB Shield, which acts as the Controlee (Respon
 */
 
 // Include required UWB library
-#include <ardUWBSr150.h>
+#include <PortentaUWBShield.h>
 
 /**
   Processes ranging data received from UWB communication.
@@ -737,7 +745,7 @@ Here's the code for the Portenta UWB Shield, which acts as the Controlee (Respon
 void rangingHandler(UWBRangingData &rangingData) {
   Serial.print("- GOT RANGING DATA - Type: ");
   Serial.println(rangingData.measureType());
-  if(rangingData.measureType()==MEASUREMENT_TYPE_TWOWAY) {
+  if(rangingData.measureType()==(uint8_t)uwb::MeasurementType::TWO_WAY) {
     // Get the TWR (Two-Way Ranging) measurements
     RangingMeasures twr=rangingData.twoWayRangingMeasure();
     
@@ -784,10 +792,10 @@ void setup() {
   Serial.println("- Starting session ...");
   UWBSession session1;
   session1.sessionID(0x11223344);
-  session1.sessionType(UWBD_RANGING_SESSION);
+  session1.sessionType(uwb::SessionType::RANGING);
     
   // Set application parameters
-  if(!session1.appParams.addOrUpdateParam(UWB_SET_APP_PARAM_VALUE(NO_OF_CONTROLEES,1)))
+  if(!session1.appParams.addOrUpdateParam(AppConfigId::NO_OF_CONTROLEES,1))
     Serial.println("- Could not add to app params!");
   if(!session1.appParams.destinationMacAddr(dstAddr))
     Serial.println("- Could not add to app params!");
@@ -797,11 +805,11 @@ void setup() {
 
   // Configure ranging parameters
   session1.rangingParams.deviceMacAddr(srcAddr);
-  session1.rangingParams.deviceRole(kUWB_DeviceRole_Responder);
-  session1.rangingParams.deviceType(kUWB_DeviceType_Controlee);
-  session1.rangingParams.multiNodeMode(kUWB_MultiNodeMode_UniCast);
-  session1.rangingParams.rangingRoundUsage(kUWB_RangingRoundUsage_DS_TWR);
-  session1.rangingParams.scheduledMode(kUWB_ScheduledMode_TimeScheduled);
+  session1.rangingParams.deviceRole(uwb::DeviceRole::RESPONDER);
+  session1.rangingParams.deviceType(uwb::DeviceType::Controlee);
+  session1.rangingParams.multiNodeMode(uwb::MultiNodeMode::UNICAST);
+  session1.rangingParams.rangingRoundUsage(uwb::RangingMethod::DS_TWR);
+  session1.rangingParams.scheduledMode(uwb::ScheduledMode::TIME_SCHEDULED);
   
   // Add the session to the manager and start it
   UWBSessionManager.addSession(session1);
@@ -837,7 +845,7 @@ Here's the code for the Arduino Stella, which acts as the Controller (Initiator)
 */
 
 // Include required UWB library
-#include "ardUWBSr040.h"
+#include <StellaUWB.h>
 
 /**
   Processes ranging data received from UWB communication.
@@ -846,7 +854,7 @@ Here's the code for the Arduino Stella, which acts as the Controller (Initiator)
 void rangingHandler(UWBRangingData &rangingData) {
   Serial.print("- GOT RANGING DATA - Type: ");
   Serial.println(rangingData.measureType());
-  if(rangingData.measureType()==MEASUREMENT_TYPE_TWOWAY) {
+  if(rangingData.measureType()==(uint8_t)uwb::MeasurementType::TWO_WAY) {
     // Get the TWR (Two-Way Ranging) measurements
     RangingMeasures twr=rangingData.twoWayRangingMeasure();
     
@@ -888,18 +896,32 @@ void setup() {
   // Setup and start the UWB session
   Serial.println("- Starting session ...");
   
-  // Create a tracker with session ID 0x11223344
-  // This automatically configures the device as Controller/Initiator
-  UWBTracker myTracker(0x11223344,srcAddr,dstAddr);
+  // Configure the UWB session
+  UWBSession session1;
+  session1.sessionID(0x11223344);
+  session1.sessionType(UWBD_RANGING_SESSION);
+    
+  // Set application parameters
+  if(!session1.appParams.addOrUpdateParam(UWB_SET_APP_PARAM_VALUE(NO_OF_CONTROLEES,1)))
+    Serial.println("- Could not add to app params!");
+  if(!session1.appParams.destinationMacAddr(dstAddr))
+    Serial.println("- Could not add to app params!");
+    
+  // Apply default values for measurement repetition rate and antenna config
+  session1.applyDefaults();
+
+  // Configure ranging parameters
+  session1.rangingParams.deviceMacAddr(srcAddr);
+  session1.rangingParams.deviceRole(kUWB_DeviceRole_Initiator);
+  session1.rangingParams.deviceType(kUWB_DeviceType_Controller);
+  session1.rangingParams.multiNodeMode(kUWB_MultiNodeMode_UniCast);
+  session1.rangingParams.rangingRoundUsage(kUWB_RangingRoundUsage_DS_TWR);
+  session1.rangingParams.scheduledMode(kUWB_ScheduledMode_TimeScheduled);
   
-  // Add the session to the manager
-  UWBSessionManager.addSession(myTracker);
-  
-  // Initialize with default parameters
-  myTracker.init();
-  
-  // Start the ranging session
-  myTracker.start();
+  // Add the session to the manager and start it
+  UWBSessionManager.addSession(session1);
+  session1.init();
+  session1.start();
 }
 
 void loop() {
@@ -945,6 +967,37 @@ The setup process for UWB communication differs between the two devices due to t
 // Configure the UWB session
 UWBSession session1;
 session1.sessionID(0x11223344);  // Unique identifier for this session
+session1.sessionType(uwb::SessionType::RANGING);
+    
+// Set application parameters
+if(!session1.appParams.addOrUpdateParam(AppConfigId::NO_OF_CONTROLEES,1))
+  Serial.println("could not add to app params");
+if(!session1.appParams.destinationMacAddr(dstAddr))
+  Serial.println("could not add to app params");
+    
+// Apply default values for measurement repetition rate and antenna config
+session1.applyDefaults();
+
+// Configure ranging parameters
+session1.rangingParams.deviceMacAddr(srcAddr);
+session1.rangingParams.deviceRole(uwb::DeviceRole::RESPONDER);
+session1.rangingParams.deviceType(uwb::DeviceType::Controlee);
+session1.rangingParams.multiNodeMode(uwb::MultiNodeMode::UNICAST);
+session1.rangingParams.rangingRoundUsage(uwb::RangingMethod::DS_TWR);
+session1.rangingParams.scheduledMode(uwb::ScheduledMode::TIME_SCHEDULED);
+  
+// Add the session to the manager and start it
+UWBSessionManager.addSession(session1);
+session1.init();
+session1.start();
+```
+
+**Arduino Stella (Controller/Initiator):**
+
+```arduino
+// Configure the UWB session
+UWBSession session1;
+session1.sessionID(0x11223344);
 session1.sessionType(UWBD_RANGING_SESSION);
     
 // Set application parameters
@@ -958,8 +1011,8 @@ session1.applyDefaults();
 
 // Configure ranging parameters
 session1.rangingParams.deviceMacAddr(srcAddr);
-session1.rangingParams.deviceRole(kUWB_DeviceRole_Responder);
-session1.rangingParams.deviceType(kUWB_DeviceType_Controlee);
+session1.rangingParams.deviceRole(kUWB_DeviceRole_Initiator);
+session1.rangingParams.deviceType(kUWB_DeviceType_Controller);
 session1.rangingParams.multiNodeMode(kUWB_MultiNodeMode_UniCast);
 session1.rangingParams.rangingRoundUsage(kUWB_RangingRoundUsage_DS_TWR);
 session1.rangingParams.scheduledMode(kUWB_ScheduledMode_TimeScheduled);
@@ -968,23 +1021,6 @@ session1.rangingParams.scheduledMode(kUWB_ScheduledMode_TimeScheduled);
 UWBSessionManager.addSession(session1);
 session1.init();
 session1.start();
-```
-
-**Arduino Stella (Controller/Initiator):**
-
-```arduino
-// Create a tracker with session ID 0x11223344
-// This automatically configures the device as Controller/Initiator
-UWBTracker myTracker(0x11223344,srcAddr,dstAddr);
-  
-// Add the session to the manager
-UWBSessionManager.addSession(myTracker);
-  
-// Initialize with default parameters
-myTracker.init();
-  
-// Start the ranging session
-myTracker.start();
 ```
 
 ***<strong>Important note:</strong> The session configuration is more detailed for the Portenta UWB Shield because it explicitly defines all the ranging parameters. The Arduino Stella uses the simplified `UWBTracker` class, which automatically sets up the device as a Controller/Initiator with appropriate defaults. However, both devices must use the same session ID (`0x11223344` in this example) to communicate with each other. This session ID is a shared identifier for the ranging session between these devices.***
@@ -1014,7 +1050,7 @@ Both devices use nearly identical callback functions to process ranging data:
 ```arduino
 void rangingHandler(UWBRangingData &rangingData) {
   // ...
-  if(rangingData.measureType()==MEASUREMENT_TYPE_TWOWAY) {
+  if(rangingData.measureType()==(uint8_t)uwb::MeasurementType::TWO_WAY) {
     RangingMeasures twr=rangingData.twoWayRangingMeasure();
     for(int j=0;j<rangingData.available();j++) {
       if(twr[j].status==0 && twr[j].distance!=0xFFFF) {
