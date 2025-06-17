@@ -6,7 +6,8 @@ primary_button_url: https://docs.arduino.cc/tutorials/modulino-movement/how-move
 primary_button_title: With Arduino
 secondary_button_url: https://docs.arduino.cc/tutorials/modulino-movement/how-movement-mp/
 secondary_button_title: With MicroPython
-certifications: []
+certifications: [CE, FCC, IC, UKCA]
+forumCategorySlug: '/hardware/accessories/modulino-movement/218'
 sku: [ABX00101]
 ---
 

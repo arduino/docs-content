@@ -58,7 +58,7 @@ The Modulino® Thermo node can be used in numerous scenarios within IoT and elec
 - ~24.4 µA (at 14-bit resolution, 3.3 V)
 
 ## Power Tree
-The power tree for the modulino can be consulted below:
+The power tree for the Modulino® node can be consulted below:
 
 ![Modulino® Thermo Power Tree](assets/Modulino_Thermo_Power_Tree.png)
   
@@ -109,7 +109,7 @@ These pads and the Qwiic connectors share the same I2C bus. You can optionally s
   - Hole spacing: 16 mm vertically, 32 mm horizontally
 
 ### I2C Address Reference
-| **Board Silk Name** | **Sensor** | **Modulino I2C Address (HEX)** | **Editable Addresses (HEX)**             | **Hardware I2C Address (HEX)** |
+| **Board Silk Name** | **Sensor** | **Modulino® I2C Address (HEX)** | **Editable Addresses (HEX)**             | **Hardware I2C Address (HEX)** |
 |---------------------|-----------|--------------------------------|------------------------------------------|--------------------------------|
 | MODULINO THERMO     | HS3003    | 0x44                           | Any custom address (via software config) | 0x44                           |
 
@@ -229,9 +229,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                                         |
 |                           |                                                                                                                                                                                                |
 
-# Revision History
-| **Date**   | **Revision** | **Changes**   |
-| ---------- | ------------ | ------------- |
-| 12/06/2025 | 3            | Certification |
-| 23/05/2025 | 2            | Power info    |
-| 14/05/2025 | 1            | First release |
+| **Date**   | **Revision** | **Changes**          |
+| ---------- | ------------ | -------------------- |
+| 17/06/2025 | 4            | Certification        |
+| 17/06/2025 | 3            | Nomenclature updates |
+| 23/05/2025 | 2            | Power info           |
+| 14/05/2025 | 1            | First release        |
