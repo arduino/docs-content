@@ -48,7 +48,7 @@ The wand can detect two gestures drawn in the air: **"W" (wing gesture)** and **
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
-- [Modulino library](https://github.com/arduino-libraries/Modulino). This library adds the support for the Modulinos, you can install it from the **Library Manager** in the Arduino IDE.
+- [Modulino library](https://github.com/arduino-libraries/Modulino). This library adds the support for the Modulino nodes, you can install it from the **Library Manager** in the Arduino IDE.
 - [Silicon Labs core](https://github.com/SiliconLabs/arduino). This enables the Silicon Labs hardware including the Arduino Nano Matter support. You can install it from the **Boards Manager** in the Arduino IDE. 
 
 ### Download the Project Code
@@ -108,7 +108,7 @@ The Modulino are daisy-chained leveraging the Qwiic I2C connection with the Nano
 
 ### 3D Printed Parts
 
-You can mount the Nano Matter and the Modulinos on a custom 3D printed or laser cut base. Download the 3D files from [here](assets/3d-files.zip).
+You can mount the Nano Matter and the Modulino nodes on a custom 3D printed or laser cut base. Download the 3D files from [here](assets/3d-files.zip).
 
 ![3D Printed Base](assets/piece.PNG)
 
@@ -392,7 +392,7 @@ typedef struct model_output {
 typedef float acc_data_t;
 ```
 
-We define some function prototypes to manage the Modulino Pixels and the Modulino Movement accelerometer data. Also, the classes for the Modulinos are declared.
+We define some function prototypes to manage the Modulino Pixels and the Modulino Movement accelerometer data. Also, the classes for the Modulino Nodes are declared.
 
 ```arduino
 ModulinoColor OFF(0, 0, 0);

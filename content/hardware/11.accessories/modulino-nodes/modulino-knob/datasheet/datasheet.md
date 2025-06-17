@@ -58,7 +58,7 @@ Maker, beginner, education
 - ~3.4 mA (microcontroller + rotary encoder interface)
 
 ## Power Tree
-The power tree for the modulino can be consulted below:
+The power tree for the Modulino® node can be consulted below:
 
 ![Modulino® Knob Power Tree](assets/Modulino_Knob_Power_Tree.png)
 
@@ -125,7 +125,7 @@ These pads and the Qwiic connectors share the same I2C bus at 3.3 V.
   - Hole spacing: 16 mm vertically, 32 mm horizontally
 
 ### I2C Address Reference
-| **Board Silk Name** | **Sensor**               | **Modulino I2C Address (HEX)** | **Editable Addresses (HEX)**          | **Hardware I2C Address (HEX)** |
+| **Board Silk Name** | **Sensor**               | **Modulino® I2C Address (HEX)** | **Editable Addresses (HEX)**          | **Hardware I2C Address (HEX)** |
 |---------------------|--------------------------|--------------------------------|---------------------------------------|--------------------------------|
 | MODULINO KNOB       | Quadrature Encoder + MCU | 0x76                           | Any custom address (via FW config)    | 0x3A                           |
 
@@ -261,6 +261,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 # Revision History
 | **Date**   | **Revision** | **Changes**                                                       |
 | ---------- | ------------ | ----------------------------------------------------------------- |
+| 17/06/2025 | 3            | Nomenclature updates                                              |
 | 23/05/2025 | 2            | Fixed pinout table, power info, removed unrelated characteristics |
 | 14/05/2025 | 1            | First release                                                     |
 
