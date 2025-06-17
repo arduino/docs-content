@@ -142,8 +142,8 @@ Use the Arduino IDE or Arduino Cloud Editor to program your microcontroller. Lib
 |                           |                                                                                                                                                                                                |
 
 # Revision History
-| **Date**   | **Revision** | **Changes**   |
-| ---------- | ------------ | ------------- |
+| **Date**   | **Revision** | **Changes**          |
+| ---------- | ------------ | -------------------- |
 | 17/06/2025 | 3            | Nomenclature updates |
-| 23/05/2025 | 2            | Power info    |
-| 14/05/2025 | 1            | First release |
+| 23/05/2025 | 2            | Power info           |
+| 14/05/2025 | 1            | First release        |
