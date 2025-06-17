@@ -170,7 +170,7 @@ For two-way ranging experiments between the Portenta UWB Shield and Arduino Stel
 
 #### Bluetooth® Communication
 
-For examples that use Bluetooth® Low Energy communication (like the Nearby Demo), you'll also need the [`ArduinoBLE` library](https://github.com/arduino/ArduinoBLE). This library enables Bluetooth® Low Energy communication functionality for device discovery and initial connection setup before UWB ranging begins.
+For examples that use Bluetooth® Low Energy communication (like the Nearby Demo), you'll also need the [`ArduinoBLE` library](https://github.com/arduino/ArduinoBLE). This library enables Bluetooth Low Energy communication functionality for device discovery and initial connection setup before UWB ranging begins.
 
 #### Installing the Libraries and Board Cores
 
@@ -256,12 +256,12 @@ Let's use the Portenta UWB Shield with the Portenta C33 to create a real-time di
 
 The `Nearby World` example demonstrates the core functionality of UWB technology through a simple example sketch that can be described in the following key steps:
 
-1. **Bluetooth® Low Energy connection setup**: The Portenta UWB Shield establishes a Bluetooth® Low Energy connection with a compatible smartphone app.
-2. **Configuration exchange**: The Bluetooth® Low Energy connection is used to exchange necessary UWB configuration parameters.
+1. **Bluetooth® Low Energy connection setup**: The Portenta UWB Shield establishes a Bluetooth Low Energy connection with a compatible smartphone app.
+2. **Configuration exchange**: The Bluetooth Low Energy connection is used to exchange necessary UWB configuration parameters.
 3. **UWB ranging**: Once configured, the actual UWB ranging session begins, providing precise distance measurements.
 4. **Real-time feedback**: Distance data is continuously updated and can be viewed on the IDE's Serial Monitor and the smartphone app.
 
-This process demonstrates the working principle of many UWB applications, where Bluetooth® Low Energy is used primarily for discovery and configuration, while UWB handles the precise ranging.
+This process demonstrates the working principle of many UWB applications, where Bluetooth Low Energy is used primarily for discovery and configuration, while UWB handles the precise ranging.
 
 #### Uploading the Sketch
 
@@ -316,7 +316,7 @@ void rangingHandler(UWBRangingData &rangingData) {
 
 /**
   Handles new Bluetooth® Low Energy client connection events.
-  @param dev The connecting Bluetooth® Low Energy device.
+  @param dev The connecting Bluetooth Low Energy device.
 */
 void clientConnected(BLEDevice dev) {
   // Initialize UWB stack on first connection
@@ -330,7 +330,7 @@ void clientConnected(BLEDevice dev) {
 
 /**
   Handles Bluetooth® Low Energy client disconnection events.
-  @param dev The disconnecting Bluetooth® Low Energy device.
+  @param dev The disconnecting Bluetooth Low Energy device.
 */
 void clientDisconnected(BLEDevice dev) {
   // Find the session related to the device and stop it
@@ -583,7 +583,7 @@ The code includes two essential libraries:
 - `ArduinoBLE`: Provides Bluetooth® Low Energy functionality for device discovery and initial connection.
 - `PortentaUWBShield`: The core library that enables interaction with the UWB hardware on the Portenta UWB Shield.
 
-The `numConnected` variable tracks how many Bluetooth® Low Energy clients are currently connected to the Portenta UWB Shield.
+The `numConnected` variable tracks how many Bluetooth Low Energy clients are currently connected to the Portenta UWB Shield.
 
 1. **Ranging Data Handler**
 
@@ -686,7 +686,7 @@ The main loop is quite simple:
 - It calls the `UWBNearbySessionManager.poll()` function to process Bluetooth® Low Energy events.
 - The actual UWB ranging happens asynchronously through the callback system.
   
-This event-driven architecture allows the system to respond quickly to UWB and Bluetooth® Low Energy events without blocking the main program flow.
+This event-driven architecture allows the system to respond quickly to UWB and Bluetooth Low Energy events without blocking the main program flow.
 
 ### Extending the Example Sketch
 
