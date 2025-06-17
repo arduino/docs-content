@@ -249,6 +249,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 # Revision History
 | **Date**   | **Revision** | **Changes**                                                          |
 | ---------- | ------------ | -------------------------------------------------------------------- |
+| 17/06/2025 | 3            | Nomenclature updates |
 | 23/05/2025 | 2            | Fixed pinout table and power info, removed unrelated characteristics |
 | 14/05/2025 | 1            | First release                                                        |
 
