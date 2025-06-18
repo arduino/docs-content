@@ -156,7 +156,7 @@ Below is a summary of the board's buzzer features.
 
 <p style="text-align: justify;">The Stella connectors pinput is shown in the figure below.</p>
 
-![](assets/stella-pinout.png)
+![](assets/stella-pinout-v3.png)
 
 <div style="page-break-after: always;"></div>
 
