@@ -433,6 +433,157 @@ arduinodigitalWrite(pin, value);
 Digital Input:
 arduinodigitalRead(pin);
 
+### Analog Pins
+
+The Nano R4 features **8 analog input pins** (`A0` to `A7`) that can be read using the `analogRead()` function. These pins allow you to measure continuously varying voltages, making them perfect for reading sensors like potentiometers, light sensors, temperature sensors and other analog components and devices. The analog-to-digital converter (ADC) built into the RA4M1 microcontroller of the Nano R4 board converts the analog voltage into a digital value that your sketch can process.
+
+The Nano R4 analog pins provide the following functionality:
+
+| **Arduino Pin** | **Microcontroller Pin** | **Additional Functions** |  **Special Features** |
+|:---------------:|:-----------------------:|:------------------------:|:---------------------:|
+|       `A0`      |          `P000`         |            DAC           |   12-bit DAC output   |
+|       `A1`      |          `P001`         |          OPAMP +         | Operational amplifier |
+|       `A2`      |          `P002`         |          OPAMP -         | Operational amplifier |
+|       `A3`      |          `P003`         |         OPAMP OUT        | Operational amplifier |
+|       `A4`      |          `P004`         |         SDA (I²C)        |   I²C communication   |
+|       `A5`      |          `P010`         |         SCL (I²C)        |   I²C communication   |
+|       `A6`      |          `P014`         |         Analog In        |   Analog input only   |
+|       `A7`      |          `P015`         |         Analog In        |   Analog input only   |
+
+***<strong>Important note:</strong> Pin `A0` has a built-in 12-bit Digital-to-Analog Converter (DAC) for analog output. Pins `A1`, `A2` and `A3` are connected to the integrated operational amplifier. Pins `A4` and `A5` are primarily used for I²C communication (SDA and SCL respectively).***
+
+The Nano R4's analog pins offer the following specifications:
+
+|  **Specification** |   **Value**  |           **Notes**          |
+|:------------------:|:------------:|:----------------------------:|
+|    Input Voltage   |  0 to +5 VDC |  Maximum safe input voltage  |
+| Default Resolution |    10-bit    |         Values 0-1023        |
+| Maximum Resolution |    14-bit    |        Values 0-16383        |
+|  Default Reference |    +5 VDC    |         AREF voltage         |
+| Internal Reference |   +1.5 VDC   | Built-in precision reference |
+|     Sample Rate    | Up to 1 MSPS |    Maximum sampling speed    |
+|      Accuracy      |    ±2 LSB    |  Typical conversion accuracy |
+
+You can read analog values using the `analogRead()` function:
+
+```arduino
+value = analogRead(pin);
+``` 
+
+The default reference voltage of these pins is +5V, but this can be changed using the `analogReference(`) function. You can use `analogReference(AR_DEFAULT)` for the default reference of +5 VDC or `analogReference(AR_INTERNAL)` for the built-in reference of +1.5 VDC.
+
+The default resolution is set to 10-bit, but can be updated to 12-bit and 14-bit resolutions using the `analogReadResolution()` function in the `setup()` of your sketch. Available options are analogReadResolution(10) for default 10-bit, analogReadResolution(12) for 12-bit, or analogReadResolution(14) for maximum 14-bit resolution.
+
+The following examples demonstrate basic analog pin functionality using simple connections that you can easily test with the Nano R4 board.
+
+***The following examples demonstrate basic analog pin functionality using simple connections that you can easily test with the Nano R4 board.***
+
+The following example demonstrates how to read an analog value and display it on the Serial Monitor:
+
+```arduino
+/**
+Analog Input Example for the Arduino Nano R4 Board
+Name: nano_r4_analog_input.ino
+Purpose: This sketch demonstrates how to read an analog input
+and display the value on the Serial Monitor.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+// Analog input pin
+const int analogPin = A0;
+
+void setup() {
+  // Initialize serial communication at 115200 baud
+  Serial.begin(115200);
+  
+  Serial.println("- Arduino Nano R4 - Analog Input Example started...");
+  Serial.println("- Reading analog values from pin A0");
+}
+
+void loop() {
+  // Read the analog value (0 - 1023 with 10-bit resolution)
+  int analogValue = analogRead(analogPin);
+  
+  // Convert to voltage (0 to +5 VDC)
+  float voltage = analogValue * (5.0 / 1023.0);
+  
+  // Display the results
+  Serial.print("- Analog Value: ");
+  Serial.print(analogValue);
+  Serial.print(" | Voltage: ");
+  Serial.print(voltage, 2);
+  Serial.println(" VDC");
+  
+  // Wait half a second before next reading
+  delay(500);  
+}
+```
+
+To test this example, connect a potentiometer to the Nano R4 board as follows:
+
+- Connect the middle pin of a potentiometer to `A0`
+- Connect one outer pin of the potentiometer to +5 VDC
+- Connect the other outer pin of the potentiometer to GND
+
+![ADC test circuit on the Nano R4 board](assets/user-manual-14.png)
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the real-time analog values and voltage measurements as you adjust the potentiometer. As you turn the potentiometer, the values will range from 0 to 1023, with corresponding voltage readings from 0 to +5 VDC.
+
+The following example demonstrates how to use 14-bit resolution for more precise analog readings; **use the same potentiometer connection from the first example**:
+
+```arduino
+/**
+High-Resolution Analog Input Example for the Arduino Nano R4 Board
+Name: nano_r4_analog_high_res.ino
+Purpose: This sketch demonstrates how to use 14-bit resolution
+for precise analog input measurements.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+// Analog input pin
+const int analogPin = A0;
+
+void setup() {
+  // Initialize serial communication at 115200 baud
+  Serial.begin(115200);
+  
+  // Set analog read resolution to 14-bit (0 - 16383)
+  analogReadResolution(14);
+  
+  Serial.println("- Arduino Nano R4 - High-Resolution Analog Input Example started...");
+  Serial.println("- Using 14-bit resolution (0 - 16383)");
+}
+
+void loop() {
+  // Read the analog value (0 - 16383 with 14-bit resolution)
+  int analogValue = analogRead(analogPin);
+  
+  // Convert to voltage (0 - +5 VDC)
+  float voltage = analogValue * (5.0 / 16383.0);
+  
+  // Calculate percentage (0 - 100%)
+  float percentage = (analogValue / 16383.0) * 100.0;
+  
+  // Display the results
+  Serial.print("- Analog Value: ");
+  Serial.print(analogValue);
+  Serial.print(" | Voltage: ");
+  Serial.print(voltage, 3);
+  Serial.print(" V | Percentage: ");
+  Serial.print(percentage, 1);
+  Serial.println(" %");
+  
+  // Wait half a second before next reading
+  delay(500);
+}
+```
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the high-resolution analog values, voltage measurements and percentage calculations as you adjust the potentiometer. With 14-bit resolution, the values will range from 0 to 16383 instead of the standard 0 to 1023, providing significantly higher precision for sensitive measurements.  
+
 ### PWM (Pulse Width Modulation)
 
 The Nano R4 board  features multiple pins with PWM capability that can be used to generate analog-like output signals. PWM works by rapidly switching a digital output between `HIGH` and `LOW` states, where the ratio of `HIGH` time to the total period determines the effective analog voltage output.
