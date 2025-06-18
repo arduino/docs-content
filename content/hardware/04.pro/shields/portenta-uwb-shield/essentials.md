@@ -1,6 +1,5 @@
 ---
 productsLibrariesMap:
-  - wifi
   - arduinoble
 ---
 
