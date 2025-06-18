@@ -9,3 +9,4 @@ hardware:
   shields:
     - nano-connector-carrier
     - nano-screw-terminal-adapter
+    - nano-motor-carrier
