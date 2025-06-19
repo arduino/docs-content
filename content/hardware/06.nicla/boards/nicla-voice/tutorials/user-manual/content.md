@@ -443,7 +443,7 @@ Keep in mind that this example code requires the following libraries:
 - [arduino-libg722](https://github.com/pschatzmann/arduino-libg722)
 - [arduino-audio-tools](https://github.com/pschatzmann/arduino-audio-tools)
 
-***If you encounter compilation or build errors with the `Record_and_stream` example, please try using the [`arduino-audio-tools` library version 0.9.6](https://github.com/pschatzmann/arduino-audio-tools/releases/tag/v0.9.6).***
+***If you encounter compilation or build errors with the `Record_and_stream` example, please try using the [`arduino-audio-tools` library version __0.9.6__](https://github.com/pschatzmann/arduino-audio-tools/releases/tag/v0.9.6).***
 
 Make sure to install these libraries in the Arduino IDE before uploading the code to your Nicla Voice board.
 
