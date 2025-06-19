@@ -24,7 +24,7 @@ This user manual provides a comprehensive overview of the Arduino Stella, highli
 
 ### Hardware Requirements
 
-- [Arduino Stella (SKU: ABX00131)](https://store.arduino.cc/products/arduino-stella) (x1)
+- [Arduino Stella (SKU: ABX00131)](https://store.arduino.cc/products/stella) (x1)
 - [Portenta UWB Shield (SKU: ASX00074)](https://store.arduino.cc/products/portenta-uwb-shield) (x1)
 - [Portenta C33 (SKU: ABX00074)](https://store.arduino.cc/products/portenta-c33) (x1)
 - [USB-C® cable (SKU: TPX00094)](https://store.arduino.cc/products/usb-cable2in1-type-c) (x2)
