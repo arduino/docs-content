@@ -487,13 +487,13 @@ Each Nano Matter board comes with a default QR code used for commissioning. In t
 
 ![Unique QR Codes for your Matter devices](assets/new-qr-codes.png)
 
-By assigning a unique provisioning ID, you can::
+By assigning a unique provisioning ID, you can:
 
 - Generate a distinct QR code for each board.
 - Commission multiple Nano Matter boards to the same network without conflicts.
 - Prepare your devices for real-world field deployment.
 
-#### Prerquisites 
+#### Prerequisites 
 
 Before starting, make sure you have the following:
 
