@@ -521,11 +521,6 @@ To flash the new configuration, follow the steps below:
 
 Now, you can open the IDE Serial Monitor and see the new commissioning credentials. It is not neccesary to upload your Matter sketch again. 
 
-The Nano Matter default provisioning data is the following:
-
-- Manual Pairing Code: 34970112332
-- QR code URL: https://project-chip.github.io/connectedhomeip/qrcode.html?data=MT%3A6FCJ142C00KA0648G00
-
 After updating the provisioning data, you will see a new pairing and QR code, for example:
 
 - Manual Pairing Code: 00417637863
