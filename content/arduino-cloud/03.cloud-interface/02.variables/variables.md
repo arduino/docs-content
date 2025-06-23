@@ -265,8 +265,8 @@ To read the location values, we can use the following method `Location coordinat
 
 | Property  | Type    | Read value        | Set value                   |
 | --------- | ------- | ----------------- | --------------------------- |
-| Latitude  | `float` | `coordinates.lat` | `latitude = latitudeValue;` |
-| Longitude | `float` | `coordinates.lon` | `longitude = longitudeValue;` |
+| Latitude  | `float` | `coordinates.lat` | See information below |
+| Longitude | `float` | `coordinates.lon` | See information below |
 
 To set the coordinates for the CloudLocation, we pass the location variables to the CloudLocation variable `x = Location(latitude, longitude);`.
 
