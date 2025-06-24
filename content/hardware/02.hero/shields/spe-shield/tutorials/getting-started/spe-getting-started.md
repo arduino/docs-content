@@ -55,7 +55,7 @@ The full pinout is available below:
 ### Datasheet
 
 The complete datasheet is available and downloadable as PDF from the link below:
-- [Arduino UNO SPE Shield datasheet](../../downloads/ASX00073-datasheet.pdf)
+- [Arduino UNO SPE Shield datasheet](/resources/datasheets/ASX00073-datasheet.pdf)
 
 ### Schematics
 
