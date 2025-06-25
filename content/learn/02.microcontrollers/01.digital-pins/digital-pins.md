@@ -46,6 +46,6 @@ Short circuits on Arduino pins, or attempting to run high current devices from t
 
 ### See Also
 
-- [pinMode](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/)
+- [pinMode](https://www.arduino.cc/reference/en/language/functions/digital-io/pinMode/)
 - [digitalWrite](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/)
 - [digitalRead](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/)
