@@ -19,7 +19,7 @@ In this tutorial, you will learn to set up and run **ROS2 (Robot Operating Syste
 
 ![Portenta X8 with ROS2 Turtlesim Display](assets/portenta-x8-ros2-turtlesim.png)
 
-We will explore two approaches: running ROS2 directly through commands and deploying it in a containerized environment using Docker. The `turtlesim` application is an excellent introduction to ROS2, providing a simple way to understand ROS2 concepts like nodes, topics and services through an interactive turtle graphics simulation.
+We will explore two approaches: running ROS2 directly through commands and deploying it in a containerized environment using Docker. The **`turtlesim`** application is an excellent introduction to ROS2, providing a simple way to understand ROS2 concepts like nodes, topics and services through an interactive turtle graphics simulation.
 
 ## Goals
 
@@ -33,11 +33,11 @@ We will explore two approaches: running ROS2 directly through commands and deplo
 ### Hardware Requirements
 
 - [Portenta X8](https://store.arduino.cc/products/portenta-x8) (x1)
-- USB-C® to HDMI adapter/dongle (x1)
-- HDMI compatible monitor or display (x1)
-- HDMI cable (x1)
+- USB-C® to HDMI Hubs (e.g. [TPX00145](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-usb-hub)/[TPX00146](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-4k-usb-hub-pd-pass-through)) (x1)
 - [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 - Power supply compatible with Portenta X8
+- HDMI compatible monitor or display (x1)
+- HDMI cable (x1)
 
 ### Software Requirements
 
@@ -64,7 +64,7 @@ Connect the Portenta X8 to the USB-C® hub's host port, then connect your HDMI c
 
 ![X8 USB hub setup for external display](assets/portentaX8_hub_screen.svg)
 
-***As a reference, a list of validated USB-C® to HDMI hubs that you can use are: [TPX00145](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-usb-hub) and [TPX00146](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-4k-usb-hub-pd-pass-through).***
+***As a [reference](https://docs.arduino.cc/tutorials/portenta-x8/display-output-webgl/#video-output-setup), a list of validated USB-C® to HDMI hubs that you can use are: [TPX00145](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-usb-hub) and [TPX00146](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-4k-usb-hub-pd-pass-through).***
 
 ### Initial Display Output
 
@@ -83,6 +83,24 @@ For example, to configure a display for `1600 x 758` resolution at `60 Hz`, you 
 ***For detailed instructions on connecting to your Portenta X8 via ADB, refer to the [Working with Linux section](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#working-with-linux) of the user manual. Additional information about display configuration and WebGL capabilities can be found in the [Display Output tutorial](https://docs.arduino.cc/tutorials/portenta-x8/display-output-webgl/).***
 
 Once your display is properly connected and configured, you are ready to proceed with running ROS2 and visualizing the `turtlesim` application on your external monitor.
+
+## What is ROS
+
+**ROS (Robot Operating System)** is an open-source middleware framework that lets robotic and embedded systems exchange data through standardized **nodes**, **topics**, **services** and **actions**. It provides reusable libraries and tools, such as visualization, package management and message passing, so developers can focus on application logic instead of low-level infrastructure.
+
+### What is ROS 2
+
+**ROS 2** is the modern version of ROS. While the core concepts remain familiar, ROS 2 replaces the original, research-oriented architecture with an industrial-grade foundation built on the **Data Distribution Service (DDS)** standard. Key improvements include:
+
+- **Real-time and deterministic performance** suitable for safety-critical and time-bounded tasks.  
+- **Enhanced security** with built-in authentication, encryption, and access control.  
+- **Improved cross-platform support** that includes Linux, Windows, macOS and embedded RTOSs.  
+- **Multi-robot and distributed-system readiness** for better discovery, namespace isolation and QoS (Quality-of-Service) settings.  
+- **Long-term maintenance (LTS) releases** for predictable upgrade paths for production deployments.
+
+Throughout this tutorial, we use [**ROS 2 Jazzy**](https://docs.ros.org/en/jazzy/index.html) on the Portenta X8 so you can take advantage of these newer capabilities while still relying on familiar ROS concepts.
+
+![ROS2 Jazzy Logo](assets/ros2-jazzy.png)
 
 ## Wayland Display Configuration
 
@@ -517,7 +535,7 @@ Explore our Help Center, which offers a comprehensive collection of articles and
 
 ### Forum
 
-Join our community forum to connect with other Portenta X8 users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss different tpyes of implementations, and discover new projects.
+Join our community forum to connect with other Portenta X8 users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss different types of implementations, and discover new projects.
 
 - [Portenta X8 category in the Arduino Forum](https://forum.arduino.cc/c/hardware/portenta/portenta-x8/172)
 
