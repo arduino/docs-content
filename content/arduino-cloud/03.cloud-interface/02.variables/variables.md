@@ -265,8 +265,10 @@ To read the location values, we can use the following method `Location coordinat
 
 | Property  | Type    | Read value        | Set value                   |
 | --------- | ------- | ----------------- | --------------------------- |
-| Latitude  | `float` | `coordinates.lat` | This variable is ready only |
-| Longitude | `float` | `coordinates.lon` | This variable is ready only |
+| Latitude  | `float` | `coordinates.lat` | See information below |
+| Longitude | `float` | `coordinates.lon` | See information below |
+
+The value of a `CloudLocation` variable is set using a `Location` object. The coordinate values are passed as arguments to the `Location` constructor: `x = Location(latitude, longitude);`.
 
 ***The format of the `lat` and `lon` is in Decimal Degrees (DD), for example `41.40338`, `2.17403`.***
 
