@@ -21,29 +21,29 @@ This will take you to the setup menu for your device. You can now choose between
 
 ![Select Arduino](assets/selecting-board-type.png)
 
-Now you have to decide how you want to set up your board with the cloud, either via Bluetooth® or USB cable, check if your board is compatible with the bluetooth method below. These two options have different processes. Pick the method that suits your needs the best and follow the section for your chosen method.
+Now you have to decide how you want to set up your board with the cloud, either via Bluetooth® or USB cable, check if your board is compatible with the Bluetooth method below. These two options have different processes. Pick the method that suits your needs the best and follow the section for your chosen method.
 
 ## Bluetooth provisioning
 
 ### Compatible boards
 
-Here are the boards that are compatible with bluetooth provisioning via a bluetooth connection:
+Here are the boards that are compatible with Bluetooth provisioning via a Bluetooth connection:
 
 - UNO R4 WiFi (WiFi firmware version 0.6.0 or later required)
 
 ### Setting up Your Device With Bluetooth
 
-After selecting the bluetooth option you will see a page telling you how to connect your board. Follow the steps to connect your board via bluetooth.
+After selecting the Bluetooth option you will see a page telling you how to connect your board. Follow the steps to connect your board via Bluetooth.
 
 ![Bluetooth page](assets/connect-with-bluetooth.png)
 
 Once your board is connected you will see a page that will let you pick the WiFi the board should connect to. Pick the WiFi you want to connect to and enter the password. Here you can also change the device name.
 
-![Configure network via bluetooth](assets/connect-to-network-bluetooth.png)
+![Configure network via Bluetooth](assets/connect-to-network-bluetooth.png)
 
 After completing these steps your device will connect to your WiFi and you will be taken to the device page. Here you can click on the icon in the bottom left corner to attach a thing to the device. To find out more about Arduino Cloud Things, go [here.](https://docs.arduino.cc/arduino-cloud/cloud-interface/things/)
 
-![Attach thing after bluetooth](assets/attach-thing-to-bluetooth.png)
+![Attach thing after Bluetooth](assets/attach-thing-to-bluetooth.png)
 
 Now you are ready to start using your board with the Arduino Cloud!
 
