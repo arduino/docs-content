@@ -63,7 +63,7 @@ Wait for it to finish and when it is complete click "continue".
 
 ![Board connected to the cloud](assets/succesfull-connection-with-usb.png)
 
-You will now be taken to the device page. Here you can see the details of the board, change the name and attach it to a thing if you want to connect to a network. To find out more about Arduino Cloud Things, go [here.](https://docs.arduino.cc/arduino-cloud/cloud-interface/things/)
+You will now be taken to the device page. Here you can see the details of the board, change the name and attach it to a thing if you want to connect to a network. To find out more about Arduino Cloud Things, go [here](https://docs.arduino.cc/arduino-cloud/cloud-interface/things/).
 
 Let's have a look at how to connect the board to a network. In the bottom left corner you can press the icon highlighted in the image below to create a thing and attach your board to it automatically. Clicking it also takes you to the Thing page.
 
