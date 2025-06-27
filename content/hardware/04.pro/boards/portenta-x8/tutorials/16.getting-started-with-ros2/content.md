@@ -17,7 +17,7 @@ hardware:
 
 In this tutorial, you will learn to set up and run **ROS2 (Robot Operating System 2)** with the **`turtlesim`** visualization tool on the Portenta X8. You will learn to display the graphical output on an external monitor connected via a USB-C® dongle with HDMI output.
 
-![Portenta X8 with ROS2 Turtlesim Display](assets/portenta-x8-ros2-turtlesim.png)
+![Portenta X8 and ROS2 Turtlesim](assets/portenta-x8-ros2-turtlesim.png)
 
 We will explore two approaches: running ROS2 directly through commands and deploying it in a containerized environment using Docker. The **`turtlesim`** application is an excellent introduction to ROS2, providing a simple way to understand ROS2 concepts like nodes, topics and services through an interactive turtle graphics simulation.
 
@@ -58,7 +58,7 @@ To check your Portenta X8 Linux version and update if necessary, refer to the [P
 
 ### Video Output Setup
 
-To display ROS2 `turtlesim` on an external monitor, you will need a USB-C® hub with video output capabilities. The Portenta X8 is the host device connected to the hub, providing the necessary ports for display connectivity and optional peripherals.
+To display ROS2 `turtlesim` on an external monitor, you will need a USB-C® hub with video output capabilities. The Portenta X8 serves as the host device, is connected to the hub, and provides the necessary ports for display connectivity and optional peripherals.
 
 Connect the Portenta X8 to the USB-C® hub's host port, then connect your HDMI cable to your external display. The hub's power supply can be connected to your computer or a dedicated power adapter. You can connect a USB mouse and keyboard to the hub's additional ports for interactive system control. This is optional for the `turtlesim` example.
 
@@ -72,7 +72,7 @@ When you first connect the Portenta X8 to your display, you will see the default
 
 ![X8 home screen on external display](assets/portentaX8-home-screen.png)
 
-The Portenta X8 uses **Weston** as its **Wayland** compositor, which automatically detects and configures external displays. You can interact with the interface directly if you have connected a mouse or keyboard to your USB hub. However, we will mostly work through terminal commands for our ROS2 `turtlesim` tutorial.
+The Portenta X8 uses **Weston** as its **Wayland** compositor, which automatically detects and configures external displays. You can interact with the interface directly if you have connected a mouse or keyboard to your USB hub. However, we will mostly work through terminal commands and use Docker configuration files for the present ROS2 `turtlesim` tutorial.
 
 ### Adjusting Display Resolution (Optional)
 
@@ -86,21 +86,21 @@ Once your display is properly connected and configured, you are ready to proceed
 
 ## What is ROS
 
-**ROS (Robot Operating System)** is an open-source middleware framework that lets robotic and embedded systems exchange data through standardized **nodes**, **topics**, **services** and **actions**. It provides reusable libraries and tools, such as visualization, package management and message passing, so developers can focus on application logic instead of low-level infrastructure.
+**ROS (Robot Operating System)** is an open-source middleware framework that enables robotic and embedded systems to exchange data through standardized **nodes**, **topics**, **services** and **actions**. It provides reusable libraries and tools, such as visualization, package management and message passing, so developers can focus on application logic instead of low-level infrastructure.
 
 ### What is ROS 2
 
 **ROS 2** is the modern version of ROS. While the core concepts remain familiar, ROS 2 replaces the original, research-oriented architecture with an industrial-grade foundation built on the **Data Distribution Service (DDS)** standard. Key improvements include:
 
-- **Real-time and deterministic performance** suitable for safety-critical and time-bounded tasks.  
-- **Enhanced security** with built-in authentication, encryption, and access control.  
-- **Improved cross-platform support** that includes Linux, Windows, macOS and embedded RTOSs.  
-- **Multi-robot and distributed-system readiness** for better discovery, namespace isolation and QoS (Quality-of-Service) settings.  
+- **Real-time and deterministic performance** suitable for safety-critical and time-bounded tasks.  
+- **Enhanced security** with built-in authentication, encryption, and access control.  
+- **Improved cross-platform support** that includes Linux, Windows, macOS and embedded RTOSs.  
+- **Multi-robot and distributed-system readiness** for better discovery, namespace isolation and QoS (Quality-of-Service) settings.  
 - **Long-term maintenance (LTS) releases** for predictable upgrade paths for production deployments.
 
-Throughout this tutorial, we use [**ROS 2 Jazzy**](https://docs.ros.org/en/jazzy/index.html) on the Portenta X8 so you can take advantage of these newer capabilities while still relying on familiar ROS concepts.
+Throughout this tutorial, we use [**ROS 2 Jazzy**](https://docs.ros.org/en/jazzy/index.html) on the Portenta X8, allowing you to leverage these newer capabilities while still relying on familiar ROS concepts.
 
-![ROS2 Jazzy Logo](assets/ros2-jazzy.png)
+![ROS2 Jazzy on Portenta X8](assets/x8-with-ros2-jazzy.png)
 
 ## Wayland Display Configuration
 
@@ -119,22 +119,27 @@ You should see output similar to:
 ```
 weston       650  1.2  1.4 375996 28912 tty7     Ssl+ 05:07   0:32 /usr/bin/weston --modules=systemd-notify.so
 weston       710  0.0  1.0  51016 21568 ?        Ss   05:07   0:01 /usr/libexec/weston-desktop-shell
+...
 ```
+
+![Wayland Status](assets/x8-wayland-status.png)
 
 ### Finding the Wayland Display Socket
 
-Locate the Wayland display socket:
+Search for the Wayland display socket:
 
 ```bash
 find /run/user -name "wayland-*" 2>/dev/null
 ```
 
-This would return somethings as follows:
+This command would return something as follows:
 
 ```
 /run/user/63/wayland-1
 /run/user/63/wayland-1.lock
 ```
+
+![Wayland Display Socket](assets/x8-wayland-display-socket.png)
 
 ## Running ROS2 Directly
 
@@ -162,18 +167,20 @@ With the environment configured, we can now launch a ROS2 Docker container. The 
 
 ```bash
 docker run -it --rm \
-  --privileged \
-  -e WAYLAND_DISPLAY=wayland-1 \
-  -e XDG_RUNTIME_DIR=/run/user/63 \
-  -e QT_QPA_PLATFORM=wayland \
-  -v /run/user/63:/run/user/63 \
-  -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
-  --name ros2_wayland_test \
-  arm64v8/ros:jazzy-ros-base \
-  bash
+ --privileged \
+  -e WAYLAND_DISPLAY=wayland-1 \
+ -e XDG_RUNTIME_DIR=/run/user/63 \
+  -e QT_QPA_PLATFORM=wayland \
+ -v /run/user/63:/run/user/63 \
+  -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+ --name ros2_wayland_test \
+  arm64v8/ros:jazzy-ros-base \
+ bash
 ```
 
 This command uses flags like `--privileged` that grant the container elevated permissions needed for display access, the `-e` flags pass our environment variables into the container, and the `-v` flags mount the necessary directories for `Wayland` communication. The container is named `ros2_wayland_test` for easy reference in subsequent commands.
+
+![Setting Up Environment](assets/x8-ros2-cmd-env-setup.gif)
 
 ### Installing and Running Turtlesim
 
@@ -193,7 +200,7 @@ Next, install the `turtlesim` package, which is not included in the base ROS2 im
 apt-get update && apt-get install -y ros-jazzy-turtlesim
 ```
 
-The installation will download and configure the `turtlesim` package and any dependencies. This typically takes a minute or two, depending on your internet connection.
+The installation will download and configure the `turtlesim` package, along with any necessary dependencies. This typically takes one to two minutes, depending on your internet connection.
 
 After installation, we need to ensure the `Wayland` environment variables are properly set within the container. Even though we passed them during container creation, it is good practice to set them again explicitly:
 
@@ -209,7 +216,11 @@ export WAYLAND_DISPLAY=wayland-1
 export XDG_RUNTIME_DIR=/run/user/63
 ```
 
-You are now ready to launch `turtlesim`. Run the following command to start the `turtlesim` node:
+You are now ready to launch `turtlesim`.
+
+![Setting Up Turtlesim Example](assets/x8-ros2-cmd-turtlesim-setup.gif)
+
+Run the following command to start the `turtlesim` node:
 
 ```bash
 ros2 run turtlesim turtlesim_node
@@ -222,7 +233,11 @@ The `turtlesim` window should appear on your external display if everything is c
 [INFO] [1747893188.759792213] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 ```
 
+![Setting Up Turtlesim Example Run Command](assets/x8-ros2-cmd-turtlesim-run.gif)
+
 These messages confirm that the `turtlesim` node has started successfully and spawned a turtle at the center of the window. You might also see a warning about the runtime directory ownership, which can be safely ignored as it does not affect functionality.
+
+![Turtlesim on External Display with Portenta X8](assets/)
 
 ### Controlling the Turtle
 
@@ -240,6 +255,8 @@ This command opens a new bash session inside the running container named `ros2_w
 source /opt/ros/jazzy/setup.bash
 ```
 
+![Turtlesim Control with Second Terminal](assets/x8-ros2-cmd-turtlesim-control-env.gif)
+
 Now, you can control the turtle using ROS2 topics. The `turtlesim` node subscribes to velocity commands on the `/turtle1/cmd_vel` topic. You have different options for controlling the turtle's movement.
 
 For continuous circular movement, publish velocity commands that combine linear and angular velocities:
@@ -249,7 +266,11 @@ ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist \
  "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
 ```
 
+![Turtlesim with Continuous Circular Movement](assets/x8-ros2-cmd-turtlesim-control-circular.gif)
+
 This command publishes a Twist message at `1 Hz`, telling the turtle to move forward at `2.0 units/second` while rotating at `1.8 radians/second`, creating a circular path. The turtle will continue moving in circles until you stop the command with `Ctrl+C`.
+
+![Turtlesim with Continuous Circular Movement](assets/)
 
 Alternatively, you can run a pre-programmed coordination example that makes the turtle draw a square pattern:
 
@@ -257,7 +278,11 @@ Alternatively, you can run a pre-programmed coordination example that makes the 
 ros2 run turtlesim draw_square
 ```
 
+![Turtlesim with Square Draw](assets/x8-ros2-cmd-turtlesim-control-square.gif)
+
 The `draw_square` node will reset the turtle to its starting position and then command it to draw a square by repeatedly moving forward and turning 90 degrees. The terminal will show the turtle's progress as it reaches each square corner, with messages indicating the current goal position and when each goal is reached.
+
+![Turtlesim with Square Draw](assets/)
 
 ## Dockerized Deployment
 
@@ -269,7 +294,7 @@ The dockerized approach includes all dependencies, configurations and startup pr
 
 ### Creating the Docker Environment
 
-Here, you can download the files for dockerized deployment.
+[Here](assets/ros2_turtleNative.zip), you can download the files for dockerized deployment.
 
 Within this directory, you will have three essential files that define your dockerized ROS2 application:
 
@@ -311,10 +336,10 @@ FROM arm64v8/ros:jazzy-ros-base
 
 # Install turtlesim and other necessary packages
 RUN apt-get update && apt-get install -y \
-    ros-jazzy-turtlesim \
-    ros-jazzy-rclpy \
-    python3-pip \
-    && rm -rf /var/lib/apt/lists/*
+ ros-jazzy-turtlesim \
+ ros-jazzy-rclpy \
+ python3-pip \
+ && rm -rf /var/lib/apt/lists/*
 
 # Set up environment
 SHELL ["/bin/bash", "-c"]
@@ -336,7 +361,7 @@ ENV XDG_RUNTIME_DIR=/run/user/63
 ENTRYPOINT ["/usr/local/bin/start_turtlesim.sh"]
 ```
 
-This Dockerfile starts from the official ROS2 Jazzy base image for ARM64 architecture, installs the turtlesim package and Python tools, and configures the environment. The key point here is that it copies and sets up a custom startup script as the container's entry point, which will handle all the initialization and coordination of multiple ROS2 processes.
+This Dockerfile starts from the official ROS2 Jazzy base image for ARM64 architecture, installs the turtlesim package and Python tools, and configures the environment. The key point here is that it copies and sets up a custom startup script as the container's entry point, which handles all initialization and coordination of multiple ROS2 processes.
 
 The `start_turtlesim.sh` is the main script. This file handles the startup of `turtlesim` with defined movement patterns:
 
@@ -409,13 +434,17 @@ trap cleanup SIGINT SIGTERM
 wait
 ```
 
-This script starts the turtlesim node, verifies it is running correctly and then simultaneously launches two different movement patterns. The draw_square example runs alongside continuous circular movement commands, creating an interesting movement. The script also implements signal handling to ensure all processes are cleanly terminated when the container stops.
+This script starts the turtlesim node, verifies it is running correctly and then simultaneously launches two different movement patterns. The draw_square example runs alongside continuous circular movement commands, creating the defined movement. The script also implements signal handling to ensure all processes are cleanly terminated when the container stops.
 
 Make the script executable to ensure Docker can run it:
 
 ```bash
 chmod +x start_turtlesim.sh
 ```
+
+Here are the Docker configuration and setup files for the turtlesim example, ready to download and use:
+
+[![ ](assets/download.png)](assets/ros2_turtleNative.zip)
 
 ### Running the Dockerized Setup
 
@@ -427,15 +456,11 @@ docker compose up --build
 
 This command builds the custom Docker image according to your Dockerfile specifications. Then, it starts the container with all the configurations defined in docker-compose.yml. The `--build` flag ensures the image is rebuilt, including any changes you have made to the files.
 
-As the container starts, you will see a detailed output showing the initialization process in your terminal. The turtlesim window should appear on your external display within a few seconds, with the turtle already performing pre-defined movements. The turtle will simultaneously run square-drawing patterns while holding a circular trajectory, creating a spiral-square hybrid pattern.
+As the container starts, you will see a detailed output showing the initialization process in your terminal. The turtlesim window should appear on your external display within a few seconds, with the turtle already performing pre-defined movements.
 
-When you are ready to stop the application, use Docker Compose's stop command:
+![Turtlesim in Dockerized Format](assets/x8-ros2-docker-turtlesim-run.gif)
 
-```bash
-docker compose down
-```
-
-This command gracefully stops the container, starting the cleanup function in the startup script to ensure all ROS2 processes are properly terminated before the container exits.
+The turtle will simultaneously run square-drawing patterns while maintaining a circular trajectory, creating a hybrid spiral-square pattern.
 
 ### Managing the Dockerized Application
 
@@ -463,7 +488,7 @@ For production deployments where you don't need to see the output immediately, r
 docker compose up -d
 ```
 
-This starts the container in the background, allowing you to use your terminal for other tasks while turtlesim continues running on your display. With the `restart: unless-stopped` policy in the Docker Compose configuration, the application will persist across system reboots.
+This starts the container in the background, allowing you to use your terminal for other tasks while turtlesim continues to run on your display. With the `restart: unless-stopped` policy in the Docker Compose configuration, the application will persist across system reboots.
 
 ## Troubleshooting
 
@@ -495,7 +520,7 @@ sudo systemctl restart weston
 
 ### Permission Errors
 
-If you encounter the error about runtime directory ownership like:
+If you encounter an error about runtime directory ownership like:
 
 ```
 QStandardPaths: runtime directory '/run/user/63' is not owned by UID 0
@@ -515,11 +540,11 @@ If the container cannot connect to the Wayland display:
 
 In this tutorial, you have learned how to set up and run ROS2 with turtlesim visualization on the Portenta X8 using an external display. You have implemented direct command execution and containerized deployment methods, providing flexibility for different use cases.
 
-The direct method offers quick testing and development capabilities, while the Dockerized approach provides an automated method ideal for production deployments.
+The direct method offers quick testing and development capabilities, while the Dockerized approach provides an automated method ideal for controlled deployments.
 
 ### Next Steps
 
-Now that you have ROS2 running on your Portenta X8, you can try different ROS2 packages and create custom nodes, integrate sensor data from Portenta X8's built-in capabilities with carriers, develop robotics applications using the ROS2 framework or create custom Docker images with your ROS2 applications.
+Now that you have ROS2 running on your Portenta X8, you can try different ROS2 packages, create custom nodes, integrate sensor data from the Portenta X8's built-in capabilities with carriers, develop robotics applications using the ROS2 framework, or create custom Docker images with your ROS2 applications.
 
 For more information about Portenta X8 capabilities, check out the [Portenta X8 User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual).
 
