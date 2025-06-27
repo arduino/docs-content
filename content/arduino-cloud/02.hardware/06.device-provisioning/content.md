@@ -41,7 +41,7 @@ Once your board is connected you will see a page that will let you pick the Wi-F
 
 ![Configure network via Bluetooth](assets/connect-to-network-bluetooth.png)
 
-After completing these steps your device will connect to your WiFi and you will be taken to the device page. Here you can click on the icon in the bottom left corner to attach a thing to the device. To find out more about Arduino Cloud Things, go [here.](https://docs.arduino.cc/arduino-cloud/cloud-interface/things/)
+After completing these steps your device will connect to your Wi-Fi and you will be taken to the device page. Here you can click on the icon in the bottom left corner to attach a thing to the device. To find out more about Arduino Cloud Things, go [here](https://docs.arduino.cc/arduino-cloud/cloud-interface/things/).
 
 ![Attach thing after Bluetooth](assets/attach-thing-to-bluetooth.png)
 
