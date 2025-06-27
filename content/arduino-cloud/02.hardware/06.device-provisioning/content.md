@@ -31,7 +31,7 @@ Now you have to decide how you want to set up your board with the Cloud, either 
 
 Here are the boards that are compatible with Bluetooth provisioning via a Bluetooth connection:
 
-- [UNO R4 WiFi](https://docs.arduino.cc/hardware/uno-r4-wifi/) (WiFi firmware version 0.6.0 or later required)
+- [Arduino UNO R4 WiFi](https://docs.arduino.cc/hardware/uno-r4-wifi/) (WiFi firmware version 0.6.0 or later required)
 
 ### Setting up Your Device With Bluetooth
 
