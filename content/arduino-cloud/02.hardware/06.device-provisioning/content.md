@@ -7,7 +7,7 @@ tags: [Cloud]
 
 ## Setup and Process
 
-***If you are new to the Arduino Cloud before check out [Getting Started With the Arduino Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started).***
+***If you are new to the Arduino Cloud, check out [Getting Started With the Arduino Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started).***
 
 To use the Arduino Cloud you will need to register and set up a **free** account.
 
