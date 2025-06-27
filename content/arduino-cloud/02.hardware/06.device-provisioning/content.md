@@ -37,7 +37,7 @@ After selecting the Bluetooth option you will see a page telling you how to conn
 
 ![Bluetooth page](assets/connect-with-bluetooth.png)
 
-Once your board is connected you will see a page that will let you pick the WiFi the board should connect to. Pick the WiFi you want to connect to and enter the password. Here you can also change the device name.
+Once your board is connected you will see a page that will let you pick the Wi-Fi the board should connect to. Pick the Wi-Fi you want to connect to and enter the password. Here you can also change the device name.
 
 ![Configure network via Bluetooth](assets/connect-to-network-bluetooth.png)
 
