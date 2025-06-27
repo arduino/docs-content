@@ -506,26 +506,30 @@ Before starting, make sure you have the following:
 
 To assign a new provisioning ID and generate a new QR code:
 
-- Open a terminal and navigate to the cloned arduino_matter_provision folder.
-- The provisioning script has the following format:
+- Open a terminal and navigate to the cloned `/arduino_matter_provision` folder.
+- The provisioning command has the following format:
 
-  `python arduino_matter_provision.py <board_name> <config_number>`
+  ```bash
+  python arduino_matter_provision.py <board_name> <config_number>
+  ```
 
 - Replace `<board_name>` with `nano_matter` and choose a configuration number (e.g., `1`):
-
-  `python arduino_matter_provision.py nano_matter 1`
+  ```bash
+  python arduino_matter_provision.py nano_matter 1
+  ```
 
 - Run the script to change the provisioning data using the given structure.
 
   ![Running the script](assets/qr-code-change.gif)
 
-Once the script finishes, open the Arduino Serial Monitor. You will see the updated commissioning credentials there, no need to re-upload the sketch. 
+Once the script finishes, open the **Arduino Serial Monitor**. You will see the updated commissioning credentials there, no need to re-upload the sketch. 
 
 Here’s what the new credentials might look like:
 
 - Manual Pairing Code: `00417637863`
 - QR code URL: `https://project-chip.github.io/connectedhomeip/qrcode.html?data=MT%3A8YT00-D000CQ-01VB10`
 
+***Make sure all your Nano Matter boards has been configured with a different ID.***
 
 ### Device Decommissioning 
 
