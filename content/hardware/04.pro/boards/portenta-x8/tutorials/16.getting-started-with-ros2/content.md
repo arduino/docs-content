@@ -331,7 +331,7 @@ This configuration tells Docker Compose to build a custom image using the Docker
 
 Next, create the `Dockerfile` that defines how to build your custom ROS2 image with `turtlesim` pre-installed:
 
-```dockerfile
+```
 FROM arm64v8/ros:jazzy-ros-base
 
 # Install turtlesim and other necessary packages
