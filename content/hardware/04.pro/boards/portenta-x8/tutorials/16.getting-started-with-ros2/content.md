@@ -17,7 +17,7 @@ hardware:
 
 In this tutorial, you will learn to set up and run **ROS2 (Robot Operating System 2)** with the **`turtlesim`** visualization tool on the Portenta X8. You will learn to display the graphical output on an external monitor connected via a USB-C® dongle with HDMI output.
 
-![Portenta X8 and ROS2 Turtlesim](assets/portenta-x8-ros2-turtlesim.png)
+![Portenta X8 and ROS2 Turtlesim](assets/x8-ros2-turtlesim-banner.gif)
 
 We will explore two approaches: running ROS2 directly through commands and deploying it in a containerized environment using Docker. The **`turtlesim`** application is an excellent introduction to ROS2, providing a simple way to understand ROS2 concepts like nodes, topics and services through an interactive turtle graphics simulation.
 
@@ -237,7 +237,7 @@ The `turtlesim` window should appear on your external display if everything is c
 
 These messages confirm that the `turtlesim` node has started successfully and spawned a turtle at the center of the window. You might also see a warning about the runtime directory ownership, which can be safely ignored as it does not affect functionality.
 
-![Turtlesim on External Display with Portenta X8](assets/)
+![Turtlesim on External Display with Portenta X8](assets/x8-ros2-cmd-turtlesim-simple.gif)
 
 ### Controlling the Turtle
 
@@ -270,7 +270,7 @@ ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist \
 
 This command publishes a Twist message at `1 Hz`, telling the turtle to move forward at `2.0 units/second` while rotating at `1.8 radians/second`, creating a circular path. The turtle will continue moving in circles until you stop the command with `Ctrl+C`.
 
-![Turtlesim with Continuous Circular Movement](assets/)
+![Turtlesim with Continuous Circular Movement](assets/x8-ros2-cmd-turtlesim-circular.gif)
 
 Alternatively, you can run a pre-programmed coordination example that makes the turtle draw a square pattern:
 
@@ -282,7 +282,7 @@ ros2 run turtlesim draw_square
 
 The `draw_square` node will reset the turtle to its starting position and then command it to draw a square by repeatedly moving forward and turning 90 degrees. The terminal will show the turtle's progress as it reaches each square corner, with messages indicating the current goal position and when each goal is reached.
 
-![Turtlesim with Square Draw](assets/)
+![Turtlesim with Square Draw](assets/x8-ros2-cmd-turtlesim-square.gif)
 
 ## Dockerized Deployment
 
