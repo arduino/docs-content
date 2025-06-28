@@ -84,11 +84,11 @@ For example, to configure a display for `1600 x 758` resolution at `60 Hz`, you 
 
 Once your display is properly connected and configured, you are ready to proceed with running ROS2 and visualizing the `turtlesim` application on your external monitor.
 
-## What is ROS
+## What Is ROS
 
 **ROS (Robot Operating System)** is an open-source middleware framework that enables robotic and embedded systems to exchange data through standardized **nodes**, **topics**, **services** and **actions**. It provides reusable libraries and tools, such as visualization, package management and message passing, so developers can focus on application logic instead of low-level infrastructure.
 
-### What is ROS 2
+### What Is ROS 2
 
 **ROS 2** is the modern version of ROS. While the core concepts remain familiar, ROS 2 replaces the original, research-oriented architecture with an industrial-grade foundation built on the **Data Distribution Service (DDS)** standard. Key improvements include:
 
