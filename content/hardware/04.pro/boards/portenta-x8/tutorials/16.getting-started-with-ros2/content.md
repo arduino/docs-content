@@ -454,13 +454,80 @@ With all files in place, you are now ready to build and launch your dockerized R
 docker compose up --build
 ```
 
-This command builds the custom Docker image according to your Dockerfile specifications. Then, it starts the container with all the configurations defined in docker-compose.yml. The `--build` flag ensures the image is rebuilt, including any changes you have made to the files.
+This command builds the custom Docker image according to your Dockerfile specifications. Then, it starts the container with all the configurations defined in `docker-compose.yml`. The `--build` flag ensures the image is rebuilt, including any changes you have made to the files.
+
+The following sequence of the commands also works:
+
+```bash
+docker build . -t turtlesim_auto
+```
+
+```bash
+docker run -it --rm \
+  --privileged \
+  -e WAYLAND_DISPLAY=wayland-1 \
+  -e XDG_RUNTIME_DIR=/run/user/63 \
+  -e QT_QPA_PLATFORM=wayland \
+  -v /run/user/63:/run/user/63 \
+  -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+  --name turtlesim_container \
+  turtlesim_auto
+```
 
 As the container starts, you will see a detailed output showing the initialization process in your terminal. The turtlesim window should appear on your external display within a few seconds, with the turtle already performing pre-defined movements.
 
 ![Turtlesim in Dockerized Format](assets/x8-ros2-docker-turtlesim-run.gif)
 
 The turtle will simultaneously run square-drawing patterns while maintaining a circular trajectory, creating a hybrid spiral-square pattern.
+
+![Turtlesim in Dockerized Format](assets/x8-ros2-turtlesim-docker.gif)
+
+When the turtle _crashes_ into a wall, while the example is running, you will eventually see log lines like:
+
+```bash
+[WARN] [turtlesim]: Oh no! I hit the wall!
+```
+
+Nothing is wrong, `turtlesim` clamps the pose to keep the turtle inside the blue window and keeps drawing. You can clear or reset the screen at any time:
+
+```bash
+# clear the drawing
+ros2 service call /clear  std_srvs/srv/Empty {}
+
+# reset turtle position (also clears)
+ros2 service call /reset  std_srvs/srv/Empty {}
+```
+
+The motion parameters can be adjusted and avoid wall collisions in `start_turtlesim.sh`. Edit that sketch to use smaller values that keep the turtle away from the edges:
+
+```bash
+nano start_turtlesim.sh
+```
+
+```bash
+# Draw-square demo (optional)
+ros2 run turtlesim draw_square &
+
+# Continuous circular motion
+ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist \
+  "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}" &
+```
+
+The starting point can be updated to be:
+
+| **Parameter**                            | **Original Value** | **Suggested Example Value** | **Effect of Change**                                                     |
+|------------------------------------------|--------------------|-----------------------------|--------------------------------------------------------------------------|
+| `linear.x` (forward)                     | `1.5`              | `0.8 – 1.0`                 | Slower advance → tighter overall pattern                                 |
+| `angular.z` (turn rate)                  | `0.8`              | `0.4 – 0.6`                 | Gentler turn → smaller spiral radius                                     |
+| `sleep 5` (delay before circular motion) | `5 s`              | `2 – 3 s` (optional)        | Starts circle soonera and reduces distance covered during square routine |
+
+After saving the changes, rebuild and relaunch:
+
+```bash
+docker compose up --build
+```
+
+The turtle will now trace a tighter spiral–square pattern and stay comfortably inside the boundaries. These warnings are a helpful indicator that the simulation’s collision logic is working and fine tuning the script gives you full control over the turtle’s behavior.
 
 ### Managing the Dockerized Application
 
