@@ -118,8 +118,7 @@ The complete STEP files are available and downloadable from the link below:
 
 When opening the Nano R4 box, you will find the board and its corresponding documentation. **The Nano R4 does not include additional cables**, so you will need a USB-C cable ([available separately here](https://store.arduino.cc/products/usb-cable2in1-type-c)) to connect the board to your computer.
 
-![Unboxing the Nano R4 board](assets/user-manual-11.png)
-
+ 
 The Nano R4 is a standalone device that can be programmed directly without requiring additional boards. However, for more complex projects, you can easily combine it with Arduino shields compatible with the Nano family or connect it to other Arduino devices through its onboard Qwicc connector.
 
 ### Connecting the Board
@@ -249,7 +248,7 @@ The built-in RGB LED can be accessed through the following macro definitions:
 |     Green LED    |        `LEDG`        |          `P411`         |
 |     Blue LED     |        `LEDB`        |          `P410`         |
 
-***The built-in RGB LED on the Nano R4 must be pulled to ground (GND) to make it light up. This means that a voltage level of `LOW` on each of their pins will turn the specific color of the LED on, and a voltage level of `HIGH` will turn them off.***
+***The built-in RGB LED on the Nano R4 must be pulled to ground (`GND`) to make it light up. This means that a voltage level of `LOW` on each of their pins will turn the specific color of the LED on, and a voltage level of `HIGH` will turn them off.***
 
 The following example sketch each of the RGB LED colors at an interval of 500 ms:
 
@@ -423,15 +422,139 @@ The Nano R4 features 14 digital pins (`D0` to `D13`) that can be configured as e
 
 The Nano R4 digital pins provide the following functionality:
 
-***<strong>Important note:</strong> Pins `D0` and `D1` are used for serial communication (UART) and should be avoided for general digital I/O when using Serial communication. Pins `D4` and `D`5 can be used for CAN bus communication. Pins `D10`, `D11`, `D12,` and `D13` are used for SPI communication.***
+| **Arduino Pin** | **Microcontroller Pin** | **Additional Functions** | **Special Features** |
+|:---------------:|:-----------------------:|:------------------------:|:--------------------:|
+|       `D0`      |          `P104`         |       UART RX, PWM       | Serial communication |
+|       `D1`      |          `P105`         |       UART TX, PWM       | Serial communication |
+|       `D2`      |          `P213`         |            PWM           |  External interrupt  |
+|       `D3`      |          `P212`         |            PWM           |  External interrupt  |
+|       `D4`      |          `P109`         |        CAN TX, PWM       |   CAN communication  |
+|       `D5`      |          `P110`         |        CAN RX, PWM       |   CAN communication  |
+|       `D6`      |          `P107`         |            PWM           |      Digital I/O     |
+|       `D7`      |          `P106`         |            PWM           |      Digital I/O     |
+|       `D8`      |          `P300`         |            PWM           |      Digital I/O     |
+|       `D9`      |          `P108`         |            PWM           |      Digital I/O     |
+|      `D10`      |          `P103`         |        SPI CS, PWM       |   SPI communication  |
+|      `D11`      |          `P101`         |       SPI MOSI, PWM      |   SPI communication  |
+|      `D12`      |          `P100`         |         SPI MISO         |   SPI communication  |
+|      `D13`      |          `P102`         |          SPI SCK         |   SPI communication  |
 
-Digital pins can be configured and controlled using the following basic Arduino functions:
-Pin Configuration:
-arduinopinMode(pin, mode);
-Digital Output:
-arduinodigitalWrite(pin, value);
-Digital Input:
-arduinodigitalRead(pin);
+***<strong>Important note:</strong> Pins `D0` and `D1` are used for serial communication (UART) and should be avoided for general digital I/O when using Serial communication. Pins `D4` and `D5` can be used for CAN bus communication. Pins `D10`, `D11`, `D12` and `D13` are used for SPI communication.***
+
+The Nano R4's digital pins offer the following specifications:
+
+|   **Specification**  |    **Value**   |           **Notes**           |
+|:--------------------:|:--------------:|:-----------------------------:|
+|     Logic Voltage    |     +5 VDC     | `HIGH` and `LOW` logic levels |
+|     Input Voltage    |  0 to +5.5 VDC |     +5 VDC tolerant inputs    |
+| Max Current (Source) |      8 mA      |     Per pin source current    |
+|  Max Current (Sink)  |      8 mA      |      Per pin sink current     |
+|   Total Max Current  |     200 mA     |     Combined for all pins     |
+|   Input Resistance   |    20-50 kΩ    |   Internal pull-up resistor   |
+|    Digital `HIGH`    | +3.5 to +5 VDC |   Minimum voltage for `HIGH`  |
+|     Digital `LOW`    |  0 to +1.5 VDC |   Maximum voltage for `LOW`   |
+
+Digital pins can be configured and controlled using the following basic Arduino functions.
+
+You can configure a pin's mode using the `pinMode()` function:
+
+```arduino
+pinMode(pin, mode);
+```
+
+To write a digital value to an output pin, use the `digitalWrite()` function:
+
+```arduino
+digitalWrite(pin, value);
+```
+
+To read the state of a digital input pin, use the `digitalRead()` function:
+
+```arduino
+digitalRead(pin);
+```
+
+The available pin modes are `OUTPUT` for digital output, `INPUT` for digital input with high impedance, and `INPUT_PULLUP` for digital input with internal pull-up resistor enabled. Digital output values can be `HIGH` (+5 VDC) or `LOW` (0 VDC), and digital input readings will return `HIGH` or `LOW` based on the voltage level detected on the pin.
+
+***The following example demonstrate basic digital pin functionality using simple connections that you can easily test with the Nano R4 board.*** 
+
+The following example demonstrates using both digital input and output simultaneously by reading a button and controlling the built-in LED of the board:
+
+```arduino
+/**
+Combined Digital I/O Example for the Arduino Nano R4 Board
+Name: nano_r4_digital_io_combined.ino
+Purpose: This sketch demonstrates reading a button input and toggling
+the built-in LED state each time the button is pressed.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+// Pin definitions
+const int buttonPin = 2;            // Button input on D2
+const int ledPin = LED_BUILTIN;     // Built-in LED
+
+// Variables to store button and LED state
+int buttonState = 0;
+int lastButtonState = HIGH;
+bool ledState = false;
+
+void setup() {
+  // Initialize serial communication at 115200 baud
+  Serial.begin(115200);
+  
+  // Configure pins
+  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(ledPin, OUTPUT);
+  
+  // Turn off LED initially
+  digitalWrite(ledPin, LOW);
+  
+  Serial.println("- Arduino Nano R4 - Combined Digital I/O Example started...");
+  Serial.println("- Press button to toggle the built-in LED");
+}
+
+void loop() {
+  // Read current button state
+  buttonState = digitalRead(buttonPin);
+  
+  // Check if button was just pressed (state change from HIGH to LOW)
+  if (buttonState == LOW && lastButtonState == HIGH) {
+    // Button press detected - toggle LED state
+    ledState = !ledState;
+    digitalWrite(ledPin, ledState);
+    
+    Serial.print("- Button pressed! LED is now ");
+    if (ledState) {
+      Serial.println("ON");
+    } else {
+      Serial.println("OFF");
+    }
+    
+    // Simple debounce delay
+    delay(50);  
+  }
+  
+  // Save current button state for next iteration
+  lastButtonState = buttonState;
+  
+  // Small delay for stability
+  delay(10);
+}
+```
+
+To test this example, connect a push button to the Nano R4 board as follows:
+
+- Connect one leg of a push button to pin `D2`
+- Connect the other leg of the push button to `GND`
+- No external components needed (using built-in LED and internal pull-up)
+
+![Digital pins test circuit on the Nano R4 board](assets/digital-pins-1.png)
+
+You should now see the built-in LED toggle on and off each time you press the button. The LED will stay in its current state until you press the button again. Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see messages indicating when the button is pressed and the current LED state.
+
+![Arduino IDE Serial Monitor output for the combined digital I/O example sketch](assets/digital-pins-2.png)
 
 ### Analog Pins
 
@@ -470,11 +593,9 @@ You can read analog values using the `analogRead()` function:
 value = analogRead(pin);
 ``` 
 
-The default reference voltage of these pins is +5V, but this can be changed using the `analogReference(`) function. You can use `analogReference(AR_DEFAULT)` for the default reference of +5 VDC or `analogReference(AR_INTERNAL)` for the built-in reference of +1.5 VDC.
+The default reference voltage of these pins is +5 VDC, but this can be changed using the `analogReference()` function. You can use `analogReference(AR_DEFAULT)` for the default reference of +5 VDC or `analogReference(AR_INTERNAL)` for the built-in reference of +1.5 VDC.
 
 The default resolution is set to 10-bit, but can be updated to 12-bit and 14-bit resolutions using the `analogReadResolution()` function in the `setup()` of your sketch. Available options are analogReadResolution(10) for default 10-bit, analogReadResolution(12) for 12-bit, or analogReadResolution(14) for maximum 14-bit resolution.
-
-The following examples demonstrate basic analog pin functionality using simple connections that you can easily test with the Nano R4 board.
 
 ***The following examples demonstrate basic analog pin functionality using simple connections that you can easily test with the Nano R4 board.***
 
@@ -525,7 +646,7 @@ To test this example, connect a potentiometer to the Nano R4 board as follows:
 
 - Connect the middle pin of a potentiometer to `A0`
 - Connect one outer pin of the potentiometer to +5 VDC
-- Connect the other outer pin of the potentiometer to GND
+- Connect the other outer pin of the potentiometer to `GND`
 
 ![ADC test circuit on the Nano R4 board](assets/user-manual-14.png)
 
@@ -573,7 +694,7 @@ void loop() {
   Serial.print(analogValue);
   Serial.print(" | Voltage: ");
   Serial.print(voltage, 3);
-  Serial.print(" V | Percentage: ");
+  Serial.print(" VDC | Percentage: ");
   Serial.print(percentage, 1);
   Serial.println(" %");
   
@@ -590,14 +711,14 @@ The Nano R4 board  features multiple pins with PWM capability that can be used t
 
 The Nano R4 board provides PWM functionality on the following pins:
 
-| **Arduino Pin** | **Microcontroller Pin** | **PWM Channel** | **Primary Function** |
-|-----------------|-------------------------|-----------------|----------------------|
-|       `D3`      |          `P105`         |    Channel 1A   |      Digital I/O     |
-|       `D5`      |          `P104`         |    Channel 1B   |      Digital I/O     |
-|       `D6`      |          `P105`         |    Channel 0A   |      Digital I/O     |
-|       `D9`      |          `P106`         |    Channel 0B   |      Digital I/O     |
-|      `D10`      |          `P103`         |    Channel 2A   |  Digital I/O/SPI CS  |
-|      `D11`      |          `P101`         |    Channel 5A   | Digital I/O/SPI MOSI |
+| **Arduino Pin** | **Microcontroller Pin** | **PWM Channel** |  **Primary Function** |
+|:---------------:|:-----------------------:|:---------------:|:---------------------:|
+|       `D3`      |          `P212`         |    Channel 0B   |      Digital I/O      |
+|       `D5`      |          `P110`         |    Channel 1B   |      Digital I/O      |
+|       `D6`      |          `P107`         |    Channel 0A   |      Digital I/O      |
+|       `D9`      |          `P108`         |    Channel 0B   |      Digital I/O      |
+|      `D10`      |          `P103`         |    Channel 2A   |  Digital I/O, SPI CS  |
+|      `D11`      |          `P101`         |    Channel 5A   | Digital I/O, SPI MOSI |
 
 ***<strong>Important note:</strong> Pins `A4` and `A5` also have PWM capability but are primarily used for I²C communication (SDA and SCL respectively). The onboard LEDs (`LEDR`, `LEDG`, `LEDB`, `LED_BUILTIN`) also support PWM for brightness control.***
 
@@ -721,3 +842,247 @@ void loop() {
 This high-resolution example creates a smooth sine wave pattern with the built-in LED brightness, demonstrating the precision available with a 12-bit PWM resolution. You should see a very smooth transition in the LED brightness following a sine wave pattern.
 
 Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the angle and PWM value outputs that demonstrate the precise 12-bit control values being used.
+
+### Operational Amplifier (OPAMP)
+
+The Nano R4 board features a built-in operational amplifier (OPAMP) that provides signal conditioning and amplification capabilities directly on the board. The OPAMP is connected to analog pins `A1`, `A2` and `A3`, allowing you to perform analog signal processing without requiring external amplifier circuits. This feature is particularly useful for sensor signal amplification, buffering and analog filtering applications.
+
+The Nano R4 board OPAMP provides the following pin connections:
+
+| **Arduino Pin** | **Microcontroller Pin** | **OPAMP Function** |     **Description**     |
+|:---------------:|:-----------------------:|:------------------:|:-----------------------:|
+|       `A1`      |          `P001`         |       OPAMP +      | Non-inverting input (+) |
+|       `A2`      |          `P002`         |       OPAMP -      |   Inverting input (-)   |
+|       `A3`      |          `P003`         |      OPAMP OUT     |     Amplifier output    |
+
+***<strong>Important note:</strong> When using the OPAMP functionality, pins `A1`, `A2` and `A3` cannot simultaneously be used as regular analog inputs. The positive supply (Vs+) is fixed to approximately +5 VDC and the negative supply (Vs-) is fixed to `GND`.***
+
+The Nano R4's OPAMP offers the following electrical characteristics:
+
+|        **Parameter**       | **Low-Speed Mode** | **High-Speed Mode** | **Unit** |        **Notes**       |
+|:--------------------------:|:------------------:|:-------------------:|:--------:|:----------------------:|
+| Common Input Voltage Range |    +1.8 to +5.5    |     +0.3 to +4.4    |    VDC   | Typical with 5V supply |
+|    Output Voltage Range    |    +0.1 to +4.9    |     +0.1 to +4.9    |    VDC   | Typical with 5V supply |
+|    Input Offset Voltage    |     -10 to +10     |      -10 to +10     |    mV    |            -           |
+|       Open Loop Gain       |    60 (typical)    |    125 (typical)    |    dB    |            -           |
+|   Gain-Bandwidth Product   |          -         |         1.7         |    MHz   |     High-speed mode    |
+|          Slew Rate         |        0.12        |          -          |   V/μs   |       CL = 20 pF       |
+|        Settling Time       |         650        |          13         |    μs    |     To 1% accuracy     |
+|        Load Current        |    -100 to +100    |     -100 to +100    |    μA    |         Maximum        |
+|      Load Capacitance      |         20         |          20         |    pF    |         Maximum        |
+
+You can configure and use the OPAMP using the dedicated `<OPAMP.h>` library, which is included in the Arduino UNO R4 Boards core. To startup the OPAMP, simply include the library and call `OPAMP.begin(speed)` where speed can be `OPAMP_SPEED_LOWSPEED` for lower power consumption or `OPAMP_SPEED_HIGHSPEED` for better performance.
+
+***The following example demonstrates basic OPAMP functionality configured as a voltage follower (unity gain buffer).***
+
+The following example demonstrates how to use the OPAMP as a voltage follower to buffer an analog signal:
+
+```arduino
+/**
+OPAMP Voltage Follower Example for the Arduino Nano R4 Board
+Name: nano_r4_opamp_follower.ino
+Purpose: This sketch demonstrates how to use the built-in OPAMP
+as a voltage follower to mirror input voltage to output.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+#include <OPAMP.h>
+
+void setup() {
+  // Initialize serial communication at 115200 baud
+  Serial.begin(115200);
+  
+  Serial.println("- Arduino Nano R4 - OPAMP Voltage Follower Example started...");
+  Serial.println("- Initializing OPAMP in high-speed mode...");
+  
+  // Initialize OPAMP in high-speed mode
+  OPAMP.begin(OPAMP_SPEED_HIGHSPEED);
+  
+  Serial.println("- OPAMP initialized successfully!");
+  Serial.println("- Connect A2 to A3 with a jumper wire for voltage follower configuration");
+  Serial.println("- Connect input signal to A1, output will be mirrored on A3");
+  Serial.println("- Test: Connect A1 to GND (0V) or 3.3V to verify voltage following");
+}
+
+void loop() {
+  // In voltage follower mode, the OPAMP automatically mirrors
+  // the voltage from A1 (Plus) to A3 (Output)
+  // No additional code needed in the loop for basic voltage following
+  
+  Serial.println("- OPAMP running in voltage follower mode...");
+  delay(2000);
+}
+```
+
+To test this example, configure the OPAMP voltage follower on the Nano R4 board as follows:
+
+- Connect pin `A2` (-) to pin `A3` (Output) with a jumper wire
+- Connect the input signal to pin `A1` (+)
+
+For testing, connect pin `A1` to `GND` to see 0 VDC output, or connect pin `A1` to +3.3 VDC to verify voltage following.
+
+![Voltage follower test circuit on the Nano R4 board](assets/opamp-1.png)
+
+In voltage follower configuration, any voltage applied at `A1` should be mirrored onto `A3`. This provides a high-impedance buffer that doesn't load down the input signal source.
+
+The Nano R4 OPAMP can also be configured as a **non-inverting amplifier** to amplify small signals. For example, a simple 2x amplifier can be built using two 10k Ω resistors as follows:
+
+- Connect one 10k Ω resistor between `A2` (-) and `GND`
+- Connect another 10k Ω resistor between `A3` (Output) and `A2` (-)
+
+For testing, apply an input signal to `A1` (+).
+
+![Non inverting amplifier test circuit on the Nano R4 board](assets/opamp-2.png)
+
+The output at `A3` will be double the amplitude of the input signal.
+
+## Digital-to-Analog Converter (DAC)
+
+The Nano R4 features a built-in 12-bit Digital-to-Analog Converter (DAC) connected to pin `A0`. Unlike PWM pins that simulate analog output through rapid switching, the DAC provides true analog voltage output. This makes it ideal for applications requiring precise analog signals, such as audio generation, sensor calibration, control systems and waveform generation.
+
+The Nano R4 DAC provides the following functionality:
+
+|   **Specification**  |     **Value**     |             **Notes**            |
+|:--------------------:|:-----------------:|:--------------------------------:|
+|      Resolution      |       12-bit      |    4096 discrete output levels   |
+|      Output Pin      |        `A0`       |     Dedicated DAC output pin     |
+| Output Voltage Range | +0.35 to +4.5 VDC | Typical range with +5 VDC supply |
+|  Default Resolution  |       8-bit       |             0 to 255             |
+|  Maximum Resolution  |       12-bit      |             0 to 4095            |
+|   Output Impedance   |    5Ω (typical)   |       Low impedance output       |
+|    Conversion Time   |     Max 30 μs     |   Time to update output voltage  |
+|    Resistive Load    |     Min 30 kΩ     |     Minimum recommended load     |
+|   Load Capacitance   |     Max 50 pF     |      Maximum capacitive load     |
+
+***<strong>Important note:</strong> When using the DAC on pin `A0`, this pin cannot simultaneously be used as an analog input. The DAC provides true analog output, making it superior to PWM for applications requiring smooth, continuous voltage levels.***
+
+The Nano R4's DAC offers the following technical specifications:
+
+|          **Parameter**          | **Min** | **Typ** | **Max** | **Unit** |      **Notes**      |
+|:-------------------------------:|:-------:|:-------:|:-------:|:--------:|:-------------------:|
+| Differential Nonlinearity (DNL) |    -    |   ±0.5  |   ±2.0  |    LSB   |      DNL error      |
+|   Integral Nonlinearity (INL)   |    -    |   ±2.0  |  ±16.0  |    LSB   |      INL error      |
+|           Offset Error          |    -    |    -    |   ±30   |    mV    |    Output offset    |
+|         Full-Scale Error        |    -    |    -    |   ±30   |    mV    | Full-scale accuracy |
+
+You can write analog values to the DAC using the `analogWrite()` function:
+
+```arduino
+analogWrite(DAC, value);
+```
+
+The default resolution is 8-bit (0 to 255), but this can be changed using the `analogWriteResolution()` function. You can use `analogWriteResolution(8)` for 8-bit resolution, `analogWriteResolution(10)` for 10-bit resolution or `analogWriteResolution(12)` for maximum 12-bit resolution.
+
+The DAC reference voltage depends on the selected reference mode, and the output voltage is calculated as: `Output Voltage = (DAC_Value / 4095) × Reference_Voltage`. The output voltage range is typically from +0.35 VDC to +4.5 VDC when using the supply voltage as reference.
+
+***The following examples demonstrate basic DAC functionality that you can easily test with the Nano R4 board.***
+
+The following example demonstrates how to generate a simple voltage output using the DAC. **No external components are needed for this example**:
+
+```arduino
+/**
+DAC Basic Output Example for the Arduino Nano R4 Board
+Name: nano_r4_dac_basic.ino
+Purpose: This sketch demonstrates how to use the DAC to generate
+precise analog voltages on pin A0.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+void setup() {
+  // Initialize serial communication at 115200 baud
+  Serial.begin(115200);
+  
+  // Set DAC resolution to 12-bit for maximum precision
+  analogWriteResolution(12);
+  
+  Serial.println("- Arduino Nano R4 - DAC Basic Output Example started...");
+  Serial.println("- Generating precise voltages on pin A0");
+  Serial.println("- Connect a multimeter to A0 to measure output");
+}
+
+void loop() {
+  // Generate different voltage levels
+  // 0, +1.25, +2.5, +3.75 and +5 VDC
+  int dacValues[] = {0, 1024, 2048, 3072, 4095}; 
+  float voltages[] = {0.0, 1.25, 2.5, 3.75, 5.0};
+  
+  for (int i = 0; i < 5; i++) {
+    analogWrite(DAC, dacValues[i]);
+    
+    Serial.print("- DAC Value: ");
+    Serial.print(dacValues[i]);
+    Serial.print(" | Target Voltage: ");
+    Serial.print(voltages[i], 2);
+    Serial.println(" VDC");
+    
+    // Hold each voltage for 2 seconds
+    delay(2000);  
+  }
+  
+  Serial.println("- Cycle completed, repeating...");
+  delay(1000);
+}
+```
+
+To test this example, connect a digital multimeter between pin `A0` and `GND` to measure the output voltage. You should see the voltage change in precise steps every two seconds, showing the DAC's ability to generate exact analog voltages.
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the DAC values and corresponding target voltages. The output should closely match the calculated voltages with high precision.
+
+The following example demonstrates how to generate a smooth sine wave using the DAC. **No external components are needed for this example**:
+
+```arduino
+/**
+DAC Sine Wave Generator for the Arduino Nano R4 Board
+Name: nano_r4_dac_sine_wave.ino
+Purpose: This sketch generates a smooth sine wave using the 12-bit DAC
+for testing and signal generation applications.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+void setup() {
+  // Initialize serial communication at 115200 baud
+  Serial.begin(115200);
+  
+  // Set DAC resolution to 12-bit for smooth waveform
+  analogWriteResolution(12);
+  
+  Serial.println("- Arduino Nano R4 - DAC Sine Wave Generator started...");
+  Serial.println("- Generating sine wave on pin A0");
+  Serial.println("- Connect an oscilloscope to A0 to view waveform");
+}
+
+void loop() {
+  // Generate one complete sine wave cycle (360 degrees)
+  for (int angle = 0; angle < 360; angle++) {
+    // Calculate sine value (-1 to +1) and convert to DAC range (0 to 4095)
+    float sineValue = sin(angle * PI / 180.0);
+    int dacValue = (int)((sineValue + 1.0) * 2047.5);  // Center at +2.5 VDC
+    
+    // Output the calculated value to DAC
+    analogWrite(DAC, dacValue);
+    
+    // Print debug info every 30 degrees
+    if (angle % 30 == 0) {
+      float voltage = (dacValue / 4095.0) * 5.0;
+      Serial.print("- Angle: ");
+      Serial.print(angle);
+      Serial.print("° | DAC: ");
+      Serial.print(dacValue);
+      Serial.print(" | Voltage: ");
+      Serial.print(voltage, 2);
+      Serial.println(" VDC");
+    }
+    
+    // Control wave frequency (~28 Hz)
+    delayMicroseconds(100);  
+  }
+}
+```
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the sine wave generation progress with angle, DAC values, and corresponding voltages. For best results, connect an oscilloscope to pin `A0` to visualize the smooth sine wave output.
