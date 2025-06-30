@@ -118,6 +118,7 @@ The complete STEP files are available and downloadable from the link below:
 
 When opening the Nano R4 box, you will find the board and its corresponding documentation. **The Nano R4 does not include additional cables**, so you will need a USB-C cable ([available separately here](https://store.arduino.cc/products/usb-cable2in1-type-c)) to connect the board to your computer.
 
+![Nano R4 unboxing](assets/unboxing.png)
  
 The Nano R4 is a standalone device that can be programmed directly without requiring additional boards. However, for more complex projects, you can easily combine it with Arduino shields compatible with the Nano family or connect it to other Arduino devices through its onboard Qwicc connector.
 
@@ -873,16 +874,14 @@ The Nano R4's OPAMP offers the following electrical characteristics:
 
 You can configure and use the OPAMP using the dedicated `<OPAMP.h>` library, which is included in the Arduino UNO R4 Boards core. To startup the OPAMP, simply include the library and call `OPAMP.begin(speed)` where speed can be `OPAMP_SPEED_LOWSPEED` for lower power consumption or `OPAMP_SPEED_HIGHSPEED` for better performance.
 
-***The following example demonstrates basic OPAMP functionality configured as a voltage follower (unity gain buffer).***
-
-The following example demonstrates how to use the OPAMP as a voltage follower to buffer an analog signal:
+The following example demonstrates how to initialize and use the OPAMP. The same code works for both voltage follower and amplifier configurations, **the difference is only in the external connections**:
 
 ```arduino
 /**
-OPAMP Voltage Follower Example for the Arduino Nano R4 Board
-Name: nano_r4_opamp_follower.ino
-Purpose: This sketch demonstrates how to use the built-in OPAMP
-as a voltage follower to mirror input voltage to output.
+OPAMP Example for the Arduino Nano R4 Board
+Name: nano_r4_opamp_example.ino
+Purpose: This sketch demonstrates how to initialize the built-in OPAMP.
+Works for both voltage follower and amplifier configurations.
 
 @author Arduino Product Experience Team
 @version 1.0 01/06/25
@@ -894,29 +893,27 @@ void setup() {
   // Initialize serial communication at 115200 baud
   Serial.begin(115200);
   
-  Serial.println("- Arduino Nano R4 - OPAMP Voltage Follower Example started...");
+  Serial.println("- Arduino Nano R4 - OPAMP Example started...");
   Serial.println("- Initializing OPAMP in high-speed mode...");
   
   // Initialize OPAMP in high-speed mode
   OPAMP.begin(OPAMP_SPEED_HIGHSPEED);
   
   Serial.println("- OPAMP initialized successfully!");
-  Serial.println("- Connect A2 to A3 with a jumper wire for voltage follower configuration");
-  Serial.println("- Connect input signal to A1, output will be mirrored on A3");
-  Serial.println("- Test: Connect A1 to GND (0V) or 3.3V to verify voltage following");
+  Serial.println("- OPAMP is now ready for use with external connections");
+  Serial.println("- The behavior depends on how you connect the external components");
 }
 
 void loop() {
-  // In voltage follower mode, the OPAMP automatically mirrors
-  // the voltage from A1 (Plus) to A3 (Output)
-  // No additional code needed in the loop for basic voltage following
+  // The OPAMP operates automatically based on external connections
+  // No additional code needed in the loop
   
-  Serial.println("- OPAMP running in voltage follower mode...");
+  Serial.println("- OPAMP running...");
   delay(2000);
 }
 ```
 
-To test this example, configure the OPAMP voltage follower on the Nano R4 board as follows:
+To configure the OPAMP as a **voltage follower**, connect the Nano R4 board as follows:
 
 - Connect pin `A2` (-) to pin `A3` (Output) with a jumper wire
 - Connect the input signal to pin `A1` (+)
@@ -925,7 +922,7 @@ For testing, connect pin `A1` to `GND` to see 0 VDC output, or connect pin `A1` 
 
 ![Voltage follower test circuit on the Nano R4 board](assets/opamp-1.png)
 
-In voltage follower configuration, any voltage applied at `A1` should be mirrored onto `A3`. This provides a high-impedance buffer that doesn't load down the input signal source.
+***In voltage follower configuration, any voltage applied at `A1` should be mirrored onto `A3`. This provides a high-impedance buffer that doesn't load down the input signal source.***
 
 The Nano R4 OPAMP can also be configured as a **non-inverting amplifier** to amplify small signals. For example, a simple 2x amplifier can be built using two 10k Ω resistors as follows:
 
@@ -937,6 +934,8 @@ For testing, apply an input signal to `A1` (+).
 ![Non inverting amplifier test circuit on the Nano R4 board](assets/opamp-2.png)
 
 The output at `A3` will be double the amplitude of the input signal.
+
+***In a non-inverting amplifier configuration, remember that the input signal and the Nano R4 should share the same GND, and the amplified output signal should not exceed approximately +4.7 VDC to avoid clipping.***
 
 ## Digital-to-Analog Converter (DAC)
 
@@ -1086,3 +1085,6 @@ void loop() {
 ```
 
 You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the sine wave generation progress with angle, DAC values, and corresponding voltages. For best results, connect an oscilloscope to pin `A0` to visualize the smooth sine wave output.
+
+## Real-Time Clock (RTC)
+
