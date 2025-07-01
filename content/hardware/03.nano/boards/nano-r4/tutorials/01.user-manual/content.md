@@ -244,10 +244,10 @@ The Nano R4 features a built-in RGB LED that can be used as a visual feedback in
 The built-in RGB LED can be accessed through the following macro definitions:
 
 | **Built-in LED** | **Macro Definition** | **Microcontroller Pin** |
-|:----------------:|:--------------------:|:-----------------------:|
-|      Red LED     |        `LEDR`        |          `P409`         |
-|     Green LED    |        `LEDG`        |          `P411`         |
-|     Blue LED     |        `LEDB`        |          `P410`         |
+| :--------------: | :------------------: | :---------------------: |
+|     Red LED      |        `LEDR`        |         `P409`          |
+|    Green LED     |        `LEDG`        |         `P411`          |
+|     Blue LED     |        `LEDB`        |         `P410`          |
 
 ***The built-in RGB LED on the Nano R4 must be pulled to ground (`GND`) to make it light up. This means that a voltage level of `LOW` on each of their pins will turn the specific color of the LED on, and a voltage level of `HIGH` will turn them off.***
 
@@ -330,8 +330,8 @@ The Nano R4 also features a built-in orange user LED that can be used for basic 
 The built-in user LED can be accessed through the following macro definition:
 
 | **Built-in LED** | **Macro Definition** | **Microcontroller Pin** |
-|:----------------:|:--------------------:|:-----------------------:|
-|  Orange User LED |    `LED_BUILTIN`     |          `P204`         |
+| :--------------: | :------------------: | :---------------------: |
+| Orange User LED  |    `LED_BUILTIN`     |         `P204`          |
 
 ***Unlike the RGB LED, the built-in user LED on the Nano R4 operates with standard logic levels. This means that a voltage level of `HIGH` will turn the LED on, and a voltage level of `LOW` will turn it off.***
 
@@ -396,24 +396,24 @@ The Nano R4 features a total of **20 accessible pins** arranged in the classic N
 
 The Nano R4's pins are organized into the following categories:
 
-|   **Pin Type**   | **Count** |      **Pin Numbers**      |            **Primary Functions**           |
-|:----------------:|:---------:|:-------------------------:|:------------------------------------------:|
-| **Digital Pins** |     14    |        `D0` - `D13`       |    Digital I/O, PWM (6 pins), SPI, UART    |
-|  **Analog Pins** |     8     |        `A0` - `A7`        | Analog input, Digital I/O, I²C, DAC (`A0`) |
-|  **Power Pins**  |     4     | `VIN`, `5V`, `3V3`, `GND` |           Power supply and ground          |
-| **Special Pins** |     2     |      `RESET`, `VBATT`     |          System control and backup         |
+|   **Pin Type**   | **Count** |      **Pin Numbers**      |           **Primary Functions**            |
+| :--------------: | :-------: | :-----------------------: | :----------------------------------------: |
+| **Digital Pins** |    14     |       `D0` - `D13`        |    Digital I/O, PWM (6 pins), SPI, UART    |
+| **Analog Pins**  |     8     |        `A0` - `A7`        | Analog input, Digital I/O, I²C, DAC (`A0`) |
+|  **Power Pins**  |     4     | `VIN`, `5V`, `3V3`, `GND` |          Power supply and ground           |
+| **Special Pins** |     2     |     `RESET`, `VBATT`      |         System control and backup          |
 
 The Nano R4 offers several advanced pin capabilities including multi-function pins that can serve multiple purposes depending on your project needs, native +5 VDC operation for compatibility with classic Arduino shields, internal +3.3 VDC level translation for modern sensors and electronic components via Qwicc, and built-in advanced peripherals such as DAC, CAN bus and operational amplifiers on specific pins of the board.
 
 The following table shows the electrical specifications and operating limits for all pins on the Nano R4 board:
 
-|    **Specification**    |   **Value**  |             **Notes**            |
-|:-----------------------:|:------------:|:--------------------------------:|
+|    **Specification**    |  **Value**   |            **Notes**             |
+| :---------------------: | :----------: | :------------------------------: |
 |  **Operating Voltage**  |    +5 VDC    | Logic level for all digital pins |
 | **Input Voltage Range** | 0 - +5.5 VDC |      +5 VDC tolerant inputs      |
-| **Max Current per Pin** |     8 mA     |     Source/sink current limit    |
-|  **Max Total Current**  |    200 mA    |   Combined current for all pins  |
-|   **Analog Reference**  |    +5 VDC    |      Default `AREF` voltage      |
+| **Max Current per Pin** |     8 mA     |    Source/sink current limit     |
+|  **Max Total Current**  |    200 mA    |  Combined current for all pins   |
+|  **Analog Reference**   |    +5 VDC    |      Default `AREF` voltage      |
 
 ***<strong>Important safety considerations when working with the Nano R4 pins:</strong> Never exceed +5.5 VDC on any pin to avoid permanent damage, respect the 8 mA per pin and 200 mA total current limits, handle the board with proper anti-static precautions, avoid connecting pins directly to ground or power and always verify voltage levels when connecting +3.3 VDC devices.***
 
@@ -424,36 +424,36 @@ The Nano R4 features 14 digital pins (`D0` to `D13`) that can be configured as e
 The Nano R4 digital pins provide the following functionality:
 
 | **Arduino Pin** | **Microcontroller Pin** | **Additional Functions** | **Special Features** |
-|:---------------:|:-----------------------:|:------------------------:|:--------------------:|
-|       `D0`      |          `P104`         |       UART RX, PWM       | Serial communication |
-|       `D1`      |          `P105`         |       UART TX, PWM       | Serial communication |
-|       `D2`      |          `P213`         |            PWM           |  External interrupt  |
-|       `D3`      |          `P212`         |            PWM           |  External interrupt  |
-|       `D4`      |          `P109`         |        CAN TX, PWM       |   CAN communication  |
-|       `D5`      |          `P110`         |        CAN RX, PWM       |   CAN communication  |
-|       `D6`      |          `P107`         |            PWM           |      Digital I/O     |
-|       `D7`      |          `P106`         |            PWM           |      Digital I/O     |
-|       `D8`      |          `P300`         |            PWM           |      Digital I/O     |
-|       `D9`      |          `P108`         |            PWM           |      Digital I/O     |
-|      `D10`      |          `P103`         |        SPI CS, PWM       |   SPI communication  |
-|      `D11`      |          `P101`         |       SPI MOSI, PWM      |   SPI communication  |
-|      `D12`      |          `P100`         |         SPI MISO         |   SPI communication  |
-|      `D13`      |          `P102`         |          SPI SCK         |   SPI communication  |
+| :-------------: | :---------------------: | :----------------------: | :------------------: |
+|      `D0`       |         `P104`          |       UART RX, PWM       | Serial communication |
+|      `D1`       |         `P105`          |       UART TX, PWM       | Serial communication |
+|      `D2`       |         `P213`          |           PWM            |  External interrupt  |
+|      `D3`       |         `P212`          |           PWM            |  External interrupt  |
+|      `D4`       |         `P109`          |       CAN TX, PWM        |  CAN communication   |
+|      `D5`       |         `P110`          |       CAN RX, PWM        |  CAN communication   |
+|      `D6`       |         `P107`          |           PWM            |     Digital I/O      |
+|      `D7`       |         `P106`          |           PWM            |     Digital I/O      |
+|      `D8`       |         `P300`          |           PWM            |     Digital I/O      |
+|      `D9`       |         `P108`          |           PWM            |     Digital I/O      |
+|      `D10`      |         `P103`          |       SPI CS, PWM        |  SPI communication   |
+|      `D11`      |         `P101`          |      SPI MOSI, PWM       |  SPI communication   |
+|      `D12`      |         `P100`          |         SPI MISO         |  SPI communication   |
+|      `D13`      |         `P102`          |         SPI SCK          |  SPI communication   |
 
 ***<strong>Important note:</strong> Pins `D0` and `D1` are used for serial communication (UART) and should be avoided for general digital I/O when using Serial communication. Pins `D4` and `D5` can be used for CAN bus communication. Pins `D10`, `D11`, `D12` and `D13` are used for SPI communication.***
 
 The Nano R4's digital pins offer the following specifications:
 
-|   **Specification**  |    **Value**   |           **Notes**           |
-|:--------------------:|:--------------:|:-----------------------------:|
-|     Logic Voltage    |     +5 VDC     | `HIGH` and `LOW` logic levels |
-|     Input Voltage    |  0 to +5.5 VDC |     +5 VDC tolerant inputs    |
-| Max Current (Source) |      8 mA      |     Per pin source current    |
-|  Max Current (Sink)  |      8 mA      |      Per pin sink current     |
-|   Total Max Current  |     200 mA     |     Combined for all pins     |
+|  **Specification**   |   **Value**    |           **Notes**           |
+| :------------------: | :------------: | :---------------------------: |
+|    Logic Voltage     |     +5 VDC     | `HIGH` and `LOW` logic levels |
+|    Input Voltage     | 0 to +5.5 VDC  |    +5 VDC tolerant inputs     |
+| Max Current (Source) |      8 mA      |    Per pin source current     |
+|  Max Current (Sink)  |      8 mA      |     Per pin sink current      |
+|  Total Max Current   |     200 mA     |     Combined for all pins     |
 |   Input Resistance   |    20-50 kΩ    |   Internal pull-up resistor   |
-|    Digital `HIGH`    | +3.5 to +5 VDC |   Minimum voltage for `HIGH`  |
-|     Digital `LOW`    |  0 to +1.5 VDC |   Maximum voltage for `LOW`   |
+|    Digital `HIGH`    | +3.5 to +5 VDC |  Minimum voltage for `HIGH`   |
+|    Digital `LOW`     | 0 to +1.5 VDC  |   Maximum voltage for `LOW`   |
 
 Digital pins can be configured and controlled using the following basic Arduino functions.
 
@@ -563,30 +563,30 @@ The Nano R4 features **8 analog input pins** (`A0` to `A7`) that can be read usi
 
 The Nano R4 analog pins provide the following functionality:
 
-| **Arduino Pin** | **Microcontroller Pin** | **Additional Functions** |  **Special Features** |
-|:---------------:|:-----------------------:|:------------------------:|:---------------------:|
-|       `A0`      |          `P000`         |            DAC           |   12-bit DAC output   |
-|       `A1`      |          `P001`         |          OPAMP +         | Operational amplifier |
-|       `A2`      |          `P002`         |          OPAMP -         | Operational amplifier |
-|       `A3`      |          `P003`         |         OPAMP OUT        | Operational amplifier |
-|       `A4`      |          `P004`         |         SDA (I²C)        |   I²C communication   |
-|       `A5`      |          `P010`         |         SCL (I²C)        |   I²C communication   |
-|       `A6`      |          `P014`         |         Analog In        |   Analog input only   |
-|       `A7`      |          `P015`         |         Analog In        |   Analog input only   |
+| **Arduino Pin** | **Microcontroller Pin** | **Additional Functions** | **Special Features**  |
+| :-------------: | :---------------------: | :----------------------: | :-------------------: |
+|      `A0`       |         `P000`          |           DAC            |   12-bit DAC output   |
+|      `A1`       |         `P001`          |         OPAMP +          | Operational amplifier |
+|      `A2`       |         `P002`          |         OPAMP -          | Operational amplifier |
+|      `A3`       |         `P003`          |        OPAMP OUT         | Operational amplifier |
+|      `A4`       |         `P004`          |        SDA (I²C)         |   I²C communication   |
+|      `A5`       |         `P010`          |        SCL (I²C)         |   I²C communication   |
+|      `A6`       |         `P014`          |        Analog In         |   Analog input only   |
+|      `A7`       |         `P015`          |        Analog In         |   Analog input only   |
 
 ***<strong>Important note:</strong> Pin `A0` has a built-in 12-bit Digital-to-Analog Converter (DAC) for analog output. Pins `A1`, `A2` and `A3` are connected to the integrated operational amplifier. Pins `A4` and `A5` are primarily used for I²C communication (SDA and SCL respectively).***
 
 The Nano R4's analog pins offer the following specifications:
 
-|  **Specification** |   **Value**  |           **Notes**          |
-|:------------------:|:------------:|:----------------------------:|
-|    Input Voltage   |  0 to +5 VDC |  Maximum safe input voltage  |
-| Default Resolution |    10-bit    |         Values 0-1023        |
+| **Specification**  |  **Value**   |          **Notes**           |
+| :----------------: | :----------: | :--------------------------: |
+|   Input Voltage    | 0 to +5 VDC  |  Maximum safe input voltage  |
+| Default Resolution |    10-bit    |        Values 0-1023         |
 | Maximum Resolution |    14-bit    |        Values 0-16383        |
-|  Default Reference |    +5 VDC    |         AREF voltage         |
+| Default Reference  |    +5 VDC    |         AREF voltage         |
 | Internal Reference |   +1.5 VDC   | Built-in precision reference |
-|     Sample Rate    | Up to 1 MSPS |    Maximum sampling speed    |
-|      Accuracy      |    ±2 LSB    |  Typical conversion accuracy |
+|    Sample Rate     | Up to 1 MSPS |    Maximum sampling speed    |
+|      Accuracy      |    ±2 LSB    | Typical conversion accuracy  |
 
 You can read analog values using the `analogRead()` function:
 
@@ -649,9 +649,11 @@ To test this example, connect a potentiometer to the Nano R4 board as follows:
 - Connect one outer pin of the potentiometer to +5 VDC
 - Connect the other outer pin of the potentiometer to `GND`
 
-![ADC test circuit on the Nano R4 board](assets/user-manual-14.png)
+![ADC test circuit on the Nano R4 board](assets/analog-1.png)
 
 You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the real-time analog values and voltage measurements as you adjust the potentiometer. As you turn the potentiometer, the values will range from 0 to 1023, with corresponding voltage readings from 0 to +5 VDC.
+
+![Arduino IDE Serial Monitor output for the analog input example sketch](assets/analog-2.png)
 
 The following example demonstrates how to use 14-bit resolution for more precise analog readings; **use the same potentiometer connection from the first example**:
 
@@ -704,7 +706,9 @@ void loop() {
 }
 ```
 
-You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the high-resolution analog values, voltage measurements and percentage calculations as you adjust the potentiometer. With 14-bit resolution, the values will range from 0 to 16383 instead of the standard 0 to 1023, providing significantly higher precision for sensitive measurements.  
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the high-resolution analog values, voltage measurements and percentage calculations as you adjust the potentiometer. With 14-bit resolution, the values will range from 0 to 16383 instead of the standard 0 to 1023, providing significantly higher precision for sensitive measurements.
+
+![Arduino IDE Serial Monitor output for the high-resolution analog input example sketch](assets/analog-3.png)
 
 ### PWM (Pulse Width Modulation)
 
@@ -712,14 +716,14 @@ The Nano R4 board  features multiple pins with PWM capability that can be used t
 
 The Nano R4 board provides PWM functionality on the following pins:
 
-| **Arduino Pin** | **Microcontroller Pin** | **PWM Channel** |  **Primary Function** |
-|:---------------:|:-----------------------:|:---------------:|:---------------------:|
-|       `D3`      |          `P212`         |    Channel 0B   |      Digital I/O      |
-|       `D5`      |          `P110`         |    Channel 1B   |      Digital I/O      |
-|       `D6`      |          `P107`         |    Channel 0A   |      Digital I/O      |
-|       `D9`      |          `P108`         |    Channel 0B   |      Digital I/O      |
-|      `D10`      |          `P103`         |    Channel 2A   |  Digital I/O, SPI CS  |
-|      `D11`      |          `P101`         |    Channel 5A   | Digital I/O, SPI MOSI |
+| **Arduino Pin** | **Microcontroller Pin** | **PWM Channel** | **Primary Function**  |
+| :-------------: | :---------------------: | :-------------: | :-------------------: |
+|      `D3`       |         `P212`          |   Channel 0B    |      Digital I/O      |
+|      `D5`       |         `P110`          |   Channel 1B    |      Digital I/O      |
+|      `D6`       |         `P107`          |   Channel 0A    |      Digital I/O      |
+|      `D9`       |         `P108`          |   Channel 0B    |      Digital I/O      |
+|      `D10`      |         `P103`          |   Channel 2A    |  Digital I/O, SPI CS  |
+|      `D11`      |         `P101`          |   Channel 5A    | Digital I/O, SPI MOSI |
 
 ***<strong>Important note:</strong> Pins `A4` and `A5` also have PWM capability but are primarily used for I²C communication (SDA and SCL respectively). The onboard LEDs (`LEDR`, `LEDG`, `LEDB`, `LED_BUILTIN`) also support PWM for brightness control.***
 
@@ -786,7 +790,11 @@ void loop() {
 
 You should now see the built-in orange user LED of your Nano R4 board gradually fade in and out, creating a smooth breathing effect that repeats continuously.
 
+![Onboard RGB user LED fading](assets/pwm-1.gif)
+
 Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the example sketch sends at key brightness levels.
+
+![Arduino IDE Serial Monitor output for the PWM example sketch](assets/pwm-2.png)
 
 The following example demonstrates how to use a 12-bit PWM resolution for more precise control of the built-in orange user LED:
 
@@ -840,9 +848,9 @@ void loop() {
 }
 ```
 
-This high-resolution example creates a smooth sine wave pattern with the built-in LED brightness, demonstrating the precision available with a 12-bit PWM resolution. You should see a very smooth transition in the LED brightness following a sine wave pattern.
+This high-resolution example creates a smooth sine wave pattern with the built-in LED brightness, demonstrating the precision available with a 12-bit PWM resolution. You should see a very smooth transition in the LED brightness following a sine wave pattern. Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the angle and PWM value outputs that demonstrate the precise 12-bit control values being used.
 
-Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the angle and PWM value outputs that demonstrate the precise 12-bit control values being used.
+![Arduino IDE Serial Monitor output for the high-resolution PWM example sketch](assets/pwm-3.png)
 
 ### Operational Amplifier (OPAMP)
 
@@ -851,26 +859,26 @@ The Nano R4 board features a built-in operational amplifier (OPAMP) that provide
 The Nano R4 board OPAMP provides the following pin connections:
 
 | **Arduino Pin** | **Microcontroller Pin** | **OPAMP Function** |     **Description**     |
-|:---------------:|:-----------------------:|:------------------:|:-----------------------:|
-|       `A1`      |          `P001`         |       OPAMP +      | Non-inverting input (+) |
-|       `A2`      |          `P002`         |       OPAMP -      |   Inverting input (-)   |
-|       `A3`      |          `P003`         |      OPAMP OUT     |     Amplifier output    |
+| :-------------: | :---------------------: | :----------------: | :---------------------: |
+|      `A1`       |         `P001`          |      OPAMP +       | Non-inverting input (+) |
+|      `A2`       |         `P002`          |      OPAMP -       |   Inverting input (-)   |
+|      `A3`       |         `P003`          |     OPAMP OUT      |    Amplifier output     |
 
 ***<strong>Important note:</strong> When using the OPAMP functionality, pins `A1`, `A2` and `A3` cannot simultaneously be used as regular analog inputs. The positive supply (Vs+) is fixed to approximately +5 VDC and the negative supply (Vs-) is fixed to `GND`.***
 
 The Nano R4's OPAMP offers the following electrical characteristics:
 
-|        **Parameter**       | **Low-Speed Mode** | **High-Speed Mode** | **Unit** |        **Notes**       |
-|:--------------------------:|:------------------:|:-------------------:|:--------:|:----------------------:|
-| Common Input Voltage Range |    +1.8 to +5.5    |     +0.3 to +4.4    |    VDC   | Typical with 5V supply |
-|    Output Voltage Range    |    +0.1 to +4.9    |     +0.1 to +4.9    |    VDC   | Typical with 5V supply |
-|    Input Offset Voltage    |     -10 to +10     |      -10 to +10     |    mV    |            -           |
-|       Open Loop Gain       |    60 (typical)    |    125 (typical)    |    dB    |            -           |
-|   Gain-Bandwidth Product   |          -         |         1.7         |    MHz   |     High-speed mode    |
-|          Slew Rate         |        0.12        |          -          |   V/μs   |       CL = 20 pF       |
-|        Settling Time       |         650        |          13         |    μs    |     To 1% accuracy     |
-|        Load Current        |    -100 to +100    |     -100 to +100    |    μA    |         Maximum        |
-|      Load Capacitance      |         20         |          20         |    pF    |         Maximum        |
+|       **Parameter**        | **Low-Speed Mode** | **High-Speed Mode** | **Unit** |       **Notes**        |
+| :------------------------: | :----------------: | :-----------------: | :------: | :--------------------: |
+| Common Input Voltage Range |    +1.8 to +5.5    |    +0.3 to +4.4     |   VDC    | Typical with 5V supply |
+|    Output Voltage Range    |    +0.1 to +4.9    |    +0.1 to +4.9     |   VDC    | Typical with 5V supply |
+|    Input Offset Voltage    |     -10 to +10     |     -10 to +10      |    mV    |           -            |
+|       Open Loop Gain       |    60 (typical)    |    125 (typical)    |    dB    |           -            |
+|   Gain-Bandwidth Product   |         -          |         1.7         |   MHz    |    High-speed mode     |
+|         Slew Rate          |        0.12        |          -          |   V/μs   |       CL = 20 pF       |
+|       Settling Time        |        650         |         13          |    μs    |     To 1% accuracy     |
+|        Load Current        |    -100 to +100    |    -100 to +100     |    μA    |        Maximum         |
+|      Load Capacitance      |         20         |         20          |    pF    |        Maximum         |
 
 You can configure and use the OPAMP using the dedicated `<OPAMP.h>` library, which is included in the Arduino UNO R4 Boards core. To startup the OPAMP, simply include the library and call `OPAMP.begin(speed)` where speed can be `OPAMP_SPEED_LOWSPEED` for lower power consumption or `OPAMP_SPEED_HIGHSPEED` for better performance.
 
@@ -943,28 +951,28 @@ The Nano R4 features a built-in 12-bit Digital-to-Analog Converter (DAC) connect
 
 The Nano R4 DAC provides the following functionality:
 
-|   **Specification**  |     **Value**     |             **Notes**            |
-|:--------------------:|:-----------------:|:--------------------------------:|
-|      Resolution      |       12-bit      |    4096 discrete output levels   |
-|      Output Pin      |        `A0`       |     Dedicated DAC output pin     |
+|  **Specification**   |     **Value**     |            **Notes**             |
+| :------------------: | :---------------: | :------------------------------: |
+|      Resolution      |      12-bit       |   4096 discrete output levels    |
+|      Output Pin      |       `A0`        |     Dedicated DAC output pin     |
 | Output Voltage Range | +0.35 to +4.5 VDC | Typical range with +5 VDC supply |
 |  Default Resolution  |       8-bit       |             0 to 255             |
-|  Maximum Resolution  |       12-bit      |             0 to 4095            |
-|   Output Impedance   |    5Ω (typical)   |       Low impedance output       |
-|    Conversion Time   |     Max 30 μs     |   Time to update output voltage  |
+|  Maximum Resolution  |      12-bit       |            0 to 4095             |
+|   Output Impedance   |   5Ω (typical)    |       Low impedance output       |
+|   Conversion Time    |     Max 30 μs     |  Time to update output voltage   |
 |    Resistive Load    |     Min 30 kΩ     |     Minimum recommended load     |
-|   Load Capacitance   |     Max 50 pF     |      Maximum capacitive load     |
+|   Load Capacitance   |     Max 50 pF     |     Maximum capacitive load      |
 
 ***<strong>Important note:</strong> When using the DAC on pin `A0`, this pin cannot simultaneously be used as an analog input. The DAC provides true analog output, making it superior to PWM for applications requiring smooth, continuous voltage levels.***
 
 The Nano R4's DAC offers the following technical specifications:
 
 |          **Parameter**          | **Min** | **Typ** | **Max** | **Unit** |      **Notes**      |
-|:-------------------------------:|:-------:|:-------:|:-------:|:--------:|:-------------------:|
-| Differential Nonlinearity (DNL) |    -    |   ±0.5  |   ±2.0  |    LSB   |      DNL error      |
-|   Integral Nonlinearity (INL)   |    -    |   ±2.0  |  ±16.0  |    LSB   |      INL error      |
-|           Offset Error          |    -    |    -    |   ±30   |    mV    |    Output offset    |
-|         Full-Scale Error        |    -    |    -    |   ±30   |    mV    | Full-scale accuracy |
+| :-----------------------------: | :-----: | :-----: | :-----: | :------: | :-----------------: |
+| Differential Nonlinearity (DNL) |    -    |  ±0.5   |  ±2.0   |   LSB    |      DNL error      |
+|   Integral Nonlinearity (INL)   |    -    |  ±2.0   |  ±16.0  |   LSB    |      INL error      |
+|          Offset Error           |    -    |    -    |   ±30   |    mV    |    Output offset    |
+|        Full-Scale Error         |    -    |    -    |   ±30   |    mV    | Full-scale accuracy |
 
 You can write analog values to the DAC using the `analogWrite()` function:
 
@@ -1027,7 +1035,9 @@ void loop() {
 }
 ```
 
-To test this example, connect a digital multimeter between pin `A0` and `GND` to measure the output voltage. You should see the voltage change in precise steps every two seconds, showing the DAC's ability to generate exact analog voltages.
+To test this example, connect a digital multimeter between pin `A0` and `GND` to measure the output voltage. You should see the voltage change in precise steps every two seconds, showing the DAC's ability to generate exact analog voltages. For best results, connect an oscilloscope to pin `A0` to visualize the step output.
+
+![Step output oscilloscope output](assets/dac-1.png)
 
 You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the DAC values and corresponding target voltages. The output should closely match the calculated voltages with high precision.
 
@@ -1084,7 +1094,146 @@ void loop() {
 }
 ```
 
-You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the sine wave generation progress with angle, DAC values, and corresponding voltages. For best results, connect an oscilloscope to pin `A0` to visualize the smooth sine wave output.
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the sine wave generation progress with angle, DAC values, and corresponding voltages. 
+
+For best results, connect an oscilloscope to pin `A0` to visualize the smooth sine wave output.
+
+![Sine wave output oscilloscope output](assets/dac-2.png)
 
 ## Real-Time Clock (RTC)
 
+The Nano R4 features a built-in Real-Time Clock (RTC) that allows your projects to keep track of date and time. The RTC is integrated within the RA4M1 microcontroller and can maintain accurate timekeeping for applications that require scheduling, data logging or time-based events. With optional backup power support, the RTC can continue running even when the main power is disconnected.
+
+The RTC provides accurate timekeeping with a 100-year calendar from 2000 to 2099 that automatically adjusts dates for leap years. It can maintain time and date information even when the main power is disconnected by using an optional backup battery.
+
+The Nano R4's RTC offers the following technical specifications:
+
+|    **Parameter**    |   **Value**    |     **Notes**     |
+| :-----------------: | :------------: | :---------------: |
+|     Time Range      |  2000 to 2099  | 100-year calendar |
+|   Backup Voltage    |  1.6V to 3.6V  |   Via VBATT pin   |
+| Current Consumption |     ~1 μA      |  In backup mode   |
+|  Temperature Range  | -40°C to +85°C |  Operating range  |
+
+You can configure and use the RTC using the dedicated `<RTC.h>` library, which is included in the Arduino UNO R4 Boards core. The library provides functions to set time, get time, check RTC status and configure alarms.
+
+The following example demonstrates how to initialize the RTC and display the current date and time:
+
+```arduino
+/**
+RTC Basic Example for the Arduino Nano R4 Board
+Name: nano_r4_rtc_basic.ino
+Purpose: This sketch demonstrates how to use the built-in RTC
+to keep track of date and time.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+#include "RTC.h"
+
+void setup() {
+  // Initialize serial communication at 115200 baud
+  Serial.begin(115200);
+  
+  Serial.println("- Arduino Nano R4 - RTC Basic Example started...");
+  Serial.println("- Initializing RTC...");
+  
+  // Initialize RTC
+  RTC.begin();
+  
+  // Set initial time: January 15, 2025, 12:00:00 PM, Monday
+  RTCTime startTime(15, Month::JANUARY, 2025, 12, 0, 0, DayOfWeek::MONDAY, SaveLight::SAVING_TIME_INACTIVE);
+  RTC.setTime(startTime);
+  
+  Serial.println("- RTC time has been set to January 15, 2025, 12:00:00 PM");
+  Serial.println("- Current date and time will be displayed every second");
+}
+
+void loop() {
+  // Get current time from RTC
+  RTCTime currentTime;
+  RTC.getTime(currentTime);
+  
+  // Get individual values
+  int year = currentTime.getYear();
+  int month = Month2int(currentTime.getMonth());
+  int day = currentTime.getDayOfMonth();
+  
+  int hour = currentTime.getHour();
+  int minute = currentTime.getMinutes();
+  int second = currentTime.getSeconds();
+  
+  // Display date (YYYY/MM/DD)
+  Serial.print("Date: ");
+  Serial.print(year);
+  Serial.print("/");
+  if (month < 10) Serial.print("0");
+  Serial.print(month);
+  Serial.print("/");
+  if (day < 10) Serial.print("0");
+  Serial.print(day);
+  
+  // Display time (HH:MM:SS)
+  Serial.print(" | Time: ");
+  if (hour < 10) Serial.print("0");
+  Serial.print(hour);
+  Serial.print(":");
+  if (minute < 10) Serial.print("0");
+  Serial.print(minute);
+  Serial.print(":");
+  if (second < 10) Serial.print("0");
+  Serial.print(second);
+  
+  // Display day of week
+  Serial.print(" | Day: ");
+  DayOfWeek dayOfWeek = currentTime.getDayOfWeek();
+  
+  if (dayOfWeek == DayOfWeek::MONDAY) {
+    Serial.print("Monday");
+  } else if (dayOfWeek == DayOfWeek::TUESDAY) {
+    Serial.print("Tuesday");
+  } else if (dayOfWeek == DayOfWeek::WEDNESDAY) {
+    Serial.print("Wednesday");
+  } else if (dayOfWeek == DayOfWeek::THURSDAY) {
+    Serial.print("Thursday");
+  } else if (dayOfWeek == DayOfWeek::FRIDAY) {
+    Serial.print("Friday");
+  } else if (dayOfWeek == DayOfWeek::SATURDAY) {
+    Serial.print("Saturday");
+  } else if (dayOfWeek == DayOfWeek::SUNDAY) {
+    Serial.print("Sunday");
+  }
+  
+  Serial.println();
+  
+  // Wait one second before next reading
+  delay(1000);
+}
+```
+
+***To test this example, no external connections are needed. The RTC operates internally within the microcontroller.***
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the real-time date and time updates. The display will show the current date, time, and day of the week, updating every second.
+
+![Arduino IDE Serial Monitor output for the RTC example sketch](assets/rtc-1.png)
+
+To maintain RTC timekeeping when the main power is disconnected, you can connect a backup battery to the `VBATT` pin:
+
+- Connect the positive terminal of a 3V coin cell battery (CR2032) to the `VBATT` pin of the board
+- Connect the negative terminal of the battery to `GND`
+
+With this configuration, the board's RTC will continue running on backup power when main power is removed. You can also set the board's RTC time programmatically using the following functions:
+
+```arduino
+// Create RTCTime object: day, month, year, hour, minute, second, dayOfWeek, daylightSaving
+RTCTime newTime(25, Month::DECEMBER, 2024, 15, 30, 45, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_INACTIVE);
+
+// Set the RTC time
+RTC.setTime(newTime);
+```
+
+When working with the RTC on the Nano R4, there are several key points to keep in mind for successful implementation:
+
+- **The RTC requires an initial time setting** before it can provide accurate timekeeping, so make sure to configure the date and time when you first start your project. For applications that need continuous timekeeping even when the main power is disconnected, connecting a backup battery to the VBATT pin is highly recommended. 
+- Keep in mind that **the RTC stores time exactly as you set it**, so you'll need to handle time zone conversions and daylight saving time adjustments in your application code if needed.
