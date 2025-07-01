@@ -32,7 +32,7 @@ Wireless sensor networks, data fusion, artificial intelligence, and gas detectio
 | **External Flash Memory** | 2 MB                                                |
 | **Interfaces**            | 2x SPI, 2x I2C (one accessible via pin header each) |
 | **ADC**                   | 12-bit/200 ksps                                     |
-| **Bluetooth® Frequency**  | 2402–2480 MHz                                       |
+| **Bluetooth® Frequency**  | 2400–2483.5 MHz                                     |
 | **Antenna**               | Internal                                            |
 | **Oscillator**            | Internal 32 MHz                                     |
 | **Operating Voltage**     | 1.8 VDC                                             |
@@ -591,22 +591,22 @@ Arduino Nicla Sense ME 是我们迄今为止体积最小的产品，将一系列
 
 ## 特点
 
-### Bluetooth® 模块
+### Bluetooth® 蓝牙模块
 
-| **特点**            | **描述**                                               |
-| ------------------- | ------------------------------------------------------ |
-| **型号**            | ANNA-B112 Bluetooth® 模块                              |
-| **微控制器**        | nRF52832 系统级芯片                                    |
-| **CPU 内核**        | 64 MHz Arm® Cortex®-M4F                                |
-| **内部SRAM**        | 64 KB                                                  |
-| **内部闪存**        | 512 KB                                                 |
-| **外部闪存**        | 2 MB                                                   |
-| **接口**            | 2 路 SPI，2 路 I2C（每种接口各通过一个引脚排针可访问） |
-| **ADC**             | 12-bit/200 ksps                                        |
-| **Bluetooth® 频率** | 2402–2480 MHz                                          |
-| **天线规格**        | 内部                                                   |
-| **振荡器**          | 内部 32 MHz                                            |
-| **工作电压**        | 1.8 VDC                                                |
+| **特点**                    | **描述**                                               |
+| --------------------------- | ------------------------------------------------------ |
+| **型号**                    | ANNA-B112 Bluetooth® 蓝牙模块                          |
+| **微控制器**                | nRF52832 系统级芯片                                    |
+| **CPU 内核**                | 64 MHz Arm® Cortex®-M4F                                |
+| **内部SRAM**                | 64 KB                                                  |
+| **内部闪存**                | 512 KB                                                 |
+| **外部闪存**                | 2 MB                                                   |
+| **接口**                    | 2 路 SPI，2 路 I2C（每种接口各通过一个引脚排针可访问） |
+| **ADC**                     | 12-bit/200 ksps                                        |
+| **Bluetooth® 蓝牙模块频率** | 2400–2483.5 MHz                                        |
+| **天线规格**                | 内部                                                   |
+| **振荡器**                  | 内部 32 MHz                                            |
+| **工作电压**                | 1.8 VDC                                                |
 
 ### 集成 IMU 的智能传感器
 
@@ -722,7 +722,7 @@ Nicla 封装规格是 Arduino® 专为无线传感网络开发的一种标准，
 
 | **编号** | **描述**                                 | **编号** | **描述**                      |
 | -------- | ---------------------------------------- | -------- | ----------------------------- |
-| MD1      | ANNA B112 Bluetooth® 模块                | U2, U7   | MX25R1635FZUIH0 2MB 闪存芯片  |
+| MD1      | ANNA B112 Bluetooth® 蓝牙模块            | U2, U7   | MX25R1635FZUIH0 2MB 闪存芯片  |
 | U3       | BMP390 压力传感器芯片                    | U4       | BMM150 3轴磁传感器芯片        |
 | U5       | BHI260AP  六轴 IMU 与 AI 核心芯片        | U6       | BME688 环境传感器芯片         |
 | U8       | IS31FL3194-CLS2-TR 三通道 LED 驱动芯片   | U9       | BQ25120AYFPR 电池充电管理芯片 |
