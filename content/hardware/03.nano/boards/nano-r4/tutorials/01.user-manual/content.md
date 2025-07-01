@@ -1,14 +1,14 @@
 ---
 title: 'Nano R4 User Manual'
 difficulty: beginner
-compatible-products: [nicla-sense-env]
+compatible-products: [nano-r4]
 description: 'Learn about the hardware and software features of the Arduino® Nano R4 board.'
 tags:
   - Cheat sheet
   - User manual
 author: 'José Bagur'
 hardware:
-  - hardware/04.nano/boards/nicla-sense-e
+  - hardware/04.nano/boards/nano-r4
 software:
   - ide-v1
   - ide-v2
@@ -1353,3 +1353,25 @@ When working with EEPROM on the Nano R4, there are several key points to keep in
 - The EEPROM requires careful management of write operations since flash memory has a limited number of write cycles (100,000). Avoid writing to the same address repeatedly in tight loops, as this will quickly wear out the memory. Instead, only write when values actually change, and consider spreading data across different addresses to distribute wear evenly.
 - Keep in mind that EEPROM stores data as individual bytes (0 to 255), so larger data types need to be broken down or use the `put()` and `get()` functions for automatic handling.
 - The EEPROM retains data for over 10 years under normal conditions, making it excellent for long-term storage of configuration data and user preferences.
+
+## Support
+
+If you encounter any issues or have questions while working with your Nano R4 board, we provide various support resources to help you find answers and solutions.
+
+### Help Center
+
+Explore our Help Center, which offers a comprehensive collection of articles and guides for Nano family boards. The Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+
+- [Nanoa family help center page](https://support.arduino.cc/hc/en-us/sections/360004605400-Nano-Family)
+
+### Forum
+
+Join our community forum to connect with other Nano family board users, share your experiences, and ask questions. The Forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Nano R4.
+
+- [Nano category in the Arduino Forum](https://forum.arduino.cc/c/official-hardware/nano-family/87)
+
+### Contact Us
+
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Nano family boards.
+
+- [Contact us page](https://www.arduino.cc/en/contact-us/)
