@@ -1102,9 +1102,9 @@ For best results, connect an oscilloscope to pin `A0` to visualize the smooth si
 
 ## Real-Time Clock (RTC)
 
-The Nano R4 features a built-in Real-Time Clock (RTC) that allows your projects to keep track of date and time. The RTC is integrated within the RA4M1 microcontroller and can maintain accurate timekeeping for applications that require scheduling, data logging or time-based events. With optional backup power support, the RTC can continue running even when the main power is disconnected.
+The Nano R4 features a built-in Real-Time Clock (RTC) that allows your projects to keep track of date and time. The RTC is integrated within the RA4M1 microcontroller and can maintain accurate timekeeping for applications that require scheduling, data logging or time-based events. With optional backup power support via the board's `VBATT` pin, the RTC can continue running even when the main power is disconnected, using a 100-year calendar from 2000 to 2099 that automatically adjusts dates for leap years.
 
-The RTC provides accurate timekeeping with a 100-year calendar from 2000 to 2099 that automatically adjusts dates for leap years. It can maintain time and date information even when the main power is disconnected by using an optional backup battery.
+The RTC is particularly useful when your project needs to know the actual date and time, rather than just measuring time intervals. While Arduino functions like `millis()` and `delay()` are perfect for timing operations (like blinking an LED every second), the RTC is essential for applications like data loggers that need timestamps, alarm clocks, scheduling systems or any project that needs to know "what time is it right now?" even after being powered off and on again.
 
 The Nano R4's RTC offers the following technical specifications:
 
@@ -1223,11 +1223,12 @@ To maintain RTC timekeeping when the main power is disconnected, you can connect
 - Connect the positive terminal of a 3V coin cell battery (CR2032) to the `VBATT` pin of the board
 - Connect the negative terminal of the battery to `GND`
 
-With this configuration, the board's RTC will continue running on backup power when main power is removed. You can also set the board's RTC time programmatically using the following functions:
+With this configuration, the board's RTC will continue running on backup power when main power is removed. You can also set the board's RTC time programmatically using the following format. Remember to update the date and time values to match the current date when you upload your sketch:
 
 ```arduino
-// Create RTCTime object: day, month, year, hour, minute, second, dayOfWeek, daylightSaving
-RTCTime newTime(25, Month::DECEMBER, 2024, 15, 30, 45, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_INACTIVE);
+// Create RTCTime object with current date and time
+// Format: day, month, year, hour, minute, second, dayOfWeek, daylightSaving
+RTCTime newTime(30, Month::JUNE, 2025, 15, 30, 45, DayOfWeek::MONDAY, SaveLight::SAVING_TIME_INACTIVE);
 
 // Set the RTC time
 RTC.setTime(newTime);
@@ -1237,3 +1238,118 @@ When working with the RTC on the Nano R4, there are several key points to keep i
 
 - **The RTC requires an initial time setting** before it can provide accurate timekeeping, so make sure to configure the date and time when you first start your project. For applications that need continuous timekeeping even when the main power is disconnected, connecting a backup battery to the VBATT pin is highly recommended. 
 - Keep in mind that **the RTC stores time exactly as you set it**, so you'll need to handle time zone conversions and daylight saving time adjustments in your application code if needed.
+
+## EEPROM (Non-Volatile Memory)
+
+The Nano R4 board features built-in EEPROM (Electrically Erasable Programmable Read-Only Memory) that allows your projects to store data permanently, even when the board is powered off. The EEPROM is implemented using flash memory emulation within the RA4M1 microcontroller and provides 8 KB of non-volatile storage space for applications that need to remember settings, sensor calibrations, or user preferences between power cycles.
+
+EEPROM is particularly useful when your project needs to remember information permanently, rather than just during program execution. While variables stored in SRAM are lost when power is removed, EEPROM retains data indefinitely. This makes it essential for applications like saving user preferences, storing sensor calibration values, keeping configuration settings, or any project that needs to "remember" data even after being unplugged and reconnected.
+
+The Nano R4's EEPROM offers the following technical specifications:
+
+|   **Parameter**   |     **Value**     |         **Notes**        |
+|:-----------------:|:-----------------:|:------------------------:|
+|      Capacity     |        8 KB       |         Data area        |
+|    Memory Type    | Data flash memory |  SuperFlash® technology  |
+|    Write Cycles   |      100,000      | Program/erase cycles max |
+|  Programming Unit |       64-bit      |    Minimum write unit    |
+|     Erase Unit    |        1 KB       |    Minimum erase unit    |
+|     Read Speed    |   6 clock cycles  |     Time to read data    |
+|   Retention Time  |     10+ years     |   Data retention period  |
+| Operating Voltage |       +5 VDC      |       Same as board      |
+
+You can read and write to EEPROM using the dedicated `<EEPROM.h>` library, which is included in the Arduino UNO R4 Boards core. The library provides simple functions to store and retrieve individual bytes or larger data structures.
+
+The following example demonstrates how to store and retrieve data from EEPROM:
+
+```arduino
+/**
+EEPROM Basic Example for the Arduino Nano R4 Board
+Name: nano_r4_eeprom_basic.ino
+Purpose: This sketch demonstrates how to store and retrieve data
+from the built-in EEPROM memory.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+#include <EEPROM.h>
+
+void setup() {
+  // Initialize serial communication at 115200 baud
+  Serial.begin(115200);
+  
+  Serial.println("- Arduino Nano R4 - EEPROM Basic Example started...");
+  
+  // Read a counter from EEPROM address 0
+  int bootCounter = EEPROM.read(0);
+  
+  // If this is the first time (EEPROM starts with 255), set counter to 0
+  if (bootCounter == 255) {
+    bootCounter = 0;
+    Serial.println("- First boot detected!");
+  }
+  
+  // Add 1 to the counter
+  bootCounter = bootCounter + 1;
+  
+  // Save the new counter value to EEPROM
+  EEPROM.write(0, bootCounter);
+  
+  // Show the results
+  Serial.print("- This board has been reset ");
+  Serial.print(bootCounter);
+  Serial.println(" times");
+  
+  // Store a user preference (LED brightness)
+  int brightness = 128;  // Value from 0 to 255
+  EEPROM.write(1, brightness);
+  Serial.print("- LED brightness setting saved: ");
+  Serial.println(brightness);
+  
+  // Read the brightness setting back
+  int savedBrightness = EEPROM.read(1);
+  Serial.print("- LED brightness setting loaded: ");
+  Serial.println(savedBrightness);
+  
+  Serial.println("- Reset the board to see the counter increase!");
+}
+
+void loop() {
+  // Nothing to do in the loop
+  // The counter only increases when you reset the board
+  delay(1000);
+}
+```
+
+***To test this example, no external connections are needed. The EEPROM operates internally within the microcontroller.***
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the EEPROM operations. Each time you reset the board, the boot counter will increment, demonstrating that the value persists in EEPROM memory.
+
+![Arduino IDE Serial Monitor output for the EEPROM example sketch](assets/eeprom-1.png)
+
+For storing larger data structures, you can use the `EEPROM.get()` and `EEPROM.put()` functions:
+
+```arduino
+// Define a structure for complex data
+struct Settings {
+  int threshold;
+  float calibration;
+  bool enabled;
+  char deviceName[16];
+};
+
+// Store structure to EEPROM
+Settings mySettings = {512, 3.14, true, "NanoR4Device"};
+EEPROM.put(0, mySettings);
+
+// Read structure from EEPROM
+Settings loadedSettings;
+EEPROM.get(0, loadedSettings);
+```
+
+When working with EEPROM on the Nano R4, there are several key points to keep in mind for successful implementation:
+
+- The EEPROM requires careful management of write operations since flash memory has a limited number of write cycles (100,000). Avoid writing to the same address repeatedly in tight loops, as this will quickly wear out the memory. Instead, only write when values actually change, and consider spreading data across different addresses to distribute wear evenly.
+- Keep in mind that EEPROM stores data as individual bytes (0 to 255), so larger data types need to be broken down or use the `put()` and `get()` functions for automatic handling.
+- The EEPROM retains data for over 10 years under normal conditions, making it excellent for long-term storage of configuration data and user preferences.
