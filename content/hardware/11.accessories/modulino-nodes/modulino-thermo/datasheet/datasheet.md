@@ -197,7 +197,6 @@ Operation is subject to the following two conditions:
 | Project Hub               | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/)                                                                                                                               |
 | Library Reference         | [https://github.com/arduino-libraries/](https://github.com/arduino-libraries/)                                                                                                                 |
 | Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                                         |
-|                           |                                                                                                                                                                                                |
 
 | **Date**   | **Revision** | **Changes**          |
 | ---------- | ------------ | -------------------- |
