@@ -251,7 +251,7 @@ Use of controls or adjustments, or performance of procedures other than those sp
 # Revision History
 | **Date**   | **Revision** | **Changes**                       |
 | ---------- | ------------ | --------------------------------- |
-| 17/06/2025 | 4            | Add laser safety section          |
+| 03/07/2025 | 4            | Add laser safety section          |
 | 17/06/2025 | 3            | Nomenclature updates              |
 | 23/05/2025 | 2            | Fixed pinout table and power info |
 | 14/05/2025 | 1            | First release                     |
