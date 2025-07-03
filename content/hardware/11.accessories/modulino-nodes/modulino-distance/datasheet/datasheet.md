@@ -218,6 +218,17 @@ Lors de l’installation et de l’exploitation de ce dispositif, la distance en
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
+## Laser Safety Information
+
+This product contains a laser emitter and corresponding drive circuitry. The laser output is designed to meet **Class 1 laser safety limits** under all reasonably foreseeable conditions including single faults, in compliance with **IEC 60825-1:2014**.
+
+Do not increase the laser output power by any means. Do not use any optics to focus the laser beam.
+
+**Caution:**  
+Use of controls or adjustments, or performance of procedures other than those specified herein may result in hazardous radiation exposure.
+
+![](assets/classOneLaserProduct.png)
+
 # Company Information
 
 | Company name    | Arduino SRL                                   |
@@ -240,6 +251,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 # Revision History
 | **Date**   | **Revision** | **Changes**                       |
 | ---------- | ------------ | --------------------------------- |
+| 03/07/2025 | 4            | Add laser safety section          |
 | 17/06/2025 | 3            | Nomenclature updates              |
 | 23/05/2025 | 2            | Fixed pinout table and power info |
 | 14/05/2025 | 1            | First release                     |
