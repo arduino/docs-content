@@ -51,5 +51,12 @@
     Protect your project with the industry-leading suite of security features from Silicon Labs escalating Internet of Things (IoT) threats.
   </Feature>
 
+  <Feature title="Community version" image="nano-form-factor">
+    Access the Nano Matter community version technical documentation!
+    <FeatureWrapper>
+      <FeatureLink title="Download" url="/downloads/community-version-technical-documentation.zip" download blank/>
+    </FeatureWrapper>
+  </Feature>
+
 
 </FeatureList>
