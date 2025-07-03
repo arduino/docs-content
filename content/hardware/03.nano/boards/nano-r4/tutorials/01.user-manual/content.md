@@ -186,8 +186,9 @@ user LED of the Arduino Nano R4 board.
 #define LED_PIN LED_BUILTIN
 
 void setup() {
-  // Initialize serial communication at 115200 baud
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
   Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
   
   // Configure LED pin as output
   pinMode(LED_PIN, OUTPUT);
@@ -265,8 +266,9 @@ RGB LED of the Arduino Nano R4 board.
 */
 
 void setup() {
-  // Initialize serial communication at 115200 baud
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
   Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
   
   // Initialize LEDR, LEDG and LEDB as outputs
   pinMode(LEDR, OUTPUT);
@@ -349,8 +351,9 @@ user LED of the Arduino Nano R4 board.
 */
 
 void setup() {
-  // Initialize serial communication at 115200 baud
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
   Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
   
   // Configure LED_BUILTIN pin as output
   pinMode(LED_BUILTIN, OUTPUT);
@@ -502,8 +505,9 @@ int lastButtonState = HIGH;
 bool ledState = false;
 
 void setup() {
-  // Initialize serial communication at 115200 baud
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
   Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
   
   // Configure pins
   pinMode(buttonPin, INPUT_PULLUP);
@@ -617,8 +621,9 @@ and display the value on the Serial Monitor.
 const int analogPin = A0;
 
 void setup() {
-  // Initialize serial communication at 115200 baud
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
   Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
   
   Serial.println("- Arduino Nano R4 - Analog Input Example started...");
   Serial.println("- Reading analog values from pin A0");
@@ -672,8 +677,9 @@ for precise analog input measurements.
 const int analogPin = A0;
 
 void setup() {
-  // Initialize serial communication at 115200 baud
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
   Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
   
   // Set analog read resolution to 14-bit (0 - 16383)
   analogReadResolution(14);
@@ -758,8 +764,9 @@ the brightness of the built-in user LED of the Nano R4 board.
 const int ledPin = LED_BUILTIN;
 
 void setup() {
-  // Initialize serial communication at 115200 baud
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
   Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
   
   // No need to set pinMode for PWM pins - analogWrite() handles this
   
@@ -813,8 +820,9 @@ for precise control of the built-in orange user LED brightness.
 const int pwmPin = LED_BUILTIN;
 
 void setup() {
-  // Initialize serial communication at 115200 baud
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
   Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
   
   // Set PWM resolution to 12-bit (0-4095)
   analogWriteResolution(12);
@@ -880,7 +888,7 @@ The Nano R4's OPAMP offers the following electrical characteristics:
 |        Load Current        |    -100 to +100    |    -100 to +100     |    μA    |        Maximum         |
 |      Load Capacitance      |         20         |         20          |    pF    |        Maximum         |
 
-You can configure and use the OPAMP using the dedicated `<OPAMP.h>` library, which is included in the Arduino UNO R4 Boards core. To startup the OPAMP, simply include the library and call `OPAMP.begin(speed)` where speed can be `OPAMP_SPEED_LOWSPEED` for lower power consumption or `OPAMP_SPEED_HIGHSPEED` for better performance.
+You can configure and use the OPAMP using the dedicated `OPAMP.h` library, which is included in the Arduino UNO R4 Boards core. To startup the OPAMP, simply include the library and call `OPAMP.begin(speed)` where speed can be `OPAMP_SPEED_LOWSPEED` for lower power consumption or `OPAMP_SPEED_HIGHSPEED` for better performance.
 
 The following example demonstrates how to initialize and use the OPAMP. The same code works for both voltage follower and amplifier configurations, **the difference is only in the external connections**:
 
@@ -898,8 +906,9 @@ Works for both voltage follower and amplifier configurations.
 #include <OPAMP.h>
 
 void setup() {
-  // Initialize serial communication at 115200 baud
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
   Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
   
   Serial.println("- Arduino Nano R4 - OPAMP Example started...");
   Serial.println("- Initializing OPAMP in high-speed mode...");
@@ -1000,8 +1009,9 @@ precise analog voltages on pin A0.
 */
 
 void setup() {
-  // Initialize serial communication at 115200 baud
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
   Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
   
   // Set DAC resolution to 12-bit for maximum precision
   analogWriteResolution(12);
@@ -1055,8 +1065,9 @@ for testing and signal generation applications.
 */
 
 void setup() {
-  // Initialize serial communication at 115200 baud
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
   Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
   
   // Set DAC resolution to 12-bit for smooth waveform
   analogWriteResolution(12);
@@ -1115,7 +1126,7 @@ The Nano R4's RTC offers the following technical specifications:
 | Current Consumption |     ~1 μA      |  In backup mode   |
 |  Temperature Range  | -40°C to +85°C |  Operating range  |
 
-You can configure and use the RTC using the dedicated `<RTC.h>` library, which is included in the Arduino UNO R4 Boards core. The library provides functions to set time, get time, check RTC status and configure alarms.
+You can configure and use the RTC using the dedicated `RTC.h` library, which is included in the Arduino UNO R4 Boards core. The library provides functions to set time, get time, check RTC status and configure alarms.
 
 The following example demonstrates how to initialize the RTC and display the current date and time:
 
@@ -1133,8 +1144,9 @@ to keep track of date and time.
 #include "RTC.h"
 
 void setup() {
-  // Initialize serial communication at 115200 baud
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
   Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
   
   Serial.println("- Arduino Nano R4 - RTC Basic Example started...");
   Serial.println("- Initializing RTC...");
@@ -1258,7 +1270,7 @@ The Nano R4's EEPROM offers the following technical specifications:
 |   Retention Time  |     10+ years     |   Data retention period  |
 | Operating Voltage |       +5 VDC      |       Same as board      |
 
-You can read and write to EEPROM using the dedicated `<EEPROM.h>` library, which is included in the Arduino UNO R4 Boards core. The library provides simple functions to store and retrieve individual bytes or larger data structures.
+You can read and write to EEPROM using the dedicated `EEPROM.h` library, which is included in the Arduino UNO R4 Boards core. The library provides simple functions to store and retrieve individual bytes or larger data structures.
 
 The following example demonstrates how to store and retrieve data from EEPROM:
 
@@ -1276,8 +1288,9 @@ from the built-in EEPROM memory.
 #include <EEPROM.h>
 
 void setup() {
-  // Initialize serial communication at 115200 baud
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
   Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
   
   Serial.println("- Arduino Nano R4 - EEPROM Basic Example started...");
   
@@ -1328,7 +1341,7 @@ You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see th
 
 ![Arduino IDE Serial Monitor output for the EEPROM example sketch](assets/eeprom-1.png)
 
-For storing larger data structures, you can use the `EEPROM.get()` and `EEPROM.put()` functions:
+You can also store complex data structures using the `EEPROM.put()` and `EEPROM.get()` functions:
 
 ```arduino
 // Define a structure for complex data
@@ -1353,6 +1366,170 @@ When working with EEPROM on the Nano R4, there are several key points to keep in
 - The EEPROM requires careful management of write operations since flash memory has a limited number of write cycles (100,000). Avoid writing to the same address repeatedly in tight loops, as this will quickly wear out the memory. Instead, only write when values actually change, and consider spreading data across different addresses to distribute wear evenly.
 - Keep in mind that EEPROM stores data as individual bytes (0 to 255), so larger data types need to be broken down or use the `put()` and `get()` functions for automatic handling.
 - The EEPROM retains data for over 10 years under normal conditions, making it excellent for long-term storage of configuration data and user preferences.
+
+## SPI Communication
+
+The Nano R4 board features built-in SPI (Serial Peripheral Interface) communication that allows your projects to communicate with external devices like sensors, displays, memory cards and other microcontrollers. SPI is implemented within the RA4M1 microcontroller and uses four dedicated pins to provide high-speed synchronous serial communication.
+
+SPI is particularly useful when your project needs to communicate with external components at high speeds, rather than using slower protocols. While I²C is perfect for simple sensor communication and UART for basic serial data exchange, SPI excels at high-speed communication with devices like SD cards, TFT displays, wireless modules or external memory chips. SPI can achieve much faster data rates than I²C and can handle multiple devices on the same bus through individual chip select lines.
+
+The Nano R4's SPI interface offers the following technical specifications:
+
+|   **Parameter**   |   **Value**  |          **Notes**          |
+|:-----------------:|:------------:|:---------------------------:|
+|    Clock Speed    | Up to 24 MHz |    Maximum SPI frequency    |
+|   Data Transfer   |     8-bit    |     Standard data width     |
+|   Communication   |  Full-duplex |  Simultaneous send/receive  |
+|      SPI Pins     |  `D10`-`D13` | `CS`, `MOSI`, `MISO`, `SCK` |
+|  Multiple Devices |   Supported  |   Via different `CS` pins   |
+| Operating Voltage |    +5 VDC    |        Same as board        |
+|  Protocol Support | Mode 0,1,2,3 |   All SPI modes available   |
+
+The Nano R4 board uses the following pins for SPI communication:
+
+| **Arduino Pin** | **Microcontroller Pin** | **SPI Function** |    **Description**   |
+|:---------------:|:-----------------------:|:----------------:|:--------------------:|
+|      `D10`      |          `P103`         |       `CS`       |      Chip Select     |
+|      `D11`      |          `P101`         |      `MOSI`      | Master Out, Slave In |
+|      `D12`      |          `P100`         |      `MISO`      | Master In, Slave Out |
+|      `D13`      |          `P102`         |       `SCK`      |     Serial Clock     |
+
+You can communicate via SPI using the dedicated `SPI.h` library, which is included in the Arduino UNO R4 Boards core. The library provides simple functions to initialize the bus, send and receive data and manage multiple devices.
+
+The following example demonstrates how to use SPI communication to control an external device:
+
+```arduino
+/**
+SPI Basic Example for the Arduino Nano R4 Board
+Name: nano_r4_spi_basic.ino
+Purpose: This sketch demonstrates how to use SPI communication
+to send and receive data.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+#include <SPI.h>
+
+// Chip Select pin for SPI device
+const int CS_PIN = 10;
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  Serial.println("- Arduino Nano R4 - SPI Basic Example started...");
+  
+  // Set CS pin as output and set it HIGH (inactive)
+  pinMode(CS_PIN, OUTPUT);
+  digitalWrite(CS_PIN, HIGH);
+  
+  // Initialize SPI communication
+  SPI.begin();
+  
+  // Configure SPI settings
+  // - Clock speed: 1 MHz (1000000 Hz)
+  // - Data order: Most Significant Bit first
+  // - Data mode: Mode 0 (Clock polarity = 0, Clock phase = 0)
+  SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE0));
+  
+  Serial.println("- SPI initialized successfully");
+  Serial.println("- Ready to communicate with SPI devices");
+  
+  // Example: Send some test data
+  sendSPIData();
+}
+
+void loop() {
+  // Send a counter value every 2 seconds
+  static int counter = 0;
+  
+  // Select the device (CS LOW)
+  digitalWrite(CS_PIN, LOW);
+  
+  // Send counter value
+  byte response = SPI.transfer(counter);
+  
+  // Deselect the device (CS HIGH)
+  digitalWrite(CS_PIN, HIGH);
+  
+  // Display results
+  Serial.print("- Sent: ");
+  Serial.print(counter);
+  Serial.print(" | Received: ");
+  Serial.println(response);
+  
+  // Increment counter and wrap around at 255
+  counter++;
+  if (counter > 255) {
+    counter = 0;
+  }
+  
+  delay(2000);
+}
+
+void sendSPIData() {
+  Serial.println("- Sending test data...");
+  
+  // Select the device
+  digitalWrite(CS_PIN, LOW);
+  
+  // Send a sequence of test bytes
+  for (int i = 0; i < 5; i++) {
+    byte testData = 0x10 + i;  // Send 0x10, 0x11, 0x12, 0x13, 0x14
+    byte response = SPI.transfer(testData);
+    
+    Serial.print("  Sent: 0x");
+    if (testData < 16) Serial.print("0");
+    Serial.print(testData, HEX);
+    Serial.print(" | Received: 0x");
+    if (response < 16) Serial.print("0");
+    Serial.println(response, HEX);
+    
+    delay(100);
+  }
+  
+  // Deselect the device
+  digitalWrite(CS_PIN, HIGH);
+  
+  Serial.println("- Test data transmission complete");
+}
+```
+
+***To test this example, no external SPI device is required. The code will demonstrate SPI communication patterns, though without a connected device, the received data will typically be `0xFF`.***
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the SPI communication in action. The example shows how to properly select devices, send data and handle responses.
+
+For connecting multiple SPI devices, you can use different digital pins as additional Chip Select (`CS`) lines while sharing the `MOSI`, `MISO` and `SCK` pins:
+
+```arduino
+// Multiple device example
+const int DEVICE1_CS = 10;  // First SPI device
+const int DEVICE2_CS = 9;   // Second SPI device
+const int DEVICE3_CS = 8;   // Third SPI device
+
+void setup() {
+  SPI.begin();
+  
+  // Configure all CS pins
+  pinMode(DEVICE1_CS, OUTPUT);
+  pinMode(DEVICE2_CS, OUTPUT);
+  pinMode(DEVICE3_CS, OUTPUT);
+  
+  // Set all CS pins HIGH (inactive)
+  digitalWrite(DEVICE1_CS, HIGH);
+  digitalWrite(DEVICE2_CS, HIGH);
+  digitalWrite(DEVICE3_CS, HIGH);
+}
+```
+
+When working with SPI on the Nano R4, there are several key points to keep in mind for successful implementation:
+
+- The SPI protocol requires careful attention to timing and device selection. Always ensure that only one device is selected (`CS LOW`) at a time, and remember to deselect devices (`CS HIGH`) after communication to avoid conflicts.
+- Different SPI devices may require different clock speeds and modes, so check your device's datasheet for the correct `SPISettings()` parameters.
+- Keep in mind that SPI is a synchronous protocol, meaning that data is transferred in both directions simultaneously with each clock pulse. Even if you only need to send data, you'll still receive data back, and vice versa.
+- The Nano R4 board can communicate with multiple SPI devices by using different Chip Select (`CS`) pins, making it perfect for complex projects that need to interface with various sensors, displays and storage devices.
 
 ## Support
 
