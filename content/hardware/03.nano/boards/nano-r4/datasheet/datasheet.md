@@ -40,7 +40,7 @@ Digital Signal Processing, System on Module, Edge Computing, Rapid Prototyping
 
 The Nano R4 is an evolution of its predecessor, the Nano Classic, which was previously based on 8-bit AVR microcontrollers. There are thousands of guides, tutorials and books written about the Nano board, where Nano R4 continues its legacy.
 
-The board features the standard 14x digital I/O ports, 6x analog channels, dedicated pins for I2C, SPI and UART
+The board features the standard 14x digital I/O ports, 8x analog channels, dedicated pins for I2C, SPI and UART
 connections. Compared to its predecessors the board has a much larger memory: 8x times more flash memory (256 kB) and 16x times more SRAM (32 kB).
 
 | Feature               | Description                                                                                                      |
@@ -50,10 +50,10 @@ connections. Compared to its predecessors the board has a much larger memory: 8x
 | Internal Memory       | 256 kB Flash / 32 kB RAM / 8 kB EEPROM                                                                           |
 | USB Connectivity      | USB-C® port for power and data                                                                                   |
 | Power                 | Input voltage (VIN): 6-21 V / Power via USB-C® at 5 V                                                            |
-| Digital Inputs        | GPIO (x21 - All exposed I/O can be used as digital), PWM (x6)                                                    |
-| Analog Inputs         | 14-bit ADC (x8)                                                                                                  |
+| Digital Inputs        | GPIO (21x - All exposed I/O can be used as digital), PWM (6x)                                                    |
+| Analog Inputs         | 14-bit ADC (8x)                                                                                                  |
 | Real-time Clock (RTC) | Yes (external crystal oscillator included)                                                                       |
-| Communication         | UART (x1), I2C (x2) (5 V over breakout and 3.3 V over Qwiic), SPI (x1), CAN (external transceiver required) (x1) |
+| Communication         | UART (1x), I2C (2x) (5 V over breakout and 3.3 V over Qwiic), SPI (1x), CAN (external transceiver required) (1x) |
 | Dimensions            | 18 mm x 45 mm                                                                                                    |
 | Operating Temperature | -40 °C to +85 °C                                                                                                 |
 
@@ -63,18 +63,18 @@ The Nano R4 is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1AB3CFM
 
 On the Nano R4, the operating voltage is fixed at 5 V to be fully retro compatible with shields, accessories and circuits originally designed for older Nano revisions.
 
-| Component                              | Details                                     |
-| -------------------------------------- | ------------------------------------------- |
-| R7FA4M1AB3CFM Processor            | Arm® Cortex®-M4 core at up to 48 MHz        |
-| Flash Memory                           | 256 kB of Flash Memory                      |
-| Programming Memory                     | 32 kB of RAM                                 |
-| Data Memory                            | 8 kB of EEPROM                               |
-| Real-time Clock (RTC)                  | Yes (external crystal oscillator included)  |
-| Direct Memory Access Controller (DMAC) | Yes (x4)                                    |
-| ADC                                    | Yes (14-bit)                                |
-| DAC                                    | Yes (12-bit)                                |
+| Component                              | Details                                                                     |
+| -------------------------------------- | --------------------------------------------------------------------------- |
+| R7FA4M1AB3CFM Processor                | Arm® Cortex®-M4 core at up to 48 MHz                                        |
+| Flash Memory                           | 256 kB of Flash Memory                                                      |
+| Programming Memory                     | 32 kB of RAM                                                                |
+| Data Memory                            | 8 kB of EEPROM                                                              |
+| Real-time Clock (RTC)                  | Yes (external crystal oscillator included)                                  |
+| Direct Memory Access Controller (DMAC) | Yes (4x)                                                                    |
+| ADC                                    | Yes (14-bit)                                                                |
+| DAC                                    | Yes (12-bit)                                                                |
 | Operational Amplifier (OPAMP)          | Yes (ranges specified on dedicated [section](#operational-amplifier-opamp)) |
-| CAN bus                                | Yes (external transceiver required)         |
+| CAN bus                                | Yes (external transceiver required)                                         |
 
 
 For more technical details on this microcontroller, visit [Renesas - RA4M1 series official documentation](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ra4m1-32-bit-microcontrollers-48mhz-arm-cortex-m4-and-lcd-controller-and-cap-touch-hmi).
@@ -149,6 +149,7 @@ The Nano R4 features an RGB LED and single color built-in LED, both can be contr
 | V<sub>IN</sub>  | Input voltage from VIN pad       | 6.0 | 7.0 | 21.0 | V    |
 | V<sub>USB</sub> | Input voltage from USB connector | 4.8 | 5.0 | 5.5  | V    |
 | T<sub>OP</sub>  | Operating Temperature            | -40 | 25  | 85   | °C   |
+| 3V3             | Current Source from 3V3 pin      | -   | -   | 150  | mA   |
 
 **Note:** V<sub>DD</sub> controls the logic level and is connected to the 5 V power rail. V<sub>AREF</sub> set the reference for the analog logic.
 
@@ -156,7 +157,11 @@ The Nano R4 features an RGB LED and single color built-in LED, both can be contr
 
 Power can either be supplied via the VIN pin, or via USB-C® connector. If power is supplied via VIN, the MP2322GQH buck converter steps the voltage down to 5 V.
 
-The 5 V output of the buck converter is connected to a Schottky diode in place for reverse polarity and overvoltage protection respectively.
+A power OR circuit manages the selection between the USB and VIN power inputs, automatically routing the available voltage to the system's main power rail.
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+When using the 3V3 pin to power external peripherals, make sure stay below 150 mA since, above that value, the board may become very hot.
+</div>
 
 #### Power Tree
 
@@ -172,9 +177,9 @@ The Nano R4 operates at 5 V as do all pins on this board except for the **Qwiic*
 
 The GPIOs on the R7FA4M1AB3CFM microcontroller can handle up to **8 mA**. Never connect devices that draw higher current directly to a GPIO.
 
-In case you need to power external devices that require more power, e.g. servo motors, use an external power supply.
+In case you need to drive external devices that require more current, e.g. high brightness LEDs, use an external current amplifier interface (e.g. a MOSFET or a transistor).
 
-### Battery Backup
+### RTC Battery Backup
 
 The Nano R4 features a battery backup function. It can be powered through the **VBATT** pin (see [pinout](#pinout) section).
 The battery backup will power the RTC, the 32.768 kHz oscillators, the wakeup control and the backup memory.
@@ -419,7 +424,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| Date       | **Revision** | **Changes**           |
-| ---------- | ------------ | --------------------- |
-| 23/05/2025 | 2            | Headers variant added |
-| 31/03/2025 | 1            | First Release         |
+| Date       | **Revision** | **Changes**                           |
+| ---------- | ------------ | ------------------------------------- |
+| 07/07/2025 | 3            | ADC and current limitation info added |
+| 23/05/2025 | 2            | Headers variant added                 |
+| 31/03/2025 | 1            | First Release                         |
