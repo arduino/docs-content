@@ -377,12 +377,6 @@ All Arduino® boards have a built-in bootloader that allows flashing the board v
          </td>
       </tr>
       <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>RCM</strong></td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>Yes</p>
-         </td>
-      </tr>
-      <tr>
          <td style="vertical-align: middle;text-align: center;"><strong>MIC</strong></td>
          <td style="vertical-align: middle;text-align: center;">
             <p>Yes</p>
