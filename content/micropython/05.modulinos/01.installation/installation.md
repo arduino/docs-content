@@ -1,11 +1,11 @@
 ---
 title: 'Modulino Installation'
-description: 'Get started with using the Modulinos'
+description: 'Get started with using the Modulino nodes'
 author: 'Hannes Siebeneicher, Sebastian Romero'
 tags: [MicroPython, Package Installation]
 ---
 
-In this tutorial, we will go through the installation process required for programming the Arduino Modulinos with MicroPython. 
+In this tutorial, we will go through the installation process required for programming the Arduino Modulino nodes with MicroPython. 
 
 ## Goals
 
@@ -15,7 +15,7 @@ The goals of this tutorial are:
 
 ## Hardware & Software Needed
 
-We will need a MicroPython compatible board that works with the Modulinos:
+We will need a MicroPython compatible board that works with the Modulino nodes:
 - [Arduino Nano ESP32](https://store.arduino.cc/products/nano-esp32?queryID=undefined)
 - [Arduino Nano RP2040 Connect](https://store.arduino.cc/en-se/products/arduino-nano-rp2040-connect)
 
@@ -104,7 +104,7 @@ If we see this, it means the package has been installed successfully.
 
 ## Next Steps
 
-Now that we have successfully installed everything it's time to program our first Modulino. Below are links to the documentation for all Modulinos. They are also accessible in the side menu at [Arduino Docs - MicroPython](https://docs.arduino.cc/micropython/), under "Modulinos".
+Now that we have successfully installed everything it's time to program our first Modulino. Below are links to the documentation for all Modulino nodes. They are also accessible in the side menu at [Arduino Docs - MicroPython](https://docs.arduino.cc/micropython/), under "Modulino Nodes".
 
 - [Modulino Distance](/micropython/modulinos/modulino-distance)
 - [Modulino Pixels](/micropython/modulinos/modulino-pixels)

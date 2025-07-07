@@ -7,8 +7,8 @@ primary_button_title: User Manual
 secondary_button_url: /tutorials/nicla-voice/ei-intruder-detector
 secondary_button_title: Audio ML Guide
 core: arduino:mbed_voice
-productCode: 'ABX00061'
-certifications: [CE, UKCA, RoHS, IC, FCC, RCM]
+productCode: '120'
+certifications: [CE, UKCA, RoHS, IC, FCC]
 sku: [ABX00061]
 ---
 

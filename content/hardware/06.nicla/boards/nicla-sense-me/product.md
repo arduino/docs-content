@@ -7,7 +7,7 @@ primary_button_title: User Manual
 secondary_button_url: /tutorials/nicla-sense-me/cheat-sheet
 secondary_button_title: Cheat Sheet
 core: arduino:mbed_nicla
-certifications: [CE, FCC, UKCA, RoHS, IC, MIC, RCM]
+certifications: [CE, FCC, UKCA, RoHS, IC, MIC]
 productCode: '043'
 sku: [ABX00050]
 ---
