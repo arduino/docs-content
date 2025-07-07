@@ -198,6 +198,7 @@ Operation is subject to the following two conditions:
 | Library Reference         | [https://github.com/arduino-libraries/](https://github.com/arduino-libraries/)                                                                                                                 |
 | Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                                         |
 
+# Revision History
 | **Date**   | **Revision** | **Changes**          |
 | ---------- | ------------ | -------------------- |
 | 01/07/2025 | 4            | Certification        |
