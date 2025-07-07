@@ -4,9 +4,9 @@ Shield:
   Compatibility: UNO
 Communication: I2C
 IMU (BNO055):
-  Gyroscope: Triaxial 14-bit
-  Accelerometer: Triaxial 16-bit
-  Geomagnetic: Triaxial 32-bit
+  Gyroscope: Triaxial 16-bit (±2000 °/s)
+  Accelerometer: Triaxial 14-bit
+  Geomagnetic: Triaxial magnetometer
 Power:
   Operating Voltage: 5V
   Current (normal mode): 12.3 mA

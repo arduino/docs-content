@@ -12,7 +12,7 @@ author: Christopher Méndez
 
 The Nano Connector Carrier is a practical solution for expanding the capabilities of our Nano product family. It is plug-and-play compatible with Qwiic and Grove modules, making rapid prototyping easier than ever.
 
-Whether diving into MicroPython or Matter, building with Modulinos, or developing AI-powered applications, this carrier provides a simple platform for bringing your ideas to life.
+Whether diving into MicroPython or Matter, building with Modulino® nodes, or developing AI-powered applications, this carrier provides a simple platform for bringing your ideas to life.
 
 The onboard microSD card slot unlocks new possibilities for data logging, Edge AI and real-time storage needs.
 
@@ -26,16 +26,16 @@ Industrial Automation, Rapid Prototyping, Proof of Concept, Edge AI, Research an
 
 **Industrial Automation:** 
 - **Data Logging:** Data Logger as a compact, all-in-one device for efficient data collection and storage, ideal for IoT and sensor-based applications. With Nano boards advanced features and a compact design, it simplifies sensor interfacing, data management, and storage, making it perfect for smart homes, industrial monitoring, and research projects.
-- **Predictive Maintenance:** Leverage the powerful features of the Nano Connector Carrier to develop a robust predictive maintenance prototype for industrial machinery. Utilize Modulino to monitor key operational parameters and detect anomalies or early signs of wear, enabling proactive maintenance and reducing downtime. Enhance this system with the Nano 33 BLE Sense, which continuously gathers crucial environmental data, including temperature, humidity, and vibrations to assess the overall health of the machinery.
+- **Predictive Maintenance:** Leverage the powerful features of the Nano Connector Carrier to develop a robust predictive maintenance prototype for industrial machinery. Utilize Modulino® nodes to monitor key operational parameters and detect anomalies or early signs of wear, enabling proactive maintenance and reducing downtime. Enhance this system with the Nano 33 BLE Sense, which continuously gathers crucial environmental data, including temperature, humidity, and vibrations to assess the overall health of the machinery.
 - **Proof of Concept:** Expand your Nano board's capabilities with Nano Connector Carrier. The Nano Connector Carrier is ready for use with a wide range of external hardware components or modules, covering all your needs, from embedded sensing to actuation.
 
 **Prototyping:**
 - **Compact Device:** Effortlessly integrate the Connector Carrier into your interactive prototype, regardless of whether the Nano board is based on. Its plug-and-play sensors and actuators make development seamless. Whether using modules from our Qwiic or Grove series, its compact design allows you to experiment in small spaces, making it a perfect platform for testing and validating your tech ideas.
-- **Smart Home:** Easily prototype any smart device that can monitor and adjust temperature, humidity, or occupancy levels by combining Nano Connector Carrier, Modulinos and Nano Matter. Integrate with Matter-compatible smart home systems like Alexa or Google Home for frictionless voice control and automation.
-- **Controller:** Using the Nano Connector Carrier, you can easily prototype a versatile RC - MIDI - RF - BLE - HID - DMX controller for your projects. With plug-and-play support for sensors and actuators, you can create custom interfaces that respond to touch, motion or even pressure. The compact design allows for a fully portable setup using Modulinos or third-party sensors.
+- **Smart Home:** Easily prototype any smart device that can monitor and adjust temperature, humidity, or occupancy levels by combining Nano Connector Carrier, Modulino® nodes and Nano Matter. Integrate with Matter-compatible smart home systems like Alexa or Google Home for frictionless voice control and automation.
+- **Controller:** Using the Nano Connector Carrier, you can easily prototype a versatile RC - MIDI - RF - BLE - HID - DMX controller for your projects. With plug-and-play support for sensors and actuators, you can create custom interfaces that respond to touch, motion or even pressure. The compact design allows for a fully portable setup using Modulino® nodes or third-party sensors.
 
 **Education:**
-- **Micropython Learning:** Easily dive into MicroPython with the Nano Connector Carrier, Modulinos and Nano ESP32 as your learning platform. Its plug-and-play support for sensors and actuators allows you to experiment with real-world applications right away, whether you're reading sensor data, controlling LEDs, or building interactive projects. 
+- **Micropython Learning:** Easily dive into MicroPython with the Nano Connector Carrier, Modulino® nodes and Nano ESP32 as your learning platform. Its plug-and-play support for sensors and actuators allows you to experiment with real-world applications right away, whether you're reading sensor data, controlling LEDs, or building interactive projects. 
 - **Cross-Disciplinary Student Projects:** The Connector Carrier accelerates interdisciplinary collaboration by enabling rapid prototyping in classroom and lab environments. Its compact, modular design allows students across various fields (including engineering, computer science and the arts) to quickly develop, test, and refine ideas using Arduino Nano boards. Students can seamlessly integrate sensors, actuators and communication modules with built-in connectivity and expansion options, fostering hands-on experimentation and innovation. 
 - **Sustainability and Green Tech:** Energy Management project where students can design and test systems that monitor or reduce energy use in buildings or devices, promoting sustainability and teaching about renewable energy or energy efficiency, within integrated solar or wind power systems.
 
@@ -47,14 +47,14 @@ The main features of the Nano Connector Carrier are detailed in the table shown 
 | **Feature**            | **Description**                                                                                                                                                        |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Interfaces             | 2x Grove analog/digital connector <br></br> 1x Grove I2C connector <br></br> 1x Grove UART connector <br></br> 1x Qwiic I2C connector <br></br> 1x microSD card reader |
-| I/O Voltage            | Switch between +3.3 VDC and +5 VDC                                                                                                                                     |
+| I/O Voltage            | Switch between +3.3 V and +5 V                                                                                                                                     |
 | Dimensions             | 28 mm x 43 mm                                                                                                                                                          |
 | Operating Temperatures | -40 °C to +85 °C                                                                                                                                                       |
 
 
 ### Board Selection
 
-The Nano Connector Carrier lets you select +5 VDC or +3.3 VDC Nano boards to ensure compatibility with the whole Nano family. To do this, toggle the carrier onboard switch to its respective position, following the table below.
+The Nano Connector Carrier lets you select +5 V or +3.3 V Nano boards to ensure compatibility with the whole Nano family. To do this, toggle the carrier onboard switch to its respective position, following the table below.
 
 ![Board Selector Switch](assets/board-selector.png)
 
@@ -69,17 +69,17 @@ The Nano Connector Carrier lets you select +5 VDC or +3.3 VDC Nano boards to ens
 | Nano RP2040 Connect    |              |
 | Nano Matter            |              |
 
-Setting the switch to a specific position (3V3 or 5V) also manages the voltage output on the Grove connector VCC pin.
+Setting the switch to a specific position (3.3 V or 5V) also manages the voltage output on the Grove connector VCC pin.
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The logic and power voltage of the Qwiic connector and the microSD card slot are always +3.3 VDC regardless of the board selector switch position.
+<strong>Note:</strong> The logic and power voltage of the Qwiic connector and the microSD card slot are always +3.3 V regardless of the board selector switch position.
 </div>
 
 ### Qwiic I2C Connector
 
-The Qwiic connector is connected to the standard I2C bus on the board (via A4 and A5 pins). It is powered via +3.3 VDC, following the Qwiic standard system, making the Nano Connector Carrier compatible with the Arduino Modulino nodes.
+The Qwiic connector is connected to the standard I2C bus on the board (via A4 and A5 pins). It is powered via +3.3 V, following the Qwiic standard system, making the Nano Connector Carrier compatible with the Arduino Modulino nodes.
 
-Its logic level is fixed to +3.3 VDC, which is translated to the host Nano board voltage defined by the board selector switch.
+Its logic level is fixed to +3.3 V, which is translated to the host Nano board voltage defined by the board selector switch.
 
 ![Nano Connector Carrier Qwiic Connector](assets/qwiic.png)
 
@@ -111,14 +111,14 @@ The Nano Connector Carrier exposes all the Nano host board connections and commu
 
 | Interfaces     | Connector                                                                     |
 | -------------- | ----------------------------------------------------------------------------- |
-| UART (x1)      | - Grove connector                                                             |
+| UART (x1)      | - Nano header connector <br></br>- Grove connector                                                             |
 | SPI (x1)       | - Nano header connector <br></br>- Micro SD card slot                         |
 | I2C (x1)       | - Nano header connector <br></br>- Qwiic connector <br></br>- Grove connector |
 | Analog/Digital | - Nano header connector <br></br>- 2x Grove connectors                        |
 
 ### Related Products
 
-- Arduino Nano (A000005)
+- Nano (A000005)
 - Nano 33 BLE (ABX00030)
 - Nano 33 BLE Rev2 (ABX00071 / ABX00072)
 - Nano 33 BLE Sense (ABX00031)
@@ -128,7 +128,7 @@ The Nano Connector Carrier exposes all the Nano host board connections and commu
 - Nano Every (ABX00028)
 - Nano Matter (ABX00112 / ABX00137)
 - Nano RP2040 Connect (ABX00053)
-- Arduino Modulino nodes
+- Modulino® nodes
 
 ## Power and Ratings
 ### Recommended Operating Conditions
@@ -164,7 +164,7 @@ The Nano Connector Carrier pinout is shown in the following figure.
 | Pin | Function  | Type      | Description                             |
 | --- | --------- | --------- | --------------------------------------- |
 | 1   | D13 / SCK | Digital   | Serial Clock                            |
-| 2   | +3V3      | Power Out | +3V3 Power Rail                         |
+| 2   | +3.3 V      | Power Out | +3.3 V Power Rail                         |
 | 3   | B0 / AREF | Analog    | Analog Reference                        |
 | 4   | A0        | Analog    | Analog input 0                          |
 | 5   | A1        | Analog    | Analog input 1                          |
@@ -364,4 +364,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date      | **Revision** | **Changes**   |
 | --------- | ------------ | ------------- |
-| 6/06/2025 | 1            | First Release |
+| 22/05/2025 | 2            | Technical corrections, voltage notation standardization, nomenclature fixes and change log correction  |
+| 21/05/2025 | 1            | First Release |

@@ -46,7 +46,7 @@ Quality inspection, automated object detection, industrial automation, machine v
 - Portenta Mid Carrier (SKU: ASX00055) (x1)
 - Portenta Mid Carrier Proto Shield (SKU: ASX00072) (x1)
 - Arduino Pro 4G GNSS Module Global (SKU: TPX00200) (x1)
-- Modulinos (x7):
+- Modulino® nodes (x7):
   - Knob (encoder with push button) (x1)
   - Pixels (8x RGB LEDs) (x1)
   - Distance (Time-of-Flight sensor) (x1)
@@ -196,7 +196,7 @@ Below is a summary of the most important specifications of the Portenta Mid Carr
 
 | **Feature**               | **Specification**                                                                                                                                                                                                 |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Compatibility**         | Portenta family boards, Nicla modules, Modulinos and Arduino UNO shields                                                                                                                                          |
+| **Compatibility**         | Portenta family boards, Nicla modules, Modulino® nodes and Arduino UNO shields                                                                                                                                          |
 | **Connectors**            | 44-pin headers for the Portenta Mid Carrier interface (x2), ESLOV connectors (x2), QWIIC connector (x1), Arduino UNO shields headers (x2), dedicated mechanical interfaces for Nicla boards and Modulino® modules |
 | **Operating Voltage**     | +7-30 VDC (via dedicated power jack)                                                                                                                                                                              |
 | **Operating Temperature** | -40 °C to +85 °C                                                                                                                                                                                                  |
@@ -342,7 +342,7 @@ The Arduino Portenta Proto Kit VE offers significant mechanical flexibility, sup
 ### Kit Dimensions
 
 <p style="text-align: justify;">
-The figures below show the main dimensions of the kit in a stacked configuration that includes the Portenta H7 board, the Portenta Mid Carrier, the Portenta Mid Carrier Proto Shield, the Arduino Pro 4G Module, one Modulino (Pixels) and the Nicla Vision board. While the Nicla Sense Env is part of the kit, it is not physically stacked with these components. Instead, it connects to the system via an ESLOV cable, whose length may vary depending on the user's setup. As a result, the Nicla Sense Env and its connection are not represented in this stacked configuration. All dimensions are in millimeters (mm).
+The figures below show the main dimensions of the kit in a stacked configuration that includes the Portenta H7 board, the Portenta Mid Carrier, the Portenta Mid Carrier Proto Shield, the Arduino Pro 4G Module, one Modulino® node (Pixels) and the Nicla Vision board. While the Nicla Sense Env is part of the kit, it is not physically stacked with these components. Instead, it connects to the system via an ESLOV cable, whose length may vary depending on the user's setup. As a result, the Nicla Sense Env and its connection are not represented in this stacked configuration. All dimensions are in millimeters (mm).
 </p>
 
 - <p style="text-align: justify;"><strong>Top View</strong>: Displays the width and length of the stacked components configuration of the kit.</p>

@@ -1,6 +1,6 @@
 ---
-title: Accessories
+title: Modulino
 description: To make your projects even greater.
 businessUnit: maker
-anchor: accessories-family
+anchor: modulino-family
 ---

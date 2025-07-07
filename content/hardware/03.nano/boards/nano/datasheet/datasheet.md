@@ -250,6 +250,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                           |
 | ---------- | ------------ | ------------------------------------- |
+| 12/06/2025 | 4            | Updated power tree                    |
 | 25/04/2024 | 3            | Updated link to new Cloud Editor      |
 | 03/08/2022 | 2            | Reference documentation links updates |
 | 12/04/2022 | 1            | First Release                         |
@@ -501,6 +502,7 @@ Arduino S.r.l. 特此声明，本产品符合 2014/53/EU 指令的基本要求�
 
 | **日期**   | **版次** | **变更**                           |
 | ---------- | ------------ | ------------------------------------- |
+| 12/06/2025 | 3            | 更新电源树      |
 | 2022/03/08 | 2            | 参考资料链接更新 |
 | 2022/12/04 | 1            | 首次发布                         |
 
