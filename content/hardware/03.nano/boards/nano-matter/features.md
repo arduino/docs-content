@@ -54,9 +54,8 @@
   <Feature title="Community version" image="nano-form-factor">
     Access the Nano Matter community version technical documentation!
     <FeatureWrapper>
-      <FeatureLink title="Download" url="/downloads/community-version-technical-documentation.zip" download blank/>
+      <FeatureLink title="Download" url="/downloads/nano-matter/community-version-technical-documentation.zip" download blank/>
     </FeatureWrapper>
   </Feature>
-
 
 </FeatureList>
