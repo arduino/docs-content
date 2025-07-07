@@ -188,6 +188,17 @@ Operation is subject to the following two conditions:
 
 <p style="text-align: justify;">As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regard to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.</p>
 
+## Laser Safety Information
+
+This product contains a laser emitter and corresponding drive circuitry. The laser output is designed to meet **Class 1 laser safety limits** under all reasonably foreseeable conditions including single faults, in compliance with **IEC 60825-1:2014**.
+
+Do not increase the laser output power by any means. Do not use any optics to focus the laser beam.
+
+**Caution:**  
+Use of controls or adjustments, or performance of procedures other than those specified herein may result in hazardous radiation exposure.
+
+![](assets/classOneLaserProduct.png)
+
 # Company Information
 
 | Company name    | Arduino SRL                                   |
@@ -210,6 +221,7 @@ Operation is subject to the following two conditions:
 # Revision History
 | **Date**   | **Revision** | **Changes**                       |
 | ---------- | ------------ | --------------------------------- |
+| 07/07/2025 | 5            | Add laser safety section          |
 | 01/07/2025 | 4            | Certification                     |
 | 17/06/2025 | 3            | Nomenclature updates              |
 | 23/05/2025 | 2            | Fixed pinout table and power info |
