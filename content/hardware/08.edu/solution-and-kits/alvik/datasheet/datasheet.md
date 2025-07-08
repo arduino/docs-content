@@ -25,7 +25,7 @@ Alvik is an educational robot that is battery-powered and has multiple sensors a
 ![Alvik's Main Components](assets/datasheet_main_components.png)
 
   | Feature               | Description                                                                                                   |
-  | --------------------- | ------------------------------------------------------------------------------------------------------------- |
+  |-----------------------|---------------------------------------------------------------------------------------------------------------|
   | Alvik on-board Core   | STM32 Arm® Cortex®-M4 32 Bit                                                                                  |
   | Alvik Main Controller | Arduino® Nano ESP32                                                                                           |
   | Connectivity          | Wi-Fi®, Bluetooth® LE                                                                                         |
@@ -45,7 +45,7 @@ Alvik comes with two main microcontrollers:
  - At the top a Nano ESP32 acts like the main controller and can communicate with the STM32 through a set of dedicated APIs.
 
 | **Controllers**     | **Product page**                                                                                           | **Datasheet**                                                               |
-| ------------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+|---------------------|------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
 | STM32F411RC         | [Link](https://www.st.com/en/microcontrollers-microprocessors/stm32f411rc.html#st_description_sec-nav-tab) | [Link](assets/STM32_datasheet.pdf)                                          |
 | Arduino® Nano ESP32 | [Link](https://docs.arduino.cc/hardware/nano-esp32/)                                                       | [Link](https://docs.arduino.cc/resources/datasheets/ABX00083-datasheet.pdf) |
 
@@ -55,7 +55,7 @@ Alvik comes with two main microcontrollers:
 Alvik comes with a large number of onboard sensors, from color detection to distance sensors or inertial measurement units, all of which are listed in the following table:
 
 | **Description**                     | **Part Name** | **Product page**                                                                                                   | **Datasheet**                          |
-| ----------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------- |
+|-------------------------------------|---------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------|
 | Color detection (x1)                | APDS 9660     | [Link](https://www.broadcom.com/products/optical-sensors/integrated-ambient-light-and-proximity-sensors/apds-9960) | [Link](assets/APDS-9960_datasheet.pdf) |
 | IMU (x1)                            | LSM6DSOX      | [Link](https://www.st.com/en/mems-and-sensors/lsm6dsox.html)                                                       | [Link](assets/LSM6_datasheet.pdf)      |
 | Time of Flight distance sensor (x1) | VL53L7CXV0GC  | [Link](https://www.st.com/en/imaging-and-photonics-solutions/vl53l7cx.html)                                        | [Link](assets/VL53_datasheet.pdf)      |
@@ -77,7 +77,7 @@ Alvik is a differential robot driven by two independent DC motors with magnetic 
 The motors have the following technical specifications:
 
 | **Description**              | **Information** |
-| ---------------------------- | --------------- |
+|------------------------------|-----------------|
 | Operating Voltage            | 6 VDC           |
 | No load Current              | 70 mA           |
 | Max load Current             | 90 mA           |
@@ -95,7 +95,7 @@ The two motors are driven by the MAX22211 motors driver:
 Alvik has two fully programmable RGB LEDs named `DL1` and `DL2` at its top.
 
 | **Description** | **Information** |
-| --------------- | --------------- |
+|-----------------|-----------------|
 | RGB LED Left    | DL1             |
 | RGB LED Right   | DL2             |
 
@@ -105,7 +105,7 @@ Alvik has two fully programmable RGB LEDs named `DL1` and `DL2` at its top.
 The robot is compatible with the following communication protocols:
 
 | **Description**             | **Information**            |
-| --------------------------- | -------------------------- |
+|-----------------------------|----------------------------|
 | I2C                         | Groove and Qwiic connector |
 | PWM Servomotor Control (x2) | Servo Motor connector      |
 
@@ -126,7 +126,7 @@ The main parts of the robot are the following:
 
 
 | **Part**                     | **Quantity** |                                           **Details**                                           |
-| ---------------------------- | :----------: | :---------------------------------------------------------------------------------------------: |
+|------------------------------|:------------:|:-----------------------------------------------------------------------------------------------:|
 | Arduino® Nano ESP32          |      1       |                                  Main controller of the robot                                   |
 | Main PCB                     |      1       |                                      Main PCB of the robot                                      |
 | STM32 Arm® Cortex®-M4 32 Bit |      1       |                               Onboard STM32 auxiliary controller                                |
@@ -137,7 +137,7 @@ The main parts of the robot are the following:
 | 6-Axis Gyro/Accelerometer    |      1       |                              6-Axis Gyro and Accelerometer sensor                               |
 | Front PCB                    |      1       |                           Robot auxiliary PCB with additional sensors                           |
 | ToF Distance Sensor          |      1       |             Time-of-Flight Distance sensor up to 350 cm , mounted on the Front PCB              |
-| Line follower array          |      1       | Line follower array made up of 3 phototransistors and 5 infrared LEDs, mounted on the front PCB |
+| Line follower array          |      1       | Line follower array made up of 3 phototransistors and 4 infrared LEDs, mounted on the front PCB |
 | Grove Connector              |      2       |                       I2C Grove Connector to extend robot's capabilities                        |
 | Qwiic Connector              |      2       |                        I2C Qwiic Connector to extend robot capabilities                         |
 | Servomotor Connector         |      2       |                             3-pins connector to attach servomotors                              |
@@ -169,7 +169,7 @@ The power distribution in the robot is explained by the following diagram:
 There are three levels of power inside the robot:
 
 | **Level** | **Description**                                                                    |
-| --------- | ---------------------------------------------------------------------------------- |
+|-----------|------------------------------------------------------------------------------------|
 | +3V7      | From the battery, the reference level is 3.7 V but it can goes from 3.0 V to 4.2 V |
 | +5V       | After the Boost Converter                                                          |
 | +3V3      | After the Step-Down Converter                                                      |
@@ -205,7 +205,7 @@ Alvik is a robot designed to be used in STEAM & Maker environments where opennes
 Alvik has a series of additional connectors to expand its possibilities located at the back of the robot:
 
 | **Description**             | **Information**                                                                       |
-| --------------------------- | ------------------------------------------------------------------------------------- |
+|-----------------------------|---------------------------------------------------------------------------------------|
 | Qwiic Connector (x2)        | I2C Connectivity with compatible sensors and actuators using the Qwiic estandard      |
 | I2C Grove Connector (x2)    | I2C Connectivity with compatible sensors and actuators using the Grove estandard      |
 | PWM Servomotor Control (x2) | 3-pins Servo Motor connector compatible with a wide ranger of 3rd party manufacturers |
@@ -264,7 +264,7 @@ Now that you have gone through the basics of what you can do with the device, yo
 ### Certifications Summary
 
 | Certification       | Status (AKX00066) |
-| ------------------- | ----------------- |
+|---------------------|-------------------|
 | **CE (EU)**         | Yes               |
 | **UKCA (UK)**       | Yes               |
 | **RCM (Australia)** | Yes               |
@@ -283,7 +283,7 @@ We declare under our sole responsibility that the products above are in conformi
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
 | **Substance**                          | **Maximum Limit (ppm)** |
-| -------------------------------------- | ----------------------- |
+|----------------------------------------|-------------------------|
 | Lead (Pb)                              | 1000                    |
 | Cadmium (Cd)                           | 100                     |
 | Mercury (Hg)                           | 1000                    |
@@ -365,14 +365,14 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Company Information
 
 | Company name    | Arduino S.r.l.                                  |
-| --------------- | ----------------------------------------------- |
+|-----------------|-------------------------------------------------|
 | Company Address | Via Andrea Appiani, 25 Monza, MB, 20900 (Italy) |
 
 
 ## Reference Documentation
 
 | Reference | Description                           | Link                                                                       |
-| --------- | ------------------------------------- | -------------------------------------------------------------------------- |
+|-----------|---------------------------------------|----------------------------------------------------------------------------|
 | 1         | Arduino Lab for MicroPython (Desktop) | <https://docs.arduino.cc/micropython/>                                     |
 | 2         | Arduino IDE (Desktop)                 | <https://www.arduino.cc/en/Main/Software>                                  |
 | 3         | Arduino Cloud Editor                  | <https://create.arduino.cc/editor>                                         |
@@ -383,7 +383,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 
 | Date       | **Revision** |             **Changes**             |
-| ---------- | :----------: | :---------------------------------: |
+|------------|:------------:|:-----------------------------------:|
+| 07/07/2025 |      4       |       Correct LED information       |
 | 20/12/2024 |      3       |         Add Certifications          |
 | 13/05/2024 |      2       | Robot's Expandability section added |
 | 24/04/2024 |      1       |            First Release            |
