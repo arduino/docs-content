@@ -2,6 +2,7 @@ software:
   - arduino-ide
   - arduino-cli
   - cloud-editor
+  - plc-ide
 hardware:
   shields: ~
   carriers:
