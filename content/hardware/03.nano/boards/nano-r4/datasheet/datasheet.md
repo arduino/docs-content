@@ -149,7 +149,6 @@ The Nano R4 features an RGB LED and single color built-in LED, both can be contr
 | V<sub>IN</sub>  | Input voltage from VIN pad       | 6.0 | 7.0 | 21.0 | V    |
 | V<sub>USB</sub> | Input voltage from USB connector | 4.8 | 5.0 | 5.5  | V    |
 | T<sub>OP</sub>  | Operating Temperature            | -40 | 25  | 85   | °C   |
-| 3V3             | Current Source from 3V3 pin      | -   | -   | 150  | mA   |
 
 **Note:** V<sub>DD</sub> controls the logic level and is connected to the 5 V power rail. V<sub>AREF</sub> set the reference for the analog logic.
 
@@ -157,10 +156,10 @@ The Nano R4 features an RGB LED and single color built-in LED, both can be contr
 
 Power can either be supplied via the VIN pin, or via USB-C® connector. If power is supplied via VIN, the MP2322GQH buck converter steps the voltage down to 5 V.
 
-A power OR circuit manages the selection between the USB and VIN power inputs, automatically routing the available voltage to the system's main power rail.
+A power OR circuit manages the selection between the USB and the +5 VDC output of the buck converter supplied from VIN, automatically routing the available voltage to the system's main power rail.
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-When using the 3V3 pin to power external peripherals, make sure stay below 150 mA since, above that value, the board may become very hot.
+When using the 3V3 pin to power external peripherals, notice that above 150 mA the board may become very hot due to LDO regulator functioning basis.
 </div>
 
 #### Power Tree
