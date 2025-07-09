@@ -397,7 +397,8 @@ Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Moni
 
 ## Pins
 
-This user manual section provides comprehensive information about the Nano R4's pin capabilities and functionality Understanding the board's pins capabilities and configurations is important for making the most of your projects with the Nano R4 board.
+This user manual section provides comprehensive information about the Nano R4's pin capabilities and functionality. Understanding the board's pins capabilities and configurations is important for making the most of your projects with the Nano R4 board.
+
 
 ### Pins Overview
 
