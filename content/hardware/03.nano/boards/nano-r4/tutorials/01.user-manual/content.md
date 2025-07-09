@@ -154,8 +154,9 @@ The Nano R4 can be connected to your computer using its onboard USB-C connector.
 
   The Nano R4 also includes an onboard +3.3 VDC regulator ([AP2112K](https://www.diodes.com/assets/Datasheets/AP2112.pdf)) that provides power for the following:
 
-  - **Qwicc connector**: Supplies +3.3 VDC power to connected I²C devices
-  - **I²C level translation**: Enables communication between the +5 VDC microcontroller and +3.3 VDC Qwicc devices
+  - **Qwiic connector**: Supplies +3.3 VDC power to connected I²C devices
+  - **I²C level translation**: Enables communication between the +5 VDC microcontroller and +3.3 VDC Qwiic devices
+
   - **Internal +3.3 VDC peripherals**: Powers certain internal circuits that require +3.3 VDC operation
 
   This internal +3.3 VDC supply allows the board to interface with both +5 VDC and +3.3 VDC devices through the Qwicc ecosystem while maintaining the +5 VDC operation of the board's main microcontroller.
