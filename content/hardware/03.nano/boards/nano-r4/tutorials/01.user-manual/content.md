@@ -164,15 +164,16 @@ The Nano R4 can be connected to your computer using its onboard USB-C connector.
   This internal +3.3 VDC supply allows the board to interface with both +5 VDC and +3.3 VDC devices through the Qwiic ecosystem while maintaining the +5 VDC operation of the board's main microcontroller.
 
 
-  #### VBATT Pin
+#### VBATT Pin
 
-  The `VBATT` pin allows the connection of a backup battery (within the +1.6-3.6 VDC range) to maintain the microcontroller's real-time clock (RTC) and certain low-power functions when the main power source is disconnected from the board. This is particularly useful for applications that need to keep track of time or maintain certain settings of the microcontroller during power outages. 
+The `VBATT` pin allows the connection of a backup battery (within the +1.6-3.6 VDC range) to maintain the microcontroller's real-time clock (RTC) and certain low-power functions when the main power source is disconnected from the board. This is particularly useful for applications that need to keep track of time or maintain certain settings of the microcontroller during power outages. 
 
-  Common battery options for this purpose include the following:
+Common battery options for this purpose include the following:
 
-  - Coin cell batteries (CR2032: +3 VDC)
-  - Rechargeable LiPo batteries (+3.7 VDC nominal)
-  - AA/AAA batteries (+1.5-3 VDC depending on the chemistry of the battery)
+- Coin cell batteries (CR2032: +3 VDC)
+- Rechargeable LiPo batteries (+3.7 VDC nominal)
+- AA/AAA batteries (+1.5-3 VDC depending on the chemistry of the battery)
+
     
 ### Hello World Example
 
