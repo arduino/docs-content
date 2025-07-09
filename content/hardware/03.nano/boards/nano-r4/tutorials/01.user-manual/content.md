@@ -988,7 +988,8 @@ The Nano R4 DAC provides the following functionality:
 |    Resistive Load    |     Min 30 kΩ     |     Minimum recommended load     |
 |   Load Capacitance   |     Max 50 pF     |     Maximum capacitive load      |
 
-***<strong>Important note:</strong> When using the DAC on pin `A0`, this pin cannot simultaneously be used as an analog input. The DAC provides true analog output, making it superior to PWM for applications requiring smooth, continuous voltage levels.***
+***__Important note:__ When using the DAC on pin `A0`, this pin cannot simultaneously be used as an analog input. The DAC provides true analog output, making it superior to PWM for applications requiring smooth, continuous voltage levels.***
+
 
 The Nano R4's DAC offers the following technical specifications:
 
