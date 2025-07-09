@@ -54,7 +54,7 @@
   <Feature title="Community version" image="nano-form-factor">
     Access the Nano Matter community version technical documentation!
     <FeatureWrapper>
-      <FeatureLink title="Download" url="https://docs.arduino.cc/resources/misc/nano_matter_community_technical_documentation.zip" download blank/>
+      <FeatureLink title="Download" url="https://docs.arduino.cc/resources/misc/nano_matter_community_technical_documentation.zip" download/>
     </FeatureWrapper>
   </Feature>
 
