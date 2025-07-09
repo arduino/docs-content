@@ -57,7 +57,8 @@ The bottom view of the Nano R4 board is shown in the image below:
 
 ![The Nano R4 main components (bottom view)](assets/user-manual-2.png)
 
-***The bottom side of the Nano R4 board only features test points for debugging and development purposes, along with the board's certification markings and identification information (board model and SKU).***
+***The bottom side of the Nano R4 board features only test points for debugging and development purposes, along with the board's certification markings and identification information (board model and SKU).***
+
 
 Here is an overview of the board's main components shown in the images above:
 
