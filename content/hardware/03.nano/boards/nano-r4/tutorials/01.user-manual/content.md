@@ -132,7 +132,8 @@ The Nano R4 can be connected to your computer using its onboard USB-C connector.
 
 - **Direct USB-C connection**: For programming, power supply and serial communication with the computer
 - **Pin connection**: For integration into breadboards or custom PCBs
-- **Qwicc connection**: For rapid expansion with compatible sensors and modules
+- **Qwiic connection**: For rapid expansion with compatible sensors and modules
+
 - **Module mounting**: Using the board's castellated pins for direct soldering to PCBs
 
 ***<strong>Important note:</strong> The Nano R4 operates at +5 VDC natively. When connecting sensors or modules that operate at +3.3 VDC, make sure to verify voltage compatibility to avoid component damage.***
