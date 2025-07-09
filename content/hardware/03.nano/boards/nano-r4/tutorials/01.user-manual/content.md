@@ -615,7 +615,8 @@ value = analogRead(pin);
 
 The default reference voltage of these pins is +5 VDC, but this can be changed using the `analogReference()` function. You can use `analogReference(AR_DEFAULT)` for the default reference of +5 VDC or `analogReference(AR_INTERNAL)` for the built-in reference of +1.5 VDC.
 
-The default resolution is set to 10-bit, but can be updated to 12-bit and 14-bit resolutions using the `analogReadResolution()` function in the `setup()` of your sketch. Available options are analogReadResolution(10) for default 10-bit, analogReadResolution(12) for 12-bit, or analogReadResolution(14) for maximum 14-bit resolution.
+The default resolution is set to 10-bit, but it can be updated to 12-bit and 14-bit resolutions using the `analogReadResolution()` function in the `setup()` of your sketch. Available options are analogReadResolution(10) for default 10-bit, analogReadResolution(12) for 12-bit, or analogReadResolution(14) for maximum 14-bit resolution.
+
 
 ***The following examples demonstrate basic analog pin functionality using simple connections that you can easily test with the Nano R4 board.***
 
