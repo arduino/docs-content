@@ -590,7 +590,8 @@ The Nano R4 analog pins provide the following functionality:
 |      `A6`       |         `P014`          |        Analog In         |   Analog input only   |
 |      `A7`       |         `P015`          |        Analog In         |   Analog input only   |
 
-***<strong>Important note:</strong> Pin `A0` has a built-in 12-bit Digital-to-Analog Converter (DAC) for analog output. Pins `A1`, `A2` and `A3` are connected to the integrated operational amplifier. Pins `A4` and `A5` are primarily used for I²C communication (SDA and SCL respectively).***
+***__Important note:__ Pin `A0` has a built-in 12-bit Digital-to-Analog Converter (DAC) for analog output. Pins `A1`, `A2` and `A3` are connected to the integrated operational amplifier. Pins `A4` and `A5` are primarily used for I²C communication (SDA and SCL respectively).***
+
 
 The Nano R4's analog pins offer the following specifications:
 
