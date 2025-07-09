@@ -747,7 +747,8 @@ The Nano R4 board provides PWM functionality on the following pins:
 |      `D10`      |         `P103`          |   Channel 2A    |  Digital I/O, SPI CS  |
 |      `D11`      |         `P101`          |   Channel 5A    | Digital I/O, SPI MOSI |
 
-***<strong>Important note:</strong> Pins `A4` and `A5` also have PWM capability but are primarily used for I²C communication (SDA and SCL respectively). The onboard LEDs (`LEDR`, `LEDG`, `LEDB`, `LED_BUILTIN`) also support PWM for brightness control.***
+***__Important note:__ Pins `A4` and `A5` also have PWM capability but are primarily used for I²C communication (SDA and SCL respectively). The onboard LEDs (`LEDR`, `LEDG`, `LEDB`, `LED_BUILTIN`) also support PWM for brightness control.***
+
 
 You can use PWM pins as analog output pins with the `analogWrite()` function:
 
