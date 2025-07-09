@@ -413,7 +413,8 @@ The Nano R4's pins are organized into the following categories:
 |  **Power Pins**  |     4     | `VIN`, `5V`, `3V3`, `GND` |          Power supply and ground           |
 | **Special Pins** |     2     |     `RESET`, `VBATT`      |         System control and backup          |
 
-The Nano R4 offers several advanced pin capabilities including multi-function pins that can serve multiple purposes depending on your project needs, native +5 VDC operation for compatibility with classic Arduino shields, internal +3.3 VDC level translation for modern sensors and electronic components via Qwicc, and built-in advanced peripherals such as DAC, CAN bus and operational amplifiers on specific pins of the board.
+The Nano R4 offers several advanced pin capabilities including multi-function pins that can serve multiple purposes depending on your project needs, native +5 VDC operation for compatibility with classic Arduino shields, internal +3.3 VDC level translation for modern sensors and electronic components via Qwiic, and built-in advanced peripherals such as DAC, CAN bus and operational amplifiers on specific pins of the board.
+
 
 The following table shows the electrical specifications and operating limits for all pins on the Nano R4 board:
 
