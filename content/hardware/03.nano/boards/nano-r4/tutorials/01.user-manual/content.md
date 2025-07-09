@@ -888,7 +888,8 @@ The Nano R4 board OPAMP provides the following pin connections:
 |      `A2`       |         `P002`          |      OPAMP -       |   Inverting input (-)   |
 |      `A3`       |         `P003`          |     OPAMP OUT      |    Amplifier output     |
 
-***<strong>Important note:</strong> When using the OPAMP functionality, pins `A1`, `A2` and `A3` cannot simultaneously be used as regular analog inputs. The positive supply (Vs+) is fixed to approximately +5 VDC and the negative supply (Vs-) is fixed to `GND`.***
+***__Important note:__ When using the OPAMP functionality, pins `A1`, `A2` and `A3` cannot simultaneously be used as regular analog inputs. The positive supply (Vs+) is fixed to approximately +5 VDC and the negative supply (Vs-) is fixed to `GND`.***
+
 
 The Nano R4's OPAMP offers the following electrical characteristics:
 
