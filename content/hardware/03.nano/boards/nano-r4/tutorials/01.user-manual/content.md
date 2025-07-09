@@ -88,7 +88,8 @@ The Arduino UNO R4 Boards core provides support for the following:
 - HID emulation capabilities (keyboard and mouse)
 - Standard Arduino libraries compatibility
 
-***<strong>Important note:</strong> Since the Nano R4 uses the same RA4M1 microcontroller as the UNO R4 WiFi and the UNO R4 Minima, it shares complete code and library compatibility, making it easy to transition projects between these boards.***
+***__Important note:__ Since the Nano R4 uses the same RA4M1 microcontroller as the UNO R4 WiFi and the UNO R4 Minima, it shares complete code and library compatibility, making it easy to transition projects between these boards.***
+
 
 ### Pinout
 
