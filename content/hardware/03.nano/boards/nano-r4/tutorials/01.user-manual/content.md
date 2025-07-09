@@ -1555,7 +1555,8 @@ If you encounter any issues or have questions while working with your Nano R4 bo
 
 Explore our Help Center, which offers a comprehensive collection of articles and guides for Nano family boards. The Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
-- [Nanoa family help center page](https://support.arduino.cc/hc/en-us/sections/360004605400-Nano-Family)
+- [Nano family help center page](https://support.arduino.cc/hc/en-us/sections/360004605400-Nano-Family)
+
 
 ### Forum
 
