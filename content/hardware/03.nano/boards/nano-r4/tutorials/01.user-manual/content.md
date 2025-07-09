@@ -455,7 +455,8 @@ The Nano R4 digital pins provide the following functionality:
 |      `D12`      |         `P100`          |         SPI MISO         |  SPI communication   |
 |      `D13`      |         `P102`          |         SPI SCK          |  SPI communication   |
 
-***<strong>Important note:</strong> Pins `D0` and `D1` are used for serial communication (UART) and should be avoided for general digital I/O when using Serial communication. Pins `D4` and `D5` can be used for CAN bus communication. Pins `D10`, `D11`, `D12` and `D13` are used for SPI communication.***
+***__Important note:__ Pins `D0` and `D1` are used for serial communication (UART) and should be avoided for general digital I/O when using Serial communication. Pins `D4` and `D5` can be used for CAN bus communication. Pins `D10`, `D11`, `D12` and `D13` are used for SPI communication.***
+
 
 The Nano R4's digital pins offer the following specifications:
 
