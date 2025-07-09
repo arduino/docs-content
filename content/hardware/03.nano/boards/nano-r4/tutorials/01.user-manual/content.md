@@ -123,7 +123,8 @@ When opening the Nano R4 box, you will find the board and its corresponding docu
 
 ![Nano R4 unboxing](assets/unboxing.png)
  
-The Nano R4 is a standalone device that can be programmed directly without requiring additional boards. However, for more complex projects, you can easily combine it with Arduino shields compatible with the Nano family or connect it to other Arduino devices through its onboard Qwicc connector.
+The Nano R4 is a standalone device that can be programmed directly without requiring additional boards. However, for more complex projects, you can easily combine it with Arduino shields compatible with the Nano family or connect it to other Arduino devices through its onboard Qwiic connector.
+
 
 ### Connecting the Board
 
