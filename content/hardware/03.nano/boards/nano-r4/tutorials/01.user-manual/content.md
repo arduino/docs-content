@@ -430,7 +430,8 @@ The following table shows the electrical specifications and operating limits for
 |  **Max Total Current**  |    200 mA    |  Combined current for all pins   |
 |  **Analog Reference**   |    +5 VDC    |      Default `AREF` voltage      |
 
-***<strong>Important safety considerations when working with the Nano R4 pins:</strong> Never exceed +5.5 VDC on any pin to avoid permanent damage, respect the 8 mA per pin and 200 mA total current limits, handle the board with proper anti-static precautions, avoid connecting pins directly to ground or power and always verify voltage levels when connecting +3.3 VDC devices.***
+***__Important safety considerations when working with the Nano R4 pins:__ Never exceed +5.5 VDC on any pin to avoid permanent damage, respect the 8 mA per pin and 200 mA total current limits, handle the board with proper anti-static precautions, avoid connecting pins directly to ground or power and always verify voltage levels when connecting +3.3 VDC devices.***
+
 
 ### Digital Pins
 
