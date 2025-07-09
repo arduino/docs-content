@@ -159,7 +159,8 @@ The Nano R4 can be connected to your computer using its onboard USB-C connector.
 
   - **Internal +3.3 VDC peripherals**: Powers certain internal circuits that require +3.3 VDC operation
 
-  This internal +3.3 VDC supply allows the board to interface with both +5 VDC and +3.3 VDC devices through the Qwicc ecosystem while maintaining the +5 VDC operation of the board's main microcontroller.
+  This internal +3.3 VDC supply allows the board to interface with both +5 VDC and +3.3 VDC devices through the Qwiic ecosystem while maintaining the +5 VDC operation of the board's main microcontroller.
+
 
   #### VBATT Pin
 
