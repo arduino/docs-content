@@ -4,7 +4,6 @@ url_shop: https://store.arduino.cc/giga-display-shield
 url_guide: /tutorials/giga-display-shield/getting-started
 primary_button_url: /tutorials/giga-display-shield/getting-started
 primary_button_title: Get Started
-certifications: [CE, UKCA, RoHS]
 forumCategorySlug: '/hardware/giga-display-shield/191'
 sku: [ASX00039]
 ---

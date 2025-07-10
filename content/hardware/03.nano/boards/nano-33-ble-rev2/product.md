@@ -5,7 +5,6 @@ primary_button_url: /software/ide-v2/tutorials/ide-v2-board-manager#mbed-os-nano
 primary_button_title: Get Started
 core: arduino:mbed_nano
 forumCategorySlug: '/hardware/nano-family/nano-33-ble/159'
-certifications: [CE, UKCA]
 productCode: '170'
 sku: [ABX00071, ABX00072]
 ---

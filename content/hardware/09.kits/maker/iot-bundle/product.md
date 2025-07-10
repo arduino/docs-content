@@ -1,7 +1,6 @@
 ---
 title: IoT Bundle
 url_shop: https://store.arduino.cc/iot-bundle
-certifications: [CE, UKCA]
 sku: [AKX00042]
 ---
 

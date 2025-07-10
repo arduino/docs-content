@@ -4,7 +4,6 @@ url_shop: https://store.arduino.cc/uno-r4-minima
 url_guide: /tutorials/uno-r4-minima/minima-getting-started
 primary_button_url: /tutorials/uno-r4-minima/minima-getting-started
 primary_button_title: Get Started
-certifications: [CE, UKCA, RoHS, FCC, RCM, IC]
 forumCategorySlug: '/hardware/uno-r4/uno-r4-minima/188'
 productCode: '159'
 sku: [ABX00080]

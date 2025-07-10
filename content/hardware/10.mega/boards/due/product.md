@@ -7,7 +7,6 @@ primary_button_title: Get Started
 core: arduino:sam
 forumCategorySlug: '/hardware/arduino-due/64'
 productCode: '009'
-certifications: [CE, UKCA]
 sku: [A000056, A000062]
 
 ---

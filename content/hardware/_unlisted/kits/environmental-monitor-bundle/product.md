@@ -1,5 +1,3 @@
 ---
-title: Environmental Monitor Bundle
-certifications: [CE, UKCA]
-sku: [VB00012]
+title: Environmental Monitor Bundlesku: [VB00012]
 ---

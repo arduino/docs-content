@@ -7,7 +7,6 @@ primary_button_title:  User Manual
 secondary_button_url: /tutorials/edge-control/smart-irrigation-system
 secondary_button_title: Smart Farms
 core: arduino:mbed_edge
-certifications: [RoHS, FCC, CE, UKCA]
 sku: [AKX00034]
 ---
 
