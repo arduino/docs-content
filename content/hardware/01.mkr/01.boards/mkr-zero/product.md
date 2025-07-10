@@ -7,7 +7,6 @@ primary_button_title: Get Started
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrzero/140'
 productCode: '016'
-certifications: [CE, UKCA]
 sku: [ABX00007, ABX00012]
 ---
 

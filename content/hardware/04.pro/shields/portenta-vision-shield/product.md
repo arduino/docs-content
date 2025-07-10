@@ -8,7 +8,6 @@ primary_button_title: User Manual
 secondary_button_url: /tutorials/portenta-vision-shield/things-network-openmv
 secondary_button_title: TTN OpenMV Guide
 core: arduino:mbed_portenta
-certifications: [CE, RoHS, UKCA, FCC, RCM]
 sku: [ASX00021, ASX00026]
 ---
 

@@ -2,7 +2,6 @@
 title: Yún Rev2
 core: arduino:avr
 status: end-of-life
-certifications: [CE, UKCA]
 productCode: '127'
 forumCategorySlug: '/hardware/12'
 sku: [ABX00020]

@@ -6,7 +6,6 @@ primary_button_url: /software/ide-v1/tutorials/getting-started/cores/arduino-sam
 primary_button_title: Get Started
 core: arduino:samd
 forumCategorySlug: '/hardware/arduino-zero/74'
-certifications: [CE, UKCA]
 productCode: '016'
 sku: [ABX00003]
 ---

@@ -6,7 +6,6 @@ primary_button_url: https://docs.arduino.cc/tutorials/modulino-distance/how-dist
 primary_button_title: With Arduino
 secondary_button_url: https://docs.arduino.cc/tutorials/modulino-distance/how-distance-mp/
 secondary_button_title: With MicroPython
-certifications: [CE, UKCA, FCC, IC]
 forumCategorySlug: '/hardware/accessories/modulino-distance/216'
 sku: [ABX00102]
 ---
