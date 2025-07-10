@@ -5,7 +5,6 @@ url_guide: /tutorials/mkr-eth-shield/mkr-eth-shield-webserver
 primary_button_url: /tutorials/mkr-eth-shield/mkr-eth-shield-webserver
 primary_button_title: Get Started
 forumCategorySlug: '/hardware/mkr-boards/mkr-shields/162'
-certifications: [CE, UKCA]
 sku: [ASX00006]
 ---
 

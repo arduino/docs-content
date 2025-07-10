@@ -5,7 +5,6 @@ url_guide: /tutorials/mkr-can-shield/mkr-can-communication
 primary_button_url: /tutorials/mkr-can-shield/mkr-can-communication
 primary_button_title: Get Started
 forumCategorySlug: '/hardware/mkr-boards/mkr-shields/162'
-certifications: [CE, UKCA]
 sku: [ASX00005]
 ---
 

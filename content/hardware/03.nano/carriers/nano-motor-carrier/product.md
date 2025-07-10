@@ -1,7 +1,6 @@
 ---
 title: Nano Motor Carrier
 url_shop: https://store.arduino.cc/nano-motor-carrier
-certifications: [CE, UKCA]
 forumCategorySlug: '/hardware/12'
 sku: [ABX00041]
 ---
