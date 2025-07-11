@@ -135,7 +135,7 @@ productCertifications:
     files:
       - title: "Download Declaration of Regulation (EU) 2023/1542 for Arduino products"
         url: "resources/battery-regulation/arduino-battery-eu-2023-1542.pdf"
-   - name: "PFAS"
+  - name: "PFAS"
     title: "Per- and Polyfluoroalkyl Substances (PFAS) Compliance Statement"
     id: 16
     description: "PFAS (Per- and Polyfluoroalkyl Substances) are a group of synthetic chemicals used in a wide range of industrial and consumer products for their resistance to heat, water, and oil. Due to their persistent nature in the environment and potential health concerns, PFAS are increasingly regulated under global chemical safety frameworks, including REACH in the European Union and TSCA in the United States."
