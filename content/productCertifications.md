@@ -119,8 +119,7 @@ productCertifications:
   - name: "SCIP"
     title: "SCIP (Substances of Concern In articles as such or in complex objects (Products))"
     id: 14
-    description: "SCIP is the database for information on Substances of Concern In articles as such or in complex objects (Products) established under the Waste Framework Directive (WFD).
-    Companies supplying articles containing substances of very high concern (SVHCs) on the Candidate List in a concentration above 0.1% weight by weight (w/w) on the EU market have to submit information on these articles to ECHA, as from 5 January 2021. The SCIP database ensures that the information on articles containing Candidate List substances is available throughout the whole lifecycle of products and materials, including at the waste stage. The information in the database is then made available to waste operators and consumers."
+    description: "SCIP is the database for information on Substances of Concern In articles as such or in complex objects (Products) established under the Waste Framework Directive (WFD). Companies supplying articles containing substances of very high concern (SVHCs) on the Candidate List in a concentration above 0.1% weight by weight (w/w) on the EU market have to submit information on these articles to ECHA, as from 5 January 2021. The SCIP database ensures that the information on articles containing Candidate List substances is available throughout the whole lifecycle of products and materials, including at the waste stage. The information in the database is then made available to waste operators and consumers."
     source: "https://echa.europa.eu/scip"
     sourceTitle: "www.echa.europa.eu"
     files:
