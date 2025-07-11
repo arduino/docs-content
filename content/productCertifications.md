@@ -119,8 +119,7 @@ productCertifications:
   - name: "SCIP"
     title: "SCIP (Substances of Concern In articles as such or in complex objects (Products))"
     id: 14
-    description: "SCIP is the database for information on Substances of Concern In articles as such or in complex objects (Products) established under the Waste Framework Directive (WFD).
-    Companies supplying articles containing substances of very high concern (SVHCs) on the Candidate List in a concentration above 0.1% weight by weight (w/w) on the EU market have to submit information on these articles to ECHA, as from 5 January 2021. The SCIP database ensures that the information on articles containing Candidate List substances is available throughout the whole lifecycle of products and materials, including at the waste stage. The information in the database is then made available to waste operators and consumers."
+    description: "SCIP is the database for information on Substances of Concern In articles as such or in complex objects (Products) established under the Waste Framework Directive (WFD). Companies supplying articles containing substances of very high concern (SVHCs) on the Candidate List in a concentration above 0.1% weight by weight (w/w) on the EU market have to submit information on these articles to ECHA, as from 5 January 2021. The SCIP database ensures that the information on articles containing Candidate List substances is available throughout the whole lifecycle of products and materials, including at the waste stage. The information in the database is then made available to waste operators and consumers."
     source: "https://echa.europa.eu/scip"
     sourceTitle: "www.echa.europa.eu"
     files:
@@ -135,7 +134,7 @@ productCertifications:
     files:
       - title: "Download Declaration of Regulation (EU) 2023/1542 for Arduino products"
         url: "resources/battery-regulation/arduino-battery-eu-2023-1542.pdf"
-   - name: "PFAS"
+  - name: "PFAS"
     title: "Per- and Polyfluoroalkyl Substances (PFAS) Compliance Statement"
     id: 16
     description: "PFAS (Per- and Polyfluoroalkyl Substances) are a group of synthetic chemicals used in a wide range of industrial and consumer products for their resistance to heat, water, and oil. Due to their persistent nature in the environment and potential health concerns, PFAS are increasingly regulated under global chemical safety frameworks, including REACH in the European Union and TSCA in the United States."
