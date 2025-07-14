@@ -300,7 +300,7 @@ Within this directory, you will have three essential files that define your dock
 
 - Docker Compose configuration
 - Dockerfile
-- startup script.
+- Startup script
 
 First, the `docker-compose.yml` file, which manages the container deployment and defines how Docker should run your application:
 
