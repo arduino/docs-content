@@ -519,7 +519,7 @@ The starting point can be updated to be:
 |------------------------------------------|--------------------|-----------------------------|--------------------------------------------------------------------------|
 | `linear.x` (forward)                     | `1.5`              | `0.8 – 1.0`                 | Slower advance → tighter overall pattern                                 |
 | `angular.z` (turn rate)                  | `0.8`              | `0.4 – 0.6`                 | Gentler turn → smaller spiral radius                                     |
-| `sleep 5` (delay before circular motion) | `5 s`              | `2 – 3 s` (optional)        | Starts circle soonera and reduces distance covered during square routine |
+| `sleep 5` (delay before circular motion) | `5 s`              | `2 – 3 s` (optional)        | Starts circle sooner and reduces distance covered during square routine |
 
 After saving the changes, rebuild and relaunch:
 
