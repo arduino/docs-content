@@ -1,5 +1,5 @@
 ---
-title: 'Getting Started with ROS2 and Turtlesim on Portenta X8'
+title: '16. Getting Started with ROS2 and Turtlesim on Portenta X8'
 difficulty: intermediate
 description: "Learn how to set up and run ROS2 with turtlesim visualization on Portenta X8 using an external display via USB-C® to HDMI."
 tags:
