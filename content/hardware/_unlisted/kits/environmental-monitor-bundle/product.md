@@ -1,3 +1,4 @@
 ---
-title: Environmental Monitor Bundlesku: [VB00012]
+title: Environmental Monitor Bundle
+sku: [VB00012]
 ---
