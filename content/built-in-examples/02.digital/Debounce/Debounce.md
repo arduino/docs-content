@@ -46,4 +46,4 @@ You can find more basic tutorials in the [built-in examples](/built-in-examples)
 
 You can also explore the [language reference](https://www.arduino.cc/reference/en/), a detailed collection of the Arduino programming language.
 
-*Last revision 2015/07/29 by SM*
+*Last revision 2025/07/15 by MS*
