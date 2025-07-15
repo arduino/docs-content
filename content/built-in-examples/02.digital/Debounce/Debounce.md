@@ -38,7 +38,7 @@ Pushbuttons often generate spurious open/close transitions when pressed, due to 
 
 The sketch below is based on **Limor Fried's version of debounce**, but the logic is inverted from her example. In her example, the switch returns LOW when closed, and HIGH when open.  Here, the switch returns HIGH when pressed and LOW when not pressed.
 
-<iframe src='https://create.arduino.cc/example/builtin/02.Digital%5CDebounce/Debounce/preview?embed&snippet' style='height:510px;width:100%;margin:10px 0' frameborder='0'></iframe>
+<iframe src="https://app.arduino.cc/sketches/632a05ab-f781-4b43-9825-c7ca7984200f?view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
 ### Learn more
 
