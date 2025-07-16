@@ -76,7 +76,7 @@ Setting up a project in the Arduino Cloud is easy, and can be done through a few
 
 To use the Arduino Cloud, you will need an Arduino account, which you can register [here](https://login.arduino.cc/login).
 
-By default, you will have a **free plan**, which can be upgraded to a number of affordable plans starting at 1.99$ a month.
+By default, you will have a **free plan**, which can be upgraded to a number of affordable plans.
 
 ***Read more about [Arduino Cloud plans](https://cloud.arduino.cc/plans)***
 
