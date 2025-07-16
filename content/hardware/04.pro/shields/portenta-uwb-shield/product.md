@@ -6,7 +6,6 @@ primary_button_url: /tutorials/portenta-uwb-shield/user-manual/
 primary_button_title: Get Started
 core: arduino:mbed_portenta
 forumCategorySlug: '/hardware/portenta/91'
-certifications: [CE, FCC, UKCA, ROHS, REACH, WEEE]
 productCode: '213'
 sku: [ASX00074]
 ---

@@ -7,7 +7,6 @@ primary_button_title:  User Manual
 secondary_button_url: /software/plc-ide/
 secondary_button_title: PLC IDE Guide
 core: arduino:mbed_opta
-certifications: [CE, UL, FCC, UKCA]
 sku: [AFX00003, AFX00001, AFX00002]
 ---
 

@@ -4,7 +4,6 @@ url_shop: https://store.arduino.cc/products/make-your-uno-kit
 url_guide: https://makeyouruno.arduino.cc/
 primary_button_url: https://makeyouruno.arduino.cc/
 primary_button_title: Get Started
-certifications: [CE, UKCA]
 sku: [AKX00037]
 ---
 
