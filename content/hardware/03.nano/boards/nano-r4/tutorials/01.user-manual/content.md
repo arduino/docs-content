@@ -127,7 +127,6 @@ When opening the Nano R4 box, you will find the board and its corresponding docu
  
 The Nano R4 is a standalone device that can be programmed directly without requiring additional boards. However, for more complex projects, you can easily combine it with Arduino shields compatible with the Nano family or connect it to other Arduino devices through its onboard Qwiic connector.
 
-
 ### Connecting the Board
 
 The Nano R4 can be connected to your computer using its onboard USB-C connector. It can also be integrated into larger projects using the following:
@@ -138,31 +137,29 @@ The Nano R4 can be connected to your computer using its onboard USB-C connector.
 
 - **Module mounting**: Using the board's castellated pins for direct soldering to PCBs
 
-***<strong>Important note:</strong> The Nano R4 operates at +5 VDC natively. When connecting sensors or modules that operate at +3.3 VDC, make sure to verify voltage compatibility to avoid component damage.***
+***__Important note:__ The Nano R4 operates at +5 VDC natively. When connecting sensors or modules that operate at +3.3 VDC, make sure to verify voltage compatibility to avoid component damage.***
 
-  ### Powering the Board
+### Powering the Board
 
-  The Nano R4 can be powered in several ways:
+The Nano R4 can be powered in several ways:
 
-  - **Via USB-C connector**: The most common method during development and programming
-  - **Via `VIN` pin**: Using an external +6-21 VDC power supply that will be internally regulated to +5 VDC
-  - **Via `5V` pin**: Directly connecting a regulated +5 VDC source (with caution)
+- **Via USB-C connector**: The most common method during development and programming
+- **Via `VIN` pin**: Using an external +6-21 VDC power supply that will be internally regulated to +5 VDC
+- **Via `5V` pin**: Directly connecting a regulated +5 VDC source (with caution)
 
-  ![Different ways to power the Nano R4 board](assets/user-manual-4.png)
+![Different ways to power the Nano R4 board](assets/user-manual-4.png)
 
-  ***<strong>Important note:</strong> The Nano R4's `VIN` pin accepts a voltage range of +6-21 VDC. Do not connect voltages outside this range as you could permanently damage the board. Always verify all the connections before applying power.***
+***__Important note:__ The Nano R4's `VIN` pin accepts a voltage range of +6-21 VDC. Do not connect voltages outside this range as you could permanently damage the board. Always verify all the connections before applying power.***
 
-  #### Internal +3.3 VDC Power Supply
+#### Internal +3.3 VDC Power Supply
 
-  The Nano R4 also includes an onboard +3.3 VDC regulator ([AP2112K](https://www.diodes.com/assets/Datasheets/AP2112.pdf)) that provides power for the following:
+The Nano R4 also includes an onboard +3.3 VDC regulator ([AP2112K](https://www.diodes.com/assets/Datasheets/AP2112.pdf)) that provides power for the following:
 
-  - **Qwiic connector**: Supplies +3.3 VDC power to connected I²C devices
-  - **I²C level translation**: Enables communication between the +5 VDC microcontroller and +3.3 VDC Qwiic devices
+- **Qwiic connector**: Supplies +3.3 VDC power to connected I²C devices
+- **I²C level translation**: Enables communication between the +5 VDC microcontroller and +3.3 VDC Qwiic devices
+- **Internal +3.3 VDC peripherals**: Powers certain internal circuits that require +3.3 VDC operation
 
-  - **Internal +3.3 VDC peripherals**: Powers certain internal circuits that require +3.3 VDC operation
-
-  This internal +3.3 VDC supply allows the board to interface with both +5 VDC and +3.3 VDC devices through the Qwiic ecosystem while maintaining the +5 VDC operation of the board's main microcontroller.
-
+This internal +3.3 VDC supply allows the board to interface with both +5 VDC and +3.3 VDC devices through the Qwiic ecosystem while maintaining the +5 VDC operation of the board's main microcontroller.
 
 #### VBATT Pin
 
@@ -1550,6 +1547,24 @@ When working with SPI on the Nano R4, there are several key points to keep in mi
 - Keep in mind that SPI is a synchronous protocol, meaning that data is transferred in both directions simultaneously with each clock pulse. Even if you only need to send data, you'll still receive data back, and vice versa.
 - The Nano R4 board can communicate with multiple SPI devices by using different Chip Select (`CS`) pins, making it perfect for complex projects that need to interface with various sensors, displays and storage devices.
 
+## I²C Communication
+
+The Nano R4 board features built-in I²C (Inter-Integrated Circuit) communication that allows your projects to communicate with multiple devices using just two wires. I²C is implemented within the RA4M1 microcontroller and uses two dedicated pins to provide reliable serial communication with sensors, displays, memory modules and other microcontrollers. This makes it perfect for projects that need to connect several devices without using many pins.
+
+I²C is particularly useful when your project needs to communicate with multiple sensors and devices in a simple way, rather than using complex wiring. While SPI is excellent for high-speed communication and UART for basic serial data exchange, I²C excels at connecting many devices with minimal wiring. Multiple I²C devices can share the same two-wire bus, each with its own unique address, making it ideal for sensor networks, display modules and expandable systems.
+
+The Nano R4's I²C interface offers the following technical specifications:
+
+|   **Parameter**   |   **Value**   |          **Notes**         |
+|:-----------------:|:-------------:|:--------------------------:|
+|    Clock Speed    | Up to 400 kHz |     Standard/Fast mode     |
+|   Data Transfer   |     8-bit     |     Standard data width    |
+|   Communication   |  Half-duplex  |   One direction at a time  |
+|      I²C Pins     |   `A4`, `A5`  |    SDA, SCL respectively   |
+| Device Addressing |  7-bit/10-bit | Up to 127 unique addresses |
+| Operating Voltage |     +5 VDC    |        Same as board       |
+| Pull-up Resistors |    Internal   |   Built-in weak pull-ups   |
+
 ## Support
 
 If you encounter any issues or have questions while working with your Nano R4 board, we provide various support resources to help you find answers and solutions.
@@ -1559,7 +1574,6 @@ If you encounter any issues or have questions while working with your Nano R4 bo
 Explore our Help Center, which offers a comprehensive collection of articles and guides for Nano family boards. The Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
 - [Nano family help center page](https://support.arduino.cc/hc/en-us/sections/360004605400-Nano-Family)
-
 
 ### Forum
 
