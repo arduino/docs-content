@@ -1412,7 +1412,7 @@ The Nano R4 board uses the following pins for SPI communication:
 
 You can communicate via SPI using the dedicated `SPI.h` library, which is included in the Arduino UNO R4 Boards core. The library provides simple functions to initialize the bus, send and receive data and manage multiple devices.
 
-The following example demonstrates how to use SPI communication to control an external device:
+The following example demonstrates how to use SPI communication to send and receive data:
 
 ```arduino
 /**
@@ -1515,7 +1515,13 @@ void sendSPIData() {
 
 ***To test this example, no external SPI device is required. The code will demonstrate SPI communication patterns, though without a connected device, the received data will typically be `0xFF`.***
 
-You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the SPI communication in action. The example shows how to properly select devices, send data and handle responses.
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the SPI communication in action. The example sketch shows how to properly select devices, send data and handle responses.
+
+![Arduino IDE Serial Monitor output for the SPI example sketch](assets/spi-1.png)
+
+The image below shows how the SPI communication from our example appears in the Digilent Waveforms logic analyzer software, with the decoded protocol showing the chip select, clock and data signals being transmitted.
+
+![Digilent Waveforms logic analyzer output for SPI](assets/spi-2.png)
 
 For connecting multiple SPI devices, you can use different digital pins as additional Chip Select (`CS`) lines while sharing the `MOSI`, `MISO` and `SCK` pins:
 
@@ -1564,6 +1570,139 @@ The Nano R4's I²C interface offers the following technical specifications:
 | Device Addressing |  7-bit/10-bit | Up to 127 unique addresses |
 | Operating Voltage |     +5 VDC    |        Same as board       |
 | Pull-up Resistors |    Internal   |   Built-in weak pull-ups   |
+
+The Nano R4 uses the following pins for I²C communication:
+
+| **Arduino Pin** | **Microcontroller Pin** | **I²C Function** |  **Description**  |
+|:---------------:|:-----------------------:|:----------------:|:-----------------:|
+|       `A4`      |          `P004`         |        SDA       |  Serial Data Line |
+|       `A5`      |          `P010`         |        SCL       | Serial Clock Line |
+
+You can communicate via I²C using the dedicated `Wire.h` library, which is included in the Arduino UNO R4 Boards core. The library provides simple functions to initialize the bus, send and receive data, and manage multiple devices.
+
+The following example demonstrates basic I²C communication patterns:
+
+```arduino
+/**
+I2C Basic Example for the Arduino Nano R4 Board
+Name: nano_r4_i2c_basic.ino
+Purpose: This sketch demonstrates basic I2C communication
+patterns for protocol analysis.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+#include <Wire.h>
+
+// Example device address
+const int DEVICE_ADDRESS = 0x48;
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  Serial.println("- Arduino Nano R4 - I2C Basic Example started...");
+  
+  // Initialize I2C communication as master
+  Wire.begin();
+  
+  Serial.println("- I2C initialized successfully");
+  Serial.println("- Connect protocol analyzer to A4 (SDA) and A5 (SCL)");
+  Serial.println("- Starting I2C communication patterns...");
+  
+  delay(2000);
+}
+
+void loop() {
+  // Write a single byte
+  Serial.println("- Writing single byte (0xAA) to device 0x48...");
+  Wire.beginTransmission(DEVICE_ADDRESS);
+  Wire.write(0xAA);
+  Wire.endTransmission();
+  
+  delay(1000);
+  
+  // Write multiple bytes
+  Serial.println("- Writing multiple bytes (0x10, 0x20, 0x30) to device 0x48...");
+  Wire.beginTransmission(DEVICE_ADDRESS);
+  Wire.write(0x10);
+  Wire.write(0x20);
+  Wire.write(0x30);
+  Wire.endTransmission();
+  
+  delay(1000);
+  
+  // Request data from device
+  Serial.println("- Requesting 2 bytes from device 0x48...");
+  Wire.requestFrom(DEVICE_ADDRESS, 2);
+  
+  // Read any available data
+  while (Wire.available()) {
+    int data = Wire.read();
+    Serial.print("Received: 0x");
+    if (data < 16) Serial.print("0");
+    Serial.println(data, HEX);
+  }
+  
+  delay(2000);
+  Serial.println("---");
+}
+```
+***To test this example, no external I²C devices are required. The code will generate I²C communication patterns that can be analized with a protocol analyzer. Without devices connected, read operations will typically return `0xFF`.***
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the I²C operations being performed. Connect a protocol analyzer to pins `A4` (SDA) and `A5` (SCL) to observe the actual I²C protocol signals.
+
+![Arduino IDE Serial Monitor output for the I²C example sketch](assets/i2c-1.png)
+
+The image below shows how the I²C communication from our example appears in the Digilent Waveforms logic analyzer software, with the decoded protocol showing the device address and data bytes being transmitted.
+
+***The I²C protocol requires pull-up resistors on both SDA and SCL lines. __The Nano R4 board does not have internal pull-ups on A4 and A5 to avoid interference with their analog input functionality, so external 4.7kΩ pull-up resistors to +5 VDC are required for proper I²C operation__.***
+
+One of the main advantages of I²C is the ability to connect multiple devices to the same bus. Here's how to connect multiple I²C devices:
+
+```arduino
+// Example: Communicating with multiple I2C devices
+void communicateWithMultipleDevices() {
+  // Device addresses (examples)
+  const int SENSOR_ADDRESS = 0x48;    // Temperature sensor
+  const int DISPLAY_ADDRESS = 0x3C;   // OLED display
+  const int EEPROM_ADDRESS = 0x50;    // External EEPROM
+  
+  // Read from temperature sensor
+  Wire.beginTransmission(SENSOR_ADDRESS);
+  Wire.write(0x00);  // Register to read
+  Wire.endTransmission();
+  
+  Wire.requestFrom(SENSOR_ADDRESS, 2);
+  if (Wire.available() >= 2) {
+    int tempHigh = Wire.read();
+    int tempLow = Wire.read();
+    Serial.print("Temperature: ");
+    Serial.println((tempHigh << 8) | tempLow);
+  }
+  
+  // Send data to display
+  Wire.beginTransmission(DISPLAY_ADDRESS);
+  Wire.write(0x40);  // Data mode
+  Wire.write(0xFF);  // Sample data
+  Wire.endTransmission();
+  
+  // Write to EEPROM
+  Wire.beginTransmission(EEPROM_ADDRESS);
+  Wire.write(0x00);  // Memory address
+  Wire.write(0x55);  // Data to write
+  Wire.endTransmission();
+}
+```
+
+When working with I²C on the Nano R4 board, there are several key points to keep in mind for successful implementation:
+
+- Each I²C device must have a unique address on the bus, so check device datasheets to avoid address conflicts.
+- Keep in mind that I²C is a half-duplex protocol, meaning data flows in only one direction at a time. The master device (your Nano R4 board) controls the clock line and initiates all communication.
+- When connecting multiple devices, simply connect all SDA pins together and all SCL pins together, along with power and ground connections.
+- The Nano R4 board can communicate with up to 127 different I²C devices on the same bus, making it perfect for complex sensor networks and expandable systems.
 
 ## Support
 
