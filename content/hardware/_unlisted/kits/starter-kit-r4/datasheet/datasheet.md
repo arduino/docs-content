@@ -1,5 +1,5 @@
 ---
-identifier: AKX00078
+identifier: AKX00077_r4
 title: Arduino® Starter Kit R4
 type: edu
 author: Taddy Chung
@@ -67,6 +67,10 @@ The book explains each step clearly and includes drawings and sample code. You c
 The Starter Kit R4 includes a set of online projects. These projects build on the skills developed in the first 14 lessons, introducing topics such as computer interaction via USB (HID), capacitive touch and enhanced use of the LED matrix. The first online module, <strong>"Welcome Online"</strong>, provides an introduction to the Arduino Cloud platform and how to use it with your kit.
 </p>
 
+<p style="text-align: justify;">
+The projects listed below represent the content available at the time of the kit’s launch. Additional online projects will continue to be added over time to expand the learning experience and showcase new projects.
+</p>
+
 | **No.** | **Project Title** | **What You Learn**                                                                                 |
 |--------:|-------------------|----------------------------------------------------------------------------------------------------|
 |      00 | Welcome Online    | Learn how to use the online Arduino Cloud platform.                                                |
@@ -76,7 +80,7 @@ The Starter Kit R4 includes a set of online projects. These projects build on th
 
 <p style="text-align: justify;">
 You can follow the link below to access the official online course platform, where you will find the online projects with step-by-step instructions:
-<a href="https://www.arduino.cc/starterkit" target="_blank">arduino.cc/starterkit</a>.
+<a href="https://courses.arduino.cc/starterkitr4" target="_blank">courses.arduino.cc/starterkitr4</a>.
 </p>
 
 <div style="page-break-after: always;"></div>
@@ -143,13 +147,12 @@ The Arduino Starter Kit R4 includes the Arduino UNO R4 WiFi board and a wide sel
 
 - Potentiometers (x3)
 - Capacitors – 100 µF (x3)
-- Capacitor – 100 nF (x1)
 - Resistors – 220 Ω (x11)
 - Resistors – 560 Ω (x3)
 - Resistors – 1 kΩ (x3)
 - Resistors – 4.7 kΩ (x3)
 - Resistors – 10 kΩ (x11)
-- Resistors – 1 MΩ (x3)
+- Resistors – 1 MΩ (x7)
 - Resistors – 10 MΩ (x3)
 
 #### Accessories
