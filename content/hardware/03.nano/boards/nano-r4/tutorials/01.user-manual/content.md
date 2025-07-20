@@ -63,7 +63,7 @@ The bottom view of the Nano R4 board is shown in the image below:
 Here is an overview of the board's main components shown in the images above:
 
 - **Microcontroller**: At the heart of the Nano R4 board there is a Renesas RA4M1 family microcontroller ([R7FA4M1AB3CFM](https://www.renesas.com/en/document/dst/ra4m1-group-datasheet?srsltid=AfmBOoryT-HIws0lHBASVG1QdfHDNWNQ5FNnoQV3hpoQ0FbncC7FI3h4)). This single-chip microcontroller, recognized as one of the industry's most energy-efficient microcontroller, is based on a 48 MHz Arm® Cortex®-M4 core with up to 256 KB of flash memory and 32 KB of SRAM memory.
-- **USB-C® connector**: The Nano R4 board features a modern USB-C connector for programming, power supply and serial communication with the external world.
+- **USB-C connector**: The Nano R4 board features a modern USB-C connector for programming, power supply and serial communication with the external world.
 - **Qwiic connector**: The Nano R4 board also includes an onboard Qwiic connector to expand the board's communication capabilities via I²C, facilitating connection with a wide range of boards, sensors, actuators and different peripherals.
 
 - **Programmable RGB LED**: The Nano R4 board has an onboard user-programmable RGB LED to provide visual feedback about different operating states.
@@ -1383,6 +1383,172 @@ When working with EEPROM on the Nano R4, there are several key points to keep in
 - Keep in mind that EEPROM stores data as individual bytes (0 to 255), so larger data types need to be broken down or use the `put()` and `get()` functions for automatic handling.
 - The EEPROM retains data for over 10 years under normal conditions, making it excellent for long-term storage of configuration data and user preferences.
 
+## UART Communication
+
+The Nano R4 board features built-in UART (Universal Asynchronous Receiver-Transmitter) communication that allows your projects to communicate with other devices through serial data transmission. UART is implemented within the RA4M1 microcontroller and provides two separate hardware serial ports: one connected to the USB-C connector for computer communication, and another available on pins `D0` and `D1` for external device communication. This makes it perfect for projects that need to communicate with sensors, modules or other microcontrollers while maintaining USB connectivity for debugging.
+
+UART is particularly useful when your project needs to communicate with devices that require simple, reliable serial communication, rather than the more complex protocols like SPI or I²C. While SPI excels at high-speed communication and I²C is ideal for multiple device networks, UART provides straightforward point-to-point communication that works well with GPS modules, Bluetooth® modules, Wi-Fi® modules and other serial devices. UART communication is asynchronous, meaning it doesn't require a shared clock signal, making it robust over longer distances.
+
+The Nano R4's UART interface offers the following technical specifications:
+
+|   **Parameter**   |    **Value**   |       **Notes**      |
+|:-----------------:|:--------------:|:--------------------:|
+|     Baud Rates    | 300 to 2000000 | Common: 9600, 115200 |
+|     Data Bits     |      8-bit     |  Standard data width |
+|   Communication   |   Full-duplex  |  Simultaneous TX/RX  |
+|   Hardware Ports  |        2       | USB Serial + Serial1 |
+|     UART Pins     |   `D0`, `D1`   |  RX, TX respectively |
+| Operating Voltage |     +5 VDC     |   TTL logic levels   |
+|    Flow Control   |    Software    |  XON/XOFF supported  |
+
+The Nano R4 board uses the following pins for UART communication:
+
+| **Arduino Pin** | **Microcontroller Pin** | **UART Function** | **Description** |
+|:---------------:|:-----------------------:|:-----------------:|:---------------:|
+|       `D0`      |          `P104`         |         RX        |   Receive Data  |
+|       `D1`      |          `P105`         |         TX        |  Transmit Data  |
+
+You can communicate via UART using the built-in `Serial` and `Serial1` objects. The `Serial` object is connected to the USB-C port for computer communication, while `Serial1` is connected to pins `D0` and `D1` for external device communication.
+
+The following example demonstrates basic UART communication patterns:
+
+```arduino
+/**
+UART Basic Example for the Arduino Nano R4 Board
+Name: nano_r4_uart_basic.ino
+Purpose: This sketch demonstrates basic UART communication
+using both USB Serial and hardware Serial1.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+void setup() {
+  // Initialize USB serial communication at 115200 baud
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  // Initialize hardware serial on pins D0/D1 at 9600 baud
+  Serial1.begin(9600);
+  
+  Serial.println("- Arduino Nano R4 - UART Basic Example started...");
+  Serial.println("- USB Serial (Serial): 115200 baud");
+  Serial.println("- Hardware Serial (Serial1): 9600 baud on D0/D1");
+  Serial.println("- Connect logic analyzer to D0 (RX) and D1 (TX)");
+  Serial.println("- Type messages in Serial Monitor to send via Serial1");
+  Serial.println();
+}
+
+void loop() {
+  // Check for data from USB Serial (computer)
+  if (Serial.available()) {
+    String message = Serial.readString();
+
+    // Remove newline characters
+    message.trim(); 
+    
+    if (message.length() > 0) {
+      Serial.print("- USB received: \"");
+      Serial.print(message);
+      Serial.println("\"");
+      
+      // Send the message via Serial1 (D0/D1)
+      Serial1.print("- Message from USB: ");
+      Serial1.println(message);
+      
+      Serial.println("- Message sent via Serial1 (D0/D1)!");
+    }
+  }
+  
+  // Check for data from Serial1 (external device on D0/D1)
+  if (Serial1.available()) {
+    String response = Serial1.readString();
+
+    // Remove newline characters
+    response.trim(); 
+    
+    if (response.length() > 0) {
+      Serial.print("- Serial1 received: \"");
+      Serial.print(response);
+      Serial.println("\"");
+    }
+  }
+  
+  // Send periodic test data via Serial1
+  static unsigned long lastSend = 0;
+  if (millis() - lastSend > 3000) {
+    lastSend = millis();
+    
+    // Send test data with timestamp
+    Serial1.print("Test data: ");
+    Serial1.print(millis());
+    Serial1.println(" ms");
+    
+    Serial.println("- Periodic test data sent via Serial1!");
+  }
+  
+  delay(10);
+}
+```
+
+***To test this example, no external UART devices are required, the code will demonstrate UART communication patterns that can be observed with a logic analyzer. You can type messages in the Arduino IDE's Serial Monitor to see them transmitted via `Serial1` on pins `D0`/`D1`.***
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to interact with the USB serial port and observe the communication patterns. Connect a logic analyzer to pins `D0` (RX) and `D1` (TX) to observe the actual UART protocol signals.
+
+The image below shows how the UART communication from our example appears in the Digilent Waveforms logic analyzer software, with the decoded protocol showing the transmitted data bytes and timing.
+
+The Nano R4 board provides two distinct UART communication channels, giving you the flexibility to handle multiple communication tasks simultaneously. The first channel is the USB Serial (`Serial`), which is your primary interface for programming and debugging. This channel offers several key features:
+
+- Connected to the onboard USB-C connector
+- Used for programming and debugging
+- Typically runs at 115200 baud
+- Automatic baud rate detection
+- No external connections required 
+
+The second channel is the Hardware Serial (`Serial1`), which is dedicated to external device communication. This channel provides robust connectivity for your project peripherals:
+
+- Connected to pins `D0` (RX) and `D1` (TX)
+- Used for external device communication
+- Configurable baud rate (300 to 2000000)
+- TTL voltage levels (0 VDC/+5 VDC)
+- Requires external device connection
+
+Here is a practical example of how to use both UART channels simultaneously, such as when connecting a GPS module:
+
+```arduino
+// Example: Connecting a GPS module via Serial1
+void setup() {
+  Serial.begin(115200);   // USB debugging
+  Serial1.begin(9600);    // GPS module communication
+  
+  Serial.println("GPS module communication started");
+}
+
+void loop() {
+  // Forward GPS data to USB Serial for monitoring
+  if (Serial1.available()) {
+    String gpsData = Serial1.readString();
+    Serial.print("GPS: ");
+    Serial.print(gpsData);
+  }
+  
+  // Send commands to GPS module from USB Serial
+  if (Serial.available()) {
+    String command = Serial.readString();
+    Serial1.print(command);
+    Serial.println("Command sent to GPS");
+  }
+}
+```
+
+When working with UART on the Nano R4, there are several key points to keep in mind for successful implementation: 
+
+- The dual UART design is different from the UNO R3 that shared one UART between USB and pins D0/D1. This separation allows simultaneous USB debugging and external device communication. 
+- Always ensure that both devices use the same baud rate, data bits (typically 8), and stop bits (typically 1) for successful communication.
+- Keep in mind that UART communication uses TTL voltage levels (0 VDC for logic LOW, +5 VDC for logic HIGH). If you need to communicate over longer distances or with RS232 devices, you'll need a level converter. 
+- When connecting external devices, remember that TX connects to RX and RX connects to TX (crossover connection). 
+- The Nano R4's UART ports are full-duplex, meaning they can send and receive data simultaneously, making them perfect for interactive communication with modules like GPS, Bluetooth®, Wi-Fi®, or other microcontrollers.
+
 ## SPI Communication
 
 The Nano R4 board features built-in SPI (Serial Peripheral Interface) communication that allows your projects to communicate with external devices like sensors, displays, memory cards and other microcontrollers. SPI is implemented within the RA4M1 microcontroller and uses four dedicated pins to provide high-speed synchronous serial communication.
@@ -1650,7 +1816,7 @@ void loop() {
   Serial.println("---");
 }
 ```
-***To test this example, no external I²C devices are required. The code will generate I²C communication patterns that can be analized with a protocol analyzer. Without devices connected, read operations will typically return `0xFF`.***
+***To test this example, no external I²C devices are required. The code will generate I²C communication patterns that can be analyzed with a protocol analyzer. Without devices connected, read operations will typically return `0xFF`.***
 
 You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the I²C operations being performed. Connect a protocol analyzer to pins `A4` (SDA) and `A5` (SCL) to observe the actual I²C protocol signals.
 
@@ -1658,9 +1824,11 @@ You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see th
 
 The image below shows how the I²C communication from our example appears in the Digilent Waveforms logic analyzer software, with the decoded protocol showing the device address and data bytes being transmitted.
 
-***The I²C protocol requires pull-up resistors on both SDA and SCL lines. __The Nano R4 board does not have internal pull-ups on A4 and A5 to avoid interference with their analog input functionality, so external 4.7kΩ pull-up resistors to +5 VDC are required for proper I²C operation__.***
+![Arduino IDE Serial Monitor output for the I²C example sketch](assets/i2c-2.png)
 
-One of the main advantages of I²C is the ability to connect multiple devices to the same bus. Here's how to connect multiple I²C devices:
+***The I²C protocol requires pull-up resistors on both SDA and SCL lines. __The Nano R4 board does not have internal pull-ups on `A4` and `A5` to avoid interference with their analog input functionality, so external 4.7kΩ pull-up resistors to +5 VDC are required for proper I²C operation__.***
+
+One of the main advantages of I²C is the ability to connect multiple devices to the same bus. Here is how to connect multiple I²C devices:
 
 ```arduino
 // Example: Communicating with multiple I2C devices
