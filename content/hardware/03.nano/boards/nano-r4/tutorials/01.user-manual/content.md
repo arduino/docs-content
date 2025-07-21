@@ -1495,7 +1495,11 @@ void loop() {
 
 You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to interact with the USB serial port and observe the communication patterns. Connect a logic analyzer to pins `D0` (RX) and `D1` (TX) to observe the actual UART protocol signals.
 
+![Arduino IDE Serial Monitor output for the UART example sketch](assets/uart-1.png)
+
 The image below shows how the UART communication from our example appears in the Digilent Waveforms logic analyzer software, with the decoded protocol showing the transmitted data bytes and timing.
+
+![Digilent Waveforms logic analyzer output for UART](assets/uart-2.png)
 
 The Nano R4 board provides two distinct UART communication channels, giving you the flexibility to handle multiple communication tasks simultaneously. The first channel is the USB Serial (`Serial`), which is your primary interface for programming and debugging. This channel offers several key features:
 
@@ -1543,9 +1547,9 @@ void loop() {
 
 When working with UART on the Nano R4, there are several key points to keep in mind for successful implementation: 
 
-- The dual UART design is different from the UNO R3 that shared one UART between USB and pins D0/D1. This separation allows simultaneous USB debugging and external device communication. 
+- The dual UART design is different from the UNO R3 board that shared one UART between USB and pins D0/D1. This separation allows simultaneous USB debugging and external device communication. 
 - Always ensure that both devices use the same baud rate, data bits (typically 8), and stop bits (typically 1) for successful communication.
-- Keep in mind that UART communication uses TTL voltage levels (0 VDC for logic LOW, +5 VDC for logic HIGH). If you need to communicate over longer distances or with RS232 devices, you'll need a level converter. 
+- Keep in mind that UART communication uses TTL voltage levels (0 VDC for logic `LOW`, +5 VDC for logic `HIGH`). If you need to communicate over longer distances or with RS-232 devices, you'll need a level converter. 
 - When connecting external devices, remember that TX connects to RX and RX connects to TX (crossover connection). 
 - The Nano R4's UART ports are full-duplex, meaning they can send and receive data simultaneously, making them perfect for interactive communication with modules like GPS, Bluetooth®, Wi-Fi®, or other microcontrollers.
 
@@ -1744,7 +1748,7 @@ The Nano R4 uses the following pins for I²C communication:
 |       `A4`      |          `P004`         |        SDA       |  Serial Data Line |
 |       `A5`      |          `P010`         |        SCL       | Serial Clock Line |
 
-You can communicate via I²C using the dedicated `Wire.h` library, which is included in the Arduino UNO R4 Boards core. The library provides simple functions to initialize the bus, send and receive data, and manage multiple devices.
+You can communicate via I²C using the dedicated `Wire.h` library, which is included in the Arduino UNO R4 Boards core. The library provides simple functions to initialize the bus, send and receive data and manage multiple devices.
 
 The following example demonstrates basic I²C communication patterns:
 
@@ -1871,6 +1875,357 @@ When working with I²C on the Nano R4 board, there are several key points to kee
 - Keep in mind that I²C is a half-duplex protocol, meaning data flows in only one direction at a time. The master device (your Nano R4 board) controls the clock line and initiates all communication.
 - When connecting multiple devices, simply connect all SDA pins together and all SCL pins together, along with power and ground connections.
 - The Nano R4 board can communicate with up to 127 different I²C devices on the same bus, making it perfect for complex sensor networks and expandable systems.
+
+## CAN Communication
+
+The Nano R4 board features built-in CAN (Controller Area Network) communication that allows your projects to communicate with automotive systems, industrial devices, and other CAN-enabled equipment. CAN is implemented within the RA4M1 microcontroller and uses two dedicated pins to provide robust, real-time communication over longer distances with multiple devices. This makes it perfect for automotive applications, industrial automation and distributed control systems that require reliable communication in noisy environments.
+
+CAN is particularly useful when your project needs to communicate in industrial or automotive environments where reliability and noise immunity are critical, rather than simple point-to-point communication. While UART excels at simple serial communication and SPI provides high-speed data transfer, CAN offers multi-node networking with built-in error detection, collision handling and message prioritization. CAN communication is differential signaling, making it highly resistant to electromagnetic interference and suitable for harsh environments.
+
+The Nano R4's CAN interface offers the following technical specifications:
+
+|   **Parameter**   |   **Value**   |         **Notes**        |
+|:-----------------:|:-------------:|:------------------------:|
+|     Baud Rates    |  Up to 1 Mbps |    Configurable speed    |
+|    Data Frames    |   0-8 bytes   |    Standard CAN frame    |
+|   Communication   |  Multi-master |  Multiple nodes support  |
+|      CAN Pins     |   `D4`, `D5`  |    TX, RX respectively   |
+|    Message IDs    | 11-bit/29-bit | Standard/Extended format |
+| Operating Voltage |     +5 VDC    | Requires CAN transceiver |
+| External Hardware |    Required   |  CAN transceiver needed  |
+
+The Nano R4 uses the following pins for CAN communication:
+
+| **Arduino Pin** | **Microcontroller Pin** | **CAN Function** | **Description** |
+|:---------------:|:-----------------------:|:----------------:|:---------------:|
+|       `D4`      |          `P109`         |     `CAN_TX`     |   CAN Transmit  |
+|       `D5`      |          `P110`         |     `CAN_RX`     |   CAN Receive   |
+
+***__Important note__: The Nano R4's CAN interface provides logic-level signals only. You must use an external CAN transceiver (such as SN65HVD230 from Texas Instruments® or the MCP2561 from Microchip®) to convert these signals to the differential CAN bus levels (`CANH`/`CANL`) required for actual CAN communication.***
+
+You can communicate via CAN using the built-in `Arduino_CAN` library included in the Arduino UNO R4 Boards core. The library provides functions to initialize the bus, send and receive CAN frames and handle message filtering.
+
+The following example demonstrates basic CAN communication patterns: 
+
+```arduino
+/**
+CAN Basic Example for the Arduino Nano R4 Board
+Name: nano_r4_can_basic.ino
+Purpose: This sketch demonstrates basic CAN communication
+for automotive and industrial applications.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+#include <Arduino_CAN.h>
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  Serial.println("- Arduino Nano R4 - CAN Basic Example started...");
+  
+  // Initialize CAN communication at 500k baud
+  if (!CAN.begin(CanBitRate::BR_500k)) {
+    Serial.println("- Error: Failed to initialize CAN bus!");
+    while (1) delay(10);
+  }
+  
+  Serial.println("- CAN bus initialized at 500k baud");
+  Serial.println("- Connect CAN transceiver to D4 (TX) and D5 (RX)");
+  Serial.println("- Sending periodic CAN messages...");
+  
+  delay(1000);
+}
+
+void loop() {
+  // Send periodic CAN messages
+  static unsigned long lastSend = 0;
+  if (millis() - lastSend > 1000) {
+    lastSend = millis();
+    
+    // Create a CAN message
+    uint8_t data[8] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
+    CanMsg msg(CAN_ID(0x123), sizeof(data), data);
+    
+    // Send the message
+    int result = CAN.write(msg);
+    if (result == 1) {
+      Serial.print("- CAN message sent - ID: 0x");
+      Serial.print(0x123, HEX);
+      Serial.print(", Data: ");
+      for (int i = 0; i < 8; i++) {
+        Serial.print("0x");
+        if (data[i] < 16) Serial.print("0");
+        Serial.print(data[i], HEX);
+        if (i < 7) Serial.print(" ");
+      }
+      Serial.println();
+    } else {
+      Serial.println("- Error: Failed to send CAN message!");
+    }
+  }
+  
+  // Check for incoming CAN messages
+  if (CAN.available()) {
+    CanMsg receivedMsg = CAN.read();
+    
+    Serial.print("- CAN message received - ID: 0x");
+    Serial.print(receivedMsg.id, HEX);
+    Serial.print(", Length: ");
+    Serial.print(receivedMsg.data_length);
+    Serial.print(", Data: ");
+    
+    for (int i = 0; i < receivedMsg.data_length; i++) {
+      Serial.print("0x");
+      if (receivedMsg.data[i] < 16) Serial.print("0");
+      Serial.print(receivedMsg.data[i], HEX);
+      if (i < receivedMsg.data_length - 1) Serial.print(" ");
+    }
+    Serial.println();
+  }
+  
+  delay(10);
+}
+```
+
+***To test this example, you need an external CAN transceiver connected to pins `D4` and `D5`. The code will demonstrate CAN communication patterns that can be observed with a CAN analyzer. Without a CAN transceiver and CAN network, the messages will not be transmitted on the actual CAN bus.***
+
+Since the Nano R4's CAN interface provides only logic-level signals, you'll need an external CAN transceiver to convert these signals to the differential voltage levels required by CAN networks. The transceiver acts as a bridge between your Nano R4 board and the actual CAN bus, handling the electrical requirements and providing isolation.
+
+For prototyping with the Nano R4 board, you need a +5 VDC-compatible transceiver like the [MCP2561 from Microchip](https://ww1.microchip.com/downloads/en/DeviceDoc/20005167C.pdf), which matches the board's +5 VDC logic levels. While the [SN65HVD230 from Texas Instruments](https://www.ti.com/lit/ds/symlink/sn65hvd230.pdf) is popular and widely used, it operates at +3.3 VDC and may require level shifting when used with the +5 VDC Nano R4.
+
+When working with CAN on the Nano R4, there are several key points to keep in mind for successful implementation:
+
+- Always ensure proper termination with 120 Ω resistors at both ends of the CAN bus to prevent signal reflections.
+- Keep in mind that CAN uses message-based communication with unique identifiers rather than device addresses. Lower ID numbers have higher priority, so critical messages should use lower IDs.
+- The CAN protocol provides automatic error detection, retransmission and collision resolution, making it extremely reliable for safety-critical applications.
+- The Nano R4 supports both standard (11-bit) and extended (29-bit) CAN identifiers, allowing compatibility with most automotive and industrial CAN networks.
+
+## HID (Human Interface Device) Communication
+
+The Nano R4 board features built-in HID (Human Interface Device) communication that allows your projects to emulate input devices like keyboards and mice. HID is implemented within the RA4M1 microcontroller and uses the USB-C connection to communicate directly with computers as standard input devices. This makes it perfect for automation projects, assistive technologies, gaming controllers and interactive installations that need to control computers or send keystrokes and mouse movements.
+
+HID is particularly useful when your project needs to interact directly with computer software, rather than just sending data through serial communication. While serial communication requires special software on the computer to interpret data, HID devices are recognized automatically by any operating system as standard keyboards or mice. This allows your Nano R4 to trigger keyboard shortcuts, type text, move the mouse cursor, or click buttons, making it ideal for presentation controllers, accessibility devices and automation systems.
+
+The Nano R4's HID interface offers the following technical specifications:
+
+|   **Parameter**  |     **Value**    |         **Notes**         |
+|:----------------:|:----------------:|:-------------------------:|
+|   Device Types   | Keyboard & Mouse |    Standard HID classes   |
+|    Connection    |       USB-C      |   Native USB connection   |
+|   Compatibility  |  Cross-platform  |   Windows, macOS, Linux   |
+|   Key Modifiers  |   All standard   | Ctrl, Alt, Shift, GUI/Cmd |
+|   Mouse Buttons  |     3 buttons    |    Left, Right, Middle    |
+|  Mouse Movement  |  Relative/Delta  |   Smooth cursor movement  |
+|   Scroll Wheel   |     Supported    |    Vertical scroll only   |
+| Multiple Devices |     Supported    | Keyboard + Mouse together |
+
+The Nano R4 uses the USB-C connector for HID communication:
+
+| **Connection** | **Function** |        **Description**       |
+|:--------------:|:------------:|:----------------------------:|
+|      USB-C     |      HID     | Keyboard and Mouse emulation |
+
+***__Important note__: When HID functionality is active, the Nano R4 board will be recognized by your computer as an input device. Be careful with your code to avoid sending unintended keystrokes or mouse movements that could interfere with normal computer operation.***
+
+You can use HID communication through the dedicated `Keyboard.h` and `Mouse.h` libraries, which are included in the Arduino UNO R4 Boards core. These libraries provide simple functions to send keystrokes, key combinations, mouse movements and clicks.
+
+The following example demonstrates basic keyboard emulation capabilities:
+
+```arduino
+/**
+HID Keyboard Example for the Arduino Nano R4 Board
+Name: nano_r4_hid_keyboard.ino
+Purpose: This sketch demonstrates how to use the Nano R4 as a 
+USB keyboard to send keystrokes and key combinations.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+#include "Keyboard.h"
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  Serial.println("- Arduino Nano R4 - HID Keyboard Example started...");
+  Serial.println("- WARNING: This will send actual keystrokes to your computer!");
+  
+  // Wait 5 seconds before starting HID to give user time to read warning
+  Serial.println("- Starting in 5 seconds...");
+  for (int i = 5; i > 0; i--) {
+    Serial.print(i);
+    Serial.println(" seconds remaining");
+    delay(1000);
+  }
+  
+  // Initialize keyboard functionality
+  Keyboard.begin();
+  Serial.println("- Keyboard HID initialized. Starting demonstration...");
+  
+  delay(1000);
+  
+  // Demonstrate basic text typing
+  Serial.println("- Typing basic text...");
+  Keyboard.print("Hello from Nano R4! ");
+  delay(1000);
+  
+  // Demonstrate special keys
+  Serial.println("- Pressing Enter key...");
+  Keyboard.press(KEY_RETURN);
+  delay(100);
+  Keyboard.releaseAll();
+  delay(1000);
+  
+  // Demonstrate keyboard shortcuts
+  Serial.println("- Sending Ctrl+A (Select All)...");
+  Keyboard.press(KEY_LEFT_CTRL);
+  Keyboard.press('a');
+  delay(100);
+  Keyboard.releaseAll();
+  delay(1000);
+  
+  Serial.println("- Keyboard demonstration completed!");
+}
+
+void loop() {
+  // Send a timestamp every 10 seconds
+  static unsigned long lastMessage = 0;
+  if (millis() - lastMessage > 10000) {
+    lastMessage = millis();
+    
+    Serial.println("- Sending periodic message...");
+    
+    // Send message with only letters, numbers and spaces
+    Keyboard.print("Nano R4 ");
+    Keyboard.print(millis() / 1000);
+    Keyboard.print(" seconds");
+    Keyboard.press(KEY_RETURN);
+    delay(50);
+    Keyboard.releaseAll();
+  }
+  
+  delay(100);
+}
+```
+
+***To test this example, no external components are needed. The code will wait 5 seconds before activating HID functionality, then automatically demonstrate various keyboard functions.***
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages.
+
+![Arduino IDE Serial Monitor output for the keyboard emulation example sketch](assets/hid-1.png)
+
+After 5 seconds, the Nano R4 board will type text directly into whatever application has focus on your computer.
+
+![Keyboard emulation example](assets/hid-2.gif)
+
+The following example demonstrates mouse emulation capabilities:
+
+```arduino
+/**
+HID Mouse Example for the Arduino Nano R4 Board
+Name: nano_r4_hid_mouse.ino
+Purpose: This sketch demonstrates how to use the Nano R4 as a 
+USB mouse to control cursor movement and clicking.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+#include "Mouse.h"
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  Serial.println("- Arduino Nano R4 - HID Mouse Example started...");
+  Serial.println("- WARNING: This will control your actual mouse cursor!");
+  
+  // Wait 5 seconds before starting HID
+  Serial.println("- Starting in 5 seconds...");
+  for (int i = 5; i > 0; i--) {
+    Serial.print(i);
+    Serial.println(" seconds remaining");
+    delay(1000);
+  }
+  
+  // Initialize mouse functionality
+  Mouse.begin();
+  Serial.println("- Mouse HID initialized. Starting demonstration...");
+  
+  delay(1000);
+  
+  // Demonstrate basic mouse movement
+  Serial.println("- Moving mouse in a square pattern...");
+  Mouse.move(100, 0);    // Move right
+  delay(500);
+  Mouse.move(0, 100);    // Move down
+  delay(500);
+  Mouse.move(-100, 0);   // Move left
+  delay(500);
+  Mouse.move(0, -100);   // Move up
+  delay(500);
+  
+  // Demonstrate mouse clicks
+  Serial.println("- Performing mouse clicks...");
+  Mouse.click(MOUSE_LEFT);
+  delay(500);
+  Mouse.click(MOUSE_RIGHT);
+  delay(500);
+  
+  // Demonstrate scrolling
+  Serial.println("- Demonstrating scroll wheel...");
+  Mouse.move(0, 0, 3);   // Scroll up
+  delay(500);
+  Mouse.move(0, 0, -3);  // Scroll down
+  delay(500);
+  
+  Serial.println("- Mouse demonstration completed!");
+}
+
+void loop() {
+  // Create a gentle circular mouse movement every 15 seconds
+  static unsigned long lastMovement = 0;
+  if (millis() - lastMovement > 15000) {
+    lastMovement = millis();
+    
+    Serial.println("- Creating circular mouse movement...");
+    for (int angle = 0; angle < 360; angle += 30) {
+      int x = (int)(10 * cos(angle * PI / 180));
+      int y = (int)(10 * sin(angle * PI / 180));
+      Mouse.move(x, y);
+      delay(100);
+    }
+  }
+  
+  delay(100);
+}
+```
+
+***To test this example, no external components are needed. The code will automatically demonstrate mouse movement, clicking and scrolling functions.***
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages. 
+
+![Arduino IDE Serial Monitor output for the mouse emulation example sketch](assets/hid-3.png)
+
+The mouse cursor will move and click according to the button presses.
+
+![Mouse emulation example](assets/hid-4.gif)
+
+When working with HID on the Nano R4, there are several key points to keep in mind for successful implementation:
+
+- HID functionality makes your Nano R4 board appear as a real keyboard and mouse to your computer, so always include safeguards and delays in your code to prevent unintended actions that could interfere with normal computer operation.
+- Always include a delay or warning period before activating HID functionality to give yourself time to prepare or stop the program if needed.
+- Keep in mind that HID devices are automatically recognized by all modern operating systems without requiring special drivers, making your projects instantly compatible with Windows, macOS and Linux.
+- For debugging HID projects, use `Serial.println()` statements to track what your code is doing, since you cannot rely on the Arduino IDE's Serial Monitor once HID actions start interfering with your computer.
+- The Nano R4 can function as both a keyboard and mouse simultaneously, allowing for complex automation sequences that combine typing, shortcuts and mouse control.
+- Remember that different operating systems may have slightly different keyboard layouts and shortcuts, so test your HID projects on your target platform to ensure compatibility.
 
 ## Support
 
