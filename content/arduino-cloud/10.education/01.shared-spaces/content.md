@@ -64,23 +64,13 @@ Login to https://app.arduino.cc/ with your Arduino account by default, any new u
 
 ![Arduino Cloud Homepage view](assets/cloud-home-u.png)
 
-***Note: A private space is an automatically created once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class.*** 
-
-### Create a Shared Space for your classroom 
-
-Now that you have a private space let's get you started. In order to create a shared space go to [this link](https://app.arduino.cc/space?spaceType="edu").
-
-Then you will be asked which type of shared space you want to create (i.e. For Business or For Education). Click on **For Education** and proceed with creating an online space to share with your students or other colleagues.
-
-![Shared space type selection](assets/shared-space-type-selection.png)
-
-Fill in additional information such as the name of your School, Country and Grade. 
-
-![Fill in school information for the new space](assets/fillschoolinfo.png)
-
-Congratulations! Now you own a shared space linked to your Arduino account. In the next section we will show you how to add members into your space and make it lively. 
+***Note: A private space is an automatically created once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class.***
 
 ## Adding members to a Shared Space
+
+A shared space is automatically created when you sign up for a School plan. For the following sections make sure that you switch to your shared space in the upper left corner, as shown in the image below.
+
+![Selecting the shared space](assets/cloud-shared-spaces.png)
 
 In this section we will show you how to add students, teachers and Administrators to your shared space and manage them effectively. 
 
