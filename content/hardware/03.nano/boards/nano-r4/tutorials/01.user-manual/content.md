@@ -1731,15 +1731,15 @@ I²C is particularly useful when your project needs to communicate with multiple
 
 The Nano R4's I²C interface offers the following technical specifications:
 
-|   **Parameter**   |   **Value**   |          **Notes**         |
-|:-----------------:|:-------------:|:--------------------------:|
-|    Clock Speed    | Up to 400 kHz |     Standard/Fast mode     |
-|   Data Transfer   |     8-bit     |     Standard data width    |
-|   Communication   |  Half-duplex  |   One direction at a time  |
-|      I²C Pins     |   `A4`, `A5`  |    SDA, SCL respectively   |
-| Device Addressing |  7-bit/10-bit | Up to 127 unique addresses |
-| Operating Voltage |     +5 VDC    |        Same as board       |
-| Pull-up Resistors |    Internal   |   Built-in weak pull-ups   |
+|   **Parameter**   |     **Value**     |          **Notes**         |
+|:-----------------:|:-----------------:|:--------------------------:|
+|    Clock Speed    |   Up to 400 kHz   |     Standard/Fast mode     |
+|   Data Transfer   |       8-bit       |     Standard data width    |
+|   Communication   |    Half-duplex    |   One direction at a time  |
+|      I²C Pins     |     `A4`, `A5`    |    SDA, SCL respectively   |
+| Device Addressing |    7-bit/10-bit   | Up to 127 unique addresses |
+| Operating Voltage |       +5 VDC      |        Same as board       |
+| Pull-up Resistors | External required |    No internal pull-ups    |
 
 The Nano R4 uses the following pins for I²C communication:
 
