@@ -23,7 +23,7 @@ This will take you to the setup menu for your device. You can now choose between
 
 Now you have to decide how you want to set up your board with the Cloud, either via Bluetooth® or USB cable (you can check if your board is compatible with the Bluetooth method below). These two options have different processes, pick the method that suits your needs best and follow the section for your chosen method.
 
-***NOTE: If you want to use the Bluetooth method and you have an older board you need to first connect the board to the cloud in order to update it to the newer provisioning version. If you are having issues with connecting your board via Bluetooth, we suggest going through the USB option first to make sure that the provisioning version is correct.**
+***NOTE: If you want to use the Bluetooth method and you have an older board you need to first connect the board to the cloud in order to update it to the newer provisioning version. If you are having issues with connecting your board via Bluetooth, we suggest going through the USB option first to make sure that the provisioning version is correct.***
 
 ## Bluetooth Provisioning
 
