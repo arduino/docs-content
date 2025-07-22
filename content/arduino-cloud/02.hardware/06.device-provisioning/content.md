@@ -24,23 +24,24 @@ If your board is provisioned to the cloud with version 2.0 the network credentia
 
 ### Compatible Boards List
 
-| Board | Compatible version |
-| MKR NB 1500 | Version 1.0 |
-| MKR WAN 1300 | Version 1.0 |
-| MKR WAN 1310 | Version 1.0 |
-| MKR 1000 | Version 1.0 |
-| MKR WiFi 1010 | Version 1.0 |
-| MKR GSM 1400 | Version 1.0 |
-| GIGA R1 WiFi | Version 2.0 |
-| Uno R4 Wifi | Version 1.0 |
-| Nano 33 IoT | Version 1.0 |
-| Nano ESP32 | Version 1.0 |
+|        Board        | Compatible version |
+| ------------------- | ----------- |
+|     MKR NB 1500     | Version 1.0 |
+|     MKR WAN 1300    | Version 1.0 |
+|     MKR WAN 1310    | Version 1.0 |
+|     MKR 1000        | Version 1.0 |
+|     MKR WiFi 1010   | Version 1.0 |
+|     MKR GSM 1400    | Version 1.0 |
+|     GIGA R1 WiFi    | Version 2.0 |
+|     Uno R4 Wifi     | Version 1.0 |
+|     Nano 33 IoT     | Version 1.0 |
+|     Nano ESP32      | Version 1.0 |
 | Nano RP2040 Connect | Version 1.0 |
-| Portenta H7 | Version 1.0 |
-| Portenta C33 | Version 1.0 |
-| Portenta X8 | Version 1.0 |
-| Nicla Vision | Version 1.0 |
-| Opta | Version 1.0 |
+|     Portenta H7     | Version 1.0 |
+|     Portenta C33    | Version 1.0 |
+|     Portenta X8     | Version 1.0 |
+|     Nicla Vision    | Version 1.0 |
+|        Opta         | Version 1.0 |
 
 ### Configure Your Board
 
