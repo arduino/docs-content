@@ -21,54 +21,54 @@ software:
 
 ## Introduction
 
-Motor condition monitoring is a critical application in industrial environments where unexpected equipment failures can result in significant downtime and maintenance costs. This application note describes how to build a motor anomaly detection system using the Nano R4 board, the ADXL335 analog accelerometer and Edge Impulse.
+Motor condition monitoring is essential in industrial settings where unexpected equipment failures can cause significant downtime and high maintenance costs. This application note shows how to build a motor anomaly detection system using the Nano R4 board, an ADXL335 accelerometer and Edge Impulse®.
 
-![ ](assets/hero-banner.gif)
+![ ](assets/hero-banner.png)
 
-The motor anomaly detection system developed in this application note provides real-time monitoring of vibration patterns to identify abnormal operating conditions that may indicate mechanical issues, wear or impending failures. The system uses embedded machine learning to detect anomalous vibration patterns that deviate from normal motor operation, enabling predictive maintenance strategies.
+The developed system monitors vibration patterns in real-time to identify unusual operating conditions that may signal mechanical problems, wear or potential failures. The system uses machine learning to detect vibration patterns that differ from normal motor operation, enabling predictive maintenance.
 
 ## Goals
 
-The main goals of this application note are the following:
+This application note will help you to:
 
-- Develop and implement a motor anomaly detection system that monitors vibration patterns in real-time using an analog accelerometer.
-- Collect and analyze vibration data from motors to establish baseline normal operation patterns and detect deviations.
-- Train a machine learning model using Edge Impulse for intelligent anomaly detection based on vibration signatures.
-- Deploy the trained model directly to the Nano R4 board for real-time, on-device anomaly detection without cloud connectivity requirements.
-- Provide visual feedback through the board's built-in LED to indicate detected anomalies and system status.
-- Enable industrial predictive maintenance applications with cost-effective embedded intelligence.
+- Build a motor anomaly detection system that monitors vibration patterns in real-time using an accelerometer.
+- Collect and analyze vibration data from motors to create baseline patterns and detect changes.
+- Train a machine learning model using Edge Impulse to detect anomalies based on vibration data.
+- Deploy the trained model directly to the Nano R4 board for real-time anomaly detection without needing cloud connectivity.
+- Set up visual feedback through the board's built-in LED to show detected anomalies and system status.
+- Create industrial predictive maintenance solutions using cost-effective embedded intelligence.
 
 ## Hardware and Software Requirements
 
 ### Hardware Requirements
 
 - [Arduino Nano R4](https://store.arduino.cc/products/nano-r4) (x1)
-- [ADXL335 3-axis analog accelerometer breakout board](https://www.adafruit.com/product/163) (x1)
+- [ADXL335 accelerometer breakout board](https://www.adafruit.com/product/163) (x1)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
-- Breadboard and jumper wires for connections (x1 set)
-- Motor or rotating equipment for testing purposes (for example, a small DC motor or fan) (x1)
-- Power supply appropriate for the motor or rotating equipment (if required) (x1)
+- Breadboard and jumper wires (x1 set)
+- Motor or rotating equipment for testing (for example, a small DC motor or fan) (x1)
+- Power supply for the motor (if needed) (x1)
 
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
-- [Arduino Renesas Core](https://github.com/arduino/ArduinoCore-renesas) (required to work with the Nano R4 board)
+- [Arduino Renesas Core](https://github.com/arduino/ArduinoCore-renesas) (needed for the Nano R4 board)
 - [Edge Impulse account](https://studio.edgeimpulse.com/) (free tier available)
-- [Edge Impulse CLI tools](https://docs.edgeimpulse.com/docs/cli-installation) for data forwarding
+- [Edge Impulse CLI tools](https://docs.edgeimpulse.com/docs/cli-installation) for data collection
 
-***The Nano R4 board provides enhanced processing capabilities with a 32-bit Renesas RA4M1 microcontroller running at 48 MHz, 256 kB Flash memory and 32 kB SRAM for efficient machine learning inference. For detailed hardware specifications, please refer to the Arduino Nano R4 documentation.***
+***The Nano R4 board offers improved processing power with a 32-bit Renesas RA4M1 microcontroller running at 48 MHz, 256 kB Flash memory and 32 kB SRAM for machine learning tasks. For complete hardware specifications, see the [Arduino Nano R4 documentation](https://docs.arduino.cc/hardware/nano-r4/).***
 
 ## Hardware Setup Overview
 
-The electrical connections for the motor anomaly detection system are outlined in the diagram shown below:
+The electrical connections for the motor anomaly detection system are shown in the diagram below:
 
 ![The motor anomaly detection system hardware setup](assets/hardware-setup.png)
 
-This diagram shows how the system components are connected. The Nano R4 board serves as the **primary controller**, while the ADXL335 accelerometer collects **3-axis vibration data** from the motor being monitored.
+This diagram shows how the system components connect. **The Nano R4 board acts as the main controller**, while **the ADXL335 accelerometer collects vibration data** from the motor.
 
-The ADXL335 accelerometer connects to the Nano R4 board using analog input pins. For this application note, the system uses an external +5 VDC power supply that powers both the Nano R4 and the test motor, while the ADXL335 is powered through its onboard voltage regulator from the board's +5 VDC pin.
+The ADXL335 accelerometer connects to the Nano R4 board using analog input pins. In this setup, an external +5 VDC power supply powers both the Nano R4 and the test motor, while the ADXL335 gets power through its built-in voltage regulator from the board's +5 VDC pin.
 
-***This power configuration is designed specifically for testing and demonstration purposes in this application note. In real industrial environments, proper power system design should consider factors such as electrical isolation, noise filtering, surge protection, and compliance with industrial safety standards appropriate for the specific application and operating environment.***
+***__Important note__:This power setup is for testing and demonstration only. In real industrial environments, proper power system design should include electrical isolation, noise filtering, surge protection and compliance with industrial safety standards for your specific application.***
 
 ### Circuit Connections
 
@@ -85,51 +85,53 @@ The following connections establish the interface between the Nano R4 board and 
 
 ### Physical Mounting Considerations
 
-Proper accelerometer mounting is essential for effective vibration monitoring. The sensor must be securely attached to the motor housing or monitored equipment using suitable mechanical fasteners. A good mechanical coupling between the mounting surface and sensor ensures accurate vibration transmission and reliable measurements.
+Proper accelerometer mounting is essential for effective vibration monitoring. The sensor must be securely attached to the motor housing or equipment using appropriate mechanical fasteners. Good mechanical connection between the mounting surface and sensor ensures accurate vibration transmission and reliable measurements.
 
-***For this application note, we will use a computer cooling fan to simulate motor operation and demonstrate the anomaly detection system. The ADXL335 accelerometer will be mounted on top of the fan using a custom 3D-printed enclosure, providing a stable and repeatable mounting solution for testing and demonstration purposes.***
+***For this application note, we will use a computer cooling fan to simulate motor operation and demonstrate the anomaly detection system. The ADXL335 accelerometer will be mounted on top of the fan using a custom 3D-printed enclosure, providing a stable and consistent mounting solution for testing.***
 
 ## Understanding Motor Vibration Analysis
 
-Motor vibrations contain valuable information about the mechanical condition of the equipment. Normal motor operation produces characteristic vibration patterns that remain relatively consistent during healthy operation. Abnormal conditions manifest as changes in vibration amplitude, frequency content or temporal patterns.
+Motor vibrations contain valuable information about the mechanical condition of the equipment. Normal motor operation produces characteristic vibration patterns that stay relatively consistent during healthy operation. Abnormal conditions show up as changes in vibration amplitude, frequency content or timing patterns.
 
 ### Common Motor Faults
 
-Typical motor faults that can be detected through vibration analysis include the following conditions:
+Common motor faults that can be detected through vibration analysis include:
 
-- **Bearing wear**: Creates higher frequency components and increased overall vibration levels across all axes
-- **Misalignment**: Produces specific frequency signatures related to rotational speed, typically appearing in radial directions
-- **Imbalance**: Results in increased vibration at the fundamental rotational frequency, primarily in radial directions
-- **Looseness**: Causes broadband increases in vibration across multiple frequencies and directions
-- **Electrical issues**: May create vibrations at twice the line frequency due to magnetic field variations
+- **Bearing wear**: Creates higher frequency components and increased vibration levels across all axes
+- **Misalignment**: Produces specific frequency patterns related to rotational speed, typically appearing in radial directions
+- **Imbalance**: Results in increased vibration at the main rotational frequency, primarily in radial directions
+- **Looseness**: Causes widespread increases in vibration across multiple frequencies and directions
+- **Electrical issues**: May create vibrations at twice the line frequency due to magnetic field changes
 
 ### The Role of Sensors in Vibration Monitoring
 
-Effective motor condition monitoring relies on sensors capable of accurately detecting and measuring mechanical vibrations. These sensors must capture the subtle changes in vibration patterns that indicate developing faults or abnormal operating conditions. The choice of sensor technology directly impacts the system's ability to detect problems early and provide reliable maintenance insights.
+Effective motor condition monitoring relies on sensors that can accurately detect and measure mechanical vibrations. These sensors must capture the small changes in vibration patterns that indicate developing faults or abnormal operating conditions. The choice of sensor technology directly affects the system's ability to detect problems early and provide reliable maintenance information.
 
-This application note uses the [ADXL335 analog accelerometer](https://www.analog.com/media/en/technical-documentation/data-sheets/adxl335.pdf) to provide accurate, real-time measurements of motor vibrations. The ADXL335 offers several key advantages for motor monitoring applications:
+This application note uses the [ADXL335 accelerometer](https://www.analog.com/media/en/technical-documentation/data-sheets/adxl335.pdf) to provide accurate, real-time measurements of motor vibrations. The ADXL335 offers several key advantages for motor monitoring applications:
 
 - **3-Axis measurement**: Captures vibrations in X, Y, and Z directions 
-- **Analog output**: Direct compatibility with the Nano R4 board analog inputs without requiring complex digital interfaces
+- **Analog output**: Direct compatibility with the Nano R4 board analog inputs without needing complex digital interfaces
 - **Low power consumption**: Only 320 μA current consumption makes it suitable for continuous monitoring applications
-- **Wide frequency range**: 0.5 Hz to 1600 Hz bandwidth covers most typical motor fault frequencies
+- **Wide frequency range**: 0.5 Hz to 1600 Hz bandwidth covers most common motor fault frequencies
 
-The ADXL335 technical specifications include the following characteristics:
+The ADXL335 technical specifications include:
 
-- **Measurement range**: ±3g on all axes, appropriate for typical motor vibration levels
-- **Sensitivity**: 330 mV/g nominal sensitivity provides good resolution for vibration analysis
-- **Output**: Ratiometric analog voltages with +1.65 VDC representing 0g acceleration
-- **Power supply**: +1.8 to +3.6 VDC (regulated to +3.3 VDC usually on breakout boards)
+| **Specification** |          **Value**          |                     **Notes**                    |
+|:-----------------:|:---------------------------:|:------------------------------------------------:|
+| Measurement range |       ±3g on all axes       |   Appropriate for common motor vibration levels  |
+|    Sensitivity    |       330 mV/g nominal      |  Provides good resolution for vibration analysis |
+|       Output      | Ratiometric analog voltages |       +1.65 VDC represents 0g acceleration       |
+|    Power supply   |       +1.8 to +3.6 VDC      | Usually regulated to +3.3 VDC on breakout boards |
 
-Signal processing considerations include selecting appropriate sampling rates based on the expected frequency content of motor vibrations, typically following the Nyquist criterion to avoid aliasing. The Nano R4 board's 14-bit ADC provides enough resolution for most vibration monitoring applications.
+Signal processing considerations include selecting appropriate sampling rates based on the expected frequency content of motor vibrations, typically following the Nyquist rule to avoid aliasing. The Nano R4 board's 14-bit ADC provides sufficient resolution for most vibration monitoring applications.
 
 ## Simple Vibration Monitor Example Sketch
 
-Now that we have covered the hardware components and vibration analysis fundamentals, let's examine the software that enables vibration data collection. Before implementing intelligent anomaly detection, we need to collect training data representing normal motor operation for Edge Impulse, a platform that simplifies embedded AI development.
+Now that we have covered the hardware components and vibration analysis basics, let's look at the software that enables vibration data collection. Before implementing intelligent anomaly detection, we need to collect training data representing normal motor operation for Edge Impulse, a platform that simplifies embedded AI development.
 
-Edge Impulse requires training data in a specific format to build effective anomaly detection models. Our data collection sketch formats the accelerometer readings so Edge Impulse can analyze normal operation patterns and create a model that identifies when new data deviates from these established patterns.
+Edge Impulse needs training data in a specific format to build effective anomaly detection models. Our data collection sketch formats the accelerometer readings so Edge Impulse can analyze normal operation patterns and create a model that identifies when new data differs from these patterns.
 
-This section breaks down the provided example sketch, guiding you through its functionality. We will explore how the accelerometer is initialized, how vibration data is collected at consistent intervals and how the results are formatted specifically for Edge Impulse data collection and model training.
+This section breaks down the example sketch and guides you through its functionality. We will explore how the accelerometer is initialized, how vibration data is collected at consistent intervals, and how the results are formatted for Edge Impulse data collection and model training.
 
 The complete example sketch is shown below.
 
@@ -145,139 +147,104 @@ The complete example sketch is shown below.
   @author Arduino Product Experience Team
 */
 
-// Pin definitions for ADXL335 accelerometer
-const int xPin = A0;  // X-axis connected to analog pin 0
-const int yPin = A1;  // Y-axis connected to analog pin 1
-const int zPin = A2;  // Z-axis connected to analog pin 2
+// Pin definitions for ADXL335
+const int xPin = A0;
+const int yPin = A1;
+const int zPin = A2;
 
 // ADXL335 specifications
-const float sensitivity = 0.330;  // 330 mV/g sensitivity
-const float zeroG = 1.65;         // 1.65V at 0g acceleration
+const float sensitivity = 0.330;  // 330 mV/g
+const float zeroG = 1.65;         // 1.65V at 0g
 const float vRef = 3.3;           // Reference voltage
 
-// Sampling parameters for Edge Impulse
-const int sampleRate = 100;       // 100 Hz sampling rate
-const int windowSize = 200;       // 2-second data windows (200 samples)
-const unsigned long sampleInterval = 1000 / sampleRate; // 10ms between samples
+// Sampling parameters
+const int sampleRate = 100;       // 100 Hz
+const int windowSize = 200;       // 2-second windows
+const unsigned long sampleTime = 1000 / sampleRate; // 10ms between samples
 
 // Data collection variables
 unsigned long lastSample = 0;
 int sampleCount = 0;
-bool collectingData = false;
+bool collecting = false;
 
-/**
-  Initializes the accelerometer and serial communication.
-  Configures the Arduino Nano R4 ADC resolution and prepares
-  the system for vibration data collection.
-*/
 void setup() {
-  // Initialize serial communication at 115200 baud
   Serial.begin(115200);
+  analogReadResolution(14);
   
-  // Configure ADC for maximum resolution
-  // Use 14-bit ADC resolution
-  analogReadResolution(14);  
-  
-  // System ready message
   Serial.println("- Motor Vibration Data Collector");
   Serial.println("- Send 'start' to begin data collection");
   Serial.println("- Data format: X_accel,Y_accel,Z_accel");
   
-  // Allow sensor to stabilize
   delay(1000);
 }
 
-/**
-  Main loop that handles data collection commands and sampling.
-  Checks for serial commands to start/stop data collection and
-  maintains consistent sampling timing for vibration analysis.
-*/
 void loop() {
-  // Check for serial commands
+  // Check for commands
   if (Serial.available()) {
     String command = Serial.readString();
     command.trim();
     
-    if (command == "start" && !collectingData) {
-      startDataCollection();
-    } else if (command == "stop" && collectingData) {
-      stopDataCollection();
+    if (command == "start" && !collecting) {
+      startCollection();
+    } else if (command == "stop" && collecting) {
+      stopCollection();
     }
   }
   
   // Collect data if active
-  if (collectingData) {
-    collectVibrationData();
+  if (collecting) {
+    collectData();
   }
 }
 
-/**
-  Starts a new data collection window.
-  Resets counters and begins sampling vibration data
-  at the specified rate for Edge Impulse training.
-*/
-void startDataCollection() {
-  collectingData = true;
+void startCollection() {
+  collecting = true;
   sampleCount = 0;
   lastSample = millis();
   
   Serial.println("- Starting data collection...");
-  Serial.println();
   delay(100);
 }
 
-/**
-  Stops the current data collection window.
-  Provides feedback on the number of samples collected
-  and prepares system for next collection cycle.
-*/
-void stopDataCollection() {
-  collectingData = false;
+void stopCollection() {
+  collecting = false;
   Serial.println();
-  Serial.print("- Data collection stopped. Samples collected: ");
+  Serial.print("- Data collection stopped. Samples: ");
   Serial.println(sampleCount);
-  Serial.println("- Send 'start' to collect another window");
+  Serial.println("- Send 'start' for another window");
 }
 
-/**
-  Collects vibration data from the ADXL335 accelerometer.
-  Maintains precise timing for consistent sampling and
-  converts raw ADC values to acceleration in g units.
-*/
-void collectVibrationData() {
+void collectData() {
   unsigned long currentTime = millis();
   
-  // Check if it's time for the next sample
-  if (currentTime - lastSample >= sampleInterval) {
-    // Read raw ADC values from all three axes
+  if (currentTime - lastSample >= sampleTime) {
+    // Read raw values
     int xRaw = analogRead(xPin);
     int yRaw = analogRead(yPin);
     int zRaw = analogRead(zPin);
     
-    // Convert ADC values to voltages (14-bit ADC: 0-16383)
+    // Convert to voltages
     float xVolt = (xRaw * vRef) / 16383.0;
     float yVolt = (yRaw * vRef) / 16383.0;
     float zVolt = (zRaw * vRef) / 16383.0;
     
-    // Convert voltages to acceleration in g units
+    // Convert to acceleration (g)
     float xAccel = (xVolt - zeroG) / sensitivity;
     float yAccel = (yVolt - zeroG) / sensitivity;
     float zAccel = (zVolt - zeroG) / sensitivity;
     
-    // Output data in CSV format for Edge Impulse
+    // Output CSV format
     Serial.print(xAccel, 4);
     Serial.print(",");
     Serial.print(yAccel, 4);
     Serial.print(",");
     Serial.println(zAccel, 4);
     
-    // Update timing and sample count
     sampleCount++;
     lastSample = currentTime;
     
-    // Check if window is complete
     if (sampleCount >= windowSize) {
-      stopDataCollection();
+      stopCollection();
     }
   }
 }
@@ -292,81 +259,79 @@ The following sections will help you understand the main components of the examp
 
 ### Hardware Configuration and Calibration
 
-Before we can collect vibration data, we need to configure the Nano R4 board to properly interface with the ADXL335 accelerometer and establish its calibration parameters.
+Before we can collect vibration data, we need to configure the Nano R4 board to interface with the ADXL335 accelerometer and set its calibration parameters.
 
 ```arduino
-// Pin definitions for ADXL335 accelerometer
-const int xPin = A0;  // X-axis connected to analog pin 0
-const int yPin = A1;  // Y-axis connected to analog pin 1
-const int zPin = A2;  // Z-axis connected to analog pin 2
+// Pin definitions for ADXL335
+const int xPin = A0;
+const int yPin = A1;
+const int zPin = A2;
 
 // ADXL335 specifications
-const float sensitivity = 0.330;  // 330 mV/g sensitivity
-const float zeroG = 1.65;         // 1.65V at 0g acceleration
+const float sensitivity = 0.330;  // 330 mV/g
+const float zeroG = 1.65;         // 1.65V at 0g
 const float vRef = 3.3;           // Reference voltage
 ```
+In this code:
 
-In the code snippet shown above:
-
-- Pin assignments map each accelerometer axis to specific analog inputs on the Nano R4 
-- Sensitivity and zero-g voltage values come directly from the ADXL335 datasheet specifications
-- Reference voltage is set to match the accelerometer's regulated output voltage
+- Pin assignments map each accelerometer axis to specific analog inputs on the Nano R4
+- Sensitivity and zero-g voltage values come from the [ADXL335 datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/adxl335.pdf)
+- Reference voltage matches the accelerometer's regulated output voltage
 
 ### Data Collection Timing and Control
 
-To ensure accurate vibration analysis and successful machine learning training, we need consistent data collection timing. These sampling parameters control how data is gathered:
+To ensure accurate vibration analysis and successful machine learning training, we need consistent data collection timing. These parameters control how data is gathered:
 
 ```arduino
-// Sampling parameters for Edge Impulse
-const int sampleRate = 100;       // 100 Hz sampling rate
-const int windowSize = 200;       // 2-second data windows (200 samples)
-const unsigned long sampleInterval = 1000 / sampleRate; // 10ms between samples
+// Sampling parameters
+const int sampleRate = 100;       // 100 Hz
+const int windowSize = 200;       // 2-second windows
+const unsigned long sampleTime = 1000 / sampleRate; // 10ms between samples
 ```
 
-In the code snippet shown above:
+In this code:
 
-- Sample rate of 100 Hz captures adequate frequency response for detecting most motor faults
+- Sample rate of 100 Hz captures enough frequency response for detecting most motor faults
 - Window size of 200 samples creates 2-second data segments that work well with Edge Impulse training
-- Sample interval calculation automatically determines the precise timing needed between measurements
+- Sample time calculation automatically determines the precise timing needed between measurements
 
 ### Signal Processing and Conversion
 
-Once we have the raw sensor readings, we need to convert them into meaningful acceleration values. This conversion process transforms the ADC readings into data we can analyze:
+Once we have the raw sensor readings, we need to convert them into useful acceleration values. This conversion process transforms the ADC readings into data we can analyze:
 
 ```arduino
-void collectVibrationData() {
+void collectData() {
   unsigned long currentTime = millis();
   
-  // Check if it's time for the next sample
-  if (currentTime - lastSample >= sampleInterval) {
-    // Read raw ADC values from all three axes
+  if (currentTime - lastSample >= sampleTime) {
+    // Read raw values
     int xRaw = analogRead(xPin);
     int yRaw = analogRead(yPin);
     int zRaw = analogRead(zPin);
     
-    // Convert ADC values to voltages (14-bit ADC: 0-16383)
+    // Convert to voltages
     float xVolt = (xRaw * vRef) / 16383.0;
     float yVolt = (yRaw * vRef) / 16383.0;
     float zVolt = (zRaw * vRef) / 16383.0;
     
-    // Convert voltages to acceleration in g units
+    // Convert to acceleration (g)
     float xAccel = (xVolt - zeroG) / sensitivity;
     float yAccel = (yVolt - zeroG) / sensitivity;
     float zAccel = (zVolt - zeroG) / sensitivity;
 ```
 
-In the code snippet shown above:
+In this code:
 
 - Timing control maintains consistent sample intervals, which is essential for proper frequency analysis
-- ADC conversion takes into account the Nano R4's 14-bit resolution that ranges from 0 to 16383
+- ADC conversion uses the Nano R4's 14-bit resolution that ranges from 0 to 16383
 - Acceleration calculation applies the ADXL335 calibration parameters to get accurate g-force values
 
 ### Edge Impulse Data Formatting
 
-The final step formats our acceleration data so it can be easily used with Edge Impulse data collection tools:
+The final step formats our acceleration data so it can be used with Edge Impulse data collection tools:
 
 ```arduino
-    // Output data in CSV format for Edge Impulse
+    // Output CSV format
     Serial.print(xAccel, 4);
     Serial.print(",");
     Serial.print(yAccel, 4);
@@ -374,49 +339,57 @@ The final step formats our acceleration data so it can be easily used with Edge 
     Serial.println(zAccel, 4);
 ```
 
-In the code snippet shown above:
+In this code:
 
 - CSV format with four decimal places gives us the precision needed for machine learning training
 - Single-line output per sample makes it easy to integrate with the Edge Impulse data forwarder
-- Comma separation follows standard CSV conventions that most data processing tools expect
+- Comma separation follows standard CSV format that most data processing tools expect
 
-After uploading the example sketch to the Nano R4 board, you should see the following output in the Arduino IDE's Serial Monitor when data collection is active:
+After uploading the example sketch to the Nano R4 board, you should see this output in the Arduino IDE's Serial Monitor when data collection is active:
 
 ![Example sketch output showing vibration data collection](assets/data-collection-output.png)
 
 ### Complete Example Sketch
 
-The complete data collection example sketch can be downloaded [here](assets/motor_vibration_collector.zip).
+Download the complete data collection example sketch [here](assets/motor_vibration_collector.zip).
 
 ## Connecting the Vibration Monitor to Edge Impulse
 
-As vibration-based condition monitoring continues to grow in importance for predictive maintenance, connecting our data collection system to Edge Impulse enables the development of intelligent anomaly detection models. Edge Impulse provides an end-to-end platform for embedded machine learning, allowing us to transform raw vibration data into actionable insights about motor health.
+As vibration-based condition monitoring becomes more important for predictive maintenance, connecting our data collection system to Edge Impulse enables the development of intelligent anomaly detection models. Edge Impulse provides a complete platform for embedded machine learning, allowing us to transform raw vibration data into useful insights about motor health.
 
-In this section, we will connect the vibration monitor to Edge Impulse platform to collect training data, develop machine learning models, and deploy intelligent anomaly detection directly to the Arduino Nano R4. This connection transforms our simple vibration monitor into an intelligent system capable of detecting motor anomalies without requiring cloud connectivity.
+In this section, we will connect the vibration monitor to Edge Impulse platform to collect training data, develop machine learning models and deploy intelligent anomaly detection directly to the Nano R4 board. This connection transforms our simple vibration monitor into an intelligent system that can detect motor anomalies without needing cloud connectivity.
 
 ***If you are new to Edge Impulse, please check out [this tutorial](https://docs.edgeimpulse.com/docs/tutorials/end-to-end-tutorials/time-series/continuous-motion-recognition/) for an introduction to the platform.***
 
 ### Setting up Edge Impulse Account and Project
 
-The first step involves creating an Edge Impulse account and configuring a new project for motor anomaly detection. The following steps establish the foundation for machine learning model development:
+The first step involves creating an Edge Impulse account and setting up a new project for motor anomaly detection. These steps establish the foundation for machine learning model development:
 
 1. **Create Account**: Register for a free Edge Impulse account at [studio.edgeimpulse.com](https://studio.edgeimpulse.com/)
-2. **New Project**: Create a new project and select "Accelerometer data" as the primary data type
-3. **Project Configuration**: Configure project settings with appropriate sampling frequency (100 Hz) and time series window length (2 seconds)
+2. **New Project**: Create a new project with the following settings:
+
+- Enter a project name (for example, "`nano-r4-anomaly-detection`")
+- Choose project type: Personal (free tier with 60 min job limit, 4 GB data limit)
+- Choose project setting: Private (recommended for this application)
+
+3. **Project Configuration**: Once created, the project will be ready for data collection. Sampling frequency and window settings will be configured later during impulse design.
 
 ### Data Collection with Edge Impulse CLI
 
-The Edge Impulse CLI provides tools for streaming data directly from the Arduino to the Edge Impulse platform. This eliminates manual file transfers and enables efficient data collection workflows.
+The Edge Impulse CLI provides tools for streaming data directly from the Arduino to the Edge Impulse platform. This eliminates manual file transfers and enables efficient data collection.
 
 #### Installing Edge Impulse CLI
 
-Install the Edge Impulse CLI tools using the Node.js package manager:
+Before you can collect data from the Arduino, you need to install the Edge Impulse CLI tools on your computer. The installation process varies depending on your operating system.
 
-```bash
-npm install -g edge-impulse-cli
-```
+Prerequisites:
 
-Verify the installation by checking the available commands:
+- Node.js 14 or higher
+- Python 3
+
+For detailed installation instructions specific to your operating system, follow the [official Edge Impulse CLI installation guide](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-installation).
+
+Verify the installation with the following command:
 
 ```bash
 edge-impulse-daemon --version
@@ -424,39 +397,46 @@ edge-impulse-daemon --version
 
 #### Setting up Data Forwarding
 
-The following steps establish data forwarding from the Arduino Nano R4 to Edge Impulse:
+Now that you have the CLI installed, you can set up data forwarding to stream vibration data directly from your Nano R4 board to Edge Impulse.
 
-1. **Login to Edge Impulse**: Use the `edge-impulse-daemon` command to authenticate with your account
-2. **Start Data Forwarder**: Run `edge-impulse-data-forwarder` to begin streaming data
-3. **Configure Serial Parameters**: Set baud rate to 115200 and select CSV format with 3 axes
-4. **Device Configuration**: Configure the forwarder to recognize X, Y, Z acceleration data
+Connect your Nano R4 to your computer via USB-C cable and upload the data collection sketch. Then open a terminal and run the following command:
+
+```bash
+edge-impulse-data-forwarder
+```
+
+The tool will guide you through the setup process:
+
+1. Log in with your Edge Impulse credentials when prompted
+2. Select your motor anomaly detection project
+3. Choose the correct serial port for your Arduino
+4. Set baud rate to `115200`
+5. Select data format: `CSV`
+6. Configure 3 columns for `X`, `Y`, `Z` acceleration data
+
+Once configured, the forwarder will stream data from your Nano R4 to Edge Impulse when you send the `start` command through the Arduino IDE's Serial Monitor.
 
 #### Data Collection Process
 
-Upload the data collection sketch to the Arduino Nano R4 and follow these steps for comprehensive training data:
+With the data forwarder running, you can now collect training data for your anomaly detection model. For effective anomaly detection, you need high-quality data representing normal motor operation in different states.
 
-**Normal Operation Data Collection:**
-- Mount the accelerometer securely to the motor housing
-- Ensure stable motor operation at normal load conditions
-- Collect 15-20 minutes of "normal" operation data through multiple 2-second windows
-- Vary motor load conditions to capture operational diversity
-- Label all data as "normal" in Edge Impulse Studio
+Start by mounting the accelerometer securely to the motor housing. You will collect two types of normal operation data:
 
-**Data Quality Verification:**
-- Review collected samples in Edge Impulse Studio for consistency
-- Check for proper amplitude ranges and absence of clipping
-- Verify sample rate consistency and timing accuracy
-- Remove any corrupted or anomalous samples from training set
+1. **Idle data collection**: With the motor turned off, collect 10 to 15 minutes of "idle" operation data through multiple two second windows. This captures the baseline vibration environment without motor operation. Label all data as `idle` in Edge Impulse Studio.
 
+2. **Nominal data collection**: With the motor running under normal operating conditions, collect 10 to 15 minutes of "nominal" operation data through multiple two second windows. Vary motor load conditions slightly to capture different normal operating scenarios. Label all data as `nominal` in Edge Impulse Studio.
+
+***__Important note__: The anomaly detection model learns what "normal" looks like from both idle and nominal data. Any future vibration patterns that significantly differ from these learned patterns will be flagged as anomalies. This approach allows the system to detect unknown fault conditions without needing examples of actual motor failures.***
+   
 ### Training the Anomaly Detection Model
 
-Once sufficient normal operation data is collected, the next step involves configuring and training the machine learning model for anomaly detection.
+Once you have collected sufficient `idle` and `nominal`  operation data, the next step involves configuring and training the machine learning model for anomaly detection.
 
 #### Impulse Design Configuration
 
-Within Edge Impulse Studio, configure the impulse design with appropriate processing and learning blocks:
+Within Edge Impulse Studio, configure the impulse design with appropriate processing and learning blocks. Navigate to the "Impulse design" tab and set up the following blocks: 
 
-1. **Input Block**: Configure time series data with 2000ms windows at 100 Hz sampling rate (200 samples per window)
+1. **Input Block**: Configure time series data with 2000 ms windows at 100 Hz sampling rate (200 samples per window)
 2. **Processing Block**: Add "Spectral Analysis" block for frequency domain feature extraction
 3. **Learning Block**: Select "Anomaly Detection (K-means)" for unsupervised learning approach
 
@@ -464,10 +444,12 @@ Within Edge Impulse Studio, configure the impulse design with appropriate proces
 
 The spectral analysis block extracts relevant features from the raw vibration signals. Configure the following parameters for optimal motor fault detection:
 
-- **FFT Length**: 256 points for adequate frequency resolution up to 50 Hz
+- **FFT Length**: 256 points for sufficient frequency resolution up to 50 Hz
 - **Filter**: Low-pass filter with 50 Hz cutoff to focus on motor fault frequencies
-- **Spectral Power Edges**: Define frequency bands covering 0-50 Hz for motor characteristics
+- **Spectral Power Edges**: Define frequency bands covering 0 to 50 Hz for motor characteristics
 - **Analysis Type**: Power spectral density for energy-based feature extraction
+
+***__Important note__: The spectral analysis converts time-domain vibration signals into frequency-domain features. This is crucial because motor faults often appear as specific frequency patterns (like bearing wear creating high-frequency components or imbalance showing up at rotational frequency). The K-means clustering algorithm groups similar frequency patterns together, creating a map of normal operation that can identify when new data doesn't fit the established patterns.***
 
 #### Model Training Process
 
