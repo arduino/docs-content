@@ -11,9 +11,40 @@ tags: [Cloud]
 
 To use the Arduino Cloud you will need to register and set up a **free** account.
 
+
+## Different Device Provisioning Versions
+
+There are two different versions of provisioning, 1.0 and 2.0. These different versions will change some things when you connect your board to the cloud. The main change will be where the network credentials are stored.
+
+If your board is provisioned to the cloud with version 1.0 the network credentials will be stored in a "secret.h" file that can be found on the "thing" page, in the "sketch" tab. As shown here:
+
+![Sketch tab on thing page]()
+
+If your board is provisioned to the cloud with version 2.0 the network credentials will be stored on the board.
+
+### Compatible Boards List
+
+| Board | Compatible version |
+| MKR NB 1500 | Version 1.0 |
+| MKR WAN 1300 | Version 1.0 |
+| MKR WAN 1310 | Version 1.0 |
+| MKR 1000 | Version 1.0 |
+| MKR WiFi 1010 | Version 1.0 |
+| MKR GSM 1400 | Version 1.0 |
+| GIGA R1 WiFi | Version 2.0 |
+| Uno R4 Wifi | Version 1.0 |
+| Nano 33 IoT | Version 1.0 |
+| Nano ESP32 | Version 1.0 |
+| Nano RP2040 Connect | Version 1.0 |
+| Portenta H7 | Version 1.0 |
+| Portenta C33 | Version 1.0 |
+| Portenta X8 | Version 1.0 |
+| Nicla Vision | Version 1.0 |
+| Opta | Version 1.0 |
+
 ### Configure Your Board
 
-After you have set up your account, to add your device to your Arduino Cloud account go to the Devices page and click on **+ DEVICE**.
+After you have set up your account, to add your device to your Arduino Cloud account go to the Devices page and click on the **+ DEVICE** button.
 
 ![Create new Device](assets/creating-new-device.png)
 
