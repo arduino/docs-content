@@ -50,7 +50,7 @@ The RA4M1 and the GPIOs of this board operates on 5 V.
 <Feature title="Mouse/Keyboard Emulation (HID)" image="usb">
 Build game controllers by emulating a mouse/keyboard.
 <FeatureWrapper>
-  <FeatureLink title="Documentation" url="/tutorials/uno-r4-minima/usb-hid"/>
+  <FeatureLink title="Documentation" url="/tutorials/nano-r4/user-manual/#hid-human-interface-device-communication"/>
 </FeatureWrapper>
 </Feature>
 
