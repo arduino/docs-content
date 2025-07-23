@@ -143,7 +143,7 @@ The complete example sketch is shown below.
   accelerometer connected to an Arduino Nano R4. The data is formatted 
   for Edge Impulse data collection and training.
   
-  @version 1.0 01/12/24
+  @version 1.0 01/06/25
   @author Arduino Product Experience Team
 */
 
@@ -159,62 +159,23 @@ const float vRef = 3.3;           // Reference voltage
 
 // Sampling parameters
 const int sampleRate = 100;       // 100 Hz
-const int windowSize = 200;       // 2-second windows
 const unsigned long sampleTime = 1000 / sampleRate; // 10ms between samples
 
 // Data collection variables
 unsigned long lastSample = 0;
-int sampleCount = 0;
-bool collecting = false;
 
 void setup() {
   Serial.begin(115200);
   analogReadResolution(14);
   
   Serial.println("- Motor Vibration Data Collector");
-  Serial.println("- Send 'start' to begin data collection");
+  Serial.println("- Streaming continuous data for Edge Impulse");
   Serial.println("- Data format: X_accel,Y_accel,Z_accel");
   
   delay(1000);
 }
 
 void loop() {
-  // Check for commands
-  if (Serial.available()) {
-    String command = Serial.readString();
-    command.trim();
-    
-    if (command == "start" && !collecting) {
-      startCollection();
-    } else if (command == "stop" && collecting) {
-      stopCollection();
-    }
-  }
-  
-  // Collect data if active
-  if (collecting) {
-    collectData();
-  }
-}
-
-void startCollection() {
-  collecting = true;
-  sampleCount = 0;
-  lastSample = millis();
-  
-  Serial.println("- Starting data collection...");
-  delay(100);
-}
-
-void stopCollection() {
-  collecting = false;
-  Serial.println();
-  Serial.print("- Data collection stopped. Samples: ");
-  Serial.println(sampleCount);
-  Serial.println("- Send 'start' for another window");
-}
-
-void collectData() {
   unsigned long currentTime = millis();
   
   if (currentTime - lastSample >= sampleTime) {
@@ -240,12 +201,7 @@ void collectData() {
     Serial.print(",");
     Serial.println(zAccel, 4);
     
-    sampleCount++;
     lastSample = currentTime;
-    
-    if (sampleCount >= windowSize) {
-      stopCollection();
-    }
   }
 }
 ```
@@ -285,22 +241,21 @@ To ensure accurate vibration analysis and successful machine learning training, 
 ```arduino
 // Sampling parameters
 const int sampleRate = 100;       // 100 Hz
-const int windowSize = 200;       // 2-second windows
-const unsigned long sampleTime = 1000 / sampleRate; // 10ms between samples
+const unsigned long sampleTime = 1000 / sampleRate; // 10 ms between samples
 ```
 
 In this code:
 
 - Sample rate of 100 Hz captures enough frequency response for detecting most motor faults
-- Window size of 200 samples creates 2-second data segments that work well with Edge Impulse training
 - Sample time calculation automatically determines the precise timing needed between measurements
+- The system streams data continuously without requiring manual start/stop commands
 
 ### Signal Processing and Conversion
 
 Once we have the raw sensor readings, we need to convert them into useful acceleration values. This conversion process transforms the ADC readings into data we can analyze:
 
 ```arduino
-void collectData() {
+void loop() {
   unsigned long currentTime = millis();
   
   if (currentTime - lastSample >= sampleTime) {
@@ -347,11 +302,13 @@ In this code:
 
 After uploading the example sketch to the Nano R4 board, you should see this output in the Arduino IDE's Serial Monitor when data collection is active:
 
-![Example sketch output showing vibration data collection](assets/data-collection-output.png)
+![Example sketch output showing vibration data collection](assets/example-sketch-1.png)
 
 ### Complete Example Sketch
 
 Download the complete data collection example sketch [here](assets/motor_vibration_collector.zip).
+
+[![ ](assets/download-button.png)](assets/motor-vibration-data-collection.zip)
 
 ## Connecting the Vibration Monitor to Edge Impulse
 
@@ -371,6 +328,8 @@ The first step involves creating an Edge Impulse account and setting up a new pr
 - Enter a project name (for example, "`nano-r4-anomaly-detection`")
 - Choose project type: Personal (free tier with 60 min job limit, 4 GB data limit)
 - Choose project setting: Private (recommended for this application)
+
+![Creating a new project on Edge Impulse](assets/new-project.png)
 
 3. **Project Configuration**: Once created, the project will be ready for data collection. Sampling frequency and window settings will be configured later during impulse design.
 
@@ -395,6 +354,8 @@ Verify the installation with the following command:
 edge-impulse-daemon --version
 ```
 
+![Edge Impulse Daemon version](assets/daemon-version.png)
+
 #### Setting up Data Forwarding
 
 Now that you have the CLI installed, you can set up data forwarding to stream vibration data directly from your Nano R4 board to Edge Impulse.
@@ -407,14 +368,18 @@ edge-impulse-data-forwarder
 
 The tool will guide you through the setup process:
 
-1. Log in with your Edge Impulse credentials when prompted
-2. Select your motor anomaly detection project
-3. Choose the correct serial port for your Arduino
-4. Set baud rate to `115200`
-5. Select data format: `CSV`
-6. Configure 3 columns for `X`, `Y`, `Z` acceleration data
+1. **Login**: Enter your Edge Impulse username/email and password when prompted
+2. **Select Device**: Choose the correct serial port for your Arduino (for example, `COM5`)
+3. **Data Detection**: The tool will automatically detect the data frequency (100 Hz) and number of sensor axes (3)
+4. **Name Axes**: When asked "What do you want to call them?", enter: `X`,`Y`,`Z`
+5. **Device Name**: Give your device a name (for example, `nano-r4`)
+6. **Project Connection**: If you have multiple projects, the tool will ask which Edge Impulse project you want to connect the device to. Select your motor anomaly detection project.
 
-Once configured, the forwarder will stream data from your Nano R4 to Edge Impulse when you send the `start` command through the Arduino IDE's Serial Monitor.
+![Setting up the data forwarder tool](assets/data-forwarder-configuration.png)
+
+Once configured, the forwarder will stream data from your Nano R4 board to Edge Impulse. You can verify the device connection by checking the "Devices" tab in Edge Impulse Studio. You can then start collecting training data for your machine learning model.
+
+![Device connection verification to Edge Impulse Studio](assets/device-verification.png)
 
 #### Data Collection Process
 
@@ -453,15 +418,19 @@ The spectral analysis block extracts relevant features from the raw vibration si
 
 #### Model Training Process
 
-Follow these steps to train the anomaly detection model using the collected normal operation data:
+Follow these steps to train the anomaly detection model using the collected idle and nominal operation data:
 
 1. **Generate Features**: Click "Generate features" to extract spectral features from all training data
 2. **Feature Explorer**: Review the feature explorer visualization to verify data quality and feature separation
 3. **Anomaly Detection Setup**: Configure K-means clustering with 32 clusters for pattern recognition
-4. **Axis Selection**: Use "Select suggested axes" to automatically choose most relevant spectral features
-5. **Start Training**: Initiate the training process and monitor convergence metrics
+4. **Axis Selection**: Use "Select suggested axes" to automatically choose the most relevant spectral features
+5. **Start Training**: Start the training process and monitor convergence metrics
+
+***__Important note__: The feature explorer shows how well your idle and nominal data separate in the feature space. Good separation means the model can clearly distinguish between different operating states. If the data points overlap significantly, you may need to collect more diverse data or adjust your sensor mounting.***
 
 The training process creates clusters representing normal motor operation patterns. Any future data that falls outside these established clusters will be identified as anomalous.
+
+***__Important note__: The 32 clusters create a detailed map of normal operation patterns. Each cluster represents a different "type" of normal vibration signature. When new data doesn't fit well into any existing cluster, it's flagged as an anomaly. More clusters provide finer detail but require more training data.***
 
 #### Model Validation and Testing
 
@@ -470,7 +439,9 @@ After training completion, validate the model performance using the following me
 - **Live Classification**: Test with new motor data to verify anomaly detection capability
 - **Threshold Tuning**: Adjust anomaly threshold (typically 0.3-0.5) based on desired sensitivity
 - **Performance Analysis**: Review clustering quality and feature importance rankings
-- **False Alarm Testing**: Validate with known normal conditions to minimize false positives
+- **False Alarm Testing**: Validate with known normal conditions to reduce false positives
+
+***__Important note__: The anomaly threshold is critical for system performance. A lower threshold (0.2 to 0.3) makes the system more sensitive and catches subtle problems but may trigger false alarms. A higher threshold (0.4 to 0.6) reduces false alarms but might miss early-stage faults. Start with 0.3 and adjust based on your specific application requirements.***
 
 ### Model Deployment
 
@@ -478,12 +449,12 @@ After successful training and validation, deploy the model as an Arduino library
 
 1. **Deployment Section**: Navigate to the "Deployment" tab in Edge Impulse Studio
 2. **Arduino Library**: Select "Arduino library" as the deployment target
-3. **Optimization Settings**: Choose "int8" quantization for memory efficiency on the Nano R4
-4. **Model Analysis**: Review memory usage and inference timing estimates
+3. **Optimization Settings**: Choose `int8` quantization for memory efficiency on the Nano R4
+4. **Model Analysis**:Review memory usage and inference timing estimates
 5. **Download Library**: Download the generated Arduino library ZIP file
 6. **Library Installation**: Install in Arduino IDE using "Sketch > Include Library > Add .ZIP Library"
 
-The generated library includes optimized inference code specifically compiled for the Arduino Nano R4's ARM Cortex-M4 processor, ensuring efficient real-time anomaly detection with minimal computational overhead.
+The generated library includes optimized inference code specifically compiled for the Nano R4's Arm® Cortex®-M4 processor, ensuring efficient real-time anomaly detection with low computational overhead.
 
 ## Improving the Vibration Monitor with Machine Learning
 
