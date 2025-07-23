@@ -6,10 +6,23 @@ The Arduino Nano R4 features the powerful Renesas RA4M1 microcontroller with a 3
 
 <Feature title="Qwiic I²C Connector" image="communication">
 Easily connect sensors and peripherals using the onboard Qwiic connector, which enables plug-and-play I²C communication at 3.3 V logic levels while interfacing with the 5 V system.
+<FeatureWrapper>
+  <FeatureLink title="Documentation" url="/tutorials/nano-r4/user-manual/#ic-communication"/>
+</FeatureWrapper>
 </Feature>
 
-<Feature title="Built-in DAC & OPAMP" image="mcu">
-With a 12-bit DAC on the A0 pin and an integrated operational amplifier, the Nano R4 enables analog signal generation and advanced signal conditioning.
+<Feature title="Operational Amplifier (OPAMP)" image="mcu">
+The Nano R4 board features a built-in operational amplifier (OPAMP) that provides signal conditioning and amplification capabilities
+<FeatureWrapper>
+  <FeatureLink title="Documentation" url="/tutorials/nano-r4/user-manual/#operational-amplifier-opamp"/>
+</FeatureWrapper>
+</Feature>
+
+<Feature title="Digital-to-Analog Converter (DAC)" image="mcu">
+Use the onboard 12-bit DAC to build sophisticated audio projects.
+<FeatureWrapper>
+  <FeatureLink title="Documentation" url="/tutorials/nano-r4/user-manual/#digital-to-analog-converter-dac"/>
+</FeatureWrapper>
 </Feature>
 
 <Feature title="USB-C®" image="usb">
@@ -17,11 +30,17 @@ The Nano R4 features a USB-C® connector for streamlined power and data transfer
 </Feature>
 
 <Feature title="CAN Bus Support" image="communication">
-The Nano R4 supports CAN communication (with external transceivers), making it suitable for industrial and automotive applications.
+The Nano R4 supports CAN communication, making it suitable for industrial and automotive applications. This requires an external transceiver.
+<FeatureWrapper>
+  <FeatureLink title="Documentation" url="/tutorials/nano-r4/user-manual/#can-communication"/>
+</FeatureWrapper>
 </Feature>
 
-<Feature title="Real-Time Clock (RTC)" image="clock">
-The built-in RTC and 16 MHz external crystal ensure accurate timekeeping, making it ideal for data logging and scheduled task applications.
+<Feature title="Real-Time Clock (RTC)" image="mcu">
+Keep track of time & date and set alarms with the built-in RTC.
+<FeatureWrapper>
+  <FeatureLink title="Documentation" url="/tutorials/nano-r4/user-manual/#real-time-clock-rtc"/>
+</FeatureWrapper>
 </Feature>
 
 <Feature title="5 V Operating Voltage" image="power">
