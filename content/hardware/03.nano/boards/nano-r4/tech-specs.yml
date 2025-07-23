@@ -1,6 +1,6 @@
 Board:
   Name: Arduino® Nano R4
-  SKU: ABX00142
+  SKU: ABX00142 (Castellated Pins) / ABX00143 (With Headers)
 Microcontroller: Renesas RA4M1 (Arm® Cortex®-M4)
 USB:
   USB-C®: Programming Port
