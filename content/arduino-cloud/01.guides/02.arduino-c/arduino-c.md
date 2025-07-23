@@ -12,7 +12,7 @@ The default option for programming your board to connect to the Arduino Cloud is
 Whenever you create a [Thing](/arduino-cloud/cloud-interface/things) in the Arduino Cloud, you automatically start generating a set of files that will handle the configurations, credentials & connection:
 - `<sketchname>.ino` - your main sketch file,
 - `thingProperties.h` - your main configuration file,
-- `arduino_secrets.h` - your credentials file (for API key, Wi-Fi network etc.)
+- `arduino_secrets.h` - your credentials file (for API key, Wi-Fi network etc.), if the board is using provisioning version 1.0. If the board is using version 2.0 the credentials are stored on the board. To find out more about this read [here](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/).
 
 ***If you want to find out more about what the Arduino Cloud service can do, go to the [overview](/arduino-cloud/guides/overview) section.*** 
 
@@ -48,7 +48,7 @@ A "Thing" is a virtual twin of your hardware, and it is here that we create vari
 
 1. First, let's attach the device we want to use, by clicking the **"Select Device"** button in the **"Associated Devices"** section to the right. 
 2. let's create a new variable, call it `test`, and select it to be a `boolean` type and with a **read/write** permission.
-3. finally, configure your network in the **Network** section. Here you will enter your Wi-Fi® credentials, and if you are using an ESP32 based board, you need to enter the secret key here.
+3. finally, configure your network in the **Network** section on the device page. Here you will enter your Wi-Fi® credentials, and if you are using an ESP32 based board, you need to enter the secret key here.
 
 ![Enter network credentials.](assets/esp32-only.png)
 

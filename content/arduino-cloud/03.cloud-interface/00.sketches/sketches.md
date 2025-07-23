@@ -125,7 +125,7 @@ The file cannot be edited in the Arduino Cloud as it is in sync with the platfor
 
 ### Secret File
 
-The "Secret" File contains your secret credentials, such as Wi-Fi® network SSID/PASS or device secret key.
+The "Secret" File contains your secret credentials, such as Wi-Fi® network SSID/PASS or device secret key, if the board is using provisioning version 1.0. If the board is using version 2.0 the credentials are stored on the board. To find out more about this read [here](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/).
 
 This file will be visible as a "Secret" tab in the Cloud Editor and is named `arduino_secrets.h`, which is not visible on the Cloud platform.
 

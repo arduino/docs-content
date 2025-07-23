@@ -9,8 +9,7 @@ The communication between IoT devices and the Arduino Cloud is handled through s
 
 In the Thing interface you can:
 - Create Cloud variables that can be synced across devices,
-- select the main device you want to associate with,
-- enter network credentials (such as Wi-Fi network/password),
+- select the main device you want to associate with
 - edit & upload sketches to your board,
 - set webhooks that trigger whenever data changes,
 - edit the timezone.
@@ -23,7 +22,7 @@ The Thing interface is designed for ease-of-use and only has a few sections, whi
 
 - **1. Cloud Variables** - create variables that synchronize between a device and the Arduino Cloud.
 - **2. Devices** - configure a device that will be associated with your Thing.
-- **3. Network** - network credentials, e.g. Wi-Fi® network/password.
+- **3. Network** - This section has been moved to the Device page.
 - **4. Setup** - the main configuration space tab.
 - **5. Sketch** - access the sketch associated with your Thing.
 - **6. Metadata** - metadata such as tags, timezone and Thing ID.
@@ -68,11 +67,11 @@ The status of your device is also displayed in this section (online/offline).
 
 ## Network
 
+***This option has been moved to the [Devices](/arduino-cloud/hardware/devices) section on the specific device page.***
+
 In the network section, you configure the credentials for your network, such as your Wi-Fi® network, secret key (for ESP32 boards) and other credentials e.g. LoRa®-based networks & cellular. The network details are securely stored.
 
 ![Network configuration.](assets/network-creds.png)
-
-The credentials entered are automatically included in your sketch (see [automatic sketch generation](#automatic-sketch-generation)). 
 
 ## Sketch
 
@@ -128,7 +127,7 @@ For example:
 - Associating a Wi-Fi board will automatically update the connection method.
 - Creating a variable will add it to your `thingProperties.h` file.
 - Creating a variable with **read/write** permission will also add a callback function at the bottom of your sketch. This will trigger any time the value changes.
-- Changing your network credentials will update the `arduino_secrets.h` file.
+- Changing your network credentials will update the `arduino_secrets.h` file, if you are using provisioning version 1.0, for more information read [here](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/).
 
 This is implemented so that the connection and synchronization between the board and Cloud is handled automatically, meaning you do not need to do any networking code when using the Arduino / C++ language.
 

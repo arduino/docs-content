@@ -48,7 +48,7 @@ A "Thing" is a virtual twin of your hardware, and it is here that we create vari
 
 1. First, let's attach the device we want to use, by clicking the **"Select Device"** button in the **"Associated Devices"** section to the right. 
 2. let's create a new variable, call it `test`, and select it to be a `boolean` type and with a **read/write** permission.
-3. finally, configure your network in the **Network** section. Here you will enter your Wi-Fi® credentials, and your **Secret Key**, obtained when configuring your device.
+3. finally, configure your network in the **Network** section on the device page. Here you will enter your Wi-Fi® credentials, and your **Secret Key**, obtained when configuring your device.
 
 ![Enter network credentials.](assets/esp32-only.png)
 
