@@ -152,14 +152,20 @@ const int xPin = A0;
 const int yPin = A1;
 const int zPin = A2;
 
-// ADXL335 specifications
-const float sensitivity = 0.330;  // 330 mV/g
-const float zeroG = 1.65;         // 1.65V at 0g
-const float vRef = 3.3;           // Reference voltage
+// Arduino ADC specifications
+const int ADCMaxVal = 16383;        // 14-bit ADC max value
+const float mVMaxVal = 5000.0;      // ADC reference voltage in mV
+
+// ADXL335 specifications (calibrated values for this specific breakout board)
+const float supplyMidPointmV = 1237.0;  // Measured 0g bias point
+const float mVperg = 303.0;             // Measured sensitivity (mV/g)
 
 // Sampling parameters
-const int sampleRate = 100;       // 100 Hz
+const int sampleRate = 100;         // 100 Hz
 const unsigned long sampleTime = 1000 / sampleRate; // 10ms between samples
+
+// Conversion factor from ADC to mV
+const float mVPerADC = mVMaxVal / ADCMaxVal;
 
 // Data collection variables
 unsigned long lastSample = 0;
@@ -179,20 +185,20 @@ void loop() {
   unsigned long currentTime = millis();
   
   if (currentTime - lastSample >= sampleTime) {
-    // Read raw values
+    // Read raw ADC values
     int xRaw = analogRead(xPin);
     int yRaw = analogRead(yPin);
     int zRaw = analogRead(zPin);
     
-    // Convert to voltages
-    float xVolt = (xRaw * vRef) / 16383.0;
-    float yVolt = (yRaw * vRef) / 16383.0;
-    float zVolt = (zRaw * vRef) / 16383.0;
+    // Convert ADC values to millivolts
+    float xVoltmV = xRaw * mVPerADC;
+    float yVoltmV = yRaw * mVPerADC;
+    float zVoltmV = zRaw * mVPerADC;
     
-    // Convert to acceleration (g)
-    float xAccel = (xVolt - zeroG) / sensitivity;
-    float yAccel = (yVolt - zeroG) / sensitivity;
-    float zAccel = (zVolt - zeroG) / sensitivity;
+    // Convert to acceleration in g units
+    float xAccel = (xVoltmV - supplyMidPointmV) / mVperg;
+    float yAccel = (yVoltmV - supplyMidPointmV) / mVperg;
+    float zAccel = (zVoltmV - supplyMidPointmV) / mVperg;
     
     // Output CSV format
     Serial.print(xAccel, 4);
@@ -223,16 +229,25 @@ const int xPin = A0;
 const int yPin = A1;
 const int zPin = A2;
 
-// ADXL335 specifications
-const float sensitivity = 0.330;  // 330 mV/g
-const float zeroG = 1.65;         // 1.65V at 0g
-const float vRef = 3.3;           // Reference voltage
+// Arduino ADC specifications
+const int ADCMaxVal = 16383;        // 14-bit ADC max value
+const float mVMaxVal = 5000.0;      // ADC reference voltage in mV
+
+// ADXL335 specifications (calibrated values for this specific breakout board)
+const float supplyMidPointmV = 1237.0;  // Measured 0g bias point
+const float mVperg = 303.0;             // Measured sensitivity (mV/g)
+
+// Conversion factor from ADC to mV
+const float mVPerADC = mVMaxVal / ADCMaxVal;
 ```
 In this code:
 
-- Pin assignments map each accelerometer axis to specific analog inputs on the Nano R4
-- Sensitivity and zero-g voltage values come from the [ADXL335 datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/adxl335.pdf)
-- Reference voltage matches the accelerometer's regulated output voltage
+- Pin assignments map each accelerometer axis to specific analog inputs on the Nano R4 board
+- ADC specifications define the 14-bit resolution and 5V reference voltage used by the Nano R4
+- ADXL335 specifications use calibrated values measured from the actual breakout board
+- The conversion factor translates raw ADC readings to millivolts for processing
+
+***__Important note__: ADXL335 breakout boards typically include onboard voltage regulators that convert the input voltage (+5 VDC from the Nano R4) to a lower voltage (usually +3.3 VDC or less) to power the accelerometer chip. This means the actual supply voltage to the ADXL335 may be different from what you expect. The values shown in this code (supplyMidPointmV = 1237.0 and mVperg = 303.0) are calibrated for a specific breakout board and may need adjustment for your hardware.***
 
 ### Data Collection Timing and Control
 
@@ -252,34 +267,36 @@ In this code:
 
 ### Signal Processing and Conversion
 
-Once we have the raw sensor readings, we need to convert them into useful acceleration values. This conversion process transforms the ADC readings into data we can analyze:
+Once we have the raw sensor readings, we need to convert them into useful acceleration values. This conversion process transforms the ADC readings into calibrated acceleration data:
 
 ```arduino
 void loop() {
   unsigned long currentTime = millis();
   
   if (currentTime - lastSample >= sampleTime) {
-    // Read raw values
+    // Read raw ADC values
     int xRaw = analogRead(xPin);
     int yRaw = analogRead(yPin);
     int zRaw = analogRead(zPin);
     
-    // Convert to voltages
-    float xVolt = (xRaw * vRef) / 16383.0;
-    float yVolt = (yRaw * vRef) / 16383.0;
-    float zVolt = (zRaw * vRef) / 16383.0;
+    // Convert ADC values to millivolts
+    float xVoltmV = xRaw * mVPerADC;
+    float yVoltmV = yRaw * mVPerADC;
+    float zVoltmV = zRaw * mVPerADC;
     
-    // Convert to acceleration (g)
-    float xAccel = (xVolt - zeroG) / sensitivity;
-    float yAccel = (yVolt - zeroG) / sensitivity;
-    float zAccel = (zVolt - zeroG) / sensitivity;
+    // Convert to acceleration in g units
+    float xAccel = (xVoltmV - supplyMidPointmV) / mVperg;
+    float yAccel = (yVoltmV - supplyMidPointmV) / mVperg;
+    float zAccel = (zVoltmV - supplyMidPointmV) / mVperg;
 ```
 
 In this code:
 
 - Timing control maintains consistent sample intervals, which is essential for proper frequency analysis
-- ADC conversion uses the Nano R4's 14-bit resolution that ranges from 0 to 16383
-- Acceleration calculation applies the ADXL335 calibration parameters to get accurate g-force values
+- ADC conversion uses the Nano R4's 14-bit resolution to convert raw readings to millivolts
+- Acceleration calculation applies the calibrated zero-point and sensitivity values to get accurate g-force measurements
+
+***__Important note__: For accurate measurements, you should calibrate your specific ADXL335 breakout board by placing it flat on a table with the Z-axis pointing up and measuring the actual voltage outputs. The X and Y axes should read approximately the same voltage (this is your zero-g bias point), while the Z-axis should read higher due to gravity (1g acceleration). The difference between Z-axis voltage and the zero-g bias point gives you the sensitivity in mV/g. This calibration accounts for variations in onboard regulators and manufacturing tolerances.***
 
 ### Edge Impulse Data Formatting
 
@@ -387,9 +404,15 @@ With the data forwarder running, you can now collect training data for your anom
 
 Start by mounting the accelerometer securely to the motor housing. You will collect two types of normal operation data:
 
-1. **Idle data collection**: With the motor turned off, collect 10 to 15 minutes of "idle" operation data through multiple two second windows. This captures the baseline vibration environment without motor operation. Label all data as `idle` in Edge Impulse Studio.
+1. **Idle data collection**: With the motor turned off, **collect 10 to 15 minutes of "idle" operation** data through multiple two second windows. This captures the baseline vibration environment without motor operation. Label all data as `idle` in Edge Impulse Studio.
 
-2. **Nominal data collection**: With the motor running under normal operating conditions, collect 10 to 15 minutes of "nominal" operation data through multiple two second windows. Vary motor load conditions slightly to capture different normal operating scenarios. Label all data as `nominal` in Edge Impulse Studio.
+2. **Nominal data collection**: With the motor running under normal operating conditions, **collect 10 to 15 minutes of "nominal" operation** data through multiple two second windows. Vary motor load conditions slightly to capture different normal operating scenarios. Label all data as `nominal` in Edge Impulse Studio.
+
+Edge Impulse can automatically split your collected data into **training (80%) and testing (20%) sets**. The 20 to 30 minutes total of data ensures you have enough samples for both training the model and validating its performance on unseen data.
+
+![Data collection on Edge Impulse Studio](assets/data-collection.png)
+
+After data collection, review the collected samples in Edge Impulse Studio for consistency. Check for proper amplitude ranges and no clipping, verify sample rate consistency and timing accuracy and remove any corrupted or unusual samples from the training set.
 
 ***__Important note__: The anomaly detection model learns what "normal" looks like from both idle and nominal data. Any future vibration patterns that significantly differ from these learned patterns will be flagged as anomalies. This approach allows the system to detect unknown fault conditions without needing examples of actual motor failures.***
    
@@ -401,18 +424,24 @@ Once you have collected sufficient `idle` and `nominal`  operation data, the nex
 
 Within Edge Impulse Studio, configure the impulse design with appropriate processing and learning blocks. Navigate to the "Impulse design" tab and set up the following blocks: 
 
-1. **Input Block**: Configure time series data with 2000 ms windows at 100 Hz sampling rate (200 samples per window)
+1. **Input Block**: Configure time series data with window size of 2000 ms, window increase of 80 ms, and frequency of 100 Hz to match your data collection sampling rate.
 2. **Processing Block**: Add "Spectral Analysis" block for frequency domain feature extraction
 3. **Learning Block**: Select "Anomaly Detection (K-means)" for unsupervised learning approach
+
+![Impulse design on Edge Impulse Studio](assets/impulse-design.png)
 
 #### Feature Extraction Configuration
 
 The spectral analysis block extracts relevant features from the raw vibration signals. Configure the following parameters for optimal motor fault detection:
 
-- **FFT Length**: 256 points for sufficient frequency resolution up to 50 Hz
-- **Filter**: Low-pass filter with 50 Hz cutoff to focus on motor fault frequencies
-- **Spectral Power Edges**: Define frequency bands covering 0 to 50 Hz for motor characteristics
-- **Analysis Type**: Power spectral density for energy-based feature extraction
+- **Type**: Low-pass filter to focus on motor fault frequencies
+- **Cut-off frequency**: 45 Hz to capture relevant motor vibration characteristics while staying below the Nyquist frequency
+- **Order**: 6 for effective filtering
+- **FFT length**: 256 points for sufficient frequency resolution
+- **Take log of spectrum**: Enable this option to compress the dynamic range of the frequency data
+- **Overlap FFT frames**: Enable this option to increase the number of features extracted from each window
+
+![Spectral features on Edge Impulse Studio](assets/spectral-features.png)
 
 ***__Important note__: The spectral analysis converts time-domain vibration signals into frequency-domain features. This is crucial because motor faults often appear as specific frequency patterns (like bearing wear creating high-frequency components or imbalance showing up at rotational frequency). The K-means clustering algorithm groups similar frequency patterns together, creating a map of normal operation that can identify when new data doesn't fit the established patterns.***
 
@@ -420,15 +449,22 @@ The spectral analysis block extracts relevant features from the raw vibration si
 
 Follow these steps to train the anomaly detection model using the collected idle and nominal operation data:
 
-1. **Generate Features**: Click "Generate features" to extract spectral features from all training data
-2. **Feature Explorer**: Review the feature explorer visualization to verify data quality and feature separation
-3. **Anomaly Detection Setup**: Configure K-means clustering with 32 clusters for pattern recognition
+1. **Generate Features**: Before clicking "Generate features", enable "Calculate feature importance" to identify which frequency bands are most relevant for distinguishing between idle and nominal states. Then click "Generate features" to extract spectral features from all training data. Edge Impulse will process your data and create the feature vectors needed for training.
+2. **Feature Explorer**: Review the feature explorer visualization to verify data quality and feature separation between your idle and nominal classes.
+
+![Feature explorer on Edge Impulse Studio](assets/feature-explorer.png)
+
+3. **Anomaly Detection Setup**: Go to the "Anomaly detection" tab in the left menu to configure the machine learning model.
 4. **Axis Selection**: Use "Select suggested axes" to automatically choose the most relevant spectral features
 5. **Start Training**: Start the training process and monitor convergence metrics
+
+![Anomaly detection on Edge Impulse Studio](assets/anomaly-detection.png)
 
 ***__Important note__: The feature explorer shows how well your idle and nominal data separate in the feature space. Good separation means the model can clearly distinguish between different operating states. If the data points overlap significantly, you may need to collect more diverse data or adjust your sensor mounting.***
 
 The training process creates clusters representing normal motor operation patterns. Any future data that falls outside these established clusters will be identified as anomalous.
+
+![Anomaly explorer on Edge Impulse Studio](assets/anomaly-explorer.png)
 
 ***__Important note__: The 32 clusters create a detailed map of normal operation patterns. Each cluster represents a different "type" of normal vibration signature. When new data doesn't fit well into any existing cluster, it's flagged as an anomaly. More clusters provide finer detail but require more training data.***
 
@@ -437,7 +473,7 @@ The training process creates clusters representing normal motor operation patter
 After training completion, validate the model performance using the following methods:
 
 - **Live Classification**: Test with new motor data to verify anomaly detection capability
-- **Threshold Tuning**: Adjust anomaly threshold (typically 0.3-0.5) based on desired sensitivity
+- **Threshold Tuning**: Adjust anomaly threshold (typically 0.3 to 0.5) based on desired sensitivity
 - **Performance Analysis**: Review clustering quality and feature importance rankings
 - **False Alarm Testing**: Validate with known normal conditions to reduce false positives
 
