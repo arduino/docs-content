@@ -47,4 +47,11 @@ Keep track of time & date and set alarms with the built-in RTC.
 The RA4M1 and the GPIOs of this board operates on 5 V.
 </Feature>
 
+<Feature title="Mouse/Keyboard Emulation (HID)" image="usb">
+Build game controllers by emulating a mouse/keyboard.
+<FeatureWrapper>
+  <FeatureLink title="Documentation" url="/tutorials/uno-r4-minima/usb-hid"/>
+</FeatureWrapper>
+</Feature>
+
 </FeatureList>
