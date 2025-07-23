@@ -6,6 +6,7 @@ compatible-products: [nano-r4]
 tags:
   - Motor monitoring
   - Anomaly detection
+  - Classifier
   - Application note
   - Machine learning
   - Edge Impulse
@@ -68,7 +69,7 @@ This diagram shows how the system components connect. **The Nano R4 board acts a
 
 The ADXL335 accelerometer connects to the Nano R4 board using analog input pins. In this setup, an external +5 VDC power supply powers both the Nano R4 and the test motor, while the ADXL335 gets power through its built-in voltage regulator from the board's +5 VDC pin.
 
-***__Important note__:This power setup is for testing and demonstration only. In real industrial environments, proper power system design should include electrical isolation, noise filtering, surge protection and compliance with industrial safety standards for your specific application.***
+***__Important note__: This power setup is for testing and demonstration only. In real industrial environments, proper power system design should include electrical isolation, noise filtering, surge protection and compliance with industrial safety standards for your specific application.***
 
 ### Circuit Connections
 
@@ -426,9 +427,12 @@ Within Edge Impulse Studio, configure the impulse design with appropriate proces
 
 1. **Input Block**: Configure time series data with window size of 2000 ms, window increase of 80 ms, and frequency of 100 Hz to match your data collection sampling rate.
 2. **Processing Block**: Add "Spectral Analysis" block for frequency domain feature extraction
-3. **Learning Block**: Select "Anomaly Detection (K-means)" for unsupervised learning approach
+3. **Classification Learning Block**: Add "Classification (Keras)" to distinguish between `idle` and `nominal` operating states.
+4. **Learning Block**: Select "Anomaly Detection (K-means)" for unsupervised learning approach
 
 ![Impulse design on Edge Impulse Studio](assets/impulse-design.png)
+
+This dual approach provides a more robust monitoring system where the classifier identifies the current operating state (idle vs nominal) while the anomaly detector flags unusual patterns that don't fit either normal category.
 
 #### Feature Extraction Configuration
 
@@ -454,15 +458,23 @@ Follow these steps to train the anomaly detection model using the collected idle
 
 ![Feature explorer on Edge Impulse Studio](assets/feature-explorer.png)
 
-3. **Anomaly Detection Setup**: Go to the "Anomaly detection" tab in the left menu to configure the machine learning model.
-4. **Axis Selection**: Use "Select suggested axes" to automatically choose the most relevant spectral features
-5. **Start Training**: Start the training process and monitor convergence metrics
+3. **Train Classification Model**:Navigate to the "Classifier" tab and configure the neural network with the following settings:
+
+- Number of training cycles: 30
+- Learning rate: 0.0005
+- Neural network architecture: Configure dense layers with 32 neurons (first layer) and 16 neurons (second layer) to provide good pattern recognition capability for vibration data. Start training and monitor the accuracy metrics.
+
+![Classifier on Edge Impulse Studio](assets/classifier.png)
+
+1. **Train Anomaly Detection Model**: Navigate to the "Anomaly detection" tab and configure K-means clustering with 32 clusters for pattern recognition. Use "Select suggested axes" to automatically choose the most relevant spectral features based on the calculated feature importance, then start training.
 
 ![Anomaly detection on Edge Impulse Studio](assets/anomaly-detection.png)
 
+5. **Model Validation**: Test both models using the validation data to ensure the classifier accurately distinguishes between idle and nominal states, and the anomaly detector properly identifies normal operation patterns.
+
 ***__Important note__: The feature explorer shows how well your idle and nominal data separate in the feature space. Good separation means the model can clearly distinguish between different operating states. If the data points overlap significantly, you may need to collect more diverse data or adjust your sensor mounting.***
 
-The training process creates clusters representing normal motor operation patterns. Any future data that falls outside these established clusters will be identified as anomalous.
+The classification model learns to distinguish between known operating states, while the anomaly detection model creates clusters representing all normal operation patterns. This combination allows the system to both identify the current operating mode and detect unusual conditions that don't fit any normal pattern.
 
 ![Anomaly explorer on Edge Impulse Studio](assets/anomaly-explorer.png)
 
@@ -470,27 +482,32 @@ The training process creates clusters representing normal motor operation patter
 
 #### Model Validation and Testing
 
-After training completion, validate the model performance using the following methods:
+After training completion, validate both model performances using the following methods:
 
-- **Live Classification**: Test with new motor data to verify anomaly detection capability
-- **Threshold Tuning**: Adjust anomaly threshold (typically 0.3 to 0.5) based on desired sensitivity
-- **Performance Analysis**: Review clustering quality and feature importance rankings
-- **False Alarm Testing**: Validate with known normal conditions to reduce false positives
+- **Live Classification**: Use the "Live classification" feature of Edge Impulse to test both the classifier and anomaly detector with new motor data to verify their detection capabilities
+- **Classification Performance**: Review the confusion matrix and accuracy metrics for the neural network classifier to ensure it properly distinguishes between idle and nominal states
+- **Anomaly Detection Analysis**: Review the clustering visualization and anomaly scores to understand how well the model separates normal patterns
+- **Threshold Adjustment**: During deployment and real-world testing, you may need to adjust the anomaly detection threshold based on observed false alarm rates and detection sensitivity
+- **Validation Testing**: Test both models with known normal conditions to reduce false positives and ensure reliable operation
 
-***__Important note__: The anomaly threshold is critical for system performance. A lower threshold (0.2 to 0.3) makes the system more sensitive and catches subtle problems but may trigger false alarms. A higher threshold (0.4 to 0.6) reduces false alarms but might miss early-stage faults. Start with 0.3 and adjust based on your specific application requirements.***
+![Model validation on Edge Impulse Studio](assets/model-validation.png)
+
+***__Important note__: The anomaly threshold is critical for system performance. A lower threshold makes the system more sensitive and catches subtle problems but may trigger false alarms. A higher threshold reduces false alarms but might miss early-stage faults.***
 
 ### Model Deployment
 
-After successful training and validation, deploy the model as an Arduino library for embedded inference:
+After successful training and validation of both models, deploy them as an Arduino library for embedded inference:
 
 1. **Deployment Section**: Navigate to the "Deployment" tab in Edge Impulse Studio
 2. **Arduino Library**: Select "Arduino library" as the deployment target
-3. **Optimization Settings**: Choose `int8` quantization for memory efficiency on the Nano R4
+3. **Optimization Settings**: Choose `int8` quantization for memory efficiency on the Nano R4 board
 4. **Model Analysis**:Review memory usage and inference timing estimates
 5. **Download Library**: Download the generated Arduino library ZIP file
-6. **Library Installation**: Install in Arduino IDE using "Sketch > Include Library > Add .ZIP Library"
+6. **Library Installation**: Install in the Arduino IDE using "Sketch > Include Library > Add .ZIP Library"
 
-The generated library includes optimized inference code specifically compiled for the Nano R4's Arm® Cortex®-M4 processor, ensuring efficient real-time anomaly detection with low computational overhead.
+![Model deployment on Edge Impulse Studio](assets/model-deployment.png)
+
+The generated library includes optimized inference code for both the neural network classifier and K-means anomaly detector, specifically compiled for the Nano R4's Arm® Cortex®-M4 processor. This enables efficient real-time classification of operating states (idle/nominal) and detection of anomalous conditions with low computational overhead.
 
 ## Improving the Vibration Monitor with Machine Learning
 
@@ -517,36 +534,41 @@ The complete enhanced example sketch is shown below:
   an ADXL335 accelerometer and Edge Impulse machine learning model deployed
   on Arduino Nano R4 for predictive maintenance applications.
   
-  @version 1.0 01/12/24
+  @version 1.0 01/06/25
   @author Arduino Product Experience Team
 */
 
 // Include the Edge Impulse library (name will match your project)
-#include <motor_anomaly_detection_inferencing.h>
+#include <nano-r4-anomaly-detection_inferencing.h>
 
 // Pin definitions for ADXL335 accelerometer
-const int xPin = A0;  // X-axis connected to analog pin 0
-const int yPin = A1;  // Y-axis connected to analog pin 1
-const int zPin = A2;  // Z-axis connected to analog pin 2
+const int xPin = A0;
+const int yPin = A1;
+const int zPin = A2;
 
-// ADXL335 specifications
-const float sensitivity = 0.330;  // 330 mV/g sensitivity
-const float zeroG = 1.65;         // 1.65V at 0g acceleration
-const float vRef = 3.3;           // Reference voltage
+// Arduino ADC specifications
+const int ADCMaxVal = 16383;        // 14-bit ADC max value
+const float mVMaxVal = 5000.0;      // ADC reference voltage in mV
+
+// ADXL335 specifications (calibrated values for this specific breakout board)
+const float supplyMidPointmV = 1237.0;  // Measured 0g bias point
+const float mVperg = 303.0;             // Measured sensitivity (mV/g)
+
+// Conversion factor from ADC to mV
+const float mVPerADC = mVMaxVal / ADCMaxVal;
 
 // Edge Impulse model parameters
-const int samplingFreq = EI_CLASSIFIER_FREQUENCY;           // Model sampling frequency
-const int sampleLength = EI_CLASSIFIER_RAW_SAMPLE_COUNT;    // Required sample count
-const int featureCount = EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE; // Feature vector size
+const int samplingFreq = EI_CLASSIFIER_FREQUENCY;
+const int sampleLength = EI_CLASSIFIER_RAW_SAMPLE_COUNT;
 
 // Data buffer for model inference
 float features[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE];
 int featureIndex = 0;
 
-// Anomaly detection parameters
-const float anomalyThreshold = 0.3;  // Adjust based on model performance
-const int alertPin = LED_BUILTIN;    // Built-in LED for anomaly alerts
-const int alertDuration = 1000;      // Alert LED duration in milliseconds
+// Detection parameters
+const float anomalyThreshold = 0.3;
+const int alertPin = LED_BUILTIN;
+const int alertDuration = 1000;
 
 // System status variables
 unsigned long lastInference = 0;
@@ -561,6 +583,7 @@ bool systemReady = false;
 void setup() {
   // Initialize serial communication
   Serial.begin(115200);
+  while (!Serial);
   
   // Configure hardware
   analogReadResolution(14);     // Maximum ADC resolution
@@ -568,38 +591,33 @@ void setup() {
   digitalWrite(alertPin, LOW);  // Ensure LED starts off
   
   // System initialization message
-  Serial.println("Motor Anomaly Detection System");
-  Serial.println("Initializing Edge Impulse model...");
+  ei_printf("Motor Anomaly Detection System\n");
+  ei_printf("Initializing Edge Impulse model...\n");
   
   // Display model information
-  Serial.print("Model: ");
-  Serial.println(EI_CLASSIFIER_PROJECT_NAME);
-  Serial.print("Sampling frequency: ");
-  Serial.print(samplingFreq);
-  Serial.println(" Hz");
-  Serial.print("Sample window: ");
-  Serial.print(sampleLength / samplingFreq);
-  Serial.println(" seconds");
+  ei_printf("Model: %s\n", EI_CLASSIFIER_PROJECT_NAME);
+  ei_printf("Sampling frequency: %d Hz\n", samplingFreq);
+  ei_printf("Sample window: %.1f seconds\n", (float)sampleLength / samplingFreq);
   
   // Allow sensor stabilization
   delay(2000);
   systemReady = true;
   
-  Serial.println("System ready - Starting motor monitoring...");
-  Serial.println("Anomaly Score, Status, DSP Time (ms), Inference Time (ms)");
+  ei_printf("System ready - Starting motor monitoring...\n");
+  ei_printf("Classifications, Anomaly Score, Status, Timing\n");
 }
 
 /**
   Main loop that continuously monitors motor vibrations and performs
-  real-time anomaly detection using the embedded machine learning model.
+  real-time classification and anomaly detection using the embedded machine learning models.
 */
 void loop() {
   if (systemReady) {
     // Collect vibration data for inference
     collectVibrationWindow();
     
-    // Perform anomaly detection
-    performAnomalyDetection();
+    // Perform classification and anomaly detection
+    performInference();
     
     // Brief delay between inference cycles
     delay(100);
@@ -609,7 +627,7 @@ void loop() {
 /**
   Collects a complete window of vibration data for machine learning inference.
   Maintains precise timing to match the trained model's sampling requirements
-  and ensures data quality for accurate anomaly detection.
+  and ensures data quality for accurate classification and anomaly detection.
 */
 void collectVibrationWindow() {
   unsigned long windowStart = millis();
@@ -619,15 +637,20 @@ void collectVibrationWindow() {
   while (featureIndex < sampleLength) {
     unsigned long sampleTime = micros();
     
-    // Read accelerometer values
+    // Read raw ADC values
     int xRaw = analogRead(xPin);
     int yRaw = analogRead(yPin);
     int zRaw = analogRead(zPin);
     
-    // Convert to acceleration values
-    float xAccel = ((xRaw * vRef / 16383.0) - zeroG) / sensitivity;
-    float yAccel = ((yRaw * vRef / 16383.0) - zeroG) / sensitivity;
-    float zAccel = ((zRaw * vRef / 16383.0) - zeroG) / sensitivity;
+    // Convert ADC values to millivolts
+    float xVoltmV = xRaw * mVPerADC;
+    float yVoltmV = yRaw * mVPerADC;
+    float zVoltmV = zRaw * mVPerADC;
+    
+    // Convert to acceleration in g units
+    float xAccel = (xVoltmV - supplyMidPointmV) / mVperg;
+    float yAccel = (yVoltmV - supplyMidPointmV) / mVperg;
+    float zAccel = (zVoltmV - supplyMidPointmV) / mVperg;
     
     // Store in feature buffer for inference
     if (featureIndex + 2 < sampleLength) {
@@ -644,18 +667,18 @@ void collectVibrationWindow() {
     
     // Safety timeout to prevent infinite loops
     if (millis() - windowStart > 5000) {
-      Serial.println("Warning: Data collection timeout");
+      ei_printf("Warning: Data collection timeout\n");
       break;
     }
   }
 }
 
 /**
-  Performs anomaly detection using the Edge Impulse model and provides
-  system feedback through serial output and LED alerts. Analyzes the
-  collected vibration data and determines motor health status.
+  Performs classification and anomaly detection using the Edge Impulse models and provides
+  system feedback through serial output and LED alerts. Analyzes the collected vibration data
+  and determines both motor operating state and health status.
 */
-void performAnomalyDetection() {
+void performInference() {
   ei_impulse_result_t result = { 0 };
   
   // Create signal structure for Edge Impulse
@@ -667,39 +690,51 @@ void performAnomalyDetection() {
   EI_IMPULSE_ERROR inferenceResult = run_classifier(&features_signal, &result, false);
   
   if (inferenceResult == EI_IMPULSE_OK) {
-    // Extract anomaly score from model output
-    float anomalyScore = result.anomaly;
+    // Find the classification with highest confidence
+    String motorState = "unknown";
+    float maxConfidence = 0.0;
     
-    // Determine system status
-    String status = "NORMAL";
-    bool anomalyDetected = false;
-    
-    if (anomalyScore > anomalyThreshold) {
-      status = "ANOMALY";
-      anomalyDetected = true;
+    for (uint16_t i = 0; i < EI_CLASSIFIER_LABEL_COUNT; i++) {
+      if (result.classification[i].value > maxConfidence) {
+        maxConfidence = result.classification[i].value;
+        motorState = ei_classifier_inferencing_categories[i];
+      }
     }
     
-    // Output results in CSV format for monitoring
-    Serial.print(anomalyScore, 4);
-    Serial.print(",");
-    Serial.print(status);
-    Serial.print(",");
-    Serial.print(result.timing.dsp);
-    Serial.print(",");
-    Serial.println(result.timing.anomaly);
+    // Print all classification probabilities
+    ei_printf("Classifications: ");
+    for (uint16_t i = 0; i < EI_CLASSIFIER_LABEL_COUNT; i++) {
+      ei_printf("%s: %.4f", 
+                ei_classifier_inferencing_categories[i], 
+                result.classification[i].value);
+      if (i < EI_CLASSIFIER_LABEL_COUNT - 1) ei_printf(", ");
+    }
     
-    // Handle anomaly alerts
-    if (anomalyDetected) {
+    // Print anomaly score and status
+#if EI_CLASSIFIER_HAS_ANOMALY
+    ei_printf(", Anomaly: %.4f", result.anomaly);
+    
+    // Status shows motor state + anomaly indicator
+    String anomalyFlag = (result.anomaly > anomalyThreshold) ? " [ANOMALY]" : "";
+    ei_printf(", Status: %s%s", motorState.c_str(), anomalyFlag.c_str());
+    
+    if (result.anomaly > anomalyThreshold) {
       triggerAnomalyAlert();
     }
+#else
+    ei_printf(", Status: %s", motorState.c_str());
+#endif
+    
+    ei_printf(", Timing - DSP: %dms, Inference: %dms\n", 
+              result.timing.dsp, 
+              result.timing.classification);
     
     // Update timing
     lastInference = millis();
     
   } else {
     // Handle inference errors
-    Serial.print("Inference error: ");
-    Serial.println(inferenceResult);
+    ei_printf("Inference error: %d\n", inferenceResult);
     
     // Flash LED to indicate system error
     digitalWrite(alertPin, HIGH);
@@ -728,7 +763,7 @@ void triggerAnomalyAlert() {
     digitalWrite(alertPin, LOW);
     
     // Log anomaly event
-    Serial.println("*** MOTOR ANOMALY DETECTED - CHECK EQUIPMENT ***");
+    ei_printf("*** MOTOR ANOMALY DETECTED - CHECK EQUIPMENT ***\n");
     
     lastAlert = currentTime;
   }
@@ -914,42 +949,26 @@ The complete intelligent motor anomaly detection sketch can be downloaded [here]
 
 When deploying the intelligent anomaly detection system in industrial environments, consider the following factors:
 
-**Environmental Protection**: Protect the Arduino Nano R4 and accelerometer from dust, moisture, and temperature extremes using appropriate enclosures rated for the operating environment.
-
-**Mounting Stability**: Ensure secure mechanical mounting of both the accelerometer sensor and the Arduino enclosure to prevent sensor movement that could affect measurement accuracy.
-
-**Power Management**: Implement appropriate power supply filtering and protection circuits, especially in electrically noisy industrial environments with motor drives and switching equipment.
-
-**Calibration Procedures**: Establish baseline measurements for each motor installation to account for mounting variations and motor-specific characteristics that may affect anomaly thresholds.
-
-**Maintenance Integration**: Plan integration with existing maintenance management systems through data logging interfaces or communication protocols for comprehensive predictive maintenance programs.
+- **Environmental Protection**: Protect the Nano R4 board and accelerometer from dust, moisture and temperature extremes using appropriate enclosures rated for the operating environment.
+- **Mounting Stability**: Ensure secure mechanical mounting of both the accelerometer sensor and the Nano R4 enclosure to prevent sensor movement that could affect measurement accuracy.
+- **Power Management**: Implement appropriate power supply filtering and protection circuits, especially in electrically noisy industrial environments with motor drives and switching equipment.
+- **Calibration Procedures**: Establish baseline measurements for each motor installation to account for mounting variations and motor-specific characteristics that may affect anomaly thresholds.
+- **Maintenance Integration**: Plan integration with existing maintenance management systems through data logging interfaces or communication protocols for complete predictive maintenance programs.
 
 ## Conclusions
 
-This application note demonstrates a comprehensive approach to implementing motor anomaly detection using the Arduino Nano R4, ADXL335 accelerometer, and Edge Impulse machine learning platform. The solution provides several key advantages for industrial predictive maintenance applications.
+This application note demonstrates how to implement motor anomaly detection using the Nano R4 board, ADXL335 accelerometer and Edge Impulse machine learning platform for industrial predictive maintenance applications.
 
-The combination of the Arduino Nano R4's enhanced 32-bit processing capabilities and Edge Impulse's optimized machine learning algorithms enables sophisticated anomaly detection directly on the embedded device. This approach eliminates the need for constant connectivity to cloud services and provides immediate response to potential equipment issues with inference times typically under 20 milliseconds.
+The solution combines the Nano R4's 32-bit processing power with Edge Impulse's machine learning tools to enable real-time anomaly detection directly on the embedded device. This eliminates the need for cloud connectivity and provides immediate response to potential equipment issues with inference times under 20 milliseconds.
 
-The analog interface of the ADXL335 accelerometer provides direct compatibility with the Arduino's high-resolution analog inputs while offering sufficient sensitivity and frequency response for most motor monitoring applications. The 3-axis measurement capability enables comprehensive vibration analysis across multiple directions, improving detection accuracy for various types of motor faults.
-
-The Edge Impulse platform significantly simplifies the machine learning development workflow, providing integrated tools for data collection, feature extraction, model training, and embedded deployment. The generated Arduino libraries are specifically optimized for the Nano R4's ARM Cortex-M4 processor, ensuring efficient real-time inference with minimal computational overhead.
-
-The unsupervised anomaly detection approach using K-means clustering requires only normal operation data for training, making it practical for industrial deployment where fault data may be difficult or expensive to obtain. This approach can detect previously unseen fault conditions that deviate from established normal patterns.
+The unsupervised anomaly detection approach using K-means clustering requires only normal operation data for training, making it practical for industrial deployment where fault data may be difficult to obtain. This approach can detect previously unseen fault conditions that differ from established normal patterns.
 
 ## Next Steps
 
-Building upon this foundation, several enhancements can further improve the motor anomaly detection system for advanced industrial applications:
+Building upon this foundation, several enhancements can further improve the motor anomaly detection system:
 
-**Multi-Sensor Fusion**: Integrate additional sensors such as temperature monitoring, current signature analysis, or acoustic emission sensors to provide a more comprehensive view of motor health. Combining multiple sensor modalities can improve detection accuracy and reduce false alarms while providing insights into specific fault mechanisms.
+- **Multi-Sensor Fusion**: Integrate additional sensors such as temperature, current or acoustic sensors to provide a more complete view of motor health and improve detection accuracy.
+- **Wireless Communication**: Add wireless connectivity using LoRaWAN, Wi-Fi or other modules to enable remote monitoring and integration with existing plant systems.
+- **Advanced Analysis**: Implement data logging for trend analysis, industrial protocol integration for SCADA systems or multi-class fault classification to distinguish between different types of motor problems.
 
-**Advanced Signal Processing**: Implement sophisticated preprocessing techniques such as order tracking for variable speed motors, envelope analysis for bearing fault detection, or cepstrum analysis for gear mesh monitoring. These techniques can improve sensitivity to specific types of motor faults and provide more detailed diagnostic information.
-
-**Wireless Communication**: Add wireless connectivity using modules such as LoRaWAN for long-range communication or WiFi for local network integration. This enhancement supports centralized monitoring systems and enables remote access to anomaly detection results and system status.
-
-**Data Logging and Trending**: Implement local data storage using SD cards or external memory to maintain historical records of motor performance, anomaly scores, and detected events. This capability supports trend analysis, remaining useful life estimation, and validation of maintenance decisions.
-
-**Industrial Protocol Integration**: Develop interfaces for common industrial communication standards such as Modbus RTU, CAN bus, or Industrial Ethernet protocols. This integration enables seamless connection with existing plant automation systems, SCADA platforms, and maintenance management software.
-
-**Fault Classification**: Extend beyond binary anomaly detection to implement multi-class fault classification that can distinguish between different types of motor problems such as bearing faults, misalignment, or electrical issues. This advancement requires collecting labeled fault data but provides more actionable maintenance guidance.
-
-The foundation provided in this application note enables rapid development of custom motor monitoring solutions tailored to specific industrial requirements while leveraging the power of embedded machine learning for intelligent condition monitoring and predictive maintenance strategies
+The foundation provided in this application note enables rapid development of custom motor monitoring solutions tailored to specific industrial requirements.
