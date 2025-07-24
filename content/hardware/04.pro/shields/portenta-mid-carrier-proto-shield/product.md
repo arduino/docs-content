@@ -3,7 +3,6 @@ title: Portenta Mid Carrier Proto Shield
 url_shop: https://search.arduino.cc/search/?q=proto+kit
 primary_button_url: https://docs.arduino.cc/hardware/portenta-proto-kit-me
 primary_button_title: Pro Proto Kit
-certifications: [CE, FCC, IC, UKCA, RoHS, REACH, WEEE]
 sku: [ASX00072]
 ---
 

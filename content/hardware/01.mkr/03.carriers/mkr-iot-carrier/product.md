@@ -6,7 +6,6 @@ primary_button_url: https://opla.arduino.cc/
 primary_button_title: Get Started
 url_datasheet: ''
 forumCategorySlug: '/hardware/mkr-boards/mkr-shields/162'
-certifications: [FCC, RoHS, CE, IC, UKCA, WEEE]
 sku: [ABX00047]
 ---
 

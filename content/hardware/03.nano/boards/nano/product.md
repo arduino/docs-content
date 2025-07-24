@@ -7,7 +7,6 @@ primary_button_title: Get Started
 core: arduino:avr
 forumCategorySlug: '/hardware/nano-family/nano/166'
 productCode: '003'
-certifications: [CE, UKCA]
 sku: [A000005]
 ---
 

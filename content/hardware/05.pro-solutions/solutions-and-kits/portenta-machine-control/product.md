@@ -7,7 +7,6 @@ primary_button_title:  User Manual
 secondary_button_url: /software/plc-ide/
 secondary_button_title: PLC IDE Guide
 core: arduino:mbed_portenta
-certifications: [RoHS, UKCA, CE, FCC, RCM]
 sku: [AKX00032]
 ---
 

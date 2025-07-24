@@ -7,7 +7,6 @@ primary_button_title:  Get Started
 secondary_button_url: /tutorials/wisgate-edge-pro/update-firmware
 secondary_button_title: Update Firmware
 url_datasheet: https://docs.rakwireless.com/Product-Categories/WisGate/RAK7289/Datasheet
-certifications: [CE, UKCA]
 sku: [TPX00095, TPX00096, TPX00097]
 ---
 

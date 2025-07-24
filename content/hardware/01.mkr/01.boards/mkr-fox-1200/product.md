@@ -5,7 +5,6 @@ primary_button_url: /software/ide-v2/tutorials/ide-v2-board-manager#samd
 primary_button_title: Get Started
 core: arduino:samd
 forumCategorySlug: '/mkr-boards/mkrfox1200/142'
-certifications: [CE, UKCA]
 status: end-of-life
 productCode: '128'
 sku: [ABX00014]

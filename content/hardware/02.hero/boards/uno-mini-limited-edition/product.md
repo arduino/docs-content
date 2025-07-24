@@ -7,7 +7,6 @@ primary_button_title: Get Started
 core: arduino:avr
 productCode: '117'
 forumCategorySlug: '/hardware/12'
-certifications: [CE, UKCA, FCC, RoHS]
 sku: [ABX00062]
 ---
 

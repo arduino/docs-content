@@ -5,7 +5,6 @@ url_guide: /tutorials/mkr-motor-carrier/mkr-motor-carrier-battery
 primary_button_url: /tutorials/mkr-motor-carrier/mkr-motor-carrier-battery
 primary_button_title: Get Started
 forumCategorySlug: "/hardware/mkr-boards/mkr-shields/162"
-certifications: [CE, UKCA]
 status: end-of-life
 sku: [ASX00003]
 ---
