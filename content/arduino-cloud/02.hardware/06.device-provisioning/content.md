@@ -33,15 +33,17 @@ If your board is provisioned to the cloud with version 2.0 the network credentia
 |     MKR WiFi 1010   | Version 1.0 |
 |     MKR GSM 1400    | Version 1.0 |
 |     GIGA R1 WiFi    | Version 2.0 |
-|     Uno R4 Wifi     | Version 1.0 |
+|     Uno R4 Wifi     | Version 2.0 |
 |     Nano 33 IoT     | Version 1.0 |
 |     Nano ESP32      | Version 1.0 |
 | Nano RP2040 Connect | Version 1.0 |
-|     Portenta H7     | Version 1.0 |
-|     Portenta C33    | Version 1.0 |
+|     Portenta H7     | Version 2.0 |
+|     Portenta C33    | Version 2.0 |
 |     Portenta X8     | Version 1.0 |
-|     Nicla Vision    | Version 1.0 |
-|        Opta         | Version 1.0 |
+|     Nicla Vision    | Version 2.0 |
+|        Opta         | Version 2.0 |
+
+If you have a board that is compatible with version 2.0 but have provisioned it with version 1.0, please have a look at the [section](#) at the end to understand how to migrate your board from 1.0 to 2.0.
 
 ### Configure Your Board
 
@@ -64,6 +66,7 @@ Now you have to decide how you want to set up your board with the Cloud, either 
 Here are the boards that are compatible with Bluetooth provisioning via a Bluetooth connection:
 
 - [Arduino UNO R4 WiFi](https://docs.arduino.cc/hardware/uno-r4-wifi/) (WiFi firmware version 0.6.0 or later required)
+- [Arduino Opta](https://docs.arduino.cc/hardware/opta/)
 
 ### Setting up Your Device With Bluetooth
 
@@ -106,3 +109,8 @@ Let's have a look at how to connect the board to a network. In the bottom left c
 Under Network click on **configure** and add your Wi-Fi® credentials. Now the board will automatically connect to your network when you upload the sketch from the **sketch** tab.
 
 ![Network on thing page](assets/network-config-thing-page.png)
+
+## Migrating from version 1.0 to 2.0
+
+If you have a board that is compatible with version 2.0 but have provisioned it previously with version 1.0 you will need to follow these steps to upgrade it.
+
