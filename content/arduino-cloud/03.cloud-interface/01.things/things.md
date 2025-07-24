@@ -8,7 +8,7 @@ author: Karl Söderby
 The communication between IoT devices and the Arduino Cloud is handled through something called **Things**. Things are a virtual twin of your hardware/setup, where you perform a lot of the configurations for your projects. 
 
 In the Thing interface you can:
-- Create Cloud variables that can be synced across devices,
+- create Cloud variables that can be synced across devices,
 - select the main device you want to associate with
 - edit & upload sketches to your board,
 - set webhooks that trigger whenever data changes,
