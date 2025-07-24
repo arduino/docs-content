@@ -6,7 +6,7 @@ compatible-products: [nano-r4]
 tags:
   - Motor monitoring
   - Anomaly detection
-  - Classifier
+  - Classification
   - Application note
   - Machine learning
   - Edge Impulse
@@ -511,18 +511,16 @@ The generated library includes optimized inference code for both the neural netw
 
 ## Improving the Vibration Monitor with Machine Learning
 
-The previous sections explored data collection and model training using Edge Impulse. Now we can integrate the trained machine learning model directly into our vibration monitoring system, transforming it from a simple data collector into an intelligent anomaly detection device capable of real-time motor health assessment.
+Now that we have trained our machine learning models, we can create a smart vibration monitor that automatically detects motor problems in real-time.
 
-In this section, we will enhance the vibration monitor by incorporating the deployed Edge Impulse model. The system will continuously analyze motor vibrations and provide immediate feedback when anomalous conditions are detected, enabling proactive maintenance decisions without requiring external connectivity.
+The enhanced system does two things: it identifies whether the motor is running (nominal) or stopped (idle), and it alerts you when it detects unusual vibration patterns that might indicate a problem. This all happens directly on the Nano R4 board without needing an internet connection.
 
-![Intelligent vibration monitor working principle overview](assets/ml-monitor-overview.gif)
+The smart monitoring system can do the following:
 
-The enhanced monitoring system provides the following intelligent capabilities:
-
-- **Real-time Anomaly Detection**: Continuous analysis of motor vibrations using embedded machine learning
-- **Visual Alert System**: Built-in LED provides immediate indication of detected anomalies
-- **Low Latency Response**: On-device inference eliminates communication delays for critical fault detection
-- **Energy Efficient Operation**: Optimized model ensures minimal power consumption for continuous monitoring
+- Tell if the motor is running or stopped
+- Detect unusual vibrations that might indicate problems
+- Flash an LED and show alerts when something seems wrong
+- Work continuously without needing internet or cloud services
 
 The complete enhanced example sketch is shown below:
 
@@ -565,15 +563,20 @@ const int sampleLength = EI_CLASSIFIER_RAW_SAMPLE_COUNT;
 float features[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE];
 int featureIndex = 0;
 
-// Detection parameters
-const float anomalyThreshold = 0.3;
+// Detection parameters - AJUSTADOS
+const float anomalyThreshold = 0.6;      // Increased from 0.3 to reduce false alarms
+const float confidenceThreshold = 0.7;   // Minimum confidence for classification
 const int alertPin = LED_BUILTIN;
-const int alertDuration = 1000;
+const int alertDuration = 2000;          // Increased to 2 seconds
 
 // System status variables
 unsigned long lastInference = 0;
 unsigned long lastAlert = 0;
 bool systemReady = false;
+
+// Performance tracking - NUEVO
+int totalInferences = 0;
+int anomalyCount = 0;
 
 /**
   Initializes the accelerometer, LED, and machine learning system.
@@ -598,6 +601,8 @@ void setup() {
   ei_printf("Model: %s\n", EI_CLASSIFIER_PROJECT_NAME);
   ei_printf("Sampling frequency: %d Hz\n", samplingFreq);
   ei_printf("Sample window: %.1f seconds\n", (float)sampleLength / samplingFreq);
+  ei_printf("Anomaly threshold: %.2f\n", anomalyThreshold);
+  ei_printf("Confidence threshold: %.2f\n", confidenceThreshold);
   
   // Allow sensor stabilization
   delay(2000);
@@ -620,22 +625,21 @@ void loop() {
     performInference();
     
     // Brief delay between inference cycles
-    delay(100);
+    delay(500);  // Increased delay to reduce processing load
   }
 }
 
 /**
   Collects a complete window of vibration data for machine learning inference.
-  Maintains precise timing to match the trained model's sampling requirements
-  and ensures data quality for accurate classification and anomaly detection.
+  OPTIMIZED VERSION - faster and more reliable timing.
 */
 void collectVibrationWindow() {
-  unsigned long windowStart = millis();
   featureIndex = 0;
+  unsigned long sampleInterval = 1000000 / samplingFreq; // Microseconds per sample
   
   // Collect samples according to model requirements
-  while (featureIndex < sampleLength) {
-    unsigned long sampleTime = micros();
+  for (int sample = 0; sample < (sampleLength / 3); sample++) {
+    unsigned long sampleStart = micros();
     
     // Read raw ADC values
     int xRaw = analogRead(xPin);
@@ -653,30 +657,20 @@ void collectVibrationWindow() {
     float zAccel = (zVoltmV - supplyMidPointmV) / mVperg;
     
     // Store in feature buffer for inference
-    if (featureIndex + 2 < sampleLength) {
-      features[featureIndex++] = xAccel;
-      features[featureIndex++] = yAccel;
-      features[featureIndex++] = zAccel;
-    }
+    features[featureIndex++] = xAccel;
+    features[featureIndex++] = yAccel;
+    features[featureIndex++] = zAccel;
     
-    // Maintain precise sampling timing
-    unsigned long sampleDuration = 1000000 / samplingFreq; // Microseconds per sample
-    while (micros() - sampleTime < sampleDuration) {
-      delayMicroseconds(10);
-    }
-    
-    // Safety timeout to prevent infinite loops
-    if (millis() - windowStart > 5000) {
-      ei_printf("Warning: Data collection timeout\n");
-      break;
+    // Wait for next sample time
+    while (micros() - sampleStart < sampleInterval) {
+      // Precise timing wait
     }
   }
 }
 
 /**
-  Performs classification and anomaly detection using the Edge Impulse models and provides
-  system feedback through serial output and LED alerts. Analyzes the collected vibration data
-  and determines both motor operating state and health status.
+  Performs classification and anomaly detection with improved confidence handling
+  and better false alarm reduction.
 */
 void performInference() {
   ei_impulse_result_t result = { 0 };
@@ -690,44 +684,54 @@ void performInference() {
   EI_IMPULSE_ERROR inferenceResult = run_classifier(&features_signal, &result, false);
   
   if (inferenceResult == EI_IMPULSE_OK) {
+    totalInferences++;
+    
     // Find the classification with highest confidence
-    String motorState = "unknown";
+    String motorState = "uncertain";
     float maxConfidence = 0.0;
+    String bestClass = "unknown";
     
     for (uint16_t i = 0; i < EI_CLASSIFIER_LABEL_COUNT; i++) {
       if (result.classification[i].value > maxConfidence) {
         maxConfidence = result.classification[i].value;
-        motorState = ei_classifier_inferencing_categories[i];
+        bestClass = ei_classifier_inferencing_categories[i];
       }
     }
     
-    // Print all classification probabilities
-    ei_printf("Classifications: ");
-    for (uint16_t i = 0; i < EI_CLASSIFIER_LABEL_COUNT; i++) {
-      ei_printf("%s: %.4f", 
-                ei_classifier_inferencing_categories[i], 
-                result.classification[i].value);
-      if (i < EI_CLASSIFIER_LABEL_COUNT - 1) ei_printf(", ");
+    // Apply confidence threshold
+    if (maxConfidence >= confidenceThreshold) {
+      motorState = bestClass;
     }
     
-    // Print anomaly score and status
-#if EI_CLASSIFIER_HAS_ANOMALY
-    ei_printf(", Anomaly: %.4f", result.anomaly);
+    // Simplified multiline output
+    ei_printf("\n--- Motor Status ---\n");
+    ei_printf("State: %s (%.1f%% confidence)\n", motorState.c_str(), maxConfidence * 100);
     
-    // Status shows motor state + anomaly indicator
-    String anomalyFlag = (result.anomaly > anomalyThreshold) ? " [ANOMALY]" : "";
-    ei_printf(", Status: %s%s", motorState.c_str(), anomalyFlag.c_str());
+#if EI_CLASSIFIER_HAS_ANOMALY
+    bool isAnomaly = false;
     
     if (result.anomaly > anomalyThreshold) {
+      isAnomaly = true;
+      anomalyCount++;
+      ei_printf("Alert: ANOMALY DETECTED (%.2f)\n", result.anomaly);
+    } else {
+      ei_printf("Status: Normal (%.2f)\n", result.anomaly);
+    }
+    
+    if (isAnomaly) {
       triggerAnomalyAlert();
     }
 #else
-    ei_printf(", Status: %s", motorState.c_str());
+    ei_printf("Status: %s\n", motorState.c_str());
 #endif
     
-    ei_printf(", Timing - DSP: %dms, Inference: %dms\n", 
-              result.timing.dsp, 
-              result.timing.classification);
+    ei_printf("Processing time: %dms\n", result.timing.dsp + result.timing.classification);
+    
+    // Show performance statistics every 10 inferences
+    if (totalInferences % 10 == 0) {
+      float anomalyRate = (float)anomalyCount / totalInferences * 100.0;
+      ei_printf("Stats: %.1f%% anomalies detected (%d/%d)\n", anomalyRate, anomalyCount, totalInferences);
+    }
     
     // Update timing
     lastInference = millis();
@@ -744,26 +748,23 @@ void performInference() {
 }
 
 /**
-  Provides visual and serial feedback when motor anomalies are detected.
-  Activates the built-in LED alert and logs detailed anomaly information
-  for maintenance planning and system diagnostics.
+  Enhanced anomaly alert with rate limiting and better feedback.
 */
 void triggerAnomalyAlert() {
   unsigned long currentTime = millis();
   
   // Rate limit alerts to prevent excessive notifications
   if (currentTime - lastAlert > alertDuration) {
-    // Activate visual alert
-    digitalWrite(alertPin, HIGH);
-    delay(200);
-    digitalWrite(alertPin, LOW);
-    delay(100);
-    digitalWrite(alertPin, HIGH);
-    delay(200);
-    digitalWrite(alertPin, LOW);
+    // More distinctive visual alert pattern
+    for (int i = 0; i < 3; i++) {
+      digitalWrite(alertPin, HIGH);
+      delay(150);
+      digitalWrite(alertPin, LOW);
+      delay(150);
+    }
     
-    // Log anomaly event
-    ei_printf("*** MOTOR ANOMALY DETECTED - CHECK EQUIPMENT ***\n");
+    // Log anomaly event with timestamp
+    ei_printf("*** ANOMALY DETECTED at %lu ms - CHECK EQUIPMENT ***\n", currentTime);
     
     lastAlert = currentTime;
   }
@@ -789,155 +790,141 @@ The following sections will help you understand the main components of the enhan
 
 ### Edge Impulse Library Integration
 
-The enhanced sketch begins by integrating the trained machine learning model through the Edge Impulse generated library.
+The enhanced sketch starts by including the Edge Impulse library and setting up the necessary constants.
 
 ```arduino
 // Include the Edge Impulse library (name will match your project)
-#include <motor_anomaly_detection_inferencing.h>
+#include <nano-r4-anomaly-detection_inferencing.h>
 
-// Edge Impulse model parameters
-const int samplingFreq = EI_CLASSIFIER_FREQUENCY;           // Model sampling frequency
-const int sampleLength = EI_CLASSIFIER_RAW_SAMPLE_COUNT;    // Required sample count
-const int featureCount = EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE; // Feature vector size
+// ADXL335 specifications (calibrated for this specific breakout board)
+const float supplyMidPointmV = 1237.0;  // Measured 0g bias point
+const float mVperg = 303.0;             // Measured sensitivity (mV/g)
 
-// Data buffer for model inference
+// Detection parameters
+const float anomalyThreshold = 0.6;      // Reduced false alarms
+const float confidenceThreshold = 0.7;   // Minimum confidence for classification
+
+// Data buffer for the models
 float features[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE];
 ```
 
-In the code snippet shown above:
-
-- The Edge Impulse library provides pre-compiled inference code optimized for the Arduino Nano R4
-- Model parameters are automatically configured based on the training settings
-- Feature buffer allocation matches the exact requirements of the trained model
+The library contains both the classification model (to identify if the motor is idle or running) and the anomaly detection model (to spot unusual vibrations). The ADXL335 constants use measured values from the actual sensor rather than theoretical values for better accuracy.
 
 ### Real-time Data Collection and Buffering
 
-The system continuously collects vibration data in windows that match the trained model's requirements.
+The system collects vibration data for the machine learning models to analyze.
 
 ```arduino
 void collectVibrationWindow() {
-  unsigned long windowStart = millis();
   featureIndex = 0;
+  unsigned long sampleInterval = 1000000 / samplingFreq; // Microseconds per sample
   
   // Collect samples according to model requirements
-  while (featureIndex < sampleLength) {
-    unsigned long sampleTime = micros();
+  for (int sample = 0; sample < (sampleLength / 3); sample++) {
+    unsigned long sampleStart = micros();
     
-    // Read accelerometer values
+    // Read raw ADC values
     int xRaw = analogRead(xPin);
     int yRaw = analogRead(yPin);
     int zRaw = analogRead(zPin);
     
-    // Convert to acceleration values
-    float xAccel = ((xRaw * vRef / 16383.0) - zeroG) / sensitivity;
-    float yAccel = ((yRaw * vRef / 16383.0) - zeroG) / sensitivity;
-    float zAccel = ((zRaw * vRef / 16383.0) - zeroG) / sensitivity;
+    // Convert ADC values to millivolts
+    float xVoltmV = xRaw * mVPerADC;
+    float yVoltmV = yRaw * mVPerADC;
+    float zVoltmV = zRaw * mVPerADC;
+    
+    // Convert to acceleration in g units
+    float xAccel = (xVoltmV - supplyMidPointmV) / mVperg;
+    float yAccel = (yVoltmV - supplyMidPointmV) / mVperg;
+    float zAccel = (zVoltmV - supplyMidPointmV) / mVperg;
     
     // Store in feature buffer for inference
-    if (featureIndex + 2 < sampleLength) {
-      features[featureIndex++] = xAccel;
-      features[featureIndex++] = yAccel;
-      features[featureIndex++] = zAccel;
-    }
+    features[featureIndex++] = xAccel;
+    features[featureIndex++] = yAccel;
+    features[featureIndex++] = zAccel;
     
-    // Maintain precise sampling timing
-    unsigned long sampleDuration = 1000000 / samplingFreq; // Microseconds per sample
-    while (micros() - sampleTime < sampleDuration) {
-      delayMicroseconds(10);
+    // Wait for next sample time
+    while (micros() - sampleStart < sampleInterval) {
+      // Precise timing wait
     }
   }
 }
 ```
 
-In the code snippet shown above:
-
-- Precise timing control ensures consistency with training data characteristics
-- Microsecond-level timing maintains the exact sampling frequency used during model training
-- Buffer management prevents overflow while collecting the required number of samples
+This function reads vibration data from the accelerometer and converts it to the format needed by the machine learning models. It collects exactly 200 samples (two seconds of data) and maintains precise timing to match the training data.
 
 ### Machine Learning Inference Execution
 
-The anomaly detection process uses the Edge Impulse library to analyze collected vibration data.
+The system analyzes the collected vibration data using both machine learning models to determine motor state and detect anomalies.
 
 ```arduino
-void performAnomalyDetection() {
+void performInference() {
   ei_impulse_result_t result = { 0 };
   
-  // Create signal structure for Edge Impulse
   signal_t features_signal;
   features_signal.total_length = sampleLength;
   features_signal.get_data = &getFeatureData;
   
-  // Run the Edge Impulse classifier
   EI_IMPULSE_ERROR inferenceResult = run_classifier(&features_signal, &result, false);
   
   if (inferenceResult == EI_IMPULSE_OK) {
-    // Extract anomaly score from model output
-    float anomalyScore = result.anomaly;
+    // Find the best classification
+    String motorState = "uncertain";
+    float maxConfidence = 0.0;
     
-    // Determine system status
-    String status = "NORMAL";
-    bool anomalyDetected = false;
-    
-    if (anomalyScore > anomalyThreshold) {
-      status = "ANOMALY";
-      anomalyDetected = true;
+    for (uint16_t i = 0; i < EI_CLASSIFIER_LABEL_COUNT; i++) {
+      if (result.classification[i].value > maxConfidence) {
+        maxConfidence = result.classification[i].value;
+        motorState = ei_classifier_inferencing_categories[i];
+      }
     }
     
-    // Output results for monitoring
-    Serial.print(anomalyScore, 4);
-    Serial.print(",");
-    Serial.print(status);
-    Serial.print(",");
-    Serial.print(result.timing.dsp);
-    Serial.print(",");
-    Serial.println(result.timing.anomaly);
+    // Check if we're confident enough
+    if (maxConfidence < confidenceThreshold) {
+      motorState = "uncertain";
+    }
+    
+    // Check for anomalies
+    bool isAnomaly = (result.anomaly > anomalyThreshold);
+    
+    // Display results
+    // ... output code ...
   }
 }
 ```
 
-In the code snippet shown above:
-
-- The classifier analyzes the complete vibration window using the trained anomaly detection model
-- Anomaly scores range from 0.0 (normal) to 1.0 (highly anomalous) based on deviation from training patterns
-- Performance timing information helps optimize system response and resource usage
+This function runs both models on the collected data. The classification model determines if the motor is idle or running, while the anomaly detection model checks if the vibration patterns look unusual. The system only makes a classification if it's confident enough in the result.
 
 ### Anomaly Detection and Alert System
 
-The alert system provides immediate feedback when motor anomalies are detected.
+The system provides feedback when it detects problems with the motor.
 
 ```arduino
 void triggerAnomalyAlert() {
   unsigned long currentTime = millis();
   
-  // Rate limit alerts to prevent excessive notifications
   if (currentTime - lastAlert > alertDuration) {
-    // Activate visual alert
-    digitalWrite(alertPin, HIGH);
-    delay(200);
-    digitalWrite(alertPin, LOW);
-    delay(100);
-    digitalWrite(alertPin, HIGH);
-    delay(200);
-    digitalWrite(alertPin, LOW);
+    // Flash LED three times
+    for (int i = 0; i < 3; i++) {
+      digitalWrite(alertPin, HIGH);
+      delay(150);
+      digitalWrite(alertPin, LOW);
+      delay(150);
+    }
     
-    // Log anomaly event
-    Serial.println("*** MOTOR ANOMALY DETECTED - CHECK EQUIPMENT ***");
+    // Log the event
+    ei_printf("*** ANOMALY DETECTED at %lu ms - CHECK EQUIPMENT ***\n", currentTime);
     
     lastAlert = currentTime;
   }
 }
 ```
 
-In the code snippet shown above:
+When the system detects unusual vibration patterns, it flashes the built-in LED three times and prints a warning message. The alert system prevents spam by waiting at least 2 seconds between alerts, even if multiple anomalies are detected.
 
-- Double-flash LED pattern provides clear visual indication of detected anomalies
-- Rate limiting prevents excessive alerts during persistent anomaly conditions
-- Serial logging creates audit trail for maintenance planning and system analysis
+After uploading the enhanced sketch to the Nano R4 board, you should see the following output in the Arduino IDE's Serial Monitor during normal operation:
 
-After uploading the enhanced sketch to the Arduino Nano R4, you should see the following output in the Arduino IDE's Serial Monitor during normal operation:
-
-![Enhanced sketch output showing real-time anomaly detection](assets/ml-monitor-output.png)
+![Enhanced example sketch output showing real-time anomaly detection](assets/ml-monitor-output.png)
 
 When an anomaly is detected, the built-in LED will flash twice and the serial output will display the anomaly score above the configured threshold along with a warning message.
 
