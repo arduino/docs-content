@@ -22,7 +22,7 @@ The Thing interface is designed for ease-of-use and only has a few sections, whi
 
 - **1. Cloud Variables** - create variables that synchronize between a device and the Arduino Cloud.
 - **2. Devices** - configure a device that will be associated with your Thing.
-- **3. Network** - This section has been moved to the Device page.
+- **3. Network** - to add your Wi-Fi® network/password go to Device page.
 - **4. Setup** - the main configuration space tab.
 - **5. Sketch** - access the sketch associated with your Thing.
 - **6. Metadata** - metadata such as tags, timezone and Thing ID.
