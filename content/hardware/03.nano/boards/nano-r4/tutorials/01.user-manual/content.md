@@ -97,25 +97,25 @@ The Arduino UNO R4 Boards core provides support for the following:
 
 The full pinout is available and downloadable as PDF from the link below:
 
-- Nano R4 pinout
+- [Nano R4 pinout](https://docs.arduino.cc/resources/pinouts/ABX00142-full-pinout.pdf)
 
 ### Datasheet
 
 The complete datasheet is available and downloadable as PDF from the link below:
 
-- Nano R4 datasheet
+- [Nano R4 datasheet](https://docs.arduino.cc/resources/datasheets/ABX00142-datasheet.pdf)
 
 ### Schematics
 
 The complete schematics are available and downloadable as PDF from the link below:
 
-- Nano R4 schematics
+[- Nano R4 schematics](https://docs.arduino.cc/resources/schematics/ABX00142-schematics.pdf)
 
 ### STEP Files
 
 The complete STEP files are available and downloadable from the link below:
 
-- Nano R4 STEP files
+- [Nano R4 STEP files](../../downloads/ABX00142-step.zip)
 
 ## First Use
 
