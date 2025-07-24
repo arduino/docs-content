@@ -1,5 +1,5 @@
 ---
-identifier: ABX00142-ABX00143
+identifier: ABX00142
 title: Arduino® Nano R4
 variant: 'Datasheet'
 type: maker
