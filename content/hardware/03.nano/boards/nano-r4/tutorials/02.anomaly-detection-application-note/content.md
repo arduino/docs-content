@@ -1,5 +1,5 @@
 ---
-title: 'Motor Anomaly Detection with the Arduino® Nano R4 and the ADXL335 Accelerometer'
+title: 'Motor Anomaly Detection with the Arduino® Nano R4'
 description: "This application note describes how to implement a motor anomaly detection system using the Nano R4 board, the ADXL335 accelerometer and Edge Impulse."
 difficulty: intermediate
 compatible-products: [nano-r4]
@@ -326,7 +326,7 @@ After uploading the example sketch to the Nano R4 board, you should see this out
 
 Download the complete data collection example sketch [here](assets/motor_vibration_collector.zip).
 
-[![ ](assets/download-button.png)](assets/motor-vibration-data-collection.zip)
+[![ ](assets/download-button.png)](assets/motor_vibration_collector.zip)
 
 ## Connecting the Vibration Monitor to Edge Impulse
 
@@ -810,7 +810,7 @@ float features[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE];
 
 The library contains both the classification model (to identify if the motor is idle or running) and the anomaly detection model (to spot unusual vibrations). The ADXL335 constants use measured values from the actual sensor rather than theoretical values for better accuracy.
 
-### Real-time Data Collection and Buffering
+### Real-Time Data Collection And Buffering
 
 The system collects vibration data for the machine learning models to analyze.
 
@@ -931,6 +931,9 @@ When an anomaly is detected, the built-in LED will flash twice and the serial ou
 ### Complete Enhanced Example Sketch
 
 The complete intelligent motor anomaly detection sketch can be downloaded [here](assets/motor_anomaly_detection.zip).
+
+[![ ](assets/download-button.png)](assets/motor_anomaly_detection.zip)
+
 
 ### System Integration Considerations
 
