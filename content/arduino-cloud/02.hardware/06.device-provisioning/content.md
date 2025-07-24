@@ -11,7 +11,6 @@ tags: [Cloud]
 
 To use the Arduino Cloud you will need to register and set up a **free** account.
 
-
 ## Different Device Provisioning Versions
 
 There are two different versions of provisioning, 1.0 and 2.0. These different versions will change some things when you connect your board to the cloud. The main change will be where the network credentials are stored.
@@ -43,11 +42,11 @@ If your board is provisioned to the cloud with version 2.0 the network credentia
 |     Nicla Vision    | Version 2.0 |
 |        Opta         | Version 2.0 |
 
-If you have a board that is compatible with version 2.0 but have provisioned it with version 1.0, please have a look at the [section](#) at the end to understand how to migrate your board from 1.0 to 2.0.
+If you have a board that is compatible with version 2.0 but have provisioned it with version 1.0, please have a look at the [section](#migrating-from-version-10-to-20) at the end to understand how to migrate your board from 1.0 to 2.0.
 
 ### Configure Your Board
 
-After you have set up your account, to add your device to your Arduino Cloud account go to the Devices page and click on the **+ DEVICE** button.
+After you have set up your account, to add your device to your Arduino Cloud account go to the [Devices page](https://app.arduino.cc/devices) and click on the **+ DEVICE** button.
 
 ![Create new Device](assets/creating-new-device.png)
 
@@ -57,7 +56,7 @@ This will take you to the setup menu for your device. You can now choose between
 
 Now you have to decide how you want to set up your board with the Cloud, either via Bluetooth® or USB cable (you can check if your board is compatible with the Bluetooth method below). These two options have different processes, pick the method that suits your needs best and follow the section for your chosen method.
 
-***NOTE: If you want to use the Bluetooth method and you have an older board you need to first connect the board to the cloud in order to update it to the newer provisioning version. If you are having issues with connecting your board via Bluetooth, we suggest going through the USB option first to make sure that the provisioning version is correct.***
+***NOTE: If you want to use the Bluetooth method and you have an older board you need to first connect the board to the cloud in order to update it to the newer provisioning version. Please follow the instructions [here]((#migrating-from-version-10-to-20)) first.***
 
 ## Bluetooth Provisioning
 
@@ -100,17 +99,32 @@ Wait for it to finish and when it is complete click "continue".
 
 ![Board connected to the cloud](assets/succesfull-connection-with-usb.png)
 
-You will now be taken to the device page. Here you can see the details of the board, change the name and attach it to a thing if you want to connect to a network. To find out more about Arduino Cloud Things, go [here](https://docs.arduino.cc/arduino-cloud/cloud-interface/things/).
+You will now be taken to the device page. Here you can see the details of the board, change the name, attach it to a thing and change the network configuration.
 
-Let's have a look at how to connect the board to a network. In the bottom left corner you can press the icon highlighted in the image below to create a thing and attach your board to it automatically. Clicking it also takes you to the Thing page.
+Top configure the network that your device connects to press the section highlighted in the image below.
+
+![Network configuration on device page](assets/network-config-device-page.png)
+
+Then on the next page enter your WiFi credentials and your board will connect to it!
+
+To find out more about Arduino Cloud Things, go [here](https://docs.arduino.cc/arduino-cloud/cloud-interface/things/). In the bottom left corner you can press the icon highlighted in the image below to create a thing and attach your board to it automatically. Clicking it also takes you to the Thing page.
 
 ![Create thing from device page](assets/device-overview-usb.png)
-
-Under Network click on **configure** and add your Wi-Fi® credentials. Now the board will automatically connect to your network when you upload the sketch from the **sketch** tab.
-
-![Network on thing page](assets/network-config-thing-page.png)
 
 ## Migrating from version 1.0 to 2.0
 
 If you have a board that is compatible with version 2.0 but have provisioned it previously with version 1.0 you will need to follow these steps to upgrade it.
 
+Go to the device page [here](https://app.arduino.cc/devices) and press the **+ DEVICE** button.
+
+![Device page](assets/creating-new-device.png)
+
+Next select "USB connection" and on the next page select your board.
+
+![Device selection](assets/selecting-board-migration.png)
+
+Now your board will be updated to version 2.0, wait for the process to finish.
+
+![Board being updated](assets/migration-process.png)
+
+When this is done you can continue setting up the network connection for your board and it will now be using the latest provisioning method with the Arduino Cloud!
