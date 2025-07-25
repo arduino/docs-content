@@ -262,7 +262,7 @@ valueVariable = analogRead(A0);
 
 ![Status Widget](assets/widget-status.png)
 
-The status widget is great for checking the state of something: green is true, red is false!
+The status widget is great for checking the state of something: green is true, red is false! The look of the widget can also be customized more. If the "Custom style" is turned on in the widget settings the colors can be changed. If the "Icons" option is chosen the icons can also be changed.
 
 Can be linked to a **boolean** variable.
 
