@@ -197,7 +197,7 @@ Do not increase the laser output power by any means. Do not use any optics to fo
 **Caution:**  
 Use of controls or adjustments, or performance of procedures other than those specified herein may result in hazardous radiation exposure.
 
-![](assets/classOneLaserProduct.png)
+<img src="assets/classOneLaserProduct.png" alt="Class 1 Laser Product" style="width:50%; display:block; margin:auto;">
 
 # Company Information
 
