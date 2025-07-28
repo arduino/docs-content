@@ -13,13 +13,13 @@ To use the Arduino Cloud you will need to register and set up a **free** account
 
 ## Different Device Provisioning Versions
 
-There are two different versions of provisioning, 1.0 and 2.0. These different versions will change some things when you connect your board to the cloud. The main change will be where the network credentials are stored.
+There are two different versions of provisioning, 1.0 and 2.0. These different versions will change some things when you connect your board to the Cloud. The main change will be where the network credentials are stored.
 
-If your board is provisioned to the cloud with version 1.0 the network credentials will be stored in a "secret.h" file that can be found on the "thing" page, in the "sketch" tab. As shown here:
+If your board is provisioned to the Cloud with version 1.0, the network credentials will be stored in a "secret.h" file that can be found on the "thing" page, in the "sketch" tab. As shown here:
 
 ![Sketch tab on thing page]()
 
-If your board is provisioned to the cloud with version 2.0 the network credentials will be stored on the board.
+If your board is provisioned to the Cloud with version 2.0 the network credentials will be stored on the board.
 
 ### Compatible Boards List
 
@@ -28,11 +28,11 @@ If your board is provisioned to the cloud with version 2.0 the network credentia
 |     MKR NB 1500     | Version 1.0 |
 |     MKR WAN 1300    | Version 1.0 |
 |     MKR WAN 1310    | Version 1.0 |
-|     MKR 1000        | Version 1.0 |
+|     MKR 1000 WiFi       | Version 1.0 |
 |     MKR WiFi 1010   | Version 1.0 |
 |     MKR GSM 1400    | Version 1.0 |
 |     GIGA R1 WiFi    | Version 2.0 |
-|     Uno R4 Wifi     | Version 2.0 |
+|     UNO R4 WiFi     | Version 2.0 |
 |     Nano 33 IoT     | Version 1.0 |
 |     Nano ESP32      | Version 1.0 |
 | Nano RP2040 Connect | Version 1.0 |
@@ -56,7 +56,7 @@ This will take you to the setup menu for your device. You can now choose between
 
 Now you have to decide how you want to set up your board with the Cloud, either via Bluetooth® or USB cable (you can check if your board is compatible with the Bluetooth method below). These two options have different processes, pick the method that suits your needs best and follow the section for your chosen method.
 
-***NOTE: If you want to use the Bluetooth method and you have an older board you need to first connect the board to the cloud in order to update it to the newer provisioning version. Please follow the instructions [here]((#migrating-from-version-10-to-20)) first.***
+***NOTE: If you want to use the Bluetooth method and you have an older board you need to first connect the board to the Cloud in order to update it to the newer provisioning version. Please follow the instructions [here]((#migrating-from-version-10-to-20)) first.***
 
 ## Bluetooth Provisioning
 
@@ -64,7 +64,7 @@ Now you have to decide how you want to set up your board with the Cloud, either 
 
 Here are the boards that are compatible with Bluetooth provisioning via a Bluetooth connection:
 
-- [Arduino UNO R4 WiFi](https://docs.arduino.cc/hardware/uno-r4-wifi/) (WiFi firmware version 0.6.0 or later required)
+- [Arduino UNO R4 WiFi](https://docs.arduino.cc/hardware/uno-r4-wifi/) (Wi-Fi firmware version 0.6.0 or later required)
 - [Arduino Opta](https://docs.arduino.cc/hardware/opta/)
 
 ### Setting up Your Device With Bluetooth
@@ -95,17 +95,17 @@ Now the board will start connecting. You should now see this loading screen:
 
 ![Board connecting](assets/connecting-with-usb-loading.png)
 
-Wait for it to finish and when it is complete click "continue".
+Wait for it to finish and when it is completed, click "continue".
 
 ![Board connected to the cloud](assets/succesfull-connection-with-usb.png)
 
 You will now be taken to the device page. Here you can see the details of the board, change the name, attach it to a thing and change the network configuration.
 
-Top configure the network that your device connects to press the section highlighted in the image below.
+To configure the network that your device connects to, press the section highlighted in the image below.
 
 ![Network configuration on device page](assets/network-config-device-page.png)
 
-Then on the next page enter your WiFi credentials and your board will connect to it!
+Then on the next page enter your Wi-Fi credentials and your board will connect to it!
 
 To find out more about Arduino Cloud Things, go [here](https://docs.arduino.cc/arduino-cloud/cloud-interface/things/). In the bottom left corner you can press the icon highlighted in the image below to create a thing and attach your board to it automatically. Clicking it also takes you to the Thing page.
 
