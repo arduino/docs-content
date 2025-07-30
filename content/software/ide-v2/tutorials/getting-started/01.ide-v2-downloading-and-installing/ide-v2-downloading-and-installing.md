@@ -82,3 +82,5 @@ To enable the Arduino IDE to access the serial port and upload code to your boar
 ```
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", GROUP="plugdev", MODE="0666"
 ```
+
+***Make sure you've run the `post_install.sh` script to set the correct udev rules. You can find full instructions and download links in our [Help Center article](https://support.arduino.cc/hc/en-us/articles/9005041052444-Fix-udev-rules-on-Linux) on fixing udev rules.***
