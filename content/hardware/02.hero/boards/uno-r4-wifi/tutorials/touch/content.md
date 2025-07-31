@@ -1,8 +1,15 @@
 ---
 title: Uno R4 Capacitive-Touch Tutorial.
+difficulty: beginner
 description: Learn to use the built-in capacitive sensing capabilities of the Arduino® Uno R4.
 tags: [Arduino, Capacitive Sensing, Uno R4]
 author: Pedro Lima
+hardware:
+  - hardware/02.hero/boards/uno-r4-wifi
+  - hardware/02.hero/boards/uno-r4-minima
+ software:
+  - ide-v2
+  - web-editor
 ---
 
 Capacitive sensing is a technology that detects changes in capacitance to determine the presence or absence of a conductive object, such as a human finger. This principle is widely used in touch-sensitive devices. The Arduino® Uno R4, both the [WiFi](https://store.arduino.cc/products/arduino-uno-r4-wifi) and [Minima](https://store.arduino.cc/products/arduino-uno-r4-minima) versions, come equipped with built-in capacitive sensing capabilities, making it easier to integrate touch inputs into your projects.
