@@ -141,16 +141,25 @@ The Nano R4 features an RGB LED and single color built-in LED, both can be contr
 - Arduino Modulino nodes
 - Nano Connector Carrier (ASX00061)
 
-## Power and Ratings
+## Ratings
+
 ### Recommended Operating Conditions
 
-| Symbol          | Description                      | Min | Typ | Max  | Unit |
-| --------------- | -------------------------------- | --- | --- | ---- | ---- |
-| V<sub>IN</sub>  | Input voltage from VIN pad       | 6.0 | 7.0 | 21.0 | V    |
-| V<sub>USB</sub> | Input voltage from USB connector | 4.8 | 5.0 | 5.5  | V    |
-| T<sub>OP</sub>  | Operating Temperature            | -40 | 25  | 85   | °C   |
+<p style="text-align: justify;">
+The table below provides a guideline for the optimal use of the Nano R4 board, outlining typical operating conditions and design limits. The operating conditions of the Nano R4 are largely a function based on its component's specifications.
+</p>
 
-**Note:** V<sub>DD</sub> controls the logic level and is connected to the 5 V power rail. V<sub>AREF</sub> set the reference for the analog logic.
+|    **Symbol**   |        **Description**        | **Min** | **Typ** | **Max** | **Unit** |
+|:---------------:|:-----------------------------:|:-------:|:-------:|:-------:|:--------:|
+|  V<sub>IN</sub> |    Input voltage (VIN pin)    |   6.0   |   7.0   |   21.0  |    VDC   |
+| V<sub>USB</sub> | Input voltage (USB connector) |   4.8   |   5.0   |   5.5   |    VDC   |
+| I<sub>USB</sub> | Input current (USB connector) |    -    |    -    |   500   |    mA    |
+|  T<sub>OP</sub> |     Operating temperature     |   -40   |    25   |    85   |    °C    |
+
+¹USB current is limited by USB 2.0 specification (500 mA maximum).
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;"><p style="text-align: justify;"><strong>Note:</strong> V<sub>DD</sub> controls the logic level and is connected to the +5 VDC power rail. V<sub>AREF</sub> sets the reference voltage for the analog-to-digital converter (ADC).</p>
+</div>
 
 ### Power Options
 
