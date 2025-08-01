@@ -35,7 +35,7 @@ Navigate to the [Arduino Cloud](https://cloud.arduino.cc/) page and log in with 
 
 ![Arduino Cloud Login Page](assets/voucher_red_login.png)
 
-To redeem the voucher, once you are logged in with the desired account, go to `CLOUD`, click on the tab `PLANS` and locate the option `For Business` or follow this [link](https://cloud.arduino.cc/plans#business). To proceed, click the `PURCHASE` button under the `Enterprise Base Plan` column.
+To redeem the voucher, once you are logged in with the desired account, go to `CLOUD`, click on the tab `PLANS` and locate the option `For Business` or follow this [link](https://digital-store.arduino.cc/subscriptions/redeem). To proceed, click the `PURCHASE` button under the `Enterprise Base Plan` column.
 
 ![Arduino Cloud Business Plans](assets/voucher_red_plans_screen.png)
 
