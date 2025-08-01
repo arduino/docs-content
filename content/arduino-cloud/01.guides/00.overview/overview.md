@@ -92,9 +92,11 @@ The configurations varies between boards, but everything is covered in the insta
 
 ### 3. Create a Thing
 
-After configuring a device, we can create a Thing, which is the **virtual twin** of your board. Here we configure network details, select device we want to associate and create the variables that we want to synchronize.
+After configuring a device, we can create a Thing, which is the **virtual twin** of your board. Here we can select the device to associate and create the variables that we want to synchronize with.
 
 ![Things in the Arduino Cloud.](assets/thing.png)
+
+To configure network details go to the [devices page](https://app.arduino.cc/devices), select your device and set the network credentials.
 
 Variables we create will be used in the sketch, and will keep synchronizing as long as the board is connected to the Cloud. 
 

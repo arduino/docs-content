@@ -52,7 +52,7 @@ To configure a device, navigate to the [app.arduino.cc/devices](https://app.ardu
 
 1. Create a new Thing, by clicking on the **"Create Thing"** button.
 2. Click on the **"Select Device"** in the **"Associated Devices"** section of your Thing. Your previously configured device will appear from the list.
-3. In the network section, enter your network credentials.
+3. If you want to change the network credentials go to the [device page](https://app.arduino.cc/devices).
 
 ***Learn more about Things in the [Things documentation](/arduino-cloud/cloud-interface/things).***
 
