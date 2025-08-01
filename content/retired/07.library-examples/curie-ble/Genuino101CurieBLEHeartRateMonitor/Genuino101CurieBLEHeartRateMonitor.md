@@ -32,7 +32,7 @@ Set up the Arduino software as described in [Getting Started with Arduino 101](h
 
 4. Launch the Arduino software and select Arduino 101 from the **Tools > Board** menu.
 
-5. Upload the CurieBLEHeartRateMonitor example (found in **File > Examples > CurieIMU**). (The full code for the example is shown below.)
+5. Upload the CurieBLEHeartRateMonitor example shown below.
 
 6. Launch the app. You should be presented with the home screen as depicted below.
 

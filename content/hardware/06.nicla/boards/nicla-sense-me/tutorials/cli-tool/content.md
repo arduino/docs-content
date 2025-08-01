@@ -51,7 +51,7 @@ First, please go to [Go's download page](https://golang.org/dl/) and follow the 
 
 ### Set up the Board
 
-First, you need to download the library **Arduino_BHY2** in the Arduino IDE. Next, you need to upload the **App.ino** example sketch inside the library. This sketch can be found in: **Examples > Arduino_BHY2 > App.ino**. Select the sketch and upload it to your board.
+First, you need to download the library **Arduino_BHY2** in the Arduino IDE. Next, you need to upload the **App.ino** example sketch inside the library. This sketch can be found in: **Examples > Arduino_BHY2 > App**. Select the sketch and upload it to your board.
 
 ### Use the Bhy-Controller
 
@@ -132,7 +132,7 @@ bhy sensor read -live -p <YourCOMPort>
 ```
 
 ## Using a Passthrough Board with CLI
-When you have a firmware for the BHI module or a sketch for the MCU already compiled in a **.bin** file, you can upload them through a MKR or Portenta board directly using the terminal. You need to upload a passthrough sketch to the MKR or Portenta board, allowing the Nicla to communicate with the computer through the host board. The sketch can be found at **Examples > Arduino_BHY_HOST > Passthrough.ino**.
+When you have a firmware for the BHI module or a sketch for the MCU already compiled in a **.bin** file, you can upload them through a MKR or Portenta board directly using the terminal. You need to upload a passthrough sketch to the MKR or Portenta board, allowing the Nicla to communicate with the computer through the host board. The sketch can be found at **Examples > Arduino_BHY2Host > Passthrough**.
 
 You then need to connect the Nicla board to the desired passthrough board either with an Eslov cable or you can mount the Nicla onto the board as a shield. If you wish to mount the Nicla as a shield, take a look at this [tutorial](./use-as-mkr-shield). Now that you have everything set up, you can use the commands below to upload the firmware or a sketch if they are in the right format.
 

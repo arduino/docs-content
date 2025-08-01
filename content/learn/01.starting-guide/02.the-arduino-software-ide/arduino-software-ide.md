@@ -49,7 +49,7 @@ Now that you are all set up, **let’s try to make your board blink!**
 
 ![Selecting the port](./assets/install_avr_03.png)
 
-**8.** Let’s **try an example**: navigate to **File > Examples > 01.Basics > Blink.**
+**8.** Let’s **try an example**: navigate to **File > Examples > 01.Basics > Blink**.
 
 ![Opening an example](./assets/install_avr_04.png)
 
@@ -87,7 +87,7 @@ Now that you are all set up, **let’s try to make your board blink!**
 
 ![Selecting a board & port](./assets/select-board-port.png)
 
-**3.** Let’s **try an example**: navigate to **File > Examples > 01.Basics > Blink.**
+**3.** Let’s **try an example**: navigate to **File > Examples > 01.Basics > Blink**.
 
 ![Opening an example](./assets/open-example.png)
 

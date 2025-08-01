@@ -72,7 +72,7 @@ This tutorial barely uses any external hardware, except an LED that we will cont
 - `client.print()` - print something to the client (e.g. html code).
 - `client.stop()` - closes the connection.
 
-The sketch can be found in the snippet below. It is very similar to the sketch found in **File > Examples > WiFiNINA > SimpleWebServer**, with only minor modifications.
+The sketch can be found in the snippet below. It is very similar to the sketch found in **File > Examples > WiFiNINA > SimpleWebServerWiFi**, with only minor modifications.
 
 Upload the code to the board, and make sure the right board and port are selected.
 

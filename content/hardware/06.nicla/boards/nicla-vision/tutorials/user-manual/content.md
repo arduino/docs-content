@@ -718,7 +718,7 @@ void loop() {
 ```
 ![Accelerometer and gyroscope output in the serial plotter](assets/imu-output.png)
 
-***To test a Machine Learning model on the Arduino IDE, navigate to __File > Examples > MLC > NiclaVision_MLC_Motion_Intesity__ and it will identify three scenarios: `Stationary`, `Medium Intensity` and `High Intensity` movements.***
+***To test a Machine Learning model on the Arduino IDE, navigate to __File > Examples > MLC > NiclaVision_MLC_Motion_Intensity__ and it will identify three scenarios: `Stationary`, `Medium Intensity` and `High Intensity` movements.***
 
 ### Microphone
 

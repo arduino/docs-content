@@ -134,7 +134,7 @@ Now that we have a CSR to identify the board, we need to login into the AWS cons
 
 ## Connecting the Board to AWS IoT Core
 
-1) Open the AWS IoT Wi-Fi sketch in the Arduino IDE using the **File -> Examples -> Arduino Cloud Provider Examples -> AWSIoT-> AWS_IoT_WiFi.**
+1) Open the AWS IoT Wi-Fi sketch in the Arduino IDE using the **File -> Examples -> Arduino Cloud Provider Examples -> AWS IoT-> AWS_IoT_WiFi**.
 
 2) In the arduino_secrets.h tab. update the Wi-Fi settings with the SSID and password of your Wi-Fi network.
 
