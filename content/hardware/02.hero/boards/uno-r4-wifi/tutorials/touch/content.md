@@ -7,7 +7,7 @@ author: Pedro Lima
 hardware:
   - hardware/02.hero/boards/uno-r4-wifi
   - hardware/02.hero/boards/uno-r4-minima
- software:
+software:
   - ide-v2
   - web-editor
 ---
