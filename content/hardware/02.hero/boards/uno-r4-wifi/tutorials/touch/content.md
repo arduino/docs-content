@@ -1,8 +1,8 @@
 ---
-title: Uno R4 Capacitive-Touch Tutorial.
+title: UNO R4 Capacitive-Touch Tutorial.
 difficulty: beginner
-description: Learn to use the built-in capacitive sensing capabilities of the Arduino® Uno R4.
-tags: [Arduino, Capacitive Sensing, Uno R4]
+description: Learn to use the built-in capacitive sensing capabilities of the Arduino® UNO R4.
+tags: [Arduino, Capacitive Sensing, UNO R4]
 author: Pedro Lima
 hardware:
   - hardware/02.hero/boards/uno-r4-wifi
@@ -12,7 +12,7 @@ hardware:
   - web-editor
 ---
 
-Capacitive sensing is a technology that detects changes in capacitance to determine the presence or absence of a conductive object, such as a human finger. This principle is widely used in touch-sensitive devices. The Arduino® Uno R4, both the [WiFi](https://store.arduino.cc/products/arduino-uno-r4-wifi) and [Minima](https://store.arduino.cc/products/arduino-uno-r4-minima) versions, come equipped with built-in capacitive sensing capabilities, making it easier to integrate touch inputs into your projects.
+Capacitive sensing is a technology that detects changes in capacitance to determine the presence or absence of a conductive object, such as a human finger. This principle is widely used in touch-sensitive devices. The Arduino® UNO R4, both the [WiFi®](https://store.arduino.cc/products/arduino-uno-r4-wifi) and [Minima](https://store.arduino.cc/products/arduino-uno-r4-minima) versions, come equipped with built-in capacitive sensing capabilities, making it easier to integrate touch inputs into your projects.
 
 ![Sensor Example](assets/Touch_Cover_001.gif)
 
@@ -21,18 +21,18 @@ Capacitive sensing is a technology that detects changes in capacitance to determ
 Imagine the sensor as creating an invisible electric field around itself. When a conductive object (like your finger) approaches, it's like dropping a stone into a calm pond - the field gets disturbed. The sensor detects this disturbance as a change in capacitance, which is essentially how much electrical charge the system can store.
 Here's the process:
 
-1. The sensor generates a small electric field
-2. When you touch or approach the sensor, your body acts like a conductor
-3. This changes the capacitance of the system
-4. The microcontroller measures this change and determines if it's significant enough to register as a "touch"
+1. The sensor electrode creates an electric field by applying a small voltage
+2. When you approach or touch the sensor, your body becomes part of the capacitive circuit
+3. This increases the capacitance between the sensor electrode and ground
+4. The microcontroller detects this capacitance change (often by measuring timing differences) and determines if it's significant enough to register as a "touch"
 
-## Using Capacitive Sensing on the Uno R4
+## Using Capacitive Sensing on the UNO R4
 
-The Uno R4 features a Capacitive Touch Sensing Unit (CTSU) that allows you to use certain pins as capacitive touch inputs. To utilize these capabilities, you can use the [Arduino_CapacitiveTouch library](https://github.com/arduino-libraries/Arduino_CapacitiveTouch).
+The UNO R4 features a Capacitive Touch Sensing Unit (CTSU) that allows you to use certain pins as capacitive touch inputs. To utilize these capabilities, you can use the [Arduino_CapacitiveTouch library](https://github.com/arduino-libraries/Arduino_CapacitiveTouch).
 
 ### Compatible Pins
 
-For both the Uno R4 WiFi and Minima boards, the compatible pins for capacitive touch are listed in the [Arduino_CapacitiveTouch library documentation](https://github.com/arduino-libraries/Arduino_CapacitiveTouch?tab=readme-ov-file#compatible-pins).
+For both the UNO R4 WiFi® and Minima boards, the compatible pins for capacitive touch are listed in the [Arduino_CapacitiveTouch library documentation](https://github.com/arduino-libraries/Arduino_CapacitiveTouch?tab=readme-ov-file#compatible-pins).
 
 **Arduino® UNO-R4 Minima:**
 
@@ -50,7 +50,7 @@ For both the Uno R4 WiFi and Minima boards, the compatible pins for capacitive t
 | A2 (D16)     | 22                         | 2                                | (1 << 6)                           |
 | LOVE_BUTTON  | 0                          | 0                                | (1 << 0)                           |
 
-**Arduino® UNO-R4 WiFi:**
+**Arduino® UNO-R4 WiFi®:**
 
 | Arduino Pin  | Touch Sensor Channel (TS#) | Channel Control Index (CHAC idx) | Channel Control Bit Mask (CHAC val) |
 |--------------|----------------------------|----------------------------------|-------------------------------------|
@@ -83,11 +83,11 @@ For more detailed usage and examples, refer to the [CapacitiveSensor library doc
 
 ## Example Code
 
-Here's a simple example to get you started with capacitive sensing on the Uno R4. For this example, we are connecting a single piece of any conductive material to the pin `D0` on the Board.
+Here's a simple example to get you started with capacitive sensing on the UNO R4. For this example, we are connecting a single piece of any conductive material to the pin `D0` on the Board.
 
 ![How to connect](assets/HoockupGuideExample.png)
 
-***__Note:__ You will first need to install the library [Arduino_CapacitiveTouch](https://docs.arduino.cc/libraries/capacitivesensor/). To do so, open `Arduino IDE: Library Manager` → `Search "Arduino_CapacitiveTouch"` within _Manage Libraries_ option → `Install` .***
+**Note:** To install the `Arduino_CapacitiveTouch` library, open the Arduino IDE Library Manager, search for "Arduino_CapacitiveTouch" within the Manage Libraries option, and click Install.
 
 ```arduino
 #include "Arduino_CapacitiveTouch.h"
