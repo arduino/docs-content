@@ -16,6 +16,15 @@ Capacitive sensing is a technology that detects changes in capacitance to determ
 
 ![Sensor Example](assets/Touch_Cover_001.gif)
 
+## Required Hardware
+To use the library you will need one of the compatible boards:
+- [Arduino® UNO R4 WiFi](https://docs.arduino.cc/hardware/uno-r4-wifi)
+- [Arduino® UNO R4 Minima](https://store.arduino.cc/products/uno-r4-minima)
+
+You will also need:
+- Wire
+- Something that can affect the electric field to touch (metal objects, materials with moisture, even bananas! Experimentation is key!)
+
 ## How Capacitive Sensing Works
 
 Imagine the sensor as creating an invisible electric field around itself. When a conductive object (like your finger) approaches, it's like dropping a stone into a calm pond - the field gets disturbed. The sensor detects this disturbance as a change in capacitance, which is essentially how much electrical charge the system can store.
@@ -81,11 +90,16 @@ The **Arduino_CapacitiveTouch** library provides several functions to work with 
 
 For more detailed usage and examples, refer to the [CapacitiveSensor library documentation](https://docs.arduino.cc/libraries/capacitivesensor/).
 
-## Example Code
+## Detecting Touch Example
+
+### Circuit
 
 Here's a simple example to get you started with capacitive sensing on the UNO R4. For this example, we are connecting a single piece of any conductive material to the pin `D0` on the Board.
 
 ![How to connect](assets/HoockupGuideExample.png)
+
+
+### Code
 
 **Note:** To install the `Arduino_CapacitiveTouch` library, open the Arduino IDE Library Manager, search for "Arduino_CapacitiveTouch" within the Manage Libraries option, and click Install.
 
@@ -119,6 +133,8 @@ void loop() {
   delay(100);
 }
 ```
+
+![Sensor Example](assets/Touch_Cover_001.gif)
 
 ## Creative Project Ideas
 
