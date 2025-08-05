@@ -104,11 +104,13 @@ The Nano R4 features one Operational Amplifier accessible through the board anal
 
 ### Qwiic I2C Connector
 
-The I2C Qwiic connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. This connector is powered via 3.3 V following the Qwiic standard system and makes the Nano R4 compatible with the Arduino Modulino nodes.
+The I2C Qwiic connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus (I2C0) on the board. This connector is powered via 3.3 V following the Qwiic standard system and makes the Nano R4 compatible with the Arduino Modulino nodes.
 
 The Qwiic connector logic level is fixed to 3.3 V, and it is translated to 5 V to communicate with the RA4M1 microcontroller as illustrated in the figure below:
 
 ![Arduino Nano R4 Qwiic Connector](assets/Nano_R4-Qwiic-connector.png)
+ 
+**Note:** The Qwiic I2C bus object is `Wire1` and the standard I2C bus object is `Wire`.
 
 The standard I2C is accessible through the Nano breakout pins A4 for SDA and A5 for SCL as its predecessors.
 
