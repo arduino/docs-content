@@ -147,4 +147,4 @@ Now that you have learned the basics, here are some fun and interesting project 
 
 ## Conclusion
 
-Capacitive sensing on the Arduino UNO R4 lets you add intuitive touch controls with minimal hardware, simply pair the board with the `Arduino_CapacitiveTouch` library. Tune the detection threshold for your environment (humidity, nearby electronics, etc.), and you can quickly scale from a single touch button to richer, multi-point interfaces.
+Capacitive sensing on the Arduino UNO R4 lets you add intuitive touch controls with minimal hardware. Simply pair the board with the `Arduino_CapacitiveTouch` library. Tune the detection threshold for your environment (such as humidity and nearby electronics), and you can quickly scale from a single-touch button to richer, multi-point interfaces.
