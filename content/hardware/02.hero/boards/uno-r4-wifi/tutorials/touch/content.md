@@ -88,7 +88,7 @@ The **Arduino_CapacitiveTouch** library provides several functions to work with 
 - **`void setThreshold(int threshold)`** Sets the detection threshold for touch sensitivity.
 - **`int getThreshold()`** Retrieves the current detection threshold.
 
-For more detailed usage and examples, refer to the [CapacitiveSensor library documentation](https://docs.arduino.cc/libraries/capacitivesensor/).
+For more detailed usage and examples, refer to the [CapacitiveSensor library documentation](https://github.com/arduino-libraries/Arduino_CapacitiveTouch/blob/main/docs/api.md).
 
 ## Detecting Touch Example
 
