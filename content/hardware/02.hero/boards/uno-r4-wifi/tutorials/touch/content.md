@@ -17,7 +17,7 @@ Capacitive sensing is a technology that detects changes in capacitance to determ
 ![Sensor Example](assets/Touch_Cover_001.gif)
 
 ## Required Hardware
-To use the library you will need one of the compatible boards:
+To use the library, you will need one of the compatible boards:
 - [Arduino® UNO R4 WiFi](https://docs.arduino.cc/hardware/uno-r4-wifi)
 - [Arduino® UNO R4 Minima](https://store.arduino.cc/products/uno-r4-minima)
 
