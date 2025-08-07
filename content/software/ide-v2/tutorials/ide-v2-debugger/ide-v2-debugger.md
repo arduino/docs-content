@@ -94,7 +94,7 @@ In order to use the Debugger, we need to upload a sketch to our board first, mak
 
 >**Important:** You should connect the Arduino Zero through its **programming USB port**.
 
-In this example, we are going to choose the basic **blink sketch**. You can easily access this code through **File > Examples > Basics > Blink**. Upload the code to your Arduino board. When it is finished, it will let you know in the output panel at the bottom.
+In this example, we are going to choose the basic **blink sketch**. You can easily access this code through **File > Examples > 01.Basics > Blink**. Upload the code to your Arduino board. When it is finished, it will let you know in the output panel at the bottom.
 
 Once your program has been uploaded, we can start using the debugger.
 

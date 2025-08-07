@@ -42,7 +42,7 @@ before connecting to your computer via USB. Once the board is connected to power
 
 #### Load the blink example
 
-Load the LED blink example sketch: **File > Examples > 1.Basics > Blink**.
+Load the LED blink example sketch: **File > Examples > 01.Basics > Blink**.
 
 ![](./assets/101_LoadBlink.png)
 

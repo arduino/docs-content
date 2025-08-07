@@ -229,7 +229,7 @@ After configuring your Yún, connect to the network you specified in the configu
 
 Under the _Tools > Port_ menu, you should see an entry that lists your Yún's name and its IP address. Under the _Board_ menu, select Arduino Yún.
 
-Open the Blink example (_File > Examples > 01Basics > Blink_) and upload the sketch to the board. You will be prompted for the administrator password. Use the one you entered in the configuration screen.
+Open the Blink example (_File > Examples > 01.Basics > Blink_) and upload the sketch to the board. You will be prompted for the administrator password. Use the one you entered in the configuration screen.
 
 Once the program is uploaded, the 32U4 processor will restart. You should see the LED connected to pin 13 blinking.
 

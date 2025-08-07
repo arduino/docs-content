@@ -53,7 +53,7 @@ Let's program the Portenta with a sketch. You will also define a few helper func
 * Create a new file named `FlashIAPLimits.h` to store the helper functions in a reusable file.
 
 **Note:** Finished sketch its inside the tutorials library wrapper at:  
-**Examples > Arduino_Pro_Tutorials > Creating a Flash-Optimized Key-Value Store > FlashKeyValueStore**
+**Examples > Arduino_Pro_Tutorials > Creating a Flash-Optimized Key-Value Store > FlashKeyValue**
 
 ### 3. Populate the Helper Functions
 First let's add the helper functions to the `FlashIAPLimits.h` header. This will determine the available Flash limits to allocate the custom data.

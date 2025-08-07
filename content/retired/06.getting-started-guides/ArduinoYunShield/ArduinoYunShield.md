@@ -137,7 +137,7 @@ After configuring your Yún Shield, connect to the network you specified in the 
 
 As usual, under the _Board_ menu, select your board type.
 
-To test the programming feature, open the Blink example (_File > Examples > 01Basics > Blink_) and upload the sketch to the board. You will be prompted for the administrator password. Use the one you entered in the configuration screen. The usual messages should appear at the bottom of the IDE window, confirming the upload.
+To test the programming feature, open the Blink example (_File > Examples > 01.Basics > Blink_) and upload the sketch to the board. You will be prompted for the administrator password. Use the one you entered in the configuration screen. The usual messages should appear at the bottom of the IDE window, confirming the upload.
 
 Once the sketch is uploaded, the board's processor will restart. You should see the LED connected to pin 13 blinking.
 
