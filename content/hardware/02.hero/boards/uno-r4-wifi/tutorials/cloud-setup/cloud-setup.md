@@ -65,4 +65,4 @@ We are almost done with the setup. Under Network click on **configure** and add 
 
 ## Summary
 
-You have now successfully set up your UNO R4 WiFi to work with the Arduino Cloud. To get started with your first IoT project, check out our [Getting Started With the Arduino Cloud](arduino-cloud/getting-started/iot-cloud-getting-started) guide.
+You have now successfully set up your UNO R4 WiFi to work with the Arduino Cloud. To get started with your first IoT project, check out our [Getting Started With the Arduino Cloud](arduino-cloud/guides/overview) guide.
