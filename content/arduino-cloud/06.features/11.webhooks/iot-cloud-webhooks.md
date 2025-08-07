@@ -1,6 +1,6 @@
 ---
-title: 'Webhooks'
-description: 'Learn how to setup webhooks with the Arduino Cloud to work with third party platforms such as IFTTT.'
+title: 'Webhooks Integration with Arduino Cloud'
+description: 'Learn how to set up webhooks with the Arduino Cloud to integrate with third-party platforms like IFTTT.'
 tags:
   - Webhooks
   - Arduino Cloud
@@ -10,116 +10,104 @@ author: 'Liam Aljundi'
 
 ## Introduction
 
-Webhooks allow you to send and receive automated messages to and from other services. For example, you can use webhooks to receive a notification when a property of your Thing changes. To do this, there are third party platforms that link the properties from your Arduino Cloud projects to the desired trigger action.
+Webhooks allow your devices on Arduino Cloud to automatically send and receive messages from other services. For instance, you can use webhooks to get notifications when a device’s status changes or send data from your Arduino projects to services like Google Sheets or IFTTT.
+
+This guide will walk you through setting up webhooks in Arduino Cloud and connecting them to third-party platforms, specifically IFTTT, to automate tasks.
 
 ## Goals
 
-- Learn how to set up webhooks in the Arduino Cloud.
-- Provide an overview of available platforms where webhooks may be used.
-- Demonstrate an example that uses a webhook to send data from the Arduino Cloud to Google Sheets, via the IFTTT platform.
+By the end of this guide, you will:
+
+- Learn how to set up and configure webhooks in Arduino Cloud.
+- Understand the integration process with third-party platforms like IFTTT.
+- Set up an example where data from Arduino Cloud is sent to Google Sheets using IFTTT.
 
 ## Hardware & Software Requirements
 
-- The [Arduino Create Agent](https://github.com/arduino/arduino-create-agent)
-- An [Arduino account](http://create.arduino.cc/iot).
+Before starting, ensure you have the following:
 
-You will also need a Cloud compatible board:
+- **Arduino Create Agent** installed on your system: [Download Here](https://github.com/arduino/arduino-create-agent)
+- **Arduino account**: [Sign Up Here](http://create.arduino.cc/iot)
+- A Cloud-compatible Arduino board.
 
-***Read more about compatible board [here](/arduino-cloud/guides/overview#compatible-boards)***
+You can read more about compatible boards [here](/arduino-cloud/guides/overview#compatible-boards).
 
-## Webhook Setup
+## Setting Up the Webhook
 
-A webhook can be set for any **Thing** on the Arduino Cloud, allowing us to send data from the Arduino Cloud to various third party platforms. For example, you can use webhooks to receive an email when any of you devices is disconnected, or send and save live sensor values collected from your device in a Google Spreadsheet.
+Webhooks in Arduino Cloud can be linked to **Things**—which are virtual representations of your devices. These webhooks enable real-time data sharing with third-party platforms. For example, you can receive notifications when a device gets disconnected, or send live sensor data to a Google Spreadsheet.
 
-There are many available platforms that support the use of Webhooks, for this tutorial we will try the **IFTTT** platform. IFTTT allows you to integrate services with your DIY projects. With IFTTT you can create Applets that work with any device or app that can make or receive a web request.
-
-Let's try it out by creating an Applet that uses a webhook to receive String Values sent via the **Message Widget** on the Arduino Cloud, and save them into a Google Sheets.
+In this tutorial, we’ll use **IFTTT** (If This Then That), a platform that enables you to automate actions between different services. IFTTT lets you create **Applets** that trigger actions like updating a Google Sheet when a webhook receives data.
 
 ### IFTTT Configuration
 
-The first step is to create an Applet on the IFTTT platform using the following steps:
+Start by creating an Applet on IFTTT. Here’s how:
 
-![Creating an Applet](assets/creating-an-applet.gif)
+1. Go to the [IFTTT website](https://maker.ifttt.com) and log in.
+2. Click **Create** in the top-right corner, then select **If This**.
+3. In the search bar, type **Webhooks** and select the Webhooks service.
+4. Choose **Receive a web request**.
+5. In the **Event Name** field, type `message` and click **Create trigger**.
+6. Click on **Then That**, search for **Google Sheets**, and select the **"Add row to spreadsheet"** option.
+7. Keep the default settings and click **Create action**.
+8. Click **Continue**, optionally change the Applet title, and hit **Finish**.
 
-**1.** Go to [IFTTT website](https://maker.ifttt.com) and sign in.
+Now, your trigger and action are set. The next step is to grab the Webhook URL you will use in Arduino Cloud.
 
-**2.** Click **Create** in the top right, then select **If This**.
+To find the Webhook URL:
+1. Go to your IFTTT profile (click your profile picture in the top right).
+2. Click on **My Services** > **Webhooks** > **Documentation**.
 
-**3.** In the search field, type **"Webhooks"** and select that service.
+![Finding Webhook Link](assets/finding-webhook-link.png)
 
-**4.** Select Receive a web request.
+### Linking Webhook to an Arduino Cloud Thing
 
-**5.** In the Event Name field, type "message", and click the Create trigger button.
+Now that your IFTTT Applet is ready, it’s time to link it to an Arduino Cloud **Thing**:
 
-**6.** Now, click on **Then That**, type **"Google Sheets"** and select that service.
-
-**7.** Choose the **"Add row to spreadsheet"** option.
-
-**8.** You can keep the default settings, scroll down and click on **"Create action"**.
-
-Both the trigger and action have now been configured. Click **Continue**. Optionally, change the applet title, and click **Finish** to create the applet.
-
-The final step is finding the webhook link that you will need to set to your Thing on the Arduino Cloud. You can find the link under **Profile picture in the top right > My Services > Webhooks > Documentation.**
-
-![Finding the Webhook link](assets/finding-webhook-link.png)
-
-### Setting a Webhook to a Thing
-
-Linking a webhook to a Thing is a quite simple process, follow the steps below to set a webhook to your Thing:
-
-**1.** [Sign in to your Arduino account](https://create.arduino.cc/iot), and open the [Arduino Cloud](https://create.arduino.cc/iot).
-
-**2.** Navigate to [**Things** -> **Create Thing**](https://app.arduino.cc/things).
-
-**3.** Create your Variables. In our case, we will create a **"message"** Variable and set its type to **"Character String"**.
-
-![Create Variable](./assets/webhooks-01.png)
-
-**4.** Add your **Device**, and configure your **Network** from the right side menu.
-
-**5.** In the same menu to the right, click "**Configure**" under the "**Data Forwarding (Webhook)**" menu.
+1. [Sign in to Arduino Cloud](https://create.arduino.cc/iot) and open the **Arduino Cloud** dashboard.
+2. Navigate to **Things** > **Create Thing** to start a new Thing.
+3. Create a **Variable** for your Thing. In this case, create a **message** variable with the type set to **Character String**.
+4. Select your **Device** and configure your **Network** in the menu on the right.
+5. Under **Data Forwarding (Webhook)**, click **Configure**.
+6. Enter the Webhook URL you got from IFTTT in the provided field.
 
 ![Set Webhook](./assets/webhooks-02.png)
 
-**6.** Enter the webhook link provided from the platform you are using.
+7. Finally, navigate to the **Sketch** tab and upload the automatically generated code to your board. This will enable your device to send data via the webhook.
 
-![Enter Webhook](./assets/webhooks-03.png)
-
-**7.** Finally, navigate to the **Sketch** tab, and upload the automatically generated code to your board.
-
-The Arduino Cloud will share **five sets of values** through the assigned webhook:
+When data is sent from Arduino Cloud, the following information will be shared through the webhook:
 
 - `"event_id": "EVENT_UUID"`
 - `"webhook_id": "WEBHOOK_ID"`
 - `"device_id": "DEVICE_UUID"`
 - `"thing_id": "THING_UUID"`
+- **Variable values**: Each variable in your Thing will be represented as an object with details such as the value and timestamp.
 
-The fifth value contains an array of objects, each representing a Variable in your Thing, as the following:
+Example:
 
-- `"values":`
-   
-  ```js
-      [
-      {
-        "id": "VARIABLE_01_ID",
-        "name": "NAME_OF_VARIABLE_01",
-        "value": "VARIABLE_01_VALUE",
-        "persist": true/false,
-        "updated_at": "DATE",
-        "created_by": "USERID"
-      },1
-      {
-        "id": "VARIABLE_02_ID",
-        "name": "NAME_OF_VARIABLE_02",
-        "value": "VARIABLE_02_VALUE",
-        "persist": true/false,
-        "updated_at": "DATE",
-        "created_by": "USERID"
-      }
-    ]
-  ```
+```js
+{
+  "values": [
+    {
+      "id": "VARIABLE_01_ID",
+      "name": "NAME_OF_VARIABLE_01",
+      "value": "VARIABLE_01_VALUE",
+      "persist": true/false,
+      "updated_at": "DATE",
+      "created_by": "USERID"
+    },
+    {
+      "id": "VARIABLE_02_ID",
+      "name": "NAME_OF_VARIABLE_02",
+      "value": "VARIABLE_02_VALUE",
+      "persist": true/false,
+      "updated_at": "DATE",
+      "created_by": "USERID"
+    }
+  ]
+}
+```
 
-### Testing the Webhook
+## Testing the Webhook
 
 To test the webhook, we need to create a *Messenger widget*. We can do that by:
 
@@ -150,3 +138,8 @@ In addition to IFTTT, here are examples of platforms that you can use webhooks w
 - [**Google Cloud APIs**](https://cloud.google.com/apis/docs/overview): with Google APIs you can develop application programming interfaces (APIs) to communicate with Google services such as Search, Gmail, Translate or Google Maps apps or other applications like Arduino Cloud.
 
 - [**Google Script**](https://developers.google.com/apps-script): allows you to interact with all your Google G-Suite files such as Google Sheets, Docs and more.
+
+## Additional Tools for Webhook Testing
+
+- **Beeceptor**: A powerful tool to intercept and test your webhooks.
+- **httpbin**: A simple HTTP request/response service that can be used to test webhooks.
