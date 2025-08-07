@@ -30,6 +30,13 @@ The **Portenta H7** simultaneously runs high level code along with real time tas
 </FeatureWrapper>
 </Feature>
 
+<Feature title="PF1550 Power Management IC" image="power">
+
+  High efficiency PMIC chip with programmable voltage regulation and battery charging.
+
+  <FeatureLink title="Library" url="https://github.com/arduino-libraries/Arduino_PF1550" download blank/>
+</Feature>
+
 <Feature title="Chrom-ART graphical hardware Accelerator™" image="mcu">
 
   Probably one of the most exciting features of the Portenta H7 is the possibility of connecting an external monitor to build your own dedicated embedded computer with a user interface. This is possible thanks to the STM32H747 processor's on-chip GPU, the Chrom-ART Accelerator™. Besides the GPU, the chip includes a dedicated JPEG encoder and decoder.
