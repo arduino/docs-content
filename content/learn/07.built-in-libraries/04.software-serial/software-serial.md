@@ -60,8 +60,10 @@ None.
 ```arduino
 #include <SoftwareSerial.h>
 
-const byte rxPin = 2;
-const byte txPin = 3;
+// const byte rxPin = 2; // Obsolete example
+const byte rxPin = 10
+// const byte txPin = 3; // Obsolete example
+const byte txPin = 11;
 
 // Set up a new SoftwareSerial object
 SoftwareSerial mySerial (rxPin, txPin);
