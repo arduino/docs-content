@@ -3033,7 +3033,7 @@ services:
 
 <br></br>
 
-Include the [`SPI` library](https://reference.arduino.cc/reference/en/language/functions/communication/spi/) at the top of your sketch to use the SPI communication protocol. This can be used with Portenta H7 or C33. The SPI library provides functions for SPI communication:
+Include the [`SPI` library](https://docs.arduino.cc/language-reference/en/functions/communication/SPI/) at the top of your sketch to use the SPI communication protocol. This can be used with Portenta H7 or C33. The SPI library provides functions for SPI communication:
 
 ```arduino
 #include <SPI.h>
