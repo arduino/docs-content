@@ -37,7 +37,7 @@ If your board is provisioned to the Cloud with version 2.0 the network credentia
 |     Nano ESP32      | Version 1.0 |
 | Nano RP2040 Connect | Version 1.0 |
 |     Portenta H7     | Version 2.0 |
-|     Portenta C33    | Version 2.0 |
+|     Portenta C33    | Version 1.0 |
 |     Portenta X8     | Version 1.0 |
 |     Nicla Vision    | Version 2.0 |
 |        Opta         | Version 2.0 |
@@ -66,6 +66,9 @@ Here are the boards that are compatible with Bluetooth provisioning via a Blueto
 
 - [Arduino UNO R4 WiFi](https://docs.arduino.cc/hardware/uno-r4-wifi/) (Wi-Fi firmware version 0.6.0 or later required)
 - [Arduino Opta](https://docs.arduino.cc/hardware/opta/)
+- [Arduino GIGA R1 WiFi](https://docs.arduino.cc/hardware/giga-r1-wifi/)
+- [Arduino Portenta H7](https://docs.arduino.cc/hardware/portenta-h7/)
+- [Arduino Nicla Vision](https://docs.arduino.cc/hardware/nicla-vision/)
 
 ### Setting up Your Device With Bluetooth
 
