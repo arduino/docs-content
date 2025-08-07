@@ -41,6 +41,3 @@ If you have more JSON files to add, click on the little icon on the right of the
 ![](./assets/Core_MoreJsons.png)
 
 After this procedure, the new cores will be available for install in the Boards Manager. Please refer to the information provided by the third party core author to get more specific instructions.
-
-The text of the Arduino getting started guide is licensed under a
-[Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.
