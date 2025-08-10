@@ -36,7 +36,7 @@ This user manual provides a comprehensive overview of the Arduino Stella, highli
 - [`StellaUWB` library](https://github.com/Truesense-it/StellaUWB) (designed for the Arduino Stella)
 - [`PortentaUWBShield` library](https://github.com/Truesense-it/PortentaUWBShield) (designed for the Portenta UWB Shield)
 - [`ArduinoBLE` library](https://github.com/arduino/ArduinoBLE) 
-- [Arduino mbed OS Boards core](https://github.com/arduino/ArduinoCore-mbed) (required for the nRF52840 microcontroller of the Arduino Stella)
+- [Arduino Mbed OS Stella Boards core](https://github.com/arduino/ArduinoCore-mbed) (required for the nRF52840 microcontroller of the Arduino Stella)
 
 ## Arduino Stella Overview
 
@@ -145,7 +145,7 @@ Here's an overview of the board's main components shown in the images:
 
 ### Board Libraries
 
-The Arduino Stella and Portenta UWB Shield use different libraries and board cores due to their different microcontrollers and UWB modules:
+The Arduino Stella and Portenta UWB Shield use different libraries and board cores due to their different microcontrollers and onboard UWB modules:
 
 #### Arduino Stella Library
 
@@ -156,7 +156,7 @@ The [`StellaUWB` library](https://github.com/Truesense-it/StellaUWB) contains an
 - Accelerometer control for motion detection.
 - Bluetooth® Low Energy connectivity for configuration and communication.
 
-***The [Arduino mbed OS Boards core](https://github.com/arduino/ArduinoCore-mbed) is required to work with the Arduino Stella's nRF52840 microcontroller.***
+***The [Arduino Mbed OS Stella Boards core](https://github.com/arduino/ArduinoCore-mbed) is required to work with the Arduino Stella's nRF52840 microcontroller.***
 
 #### Portenta UWB Shield Library
 
@@ -168,25 +168,46 @@ If you plan to use the Arduino Stella with a Portenta UWB Shield for two-way ran
 
 For examples that use Bluetooth® Low Energy communication, you'll also need the [`ArduinoBLE` library](https://github.com/arduino/ArduinoBLE). This library enables Bluetooth® Low Energy functionality for device discovery and initial connection setup before UWB ranging begins.
 
-#### Installing the Libraries and Board Cores
+#### Installing the Libraries
 
-To install the required libraries:
+To install the required libraries, follow these steps:
 
-1. Navigate to `Tools > Manage libraries...` or click the **Library Manager** icon in the left tab of the Arduino IDE.
-2. In the Library Manager tab, search for the library name (`StellaUWB`, `PortentaUWBShield`, or `ArduinoBLE`).
-3. Click "Install" to install the latest version of each library.
+1. Download the library ZIP file:
 
-![Installing the board's library in the Arduino IDE](assets/user-manual-3.png)
+- Visit the library's GitHub repository using the links provided above
+- Click the green Code button
+- Select Download ZIP from the dropdown menu
+- Save the ZIP file to your computer
+
+![Library repository on GitHub](assets/library-repository.png)
+
+1. Install the library in Arduino IDE:
+
+- Open the Arduino IDE
+- Navigate to `Sketch > Include Library > Add .ZIP Library...`
+- Browse to the location where you saved the ZIP file
+- Select the ZIP file and click Open
+- The library will be automatically installed and ready to use
+
+![Library installation on the Arduino IDE](assets/library-installation.png)
+
+1. Verify the library installation:
+
+- Go to `Sketch > Include Library`
+- Scroll down to see if the library appears in the `Contributed libraries` list
+- You can also check `File > Examples` to see if example sketches from the library are available
+
+#### Installing the Board Cores
 
 To install the required board cores:
 
-1. Navigate to `Tools > Board > Boards Manager...`
-2. For the Arduino Stella: Search for "Arduino mbed OS Boards" and install the latest version.
-3. For the Portenta C33: Search for "Arduino Renesas Boards" and install the latest version.
+- Navigate to Tools > Board > Boards Manager...
+- For the Arduino Stella, search for `Arduino Mbed OS Stella Boards` and install the latest version
+- For the Portenta C33 board, search for `Arduino Renesas Boards` and install the latest version
 
-![Installing the board's core in the Arduino IDE](assets/user-manual-4.png)
+![Boards manager on the Arduino IDE](assets/boards-manager.png)
 
-***<strong>Important note:</strong> Make sure to install both the appropriate library and board core for your specific hardware. The Arduino Stella requires the `StellaUWB` library and Arduino mbed OS Boards core, while the Portenta UWB Shield with Portenta C33 requires the `PortentaUWBShield` library and Arduino Renesas Boards core. For examples involving Bluetooth® Low Energy communication, both devices will need the `ArduinoBLE` library installed.***
+***<strong>Important note:</strong> Make sure to install both the appropriate library and board core for your specific hardware. The Arduino Stella requires the `StellaUWB` library and `Arduino Mbed OS Stella Boards` core, while the Portenta UWB Shield with the Portenta C33 board requires the `PortentaUWBShield` library and the `Arduino Renesas Boards` core.*** 
 
 ### Pinout
 
