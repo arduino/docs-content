@@ -1,5 +1,5 @@
 ---
-title: 'Arduino® Stella User Manual'
+title: 'Arduino Stella User Manual'
 difficulty: intermediate
 compatible-products: [arduino-stella]
 description: 'Learn about the hardware and software features of the Arduino Stella.'
@@ -186,7 +186,7 @@ To install the required board cores:
 
 ![Installing the board's core in the Arduino IDE](assets/user-manual-4.png)
 
-***<strong>Important note:</strong> Make sure to install both the appropriate library and board core for your specific hardware. The Arduino Stella requires the `StellaUWB` library and Arduino mbed OS Boards core, while the Portenta UWB Shield with Portenta C33 requires the `PortentaUWBShield` library and Arduino Renesas Boards core. For examples involving Bluetooth® Low Energy communication, both devices will need the `ArduinoBLE` library installed.***
+***__Important note:__ Make sure to install both the appropriate library and board core for your specific hardware. The Arduino Stella requires the `StellaUWB` library and Arduino mbed OS Boards core, while the Portenta UWB Shield with Portenta C33 requires the `PortentaUWBShield` library and Arduino Renesas Boards core. For examples involving Bluetooth® Low Energy communication, both devices will need the `ArduinoBLE` library installed.***
 
 ### Pinout
 
@@ -232,11 +232,11 @@ For portable and wireless applications, the Arduino Stella offers two additional
 
 ![Powering options for the Arduino Stella (portable and wireles applications)](assets/user-manual-7.png)
 
-***<strong>Important note:</strong> When using battery power, ensure the correct polarity when inserting the CR2032 battery into the holder. The positive (+) side should face up, away from the PCB, as shown in the image below.***
+***__Important note:___ When using battery power, ensure the correct polarity when inserting the CR2032 battery into the holder. The positive (+) side should face up, away from the PCB, as shown in the image below.***
 
 ![Correct battery placement in the Arduino Stella (positive side facing up)](assets/user-manual-8.png)
 
-***<strong>Warning:</strong> When using Arduino Stella with USB-C power, remove the CR2032 battery; never power the Arduino Stella from both battery and USB simultaneously. The board is designed to prioritize USB power when connected. Removing the battery when working with USB will extend its life, ensure the most reliable operation and maximize battery lifespan.***
+***__Warning:__ When using Arduino Stella with USB-C power, remove the CR2032 battery; never power the Arduino Stella from both battery and USB simultaneously. The board is designed to prioritize USB power when connected. Removing the battery when working with USB will extend its life, ensure the most reliable operation and maximize battery lifespan.***
 
 ### Connecting to Your Computer
 
@@ -479,7 +479,7 @@ To complete the test, you will need a UWB-enabled smartphone with one of the com
 - [Truesense Android demo](https://github.com/Truesense-it/TSUwbDemo-Android)
 - [NXP Android demo](https://github.com/nxp-uwb/UWBJetpackExample)
 
-***<strong>Important note for Android devices:</strong> If Developer Options is currently enabled on your Android device, please ensure all radio-related options remain at their default settings. We recommend keeping Developer Options disabled for optimal UWB functionality. If you previously enabled it, consider disabling it for the most stable device operation.***
+***__Important note for Android devices:__ If Developer Options is currently enabled on your Android device, please ensure all radio-related options remain at their default settings. We recommend keeping Developer Options disabled for optimal UWB functionality. If you previously enabled it, consider disabling it for the most stable device operation.***
 
 Install one of these apps on your smartphone and follow these steps:
 
@@ -760,130 +760,32 @@ The `NearbyDemo` example sketch provides a great foundation that you can build u
 - **Power optimization:** Implementing sleep modes and wake-on-motion features for extended battery life.
 - **Data logging:** Recording distance measurements over time for analysis and visualization.
 
-***<strong>Note:</strong> If you want to try this example yourself, please follow the same steps described in the [Nearby World Example](#nearby-world-example) section. The process for uploading the sketch and testing it with a smartphone is the same.***
+***__Note:__ If you want to try this example yourself, please follow the same steps described in the [Nearby World Example](#nearby-world-example) section. The process for uploading the sketch and testing it with a smartphone is the same.***
 
 ## Two-Way Ranging Example
 
 ### About the Two-Way Ranging Example
 
-The Two-Way Ranging example demonstrates direct UWB communication between two Arduino devices: the Portenta UWB Shield (acting as a Controlee/Responder) and the Arduino Stella (acting as a Controller/Initiator). This example showcases the fundamental distance measurement capabilities of UWB technology in a dedicated device-to-device setup without requiring external UWB-enabled consumer devices such as smartphones.
+The Two-Way Ranging example demonstrates direct UWB communication between two Arduino devices: the Arduino Stella (acting as a Controller/Initiator) and the Portenta UWB Shield (acting as a Controlee/Responder). This example showcases the fundamental distance measurement capabilities of UWB technology in a dedicated device-to-device setup without requiring external UWB-enabled consumer devices such as smartphones.
 
-***<strong>Note:</strong> In UWB communication, the terms "Controller" and "Controlee" refer to specific roles within a ranging session. A __Controller__ (also called an Initiator) is the device that initiates and controls the ranging process, sending the initial signal and managing the timing of exchanges. A __Controlee__ (also called a Responder) is the device that responds to the Controller's signals. These terms are used interchangeably in UWB documentation: Controller/Initiator and Controlee/Responder refer to the same roles. In positioning systems, Controllers/Initiators often correspond to mobile "tags" while Controlees/Responders often serve as stationary "anchors".***
+***__Note:__ In UWB communication, the terms "Controller" and "Controlee" refer to specific roles within a ranging session. A __Controller__ (also called an Initiator) is the device that initiates and controls the ranging process, sending the initial signal and managing the timing of exchanges. A __Controlee__ (also called a Responder) is the device that responds to the Controller's signals. These terms are used interchangeably in UWB documentation: Controller/Initiator and Controlee/Responder refer to the same roles. In positioning systems, Controllers/Initiators often correspond to mobile "tags" while Controlees/Responders often serve as stationary "anchors".***
 
 This example demonstrates the following:
 
 - **Direct device-to-device communication:** Unlike the `NearbyDemo` example, which requires a smartphone, this example establishes direct UWB communication between two UWB-enabled Arduino devices.
 - **Controller-Controlee architecture:** It shows how to configure one device as a Controller (initiator of the ranging) and another as a Controlee (responder).
 - **Double-Sided Two-Way Ranging (DS-TWR):** This technique provides higher accuracy in distance measurements by accounting for clock drift between devices.
-- **Simple MAC addressing:** The implementation shows how to use short MAC addresses for device identification in UWB networks.
+- **Visual feedback system**: Both devices provide LED feedback to indicate connection status and distance measurements.
+- **Real-time distance visualization**: The Portenta displays both raw measurements and smoothed moving average for analysis.
 
 Some of the real-life applications for this example include:
 
-- **Multi-node positioning systems:** Creating networks of UWB nodes for advanced indoor positioning.
-- **Robot navigation:** Enabling precise distance measurements between robots or between robots and fixed stations.
-- **Asset tracking:** Building custom tracking solutions with multiple Arduino-based UWB anchors.
-- **Proximity detection systems:** Creating safety systems that can detect precise distances between industrial equipment and personnel.
-- **Interactive installations:** Enabling position-based interactive exhibits in museums or public spaces.
-
-Here's the code for the Portenta UWB Shield, which acts as the Controlee (Responder) in this Two-Way Ranging scenario:
-
-```arduino
-/**
-  Two-Way Ranging Controlee Example for Portenta UWB Shield
-  Name: portenta_uwb_twr_controlee.ino
-  Purpose: This sketch configures the Portenta UWB Shield as a Controlee (Responder)
-  for Two-Way Ranging with an Arduino Stella configured as Controller.
-  
-  @author Pierpaolo Lento from Truesense, modified by the Arduino Product Experience Team
-  @version 1.0 15/04/25
-*/
-// Include required UWB library
-#include <PortentaUWBShield.h>
-/**
-  Processes ranging data received from UWB communication.
-  @param rangingData Reference to UWB ranging data object.
-*/
-void rangingHandler(UWBRangingData &rangingData) {
-  Serial.print("- GOT RANGING DATA - Type: ");
-  Serial.println(rangingData.measureType());
-  if(rangingData.measureType()==(uint8_t)uwb::MeasurementType::TWO_WAY) {
-    // Get the TWR (Two-Way Ranging) measurements
-    RangingMeasures twr=rangingData.twoWayRangingMeasure();
-    
-    // Loop through all available measurements
-    for(int j=0;j<rangingData.available();j++) {
-      // Only process valid measurements
-      if(twr[j].status==0 && twr[j].distance!=0xFFFF) {
-        // Display the distance measurement in millimeters
-        Serial.print("- Distance: ");
-        Serial.println(twr[j].distance);  
-      }
-    }
-  }
-}
-void setup() {
-  // Initialize serial communication at 115200 bits per second
-  Serial.begin(115200);
-  #if defined(ARDUINO_PORTENTA_C33)
-    // Only the Portenta C33 has an RGB LED
-    pinMode(LEDR, OUTPUT);
-    digitalWrite(LEDR, LOW);
-  #endif
-  // Define MAC addresses for this device and the target
-  // This device (Controlee) has address 0x2222
-  // Target device (Controller) has address 0x1111
-  uint8_t devAddr[]={0x22,0x22};
-  uint8_t destination[]={0x11,0x11};
-  UWBMacAddress srcAddr(UWBMacAddress::Size::SHORT,devAddr);
-  UWBMacAddress dstAddr(UWBMacAddress::Size::SHORT,destination);
-  
-  // Register the callback and start UWB
-  UWB.registerRangingCallback(rangingHandler);
-  UWB.begin();
-  Serial.println("- Starting UWB ...");
-  // Wait until UWB stack is initialized
-  while(UWB.state()!=0)
-    delay(10);
-  // Configure the UWB session
-  Serial.println("- Starting session ...");
-  UWBSession session1;
-  session1.sessionID(0x11223344);
-  session1.sessionType(uwb::SessionType::RANGING);
-    
-  // Set application parameters
-  if(!session1.appParams.addOrUpdateParam(AppConfigId::NO_OF_CONTROLEES,1))
-    Serial.println("- Could not add to app params!");
-  if(!session1.appParams.destinationMacAddr(dstAddr))
-    Serial.println("- Could not add to app params!");
-    
-  // Apply default values for measurement repetition rate and antenna config
-  session1.applyDefaults();
-  // Configure ranging parameters
-  session1.rangingParams.deviceMacAddr(srcAddr);
-  session1.rangingParams.deviceRole(uwb::DeviceRole::RESPONDER);
-  session1.rangingParams.deviceType(uwb::DeviceType::Controlee);
-  session1.rangingParams.multiNodeMode(uwb::MultiNodeMode::UNICAST);
-  session1.rangingParams.rangingRoundUsage(uwb::RangingMethod::DS_TWR);
-  session1.rangingParams.scheduledMode(uwb::ScheduledMode::TIME_SCHEDULED);
-  
-  // Add the session to the manager and start it
-  UWBSessionManager.addSession(session1);
-  session1.init();
-  session1.start();
-}
-void loop() {
-  // Toggle the LED to show the system is running
-  #if defined(ARDUINO_PORTENTA_C33)
-    // Only the Portenta C33 has an RGB LED
-    digitalWrite(LEDR, !digitalRead(LEDR));
-  #else
-    Serial.println(millis());
-  #endif
-  
-  // Small delay using FreeRTOS scheduler
-  vTaskDelay(configTICK_RATE_HZ/4);
-}
-```
+- **Multi-node positioning systems**: Creating networks of UWB nodes for advanced indoor positioning.
+Robot navigation: Enabling precise distance measurements between robots or between robots and fixed stations.
+- **Asset tracking**: Building custom tracking solutions with multiple Arduino-based UWB anchors.
+- **Proximity detection systems**: Creating safety systems that can detect precise distances between industrial equipment and personnel.
+- **Access control systems**: Implementing secure entry systems based on precise proximity detection.
+- **Interactive installations**: Enabling position-based interactive exhibits in museums or public spaces
 
 Here's the code for the Arduino Stella, which acts as the Controller (Initiator) in this Two-Way Ranging scenario:
 
@@ -893,281 +795,477 @@ Here's the code for the Arduino Stella, which acts as the Controller (Initiator)
   Name: stella_uwb_twr_controller.ino
   Purpose: This sketch configures the Arduino Stella as a Controller (Initiator)
   for Two-Way Ranging with a Portenta UWB Shield configured as Controlee.
+  The LED provides visual feedback based on measured distance.
   
-  @author Pierpaolo Lento from Truesense, modified by the Arduino Product Experience Team
+  @author Arduino Product Experience Team
   @version 1.0 15/04/25
 */
+
 // Include required UWB library
 #include <StellaUWB.h>
+
+// Pin definitions
+#define LED_PIN p37  // Stella's built-in LED for status indication
+
+// Distance and timing parameters
+#define MAX_DISTANCE 300     // Maximum distance to consider (cm)
+#define MIN_BLINK_TIME 50    // Fastest blink rate (ms)
+#define MAX_BLINK_TIME 1000  // Slowest blink rate (ms)
+#define TIMEOUT_MS 2000      // Connection timeout (ms)
+
+// System state variables
+unsigned long lastBlink = 0;
+unsigned long lastMeasurement = 0;
+bool ledState = false;
+int currentBlinkInterval = MAX_BLINK_TIME;
+long lastDistance = MAX_DISTANCE;
+
 /**
   Processes ranging data received from UWB communication.
+  Updates LED feedback based on measured distance.
   @param rangingData Reference to UWB ranging data object.
 */
 void rangingHandler(UWBRangingData &rangingData) {
-  Serial.print("- GOT RANGING DATA - Type: ");
-  Serial.println(rangingData.measureType());
-  if(rangingData.measureType()==(uint8_t)uwb::MeasurementType::TWO_WAY) {
+  if (rangingData.measureType() == (uint8_t)uwb::MeasurementType::TWO_WAY) {
     // Get the TWR (Two-Way Ranging) measurements
-    RangingMeasures twr=rangingData.twoWayRangingMeasure();
-    
+    RangingMeasures twr = rangingData.twoWayRangingMeasure();
+
     // Loop through all available measurements
-    for(int j=0;j<rangingData.available();j++) {
+    for (int j = 0; j < rangingData.available(); j++) {
       // Only process valid measurements
-      if(twr[j].status==0 && twr[j].distance!=0xFFFF) {
-        // Display the distance measurement in millimeters
-        Serial.print("- Distance: ");
-        Serial.println(twr[j].distance);
+      if (twr[j].status == 0 && twr[j].distance != 0xFFFF) {
+        // Update timing and distance tracking
+        lastMeasurement = millis();
+        lastDistance = twr[j].distance;
+
+        // Calculate blink interval based on distance
+        // Closer distance = faster blink
+        if (lastDistance > MAX_DISTANCE) {
+          currentBlinkInterval = MAX_BLINK_TIME;
+        } else {
+          // Map distance to blink interval
+          currentBlinkInterval = map(lastDistance,
+                                    0, MAX_DISTANCE,
+                                    MIN_BLINK_TIME, MAX_BLINK_TIME);
+        }
+
+        // Display the distance measurement in centimeters
+        Serial.print("- Distance (cm): ");
+        Serial.println(lastDistance);
       }
     }
   }
 }
+
+void setup() {
+  // Initialize serial communication at 115200 bits per second
+  Serial.begin(115200);
+
+  // Configure LED pin
+  pinMode(LED_PIN, OUTPUT);
+  digitalWrite(LED_PIN, HIGH);  // Start with LED off
+
+  Serial.println("- Arduino Stella - Two-Way Ranging Controller started...");
+  
+  // Define MAC addresses for this device and the target
+  // This device (Controller) has address 0x2222
+  // Target device (Controlee) has address 0x1111
+  uint8_t devAddr[] = {0x22, 0x22};
+  uint8_t destination[] = {0x11, 0x11};
+  UWBMacAddress srcAddr(UWBMacAddress::Size::SHORT, devAddr);
+  UWBMacAddress dstAddr(UWBMacAddress::Size::SHORT, destination);
+
+  // Register the callback and start UWB
+  UWB.registerRangingCallback(rangingHandler);
+  UWB.begin();
+  
+  Serial.println("- Starting UWB...");
+  
+  // Wait until UWB stack is initialized
+  while (UWB.state() != 0) {
+    delay(10);
+  }
+
+  // Setup and start the UWB session using simplified UWBTracker
+  Serial.println("- Starting session...");
+  UWBTracker myTracker(0x11223344, srcAddr, dstAddr);
+  UWBSessionManager.addSession(myTracker);
+  myTracker.init();
+  myTracker.start();
+
+  // Signal initialization complete with triple LED flash
+  Serial.println("- Initialization complete!");
+  for (int i = 0; i < 3; i++) {
+    digitalWrite(LED_PIN, LOW);   // LED ON
+    delay(100);
+    digitalWrite(LED_PIN, HIGH);  // LED OFF
+    delay(100);
+  }
+}
+
+void loop() {
+  unsigned long currentTime = millis();
+
+  // Handle LED feedback based on connection status and distance
+  if (currentTime - lastMeasurement > TIMEOUT_MS) {
+    // No connection detected - rapid blink warning
+    if (currentTime - lastBlink >= 100) {
+      lastBlink = currentTime;
+      ledState = !ledState;
+      digitalWrite(LED_PIN, ledState ? LOW : HIGH);
+    }
+  } else {
+    // Normal operation - distance-based blink rate
+    if (currentTime - lastBlink >= currentBlinkInterval) {
+      lastBlink = currentTime;
+      ledState = !ledState;
+      digitalWrite(LED_PIN, ledState ? LOW : HIGH);
+    }
+  }
+
+  // Small delay to prevent CPU overload
+  delay(10);
+}
+```
+
+Here's the code for the Portenta UWB Shield, which acts as the Controlee (Responder) in this Two-Way Ranging scenario:
+
+```arduino
+/**
+  Two-Way Ranging Controlee Example for Portenta UWB Shield
+  Name: portenta_uwb_twr_controlee.ino
+  Purpose: This sketch configures the Portenta UWB Shield as a Controlee (Responder)
+  for Two-Way Ranging with an Arduino Stella configured as Controller.
+  Includes distance visualization and moving average calculation.
+  
+  @author Arduino Product Experience Team
+  @version 1.0 15/04/25
+*/
+
+// Include required UWB library
+#include <PortentaUWBShield.h>
+
+// Moving average configuration
+#define SAMPLES 10                // Number of samples for moving average
+long distances[SAMPLES] = {0};    // Circular buffer for distance measurements
+int sample_index = 0;              // Current position in circular buffer
+
+// LED and status configuration
+#define NEARBY_THRESHOLD 300       // Distance threshold for green LED (cm)
+#define CONNECTION_TIMEOUT 2000    // Time before considering tag lost (ms)
+#define LED_BLINK_INTERVAL 500     // Red LED blink interval (ms)
+
+// System state variables
+unsigned long lastMeasurement = 0;
+unsigned long lastLedBlink = 0;
+bool ledState = false;
+
+/**
+  Processes ranging data received from UWB communication.
+  Calculates moving average and provides visual feedback.
+  @param rangingData Reference to UWB ranging data object.
+*/
+void rangingHandler(UWBRangingData &rangingData) {
+  if (rangingData.measureType() == (uint8_t)uwb::MeasurementType::TWO_WAY) {
+    // Get the TWR (Two-Way Ranging) measurements
+    RangingMeasures twr = rangingData.twoWayRangingMeasure();
+
+    // Loop through all available measurements
+    for (int j = 0; j < rangingData.available(); j++) {
+      // Only process valid measurements
+      if (twr[j].status == 0 && twr[j].distance != 0xFFFF) {
+        // Update connection tracking
+        lastMeasurement = millis();
+
+        // Store new distance measurement in circular buffer
+        distances[sample_index] = twr[j].distance;
+
+        // Calculate moving average
+        long avg = 0;
+        for (int i = 0; i < SAMPLES; i++) {
+          avg += distances[i];
+        }
+        avg = avg / SAMPLES;
+
+        // Update distance indicator LED (Green LED)
+        // LED ON when tag is nearby, OFF when far away
+        digitalWrite(LEDG, (twr[j].distance <= NEARBY_THRESHOLD) ? LOW : HIGH);
+
+        // Output formatted data for Serial Plotter
+        Serial.print("Distance(cm):");
+        Serial.print(twr[j].distance);
+        Serial.print(",");
+        Serial.print("Average (cm):");
+        Serial.println(avg);
+
+        // Update circular buffer index
+        sample_index = (sample_index + 1) % SAMPLES;
+      }
+    }
+  }
+}
+
 void setup() {
   // Initialize serial communication at 115200 bits per second
   Serial.begin(115200);
   
+  #if defined(ARDUINO_PORTENTA_C33)
+    // Initialize RGB LEDs (only Portenta C33 has RGB LED)
+    pinMode(LEDR, OUTPUT);
+    pinMode(LEDG, OUTPUT);
+    pinMode(LEDB, OUTPUT);
+    digitalWrite(LEDR, LOW);   // Red ON during initialization
+    digitalWrite(LEDG, HIGH);  // Green OFF
+    digitalWrite(LEDB, HIGH);  // Blue OFF
+  #endif
+
+  Serial.println("- Portenta UWB Shield - Two-Way Ranging Controlee started...");
+
   // Define MAC addresses for this device and the target
-  // This device (Controller) has address 0x1111
-  // Target device (Controlee) has address 0x2222
-  uint8_t devAddr[]={0x11,0x11};
-  uint8_t destination[]={0x22,0x22};
-  UWBMacAddress srcAddr(UWBMacAddress::Size::SHORT,devAddr);
-  UWBMacAddress dstAddr(UWBMacAddress::Size::SHORT,destination);
-  
-  // Register the ranging notification handler before starting
+  // This device (Controlee) has address 0x1111
+  // Target device (Controller) has address 0x2222
+  uint8_t devAddr[] = {0x11, 0x11};
+  uint8_t destination[] = {0x22, 0x22};
+  UWBMacAddress srcAddr(UWBMacAddress::Size::SHORT, devAddr);
+  UWBMacAddress dstAddr(UWBMacAddress::Size::SHORT, destination);
+
+  // Register the callback and start UWB
   UWB.registerRangingCallback(rangingHandler);
-  
-  // Start the UWB stack
   UWB.begin();
-  Serial.println("- Starting UWB ...");
   
-  // Wait until the stack is initialized
-  while(UWB.state()!=0)
+  Serial.println("- Starting UWB...");
+  
+  // Wait until UWB stack is initialized
+  while (UWB.state() != 0) {
     delay(10);
+  }
+
+  // Setup and start the UWB session using simplified UWBRangingControlee
+  Serial.println("- Starting session...");
+  UWBRangingControlee myControlee(0x11223344, srcAddr, dstAddr);
+  UWBSessionManager.addSession(myControlee);
+  myControlee.init();
+  myControlee.start();
+
+  // Signal initialization complete
+  Serial.println("- Initialization complete!");
   
-  // Setup and start the UWB session
-  Serial.println("- Starting session ...");
-  
-  // Configure the UWB session
-  UWBSession session1;
-  session1.sessionID(0x11223344);
-  session1.sessionType(UWBD_RANGING_SESSION);
-    
-  // Set application parameters
-  if(!session1.appParams.addOrUpdateParam(UWB_SET_APP_PARAM_VALUE(NO_OF_CONTROLEES,1)))
-    Serial.println("- Could not add to app params!");
-  if(!session1.appParams.destinationMacAddr(dstAddr))
-    Serial.println("- Could not add to app params!");
-    
-  // Apply default values for measurement repetition rate and antenna config
-  session1.applyDefaults();
-  // Configure ranging parameters
-  session1.rangingParams.deviceMacAddr(srcAddr);
-  session1.rangingParams.deviceRole(kUWB_DeviceRole_Initiator);
-  session1.rangingParams.deviceType(kUWB_DeviceType_Controller);
-  session1.rangingParams.multiNodeMode(kUWB_MultiNodeMode_UniCast);
-  session1.rangingParams.rangingRoundUsage(kUWB_RangingRoundUsage_DS_TWR);
-  session1.rangingParams.scheduledMode(kUWB_ScheduledMode_TimeScheduled);
-  
-  // Add the session to the manager and start it
-  UWBSessionManager.addSession(session1);
-  session1.init();
-  session1.start();
+  #if defined(ARDUINO_PORTENTA_C33)
+    digitalWrite(LEDR, HIGH);  // Red OFF when initialized
+  #endif
 }
+
 void loop() {
-  // Simple delay, the ranging happens asynchronously via callbacks
-  delay(1000);
+  unsigned long currentTime = millis();
+
+  #if defined(ARDUINO_PORTENTA_C33)
+    // Update connection status LED (Blue LED)
+    // LED ON when no connection, OFF when connected
+    digitalWrite(LEDB, (currentTime - lastMeasurement > CONNECTION_TIMEOUT) ? LOW : HIGH);
+
+    // Blink red LED to show system is running
+    if (currentTime - lastLedBlink >= LED_BLINK_INTERVAL) {
+      lastLedBlink = currentTime;
+      ledState = !ledState;
+      digitalWrite(LEDR, ledState ? HIGH : LOW);
+    }
+  #else
+    // For boards without RGB LED, print heartbeat
+    if (currentTime - lastLedBlink >= LED_BLINK_INTERVAL) {
+      lastLedBlink = currentTime;
+      Serial.println("- System running...");
+    }
+  #endif
+
+  // Small delay to prevent CPU overload
+  delay(10);
 }
 ```
 
+***__Important note:__ Both devices must be programmed and powered on before you will see any distance measurements. The ranging session only begins when both the Controller (Arduino Stella) and Controlee (Portenta UWB Shield) are running their respective sketches.***
+
+Once both devices are running, the Arduino Stella's Serial Monitor will display the distance measurements:
+
+![Arduino Stella Serial Monitor output showing distance measurements](assets/twr-stella-serial.png)
+
+Similarly, the Portenta UWB Shield's Serial Monitor will show both raw and averaged distance measurements:
+
+![Portenta UWB Shield Serial Monitor output showing distance and average measurements](assets/twr-portenta-serial.png)
+
+The output format from the Portenta C33 board is optimized for visualization, showing both the immediate distance readings and the calculated moving average.
+
 ### Key Components of the Example Sketch
 
-The Two-Way Ranging example demonstrates a more direct approach to UWB communication compared to the `NearbyDemo`. Let's analyze the key components of both example sketches:
+The Two-Way Ranging example uses simplified helper classes (`UWBTracker` and `UWBRangingControlee`) that make device configuration easier while maintaining the same functionality. Let's analyze the key components:
 
 1. **Libraries and MAC Addressing**
 
 Both devices use their respective UWB libraries:
 
+- The Arduino Stella uses `StellaUWB.h` (for the DCU040 module)
 - The Portenta UWB Shield uses `PortentaUWBShield.h` (for the DCU150 module)
-- The Stella uses `StellaUWB.h` (for the DCU040 module)
 
-Both sketches configure MAC addresses for identification:
-
-```arduino
-// On Portenta UWB Shield
-uint8_t devAddr[]={0x22,0x22};
-uint8_t destination[]={0x11,0x11};
-// On Arduino Stella
-uint8_t devAddr[]={0x11,0x11};
-uint8_t destination[]={0x22,0x22};
-```
-
-***<strong>Important note:</strong> Notice how the MAC addresses are reversed between the two devices; this is critical for proper communication. In UWB communication, each device must know both its own address (`devAddr`) and the address of the device it is communicating with (`destination`). The Portenta UWB Shield identifies itself as `0x2222` and expects to communicate with `0x1111`, while the Arduino Stella identifies itself as `0x1111` and expects to communicate with `0x2222`. If these addresses don't match correctly, the devices won't be able to establish a ranging session. The prefix `0x` indicates these are hexadecimal values, which is a common notation in programming for representing memory addresses and identifiers.***
-
-The MAC addresses used in this example are short (2-byte) addresses for simplicity, but UWB also supports extended (8-byte) addresses for larger networks where unique identification is required. For basic two-device setups, these short addresses are enough, but for multi-node positioning systems, you may want to use extended addressing to avoid conflicts.
-
-2. **Setup and Initialization**
-
-The setup process for UWB communication differs between the two devices due to their different roles in the ranging session:
-
-**Portenta UWB Shield (Controlee/Responder):**
+MAC address configuration remains critical for communication:
 
 ```arduino
-// Configure the UWB session
-UWBSession session1;
-session1.sessionID(0x11223344);  // Unique identifier for this session
-session1.sessionType(uwb::SessionType::RANGING);
-    
-// Set application parameters
-if(!session1.appParams.addOrUpdateParam(AppConfigId::NO_OF_CONTROLEES,1))
-  Serial.println("could not add to app params");
-if(!session1.appParams.destinationMacAddr(dstAddr))
-  Serial.println("could not add to app params");
-    
-// Apply default values for measurement repetition rate and antenna config
-session1.applyDefaults();
-// Configure ranging parameters
-session1.rangingParams.deviceMacAddr(srcAddr);
-session1.rangingParams.deviceRole(uwb::DeviceRole::RESPONDER);
-session1.rangingParams.deviceType(uwb::DeviceType::Controlee);
-session1.rangingParams.multiNodeMode(uwb::MultiNodeMode::UNICAST);
-session1.rangingParams.rangingRoundUsage(uwb::RangingMethod::DS_TWR);
-session1.rangingParams.scheduledMode(uwb::ScheduledMode::TIME_SCHEDULED);
-  
-// Add the session to the manager and start it
-UWBSessionManager.addSession(session1);
-session1.init();
-session1.start();
+// On Arduino Stella (Controller)
+uint8_t devAddr[] = {0x22, 0x22};      // This device
+uint8_t destination[] = {0x11, 0x11};  // Target device
+
+// On Portenta UWB Shield (Controlee)
+uint8_t devAddr[] = {0x11, 0x11};      // This device
+uint8_t destination[] = {0x22, 0x22};  // Target device
 ```
+
+***__Important note:__ The MAC addresses are reversed between the two devices. The Arduino Stella identifies itself as `0x2222`and expects to communicate with `0x1111`, while the Portenta UWB Shield identifies itself as `0x1111` and expects to communicate with `0x2222`. Both devices must use the same session ID (`0x11223344`) to establish communication.***
+
+2. **Simplified Session Setup**
+
+The new code uses helper classes that simplify the UWB session configuration:
 
 **Arduino Stella (Controller/Initiator):**
 
 ```arduino
-// Configure the UWB session
-UWBSession session1;
-session1.sessionID(0x11223344);
-session1.sessionType(UWBD_RANGING_SESSION);
-    
-// Set application parameters
-if(!session1.appParams.addOrUpdateParam(UWB_SET_APP_PARAM_VALUE(NO_OF_CONTROLEES,1)))
-  Serial.println("could not add to app params");
-if(!session1.appParams.destinationMacAddr(dstAddr))
-  Serial.println("could not add to app params");
-    
-// Apply default values for measurement repetition rate and antenna config
-session1.applyDefaults();
-// Configure ranging parameters
-session1.rangingParams.deviceMacAddr(srcAddr);
-session1.rangingParams.deviceRole(kUWB_DeviceRole_Initiator);
-session1.rangingParams.deviceType(kUWB_DeviceType_Controller);
-session1.rangingParams.multiNodeMode(kUWB_MultiNodeMode_UniCast);
-session1.rangingParams.rangingRoundUsage(kUWB_RangingRoundUsage_DS_TWR);
-session1.rangingParams.scheduledMode(kUWB_ScheduledMode_TimeScheduled);
-  
-// Add the session to the manager and start it
-UWBSessionManager.addSession(session1);
-session1.init();
-session1.start();
+UWBTracker myTracker(0x11223344, srcAddr, dstAddr);
+UWBSessionManager.addSession(myTracker);
+myTracker.init();
+myTracker.start();
 ```
-
-***<strong>Important note:</strong> The session configuration is more detailed for the Portenta UWB Shield because it explicitly defines all the ranging parameters. The Arduino Stella uses the simplified `UWBTracker` class, which automatically sets up the device as a Controller/Initiator with appropriate defaults. However, both devices must use the same session ID (`0x11223344` in this example) to communicate with each other. This session ID is a shared identifier for the ranging session between these devices.***
-
-Let's examine some of the key configuration parameters:
-
-- `sessionID`: A unique 32-bit identifier (`0x11223344`) must match between devices in the same session.
-- `deviceRole`: Defines whether the device is a Responder (Controlee) or Initiator (Controller).
-- `multiNodeMode`: Set to UniCast for direct device-to-device communication.
-- `rangingRoundUsage`: Set to DS_TWR (Double-Sided Two-Way Ranging) for the highest accuracy.
-- `scheduledMode`: `TimeScheduled` mode allows the Controller to manage the timing of ranging exchanges.
-
-The initialization follows a specific sequence on both devices:
-
-- Register the ranging callback.
-- Start the UWB subsystem.
-- Configure the session parameters.
-- Initialize the session (apply the configuration).
-- Start the session (begin the ranging process).
-
-This process ensures both devices are properly configured before ranging begins, establishing a synchronized communication channel for precise distance measurements.
-
-1. **Ranging Data Handler**
-
-Both devices use nearly identical callback functions to process ranging data:
-
-```arduino
-void rangingHandler(UWBRangingData &rangingData) {
-  // ...
-  if(rangingData.measureType()==(uint8_t)uwb::MeasurementType::TWO_WAY) {
-    RangingMeasures twr=rangingData.twoWayRangingMeasure();
-    for(int j=0;j<rangingData.available();j++) {
-      if(twr[j].status==0 && twr[j].distance!=0xFFFF) {
-        Serial.print("Distance: ");
-        Serial.println(twr[j].distance);
-      }
-    }
-  }
-}
-```
-
-This function:
-
-- Is triggered whenever new ranging data is available.
-- Checks if the measurement type is *Two-Way Ranging (TWR)*.
-- Validates the data (`status = 0` indicates a valid measurement, while `distance = 0xFFFF` is a reserved value indicating an invalid distance).
-- Outputs the distance measurements in millimeters and prints them to the IDE's Serial Monitor.
-
-4. **Main Loop**
-
-The main loops of the two devices have different behaviors:
 
 **Portenta UWB Shield (Controlee/Responder):**
 
 ```arduino
-void loop() {
-  digitalWrite(LEDR, !digitalRead(LEDR)); // Toggle LED
-  vTaskDelay(configTICK_RATE_HZ/4);       // Delay using FreeRTOS scheduler
-}
+UWBRangingControlee myControlee(0x11223344, srcAddr, dstAddr);
+UWBSessionManager.addSession(myControlee);
+myControlee.init();
+myControlee.start();
 ```
 
-**Arduino Stella (Controller/Initiator):**
+These helper classes automatically configure the appropriate ranging parameters for their respective roles, making the setup process more straightforward.
+
+3. **Enhanced Visual Feedback**
+
+Both devices in this example provide visual feedback to help users understand the system status and distance measurements at a glance. Each device uses its LED capabilities to indicate different operational states.
+
+**Arduino Stella LED Behavior:**
+
+The Arduino Stella uses its built-in LED to provide distance-based feedback through variable blink rates:
+
+- **Close range (0 to 50 cm)**: Very fast blinking for immediate proximity alert
+- **Medium range (50 to 150 cm)**: Medium blinking for moderate distances
+- **Far range (150 to 300 cm)**: Slow blinking indicating increasing distance
+- **Very far (>300 cm)**: Very slow blinking for maximum range
+- **No connection**: Rapid blinking (100 ms intervals) as a warning signal
+- **Startup**: Triple flash to indicate successful initialization
+
+This variable blink rate creates an intuitive feedback system where users can gauge distance without looking at the serial output.
+
+**Portenta C33 RGB LED Behavior:**
+
+The Portenta C33 uses its RGB LED to provide feedback about different aspects of the system operation:
+
+- **Red LED**: System heartbeat (continuous blinking shows the system is running)
+- **Blue LED**: Connection status (ON = no connection, OFF = connected to tag)
+- **Green LED**: Proximity indicator (ON = tag within 300 cm threshold, OFF = tag beyond threshold)
+
+This three-color system provides immediate visual feedback about connection status, system operation, and proximity all at once, making it useful for debugging and demonstration purposes where checking serial output isn't practical.
+
+4. **Data Processing and Visualization**
+
+The Portenta UWB Shield implements a moving average filter to smooth distance measurements:
 
 ```arduino
-void loop() {
-  delay(1000); // Simple 1-second delay
+// Store measurements in circular buffer
+distances[sample_index] = twr[j].distance;
+
+// Calculate moving average
+long avg = 0;
+for (int i = 0; i < SAMPLES; i++) {
+  avg += distances[i];
 }
+avg = avg / SAMPLES;
 ```
 
-The actual ranging operations happen asynchronously through the callback system, so the main loop primarily handles visual feedback and timing.
+This provides two data streams for visualization:
+
+- **Raw distance**: Immediate measurements showing real-time variations
+- **Averaged distance**: Smoothed values for trend analysis
+
+The output format is optimized for the Arduino IDE Serial Plotter:
+
+```arduino
+Serial.print("- Distance (cm):");
+Serial.print(twr[j].distance);
+Serial.print(",");
+Serial.print("- Average (cm):");
+Serial.println(avg);
+```
 
 ### Try It Yourself
 
-To test this two-device ranging setup:
+To test this two-device ranging setup, you will need to prepare both the hardware connections and software configuration before running the example.
 
-1. Connect the Portenta UWB Shield to your Portenta C33.
-2. Upload the Controlee/Responder example sketch to the Portenta C33.
-3. Connect the Arduino Stella to your computer.
-4. Upload the Controller/Initiator example sketch to the Arduino Stella.
-5. Open two separate Serial Monitor windows (one for each device) set to 115200 baud.
+**Hardware Setup:**
 
-You should see distance measurements on both Serial Monitors. Try moving the devices closer together and further apart to see the distance values change in real time.
+First, prepare your devices by following these steps:
 
-**Tips for optimal performance:**
+1. Connect the Portenta UWB Shield to your Portenta C33 board
+2. Power the Arduino Stella (using a USB-C cable or a CR2032 battery)
 
-- For best results, position the devices so their antennas have a clear line-of-sight to each other.
-- Keep the devices at least 20 cm away from large metal objects, as these can reflect UWB signals and interfere with measurements.
-- Maintain the devices in a similar orientation (parallel to each other) for more consistent results, as antenna positioning affects signal strength.
-- Start testing at distances between 0.5 to 3 meters, as extremely close or far distances might produce less reliable measurements.
+**Software Setup:**
 
-The distances are reported in millimeters, providing centimeter-level accuracy. For example, a reading of `- Distance: 1234` indicates the devices are approximately 1.234 meters apart.
+Next, upload the appropriate sketches to each device:
+
+1. Select "Arduino Portenta C33" as the board type in the Arduino IDE
+2. Upload the Controlee/Responder sketch to the Portenta C33 board
+3. Select "Arduino Stella" as the board type
+4. Upload the Controller/Initiator sketch to the Arduino Stella
+
+**Testing:**
+
+Once both devices are programmed, you can begin testing the ranging system:
+
+1. Open the IDE's Serial Monitor for the Portenta C33 board at 115200 baud
+2. For best visualization, use `Tools > Serial Plotter` instead of the `Serial Monitor`
+3. Move the devices closer and further apart
+4. Observe the LED feedback on both devices
+
+***If you don't see any measurements, verify that both devices are powered on and running their respective sketches. The system requires both the Controller and Controlee to be active for ranging to occur.***
+
+**Visual Feedback During Operation:**
+
+When the system is working correctly, both devices provide LED feedback:
+
+- **Arduino Stella LED:** Blinks faster as devices get closer (fast at 50 cm, slow at 300 cm)
+- **Portenta C33 Red LED:** Blinks continuously to show system is active
+- **Portenta C33 Blue LED:** OFF when connected, ON when connection is lost
+- **Portenta C33 Green LED:** ON when Stella is within 300 cm, OFF when further away
+
+**Serial Output Visualization:**
+
+The Serial Plotter provides real-time visualization of the distance measurements:
+
+![Serial Plotter showing real-time distance measurements and moving average](assets/twr-serial-plotter.gif)
+
+The graph shows two lines:
+
+- **Blue line:** Raw distance measurements in centimeters
+- **Red line:** Smoothed moving average for trend analysis
+
+Example readings: `Distance(cm):125,Average(cm):123` indicates the devices are approximately 1.25 meters apart.
 
 ### Extending the Two-Way Ranging Example
 
-This basic example can be extended in several ways for more advanced applications:
+This enhanced example provides a foundation for more advanced applications:
 
-- **Adding multiple nodes:** Modify the example sketch to support multiple anchors or tags for triangulation and full positioning.
-- **Integrating additional sensors:** Combine UWB ranging with IMU data for more robust positioning.
-- **Implementing position calculation:** Add algorithms to convert distance measurements to coordinates.
-- **Creating a visualization interface:** Develop a graphical interface to display the relative positions of devices.
-- **Adding data communication:** Use UWB not just for ranging but also for data exchange between devices.
+- **Access control systems**: Use the distance threshold to trigger door locks or security systems
+- **Safety zones**: Create multiple distance thresholds for industrial safety applications
+- **Data logging**: Add SD card storage to record distance measurements over time
+- **Multi-node networks**: Extend to support multiple tags communicating with one base station
+- **Position calculation**: Combine multiple base stations for 2D/3D positioning through triangulation
+- **Alert systems**: Add buzzer or additional LEDs for specific distance-based alerts
+
+The visual feedback and data processing capabilities demonstrated in this example can be adapted to various real-world applications requiring precise distance measurement and proximity detection.
 
 ## Support
 
