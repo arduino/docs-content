@@ -221,7 +221,7 @@ The Nano breakout connectors pinout is shown in the following figure.
 | --- | --------- | --------- | --------------------------------------- |
 | 1   | D13 / SCK | Digital   | Serial Clock                            |
 | 2   | +3V3      | Power Out | +3V3 Power Rail                         |
-| 3   | B0 / AREF | Analog    | Analog Reference                        |
+| 3   | AREF      | Analog    | Analog Voltage Reference                |
 | 4   | A0        | Analog    | Analog input 0 / DAC                    |
 | 5   | A1        | Analog    | Analog input 1 / OPAMP +                |
 | 6   | A2        | Analog    | Analog input 2 / OPAMP -                |
@@ -231,7 +231,7 @@ The Nano breakout connectors pinout is shown in the following figure.
 | 10  | A6        | Analog    | Analog input 6                          |
 | 11  | A7        | Analog    | Analog input 7                          |
 | 12  | 5V        | Power     | USB power (5 V)                         |
-| 13  | BOOT1     | Mode      | Board Reset 1                           |
+| 13  | BOOT      | Mode      | Mode selection                          |
 | 14  | GND       | Power     | Ground                                  |
 | 15  | VIN       | Power     | Voltage Input                           |
 
