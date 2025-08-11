@@ -292,7 +292,7 @@ For powering e.g. servo motors, always use an external power supply.
 
 | Pin | Function | Type   | Description                                      |
 | --- | -------- | ------ | ------------------------------------------------ |
-| 1   | BOOT     | NC     | Not Connected                                    |
+| 1   | BOOT     | Mode   | Mode selection                                   |
 | 2   | IOREF    | IOREF  | Reference for digital logic V - connected to 5 V |
 | 3   | Reset    | Reset  | Reset                                            |
 | 4   | +3V3     | Power  | +3V3 Power Rail                                  |
