@@ -181,7 +181,7 @@ To install the required libraries, follow these steps:
 
 ![Library repository on GitHub](assets/library-repository.png)
 
-1. Install the library in Arduino IDE:
+2. Install the library in Arduino IDE:
 
 - Open the Arduino IDE
 - Navigate to `Sketch > Include Library > Add .ZIP Library...`
@@ -191,7 +191,7 @@ To install the required libraries, follow these steps:
 
 ![Library installation on the Arduino IDE](assets/library-installation.png)
 
-1. Verify the library installation:
+3. Verify the library installation:
 
 - Go to `Sketch > Include Library`
 - Scroll down to see if the library appears in the `Contributed libraries` list
