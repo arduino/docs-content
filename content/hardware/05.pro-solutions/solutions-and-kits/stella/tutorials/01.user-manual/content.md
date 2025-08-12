@@ -203,7 +203,7 @@ To install the required board cores:
 
 - Navigate to Tools > Board > Boards Manager...
 - For the Arduino Stella, search for `Arduino Mbed OS Stella Boards` and install the latest version
-- For the Portenta C33 board, search for `Arduino Renesas Boards` and install the latest version
+- For the Portenta C33 board, search for `Arduino Renesas Portenta Boards` and install the latest version
 
 ![Boards manager on the Arduino IDE](assets/boards-manager.png)
 
