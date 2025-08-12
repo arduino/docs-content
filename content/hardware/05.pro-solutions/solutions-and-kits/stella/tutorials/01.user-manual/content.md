@@ -397,7 +397,10 @@ void loop() {
 
 To upload the sketch to the Arduino Stella, click the **Verify** button to compile the sketch and check for errors, then click the **Upload** button to program the device with the example sketch.
 
-Once the sketch is uploaded, open the Serial Monitor by clicking on the icon in the top right corner of the Arduino IDE. You should see the message `- Nearby interaction app start...` in the IDE's Serial Monitor, followed by three short beeps from the Arduino Stella's buzzer.
+Once the sketch is uploaded, open the Serial Monitor by clicking on the icon in the top right corner of the Arduino IDE. You should see the message `- Nearby interaction app start...` in the IDE's Serial Monitor. When a smartphone connects, you'll see `Client connected!` followed by `Session started!` and then real-time distance measurements in millimeters. If no device connects, only the initialization message will be displayed.
+
+![Arduino Stella Serial Monitor showing initial connection and distance measurements](assets/nearbydemo-serial-monitor.png)
+
 
 #### Try It Yourself
 
@@ -420,10 +423,14 @@ Install one of these apps on your smartphone and follow these steps:
 1. Open the app on your smartphone.
 2. Look for a device named `Arduino Stella` in the app's device list.
 3. Connect to the device.
-4. Once connected, the app will initiate a UWB ranging session, and you'll hear a single beep from the Arduino Stella.
-5. Move your phone closer to and further from the Arduino Stella.
+4. Once connected, the app will initiate a UWB ranging session
+5. Move your phone closer to and further from the Arduino Stella
 
-You should see the distance measurements updating in real-time both on your smartphone app and in the IDE's Serial Monitor. The distances are shown in millimeters, providing centimeter-level accuracy characteristic of UWB technology. Additionally, the Arduino Stella's LED and buzzer will provide feedback based on the measured distance, with more frequent responses as you get closer to the device.
+![Smartphone app displaying UWB connection and real-time distance to Arduino Stella](assets/nearbydemo-smartphone-app.png)
+
+The smartphone app shows the connection status and continuously updates the distance measurement as you move the phone. Both the app and the Serial Monitor display synchronized measurements in millimeters. 
+
+You should see the distance measurements updating in real-time both on your smartphone app and in the IDE's Serial Monitor. The distances are shown in millimeters, providing centimeter-level accuracy characteristic of UWB technology.
 
 ## NearbyDemo Example
 
