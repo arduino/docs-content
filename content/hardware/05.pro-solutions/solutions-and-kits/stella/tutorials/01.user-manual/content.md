@@ -1089,7 +1089,8 @@ session1.init();
 session1.start();
 ```
 
-***<strong>Important note:</strong> The session configuration is more detailed for the Portenta UWB Shield because it explicitly defines all the ranging parameters. The Arduino Stella uses the simplified `UWBTracker` class, which automatically sets up the device as a Controller/Initiator with appropriate defaults. However, both devices must use the same session ID (`0x11223344` in this example) to communicate with each other. This session ID is a shared identifier for the ranging session between these devices.***
+***<strong>Important note:</strong> The session configuration is more detailed for the Portenta UWB Shield because it explicitly defines the ranging parameters. The Arduino Stella uses the `UWBSession` class and relies on the library’s default settings initially to operate as the Controller/Initiator. However, both devices must use the same session ID (`0x11223344` in this example) to communicate with each other. This session ID is a shared identifier for the ranging session between these devices.***
+
 
 Let's examine some of the key configuration parameters:
 
