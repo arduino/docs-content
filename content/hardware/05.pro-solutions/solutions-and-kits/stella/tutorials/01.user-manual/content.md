@@ -289,7 +289,8 @@ This process demonstrates the working principle of many UWB applications, where 
 
 First, connect the Arduino Stella to your computer using a USB-C cable, open the Arduino IDE and connect the board to it.
 
-***If you are new to the Arduino Stella, ensure you have installed the required board support package by going to Tools > Board > Boards Manager and searching for "Mbed OS Boards".***
+***If you are new to the Arduino Stella, ensure you have installed the required board support package by going to Tools > Board > Boards Manager and searching for "Arduino Mbed OS Stella Boards".***
+
 
 Copy and paste the example sketch below into a new sketch in the Arduino IDE:|
 
