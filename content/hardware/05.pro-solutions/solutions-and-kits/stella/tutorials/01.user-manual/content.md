@@ -288,7 +288,8 @@ This process demonstrates the working principle of many UWB applications, where 
 
 #### Uploading the Sketch
 
-First, connect the Arduino Stella to your computer using a USB-C cable, open the Arduino IDE and connect the board to it. Copy and paste the example sketch below into a new sketch in the Arduino IDE:|
+First, connect the Arduino Stella to your computer using a USB-C cable, open the Arduino IDE and connect the board to it. Copy and paste the example sketch below into a new sketch in the Arduino IDE:
+
 
 ```arduino 
 /**
