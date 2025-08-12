@@ -232,7 +232,7 @@ For portable and wireless applications, the Arduino Stella offers two additional
 
 ![Powering options for the Arduino Stella (portable and wireles applications)](assets/user-manual-7.png)
 
-***__Important note:___ When using battery power, ensure the correct polarity when inserting the CR2032 battery into the holder. The positive (+) side should face up, away from the PCB, as shown in the image below.***
+***__Important note__: When using battery power, ensure the correct polarity when inserting the CR2032 battery into the holder. The positive (+) side should face up, away from the PCB, as shown in the image below.***
 
 ![Correct battery placement in the Arduino Stella (positive side facing up)](assets/user-manual-8.png)
 
@@ -260,7 +260,7 @@ The `Nearby World` example demonstrates the core functionality of UWB technology
 1. **Bluetooth® Low Energy connection setup**: The Arduino Stella broadcasts using Bluetooth Low Energy to make itself discoverable to compatible smartphone apps.
 2. **Configuration exchange**: The Bluetooth Low Energy connection is used to exchange necessary UWB configuration parameters between the Arduino Stella and the smartphone.
 3. **UWB ranging**: Once configured, the actual UWB ranging session begins, providing precise distance measurements.
-4. **Real-time feedback**: Distance data is continuously updated and can be viewed both on the IDE's Serial Monitor and on the smartphone app. The Arduino Stella's buzzer and LED can also provide feedback based on distance.
+4. **Real-time feedback**: Distance data is continuously updated and can be viewed both on the IDE's Serial Monitor and on the smartphone app.
 
 This process demonstrates the working principle of many UWB applications, where Bluetooth Low Energy is used primarily for discovery and configuration, while UWB handles the precise ranging.
 
@@ -268,22 +268,22 @@ This process demonstrates the working principle of many UWB applications, where 
 
 First, connect the Arduino Stella to your computer using a USB-C cable, open the Arduino IDE and connect the board to it.
 
-***If you are new to the Arduino Stella, ensure you have installed the required board support package by going to Tools > Board > Boards Manager and searching for "mbed OS Boards".***
+***__Important note__: If you are new to the Arduino Stella, ensure you have installed the required board support package by going to Tools > Board > Boards Manager and searching for "Arduino Mbed OS Boards".***
 
 Copy and paste the example sketch below into a new sketch in the Arduino IDE:
 
 ```arduino 
 /**
   Nearby World Example for Arduino Stella
-  Name: arduino_stella_nearby.ino
+  Name: arduino_stella_nearby_world.ino
   Purpose: This sketch demonstrates how to use the Arduino Stella
   to measure distance between the board and a UWB-enabled smartphone.
   
   Compatible with:
-  - NXP Trimensions AR (https://apps.apple.com/us/app/nxp-trimensions-ar/id1606143205)
-  - Qorvo Nearby Interaction (https://apps.apple.com/us/app/qorvo-nearby-interaction/id1615369084)
-  - NXP android demo (source code https://github.com/nxp-uwb/UWBJetpackExample)
-  - Truesense Android demo (source code https://github.com/Truesense-it/TSUwbDemo-Android)
+  - NXP Trimensions AR (iOS)
+  - Qorvo Nearby Interaction (iOS)
+  - NXP Android demo
+  - Truesense Android demo
   
   @author Arduino Product Experience Team
   @version 1.0 15/04/25
@@ -293,88 +293,42 @@ Copy and paste the example sketch below into a new sketch in the Arduino IDE:
 #include <ArduinoBLE.h>
 #include <StellaUWB.h>
 
-// Track the number of connected Bluetooth® Low Energy clients
+// Track the number of connected Bluetooth Low Energy clients
 uint16_t numConnected = 0;
 
-// Buzzer activation thresholds (in mm)
-#define PROXIMITY_CLOSE 500     // 50cm
-#define PROXIMITY_MEDIUM 1500   // 1.5m
-#define PROXIMITY_FAR 3000      // 3m
-
 /**
-  @brief Processes ranging data received from UWB communication.
+  Processes ranging data received from UWB communication.
   @param rangingData Reference to UWB ranging data object.
 */
 void rangingHandler(UWBRangingData &rangingData) {
   Serial.print("- GOT RANGING DATA - Type: ");
   Serial.println(rangingData.measureType());
-  
+
   // Nearby interaction uses Double-sided Two-way Ranging method
-  if(rangingData.measureType()==(uint8_t)uwb::MeasurementType::TWO_WAY) {
+  if(rangingData.measureType() == (uint8_t)uwb::MeasurementType::TWO_WAY) {
     // Get the TWR (Two-Way Ranging) measurements
     RangingMeasures twr = rangingData.twoWayRangingMeasure();
     
     // Loop through all available measurements
-    for(int j=0; j<rangingData.available(); j++) {
+    for(int j = 0; j < rangingData.available(); j++) {
       // Only process valid measurements
-      if(twr[j].status==0 && twr[j].distance!=0xFFFF) {
+      if(twr[j].status == 0 && twr[j].distance != 0xFFFF) {
         // Display the distance measurement in millimeters
         Serial.print("- Distance: ");
-        Serial.println(twr[j].distance);
-        
-        // Provide feedback based on distance
-        provideFeedback(twr[j].distance);
+        Serial.println(twr[j].distance);  
       }
     }
   }
 }
 
 /**
-  Provides audio and visual feedback based on distance.
-  @param distance The measured distance in millimeters.
-*/
-void provideFeedback(uint32_t distance) {
-  // LED pattern based on distance
-  if (distance < PROXIMITY_CLOSE) {
-    // Fast blinking for close proximity
-    digitalWrite(LED_BUILTIN, HIGH);
-    // Short beep for close proximity
-    buzzer.beep(50);
-    delay(50);
-    digitalWrite(LED_BUILTIN, LOW);
-  } 
-  else if (distance < PROXIMITY_MEDIUM) {
-    // Medium pace blinking for medium proximity
-    digitalWrite(LED_BUILTIN, HIGH);
-    delay(200);
-    digitalWrite(LED_BUILTIN, LOW);
-  }
-  else if (distance < PROXIMITY_FAR) {
-    // Slow blinking for far proximity
-    digitalWrite(LED_BUILTIN, HIGH);
-    delay(500);
-    digitalWrite(LED_BUILTIN, LOW);
-  }
-  else {
-    // Very slow pulsing for very distant objects
-    digitalWrite(LED_BUILTIN, HIGH);
-    delay(1000);
-    digitalWrite(LED_BUILTIN, LOW);
-  }
-  
-  // Ensure delay between feedback cycles
-  delay(100);
-}
-
-/**
-  @brief Handles new Bluetooth® Low Energy client connection events.
+  Handles new Bluetooth Low Energy client connection events.
   @param dev The connecting Bluetooth Low Energy device.
 */
 void clientConnected(BLEDevice dev) {
   // Initialize UWB stack on first connection
   if (numConnected == 0) {
-    // Start the UWB engine
-    UWB.begin(); 
+    UWB.begin();  // Start the UWB engine
   }
   // Increment connected clients counter
   numConnected++;
@@ -382,39 +336,33 @@ void clientConnected(BLEDevice dev) {
 }
 
 /**
-  @brief Handles Bluetooth® Low Energy client disconnection events.
+  Handles Bluetooth Low Energy client disconnection events.
   @param dev The disconnecting Bluetooth Low Energy device.
 */
 void clientDisconnected(BLEDevice dev) {
   // Decrement connected clients counter
   numConnected--;
   // Shut down UWB when no clients are connected
-  if(numConnected==0) {
+  if(numConnected == 0) {
     UWB.end();
   }
   Serial.println("- Client disconnected!");
 }
 
 /**
-  @brief Handles UWB session start events.
-  @param dev The Bluetooth® Low Energy device starting the session.
+  Handles UWB session start events.
+  @param dev The Bluetooth Low Energy device starting the session.
 */
 void sessionStarted(BLEDevice dev) {
   Serial.println("- Session started!");
-  // Beep once to indicate session start
-  buzzer.beep(200);
 }
 
 /**
-  @brief Handles UWB session termination events.
-  @param dev The Bluetooth® Low Energy device ending the session.
+  Handles UWB session termination events.
+  @param dev The Bluetooth Low Energy device ending the session.
 */
 void sessionStopped(BLEDevice dev) {
   Serial.println("- Session stopped!");
-  // Beep twice to indicate session end
-  buzzer.beep(100);
-  delay(100);
-  buzzer.beep(100);
 }
 
 void setup() {
@@ -424,14 +372,6 @@ void setup() {
   // Initialize the onboard LED
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, LOW);
-  
-  // Initialize the accelerometer
-  if (!accelerometer.begin()) {
-    Serial.println("- Failed to initialize accelerometer!");
-  }
-  
-  // Initialize the buzzer
-  buzzer.begin();
 
   Serial.println("- Nearby interaction app start...");
   
@@ -442,26 +382,20 @@ void setup() {
   UWBNearbySessionManager.onSessionStart(sessionStarted);
   UWBNearbySessionManager.onSessionStop(sessionStopped);
   
-  // Initialize Bluetooth® Low Energy services and start advertising as "Arduino Stella"
+  // Initialize Bluetooth Low Energy services and start advertising
   UWBNearbySessionManager.begin("Arduino Stella");
-  
-  // Beep three times to indicate setup complete
-  for (int i = 0; i < 3; i++) {
-    buzzer.beep(50);
-    delay(50);
-  }
 }
 
 void loop() {
   // Small delay to prevent CPU overload
   delay(100);
   
-  // Process Bluetooth® Low Energy events
+  // Process Bluetooth Low Energy events
   UWBNearbySessionManager.poll();
 }
 ```
 
-To upload the sketch to the Arduino Stella, click the **Verify** button to compile the sketch and check for errors, then click the **Upload** button to program the device with the sketch.
+To upload the sketch to the Arduino Stella, click the **Verify** button to compile the sketch and check for errors, then click the **Upload** button to program the device with the example sketch.
 
 Once the sketch is uploaded, open the Serial Monitor by clicking on the icon in the top right corner of the Arduino IDE. You should see the message `- Nearby interaction app start...` in the IDE's Serial Monitor, followed by three short beeps from the Arduino Stella's buzzer.
 
@@ -495,32 +429,39 @@ You should see the distance measurements updating in real-time both on your smar
 
 ### About the NearbyDemo Example
 
-The `NearbyDemo` example sketch is a fundamental demonstration of the Arduino Stella's core capabilities. This example showcases how to implement a direct distance measurement system between the Arduino Stella (acting as a UWB tag) and a UWB-enabled smartphone (acting as a UWB anchor).
+The `NearbyDemo` example sketch demonstrates how to implement distance measurement between the Arduino Stella and UWB-enabled smartphones using Apple's Nearby Interaction protocol or compatible Android implementations. This example showcases how Bluetooth® Low Energy is used for initial device discovery and configuration exchange, while UWB handles the precise distance measurements.
 
-This example sketch demonstrates the following:
+This example demonstrates the following:
 
-- **Hybrid communication protocol:** It shows the integration of Bluetooth® Low Energy for device discovery and configuration with UWB for precise distance measurements, a common pattern in production UWB applications.
-- **Standards compatibility:** The implementation is compatible with Apple's Nearby Interaction API and similar Android standards, demonstrating how the Arduino ecosystem can interact with mainstream consumer devices.
-- **Foundation for advanced applications:** The ranging capability demonstrated is the building block for more sophisticated applications such as indoor positioning systems, geofencing, secure access and proximity-based automation.
+- **Hybrid communication protocol**: Integration of Bluetooth Low Energy for device discovery and configuration with UWB for precise distance measurements
+- **Standards compatibility**: Compatible with Apple's Nearby Interaction API and Android UWB implementations
+- **Power-efficient design**: UWB subsystem only activates when a client connects, conserving battery life
+- **Multi-client support**: Can handle connections from multiple smartphones simultaneously
 
-Some of the real-life applications for this example sketch are the following:
+Real-world applications for this example include:
 
-- **Asset tracking:** Creating systems where Arduino Stella boards attached to valuable items can be precisely located within warehouses or facilities.
-- **Smart building automation:** Implementing room-level presence detection that can adjust lighting, temperature, and other environmental factors based on the location of people wearing or carrying Arduino Stella devices.
-- **Healthcare:** Tracking the movement of patients, staff, and medical equipment with high accuracy within hospital environments.
-- **Retail analytics:** Analyzing customer movement patterns in stores to optimize layout and product placement.
-- **Consumer item finding:** Creating tag-based systems that allow users to precisely locate misplaced items through smartphone interactions.
+- **Asset tracking**: Precisely locate Arduino Stella devices attached to valuable items using smartphones
+- **Smart building automation**: Implement room-level presence detection for environmental control
+- **Healthcare**: Track movement of equipment and personnel with smartphone-based monitoring
+- **Retail analytics**: Analyze customer movement patterns using their smartphones
+- **Consumer item finding**: Create smartphone-compatible tags for locating misplaced items
 
-Now, let's take a closer look at the sketch:
+Here's the complete code for the `NearbyDemo` example sketch:
 
 ```arduino
 /**
   NearbyDemo Example for Arduino Stella
   Name: arduino_stella_nearbydemo.ino
   Purpose: This sketch demonstrates how to use the Arduino Stella
-  to measure distance between the board and a UWB-enabled device.
+  to measure distance between the board and UWB-enabled smartphones.
   
-  @author Pierpaolo Lento from Truesense, modified by the Arduino Product Experience Team
+  Compatible with:
+  - NXP Trimensions AR (iOS)
+  - Qorvo Nearby Interaction (iOS)
+  - NXP Android demo
+  - Truesense Android demo
+  
+  @author Arduino Product Experience Team
   @version 1.0 15/04/25
 */
 
@@ -528,7 +469,7 @@ Now, let's take a closer look at the sketch:
 #include <ArduinoBLE.h>
 #include <StellaUWB.h>
 
-// Track the number of connected Bluetooth® Low Energy clients
+// Track the number of connected Bluetooth Low Energy clients
 uint16_t numConnected = 0;
 
 /**
@@ -538,54 +479,55 @@ uint16_t numConnected = 0;
 void rangingHandler(UWBRangingData &rangingData) {
   Serial.print("- GOT RANGING DATA - Type: ");
   Serial.println(rangingData.measureType());
-  
+
   // Nearby interaction uses Double-sided Two-way Ranging method
-  if(rangingData.measureType()==(uint8_t)uwb::MeasurementType::TWO_WAY) {
+  if(rangingData.measureType() == (uint8_t)uwb::MeasurementType::TWO_WAY) {
     // Get the TWR (Two-Way Ranging) measurements
     RangingMeasures twr = rangingData.twoWayRangingMeasure();
     
     // Loop through all available measurements
-    for(int j=0; j<rangingData.available(); j++) {
+    for(int j = 0; j < rangingData.available(); j++) {
       // Only process valid measurements
-      if(twr[j].status==0 && twr[j].distance!=0xFFFF) {
+      if(twr[j].status == 0 && twr[j].distance != 0xFFFF) {
         // Display the distance measurement in millimeters
         Serial.print("- Distance: ");
-        Serial.println(twr[j].distance);
+        Serial.println(twr[j].distance);  
       }
     }
   }
 }
 
 /**
-  Handles new Bluetooth® Low Energy client connection events.
+  Handles new Bluetooth Low Energy client connection events.
   @param dev The connecting Bluetooth Low Energy device.
 */
 void clientConnected(BLEDevice dev) {
   // Initialize UWB stack on first connection
   if (numConnected == 0) {
-    // Start the UWB engine
-    UWB.begin(); 
+    UWB.begin();  // Start the UWB engine
   }
   // Increment connected clients counter
   numConnected++;
+  Serial.println("- Client connected!");
 }
 
 /**
-  Handles Bluetooth® Low Energy client disconnection events.
+  Handles Bluetooth Low Energy client disconnection events.
   @param dev The disconnecting Bluetooth Low Energy device.
 */
 void clientDisconnected(BLEDevice dev) {
   // Decrement connected clients counter
   numConnected--;
   // Shut down UWB when no clients are connected
-  if(numConnected==0) {
+  if(numConnected == 0) {
     UWB.end();
   }
+  Serial.println("- Client disconnected!");
 }
 
 /**
   Handles UWB session start events.
-  @param dev The Bluetooth® Low Energy device starting the session.
+  @param dev The Bluetooth Low Energy device starting the session.
 */
 void sessionStarted(BLEDevice dev) {
   Serial.println("- Session started!");
@@ -593,7 +535,7 @@ void sessionStarted(BLEDevice dev) {
 
 /**
   Handles UWB session termination events.
-  @param dev The Bluetooth® Low Energy device ending the session.
+  @param dev The Bluetooth Low Energy device ending the session.
 */
 void sessionStopped(BLEDevice dev) {
   Serial.println("- Session stopped!");
@@ -602,36 +544,46 @@ void sessionStopped(BLEDevice dev) {
 void setup() {
   // Initialize serial communication at 115200 bits per second
   Serial.begin(115200);
-  
-  // Initialize the onboard LED
-  pinMode(LED_BUILTIN, OUTPUT);
-  digitalWrite(LED_BUILTIN, LOW);
+
+  #if defined(ARDUINO_PORTENTA_C33)
+    // Only the Portenta C33 has an RGB LED
+    pinMode(LEDR, OUTPUT);
+    digitalWrite(LEDR, LOW);
+  #endif
 
   Serial.println("- Nearby interaction app start...");
-  
+
   // Register callback handlers
   UWB.registerRangingCallback(rangingHandler);
   UWBNearbySessionManager.onConnect(clientConnected);
   UWBNearbySessionManager.onDisconnect(clientDisconnected);
   UWBNearbySessionManager.onSessionStart(sessionStarted);
   UWBNearbySessionManager.onSessionStop(sessionStopped);
-  
-  // Initialize Bluetooth® Low Energy services and start advertising as "Arduino Stella"
-  UWBNearbySessionManager.begin("Arduino Stella");
+
+  // Initialize Bluetooth Low Energy services and start advertising
+  UWBNearbySessionManager.begin("TS_DCU040");
 }
 
 void loop() {
   // Small delay to prevent CPU overload
   delay(100);
   
-  // Process Bluetooth® Low Energy events
+  // Process Bluetooth Low Energy events
   UWBNearbySessionManager.poll();
 }
 ```
 
+Once the example sketch is uploaded and a smartphone connects to the Arduino Stella, the IDE's Serial Monitor will display the connection and ranging information:
+
+![Arduino Stella Serial Monitor output showing Nearby Demo connection and distance measurements](assets/nearbydemo-serial-monitor.png)
+
+The Serial Monitor shows the initialization message, followed by `- Client connected!` when a smartphone establishes a Bluetooth Low Energy connection. Only after the connection is established will you see session status and real-time distance measurements in millimeters. If no device connects, you will only see the initial "Nearby interaction app start..." message waiting for a connection.
+
+***__Important note__: Distance measurements only appear __after__ a successful connection with a UWB-enabled smartphone. Without a connection, the Serial Monitor will only show the initialization message.***
+
 ### Key Components of the Example Sketch
 
-The `NearbyDemo` code follows an event-driven architecture that employs callback functions to handle various events in the UWB communication process. Here is an explanation of the most important parts of the example sketch:
+The `NearbyDemo` code implements an event-driven architecture using callback functions to handle various stages of the UWB communication process. Let's examine the main components:
 
 1. **Libraries and Global Variables**
    
@@ -642,37 +594,31 @@ The `NearbyDemo` code follows an event-driven architecture that employs callback
 uint16_t numConnected = 0;
 ```
 
-The code includes two essential libraries:
+The example sketch uses two important libraries for its operation:
 
 - `ArduinoBLE`: Provides Bluetooth® Low Energy functionality for device discovery and initial connection.
-- `StellaUWB`: The core library that enables interaction with the UWB hardware on the Arduino Stella.
+- `StellaUWB`: The core library that enables interaction with the onboard UWB module of the Arduino Stella.
 
 The `numConnected` variable tracks how many Bluetooth Low Energy clients are currently connected to the Arduino Stella.
 
 2. **Ranging Data Handler**
 
+The heart of the UWB functionality resides in the ranging callback:
+
 ```arduino
 void rangingHandler(UWBRangingData &rangingData) {
-  // ...
-  if(rangingData.measureType()==(uint8_t)uwb::MeasurementType::TWO_WAY) {
+  if(rangingData.measureType() == (uint8_t)uwb::MeasurementType::TWO_WAY) {
     RangingMeasures twr = rangingData.twoWayRangingMeasure();
-    // ...
-    if(twr[j].status==0 && twr[j].distance!=0xFFFF) {
-      Serial.print("- Distance: ");
-      Serial.println(twr[j].distance);
-    }
+    // Process measurements...
   }
 }
 ```
 
-This callback function is the heart of the UWB functionality:
-
-- It's triggered whenever new ranging data is received from the UWB subsystem.
-- It checks if the measurement type is *Two-Way Ranging (TWR)*, which is the method used by Apple's Nearby Interaction protocol.
-- It extracts the distance measurements in millimeters and prints them to the IDE's Serial Monitor.
-- It validates the measurement (`status = 0` indicates a valid measurement, while `distance = 0xFFFF` is a reserved value indicating an invalid distance).
+This function processes incoming distance measurements, validates the data integrity, and outputs results to the IDE's Serial Monitor. The validation checks ensure only valid measurements are displayed (`status = 0` and `distance ≠ 0xFFFF`).
 
 3. **Connection Management**
+
+The connection callbacks manage the UWB subsystem lifecycle efficiently:
 
 ```arduino
 void clientConnected(BLEDevice dev) {
@@ -681,60 +627,42 @@ void clientConnected(BLEDevice dev) {
   }
   numConnected++;
 }
-
-void clientDisconnected(BLEDevice dev) {
-  numConnected--;
-  if(numConnected==0) {
-    UWB.end();
-  }
-}
 ```
 
-These functions handle Bluetooth® Low Energy connection events:
+This power-saving approach ensures the UWB hardware only activates when needed, extending battery life in portable applications.
 
-- `clientConnected` initializes the UWB subsystem when the first client connects.
-- `clientDisconnected` shuts down the UWB subsystem when no clients are connected.
-
-This approach saves power by only running the board's UWB hardware when it's needed, which is crucial for battery-powered applications.
-
-1. **Session Management**
+4. **Session Management**
 
 ```arduino
 void sessionStarted(BLEDevice dev) {
   Serial.println("- Session started!");
 }
-
-void sessionStopped(BLEDevice dev) {
-  Serial.println("- Session stopped!");
-}
 ```
 
-These callbacks track the UWB session state:
-
-- A session begins after the Bluetooth® Low Energy connection is established and the UWB configuration is exchanged.
-- A session ends when the UWB communication is terminated, either by the client disconnecting or other factors.
+These functions provide feedback about the session lifecycle, helping developers understand the connection state during debugging.
 
 5. **Setup and Initialization**
 
+The setup function registers all callbacks and starts Bluetooth Low Energy advertising:
+
 ```arduino
 void setup() {
-  // ...
+  // Register all callbacks
   UWB.registerRangingCallback(rangingHandler);
   UWBNearbySessionManager.onConnect(clientConnected);
-  UWBNearbySessionManager.onDisconnect(clientDisconnected);
-  UWBNearbySessionManager.onSessionStart(sessionStarted);
-  UWBNearbySessionManager.onSessionStop(sessionStopped);
+  // ... other callbacks
   
+  // Start advertising with device name
   UWBNearbySessionManager.begin("Arduino Stella");
 }
 ```
 
-The setup function:
-
-- Registers all the callback functions with the UWB subsystem.
-- Initializes the Bluetooth® Low Energy advertising with the name `Arduino Stella`. This name is what will appear in the smartphone app's device list.
+The device name "Arduino Stella" appears in smartphone apps when scanning for available UWB devices.
 
 6. **Main Loop**
+
+The main loop maintains the Bluetooth Low Energy connection:
+
 
 ```arduino
 void loop() {
@@ -743,24 +671,39 @@ void loop() {
 }
 ```
 
-The main loop is quite simple:
+The `poll()` function processes Bluetooth Low Energy events while the actual UWB ranging occurs asynchronously through callbacks.
 
-- It calls the `UWBNearbySessionManager.poll()` function to process Bluetooth® Low Energy events.
-- The actual UWB ranging happens asynchronously through the callback system.
-  
-This event-driven architecture allows the system to respond quickly to UWB and Bluetooth Low Energy events without blocking the main program flow.
+### Testing with Smartphones
+
+To test this example with a UWB-enabled smartphone:
+
+1. Upload the sketch to your Arduino Stella
+2. Open the IDE's Serial Monitor at 115200 baud
+3. Install a compatible app on your smartphone:
+
+- **For iOS**: NXP Trimensions AR or Qorvo Nearby Interaction
+- **For Android**: Truesense or NXP UWB demo apps
+
+4. Connect to the device named "Arduino Stella" in the app
+5. Move your phone to see distance measurements update in real-time
+
+![Smartphone app showing UWB connection and distance measurement to Arduino Stella](assets/nearbydemo-smartphone-app.png)
+
+The smartphone app displays the connection status and real-time distance to the Arduino Stella. Once connected, both the app and the IDE's Serial Monitor will show synchronized distance measurements as you move the phone. The distance measurements are displayed in millimeters, providing centimeter-level accuracy. For example, a reading of "Distance: 80" indicates approximately 8 cm between devices.
+
+***__Important note__: If the connection fails or no measurements appear, verify that your smartphone has UWB enabled and that the Arduino Stella is powered on and running the sketch.***
 
 ### Extending the Example Sketch
 
-The `NearbyDemo` example sketch provides a great foundation that you can build upon for more complex projects. Some possible extensions of this sketch include the following:
+The `NearbyDemo` example sketch provides a great foundation that you can build upon for more complex projects. Some possible extensions of this example sketch include the following:
 
-- **Adding visual feedback:** Using the onboard LED to indicate distance ranges.
-- **Implementing audio feedback:** Using the onboard buzzer to create proximity alerts or distance-based tones.
-- **Incorporating accelerometer data:** Combining motion detection with UWB ranging for smarter tracking applications.
-- **Power optimization:** Implementing sleep modes and wake-on-motion features for extended battery life.
-- **Data logging:** Recording distance measurements over time for analysis and visualization.
+- **Visual feedback**: Add LED patterns based on distance thresholds
+- **Audio alerts**: Implement buzzer feedback for proximity warnings
+- **Motion detection**: Combine accelerometer data with ranging for activity monitoring
+- **Data logging**: Record distance measurements for analysis
+- **Custom device names**: Modify the advertising name for multiple device deployments
 
-***__Note:__ If you want to try this example yourself, please follow the same steps described in the [Nearby World Example](#nearby-world-example) section. The process for uploading the sketch and testing it with a smartphone is the same.***
+The event-driven architecture makes it easy to add features without disrupting the core ranging functionality.
 
 ## Two-Way Ranging Example
 
@@ -768,7 +711,7 @@ The `NearbyDemo` example sketch provides a great foundation that you can build u
 
 The Two-Way Ranging example demonstrates direct UWB communication between two Arduino devices: the Arduino Stella (acting as a Controller/Initiator) and the Portenta UWB Shield (acting as a Controlee/Responder). This example showcases the fundamental distance measurement capabilities of UWB technology in a dedicated device-to-device setup without requiring external UWB-enabled consumer devices such as smartphones.
 
-***__Note:__ In UWB communication, the terms "Controller" and "Controlee" refer to specific roles within a ranging session. A __Controller__ (also called an Initiator) is the device that initiates and controls the ranging process, sending the initial signal and managing the timing of exchanges. A __Controlee__ (also called a Responder) is the device that responds to the Controller's signals. These terms are used interchangeably in UWB documentation: Controller/Initiator and Controlee/Responder refer to the same roles. In positioning systems, Controllers/Initiators often correspond to mobile "tags" while Controlees/Responders often serve as stationary "anchors".***
+***__Important note__: In UWB communication, the terms "Controller" and "Controlee" refer to specific roles within a ranging session. A __Controller__ (also called an Initiator) is the device that initiates and controls the ranging process, sending the initial signal and managing the timing of exchanges. A __Controlee__ (also called a Responder) is the device that responds to the Controller's signals. These terms are used interchangeably in UWB documentation: Controller/Initiator and Controlee/Responder refer to the same roles. In positioning systems, Controllers/Initiators often correspond to mobile "tags" while Controlees/Responders often serve as stationary "anchors".***
 
 This example demonstrates the following:
 
