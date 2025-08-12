@@ -51,7 +51,7 @@ In this guide, we will be using some additional electronic components:
 1. Open the [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython) application.
 2. Plug the Arduino board into the computer using a USB cable.
     ![Connect board to computer.](assets/usb-comp.png)
-3. Press the connection button on the top left corner of the window. The connected Arduino board should appear (by its port name), and we can click it:
+3. Press the Connect button on the top left corner of the window. The connected Arduino board should appear (by its port name), and we can click it:
     ![Connect to the board in the editor.](assets/select-board-ide.png)
 
 ***Need help installing MicroPython on your board? Visit the [MicroPython installation guide](/micropython/first-steps/install-guide).***
@@ -162,6 +162,71 @@ Let's take a look at what's included in this code example:
 - **PWM Initialization**: We create a `PWM` object and set the frequency to 1 kHz, which works well for LEDs.
 - **Duty Cycle**: `duty_u16()` takes a value between 0 and 65535. The higher the value, the longer the signal stays HIGH, making the LED brighter.
 - **Loop**: The brightness gradually increases and decreases by adjusting the duty cycle in small steps, causing the LED to fade in and out.
+
+### Servo Motor Control with PWM
+
+Servo motors are precise actuators that can rotate to specific angles, making them ideal for robotics, automated mechanisms, and precise positioning tasks. Think of a servo as a highly trained dancer who can move to exact positions and hold them steady unlike regular motors that spin continuously, servos respond to specific commands to rotate to precise angles between 0° and 180°.
+
+Servos use PWM signals, but in a special way. Instead of varying brightness like with LEDs, servos interpret the width of PWM pulses as position commands. The servo expects pulses every 20 milliseconds (50Hz frequency), and the width of each pulse determines the angle: a 1ms pulse commands 0°, a 1.5ms pulse commands 90°, and a 2ms pulse commands 180°.
+
+![Servo PWM Demo](assets/servoPWM.gif.gif)
+
+Important: Even small servos use much more power than LEDs or sensors so they can cause voltage drops in your circuit. Adding a 100-470µF capacitor near the servo helps smooth out these power demands and prevents erratic behavior.
+
+### Code Example: Servo Sweep
+
+For this example, we will need the following external components:
+
+- Breadboard
+- Servo motor
+- Jumper wires
+- Optional but recommended: 100-470µF electrolytic capacitor
+
+Connect the servo to the Arduino board:
+- **Red wire** (power) to **3.3V** (check your servo's specifications)
+- **Black/Brown wire** (ground) to **GND**
+- **Orange/Yellow wire** (signal) to a PWM-capable digital pin
+- If using capacitor: Connect positive leg to **3.3V**, negative leg to GND
+
+![Circuit Overview](assets/ServoCircuit.png)
+
+After completing the circuit, copy the following code into your editor and run the script.
+
+```python
+from machine import Pin, PWM
+import time
+
+# Initialize PWM for the servo pin
+servo = PWM(Pin(9))  # Replace '9' with your PWM pin number
+servo.freq(50)       # Set frequency to 50Hz (example)
+
+def set_servo_angle(angle):
+    # Convert angle (0-180) to duty cycle for 16-bit PWM
+    # Servo expects pulses between 1ms (0°) and 2ms (180°)
+    # For 50Hz: 1ms = ~3277, 1.5ms = ~4915, 2ms = ~6553
+    min_duty = 3277   # ~1ms pulse width (0 degrees)
+    max_duty = 6553   # ~2ms pulse width (180 degrees)
+    duty = int(min_duty + (angle / 180) * (max_duty - min_duty))
+    servo.duty_u16(duty)
+
+# Continuous sweeping motion
+while True:
+    # Sweep from 0 to 180 degrees
+    for angle in range(0, 181, 2):  # Step by 2 degrees
+        set_servo_angle(angle)
+        time.sleep(0.02)  # Small delay for smooth motion
+    
+    # Sweep back from 180 to 0 degrees
+    for angle in range(180, -1, -2):  # Step by 2 degrees backwards
+        set_servo_angle(angle)
+        time.sleep(0.02)  # Small delay for smooth motion
+```
+
+Let's examine this code:
+
+- **PWM Setup**: Creates a `PWM` object and set the frequency to 50Hz—the standard frequency servos expect for position updates.
+- **Angle Conversion**: The `set_servo_angle()` function converts degrees (0-180) into the appropriate 16-bit duty cycle values that correspond to the pulse widths the servo understands.
+- **Sweeping Motion**: The servo continuously sweeps back and forth between 0° and 180°, moving in 2-degree increments with a small delay between each step to create smooth, fluid motion.
 
 ## Analog Resolution
 
