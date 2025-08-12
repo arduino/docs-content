@@ -716,7 +716,8 @@ These functions handle Bluetooth® Low Energy connection events:
 
 This approach saves power by only running the board's UWB hardware when it's needed, which is crucial for battery-powered applications.
 
-1. **Session Management**
+4. **Session Management**
+
 
 ```arduino
 void sessionStarted(BLEDevice dev) {
