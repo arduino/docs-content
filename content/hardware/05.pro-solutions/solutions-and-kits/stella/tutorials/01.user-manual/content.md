@@ -207,7 +207,7 @@ To install the required board cores:
 
 ![Boards manager on the Arduino IDE](assets/boards-manager.png)
 
-***<strong>Important note:</strong> Make sure to install both the appropriate library and board core for your specific hardware. The Arduino Stella requires the `StellaUWB` library and `Arduino Mbed OS Stella Boards` core, while the Portenta UWB Shield with the Portenta C33 board requires the `PortentaUWBShield` library and the `Arduino Renesas Boards` core.*** 
+***<strong>Important note:</strong> Make sure to install both the appropriate library and board core for your specific hardware. The Arduino Stella requires the `StellaUWB` library and `Arduino Mbed OS Stella Boards` core, while the Portenta UWB Shield with the Portenta C33 board requires the `PortentaUWBShield` library and the `Arduino Renesas Portenta Boards` core.***
 
 ### Pinout
 
