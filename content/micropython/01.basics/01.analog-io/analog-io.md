@@ -171,7 +171,7 @@ Servos use PWM signals, but in a special way. Instead of varying brightness like
 
 ![Servo PWM Demo](assets/servoPWM.gif.gif)
 
-Important: Even small servos use much more power than LEDs or sensors (100-800mA), so they can cause voltage drops in your circuit. Adding a 100-470µF capacitor near the servo helps smooth out these power demands and prevents erratic behavior.
+Important: Even small servos use much more power than LEDs or sensors so they can cause voltage drops in your circuit. Adding a 100-470µF capacitor near the servo helps smooth out these power demands and prevents erratic behavior.
 
 ### Code Example: Servo Sweep
 
