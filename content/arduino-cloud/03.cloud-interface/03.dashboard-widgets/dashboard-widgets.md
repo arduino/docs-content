@@ -322,6 +322,14 @@ ledVariable = true;
 ledVariable = false;
 ```
 
+### Link
+
+![Link Widget](assets/link-widget.png)
+
+The Link widget lets you put a link on your dashboard! The icon, color and label can be fully customized to your liking. The correct URL format for this widget is for example "https://arduino.cc". If the you get the error "Invalid URL format", please try adding "https://" to the start of your URL.
+
+![Link Widget options](assets/link-widget-options.png)
+
 ### Map
 
 ![Map Widget](assets/widget-map.png)
