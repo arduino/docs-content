@@ -251,7 +251,8 @@ The Arduino Stella can be powered through its USB-C port or Qwiic connector for 
 
 For portable and wireless applications, the Arduino Stella offers two additional power options: the onboard CR2032 battery holder. The CR2032 battery holder allows you to install a +3 VDC coin cell battery, making the board completely wireless for mobile projects. The J-Link connector, while primarily used for debugging purposes, can also serve as a power input when needed.
 
-![Powering options for the Arduino Stella (portable and wireles applications)](assets/user-manual-7.png)
+![Powering options for the Arduino Stella (portable and wireless applications)](assets/user-manual-7.png)
+
 
 ***__Important note__: When using battery power, ensure the correct polarity when inserting the CR2032 battery into the holder. The positive (+) side should face up, away from the PCB, as shown in the image below.***
 
@@ -369,7 +370,8 @@ This process demonstrates the working principle of many UWB applications, where 
 
 First, connect the Arduino Stella to your computer using a USB-C cable, open the Arduino IDE and connect the board to it.
 
-***__Important note__: If you are new to the Arduino Stella, ensure you have installed the required board support package by going to Tools > Board > Boards Manager and searching for `Arduino Mbed OS Boards`.***
+***__Important note__: If you are new to the Arduino Stella, ensure you have installed the required board support package by going to Tools > Board > Boards Manager and searching for `Arduino Mbed OS Stella Boards`.***
+
 
 Copy and paste the example sketch below into a new sketch in the Arduino IDE:
 
