@@ -251,87 +251,6 @@ The Arduino Stella can be powered through its USB-C port or Qwiic connector for 
 
 For portable and wireless applications, the Arduino Stella offers two additional power options: the onboard CR2032 battery holder. The CR2032 battery holder allows you to install a +3 VDC coin cell battery, making the board completely wireless for mobile projects. The J-Link connector, while primarily used for debugging purposes, can also serve as a power input when needed.
 
-![Powering options for the Arduino Stella (portable and wireless applications)](assets/user-manual-7.png)
-
-
-***__Important note__: When using battery power, ensure the correct polarity when inserting the CR2032 battery into the holder. The positive (+) side should face up, away from the PCB, as shown in the image below.***
-
-![Correct battery placement in the Arduino Stella (positive side facing up)](assets/user-manual-8.png)
-
-***__Warning:__ When using Arduino Stella with USB-C power, remove the CR2032 battery; never power the Arduino Stella from both battery and USB simultaneously. The board is designed to prioritize USB power when connected. Removing the battery when working with USB will extend its life, ensure the most reliable operation and maximize battery lifespan.***
-
-### Connecting to Your Computer
-
-To program the Arduino Stella, connect it to your computer using a USB-C cable:
-
-1. Insert the USB-C connector into the port on the Arduino Stella.
-2. Connect the other end to an available USB port on your computer.
-
-Once connected, you should see a power indicator light up on the board, indicating it's receiving power from the USB port.
-
-### Nearby World Example
-
-Let's use the Arduino Stella to create a real-time distance measurement system using UWB technology. We will implement what we call the `Nearby World` example, which serves as our `Hello World` sketch for UWB technology. This example will verify the Arduino Stella's UWB capabilities and its ability to communicate with UWB-enabled smartphones.
-
-***This example sketch leverages Apple's Nearby Interaction protocol and similar UWB implementations on Android devices to establish a communication channel between the Arduino Stella and a UWB-enabled smartphone, allowing precise distance and angle measurements.***
-
-#### How It Works
-
-The `Nearby Worldc example demonstrates the core functionality of UWB technology through a simple example sketch that can be described in the following key steps:
-
-1. **Bluetooth® Low Energy connection setup**: The Arduino Stella broadcasts using Bluetooth Low Energy to make itself discoverable to compatible smartphone apps.
-2. **Configuration exchange**: The Bluetooth Low Energy connection is used to exchange necessary UWB configuration parameters between the Arduino Stella and the smartphone.
-3. **UWB ranging**: Once configured, the actual UWB ranging session begins, providing precise distance measurements.
-4. **Real-time feedback**: Distance data is continuously updated and can be viewed both on the IDE's Serial Monitor and on the smartphone app.
-
-This process demonstrates the working principle of many UWB applications, where Bluetooth Low Energy is used primarily for discovery and configuration, while UWB handles the precise ranging.
-
-#### Uploading the Sketch
-
-First, connect the Arduino Stella to your computer using a USB-C cable, open the Arduino IDE and connect the board to it.
-
-***__Important note__: If you are new to the Arduino Stella, ensure you have installed the required board support package by going to Tools > Board > Boards Manager and searching for ### Pinout
-
-The full pinout is available and downloadable as PDF from the link below:
-
-- [Arduino Stella pinout](https://docs.arduino.cc/resources/pinouts/ABX00131-full-pinout.pdf)
-
-### Datasheet
-
-The complete datasheet is available and downloadable as PDF from the link below:
-
-- [Arduino Stella datasheet](https://docs.arduino.cc/resources/datasheets/ABX00131-datasheet.pdf)
-
-### Schematics
-
-The complete schematics are available and downloadable as PDF from the link below:
-
-- [Arduino Stella schematics](https://docs.arduino.cc/resources/schematics/ABX00131-schematics.pdf)
-
-### STEP Files 
-
-The complete STEP files are available and downloadable from the link below:
-
-- [Arduino Stella STEP files](../../downloads/ABX00131-step.zip)
-
-## First Use
-
-### Unboxing the Product
-
-When you open the box of the Arduino Stella, you will find the board itself with its distinctive octagonal shape, featuring a USB-C port on one edge. The Arduino Stella is a compact board with dimensions of 38 mm x 38 mm, designed to be easily integrated into various tracking applications.
-
-The Arduino Stella comes ready to use, but you may want to add a CR2032 battery if you plan to use it in portable applications that require battery power.
-
-### Powering the Board
-
-The Arduino Stella can be powered through one of these interfaces:
-
-The Arduino Stella can be powered through its USB-C port or Qwiic connector for stationary applications. The USB-C port is the simplest and most common method, providing a stable +5 VDC power source when connected to a computer or wall adapter. The Qwiic connector can also supply power when connecting the board to a system that provides power through the Qwiic bus, enabling integration with other Qwiic-compatible components.
-
-![Powering options for the Arduino Stella (stationary applications)](assets/user-manual-6.png)
-
-For portable and wireless applications, the Arduino Stella offers two additional power options: the onboard CR2032 battery holder. The CR2032 battery holder allows you to install a +3 VDC coin cell battery, making the board completely wireless for mobile projects. The J-Link connector, while primarily used for debugging purposes, can also serve as a power input when needed.
-
 ![Powering options for the Arduino Stella (portable and wireles applications)](assets/user-manual-7.png)
 
 ***__Important note__: When using battery power, ensure the correct polarity when inserting the CR2032 battery into the holder. The positive (+) side should face up, away from the PCB, as shown in the image below.***
@@ -368,10 +287,18 @@ This process demonstrates the working principle of many UWB applications, where 
 
 #### Uploading the Sketch
 
-First, connect the Arduino Stella to your computer using a USB-C cable, open the Arduino IDE and connect the board to it.
+**Step 1: Verify Board Selection**
 
-***__Important note__: If you are new to the Arduino Stella, ensure you have installed the required board support package by going to Tools > Board > Boards Manager and searching for `Arduino Mbed OS Stella Boards`.***
+Before uploading any code to the Arduino Stella, ensure you have selected the correct board:
 
+1. Connect the Arduino Stella to your computer using a USB-C cable
+2. Open the Arduino IDE
+3. **Critical:** Navigate to `Tools > Board > Arduino Mbed OS Stella Boards > Arduino Stella`
+4. Verify the correct port is selected in `Tools > Port`
+
+***__Important note__: Do not select `Arduino BLE Sense 33`, `Portenta C33` or any other board when programming the Arduino Stella. This will cause compilation errors.***
+
+**Step 2: Upload the Sketch**
 
 Copy and paste the example sketch below into a new sketch in the Arduino IDE:
 
@@ -538,6 +465,8 @@ You should see the distance measurements updating in real-time both on your smar
 ## NearbyDemo Example
 
 ### About the NearbyDemo Example
+
+***__Before you begin__: Ensure you have selected `Tools > Board > Arduino Mbed OS Stella Boards > Arduino Stella` in the Arduino IDE. Selecting the wrong board (like `Arduino BLE Sense 33` or the `Portenta C33`) will prevent this code from compiling.***
 
 The `NearbyDemo` example sketch demonstrates how to implement distance measurement between the Arduino Stella and UWB-enabled smartphones using Apple's Nearby Interaction protocol or compatible Android implementations. This example showcases how Bluetooth® Low Energy is used for initial device discovery and configuration exchange, while UWB handles the precise distance measurements.
 
@@ -817,7 +746,13 @@ The event-driven architecture makes it easy to add features without disrupting t
 
 ## Two-Way Ranging Example
 
+
 ### About the Two-Way Ranging Example
+
+**📋 Hardware Setup Reminder:**
+
+- **For the Arduino Stella:** Select `Tools > Board > Arduino Mbed OS Stella Boards > Arduino Stella` on the Arduino IDE
+- **For the Portenta C33 board and the UWB Shield:** Select `Tools > Board > Arduino Renesas Portenta Boards > Portenta C33` on the Arduino IDE
 
 The Two-Way Ranging example demonstrates direct UWB communication between two Arduino devices: the Arduino Stella (acting as a Controller/Initiator) and the Portenta UWB Shield (acting as a Controlee/Responder). This example showcases the fundamental distance measurement capabilities of UWB technology in a dedicated device-to-device setup without requiring external UWB-enabled consumer devices such as smartphones.
 
@@ -840,7 +775,9 @@ Some of the real-life applications for this example include:
 - **Access control systems**: Implementing secure entry systems based on precise proximity detection.
 - **Interactive installations**: Enabling position-based interactive exhibits in museums or public spaces
 
-Here's the code for the Arduino Stella, which acts as the Controller (Initiator) in this Two-Way Ranging scenario:
+Here's the code for the Arduino Stella, which acts as the Controller (Initiator) in this Two-Way Ranging scenario.
+
+**📋 Board Selection Check:** Ensure `Arduino Stella` is selected in the Arduino IDE before uploading this code.
 
 ```arduino
 /**
@@ -982,6 +919,8 @@ void loop() {
 ```
 
 Here's the code for the Portenta UWB Shield, which acts as the Controlee (Responder) in this Two-Way Ranging scenario:
+
+**📋 Board Selection Check:** Ensure `Portenta C33` is selected in the Arduino IDE before uploading this code.
 
 ```arduino
 /**
@@ -1267,12 +1206,19 @@ First, prepare your devices by following these steps:
 
 **Software Setup:**
 
-Next, upload the appropriate sketches to each device:
+Next, upload the appropriate sketches to each device if it was not done before:
 
-1. Select "Arduino Portenta C33" as the board type in the Arduino IDE
-2. Upload the Controlee/Responder sketch to the Portenta C33 board
-3. Select "Arduino Stella" as the board type
-4. Upload the Controller/Initiator sketch to the Arduino Stella
+1. **For the Portenta C33 board and the Portent UWB Shield:**
+
+- Select `Tools > Board > Arduino Renesas Portenta Boards > Portenta C33`
+- Upload the Controlee/Responder sketch to the Portenta C33 board
+
+2. **For the Arduino Stella:**
+
+- Select `Tools > Board > Arduino Mbed OS Stella Boards > Arduino Stella`  
+- Upload the Controller/Initiator sketch to the Arduino Stella
+
+***__Important note__: If you encounter compilation errors, verify that you have selected the correct board for each device before uploading.***
 
 **Testing:**
 
