@@ -143,4 +143,11 @@ productCertifications:
     files:
       - title: "Download PFAS Compliance Statement for Arduino products"
         url: "resources/pfas/arduino-pfas.pdf"
+  - name: "NCC"
+    title: "National Communications Commission (Taiwan)"
+    id: 17
+    description: "The Taiwanese certification is regulated by the National Communications Commission. NCC certification is applicable to controlled telecommunications radio-frequency equipment. When certifying a device in accordance to local Taiwanese regulations, the device should be tested and have type approval issued via a lab. "
+    source: "https://www.ncc.gov.tw/english/"
+    sourceTitle: "www.ncc.gov.tw/"
+    files: null
 ---
