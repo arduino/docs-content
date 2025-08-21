@@ -296,7 +296,7 @@ Before uploading any code to the Arduino Stella, ensure you have selected the co
 3. **Critical:** Navigate to `Tools > Board > Arduino Mbed OS Stella Boards > Arduino Stella`
 4. Verify the correct port is selected in `Tools > Port`
 
-***⚠️ __Important note__: Do not select `Arduino BLE Sense 33`, `Portenta C33` or any other board when programming the Arduino Stella. This will cause compilation errors.***
+***__Important note__: Do not select `Arduino BLE Sense 33`, `Portenta C33` or any other board when programming the Arduino Stella. This will cause compilation errors.***
 
 **Step 2: Upload the Sketch**
 
@@ -466,7 +466,7 @@ You should see the distance measurements updating in real-time both on your smar
 
 ### About the NearbyDemo Example
 
-***📋 __Before you begin__: Ensure you have selected `Tools > Board > Arduino Mbed OS Stella Boards > Arduino Stella` in the Arduino IDE. Selecting the wrong board (like `Arduino BLE Sense 33`) will prevent this code from compiling.***
+***__Before you begin__: Ensure you have selected `Tools > Board > Arduino Mbed OS Stella Boards > Arduino Stella` in the Arduino IDE. Selecting the wrong board (like `Arduino BLE Sense 33` or the `Portenta C33`) will prevent this code from compiling.***
 
 The `NearbyDemo` example sketch demonstrates how to implement distance measurement between the Arduino Stella and UWB-enabled smartphones using Apple's Nearby Interaction protocol or compatible Android implementations. This example showcases how Bluetooth® Low Energy is used for initial device discovery and configuration exchange, while UWB handles the precise distance measurements.
 
@@ -751,10 +751,8 @@ The event-driven architecture makes it easy to add features without disrupting t
 
 **📋 Hardware Setup Reminder:**
 
-- **Arduino Stella:** Select `Tools > Board > Arduino Mbed OS Stella Boards > Arduino Stella`
-- **Portenta C33 + UWB Shield:** Select `Tools > Board > Arduino Renesas Portenta Boards > Portenta C33`
-
-***⚠️ __Important note__: Both devices must have the correct board selected in Arduino IDE before uploading their respective sketches.***
+- **For the Arduino Stella:** Select `Tools > Board > Arduino Mbed OS Stella Boards > Arduino Stella` on the Arduino IDE
+- **For the Portenta C33 board and the UWB Shield:** Select `Tools > Board > Arduino Renesas Portenta Boards > Portenta C33` on the Arduino IDE
 
 The Two-Way Ranging example demonstrates direct UWB communication between two Arduino devices: the Arduino Stella (acting as a Controller/Initiator) and the Portenta UWB Shield (acting as a Controlee/Responder). This example showcases the fundamental distance measurement capabilities of UWB technology in a dedicated device-to-device setup without requiring external UWB-enabled consumer devices such as smartphones.
 
@@ -779,7 +777,7 @@ Some of the real-life applications for this example include:
 
 Here's the code for the Arduino Stella, which acts as the Controller (Initiator) in this Two-Way Ranging scenario.
 
-**📋 Board Selection Check:** Ensure `Arduino Stella` is selected in the IDE before uploading this code.
+**📋 Board Selection Check:** Ensure `Arduino Stella` is selected in the Arduino IDE before uploading this code.
 
 ```arduino
 /**
@@ -922,7 +920,7 @@ void loop() {
 
 Here's the code for the Portenta UWB Shield, which acts as the Controlee (Responder) in this Two-Way Ranging scenario:
 
-**📋 Board Selection Check:** Ensure `Portenta C33` is selected in the IDE before uploading this code.
+**📋 Board Selection Check:** Ensure `Portenta C33` is selected in the Arduino IDE before uploading this code.
 
 ```arduino
 /**
@@ -1208,9 +1206,9 @@ First, prepare your devices by following these steps:
 
 **Software Setup:**
 
-Next, upload the appropriate sketches to each device:
+Next, upload the appropriate sketches to each device if it was not done before:
 
-1. **For the Portenta C33:**
+1. **For the Portenta C33 board and the Portent UWB Shield:**
 
 - Select `Tools > Board > Arduino Renesas Portenta Boards > Portenta C33`
 - Upload the Controlee/Responder sketch to the Portenta C33 board
@@ -1220,7 +1218,7 @@ Next, upload the appropriate sketches to each device:
 - Select `Tools > Board > Arduino Mbed OS Stella Boards > Arduino Stella`  
 - Upload the Controller/Initiator sketch to the Arduino Stella
 
-***⚠️ __Important note__: If you encounter compilation errors, verify that you have selected the correct board for each device before uploading.***
+***__Important note__: If you encounter compilation errors, verify that you have selected the correct board for each device before uploading.***
 
 **Testing:**
 
