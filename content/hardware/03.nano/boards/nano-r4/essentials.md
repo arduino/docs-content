@@ -1,6 +1,8 @@
 ---
 productsLibrariesMap:
-  - arduino:renesas_uno
+  - Mouse
+  - Keyboard
+  - Modulino
 ---
 
 <EssentialsColumn title="First Steps">
