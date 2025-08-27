@@ -16,3 +16,4 @@ hardware:
     - nano-rp2040-connect
     - nano-esp32
     - nano-matter
+    - nano-r4
