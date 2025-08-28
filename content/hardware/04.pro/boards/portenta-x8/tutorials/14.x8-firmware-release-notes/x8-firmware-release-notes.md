@@ -38,35 +38,87 @@ The listing herein offers a glimpse into the Portenta X8 firmware's continuous i
 ***__You can download the latest firmware version [here](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).__ If you need instructions on updating the Portenta X8, you can follow [this guide](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/) using the __uuu__ tool.***
 
 **Bug Fixes:**
-- [H7] Updated H7 firmware: prevent buffer overflow during rx phase.
+- [H7] Updated H7 firmware: prevent buffer overflow during rx phase
 
-***For more information on the Foundries Core related to our release, please refer to the [__LmP V91 Release Notes — FoundriesFactory 91 documentation__](https://foundries.io/products/releases/91/).***
+***For more information on the Foundries Core related to our release, please refer to the [__LmP V91 Release Notes — FoundriesFactory 91 documentation__](https://docs.foundries.io/91/).***
 
 ## Available Firmware Versions
 
 Below is a list of all available firmware versions with their release notes.
 
+### OS Image 910
+
+<details>
+  <summary><strong>2025.01.17 (Release arduino-91.8, OS Image 910)</strong></summary>
+
+#### Image Access
+  - Full image [download](https://downloads.arduino.cc/portentax8image/910.tar.gz)
+
+#### New Features
+  - [DRIVER] Added out of tree `lan865x` module
+
+#### Enhancements
+  - [TRACEABILITY] Append arduino layer sha in `/etc/os-release`
+  - [OFFLINE UPDATE] Use RGB led to signal success / failure, more robust handling
+  - [OOTB] Refactor usb gadget creation script and handle usb gadget removal
+
+#### Bug Fixes
+  - [INITRAMFS] Fixed `linuxrc` script for `initramfs` images
+
+#### Additional Notes
+  - Based on [LmP v91](https://foundries.io/products/releases/91/). It is based on the Yocto manifest. For docker-compose apps, check out [here](https://github.com/arduino/portenta-containers/tree/release).
+
+</details>
+<br></br>
+
+### OS Image 881
+
+<details>
+  <summary><strong>2024.09.16 (Release arduino-91.4, OS Image 881)</strong></summary>
+
+#### Image Access
+  - Full image [download](https://downloads.arduino.cc/portentax8image/881.tar.gz)
+
+#### New Features
+  - [UTILS] New shell scripts `disable-adb` `disable-ssh`
+
+#### Enhancements
+  - [X8H7 GPIO] Remove ack from irq gpio
+  - [X8H7 CAN] sync received CAN frames to X8 at least every 10 ms
+
+#### Bug Fixes
+  - [UUU] Fixed `initramfs` image, using `initrc`
+
+#### Security Updates
+  - [LOGIN] Removed user password completely >> UK PTSI April 2024
+
+#### Additional Notes
+  - Based on [LmP v91](https://foundries.io/products/releases/91/). It is based on the Yocto manifest. For docker-compose apps, check out [here](https://github.com/arduino/portenta-containers/tree/release).
+
+</details>
+<br></br>
+
 ### OS Image 861
 
 <details>
-  <summary><strong>2024.06 (Release arduino-91.2, OS Image 861)</strong></summary>
+  <summary><strong>2024.06.26 (Release arduino-91.2, OS Image 861)</strong></summary>
 
 #### Image Access
   - Full image [download](https://downloads.arduino.cc/portentax8image/861.tar.gz)
 
 #### New Features
-  - Added support for Akida Brainchip PCIe module in NPU.
-  - Added support for Hailo 8R PCIe module in NPU.
-  - Support for new panel modules and touchscreen controllers **jadard-ek79202d** and **atmel-mxt-ts** in `MIPI-DSI`.
+  - [NPU] Added support for Akida Brainchip PCIe module in NPU.
+  - [NPU] Added support for Hailo 8R PCIe module in NPU.
+  - [MIPI-DSI] Support for new panel modules and touchscreen controllers **jadard-ek79202d** and **atmel-mxt-ts** in `MIPI-DSI`.
 
 #### Enhancements
-  - Increased CAN throughput, see details with **x8h7** tags.
-  - [x8h7] Changed low level protocol for **X8H7** to use a fixed packet size and hardware-assisted checksum.
-  - [x8h7] **X8H7** initialization now happens earlier, linked to `sysinit.target`.
+  - [CAN] Increased CAN throughput, see details with **X8H7** tags.
+  - [X8H7] Changed low level protocol for **X8H7** to use a fixed packet size and hardware-assisted checksum.
+  - [X8H7] **X8H7** initialization now happens earlier, linked to `sysinit.target`.
 
 #### Bug Fixes
-  - Fixed RS-485 `ttyX0` not working.
-  - Fixed PCIe on kernel 6.1.
+  - [RS-485] Fixed RS-485 `ttyX0` not working.
+  - [PXIE] Fixed PCIe on kernel 6.1.
 
 #### Additional Notes
   - Based on [LmP v91](https://foundries.io/products/releases/91/). It is based on the Yocto manifest. For docker-compose apps, check out [here](https://github.com/arduino/portenta-containers/tree/release).
