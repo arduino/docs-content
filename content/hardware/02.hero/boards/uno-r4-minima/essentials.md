@@ -1,6 +1,9 @@
 ---
 productsLibrariesMap:
-  - servo
+  - Mouse
+  - Keyboard
+  - Modulino
+  - Servo
 ---
 
 <EssentialsColumn title="First Steps">
