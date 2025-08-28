@@ -1,5 +1,5 @@
 ---
-title: 'Motor Anomaly Detection with the Arduino® Nano R4'
+title: 'Motor Anomaly Detection with the Nano R4'
 description: "This application note describes how to implement a motor anomaly detection system using the Nano R4 board, an accelerometer and Edge Impulse."
 difficulty: intermediate
 compatible-products: [nano-r4]
@@ -214,7 +214,7 @@ The complete example sketch is shown below.
   accelerometer or Modulino Movement connected to an Arduino Nano R4. 
   The data is formatted for Edge Impulse data collection and training.
   
-  @version 2.0 01/06/25
+  @version 2.5 01/06/25
   @author Arduino Product Experience Team
 */
 
@@ -223,7 +223,7 @@ The complete example sketch is shown below.
 // #define USE_MODULINO    // For Modulino Movement (LSM6DSOXTR)
 
 #ifdef USE_MODULINO
-  #include <Arduino_Modulino.h>
+  #include <Modulino.h>
   ModulinoMovement movement;
 #endif
 
@@ -254,14 +254,38 @@ unsigned long lastSample = 0;
 
 void setup() {
   Serial.begin(115200);
+  while (!Serial);
   
   #ifdef USE_MODULINO
-    // Initialize Modulino Movement
+    // Initialize Modulino I2C communication
     Modulino.begin();
-    movement.begin();
+    
+    // Detect and connect to movement sensor module
+    if (!movement.begin()) {
+      Serial.println("Failed to initialize Modulino Movement!");
+      while (1);
+    }
     
     Serial.println("- Motor Vibration Data Collector (Modulino Movement)");
     Serial.println("- LSM6DSOXTR 6-axis sensor initialized");
+    
+    // Wait for sensor stabilization
+    delay(500);
+    
+    // Test initial reading
+    movement.update();
+    float testX = movement.getX();
+    float testY = movement.getY();
+    float testZ = movement.getZ();
+    
+    Serial.print("- Initial readings (g): X=");
+    Serial.print(testX, 3);
+    Serial.print(", Y=");
+    Serial.print(testY, 3);
+    Serial.print(", Z=");
+    Serial.println(testZ, 3);
+    
+    Serial.println("- Sensor ready - values already in g units");
   #endif
   
   #ifdef USE_ADXL335
@@ -283,17 +307,18 @@ void loop() {
   
   if (currentTime - lastSample >= sampleTime) {
     float xAccel, yAccel, zAccel;
+    bool dataValid = false;
     
     #ifdef USE_MODULINO
-      // Read acceleration data from Modulino Movement
-      if (movement.isDataReady()) {
-        xAccel = movement.getAccelerationX();
-        yAccel = movement.getAccelerationY();
-        zAccel = movement.getAccelerationZ();
-      } else {
-        // Skip this sample if data not ready
-        return;
-      }
+      // Read new movement data from the sensor
+      movement.update();
+      
+      // Get acceleration values (already in g units)
+      xAccel = movement.getX();
+      yAccel = movement.getY();
+      zAccel = movement.getZ();
+      
+      dataValid = true;
     #endif
     
     #ifdef USE_ADXL335
@@ -311,14 +336,18 @@ void loop() {
       xAccel = (xVoltmV - supplyMidPointmV) / mVperg;
       yAccel = (yVoltmV - supplyMidPointmV) / mVperg;
       zAccel = (zVoltmV - supplyMidPointmV) / mVperg;
+      
+      dataValid = true;
     #endif
     
     // Output CSV format for Edge Impulse
-    Serial.print(xAccel, 4);
-    Serial.print(",");
-    Serial.print(yAccel, 4);
-    Serial.print(",");
-    Serial.println(zAccel, 4);
+    if (dataValid) {
+      Serial.print(xAccel, 4);
+      Serial.print(",");
+      Serial.print(yAccel, 4);
+      Serial.print(",");
+      Serial.println(zAccel, 4);
+    }
     
     lastSample = currentTime;
   }
@@ -343,7 +372,7 @@ The sketch begins by allowing you to choose which sensor you're using through pr
 // #define USE_MODULINO    // For Modulino Movement (LSM6DSOXTR)
 
 #ifdef USE_MODULINO
-  #include <Arduino_Modulino.h>
+  #include <Modulino.h>
   ModulinoMovement movement;
 #endif
 ```
@@ -394,14 +423,17 @@ For the Modulino Movement option, the configuration uses digital I²C communicat
 
 ```arduino
 #ifdef USE_MODULINO
-  void setup() {
-    // Initialize Modulino Movement
-    Modulino.begin();
-    movement.begin();
-    
-    Serial.println("- Motor Vibration Data Collector (Modulino Movement)");
-    Serial.println("- LSM6DSOXTR 6-axis sensor initialized");
+  // Initialize Modulino I2C communication
+  Modulino.begin();
+  
+  // Detect and connect to movement sensor module
+  if (!movement.begin()) {
+    Serial.println("Failed to initialize Modulino Movement!");
+    while (1);
   }
+  
+  Serial.println("- Motor Vibration Data Collector (Modulino Movement)");
+  Serial.println("- LSM6DSOXTR 6-axis sensor initialized");
 #endif
 ```
 
@@ -411,7 +443,7 @@ In this code:
 - `movement.begin()` specifically initializes the Movement sensor with default settings
 - No pin assignments are needed as the sensor communicates via I²C through the Qwiic connector
 - The sensor automatically configures itself with optimal settings for vibration monitoring
-
+- Values are returned directly in g units without requiring additional conversion
 
 ### Data Collection Timing and Control
 
@@ -470,36 +502,36 @@ For the digital Modulino Movement, the conversion is handled internally by the s
 
 ```arduino
 #ifdef USE_MODULINO
-  // Read acceleration data from Modulino Movement
-  if (movement.isDataReady()) {
-    xAccel = movement.getAccelerationX();
-    yAccel = movement.getAccelerationY();
-    zAccel = movement.getAccelerationZ();
-  } else {
-    // Skip this sample if data not ready
-    return;
-  }
+  // Read new movement data from the sensor
+  movement.update();
+  
+  // Get acceleration values (already in g units)
+  xAccel = movement.getX();
+  yAccel = movement.getY();
+  zAccel = movement.getZ();
 #endif
 ```
 
 In this code:
 
-- `isDataReady()` checks if new data is available from the sensor
+- `movement.update()` refreshes the sensor data
 - The acceleration values are returned directly in g units, eliminating manual calibration
 - Built-in digital filtering provides clean, noise-free measurements
-- Data skipping prevents invalid readings when sensor data isn't ready
+- No conversion calculations are needed as the sensor handles all processing internally
 
 ### Edge Impulse Data Formatting
 
 The final step formats our acceleration data so it can be used with Edge Impulse data collection tools:
 
 ```arduino
-    // Output CSV format
-    Serial.print(xAccel, 4);
-    Serial.print(",");
-    Serial.print(yAccel, 4);
-    Serial.print(",");
-    Serial.println(zAccel, 4);
+// Output CSV format for Edge Impulse
+    if (dataValid) {
+      Serial.print(xAccel, 4);
+      Serial.print(",");
+      Serial.print(yAccel, 4);
+      Serial.print(",");
+      Serial.println(zAccel, 4);
+    }
 ```
 
 In this code:
@@ -507,8 +539,9 @@ In this code:
 - CSV format with four decimal places gives us the precision needed for machine learning training
 - Single-line output per sample makes it easy to integrate with the Edge Impulse data forwarder
 - Comma separation follows standard CSV format that most data processing tools expect
+- The output format is identical regardless of which sensor is used, ensuring compatibility with Edge Impulse
 
-After uploading the example sketch to the Nano R4 board, you should see this output in the Arduino IDE's Serial Monitor when data collection is active:
+After uploading the example sketch to the Nano R4 board, you should see output in the Arduino IDE's Serial Monitor similar to this:
 
 ![Example sketch output showing vibration data collection](assets/example-sketch-1.png)
 
@@ -724,7 +757,7 @@ The complete enhanced example sketch is shown below:
   either an ADXL335 accelerometer or Modulino Movement and Edge Impulse 
   machine learning model deployed on Arduino Nano R4 for predictive maintenance.
   
-  @version 2.0 01/06/25
+  @version 2.1 01/06/25
   @author Arduino Product Experience Team
 */
 
@@ -736,7 +769,7 @@ The complete enhanced example sketch is shown below:
 // #define USE_MODULINO    // For Modulino Movement (LSM6DSOXTR)
 
 #ifdef USE_MODULINO
-  #include <Arduino_Modulino.h>
+  #include <Modulino.h>
   ModulinoMovement movement;
 #endif
 
@@ -792,9 +825,14 @@ void setup() {
   while (!Serial);
   
   #ifdef USE_MODULINO
-    // Initialize Modulino Movement
+    // Initialize Modulino I2C communication
     Modulino.begin();
-    movement.begin();
+    
+    // Detect and connect to movement sensor module
+    if (!movement.begin()) {
+      Serial.println("Failed to initialize Modulino Movement!");
+      while (1);
+    }
     
     ei_printf("Motor Anomaly Detection System (Modulino Movement)\n");
     ei_printf("LSM6DSOXTR 6-axis sensor initialized\n");
@@ -860,16 +898,13 @@ void collectVibrationWindow() {
     float xAccel, yAccel, zAccel;
     
     #ifdef USE_MODULINO
-      // Read acceleration data from Modulino Movement
-      if (movement.isDataReady()) {
-        xAccel = movement.getAccelerationX();
-        yAccel = movement.getAccelerationY();
-        zAccel = movement.getAccelerationZ();
-      } else {
-        // Use last known values if data not ready
-        sample--; // Retry this sample
-        continue;
-      }
+      // Read new movement data from the sensor
+      movement.update();
+      
+      // Get acceleration values (already in g units)
+      xAccel = movement.getX();
+      yAccel = movement.getY();
+      zAccel = movement.getZ();
     #endif
     
     #ifdef USE_ADXL335
@@ -1034,7 +1069,7 @@ The enhanced sketch starts by selecting the appropriate sensor and including the
 // #define USE_MODULINO    // For Modulino Movement (LSM6DSOXTR)
 
 #ifdef USE_MODULINO
-  #include <Arduino_Modulino.h>
+  #include <Modulino.h>
   ModulinoMovement movement;
 #endif
 
@@ -1093,16 +1128,13 @@ For the digital Modulino Movement, the system reads calibrated acceleration valu
 
 ```arduino
 #ifdef USE_MODULINO
-  // Read acceleration data from Modulino Movement
-  if (movement.isDataReady()) {
-    xAccel = movement.getAccelerationX();
-    yAccel = movement.getAccelerationY();
-    zAccel = movement.getAccelerationZ();
-  } else {
-    // Use last known values if data not ready
-    sample--; // Retry this sample
-    continue;
-  }
+  // Read new movement data from the sensor
+  movement.update();
+  
+  // Get acceleration values (already in g units)
+  xAccel = movement.getX();
+  yAccel = movement.getY();
+  zAccel = movement.getZ();
 #endif
 ```
 
@@ -1140,7 +1172,7 @@ This function reads vibration data from the selected accelerometer and converts 
 
 ### Machine Learning Inference Execution
 
-The system analyzes the collected vibration data using both machine learning models to determine motor state and detect anomalies.
+The system analyzes the collected vibration data using both machine learning models to determine motor state and detect anomalies. The inference process is identical regardless of which sensor you're using, as both provide the same data format to the models.
 
 ```arduino
 void performInference() {
@@ -1182,7 +1214,7 @@ This function runs both models on the collected data. The classification model d
 
 ### Anomaly Detection and Alert System
 
-The system provides feedback when it detects problems with the motor.
+The system provides feedback when it detects problems with the motor, using the same alert mechanism regardless of which sensor is providing the data.
 
 ```arduino
 void triggerAnomalyAlert() {
@@ -1211,7 +1243,7 @@ After uploading the enhanced sketch to the Nano R4 board, you should see the fol
 
 ![Enhanced example sketch output showing real-time anomaly detection](assets/ml-monitor-output.png)
 
-When an anomaly is detected, the built-in LED will flash twice and the serial output will display the anomaly score above the configured threshold along with a warning message.
+When an anomaly is detected, the built-in LED will flash three times and the serial output will display the anomaly score above the configured threshold along with a warning message.
 
 ### Complete Enhanced Example Sketch
 
@@ -1222,7 +1254,7 @@ The complete intelligent motor anomaly detection sketch can be downloaded [here]
 
 ### System Integration Considerations
 
-When deploying the intelligent anomaly detection system in industrial environments, consider the following factors:
+When deploying the intelligent anomaly detection system in industrial environments, consider the following factors based on your sensor choice:
 
 - **Environmental Protection**: Protect the Nano R4 board and accelerometer from dust, moisture and temperature extremes using appropriate enclosures rated for the operating environment.
 - **Mounting Stability**: Ensure secure mechanical mounting of both the accelerometer sensor and the Nano R4 enclosure to prevent sensor movement that could affect measurement accuracy.
