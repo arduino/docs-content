@@ -16,7 +16,7 @@ tags:
 author: 'José Bagur'
 hardware:
   - hardware/03.nano/boards/nano-r4
-  - hardware/11.accesories/modulino-nodes/modulino-movement
+  - hardware/11.accessories/modulino-nodes/modulino-movement
 software:
   - ide-v2
   - edge-impulse
