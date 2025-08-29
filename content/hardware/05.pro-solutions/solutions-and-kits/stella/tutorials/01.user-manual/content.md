@@ -35,12 +35,12 @@ This user manual provides a comprehensive overview of the Arduino Stella, highli
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
 - [`StellaUWB` library](https://github.com/Truesense-it/StellaUWB) (designed for the Arduino Stella)
 - [`PortentaUWBShield` library](https://github.com/Truesense-it/PortentaUWBShield) (designed for the Portenta UWB Shield)
-- [`ArduinoBLE` library](https://github.com/arduino/ArduinoBLE) 
+- [`ArduinoBLE` library](https://github.com/arduino-libraries/ArduinoBLE) 
 - [Arduino Mbed OS Stella Boards core](https://github.com/arduino/ArduinoCore-mbed) (required for the nRF52840 microcontroller of the Arduino Stella)
 
 ## Arduino Stella Overview
 
-The Arduino Stella redefines location tracking with its advanced microcontroller, the nRF52840 from Nordic Semiconductor, and the DCU040 Ultra-Wide Band (UWB) module from Truesense. Tailored for modern tracking needs, the Arduino Stella excels in pinpointing warehouse assets, ensuring healthcare safety and automating smart buildings.
+The Arduino Stella redefines location tracking with its advanced microcontroller, the nRF52840 from Nordic Semiconductor, and the [DCU040](https://ultrawideband.truesense.it/wp-content/uploads/2023/08/TRUESENSE-DCU040_Datasheet_DRAFT-V1.7.pdf) Ultra-Wide Band (UWB) module from Truesense. Tailored for modern tracking needs, the Arduino Stella excels in pinpointing warehouse assets, ensuring healthcare safety and automating smart buildings.
 
 ![The Arduino Stella](assets/front-page.png)
 
@@ -52,7 +52,7 @@ Ultra-Wideband (UWB) is a radio technology that uses very low energy levels for 
 
 #### UWB vs. Traditional Narrowband Technologies
 
-The fundamental difference between UWB and traditional wireless technologies (Wi-Fi, Bluetooth®, Zigbee® and Cellular) lies in their transmission methods:
+The fundamental difference between UWB and traditional wireless technologies (Wi-Fi®, Bluetooth®, Zigbee® and Cellular) lies in their transmission methods:
 
 |   **Feature**  |   **Traditional Narrowband Radio**   |  **Ultra-Wideband Impulse Radio**  |
 |:--------------:|:------------------------------------:|:----------------------------------:|
@@ -66,7 +66,7 @@ Traditional narrowband systems use frequency or amplitude modulation to send dat
 
 #### Key Characteristics of UWB
 
-- **High precision**: UWB can determine the relative position of devices with centimeter-level accuracy (typically 5-10 cm), far more precise than GPS (meters), Bluetooth® (1-3 meters) or Wi-Fi (2-15 meters).
+- **High precision**: UWB can determine the relative position of devices with centimeter-level accuracy (typically 5-10 cm), far more precise than GPS (meters), Bluetooth® (1-3 meters) or Wi-Fi® (2-15 meters).
 - **Low-power consumption**: Despite its high data rates, UWB consumes very little power, making it suitable for battery-operated devices like the Arduino Stella, which is optimized for energy efficiency.
 - **Short range**: Typically effective within 10-30 meters, making it ideal for indoor positioning applications where GPS signals are weak or unavailable.
 - **Strong security**: The unique physical layer characteristics of UWB, including its wide bandwidth and low power spectral density, make it more resistant to jamming, eavesdropping, and relay attacks compared to other wireless technologies.
@@ -137,7 +137,7 @@ The bottom view of the Arduino Stella is shown in the image below:
 Here's an overview of the board's main components shown in the images:
 
 - **Microcontroller**: At the heart of the Arduino Stella is the nRF52840 microcontroller from Nordic Semiconductor. This powerful 32-bit Arm® Cortex®-M4 processor runs at 64 MHz and features 1 MB Flash and 256 kB RAM, providing ample processing power and memory for sophisticated applications.
-- **UWB Module**: The Truesense DCU040 module (based on the NXP Trimension SR040 UWB IC) enables precise distance measurement with accuracy better than ±10 cm using two-way ranging techniques.
+- **UWB Module**: The Truesense DCU040 module (based on the NXP® Trimension SR040 UWB IC) enables precise distance measurement with accuracy better than ±10 cm using two-way ranging techniques.
 - **Connectivity**: Besides UWB, the Arduino Stella includes Bluetooth® 5.0 connectivity through the nRF52840's integrated radio, supporting IEEE 802.15.4-2006 and 2.4 GHz transceiver capabilities.
 - **Accelerometer**: A 3-axis MEMS digital output accelerometer (SC7A20) enhances the board's motion detection capabilities, with programmable sensitivity ranges of ±2G/±4G/±8G/±16G and features like orientation detection, free-fall detection, and click detection.
 - **User interfaces**: The board includes a user-programmable button, a user-programmable LED and a buzzer (FUET-5020) that can be used for audible alerts.
@@ -278,12 +278,12 @@ Let's use the Arduino Stella to create a real-time distance measurement system u
 
 The `Nearby World` example demonstrates the core functionality of UWB technology through a simple example sketch that can be described in the following key steps:
 
-1. **Bluetooth® Low Energy connection setup**: The Arduino Stella broadcasts using Bluetooth Low Energy to make itself discoverable to compatible smartphone apps.
-2. **Configuration exchange**: The Bluetooth Low Energy connection is used to exchange necessary UWB configuration parameters between the Arduino Stella and the smartphone.
+1. **Bluetooth® Low Energy connection setup**: The Arduino Stella broadcasts using Bluetooth® Low Energy to make itself discoverable to compatible smartphone apps.
+2. **Configuration exchange**: The Bluetooth® Low Energy connection is used to exchange necessary UWB configuration parameters between the Arduino Stella and the smartphone.
 3. **UWB ranging**: Once configured, the actual UWB ranging session begins, providing precise distance measurements.
 4. **Real-time feedback**: Distance data is continuously updated and can be viewed both on the IDE's Serial Monitor and on the smartphone app.
 
-This process demonstrates the working principle of many UWB applications, where Bluetooth Low Energy is used primarily for discovery and configuration, while UWB handles the precise ranging.
+This process demonstrates the working principle of many UWB applications, where Bluetooth® Low Energy is used primarily for discovery and configuration, while UWB handles the precise ranging.
 
 #### Uploading the Sketch
 
@@ -438,13 +438,13 @@ To complete the test, you will need a UWB-enabled smartphone with one of the com
 
 **For iPhone (iPhone 11 or newer with UWB capability):**
 
-- [NXP Trimensions AR](https://apps.apple.com/us/app/nxp-trimensions-ar/id1606143205)
+- [NXP® Trimensions AR](https://apps.apple.com/us/app/nxp-trimensions-ar/id1606143205)
 - [Qorvo Nearby Interaction](https://apps.apple.com/us/app/qorvo-nearby-interaction/id1615369084)
 
 **For Android (UWB-enabled Android devices):**
 
 - [Truesense Android demo](https://github.com/Truesense-it/TSUwbDemo-Android)
-- [NXP Android demo](https://github.com/nxp-uwb/UWBJetpackExample)
+- [NXP® Android demo](https://github.com/nxp-uwb/UWBJetpackExample)
 
 ***__Important note for Android devices:__ If Developer Options is currently enabled on your Android device, please ensure all radio-related options remain at their default settings. We recommend keeping Developer Options disabled for optimal UWB functionality. If you previously enabled it, consider disabling it for the most stable device operation.***
 
@@ -472,7 +472,7 @@ The `NearbyDemo` example sketch demonstrates how to implement distance measureme
 
 This example demonstrates the following:
 
-- **Hybrid communication protocol**: Integration of Bluetooth Low Energy for device discovery and configuration with UWB for precise distance measurements
+- **Hybrid communication protocol**: Integration of Bluetooth® Low Energy for device discovery and configuration with UWB for precise distance measurements
 - **Standards compatibility**: Compatible with Apple's Nearby Interaction API and Android UWB implementations
 - **Power-efficient design**: UWB subsystem only activates when a client connects, conserving battery life
 - **Multi-client support**: Can handle connections from multiple smartphones simultaneously
@@ -616,7 +616,7 @@ Once the example sketch is uploaded and a smartphone connects to the Arduino Ste
 
 ![Arduino Stella Serial Monitor output showing Nearby Demo connection and distance measurements](assets/nearbydemo-serial-monitor.png)
 
-The Serial Monitor shows the initialization message, followed by `- Client connected!` when a smartphone establishes a Bluetooth Low Energy connection. Only after the connection is established will you see session status and real-time distance measurements in millimeters. If no device connects, you will only see the initial "Nearby interaction app start..." message waiting for a connection.
+The Serial Monitor shows the initialization message, followed by `- Client connected!` when a smartphone establishes a Bluetooth® Low Energy connection. Only after the connection is established will you see session status and real-time distance measurements in millimeters. If no device connects, you will only see the initial "Nearby interaction app start..." message waiting for a connection.
 
 ***__Important note__: Distance measurements only appear __after__ a successful connection with a UWB-enabled smartphone. Without a connection, the Serial Monitor will only show the initialization message.***
 
@@ -624,7 +624,7 @@ The Serial Monitor shows the initialization message, followed by `- Client conne
 
 The `NearbyDemo` code implements an event-driven architecture using callback functions to handle various stages of the UWB communication process. Let's examine the main components:
 
-1. **Libraries and Global Variables**
+- **Libraries and Global Variables**
    
 ```arduino
 #include <ArduinoBLE.h>
@@ -638,9 +638,9 @@ The example sketch uses two important libraries for its operation:
 - `ArduinoBLE`: Provides Bluetooth® Low Energy functionality for device discovery and initial connection.
 - `StellaUWB`: The core library that enables interaction with the onboard UWB module of the Arduino Stella.
 
-The `numConnected` variable tracks how many Bluetooth Low Energy clients are currently connected to the Arduino Stella.
+The `numConnected` variable tracks how many Bluetooth® Low Energy clients are currently connected to the Arduino Stella.
 
-2. **Ranging Data Handler**
+- **Ranging Data Handler**
 
 The heart of the UWB functionality resides in the ranging callback:
 
@@ -655,7 +655,7 @@ void rangingHandler(UWBRangingData &rangingData) {
 
 This function processes incoming distance measurements, validates the data integrity, and outputs results to the IDE's Serial Monitor. The validation checks ensure only valid measurements are displayed (`status = 0` and `distance ≠ 0xFFFF`).
 
-3. **Connection Management**
+- **Connection Management**
 
 The connection callbacks manage the UWB subsystem lifecycle efficiently:
 
@@ -670,7 +670,7 @@ void clientConnected(BLEDevice dev) {
 
 This power-saving approach ensures the UWB hardware only activates when needed, extending battery life in portable applications.
 
-4. **Session Management**
+- **Session Management**
 
 ```arduino
 void sessionStarted(BLEDevice dev) {
@@ -680,9 +680,9 @@ void sessionStarted(BLEDevice dev) {
 
 These functions provide feedback about the session lifecycle, helping developers understand the connection state during debugging.
 
-5. **Setup and Initialization**
+- **Setup and Initialization**
 
-The setup function registers all callbacks and starts Bluetooth Low Energy advertising:
+The setup function registers all callbacks and starts Bluetooth® Low Energy advertising:
 
 ```arduino
 void setup() {
@@ -698,9 +698,9 @@ void setup() {
 
 The device name "Arduino Stella" appears in smartphone apps when scanning for available UWB devices.
 
-6. **Main Loop**
+- **Main Loop**
 
-The main loop maintains the Bluetooth Low Energy connection:
+The main loop maintains the Bluetooth® Low Energy connection:
 
 
 ```arduino
@@ -710,7 +710,7 @@ void loop() {
 }
 ```
 
-The `poll()` function processes Bluetooth Low Energy events while the actual UWB ranging occurs asynchronously through callbacks.
+The `poll()` function processes Bluetooth® Low Energy events while the actual UWB ranging occurs asynchronously through callbacks.
 
 ### Testing with Smartphones
 
@@ -720,8 +720,8 @@ To test this example with a UWB-enabled smartphone:
 2. Open the IDE's Serial Monitor at 115200 baud
 3. Install a compatible app on your smartphone:
 
-- **For iOS**: NXP Trimensions AR or Qorvo Nearby Interaction
-- **For Android**: Truesense or NXP UWB demo apps
+- **For iOS**: NXP® Trimensions AR or Qorvo Nearby Interaction
+- **For Android**: Truesense or NXP® UWB demo apps
 
 4. Connect to the device named "Arduino Stella" in the app
 5. Move your phone to see distance measurements update in real-time
@@ -1090,7 +1090,7 @@ The output format from the Portenta C33 board is optimized for visualization, sh
 
 The Two-Way Ranging example uses simplified helper classes (`UWBTracker` and `UWBRangingControlee`) that make device configuration easier while maintaining the same functionality. Let's analyze the key components:
 
-1. **Libraries and MAC Addressing**
+- **Libraries and MAC Addressing**
 
 Both devices use their respective UWB libraries:
 
@@ -1111,7 +1111,7 @@ uint8_t destination[] = {0x22, 0x22};  // Target device
 
 ***__Important note:__ The MAC addresses are reversed between the two devices. The Arduino Stella identifies itself as `0x2222`and expects to communicate with `0x1111`, while the Portenta UWB Shield identifies itself as `0x1111` and expects to communicate with `0x2222`. Both devices must use the same session ID (`0x11223344`) to establish communication.***
 
-2. **Simplified Session Setup**
+- **Simplified Session Setup**
 
 The new code uses helper classes that simplify the UWB session configuration:
 
@@ -1135,7 +1135,7 @@ myControlee.start();
 
 These helper classes automatically configure the appropriate ranging parameters for their respective roles, making the setup process more straightforward.
 
-3. **Enhanced Visual Feedback**
+- **Enhanced Visual Feedback**
 
 Both devices in this example provide visual feedback to help users understand the system status and distance measurements at a glance. Each device uses its LED capabilities to indicate different operational states.
 
@@ -1162,7 +1162,7 @@ The Portenta C33 uses its RGB LED to provide feedback about different aspects of
 
 This three-color system provides immediate visual feedback about connection status, system operation, and proximity all at once, making it useful for debugging and demonstration purposes where checking serial output isn't practical.
 
-4. **Data Processing and Visualization**
+- **Data Processing and Visualization**
 
 The Portenta UWB Shield implements a moving average filter to smooth distance measurements:
 
