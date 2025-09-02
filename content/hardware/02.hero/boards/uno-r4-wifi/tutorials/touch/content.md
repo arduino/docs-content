@@ -1,5 +1,5 @@
 ---
-title: UNO R4 Capacitive-Touch Tutorial.
+title: UNO R4 Capacitive-Touch Tutorial
 difficulty: beginner
 description: Learn to use the built-in capacitive sensing capabilities of the Arduino® UNO R4.
 tags: [Arduino, Capacitive Sensing, UNO R4]
@@ -12,14 +12,14 @@ software:
   - web-editor
 ---
 
-Capacitive sensing is a technology that detects changes in capacitance to determine the presence or absence of a conductive object, such as a human finger. This principle is widely used in touch-sensitive devices. The Arduino® UNO R4, both the [WiFi®](https://store.arduino.cc/products/arduino-uno-r4-wifi) and [Minima](https://store.arduino.cc/products/arduino-uno-r4-minima) versions, come equipped with built-in capacitive sensing capabilities, making it easier to integrate touch inputs into your projects.
+Capacitive sensing is a technology that detects changes in capacitance to determine the presence or absence of a conductive object, such as a human finger. This principle is widely used in touch-sensitive devices. The Arduino® UNO R4, both the [WiFi](https://store.arduino.cc/products/arduino-uno-r4-wifi) and [Minima](https://store.arduino.cc/products/arduino-uno-r4-minima) versions, come equipped with built-in capacitive sensing capabilities, making it easier to integrate touch inputs into your projects.
 
 ![Sensor Example](assets/Touch_Cover_001.gif)
 
 ## Required Hardware
 To use the library, you will need one of the compatible boards:
-- [Arduino® UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)
-- [Arduino® UNO R4 Minima](https://store.arduino.cc/products/uno-r4-minima)
+- [Arduino UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)
+- [Arduino UNO R4 Minima](https://store.arduino.cc/products/uno-r4-minima)
 
 You will also need:
 - Wire
@@ -41,9 +41,9 @@ The UNO R4 features a Capacitive Touch Sensing Unit (CTSU) that allows you to us
 
 ### Compatible Pins
 
-For both the UNO R4 WiFi® and Minima boards, the compatible pins for capacitive touch are listed in the [Arduino_CapacitiveTouch library documentation](https://github.com/arduino-libraries/Arduino_CapacitiveTouch?tab=readme-ov-file#compatible-pins).
+For both the UNO R4 WiFi and Minima boards, the compatible pins for capacitive touch are listed in the [Arduino_CapacitiveTouch library documentation](https://github.com/arduino-libraries/Arduino_CapacitiveTouch?tab=readme-ov-file#compatible-pins).
 
-**Arduino® UNO-R4 Minima:**
+**Arduino UNO R4 Minima:**
 
 | Arduino Pin  | Touch Sensor Channel (TS#) | Channel Control Index (CHAC idx) | Channel Control Bit Mask (CHAC val) |
 |--------------|----------------------------|----------------------------------|-------------------------------------|
@@ -59,7 +59,7 @@ For both the UNO R4 WiFi® and Minima boards, the compatible pins for capacitive
 | A2 (D16)     | 22                         | 2                                | (1 << 6)                           |
 | LOVE_BUTTON  | 0                          | 0                                | (1 << 0)                           |
 
-**Arduino® UNO-R4 WiFi®:**
+**Arduino UNO R4 WiFi:**
 
 | Arduino Pin  | Touch Sensor Channel (TS#) | Channel Control Index (CHAC idx) | Channel Control Bit Mask (CHAC val) |
 |--------------|----------------------------|----------------------------------|-------------------------------------|
