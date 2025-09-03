@@ -172,7 +172,7 @@ For examples that use Bluetooth® Low Energy communication, you'll also need the
 
 To install the required libraries, follow these steps:
 
-1. Download the library ZIP file:
+**Step 1: Download the library ZIP file**
 
 - Visit the library's GitHub repository using the links provided above
 - Click the green Code button
@@ -181,7 +181,7 @@ To install the required libraries, follow these steps:
 
 ![Library repository on GitHub](assets/library-repository.png)
 
-2. Install the library in Arduino IDE:
+**Step 2: Install the library in Arduino IDE**
 
 - Open the Arduino IDE
 - Navigate to `Sketch > Include Library > Add .ZIP Library...`
@@ -191,7 +191,7 @@ To install the required libraries, follow these steps:
 
 ![Library installation on the Arduino IDE](assets/library-installation.png)
 
-3. Verify the library installation:
+**Step 3: Verify the library installation**
 
 - Go to `Sketch > Include Library`
 - Scroll down to see if the library appears in the `Contributed libraries` list
