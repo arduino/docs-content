@@ -130,7 +130,7 @@ The Thing we will create for this example is quite simple. It is a sketch to rea
 Follow the steps below to set up the Thing:
 
 - Go to the Arduino Cloud -> Thing -> Create a Thing
-- Add your Device and your Network credentials
+- Add your Device and your Network credentials, which can be changed on the device page
 - Add an integer Variable, with the name humidity, and set permissions to Read Only
 - Go to the **"Sketch"** tab and replace the code with the code below:  
 
