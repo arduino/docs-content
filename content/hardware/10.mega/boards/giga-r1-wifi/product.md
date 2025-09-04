@@ -5,7 +5,6 @@ url_guide: /tutorials/giga-r1-wifi/giga-getting-started
 primary_button_url: /tutorials/giga-r1-wifi/giga-getting-started
 primary_button_title: Get Started
 core: arduino:mbed_giga
-certifications: [CE, UKCA]
 forumCategorySlug: '/hardware/giga-r1/182'
 sku: [ABX00063]
 ---

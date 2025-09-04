@@ -211,7 +211,7 @@ arduino-cloud-cli device delete-tags --id <deviceID> --keys <key0>,<key1>
 
 - `arduino-cloud-cli things`
 
-**Things** in the Arduino Cloud is the virtual twin of your hardware device. In a Thing, you create variables, attach device and add network credentials. 
+**Things** in the Arduino Cloud is the virtual twin of your hardware device. In a Thing, you create variables and attach a device. 
 
 With `arduino-cloud-cli` you can:
 

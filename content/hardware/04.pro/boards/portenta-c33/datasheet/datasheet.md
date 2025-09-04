@@ -534,7 +534,6 @@ The Portenta C33 is designed to be usable as a surface-mount module as well as p
 |     FCC (USA)     |     Yes    |
 |    IC (Canada)    |     Yes    |
 | MIC/Telec (Japan) |     Yes    |
-|  RCM (Australia)  |     Yes    |
 |        RoHS       |     Yes    |
 |       REACH       |     Yes    |
 |        WEEE       |     Yes    |

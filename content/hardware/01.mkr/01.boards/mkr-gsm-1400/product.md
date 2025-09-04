@@ -6,7 +6,6 @@ primary_button_title: Get Started
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrgsm1400/146'
 status: end-of-life
-certifications: [CE, UKCA]
 productCode: '021'
 sku: [ABX00018]
 ---

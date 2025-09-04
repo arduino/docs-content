@@ -181,7 +181,7 @@ In case you need to power external devices that require more power, e.g. servo m
 
 | Pin | Function | Type   | Description                                      |
 | --- | -------- | ------ | ------------------------------------------------ |
-| 1   | BOOT     | MD     | Mode selection                                   |
+| 1   | BOOT     | Mode   | Mode selection                                   |
 | 2   | IOREF    | IOREF  | Reference for digital logic V - connected to 5 V |
 | 3   | Reset    | Reset  | Reset                                            |
 | 4   | +3V3     | Power  | +3V3 Power Rail                                  |

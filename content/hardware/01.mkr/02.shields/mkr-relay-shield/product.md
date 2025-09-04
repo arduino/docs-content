@@ -5,7 +5,6 @@ url_guide: /tutorials/mkr-relay-proto-shield/mkr-relay-shield-basic
 primary_button_url: /tutorials/mkr-relay-proto-shield/mkr-relay-shield-basic
 primary_button_title: Get Started
 forumCategorySlug: '/hardware/mkr-boards/mkr-shields/162'
-certifications: [CE, UKCA]
 sku: [TSX00003]
 ---
 

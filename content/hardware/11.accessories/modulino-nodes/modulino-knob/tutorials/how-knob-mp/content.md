@@ -142,7 +142,7 @@ When QWIIC is not available, you can use the exposed solderable pins on the modu
 
 ![Connection Guide Solder Pads](assets/connection-guide-knob-jumper.png)
 
-### Daisy-Chaining Multiple Modulinos
+### Daisy-Chaining Multiple Modulino Nodes
 
 Regardless of whether you connect the first Modulino via QWIIC or through the solderable pins, you can still take advantage of the extra QWIIC connector to daisy-chain additional modules. Each Modulino includes two QWIIC connectors wired in parallel, allowing you to connect one module to the next in a chain. As long as each module is configured with a unique I²C address, they can all communicate on the same bus. This approach keeps your setup clean, modular, and expandable without adding extra wiring complexity.
 

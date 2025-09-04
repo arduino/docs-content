@@ -31,11 +31,13 @@ Once you have your unique code, follow the process below to redeem it and fully 
 
 ## Voucher Redemption Process
 
+If you already have an Arduino account you can follow [this link](https://digital-store.arduino.cc/subscriptions/redeem) to redeem your voucher, otherwise please follow the next steps.
+
 Navigate to the [Arduino Cloud](https://cloud.arduino.cc/) page and log in with your account using the `SIGN IN` button in the top-right corner. If you do not have an account, you can create one for free at [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
 
 ![Arduino Cloud Login Page](assets/voucher_red_login.png)
 
-To redeem the voucher, once you are logged in with the desired account, go to `CLOUD`, click on the tab `PLANS` and locate the option `For Business` or follow this [link](https://cloud.arduino.cc/plans#business). To proceed, click the `PURCHASE` button under the `Enterprise Base Plan` column.
+To redeem the voucher, once you are logged in with the desired account, go to `CLOUD`, click on the tab `PLANS` and locate the option `For Business` or follow this [link](https://digital-store.arduino.cc/subscriptions/redeem). To proceed, click the `PURCHASE` button under the `Enterprise Base Plan` column.
 
 ![Arduino Cloud Business Plans](assets/voucher_red_plans_screen.png)
 

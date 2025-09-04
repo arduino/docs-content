@@ -5,7 +5,6 @@ url_guide: https://docs.arduino.cc/tutorials/mkr-iot-carrier-rev2/cheat-sheet
 primary_button_url: /tutorials/mkr-iot-carrier-rev2/cheat-sheet
 primary_button_title: User Manual
 forumCategorySlug: '/hardware/mkr-boards/mkr-shields/162'
-certifications: [CE, UKCA]
 sku: [ABX00073]
 ---
 

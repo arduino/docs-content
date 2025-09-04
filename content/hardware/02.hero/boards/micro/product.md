@@ -7,7 +7,6 @@ primary_button_title: Get Started
 core: arduino:avr
 productCode: '006'
 forumCategorySlug: '/hardware/12'
-certifications: [CE, UKCA]
 sku: [A000053, A000093]
 ---
 

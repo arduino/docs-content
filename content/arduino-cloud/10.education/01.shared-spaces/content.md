@@ -56,7 +56,7 @@ In the next sections we will take you through setting up a shared space for your
 
 ## Create a Shared Space 
 
-Creating a shared space is simple and straightforward, however it requires you to have an Arduino account before you can get started. If you haven't created any in the past, [create one](https://support.arduino.cc/hc/en-us/articles/360016724040-Create-an-Arduino-account) now! 
+Creating a shared space is simple and straightforward, however it requires you to have an Arduino account and either a Business plan or School Plan before you can get started. If you haven't created any in the past, [create one](https://support.arduino.cc/hc/en-us/articles/360016724040-Create-an-Arduino-account) now!
 
 ### Login to your Private Space
 
@@ -64,23 +64,13 @@ Login to https://app.arduino.cc/ with your Arduino account by default, any new u
 
 ![Arduino Cloud Homepage view](assets/cloud-home-u.png)
 
-***Note: A private space is an automatically created once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class.*** 
-
-### Create a Shared Space for your classroom 
-
-Now that you have a private space let's get you started. In order to create a shared space go to [this link](https://app.arduino.cc/space?spaceType="edu").
-
-Then you will be asked which type of shared space you want to create (i.e. For Business or For Education). Click on **For Education** and proceed with creating an online space to share with your students or other colleagues.
-
-![Shared space type selection](assets/shared-space-type-selection.png)
-
-Fill in additional information such as the name of your School, Country and Grade. 
-
-![Fill in school information for the new space](assets/fillschoolinfo.png)
-
-Congratulations! Now you own a shared space linked to your Arduino account. In the next section we will show you how to add members into your space and make it lively. 
+***Note: A private space is an automatically created once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class.***
 
 ## Adding members to a Shared Space
+
+A shared space is automatically created when you sign up for a School plan. For the following sections make sure that you switch to your shared space in the upper left corner, as shown in the image below.
+
+![Selecting the shared space](assets/cloud-shared-spaces.png)
 
 In this section we will show you how to add students, teachers and Administrators to your shared space and manage them effectively. 
 
@@ -157,7 +147,7 @@ Once they click **Join**, they will then be added to your shared space and be vi
 
 ## Space Settings 
 
-In space settings, you can configure everything from `Change Image` of your space profile to adding and removing members. If you have a free plan you can also track the usage of the Cloud tools and choose to upgrade to a School plan. 
+In space settings, you can configure everything from `Change Image` of your space profile to adding and removing members.
 
 To change the current settings of your shared space, navigate to the **Space Settings** tab using the sidebar.
 

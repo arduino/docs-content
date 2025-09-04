@@ -481,6 +481,56 @@ If you want to commission your Nano Matter solution with another service, follow
 
 ***Be aware that the Matter integration for Home Assistant is still in BETA, it can receive major updates and its functionality may vary between different vendors.***
 
+### Updating the Commissioning QR Code
+
+Each Nano Matter board comes with a default QR code used for commissioning. In this section, you will learn how to **generate a unique QR code** for your device by updating its provisioning ID.
+
+![Unique QR Codes for your Matter devices](assets/new-qr-codes.png)
+
+By assigning a unique provisioning ID, you can:
+
+- Generate a distinct QR code for each board.
+- Commission multiple Nano Matter boards to the same network without conflicts.
+- Prepare your devices for real-world field deployment.
+
+#### Prerequisites 
+
+Before starting, make sure you have the following:
+
+- Make sure the **Arduino IDE** and the **Silicon Labs Arduino Core** are both installed.
+- Make sure there is only **one** board connected to your computer at a time.
+- Your Matter sketch already flashed to the board.
+- Clone the [Arduino Matter Provision Tool](https://github.com/silabs-bozont/arduino_matter_provision) repository on your local machine.
+
+#### Changing the Provisioning ID
+
+To assign a new provisioning ID and generate a new QR code:
+
+- Open a terminal and navigate to the cloned `/arduino_matter_provision` folder.
+- The provisioning command has the following format:
+
+  ```bash
+  python arduino_matter_provision.py <board_name> <config_number>
+  ```
+
+- Replace `<board_name>` with `nano_matter` and choose a configuration number (e.g., `1`):
+  ```bash
+  python arduino_matter_provision.py nano_matter 1
+  ```
+
+- Run the script to change the provisioning data using the given structure.
+
+  ![Running the script](assets/qr-code-change.gif)
+
+Once the script finishes, open the **Arduino Serial Monitor**. You will see the updated commissioning credentials there, no need to re-upload the sketch. 
+
+Here’s what the new credentials might look like:
+
+- Manual Pairing Code: `00417637863`
+- QR code URL: `https://project-chip.github.io/connectedhomeip/qrcode.html?data=MT%3A8YT00-D000CQ-01VB10`
+
+***Make sure all your Nano Matter boards has been configured with a different ID.***
+
 ### Device Decommissioning 
 
 If you have a Matter device configured and working with a _specific platform_, for example with the Google Home ecosystem, and you want to integrate it with Alexa or Apple Home instead, you need to decommission it first from the previous service.

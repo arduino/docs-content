@@ -5,7 +5,6 @@ url_guide: /tutorials/uno-rev3/getting-started/
 primary_button_url: /tutorials/uno-rev3/getting-started/
 primary_button_title: Get Started
 core: arduino:avr
-certifications: [CE, FCC, IC, RCM, RoHS, UKCA]
 forumCategorySlug: '/hardware/12'
 productCode: '001'
 sku: [A000066]

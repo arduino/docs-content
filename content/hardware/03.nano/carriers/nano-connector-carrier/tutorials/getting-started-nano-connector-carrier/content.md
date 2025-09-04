@@ -37,7 +37,7 @@ The Nano Connector Carrier includes both QWIIC and Grove connectors for expandin
 
 #### Qwiic Connector
 
-The Nano Connector Carrier features a single Qwiic connector, allowing you to easily interface with Arduino Modulinos and other Qwiic-based sensors and modules.
+The Nano Connector Carrier features a single Qwiic connector, allowing you to easily interface with Arduino Modulino nodes and other Qwiic-based sensors and modules.
 
 ![QWIIC Connector](assets/qwiic-01.gif)
 
@@ -50,7 +50,7 @@ The Qwiic connector uses a 4-pin JST SH connector (P/N: SM04B-SRSS-TB(LF)(SN)) w
 | SDA | I²C Data (connected to the A4 pin of the Nano board)   |
 | SCL | I²C Clock (connected to the A5 pin of the Nano board) |
 
-A single Qwiic connector is all you need since it's designed to be daisy-chainable, allowing you to connect multiple Modulinos or other Qwiic-compatible devices in series. This connector makes it plug-and-play simple to add sensors, displays and other Qwicc-compatible devices to your project.
+A single Qwiic connector is all you need since it's designed to be daisy-chainable, allowing you to connect multiple Modulino nodes or other Qwiic-compatible devices in series. This connector makes it plug-and-play simple to add sensors, displays and other Qwicc-compatible devices to your project.
 
 #### Grove Connectors
 
@@ -166,7 +166,7 @@ The Teamometer demonstrates how different Modulino sensor modules can work toget
 
 **Code Example:**
 ```arduino
-#include <Arduino_Modulino.h>
+#include <Modulino.h>
 
 // Create object instances
 ModulinoThermo thermo;
@@ -352,7 +352,7 @@ The Motion Tracker demonstrates how the Nano Connector Carrier can integrate wit
  * Records movement data from a Modulino Movement sensor to an SD card.
  * Press Button A to start/stop recording.
  */
-#include "Arduino_Modulino.h"
+#include "Modulino.h"
 #include <SD.h>
 
 // Create objects for the modules

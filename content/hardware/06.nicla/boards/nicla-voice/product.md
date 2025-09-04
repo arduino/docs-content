@@ -8,7 +8,6 @@ secondary_button_url: /tutorials/nicla-voice/ei-intruder-detector
 secondary_button_title: Audio ML Guide
 core: arduino:mbed_voice
 productCode: '120'
-certifications: [CE, UKCA, RoHS, IC, FCC]
 sku: [ABX00061]
 ---
 
