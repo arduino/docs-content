@@ -8,7 +8,7 @@ type: maker
 
 # Description
 
-The MKR WAN 1310 is a miniature sized module containing a Cortex M0+ SAMD21 processor, the Murata CMWX1ZZABZ LoRa® module, a crypto chip (the ECC508), and a 2MByte SPI Flash. The module can either be mounted as a DIP component throughout the already mounted headers. Like most Arduino MKR form factor boards the MKR WAN 1310 can be powered via USB, via headers orconnecting a Lithium or Lithium Polymer battery to the embedded battery charger (the BQ24195L).
+The Arduino MKR WAN 1310 is a miniature sized module containing a Arm® Cortex®-M0+ SAMD21 processor, the Murata CMWX1ZZABZ LoRa® module, a crypto chip (the ECC508), and a 2MByte SPI Flash. The module can either be mounted as a DIP component throughout the already mounted headers. Like most Arduino MKR form factor boards the MKR WAN 1310 can be powered via USB, via headers orconnecting a Lithium or Lithium Polymer battery to the embedded battery charger (the BQ24195L).
 
 # Target Areas:
 Maker
@@ -35,7 +35,7 @@ Maker
         - 10 bit 350ksps DAC
         - External Interrupt Controller (up to 16 lines)
 - **Murata CMWX1ZZABZ LORA Module**
-    - STMicro STM32L0 series ARM Cortex M0+ 32 bit MCU
+    - STMicro STM32L0 series Arm® Cortex®-M0+ 32 bit MCU
     - 192 Kbytes Flash
     - +20dBm RF TX Output Power
     - Semtech SX1276 Radio
@@ -51,24 +51,26 @@ Maker
     - ECDSA: FIPS186-3 Elliptic Curve Digital Signature Algorithm
     - NIST standard P256 elliptic curve support
     - SHA-256 & HMAC hash including off-chip context save/restore
-- **BQ24125L** I2C Controlled USB/Adapter Charger
+- **BQ24125L I2C Controlled USB/Adapter Charger**
     - 92% Charge Efficiency at 2 A, 90% at 4 A
     - Autonomous Battery Charging
-    - 2.5-A Fast Charging Contents
+    - 2.5-A Fast Charging
 
 # CONTENTS
 
-**NOTE:** Arduino MKR WAN 1310 battery charger has a minimum of 512mA charge current. please ensure this charging current is compatible with the battery you will be using.
+**NOTE:** Arduino MKR WAN 1310 battery charger has a minimum of 512mA charge current. Please ensure this charging current is compatible with the battery you will be using.
 
 **NOTE:** Arduino MKR WAN 1310 only supports 3.3V I/Os and is **NOT** 5V tolerant so please make sure you are not directly connecting 5V signals to this board, or it will be damaged. Also the 5V pin does NOT supply voltage but is rather connected, through a jumper, to the USB power input.
+
+<div style="page-break-after:always;"></div>
 
 ## Functional Overview
 
 ### Main Processor
 
-Main Processor is a Cortex M0+ running at up to 48MHz. Most of its pins are connected to the external headers, however some are reserved for internal communication to the communication module and to the internalSPI and I 2 C peripherals (SPI Flash memory and Crypto). 
+Main Processor is an Arm® Cortex®-M0+ running at up to 48MHz. Most of its pins are connected to the external headers, however some are reserved for internal communication to the communication module and to the internal SPI and I<sup>2</sup>C peripherals (SPI Flash memory and Crypto). 
 
-Communication with Murata CMWX1ZZABZ happens through a I2C and a SPI through the following pins.
+Communication with Murata CMWX1ZZABZ happens through a I2C and a SPI through the following pins:
 
 | SAMD21 (Pin) | SAMD21 (Acronym) | NINA (Pin) | CMWX1ZZABZ (Acronym) | Description |
 |--------------|------------------|------------|----------------------|-------------|
@@ -89,7 +91,7 @@ LoRa connectivity is provided by a Murata CMWX1ZZABZ module. This module contain
 
 **NOTE:** Although Firmware is open source, modifying it will require recertification of the radio stack.
 
-**NOTE:** This radio transmitter [IC:26792-ABX00029] has been approved by Innovation, Science and Economic Development Canada to operate with the antenna types listed below, with the maximum permissible gain indicated. Antenna types not included in this list that have a gain greater than the maximum gain indicated for any type listed are strictly prohibited for use with this device.
+**NOTE:** This radio transmitter [IC:26792-ABX00029] has been approved by Innovation, Science and Economic Development Canada to operate with the antenna types listed below, with the maximum permissible gain indicated. Antenna types not included in this list that have a gain greater than the maximum gain indicated for any type listed are strictly prohibited for use with this device:
 
 |                      |                                       |
 |----------------------|---------------------------------------|
@@ -175,21 +177,21 @@ Board exposes two 28 pin connectors assembled with pin headers.
 |Pin |Function |Type      |Description                                        |
 |----|---------|----------|---------------------------------------------------|
 |1   |AREF     |Analog    |Analog Reference                                   |
-|2   |A0/DAC0  |Analog    |ADC in/DAC out, Can be used as GPIO                |
-|3   |A1       |Analog    |A DC in, Can be used as GPIO                       |
-|4   |A2       |Analog    |AD C in, Can be used as GPIO                       |
-|5   |A3       |Analog    |ADC  in, Can be used as GPIO                       |
-|6   |A4/SDA   |Analog    |ADC  in, I 2 C SDA, Can be used as GPIO            |
-|7   |A5/SCL   |Analog    |ADC i n, I 2 C SCL, Can be used as GPIO            |
-|8   |A6       |Analog    |ADC in , Can be used as GPIO                       |
-|9   |D0       |Digital   |GPIO,  can be used as PWM                          |
-|10  |D1       |Digital   |GPIO, c an be used as PWM                          |
-|11  |D2/PWM   |Digital   |GPIO, ca n be used as PWM                          |
-|12  |D3/PWM   |Digital   |GPIO, can  be used as PWM                          |
-|13  |D4/PWM   |Digital   |GPIO, can  be used as PWM                          |
-|14  |D5/PWM   |Digital   |GPIO, can b e used as PWM                          |
-|15  |D6       |Digital   |GPIO, can be  used as PWM                          |
-|16  |D7       |Digital   |GPIO, can be  used as PWM                          |
+|2   |A0/DAC0  |Analog    |ADC in/DAC out, can be used as GPIO                |
+|3   |A1       |Analog    |ADC in, can be used as GPIO                        |
+|4   |A2       |Analog    |ADC in, can be used as GPIO                        |
+|5   |A3       |Analog    |ADC in, can be used as GPIO                        |
+|6   |A4/SDA   |Analog    |ADC in, I<sup>2</sup>C SDA, can be used as GPIO    |
+|7   |A5/SCL   |Analog    |ADC in, I<sup>2</sup>C SCL, can be used as GPIO    |
+|8   |A6       |Analog    |ADC in, can be used as GPIO                        |
+|9   |D0       |Digital   |GPIO, can be used as PWM                           |
+|10  |D1       |Digital   |GPIO, can be used as PWM                           |
+|11  |D2/PWM   |Digital   |GPIO, can be used as PWM                           |
+|12  |D3/PWM   |Digital   |GPIO, can be used as PWM                           |
+|13  |D4/PWM   |Digital   |GPIO, can be used as PWM                           |
+|14  |D5/PWM   |Digital   |GPIO, can be used as PWM                           |
+|15  |D6       |Digital   |GPIO, can be used as PWM                           |
+|16  |D7       |Digital   |GPIO, can be used as PWM                           |
 |17  |D8/MOSI  |Digital   |SPI MOSI, can  be used as GPIO, can be used as PWM |
 |18  |D9/SCK   |Digital   |SPI SCK, can be  used as GPIO, can be used as PWM  |
 |19  |D10/MISO |Digital   |SPI MISO, can be used as GPIO                      |
@@ -199,9 +201,9 @@ Board exposes two 28 pin connectors assembled with pin headers.
 |23  |D14/TX   |Digital   |USART TX, can be used as GPIO                      |
 |24  |RESETN   |Digital   |Reset input                                        |
 |25  |GND      |Power     |Power Ground                                       |
-|26  |3V3      |Power Out |                                                   |
+|26  |+3V3     |Power Out |                                                   |
 |27  |VIN      |Power In  |Vin Power input                                    |
-|28  |5V       |Power Out |Power Ground                                       |
+|28  |+5V      |Power Out |Power Ground                                       |
 
 
 ### Debug
@@ -231,9 +233,7 @@ Board measures are mixed between metric and imperial. Metric measures are used t
 
 ### Connector Positions
 
-The view below is from top however it shows Debug connector pads which are on the bottom side.
-
-Highlighted pins are pin 1 for each connector
+The view below is from top however it shows Debug connector pads which are on the bottom side. Highlighted pins are pin 1 for each connector.
 
 ![The connector positions of the board](assets/connector-positions.png)
 
@@ -249,10 +249,10 @@ Highlighted pins are pin 1 for each connector
 
 ### Thermal
 
-|Symbol         |Description          |Min |Typ |Max |Unit |
-|---------------|---------------------|----|----|----|-----|
-|T<sub>ST</sub> |Storage Temperature  |-40 |    |85  |°C   |
-|T<sub>OP</sub> |perating Temperature |-40 |    |85  |°C   |
+|Symbol         |Description           |Min |Typ |Max |Unit |
+|---------------|----------------------|----|----|----|-----|
+|T<sub>ST</sub> |Storage Temperature   |-40 |    |85  |°C   |
+|T<sub>OP</sub> |Operating Temperature |-40 |    |85  |°C   |
 
 
 ### Recommended Operating Conditions
@@ -265,8 +265,8 @@ Highlighted pins are pin 1 for each connector
 |I<sub>3V3</sub>  | 3.3V output current available for user application       |      |    |300  |mA |
 |V<sub>IH</sub>   |Input high-level voltage                                  |1.815 |-   |-    |V  |
 |V<sub>IL</sub>   |Input low-level voltage                                   |-     |-   |0.99 |V  |
-|V<sub>OH</sub>   |Output high-level voltage @I OH Max, PORT.PINCFG.DRVSTR=1 |-     |-   |7    |mA |
-|V<sub>OL</sub>   |Output low-level voltage @I OL Max, PORT.PINCFG.DRVSTR=1  |-     |-   |10   |mA |
+|V<sub>OH</sub>   |Output high-level voltage @I<sub>OH</sub> Max, PORT.PINCFG.DRVSTR=1 |-     |-   |7    |mA |
+|V<sub>OL</sub>   |Output low-level voltage @I<sub>OL</sub> Max, PORT.PINCFG.DRVSTR=1  |-     |-   |10   |mA |
 
 ### Power Consumption
 
@@ -313,34 +313,32 @@ The operating temperature of the EUT can’t exceed 85°C and shouldn’t be low
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
-|                |                          |
-|----------------|--------------------------|
-|Frequency bands |Maximum output power (ERP)|
-|863-870Mhz      |-3.22dBm                  |
+| Frequency bands |Maximum output power (ERP) |
+|-----------------|---------------------------|
+|863-870Mhz       |-3.22dBm                   |
 
 ## Company Information
 
-|                |                                         |
-|----------------|-----------------------------------------|
-|Company name    |Arduino S.r.l.                           |
-|Company Address |Via Andrea Appiani,25 20900 MONZA（Italy |
+| Company name   | Company Address                           |
+|----------------|-------------------------------------------|
+| Arduino S.r.l. | Via Andrea Appiani,25 20900 MONZA（Italy) |
 
  
 ## Reference Documentation
 
-|Ref                          |Link                                                            |
-|-----------------------------|----------------------------------------------------------------|
-|1. Arduino IDE (Desktop)     |https://www.arduino.cc/en/software                              |
-|2. Arduino IDE (Cloud)       |https://app.arduino.cc                                          |
-|3. Cloud IDE Getting Started |https://docs.arduino.cc/arduino-cloud/guides/editor/            |
-|4. Forum                     |http://forum.arduino.cc/                                        |
-|5. SAMD21G18                 |http://ww1.microchip.com/downloads/en/devicedoc/40001884a.pdf   |
-|6. CMWX1ZZABZ                |https://wireless.murata.com/datasheet?/RFM/data/type_abz.pdf    |
-|7. ECC508                    |https://ww1.microchip.com/downloads/en/DeviceDoc/20005928A.pdf  |
-|8. W25Q16                    |https://www.winbond.com/resource-files/w25q16dw_revj_090114.pdf |
-|9. CMWX1ZZA BZ Firmware      |https://github.com/arduino/mkrwan1300-fw                        |
-|10. ECC508 Library           |https://github.com/arduino-libraries/ArduinoECCX08              |
-|11. W25Q16 Library           |https://github.com/arduino-libraries/Arduino_MKRMEM             |
+|No. |Ref                          |Link                                                            |
+|----|-----------------------------|----------------------------------------------------------------|
+|1   |Arduino IDE (Desktop)        |https://www.arduino.cc/en/software                              |
+|2   |Arduino IDE (Cloud)          |https://app.arduino.cc                                          |
+|3   |Cloud IDE Getting Started    |https://docs.arduino.cc/arduino-cloud/guides/editor/            |
+|4   |Forum                        |http://forum.arduino.cc/                                        |
+|5   |SAMD21G18                    |http://ww1.microchip.com/downloads/en/devicedoc/40001884a.pdf   |
+|6   |CMWX1ZZABZ                   |https://wireless.murata.com/datasheet?/RFM/data/type_abz.pdf    |
+|7   |ECC508                       |https://ww1.microchip.com/downloads/en/DeviceDoc/20005928A.pdf  |
+|8   |W25Q16                       |https://www.winbond.com/resource-files/w25q16dw_revj_090114.pdf |
+|9   |CMWX1ZZA BZ Firmware         |https://github.com/arduino/mkrwan1300-fw                        |
+|10  |ECC508 Library               |https://github.com/arduino-libraries/ArduinoECCX08              |
+|11  |W25Q16 Library               |https://github.com/arduino-libraries/Arduino_MKRMEM             |
 
 ## Revision History
 
