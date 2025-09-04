@@ -138,6 +138,8 @@ Board can be powered via USB connector, V<sub>IN</sub> pin or V<sub>USB</sub> pi
 
 **NOTE:** Since V<sub>USB</sub> feeds V<sub>IN</sub> via a Schottky diode and DC-DC regulator specified minimum input voltage is 4.5V the minimum supply voltage from USB has to be increased to a voltage in the range between 4.8V to 4.96V depending on the current being drawn.
 
+<div style="page-break-after:always;"></div>
+
 ## Board Operation
 
 ### Getting Started – IDE
@@ -156,7 +158,9 @@ The Cloud Editor is hosted online, therefore it will always be up-to-date with t
 
 All Arduino boards have a built-in bootloader that allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
 
-## 4 Connector Pinouts
+<div style="page-break-after:always;"></div>
+
+## 4-Connector Pinouts
 
 ### USB
 
@@ -218,6 +222,7 @@ On the back side of the board, under the ATSAMD21G18, there is a footprint for a
 |4   |SWCLK    |Digital   |In Single Wire Debug Clock |
 |5   |GND      |Power     |                           |
 
+<div style="page-break-after:always;"></div>
 
 ## Mechanical Information
 
@@ -236,6 +241,8 @@ Board measures are mixed between metric and imperial. Metric measures are used t
 The view below is from top however it shows Debug connector pads which are on the bottom side. Highlighted pins are pin 1 for each connector.
 
 ![The connector positions of the board](assets/connector-positions.png)
+
+<div style="page-break-after:always;"></div>
 
 ## Ratings
 
@@ -275,6 +282,8 @@ The view below is from top however it shows Debug connector pads which are on th
 |P<sub>BL</sub>   |Power consumption with busy loop    |    |TBC |    |mW   |
 |P<sub>LP</sub>   |Power consumption in low power mode |    |TBC |    |mW   |
 |P<sub>MAX</sub>  |Maximum Power Consumption           |    |TBC |    |mW   |
+
+<div style="page-break-after:always;"></div>
 
 ## FCC Caution
 
@@ -317,13 +326,14 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 |-----------------|---------------------------|
 |863-870Mhz       |-3.22dBm                   |
 
+<div style="page-break-after:always;"></div>
+
 ## Company Information
 
 | Company name   | Company Address                           |
 |----------------|-------------------------------------------|
 | Arduino S.r.l. | Via Andrea Appiani,25 20900 MONZA（Italy) |
 
- 
 ## Reference Documentation
 
 |No. |Ref                          |Link                                                            |
@@ -339,6 +349,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 |9   |CMWX1ZZA BZ Firmware         |https://github.com/arduino/mkrwan1300-fw                        |
 |10  |ECC508 Library               |https://github.com/arduino-libraries/ArduinoECCX08              |
 |11  |W25Q16 Library               |https://github.com/arduino-libraries/Arduino_MKRMEM             |
+
+<div style="page-break-after:always;"></div>
 
 ## Revision History
 
