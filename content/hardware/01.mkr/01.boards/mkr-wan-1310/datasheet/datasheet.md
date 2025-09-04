@@ -10,7 +10,7 @@ type: maker
 
 The MKR WAN 1310 is a miniature sized module containing a Cortex M0+ SAMD21 processor, the Murata CMWX1ZZABZ LoRa® module, a crypto chip (the ECC508), and a 2MByte SPI Flash. The module can either be mounted as a DIP component throughout the already mounted headers. Like most Arduino MKR form factor boards the MKR WAN 1310 can be powered via USB, via headers orconnecting a Lithium or Lithium Polymer battery to the embedded battery charger (the BQ24195L).
 
-# Target areas:
+# Target Areas:
 Maker
 
 # Features
@@ -83,7 +83,7 @@ Communication with Murata CMWX1ZZABZ happens through a I2C and a SPI through the
 | 13           | PA09             | 35         | PB8/SCL1             | I2C SCL     |
 
 
-### LoRa module
+### LoRa Module
 
 LoRa connectivity is provided by a Murata CMWX1ZZABZ module. This module contains a STM32L0 processor along with a Semtech SX1276 Radio. The processor is running on Arduino open source firmware based on Semtech code.
 
@@ -225,7 +225,7 @@ Board measures are mixed between metric and imperial. Metric measures are used t
 
 ![Board outline of the MKR WAN 1310](assets/board-outline.png)
 
-### Mounting holes
+### Mounting Holes
 
 ![The mounting holes of the board](assets/mounting-holes.png)
 
@@ -304,7 +304,7 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 
 (2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
 
-IC SAR Waring :
+IC SAR Warning :
 
 This equipment should be installed and operated with minimum distance 20 cm between the radiator
 and your body. Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
@@ -318,7 +318,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 |Frequency bands |Maximum output power (ERP)|
 |863-870Mhz      |-3.22dBm                  |
 
-## Company information
+## Company Information
 
 |                |                                         |
 |----------------|-----------------------------------------|
