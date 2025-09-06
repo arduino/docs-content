@@ -733,6 +733,8 @@ You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see th
 
 The Nano R4 board  features multiple pins with PWM capability that can be used to generate analog-like output signals. PWM works by rapidly switching a digital output between `HIGH` and `LOW` states, where the ratio of `HIGH` time to the total period determines the effective analog voltage output.
 
+***__PWM Compatibility Note__: The Nano R4 shares identical PWM capabilities with the UNO R4 Minima, as both boards use the same RA4M1 microcontroller. This includes the same default 8-bit resolution, maximum 16-bit resolution, and PWM frequency control features. Code written for PWM on the UNO R4 Minima will work identically on the Nano R4.***
+
 The Nano R4 board provides PWM functionality on the following pins:
 
 | **Arduino Pin** | **Microcontroller Pin** | **PWM Channel** | **Primary Function**  |
@@ -746,6 +748,12 @@ The Nano R4 board provides PWM functionality on the following pins:
 
 ***__Important note:__ Pins `A4` and `A5` also have PWM capability but are primarily used for I²C communication (SDA and SCL respectively). The onboard LEDs (`LEDR`, `LEDG`, `LEDB`, `LED_BUILTIN`) also support PWM for brightness control.***
 
+The Nano R4's PWM offers the following technical specifications:
+
+|  **Specification** |     **Value**    |            **Notes**           |
+|:------------------:|:----------------:|:------------------------------:|
+| Default Resolution |   8-bit (0-255)  | Standard Arduino compatibility |
+| Maximum Resolution | 16-bit (0-65535) |     Full precision control     |
 
 You can use PWM pins as analog output pins with the `analogWrite()` function:
 
@@ -753,11 +761,19 @@ You can use PWM pins as analog output pins with the `analogWrite()` function:
 analogWrite(pin, value);
 ```
 
-By default, the resolution is 8-bit (0 to 255). You can use analogWriteResolution() to change this, supporting up to 12-bit (0 to 4095) resolution: 
+**By default, the resolution is 8-bit (0 to 255)**. You can use analogWriteResolution() to change this, supporting up to 16-bit (0 to 65535) resolution: 
 
 ```arduino
 analogWriteResolution(resolution);
 ```
+
+The Nano R4 supports the following PWM resolution options that you can configure based on your project's precision requirements:
+
+- `analogWriteResolution(8)`: 8-bit resolution (0 to 255, **default resolution**)
+- `analogWriteResolution(10)`: 10-bit resolution (0 to 1023)
+- `analogWriteResolution(12)`: 12-bit resolution (0 to 4095)
+- `analogWriteResolution(14)`: 14-bit resolution (0 to 16383)
+- `analogWriteResolution(16)`: 16-bit resolution (0 to 65535, **maximum resolution**)
 
 ***The following PWM examples use the built-in orange user LED (`LED_BUILTIN`) of the Nano R4 board, which supports PWM for brightness control. This eliminates the need for external components and allows you to test PWM functionality immediately.***
 
@@ -873,7 +889,6 @@ void loop() {
 This high-resolution example creates a smooth sine wave pattern with the built-in LED brightness, demonstrating the precision available with a 12-bit PWM resolution. You should see a very smooth transition in the LED brightness following a sine wave pattern. Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the angle and PWM value outputs that demonstrate the precise 12-bit control values being used.
 
 ![Arduino IDE Serial Monitor output for the high-resolution PWM example sketch](assets/pwm-3.png)
-
 ### Operational Amplifier (OPAMP)
 
 The Nano R4 board features a built-in operational amplifier (OPAMP) that provides signal conditioning and amplification capabilities directly on the board. The OPAMP is connected to analog pins `A1`, `A2` and `A3`, allowing you to perform analog signal processing without requiring external amplifier circuits. This feature is particularly useful for sensor signal amplification, buffering and analog filtering applications.
