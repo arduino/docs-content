@@ -8,7 +8,8 @@ type: edu
 
 # Description
 
-The Arduino Starter Kit R4 is a hands-on learning platform built around the Arduino UNO R4 WiFi. Featuring an Arm® Cortex®-M4 microcontroller, integrated Wi-Fi® and Bluetooth® via ESP32-S3, and a 12x8 red LED matrix, this kit provides makers, students, and educators with a reliable foundation to learn, prototype, and build real-world IoT projects. With included sensors, motors, and actuators, the Starter Kit R4 bridges theoretical learning and practical experimentation.
+<p style="text-align: justify;">The Arduino Starter Kit R4 is a hands-on learning platform built around the Arduino UNO R4 WiFi. Featuring an Arm® Cortex®-M4 microcontroller, integrated Wi-Fi® and Bluetooth® via ESP32-S3, and a 12x8 red LED matrix, this kit provides makers, students, and educators with a reliable foundation to learn, prototype, and build real-world IoT projects. With included sensors, motors, and actuators, the Starter Kit R4 bridges theoretical learning and practical experimentation.
+</p>
 
 # Target Areas
 
@@ -18,7 +19,9 @@ Education, IoT learning, embedded programming, maker prototyping, STEM classroom
 
 ## Application Examples
 
+<p style="text-align: justify;">
 The Starter Kit R4 offers a wide variety of practical applications, from classroom-friendly tutorials to Internet-connected prototypes. Below are a few examples of what learners and developers can build with the kit:
+</p>
 
 - <p style="text-align: justify;"><strong>IoT Projects</strong>: Leverage Wi-Fi® to connect sensors and actuators to the Cloud for smart home automation, weather monitoring, or remote control systems.</p>
 - <p style="text-align: justify;"><strong>Educational Tools</strong>: Teach students the fundamentals of electronics, embedded coding, and control logic using interactive guided experiments.</p>
@@ -30,7 +33,9 @@ The Starter Kit R4 offers a wide variety of practical applications, from classro
 
 ## Starter Kit R4 Projects
 
+<p style="text-align: justify;">
 The Arduino Starter Kit R4 includes a printed book with 14 projects. Each project helps you learn how to use different components and write code with the Arduino UNO R4 WiFi. The projects start simple and become more advanced as you go.
+</p>
 
 | **No.** | **Project Title**      | **What You Learn**                               |
 | ------: | ---------------------- | ------------------------------------------------ |
@@ -56,9 +61,13 @@ The book explains each step clearly and includes drawings and sample code. You c
 
 ### Starter Kit R4 Online Projects
 
-The Starter Kit R4 includes a set of online projects. These projects build on the skills developed in the first 14 lessons, introducing topics such as computer interaction via USB (Human Interface Device - HID), capacitive touch, and enhanced use of the LED matrix. The first online module, **"Welcome Online"**, provides an introduction to the Arduino Cloud platform and how to use it with your kit.
+<p style="text-align: justify;">
+The Starter Kit R4 includes a set of online projects. These projects build on the skills developed in the first 14 lessons, introducing topics such as computer interaction via USB (Human Interface Device - HID), capacitive touch, and enhanced use of the LED matrix. The first online module, <strong>"Welcome Online"</strong>, provides an introduction to the Arduino Cloud platform and how to use it with your kit.
+</p>
 
+<p style="text-align: justify;">
 The projects listed below represent the content available at the time of the kit's launch. Additional online projects will continue to be added over time to expand the learning experience and showcase new projects.
+</p>
 
 | **No.** | **Project Title** | **What You Learn**                                                                                 |
 |--------:|-------------------|----------------------------------------------------------------------------------------------------|
@@ -78,7 +87,9 @@ You can follow the link below to access the official online course platform [11]
 
 ### Kit Contents
 
+<p style="text-align: justify;">
 The Starter Kit R4 includes the UNO R4 WiFi board and a wide selection of electronic components to build, test and explore interactive projects. All components are curated for step-by-step guided experimentation.
+</p>
 
 - **K000007_R4**: This is the SKU that represents the Starter Kit R4.
 - **K000007_R4-6P**: This SKU represents the Starter Kit R4 Classroom pack.
@@ -155,7 +166,9 @@ The Starter Kit R4 includes the UNO R4 WiFi board and a wide selection of electr
 
 #### Arduino UNO R4 WiFi (SKU: ABX00087)
 
+<p style="text-align: justify;">
 The UNO R4 WiFi is a modern 32-bit development board that combines the performance of the Renesas RA4M1 microcontroller with the wireless connectivity of the ESP32-S3-MINI-1 module. While preserving the classic UNO form factor and 5 V logic compatibility, it introduces new features including a built-in 12x8 LED matrix, CAN bus and QWIIC I2C connector. These additions make it suitable for both traditional prototyping and modern IoT development.
+</p>
 
 <img src="assets/uno-r4-wifi.png" alt="UNO R4 WiFi Board" style="width: 60%; height: auto;"/>
 
@@ -177,21 +190,31 @@ The UNO R4 WiFi is a modern 32-bit development board that combines the performan
 | Communication Interfaces              | UART (1), I2C (2), SPI (1), CAN (1)      |
 | Special Interfaces                    | QWIIC connector (3.3 V I2C), ESP header  |
 | Additional Features                   | RTC, OPAMP, DMA controller, CTSU         |
-| Dimensions                            | 68.85 mm × 53.34 mm                      |
+| Dimensions                            | 68.58 mm × 53.34 mm                      |
 
+<p style="text-align: justify;">
 By default, programming the RA4M1 microcontroller is handled through the ESP32-S3, which works as a USB bridge. This configuration allows uploading via USB-C without requiring additional setup.
+</p>
 
+<p style="text-align: justify;">
 The board features a USB-C port for both powering and programming. It also supports serial communication and works as the main development interface.
+</p>
 
 <div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
   <p style="text-align: justify;"><strong>Warning:</strong> Do not exceed 5 V on the USB-C port to avoid hardware damage.</p>
 </div>
 
+<p style="text-align: justify;">
 The RA4M1 microcontroller provides a 12-bit DAC connected to the A0 pin. It can generate analog output signals such as variable voltage levels or waveforms for audio and signal testing applications.
+</p>
 
+<p style="text-align: justify;">
 The onboard QWIIC connector (SM04B-SRSS-TB) allows plug-and-play I2C communication with 3.3 V QWIIC-compatible modules. It is connected to a secondary I2C bus powered by the onboard 3.3 V regulator.
+</p>
 
+<p style="text-align: justify;">
 The main I2C bus is also accessible on A4 (SDA) and A5 (SCL) pins. Avoid using A4/A5 as analog inputs while I2C communication is active.
+</p>
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   <p style="text-align: justify;">
@@ -220,7 +243,9 @@ The recommended electrical and thermal operating ranges for the Arduino UNO R4 W
 <p style="text-align: justify;"><strong>Note:</strong> Operating conditions reflect general limits for the main board and consider reasonable usage of connected peripherals. Component-specific ratings may vary.</p>
 </div>
 
+<p style="text-align: justify;">
 The UNO R4 WiFi supports power inputs via USB-C or the VIN pin (DC barrel jack). A buck converter (ISL854102FRZ) regulates VIN input (6-24 V) down to 5 V. USB input is internally dropped to ~4.7 V due to a Schottky diode.
+</p>
 
 A 3.3 V linear regulator (SGM2205-3.3XKC3G/TR) supplies the ESP32-S3 and other 3.3 V peripherals.
 
@@ -245,6 +270,7 @@ Always use external power supplies for high-current loads like servos or DC moto
 
 ## Kit Power Supply
 
+<p style="text-align: justify;">
 The Starter Kit R4 supports multiple powering options via the Arduino UNO R4 WiFi board. When connecting additional peripherals, ensure they are within the supported voltage and current limits.
 
 - <p style="text-align: justify;"><strong>VIN / Barrel Jack</strong>: Accepts 6-24 VDC input, regulated to 5 V using the onboard buck converter (ISL854102FRZ). Recommended for projects requiring higher or isolated input voltage sources.</p>
@@ -270,23 +296,33 @@ The Starter Kit R4 supports multiple powering options via the Arduino UNO R4 WiF
 
 ### Getting Started - IDE
 
-If you want to program your Arduino Starter Kit R4 offline, install the Arduino Desktop IDE **[2]**. To connect the Arduino UNO R4 WiFi to your computer, you will need a USB-C cable.
+<p style="text-align: justify;">
+If you want to program your Arduino Starter Kit R4 offline, install the Arduino Desktop IDE [2]. To connect the Arduino UNO R4 WiFi to your computer, you will need a USB-C cable.
+</p>
 
 ### Getting Started - Arduino Cloud Editor
 
-All components of the Arduino Starter Kit R4 work seamlessly on the Arduino Cloud Editor **[3]** by installing a simple plugin. The Arduino Cloud Editor is hosted online, ensuring it is always up-to-date with the latest features and support for all boards and devices. Follow the Getting Started guide **[6]** to start coding in the browser and upload your sketches onto the Arduino UNO R4 WiFi.
+<p style="text-align: justify;">
+All components of the Arduino Starter Kit R4 work seamlessly on the Arduino Cloud Editor [3] by installing a simple plugin. The Arduino Cloud Editor is hosted online, ensuring it is always up-to-date with the latest features and support for all boards and devices. Follow the Getting Started guide [6] to start coding in the browser and upload your sketches onto the Arduino UNO R4 WiFi.
+</p>
 
 ### Getting Started - Arduino Cloud
 
-The Arduino Starter Kit R4 is fully compatible with the Arduino Cloud, allowing you to log, visualize, and analyze sensor data, trigger events, and automate processes for educational and home IoT applications using the UNO R4 WiFi board. To learn how to integrate your projects with the Cloud, refer to the official documentation **[6]**.
+<p style="text-align: justify;">
+The Arduino Starter Kit R4 is fully compatible with the Arduino Cloud, allowing you to log, visualize, and analyze sensor data, trigger events, and automate processes for educational and home IoT applications using the UNO R4 WiFi board. To learn how to integrate your projects with the Cloud, refer to the official documentation [6].
+</p>
 
 ### Sample Sketches
 
-Sample sketches for the Starter Kit R4 can be found either in the "Examples" menu in the Arduino IDE or the LED Matrix tutorial section of Arduino documentation **[7]**. These examples include basic and advanced applications showcasing motion and environmental monitoring capabilities.
+<p style="text-align: justify;">
+Sample sketches for the Starter Kit R4 can be found either in the "Examples" menu in the Arduino IDE or the LED Matrix tutorial section of Arduino documentation [7]. These examples include basic and advanced applications showcasing motion and environmental monitoring capabilities.
+</p>
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the Starter Kit R4, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]**, the Arduino Library Reference **[9]**, and the online Starter Kit R4 product page **[10]**.
+<p style="text-align: justify;">
+Now that you have gone through the basics of what you can do with the Starter Kit R4, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub [5], the Arduino Library Reference [9], and the online Starter Kit R4 product page [10].
+</p>
 
 <div style="page-break-after: always;"></div>
 
@@ -314,7 +350,7 @@ Now that you have gone through the basics of what you can do with the Starter Ki
 
 | **View**      | **Measurement**        |
 |---------------|------------------------|
-| Width         | 68.85 mm               |
+| Width         | 68.58 mm               |
 | Length        | 53.34 mm               |
 | Height        | ~15 mm (approx. max)   |
 
@@ -329,13 +365,17 @@ Now that you have gone through the basics of what you can do with the Starter Ki
 
 ## Product Compliance
 
+<p style="text-align: justify;">
 The Arduino Starter Kit R4 is composed of multiple individual components, with the UNO R4 WiFi being the main board, it complies with specific regulations and certifications. For detailed product compliance information, please refer to the corresponding datasheets of each component included in the kit:
+</p>
 
 - [UNO R4 WiFi Compliance Information](https://docs.arduino.cc/hardware/uno-r4-wifi/) **[1]**
 
 ## FCC Caution
 
+<p style="text-align: justify;">
 The UNO R4 WiFi of the Arduino Starter Kit R4 is subject to individual FCC regulations. Please refer to the FCC documentation linked in each Arduino component's datasheet for specific compliance details:
+</p>
 
 - [UNO R4 WiFi Compliance Information](https://docs.arduino.cc/hardware/uno-r4-wifi/) **[1]**
 
