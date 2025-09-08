@@ -23,7 +23,7 @@ The Starter Kit R4 offers a wide variety of practical applications, from classro
 - <p style="text-align: justify;"><strong>IoT Projects</strong>: Leverage Wi-Fi® to connect sensors and actuators to the Cloud for smart home automation, weather monitoring, or remote control systems.</p>
 - <p style="text-align: justify;"><strong>Educational Tools</strong>: Teach students the fundamentals of electronics, embedded coding, and control logic using interactive guided experiments.</p>
 - <p style="text-align: justify;"><strong>LED Matrix Animations</strong>: Use the onboard 12x8 red LED matrix to create visual displays, status indicators, or animations for feedback and communication.</p>
-- <p style="text-align: justify;"><strong>Environmental Monitoring</strong>: Build temperature-based monitoring systems using included thermistors and output data via Wi-Fi or LED visuals.</p>
+- <p style="text-align: justify;"><strong>Environmental Monitoring</strong>: Build temperature-based monitoring systems using included thermistors and output data via Wi-Fi® or LED visuals.</p>
 - <p style="text-align: justify;"><strong>Robotics & Motion</strong>: Drive DC or servo motors to explore basic robotics and automated movement control applications.</p>
 
 <div style="page-break-after: always;"></div>
@@ -56,7 +56,7 @@ The book explains each step clearly and includes drawings and sample code. You c
 
 ### Starter Kit R4 Online Projects
 
-The Starter Kit R4 includes a set of online projects. These projects build on the skills developed in the first 14 lessons, introducing topics such as computer interaction via USB (HID), capacitive touch and enhanced use of the LED matrix. The first online module, **"Welcome Online"**, provides an introduction to the Arduino Cloud platform and how to use it with your kit.
+The Starter Kit R4 includes a set of online projects. These projects build on the skills developed in the first 14 lessons, introducing topics such as computer interaction via USB (Human Interface Device - HID), capacitive touch, and enhanced use of the LED matrix. The first online module, **"Welcome Online"**, provides an introduction to the Arduino Cloud platform and how to use it with your kit.
 
 The projects listed below represent the content available at the time of the kit's launch. Additional online projects will continue to be added over time to expand the learning experience and showcase new projects.
 
@@ -179,9 +179,9 @@ The UNO R4 WiFi is a modern 32-bit development board that combines the performan
 | Additional Features                   | RTC, OPAMP, DMA controller, CTSU         |
 | Dimensions                            | 68.85 mm × 53.34 mm                      |
 
-By default, programming the RA4M1 microcontroller is handled through the ESP32-S3 working as a USB bridge. This configuration allows to upload via USB-C without additional setup.
+By default, programming the RA4M1 microcontroller is handled through the ESP32-S3, which works as a USB bridge. This configuration allows uploading via USB-C without requiring additional setup.
 
-The board features a USB-C port for both powering and programming. It also supports serial communication and is the main development interface.
+The board features a USB-C port for both powering and programming. It also supports serial communication and works as the main development interface.
 
 <div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
   <p style="text-align: justify;"><strong>Warning:</strong> Do not exceed 5 V on the USB-C port to avoid hardware damage.</p>
@@ -217,7 +217,7 @@ The recommended electrical and thermal operating ranges for the Arduino UNO R4 W
 | T<sub>OP</sub>  | Operating Temperature                | -40         | 25          | 85          | °C       |
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;"><strong>Note:</strong> Operating conditions reflect general limits for the main board and assume reasonable usage of connected peripherals. Component-specific ratings may differ.</p>
+<p style="text-align: justify;"><strong>Note:</strong> Operating conditions reflect general limits for the main board and consider reasonable usage of connected peripherals. Component-specific ratings may vary.</p>
 </div>
 
 The UNO R4 WiFi supports power inputs via USB-C or the VIN pin (DC barrel jack). A buck converter (ISL854102FRZ) regulates VIN input (6-24 V) down to 5 V. USB input is internally dropped to ~4.7 V due to a Schottky diode.
