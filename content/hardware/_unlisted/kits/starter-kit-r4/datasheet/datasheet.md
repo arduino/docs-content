@@ -73,7 +73,7 @@ The projects listed below represent the content available at the time of the kit
 |--------:|-------------------|----------------------------------------------------------------------------------------------------|
 |      00 | Welcome Online    | Learn how to use the online Arduino Cloud platform.                                                |
 |      14 | HIDden Powers     | Build a game controller that can interact with your computer, using HID and pushbuttons.           |
-|      15 | Twisty Timer      | Build a countdown timer for time tracking, using the LED Matrix, a potentiometer and some buttons. |
+|      15 | Heartbeat Monitor | Use the Love Button to pulse a heartbeat on the LED Matrix. |
 |      16 | Funky Synth       | Build a funky synth using capacitive touch and a piezo speaker.                                    |
 
 <p style="text-align: justify;">
