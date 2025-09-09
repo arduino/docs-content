@@ -58,7 +58,7 @@ The Arduino Starter Kit R4 includes a printed book with 14 projects. Each projec
 The book explains each step clearly and includes drawings and sample code. You can also visit the official project page at:
 <a href="https://www.arduino.cc/starterkit" target="_blank">arduino.cc/starterkit</a> for updates and more projects.
 </p>
-
+Suggested additional materials are listed in the details of each project, such as basic crafting materials: paper, tape, markers, scissors and more. These are not included in the kit.
 ### Starter Kit R4 Online Projects
 
 <p style="text-align: justify;">
