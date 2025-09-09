@@ -1140,7 +1140,7 @@ For the digital Modulino Movement, the system reads calibrated acceleration valu
 
 **Complete Data Collection Function**
 
-The complete collectVibrationWindow() function combines both sensor options:
+The complete `collectVibrationWindow()` function combines both sensor options:
 
 ```arduino
 void collectVibrationWindow() {
