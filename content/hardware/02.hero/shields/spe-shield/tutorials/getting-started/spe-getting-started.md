@@ -637,6 +637,6 @@ The Arduino UNO SPE Shield opens up new possibilities for industrial IoT applica
 ## Next Steps
 
 - Explore the [Arduino_10BASE_T1S library documentation](https://github.com/arduino-libraries/Arduino_10BASE_T1S)
-- Learn about [RS-485 communication](link-to-rs485-guide) with the same shield
+- Learn about [RS-485 communication](https://docs.arduino.cc/tutorials/opta/getting-started-with-rs485/) with Opta
 - Build industrial IoT projects with [Arduino Cloud](https://app.arduino.cc)
 - Implement advanced protocols like [Modbus](https://github.com/arduino-libraries/ArduinoModbus) over SPE
