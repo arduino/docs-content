@@ -642,7 +642,7 @@ After data collection, review the collected samples in Edge Impulse Studio for c
    
 ### Training the Anomaly Detection Model
 
-Once you have collected sufficient `idle` and `nominal`  operation data, the next step involves configuring and training the machine learning model for anomaly detection.
+Once you have collected sufficient `idle` and `nominal` operation data, the next step involves configuring and training the machine learning model for anomaly detection.
 
 #### Impulse Design Configuration
 
