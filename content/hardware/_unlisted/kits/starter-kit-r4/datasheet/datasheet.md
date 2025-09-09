@@ -31,7 +31,7 @@ The Starter Kit R4 offers a wide variety of practical applications, from classro
 
 <div style="page-break-after: always;"></div>
 
-## Starter Kit R4 Projects
+## Starter Kit R4 Projects Book
 
 <p style="text-align: justify;">
 The Arduino Starter Kit R4 includes a printed book with 14 projects. Each project helps you learn how to use different components and write code with the Arduino UNO R4 WiFi. The projects start simple and become more advanced as you go.
