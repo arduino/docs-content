@@ -39,7 +39,7 @@ To turn your board into an HID, you can use the **keyboard/mouse** API that is b
 
 ## Sketch Upload Interference
 
-As a consequence of the multi-processor design of the UNO R4 WiFi board, uploads may fail with a "`No device found on ...`" error when the board is running a sketch that uses the HID capabilities.
+As a consequence of the multi-processor design of the UNO R4 Minima board, uploads may fail with a "`No device found on ...`" error when the board is running a sketch that uses the HID capabilities.
 
 For this reason, you should use the following procedure to upload under these conditions:
 
