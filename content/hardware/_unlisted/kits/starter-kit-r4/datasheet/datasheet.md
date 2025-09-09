@@ -275,6 +275,11 @@ Always use external power supplies for high-current loads like servos or DC moto
 The Starter Kit R4 supports multiple powering options via the Arduino UNO R4 WiFi board. When connecting additional peripherals, ensure they are within the supported voltage and current limits.
 
 - <p style="text-align: justify;"><strong>VIN / Barrel Jack</strong>: Accepts 6-24 VDC input, regulated to 5 V using the onboard buck converter (ISL854102FRZ). Recommended for projects requiring higher or isolated input voltage sources.</p>
+
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;"><strong>Note:</strong> A 9 V battery snap connector is included in the kit for convenient battery connection, however the 9 V battery is not included and must be purchased separately.</p>
+</div>
+
 - <p style="text-align: justify;"><strong>USB-C Connector</strong>: Provides 5 V directly from the USB host. Actual voltage seen by the board is slightly reduced due to a Schottky diode (~4.7 V). Suitable for desktop or classroom use.</p>
 - <p style="text-align: justify;"><strong>5 V Pin</strong>: Provides regulated 5 V output when the board is powered via USB or VIN. Use with caution and avoid connecting high-current loads (e.g., motors) directly to this pin.</p>
 
