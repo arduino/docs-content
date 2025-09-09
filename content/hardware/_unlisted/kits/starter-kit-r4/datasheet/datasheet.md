@@ -78,7 +78,8 @@ The projects listed below represent the content available at the time of the kit
 
 <p style="text-align: justify;">
 You can follow the link below to access the official online course platform [11], where you will find the online projects with step-by-step instructions:
-<a href="https://courses.arduino.cc/starterkitr4" target="_blank">courses.arduino.cc/starterkitr4</a>.
+<a href="https://courses.arduino.cc/starterkitr4" target="_blank">courses.arduino.cc/starterkitr4</a>. 
+To access the course, users need an Arduino account.
 </p>
 
 <div style="page-break-after: always;"></div>
