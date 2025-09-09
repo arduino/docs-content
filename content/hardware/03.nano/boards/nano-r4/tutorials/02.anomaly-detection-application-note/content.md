@@ -443,7 +443,7 @@ In this code:
 - `movement.begin()` specifically initializes the Movement sensor with default settings
 - No pin assignments are needed as the sensor communicates via I²C through the Qwiic connector
 - The sensor automatically configures itself with optimal settings for vibration monitoring
-- Values are returned directly in g units without requiring additional conversion
+- Values are returned directly in **g** units without requiring additional conversion
 
 ### Data Collection Timing and Control
 
