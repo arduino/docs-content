@@ -515,7 +515,7 @@ For the digital Modulino Movement, the conversion is handled internally by the s
 In this code:
 
 - `movement.update()` refreshes the sensor data
-- The acceleration values are returned directly in g units, eliminating manual calibration
+- The acceleration values are returned directly in **g** units, eliminating manual calibration
 - Built-in digital filtering provides clean, noise-free measurements
 - No conversion calculations are needed as the sensor handles all processing internally
 
