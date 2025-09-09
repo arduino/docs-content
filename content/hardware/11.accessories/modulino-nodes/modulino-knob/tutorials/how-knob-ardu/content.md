@@ -1,57 +1,55 @@
 ---
-title: "How To Use The Modulino Knob"
-description: "Learn how to get the most out of your Modulino Knob."
+title: "Modulino Knob"
+description: "Complete guide for the Modulino Knob rotary encoder module."
 tags:
  - Modulino
+ - Knob
+ - Encoder
+ - Input
  - QWIIC
  - I2C
-author: 'Christoher Méndez'
+author: 'Christopher Méndez'
 hardware:
  - hardware/11.modulinos/modulinos/modulino-knob
 software:
  - ide-v2
  - web-editor
+ - micropython
 ---
 
-The Modulino Knob is a modular sensor based on a quadrature rotary encoder that translates angular motion (rotation) into a digital signal. The sensor value will increase or decrease according to the rotation direction. Also, it includes an SPST switch that is activated when the knob is pressed.  
+![Knob Overview](assets/KnobOverview.png)
 
-It uses the Modulino form factor, streamlining integration through the I2C protocol. It provides QWIIC connectors and exposed solderable pins (for boards without a QWIIC interface).
+The Modulino Knob is a modular sensor based on a quadrature rotary encoder that translates angular motion (rotation) into a digital signal. The sensor value will increase or decrease according to the rotation direction. Also, it includes an SPST switch that is activated when the knob is pressed.
 
-## General Characteristics
+## Hardware Overview
+
+### General Characteristics
 
 The Modulino Knob has the following measurement specifications:
 
-
-| **Parameter** | **Condition** | **Minimum** | **Typical**      | **Maximum** | **Unit** |
-| -------------- | ------------- | ----------- | ---------------- | ----------- | -------- |
-| Sensor         | Angle         | -           | 360 (continuous) | -           | °        |
-| Steps          | -             | -           | 30               | -           | -        |
-| Resolution     | -             | -           | 12               | -           | bit      |
+| Parameter  | Condition | Minimum | Typical          | Maximum | Unit |
+|------------|-----------|---------|------------------|---------|------|
+| Sensor     | Angle     | -       | 360 (continuous) | -       | °    |
+| Steps      | -         | -       | 30               | -       | -    |
+| Resolution | -         | -       | 12               | -       | bit  |
 
 ### Sensor Details
 
-The PEC11J-9215F-S0015 rotary encoder is the core component of this module. This sensor output is processed by an STM32C011F4 microcontroller for digital communication (I2C), meaning that the encoder is communicated through the I2C pins using the mentioned microcontroller as an intermediary.
+The PEC11J-9215F-S0015 rotary encoder is the core component of this module. This sensor output is processed by an STM32C011F4 microcontroller for digital communication (I²C), meaning that the encoder is communicated through the I²C pins using the mentioned microcontroller as an intermediary.
 
 The default address for the Module is:
 
-| **Modulino I2C Address** | **Hardware I2C Address** |
-| ------------------------ | ------------------------ |
-| 0x76                     | 0x3A                     |
+| Modulino I²C Address | Hardware I²C Address |
+|----------------------|----------------------|
+| 0x76                 | 0x3A                 |
 
-When scanning for I²C address on the bus, you might find the modulino using the **Hardware I²C Address**. However, you should always use the **Modulino I²C Address** when using the official Modulino library.
+The I²C address can be changed via software configuration.
 
-Later in this article we teach how to [change the address](#how-to-change-i2c-address).
-
-
-## Pinout
-
-The rotary encoder is the core component of this module. This input device is controlled by an onboard STM32 microcontroller, which supports digital communication (I²C), meaning it connects directly to the I²C bus on the module without requiring additional conversion circuitry.
+### Pinout
 
 ![Arduino Knob Pinout](assets/KnobPinouts.png)
 
-The board also includes direct connections to the rotary encoder bypassing the built-in microcontroller.
-
-### 1x10 Header
+#### 1x10 Header
 
 | Pin   | Function       |
 |-------|----------------|
@@ -66,44 +64,29 @@ The board also includes direct connections to the rotary encoder bypassing the b
 | PA0   | Encoder A      |
 | PA1   | Encoder B      |
 
-- **PA2: Button:**This pin connects directly to the built-in button of the rotary encoder.
-- **GND: Ground:**Ground connection for power and signal reference.
-- **3V3: Power:**3.3 V power supply input.
-- **PF2: RESET:**The reset pin for the microcontroller, which can be used to reset the system.
-- **SWCLK: SWD Clock:**Used for providing the clock signal in the SWD interface.
-- **SWDIO: SWD Data:**Used for debugging, as part of the Serial Wire Debug (SWD) interface.
-- **TX1: USART Transmit:**Used for transmitting data over UART communication.
-- **RX1: USART Receive:**Used for receiving data over UART communication.
-- **PA0: Encoder A:**These pins connect directly to the rotary encoder's quadrature outputs.
-- **PA1: Encoder B:**These pins connect directly to the rotary encoder's quadrature outputs.
+The board includes direct connections to the rotary encoder (PA0, PA1, PA2) bypassing the built-in microcontroller.
 
-### 1x4 Header (I2C)
+#### 1x4 Header (I2C)
 
-The pinout for the Modulino Knob is shown below. While the recommended connection method is via the QWIIC connectors, this solderable header provides a connection option when using the modulino with a non-QWIIC compatible board.
-
-| Pin | Function |
+| Pin   | Function     |
 |-------|--------------|
-| GND | Ground |
+| GND   | Ground       |
 | 3.3 V | Power Supply |
-| SDA | I²C Data |
-| SCL | I²C Clock |
+| SDA   | I²C Data     |
+| SCL   | I²C Clock    |
 
-## Power Specifications
-
-The board must be powered **only** by +3.3 VDC when using the solderable pins or the QWIIC interface as per the standard. 
+### Power Specifications
 
 | Parameter       | Typical | Unit |
-| --------------- | ------- | ---- |
+|-----------------|---------|------|
 | Supply Voltage  | 3.3     | V    |
 | Average Current | 3.4     | mA   |
 
-The module additionally includes a power LED that draws 1 mA and turns on as soon as it is powered. J1 (Qwiic connector), J2 (Qwiic connector), and the headers all share the same power branch. The power distribution of the module is therefore as follows:
+The module includes a power LED that draws 1 mA and turns on as soon as it is powered.
 
-![Power Tree Modulino Knob](assets/Modulino_Knob_Power_Tree.png)
+### Schematic
 
-## Schematic
-
-The Modulino Knob uses a simple circuit, as shown in the schematic below:
+The Modulino Knob features a robust circuit design for rotational input and button detection.
 
 ![Full Schematic Modulino Knob](assets/schematic.png)
 
@@ -113,80 +96,20 @@ You can connect to the I²C pins (SDA and SCL) using either the **QWIIC connecto
 
 There's also a small power LED indicator (green) that lights up when the board is on.
 
-You can grab the full schematic and PCB files from the [Modulino Knob](https://docs.arduino.cc/hardware/modulinos/modulino-knob) product page.
+You can grab the full schematic and PCB files from the [Modulino Knob product page](https://docs.arduino.cc/hardware/modulinos/modulino-knob).
 
-## How To Connect Your Modulino
+## Programming with Arduino
 
-The easiest and most reliable way to connect your Modulino is through the QWIIC Connect System. It's plug-and-play, uses standard I²C, and makes it easy to join multiple modules. If your board supports QWIIC, this is the recommended way to go. Note that the dedicated I²C pins will differ from board to board meaning it is always a good idea to check your specific model.
+The Modulino Knob is fully compatible with the Arduino IDE and the official Modulino library. The following examples showcase how to read rotational input, detect button presses, and implement user interface controls in your Arduino projects.
 
-![Modulino Wiring Options QWIIC(A - recommended) and Header(B)](assets/connection-guide-knob.png)
+### Prerequisites
 
-### QWIIC Connector
+- Install the Modulino library via the Arduino IDE Library Manager
+- Connect your Modulino Knob via QWIIC or solderable headers
 
-Whenever available, the **QWIIC Connect System** is the preferred method. Connecting to the Modulino is extremely simple, just use a standard QWIIC cable to connect your board to either of the QWIIC connectors on the Modulino. Because the cable and connectors are polarized, there is no need to worry about accidentally swapping connections.
+For detailed instructions on setting up your Arduino environment and installing libraries, please refer to the [Getting Started with Modulinos guide](link-to-generic-guide).
 
-QWIIC is a plug-and-play I²C Connect System that uses standardized 4-pin connectors:
-
-- GND
-- 3.3V
-- SDA (Data)
-- SCL (Clock)
-
-![Connection Guide QWIIC](assets/connection-guide-knob-qwiic.png)
-
-The Modulino features two QWIIC connectors, which are internally connected in parallel. This means you can daisy-chain multiple modules easily by connecting additional QWIIC cables between them.
-
-### Solderable Header
-
-When QWIIC is not available, you can use the exposed solderable pins on the module. You can solder pins to the unpopulated pads; just remember the pinout provided in this guide to connect to the right pins of your board.
-
-![Connection Guide Solder Pads](assets/connection-guide-knob-jumper.png)
-
-### Daisy-Chaining Multiple Modulino Nodes
-
-Regardless of whether you connect the first Modulino via QWIIC or through the solderable pins, you can still take advantage of the extra QWIIC connector to daisy-chain additional modules. Each Modulino includes two QWIIC connectors wired in parallel, allowing you to connect one module to the next in a chain. As long as each module is configured with a unique I²C address, they can all communicate on the same bus. This approach keeps your setup clean, modular, and expandable without adding extra wiring complexity.
-
-![Modulino Wiring Options](assets/connection-guide-knob-qwiic-chain.png)
-
-***The number of modules you can connect will depend on what modules you are chaining together, as this system allows for multiple sensors from different manufacturers to be added. Also, the cables you use for these connections will play a significant role in the setup's performance. Ensure your cables are properly connected and capable of handling the required data transfer.
-Each module should have a unique address on a chain if you plan to address them individually. Later in this article we teach how to [change the address](#how-to-change-i2c-address). Multiple modules with the same address will cause conflicts on the I²C bus and will not allow you to address them individually.***
-
-## How To Use Your Modulino
-
-### Installing The Modulino Library
-
-You need the official Modulino library available [here](https://github.com/arduino-libraries/Modulino) to use the Modulino Knob.
-
-With the Arduino IDE, you get some tools that make adding a library easier. To learn how to install the IDE, please visit our [page](https://docs.arduino.cc/micropython/first-steps/install-guide/).
-
-After opening the IDE, a tab should be visible on the left. Press the book icon for "library" as highlighted in the image.
-
-![IDE Library Tab](assets/library-menu.png)
-
-You can now search for the library `Modulino` by filling in the `Filter your search` text box. A prompt might appear saying that additional dependencies are required. This is not a problem, as they will be automatically added when you confirm the prompt.
-
-![Add Dependencies Prompt](assets/library-dependencies.png)
-
-The libraries should now start to install. A message will appear after the installation is successful.
-
-The process should be like this:
-
-![Library Install](assets/library-install.gif)
-
-### Getting Knob Data
-
-Data can be obtained from the sensor using the `Modulino` library.
-
-For the **Knob** there are two important functions:
-
-- `get()`: Returns a numerical value relative to the knob rotation.
-- `isPressed()`: Returns the state of the knob built-in button.
-- `knob.get();` retrieves a unitless value relative to the knob rotation. 
-- `knob.isPressed();` retrieves the knob button state.
-- `knob.set();` changes the initial position of the encoder.
-- `Modulino.begin();`: By default the Modulino library uses ```Wire1``` if your connection is in a different Wire you will have to edit it, check [here](https://docs.arduino.cc/language-reference/en/functions/communication/wire/) (by default the Modulino library uses ```Wire1``` if your board model has a different pinout for the dedicated I²C pins you might have to edit it. More information on **Wire** can be found [here](https://docs.arduino.cc/language-reference/en/functions/communication/wire/)) for the library's hardware compatibility. More information on **Wire** can be found [here](https://docs.arduino.cc/language-reference/en/functions/communication/wire/).
-
-Here is an example sketch of how to implement these functions to acquire data:
+### Basic Example
 
 ```arduino
 #include <Modulino.h>
@@ -209,45 +132,268 @@ void loop(){
    if(click){
       Serial.println("Clicked!");
    }
-
 }
 ```
 
-### How To Change I2C Address
+### Key Functions
 
-An example sketch, AddressChanger, is also included with the library inside the `Utilities` folder and available [here](https://github.com/arduino-libraries/Modulino/blob/main/examples/Utilities/AddressChanger/AddressChanger.ino). This sketch changes the I²C address at a software level on the Module's microcontroller.
+- `get()`: Returns a numerical value relative to the knob rotation
+- `isPressed()`: Returns the state of the knob's built-in button
+- `set()`: Changes the initial position of the encoder
 
-![Example location on the IDE](assets/AdressChangeIDE.png)
-
-- Connect the module to your board, remove any other modules that might be in the chain. Connection must be via I²C.
-- Upload the sketch.
-- Open the Serial Monitor.
-- Text should now appear. Make sure the correct bauld-rate is selected if the displayed characters seem corrupted.
- 
-  ![Expected console output](assets/adressChanger.png)
-
-- Select the address and confirm. Valid I²C addresses range from 0x08 to 0x77 (7-bit values in hexadecimal format, e.g., 0x42).
-- Your address should now have changed. Make sure to take note of the selected address.
-
-To keep track of the address in use the module has a white rectangle on the back. Feel free to use this to write the address that was chosen.
-
-When using a custom address in your sketch, you'll need to specify this address when creating the module object. For example:
+### Advanced Example - Menu Navigation
 
 ```arduino
-ModulinoKnob knob(0x3E); // Replace 0x3E with your specific address
+#include <Modulino.h>
+
+ModulinoKnob knob;
+
+// Menu configuration
+const int MENU_ITEMS = 5;
+String menuOptions[] = {"Settings", "Display", "Audio", "Network", "Exit"};
+int currentSelection = 0;
+int lastPosition = 0;
+bool lastButtonState = false;
+
+void setup() {
+  Serial.begin(9600);
+  Modulino.begin();
+  knob.begin();
+  
+  // Set initial position to 0
+  knob.set(0);
+  lastPosition = 0;
+  
+  displayMenu();
+}
+
+void displayMenu() {
+  Serial.println("\n======= MENU =======");
+  for (int i = 0; i < MENU_ITEMS; i++) {
+    if (i == currentSelection) {
+      Serial.print("> ");  // Selection indicator
+    } else {
+      Serial.print("  ");
+    }
+    Serial.println(menuOptions[i]);
+  }
+  Serial.println("==================");
+  Serial.println("Rotate to navigate, press to select");
+}
+
+void selectMenuItem() {
+  Serial.print("\n✓ Selected: ");
+  Serial.println(menuOptions[currentSelection]);
+  
+  // Handle selection
+  switch(currentSelection) {
+    case 0:
+      Serial.println("Opening Settings...");
+      break;
+    case 1:
+      Serial.println("Opening Display options...");
+      break;
+    case 2:
+      Serial.println("Opening Audio settings...");
+      break;
+    case 3:
+      Serial.println("Opening Network configuration...");
+      break;
+    case 4:
+      Serial.println("Exiting menu...");
+      break;
+  }
+  
+  delay(1000);
+  displayMenu();
+}
+
+void loop() {
+  int currentPosition = knob.get();
+  bool buttonPressed = knob.isPressed();
+  
+  // Check for rotation
+  int rotation = currentPosition - lastPosition;
+  
+  if (rotation != 0) {
+    // Update selection based on rotation direction
+    if (rotation > 0) {
+      currentSelection++;
+      if (currentSelection >= MENU_ITEMS) {
+        currentSelection = 0;  // Wrap around
+      }
+    } else {
+      currentSelection--;
+      if (currentSelection < 0) {
+        currentSelection = MENU_ITEMS - 1;  // Wrap around
+      }
+    }
+    
+    lastPosition = currentPosition;
+    displayMenu();
+  }
+  
+  // Check for button press (on release to avoid multiple triggers)
+  if (!buttonPressed && lastButtonState) {
+    selectMenuItem();
+  }
+  
+  lastButtonState = buttonPressed;
+  
+  delay(50);  // Small delay for debouncing
+}
 ```
 
+## Programming with MicroPython
 
-## Conclusion
+The Modulino Knob is fully compatible with MicroPython through the official Modulino MicroPython library. The following examples demonstrate how to read rotational input, handle button events, and create interactive controls in your MicroPython projects.
 
-The **Modulino Knob** provides a simple solution for UI interface, volume control or rotational measurement in any project. With its **I2C interface**, compact **Modulino form factor**, and **robustness**, it seamlessly integrates into both beginner and advanced applications.  
+### Prerequisites
 
-By leveraging the **Modulino library**, users can quickly access sensor data and implement functionalities such as **user interface control and angle measurement tool**. With just a few lines of code, you can start **controlling your projects**, making it easier than ever to bring intelligent sensing to your applications.
+- Install the Modulino MicroPython library
+- Ensure Arduino Lab for MicroPython is installed
 
-## What Is Next?
+For detailed instructions on setting up your MicroPython environment and installing packages, please refer to the [Getting Started with Modulinos guide](link-to-generic-guide).
 
-After mastering the basics of the Modulino Knob, try these project ideas:
+### Basic Example
 
-- Calculate what is the encoder rotation angle per step to convert the arbitrary output into a rotation angle output.
-- Control the Arduino onboard LED with the press of the knob button.
-- Use the Modulino Knob to control the navigation on a UI display on an LCD or OLED screen.
+```python
+from modulino import ModulinoKnob
+from time import sleep
+
+knob = ModulinoKnob()
+knob.value = 0 # (Optional) Set an initial value
+knob.range = (-10, 10) # (Optional) Set a value range
+
+def on_release():
+    knob.reset()
+    print("🔘 Released! Knob's value was reset.")
+
+knob.on_press = lambda: print("🔘 Pressed!")
+knob.on_release = on_release
+knob.on_rotate_clockwise = lambda steps, value: print(f"🎛️ Rotated {steps} steps clockwise! Value: {value}")
+knob.on_rotate_counter_clockwise = lambda steps, value: print(f"🎛️ Rotated {steps} steps counter clockwise! Value: {value}")
+
+while True:
+    if(knob.update()):
+        print("👀 Knob value or state changed!")
+
+    sleep(0.1)
+```
+
+### Key Functions and Properties
+
+- `.value`: Set/get the sensor's current value
+- `.range`: Set the minimum and maximum possible value
+- `.on_press`: Callback for button press
+- `.on_release`: Callback for button release
+- `.on_rotate_clockwise`: Callback for clockwise rotation
+- `.on_rotate_counter_clockwise`: Callback for counter-clockwise rotation
+- `.update()`: Check for new values and trigger callbacks
+- `.reset()`: Reset the encoder value
+
+### Advanced Example - Volume Control with Visual Feedback
+
+```python
+from modulino import ModulinoKnob
+from time import sleep
+
+knob = ModulinoKnob()
+
+# Volume control configuration
+knob.value = 50  # Start at 50%
+knob.range = (0, 100)  # Volume range 0-100%
+
+# State tracking
+is_muted = False
+last_volume = 50
+
+def draw_volume_bar(volume, muted=False):
+    """Draw a visual representation of the volume"""
+    bar_length = 20
+    filled = int((volume / 100) * bar_length)
+    empty = bar_length - filled
+    
+    if muted:
+        bar = "[" + "X" * bar_length + "]"
+        status = "🔇 MUTED"
+    else:
+        bar = "[" + "█" * filled + "░" * empty + "]"
+        if volume == 0:
+            status = "🔈"
+        elif volume < 33:
+            status = "🔉"
+        elif volume < 66:
+            status = "🔊"
+        else:
+            status = "🔊"
+    
+    print(f"\rVolume: {bar} {volume:3d}% {status}  ", end="")
+
+def toggle_mute():
+    """Toggle mute state"""
+    global is_muted, last_volume
+    
+    is_muted = not is_muted
+    
+    if is_muted:
+        last_volume = knob.value
+        knob.value = 0
+        print("\n🔇 Muted!")
+    else:
+        knob.value = last_volume
+        print(f"\n🔊 Unmuted! Volume: {last_volume}%")
+
+def volume_change(steps, value):
+    """Handle volume changes"""
+    global is_muted
+    
+    if is_muted:
+        is_muted = False  # Unmute when rotating
+    
+    draw_volume_bar(value)
+
+# Configure callbacks
+knob.on_press = toggle_mute
+knob.on_rotate_clockwise = volume_change
+knob.on_rotate_counter_clockwise = volume_change
+
+print("🎛️ Volume Control System")
+print("Rotate: Change volume | Press: Mute/Unmute")
+print("-" * 40)
+
+# Initial display
+draw_volume_bar(knob.value)
+
+# Main loop
+while True:
+    knob.update()
+    sleep(0.01)
+```
+
+## Troubleshooting
+
+### Knob Not Responding
+
+If your Modulino's power LED isn't on or the knob isn't responsive:
+- Ensure both the board and the Modulino are connected properly
+- Verify that the power LEDs on both are lit
+- Check that the QWIIC cable is properly clicked into place
+
+### Erratic Values
+
+If the encoder values jump unexpectedly:
+- Check for loose connections
+- Ensure the module is not near sources of electromagnetic interference
+- Try adjusting the debounce time if using button events
+
+## Project Ideas
+
+- **Volume Control**: Adjust audio levels with tactile feedback
+- **Menu Navigation**: Navigate through LCD or OLED display menus
+- **Parameter Adjustment**: Fine-tune values in real-time applications
+- **Game Controller**: Use rotation for steering or aiming in games
+- **Light Dimmer**: Control LED brightness smoothly
+- **Frequency Tuner**: Adjust frequencies for signal generators
+- **Camera Control**: Pan/tilt control for camera systems
+- **Smart Thermostat**: Set temperature with precise control
