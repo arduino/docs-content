@@ -8,7 +8,7 @@ type: maker
 
 # Description
 
-<p style="text-align: justify;">The Arduino Starter Kit R4 is a hands-on learning platform built around the Arduino UNO R4 WiFi. Featuring an Arm® Cortex®-M4 microcontroller, integrated Wi-Fi® and Bluetooth® via ESP32-S3, and a 12x8 red LED matrix, this kit provides makers, students, and educators with a reliable foundation to learn, prototype, and build real-world IoT projects. With included sensors, motors, and actuators, the Starter Kit R4 bridges theoretical learning and practical experimentation.
+<p style="text-align: justify;">The Arduino Starter Kit R4 is a hands-on learning platform built around the Arduino UNO R4 WiFi. Featuring an Arm® Cortex®-M4 microcontroller, integrated Wi-Fi® and Bluetooth® via ESP32-S3, and a 12x8 red LED matrix, this kit provides makers, students, and educators with a reliable foundation to learn, prototype, and build interactive electronics projects. With included sensors, motors, and actuators, the Starter Kit R4 bridges theoretical learning and practical experimentation through engaging, hands-on activities that teach fundamental programming and electronics concepts.
 </p>
 
 # Target Areas
@@ -23,7 +23,7 @@ Education, embedded programming, maker prototyping, STEM classrooms
 The Starter Kit R4 offers a wide variety of practical applications, from classroom-friendly tutorials to interactive prototypes. Below are a few examples of what learners and developers can build with the kit:
 </p>
 
-- <p style="text-align: justify;"><strong>Interactive Interfaces</strong>: Create game controllers and HID devices that can interact directly with computers, exploring the bridge between physical and digital controls.</p>
+- <p style="text-align: justify;"><strong>Interactive Interfaces</strong>: Create game controllers and HID devices that can interact with computers, exploring the bridge between physical and digital controls.</p>
 - <p style="text-align: justify;"><strong>Educational Tools</strong>: Teach students the fundamentals of electronics, embedded coding, and control logic using interactive guided experiments and hands-on projects.</p>
 - <p style="text-align: justify;"><strong>LED Matrix Animations</strong>: Use the onboard 12x8 red LED matrix to create visual displays, heartbeat monitors, status indicators, or animations for feedback and communication.</p>
 - <p style="text-align: justify;"><strong>Temperature Sensing</strong>: Build temperature-based monitoring systems using included thermistors to create chill-o-meters and responsive feedback devices.</p>
@@ -172,7 +172,7 @@ The Starter Kit R4 includes the UNO R4 WiFi board and a wide selection of electr
 #### Arduino UNO R4 WiFi (SKU: ABX00087)
 
 <p style="text-align: justify;">
-The UNO R4 WiFi is a modern 32-bit development board that combines the performance of the Renesas RA4M1 microcontroller with the wireless connectivity of the ESP32-S3-MINI-1 module. While preserving the classic UNO form factor and 5 V logic compatibility, it introduces new features including a built-in 12x8 LED matrix, CAN bus and QWIIC I2C connector. These additions make it suitable for both traditional prototyping and modern IoT development.
+The UNO R4 WiFi is a modern 32-bit development board that combines the performance of the Renesas RA4M1 microcontroller with the wireless connectivity of the ESP32-S3-MINI-1 module. While preserving the classic UNO form factor and 5 V logic compatibility, it introduces new features including a built-in 12x8 LED matrix, CAN bus and QWIIC I2C connector. These additions make it suitable for both traditional prototyping and interactive electronics projects.
 </p>
 
 <img src="assets/uno-r4-wifi.png" alt="UNO R4 WiFi Board" style="width: 60%; height: auto;"/>
@@ -319,7 +319,7 @@ All components of the Arduino Starter Kit R4 work seamlessly on the Arduino Clou
 ### Getting Started - Arduino Cloud
 
 <p style="text-align: justify;">
-The Arduino Starter Kit R4 is fully compatible with the Arduino Cloud, allowing you to log, visualize, and analyze sensor data, trigger events, and automate processes for educational and home IoT applications using the UNO R4 WiFi board. To learn how to integrate your projects with the Cloud, refer to the official documentation [6].
+The Arduino Starter Kit R4 is fully compatible with the Arduino Cloud, allowing you to explore online development tools and AI-assisted project building using the UNO R4 WiFi board. The kit includes guided tutorials for getting started with the Arduino Cloud platform and leveraging the Arduino AI Assistant for project development. To learn how to integrate your projects with the Cloud, refer to the official documentation [6].
 </p>
 
 ### Sample Sketches
