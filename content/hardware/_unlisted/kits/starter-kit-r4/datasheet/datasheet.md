@@ -97,7 +97,7 @@ The Starter Kit R4 includes the UNO R4 WiFi board and a wide selection of electr
 </p>
 
 - **K000007_R4**: This is the SKU that represents the Starter Kit R4.
-- **K000007_R4-6P**: This SKU represents the Starter Kit R4 Classroom pack.
+- **K000007_R4-6P**: This SKU represents the Starter Kit R4 Classroom pack, which contains Starter Kit R4 (x 6)
 
 #### Main Board
 
