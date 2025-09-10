@@ -194,6 +194,193 @@ To upload the sketch to the board, click the **Verify** button to compile the sk
 
 You should see the built-in orange user LED of your Nano 33 BLE Sense Rev2 board turn on for one second, then turn off for one second, repeating this cycle continuously. 
 
+## LEDs
+
+This user manual section covers the Nano 33 BLE Sense Rev2 built-in LEDs, showing their main hardware and software characteristics.
+
+### RGB LED
+
+The Nano 33 BLE Sense Rev2 features a built-in RGB LED that can be used as a visual feedback indicator for the user.
+
+The built-in RGB LED can be accessed through the following macro definitions:
+
+| **Built-in LED** | **Macro Definition** |
+| :--------------: | :------------------: |
+|     Red LED      |        `LEDR`        |
+|    Green LED     |        `LEDG`        |
+|     Blue LED     |        `LEDB`        |
+
+The following example sketch each of the RGB LED colors at an interval of 500 ms:
+
+```arduino
+/**
+RGB LED Example for the Arduino Nano 33 BLE Sense BLE Sense Rev2
+Name: nano_33_ble_sense_rev2_rgb_led.ino
+Purpose: This sketch demonstrates how to control the built-in
+RGB LED of the Arduino Nano 33 BLE Sense Rev2 board.
+
+*/
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  // Initialize LEDR, LEDG and LEDB as outputs
+  pinMode(LEDR, OUTPUT);
+  pinMode(LEDG, OUTPUT);
+  pinMode(LEDB, OUTPUT);
+  
+  // Turn off all LEDs initially
+  digitalWrite(LEDR, LOW);
+  digitalWrite(LEDG, LOW);
+  digitalWrite(LEDB, LOW);
+  
+  Serial.println("- Arduino Nano 33 BLE Sense Rev2 - RGB LED Example started...");
+}
+
+void loop() {
+  // Turn on the built-in red LED and turn off the rest
+  digitalWrite(LEDR, HIGH);
+  digitalWrite(LEDG, LOW);
+  digitalWrite(LEDB, LOW);
+  Serial.println("- Red LED on!");
+  delay(500);
+  
+  // Turn on the built-in green LED and turn off the rest
+  digitalWrite(LEDR, LOW);
+  digitalWrite(LEDG, HIGH);
+  digitalWrite(LEDB, LOW);
+  Serial.println("- Green LED on!");
+  delay(500);
+  
+  // Turn on the built-in blue LED and turn off the rest
+  digitalWrite(LEDR, LOW);
+  digitalWrite(LEDG, LOW);
+  digitalWrite(LEDB, HIGH);
+  Serial.println("- Blue LED on!");
+  delay(500);
+  
+  // Turn off all LEDs
+  digitalWrite(LEDR, LOW);
+  digitalWrite(LEDG, LOW);
+  digitalWrite(LEDB, LOW);
+  Serial.println("- All LEDs off!");
+  delay(500);
+}
+```
+
+You should now see the built-in RGB LED cycling through red, green, and blue colors, followed by a brief moment with all LEDs off, repeating this pattern continuously.
+
+Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the example sketch sends each time the RGB LEDs state changes.
+
+### Orange LED
+
+The Nano 33 BLE Sense Rev2 also features a built-in orange user LED that can be used for basic status indications and debugging purposes.
+
+The built-in user LED can be accessed through the following macro definition:
+
+| **Built-in LED** | **Macro Definition** | **Microcontroller Pin** |
+| :--------------: | :------------------: | :---------------------: |
+| Orange User LED  |    `LED_BUILTIN`     |         `P0.13`         |
+
+## Pins
+
+This user manual section provides comprehensive information about the Nano 33 BLE Sense Rev2's pin capabilities and functionality. Understanding the board's pins capabilities and configurations is important for making the most of your projects with the Nano 33 BLE Sense Rev2 board.
+
+### Pins Overview
+
+The Nano 33 BLE Sense Rev2 features a total of **20 accessible pins** arranged in the classic Nano form factor, maintaining compatibility with existing Nano shields and breadboard layouts. These pins provide various functionalities including digital I/O, analog input, PWM output and several communication protocols.
+
+![Nano 33 BLE Sense Rev2 pinout overview](assets/simple-pinout.png)
+
+### Pins Specifications and Characteristics
+
+The Nano 33 BLE Sense Rev2's pins are organized into the following categories:
+
+|   **Pin Type**   | **Count** |      **Pin Numbers**      |        **Primary Functions**         |
+| :--------------: | :-------: | :-----------------------: | :----------------------------------: |
+| **Digital Pins** |    14     |       `D0` - `D13`        | Digital I/O, PWM (5 pins), SPI, UART |
+| **Analog Pins**  |     8     |        `A0` - `A7`        |    Analog input, Digital I/O, I²C    |
+|  **Power Pins**  |     4     | `VIN`, `5V`, `3V3`, `GND` |       Power supply and ground        |
+| **Special Pins** |     2     |          `RESET`          |            System control            |
+
+The Nano 33 BLE Sense Rev2 offers several advanced pin capabilities including multi-function pins that can serve multiple purposes depending on your project needs.
+
+The following table shows the electrical specifications and operating limits for all pins on the Nano 33 BLE Sense Rev2 board:
+
+|    **Specification**    |  **Value**   |                    **Notes**                     |
+| :---------------------: | :----------: | :----------------------------------------------: |
+|  **Operating Voltage**  |   +3.3 VDC   |         Logic level for all digital pins         |
+| **Input Voltage Range** | 0 - +3.3 VDC | Assure that this limit of 3.3V is never exceeded |
+| **Max Current per Pin** |    10 mA     |            Source/sink current limit             |
+|  **Max Total Current**  |    200 mA    |          Combined current for all pins           |
+
+***__Important safety considerations when working with the Nano R4 pins:__ The microcontroller on the Arduino Nano 33 BLE Sense Rev2 runs at 3.3V, which means that you must never apply more than 3.3V to its Digital and Analog pins. Care must be taken when connecting sensors and actuators to assure that this limit of 3.3V is never exceeded. Connecting higher voltage signals, like the 5V commonly used with the other Arduino boards, will damage the Arduino Nano 33 BLE Sense Rev2.***
+
+**_To avoid such risk with existing projects, where you should be able to pull out a Nano and replace it with the new Nano 33 BLE Sense Rev2, we have the 5V pin on the header, positioned between RST and A7 that is not connected as default factory setting. This means that if you have a design that takes 5V from that pin, it won't work immediately, as a precaution we put in place to draw your attention to the 3.3V compliance on digital and analog inputs._**
+
+**_5V on that pin is available only when two conditions are met: you make a solder bridge on the two pads marked as VUSB and you power the Nano 33 BLE Sense Rev2 through the USB port. If you power the board from the VIN pin, you won't get any regulated 5V and therefore even if you do the solder bridge, nothing will come out of that 5V pin. The 3.3V, on the other hand, is always available and supports enough current to drive your sensors. Please make your designs so that sensors and actuators are driven with 3.3V and work with 3.3V digital IO levels. 5V is now an option for many modules and 3.3V is becoming the standard voltage for electronic ICs._**
+
+### Digital Pins
+
+The Nano 33 BLE Sense Rev2 features 14 digital pins (`D0` to `D13`) that can be configured as either digital inputs or digital outputs. These pins operate at +3.3 VDC logic levels and can source or sink up to 10 mA of current per pin. Digital pins are the foundation of most Arduino projects, allowing you to control LEDs, read button states, interface with sensors and communicate with other devices.
+
+The Nano 33 BLE Sense Rev2 digital pins provide the following functionality:
+
+| **Arduino Pin** | **Microcontroller Pin** | **Additional Functions** | **Special Features** |
+| :-------------: | :---------------------: | :----------------------: | :------------------: |
+|      `D0`       |         `P1.03`         |         UART TX          | Serial communication |
+|      `D1`       |         `P1.10`         |         UART RX          | Serial communication |
+|      `D2`       |         `P1.11`         |           PWM            |  External interrupt  |
+|      `D3`       |         `P1.12`         |           PWM            |  External interrupt  |
+|      `D4`       |         `P1.15`         |           PWM            |  External interrupt  |
+|      `D5`       |         `P1.13`         |           PWM            |  External interrupt  |
+|      `D6`       |         `P1.14`         |           PWM            |  External interrupt  |
+|      `D7`       |         `P1.23`         |           PWM            |  External interrupt  |
+|      `D8`       |         `P1.21`         |           PWM            |  External interrupt  |
+|      `D9`       |         `P1.27`         |           PWM            |  External interrupt  |
+|      `D10`      |         `P1.02`         |       SPI CS, PWM        |  SPI communication   |
+|      `D11`      |         `P1.01`         |      SPI MOSI, PWM       |  SPI communication   |
+|      `D12`      |         `P1.08`         |      SPI MISO, PWM       |  SPI communication   |
+|      `D13`      |         `P0.13`         |       SPI SCK, PWM       |  SPI communication   |
+
+***__Important note:__ Pins `D0` and `D1` are used for serial communication (UART) and should be avoided for general digital I/O when using Serial communication. Pins `D10`, `D11`, `D12` and `D13` are used for SPI communication.***
+
+The Nano 33 BLE Sense Rev2's digital pins offer the following specifications:
+
+|  **Specification**   |   **Value**    |           **Notes**           |
+| :------------------: | :------------: | :---------------------------: |
+|    Logic Voltage     |    +3.3 VDC    | `HIGH` and `LOW` logic levels |
+|    Input Voltage     | 0 to +3.3 VDC  |   +3.3 VDC tolerant inputs    |
+| Max Current (Source) |     10 mA      |    Per pin source current     |
+|  Max Current (Sink)  |     10 mA      |     Per pin sink current      |
+|  Total Max Current   |     200 mA     |     Combined for all pins     |
+|   Input Resistance   |    20-50 kΩ    |   Internal pull-up resistor   |
+|    Digital `HIGH`    | +2 to +3.3 VDC |  Minimum voltage for `HIGH`   |
+|    Digital `LOW`     | 0 to +1.5 VDC  |   Maximum voltage for `LOW`   |
+
+Digital pins can be configured and controlled using the following basic Arduino functions.
+
+You can configure a pin's mode using the `pinMode()` function:
+
+```arduino
+pinMode(pin, mode);
+```
+
+To write a digital value to an output pin, use the `digitalWrite()` function:
+
+```arduino
+digitalWrite(pin, value);
+```
+
+To read the state of a digital input pin, use the `digitalRead()` function:
+
+```arduino
+digitalRead(pin);
+```
+
+The available pin modes are `OUTPUT` for digital output, `INPUT` for digital input with high impedance, and `INPUT_PULLUP` for digital input with internal pull-up resistor enabled. Digital output values can be `HIGH` (+3.3 VDC) or `LOW` (0 VDC), and digital input readings will return `HIGH` or `LOW` based on the voltage level detected on the pin.
 ## Support
 
 If you encounter any issues or have questions while working with your Nano 33 BLE Sense Rev2 board, we provide various support resources to help you find answers and solutions.
