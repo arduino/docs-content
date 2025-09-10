@@ -301,7 +301,7 @@ The Nano 33 BLE Sense Rev2's pins are organized into the following categories:
 |   **Pin Type**   | **Count** |      **Pin Numbers**      |        **Primary Functions**         |
 | :--------------: | :-------: | :-----------------------: | :----------------------------------: |
 | **Digital Pins** |    14     |       `D0` - `D13`        | Digital I/O, PWM (5 pins), SPI, UART |
-| **Analog Pins**  |     8     |        `A0` - `A7`        |    Analog input, Digital I/O, I²C    |
+| **Analog Pins**  |     8     |        `A0` - `A7`        |    Analog input, Digital I/O, I²C, DAC (`A0`)    |
 |  **Power Pins**  |     4     | `VIN`, `5V`, `3V3`, `GND` |       Power supply and ground        |
 | **Special Pins** |     2     |          `RESET`          |            System control            |
 
@@ -381,6 +381,80 @@ digitalRead(pin);
 ```
 
 The available pin modes are `OUTPUT` for digital output, `INPUT` for digital input with high impedance, and `INPUT_PULLUP` for digital input with internal pull-up resistor enabled. Digital output values can be `HIGH` (+3.3 VDC) or `LOW` (0 VDC), and digital input readings will return `HIGH` or `LOW` based on the voltage level detected on the pin.
+
+### Analog Pins
+
+The Nano 33 BLE Sense Rev2 features **8 analog input pins** (`A0` to `A7`) that can be read using the `analogRead()` function. These pins allow you to measure continuously varying voltages, making them perfect for reading sensors like potentiometers, light sensors, temperature sensors and other analog components and devices. The analog-to-digital converter (ADC) built into the nRF52840 microcontroller of the Nano 33 BLE Sense Rev2 board converts the analog voltage into a digital value that your sketch can process.
+
+The Nano 33 BLE Sense Rev2 analog pins provide the following functionality:
+
+| **Arduino Pin** | **Microcontroller Pin** | **Additional Functions** | **Special Features** |
+| :-------------: | :---------------------: | :----------------------: | :------------------: |
+|      `A0`       |         `P0.04`         |           DAC            |  12-bit DAC output   |
+|      `A1`       |         `P0.05`         |        Analog In         |  Analog input only   |
+|      `A2`       |         `P0.30`         |        Analog In         |  Analog input only   |
+|      `A3`       |         `P0.29`         |        Analog In         |  Analog input only   |
+|      `A4`       |         `P0.31`         |        SDA (I²C)         |  I²C communication   |
+|      `A5`       |         `P0.02`         |        SCL (I²C)         |  I²C communication   |
+|      `A6`       |         `P0.28`         |        Analog In         |  Analog input only   |
+|      `A7`       |         `P0.03`         |        Analog In         |  Analog input only   |
+
+***__Important note:__ Pins `A4` and `A5` are primarily used for I²C communication (SDA and SCL respectively).***
+
+The Nano 33 BLE Sense Rev2's analog pins offer the following specifications:
+
+| **Specification**  |   **Value**   |          **Notes**           |
+| :----------------: | :-----------: | :--------------------------: |
+|   Input Voltage    | 0 to +3.3 VDC |  Maximum safe input voltage  |
+| Default Resolution |    10-bit     |        Values 0-1023         |
+| Maximum Resolution |    12-bit     |        Values 0-4095         |
+| Default Reference  |   +3.3 VDC    |         AREF voltage         |
+| Internal Reference |   +0.6 VDC    | Built-in precision reference |
+
+You can read analog values using the `analogRead()` function:
+
+```arduino
+value = analogRead(pin);
+``` 
+The default reference voltage of these pins is +3.3 VDC, but this can be changed using the `analogReference()` function. You can use `analogReference(AR_VDD)` for the default reference of +3.3 VDC, `analogReference(AR_INTERNAL)` for the built-in reference of +0.6 VDC, `analogReference(AR_INTERNAL1V2)` for the built-in reference of +0.6 VDC with 2x gain, and `analogReference(AR_INTERNAL2V4)` for the built-in reference of +0.6 VDC with 4x gain.
+
+The default resolution is set to 10-bit, but it can be updated to 12-bit resolution using the `analogReadResolution()` function in the `setup()` of your sketch. Available options are analogReadResolution(10) for default 10-bit and analogReadResolution(12) for 12-bit for maximum 14-bit resolution.
+
+### PWM (Pulse Width Modulation)
+
+The Nano 33 BLE Sense Rev2 board  features multiple pins with PWM capability that can be used to generate analog-like output signals. PWM works by rapidly switching a digital output between `HIGH` and `LOW` states, where the ratio of `HIGH` time to the total period determines the effective analog voltage output.
+
+The Nano 33 BLE Sense Rev2 board provides PWM functionality on the following pins:
+
+| **Arduino Pin** | **Microcontroller Pin** | **PWM Channel** | **Primary Function**  |
+| :-------------: | :---------------------: | :-------------: | :-------------------: |
+|      `D2`       |         `P1.11`         |   Channel 0B    |      Digital I/O      |
+|      `D3`       |         `P1.12`         |   Channel 0B    |      Digital I/O      |
+|      `D4`       |         `P1.15`         |   Channel 0B    |      Digital I/O      |
+|      `D5`       |         `P1.13`         |   Channel 1B    |      Digital I/O      |
+|      `D6`       |         `P1.14`         |   Channel 0A    |      Digital I/O      |
+|      `D7`       |         `P0.23`         |   Channel 0B    |      Digital I/O      |
+|      `D8`       |         `P0.21`         |   Channel 0B    |      Digital I/O      |
+|      `D9`       |         `P0.27`         |   Channel 0B    |      Digital I/O      |
+|      `D10`      |         `P1.02`         |   Channel 2A    |  Digital I/O, SPI CS  |
+|      `D11`      |         `P1.01`         |   Channel 5A    | Digital I/O, SPI MOSI |
+|      `D12`      |         `P1.08`         |   Channel 0B    |      Digital I/O      |
+|      `D13`      |         `P0.13`         |   Channel 0B    |      Digital I/O      |
+
+***__Important note:__ . The onboard LEDs (`LEDR`, `LEDG`, `LEDB`, `LED_BUILTIN`) also support PWM for brightness control.***
+
+You can use PWM pins as analog output pins with the `analogWrite()` function:
+
+```arduino
+analogWrite(pin, value);
+```
+
+By default, the resolution is 8-bit (0 to 255). You can use analogWriteResolution() to change this, supporting up to 12-bit (0 to 4095) resolution: 
+
+```arduino
+analogWriteResolution(resolution);
+```
+
 ## Support
 
 If you encounter any issues or have questions while working with your Nano 33 BLE Sense Rev2 board, we provide various support resources to help you find answers and solutions.
