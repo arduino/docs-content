@@ -384,7 +384,6 @@ The UNO R4 WiFi of the Arduino Starter Kit R4 is subject to individual FCC regul
 
 - [UNO R4 WiFi Compliance Information](https://docs.arduino.cc/hardware/uno-r4-wifi/) **[1]**
 
-
 <p style="text-align: justify;">
 Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
 </p>
