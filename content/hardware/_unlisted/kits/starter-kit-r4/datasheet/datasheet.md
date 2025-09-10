@@ -1,7 +1,7 @@
 ---
 identifier: K000007_R4
 title: Arduino® Starter Kit R4
-type: edu
+type: maker
 ---
 
 ![](assets/featured.png)
@@ -13,21 +13,23 @@ type: edu
 
 # Target Areas
 
-Education, IoT learning, embedded programming, maker prototyping, STEM classrooms
+Education, embedded programming, maker prototyping, STEM classrooms
 
 # CONTENTS
 
 ## Application Examples
 
 <p style="text-align: justify;">
-The Starter Kit R4 offers a wide variety of practical applications, from classroom-friendly tutorials to Internet-connected prototypes. Below are a few examples of what learners and developers can build with the kit:
+The Starter Kit R4 offers a wide variety of practical applications, from classroom-friendly tutorials to interactive prototypes. Below are a few examples of what learners and developers can build with the kit:
 </p>
 
-- <p style="text-align: justify;"><strong>IoT Projects</strong>: Leverage Wi-Fi® to connect sensors and actuators to the Cloud for smart home automation, weather monitoring, or remote control systems.</p>
-- <p style="text-align: justify;"><strong>Educational Tools</strong>: Teach students the fundamentals of electronics, embedded coding, and control logic using interactive guided experiments.</p>
-- <p style="text-align: justify;"><strong>LED Matrix Animations</strong>: Use the onboard 12x8 red LED matrix to create visual displays, status indicators, or animations for feedback and communication.</p>
-- <p style="text-align: justify;"><strong>Environmental Monitoring</strong>: Build temperature-based monitoring systems using included thermistors and output data via Wi-Fi® or LED visuals.</p>
-- <p style="text-align: justify;"><strong>Robotics & Motion</strong>: Drive DC or servo motors to explore basic robotics and automated movement control applications.</p>
+- <p style="text-align: justify;"><strong>Interactive Interfaces</strong>: Create game controllers and HID devices that can interact directly with computers, exploring the bridge between physical and digital controls.</p>
+- <p style="text-align: justify;"><strong>Educational Tools</strong>: Teach students the fundamentals of electronics, embedded coding, and control logic using interactive guided experiments and hands-on projects.</p>
+- <p style="text-align: justify;"><strong>LED Matrix Animations</strong>: Use the onboard 12x8 red LED matrix to create visual displays, heartbeat monitors, status indicators, or animations for feedback and communication.</p>
+- <p style="text-align: justify;"><strong>Temperature Sensing</strong>: Build temperature-based monitoring systems using included thermistors to create chill-o-meters and responsive feedback devices.</p>
+- <p style="text-align: justify;"><strong>Robotics & Motion</strong>: Drive DC or servo motors to explore basic robotics and automated movement control applications like motorized pinwheels.</p>
+- <p style="text-align: justify;"><strong>Sound & Music Projects</strong>: Create musical instruments, synthesizers, and sound-responsive devices using piezo speakers, capacitive touch, and light sensors.</p>
+- <p style="text-align: justify;"><strong>Sensor-Based Feedback Systems</strong>: Develop touch-sensitive lamps, knock detectors, and mood indicators that respond to physical interactions and environmental changes.</p>
 
 <div style="page-break-after: always;"></div>
 
@@ -59,6 +61,7 @@ The book explains each step clearly and includes drawings and sample code. You c
 <a href="https://www.arduino.cc/starterkit" target="_blank">arduino.cc/starterkit</a> for updates and more projects.
 </p>
 Suggested additional materials are listed in the details of each project, such as basic crafting materials: paper, tape, markers, scissors and more. These are not included in the kit.
+
 ### Starter Kit R4 Online Projects
 
 <p style="text-align: justify;">
@@ -69,12 +72,13 @@ The Starter Kit R4 includes a set of online projects. These projects build on th
 The projects listed below represent the content available at the time of the kit's launch. Additional online projects will continue to be added over time to expand the learning experience and showcase new projects.
 </p>
 
-| **No.** | **Project Title** | **What You Learn**                                                                                 |
-|--------:|-------------------|----------------------------------------------------------------------------------------------------|
-|      00 | Welcome Online    | Learn how to use the online Arduino Cloud platform.                                                |
-|      14 | HIDden Powers     | Build a game controller that can interact with your computer, using HID and pushbuttons.           |
-|      15 | Heartbeat Monitor | Use the Love Button to pulse a heartbeat on the LED Matrix. |
-|      16 | Funky Synth       | Build a funky synth using capacitive touch and a piezo speaker.                                    |
+| **No.** | **Project Title**                         | **What You Learn**                                                                       |
+|--------:|-------------------------------------------|------------------------------------------------------------------------------------------|
+|    00-1 | Welcome Online                            | Learn how to use the online Arduino Cloud platform.                                      |
+|    00-2 | Build a Project with Arduino AI Assistant | Learn how to build a project with the help of the Arduino AI assistant speaker.          |
+|      14 | HIDden Powers                             | Build a game controller that can interact with your computer, using HID and pushbuttons. |
+|      15 | Heartbeat Monitor                         | Use the Love Button to pulse a heartbeat on the LED Matrix.                              |
+|      16 | Funky Synth                               | Build a funky synth using capacitive touch and a piezo speaker.                          |
 
 <p style="text-align: justify;">
 You can follow the link below to access the official online course platform [11], where you will find the online projects with step-by-step instructions:
@@ -362,11 +366,6 @@ Now that you have gone through the basics of what you can do with the Starter Ki
 
 ![Board Dimensions](assets/mechanicalDrawingWiFi.png)
 
-### Notes
-
-- Compatible with classic Arduino UNO shields
-- Sufficient clearance required when stacking modules
-
 <div style="page-break-after: always;"></div>
 
 ## Product Compliance
@@ -385,6 +384,90 @@ The UNO R4 WiFi of the Arduino Starter Kit R4 is subject to individual FCC regul
 
 - [UNO R4 WiFi Compliance Information](https://docs.arduino.cc/hardware/uno-r4-wifi/) **[1]**
 
+## Declaration of Conformity CE DoC (EU)
+
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
+
+## Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
+
+Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
+
+| **Substance**                          | **Maximum Limit (ppm)** |
+| -------------------------------------- | ----------------------- |
+| Lead (Pb)                              | 1000                    |
+| Cadmium (Cd)                           | 100                     |
+| Mercury (Hg)                           | 1000                    |
+| Hexavalent Chromium (Cr6+)             | 1000                    |
+| Poly Brominated Biphenyls (PBB)        | 1000                    |
+| Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
+| Bis(2-Ethylhexyl) phthalate (DEHP)     | 1000                    |
+| Benzyl butyl phthalate (BBP)           | 1000                    |
+| Dibutyl phthalate (DBP)                | 1000                    |
+| Diisobutyl phthalate (DIBP)            | 1000                    |
+
+Exemptions : No exemptions are claimed.
+
+Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs ([https://echa.europa.eu/web/guest/candidate-list-table](https://echa.europa.eu/web/guest/candidate-list-table)), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
+
+## Conflict Minerals Declaration
+
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
+
+## FCC Caution
+
+Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
+
+This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
+
+(1) This device may not cause harmful interference
+
+(2) this device must accept any interference received, including interference that may cause undesired operation.
+
+**FCC RF Radiation Exposure Statement:**
+
+1. This Transmitter must not be co-located or operating in conjunction with any other antenna or transmitter.
+
+2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment.
+
+3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
+
+**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
+device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
+reasonable protection against harmful interference in a residential installation. This equipment
+generates, uses and can radiate radio frequency energy and, if not installed and used in
+accordance with the instructions, may cause harmful interference to radio communications.
+However, there is no guarantee that interference will not occur in a particular installation. If
+this equipment does cause harmful interference to radio or television reception, which can be
+determined by turning the equipment off and on, the user is encouraged to try to correct the
+interference by one or more of the following measures:
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the
+receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
+
+English:
+User manuals for licence-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:
+
+(1) this device may not cause interference
+
+(2) this device must accept any interference, including interference that may cause undesired operation of the device.
+
+French:
+Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :
+
+(1) l’ appareil nedoit pas produire de brouillage
+
+(2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
+
+**IC SAR Warning:**
+
+English
+This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
+
+French:
+Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
+
 <div style="page-break-after: always;"></div>
 
 ## Company Information
@@ -395,19 +478,19 @@ The UNO R4 WiFi of the Arduino Starter Kit R4 is subject to individual FCC regul
 
 ## Reference Documentation
 
-| **No.** | **Reference**                | **Link**                                                             |
-|--------:|------------------------------|----------------------------------------------------------------------|
-|       1 | UNO R4 WiFi Documentation    | https://docs.arduino.cc/hardware/uno-r4-wifi/                        |
-|       2 | Arduino IDE                  | https://www.arduino.cc/en/software                                   |
-|       3 | Arduino Cloud Editor         | https://create.arduino.cc/editor                                     |
-|       4 | Language Reference           | https://www.arduino.cc/reference/en/                                 |
-|       5 | Project Hub                  | https://create.arduino.cc/projecthub                                 |
-|       6 | Cloud Getting Started Guide  | https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started   |
-|       7 | LED Matrix Examples          | https://docs.arduino.cc/tutorials/uno-r4-wifi/led-matrix             |
-|       8 | Wi-Fi Examples               | https://docs.arduino.cc/tutorials/uno-r4-wifi/wifi-examples          |
-|       9 | Library Reference            | https://github.com/arduino-libraries/                                |
-|      10 | Online Store                 | https://store.arduino.cc/products/arduino-starter-kit-multi-language |
-|      11 | Online Starter Kit R4 Course | https://courses.arduino.cc/starterkitr4                              |
+| **No.** | **Reference**                | **Link**                                                           |
+|--------:|------------------------------|--------------------------------------------------------------------|
+|       1 | UNO R4 WiFi Documentation    | https://docs.arduino.cc/hardware/uno-r4-wifi/                      |
+|       2 | Arduino IDE                  | https://www.arduino.cc/en/software                                 |
+|       3 | Arduino Cloud Editor         | https://create.arduino.cc/editor                                   |
+|       4 | Language Reference           | https://www.arduino.cc/reference/en/                               |
+|       5 | Project Hub                  | https://create.arduino.cc/projecthub                               |
+|       6 | Cloud Getting Started Guide  | https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started |
+|       7 | LED Matrix Examples          | https://docs.arduino.cc/tutorials/uno-r4-wifi/led-matrix           |
+|       8 | Wi-Fi Examples               | https://docs.arduino.cc/tutorials/uno-r4-wifi/wifi-examples        |
+|       9 | Library Reference            | https://github.com/arduino-libraries/                              |
+|      10 | Online Store                 | https://store.arduino.cc/products/starter-kit-r4                   |
+|      11 | Online Starter Kit R4 Course | https://courses.arduino.cc/starterkitr4                            |
 
 ## Document Revision History
 
