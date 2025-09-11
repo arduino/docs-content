@@ -17,7 +17,7 @@ There are two different versions of provisioning, 1.0 and 2.0. These different v
 
 If your board is provisioned to the Cloud with version 1.0, the network credentials will be stored in a "secret.h" file that can be found on the "thing" page, in the "sketch" tab. As shown here:
 
-![Sketch tab on thing page]()
+![Sketch tab on thing page](assets/sketch-tab.png)
 
 If your board is provisioned to the Cloud with version 2.0 the network credentials will be stored on the board.
 
@@ -56,8 +56,6 @@ This will take you to the setup menu for your device. You can now choose between
 
 Now you have to decide how you want to set up your board with the Cloud, either via Bluetooth® or USB cable (you can check if your board is compatible with the Bluetooth method below). These two options have different processes, pick the method that suits your needs best and follow the section for your chosen method.
 
-***NOTE: If you want to use the Bluetooth method and you have an older board you need to first connect the board to the Cloud in order to update it to the newer provisioning version. Please follow the instructions [here]((#migrating-from-version-10-to-20)) first.***
-
 ## Bluetooth Provisioning
 
 ### Compatible boards
@@ -65,10 +63,6 @@ Now you have to decide how you want to set up your board with the Cloud, either 
 Here are the boards that are compatible with Bluetooth provisioning via a Bluetooth connection:
 
 - [Arduino UNO R4 WiFi](https://docs.arduino.cc/hardware/uno-r4-wifi/) (Wi-Fi firmware version 0.6.0 or later required)
-- [Arduino Opta](https://docs.arduino.cc/hardware/opta/)
-- [Arduino GIGA R1 WiFi](https://docs.arduino.cc/hardware/giga-r1-wifi/)
-- [Arduino Portenta H7](https://docs.arduino.cc/hardware/portenta-h7/)
-- [Arduino Nicla Vision](https://docs.arduino.cc/hardware/nicla-vision/)
 
 ### Setting up Your Device With Bluetooth
 
@@ -116,9 +110,9 @@ To find out more about Arduino Cloud Things, go [here](https://docs.arduino.cc/a
 
 ## Migrating from version 1.0 to 2.0
 
-If you have a board that is compatible with version 2.0 but have provisioned it previously with version 1.0 you will need to follow these steps to upgrade it.
+If you would like to upgrade your board from 1.0 to 2.0, so that your network credentials are saved on the baords storage and so that the board can be updated via BLE. And If you have a board that is compatible with version 2.0 but have provisioned it previously with version 1.0, please follow the instructions in this section! 
 
-Go to the device page [here](https://app.arduino.cc/devices) and press the **+ DEVICE** button.
+Go to the device page [here](https://app.arduino.cc/devices), if the board is on the list already please delete it. Then press the **+ DEVICE** button.
 
 ![Device page](assets/creating-new-device.png)
 
@@ -131,3 +125,20 @@ Now your board will be updated to version 2.0, wait for the process to finish.
 ![Board being updated](assets/migration-process.png)
 
 When this is done you can continue setting up the network connection for your board and it will now be using the latest provisioning method with the Arduino Cloud!
+
+### Removing Saved Network Configuration
+
+This section will explain how to remove the stored network credentials and force the restart of the BLE interface of a board that has been provisioned with version 2.0. This can be useful to either reset the board or to update the network credentials via BLE.
+
+If you want to remove the stored network credentials and force the restart of the BLE interface, so that the network credentials can be updated via BLE. Please follow these instructions depending on your baord:
+
+- `Arduino Opta`: Press and hold the user button (BTN_USER) until the led (LED_USER) turns off
+- `Arduino MKR WiFi 1010`: Short pin 7 to GND until the led turns off
+- `Arduino GIGA R1 WiFi`: Short pin 7 to GND until the led turns off
+- `Arduino Nano RP2040 Connect`: Short pin 2 to 3.3V until the led turns off
+- `Arduino Portenta H7`: Short pin 0 to GND until the led turns off
+- `Arduino Portenta C33`: Short pin 0 to GND until the led turns off
+- `Other boards`: Short pin 2 to GND until the led turns off
+- `Portenta Machine Control`: Currently the reset procedure is not available
+
+If you would like to remove the network credentials from the board, you can use the (**Arduino_NetworkConfigurator**)[https://github.com/arduino-libraries/Arduino_NetworkConfigurator?tab=readme-ov-file] library. Open Arduino IDE and on the left side open the **libray manager**. Search for **Arduino_NetworkConfigurator** and download it. Once it is downloaded go to **File > Examples > Arduino_NetworkConfigurator > Utility > DeleteConfiguration**, this will open a new example sketch. Select your board and port then upload this example sketch to your board. When the sketch has been uploaded you can look at the serial monitor to monitor the progress and troubleshoot if needed.
