@@ -2,10 +2,10 @@
 title: Modulino Buzzer
 url_shop: https://store.arduino.cc/products/modulino-buzzer
 url_guide: https://courses.arduino.cc/plugandmake
-primary_button_url: https://docs.arduino.cc/tutorials/modulino-buzzer/how-buzzer-ardu/
-primary_button_title: With Arduino
-secondary_button_url: https://docs.arduino.cc/tutorials/modulino-buzzer/how-buzzer-mp/
-secondary_button_title: With MicroPython
+primary_button_url: https://docs.arduino.cc/tutorials/modulino-buzzer/how-buzzer/
+primary_button_title: Get Started
+secondary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-general/
+secondary_button_title: More on Modulinos
 forumCategorySlug: '/hardware/accessories/modulino-buzzer/215'
 sku: [ABX00108]
 ---

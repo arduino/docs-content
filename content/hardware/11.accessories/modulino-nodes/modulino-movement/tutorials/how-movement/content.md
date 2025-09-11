@@ -52,6 +52,15 @@ The default address for the Module is:
 
 The address can be changed through hardware modification (see the generic guide for details).
 
+![Adress change hardware](assets/I2C-change-movement.png)
+
+1. Disconnect all power from the module
+2. Locate the address selection solder jumpers on the back of the board
+3. Cut the trace on the jumper marked **Default** (0x6A)
+4. Solder closed the jumper marked **0x6B**
+
+**IMPORTANT**: Never have both jumpers closed simultaneously when power is applied, as this will create a short circuit that could damage your module.
+
 ### Pinout
 
 ![Arduino Movement Pinout](assets/MovementPinouts.png)

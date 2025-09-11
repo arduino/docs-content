@@ -51,9 +51,13 @@ The Modulino features two QWIIC connectors, which are internally connected in pa
 
 When QWIIC is not available, you can use the exposed solderable pins on the module. You can solder pins to the unpopulated pads; just remember the pinout provided in each module's guide to connect to the right pins of your board.
 
+![Solderable Header](assets/connection-guide-gen-jumper.png)
+
 ### Daisy-Chaining Multiple Modulino Nodes
 
 Regardless of whether you connect the first Modulino via QWIIC or through the solderable pins, you can still take advantage of the extra QWIIC connector to daisy-chain additional modules.
+
+![QWIIC Chain](assets/connection-guide-thermo-qwiic-chain.png)
 
 Each Modulino includes two QWIIC connectors wired in parallel, allowing you to connect one module to the next in a chain. As long as each module is configured with a unique I²C address, they can all communicate on the same bus.
 
@@ -86,8 +90,10 @@ To install the IDE, please visit our [getting started page](https://docs.arduino
 After opening the IDE:
 1. Look for the tab on the left side
 2. Click the book icon for "Library Manager"
+![Library Tab](assets/IDE-Left-Tab.png)
 3. Search for "Modulino" in the search box
 4. Click "Install"
+![Library Manager](assets/library-install.gif)
 
 A prompt might appear saying that additional dependencies are required. This is not a problem, as they will be automatically added when you confirm the prompt.
 
@@ -108,11 +114,12 @@ To simplify the process, the [MicroPython Package Installer](https://github.com/
 
 1. Open the tool
 2. Plug in your board to the computer
-   - If the board does not appear in the Detected Boards section, click Reload
-   - If the board is still undetected, ensure no other programs are using the board's COM port
-3. Search for the `Modulino` package by filling in the text box on the search feature
-4. Click Install and wait for the installation confirmation
-5. Disconnect the board from the tool before returning to your code editor to avoid conflicts due to a busy COM port
+  If the board does not appear in the Detected Boards section, click Reload
+  If the board is still undetected, ensure no other programs are using the board's COM port
+  ![alt text](assets/package-installer-overview.png)
+1. Search for the `Modulino` package by filling in the text box on the search feature
+2. Click Install and wait for the installation confirmation
+3. Disconnect the board from the tool before returning to your code editor to avoid conflicts due to a busy COM port
 
 After installation, you can import modules using:
 ```python
@@ -129,7 +136,7 @@ Some Modulinos support software-configurable I²C addresses, allowing multiple i
 
 ### For Arduino (Software-Configurable Modules)
 
-An example sketch, `AddressChanger`, is included with the library inside the `Utilities` folder and available [here](https://github.com/arduino-libraries/Modulino/blob/main/examples/Utilities/AddressChanger/AddressChanger.ino).
+An example sketch, `AddressChanger`, is included with the library inside the `Utilities` folder and available [here](https://github.com/arduino-libraries/Modulino/blob/main/examples/Utilities/AddressChanger/AddressChanger.ino).![](assets/adressChangeFile.png)
 
 To change the address:
 1. Connect the module to your board (remove any other modules from the chain)
@@ -137,6 +144,7 @@ To change the address:
 3. Open the Serial Monitor
 4. Ensure the correct baud rate is selected if displayed characters seem corrupted
 5. Select the new address and confirm
+![Adress Selection](assets/I2CAdressChange.png)
 6. Valid I²C addresses range from 0x08 to 0x77 (7-bit values in hexadecimal format)
 
 When using a custom address in your sketch, specify this address when creating the module object:
@@ -158,17 +166,6 @@ When using a custom address in MicroPython:
 ```python
 buzzer_module = ModulinoBuzzer(address=0x45)  # Replace 0x45 with your specific address
 ```
-
-### Hardware Address Selection (Movement Module)
-
-The Modulino Movement can be configured to use an alternative I²C address through hardware modification:
-
-1. Disconnect all power from the module
-2. Locate the address selection solder jumpers on the back of the board
-3. Cut the trace on the jumper marked **Default** (0x6A)
-4. Solder closed the jumper marked **0x6B**
-
-**IMPORTANT**: Never have both jumpers closed simultaneously when power is applied, as this will create a short circuit that could damage your module.
 
 ### Tracking Address Changes
 
