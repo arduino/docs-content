@@ -7,7 +7,6 @@ primary_button_title: User Manual
 secondary_button_url: /tutorials/portenta-max-carrier/x8-getting-started
 secondary_button_title: Get Started With X8
 core: arduino:mbed_portenta
-certifications: [CE, UKCA, FCC, RCM, RoHS,IC]
 sku: [ABX00043]
 ---
 

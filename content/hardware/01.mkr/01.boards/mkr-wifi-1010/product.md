@@ -5,7 +5,6 @@ url_guide: /software/ide-v2/tutorials/ide-v2-board-manager#samd
 draft: true
 core: arduino:samd
 forumCategorySlug: "/hardware/mkr-boards/mkrwifi1010/147"
-certifications: [FCC, UKCA, IC, RoHS, RCM, MIC, CE]
 productCode: "025"
 primary_button_url: /software/ide-v2/tutorials/ide-v2-board-manager#samd
 primary_button_title: Get Started

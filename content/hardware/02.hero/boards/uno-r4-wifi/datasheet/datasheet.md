@@ -234,9 +234,11 @@ The DAC can be used for signal generation for e.g. audio applications, like gene
 
 ## Qwiic I2C Connector
 
-The I2C Qwiic connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. Note that this connector is powered via 3.3 V.
+The I2C Qwiic connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus (I2C0) on the board. This connector is powered via 3.3 V following the Qwiic standard system and makes the board compatible with the Arduino Modulino nodes.
 
 ![I2C Qwiic connector.](assets/i2c-connector.png)
+
+**Note:** The Qwiic I2C bus object is `Wire1` and the standard I2C bus object is `Wire`.
 
 The standard I2C is accessible through the following pin connections:
 
@@ -248,7 +250,9 @@ The standard I2C is accessible through the following pin connections:
 - SDA
 - SCL
 
-**Note:** as A4/A5 is connected to the main I2C bus, these should not be used as ADC inputs whenever the bus is in use. You can however connect I2C devices to each of these pins and connectors simultaneously.
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+A4 and A5 are connected to the main I2C bus, these pins should not be used as ADC inputs whenever the bus is in use. You can however connect I2C devices to each of these pins and connectors simultaneously.
+</div>
 
 ## Power Options
 
@@ -288,7 +292,7 @@ For powering e.g. servo motors, always use an external power supply.
 
 | Pin | Function | Type   | Description                                      |
 | --- | -------- | ------ | ------------------------------------------------ |
-| 1   | BOOT     | NC     | Not Connected                                    |
+| 1   | BOOT     | Mode   | Mode selection                                   |
 | 2   | IOREF    | IOREF  | Reference for digital logic V - connected to 5 V |
 | 3   | Reset    | Reset  | Reset                                            |
 | 4   | +3V3     | Power  | +3V3 Power Rail                                  |

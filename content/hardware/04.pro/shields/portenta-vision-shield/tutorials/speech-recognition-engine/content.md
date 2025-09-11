@@ -76,7 +76,7 @@ The Arduino Speech Recognition Engine is a solution powered by Cyberon that requ
 * Install the library on your IDE
 * Test the free demo sketch
 
-In case you would like to extend the engine functionalities, you will have to purchase [a voucher on the Arduino Store](https://store.arduino.cc/products/arduino-speech-recognition-engine) and follow the next steps:
+In case you would like to extend the engine functionalities, you will have to purchase [a voucher on the Arduino Store](https://store.arduino.cc/products/speech-recognition-engine) and follow the next steps:
 * Fill in the required information on Cyberon's website
 * Get the required files and activate your license
 
@@ -346,7 +346,7 @@ Inside each case add your custom code to be executed with the trigger or command
 #### Unlock Limitations (License)
 
 In case you want to further customize your model or add additional commands or trigger words, we have the right licenses for you:
-- **Speech Recognition license.** Vouchers available on the [Arduino Store](https://store.arduino.cc/products/arduino-speech-recognition-engine).
+- **Speech Recognition license.** Vouchers available on the [Arduino Store](https://store.arduino.cc/products/speech-recognition-engine).
 - **Pro License.** Feel free to [contact us](https://www.arduino.cc/pro/contact-us/) to unlock all the limitations.
 
 There are different licensing options to fit the needs of your project. Read more in the [Licensing section (Voucher codes)](#licensing). Note that you need to have an already existing project to use a paid license. Check the [previous section](#create-a-new-project) to know more.
@@ -367,7 +367,7 @@ Click next, review your project options and press continue.
 
 You will get a new e-mail with the new License and Model headers.
 
-***Warning: in case you are using a Speech Recognition License (not Pro), please note that deployed models are not customizable. You can always purchase an additional voucher on [Arduino Store](https://store.arduino.cc/products/arduino-speech-recognition-engine) to generate a new model for the same hardware.***
+***Warning: in case you are using a Speech Recognition License (not Pro), please note that deployed models are not customizable. You can always purchase an additional voucher on [Arduino Store](https://store.arduino.cc/products/speech-recognition-engine) to generate a new model for the same hardware.***
 
 Open the sketch you have duplicated in the [Create New Project](#create-a-new-project) section.
 

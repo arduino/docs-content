@@ -1,0 +1,7 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - cloud-editor
+hardware:
+  boards:
+    - portenta-c33

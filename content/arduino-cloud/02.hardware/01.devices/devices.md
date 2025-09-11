@@ -46,7 +46,7 @@ Wi-Fi® devices connect to the Arduino Cloud via a local network and are suitabl
 
 Most Wi-Fi® supported Arduino boards have a crypto chip that enables secure communication. This chip is configured during setup and enables secure communication for the board without having to enter any API keys in the code.
 
-Wi-Fi devices require you to enter valid credentials for the Wi-Fi network you attempt to connect to. This is done in the Thing configuration. 
+Wi-Fi devices require you to enter valid credentials for the Wi-Fi network you attempt to connect to. This is done in the Device configuration. 
 
 ***Read more and see the list of all compatible Wi-Fi® boards in the [Arduino Cloud Wi-Fi documentation](/arduino-cloud/hardware/wifi).***
 

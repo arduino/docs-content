@@ -117,6 +117,8 @@ Open the Arduino PLC IDE program, and the welcome screen will greet you.
 
 The following sections will guide you through creating a project, downloading the runtime, and properly interfacing the Portenta Machine Control or Opta™ with its dedicated license activation procedure.
 
+***Before using the PLC IDE with your Opta™ or Portenta Machine Control device, ensure proper memory partitioning using the latest Arduino Mbed OS board core (version 4.3.1 or higher) and libraries. Memory partitioning ensures your device is configured with the intended default settings for optimal PLC IDE functionality. Please refer to the [__Memory Partitioning for Use with the Arduino IDE tutorial__](https://docs.arduino.cc/tutorials/opta/memory-partitioning/) for more information.***
+
 ### 2. Project Setup
 
 Create a new project by clicking the middle **New project ...** button or **File > New Project**.

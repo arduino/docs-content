@@ -6,7 +6,6 @@ primary_button_url: /tutorials/portenta-mid-carrier/user-manual
 primary_button_title: User Manual
 secondary_button_url: /hardware/pro-4g-module
 secondary_button_title: Pro 4G Module
-certifications: [CE, UKCA]
 forumCategorySlug: '/hardware/portenta/91'
 sku: [ASX00055]
 ---

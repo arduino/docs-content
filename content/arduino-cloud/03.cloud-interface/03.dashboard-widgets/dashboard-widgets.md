@@ -69,7 +69,7 @@ A full list of widgets and how to use them is available in the [List of Widgets]
 
 ### Download Historical Data
 
-Data which is streamed to a widget is also available for download. The data retention rate depends on your Arduino Cloud plan. For example, an **entry plan** has a data retention of 15 days. You can download it as an `.csv` file that can easily be used with Excel, Google Sheets etc. 
+Data which is streamed to a widget is also available for download. The data retention rate depends on your Arduino Cloud plan. You can download it as an `.csv` file that can easily be used with Excel, Google Sheets etc. 
 
 ***Learn more about downloading data in the [Historical Data on the Arduino Cloud](/arduino-cloud/features/iot-cloud-historical-data) tutorial.***
 
@@ -262,7 +262,7 @@ valueVariable = analogRead(A0);
 
 ![Status Widget](assets/widget-status.png)
 
-The status widget is great for checking the state of something: green is true, red is false!
+The status widget is great for checking the state of something: green is true, red is false! The look of the widget can also be customized more. If the "Custom style" is turned on in the widget settings the colors can be changed. If the "Icons" option is chosen the icons can also be changed.
 
 Can be linked to a **boolean** variable.
 
@@ -321,6 +321,14 @@ ledVariable = true;
 //or
 ledVariable = false;
 ```
+
+### Link
+
+![Link Widget](assets/link-widget.png)
+
+The Link widget lets you put a link on your dashboard! The icon, color and label can be fully customized to your liking. The correct URL format for this widget is for example "`https://arduino.cc`". If the you get the error "Invalid URL format", please try adding "https://" to the start of your URL.
+
+![Link Widget options](assets/link-widget-options.png)
 
 ### Map
 

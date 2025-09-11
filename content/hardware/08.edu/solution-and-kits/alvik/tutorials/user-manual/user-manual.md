@@ -256,7 +256,7 @@ The Arduino Alvik robot is equipped with an onboard IMU (Inertial Measurement Un
 
 ### Motors
 
-The Alvik is equipped with two geared motors, specifically the GM12-N20VA-08255-150-EN. These motors allow for precise and reliable movement, essential for accurate navigation and control as  each motor includes a magnetic relative encoder to ensure precise control and feedback of the motor's position.
+The Alvik is equipped with two geared motors, specifically the GM12-N20VA-08255-150-EN. These motors allow for precise and reliable movement, essential for accurate navigation and control as each motor includes a magnetic relative encoder to ensure precise control and feedback of the motor's position.
 
 - **Gear Ratio:** 1:150
 - **Operating Voltage:** 6V
@@ -300,7 +300,7 @@ To get started to play with Alvik you will need the following hardware and softw
 
 It may happen that you used your Nano ESP32 for other projects than Alvik, or you need to replace it. In order to make your Nano ESP32 work with Alvik, there are few steps needed:
 
-1. Install the MicroPython bootloader on it following [this guide](https://docs.arduino.cc/micropython/basics/board-installation/).
+1. Install the MicroPython bootloader on it following [this guide](https://docs.arduino.cc/micropython/first-steps/install-guide/).
 
 2. Download the Alvik Micropython libraries Alvik MicroPython libraries from the [Alvik repository](https://github.com/arduino/arduino-alvik-mpy/tree/main)
 ucPack libraries from the [ucPack repository](https://github.com/arduino/ucPack-mpy/tree/main)

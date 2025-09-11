@@ -1,5 +1,8 @@
 ---
 productsLibrariesMap:
+  - mouse
+  - keyboard
+  - modulino
   - servo
 ---
 
