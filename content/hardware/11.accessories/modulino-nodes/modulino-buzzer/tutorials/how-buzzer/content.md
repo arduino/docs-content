@@ -231,8 +231,8 @@ sleep(1)  # Wait for 1 second
 ### Key Functions
 
 - `tone(frequency, duration, blocking)`: Generates a tone with specified frequency and duration
-  - `blocking=True`: Waits for tone to complete before continuing
-  - `blocking=False`: Returns immediately while tone plays
+   `blocking=True`: Waits for tone to complete before continuing
+   `blocking=False`: Returns immediately while tone plays
 
 ### Advanced Example - Alarm System
 

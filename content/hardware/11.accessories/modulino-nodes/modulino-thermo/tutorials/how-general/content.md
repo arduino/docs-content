@@ -136,7 +136,7 @@ Some Modulinos support software-configurable I²C addresses, allowing multiple i
 
 ### For Arduino (Software-Configurable Modules)
 
-An example sketch, `AddressChanger`, is included with the library inside the `Utilities` folder and available [here](https://github.com/arduino-libraries/Modulino/blob/main/examples/Utilities/AddressChanger/AddressChanger.ino).![](assets/adressChangeFile.png)
+An example sketch, `AddressChanger`, is included with the library inside the `Utilities` folder and available [here](https://github.com/arduino-libraries/Modulino/blob/main/examples/Utilities/AddressChanger/AddressChanger.ino).![Sketch Location](assets/adressChangeFile.png)
 
 To change the address:
 1. Connect the module to your board (remove any other modules from the chain)
