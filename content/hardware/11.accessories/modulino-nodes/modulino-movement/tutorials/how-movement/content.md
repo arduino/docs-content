@@ -52,7 +52,7 @@ The default address for the Module is:
 
 The address can be changed through hardware modification (see the generic guide for details).
 
-![Adress change hardware](assets/I2C-change-movement.png)
+![Address change hardware](assets/I2C-change-movement.png)
 
 1. Disconnect all power from the module
 2. Locate the address selection solder jumpers on the back of the board

@@ -144,7 +144,7 @@ To change the address:
 3. Open the Serial Monitor
 4. Ensure the correct baud rate is selected if displayed characters seem corrupted
 5. Select the new address and confirm
-![Adress Selection](assets/I2CAdressChange.png)
+![Address Selection](assets/I2CAdressChange.png)
 6. Valid I²C addresses range from 0x08 to 0x77 (7-bit values in hexadecimal format)
 
 When using a custom address in your sketch, specify this address when creating the module object:
