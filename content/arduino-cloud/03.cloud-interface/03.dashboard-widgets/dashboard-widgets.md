@@ -359,6 +359,16 @@ An example of how it is used in a sketch:
 locationVariable = Location(51.5074, 0.1278);
 ```
 
+### Image Map
+
+![Image Map Widget]()
+
+Place markers on a map of your space – house, warehouse, plant, etc. – to see real-time data from your devices: monitor your environment at a glance!
+
+Int, Float, String, Bool and all Specialized types based on them.
+
+
+
 ### Chart
 
 ![Chart Widget](assets/widget-chart.png)
