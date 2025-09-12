@@ -22,7 +22,7 @@ The Thing interface is designed for ease-of-use and only has a few sections, whi
 
 - **1. Cloud Variables** - create variables that synchronize between a device and the Arduino Cloud.
 - **2. Devices** - configure a device that will be associated with your Thing.
-- **3. Network** - to add your Wi-Fi® network/password go to Device page.
+- **3. Network** - to modify your Wi-Fi® network/password go to Device page.
 - **4. Setup** - the main configuration space tab.
 - **5. Sketch** - access the sketch associated with your Thing.
 - **6. Metadata** - metadata such as tags, timezone and Thing ID.
@@ -68,6 +68,8 @@ The status of your device is also displayed in this section (online/offline).
 ## Network
 
 ***This option has been moved to the [Devices](/arduino-cloud/hardware/devices) section on the specific device page.***
+
+![Network settings on device page](assets/netowrk-settings-device-page.png)
 
 In the network section, you configure the credentials for your network, such as your Wi-Fi® network, secret key (for ESP32 boards) and other credentials e.g. LoRa®-based networks & cellular. The network details are securely stored.
 
