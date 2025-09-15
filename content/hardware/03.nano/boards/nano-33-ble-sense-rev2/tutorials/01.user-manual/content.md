@@ -298,12 +298,12 @@ The Nano 33 BLE Sense Rev2 features a total of **20 accessible pins** arranged i
 
 The Nano 33 BLE Sense Rev2's pins are organized into the following categories:
 
-|   **Pin Type**   | **Count** |      **Pin Numbers**      |        **Primary Functions**         |
-| :--------------: | :-------: | :-----------------------: | :----------------------------------: |
-| **Digital Pins** |    14     |       `D0` - `D13`        | Digital I/O, PWM (5 pins), SPI, UART |
-| **Analog Pins**  |     8     |        `A0` - `A7`        |    Analog input, Digital I/O, I²C, DAC (`A0`)    |
-|  **Power Pins**  |     4     | `VIN`, `5V`, `3V3`, `GND` |       Power supply and ground        |
-| **Special Pins** |     2     |          `RESET`          |            System control            |
+|   **Pin Type**   | **Count** |      **Pin Numbers**      |           **Primary Functions**            |
+| :--------------: | :-------: | :-----------------------: | :----------------------------------------: |
+| **Digital Pins** |    14     |       `D0` - `D13`        |    Digital I/O, PWM (5 pins), SPI, UART    |
+| **Analog Pins**  |     8     |        `A0` - `A7`        | Analog input, Digital I/O, I²C, DAC (`A0`) |
+|  **Power Pins**  |     4     | `VIN`, `5V`, `3V3`, `GND` |          Power supply and ground           |
+| **Special Pins** |     2     |          `RESET`          |               System control               |
 
 The Nano 33 BLE Sense Rev2 offers several advanced pin capabilities including multi-function pins that can serve multiple purposes depending on your project needs.
 
@@ -316,7 +316,7 @@ The following table shows the electrical specifications and operating limits for
 | **Max Current per Pin** |    10 mA     |            Source/sink current limit             |
 |  **Max Total Current**  |    200 mA    |          Combined current for all pins           |
 
-***__Important safety considerations when working with the Nano R4 pins:__ The microcontroller on the Arduino Nano 33 BLE Sense Rev2 runs at 3.3V, which means that you must never apply more than 3.3V to its Digital and Analog pins. Care must be taken when connecting sensors and actuators to assure that this limit of 3.3V is never exceeded. Connecting higher voltage signals, like the 5V commonly used with the other Arduino boards, will damage the Arduino Nano 33 BLE Sense Rev2.***
+***__Important safety considerations when working with the Nano 33 BLE Sense Rev2 pins:__ The microcontroller on the Arduino Nano 33 BLE Sense Rev2 runs at 3.3V, which means that you must never apply more than 3.3V to its Digital and Analog pins. Care must be taken when connecting sensors and actuators to assure that this limit of 3.3V is never exceeded. Connecting higher voltage signals, like the 5V commonly used with the other Arduino boards, will damage the Arduino Nano 33 BLE Sense Rev2.***
 
 **_To avoid such risk with existing projects, where you should be able to pull out a Nano and replace it with the new Nano 33 BLE Sense Rev2, we have the 5V pin on the header, positioned between RST and A7 that is not connected as default factory setting. This means that if you have a design that takes 5V from that pin, it won't work immediately, as a precaution we put in place to draw your attention to the 3.3V compliance on digital and analog inputs._**
 
@@ -454,6 +454,589 @@ By default, the resolution is 8-bit (0 to 255). You can use analogWriteResolutio
 ```arduino
 analogWriteResolution(resolution);
 ```
+
+***The following PWM examples use the built-in orange user LED (`LED_BUILTIN`) of the Nano 33 BLE Sense Rev2 board, which supports PWM for brightness control. This eliminates the need for external components and allows you to test PWM functionality immediately.***
+
+The following example demonstrates how to control the brightness of the built-in orange user LED using PWM:
+
+```arduino
+/**
+PWM Example for the Arduino Nano 33 BLE Sense Rev2 Board
+Name: nano_33_ble_sense_rev2_pwm_led.ino
+Purpose: This sketch demonstrates how to use PWM to control
+the brightness of the built-in user LED of the Nano 33 BLE Sense Rev2 board.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+// Built-in LED pin (supports PWM)
+const int ledPin = LED_BUILTIN;
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  // No need to set pinMode for PWM pins - analogWrite() handles this
+  
+  Serial.println("- Arduino Nano 33 BLE Sense Rev2 - PWM LED Example started...");
+  Serial.println("- Built-in LED will fade in and out continuously");
+}
+
+void loop() {
+  // Fade in (0 to 255)
+  for (int brightness = 0; brightness <= 255; brightness++) {
+    analogWrite(ledPin, brightness);
+    delay(5);
+  }
+  
+  Serial.println("- LED at maximum brightness");
+  delay(500);
+  
+  // Fade out (255 to 0)
+  for (int brightness = 255; brightness >= 0; brightness--) {
+    analogWrite(ledPin, brightness);
+    delay(5);
+  }
+  
+  Serial.println("- LED turned off");
+  delay(500);
+}
+```
+
+You should now see the built-in orange user LED of your Nano 33 BLE Sense Rev2 board gradually fade in and out, creating a smooth breathing effect that repeats continuously.
+
+Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the example sketch sends at key brightness levels.
+
+The following example demonstrates how to use a 12-bit PWM resolution for more precise control of the built-in orange user LED:
+
+```arduino
+/**
+High-Resolution PWM Example for the Arduino Nano 33 BLE Sense Rev2 Board
+Name: nano_33_ble_sense_rev2_pwm_high_res.ino
+Purpose: This sketch demonstrates how to use 12-bit PWM resolution
+for precise control of the built-in orange user LED brightness.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+// Built-in LED pin (supports PWM)
+const int pwmPin = LED_BUILTIN;
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  // Set PWM resolution to 12-bit (0-4095)
+  analogWriteResolution(12);
+  
+  Serial.println("- Arduino Nano 33 BLE Sense Rev2 - High-Resolution PWM Example started...");
+  Serial.println("- Using 12-bit resolution (0-4095) with built-in LED");
+}
+
+void loop() {
+  // Generate a smooth sine wave using 12-bit PWM
+  for (int i = 0; i < 360; i++) {
+    // Calculate sine wave value and map to 12-bit range
+    float sineValue = sin(i * PI / 180.0);
+    int pwmValue = (int)((sineValue + 1.0) * 2047.5);  // Map -1 to 1 → 0 to 4095
+    
+    analogWrite(pwmPin, pwmValue);
+    
+    // Print current values every 30 degrees
+    if (i % 30 == 0) {
+      Serial.print("- Angle: ");
+      Serial.print(i);
+      Serial.print("°, PWM Value: ");
+      Serial.println(pwmValue);
+    }
+    
+    delay(10);
+  }
+  
+  Serial.println("- Sine wave cycle completed");
+  delay(1000);
+}
+```
+
+This high-resolution example creates a smooth sine wave pattern with the built-in LED brightness, demonstrating the precision available with a 12-bit PWM resolution. You should see a very smooth transition in the LED brightness following a sine wave pattern. Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the angle and PWM value outputs that demonstrate the precise 12-bit control values being used.
+
+## Digital-to-Analog Converter (DAC)
+
+The Nano 33 BLE Sense Rev2 features a built-in 12-bit Digital-to-Analog Converter (DAC) connected to pin `A0`. Unlike PWM pins that simulate analog output through rapid switching, the DAC provides true analog voltage output. This makes it ideal for applications requiring precise analog signals, such as audio generation, sensor calibration, control systems and waveform generation.
+
+The Nano 33 BLE Sense Rev2 DAC provides the following functionality:
+
+|  **Specification**   |     **Value**     |             **Notes**              |
+| :------------------: | :---------------: | :--------------------------------: |
+|      Resolution      |      12-bit       |    4096 discrete output levels     |
+|      Output Pin      |       `A0`        |      Dedicated DAC output pin      |
+| Output Voltage Range | +0.35 to +4.5 VDC | Typical range with +3.3 VDC supply |
+|  Default Resolution  |       8-bit       |              0 to 255              |
+|  Maximum Resolution  |      12-bit       |             0 to 4095              |
+|   Output Impedance   |   5Ω (typical)    |        Low impedance output        |
+|   Conversion Time    |     Max 30 μs     |   Time to update output voltage    |
+|    Resistive Load    |     Min 30 kΩ     |      Minimum recommended load      |
+|   Load Capacitance   |     Max 50 pF     |      Maximum capacitive load       |
+
+***__Important note:__ When using the DAC on pin `A0`, this pin cannot simultaneously be used as an analog input. The DAC provides true analog output, making it superior to PWM for applications requiring smooth, continuous voltage levels.***
+
+You can write analog values to the DAC using the `analogWrite()` function:
+
+```arduino
+analogWrite(DAC, value);
+```
+
+The default resolution is 8-bit (0 to 255), but this can be changed using the `analogWriteResolution()` function. You can use `analogWriteResolution(8)` for 8-bit resolution, `analogWriteResolution(10)` for 10-bit resolution or `analogWriteResolution(12)` for maximum 12-bit resolution.
+
+The DAC reference voltage depends on the selected reference mode, and the output voltage is calculated as: `Output Voltage = (DAC_Value / 4095) × Reference_Voltage`.
+
+***The following examples demonstrate basic DAC functionality that you can easily test with the Nano 33 BLE Sense Rev2 board.***
+
+The following example demonstrates how to generate a simple voltage output using the DAC. **No external components are needed for this example**:
+
+```arduino
+/**
+DAC Basic Output Example for the Arduino Nano 33 BLE Sense Rev2 Board
+Name: nano_33_ble_sense_rev2_dac_basic.ino
+Purpose: This sketch demonstrates how to use the DAC to generate
+precise analog voltages on pin A0.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  // Set DAC resolution to 12-bit for maximum precision
+  analogWriteResolution(12);
+  
+  Serial.println("- Arduino Nano 33 BLE Sense Rev2 - DAC Basic Output Example started...");
+  Serial.println("- Generating precise voltages on pin A0");
+  Serial.println("- Connect a multimeter to A0 to measure output");
+}
+
+void loop() {
+  // Generate different voltage levels
+  // 0, +0.825, +1.65, +2.475 and +3.3 VDC
+  int dacValues[] = {0, 1024, 2048, 3072, 4095}; 
+  float voltages[] = {0.0, 0.825, 1.65, 2.475, 3.3};
+  
+  for (int i = 0; i < 5; i++) {
+    analogWrite(DAC, dacValues[i]);
+    
+    Serial.print("- DAC Value: ");
+    Serial.print(dacValues[i]);
+    Serial.print(" | Target Voltage: ");
+    Serial.print(voltages[i], 2);
+    Serial.println(" VDC");
+    
+    // Hold each voltage for 2 seconds
+    delay(2000);  
+  }
+  
+  Serial.println("- Cycle completed, repeating...");
+  delay(1000);
+}
+```
+
+To test this example, connect a digital multimeter between pin `A0` and `GND` to measure the output voltage. You should see the voltage change in precise steps every two seconds, showing the DAC's ability to generate exact analog voltages. For best results, connect an oscilloscope to pin `A0` to visualize the step output.
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the DAC values and corresponding target voltages. The output should closely match the calculated voltages with high precision.
+
+The following example demonstrates how to generate a smooth sine wave using the DAC. **No external components are needed for this example**:
+
+```arduino
+/**
+DAC Sine Wave Generator for the Arduino Nano 33 BLE Sense Rev2 Board
+Name: nano_33_ble_sense_rev2_dac_sine_wave.ino
+Purpose: This sketch generates a smooth sine wave using the 12-bit DAC
+for testing and signal generation applications.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  // Set DAC resolution to 12-bit for smooth waveform
+  analogWriteResolution(12);
+  
+  Serial.println("- Arduino Nano 33 BLE Sense Rev2 - DAC Sine Wave Generator started...");
+  Serial.println("- Generating sine wave on pin A0");
+  Serial.println("- Connect an oscilloscope to A0 to view waveform");
+}
+
+void loop() {
+  // Generate one complete sine wave cycle (360 degrees)
+  for (int angle = 0; angle < 360; angle++) {
+    // Calculate sine value (-1 to +1) and convert to DAC range (0 to 4095)
+    float sineValue = sin(angle * PI / 180.0);
+    int dacValue = (int)((sineValue + 1.0) * 2047.5);
+    
+    // Output the calculated value to DAC
+    analogWrite(DAC, dacValue);
+    
+    // Print debug info every 30 degrees
+    if (angle % 30 == 0) {
+      float voltage = (dacValue / 4095.0) * 3.3;
+      Serial.print("- Angle: ");
+      Serial.print(angle);
+      Serial.print("° | DAC: ");
+      Serial.print(dacValue);
+      Serial.print(" | Voltage: ");
+      Serial.print(voltage, 2);
+      Serial.println(" VDC");
+    }
+    
+    // Control wave frequency (~28 Hz)
+    delayMicroseconds(100);  
+  }
+}
+```
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the sine wave generation progress with angle, DAC values, and corresponding voltages. 
+
+For best results, connect an oscilloscope to pin `A0` to visualize the smooth sine wave output.
+
+## UART Communication
+
+The Nano 33 BLE Sense Rev2 board features built-in UART (Universal Asynchronous Receiver-Transmitter) communication that allows your projects to communicate with other devices through serial data transmission. UART is implemented within the nRF52840 microcontroller and provides two separate hardware serial ports: one connected to the micro USB connector for computer communication, and another available on pins `D0` and `D1` for external device communication. This makes it perfect for projects that need to communicate with sensors, modules or other microcontrollers while maintaining USB connectivity for debugging.
+
+UART is particularly useful when your project needs to communicate with devices that require simple, reliable serial communication, rather than the more complex protocols like SPI or I²C. While SPI excels at high-speed communication and I²C is ideal for multiple device networks, UART provides straightforward point-to-point communication that works well with GPS modules, Bluetooth® modules, Wi-Fi® modules and other serial devices. UART communication is asynchronous, meaning it doesn't require a shared clock signal, making it robust over longer distances.
+
+The Nano 33 BLE Sense Rev2's UART interface offers the following technical specifications:
+
+|   **Parameter**   |   **Value**    |      **Notes**       |
+| :---------------: | :------------: | :------------------: |
+|    Baud Rates     | 300 to 1000000 | Common: 9600, 115200 |
+|     Data Bits     |     8-bit      | Standard data width  |
+|   Communication   |  Full-duplex   |  Simultaneous TX/RX  |
+|  Hardware Ports   |       2        | USB Serial + Serial1 |
+|     UART Pins     |   `D0`, `D1`   | RX, TX respectively  |
+| Operating Voltage |    +3.3 VDC    |   TTL logic levels   |
+|   Flow Control    |    Software    |  XON/XOFF supported  |
+
+The Nano 33 BLE Sense Rev2 board uses the following pins for UART communication:
+
+| **Arduino Pin** | **Microcontroller Pin** | **UART Function** | **Description** |
+| :-------------: | :---------------------: | :---------------: | :-------------: |
+|      `D0`       |         `P1.03`         |        RX         |  Transmit Data  |
+|      `D1`       |         `P1.10`         |        TX         |  Receive Data   |
+
+You can communicate via UART using the built-in `Serial` and `Serial1` objects. The `Serial` object is connected to the micro USB port for computer communication, while `Serial1` is connected to pins `D0` and `D1` for external device communication.
+
+The following example demonstrates basic UART communication patterns:
+
+```arduino
+/**
+UART Basic Example for the Arduino Nano 33 BLE Sense Rev2 Board
+Name: nano_33_ble_sense_rev2_uart_basic.ino
+Purpose: This sketch demonstrates basic UART communication
+using both USB Serial and hardware Serial1.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+void setup() {
+  // Initialize USB serial communication at 115200 baud
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  // Initialize hardware serial on pins D0/D1 at 9600 baud
+  Serial1.begin(9600);
+  
+  Serial.println("- Arduino Nano 33 BLE Sense Rev2 - UART Basic Example started...");
+  Serial.println("- USB Serial (Serial): 115200 baud");
+  Serial.println("- Hardware Serial (Serial1): 9600 baud on D0/D1");
+  Serial.println("- Connect logic analyzer to D0 (TX) and D1 (RX)");
+  Serial.println("- Type messages in Serial Monitor to send via Serial1");
+  Serial.println();
+}
+
+void loop() {
+  // Check for data from USB Serial (computer)
+  if (Serial.available()) {
+    String message = Serial.readString();
+
+    // Remove newline characters
+    message.trim(); 
+    
+    if (message.length() > 0) {
+      Serial.print("- USB received: \"");
+      Serial.print(message);
+      Serial.println("\"");
+      
+      // Send the message via Serial1 (D0/D1)
+      Serial1.print("- Message from USB: ");
+      Serial1.println(message);
+      
+      Serial.println("- Message sent via Serial1 (D0/D1)!");
+    }
+  }
+  
+  // Check for data from Serial1 (external device on D0/D1)
+  if (Serial1.available()) {
+    String response = Serial1.readString();
+
+    // Remove newline characters
+    response.trim(); 
+    
+    if (response.length() > 0) {
+      Serial.print("- Serial1 received: \"");
+      Serial.print(response);
+      Serial.println("\"");
+    }
+  }
+  
+  // Send periodic test data via Serial1
+  static unsigned long lastSend = 0;
+  if (millis() - lastSend > 3000) {
+    lastSend = millis();
+    
+    // Send test data with timestamp
+    Serial1.print("Test data: ");
+    Serial1.print(millis());
+    Serial1.println(" ms");
+    
+    Serial.println("- Periodic test data sent via Serial1!");
+  }
+  
+  delay(10);
+}
+```
+
+***To test this example, no external UART devices are required, the code will demonstrate UART communication patterns that can be observed with a logic analyzer. You can type messages in the Arduino IDE's Serial Monitor to see them transmitted via `Serial1` on pins `D0`/`D1`.***
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to interact with the USB serial port and observe the communication patterns. Connect a logic analyzer to pins `D0` (TX) and `D1` (RX) to observe the actual UART protocol signals.
+
+The image below shows how the UART communication from our example appears in the Digilent Waveforms logic analyzer software, with the decoded protocol showing the transmitted data bytes and timing.
+
+The Nano 33 BLE Sense Rev2 board provides two distinct UART communication channels, giving you the flexibility to handle multiple communication tasks simultaneously. The first channel is the USB Serial (`Serial`), which is your primary interface for programming and debugging. This channel offers several key features:
+
+- Connected to the onboard USB-C connector
+- Used for programming and debugging
+- Typically runs at 115200 baud
+- Automatic baud rate detection
+- No external connections required 
+
+The second channel is the Hardware Serial (`Serial1`), which is dedicated to external device communication. This channel provides robust connectivity for your project peripherals:
+
+- Connected to pins `D0` (TX) and `D1` (RX)
+- Used for external device communication
+- Configurable baud rate (300 to 1000000)
+- TTL voltage levels (0 VDC/+3.3 VDC)
+- Requires external device connection
+
+Here is a practical example of how to use both UART channels simultaneously, such as when connecting a GPS module:
+
+```arduino
+// Example: Connecting a GPS module via Serial1
+void setup() {
+  Serial.begin(115200);   // USB debugging
+  Serial1.begin(9600);    // GPS module communication
+  
+  Serial.println("GPS module communication started");
+}
+
+void loop() {
+  // Forward GPS data to USB Serial for monitoring
+  if (Serial1.available()) {
+    String gpsData = Serial1.readString();
+    Serial.print("GPS: ");
+    Serial.print(gpsData);
+  }
+  
+  // Send commands to GPS module from USB Serial
+  if (Serial.available()) {
+    String command = Serial.readString();
+    Serial1.print(command);
+    Serial.println("Command sent to GPS");
+  }
+}
+```
+
+When working with UART on the Nano 33 BLE Sense Rev2, there are several key points to keep in mind for successful implementation: 
+
+- The dual UART design is different from the UNO R3 board that shared one UART between USB and pins D0/D1. This separation allows simultaneous USB debugging and external device communication. 
+- Always ensure that both devices use the same baud rate, data bits (typically 8), and stop bits (typically 1) for successful communication.
+- Keep in mind that UART communication uses TTL voltage levels (0 VDC for logic `LOW`, +3.3 VDC for logic `HIGH`). If you need to communicate over longer distances or with RS-232 devices, you'll need a level converter. 
+- When connecting external devices, remember that TX connects to RX and RX connects to TX (crossover connection). 
+- The Nano 33 BLE Sense Rev2's UART ports are full-duplex, meaning they can send and receive data simultaneously, making them perfect for interactive communication with modules like GPS, Bluetooth®, Wi-Fi®, or other microcontrollers.
+
+## SPI Communication
+
+The Nano 33 BLE Sense Rev2 board features built-in SPI (Serial Peripheral Interface) communication that allows your projects to communicate with external devices like sensors, displays, memory cards and other microcontrollers. SPI is implemented within the nRF52840 microcontroller and uses four dedicated pins to provide high-speed synchronous serial communication.
+
+SPI is particularly useful when your project needs to communicate with external components at high speeds, rather than using slower protocols. While I²C is perfect for simple sensor communication and UART for basic serial data exchange, SPI excels at high-speed communication with devices like SD cards, TFT displays, wireless modules or external memory chips. SPI can achieve much faster data rates than I²C and can handle multiple devices on the same bus through individual chip select lines.
+
+The Nano 33 BLE Sense Rev2's SPI interface offers the following technical specifications:
+
+|   **Parameter**   |  **Value**   |          **Notes**          |
+| :---------------: | :----------: | :-------------------------: |
+|    Clock Speed    | Up to 8 MHz |    Maximum SPI frequency    |
+|   Data Transfer   |    8-bit     |     Standard data width     |
+|   Communication   | Full-duplex  |  Simultaneous send/receive  |
+|     SPI Pins      | `D10`-`D13`  | `CS`, `MOSI`, `MISO`, `SCK` |
+| Multiple Devices  |  Supported   |   Via different `CS` pins   |
+| Operating Voltage |   +3.3 VDC   |        Same as board        |
+| Protocol Support  | Mode 0,1,2,3 |   All SPI modes available   |
+
+The Nano 33 BLE Sense Rev2 board uses the following pins for SPI communication:
+
+| **Arduino Pin** | **Microcontroller Pin** | **SPI Function** |   **Description**    |
+| :-------------: | :---------------------: | :--------------: | :------------------: |
+|      `D10`      |         `P1.02`         |       `CS`       |     Chip Select      |
+|      `D11`      |         `P1.01`         |      `MOSI`      | Master Out, Slave In |
+|      `D12`      |         `P1.08`         |      `MISO`      | Master In, Slave Out |
+|      `D13`      |         `P0.13`         |      `SCK`       |     Serial Clock     |
+
+You can communicate via SPI using the dedicated `SPI.h` library, which is included in the Arduino Nano MBed OS Boards core. The library provides simple functions to initialize the bus, send and receive data and manage multiple devices.
+
+The following example demonstrates how to use SPI communication to send and receive data:
+
+```arduino
+/**
+SPI Basic Example for the Arduino Nano 33 BLE Sense Rev2 Board
+Name: nano_33_ble_sense_rev2_spi_basic.ino
+Purpose: This sketch demonstrates how to use SPI communication
+to send and receive data.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+#include <SPI.h>
+
+// Chip Select pin for SPI device
+const int CS_PIN = 10;
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  Serial.println("- Arduino Nano 33 BLE Sense Rev2 - SPI Basic Example started...");
+  
+  // Set CS pin as output and set it HIGH (inactive)
+  pinMode(CS_PIN, OUTPUT);
+  digitalWrite(CS_PIN, HIGH);
+  
+  // Initialize SPI communication
+  SPI.begin();
+  
+  // Configure SPI settings
+  // - Clock speed: 1 MHz (1000000 Hz)
+  // - Data order: Most Significant Bit first
+  // - Data mode: Mode 0 (Clock polarity = 0, Clock phase = 0)
+  SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE0));
+  
+  Serial.println("- SPI initialized successfully");
+  Serial.println("- Ready to communicate with SPI devices");
+  
+  // Example: Send some test data
+  sendSPIData();
+}
+
+void loop() {
+  // Send a counter value every 2 seconds
+  static int counter = 0;
+  
+  // Select the device (CS LOW)
+  digitalWrite(CS_PIN, LOW);
+  
+  // Send counter value
+  byte response = SPI.transfer(counter);
+  
+  // Deselect the device (CS HIGH)
+  digitalWrite(CS_PIN, HIGH);
+  
+  // Display results
+  Serial.print("- Sent: ");
+  Serial.print(counter);
+  Serial.print(" | Received: ");
+  Serial.println(response);
+  
+  // Increment counter and wrap around at 255
+  counter++;
+  if (counter > 255) {
+    counter = 0;
+  }
+  
+  delay(2000);
+}
+
+void sendSPIData() {
+  Serial.println("- Sending test data...");
+  
+  // Select the device
+  digitalWrite(CS_PIN, LOW);
+  
+  // Send a sequence of test bytes
+  for (int i = 0; i < 5; i++) {
+    byte testData = 0x10 + i;  // Send 0x10, 0x11, 0x12, 0x13, 0x14
+    byte response = SPI.transfer(testData);
+    
+    Serial.print("  Sent: 0x");
+    if (testData < 16) Serial.print("0");
+    Serial.print(testData, HEX);
+    Serial.print(" | Received: 0x");
+    if (response < 16) Serial.print("0");
+    Serial.println(response, HEX);
+    
+    delay(100);
+  }
+  
+  // Deselect the device
+  digitalWrite(CS_PIN, HIGH);
+  
+  Serial.println("- Test data transmission complete");
+}
+```
+
+***To test this example, no external SPI device is required. The code will demonstrate SPI communication patterns, though without a connected device, the received data will typically be `0xFF`.***
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the SPI communication in action. The example sketch shows how to properly select devices, send data and handle responses.
+
+For connecting multiple SPI devices, you can use different digital pins as additional Chip Select (`CS`) lines while sharing the `MOSI`, `MISO` and `SCK` pins:
+
+```arduino
+// Multiple device example
+const int DEVICE1_CS = 10;  // First SPI device
+const int DEVICE2_CS = 9;   // Second SPI device
+const int DEVICE3_CS = 8;   // Third SPI device
+
+void setup() {
+  SPI.begin();
+  
+  // Configure all CS pins
+  pinMode(DEVICE1_CS, OUTPUT);
+  pinMode(DEVICE2_CS, OUTPUT);
+  pinMode(DEVICE3_CS, OUTPUT);
+  
+  // Set all CS pins HIGH (inactive)
+  digitalWrite(DEVICE1_CS, HIGH);
+  digitalWrite(DEVICE2_CS, HIGH);
+  digitalWrite(DEVICE3_CS, HIGH);
+}
+```
+
+When working with SPI on the Nano 33 BLE Sense Rev2, there are several key points to keep in mind for successful implementation:
+
+- The SPI protocol requires careful attention to timing and device selection. Always ensure that only one device is selected (`CS LOW`) at a time, and remember to deselect devices (`CS HIGH`) after communication to avoid conflicts.
+- Different SPI devices may require different clock speeds and modes, so check your device's datasheet for the correct `SPISettings()` parameters.
+- Keep in mind that SPI is a synchronous protocol, meaning that data is transferred in both directions simultaneously with each clock pulse. Even if you only need to send data, you'll still receive data back, and vice versa.
+- The Nano 33 BLE Sense Rev2 board can communicate with multiple SPI devices by using different Chip Select (`CS`) pins, making it perfect for complex projects that need to interface with various sensors, displays and storage devices.
 
 ## Support
 
