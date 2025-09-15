@@ -32,7 +32,7 @@ This user manual provides a comprehensive overview of the Portenta Machine Contr
 - [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control) (x1)
 - [Micro-USB cable](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro) (x1)
 - +24 VDC/0.5 A power supply (x1)
-- 2.4 GHz RP-SMA male antenna (x1) (only required for testing Wi-Fi®/Bluetooth® capabilities)
+- 2.4 GHz SMA male antenna (x1) (only required for Wi-Fi®/Bluetooth® capabilities)
 
 ### Software Requirements
 
@@ -808,13 +808,13 @@ You should see the following output in the Arduino IDE's Serial Monitor:
 
 The Portenta Machine Control features an onboard Wi-Fi® module that provides seamless wireless connectivity, allowing it to connect to Wi-Fi® networks and interact with other devices Over-The-Air (OTA).
 
-![Onboard SMA antenna connector of the Portenta Machine Control](assets/user-manual-17.png)
+![Onboard SMA female antenna connector of the Portenta Machine Control](assets/user-manual-17.png)
 
 Some of the key capabilities of Portenta's Machine Control onboard Wi-Fi® module are the following:
 
 - **Wireless connectivity**: The onboard Wi-Fi® module supports IEEE 802.11b/g/n Wi-Fi® standards, enabling devices to establish reliable and high-speed wireless connections to access the Internet and communicate with other devices.
 - **Secure communication**: The onboard module incorporates various security protocols such as WEP, WPA, WPA2, and WPA3, ensuring robust data encryption and protection against unauthorized access during wireless communication.
-- **Antenna connector**: Portenta Machine Control devices feature an onboard vertical SMA antenna connector (5-1814832-2) specifically matched for the onboard Wi-Fi® module RF requirements.
+- **Antenna connector**: Portenta Machine Control devices feature an onboard vertical SMA female antenna connector (5-1814832-2) specifically matched for the onboard Wi-Fi® module RF requirements. For external antenna testing, use a standard SMA male antenna.
 
 The `Arduino Mbed OS Portenta Boards` core has a built-in library that lets you use the onboard Wi-Fi® module right out of the box: the [`WiFi` library](https://www.arduino.cc/reference/en/libraries/wifi/). Let's walk through an example sketch demonstrating some of the module's capabilities.
 
@@ -970,7 +970,7 @@ Since the data is fetched only once, there's no need to send `HTTP GET` requests
 
 The Portenta Machine Control features an onboard Bluetooth® module that provides seamless wireless connectivity, allowing it to connect to other Bluetooth® devices and networks.
 
-![Onboard SMA antenna connector of the Portenta Machine Control](assets/user-manual-17.png)
+![Onboard SMA female antenna connector of the Portenta Machine Control](assets/user-manual-17.png)
 
 To enable Bluetooth® communication on the Portenta Machine Control, you can use the [ArduinoBLE library](https://github.com/arduino-libraries/ArduinoBLE). Let's use an example code demonstrating some of the capabilities of Poternta's Machine Control Bluetooth® module. Here is an example of how to use the `ArduinoBLE` library to create a temperature monitor application:
 
