@@ -1,37 +1,33 @@
 <FeatureDescription>
 
-The Arduino Starter Kit R4 is a hands-on learning platform built around the Arduino UNO R4 WiFi. Featuring an Arm® Cortex®‑M4 microcontroller, integrated Wi‑Fi® and Bluetooth® via ESP32‑S3, and a 12×8 red LED matrix, it helps students, makers and educators learn, prototype and build real IoT projects with sensors, motors and actuators.
+The Arduino Starter Kit R4 includes everything you need to dive into the world of electronics and IoT. Based on the powerful UNO R4 WiFi, this kit guides you through 14 hands-on projects with a printed book and offers even more online.
 
 </FeatureDescription>
 
-
 <FeatureList>
-<Feature title="Learn by Making" image="led">
 
-A printed book guides you through 14 progressively challenging projects, from basic circuits to interactive systems. Additional online projects extend your learning with HID, capacitive touch and LED matrix activities.
+<Feature title="Powered by the UNO R4 WiFi" image="mcu">
 
-</Feature>
-
-<Feature title="UNO R4 WiFi inside" image="connection">
-
-Powered by the Arduino UNO R4 WiFi: a 32‑bit Arm® Cortex®‑M4 MCU, integrated Wi‑Fi® and Bluetooth® LE, and a built‑in 12×8 LED matrix. It preserves the classic UNO form factor and 5 V logic compatibility, and adds a QWIIC I2C connector for plug‑and‑play sensors.
+The kit is built around the powerful Arduino UNO R4 WiFi, featuring a 32-bit microcontroller, Wi-Fi®, Bluetooth®, and a 12x8 LED matrix for dynamic projects.
 
 </Feature>
 
-<Feature title="All the components you need" image="configurability">
+<Feature title="All-In-One Kit" image="configurability">
 
-Includes breadboard and base, jumper wires, pushbuttons, LCD, LEDs, phototransistors, temperature and tilt sensors, a DC motor and a servo, plus key semiconductors and passives—everything curated for step‑by‑step experimentation.
+Includes a wide selection of sensors, actuators, and electronic components to build 14 guided projects and countless others.
 
 </Feature>
 
-<Feature title="Cloud and IDE ready" image="cloud">
+<Feature title="Step-by-Step Guide" image="led">
 
-Works with the Arduino IDE and the browser‑based Arduino Cloud Editor. Log and visualize data, automate processes, and upload sketches with ease.
+Comes with a detailed, full-color project book that guides you from basic electronics to more complex concepts, making learning hands-on and fun.
 
-<FeatureWrapper>
-<FeatureLink variant="primary" title="Explore the online course" url="https://courses.arduino.cc/starterkitr4"/>
-</FeatureWrapper>
 </Feature>
 
+<Feature title="Expand Your Learning Online" image="cloud">
+
+Access additional projects online and learn how to connect your creations to the Arduino IoT Cloud, bringing your ideas to the digital world.
+
+</Feature>
 
 </FeatureList>
