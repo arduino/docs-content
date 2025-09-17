@@ -93,7 +93,7 @@ Create a new Thing at <https://create.arduino.cc/iot/things>, you can call it "P
 
 ![Arduino Cloud - Thing Setup](assets/IoTCloud-thingSetup.png)
 
-***Remember to add your Wi-Fi SSID name and its password (you can do this inside the Devices tab on the device page) to be able to connect to the Arduino Cloud. This is also done when connecting your board to the cloud***
+***Remember to add your Wi-Fi SSID name and its password (you can do this inside the Devices tab on the device page) to be able to connect to the Arduino Cloud. This is also done when connecting your board to the Cloud***
 
 ### Host Board: Edit the Cloud Sketch
 
