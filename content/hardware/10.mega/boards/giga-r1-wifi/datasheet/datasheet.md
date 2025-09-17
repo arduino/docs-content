@@ -377,15 +377,16 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
 
-English:
-User manuals for licence-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:
+## ISED
+
+English: This device complies with ISED licence-exempt RSS standard(s). Operation is subject to the following two conditions:
 
 (1) this device may not cause interference
 
 (2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
 French:
-Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :
+Le présent appareil est conforme aux CNR ISED applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :
 
 (1) l’ appareil nedoit pas produire de brouillage
 
@@ -432,3 +433,19 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 03/02/2023 | Release       |
 | 12/07/2023 | Pinout Update |
 | 25/04/2024 | Updated link to new Cloud Editor |
+| 17/09/2025 | Certification Updates |
+
+## Warnings
+
+**Part 15.105**
+
+Note: This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
+
+—Reorient or relocate the receiving antenna.  
+—Increase the separation between the equipment and receiver.  
+—Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.  
+—Consult the dealer or an experienced radio/TV technician for help.  
+
+Radio apparatus containing digital circuitry which can function separately from the operation of a transmitter or an associated transmitter, shall comply with ICES-003. In such cases, the labelling requirements of the applicable RSS apply, rather than the labelling requirements in ICES-003. This Class B digital apparatus complies with Canadian ICES-003.  
+
+Cet appareil numérique de la classe B est conforme à la norme NMB-003 du Canada.
