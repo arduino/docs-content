@@ -96,13 +96,11 @@ Wait for it to finish and when it is completed, click "continue".
 
 ![Board connected to the cloud](assets/succesfull-connection-with-usb.png)
 
-You will now be taken to the device page. Here you can see the details of the board, change the name, attach it to a thing and change the network configuration.
+You will now be taken to the page where you can select the network you want to connect to. Depending on your boards network compatibilities you can set up either ethernet, CAT-M1, Cellular or Wi-Fi connectivity. Here you can chose your network type and enter its credentials.
 
-Depending on your boards network compatibilities you can set up either ethernet, CAT-M1, Cellular or Wi-Fi connectivity. To configure the network that your device connects to, press the section highlighted in the image below.
+When this is done you will be taken to the device page. Here you can see the details of the board, change the name, attach it to a thing and change the network configuration.
 
 ![Network configuration on device page](assets/network-config-device-page.png)
-
-Then on the next page enter your network credentials and your board will connect to it!
 
 To find out more about Arduino Cloud Things, go [here](https://docs.arduino.cc/arduino-cloud/cloud-interface/things/). In the bottom left corner you can press the icon highlighted in the image below to create a thing and attach your board to it automatically. Clicking it also takes you to the Thing page.
 
