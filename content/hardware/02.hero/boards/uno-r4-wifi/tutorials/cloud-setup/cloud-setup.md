@@ -48,10 +48,9 @@ When the installation is finished you will see a short loading screen and once y
 
 ![Configure Device](./assets/configureDevice.png)
 
+Choose a name for your board and chose the network you want to connect to. Pick and add your Wi-Fi® credentials.
 
-Choose a name for your board and press next.
-
-![Name your Arduino Board](./assets/naming.png)
+![Network Configuration](./assets/network.png)
 
 After completing the steps in the popup you should be greeted by a prompt telling you that you can now use the board with the Arduino Cloud.
 
@@ -59,9 +58,7 @@ After completing the steps in the popup you should be greeted by a prompt tellin
 
 ### Network Configuration
 
-We are almost done with the setup. Under Network click on **configure** and add your Wi-Fi® credentials.
 
-![Network Configuration](./assets/network.png)
 
 ## Summary
 
