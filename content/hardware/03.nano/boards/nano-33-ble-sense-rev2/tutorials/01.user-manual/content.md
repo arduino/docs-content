@@ -1185,6 +1185,82 @@ When working with I²C on the Nano 33 BLE Sense Rev2 board, there are several ke
 - When connecting multiple devices, simply connect all SDA pins together and all SCL pins together, along with power and ground connections.
 - The Nano 33 BLE Sense Rev2 board can communicate with up to 127 different I²C devices on the same bus, including the onboard sensors, making it perfect for complex sensor networks and expandable systems.
 
+## USB Keyboard
+
+To use the board as a keyboard, you can refer to the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library that can be found inside the Board Package.
+
+You first need to include the libraries and create an object:
+
+```arduino
+#include "PluggableUSBHID.h"
+#include "USBKeyboard.h"
+
+USBKeyboard Keyboard;
+```
+
+Then use the following command to write something:
+
+```arduino
+Keyboard.printf("This is Nano 33 speaking!");
+```
+
+You can also use the board to act as a mouse creating the object:
+
+```arduino
+#include "PluggableUSBHID.h"
+#include "USBKeyboard.h"
+
+USBMouse Mouse;
+```
+
+Then use the following command to move the cursor on your screen:
+
+```arduino
+Mouse.move(100,100); //
+```
+
+The following example allows the board to act as a keyboard and write "Hello world" each second in a loop:
+
+```arduino
+#include "PluggableUSBHID.h"
+#include "USBKeyboard.h"
+
+USBKeyboard Keyboard;
+
+void setup() {
+  // put your setup code here, to run once:
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  delay(1000);
+  Keyboard.printf("Hello world\n\r");
+}
+```
+
+The following example allows the board to act as a mouse and move and return to its original position every two seconds:
+
+```arduino
+#include "PluggableUSBHID.h"
+#include "USBMouse.h"
+
+USBMouse Mouse;
+
+void setup() {
+  // put your setup code here, to run once:
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  delay(1000);
+  Mouse.move(100,100);
+  delay(1000);
+  Mouse.move(-100,-100);
+}
+```
+
 ## Sensors
 
 ### IMU
@@ -1303,7 +1379,7 @@ The gyroscope data can be accessed through the following commands:
   }
 ```
 
-The following example demonstrates basic access to the accelerometer:
+The following example demonstrates basic access to the gyroscope:
 
 ````arduino
 /*
@@ -1362,6 +1438,8 @@ Now with the board parallel to the ground you can swiftly move it towards one di
 
 #### Magnetometer
 
+A magnetometer is a device that measures magnetism, that is the direction, strength, or relative change of a magnetic field at a particular location.
+
 The magnetometer data can be accessed through the following commands:
 
 ```arduino
@@ -1370,13 +1448,472 @@ The magnetometer data can be accessed through the following commands:
   IMU.readMagneticField(x, y, z);
 ```
 
-
+The following example demonstrates basic access to the magnetometer:
 
 ```arduino
+/*
+  Arduino BMM150 - Simple Magnetometer
 
+  This example reads the magnetic field values from the BMM150
+  sensor and continuously prints them to the Serial Monitor
+  or Serial Plotter.
+
+  The circuit:
+  - Arduino Nano 33 BLE Sense Rev2
+
+  created 10 Jul 2019
+  by Riccardo Rizzo
+
+  This example code is in the public domain.
+*/
+
+#include "Arduino_BMI270_BMM150.h"
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+  Serial.println("Started");
+
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU!");
+    while (1);
+  }
+  Serial.print("Magnetic field sample rate = ");
+  Serial.print(IMU.magneticFieldSampleRate());
+  Serial.println(" Hz");
+  Serial.println();
+  Serial.println("Magnetic Field in uT");
+  Serial.println("X\tY\tZ");
+}
+
+void loop() {
+  float x, y, z;
+
+  if (IMU.magneticFieldAvailable()) {
+    IMU.readMagneticField(x, y, z);
+
+    Serial.print(x);
+    Serial.print('\t');
+    Serial.print(y);
+    Serial.print('\t');
+    Serial.println(z);
+  }
+}
 ```
 
+![How a magnetometer works](assets\nano33BS_04_magnetometer.png)
 
+After you have successfully verified and uploaded the sketch to the board, it's time to put it to the test. You can choose an electric appliance at home or any object that runs with electrical current like a laptop charger to test it out.
+
+If you want to learn more on how to use the IMU, please check out the tutorial below:
+
+#### Tutorials 
+
+- [Accessing IMU gyroscope data with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/imu-gyroscope)
+- [Accessing IMU accelerometer data with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/imu-accelerometer)
+- [Accessing IMU magnetometer data with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/imu-magnetometer)
+
+### Proximity and Gesture Detection
+
+![The APDS-9960 proximity and gesture sensor](assets/Nano33_ble_sense_gesture.png)
+
+To access the data from the APDS9960 module, you need to install the [APDS9960](https://github.com/arduino-libraries/Arduino_APDS9960) library, which comes with examples that can be used directly with the Nano 33 BLE Sense Rev2.
+
+It can be installed directly from the library manager through the IDE of your choice. To use it, we need to include it at the top of the sketch:
+
+```arduino
+#include <Arduino_APDS9960.h>
+```
+
+And to initialize the library, we can use the following command inside `void setup()`.
+
+```arduino
+if (!APDS.begin()) {
+  Serial.println("Error initializing APDS9960 sensor!");
+}
+```
+
+Then we check if there is data available from the proximity sensor. If there is we can print the value in the serial monitor. The value can range between 0-255, where 0 is close and 255 is far away. If it prints the value -1, it indicates an error.
+
+```arduino
+if (APDS.proximityAvailable()) {
+  Serial.println(APDS.readProximity());
+}
+```
+
+You can also check detect gestures with the same sensor, these gestures include UP, DOWN, LEFT and RIGHT gestures.
+
+```arduino
+if (APDS.gestureAvailable()) {
+    int gesture = APDS.readGesture();
+    switch (gesture) {
+      case GESTURE_UP:
+        Serial.println("Detected UP gesture");
+        break;
+
+      case GESTURE_DOWN:
+        Serial.println("Detected DOWN gesture");
+        break;
+
+      case GESTURE_LEFT:
+        Serial.println("Detected LEFT gesture");
+        break;
+
+      case GESTURE_RIGHT:
+        Serial.println("Detected RIGHT gesture");
+        break;
+
+      default:
+        // Ignore
+        break;
+    }
+  }
+```
+
+Additionally to promiximity and gesture sensing, the sensor can detect colors.
+
+```arduino
+ if (APDS.colorAvailable()) {
+    APDS.readColor(r, g, b);
+  }
+```
+
+The following example demostrates the full use of the proximity and gesture sensors, including RGB sensor:
+
+```arduino
+/*
+  APDS-9960 - All sensor data from APDS-9960
+
+  This example reads all data from the on-board APDS-9960 sensor of the
+  Nano 33 BLE Sense:
+   - color RGB (red, green, blue)
+   - proximity
+   - gesture
+  and prints updates to the Serial Monitor every 100 ms.
+
+  The circuit:
+  - Arduino Nano 33 BLE Sense
+
+  This example code is in the public domain.
+*/
+
+#include <Arduino_APDS9960.h>
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial); // Wait for Serial Monitor to open
+
+  if (!APDS.begin()) {
+    Serial.println("Error initializing APDS-9960 sensor.");
+    while (true); // Stop forever
+  }
+}
+
+int proximity = 0;
+int r = 0, g = 0, b = 0;
+unsigned long lastUpdate = 0;
+
+void loop() {
+
+  // Check if a proximity reading is available.
+  if (APDS.proximityAvailable()) {
+    proximity = APDS.readProximity();
+  }
+
+  // Check if a gesture reading is available
+  if (APDS.gestureAvailable()) {
+    int gesture = APDS.readGesture();
+    switch (gesture) {
+      case GESTURE_UP:
+        Serial.println("Detected UP gesture");
+        break;
+
+      case GESTURE_DOWN:
+        Serial.println("Detected DOWN gesture");
+        break;
+
+      case GESTURE_LEFT:
+        Serial.println("Detected LEFT gesture");
+        break;
+
+      case GESTURE_RIGHT:
+        Serial.println("Detected RIGHT gesture");
+        break;
+
+      default:
+        // Ignore
+        break;
+    }
+  }
+
+  // Check if a color reading is available
+  if (APDS.colorAvailable()) {
+    APDS.readColor(r, g, b);
+  }
+
+  // Print updates every 100 ms
+  if (millis() - lastUpdate > 100) {
+    lastUpdate = millis();
+    Serial.print("PR=");
+    Serial.print(proximity);
+    Serial.print(" RGB=");
+    Serial.print(r);
+    Serial.print(",");
+    Serial.print(g);
+    Serial.print(",");
+    Serial.println(b);
+  }
+}
+```
+
+#### Tutorials
+
+If you want to learn more on how to use the proximity sensor, please check out the tutorial below:
+
+- [Proximity Detection with the Nano 33 BLE Sense](https://docs.arduino.cc/tutorials/nano-33-ble-sense/proximity_sensor)
+- [Gesture Recognition with the Nano 33 BLE Sense](https://docs.arduino.cc/tutorials/nano-33-ble-sense/gesture_sensor)
+
+### Temperature and Humidity
+
+![The HS3003 temperature and humidity sensor](assets/Nano33_ble_sense_temperature.png)
+
+Temperature sensors are components that convert physical temperature into digital data. Likewise, humidity sensors are able to measure atmospheric moisture levels and translate that into electrical signal. As such, temperature and humidity sensors are essential for environmental monitoring especially in and around sensitive electronic equipment.
+
+The HS3003 is an ultra-compact sensor for relative humidity and temperature. We will use the I2C protocol to communicate with the sensor and get data from it. The sensor's range of different values are the following:
+
+- Humidity accuracy: ± 3.5% rH, 20 to +80% rH
+- Humidity range: 0 to 100 %
+- Temperature accuracy: ± 0.5 °C,15 to +40 °C
+- Temperature range: -40 to 120°C
+
+To access the data from the HS3003 module, we need to install the [Arduino_HS300x](https://github.com/arduino-libraries/Arduino_HS300x) library, which comes with examples that can be used directly with the Nano 33 BLE Sense Rev2.
+
+It can be installed directly from the library manager through the IDE of your choice. To use it, you need to include it at the top of the sketch:
+
+```arduino
+#include <Arduino_HS300x.h>
+```
+
+And to initialize the library, we can use the following command inside `void setup()`.
+
+```arduino
+if (!HS300x.begin()) {
+  Serial.println("Failed to initialize humidity temperature sensor!");
+}
+```
+
+Then we can print our values in the serial monitor to check the temperature and humidity values.
+
+```arduino
+Serial.println(HS300x.readTemperature());
+Serial.println(HS300x.readHumidity());
+```
+
+The following example allows you to read the temperature in degrees Celsius and the relative humidity:
+
+```arduino
+/*
+  HS300x - Read Sensors
+
+  This example reads data from the on-board HS300x sensor of the
+  Nano 33 BLE Sense and prints the temperature and humidity sensor
+  values to the Serial Monitor once a second.
+
+  The circuit:
+  - Arduino Nano 33 BLE Sense R2
+
+  This example code is in the public domain.
+*/
+
+#include <Arduino_HS300x.h>
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+
+  if (!HS300x.begin()) {
+    Serial.println("Failed to initialize humidity temperature sensor!");
+    while (1);
+  }
+}
+
+void loop() {
+  // read all the sensor values
+  float temperature = HS300x.readTemperature();
+  float humidity    = HS300x.readHumidity();
+
+  // print each of the sensor values
+  Serial.print("Temperature = ");
+  Serial.print(temperature);
+  Serial.println(" °C");
+
+  Serial.print("Humidity    = ");
+  Serial.print(humidity);
+  Serial.println(" %");
+
+  // print an empty line
+  Serial.println();
+
+  // wait 1 second to print again
+  delay(1000);
+}
+```
+
+After you have successfully verified and uploaded the sketch to the board, open the Serial Monitor. You will now see the new values printed. If you want to test out whether it is working, you could slightly breathe (exhale) on your board and watch new values when the humidity, as well as the temperature, levels rise or decrease.
+
+#### Tutorial
+
+If you want to learn more on how to use the temperature and humidity sensor, please check out the tutorial below:
+
+- [Reading Temperature & Humidity on Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/humidity-and-temperature-sensor)
+
+### Pressure
+
+![The LPS22HB pressure sensor](assets/Nano33_ble_sense_pressure.png)
+
+To access the data from the LPS22HB module, we need to install the [LPS22HB](https://github.com/arduino-libraries/Arduino_LPS22HB) library, which comes with examples that can be used directly with the Nano 33 BLE Sense Rev2.
+
+It can be installed directly from the library manager through the IDE of your choice. To use it, we need to include it at the top of the sketch:
+
+```arduino
+#include <Arduino_LPS22HB.h>
+```
+
+And to initialize the library, we can use the following command inside `void setup()`.
+
+```arduino
+if (!BARO.begin()) {
+  Serial.println("Failed to initialize pressure sensor!");
+}
+```
+
+Then we can read the values from the sensor using the code below.
+
+```arduino
+BARO.readPressure();
+```
+
+The following example allows you to read the temperature in degrees Celsius and the pressure from the LPS22HB sensor:
+
+```arduino
+/*
+  LPS22HB - Read Pressure
+
+  This example reads data from the on-board LPS22HB sensor of the
+  Nano 33 BLE Sense and prints the temperature and pressure sensor
+  value to the Serial Monitor once a second.
+
+  The circuit:
+  - Arduino Nano 33 BLE Sense
+
+  This example code is in the public domain.
+*/
+
+#include <Arduino_LPS22HB.h>
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+
+  if (!BARO.begin()) {
+    Serial.println("Failed to initialize pressure sensor!");
+    while (1);
+  }
+}
+
+void loop() {
+  // read the sensor value
+  float pressure = BARO.readPressure();
+
+  // print the sensor value
+  Serial.print("Pressure = ");
+  Serial.print(pressure);
+  Serial.println(" kPa");
+
+  float temperature = BARO.readTemperature();
+
+  // print the sensor value
+  Serial.print("Temperature = ");
+  Serial.print(temperature);
+  Serial.println(" C");
+
+  // print an empty line
+  Serial.println();
+
+  // wait 1 second to print again
+  delay(1000);
+}
+```
+
+After you have successfully verified and uploaded the sketch to the board, open the Serial Monitor. In order to test out the code, you could begin by stabilizing your board on a fixed position and observe the values returned through the Serial Monitor. If you are living in an apartment block, you could experiment further and move to different floors and notice the changes in altitude values.
+
+#### Tutorial
+
+If you want to learn more on how to use the temperature and humidity sensor, please check out the tutorial below:
+
+- [Access Barometric Pressure Sensor Data on Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/barometric-sensor)
+
+### Microphone
+
+![The MP34DT05 microphone](assets/Nano33_ble_sense_microphone.png)
+
+To access the data from the MP34DT06JTR, we need to use the [PDM](https://www.arduino.cc/en/Reference/PDM) library that is included in the **Arduino Mbed OS Nano Board package**. If the Board Package is installed, you will find an example that works by browsing **File > Examples > PDM > PDMSerialPlotter**. 
+
+***Please note: The sampling frequency in the PDMSerialPlotter example is set to 16000 Hz. If the microphone appears to not be working (monitor is printing a value of -128), try to change this rate to 20000 Hz. You can change this at the top of the PDMSerialPlotter example sketch.***
+
+```arduino
+static const int frequency = 20000; //frequency at 20 KHz instead of 16 KHz
+```
+
+### Tutorial
+
+If you want to learn more on how to use the Microphone, please check out the tutorial below:
+
+- [Controlling the On-Board RGB LED with Microphone](https://docs.arduino.cc/tutorials/nano-33-ble-sense/microphone_sensor)
+
+## Connectivity
+
+The Nano 33 BLE Sense Rev2 supports Bluetooth® through the [u-blox NINA-B306](https://docs.arduino.cc/resources/datasheets/NINA-B3-series.pdf) module. To use this module, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library. 
+
+![ Bluetooth® module.](assets/Nano33_ble_sense_ble.png)
+
+### Bluetooth®
+
+To enable Bluetooth® on the Nano 33 BLE Sense Rev2, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library, and include it at the top of our sketch:
+
+```arduino
+#include <ArduinoBLE.h>
+```
+
+Set the service and characteristic:
+
+```arduino
+BLEService ledService("180A"); // BLE LED Service
+BLEByteCharacteristic switchCharacteristic("2A57", BLERead | BLEWrite);
+```
+
+Set advertised name and service:
+
+```arduino
+  BLE.setLocalName("Nano 33 BLE Sense Rev2");
+  BLE.setAdvertisedService(ledService);
+```
+
+Start advertising:
+
+```arduino
+BLE.advertise();
+```
+
+Listen for Bluetooth® Low Energy peripherals to connect:
+
+```arduino  
+BLEDevice central = BLE.central();
+```
+
+### Tutorials
+
+- [Controlling Nano 33 BLE Sense Rev2 RGB LED via Bluetooth®](/tutorials/nano-33-ble-sense/bluetooth)
 
 ## Support
 
