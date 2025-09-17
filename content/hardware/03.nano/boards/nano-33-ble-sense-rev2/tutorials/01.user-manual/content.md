@@ -30,7 +30,7 @@ This user manual provides a comprehensive overview of the Nano 33 BLE Sense Rev2
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
-- [Arduino MBed OS Nano OS Boards core](https://github.com/arduino/ArduinoCore-mbed)
+- [Arduino Mbed OS Nano OS Boards core](https://github.com/arduino/ArduinoCore-mbed)
 
 ***The Nano 33 BLE Sense Rev2 is compatible with the complete Arduino ecosystem and can be programmed directly as a standalone device.***
 
@@ -61,10 +61,10 @@ Here is an overview of the board's main components shown in the images above:
 
 ### Board Core and Libraries
 
-The **Arduino MBed OS Nano Boards** core contains the libraries and examples to work with the Arduino Nano 33 BLE Sense Rev2's peripherals and onboard components, such as its nRF52480 microcontroller and the onboard RGB LED. To install the core for the Nano 33 BLE Sense Rev2 board, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano 33 BLE Sense Rev2` and install the latest Arduino Mbed OS Nano Boards version.
+The **Arduino Mbed OS Nano Boards** core contains the libraries and examples to work with the Arduino Nano 33 BLE Sense Rev2's peripherals and onboard components, such as its nRF52480 microcontroller and the onboard RGB LED. To install the core for the Nano 33 BLE Sense Rev2 board, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano 33 BLE Sense Rev2` and install the latest Arduino Mbed OS Nano Boards version.
 
 
-![Installing the Arduino MBed OS Nano Boards core in the Arduino IDE](assets/user-manual-3.png)
+![Installing the Arduino Mbed OS Nano Boards core in the Arduino IDE](assets/user-manual-3.png)
 
 The Arduino Nano 33 BLE Sense Rev2 Boards core provides support for the following:
 
@@ -139,8 +139,6 @@ The Nano 33 BLE Sense Rev2 can be powered in several ways:
 - **Via micro USB connector**: The most common method during development and programming
 - **Via `VIN` pin**: Using an external +5-18 VDC power supply that will be internally regulated to +5 VDC
 - **Via `5V` pin**: Directly connecting a regulated +5 VDC source (with caution)
-
-![Different ways to power the Nano 33 BLE Sense Rev2 board](assets/user-manual-4.png)
 
 ***__Important note:__ The Nano 33 BLE Sense Rev2's `VIN` pin accepts a voltage range of +5-18 VDC. Do not connect voltages outside this range as you could permanently damage the board. Always verify all the connections before applying power.***
 
@@ -416,6 +414,7 @@ You can read analog values using the `analogRead()` function:
 ```arduino
 value = analogRead(pin);
 ``` 
+
 The default reference voltage of these pins is +3.3 VDC, but this can be changed using the `analogReference()` function. You can use `analogReference(AR_VDD)` for the default reference of +3.3 VDC, `analogReference(AR_INTERNAL)` for the built-in reference of +0.6 VDC, `analogReference(AR_INTERNAL1V2)` for the built-in reference of +0.6 VDC with 2x gain, and `analogReference(AR_INTERNAL2V4)` for the built-in reference of +0.6 VDC with 4x gain.
 
 The default resolution is set to 10-bit, but it can be updated to 12-bit resolution using the `analogReadResolution()` function in the `setup()` of your sketch. Available options are analogReadResolution(10) for default 10-bit and analogReadResolution(12) for 12-bit for maximum 14-bit resolution.
@@ -884,7 +883,7 @@ The Nano 33 BLE Sense Rev2's SPI interface offers the following technical specif
 
 |   **Parameter**   |  **Value**   |          **Notes**          |
 | :---------------: | :----------: | :-------------------------: |
-|    Clock Speed    | Up to 8 MHz |    Maximum SPI frequency    |
+|    Clock Speed    | Up to 8 MHz  |    Maximum SPI frequency    |
 |   Data Transfer   |    8-bit     |     Standard data width     |
 |   Communication   | Full-duplex  |  Simultaneous send/receive  |
 |     SPI Pins      | `D10`-`D13`  | `CS`, `MOSI`, `MISO`, `SCK` |
@@ -901,7 +900,7 @@ The Nano 33 BLE Sense Rev2 board uses the following pins for SPI communication:
 |      `D12`      |         `P1.08`         |      `MISO`      | Master In, Slave Out |
 |      `D13`      |         `P0.13`         |      `SCK`       |     Serial Clock     |
 
-You can communicate via SPI using the dedicated `SPI.h` library, which is included in the Arduino Nano MBed OS Boards core. The library provides simple functions to initialize the bus, send and receive data and manage multiple devices.
+You can communicate via SPI using the dedicated `SPI.h` library, which is included in the Arduino Nano Mbed OS Boards core. The library provides simple functions to initialize the bus, send and receive data and manage multiple devices.
 
 The following example demonstrates how to use SPI communication to send and receive data:
 
@@ -1037,6 +1036,347 @@ When working with SPI on the Nano 33 BLE Sense Rev2, there are several key point
 - Different SPI devices may require different clock speeds and modes, so check your device's datasheet for the correct `SPISettings()` parameters.
 - Keep in mind that SPI is a synchronous protocol, meaning that data is transferred in both directions simultaneously with each clock pulse. Even if you only need to send data, you'll still receive data back, and vice versa.
 - The Nano 33 BLE Sense Rev2 board can communicate with multiple SPI devices by using different Chip Select (`CS`) pins, making it perfect for complex projects that need to interface with various sensors, displays and storage devices.
+
+## I²C Communication
+
+The Nano 33 BLE Sense Rev2 board features built-in I²C (Inter-Integrated Circuit) communication that allows your projects to communicate with multiple devices using just two wires. I²C is implemented within the nRF52840 microcontroller and uses two dedicated pins to provide reliable serial communication with sensors, displays, memory modules and other microcontrollers. This makes it perfect for projects that need to connect several devices without using many pins.
+
+I²C is particularly useful when your project needs to communicate with multiple sensors and devices in a simple way, rather than using complex wiring. While SPI is excellent for high-speed communication and UART for basic serial data exchange, I²C excels at connecting many devices with minimal wiring. Multiple I²C devices can share the same two-wire bus, each with its own unique address, making it ideal for sensor networks, display modules and expandable systems.
+
+The Nano 33 BLE Sense Rev2's I²C interface offers the following technical specifications:
+
+|   **Parameter**   |   **Value**   |         **Notes**          |
+| :---------------: | :-----------: | :------------------------: |
+|    Clock Speed    | Up to 400 kHz |     Standard/Fast mode     |
+|   Data Transfer   |     8-bit     |    Standard data width     |
+|   Communication   |  Half-duplex  |  One direction at a time   |
+|     I²C Pins      |  `A4`, `A5`   |   SDA, SCL respectively    |
+| Device Addressing | 7-bit/10-bit  | Up to 127 unique addresses |
+| Operating Voltage |   +3.3 VDC    |       Same as board        |
+| Pull-up Resistors |    4.7 kΩ     |     Internal pull-ups      |
+
+The Nano 33 BLE Sense Rev2 uses the following pins for I²C communication:
+
+| **Arduino Pin** | **Microcontroller Pin** | **I²C Function** |  **Description**  |
+| :-------------: | :---------------------: | :--------------: | :---------------: |
+|      `A4`       |         `P0.31`         |       SDA        | Serial Data Line  |
+|      `A5`       |         `P0.02`         |       SCL        | Serial Clock Line |
+
+You can communicate via I²C using the dedicated `Wire.h` library, which is included in the Arduino Nano Mbed OS Boards core. The library provides simple functions to initialize the bus, send and receive data and manage multiple devices.
+
+The following example demonstrates basic I²C communication patterns:
+
+```arduino
+/**
+I2C Basic Example for the Arduino Nano 33 BLE Sense Rev2 Board
+Name: nano_33_ble_sense_rev2_i2c_basic.ino
+Purpose: This sketch demonstrates basic I2C communication
+patterns for protocol analysis.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+#include <Wire.h>
+
+// Example device address
+const int DEVICE_ADDRESS = 0x48;
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  Serial.println("- Arduino Nano 33 BLE Sense Rev2 - I2C Basic Example started...");
+  
+  // Initialize I2C communication as master
+  Wire.begin();
+  
+  Serial.println("- I2C initialized successfully");
+  Serial.println("- Connect protocol analyzer to A4 (SDA) and A5 (SCL)");
+  Serial.println("- Starting I2C communication patterns...");
+  
+  delay(2000);
+}
+
+void loop() {
+  // Write a single byte
+  Serial.println("- Writing single byte (0xAA) to device 0x48...");
+  Wire.beginTransmission(DEVICE_ADDRESS);
+  Wire.write(0xAA);
+  Wire.endTransmission();
+  
+  delay(1000);
+  
+  // Write multiple bytes
+  Serial.println("- Writing multiple bytes (0x10, 0x20, 0x30) to device 0x48...");
+  Wire.beginTransmission(DEVICE_ADDRESS);
+  Wire.write(0x10);
+  Wire.write(0x20);
+  Wire.write(0x30);
+  Wire.endTransmission();
+  
+  delay(1000);
+  
+  // Request data from device
+  Serial.println("- Requesting 2 bytes from device 0x48...");
+  Wire.requestFrom(DEVICE_ADDRESS, 2);
+  
+  // Read any available data
+  while (Wire.available()) {
+    int data = Wire.read();
+    Serial.print("Received: 0x");
+    if (data < 16) Serial.print("0");
+    Serial.println(data, HEX);
+  }
+  
+  delay(2000);
+  Serial.println("---");
+}
+```
+***To test this example, no external I²C devices are required. The code will generate I²C communication patterns that can be analyzed with a protocol analyzer. Without devices connected, read operations will typically return `0xFF`.***
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the I²C operations being performed. Connect a protocol analyzer to pins `A4` (SDA) and `A5` (SCL) to observe the actual I²C protocol signals.
+
+***The I²C protocol requires pull-up resistors on both SDA and SCL lines. __The Nano 33 BLE Sense Rev2 board does have internal pull-ups on `A4` and `A5` of 4.7kΩ +3.3 VDC required for proper I²C operation__.***
+
+One of the main advantages of I²C is the ability to connect multiple devices to the same bus. Here is how to connect multiple I²C devices:
+
+```arduino
+// Example: Communicating with multiple I2C devices
+void communicateWithMultipleDevices() {
+  // Device addresses (examples)
+  const int SENSOR_ADDRESS = 0x48;    // Temperature sensor
+  const int DISPLAY_ADDRESS = 0x3C;   // OLED display
+  const int EEPROM_ADDRESS = 0x50;    // External EEPROM
+  
+  // Read from temperature sensor
+  Wire.beginTransmission(SENSOR_ADDRESS);
+  Wire.write(0x00);  // Register to read
+  Wire.endTransmission();
+  
+  Wire.requestFrom(SENSOR_ADDRESS, 2);
+  if (Wire.available() >= 2) {
+    int tempHigh = Wire.read();
+    int tempLow = Wire.read();
+    Serial.print("Temperature: ");
+    Serial.println((tempHigh << 8) | tempLow);
+  }
+  
+  // Send data to display
+  Wire.beginTransmission(DISPLAY_ADDRESS);
+  Wire.write(0x40);  // Data mode
+  Wire.write(0xFF);  // Sample data
+  Wire.endTransmission();
+  
+  // Write to EEPROM
+  Wire.beginTransmission(EEPROM_ADDRESS);
+  Wire.write(0x00);  // Memory address
+  Wire.write(0x55);  // Data to write
+  Wire.endTransmission();
+}
+```
+
+When working with I²C on the Nano 33 BLE Sense Rev2 board, there are several key points to keep in mind for successful implementation:
+
+- Each I²C device must have a unique address on the bus, so check device datasheets to avoid address conflicts.
+- Sensors featured on your Nano 33 BLE Sense Rev2 works over I²C.
+- Keep in mind that I²C is a half-duplex protocol, meaning data flows in only one direction at a time. The master device (your Nano 33 BLE Sense Rev2 board) controls the clock line and initiates all communication.
+- When connecting multiple devices, simply connect all SDA pins together and all SCL pins together, along with power and ground connections.
+- The Nano 33 BLE Sense Rev2 board can communicate with up to 127 different I²C devices on the same bus, including the onboard sensors, making it perfect for complex sensor networks and expandable systems.
+
+## Sensors
+
+### IMU
+
+![The LSM9DS1 sensor](assets/Nano33_ble_sense_imu.png)
+
+To access the data from the IMU system, you need to install the [BMI270_BMM150](https://github.com/arduino-libraries/Arduino_BMI270_BMM150) library, which comes with examples that can be used directly with the Nano 33 BLE Sense Rev2.
+
+The Arduino BMI270_BMM150 library allows us to use the Arduino Nano 33 BLE Rev2 IMU system without having to go into complicated programming. The library takes care of the sensor initialization and sets its values as follows:
+
+- Accelerometer range is set at [-4, +4]g -/+0.122 mg.
+- Gyroscope range is set at [-2000, +2000] dps +/-70 mdps.
+- Magnetometer range is set at [-400, +400] uT +/-0.014 uT.
+- Accelerometer Output data rate is fixed at 104 Hz.
+- Gyroscope Output data rate is fixed at 104 Hz.
+- Magnetometer Output data rate is fixed at 20 Hz.
+
+It can be installed directly from the library manager through the IDE of your choice. To use it, we need to include it at the top of the sketch:
+
+```arduino
+#include "Arduino_BMI270_BMM150.h"
+```
+
+And to initialize the library, we can use the following command inside `void setup()`.
+
+```arduino
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU!");
+    while (1);
+  }
+```
+
+#### Accelerometer
+
+An accelerometer is an electromechanical device used to measure acceleration forces. Such forces may be static, like the continuous force of gravity or, as is the case with many mobile devices, dynamic to sense movement or vibrations.
+
+The accelerometer data can be accessed through the following commands:
+
+```arduino
+  float x, y, z;
+
+  if (IMU.accelerationAvailable()) {
+    IMU.readAcceleration(x, y, z);
+  }
+```
+
+The following example demonstrates basic access to the accelerometer:
+
+```arduino
+/*
+  Arduino BMI270 - Simple Accelerometer
+
+  This example reads the acceleration values from the BMI270
+  sensor and continuously prints them to the Serial Monitor
+  or Serial Plotter.
+
+  The circuit:
+  - Arduino Nano 33 BLE Sense Rev2
+
+  created 10 Jul 2019
+  by Riccardo Rizzo
+
+  This example code is in the public domain.
+*/
+
+#include "Arduino_BMI270_BMM150.h"
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+  Serial.println("Started");
+
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU!");
+    while (1);
+  }
+
+  Serial.print("Accelerometer sample rate = ");
+  Serial.print(IMU.accelerationSampleRate());
+  Serial.println(" Hz");
+  Serial.println();
+  Serial.println("Acceleration in G's");
+  Serial.println("X\tY\tZ");
+}
+
+void loop() {
+  float x, y, z;
+
+  if (IMU.accelerationAvailable()) {
+    IMU.readAcceleration(x, y, z);
+
+    Serial.print(x);
+    Serial.print('\t');
+    Serial.print(y);
+    Serial.print('\t');
+    Serial.println(z);
+  }
+}
+```
+
+In order to get a correct reading of the board data, before uploading the sketch to the board hold the board in your hand, from the side of the USB port. The board should be facing up and "pointing" away from you. The image below illustrates the board's position and how it works:
+
+![Interacting with the X and Y axes](assets\nano33BS_02_illustration.png)
+
+#### Gyroscope
+
+A gyroscope sensor is a device that can measure and maintain the orientation and angular velocity of an object. Gyroscopes are more advanced than accelerometers, as they can measure the tilt and lateral orientation of an object, whereas an accelerometer can only measure its linear motion.
+
+The gyroscope data can be accessed through the following commands:
+
+```arduino
+  float x, y, z;
+
+  if (IMU.gyroscopeAvailable()) {
+    IMU.readGyroscope(x, y, z);
+  }
+```
+
+The following example demonstrates basic access to the accelerometer:
+
+````arduino
+/*
+  Arduino BMI270 - Simple Gyroscope
+
+  This example reads the gyroscope values from the BMI270
+  sensor and continuously prints them to the Serial Monitor
+  or Serial Plotter.
+
+  The circuit:
+  - Arduino Nano 33 BLE Sense Rev2
+
+  created 10 Jul 2019
+  by Riccardo Rizzo
+
+  This example code is in the public domain.
+*/
+
+#include "Arduino_BMI270_BMM150.h"
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+  Serial.println("Started");
+
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU!");
+    while (1);
+  }
+  Serial.print("Gyroscope sample rate = ");
+  Serial.print(IMU.gyroscopeSampleRate());
+  Serial.println(" Hz");
+  Serial.println();
+  Serial.println("Gyroscope in degrees/second");
+  Serial.println("X\tY\tZ");
+}
+
+void loop() {
+  float x, y, z;
+
+  if (IMU.gyroscopeAvailable()) {
+    IMU.readGyroscope(x, y, z);
+
+    Serial.print(x);
+    Serial.print('\t');
+    Serial.print(y);
+    Serial.print('\t');
+    Serial.println(z);
+  }
+}
+````
+
+Now with the board parallel to the ground you can swiftly move it towards one direction: forward, backwards, right or left. According to the movement of your choice, the results will print every second to your monitor!
+
+![Positioning of the board](assets/nano33BS_03_gyroscope.png)
+
+#### Magnetometer
+
+The magnetometer data can be accessed through the following commands:
+
+```arduino
+  float x, y, z;
+
+  IMU.readMagneticField(x, y, z);
+```
+
+
+
+```arduino
+
+```
+
+
 
 ## Support
 
