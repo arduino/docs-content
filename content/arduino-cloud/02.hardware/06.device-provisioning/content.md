@@ -25,22 +25,23 @@ If your board is provisioned to the Cloud with version 2.0 the network credentia
 
 |        Board        | Compatible version |
 | ------------------- | ----------- |
+|     Nicla Vision    | Version 2.0 |
+|        Opta         | Version 2.0 |
+|     GIGA R1 WiFi    | Version 2.0 |
+|     UNO R4 WiFi     | Version 2.0 |
+|     Portenta H7     | Version 2.0 |
 |     MKR NB 1500     | Version 1.0 |
 |     MKR WAN 1300    | Version 1.0 |
 |     MKR WAN 1310    | Version 1.0 |
 |     MKR 1000 WiFi       | Version 1.0 |
 |     MKR WiFi 1010   | Version 1.0 |
 |     MKR GSM 1400    | Version 1.0 |
-|     GIGA R1 WiFi    | Version 2.0 |
-|     UNO R4 WiFi     | Version 2.0 |
 |     Nano 33 IoT     | Version 1.0 |
 |     Nano ESP32      | Version 1.0 |
 | Nano RP2040 Connect | Version 1.0 |
-|     Portenta H7     | Version 2.0 |
 |     Portenta C33    | Version 1.0 |
 |     Portenta X8     | Version 1.0 |
-|     Nicla Vision    | Version 2.0 |
-|        Opta         | Version 2.0 |
+
 
 If you have a board that is compatible with version 2.0 but have provisioned it with version 1.0, please have a look at the [section](#migrating-from-version-10-to-20) at the end to understand how to migrate your board from 1.0 to 2.0.
 
@@ -82,7 +83,7 @@ Now you are ready to start using your board with the Arduino Cloud!
 
 ## USB Provisioning
 
-If this is your first time using the Arduino Cloud you will be asked to download the **Arduino Create Agent**. The Create Agent is a piece of software that is necessary for your Arduino board to communicate with your browser. Download and install it by clicking on download and following the installation process.
+If this is your first time using the Arduino Cloud you will be asked to download the [**Arduino Cloud Agent**](https://cloud.arduino.cc/download-agent/). The Create Agent is a piece of software that is necessary for your Arduino board to communicate with your browser. Download and install it by clicking on download and following the installation process.
 
 When the installation is finished you will get to a page that lets you select the board you wish to configure. Click on the board that you want to set up.
 
@@ -108,7 +109,7 @@ To find out more about Arduino Cloud Things, go [here](https://docs.arduino.cc/a
 
 ## Migrating from version 1.0 to 2.0
 
-If you would like to upgrade your board from 1.0 to 2.0, so that your network credentials are saved on the baords storage and so that the board can be updated via BLE. And If you have a board that is compatible with version 2.0 but have provisioned it previously with version 1.0, please follow the instructions in this section! 
+If you would like to upgrade your board from 1.0 to 2.0, so that your network credentials are saved on the boards storage and so that the board can be updated via BLE. And If you have a board that is compatible with version 2.0 but have provisioned it previously with version 1.0, please follow the instructions in this section! 
 
 Go to the device page [here](https://app.arduino.cc/devices), if the board is on the list already please delete it. Then press the **+ DEVICE** button.
 
@@ -128,7 +129,7 @@ When this is done you can continue setting up the network connection for your bo
 
 This section will explain how to remove the stored network credentials and force the restart of the BLE interface of a board that has been provisioned with version 2.0. This can be useful to either reset the board or to update the network credentials via BLE.
 
-If you want to remove the stored network credentials and force the restart of the BLE interface, so that the network credentials can be updated via BLE. Please follow these instructions depending on your baord:
+If you want to remove the stored network credentials and force the restart of the BLE interface, so that the network credentials can be updated via BLE. Please follow these instructions depending on your board:
 
 - `Arduino Opta`: Press and hold the user button (BTN_USER) until the led (LED_USER) turns off
 - `Arduino MKR WiFi 1010`: Short pin 7 to GND until the led turns off
@@ -139,6 +140,6 @@ If you want to remove the stored network credentials and force the restart of th
 - `Other boards`: Short pin 2 to GND until the led turns off
 - `Portenta Machine Control`: Currently the reset procedure is not available
 
-If you would like to remove the network credentials from the board, you can use the (**Arduino_NetworkConfigurator**)[https://github.com/arduino-libraries/Arduino_NetworkConfigurator?tab=readme-ov-file] library.
+If you would like to remove the network credentials from the board, you can use the [**Arduino_NetworkConfigurator**](https://github.com/arduino-libraries/Arduino_NetworkConfigurator?tab=readme-ov-file) library.
 
 Open Arduino IDE and on the left side open the **library manager**. Search for **Arduino_NetworkConfigurator** and download it. Once it is downloaded go to **File > Examples > Arduino_NetworkConfigurator > Utility > DeleteConfiguration**, this will open a new example sketch. Select your board and port then upload this example sketch to your board. When the sketch has been uploaded you can look at the serial monitor to monitor the progress and troubleshoot if needed.
