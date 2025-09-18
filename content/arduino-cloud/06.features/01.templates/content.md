@@ -117,7 +117,7 @@ Once you have added the `Widget`, you can either connect it to the available `va
 
 ![Associated Thing](assets/associated-thing.png)
 
-As mentioned earlier, a template also creates: **variables**, **sketch files**, **device** and **network information** that can be configured based on your preference. All this information can be found inside a **Thing**.
+As mentioned earlier, a template also creates: **variables**, **sketch files**, **device** and **network information** that can be configured based on your preference. Most of this information can be found inside a **Thing**. The **network information** can be found on the device page.
 
 ![Thing information](assets/thing-information.png)
 
