@@ -375,12 +375,12 @@ This code is in the public domain.
 #include <WiFiUdp.h>
 #include <mbed_mktime.h>
 
-int timezone = -1; //this is GMT -1. 
+int timezone = -1;  //this is GMT -1.
 
-int status = WL_IDLE_STATUS;
-
-char ssid[] = "Flen";        // your network SSID (name)
-char pass[] = "";  // your network password (use for WPA, or use as key for WEP)
+#include "arduino_secrets.h" 
+///////please enter your sensitive data in the Secret tab/arduino_secrets.h
+char ssid[] = SECRET_SSID;  // your network SSID (name)
+char pass[] = SECRET_PASS;  // your network password (use for WPA, or use as key for WEP)
 
 int keyIndex = 0;  // your network key index number (needed only for WEP)
 
@@ -416,11 +416,12 @@ void setup() {
   }
 
   // attempt to connect to WiFi network:
-  while (status != WL_CONNECTED) {
+  while (true) {
     Serial.print("Attempting to connect to SSID: ");
     Serial.println(ssid);
     // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
-    status = WiFi.begin(ssid, pass);
+    if (WiFi.begin(ssid, pass) == WL_CONNECTED)
+      break;
 
     // wait 10 seconds for connection:
     delay(10000);
@@ -475,8 +476,8 @@ unsigned long parseNtpPacket() {
   const unsigned long secsSince1900 = highWord << 16 | lowWord;
   constexpr unsigned long seventyYears = 2208988800UL;
   const unsigned long epoch = secsSince1900 - seventyYears;
-  
-  const unsigned long new_epoch = epoch + (3600 * timezone); //multiply the timezone with 3600 (1 hour)
+
+  const unsigned long new_epoch = epoch + (3600 * timezone);  //multiply the timezone with 3600 (1 hour)
 
   set_time(new_epoch);
 
