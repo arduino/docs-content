@@ -3,7 +3,8 @@ title: Starter Kit R4
 url_shop: https://store.arduino.cc/products/arduino-starter-kit-multi-language
 url_guide: https://courses.arduino.cc/starterkitr4
 primary_button_url: https://courses.arduino.cc/starterkitr4
-primary_button_title: Get Started
+primary_button_title: Go To Course
+
 sku: [K000007_R4, K000007_R4-6P]
 ---
 
