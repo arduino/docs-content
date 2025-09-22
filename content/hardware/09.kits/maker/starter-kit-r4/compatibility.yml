@@ -5,5 +5,4 @@ software:
 hardware:
   shields: ~
   carriers: ~
-  boards:
-    - uno-r4-wifi
+  boards: ~

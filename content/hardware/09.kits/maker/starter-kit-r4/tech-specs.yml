@@ -4,6 +4,7 @@ Kit:
 Components:
   Arduino UNO R4 WiFi (ABX00087): 1x
   USB-C® cable: 1x
+  9V battery snap connector: 1x
   Breadboard: 1x
   Easy-to-assemble base: 1x
   Solid core jumper wires: 70x
@@ -26,8 +27,9 @@ Components:
   H-bridge motor driver: 1x
   Optocouplers: 2x
   MOSFET transistor: 1x
-  Capacitors (100 µF): 3x
   Diodes: 3x
+  Potentiometers (10k ohm): 3x
+  Capacitors (100 µF): 3x
   Resistors (220 Ω): 11x
   Resistors (560 Ω): 3x
   Resistors (1 kΩ): 3x
@@ -35,3 +37,4 @@ Components:
   Resistors (10 kΩ): 11x
   Resistors (1 MΩ): 7x
   Resistors (10 MΩ): 3x
+  Transparent color gels (red, green, blue): 3x

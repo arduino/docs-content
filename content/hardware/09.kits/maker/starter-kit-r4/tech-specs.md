@@ -1,1 +1,1 @@
-Here you will find the technical specifications for the Arduino® Plug and Make Kit.
+Here you will find the technical specifications for the Arduino® Starter Kit R4.
