@@ -170,7 +170,7 @@ PMIC **PM4125** generates the internal processor and memory rails from `PWR_3P8V
 
 Microcontroller **STM32U585** is powered from `PWR_3P3V` on pins `VDD`, `VDDA`, `VDDUSB`, and `VREF+`. Its 1.8 V bank `VDDIO2` is supplied by `VREG_L15A_1P8V` via the level-shifter.
 
-***For more detailed information about the reference, please refere to the [UNO Q schematics here](https://docs.arduino.cc/resources/schematics/ABX00162-schematics.pdf).***
+***For more detailed information about the reference, please refer to the [UNO Q schematics here](https://docs.arduino.cc/resources/schematics/ABX00162-schematics.pdf).***
 
 ## Pin-Level Power Tolerances
 
