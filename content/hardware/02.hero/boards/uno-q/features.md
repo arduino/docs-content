@@ -61,7 +61,7 @@ From AI-powered vision and sound solutions that react to their environment to so
     The WCBN3536A wireless module allows to simultaneously manage WiFi® and Bluetooth® connectivity. The module features:
     <ul>
         <li><strong>Wi-Fi® 5</strong> Dual-band (2.4/5 GHz) with onboard antenna</li>
-        <li><strong>BLE® 5</strong> with onboard antenna</li>
+        <li><strong>Bluetooth® LE 5</strong> with onboard antenna</li>
     </ul>
   </Feature>
 
