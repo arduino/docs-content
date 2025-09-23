@@ -49,7 +49,7 @@ Microcontroller Unit:
 Radio Module: 
   Module: WCBN3536A
   WiFi: Wi-Fi® 5 Dual-band 2.4/5 GHz with onboard antenna
-  Bluetooth: BLE® 5 with onboard antenna
+  Bluetooth: Bluetooth® LE 5 with onboard antenna
 USB:
   USB-C®: With host/device role switching, power role switch and video output
   Voltage: +5 VDC max at 3 A
@@ -63,4 +63,4 @@ Special Connectors:
   JCTL: Yes, MPU Remote Debug connector
 Dimensions:
   Width: 53.34 mm 
-  Length: 68.85 mm
+  Length: 68.58 mm
