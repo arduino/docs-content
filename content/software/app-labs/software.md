@@ -1,5 +1,5 @@
 ---
-title: App Labs
+title: Arduino App Lab
 icon: IconBrackets
 ---
 
