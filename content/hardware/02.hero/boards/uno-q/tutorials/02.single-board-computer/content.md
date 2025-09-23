@@ -46,7 +46,7 @@ The UNO Q comes ready to use out of the box. You do not need to flash or install
 
 ***The UNO Q comes with a built-in desktop operating system based on the Debian distribution.***
 
-## UNO Q Features for SBC use
+## UNO Q Features for SBC Use
 
 The UNO Q offers the essential performance and connectivity needed for everyday computing and embedded applications.
 
@@ -123,7 +123,7 @@ You can use your single-board computer for web browsing, media playing, coding, 
 
 ![SBC everyday usage](assets/usage.gif)
 
-## Expand your Single-Board Computer
+## Expand Your Single-Board Computer
 
 You can add more functionalities to your UNO Q single-board computer by adding extra peripherals connected to your USB-C hub, for example:
 

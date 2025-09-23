@@ -8,6 +8,7 @@ tags:
   - Voltage Regulation
 author: 'Taddy Chung'
 hardware:
+  - hardware/uno/boards/uno-q
 ---
 
 ![UNO Q Power Specifications](assets/uno-q-power-hero.png)
@@ -54,7 +55,7 @@ The USB-C port operates as a 5 V sink. Through USB Power Delivery negotiation, t
 
 ***__Important:__ Use a stable **5 V / 3 A** source. If the supply current-limits during peaks, voltage hang may cause resets.***
 
-#### USB-C capabilities
+#### USB-C Capabilities
 
 The USB-C (JUSB1) port provides USB 2.0 High-Speed data at `480 Mb/s` and DisplayPort Alt-Mode video up to 4K at 30 Hz via the *ANX7625* DSI-to-DP bridge. During USB Power Delivery negotiation, the board requests a **5 V / 3 A** contract only and does not request higher-voltage profiles. The connector's SuperSpeed differential pairs are allocated to DP Alt-Mode, so USB 3.X data is not available when DP is active.
 
