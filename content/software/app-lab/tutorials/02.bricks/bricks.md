@@ -138,7 +138,7 @@ It is possible to see the status of a Docker container by running `docker ps` in
 - Open the terminal in [Single Board Computer (SBC)](/tutorials/uno-q/single-board-computer) mode and run `docker ps`
 - Access the board's shell via `adb` (with the board connected via USB).
 
-Running the command provides information regarding the container, and if an issue occured during or after the launch of an App, it is possible to see if it is running or not.
+Running the command provides information regarding the container, and if an issue occurred during or after the launch of an App, it is possible to see if it is running or not.
 
 The output from running a command looks like this:
 
