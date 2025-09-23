@@ -189,10 +189,10 @@ This is done by running:
 ```sh
 # List out Bricks installed on the board
 arduino-app-cli brick list
-# Details for a specific brick
+# Details for a specific Brick
 arduino-app-cli brick details arduino:<brick>
 ```
 
 Which will show something akin to:
 
-![List bricks](assets/list-bricks.png)
+![List Bricks](assets/list-bricks.png)

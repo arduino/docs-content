@@ -141,7 +141,7 @@ If you select **"Create from scratch"**, you will be prompted to select if the A
 
 When you create a new App from scratch, you will need to write the programs and import the Bricks manually.
 
-To add a Brick, click on the **"Add bricks"** button, and select the Brick you'd like to use. The Brick can now be used in your `main.py` file.
+To add a Brick, click on the **"Add Bricks"** button, and select the Brick you'd like to use. The Brick can now be used in your `main.py` file.
 
 ## How Apps Function
 
@@ -159,7 +159,7 @@ These processes are run in parallel, which makes Apps a very versatile component
 When creating an App, it is important to always import and use the `App` class, particularly the `run()` function. 
 
 ```python
-# Launches the App, along with any imported bricks
+# Launches the App, along with any imported Bricks
 App.run()
 ```
 

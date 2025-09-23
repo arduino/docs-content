@@ -48,7 +48,7 @@ bricks:
 
 ***Do not manually edit the `bricks` entry inside the `app.yaml` file.***
 
-After adding the brick to the App, it also needs to be imported in the `main.py` file that is located inside the `python` folder of your App. Below is an example:
+After adding the Brick to the App, it also needs to be imported in the `main.py` file that is located inside the `python` folder of your App. Below is an example:
 
 ```python
 from arduino.app_bricks.web_ui import WebUI
