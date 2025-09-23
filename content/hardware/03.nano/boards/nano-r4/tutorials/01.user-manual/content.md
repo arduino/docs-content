@@ -746,7 +746,7 @@ The Nano R4 board provides PWM functionality on the following pins:
 |      `D10`      |         `P103`          |   Channel 2A    |  Digital I/O, SPI CS  |
 |      `D11`      |         `P101`          |   Channel 5A    | Digital I/O, SPI MOSI |
 
-***__Important note:__ Pins `A4` and `A5` also have PWM capability but are primarily used for I²C communication (SDA and SCL respectively). The onboard LEDs (`LEDR`, `LEDG`, `LEDB`, `LED_BUILTIN`) also support PWM for brightness control.***
+***__Important notes__: Pins `D3` and `D9` share the same PWM channel (`Channel 0B`) and cannot be used for PWM simultaneously. When using PWM on one of these pins, the other cannot output an independent PWM signal. Similarly, pins `D6`, `D3`, and `D9` all use timer `GPT0`, which means they will share the same PWM frequency setting. The onboard LEDs (`LEDR`, `LEDG`, `LEDB`, `LED_BUILTIN`) also support PWM for brightness control.***
 
 The Nano R4's PWM offers the following technical specifications:
 
@@ -761,7 +761,7 @@ You can use PWM pins as analog output pins with the `analogWrite()` function:
 analogWrite(pin, value);
 ```
 
-**By default, the resolution is 8-bit (0 to 255)**. You can use analogWriteResolution() to change this, supporting up to 16-bit (0 to 65535) resolution: 
+**By default, the resolution is 8-bit (0 to 255)**. You can use the `analogWriteResolution()` resolution to change this, supporting up to 16-bit (0 to 65535) resolution: 
 
 ```arduino
 analogWriteResolution(resolution);
