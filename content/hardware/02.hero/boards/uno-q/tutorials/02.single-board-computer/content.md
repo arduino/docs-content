@@ -52,8 +52,8 @@ The UNO Q offers the essential performance and connectivity needed for everyday 
 
 - **CPU**: Qualcomm Dragonwing™ QRB2210 | Quad-core Arm® Cortex®-A53 @ 2.0 GHz
 - **GPU**: Adreno 702 GPU @ 845 MHz | 3D graphics accelerator
-- **RAM**: 2 GB LPDDR4 (Preview)
-- **Storage**: 16 GB eMMC
+- **RAM**: 2 GB or 4 GB LPDDR4 
+- **Storage**: 16 GB or 32 GBeMMC
 - **Connectivity**: Wi-Fi® 5 Dual-band 2.4/5 GHz and Bluetooth® LE 5
 - **Display**: 4K resolution through USB-C
 
