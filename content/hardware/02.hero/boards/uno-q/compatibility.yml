@@ -1,0 +1,20 @@
+software:
+  - arduino-app-lab
+  - arduino-ide
+  - arduino-cli
+  - cloud-editor
+hardware:
+  boards: ~
+  carriers: 
+    - ocio
+    - panen
+    - santerno
+    - oss
+    - odd
+    - rumagna
+  shields: 
+    - bughopper
+    - 4-relays-shield
+    - motor-shield-rev3
+    - spe-shield
+    - 9-axis-motion-shield
