@@ -3,4 +3,4 @@ title: Arduino App Lab
 icon: IconBrackets
 ---
 
-Focus on your project with seamless MPU and MCU development.
+Focus on your project with integrated pre-trained AI models and seamless MPE and MCU development
