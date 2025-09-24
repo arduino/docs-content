@@ -91,7 +91,7 @@ The Nano 33 BLE Sense Rev2 has a DAC with up to 12-bit resolution attached to th
 
 ### Board Actuators
 
-The Nano R4 features an RGB LED and single color built-in LED, both can be controlled through the Nano 33 BLE Sense Rev2 GPIOs. See the [pinout](#pinout) section for a detailed overview.
+The Nano 33 BLE Sense Rev2 features an RGB LED and single color built-in LED, both can be controlled through the Nano 33 BLE Sense Rev2 GPIOs. See the [pinout](#pinout) section for a detailed overview.
 
 ### Related Products
 
@@ -139,7 +139,7 @@ The board can be powered via USB connector, V<sub>IN</sub> or V<sub>USB</sub> pi
 
 The Nano breakout connectors pinout is shown in the following figure.
 
-![Pinout for Nano R4](assets/pinout.png)
+![Pinout for Nano 33 BLE Sense Rev2](assets/pinout.png)
 
 #### Headers
 
