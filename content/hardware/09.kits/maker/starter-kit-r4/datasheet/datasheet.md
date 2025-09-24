@@ -23,13 +23,15 @@ Education, embedded programming, maker prototyping, STEM classrooms
 The Starter Kit R4 offers a wide variety of practical applications, from classroom-friendly tutorials to interactive prototypes. Below are a few examples of what learners and developers can build with the kit:
 </p>
 
-- <p style="text-align: justify;"><strong>Interactive Interfaces</strong>: Create game controllers and HID devices that can interact with computers, exploring the bridge between physical and digital controls.</p>
-- <p style="text-align: justify;"><strong>Educational Tools</strong>: Teach students the fundamentals of electronics, embedded coding, and control logic using interactive guided experiments and hands-on projects.</p>
-- <p style="text-align: justify;"><strong>LED Matrix Animations</strong>: Use the onboard 12x8 red LED matrix to create visual displays, heartbeat monitors, status indicators, or animations for feedback and communication.</p>
-- <p style="text-align: justify;"><strong>Temperature Sensing</strong>: Build temperature-based monitoring systems using included thermistors to create chill-o-meters and responsive feedback devices.</p>
-- <p style="text-align: justify;"><strong>Robotics & Motion</strong>: Drive DC or servo motors to explore basic robotics and automated movement control applications like motorized pinwheels.</p>
-- <p style="text-align: justify;"><strong>Sound & Music Projects</strong>: Create musical instruments, synthesizers, and sound-responsive devices using piezo speakers, capacitive touch, and light sensors.</p>
-- <p style="text-align: justify;"><strong>Sensor-Based Feedback Systems</strong>: Develop touch-sensitive lamps, knock detectors, and mood indicators that respond to physical interactions and environmental changes.</p>
+<ul>
+<li><strong>Interactive Interfaces</strong>: Create game controllers and HID devices that can interact with computers, exploring the bridge between physical and digital controls.</li>
+<li><strong>Educational Tools</strong>: Teach students the fundamentals of electronics, embedded coding, and control logic using interactive guided experiments and hands-on projects.</li>
+<li><strong>LED Matrix Animations</strong>: Use the onboard 12x8 red LED matrix to create visual displays, heartbeat monitors, status indicators, or animations for feedback and communication.</li>
+<li><strong>Temperature Sensing</strong>: Build temperature-based monitoring systems using included thermistors to create chill-o-meters and responsive feedback devices.</li>
+<li><strong>Robotics & Motion</strong>: Drive DC or servo motors to explore basic robotics and automated movement control applications like motorized pinwheels.</li>
+<li><strong>Sound & Music Projects</strong>: Create musical instruments, synthesizers, and sound-responsive devices using piezo speakers, capacitive touch, and light sensors.</li>
+<li><strong>Sensor-Based Feedback Systems</strong>: Develop touch-sensitive lamps, knock detectors, and mood indicators that respond to physical interactions and environmental changes.</li>
+</ul>
 
 <div style="page-break-after: always;"></div>
 
@@ -276,7 +278,7 @@ Always use external power supplies for high-current loads like servos or DC moto
 ## Kit Power Supply
 
 <p style="text-align: justify;">
-The Starter Kit R4 supports multiple powering options via the Arduino UNO R4 WiFi board. When connecting additional peripherals, ensure they are within the supported voltage and current limits.
+The Starter Kit R4 supports multiple powering options via the Arduino UNO R4 WiFi board. When connecting additional peripherals, ensure they are within the supported voltage and current limits.</p>
 
 - <p style="text-align: justify;"><strong>VIN / Barrel Jack</strong>: Accepts 6-24 VDC input, regulated to 5 V using the onboard buck converter (ISL854102FRZ). Recommended for projects requiring higher or isolated input voltage sources.</p>
 
@@ -411,13 +413,13 @@ accordance with the instructions, may cause harmful interference to radio commun
 However, there is no guarantee that interference will not occur in a particular installation. If
 this equipment does cause harmful interference to radio or television reception, which can be
 determined by turning the equipment off and on, the user is encouraged to try to correct the
-interference by one or more of the following measures:
+interference by one or more of the following measures:</p>
+
 - Reorient or relocate the receiving antenna.
 - Increase the separation between the equipment and receiver.
 - Connect the equipment into an outlet on a circuit different from that to which the
 receiver is connected.
 - Consult the dealer or an experienced radio/TV technician for help.
-</p>
 
 <p style="text-align: justify;">
 English:
