@@ -5,7 +5,7 @@ author: Karl Söderby
 tags: [UNO Q, Linux, CLI]
 ---
 
-The App Lab IDE is built on top of the `arduino-app-cli` tool, a command line tool that manages Apps made for the [Arduino UNO Q](https://store.arduino.cc/products/uno-q) board.
+The Arduino App Lab is built on top of the `arduino-app-cli` tool, a command line tool that manages Apps made for the [Arduino UNO Q](https://store.arduino.cc/products/uno-q) board.
 
 The `arduino-app-cli` is pre-installed on the UNO Q board and can be accessed either through using the terminal on the board itself, or by accessing the board's terminal from a host computer via Android Debug Bridge (ADB).
 
@@ -67,7 +67,7 @@ To verify the tool is installed, run `adb version`.
 
 >Note that it may take up to a minute for the device to appear after connecting it.
 
-3. Run `adb shell`. If you have not set up your board prior to this via the App Lab IDE, you may be required to provide a password, which is `arduino`.
+3. Run `adb shell`. If you have not set up your board prior to this via the Arduino App Lab, you may be required to provide a password, which is `arduino`.
 4. You should now be inside your board's terminal.
 
     ![Terminal on the board.](assets/board-terminal.png)
@@ -189,10 +189,10 @@ This is done by running:
 ```sh
 # List out Bricks installed on the board
 arduino-app-cli brick list
-# Details for a specific brick
+# Details for a specific Brick
 arduino-app-cli brick details arduino:<brick>
 ```
 
 Which will show something akin to:
 
-![List bricks](assets/list-bricks.png)
+![List Bricks](assets/list-bricks.png)
