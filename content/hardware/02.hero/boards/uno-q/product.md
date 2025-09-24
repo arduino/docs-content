@@ -9,4 +9,4 @@ certifications: [CE/RED, RoHS, REACH, WEEE, UKCA, RCM, FCC, IC, MIC, SRRC, NCC, 
 sku: [ABX00162]
 ---
 
-The Arduino UNO Q unlocks a new level of performance for the Arduino ecosystem, blending robust computing power from Qualcomm’s advanced Dragonwing™ QRB2210 MPU running a full Debian Linux OS with upstream support, and the real-time responsiveness of a dedicated STM32U585 MCU running Arduino sketches over Zephyr OS — all on a single board computer.
+The Arduino UNO Q unlocks a new level of performance for the Arduino ecosystem, blending robust computing power from Qualcomm's advanced Dragonwing™ QRB2210 MPU running a full Debian Linux OS with upstream support, and the real-time responsiveness of a dedicated STM32U585 MCU running Arduino sketches over Zephyr OS - all on a single board computer.
