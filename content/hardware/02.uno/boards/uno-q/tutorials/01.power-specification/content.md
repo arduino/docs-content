@@ -28,7 +28,7 @@ This tutorial walks you through the power domain of UNO Q, with emphasis on the 
 
 The UNO Q accepts a 5 V input over USB-C® or a 7–24 V input on DC input using the VIN pin (`DC_IN`), which is step-down converted to 5 V. These two sources are **diode-OR** combined into the system 5 V bus (`5V_SYS`).
 
-From the 5 V system bus (`5V_SYS`), the board generates a 3.8 V pre-regulator node (`PWR_3P8V`). This node is the PMIC input (`VCOIN*`/`VPH_PWR`) and also the supply for the 3.3 V converter (`PWR_3P3V`). The PMIC produces the board's exported 1.8 V rail (`VREG_L15A_1P8V`) and the internal processor and memory rails. `VBAT` is connected by design to `PWR_3P8V` (3.8 V) through a *0 Ω* link. The USB VBUS back-drive path is sourced from the 5 V system bus (`5V_SYS`) and is separate from the PMIC input path.
+From the 5 V system bus (`5V_SYS`), the board generates a 3.8 V pre-regulator node (`PWR_3P8V`). This node is the PMIC input (`VCOIN*`/`VPH_PWR`) and also the supply for the 3.3 V converter (`PWR_3P3V`). The PMIC produces the board's exported 1.8 V rail (`VREG_L15A_1P8V`) and the internal processor and memory rails. `VBAT` connects to `PWR_3P8V` for system use. The USB VBUS back-drive path is sourced from the 5 V system bus (`5V_SYS`) and is separate from the PMIC input path.
 
 The diagram below shows these rails and conversion points, using the same net names used throughout this tutorial.
 
@@ -47,7 +47,7 @@ This section outlines what the board expects as input and what it provides inter
 | USB-C VBUS  |               5 V |                   ≥ 3 A | USB-C connector |
 | VIN (DC IN) |         7  - 24 V |     Sized to 5 V budget | JMEDIA, JANALOG |
 
-The USB-C port operates as a 5 V sink. Through USB Power Delivery negotiation, the board requests a **5 V / 3 A** contract only and does not request higher-voltage PD profiles. Use a supply and cable rated for 5 V at 3 A so short activity peaks, for example wireless bursts or display bring-up, do not cause connector droop.
+UNO Q supports dual power inputs: a USB-C port and a 7-24V DC input. Through USB Power Delivery negotiation, the board requests a **5 V / 3 A** contract only and does not request higher-voltage PD profiles. Use a supply and cable rated for 5 V at 3 A so short activity peaks, for example wireless bursts or display bring-up, do not cause connector droop.
 
 `USB-C VBUS` and the 5 V output of the 7–24 V buck are **diode-OR'd** into the system 5 V bus (`5V_SYS`). The VIN (`DC IN`) path feeds a step-down converter to 5 V and its output goes through a Schottky rectifier to the same `5V_SYS` node. From `5V_SYS`, the board outputs the 3.8 V pre-regulator node and subsequently the **3.3 V** and **1.8 V** rails described below.
 
@@ -57,7 +57,7 @@ The USB-C port operates as a 5 V sink. Through USB Power Delivery negotiation, t
 
 #### USB-C Capabilities
 
-The USB-C (JUSB1) port provides USB 2.0 High-Speed data at `480 Mb/s` and DisplayPort Alt-Mode video up to 4K at 30 Hz via the *ANX7625* DSI-to-DP bridge. During USB Power Delivery negotiation, the board requests a **5 V / 3 A** contract only and does not request higher-voltage profiles. The connector's SuperSpeed differential pairs are allocated to DP Alt-Mode, so USB 3.X data is not available when DP is active.
+The USB-C (JUSB1) port provides USB 2.0 High-Speed data at `480 Mb/s` and DisplayPort Alt-Mode video up to 4K at 30 Hz via the *ANX7625* DSI-to-DP bridge. The connector's SuperSpeed differential pairs are allocated to DP Alt-Mode, so USB 3.X data is not available when DP is active.
 
 ### Recommended Operating Conditions
 
@@ -101,9 +101,7 @@ A P-channel MOSFET switches that back-drive path. Its enable is gated, so `VBUS`
 
 #### 3V8 Rail (PWR_3P8V)
 
-`PWR_3P8V` is the intermediate rail produced by the step-down converter *TPS62A02APDDCR* for 5 V to 3.8 V. It supplies the PMIC input pins (`VCOIN`/`VPH_PWR`) and the 3.3 V step-down converter.
-
-`VBAT` is connected to this node through a *0 Ω* link. The `PWR_3P8V`, `VPH_PWR`, `VCOIN` and `VBAT` refer to the same electrical net.
+`PWR_3P8V` is the intermediate rail produced by the step-down converter *TPS62A02APDDCR* for 5 V to 3.8 V. It supplies the PMIC input pins (`VCOIN` and `VPH_PWR`) and the 3.3 V step-down converter.
 
 #### 3V3 Rail (PWR_3P3V)
 
@@ -119,21 +117,17 @@ Inside the PMIC, there are additional 3.3 V LDO rails used by subsystems. For ex
 
 ***__Important:__ Keep 3.3 V signals out of this bank to avoid over-voltage on processor-level I/O.***
 
-The **PM4125** is the PMIC (Power-Management IC) of the UNO Q. `VCOIN` and `VPH_PWR` are its main input pins. `VBAT` is connected to the same 3.8 V node in this board.
-
-**Diode-OR** indicates that the two source paths, USB-C 5 V and the 7–24 V buck, are combined with Schottky rectifiers, allowing either source to feed `5V_SYS` without back-feeding the other.
-
 ## PMIC PM4125 Domain
 
 A **PMIC** is a power management integrated circuit. It creates and controls multiple power rails from an upstream supply. It provides buck step-down conversion and low-dropout (LDO) linear regulation, manages rail enable and sequencing, as well as status report. It also handles battery charging and protection. The UNO Q uses the **PM4125**.
 
 ![UNO Q PMIC PM4125](assets/uno-q-pmic.png)
 
-**PM4125** takes its main inputs (`VCOIN` and `VPH_PWR`) from the 3.8 V rail (`PWR_3P8V`) and generates the processor and memory supplies using its buck converters and LDOs. The board's 1.8 V rail (`VREG_L15A_1P8V`) is produced by L15A and is exported. This rail feeds the Qualcomm Dragonwing™ QRB2210 I/O domain, ANX7625 `DVDD18`, Wi-Fi digital 1.8 V, and the level shifters `VCCA`.
+The **PM4125** is the PMIC (Power-Management IC) of the UNO Q. It takes its main inputs (`VCOIN` and `VPH_PWR`) from the 3.8 V rail (`PWR_3P8V`) and generates the processor and memory supplies using its buck converters and LDOs. The board's 1.8 V rail (`VREG_L15A_1P8V`) is produced by L15A and is exported. This rail feeds the Qualcomm Dragonwing™ QRB2210 I/O domain, ANX7625 `DVDD18`, Wi-Fi digital 1.8 V, and the level shifters `VCCA`.
 
 Other PMIC rails supply the Qualcomm Dragonwing™ QRB2210 core, peripheral and PLL domains, LPDDR4X, such as `VDD2` about 1.1 V, `VDDQ` about 0.6 V, `VPP` 1.8 V, `VREF_DDR` about 0.6 V, and eMMC, where `VCC` is 3.3 V or 1.8 V depending on configuration, and `VCCQ` is 1.8 V. The integrated audio bias rails are reserved and are exposed only at test points.
 
-The charger block monitors `USB_VBUS_IN` when `VBUS` is present and routes energy through `VSW_CHG` to `VPH_PWR` while sensing `VBAT`. `PWR_3P8V` and `VBAT` are connected through a resistor with a value of *0 Ω*. Sequencing ensures the 3.3 V rail is valid before the PMIC enables its 1.8 V I/O domain. During shutdown, the 1.8 V domain is removed before the 3.3 V domain to prevent back-powering.
+The charger block monitors `USB_VBUS_IN` when `VBUS` is present and routes energy through `VSW_CHG` to `VPH_PWR` while sensing `VBAT`. `PWR_3P8V` and `VBAT` is reserved and connect for system use. Sequencing ensures the 3.3 V rail is valid before the PMIC enables its 1.8 V I/O domain. During shutdown, the 1.8 V domain is removed before the 3.3 V domain to prevent back-powering.
 
 ## Key Power Components
 
@@ -156,7 +150,7 @@ This table maps each block in the power tree to its function. The table shows th
 
 **LMR51440 buck converter (U2803)** is the wide-input converter that steps 7–24 V down to 5 V. Its output `5V_BUCK_OUT` feeds the OR stage through `D2803`.
 
-**TPS62A02A step-down converter (U2801)** outputs the 3.8 V pre-regulator node `PWR_3P8V` from `5V_SYS`. This node supplies the PMIC input pins, `VCOIN` and `VPH_PWR`, and also feeds the 3.3 V converter. `VBAT` is connected to this node through a 0 Ω link.
+**TPS62A02A step-down converter (U2801)** outputs the 3.8 V pre-regulator node `PWR_3P8V` from `5V_SYS`. This node supplies the PMIC input pins, `VCOIN` and `VPH_PWR`, and also feeds the 3.3 V converter. `VBAT` connects to this node for system use.
 
 **TPS62A02A step-down converter (U2802)** outputs the 3.3 V rail `PWR_3P3V` from `PWR_3P8V`. This rail powers the STM32U585 domains' `VDD`, `VDDA`, `VDDUSB`, and `VREF+`, The 3.3 V side of the level shifters (VCCB), on-board 3.3 V devices and the exported 3.3 V header pins.
 
@@ -189,7 +183,7 @@ Maker I/O on JDIGITAL and JANALOG are 3.3 V pins referenced to `PWR_3P3V`. These
 
 ### I/O Operating Voltages and Drive
 
-MCU banks (JDIGITAL, JANALOG, QWIIC, JSPI) operate at **3.3 V**. Processor banks (JMEDIA, JMISC, JCTL) operate at **1.8 V**. Keep these domains separate and use level shifting when crossing between them.
+MCU banks (JDIGITAL, JANALOG, QWIIC, JSPI) operate at **3.3 V**. Processor banks (JMEDIA, JMISC, JCTL) operate at **1.8 V**.
 
 Per pin drive:
   - **JDIGITAL (MCU GPIO at 3.3 V):** Follow the STM32U585 electrical specifications. Plan loads according to the STM32U585 electrical limits and respect total current per port.
@@ -206,13 +200,13 @@ The headers export following rails:
 
 - **JDIGITAL (A2)** provides `PWR_3P3V (3.3 V)` for 3.3 V maker I/O alongside the MCU signal banks.
 
-- **JANALOG (A3)** provides `PWR_3P3V (3.3 V)` and also carries `5V_USB_VBUS (5 V)` as a power pin. The analog inputs remain referenced to 3.3 V and are not 5 V tolerant.
+- **JANALOG (A3)** provides `PWR_3P3V (3.3 V)` and also carries `5V_USB_VBUS (5 V)` as a power pin.
 
 - **QWIIC (A4)** is a 3.3 V I2C header powered by `PWR_3P3V (3.3 V)`.
 
 - **JSPI (A5)** carries `5V_USB_VBUS (5 V)` on a dedicated pin for accessories that need a 5 V supply. The SPI signals themselves are in the 3.3 V bank. STM32U585 SPI pins are 5 V tolerant as inputs, while outputs drive 3.3 V.
 
-- **JMISC (B1)** exports `PWR_3P3V (3.3 V)`, the board 1.8 V rail `VREG_L15A_1P8V (1.8 V)`, `5V_USB_VBUS (5 V)` and `VBAT (3.8 V)`. `VBAT` here is the same 3.8 V node connected to `PWR_3P8V`, `VPH_PWR`, and `VCOIN` by a 0 Ω link.
+- **JMISC (B1)** exports `PWR_3P3V (3.3 V)`, the board 1.8 V rail `VREG_L15A_1P8V (1.8 V)`, `5V_USB_VBUS (5 V)` and `VBAT (3.8 V)`. `VBAT` is reserved for system use.
 
 - **JMEDIA (B2)** breaks out `PWR_3P3V (3.3 V)` and also brings out VIN (`DC_IN`) (7-24 V). Use `PWR_3P3V (3.3 V)` for 3.3 V peripherals on this connector. VIN (`DC_IN`) is the raw 7–24 V input and is not a logic rail.
 
@@ -252,7 +246,7 @@ The device does not draw power from 5 V. It only senses `VBUS` and the Type-C co
 
 This is known as `VCONN_IN`. ANX7625 reads `VCONN_IN` through a divider made by a 39.2 kΩ resistor to the pin and a 5.6 kΩ resistor to ground. It also monitors `VBUS_DIV8` and connects to `USB_CC1_R_MUX` and `USB_CC2_R_MUX` for Type-C role and configuration, as well as to the SBU lines for DisplayPort AUX. This is a detection node only and is not the cable `VCONN` supply.
 
-`VBUS` sourcing is handled by the P-channel MOSFET (Q2801) from `5V_SYS`. During USB-C Power Delivery negotiation, the board requests the fixed **5 V / 3 A** contract and the ANX7625 does not draw its operating power directly from `VBUS`.
+`VBUS` sourcing is handled by the P-channel MOSFET (Q2801) from `5V_SYS`.
 
 ## Power Sequencing
 
