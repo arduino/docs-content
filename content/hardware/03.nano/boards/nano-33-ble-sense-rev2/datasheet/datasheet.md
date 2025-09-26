@@ -16,7 +16,7 @@ author: José Bagur
 
 # Target Areas
 
-Environmental sensing, Machine Learning, Internet of Things applications
+Environmental sensing, edge AI, IoT applications
 
 # Contents
 ## Application Examples
@@ -34,7 +34,7 @@ Environmental sensing, Machine Learning, Internet of Things applications
   - <p style="text-align: justify;"><strong>Presence detection and space optimization</strong>: Use the proximity sensor and BLE beacons to track occupancy patterns, optimizing energy usage and space allocation in office buildings.</p>
 
 - **Prototyping**: The Nano 33 BLE Sense Rev2 offers a comprehensive platform for rapid development and testing of IoT and machine learning applications.
-  - <p style="text-align: justify;"><strong>EdgeAI development platform</strong>: With its powerful Arm® Cortex®-M4F processor and sensor array, the board provides an ideal platform for developing and deploying edge AI models for voice recognition, anomaly detection, and gesture classification.</p>
+  - <p style="text-align: justify;"><strong>Edge AI development platform</strong>: With its powerful Arm® Cortex®-M4F processor and sensor array, the board provides an ideal platform for developing and deploying edge AI models for voice recognition, anomaly detection, and gesture classification.</p>
   - <p style="text-align: justify;"><strong>Environmental monitoring stations</strong>: Create complete weather and environmental monitoring systems using the integrated temperature, humidity, pressure, and light sensors without additional hardware.</p>
   - <p style="text-align: justify;"><strong>Wearable device prototyping</strong>: The compact form factor and BLE connectivity make it perfect for developing fitness trackers, health monitors, and other wearable applications.</p>
 
@@ -89,7 +89,7 @@ The main features are highlighted in the table shown below.
 
 ### Recommended Operating Conditions
 
-<p style="text-align: justify;"> The table below provides a guideline for the optimal use of the Nano 33 BLE Sense Rev2, outlining typical operating conditions and design limits. The operating conditions of the Nano 33 BLE Sense Rev2 are largely based on the specifications of its components/p>
+<p style="text-align: justify;"> The table below provides a guideline for the optimal use of the Nano 33 BLE Sense Rev2, outlining typical operating conditions and design limits. The operating conditions of the Nano 33 BLE Sense Rev2 are largely based on the specifications of its components</p>
 
 <div style="text-align:center;">
 
