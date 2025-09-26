@@ -133,8 +133,8 @@ An overview of the high-level architecture of the Nano 33 BLE Sense Rev2 is illu
 
 - **USB connector**: The board can be powered via the micro USB connector with +5 VDC input.
 - **VIN pin**: External power supply from +5 VDC to +18 VDC connected to the VIN pin, regulated down to +3.3 VDC by the MP2322GQH buck converter.
-- 3.3V pin: Direct 3.3V supply (use with caution, bypasses onboard regulation).
-- VUSB pin: 5V from USB can be accessed via the VUSB pin when the jumper SJ1 is closed.
+- **3.3V pin**: Direct +3.3 VDC supply (use with caution, bypasses onboard regulation).
+- **VUSB pin**: +5 VDC from USB can be accessed via the VUSB pin when the jumper SJ1 is closed.
 
 A detailed figure below illustrates the power options available on the Nano 33 BLE Sense Rev2 and the main system power architecture.
 
@@ -191,21 +191,27 @@ A detailed figure below illustrates the power options available on the Nano 33 B
 
 ### Board Dimensions
 
-The Nano 33 BLE Sense Rev2 board outline is shown in the figure below; all dimensions are in mm.
+<p style="text-align: justify;">The Nano 33 BLE Sense Rev2 board outline and mounting hole dimensions is shown in the figure below; all dimensions are in mm.</p>
 
-![Board layout](assets/outline.png)
+![Nano 33 BLE Sense Rev2 board layout](assets/Nano_33_BLE_Sense_Rev2_Outline.png)
 
-<p style="text-align: justify;">The Nano 33 BLE Sense Rev2 features castellated pads along its edges, allowing it to be used as either a through-hole component (with headers) or as a surface-mount module for integration into custom PCBs.</p>
+<p style="text-align: justify;">The Nano 33 BLE Sense Rev2 has four 1.65 mm drilled mounting holes for mechanical fixing.</p>
 
 <div style="page-break-after: always;"></div>
 
 ### Board Connectors
 
-<p style="text-align: justify;">The Nano 33 BLE Sense Rev2 exposes two 15-pin headers that can be assembled with pin headers (SKU: ABX00070) or soldered directly via castellated vias (SKU: ABX00069). The headers follow the classic Arduino Nano pinout for compatibility with existing shields and accessories.</p>
+<p style="text-align: justify;">The Nano 33 BLE Sense Rev2 has two 15-pin headers that can be assembled with pin headers (SKU: ABX00070) or soldered directly via castellated pads (SKU: ABX00069). The headers follow the classic Arduino Nano family pinout for compatibility with existing shields and accessories of the Nano Family. All the dimensions are in mm.</p>
+
+![Nano 33 BLE Sense Rev2 board connectors](assets/Nano_33_BLE_Sense_Rev2_Board_Connectors.png)
+
+<p style="text-align: justify;">The Nano 33 BLE Sense Rev2 was designed to be usable as a surface-mount module and presents a dual inline package (DIP) format with the Nano-styled header connectors on a 2.54 mm pitch grid with 1 mm holes.</p>
 
 ### Board Components and Peripherals
 
 <p style="text-align: justify;">The Nano 33 BLE Sense Rev2 features various components on both sides of the board. The top side houses the main processor, wireless module, sensors, and user interfaces (reset button, LEDs), while the bottom side contains debug pads and configuration jumpers.</p>
+
+![Nano 33 BLE Sense Rev2 board components and peripherals](assets/Nano_33_BLE_Sense_Rev2_Board_Components_Peripherals.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -227,7 +233,7 @@ The Nano 33 BLE Sense Rev2 board outline is shown in the figure below; all dimen
 | Hexavalent Chromium (Cr6+)             | 1000                    |
 | Poly Brominated Biphenyls (PBB)        | 1000                    |
 | Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
-| Bis(2-Ethylhexyl} phthalate (DEHP)     | 1000                    |
+| Bis(2-Ethylhexyl) phthalate (DEHP)     | 1000                    |
 | Benzyl butyl phthalate (BBP)           | 1000                    |
 | Dibutyl phthalate (DBP)                | 1000                    |
 | Diisobutyl phthalate (DIBP)            | 1000                    |
@@ -285,7 +291,7 @@ English:
 French:
 <p style="text-align: justify;">Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.</p>
 
-<p style="text-align: justify;"><strong>Important:</strong> The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40 °C.</p>
+<p style="text-align: justify;"><strong>Important:</strong> The operating temperature of the EUT can’t exceed 85°C and shouldn’t be lower than -40°C.</p>
 
 <p style="text-align: justify;">Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.</p>
 
