@@ -6,7 +6,7 @@ description: 'Learn about the hardware and software features of the Arduino® Na
 tags:
   - Cheat sheet
   - User manual
-author: 'Carlos Alatorre'
+author: 'Carlos Alatorre and José Bagur'
 hardware:
   - hardware/04.nano/boards/nano-33-ble-sense-rev2
 software:
@@ -16,66 +16,77 @@ software:
   - openmv
 ---
 
-This user manual provides a comprehensive overview of the Nano 33 BLE Sense Rev2 board, highlighting its hardware and software elements. With it, you will learn how to set up, configure and use all the main features of the Nano 33 BLE Sense Rev2.
+This user manual provides a comprehensive overview of the Nano 33 BLE Sense Rev2 board, highlighting its hardware and software elements. With it, you will learn how to set up, configure and use all the main features of the Nano 33 BLE Sense Rev2 board.
 
-![ ](assets/Nano33_ble_sense_rev2.png)
-
-## Hardware and Software Requirements
+![ ](assets/hero-banner.png)
 
 ### Hardware Requirements
 
 - [Nano 33 BLE Sense Rev2](https://store.arduino.cc/products/nano-33-ble-sense-rev2-with-headers) (x1)
 - [USB Micro cable](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro) (x1)
+- [Breadboard](https://store.arduino.cc/products/breadboard-400-contacts) (x1) (recommended)
+- [Male/male jumper wires](https://store.arduino.cc/products/jumper-wires) (recommended)
 
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
-- [Arduino Mbed OS Nano OS Boards core](https://github.com/arduino/ArduinoCore-mbed)
+- [Arduino Mbed OS Nano Boards core](https://github.com/arduino/ArduinoCore-mbed)
 
 ***The Nano 33 BLE Sense Rev2 is compatible with the complete Arduino ecosystem and can be programmed directly as a standalone device.***
 
 ## Nano 33 BLE Sense Rev2 Overview
 
-The Nano 33 BLE Sense Rev2 board combines the microcontroller nRF52840 and a set of sensors with the compact and familiar Nano form factor. This board is designed to facilitate easy prototyping where movement and environment sensors are needed.
+The Nano 33 BLE Sense Rev2 board represents an evolution in the Nano family, combining the powerful nRF52840 microcontroller from Nordic Semiconductor with an extensive array of onboard sensors in the compact and familiar Nano form factor. This board is designed to facilitate rapid prototyping of IoT applications, machine learning projects, and sensor-based systems that require Bluetooth® Low Energy connectivity.
 
-![ ](assets/Nano33_ble_sense_rev2.png)
+![ ](assets/front-page.png)
 
-The Nano 33 BLE Sense Rev2 includes a high-performance 32-bit microcontroller (nRF52840), expanded connectivity with a powerful 2.4 GHz Bluetooth® 5 Low Energy module from u-blox, with an internal antenna. Can be used to transmit data between different devices. Its compact dimensions (18 mm x 45 mm) and robust construction make the Nano 33 BLE Sense Rev2 board an excellent choice for projects that demand sensor fusion capabilities and the computational power of modern microcontrollers.
+The Nano 33 BLE Sense Rev2 includes a high-performance 32-bit microcontroller (nRF52840), expanded connectivity through Bluetooth® 5 Low Energy, and an extensive sensor suite including a 9-axis IMU, environmental sensors, and a digital microphone. Its compact dimensions (18 mm x 45 mm) and robust construction make this board an excellent choice for wearable devices, environmental monitoring stations, and edge AI applications.
 
 ### Nano 33 BLE Sense Rev2 Architecture Overview
 
-The Arduino Nano 33 BLE Sense Rev2 combines a tiny form factor with multiple environment sensors and the ability to run AI using TinyML and TensorFlow™ Lite. Whether you are creating your first embedded ML application or using Bluetooth® Low Energy to connect your project to your phone, the Nano 33 BLE Sense Rev2 makes that journey simple and accessible.
+The Nano 33 BLE Sense Rev2 board features a secure, certified and feature-rich design that suits various applications, from environmental monitoring and motion detection to machine learning inference and wireless sensor networks.
+
+The top view of the Nano 33 BLE Sense Rev2 board is shown in the image below:
+
+![The Nano 33 BLE Sense Rev2 main components (top view)](assets/top-view.png)
+
+The bottom view of the Nano 33 BLE Sense Rev2 board is shown in the image below:
+
+![The Nano 33 BLE Sense Rev2 main components (bottom view)](assets/bottom-view.png)
+
+***The bottom side of the Nano 33 BLE Sense Rev2 board features the VUSB jumper pads for enabling the `5V` pin, along with the board's certification markings and identification information (board model and SKU).***
 
 Here is an overview of the board's main components shown in the images above:
 
-- **Microcontroller**: At the heart of the Nano 33 BLE Sense Rev2 board there is a [Nordic nRF52480](https://docs-be.nordicsemi.com/bundle/ps_nrf52840/attach/nRF52840_PS_v1.11.pdf?_LANG=enus) microcontroller. This single-chip microcontroller is based on a 64 MHz Arm® Cortex®-M4 core with up to 1 MB of flash memory and 256 kB of RAM memory.
-- **IMU**: The Arduino Nano 33 BLE Sense Rev2 Inertial Measurement Unit system is made up of two separate IMUs, a 6-axis BMI270 and a 3-axis BMM150, effectively giving you a 9-axis IMU system. This allows you to detect orientation, motion, or vibrations in your project.
-- **Proximity and Gesture Detection**: The APDS9960 chip allows for measuring digital proximity and ambient light as well as for detecting RGB colors and gestures.
-- **Temperature and Humidity Sensor**: The HS3003 capacitive digital sensor measures relative humidity and temperature. It has a temperature accuracy of ± 0.5 °C (between 15-40 °C) and is thereby perfectly suited to detect ambient temperature.
-- **Pressure Sensor**: The LPS22HB picks up on barometric pressure and allows for a 24-bit pressure data output between 260 to 1260 hPa. This data can also be processed to calculate the height above sea level of the current location.
-- **Microphone**: The MP34DT06JTR is a compact, low-power omnidirectional digital MEMS microphone with an IC interface. It has a 64 dB signal-to-noise ratio, is capable of sensing acoustic waves and can operate in temperatures of -40 °C to +85 °C.
-- **Programmable RGB LED**: The Nano 33 BLE Sense Rev2 board has an onboard user-programmable RGB LED to provide visual feedback about different operating states.
+- **Microcontroller**: At the heart of the Nano 33 BLE Sense Rev2 board there is a Nordic Semiconductor nRF52840 ([nRF52840 datasheet](https://docs.nordicsemi.com/bundle/ps_nrf52840/page/keyfeatures_html5.html)). This single-chip microcontroller is based on a 64 MHz Arm® Cortex®-M4 core with FPU, featuring 1 MB of flash memory and 256 KB of SRAM memory.
+- **Wireless Connectivity**: The board features integrated Bluetooth® 5 Low Energy connectivity through the [u-blox NINA-B306](https://content.u-blox.com/sites/default/files/NINA-B3_DataSheet_UBX-17052099.pdf?utm_content=UBX-17052099) module, enabling wireless communication with smartphones, tablets, and other Bluetooth-enabled devices with an effective range of up to 100 meters in open space.
+- **9-axis IMU System**: The board integrates a sophisticated Inertial Measurement Unit consisting of the [BMI270](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi270-ds000.pdf) 6-axis accelerometer/gyroscope and the [BMM150](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf) 3-axis magnetometer, providing precise motion tracking and orientation sensing capabilities.
+- **Environmental Sensors**: The Nano 33 BLE Sense Rev2 includes multiple environmental sensors. The [HS3003](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2551/HS300x_4-9-21.pdf) provides temperature and humidity sensing with ±0.5°C and ±3.5% RH accuracy. The [LPS22HB](https://www.st.com/content/ccc/resource/technical/document/datasheet/bf/c1/4f/23/61/17/44/8a/DM00140895.pdf/files/DM00140895.pdf/jcr:content/translations/en.DM00140895.pdf) barometric pressure sensor enables altitude estimation and weather monitoring. The [APDS-9960](https://docs.broadcom.com/doc/AV02-4191EN) offers proximity, ambient light, RGB color, and gesture detection capabilities in a single package.
+- **Digital Microphone**: The [MP34DT06JTR](https://www.st.com/resource/en/datasheet/mp34dt06j.pdf) omnidirectional MEMS microphone enables audio sensing applications with a 64 dB signal-to-noise ratio and -26 dBFS sensitivity.
+- **USB Micro Connector**: The Nano 33 BLE Sense Rev2 features a USB Micro-B connector for programming, power supply, and serial communication with external devices.
+- **Programmable RGB LED**: The board has an onboard user-programmable RGB LED to provide visual feedback about different operating states and sensor readings.
 - **User LED**: In addition to the onboard user-programmable RGB LED, the board also includes an additional onboard user-programmable orange LED for basic status indications.
-- **Castellated pins**: The board's castellated pins allow surface mounting as a module, facilitating integration into custom hardware designs.
-- **Bluetooth**: The Nano 33 BLE Sense Rev2 supports Bluetooth® through the u-blox NINA-B306 module.
+- **Castellated Pins**: The board's castellated pins allow surface mounting as a module, facilitating integration into custom PCB designs for production-ready applications.
 
 ### Board Core and Libraries
 
-The **Arduino Mbed OS Nano Boards** core contains the libraries and examples to work with the Arduino Nano 33 BLE Sense Rev2's peripherals and onboard components, such as its nRF52480 microcontroller and the onboard RGB LED. To install the core for the Nano 33 BLE Sense Rev2 board, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano 33 BLE Sense Rev2` and install the latest Arduino Mbed OS Nano Boards version.
+The **Arduino Mbed OS Nano Boards** core contains the libraries and examples to work with the Arduino Nano 33 BLE Sense Rev2's peripherals and onboard components. This comprehensive package includes support for the nRF52840 microcontroller, all onboard sensors, Bluetooth® Low Energy communication, and the programmable LEDs.
 
+To install the core for the Nano 33 BLE Sense Rev2 board, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `Arduino Mbed OS Nano` and install the latest version.
 
-![Installing the Arduino Mbed OS Nano Boards core in the Arduino IDE](assets/user-manual-3.png)
+![Installing the Arduino Mbed OS Nano Boards core in the Arduino IDE](assets/boards-core-libraries.png)
 
-The Arduino Nano 33 BLE Sense Rev2 Boards core provides support for the following:
+The Arduino Mbed OS Nano Boards core provides support for the following:
 
-- Board control and configuration (reset, pin configuration and power management)
-- Communication interfaces (UART, I²C and SPI)
-- Onboard LED control (RGB LED and orange LED)
-- HID emulation capabilities (keyboard and mouse)
-- Standard Arduino libraries compatibility
+- **Board Control and Configuration**: Reset functionality, pin configuration, and power management through Mbed OS
+- **Communication Interfaces**: UART, I²C, SPI, and PDM (Pulse Density Modulation) for microphone
+- **Onboard LED Control**: RGB LED and orange LED control with PWM support
+- **USB HID Capabilities**: Keyboard and mouse emulation through PluggableUSBHID library
+- **Bluetooth® Low Energy**: Through the ArduinoBLE library (installed separately)
+- **Real-Time Operating System**: Mbed OS RTOS features including threads and semaphores
+- **Standard Arduino Libraries**: Full compatibility with Arduino API and functions
 
-***__Important note:__ Since the Nano 33 BLE Sense Rev2 uses the same nRF52840 microcontroller as the Nano 33 BLE family, it shares complete code and library compatibility, making it easy to transition projects between these boards.***
-
+***__Important note:__ Sensor libraries for the onboard sensors (`BMI270_BMM150`, `Arduino_HS300x`, `Arduino_APDS9960`, `Arduino_LPS22HB`) must be installed separately through the Arduino IDE Library Manager. __They are not included in the core itself__.***
 
 ### Pinout
 
@@ -97,100 +108,128 @@ The complete schematics are available and downloadable as PDF from the link belo
 
 - [Nano 33 BLE Sense Rev2 schematics](https://docs.arduino.cc/resources/schematics/ABX00069-schematics.pdf)
 
-### CAD Files
+### STEP Files
 
-The complete CAD files are available and downloadable from the link below:
+The complete STEP files are available and downloadable from the link below:
 
-- [Nano 33 BLE Sense Rev2 STEP files](https://docs.arduino.cc/static/505dd72b2343c79c2d0442e0b7469f3c/ABX00069-cad-files.zip)
+- [Nano 33 BLE Sense Rev2 STEP files](https://docs.arduino.cc/static/505dd72b2343c79c2d0442e0b7469f3c/ABX00069-step-files.zip)
 
 ## First Use
 
 ### Unboxing the Product
 
-When opening the Nano 33 BLE Sense Rev2 box, you will find the board and its corresponding documentation. **The Nano 33 BLE Sense Rev2 does not include additional cables**, so you will need a USB-C cable ([available separately here](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro)) to connect the board to your computer.
- 
-The Nano 33 BLE Sense Rev2 is a standalone device that can be programmed directly without requiring additional boards. However, for more complex projects, you can easily combine it with Arduino shields compatible with the Nano family.
+When opening the Nano 33 BLE Sense Rev2 box, you will find the board and its corresponding documentation. **The Nano 33 BLE Sense Rev2 does not include additional cables**, so you will need a USB Micro cable ([available separately here](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro)) to connect the board to your computer.
+
+![Nano 33 BLE Sense Rev2 unboxing](assets/unboxing.png)
+
+The Nano 33 BLE Sense Rev2 is a standalone device that can be programmed directly without requiring additional boards. However, for more complex projects, you can easily combine it with Arduino shields compatible with the Nano family or connect it wirelessly to other devices through its onboard Bluetooth® Low Energy capability.
 
 ### Connecting the Board
 
-The Nano 33 BLE Sense Rev2 can be connected to your computer using its onboard micro USB connector. It can also be integrated into larger projects using the following:
+The Nano 33 BLE Sense Rev2 can be connected to your computer using its onboard USB Micro connector. It can also be integrated into larger projects using the following:
 
-- **Direct micro USB connection**: For programming, power supply and serial communication with the computer
+- **Direct USB Micro connection**: For programming, power supply and serial communication with a computer
 - **Pin connection**: For integration into breadboards or custom PCBs
-- **Bluetooth connection**: For wireless communication with externak devices
+- **Bluetooth® Low Energy connection**: For wireless communication with smartphones, tablets, and other BLE-enabled devices
 - **Module mounting**: Using the board's castellated pins for direct soldering to PCBs
 
-***__Important note:__ The Nano 33 BLE Sense Rev2 operates at +3.3 VDC natively. When connecting sensors or modules that operate at +5 VDC, make sure to verify voltage compatibility to avoid component damage.***
-
-### 5V Pin
-
-The microcontroller on the Arduino Nano 33 BLE Sense Rev2 runs at 3.3V, which means that you must never apply more than 3.3V to its Digital and Analog pins. Care must be taken when connecting sensors and actuators to assure that this limit of 3.3V is never exceeded. Connecting higher voltage signals, like the 5V commonly used with the other Arduino boards, will damage the Arduino Nano 33 BLE Sense Rev2.
-
-To avoid such risk with existing projects, where you should be able to pull out a Nano and replace it with the new Nano 33 BLE Sense, we have the 5V pin on the header, positioned between RST and A7 that is not connected as default factory setting. This means that if you have a design that takes 5V from that pin, it won't work immediately, as a precaution we put in place to draw your attention to the 3.3V compliance on digital and analog inputs.
-
-5V on that pin is available only when two conditions are met: you make a solder bridge on the two pads marked as VUSB and you power the Nano 33 BLE Sense Rev2 through the USB port. There are two sets of VUSB pads on the Arduino Nano 33 BLE Sense Rev2, one set on the bottom and one set on top. To enable the 5V Pin, either one of these need to be connected. If you power the board from the VIN pin, you won't get any regulated 5V and therefore even if you do the solder bridge, nothing will come out of that 5V pin. The 3.3V, on the other hand, is always available and supports enough current to drive your sensors. Please make your designs so that sensors and actuators are driven with 3.3V and work with 3.3V digital IO levels. 5V is now an option for many modules and 3.3V is becoming the standard voltage for electronic ICs.
-
-![Soldering the VUSB pins.](assets/Nano33_ble_sense_vusb.png)
+***__Important note:__ The Nano 33 BLE Sense Rev2 operates at +3.3 VDC natively. __When connecting sensors or modules that operate at +5 VDC, you must use level shifters to avoid permanent damage to the board__. All digital and analog pins are NOT +5 VDC tolerant.***
 
 ### Powering the Board
 
-The Nano 33 BLE Sense Rev2 can be powered in several ways:
+The Nano 33 BLE Sense Rev2 board can be powered in several ways:
 
-- **Via micro USB connector**: The most common method during development and programming
-- **Via `VIN` pin**: Using an external +5-18 VDC power supply that will be internally regulated to +5 VDC
-- **Via `5V` pin**: Directly connecting a regulated +5 VDC source (with caution)
+- **Via USB Micro connector**: The most common method during development and programming
+- **Via `VIN` pin**: Using an external +5 - 21 VDC power supply that will be internally regulated to +3.3 VDC
+- **Via `3V3` pin**: Directly connecting a regulated +3.3 VDC source (with caution)
+- **Via `VUSB` pin**: Only when the `VUSB` jumper is soldered (see 5V Pin section)
 
-***__Important note:__ The Nano 33 BLE Sense Rev2's `VIN` pin accepts a voltage range of +5-18 VDC. Do not connect voltages outside this range as you could permanently damage the board. Always verify all the connections before applying power.***
+![Different ways to power the Nano 33 BLE Sense Rev2 board](assets/power-supplies.png)
+
+***__Important note:__ The Nano 33 BLE Sense Rev2's `VIN` pin accepts a voltage range of +5-21 VDC. Do not connect voltages outside this range as you could permanently damage the board. Always verify all connections before applying power.***
+
+#### 5V Pin Configuration
+
+**The Nano 33 BLE Sense Rev2 board operates at +3.3 VDC**, which means y**ou must never apply more than +3.3 VDC to its digital and analog pins**. To maintain compatibility with existing Nano projects while protecting the board, the `5V` pin (positioned between the `RST` and `A7` pins) is not connected by default.
+
+To enable the `5V` pin, two conditions must be met:
+
+1. **Solder the `VUSB` jumper pads**: Connect either the top or bottom pair of `VUSB` pads on the board
+2. **Power via USB**: The board must be powered through the USB connector
+
+![Soldering the VUSB jumper pads](assets/5v-pin.png)
+
+***__Important safety note:__ Even with the `5V` pin enabled, remember that all I/O pins still operate at +3.3 VDC and are NOT +5 VDC tolerant. The `5V` pin is only for powering external +5 VDC devices, not for input signals to the board.***
 
 ### Hello World Example
 
 Let's program the Nano 33 BLE Sense Rev2 to reproduce the classic `Hello World` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the Nano 33 BLE Sense Rev2's connection to the computer works correctly, that the Arduino IDE is properly configured, and that both the board and development environment function as expected.
 
-First, connect your Nano 33 BLE Sense Rev2 to your computer using a micro USB cable, open the Arduino IDE, and make sure that the board is connected correctly. If you are new to the Arduino IDE, please refer to the official Arduino documentation for more detailed information about initial setup. Copy and paste the following example sketch into a new Arduino IDE file:
+First, connect your Nano 33 BLE Sense Rev2 board to your computer using a USB Micro cable, open the Arduino IDE, and make sure that the board is connected correctly. If you are new to the Arduino IDE, please refer to the official Arduino documentation for more detailed information about initial setup. Copy and paste the following example sketch into a new Arduino IDE file:
 
 ```arduino
-/*
-  Blink
+/**
+Blink Example for the Arduino Nano 33 BLE Sense Rev2 Board
+Name: nano_33_ble_sense_rev2_blink.ino
+Purpose: This sketch demonstrates how to blink the built-in
+user LED of the Arduino Nano 33 BLE Sense Rev2 board.
 
-  Turns an LED on for one second, then off for one second, repeatedly.
-
-  Most Arduinos have an on-board LED you can control. On the UNO, MEGA and ZERO
-  it is attached to digital pin 13, on MKR1000 on pin 6. LED_BUILTIN is set to
-  the correct LED pin independent of which board is used.
-  If you want to know what pin the on-board LED is connected to on your Arduino
-  model, check the Technical Specs of your board at:
-  https://docs.arduino.cc/hardware/
-
-  modified 8 May 2014
-  by Scott Fitzgerald
-  modified 2 Sep 2016
-  by Arturo Guadalupi
-  modified 8 Sep 2016
-  by Colby Newman
-
-  This example code is in the public domain.
-
-  https://docs.arduino.cc/built-in-examples/basics/Blink/
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
 */
 
-// the setup function runs once when you press reset or power the board
+// Built-in LED pin
+#define LED_PIN LED_BUILTIN
+
 void setup() {
-  // initialize digital pin LED_BUILTIN as an output.
-  pinMode(LED_BUILTIN, OUTPUT);
+  // Initialize serial communication and wait up to 2.5 seconds for connection
+  Serial.begin(115200);
+  unsigned long startTime = millis();
+  while (!Serial && millis() - startTime < 2500) {
+    delay(100);
+  }
+  
+  // Configure LED pin as output
+  pinMode(LED_PIN, OUTPUT);
+  
+  // Startup message
+  Serial.println("- Arduino Nano 33 BLE Sense Rev2 - Blink Example started...");
 }
 
-// the loop function runs over and over again forever
 void loop() {
-  digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
-  delay(1000);                      // wait for a second
-  digitalWrite(LED_BUILTIN, LOW);   // turn the LED off by making the voltage LOW
-  delay(1000);                      // wait for a second
+  // Turn on the LED, wait 1 second
+  digitalWrite(LED_PIN, HIGH);
+  Serial.println("- LED on!");
+  delay(1000);
+  
+  // Turn off the LED, wait 1 second
+  digitalWrite(LED_PIN, LOW);
+  Serial.println("- LED off!");
+  delay(1000);  
 }
 ```
 
 To upload the sketch to the board, click the **Verify** button to compile the sketch and check for errors, then click the **Upload** button to program the device with the sketch.
 
+![Uploading a sketch to the Nano 33 BLE Sense Rev2 in the Arduino IDE](assets/verify-and-upload.png)
+
 You should see the built-in orange user LED of your Nano 33 BLE Sense Rev2 board turn on for one second, then turn off for one second, repeating this cycle continuously. 
+
+![Blink sketch in the Nano 33 BLE Sense Rev2 in the Arduino IDE](assets/blink.gif)
+
+Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the example sketch sends each time the LED state changes.
+
+![Arduino IDE Serial Monitor output for the orange LED example sketch](assets/serial-monitor-blink.png)
+
+This example confirms the following:
+
+- The Nano 33 BLE Sennse board is correctly connected
+- The Arduino IDE is properly configured
+- The board is functioning correctly
+- USB communication is working
+- Digital pins respond to commands
+
+Congratulations! You have successfully completed your first program on the Nano 33 BLE Sense board. You are now ready to explore the more advanced features of this tiny but powerful board.
 
 ## LEDs
 
