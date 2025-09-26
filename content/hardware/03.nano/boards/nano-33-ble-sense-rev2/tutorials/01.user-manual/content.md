@@ -36,7 +36,7 @@ This user manual provides a comprehensive overview of the Nano 33 BLE Sense Rev2
 
 ## Nano 33 BLE Sense Rev2 Overview
 
-The Nano 33 BLE Sense Rev2 board combines the microcontroller nRF52840 and a set of sensors with the compact and familiar Nano form factor. This board is designed to facilitate easy prototyping where movement and enviroment sensors are needed.
+The Nano 33 BLE Sense Rev2 board combines the microcontroller nRF52840 and a set of sensors with the compact and familiar Nano form factor. This board is designed to facilitate easy prototyping where movement and environment sensors are needed.
 
 ![ ](assets/Nano33_ble_sense_rev2.png)
 
@@ -1578,7 +1578,7 @@ Additionally to promiximity and gesture sensing, the sensor can detect colors.
   }
 ```
 
-The following example demostrates the full use of the proximity and gesture sensors, including RGB sensor:
+The following example demonstrates the full use of the proximity and gesture sensors, including RGB sensor:
 
 ```arduino
 /*
