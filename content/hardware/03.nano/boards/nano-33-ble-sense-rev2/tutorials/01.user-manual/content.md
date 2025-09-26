@@ -1363,7 +1363,7 @@ void loop() {
 
 In order to get a correct reading of the board data, before uploading the sketch to the board hold the board in your hand, from the side of the USB port. The board should be facing up and "pointing" away from you. The image below illustrates the board's position and how it works:
 
-![Interacting with the X and Y axes](assets\nano33BS_02_illustration.png)
+![Interacting with the X and Y axes](assets/nano33BS_02_illustration.png)
 
 #### Gyroscope
 
@@ -1501,7 +1501,7 @@ void loop() {
 }
 ```
 
-![How a magnetometer works](assets\nano33BS_04_magnetometer.png)
+![How a magnetometer works](assets/nano33BS_04_magnetometer.png)
 
 After you have successfully verified and uploaded the sketch to the board, it's time to put it to the test. You can choose an electric appliance at home or any object that runs with electrical current like a laptop charger to test it out.
 
