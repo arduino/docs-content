@@ -233,75 +233,84 @@ Congratulations! You have successfully completed your first program on the Nano 
 
 ## LEDs
 
-This user manual section covers the Nano 33 BLE Sense Rev2 built-in LEDs, showing their main hardware and software characteristics.
+This user manual section covers the Nano 33 BLE Sense Rev2 board built-in LEDs, showing their main hardware and software characteristics.
 
 ### RGB LED
 
-The Nano 33 BLE Sense Rev2 features a built-in RGB LED that can be used as a visual feedback indicator for the user.
+The Nano 33 BLE Sense Rev2 board features a built-in RGB LED that can be used as a visual feedback indicator for the user.
+
+![Built-in RGB LED of the Nano 33 BLE Sense Rev2 board](assets/rgb.png)
 
 The built-in RGB LED can be accessed through the following macro definitions:
 
-| **Built-in LED** | **Macro Definition** |
-| :--------------: | :------------------: |
-|     Red LED      |        `LEDR`        |
-|    Green LED     |        `LEDG`        |
-|     Blue LED     |        `LEDB`        |
+| **Built-in LED** | **Macro Definition** | **Microcontroller Pin** |
+| :--------------: | :------------------: | :---------------------: |
+|     Red LED      |        `LEDR`        |         `P0.24`         |
+|    Green LED     |        `LEDG`        |         `P0.16`         |
+|     Blue LED     |        `LEDB`        |         `P0.06`         |
 
-The following example sketch each of the RGB LED colors at an interval of 500 ms:
+***The built-in RGB LED on the Nano 33 BLE Sense Rev2 uses __inverted logic__. This means that a voltage level of `LOW` on each of their pins will turn the specific color of the LED on, and a voltage level of `HIGH` will turn them off.***
+
+The following example sketch controls each of the RGB LED colors at an interval of 500 ms:
 
 ```arduino
 /**
-RGB LED Example for the Arduino Nano 33 BLE Sense BLE Sense Rev2
+RGB LED Example for the Arduino Nano 33 BLE Sense Rev2 Board
 Name: nano_33_ble_sense_rev2_rgb_led.ino
 Purpose: This sketch demonstrates how to control the built-in
 RGB LED of the Arduino Nano 33 BLE Sense Rev2 board.
 
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
 */
 
 void setup() {
-  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  // Initialize serial communication and wait up to 2.5 seconds for connection
   Serial.begin(115200);
-  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  unsigned long startTime = millis();
+  while (!Serial && millis() - startTime < 2500) {
+    delay(100);
+  }
   
   // Initialize LEDR, LEDG and LEDB as outputs
   pinMode(LEDR, OUTPUT);
   pinMode(LEDG, OUTPUT);
   pinMode(LEDB, OUTPUT);
   
-  // Turn off all LEDs initially
-  digitalWrite(LEDR, LOW);
-  digitalWrite(LEDG, LOW);
-  digitalWrite(LEDB, LOW);
+  // Turn off all LEDs initially (HIGH = OFF for inverted logic)
+  digitalWrite(LEDR, HIGH);
+  digitalWrite(LEDG, HIGH);
+  digitalWrite(LEDB, HIGH);
   
   Serial.println("- Arduino Nano 33 BLE Sense Rev2 - RGB LED Example started...");
 }
 
 void loop() {
   // Turn on the built-in red LED and turn off the rest
-  digitalWrite(LEDR, HIGH);
-  digitalWrite(LEDG, LOW);
-  digitalWrite(LEDB, LOW);
+  digitalWrite(LEDR, LOW);   // ON
+  digitalWrite(LEDG, HIGH);  // OFF
+  digitalWrite(LEDB, HIGH);  // OFF
   Serial.println("- Red LED on!");
   delay(500);
   
   // Turn on the built-in green LED and turn off the rest
-  digitalWrite(LEDR, LOW);
-  digitalWrite(LEDG, HIGH);
-  digitalWrite(LEDB, LOW);
+  digitalWrite(LEDR, HIGH);  // OFF
+  digitalWrite(LEDG, LOW);   // ON
+  digitalWrite(LEDB, HIGH);  // OFF
   Serial.println("- Green LED on!");
   delay(500);
   
   // Turn on the built-in blue LED and turn off the rest
-  digitalWrite(LEDR, LOW);
-  digitalWrite(LEDG, LOW);
-  digitalWrite(LEDB, HIGH);
+  digitalWrite(LEDR, HIGH);  // OFF
+  digitalWrite(LEDG, HIGH);  // OFF
+  digitalWrite(LEDB, LOW);   // ON
   Serial.println("- Blue LED on!");
   delay(500);
   
   // Turn off all LEDs
-  digitalWrite(LEDR, LOW);
-  digitalWrite(LEDG, LOW);
-  digitalWrite(LEDB, LOW);
+  digitalWrite(LEDR, HIGH);  // OFF
+  digitalWrite(LEDG, HIGH);  // OFF
+  digitalWrite(LEDB, HIGH);  // OFF
   Serial.println("- All LEDs off!");
   delay(500);
 }
@@ -309,17 +318,76 @@ void loop() {
 
 You should now see the built-in RGB LED cycling through red, green, and blue colors, followed by a brief moment with all LEDs off, repeating this pattern continuously.
 
+![RGB LED blink sketch in the Nano 33 BLE Sense Rev2](assets/rgb.gif)
+
 Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the example sketch sends each time the RGB LEDs state changes.
+
+![Arduino IDE Serial Monitor output for the RGB LED example sketch](assets/serial-monitor-rgb-blink.png)
 
 ### Orange LED
 
 The Nano 33 BLE Sense Rev2 also features a built-in orange user LED that can be used for basic status indications and debugging purposes.
+
+![Built-in orange LED of the Nano 33 BLE Sense Rev2 board](assets/orange.png)
 
 The built-in user LED can be accessed through the following macro definition:
 
 | **Built-in LED** | **Macro Definition** | **Microcontroller Pin** |
 | :--------------: | :------------------: | :---------------------: |
 | Orange User LED  |    `LED_BUILTIN`     |         `P0.13`         |
+
+***Unlike the RGB LED, the built-in orange user LED on the Nano 33 BLE Sense Rev2 operates with standard logic levels. This means that a voltage level of `HIGH` will turn the LED on, and a voltage level of `LOW` will turn it off.***
+
+The following example sketch demonstrates how to control the built-in user LED:
+
+```arduino
+/**
+User LED Example for the Arduino Nano 33 BLE Sense Rev2 Board
+Name: nano_33_ble_sense_rev2_user_led.ino
+Purpose: This sketch demonstrates how to control the built-in
+orange user LED of the Arduino Nano 33 BLE Sense Rev2 board.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for connection
+  Serial.begin(115200);
+  unsigned long startTime = millis();
+  while (!Serial && millis() - startTime < 2500) {
+    delay(100);
+  }
+  
+  // Configure LED_BUILTIN pin as output
+  pinMode(LED_BUILTIN, OUTPUT);
+  
+  // Turn off LED initially
+  digitalWrite(LED_BUILTIN, LOW);
+  
+  Serial.println("- Arduino Nano 33 BLE Sense Rev2 - User LED Example started...");
+}
+
+void loop() {
+  // Turn on the built-in user LED
+  digitalWrite(LED_BUILTIN, HIGH);
+  Serial.println("- User LED on!");
+  delay(1000);
+  
+  // Turn off the built-in user LED
+  digitalWrite(LED_BUILTIN, LOW);
+  Serial.println("- User LED off!");
+  delay(1000);
+}
+```
+
+You should now see the built-in orange user LED blinking on and off at 1-second intervals, repeating this pattern continuously.
+
+![Orange LED blink sketch in the Nano 33 BLE Sense Rev2](assets/orange-led.gif)
+
+Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the example sketch sends each time the user LED state changes
+
+![Arduino IDE Serial Monitor output for the orange LED example sketch](assets/serial-monitor-orange-blink.png)
 
 ## Pins
 
