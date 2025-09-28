@@ -63,7 +63,7 @@ Here is an overview of the board's main components shown in the images above:
 - **9-axis IMU System**: The board integrates a sophisticated Inertial Measurement Unit consisting of the [BMI270](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi270-ds000.pdf) 6-axis accelerometer/gyroscope and the [BMM150](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf) 3-axis magnetometer, providing precise motion tracking and orientation sensing capabilities.
 - **Environmental Sensors**: The Nano 33 BLE Sense Rev2 includes multiple environmental sensors. The [HS3003](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2551/HS300x_4-9-21.pdf) provides temperature and humidity sensing with ±0.5°C and ±3.5% RH accuracy. The [LPS22HB](https://www.st.com/content/ccc/resource/technical/document/datasheet/bf/c1/4f/23/61/17/44/8a/DM00140895.pdf/files/DM00140895.pdf/jcr:content/translations/en.DM00140895.pdf) barometric pressure sensor enables altitude estimation and weather monitoring. The [APDS-9960](https://docs.broadcom.com/doc/AV02-4191EN) offers proximity, ambient light, RGB color, and gesture detection capabilities in a single package.
 - **Digital Microphone**: The [MP34DT06JTR](https://www.st.com/resource/en/datasheet/mp34dt06j.pdf) omnidirectional MEMS microphone enables audio sensing applications with a 64 dB signal-to-noise ratio and -26 dBFS sensitivity.
-- **USB Micro Connector**: The Nano 33 BLE Sense Rev2 features a USB Micro-B connector for programming, power supply, and serial communication with external devices.
+- **Micro-USB Connector**: The Nano 33 BLE Sense Rev2 features a Micro-USB connector for programming, power supply, and serial communication with external devices.
 - **Programmable RGB LED**: The board has an onboard user-programmable RGB LED to provide visual feedback about different operating states and sensor readings.
 - **User LED**: In addition to the onboard user-programmable RGB LED, the board also includes an additional onboard user-programmable orange LED for basic status indications.
 - **Castellated Pins**: The board's castellated pins allow surface mounting as a module, facilitating integration into custom PCB designs for production-ready applications.
@@ -391,6 +391,8 @@ Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Moni
 
 ## Pins
 
+## Pins
+
 This user manual section provides comprehensive information about the Nano 33 BLE Sense Rev2's pin capabilities and functionality. Understanding the board's pins capabilities and configurations is important for making the most of your projects with the Nano 33 BLE Sense Rev2 board.
 
 ### Pins Overview
@@ -405,31 +407,28 @@ The Nano 33 BLE Sense Rev2's pins are organized into the following categories:
 
 |   **Pin Type**   | **Count** |      **Pin Numbers**      |           **Primary Functions**            |
 | :--------------: | :-------: | :-----------------------: | :----------------------------------------: |
-| **Digital Pins** |    14     |       `D0` - `D13`        |    Digital I/O, PWM (5 pins), SPI, UART    |
-| **Analog Pins**  |     8     |        `A0` - `A7`        | Analog input, Digital I/O, I²C, DAC (`A0`) |
-|  **Power Pins**  |     4     | `VIN`, `5V`, `3V3`, `GND` |          Power supply and ground           |
-| **Special Pins** |     2     |          `RESET`          |               System control               |
+| **Digital Pins** |    14     |       `D0` - `D13`        |    Digital I/O, PWM (12 pins), SPI, UART    |
+| **Analog Pins**  |     8     |        `A0` - `A7`        | Analog input, Digital I/O, I²C |
+|  **Power Pins**  |     5     | `VIN`, `5V`, `3V3`, `GND`, `VUSB` |          Power supply and ground           |
+| **Special Pins** |     2     |     `RESET`, `AREF`       |         System control and reference          |
 
-The Nano 33 BLE Sense Rev2 offers several advanced pin capabilities including multi-function pins that can serve multiple purposes depending on your project needs.
+The Nano 33 BLE Sense Rev2 board offers several advanced pin capabilities including multi-function pins that can serve multiple purposes depending on your project needs, native +3.3 VDC operation throughout all pins, internal pull-up resistors on all digital pins, and interrupt capability on all digital pins for event-driven programming.
 
 The following table shows the electrical specifications and operating limits for all pins on the Nano 33 BLE Sense Rev2 board:
 
-|    **Specification**    |  **Value**   |                    **Notes**                     |
-| :---------------------: | :----------: | :----------------------------------------------: |
-|  **Operating Voltage**  |   +3.3 VDC   |         Logic level for all digital pins         |
-| **Input Voltage Range** | 0 - +3.3 VDC | Assure that this limit of 3.3V is never exceeded |
-| **Max Current per Pin** |    10 mA     |            Source/sink current limit             |
-|  **Max Total Current**  |    200 mA    |          Combined current for all pins           |
+|    **Specification**    |  **Value**   |            **Notes**             |
+| :---------------------: | :----------: | :------------------------------: |
+|  **Operating Voltage**  |   +3.3 VDC   | Logic level for all digital pins |
+| **Input Voltage Range** | 0 - +3.3 VDC |     **NOT** +5 VDC tolerant      |
+| **Max Current per Pin** |     15 mA    |    Source/sink current limit     |
+|  **Max Total Current**  |    200 mA    |  Combined current for all pins   |
+|  **Analog Reference**   |   +3.3 VDC   |      Default `AREF` voltage      |
 
-***__Important safety considerations when working with the Nano 33 BLE Sense Rev2 pins:__ The microcontroller on the Arduino Nano 33 BLE Sense Rev2 runs at 3.3V, which means that you must never apply more than 3.3V to its Digital and Analog pins. Care must be taken when connecting sensors and actuators to assure that this limit of 3.3V is never exceeded. Connecting higher voltage signals, like the 5V commonly used with the other Arduino boards, will damage the Arduino Nano 33 BLE Sense Rev2.***
-
-**_To avoid such risk with existing projects, where you should be able to pull out a Nano and replace it with the new Nano 33 BLE Sense Rev2, we have the 5V pin on the header, positioned between RST and A7 that is not connected as default factory setting. This means that if you have a design that takes 5V from that pin, it won't work immediately, as a precaution we put in place to draw your attention to the 3.3V compliance on digital and analog inputs._**
-
-**_5V on that pin is available only when two conditions are met: you make a solder bridge on the two pads marked as VUSB and you power the Nano 33 BLE Sense Rev2 through the USB port. If you power the board from the VIN pin, you won't get any regulated 5V and therefore even if you do the solder bridge, nothing will come out of that 5V pin. The 3.3V, on the other hand, is always available and supports enough current to drive your sensors. Please make your designs so that sensors and actuators are driven with 3.3V and work with 3.3V digital IO levels. 5V is now an option for many modules and 3.3V is becoming the standard voltage for electronic ICs._**
+***__Critical safety warning:__ The Nano 33 BLE Sense Rev2 operates at +3.3 VDC and its pins are NOT +5 VDC tolerant. Applying voltages above +3.3 VDC to any I/O pin will permanently damage the board. Always use level shifters when interfacing with +5 VDC devices. This is a fundamental difference from the classic Arduino Nano which operates at +5 VDC.***
 
 ### Digital Pins
 
-The Nano 33 BLE Sense Rev2 features 14 digital pins (`D0` to `D13`) that can be configured as either digital inputs or digital outputs. These pins operate at +3.3 VDC logic levels and can source or sink up to 10 mA of current per pin. Digital pins are the foundation of most Arduino projects, allowing you to control LEDs, read button states, interface with sensors and communicate with other devices.
+The Nano 33 BLE Sense Rev2 features 14 digital pins (`D0` to `D13`) that can be configured as either digital inputs or digital outputs. These pins operate at +3.3 VDC logic levels and can source or sink up to 15 mA of current per pin. Digital pins are the foundation of most Arduino projects, allowing you to control LEDs, read button states, interface with sensors and communicate with other devices.
 
 The Nano 33 BLE Sense Rev2 digital pins provide the following functionality:
 
@@ -437,33 +436,33 @@ The Nano 33 BLE Sense Rev2 digital pins provide the following functionality:
 | :-------------: | :---------------------: | :----------------------: | :------------------: |
 |      `D0`       |         `P1.03`         |         UART TX          | Serial communication |
 |      `D1`       |         `P1.10`         |         UART RX          | Serial communication |
-|      `D2`       |         `P1.11`         |           PWM            |  External interrupt  |
-|      `D3`       |         `P1.12`         |           PWM            |  External interrupt  |
-|      `D4`       |         `P1.15`         |           PWM            |  External interrupt  |
-|      `D5`       |         `P1.13`         |           PWM            |  External interrupt  |
-|      `D6`       |         `P1.14`         |           PWM            |  External interrupt  |
-|      `D7`       |         `P1.23`         |           PWM            |  External interrupt  |
-|      `D8`       |         `P1.21`         |           PWM            |  External interrupt  |
-|      `D9`       |         `P1.27`         |           PWM            |  External interrupt  |
+|      `D2`       |         `P1.11`         |           PWM            |  Interrupt capable   |
+|      `D3`       |         `P1.12`         |           PWM            |  Interrupt capable   |
+|      `D4`       |         `P1.15`         |           PWM            |  Interrupt capable   |
+|      `D5`       |         `P1.13`         |           PWM            |  Interrupt capable   |
+|      `D6`       |         `P1.14`         |           PWM            |  Interrupt capable   |
+|      `D7`       |         `P0.23`         |           PWM            |  Interrupt capable   |
+|      `D8`       |         `P0.21`         |           PWM            |  Interrupt capable   |
+|      `D9`       |         `P0.27`         |           PWM            |  Interrupt capable   |
 |      `D10`      |         `P1.02`         |       SPI CS, PWM        |  SPI communication   |
 |      `D11`      |         `P1.01`         |      SPI MOSI, PWM       |  SPI communication   |
 |      `D12`      |         `P1.08`         |      SPI MISO, PWM       |  SPI communication   |
-|      `D13`      |         `P0.13`         |       SPI SCK, PWM       |  SPI communication   |
+|      `D13`      |         `P0.13`         |   SPI SCK, PWM, LED      |  SPI + Built-in LED  |
 
-***__Important note:__ Pins `D0` and `D1` are used for serial communication (UART) and should be avoided for general digital I/O when using Serial communication. Pins `D10`, `D11`, `D12` and `D13` are used for SPI communication.***
+***__Important note:__ Pins `D0` and `D1` are used for serial communication (UART) and should be avoided for general digital I/O when using Serial communication. Pins `D10`, `D11`, `D12` and `D13` are used for SPI communication. Pin `D13` is also connected to the built-in orange LED.***
 
 The Nano 33 BLE Sense Rev2's digital pins offer the following specifications:
 
 |  **Specification**   |   **Value**    |           **Notes**           |
 | :------------------: | :------------: | :---------------------------: |
 |    Logic Voltage     |    +3.3 VDC    | `HIGH` and `LOW` logic levels |
-|    Input Voltage     | 0 to +3.3 VDC  |   +3.3 VDC tolerant inputs    |
-| Max Current (Source) |     10 mA      |    Per pin source current     |
-|  Max Current (Sink)  |     10 mA      |     Per pin sink current      |
+|    Input Voltage     | 0 to +3.3 VDC  |   **NOT** +5V tolerant       |
+| Max Current (Source) |     15 mA      |    Per pin source current     |
+|  Max Current (Sink)  |     15 mA      |     Per pin sink current      |
 |  Total Max Current   |     200 mA     |     Combined for all pins     |
-|   Input Resistance   |    20-50 kΩ    |   Internal pull-up resistor   |
-|    Digital `HIGH`    | +2 to +3.3 VDC |  Minimum voltage for `HIGH`   |
-|    Digital `LOW`     | 0 to +1.5 VDC  |   Maximum voltage for `LOW`   |
+|   Input Resistance   |    11-13 kΩ    |   Internal pull-up resistor   |
+|    Digital `HIGH`    | +2.0 to +3.3 VDC |  Minimum voltage for `HIGH`   |
+|    Digital `LOW`     | 0 to +0.8 VDC  |   Maximum voltage for `LOW`   |
 
 Digital pins can be configured and controlled using the following basic Arduino functions.
 
@@ -487,6 +486,88 @@ digitalRead(pin);
 
 The available pin modes are `OUTPUT` for digital output, `INPUT` for digital input with high impedance, and `INPUT_PULLUP` for digital input with internal pull-up resistor enabled. Digital output values can be `HIGH` (+3.3 VDC) or `LOW` (0 VDC), and digital input readings will return `HIGH` or `LOW` based on the voltage level detected on the pin.
 
+The following example demonstrates basic digital pin functionality using simple connections that you can easily test with the Nano 33 BLE Sense Rev2 board.
+
+```arduino
+/**
+Combined Digital I/O Example for the Arduino Nano 33 BLE Sense Rev2 Board
+Name: nano_33_ble_sense_rev2_digital_io_combined.ino
+Purpose: This sketch demonstrates reading a button input and toggling
+the built-in LED state each time the button is pressed.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+// Pin definitions
+const int buttonPin = 2;            // Button input on D2
+const int ledPin = LED_BUILTIN;     // Built-in LED on D13
+
+// Variables to store button and LED state
+int buttonState = 0;
+int lastButtonState = HIGH;
+bool ledState = false;
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for connection
+  Serial.begin(115200);
+  unsigned long startTime = millis();
+  while (!Serial && millis() - startTime < 2500) {
+    delay(100);
+  }
+  
+  // Configure pins
+  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(ledPin, OUTPUT);
+  
+  // Turn off LED initially
+  digitalWrite(ledPin, LOW);
+  
+  Serial.println("- Arduino Nano 33 BLE Sense Rev2 - Combined Digital I/O Example started...");
+  Serial.println("- Press button connected to D2 to toggle the built-in LED");
+}
+
+void loop() {
+  // Read current button state
+  buttonState = digitalRead(buttonPin);
+  
+  // Check if button was just pressed (state change from HIGH to LOW)
+  if (buttonState == LOW && lastButtonState == HIGH) {
+    // Button press detected - toggle LED state
+    ledState = !ledState;
+    digitalWrite(ledPin, ledState);
+    
+    Serial.print("- Button pressed! LED is now ");
+    if (ledState) {
+      Serial.println("ON");
+    } else {
+      Serial.println("OFF");
+    }
+    
+    // Simple debounce delay
+    delay(50);  
+  }
+  
+  // Save current button state for next iteration
+  lastButtonState = buttonState;
+  
+  // Small delay for stability
+  delay(10);
+}
+```
+
+To test this example, connect a push button to the Nano 33 BLE Sense Rev2 board as follows:
+
+- Connect one leg of a push button to pin `D2`
+- Connect the other leg of the push button to `GND`
+- No external pull-up resistor needed (using internal pull-up)
+
+![Digital pins test circuit on the Nano 33 BLE Sense Rev2 board](assets/serial-monitor-digital-pins.png)
+
+***__Important reminder__: When connecting external components, ensure all signals are +3.3 VDC logic level. If using +5 VDC components, you must use a level shifter to prevent damage to the board.***
+
+You should now see the built-in LED toggle on and off each time you press the button. The LED will stay in its current state until you press the button again. Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see messages indicating when the button is pressed and the current LED state.
+
 ### Analog Pins
 
 The Nano 33 BLE Sense Rev2 features **8 analog input pins** (`A0` to `A7`) that can be read using the `analogRead()` function. These pins allow you to measure continuously varying voltages, making them perfect for reading sensors like potentiometers, light sensors, temperature sensors and other analog components and devices. The analog-to-digital converter (ADC) built into the nRF52840 microcontroller of the Nano 33 BLE Sense Rev2 board converts the analog voltage into a digital value that your sketch can process.
@@ -495,7 +576,7 @@ The Nano 33 BLE Sense Rev2 analog pins provide the following functionality:
 
 | **Arduino Pin** | **Microcontroller Pin** | **Additional Functions** | **Special Features** |
 | :-------------: | :---------------------: | :----------------------: | :------------------: |
-|      `A0`       |         `P0.04`         |           DAC            |  12-bit DAC output   |
+|      `A0`       |         `P0.04`         |        Analog In         |  Analog input only   |
 |      `A1`       |         `P0.05`         |        Analog In         |  Analog input only   |
 |      `A2`       |         `P0.30`         |        Analog In         |  Analog input only   |
 |      `A3`       |         `P0.29`         |        Analog In         |  Analog input only   |
@@ -504,7 +585,7 @@ The Nano 33 BLE Sense Rev2 analog pins provide the following functionality:
 |      `A6`       |         `P0.28`         |        Analog In         |  Analog input only   |
 |      `A7`       |         `P0.03`         |        Analog In         |  Analog input only   |
 
-***__Important note:__ Pins `A4` and `A5` are primarily used for I²C communication (SDA and SCL respectively).***
+***__Important note:__ Pins `A4` and `A5` are primarily used for I²C communication (SDA and SCL respectively). The Nano 33 BLE Sense Rev2 does not have a true DAC (Digital-to-Analog Converter). For analog output, use PWM on the digital pins.***
 
 The Nano 33 BLE Sense Rev2's analog pins offer the following specifications:
 
@@ -513,41 +594,114 @@ The Nano 33 BLE Sense Rev2's analog pins offer the following specifications:
 |   Input Voltage    | 0 to +3.3 VDC |  Maximum safe input voltage  |
 | Default Resolution |    10-bit     |        Values 0-1023         |
 | Maximum Resolution |    12-bit     |        Values 0-4095         |
-| Default Reference  |   +3.3 VDC    |         AREF voltage         |
+| Default Reference  |   +3.3 VDC    |         VDD reference        |
 | Internal Reference |   +0.6 VDC    | Built-in precision reference |
+|    Sample Rate     | Up to 200 kSPS|    Maximum sampling speed    |
+|      Accuracy      |    ±2 LSB     | Typical conversion accuracy  |
 
 You can read analog values using the `analogRead()` function:
-
 ```arduino
 value = analogRead(pin);
 ``` 
 
-The default reference voltage of these pins is +3.3 VDC, but this can be changed using the `analogReference()` function. You can use `analogReference(AR_VDD)` for the default reference of +3.3 VDC, `analogReference(AR_INTERNAL)` for the built-in reference of +0.6 VDC, `analogReference(AR_INTERNAL1V2)` for the built-in reference of +0.6 VDC with 2x gain, and `analogReference(AR_INTERNAL2V4)` for the built-in reference of +0.6 VDC with 4x gain.
+The default reference voltage of these pins is +3.3 VDC, but this can be changed using the `analogReference()` function. You can use `analogReference(AR_VDD)` for the default reference of +3.3 VDC, `analogReference(AR_INTERNAL)` for the built-in reference of +0.6 VDC, `analogReference(AR_INTERNAL1V2)` for +1.2 VDC reference (+0.6 VDC with 2x gain), or analogReference(AR_INTERNAL2V4)` for +2.4 VDC reference (+0.6 VDC with 4x gain).
 
-The default resolution is set to 10-bit, but it can be updated to 12-bit resolution using the `analogReadResolution()` function in the `setup()` of your sketch. Available options are analogReadResolution(10) for default 10-bit and analogReadResolution(12) for 12-bit for maximum 14-bit resolution.
+The default resolution is 10-bit (0 to 1023) for analog input. This can be changed using the `analogReadResolution()` function in the `setup()` of your sketch. Available options are:
+
+- `analogReadResolution(8)` for 8-bit resolution (0 to 255)
+- `analogReadResolution(10)` for 10-bit resolution (0 to 1023, **default**)
+- `analogReadResolution(12)` for 12-bit resolution (0 to 4095)
+- `analogReadResolution(14)` for maximum 14-bit resolution (0 to 16383)
+
+The following example demonstrates how to read an analog value and display it on the IDE's Serial Monitor:
+
+```arduino
+/**
+Analog Input Example for the Arduino Nano 33 BLE Sense Rev2 Board
+Name: nano_33_ble_sense_rev2_analog_input.ino
+Purpose: This sketch demonstrates how to read an analog input
+and display the value on the Serial Monitor.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+// Analog input pin
+const int analogPin = A0;
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for connection
+  Serial.begin(115200);
+  unsigned long startTime = millis();
+  while (!Serial && millis() - startTime < 2500) {
+    delay(100);
+  }
+  
+  Serial.println("- Arduino Nano 33 BLE Sense Rev2 - Analog Input Example started...");
+  Serial.println("- Reading analog values from pin A0");
+}
+
+void loop() {
+  // Read the analog value (0 - 1023 with 10-bit resolution)
+  int analogValue = analogRead(analogPin);
+  
+  // Convert to voltage (0 to +3.3 VDC)
+  float voltage = analogValue * (3.3 / 1023.0);
+  
+  // Display the results
+  Serial.print("- Analog Value: ");
+  Serial.print(analogValue);
+  Serial.print(" | Voltage: ");
+  Serial.print(voltage, 2);
+  Serial.println(" VDC");
+  
+  // Wait half a second before next reading
+  delay(500);  
+}
+```
+
+To test this example, connect a potentiometer to the Nano 33 BLE Sense Rev2 board as follows:
+
+- Connect the middle pin of a potentiometer to `A0`
+- Connect one outer pin of the potentiometer to +3.3 VDC
+- Connect the other outer pin of the potentiometer to `GND`
+
+***__Important safety note__: Make sure to connect the potentiometer to +3.3 VDC, NOT to the `5V` pin (even if enabled). Connecting analog inputs to voltages above +3.3 VDC will damage the microcontroller.***
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the real-time analog values and voltage measurements as you adjust the potentiometer. As you turn the potentiometer, the values will range from 0 to 1023, with corresponding voltage readings from 0 to +3.3 VDC.
 
 ### PWM (Pulse Width Modulation)
 
-The Nano 33 BLE Sense Rev2 board  features multiple pins with PWM capability that can be used to generate analog-like output signals. PWM works by rapidly switching a digital output between `HIGH` and `LOW` states, where the ratio of `HIGH` time to the total period determines the effective analog voltage output.
+The Nano 33 BLE Sense Rev2 board features multiple pins with PWM capability that can be used to generate analog-like output signals. PWM works by rapidly switching a digital output between `HIGH` and `LOW` states, where the ratio of `HIGH` time to the total period determines the effective analog voltage output.
 
 The Nano 33 BLE Sense Rev2 board provides PWM functionality on the following pins:
 
-| **Arduino Pin** | **Microcontroller Pin** | **PWM Channel** | **Primary Function**  |
-| :-------------: | :---------------------: | :-------------: | :-------------------: |
-|      `D2`       |         `P1.11`         |   Channel 0B    |      Digital I/O      |
-|      `D3`       |         `P1.12`         |   Channel 0B    |      Digital I/O      |
-|      `D4`       |         `P1.15`         |   Channel 0B    |      Digital I/O      |
-|      `D5`       |         `P1.13`         |   Channel 1B    |      Digital I/O      |
-|      `D6`       |         `P1.14`         |   Channel 0A    |      Digital I/O      |
-|      `D7`       |         `P0.23`         |   Channel 0B    |      Digital I/O      |
-|      `D8`       |         `P0.21`         |   Channel 0B    |      Digital I/O      |
-|      `D9`       |         `P0.27`         |   Channel 0B    |      Digital I/O      |
-|      `D10`      |         `P1.02`         |   Channel 2A    |  Digital I/O, SPI CS  |
-|      `D11`      |         `P1.01`         |   Channel 5A    | Digital I/O, SPI MOSI |
-|      `D12`      |         `P1.08`         |   Channel 0B    |      Digital I/O      |
-|      `D13`      |         `P0.13`         |   Channel 0B    |      Digital I/O      |
+| **Arduino Pin** | **Microcontroller Pin** |      **Primary Function**      |
+|:---------------:|:-----------------------:|:------------------------------:|
+|       `D2`      |         `P1.11`         |        Digital I/O, PWM        |
+|       `D3`      |         `P1.12`         |        Digital I/O, PWM        |
+|       `D4`      |         `P1.15`         |        Digital I/O, PWM        |
+|       `D5`      |         `P1.13`         |        Digital I/O, PWM        |
+|       `D6`      |         `P1.14`         |        Digital I/O, PWM        |
+|       `D7`      |         `P0.23`         |        Digital I/O, PWM        |
+|       `D8`      |         `P0.21`         |        Digital I/O, PWM        |
+|       `D9`      |         `P0.27`         |        Digital I/O, PWM        |
+|      `D10`      |         `P1.02`         |    Digital I/O, PWM, SPI CS    |
+|      `D11`      |         `P1.01`         |   Digital I/O, PWM, SPI MOSI   |
+|      `D12`      |         `P1.08`         |   Digital I/O, PWM, SPI MISO   |
+|      `D13`      |         `P0.13`         | Digital I/O, PWM, SPI SCK, LED |
 
-***__Important note:__ . The onboard LEDs (`LEDR`, `LEDG`, `LEDB`, `LED_BUILTIN`) also support PWM for brightness control.***
+***__Important note:__ Pin `D13` is connected to both the built-in orange LED and supports PWM functionality. The onboard RGB LED pins (`LEDR`, `LEDG`, `LEDB`) also support PWM for brightness control.***
+
+The Nano 33 BLE Sense Rev2's PWM pins offer the following specifications:
+
+|   **Specification**   |     **Value**     |          **Notes**         |
+| :-------------------: | :---------------: | :------------------------: |
+|     PWM Frequency     |   Default 500 Hz  |     Can be customized      |
+|   Default Resolution  |      8-bit        |        Values 0-255        |
+|  Maximum Resolution   |      16-bit       |       Values 0-65535       |
+|    Output Voltage     |   0 to +3.3 VDC   | Filtered PWM average value |
+|      Duty Cycle       |     0 to 100%     |    Proportional to value   |
 
 You can use PWM pins as analog output pins with the `analogWrite()` function:
 
@@ -555,7 +709,7 @@ You can use PWM pins as analog output pins with the `analogWrite()` function:
 analogWrite(pin, value);
 ```
 
-By default, the resolution is 8-bit (0 to 255). You can use analogWriteResolution() to change this, supporting up to 12-bit (0 to 4095) resolution: 
+By default, the PWM resolution is 8-bit (0 to 255). You can use `analogWriteResolution()` to change this, supporting up to 16-bit (0 to 65535) resolution:
 
 ```arduino
 analogWriteResolution(resolution);
@@ -669,150 +823,6 @@ void loop() {
 ```
 
 This high-resolution example creates a smooth sine wave pattern with the built-in LED brightness, demonstrating the precision available with a 12-bit PWM resolution. You should see a very smooth transition in the LED brightness following a sine wave pattern. Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the angle and PWM value outputs that demonstrate the precise 12-bit control values being used.
-
-## Digital-to-Analog Converter (DAC)
-
-The Nano 33 BLE Sense Rev2 features a built-in 12-bit Digital-to-Analog Converter (DAC) connected to pin `A0`. Unlike PWM pins that simulate analog output through rapid switching, the DAC provides true analog voltage output. This makes it ideal for applications requiring precise analog signals, such as audio generation, sensor calibration, control systems and waveform generation.
-
-The Nano 33 BLE Sense Rev2 DAC provides the following functionality:
-
-|  **Specification**   |     **Value**     |             **Notes**              |
-| :------------------: | :---------------: | :--------------------------------: |
-|      Resolution      |      12-bit       |    4096 discrete output levels     |
-|      Output Pin      |       `A0`        |      Dedicated DAC output pin      |
-| Output Voltage Range | +0.35 to +4.5 VDC | Typical range with +3.3 VDC supply |
-|  Default Resolution  |       8-bit       |              0 to 255              |
-|  Maximum Resolution  |      12-bit       |             0 to 4095              |
-|   Output Impedance   |   5Ω (typical)    |        Low impedance output        |
-|   Conversion Time    |     Max 30 μs     |   Time to update output voltage    |
-|    Resistive Load    |     Min 30 kΩ     |      Minimum recommended load      |
-|   Load Capacitance   |     Max 50 pF     |      Maximum capacitive load       |
-
-***__Important note:__ When using the DAC on pin `A0`, this pin cannot simultaneously be used as an analog input. The DAC provides true analog output, making it superior to PWM for applications requiring smooth, continuous voltage levels.***
-
-You can write analog values to the DAC using the `analogWrite()` function:
-
-```arduino
-analogWrite(DAC, value);
-```
-
-The default resolution is 8-bit (0 to 255), but this can be changed using the `analogWriteResolution()` function. You can use `analogWriteResolution(8)` for 8-bit resolution, `analogWriteResolution(10)` for 10-bit resolution or `analogWriteResolution(12)` for maximum 12-bit resolution.
-
-The DAC reference voltage depends on the selected reference mode, and the output voltage is calculated as: `Output Voltage = (DAC_Value / 4095) × Reference_Voltage`.
-
-***The following examples demonstrate basic DAC functionality that you can easily test with the Nano 33 BLE Sense Rev2 board.***
-
-The following example demonstrates how to generate a simple voltage output using the DAC. **No external components are needed for this example**:
-
-```arduino
-/**
-DAC Basic Output Example for the Arduino Nano 33 BLE Sense Rev2 Board
-Name: nano_33_ble_sense_rev2_dac_basic.ino
-Purpose: This sketch demonstrates how to use the DAC to generate
-precise analog voltages on pin A0.
-
-@author Arduino Product Experience Team
-@version 1.0 01/06/25
-*/
-
-void setup() {
-  // Initialize serial communication and wait up to 2.5 seconds for a connection
-  Serial.begin(115200);
-  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
-  
-  // Set DAC resolution to 12-bit for maximum precision
-  analogWriteResolution(12);
-  
-  Serial.println("- Arduino Nano 33 BLE Sense Rev2 - DAC Basic Output Example started...");
-  Serial.println("- Generating precise voltages on pin A0");
-  Serial.println("- Connect a multimeter to A0 to measure output");
-}
-
-void loop() {
-  // Generate different voltage levels
-  // 0, +0.825, +1.65, +2.475 and +3.3 VDC
-  int dacValues[] = {0, 1024, 2048, 3072, 4095}; 
-  float voltages[] = {0.0, 0.825, 1.65, 2.475, 3.3};
-  
-  for (int i = 0; i < 5; i++) {
-    analogWrite(DAC, dacValues[i]);
-    
-    Serial.print("- DAC Value: ");
-    Serial.print(dacValues[i]);
-    Serial.print(" | Target Voltage: ");
-    Serial.print(voltages[i], 2);
-    Serial.println(" VDC");
-    
-    // Hold each voltage for 2 seconds
-    delay(2000);  
-  }
-  
-  Serial.println("- Cycle completed, repeating...");
-  delay(1000);
-}
-```
-
-To test this example, connect a digital multimeter between pin `A0` and `GND` to measure the output voltage. You should see the voltage change in precise steps every two seconds, showing the DAC's ability to generate exact analog voltages. For best results, connect an oscilloscope to pin `A0` to visualize the step output.
-
-You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the DAC values and corresponding target voltages. The output should closely match the calculated voltages with high precision.
-
-The following example demonstrates how to generate a smooth sine wave using the DAC. **No external components are needed for this example**:
-
-```arduino
-/**
-DAC Sine Wave Generator for the Arduino Nano 33 BLE Sense Rev2 Board
-Name: nano_33_ble_sense_rev2_dac_sine_wave.ino
-Purpose: This sketch generates a smooth sine wave using the 12-bit DAC
-for testing and signal generation applications.
-
-@author Arduino Product Experience Team
-@version 1.0 01/06/25
-*/
-
-void setup() {
-  // Initialize serial communication and wait up to 2.5 seconds for a connection
-  Serial.begin(115200);
-  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
-  
-  // Set DAC resolution to 12-bit for smooth waveform
-  analogWriteResolution(12);
-  
-  Serial.println("- Arduino Nano 33 BLE Sense Rev2 - DAC Sine Wave Generator started...");
-  Serial.println("- Generating sine wave on pin A0");
-  Serial.println("- Connect an oscilloscope to A0 to view waveform");
-}
-
-void loop() {
-  // Generate one complete sine wave cycle (360 degrees)
-  for (int angle = 0; angle < 360; angle++) {
-    // Calculate sine value (-1 to +1) and convert to DAC range (0 to 4095)
-    float sineValue = sin(angle * PI / 180.0);
-    int dacValue = (int)((sineValue + 1.0) * 2047.5);
-    
-    // Output the calculated value to DAC
-    analogWrite(DAC, dacValue);
-    
-    // Print debug info every 30 degrees
-    if (angle % 30 == 0) {
-      float voltage = (dacValue / 4095.0) * 3.3;
-      Serial.print("- Angle: ");
-      Serial.print(angle);
-      Serial.print("° | DAC: ");
-      Serial.print(dacValue);
-      Serial.print(" | Voltage: ");
-      Serial.print(voltage, 2);
-      Serial.println(" VDC");
-    }
-    
-    // Control wave frequency (~28 Hz)
-    delayMicroseconds(100);  
-  }
-}
-```
-
-You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the sine wave generation progress with angle, DAC values, and corresponding voltages. 
-
-For best results, connect an oscilloscope to pin `A0` to visualize the smooth sine wave output.
 
 ## UART Communication
 
