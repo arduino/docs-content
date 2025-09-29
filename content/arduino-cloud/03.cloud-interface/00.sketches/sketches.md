@@ -138,7 +138,7 @@ The thingProperties.h file plays a key role in managing credential capabilities,
 - Credentials stored on NVS: Boards can now securely store network settings in Non-Volatile Storage (NVS), removing them from the sketch (secrets.h).
 - Over-the-Air (OTA) communication: Enables the possibility to provide network configuration settings via Bluetooth (BLE).
 
-The `thingProperties.h` will be generated accordingly to the provisioning mechanism, so if the board has been registered using the provisioning 2.0, the `thingProperties.h` file will automatically have the NetworkConfigurator component enabled. A board registered with Provisioning 2.0 includes `Arduino_NetworkConfigurator.h` in the generated `thingProperties.h` file.
+The `thingProperties.h` will be generated accordingly to the provisioning mechanism, so if the board has been registered using the provisioning 2.0, the `thingProperties.h` file will automatically have the NetworkConfigurator component enabled. A board registered with Provisioning 2.0 includes `Arduino_NetworkConfigurator.h` in the generated `thingProperties.h` file. For more information about device provisioning have a look [here.](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/)
 
 ### How the NetworkConfigurator works
 
@@ -157,7 +157,7 @@ The `NetworkConfigurator` library out-of-the-box provides two Agents:
 
 Here is how the `thingsProperties.h` file changes to set up the NetworkConfigurator. This setup is automatically generated if the board has been registered with Provisioning 2.0.
 
-*** Do not follow these steps if the board has not been registered with the Provisioning 2.0 ***
+*** Do not follow these steps if the board has not been registered with the Provisioning 2.0. For more information about device provisioning have a look [here.](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/) ***
 
 ### Libraries and object declarations
 
