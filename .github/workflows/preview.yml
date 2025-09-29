@@ -12,7 +12,24 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  run:
+
+   # This job is used to render datasheets, but only if they have changed.
+  # It's a separate job so we don't have to cleanup the machine afterwards.
+  render-datasheets:
+    name: Render Datasheets
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'preview') || github.ref_name == 'main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: ./.github/actions/generate-datasheets
+        with:
+          artifact-name: datasheets
+          datasheets-path: static/resources/datasheets
+
+  preview-build:
     if: ${{ contains(github.event.pull_request.labels.*.name, 'preview') || github.ref_name == 'main' }}
     runs-on: ubuntu-latest
     concurrency:
@@ -45,15 +62,22 @@ jobs:
             Waiting for deployment to complete...
 
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: "0"
 
+      - name: Cleanup runner disk
+        uses: ./.github/actions/cleanup-disk 
       - uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: "npm"
           cache-dependency-path: "**/package-lock.json"
 
-      - name: Render Datasheets
-        run: cd ${GITHUB_WORKSPACE}/scripts/datasheet-rendering;./render-datasheets.sh
+      - name: Retrieve Datasheets
+        uses: actions/download-artifact@v4
+        with:
+          name: datasheets
+          path: static/resources/datasheets
 
       - name: Copy Static Files
         run: |
