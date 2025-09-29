@@ -133,7 +133,7 @@ The **PM4125** is the PMIC (Power-Management IC) of the UNO Q. It takes its main
 
 Other PMIC rails supply the Qualcomm Dragonwing™ QRB2210 core, peripheral and PLL domains, LPDDR4X, such as `VDD2` about 1.1 V, `VDDQ` about 0.6 V, `VPP` 1.8 V, `VREF_DDR` about 0.6 V, and eMMC, where `VCC` is 3.3 V or 1.8 V depending on configuration, and `VCCQ` is 1.8 V. The integrated audio bias rails are reserved and are exposed only at test points.
 
-The charger block monitors `USB_VBUS_IN` when `VBUS` is present and routes energy through `VSW_CHG` to `VPH_PWR` while sensing `VBAT`. `PWR_3P8V` and `VBAT` is reserved and connect for system use. Sequencing ensures the 3.3 V rail is valid before the PMIC enables its 1.8 V I/O domain. During shutdown, the 1.8 V domain is removed before the 3.3 V domain to prevent back-powering.
+The charger block monitors `USB_VBUS_IN` when `VBUS` is present and routes energy through `VSW_CHG` to `VPH_PWR` while sensing `VBAT`. `PWR_3P8V` and `VBAT` is reserved and connect for system use and future features. Sequencing ensures the 3.3 V rail is valid before the PMIC enables its 1.8 V I/O domain. During shutdown, the 1.8 V domain is removed before the 3.3 V domain to prevent back-powering.
 
 ## Key Power Components
 
