@@ -106,7 +106,8 @@ A P-channel MOSFET switches that back-drive path. Its enable is gated, so `VBUS`
 
 #### 3V8 Rail (PWR_3P8V)
 
-`PWR_3P8V` is the intermediate rail produced by the step-down converter *TPS62A02APDDCR* for 5 V to 3.8 V. It supplies the PMIC input pins (`VCOIN` and `VPH_PWR`) and the 3.3 V step-down converter.
+`PWR_3P8V` is the intermediate rail produced by the step-down converter *TPS62A02APDDCR* for 5 V to 3.8 V. It supplies the 3.3 V step-down converter.
+This voltage rail is reserved for system design and future features.
 
 #### 3V3 Rail (PWR_3P3V)
 
