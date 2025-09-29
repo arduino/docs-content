@@ -15,7 +15,8 @@ hardware:
 
 ## Overview
 
-This tutorial walks you through the power domain of UNO Q, with emphasis on the three main rails, 5 V, 3.3 V and 1.8 V. You will learn how the 5 V input gets accepted and diode-OR'd, converted into the 3.8 V pre-regulator node, and then regulated into the 3.3 V and 1.8 V rails. We will also cover the components that convert, protect and route these rails, including the safe voltage and pin-level limits you need to know.
+This tutorial walks you through the power domain of UNO Q, with emphasis on the three main rails, 5 V, 3.3 V and 1.8 V. You will learn how the 5 V input gets accepted and diode-OR'd, converted into the 3.8 V pre-regulator node, and then regulated into the 3.3 V, and how the PMIC generates all the other power rails from the 5V input, including the 1.8V rail.
+We will also cover the components that convert, protect and route these rails, including the safe voltage and pin-level limits you need to know.
 
 ## Goals
 
