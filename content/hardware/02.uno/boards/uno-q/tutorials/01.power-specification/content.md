@@ -129,7 +129,7 @@ A **PMIC** is a power management integrated circuit. It creates and controls mul
 
 ![UNO Q PMIC PM4125](assets/uno-q-pmic.png)
 
-The **PM4125** is the PMIC (Power-Management IC) of the UNO Q. It takes its main inputs (`VCOIN` and `VPH_PWR`) from the 3.8 V rail (`PWR_3P8V`) and generates the processor and memory supplies using its buck converters and LDOs. The board's 1.8 V rail (`VREG_L15A_1P8V`) is produced by L15A and is exported. This rail feeds the Qualcomm Dragonwing™ QRB2210 I/O domain, ANX7625 `DVDD18`, Wi-Fi digital 1.8 V, and the level shifters `VCCA`.
+The **PM4125** is the PMIC (Power-Management IC) of the UNO Q. It takes its main inputs (`5V_SYS`) and generates the processor and memory supplies using its buck converters and LDOs. The board's 1.8 V rail (`VREG_L15A_1P8V`) is produced by L15A and is exported. This rail feeds the Qualcomm Dragonwing™ QRB2210 I/O domain, ANX7625 `DVDD18`, Wi-Fi digital 1.8 V, and the level shifters `VCCA`.
 
 Other PMIC rails supply the Qualcomm Dragonwing™ QRB2210 core, peripheral and PLL domains, LPDDR4X, such as `VDD2` about 1.1 V, `VDDQ` about 0.6 V, `VPP` 1.8 V, `VREF_DDR` about 0.6 V, and eMMC, where `VCC` is 3.3 V or 1.8 V depending on configuration, and `VCCQ` is 1.8 V. The integrated audio bias rails are reserved and are exposed only at test points.
 
