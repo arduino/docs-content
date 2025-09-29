@@ -164,7 +164,7 @@ This table maps each block in the power tree to its function. The table shows th
 
 **P-MOSFET (Q2801)** switches `5V_SYS` to `USB_VBUS_IN` for host or OTG back-drive. The enable line `USB_VBUS_ON_N` is gated, so `VBUS` is only driven when rails are valid. NPN (Q2802) provides that gating using `LDO1_PG`.
 
-PMIC **PM4125** generates the internal processor and memory rails from `PWR_3P8V`, including `VREG_L15A_1P8V`, which is exported as the board 1.8 V rail.
+PMIC **PM4125** generates the internal processor and memory rails from `5V_SYS`, including `VREG_L15A_1P8V`, which is exported as the board 1.8 V rail.
 
 **DSI to DisplayPort bridge ANX7625** uses `VDDIO_3V3` from `PWR_3P3V`, `DVDD18` from `VREG_L15A_1P8V`, and `AVD03P0V` from `U3004`. Its `VCONN_IN` and other control pins are shown in the power tree. It interfaces with the USB-C/PD circuit for Type-C role, orientation and DisplayPort Alt-Mode signaling.
 
