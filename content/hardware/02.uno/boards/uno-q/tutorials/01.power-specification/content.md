@@ -156,7 +156,7 @@ This table maps each block in the power tree to its function. The table shows th
 
 **LMR51440 buck converter (U2803)** is the wide-input converter that steps 7–24 V down to 5 V. Its output `5V_BUCK_OUT` feeds the OR stage through `D2803`.
 
-**TPS62A02A step-down converter (U2801)** outputs the 3.8 V pre-regulator node `PWR_3P8V` from `5V_SYS`. This node supplies the PMIC input pins, `VCOIN` and `VPH_PWR`, and also feeds the 3.3 V converter. `VBAT` connects to this node for system use.
+**TPS62A02A step-down converter (U2801)** outputs the 3.8 V pre-regulator node `PWR_3P8V` from `5V_SYS`. This node supplies 3.3 V converter. `VBAT` connects to this node for system use and future features.
 
 **TPS62A02A step-down converter (U2802)** outputs the 3.3 V rail `PWR_3P3V` from `PWR_3P8V`. This rail powers the STM32U585 domains' `VDD`, `VDDA`, `VDDUSB`, and `VREF+`, The 3.3 V side of the level shifters (VCCB), on-board 3.3 V devices and the exported 3.3 V header pins.
 
