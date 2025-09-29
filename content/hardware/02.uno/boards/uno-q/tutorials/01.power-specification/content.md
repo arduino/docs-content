@@ -212,7 +212,7 @@ The headers export following rails:
 
 - **JSPI (A5)** carries `5V_USB_VBUS (5 V)` on a dedicated pin for accessories that need a 5 V supply. The SPI signals themselves are in the 3.3 V bank. STM32U585 SPI pins are 5 V tolerant as inputs, while outputs drive 3.3 V.
 
-- **JMISC (B1)** exports `PWR_3P3V (3.3 V)`, the board 1.8 V rail `VREG_L15A_1P8V (1.8 V)`, `5V_USB_VBUS (5 V)` and `VBAT (3.8 V)`. `VBAT` is reserved for system use.
+- **JMISC (B1)** exports `PWR_3P3V (3.3 V)`, the board 1.8 V rail `VREG_L15A_1P8V (1.8 V)`, `5V_USB_VBUS (5 V)` and `VBAT (3.8 V)`. `VBAT` is reserved for system use and future features.
 
 - **JMEDIA (B2)** breaks out `PWR_3P3V (3.3 V)` and also brings out VIN (`DC_IN`) (7-24 V). Use `PWR_3P3V (3.3 V)` for 3.3 V peripherals on this connector. VIN (`DC_IN`) is the raw 7–24 V input and is not a logic rail.
 
