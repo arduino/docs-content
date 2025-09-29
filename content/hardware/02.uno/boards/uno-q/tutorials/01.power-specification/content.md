@@ -274,6 +274,7 @@ Keep these runs short, use controlled-impedance routing on the carrier, maintain
 
 ## Conclusion
 
-In this tutorial, you learned how UNO Q accepts power from a USB-C 5 V or 7–24 V DC source on VIN (`DC_IN`), diode-ORs them into 5 V bus system `5V_SYS`, and derives 3.8 V (`PWR_3P8V`), 3.3 V (`PWR_3P3V`), and 1.8 V (`VREG_L15A_1P8V`). You also saw which parts generate and switch these rails, what each header exports, the I/O voltage limits and the sequencing that the board goes through.
+In this tutorial, you learned how UNO Q accepts power from a USB-C 5 V or 7–24 V DC source on VIN (`DC_IN`), diode-ORs them into 5 V bus system `5V_SYS`, and derives 3.8 V (`PWR_3P8V`) and 3.3 V (`PWR_3P3V`), and how the PMIC generate the 1.8V (`VREG_L15A_1P8V`) from the `5V_SYS`.
+You also saw which parts generate and switch these rails, what each header exports, the I/O voltage limits and the sequencing that the board goes through.
 
 With this, you can choose suitable supplies, budget loads for 3.3 V and 1.8 V, and verify bring-up by checking the rail order and header rails.
