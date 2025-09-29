@@ -148,7 +148,7 @@ This table maps each block in the power tree to its function. The table shows th
 | U3004                | TPS7A2030 LDO regulator       |
 | Q2801                | PJA3413 P-MOSFET              |
 | Q2802                | MMBT3904 NPN transistor       |
-| PM4125               | PM-4125-3-NSP194-TR-01-0      |
+| PMIC1               | PM-4125-3-NSP194-TR-01-0      |
 | ANX7625              | DSI to DisplayPort bridge     |
 | STM32U585            | Microcontroller               |
 
