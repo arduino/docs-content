@@ -142,23 +142,14 @@ You can update the network settings from the detail page of the device on the Ar
 During this process you will be asked to wipe out the current network configuration to restart the board's BLE interface. 
 
 - Power on the board.
-
 - Reset the board using the method of your board. Have a look at the [How to set up the Reconfiguration Procedure](#How-to-set-up-the Reconfiguration-Procedure) section of this article to find the default board reset pin. If you have changed the reset pin from the default one, please use that.
-
 - Open the devices page of the Mobile App or the Arduino Cloud webpage.
-
 - Click on the device you want to update the network settings for.
-
 - Click on the "change" button by the network section.
-
 - If you are using the Arduino Cloud webpage, select the BLE method.
-
 - The board will reboot, and you will see the LED pulsing.
-
 - Connect to the board.
-
 - Input the new network configuration.
-
 - The board will validate it, and if correct, it will close the connection.
 
 ### Update Using the Serial Interface
@@ -168,28 +159,23 @@ Ensure that the "SerialAgent" is enabled in the cloud sketch, via "thingProperti
 This method only works with the Arduino Cloud website. You can update the network settings from the detail page of the board on the webpage. The Serial interface, if enabled, is always ready to receive a new configuration.
 
 - Turn on the board and connect it to your PC using a USB cable.
-
 - Open the devices page on the Arduino Cloud webpage.
-
 - Click on the board you want to update the network settings for.
-
 - Click on the "change" button by the network section.
-
 - Input the new network configuration.
-
 - The board will validate it, and if correct, it will close the connection.
 
 ## How to delete a stored network configuration
 
 If you want to delete the stored network configuration without updating it, there are two possible methods to do so.
 
-### Board Reset procedure
+### Board Reset Procedure
 
 To proceed with the next steps, the cloud-generated sketch must be uploaded to the board.
 
 Reset the board using the method of your board. Have a look at the [How to set up the Reconfiguration Procedure](#How-to-set-up-the Reconfiguration-Procedure) section of this article to find the default board reset pin. If you have changed the reset pin from the default one, please use that.
 
-### Using the DeleteConfiguration sketch
+### Using the DeleteConfiguration Sketch
 
 Open Arduino IDE and on the left side open the **library manager**. Search for **Arduino_NetworkConfigurator** and download it. Once it is downloaded go to **File > Examples > Arduino_NetworkConfigurator > Utility > DeleteConfiguration**, this will open a new example sketch. Select your board and port then upload this example sketch to your board. When the sketch has been uploaded you can look at the serial monitor to monitor the progress and troubleshoot if needed.
 
