@@ -86,7 +86,8 @@ The temperature range refers to the air temperature around the board, and operat
 
 ### On-Board Voltage Rails
 
-Power conversion starts at the input, builds the `5V_SYS` system bus, then derives a 3.8 V pre-regulator node that supplies both the 3.3 V system rail and the PMIC domain for exporting the board's 1.8 V rail.
+Power conversion starts at the input, builds the `5V_SYS` system bus, then derives a 3.8 V pre-regulator node that supplies the 3.3 V system rail.
+The PMIC also uses (`5V_SYS`) to produce the board's 1.8 V rail.
 
 ![UNO Q On-Board Voltage Rails](assets/uno-q-voltage-rails.png)
 
