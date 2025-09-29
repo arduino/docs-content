@@ -29,7 +29,8 @@ We will also cover the components that convert, protect and route these rails, i
 
 The UNO Q accepts a 5 V input over USB-C® or a 7–24 V input on DC input using the VIN pin (`DC_IN`), which is step-down converted to 5 V. These two sources are **diode-OR** combined into the system 5 V bus (`5V_SYS`).
 
-From the 5 V system bus (`5V_SYS`), the board generates a 3.8 V pre-regulator node (`PWR_3P8V`). This node is the PMIC input (`VCOIN*`/`VPH_PWR`) and also the supply for the 3.3 V converter (`PWR_3P3V`). The PMIC produces the board's exported 1.8 V rail (`VREG_L15A_1P8V`) and the internal processor and memory rails. `VBAT` connects to `PWR_3P8V` for system use. The USB VBUS back-drive path is sourced from the 5 V system bus (`5V_SYS`) and is separate from the PMIC input path.
+From the 5 V system bus (`5V_SYS`), the board generates a 3.8 V pre-regulator node (`PWR_3P8V`). This node is the supply for the 3.3 V converter (`PWR_3P3V`). 
+The PMIC also uses the 5V system bus  (`5V_SYS`) to produce the board's exported 1.8 V rail (VREG_L15A_1P8V) and the internal processor and memory rails. `PWR_3P8V`, that is connected to `VBAT`, is reserved for system design and future features. The USB VBUS back-drive path is sourced from the 5 V system bus (`5V_SYS`) and is separate from the PMIC input path.
 
 The diagram below shows these rails and conversion points, using the same net names used throughout this tutorial.
 
