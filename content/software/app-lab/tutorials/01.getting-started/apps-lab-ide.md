@@ -12,7 +12,7 @@ With the [Arduino App Lab](https://www.arduino.cc/en/uno-q/), you can create and
 In this guide we will explore:
 - The Arduino App Lab core features.
 - How Apps work, and how they are structured.
-- What a [Brick](/tutorials/uno-q/bricks/) is, and how they are used in Apps.
+- What a [Brick](/software/app-lab/tutorials/bricks/) is, and how they are used in Apps.
 - How to launch an App on an UNO Q board.
 
 ***The Arduino App Lab software also provides several guides and examples for getting started with the UNO Q.***
@@ -71,7 +71,7 @@ To create your own App, navigate to the **"Apps"** tab, and click on the **"Crea
 
 ![Arduino App Lab - Bricks](assets/bricks.png)
 
-[Bricks](/tutorials/uno-q/bricks/), unlike Apps, can best be likened to a software library that has pre-packaged functionalities, such as AI models, web server or specific HTTP requests that will make developing code easier.
+[Bricks](/software/app-lab/tutorials/bricks/), unlike Apps, can best be likened to a software library that has pre-packaged functionalities, such as AI models, web server or specific HTTP requests that will make developing code easier. However Bricks are unique as they do not just import code, they are designed to launch in parallel with Apps.
 
 There are a number of different categories, for example:
 
@@ -110,7 +110,7 @@ To run an App, we can either start from scratch, or choose an **existing example
 To run an example App, follow the steps below:
 
 1. Select the example you want to run on your UNO Q board from the **"Example"** tab, located in the left side menu.
-2. Click on the **"Play"** button in the top right corner.
+2. Click on the **"Run"** button in the top right corner.
 3. Wait for the loading process to finish.
 4. Once start-up is complete, we can start interacting with the App.
 
@@ -131,17 +131,19 @@ Once an App is launched, we can see the status of the App in the **Console**. Th
 
 ***Please note that while an App may successfully launch, it does not mean it is working properly. The Python® script may have issues, and this can be seen in the Python log. However, if an error occurs during the sketch compilation, the launch will be aborted.***
 
-### Create Your Own App
+### Create a New App
 
-You can also create your own App, by clicking on the **"Create New App"** on the main page. When creating an App, you have the following options:
-- **Create from example** - select an example, and everything will be imported.
-- **Create from scratch** - start from a blank page.
+We can create a new App, by clicking on the **"Create New App"** on the main page.
 
-If you select **"Create from scratch"**, you will be prompted to select if the App is going to use Python® and/or a sketch file. 
-
-When you create a new App from scratch, you will need to write the programs and import the Bricks manually.
+When creating a new App from scratch, we will need to write the programs from scratch as well as importing the Bricks manually.
 
 To add a Brick, click on the **"Add Bricks"** button, and select the Brick you'd like to use. The Brick can now be used in your `main.py` file.
+
+### Duplicate an Existing Example
+
+Instead of creating a new App from scratch, we can also **duplicate an existing example**. This is done by selecting an available example in the **"Examples"** section, and duplicate it:
+
+![](assets/cloud-blink-duplicate.png)
 
 ## How Apps Function
 
@@ -188,3 +190,18 @@ Bridge.provide("python_function", python_function)
 def python_function(data: int)
     print(data)
 ```
+
+## Summary
+
+The Arduino App Lab is a versatile editor, used for programming both Python & Sketch applications on the UNO Q board. It includes a large variety of examples for quickly getting started, and several Bricks that makes the development experience easier.
+
+In this guide, we have covered some of the most important aspects of the editor, such as:
+- How to install & set up a board for the first time.
+- What *Apps* are, and what are they made of.
+- What *Bricks* are, and how they function
+- What *Bridge* is, and how it makes the MPU & MCU communicate over RPC.
+
+More documentation for the Arduino App Lab is available at:
+- [Arduino App Lab Documentation](https://docs.arduino.cc/software/app-lab/)
+
+You can also visit the [Arduino® UNO Q](/hardware/uno-q) hardware page for details on the board. 
