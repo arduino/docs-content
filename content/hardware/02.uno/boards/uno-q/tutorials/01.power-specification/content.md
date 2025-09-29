@@ -150,7 +150,7 @@ This table maps each block in the power tree to its function. The table shows th
 | Q2802                | MMBT3904 NPN transistor       |
 | PMIC1               | PM-4125-3-NSP194-TR-01-0      |
 | U3001              | ANX7625 DSI to DisplayPort bridge     |
-| STM32U585            | Microcontroller               |
+| MCU1            | STM32U585 Microcontroller               |
 
 **Schottky rectifiers (D2801 and D2803)** provide the diode-OR that combines the USB-C VBUS path and the 5 V output of the DC buck into the system bus `5V_SYS`.
 
