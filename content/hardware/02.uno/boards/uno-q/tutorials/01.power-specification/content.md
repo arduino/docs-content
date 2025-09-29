@@ -61,7 +61,7 @@ The PMIC also uses (`5V_SYS`) to produce the board's 1.8 V rail.
 
 #### USB-C Capabilities
 
-The USB-C (JUSB1) port provides USB 2.0 High-Speed data at `480 Mb/s` and DisplayPort Alt-Mode video up to 4K at 30 Hz via the *ANX7625* DSI-to-DP bridge. The connector's SuperSpeed differential pairs are allocated to DP Alt-Mode, so USB 3.X data is not available when DP is active.
+The USB-C (JUSB1) port provides USB 3.1 with Role-Switching Capabilities and DisplayPort Alt-Mode video via the *ANX7625* DSI-to-DP bridge. The connector's SuperSpeed differential pairs are shared between DP Alt-Mode and USB 3.1 data. When DisplayPort Alt-Mode is active, USB data speed is reduced.
 
 ### Recommended Operating Conditions
 
