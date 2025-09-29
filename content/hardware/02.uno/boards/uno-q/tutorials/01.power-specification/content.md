@@ -15,8 +15,7 @@ hardware:
 
 ## Overview
 
-This tutorial walks you through the power domain of UNO Q, with emphasis on the three main rails, 5 V, 3.3 V and 1.8 V. You will learn how the 5 V input gets accepted and diode-OR'd, converted into the 3.8 V pre-regulator node, and then regulated into the 3.3 V, and how the PMIC generates all the other power rails from the 5V input, including the 1.8V rail.
-We will also cover the components that convert, protect and route these rails, including the safe voltage and pin-level limits you need to know.
+This tutorial walks you through the power domain of UNO Q, with emphasis on the three main rails, 5 V, 3.3 V and 1.8 V. You will learn how the 5 V input gets accepted and diode-OR'd, converted into the 3.8 V pre-regulator node, and then regulated into the 3.3 V, and how the PMIC generates all the other power rails from the 5V input, including the 1.8V rail. We will also cover the components that convert, protect and route these rails, including the safe voltage and pin-level limits you need to know.
 
 ## Goals
 
@@ -29,7 +28,8 @@ We will also cover the components that convert, protect and route these rails, i
 
 The UNO Q accepts a 5 V input over USB-C® or a 7–24 V input on DC input using the VIN pin (`DC_IN`), which is step-down converted to 5 V. These two sources are **diode-OR** combined into the system 5 V bus (`5V_SYS`).
 
-From the 5 V system bus (`5V_SYS`), the board generates a 3.8 V pre-regulator node (`PWR_3P8V`). This node is the supply for the 3.3 V converter (`PWR_3P3V`). 
+From the 5 V system bus (`5V_SYS`), the board generates a 3.8 V pre-regulator node (`PWR_3P8V`). This node is the supply for the 3.3 V converter (`PWR_3P3V`).
+
 The PMIC also uses the 5V system bus  (`5V_SYS`) to produce the board's exported 1.8 V rail (VREG_L15A_1P8V) and the internal processor and memory rails. `PWR_3P8V`, that is connected to `VBAT`, is reserved for system design and future features. The USB VBUS back-drive path is sourced from the 5 V system bus (`5V_SYS`) and is separate from the PMIC input path.
 
 The diagram below shows these rails and conversion points, using the same net names used throughout this tutorial.
@@ -48,12 +48,12 @@ This section outlines what the board expects as input and what it provides inter
 |-------------|------------------:|------------------------:|-----------------|
 | USB-C VBUS  |               5 V |                   ≥ 3 A | USB-C connector |
 | VIN (DC IN) |         7  - 24 V |     Sized to 5 V budget | JMEDIA, JANALOG |
+| 5 V Pin     |               5 V |                   ≥ 3 A | JANALOG         |
 
-UNO Q supports dual power inputs: a USB-C port and a 7-24V DC input. Through USB Power Delivery negotiation, the board requests a **5 V / 3 A** contract only and does not request higher-voltage PD profiles. Use a supply and cable rated for 5 V at 3 A so short activity peaks, for example wireless bursts or display bring-up, do not cause connector droop.
+UNO Q supports multiple power inputs: a USB-C port and a 7-24V DC input. Through USB Power Delivery negotiation, the board requests a **5 V / 3 A** contract only and does not request higher-voltage PD profiles. Use a supply and cable rated for 5 V at 3 A so short activity peaks, for example wireless bursts or display bring-up, do not cause connector droop. A regulated external 5 V DC source can also be used to supply power to the board via the 5 V pin on the JANALOG header.
 
 `USB-C VBUS` and the 5 V output of the 7–24 V buck are **diode-OR'd** into the system 5 V bus (`5V_SYS`). The VIN (`DC IN`) path feeds a step-down converter to 5 V and its output goes through a Schottky rectifier to the same `5V_SYS` node. From `5V_SYS`, the board outputs the 3.8 V pre-regulator node and subsequently the **3.3 V** rail described below.
 The PMIC also uses (`5V_SYS`) to produce the board's 1.8 V rail.
-
 
 **Diode-OR'd** refers to connecting multiple power sources through diodes, which selects the higher voltage source while preventing reverse current flow.
 
@@ -107,7 +107,8 @@ A P-channel MOSFET switches that back-drive path. Its enable is gated, so `VBUS`
 #### 3V8 Rail (PWR_3P8V)
 
 `PWR_3P8V` is the intermediate rail produced by the step-down converter *TPS62A02APDDCR* for 5 V to 3.8 V. It supplies the 3.3 V step-down converter.
-This voltage rail is reserved for system design and future features.
+
+***This voltage rail is reserved for system design and future features.***
 
 #### 3V3 Rail (PWR_3P3V)
 
@@ -139,18 +140,18 @@ The charger block monitors `USB_VBUS_IN` when `VBUS` is present and routes energ
 
 This table maps each block in the power tree to its function. The table shows the designators and components, and the function of each component is explained below.
 
-| **Ref. Designation** | **Component**                 |
-|----------------------|-------------------------------|
-| D2801, D2803         | SX34 Schottky diodes          |
-| U2803                | LMR51440 buck converter       |
-| U2801                | TPS62A02A step-down converter |
-| U2802                | TPS62A02A step-down converter |
-| U3004                | TPS7A2030 LDO regulator       |
-| Q2801                | PJA3413 P-MOSFET              |
-| Q2802                | MMBT3904 NPN transistor       |
-| PMIC1               | PM-4125-3-NSP194-TR-01-0      |
-| U3001              | ANX7625 DSI to DisplayPort bridge     |
-| MCU1            | STM32U585 Microcontroller               |
+| **Ref. Designation** | **Component**                     |
+|----------------------|-----------------------------------|
+| D2801, D2803         | SX34 Schottky diodes              |
+| U2803                | LMR51440 buck converter           |
+| U2801                | TPS62A02A step-down converter     |
+| U2802                | TPS62A02A step-down converter     |
+| U3004                | TPS7A2030 LDO regulator           |
+| Q2801                | PJA3413 P-MOSFET                  |
+| Q2802                | MMBT3904 NPN transistor           |
+| PMIC1                | PM-4125-3-NSP194-TR-01-0          |
+| U3001                | ANX7625 DSI to DisplayPort bridge |
+| MCU1                 | STM32U585 Microcontroller         |
 
 **Schottky rectifiers (D2801 and D2803)** provide the diode-OR that combines the USB-C VBUS path and the 5 V output of the DC buck into the system bus `5V_SYS`.
 
