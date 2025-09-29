@@ -65,6 +65,8 @@ Here are the boards that are compatible with Bluetooth provisioning via a Blueto
 
 - [Arduino UNO R4 WiFi](https://docs.arduino.cc/hardware/uno-r4-wifi/) (Wi-Fi firmware version 0.6.0 or later required)
 
+A board that is ready for Bluetooth provisioning has a specific provisioning sketch installed and displays a pulsing LED or a Bluetooth icon on the LED matrix. Newer boards are shipped boards are delivered with this specific sketch already installed. If the pulsing LED is not visible, please use the USB provisioning method.
+
 ### Setting up Your Device With Bluetooth
 
 After selecting the Bluetooth option you will see a page telling you how to connect your board. Follow the steps to connect your board via Bluetooth.
@@ -78,6 +80,8 @@ Once your board is connected you will see a page that will let you pick the Wi-F
 After completing these steps your device will connect to your Wi-Fi and you will be taken to the device page. Here you can click on the icon in the bottom left corner to attach a thing to the device. To find out more about Arduino Cloud Things, go [here](https://docs.arduino.cc/arduino-cloud/cloud-interface/things/).
 
 ![Attach thing after Bluetooth](assets/attach-thing-to-bluetooth.png)
+
+The BLE interface is automatically turned off at the end of the procedure, and it remains off until board reset (see dedicated document section)
 
 Now you are ready to start using your board with the Arduino Cloud!
 
@@ -125,11 +129,92 @@ Now your board will be updated to version 2.0, wait for the process to finish.
 
 When this is done you can continue setting up the network connection for your board and it will now be using the latest provisioning method with the Arduino Cloud!
 
-### Removing Saved Network Configuration
+## How to update the Stored Network Configuration
 
-This section will explain how to remove the stored network credentials and force the restart of the BLE interface of a board that has been provisioned with version 2.0. This can be useful to either reset the board or to update the network credentials via BLE.
+To proceed with the next steps, the cloud-generated sketch must be uploaded to the board. If you want to update the stored network configuration, there are two ways:
 
-If you want to remove the stored network credentials and force the restart of the BLE interface, so that the network credentials can be updated via BLE. Please follow these instructions depending on your board:
+### Update Using the BLE Interface
+
+Ensure that the cloud sketch has enabled the "BLEAgent" in the cloud sketch, via  "thingProperties.h". Check [this document](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches) for enabling it.
+
+You can update the Network settings from the detail page of the device in the Arduino Cloud Web UI or the mobile app.
+
+During this process you will be asked to wipe out the current network configuration to restart the board's BLE interface. 
+
+- Turn on the board.
+
+- Open the devices page of the Mobile App or the Arduino Cloud Web UI.
+
+- Click on the device you want to update the network settings for.
+
+- Click on the "change" button by the network section.
+
+- If you are using the Arduino Cloud Web UI, select the BLE method.
+
+- Reset the board using the procedure of your board. In this article, the default reset pin is used. If you have chosen a different pin, please use that. Review the section of the document about the default board reset pin [here](#How to set up the Reconfiguration Procedure).
+
+- The board will reboot, and you will see the LED pulsing.
+
+- Connect to the board.
+
+- Input the new network configuration.
+
+- The board will validate it, and if correct, it will close the connection.
+
+### Update Using the Serial Interface
+
+Ensure that the "SerialAgent" is enabled in the cloud sketch, via "thingProperties.h".
+
+Check [this document](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches) for enabling it.
+
+You can run this procedure only with the Arduino Cloud Web UI
+
+- You can update the network settings from the detail page of the board of the Web UI.
+
+- The Serial interface, if enabled, is always ready to receive a new configuration.
+
+- Turn on the board and connect to your PC using the USB cable.
+
+- Open the devices page on the Arduino Cloud Web UI.
+
+- Click on the board you want to update the network settings for.
+
+- Click on the "change" button by the network section.
+
+- Connect to the board.
+
+- Inputs the new configuration.
+
+- The board will validate it, and if correct, it will close the connection.
+
+
+## How to delete a stored network configuration
+
+If you want to delete the stored network configuration without updating it, there are two possible methods to do so.
+
+### Board Reset procedure
+
+To proceed with the next steps, the cloud-generated sketch must be uploaded to the board.
+
+Reset the board using the procedure of your board. 
+
+In this article, the default reset pin is used. If you had chosen a different pin, please use yours.
+
+Review the section of the document about the default board reset pin here.
+
+### Using the DeleteConfiguration sketch
+
+Upload this sketch to delete your configuration.
+
+Please confirm the choice for starting the procedure
+
+### How to set up the Reconfiguration Procedure
+
+As the Provisioning 2.0 ends, the BLE interface is turned off. 
+
+To restart the BLE interface to update the network settings, the [**Arduino_NetworkConfigurator**](https://github.com/arduino-libraries/Arduino_NetworkConfigurator?tab=readme-ov-file) library provides a procedure called "Reconfiguration Procedure". This procedure is based on the shorting of two pins of the board.
+
+The library provides a default implementation according to the board type. (The user can change the default pin, checking the following document section)
 
 - `Arduino Opta`: Press and hold the user button (BTN_USER) until the led (LED_USER) turns off
 - `Arduino MKR WiFi 1010`: Short pin 7 to GND until the led turns off
@@ -139,7 +224,5 @@ If you want to remove the stored network credentials and force the restart of th
 - `Arduino Portenta C33`: Short pin 0 to GND until the led turns off
 - `Other boards`: Short pin 2 to GND until the led turns off
 - `Portenta Machine Control`: Currently the reset procedure is not available
-
-If you would like to remove the network credentials from the board, you can use the [**Arduino_NetworkConfigurator**](https://github.com/arduino-libraries/Arduino_NetworkConfigurator?tab=readme-ov-file) library.
 
 Open Arduino IDE and on the left side open the **library manager**. Search for **Arduino_NetworkConfigurator** and download it. Once it is downloaded go to **File > Examples > Arduino_NetworkConfigurator > Utility > DeleteConfiguration**, this will open a new example sketch. Select your board and port then upload this example sketch to your board. When the sketch has been uploaded you can look at the serial monitor to monitor the progress and troubleshoot if needed.
