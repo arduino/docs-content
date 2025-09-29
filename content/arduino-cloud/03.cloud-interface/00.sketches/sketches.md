@@ -129,7 +129,213 @@ The "Secret" File contains your secret credentials, such as Wi-Fi® network SSID
 
 This file will be visible as a "Secret" tab in the Cloud Editor and is named `arduino_secrets.h`, which is not visible on the Cloud platform.
 
-Note that if you are using the offline IDE / Arduino CLI, you will need to manually create this file. More information is in the **Offline Sketches section** just below.
+Note that if you are using the offline IDE / Arduino CLI, you will need to manually create this file. More information is in the **Offline Sketches section**.
+
+
+
+## thingsProperties.h and the NetworkConfigurator
+
+The thingProperties.h file plays a key role in managing credential capabilities, including the NetworkConfigurator, which enables two main features:
+
+- Credentials stored on NVS: Boards can now securely store network settings in Non-Volatile Storage (NVS), removing them from the sketch (secrets.h).
+
+- Over-the-Air (OTA) communication: Enables the possibility to provide network settings configuration via Bluetooth (BLE)
+
+The thingProperties.h will be generated accordingly to the provisioning mechanism, so if the board has been registered using the provisioning 2.0, automatically the thingProperties.h file will have the NetworkConfigurator component enabled.
+
+A board registered with Provisioning 2.0 includes Arduino_NetworkConfigurator.h in the generated thingProperties.h.
+
+### How the NetworkConfigurator works
+
+To work, the NetworkConfigurator needs:
+
+- One or more Configurator Agents: Objects that handle the communication between the board and the user device (PC, laptop, or Mobile phone). The NetworkConfigurator library out-of-the-box provides two Agents:
+
+- BLEAgent for handling the BLE communication 
+
+- SerialAgents for the Serial communication.
+
+- A Key-Value Storage library: the NetworkConfigurator needs an external storage library that implements the KVStoreInterface. Arduino provides the Arduino_KVStore library for handling the storage and saving the NetworkConfigurator configurations.
+
+- A ConnectionHandler: the object responsible for the board’s Internet connection management
+
+### thingsProperties.h
+Here is how the thingsProperties.h file changes to set up the NetworkConfigurator.
+
+### Default setup
+This setup is automatically generated if the board has been registered with Provisioning 2.0.
+
+Do not try if the board has not been registered with the Provisioning 2.0
+
+Automatically, both the SeralAgent and the BLEAgent are enabled
+
+Libraries and object declarations
+The following libraries are automatically included:
+
+Arduino_NetworkConfigurator library
+
+BLEAgent.h and SerialAgent.h
+
+The objects declared:
+
+kvStore: for handling the NVM operations
+
+BLEAgent for handling the BLE interface
+
+SerialAgent: for handling the Serial Interface
+
+NetworkConfigurator: the networkConfigurator instance
+
+
+```arduino
+#include <ArduinoIoTCloud.h>
+#include <Arduino_ConnectionHandler.h>
+#include <Arduino_NetworkConfigurator.h>
+#include <configuratorAgents/agents/BLEAgent.h>
+#include <configuratorAgents/agents/SerialAgent.h>
+void onVariableChange();
+int variable;
+KVStore kvStore;
+BLEAgentClass BLEAgent;
+SerialAgentClass SerialAgent;
+WiFiConnectionHandler ArduinoIoTPreferredConnection; 
+NetworkConfiguratorClass NetworkConfigurator(ArduinoIoTPreferredConnection);
+```
+
+### initProperties()
+In the initProperties function, the following instructions are added:
+
+NetworkConfigurator.addAgent(BLEAgent); For enabling the BLEAgent
+
+NetworkConfigurator.addAgent(SerialAgent); For enabling the SerialAgent
+
+NetworkConfigurator.setStorage(kvStore); For setting the KVStore
+
+ArduinoCloud.setConfigurator(NetworkConfigurator); For embedding the NetworkConfigurator in the ArduinoCloud
+
+```arduino
+NetworkConfigurator.addAgent(BLEAgent);
+NetworkConfigurator.addAgent(SerialAgent);
+NetworkConfigurator.setStorage(kvStore);
+ArduinoCloud.setConfigurator(NetworkConfigurator);
+```
+
+The final thingProperties.h file:
+
+```arduino
+#include <ArduinoIoTCloud.h>
+#include <Arduino_ConnectionHandler.h>
+#include <Arduino_NetworkConfigurator.h>
+#include <configuratorAgents/agents/BLEAgent.h>
+#include <configuratorAgents/agents/SerialAgent.h>
+void onVariableChange();
+int variable;
+KVStore kvStore;
+BLEAgentClass BLEAgent;
+SerialAgentClass SerialAgent;
+WiFiConnectionHandler ArduinoIoTPreferredConnection; 
+NetworkConfiguratorClass NetworkConfigurator(ArduinoIoTPreferredConnection);
+void initProperties(){
+  NetworkConfigurator.addAgent(BLEAgent);
+  NetworkConfigurator.addAgent(SerialAgent);
+  NetworkConfigurator.setStorage(kvStore);
+  ArduinoCloud.setConfigurator(NetworkConfigurator);
+// For changing the default reset pin (2) uncomment and set your preferred pin. Use DISABLE_PIN for disabling the reset procedure.
+// NetworkConfigurator.setReconfigurePin(YOUR_PIN);
+  ArduinoCloud.addProperty(variable, READWRITE, ON_CHANGE, onVariableChange);
+}
+```
+
+### Disable the BLEAgent
+
+To save board storage and memory, after the provisioning, the BLEAgent can be removed. ~30KB of storage and ~ 2KB of memory are saved for BSS and Data.
+
+The network credentials provided in the provisioning phase can no longer be changed via Bluetooth
+
+To disable the BLEAgent, just comment out or remove the lines of code that include, declare, and enable it.
+
+The final result should be the following:
+
+```arduino
+#include <ArduinoIoTCloud.h>
+#include <Arduino_ConnectionHandler.h>
+#include <Arduino_NetworkConfigurator.h>
+//#include <configuratorAgents/agents/BLEAgent.h>
+#include <configuratorAgents/agents/SerialAgent.h>
+void onVariableChange();
+int variable;
+KVStore kvStore;
+//BLEAgentClass BLEAgent;
+SerialAgentClass SerialAgent;
+WiFiConnectionHandler ArduinoIoTPreferredConnection; 
+NetworkConfiguratorClass NetworkConfigurator(ArduinoIoTPreferredConnection);
+void initProperties(){
+//  NetworkConfigurator.addAgent(BLEAgent);
+  NetworkConfigurator.addAgent(SerialAgent);
+  NetworkConfigurator.setStorage(kvStore);
+  ArduinoCloud.setConfigurator(NetworkConfigurator);
+// For changing the default reset pin (2) uncomment and set your preferred pin. Use DISABLE_PIN for disabling the reset procedure.
+// NetworkConfigurator.setReconfigurePin(YOUR_PIN);
+  ArduinoCloud.addProperty(variable, READWRITE, ON_CHANGE, onVariableChange);
+}
+```
+
+### Disable the SerialAgent
+
+To save board storage and memory, after the provisioning, the SerialAgent can be removed. ~1KB of storage is saved for BSS and Data
+
+The network credentials provided in the provisioning phase can no longer be changed via USB 
+
+To disable the SerialAgent, just comment out or remove the lines of code that include, declare, and enable it.
+
+The final result should be the following:
+
+```arduino
+#include <ArduinoIoTCloud.h>
+#include <Arduino_ConnectionHandler.h>
+#include <Arduino_NetworkConfigurator.h>
+#include <configuratorAgents/agents/BLEAgent.h>
+//#include <configuratorAgents/agents/SerialAgent.h>
+void onVariableChange();
+int variable;
+KVStore kvStore;
+BLEAgentClass BLEAgent;
+//SerialAgentClass SerialAgent;
+WiFiConnectionHandler ArduinoIoTPreferredConnection; 
+NetworkConfiguratorClass NetworkConfigurator(ArduinoIoTPreferredConnection);
+void initProperties(){
+  NetworkConfigurator.addAgent(BLEAgent);
+//  NetworkConfigurator.addAgent(SerialAgent);
+  NetworkConfigurator.setStorage(kvStore);
+  ArduinoCloud.setConfigurator(NetworkConfigurator);
+// For changing the default reset pin (2) uncomment and set your preferred pin. Use DISABLE_PIN for disabling the reset procedure.
+// NetworkConfigurator.setReconfigurePin(YOUR_PIN);
+  ArduinoCloud.addProperty(variable, READWRITE, ON_CHANGE, onVariableChange);
+}
+```
+
+### Disable the NetworkConfigurator
+
+To save board storage and memory, after the provisioning, the NetworkConfigurator can be removed. ~40KB of storage and ~ 2,9KB of memory are saved for BSS and Data.
+
+In this setup, the only way to handle network settings is to return to using the secrets declared in secrets.h file. This can be done manually by adding the secrets.h file with the defines needed.
+
+In order to change the network settings, you must flash your sketch with the updated network settings in the secrets.h file. The network settings can no longer be updated using the Arduino Cloud WebUI or the mobile app.
+
+The final result should be the following (thingProperties.h file):
+
+```arduino
+#include <ArduinoIoTCloud.h>
+#include <Arduino_ConnectionHandler.h>
+const char SSID[]     = SECRET_SSID;    // Network SSID (name)
+const char PASS[]     = SECRET_OPTIONAL_PASS;    // Network password (use for WPA, or use as key for WEP)
+void onVariableChange();
+int variable;
+WiFiConnectionHandler ArduinoIoTPreferredConnection(SECRET_SSID, SECRET_OPTIONAL_PASS); 
+void initProperties(){
+  ArduinoCloud.addProperty(variable, READWRITE, ON_CHANGE, onVariableChange);
+}
+```
 
 ## Offline Sketches
 

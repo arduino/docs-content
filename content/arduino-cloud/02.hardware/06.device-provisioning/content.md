@@ -135,23 +135,23 @@ To proceed with the next steps, the cloud-generated sketch must be uploaded to t
 
 ### Update Using the BLE Interface
 
-Ensure that the cloud sketch has enabled the "BLEAgent" in the cloud sketch, via  "thingProperties.h". Check [this document](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches) for enabling it.
+Ensure that the cloud sketch has enabled the "BLEAgent" in the cloud sketch, via "thingProperties.h". This is enabled by default if the board has been registered with Provisioning 2.0. If you need to enable it, please have a look at [this documentation](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches).
 
-You can update the Network settings from the detail page of the device in the Arduino Cloud Web UI or the mobile app.
+You can update the network settings from the detail page of the device on the Arduino Cloud webpage or the mobile app.
 
 During this process you will be asked to wipe out the current network configuration to restart the board's BLE interface. 
 
-- Turn on the board.
+- Power on the board.
 
-- Open the devices page of the Mobile App or the Arduino Cloud Web UI.
+- Reset the board using the method of your board. Have a look at the [How to set up the Reconfiguration Procedure](#How-to-set-up-the Reconfiguration-Procedure) section of this article to find the default board reset pin. If you have changed the reset pin from the default one, please use that.
+
+- Open the devices page of the Mobile App or the Arduino Cloud webpage.
 
 - Click on the device you want to update the network settings for.
 
 - Click on the "change" button by the network section.
 
-- If you are using the Arduino Cloud Web UI, select the BLE method.
-
-- Reset the board using the procedure of your board. In this article, the default reset pin is used. If you have chosen a different pin, please use that. Review the section of the document about the default board reset pin [here](#How to set up the Reconfiguration Procedure).
+- If you are using the Arduino Cloud webpage, select the BLE method.
 
 - The board will reboot, and you will see the LED pulsing.
 
@@ -163,30 +163,21 @@ During this process you will be asked to wipe out the current network configurat
 
 ### Update Using the Serial Interface
 
-Ensure that the "SerialAgent" is enabled in the cloud sketch, via "thingProperties.h".
+Ensure that the "SerialAgent" is enabled in the cloud sketch, via "thingProperties.h". This is enabled by default if the board has been registered with Provisioning 2.0. If you need to enable it, please have a look at [this documentation](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches).
 
-Check [this document](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches) for enabling it.
+This method only works with the Arduino Cloud website. You can update the network settings from the detail page of the board on the webpage. The Serial interface, if enabled, is always ready to receive a new configuration.
 
-You can run this procedure only with the Arduino Cloud Web UI
+- Turn on the board and connect it to your PC using a USB cable.
 
-- You can update the network settings from the detail page of the board of the Web UI.
-
-- The Serial interface, if enabled, is always ready to receive a new configuration.
-
-- Turn on the board and connect to your PC using the USB cable.
-
-- Open the devices page on the Arduino Cloud Web UI.
+- Open the devices page on the Arduino Cloud webpage.
 
 - Click on the board you want to update the network settings for.
 
 - Click on the "change" button by the network section.
 
-- Connect to the board.
-
-- Inputs the new configuration.
+- Input the new network configuration.
 
 - The board will validate it, and if correct, it will close the connection.
-
 
 ## How to delete a stored network configuration
 
@@ -196,17 +187,13 @@ If you want to delete the stored network configuration without updating it, ther
 
 To proceed with the next steps, the cloud-generated sketch must be uploaded to the board.
 
-Reset the board using the procedure of your board. 
-
-In this article, the default reset pin is used. If you had chosen a different pin, please use yours.
-
-Review the section of the document about the default board reset pin here.
+Reset the board using the method of your board. Have a look at the [How to set up the Reconfiguration Procedure](#How-to-set-up-the Reconfiguration-Procedure) section of this article to find the default board reset pin. If you have changed the reset pin from the default one, please use that.
 
 ### Using the DeleteConfiguration sketch
 
-Upload this sketch to delete your configuration.
+Open Arduino IDE and on the left side open the **library manager**. Search for **Arduino_NetworkConfigurator** and download it. Once it is downloaded go to **File > Examples > Arduino_NetworkConfigurator > Utility > DeleteConfiguration**, this will open a new example sketch. Select your board and port then upload this example sketch to your board. When the sketch has been uploaded you can look at the serial monitor to monitor the progress and troubleshoot if needed.
 
-Please confirm the choice for starting the procedure
+The sketch can also be found [here.](https://github.com/arduino-libraries/Arduino_NetworkConfigurator/blob/main/examples/utility/DeleteConfiguration/DeleteConfiguration.ino)
 
 ### How to set up the Reconfiguration Procedure
 
@@ -224,5 +211,3 @@ The library provides a default implementation according to the board type. (The 
 - `Arduino Portenta C33`: Short pin 0 to GND until the led turns off
 - `Other boards`: Short pin 2 to GND until the led turns off
 - `Portenta Machine Control`: Currently the reset procedure is not available
-
-Open Arduino IDE and on the left side open the **library manager**. Search for **Arduino_NetworkConfigurator** and download it. Once it is downloaded go to **File > Examples > Arduino_NetworkConfigurator > Utility > DeleteConfiguration**, this will open a new example sketch. Select your board and port then upload this example sketch to your board. When the sketch has been uploaded you can look at the serial monitor to monitor the progress and troubleshoot if needed.
