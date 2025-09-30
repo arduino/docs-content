@@ -2319,7 +2319,8 @@ Bootloader recovery should be considered when:
 
 ### Bootloader Recovery Tutorial
 
-For detailed step-by-step instructions on recovering and reflashing the bootloader on your Nano R4 board, please refer to our **[Nano R4 Bootloader Recovery and Flashing Tutorial](https://docs.arduino.cc/tutorials/nano-r4/bootloader-flashing/)**. This tutorial  the following:
+For detailed step-by-step instructions on recovering and reflashing the bootloader on your Nano R4 board, please refer to our **[Nano R4 Bootloader Recovery and Flashing Tutorial](https://docs.arduino.cc/tutorials/nano-r4/bootloader-flashing/)**. This tutorial covers the following topics:
+
 
 - Preparing your board for bootloader flashing
 - Installing and configuring the Renesas Flash Programmer tool
