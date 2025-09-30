@@ -12,7 +12,7 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/arduino-mkr-gsm-14
 
 - [Arduino MKR GSM 1400](https://www.newark.com/55AC1187?COM=ref_hackster)
 - 3.7 V LiPo Battery
-- [Adafruit NeoPixel Ring: WS2812 5050 RGB LED](http://www.newark.com/26Y8458?COM=ref_hackster)
+- [Adafruit® NEOPIXEL® Ring: WS2812 5050 RGB LED](http://www.newark.com/26Y8458?COM=ref_hackster)
 - [Resistor 10k ohm](https://www.newark.com/multicomp/mccfr0w4j0103a50/carbon-film-resistor-10kohm-250mw/dp/58K5002?COM=ref_hackster)
 - [ON Semiconductor 2N7000](https://www.mouser.it/ProductDetail/ON-Semiconductor-Fairchild/2N7000/?qs=sGAEpiMZZMshyDBzk1%2fWi9bHELEahoDnY1fyKF6A6Ko%3d)
 - [Breadboard (generic)](https://www.newark.com/99W1759?COM=ref_hackster)
@@ -35,7 +35,7 @@ The operating principle of this tutorial is very simple: every time a phone call
 
 ### Hardware Connections
 
-As you can see from the breadboard layout, a transistor is present between the Arduino board and the NeoPixel input. This is placed since the MKR GSM 1400 operates at 3.3V while the NeoPixel works at 5V. The transistor is used as a voltage translator. In the layout, there is also a single NeoPixel placed instead of the ring just for the sake of simplicity.
+As you can see from the breadboard layout, a transistor is present between the Arduino board and the NEOPIXEL® input. This is placed since the MKR GSM 1400 operates at 3.3V while the NEOPIXEL® works at 5V. The transistor is used as a voltage translator. In the layout, there is also a single NEOPIXEL® placed instead of the ring just for the sake of simplicity.
 
 ## Setup
 

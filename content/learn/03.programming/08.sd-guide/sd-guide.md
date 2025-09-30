@@ -188,7 +188,7 @@ SdFile root;
 // change this to match your SD shield or module;
 // Default SPI on Uno and Nano: pin 10
 // Arduino Ethernet shield: pin 4
-// Adafruit SD shields and modules: pin 10
+// Adafruit® SD shields and modules: pin 10
 // Sparkfun SD shield: pin 8
 // MKRZero SD: SDCARD_SS_PIN
 

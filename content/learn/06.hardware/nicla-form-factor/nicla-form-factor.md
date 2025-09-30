@@ -24,7 +24,7 @@ Nicla family has been designed to fulfill the following key needs:
 Nicla boards are designed for the following three use cases:
 
 - **Standalone** - Nicla boards can be used as a traditional Arduino board on which the user can load the final application. In this scenario Nicla's microcontroller is executing the whole application and its interfaces can be used to communicate to external sensors and actuators
-- **ESLOV peripheral** - Nicla boards can be connected through the ESLOV connector, consisting of 5 pins including an I2C bus, power supply and a GPIO. Through this connector the board can be interfaced with MKR boards directly or, via adapter cables, to other boards exposing similar interfaces such as QWIIC, STEMMA/STEMMA QT and GROVE. Nicla boards are provided with a readymade firmware which abstracts sensors and allows reading high level measurements processed by Nicla main processor.
+- **ESLOV peripheral** - Nicla boards can be connected through the ESLOV connector, consisting of 5 pins including an I2C bus, power supply and a GPIO. Through this connector the board can be interfaced with MKR boards directly or, via adapter cables, to other boards exposing similar interfaces such as QWIIC, STEMMA®/STEMMA® QT and GROVE. Nicla boards are provided with a readymade firmware which abstracts sensors and allows reading high level measurements processed by Nicla main processor.
 - **MKR Shield** - Nicla boards can be fitted on a MKR board as a shield. In this scenario MKR would be running the main application and would communicate with Nicla through I2C as it would do via ESLOV.
 - **Wireless** - Nicla boards can be battery operated and can communicate wirelessly to a central processor. As in other use case scenarios Nicla would be processing sensor data and provide high level processed information.
 
@@ -172,7 +172,7 @@ Battery terminals are available either via a 3 pin connector or via headers. In 
 
 ### ESLOV
 
-ESLOV is a 5 pin connector available on MKR and Portenta boards and can be used to connect to a Nicla via cable. Through this connector the board can be interfaced with MKR and Portenta boards directly or, via adapter cables, to other boards exposing similar interfaces such as QWIIC, STEMMA/STEMMA QT and GROVE. Nicla boards are provided with a readymade firmware which abstracts sensors and allows reading high level measurements processed by the Nicla's main processor.
+ESLOV is a 5 pin connector available on MKR and Portenta boards and can be used to connect to a Nicla via cable. Through this connector the board can be interfaced with MKR and Portenta boards directly or, via adapter cables, to other boards exposing similar interfaces such as QWIIC, STEMMA®/STEMMA® QT and GROVE. Nicla boards are provided with a readymade firmware which abstracts sensors and allows reading high level measurements processed by the Nicla's main processor.
 
 **Pinout**
 

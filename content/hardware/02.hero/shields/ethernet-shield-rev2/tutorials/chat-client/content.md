@@ -93,9 +93,9 @@ void setup() {
 
   //Ethernet.init(20);  // Teensy++ 2.0
 
-  //Ethernet.init(15);  // ESP8266 with Adafruit Featherwing Ethernet
+  //Ethernet.init(15);  // ESP8266 with Adafruit® Ethernet FeatherWing
 
-  //Ethernet.init(33);  // ESP32 with Adafruit Featherwing Ethernet
+  //Ethernet.init(33);  // ESP32 with Adafruit® Ethernet FeatherWing
 
   // start the Ethernet connection:
 

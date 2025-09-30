@@ -63,22 +63,22 @@ Here's an example of how you might connect a sensor to an UNO R4 WiFi:
 ![Bare I2C Wiring on UNO R4 WiFi ](./assets/wiring.png)
 
 
-### Qwiic & STEMMA QT
-When delving into the market of breakout modules and sensors, you'll find that there are entire ecosystems, where standards are built around the I2C protocol. Examples of such standards are Qwiic, developed by Sparkfun, and STEMMA QT, developed by Adafruit. Both Qwiic and STEMMA QT use a 4-pin JST SH connector for I2C devices, making it easier for third parties to design hardware with vast compatibility. By having a standardized connector, you'll know that if you see the word Qwiic or STEMMA QT in association with an item, that it will work together with an Arduino board with a Qwiic or STEMMA QT connector, such as the UNO R4 WiFi.
+### Qwiic & STEMMA® QT
+When delving into the market of breakout modules and sensors, you'll find that there are entire ecosystems, where standards are built around the I2C protocol. Examples of such standards are Qwiic, developed by Sparkfun, and STEMMA® QT, developed by Adafruit®. Both Qwiic and STEMMA® QT use a 4-pin JST SH connector for I2C devices, making it easier for third parties to design hardware with vast compatibility. By having a standardized connector, you'll know that if you see the word Qwiic or STEMMA® QT in association with an item, that it will work together with an Arduino board with a Qwiic or STEMMA® QT connector, such as the UNO R4 WiFi.
 
-Both Qwiic and STEMMA QT bundle together wires for power, ground, as well as the SDA and SCL wires for I2C, making it a complete kit, one cable that bundles everything together.
+Both Qwiic and STEMMA® QT bundle together wires for power, ground, as well as the SDA and SCL wires for I2C, making it a complete kit, one cable that bundles everything together.
 
-![I2C on a Qwiic/STEMMA QT connector with UNO R4 WiFi](./assets/Qwiic.png)
+![I2C on a Qwiic/STEMMA® QT connector with UNO R4 WiFi](./assets/Qwiic.png)
 
 **But what's the difference between the two?**
 
-Both Qwiic and STEMMA QT use I2C, and even when inspecting modules using the two standards up close, it may be difficult to tell what makes them unique from each other. But there is a difference! And it has some implications on how and for what you may use them.
+Both Qwiic and STEMMA® QT use I2C, and even when inspecting modules using the two standards up close, it may be difficult to tell what makes them unique from each other. But there is a difference! And it has some implications on how and for what you may use them.
 
 Qwiic has level shifting and voltage regulation on the controller (but not on the peripherals). What this means is that Qwiic is 3.3 V logic **only**. This makes it easier to use, as for the end user, there is one less thing that can go wrong when designing and assembling your circuit.
 
-STEMMA QT, on the other hand, doesn't have this. This lets you use both 3.3 V and 5 V logic for modules. This also means that there is one more thing you may need to consider when creating your circuit, but it also grants some more flexibility in power and logic requirements.
+STEMMA® QT, on the other hand, doesn't have this. This lets you use both 3.3 V and 5 V logic for modules. This also means that there is one more thing you may need to consider when creating your circuit, but it also grants some more flexibility in power and logic requirements.
 
-The pin order for STEMMA QT is designed to match the pin order for Qwiic, enabling cross-compatibility between the two standards.
+The pin order for STEMMA® QT is designed to match the pin order for Qwiic, enabling cross-compatibility between the two standards.
 
 ### Grove
 Grove is another connector standard, this one developed by seeed studio. You can find a plethora of modules with a Grove connector, however only some of them use I2C.
@@ -325,7 +325,7 @@ void loop() {
 
 ![Qwiic BMP280 module](./assets/Qwiic-bmp280.png)
 
-This code example lets you read the temperature over I2C from a BMP280 breakout module from Adafruit:
+This code example lets you read the temperature over I2C from a BMP280 breakout module from Adafruit®:
 ```arduino
 #include <Wire.h>
 #include <Adafruit_BMP280.h>
