@@ -1782,7 +1782,8 @@ Understanding the voltage differences between the Nano R4's I²C interfaces is i
 When you need to connect +3.3 VDC I²C devices to your Nano R4 board, you have three main options to ensure safe and reliable operation:
 
 1. **Use the Qwiic connector `Wire1`**: This is the simplest solution as it provides automatic level translation and +3.3 VDC power supply for your devices
-2. **Add an external level shifter**: Bi-directional I²C level translators like the [SparkFun Logic Level Converter (BOB-12009)](https://www.sparkfun.com/sparkfun-logic-level-converter-bi-directional.html) or the [Adafruit 4-Channel I2C-Safe Bi-directional Logic Level Converter (BSS138)](https://www.adafruit.com/product/757?srsltid=AfmBOooBmZcnxzoJwaCE71c-99yErGo2MUVN5lnBUQGLgTIkESqr--Ya) can safely convert between +5 VDC and +3.3 VDC logic levels
+2. **Add an external level shifter**: Bi-directional I²C level translators like the [SparkFun Logic Level Converter (BOB-12009)](https://www.sparkfun.com/sparkfun-logic-level-converter-bi-directional.html) or the [Adafruit 4-Channel I2C-Safe Bi-directional Logic Level Converter (BSS138)](https://www.adafruit.com/product/757) can safely convert between +5 VDC and +3.3 VDC logic levels
+
 3. **Use +5 VDC-compatible sensors**: Select I²C devices specifically designed to operate at +5 VDC to avoid any compatibility issues
 
 ### I²C Overview
