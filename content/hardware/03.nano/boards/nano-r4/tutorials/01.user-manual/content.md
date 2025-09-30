@@ -2242,6 +2242,105 @@ When working with HID on the Nano R4, there are several key points to keep in mi
 - The Nano R4 can function as both a keyboard and mouse simultaneously, allowing for complex automation sequences that combine typing, shortcuts and mouse control.
 - Remember that different operating systems may have slightly different keyboard layouts and shortcuts, so test your HID projects on your target platform to ensure compatibility.
 
+## Bootloader
+
+The Nano R4 board features a built-in bootloader that enables sketch uploading directly from the Arduino IDE without requiring external programming hardware. The bootloader is a small program stored in a protected area of the RA4M1 microcontroller's flash memory that runs each time the board powers on or resets. It manages the critical communication between your computer and the board during sketch uploads, making the development process simple and accessible.
+
+During normal operation, when you connect your Nano R4 to your computer and upload a sketch, the bootloader receives the new program data via USB and writes it to the appropriate memory location. This process happens automatically and transparently, allowing you to focus on developing your projects rather than managing low-level programming details.
+
+### Understanding the Bootloader Operation
+
+When the Nano R4 board resets or powers on, the bootloader performs the following sequence:
+
+1. **Initialization**: The bootloader initializes the USB communication and checks for incoming programming commands
+2. **Wait Period**: It waits briefly for new sketch data from the Arduino IDE
+3. **Program Execution**: If no new sketch is received, it jumps to your previously uploaded program
+
+This automatic process ensures that your board is always ready to receive new sketches while maintaining quick startup times for your applications.
+
+### Bootloader Recovery
+
+In certain situations, the bootloader may become corrupted or stop functioning properly. Common symptoms of bootloader issues include:
+
+- The board is not recognized by the Arduino IDE
+- Upload attempts fail with timeout errors
+- The board appears as an unknown device in your computer's device manager
+- The onboard LEDs behave abnormally during connection attempts
+
+The Nano R4 includes a special hardware feature for bootloader recovery: the `BOOT` pin. This pin, when connected to ground (`GND`) during power-up, puts the board into a special programming mode that allows you to restore the bootloader using the Renesas Flash Programmer tool.
+
+![The Nano R4 BOOT pin (top view)](assets/boot-pin.png)
+
+***__Important note__: The `BOOT` pin is located on the bottom side of the board and is clearly labeled. This pin should only be used for bootloader recovery or advanced programming operations. During normal use, leave this pin unconnected.***
+
+### Technical Specifications
+
+The Nano R4's bootloader offers the following technical specifications:
+
+|   **Parameter**  |         **Value**        |                 **Notes**                |
+|:----------------:|:------------------------:|:----------------------------------------:|
+|  Recovery Method |    `BOOT` pin + `GND`    |     Hardware recovery mode activation    |
+|  Bootloader File |      `dfu_nano.hex`      | Included with Arduino UNO R4 Boards core |
+| Programming Tool | Renesas Flash Programmer |   Official tool for bootloader recovery  |
+
+### Bootloader File Location
+
+The bootloader file (`dfu_nano.hex`) is automatically installed with the Arduino UNO R4 Boards core. You can find it in the following locations:
+
+**Windows:**
+
+```bash
+C:\Users\[YourUsername]\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\[version]\bootloaders\NANOR4\
+```
+
+**macOS:**
+
+```bash
+~/Library/Arduino15/packages/arduino/hardware/renesas_uno/[version]/bootloaders/NANOR4/
+```
+
+**Linux:**
+
+```bash
+~/.arduino15/packages/arduino/hardware/renesas_uno/[version]/bootloaders/NANOR4/
+```
+
+***Replace `[YourUsername]` with your actual username and `[version]` with the installed core version number.***
+
+### When to Consider Bootloader Recovery
+
+Bootloader recovery should be considered when:
+
+- Standard troubleshooting steps (different cables, USB ports, driver reinstallation) have failed
+- The board was working previously but stopped being recognized after a failed upload
+- Power was interrupted during a sketch upload
+- You need to restore the board to factory programming state
+- The board is not responding to the reset button normally
+
+### Bootloader Recovery Tutorial
+
+For detailed step-by-step instructions on recovering and reflashing the bootloader on your Nano R4 board, please refer to our **[Nano R4 Bootloader Recovery and Flashing Tutorial](https://docs.arduino.cc/tutorials/nano-r4/bootloader-flashing/)**. This tutorial  the following:
+
+- Preparing your board for bootloader flashing
+- Installing and configuring the Renesas Flash Programmer tool
+- Step-by-step flashing process
+- Verifying successful bootloader restoration
+- Troubleshooting common issues
+
+***__Important note__: Bootloader recovery is a low-level operation that should only be performed when necessary. ___Always ensure you have a stable power supply and follow the tutorial instructions carefully to avoid damaging your board__. If you're unsure whether you need bootloader recovery, try standard troubleshooting steps first or contact [Arduino Support](https://www.arduino.cc/en/contact-us/) for assistance.***
+
+### Maintaining Bootloader Health
+
+To minimize the risk of bootloader corruption and ensure reliable operation, we recommend the following:
+
+- **Always allow uploads to complete**: Never disconnect the USB cable or remove power during sketch uploads
+- **Use quality USB cables**: Poor quality or damaged cables can cause communication errors
+- **Ensure stable power**: Use a reliable power source when uploading sketches
+- **Keep the Arduino IDE updated**: Newer versions often include improvements to the upload process
+- **Handle the board carefully**: Avoid static discharge and physical damage to the board
+
+The bootloader is a critical component that makes the Nano R4 board user-friendly and accessible. While it's designed to be robust and reliable, understanding its operation and recovery options ensures you can always restore your board to working condition if issues arise.
+
 ## Support
 
 If you encounter any issues or have questions while working with your Nano R4 board, we provide various support resources to help you find answers and solutions.
