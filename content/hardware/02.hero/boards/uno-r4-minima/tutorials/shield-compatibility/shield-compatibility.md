@@ -29,17 +29,17 @@ This article covers a list of shields compatible with the [UNO R4 Minima](/hardw
 
 | Name                              | Compatible | Libraries                |
 | ------------------------------    | ---------- | ---------------------------------------------------------------------------------------------------- |
-| Adafruit Capacitve Touch Shield   | Yes        |  [Adafruit_MPR121.h](https://github.com/adafruit/Adafruit_MPR121)                                    |
-| Adafruit NFC/RFID Shield          | No         | [Adafruit-PN532.h](https://github.com/adafruit/Adafruit-PN532)                                       |
+| Adafruit® Capacitve Touch Shield   | Yes        |  [Adafruit_MPR121.h](https://github.com/adafruit/Adafruit_MPR121)                                    |
+| Adafruit® NFC/RFID Shield          | No         | [Adafruit-PN532.h](https://github.com/adafruit/Adafruit-PN532)                                       |
 | Olimex MIDI Shiel                 | Yes        | [MIDI](https://github.com/FortySevenEffects/arduino_midi_library)                                    |
 | Sparkfun CAN-Bus                  | No         | [SparkFun_CAN-Bus_Arduino_Library](https://github.com/sparkfun/SparkFun_CAN-Bus_Arduino_Library)     |
 | Sparkfun MP3 Player Shield        | -          | -                                                                                                    |
 | SeedStudio Touch Shield           | -          | -                                                                                                    |
-| Adafruit Neopixel Shield          | No         |  [Adafruit_NeoPixel.h](https://github.com/adafruit/Adafruit_NeoPixel)                                |
-| Adafruit Wave Shield              | No         |   [WaveHC.h](https://github.com/adafruit/WaveHC)                                                     |
-| Adafruit 1.8 TFT Shield           | No         |   [ST7735.h](https://github.com/adafruit/Adafruit-ST7735-Library)                                    |
+| Adafruit® Neopixel Shield          | No         |  [Adafruit_NeoPixel.h](https://github.com/adafruit/Adafruit_NeoPixel)                                |
+| Adafruit® Wave Shield              | No         |   [WaveHC.h](https://github.com/adafruit/WaveHC)                                                     |
+| Adafruit® 1.8 TFT Shield           | No         |   [ST7735.h](https://github.com/adafruit/Adafruit-ST7735-Library)                                    |
 | SeedStudio Base Shield            | Yes        |  None                                                                                                |
-| Adafruit WINC1500 WiFi Shield     | No         |   [WiFi101.h](https://github.com/arduino-libraries/WiFi101)                                          |
-| Adafruit Music Maker shield       | Yes        |   [Adafruit_VS1053.h](https://github.com/adafruit/Adafruit_VS1053_Library)                           |
-| Adafruit Motor Shield             | -          |   [Adafruit_Motor_Shield_V2_Library](https://github.com/adafruit/Adafruit_Motor_Shield_V2_Library)   |
+| Adafruit® WINC1500 WiFi Shield     | No         |   [WiFi101.h](https://github.com/arduino-libraries/WiFi101)                                          |
+| Adafruit® Music Maker shield       | Yes        |   [Adafruit_VS1053.h](https://github.com/adafruit/Adafruit_VS1053_Library)                           |
+| Adafruit® Motor Shield             | -          |   [Adafruit_Motor_Shield_V2_Library](https://github.com/adafruit/Adafruit_Motor_Shield_V2_Library)   |
 | TinkerKit DMX master shield       | -          |   [DmxMaster](https://github.com/TinkerKit/DmxMaster)                                                |

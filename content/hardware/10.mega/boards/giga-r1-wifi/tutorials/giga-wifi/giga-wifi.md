@@ -1289,7 +1289,7 @@ void printWifiStatus() {
 
   created 25 Nov 2012
   by Tom Igoe
-  adapted to WiFi AP by Adafruit
+  adapted to WiFi AP by Adafruit®
   
   modified 22 March 2023
   by Karl Söderby

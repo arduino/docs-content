@@ -57,7 +57,7 @@ The above example will simply print `Hello World!` at the `x` and `y` coordinate
 
 ## Methods Overview
 
-There are several methods available. In this section, we will list out a number of useful ones. To see the full list, check out Adafruit's documentation of this library in [this page](https://learn.adafruit.com/adafruit-gfx-graphics-library).
+There are several methods available. In this section, we will list out a number of useful ones. To see the full list, check out the Adafruit® documentation of this library in [this page](https://learn.adafruit.com/adafruit-gfx-graphics-library).
 
 ### Coordinates
 

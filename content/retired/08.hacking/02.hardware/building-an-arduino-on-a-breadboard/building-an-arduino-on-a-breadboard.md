@@ -135,7 +135,7 @@ And there you have it... ready to be plugged in, powered up and programmed!
 
 But wait, there's another step right? If you pulled your Atmega chip out of your Arduino, it has most likely been programmed several times by yourself and so it definitely has been bootloaded, so you won't need to move any further in this tutorial.
 
-However, if you purchased some extra Atmega328 or Atmega168 chips from an online store they will have NOT been bootloaded with the Arduino bootloader (with the exception of [Adafruit Industries](http://www.adafruit.com/index.php?main_page=product_info&cPath=17&products_id=56)). What does this mean? You won't be able to program your chips using the USB to serial breakout board and the Arduino software. So, in order to make your new chips useful for Arduino you MUST bootload them and MUST check out step 4.
+However, if you purchased some extra Atmega328 or Atmega168 chips from an online store they will have NOT been bootloaded with the Arduino bootloader (with the exception of [Adafruit® Industries](http://www.adafruit.com/index.php?main_page=product_info&cPath=17&products_id=56)). What does this mean? You won't be able to program your chips using the USB to serial breakout board and the Arduino software. So, in order to make your new chips useful for Arduino you MUST bootload them and MUST check out step 4.
 
 
 ## Other Breadboard Options
@@ -165,7 +165,7 @@ There are also many different kinds of AVR programmers but two are most commonly
 
 ![ArduinoISP](assets/ArduinoISP_Front2.jpg)
 
-The AVRISP mkII can be purchased from Digikey (Part # [ATAVRISP2-ND](http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail?name=ATAVRISP2-ND)) while the USBtinyISP must be assembled and can be found at [Adafruit Industries](https://www.adafruit.com/product/46). The documentation and the links to the Arduino Store and to the distributors list can be found in the [ArduinoISP product page](http://www.arduino.cc/en/Main/ArduinoISP).
+The AVRISP mkII can be purchased from Digikey (Part # [ATAVRISP2-ND](http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail?name=ATAVRISP2-ND)) while the USBtinyISP must be assembled and can be found at [Adafruit® Industries](https://www.adafruit.com/product/46). The documentation and the links to the Arduino Store and to the distributors list can be found in the [ArduinoISP product page](http://www.arduino.cc/en/Main/ArduinoISP).
 
 ### Using an Arduino board
 

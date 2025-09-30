@@ -64,7 +64,7 @@ The default address of the board in AP mode is 192.168.4.1.  When you load this 
 
   by Tom Igoe
 
-  adapted to WiFi AP by Adafruit
+  adapted to WiFi AP by Adafruit®
 
  */
 
