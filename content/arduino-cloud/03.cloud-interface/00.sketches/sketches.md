@@ -150,7 +150,7 @@ To work, the NetworkConfigurator needs:
 
 The `NetworkConfigurator` library out-of-the-box provides two Agents:
 
-- BLEAgent for handling the BLE communication.
+- `BLEAgent` for handling the BLE communication.
 - SerialAgents for the Serial communication.
 
 ## thingsProperties.h Default Setup
