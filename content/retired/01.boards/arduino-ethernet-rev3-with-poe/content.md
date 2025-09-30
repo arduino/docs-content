@@ -18,7 +18,7 @@ The Ethernet differs from other boards in that it does not have an onboard USB-t
 
 An onboard microSD card reader, which can be used to store files for serving over the network, is accessible through the SD Library. Pin 10 is reserved for the Wiznet interface, SS for the SD card is on Pin 4.
 
-The 6-pin serial programming header is compatible with the [USB Serial](https://www.arduino.cc/en/Main/USBSerial) adapter and also with the FTDI USB cables or with Sparkfun and Adafruit FTDI-style basic USB-to-serial breakout boards. It features support for automatic reset, allowing sketches to be uploaded without pressing the reset button on the board. When plugged into a USB to Serial adapter, the Arduino Ethernet is powered from the adapter.
+The 6-pin serial programming header is compatible with the [USB Serial](https://www.arduino.cc/en/Main/USBSerial) adapter and also with the FTDI USB cables or with Sparkfun and Adafruit® FTDI-style basic USB-to-serial breakout boards. It features support for automatic reset, allowing sketches to be uploaded without pressing the reset button on the board. When plugged into a USB to Serial adapter, the Arduino Ethernet is powered from the adapter.
 
 The Revision 3 of the board introduces the standardized 1.0 pinout, that consist in:
 
@@ -118,7 +118,7 @@ The onboard microSD card reader is accessible through the [SD Library](https://w
 
 It is possible to program the Arduino Ethernet board in two ways: through the 6 pin serial programming header, or with an external ISP programmer.
 
-The 6-pin serial programming header is compatible with FTDI USB cables and the Sparkfun and Adafruit FTDI-style basic USB-to-serial breakout boards including the Arduino USB-Serial connector. It features support for automatic reset, allowing sketches to be uploaded without pressing the reset button on the board. When plugged into a FTDI-style USB adapter, the Arduino Ethernet is powered off the adapter.
+The 6-pin serial programming header is compatible with FTDI USB cables and the Sparkfun and Adafruit® FTDI-style basic USB-to-serial breakout boards including the Arduino USB-Serial connector. It features support for automatic reset, allowing sketches to be uploaded without pressing the reset button on the board. When plugged into a FTDI-style USB adapter, the Arduino Ethernet is powered off the adapter.
 
 You can also bypass the bootloader and program the microcontroller through the ICSP (In-Circuit Serial Programming) header using [Arduino ISP](https://www.arduino.cc/en/Main/ArduinoISP) or similar; see [these instructions](https://www.arduino.cc/en/Hacking/Programmer) for details.
 

@@ -8,7 +8,7 @@ tags:
   - Serial
 author: 'Karl Söderby'
 libraries: 
-  - name: Adafruit GFX
+  - name: Adafruit® GFX
     url: https://github.com/adafruit/Adafruit-GFX-Library
   - name: SSD1306
     url: https://github.com/adafruit/Adafruit_SSD1306
@@ -25,7 +25,7 @@ featuredImage: 'light'
 
 ## Introduction
 
-In this tutorial, we will go through a basic setup that allows us to write messages from the Serial Monitor to an SSD1306 OLED screen. We will be using the [Adafruit GFX library](https://github.com/adafruit/Adafruit-GFX-Library) and the [SSD1306 library](https://github.com/adafruit/Adafruit_SSD1306), where the text size adjusts according to the length of the message.
+In this tutorial, we will go through a basic setup that allows us to write messages from the Serial Monitor to an SSD1306 OLED screen. We will be using the [Adafruit® GFX library](https://github.com/adafruit/Adafruit-GFX-Library) and the [SSD1306 library](https://github.com/adafruit/Adafruit_SSD1306), where the text size adjusts according to the length of the message.
 
 ## Goals
 
@@ -38,7 +38,7 @@ The goals of this tutorial are:
 ## Hardware & Software Needed
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
-- [Adafruit GFX](https://github.com/adafruit/Adafruit-GFX-Library) and [SSD1306 library](https://github.com/adafruit/Adafruit_SSD1306)
+- [Adafruit® GFX](https://github.com/adafruit/Adafruit-GFX-Library) and [SSD1306 library](https://github.com/adafruit/Adafruit_SSD1306)
 - Arduino MKR WiFi 1010  ([link to store](https://store.arduino.cc/mkr-wifi-1010))
 - SSD1306 128x32 OLED Screen (other dimensions works but requires some adjusting)
 

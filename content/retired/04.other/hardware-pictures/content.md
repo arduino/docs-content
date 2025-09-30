@@ -69,7 +69,7 @@ Shields are boards to be mounted on top of the Arduino board and that extend the
 
 Products from others that we've tried and liked; compatible with the Arduino software.
 
-* [Boarduino](http://www.ladyada.net/make/boarduino/) from Adafruit Industries. For use in bread-boards with FTDI USB-to-TTL-Serial cable or other USB-to-serial adapter. Available as a bare PCB or in kit form.
+* [Boarduino](http://www.ladyada.net/make/boarduino/) from Adafruit® Industries. For use in bread-boards with FTDI USB-to-TTL-Serial cable or other USB-to-serial adapter. Available as a bare PCB or in kit form.
 
 ## Other Related Hardware
 

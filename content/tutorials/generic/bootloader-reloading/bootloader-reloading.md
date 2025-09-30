@@ -23,14 +23,14 @@ Below you will find two different approaches to burning the bootloader:
 - Plug the USB cable of the Arduino board you will be using as a programmer into your computer.
 - Select **Sketch > Include Library > Manage  Libraries…** from the Arduino IDE menu.
 - Wait for the index updates to finish.
-- In the "**Filter your search…**” field type ‘Adafruit DAP library’.
+- In the "**Filter your search…**” field type ‘Adafruit® DAP library’.
 - Press **Enter**.
-- Click on “**Adafruit DAP library by Adafruit**”.
+- Click on “**Adafruit® DAP library by Adafruit®**”.
 - Click the **Install** button.
 - You may now get a dialog asking whether to install the library's dependencies. If so, click the "**Install All**" button.
 - Wait for the installation to finish
 - Close the **Library Manager**
-- Select **File > Example > Adafruit DAP Library > samd21 > flash_MKR_bootloaders** from the Arduino IDE menu. (despite the “MKR” in the sketch name, this also supports the **Nano 33 IoT**).
+- Select **File > Example > Adafruit® DAP Library > samd21 > flash_MKR_bootloaders** from the Arduino IDE menu. (despite the “MKR” in the sketch name, this also supports the **Nano 33 IoT**).
 - Select your **programmer** Arduino board from the IDE’s **Tools > Board** menu.
 - Select the port of the **programmer** Arduino board from the Arduino IDE’s Tools > Port menu.
 - Select **Sketch > Upload** from the Arduino IDE menu.
@@ -112,14 +112,14 @@ On the MKR1000, it is a 0.05" pitch 2x5 male header on the top of the board, whi
 - Connect the Arduino board you will be using as a programmer to your computer via USB.
 - Select **Sketch > Include Library > Manage Libraries...** from the Arduino IDE's menu.
 - Wait for the index to finish.
-- In the **"Filter your search..."** field, type "Adafruit DAP library".
+- In the **"Filter your search..."** field, type "Adafruit® DAP library".
 - Press **Enter**.
-- Click on **"Adafruit DAP library by Adafruit"**.
+- Click on **"Adafruit® DAP library by Adafruit®"**.
 - Click the **"Install"** button.
 - You may now get a dialog asking whether to install the library's dependencies. If so, click the **"Install All**" button.
 - Wait for the installation to finish.
 - Close Library Manager.
-- Select **File > Examples > Adafruit DAP library > samd21 > flash_from_SD** from the Arduino IDE's menu.
+- Select **File > Examples > Adafruit® DAP library > samd21 > flash_from_SD** from the Arduino IDE's menu.
 - Change this line: `#define SD_CS 4` according to the Arduino pin connected to the SD CS pin. 
 
     If your board has a built-in SD slot (e.g., [MKR Zero](https://store.arduino.cc/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)), then you can change this line:
