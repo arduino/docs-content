@@ -741,7 +741,7 @@ void loop() {
 
 ## Peripherals or Interfaces
 
-### Accessible through the UNO
+### Accessible Through the UNO
 
 #### Qwiic
 
@@ -750,7 +750,7 @@ void loop() {
 ### DSI
 ### CSI
 ### Audio I2S
-### Analog Audio through PMIC 
+### Analog Audio Through PMIC 
 
 ## Support
 
