@@ -11,7 +11,7 @@ tags:
 
 This tutorial shows you how to read from the ADXL3xx series (e.g. ADXL320, ADXL321, ADXL322, ADXL330) [**accelerometer**](http://en.wikipedia.org/wiki/Accelerometer) and receive the values in the serial monitor of the Arduino Software (IDE) or another application that receives data over the serial port.
 
-This tutorial was built using the [breakout boards from Sparkfun](http://www.sparkfun.com/commerce/categories.php?c=80).  The [adafruit accelerometer breakout board](http://www.adafruit.com/index.php?main_page=product_info&amp;cPath=35&amp;products_id=163&amp;zenid=48f2b4f461fed55c1d7f9fb38644fd9f) also works, though it must be wired differently.
+This tutorial was built using the [breakout boards from Sparkfun](http://www.sparkfun.com/commerce/categories.php?c=80).  The [Adafruit® accelerometer breakout board](http://www.adafruit.com/index.php?main_page=product_info&amp;cPath=35&amp;products_id=163&amp;zenid=48f2b4f461fed55c1d7f9fb38644fd9f) also works, though it must be wired differently.
 
 The ADXL3xx outputs the acceleration on each axis as an analog voltage between 0 and 5 volts.  To read this, all you need is the `analogRead()` function.
 

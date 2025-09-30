@@ -9,7 +9,7 @@ source: "https://store.arduino.cc/arduino-gemma"
 
 ![The Arduino Gemma board](assets/abx00001_front.jpg)
 
-The **Arduino Gemma** is a microcontroller board made by [Adafruit](https://www.adafruit.com/) based on the [ATtiny85](http://www.atmel.com/assets/atmel-2586-avr-8-bit-microcontroller-attiny25-attiny45-attiny85_datasheet.pdf). It has 3 digital input/output pins (of which 2 can be used as PWM outputs and 1 as analog input), an 8 MHz resonator, a micro USB connection, a JST connector for a 3.7V battery, and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with a battery to get started.
+The **Arduino Gemma** is a microcontroller board made by [Adafruit®](https://www.adafruit.com/) based on the [ATtiny85](http://www.atmel.com/assets/atmel-2586-avr-8-bit-microcontroller-attiny25-attiny45-attiny85_datasheet.pdf). It has 3 digital input/output pins (of which 2 can be used as PWM outputs and 1 as analog input), an 8 MHz resonator, a micro USB connection, a JST connector for a 3.7V battery, and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with a battery to get started.
 
 You can find your board warranty information [here](https://www.arduino.cc/en/Main/warranty).
 

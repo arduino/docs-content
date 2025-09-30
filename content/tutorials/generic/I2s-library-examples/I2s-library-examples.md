@@ -109,7 +109,7 @@ void loop() {
 
 ### I2S Simple Tone
 
-This example shows you how to generate a simple tone using a SAMD21 based board (MKRZero, MKR1000 or Zero) and an I2S DAC like the adafruit MAX98357A.
+This example shows you how to generate a simple tone using a SAMD21 based board (MKRZero, MKR1000 or Zero) and an I2S DAC like the Adafruit® MAX98357A.
 
 ```
 /*

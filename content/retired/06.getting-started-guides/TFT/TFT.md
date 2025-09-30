@@ -15,9 +15,9 @@ The [TFT library](https://arduino.cc/en/Reference/TFTLibrary) is included with [
 
 ## Library
 
-The Arduino TFT library extends the [Adafruit GFX](https://github.com/adafruit/Adafruit-GFX-Library), and [Adafruit ST7735 libraries](https://github.com/adafruit/Adafruit-ST7735-Library) that it is based on. The GFX library is responsible for the drawing routines, while the ST7735 library is specific to the screen on the Arduino screen. The Arduino specific additions were designed to work as similarly to the Processing API as possible.
+The Arduino TFT library extends the [Adafruit® GFX](https://github.com/adafruit/Adafruit-GFX-Library), and [Adafruit® ST7735 libraries](https://github.com/adafruit/Adafruit-ST7735-Library) that it is based on. The GFX library is responsible for the drawing routines, while the ST7735 library is specific to the screen on the Arduino screen. The Arduino specific additions were designed to work as similarly to the Processing API as possible.
 
-The library is backwards compatible, which means you can still use the Adafruit functions [described here](http://learn.adafruit.com/adafruit-gfx-graphics-library/overview).
+The library is backwards compatible, which means you can still use the Adafruit® functions [described here](http://learn.adafruit.com/adafruit-gfx-graphics-library/overview).
 
 The TFT library relies on the [SPI library](https://arduino.cc/en/Reference/SPI), which must be included in any sketch that uses the scree. If you wish to use the SD card, you need to include the [SD library](https://arduino.cc/en/Reference/SD) as well.
 
@@ -350,7 +350,7 @@ void loop(){
 
 ## Draw some text
 
-The TFT library includes a basic font for drawing text on screen. By default, characters are 5 pixels wide and 8 pixels tall. It is possible to change the font size to 10x16, 15x24, or 20x32. For additional information on the underlying font capabilities, see the [Adafruit page on graphic primitives](http://learn.adafruit.com/adafruit-gfx-graphics-library/graphics-primitives).
+The TFT library includes a basic font for drawing text on screen. By default, characters are 5 pixels wide and 8 pixels tall. It is possible to change the font size to 10x16, 15x24, or 20x32. For additional information on the underlying font capabilities, see the [Adafruit® page on graphic primitives](http://learn.adafruit.com/adafruit-gfx-graphics-library/graphics-primitives).
 
 In this example, you'll create a basic counter that will update a number on screen every half second. As in the earlier examples, include the necessary libraries and variables before `setup()`.
 
@@ -753,7 +753,7 @@ To connect the lcd screen to an Arduino Due, use this pin configuration and don'
 
 ## Next steps
 
-Now that you have tested the basic functionality of the screen, see the [TFT library](https://arduino.cc/en/Reference/TFTLibrary) pages for information about the library's API and additional examples. It's also recommended to visit the Adafruit graphics library page for additional information on functions not covered.
+Now that you have tested the basic functionality of the screen, see the [TFT library](https://arduino.cc/en/Reference/TFTLibrary) pages for information about the library's API and additional examples. It's also recommended to visit the Adafruit® graphics library page for additional information on functions not covered.
 
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

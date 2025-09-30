@@ -4396,7 +4396,7 @@ while (Wire.available()) {
 }
 ```
 
-For example, just as we have implemented with the Portenta X8, this setup can be replicated with the Portenta H7 and C33 models. In this context, the [Adafruit BME280 library](https://www.arduino.cc/reference/en/libraries/adafruit-bme280-library/), which works in conjunction with the [`Wire` library](https://reference.arduino.cc/reference/en/language/functions/communication/wire/), is suitable for similar objectives of already implementing calibration functions.
+For example, just as we have implemented with the Portenta X8, this setup can be replicated with the Portenta H7 and C33 models. In this context, the [Adafruit® BME280 library](https://www.arduino.cc/reference/en/libraries/adafruit-bme280-library/), which works in conjunction with the [`Wire` library](https://reference.arduino.cc/reference/en/language/functions/communication/wire/), is suitable for similar objectives of already implementing calibration functions.
 
 This library is accessible through the Library Manager in the Arduino IDE, and the *`bme280test`* example from it will be used to obtain readings from the BME280 sensor. 
 

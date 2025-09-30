@@ -52,6 +52,16 @@
   type: warning
   errorMessage: The Edge Impulse® trademark is not used correctly.
 
+# Adafruit® rule
+# Skip the match if it is inside tags' lists
+- regex: "(?<!http[s]?:\\/\\/\\S*|  - )(?:Adafruit)(?!®)\\b"
+  regexModifiers: "gi"
+  shouldMatch: false
+  includeCodeBlocks: false
+  format: markdown
+  type: warning
+  errorMessage: The Adafruit® trademark is not used correctly.
+  
 # MIPI® / A-PHY® / CSI-2® / I3C® / M-PHY® rule
 - regex: "((?<![a-zA-Z]|[0-9])((mipi)|((aphy)|(a-phy))|((csi2)|(csi-2))|(i3c)|((mphy)|(m-phy)))(?!®|[a-zA-Z]))|(([mM][iI][pP][i])|(([aA][pP][hH][yY])|([aA]-[pP][hH][y]))|(([cC][sS][iI]2)|([cC][sS][i]-2))|([iI]3[c])|(([mM][pP][hH][yY])|([mM]-[pP][hH][y])))(?=®)"
   regexModifiers: "gi"
@@ -59,4 +69,5 @@
   includeCodeBlocks: false
   format: markdown
   type: warning
+
   errorMessage: The MIPI® / A-PHY® / CSI-2® / I3C® / M-PHY® trademark owned by MIPI Alliance is not used correctly.

@@ -64,7 +64,7 @@ Here's an example of how you might connect a sensor to an UNO R4 WiFi:
 
 
 ### Qwiic & STEMMA QT
-When delving into the market of breakout modules and sensors, you'll find that there are entire ecosystems, where standards are built around the I2C protocol. Examples of such standards are Qwiic, developed by Sparkfun, and STEMMA QT, developed by Adafruit. Both Qwiic and STEMMA QT use a 4-pin JST SH connector for I2C devices, making it easier for third parties to design hardware with vast compatibility. By having a standardized connector, you'll know that if you see the word Qwiic or STEMMA QT in association with an item, that it will work together with an Arduino board with a Qwiic or STEMMA QT connector, such as the UNO R4 WiFi.
+When delving into the market of breakout modules and sensors, you'll find that there are entire ecosystems, where standards are built around the I2C protocol. Examples of such standards are Qwiic, developed by Sparkfun, and STEMMA QT, developed by Adafruit®. Both Qwiic and STEMMA QT use a 4-pin JST SH connector for I2C devices, making it easier for third parties to design hardware with vast compatibility. By having a standardized connector, you'll know that if you see the word Qwiic or STEMMA QT in association with an item, that it will work together with an Arduino board with a Qwiic or STEMMA QT connector, such as the UNO R4 WiFi.
 
 Both Qwiic and STEMMA QT bundle together wires for power, ground, as well as the SDA and SCL wires for I2C, making it a complete kit, one cable that bundles everything together.
 
@@ -325,7 +325,7 @@ void loop() {
 
 ![Qwiic BMP280 module](./assets/Qwiic-bmp280.png)
 
-This code example lets you read the temperature over I2C from a BMP280 breakout module from Adafruit:
+This code example lets you read the temperature over I2C from a BMP280 breakout module from Adafruit®:
 ```arduino
 #include <Wire.h>
 #include <Adafruit_BMP280.h>

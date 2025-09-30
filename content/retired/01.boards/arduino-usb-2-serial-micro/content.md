@@ -54,7 +54,7 @@ The USB Serial connector is designed in a way that allows it to reset an attache
 
 This setup has other implications. When the board is connected to either a computer running Mac OS X or Linux, it resets each time a connection is made to it from software (via USB). While it is programmed to ignore malformed data (i.e. anything besides an upload of new code), it will intercept the first few bytes of data sent to the board after a connection is opened. If a sketch running on the board receives one-time configuration or other data when it first starts, make sure that the software with which it communicates waits a second after opening the connection and before sending this data.
 
-**The pinouts on the connector are compatible with a standard FTDI header ( as well as the Adafruit and Sparkfun USB-Serial adapters).**
+**The pinouts on the connector are compatible with a standard FTDI header ( as well as the Adafruit® and Sparkfun USB-Serial adapters).**
 
 ### Connecting to the Arduino Mini
 

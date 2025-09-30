@@ -12,7 +12,7 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/arduino-mkr-gsm-14
 
 - [Arduino MKR GSM 1400](https://www.newark.com/55AC1187?COM=ref_hackster)
 - 3.7 V LiPo Battery
-- [Adafruit NeoPixel Ring: WS2812 5050 RGB LED](http://www.newark.com/26Y8458?COM=ref_hackster)
+- [Adafruit® NeoPixel Ring: WS2812 5050 RGB LED](http://www.newark.com/26Y8458?COM=ref_hackster)
 - [Resistor 10k ohm](https://www.newark.com/multicomp/mccfr0w4j0103a50/carbon-film-resistor-10kohm-250mw/dp/58K5002?COM=ref_hackster)
 - [ON Semiconductor 2N7000](https://www.mouser.it/ProductDetail/ON-Semiconductor-Fairchild/2N7000/?qs=sGAEpiMZZMshyDBzk1%2fWi9bHELEahoDnY1fyKF6A6Ko%3d)
 - [Breadboard (generic)](https://www.newark.com/99W1759?COM=ref_hackster)
