@@ -9,11 +9,11 @@ The Nano Every is an inexpensive yet powerful board in a tiny form factor. In th
 
 ***Videos and external links found in this article are not maintained by Arduino. You can visit the [official documentantion for Nano Every](/hardware/nano-every).***  
 
-## NEOPIXEL® Driver Without Bit-Banging
+## NeoPixel Driver Without Bit-Banging
 
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/1e2MVGAVbZM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-This great video from [Elektor](https://www.elektor.com/) shows how to create a NEOPIXEL® driver through the Custom Configurable Logic (CCL) block. It also serves as a nice introduction to the Nano Every board! 
+This great video from [Elektor](https://www.elektor.com/) shows how to create a NeoPixel driver through the Custom Configurable Logic (CCL) block. It also serves as a nice introduction to the Nano Every board! 
 
 ## Turntable For 7" Records
 

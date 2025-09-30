@@ -144,7 +144,7 @@ However, if you purchased some extra Atmega328 or Atmega168 chips from an online
 
 This configuration is similar to the one above but the trick is that the Atmega chip is bootloaded with the Arduino Lilypad bootloader. The Lilypad runs using the internal clock instead of an external clock and so removes the need for much of the supporting circuitry.
 
-[Boarduino by LADYADA®](http://www.ladyada.net/make/boarduino/)
+[Boarduino by Ladyada](http://www.ladyada.net/make/boarduino/)
 
 The Boarduino is a kit you purchase and assemble to create a nice, small breadboard compatible Arduino set up. All the common components are included on a small PCB so that the Boarduino can easily be added to a breadboard and even removed, in a snap.
 
