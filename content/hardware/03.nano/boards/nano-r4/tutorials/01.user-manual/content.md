@@ -2328,7 +2328,8 @@ For detailed step-by-step instructions on recovering and reflashing the bootload
 - Verifying successful bootloader restoration
 - Troubleshooting common issues
 
-***__Important note__: Bootloader recovery is a low-level operation that should only be performed when necessary. ___Always ensure you have a stable power supply and follow the tutorial instructions carefully to avoid damaging your board__. If you're unsure whether you need bootloader recovery, try standard troubleshooting steps first or contact [Arduino Support](https://www.arduino.cc/en/contact-us/) for assistance.***
+***__Important note__: Bootloader recovery is a low-level operation that should only be performed when necessary. __Always ensure you have a stable power supply and follow the tutorial instructions carefully to avoid damaging your board__. If you're unsure whether you need bootloader recovery, try standard troubleshooting steps first or contact [Arduino Support](https://www.arduino.cc/en/contact-us/) for assistance.***
+
 
 ### Maintaining Bootloader Health
 
