@@ -142,7 +142,7 @@ You can update the network settings from the detail page of the device on the Ar
 During this process you will be asked to wipe out the current network configuration to restart the board's BLE interface. 
 
 - Power on the board.
-- Reset the board using the method of your board. Have a look at the [How to set up the Reconfiguration Procedure](#How-to-set-up-the Reconfiguration-Procedure) section of this article to find the default board reset pin. If you have changed the reset pin from the default one, please use that.
+- Reset the board using the method of your board. Have a look at the [How to set up the Reconfiguration Procedure](#How to set up the Reconfiguration Procedure) section of this article to find the default board reset pin. If you have changed the reset pin from the default one, please use that.
 - Open the devices page of the Mobile App or the Arduino Cloud webpage.
 - Click on the device you want to update the network settings for.
 - Click on the "change" button by the network section.
@@ -173,7 +173,7 @@ If you want to delete the stored network configuration without updating it, ther
 
 To proceed with the next steps, the cloud-generated sketch must be uploaded to the board.
 
-Reset the board using the method of your board. Have a look at the [How to set up the Reconfiguration Procedure](#How-to-set-up-the Reconfiguration-Procedure) section of this article to find the default board reset pin. If you have changed the reset pin from the default one, please use that.
+Reset the board using the method of your board. Have a look at the [How to set up the Reconfiguration Procedure](#how-to-set-up-the reconfiguration-procedure) section of this article to find the default board reset pin. If you have changed the reset pin from the default one, please use that.
 
 ### Using the DeleteConfiguration Sketch
 

@@ -135,8 +135,8 @@ Note that if you are using the offline IDE / Arduino CLI, you will need to manua
 
 The thingProperties.h file plays a key role in managing credential capabilities, including the NetworkConfigurator, which enables two main features:
 
-- Credentials stored on NVS: Boards can now securely store network settings in Non-Volatile Storage (NVS), removing them from the sketch (secrets.h).
-- Over-the-Air (OTA) communication: Enables the possibility to provide network configuration settings via Bluetooth (BLE).
+- **Credentials stored on NVS**: Boards can now securely store network settings in Non-Volatile Storage (NVS), removing them from the sketch (secrets.h).
+- **Over-the-Air (OTA) communication**: Enables the possibility to provide network configuration settings via Bluetooth (BLE).
 
 The `thingProperties.h` will be generated accordingly to the provisioning mechanism, so if the board has been registered using the provisioning 2.0, the `thingProperties.h` file will automatically have the NetworkConfigurator component enabled. A board registered with Provisioning 2.0 includes `Arduino_NetworkConfigurator.h` in the generated `thingProperties.h` file. For more information about device provisioning have a look [here.](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/)
 
@@ -144,9 +144,9 @@ The `thingProperties.h` will be generated accordingly to the provisioning mechan
 
 To work, the NetworkConfigurator needs:
 
-- One or more Configurator Agents: Objects that handle the communication between the board and the user device (PC, laptop, or Mobile phone).
-- A Key-Value Storage library: the NetworkConfigurator needs an external storage library that implements the KVStoreInterface. Arduino provides the `Arduino_KVStore` library for handling the storage and saving the NetworkConfigurator configurations.
-- A ConnectionHandler: the object responsible for the board's Internet connection management.
+- **One or more Configurator Agents**: Objects that handle the communication between the board and the user device (PC, laptop, or Mobile phone).
+- **A Key-Value Storage library**: the NetworkConfigurator needs an external storage library that implements the KVStoreInterface. Arduino provides the `Arduino_KVStore` library for handling the storage and saving the NetworkConfigurator configurations.
+- **A ConnectionHandler**: the object responsible for the board's Internet connection management.
 
 The `NetworkConfigurator` library out-of-the-box provides two Agents:
 
