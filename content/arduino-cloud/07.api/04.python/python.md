@@ -5,7 +5,7 @@ author: Karl Söderby
 tags: [Python, Arduino Cloud]
 ---
 
-The Python Client for connecting to the Arduino Cloud is known as the [Arduino Cloud Python Client](https://github.com/arduino/arduino-iot-cloud-py) library. This library is implemented to support MicroPython, CircuitPython as well as regular Python running on your personal computer / Linux machine (like Raspberry Pi).
+The Python Client for connecting to the Arduino Cloud is known as the [Arduino Cloud Python Client](https://github.com/arduino/arduino-iot-cloud-py) library. This library is implemented to support MicroPython, CIRCUITPYTHON® as well as regular Python running on your personal computer / Linux machine (like Raspberry Pi).
 
 Connection via this client is achieved by registering a [manual device](/arduino-cloud/hardware/devices#manual-devices), i.e. a virtual device that is not associated with an Arduino hardware board. This virtual device can connect through a simple username/password (Device ID, Secret Key) which is generated in the Arduino Cloud when configuring a device.
 

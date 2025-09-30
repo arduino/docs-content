@@ -35,7 +35,7 @@ The operating principle of this tutorial is very simple: every time a phone call
 
 ### Hardware Connections
 
-As you can see from the breadboard layout, a transistor is present between the Arduino board and the NeoPixel input. This is placed since the MKR GSM 1400 operates at 3.3V while the NeoPixel works at 5V. The transistor is used as a voltage translator. In the layout, there is also a single NeoPixel placed instead of the ring just for the sake of simplicity.
+As you can see from the breadboard layout, a transistor is present between the Arduino board and the NEOPIXEL® input. This is placed since the MKR GSM 1400 operates at 3.3V while the NEOPIXEL® works at 5V. The transistor is used as a voltage translator. In the layout, there is also a single NEOPIXEL® placed instead of the ring just for the sake of simplicity.
 
 ## Setup
 

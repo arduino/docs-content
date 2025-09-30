@@ -89,7 +89,7 @@ If you need to upgrade the firmware on your Nano RP2040 Connect,  you can do so 
 Since our upload procedure relies on the Raspberry’s bootloader using a mass storage device, if your computer is fast enough during an upload, it can notify you about an USB removable being plugged.
 
 When a sketch is uploaded successfully, the mass storage of the Nano RP2040 Connect may be visible in the operating system. The mass storage should only appear for a few seconds, then it will automatically close.
-When this occurs, we can force the ROM bootloader mode, which will enable mass storage, allowing us to upload UF2 images like CircuitPython / MicroPython or a regular Arduino sketch.
+When this occurs, we can force the ROM bootloader mode, which will enable mass storage, allowing us to upload UF2 images like CIRCUITPYTHON® / MicroPython or a regular Arduino sketch.
 
 ### Forcing Bootloader
 
