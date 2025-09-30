@@ -19,7 +19,7 @@ libraries:
   - name: Arduino WifiNINA
     url: https://www.arduino.cc/en/Reference/WiFiNINA
   - name: Arduino SPI
-    url: https://www.arduino.cc/en/reference/SPI
+    url: https://docs.arduino.cc/language-reference/en/functions/communication/SPI/
   - name: Arduino Wire
     url: https://www.arduino.cc/en/Reference/Wire
   - name: ArduinoBLE
@@ -347,7 +347,7 @@ The pins used for SPI (Serial Peripheral Interface) on the Nano RP2040 Connect a
 
 ***The signal names MOSI, MISO and SS has been replaced by COPI (Controller Out, Peripheral In), CIPO (Controller In, Peripheral Out) and CS (Chip Select).***
 
-To use SPI, we first need to include the [SPI](https://www.arduino.cc/en/reference/SPI) library.
+To use SPI, we first need to include the [SPI](https://docs.arduino.cc/language-reference/en/functions/communication/SPI/) library.
 
 ```arduino
 #include <SPI.h>

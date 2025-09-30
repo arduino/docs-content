@@ -19,7 +19,7 @@ See the [Barometric Pressure Sensor](https://arduino.cc/en/Tutorial/LibraryExamp
 
 ## Circuit
 
-Your Barometric Pressure sensor will be attached to pins 6,7, and the SPI pins of your Arduino / Ethernet shield combo, and powered via your device's 3.3 volt output. Connect the DRDY (Data Ready) pin on your sensor to digital pin 6 on your combo, and the CSB pin (Chip Select) to digital pin 7. Your sensor's COPI (Controller Out Periheral In), MISO (Controller In Periheral Out), and SCK (SPI clock input) pins should then be connected to the SPI pins on your Arduino board/shield. The SPI pin numbers differ depending on which Arduino board you're using and are listed in the [SPI reference page](https://www.arduino.cc/en/Reference/SPI). Make sure that the two share a common ground.
+Your Barometric Pressure sensor will be attached to pins 6,7, and the SPI pins of your Arduino / Ethernet shield combo, and powered via your device's 3.3 volt output. Connect the DRDY (Data Ready) pin on your sensor to digital pin 6 on your combo, and the CSB pin (Chip Select) to digital pin 7. Your sensor's COPI (Controller Out Periheral In), MISO (Controller In Periheral Out), and SCK (SPI clock input) pins should then be connected to the SPI pins on your Arduino board/shield. The SPI pin numbers differ depending on which Arduino board you're using and are listed in the [SPI reference page](https://docs.arduino.cc/language-reference/en/functions/communication/SPI/). Make sure that the two share a common ground.
 
 After wiring your sensor, your shield should be connected to a network with an Ethernet cable. You will need to change the network settings in the program to correspond to your network.
 
