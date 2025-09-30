@@ -1,0 +1,776 @@
+---
+title: 'UNO Q User Manual'
+difficulty: beginner
+compatible-products: [uno-q]
+description: 'Learn about the hardware and software features of the Arduino® UNO Q.'
+tags:
+  - IoT
+  - ML
+  - Linux
+  - Python
+author: 'Christopher Méndez'
+hardware:
+  - hardware/02.hero/boards/uno-q
+software:
+  - apps-lab
+  - ide-v2
+---
+
+## Overview
+
+This user manual will guide you through a practical journey covering the most interesting features of the Arduino UNO Q. With this user manual, you will learn how to set up, configure and use this Arduino board.
+
+![Arduino UNO Q](assets/imola-thumbnail.gif)
+
+## Hardware and Software Requirements
+### Hardware Requirements
+
+- [UNO Q](https://store.arduino.cc/products/uno-q) (1x)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (1x)
+- [USB-C multiport adapter (Dongle) with external power delivery](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-usb-hub) (1x) 
+
+***You can use any USB-C dongle with external power delivery capabilities except for Apple ones.***
+
+### Software Requirements
+
+- [Arduino App Lab 0.1.21+](https://www.arduino.cc/en/software/)
+
+***You can still use the __Arduino IDE 2+__ to program only the microcontroller (MCU) side of your UNO Q.***
+
+## Product Overview
+
+The Arduino UNO Q unlocks a new level of performance for the Arduino ecosystem, blending robust computing power from Qualcomm’s advanced QRB2210 Microprocessor (MPU) running a full Debian Linux OS with upstream support, and the real-time responsiveness of a dedicated STM32U585 Microcontroller (MCU) running Arduino sketches over Zephyr OS — all on a single board computer.
+
+### Board Architecture Overview
+
+The Arduino UNO Q blends the high-performance Qualcomm® QRB2210 MPU, running a full Linux environment, with the real-time precision of the STMicroelectronics® STM32U585 (32-bit Arm® Cortex®-M33) MCU, all on a single, compact board. This mixed architecture delivers the power and responsiveness needed for AIoT, machine learning, and advanced automation applications.
+
+![UNO Q's main components](assets/uno-q-architecture-3.png)
+
+Here is an overview of the board's main components, as shown in the image above:
+
+- **Microprocessor**: The Qualcomm® QRB2210 is a quad-core Arm® Cortex®-A53 processor running at 2.0 GHz, equipped with an Adreno™ 702 GPU (845 MHz) for 3D graphics acceleration and dual ISPs supporting up to 25 MP at 30 fps. It runs Debian Linux OS with upstream support, making it well-suited for embedded vision and edge computing applications.
+- **Microcontroller**: The STM32U585 microcontroller features an Arm® Cortex®-M33 core running up to 160 MHz, with 2 MB of flash memory and 786 KB of SRAM. It runs the Zephyr OS, providing a secure and efficient platform for low-power embedded applications.
+- **Wireless Connectivity**: The WCBN3536A radio module provides dual-band Wi-Fi® 5 (2.4/5 GHz) and Bluetooth® Low Energy 5.1 connectivity, both with onboard antennas for reliable wireless performance.
+- **Memory**: The board features 16 GB or 32 GB options of eMMC storage and 2 GB or 4 GB options of LPDDR4 RAM, delivering fast memory access and reliable storage for embedded applications. 
+- **Multimedia Codec**: The ANX7625 multimedia codec enables video and audio output through the onboard USB-C connector, providing a high-speed interface for display and sound transmission in embedded applications.
+- **Power Management**: The UNO Q includes the Qualcomm® PM4145 a power management integrated circuit (PMIC) to meet the demands of always-connected IoT devices.
+
+### Pinout
+
+![UNO Q Simple pinout](assets/Simple-pinout-ABX00162.png)
+
+The full pinout is available and downloadable as PDF from the link below:
+
+- [UNO Q full pinout](https://docs.arduino.cc/resources/pinouts/ABX00162-full-pinout.pdf)
+
+### Datasheet
+
+The complete datasheet is available and downloadable as PDF from the link below:
+
+- [UNO Q datasheet](https://docs.arduino.cc/resources/datasheets/ABX00162-datasheet.pdf)
+
+### Schematics
+
+The complete schematics are available and downloadable as PDF from the link below:
+
+- [UNO Q schematics](https://docs.arduino.cc/resources/schematics/ABX00162-schematics.pdf)
+
+### STEP Files
+
+The complete STEP files are available and downloadable from the link below:
+
+- [UNO Q STEP files](../../downloads/ABX00162-step.zip)
+
+### Form Factor
+
+The Arduino UNO Q features the classic UNO form factor, ensuring compatibility with the wide range of UNO shields developed by us and the community over time.
+
+![UNO form factor](assets/uno-form-factor.png)
+
+## First Use
+### Powering the Board
+
+The Arduino UNO Q can be powered by:
+
+- A USB-C® cable providing 5 VDC 3 A (not included).
+- An external +5 VDC power supply connected to 5V pin.
+- An external +7-24 VDC power supply connected to VIN pin.
+
+![UNO Q power options](assets/power-options-3.png)
+
+***Click [here](https://docs.arduino.cc/tutorials/uno-q/03.power-specification/) to learn more about the UNO Q power specifications.***
+
+### Install Arduino App Lab
+
+Arduino has introduced **Arduino App Lab**, a unified development environment that extends the classic Arduino experience into the world of high-performance computing. Arduino App Lab lets you seamlessly combine Arduino sketches, Python scripts, and containerized Linux applications into a single workflow. With intuitive building blocks called Bricks, preconfigured AI models, and integrated orchestration, it reduces complexity while enabling you to create everything from simple prototypes to advanced, computation-intensive applications.
+
+![Arduino App Lab IDE](assets/app-lab.png)
+
+To install it, go to the [software section](https://www.arduino.cc/en/software/) in our official website, scroll to Arduino App Lab and select your OS respective variant.
+
+![Arduino App Lab Install](assets/app-lab-download.png)
+
+***Arduino App Lab comes pre-installed on the UNO Q and can be used in single-board computer mode. We highly recommend the 4 GB of RAM UNO Q variant for a better experience.***
+
+### Hello World Example
+
+Let's program the UNO Q with the classic **Hello World** example typical of the Arduino ecosystem: the Blink sketch. We will use this example to verify that the board is correctly connected to the Arduino App Lab.
+
+**Prerequisites:**
+
+- Arduino UNO Q
+- USB-C cable
+- Computer with internet access (PC-hosted mode)
+- Monitor, keyboard, mouse and USB-C dongle (single-board computer mode)
+
+- Connect the UNO Q to your PC (if you are not in single-board computer mode).
+  ![SBC mode and PC Hosted setup](assets/modes.png)
+- Open the Arduino App Lab, it opens in the **Examples** section.
+  ![Arduino App Lab Landing Page](assets/examples.png)
+- Open the **Blink LED** example (Read the example documentation to understand how do app works).
+- Click on the **Run** button in the top right corner and wait for the app to be uploaded.
+  ![Running and flashing](assets/blink-flash.gif)
+
+You should now see the red LED of the built-in RGB LED turning on for one second, then off for one second, repeatedly.
+
+![Red LED blinking](assets/blinking-led.gif)
+
+***The LED controlled in this example is driven by the STM32 microcontroller through the Arduino sketch.***
+
+## Onboard User Interface
+
+The Arduino UNO Q offers a wide range of user interfaces, making interaction intuitive and straightforward.
+
+### LED Matrix
+
+One of the board’s key features is an 8×13 blue LED matrix that is managed by the STM32 microcontroller of the UNO Q. 
+
+![LED matrix](assets/matrix.png)
+
+It is a versatile display you can use to show data, status indicators, icons, or even create simple animations and games.
+
+Here is a list of basic examples for using the **LED matrix**. To test them, follow the steps below:
+
+- Connect the UNO Q to your PC (if you are not in single-board computer mode).
+  ![SBC mode and PC Hosted setup](assets/modes.png)
+- Open the Arduino App Lab, navigate to **My Apps** and click on **Create new app+**.
+  ![Create a new app](assets/create-app.png)
+- A new App must be created to test each of the examples below.
+
+#### Image Drawing
+
+This example is for drawing **custom frames** in the LED matrix, specifically the Arduino logo.
+
+You can copy and paste the following example into the "sketch" part of your new App in the Arduino App Lab.
+
+```cpp
+#include <Arduino_LED_Matrix.h>
+
+uint8_t logo[104] = {
+    0,0,0,0,0,0,0,0,0,0,0,0,0,        
+    0,0,1,1,1,0,0,0,1,1,1,0,0,        
+    0,1,0,0,0,1,0,1,0,0,0,1,0,        
+    1,0,0,0,0,0,1,0,0,1,0,0,1,        
+    1,0,1,1,1,0,1,0,1,1,1,0,1,        
+    1,0,0,0,0,0,1,0,0,1,0,0,1,        
+    0,1,0,0,0,1,0,1,0,0,0,1,0,        
+    0,0,1,1,1,0,0,0,1,1,1,0,0         
+};
+
+Arduino_LED_Matrix matrix;
+
+void setup() {
+  matrix.begin();
+  // display the image
+  matrix.setGrayscaleBits(1);
+  matrix.draw(logo);
+
+}
+
+void loop() {
+
+}
+
+```
+
+It should look like this in the Arduino App Lab:
+
+![Example ready to be uploaded](assets/code-pasted-matrix.png)
+
+You can create your own frame by creating an array following the matrix format (8x13) with 1's and 0's as in the example from above:
+
+![Matrix frame example](assets/matrix-example-new.png)
+
+Execute the App by clicking in the **Run** button in the Arduino App Lab and you should see the LED matrix showing your frame:
+
+![LED Matrix example running](assets/uno-q-matrix.png)
+
+#### Dimmable LEDs
+
+The LED matrix supports 8 levels of grayscale (3 bits) so you can manage the LEDs brightness individually. 
+
+You can set the brightness bits with the function `setGrayscaleBits(bits)` as shown below:
+
+```cpp
+matrix.setGrayscaleBits(3); // 3 bits result on 8 brightness levels (0 to 7)
+```
+As usually the conversion tools to grayscale uses 256 levels (8 bits) so you can also use this range, and it will be automatically mapped.
+
+```cpp
+matrix.setGrayscaleBits(8); // 8 bits result on 256 brightness levels (0 to 255)
+```
+
+This example is for showing the **supported grayscale** in the LED matrix.
+
+You can copy and paste the following example into the "sketch" part of your new App in the Arduino App Lab.
+
+```cpp
+#include <Arduino_LED_Matrix.h>
+
+uint8_t shades[104] = {
+    0,0,0,0,0,0,0,0,0,0,0,0,0,
+    1,1,1,1,1,1,1,1,1,1,1,1,1,
+    2,2,2,2,2,2,2,2,2,2,2,2,2,
+    3,3,3,3,3,3,3,3,3,3,3,3,3,
+    4,4,4,4,4,4,4,4,4,4,4,4,4,
+    5,5,5,5,5,5,5,5,5,5,5,5,5,
+    6,6,6,6,6,6,6,6,6,6,6,6,6,
+    7,7,7,7,7,7,7,7,7,7,7,7,7
+};
+
+Arduino_LED_Matrix matrix;
+
+void setup() {
+  matrix.begin();
+  // display the image
+  matrix.setGrayscaleBits(3);
+  matrix.draw(shades);
+
+}
+
+void loop() {
+
+}
+```
+
+Execute the App by clicking in the **Run** button in the Arduino App Lab and you should see the LED matrix showing your frame:
+
+![LED Matrix example running](assets/matrix-grayscale.png)
+
+#### Scrolling Text
+
+To be added when the Arduino App Lab support easy library import.
+
+```cpp
+#include "ArduinoGraphics.h"
+#include <Arduino_LED_Matrix.h>
+
+Arduino_LED_Matrix matrix;
+
+void setup() {
+  matrix.begin();
+  matrix.textFont(Font_5x7);
+  matrix.textScrollSpeed(100);
+  matrix.clear();
+
+}
+
+void loop() {
+  matrix.beginText(0, 0, 127, 0, 0); 
+  matrix.print("      arduino.cc/uno-q      ");
+  matrix.endText(SCROLL_LEFT);
+
+}
+```
+
+### RGB LEDs
+The UNO Q features 4x RGB LEDs. Two of them connected and controlled by the Qualcomm microprocessor, and the other two by the STM32 microcontroller.
+
+![UNO Q RGB LEDs](assets/rgb-led.png)
+
+#### MPU Controlled LEDs
+
+LEDs #1 and #2 are controlled by the MPU.
+
+There is a dedicated LED interface in our Linux OS for controlling these LEDs, they can be controlled via `/sys/class/leds` from the **Command Line**, using **SSH**, an **ADB** connection from your PC terminal or by using the Linux built-in terminal application when used in single-board computer mode:
+
+```bash
+echo 1    | sudo tee /sys/class/leds/red:user/brightness   # set HIGH/ON
+echo 0    | sudo tee /sys/class/leds/red:user/brightness   # set LOW/OFF
+```
+
+![Linux LED control](assets/linux-led-control.gif)
+
+The LED color segments are defined as follows:
+
+**LED 1:**
+- **Red:** `red:user`
+- **Green:** `green:user`
+- **Blue:** `blue:user`
+
+**LED 2:**
+- **Red:** `red:panic`
+- **Green:** `green:wlan`
+- **Blue:** `blue:bt`
+
+***LED 2 is used to show system status: `PANIC`, `WLAN` and `BT`. But it can be controlled by the user.***
+
+#### MCU Controlled LEDs
+
+LEDs #3 and #4 are controlled by the MCU.
+
+They can be controlled by setting the state of their respective GPIOs using the`digitalWrite` function as usual.
+
+To test them follow the steps below:
+
+- Connect the UNO Q to your PC (if you are not in single-board computer mode).
+- Open the Arduino App Lab, navigate to **My Apps** and click on **Create new app+**.
+
+You can copy and paste the following example into the "sketch" part of your new App in the Arduino App Lab.
+
+```cpp
+void setup(){
+  // Configure the pins as outputs
+  pinMode(LED3_R, OUTPUT);
+  pinMode(LED3_G, OUTPUT);
+  pinMode(LED3_B, OUTPUT);
+  // As they are active low, turn them OFF initially
+  digitalWrite(LED3_R, HIGH);
+  digitalWrite(LED3_G, HIGH);
+  digitalWrite(LED3_B, HIGH);
+}
+
+void loop(){
+  digitalWrite(LED3_R, LOW);  // Turn ON red segment
+  digitalWrite(LED3_G, HIGH);
+  digitalWrite(LED3_B, HIGH);
+  delay(1000);
+  digitalWrite(LED3_R, HIGH);
+  digitalWrite(LED3_G, LOW);  // Turn ON green segment
+  digitalWrite(LED3_B, HIGH);
+  delay(1000);
+  digitalWrite(LED3_R, HIGH);
+  digitalWrite(LED3_G, HIGH);
+  digitalWrite(LED3_B, LOW);  // Turn ON blue segment
+  delay(1000);
+}
+```
+
+![MCU LED control](assets/mcu-led-test.gif)
+
+The LED color segments are defined as follows:
+
+**LED 3:**
+- **Red:** `LED3_R`
+- **Green:** `LED3_G`
+- **Blue:** `LED3_B`
+
+**LED 4:**
+- **Red:** `LED4_R`
+- **Green:** `LED4_G`
+- **Blue:** `LED4_B`
+
+***The RGB LEDs are active low, this means they turn ON with logic '0'.***
+
+### User Button
+
+The UNO Q features a user button that can be used for custom purposes or to reboot the board.
+
+![UNO Q user button](assets/user-button.png)
+
+- **Short press**: you can configure a custom action to be triggered when the button is pressed briefly.
+
+  ***The support for this feature is being developed.***
+
+- **Long press**: the board Linux part is rebooted when the button is pressed for **5+** seconds.
+
+## USB-C Connector
+
+The UNO Q features a USB-C connector that can be used for much more than just programming and powering the board.
+
+![USB-C connector](assets/usb.png)
+
+Below is a table with the main features of the USB-C connector that expands the UNO Q capabilities.
+
+| Feature            | Description            |
+| ------------------ | ---------------------- |
+| USB Power (Sink)   | 5 VDC 3 A (15 W)       |
+| USB Standard       | USB 3.1 Gen 1 (5 Gb/s) |
+| Display over USB-C | DisplayPort            |
+
+By using a USB-C Dongle (adapter/hub) you can also leverage the following features:
+
+| Feature      | Description                                 |
+| ------------ | ------------------------------------------- |
+| Video Output | HDMI support                                |
+| Video Input  | USB camera support                          |
+| Audio        | USB or 3.5mm headset (speaker + microphone) |
+| Ethernet     | Internet through Ethernet supported         |
+| HID          | USB keyboard/mouse and other HID devices    |
+| Storage      | External microSD card or USB drive support  |
+
+## Pins
+
+The UNO Q is equipped with two connector types: the **classic UNO-style headers** on the top, designed for prototyping and debugging, guaranteeing full compatibility with Arduino UNO Shields, and the **high-speed header connectors** on the bottom, purpose-built for integration with UNO Q carriers.  
+
+
+### Digital Pins
+
+The UNO Q has 47x digital pins controlled by the **STM32 microcontroller**, 22x of them exposed through the UNO-styled connector and 25x exposed through JMISC connector mapped as follows:
+
+| Microcontroller Pin | Arduino Pin Mapping |    Pin Functionality    |
+| :-----------------: | :-----------------: | :---------------------: |
+|         PB7         |       D0 / RX       |     GPIO / UART RX      |
+|         PB6         |       D1 / TX       |     GPIO / UART TX      |
+|         PB3         |         D2          |          GPIO           |
+|         PB0         |         D3          |    GPIO / OPAMP OUT     |
+|        PA12         |   D4 / FDCAN1_TX    |    GPIO / CAN Bus TX    |
+|        PA11         |   D5 / FDCAN1_RX    |    GPIO / CAN Bus RX    |
+|         PB1         |         D6          |          GPIO           |
+|         PB2         |         D7          |          GPIO           |
+|         PB4         |         D8          |          GPIO           |
+|         PB8         |         D9          |          GPIO           |
+|         PB9         |      D10 / SS       |      GPIO / SPI SS      |
+|        PB15         |     D11 / MOSI      |     GPIO / SPI MOSI     |
+|        PB14         |     D12 / MISO      |     GPIO / SPI MISO     |
+|        PB13         |      D13 / SCK      |     GPIO / SPI SCK      |
+|         PA4         |     D14 / DAC1      |    GPIO / ADC / DAC     |
+|         PA5         |     D15 / DAC2      |    GPIO / ADC / DAC     |
+|         PA6         |         D16         | GPIO / ADC / OPAMP IN + |
+|         PA7         |         D17         | GPIO / ADC / OPAMP IN - |
+|         PC1         |      D18 / SDA      |  GPIO / ADC / I2C SDA   |
+|         PC0         |      D19 / SCL      |  GPIO / ADC / I2C SCL   |
+|        PB11         |     D20 / SDA2      |     GPIO / I2C SDA      |
+|        PB10         |     D21 / SCL2      |     GPIO / I2C SCL      |
+
+***Notice that pins D14 to D19 also have analog capabilities.***
+
+The digital pins of the UNO Q can be used as inputs or outputs through the built-in functions of the Arduino programming language.
+
+The configuration of a digital pin is done in the `setup()` function with the built-in function `pinMode()` as shown below:
+
+```cpp
+// Pin configured as an input
+pinMode(pin, INPUT);        
+// Pin configured as an output
+pinMode(pin, OUTPUT);        
+// Pin configured as an input, internal pull-up resistor enabled
+pinMode(pin, INPUT_PULLUP);
+```
+The state of a digital pin, configured as an input, can be read using the built-in function `digitalRead()` as shown below:
+
+```cpp
+// Read pin state, store value in a state variable
+state = digitalRead(pin);
+```
+
+The state of a digital pin, configured as an output, can be changed using the built-in function `digitalWrite()` as shown below:
+
+```cpp
+// Set pin on
+digitalWrite(pin, HIGH);    
+// Set pin off
+digitalWrite(pin, LOW);
+```
+
+The example code shown below uses digital pin `D5` to control an LED and reads the state of a button connected to digital pin `D4`:
+
+![Digital I/O example wiring](assets/digital-io.png)
+
+Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+![Create a new app](assets/create-app.png)
+
+```cpp
+// Define button and LED pin
+int buttonPin = D4;
+int ledPin = D5;
+
+// Variable to store the button state
+int buttonState = 0;
+
+void setup() {
+  // Configure button and LED pins
+  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(ledPin, OUTPUT);
+
+  // Initialize Serial communication
+  Serial.begin(115200);
+}
+
+void loop() {
+  // Read the state of the button
+  buttonState = digitalRead(buttonPin);
+
+  // If the button is pressed, turn on the LED and print its state to the Serial Monitor
+  if (buttonState == LOW) {
+    digitalWrite(ledPin, HIGH);
+    Serial.println("- Button is pressed. LED is on.");
+  } else {
+    // If the button is not pressed, turn off the LED and print to the Serial Monitor
+    digitalWrite(ledPin, LOW);
+    Serial.println("- Button is not pressed. LED is off.");
+  }
+
+  // Wait for 1000 milliseconds
+  delay(1000);
+}
+```
+
+### Analog Pins
+
+The UNO Q features the well known analog pins in the **JANALOG** connector. However, some other GPIOs can be used as analog inputs; more details below:
+
+#### Analog to Digital Converter (ADC)
+
+In the **JANALOG** connector the UNO Q has 6x 14-bit ADC pins mapped as follows:
+
+| Microcontroller Pin | Arduino Pin Mapping |    Pin Functionality    |
+| :-----------------: | :-----------------: | :---------------------: |
+|         PA4         |         A0          |    GPIO / ADC / DAC     |
+|         PA5         |         A1          |    GPIO / ADC / DAC     |
+|         PA6         |         A2          | GPIO / ADC / OPAMP IN + |
+|         PA7         |         A3          | GPIO / ADC / OPAMP IN - |
+|         PC1         |         A4          |  GPIO / ADC / I2C SDA   |
+|         PC0         |         A5          |  GPIO / ADC / I2C SCL   |
+
+In the **JDIGITAL** connector there are 3x 14-bit ADC pins mapped as follows:
+
+| Microcontroller Pin | Arduino Pin Mapping |   Pin Functionality    |
+| :-----------------: | :-----------------: | :--------------------: |
+|         PB2         |         D7          |       GPIO / ADC       |
+|         PB1         |         D6          |       GPIO / ADC       |
+|         PB0         |         D3          | GPIO / ADC / OPAMP OUT |
+
+In the **JMISC** connector there are 3x 14-bit ADC pins and 2x 12-bit ADC pins mapped as follows:
+
+| Microcontroller Pin | Arduino Pin Mapping |    Pin Functionality    |
+| :-----------------: | :-----------------: | :---------------------: |
+|         PA3         |          -          | GPIO / ADC / OPAMP OUT  |
+|         PA0         |          -          | GPIO / ADC / OPAMP IN + |
+|         PA1         |          -          | GPIO / ADC / OPAMP IN - |
+|        PF14         |     - (12-bit)      |  GPIO / ADC / I2C SCL   |
+|        PF15         |     - (12-bit)      |  GPIO / ADC / I2C SDA   |
+
+Analog input pins can be used through the built-in functions of the Arduino programming language.
+
+The UNO Q ADC **resolution** can be configured between 14-, 12-, 10-, or 8-bit. 
+
+The default ADC **voltage reference** is 3.3V and can be changed by software using the function `analogReference()` with the following arguments:
+
+| Analog Voltage Reference (V<sub>REF+</sub>) |    Argument     |  Source  |
+| :-----------------------------------------: | :-------------: | :------: |
+|                    1.5 V                    | AR_INTERNAL1V5  | Internal |
+|                    1.8 V                    | AR_INTERNAL1V8  | Internal |
+|                   2.048 V                   | AR_INTERNAL2V05 | Internal |
+|                    2.5 V                    | AR_INTERNAL2V5  | Internal |
+|                  2 V ~ VDD                  |   AR_EXTERNAL   | External |
+
+***An external voltage reference can be provided through the <strong>AREF</strong> pin when the internal
+voltage reference buffer is off.***
+
+To set a different analog reference from the default one, see the following example:
+
+```cpp
+analogReference(AR_INTERNAL2V5);
+```
+
+The example code shown below reads the analog input value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor. To understand how to properly connect a potentiometer to the UNO Q, take the following image as a reference:
+
+![ADC input example wiring](assets/analog-adc.png)
+
+```cpp
+int sensorPin = A0;   // select the input pin for the potentiometer
+
+int sensorValue = 0;  // variable to store the value coming from the sensor
+
+void setup() {
+  Serial.begin(115200); 
+}
+
+void loop() {
+  // read the value from the sensor:
+  sensorValue = analogRead(sensorPin);
+
+  Serial.println(sensorValue);
+  delay(100);
+}
+```
+#### Digital to Analog Converter (DAC)
+
+The UNO Q has two DAC outputs, mapped as follows:
+
+| Microcontroller Pin | Arduino Pin Mapping | Pin Functionality |
+| :-----------------: | :-----------------: | :---------------: |
+|         PA4         |        DAC1         | GPIO / ADC / DAC  |
+|         PA5         |        DAC2         | GPIO / ADC / DAC  |
+
+The digital-to-analog converters of the UNO Q can be used to output analog voltages through the built-in functions of the Arduino programming language.
+
+The DAC output resolution can be configured from 8 to 12 bits using the `analogWriteResolution()` function as follows:
+
+```cpp
+analogWriteResolution(12);  // enter the desired resolution in bits (8,10,12)
+```
+
+The DAC voltage reference can be configured using the `analogReferenceDAC()` function. The available setups are listed below:
+
+| Analog Voltage Reference (V<sub>REF+</sub>) |       Argument        |  Source  |
+| :-----------------------------------------: | :-------------------: | :------: |
+|                    1.5 V                    |     DAC_VREF_1V25     | Internal |
+|                    2.5 V                    |     DAC_VREF_2V5      | Internal |
+|                     VDD                     |     DAC_VREF_AVDD     | Internal |
+|                  2 V ~ VDD                  | DAC_VREF_EXTERNAL_PIN | External |
+
+```cpp
+analogReferenceDAC(DAC_VREF_2V5);  // enter the desired reference as argument
+```
+To output an analog voltage value through a DAC pin, use the `analogWrite()` function with the DAC channel as an argument. See the example below:
+
+```cpp
+analogWrite(DAC1, value);   // the value should be in the range of the DAC resolution (e.g. 0-4095 with a 12 bits resolution)
+```
+***If a normal GPIO is passed to the `analogWrite()` function, the output will be a PWM signal.***
+
+The following sketch will create a sine wave signal in the `A0` UNO Q pin:
+
+```cpp
+float sample_rate = 9600.0, freq = 60.0;  //samples/second, AC waveform freq.
+int npts = sample_rate / freq;
+
+void setup()
+{
+  Serial.begin(115200);
+  // Set the DAC resolution to 12 bits
+  analogWriteResolution(12);
+  // Select the 1.25V reference voltage (feel free to change it)
+  analogReferenceDAC(DAC_VREF_1V25);
+}
+
+void loop()
+{
+
+  for (int i = 0; i < npts; i++) {
+    int x = 2000 + 1000.0 * sin(2 * PI * (freq / sample_rate) * i);
+    analogWrite(DAC1, x);
+    delayMicroseconds(1.0E6 / sample_rate);  //adjust constant to get correct rate
+  }
+}
+```
+
+The DAC output should look like the image below:
+
+![Analog Sine Wave DAC output](assets/analog-dac.png)
+
+#### OPAMP*
+
+### PWM Pins
+
+The UNO Q has 6x PWM (Pulse Width Modulation) pins, mapped as follows:
+
+| Microcontroller Pin | Arduino Pin Mapping |    Pin Functionality    |
+| :-----------------: | :-----------------: | :---------------------: |
+|         PB0         |         D3          | GPIO / OPAMP OUT / PWM  |
+|        PA11         |   D5 / FDCAN1_RX    | GPIO / CAN Bus RX / PWM |
+|         PB1         |         D6          |       GPIO / PWM        |
+|         PB8         |         D9          |       GPIO / PWM        |
+|         PB9         |      D10 / SS       |   GPIO / SPI SS / PWM   |
+|        PB15         |     D11 / MOSI      |  GPIO / SPI MOSI / PWM  |
+
+This functionality can be used with the built-in function `analogWrite()` as shown below:
+
+```cpp
+analogWrite(pin, value);  
+```
+By default, the output resolution is 8 bits, so the output value should be between 0 and 255. To set a greater resolution, do it using the built-in function `analogWriteResolution` as shown below:
+
+```cpp
+analogWriteResolution(bits);  
+```
+
+Using this function has some limitations, for example, the PWM signal frequency is fixed at 1 kHz, and this could not be ideal for every application.
+
+Here is an example of how to create a **1 kHz** variable duty-cycle PWM signal:
+
+```cpp
+const int analogInPin = A0;   // Analog input pin that the potentiometer is attached to
+const int pwmOutPin = D13;  // PWM output pin
+
+int sensorValue = 0;  // value read from the pot
+int outputValue = 0;  // value output to the PWM (analog out)
+
+void setup() {
+  // initialize serial communications at 9600 bps:
+  Serial.begin(115200);
+  analogWriteResolution(12);
+}
+
+void loop() {
+  // read the analog in value:
+  sensorValue = analogRead(analogInPin);
+  // map it to the range of the analog out:
+  outputValue = sensorValue;
+  // change the analog out value:
+  analogWrite(pwmOutPin, outputValue);
+
+  // print the results to the Serial Monitor:
+  Serial.print("sensor = ");
+  Serial.print(sensorValue);
+  Serial.print("\t output = ");
+  Serial.println(outputValue);
+
+  // wait 2 milliseconds before the next loop for the analog-to-digital
+  // converter to settle after the last reading:
+  delay(2);
+}
+```
+
+![PWM output signal using the PWM](assets/pwm-out.png)
+
+## Communication
+
+### SPI
+
+### I2C
+
+### UART
+
+### WiFi
+
+### BT
+
+## Peripherals or Interfaces
+
+### Accessible through the UNO
+
+#### Qwiic
+
+
+
+### DSI
+### CSI
+### Audio I2S
+### Analog Audio through PMIC 
+
+## Support
+
+If you encounter any issues or have questions while working with the Arduino UNO Q, we provide various support resources to help you find answers and solutions.
+
+### Help Center
+
+Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the UNO Q. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+
+- [UNO Q Help Center page](https://support.arduino.cc/hc/en-us/sections/)
+
+### Forum
+
+Join our community forum to connect with other UNO Q users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the UNO Q.
+
+- [UNO Q category in the Arduino Forum](https://forum.arduino.cc/)
+
+### Contact Us
+
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the UNO Q.
+
+- [Contact us page](https://www.arduino.cc/en/contact-us/) 
+
