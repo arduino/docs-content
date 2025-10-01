@@ -33,7 +33,7 @@ This user manual will guide you through a practical journey covering the most in
 
 ### Software Requirements
 
-- [Arduino App Lab 0.1.21+](https://www.arduino.cc/en/software/)
+- [Arduino App Lab 0.1.22+](https://www.arduino.cc/en/software/)
 
 ***You can still use the __Arduino IDE 2+__ to program only the microcontroller (MCU) side of your UNO Q.***
 
