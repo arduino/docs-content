@@ -1,6 +1,6 @@
 ---
 title: Using the Arduino UNO Q as a Single-Board Computer
-description: This tutorial teaches you how to use the Arduino UNO Q as a Single Board Computer, leveraging its expandability to create a desktop experience.
+description: This tutorial teaches you how to use the Arduino UNO Q as a Single-Board Computer, leveraging its expandability to create a desktop experience.
 author: Christopher Méndez
 hardware:
   - hardware/uno/boards/uno-q
@@ -10,7 +10,7 @@ difficulty: beginner
 
 ## Overview
 
-The UNO Q is a powerful, versatile development board designed for hobbyists, developers, and makers. Thanks to its hybrid architecture, we can leverage it as a fully functional Linux based **Single-board computer**.
+The UNO Q is a powerful, versatile development board designed for hobbyists, developers, and makers. Thanks to its hybrid architecture, we can leverage it as a fully functional Linux based **Single-Board Computer** (SBC), capable of running Arduino sketches.
 
 ![UNO Q single-board computer](assets/thumbnail.png)
 
@@ -31,20 +31,18 @@ To set up the UNO Q as a single-board computer, you'll need the following hardwa
 
 ### Hardware Requirements
 
-- [Arduino UNO Q](https://store.arduino.cc/products/uno-q)
-- Mouse
-- Keyboard
+- [Arduino® UNO Q](https://store.arduino.cc/products/uno-q)
+- USB Mouse
+- USB Keyboard
 - HDMI Display
-- USB-C® Hub<sup>1</sup>
-- Power Supply (to power the USB-C hub)
+- USB-C® Dongle<sup>1</sup>
+- Power Supply +5 VDC at 3 A (to power the USB-C dongle)
 
-***<sup>1</sup>Apple's USB-C Hub has been tested and does not work properly with the UNO Q. Any other USB-C Hub with an external power supply should work fine with the board.***
+***<sup>1</sup>Apple’s USB-C dongle has been tested and found to be incompatible with the UNO Q. Please select an alternative part number.***
 
 ### Software Requirements
 
-The UNO Q comes ready to use out of the box. You do not need to flash or install any image or program to the board for the test shown in this tutorial.
-
-***The UNO Q comes with a built-in desktop operating system based on the Debian distribution.***
+The UNO Q comes preloaded with a desktop operating system based on the Debian distribution with upstream support, allowing you to start working immediately. For the test shown in this tutorial, there is no need to flash the board or install any additional images or programs.
 
 ## UNO Q Features for SBC Use
 
@@ -52,10 +50,10 @@ The UNO Q offers the essential performance and connectivity needed for everyday 
 
 - **CPU**: Qualcomm Dragonwing™ QRB2210 | Quad-core Arm® Cortex®-A53 @ 2.0 GHz
 - **GPU**: Adreno 702 GPU @ 845 MHz | 3D graphics accelerator
-- **RAM**: 2 GB or 4 GB LPDDR4 
+- **RAM**: 2 GB or 4 GB LPDDR4 (we recommend the **4 GB** variant for a smooth SBC experience)
 - **Storage**: 16 GB or 32 GB eMMC
-- **Connectivity**: Wi-Fi® 5 Dual-band 2.4/5 GHz and Bluetooth® LE 5
-- **Display**: 4K resolution through USB-C
+- **Connectivity**: Wi-Fi® 5 Dual-band 2.4/5 GHz and Bluetooth® 5.1
+- **Display**: HD resolution through USB-C
 
 ## Computer Assembly
 
@@ -63,43 +61,60 @@ To assemble your UNO Q single-board computer, follow the steps below:
 
 ![Assembly steps](assets/assembly.gif)
 
-1. Connect the USB-C hub to the USB-C port on the Arduino UNO Q.
-2. Plug the USB keyboard and mouse into the hub's USB-A ports.
-3. Connect the monitor to the hub's HDMI port.
-4. Attach the external power supply to the hub, but do not power it on yet.
+1. Connect the USB-C dongle to the USB-C port on the Arduino UNO Q.
+2. Plug the USB keyboard and mouse into the dongle's USB-A ports.
+3. Connect the monitor to the dongle's HDMI port.
+4. Attach the external power supply to the dongle, but do not power it on yet.
 
-***The UNO Q does not provide power to the USB-C hub, you must power the hub externally and it will also power the board.***
+***The UNO Q does not supply power to the USB-C dongle. The dongle must be powered externally, and, in turn, it will also provide power to the board.***
 
 ### Powering Options
 
-To power your single-board computer, use an external power supply to power the USB-C hub as follows:
+To power your single-board computer, use an external power supply to power the USB-C dongle as follows:
 
 ![Powering the system](assets/power.png)
 
-***The power supply should provide at least +5 VDC at 3 A to reliably power the hub, the connected devices, and the UNO Q.***
+***The power supply should provide at least +5 VDC at 3 A to reliably power the dongle, the connected devices, and the UNO Q.***
 
 Once powered, the single-board computer will turn on and boot automatically.
 
 ## Login and First Use
 
-When the UNO Q finishes booting, the Debian login screen will appear. Use the following default credentials to sign in:
+When the UNO Q finishes booting, the Debian login screen will appear. The default username is `arduino` and in the password field enter a **custom password**:
 
 - **Username**: arduino
-- **Password**: arduino
+- **Password**: `new-password`
+- You will then be asked to confirm your password.
 
-![Login Screen](assets/login.png)
+![Login Screen](assets/login-new.png)
 
-***On your first login, you will be prompted to change the default password to a more secure, personalized one.***
+Arduino App Lab will open automatically and guide you through a one-time board configuration process with the following steps:
 
-Finally, you are ready to use the UNO Q as a single-board computer. 
+- Set your **keyboard** configuration and the **board name**:
+
+  ![Keyboard layout and board name](assets/keyboard.png)
+
+- Select your Wi-Fi® network `SSID` and enter its password to connect to it.
+
+  ![Wi-Fi® configuration](assets/network-new.png)
+
+- Set your Linux login credentials. You can use the same password you set at login time or change it by entering a new one:
+
+  ![Linux credentials](assets/login-credentials.png)
+
+Eventually, Arduino App Lab will open showing the built-in examples Apps. Now, you are ready to use the UNO Q as a single-board computer. The Arduino App Lab will open automatically and guide you in the first time board set up.
 
 ![SBC ready to use](assets/ready-to-use.png)
 
+***Arduino App Lab will always run on boot and will update the board and the dependecies to their latest versions.***
+
 ### Connect to the Internet
 
-To connect your computer to the internet, simply go to the upper right corner and click on the network icon. Then, search for available Wi-Fi® networks and select one.
+If you followed the Arduino App Lab first set up, you should be already connected to the internet. However, here is a brief explanation of how to do it manually.
 
-![Connect to the Wi-Fi network](assets/wifi.png)
+To connect the UNO Q to the internet, simply go to the upper right corner and click on the network icon. Then, search for available Wi-Fi® networks and select one.
+
+![Connect to the Wi-Fi network](assets/wifi-new.png)
 
 Or run the following command in the terminal:
 
@@ -107,13 +122,13 @@ Or run the following command in the terminal:
 sudo nmcli d wifi connect <SSID> password <YOUR_PASSWORD>
 ```
 
-## Further Usage
+## Explore SBC Mode: Linux & Arduino App Lab
 
 With your single-board computer now configured and ready, you can tap into the full Linux experience and take advantage of our new Arduino App Lab to work with the UNO Q.
 
 ### Arduino App Lab
 
-Develop hybrid Arduino projects effortlessly with the built-in Arduino App Lab. Follow our [step-by-step tutorial](/software/app-lab/tutorials/getting-started/) to unlock the full potential of your UNO Q.
+Develop hybrid Arduino Edge AI projects effortlessly with the built-in Arduino App Lab. Follow our [step-by-step tutorial](/software/app-lab/tutorials/getting-started/) to unlock the full potential of your Arduino UNO Q.
 
 ![Arduino App Lab](assets/app-lab.png)
 
@@ -121,14 +136,38 @@ Develop hybrid Arduino projects effortlessly with the built-in Arduino App Lab. 
 
 You can use your single-board computer for web browsing, media playing, coding, file managing and much more.
 
-![SBC everyday usage](assets/usage.gif)
+![SBC everyday usage](assets/desktop.gif)
+
+Out of the box, the Debian-based image on the UNO Q already comes with several useful applications pre-installed, allowing you to get started immediately:
+
+- **Chromium Browser**: surf the web, check your email, and use cloud-based productivity tools.
+- **Terminal**: manage files, run Linux commands, install software, and interact with the system at a deeper level.
+- **Vim Editor**: a powerful text editor available in the terminal, useful for editing configuration files or writing code.
+- **File Manager**: organize your documents, images, and downloads in a graphical interface.
+- **Media Player**: play audio and video files locally (VLC installation needed). 
+
+These built-in applications give you everything you need for daily computing tasks without requiring additional installations. Of course, you can always expand your environment by installing more software using Debian’s package manager (apt).
+
+For example, to install **VLC media player** run the following command in the terminal:
+
+```bash
+sudo apt install vlc
+```
+
+To use a USB camera we can install **Cheese**, an app that provides a graphical interface to take snapshots and record:
+
+```bash
+sudo apt install cheese
+```
+![Chesse webcam application](assets/webcam.png)
 
 ## Expand Your Single-Board Computer
 
-You can add more functionalities to your UNO Q single-board computer by adding extra peripherals connected to your USB-C hub, for example:
+You can add more functionalities to your UNO Q single-board computer by adding extra peripherals connected to your USB-C dongle, for example:
 
 - USB camera
 - USB drive
+- MicroSD card
 - Wired internet connectivity through Ethernet
 - Headset (speaker and/or microphone)
 
