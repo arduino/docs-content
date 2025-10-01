@@ -2,7 +2,7 @@ Shield:
   Name: Arduino® MKR RGB Shield
   SKU: ASX00010
   Compatibility: MKR
-Communication: SPI
+Communication: SDI (Serial Data Input)
 LEDs:
   Type: APA102
   Count: 84

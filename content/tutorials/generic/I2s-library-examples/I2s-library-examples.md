@@ -109,7 +109,7 @@ void loop() {
 
 ### I2S Simple Tone
 
-This example shows you how to generate a simple tone using a SAMD21 based board (MKRZero, MKR1000 or Zero) and an I2S DAC like the adafruit MAX98357A.
+This example shows you how to generate a simple tone using a SAMD21 based board (MKRZero, MKR1000 or Zero) and an I2S DAC like the Adafruit® MAX98357A.
 
 ```
 /*
@@ -150,7 +150,7 @@ const int amplitude = 500; // amplitude of square wave
 
 const int sampleRate = 8000; // sample rate in Hz
 
-const int halfWavelength = (sampleRate / frequency); // half wavelength of square wave
+const int halfWavelength = (sampleRate / frequency) / 2; // half wavelength of square wave
 
 short sample = amplitude; // current sample value
 int count = 0;

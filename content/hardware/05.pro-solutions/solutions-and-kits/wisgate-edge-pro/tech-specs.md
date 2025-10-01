@@ -1,1 +1,1 @@
-Here you will find the technical specifications for the Arduino® PRO LoRa Gateway.
+Here you will find the technical specifications for the Arduino® WisGate Edge Pro.

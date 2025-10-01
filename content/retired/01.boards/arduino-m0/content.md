@@ -3,7 +3,7 @@ title: "Arduino M0"
 description: "The Arduino M0 gives you the power of a 32-bit microcontroller."
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoM0"
 coverImage: "assets/a000103_featured.jpg"
-sku: "A000103"
+sku: [A000103]
 source: "https://store.arduino.cc/arduino-m0"
 ---
 
@@ -29,7 +29,7 @@ You can find in the [Getting Started section](https://www.arduino.cc/en/Guide/Ho
 
 The Arduino M0 is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-M0-reference-design.zip) 
+[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-M0-reference-design.zip)
 
 [SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/arduino-M0-schematic.pdf)
 

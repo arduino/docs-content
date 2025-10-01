@@ -13,7 +13,7 @@ This example demonstrates how to virtually connect together Serial and Serial1. 
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 ### Circuit
 

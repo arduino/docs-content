@@ -1,0 +1,7 @@
+hardware:
+  carriers:
+    - nano-screw-terminal-adapter
+software:
+  - arduino-ide
+  - arduino-cli
+  - cloud-editor

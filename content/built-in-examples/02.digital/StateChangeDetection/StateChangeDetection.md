@@ -15,7 +15,7 @@ Once you've got a [pushbutton](/built-in-examples/digital/Button) working, you o
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - momentary button or switch
 

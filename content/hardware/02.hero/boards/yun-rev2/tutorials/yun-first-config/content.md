@@ -559,7 +559,7 @@ void wifiConfig(String yunName, String yunPsw, String wifissid, String wifipsw, 
 
   p.runShellCommand("uci set network.lan.proto='dhcp'");
 
-  p.runShellCommand("echo -e \"" + yunPsw + "\n" + yunPsw + "\" | passwd root"); //change the passwors
+  p.runShellCommand("echo -e \"" + yunPsw + "\n" + yunPsw + "\" | passwd root"); //change the password
 
   p.runShellCommand("uci commit"); //save the mods done via UCI
 

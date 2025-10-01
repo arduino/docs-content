@@ -15,7 +15,7 @@ You can send bytes to the board from any software that can access the computer s
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - LED
 

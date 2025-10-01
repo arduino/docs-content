@@ -1,6 +1,6 @@
 ---
-title: 'Getting Started with WisGate Edge Gateway'
-description: 'Tutorial for setting up the WisGate Edge Lo-Ra Gateway'
+title: 'Getting Started with WisGate Edge Gateway Devices'
+description: 'Tutorial for setting up the WisGate Edge gateway device variants'
 difficulty: beginner
 tags: [Getting Started, Setup]
 author: 'Pablo Marquínez'
@@ -9,7 +9,7 @@ hardware:
   - hardware/05.pro-solutions/solutions-and-kits/wisgate-edge-pro
 ---
 
-## Introduction 
+## Introduction
 
 This tutorial will show you how to get started with your **WisGate Edge** gateway and how it can be utilized by itself. It will showcase the connection to **The Things Network<sup>TM</sup>**. We will go through the local and online setup.
 
@@ -27,12 +27,13 @@ The goals of this article are:
 ## Hardware & Software Needed
 
 - [WisGate Edge Pro or WisGate Edge Lite 2](https://store.arduino.cc/pages/wisgate-lora-gateways)
-- x2 Ethernet Cable
+- Ethernet Cable (x2)
 
 ## What's Included in the Box
 
 The package includes:
-* LoRa® Gateway
+
+* WisGate Edge Gateway (supports LoRa® technology)
 * PoE Injector (with its power cable, IEC)
 * Pole mounting mechanical pieces
 
@@ -45,11 +46,11 @@ You can supply it through the Solar Panel cable (12V cable) or with an ethernet 
 
 In case of the PoE, you can use the PoE Injector included with the kit by connecting your LAN to the `LAN` port and the `PoE` port to the Gateway.
 
-
 ### Connect to the WisGate Dashboard
 
 There are different ways to access the WisGate:
-* Connecting to its Wi-Fi Access Point (dashboard IP: `192.168.230.1`)
+
+* Connecting to its Wi-Fi® Access Point (dashboard IP: `192.168.230.1`)
 * Ethernet cable from your Computer to the Gateway (dashboard IP: `192.168.230.1`)
 * Connecting your Gateway to your LAN, getting its DHCP IP (You will need to discover the device's IP)
 
@@ -84,11 +85,12 @@ Fill the required forms.
 ![TTN Gateway creation](assets/ttn-add-gateway.png)
 
 Fill the information:
+
 * Gateway ID: unique ID for your gateway inside the things network platform.
 * Gateway EUI: The EUI of your WisGate Gateway (Get it on the overview page on the WisGate dashboard)
 * Gateway name: Name of the Gateway on your TTN's profile
-* Gateway Server Address: the Address of the LoRa® network (format: `wss://<cloudServer>`)
-* LoRaWAN® options, Frequency plan: select the recommended plan or the one that fits your project
+* Gateway Server Address: the Address of the LoRa®-based network (format: `wss://<cloudServer>`)
+* LoRa® network options, Frequency plan: select the recommended plan or the one that fits your project
 
 Click the "Create gateway" button at the end of the page.
 
@@ -142,4 +144,8 @@ Set up the gateway to be a Network Server and MQTT client to connect directly to
 
 ## Conclusion
 
-In this tutorial you learned how to setup the LoRa® Gateway.
+In this tutorial you learned how to setup the LoRa® technology-based Gateway.
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

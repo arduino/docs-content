@@ -168,7 +168,7 @@ void runCurl() {
 
   p.begin("curl");  // Process that launch the "curl" command
 
-  p.addParameter("http://www.arduino.cc/asciilogo.txt"); // Add the URL parameter to "curl"
+  p.addParameter("http://arduino.tips/asciilogo.txt"); // Add the URL parameter to "curl"
 
   p.run();      // Run the process and wait for its termination
 

@@ -5,8 +5,6 @@ source: "https://arduino.cc/en/Main/ArduinoBoardSerialSingleSided"
 
 ## Single Sided Board
 
-***Note that the files mentioned on this page might no longer be available.***
-
 For those that are in a hurry to produce a board or that don't have an easy access to the postal system (the way how we distribute the boards), it is possible to etch the circuit yourself using the following design.
 
 We have made it fully pin-compatible with the existing boards, this will allow to use the very same shields as the rest of the Arduino family.

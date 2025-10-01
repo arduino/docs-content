@@ -3,6 +3,7 @@ Shield:
   SKU: TSX00004
   Compatibility: MKR
 Communication: SPI
+Chip Select Pin (SPI): Flash on D3, MicroSD on D4
 Storage: Micro SD card slot
 Prototyping Area: Yes
 Operating Voltage: 3.3V

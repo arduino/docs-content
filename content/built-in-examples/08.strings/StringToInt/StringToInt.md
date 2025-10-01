@@ -16,7 +16,7 @@ In this example, the board reads a serial input string until it sees a newline, 
 
 ### Hardware Required:
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 ### Circuit
 

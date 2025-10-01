@@ -1,5 +1,5 @@
 ---
-title: Cloud IoT Arduino
+title: Arduino Cloud
 ---
 
-Configure, program and connect your devices - all through the Arduino IoT Cloud service.
+Configure, program and connect your devices - all through the Arduino Cloud platform.

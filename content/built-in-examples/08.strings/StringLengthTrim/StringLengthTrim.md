@@ -13,7 +13,7 @@ You can get the length of a [Strings](https://www.arduino.cc/en/Reference/String
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 ### Circuit
 

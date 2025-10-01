@@ -9,7 +9,7 @@ tags:
 author: 'Sandeep Mistry and Dominic Pajak'
 libraries: 
   - name: Arduino_TensorFlowLite
-    url: https://www.arduino.cc/reference/en/libraries/arduino_tensorflowlite/
+    url: https://github.com/tensorflow/tflite-micro-arduino-examples
   - name: Arduino_LSM9DS1
     url: https://www.arduino.cc/en/Reference/ArduinoLSM9DS1
 hardware:
@@ -20,6 +20,9 @@ software:
   - Google Colab
 ---
 ***This post was originally published by Sandeep Mistry and Dominic Pajak on the [TensorFlow blog](https://medium.com/tensorflow/how-to-get-started-with-machine-learning-on-arduino-7daf95b4157).*** 
+
+***Important notice! The [TensorFlow Lite Micro Library](https://github.com/tensorflow/tflite-micro-arduino-examples) is no longer available in the Arduino Library Manager. This library will need to be manually downloaded, and included in your IDE.***
+
 ## Introduction
 
 [Arduino](https://www.arduino.cc/) is on a mission to make machine learning simple enough for anyone to use. We’ve been working with the TensorFlow Lite team over the past few months and are excited to show you what we’ve been up to together: bringing TensorFlow Lite Micro to the [Arduino Nano 33 BLE Sense](https://store.arduino.cc/arduino-nano-33-ble-sense). In this article, we’ll show you how to install and run several new [TensorFlow Lite Micro](https://www.tensorflow.org/lite/microcontrollers/overview) examples that are now available in the [Arduino Library Manager](https://www.arduino.cc/en/guide/libraries).
@@ -42,12 +45,12 @@ We’re excited to share some of the first examples and tutorials, and to see wh
 
 ## Goals 
 - Learn the fundamentals of TinyML implementation and training.
-- Use the [Arduino_LSM9DS1](https://www.arduino.cc/en/Reference/ArduinoLSM9DS1) and [Arduino_TensorFlowLite](https://www.arduino.cc/reference/en/libraries/arduino_tensorflowlite/) libraries
+- Use the [Arduino_LSM9DS1](https://www.arduino.cc/en/Reference/ArduinoLSM9DS1) and [Arduino_TensorFlowLite](https://github.com/tensorflow/tflite-micro-arduino-examples) libraries
 
 ## Hardware & Software Needed
-- An [Arduino Nano 33 BLE Sense](https://store.arduino.cc/nano-33-ble-sense) board
+- An [Arduino Nano 33 BLE Sense](/hardware/nano-33-ble-sense) board
 - A Micro USB cable to connect the Arduino board to your desktop machine
-- To program your board, you can use the [Arduino Web Editor](https://www.arduino.cc/en/main/software) or install the [Arduino IDE](https://www.arduino.cc/en/main/software). We’ll give you more details on how to set these up in the following sections
+- To program your board, you can use the [Arduino Cloud Editor](https://www.arduino.cc/en/main/software) or install the [Arduino IDE](https://www.arduino.cc/en/main/software). We’ll give you more details on how to set these up in the following sections
 - [TensorFlow Lite Micro Library](https://github.com/tensorflow/tflite-micro-arduino-examples) (download only available via GitHub).
 
 The Arduino Nano 33 BLE Sense has a variety of onboard sensors meaning potential for some cool TinyML applications:
@@ -64,7 +67,7 @@ Unlike classic Arduino Uno, the board combines a microcontroller with onboard se
 ## Microcontrollers and TinyML
 Microcontrollers, such as those used on Arduino boards, are low-cost, single chip, self-contained computer systems. They’re the invisible computers embedded inside billions of everyday gadgets like wearables, drones, 3D printers, toys, rice cookers, smart plugs, e-scooters, washing machines. The trend to connect these devices is part of what is referred to as the Internet of Things.
 
-Arduino is an open-source platform and community focused on making microcontroller application development accessible to [everyone](https://create.arduino.cc/projecthub). The [board](https://store.arduino.cc/usa/nano-33-ble-sense) we’re using here has an Arm Cortex-M4 microcontroller running at 64 MHz with 1 MB Flash memory and 256 KB of RAM. This is tiny in comparison to cloud, PC, or mobile but reasonable by microcontroller standards.
+Arduino is an open-source platform and community focused on making microcontroller application development accessible to [everyone](https://create.arduino.cc/projecthub). The [board](https://store.arduino.cc/usa/nano-33-ble-sense) we’re using here has an Arm Cortex-M4 microcontroller running at 64 MHz with 1 MB Flash memory and 256 KB of RAM. This is tiny in comparison to Cloud, PC, or mobile but reasonable by microcontroller standards.
 
 ![Arduino Nano 33 BLE Sense board is smaller than a stick of gum.](assets/nanosenseble.png)
 
@@ -92,8 +95,8 @@ The inference examples for TensorFlow Lite for Microcontrollers are now packaged
 
 For more background on the examples you can take a look at the source in the [TensorFlow repository](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/micro). The models in these examples were previously trained. The tutorials below show you how to deploy and run them on an Arduino. In the next section, we’ll discuss training.
 
-## How to Run the Examples Using Arduino Create Web Editor. 
-Once you connect your Arduino Nano 33 BLE Sense to your desktop machine with a USB cable you will be able to compile and run the following TensorFlow examples on the board by using the [Arduino Create](https://create.arduino.cc/editor) web editor:
+## How to Run the Examples Using Arduino Create Cloud Editor. 
+Once you connect your Arduino Nano 33 BLE Sense to your desktop machine with a USB cable you will be able to compile and run the following TensorFlow examples on the board by using the [Arduino Create](https://create.arduino.cc/editor) Cloud Editor:
 
 ![Compiling an example from the Arduino_TensorFlowLite library.](assets/create-lib.gif)
 
@@ -104,7 +107,7 @@ Note the board can be battery powered as well. As the Arduino can be connected t
 
 ![Running the micro_speech example.](assets/micro.gif)
 
-## How To Tun The Examples Using the Arduino IDE
+## How To Run The Examples Using the Arduino IDE
 
 Alternatively you can use try the same inference examples using Arduino IDE application.
 

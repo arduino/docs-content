@@ -2059,7 +2059,7 @@ void printWiFiStatus() {
 
 ### Wifi101 Wi-Fi Web Client Repeating
 
-This example shows you how to make repeated HTTP requests using a WiFi Shield 101 or a MKR1000 board.  It connects to  [http://www.arduino.cc/latest.txt](/latest.txt). The content of the page is viewable through your Arduino Software (IDE) Serial Monitor window.
+This example shows you how to make repeated HTTP requests using a WiFi Shield 101 or a MKR1000 board.  It connects to  [http://example.org](http://example.org). The content of the page is viewable through your Arduino Software (IDE) Serial Monitor window.
 
 This example is written for a network using WPA encryption. For  WEP or WPA, change the Wifi.begin() call accordingly.
 

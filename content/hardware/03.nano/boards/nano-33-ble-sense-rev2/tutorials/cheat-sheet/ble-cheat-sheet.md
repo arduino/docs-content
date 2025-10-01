@@ -1,6 +1,6 @@
 ---
-title: 'Nano 33 BLE Sense Rev2 Cheat Sheet'
-description: 'Learn how to set up the Nano 33 BLE Sense Rev2, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART) and Wireless (Wi-Fi, Bluetooth®) protocols.'
+title: 'Nano 33 BLE Sense Rev2 User Manual'
+description: 'Learn how to set up the Nano 33 BLE Sense Rev2, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART) and Wireless (Wi-Fi®, Bluetooth®) protocols.'
 tags:
   - Installation
   - I2C
@@ -13,7 +13,7 @@ libraries:
   - name:  Arduino BMI270_BMM150
     url: https://www.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/
   - name: Arduino HS300x
-    url: https://www.arduino.cc/en/Reference/ArduinoHS300x
+    url: https://reference.arduino.cc/reference/en/libraries/arduino_hs300x/
   - name: Arduino APDS9960
     url: https://www.arduino.cc/en/Reference/ArduinoAPDS9960
   - name: Arduino SPI
@@ -37,9 +37,9 @@ This article is a collection of guides, API calls, libraries and tutorials that 
 
 You can also visit the [documentation platform for the Nano 33 BLE Sense Rev2](/hardware/nano-33-ble-sense-rev2).
 
-## Core
+## Board Package
 
-The Nano 33 BLE Sense Rev2 uses the [Arduino Mbed OS Nano Boards core](https://github.com/arduino/ArduinoCore-mbed).
+The Nano 33 BLE Sense Rev2 uses the [Arduino Mbed OS Nano Board Package](https://github.com/arduino/ArduinoCore-mbed).
 
 ## Datasheet
 
@@ -53,19 +53,24 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 The Nano 33 BLE Sense Rev2 can be programmed through the **Classic Arduino IDE 1.8.X**. To install your board, you can check out the guide below:
 
-- [Installing the Arduino Mbed OS Nano Boards core](/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nano)
+- [Installing the Arduino Mbed OS Nano Board Package](/software/ide-v2/tutorials/ide-v2-board-manager)
 
-### Arduino IDE 2.0.X 
+### Arduino IDE 2 
 
-The Nano 33 BLE Sense Rev2 can be programmed through the **Arduino IDE 2.0.X**. To install your board, you can check out the guide below:
+The Nano 33 BLE Sense Rev2 can be programmed through the **Arduino IDE 2**. To install your board, you can check out the guide below:
 
-- [How to use the board manager with the Arduino IDE 2.0](/software/ide-v2/tutorials/ide-v2-board-manager)
+- [How to use the board manager with the Arduino IDE 2](/software/ide-v2/tutorials/ide-v2-board-manager)
 
-### Web Editor
+### Cloud Editor
 
-The Nano 33 BLE Sense Rev2 can be programmed through the **Web Editor**. To get started with your board, you will only need to install a plugin, which is explained in the guide below:
+The Nano 33 BLE Sense Rev2 can be programmed through the **Cloud Editor**. To get started with your board, you will only need to install a plugin, which is explained in the guide below:
 
-- [Getting started with the Web Editor](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)
+- [Getting started with the Cloud Editor](/learn/starting-guide/the-arduino-web-editor/)
+
+
+## MicroPython
+
+This board is supported by MicroPython. Visit the [MicroPython documentation](/micropython) for getting started with installation and usage.
 
 ## Using OpenMV IDE
 
@@ -73,9 +78,6 @@ If you want to use your board with MicroPython and OpenMV. Follow the tutorial b
 
 - [Getting started with OpenMV with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense/getting-started-omv)
 
-If you want an overlook of the functions and features that MicroPython provides, take a look at the tutorial below.
-
-- [MicroPython functions and syntax guide](/tutorials/nano-33-ble-sense/ble-sense-python-api)
 
 ### Forcing Bootloader
 
@@ -206,9 +208,9 @@ The magnetometer data can be accessed through the following commands:
 
 If you want to learn more on how to use the IMU, please check out the tutorial below:
 
-- [Accessing IMU gyroscope data with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/imu_gyroscope)
-- [Accessing IMU accelerometer data with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/imu_accelerometer)
-- [Accessing IMU magnetometer data with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/imu_magnetometer)
+- [Accessing IMU gyroscope data with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/imu-gyroscope)
+- [Accessing IMU accelerometer data with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/imu-accelerometer)
+- [Accessing IMU magnetometer data with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/imu-magnetometer)
 
 ## Proximity and Gesture Detection
 
@@ -261,7 +263,7 @@ The **HS3003** capacitive digital sensor measures relative humidity and temperat
 
 ### HS3003 Library
 
-To access the data from the HS3003 module, we need to install the [HS3003](https://github.com/arduino-libraries/Arduino_HS3003) library, which comes with examples that can be used directly with the Nano 33 BLE Sense Rev2.
+To access the data from the HS3003 module, we need to install the [Arduino_HS300x](https://github.com/arduino-libraries/Arduino_HS300x) library, which comes with examples that can be used directly with the Nano 33 BLE Sense Rev2.
 
 It can be installed directly from the library manager through the IDE of your choice. To use it, we need to include it at the top of the sketch:
 
@@ -288,7 +290,7 @@ Serial.println(HS300x.readHumidity());
 
 If you want to learn more on how to use the temperature and humidity sensor, please check out the tutorial below:
 
-- [Reading Temperature & Humidity on Nano 33 BLE Sense Rev2](https://docs.arduino.cc/tutorials/nano-33-ble-sense-rev2/humidity_and_temperature_sensor)
+- [Reading Temperature & Humidity on Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/humidity-and-temperature-sensor)
 
 ## Pressure Sensor
 
@@ -326,7 +328,7 @@ BARO.readPressure();
 
 If you want to learn more on how to use the temperature and humidity sensor, please check out the tutorial below:
 
-- [Access Barometric Pressure Sensor Data on Nano 33 BLE Sense Rev2](https://docs.arduino.cc/tutorials/nano-33-ble-sense-rev2/barometric_sensor)
+- [Access Barometric Pressure Sensor Data on Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/barometric-sensor)
 
 ## Microphone
 
@@ -338,7 +340,7 @@ The **MP34DT06JTR** is a compact, low-power omnidirectional digital MEMS microph
 
 ### PDM Library
 
-To access the data from the MP34DT06JTR, we need to use the [PDM](https://www.arduino.cc/en/Reference/PDM) library that is included in the **Arduino Mbed OS Nano Boards** core. If the core is installed, you will find an example that works by browsing **File > Examples > PDM > PDMSerialPlotter**. 
+To access the data from the MP34DT06JTR, we need to use the [PDM](https://www.arduino.cc/en/Reference/PDM) library that is included in the **Arduino Mbed OS Nano Board package**. If the Board Package is installed, you will find an example that works by browsing **File > Examples > PDM > PDMSerialPlotter**. 
 
 ***Please note: The sampling frequency in the PDMSerialPlotter example is set to 16000 Hz. If the microphone appears to not be working (monitor is printing a value of -128), try to change this rate to 20000 Hz. You can change this at the top of the PDMSerialPlotter example sketch.***
 
@@ -520,7 +522,7 @@ BLEDevice central = BLE.central();
 
 ## USB Keyboard
 
-To use the board as a keyboard, you can refer to the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library that can be found inside the core.
+To use the board as a keyboard, you can refer to the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library that can be found inside the Board Package.
 
 You first need to include the libraries and create an object:
 

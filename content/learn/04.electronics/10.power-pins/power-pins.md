@@ -99,7 +99,7 @@ The voltage line from the barrel jack connector is regulated in Arduino boards u
 -  [Arduino MKR WiFi 1010](https://store.arduino.cc/collections/boards/products/arduino-mkr-wifi-1010)
 -  [Arduino MKR ZERO](https://store.arduino.cc/collections/boards/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)
 -  [Arduino MKR WAN 1310](https://store.arduino.cc/collections/boards/products/arduino-mkr-wan-1310)
--  [Arduino MKR GSM 1400](https://store.arduino.cc/collections/boards/products/arduino-mkr-gsm-1400)
+-  [Arduino MKR GSM 1400](/hardware/mkr-gsm-1400)
 
 
 ***Pro family boards use a 3-pin, 1.2mm SMD ACH battery connector; MKR family boards use a 2-pin, 2mm SMD PH battery connector.***
@@ -242,5 +242,5 @@ This option is recommended when a regulated power supply without a barrel jack c
 If you want to learn more about power supplies, check out the following links: 
 
 
-- Power supplies are one of the most popular and most needed electronic testing equipment. Check out more about them in [this](https://www.bkprecision.com/support/downloads/power-supply-guide.html) guide from BK Precision®.
+- Power supplies are one of the most popular and most needed electronic testing equipment. Check out more about them in [this](https://l.bkprecision.com/support/downloads/power-supply-guide.html) guide from BK Precision®.
 - LiPo batteries are everywhere. Check out [this](https://rogershobbycenter.com/lipoguide) guide from Roger's Hobby Center to learn more about LiPo batteries. 

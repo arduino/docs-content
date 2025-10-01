@@ -12,8 +12,9 @@ perpendicular axes. It also provides the sensor fusion signals such as **quatern
 <Feature title="IMU" image="imu">
 
 The 9-axis orientation sensor from Bosch consists of three sensors: gyroscope, accelerometer and geomagnetic sensor.
-
+<FeatureWrapper>
   <FeatureLink variant="secondary" title="Library" url="https://github.com/adafruit/Adafruit_BNO055"/>
+</FeatureWrapper>
 
 </Feature>
 

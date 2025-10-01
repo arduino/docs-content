@@ -3,7 +3,7 @@ title: "Arduino Industrial 101"
 description: "The Industrial 101 is a small form-factor YUN designed for product integration."
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoIndustrial101"
 coverImage: "assets/A000126_ArduinoIndustrial101_featured_2.jpg"
-sku: "A000126"
+sku: [A000126]
 source: "https://store.arduino.cc/arduino-industrial-101"
 ---
 
@@ -29,7 +29,7 @@ You can find in the [Getting Started section](https://www.arduino.cc/en/Guide/Ho
 
 The Arduino Industrial 101 is open-source hardware! You can build your own board using the following files:
 
-[DSN FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/INDUSTRIAL101-V022-20151105.DSN.zip) 
+[DSN FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/INDUSTRIAL101-V022-20151105.DSN.zip)
 
 [SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/industrial-101-V022-20151105_SCH-1.pdf)
 
@@ -78,11 +78,11 @@ Digital pins 0 and 1 , not reported on final layout , are used for serial commun
 
 Arduino Ciao is an easy-to-use and powerful technology that enables Arduino sketches to communicate intuitively with the "outside World". It aims to simplify interaction between microcontroller and Linino OS, allowing a variety of connections with most common protocols, third-party services and social networks.
 
-Ciao has been designed and developed to be modular and easily configurable. Its goal is to support several connectors capable of interacting with the system resources (filesystem, console, memory) and to communicate with the most common and useful protocols (XMPP, HTTP, WebSocket, COAP, etc..) and applications (Jabber, WeChat, Twitter, Facebook, etc.). Ciao Library is a lightweight library that can be used inside sketches for MCU to send and receive data, via serial communication, in a simple and intuitive way. The SoftwareSerial library allows to use digital pins to transmit and receive data. The library relies on change interrupt pins to receive data, therefore only the pins that support that can be used as RX pins. On the Industrial 101 this type of pins are available on the ICSP connector and are mapped as follows:   
+Ciao has been designed and developed to be modular and easily configurable. Its goal is to support several connectors capable of interacting with the system resources (filesystem, console, memory) and to communicate with the most common and useful protocols (XMPP, HTTP, WebSocket, COAP, etc..) and applications (Jabber, WeChat, Twitter, Facebook, etc.). Ciao Library is a lightweight library that can be used inside sketches for MCU to send and receive data, via serial communication, in a simple and intuitive way. The SoftwareSerial library allows to use digital pins to transmit and receive data. The library relies on change interrupt pins to receive data, therefore only the pins that support that can be used as RX pins. On the Industrial 101 this type of pins are available on the ICSP connector and are mapped as follows:
 
-SCK = 15  
-MOSI = 16  
-MISO = 14   
+SCK = 15
+MOSI = 16
+MISO = 14
 
 You can create up to 3 SoftwareSerial ports using the pins 13, 5 and 6 for TX and 14, 15 and 16 for RX. .
 
@@ -118,7 +118,7 @@ The maximum length and width of the Industrial 101 PCB are 2.0 and 1.7 inches re
 
 ## Tech Specs
 
-**Arduino Microprocessor** 
+**Arduino Microprocessor**
 
 |                  |                                           |
 | ---------------- | ----------------------------------------- |

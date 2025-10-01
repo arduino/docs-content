@@ -2,7 +2,7 @@
 title: 'Setting up the Arduino Zero Built-in Debugger Interface'
 author: 'Karl Söderby'
 compatible-products: [zero]
-description: 'Learn how to set up the Arduino Zero built-in debugger interface, which can be used directly with the IDE 2.0, without any extra hardware.'
+description: 'Learn how to set up the Arduino Zero built-in debugger interface, which can be used directly with the IDE 2, without any extra hardware.'
 tags:
  - Debugging
  - Configuration
@@ -12,7 +12,7 @@ For this this tutorial we will be using the Arduino Zero's built-in debugger int
 
 ## Requirements
 
-- Arduino IDE 2.0 installed. 
+- Arduino IDE 2 installed. 
 - [Arduino Zero](https://store.arduino.cc/arduino-zero)
 - Micro USB cable.
 
@@ -22,7 +22,9 @@ For this this tutorial we will be using the Arduino Zero's built-in debugger int
 
 ***Important: You should connect the Arduino Zero through its programming USB port.***
 
-**2.** Select the board from the board/port list. When we select the Arduino Zero, the debugger icon close to the upload button will also become more visible.
+**2.** Select the board from the board/port list.
+
+**3.** Select **Tools > Programmer > Atmel EDBG**. The debugger icon close to the upload button will now become more visible.
 
 ![Debugger icon available if board is supported.](assets/icon-available.png)
 
@@ -30,9 +32,9 @@ For this this tutorial we will be using the Arduino Zero's built-in debugger int
 
 ![Enable "Optimize for Debugging" option.](assets/optimize-debugger.png)
 
-**4.** Your Arduino Zero is now ready to be debugged using the Arduino IDE 2.0.
+**4.** Your Arduino Zero is now ready to be debugged using the Arduino IDE 2.
 
-To learn more about using the Debugger, you can continue on to the [main article on Debugging with IDE 2.0](/software/ide-v2/tutorials/ide-v2-debugger). This article goes more in-depth on how to use the different Debugger features, and provides a good overview of the tool.  
+To learn more about using the Debugger, you can continue on to the [main article on Debugging with IDE 2](/software/ide-v2/tutorials/ide-v2-debugger). This article goes more in-depth on how to use the different Debugger features, and provides a good overview of the tool.  
 
 ## Conclusion
 

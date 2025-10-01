@@ -3,20 +3,20 @@ title: "Arduino GSM Shield 2 (Integrated Antenna)"
 description: "Did you miss this board? No worries! The NEW Arduino MKR GSM 1400, more capable and richer of functions, is the perfect solution for you!"
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoGSMShieldV2"
 coverImage: "assets/A000105_featured_2.jpg"
-sku: "A000105"
+sku: [A000105]
 source: "https://store.arduino.cc/arduino-gsm-shield-2-integrated-antenna"
 ---
 
 ![The Arduino GSM Shield 2 with integrated antenna](./assets/A000105_featured_2.jpg)
 
-The **Arduino GSM Shield 2** allows an Arduino board to connect to the internet, make/receive voice calls and send/receive SMS messages. The shield uses a radio modem [M10 by Quectel](https://www.arduino.cc/en/uploads/Main/Quectel_M10_datasheet.pdf). It is possible to communicate with the board using [AT commands](https://www.arduino.cc/en/uploads/Main/Quectel_M10_AT_commands.pdf"). The [GSM library](https://www.arduino.cc/en/Reference/GSM) has a large number of methods for communication with the shield.
+The **Arduino GSM Shield 2** allows an Arduino board to connect to the internet, make/receive voice calls and send/receive SMS messages. The shield uses a radio modem [M10 by Quectel](https://www.arduino.cc/en/uploads/Main/Quectel_M10_datasheet.pdf). It is possible to communicate with the board using [AT commands](https://www.arduino.cc/en/uploads/Main/Quectel_M10_AT_commands.pdf). The [GSM library](https://www.arduino.cc/en/Reference/GSM) has a large number of methods for communication with the shield.
 
 The shield uses digital pins 2 and 3 for software serial communication with the M10\. Pin 2 is connected to the M10’s TX pin and pin 3 to its RX pin. [See these notes](https://docs.arduino.cc/retired/getting-started-guides/ArduinoGSMShield) for working with an Arduino Mega, Mega ADK, or Leonardo. The modem's PWRKEY pin is connected to Arduino pin 7.
 
 The M10 is a Quad-band GSM/GPRS modem that works at frequencies GSM850MHz, GSM900MHz, DCS1800MHz and PCS1900MHz. It supports TCP/UDP and HTTP protocols through a GPRS connection. GPRS data downlink and uplink transfer speed maximum is 85.6 kbps.
 
-To interface with the cellular network, the board requires a SIM card provided by a network operator. See the [getting started page](https://docs.arduino.cc/retired/getting-started-guides/ArduinoGSMShield#toc4) for additional information on SIM usage.  
-  
+To interface with the cellular network, the board requires a SIM card provided by a network operator. See the [getting started page](https://docs.arduino.cc/retired/getting-started-guides/ArduinoGSMShield#toc4) for additional information on SIM usage.
+
 The most recent revision of the board uses the 1.0 pinout on rev 3 of the Arduino Uno board.
 
 ![](assets/GSMPinUse_3.jpg)
@@ -44,7 +44,7 @@ In the [Getting Started section](https://www.arduino.cc/en/Guide/ArduinoGSMShiel
 
 Arduino GSM Shield 2 is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-gsm-shield-06-reference-design.zip) 
+[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-gsm-shield-06-reference-design.zip)
 
 [SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/Arduino-GSM-Shield2-Rev3.2-SCH.pdf)
 
@@ -66,7 +66,7 @@ The shield contains a number of status LEDs:
 
 ### On board interfaces
 
-The shield comes with a on-board audio jack as well, and it can be used for both microphone and line inputs. It is also possible to make voice calls. You don’t need to add a speaker and microphone.  
+The shield comes with a on-board audio jack as well, and it can be used for both microphone and line inputs. It is also possible to make voice calls. You don’t need to add a speaker and microphone.
 
 There are two small buttons on the shield. The button labeled "Reset" is tied to the Arduino reset pin. When pressed, it will restart the sketch. The button labeled "Power" is connected to the modem and will power the modem on and off. For early versions of the shield, it was necessary to press the power button to turn on the modem. Newer versions of the board will turn the modem on automatically.
 
@@ -80,4 +80,4 @@ Several of the modem pins are exposed on the underside of the board. These provi
 
 ## Previous Versions
 
-Do you own a past an old version of this product? Check [Arduino GSM Shield V1](https://www.arduino.cc/en/Main.ArduinoGSMShieldV1) product page.
+Do you own a past an old version of this product? Check [Arduino GSM Shield V1](/retired/shields/arduino-gsm-shield) product page.

@@ -19,7 +19,7 @@ noise and vibration detection, low-power speech recognition, contactless operati
 
 - **ANNA-B112** Bluetooth®  Module with integrated microprocessor
   - **nRF52832** System-on-chip
-    - 64 MHz ARM® Cortex-M4F microcontroller 
+    - 64 MHz Arm® Cortex®-M4F microcontroller 
     - 64 KB SRAM
     - 512 KB Flash
     - RAM mapped FIFOs using EasyDMA
@@ -39,9 +39,9 @@ noise and vibration detection, low-power speech recognition, contactless operati
   - Dedicated 48KB SRAM
 - **Sensors**
   - IMU 6-axis (BMI270)
-    - 16 bit 3-axis accelerometer ± 2/4/8/16 g range
+    - 16-bit 3-axis accelerometer ± 2/4/8/16 g range
       - Output data rates (ODR): 0.78Hz-1.6 kHz
-    - 16 bit 3-axis gyroscope ±125/250/500/1000/2000 dps range
+    - 16-bit 3-axis gyroscope ±125/250/500/1000/2000 dps range
       - Output data rates (ODR): 25Hz-6.4 kHz
     - Fast offset error compensation for accelerometer and gyroscope
     - Rapid startup time:
@@ -66,7 +66,7 @@ noise and vibration detection, low-power speech recognition, contactless operati
     - <1% total harmonic distortions up to 128 dBSPL
     - Sensitivity (± 1dB) and phase (± 2° @1kHz) matched
     - Flat frequency response with low-frequency roll-off at 28Hz
-    - Power optimized modes determined by PDM clock frequency
+    - Power-optimized modes determined by PDM clock frequency
     - PDM output
     - Omnidirectional pickup pattern
 - **I/O**
@@ -170,7 +170,7 @@ The measurements have been performed with VBAT = 3.7 V. Alexa demo corresponds t
 | -------- | -------------------------------- | -------- | ------------------------------------------ |
 | DL1      | RGB LED                          | MD1      | u-blox ANNA-B112                           |
 | PB1      | Push Button                      | D1       | Schottky Diode, PMEG4005EPK                |
-| D2       | Resistor array PRTR5V0U0F        | U1       | Arm® Cortex M0 ATSAM-D11                   |
+| D2       | Resistor array PRTR5V0U0F        | U1       | Arm® Cortex®-M0 ATSAM-D11                   |
 | U2       | Microphone IM69D130V01           | U3       | Syntiant® Neural Decision Processor NDP120 |
 | U4       | Magnetic Sensor BMM150           | U5       | LDO TPS7A0511PDQNR                         |
 | U7       | Flash, 128MX1. AT25QL128A        | U8       | RGB LED Driver IS31FL3194                  |
@@ -184,7 +184,7 @@ The measurements have been performed with VBAT = 3.7 V. Alexa demo corresponds t
 ![Nicla Voice Front View](assets/front.svg)
 
 ### Microcontroller
-The Arduino® Nicla Voice is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an ARM® Cortex-M4 microcontroller with floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as the SPI host for the data logging 16MB flash (U7). While the module itself runs at 1.8 V, a level shifter can adjust the logic level between 1.8 V and 3.3 V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal. The ANNA-B112 acts as the SPI host for the data logging 16MB flash (U7) and the Syntiant® NDP120 IC (U3).
+The Arduino® Nicla Voice is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an Arm® Cortex®-M4 microcontroller with floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as the SPI host for the data logging 16MB flash (U7). While the module itself runs at 1.8 V, a level shifter can adjust the logic level between 1.8 V and 3.3 V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal. The ANNA-B112 acts as the SPI host for the data logging 16MB flash (U7) and the Syntiant® NDP120 IC (U3).
 
 ### Neural Decision Processor
 The Arduino® Nicla Voice integrates a Neural Decision Processor™ NDP120 from Syntiant® (U3). The NDP120 leverages Syntiant Core 2™ ultra-low-power deep neural network inference engine to move larger neural networks into always-on domains with the capacity to run multiple applications simultaneously with minimal power consumption, including keyword spotting and event detection. The Syntiant® NDP120 IC (U3) also acts as the SPI host for the BMM150 3-axis magnetometer (U4) and the BMI270 6-axis IMU (U15).
@@ -214,16 +214,32 @@ Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7 
 ### Getting Started - IDE
 If you want to program your Arduino® Nicla Voice while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Arduino® Nicla Voice to your computer, you’ll need a micro USB cable.
 
-### Getting Started - Arduino Web Editor
-All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin. 
+### Getting Started - Arduino Cloud Editor
+All Arduino® boards, including this one, work out-of-the-box on the Arduino® Cloud Editor **[2]**, by just installing a simple plugin. 
 
-The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino® Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 All Arduino® IoT enabled products are supported on Arduino® Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Getting Started - ESLOV
-This board can act as a secondary to a ESLOV controller and have the firmware updated through this method.
+
+The Nicla Voice board features an onboard ESLOV connector meant as an **extension** of the I2C communication bus; the board itself can act as a secondary ESLOV controller or peripheral. The ESLOV connector simplifies connecting various sensors, actuators, and other modules to the Nicla Voice without soldering or wiring.
+
+ The ESLOV connector is a small 5-pin connector with a 1.00 mm pitch; the mechanical details of the connector can be found in the connector's datasheet.
+
+The pin layout of the Nicla Voice ESLOV connector is the following:
+
+1. VCC_IN (5V input)
+2. INT
+3. SCL
+4. SDA
+5. GND
+
+The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
+
+**Note**: Pin 1 of the ESLOV connector of the Nicla Voice board is a **5V voltage input**, not a voltage output. This means that the Nicla Voice is intended to be used as a secondary or a peripheral board of a main board or controller with an ESLOV connector with a 5V output like, for example, the Portenta H7.
+
 ### Sample Sketches
 Sample sketches for the Arduino® Nicla Voice can be found either in the “Examples” menu in the Arduino® IDE or in the “Documentation” section of the Arduino® Pro website **[4]**.
 
@@ -331,7 +347,17 @@ Between the main pins, there are smaller contacts (fins) that provide access to 
 
 ![Nicla Voice connectors - mechanical measures](assets/mechanical_connectors.svg)
 
+<div style="page-break-after: always;"> </div>
+
 ## Certifications
+
+### Product Labeling
+
+The product labeling of the Arduino Nicla Voice is shown in the image below.
+
+![Nicla Voice Product Labeling](assets/niclaVoice-leaflet.png)
+
+
 ### Declaration of Conformity CE DoC (EU)
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
@@ -401,9 +427,9 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
-| Frequency bands     | Typical Output Power |
-| ------------------- | -------------------- |
-| 2.4GHz, 40 channels | +4dBm                |
+| Frequency bands      | Typical Output Power |
+| -------------------- | -------------------- |
+| 2.4 GHz, 40 channels | -1.14 dBm            |
 
 ## Company Information
 
@@ -424,9 +450,13 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date (DD/MM/YY)**   | **Revision** | **Changes**   |
-| --------------------- | ------------ | ------------- |
-| 05-01-2023            | 01           | First release |
+| **Date**   | **Revision** | **Changes**                          |
+|------------|--------------|--------------------------------------|
+| 03/09/2024 | 5            | Cloud Editor updated from Web Editor |
+| 11/06/2024 | 4            | Product Labeling section added       |
+| 04/06/2024 | 3            | Typical Output Power updated         |
+| 17/05/2023 | 2            | ESLOV Information updated            |
+| 05/01/2023 | 1            | First release                        |
 
 ## Product Warnings and Disclaimers
 

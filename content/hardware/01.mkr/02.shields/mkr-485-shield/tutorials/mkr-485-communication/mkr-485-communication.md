@@ -68,14 +68,48 @@ You can read more about the RS485 standard in the links below:
 - <a href="https://www.bb-elec.com/Learning-Center/All-White-Papers/Serial/Basics-of-the-RS-485-Standard.aspx" target="_blank">Basics of the RS-485 standard</a>
 - <a href="https://www.virtual-serial-port.org/articles/modbus-vs-rs485/" target="_blank">Modbus vs RS485</a>
 
+### Differential Signal
 
-### Circuit
+RS485 doesn’t send data as a single voltage level like standard serial communication. Instead, it uses a differential signal: the information is carried by the voltage difference between the two wires, called A and B. This makes RS485 much more resistant to electrical noise, since any interference usually affects both wires equally and cancels out in the subtraction.
+
+The receiver simply looks at the difference: if Voltage(A) – Voltage(B) is above a certain threshold, it reads a logic “1”. If the difference is below the threshold (meaning B is higher than A), it reads a logic “0”. For example, if A = 3.2 V and B = 1.0 V, then A – B = 2.2 V → logic “1”. If A = 1.0 V and B = 3.2 V, then A – B = –2.2 V → logic “0”.
+
+In this way, the actual voltage values don’t matter as much — only the difference between the two lines is important. That’s why RS485 works reliably even over long cables and in electrically noisy environments.
+
+### Termination
+
+In an RS485 network, the wires carrying the signals act a bit like a long echoing hallway. When a signal reaches the end of the cable, it can “bounce back” if nothing is there to absorb it. This bounce is called a reflection, and it can distort communication, especially when the data rate is high or the cable is long.
+
+To prevent this, we add a termination resistor (typically 120 Ω) at the end of the line. The resistor matches the impedance of the cable and “soaks up” the signal so it doesn’t reflect back. In a two-way (bidirectional) RS485 bus, you need termination resistors at both physical ends of the cable — in practice, this means at the RS485 shields that sit at the two ends of the network. If the setup is strictly one-way (only one sender), you only need the termination at the receiving shield.
+
+On the Arduino RS485 Shield the termination resistors are already built in, so you don’t need to add any extra components. You simply enable them using the small DIP switch on the shield whenever that shield is at the physical end of the RS485 cable.
+
+### Half and Full-Duplex Mode
+
+In serial communication, duplex mode describes whether devices can send and receive data at the same time.
+	•	In half-duplex mode, communication goes both ways, but not simultaneously. It’s like a walkie-talkie: one side talks while the other listens, and then they switch. RS485 typically uses half-duplex, which means all devices share the same pair of wires (A and B). To avoid collisions, only one device should transmit at a time.
+	•	In full-duplex mode, communication can happen in both directions at the same time — more like a telephone. To achieve this with RS485, you need two pairs of wires: one pair for transmitting and another for receiving.
+
+On the Arduino RS485 Shield, the MAX3157 transceiver is used. In half-duplex mode, only the Y and Z pins (the differential pair) are active and carry the data in both directions. In full-duplex mode, the other pair of pins (A/B) is used for the second direction, allowing simultaneous transmit and receive. This tutorial focuses on the half-duplex case, since it only requires two wires and works well for many applications where devices take turns sending data.
+Because RS485 uses a differential signal, the wires do not need to be crossed: just connect Y to Y and Z to Z between shields. The receiver always looks at Y – Z, so both ends correctly interpret the logic levels without swapping wires. If both devices are wired the same way (Y to Y, Z to Z), a logic “1” on the transmitter becomes a positive differential at the receiver, and a logic “0” becomes negative. 
+
+## Circuit
+
+### ISO GND
+
+The ISO GND on the Arduino RS485 shield is the isolated ground of the RS485 transceiver. Its purpose is to electrically isolate the RS485 bus from the Arduino’s main ground, which helps prevent ground loops and reduces noise, especially in industrial setups or long cable runs.
+
+Even though this side of the transceiver is isolated, it still needs a reference point to interpret signals correctly. That’s why ISO GND must be connected to the ISO GND of the other devices on the RS485 bus. Without this connection, the differential signals would have no stable reference, and the receivers could misread logic “1” and “0”.
+
+Think of ISO GND like agreeing on a zero point when measuring heights: everyone can measure accurately relative to the same baseline, even if each person stands on a different platform. Connecting ISO GND to ISO GND gives all devices on the bus a common reference while keeping them electrically isolated from the Arduino’s main ground.
+
+### Connecting the Shields
 
 For this tutorial, we will first need to mount the shields on top of the boards.
 
 ![Mounting the shields.](assets/MKR485_T1_IMG00.png)
 
-We then need to follow the wire diagrams below. The wire from ISO GND is connected to the GND pin on the shield (not the ISO GND). Note that the connectors require a flathead screwdriver to connect.
+We then need to follow the wire diagrams below. The wire from ISO GND is connected to the ISO GND pin on the other shield. Note that the connectors require a flathead screwdriver to connect.
 
 ![Connecting the two shields together.](assets/MKR485_T1_IMG01.png)
 
@@ -84,14 +118,14 @@ We will then need to make some configurations to the switches mounted on top of 
 ![Location of switches.](assets/MKR485_T1_IMG02.png)
 
 For the sender, we need to change the switches to:
-- 1 - OFF
-- 2 - ON
-- 3 - ON
+- 1 - OFF: Termination for A/B disabled
+- 2 - OFF: Half-Duplex mode
+- 3 - OFF: Termination for Y/Z disabled (enable for bi-directional data transfer)
 
 For the receiver, we need to change the switches to:
-- 1 - ON
-- 2 - ON
-- 3 - OFF
+- 1 - OFF: Termination for A/B disabled
+- 2 - OFF: Half-Duplex mode
+- 3 - ON: Termination for Y/Z enabled
 
 The numbering is very small, but can be found on the switches.
 
@@ -99,9 +133,9 @@ The numbering is very small, but can be found on the switches.
 
 We will now get to the programming part of this tutorial. We will need to program two Arduino boards, one sender and one receiver device. 
 
-**1.** First, let's make sure we have the drivers installed for the board we are using. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install it. 
+**1.** First, let's make sure we have the drivers installed for the board we are using. If we are using the Cloud Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it. 
 
-**2.** Now, we need to install the library needed. If we are using the Web Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **ArduinoRS485** and install it.
+**2.** Now, we need to install the library needed. If we are using the Cloud Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **ArduinoRS485** and install it.
 
 ![Library Manager search for ArduinoRS485.](assets/MKR485_T1_IMG03.png)
 
@@ -195,3 +229,4 @@ In this tutorial, we have created a communication line between two Arduino board
 While nowadays there are several ways of transmitting data between devices, using the RS485 standard is a great way for robust, industrial projects, where electrical noise and greater distances might be obstacles.
 
 Feel free to explore the [ArduinoRS485](https://www.arduino.cc/en/Reference/ArduinoRS485) library further, and try out some of the many cool functions.
+

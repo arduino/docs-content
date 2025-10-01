@@ -61,23 +61,23 @@ Arduino® boards are mainly based on two families of microcontrollers: **AVR®**
 |       Leonardo      |      ATmega32u4     |        AVR       |      Harvard     |
 |    Mega 2560 Rev3   |      ATmega2560     |        AVR       |      Harvard     |
 |        Micro        |      ATmega32u4     |        AVR       |      Harvard     |
-|         Zero        |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |
-|     Portenta H7     |      STM32H747      | ARM Cortex M4/M7 |      Harvard     |
-|    Nicla Sense ME   |       nRF52832      |   ARM Cortex M4  |      Harvard     |
-| Nano RP2040 Connect |        RP2040       |  ARM Cortex M0+  |    Von Neumann   |
-|     MKR FOX 1200    |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |
-|     MKR NB 1500     |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |
-|    MKR Vidor 4000   |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |
-|    MKR WiFi 1010    |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |
-|       MKR Zero      |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |
-|     MKR1000 WIFI    |     ATSAMW25H18     |  ARM Cortex M0+  |    Von Neumann   |
-|     MKR WAN 1300    |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |
-|     MKR WAN 1310    |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |
+|         Zero        |     ATSAMD21G18     |  Arm® Cortex®-M0+  |    Von Neumann   |
+|     Portenta H7     |      STM32H747      | Arm® Cortex®-M4/M7 |      Harvard     |
+|    Nicla Sense ME   |       nRF52832      |   Arm® Cortex®-M4  |      Harvard     |
+| Nano RP2040 Connect |        RP2040       |  Arm® Cortex®-M0+  |    Von Neumann   |
+|     MKR FOX 1200    |     ATSAMD21G18     |  Arm® Cortex®-M0+  |    Von Neumann   |
+|     MKR NB 1500     |     ATSAMD21G18     |  Arm® Cortex®-M0+  |    Von Neumann   |
+|    MKR Vidor 4000   |     ATSAMD21G18     |  Arm® Cortex®-M0+  |    Von Neumann   |
+|    MKR WiFi 1010    |     ATSAMD21G18     |  Arm® Cortex®-M0+  |    Von Neumann   |
+|       MKR Zero      |     ATSAMD21G18     |  Arm® Cortex®-M0+  |    Von Neumann   |
+|     MKR1000 WIFI    |     ATSAMW25H18     |  Arm® Cortex®-M0+  |    Von Neumann   |
+|     MKR WAN 1300    |     ATSAMD21G18     |  Arm® Cortex®-M0+  |    Von Neumann   |
+|     MKR WAN 1310    |     ATSAMD21G18     |  Arm® Cortex®-M0+  |    Von Neumann   |
 |         Nano        |      ATmega328P     |        AVR       |      Harvard     |
 |      Nano Every     |      ATmega4809     |        AVR       |      Harvard     |
-|     Nano 33 IoT     |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |
-|     Nano 33 BLE     |       nRF52840      |   ARM Cortex M4  |      Harvard     |
-|  Nano 33 BLE Sense  |       nRF52840      |   ARM Cortex M4  |      Harvard     |
+|     Nano 33 IoT     |     ATSAMD21G18     |  Arm® Cortex®-M0+  |    Von Neumann   |
+|     Nano 33 BLE     |       nRF52840      |   Arm® Cortex®-M4  |      Harvard     |
+|  Nano 33 BLE Sense  |       nRF52840      |   Arm® Cortex®-M4  |      Harvard     |
 
 ## Memory Types
 
@@ -148,23 +148,23 @@ The following table summarizes a specific Arduino® board's memory allocation:
 |              Leonardo             |      ATmega32u4     |        AVR       |      Harvard     |    32kB   |   2.5kB  |     1kB    |
 |           Mega 2560 Rev3          |      ATmega2560     |        AVR       |      Harvard     |   256kB   |    8kB   |     4kB    |
 |               Micro               |      ATmega32u4     |        AVR       |      Harvard     |    32kB   |   2.5kB  |     1kB    |
-|                Zero               |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-| Portenta H7 (basic configuration) |      STM32H747      | ARM Cortex M4/M7 |      Harvard     |    16MB   |    8MB   |      -     |
-|           Nicla Sense ME          |       nRF52832      |   ARM Cortex M4  |      Harvard     |   512kB   |   64kB   |      -     |
-|        Nano RP2040 Connect        |        RP2040       |  ARM Cortex M0+  |    Von Neumann   |     -     |   264kB  |      -     |
-|            MKR FOX 1200           |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|            MKR NB 1500            |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|           MKR Vidor 4000          |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|           MKR WiFi 1010           |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|              MKR Zero             |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|            MKR1000 WIFI           |     ATSAMW25H18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|            MKR WAN 1300           |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|            MKR WAN 1310           |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|                Zero               |     ATSAMD21G18     |  Arm® Cortex®-M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+| Portenta H7 (basic configuration) |      STM32H747      | Arm® Cortex®-M4/M7 |      Harvard     |    16MB   |    8MB   |      -     |
+|           Nicla Sense ME          |       nRF52832      |   Arm® Cortex®-M4  |      Harvard     |   512kB   |   64kB   |      -     |
+|        Nano RP2040 Connect        |        RP2040       |  Arm® Cortex®-M0+  |    Von Neumann   |     -     |   264kB  |      -     |
+|            MKR FOX 1200           |     ATSAMD21G18     |  Arm® Cortex®-M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|            MKR NB 1500            |     ATSAMD21G18     |  Arm® Cortex®-M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|           MKR Vidor 4000          |     ATSAMD21G18     |  Arm® Cortex®-M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|           MKR WiFi 1010           |     ATSAMD21G18     |  Arm® Cortex®-M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|              MKR Zero             |     ATSAMD21G18     |  Arm® Cortex®-M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|            MKR1000 WIFI           |     ATSAMW25H18     |  Arm® Cortex®-M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|            MKR WAN 1300           |     ATSAMD21G18     |  Arm® Cortex®-M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|            MKR WAN 1310           |     ATSAMD21G18     |  Arm® Cortex®-M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
 |                Nano               |      ATmega328P     |        AVR       |      Harvard     |    32kB   |    2kB   |     1kB    |
 |             Nano Every            |      ATmega4809     |        AVR       |      Harvard     |    48kB   |    6kB   |    256B    |
-|            Nano 33 IoT            |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|            Nano 33 BLE            |       nRF52840      |   ARM Cortex M4  |      Harvard     |    1MB    |   256kB  |      -     |
-|         Nano 33 BLE Sense         |       nRF52840      |   ARM Cortex M4  |      Harvard     |    1MB    |   256kB  |      -     |
+|            Nano 33 IoT            |     ATSAMD21G18     |  Arm® Cortex®-M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|            Nano 33 BLE            |       nRF52840      |   Arm® Cortex®-M4  |      Harvard     |    1MB    |   256kB  |      -     |
+|         Nano 33 BLE Sense         |       nRF52840      |   Arm® Cortex®-M4  |      Harvard     |    1MB    |   256kB  |      -     |
 
 ***Pro hardware SDRAM and Flash memory are highly customizable in volumes. Check out the [Pro site](https://www.arduino.cc/pro/) for more information.***
 
@@ -446,5 +446,6 @@ Memory architectures in microcontroller-based systems is a pretty vast topic; if
 ### References
 
 [1] S. F. Barrett and D. J. Pack, Microchip AVR® Microcontroller Primer: Programming and Interfacing, Third Edition (Synthesis Lectures on Digital Circuits and Systems), Morgan & Claypool, 2019. <br />
-[2] J. Y. Yiu, The Definitive Guide to ARM Cortex -M0 and Cortex-M0+ Processors, Second ed., Newnes, 2015.<br />
+[2] J. Y. Yiu, The Definitive Guide to Arm® Cortex®-M0 and Cortex-M0+ Processors, Second ed., Newnes, 2015.<br />
+
 [3] J. Yiu, The Definitive Guide to ARM® Cortex®-M3 and Cortex®-M4 Processors, Third ed., Newnes, 2014.<br />

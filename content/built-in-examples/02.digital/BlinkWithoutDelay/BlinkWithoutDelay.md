@@ -21,7 +21,7 @@ In this tutorial you will learn how to set up a similar timer.
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - LED
 

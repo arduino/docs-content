@@ -130,7 +130,7 @@ endmodule
 
 The code above is pretty self explanatory... at every positive clock edge, if we see input iRESET high we reset the counter, otherwise we increment it by one... note that having a reset signal restoring our block to a known state is often useful but not always necessary.
 
-Now... this is interesting however we did something a bit tricky... we declared oCOUNTER as output reg, which means we are saying this is not just a bunch of wires but it has memory. This way we can use the <= assignment which is "registered" which means that the assignment will be kept for as long as the next clock cycle.
+Now... this is interesting however we did something a bit tricky... we declared oCOUNTER as output reg, which means we are saying this is not just a bunch of wires but it has memory. This way we can use the `<=` assignment which is "registered" which means that the assignment will be kept for as long as the next clock cycle.
 
 Another way we could do this is removing the reg statement in the module declaration and define the counter as follows:
 
@@ -155,7 +155,7 @@ assign oCOUNTER=rCOUNTER;
 endmodule
 ```
 
-This is basically the same stuff but we defined a register, worked on it and then assigned with the "continuous" = assignment it to the output signal. The difference here is that while <= means the signal changes only at clock edges = assigns the value continuously so the signal will eventually change at any time, however if we assign it as we are doing in the example to a register that changes only on clock edges the resulting signal is basically just an alias.
+This is basically the same stuff but we defined a register, worked on it and then assigned with the "continuous" `=` assignment it to the output signal. The differsence here is that while `<=` means the signal changes only at clock edges `=` assigns the value continuously so the signal will eventually change at any time, however if we assign it as we are doing in the example to a register that changes only on clock edges the resulting signal is basically just an alias.
 
 Interestingly assignments, like any other statement in hardware description languages are parallel, which means that their order in the code is not so much relevant as they are all executed in parallel so we could have assigned oCOUNTER to rCOUNTER also before the always block. We'll come back to this as it's not completely true that order doesn't matter...
 
@@ -184,7 +184,7 @@ end
 endmodule
 ```
 
-We're basically still doing the same stuff but we have done it in a way that makes it a bit more clear logically. Basically we are assigning continuously the signal wNEXT_COUNTER to the value of the rCOUNTER plus one. This means that wNEXT_COUNTER will (almost) immediately change as soon as rCOUNTER changes value however rCOUNTER will be updated only on the next positive clock edge (as it has a <= assignment) so the result is still that rCOUNTER changes only on clock edge.
+We're basically still doing the same stuff but we have done it in a way that makes it a bit more clear logically. Basically we are assigning continuously the signal wNEXT_COUNTER to the value of the rCOUNTER plus one. This means that wNEXT_COUNTER will (almost) immediately change as soon as rCOUNTER changes value however rCOUNTER will be updated only on the next positive clock edge (as it has a `<=` assignment) so the result is still that rCOUNTER changes only on clock edge.
 
 ## Parallelism and precedence
 

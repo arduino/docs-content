@@ -9,9 +9,10 @@ The Arduino Nano Every is an evolution of the classic Arduino Nano sharing the s
 <Feature title="I2C" image="communication">
 
   Learn how to send data from the Nano Every board to another board via I2C.
-
+<FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="learn/communication/wire"/>
   <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/language/functions/communication/wire/"/>
+</FeatureWrapper>
 </Feature>
 
 <Feature title="Tiny footprint" image="nano-form-factor">

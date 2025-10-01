@@ -1,5 +1,5 @@
 ---
-title: 'Synchronizing Sketches between IDE 2.0 and Arduino Cloud'
+title: 'Synchronizing Sketches between IDE 2 and Arduino Cloud'
 difficulty: beginner
 description: 'Learn how to enable your Remote Sketchbook, and how to pull, edit and push Sketches to the Arduino Cloud.'
 tags:
@@ -8,20 +8,20 @@ tags:
 author: 'Karl Söderby'
 ---
 
-The new **Remote Sketchbook integration**, released in July 2021 is a ground-breaking feature that allows you to synchronise your **Arduino Cloud Sketchbook** to your **local computer**. This is a great milestone for people who work on multiple computers or want to store their Sketches securely in the cloud.
+The new **Remote Sketchbook integration**, released in July 2021 is a ground-breaking feature that allows you to synchronise your **Arduino Cloud Sketchbook** to your **local computer**. This is a great milestone for people who work on multiple computers or want to store their Sketches securely in the Cloud.
 
 In this tutorial, we will describe the benefits of this new feature, go through the steps necessary to set it up, how to use it, what limitations there are, and what scenarios this feature is most useful in.
 
 ## Benefits
 
 - **Code anywhere**:
-Write your Arduino sketches on one computer and access them on another, with a single click! Do not worry about synchronisation or USB drives: the Arduino IDE 2.0 provides the Remote Sketches feature which allows you to store your sketches in the Arduino secure cloud and retrieve them easily on any other workstation.
+Write your Arduino sketches on one computer and access them on another, with a single click! Do not worry about synchronisation or USB drives: the Arduino IDE 2 provides the Remote Sketches feature which allows you to store your sketches in the Arduino secure Cloud and retrieve them easily on any other workstation.
 
 - **Code from your browser**:
-If you want to work on a computer that doesn’t have the Arduino IDE installed, just open the Arduino Web Editor: you’ll get an online IDE with all your sketches just there, plus all the libraries.
+If you want to work on a computer that doesn’t have the Arduino IDE installed, just open the Arduino Cloud Editor: you’ll get an online IDE with all your sketches just there, plus all the libraries.
 
 - **Backup your code**:
-Your sketches are too important to risk losing them! And life is too short to make copies manually. With Remote Sketches you only need one click and they will be saved in the Arduino secure cloud.
+Your sketches are too important to risk losing them! And life is too short to make copies manually. With Remote Sketches you only need one click and they will be saved in the Arduino secure Cloud.
 
 - **No connection? Work offline, sync later**:
 You don’t need to be always online to work on your remotely stored sketches: you work on a local copy, then as soon as you get back online you click on “Push” and your changes will be uploaded.
@@ -40,7 +40,7 @@ Security is our priority. The Arduino Cloud infrastructure is based on multiple 
 - Your sketches are configured as “Private” by default: you decide what you want to share with other people.
 
 ## Pricing
-This feature is provided **free of charge**! You can use it without any restrictions. The limitations of your [Arduino cloud plan](https://store.arduino.cc/digital/create) apply.
+This feature is provided **free of charge**! You can use it without any restrictions. The limitations of your [Arduino Cloud plan](https://store.arduino.cc/digital/create) apply.
 
 ## Overview
 
@@ -49,13 +49,11 @@ In a nutshell, the steps required to make this integration are the following:
 - Create an Arduino Sketch in the Arduino Cloud.
 - Authenticate your local editor with your Arduino account.
 - Pull a Sketch you want to edit.
-- When you have finished editing, push it back to the cloud. 
-
-***The Remote Sketchbook integration with IDE 2.0 does not yet support pushing your local Sketches to the cloud. The Sketch needs to have been originally created in the Arduino Cloud platform.***
+- When you have finished editing, push it back to the Cloud. 
 
 ### Requirements
 
-- [Arduino IDE 2.0](https://www.arduino.cc/en/software)
+- [Arduino IDE 2](https://www.arduino.cc/en/software)
 - Arduino account, [click here to register](https://login.arduino.cc/login).
 
 ## Understanding the Remote Sketchbook Concept
@@ -68,13 +66,13 @@ A) You have an offline editor, and then you have a local Sketchbook, which can f
 
 ![The classic local Sketchbook.](assets/cloud-sketch-sync-img01.png)
 
-B) You are using the Arduino Cloud platform, where Sketches are stored in the cloud and not on your computer. When Sketches are edited they get automatically saved in the cloud, which is not only a great way of keeping track of your Sketches, it is also a more secure option.
+B) You are using the Arduino Cloud platform, where Sketches are stored in the Cloud and not on your computer. When Sketches are edited they get automatically saved in the Cloud, which is not only a great way of keeping track of your Sketches, it is also a more secure option.
 
 ![The online Sketchbook.](assets/cloud-sketch-sync-img02.png)
 
-But, with the latest integration of **Arduino Cloud** in the **Arduino IDE 2.0**, we are now able to synchronize our Sketches between the online and offline applications. This is made possible through a quick and easy authentication process that can be completed within a minute!
+But, with the latest integration of **Arduino Cloud** in the **Arduino IDE 2**, we are now able to synchronize our Sketches between the online and offline applications. This is made possible through a quick and easy authentication process that can be completed within a minute!
 
-![The new IDE 2.0 and Arduino Cloud integration.](assets/cloud-sketch-sync-img03.png)
+![The new IDE 2 and Arduino Cloud integration.](assets/cloud-sketch-sync-img03.png)
 
 But without further ado, let's take a look at how to start using this incredible feature.
 
@@ -115,11 +113,11 @@ void loop() {
 
 ## Enabling the Remote Sketchbook
 
-After we have created a Sketch in the Arduino Cloud, we can move on to **authenticating the Cloud and the IDE 2.0**. To continue, you need to have installed the Arduino IDE 2.0.
+After we have created a Sketch in the Arduino Cloud, we can move on to **authenticating the Cloud and the IDE 2**. To continue, you need to have installed the Arduino IDE 2.
 
->You can download the IDE 2.0 from the [software page](https://www.arduino.cc/en/software). If you need help installing it, you can visit [this installation guide](/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing).
+>You can download the IDE 2 from the [software page](https://www.arduino.cc/en/software). If you need help installing it, you can visit [this installation guide](/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing).
 
-**1.** Open the Arduino IDE 2.0, and click on the folder at the top left corner. This is your **Sketchbook**.
+**1.** Open the Arduino IDE 2, and click on the folder at the top left corner. This is your **Sketchbook**.
 
 ![Open the Sketchbook.](assets/cloud-sketch-sync-img06.png)
 
@@ -139,7 +137,7 @@ Once you click on it, you should get a message in the browser that looks like th
 
 ![Successful authorization.](assets/cloud-sketch-sync-img10.png)
 
-Congratulations, you have now synced your Arduino account with your local Arduino IDE 2.0, and your Sketches should now be available under the **Remote Sketchbook tab.**
+Congratulations, you have now synced your Arduino account with your local Arduino IDE 2, and your Sketches should now be available under the **Remote Sketchbook tab.**
 
 ## Pulling, Editing and Pushing
 
@@ -174,15 +172,21 @@ void loop() {
 
 When we are finished editing, we need to **push it** back to the Arduino Cloud. This is done by clicking the **cloud with an arrow pointing up** icon.
 
-![Click on the cloud icon.](assets/cloud-sketch-sync-img13.png)
+![Click on the Cloud icon.](assets/cloud-sketch-sync-img13.png)
 
 This will open up a modal window, asking for confirmation. Click on **"Push"**.
 
 ![Push the changes.](assets/cloud-sketch-sync-img14.png)
 
-You have now pushed your changes to the cloud. You can easily check if it has been successful by refreshing the online Sketchbook (at Arduino Cloud). The changes should now be visible.
+You have now pushed your changes to the Cloud. You can easily check if it has been successful by refreshing the online Sketchbook (at Arduino Cloud). The changes should now be visible.
 
-![Changes visible in the cloud.](assets/cloud-sketch-sync-img15.png)
+![Changes visible in the Cloud.](assets/cloud-sketch-sync-img15.png)
+
+## New Cloud Sketches
+
+With the IDE 2.1 and newer, you can also create new Cloud sketches, directly from the offline IDE. When you are in the Cloud sketchbook, at the bottom of the window there's a button to create a fresh sketch.
+
+![Create a New Cloud Sketch](./assets/cloud-sketch-sync-img16.png)
 
 ## Disabling the Remote Sketchbook
 
@@ -192,11 +196,11 @@ If you do not want to use the Remote Sketchbook feature, you can simply disable 
 
 ## Wrapping Up
 
-The integration of the Remote Sketchbook in the IDE 2.0 is an important milestone. It gives us great control of our Sketchbooks, and makes it really easy to move across computers and editors.
+The integration of the Remote Sketchbook in the IDE 2 is an important milestone. It gives us great control of our Sketchbooks, and makes it really easy to move across computers and editors.
 
 ## Next Steps
 
-You can find more tutorials in the [Arduino IDE 2 documentation page](/software/ide-v2/).
+You can find more tutorials in the [Arduino IDE 2 documentation page](/software/ide/#ide-v2).
 
 ## FAQ
 

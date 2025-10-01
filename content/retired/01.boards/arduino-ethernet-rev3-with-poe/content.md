@@ -2,7 +2,7 @@
 title: "Arduino Ethernet Rev3 with PoE"
 description: "An Arduino Uno incorporating a WizNet W5100 TCP IP Ethernet Controller."
 coverImage: "assets/a000074_featured.jpg"
-sku: "A000074"
+sku: [A000074]
 source: "https://store.arduino.cc/arduino-ethernet-rev3-with-poe"
 ---
 
@@ -18,7 +18,7 @@ The Ethernet differs from other boards in that it does not have an onboard USB-t
 
 An onboard microSD card reader, which can be used to store files for serving over the network, is accessible through the SD Library. Pin 10 is reserved for the Wiznet interface, SS for the SD card is on Pin 4.
 
-The 6-pin serial programming header is compatible with the [USB Serial](https://www.arduino.cc/en/Main/USBSerial) adapter and also with the FTDI USB cables or with Sparkfun and Adafruit FTDI-style basic USB-to-serial breakout boards. It features support for automatic reset, allowing sketches to be uploaded without pressing the reset button on the board. When plugged into a USB to Serial adapter, the Arduino Ethernet is powered from the adapter.
+The 6-pin serial programming header is compatible with the [USB Serial](https://www.arduino.cc/en/Main/USBSerial) adapter and also with the FTDI USB cables or with Sparkfun and Adafruit® FTDI-style basic USB-to-serial breakout boards. It features support for automatic reset, allowing sketches to be uploaded without pressing the reset button on the board. When plugged into a USB to Serial adapter, the Arduino Ethernet is powered from the adapter.
 
 The Revision 3 of the board introduces the standardized 1.0 pinout, that consist in:
 
@@ -43,7 +43,7 @@ This version has the power-over-Ethernet (PoE) module soldered to the board to p
 
 Arduino Ethernet Shield is open-source hardware. However the schematics or eagle files for the POE addon are currently unavailable. You can build your own Ethernet shield using the following files:
 
-[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-ethernet-R3-reference-design.zip) 
+[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-ethernet-R3-reference-design.zip)
 
 [SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/arduino-ethernet-R3-schematic.pdf)
 
@@ -118,7 +118,7 @@ The onboard microSD card reader is accessible through the [SD Library](https://w
 
 It is possible to program the Arduino Ethernet board in two ways: through the 6 pin serial programming header, or with an external ISP programmer.
 
-The 6-pin serial programming header is compatible with FTDI USB cables and the Sparkfun and Adafruit FTDI-style basic USB-to-serial breakout boards including the Arduino USB-Serial connector. It features support for automatic reset, allowing sketches to be uploaded without pressing the reset button on the board. When plugged into a FTDI-style USB adapter, the Arduino Ethernet is powered off the adapter.
+The 6-pin serial programming header is compatible with FTDI USB cables and the Sparkfun and Adafruit® FTDI-style basic USB-to-serial breakout boards including the Arduino USB-Serial connector. It features support for automatic reset, allowing sketches to be uploaded without pressing the reset button on the board. When plugged into a FTDI-style USB adapter, the Arduino Ethernet is powered off the adapter.
 
 You can also bypass the bootloader and program the microcontroller through the ICSP (In-Circuit Serial Programming) header using [Arduino ISP](https://www.arduino.cc/en/Main/ArduinoISP) or similar; see [these instructions](https://www.arduino.cc/en/Hacking/Programmer) for details.
 
@@ -142,7 +142,7 @@ If you want to use a FTDI cable to download your sketches on the Arduino Etherne
 |Input Voltage Plug (limits)                    |6-20V|
 |Input Voltage PoE (limits)                     |36-57V|
 |Digital I/O Pins                               |14 (of which 4 provide PWM output)|
-|Arduino Pins reserved:                         ||   
+|Arduino Pins reserved:                         ||
 |                                               | 10 to 13 used for SPI|
 |                                               |4 used for SD card|
 |                                               |2 W5100 interrupt (when bridged)|

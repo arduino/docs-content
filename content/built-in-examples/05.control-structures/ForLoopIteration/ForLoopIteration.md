@@ -16,7 +16,7 @@ We also call this example "[Knight Rider](http://en.wikipedia.org/wiki/KITT)" in
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - 6 220 ohm resistors
 

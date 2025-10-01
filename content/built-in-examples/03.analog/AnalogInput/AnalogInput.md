@@ -16,7 +16,7 @@ In this example we use a variable resistor (a potentiometer or a photoresistor),
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - Potentiometer **or**
 - 10K ohm photoresistor and 10K ohm resistor
@@ -56,18 +56,18 @@ where Vin is 5V, R2 is 10k ohm and R1 is the photoresistor value that ranges fro
 
 Potentiometer
 
-![](assets/circuit-pot.png)
+![](assets/schematic-pot.png)
 
 
 Photoresistor
 
-![](assets/schematic-pot.png)
+![](assets/schematic.png)
 
 ### Code
 
 At the beginning of this sketch, the variable `sensorPin` is set to to analog pin 0, where your potentiometer is attached, and `ledPin` is set to digital pin 13. You'll also create another variable, `sensorValue` to store the values read from your sensor.
 
-The [`analogRead()`](https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/unctions/analog-io/analogread/) command converts the input voltage range, 0 to 5 volts, to a digital value between 0 and 1023.  This is done by a circuit inside the microcontroller called an *analog-to-digital converter* or *ADC*.
+The [`analogRead()`](https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/) command converts the input voltage range, 0 to 5 volts, to a digital value between 0 and 1023.  This is done by a circuit inside the microcontroller called an *analog-to-digital converter* or *ADC*.
 
 By turning the shaft of the potentiometer, you change the amount of resistance on either side of the center pin (or wiper) of the potentiometer.  This changes the relative resistances between the center pin and the two outside pins, giving you a different voltage at the analog input.  When the shaft is turned all the way in one direction, there is no resistance between the center pin and the pin connected to ground. The voltage at the center pin then is 0 volts, and `analogRead()` returns 0.  When the shaft is turned all the way in the other direction, there is no resistance between the center pin and the pin connected to +5 volts. The voltage at the center pin then is 5 volts, and `analogRead()` returns 1023.  In between,  `analogRead()` returns a number between 0 and 1023 that is proportional to the amount of voltage being applied to the pin.
 

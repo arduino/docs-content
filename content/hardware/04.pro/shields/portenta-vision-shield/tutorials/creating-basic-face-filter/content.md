@@ -26,8 +26,8 @@ In this tutorial you will build a MicroPython application with OpenMV, to use th
 
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 - [Portenta Vision Shield](https://store.arduino.cc/portenta-vision-shield)
-- USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
-- Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+ 
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software) or [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
 - Portenta Bootloader Version 20+
 - OpenMV IDE 2.6.4+
 
@@ -172,7 +172,7 @@ while (True):
     print(clock.fps())
 ```
 
-Click on the "Play" button at the bottom of the left toolbar. Point the camera on the Vision Shield towards your face and check if the Portenta can detect it. Once it detects your face, it should be covered with a smiley. 
+Click on the "Play" button at the bottom of the left toolbar. Point the camera on the Portenta Vision Shield towards your face and check if the Portenta can detect it. Once it detects your face, it should be covered with a smiley. 
 
 ![Copy the bitmap image to Flash drive](assets/por_openmv_fd_output.png)
 

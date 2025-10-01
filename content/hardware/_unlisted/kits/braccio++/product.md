@@ -1,4 +1,5 @@
 ---
-title: Braccio++
-certifications: [CE,FCC,IC,RCM,RoHS,UKCA]
+title: Braccio ++
+sku: [T050002]
+status: end-of-life
 ---

@@ -1,0 +1,8 @@
+software:
+  - arduino-lab-micropython
+  - arduino-ide
+  - arduino-cli
+  - cloud-editor
+hardware:
+  boards:
+    - nano-esp32

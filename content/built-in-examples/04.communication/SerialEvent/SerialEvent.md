@@ -13,7 +13,7 @@ This example demonstrates use of the serialEvent() function.  This function is a
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 ### Circuit
 

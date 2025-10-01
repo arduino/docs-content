@@ -15,7 +15,7 @@ This example demonstrates the use of analog output ([Pulse Width Modulation (PWM
 
 ### Hardware Required
 
-- Arduino board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - LED
 

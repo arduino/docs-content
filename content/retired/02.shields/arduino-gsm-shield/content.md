@@ -2,7 +2,7 @@
 title: "Arduino GSM Shield"
 description: "Did you miss this board? No worries! The new Arduino MKR GSM 1400, more capable and richer of functions, is the perfect solution for you!"
 coverImage: "assets/a000043_featured.jpg"
-sku: "A000043"
+sku: [A000043]
 source: "https://store.arduino.cc/arduino-gsm-shield"
 ---
 
@@ -10,14 +10,14 @@ source: "https://store.arduino.cc/arduino-gsm-shield"
 
 The Arduino GSM Shield V1 connects your Arduino to the internet using the GPRS wireless network. Just plug this module onto your Arduino board, plug in a SIM card from an operator offering GPRS coverage and follow a few simple instructions to start controlling your world through the internet. You can also make/receive voice calls (you will need an external speaker and microphone circuit) and send/receive SMS messages.
 
-The Arduino GSM Shield V1 allows an Arduino board to connect to the internet, make/receive voice calls and send/receive SMS messages. The shield uses a radio modem [M10 by Quectel](https://www.arduino.cc/en/uploads/Main/Quectel_M10_datasheet.pdf). It is possible to communicate with the board using [AT commands](https://www.arduino.cc/en/en/uploads/Main/Quectel_M10_AT_commands.pdf). The [GSM library](https://www.arduino.cc/en/Reference/GSM) has a large number of methods for communication with the shield.
+The Arduino GSM Shield V1 allows an Arduino board to connect to the internet, make/receive voice calls and send/receive SMS messages. The shield uses a radio modem [M10 by Quectel](https://www.arduino.cc/en/uploads/Main/Quectel_M10_datasheet.pdf). It is possible to communicate with the board using [AT commands](https://www.arduino.cc/en/uploads/Main/Quectel_M10_AT_commands.pdf). The [GSM library](https://www.arduino.cc/en/Reference/GSM) has a large number of methods for communication with the shield.
 
 The shield uses digital pins 2 and 3 for software serial communication with the M10\. Pin 2 is connected to the M10’s TX pin and pin 3 to its RX pin. [See these notes](https://docs.arduino.cc/retired/getting-started-guides/ArduinoGSMShield) for working with an Arduino Mega, Mega ADK, or Leonardo. The modem's PWRKEY pin is connected to Arduino pin 7.
 
 The M10 is a Quad-band GSM/GPRS modem that works at frequencies GSM850MHz, GSM900MHz, DCS1800MHz and PCS1900MHz. It supports TCP/UDP and HTTP protocols through a GPRS connection. GPRS data downlink and uplink transfer speed maximum is 85.6 kbps.
 
-To interface with the cellular network, the board requires a SIM card provided by a network operator. See the [getting started page](https://www.arduino.cc/en/Guide/ArduinoGSMShield#toc4) for additional information on SIM usage.  
-  
+To interface with the cellular network, the board requires a SIM card provided by a network operator. See the [getting started page](https://www.arduino.cc/en/Guide/ArduinoGSMShield#toc4) for additional information on SIM usage.
+
 The most recent revision of the board uses the 1.0 pinout on rev 3 of the Arduino Uno board.
 
 As always with Arduino, every element of the platform – hardware, software and documentation – is freely available and open-source. This means you can learn exactly how it's made and use its design as the starting point for your own circuits. Hundreds of thousands of Arduino boards are already fuelling people’s creativity all over the world, everyday. Join us now, Arduino is you!
@@ -46,26 +46,26 @@ In the [Getting Started section](https://www.arduino.cc/en/Guide/ArduinoGSMShiel
 
 Arduino GSM Shield V1 is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-gsm-shield-06-reference-design.zip) 
+[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-gsm-shield-06-reference-design.zip)
 
-[SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/arduino-gsm-shield-schematic.pdf) 
+[SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/arduino-gsm-shield-schematic.pdf)
 
 ### Telefonica/Movilforum SIM included with the shield
 
-The GSM shield V1 comes bundled with a SIM from Telefonica/Movilforum that will work well for developing machine to machine (M2M) applications. It is not necessary to use this specific card with the shield. You may use any SIM that works on a network in your area.  
-  
+The GSM shield V1 comes bundled with a SIM from Telefonica/Movilforum that will work well for developing machine to machine (M2M) applications. It is not necessary to use this specific card with the shield. You may use any SIM that works on a network in your area.
+
 The Movilforum SIM card includes a roaming plan. It can be used on any supported GSM network. There is coverage throughout the Americas and Europe for this SIM, check the [Movilforum service availability page](http://arduinosim.movilforum.com/service.php) for specific countries that have supported networks.
 
 Activation of the SIM is handled by Movilforum. Detailed instructions on how to register and activate your SIM online and add credit are included on a [small pamphlet](https://www.arduino.cc/en/uploads/Main/GSMShield_Flyer.pdf) that comes with your shield. The SIM must be inserted into a powered GSM shield that is mounted on an Arduino for activation.
 
-These SIM card come without a PIN, but it is possible to set one using the GSM library's [GSMPIN class](https://www.arduino.cc/en/Reference/GSMPINConstructor).   
-  
-You cannot use the included SIM to place or receive voice calls.   
-  
-You can only place and receive SMS with other SIMs on the Movilforum network.   
-  
-It's not possible to create a server that accepts incoming requests from the public internet. However, the Movilforum SIM will accept incoming requests from other SIM cards on the Movilforum network.   
-  
+These SIM card come without a PIN, but it is possible to set one using the GSM library's [GSMPIN class](https://www.arduino.cc/en/Reference/GSMPINConstructor).
+
+You cannot use the included SIM to place or receive voice calls.
+
+You can only place and receive SMS with other SIMs on the Movilforum network.
+
+It's not possible to create a server that accepts incoming requests from the public internet. However, the Movilforum SIM will accept incoming requests from other SIM cards on the Movilforum network.
+
 For using the voice, and other functions of the shield, you'll need to find a different network provider and SIM. Operators will have different policies for their SIM cards, check with them directly to determine what types of connections are supported.
 
 ### Power

@@ -15,7 +15,7 @@ This example shows you how to read analog input from the physical world using a 
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - 10k ohm Potentiometer
 

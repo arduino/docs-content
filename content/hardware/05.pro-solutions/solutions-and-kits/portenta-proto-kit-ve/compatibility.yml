@@ -1,0 +1,10 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - cloud-editor
+hardware:
+  boards:
+  - portenta-c33
+  - portenta-x8
+  - nicla-voice
+  - nicla-vision

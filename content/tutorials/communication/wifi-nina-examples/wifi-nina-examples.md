@@ -64,7 +64,7 @@ The default address of the board in AP mode is 192.168.4.1.  When you load this 
 
   by Tom Igoe
 
-  adapted to WiFi AP by Adafruit
+  adapted to WiFi AP by Adafruit®
 
  */
 
@@ -2819,7 +2819,7 @@ void printWifiStatus() {
 
 ### WifiNINA WiFi Web Client Repeating
 
-This example shows you how to make repeated HTTP requests using a WiFi equipped board.  It connects to  [http://www.arduino.cc/latest.txt](/latest.txt). The content of the page is viewable through your Arduino Software (IDE) Serial Monitor window.
+This example shows you how to make repeated HTTP requests using a WiFi equipped board.  It connects to  [http://example.org](http://example.org). The content of the page is viewable through your Arduino Software (IDE) Serial Monitor window.
 
 You should have access to a 802.11b/g wireless network that connects to the internet for this example. You will need to change the network settings in the sketch to correspond to your particular networks SSID.
 

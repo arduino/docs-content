@@ -36,7 +36,7 @@ If you try to get the `charAt` or try to `setCharAt()` a value that's longer tha
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 ### Circuit
 

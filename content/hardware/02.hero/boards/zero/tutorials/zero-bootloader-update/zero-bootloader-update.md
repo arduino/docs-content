@@ -13,7 +13,7 @@ software:
 author: "Arduino"
 ---
 ## Introduction
-On the Zero you can write the bootloader on the main microcontroller without the need of an external programmer. It's possible because on the board there is an Atmel EDBG chip, which is a real programmer and you can connect to it through the Programming USB port and program every part of the SAMD21 Flash. The bootloader comes with the Core and you don't need to download it as a separate file. Each time a new bootloader is needed for some reason, it will be included in the latest Core and we will inform our users about it.
+On the Zero you can write the bootloader on the main microcontroller without the need of an external programmer. It's possible because on the board there is an Atmel EDBG chip, which is a real programmer and you can connect to it through the Programming USB port and program every part of the SAMD21 Flash. The bootloader comes with the Board Package and you don't need to download it as a separate file. Each time a new bootloader is needed for some reason, it will be included in the latest Board Package and we will inform our users about it.
 
 ## Goals
 
@@ -33,13 +33,13 @@ This tutorial requires only an Arduino Zero board.
  
  ![The Arduino Zero.](assets/zero.png)
 
-## Core Download
+## Board Package Download
 
-The Board Manager available in the Arduino Software (IDE) allows you to find and download the cores available for our and third party boards. To update the Zero Core, you need to choose **Tools > Board > Boards Manager...**
+The Board Manager available in the Arduino Software (IDE) allows you to find and download the Board Packages available for our and third party boards. To update the Zero Board Package, you need to choose **Tools > Board > Boards Manager...**
 
 ![Open the boards manager.](assets/SAMD_UPD_BoardMan.png)
 
-The Boards Manager window will open up and initiate the update process for the available cores. When you gain access to the interface, please select **Type > Updatable** and look for **Arduino SAMD** in the list. If an update is available it will show up, otherwise you may check if you have the most recent version searching directly for SAMD.
+The Boards Manager window will open up and initiate the update process for the available Board Packages. When you gain access to the interface, please select **Type > Updatable** and look for **Arduino SAMD** in the list. If an update is available it will show up, otherwise you may check if you have the most recent version searching directly for SAMD.
 
 ![Update your board in the Boards Manager.](assets/Samd_166_BoardMGR.png)
 

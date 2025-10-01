@@ -1,4 +1,4 @@
 ---
 title: Tinkerkit Braccio Robot
-certifications: [CE]
+sku: [T050000]
 ---

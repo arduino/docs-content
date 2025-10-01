@@ -5,7 +5,7 @@ Microcontroller: Raspberry Pi RP2040
 USB connector: Micro USB
 Pins:
   Built-in LED Pin: 13
-  Digital I/O Pins: 20
+  Digital I/O Pins: 22
   Analog input pins: 8
   PWM pins: 20 (except A6, A7)
   External interrupts: 20 (except A6, A7)
@@ -15,7 +15,7 @@ Connectivity:
   Secure element: ATECC608A-MAHDA-T Crypto IC
 Sensors:
   IMU: LSM6DSOXTR (6-axis)
-  Microphone: MP34DT05
+  Microphone: MP34DT06JTR
 Communication:
   UART: RX/TX 
   I2C: A4 (SDA), A5 (SCL)

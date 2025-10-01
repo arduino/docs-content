@@ -5,7 +5,7 @@ description: 'The first steps to setting up the Arduino Mini'
 
 **This is a retired product.**
 
-The Arduino Mini is a small microcontroller board originally based on the ATmega328P intended for use on breadboards and when space is at a premium. Because of its small size, connecting the Arduino Mini is a bit more complicated than a regular Arduino board ([see below](#connecting) for instructions and photos).
+The Arduino Mini is a small microcontroller board originally based on the ATmega328P intended for use on breadboards and when space is at a premium. Because of its small size, connecting the Arduino Mini is a bit more complicated than a regular Arduino board ([see below](#connecting-the-arduino-mini) for instructions and photos).
 
 The Arduino Mini is programmed using the [Arduino Software (IDE)](https://arduino.cc/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](https://arduino.cc/en/Guide/HomePage).
 
@@ -13,9 +13,9 @@ The Arduino Mini is programmed using the [Arduino Software (IDE)](https://arduin
 
 
 
-All Arduino boards, including this one, work out-of-the-box on the [Arduino Web Editor](https://create.arduino.cc/editor), you only need to install Arduino Create Agent to get started.
+All Arduino boards, including this one, work out-of-the-box on the [Arduino Cloud Editor](https://create.arduino.cc/editor), you only need to install Arduino Create Agent to get started.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow this [simple guide](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a) to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow this [simple guide](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a) to start coding on the browser and upload your sketches onto your board.
 
 
 

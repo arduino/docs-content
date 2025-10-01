@@ -11,59 +11,6 @@ But what are the cornerstones of Arduino? What is a "board", how do I write code
 
 ***In this guide, you will gain an overview of the Arduino Ecosystem, and a set of links leading to more detailed articles.***
 
-
-## Overview
-
-This guide is divided into four main sections: **hardware**, **software tools**, **Arduino API**, and **Quick Reference**. You can navigate to each of these sections directly through the links below:
-
-### Arduino Hardware
-
-In this section, we will dedicate some time to learn about some fundamentals in electronics, and about the basic operation of an Arduino board.
-
-  - [Anatomy of an Arduino Board](#anatomy-of-an-arduino-board)
-  - [Basic Operation](#basic-operation)
-  - [Circuit Basics](#circuit-basics)
-  - [Electronic Signals](#electronic-signals)
-  - [Analog Signal](#analog-signal)
-  - [Digital Signal](#digital-signal)
-  - [Sensors & Actuators](#sensors--actuators)
-  - [Serial Communication Protocols](#serial-communication-protocols)
-  - [Memory](#memory)
-  - [Embedded Components](#embedded-components)
-  - [Internet of Things (IoT)](#internet-of-things-iot)
-
-### Arduino API
-
-In this section you will learn what the Arduino API is, and how to create code that can run on your Arduino board.
-
-  - [Main Parts](#main-parts)
-  - [Program Structure](#program-structure)
-  - [The "Sketch"](#the-sketch)
-  - [Example Sketch](#example-sketch)
-  - [Libraries](#libraries)
-  - [Core Specific API](#core-specific-api)
-
-### Arduino Software Tools
-
-In this section you will learn how to set up your development environment as well as learning about what options there are.
-
-  - [A Typical Workflow](#a-typical-workflow)
-  - [Arduino IDE 1.8.x](#arduino-ide-18x)
-  - [Arduino IDE 2.0.x](#arduino-ide-20x)
-  - [Arduino IoT Cloud](#arduino-iot-cloud)
-  - [Web Editor](#web-editor)
-  - [Library Manager](#library-manager)
-  - [Arduino CLI](#arduino-cli)
-
-### Quick Reference
-
-The quick reference is an extract from the full Arduino API, containing popular functions, structures and methods.
-
-  - [General](#general)
-  - [Serial Communication](#serial-communication)
-  - [GPIO / Pin Management](#gpio--pin-management)
-  - [Structure](#structure)
-
 ## Arduino Hardware
 
 Over the years, Arduino has released hundreds of hardware designs in many shapes and forms. 
@@ -376,8 +323,8 @@ The Arduino IDE facilitates all this, from the first line of code written, to ha
 Today, there are three Arduino IDEs available:
 
 - Arduino IDE 1.8.x (classic)
-- Arduino IDE 2.0.x (new)
-- Arduino Web Editor (online)
+- Arduino IDE 2 (new)
+- Arduino Cloud Editor (online)
 
 ### A Typical Workflow
 
@@ -401,36 +348,36 @@ For what is now considered the "legacy" editor, the Arduino IDE 1.8.X, or "Java 
 
 ***Learn more by visiting the [Arduino IDE 1 documentation](/software/ide-v1).***
 
-### Arduino IDE 2.0.x
+### Arduino IDE 2
 
 ![The new Arduino IDE.](assets/ide-2.png)
 
-In 2021, the Arduino IDE 2.0 was released. The new IDE has the same functionality, but also supports features such as auto-completion and debugging. 
+In 2021, the Arduino IDE 2 was released. The new IDE has the same functionality, but also supports features such as auto-completion and debugging. 
 
 ***Learn more by visiting the [Arduino IDE 2 documentation](/software/ide-v2).***
 
-### Web Editor
+### Cloud Editor
 
-![The Web Editor.](assets/web-editor.png)
+![The Cloud Editor.](assets/web-editor.png)
 
-The [Arduino Web Editor](https://create.arduino.cc/editor) is an online IDE, part of the Arduino Cloud suite. Similar in function, this editor is completely web based, with online storage among other features. To use the Web Editor, you will need to register an Arduino account.
+The [Arduino Cloud Editor](https://create.arduino.cc/editor) is an online IDE, part of the Arduino Cloud suite. Similar in function, this editor is completely web based, with online storage among other features. To use the Cloud Editor, you will need to register an Arduino account.
 
-***Learn more by visiting the [Web Editor documentation](/cloud/web-editor).***
+***Learn more by visiting the [Cloud Editor documentation](/cloud/web-editor).***
 
-### Arduino IoT Cloud
+### Arduino Cloud
 
-![The Arduino IoT Cloud.](assets/iot-cloud.png)
+![The Arduino Cloud.](assets/iot-cloud.png)
 
-The [Arduino IoT Cloud](https://create.arduino.cc/iot/) allows you to configure, program and control/monitor your devices - all in one web based application. With the use of **things**, or your "digital twin", you can control and monitor variables directly from **dashboards**. The service also supports webhooks and integrations with other services, such as **Amazon Alexa.**
+The [Arduino Cloud](https://create.arduino.cc/iot/) allows you to configure, program and control/monitor your devices - all in one web based application. With the use of **things**, or your "digital twin", you can control and monitor variables directly from **dashboards**. The service also supports webhooks and integrations with other services, such as **Amazon Alexa.**
 
-The cloud is made for **anyone** to use, and it does not require much previous experience to get started.
+The Cloud is made for **anyone** to use, and it does not require much previous experience to get started.
 
-***Get started by reading the [Getting Started with the Arduino IoT Cloud](/cloud/iot-cloud/tutorials/iot-cloud-getting-started) guide, or visit the [full documentation](/cloud/iot-cloud).***
+***Get started by reading the [Getting Started with the Arduino Cloud](/cloud/iot-cloud/tutorials/iot-cloud-getting-started) guide, or visit the [full documentation](/cloud/iot-cloud).***
 
 
 ### Library Manager
 
-![Library manager on IDE 1.8.x and IDE 2.0.x](assets/lib-manager.png)
+![Library manager on IDE 1.8.x and IDE 2](assets/lib-manager.png)
 
 Every version of the IDE has a library manager for installing Arduino software libraries. Thousands of libraries, both official and contributed libraries, are available for direct download. Code examples for each library is made available on download.
 

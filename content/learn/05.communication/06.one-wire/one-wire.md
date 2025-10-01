@@ -127,127 +127,127 @@ Miles Burton derived its [Dallas Temperature Control Library](https://milesburto
 
 // DS18S20 Temperature chip i/o
 
-OneWire ds(10);  // on pin 10
+OneWire ds(10);  // on pin 10
 
 
 void setup(void) {
 
-  // initialize inputs/outputs
+  // initialize inputs/outputs
 
-  // start serial port
+  // start serial port
 
-  Serial.begin(9600);
+  Serial.begin(9600);
 
 }
 
 
 void loop(void) {
 
-  byte i;
+  byte i;
 
-  byte present = 0;
+  byte present = 0;
 
-  byte data[12];
+  byte data[12];
 
-  byte addr[8];
-
-
-  ds.reset_search();
-
-  if ( !ds.search(addr)) {
-
-      Serial.print("No more addresses.\n");
-
-      ds.reset_search();
-
-      return;
-
-  }
+  byte addr[8];
 
 
-  Serial.print("R=");
+  ds.reset_search();
 
-  for( i = 0; i < 8; i++) {
+  if ( !ds.search(addr)) {
 
-    Serial.print(addr[i], HEX);
+    Serial.print("No more addresses.\n");
 
-    Serial.print(" ");
+    ds.reset_search();
 
-  }
+    return;
 
-
-  if ( OneWire::crc8( addr, 7) != addr[7]) {
-
-      Serial.print("CRC is not valid!\n");
-
-      return;
-
-  }
+  }
 
 
-  if ( addr[0] == 0x10) {
+  Serial.print("R=");
 
-      Serial.print("Device is a DS18S20 family device.\n");
+  for( i = 0; i < 8; i++) {
 
-  }
+    Serial.print(addr[i], HEX);
 
-  else if ( addr[0] == 0x28) {
+    Serial.print(" ");
 
-      Serial.print("Device is a DS18B20 family device.\n");
-
-  }
-
-  else {
-
-      Serial.print("Device family is not recognized: 0x");
-
-      Serial.println(addr[0],HEX);
-
-      return;
-
-  }
+  }
 
 
-  ds.reset();
+  if ( OneWire::crc8( addr, 7) != addr[7]) {
 
-  ds.select(addr);
+      Serial.print("CRC is not valid!\n");
 
-  ds.write(0x44,1);         // start conversion, with parasite power on at the end
+      return;
 
-
-  delay(1000);     // maybe 750ms is enough, maybe not
-
-  // we might do a ds.depower() here, but the reset will take care of it.
+  }
 
 
-  present = ds.reset();
+  if ( addr[0] == 0x10) {
 
-  ds.select(addr);    
+    Serial.print("Device is a DS18S20 family device.\n");
 
-  ds.write(0xBE);         // Read Scratchpad
+  }
+
+  else if ( addr[0] == 0x28) {
+
+    Serial.print("Device is a DS18B20 family device.\n");
+
+  }
+
+  else {
+
+    Serial.print("Device family is not recognized: 0x");
+
+    Serial.println(addr[0],HEX);
+
+    return;
+
+  }
 
 
-  Serial.print("P=");
+  ds.reset();
 
-  Serial.print(present,HEX);
+  ds.select(addr);
 
-  Serial.print(" ");
+  ds.write(0x44,1); // start conversion, with parasite power on at the end
 
-  for ( i = 0; i < 9; i++) {           // we need 9 bytes
 
-    data[i] = ds.read();
+  delay(1000);  // maybe 750ms is enough, maybe not
 
-    Serial.print(data[i], HEX);
+  // we might do a ds.depower() here, but the reset will take care of it.
 
-    Serial.print(" ");
 
-  }
+  present = ds.reset();
 
-  Serial.print(" CRC=");
+  ds.select(addr);
 
-  Serial.print( OneWire::crc8( data, 8), HEX);
+  ds.write(0xBE); // Read Scratchpad
 
-  Serial.println();
+
+  Serial.print("P=");
+
+  Serial.print(present,HEX);
+
+  Serial.print(" ");
+
+  for ( i = 0; i < 9; i++) {  // we need 9 bytes
+
+    data[i] = ds.read();
+
+    Serial.print(data[i], HEX);
+
+    Serial.print(" ");
+
+  }
+
+  Serial.print(" CRC=");
+
+  Serial.print( OneWire::crc8( data, 8), HEX);
+
+  Serial.println();
 
 }
 ```
@@ -267,52 +267,52 @@ Then for a DS18B20 series you will need to add the following code below the **Se
 ```
 LowByte = data[0];
 
-  HighByte = data[1];
+  HighByte = data[1];
 
-  TReading = (HighByte << 8) + LowByte;
+  TReading = (HighByte << 8) + LowByte;
 
-  SignBit = TReading & 0x8000;  // test most sig bit
+  SignBit = TReading & 0x8000;  // test most sig bit
 
-  if (SignBit) // negative
+  if (SignBit) // negative
 
-  {
+  {
 
-    TReading = (TReading ^ 0xffff) + 1; // 2's comp
+    TReading = (TReading ^ 0xffff) + 1; // 2's comp
 
-  }
+  }
 
-  Tc_100 = (6 * TReading) + TReading / 4;    // multiply by (100 * 0.0625) or 6.25
-
-
-  Whole = Tc_100 / 100;  // separate off the whole and fractional portions
-
-  Fract = Tc_100 % 100;
+  Tc_100 = (6 * TReading) + TReading / 4; // multiply by (100 * 0.0625) or 6.25
 
 
-  if (SignBit) // If its negative
+  Whole = Tc_100 / 100; // separate off the whole and fractional portions
 
-  {
-
-     Serial.print("-");
-
-  }
-
-  Serial.print(Whole);
-
-  Serial.print(".");
-
-  if (Fract < 10)
-
-  {
-
-     Serial.print("0");
-
-  }
-
-  Serial.print(Fract);
+  Fract = Tc_100 % 100;
 
 
-  Serial.print("\n");
+  if (SignBit) // If its negative
+
+  {
+
+    Serial.print("-");
+
+  }
+
+  Serial.print(Whole);
+
+  Serial.print(".");
+
+  if (Fract < 10)
+
+  {
+
+    Serial.print("0");
+
+  }
+
+  Serial.print(Fract);
+
+
+  Serial.print("\n");
 ```
 
 This block of code converts the temperature to deg C and prints it to the Serial output.
@@ -340,7 +340,7 @@ LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 /* DS18S20 Temperature chip i/o */
 
 
-OneWire  ds(9);  // on pin 9
+OneWire ds(9);  // on pin 9
 
 #define MAX_DS1820_SENSORS 2
 
@@ -350,43 +350,43 @@ void setup(void)
 
 {
 
-  lcd.begin(LCD_WIDTH, LCD_HEIGHT,1);
+  lcd.begin(LCD_WIDTH, LCD_HEIGHT,1);
 
-  lcd.setCursor(0,0);
+  lcd.setCursor(0,0);
 
-  lcd.print("DS1820 Test");
+  lcd.print("DS1820 Test");
 
-  if (!ds.search(addr[0]))
+  if (!ds.search(addr[0]))
 
-  {
+  {
 
-    lcd.setCursor(0,0);
+    lcd.setCursor(0,0);
 
-    lcd.print("No more addresses.");
+    lcd.print("No more addresses.");
 
-    ds.reset_search();
+    ds.reset_search();
 
-    delay(250);
+    delay(250);
 
-    return;
+    return;
 
-  }
+  }
 
-  if ( !ds.search(addr[1]))
+  if ( !ds.search(addr[1]))
 
-  {
+  {
 
-    lcd.setCursor(0,0);
+    lcd.setCursor(0,0);
 
-    lcd.print("No more addresses.");
+    lcd.print("No more addresses.");
 
-    ds.reset_search();
+    ds.reset_search();
 
-    delay(250);
+    delay(250);
 
-    return;
+    return;
 
-  }
+  }
 
 }
 
@@ -399,103 +399,103 @@ void loop(void)
 
 {
 
-  byte i, sensor;
+  byte i, sensor;
 
-  byte present = 0;
+  byte present = 0;
 
-  byte data[12];
-
-
-  for (sensor=0;sensor<MAX_DS1820_SENSORS;sensor++)
-
-  {
-
-    if ( OneWire::crc8( addr[sensor], 7) != addr[sensor][7])
-
-    {
-
-      lcd.setCursor(0,0);
-
-      lcd.print("CRC is not valid");
-
-      return;
-
-    }
+  byte data[12];
 
 
-    if ( addr[sensor][0] != 0x10)
+  for (sensor=0;sensor<MAX_DS1820_SENSORS;sensor++)
 
-    {
+  {
 
-      lcd.setCursor(0,0);
+    if ( OneWire::crc8( addr[sensor], 7) != addr[sensor][7])
 
-      lcd.print("Device is not a DS18S20 family device.");
+    {
 
-      return;
+      lcd.setCursor(0,0);
 
-    }
+      lcd.print("CRC is not valid");
 
+      return;
 
-    ds.reset();
-
-    ds.select(addr[sensor]);
-
-    ds.write(0x44,1);         // start conversion, with parasite power on at the end
+    }
 
 
-    delay(1000);     // maybe 750ms is enough, maybe not
+    if ( addr[sensor][0] != 0x10)
 
-    // we might do a ds.depower() here, but the reset will take care of it.
+    {
 
+      lcd.setCursor(0,0);
 
-    present = ds.reset();
+      lcd.print("Device is not a DS18S20 family device.");
 
-    ds.select(addr[sensor]);    
+      return;
 
-    ds.write(0xBE);         // Read Scratchpad
-
-
-    for ( i = 0; i < 9; i++)
-
-    {           // we need 9 bytes
-
-      data[i] = ds.read();
-
-    }
+    }
 
 
-    LowByte = data[0];
+    ds.reset();
 
-    HighByte = data[1];
+    ds.select(addr[sensor]);
 
-    TReading = (HighByte << 8) + LowByte;
-
-    SignBit = TReading & 0x8000;  // test most sig bit
-
-    if (SignBit) // negative
-
-    {
-
-      TReading = (TReading ^ 0xffff) + 1; // 2's comp
-
-    }
-
-    Tc_100 = (TReading*100/2);    
+    ds.write(0x44,1); // start conversion, with parasite power on at the end
 
 
-    Whole = Tc_100 / 100;  // separate off the whole and fractional portions
+    delay(1000);  // maybe 750ms is enough, maybe not
 
-    Fract = Tc_100 % 100;
-
-
-    sprintf(buf, "%d:%c%d.%d\337C     ",sensor,SignBit ? '-' : '+', Whole, Fract < 10 ? 0 : Fract);
+    // we might do a ds.depower() here, but the reset will take care of it.
 
 
-    lcd.setCursor(0,sensor%LCD_HEIGHT);
+    present = ds.reset();
 
-    lcd.print(buf);
+    ds.select(addr[sensor]);
 
-  }
+    ds.write(0xBE); // Read Scratchpad
+
+
+    for ( i = 0; i < 9; i++)
+
+    { // we need 9 bytes
+
+      data[i] = ds.read();
+
+    }
+
+
+    LowByte = data[0];
+
+    HighByte = data[1];
+
+    TReading = (HighByte << 8) + LowByte;
+
+    SignBit = TReading & 0x8000;  // test most sig bit
+
+    if (SignBit) // negative
+
+    {
+
+      TReading = (TReading ^ 0xffff) + 1; // 2's comp
+
+    }
+
+    Tc_100 = (TReading*100/2);
+
+
+    Whole = Tc_100 / 100; // separate off the whole and fractional portions
+
+    Fract = Tc_100 % 100;
+
+
+    sprintf(buf, "%d:%c%d.%d\337C     ",sensor,SignBit ? '-' : '+', Whole, Fract < 10 ? 0 : Fract);
+
+
+    lcd.setCursor(0,sensor%LCD_HEIGHT);
+
+    lcd.print(buf);
+
+  }
 
 }
 ```

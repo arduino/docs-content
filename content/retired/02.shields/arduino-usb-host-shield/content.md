@@ -2,7 +2,7 @@
 title: "Arduino USB Host Shield"
 description: "The Arduino USB Host Shield allows you to connect a USB device to your Arduino."
 coverImage: "assets/a000004_featured.jpg"
-sku: "A000004"
+sku: [A000004]
 source: "https://store.arduino.cc/arduino-usb-host-shield"
 ---
 
@@ -22,7 +22,7 @@ The following device classes are supported by the shield:
 
 For information on using the board with the Android OS, you may refer to the documentation about Mega2560 ADK that contains information about Arduino ADK:
 
-[Arduino's ADK documentation](https://www.arduino.cc/en/Guide/ArduinoADK). 
+[Arduino's ADK documentation](https://www.arduino.cc/en/Guide/ArduinoADK).
 
 Arduino communicates with the MAX3421E using the SPI bus (through the ICSP header). This is on digital pins 10, 11, 12, and 13 on the Uno and pins 10, 50, 51, and 52 on the Mega. On both boards, pin 10 is used to select the MAX3421E. Pins 7, 8 and 9 are used for GPX, INT and RES pins.
 
@@ -44,7 +44,7 @@ In the [Getting Started section](https://www.arduino.cc/en/Guide/HomePage) you c
 
 Arduino USB Host Shield is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/USBHostShield-Rev2.zip) 
+[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/USBHostShield-Rev2.zip)
 
 [SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/USBHostShield-Rev2.pdf)
 

@@ -19,7 +19,8 @@ This tutorial will show you how to debug an Arduino sketch using the Portenta H7
 
 - [Portenta H7 board](https://store.arduino.cc/portenta-h7)
 - [Portenta Breakout board](https://store.arduino.cc/portenta-breakout)
-- Arduino IDE 1.8.10+ or Arduino Pro IDE 0.0.4+
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software) or [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
 - J-link adapter
 - Segger J-link device
 - Segger Ozone

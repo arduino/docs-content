@@ -2,13 +2,13 @@
 title: "Arduino Ethernet Shield 2 with PoE"
 description: "The Arduino Ethernet Shield 2 connects your Arduino board to the internet"
 coverImage: "assets/a000025_featured.jpg"
-sku: "A000025"
+sku: [A000025]
 source: "https://store.arduino.cc/arduino-ethernet-shield-2-with-poe"
 ---
 
 ![The Arduino Ethernet Shield 2 with PoE](./assets/a000025_featured.jpg)
 
-The **Arduino Ethernet Shield 2 with PoE** connects your Arduino to the internet in mere minutes. Just plug this shield into your Arduino Board, connect it to your network with an RJ45 cable (not included) and follow a few simple steps to start controlling your world through the internet. As always with Arduino, every element of the platform – hardware, software and documentation – is freely available and open-source. This means you can learn exactly how it's made and use its design as the starting point for your own circuits. Hundreds of thousands of Arduino Boards are already fueling people’s creativity all over the world, everyday. Join us now, Arduino is you!   
+The **Arduino Ethernet Shield 2 with PoE** connects your Arduino to the internet in mere minutes. Just plug this shield into your Arduino Board, connect it to your network with an RJ45 cable (not included) and follow a few simple steps to start controlling your world through the internet. As always with Arduino, every element of the platform – hardware, software and documentation – is freely available and open-source. This means you can learn exactly how it's made and use its design as the starting point for your own circuits. Hundreds of thousands of Arduino Boards are already fueling people’s creativity all over the world, everyday. Join us now, Arduino is you!
 
 \*Requires an Arduino Board (not included)
 
@@ -37,7 +37,7 @@ In the [Getting Started section](https://www.arduino.cc/en/Guide/ArduinoEthernet
 
 Arduino Ethernet Shield is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://content.arduino.cc/assets/EthernetShield2V2.0.zip) 
+[EAGLE FILES IN .ZIP](https://content.arduino.cc/assets/EthernetShield2V2.0.zip)
 
 [SCHEMATICS IN .PDF](https://content.arduino.cc/assets/EthernetShield2V2.0_sch.pdf)
 
@@ -53,7 +53,7 @@ The Ethernet Shield 2 has a standard RJ-45 connection, with an integrated line t
 
 There is an onboard micro-SD card slot, which can be used to store files for serving over the network. It is compatible with the Arduino Uno and Mega (using the Ethernet library). The onboard micro-SD card reader is accessible through the SD Library. When working with this library, SS is on Pin 4\. The original revision of the Shield contained a full-size SD card slot; this is not supported.
 
-The Shield also includes a reset controller, to ensure that the W5500 Ethernet module is properly reset on power-up. Previous revisions of the Shield were not compatible with the Mega and needed to be manually reset after power-up. The current Shield has a Power over Ethernet (PoE) module designed to extract power from a conventional twisted pair Category 5 Ethernet cable.   
+The Shield also includes a reset controller, to ensure that the W5500 Ethernet module is properly reset on power-up. Previous revisions of the Shield were not compatible with the Mega and needed to be manually reset after power-up. The current Shield has a Power over Ethernet (PoE) module designed to extract power from a conventional twisted pair Category 5 Ethernet cable.
 PoE module features as follows:
 
 * IEEE802.3af compliant
@@ -78,7 +78,7 @@ Note that because the W5500 and SD card share the SPI bus, only one at a time ca
 * 100M: indicates the presence of a 100 Mb/s network connection (as opposed to 10 Mb/s)
 * ACT: flashes when RX or TX activity is present
 
-  
+
 This shield also hosts Tinkerkit compatible connectors as follows:
 
 * 2 TinkerKit connectors for two Analog Inputs (in white), connected to A2 and A3.

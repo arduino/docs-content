@@ -16,7 +16,7 @@ This example illustrates the use of the Mouse and Keyboard libraries together. F
 
 ### Hardware Required
 
-- Arduino Leonardo, Micro or Arduino Due board
+- [Arduino Leonardo, Micro or Arduino Due board](https://store.arduino.cc/collections/boards-modules)
 
 - 5 pushbuttons
 

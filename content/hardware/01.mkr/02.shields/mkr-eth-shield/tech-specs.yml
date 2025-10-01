@@ -7,6 +7,7 @@ Ethernet:
   Controller: W5500
   Speed: 10/100 Mbps
   Communication: SPI
+  Chip Select Pin (SPI): MicroSD on D4, Ethernet on D5
   Internal memory: 32KB
   Maximum sockets: 8 individual
   Supported protocols: IPv4, ICMP, TCP, UDP, ARP, IGMP, PPPoE, MQTT

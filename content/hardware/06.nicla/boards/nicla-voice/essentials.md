@@ -1,20 +1,19 @@
+---
+productsLibrariesMap:
+  - arduinoble
+---
+
 <EssentialsColumn title="Guides">
-  <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nicla">
-    All you need to know to get started with your new Arduino Nicla board.
+  <EssentialElement title="User Manual" type="getting-started" link="/tutorials/nicla-voice/user-manual">
+    A full guide to the basics of the Nicla Voice.
   </EssentialElement>
 
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
-
-  <EssentialElement title="ArduinoBLE" type="library" link="https://www.arduino.cc/en/Reference/ArduinoBLE">
-    The ArduinoBLE library is designed for Arduino boards that have hardware enabled for BLE and Bluetooth 4.0 and above.
-  </EssentialElement>
-
   <EssentialElement title="PDM" type="library" link="https://www.arduino.cc/en/Reference/PDM">
   The PDM library allows you to use PDM (Pulse-density modulation) microphones, like the IM69D130.
   </EssentialElement>
-
 </EssentialsColumn>
 
 <EssentialsColumn title="Arduino Basics">

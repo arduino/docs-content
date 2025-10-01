@@ -16,7 +16,7 @@ This example demonstrates how to send multiple values from the Arduino board to 
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - 3 Analog Sensors (potentiometer, photocell, FSR, etc.)
 
@@ -45,11 +45,11 @@ This circuit uses three [voltage divider](http://www.tigoe.com/pcomp/code/contro
 ### Schematic
 
 
-![](assets/schematic.png.png)
+![](assets/schematic.png)
 
 ### Code
 
-The sensor values are sent from the Arduino to the computer as [ASCII-encoded decimal numbers](http://www.tigoe.net/pcomp/code/communication/interpreting-serial-data-bytes).  This means that each number is sent using the ASCII characters "0" through "9".  For the value "234" for example, three bytes are sent: ASCII "2" (binary value 50), ASCII "3" (binary value 51), and ASCII "4" (binary value 52).
+The sensor values are sent from the Arduino to the computer as [ASCII-encoded decimal numbers](https://www.tigoe.com/pcomp/code/communication/interpreting-serial-data-bytes/).  This means that each number is sent using the ASCII characters "0" through "9".  For the value "234" for example, three bytes are sent: ASCII "2" (binary value 50), ASCII "3" (binary value 51), and ASCII "4" (binary value 52).
 
 ```arduino
 

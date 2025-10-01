@@ -21,7 +21,7 @@ Compare this to the [Serial call and response example](/built-in-examples/commun
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - 2x analog sensors (potentiometer, photocell, FSR, etc.)
 

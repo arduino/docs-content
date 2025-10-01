@@ -1,4 +1,4 @@
 ---
-title: Engineering Kit Rev 2
-certifications: [CE, UKCA]
+title: Engineering Kit
+sku: [AKX00004]
 ---

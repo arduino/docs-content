@@ -188,7 +188,7 @@ SdFile root;
 // change this to match your SD shield or module;
 // Default SPI on Uno and Nano: pin 10
 // Arduino Ethernet shield: pin 4
-// Adafruit SD shields and modules: pin 10
+// Adafruit® SD shields and modules: pin 10
 // Sparkfun SD shield: pin 8
 // MKRZero SD: SDCARD_SS_PIN
 
@@ -329,7 +329,7 @@ void loop(void) {
 }
 ```
 
-***Please note: the cluster size is defined at format time by the user and has some default values that can be changed by users following some rules. In the sketch above we are using the default size for a block that is set at 512 bytes by standards. This value is not the cluster size: that is calculated as the number of blocks per cluster.  You may find more in depth information about cluster sizes [in this article](https://support.microsoft.com/en-gb/help/140365/default-cluster-size-for-ntfs-fat-and-exfat).***
+***Please note: the cluster size is defined at format time by the user and has some default values that can be changed by users following some rules. In the sketch above we are using the default size for a block that is set at 512 bytes by standards. This value is not the cluster size: that is calculated as the number of blocks per cluster.  You may find more in depth information about cluster sizes [in this article](https://web.archive.org/web/20240309213220/https://support.microsoft.com/en-us/topic/default-cluster-size-for-ntfs-fat-and-exfat-9772e6f1-e31a-00d7-e18f-73169155af95).***
 
 ### Dump File
 

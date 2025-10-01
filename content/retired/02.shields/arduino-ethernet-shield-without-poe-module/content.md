@@ -2,7 +2,7 @@
 title: "Arduino Ethernet Shield"
 description: "This Ethernet Shield allows an Arduino board to connect to the internet. "
 coverImage: "assets/a000072_featured.jpg"
-sku: "A000072"
+sku: [A000072]
 source: "https://store.arduino.cc/arduino-ethernet-shield-without-poe-module"
 ---
 
@@ -18,7 +18,7 @@ The Arduino Ethernet Shield V1 allows an Arduino board to connect to the interne
 
 Arduino Ethernet Shield is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-ethernet-shield-06-reference-design.zip) 
+[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-ethernet-shield-06-reference-design.zip)
 
 [SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/arduino-ethernet-shield-06-schematic.pdf)
 

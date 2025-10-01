@@ -8,7 +8,7 @@ tags:
   - OLED
 author: 'Karl Söderby'
 libraries: 
-  - name: Adafruit GFX
+  - name: Adafruit® GFX
     url: https://github.com/adafruit/Adafruit-GFX-Library
   - name: SSD1306
     url: https://github.com/adafruit/Adafruit_SSD1306
@@ -38,7 +38,7 @@ The goals of this project are:
 ## Hardware & Software Needed
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
-- [Adafruit GFX](https://github.com/adafruit/Adafruit-GFX-Library) and [SSD1306](https://github.com/adafruit/Adafruit_SSD1306) library.
+- [Adafruit® GFX](https://github.com/adafruit/Adafruit-GFX-Library) and [SSD1306](https://github.com/adafruit/Adafruit_SSD1306) library.
 - [RTCZero](https://www.arduino.cc/reference/en/libraries/rtczero/) library.
 - Arduino Zero ([link to store](https://store.arduino.cc/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)).
 - SSD1306 128x32 OLED Screen (other dimensions works but requires some adjusting).
@@ -71,9 +71,9 @@ We will now get to the programming part of this tutorial. It focuses on two main
 - Initialize the RTC properties (this happens on start).
 - Print the time and date on the OLED display.
 
-**1.** First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install it. 
+**1.** First, let's make sure we have the drivers installed. If we are using the Cloud Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it. 
 
-**2.** Now, we need to install the libraries needed. If we are using the Web Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **Adafruit_GFX**, **Adafruit_SSD1306** and **RTCZero**.
+**2.** Now, we need to install the libraries needed. If we are using the Cloud Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **Adafruit_GFX**, **Adafruit_SSD1306** and **RTCZero**.
 
 **3.** We can now take a look at some of the core functions of this sketch:
 

@@ -31,7 +31,7 @@ The Portenta H7 is equipped with a processor that has two processing units calle
 
 ### Required Hardware and Software
 
-- [Portenta H7 (ABX00042)](https://store.arduino.cc/portenta-h7) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
+- [Portenta H7 (ABX00042)](https://store.arduino.cc/portenta-h7), [Portenta H7 Lite (ABX00045)](https://store.arduino.cc/products/portenta-h7-lite) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
 - USB-C® cable (either USB A to USB-C® or USB-C® to USB-C®)
 - Arduino IDE 1.8.10+ 
 
@@ -64,7 +64,7 @@ The following sketch blinks the red LED at an interval of 200ms controlled by th
 ```cpp
 // the setup function runs once when you press reset or power the board
 void setup() {
-    // initialize digital pin LEDR as an output.
+    // initialize digital pin LEDR as an output.
     pinMode(LEDR, OUTPUT);
 }
 
@@ -72,7 +72,7 @@ void setup() {
 void loop() {
    digitalWrite(LEDR, LOW); // turn the red LED on (LOW is the voltage level)
    delay(200); // wait for 200 milliseconds
-   digitalWrite(LEDR, HIGH); // turn the LED off by making the voltage HIGH
+   digitalWrite(LEDR, HIGH); // turn the LED off by making the voltage HIGH
    delay(200); // wait for 200 milliseconds
 }
 ```
@@ -88,7 +88,7 @@ Let's write another sketch that makes the RGB LED on the board blink green. Open
 ```cpp
 // the setup function runs once when you press reset or power the board
 void setup() {
-    // initialize digital pin LEDG as an output.
+    // initialize digital pin LEDG as an output.
     pinMode(LEDG, OUTPUT);
 }
 
@@ -96,7 +96,7 @@ void setup() {
 void loop() {
    digitalWrite(LEDG, LOW); // turn the LED on (LOW is the voltage level)
    delay(500); // wait for half a second
-   digitalWrite(LEDG, HIGH); // turn the LED off by making the voltage HIGH
+   digitalWrite(LEDG, HIGH); // turn the LED off by making the voltage HIGH
    delay(500); // wait for half a second
 }
 ```
@@ -113,7 +113,7 @@ Before you can upload the code for the M4 core to the Flash memory you need to a
 ```cpp
 // the setup function runs once when you press reset or power the board
 void setup() {
-    // initialize digital pin LED_BUILTIN as an output.
+    // initialize digital pin LED_BUILTIN as an output.
    bootM4();
    pinMode(LEDR, OUTPUT);
 }
@@ -192,4 +192,4 @@ This tutorial introduces the idea of dual core processing and illustrates the co
 
 ### Next Steps
 
-- Proceed with the next tutorial [Setting Up a Wi-Fi Access Point](wifi-access-point) to learn how to make use of the built-in Wi-Fi module and configure your Portenta H7 as a Wi-Fi access point.
+- Proceed with the next tutorial [Setting Up a Wi-Fi Access Point](https://docs.arduino.cc/tutorials/portenta-h7/wifi-access-point/) to learn how to make use of the built-in Wi-Fi module and configure your Portenta H7 as a Wi-Fi access point.

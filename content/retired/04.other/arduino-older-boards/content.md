@@ -3,6 +3,8 @@ title: "Arduino Older Boards"
 source: "https://arduino.cc/en/Main/Boards"
 ---
 
+***Note: This page refers to products that are retired.***
+
 ## Arduino USB
 
 ### ARDUINO UNO

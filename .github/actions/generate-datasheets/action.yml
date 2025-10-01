@@ -1,0 +1,43 @@
+name: "Generate Datasheets"
+description: "Generate product datasheets from markdown files"
+inputs:
+  datasheets-path:
+    description: "The datasheets path"
+    required: true
+    default: static/resources/datasheets
+  artifact-name:
+    description: "The name of the output artifact"
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/cache@v4
+      id: cache
+      with:
+        path: ${{ inputs.datasheets-path }}
+        key: ${{ runner.os }}-datasheets-${{ hashFiles('**/*datasheet.md') }}
+
+    - uses: actions/setup-node@v4
+      if: steps.cache.outputs.cache-hit != 'true'
+      with:
+        node-version: 18
+        cache: "npm"
+        cache-dependency-path: "package-lock.json"
+
+    - name: Render Datasheets
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: |
+        cd ${GITHUB_WORKSPACE}/scripts/datasheet-rendering
+        ./render-datasheets.sh
+        cd $GITHUB_WORKSPACE
+        mkdir -p ${{ inputs.datasheets-path }}
+        find ./content/hardware -type f -name "*-datasheet.pdf" -exec cp {} ./${{ inputs.datasheets-path }}/ \;
+      shell: bash
+
+    - name: Export artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ inputs.artifact-name }}
+        path: ${{ inputs.datasheets-path }}
+        retention-days: 1 # Only needed to pass it to the next job

@@ -1,3 +1,4 @@
 ---
 title: Communication
+icon: IconCloud
 ---

@@ -2,6 +2,12 @@
 title: Guide to Arduino GIGA USB Features
 description: 'Learn how you can turn your USB device into a mouse or keyboard, how to read & write to a USB mass storage, and connecting a keyboard via the USB-A connector.'
 author: Karl Söderby
+hardware:
+  - hardware/10.mega/boards/giga-r1-wifi
+software:
+  - ide-v1
+  - ide-v2
+  - web-editor
 tags: [USB, USB HID, USBHost, Mass Storage, Keyboard, Mouse]
 ---
 
@@ -20,7 +26,7 @@ In this guide, we will take a look at the available features, how to enable them
 ### Libraries
 
 USB features on the GIGA R1 is currently enabled through three separate libraries.
-- [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) - included in the core.
+- [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) - included in the Board Package.
 - [Arduino_USBHostMbed5](https://github.com/arduino-libraries/Arduino_USBHostMbed5/) - can be downloaded through the Arduino IDE.
 - [USBHostGiga (Alpha)](https://github.com/arduino-libraries/USBHostGiga) - library only available through its GitHub repository.
 
@@ -271,7 +277,7 @@ void setup() {
   
   msd.connect();
 
-  while (!msd.connected()) {
+  while (!msd.connect()) {
     //while (!port.connected()) {
     delay(1000);
   }
@@ -352,7 +358,7 @@ void setup() {
 
   msd.connect();
 
-  while (!msd.connected()) {
+  while (!msd.connect()) {
     Serial.print("MSD not found.");
     delay(1000);
   }
@@ -432,37 +438,46 @@ After logging data, remove the USB stick from your board, and insert it in your 
 
 It is possible to connect generic USB keyboards to the GIGA R1's USB-A connector without any additional circuitry. 
 
-The library used for this can be downloaded through Github.
+The library used for this can be downloaded through Github. 
 - [USBHostGiga](https://github.com/arduino-libraries/USBHostGiga)
+
+Please note that this library is in **Alpha** development stage. This means support is experimental and examples may not function as expected. Future versions of this library may break the example provided below. 
 
 ***The USBHostGiga library is not available in the Arduino IDE and needs to be installed manually. You can do so my navigating to `Sketch` > `Include Library` > `Add .ZIP Library`.***
 
 ```arduino
-#include "HIDHost.h"
+#include "USBHostGiga.h"
 
-Keyboard keyb; //create object
+//REDIRECT_STDOUT_TO(Serial)
+Keyboard keyb;
+HostSerial ser;
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
   while (!Serial);
-  pinMode(PA_15, OUTPUT); //enable the USB-A port //enable the USB-A connector
-  keyb.begin(); //init the library
+  pinMode(PA_15, OUTPUT);
+  keyb.begin();
+  ser.begin();
 }
 
 
 void loop() {
   if (keyb.available()) {
-    Serial.println(keyb.read()); //print any incoming character
+    auto _key = keyb.read();
+    Serial.println(keyb.getAscii(_key));
   }
+  while (ser.available()) {
+    auto _char = ser.read();
+    Serial.write(_char);
+  }
+  //delay(1);
 }
 ```
 
-***Please note that he `PA15` pin must be configured as an `OUTPUT`.***
-
 ## USB HID
 
-It is possible to turn your GIGA R1 board into a Human Interface Device **(HID)**, aka mouse & keyboard, using the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library which is included in the GIGA core. 
+It is possible to turn your GIGA R1 board into a Human Interface Device **(HID)**, aka mouse & keyboard, using the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library which is included in the GIGA Board Package. 
 
 Among other things, you can:
 - Create a custom keyboard, or a keyboard accessory,

@@ -14,7 +14,7 @@ The [String](https://www.arduino.cc/en/Reference/StringObject) case change funct
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 ### Circuit
 

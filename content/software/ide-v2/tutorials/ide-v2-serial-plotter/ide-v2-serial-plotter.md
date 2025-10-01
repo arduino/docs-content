@@ -18,8 +18,8 @@ In this tutorial, we will take a quick look on how to enable this feature (works
 
 ## Requirements
 
-- [Arduino IDE 2.0 installed](https://www.arduino.cc/en/software).
-- [Core installed](/software/ide-v2/tutorials/ide-v2-board-manager) for the board used.
+- [Arduino IDE 2 installed](https://www.arduino.cc/en/software).
+- [Board package installed](/software/ide-v2/tutorials/ide-v2-board-manager) for the board used.
 - Arduino board.
 - Potentiometer (optional).
 
@@ -85,7 +85,7 @@ void loop() {
   Serial.println(static_variable);
 }
 ```
-***The Serial Plotter recognizes only CRLF`(\r\n)` & LF`(\n)` as linebreak characters. So ensure that the either there is a linebreak character after the last variable. You can use `Serial.print("\n")` or `Serial.print("\r\n")` to introduce a linebreak character at the end. Conversely, `Serial.println()` introduces a CRLF character automatically. Further, you can also use `\t`(tab) or ` `(space) as a delimiter instead of `,`(comma) in the above example.***
+***The Serial Plotter recognizes only CRLF`(\r\n)` & LF`(\n)` as linebreak characters. So ensure that the either there is a linebreak character after the last variable. You can use `Serial.print("\n")` or `Serial.print("\r\n")` to introduce a linebreak character at the end. Conversely, `Serial.println()` introduces a CRLF character automatically. Further, you can also use `\t`(tab) or ` `(space) as a delimiter instead of `,`(comma) in the above example.  You can change the label the traces by prefixing the variables with a name and a colon like `name:` or `x:`.  If you leave out the labels, default labels will be generated.***
 
 ## The Serial Plotter
 

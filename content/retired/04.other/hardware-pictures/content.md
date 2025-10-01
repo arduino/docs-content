@@ -3,6 +3,8 @@ title: "Retired products - Hardware"
 source: "https://arduino.cc/en/Main/HardwarePictures"
 ---
 
+***Note: This page refers to products that are retired.***
+
 There are multiple versions of the Arduino board. The current basic board, the Duemilanove, uses the Atmel ATmega328 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc8161.pdf)). The older Diecimila, and the first run of Duemilanoves used the Atmel ATmega168 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2545.pdf)), while older boards use the ATmega8 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2486.pdf)). The Arduino Mega is based on the ATmega1280 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2549.pdf)). 
 
 Note: The reference designs for arduino are distributed under a Creative Commons license [Attribution-ShareAlike 2.5](http://creativecommons.org/licenses/by-sa/2.5/). See [So you want to make an Arduino?](//www.arduino.cc/en/Main/Policy) for more information and guidelines on producing your own hardware.
@@ -53,7 +55,7 @@ Serial Single Sided - This board is designed to be etched and assembled by hand.
 
 ## Looking for an older board?
 
-The [hardware index](content/retired/01.boards/arduino-older-boards) lists all the Arduino boards made and the differences between them.
+The [hardware index](https://docs.arduino.cc/retired/other/arduino-older-boards/) lists all the Arduino boards made and the differences between them.
 
 ## Shields
 
@@ -67,7 +69,7 @@ Shields are boards to be mounted on top of the Arduino board and that extend the
 
 Products from others that we've tried and liked; compatible with the Arduino software.
 
-* [Boarduino](http://www.ladyada.net/make/boarduino/) from Adafruit Industries. For use in bread-boards with FTDI USB-to-TTL-Serial cable or other USB-to-serial adapter. Available as a bare PCB or in kit form.
+* [Boarduino](http://www.ladyada.net/make/boarduino/) from Adafruit® Industries. For use in bread-boards with FTDI USB-to-TTL-Serial cable or other USB-to-serial adapter. Available as a bare PCB or in kit form.
 
 ## Other Related Hardware
 

@@ -2,11 +2,9 @@
 title: 'MKR WiFi 1010 Battery Application Note'
 difficulty: intermediate
 description: 'Learn about different topics related to batteries, and how to choose the correct battery for you MKR application.'
-
 tags:
   - Battery
   - MKR
-  - 
 author: 'Ali Jahangiri'
 hardware:
   - hardware/01.mkr/01.boards/mkr-wifi-1010

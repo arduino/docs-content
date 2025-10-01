@@ -26,16 +26,17 @@ The Due comes with two CAN (Controller Area Network) buses.
 
 <Feature title="Analog pins" image="hw-pin">
 
-The Due has 12 analog input pins, and 2 DAC pins. 
+The Due has 12 analog input pins, and 2 DAC pins.
 
 </Feature>
 
 <Feature title="Keyboard / Mouse support" image="usb">
 
 Use the Due as USB host for peripherals such as mice connected to the SerialUSB port.
-
+<FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/due/keyboard-controller"/>
   <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/usbhost/"/>
+</FeatureWrapper>
 </Feature>
 
 <Feature title="Battery Connector" image="power">

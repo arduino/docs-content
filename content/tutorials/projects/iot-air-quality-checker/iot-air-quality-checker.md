@@ -19,7 +19,7 @@ source: "https://create.arduino.cc/projecthub/407590/iot-air-quality-checker-c8d
 
 ## About This Project
 
-Do you ever worry about the air quality at home, in which we past lot of time recently, due to the pandemic?
+Do you ever think about the air quality in your home, where we spend so much of our time every day?
 
 Or in your DIY lab in the middle of 3d printers / saw / cnc / lasercutter?
 
@@ -41,25 +41,25 @@ Of course you can reach the same setup using a breadboard, floating wires and sp
 
 ### The Board Setup
 
-In this project we are going to use [Arduino IoT Cloud](https://create.arduino.cc/iot), where you can create IoT applications in a few simple steps.
+In this project we are going to use [Arduino Cloud](https://create.arduino.cc/iot), where you can create IoT applications in a few simple steps.
 
-We can just start connecting the MKR WiFi 1010 to the Web Editor.
+We can just start connecting the MKR WiFi 1010 to the Cloud Editor.
 
-You can then find more information on the Web Editor setup for the MKR WiFi 1010 at [this link.](https://www.arduino.cc/en/Guide/MKRWiFi1010)
+You can then find more information on the Cloud Editor setup for the MKR WiFi 1010 at [this link.](https://www.arduino.cc/en/Guide/MKRWiFi1010)
 
 After connecting your Arduino to the usb port, be sure to have selected the right board and the right port.
 
 ![I'm running Linux, your usb port may be different!](assets/image_CmuCsjXu70.png)
 
-At this point, since the MKR Wifi 1010 is a cloud compatible board, we can start with the Arduino IoT Cloud setup.
+At this point, since the MKR WiFi 1010 is a Cloud compatible board, we can start with the Arduino Cloud setup.
 
-### Arduino IoT Cloud Setup
+### Arduino Cloud Setup
 
-Thanks to this platform, the dashboard creation will be really easy, and the base of the Arduino code will be auto-generated, and usable directly on the Arduino Web Editor.
+Thanks to this platform, the dashboard creation will be really easy, and the base of the Arduino code will be auto-generated, and usable directly on the Arduino Cloud Editor.
 
-This is one of the feature of Arduino IoT Cloud, many interesting others are described in [this official blog post](https://blog.arduino.cc/2021/06/18/14-awesome-arduino-cloud-features-you-never-knew-existed)!
+This is one of the feature of Arduino Cloud, many interesting others are described in [this official blog post](https://blog.arduino.cc/2021/06/18/14-awesome-arduino-cloud-features-you-never-knew-existed)!
 
-The very first steps to use Arduino IoT Cloud are well described in the [official "Getting started" guide](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started). 
+The very first steps to use Arduino Cloud are well described in the [official "Getting started" guide](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started). 
 
 First step is to create a *thing*, in which we'll configure the board we are going to use, the variables used for the measurements and the wifi credentials.
 
@@ -72,11 +72,11 @@ Let's start with the device:
 The configuration is really easy:
 
 * Choose the board vendor (in our case it's Arduino).
-* Choose which board we are going to use (we'll see already our board, If we have previously connected it to the Web Editor).
+* Choose which board we are going to use (we'll see already our board, If we have previously connected it to the Cloud Editor).
 * Wait for the an update for securing the communication.
 * Click the done button.
 
-![Setup your Arduino device.](assets/screenshot_2021-06-28_09-44-48_mOOnTEkuFO.png)
+![Setup your Arduino device](assets/DeviceSetup.png)
 
 Now it's time to create the variables!
 
@@ -121,24 +121,24 @@ And last, create a `String` variable read & write, in order to let the dashboard
 
 ![String variable set to read & write.](assets/screenshot_2021-06-25_01-10-18_J4HE27KBuo.png)
 
-Next step is to setup the Wifi Credentials that will be used by the board to connect to the Internet and to the Arduino IoT Cloud
+Next step is to setup the Wifi Credentials that will be used by the board to connect to the Internet and to the Arduino Cloud
 
 ![Configure your WiFi settings.](assets/image_3pokJpjQu0.png)
 
 ### The Auto-Generated Sketch
 
-After creating variables, in the *sketch* section we'll find an auto-generated sketch, than we can open directly in the Web Editor by pressing the *Open full editor* button!
+After creating variables, in the *sketch* section we'll find an auto-generated sketch.
 
-![Click Open full editor.](assets/image_SlwQmN3MEj.png)
+![Sketch editor tab](sketchTab.png)
 
-Now we continue editing the sketch in the Web Editor.
+Now we continue editing the sketch in the Cloud Editor.
 
 We'll find a few more tabs, in particular:
 
 * thingProperties.h tab - that we dn't have to edit! - where we'll find the variables declared prevoiously, and the unique ID of the thing and it's properties.
 * Secret tab where we'll find the WiFi credentials.
 
-![The different tabs.](assets/screenshot_2021-06-25_01-25-58_EIfc27QSfO.png)
+![The different tabs](assets/thingsProperties.png)
 
 Being separated from the main sketch tab, we can share without problem our sketch: those information will not be shown, since strictly related to our own thing and wifi connection!
 
@@ -221,13 +221,13 @@ We'll use it to display measurements, but because of we'll have a shared dashboa
 
 We have to use the *Grove Oled Display 0.96* library, and we can install it from the Library Manager. Just search for "oled" and then star the library, in order to have it available! 
 
-![Search for the oled library.](assets/image_ViO3iy1h3Y.png)
+![Search for the oled library](image.png)
 
 We'll find all the needed code in the **OLED_Hello_World** example.
 
 This display is able to show up to 8 rows, 16 chars each. In order to visualize information in the display, we have to place it using *XY* coordinate, where the top left corner is **X0**, **Y0**, and X is for the columns and Y for the rows
 
-![Coordinates on the oled display.](assets/image_1MoDqZvQwk.png)
+![Coordinates on the oled display](assets/image_1MoDqZvQwk.png)
 
 Let's start including the required libraries in the header:
 
@@ -316,7 +316,7 @@ So in the `if` in which we do the measurements, we can add these rows:
 
 The [toCharArray()](https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/tochararray/) function is used to convert each String variable in a char array, in order to print them in the display with the `putString()`.
 
-For the custom message we have 3 rows available; the first will be used as descripion, and the last 2 for the message itself.
+For the custom message we have 3 rows available; the first will be used as description, and the last 2 for the message itself.
 
 Each row can display 16 characters, so we'll have to split the message in chunks of that dimension using the [substring()](https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/substring/) function. 
 
@@ -336,7 +336,7 @@ For this we use a `for` loop, shifting of 16 chars in each iteration (2 at the m
  display_text = ""; 
 ```
 
-In this gallery the OLED display e few seconds after reset, in normal usage, and after reveiving a message from the dashboard:
+In this gallery the OLED display e few seconds after reset, in normal usage, and after receiving a message from the dashboard:
 
 ![The OLED display, a few seconds after e reset](assets/photo5965303395248092580_jsbmVkyv4g.jpg)
 
@@ -361,11 +361,11 @@ That's it! the complete sketch can be found below.
 
 Last step is to create a custom Dashboard.
 
-Just press the **Go to IoT Cloud** button to switch from the Web Editor to the Arduino IoT Cloud.
+Just press the **Go to IoT Cloud** button to switch from the Cloud Editor to the Arduino Cloud.
 
 Here switch to the Dashboards menu, and then *BUILD DASHBOARD*
 
-![Switch to the dashboards menu, and then choose build dashboard.](assets/image_rK7E2bPuef.png)
+![Switch to the dashboards menu, and then choose build dashboard](assets/createDashboard.png)
 
 Now we can start building the new dashboard, switching in edit mode.
 

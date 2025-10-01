@@ -2,7 +2,7 @@
 title: "Arduino Proto Extension Kit"
 description: "Base kit to extend your Arduino with your own wired circuit"
 coverImage: "assets/a000083_iso.jpg"
-sku: "K000083"
+sku: [K000083]
 source: "https://store.arduino.cc/arduino-proto-extension-kit"
 ---
 

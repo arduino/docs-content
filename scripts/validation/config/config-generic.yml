@@ -23,3 +23,6 @@ debug: false
 
 # Defines rules for what links not to check. Usually relative links should not be checked.
 brokenLinkExcludePatterns: [^./, ^../, ^#, ^chrome://, localhost , ^assets/, ^images/]
+
+# Define a list of foldernames that get ignored during folder name validation
+folderNameIgnoreList: ["_unlisted"]

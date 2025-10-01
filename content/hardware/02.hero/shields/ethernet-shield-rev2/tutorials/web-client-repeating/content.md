@@ -5,7 +5,7 @@ title: 'Ethernet Shield Web Client Repeating'
 description: 'Make repeated HTTP requests.'
 ---
 
-This example shows you how to make repeated HTTP requests using an Ethernet shield.   This example uses DNS, by assigning the Ethernet client with a MAC address, IP address, and DNS address. It connects to  [http://www.arduino.cc/latest.txt](/latest.txt). The content of the page is viewable in the Serial Monitor.
+This example shows you how to make repeated HTTP requests using an Ethernet shield.   This example uses DNS, by assigning the Ethernet client with a MAC address, IP address, and DNS address. It connects to  [http://www.arduino.cc/latest.txt](http://www.arduino.cc/latest.txt). The content of the page is viewable in the Serial Monitor.
 
 ## Hardware Required
 
@@ -41,7 +41,7 @@ Image developed using [Fritzing](http://www.fritzing.org). For more circuit exam
 
  using a Wiznet Ethernet shield. You can use the Arduino Ethernet shield, or
 
- the Adafruit Ethernet shield, either one will work, as long as it's got
+ the Adafruit® Ethernet shield, either one will work, as long as it's got
 
  a Wiznet Ethernet module on board.
 
@@ -105,9 +105,9 @@ void setup() {
 
   //Ethernet.init(20);  // Teensy++ 2.0
 
-  //Ethernet.init(15);  // ESP8266 with Adafruit Featherwing Ethernet
+  //Ethernet.init(15);  // ESP8266 with Adafruit® Featherwing Ethernet
 
-  //Ethernet.init(33);  // ESP32 with Adafruit Featherwing Ethernet
+  //Ethernet.init(33);  // ESP32 with Adafruit® Featherwing Ethernet
 
   // start serial port:
 

@@ -10,7 +10,7 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/gnome-forecaster-c
 
 ## Components and Supplies
 
-- [Arduino Nano Every](https://store.arduino.cc/usa/nano-every)
+- [Arduino Nano Every](/hardware/nano-every)
 - [SparkFun Atmospheric Sensor Breakout - BME280](https://www.sparkfun.com/products/13676)
 - [Maxim Integrated DS3231MPMB1 Peripheral Module](https://www.maximintegrated.com/en/products/digital/real-time-clocks/DS3231MPMB1.html/tb_tab3)
 - [Digilent WS2812 Addressable LED Strip](http://store.digilentinc.com/)
@@ -44,7 +44,7 @@ To get to a more accurate forecast, also relative humidity and winds are taken i
 
 ![The Zambretti Forecaster.](assets/uploads2ftmp2f464f5cee-af48-4bd7-8d8b-3acdf091eb5f2fzambretti01_IOgxDRbmqf.jpg)
 
-This forecaster has been documented by the authors Zambra end Negretti back in 1920 and it has become the solution for a local weather forecast in many microcontroller based projects. You can find the full details on the forecaster here ([http://drkfs.net/zambretti.htm)](http://drkfs.net/zambretti.htm) and we also found the work of **Fandonov** ([https://github.com/fandonov/weatherstation)](https://github.com/fandonov/weatherstation) very useful for his implementation of the Zambretti forecaster in his e-Ink display weather forecaster.
+This forecaster has been documented by the authors Zambra end Negretti back in 1920 and it has become the solution for a local weather forecast in many microcontroller based projects. You can find the full details on the forecaster here ([http://drkfs.net/zambretti.htm)](https://web.archive.org/web/20190821001641/http://drkfs.net/zambretti.htm) and we also found the work of **Fandonov** ([https://github.com/fandonov/weatherstation)](https://github.com/fandonov/weatherstation) very useful for his implementation of the Zambretti forecaster in his e-Ink display weather forecaster.
 
 ## The Components
 

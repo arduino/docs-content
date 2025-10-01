@@ -1,0 +1,91 @@
+Board:
+  Name: Arduino® Pro 4G Module
+  SKU:
+    Pro 4G Module EMEA: TPX00201
+    Pro 4G GNSS Module Global: TPX00200
+Compatible Carriers: Portenta Max Carrier and Portenta Mid Carrier
+Region:
+  Pro 4G Module EMEA: EMEA / Southeast Asia
+  Pro 4G GNSS Module Global: Global
+Series:
+  Pro 4G Module EMEA: Quectel EC200A-EU
+  Pro 4G GNSS Module Global: Quectel EG25-G
+Chipset:
+  Pro 4G Module EMEA: Marvell ASR1803
+  Pro 4G GNSS Module Global: Qualcomm MDM9x07
+LTE Connectivity: LTE CAT4 4G with 2G/3G fallback
+LTE Characteristics:
+  Pro 4G Module EMEA: Supports up to 3GPP Rel-9 non-CA Cat 4 FDD and TDD
+  Pro 4G GNSS Module Global: Supports up to non-CA Cat 4 FDD and TDD
+  RF Bandwidth: 1.4, 3, 5, 10, 15, 20 MHz
+  LTE-FDD:
+    Transmitting Power: Class 3 (23 dBm ±2 dB)
+    Transmission Data Rates: 150 Mbps (Download), 50 Mbps (Upload)
+  LTE-TDD:
+    Transmitting Power: Class 3 (23 dBm ±2 dB)
+    Transmission Data Rates: 130 Mbps (Download), 30 Mbps (Upload)
+UMTS Characteristics:
+  Pro 4G Module EMEA: 3GPP Rel-7 HSPA+, HSDPA, HSUPA, and WCDMA
+  Pro 4G GNSS Module Global: 3GPP Rel-8 DC-HSDPA, HSPA+, HSDPA, HSUPA, and WCDMA
+  Modulation: QPSK, 16QAM, 64QAM
+  Transmission Data Rates:
+    DC-HSDPA (Global): 42 Mbps (Download)
+    HSDPA+ (EMEA): 21 Mbps (Download)
+    HSUPA: 5.76 Mbps (Upload)
+    WCDMA: 384 kbps (Download & Upload)
+GSM Characteristics:
+  Pro 4G Module EMEA:
+    GPRS:
+      Class: GPRS multi-slot class 12
+      Coding Scheme: CS-2, CS-3, CS-4
+      Transmission Data Rates: 85.6 kbps (Download & Upload)
+    EDGE:
+      Class: EDGE multi-slot class 12
+      Modulation: GMSK and 8-PSK for different MCS (Modulation and Coding Scheme)
+      Coding Scheme: MCS 1-9 (Downlink & Uplink)
+      Transmission Data Rates: 236.8 kbps (Download & Upload)
+  Pro 4G GNSS Module Global:
+    GPRS:
+      Class: GPRS multi-slot class 33 (33 by default)
+      Coding Scheme: CS-2, CS-3, CS-4
+      Transmission Data Rates: 107 kbps (Download), 85.6 kbps (Upload)
+    EDGE:
+      Class: EDGE multi-slot class 33
+      Modulation: GMSK and 8-PSK for different MCS (Modulation and Coding Scheme)
+      Coding Scheme: MCS 1-9 (Downlink & Uplink)
+      Transmission Data Rates: 296 kbps (Download), 236.8 kbps Upload)
+GNSS:
+  Pro 4G Module EMEA: N/A
+  Pro 4G GNSS Module Global:
+    Supported Systems: GPS, GLONASS, BeiDou (COMPASS), Galileo, QZSS
+    Protocol: NMEA 0180
+    Data Update Rate: 1 Hz (Default)
+Internet Protocol Characteristics:
+  Protocol: TCP, UDP, PPP, NTP, NITZ, FTP, HTTP, PING, CMUX, HTTPS, FTPS, SSL, FILE, MQTT, MMS, SMTP, SMTPS
+  Connection: PAP and CHAP for PPP connection
+AT Commands:
+  Compliant: 3GPP TS 27.007, 3GPP TS 27.005, Quectel enhanced AT commands
+Antenna Connectors:
+  Pro 4G Module EMEA: Main antenna, Rx-diversity antenna
+  Pro 4G GNSS Module Global: Main antenna, diversity antenna, GNSS antenna receptacle
+Interfaces:
+  USB: Yes
+  UART: Yes
+  PCM/I2C: Yes
+Power:
+  Supply voltage: 3.0 - 3.6 V
+  Typical supply voltage: 3.3 V
+Mini PCIe Interface: PCI Express Mini Card 1.2 Standard Interface
+Certifications:
+  Pro 4G Module EMEA:
+    Regulatory: CE, ROHS, REACH, UKCA
+  Pro 4G GNSS Module Global:
+    Regulatory: CE, ROHS, REACH, UKCA, FCC, IC
+Dimensions:
+  Width: 30 mm
+  Length: 51 mm
+  Weight: 9.7 g
+Temperature Range:
+  Operating temperature range: -35 °C to +75 °C
+  Extended temperature range: -40 °C to +80 °C
+  Storage temperature range: -40 °C to +90 °C

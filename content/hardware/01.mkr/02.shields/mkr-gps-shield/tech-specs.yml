@@ -2,7 +2,7 @@ Shield:
   Name: Arduino® MKR GPS Shield
   SKU: ASX00017
   Compatibility: MKR
-Communication: Serial / I2C / DCC
+Communication: Serial / I2C (over ESLOV only) / DCC
 GPS Module: u-blox SAM-M8Q
 Connector: Eslov
 Power:

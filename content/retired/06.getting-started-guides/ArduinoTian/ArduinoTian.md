@@ -13,9 +13,9 @@ The Arduino Tian is programmed using the [Arduino Software (IDE)](https://arduin
 
 
 
-All Arduino boards, including this one, work out-of-the-box on the [Arduino Web Editor](https://create.arduino.cc/editor), you only need to install Arduino Create Agent to get started.
+All Arduino boards, including this one, work out-of-the-box on the [Arduino Cloud Editor](https://create.arduino.cc/editor), you only need to install Arduino Create Agent to get started.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow this [simple guide](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a) to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow this [simple guide](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a) to start coding on the browser and upload your sketches onto your board.
 
 
 
@@ -29,7 +29,7 @@ If you want to program your Arduino Tian while offline you need to install the [
 
 #### Installing Drivers for the Arduino Tian
 
-Arduino Tian uses the CP201x driver and you must install it on the computer before you connect the board. You find the drivers for your OS at this [link](http://www.silabs.com/products/interface/Pages/CP2105EK.aspx). Please download the package for your OS and proceed as described below.
+Arduino Tian uses the CP201x driver and you must install it on the computer before you connect the board. You find the drivers for your OS at this [link](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads). Please download the package for your OS and proceed as described below.
 
 **OSX**
 You downloaded a ZIP file that contains an installable package. Please extract it and proceed launching the extracted package. The installation procedure is assisted and you will end up with a Virtual COM port available every time you connect the Tian board and that is the one to use in the Arduino Software (IDE) to program the board.

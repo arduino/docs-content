@@ -6,11 +6,11 @@
 
 <EssentialsColumn title="Suggested Libraries">
 
-  <EssentialElement title="Keyboard" type="library" link="https://www.arduino.cc/reference/en/language/functions/usb/keyboard/">
+  <EssentialElement title="Keyboard" type="library" link="https://www.arduino.cc/reference/en/language/functions/usb/Keyboard/">
  The keyboard functions enable 32u4 or SAMD micro based boards to send keystrokes to an attached computer through their micro’s native USB port.
   </EssentialElement>
 
-  <EssentialElement title="Mouse" type="library" link="https://www.arduino.cc/reference/en/language/functions/usb/mouse/">
+  <EssentialElement title="Mouse" type="library" link="https://www.arduino.cc/reference/en/language/functions/usb/Mouse/">
 The mouse functions enable 32u4 or SAMD micro based boards to control cursor movement on a connected computer through their micro’s native USB port.
   </EssentialElement>
 
@@ -18,7 +18,7 @@ The mouse functions enable 32u4 or SAMD micro based boards to control cursor mov
 
 <EssentialsColumn title="Arduino Basics">
   <EssentialElement title="Built-in Examples" type="tutorial" link="/built-in-examples/">
-    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands. 
+    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands.
   </EssentialElement>
   <EssentialElement title="Learn" type="resource" link="/learn/">
     Discover interesting articles, principles and techniques related to the Arduino ecosystem.

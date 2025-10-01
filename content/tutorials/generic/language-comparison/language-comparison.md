@@ -12,13 +12,13 @@ The Arduino language (based on Wiring) is implemented in C/C++, and therefore ha
 |Arduino|Processing|Python|
 |-|-|-|
 |int bar[8];<br/>bar[0] = 1;|int[] bar = new int[8];<br/>bar[0] = 1;||
-|int foo[] = { 0, 1, 2 };|	int foo[] = { 0, 1, 2 }; <br/> or <br/>int[] foo = { 0, 1, 2 };||
+|int foo[] = \{ 0, 1, 2 };|	int foo[] = \{ 0, 1, 2 }; <br/> or <br/>int[] foo = \{ 0, 1, 2 };||
 
 ## Loops
 
 |Arduino|Processing|Python|
 |-|-|-|
-|int i;<br/>for (i = 0; i < 5; i++) { ... }|	for (int i = 0; i < 5; i++) { ... }||
+|int i;<br/>for (i = 0; i < 5; i++) \{ ... }|	for (int i = 0; i < 5; i++) \{ ... }||
 
 ## Printing
 

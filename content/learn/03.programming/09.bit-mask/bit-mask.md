@@ -7,14 +7,14 @@ tags: [Bitwise Operations, Bit Masks]
 
 Bit masks are used to access specific bits in a byte of data. This is often useful as a method of iteration, for example when sending a byte of data serially out a single pin. In this example the pin needs to change it's state from high to low for each bit in the byte to be transmitted. This is accomplished using what are known as bitwise operations and a bit mask.
 
-Bitwise operations perform logical functions that take affect on the bit level. Standard bitwise operations include  AND (&) OR (|) Left Shift (<<) and Right Shift (>>).
+Bitwise operations perform logical functions that take affect on the bit level. Standard bitwise operations include  AND (&) OR (|) Left Shift (`<<`) and Right Shift (`>>`).
 
 The AND (&) operator will result in a 1 at each bit position where both input values were 1.
 For example:
 
 ```arduino
     x:  10001101
-    
+
     y:  01010111
 
 x & y:  00000101
@@ -31,7 +31,7 @@ For example:
 x | y:  11011111
 ```
 
-The Left Shift (<<) operator will shift a value to the left the specified number of times.
+The Left Shift (`<<`) operator will shift a value to the left the specified number of times.
 For example:
 
 ```arduino
@@ -94,7 +94,7 @@ void loop()
 }
 ```
 
-Here we use a FOR loop to iterate through a bit mask value, shifting the value one position left each time through the loop. In this example we use the <<= operator which is exactly like the << operator except that it compacts the statement
+Here we use a FOR loop to iterate through a bit mask value, shifting the value one position left each time through the loop. In this example we use the `<<=` operator which is exactly like the `<<` operator except that it compacts the statement
 
 ```arduino
   00000001

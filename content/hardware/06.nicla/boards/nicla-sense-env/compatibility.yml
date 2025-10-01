@@ -1,0 +1,26 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - cloud-editor
+
+hardware:
+  boards:
+    - portenta-c33
+    - portenta-h7
+    - portenta-h7-lite
+    - portenta-h7-lite-connected
+    - mkr-wifi-1010
+    - mkr-wan-1310
+    - mkr-zero
+    - mkr-nb-1500
+    - nano-33-ble
+    - nano-33-ble-rev2
+    - nano-33-ble-sense
+    - nano-33-ble-sense-rev2
+    - nano-33-iot
+    - nano-esp32
+    - nano-every
+    - nano-rp2040-connect
+    - uno-r4-minima
+    - uno-r4-wifi
+    - zero

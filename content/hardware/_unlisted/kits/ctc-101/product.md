@@ -1,4 +1,4 @@
 ---
 title: CTC 101
-certifications: [CE]
+sku: [AKX00002, AKX00002SL]
 ---

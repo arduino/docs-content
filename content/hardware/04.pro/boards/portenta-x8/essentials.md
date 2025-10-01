@@ -1,5 +1,5 @@
 <EssentialsColumn title="First Steps">
-    <EssentialElement title="User Manual" type="getting-started" link="http://docs.arduino.cc/tutorials/portenta-x8/user-manual">
+    <EssentialElement title="User Manual" type="getting-started" link="/tutorials/portenta-x8/user-manual">
         A full guide to the basics of the Portenta X8
     </EssentialElement>
     <EssentialElement link="https://docs.arduino.cc/tutorials/portenta-x8/x8-fundamentals" title="Fundamentals of Portenta X8" type="tutorial">
@@ -11,9 +11,15 @@
 </EssentialsColumn>
     
 <EssentialsColumn title="Suggested Repositories">
-    <EssentialElement link="https://github.com/arduino/portenta-containers" title="Portenta X8 containers" type="article">
+
+<EssentialElement link="https://github.com/arduino/portenta-containers/" title="Portenta X8 containers" type="article">
         Some containers examples for Portenta X8, these containers are accessible through your Foundries.io factory.
     </EssentialElement>
+
+<EssentialElement link="https://github.com/arduino/meta-partner-arduino/" title="Meta Partner Arduino layer" type="article">
+        This repository contains Yocto recipes for building a Linux image for the Arduino Portenta X8.
+    </EssentialElement>
+
 </EssentialsColumn>
 
 <EssentialsColumn title="Firmware Images">
@@ -24,6 +30,10 @@
 
 <EssentialElement link="https://downloads.arduino.cc/portentax8image/image-latest.tar.gz" title="Latest Firmware Version" type="library">
         Download the latest firmware for Portenta X8 (Recommended).
+    </EssentialElement>
+
+<EssentialElement link="/tutorials/portenta-x8/x8-firmware-release-notes" title="Firmware Release Notes" type="library">
+        All available Portenta X8 firmware release notes.
     </EssentialElement>
 
 

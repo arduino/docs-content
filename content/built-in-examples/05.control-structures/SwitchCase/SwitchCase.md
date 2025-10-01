@@ -17,7 +17,7 @@ This program first reads the photoresistor.  Then it uses the `map()` function t
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - photoresistor, or another analog sensor
 

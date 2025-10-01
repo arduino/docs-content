@@ -8,11 +8,11 @@ author: "Jacob Hylén, Hannes Siebeneicher, Karl Söderby"
 
 ![Smart garden setup with MKR IoT Carrier.](assets/hero-image.png)
 
-Decorating your home with plants is an easy way to bring some life into your day-to-day. The only problem is - those plants need water to survive, and if you forget to pay attention to them for a while you may need to start over. So instead of staying ever vigilant, why don't you spend an afternoon creating a setup that will let you both monitor the amount of moisture in your plants soil, and water your plants from afar using the [Arduino IoT Cloud](https://docs.arduino.cc/cloud/iot-cloud)?
+Decorating your home with plants is an easy way to bring some life into your day-to-day. The only problem is - those plants need water to survive, and if you forget to pay attention to them for a while you may need to start over. So instead of staying ever vigilant, why don't you spend an afternoon creating a setup that will let you both monitor the amount of moisture in your plants soil, and water your plants from afar using the [Arduino Cloud](https://docs.arduino.cc/cloud/iot-cloud)?
 
 ## How It Works
 
-The MKR IoT Carrier has built in relays that can let you control circuits that are powered separately. In this tutorial we will be using one of the relay modules on the carrier to control a pump that can provide one of your plants with water from the Arduino IoT Cloud thanks to the functionality of the [Arduino MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010). 
+The MKR IoT Carrier has built in relays that can let you control circuits that are powered separately. In this tutorial we will be using one of the relay modules on the carrier to control a pump that can provide one of your plants with water from the Arduino Cloud thanks to the functionality of the [Arduino MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010). 
 
 We will also connect a soil moisture sensor, and together with the sensors onboard the MKR IoT Carrier, we will create a sophisticated smart garden setup, capable of:
 
@@ -20,7 +20,7 @@ We will also connect a soil moisture sensor, and together with the sensors onboa
 - Check the moisture of your plant **(with a moisture sensor)**.
 - Check the temperature/humidity **(using the onboard HTS221 sensor)**.
 
-![Live data streamed to the Arduino IoT Cloud.](assets/cloud-dashboard.gif)
+![Live data streamed to the Arduino Cloud.](assets/cloud-dashboard.gif)
 
 ## Hardware & Software Needed
 
@@ -36,7 +36,7 @@ We will also connect a soil moisture sensor, and together with the sensors onboa
 
 ### Apps and Online Services
 
-- [Arduino IoT Cloud](https://docs.arduino.cc/cloud/iot-cloud)
+- [Arduino Cloud](https://docs.arduino.cc/cloud/iot-cloud)
 
 ## Hardware & Circuit Assembly
 
@@ -60,9 +60,9 @@ To connect the wires to the relay, see the image below:
 
 ## IoT Cloud Setup
 
-***If you are new to the Arduino IoT Cloud, please refer to the [Getting Started Guide](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started) or visit the [full documentation](https://docs.arduino.cc/cloud/iot-cloud) to learn more about the service.*** 
+***If you are new to the Arduino Cloud, please refer to the [Getting Started Guide](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started) or visit the [full documentation](https://docs.arduino.cc/cloud/iot-cloud) to learn more about the service.*** 
 
-Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/things). You will need to have a registered account with Arduino to use it. Follow the steps below to set up the Arduino IoT Cloud. 
+Begin by navigating to the [Arduino Cloud](https://create.arduino.cc/iot/things). You will need to have a registered account with Arduino to use it. Follow the steps below to set up the Arduino Cloud. 
 
 **1.** Create a new Thing, and select/configure the MKR WiFi 1010 board. Note that the board needs to be connected to your computer during this setup.
 
@@ -92,7 +92,7 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
   a pump, as well as reading sensors (moisture,
   temperature, humidity).
 
-  Built using the Arduino IoT Cloud service.
+  Built using the Arduino Cloud service.
 
   Components used:
   - MKR WiFi 1010
@@ -129,7 +129,7 @@ void setup() {
   // Make sure the pump is not running
   stopWatering();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   initProperties();
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   setDebugMessageLevel(4);
@@ -226,7 +226,7 @@ Once you see the values changing, we know that the connection is successful, and
 
 ## Final Setup
 
-We have now assembled the hardware + configured the Arduino IoT Cloud, and we are ready to start using our setup. Now, let's start using it.
+We have now assembled the hardware + configured the Arduino Cloud, and we are ready to start using our setup. Now, let's start using it.
 
 **1.** If you have confirmed that the connection works, we can unplug the setup from the computer, and move it to the plant we want to monitor.
 
@@ -242,7 +242,7 @@ We have now assembled the hardware + configured the Arduino IoT Cloud, and we ar
 
 ## Usage
 
-Let's take a look at what our Smart Garden can do. To control it, we can either use the dashboard in the Arduino IoT Cloud, or the Arduino Remote app ([Playstore](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) / [Appstore](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431)).
+Let's take a look at what our Smart Garden can do. To control it, we can either use the dashboard in the Arduino Cloud, or the Arduino Remote app ([Playstore](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) / [Appstore](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431)).
 
 ![Control and monitor your Smart Garden!](assets/cloud-dashboard.gif)
 
@@ -253,7 +253,7 @@ Let's take a look at what our Smart Garden can do. To control it, we can either 
 - Click on the switch widget. The pump will now run for `x` amount of seconds, and then it will turn off.
 - You can also activate the pump through the MKR IoT Carrier. This is done via the touch buttons.
 
-**Moisture:** monitor the moisture of your plant: if it is low, turn on the pump, and watch the moisture levels rise. The moisture of your plant can be viewed in the cloud dashboard, on the carrier's display or through the LED indiciator (red is bad, green is good).
+**Moisture:** monitor the moisture of your plant: if it is low, turn on the pump, and watch the moisture levels rise. The moisture of your plant can be viewed in the Cloud dashboard, on the carrier's display or through the LED indicator (red is bad, green is good).
 
 **Display, buttons:** you can also view the moisture level locally, and activate the pump through the capacitive buttons. 
 

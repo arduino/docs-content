@@ -18,7 +18,7 @@ Thanks to Greg Borenstein for clarifying this.
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - 3 8 ohm speakers
 

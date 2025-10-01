@@ -71,7 +71,7 @@ void loop()
 
 This technique has the advantage that it can use any digital output pin. In addition, you have full control the duty cycle and frequency. One major disadvantage is that any interrupts will affect the timing, which can cause considerable jitter unless you disable interrupts. A second disadvantage is you can't leave the output running while the processor does something else. Finally, it's difficult to determine the appropriate constants for a particular duty cycle and frequency unless you either carefully count cycles, or tweak the values while watching an oscilloscope.
 
-A more elaborate example of manually PWMing all pins may be found [here](http://www.arduino.cc/playground/Main/PWMallPins).
+A more elaborate example of manually PWMing all pins may be found [here](http://www.arduino.cc/playground/Main/PWMallPins/).
 
 ## Using the ATmega PWM Registers Directly
 
@@ -248,9 +248,9 @@ The Arduino uses Timer 0 internally for the millis() and delay() functions, so b
 
 The `analogWrite(pin, duty_cycle)` function sets the appropriate pin to PWM and sets the appropriate output compare register to duty_cycle (with the special case for duty cycle of 0 on Timer 0). The `digitalWrite()` function turns off PWM output if called on a timer pin. The relevant code is wiring_analog.c and wiring_digital.c.
 
-If you use `analogWrite(5, 0)` you get a duty cycle of 0%, even though pin 5's timer (Timer 0) is using fast PWM. How can this be, when a fast PWM value of 0 yields a duty cycle of 1/256 as explained above? The answer is that `analogWrite` "cheats"; it has special-case code to explicitly turn off the pin when called on Timer 0 with a duty cycle of 0. As a consequency, the duty cycle of 1/256 is unavailable when you use `analogWrite`` on Timer0, and there is a jump in the actual duty cycle between values of 0 and 1.
+If you use `analogWrite(5, 0)` you get a duty cycle of 0%, even though pin 5's timer (Timer 0) is using fast PWM. How can this be, when a fast PWM value of 0 yields a duty cycle of 1/256 as explained above? The answer is that `analogWrite` "cheats"; it has special-case code to explicitly turn off the pin when called on Timer 0 with a duty cycle of 0. As a consequence, the duty cycle of 1/256 is unavailable when you use `analogWrite`` on Timer0, and there is a jump in the actual duty cycle between values of 0 and 1.
 
-Some other Arduino models use dfferent AVR processors with similar timers. The Arduino Mega uses the ATmega1280 (datasheet), which has four 16-bit timers with 3 outputs each and two 8-bit timers with 2 outputs each. Only 14 of the PWM outputs are supported by the Arduino Wiring library, however. Some older Arduino models use the ATmega8 (datasheet), which has three timers but only 3 PWM outputs: Timer 0 has no PWM, Timer 1 is 16 bits and has two PWM outputs, and Timer 2 is 8 bits and has one PWM output.
+Some other Arduino models use different AVR processors with similar timers. The Arduino Mega uses the ATmega1280 (datasheet), which has four 16-bit timers with 3 outputs each and two 8-bit timers with 2 outputs each. Only 14 of the PWM outputs are supported by the Arduino Wiring library, however. Some older Arduino models use the ATmega8 (datasheet), which has three timers but only 3 PWM outputs: Timer 0 has no PWM, Timer 1 is 16 bits and has two PWM outputs, and Timer 2 is 8 bits and has one PWM output.
 
 ### Troubleshoot
 

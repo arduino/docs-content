@@ -1,37 +1,37 @@
 ---
-title: 'An intro to the Arduino IoT Cloud'
-description: 'With the Arduino IoT Cloud desktop or mobile platform, you can quickly connect, manage and monitor your devices from anywhere in the world.'
+title: 'An intro to the Arduino Cloud'
+description: 'With the Arduino Cloud desktop or mobile platform, you can quickly connect, manage and monitor your devices from anywhere in the world.'
 author: 'Liam Aljundi'
 tags: [IoT Cloud, Create Agent]
 ---
 
-## Using the Arduino IoT Cloud
+## Using the Arduino Cloud
 
-With the Arduino IoT Cloud desktop or mobile platform, you can quickly connect, manage and monitor your devices from anywhere in the world. 
+With the Arduino Cloud desktop or mobile platform, you can quickly connect, manage and monitor your devices from anywhere in the world. 
 
-Arduino IoT Cloud allows you to automatically create any code to program your device with - just add a couple of lines to customize it how you want. If you’re new to Arduino don’t worry there’s example code for hundreds of sensors and actuators. 
+Arduino Cloud allows you to automatically create any code to program your device with - just add a couple of lines to customize it how you want. If you’re new to Arduino don’t worry there’s example code for hundreds of sensors and actuators. 
 
-The following steps will guide you to start using the Arduino IoT Cloud:
+The following steps will guide you to start using the Arduino Cloud:
 
 **1.** Install the [Arduino Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) plugin.
 
 **2.** Check if you have a **cloud compatible board**. The picture below shows all official Arduino boards that are compatible. 
 
-![Arduino IoT Cloud compatible boards](./assets/iot-cloud-compatible-boards.png)
+![Arduino Cloud compatible boards](./assets/iot-cloud-compatible-boards.png)
 
-***Note: The MKR GSM 1400 and MKR NB 1500 require a SIM card to connect to the Cloud, as they communicate over the mobile networks. The MKR WAN 1300 and 1310 board requires a Arduino PRO Gateway LoRa to connect to the cloud.***
+***Note: The MKR GSM 1400 and MKR NB 1500 require a SIM card to connect to the Cloud, as they communicate over the mobile networks. The MKR WAN 1300 and 1310 board requires a Arduino PRO Gateway LoRa to connect to the Cloud.***
 
 **3.** Create an Arduino account by [signing up to Arduino](https://login.arduino.cc/login).
 
-**4.** **Access the Arduino IoT Cloud** from any page on [arduino.cc](https://www.arduino.cc/) by clicking on the bento menu (9-dots) on the top right corner, or you can go directly to the  [Arduino IoT Cloud](https://create.arduino.cc/iot/).
+**4.** **Access the Arduino Cloud** from any page on [arduino.cc](https://www.arduino.cc/) by clicking on the bento menu (9-dots) on the top right corner, or you can go directly to the  [Arduino Cloud](https://create.arduino.cc/iot/).
 
-![Opening the Arduino IoT Cloud](./assets/accesscloud.png)
+![Opening the Arduino Cloud](./assets/accesscloud.png)
 
 ### Creating a Thing
 
 **1.** The user journey always begins by **creating a new Thing**. In the Thing overview, we can choose what device to use, what Wi-Fi network we want to connect to, and create variables that we can monitor and control.
 
-![Arduino IoT Cloud’s interface](./assets/thingoverview.png)
+![Arduino Cloud’s interface](./assets/thingoverview.png)
 
 **2.** Next we need to **add a device** by clicking on the "Select device" button on the Thing overview. Here, we choose from any board that we have already been configured, or select the **Configure new device** option.
 
@@ -53,7 +53,7 @@ Additionally, each time we create a variable that has the **Interaction Mode** e
 
 When we are happy with our sketch, we can **upload** it to our board, by clicking the upload button.
 
-![Editing a sketch in the cloud editor](./assets/sketchoverview.png)
+![Editing a sketch in the Cloud editor](./assets/sketchoverview.png)
 
 After we have successfully uploaded the code, we can open the **Serial Monitor** tab to view information regarding our connection. If it is successful, it will print **connected to network_name** and **connected to cloud**. 
 
@@ -66,7 +66,7 @@ Now that we have configured the device & network, created variables, completed t
 
 Dashboards are visual user interfaces for interacting with your boards over the Cloud, and we can set up many different setups depending on what your IoT project needs. 
 
-We can access our dashboards by clicking on the **Dashboards** tab at the top of the Arduino IoT Cloud interface, where we can create new dashboards, and see a list of dashboards created for other Things.
+We can access our dashboards by clicking on the **Dashboards** tab at the top of the Arduino Cloud interface, where we can create new dashboards, and see a list of dashboards created for other Things.
 
 ![Navigating to dashboards.](./assets/navigatedashboard.png)
 
@@ -76,13 +76,13 @@ If we click on **Create new dashboard**, we enter a dashboard editor. Here, we c
 
 When we create widgets, we also need to **link them to our variables**. This is done by clicking on a widget we create, selecting a Thing, and selecting a variable that we want to link. 
 
-Once it is linked, we can either interact with it, for example a button, or we can monitor a value from a sensor. As long as our board is connected to the cloud, the values will update automatically!
+Once it is linked, we can either interact with it, for example a button, or we can monitor a value from a sensor. As long as our board is connected to the Cloud, the values will update automatically!
 
-**Congratulations!** Now you are ready to create your own IoT system. You can find more information about the [Arduino IoT Cloud here](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started).
+**Congratulations!** Now you are ready to create your own IoT system. You can find more information about the [Arduino Cloud here](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started).
 
 ## Network Configuration
 
-***Note: that the Arduino IoT Cloud operates with different domains and ports, which means that if we want devices working with the Arduino IoT Cloud, they need to be allowed access to certain domains through your firewall.***
+***Note: that the Arduino Cloud operates with different domains and ports, which means that if we want devices working with the Arduino Cloud, they need to be allowed access to certain domains through your firewall.***
 
 If you are connected to your **school or university networks**, please provide your admin with the following instructions:
 
@@ -96,7 +96,7 @@ If you are connected to your **school or university networks**, please provide y
 
 **2.** Provide **NTP access** to [time.arduino.cc](<time.arduino.cc>), note that the NTP port for [time.arduino.cc](<time.arduino.cc>) is **123 UDP**.
 
-If you are having issues connecting to the Arduino IoT Cloud through your home network, follow these instructions:
+If you are having issues connecting to the Arduino Cloud through your home network, follow these instructions:
 
 **For Windows users**
 
