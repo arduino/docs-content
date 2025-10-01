@@ -63,7 +63,7 @@ The Nano R4 includes a special hardware feature that enables bootloader recovery
 
 ### Obtaining the Bootloader File
 
-**Option 1: Direct Download (Recommended)**
+**Option 1: Direct Download (recommended)**
 
 Download the bootloader file directly from the Arduino Renesas Core GitHub repository:
 
