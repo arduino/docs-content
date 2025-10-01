@@ -42,11 +42,12 @@ This tutorial will guide you through the complete process of flashing the bootlo
 
 ### Software Requirements
 
-- [Arduino IDE 2.0+](https://www.arduino.cc/en/software/) or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE](https://www.arduino.cc/en/software/) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Arduino UNO R4 Boards core](https://github.com/arduino/ArduinoCore-renesas) (latest version)
 - [Renesas Flash Programmer tool](https://www.renesas.com/en/software-tool/renesas-flash-programmer-programming-gui) (latest version)
+- The bootloader file (`dfu_nano.hex`, see next section for download options)
 
-***__Important note__: Make sure you have installed the `Arduino UNO R4 Boards` core version 1.0 or higher before proceeding. The bootloader file is included in this core installation.***
+***__Important note__: The Arduino IDE is NOT required for the bootloader flashing process itself, only for testing the board afterward.***
 
 ## Understanding Bootloader Recovery
 
@@ -60,9 +61,19 @@ The Nano R4 includes a special hardware feature that enables bootloader recovery
 
 ## Preparing for Bootloader Flashing
 
-Before beginning the bootloader flashing process, you need to locate and prepare the necessary bootloader file that comes with the Arduino UNO R4 Boards core installation.
+### Obtaining the Bootloader File
 
-### Locating the Bootloader File
+**Option 1: Direct Download (Recommended)**
+
+Download the bootloader file directly from the Arduino Renesas Core GitHub repository:
+
+- [Download dfu_nano.hex](https://github.com/arduino/ArduinoCore-renesas/blob/main/bootloaders/NANOR4/dfu_nano.hex)
+
+Click the "**Download raw file**" button and save it to a known location on your computer, as you will need it later in the Renesas Flash Programmer.
+
+![Bootloader file on the Arduino Renesas Core GitHub repository](assets/bootloader-raw-file.png)
+
+**Option 2: From Arduino IDE Installation (if already installed)**
 
 The bootloader file (`dfu_nano.hex`) is automatically installed when you add the `Arduino UNO R4 Boards` core through the Arduino IDE's Boards Manager. To find this file on your system:
 
@@ -156,9 +167,9 @@ After flashing the bootloader, it is important to verify that your Nano R4 board
 
 **Testing with the Blink Sketch**
 
-Open the Arduino IDE 2 and ensure the Arduino UNO R4 Boards core is installed via **Tools > Board > Boards Manager**. Select your board by navigating to **Tools > Board > Arduino UNO R4 Boards > Arduino Nano R4**. Select the correct port under **Tools > Port**. Your Nano R4 should now appear as "**Arduino Nano R4**".
+Open the Arduino IDE and ensure the **Arduino UNO R4 Boards** core is installed via **Tools > Board > Boards Manager**. Select your board by navigating to **Tools > Board > Arduino UNO R4 Boards > Arduino Nano R4**. Select the correct port under **Tools > Port**. Your Nano R4 should now appear as "**Arduino Nano R4**".
 
-Load the following Blink example sketch to test the bootloader:
+Load the following `Blink` example sketch to test the bootloader:
 
 ```arduino
 /**
@@ -206,6 +217,16 @@ To upload the sketch to the board, click the **Verify** button to compile the sk
 If the upload succeeds and the orange LED starts blinking, your bootloader has been successfully restored!
 
 ![Blink sketch](assets/orange-led.gif)
+
+## Quick Verification
+
+After flashing, your board should:
+
+- ✅ Show up as "**Arduino Nano R4**" in your computer's device manager
+- ✅ Have only the green PWR LED lit when idle
+- ✅ Successfully upload and run the `Blink` sketch (if testing with Arduino IDE)
+
+If any of these checks fail, see the Troubleshooting section below.
 
 ## Troubleshooting Common Issues
 
