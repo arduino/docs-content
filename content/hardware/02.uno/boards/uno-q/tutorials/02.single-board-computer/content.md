@@ -106,7 +106,7 @@ Eventually, Arduino App Lab will open showing the built-in examples Apps. Now, y
 
 ![SBC ready to use](assets/ready-to-use.png)
 
-***Arduino App Lab will always run on boot and will update the board and the dependecies to their latest versions.***
+***Arduino App Lab will always run on boot and will update the board and the dependencies to their latest versions.***
 
 ### Connect to the Internet
 
