@@ -21,7 +21,7 @@ Microprocessor Unit:
    User Button: Yes
 Microcontroller Unit:
   Core: STM32U585 Arm® Cortex®-M33 up to 160 MHz
-  Operating System: Zephyr OS
+  Operating System: Arduino Code on Zephyr OS
   Memory:
     Flash: 2 MB
     SRAM: 786 KB
