@@ -83,7 +83,7 @@ First, let's take a look at some key commands in the code. We are actually not u
 - `int brakePin = 9;` - assign brake pin.
 - `digitalWrite(directionPin, state)` - sets the direction of the pin by using HIGH or LOW states. 
 - `digitalWrite(brakePin, state)` - release or activate brakes, using HIGH or LOW states.
-- `analogWrite(pwmPin, 30)` - write a value between 0-100 to set the work duty.
+- `analogWrite(pwmPin, 30)` - write a value between 0-255 to set the work duty.
 - `directionState = !directionState` - a boolean that switches every time the loop is run.
 
 The sketch can be found in the snippet below. Upload the sketch to the board.
