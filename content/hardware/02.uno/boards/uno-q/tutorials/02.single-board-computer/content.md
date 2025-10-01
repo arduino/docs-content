@@ -1,5 +1,5 @@
 ---
-title: Using the UNO Q as a Single-Board Computer
+title: Using the Arduino UNO Q as a Single-Board Computer
 description: This tutorial teaches you how to use the Arduino UNO Q as a Single Board Computer, leveraging its expandability to create a desktop experience.
 author: Christopher Méndez
 hardware:
@@ -113,7 +113,7 @@ With your single-board computer now configured and ready, you can tap into the f
 
 ### Arduino App Lab
 
-Develop hybrid Arduino projects effortlessly with the built-in Arduino App Lab. Follow our [step-by-step tutorial]() to unlock the full potential of your UNO Q.
+Develop hybrid Arduino projects effortlessly with the built-in Arduino App Lab. Follow our [step-by-step tutorial](/software/app-lab/tutorials/getting-started/) to unlock the full potential of your UNO Q.
 
 ![Arduino App Lab](assets/app-lab.png)
 

@@ -6,14 +6,7 @@ software:
 hardware:
   boards: ~
   carriers: 
-    - ocio
-    - panen
-    - santerno
-    - oss
-    - odd
-    - rumagna
   shields: 
-    - bughopper
     - 4-relays-shield
     - motor-shield-rev3
     - spe-shield
