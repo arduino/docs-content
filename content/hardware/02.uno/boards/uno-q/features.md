@@ -49,6 +49,7 @@ Unlock hybrid development with Arduino App Lab, seamlessly uniting Python applic
         <li>USB headphones</li>
       </ul>
     </div>
+    <strong>Note:</strong> Recommended with the <strong>4 GB RAM</strong> UNO Q variant.
   </Feature>
 
 <Feature title="Debian Linux OS" image="core">
