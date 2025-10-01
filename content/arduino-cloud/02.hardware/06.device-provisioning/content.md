@@ -81,7 +81,7 @@ After completing these steps your device will connect to your Wi-Fi and you will
 
 ![Attach thing after Bluetooth](assets/attach-thing-to-bluetooth.png)
 
-The BLE interface is automatically turned off at the end of the procedure, and it remains off until board reset (see dedicated document section)
+The BLE interface is automatically turned off at the end of the procedure, and it remains off until the board is reset. More information about this can be found in the [How to set up the Reconfiguration Procedure](#how-to-set-up-the-reconfiguration-procedure) section.
 
 Now you are ready to start using your board with the Arduino Cloud!
 
@@ -141,16 +141,16 @@ You can update the network settings from the detail page of the device on the Ar
 
 During this process you will be asked to wipe out the current network configuration to restart the board's BLE interface. 
 
-- Power on the board.
-- Reset the board using the method of your board. Have a look at the [How to set up the Reconfiguration Procedure](#how-to-set-up-the-reconfiguration-procedure) section of this article to find the default board reset pin. If you have changed the reset pin from the default one, please use that.
-- Open the devices page of the Mobile App or the Arduino Cloud webpage.
-- Click on the device you want to update the network settings for.
-- Click on the "change" button by the network section.
-- If you are using the Arduino Cloud webpage, select the BLE method.
-- The board will reboot, and you will see the LED pulsing.
-- Connect to the board.
-- Input the new network configuration.
-- The board will validate it, and if correct, it will close the connection.
+1. Power on the board.
+2. Open the devices page of the Mobile App or the Arduino Cloud webpage.
+3. Click on the device you want to update the network settings for.
+4. Click on the "change" button by the network section.
+5. If you are using the Arduino Cloud webpage, select the BLE method.
+6. Reset the board using the method of your board. Have a look at the [How to set up the Reconfiguration Procedure](#how-to-set-up-the-reconfiguration-procedure) section of this article to find the default board reset pin. If you have changed the reset pin from the default one, please use that.
+7. The board will reboot, and you will see the LED pulsing.
+8. Connect to the board.
+9. Input the new network configuration.
+10. The board will validate it, and if correct, it will close the connection.
 
 ### Update Using the Serial Interface
 
@@ -158,12 +158,12 @@ Ensure that the SerialAgent is enabled in the cloud sketch, via `thingProperties
 
 This method only works with the Arduino Cloud website. You can update the network settings from the detail page of the board on the webpage. The Serial interface, if enabled, is always ready to receive a new configuration.
 
-- Turn on the board and connect it to your PC using a USB cable.
-- Open the devices page on the Arduino Cloud webpage.
-- Click on the board you want to update the network settings for.
-- Click on the "change" button by the network section.
-- Input the new network configuration.
-- The board will validate it, and if correct, it will close the connection.
+1. Turn on the board and connect it to your PC using a USB cable.
+2. Open the devices page on the Arduino Cloud webpage.
+3. Click on the board you want to update the network settings for.
+4. Click on the "change" button by the network section.
+5. Input the new network configuration.
+6. The board will validate it, and if correct, it will close the connection.
 
 ## How to delete a stored network configuration
 
