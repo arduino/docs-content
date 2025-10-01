@@ -34,7 +34,7 @@ The PMIC also uses the 5V system bus  (`5V_SYS`) to produce the board's exported
 
 The diagram below shows these rails and conversion points, using the same net names used throughout this tutorial.
 
-![UNO Q Power Tree](assets/ABX00162_power_tree.png)
+![UNO Q Power Tree](assets/ABX00162-ABX00173_power_tree.png)
 
 ## Power Specifications
 
