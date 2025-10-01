@@ -139,6 +139,32 @@ The Nano R4 can be connected to your computer using its onboard USB-C connector.
 
 ***__Important note:__ The Nano R4 operates at +5 VDC natively. When connecting sensors or modules that operate at +3.3 VDC, make sure to verify voltage compatibility to avoid component damage.***
 
+### Voltage Compatibility Considerations
+
+Before connecting any external components to your Nano R4, it is important to understand its voltage characteristics to prevent damage to your sensors and modules:
+
+**The Nano R4 operates at +5 VDC**, which means:
+
+- All digital I/O pins use +5 VDC logic levels (HIGH = +5 VDC, LOW = 0 VDC)
+- Analog inputs can safely accept 0 to +5 VDC
+- Communication pins (I²C, SPI, UART) operate at +5 VDC logic levels
+
+**For +3.3 VDC components**, you have these safe options:
+
+- Use the onboard **Qwiic connector** for I²C devices (includes built-in level shifting)
+- Add **external level shifters** for digital communication pins
+- Use the onboard **+3.3 VDC power pin** to power your devices (but still need level shifting for data lines)
+
+**Common components that typically require level shifting:**
+
+- Modern sensors from SparkFun (Qwiic), Adafruit (STEMMA QT), and Pimoroni for example
+- Most MEMS sensors (for example, accelerometers, gyroscopes, pressure sensors)
+- Many OLED and TFT displays
+- SD card modules
+- Most wireless modules (Wi-Fi®, Bluetooth®, LoRa®)
+
+Always check your component's datasheet for voltage specifications before connecting. When in doubt, use a multimeter to verify voltage levels or add protective level shifting.
+
 ### Powering the Board
 
 The Nano R4 can be powered in several ways:
@@ -416,6 +442,7 @@ The Nano R4's pins are organized into the following categories:
 
 The Nano R4 offers several advanced pin capabilities including multi-function pins that can serve multiple purposes depending on your project needs, native +5 VDC operation for compatibility with classic Arduino shields, internal +3.3 VDC level translation for modern sensors and electronic components via Qwiic, and built-in advanced peripherals such as DAC, CAN bus and operational amplifiers on specific pins of the board.
 
+***__Important voltage compatibility Note__: Unlike many other boards in the Nano family (Nano 33 BLE Sense, Nano 33 IoT, Nano ESP32) that operate at +3.3 VDC, the Nano R4 operates at +5 VDC. This fundamental difference affects ALL digital and analog pins, including communication interfaces like I²C (`A4/A5`), SPI, and UART. Before connecting any sensors, modules, or shields, always verify their voltage compatibility. __Using +3.3 VDC devices without proper level shifting can result in permanent damage to those components__.***
 
 The following table shows the electrical specifications and operating limits for all pins on the Nano R4 board:
 
@@ -889,6 +916,7 @@ void loop() {
 This high-resolution example creates a smooth sine wave pattern with the built-in LED brightness, demonstrating the precision available with a 12-bit PWM resolution. You should see a very smooth transition in the LED brightness following a sine wave pattern. Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the angle and PWM value outputs that demonstrate the precise 12-bit control values being used.
 
 ![Arduino IDE Serial Monitor output for the high-resolution PWM example sketch](assets/pwm-3.png)
+
 ### Operational Amplifier (OPAMP)
 
 The Nano R4 board features a built-in operational amplifier (OPAMP) that provides signal conditioning and amplification capabilities directly on the board. The OPAMP is connected to analog pins `A1`, `A2` and `A3`, allowing you to perform analog signal processing without requiring external amplifier circuits. This feature is particularly useful for sensor signal amplification, buffering and analog filtering applications.
@@ -1742,6 +1770,24 @@ When working with SPI on the Nano R4, there are several key points to keep in mi
 
 The Nano R4 board features built-in I²C (Inter-Integrated Circuit) communication that allows your projects to communicate with multiple devices using just two wires. I²C is implemented within the RA4M1 microcontroller and uses two dedicated pins to provide reliable serial communication with sensors, displays, memory modules and other microcontrollers. This makes it perfect for projects that need to connect several devices without using many pins.
 
+***__CRITICAL WARNING__: The Nano R4's I²C pins (A4/A5) operate at +5 VDC logic levels WITHOUT built-in level shifting. Directly connecting +3.3 VDC I²C devices to these pins may damage them permanently. This is different from many other Nano family boards that operate at +3.3 VDC.***
+
+Understanding the voltage differences between the Nano R4's I²C interfaces is important for protecting your components. The board offers two different I²C connection methods, each with distinct voltage characteristics. The following table summarizes these critical differences:
+
+|  **Interface**  | **Operating Voltage** | **Level Shifting** | **Safe for +3.3 VDC Devices** |
+|:---------------:|:---------------------:|:------------------:|:-----------------------------:|
+|    Pins A4/A5   |         +5 VDC        |        None        | ❌ No (Requires level shifter) |
+| Qwiic Connector |        +3.3 VDC       |      Built-in      |   ✅ Yes (direct connection)   |
+
+When you need to connect +3.3 VDC I²C devices to your Nano R4 board, you have three main options to ensure safe and reliable operation:
+
+1. **Use the Qwiic connector `Wire1`**: This is the simplest solution as it provides automatic level translation and +3.3 VDC power supply for your devices
+2. **Add an external level shifter**: Bi-directional I²C level translators like the [SparkFun Logic Level Converter (BOB-12009)](https://www.sparkfun.com/sparkfun-logic-level-converter-bi-directional.html) or the [Adafruit 4-Channel I2C-Safe Bi-directional Logic Level Converter (BSS138)](https://www.adafruit.com/product/757) can safely convert between +5 VDC and +3.3 VDC logic levels
+
+3. **Use +5 VDC-compatible sensors**: Select I²C devices specifically designed to operate at +5 VDC to avoid any compatibility issues
+
+### I²C Overview
+
 I²C is particularly useful when your project needs to communicate with multiple sensors and devices in a simple way, rather than using complex wiring. While SPI is excellent for high-speed communication and UART for basic serial data exchange, I²C excels at connecting many devices with minimal wiring. Multiple I²C devices can share the same two-wire bus, each with its own unique address, making it ideal for sensor networks, display modules and expandable systems.
 
 The Nano R4's I²C interface offers the following technical specifications:
@@ -1764,6 +1810,8 @@ The Nano R4 uses the following pins for I²C communication:
 |       `A5`      |          `P010`         |        SCL       | Serial Clock Line |
 
 You can communicate via I²C using the dedicated `Wire.h` library, which is included in the Arduino UNO R4 Boards core. The library provides simple functions to initialize the bus, send and receive data and manage multiple devices.
+
+***__Important note__: The Nano R4 board has two I²C interfaces. Use `Wire` for the standard I²C interface on pins `A4/A5` (+5 VDC logic), and `Wire1` for the Qwiic connector (+3.3 VDC with built-in level shifting). This dual-interface design allows you to separate +5 VDC and +3.3 VDC I²C devices on different buses if needed.***
 
 The following example demonstrates basic I²C communication patterns:
 
