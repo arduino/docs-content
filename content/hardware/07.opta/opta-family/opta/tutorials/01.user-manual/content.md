@@ -220,7 +220,7 @@ Opta's maximum power consumption at +12 VDC is 2 W, and at +24 VDC is 2.2 W.
 
 The image below shows Opta™ devices have **eight digital/analog programmable inputs** accessible through terminals `I1`, `I2`, `I3`, `I4`, `I5`, `I6`, `I7`, and `I8`. 
 
-![Programmable input terminals in Opta™ devices](assets/user-manual-9-2.png)
+![Programmable input terminals in Opta™ devices](assets/programmable-inputs.png)
 
 ***The Opta™ digital inputs also support 0 to +10 VDC logic level sensors.***
 
