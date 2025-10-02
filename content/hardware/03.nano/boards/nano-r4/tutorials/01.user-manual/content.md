@@ -31,7 +31,7 @@ This user manual provides a comprehensive overview of the Nano R4 board, highlig
 
 ### Software Requirements
 
-- [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Arduino UNO R4 Boards core](https://github.com/arduino/ArduinoCore-renesas)
 
 ***The Nano R4 is compatible with the complete Arduino ecosystem and can be programmed directly as a standalone device.***
@@ -2289,6 +2289,157 @@ When working with HID on the Nano R4, there are several key points to keep in mi
 - For debugging HID projects, use `Serial.println()` statements to track what your code is doing, since you cannot rely on the Arduino IDE's Serial Monitor once HID actions start interfering with your computer.
 - The Nano R4 can function as both a keyboard and mouse simultaneously, allowing for complex automation sequences that combine typing, shortcuts and mouse control.
 - Remember that different operating systems may have slightly different keyboard layouts and shortcuts, so test your HID projects on your target platform to ensure compatibility.
+
+## Qwiic Connector
+
+The Nano R4 board features an onboard Qwiic connector that provides a simple, tool-free solution for connecting I²C devices. The Qwiic ecosystem, developed by SparkFun Electronics, has become an industry standard for rapid prototyping with I²C devices, allowing you to connect sensors, displays, and other peripherals without soldering or complex wiring. This makes it perfect for quickly building sensor networks, adding displays, or expanding your project's capabilities with minimal effort.
+
+![Qwiic connector of the Nano R4 board](assets/qwiic-connector.png)
+
+The Qwiic connector enhances the Nano R4's versatility by providing a dedicated interface for the extensive ecosystem of +3.3 VDC I²C modules. While the Nano R4's native +5 VDC operation ensures compatibility with classic Arduino shields and components, the Qwiic interface adds seamless integration with modern sensors and modules. The board includes built-in level translation between the +5 VDC microcontroller and the +3.3 VDC Qwiic bus, giving you the best of both worlds: full compatibility with traditional Arduino hardware on the main pins, plus instant access to the latest Qwiic-compatible devices.
+
+### Qwiic Specifications
+
+The Nano R4's Qwiic connector offers the following specifications:
+
+|   **Parameter**   |          **Value**         |                    **Notes**                   |
+|:-----------------:|:--------------------------:|:----------------------------------------------:|
+|   Connector Type  |      JST SH 4-pin 1mm      |             Industry standard Qwiic            |
+| Operating Voltage |          +3.3 VDC          |          Powered by onboard regulator          |
+|   I²C Interface   |           `Wire1`          |         Secondary I²C bus (not `Wire`)         |
+|   Level Shifting  |          Built-in          | Automatic +5 VDC to +3.3 VDC level translation |
+|     Pin Order     | `GND`, `VCC`, `SDA`, `SCL` |              Standard Qwiic pinout             |
+
+The Qwiic connector is a small 4-pin connector with a 1.00 mm pitch. The mechanical details of the connector can be found in the connector's [datasheet](https://www.jst-mfg.com/product/pdf/eng/eSH.pdf).
+
+The pin layout of the Qwiic connector is the following:
+
+- `GND`: Ground
+- `VCC`: +3.3 VDC power supply
+- `SDA`: I²C data line
+- `SCL`: I²C clock line
+
+The `VCC` pin provides a stable +3.3 VDC output from the onboard regulator when the board is powered. The manufacturer part number of the Qwiic connector is [SM04B-SRSS-TB](https://www.jst-mfg.com/product/pdf/eng/eSH.pdf), and its matching cable assemblies use the [SHR-04V-S-B](https://www.jst-mfg.com/product/pdf/eng/eSH.pdf) receptacle.
+
+### Understanding the Dual I²C Architecture
+
+The Nano R4 implements a dual I²C bus architecture that separates +5 VDC and +3.3 VDC devices:
+
+| **I²C Bus** | **Arduino Object** | **Physical Connection** | **Voltage** | **Level Shifter** |          **Use Case**         |
+|:-----------:|:------------------:|:-----------------------:|:-----------:|:-----------------:|:-----------------------------:|
+|   Primary   |       `Wire`       |       Pins `A4/A5`      |    +5 VDC   |        None       |  +5V sensors, Arduino shields |
+|  Secondary  |       `Wire1`      |     Qwiic Connector     |   +3.3 VDC  |      Built-in     | Modern sensors, Qwiic devices |
+
+***__Important note__: The Qwiic connector uses `Wire1` object, not the standard `Wire` object. This is different from boards with a single I²C bus. Always use `Wire1.begin()` and related `Wire1` functions when communicating with Qwiic devices.***
+
+### Connecting Qwiic Devices
+
+Connecting Qwiic devices to your Nano R4 board is straightforward. Simply get a standard Qwiic cable (available in various lengths) and plug one end into the Nano R4's Qwiic connector and the other into your Qwiic device. Most Qwiic devices have two connectors, allowing you to daisy-chain multiple devices without any soldering or breadboarding. The polarized connectors prevent incorrect connections, making the setup process foolproof.
+
+![Nano R4 and Modulino Movement connected via Qwiic](assets/qwiic-connection.png)
+
+The Qwiic system's key advantages include:
+
+- **Plug-and-play connectivity**: No breadboards, jumper wires, or soldering required
+- **Polarized connectors**: Prevents accidental reverse connections
+- **Daisy-chain capability**: Connect multiple devices in series
+- **Built-in pull-up resistors**: No external resistors needed
+- **Standard pinout**: Compatible across all Qwiic ecosystem devices
+
+### Working with Qwiic Devices
+
+The following example demonstrates how to use the [Arduino Modulino Movement](https://store.arduino.cc/collections/modulino/products/modulino-movement) sensor via the Qwiic connector:
+
+```arduino
+/**
+Modulino Movement Example for the Arduino Nano R4 Board
+Name: nano_r4_modulino_movement.ino
+Purpose: This sketch demonstrates reading motion data from the 
+Modulino Movement sensor via the Qwiic connector.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+#include <Modulino.h>
+#include <Wire.h>
+
+// Create Modulino Movement object
+ModulinoMovement movement;
+
+// Variables for sensor data
+float x, y, z;
+float roll, pitch, yaw;
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  Serial.println("- Arduino Nano R4 - Modulino Movement Example started...");
+  
+  // Initialize Wire1 for Qwiic connector
+  Wire1.begin();
+  
+  // Initialize Modulino system
+  Modulino.begin();
+  
+  // Initialize Movement sensor
+  movement.begin();
+  
+  Serial.println("- Modulino Movement connected successfully!");
+  Serial.println("- Reading motion data...\n");
+}
+
+void loop() {
+  // Read new movement data from the sensor
+  movement.update();
+  
+  // Get acceleration values
+  x = movement.getX();
+  y = movement.getY();
+  z = movement.getZ();
+  
+  // Get gyroscope values
+  roll = movement.getRoll();
+  pitch = movement.getPitch();
+  yaw = movement.getYaw();
+  
+  // Display acceleration
+  Serial.print("- Accel (g): X=");
+  Serial.print(x, 2);
+  Serial.print(" Y=");
+  Serial.print(y, 2);
+  Serial.print(" Z=");
+  Serial.print(z, 2);
+  
+  // Display gyroscope
+  Serial.print(" | Gyro (dps): Roll=");
+  Serial.print(roll, 1);
+  Serial.print(" Pitch=");
+  Serial.print(pitch, 1);
+  Serial.print(" Yaw=");
+  Serial.print(yaw, 1);
+  
+  Serial.println();
+  
+  // Update at 10Hz
+  delay(100);
+}
+```
+
+***To test this example, you need an [Arduino Modulino Movement](https://store.arduino.cc/collections/modulino/products/modulino-movement) connected to the Nano R4's Qwiic connector via a Qwiic cable. Install the Modulino library from the Arduino IDE Library Manager (Tools > Manage Libraries > Search "Modulino").***
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the real-time acceleration and gyroscope data. Try moving or rotating the sensor to see the values change.
+
+![Arduino IDE Serial Monitor output for the Modulino Movement sketch](assets/qwicc-modulino-serial-monitor.png)
+
+This example demonstrates the key aspects of using Qwiic devices with the Nano R4:
+
+- Using `Wire1.begin()` instead of `Wire.begin()` for the Qwiic connector
+- Direct plug-and-play connection without additional wiring
+- Automatic +3.3 VDC power and level translation
+- Access to Arduino's ecosystem of Modulino sensors
 
 ## Bootloader
 
