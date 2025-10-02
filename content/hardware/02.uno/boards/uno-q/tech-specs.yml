@@ -1,6 +1,6 @@
 Board:
   Name: Arduino® UNO Q
-  SKU: ABX00162 
+  SKU: ABX00162-ABX00173
 Microprocessor Unit: 
   Module: Qualcomm Dragonwing™ QRB2210 
   CPU: Quad-core Arm® Cortex®-A53 @ 2.0 GHz
@@ -8,8 +8,8 @@ Microprocessor Unit:
   ISP: 2x Image Signal Processor (13 MP + 13 MP or 25 MP) @ 30 fps
   Operating System: Debian Linux OS with upstream support
   Memory:
-    Storage: 16 GB eMMC
-    RAM: 2 GB LPDDR4 
+    Storage: 16 GB or 32 GB (ABX00173) eMMC
+    RAM: 2 GB or 4 GB (ABX00173) LPDDR4 
   Pins:
     Digital I/O Pins: 12x exposed on JMISC
   Media Interfaces:
