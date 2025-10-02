@@ -684,7 +684,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
 
 English:
-<p style="text-align: justify;">User manuals for licence-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:</P>
+<p style="text-align: justify;">User manuals for licence-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:</p>
 
 (1) this device may not cause interference
 
