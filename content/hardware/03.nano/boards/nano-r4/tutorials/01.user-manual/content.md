@@ -2333,6 +2333,16 @@ The Nano R4's bootloader offers the following technical specifications:
 
 ### Bootloader File Location
 
+The bootloader file (`dfu_nano.hex`) can be obtained in two ways:
+
+**Option 1: Direct Download (recommended)**: 
+
+Download directly from the Arduino GitHub repository:
+
+- [Download dfu_nano.hex](https://github.com/arduino/ArduinoCore-renesas/blob/main/bootloaders/NANOR4/dfu_nano.hex)
+
+**Option 2: From Arduino IDE Installation**:
+
 The bootloader file (`dfu_nano.hex`) is automatically installed with the Arduino UNO R4 Boards core. You can find it in the following locations:
 
 **Windows:**
@@ -2376,8 +2386,7 @@ For detailed step-by-step instructions on recovering and reflashing the bootload
 - Verifying successful bootloader restoration
 - Troubleshooting common issues
 
-***__Important note__: Bootloader recovery is a low-level operation that should only be performed when necessary. __Always ensure you have a stable power supply and follow the tutorial instructions carefully to avoid damaging your board__. If you're unsure whether you need bootloader recovery, try standard troubleshooting steps first or contact [Arduino Support](https://www.arduino.cc/en/contact-us/) for assistance.***
-
+***__Important note__: Bootloader recovery should only be performed when necessary. Ensure stable power supply and follow the tutorial instructions carefully. The process requires only the Renesas Flash Programmer tool and the bootloader file.***
 
 ### Maintaining Bootloader Health
 
