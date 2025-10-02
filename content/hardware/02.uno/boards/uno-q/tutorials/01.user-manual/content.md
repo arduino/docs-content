@@ -302,6 +302,11 @@ echo 0    | sudo tee /sys/class/leds/red:user/brightness   # set LOW/OFF
 
 ![Linux LED control](assets/linux-led-control.gif)
 
+You can also control these LEDs from a Python script as follows:
+
+```python
+```
+
 The LED color segments are defined as follows:
 
 **LED 1:**
