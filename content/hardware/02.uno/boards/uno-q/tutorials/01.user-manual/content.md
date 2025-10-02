@@ -574,27 +574,14 @@ In the **JANALOG** connector the UNO Q has 6x 14-bit ADC pins mapped as follows:
 |         PC1         |         A4          |  GPIO / ADC / I2C SDA   |
 |         PC0         |         A5          |  GPIO / ADC / I2C SCL   |
 
-In the **JDIGITAL** connector there are 3x 14-bit ADC pins mapped as follows:
-
-| Microcontroller Pin | Arduino Pin Mapping |   Pin Functionality    |
-| :-----------------: | :-----------------: | :--------------------: |
-|         PB2         |         D7          |       GPIO / ADC       |
-|         PB1         |         D6          |       GPIO / ADC       |
-|         PB0         |         D3          | GPIO / ADC / OPAMP OUT |
-
-In the **JMISC** connector there are 3x 14-bit ADC pins and 2x 12-bit ADC pins mapped as follows:
-
-| Microcontroller Pin | Arduino Pin Mapping |    Pin Functionality    |
-| :-----------------: | :-----------------: | :---------------------: |
-|         PA3         |          -          | GPIO / ADC / OPAMP OUT  |
-|         PA0         |          -          | GPIO / ADC / OPAMP IN + |
-|         PA1         |          -          | GPIO / ADC / OPAMP IN - |
-|        PF14         |     - (12-bit)      |  GPIO / ADC / I2C SCL   |
-|        PF15         |     - (12-bit)      |  GPIO / ADC / I2C SDA   |
-
 Analog input pins can be used through the built-in functions of the Arduino programming language.
 
-The UNO Q ADC **resolution** can be configured between 14-, 12-, 10-, or 8-bit. 
+The UNO Q ADC **resolution** can be configured between 14-, 12-, 10-, or 8-bit by using the `analogReadResolution(bits)` function:
+
+```cpp
+  // ADC resolution set to 14-bit (0 to 16383)
+  analogReadResolution(14);
+```
 
 The default ADC **voltage reference** is 3.3V and can be changed by software using the function `analogReference()` with the following arguments:
 
@@ -606,8 +593,7 @@ The default ADC **voltage reference** is 3.3V and can be changed by software usi
 |                    2.5 V                    | AR_INTERNAL2V5  | Internal |
 |                  2 V ~ VDD                  |   AR_EXTERNAL   | External |
 
-***An external voltage reference can be provided through the <strong>AREF</strong> pin when the internal
-voltage reference buffer is off.***
+***An external voltage reference can be provided through the <strong>AREF</strong> pin when `AR_EXTERNAL` reference is used.***
 
 To set a different analog reference from the default one, see the following example:
 
@@ -615,9 +601,12 @@ To set a different analog reference from the default one, see the following exam
 analogReference(AR_INTERNAL2V5);
 ```
 
-The example code shown below reads the analog input value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor. To understand how to properly connect a potentiometer to the UNO Q, take the following image as a reference:
+The example code shown below reads the analog input value from a potentiometer connected to `A0` and displays it on the Serial Monitor. To understand how to properly connect a potentiometer to the UNO Q, take the following image as a reference:
 
 ![ADC input example wiring](assets/analog-adc.png)
+
+Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+![Create a new app](assets/create-app.png)
 
 ```cpp
 int sensorPin = A0;   // select the input pin for the potentiometer
@@ -642,67 +631,60 @@ The UNO Q has two DAC outputs, mapped as follows:
 
 | Microcontroller Pin | Arduino Pin Mapping | Pin Functionality |
 | :-----------------: | :-----------------: | :---------------: |
-|         PA4         |        DAC1         | GPIO / ADC / DAC  |
-|         PA5         |        DAC2         | GPIO / ADC / DAC  |
+|         PA4         |        DAC0         | GPIO / ADC / DAC  |
+|         PA5         |        DAC1         | GPIO / ADC / DAC  |
 
 The digital-to-analog converters of the UNO Q can be used to output analog voltages through the built-in functions of the Arduino programming language.
 
 The DAC output resolution can be configured from 8 to 12 bits using the `analogWriteResolution()` function as follows:
 
 ```cpp
-analogWriteResolution(12);  // enter the desired resolution in bits (8,10,12)
+// DAC resolution set to 12-bit (0 to 4095)
+analogWriteResolution(12);  // enter the desired resolution in bits (8, 10, 12)
 ```
 
-The DAC voltage reference can be configured using the `analogReferenceDAC()` function. The available setups are listed below:
-
-| Analog Voltage Reference (V<sub>REF+</sub>) |       Argument        |  Source  |
-| :-----------------------------------------: | :-------------------: | :------: |
-|                    1.5 V                    |     DAC_VREF_1V25     | Internal |
-|                    2.5 V                    |     DAC_VREF_2V5      | Internal |
-|                     VDD                     |     DAC_VREF_AVDD     | Internal |
-|                  2 V ~ VDD                  | DAC_VREF_EXTERNAL_PIN | External |
-
-```cpp
-analogReferenceDAC(DAC_VREF_2V5);  // enter the desired reference as argument
-```
 To output an analog voltage value through a DAC pin, use the `analogWrite()` function with the DAC channel as an argument. See the example below:
 
 ```cpp
-analogWrite(DAC1, value);   // the value should be in the range of the DAC resolution (e.g. 0-4095 with a 12 bits resolution)
+analogWrite(DAC0, value);   // the value should be in the range of the DAC resolution (e.g. 0-4095 with a 12 bits resolution)
 ```
 ***If a normal GPIO is passed to the `analogWrite()` function, the output will be a PWM signal.***
 
-The following sketch will create a sine wave signal in the `A0` UNO Q pin:
+The following sketch will create a **60 Hz sine wave** signal in the `A0/DAC0` UNO Q pin:
+
+Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+![Create a new app](assets/create-app.png)
 
 ```cpp
-float sample_rate = 9600.0, freq = 60.0;  //samples/second, AC waveform freq.
-int npts = sample_rate / freq;
+const float freq = 60.0f;
+const int   N    = 256;     // 256 samples/cycle
+const uint32_t Ts_us = (uint32_t)llroundf(1e6f / (freq * N));
 
-void setup()
-{
-  Serial.begin(115200);
-  // Set the DAC resolution to 12 bits
+uint16_t lut[N]; // store the sine wave here
+
+void setup() {
   analogWriteResolution(12);
-  // Select the 1.25V reference voltage (feel free to change it)
-  analogReferenceDAC(DAC_VREF_1V25);
+
+  for (int i = 0; i < N; ++i){
+      lut[i] = 2048 + (1000.0 * sin(2 * PI * i / N));
+  }
+
 }
 
-void loop()
-{
-
-  for (int i = 0; i < npts; i++) {
-    int x = 2000 + 1000.0 * sin(2 * PI * (freq / sample_rate) * i);
-    analogWrite(DAC1, x);
-    delayMicroseconds(1.0E6 / sample_rate);  //adjust constant to get correct rate
+void loop() {
+  static uint32_t t_next = micros();
+  for (int i = 0; i < N; ++i) {
+    analogWrite(DAC0, lut[i]);  // output the sinewave values
+    t_next += Ts_us;
+    while ((int32_t)(micros() - t_next) < 0) { /* spin */ }
   }
 }
+
 ```
 
 The DAC output should look like the image below:
 
 ![Analog Sine Wave DAC output](assets/analog-dac.png)
-
-#### OPAMP*
 
 ### PWM Pins
 
@@ -722,75 +704,182 @@ This functionality can be used with the built-in function `analogWrite()` as sho
 ```cpp
 analogWrite(pin, value);  
 ```
-By default, the output resolution is 8 bits, so the output value should be between 0 and 255. To set a greater resolution, do it using the built-in function `analogWriteResolution` as shown below:
+By default, the output resolution is **8 bits**, so the output value should be between 0 and 255. To set a greater resolution, do it using the built-in function `analogWriteResolution` as shown below:
 
 ```cpp
-analogWriteResolution(bits);  
+// DAC resolution set to 10-bit (0 to 4095)
+analogWriteResolution(10);  
 ```
 
-Using this function has some limitations, for example, the PWM signal frequency is fixed at 1 kHz, and this could not be ideal for every application.
+Here is an example of how to create a variable duty-cycle PWM signal:
 
-Here is an example of how to create a **1 kHz** variable duty-cycle PWM signal:
+Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+![Create a new app](assets/create-app.png)
 
 ```cpp
-const int analogInPin = A0;   // Analog input pin that the potentiometer is attached to
-const int pwmOutPin = D13;  // PWM output pin
+const int analogInPin = A0;  // Analog input pin that the potentiometer is attached to
+const int pwmOutPin = D3;    // PWM output pin
 
 int sensorValue = 0;  // value read from the pot
 int outputValue = 0;  // value output to the PWM (analog out)
 
 void setup() {
-  // initialize serial communications at 9600 bps:
-  Serial.begin(115200);
-  analogWriteResolution(12);
+  // Define the PWM output resolution
+  analogWriteResolution(10);  // 0 - 1023 -> 0 - 100% duty-cycle
+  analogReadResolution(14);   // 0 - 16383
 }
 
 void loop() {
   // read the analog in value:
   sensorValue = analogRead(analogInPin);
   // map it to the range of the analog out:
-  outputValue = sensorValue;
+  outputValue = map(sensorValue, 0, 16383, 0, 1024);
   // change the analog out value:
   analogWrite(pwmOutPin, outputValue);
 
-  // print the results to the Serial Monitor:
-  Serial.print("sensor = ");
-  Serial.print(sensorValue);
-  Serial.print("\t output = ");
-  Serial.println(outputValue);
-
-  // wait 2 milliseconds before the next loop for the analog-to-digital
-  // converter to settle after the last reading:
+  // wait 2 milliseconds before the next loop for the ADC
+  // to settle after the last reading:
   delay(2);
 }
 ```
 
-![PWM output signal using the PWM](assets/pwm-out.png)
+![PWM output signal using the PWM](assets/pwm-output.png)
+
+***PWM frequency is fixed to 500 Hz.***
 
 ## Communication
 
+This section of the user manual covers the different communication protocols that are supported by the Arduino UNO Q.
+
 ### SPI
 
+The UNO Q supports SPI communication, which allows data transmission between the board and other SPI-compatible devices. 
+
+The pins used in the UNO Q for the SPI communication protocol are the following:
+
+| **Microcontroller Pin** | **Arduino Pin Mapping** |
+| :---------------------: | :---------------------: |
+|           PB9           |        SS / D10         |
+|          PB15           |       MOSI / D11        |
+|          PB14           |       MISO / D12        |
+|          PB13           |        SCK / D13        |
+
+Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
+
+```cpp
+#include <SPI.h>
+
+#define SS D10
+
+void setup() {
+  // Set the chip select pin as output
+  pinMode(SS, OUTPUT);
+
+  // Pull the CS pin HIGH to unselect the device
+  digitalWrite(SS, HIGH);
+
+  // Initialize the SPI communication
+  SPI.begin();
+}
+
+void loop() {
+  // Replace with the target device's address
+  byte address = 0x35;
+  // Replace with the value to send
+  byte value = 0xFA;
+  // Pull the CS pin LOW to select the device
+  digitalWrite(SS, LOW);
+  // Send the address
+  SPI.transfer(address);
+  // Send the value
+  SPI.transfer(value);
+  // Pull the CS pin HIGH to unselect the device
+  digitalWrite(SS, HIGH);
+
+  delay(2000);
+}
+```
+
 ### I2C
+
+```cpp
+#include <Wire.h>
+
+void setup() {
+  // Initialize the I2C communication
+  Wire.begin();
+}
+
+void loop() {
+  // Replace with the target device's I2C address
+  byte deviceAddress = 0x35;
+  // Replace with the appropriate instruction byte
+  byte instruction = 0x00;
+  // Replace with the value to send
+  byte value = 0xFA;
+  // Begin transmission to the target device
+  Wire.beginTransmission(deviceAddress);
+  // Send the instruction byte
+  Wire.write(instruction);
+  // Send the value
+  Wire.write(value);
+  // End transmission
+  Wire.endTransmission();
+
+  delay(2000);
+}
+```
+
+#### Qwiic
 
 ### UART
 
 ### WiFi
 
-### BT
+```cpp
+#include <Arduino_RouterBridge.h>
 
-## Peripherals or Interfaces
+BridgeTCPClient<> client(Bridge);
 
-### Accessible Through the UNO
+void setup() {
+  if (!Bridge.begin()) {
+    while (true) {}
+  }
+  if (!Monitor.begin()) {
+    while (true) {}
+  }
 
-#### Qwiic
+  Monitor.println("TCP Daytime Demo started");
+}
 
+void loop() {
+  Monitor.println("\nConnecting to time.nist.gov ...");
 
+  if (client.connect("time.nist.gov", 13) < 0) {
+    Monitor.println("Connection failed!");
+    delay(5000);
+    return;
+  }
 
-### DSI
-### CSI
-### Audio I2S
-### Analog Audio Through PMIC 
+  Monitor.println("Connected, reading response...");
+  String line;
+  while (client.connected() || client.available()) {
+    if (client.available()) {
+      char c = client.read();
+      if (c == '\n') break; // daytime sends one line
+      if (c != '\r') line += c;
+    }
+  }
+
+  Monitor.print("Server says: ");
+  Monitor.println(line);
+
+  client.stop();
+  delay(10000);
+}
+
+```
+
 
 ## Support
 
