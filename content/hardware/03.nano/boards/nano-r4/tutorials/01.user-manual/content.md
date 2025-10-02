@@ -31,7 +31,7 @@ This user manual provides a comprehensive overview of the Nano R4 board, highlig
 
 ### Software Requirements
 
-- [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Arduino UNO R4 Boards core](https://github.com/arduino/ArduinoCore-renesas)
 
 ***The Nano R4 is compatible with the complete Arduino ecosystem and can be programmed directly as a standalone device.***
@@ -2336,6 +2336,8 @@ The Nano R4 implements a dual I²C bus architecture that separates +5 VDC and +3
 
 Connecting Qwiic devices to your Nano R4 board is straightforward. Simply get a standard Qwiic cable (available in various lengths) and plug one end into the Nano R4's Qwiic connector and the other into your Qwiic device. Most Qwiic devices have two connectors, allowing you to daisy-chain multiple devices without any soldering or breadboarding. The polarized connectors prevent incorrect connections, making the setup process foolproof.
 
+![Nano R4 and Modulino Movement connected via Qwiic](assets/qwiic-connection.png)
+
 The Qwiic system's key advantages include:
 
 - **Plug-and-play connectivity**: No breadboards, jumper wires, or soldering required
@@ -2346,7 +2348,7 @@ The Qwiic system's key advantages include:
 
 ### Working with Qwiic Devices
 
-The following example demonstrates how to use the Arduino Modulino Movement sensor via the Qwiic connector:
+The following example demonstrates how to use the [Arduino Modulino Movement](https://store.arduino.cc/collections/modulino/products/modulino-movement) sensor via the Qwiic connector:
 
 ```arduino
 /**
@@ -2365,6 +2367,10 @@ Modulino Movement sensor via the Qwiic connector.
 // Create Modulino Movement object
 ModulinoMovement movement;
 
+// Variables for sensor data
+float x, y, z;
+float roll, pitch, yaw;
+
 void setup() {
   // Initialize serial communication and wait up to 2.5 seconds for a connection
   Serial.begin(115200);
@@ -2379,46 +2385,41 @@ void setup() {
   Modulino.begin();
   
   // Initialize Movement sensor
-  if (!movement.begin()) {
-    Serial.println("- Error: Modulino Movement not found!");
-    Serial.println("- Please check Qwiic connection and reset");
-    while (1) delay(10);
-  }
+  movement.begin();
   
   Serial.println("- Modulino Movement connected successfully!");
   Serial.println("- Reading motion data...\n");
 }
 
 void loop() {
-  // Variables for sensor data
-  float ax, ay, az;  // Acceleration in g
-  float gx, gy, gz;  // Gyroscope in degrees/second
+  // Read new movement data from the sensor
+  movement.update();
   
-  // Read sensor data
-  movement.getAcceleration(ax, ay, az);
-  movement.getGyroscope(gx, gy, gz);
+  // Get acceleration values
+  x = movement.getX();
+  y = movement.getY();
+  z = movement.getZ();
+  
+  // Get gyroscope values
+  roll = movement.getRoll();
+  pitch = movement.getPitch();
+  yaw = movement.getYaw();
   
   // Display acceleration
   Serial.print("- Accel (g): X=");
-  Serial.print(ax, 2);
+  Serial.print(x, 2);
   Serial.print(" Y=");
-  Serial.print(ay, 2);
+  Serial.print(y, 2);
   Serial.print(" Z=");
-  Serial.print(az, 2);
+  Serial.print(z, 2);
   
   // Display gyroscope
-  Serial.print(" | Gyro (dps): X=");
-  Serial.print(gx, 1);
-  Serial.print(" Y=");
-  Serial.print(gy, 1);
-  Serial.print(" Z=");
-  Serial.print(gz, 1);
-  
-  // Detect significant motion
-  float totalAccel = sqrt(ax*ax + ay*ay + az*az);
-  if (abs(totalAccel - 1.0) > 0.3) {
-    Serial.print(" <- Motion!");
-  }
+  Serial.print(" | Gyro (dps): Roll=");
+  Serial.print(roll, 1);
+  Serial.print(" Pitch=");
+  Serial.print(pitch, 1);
+  Serial.print(" Yaw=");
+  Serial.print(yaw, 1);
   
   Serial.println();
   
@@ -2430,6 +2431,8 @@ void loop() {
 ***To test this example, you need an [Arduino Modulino Movement](https://store.arduino.cc/collections/modulino/products/modulino-movement) connected to the Nano R4's Qwiic connector via a Qwiic cable. Install the Modulino library from the Arduino IDE Library Manager (Tools > Manage Libraries > Search "Modulino").***
 
 You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the real-time acceleration and gyroscope data. Try moving or rotating the sensor to see the values change.
+
+![Arduino IDE Serial Monitor output for the Modulino Movement sketch](assets/qwicc-modulino-serial-monitor.png)
 
 This example demonstrates the key aspects of using Qwiic devices with the Nano R4:
 
