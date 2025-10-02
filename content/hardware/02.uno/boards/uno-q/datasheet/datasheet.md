@@ -452,24 +452,24 @@ JMISC handles both domains: 1.8 V MPU lines sit alongside 3.3 V MCU signals (e.g
 
 | **Pin** | **Designation** | **MCU pin** | **Functions**                           | **Domain** | **Notes**                   |
 |--------:|-----------------|-------------|-----------------------------------------|------------|-----------------------------|
-|       1 | D0              | PB7         | - USART1_RX </br>- TIM4_CH2             | 3.3 V      | UART                        |
-|       2 | D1              | PB6         | - USART1_TX </br>- TIM4_CH1             | 3.3 V      | UART                        |
+|       1 | D0              | PB7         | - USART1_RX <br></br>- TIM4_CH2             | 3.3 V      | UART                        |
+|       2 | D1              | PB6         | - USART1_TX <br></br>- TIM4_CH1             | 3.3 V      | UART                        |
 |       3 | D2              | PB3         | - TIM2_CH2                              | 3.3 V      | -                           |
-|       4 | ~D3             | PB0         | - OPAMP2_OUTPUT </br>- TIM3_CH3         | 3.3 V      | PWM                         |
-|       5 | D4              | PA12        | - FDCAN1_TX </br>- TIM1_ETR             | 3.3 V      | -                           |
-|       6 | ~D5             | PA11        | - FDCAN1_RX </br>- TIM1_CH4             | 3.3 V      | PWM                         |
+|       4 | ~D3             | PB0         | - OPAMP2_OUTPUT <br></br>- TIM3_CH3         | 3.3 V      | PWM                         |
+|       5 | D4              | PA12        | - FDCAN1_TX <br></br>- TIM1_ETR             | 3.3 V      | -                           |
+|       6 | ~D5             | PA11        | - FDCAN1_RX <br></br>- TIM1_CH4             | 3.3 V      | PWM                         |
 |       7 | ~D6             | PB1         | - TIM3_CH4                              | 3.3 V      | PWM                         |
 |       8 | D7              | PB2         | - TIM8_CH4N                             | 3.3 V      | -                           |
 |       9 | D8              | PB4         | - TIM3_CH1                              | 3.3 V      | -                           |
 |      10 | ~D9             | PB8         | - TIM4_CH3                              | 3.3 V      | PWM                         |
-|      11 | ~D10            | PB9         | - SPI2_SS (Chip Select) </br>- TIM4_CH4 | 3.3 V      | PWM                         |
-|      12 | ~D11            | PB15        | - SPI2_MOSI </br>- TIM1_CH3N            | 3.3 V      | PWM                         |
-|      13 | D12             | PB14        | - SPI2_MISO </br>- TIM1_CH2N            | 3.3 V      | -                           |
-|      14 | D13             | PB13        | - SPI2_SCK </br>- TIM1_CH1N             | 3.3 V      | -                           |
+|      11 | ~D10            | PB9         | - SPI2_SS (Chip Select) <br></br>- TIM4_CH4 | 3.3 V      | PWM                         |
+|      12 | ~D11            | PB15        | - SPI2_MOSI <br></br>- TIM1_CH3N            | 3.3 V      | PWM                         |
+|      13 | D12             | PB14        | - SPI2_MISO <br></br>- TIM1_CH2N            | 3.3 V      | -                           |
+|      14 | D13             | PB13        | - SPI2_SCK <br></br>- TIM1_CH1N             | 3.3 V      | -                           |
 |      15 | GND             | -           | - Ground                                | Power      | -                           |
 |      16 | AREF            | -           | - Analog reference                      | -          | Analog ref pin (not a GPIO) |
-|      17 | D20             | PB11        | - I2C2_SDA </br>- TIM2_CH4              | 3.3 V      | -                           |
-|      18 | D21             | PB10        | - I2C2_SCL </br>- TIM2_CH3              | 3.3 V      | -                           |
+|      17 | D20             | PB11        | - I2C2_SDA <br></br>- TIM2_CH4              | 3.3 V      | -                           |
+|      18 | D21             | PB10        | - I2C2_SCL <br></br>- TIM2_CH3              | 3.3 V      | -                           |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   All JDIGITAL lines are 3.3 V logic.
@@ -487,12 +487,12 @@ JMISC handles both domains: 1.8 V MPU lines sit alongside 3.3 V MCU signals (e.g
 |       6 | GND             | GND               | - Ground                                         | Power          | -                             |
 |       7 | GND             | GND               | - Ground                                         | Power          | -                             |
 |       8 | VIN IN          | DC_IN             | - 7-24 V input                                   | Power          | Power only                    |
-|       9 | A0 / D14        | PA4               | - ADC input </br>- DAC1 </br>- TIM2_CH1          | Analog / 3.3 V | Direct ADC / not 5 V-tolerant |
-|      10 | A1 /  D15       | PA5               | - ADC input </br>- DAC2 </br>- TIM3_CH1          | Analog / 3.3 V | Direct ADC / not 5 V-tolerant |
-|      11 | A2 /  D16       | PA6               | - ADC input </br>- OPAMP2_INPUT+ </br>- TIM3_CH2 | Analog / 3.3 V | -                             |
+|       9 | A0 / D14        | PA4               | - ADC input </br>- DAC1 <br></br>- TIM2_CH1      | Analog / 3.3 V | Direct ADC / not 5 V-tolerant |
+|      10 | A1 /  D15       | PA5               | - ADC input </br>- DAC2 <br></br>- TIM3_CH1      | Analog / 3.3 V | Direct ADC / not 5 V-tolerant |
+|      11 | A2 /  D16       | PA6               | - ADC input </br>- OPAMP2_INPUT+ <br></br>- TIM3_CH2 | Analog / 3.3 V |                           |
 |      12 | A3 /  D17       | PA7               | - ADC input </br>- OPAMP2_INPUT−                 | Analog / 3.3 V | -                             |
-|      13 | A4 /  D18       | PC1               | - ADC input </br>- I2C3_SDA </br>- LPTIM1_CH1    | Analog / 3.3 V | -                             |
-|      14 | A5 /  D19       | PC0               | - ADC input </br>- I2C3_SCL </br>- LPTIM1_IN1    | Analog / 3.3 V | -                             |
+|      13 | A4 /  D18       | PC1               | - ADC input </br>- I2C3_SDA <br></br>- LPTIM1_CH1    | Analog / 3.3 V | -                             |
+|      14 | A5 /  D19       | PC0               | - ADC input </br>- I2C3_SCL <br></br>- LPTIM1_IN1    | Analog / 3.3 V | -                             |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   A0 (PA4) and A1 (PA5) are direct STM32U585 ADC inputs referenced to <code>VREF+</code>. They are not 5 V-tolerant. Valid input range is <code>0-VREF+</code> (≈3.3 V). The absolute maximum at the pin is <code>VDD + 0.3 V</code>, approximately 3.6 V. Above this level, the MCU's internal protection diodes begin to conduct. The header also provides <code>5V_SYS</code> and <code>PWR_3P3V</code> power pins, which are intended for power supply only. Do not apply 5 V to <strong>A0</strong> or <strong>A1</strong>. IOREF is connected to the 3.3 V rail (<code>PWR_3P3V</code>) and is provided as a reference/output for shields. It is not to be used to feed power back into the board.
