@@ -302,11 +302,6 @@ echo 0    | sudo tee /sys/class/leds/red:user/brightness   # set LOW/OFF
 
 ![Linux LED control](assets/linux-led-control.gif)
 
-You can also control these LEDs from a Python script as follows:
-
-```python
-```
-
 The LED color segments are defined as follows:
 
 **LED 1:**
@@ -320,6 +315,46 @@ The LED color segments are defined as follows:
 - **Blue:** `blue:bt`
 
 ***LED 2 is used to show system status: `PANIC`, `WLAN` and `BT`. But it can be controlled by the user.***
+
+You can also control these LEDs from a Python script as follows. Remmember to **create a new App** inside Arduino App Lab and then copy and paste the script below in the python section of your App:
+
+```python
+import time
+
+LED1_R = "/sys/class/leds/red:user/brightness"
+LED1_G = "/sys/class/leds/green:user/brightness"
+LED1_B = "/sys/class/leds/blue:user/brightness"
+
+LED2_R = "/sys/class/leds/red:panic/brightness"
+LED2_G = "/sys/class/leds/green:wlan/brightness"
+LED2_B = "/sys/class/leds/blue:bt/brightness"
+
+def set_led_brightness(led_file, value):
+    try:
+        with open(led_file, "w") as f:
+            f.write(f"{value}\n")
+    except Exception as e:
+        print(f"Error writing to {led_file}: {e}")
+
+def main():
+  # turn off all LEDs
+  set_led_brightness(LED1_R, 0)
+  set_led_brightness(LED1_G, 0)
+  set_led_brightness(LED1_B, 0)
+  set_led_brightness(LED2_R, 0)
+  set_led_brightness(LED2_G, 0)
+  set_led_brightness(LED2_B, 0)
+
+  while True:
+    #blink the LED 1 RED segment
+    set_led_brightness(LED1_R, 1)
+    time.sleep(1)
+    set_led_brightness(LED1_R, 0)
+    time.sleep(1)
+
+if __name__ == "__main__":
+    main()
+```
 
 #### MCU Controlled LEDs
 
