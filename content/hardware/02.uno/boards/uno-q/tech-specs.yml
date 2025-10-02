@@ -8,7 +8,7 @@ Microprocessor Unit:
   ISP: 2x Image Signal Processor (13 MP + 13 MP or 25 MP) @ 30 fps
   Operating System: Debian Linux OS with upstream support
   Memory:
-    Storage: 16 GB or 32 GB (ABX00173) eMMC
+    Storage: 16 GB (ABX000162) or 32 GB (ABX00173) eMMC
     RAM: 2 GB or 4 GB (ABX00173) LPDDR4 
   Pins:
     Digital I/O Pins: 12x exposed on JMISC
