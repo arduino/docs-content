@@ -487,12 +487,12 @@ JMISC handles both domains: 1.8 V MPU lines sit alongside 3.3 V MCU signals (e.g
 |       6 | GND             | GND               | - Ground                                         | Power          | -                             |
 |       7 | GND             | GND               | - Ground                                         | Power          | -                             |
 |       8 | VIN IN          | DC_IN             | - 7-24 V input                                   | Power          | Power only                    |
-|       9 | A0 / D14        | PA4               | - ADC input </br>- DAC1 <br></br>- TIM2_CH1      | Analog / 3.3 V | Direct ADC / not 5 V-tolerant |
-|      10 | A1 /  D15       | PA5               | - ADC input </br>- DAC2 <br></br>- TIM3_CH1      | Analog / 3.3 V | Direct ADC / not 5 V-tolerant |
-|      11 | A2 /  D16       | PA6               | - ADC input </br>- OPAMP2_INPUT+ <br></br>- TIM3_CH2 | Analog / 3.3 V |                           |
-|      12 | A3 /  D17       | PA7               | - ADC input </br>- OPAMP2_INPUT−                 | Analog / 3.3 V | -                             |
-|      13 | A4 /  D18       | PC1               | - ADC input </br>- I2C3_SDA <br></br>- LPTIM1_CH1    | Analog / 3.3 V | -                             |
-|      14 | A5 /  D19       | PC0               | - ADC input </br>- I2C3_SCL <br></br>- LPTIM1_IN1    | Analog / 3.3 V | -                             |
+|       9 | A0 / D14        | PA4               | - ADC input <br></br>- DAC1 <br></br>- TIM2_CH1      | Analog / 3.3 V | Direct ADC / not 5 V-tolerant |
+|      10 | A1 /  D15       | PA5               | - ADC input <br></br>- DAC2 <br></br>- TIM3_CH1      | Analog / 3.3 V | Direct ADC / not 5 V-tolerant |
+|      11 | A2 /  D16       | PA6               | - ADC input <br></br>- OPAMP2_INPUT+ <br></br>- TIM3_CH2 | Analog / 3.3 V |                           |
+|      12 | A3 /  D17       | PA7               | - ADC input <br></br>- OPAMP2_INPUT−                 | Analog / 3.3 V | -                             |
+|      13 | A4 /  D18       | PC1               | - ADC input <br></br>- I2C3_SDA <br></br>- LPTIM1_CH1    | Analog / 3.3 V | -                             |
+|      14 | A5 /  D19       | PC0               | - ADC input <br></br>- I2C3_SCL <br></br>- LPTIM1_IN1    | Analog / 3.3 V | -                             |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   A0 (PA4) and A1 (PA5) are direct STM32U585 ADC inputs referenced to <code>VREF+</code>. They are not 5 V-tolerant. Valid input range is <code>0-VREF+</code> (≈3.3 V). The absolute maximum at the pin is <code>VDD + 0.3 V</code>, approximately 3.6 V. Above this level, the MCU's internal protection diodes begin to conduct. The header also provides <code>5V_SYS</code> and <code>PWR_3P3V</code> power pins, which are intended for power supply only. Do not apply 5 V to <strong>A0</strong> or <strong>A1</strong>. IOREF is connected to the 3.3 V rail (<code>PWR_3P3V</code>) and is provided as a reference/output for shields. It is not to be used to feed power back into the board.
