@@ -131,7 +131,7 @@ When this is done you can continue setting up the network connection for your bo
 
 ## How to update the Stored Network Configuration
 
-To proceed with the next steps, the cloud-generated sketch must be uploaded to the board. If you want to update the stored network configuration, there are two ways:
+To proceed with the next steps, the Cloud-generated sketch must be uploaded to the board. If you want to update the stored network configuration, there are two ways:
 
 ### Update Using the BLE Interface
 
