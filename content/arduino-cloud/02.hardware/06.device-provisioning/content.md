@@ -171,7 +171,7 @@ If you want to delete the stored network configuration without updating it, ther
 
 ### Board Reset Procedure
 
-To proceed with the next steps, the cloud-generated sketch must be uploaded to the board.
+To proceed with the next steps, the Cloud-generated sketch must be uploaded to the board.
 
 Reset the board using the method of your board. Have a look at the [How to set up the Reconfiguration Procedure](#how-to-set-up-the-reconfiguration-procedure) section of this article to find the default board reset pin. If you have changed the reset pin from the default one, please use that.
 
