@@ -5,3 +5,4 @@ hardware:
   boards:
     - uno-rev3
     - uno-wifi-rev2
+    - uno-q

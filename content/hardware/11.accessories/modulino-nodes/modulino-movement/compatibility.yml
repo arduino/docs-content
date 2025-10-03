@@ -14,3 +14,4 @@ hardware:
     - nano-esp32
     - nano-matter
     - uno-r4-wifi
+    uno-q
