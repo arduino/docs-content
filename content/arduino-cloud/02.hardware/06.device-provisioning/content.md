@@ -81,7 +81,7 @@ After completing these steps your device will connect to your Wi-Fi and you will
 
 ![Attach thing after Bluetooth](assets/attach-thing-to-bluetooth.png)
 
-The BLE interface is automatically turned off at the end of the procedure, and it remains off until the board is reset. More information about this can be found in the [How to set up the Reconfiguration Procedure](#how-to-set-up-the-reconfiguration-procedure) section.
+The Bluetooth LE interface is automatically turned off at the end of the procedure, and it remains off until the board is reset. More information about this can be found in the [How to set up the Reconfiguration Procedure](#how-to-set-up-the-reconfiguration-procedure) section.
 
 Now you are ready to start using your board with the Arduino Cloud!
 
@@ -133,13 +133,13 @@ When this is done you can continue setting up the network connection for your bo
 
 To proceed with the next steps, the Cloud-generated sketch must be uploaded to the board. If you want to update the stored network configuration, there are two ways:
 
-### Update Using the BLE Interface
+### Update Using the Bluetooth LE Interface
 
 Ensure that the Cloud sketch has enabled the BLEAgent, via `thingProperties.h`. This is enabled by default if the board has been registered with Provisioning 2.0. If you need to enable it, please have a look at [this documentation](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches).
 
 You can update the network settings from the detail page of the device on the Arduino Cloud webpage or the mobile app.
 
-During this process you will be asked to wipe out the current network configuration to restart the board's BLE interface. 
+During this process you will be asked to wipe out the current network configuration to restart the board's Bluetooth LE interface. 
 
 1. Power on the board.
 2. Open the devices page of the Mobile App or the Arduino Cloud webpage.
@@ -179,13 +179,13 @@ Reset the board using the method of your board. Have a look at the [How to set u
 
 Open Arduino IDE and on the left side open the **Library Manager**. Search for **Arduino_NetworkConfigurator** and download it. Once it is downloaded go to **File > Examples > Arduino_NetworkConfigurator > Utility > DeleteConfiguration**, this will open a new example sketch. Select your board and port then upload this example sketch to your board. When the sketch has been uploaded you can look at the serial monitor to monitor the progress and troubleshoot if needed.
 
-The sketch can also be found [here.](https://github.com/arduino-libraries/Arduino_NetworkConfigurator/blob/main/examples/utility/DeleteConfiguration/DeleteConfiguration.ino)
+The sketch can also be found [here](https://github.com/arduino-libraries/Arduino_NetworkConfigurator/blob/main/examples/utility/DeleteConfiguration/DeleteConfiguration.ino).
 
 ### How to set up the Reconfiguration Procedure
 
-As the Provisioning 2.0 ends, the BLE interface is turned off. 
+As the Provisioning 2.0 ends, the Bluetooth LE interface is turned off. 
 
-To restart the BLE interface to update the network settings, the [**Arduino_NetworkConfigurator**](https://github.com/arduino-libraries/Arduino_NetworkConfigurator?tab=readme-ov-file) library provides a procedure called "Reconfiguration Procedure". This procedure is based on the shorting of two pins of the board.
+To restart the Bluetooth LE interface to update the network settings, the [**Arduino_NetworkConfigurator**](https://github.com/arduino-libraries/Arduino_NetworkConfigurator?tab=readme-ov-file) library provides a procedure called "Reconfiguration Procedure". This procedure is based on the shorting of two pins of the board.
 
 The library provides a default implementation according to the board type. 
 
