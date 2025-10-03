@@ -843,6 +843,28 @@ The UNO Q supports I2C communication, which allows data transmission between the
 |          PB10           |           SCL / D21            |          PD12           |        I2C4_SCL (Qwiic)         |
 |          PB11           |           SDA / D20            |          PD13           |        I2C4_SDA (Qwiic)         |
 
+Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
+
+To use I2C communication, include the `Wire` library at the top of your sketch. The `Wire` library provides functions for I2C communication:
+
+```cpp
+#include <Wire.h>
+```
+
+In the `setup()` function, initialize the I2C library:
+
+```cpp
+// Initialize the I2C communication
+Wire.begin(); // I2C in UNO-style headers (D20, D21)
+// or
+Wire1.begin(); // I2C in Qwiic connector
+```
+
+To transmit data to an I2C-compatible device, you can use the commands used in the following example:
+
+Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+![Create a new app](assets/create-app.png)
+
 ```cpp
 #include <Wire.h>
 
@@ -870,12 +892,43 @@ void loop() {
   delay(2000);
 }
 ```
+The example code above should output this:
+
+![I2C data stream](assets/i2c.png)
 
 #### Qwiic
 
+The Arduino UNO Q features an onboard Qwiic connector that provides a simple, tool-free solution for connecting I²C devices. The Qwiic ecosystem, developed by SparkFun Electronics, has become an industry standard for rapid prototyping with I²C devices, allowing you to connect sensors, displays, and other peripherals without soldering or complex wiring.
+
+![I2C Qwiic connector](assets/qwiic.png)
+
+The Qwiic system's key advantages include:
+
+- **Plug-and-play connectivity**: No breadboards, jumper wires, or soldering required
+- **Polarized connectors**: Prevents accidental reverse connections
+- **Daisy-chain capability**: Connect multiple devices in series
+- **Built-in pull-up resistors**: No external resistors needed
+- **Standard pinout**: Compatible across all Qwiic ecosystem devices
+
+***The Qwiic connector on the UNO Q is connected to the secondary I2C bus (I2C4), which uses the `Wire1` object rather than the `Wire` object. Please note that the Qwiic connector is 3.3 V only.***
+
+The Qwiic connector allows you to interface our Modulino nodes for developing soldering-free projects.
+
+![Modulino nodes](assets/modulino.png)
+
+You can check our [Modulino family](https://www.arduino.cc/en/hardware/#modulino) where you will find a variety of **sensors** and **actuators** to expand your projects.
+
 ### UART
 
-### WiFi
+### Wi-Fi®
+
+The UNO Q features the WCBN3536A radio module that provides dual-band Wi-Fi® 5 (2.4/5 GHz), since it is connected to the Qualcomm microprocessor, we need the Bridge to expose the connectivity to the microcontroller.
+
+
+The following example gets the UTC time using TCP over the Bridge and prints it in the Serial Monitor:
+
+Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+![Create a new app](assets/create-app.png)
 
 ```cpp
 #include <Arduino_RouterBridge.h>
