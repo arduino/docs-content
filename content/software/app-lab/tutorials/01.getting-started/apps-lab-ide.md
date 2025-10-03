@@ -91,7 +91,7 @@ To program your board using **network mode**, follow the instructions below:
 To program your board using **SBC mode**, follow the instructions below:
 1. Connect a USB dongle to the board's USB-C® port.
 2. Connect a monitor (via HDMI), keyboard and mouse to the USB dongle.
-3. Power the USB dongle using a 5V power source (e.g. a phone charger).
+3. Power the USB dongle using a +5 VDC - 3 A power source (e.g. a phone charger).
 4. The complete setup should look like this:
     ![SBC setup](assets/sbc.png)
 
@@ -127,7 +127,7 @@ Below is an example of the **Home Climate Monitoring** App, which records data f
 
 Apps can be created directly from a large set of pre-made examples, or you can create your own from scratch. Examples are accessible in the side menu, under **"Examples"**, which provides in-app documentation on how to connect any additional hardware, how to use the example, and how to understand the code setup. All examples can be duplicated and modified<sup>4</sup>.
 
-To create your own App, navigate to the **"Apps"** tab, and click on the **"Create App"** button.
+To create your own App, navigate to the **"Apps"** tab, and click on the **"Create new app +"** button.
 
 ***<sup>4</sup>To duplicate an example, navigate to an example, click on the arrow next to the name, and select "Duplicate Example". Some examples such as the "Blinking LED from Arduino Cloud" may require additional setup, such as adding API keys.***
 
