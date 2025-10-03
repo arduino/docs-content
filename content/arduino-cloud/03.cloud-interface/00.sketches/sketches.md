@@ -297,7 +297,7 @@ To save board storage and memory, after the provisioning, the NetworkConfigurato
 
 In this setup, the only way to handle network settings is to return to using the secrets declared in `secrets.h` file. This can be done manually by adding the `secrets.h` file with the defines needed.
 
-In order to change the network settings, you must flash your sketch with the updated network settings in the `secrets.h` file. The network settings can no longer be updated using the Arduino Cloud Webpage or the mobile app. The final result should be the following (`thingProperties.h` file):
+In order to change the network settings, you must flash your sketch with the updated network settings in the `secrets.h` file. The network settings can no longer be updated using the Arduino Cloud webpage or the mobile app. The final result should be the following (`thingProperties.h` file):
 
 ```arduino
 #include <ArduinoIoTCloud.h>
