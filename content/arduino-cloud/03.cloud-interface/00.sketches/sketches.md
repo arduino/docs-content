@@ -293,7 +293,7 @@ void initProperties(){
 
 ### Disable the NetworkConfigurator
 
-To save board storage and memory, after the provisioning, the NetworkConfigurator can be removed. ~40KB of storage and ~ 2,9KB of memory are saved for BSS and Data.
+To save board storage and memory, after the provisioning, the NetworkConfigurator can be removed. ~40 kB of storage and ~2.9 kB of memory are saved for BSS and Data.
 
 In this setup, the only way to handle network settings is to return to using the secrets declared in `secrets.h` file. This can be done manually by adding the `secrets.h` file with the defines needed.
 
