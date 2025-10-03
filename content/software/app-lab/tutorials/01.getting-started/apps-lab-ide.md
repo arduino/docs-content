@@ -86,7 +86,7 @@ To program your board using **network mode**, follow the instructions below:
 
 ### SBC Mode (Standalone)
 
-***This mode requires a USB dongle with HDMI support.***
+***This mode requires a USB dongle with HDMI and external power delivery support.***
 
 To program your board using **SBC mode**, follow the instructions below:
 1. Connect a USB dongle to the board's USB-C® port.
