@@ -233,7 +233,7 @@ void initProperties(){
 
 ### Disable the BLEAgent
 
-To save board storage and memory, after the provisioning, the `BLEAgent` can be removed. ~30KB of storage and ~ 2KB of memory are saved for BSS and Data. The network credentials provided in the provisioning phase can no longer be changed via Bluetooth if this is disabled.
+To save board storage and memory, after the provisioning, the `BLEAgent` can be removed. ~30 kB of storage and ~2 kB of memory are saved for BSS and Data. The network credentials provided in the provisioning phase can no longer be changed via Bluetooth if this is disabled.
 
 To disable the `BLEAgent`, just comment out or remove the lines of code that include, declare, and enable it. The final result should be the following:
 
