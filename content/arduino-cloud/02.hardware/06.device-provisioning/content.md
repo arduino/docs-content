@@ -154,7 +154,7 @@ During this process you will be asked to wipe out the current network configurat
 
 ### Update Using the Serial Interface
 
-Ensure that the SerialAgent is enabled in the cloud sketch, via `thingProperties.h`. This is enabled by default if the board has been registered with Provisioning 2.0. If you need to enable it, please have a look at [this documentation](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches).
+Ensure that the SerialAgent is enabled in the Cloud sketch, via `thingProperties.h`. This is enabled by default if the board has been registered with Provisioning 2.0. If you need to enable it, please have a look at [this documentation](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches).
 
 This method only works with the Arduino Cloud website. You can update the network settings from the detail page of the board on the webpage. The Serial interface, if enabled, is always ready to receive a new configuration.
 
