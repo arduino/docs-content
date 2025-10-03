@@ -3,9 +3,6 @@ software:
   - arduino-cli
   - web-editor
 hardware:
-  shields: ~
-  carriers: 
-    - nano-connector-carrier
   boards: 
     - nano-33-iot
     - nano-33-ble
@@ -14,3 +11,7 @@ hardware:
     - nano-esp32
     - nano-matter
     - uno-r4-wifi
+    - uno-q
+  shields: ~
+  carriers: 
+    - nano-connector-carrier
