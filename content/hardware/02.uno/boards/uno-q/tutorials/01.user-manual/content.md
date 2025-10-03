@@ -12,7 +12,7 @@ author: 'Christopher Méndez'
 hardware:
   - hardware/02.hero/boards/uno-q
 software:
-  - apps-lab
+  - app-lab
   - ide-v2
 ---
 
