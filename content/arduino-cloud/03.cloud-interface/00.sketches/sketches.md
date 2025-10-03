@@ -159,7 +159,7 @@ Here is how the `thingsProperties.h` file changes to set up the NetworkConfigura
 
 *** Do not follow these steps if the board has not been registered with the Provisioning 2.0. For more information about device provisioning have a look [here](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/) ***.
 
-### Libraries and object declarations
+### Libraries and Object Declarations
 
 The following libraries are automatically included:
 
