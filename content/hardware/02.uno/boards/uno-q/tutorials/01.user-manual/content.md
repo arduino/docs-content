@@ -27,7 +27,7 @@ This user manual will guide you through a practical journey covering the most in
 
 - [UNO Q](https://store.arduino.cc/products/uno-q) (1x)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (1x)
-- [USB-C multiport adapter (Dongle) with external power delivery](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-usb-hub) (1x) 
+- [USB-C multiport adapter (dongle) with external power delivery](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-usb-hub) (1x) 
 
 ***You can use any USB-C dongle with external power delivery capabilities except for Apple ones.***
 
@@ -39,7 +39,7 @@ This user manual will guide you through a practical journey covering the most in
 
 ## Product Overview
 
-The Arduino UNO Q unlocks a new level of performance for the Arduino ecosystem, blending robust computing power from Qualcomm’s advanced QRB2210 Microprocessor (MPU) running a full Debian Linux OS with upstream support, and the real-time responsiveness of a dedicated STM32U585 Microcontroller (MCU) running Arduino sketches over Zephyr OS — all on a single board computer.
+The Arduino UNO Q unlocks a new level of performance for the Arduino ecosystem, blending robust computing power from Qualcomm’s advanced QRB2210 Microprocessor (MPU) running a full Debian Linux OS with upstream support, and the real-time responsiveness of a dedicated STM32U585 Microcontroller (MCU) running Arduino sketches over Zephyr OS — all on a single-board computer.
 
 ### Board Architecture Overview
 
@@ -54,7 +54,7 @@ Here is an overview of the board's main components, as shown in the image above:
 - **Wireless Connectivity**: The WCBN3536A radio module provides dual-band Wi-Fi® 5 (2.4/5 GHz) and Bluetooth® Low Energy 5.1 connectivity, both with onboard antennas for reliable wireless performance.
 - **Memory**: The board features 16 GB or 32 GB options of eMMC storage and 2 GB or 4 GB options of LPDDR4 RAM, delivering fast memory access and reliable storage for embedded applications. 
 - **Multimedia Codec**: The ANX7625 multimedia codec enables video and audio output through the onboard USB-C connector, providing a high-speed interface for display and sound transmission in embedded applications.
-- **Power Management**: The UNO Q includes the Qualcomm® PM4145 a power management integrated circuit (PMIC) to meet the demands of always-connected IoT devices.
+- **Power Management**: The UNO Q includes the Qualcomm® PM4145, a power management integrated circuit (PMIC) to meet the demands of always-connected IoT devices.
 
 ### Pinout
 
@@ -107,7 +107,7 @@ Arduino has introduced **Arduino App Lab**, a unified development environment th
 
 ![Arduino App Lab IDE](assets/app-lab.png)
 
-To install it, go to the [software section](https://www.arduino.cc/en/software/) in our official website, scroll to Arduino App Lab and select your OS respective variant.
+To install it, go to the [software section](https://www.arduino.cc/en/software/) on our official website, scroll to Arduino App Lab and select your OS’s respective variant.
 
 ![Arduino App Lab Install](assets/app-lab-download.png)
 
@@ -122,13 +122,13 @@ Let's program the UNO Q with the classic **Hello World** example typical of the 
 - Arduino UNO Q
 - USB-C cable
 - Computer with internet access (PC-hosted mode)
-- Monitor, keyboard, mouse and USB-C dongle (single-board computer mode)
+- Monitor, keyboard, mouse, and USB-C dongle (single-board computer mode)
 
 - Connect the UNO Q to your PC (if you are not in single-board computer mode).
-  ![SBC mode and PC Hosted setup](assets/modes.png)
+  ![SBC mode and PC-Hosted setup](assets/modes.png)
 - Open the Arduino App Lab, it opens in the **Examples** section.
   ![Arduino App Lab Landing Page](assets/examples.png)
-- Open the **Blink LED** example (Read the example documentation to understand how do app works).
+- Open the **Blink LED** example (Read the example documentation to understand how the App works).
 - Click on the **Run** button in the top right corner and wait for the app to be uploaded.
   ![Running and flashing](assets/blink-flash.gif)
 
@@ -153,7 +153,7 @@ It is a versatile display you can use to show data, status indicators, icons, or
 Here is a list of basic examples for using the **LED matrix**. To test them, follow the steps below:
 
 - Connect the UNO Q to your PC (if you are not in single-board computer mode).
-  ![SBC mode and PC Hosted setup](assets/modes.png)
+  ![SBC mode and PC-Hosted setup](assets/modes.png)
 - Open the Arduino App Lab, navigate to **My Apps** and click on **Create new app+**.
   ![Create a new app](assets/create-app.png)
 - A new App must be created to test each of the examples below.
@@ -202,20 +202,20 @@ You can create your own frame by creating an array following the matrix format (
 
 ![Matrix frame example](assets/matrix-example-new.png)
 
-Execute the App by clicking in the **Run** button in the Arduino App Lab and you should see the LED matrix showing your frame:
+Execute the App by clicking on the **Run** button in the Arduino App Lab and you should see the LED matrix showing your frame:
 
 ![LED Matrix example running](assets/uno-q-matrix.png)
 
 #### Dimmable LEDs
 
-The LED matrix supports 8 levels of grayscale (3 bits) so you can manage the LEDs brightness individually. 
+The LED matrix supports 8 levels of grayscale (3 bits) so you can manage the LED brightness individually. 
 
 You can set the brightness bits with the function `setGrayscaleBits(bits)` as shown below:
 
 ```cpp
 matrix.setGrayscaleBits(3); // 3 bits result on 8 brightness levels (0 to 7)
 ```
-As usually the conversion tools to grayscale uses 256 levels (8 bits) so you can also use this range, and it will be automatically mapped.
+As usual conversion tools to grayscale uses 256 levels (8 bits) so you can also use this range, and it will be automatically mapped.
 
 ```cpp
 matrix.setGrayscaleBits(8); // 8 bits result on 256 brightness levels (0 to 255)
@@ -254,7 +254,7 @@ void loop() {
 }
 ```
 
-Execute the App by clicking in the **Run** button in the Arduino App Lab and you should see the LED matrix showing your frame:
+Execute the App by clicking on the **Run** button in the Arduino App Lab and you should see the LED matrix showing your frame:
 
 ![LED Matrix example running](assets/matrix-grayscale.png)
 
@@ -291,7 +291,7 @@ The LED color segments are defined as follows:
 
 ***LED 2 is used to show system status: `PANIC`, `WLAN` and `BT`. But it can be controlled by the user.***
 
-You can also control these LEDs from a Python script as follows. Remmember to **create a new App** inside Arduino App Lab and then copy and paste the script below in the python section of your App:
+You can also control these LEDs from a Python script as follows. Remember to **create a new App** inside Arduino App Lab and then copy and paste the script below in the python section of your App:
 
 ```python
 import time
@@ -335,7 +335,7 @@ if __name__ == "__main__":
 
 LEDs #3 and #4 are controlled by the MCU.
 
-They can be controlled by setting the state of their respective GPIOs using the`digitalWrite` function as usual.
+They can be controlled by setting the state of their respective GPIOs using the `digitalWrite` function as usual.
 
 To test them follow the steps below:
 
@@ -388,17 +388,13 @@ The LED color segments are defined as follows:
 
 ***The RGB LEDs are active low, this means they turn ON with logic '0'.***
 
-### User Button
+### Power Button
 
-The UNO Q features a user button that can be used for custom purposes or to reboot the board.
+The UNO Q features a power button that can be used to reboot the board.
 
-![UNO Q user button](assets/user-button.png)
+![UNO Q power button](assets/power-button.png)
 
-- **Short press**: you can configure a custom action to be triggered when the button is pressed briefly.
-
-  ***The support for this feature is being developed.***
-
-- **Long press**: the board Linux part is rebooted when the button is pressed for **5+** seconds.
+- **Long press**: the board's Linux part is rebooted when the button is pressed for **5+** seconds.
 
 ## USB-C Connector
 
@@ -414,7 +410,7 @@ Below is a table with the main features of the USB-C connector that expands the 
 | USB Standard       | USB 3.1 Gen 1 (5 Gb/s) |
 | Display over USB-C | DisplayPort            |
 
-By using a USB-C Dongle (adapter/hub) you can also leverage the following features:
+By using a USB-C dongle (adapter/hub) you can also leverage the following features:
 
 | Feature      | Description                                 |
 | ------------ | ------------------------------------------- |
@@ -535,7 +531,7 @@ void loop() {
 
 ### Analog Pins
 
-The UNO Q features the well known analog pins in the **JANALOG** connector; more details below:
+The UNO Q features the well-known analog pins in the **JANALOG** connector; more details below:
 
 #### Analog to Digital Converter (ADC)
 
@@ -552,7 +548,7 @@ In the **JANALOG** connector the UNO Q has 6x 14-bit ADC pins mapped as follows:
 
 Analog input pins can be used through the built-in functions of the Arduino programming language.
 
-The UNO Q ADC **resolution** can be configured between 14-, 12-, 10-, or 8-bit by using the `analogReadResolution(bits)` function:
+The UNO Q ADC **resolution** can be configured between 14, 12, 10, or 8 bits by using the `analogReadResolution(bits)` function:
 
 ```cpp
   // ADC resolution set to 14-bit (0 to 16383)
@@ -652,7 +648,7 @@ void setup() {
 void loop() {
   static uint32_t t_next = micros();
   for (int i = 0; i < N; ++i) {
-    analogWrite(DAC0, lut[i]);  // output the sinewave values
+    analogWrite(DAC0, lut[i]);  // output the sine wave values
     t_next += Ts_us;
     while ((int32_t)(micros() - t_next) < 0) { /* spin */ }
   }
@@ -685,7 +681,7 @@ analogWrite(pin, value);
 By default, the output resolution is **8 bits**, so the output value should be between 0 and 255. To set a greater resolution, do it using the built-in function `analogWriteResolution` as shown below:
 
 ```cpp
-// DAC resolution set to 10-bit (0 to 4095)
+// PWM resolution set to 10-bit (0 to 4095)
 analogWriteResolution(10);  
 ```
 
@@ -765,11 +761,11 @@ The `Bridge` library provides a communication layer built on top of the `Arduino
 
 This example shows the **Linux side (Qualcomm QRB)** toggling an LED on the **MCU (STM32)** by calling a remote function over the Bridge.
 
-Create a new App in the Arduino App Lab, then copy and paste the example below in the "Python" and "sketch" part of your new App respectively.
+Create a new App in the Arduino App Lab, then copy and paste the example below in the "Python" and "sketch" parts of your new App respectively.
 
 ![Create a new app](assets/create-app.png)
 
-1. **Linux (QRB) example call a remote MCU function**
+1. **Linux (QRB) example to call a remote MCU function**
     This Python script runs on the QRB and calls an MCU-exposed RPC named `set_led_state` once per second:
     
     ```python
@@ -789,7 +785,7 @@ Create a new App in the Arduino App Lab, then copy and paste the example below i
     ```
     This sends a boolean to the MCU every second using `Bridge.call("set_led_state", <bool>)`
 
-2. **MCU (STM32) setup include the Bridge and start it**
+2. **MCU (STM32) setup to include the Bridge and start it**
     This sketch includes the Bridge library and configures the LED pin.
 
     ```cpp
@@ -818,7 +814,7 @@ After pasting the Python script into your App’s Python file and the Arduino co
 
 ![Red LED blinking](assets/blinking-led.gif)
 
-***There are more advance methods in the Bridge RPC library that you can discover by testing our different built-in examples inside Arduino App Lab.***
+***There are more advanced methods in the Bridge RPC library that you can discover by testing our different built-in examples inside Arduino App Lab.***
 
 ### SPI
 
@@ -833,7 +829,7 @@ The pins used in the UNO Q for the SPI communication protocol are the following:
 |          PB14           |       MISO / D12        |
 |          PB13           |        SCK / D13        |
 
-Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
+Please, refer to the [board pinout section](#pinout) of the user manual to locate them on the board.
 
 Include the `SPI` library at the top of your sketch to use the SPI communication protocol. The SPI library provides functions for SPI communication:
 
@@ -910,7 +906,7 @@ The UNO Q supports I2C communication, which allows data transmission between the
 |          PB10           |           SCL / D21            |          PD12           |        I2C4_SCL (Qwiic)         |
 |          PB11           |           SDA / D20            |          PD13           |        I2C4_SDA (Qwiic)         |
 
-Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
+Please, refer to the [board pinout section](#pinout) of the user manual to locate them on the board.
 
 To use I2C communication, include the `Wire` library at the top of your sketch. The `Wire` library provides functions for I2C communication:
 
@@ -994,7 +990,7 @@ The pins used in the UNO Q for the UART communication protocol are the following
 |           PB6           |     USART1_TX / D1      |
 |           PB7           |     USART1_RX / D0      |
 
-Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
+Please, refer to the [board pinout section](#pinout) of the user manual to locate them on the board.
 
 To begin with UART communication, you will need to configure it first. In the `setup()` function, set the baud rate (bits per second):
 
@@ -1021,11 +1017,11 @@ Serial.print("Hello UNO Q");
 Serial.println("Hello UNO Q");
 ```
 
-To test the UART transmit method use the following example, remmember to create a new App in the Arduino App Lab, then copy and paste the example below:
+To test the UART transmit method use the following example, remember to create a new App in the Arduino App Lab, then copy and paste the example below:
 
 ```cpp
 void setup() {
-  // Initialize the hardware UART at 115200 bdps
+  // Initialize the hardware UART at 115200 bps
   Serial.begin(115200);
 }
 
@@ -1066,7 +1062,7 @@ void loop() {
   }
 }
 ```
-With this example the UNO Q will send back whatever it receives in the UART.
+With this example the UNO Q will send back whatever it receives on the UART.
 
 #### From Serial to Monitor
 
