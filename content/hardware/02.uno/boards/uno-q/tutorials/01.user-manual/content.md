@@ -924,8 +924,7 @@ You can check our [Modulino family](https://www.arduino.cc/en/hardware/#modulino
 
 The UNO Q features the WCBN3536A radio module that provides dual-band Wi-Fi® 5 (2.4/5 GHz), since it is connected to the Qualcomm microprocessor, we need the Bridge to expose the connectivity to the microcontroller.
 
-
-The following example gets the UTC time using TCP over the Bridge and prints it in the Serial Monitor:
+The following example gets the UTC time using TCP over socket RPC calls and prints it in the Serial Monitor:
 
 Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
 ![Create a new app](assets/create-app.png)
@@ -973,7 +972,6 @@ void loop() {
 }
 
 ```
-
 
 ## Support
 
