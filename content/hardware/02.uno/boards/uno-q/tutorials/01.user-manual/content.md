@@ -742,20 +742,20 @@ The `Bridge` library provides a communication layer built on top of the `Arduino
 
 #### Core Components
 
-- `BridgeClass`
-  - Main class managing RPC clients and servers. Provides methods to:
-  - Initialize the bridge (`begin()`)
-  - Call remote procedures (`call()`)
-  - Notify without waiting for a response (`notify()`)
-  - Expose local functions for remote execution (`provide()`, `provide_safe()`)
-  - Process incoming requests (`update()`)
+`BridgeClass`
+- Main class managing RPC clients and servers. Provides methods to:
+- Initialize the bridge (`begin()`)
+- Call remote procedures (`call()`)
+- Notify without waiting for a response (`notify()`)
+- Expose local functions for remote execution (`provide()`, `provide_safe()`)
+- Process incoming requests (`update()`)
 
 
-- `RpcResult`
-  - Helper class representing the result of a remote call. It waits for the response, extracts the return value, and propagates error codes if needed.
+`RpcResult`
+- Helper class representing the result of a remote call. It waits for the response, extracts the return value, and propagates error codes if needed.
 
-- Threading and Safety
-  - The bridge uses Zephyr mutexes (`k_mutex`) to guarantee safe concurrent access when reading/writing over the transport. Updates are handled by a background thread that continuously polls for requests.
+**Threading and Safety**
+- The bridge uses Zephyr mutexes (`k_mutex`) to guarantee safe concurrent access when reading/writing over the transport. Updates are handled by a background thread that continuously polls for requests.
 
 #### Usage Example
 
