@@ -263,7 +263,7 @@ void initProperties(){
 
 ### Disable the SerialAgent
 
-To save board storage and memory, after the provisioning, the SerialAgent can be removed. ~1KB of storage is saved for BSS and Data. The network credentials provided in the provisioning phase can no longer be changed via USB if this is disabled.
+To save board storage and memory, after the provisioning, the SerialAgent can be removed. ~1 kB of storage is saved for BSS and Data. The network credentials provided in the provisioning phase can no longer be changed via USB if this is disabled.
 
 To disable the `SerialAgent`, just comment out or remove the lines of code that include, declare, and enable it. The final result should be the following:
 
