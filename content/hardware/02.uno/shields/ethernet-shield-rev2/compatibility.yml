@@ -5,5 +5,5 @@ hardware:
   boards:
     - uno-rev3
     - uno-wifi-rev2
-    - mega-2560
     - uno-q
+    - mega-2560
