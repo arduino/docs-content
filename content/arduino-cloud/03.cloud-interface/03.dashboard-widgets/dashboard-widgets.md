@@ -78,118 +78,52 @@ Data which is streamed to a widget is also available for download. The data rete
 
 Below you will find a list of available widgets and examples on how they are linked to a variable used in a sketch.
 
-### Switch
+### Advanced Chart
 
-![The Switch Widget](./assets/widget-switch.png)
+![Advanced Chart Widget](assets/widget-advanced-chart.gif)
 
-The switch widget is great for simply turning something ON or OFF.
+The advanced chart widget allows you to track up to **5 variables simultaneously**. This widget also includes an additional configuration interface that appears while editing the widget.
 
-Can be linked with a **boolean** variable.
+![Widget Configuration](assets/widget-advanced-chart-2.png)
+
+An example of how it is used in code:
+
+```arduino
+variable_1 = analogRead(A1)
+variable_2 = analogRead(A2)
+variable_3 = analogRead(A3)
+variable_4 = analogRead(A4)
+variable_5 = analogRead(A5)
+```
+
+***Check out the [Advanced Chart](/arduino-cloud/features/advanced-chart) guide for more information.***
+
+### Advanced Map
+
+![Advanced Map Widget](assets/widget-advanced-map.png)
+
+The advanced map widget allows you to track the location of your cloud-connected device. Using GPS within your project allows the advanced map widget to track where the linked thing has been. This widget not only shows the live location of your device but also lets you specify a time frame to view its location history and the track it produced.
+
+It can be linked with the **Location** variable. When the location updates the new location will be added to the advanced map widget and a path between the locations will be marked. The path and icon on the map can be customized in the widget settings.
 
 An example of how it is used in a sketch:
 
 ```arduino
-if(switchVariable == true){
-    digitalWrite(ledPin, HIGH);
-}
-
-else{
-    digitalWrite(ledPin, LOW);
-}
+//Location(Latitude, Longitude);
+locationVariable = Location(51.5074, 0.1278);
 ```
 
-### Push Button
+### Chart
 
-![Push Button Widget](assets/widget-pushbutton.png)
+![Chart Widget](assets/widget-chart.png)
 
-The push button widget is a virtual version of a push button. While pushed down, something is activated, and when released, it is de-activated.
-
-Can be linked with a **boolean** variable.
+The chart widget is great for data analytics. It's used to track real-time data, and track historical data. This widget can for example be used to track temperature changes, energy consumption and other sensor values. A chart widget can only be linked to one variable at a time.
 
 An example of how it is used in a sketch:
 
 ```arduino
-while(pushbuttonVariable == true){
-    counter++
-    delay(10);
-}
+variable = analogRead(A0);
 ```
-
-### Slider
-
-![Slider Widget](assets/widget-slider.png)
-
-The slider widget can be used to adjust a value range. Great for changing the intensity of light, or the speed of a motor.
-
-Can be linked with multiple variables, including **integers & floats.**
-
-An example of how it is used in a sketch:
-
-```arduino
-analogWrite(ledPin, sliderVariable);
-```
-
-### Stepper
-
-![Stepper Widget](assets/widget-stepper.png)
-
-Similar to the slider, the stepper widget increases or decreases a variable by increments of 1. It can be used to switch between different modes.
-
-Can be linked with multiple variables, including **integers & floats.**
-
-An example of how it is used in a sketch:
-
-```arduino
-if(stepperVariable == 10){
-    activateThisFunction();    
-}
-
-//activate another function
-else if(stepperVariable == 11){
-    activateAnotherFunction();
-}
-
-//or simply print out the updated value
-Serial.println(stepperVariable);
-```
-
-### Time Picker
-
-![Time Picker Widget](assets/time-picker.png)
-
-The time picker widget is used to represent and set a time and/or a date.
-
-Can be linked with a **CloudTime** variable.
-
-An example of how it is used in a sketch:
-
-```
-CloudTimeVariable = ArduinoCloud.getLocalTime();
-```
-
-In this example, the variable named `CloudTimeVariable` is populated with `ArduinoCloud.getLocalTime()` which returns the Unix time stamp (in seconds) of the local time zone.
-
-### Messenger
-
-![Messenger Widget](assets/widget-messenger.png)
-
-The messenger widget can be used to send and receive strings through the messenger window.
-
-Can be linked with a **String** variable.
-
-An example of how it is used in a sketch:
-
-```arduino
-stringVariable = "This is a string";
-```
-
-It is possible to clear the messenger widget window directly from the sketch, by using:
-
-```arduino
-stringVariable = PropertyActions::CLEAR;
-```
-
-***For ArduinoIoTCloud library versions below `1.7`, you can use `stringVariable = "\x1b";` to clear the widget window.*** 
 
 ### Color
 
@@ -198,6 +132,21 @@ stringVariable = PropertyActions::CLEAR;
 The color widget is great for selecting an exact color for an RGB light.
 
 Can be linked with a **Color** variable.
+
+An example of how it is used in a sketch:
+
+```arduino
+uint8_t r, g, b;
+rgbVariable.getValue().getRGB(r, g, b);
+```
+
+### Colored light
+
+![Colored Light Widget](assets/widget-color-light.png)
+
+The colored light widget is designed to set the color of a lamp and turn it ON or OFF.
+
+Can be linked with a **Colored Light** variable.
 
 An example of how it is used in a sketch:
 
@@ -229,51 +178,6 @@ An example of how it is used in a sketch:
   }
 ```
 
-### Colored light
-
-![Colored Light Widget](assets/widget-color-light.png)
-
-The colored light widget is designed to set the color of a lamp and turn it ON or OFF.
-
-Can be linked with a **Colored Light** variable.
-
-An example of how it is used in a sketch:
-
-```arduino
-uint8_t r, g, b;
-rgbVariable.getValue().getRGB(r, g, b);
-```
-
-### Value
-
-![Value Widget](assets/widget-value.png)
-
-The value widget is a simple one. It only reads or writes values without any additional functionalities.
-
-Can be linked with many different variables.
-
-An example of how it is used in a sketch:
-
-```arduino
-valueVariable = analogRead(A0);
-```
-
-### Status
-
-![Status Widget](assets/widget-status.png)
-
-The status widget is great for checking the state of something: green is true, red is false! The look of the widget can also be customized more. If the "Custom style" is turned on in the widget settings the colors can be changed. If the "Icons" option is chosen the icons can also be changed.
-
-Can be linked to a **boolean** variable.
-
-An example of how it is used in a sketch:
-
-```arduino
-statusVariable = true;
-//or
-statusVariable = false;
-```
-
 ### Gauge
 
 ![Gauge Widget](assets/widget-gauge.png)
@@ -288,23 +192,11 @@ An example of how it is used in a sketch:
 gaugeVariable = analogRead(A0);
 ```
 
-### Percentage
+### Image
 
-![Percentage Widget](assets/widget-percentage-1.png)
+![Image widget](assets/widget-image.png)
 
-The percentage widget displays values as percentages, with the option of adding **icons** and **color thresholds**. 
-
-In the widget settings, you can choose from a range of icons, as well as a color that should be visible whenever a value is e.g. below a certain value.
-
-![Configuration of a Percentage Widget.](assets/widget-percentage-2.png)
-
-Can be linked with multiple variables, including **integers & floats.**
-
-An example of how it is used in a sketch:
-
-```arduino
-percentageVariable = analogRead(A0);
-```
+Use the image widget to put a JPG, PNG or WEBP image on your dashboard! If you instead want to use an image URL, then chose the URL option under image source. Keep in mind the URL needs to be a HTTPS URL and not a HTTP URL. It is also possible to use local addresses. If you are using the URL option you can add a refresh frequency to the image widget, enabling the widget to function as a video or moving image. The image will then update  The image can be made to fill the widget frame or to fit within the widget frame. A grey background can be added to the widget to help with visibility issues for PNGs with transparent backgrounds.
 
 ### LED
 
@@ -344,52 +236,62 @@ An example of how it is used in a sketch:
 locationVariable = Location(51.5074, 0.1278);
 ```
 
-### Advanced Map
+### Messenger
 
-![Advanced Map Widget](assets/widget-advanced-map.png)
+![Messenger Widget](assets/widget-messenger.png)
 
-The advanced map widget allows you to track the location of your cloud-connected device. Using GPS within your project allows the advanced map widget to track where the linked thing has been. This widget not only shows the live location of your device but also lets you specify a time frame to view its location history and the track it produced.
+The messenger widget can be used to send and receive strings through the messenger window.
 
-It can be linked with the **Location** variable. When the location updates the new location will be added to the advanced map widget and a path between the locations will be marked. The path and icon on the map can be customized in the widget settings.
-
-An example of how it is used in a sketch:
-
-```arduino
-//Location(Latitude, Longitude);
-locationVariable = Location(51.5074, 0.1278);
-```
-
-### Chart
-
-![Chart Widget](assets/widget-chart.png)
-
-The chart widget is great for data analytics. It's used to track real-time data, and track historical data. This widget can for example be used to track temperature changes, energy consumption and other sensor values. A chart widget can only be linked to one variable at a time.
+Can be linked with a **String** variable.
 
 An example of how it is used in a sketch:
 
 ```arduino
-variable = analogRead(A0);
+stringVariable = "This is a string";
 ```
 
-### Advanced Chart
-
-![Advanced Chart Widget](assets/widget-advanced-chart.gif)
-
-The advanced chart widget allows you to track up to **5 variables simultaneously**. This widget also includes an additional configuration interface that appears while editing the widget.
-
-![Widget Configuration](assets/widget-advanced-chart-2.png)
-
-An example of how it is used in code:
+It is possible to clear the messenger widget window directly from the sketch, by using:
 
 ```arduino
-variable_1 = analogRead(A1)
-variable_2 = analogRead(A2)
-variable_3 = analogRead(A3)
-variable_4 = analogRead(A4)
-variable_5 = analogRead(A5)
+stringVariable = PropertyActions::CLEAR;
 ```
 
-***Check out the [Advanced Chart](/arduino-cloud/features/advanced-chart) guide for more information.***
+***For ArduinoIoTCloud library versions below `1.7`, you can use `stringVariable = "\x1b";` to clear the widget window.*** 
+
+### Percentage
+
+![Percentage Widget](assets/widget-percentage-1.png)
+
+The percentage widget displays values as percentages, with the option of adding **icons** and **color thresholds**. 
+
+In the widget settings, you can choose from a range of icons, as well as a color that should be visible whenever a value is e.g. below a certain value.
+
+![Configuration of a Percentage Widget.](assets/widget-percentage-2.png)
+
+Can be linked with multiple variables, including **integers & floats.**
+
+An example of how it is used in a sketch:
+
+```arduino
+percentageVariable = analogRead(A0);
+```
+
+### Push Button
+
+![Push Button Widget](assets/widget-pushbutton.png)
+
+The push button widget is a virtual version of a push button. While pushed down, something is activated, and when released, it is de-activated.
+
+Can be linked with a **boolean** variable.
+
+An example of how it is used in a sketch:
+
+```arduino
+while(pushbuttonVariable == true){
+    counter++
+    delay(10);
+}
+```
 
 ### Scheduler
 
@@ -411,6 +313,60 @@ if(scheduleVariable.isActive){}
 
 ***Check out the [Scheduler](/arduino-cloud/features/cloud-scheduler) guide for more information.***
 
+### Slider
+
+![Slider Widget](assets/widget-slider.png)
+
+The slider widget can be used to adjust a value range. Great for changing the intensity of light, or the speed of a motor.
+
+Can be linked with multiple variables, including **integers & floats.**
+
+An example of how it is used in a sketch:
+
+```arduino
+analogWrite(ledPin, sliderVariable);
+```
+
+### Status
+
+![Status Widget](assets/widget-status.png)
+
+The status widget is great for checking the state of something: green is true, red is false! The look of the widget can also be customized more. If the "Custom style" is turned on in the widget settings the colors can be changed. If the "Icons" option is chosen the icons can also be changed.
+
+Can be linked to a **boolean** variable.
+
+An example of how it is used in a sketch:
+
+```arduino
+statusVariable = true;
+//or
+statusVariable = false;
+```
+
+### Stepper
+
+![Stepper Widget](assets/widget-stepper.png)
+
+Similar to the slider, the stepper widget increases or decreases a variable by increments of 1. It can be used to switch between different modes.
+
+Can be linked with multiple variables, including **integers & floats.**
+
+An example of how it is used in a sketch:
+
+```arduino
+if(stepperVariable == 10){
+    activateThisFunction();    
+}
+
+//activate another function
+else if(stepperVariable == 11){
+    activateAnotherFunction();
+}
+
+//or simply print out the updated value
+Serial.println(stepperVariable);
+```
+
 ### Sticky Note
 
 ![Sticky Note](assets/widget-sticky-note.png)
@@ -419,22 +375,54 @@ The sticky note widget can be used to write important notes or to categorize you
 
 The sticky note can **not** be linked with a variable and is designed to keep notes only while using a dashboard. It does support the use of markdown so that you can create titles, links, code blocks etc.
 
-### Value Selector
+### Switch
 
-![Value Selector](assets/widget-value-picker.png)
+![The Switch Widget](./assets/widget-switch.png)
 
-The value selector widget can be used to switch between predetermined values through available buttons. Supported variable types are `int` and `String`. 
+The switch widget is great for simply turning something ON or OFF.
 
-Example:
+Can be linked with a **boolean** variable.
+
+An example of how it is used in a sketch:
 
 ```arduino
-if(valueSelector == 0){
-  //if value matches, execute code
+if(switchVariable == true){
+    digitalWrite(ledPin, HIGH);
 }
 
-if(valueSelector == "string"){
-  //if string matches, execute code
+else{
+    digitalWrite(ledPin, LOW);
 }
+```
+
+### Time Picker
+
+![Time Picker Widget](assets/time-picker.png)
+
+The time picker widget is used to represent and set a time and/or a date.
+
+Can be linked with a **CloudTime** variable.
+
+An example of how it is used in a sketch:
+
+```
+CloudTimeVariable = ArduinoCloud.getLocalTime();
+```
+
+In this example, the variable named `CloudTimeVariable` is populated with `ArduinoCloud.getLocalTime()` which returns the Unix time stamp (in seconds) of the local time zone.
+
+### Value
+
+![Value Widget](assets/widget-value.png)
+
+The value widget is a simple one. It only reads or writes values without any additional functionalities.
+
+Can be linked with many different variables.
+
+An example of how it is used in a sketch:
+
+```arduino
+valueVariable = analogRead(A0);
 ```
 
 ### Value Dropdown
@@ -455,8 +443,20 @@ if(valueDropDown == "string"){
 }
 ```
 
-### Image
+### Value Selector
 
-![Image widget](assets/widget-image.png)
+![Value Selector](assets/widget-value-picker.png)
 
-Use the image widget to put a JPG, PNG or WEBP image on your dashboard! If you instead want to use an image URL, then chose the URL option under image source. Keep in mind the URL needs to be a HTTPS URL and not a HTTP URL. It is also possible to use local addresses. If you are using the URL option you can add a refresh frequency to the image widget, enabling the widget to function as a video or moving image. The image will then update  The image can be made to fill the widget frame or to fit within the widget frame. A grey background can be added to the widget to help with visibility issues for PNGs with transparent backgrounds.
+The value selector widget can be used to switch between predetermined values through available buttons. Supported variable types are `int` and `String`. 
+
+Example:
+
+```arduino
+if(valueSelector == 0){
+  //if value matches, execute code
+}
+
+if(valueSelector == "string"){
+  //if string matches, execute code
+}
+```
