@@ -196,3 +196,12 @@ arduino-app-cli brick details arduino:<brick>
 Which will show something akin to:
 
 ![List Bricks](assets/list-bricks.png)
+
+## Summary
+
+This article covers some important commands & usage of the `arduino-app-cli`, which allows you to manage Apps on the UNO Q without the desktop UI.
+
+More documentation for the Arduino App Lab is available at:
+- [Arduino App Lab Documentation](https://docs.arduino.cc/software/app-lab/)
+
+You can also visit the [Arduino® UNO Q](/hardware/uno-q) hardware page for details on the board. 
