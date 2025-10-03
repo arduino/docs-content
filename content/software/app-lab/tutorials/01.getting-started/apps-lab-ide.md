@@ -96,7 +96,7 @@ To program your board using **SBC mode**, follow the instructions below:
     ![SBC setup](assets/sbc.png)
 
 5. Wait for the board to boot. Once it is booted, a login screen will appear on the monitor.
-6. Log in using the credentials `arduino` / `arduino`, or the custom password set if the board was setup using desktop mode.
+6. Log in using the credentials `arduino` as a username, and create a custom password for the board.
 7. Once logged in, the Arduino App Lab will automatically launch and look for updates. Once the update is finished, you are ready to create and run Apps on your board ✅.
 
 ![Arduino App Lab in SBC mode](assets/app-lab-sbc.png)
