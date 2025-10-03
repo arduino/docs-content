@@ -559,7 +559,7 @@ void loop() {
 
 ### Analog Pins
 
-The UNO Q features the well known analog pins in the **JANALOG** connector. However, some other GPIOs can be used as analog inputs; more details below:
+The UNO Q features the well known analog pins in the **JANALOG** connector; more details below:
 
 #### Analog to Digital Converter (ADC)
 
@@ -743,6 +743,8 @@ void loop() {
 }
 ```
 
+Now you can control the PWM signal duty-cycle by turning the potentiometer.
+
 ![PWM output signal using the PWM](assets/pwm-output.png)
 
 ***PWM frequency is fixed to 500 Hz.***
@@ -766,6 +768,34 @@ The pins used in the UNO Q for the SPI communication protocol are the following:
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
 
+Include the `SPI` library at the top of your sketch to use the SPI communication protocol. The SPI library provides functions for SPI communication:
+
+```cpp
+#include <SPI.h>
+```
+
+In the `setup()` function, initialize the SPI library, define and configure the chip select (`SS`) pin:
+
+```cpp
+#define SS D10
+
+void setup() {
+  // Set the chip select pin as output
+  pinMode(SS, OUTPUT);
+
+  // Pull the SS pin HIGH to unselect the device
+  digitalWrite(SS, HIGH);
+
+  // Initialize the SPI communication
+  SPI.begin();
+}
+```
+
+To transmit data to an SPI-compatible device, you can use the commands used in the following example:
+
+Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+![Create a new app](assets/create-app.png)
+
 ```cpp
 #include <SPI.h>
 
@@ -775,7 +805,7 @@ void setup() {
   // Set the chip select pin as output
   pinMode(SS, OUTPUT);
 
-  // Pull the CS pin HIGH to unselect the device
+  // Pull the SS pin HIGH to unselect the device
   digitalWrite(SS, HIGH);
 
   // Initialize the SPI communication
@@ -787,20 +817,31 @@ void loop() {
   byte address = 0x35;
   // Replace with the value to send
   byte value = 0xFA;
-  // Pull the CS pin LOW to select the device
+  // Pull the SS pin LOW to select the device
   digitalWrite(SS, LOW);
   // Send the address
   SPI.transfer(address);
   // Send the value
   SPI.transfer(value);
-  // Pull the CS pin HIGH to unselect the device
+  // Pull the SS pin HIGH to unselect the device
   digitalWrite(SS, HIGH);
 
   delay(2000);
 }
 ```
 
+The example code above should output this:
+
+![SPI data stream](assets/spi.png)
+
 ### I2C
+
+The UNO Q supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. The pins used in the UNO Q for the I2C communication protocol are the following:
+
+| **Microcontroller Pin** | **Arduino Pin Mapping (Wire)** | **Microcontroller Pin** | **Arduino Pin Mapping (Wire1)** |
+| :---------------------: | :----------------------------: | :---------------------: | :-----------------------------: |
+|          PB10           |           SCL / D21            |          PD12           |        I2C4_SCL (Qwiic)         |
+|          PB11           |           SDA / D20            |          PD13           |        I2C4_SDA (Qwiic)         |
 
 ```cpp
 #include <Wire.h>
