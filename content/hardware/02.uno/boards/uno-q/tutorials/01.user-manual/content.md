@@ -20,7 +20,7 @@ software:
 
 This user manual will guide you through a practical journey covering the most interesting features of the Arduino UNO Q. With this user manual, you will learn how to set up, configure and use this Arduino board.
 
-![Arduino UNO Q PLACEHOLDER](assets/uno-q-matrix.png)
+![Arduino UNO Q PLACEHOLDER](assets/thumbnail.png)
 
 ## Hardware and Software Requirements
 ### Hardware Requirements
@@ -33,7 +33,7 @@ This user manual will guide you through a practical journey covering the most in
 
 ### Software Requirements
 
-- [Arduino App Lab 0.1.22+](https://www.arduino.cc/en/software/)
+- [Arduino App Lab 0.1.23+](https://www.arduino.cc/en/software/)
 
 ***You can still use the __Arduino IDE 2+__ to program only the microcontroller (MCU) side of your UNO Q.***
 
@@ -258,31 +258,6 @@ Execute the App by clicking in the **Run** button in the Arduino App Lab and you
 
 ![LED Matrix example running](assets/matrix-grayscale.png)
 
-#### Scrolling Text
-
-To be added when the Arduino App Lab support easy library import.
-
-```cpp
-#include "ArduinoGraphics.h"
-#include <Arduino_LED_Matrix.h>
-
-Arduino_LED_Matrix matrix;
-
-void setup() {
-  matrix.begin();
-  matrix.textFont(Font_5x7);
-  matrix.textScrollSpeed(100);
-  matrix.clear();
-
-}
-
-void loop() {
-  matrix.beginText(0, 0, 127, 0, 0); 
-  matrix.print("      arduino.cc/uno-q      ");
-  matrix.endText(SCROLL_LEFT);
-
-}
-```
 
 ### RGB LEDs
 The UNO Q features 4x RGB LEDs. Two of them connected and controlled by the Qualcomm microprocessor, and the other two by the STM32 microcontroller.
@@ -522,6 +497,7 @@ Create a new App in the Arduino App Lab, then copy and paste the example below i
 ![Create a new app](assets/create-app.png)
 
 ```cpp
+#include <Arduino_RouterBridge.h>
 // Define button and LED pin
 int buttonPin = D4;
 int ledPin = D5;
@@ -535,7 +511,7 @@ void setup() {
   pinMode(ledPin, OUTPUT);
 
   // Initialize Serial communication
-  Serial.begin(115200);
+  Monitor.begin();
 }
 
 void loop() {
@@ -545,11 +521,11 @@ void loop() {
   // If the button is pressed, turn on the LED and print its state to the Serial Monitor
   if (buttonState == LOW) {
     digitalWrite(ledPin, HIGH);
-    Serial.println("- Button is pressed. LED is on.");
+    Monitor.println("- Button is pressed. LED is on.");
   } else {
     // If the button is not pressed, turn off the LED and print to the Serial Monitor
     digitalWrite(ledPin, LOW);
-    Serial.println("- Button is not pressed. LED is off.");
+    Monitor.println("- Button is not pressed. LED is off.");
   }
 
   // Wait for 1000 milliseconds
@@ -609,19 +585,21 @@ Create a new App in the Arduino App Lab, then copy and paste the example below i
 ![Create a new app](assets/create-app.png)
 
 ```cpp
+#include <Arduino_RouterBridge.h>
+
 int sensorPin = A0;   // select the input pin for the potentiometer
 
 int sensorValue = 0;  // variable to store the value coming from the sensor
 
 void setup() {
-  Serial.begin(115200); 
+  Monitor.begin(); 
 }
 
 void loop() {
   // read the value from the sensor:
   sensorValue = analogRead(sensorPin);
 
-  Serial.println(sensorValue);
+  Monitor.println(sensorValue);
   delay(100);
 }
 ```
@@ -752,6 +730,95 @@ Now you can control the PWM signal duty-cycle by turning the potentiometer.
 ## Communication
 
 This section of the user manual covers the different communication protocols that are supported by the Arduino UNO Q.
+
+### Bridge - Remote Procedure Call (RPC) Library
+
+The Arduino UNO Q uses RPC (Remote Procedure Call) to exchange data between the Linux (Qualcomm MPU) side and the real-time STM32 MCU. This mechanism allows functions running on one processor to be invoked transparently from the other, as if they were local calls.
+
+![UNO Q RPC](assets/rpc.png)
+
+#### Overview
+
+The `Bridge` library provides a communication layer built on top of the `Arduino_RPClite` framework. It manages bidirectional RPC traffic between the MPU and MCU, handling method binding, request forwarding, and asynchronous responses.
+
+- **MPU side (Qualcomm QRB, Linux)**: Runs higher-level services and can remotely invoke MCU functions.
+- **MCU side (STM32, Zephyr RTOS)**: Handles time-critical tasks and exposes functions to the MPU via RPC.
+
+#### Core Components
+
+- `BridgeClass`
+  - Main class managing RPC clients and servers. Provides methods to:
+  - Initialize the bridge (`begin()`)
+  - Call remote procedures (`call()`)
+  - Notify without waiting for a response (`notify()`)
+  - Expose local functions for remote execution (`provide()`, `provide_safe()`)
+  - Process incoming requests (`update()`)
+
+
+- `RpcResult`
+  - Helper class representing the result of a remote call. It waits for the response, extracts the return value, and propagates error codes if needed.
+
+- Threading and Safety
+  - The bridge uses Zephyr mutexes (`k_mutex`) to guarantee safe concurrent access when reading/writing over the transport. Updates are handled by a background thread that continuously polls for requests.
+
+#### Usage Example
+
+This example shows the **Linux side (Qualcomm QRB)** toggling an LED on the **MCU (STM32)** by calling a remote function over the Bridge.
+
+Create a new App in the Arduino App Lab, then copy and paste the example below in the "Python" and "sketch" part of your new App respectively.
+
+![Create a new app](assets/create-app.png)
+
+1. **Linux (QRB) example call a remote MCU function**
+    This Python script runs on the QRB and calls an MCU-exposed RPC named `set_led_state` once per second:
+    
+    ```python
+    # main.py (QRB side)
+    from arduino.app_utils import *
+    import time
+
+    led_state = False
+
+    def loop():
+        global led_state
+        time.sleep(1)
+        led_state = not led_state
+        Bridge.call("set_led_state", led_state)
+
+    App.run(user_loop=loop)
+    ```
+    This sends a boolean to the MCU every second using `Bridge.call("set_led_state", <bool>)`
+
+2. **MCU (STM32) setup include the Bridge and start it**
+    This sketch includes the Bridge library and configures the LED pin.
+
+    ```cpp
+    #include "Arduino_RouterBridge.h"
+
+    void setup() {
+        pinMode(LED_BUILTIN, OUTPUT);
+
+        Bridge.begin();
+        Bridge.provide("set_led_state", set_led_state);
+    }
+
+    void loop() {
+    }
+
+    void set_led_state(bool state) {
+        // LOW state means LED is ON
+        digitalWrite(LED_BUILTIN, state ? LOW : HIGH);
+    }
+    ```
+    This registers the local MCU function `set_led_state` as an RPC service named `"set_led_state"`, so that the Linux (QRB) side can call it remotely as if it were a local function using `Bridge.provide("set_led_state", set_led_state);`
+
+***You can do the same the other way around, Python functions can be provided to the MCU sketch to be used locally.***
+
+After pasting the Python script into your App’s Python file and the Arduino code to the sketch, you can run the App and observe LED #3 blinking red every second.
+
+![Red LED blinking](assets/blinking-led.gif)
+
+***There are more advance methods in the Bridge RPC library that you can discover by testing our different built-in examples inside Arduino App Lab.***
 
 ### SPI
 
@@ -920,6 +987,111 @@ You can check our [Modulino family](https://www.arduino.cc/en/hardware/#modulino
 
 ### UART
 
+The pins used in the UNO Q for the UART communication protocol are the following:
+
+| **Microcontroller Pin** | **Arduino Pin Mapping** |
+| :---------------------: | :---------------------: |
+|           PB6           |     USART1_TX / D1      |
+|           PB7           |     USART1_RX / D0      |
+
+Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
+
+To begin with UART communication, you will need to configure it first. In the `setup()` function, set the baud rate (bits per second):
+
+```cpp
+// Start UART communication at 115200 baud
+Serial.begin(115200);
+```
+
+To transmit data to another device via UART, you can use the `write()` function:
+
+```cpp
+// Transmit the string "Hello UNO Q"
+Serial.write("Hello UNO Q");
+Serial.write("\r\n"); // new line
+```
+
+You can also use the `print` and `println()` to send a string without a newline character or followed by a newline character:
+
+```cpp
+// Transmit the string "Hello UNO Q"
+Serial.print("Hello UNO Q");
+
+// Transmit the string "Hello UNO Q" followed by a newline character
+Serial.println("Hello UNO Q");
+```
+
+To test the UART transmit method use the following example, remmember to create a new App in the Arduino App Lab, then copy and paste the example below:
+
+```cpp
+void setup() {
+  // Initialize the hardware UART at 115200 bdps
+  Serial.begin(115200);
+}
+
+void loop() {
+  // Transmit the string "Hello UNO Q" followed by a newline character
+  Serial.println("Hello UNO Q");
+  delay(1000);
+}
+```
+
+You should get the following in the **TX** and **RX** pins of your UNO Q board, I am using a logic analyzer to capture the data:
+
+![UART transmission](assets/uart.png)
+
+To read incoming data, you can use a `while()` loop to continuously check for available data and read individual characters. The code shown below stores the incoming characters in a String variable and processes the data when a line-ending character is received:
+
+```cpp
+String incoming = "";
+
+void setup() {
+  // Initialize the hardware UART at 115200 baud
+  Serial.begin(115200);
+}
+
+void loop() {
+  while (Serial.available()) {
+    char c = Serial.read();
+
+    if (c == '\n') {
+      // Echo the buffered message and add a newline
+      Serial.println(incoming);
+
+      // Clear for the next message
+      incoming = "";
+    } else {
+      incoming += c;
+    }
+  }
+}
+```
+With this example the UNO Q will send back whatever it receives in the UART.
+
+#### From Serial to Monitor
+
+Because of the UNO Q’s architecture, using `Serial` does not display data in the Arduino App Lab Serial Monitor as you might expect.
+
+To make debugging just as easy as on other Arduino boards, we provide the `Monitor` object, which you can use to print debugging messages, sensor readings, or any other information directly to the Serial Monitor.
+
+You can do exactly the same, but with a minor prerequisite; including the `Arduino_RouterBridge` library in your sketch:
+
+```cpp
+#include <Arduino_RouterBridge.h>
+
+void setup() {
+  // Initialize the Monitor
+  Monitor.begin();
+}
+
+void loop() {
+  // Transmit the string "Hello UNO Q" followed by a newline character
+  Monitor.println("Hello UNO Q");
+  delay(1000);
+}
+```
+
+
 ### Wi-Fi®
 
 The UNO Q features the WCBN3536A radio module that provides dual-band Wi-Fi® 5 (2.4/5 GHz), since it is connected to the Qualcomm microprocessor, we need the Bridge to expose the connectivity to the microcontroller.
@@ -972,6 +1144,10 @@ void loop() {
 }
 
 ```
+
+Once running, open the Arduino App Lab Serial Monitor and you will see the time and date retrieved from the `time.nist.gov` server.
+
+![Wi-Fi example](assets/wifi.png)
 
 ## Support
 
