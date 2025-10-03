@@ -187,7 +187,7 @@ As the Provisioning 2.0 ends, the BLE interface is turned off.
 
 To restart the BLE interface to update the network settings, the [**Arduino_NetworkConfigurator**](https://github.com/arduino-libraries/Arduino_NetworkConfigurator?tab=readme-ov-file) library provides a procedure called "Reconfiguration Procedure". This procedure is based on the shorting of two pins of the board.
 
-The library provides a default implementation according to the board type. (The user can change the default pin, checking the following document section)
+The library provides a default implementation according to the board type. 
 
 - `Arduino Opta`: Press and hold the user button (BTN_USER) until the led (LED_USER) turns off
 - `Arduino MKR WiFi 1010`: Short pin 7 to GND until the led turns off
