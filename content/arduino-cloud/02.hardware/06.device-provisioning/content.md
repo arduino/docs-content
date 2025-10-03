@@ -135,7 +135,7 @@ To proceed with the next steps, the Cloud-generated sketch must be uploaded to t
 
 ### Update Using the BLE Interface
 
-Ensure that the cloud sketch has enabled the BLEAgent, via `thingProperties.h`. This is enabled by default if the board has been registered with Provisioning 2.0. If you need to enable it, please have a look at [this documentation](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches).
+Ensure that the Cloud sketch has enabled the BLEAgent, via `thingProperties.h`. This is enabled by default if the board has been registered with Provisioning 2.0. If you need to enable it, please have a look at [this documentation](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches).
 
 You can update the network settings from the detail page of the device on the Arduino Cloud webpage or the mobile app.
 
