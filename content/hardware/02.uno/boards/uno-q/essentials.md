@@ -1,15 +1,12 @@
 ---
 productsLibrariesMap:
-  - MsgPack
-  - ArxTypeTraits
-  - DebugLog
-  - ArxContainer
-  - Arduino_RouterBridge
+  - Modulino
+  - Servo
 ---
 
 <EssentialsColumn title="First Steps">
 
-  <EssentialElement title="User Manual" type="getting-started" link="">
+  <EssentialElement title="User Manual" type="getting-started" link="/tutorials/uno-q/user-manual">
     All you need to know to get started with your new Arduino board.
   </EssentialElement>
 
