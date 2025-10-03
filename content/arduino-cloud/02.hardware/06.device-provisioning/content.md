@@ -165,7 +165,7 @@ This method only works with the Arduino Cloud website. You can update the networ
 5. Input the new network configuration.
 6. The board will validate it, and if correct, it will close the connection.
 
-## How to delete a stored network configuration
+## How to Delete a Stored Network Configuration
 
 If you want to delete the stored network configuration without updating it, there are two possible methods to do so.
 
