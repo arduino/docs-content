@@ -5,4 +5,6 @@ software:
 hardware:
   boards: ~
   carriers: ~
-  shields: ~
+  shields: 
+    - nano-connector-carrier
+    - nano-screw-terminal-adapter
