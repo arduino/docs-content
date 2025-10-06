@@ -768,6 +768,7 @@ Create a new App in the Arduino App Lab, then copy and paste the example below i
 ![Create a new app](assets/create-app.png)
 
 1. **Linux (QRB) example to call a remote MCU function**
+    
     This Python script runs on the QRB and calls an MCU-exposed RPC named `set_led_state` once per second:
     
     ```python
@@ -788,6 +789,7 @@ Create a new App in the Arduino App Lab, then copy and paste the example below i
     This sends a boolean to the MCU every second using `Bridge.call("set_led_state", <bool>)`
 
 2. **MCU (STM32) setup to include the Bridge and start it**
+
     This sketch includes the Bridge library and configures the LED pin.
 
     ```cpp
@@ -812,7 +814,7 @@ Create a new App in the Arduino App Lab, then copy and paste the example below i
 
 ***You can do the same the other way around, Python functions can be provided to the MCU sketch to be used locally.***
 
-After pasting the Python script into your App’s Python file and the Arduino code to the sketch, you can run the App and observe LED #3 blinking red every second.
+After pasting the Python script into your App’s Python file and the Arduino code to the sketch, you can run the App and observe LED #3 blinking in red every second.
 
 ![Red LED blinking](assets/blinking-led.gif)
 
