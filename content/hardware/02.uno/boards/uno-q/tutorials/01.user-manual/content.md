@@ -20,7 +20,7 @@ software:
 
 This user manual will guide you through a practical journey covering the most interesting features of the Arduino UNO Q. With this user manual, you will learn how to set up, configure and use this Arduino board.
 
-![Arduino UNO Q PLACEHOLDER](assets/thumbnail.png)
+![Arduino UNO Q](assets/thumbnail.png)
 
 ## Hardware and Software Requirements
 ### Hardware Requirements
