@@ -396,6 +396,8 @@ The UNO Q features a power button that can be used to reboot the board.
 
 - **Long press**: the board's Linux part is rebooted when the button is pressed for **5+** seconds.
 
+***You don't need to press the power button for the board to power up, it boots automatically after being powered.***
+
 ## USB-C Connector
 
 The UNO Q features a USB-C connector that can be used for much more than just programming and powering the board.
