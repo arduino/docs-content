@@ -111,7 +111,7 @@ To install it, go to the [software section](https://www.arduino.cc/en/software/)
 
 ![Arduino App Lab Install](assets/app-lab-download.png)
 
-***Arduino App Lab comes pre-installed on the UNO Q and can be used in single-board computer mode. We highly recommend the 4 GB of RAM UNO Q variant for a better experience.***
+***Arduino App Lab comes pre-installed on the UNO Q and can be used in single-board computer mode. We highly recommend the <strong>4 GB of RAM</strong> UNO Q variant for a better experience.***
 
 ### Hello World Example
 
