@@ -450,24 +450,24 @@ JMISC handles both domains: 1.8 V MPU lines sit alongside 3.3 V MCU signals (e.g
 
 ### JDIGITAL (A2) (JDIGITAL1) - Pin Map
 
-| **Pin** | **Designation** | **MCU pin** | **Functions**                           | **Domain** | **Notes**                   |
-|--------:|-----------------|-------------|-----------------------------------------|------------|-----------------------------|
+| **Pin** | **Designation** | **MCU pin** | **Functions**                               | **Domain** | **Notes**                   |
+| ------: | --------------- | ----------- | ------------------------------------------- | ---------- | --------------------------- |
 |       1 | D0              | PB7         | - USART1_RX <br></br>- TIM4_CH2             | 3.3 V      | UART                        |
 |       2 | D1              | PB6         | - USART1_TX <br></br>- TIM4_CH1             | 3.3 V      | UART                        |
-|       3 | D2              | PB3         | - TIM2_CH2                              | 3.3 V      | -                           |
+|       3 | D2              | PB3         | - TIM2_CH2                                  | 3.3 V      | -                           |
 |       4 | ~D3             | PB0         | - OPAMP2_OUTPUT <br></br>- TIM3_CH3         | 3.3 V      | PWM                         |
 |       5 | D4              | PA12        | - FDCAN1_TX <br></br>- TIM1_ETR             | 3.3 V      | -                           |
 |       6 | ~D5             | PA11        | - FDCAN1_RX <br></br>- TIM1_CH4             | 3.3 V      | PWM                         |
-|       7 | ~D6             | PB1         | - TIM3_CH4                              | 3.3 V      | PWM                         |
-|       8 | D7              | PB2         | - TIM8_CH4N                             | 3.3 V      | -                           |
-|       9 | D8              | PB4         | - TIM3_CH1                              | 3.3 V      | -                           |
-|      10 | ~D9             | PB8         | - TIM4_CH3                              | 3.3 V      | PWM                         |
+|       7 | ~D6             | PB1         | - TIM3_CH4                                  | 3.3 V      | PWM                         |
+|       8 | D7              | PB2         | - TIM8_CH4N                                 | 3.3 V      | -                           |
+|       9 | D8              | PB4         | - TIM3_CH1                                  | 3.3 V      | -                           |
+|      10 | ~D9             | PB8         | - TIM4_CH3                                  | 3.3 V      | PWM                         |
 |      11 | ~D10            | PB9         | - SPI2_SS (Chip Select) <br></br>- TIM4_CH4 | 3.3 V      | PWM                         |
 |      12 | ~D11            | PB15        | - SPI2_MOSI <br></br>- TIM1_CH3N            | 3.3 V      | PWM                         |
 |      13 | D12             | PB14        | - SPI2_MISO <br></br>- TIM1_CH2N            | 3.3 V      | -                           |
 |      14 | D13             | PB13        | - SPI2_SCK <br></br>- TIM1_CH1N             | 3.3 V      | -                           |
-|      15 | GND             | -           | - Ground                                | Power      | -                           |
-|      16 | AREF            | -           | - Analog reference                      | -          | Analog ref pin (not a GPIO) |
+|      15 | GND             | -           | - Ground                                    | Power      | -                           |
+|      16 | AREF            | -           | - Analog reference                          | -          | Analog ref pin (not a GPIO) |
 |      17 | D20             | PB11        | - I2C2_SDA <br></br>- TIM2_CH4              | 3.3 V      | -                           |
 |      18 | D21             | PB10        | - I2C2_SCL <br></br>- TIM2_CH3              | 3.3 V      | -                           |
 
@@ -477,20 +477,20 @@ JMISC handles both domains: 1.8 V MPU lines sit alongside 3.3 V MCU signals (e.g
 
 ### JANALOG (A3) (JANALOG1) - Pin Map
 
-| **Pin** | **Designation** | **Net / MCU pin** | **Functions**                                    | **Domain**     | **Notes**                     |
-|--------:|-----------------|-------------------|--------------------------------------------------|----------------|-------------------------------|
-|       1 | BOOT            | MCU_BOOT0         | - Boot strap                                     | 3.3 V          | -                             |
-|       2 | IOREF           | PWR_3P3V          | - I/O voltage reference (mirrors 3.3 V rail)     | Power          | Output only; do not back-feed |
-|       3 | RESET           | MCU_NRST          | - MCU reset                                      | 3.3 V          | -                             |
-|       4 | +3V3 OUT        | PWR_3P3V          | - 3.3 V supply                                   | Power          | -                             |
-|       5 | +5V USB VBUS    | 5V_USB_VBUS       | - 5 V supply (pass-through)                      | Power          | Power only                    |
-|       6 | GND             | GND               | - Ground                                         | Power          | -                             |
-|       7 | GND             | GND               | - Ground                                         | Power          | -                             |
-|       8 | VIN IN          | DC_IN             | - 7-24 V input                                   | Power          | Power only                    |
-|       9 | A0 / D14        | PA4               | - ADC input <br></br>- DAC1 <br></br>- TIM2_CH1      | Analog / 3.3 V | Direct ADC / not 5 V-tolerant |
-|      10 | A1 /  D15       | PA5               | - ADC input <br></br>- DAC2 <br></br>- TIM3_CH1      | Analog / 3.3 V | Direct ADC / not 5 V-tolerant |
-|      11 | A2 /  D16       | PA6               | - ADC input <br></br>- OPAMP2_INPUT+ <br></br>- TIM3_CH2 | Analog / 3.3 V |                           |
-|      12 | A3 /  D17       | PA7               | - ADC input <br></br>- OPAMP2_INPUT−                 | Analog / 3.3 V | -                             |
+| **Pin** | **Designation** | **Net / MCU pin** | **Functions**                                            | **Domain**     | **Notes**                     |
+| ------: | --------------- | ----------------- | -------------------------------------------------------- | -------------- | ----------------------------- |
+|       1 | BOOT            | MCU_BOOT0         | - Boot strap                                             | 3.3 V          | -                             |
+|       2 | IOREF           | PWR_3P3V          | - I/O voltage reference (mirrors 3.3 V rail)             | Power          | Output only; do not back-feed |
+|       3 | RESET           | MCU_NRST          | - MCU reset                                              | 3.3 V          | -                             |
+|       4 | +3V3 OUT        | PWR_3P3V          | - 3.3 V supply                                           | Power          | -                             |
+|       5 | +5V USB VBUS    | 5V_USB_VBUS       | - 5 V supply (pass-through)                              | Power          | Power only                    |
+|       6 | GND             | GND               | - Ground                                                 | Power          | -                             |
+|       7 | GND             | GND               | - Ground                                                 | Power          | -                             |
+|       8 | VIN IN          | DC_IN             | - 7-24 V input                                           | Power          | Power only                    |
+|       9 | A0 / D14        | PA4               | - ADC input <br></br>- DAC0 <br></br>- TIM2_CH1          | Analog / 3.3 V | Direct ADC / not 5 V-tolerant |
+|      10 | A1 /  D15       | PA5               | - ADC input <br></br>- DAC1 <br></br>- TIM3_CH1          | Analog / 3.3 V | Direct ADC / not 5 V-tolerant |
+|      11 | A2 /  D16       | PA6               | - ADC input <br></br>- OPAMP2_INPUT+ <br></br>- TIM3_CH2 | Analog / 3.3 V |                               |
+|      12 | A3 /  D17       | PA7               | - ADC input <br></br>- OPAMP2_INPUT−                     | Analog / 3.3 V | -                             |
 |      13 | A4 /  D18       | PC1               | - ADC input <br></br>- I2C3_SDA <br></br>- LPTIM1_CH1    | Analog / 3.3 V | -                             |
 |      14 | A5 /  D19       | PC0               | - ADC input <br></br>- I2C3_SCL <br></br>- LPTIM1_IN1    | Analog / 3.3 V | -                             |
 
