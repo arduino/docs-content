@@ -14,7 +14,7 @@ The UNO Q is a powerful, versatile development board designed for hobbyists, dev
 
 ![UNO Q single-board computer](assets/thumbnail.png)
 
-In this tutorial, you'll learn how to set up your UNO Q as a personal computer, ready for everyday tasks like web browsing, office work and media playback, alongside working with product specific features like using **Arduino App Lab** for developing amazing projects.
+In this tutorial, you will learn how to set up your UNO Q as a personal computer, ready for everyday tasks like web browsing, office work and media playback, alongside working with product specific features like using **Arduino App Lab** for developing amazing projects.
 
 ## Goals
 
@@ -25,7 +25,7 @@ In this tutorial, you'll learn how to set up your UNO Q as a personal computer, 
 
 ## Required Hardware and Software
 
-To set up the UNO Q as a single-board computer, you'll need the following hardware and software components.
+To set up the UNO Q as a single-board computer, you will need the following hardware and software components.
 
 ![UNO Q SBC Hardware](assets/hardware.png)
 
@@ -62,8 +62,8 @@ To assemble your UNO Q single-board computer, follow the steps below:
 ![Assembly steps](assets/assembly.gif)
 
 1. Connect the USB-C dongle to the USB-C port on the Arduino UNO Q.
-2. Plug the USB keyboard and mouse into the dongle's USB-A ports.
-3. Connect the monitor to the dongle's HDMI port.
+2. Plug the USB keyboard and mouse into the dongle’s USB-A ports.
+3. Connect the monitor to the dongle’s HDMI port.
 4. Attach the external power supply to the dongle, but do not power it on yet.
 
 ***The UNO Q does not supply power to the USB-C dongle. The dongle must be powered externally, and, in turn, it will also provide power to the board.***
