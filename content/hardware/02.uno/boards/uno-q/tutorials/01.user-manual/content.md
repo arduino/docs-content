@@ -448,14 +448,14 @@ The UNO Q has 47x digital pins controlled by the **STM32 microcontroller**, 22x 
 |        PB15         |     D11 / MOSI      |     GPIO / SPI MOSI     |
 |        PB14         |     D12 / MISO      |     GPIO / SPI MISO     |
 |        PB13         |      D13 / SCK      |     GPIO / SPI SCK      |
-|         PA4         |     D14 / DAC1      |    GPIO / ADC / DAC     |
-|         PA5         |     D15 / DAC2      |    GPIO / ADC / DAC     |
+|         PA4         |     D14 / DAC0      |    GPIO / ADC / DAC     |
+|         PA5         |     D15 / DAC1      |    GPIO / ADC / DAC     |
 |         PA6         |         D16         | GPIO / ADC / OPAMP IN + |
 |         PA7         |         D17         | GPIO / ADC / OPAMP IN - |
-|         PC1         |      D18 / SDA      |  GPIO / ADC / I2C SDA   |
-|         PC0         |      D19 / SCL      |  GPIO / ADC / I2C SCL   |
-|        PB11         |     D20 / SDA2      |     GPIO / I2C SDA      |
-|        PB10         |     D21 / SCL2      |     GPIO / I2C SCL      |
+|         PC1         |     D18 / SDA2      |  GPIO / ADC / I2C SDA   |
+|         PC0         |     D19 / SCL2      |  GPIO / ADC / I2C SCL   |
+|        PB11         |      D20 / SDA      |     GPIO / I2C SDA      |
+|        PB10         |      D21 / SCL      |     GPIO / I2C SCL      |
 
 ***Notice that pins D14 to D19 also have analog capabilities.***
 
