@@ -45,9 +45,9 @@ The Arduino UNO Q unlocks a new level of performance for the Arduino ecosystem, 
 
 The Arduino UNO Q blends the high-performance Qualcomm® QRB2210 MPU, running a full Linux environment, with the real-time precision of the STMicroelectronics® STM32U585 (32-bit Arm® Cortex®-M33) MCU, all on a single, compact board. This mixed architecture delivers the power and responsiveness needed for AIoT, machine learning, and advanced automation applications.
 
-![UNO Q's main components](assets/uno-q-architecture-3.png)
+![UNO Q’s main components](assets/uno-q-architecture-3.png)
 
-Here is an overview of the board's main components, as shown in the image above:
+Here is an overview of the board’s main components, as shown in the image above:
 
 - **Microprocessor**: The Qualcomm® QRB2210 is a quad-core Arm® Cortex®-A53 processor running at 2.0 GHz, equipped with an Adreno™ 702 GPU (845 MHz) for 3D graphics acceleration and dual ISPs supporting up to 25 MP at 30 fps. It runs Debian Linux OS with upstream support, making it well-suited for embedded vision and edge computing applications.
 - **Microcontroller**: The STM32U585 microcontroller features an Arm® Cortex®-M33 core running up to 160 MHz, with 2 MB of flash memory and 786 KB of SRAM. It runs the Zephyr OS, providing a secure and efficient platform for low-power embedded applications.
@@ -115,7 +115,7 @@ To install it, go to the [software section](https://www.arduino.cc/en/software/)
 
 ### Hello World Example
 
-Let's program the UNO Q with the classic **Hello World** example typical of the Arduino ecosystem: the Blink sketch. We will use this example to verify that the board is correctly connected to the Arduino App Lab.
+Let’s program the UNO Q with the classic **Hello World** example typical of the Arduino ecosystem: the Blink sketch. We will use this example to verify that the board is correctly connected to the Arduino App Lab.
 
 **Prerequisites:**
 
@@ -394,9 +394,9 @@ The UNO Q features a power button that can be used to reboot the board.
 
 ![UNO Q power button](assets/power-button.png)
 
-- **Long press**: the board's Linux part is rebooted when the button is pressed for **5+** seconds.
+- **Long press**: the board’s Linux part is rebooted when the button is pressed for **5+** seconds.
 
-***You don't need to press the power button for the board to power up, it boots automatically after being powered.***
+***You do not need to press the power button for the board to power up, it boots automatically after being powered.***
 
 ## USB-C Connector
 
@@ -878,7 +878,7 @@ void setup() {
 }
 
 void loop() {
-  // Replace with the target device's address
+  // Replace with the target device’s address
   byte address = 0x35;
   // Replace with the value to send
   byte value = 0xFA;
@@ -939,7 +939,7 @@ void setup() {
 }
 
 void loop() {
-  // Replace with the target device's I2C address
+  // Replace with the target device’s I2C address
   byte deviceAddress = 0x35;
   // Replace with the appropriate instruction byte
   byte instruction = 0x00;
@@ -967,7 +967,7 @@ The Arduino UNO Q features an onboard Qwiic connector that provides a simple, to
 
 ![I2C Qwiic connector](assets/qwiic.png)
 
-The Qwiic system's key advantages include:
+The Qwiic system’s key advantages include:
 
 - **Plug-and-play connectivity**: No breadboards, jumper wires, or soldering required
 - **Polarized connectors**: Prevents accidental reverse connections
@@ -1165,7 +1165,7 @@ Join our community forum to connect with other UNO Q users, share your experienc
 
 ### Contact Us
 
-Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the UNO Q.
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We are happy to help you with any issues or inquiries about the UNO Q.
 
 - [Contact us page](https://www.arduino.cc/en/contact-us/) 
 
