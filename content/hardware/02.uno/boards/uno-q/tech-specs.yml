@@ -28,8 +28,7 @@ Microcontroller Unit:
   Pins:
     Digital I/O Pins: 47x (22x exposed on JANALOG/JDIGITAL, and 25x on JMISC)
     ADC:
-      14-bit: 12x analog inputs (ADC1) on JANALOG, JDIGITAL and JMISC
-      12-bit: 2x analog inputs (ADC4) on JMISC
+      14-bit: 6x analog inputs on JANALOG
     DAC:
       12-bit: Yes (2x)
     PWM pins: 6x (shared with GPIOs)
