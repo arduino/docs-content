@@ -18,7 +18,7 @@ Microprocessor Unit:
     Camera: Support for USB cameras via a USB-C dongle, plus dual MIPI CSI interfaces available through the JMEDIA header.
   User Interfaces:
    RGB LED: Yes (2x)
-   User Button: Yes
+   Power Button: Yes
 Microcontroller Unit:
   Core: STM32U585 Arm® Cortex®-M33 up to 160 MHz
   Operating System: Arduino Code on Zephyr OS
