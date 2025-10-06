@@ -57,7 +57,7 @@ The PMIC also uses (`5V_SYS`) to produce the board's 1.8 V rail.
 
 **Diode-OR'd** refers to connecting multiple power sources through diodes, which selects the higher voltage source while preventing reverse current flow.
 
-***__Important:__ Use a stable **5 V / 3 A** source. If the supply current-limits during peaks, voltage hang may cause resets.***
+***__Important:__ Use a stable __5 V / 3 A__ source. If the supply current-limits during peaks, voltage hang may cause resets.***
 
 #### USB-C Capabilities
 
