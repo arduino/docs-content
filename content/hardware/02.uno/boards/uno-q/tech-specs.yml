@@ -1,15 +1,17 @@
 Board:
   Name: Arduino® UNO Q
-  SKU: ABX00162-ABX00173
-Microprocessor Unit: 
-  Module: Qualcomm Dragonwing™ QRB2210 
+  SKUs:
+    Arduino UNO Q (2 GB): ABX00162
+    Arduino UNO Q (4 GB): ABX00173
+Microprocessor Unit:
+  Module: Qualcomm Dragonwing™ QRB2210
   CPU: Quad-core Arm® Cortex®-A53 @ 2.0 GHz
   GPU: Adreno 702 GPU @ 845 MHz | 3D graphics accelerator
   ISP: 2x Image Signal Processor (13 MP + 13 MP or 25 MP) @ 30 fps
   Operating System: Debian Linux OS with upstream support
   Memory:
     Storage: 16 GB (ABX000162) or 32 GB (ABX00173) eMMC
-    RAM: 2 GB (ABX00162) or 4 GB (ABX00173) LPDDR4 
+    RAM: 2 GB (ABX00162) or 4 GB (ABX00173) LPDDR4
   Pins:
     Digital I/O Pins: 12x exposed on JMISC
   Media Interfaces:
@@ -45,7 +47,7 @@ Microcontroller Unit:
   User Interfaces:
     RGB LED: Yes (2x)
     LED Matrix: Yes (8x13)
-Radio Module: 
+Radio Module:
   Module: WCBN3536A
   WiFi: Wi-Fi® 5 Dual-band 2.4/5 GHz with onboard antenna
   Bluetooth: Bluetooth® 5.1 with onboard antenna
@@ -55,11 +57,11 @@ USB:
 Power:
   USB-C®: +5 VDC max at 3 A to power the board.
   Input voltage (VIN): 7 - 24 VDC
-  I/O operating voltage: +3.3 VDC MCU (+5 VDC tolerant) | +1.8 VDC MPU 
+  I/O operating voltage: +3.3 VDC MCU (+5 VDC tolerant) | +1.8 VDC MPU
   DC Current per I/O Pin: 20 mA (JANALOG and JMEDIA)
 Special Connectors:
   Qwiic: Yes, for I2C (3V3)
   JCTL: Yes, MPU Remote Debug connector
 Dimensions:
-  Width: 53.34 mm 
+  Width: 53.34 mm
   Length: 68.58 mm

@@ -27,13 +27,13 @@ This user manual will guide you through a practical journey covering the most in
 
 - [UNO Q](https://store.arduino.cc/products/uno-q) (1x)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (1x)
-- [USB-C multiport adapter (dongle) with external power delivery](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-usb-hub) (1x) 
+- [USB-C multiport adapter (dongle) with external power delivery](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-usb-hub) (1x)
 
 ***You can use any USB-C dongle with external power delivery capabilities except for [Apple](https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter) ones.***
 
 ### Software Requirements
 
-- [Arduino App Lab 0.1.23+](https://www.arduino.cc/en/software/)
+- [Arduino App Lab 0.1.23+](https://www.arduino.cc/en/software/#app-lab-section)
 
 ***You can still use the __Arduino IDE 2+__ to program only the microcontroller (MCU) side of your UNO Q.***
 
@@ -52,7 +52,7 @@ Here is an overview of the board’s main components, as shown in the image abov
 - **Microprocessor**: The Qualcomm® QRB2210 is a quad-core Arm® Cortex®-A53 processor running at 2.0 GHz, equipped with an Adreno™ 702 GPU (845 MHz) for 3D graphics acceleration and dual ISPs supporting up to 25 MP at 30 fps. It runs Debian Linux OS with upstream support, making it well-suited for embedded vision and edge computing applications.
 - **Microcontroller**: The STM32U585 microcontroller features an Arm® Cortex®-M33 core running up to 160 MHz, with 2 MB of flash memory and 786 KB of SRAM. It runs the Zephyr OS, providing a secure and efficient platform for low-power embedded applications.
 - **Wireless Connectivity**: The WCBN3536A radio module provides dual-band Wi-Fi® 5 (2.4/5 GHz) and Bluetooth® 5.1 connectivity, both with onboard antennas for reliable wireless performance.
-- **Memory**: The board features 16 GB or 32 GB options of eMMC storage and 2 GB or 4 GB options of LPDDR4 RAM, delivering fast memory access and reliable storage for embedded applications. 
+- **Memory**: The board features 16 GB or 32 GB options of eMMC storage and 2 GB or 4 GB options of LPDDR4 RAM, delivering fast memory access and reliable storage for embedded applications.
 - **Multimedia Codec**: The ANX7625 multimedia codec enables video and audio output through the onboard USB-C connector, providing a high-speed interface for display and sound transmission in embedded applications.
 - **Power Management**: The UNO Q includes the Qualcomm® PM4145, a power management integrated circuit (PMIC) to meet the demands of always-connected IoT devices.
 
@@ -107,7 +107,7 @@ Arduino has introduced **Arduino App Lab**, a unified development environment th
 
 ![Arduino App Lab IDE](assets/app-lab.png)
 
-To install it, go to the [software section](https://www.arduino.cc/en/software/) on our official website, scroll to Arduino App Lab and select your OS’s respective variant.
+To install it, go to the [software section](https://www.arduino.cc/en/software/#app-lab-section) on our official website, scroll to Arduino App Lab and select your OS’s respective variant.
 
 ![Arduino App Lab Install](assets/app-lab-download.png)
 
@@ -144,7 +144,7 @@ The Arduino UNO Q offers a wide range of user interfaces, making interaction int
 
 ### LED Matrix
 
-One of the board’s key features is an 8×13 blue LED matrix that is managed by the STM32 microcontroller of the UNO Q. 
+One of the board’s key features is an 8×13 blue LED matrix that is managed by the STM32 microcontroller of the UNO Q.
 
 ![LED matrix](assets/matrix.png)
 
@@ -168,14 +168,14 @@ You can copy and paste the following example into the "sketch" part of your new 
 #include <Arduino_LED_Matrix.h>
 
 uint8_t logo[104] = {
-    0,0,0,0,0,0,0,0,0,0,0,0,0,        
-    0,0,1,1,1,0,0,0,1,1,1,0,0,        
-    0,1,0,0,0,1,0,1,0,0,0,1,0,        
-    1,0,0,0,0,0,1,0,0,1,0,0,1,        
-    1,0,1,1,1,0,1,0,1,1,1,0,1,        
-    1,0,0,0,0,0,1,0,0,1,0,0,1,        
-    0,1,0,0,0,1,0,1,0,0,0,1,0,        
-    0,0,1,1,1,0,0,0,1,1,1,0,0         
+    0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,1,1,1,0,0,0,1,1,1,0,0,
+    0,1,0,0,0,1,0,1,0,0,0,1,0,
+    1,0,0,0,0,0,1,0,0,1,0,0,1,
+    1,0,1,1,1,0,1,0,1,1,1,0,1,
+    1,0,0,0,0,0,1,0,0,1,0,0,1,
+    0,1,0,0,0,1,0,1,0,0,0,1,0,
+    0,0,1,1,1,0,0,0,1,1,1,0,0
 };
 
 Arduino_LED_Matrix matrix;
@@ -208,7 +208,7 @@ Execute the App by clicking on the **Run** button in the Arduino App Lab and you
 
 #### Dimmable LEDs
 
-The LED matrix supports 8 levels of grayscale (3 bits) so you can manage the LED brightness individually. 
+The LED matrix supports 8 levels of grayscale (3 bits) so you can manage the LED brightness individually.
 
 You can set the brightness bits with the function `setGrayscaleBits(bits)` as shown below:
 
@@ -425,7 +425,7 @@ By using a USB-C dongle (adapter/hub) you can also leverage the following featur
 
 ## Pins
 
-The UNO Q is equipped with two connector types: the **classic UNO-style headers** on the top, designed for prototyping and debugging, guaranteeing full compatibility with Arduino UNO Shields, and the **high-speed header connectors** on the bottom, purpose-built for integration with UNO Q carriers.  
+The UNO Q is equipped with two connector types: the **classic UNO-style headers** on the top, designed for prototyping and debugging, guaranteeing full compatibility with Arduino UNO Shields, and the **high-speed header connectors** on the bottom, purpose-built for integration with UNO Q carriers.
 
 
 ### Digital Pins
@@ -465,9 +465,9 @@ The configuration of a digital pin is done in the `setup()` function with the bu
 
 ```cpp
 // Pin configured as an input
-pinMode(pin, INPUT);        
+pinMode(pin, INPUT);
 // Pin configured as an output
-pinMode(pin, OUTPUT);        
+pinMode(pin, OUTPUT);
 // Pin configured as an input, internal pull-up resistor enabled
 pinMode(pin, INPUT_PULLUP);
 ```
@@ -482,7 +482,7 @@ The state of a digital pin, configured as an output, can be changed using the bu
 
 ```cpp
 // Set pin on
-digitalWrite(pin, HIGH);    
+digitalWrite(pin, HIGH);
 // Set pin off
 digitalWrite(pin, LOW);
 ```
@@ -590,7 +590,7 @@ int sensorPin = A0;   // select the input pin for the potentiometer
 int sensorValue = 0;  // variable to store the value coming from the sensor
 
 void setup() {
-  Monitor.begin(); 
+  Monitor.begin();
 }
 
 void loop() {
@@ -678,13 +678,13 @@ The UNO Q has 6x PWM (Pulse Width Modulation) pins, mapped as follows:
 This functionality can be used with the built-in function `analogWrite()` as shown below:
 
 ```cpp
-analogWrite(pin, value);  
+analogWrite(pin, value);
 ```
 By default, the output resolution is **8 bits**, so the output value should be between 0 and 255. To set a greater resolution, do it using the built-in function `analogWriteResolution` as shown below:
 
 ```cpp
 // PWM resolution set to 10-bit (0 to 4095)
-analogWriteResolution(10);  
+analogWriteResolution(10);
 ```
 
 Here is an example of how to create a variable duty-cycle PWM signal:
@@ -768,9 +768,9 @@ Create a new App in the Arduino App Lab, then copy and paste the example below i
 ![Create a new app](assets/create-app.png)
 
 1. **Linux (QRB) example to call a remote MCU function**
-    
+
     This Python script runs on the QRB and calls an MCU-exposed RPC named `set_led_state` once per second:
-    
+
     ```python
     # main.py (QRB side)
     from arduino.app_utils import *
@@ -822,7 +822,7 @@ After pasting the Python script into your App’s Python file and the Arduino co
 
 ### SPI
 
-The UNO Q supports SPI communication, which allows data transmission between the board and other SPI-compatible devices. 
+The UNO Q supports SPI communication, which allows data transmission between the board and other SPI-compatible devices.
 
 The pins used in the UNO Q for the SPI communication protocol are the following:
 
@@ -1169,5 +1169,5 @@ Join our community forum to connect with other UNO Q users, share your experienc
 
 Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We are happy to help you with any issues or inquiries about the UNO Q.
 
-- [Contact us page](https://www.arduino.cc/en/contact-us/) 
+- [Contact us page](https://www.arduino.cc/en/contact-us/)
 

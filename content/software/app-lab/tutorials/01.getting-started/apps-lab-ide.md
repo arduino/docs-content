@@ -40,7 +40,7 @@ The board is automatically updated when a new update is released. To download an
 
 ## Install & Set Up Arduino App Lab
 
-1. Navigate to the [Arduino Software Page](https://www.arduino.cc/en/software/) and download the Arduino App Lab for your OS.
+1. Navigate to the [Arduino Software Page](https://www.arduino.cc/en/software/#app-lab-section) and download the Arduino App Lab for your OS.
 2. Download and run the installation file.
 3. Launch the Arduino App Lab.
 4. Connect the UNO Q board to a computer.
@@ -53,7 +53,7 @@ After launching the Arduino App Lab and connecting the UNO Q, you will be prompt
 
 The board can be used in **three different modes:**
 - **Over USB (desktop mode)** - the board is connected to a personal computer (Windows / Mac / Linux), and is programmed using the Arduino App Lab desktop application.
-- **Over local Wi-Fi® network (network mode)<sup>1</sup>** - using this mode, a connection with the board is established over the local network (over Wi-Fi®), using SSH<sup>2</sup>. 
+- **Over local Wi-Fi® network (network mode)<sup>1</sup>** - using this mode, a connection with the board is established over the local network (over Wi-Fi®), using SSH<sup>2</sup>.
 - **Using board as an Single Board Computer (SBC mode)** - by connecting a USB dongle with a monitor, keyboard & mouse connected, the UNO Q can be used as an SBC.
 
 ***<sup>1</sup>Network mode only works once the first setup is complete, which requires a USB connection. After the first setup, when launching the Arduino App Lab, select the "Network" mode.***
@@ -188,7 +188,7 @@ Each official example provides a detailed documentation provided in the `readme.
 
 Once an App is launched, the status of the App is available in the **Console**. There are three tabs available:
 - **Start-up** - outputs the logs from the start-up process. Here you will find information regarding compilation for the microcontroller and deployment of the Python® application on the Linux system.
-- **Main (Python®)** - view the logs from the Python® application (`print()`) 
+- **Main (Python®)** - view the logs from the Python® application (`print()`)
 - **Sketch (Microcontroller)** - view serial data from the sketch (`Serial.println()`)
 
 ![App logs](assets/app-logs.png)
@@ -222,7 +222,7 @@ These processes are run in parallel, which makes Apps a very versatile component
 
 ### App Run
 
-When creating an App, it is important to always import and use the `App` class, particularly the `run()` function. 
+When creating an App, it is important to always import and use the `App` class, particularly the `run()` function.
 
 ```python
 # Launches the App, along with any imported Bricks
@@ -268,4 +268,4 @@ In this guide, we have covered some of the most important aspects of the editor,
 More documentation for the Arduino App Lab is available at:
 - [Arduino App Lab Documentation](https://docs.arduino.cc/software/app-lab/)
 
-You can also visit the [Arduino® UNO Q](/hardware/uno-q) hardware page for details on the board. 
+You can also visit the [Arduino® UNO Q](/hardware/uno-q) hardware page for details on the board.
