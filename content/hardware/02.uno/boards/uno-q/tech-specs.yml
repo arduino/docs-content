@@ -1,8 +1,8 @@
 Board:
   Name: Arduino® UNO Q
   SKUs:
-    Arduino UNO Q (2 GB): ABX00162
-    Arduino UNO Q (4 GB): ABX00173
+    2 GB RAM /16 GB eMMC: ABX00162
+    4 GB RAM/32 GB eMMC: ABX00173
 Microprocessor Unit:
   Module: Qualcomm Dragonwing™ QRB2210
   CPU: Quad-core Arm® Cortex®-A53 @ 2.0 GHz
@@ -26,7 +26,7 @@ Microcontroller Unit:
   Operating System: Arduino Code on Zephyr OS
   Memory:
     Flash: 2 MB
-    SRAM: 786 KB
+    SRAM: 786 kB
   Pins:
     Digital I/O Pins: 47x (22x exposed on JANALOG/JDIGITAL, and 25x on JMISC)
     ADC:

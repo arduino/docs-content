@@ -4,8 +4,8 @@
     Learn all you need to know about the UNO Q.
   </EssentialElement>
 
-<EssentialElement title="Single Board Computer" type="tutorial" link="/tutorials/uno-q/single-board-computer">
-    Learn how to use your UNO Q as a Single Board Computer.
+<EssentialElement title="Single-Board Computer" type="tutorial" link="/tutorials/uno-q/single-board-computer">
+    Learn how to use your UNO Q as a Single-Board Computer.
   </EssentialElement>
 
 <EssentialElement title="Working with Apps" type="tutorial" link="/software/app-lab/tutorials/getting-started/">
