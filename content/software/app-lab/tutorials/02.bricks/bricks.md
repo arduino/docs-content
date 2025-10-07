@@ -1,11 +1,11 @@
 ---
-title: Arduino App Lab - Bricks
-description: Learn about Bricks and how they are used to build applications
+title: 'Understanding Bricks: Building Blocks in the Arduino App Lab'
+description: Learn about Bricks and how they are used to build Apps
 author: Karl Söderby
 tags: [UNO Q, Linux, Bricks]
 ---
 
-Bricks are **code building blocks** that are used to build [Apps](/tutorials/uno-q/apps-lab-ide) in the [Arduino App Lab](/software/app-lab). Bricks have a wide area of usage, some embed AI models while other Bricks are used to host web applications or connecting to external web APIs.
+Bricks are **code building blocks** that are used to build [Apps](/software/app-lab/tutorials/getting-started/) in the [Arduino App Lab](/software/app-lab). Bricks have a wide area of usage, some embed AI models while other Bricks are used to host web applications or connecting to external web APIs.
 
 They are designed to make it easier to build complex Apps, such as embedding **computer vision**, by abstracting the code and exposing easy-to-use APIs that can be used in an App. An App may have a number of Bricks, which may include:
 - AI models, e.g. for object detection or image recognition
