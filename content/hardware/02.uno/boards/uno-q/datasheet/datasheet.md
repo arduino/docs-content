@@ -214,7 +214,7 @@ A second buck generates <code>PWR_3P3V</code> for the STM32U585, the ANX7625 (3.
 ## MPU & MCU
 
 <p style="text-align: justify;">
-An MPU (Microprocessor unit) is a high-performance application processor designed to run a full operating system and complex software. An MCU (Microcontroller unit) is a small, power-efficient controller focused on fast, precise timing for I/O and control. UNO Q combines both to pair OS-level compute with responsive, time-critical control on a single board board and communicate through Bridge, an RPC layer implemented on both sides.</p>
+An MPU (Microprocessor unit) is a high-performance application processor designed to run a full operating system and complex software. An MCU (Microcontroller unit) is a small, power-efficient controller focused on fast, precise timing for I/O and control. UNO Q combines both to pair OS-level compute with responsive, time-critical control on a single-board board and communicate through Bridge, an RPC layer implemented on both sides.</p>
 
 ### Application Processor (MPU)
 <p style="text-align: justify;">
@@ -527,7 +527,7 @@ Arduino App Lab [1] is a unified editor that builds and runs projects on both pr
 
 Apps use **Bridge** to exchange data between the Linux side and the microcontroller.
 
-Arduino App Lab can be installed on your PC, or executed directly on the UNO Q in Single Board Computer mode. For this setup, the UNO Q's 4GB LPDDR4X variant is recommended to ensure sufficient memory for stable operation and resource-intensive applications. To use the board: 
+Arduino App Lab can be installed on your PC, or executed directly on the UNO Q in Single-Board Computer mode. For this setup, the UNO Q's 4GB LPDDR4X variant is recommended to ensure sufficient memory for stable operation and resource-intensive applications. To use the board: 
 
 - Launch a ready-to-use example in Arduino App Lab, customize it to your needs, or build a new application from scratch using the integrated editor.
 - Press the **Run** button in Arduino App Lab [1].

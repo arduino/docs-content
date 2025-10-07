@@ -25,7 +25,7 @@ Unlock hybrid development with Arduino App Lab, seamlessly uniting Python applic
     <ul>
         <li>Arm® Cortex®-M33 up to 160 MHz</li>
         <li>2 MB flash memory</li>
-        <li>786 KB SRAM</li>
+        <li>786 kB SRAM</li>
         <li>Floating Point Unit</li>
     </ul>
     <FeatureWrapper>
