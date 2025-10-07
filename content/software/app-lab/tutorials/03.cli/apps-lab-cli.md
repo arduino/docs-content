@@ -1,6 +1,6 @@
 ---
-title: Getting Started with Arduino App Lab CLI
-description: Learn how to use the Arduino App Lab CLI, the command line interface for launching apps on the UNO Q board.
+title: 'Arduino App Lab CLI: Manage Apps from the Command Line'
+description: Learn how to use the Arduino App Lab CLI, the command line interface for launching Apps on the UNO Q board.
 author: Karl Söderby
 tags: [UNO Q, Linux, CLI]
 ---
