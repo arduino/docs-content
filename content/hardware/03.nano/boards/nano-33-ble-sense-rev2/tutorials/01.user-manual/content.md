@@ -23,7 +23,7 @@ This user manual provides a comprehensive overview of the Nano 33 BLE Sense Rev2
 ### Hardware Requirements
 
 - [Nano 33 BLE Sense Rev2](https://store.arduino.cc/products/nano-33-ble-sense-rev2-with-headers) (x1)
-- [USB Micro cable](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro) (x1)
+- [Micro-USB cable](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro) (x1)
 - [Breadboard](https://store.arduino.cc/products/breadboard-400-contacts) (x1) (recommended)
 - [Male/male jumper wires](https://store.arduino.cc/products/jumper-wires) (recommended)
 
@@ -767,87 +767,34 @@ You should now see the built-in orange user LED of your Nano 33 BLE Sense Rev2 b
 
 Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the example sketch sends at key brightness levels.
 
-The following example demonstrates how to use a 12-bit PWM resolution for more precise control of the built-in orange user LED:
-
-```arduino
-/**
-High-Resolution PWM Example for the Arduino Nano 33 BLE Sense Rev2 Board
-Name: nano_33_ble_sense_rev2_pwm_high_res.ino
-Purpose: This sketch demonstrates how to use 12-bit PWM resolution
-for precise control of the built-in orange user LED brightness.
-
-@author Arduino Product Experience Team
-@version 1.0 01/06/25
-*/
-
-// Built-in LED pin (supports PWM)
-const int pwmPin = LED_BUILTIN;
-
-void setup() {
-  // Initialize serial communication and wait up to 2.5 seconds for a connection
-  Serial.begin(115200);
-  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
-  
-  // Set PWM resolution to 12-bit (0-4095)
-  analogWriteResolution(12);
-  
-  Serial.println("- Arduino Nano 33 BLE Sense Rev2 - High-Resolution PWM Example started...");
-  Serial.println("- Using 12-bit resolution (0-4095) with built-in LED");
-}
-
-void loop() {
-  // Generate a smooth sine wave using 12-bit PWM
-  for (int i = 0; i < 360; i++) {
-    // Calculate sine wave value and map to 12-bit range
-    float sineValue = sin(i * PI / 180.0);
-    int pwmValue = (int)((sineValue + 1.0) * 2047.5);  // Map -1 to 1 → 0 to 4095
-    
-    analogWrite(pwmPin, pwmValue);
-    
-    // Print current values every 30 degrees
-    if (i % 30 == 0) {
-      Serial.print("- Angle: ");
-      Serial.print(i);
-      Serial.print("°, PWM Value: ");
-      Serial.println(pwmValue);
-    }
-    
-    delay(10);
-  }
-  
-  Serial.println("- Sine wave cycle completed");
-  delay(1000);
-}
-```
-
-This high-resolution example creates a smooth sine wave pattern with the built-in LED brightness, demonstrating the precision available with a 12-bit PWM resolution. You should see a very smooth transition in the LED brightness following a sine wave pattern. Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the angle and PWM value outputs that demonstrate the precise 12-bit control values being used.
-
 ## UART Communication
 
-The Nano 33 BLE Sense Rev2 board features built-in UART (Universal Asynchronous Receiver-Transmitter) communication that allows your projects to communicate with other devices through serial data transmission. UART is implemented within the nRF52840 microcontroller and provides two separate hardware serial ports: one connected to the micro USB connector for computer communication, and another available on pins `D0` and `D1` for external device communication. This makes it perfect for projects that need to communicate with sensors, modules or other microcontrollers while maintaining USB connectivity for debugging.
+The Nano 33 BLE Sense Rev2 board features built-in UART (Universal Asynchronous Receiver-Transmitter) communication that allows your projects to communicate with other devices through serial data transmission. UART is implemented within the nRF52840 microcontroller and provides two separate hardware serial ports: one connected to the Micro-USB connector for computer communication, and another available on pins `D0` and `D1` for external device communication. This makes it perfect for projects that need to communicate with sensors, modules or other microcontrollers while maintaining USB connectivity for debugging.
 
-UART is particularly useful when your project needs to communicate with devices that require simple, reliable serial communication, rather than the more complex protocols like SPI or I²C. While SPI excels at high-speed communication and I²C is ideal for multiple device networks, UART provides straightforward point-to-point communication that works well with GPS modules, Bluetooth® modules, Wi-Fi® modules and other serial devices. UART communication is asynchronous, meaning it doesn't require a shared clock signal, making it robust over longer distances.
+UART is particularly useful when your project needs to communicate with devices that require simple, reliable serial communication, rather than the more complex protocols like SPI or I²C. While SPI excels at high-speed communication and I²C is ideal for multiple device networks, UART provides straightforward point-to-point communication that works well with GPS modules, Bluetooth® modules, Wi-Fi® modules and other serial devices. **UART communication is asynchronous**, meaning it doesn't require a shared clock signal, making it robust over longer distances.
 
-The Nano 33 BLE Sense Rev2's UART interface offers the following technical specifications:
+The Nano 33 BLE Sense Rev2 board's UART interface offers the following technical specifications:
 
-|   **Parameter**   |   **Value**    |      **Notes**       |
-| :---------------: | :------------: | :------------------: |
-|    Baud Rates     | 300 to 1000000 | Common: 9600, 115200 |
-|     Data Bits     |     8-bit      | Standard data width  |
-|   Communication   |  Full-duplex   |  Simultaneous TX/RX  |
-|  Hardware Ports   |       2        | USB Serial + Serial1 |
-|     UART Pins     |   `D0`, `D1`   | RX, TX respectively  |
-| Operating Voltage |    +3.3 VDC    |   TTL logic levels   |
-|   Flow Control    |    Software    |  XON/XOFF supported  |
+|   **Parameter**   |    **Value**   |         **Notes**        |
+|:-----------------:|:--------------:|:------------------------:|
+|     Baud Rates    | 300 to 1000000 | Common: `9600`, `115200` |
+|     Data Bits     |      8-bit     |    Standard data width   |
+|   Communication   |   Full-duplex  |    Simultaneous TX/RX    |
+|   Hardware Ports  |        2       |  USB Serial + `Serial1`  |
+|     UART Pins     |   `D0`, `D1`   |    TX, RX respectively   |
+| Operating Voltage |    +3.3 VDC    |     TTL logic levels     |
+|    Flow Control   |    Software    |    XON/XOFF supported    |
 
 The Nano 33 BLE Sense Rev2 board uses the following pins for UART communication:
 
 | **Arduino Pin** | **Microcontroller Pin** | **UART Function** | **Description** |
-| :-------------: | :---------------------: | :---------------: | :-------------: |
-|      `D0`       |         `P1.03`         |        RX         |  Transmit Data  |
-|      `D1`       |         `P1.10`         |        TX         |  Receive Data   |
+|:---------------:|:-----------------------:|:-----------------:|:---------------:|
+|       `D0`      |          `P1.03`        |         TX        |  Transmit Data  |
+|       `D1`      |          `P1.10`        |         RX        |  Receive Data   |
 
-You can communicate via UART using the built-in `Serial` and `Serial1` objects. The `Serial` object is connected to the micro USB port for computer communication, while `Serial1` is connected to pins `D0` and `D1` for external device communication.
+***__Important voltage note:__ The Nano 33 BLE Sense Rev2's UART pins operate at +3.3 VDC logic levels. When connecting to +5 VDC UART devices, __you must use a level shifter__ to prevent damage to the board.***
+
+You can communicate via UART using the built-in `Serial` and `Serial1` objects. The `Serial` object is connected to the Micro-USB port for computer communication, while `Serial1` is connected to pins `D0` and `D1` for external device communication.
 
 The following example demonstrates basic UART communication patterns:
 
@@ -865,7 +812,10 @@ using both USB Serial and hardware Serial1.
 void setup() {
   // Initialize USB serial communication at 115200 baud
   Serial.begin(115200);
-  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  unsigned long startTime = millis();
+  while (!Serial && millis() - startTime < 2500) {
+    delay(100);
+  }
   
   // Initialize hardware serial on pins D0/D1 at 9600 baud
   Serial1.begin(9600);
@@ -930,63 +880,21 @@ void loop() {
 }
 ```
 
-***To test this example, no external UART devices are required, the code will demonstrate UART communication patterns that can be observed with a logic analyzer. You can type messages in the Arduino IDE's Serial Monitor to see them transmitted via `Serial1` on pins `D0`/`D1`.***
+***To test this example, no external UART devices are required. The code will demonstrate UART communication patterns that can be observed with a logic analyzer. You can type messages in the Arduino IDE's Serial Monitor to see them transmitted via `Serial1` on pins `D0`/`D1`.***
 
-You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to interact with the USB serial port and observe the communication patterns. Connect a logic analyzer to pins `D0` (TX) and `D1` (RX) to observe the actual UART protocol signals.
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to interact with the USB serial port and observe the communication patterns. Connect a logic analyzer to pins D0 (TX) and D1 (RX) to observe the actual UART protocol signals.
 
-The image below shows how the UART communication from our example appears in the Digilent Waveforms logic analyzer software, with the decoded protocol showing the transmitted data bytes and timing.
+The image below shows how the UART communication from our example appears in a logic analyzer, with the decoded protocol showing the transmitted data bytes and timing.
 
-The Nano 33 BLE Sense Rev2 board provides two distinct UART communication channels, giving you the flexibility to handle multiple communication tasks simultaneously. The first channel is the USB Serial (`Serial`), which is your primary interface for programming and debugging. This channel offers several key features:
+When working with UART on the Nano 33 BLE Sense Rev2 board, there are several key points to keep in mind for successful implementation:
 
-- Connected to the onboard USB-C connector
-- Used for programming and debugging
-- Typically runs at 115200 baud
-- Automatic baud rate detection
-- No external connections required 
-
-The second channel is the Hardware Serial (`Serial1`), which is dedicated to external device communication. This channel provides robust connectivity for your project peripherals:
-
-- Connected to pins `D0` (TX) and `D1` (RX)
-- Used for external device communication
-- Configurable baud rate (300 to 1000000)
-- TTL voltage levels (0 VDC/+3.3 VDC)
-- Requires external device connection
-
-Here is a practical example of how to use both UART channels simultaneously, such as when connecting a GPS module:
-
-```arduino
-// Example: Connecting a GPS module via Serial1
-void setup() {
-  Serial.begin(115200);   // USB debugging
-  Serial1.begin(9600);    // GPS module communication
-  
-  Serial.println("GPS module communication started");
-}
-
-void loop() {
-  // Forward GPS data to USB Serial for monitoring
-  if (Serial1.available()) {
-    String gpsData = Serial1.readString();
-    Serial.print("GPS: ");
-    Serial.print(gpsData);
-  }
-  
-  // Send commands to GPS module from USB Serial
-  if (Serial.available()) {
-    String command = Serial.readString();
-    Serial1.print(command);
-    Serial.println("Command sent to GPS");
-  }
-}
-```
-
-When working with UART on the Nano 33 BLE Sense Rev2, there are several key points to keep in mind for successful implementation: 
-
-- The dual UART design is different from the UNO R3 board that shared one UART between USB and pins D0/D1. This separation allows simultaneous USB debugging and external device communication. 
+- The dual UART design allows simultaneous USB debugging and external device communication, unlike boards that share one UART between USB and pins.
 - Always ensure that both devices use the same baud rate, data bits (typically 8), and stop bits (typically 1) for successful communication.
-- Keep in mind that UART communication uses TTL voltage levels (0 VDC for logic `LOW`, +3.3 VDC for logic `HIGH`). If you need to communicate over longer distances or with RS-232 devices, you'll need a level converter. 
-- When connecting external devices, remember that TX connects to RX and RX connects to TX (crossover connection). 
+- Keep in mind that UART communication uses TTL voltage levels (0 VDC for logic `LOW`, +3.3 VDC for logic `HIGH`). If you need to communicate with +5 VDC devices or over longer distances with RS-232 devices, you'll need a level converter.
+- When connecting external devices, remember that TX connects to RX and RX connects to TX (crossover connection).
 - The Nano 33 BLE Sense Rev2's UART ports are full-duplex, meaning they can send and receive data simultaneously, making them perfect for interactive communication with modules like GPS, Bluetooth®, Wi-Fi®, or other microcontrollers.
+
+***__Safety reminder__: Always verify the voltage levels of external UART devices before connecting. The Nano 33 BLE Sense Rev2 operates at +3.3 VDC and connecting +5 VDC signals directly will damage the board.***
 
 ## SPI Communication
 
@@ -996,26 +904,28 @@ SPI is particularly useful when your project needs to communicate with external 
 
 The Nano 33 BLE Sense Rev2's SPI interface offers the following technical specifications:
 
-|   **Parameter**   |  **Value**   |          **Notes**          |
-| :---------------: | :----------: | :-------------------------: |
+|   **Parameter**   |   **Value**  |          **Notes**          |
+|:-----------------:|:------------:|:---------------------------:|
 |    Clock Speed    | Up to 8 MHz  |    Maximum SPI frequency    |
-|   Data Transfer   |    8-bit     |     Standard data width     |
-|   Communication   | Full-duplex  |  Simultaneous send/receive  |
-|     SPI Pins      | `D10`-`D13`  | `CS`, `MOSI`, `MISO`, `SCK` |
-| Multiple Devices  |  Supported   |   Via different `CS` pins   |
+|   Data Transfer   |     8-bit    |     Standard data width     |
+|   Communication   |  Full-duplex |  Simultaneous send/receive  |
+|      SPI Pins     |  `D10`-`D13` | `CS`, `MOSI`, `MISO`, `SCK` |
+|  Multiple Devices |   Supported  |   Via different `CS` pins   |
 | Operating Voltage |   +3.3 VDC   |        Same as board        |
-| Protocol Support  | Mode 0,1,2,3 |   All SPI modes available   |
+|  Protocol Support | Mode 0,1,2,3 |   All SPI modes available   |
 
 The Nano 33 BLE Sense Rev2 board uses the following pins for SPI communication:
 
-| **Arduino Pin** | **Microcontroller Pin** | **SPI Function** |   **Description**    |
-| :-------------: | :---------------------: | :--------------: | :------------------: |
-|      `D10`      |         `P1.02`         |       `CS`       |     Chip Select      |
-|      `D11`      |         `P1.01`         |      `MOSI`      | Master Out, Slave In |
-|      `D12`      |         `P1.08`         |      `MISO`      | Master In, Slave Out |
-|      `D13`      |         `P0.13`         |      `SCK`       |     Serial Clock     |
+| **Arduino Pin** | **Microcontroller Pin** | **SPI Function** |    **Description**   |
+|:---------------:|:-----------------------:|:----------------:|:--------------------:|
+|      `D10`      |          `P1.02`        |       `CS`       |      Chip Select     |
+|      `D11`      |          `P1.01`        |      `MOSI`      | Master Out, Slave In |
+|      `D12`      |          `P1.08`        |      `MISO`      | Master In, Slave Out |
+|      `D13`      |          `P0.13`        |       `SCK`      |     Serial Clock     |
 
-You can communicate via SPI using the dedicated `SPI.h` library, which is included in the Arduino Nano Mbed OS Boards core. The library provides simple functions to initialize the bus, send and receive data and manage multiple devices.
+***__Important voltage note:__ The Nano 33 BLE Sense Rev2's SPI pins operate at +3.3 VDC logic levels. When connecting to +5 VDC SPI devices, __you must use a level shifter__ to prevent damage to the board. Always check your device's datasheet for voltage specifications.***
+
+You can communicate via SPI using the dedicated `SPI.h` library, which is included in the `Arduino Mbed OS Nano Boards` core. The library provides simple functions to initialize the bus, send and receive data and manage multiple devices.
 
 The following example demonstrates how to use SPI communication to send and receive data:
 
@@ -1036,9 +946,12 @@ to send and receive data.
 const int CS_PIN = 10;
 
 void setup() {
-  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  // Initialize serial communication and wait up to 2.5 seconds for connection
   Serial.begin(115200);
-  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  unsigned long startTime = millis();
+  while (!Serial && millis() - startTime < 2500) {
+    delay(100);
+  }
   
   Serial.println("- Arduino Nano 33 BLE Sense Rev2 - SPI Basic Example started...");
   
@@ -1057,6 +970,7 @@ void setup() {
   
   Serial.println("- SPI initialized successfully");
   Serial.println("- Ready to communicate with SPI devices");
+  Serial.println("- Remember: All devices must be +3.3 VDC compatible!");
   
   // Example: Send some test data
   sendSPIData();
@@ -1122,35 +1036,17 @@ void sendSPIData() {
 
 You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the SPI communication in action. The example sketch shows how to properly select devices, send data and handle responses.
 
-For connecting multiple SPI devices, you can use different digital pins as additional Chip Select (`CS`) lines while sharing the `MOSI`, `MISO` and `SCK` pins:
-
-```arduino
-// Multiple device example
-const int DEVICE1_CS = 10;  // First SPI device
-const int DEVICE2_CS = 9;   // Second SPI device
-const int DEVICE3_CS = 8;   // Third SPI device
-
-void setup() {
-  SPI.begin();
-  
-  // Configure all CS pins
-  pinMode(DEVICE1_CS, OUTPUT);
-  pinMode(DEVICE2_CS, OUTPUT);
-  pinMode(DEVICE3_CS, OUTPUT);
-  
-  // Set all CS pins HIGH (inactive)
-  digitalWrite(DEVICE1_CS, HIGH);
-  digitalWrite(DEVICE2_CS, HIGH);
-  digitalWrite(DEVICE3_CS, HIGH);
-}
-```
+The image below shows how the SPI communication from our example appears in a logic analyzer, with the decoded protocol showing the chip select, clock and data signals being transmitted.
 
 When working with SPI on the Nano 33 BLE Sense Rev2, there are several key points to keep in mind for successful implementation:
 
-- The SPI protocol requires careful attention to timing and device selection. Always ensure that only one device is selected (`CS LOW`) at a time, and remember to deselect devices (`CS HIGH`) after communication to avoid conflicts.
+- The SPI protocol requires careful attention to timing and device selection. Always ensure that only one device is selected (`CS` `LOW`) at a time, and remember to deselect devices (`CS` `HIGH`) after communication to avoid conflicts.
 - Different SPI devices may require different clock speeds and modes, so check your device's datasheet for the correct `SPISettings()` parameters.
-- Keep in mind that SPI is a synchronous protocol, meaning that data is transferred in both directions simultaneously with each clock pulse. Even if you only need to send data, you'll still receive data back, and vice versa.
+- Keep in mind that SPI is a synchronous protocol, meaning that data is transferred in both directions simultaneously with each clock pulse. Even if you only need to send data, you will still receive data back, and vice versa.
 - The Nano 33 BLE Sense Rev2 board can communicate with multiple SPI devices by using different Chip Select (`CS`) pins, making it perfect for complex projects that need to interface with various sensors, displays and storage devices.
+- Remember that pin `D13` is both the SPI clock (SCK) and the built-in LED pin. The LED may flicker during SPI communication, which is normal behavior.
+
+***__Safety reminder__: The Nano 33 BLE Sense Rev2 operates at +3.3 VDC logic levels. Most SD card modules, many displays, and other common SPI devices are designed for +5 VDC operation. Always verify voltage compatibility and use appropriate level shifters when necessary to prevent permanent damage to your board.***
 
 ## I²C Communication
 
@@ -1158,26 +1054,30 @@ The Nano 33 BLE Sense Rev2 board features built-in I²C (Inter-Integrated Circui
 
 I²C is particularly useful when your project needs to communicate with multiple sensors and devices in a simple way, rather than using complex wiring. While SPI is excellent for high-speed communication and UART for basic serial data exchange, I²C excels at connecting many devices with minimal wiring. Multiple I²C devices can share the same two-wire bus, each with its own unique address, making it ideal for sensor networks, display modules and expandable systems.
 
+***__Important note:__ The Nano 33 BLE Sense Rev2 has several onboard sensors that use the I²C bus. These sensors are already connected internally and share the same I²C bus with any external devices you connect to pins `A4` and `A5`.***
+
 The Nano 33 BLE Sense Rev2's I²C interface offers the following technical specifications:
 
-|   **Parameter**   |   **Value**   |         **Notes**          |
-| :---------------: | :-----------: | :------------------------: |
-|    Clock Speed    | Up to 400 kHz |     Standard/Fast mode     |
-|   Data Transfer   |     8-bit     |    Standard data width     |
-|   Communication   |  Half-duplex  |  One direction at a time   |
-|     I²C Pins      |  `A4`, `A5`   |   SDA, SCL respectively    |
-| Device Addressing | 7-bit/10-bit  | Up to 127 unique addresses |
-| Operating Voltage |   +3.3 VDC    |       Same as board        |
-| Pull-up Resistors |    4.7 kΩ     |     Internal pull-ups      |
+|   **Parameter**   |    **Value**    |          **Notes**         |
+|:-----------------:|:---------------:|:--------------------------:|
+|    Clock Speed    |  Up to 400 kHz  |     Standard/Fast mode     |
+|   Data Transfer   |      8-bit      |     Standard data width    |
+|   Communication   |   Half-duplex   |   One direction at a time  |
+|      I²C Pins     |    `A4`, `A5`   |  `SDA`, `SCL` respectively |
+| Device Addressing |   7-bit/10-bit  | Up to 127 unique addresses |
+| Operating Voltage |     +3.3 VDC    |        Same as board       |
+| Pull-up Resistors | Internal 4.7 kΩ |      Already installed     |
 
-The Nano 33 BLE Sense Rev2 uses the following pins for I²C communication:
+The Nano 33 BLE Sense Rev2 board uses the following pins for I²C communication:
 
 | **Arduino Pin** | **Microcontroller Pin** | **I²C Function** |  **Description**  |
-| :-------------: | :---------------------: | :--------------: | :---------------: |
-|      `A4`       |         `P0.31`         |       SDA        | Serial Data Line  |
-|      `A5`       |         `P0.02`         |       SCL        | Serial Clock Line |
+|:---------------:|:-----------------------:|:----------------:|:-----------------:|
+|       `A4`      |         `P0.31`         |       `SDA`      |  Serial Data Line |
+|       `A5`      |         `P0.02`         |       `SCL`      | Serial Clock Line |
 
-You can communicate via I²C using the dedicated `Wire.h` library, which is included in the Arduino Nano Mbed OS Boards core. The library provides simple functions to initialize the bus, send and receive data and manage multiple devices.
+***__Onboard I²C Devices:__ The Nano 33 BLE Sense Rev2 has several sensors already connected to the I²C bus internally: BMI270 (IMU) at address `0x68`, BMM150 (Magnetometer) at address `0x10`, LPS22HB (Pressure) at address `0x5C`, APDS-9960 (Proximity/Gesture) at address `0x39`, and HS3003 (Temperature/Humidity) at address `0x44`. Avoid using these addresses for external devices.***
+
+You can communicate via I²C using the dedicated `Wire.h` library, which is included in the `Arduino Mbed OS Nano Boards` core. The library provides simple functions to initialize the bus, send and receive data and manage multiple devices.
 
 The following example demonstrates basic I²C communication patterns:
 
@@ -1186,7 +1086,7 @@ The following example demonstrates basic I²C communication patterns:
 I2C Basic Example for the Arduino Nano 33 BLE Sense Rev2 Board
 Name: nano_33_ble_sense_rev2_i2c_basic.ino
 Purpose: This sketch demonstrates basic I2C communication
-patterns for protocol analysis.
+patterns and how to scan for connected devices.
 
 @author Arduino Product Experience Team
 @version 1.0 01/06/25
@@ -1194,13 +1094,13 @@ patterns for protocol analysis.
 
 #include <Wire.h>
 
-// Example device address
-const int DEVICE_ADDRESS = 0x48;
-
 void setup() {
-  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  // Initialize serial communication and wait up to 2.5 seconds for connection
   Serial.begin(115200);
-  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  unsigned long startTime = millis();
+  while (!Serial && millis() - startTime < 2500) {
+    delay(100);
+  }
   
   Serial.println("- Arduino Nano 33 BLE Sense Rev2 - I2C Basic Example started...");
   
@@ -1208,173 +1108,324 @@ void setup() {
   Wire.begin();
   
   Serial.println("- I2C initialized successfully");
-  Serial.println("- Connect protocol analyzer to A4 (SDA) and A5 (SCL)");
-  Serial.println("- Starting I2C communication patterns...");
+  Serial.println("- Pins A4 (SDA) and A5 (SCL) are ready");
+  Serial.println("- Internal pull-ups are already enabled");
+  
+  // Scan for I2C devices
+  Serial.println("\n- Scanning for I2C devices...");
+  scanI2CDevices();
   
   delay(2000);
 }
 
 void loop() {
+  // Example: Communicate with an external I2C device
+  // Using address 0x48 as example (common for temperature sensors)
+  const int EXTERNAL_DEVICE_ADDRESS = 0x48;
+  
   // Write a single byte
-  Serial.println("- Writing single byte (0xAA) to device 0x48...");
-  Wire.beginTransmission(DEVICE_ADDRESS);
+  Serial.println("\n- Writing single byte (0xAA) to device 0x48...");
+  Wire.beginTransmission(EXTERNAL_DEVICE_ADDRESS);
   Wire.write(0xAA);
-  Wire.endTransmission();
+  byte error = Wire.endTransmission();
   
-  delay(1000);
-  
-  // Write multiple bytes
-  Serial.println("- Writing multiple bytes (0x10, 0x20, 0x30) to device 0x48...");
-  Wire.beginTransmission(DEVICE_ADDRESS);
-  Wire.write(0x10);
-  Wire.write(0x20);
-  Wire.write(0x30);
-  Wire.endTransmission();
+  if (error == 0) {
+    Serial.println("  Success!");
+  } else {
+    Serial.println("  No device found at address 0x48");
+  }
   
   delay(1000);
   
   // Request data from device
   Serial.println("- Requesting 2 bytes from device 0x48...");
-  Wire.requestFrom(DEVICE_ADDRESS, 2);
+  Wire.requestFrom(EXTERNAL_DEVICE_ADDRESS, 2);
   
   // Read any available data
-  while (Wire.available()) {
-    int data = Wire.read();
-    Serial.print("Received: 0x");
-    if (data < 16) Serial.print("0");
-    Serial.println(data, HEX);
+  if (Wire.available()) {
+    while (Wire.available()) {
+      int data = Wire.read();
+      Serial.print("  Received: 0x");
+      if (data < 16) Serial.print("0");
+      Serial.println(data, HEX);
+    }
+  } else {
+    Serial.println("  No data received");
   }
   
-  delay(2000);
-  Serial.println("---");
+  delay(3000);
 }
-```
-***To test this example, no external I²C devices are required. The code will generate I²C communication patterns that can be analyzed with a protocol analyzer. Without devices connected, read operations will typically return `0xFF`.***
 
-You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the I²C operations being performed. Connect a protocol analyzer to pins `A4` (SDA) and `A5` (SCL) to observe the actual I²C protocol signals.
-
-***The I²C protocol requires pull-up resistors on both SDA and SCL lines. __The Nano 33 BLE Sense Rev2 board does have internal pull-ups on `A4` and `A5` of 4.7kΩ +3.3 VDC required for proper I²C operation__.***
-
-One of the main advantages of I²C is the ability to connect multiple devices to the same bus. Here is how to connect multiple I²C devices:
-
-```arduino
-// Example: Communicating with multiple I2C devices
-void communicateWithMultipleDevices() {
-  // Device addresses (examples)
-  const int SENSOR_ADDRESS = 0x48;    // Temperature sensor
-  const int DISPLAY_ADDRESS = 0x3C;   // OLED display
-  const int EEPROM_ADDRESS = 0x50;    // External EEPROM
+void scanI2CDevices() {
+  byte error, address;
+  int devicesFound = 0;
   
-  // Read from temperature sensor
-  Wire.beginTransmission(SENSOR_ADDRESS);
-  Wire.write(0x00);  // Register to read
-  Wire.endTransmission();
+  Serial.println("  Scanning addresses 0x01 to 0x7F...");
   
-  Wire.requestFrom(SENSOR_ADDRESS, 2);
-  if (Wire.available() >= 2) {
-    int tempHigh = Wire.read();
-    int tempLow = Wire.read();
-    Serial.print("Temperature: ");
-    Serial.println((tempHigh << 8) | tempLow);
+  for (address = 1; address < 127; address++) {
+    Wire.beginTransmission(address);
+    error = Wire.endTransmission();
+    
+    if (error == 0) {
+      Serial.print("  I2C device found at address 0x");
+      if (address < 16) Serial.print("0");
+      Serial.print(address, HEX);
+      
+      // Identify onboard sensors
+      switch (address) {
+        case 0x10:
+          Serial.print(" (BMM150 - Magnetometer)");
+          break;
+        case 0x39:
+          Serial.print(" (APDS-9960 - Proximity/Gesture)");
+          break;
+        case 0x44:
+          Serial.print(" (HS3003 - Temperature/Humidity)");
+          break;
+        case 0x5C:
+          Serial.print(" (LPS22HB - Pressure)");
+          break;
+        case 0x68:
+        case 0x69:
+          Serial.print(" (BMI270 - IMU)");
+          break;
+        default:
+          Serial.print(" (External device)");
+          break;
+      }
+      Serial.println();
+      devicesFound++;
+    }
   }
   
-  // Send data to display
-  Wire.beginTransmission(DISPLAY_ADDRESS);
-  Wire.write(0x40);  // Data mode
-  Wire.write(0xFF);  // Sample data
-  Wire.endTransmission();
-  
-  // Write to EEPROM
-  Wire.beginTransmission(EEPROM_ADDRESS);
-  Wire.write(0x00);  // Memory address
-  Wire.write(0x55);  // Data to write
-  Wire.endTransmission();
+  if (devicesFound == 0) {
+    Serial.println("  No I2C devices found!");
+  } else {
+    Serial.print("  Total devices found: ");
+    Serial.println(devicesFound);
+  }
 }
 ```
 
-When working with I²C on the Nano 33 BLE Sense Rev2 board, there are several key points to keep in mind for successful implementation:
+***To test this example, no external I²C devices are required. The code will scan and detect all onboard sensors that are connected to the I²C bus. You can also connect external I²C devices to pins `A4` (`SDA`) and `A5` (`SCL`) to see them detected.***
 
-- Each I²C device must have a unique address on the bus, so check device datasheets to avoid address conflicts.
-- Sensors featured on your Nano 33 BLE Sense Rev2 works over I²C.
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the I²C scan results and communication attempts. The scan will show all onboard sensors and any external devices you have connected.
+
+The image below shows how the I²C communication from our example appears in a logic analyzer, with the decoded protocol showing the device address and data bytes being transmitted.
+
+When working with I²C on the Nano 33 BLE Sense Rev2, there are several key points to keep in mind for successful implementation:
+
+- Internal pull-up resistors are already installed on the board (4.7 kΩ to +3.3 VDC), so you don't need to add external pull-ups for most applications.
+- Multiple onboard sensors share the I²C bus, so always check for address conflicts before connecting external devices. Use the I²C scanner example to identify all connected devices.
+- The board operates at +3.3 VDC, so ensure all external I²C devices are +3.3 VDC compatible or use appropriate level shifters for +5 VDC devices.
 - Keep in mind that I²C is a half-duplex protocol, meaning data flows in only one direction at a time. The master device (your Nano 33 BLE Sense Rev2 board) controls the clock line and initiates all communication.
-- When connecting multiple devices, simply connect all SDA pins together and all SCL pins together, along with power and ground connections.
-- The Nano 33 BLE Sense Rev2 board can communicate with up to 127 different I²C devices on the same bus, including the onboard sensors, making it perfect for complex sensor networks and expandable systems.
+- When connecting multiple external devices, simply connect all `SDA` pins together and all `SCL` pins together, along with power and ground connections.
+- The Nano 33 BLE Sense Rev2 board can communicate with up to 127 different I²C devices on the same bus (including the onboard sensors), making it perfect for complex sensor networks.
+
+***__Voltage compatibility reminder__: Unlike many Arduino boards that operate at +5 VDC, the Nano 33 BLE Sense Rev2 board operates at +3.3 VDC. Many common I²C modules (especially displays and sensors) are designed for +5 VDC operation. Always verify voltage compatibility and use level shifters when necessary to prevent damage to your board or devices.***
 
 ## USB Keyboard
 
-To use the board as a keyboard, you can refer to the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library that can be found inside the Board Package.
+## USB Keyboard (HID)
 
-You first need to include the libraries and create an object:
+The Nano 33 BLE Sense Rev2 board features built-in HID (Human Interface Device) communication that allows your projects to emulate input devices like keyboards and mice. HID is implemented within the nRF52840 microcontroller and uses the Micro-USB connection to communicate directly with computers as standard input devices. This makes it perfect for automation projects, assistive technologies, gaming controllers and interactive installations that need to control computers or send keystrokes and mouse movements.
+
+HID is particularly useful when your project needs to interact directly with computer software, rather than just sending data through serial communication. While serial communication requires special software on the computer to interpret data, HID devices are recognized automatically by any operating system as standard keyboards or mice. This allows your Nano 33 BLE Sense Rev2 board to trigger keyboard shortcuts, type text, move the mouse cursor, or click buttons, making it ideal for presentation controllers, accessibility devices and automation systems.
+
+The Nano 33 BLE Sense Rev2's HID interface offers the following technical specifications:
+
+|   **Parameter**  |     **Value**    |         **Notes**         |
+|:----------------:|:----------------:|:-------------------------:|
+|   Device Types   | Keyboard & Mouse |    Standard HID classes   |
+|    Connection    |    USB Micro     |   Native USB connection   |
+|   Compatibility  |  Cross-platform  |   Windows, macOS, Linux   |
+|   Key Modifiers  |   All standard   | Ctrl, Alt, Shift, GUI/Cmd |
+|   Mouse Buttons  |     3 buttons    |    Left, Right, Middle    |
+|  Mouse Movement  |  Relative/Delta  |   Smooth cursor movement  |
+|   Scroll Wheel   |     Supported    |    Vertical scroll only   |
+| Multiple Devices |     Supported    | Keyboard + Mouse together |
+
+The Nano 33 BLE Sense Rev2 uses the USB Micro connector for HID communication:
+
+| **Connection** | **Function** |        **Description**       |
+|:--------------:|:------------:|:----------------------------:|
+|    Micro USB   |      HID     | Keyboard and Mouse emulation |
+
+***__Important note:__ When HID functionality is active, the Nano 33 BLE Sense Rev2 board will be recognized by your computer as an input device. Be careful with your code to avoid sending unintended keystrokes or mouse movements that could interfere with normal computer operation.***
+
+To use the board as a keyboard or mouse, you need to include the `PluggableUSBHID.h` library and create the appropriate objects:
 
 ```arduino
 #include "PluggableUSBHID.h"
 #include "USBKeyboard.h"
+#include "USBMouse.h"
 
 USBKeyboard Keyboard;
-```
-
-Then use the following command to write something:
-
-```arduino
-Keyboard.printf("This is Nano 33 speaking!");
-```
-
-You can also use the board to act as a mouse creating the object:
-
-```arduino
-#include "PluggableUSBHID.h"
-#include "USBKeyboard.h"
-
 USBMouse Mouse;
 ```
 
-Then use the following command to move the cursor on your screen:
+The following example demonstrates basic keyboard emulation capabilities:
 
 ```arduino
-Mouse.move(100,100); //
-```
+/**
+USB Keyboard Example for the Arduino Nano 33 BLE Sense Rev2 Board
+Name: nano_33_ble_sense_rev2_usb_keyboard.ino
+Purpose: This sketch demonstrates how to use the Nano 33 BLE Sense Rev2 as a 
+USB keyboard to send keystrokes and text.
 
-The following example allows the board to act as a keyboard and write "Hello world" each second in a loop:
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
 
-```arduino
 #include "PluggableUSBHID.h"
 #include "USBKeyboard.h"
 
 USBKeyboard Keyboard;
 
 void setup() {
-  // put your setup code here, to run once:
-
+  // Initialize serial communication and wait up to 2.5 seconds for connection
+  Serial.begin(115200);
+  unsigned long startTime = millis();
+  while (!Serial && millis() - startTime < 2500) {
+    delay(100);
+  }
+  
+  Serial.println("- Arduino Nano 33 BLE Sense Rev2 - USB Keyboard Example started...");
+  Serial.println("- WARNING: This will send actual keystrokes to your computer!");
+  
+  // Wait 5 seconds before starting HID to give user time to read warning
+  Serial.println("- Starting in 5 seconds...");
+  for (int i = 5; i > 0; i--) {
+    Serial.print(i);
+    Serial.println(" seconds remaining");
+    delay(1000);
+  }
+  
+  Serial.println("- Keyboard HID initialized. Starting demonstration...");
+  
+  delay(1000);
+  
+  // Demonstrate basic text typing
+  Serial.println("- Typing basic text...");
+  Keyboard.printf("Hello from Nano 33 BLE Sense Rev2!\n");
+  delay(1000);
+  
+  // Demonstrate typing sensor data
+  Serial.println("- Typing with formatted data...");
+  int sensorValue = 42;
+  Keyboard.printf("Sensor reading: %d\n", sensorValue);
+  delay(1000);
+  
+  Serial.println("- Keyboard demonstration completed!");
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  delay(1000);
-  Keyboard.printf("Hello world\n\r");
+  // Send a timestamp every 10 seconds
+  static unsigned long lastMessage = 0;
+  if (millis() - lastMessage > 10000) {
+    lastMessage = millis();
+    
+    Serial.println("- Sending periodic message...");
+    
+    // Send message with timestamp
+    Keyboard.printf("Nano 33 BLE Sense Rev2 - Uptime: %lu seconds\n", millis() / 1000);
+  }
+  
+  delay(100);
 }
 ```
 
-The following example allows the board to act as a mouse and move and return to its original position every two seconds:
+***To test this example, no external components are needed. The code will wait 5 seconds before activating HID functionality, then automatically demonstrate various keyboard functions.***
 
-```arduino
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages. After 5 seconds, the Nano 33 BLE Sense Rev2 board will type text directly into whatever application has focus on your computer.
+
+The following example demonstrates mouse emulation capabilities:
+
+```
+/**
+USB Mouse Example for the Arduino Nano 33 BLE Sense Rev2 Board
+Name: nano_33_ble_sense_rev2_usb_mouse.ino
+Purpose: This sketch demonstrates how to use the Nano 33 BLE Sense Rev2 as a 
+USB mouse to control cursor movement and clicking.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
 #include "PluggableUSBHID.h"
 #include "USBMouse.h"
 
 USBMouse Mouse;
 
 void setup() {
-  // put your setup code here, to run once:
-
+  // Initialize serial communication and wait up to 2.5 seconds for connection
+  Serial.begin(115200);
+  unsigned long startTime = millis();
+  while (!Serial && millis() - startTime < 2500) {
+    delay(100);
+  }
+  
+  Serial.println("- Arduino Nano 33 BLE Sense Rev2 - USB Mouse Example started...");
+  Serial.println("- WARNING: This will control your actual mouse cursor!");
+  
+  // Wait 5 seconds before starting HID
+  Serial.println("- Starting in 5 seconds...");
+  for (int i = 5; i > 0; i--) {
+    Serial.print(i);
+    Serial.println(" seconds remaining");
+    delay(1000);
+  }
+  
+  Serial.println("- Mouse HID initialized. Starting demonstration...");
+  
+  delay(1000);
+  
+  // Demonstrate basic mouse movement
+  Serial.println("- Moving mouse in a square pattern...");
+  Mouse.move(100, 0);    // Move right
+  delay(500);
+  Mouse.move(0, 100);    // Move down
+  delay(500);
+  Mouse.move(-100, 0);   // Move left
+  delay(500);
+  Mouse.move(0, -100);   // Move up
+  delay(500);
+  
+  Serial.println("- Mouse demonstration completed!");
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  delay(1000);
-  Mouse.move(100,100);
-  delay(1000);
-  Mouse.move(-100,-100);
+  // Create a gentle circular mouse movement every 15 seconds
+  static unsigned long lastMovement = 0;
+  if (millis() - lastMovement > 15000) {
+    lastMovement = millis();
+    
+    Serial.println("- Creating circular mouse movement...");
+    for (int angle = 0; angle < 360; angle += 30) {
+      int x = (int)(10 * cos(angle * PI / 180));
+      int y = (int)(10 * sin(angle * PI / 180));
+      Mouse.move(x, y);
+      delay(100);
+    }
+  }
+  
+  delay(100);
 }
 ```
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages. The mouse cursor will move according to the programmed pattern.
+
+When working with HID on the Nano 33 BLE Sense Rev2 board, there are several key points to keep in mind for successful implementation:
+
+- HID functionality makes your board appear as a real keyboard and mouse to your computer, so always include safeguards and delays in your code to prevent unintended actions that could interfere with normal computer operation.
+- Always include a delay or warning period before activating HID functionality to give yourself time to prepare or stop the program if needed.
+- HID devices are automatically recognized by all modern operating systems without requiring special drivers, making your projects instantly compatible with Windows, macOS and Linux.
+- For debugging HID projects, use `Serial.println()` statements to track what your code is doing, since you cannot rely on the Arduino IDE's Serial Monitor once HID actions start interfering with your computer.
+- The board can function as both a keyboard and mouse simultaneously, allowing for complex automation sequences that combine typing, shortcuts and mouse control.
+- Different operating systems may have slightly different keyboard layouts and shortcuts, so test your HID projects on your target platform to ensure compatibility.
+- Combine with onboard sensors to create innovative input devices that use gestures, proximity, or environmental conditions to control computer interactions.
+
+***__Safety tip__: When developing HID projects, consider adding a physical button or sensor input to enable/disable HID functionality. This gives you a hardware "kill switch" if your code starts sending unwanted inputs.***
 
 ## Sensors
 
