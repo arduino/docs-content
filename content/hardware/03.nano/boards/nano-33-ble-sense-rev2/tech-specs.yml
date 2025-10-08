@@ -1,35 +1,39 @@
 Board:
   Name: Arduino® Nano 33 BLE Sense Rev2
-  SKU: ABX00069
-Microcontroller: nRF52840
+  SKU: ABX00069 (without headers), ABX00070 (with headers)
+Microcontroller: nRF52840 (Nordic Semiconductor)
 USB connector: Micro USB
 Pins:
-  Built-in LED Pin: 13
-  Digital I/O Pins: 14
-  Analog input pins: 8
+  Built-in LED Pins: 13 (orange), RGB LED
+  Digital I/O Pins: 21
+  Analog input pins: 8 (12-bit ADC)
+  Analog output pins: 1 (12-bit DAC on A0)
   PWM pins: 5
   External interrupts: All digital pins
 Connectivity:
-  Bluetooth®: NINA-B306
+  Bluetooth®: Bluetooth® Low Energy 5.0 via NINA-B306 module
 Sensors:
-  IMU: BMI270 (3-axis accelerometer + 3-axis gyroscope) + BMM150 (3-axis Magnetometer)
-  Microphone: MP34DT06JTR
+  IMU: BMI270 (6-axis: accelerometer + gyroscope) + BMM150 (3-axis magnetometer)
+  Microphone: MP34DT06JTR MEMS
   Gesture, light, proximity: APDS9960
   Barometric pressure: LPS22HB
   Temperature, humidity: HS3003
 Communication:
-  UART: RX/TX 
-  I2C: A4 (SDA), A5 (SCL)
-  SPI: D11 (COPI), D12 (CIPO), D13 (SCK). Use any GPIO for Chip Select (CS).
+  UART: 1x (D0/RX, D1/TX)
+  I2C: 1x (A4/SDA, A5/SCL)
+  SPI: 1x (D11/MOSI, D12/MISO, D13/SCK, any GPIO for CS)
 Power:
-  I/O Voltage: 3.3V
-  Input voltage (nominal): 5-18V
-  DC Current per I/O Pin: 10 mA
+  Operating Voltage: 3.3V
+  Input voltage (VIN): 5-18V
+  USB Input voltage: 4.8-5.5V
+  DC Current per I/O Pin: 8 mA (max)
+  Total DC Current: 150 mA (3.3V pin)
 Clock speed:
-  Processor: nRF52840 64MHz
+  Processor: 64 MHz (Arm® Cortex®-M4F)
 Memory:
-  nRF52840: 256 KB SRAM, 1MB flash
+  Flash: 1 MB
+  SRAM: 256 KB
 Dimensions:
-  Weight: 5gr
+  Weight: 5 g
   Width: 18 mm
   Length: 45 mm

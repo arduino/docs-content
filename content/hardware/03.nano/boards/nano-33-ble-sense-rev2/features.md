@@ -1,74 +1,70 @@
 <FeatureDescription>
-
-The Arduino Nano 33 BLE Sense Rev2 is a great choice for any beginner, maker or professional to get started with embedded machine learning. It is build upon the [nRF52840 microcontroller](https://content.arduino.cc/assets/Nano_BLE_MCU-nRF52840_PS_v1.1.pdf) and runs on **Arm® Mbed™ OS**. The Nano 33 BLE Sense Rev2 not only features the possibility to connect via **Bluetooth® Low Energy** but also comes equipped with **sensors** to detect color, proximity, motion, temperature, humidity, audio and more.
-
+The Arduino Nano 33 BLE Sense Rev2 is an excellent choice for beginners, makers, and professionals getting started with embedded machine learning and IoT applications. Built on the powerful nRF52840 microcontroller with a 64 MHz Arm® Cortex®-M4F processor, this board combines Bluetooth® Low Energy 5.0 connectivity with a comprehensive sensor suite. With 1 MB Flash memory and 256 KB SRAM, it provides ample space for complex applications while maintaining the compact Nano form factor.
 </FeatureDescription>
-
 
 <FeatureList>
 
-<Feature title="Bluetooth®" image="bluetooth">
-
-  A powerful 2.4 GHz Bluetooth® 5 Low Energy module from u-blox, with an internal antenna. Can be used to transmit data between different devices
-  using the ArduinoBLE library.
+<Feature title="Bluetooth® Low Energy 5.0" image="bluetooth">
+  Features the NINA-B306 module with Bluetooth® Low Energy 5.0 and internal antenna. Enables wireless communication with smartphones, tablets, and other BLE devices for IoT applications and data transmission using the ArduinoBLE library.
 <FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble-sense/ble-device-to-device"/>
   <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduinoble/"/>
 </FeatureWrapper>
 </Feature>
 
-<Feature title="IMU for Motion Detection" image="imu">
-
-  The board provides a 9-axis inertial measurement unit featuring a 3D accelerometer, gyroscope and magnetometer and allows you to detect orientation, motion or vibrations.
+<Feature title="9-axis IMU" image="imu">
+  Combines the BMI270 (6-axis accelerometer and gyroscope) with the BMM150 (3-axis magnetometer) to provide complete motion sensing. Detect orientation, movement, vibrations, and magnetic fields for navigation and gesture recognition applications.
 <FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble-sense-rev2/imu-accelerometer"/>
   <FeatureLink variant="secondary" title="Library" url="https://github.com/arduino-libraries/Arduino_BMI270_BMM150"/>
 </FeatureWrapper>
 </Feature>
 
-<Feature title="Python® Support" image="python">
-
-  This board can be programmed using MicroPython which is an implementation of the Python® programming language that comes with a subset of the Python® standard library.
-<FeatureWrapper>
-  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble-sense/micropython-installation"/>
-  <FeatureLink variant="secondary" title="Learn More" url="/micropython"/>
-</FeatureWrapper>
-</Feature>
-
-<Feature title="Microphone" image="microphone">
-
-  Use the built-in omnidirectional digital microphone (MP34DT06JTR) to capture and analyze sound in real time to create a voice interface for your project. Use the PDM library to implement its functionalities in your projects.
+<Feature title="Digital MEMS Microphone" image="microphone">
+  The omnidirectional MP34DT06JTR MEMS microphone captures high-quality audio for real-time analysis. Create voice interfaces, sound-triggered applications, or perform audio pattern recognition using the PDM library.
 <FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble-sense-rev2/microphone-sensor"/>
   <FeatureLink variant="secondary" title="Library" url="/learn/built-in-libraries/pdm"/>
 </FeatureWrapper>
 </Feature>
 
-<Feature title="Proximity and Gesture Detection" image="proximity-sensor">
-
-  Learn how to output raw sensor data using the built-in APDS9960 sensor and create a gesture control system. Together with the APDS9960 library you can control the built-in RGB LED through hand gestures.
+<Feature title="Gesture and Proximity Sensor" image="proximity-sensor">
+  The APDS9960 sensor provides gesture recognition, proximity detection up to 100mm, ambient light sensing, and RGB color detection. Create touchless interfaces, adaptive lighting systems, or color-sensing applications.
 <FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble-sense-rev2/gesture-sensor"/>
   <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_apds9960/"/>
 </FeatureWrapper>
 </Feature>
 
-<Feature title="Barometric Pressure Sensor" image="pressure-sensor">
-
-  The LPS22HB picks up on barometric pressure and allows for a 24-bit pressure data output between 260 to 1260 hPa. This data can also be processed to calculate the height above sea level of the current location.
-<FeatureWrapper>
-  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble-sense-rev2/barometric-sensor"/>
-  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_lps22hb/"/>
-</FeatureWrapper>
-</Feature>
-
-<Feature title="Temperature and Humidity Sensor" image="temperature-sensor">
-
-
-  The HS3003 capacitive digital sensor measures relative humidity and temperature. It has a temperature accuracy of ± 0.2 °C and is thereby perfectly suited to detect ambient temperature.
+<Feature title="Environmental Sensing" image="temperature-sensor">
+  Dual environmental sensors provide comprehensive monitoring: the HS3003 measures humidity and temperature with ±0.1°C accuracy, while the LPS22HB barometric sensor measures pressure from 260 to 1260 hPa for altitude and weather applications.
 <FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble-sense-rev2/humidity-and-temperature-sensor"/>
   <FeatureLink variant="secondary" title="Library" url="https://reference.arduino.cc/reference/en/libraries/arduino_hs300x/"/>
+</FeatureWrapper>
+</Feature>
+
+<Feature title="Edge AI" image="core">
+  With its Arm® Cortex®-M4F processor and sensor array, this board excels at edge AI applications. Run edge AI models directly on the device for pattern recognition, anomaly detection, and predictive maintenance without cloud connectivity.
+<FeatureWrapper>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble-sense/edge-impulse"/>
+  <FeatureLink variant="secondary" title="Learn More" url="/machine-learning"/>
+</FeatureWrapper>
+</Feature>
+
+<Feature title="MicroPython Support" image="python">
+  Program the board using MicroPython, a lean implementation of Python® 3 optimized for microcontrollers. Access all sensors and features through Python libraries for rapid prototyping and education.
+<FeatureWrapper>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble-sense/micropython-installation"/>
+  <FeatureLink variant="secondary" title="Learn More" url="/micropython"/>
+</FeatureWrapper>
+</Feature>
+
+<Feature title="Extensive I/O Capabilities" image="core">
+  Access 21 GPIO pins including 8 analog inputs (12-bit ADC), one analog output (12-bit DAC on A0), 5 PWM outputs, and dedicated I²C, SPI, and UART interfaces. Power options include USB (+5 VDC), VIN (+5-18 VDC), or direct +3.3 VDC supply.
+<FeatureWrapper>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble-sense-rev2/get-started-nano-33-ble-sense-rev2"/>
+  <FeatureLink variant="secondary" title="Pinout" url="/hardware/nano-33-ble-sense-rev2#pinout"/>
 </FeatureWrapper>
 </Feature>
 
