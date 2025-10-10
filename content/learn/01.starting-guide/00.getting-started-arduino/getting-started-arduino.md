@@ -197,7 +197,7 @@ The most popular and inexpensive modules are the Wi-Fi & Bluetooth® modules. Th
 
 Bluetooth® is used to communicate with nearby devices, and is really useful for maintaining a fast and reliable connection. For example, in real-life applications, Bluetooth® technology for example used in wireless headphones & speakers.
 
-Similarly to serial protocols, radio modules use their own set of protocols to communicate, such as HTTP, MQTT and UPD.
+Similarly to serial protocols, radio modules use their own set of protocols to communicate, such as HTTP, MQTT and UDP.
 
 ## Arduino API
 
@@ -811,3 +811,4 @@ To learn more, you can explore the [Arduino Documentation](/) and the [Arduino L
 To purchase an Arduino board, visit the [Arduino Store](https://store.arduino.cc/).
 
 To download a version of the Arduino IDE, visit the [Arduino Software page](https://www.arduino.cc/en/software).
+
