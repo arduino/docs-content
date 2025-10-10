@@ -65,6 +65,8 @@ Here are the boards that are compatible with Bluetooth provisioning via a Blueto
 
 - [Arduino UNO R4 WiFi](https://docs.arduino.cc/hardware/uno-r4-wifi/) (Wi-Fi firmware version 0.6.0 or later required)
 
+A board that is ready for Bluetooth provisioning has a specific provisioning sketch installed and displays a pulsing LED or a Bluetooth icon on the LED matrix (for UNO R4 WiFi). Newer boards are delivered with this specific sketch already installed. If the pulsing LED is not visible, please use the USB provisioning method.
+
 ### Setting up Your Device With Bluetooth
 
 After selecting the Bluetooth option you will see a page telling you how to connect your board. Follow the steps to connect your board via Bluetooth.
@@ -78,6 +80,8 @@ Once your board is connected you will see a page that will let you pick the Wi-F
 After completing these steps your device will connect to your Wi-Fi and you will be taken to the device page. Here you can click on the icon in the bottom left corner to attach a thing to the device. To find out more about Arduino Cloud Things, go [here](https://docs.arduino.cc/arduino-cloud/cloud-interface/things/).
 
 ![Attach thing after Bluetooth](assets/attach-thing-to-bluetooth.png)
+
+The Bluetooth LE interface is automatically turned off at the end of the procedure, and it remains off until the board is reset. More information about this can be found in the [How to set up the Reconfiguration Procedure](#how-to-set-up-the-reconfiguration-procedure) section.
 
 Now you are ready to start using your board with the Arduino Cloud!
 
@@ -125,11 +129,65 @@ Now your board will be updated to version 2.0, wait for the process to finish.
 
 When this is done you can continue setting up the network connection for your board and it will now be using the latest provisioning method with the Arduino Cloud!
 
-### Removing Saved Network Configuration
+## How to update the Stored Network Configuration
 
-This section will explain how to remove the stored network credentials and force the restart of the BLE interface of a board that has been provisioned with version 2.0. This can be useful to either reset the board or to update the network credentials via BLE.
+To proceed with the next steps, the Cloud-generated sketch must be uploaded to the board. If you want to update the stored network configuration, there are two ways:
 
-If you want to remove the stored network credentials and force the restart of the BLE interface, so that the network credentials can be updated via BLE. Please follow these instructions depending on your board:
+### Update Using the Bluetooth LE Interface
+
+Ensure that the Cloud sketch has enabled the BLEAgent, via `thingProperties.h`. This is enabled by default if the board has been registered with Provisioning 2.0. If you need to enable it, please have a look at [this documentation](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches).
+
+You can update the network settings from the detail page of the device on the Arduino Cloud webpage or the mobile app.
+
+During this process you will be asked to wipe out the current network configuration to restart the board's Bluetooth LE interface. 
+
+1. Power on the board.
+2. Open the devices page of the Mobile App or the Arduino Cloud webpage.
+3. Click on the device you want to update the network settings for.
+4. Click on the "change" button by the network section.
+5. If you are using the Arduino Cloud webpage, select the Bluetooth method.
+6. Reset the board using the method of your board. Have a look at the [How to set up the Reconfiguration Procedure](#how-to-set-up-the-reconfiguration-procedure) section of this article to find the default board reset pin. If you have changed the reset pin from the default one, please use that.
+7. The board will reboot, and you will see the LED pulsing.
+8. Connect to the board on the Arduino Cloud.
+9. Input the new network configuration.
+10. The board will validate it, and if correct, it will close the connection.
+
+### Update Using the Serial Interface
+
+Ensure that the SerialAgent is enabled in the Cloud sketch, via `thingProperties.h`. This is enabled by default if the board has been registered with Provisioning 2.0. If you need to enable it, please have a look at [this documentation](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches).
+
+This method only works with the Arduino Cloud website. You can update the network settings from the detail page of the board on the webpage. The Serial interface, if enabled, is always ready to receive a new configuration.
+
+1. Turn on the board and connect it to your PC using a USB cable.
+2. Open the devices page on the Arduino Cloud webpage.
+3. Click on the board you want to update the network settings for.
+4. Click on the "change" button by the network section.
+5. Input the new network configuration.
+6. The board will validate it, and if correct, it will close the connection.
+
+## How to Delete a Stored Network Configuration
+
+If you want to delete the stored network configuration without updating it, there are two possible methods to do so.
+
+### Board Reset Procedure
+
+To proceed with the next steps, the Cloud-generated sketch must be uploaded to the board.
+
+Reset the board using the method of your board. Have a look at the [How to set up the Reconfiguration Procedure](#how-to-set-up-the-reconfiguration-procedure) section of this article to find the default board reset pin. If you have changed the reset pin from the default one, please use that.
+
+### Using the DeleteConfiguration Sketch
+
+Open Arduino IDE and on the left side open the **Library Manager**. Search for **Arduino_NetworkConfigurator** and download it. Once it is downloaded go to **File > Examples > Arduino_NetworkConfigurator > Utility > DeleteConfiguration**, this will open a new example sketch. Select your board and port then upload this example sketch to your board. When the sketch has been uploaded you can look at the serial monitor to monitor the progress and troubleshoot if needed.
+
+The sketch can also be found [here](https://github.com/arduino-libraries/Arduino_NetworkConfigurator/blob/main/examples/utility/DeleteConfiguration/DeleteConfiguration.ino).
+
+### How to set up the Reconfiguration Procedure
+
+As the Provisioning 2.0 ends, the Bluetooth LE interface is turned off. 
+
+To restart the Bluetooth LE interface to update the network settings, the [**Arduino_NetworkConfigurator**](https://github.com/arduino-libraries/Arduino_NetworkConfigurator?tab=readme-ov-file) library provides a procedure called "Reconfiguration Procedure". This procedure is based on the shorting of two pins of the board.
+
+The library provides a default implementation according to the board type. 
 
 - `Arduino Opta`: Press and hold the user button (BTN_USER) until the led (LED_USER) turns off
 - `Arduino MKR WiFi 1010`: Short pin 7 to GND until the led turns off
@@ -139,7 +197,3 @@ If you want to remove the stored network credentials and force the restart of th
 - `Arduino Portenta C33`: Short pin 0 to GND until the led turns off
 - `Other boards`: Short pin 2 to GND until the led turns off
 - `Portenta Machine Control`: Currently the reset procedure is not available
-
-If you would like to remove the network credentials from the board, you can use the [**Arduino_NetworkConfigurator**](https://github.com/arduino-libraries/Arduino_NetworkConfigurator?tab=readme-ov-file) library.
-
-Open Arduino IDE and on the left side open the **library manager**. Search for **Arduino_NetworkConfigurator** and download it. Once it is downloaded go to **File > Examples > Arduino_NetworkConfigurator > Utility > DeleteConfiguration**, this will open a new example sketch. Select your board and port then upload this example sketch to your board. When the sketch has been uploaded you can look at the serial monitor to monitor the progress and troubleshoot if needed.
