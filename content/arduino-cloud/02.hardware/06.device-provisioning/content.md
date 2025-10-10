@@ -145,10 +145,10 @@ During this process you will be asked to wipe out the current network configurat
 2. Open the devices page of the Mobile App or the Arduino Cloud webpage.
 3. Click on the device you want to update the network settings for.
 4. Click on the "change" button by the network section.
-5. If you are using the Arduino Cloud webpage, select the BLE method.
+5. If you are using the Arduino Cloud webpage, select the Bluetooth method.
 6. Reset the board using the method of your board. Have a look at the [How to set up the Reconfiguration Procedure](#how-to-set-up-the-reconfiguration-procedure) section of this article to find the default board reset pin. If you have changed the reset pin from the default one, please use that.
 7. The board will reboot, and you will see the LED pulsing.
-8. Connect to the board.
+8. Connect to the board on the Arduino Cloud.
 9. Input the new network configuration.
 10. The board will validate it, and if correct, it will close the connection.
 
