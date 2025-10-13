@@ -34,7 +34,7 @@ To re-flash the board, we will use the **Arduino Flasher CLI** tool:
 1. Download the [Arduino Flasher CLI](https://www.arduino.cc/en/software/) for your OS (MacOS / Linux / Windows)
 2. Unzip the downloaded file, (you will receive a executable binary named `arduino-flasher-fli`)
 
-### Verify Tool is Installed
+### Verify Tool Is Installed
 
 Before flashing a new image, check that the `arduino-flasher-cli` tool is working. Below are instructions to verify the tool is installed and working on your OS.
 
