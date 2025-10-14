@@ -32,7 +32,7 @@ To re-flash the board, we will use the **Arduino Flasher CLI** tool:
 ## Download & Install CLI Tool
 
 1. Download the [Arduino Flasher CLI](https://www.arduino.cc/en/software/) for your OS (MacOS / Linux / Windows)
-2. Unzip the downloaded file, (you will receive a executable binary named `arduino-flasher-fli`)
+2. Unzip the downloaded file, (you will receive a executable binary named `arduino-flasher-cli`)
 
 ### Verify Tool Is Installed
 
