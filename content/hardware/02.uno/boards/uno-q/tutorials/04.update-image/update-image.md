@@ -96,10 +96,10 @@ To prepare the hardware for flashing, follow the instructions below:
 In this step, we will upload the new image to the board using the Arduino Flasher CLI.
 
 1. Open a terminal and navigate to the directory where you unzipped the Arduino Flasher CLI (normally `/Downloads`).
-2. Enter the following command in the terminal: `./arduino-flasher-cli flash latest` **but do not run it yet!**
-3. Connect the board to the computer, and run the above `./arduino-flasher-cli flash latest` command **directly** after connecting the board (while the board's LED matrix is making animations).
-4. First, a download sequence will begin. **Please note** that this process involves downloading a large file (the image), which exceeds 1 GB.
-5. Once the download is complete, it will flash the board with the new image. This will also take several minutes. Do **not** disconnect the board during this process.
+2. Type the following command in the terminal: `./arduino-flasher-cli flash latest` **but do not press Enter yet**
+3. **Connect the board to the computer**, and press **Enter** to run the command **during the boot animations** on the LED matrix (immediately after plugging in). You only need the jumper to force recovery at plug-in; **you may remove it after you run the command**.
+4. A download sequence will begin (the image is >1 GB). Once the download is complete, it will flash the board with the new image. **Please note:** this will take several minutes. Do **not** disconnect the USB cable during this process.
+5. Once flashing completes and the tool reports success, **power-cycle** the board (unplug and re-plug USB) so it boots the new OS. (Ensure the jumper is removed before the power-cycle.)
 
 ***It is important to run the flashing command ONLY when the board is booting up; it does not work once the OS has finished booting.***
 
@@ -107,6 +107,7 @@ In this step, we will upload the new image to the board using the Arduino Flashe
 ## Troubleshooting
 
 - Ensure the Arduino Flasher CLI is unzipped and accessible.
-- Check that the pins are correctly shorted.
+- Check that the correct pins are shorted, and that they are shorted **before** connecting the board to the computer.
 - Make sure the board has not finished booting when running the flashing command (`./arduino-flasher-cli flash latest`).
 - Verify that you are running the command from the correct directory where the Arduino Flasher CLI was unzipped.
+- After the tool reports a successful installation, **power-cycle** the board **with the jumper removed.**
