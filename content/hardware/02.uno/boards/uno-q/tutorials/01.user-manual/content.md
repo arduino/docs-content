@@ -99,7 +99,7 @@ The Arduino UNO Q can be powered by:
 
 ![UNO Q power options](assets/power-options-3.png)
 
-***Click [here](https://docs.arduino.cc/tutorials/uno-q/03.power-specification/) to learn more about the UNO Q power specifications.***
+***Click [here](https://docs.arduino.cc/tutorials/uno-q/power-specification/) to learn more about the UNO Q power specifications.***
 
 ### Install Arduino App Lab
 
