@@ -497,7 +497,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## SRRC
 
-This equipment contains a radio transmitter module with model approval code: CMIIT ID: XXXXXXXXX.
+This equipment contains a radio transmitter module with model approval code: CMIIT ID: 25J996Q00001.
 
 ## Company Information
 
@@ -1068,7 +1068,7 @@ Arduino S.r.l. 特此声明，本产品符合 201453/EU 指令的基本要求和
 
 ## SRRC
 
-本设备包含一个射频发射模块，型号核准代码为：CMIIT ID: XXXXXXXXX
+本设备包含一个射频发射模块，型号核准代码为：CMIIT ID: 25J996Q00001
 
 ## 公司信息
 
@@ -1148,3 +1148,4 @@ Arduino 可能在其制造和/或销售的产品中提供某些生物识别功�
 
 请参考数据手册和用户文档以获取使用信息。
 如需最新产品信息，请联系您的供应商或访问本网站上的产品页面。
+
