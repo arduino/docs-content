@@ -146,8 +146,15 @@ productCertifications:
   - name: "NCC"
     title: "National Communications Commission (Taiwan)"
     id: 17
-    description: "The Taiwanese certification is regulated by the National Communications Commission. NCC certification is applicable to controlled telecommunications radio-frequency equipment. When certifying a device in accordance to local Taiwanese regulations, the device should be tested and have type approval issued via a lab. "
+    description: "The Taiwanese certification is regulated by the National Communications Commission. NCC certification is applicable to controlled telecommunications radio-frequency equipment. When certifying a device in accordance to local Taiwanese regulations, the device should be tested and have type approval issued via a lab."
     source: "https://www.ncc.gov.tw/english/"
     sourceTitle: "www.ncc.gov.tw/"
+    files: null
+  - name: "SRRC"
+    title: "State Radio Regulation of China"
+    id: 18
+    description: "Products that are equipped with radio transmitters and use specific frequency bands require an SRRC certificate, which can be issued by China’s State Radio Monitoring and Testing Center (SRTC). To acquire an SRRC certificate, the device must be tested in a lab located in China that is accredited by the Ministry of Industry and Information Technology (CMIIT)."
+    source: "https://www.china-certification.com/en/china-srrc-type-approval/"
+    sourceTitle: "www.china-certification.com/"
     files: null
 ---
