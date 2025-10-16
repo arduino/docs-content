@@ -52,19 +52,6 @@ You should see something like:
 
 This means it is working, and we can proceed to [flashing the board](#flash-image-to-the-board).
 
-#### Linux
-
-Navigate to the unzipped folder (e.g. `arduino-flasher-cli-x.x.x-darwin-arm64`), and run the following command:
-
-```
-./arduino-flasher-cli
-```
-
-You should see something like:
-
-![Output from testing tool (Linux)](assets/linux.png)
-
-This means it is working, and we can proceed to [flashing the board](#flash-image-to-the-board).
 
 #### Windows
 
@@ -79,6 +66,56 @@ A new window should appear, prompting you to install the driver. Install it, and
 ![Output from testing tool (Windows)](assets/windows.png)
 
 This means it is working, and we can proceed to [flashing the board](#flash-image-to-the-board).
+
+#### Linux
+
+Navigate to the unzipped folder (e.g. `arduino-flasher-cli-x.x.x-darwin-arm64`), and run the following command:
+
+```
+./arduino-flasher-cli
+```
+
+You should see something like:
+
+![Output from testing tool (Linux)](assets/linux.png)
+
+This means it is working, and we can proceed to [flashing the board](#flash-image-to-the-board).
+
+***Note: in some Linux systems there may be an issue with `qdl`, a tool included in the `arduino-flasher-cli`. This may occur if the kernel module `qcserial` is loaded. A workaround solution to fix this is in place (see section below).***
+
+#### Fixing `qcserial` Issue (Linux Only)
+
+Open a terminal, and check if `qcserial` is present by running `lsmod | grep qcse`
+
+If present, it will return:
+
+```
+> lsmod | grep qcse
+qcserial               24576  0
+usb_wwan               24576  1 qcserial
+usbserial              69632  2 qcserial,usb_wwan
+```
+
+Then, check if `qcserial` is locking the serial port `ttyUSB0`, by running `sudo dmesg`:
+
+```
+> sudo dmesg
+[31633.372270] qcserial ttyUSB0: Qualcomm USB modem converter now disconnected from ttyUSB0
+[31633.372308] qcserial 3-3:1.0: device disconnected
+```
+
+This issue can be fixed by disabling (or blacklisting), the `qcserial` kernel module on the Linux system.
+
+1. Create or edit a configuration file named `blacklist-modem.conf` inside the `/etc/modprobe.d/` directory:
+    ```sh
+    sudo nano /etc/modprobe.d/blacklist-modem.conf
+    ```
+2. Inside this file, we need to blacklist the `qcserial` module:
+
+    ```sh
+    blacklist qcserial
+    ```
+3. Save the file and restart the system for the configuration to take effect.
 
 ## Preparing the Hardware
 
