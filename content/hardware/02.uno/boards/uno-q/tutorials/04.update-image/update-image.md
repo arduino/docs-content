@@ -81,7 +81,7 @@ You should see something like:
 
 This means it is working, and we can proceed to [flashing the board](#flash-image-to-the-board).
 
-***Note: in some Linux systems there may be an issue with `qdl`, a tool included in the `arduino-flasher-cli`. This may occur if the kernel module `qcserial` is loaded. A workaround solution to fix this is in place (see section below).***
+***Note: in some Linux systems, the `arduino-flasher-cli` could exit with an error right before flashing. This may occur if the kernel module `qcserial` is loaded. A workaround solution to fix this is in place (see section below).***
 
 #### Fixing `qcserial` Issue (Linux Only)
 
