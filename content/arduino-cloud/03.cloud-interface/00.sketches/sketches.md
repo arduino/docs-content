@@ -157,7 +157,7 @@ The `NetworkConfigurator` library out-of-the-box provides two Agents:
 
 Here is how the `thingsProperties.h` file changes to set up the NetworkConfigurator. This setup is automatically generated if the board has been registered with Provisioning 2.0.
 
-*** Do not follow these steps if the board has not been registered with the Provisioning 2.0. For more information about device provisioning have a look [here](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/) ***.
+*** Do not follow these steps if the board has not been registered with the Provisioning 2.0. For more information about device provisioning have a look [here](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/). ***
 
 ### Libraries and Object Declarations
 
