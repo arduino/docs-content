@@ -127,7 +127,7 @@ Even when you have set up your Arduino UNO Q as a **single-board computer**, you
 
 ![Network Mode](assets/network-mode.gif)
 
-With this method, you can access your UNO Q from any machine in your local network. This allows you to use Arduino App Lab as if you were connected directly to the board. Develop applications and more.
+With this method, you can access your UNO Q from any machine in your local network. This allows you to use Arduino App Lab as if you were connected directly to the board, where you can develop & run Apps in the same way as if it was connected via USB-C®.
 
 ### Hello World Example
 
