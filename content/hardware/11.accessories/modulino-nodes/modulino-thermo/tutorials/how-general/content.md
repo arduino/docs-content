@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with Modulinos"
+title: "Getting Started with Modulino"
 description: "Learn the fundamentals of connecting, configuring, and programming Modulino sensors and actuators."
 tags:
  - Modulino

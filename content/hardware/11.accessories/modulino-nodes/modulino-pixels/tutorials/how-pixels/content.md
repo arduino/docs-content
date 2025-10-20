@@ -1,6 +1,6 @@
 ---
-title: "Modulino Pixels"
-description: "Complete guide for the Modulino Pixels RGB LED module."
+title: "Getting Started with Modulino Pixels"
+description: "Complete guide for the Modulino Pixels RGB LED module and programming with Arduino and MicroPython."
 tags:
  - Modulino
  - LED
@@ -91,7 +91,11 @@ The module includes a power LED that draws 1 mA and turns on as soon as it is po
 ### Prerequisites
 
 - Install the Modulino library via the Arduino IDE Library Manager
-- Connect your Modulino Pixels via QWIIC or solderable headers
+- Connect your Modulino Knob via QWIIC or solderable headers
+
+For detailed instructions on setting up your Arduino environment and installing libraries, please refer to the [Getting Started with Modulinos guide](link-to-generic-guide).
+
+Library repository available [here](https://github.com/arduino-libraries/Arduino_Modulino).
 
 ### Basic Example
 

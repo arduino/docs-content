@@ -1,6 +1,6 @@
 ---
-title: "Modulino Buttons"
-description: "Complete guide for the Modulino Buttons tactile input and LED feedback module."
+title: "Getting Started with Modulino Buttons"
+description: "Complete guide for the Modulino Buttons and programming with Arduino and MicroPython."
 tags:
  - Modulino
  - Buttons
@@ -45,7 +45,7 @@ The default I²C address for the **Modulino Buttons** module is:
 
 ### Pinout
 
-![Arduino Buttons Pinout](assets/ButtonsPinouts.png)
+![Modulino Buttons Pinout](assets/ButtonsPinouts.png)
 
 #### 1x10 Header
 
@@ -90,7 +90,7 @@ The main components are the **three tactile buttons**, **three user-programmable
 
 You can connect to the I²C pins (SDA and SCL) using either the **QWIIC connectors** (J1 and J2, this is the recommended method) or the **solderable pins** (J4). The board runs on **3.3V**, which comes from the QWIIC cable or the **3V3 pin** on J4.
 
-You can grab the full schematic and PCB files from the [Modulino Buttons product page](https://docs.arduino.cc/hardware/modulinos/modulino-buttons).
+You can grab the full schematic and PCB files from the [Modulino Buttons page](https://docs.arduino.cc/hardware/modulinos/modulino-buttons).
 
 ## Programming with Arduino
 
@@ -102,6 +102,8 @@ The Modulino Buttons is fully compatible with the Arduino IDE and the official M
 - Connect your Modulino Buttons via QWIIC or solderable headers
 
 For detailed instructions on setting up your Arduino environment and installing libraries, please refer to the [Getting Started with Modulinos guide](link-to-generic-guide).
+
+Library repository available [here](https://github.com/arduino-libraries/Arduino_Modulino).
 
 ### Basic Example
 

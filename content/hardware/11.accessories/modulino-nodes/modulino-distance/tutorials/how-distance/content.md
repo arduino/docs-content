@@ -1,6 +1,6 @@
 ---
-title: "Modulino Distance"
-description: "Complete guide for the Modulino Distance Time-of-Flight sensor module."
+title: "Getting Started with Modulino Distance"
+description: "Complete guide for the Modulino Distance Time-of-Flight sensor module and programming with Arduino and MicroPython."
 tags:
  - Modulino
  - Distance
@@ -52,7 +52,7 @@ The default address for the Module is:
 
 ### Pinout
 
-![Arduino Distance Pinout](assets/DistancePinouts.png)
+![Modulino Distance Pinout](assets/DistancePinouts.png)
 
 #### 1x4 Header (Sensor GPIO)
 
@@ -94,7 +94,7 @@ You can connect to the I²C pins (SDA and SCL) using either the **QWIIC connecto
 
 There's also a small power indicator LED that lights up when the board is on.
 
-You can grab the full schematic and PCB files from the [Modulino Distance product page](https://docs.arduino.cc/hardware/modulinos/modulino-distance).
+You can grab the full schematic and PCB files from the [Modulino Distance page](https://docs.arduino.cc/hardware/modulinos/modulino-distance).
 
 ## Programming with Arduino
 
@@ -106,6 +106,8 @@ The Modulino Distance is fully compatible with the Arduino IDE and the official 
 - Connect your Modulino Distance via QWIIC or solderable headers
 
 For detailed instructions on setting up your Arduino environment and installing libraries, please refer to the [Getting Started with Modulinos guide](link-to-generic-guide).
+
+Library repository available [here](https://github.com/arduino-libraries/Arduino_Modulino).
 
 ### Basic Example
 

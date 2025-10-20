@@ -1,6 +1,6 @@
 ---
-title: "Modulino Knob"
-description: "Complete guide for the Modulino Knob rotary encoder module."
+title: "Getting Started with Modulino Knob"
+description: "Complete guide for the Modulino Knob rotary encoder module and programming with Arduino and MicroPython."
 tags:
  - Modulino
  - Knob
@@ -47,7 +47,7 @@ The I²C address can be changed via software configuration.
 
 ### Pinout
 
-![Arduino Knob Pinout](assets/KnobPinouts.png)
+![Modulino Knob Pinout](assets/KnobPinouts.png)
 
 #### 1x10 Header
 
@@ -96,7 +96,7 @@ You can connect to the I²C pins (SDA and SCL) using either the **QWIIC connecto
 
 There's also a small power LED indicator (green) that lights up when the board is on.
 
-You can grab the full schematic and PCB files from the [Modulino Knob product page](https://docs.arduino.cc/hardware/modulinos/modulino-knob).
+You can grab the full schematic and PCB files from the [Modulino Knob page](https://docs.arduino.cc/hardware/modulinos/modulino-knob).
 
 ## Programming with Arduino
 
@@ -108,6 +108,8 @@ The Modulino Knob is fully compatible with the Arduino IDE and the official Modu
 - Connect your Modulino Knob via QWIIC or solderable headers
 
 For detailed instructions on setting up your Arduino environment and installing libraries, please refer to the [Getting Started with Modulinos guide](link-to-generic-guide).
+
+Library repository available [here](https://github.com/arduino-libraries/Arduino_Modulino).
 
 ### Basic Example
 

@@ -1,6 +1,6 @@
 ---
-title: "Modulino Thermo"
-description: "Complete guide for the Modulino Thermo temperature and humidity sensor."
+title: "Getting Started with Modulino Thermo"
+description: "Complete guide for the Modulino Thermo and programming with Arduino and MicroPython."
 tags:
  - Modulino
  - Temperature
@@ -47,7 +47,7 @@ The default address for the Module is:
 
 ### Pinout
 
-![Arduino Thermo Pinout](assets/ThermoPinouts.jpg)
+![Modulino Thermo Pinout](assets/ThermoPinouts.jpg)
 
 #### 1x4 Header (I2C)
 
@@ -75,14 +75,18 @@ The Modulino Thermo uses a simple circuit built around the **HS3003** sensor (U1
 
 You can connect to the I2C pins (SDA and SCL) using either the **QWIIC connectors** (J1 and J2, recommended) or the **solderable pins** (J4). The board runs on **3.3V** from the QWIIC cable or the **3V3 pin** on J4.
 
-Full schematic and PCB files are available from the [Modulino Thermo product page](https://docs.arduino.cc/hardware/modulinos/modulino-thermo).
+Full schematic and PCB files are available from the [Modulino Thermo page](https://docs.arduino.cc/hardware/modulinos/modulino-thermo).
 
 ## Programming with Arduino
 
 ### Prerequisites
 
-- Install the Modulino library via the Arduino IDE Library Manager (see [Getting Started with Modulinos](link-to-generic-guide) for detailed instructions)
-- Connect your Modulino Thermo via QWIIC or solderable headers
+- Install the Modulino library via the Arduino IDE Library Manager
+- Connect your Modulino Knob via QWIIC or solderable headers
+
+For detailed instructions on setting up your Arduino environment and installing libraries, please refer to the [Getting Started with Modulinos guide](link-to-generic-guide).
+
+Library repository available [here](https://github.com/arduino-libraries/Arduino_Modulino).
 
 ### Basic Example
 

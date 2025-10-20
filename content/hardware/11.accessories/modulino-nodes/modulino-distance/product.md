@@ -5,7 +5,7 @@ url_guide: https://courses.arduino.cc/plugandmake
 primary_button_url: https://docs.arduino.cc/tutorials/modulino-distance/how-distance/
 primary_button_title: Get Started
 secondary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-general/
-secondary_button_title: More on Modulinos
+secondary_button_title: More on Modulino Nodes
 forumCategorySlug: '/hardware/accessories/modulino-distance/216'
 sku: [ABX00102]
 ---

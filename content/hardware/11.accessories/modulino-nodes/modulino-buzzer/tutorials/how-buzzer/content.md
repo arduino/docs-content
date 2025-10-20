@@ -1,6 +1,6 @@
 ---
-title: "Modulino Buzzer"
-description: "Complete guide for the Modulino Buzzer audio output module."
+title: "Getting Started with Modulino Buzzer"
+description: "Complete guide for the Modulino Buzzer audio output module and programming with Arduino and MicroPython."
 tags:
  - Modulino
  - Buzzer
@@ -46,7 +46,7 @@ The default I²C address for the **Modulino Buzzer** module is:
 
 ### Pinout
 
-![Arduino Buzzer Pinout](assets/BuzzerPinouts.png)
+![Modulino Buzzer Pinout](assets/BuzzerPinouts.png)
 
 #### 1x8 Header
 
@@ -94,7 +94,7 @@ You can connect to the I²C pins (SDA and SCL) using either the **QWIIC connecto
 
 There's also a small power LED indicator that lights up when the board is on.
 
-You can grab the full schematic and PCB files from the [Modulino Buzzer product page](https://docs.arduino.cc/hardware/modulinos/modulino-buzzer).
+You can grab the full schematic and PCB files from the [Modulino Buzzer page](https://docs.arduino.cc/hardware/modulinos/modulino-buzzer).
 
 ## Programming with Arduino
 
@@ -106,6 +106,8 @@ The Modulino Buzzer is fully compatible with the Arduino IDE and the official Mo
 - Connect your Modulino Buzzer via QWIIC or solderable headers
 
 For detailed instructions on setting up your Arduino environment and installing libraries, please refer to the [Getting Started with Modulinos guide](link-to-generic-guide).
+
+Library repository available [here](https://github.com/arduino-libraries/Arduino_Modulino).
 
 ### Basic Example
 

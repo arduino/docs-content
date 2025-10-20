@@ -1,6 +1,6 @@
 ---
-title: "Modulino Movement"
-description: "Complete guide for the Modulino Movement 6-axis IMU sensor module."
+title: "Getting Started with Modulino Movement"
+description: "Complete guide for the Modulino Movement 6-axis IMU sensor module and programming with Arduino and MicroPython."
 tags:
  - Modulino
  - Movement
@@ -63,7 +63,7 @@ The address can be changed through hardware modification (see the generic guide 
 
 ### Pinout
 
-![Arduino Movement Pinout](assets/MovementPinouts.png)
+![Modulino Movement Pinout](assets/MovementPinouts.png)
 
 #### 1x10 Header
 
@@ -105,7 +105,11 @@ The address can be changed through hardware modification (see the generic guide 
 ### Prerequisites
 
 - Install the Modulino library via the Arduino IDE Library Manager
-- Connect your Modulino Movement via QWIIC or solderable headers
+- Connect your Modulino Knob via QWIIC or solderable headers
+
+For detailed instructions on setting up your Arduino environment and installing libraries, please refer to the [Getting Started with Modulinos guide](link-to-generic-guide).
+
+Library repository available [here](https://github.com/arduino-libraries/Arduino_Modulino).
 
 ### Basic Example
 
