@@ -14,20 +14,20 @@ software:
  - micropython
 ---
 
-The Modulino ecosystem provides modular sensors and actuators that streamline prototyping and development. Each module follows a standardised form factor with QWIIC connectors and I²C protocol integration, allowing simple connection and programming of multiple nodes. In addition to QWIIC connectors, Modulinos expose solderable pins for compatibility with boards that don't support QWIIC.
+The Modulino ecosystem provides modular sensors and actuators that streamline prototyping and development. Each module follows a standardised form factor with QWIIC connectors and I²C protocol integration, allowing simple connection and programming of multiple nodes. In addition to QWIIC connectors, Modulino nodes expose solderable pins for compatibility with boards that don't support QWIIC.
 
 ## The Modulino System
 
 Modulinos are designed to work seamlessly together through:
 - **Standardised QWIIC connectors** for plug-and-play connectivity
 - **I²C communication** for simple two-wire data transfer
-- **Daisy-chain capability** for connecting multiple modules
+- **Daisy-chain capability** for connecting multiple nodes
 - **Compact form factor** for space-efficient designs
 - **Cross-platform support** for Arduino and MicroPython
 
 ## How To Connect Your Modulino
 
-The easiest and most reliable way to connect your Modulino is through the QWIIC Connect System. It's plug-and-play, uses standard I²C, and makes it easy to join multiple modules. If your board supports QWIIC, this is the recommended way to go.
+The easiest and most reliable way to connect your Modulino is through the QWIIC Connect System. It's plug-and-play, uses standard I²C, and makes it easy to join multiple nodes. If your board supports QWIIC, this is the recommended way to go.
 
 Note that the dedicated I²C pins will differ from board to board, meaning it is always a good idea to check your specific model.
 
