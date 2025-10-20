@@ -14,7 +14,7 @@ software:
  - micropython
 ---
 
-The Modulino ecosystem provides modular sensors and actuators that streamline prototyping and development. Each module follows a standardised form factor with QWIIC connectors and I²C protocol integration, allowing simple connection and programming of multiple nodes. In addition to QWIIC connectors, Modulinos expose solderable pins for compatibility with boards that don't support QWIIC.
+The Modulino ecosystem provides modular sensors and actuators that streamline prototyping and development. Each module follows a standardised form factor with QWIIC connectors and I²C protocol integration, allowing simple connection and programming of multiple nodes. In addition to QWIIC connectors, Modulino nodes expose solderable pins for compatibility with boards that don't support QWIIC.
 
 ## The Modulino System
 
