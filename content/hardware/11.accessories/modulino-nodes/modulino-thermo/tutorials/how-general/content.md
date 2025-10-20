@@ -21,7 +21,7 @@ The Modulino ecosystem provides modular sensors and actuators that streamline pr
 Modulinos are designed to work seamlessly together through:
 - **Standardised QWIIC connectors** for plug-and-play connectivity
 - **I²C communication** for simple two-wire data transfer
-- **Daisy-chain capability** for connecting multiple modules
+- **Daisy-chain capability** for connecting multiple nodes
 - **Compact form factor** for space-efficient designs
 - **Cross-platform support** for Arduino and MicroPython
 
