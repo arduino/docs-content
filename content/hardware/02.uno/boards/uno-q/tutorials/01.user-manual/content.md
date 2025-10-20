@@ -103,15 +103,31 @@ The Arduino UNO Q can be powered by:
 
 ### Install Arduino App Lab
 
-Arduino has introduced **Arduino App Lab**, a unified development environment that extends the classic Arduino experience into the world of high-performance computing. Arduino App Lab lets you seamlessly combine Arduino sketches, Python scripts, and containerized Linux applications into a single workflow. With intuitive building blocks called Bricks, preconfigured AI models, and integrated orchestration, it reduces complexity while enabling you to create everything from simple prototypes to advanced, computation-intensive applications.
+The [Arduino App Lab](https://docs.arduino.cc/software/app-lab/) is a unified development environment that extends the classic Arduino experience into the world of high-performance computing. Arduino App Lab lets you seamlessly combine Arduino sketches, Python scripts, and containerized Linux applications into a single workflow.
+
+With code building blocks called Bricks, preconfigured AI models, and integrated orchestration, it reduces complexity while enabling you to create everything from simple prototypes to advanced, computation-intensive applications.
 
 ![Arduino App Lab IDE](assets/app-lab.png)
 
-To install it, go to the [software section](https://www.arduino.cc/en/software/#app-lab-section) on our official website, scroll to Arduino App Lab and select your OS’s respective variant.
+Arduino App Lab comes **pre-installed** on the UNO Q and can be used in Single-Board Computer (SBC) mode. We highly recommend the <strong>4 GB of RAM</strong> UNO Q variant for a better **standalone** experience.
+
+![SBC and PC hosted modes](assets/modes-2.png)
+
+To install it in your personal computer for a **PC Hosted** setup, go to the [software section](https://www.arduino.cc/en/software/#app-lab-section) on our official website, scroll to Arduino App Lab and select your OS’s respective variant.
 
 ![Arduino App Lab Install](assets/app-lab-download.png)
 
-***Arduino App Lab comes pre-installed on the UNO Q and can be used in single-board computer mode. We highly recommend the <strong>4 GB of RAM</strong> UNO Q variant for a better experience.***
+#### Network Mode
+
+Even when you have set up your Arduino UNO Q as a **single-board computer**, you can access it remotely from your personal machine by using the Arduino App Lab desktop and the **Network Mode**. Both modes can be used simultaneously.
+
+- When you open Arduino App Lab, you will see your board listed with the "Network" tag.
+- Click on it and enter the Linux password to log in.
+- You will now have access to the board remotely.
+
+![Network Mode](assets/network-mode.gif)
+
+With this method, you can access your UNO Q from any machine in your local network. This allows you to use Arduino App Lab as if you were connected directly to the board, where you can develop & run Apps in the same way as if it was connected via USB-C®.
 
 ### Hello World Example
 

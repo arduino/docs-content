@@ -175,7 +175,9 @@ You can add more functionalities to your UNO Q single-board computer by adding e
 
 ## Network Mode
 
-Even when you have set up your Arduino UNO Q as a single-board computer, you can access it remotely from your personal machine by using the Arduino App Lab desktop and the **Network Mode**.
+Even when you have set up your Arduino UNO Q as a **single-board computer**, you can access it remotely from your personal machine by using the Arduino App Lab desktop and the **Network Mode**. 
+
+This provides a flexible way of developing Apps on your computer, and testing them locally on the board, as both modes can be used simultaneously.
 
 - When you open Arduino App Lab, you will see your board listed with the "Network" tag.
 - Click on it and enter the Linux password to log in.
