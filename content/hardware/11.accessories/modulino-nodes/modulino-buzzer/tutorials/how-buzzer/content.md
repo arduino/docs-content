@@ -62,6 +62,7 @@ The default I²C address for the **Modulino Buzzer** module is:
 | PA0    | Buzzer          |
 
 **PA0**: This pin can be used to bypass the I²C interface and control the buzzer directly using a square wave.
+
 ![Control through PA0 Pin](assets/buzzerPA0.gif)
 
 #### 1x4 Header (I2C)
