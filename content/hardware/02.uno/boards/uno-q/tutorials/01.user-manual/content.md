@@ -1108,9 +1108,50 @@ void loop() {
 ```
 
 
+## Wireless Connectivity
+
+The UNO Q features the WCBN3536A radio module that provides dual-band Wi-Fi® 5 (2.4/5 GHz) and Bluetooth® 5.1 to the board. This allows seamless wireless connectivity for both IoT and peripheral communication. 
+
+![Radio Module](assets/radio-module.png)
+
+Whether connecting to a local network, uploading data to the cloud, or communicating with Bluetooth-enabled devices such as smartphones and sensors, the UNO Q offers flexible and reliable options for your projects.
+
 ### Wi-Fi®
 
-The UNO Q features the WCBN3536A radio module that provides dual-band Wi-Fi® 5 (2.4/5 GHz), since it is connected to the Qualcomm microprocessor, we need the Bridge to expose the connectivity to the microcontroller.
+Wi-Fi connectivity on the UNO Q allows the board to connect to local networks or the internet to access online services, perform software updates, and communicate with remote servers. Additionally, Wi-Fi can be configured to share its internet connection with the onboard microcontroller, allowing both systems to stay connected without additional network hardware.
+
+#### From the Microprocessor
+
+If you followed the Arduino App Lab first set up, you should be already connected to the internet. However, here is a brief explanation of how to do it manually.
+
+To **connect** the UNO Q to the internet, simply go to the upper-right corner and click on the network icon. Then, search for available Wi-Fi® networks and select one.
+
+![Connect to the Wi-Fi network](assets/wifi-new.png)
+
+Or run the following command in the terminal:
+
+```bash
+sudo nmcli d wifi connect <SSID> password <YOUR_PASSWORD>
+```
+
+To **disconnect** the UNO Q from the current Wi-Fi network, go to the same place where you enabled it before, click on the network icon in the upper-right corner, and then click on "Disconnect".
+
+Or run the following command in the terminal:
+
+```bash
+sudo nmcli d disconnect wlan0 
+```
+***`wlan0` is the typical name of the Wi-Fi interface, you can verify yours running `nmcli device` in the terminal.***
+
+If you want to forget the saved network so it doesn’t auto-connect again, you can also run:
+
+```bash
+sudo nmcli connection delete <SSID>
+```
+
+#### From the Microcontroller 
+
+Since the radio module is connected to the Qualcomm microprocessor, we need the **Bridge** to expose the connectivity to the microcontroller.
 
 The following example gets the UTC time using TCP over socket RPC calls and prints it in the Serial Monitor:
 
@@ -1164,6 +1205,43 @@ void loop() {
 Once running, open the Arduino App Lab Serial Monitor and you will see the time and date retrieved from the `time.nist.gov` server.
 
 ![Wi-Fi example](assets/wifi.png)
+
+### Bluetooth®
+
+Bluetooth® connectivity allows the UNO Q to communicate with nearby devices such as smartphones, computers, or sensors. It can be used for data exchange, remote control, or connecting to Bluetooth® peripherals like keyboards, headsets and serial devices. Depending on the setup, the UNO Q can act as either a Bluetooth® peripheral or host, enabling flexible short-range communication for various applications.
+
+You can leverage the Bluetooth® feature from the Single-Board Computer mode by clicking on the upper-right Bluetooth icon to manage it.
+
+![Bluetooth Manager](assets/bluetooth.png)
+
+From here, you can do the following:
+
+- Scan for devices
+- Pair to a specific device
+- Trust devices
+- Send files
+- Turn on or off the Bluetooth connection
+
+You can also manage the Bluetooth connection from the terminal by using `bluetoothctl` as follows:
+
+```bash
+bluetoothctl power on # turn on Bluetooth 
+bluetoothctl power off # turn off Bluetooth 
+```
+
+You can enter the Bluetooth manager prompt by running `bluetoothctl` and inside you can run specific commands:
+
+```bash
+power on # turn on Bluetooth 
+power off # turn off Bluetooth
+scan on # start searching for nearby Bluetooth devices
+scan off # stop searching for devices
+connect <MAC_ADDRESS> # pair to the device with the specified MAC address
+```
+
+Here is an example of how looks like to search for Bluetooth devices from the terminal:
+
+![Bluetooth scan](assets/scan.png)
 
 ## Support
 
