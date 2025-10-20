@@ -27,7 +27,7 @@ Modulinos are designed to work seamlessly together through:
 
 ## How To Connect Your Modulino
 
-The easiest and most reliable way to connect your Modulino is through the QWIIC Connect System. It's plug-and-play, uses standard I²C, and makes it easy to join multiple modules. If your board supports QWIIC, this is the recommended way to go.
+The easiest and most reliable way to connect your Modulino is through the QWIIC Connect System. It's plug-and-play, uses standard I²C, and makes it easy to join multiple nodes. If your board supports QWIIC, this is the recommended way to go.
 
 Note that the dedicated I²C pins will differ from board to board, meaning it is always a good idea to check your specific model.
 
