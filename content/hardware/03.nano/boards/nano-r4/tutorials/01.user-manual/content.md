@@ -2415,11 +2415,12 @@ You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see th
 
 When working with interrupts on the Nano R4 board, there are several key points to keep in mind for successful implementation:
 
-- Keep ISR functions short and fast; avoid `delay()`, `Serial.print()`, or complex calculations inside ISRs as they block other interrupts.
-- Use volatile variables, always declare variables shared between ISRs and main code as volatile to prevent compiler optimization issues.
-- Manage channel conflicts, verify that pins don't share the same interrupt channel when using multiple interrupts.
-- Consider debouncing, mechanical switches may cause multiple triggers (add a 100nF capacitor or implement software debouncing).
-- Protect shared multi-byte variables, disable interrupts temporarily when accessing them.
+- Keep ISR functions short and fast: Avoid `delay()`, `Serial.print()`, or complex calculations inside ISRs as they block other interrupts.
+- Use volatile variables: Always declare variables shared between ISRs and main code as volatile to prevent compiler optimization issues.
+- Manage channel conflicts: Verify that pins don't share the same interrupt channel when using multiple interrupts.
+- Consider debouncing: Mechanical switches may cause multiple triggers (add a 100nF capacitor or implement software debouncing).
+- Protect shared multi-byte variables: Disable interrupts temporarily when accessing them.
+
 
 ## Qwiic Connector
 
