@@ -175,7 +175,7 @@ You can use them just like a normal variable of the wrapped type since they supp
 | Counter              | `CloudCounter variableName;`             | `int`             |
 | Data Rate            | `CloudDataRate variableName;`            | `float`           |
 | Electric Current     | `CloudElectricCurrent variableName;`     | `float`           |
-| Electric Potention   | `CloudElectricPotention variableName;`   | `float`           |
+| Electric Potential   | `CloudElectricPotential variableName;`   | `float`           |
 | Electric Resistance  | `CloudElectricResistance variableName;`  | `float`           |
 | Energy               | `CloudEnergy variableName;`              | `float`           |
 | Flow Rate            | `CloudFlowRate variableName;`            | `float`           |
