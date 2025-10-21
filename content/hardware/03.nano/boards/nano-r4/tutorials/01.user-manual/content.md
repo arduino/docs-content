@@ -2409,7 +2409,8 @@ To test this example, connect a push button to the Nano R4 board as follows:
 
 ![Interrupt pins test circuit on the Nano R4 board](assets/interrupt-pins-1.png)
 
-You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the interrupt count increase with each button press.
+Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the interrupt count increase with each button press.
+
 
 ![Interrupt pins test circuit on the Nano R4 board](assets/interrupt-pins-2.png)
 
