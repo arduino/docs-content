@@ -2411,6 +2411,8 @@ To test this example, connect a push button to the Nano R4 board as follows:
 
 You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the interrupt count increase with each button press.
 
+![Interrupt pins test circuit on the Nano R4 board](assets/interrupt-pins-2.png)
+
 When working with interrupts on the Nano R4 board, there are several key points to keep in mind for successful implementation:
 
 - Keep ISR functions short and fast; avoid `delay()`, `Serial.print()`, or complex calculations inside ISRs as they block other interrupts.
