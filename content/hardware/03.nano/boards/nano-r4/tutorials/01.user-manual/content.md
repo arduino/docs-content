@@ -2290,6 +2290,135 @@ When working with HID on the Nano R4, there are several key points to keep in mi
 - The Nano R4 can function as both a keyboard and mouse simultaneously, allowing for complex automation sequences that combine typing, shortcuts and mouse control.
 - Remember that different operating systems may have slightly different keyboard layouts and shortcuts, so test your HID projects on your target platform to ensure compatibility.
 
+## External Interrupts
+
+The Nano R4 features external interrupt capability through the RA4M1 microcontroller's ICU (Interrupt Control Unit). Interrupts allow your Nano R4 board to immediately respond to pin state changes by temporarily pausing the main program to execute an Interrupt Service Routine (ISR), then returning to where it left off. This makes interrupts essential for time-critical applications like button detection, encoder reading, and sensor monitoring.
+
+### Interrupt Specifications
+
+The Nano R4 board's external interrupt capabilities offer the following technical specifications:
+
+|      **Parameter**     | **Value** |                 **Notes**                |
+|:----------------------:|:---------:|:----------------------------------------:|
+|    Hardware Channels   |     9     |         Channels 0-7, 9 available        |
+| Interrupt-capable Pins |  13 pins  |         7 digital + 6 analog pins        |
+|      Trigger Modes     |     4     | `RISING`, `FALLING`, `CHANGE`, and `LOW` |
+|      Response Time     |   < 1 μs  |         Typical interrupt latency        |
+
+### Interrupt-Capable Pins
+
+The following pins support external interrupts on the Nano R4 board:
+
+| **Arduino Pin** | **Interrupt Channel** | **Primary Function** |          **Notes**         |
+|:---------------:|:---------------------:|:--------------------:|:--------------------------:|
+|       `D0`      |       Channel 6       |      Digital I/O     |  Shares channel with `A1`  |
+|       `D1`      |       Channel 5       |      Digital I/O     |      Dedicated channel     |
+|       `D2`      |       Channel 0       |      Digital I/O     | Recommended for interrupts |
+|       `D3`      |       Channel 1       |   Digital I/O, PWM   |  Shares channel with `A4`  |
+|       `D8`      |       Channel 9       |      Digital I/O     |      Dedicated channel     |
+|      `D12`      |       Channel 3       |   Digital I/O, MISO  |  Shares channel with `A6`  |
+|      `D13`      |       Channel 4       |   Digital I/O, SCK   |      Dedicated channel     |
+|       `A1`      |       Channel 6       |    Analog, OPAMP+    |  Shares channel with `D0`  |
+|       `A2`      |       Channel 7       |    Analog, OPAMP-    |      Dedicated channel     |
+|       `A3`      |       Channel 2       |   Analog, OPAMP OUT  |  Shares channel with `A5`  |
+|       `A4`      |       Channel 1       |    Analog, I²C SDA   |  Shares channel with `D3`  |
+|       `A5`      |       Channel 2       |    Analog, I²C SCL   |  Shares channel with `A3`  |
+|       `A6`      |       Channel 3       |     Analog input     |  Shares channel with `D12` |
+
+***__Important note__: Pins sharing the same interrupt channel cannot be used for interrupts simultaneously. For example, `D3` and `A4` both use channel 1, so only one can be configured for interrupt functionality at a time.***
+
+### Interrupt Trigger Modes
+
+The Nano R4 board supports four interrupt trigger modes:
+
+|  **Mode** |         **Trigger Condition**        |        **Typical Use Cases**       |
+|:---------:|:------------------------------------:|:----------------------------------:|
+|  `RISING` | Pin transitions from `LOW` to `HIGH` | Button press detection (pull-down) |
+| `FALLING` | Pin transitions from `HIGH` to `LOW` |  Button press detection (pull-up)  |
+|  `CHANGE` | Pin changes state (either direction) |   Encoder reading, pulse counting  |
+|   `LOW`   |      Pin remains at `LOW` level      |       Level-triggered events       |
+
+***__Important note__: The `HIGH` trigger mode is not supported by the hardware. If specified, it will behave as `RISING` mode (detecting only the `LOW`-to-`HIGH` transition, not the continuous `HIGH` state). For continuous `HIGH` level detection, use polling with `digitalRead()` instead.***
+
+You can attach interrupts using the dedicated Arduino functions:
+
+```arduino
+attachInterrupt(digitalPinToInterrupt(pin), ISR_function, mode);
+detachInterrupt(digitalPinToInterrupt(pin));
+```
+
+The following example demonstrates basic interrupt usage:
+
+```arduino
+/**
+External Interrupt Example for the Arduino Nano R4 Board
+Name: nano_r4_interrupt_example.ino
+Purpose: This sketch demonstrates how to use external interrupts
+to detect button presses.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+const int buttonPin = 2;
+const int ledPin = LED_BUILTIN;
+
+// Variables shared with ISR must be volatile
+volatile bool buttonPressed = false;
+volatile unsigned long pressCount = 0;
+
+// Interrupt Service Routine - keep it short!
+void buttonISR() {
+  buttonPressed = true;
+  pressCount++;
+}
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(ledPin, OUTPUT);
+  
+  // Attach interrupt to button pin
+  attachInterrupt(digitalPinToInterrupt(buttonPin), buttonISR, FALLING);
+  
+  Serial.println("- Arduino Nano R4 - External Interrupt Example started...");
+  Serial.println("- Press the button to trigger interrupts");
+}
+
+void loop() {
+  if (buttonPressed) {
+    buttonPressed = false;
+    digitalWrite(ledPin, !digitalRead(ledPin));
+    
+    Serial.print("- Button pressed! Count: ");
+    Serial.println(pressCount);
+  }
+  
+  delay(10);
+}
+```
+
+To test this example, connect a push button to the Nano R4 board as follows:
+
+- Connect one leg of a push button to pin `D2`
+- Connect the other leg of the push button to `GND`
+- No external components needed (using built-in LED and internal pull-up)
+
+![Interrupt pins test circuit on the Nano R4 board](assets/interrupt-pins-1.png)
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the interrupt count increase with each button press.
+
+When working with interrupts on the Nano R4 board, there are several key points to keep in mind for successful implementation:
+
+- Keep ISR functions short and fast; avoid `delay()`, `Serial.print()`, or complex calculations inside ISRs as they block other interrupts.
+- Use volatile variables, always declare variables shared between ISRs and main code as volatile to prevent compiler optimization issues.
+- Manage channel conflicts, verify that pins don't share the same interrupt channel when using multiple interrupts.
+- Consider debouncing, mechanical switches may cause multiple triggers (add a 100nF capacitor or implement software debouncing).
+- Protect shared multi-byte variables, disable interrupts temporarily when accessing them.
+
 ## Qwiic Connector
 
 The Nano R4 board features an onboard Qwiic connector that provides a simple, tool-free solution for connecting I²C devices. The Qwiic ecosystem, developed by SparkFun Electronics, has become an industry standard for rapid prototyping with I²C devices, allowing you to connect sensors, displays, and other peripherals without soldering or complex wiring. This makes it perfect for quickly building sensor networks, adding displays, or expanding your project's capabilities with minimal effort.
