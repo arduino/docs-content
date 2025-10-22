@@ -1,1 +1,0 @@
-C:/Users/p.sousalima_arduino/Documents/GitHub/docs-content/content/hardware/11.accessories/modulino-nodes/modulino-thermo/tutorials/how-general/content.md
