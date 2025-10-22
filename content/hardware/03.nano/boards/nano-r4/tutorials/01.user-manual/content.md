@@ -2411,8 +2411,7 @@ To test this example, connect a push button to the Nano R4 board as follows:
 
 Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the interrupt count increase with each button press.
 
-
-![Interrupt pins test circuit on the Nano R4 board](assets/interrupt-pins-2.png)
+![Arduino IDE Serial Monitor output for the basic interrupt example sketch](assets/interrupt-pins-2.png)
 
 When working with interrupts on the Nano R4 board, there are several key points to keep in mind for successful implementation:
 
@@ -2421,7 +2420,6 @@ When working with interrupts on the Nano R4 board, there are several key points 
 - Manage channel conflicts: Verify that pins don't share the same interrupt channel when using multiple interrupts.
 - Consider debouncing: Mechanical switches may cause multiple triggers (add a 100nF capacitor or implement software debouncing).
 - Protect shared multi-byte variables: Disable interrupts temporarily when accessing them.
-
 
 ## Qwiic Connector
 
