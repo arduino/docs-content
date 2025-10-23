@@ -165,7 +165,7 @@ attachInterrupt(digitalPinToInterrupt(3), buttonISR, FALLING);
 attachInterrupt(digitalPinToInterrupt(A4), sensorISR, FALLING);
 ```
 
-In the code snippet shown berfore, both `D3` and `A4` use Channel 1. When the second `attachInterrupt()` executes, it disconnects `buttonISR` completely. Only `sensorISR` will function, and your button will stop responding with no indication of why.
+In the code snippet shown before, both `D3` and `A4` use Channel 1. When the second `attachInterrupt()` executes, it disconnects `buttonISR` completely. Only `sensorISR` will function, and your button will stop responding with no indication of why.
 
 #### Interrupt Trigger Modes
 
