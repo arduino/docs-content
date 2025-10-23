@@ -46,7 +46,7 @@ The Qwiic connector uses a 4-pin JST SH connector (P/N: SM04B-SRSS-TB(LF)(SN)) w
 | Pin | Connection                               |
 |-----|------------------------------------------|
 | GND | Ground                                   |
-| VCC | +3.3 VDC/ +5 VDC (selected by the input selector switch) |
+| VCC | +3.3 VDC |
 | SDA | I²C Data (connected to the A4 pin of the Nano board)   |
 | SCL | I²C Clock (connected to the A5 pin of the Nano board) |
 
@@ -65,7 +65,7 @@ The Grove connector uses a 4-pin DIP-2.0 mm connector (P/N: 114020164) with four
 | Pin | Connection                           |
 |-----|--------------------------------------|
 | GND | Ground                               |
-| VCC | +3.3 VDC/ +5 VDC (selected by the input selector switch) |
+| VCC | VCC |
 | A3  | Analog pin A3 on the Nano board|
 | A2  | Analog pin A2 on the Nano board|
 
@@ -74,7 +74,7 @@ The Grove connector uses a 4-pin DIP-2.0 mm connector (P/N: 114020164) with four
 | Pin | Connection                           |
 |-----|--------------------------------------|
 | GND | Ground                               |
-| VCC | +3.3 VDC/ +5 VDC (selected by the input selector switch) |
+| VCC | VCC |
 | A1  | Analog pin A1 on the Nano board|
 | A0  | Analog pin A0 on the Nano board|
 
@@ -83,7 +83,7 @@ The Grove connector uses a 4-pin DIP-2.0 mm connector (P/N: 114020164) with four
 | Pin  | Connection                           |
 |------|--------------------------------------|
 | GND  | Ground                               |
-| VCC | +3.3 VDC/ +5 VDC (selected by the input selector switch) |
+| VCC | VCC |
 | MOSI | SPI MOSI (D11 pin on the Nano board)|
 | MISO | SPI MISO (D12 pin on the Nano board)|
 
@@ -92,7 +92,7 @@ The Grove connector uses a 4-pin DIP-2.0 mm connector (P/N: 114020164) with four
 | Pin | Connection                           |
 |-----|--------------------------------------|
 | GND | Ground                               |
-| VCC | +3.3 VDC/ +5 VDC (selected by the input selector switch) |
+| VCC | +3.3 VDC |
 | SDA | I²C Data (A4 pin on the Nano board, shared with the Qwiic connector) |
 | SCL | I²C Clock (A5 pin on the Nano board, shared with the Qwiic connector)|
 
