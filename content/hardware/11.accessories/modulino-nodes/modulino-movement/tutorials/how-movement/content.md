@@ -107,7 +107,7 @@ The address can be changed through hardware modification (see the generic guide 
 - Install the Modulino library via the Arduino IDE Library Manager
 - Connect your Modulino Knob via QWIIC or solderable headers
 
-For detailed instructions on setting up your Arduino environment and installing libraries, please refer to the [Getting Started with Modulinos guide](link-to-generic-guide).
+For detailed instructions on setting up your Arduino environment and installing libraries, please refer to the [Getting Started with Modulinos guide](./how-general).
 
 Library repository available [here](https://github.com/arduino-libraries/Arduino_Modulino).
 
@@ -308,7 +308,7 @@ The Modulino Movement is fully compatible with MicroPython through the official 
 - Install the Modulino MicroPython library
 - Ensure Arduino Lab for MicroPython is installed
 
-For detailed instructions on setting up your MicroPython environment and installing packages, please refer to the [Getting Started with Modulinos guide](link-to-generic-guide).
+For detailed instructions on setting up your MicroPython environment and installing packages, please refer to the [Getting Started with Modulinos guide](./how-general).
 
 ### Basic Example
 

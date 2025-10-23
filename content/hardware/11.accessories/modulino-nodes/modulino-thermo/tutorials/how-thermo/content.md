@@ -84,7 +84,7 @@ Full schematic and PCB files are available from the [Modulino Thermo page](https
 - Install the Modulino library via the Arduino IDE Library Manager
 - Connect your Modulino Knob via QWIIC or solderable headers
 
-For detailed instructions on setting up your Arduino environment and installing libraries, please refer to the [Getting Started with Modulinos guide](link-to-generic-guide).
+For detailed instructions on setting up your Arduino environment and installing libraries, please refer to the [Getting Started with Modulinos guide](./how-general).
 
 Library repository available [here](https://github.com/arduino-libraries/Arduino_Modulino).
 
@@ -179,7 +179,7 @@ void loop(){
 
 ### Prerequisites
 
-- Install the Modulino MicroPython library (see [Getting Started with Modulinos](link-to-generic-guide) for detailed instructions)
+- Install the Modulino MicroPython library (see [Getting Started with Modulinos](./how-general) for detailed instructions)
 - Ensure Arduino Lab for MicroPython is installed
 
 ### Basic Example
@@ -308,7 +308,7 @@ If the sensor values are not accurate:
 
 ### Library Issues
 
-See the [Getting Started with Modulinos](link-to-generic-guide) guide for library installation troubleshooting.
+See the [Getting Started with Modulinos](./how-general) guide for library installation troubleshooting.
 
 ## Project Ideas
 

@@ -93,7 +93,7 @@ The module includes a power LED that draws 1 mA and turns on as soon as it is po
 - Install the Modulino library via the Arduino IDE Library Manager
 - Connect your Modulino Knob via QWIIC or solderable headers
 
-For detailed instructions on setting up your Arduino environment and installing libraries, please refer to the [Getting Started with Modulinos guide](link-to-generic-guide).
+For detailed instructions on setting up your Arduino environment and installing libraries, please refer to the [Getting Started with Modulinos guide](./how-general).
 
 Library repository available [here](https://github.com/arduino-libraries/Arduino_Modulino).
 
