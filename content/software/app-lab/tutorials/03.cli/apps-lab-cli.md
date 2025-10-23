@@ -1,5 +1,5 @@
 ---
-title: 'Arduino App Lab CLI: Manage Apps from the Command Line'
+title: 'Arduino App CLI: Manage Apps from the Command Line'
 description: Learn how to use the Arduino App Lab CLI, the command line interface for launching Apps on the UNO Q board.
 author: Karl Söderby
 tags: [UNO Q, Linux, CLI]
@@ -172,13 +172,38 @@ This will list all available Apps (including examples), and their status:
 
 ## Set Board Name
 
-To set a board name using the `arduino-app-cli`, we can use the `set-name` command. Note that this requires additional permissions, so we need to use `sudo`.
+To set a board name using the `arduino-app-cli`, we can use the `set-name` command.
 
 ```sh
-sudo arduino-app-cli board set-name "my-board"
+arduino-app-cli board set-name "my-board"
 ```
 
 This will change the name of the board, which will take effect after resetting the board.
+
+## System configuration and updates
+
+The `system` command allows you to manage system configuration and updates your board.
+
+To check for updates, run:
+
+```sh
+arduino-app-cli system update
+```
+This will prompt you to install any available updates.
+
+To enable or disable the network mode, use:
+
+```sh
+arduino-app-cli system network enable/disable
+```
+
+Network mode will enable ssh and allow to connect to the board over the network.
+
+Finally, you can gain back some storage space by cleaning up unused containers and images by running:
+
+```sh
+arduino-app-cli system cleanup
+```
 
 ## Bricks
 
