@@ -1864,13 +1864,13 @@ Now you can open the Arduino Lab for MicroPython, connect Alvik and open the exa
 Understanding Alvik's dimensions and mechanical details is key for designing custom components and ensuring it works well with other hardware. This information is here to help you easily create and adapt Alvik for your specific projects and needs.
 
 - **Front**
-![Alvik's front side dimensions](assets/Alvik_Docs_Dimensions_Front.jpg)
+![Alvik's Front Side Dimensions](assets/AlvikMecFront_cleaned.png)
 - **Side**
-![Alvik's side side dimensions](assets/Alvik_Docs_Dimensions_Side.jpg)
+![Alvik's Side Dimensions](assets/AlvikMecSides_cleaned.png)
 - **Back**
-![Alvik's back side dimensions 1/2](assets/Alvik_Docs_Dimensions_Back_02.jpg) ![Alvik's back side dimensions 2/2](assets/Alvik_Docs_Dimensions_Back_01.jpg)
+![Alvik's Back Side Dimensions](assets/AlvikMecBack_cleaned.png)
 - **Top**
-![Alvik's top side dimensions 1/2](assets/Alvik_Docs_Dimensions_Top_01.jpg) ![Alvik's top side dimensions 2/2](assets/Alvik_Docs_Dimensions_Top_02.jpg)
+![Alvik's Top Side Dimensions](assets/AlvikMecTop_cleaned.png)
 - **Bottom**
 ![Alvik's bottom side dimensions](assets/Alvik_Docs_Dimensions_Bottom.jpg)
 
