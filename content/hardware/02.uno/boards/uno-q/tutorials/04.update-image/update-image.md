@@ -126,20 +126,15 @@ To prepare the hardware for flashing, follow the instructions below:
 
     ![Short the two pins](assets/flash-uno-q.png)
 
-3. Do **not** connect the board to the computer yet. This will need to be timed in the next step.
-
 ## Flash Image to the Board
 
 In this step, we will upload the new image to the board using the Arduino Flasher CLI.
 
-1. Open a terminal and navigate to the directory where you unzipped the Arduino Flasher CLI (normally `/Downloads`).
-2. Type the following command in the terminal: `./arduino-flasher-cli flash latest` **but do not press Enter yet**
-3. **Connect the board to the computer**, and press **Enter** to run the command **during the boot animations** on the LED matrix (immediately after plugging in). You only need the jumper to force recovery at plug-in; **you may remove it after you run the command**.
+1. Connect the board to your computer, using a USB-C® type cable.
+2. Open a terminal and navigate to the directory where you unzipped the Arduino Flasher CLI (normally `cd /Downloads`).
+3. Run the following command in the terminal: `./arduino-flasher-cli flash latest`.
 4. A download sequence will begin (the image is >1 GB). Once the download is complete, it will flash the board with the new image. **Please note:** this will take several minutes. Do **not** disconnect the USB cable during this process.
-5. Once flashing completes and the tool reports success, **power-cycle** the board (unplug and re-plug USB) so it boots the new OS. (Ensure the jumper is removed before the power-cycle.)
-
-***It is important to run the flashing command ONLY when the board is booting up; it does not work once the OS has finished booting.***
-
+5. Once flashing completes and the tool reports success, **power-cycle** the board (unplug and re-plug USB) so it boots the new OS.
 
 ## Troubleshooting
 
