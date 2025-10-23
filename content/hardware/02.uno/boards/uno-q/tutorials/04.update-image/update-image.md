@@ -25,13 +25,13 @@ However, if we want to hard-reset the board and perform a fresh installation, it
 
 To re-flash the board, we will use the **Arduino Flasher CLI** tool:
 
-- Download the [Arduino Flasher CLI](https://www.arduino.cc/en/software/)
+- Download the [Arduino Flasher CLI](https://www.arduino.cc/en/software/#flasher-tool)
 
 ***Note that this tool will download an image with a size that exceeds 1 GB. A stable Internet connection is recommended.***
 
 ## Download & Install CLI Tool
 
-1. Download the [Arduino Flasher CLI](https://www.arduino.cc/en/software/) for your OS (MacOS / Linux / Windows)
+1. Download the [Arduino Flasher CLI](https://www.arduino.cc/en/software/#flasher-tool) for your OS (MacOS / Linux / Windows)
 2. Unzip the downloaded file, (you will receive a executable binary named `arduino-flasher-cli`)
 
 ### Verify Tool Is Installed
