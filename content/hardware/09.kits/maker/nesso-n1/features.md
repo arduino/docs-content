@@ -7,7 +7,7 @@ Powered by M5Stack, this sleek, compact device delivers power, versatility, and 
 <FeatureList>
 
 <Feature title="Multi-Protocol Connectivity" image="wifi">
-Seamlessly connect your projects with multiple protocols, including Wi-Fi® 6, Bluetooth® 5, 802.15.4 (Thread/Zigbee), and LoRa®, ensuring versatile and reliable communication for any IoT application.
+Seamlessly connect your projects with multiple protocols, including Wi-Fi® 6, Bluetooth® LE 5, 802.15.4 (Thread/Zigbee), and LoRa®, ensuring versatile and reliable communication for any IoT application.
 </Feature>
 
 <Feature title="Interactive Touch Display" image="led">
