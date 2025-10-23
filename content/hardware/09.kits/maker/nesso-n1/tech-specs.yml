@@ -1,0 +1,46 @@
+Board:
+  Name: Arduino Nesso N1
+  SKU: TPX00227
+
+Microcontroller:
+  SoC: ESP32-C6
+  Architecture: Single-core 32-bit RISC-V
+
+Wireless Communication:
+  WiFi: 2.4 GHz Wi-Fi® 6 (802.11ax)
+  Bluetooth: Bluetooth® 5, Bluetooth® Low Energy
+  802_15_4: Thread / Zigbee
+  LoRa: SX1262 module (850-960 MHz)
+
+Memory:
+  Flash: 16 MB (External)
+  SRAM: 512 kB (Internal)
+
+Power:
+  Input Voltage: 5 V (via USB-C®)
+  Power Source: USB-C® or built-in battery
+  Battery: 200 mAh LiPo (rechargeable)
+  Power Management: AW32001 (Power Path / Charging)
+  Battery Monitoring: BQ27220 (Fuel Gauge)
+
+Interfaces:
+  USB: 1x USB-C® (Programming / Power)
+  Grove: 1x
+  Qwiic: 1x
+  Expansion Port: 1x 8-pin (M5StickC HAT compatible)
+
+Onboard Peripherals:
+  Display: 1.14" color touchscreen
+  Display Resolution: 135 x 240 pixels
+  IMU: BMI270 (6-axis)
+  Infrared: 1x IR transmitter
+  Audio: 1x Buzzer
+  User Buttons: 3x Programmable buttons
+
+Clock Speed:
+  ESP32-C6: up to 160 MHz
+
+Dimensions:
+  Width: 29.25 mm
+  Length: 83 mm
+  Height: 22 mm
