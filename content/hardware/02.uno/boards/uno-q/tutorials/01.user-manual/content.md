@@ -1251,13 +1251,13 @@ If you encounter any issues or have questions while working with the Arduino UNO
 
 Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the UNO Q. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
-- [UNO Q Help Center page](https://support.arduino.cc/hc/en-us/sections/)
+- [UNO Q Help Center page](https://support.arduino.cc/hc/en-us)
 
 ### Forum
 
 Join our community forum to connect with other UNO Q users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the UNO Q.
 
-- [UNO Q category in the Arduino Forum](https://forum.arduino.cc/)
+- [UNO Q category in the Arduino Forum](https://forum.arduino.cc/c/official-hardware/uno-family/uno-q/222)
 
 ### Contact Us
 
