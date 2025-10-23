@@ -138,7 +138,7 @@ In this step, we will upload the new image to the board using the Arduino Flashe
 
 The steps above are summarized in the graphic below:
 
-![Flashing the UNO Q](assets/flashing-tool.gif)
+![Flashing the UNO Q](assets/flashing-tool-2.gif)
 
 ## Troubleshooting
 
