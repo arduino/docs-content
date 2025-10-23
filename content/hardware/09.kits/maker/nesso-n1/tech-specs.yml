@@ -1,51 +1,51 @@
 Board:
-  Name: Arduino Nesso N1
-  SKU: TPX00227
+  Name: "Arduino Nesso N1"
+  SKU: "TPX00227"
 
 Microcontroller:
-  SoC: ESP32-C6
-  Architecture: Single-core 32-bit RISC-V
-  Clock Speed: up to 160 MHz
+  SoC: "ESP32-C6"
+  Architecture: "Single-core 32-bit RISC-V"
+  Clock Speed: "up to 160 MHz"
 
 Wireless Communication:
-  Wi-Fi: 2.4 GHz Wi-Fi® 6 (802.11ax)   
-  Bluetooth: Bluetooth® LE 5
-  802.15.4: Thread / Zigbee
-  LoRa: SX1262 module (850–960 MHz)
+  Wi-Fi: "2.4 GHz Wi-Fi® 6 (802.11ax)"
+  Bluetooth: "Bluetooth® LE 5"
+  "802.15.4": "Thread / Zigbee"
+  LoRa: "SX1262 module (850–960 MHz)"
 
 Memory:
-  Flash: 16 MB (External)
-  SRAM: 512 kB (Internal)
+  Flash: "16 MB (External)"
+  SRAM: "512 kB (Internal)"
 
 Power:
-  Input Voltage: 5 V (via USB-C®)
-  Power Source: USB-C® or built-in battery
-  Battery: 200 mAh LiPo (rechargeable)
-  Power Management: AW32001 (power path / charging)
-  Battery Monitoring: BQ27220 (fuel gauge)
-  Power Supervisor: PMS150G (handles power key & rails: SW_PWR, MPWR_EN, PWROFF_PLUSE, SYS_RST)
+  Input Voltage: "5 V (via USB-C®)"
+  Power Source: "USB-C® or built-in battery"
+  Battery: "200 mAh LiPo (rechargeable)"
+  Power Management: "AW32001 (power path / charging)"
+  Battery Monitoring: "BQ27220 (fuel gauge)"
+  Power Supervisor: "PMS150G (handles power key & rails: SW_PWR, MPWR_EN, PWROFF_PLUSE, SYS_RST)"
 
 Interfaces:
-  USB: 1× USB-C® (Programming / Power)
-  Grove: 1× 
-  Qwiic: 1× 
-  Expansion Port: 1× 8-pin (M5StickC HAT compatible)
+  USB: "1× USB-C® (Programming / Power)"
+  Grove: "1×"
+  Qwiic: "1×"
+  Expansion Port: "1× 8-pin (M5StickC HAT compatible)"
 
 Onboard Peripherals:
-  Display: 1.14" color touchscreen, 135×240 px (ST7789P3 over SPI; FT6336U touch)   
-  IMU: BMI270 (6-axis)
-  Infrared: 1× IR transmitter (GPIO 9) 
-  Audio: 1× Buzzer (GPIO 11) 
-  User Buttons: 2× programmable (BTN1/BTN2 via I²C expander) + 1× Power button (system-controlled)
-  Indicator LEDs: Green + Blue (status/boot indications)
+  Display: "1.14\" color touchscreen, 135×240 px (ST7789P3 over SPI; FT6336U touch)"
+  IMU: "BMI270 (6-axis)"
+  Infrared: "1× IR transmitter (GPIO 9)"
+  Audio: "1× Buzzer (GPIO 11)"
+  User Buttons: "2× programmable (BTN1/BTN2 via I²C expander) + 1× Power button (system-controlled)"
+  Indicator LEDs: "Green + Blue (status/boot indications)"
 
-Operating Temperature:
-  0–40 °C
+Operating Temperature: "0–40 °C"
 
 Antennas:
-  ESP32-C6: on-board FPC antenna; LoRa: detachable external antenna
+  ESP32-C6: "on-board FPC antenna"
+  LoRa: "detachable external antenna"
 
 Dimensions:
-  Width: 29.25 mm
-  Length: 83 mm
-  Height: 22 mm   
+  Width: "29.25 mm"
+  Length: "83 mm"
+  Height: "22 mm"
