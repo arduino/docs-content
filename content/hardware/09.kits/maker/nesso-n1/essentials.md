@@ -1,13 +1,11 @@
 ---
 productsLibrariesMap:
-  - IRremote
   - m5gfx
   - nimble-arduino
   - arduino-modulino
   - radiolib
   - wire
   - arduino_bmi270_bmm150
-  - irremoteesp8266
 ---
 
 <EssentialsColumn title="Suggested Libraries">

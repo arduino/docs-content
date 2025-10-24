@@ -4,46 +4,45 @@ Board:
 
 Microcontroller:
   SoC: "ESP32-C6"
-  Architecture: "Single-core 32-bit RISC-V"
+  Architecture: "Single-core 32-bit RISC-V CPU" 
   Clock Speed: "up to 160 MHz"
 
 Wireless Communication:
-  Wi-Fi: "2.4 GHz Wi-Fi® 6 (802.11ax)"
-  Bluetooth: "Bluetooth® LE 5"
-  "802.15.4": "Thread / Zigbee"
-  LoRa: "SX1262 module (850–960 MHz)"
+  Wi-Fi: "2.4 GHz Wi-Fi® 6"
+  Bluetooth: "Bluetooth® LE 5" 
+  "802.15.4": "Thread / Zigbee (Supports Matter Thread endpoint devices)" 
+  LoRa: "SX1262 module (850–960 MHz)" 
 
 Memory:
-  Flash: "16 MB (External)"
-  SRAM: "512 kB (Internal)"
+  Flash: "16 MB (External)" 
+  SRAM: "256 kB (Internal)"
 
 Power:
   Input Voltage: "5 V (via USB-C®)"
-  Power Source: "USB-C® or built-in battery"
+  Power Source: "USB DC-5V input or built-in battery power"
   Battery: "200 mAh LiPo (rechargeable)"
-  Power Management: "AW32001 (power path / charging)"
-  Battery Monitoring: "BQ27220 (fuel gauge)"
-  Power Supervisor: "PMS150G (handles power key & rails: SW_PWR, MPWR_EN, PWROFF_PLUSE, SYS_RST)"
+  Power Management: "AW32001 (power path management, charge control, and over-current & over-voltage protection)"
+  Battery Monitoring: "BQ27220 (real-time monitoring of battery capacity, voltage, and current)"
 
 Interfaces:
   USB: "1× USB-C® (Programming / Power)"
-  Grove: "1×"
-  Qwiic: "1×"
+  Grove: "1× Standard Grove interface"
+  Qwiic: "1× Qwiic interface standard"
   Expansion Port: "1× 8-pin (M5StickC HAT compatible)"
 
 Onboard Peripherals:
-  Display: "1.14\" color touchscreen, 135×240 px (ST7789P3 over SPI; FT6336U touch)"
-  IMU: "BMI270 (6-axis)"
-  Infrared: "1× IR transmitter (GPIO 9)"
-  Audio: "1× Buzzer (GPIO 11)"
-  User Buttons: "2× programmable (BTN1/BTN2 via I²C expander) + 1× Power button (system-controlled)"
-  Indicator LEDs: "Green + Blue (status/boot indications)"
+  Display: "1.14\" color touchscreen, 135×240 px, ST7789P3 display; FT6336U touch"
+  IMU: "BMI270 (6-axis)" 
+  Infrared: "1× IR transmitter (IR LED, connected to GPIO9 pin)" 
+  Audio: "1× Buzzer (connected to GPIO11 pin)" 
+  User Buttons: "3 total: 2× programmable (KEY1/KEY2) + 1× Power/Reset/Bootloader button"
+  User LEDs: "1× Green programmable (LED_BUILTIN) + 1× Blue (status indications)"
 
 Operating Temperature: "0–40 °C"
 
 Antennas:
-  ESP32-C6: "on-board FPC antenna"
-  LoRa: "detachable external antenna"
+  ESP32-C6: "on-board FPC antenna (dedicated)"
+  LoRa: "detachable external antenna" 
 
 Dimensions:
   Width: "29.25 mm"
