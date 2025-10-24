@@ -1,5 +1,6 @@
 ---
 productsLibrariesMap:
+  - IRremote
   - m5gfx
   - nimble-arduino
   - arduino-modulino

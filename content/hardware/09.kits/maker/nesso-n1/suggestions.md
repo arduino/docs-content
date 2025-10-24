@@ -1,7 +1,4 @@
 <EssentialsColumn title="Tutorials for Nesso N1">
-  <!-- <EssentialElement title="User Manual" type="tutorial" link="/tutorials/nano-r4/user-manual">
-    A technical reference to the Nano R4 board.
-  </EssentialElement> -->
 
   <EssentialElement title="Arduino Cloud" type="tutorial" link="/arduino-cloud/getting-started-with-the-arduino-iot-cloud">
     Get started with the Arduino Cloud
