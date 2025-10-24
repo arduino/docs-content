@@ -180,9 +180,9 @@ arduino-app-cli board set-name "my-board"
 
 This will change the name of the board, which will take effect after resetting the board.
 
-## System configuration and updates
+## System Configuration and Updates
 
-The `system` command allows you to manage system configuration and updates your board.
+The `system` command allows you to manage system configurations and updates on your board.
 
 To check for updates, run:
 
@@ -197,7 +197,7 @@ To enable or disable the network mode, use:
 arduino-app-cli system network enable/disable
 ```
 
-Network mode will enable ssh and allow to connect to the board over the network.
+Network mode will enable SSH and allows clients to connect to the board over a local network.
 
 Finally, you can gain back some storage space by cleaning up unused containers and images by running:
 
