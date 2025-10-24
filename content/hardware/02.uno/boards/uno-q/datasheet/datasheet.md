@@ -630,7 +630,7 @@ Use a 5 V / 3 A USB-C source and cable, or power from the 5 V or VIN pins as spe
 
 <p style="text-align: justify;">The board dimension measures 68.58 mm × 53.34 mm, with bottom-side parts kept below 2 mm so the board can stack onto carrier bases. The outline and hole pattern follows and are compatible with the UNO form factor.</p>
 
-![](assets/mechanicalDrawing_ref.png)
+![](assets/mechanical_drawing_unoq.svg)
 
 <div style="page-break-after: always;"></div>
 
