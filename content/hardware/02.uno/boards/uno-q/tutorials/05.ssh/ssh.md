@@ -38,13 +38,13 @@ SSH is a network protocol, not a tool itself. There are many different SSH tools
 
 macOS features a built-in `ssh` tool based on [OpenSSH](https://www.openssh.com/), and **should work out of the box**. Check if the tool is present on your machine by running the following in a terminal:
 
-```sh
+```
 ssh -V
 ```
 
 You should see something like:
 
-```sh
+```
 OpenSSH_9.9p2, LibreSSL 3.3.6
 ```
 
@@ -56,13 +56,13 @@ Which means it is working properly. ✅
 
 Later versions of Windows (10+) include SSH clients as well, with no requirement to install additional tools. To verify tools are installed, open a terminal on your Windows machine, and type:
 
-```sh
+```
 ssh -V
 ```
 
 Which should return something like:
 
-```sh
+```
 OpenSSH_for_Windows_x.x, LibreSSL 3.x.x
 ```
 
@@ -74,13 +74,13 @@ This means it is working properly. ✅
 
 Many Linux OS include SSH clients, with no requirement to install additional tools. To verify tools are installed, open a terminal on your Ubuntu machine, and type:
 
-```sh
+```
 ssh -V
 ```
 
 Which should return something like:
 
-```sh
+```
 OpenSSH_x.x Ubuntu-3ubuntu.x, OpenSSL x.x.x
 ```
 
@@ -95,7 +95,7 @@ To connect to an UNO Q board via SSH, we only need to know the **board name and 
 1. Open a terminal.
 2. Run the following command:
 
-   ```sh
+   ```
    ssh arduino@<boardname>.local #replace <boardname> with your board name
    ``` 
 
@@ -134,7 +134,7 @@ This is done by specifying a local path on your computer (e.g., `/User/documents
 
 To **push** a file, use the command below:
 
-```sh
+```
 scp test-transfer.txt arduino@<boardname>.local:/home/arduino/
 ```
 
@@ -144,7 +144,7 @@ This will transfer the `test-transfer.txt` file in the same directory you are ru
 
 To **pull** a file, use the command below:
 
-```sh
+```
 scp arduino@<boardname>.local:/home/arduino/test-transfer.txt ./
 ```
 
