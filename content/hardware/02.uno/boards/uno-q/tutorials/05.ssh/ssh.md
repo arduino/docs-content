@@ -28,7 +28,7 @@ The UNO Q board comes pre-packaged with the Arduino App Lab, which is based on t
 - An SSH client tool installed on the computer (macOS, Windows 10+, Ubuntu has built-in SSH client tools)
 - Access to a local Wi-Fi® network (both computer & board need to be on the same network)
 
-***During the first setup, Wi-Fi® credentials are entered, and the board will automatically enable SSH. Without completing it, it is not possible to access the board via SSH unless activated manually.***
+***During the first setup, Wi-Fi® credentials are entered, and the board will automatically enable SSH. Without completing it, it is not possible to access the board via SSH unless activated manually. This can also be activated by accessing the board using `adb`, and running `arduino-app-cli system network-mode enable` in the board's shell. See more in the [Arduino App CLI documentation](/software/app-lab/tutorials/cli/)***
 
 ## Installing SSH (Local Computer)
 
