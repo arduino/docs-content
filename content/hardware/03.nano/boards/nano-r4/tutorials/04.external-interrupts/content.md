@@ -423,7 +423,8 @@ void loop() {
 
 Even experienced developers fall into these traps when working with interrupts. Understanding these common mistakes will save you hours of debugging:
 
-- **Channel conflicts on the Nano R4 board**: The most frustrating error is when interrupts mysteriously stop working because you have accidentally used two pins on the same channel.The second attachment silently overwrites the first with no warning:
+- **Channel conflicts on the Nano R4 board**: The most frustrating error is when interrupts mysteriously stop working because you have accidentally used two pins on the same channel. The second attachment silently overwrites the first with no warning:
+
 
 ```arduino
 // This creates a silent failure, no error message!
