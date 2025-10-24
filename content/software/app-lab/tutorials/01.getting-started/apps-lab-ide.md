@@ -65,9 +65,16 @@ On Windows, run the `.exe` file from your Downloads folder, and complete the ins
 
 ### Linux
 
-On LinuxOS (Ubuntu based), unzip the downloaded file (`.zip`). Navigate to the folder and run the application.
+On LinuxOS (Ubuntu based), extract the downloaded file (`.tar.gz`). Navigate to the folder and run the application.
 
 ![Linux Installation](assets/linux.png)
+
+After extracting the folder, we recommend moving it to e.g. `/Desktop` or `/Applications`:
+
+```sh
+tar -x -f ArduinoAppLab*.tar.gz 
+mv ArduinoAppLab*/ ~/Desktop
+```
 
 **Note:** that currently you will need `libwebkit2gtk-4.1` installed on your machine to successfully run the Arduino App Lab. Install it by running:
 
