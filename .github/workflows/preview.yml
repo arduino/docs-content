@@ -108,7 +108,7 @@ jobs:
             ${{ runner.os }}-public-gatsby-main
 
       - run: npm install
-      - run: npm run build
+      - run: GATSBY_HF_CDN_URL="" npm run build
 
       - name: Install Netlify
         run: npm install netlify-cli@17.23.2 -g
