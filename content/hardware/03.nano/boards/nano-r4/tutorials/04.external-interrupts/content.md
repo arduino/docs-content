@@ -97,7 +97,8 @@ void loop() {
 }
 ```
 
-The problem becomes clear when you consider timing. If your loop takes 65 milliseconds to complete, a quick button tap of 30 milliseconds will be missed entirely. Even worse, the processor wastes energy checking the button thousands of times when it is not being pressed.
+The problem becomes clear when you consider timing. If your loop takes 65 milliseconds to complete, a quick button tap of 30 milliseconds would be missed entirely. Even worse, the processor wastes energy checking the button thousands of times when it is not being pressed.
+
 
 #### Interrupt Approach
 
