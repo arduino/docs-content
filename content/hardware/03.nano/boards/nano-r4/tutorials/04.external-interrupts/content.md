@@ -68,7 +68,8 @@ Interrupts are ideal in situations where timing matters or where constantly chec
 
 - **Time-critical events**: Capturing fast pulses or edges that last only microseconds. For example, reading a hall effect sensor in a motor spinning at high RPM.
 - **User inputs**: Responding immediately to button presses without the delay that comes from checking the button state in a busy loop. This ensures responsive user interfaces even when the processor is handling other tasks.
-- **Sensor events**: Detecting threshold crossings, limit switches, or alarm conditions that require immediate attention. A water level sensor triggering an overflow alarm can not wait for the next loop iteration.
+- **Sensor events**: Detecting threshold crossings, limit switches, or alarm conditions that require immediate attention. A water level sensor triggering an overflow alarm cannot wait for the next loop iteration.
+
 - **Communication**: Handling incoming data packets on protocols like I2C or SPI where timing windows are strict and data could be lost if not read quickly.
 - **Counting**: Tallying pulses from rotary encoders, flow meters, or frequency counters where missing even one pulse would compromise accuracy.
 
