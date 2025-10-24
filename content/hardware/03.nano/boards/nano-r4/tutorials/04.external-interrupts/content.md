@@ -205,7 +205,8 @@ Load the following example sketch to your Nano R4 board:
 /**
 Basic Interrupt Example for the Arduino Nano R4 Board
 Name: nano_r4_interrupt_basic.ino
-Purpose: Toggles LED when button pressed using interruptsP
+Purpose: Toggles LED when button pressed using interrupts
+
 
 @author Arduino Product Experience Team
 @version 1.0 01/06/25
