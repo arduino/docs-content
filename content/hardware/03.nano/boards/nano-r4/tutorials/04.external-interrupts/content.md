@@ -59,7 +59,8 @@ The interrupt process follows these steps:
 3. A special function called an Interrupt Service Routine (ISR) executes
 4. The processor restores its state and continues where it left off
 
-This entire sequence completes in just a few microseconds, so fast that your main program appears to run continuously while still catching every event. It is this speed that makes interrupts perfect for capturing brief signals that would otherwise be missed.
+This entire sequence completes in just a few microseconds. It's so fast that your main program appears to run continuously while still catching every event. It is this speed that makes interrupts perfect for capturing brief signals that would otherwise be missed.
+
 
 ### When to Use Interrupts
 
