@@ -392,7 +392,8 @@ This example demonstrates several key concepts when working with multiple interr
 Writing effective Interrupt Service Routines requires discipline. These guidelines will help you avoid the most common pitfalls:
 
 - **Keep ISRs extremely short**. Your ISR should execute in microseconds, not milliseconds. The golden rule is to do the absolute minimum work necessary (typically just setting a flag or incrementing a counter). Complex operations belong in your main loop where they do not block other interrupts.
-- **Always use `volatile` for shared variables**. Any variable modified in an ISR and read in your main code (or vice versa) must be declared `volatile`. This prevents the compiler from caching the variable in a register where changes are not be visible between the ISR and main code.
+- **Always use `volatile` for shared variables**. Any variable modified in an ISR and read in your main code (or vice versa) must be declared `volatile`. This prevents the compiler from caching the variable in a register where changes would not be visible between the ISR and main code.
+
 - **Never call blocking functions**: Functions like `delay()`, `Serial.print()`, `millis()`, or anything that waits for hardware are forbidden in ISRs. These functions often rely on interrupts themselves and calling them from an ISR can cause deadlocks or crashes.
 - **Protect multi-byte shared data**. When your main code needs to read a multi-byte variable that an ISR modifies (like `long` or `float`), you must temporarily disable interrupts to prevent the value from changing mid-read. 
 
