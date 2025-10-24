@@ -74,6 +74,19 @@ To verify the tool is installed, run `adb version`.
 
 5. You are now able to run commands via the terminal on your board! To exit from the terminal, simply type `exit`.
 
+## Connect via SSH
+
+***Note: to use SSH, the [first setup]() needs to be completed. This is done by connecting your board via USB, open the Arduino App Lab, and select the USB option. Here you will need to give your board a name, a new password as well as providing Wi-Fi® credentials. SSH will be automatically configured during this setup.***
+
+1. Open a terminal on your machine.
+2. Run `ssh arduino@<boardname>.local`
+3. Provide the password for the board.
+4. We can now interact with the board's shell remotely! ✅
+
+![Connect via SSH](assets/ssh-macos.png)
+
+- A more detailed tutorial on connecting to the UNO Q via SSH is available [here](/tutorials/uno-q/ssh).
+
 ## Using Arduino App CLI
 
 With the `arduino-app-cli` tool, you can for example:
