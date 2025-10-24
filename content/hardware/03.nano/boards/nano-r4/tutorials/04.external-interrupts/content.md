@@ -48,7 +48,8 @@ In this tutorial, you will learn how to use external interrupts on the Nano R4 b
 
 ### What Are Interrupts?
 
-An **interrupt** is **a hardware mechanism that allows external events to pause your program's normal execution and run a special function immediately**. Think of it like your phone ringing while you are reading; you stop reading, answer the call, then return to where you left off.
+An **interrupt** is **a hardware mechanism that allows external events to pause your program's normal execution and run a special function immediately**. Think of it like a phone ringing while you are reading; you stop reading, answer the call, then return to where you left off.
+
 
 The key advantage is that your program does not waste time constantly checking if something happened. Instead, the hardware monitors the pins for you and only interrupts when necessary, making your code both more efficient and more responsive.
 
