@@ -165,8 +165,8 @@ Alvik includes a set of  different sensors listed below, all connected to the ST
 | **Sensor name**              | **Part name** | **Test program name** |
 |------------------------------|---------------|-----------------------|
 | RGB Color detection          | APDS 9660     | read_color_sensor.py  |
-| ToF 8x8 Array - up to 350 cm | LSM6DSOX      | read_tof.py           |
-| IMU - 6 degree               | VL53L7CX      | read_imu.py           |
+| ToF 8x8 Array - up to 350 cm | VL53L7CX      | read_tof.py           |
+| IMU - 6 degree               | LSM6DSOX      | read_imu.py           |
 | 3x Line follower             | custom made   | line_follower.py      |
 | 7x Touch sensor              | AT42QT2120    | read_touch.py         |
 
@@ -1889,3 +1889,4 @@ If you need further assistance, you can find support through the following chann
 - [Arduino Contact Us Form](https://www.arduino.cc/en/contact-us)
 
 For more detailed support, you can also reach out to the Arduino Help Center.
+
