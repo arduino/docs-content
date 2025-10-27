@@ -126,7 +126,7 @@ More details on the `arduino-app-cli` tool can be found in the [Arduino App CLI 
 
 ## File Transfer
 
-To transfer files from your computer to the board, use the `scp` tool. The tool can be used to either **push** or **pull** files to and from the board.
+To transfer files from your computer to the board, use the `scp` tool **from your computer's terminal** (not inside an SSH session on the board). The tool can be used to either **push** or **pull** files and folders to and from the board.
 
 This is done by specifying a local path on your computer (e.g., `/User/documents/file.xx`), and a path on the board (e.g., `/home/arduino/`).
 
@@ -149,6 +149,17 @@ scp arduino@<boardname>.local:/home/arduino/test-transfer.txt ./
 ```
 
 This will pull the file to the directory where you run the command. `./` can be replaced by specifying a path (e.g., `/User/documents/`).
+
+### Push/Pull Folders
+
+To **push** a folder, use `-rp` to copy directories **r**ecursively, and **p**reserve times/permissions:
+
+`scp -rp "my-folder" arduino@<board-name>.local:/home/arduino/ArduinoApps/`
+
+To **pull** a folder from the board to your current directory:
+
+`scp -rp arduino@<board-name>.local:/home/arduino/ArduinoApps/my-folder ./`
+
 
 ## Troubleshooting
 
