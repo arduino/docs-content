@@ -5,15 +5,15 @@ tags: [UNO Q, Arduino Cloud, IoT]
 author: Karl Söderby
 ---
 
-The [Arduino® UNO Q](https://store.arduino.cc/products/uno-q) is supported by the [Arduino Cloud](https://app.arduino.cc/), allowing it to send and receive data over the Internet. Note that the UNO Q requires the [Arduino App Lab](https://docs.arduino.cc/software/app-lab/) to be programmed, which includes the ready made example that this tutorial is based on. 
+The [Arduino® UNO Q](https://store.arduino.cc/products/uno-q) is supported by the [Arduino Cloud](https://app.arduino.cc/), allowing it to send and receive data over the Internet. Note that the UNO Q requires the [Arduino App Lab](https://docs.arduino.cc/software/app-lab/) to be programmed, which includes the ready-made example that this tutorial is based on. 
 
-The communication with Arduino Cloud is enabled by the UNO Q's microprocessor (MPU) & Wi-Fi® module, and is programmed using Python. Data to and from the Microcontroller (MCU) is handled via the [Bridge](/software/app-lab/tutorials/getting-started/#bridge-tool) tool.
+The communication with Arduino Cloud is enabled by the UNO Q's microprocessor (MPU) and Wi-Fi® module, and is programmed using Python. Data to and from the Microcontroller (MCU) is handled via the [Bridge](/software/app-lab/tutorials/getting-started/#bridge-tool) tool.
 
 ***Currently the UNO Q is set up using the "Manual Device" flow in the Arduino Cloud, using the `SECRET_KEY` and `DEVICE_ID` variables in a Python script running on the board.***
 
 ## Goals
 
-In this tutorial you will learn:
+In this tutorial, you will learn:
 - How to set up the Arduino Cloud.
 - How to create a manual device (representing the UNO Q).
 - How to turn on an LED on the UNO Q from a dashboard in the Arduino Cloud.
@@ -44,13 +44,13 @@ To set this up, follow the instructions below:
 
 ## Program the UNO Q (Cloud Example)
 
-To program the UNO Q, we need to use the Arduino App Lab. The example we are going to use are included in the Arduino App Lab.
+To program the UNO Q, we need to use the Arduino App Lab. The example we are going to use is included in the Arduino App Lab.
 
 ***If you are new to the UNO Q, you can check out the [Getting Started with Arduino App Lab](https://docs.arduino.cc/software/app-lab/tutorials/getting-started/) guide***
 
 1. Open the Arduino App Lab and connect (using USB / network option).
 2. Open the **"Examples"** tab in the left side menu. Here you will find the **"Blinking LED from Arduino Cloud"** example.
-3. Duplicate the example, by clicking on **"Copy and edit app"** button in the top right corner
+3. Duplicate the example by clicking on **"Copy and edit app"** button in the top right corner
    ![Duplicate example](assets/cloud-blink-duplicate.png)
 
 4. On the App page, click on the **"Arduino Cloud"** Brick, then click on the **"Brick Configuration"** button.
