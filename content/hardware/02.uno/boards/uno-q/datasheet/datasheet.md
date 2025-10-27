@@ -337,7 +337,7 @@ JMISC handles both domains: 1.8 V MPU lines sit alongside 3.3 V MCU signals (e.g
 |      57 | +1V8 (IN)       | -               | Power      | 1.8 V rail in             |
 |      58 | GND             | -               | Power      | Ground                    |
 |      59 | VCOIN (IN)      | -               | Power      | System voltage (PMIC RTC) |
-|      60 | VBAT (IN)       | -               | Power      | System voltage (MCU RTC) |
+|      60 | VBAT (IN)       | -               | Power      | System voltage (MCU RTC)  |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   Note: SoC GPIO lines on JMISC are interface-dedicated (not maker GPIO). MCU are at 3.3 V logic, MPU are at 1.8 V logic, and audio/mic are analog.
