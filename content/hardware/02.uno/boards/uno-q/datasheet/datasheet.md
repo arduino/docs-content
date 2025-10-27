@@ -181,7 +181,7 @@ The PMIC's L15A LDO provides the 1.8 V rail (<code>VREG_L15A_1P8V</code>) and po
 From <code>5V_SYS</code>, a buck generates the <code>PWR_3P8V (3.8 V)</code> reserved for system design and future features.
 A second buck generates <code>PWR_3P3V</code> for the STM32U585, the ANX7625 (3.3 V rails), the Wi-Fi® 3.3 V domain, and the 3.3 V header pins.</p>
 
-<p style="text-align: justify;">A <em>protected P-channel MOSFET</em> (<code>Q2801</code>) can source USB <code>VBUS</code> from <code>5V_SYS</code> when the board operates as a USB host/OTG. The <code>VCOIN</code> powers only the real-time clock of the PMIC and does not power the Linux or MCU domains.The <code>VBAT</code> powers the real-time clock of the <code>MCU</code>. </p>
+<p style="text-align: justify;">A <em>protected P-channel MOSFET</em> (<code>Q2801</code>) can source USB <code>VBUS</code> from <code>5V_SYS</code> when the board operates as a USB host/OTG. The <code>VCOIN</code> powers only the real-time clock of the PMIC and does not power the Linux or MCU domains. The <code>VBAT</code> powers the real-time clock of the <code>MCU</code>. </p>
 
 ![Arduino UNO Q Power Tree](assets/ABX00162-ABX00173_power_tree.png)
 
@@ -733,7 +733,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 # Document Revision History
 
-|  **Date**  | **Revision** | **Changes**   |
-|:----------:|:------------:|---------------|
-| 01/10/2025 |      1       | First release |
+|  **Date**  | **Revision** | **Changes**                                     |
+|:----------:|:------------:|-------------------------------------------------|
+| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update  |
+| 01/10/2025 |      1       | First release                                   |
 
