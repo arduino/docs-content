@@ -52,6 +52,11 @@ You should see something like:
 
 This means it is working, and we can proceed to [flashing the board](#flash-image-to-the-board).
 
+**Important Note:** Do not run the file directly from Finder, you will receive a prompt window akin to:
+
+![Error running ](assets/error-finder.png)
+
+As the tool is ran from the command line with specific flags (explained further below), there is no reason to run it from Finder.
 
 #### Windows
 
