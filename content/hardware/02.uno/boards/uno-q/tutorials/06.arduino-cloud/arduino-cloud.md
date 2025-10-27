@@ -7,7 +7,7 @@ author: Karl Söderby
 
 The [Arduino® UNO Q](https://store.arduino.cc/products/uno-q) is supported by the [Arduino Cloud](https://app.arduino.cc/), allowing it to send and receive data over the Internet. Note that the UNO Q requires the [Arduino App Lab](https://docs.arduino.cc/software/app-lab/) to be programmed, which includes the ready made example that this tutorial is based on. 
 
-The communication with Arduino Cloud is enabled by the UNO Q's microprocessor & Wi-Fi® module, and is programmed using Python.
+The communication with Arduino Cloud is enabled by the UNO Q's microprocessor (MPU) & Wi-Fi® module, and is programmed using Python. Data to and from the Microcontroller (MCU) is handled via the [Bridge](/software/app-lab/tutorials/getting-started/#bridge-tool) tool.
 
 ***Currently the UNO Q is set up using the "Manual Device" flow in the Arduino Cloud, using the `SECRET_KEY` and `DEVICE_ID` variables in a Python script running on the board.***
 
@@ -32,7 +32,6 @@ First, we need to set up the Arduino Cloud part, including:
 - Creating a dashboard and a widget
 
 To set this up, follow the instructions below:
-### Setting Up Arduino Cloud
 
 1. Navigate to the [Arduino Cloud](https://app.arduino.cc/) page and log in / create an account.
 2. Go to the [devices](https://app.arduino.cc/devices) page and create a device, selecting the "manual device" type. Follow the instructions and take note of the **device_id** and **secret_key** provided in the setup. 
@@ -79,10 +78,10 @@ The flow of the App is:
 
 ## Summary
 
-In this tutorial, you learned how to connect the UNO Q with the Arduino Cloud. This connection is done by using the **Arduino Cloud Brick** in the Python script running on the UNO Q's microprocessor. 
+In this tutorial, you learned how to connect the UNO Q with the Arduino Cloud. This connection is done by using the **Arduino Cloud Brick** in the Python script running on the UNO Q's MPU. 
 
-The data that the Python script receives is then sent to the microcontroller, which turns on the built-in LED on the board. For this, the **Bridge** tool is used.
+The data that the Python script receives is then sent to the MCU, which turns on the built-in LED on the board. For this, the [Bridge](/software/app-lab/tutorials/getting-started/#bridge-tool) tool is used.
 
 You can read more about the Arduino Cloud & UNO Q through the links below:
-- [Arduino Cloud documentation](https://docs.arduino.cc/arduino-cloud/)
-- [Arduino UNO Q documentation](https://docs.arduino.cc/hardware/uno-q/)
+- [Arduino Cloud documentation](/arduino-cloud/)
+- [Arduino UNO Q documentation](/hardware/uno-q/)
