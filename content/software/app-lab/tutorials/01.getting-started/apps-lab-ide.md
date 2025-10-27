@@ -40,6 +40,8 @@ The board is automatically updated when a new update is released. To download an
 
 ## Install & Set Up Arduino App Lab
 
+***Instructions for your specific OS is available down below.***
+
 1. Navigate to the [Arduino Software Page](https://www.arduino.cc/en/software/#app-lab-section) and download the Arduino App Lab for your OS.
 2. Download and run the installation file.
 3. Launch the Arduino App Lab.
@@ -48,6 +50,44 @@ The board is automatically updated when a new update is released. To download an
 After launching the Arduino App Lab and connecting the UNO Q, you will be prompted inside the editor to configure your board's Wi-Fi®, as well as setting a name & password for the board.
 
 ***You will also be prompted to login to your arduino.cc account. This is optional, but you will need to be logged in to use some of the features of the Arduino App Lab.***
+
+### MacOS
+
+On MacOS, run the `.dmg` file from your Downloads folder, and move it to your Applications folder.
+
+![MacOS installation](assets/macos.png)
+
+### Windows
+
+On Windows, run the `.exe` file from your Downloads folder, and complete the installation.
+
+![Windows Installation](assets/windows.png)
+
+### Linux
+
+On LinuxOS (Ubuntu based), extract the downloaded file (`.tar.gz`). Navigate to the folder and run the application.
+
+![Linux Installation](assets/linux.png)
+
+After extracting the folder, we recommend moving it to e.g. `$HOME/Desktop` or `$HOME/Applications`:
+
+```sh
+tar -xf ArduinoAppLab*.tar.gz 
+mv ArduinoAppLab*/ ~/Desktop
+```
+
+**Note:** you will need `libwebkit2gtk-4.1` installed on your machine to successfully run the Arduino App Lab. Install it by running:
+
+- **Debian / Ubuntu:**
+```sh
+sudo apt install libwebkit2gtk-4.1-0
+```
+
+- **Arch:**
+
+```sh
+sudo pacman -S webkit2gtk-4.1
+```
 
 ## Board Modes
 
