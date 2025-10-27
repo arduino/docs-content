@@ -52,6 +52,7 @@ Which means it is working properly. ✅
 
 ***If you are running an outdated/custom system that for some reason does not feature SSH, you can look into installing [OpenSSH](https://formulae.brew.sh/formula/openssh) and [LibreSSL](https://formulae.brew.sh/formula/libressl) manually via, e.g., Brew.***
 
+
 ### Windows
 
 Later versions of Windows (10+) include SSH clients as well, with no requirement to install additional tools. To verify tools are installed, open a terminal on your Windows machine, and type:
@@ -109,6 +110,22 @@ See below how it should look when you have successfully accessed the board's she
 ### macOS Confirmation
 
 ![macOS SSH access](assets/ssh-macos.png)
+
+#### MacOS MDNS Issues
+
+If the connection fails with the following error:
+- `ssh: connect to host <boardname>.local port 22: Connection refused`
+
+It might be a mDNS issue with your local network. To work around this, there are some alternatives to try:
+
+**Connect directly via the IP address:** The board's IP address can be found through:
+- Arduino IDE 2 (needs the Zephyr core installed)
+- Arduino CLI, by running `arduino-cli board list`
+- Running `hostname -I` while in the board's shell. You can access the board via `adb shell` ([instructions](/software/app-lab/tutorials/cli/#connect-via-adb)), or [using the board in SBC mode](/tutorials/uno-q/single-board-computer/).
+
+After obtaining the IP address, you should be able to connect via SSH using `ssh arduino@10.0.20.138`.
+
+***If you have previously connected to a board with the same IP address, but have re-flashed the board, you may need to remove the old key from `~/.ssh/known_hosts`. This can be done by editing the `known_hosts` file or by running `ssh-keygen -R <board ip address>`.***
 
 ### Windows Confirmation
 
