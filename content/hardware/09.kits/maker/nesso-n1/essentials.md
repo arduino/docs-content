@@ -6,6 +6,7 @@ productsLibrariesMap:
   - radiolib
   - wire
   - arduino_bmi270_bmm150
+  - irremote
 ---
 
 <EssentialsColumn title="Suggested Libraries">
