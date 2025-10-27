@@ -11,7 +11,7 @@ Wireless Communication:
   Wi-Fi: "2.4 GHz Wi-Fi® 6"
   Bluetooth: "Bluetooth® LE 5" 
   "802.15.4": "Thread / Zigbee (Supports Matter Thread endpoint devices)" 
-  LoRa: "SX1262 module (850–960 MHz)" 
+  LoRa®: "SX1262 module (850–960 MHz)" 
 
 Memory:
   Flash: "16 MB (External)" 
@@ -42,7 +42,7 @@ Operating Temperature: "0–40 °C"
 
 Antennas:
   ESP32-C6: "on-board FPC antenna (dedicated)"
-  LoRa: "detachable external antenna" 
+  LoRa®: "detachable external antenna" 
 
 Dimensions:
   Width: "29.25 mm"
