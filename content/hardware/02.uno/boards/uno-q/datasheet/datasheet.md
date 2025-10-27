@@ -181,7 +181,7 @@ The PMIC's L15A LDO provides the 1.8 V rail (<code>VREG_L15A_1P8V</code>) and po
 From <code>5V_SYS</code>, a buck generates the <code>PWR_3P8V (3.8 V)</code> reserved for system design and future features.
 A second buck generates <code>PWR_3P3V</code> for the STM32U585, the ANX7625 (3.3 V rails), the Wi-Fi® 3.3 V domain, and the 3.3 V header pins.</p>
 
-<p style="text-align: justify;">A <em>protected P-channel MOSFET</em> (<code>Q2801</code>) can source USB <code>VBUS</code> from <code>5V_SYS</code> when the board operates as a USB host/OTG. The <code>VCOIN</code> powers only the real-time clock and does not power the Linux or MCU domains.</p>
+<p style="text-align: justify;">A <em>protected P-channel MOSFET</em> (<code>Q2801</code>) can source USB <code>VBUS</code> from <code>5V_SYS</code> when the board operates as a USB host/OTG. The <code>VCOIN</code> powers only the real-time clock of the PMIC and does not power the Linux or MCU domains.The <code>VBAT</code> powers the real-time clock of the MCU.</code> </p>
 
 ![Arduino UNO Q Power Tree](assets/ABX00162-ABX00173_power_tree.png)
 
@@ -336,8 +336,8 @@ JMISC handles both domains: 1.8 V MPU lines sit alongside 3.3 V MCU signals (e.g
 |      56 | +5V_USB (OUT)   | -               | Power      | 5 V power out             |
 |      57 | +1V8 (IN)       | -               | Power      | 1.8 V rail in             |
 |      58 | GND             | -               | Power      | Ground                    |
-|      59 | VCOIN (IN)      | -               | Power      | System voltage (reserved) |
-|      60 | VBAT (IN)       | -               | Power      | System voltage (reserved) |
+|      59 | VCOIN (IN)      | -               | Power      | System voltage (PMIC RTC) |
+|      60 | VBAT (IN)       | -               | Power      | System voltage (MCU RTC) |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   Note: SoC GPIO lines on JMISC are interface-dedicated (not maker GPIO). MCU are at 3.3 V logic, MPU are at 1.8 V logic, and audio/mic are analog.
