@@ -247,7 +247,7 @@ In case you need to power external devices that require more power, e.g. servo m
 
 ## Mounting Holes And Board Outline
 
-![Mechanical View of Arduino UNO R4 Minima](assets/mechanicalDrawingwMinima.svg)
+![Mechanical View of Arduino UNO R4 Minima](assets/mechanicalDrawingwMinima.png)
 
 ## Board Operation
 
@@ -617,7 +617,7 @@ R7FA4M1AB3CFM#AA0 微控制器上的 GPIO 可以处理高达**8 mA**的电流。
 
 ## 安装孔和开发板外形图
 
-![Mechanical View of Arduino UNO R4 Minima](assets/mechanicalDrawingwMinima.svg)
+![Mechanical View of Arduino UNO R4 Minima](assets/mechanicalDrawingwMinima.png)
 
 ## 开发板操作
 
