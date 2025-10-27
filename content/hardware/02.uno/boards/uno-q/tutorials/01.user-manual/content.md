@@ -404,6 +404,29 @@ The LED color segments are defined as follows:
 
 ***The RGB LEDs are active low, this means they turn ON with logic '0'.***
 
+### Hardware Debug UART Interface
+
+The UNO Q provides a dedicated low-level UART interface for debugging and system diagnostics. This interface connects directly to the SoC’s main console (TTY), allowing you to observe boot and kernel logs, troubleshoot system issues, or access a shell environment before network services like SSH or ADB are available.
+
+![UNO Q Debug UART](assets/debug-shell.gif)
+
+This interface is available through the JCTL connector on the UNO Q. Refer to the [pinout](#pinout) section for details, and follow the wiring example above to access it.
+
+***<strong>WARNING:</strong> This interface operates at __1.8 V logic__ levels and must be used with a compatible USB-to-TTL converter to avoid hardware damage.***
+
+#### Prerequisites
+
+- 1.8V USB to TTL converter (e.g., DSD Tech SH-U09C5)
+- USB-C cable to power the UNO Q
+- Serial Terminal (e.g., [Tera Term](https://teratermproject.github.io/index-en.html))
+
+#### UART Parameters:
+
+- **Baud rate:** 115200 bps
+- **Logic level:** +1.8 VDC
+
+This console provides access to low-level system messages printed by the bootloaders (e.g., SPL and U-Boot), which are not visible through SSH or other high-level interfaces. For example, it allows capturing logs related to power delivery negotiation or hardware initialization during early boot information that is otherwise inaccessible.
+
 ### Power Button
 
 The UNO Q features a power button that can be used to reboot the board.
