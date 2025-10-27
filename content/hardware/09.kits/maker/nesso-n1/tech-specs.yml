@@ -15,7 +15,7 @@ Wireless Communication:
 
 Memory:
   Flash: "16 MB (External)" 
-  SRAM: "256 kB (Internal)"
+  SRAM: "512 kB (Internal)"
 
 Power:
   Input Voltage: "5 V (via USB-C®)"
