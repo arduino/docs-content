@@ -423,7 +423,7 @@ This interface is available through the JCTL connector on the UNO Q. Refer to th
 #### UART Parameters:
 
 - **Baud rate:** 115200 bps
-- **Logic level:** +1.8 VDC
+- **Logic level:** 1.8 V
 
 This console provides access to low-level system messages printed by the bootloaders (e.g., SPL and U-Boot), which are not visible through SSH or other high-level interfaces. For example, it allows capturing logs related to power delivery negotiation or hardware initialization during early boot information that is otherwise inaccessible.
 
