@@ -427,6 +427,10 @@ This interface is available through the JCTL connector on the UNO Q. Refer to th
 
 This console provides access to low-level system messages printed by the bootloaders (e.g., SPL and U-Boot), which are not visible through SSH or other high-level interfaces. For example, it allows capturing logs related to power delivery negotiation or hardware initialization during early boot information that is otherwise inaccessible.
 
+It can be used to log in to the board and interact with the system through the shell. Use the **Linux credentials** configured during the board setup process to authenticate.
+
+![Shell Log in](assets/debug-shell-2.png)
+
 ### Power Button
 
 The UNO Q features a power button that can be used to reboot the board.
