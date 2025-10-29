@@ -10,6 +10,10 @@ Powered by M5Stack, this sleek, compact device delivers power, versatility, and 
 Seamlessly connect your projects with multiple protocols, including Wi-Fi® 6, Bluetooth® LE 5.0, 802.15.4 (Thread/Zigbee®), and LoRa®, enabling versatile and reliable communication for any IoT application.
 </Feature>
 
+<Feature title="Compact Design with Antenna Storage" image="configurability">
+The detachable LoRa® antenna can be securely stored within the device enclosure when not in use, maintaining a portable form factor for on-the-go projects.
+</Feature>
+
 <Feature title="Interactive Touch Display" image="display">
 The onboard 1.14-inch color touchscreen provides a clear and intuitive way to display data and create user interfaces directly on your device.
 </Feature>
