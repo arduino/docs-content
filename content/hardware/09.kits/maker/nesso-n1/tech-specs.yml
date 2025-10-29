@@ -14,7 +14,7 @@ Wireless Communication:
   LoRa®: "SX1262 module (850–960 MHz)" 
 
 Memory:
-  Flash: "16 MB (External)" 
+  Flash: 16 MB external + 1536 kB on-chip
   SRAM: "512 kB (Internal)"
 
 Power:
