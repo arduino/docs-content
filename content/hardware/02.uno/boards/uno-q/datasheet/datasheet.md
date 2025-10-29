@@ -74,11 +74,10 @@ The STM32U585 manages ADC, PWM, CAN, the LED matrix, and the 3.3 V headers (JDIG
 
 ![](assets/ABX00162-ABX00173-comm-components.png)
 
-| **Subsystem**      | **Details**                                                                                                                                                                                                                                                                                                                                                       |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wireless Module    | - WCBN3536A (Qualcomm WCN3980) (U2901) <br></br>- Wi-Fi® 5 802.11a/b/g/n/ac (dual-band) + Bluetooth® 5.1                                                                                                                                                                                                                                                          |
-| USB-C Port (JUSB1) | - USB 3.1 with Role-Switching Capabilities<br></br>- DisplayPort Alt-Mode via the ANX7625 DSI-to-DP bridge (U3001) (SuperSpeed differential pairs on the Type-C are routed for DP Alt Mode)<br></br>- USB Power Delivery negotiation requests a **5 V / 3 A** contract only (no higher-voltage profiles)<br></br>- VBUS load-switch/back-drive protection (Q2801) |
-
+| **Subsystem**      | **Details**                                                                                                                                                                                                                                                                                                                                                                                                             |
+|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wireless Module    | - WCBN3536A (Qualcomm WCN3980) (U2901) <br></br>- Wi-Fi® 5 802.11a/b/g/n/ac (dual-band) + Bluetooth® 5.1                                                                                                                                                                                                                                                                                                                |
+| USB-C Port (JUSB1) | - USB 3.1 with Role-Switching Capabilities<br></br>- DisplayPort Alt-Mode via the ANX7625 DSI-to-DP bridge (U3001) (SuperSpeed differential pairs on the Type-C are routed for DP Alt Mode)<br></br>- Video output: 1680 × 720 @ 60 Hz (SBC mode)<br></br>- USB Power Delivery negotiation requests a **5 V / 3 A** contract only (no higher-voltage profiles)<br></br>- VBUS load-switch/back-drive protection (Q2801) |
 
 The wireless module uses SDIO for Wi-Fi® data and a UART for Bluetooth® control, with a shared PCB antenna.
 
@@ -509,7 +508,7 @@ JMISC handles both domains: 1.8 V MPU lines sit alongside 3.3 V MCU signals (e.g
 
 - **Camera:** Four-lane **MIPI-CSI-2** (1.8 V I/O).
 
-- **Display:** Four-lane **MIPI-DSI** into **ANX7625** for DisplayPort Alt-Mode on USB-C.
+- **Display:** Four-lane **MIPI-DSI** into **ANX7625** for DisplayPort Alt-Mode on USB-C. When operating in Single Board Computer (SBC) mode, the board supports a video output resolution of **1680 × 720 @ 60 Hz**.
 
 - **Wireless:** Dual-band Wi-Fi® (802.11a/b/g/n/ac) and Bluetooth® 5.1 on a shared module.
 
@@ -733,8 +732,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 # Document Revision History
 
-|  **Date**  | **Revision** | **Changes**                                     |
-|:----------:|:------------:|-------------------------------------------------|
-| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update  |
-| 01/10/2025 |      1       | First release                                   |
+|  **Date**  | **Revision** | **Changes**                                    |
+|:----------:|:------------:|------------------------------------------------|
+| 29/10/2025 |      3       | Added video output resolution specifications   |
+| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update |
+| 01/10/2025 |      1       | First release                                  |
 
