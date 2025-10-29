@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-Powered by M5Stack, this sleek, compact device delivers power, versatility, and ease of use. Its ESP32-C6 core ensures seamless, long-range connectivity for smart home devices, industrial automation tools, and wearables. Enjoy instant interaction with its touch display, programmable buttons, and built-in sensors, and expand possibilities with Grove and Qwiic connectors.
+Powered by M5Stack, this sleek, compact device delivers power, versatility, and ease of use. Its ESP32-C6 core allows seamless, long-range connectivity for smart home devices, industrial automation tools, and wearables. Enjoy instant interaction with its touch display, programmable buttons, and built-in sensors, and expand possibilities with Grove, Qwiic, and M5StickC HAT-compatible connectors.
 
 </FeatureDescription>
 
