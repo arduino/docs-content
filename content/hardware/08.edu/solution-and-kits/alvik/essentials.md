@@ -4,7 +4,7 @@
 The Arduino Alvik MicroPython library. 
 </EssentialElement>
 
-<EssentialElement title="Alvik Technical Drawings" type="library" link="/resources/misc/giga_audio_examples.zip/technicalDrawingAlvik.pdf">
+<EssentialElement title="Alvik Technical Drawings" type="library" link="/resources/misc/technicalDrawingAlvik.pdf">
 The Arduino Alvik Technical Drawing. 
 </EssentialElement>
 
