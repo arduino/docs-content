@@ -11,7 +11,7 @@ There is often no need to re-install the OS on your board (also known as flashin
 
 However, if we want to hard-reset the board and perform a fresh installation, it is possible. This process requires some additional tools installed on your machine.
 
-***Note that the instructions in this tutorial will wipe the board clean, and files & configurations saved on the board will be destroyed.***
+> **WARNING!** Note that the instructions in this tutorial will wipe the board clean, and files & configurations saved on the board will be destroyed.
 
 ## Requirements
 
