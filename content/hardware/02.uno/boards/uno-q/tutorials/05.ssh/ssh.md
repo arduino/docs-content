@@ -13,7 +13,7 @@ The board's microprocessor (running Debian OS) can also be accessed using Secure
 
 The UNO Q board comes pre-packaged with the Arduino App Lab, which is based on the `arduino-app-cli` tool<sup>1</sup>. This allows you, among other things, to **launch Apps through the command line**, instead of using the desktop App.
 
-<sup>1</sup> Read more about the `arduino-app-cli` in the [Arduino App CLI guide](/software/app-lab/tutorials/cli/).
+<sup>1</sup> Read more about the `arduino-app-cli` in the [Arduino App CLI guide](/software/app-lab/tutorials/cli).
 
 ## Requirements
 
