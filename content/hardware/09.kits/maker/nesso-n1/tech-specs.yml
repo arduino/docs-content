@@ -44,7 +44,17 @@ Antennas:
   ESP32-C6: "on-board FPC antenna (dedicated)"
   LoRa®: "detachable external antenna" 
 
-Dimensions:
-  Width: "29.25 mm"
-  Length: "83 mm"
-  Height: "22 mm"
+Dimensions (Device without antenna storage):
+  Width: 24 mm
+  Length: 48 mm
+  Height: 14 mm
+  
+ Dimensions (Device with antenna storage):
+  Width: 24 mm
+  Length: 48 mm
+  Height: 21.1 mm
+  
+ Dimensions (LoRa® antenna):
+  Width: 10.8 mm
+  Length: 45.5 mm
+  Height: 4.8 mm
