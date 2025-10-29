@@ -14,8 +14,8 @@ Seamlessly connect your projects with multiple protocols, including Wi-Fi® 6, B
 The onboard 1.14-inch color touchscreen provides a clear and intuitive way to display data and create user interfaces directly on your device.
 </Feature>
 
-<Feature title="Expandable With Grove & Qwiic" image="connection">
-Easily integrate a wide range of sensors and peripherals from the Arduino Modulino family and third-party modules using the built-in Grove and Qwiic connectors for plug-and-play expansion.
+<Feature title="Expandable With Grove, Qwiic & HAT" image="connection">
+Easily integrate a wide range of sensors and peripherals from the Arduino Modulino family and third-party modules using the built-in Grove, Qwiic, and 8-pin HAT connectors for plug-and-play expansion.
 </Feature>
 
 <Feature title="Built-in 6-Axis IMU" image="imu">
