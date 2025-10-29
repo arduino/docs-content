@@ -31,7 +31,7 @@ Interfaces:
   Expansion Port: "1× 8-pin (M5StickC HAT compatible)"
 
 Onboard Peripherals:
-  Display: "1.14\" color touchscreen, 135×240 px, ST7789P3 display; FT6336U touch"
+  Display: 1.14" IPS LCD touchscreen (135×240 px, 262K colors, ST7789P3 driver, FT6336U capacitive touch)
   IMU: "BMI270 (6-axis)" 
   Infrared: "1× IR transmitter (IR LED, connected to GPIO9 pin)" 
   Audio: "1× Buzzer (connected to GPIO11 pin)" 
