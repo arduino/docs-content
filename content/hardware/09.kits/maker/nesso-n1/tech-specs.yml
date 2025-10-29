@@ -10,7 +10,7 @@ Microcontroller:
 Wireless Communication:
   Wi-Fi: "2.4 GHz Wi-Fi® 6"
   Bluetooth: "Bluetooth® LE 5" 
-  "802.15.4": "Thread / Zigbee (Supports Matter Thread endpoint devices)" 
+  802.15.4: Thread / Zigbee® (Supports Matter Thread endpoint devices)
   LoRa®: "SX1262 module (850–960 MHz)" 
 
 Memory:
