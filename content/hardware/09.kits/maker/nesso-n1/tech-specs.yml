@@ -1,6 +1,6 @@
 Board:
-  Name: "Arduino Nesso N1"
-  SKU: "TPX00227"
+  Name: Arduino Nesso N1
+  SKU: TPX00227
 
 Microcontroller:
   SoC: "ESP32-C6"
