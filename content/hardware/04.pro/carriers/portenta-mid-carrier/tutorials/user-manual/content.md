@@ -179,7 +179,7 @@ The complete schematics are available and downloadable as PDF from the link belo
 
 The complete _STEP_ files are available and downloadable from the link below:
 
-- [Portenta Mid Carrier STEP files](assets/ASX00055-step.zip)
+- [Portenta Mid Carrier STEP files](../../downloads/ASX00055-step.zip)
 
 ### Mechanical Information
 
@@ -187,7 +187,7 @@ In this section, you can find mechanical information about the Portenta Mid Carr
 
 Suppose you desire to design and manufacture a custom mounting device or create a custom enclosure for your carrier. In that case, the following image shows the dimensions for the mounting holes and general board layout. The given dimensions are all in **millimeters [mm]**.
 
-You can also access the STEP files, available [here](assets/ASX00055-step.zip).
+You can also access the STEP files, available [here](../../downloads/ASX00055-step.zip).
 
 ![Portenta Mid Carrier Dimension Outline](assets/portentaMIDcarrier_Outline.png)
 
