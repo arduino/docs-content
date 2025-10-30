@@ -493,15 +493,16 @@ This equipment contains a radio transmitter module with model approval code: CMI
 
 ## Change Log
 
-| Date       | **Revision** | **Changes**        |
-| ---------- | ------------ | ------------------ |
-| 09/04/2025 | 7            | Fixed I2C information |
+| Date       | **Revision** | **Changes**                          |
+|------------|--------------|--------------------------------------|
+| 10/29/2025 | 8            | Mechanical drawing update            |
+| 09/04/2025 | 7            | Fixed I2C information                |
 | 05/09/2024 | 6            | Cloud Editor updated from Web Editor |
-| 03/07/2024 | 5            | Update Assets      |
-| 19/09/2023 | 4            | Update FCC section |
-| 25/07/2023 | 3            | Update Pin Table   |
-| 30/06/2023 | 2            | Update Pinout File |
-| 08/06/2023 | 1            | First Release      |
+| 03/07/2024 | 5            | Update Assets                        |
+| 19/09/2023 | 4            | Update FCC section                   |
+| 25/07/2023 | 3            | Update Pin Table                     |
+| 30/06/2023 | 2            | Update Pinout File                   |
+| 08/06/2023 | 1            | First Release                        |
 
 
 # 中文 (ZH)
