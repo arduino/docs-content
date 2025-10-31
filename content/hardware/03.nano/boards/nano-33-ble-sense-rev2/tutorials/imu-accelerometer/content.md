@@ -25,7 +25,7 @@ This tutorial will focus on the IMU system with the **BMI270 and BMM150** module
 
 The goals of this project are:
 - Understand how the IMU system on the Arduino Nano 33 BLE Sense Rev2 works.
-- Use the BMI270_BMM150 library.
+- Use the [BMI270_BMM150 library](https://docs.arduino.cc/libraries/arduino_bmi270_bmm150/).
 - Read the raw data of the accelerometer sensor.
 - Convert the raw data into board positions.
 - Print out live data through the Serial Monitor.

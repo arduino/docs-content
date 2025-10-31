@@ -26,7 +26,7 @@ This tutorial will focus on the 3-axis magnetometer sensor of the IMU system on 
 
 The goals of this project are to:
 - Understand how the IMU system on the Arduino Nano 33 BLE Sense Rev2 works.
-- Use the BMI270_BMM150 library.
+- Use the [BMI270_BMM150 library](https://docs.arduino.cc/libraries/arduino_bmi270_bmm150/).
 - Measure the value of a magnetometer sensor.
 - Create visual feedback according to magnetic disturbance in the environment.
 - Convert the sensor's values in LED light intensity.
