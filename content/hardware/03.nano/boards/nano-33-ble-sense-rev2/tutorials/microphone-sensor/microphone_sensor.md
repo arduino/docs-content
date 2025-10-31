@@ -30,7 +30,7 @@ In this tutorial we will use an **Arduino Nano 33 BLE Sense Rev2** board to meas
 The goals of this project are:
 
 - Learn how to output raw sensor data from the Arduino Nano 33 BLE Sense Rev2.
-- Use the PDM(Pulse-density modulation) library.
+- Use the [PDM(Pulse-density modulation) library](https://docs.arduino.cc/learn/built-in-libraries/pdm/).
 - Print sound values in the Serial Monitor.
 - Create your own RGB sound meter.
 
