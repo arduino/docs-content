@@ -27,7 +27,7 @@ The integrated BMI270 Inertial Measurement Unit (IMU) offers precise motion and 
 </Feature>
 
 <Feature title="Onboard Battery & Management" image="power">
-A built-in 200 mAh LiPo battery and advanced power management chip provide portability and real-time monitoring of battery status, with over-current and over-voltage protection.
+A built-in 250 mAh LiPo battery and advanced power management chip provide portability and real-time monitoring of battery status, with over-current and over-voltage protection.
 </Feature>
 
 <Feature title="USB-C®" image="usb">
