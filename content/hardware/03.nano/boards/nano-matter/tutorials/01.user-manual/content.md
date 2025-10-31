@@ -145,7 +145,7 @@ void loop() {
 
 In the Nano Matter, the `LED_BUILTIN` macro represents the **red LED** of the built-in RGB LED of the board. Please refer to the image below.
 
-To upload the code to the Nano Matter, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the board with the sketch.
+To upload the code to the Nano Matter, first call the menu **Tools > Programmer** and select **OpenOCD**; then click the **Verify** button to compile the sketch and check for errors; finally click the **Upload** button to program the board with the sketch.
 
 ![Uploading a sketch to the Nano Matter in the Arduino IDE](assets/compile-blink.png)
 
