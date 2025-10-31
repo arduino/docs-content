@@ -15,50 +15,14 @@ The following hardware is required:
 - [Arduino UNO Q](https://store.arduino.cc/products/uno-q)
 - [USB-C® type cable](https://store.arduino.cc/products/usb-cable2in1-type-c)
 
-You will also need to have the following software installed:
+To access the board via `adb` (over USB), you will also need to have the following software installed:
 - [Android Debug Bridge](https://developer.android.com/tools/releases/platform-tools)
 
-## Installing ADB (Host Computer)
-
-***Note: if you are using the board as a Single Board Computer (SBC Mode (Preview) without a host computer), you do not need to install ADB. You can run `arduino-app-cli` directly from the terminal.***
-
-The ADB command line tool is supported on MacOS, Windows & Linux. For more specific instructions for your OS, see the sections below. 
-
-***You can find more information and download the latest version for the tool for all operating systems directly from the [Android SDK Platform Tools](https://developer.android.com/tools/releases/platform-tools#downloads) page.***
-
-### MacOS
-
-To install the ADB tools on **MacOS**, we can use `homebrew`. Open the terminal and run the following command:
-
-```sh
-brew install android-platform-tools
-```
-
-To verify the tool is installed, run `adb version`.
-
-### Windows
-
-To install the ADB tools on **Windows**, we can use `winget`, supported on Windows 11 and on some earlier Windows 10 versions. 
-
-Open a terminal and run the following:
-
-```sh
-winget install Google.PlatformTools
-```
-
-To verify the tool is installed, run `adb version`.
-
-### Linux
-
-To install ADB tools on a **Debian/Ubuntu Linux distribution**, open a terminal and run the following command:
-
-```sh
-sudo apt-get install android-sdk-platform-tools
-```
-
-To verify the tool is installed, run `adb version`.
+You can also access the board via SSH, which is typically installed on your system by default.
 
 ## Connect via ADB
+
+***To learn more about setting up `adb`, check out the [Connect to UNO Q via ADB](/tutorials/uno-q/adb/) tutorial. This guide will walk you through the installation steps.***
 
 1. Connect the UNO Q board to your computer via USB-C.
 2. Run `adb devices` in the terminal. This should list the connected devices.
@@ -104,7 +68,7 @@ To manage Apps, we use the `app` command.
 
 To create an app, we can use:
 
-```sh
+```
 arduino-app-cli app new "test"
 ```
 
@@ -118,13 +82,13 @@ If you are accessing the board via `adb`, you can **pull** and **push** the file
 
 To pull the file, use:
 
-```sh
+```
 adb pull /home/arduino/ArduinoApps /path/to/localfolder
 ```
 
 And to push it, use: 
 
-```sh
+```
 adb push /path/to/localfolder /home/arduino/ArduinoApps
 ```
 
@@ -134,7 +98,7 @@ adb push /path/to/localfolder /home/arduino/ArduinoApps
 
 Once an App is created and edited, it can be launched through the following command:
 
-```sh
+```
 arduino-app-cli app start "/home/arduino/ArduinoApps/test"
 ```
 
@@ -142,7 +106,7 @@ This will launch the App on your UNO Q board.
 
 To stop the App, use:
 
-```sh
+```
 arduino-app-cli app stop "/home/arduino/ArduinoApps/test"
 ```
 
@@ -150,7 +114,7 @@ arduino-app-cli app stop "/home/arduino/ArduinoApps/test"
 
 To monitor the logs of a running App, use the `logs` command:
 
-```sh
+```
 arduino-app-cli app logs /home/arduino/ArduinoApps/test --all
 ```
 
@@ -163,7 +127,7 @@ This will list the logs of the App:
 
 To run built-in examples and Apps that we create, we can use the `user` and `examples` shortcut (instead of specifying path).
 
-```sh
+```
 # run your own app
 arduino-app-cli app start user:my-app 
 
@@ -175,7 +139,7 @@ arduino-app-cli app start examples:blink
 
 To list available Apps, use the `app list` command.
 
-```sh
+```
 arduino-app-cli app list
 ```
 
@@ -187,7 +151,7 @@ This will list all available Apps (including examples), and their status:
 
 To set a board name using the `arduino-app-cli`, we can use the `set-name` command.
 
-```sh
+```
 arduino-app-cli board set-name "my-board"
 ```
 
@@ -199,14 +163,14 @@ The `system` command allows you to manage system configurations and updates on y
 
 To check for updates, run:
 
-```sh
+```
 arduino-app-cli system update
 ```
 This will prompt you to install any available updates.
 
 To enable or disable the network mode, use:
 
-```sh
+```
 arduino-app-cli system network enable/disable
 ```
 
@@ -214,7 +178,7 @@ Network mode will enable SSH and allows clients to connect to the board over a l
 
 Finally, you can gain back some storage space by cleaning up unused containers and images by running:
 
-```sh
+```
 arduino-app-cli system cleanup
 ```
 
@@ -224,7 +188,7 @@ Currently, it is only possible to list available Bricks and specific details for
 
 This is done by running:
 
-```sh
+```
 # List out Bricks installed on the board
 arduino-app-cli brick list
 # Details for a specific Brick
