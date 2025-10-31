@@ -25,7 +25,7 @@ A popular application of a barometric sensor, apart from GPS and forecasting sho
 ## Goals
 The goals of this project are:
  - Learn what a LPS22HB sensor is.
- - Use the LPS22HB library.
+ - Use the [LPS22HB library](https://www.arduino.cc/en/Reference/ArduinoLPS22HB).
  - Learn how to output raw sensor data from the Arduino NANO 33 BLE Sense.
  - Learn how to convert the kPa unit to altitude values (meters).
  - Print the data using Serial Monitor.
@@ -181,4 +181,5 @@ Sometimes errors occur, if the code is not working there are some common issues 
 
 ## Conclusion
 In this tutorial we learned what a **LPS22HB** sensor is, how to use the one embedded in the Arduino NANO 33 BLE Sense board and the LPS22HB library, in order to create our own barometer and measure the altitude in meters by retrieving and calculating the atmospheric pressure.
+
 
