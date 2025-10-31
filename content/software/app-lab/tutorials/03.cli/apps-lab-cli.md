@@ -68,7 +68,7 @@ To manage Apps, we use the `app` command.
 
 To create an app, we can use:
 
-```sh
+```
 arduino-app-cli app new "test"
 ```
 
@@ -82,13 +82,13 @@ If you are accessing the board via `adb`, you can **pull** and **push** the file
 
 To pull the file, use:
 
-```sh
+```
 adb pull /home/arduino/ArduinoApps /path/to/localfolder
 ```
 
 And to push it, use: 
 
-```sh
+```
 adb push /path/to/localfolder /home/arduino/ArduinoApps
 ```
 
@@ -98,7 +98,7 @@ adb push /path/to/localfolder /home/arduino/ArduinoApps
 
 Once an App is created and edited, it can be launched through the following command:
 
-```sh
+```
 arduino-app-cli app start "/home/arduino/ArduinoApps/test"
 ```
 
@@ -106,7 +106,7 @@ This will launch the App on your UNO Q board.
 
 To stop the App, use:
 
-```sh
+```
 arduino-app-cli app stop "/home/arduino/ArduinoApps/test"
 ```
 
@@ -114,7 +114,7 @@ arduino-app-cli app stop "/home/arduino/ArduinoApps/test"
 
 To monitor the logs of a running App, use the `logs` command:
 
-```sh
+```
 arduino-app-cli app logs /home/arduino/ArduinoApps/test --all
 ```
 
@@ -127,7 +127,7 @@ This will list the logs of the App:
 
 To run built-in examples and Apps that we create, we can use the `user` and `examples` shortcut (instead of specifying path).
 
-```sh
+```
 # run your own app
 arduino-app-cli app start user:my-app 
 
@@ -139,7 +139,7 @@ arduino-app-cli app start examples:blink
 
 To list available Apps, use the `app list` command.
 
-```sh
+```
 arduino-app-cli app list
 ```
 
@@ -151,7 +151,7 @@ This will list all available Apps (including examples), and their status:
 
 To set a board name using the `arduino-app-cli`, we can use the `set-name` command.
 
-```sh
+```
 arduino-app-cli board set-name "my-board"
 ```
 
@@ -163,14 +163,14 @@ The `system` command allows you to manage system configurations and updates on y
 
 To check for updates, run:
 
-```sh
+```
 arduino-app-cli system update
 ```
 This will prompt you to install any available updates.
 
 To enable or disable the network mode, use:
 
-```sh
+```
 arduino-app-cli system network enable/disable
 ```
 
@@ -178,7 +178,7 @@ Network mode will enable SSH and allows clients to connect to the board over a l
 
 Finally, you can gain back some storage space by cleaning up unused containers and images by running:
 
-```sh
+```
 arduino-app-cli system cleanup
 ```
 
@@ -188,7 +188,7 @@ Currently, it is only possible to list available Bricks and specific details for
 
 This is done by running:
 
-```sh
+```
 # List out Bricks installed on the board
 arduino-app-cli brick list
 # Details for a specific Brick
