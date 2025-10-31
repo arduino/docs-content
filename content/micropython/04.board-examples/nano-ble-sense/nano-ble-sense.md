@@ -221,14 +221,14 @@ Below example can be used with OpenMV's frame buffer window (top right corner).
 ```python
 import image, audio, time
 from ulab import numpy as np
-from ulab import scipy as sp
+from ulab import utils
 
 CHANNELS = 1
 SIZE = 256//(2*CHANNELS)
 
 raw_buf = None
 fb = image.Image(SIZE+50, SIZE, image.RGB565, copy_to_fb=True)
-audio.init(channels=CHANNELS, frequency=16000, gain_db=80, highpass=0.9883)
+audio.init(channels=CHANNELS, frequency=16000, gain_db=80)
 
 def audio_callback(buf):
     # NOTE: do Not call any function that allocates memory.
@@ -259,10 +259,10 @@ while (True):
         raw_buf = None
 
         if CHANNELS == 1:
-            fft_buf = sp.signal.spectrogram(pcm_buf)
+            fft_buf = utils.spectrogram(pcm_buf)
             l_lvl = int((np.mean(abs(pcm_buf[1::2])) / 32768)*100)
         else:
-            fft_buf = sp.signal.spectrogram(pcm_buf[0::2])
+            fft_buf = utils.spectrogram(pcm_buf[0::2])
             l_lvl = int((np.mean(abs(pcm_buf[1::2])) / 32768)*100)
             r_lvl = int((np.mean(abs(pcm_buf[0::2])) / 32768)*100)
 
