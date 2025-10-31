@@ -49,15 +49,15 @@ void printArray(char[] array);
 Though there are some libraries where we pass pointers by using structures like const chars, avoid anything that requires the user to pass them. For example,rather than:
 
 ```arduino
-  foo.readAccel(&x, &y, &z);
+foo.readAccel(&x, &y, &z);
 ```
 
 use something like this:
 
 ```arduino
-  xAxis = adxl.readX();
-  yAxis = adxl.readY();
-  zAxis = adxl.readZ();
+xAxis = adxl.readX();
+yAxis = adxl.readY();
+zAxis = adxl.readZ();
 ```
 
 When using serial communication, allow the user to specify any `Stream` object, rather than hard-coding `Serial`. This will make your library compatible with all serial ports on boards with multiple (e.g., Mega), and can also use alternate interfaces like SoftwareSerial. The Stream object can be passed to your library's constructor or to a `begin()` function (as a reference, not a pointer). See [Firmata 2.3](https://www.arduino.cc/reference/en/libraries/firmata/) or [XBee 0.4](https://github.com/andrewrapp/xbee-arduino) for examples of each approach.
@@ -70,5 +70,6 @@ Here are a few libraries that are exemplary from Adafruit®. She breaks the func
 * https://github.com/adafruit/DHT-sensor-library 
 
 This does a nice job of abstracting from the Wire (I2C) library: https://github.com/adafruit/RTClib 
+
 
 The text of the Arduino reference is licensed under a [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the reference are released into the public domain.
