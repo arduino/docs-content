@@ -4,6 +4,7 @@ productsLibrariesMap:
   - arduino_bmi270_bmm150
   - arduino_hs300x
   - arduino_apds9960
+  - arduino_lps22hb
 ---
 
 <EssentialsColumn title="Guides">
@@ -43,4 +44,5 @@ The PDM library allows you to use PDM (Pulse-density modulation) microphones, li
   <EssentialElement title="Language References" type="resource" link="https://www.arduino.cc/reference/en/">
   Arduino programming language can be divided in three main parts: functions, values (variables and constants), and structure.
   </EssentialElement>
+
 </EssentialsColumn>
