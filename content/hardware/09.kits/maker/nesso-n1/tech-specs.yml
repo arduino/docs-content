@@ -20,7 +20,7 @@ Memory:
 Power:
   Input Voltage: "5 V (via USB-C®)"
   Power Source: "USB DC-5V input or built-in battery power"
-  Battery: "200 mAh LiPo (rechargeable)"
+  Battery: 250 mAh LiPo (rechargeable)
   Power Management: "AW32001 (power path management, charge control, and over-current & over-voltage protection)"
   Battery Monitoring: "BQ27220 (real-time monitoring of battery capacity, voltage, and current)"
 
