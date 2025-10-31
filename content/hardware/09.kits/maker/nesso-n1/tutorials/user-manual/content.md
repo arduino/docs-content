@@ -170,11 +170,13 @@ At the core of the Nesso N1 is the **ESP32-C6**, a highly integrated SoC from Es
 
 - **CPU**: Single-core 32-bit RISC-V, up to 160 MHz.
 - **Memory**: 16 MB external flash + 1536 kB on-chip SRAM.
-- **Connectivity**:
-  - 2.4 GHz Wi-Fi® 6 (802.11ax).
-  - Bluetooth® 5 and Bluetooth® Low Energy.
-  - 802.15.4 radio for Thread and Zigbee® protocols.
-  - Support for the Matter protocol.
+
+The ESP32-C6 features a comprehensive set of connectivity options:
+
+- 2.4 GHz Wi-Fi® 6 (802.11ax).
+- Bluetooth® 5 and Bluetooth® Low Energy.
+- 802.15.4 radio for Thread and Zigbee® protocols.
+- Support for the Matter protocol.
 
 ***WARNING: All GPIO pins are 3.3 V logic only and are not 5 V tolerant.***
 
@@ -518,7 +520,7 @@ The Nesso N1 also includes one standard **Grove** connector. It provides a 5 V i
 
 An 8-pin female header provides access to additional I/O and power pins. It is designed to be compatible with the **M5StickC HAT** series of expansion boards.
 
-![8 pins Expansion Port](assets/expansion-port.png) 
+![8 pins Expansion Port](assets/expansion-port.png)
 
 | # | Pin Name | GPIO | Function |
 | :-- | :--- | :--- |:--- |
@@ -532,4 +534,3 @@ An 8-pin female header provides access to additional I/O and power pins. It is d
 | 8 | `+5V IN` | - | 5 V Input (VIN) |
 
 ***The `BATTERY OUT` pin provides the direct, unregulated voltage from the LiPo battery. Be cautious when using this pin, as the voltage will vary depending on the charge level.***
-
