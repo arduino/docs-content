@@ -457,8 +457,11 @@ void setup() {
 }
 
 void loop() {
-  // Check if a packet is available.
-  int state = radio.readData(str);
+  // Create a string to store the received message.
+  String str;
+  
+  // Try to receive a packet.
+  int state = radio.receive(str);
 
   if (state == RADIOLIB_ERR_NONE) {
     // Packet was received successfully.
