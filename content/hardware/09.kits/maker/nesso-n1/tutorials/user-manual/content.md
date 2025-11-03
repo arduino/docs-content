@@ -23,7 +23,7 @@ software:
   - web-editor
 ---
 
-The **Arduino® Nesso N1** is an all-in-one enclosed development board. Based on the ESP32-C6 System on Chip (SoC), it integrates a suite of communication protocols, including 2.4 GHz Wi-Fi® 6, Bluetooth® 5, 802.15.4 (Thread/Zigbee®), and long-range LoRa®. It also includes a 1.14" color touchscreen, buttons, and a built-in LiPo battery for immediate user interaction in portable applications.
+The **Arduino® Nesso N1** is an all-in-one enclosed development board. Based on the ESP32-C6 System on Chip (SoC), it integrates a suite of communication protocols, including 2.4 GHz Wi-Fi® 6, Bluetooth® 5.3 LE, 802.15.4 (Thread/Zigbee®), and long-range LoRa®. It also includes a 1.14" color touchscreen, buttons, and a built-in LiPo battery for immediate user interaction in portable applications.
 
 This document serves as a comprehensive user manual for the Nesso N1, providing technical specifications, setup guides, and detailed explanations of its features to help you bring your projects to life.
 
@@ -59,7 +59,7 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 ### Main Components
 
-- **ESP32-C6 SoC**: A powerful single-core RISC-V microcontroller with integrated Wi-Fi® 6, Bluetooth® 5, and 802.15.4 radios.
+- **ESP32-C6 SoC**: A powerful single-core RISC-V microcontroller with integrated Wi-Fi® 6, Bluetooth® 5.3 LE, and 802.15.4 radios.
 - **SX1262 LoRa® Module**: A long-range, low-power LoRa® transceiver for communication in remote or challenging environments.
 - **1.14" Color Touchscreen**: An intuitive IPS display for user interaction and data visualization.
 - **BMI270 IMU**: A 6-axis Inertial Measurement Unit for precise motion and orientation sensing.
@@ -115,52 +115,13 @@ The Nesso N1 can be powered in three ways:
 
 ***WARNING: Handle the internal LiPo battery with care. Do not puncture, short-circuit, or expose it to high temperatures.***
 
-### Battery Management
+## Battery Management
 
 The board incorporates a power management system featuring the **AW32001** power path management chip and the **BQ27220** battery monitoring chip. This system provides:
 
 - **Automatic Charging**: The battery charges automatically when a 5 V source is connected via USB-C®.
 - **Real-Time Monitoring**: You can programmatically access battery voltage, current, and capacity to monitor the power status of your application.
 - **Over-Current & Over-Voltage Protection**: Ensures safe and stable operation during charging and discharging cycles.
-- **Power Source Detection**: The `VIN_DETECT` expander pin can be read to determine if external power is connected (`HIGH` if connected, `LOW` if running on battery).
-- **Digital Power Off**: The `POWEROFF` expander pin allows you to shut down the device programmatically.
-
-You can interact with the battery system using the `NessoBattery` object and expander pins.
-
-```arduino
-#include "Arduino.h"
-
-// The NessoBattery object is available by default
-NessoBattery battery;
-
-void setup() {
-  Serial.begin(115200);
-  
-  // Enable battery charging (it is enabled by default)
-  battery.enableCharge();
-
-  // Configure VIN_DETECT as an input
-  pinMode(VIN_DETECT, INPUT);
-}
-
-void loop() {
-  // Check if external power is connected
-  if (digitalRead(VIN_DETECT) == HIGH) {
-    Serial.println("External power connected.");
-  } else {
-    Serial.println("Running on battery.");
-  }
-  
-  delay(5000);
-
-  // Example: power off the device after 30 seconds
-  if (millis() > 30000) {
-    Serial.println("Powering off...");
-    pinMode(POWEROFF, OUTPUT);
-    digitalWrite(POWEROFF, HIGH); // This will shut down the device
-  }
-}
-```
 
 ## Microcontroller (ESP32-C6)
 
@@ -174,7 +135,7 @@ At the core of the Nesso N1 is the **ESP32-C6**, a highly integrated SoC from Es
 The ESP32-C6 features a comprehensive set of connectivity options:
 
 - 2.4 GHz Wi-Fi® 6 (802.11ax).
-- Bluetooth® 5 and Bluetooth® Low Energy.
+- Bluetooth® 5.3 Low Energy.
 - 802.15.4 radio for Thread and Zigbee® protocols.
 - Support for the Matter protocol.
 
@@ -229,51 +190,60 @@ The Nesso N1 uses two PI4IOE5V6408 I/O expanders (addresses `0x43` and `0x44`) t
 
 To use an expander pin, you must first initialize it with `pinMode()`, then you can use `digitalWrite()` and `digitalRead()` as with standard pins.
 
-## Built-in Programmable LED
 
-The board has an onboard green LED that can be controlled using the `LED_BUILTIN` object. It is visible on the side of the board through the power button gaps.
+## Battery
 
-![Built-in LED](assets/built-in-led.png)
+You can interact with the battery system using the `NessoBattery` object and expander pins.
+
+### Enable Charge
 
 ```arduino
-#include "Arduino.h"
+// The NessoBattery object is available by default
+NessoBattery battery;
 
 void setup() {
-  // Configure the built-in LED as an output
-  pinMode(LED_BUILTIN, OUTPUT);
+  Serial.begin(115200);
+
+  // Enable battery charging (it is enabled by default)
+  battery.enableCharge();
+
 }
 
 void loop() {
-  // Blink the LED
-  digitalWrite(LED_BUILTIN, LOW); // Turn LED ON
-  delay(500);
-  digitalWrite(LED_BUILTIN, HIGH); // Turn LED OFF
-  delay(500);
 }
 ```
+### Read Battery Voltage
 
-***Please note that `LED_BUILTIN` uses inverted logic. Writing `LOW` to the pin turns the LED on, while writing `HIGH` turns it off.***
+
+Additionally the `VIN_DETECT` expander pin can be read to determine if external power is connected (`HIGH` if connected, `LOW` if running on battery).
+
+
+## Buttons and LED
+
+The Nesso N1 features several physical controls for user interaction.
 
 ### Power Button
 
-A multi-function button for power control:
+The Nesso N1 has a multi-function button for power control:
 
 - **Click (from off state)**: Power on.
 - **Click (from on state)**: Reset the device.
-- **Double-click (during startup)**: Power off.
+- **Double-click (from on state)**: Power off.
 - **Press and hold (from on state)**: Enter Download/Bootloader mode.
 
 ![Power Button](assets/power-button.png)
 
+
+Additionally the `POWEROFF` expander pin allows you to shut down the device programmatically.
+
+
 ### User Buttons
 
-The Nesso N1 has two physical buttons, **KEY1** and **KEY2**, that are connected to the I/O expander. These can be read using `digitalRead()`.
+The board has two physical buttons, **KEY1** and **KEY2**, that are connected to the I/O expander. These can be read using `digitalRead()`.
 
 ![User Buttons](assets/programmable-buttons.png)
 
 ```arduino
-#include "Arduino.h"
-
 void setup() {
   Serial.begin(115200);
   pinMode(KEY1, INPUT_PULLUP);
@@ -292,6 +262,30 @@ void loop() {
 }
 ```
 
+### Built-in Programmable LED
+
+The board has an onboard green LED that can be controlled using the `LED_BUILTIN` object. It is visible on the side of the board through the power button gaps.
+
+![Built-in LED](assets/built-in-led.png)
+
+```arduino
+void setup() {
+  // Configure the built-in LED as an output
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  // Blink the LED
+  digitalWrite(LED_BUILTIN, LOW); // Turn LED ON
+  delay(500);
+  digitalWrite(LED_BUILTIN, HIGH); // Turn LED OFF
+  delay(500);
+}
+```
+
+***Please note that `LED_BUILTIN` uses inverted logic. Writing `LOW` to the pin turns the LED on, while writing `HIGH` turns it off.***
+
+
 ## Display & Touchscreen
 
 The Nesso N1 features a 1.14-inch IPS color touchscreen with a resolution of 135 x 240 pixels.
@@ -299,7 +293,7 @@ The Nesso N1 features a 1.14-inch IPS color touchscreen with a resolution of 135
 - **Display Controller**: ST7789, controlled via SPI.
 - **Touch Controller**: FT6336U, controlled via I2C.
 
-The display can be programmed using the **M5GFX** library, which is included as a dependency in the board package.
+The display can be programmed using the **M5GFX** library, which can be installed using the Arduino IDE Library Manager.
 
 Here is an example to display touch input as text on the screen:
 
@@ -350,12 +344,14 @@ void loop() {
 The ESP32-C6 provides a rich set of wireless protocols, making the Nesso N1 a powerful hub for IoT projects.
 
 - **Wi-Fi® 6**: Offers higher efficiency, lower latency, and improved performance in dense wireless environments.
-- **Bluetooth® 5 & BLE**: Enables communication with a wide range of mobile devices and low-power sensors.
+- **Bluetooth® 5.3 Low Energy (LE)**: Enables communication with a wide range of mobile devices and low-power sensors.
 - **Thread & Zigbee®**: The 802.15.4 radio allows the Nesso N1 to participate in low-power mesh networks, essential for smart home and industrial applications. It also supports the **Matter** protocol for interoperability.
 
 ### LoRa®
 
 The onboard **SX1262** module provides long-range, low-power communication capabilities, operating in the 850–960 MHz frequency range. It comes with a detachable external antenna that connects via an MMCX connector.
+
+![LoRa® Antenna Attached](assets/antenna-mounted.png)
 
 ***WARNING: To avoid damage to your board, always use the LoRa® module with the antenna attached.***
 
@@ -417,36 +413,71 @@ void loop() {
 
 The **BMI270** is a high-performance 6-axis Inertial Measurement Unit (IMU) that combines a 3-axis accelerometer and a 3-axis gyroscope. It connects to the ESP32-C6 via the I2C bus (`SCL` on GPIO8, `SDA` on GPIO10) and provides an interrupt signal on `SYS_IRQ` (GPIO3). It is ideal for motion tracking, gesture recognition, and orientation sensing.
 
-Here is a minimal example using the [SparkFun BMI270 library](https://github.com/sparkfun/SparkFun_BMI270_Arduino_Library):
+Here is a minimal example using the [Arduino_BMI270_BMM150](https://github.com/arduino-libraries/arduino_bmi270_bmm150)  library:
 
 ```arduino
-#include <SparkFun_BMI270_Arduino_Library.h>
-
-BMI270 imu;
-TwoWire& i2c_bus = Wire;
+#include <Arduino_BMI270_BMM150.h>
 
 void setup() {
   Serial.begin(115200);
-  i2c_bus.begin();
+  while (!Serial); // Wait for serial port to connect
 
-  if (!imu.beginI2C(i2c_bus)) {
-    Serial.println("BMI270 not found. Halting.");
-    while(1);
+  Serial.println("Initializing IMU...");
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU!");
+    while (1);
   }
+
+  Serial.print("Accel Rate: ");
+  Serial.print(IMU.accelerationSampleRate());
+  Serial.println(" Hz");
+
+  Serial.print("Gyro Rate: ");
+  Serial.print(IMU.gyroscopeSampleRate());
+  Serial.println(" Hz");
+
+  Serial.println("X\tY\tZ\t\t| X\tY\tZ");
+  Serial.println("Accel (g)\t\t| Gyro (°/s)");
 }
 
 void loop() {
-  // Get all sensor data
-  imu.getSensorData();
+  float ax, ay, az;
+  float gx, gy, gz;
 
-  Serial.print("Accel X: ");
-  Serial.print(imu.getAccelX());
-  Serial.print("\tY: ");
-  Serial.print(imu.getAccelY());
-  Serial.print("\tZ: ");
-  Serial.println(imu.getAccelZ());
+  if (IMU.accelerationAvailable() && IMU.gyroscopeAvailable()) {
+    IMU.readAcceleration(ax, ay, az);
+    IMU.readGyroscope(gx, gy, gz);
+
+    Serial.print(ax, 2);
+    Serial.print('\t');
+    Serial.print(ay, 2);
+    Serial.print('\t');
+    Serial.print(az, 2);
+    Serial.print("\t| ");
+    Serial.print(gx, 2);
+    Serial.print('\t');
+    Serial.print(gy, 2);
+    Serial.print('\t');
+    Serial.println(gz, 2);
+  }
 
   delay(100);
+}
+```
+
+### Buzzer
+
+A passive buzzer connected to `BEEP_PIN` (GPIO11) provides audible feedback. You can generate simple tones using the standard `tone()` function.
+
+```arduino
+void setup() {
+  // No setup needed for tone()
+}
+
+void loop() {
+  // Play a 1 kHz tone for 500 ms
+  tone(BEEP_PIN, 1000, 500);
+  delay(2000);
 }
 ```
 
@@ -472,21 +503,7 @@ void loop() {
 }
 ```
 
-### Buzzer
-
-A passive buzzer connected to `BEEP_PIN` (GPIO11) provides audible feedback. You can generate simple tones using the standard `tone()` function.
-
-```arduino
-void setup() {
-  // No setup needed for tone()
-}
-
-void loop() {
-  // Play a 1 kHz tone for 500 ms
-  tone(BEEP_PIN, 1000, 500);
-  delay(2000);
-}
-```
+***Please note: There is a known hardware timer conflict between the tone() function and the IRremote library. To use both features in the same sketch, you must fully reset the pin and re-initialize the IR sender before each transmission. First, set the pin mode to INPUT to release it from the timer, then call IrSender.begin() to reconfigure it for IR.***
 
 ## Expansion Ports
 
