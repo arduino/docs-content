@@ -293,7 +293,7 @@ The Nesso N1 features a 1.14-inch IPS color touchscreen with a resolution of 135
 - **Display Controller**: ST7789, controlled via SPI.
 - **Touch Controller**: FT6336U, controlled via I2C.
 
-The display can be programmed using the **M5GFX** library, which can be installed using the Arduino IDE Library Manager.
+The display can be programmed using the [**M5GFX**](https://github.com/m5stack/M5GFX) library, which can be installed using the Arduino IDE Library Manager.
 
 Here is an example to display touch input as text on the screen:
 
@@ -369,16 +369,26 @@ The LoRa® module is controlled via SPI and several dedicated pins on both the E
 | `LORA_ANTENNA_SWITCH` | | E0.P6 | LoRa® RF Antenna Switch Control |
 | `LORA_ENABLE` | | E0.P7 | LoRa® Module Reset/Enable |
 
-Here is a simple example to send a LoRa® packet using the [RadioLib](https://github.com/jgromes/RadioLib) library:
+#### LoRa® Transmitter Example
+
+Here is a simple example to send a "Hello World!" packet every five seconds using [RadioLib](https://github.com/jgromes/RadioLib) library.
 
 ```arduino
 #include <RadioLib.h>
 
-// Create an SX1262 radio object
-SX1262 radio = new Module(LORA_CS, LORA_IRQ, LORA_ENABLE, LORA_BUSY);
+// Initialize the radio module, passing RADIOLIB_NC for the reset pin.
+// The reset will be handled manually.
+SX1262 radio = new Module(LORA_CS, LORA_IRQ, RADIOLIB_NC, LORA_BUSY);
 
 void setup() {
   Serial.begin(115200);
+
+  // Manually reset the LoRa module using the expander pin for reliability.
+  pinMode(LORA_ENABLE, OUTPUT);
+  digitalWrite(LORA_ENABLE, LOW);
+  delay(10);
+  digitalWrite(LORA_ENABLE, HIGH);
+  delay(10);
 
   // Initialize the LoRa® module
   // Frequency: 915.0 MHz
@@ -406,6 +416,73 @@ void loop() {
   delay(5000);
 }
 ```
+
+
+#### LoRa® Receiver Example
+
+This example listens for packets and prints them to the Serial Monitor. It uses a simple polling method where the main loop waits until a packet is received. Upload this code to a second Nesso N1 to receive messages from the transmitter.
+
+```arduino
+#include <RadioLib.h>
+
+// Initialize the radio module, passing RADIOLIB_NC for the reset pin.
+SX1262 radio = new Module(LORA_CS, LORA_IRQ, RADIOLIB_NC, LORA_BUSY);
+
+void setup() {
+  Serial.begin(115200);
+
+  // Manually reset the LoRa module.
+  pinMode(LORA_ENABLE, OUTPUT);
+  digitalWrite(LORA_ENABLE, LOW);
+  delay(10);
+  digitalWrite(LORA_ENABLE, HIGH);
+  delay(10);
+
+  // Initialize the LoRa® module.
+  int state = radio.begin(915.0);
+  if (state != RADIOLIB_ERR_NONE) {
+    Serial.print(F("failed, code "));
+    Serial.println(state);
+    while (true);
+  }
+
+  // Start listening for LoRa packets.
+  Serial.print(F("[SX1262] Starting to listen... "));
+  state = radio.startReceive();
+  if (state != RADIOLIB_ERR_NONE) {
+    Serial.print(F("failed, code "));
+    Serial.println(state);
+    while (true);
+  }
+}
+
+void loop() {
+  // Check if a packet is available.
+  int state = radio.readData(str);
+
+  if (state == RADIOLIB_ERR_NONE) {
+    // Packet was received successfully.
+    Serial.print(F("[SX1262] Received packet: "));
+    Serial.println(str);
+
+    // Print packet statistics.
+    Serial.print(F("[SX1262] RSSI: "));
+    Serial.print(radio.getRSSI());
+    Serial.print(F(" dBm, SNR: "));
+    Serial.print(radio.getSNR());
+    Serial.println(F(" dB"));
+
+  } else if (state == RADIOLIB_ERR_CRC_MISMATCH) {
+    Serial.println(F("[SX1262] CRC error!"));
+  } else if (state != RADIOLIB_ERR_RX_TIMEOUT) {
+    // Some other error occurred. Timeout is expected and ignored.
+    Serial.print(F("[SX1262] Failed, code "));
+    Serial.println(state);
+  }
+}
+```
+
+***Please note: because the `LORA_ENABLE` pin is on an I/O expander, it cannot be passed directly to the RadioLib library constructor. The library must be initialized with the reset pin set to `RADIOLIB_NC` and is best practice to perform a manual reset in setup.***
 
 ## Onboard Sensors & Peripherals
 
