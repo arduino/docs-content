@@ -212,8 +212,6 @@ void setup() {
 void loop() {
 }
 ```
-### Read Battery Voltage
-
 
 Additionally the `VIN_DETECT` expander pin can be read to determine if external power is connected (`HIGH` if connected, `LOW` if running on battery).
 
