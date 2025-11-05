@@ -725,8 +725,9 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 # Document Revision History
 
-|  **Date**  | **Revision** | **Changes**                                     |
-|:----------:|:------------:|-------------------------------------------------|
-| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update  |
-| 01/10/2025 |      1       | First release                                   |
+|  **Date**  | **Revision** | **Changes**                                    |
+| :--------: | :----------: | ---------------------------------------------- |
+| 05/11/2025 |      3       | Update operational information                 |
+| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update |
+| 01/10/2025 |      1       | First release                                  |
 
