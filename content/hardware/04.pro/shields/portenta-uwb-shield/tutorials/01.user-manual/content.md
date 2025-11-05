@@ -412,7 +412,7 @@ void setup() {
   UWBNearbySessionManager.onSessionStop(sessionStopped);
   
   // Initialize Bluetooth Low Energy services and start advertising
-  UWBNearbySessionManager.begin("Portenta UWB Shield");
+  UWBNearbySessionManager.begin("TS_DCU150");
 }
 
 void loop() {
