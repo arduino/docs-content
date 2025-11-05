@@ -707,14 +707,6 @@ This equipment should be installed and operated with a minimum distance of 20 cm
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
-**Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
-
-Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
-
-| Frequency bands      | Maximum output power (ERP) |
-|----------------------|----------------------------|
-| 2.4 GHz, 40 channels | TBD                        |
-
 # Company Information
 
 | Company name | Arduino S.r.l.                             |
@@ -733,8 +725,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 # Document Revision History
 
-|  **Date**  | **Revision** | **Changes**                                     |
-|:----------:|:------------:|-------------------------------------------------|
-| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update  |
-| 01/10/2025 |      1       | First release                                   |
+|  **Date**  | **Revision** | **Changes**                                    |
+| :--------: | :----------: | ---------------------------------------------- |
+| 05/11/2025 |      3       | Update operational information                 |
+| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update |
+| 01/10/2025 |      1       | First release                                  |
 
