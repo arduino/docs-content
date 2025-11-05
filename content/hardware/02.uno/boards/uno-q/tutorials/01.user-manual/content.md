@@ -431,15 +431,56 @@ It can be used to log in to the board and interact with the system through the s
 
 ![Shell Log in](assets/debug-shell-2.png)
 
-### Power Button
+### User Button
 
-The UNO Q features a power button that can be used to reboot the board.
+The UNO Q features a user button that can be used to reboot the board and trigger custom actions.
 
-![UNO Q power button](assets/power-button.png)
+![UNO Q user button](assets/user-button.png)
 
 - **Long press**: the board’s Linux part is rebooted when the button is pressed for **5+** seconds.
 
 ***You do not need to press the power button for the board to power up, it boots automatically after being powered.***
+
+#### Custom Actions
+
+You can trigger custom actions in Python by reading the user button events exposed by Linux through the `/dev/input/` interface.
+
+On the UNO Q, the onboard button is registered as an input device at `/dev/input/event1`, allowing user programs to react to button presses just like they would to a keyboard key.
+
+**From a Python Script:**
+
+- Create a Python file: `nano button.py`
+- Copy and paste the following script:
+  ```python
+  import struct
+
+  EVENT_DEV = "/dev/input/event1"
+  LED_PATH = "/sys/class/leds/red:user/brightness"
+
+  KEY_POWER = 116  # button code
+
+  with open(EVENT_DEV, "rb") as f:
+      while True:
+          data = f.read(24)
+          if len(data) < 24:
+              break
+          code, value = struct.unpack_from("=HI", data, 18)  # skip type (2 bytes)
+          if code == KEY_POWER:
+              with open(LED_PATH, "w") as led:
+                  print('Button pressed → LED',value)
+                  led.write(f"{1 if value == 1 else 0}\n")
+  ```
+- Run the script: `python3 button.py`
+- Press the **user button**, the red LED will toggle accordingly, and you will see console messages like:
+
+  ```bash
+  Button pressed → LED 1
+  Button pressed → LED 0
+  ```
+  ![User Button Custom Action](assets/button-press.gif)
+
+
+For this, we are going to use the UNO Q **Keybinder**.
 
 ## USB-C Connector
 
