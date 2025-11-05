@@ -719,8 +719,6 @@ To test this example with a UWB-enabled smartphone:
 4. Connect to the device named "Portenta UWB Shield" in the app
 5. Move your phone to see distance measurements update in real-time
 
-![Smartphone app showing UWB connection and distance measurement to the Portenta UWB Shield](assets/nearbydemo-smartphone-app.png)
-
 The smartphone app displays the connection status and real-time distance to the Portenta UWB Shield. Once connected, both the app and the IDE's Serial Monitor will show synchronized distance measurements as you move the phone. The distance measurements are displayed in millimeters, providing centimeter-level accuracy. For example, a reading of "Distance: 80" indicates approximately 8 cm between devices.
 
 ***__Important note__: If the connection fails or no measurements appear, verify that your smartphone has UWB enabled and that the Portenta C33 is powered on and running the sketch.***
