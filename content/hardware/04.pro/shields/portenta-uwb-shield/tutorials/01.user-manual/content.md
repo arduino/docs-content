@@ -594,7 +594,7 @@ void setup() {
   UWBNearbySessionManager.onSessionStop(sessionStopped);
   
   // Initialize Bluetooth Low Energy services and start advertising
-  UWBNearbySessionManager.begin("Portenta UWB Shield");
+  UWBNearbySessionManager.begin("TS_DCU150");
 }
 
 void loop() {
@@ -686,11 +686,11 @@ void setup() {
   // ... other callbacks
   
   // Start advertising with device name
-  UWBNearbySessionManager.begin("Portenta UWB Shield");
+  UWBNearbySessionManager.begin("TS_DCU150");
 }
 ```
 
-The device name "Portenta UWB Shield" appears in smartphone apps when scanning for available UWB devices.
+The device name `TS_DCU150` appears in smartphone apps when scanning for available UWB devices.
 
 - **Main Loop**
 
