@@ -46,7 +46,7 @@ The Qwiic connector uses a 4-pin JST SH connector (P/N: SM04B-SRSS-TB(LF)(SN)) w
 | Pin | Connection                               |
 |-----|------------------------------------------|
 | GND | Ground                                   |
-| VCC | +3.3 VDC/ +5 VDC (selected by the input selector switch) |
+| VCC | +3.3 VDC |
 | SDA | I²C Data (connected to the A4 pin of the Nano board)   |
 | SCL | I²C Clock (connected to the A5 pin of the Nano board) |
 
