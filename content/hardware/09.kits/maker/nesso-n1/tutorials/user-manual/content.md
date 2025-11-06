@@ -25,7 +25,7 @@ software:
 
 The **Arduino® Nesso N1** is an all-in-one enclosed development board. Based on the ESP32-C6 System on Chip (SoC), it integrates a suite of communication protocols, including 2.4 GHz Wi-Fi® 6, Bluetooth® 5.3 LE, 802.15.4 (Thread/Zigbee®), and long-range LoRa®. It also includes a 1.14" color touchscreen, buttons, and a built-in LiPo battery for immediate user interaction in portable applications.
 
-This document serves as a comprehensive user manual for the Nesso N1, providing technical specifications, setup guides, and detailed explanations of its features to help you bring your projects to life.
+This document serves as a comprehensive user manual for the Nesso N1, providing technical specifications, set up guides, and detailed explanations of its features to help you bring your projects to life.
 
 ![ ](assets/hero-banner.png)
 
