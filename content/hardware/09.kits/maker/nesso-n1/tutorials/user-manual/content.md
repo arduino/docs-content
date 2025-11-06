@@ -41,7 +41,7 @@ This document serves as a comprehensive user manual for the Nesso N1, providing 
 - [Arduino IDE](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://app.arduino.cc/sketches)
 - [ESP32 Boards core by Espressif](https://github.com/espressif/arduino-esp32)
 
-## Board Overview
+## Product Overview
 
 The Nesso N1 packs a rich set of features into a compact and portable form factor. It includes an integrated color touchscreen, multiple sensors, programmable buttons, and extensive expansion options, all powered by a rechargeable LiPo battery with power management.
 
