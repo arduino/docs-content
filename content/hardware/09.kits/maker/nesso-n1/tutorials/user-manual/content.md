@@ -585,7 +585,7 @@ void loop() {
 }
 ```
 
-***Please note: There is a known hardware timer conflict between the tone() function and the IRremote library. To use both features in the same sketch, you must fully reset the pin and re-initialize the IR sender before each transmission. First, set the pin mode to INPUT to release it from the timer, then call IrSender.begin() to reconfigure it for IR.***
+***Please note: There is a known hardware timer conflict between the `tone()` function and the IRremote library. To use both features in the same sketch, you must fully reset the pin and re-initialize the IR sender before each transmission. First, set the pin mode to INPUT to release it from the timer, then call `IrSender.begin()` to reconfigure it for IR.***
 
 ## Expansion Ports
 
