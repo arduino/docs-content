@@ -198,6 +198,26 @@ gaugeVariable = analogRead(A0);
 
 Use the image widget to put a JPG, PNG or WEBP image on your dashboard! If you instead want to use an image URL, then chose the URL option under image source. Keep in mind the URL needs to be a HTTPS URL and not a HTTP URL. It is also possible to use local addresses. If you are using the URL option you can add a refresh frequency to the image widget, enabling the widget to function as a video or moving image. The image will then update  The image can be made to fill the widget frame or to fit within the widget frame. A grey background can be added to the widget to help with visibility issues for PNGs with transparent backgrounds.
 
+### Image Map
+
+![Image Map Widget](assets/image-map.png)
+
+Monitor your environment at a glance by placing markers on a map of your space. It could be a map of your house, warehouse, plant, etc. Enabling you to see real-time data from your devices.
+
+Upload or link an image of the space you want to monitor. You can then add `markers` that you can customize the look and placement of while also linking to any public URL.
+
+![Image map markers](assets/image-map-markers.png)
+
+You can also add `triggers` and set their label, unit, position and looks. Link any `int`, `Float`, `String`, `Bool` or any Specialized types based on them to the triggers on the image map. 
+
+Depending on the variable that you link you will get different options. With a `boolean` you can decide if the style should be `On/Off`, `True/False` or `Icons`. Then change the color of the trigger depending on the state if you check the `Custom style` option.
+
+![Image map boolean](assets/image-map-bool-trigger.png)
+
+With a `int` or `float` you can change the color of the trigger depending on the threshold if you check the `Customize color` option.
+
+![Image map int](assets/image-map-int-trigger.png)
+
 ### LED
 
 ![LED Widget](assets/widget-led.png)
