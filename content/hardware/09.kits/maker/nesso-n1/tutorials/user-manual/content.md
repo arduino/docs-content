@@ -45,6 +45,8 @@ This document serves as a comprehensive user manual for the Nesso N1, providing 
 
 The Nesso N1 packs a rich set of features into a compact and portable form factor. It includes an integrated color touchscreen, multiple sensors, programmable buttons, and extensive expansion options, all powered by a rechargeable LiPo battery with power management.
 
+### Pinout
+
 ![Arduino Nesso N1 Pinout](assets/simple-pinout.png)
 
 The full pinout is available and downloadable as a PDF from the link below:
