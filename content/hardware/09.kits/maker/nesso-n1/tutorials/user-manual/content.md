@@ -1,5 +1,5 @@
 ---
-title: 'Arduino Nesso N1 User Manual'
+title: 'Nesso N1 User Manual'
 difficulty: beginner
 compatible-products: [nesso-n1]
 description: 'Learn how to set up and use the Arduino Nesso N1, a ready to use IoT development board.'
