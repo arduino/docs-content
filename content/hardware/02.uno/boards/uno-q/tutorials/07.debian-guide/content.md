@@ -17,7 +17,7 @@ The Arduino UNO Q runs a full Debian Linux operating system on its Qualcomm® QR
 
 Understanding the Debian system allows you to leverage the full power of Linux for advanced projects, system administration, and development tasks beyond Arduino sketches, thus using the UNO Q to its fullest.
 
-## What is Debian?
+## What Is Debian?
 
 Debian is a free and open-source Linux distribution known for its stability, security, and extensive package ecosystem. On the UNO Q, Debian provides a full Linux environment with standard Unix tools and utilities, allowing you to run multiple applications simultaneously and access thousands of software packages through the `apt` package manager.
 
