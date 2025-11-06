@@ -41,7 +41,7 @@ There are three main methods to access the Debian shell on your UNO Q, each suit
 
 The Android Debug Bridge (ADB) provides direct shell access via USB connection, making it ideal for quick access when the board is connected to your computer, without requiring any network setup.
 
-To use this method, you'll need a USB-C® cable and ADB tools installed on your computer. Once connected, the board can be verified by running `adb devices`, which lists all connected devices.
+To use this method, you will need a USB-C® cable and ADB tools installed on your computer. Once connected, the board can be verified by running `adb devices`, which lists all connected devices.
 
 Then run `adb shell` to enter the board's shell environment. This method is particularly useful during initial setup or when network connectivity is not available.
 
@@ -49,7 +49,9 @@ Then run `adb shell` to enter the board's shell environment. This method is part
 # Connect the board via USB-C®
 adb devices
 # Expected result: Lists connected devices
+```
 
+```bash
 adb shell
 # Result: Enters the board's shell
 ```
@@ -64,14 +66,16 @@ To connect, open a terminal on your computer and run:
 ssh arduino@<boardname>.local
 ```
 
-Replace `<boardname>` with your actual board name. When connecting for the first time, you'll be asked to verify the connection by typing `yes`. After confirming, enter your board's password to gain full shell access.
+Replace `<boardname>` with your actual board name. When connecting for the first time, you will be asked to verify the connection by typing `yes`. After confirming, enter your board's password to gain full shell access.
 
 ```bash
 # Connect from your computer
 ssh arduino@<boardname>.local
 # Type 'yes' when asked to connect (first time only)
 # Enter password when prompted
+```
 
+```bash
 # Example
 ssh arduino@myunoq.local
 ```
@@ -90,7 +94,7 @@ On the board (accessible via ADB or SBC mode).
 
 ### Through SBC Mode
 
-The single-board computer mode turns your UNO Q into a standalone desktop computer with a graphical user interface. To use this mode, you'll need a USB-C® dongle with external power delivery, an HDMI display, and a USB keyboard and mouse.
+The single-board computer mode turns your UNO Q into a standalone desktop computer with a graphical user interface. To use this mode, you will need a USB-C® dongle with external power delivery, an HDMI display, and a USB keyboard and mouse.
 
 Connect all peripherals through the USB-C® dongle, power on the system, and log in using your credentials. Once logged in, you can open the Terminal application directly from the desktop environment, giving you shell access alongside the graphical interface.
 
@@ -104,20 +108,20 @@ This method is ideal when you want to use your UNO Q as a workstation, allowing 
 
 Debian organizes files in a hierarchical directory structure, with the root directory `/` at the top level containing all other directories.
 
-For most UNO Q projects, you'll primarily work within `/home/arduino/`, your default user directory.
+For most UNO Q projects, you will primarily work within `/home/arduino/`, your default user directory.
 
 Within your home directory, the `ArduinoApps/` folder is particularly important as it contains all the Apps you create with Arduino App Lab, with each App stored in its own subdirectory.
 
 ```
-/                       # Root directory (top level)
+/                         # Root directory (top level)
 ├── home/
-│   └── arduino/        # Your working directory
+│   └── arduino/          # Your working directory
 │       └── ArduinoApps/  # Your Arduino App Lab projects
-├── tmp/                # Temporary files (cleared on reboot)
-└── mnt/                # Mount points for USB drives
+├── tmp/                  # Temporary files (cleared on reboot)
+└── mnt/                  # Mount points for USB drives
 ```
 
-When navigating the system, you'll spend most of your time in `/home/arduino/`. The `/tmp/` directory is useful for temporary files, and `/mnt/` becomes relevant when you mount USB storage devices.
+When navigating the system, you will spend most of your time in `/home/arduino/`. The `/tmp/` directory is useful for temporary files, and `/mnt/` becomes relevant when you mount USB storage devices.
 
 ### Navigation Commands
 
@@ -128,13 +132,19 @@ To move up one directory level, use `cd ..`, and to return to your previous dire
 ```bash
 # Navigate to home directory
 cd ~
+```
 
+```bash
 # Navigate to a specific path
 cd /home/arduino/Documents
+```
 
+```bash
 # Go up one level
 cd ..
+```
 
+```bash
 # Go to previous directory
 cd -
 ```
@@ -146,18 +156,24 @@ Adding the `-a` flag with `ls -a` reveals hidden files that start with a dot, an
 ```bash
 # Basic listing
 ls
+```
 
+```bash
 # Detailed listing with permissions and sizes
 ls -lh
+```
 
+```bash
 # Show hidden files (starting with .)
 ls -a
+```
 
+```bash
 # Combine options
 ls -lah
 ```
 
-When you run `ls -lah`, you'll see output similar to this:
+When you run `ls -lah`, you will see output similar to this:
 
 ```
 total 24K
@@ -183,19 +199,23 @@ Creating directories is simple with the `mkdir` command. Running `mkdir my_proje
 ```bash
 mkdir my_project
 # Creates a new directory
+```
 
+```bash
 mkdir -p projects/arduino/sketches
 # Creates nested directories
 ```
 
 The `cp` command handles file copying operations. To copy a single file, use `cp source.txt destination.txt`, which creates a duplicate with a new name.
 
-When working with directories, you'll need the recursive flag: `cp -r source_folder/ destination_folder/` copies the entire directory and all its contents. This is essential when you need to back up or duplicate project folders.
+When working with directories, you will need the recursive flag: `cp -r source_folder/ destination_folder/` copies the entire directory and all its contents. This is essential when you need to back up or duplicate project folders.
 
 ```bash
 # Copy file
 cp source.txt destination.txt
+```
 
+```bash
 # Copy directory recursively
 cp -r source_folder/ destination_folder/
 ```
@@ -209,7 +229,9 @@ While `mv file.txt /home/arduino/Documents/` moves the file to a different locat
 ```bash
 # Rename file
 mv oldname.txt newname.txt
+```
 
+```bash
 # Move file to directory
 mv file.txt /home/arduino/Documents/
 ```
@@ -221,10 +243,14 @@ The most effective but dangerous variant is `rm -rf folder/`, which forcefully d
 ```bash
 # Delete file
 rm file.txt
+```
 
+```bash
 # Delete directory and contents
 rm -r folder/
+```
 
+```bash
 # Force delete without confirmation (use carefully!)
 rm -rf folder/
 ```
@@ -251,18 +277,24 @@ Many system operations require administrator privileges to prevent accidental or
 
 For example, installing software requires elevated privileges, so you would use `sudo apt install package-name`. Similarly, editing system configuration files like `sudo nano /etc/network/interfaces` needs superuser access.
 
-When controlling system services with commands like `sudo systemctl restart networking`, or accessing protected directories such as `sudo ls /root`, you'll be prompted for your password before the command executes. This security measure ensures that critical system changes are intentional and authenticated.
+When controlling system services with commands like `sudo systemctl restart networking`, or accessing protected directories such as `sudo ls /root`, you will be prompted for your password before the command executes. This security measure proves that critical system changes are intentional and authenticated.
 
 ```bash
 # Install software
 sudo apt install package-name
+```
 
+```bash
 # Edit system configuration files
 sudo nano /etc/network/interfaces
+```
 
+```bash
 # Control system services
 sudo systemctl restart networking
+```
 
+```bash
 # Access protected system directories
 sudo ls /root
 ```
@@ -279,17 +311,21 @@ When you need to apply permissions to an entire directory and its contents, the 
 # Make file executable
 chmod +x script.sh
 # Now you can run ./script.sh
+```
 
+```bash
 # Set specific permissions (numeric notation)
 chmod 755 script.sh
 # Owner: read+write+execute, Others: read+execute
+```
 
+```bash
 # Recursive permission change
 chmod -R 755 folder/
 # Applies permissions to folder and all contents
 ```
 
-Common permission codes you'll encounter include 755, which gives the owner full control while others can read and run.
+Common permission codes you will encounter include 755, which gives the owner full control while others can read and run.
 
 644 allows the owner to read and write, while others can only read.
 
@@ -306,10 +342,14 @@ For entire directory structures, the recursive option `sudo chown -R arduino:ard
 ```bash
 # Change file owner
 sudo chown arduino file.txt
+```
 
+```bash
 # Change owner and group
 sudo chown arduino:arduino file.txt
+```
 
+```bash
 # Recursive ownership change
 sudo chown -R arduino:arduino /home/arduino/project/
 ```
@@ -327,7 +367,9 @@ For larger files, the `less file.txt` command opens a scrollable viewer where yo
 ```bash
 cat file.txt
 # Prints entire file to terminal
+```
 
+```bash
 less file.txt
 # Opens scrollable viewer
 # Use arrow keys to navigate, 'q' to quit
@@ -340,13 +382,19 @@ You can customize the number of lines shown with commands like `head -n 20 file.
 ```bash
 # First 10 lines
 head file.txt
+```
 
+```bash
 # Last 10 lines
 tail file.txt
+```
 
+```bash
 # Custom number of lines
 head -n 20 file.txt
+```
 
+```bash
 # Follow file updates (useful for logs)
 tail -f /var/log/syslog
 ```
@@ -360,22 +408,24 @@ To edit a file, run `nano myfile.txt`, which will either open the existing file 
 ```bash
 # Edit existing file or create new one
 nano myfile.txt
+```
 
+```bash
 # Edit system file with sudo
 sudo nano /etc/hostname
 ```
 
-Once inside Nano, navigation is simple. Use the arrow keys to move through your text, and you'll see a helpful menu at the bottom showing available commands.
+Once inside Nano, navigation is simple. Use the arrow keys to move through your text, and you will see a helpful menu at the bottom showing available commands.
 
-To save your changes, press **CTRL + O** (write **O**ut), confirm the filename, and press Enter.
+To save your changes, press **CTRL + O** (write **O**ut), confirm the filename, and press Enter. Other basic commands are:
 
-To exit nano, press **CTRL + X**. Other useful commands include:
-**CTRL + K** to cut the current line
-**CTRL + U** to paste it elsewhere
-**CTRL + W** to search for text
-**CTRL + G** to access the full help menu.
+- **CTRL + X** to exit nano
+- **CTRL + K** to cut the current line
+- **CTRL + U** to paste it elsewhere
+- **CTRL + W** to search for text
+- **CTRL + G** to access the full help menu
 
-When you press CTRL + O to save, Nano will write your changes to storage, making them permanent.
+When you press `CTRL + O` to save, Nano will write your changes to storage, making them permanent.
 
 ### Searching Files and Content
 
@@ -387,7 +437,9 @@ You can also search based on modification time. For example, `find /home/arduino
 # Find files by name
 find /home/arduino -name "*.py"
 # Lists all Python files
+```
 
+```bash
 # Find files modified in last 7 days
 find /home/arduino -mtime -7
 ```
@@ -399,10 +451,14 @@ To search through an entire directory structure, use `grep -r "TODO" /home/ardui
 ```bash
 # Search for text in file
 grep "Arduino" file.txt
+```
 
+```bash
 # Search recursively in directory
 grep -r "TODO" /home/arduino/projects/
+```
 
+```bash
 # Case-insensitive search
 grep -i "arduino" file.txt
 ```
@@ -413,9 +469,17 @@ Debian uses the Advanced Package Tool, commonly known as `apt`, to manage softwa
 
 ### Updating Package Lists
 
-Before installing new software, it's important to update your package lists to ensure you're getting the latest versions. Running `sudo apt update` downloads the most current package information from Debian's repositories.
+Before installing new software, it is important to update your package lists to make you are getting the latest versions. Running `sudo apt update` downloads the most current package information from Debian's repositories.
 
-You'll see output listing various repositories being checked, ending with "Reading package lists... Done". This process doesn't install anything. It refreshes your system's knowledge of available software versions. Always run this command before attempting to install new packages to avoid installing outdated versions.
+You will see output listing various repositories being checked, ending with:
+
+```bash
+...
+Reading package lists... Done
+...
+```
+
+This process does not install anything. It refreshes your system's knowledge of available software versions. Always run this command before attempting to install new packages to avoid installing outdated versions and to be in synchronous with the database.
 
 ```bash
 sudo apt update
@@ -437,7 +501,9 @@ You can install multiple packages in a single command by separating them with sp
 ```bash
 # Install a package
 sudo apt install package-name
+```
 
+```bash
 # Install multiple packages
 sudo apt install python3-pip git curl
 ```
@@ -460,7 +526,9 @@ For instance, `apt search python3` will list all available packages related to P
 ```bash
 # Search available packages
 apt search keyword
+```
 
+```bash
 # Example: Find Python packages
 apt search python3
 ```
@@ -474,10 +542,14 @@ Running `sudo apt autoremove` cleans these up automatically, freeing disk space 
 ```bash
 # Remove package but keep configuration files
 sudo apt remove package-name
+```
 
+```bash
 # Remove package and configuration files
 sudo apt purge package-name
+```
 
+```bash
 # Remove unused dependencies
 sudo apt autoremove
 ```
@@ -491,7 +563,9 @@ For more comprehensive updates that may change package dependencies, use `sudo a
 ```bash
 # Upgrade installed packages
 sudo apt upgrade
+```
 
+```bash
 # Upgrade with automatic handling of dependencies
 sudo apt full-upgrade
 ```
@@ -525,16 +599,18 @@ This detailed view is useful when troubleshooting USB issues or understanding po
 ```bash
 # Show detailed USB information
 lsusb -v
+```
 
+```bash
 # Show USB device tree
 lsusb -t
 ```
 
 ### Working with USB Storage Devices
 
-When you connect a USB flash drive or external hard drive in SBC mode to the desktop environment, the system typically auto-mounts it at `/media/arduino/`, making it accessible in the file manager. However, when working from the command line or in headless mode, you'll need to mount drives manually.
+When you connect a USB flash drive or external hard drive in SBC mode to the desktop environment, the system typically auto-mounts it at `/media/arduino/`, making it accessible in the file manager. However, when working from the command line or in headless mode, you will need to mount drives manually.
 
-First, identify your USB drive by running `lsblk`, which lists all block devices and their partitions. You'll see output showing device names like `/dev/sda1` along with their sizes and mount points.
+First, identify your USB drive by running `lsblk`, which lists all block devices and their partitions. You will see output showing device names like `/dev/sda1` along with their sizes and mount points.
 
 To mount a USB drive manually, create a mount point directory with `sudo mkdir -p /mnt/usb`, then mount the device using `sudo mount /dev/sda1 /mnt/usb`. The USB drive's contents are now accessible at `/mnt/usb`.
 
@@ -543,14 +619,20 @@ When you're finished working with the drive, always unmount it properly using `s
 ```bash
 # List block devices
 lsblk
+```
 
+```bash
 # Create mount point
 sudo mkdir -p /mnt/usb
+```
 
+```bash
 # Mount USB drive
 sudo mount /dev/sda1 /mnt/usb
 # USB contents accessible at /mnt/usb
+```
 
+```bash
 # Unmount when done
 sudo umount /mnt/usb
 ```
@@ -571,7 +653,9 @@ After installing it with `sudo apt install fswebcam`, you can capture a test ima
 ```bash
 # Install fswebcam
 sudo apt install fswebcam
+```
 
+```bash
 # Capture image
 fswebcam -r 1280x720 --no-banner test.jpg
 ```
@@ -595,7 +679,9 @@ To interact with a serial device, the `screen` utility provides a simple termina
 ```bash
 # Install screen for serial communication
 sudo apt install screen
+```
 
+```bash
 # Connect to serial port (115200 baud)
 screen /dev/ttyUSB0 115200
 # Exit: CTRL+A, then K, then Y
@@ -603,12 +689,14 @@ screen /dev/ttyUSB0 115200
 
 Serial devices are often configured with restricted permissions by default. Running `ls -l /dev/ttyUSB0` might show that only users in the `dialout` group have access.
 
-To grant your user account access to serial ports, add yourself to the dialout group with `sudo usermod -a -G dialout arduino`. This change takes effect after you log out and back in. After this one-time setup, you'll be able to access serial devices without needing sudo permissions.
+To grant your user account access to serial ports, add yourself to the dialout group with `sudo usermod -a -G dialout arduino`. This change takes effect after you log out and back in. After this one-time setup, you will be able to access serial devices without needing sudo permissions.
 
 ```bash
 ls -l /dev/ttyUSB0
 # May show: crw-rw---- 1 root dialout
+```
 
+```bash
 # Add user to dialout group for access
 sudo usermod -a -G dialout arduino
 # Log out and back in for changes to take effect
@@ -626,6 +714,9 @@ The `arduino-app-cli` provides commands for controlling the Apps you create in A
 
 ```bash
 cd ~/ArduinoApps
+```
+
+```bash
 ls
 # Shows all your Arduino App Lab projects
 ```
@@ -642,7 +733,9 @@ Starting and stopping Apps is simple. The start command launches an App and keep
 ```bash
 # Start an App
 arduino-app-cli app start MyApp
+```
 
+```bash
 # Stop a running App
 arduino-app-cli app stop MyApp
 ```
@@ -658,7 +751,9 @@ The Arduino App CLI also provides system management commands. One useful feature
 ```bash
 # Enable network mode for remote Arduino App Lab access
 arduino-app-cli system network-mode enable
+```
 
+```bash
 # Check network mode status
 arduino-app-cli system network-mode status
 ```
@@ -707,7 +802,7 @@ To see how much space individual directories are consuming, use `du -sh *` in an
 
 This summarizes the size of each item in the current location, making it easy to identify large directories that might be good candidates for cleanup.
 
-The `-h` flag ensures sizes are displayed in human-readable format rather than raw byte counts.
+The `-h` flag displays sizes in human-readable format rather than raw byte counts.
 
 ```bash
 du -sh *
@@ -732,10 +827,14 @@ To specifically see which Debian version you are running, examine `/etc/os-relea
 ```bash
 # Show Linux version
 uname -a
+```
 
+```bash
 # Show Debian version
 cat /etc/os-release
+```
 
+```bash
 # Show CPU information
 lscpu
 ```
@@ -769,7 +868,9 @@ To scan for available Wi-Fi® networks in range, use `nmcli device wifi list`, w
 ```bash
 # Show network status
 nmcli device status
+```
 
+```bash
 # List available Wi-Fi® networks
 nmcli device wifi list
 ```
@@ -781,10 +882,14 @@ The connection is saved automatically, allowing your board to reconnect after re
 ```bash
 # Connect to network
 sudo nmcli device wifi connect "SSID" password "password"
+```
 
+```bash
 # Disconnect from network
 sudo nmcli device disconnect wlan0
+```
 
+```bash
 # Show saved connections
 nmcli connection show
 ```
@@ -803,10 +908,14 @@ For DNS troubleshooting, `nslookup arduino.cc` queries DNS servers to verify tha
 # Test connectivity
 ping google.com
 # Shows response times (CTRL+C to stop)
+```
 
+```bash
 # Trace network route
 traceroute google.com
+```
 
+```bash
 # Check DNS resolution
 nslookup arduino.cc
 ```
@@ -819,10 +928,9 @@ The terminal includes several keyboard shortcuts that help improve efficiency.
 
 Pressing **Tab** automatically completes commands and file names, saving typing and preventing errors.
 
-To stop a running command, press **CTRL + C** immediately.
-To clear your terminal screen of clutter, use **CTRL + L**.
+To stop a running command, press **CTRL + C**. To clear your terminal screen, use **CTRL + L**.
 
-The up and down arrow keys let you navigate through previously entered commands, making it easy to repeat or modify recent commands. The reverse search feature, activated with **CTRL + R**, allows you to search through your entire command history by typing a few characters.
+The `up` and `down` arrow keys let you navigate through previously entered commands, making it easy to repeat or modify recent commands. The reverse search feature, activated with **CTRL + R**, allows you to search through your entire command history by typing a few characters.
 
 ### Getting Help
 
@@ -836,7 +944,9 @@ For example, `man ls` shows everything about the ls command. For quicker referen
 # Show command manual
 man command-name
 # Example: man ls
+```
 
+```bash
 # Show brief help
 command-name --help
 # Example: ls --help
@@ -855,10 +965,14 @@ The `dmesg | less` command displays kernel boot messages and hardware detection 
 ```bash
 # View system log
 sudo journalctl -xe
+```
 
+```bash
 # Follow real-time logs
 sudo journalctl -f
+```
 
+```bash
 # View boot messages
 dmesg | less
 ```
@@ -871,7 +985,7 @@ For everyday tasks like creating files in your home directory, editing your own 
 
 Using `sudo` unnecessarily can actually create problems. When you create or modify files with `sudo`, they are owned by root rather than your user account, which can lead to permission issues later.
 
-For example, if you run `sudo nano myfile.txt` in your home directory, the file will be owned by root, and you'll need `sudo` to edit it again in the future. This is why you should reserve `sudo` for operations that genuinely require system administrator privileges.
+For example, if you run `sudo nano myfile.txt` in your home directory, the file will be owned by root, and you will need `sudo` to edit it again in the future. This is why you should reserve `sudo` for operations that genuinely require system administrator privileges.
 
 Before making significant system changes, always back up important files to external storage or another location. This simple precaution can save hours of work if something goes wrong.
 
