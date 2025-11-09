@@ -54,7 +54,8 @@ A stepper motor follows the turns of a potentiometer (or other sensor) on analog
 // create an instance of the stepper class, specifying
 // the number of steps of the motor and the pins it's
 // attached to
-Stepper stepper(STEPS, 8, 9, 10, 11);
+// (note the order for 2th and 3th pins)
+Stepper stepper(STEPS, 8, 10, 9, 11);
 
 // the previous reading from the analog input
 int previous = 0;
@@ -88,7 +89,8 @@ const int stepsPerRevolution = 200;  // change this to fit the number of steps p
 // for your motor
 
 // initialize the stepper library on pins 8 through 11:
-Stepper myStepper(stepsPerRevolution, 8, 9, 10, 11);
+// (note the order for 2th and 3th pins)
+Stepper myStepper(stepsPerRevolution, 8, 10, 9, 11);
 
 void setup() {
   // set the speed at 60 rpm:
@@ -121,7 +123,8 @@ const int stepsPerRevolution = 200;  // change this to fit the number of steps p
 // for your motor
 
 // initialize the stepper library on pins 8 through 11:
-Stepper myStepper(stepsPerRevolution, 8, 9, 10, 11);
+// (note the order for 2th and 3th pins)
+Stepper myStepper(stepsPerRevolution, 8, 10, 9, 11);
 
 int stepCount = 0;         // number of steps the motor has taken
 
@@ -153,7 +156,8 @@ const int stepsPerRevolution = 200;  // change this to fit the number of steps p
 
 
 // initialize the stepper library on pins 8 through 11:
-Stepper myStepper(stepsPerRevolution, 8, 9, 10, 11);
+// (note the order for 2th and 3th pins)
+Stepper myStepper(stepsPerRevolution, 8, 10, 9, 11);
 
 int stepCount = 0;  // number of steps the motor has taken
 
