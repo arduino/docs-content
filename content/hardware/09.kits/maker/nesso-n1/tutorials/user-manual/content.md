@@ -916,10 +916,7 @@ void loop() {
 #### How to Test
 
 1.  Upload the sketch to your Nesso N1.
-2.  You will need a **Zigbee® Hub/Coordinator**. Many popular smart home devices have this functionality built-in, such as:
-    *   Amazon Echo (4th Gen, Plus, Studio, Show 10)
-    *   Philips Hue Bridge
-    *   Samsung SmartThings Hub
+2.  You will need a **Zigbee® Hub/Coordinator**. Many popular smart home devices have this functionality built-in, such as the Amazon Echo (4th Gen, Plus, Studio, Show 10), Philips Hue Bridge, or Samsung SmartThings Hub.
 3.  Open the companion app for your hub (e.g., Amazon Alexa app, Philips Hue app).
 4.  Put your hub into pairing or "discover devices" mode.
 5.  The hub should discover a new light bulb named "Arduino Nesso-Light".
