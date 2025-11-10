@@ -70,7 +70,7 @@ Smart home automation, remote monitoring, Industrial IoT (IIoT), environmental s
 | Display          | - 1.14" IPS LCD<br/>- ST7789P3 driver @ SPI communication<br/>- Resolution: 135 × 240 pixels<br/>- 262K colors (18-bit) |
 | Touch Controller | - FT6336U capacitive touch controller<br/>- I²C communication                                                           |
 | User Buttons     | - 2× programmable buttons (KEY1, KEY2)<br/>- 1× power button (long-press reset function)                                |
-| LEDs             | - 1× green power/status LED<br/>- 1× blue user programmable LED                                                         |
+| LEDs             | - 1× green user programmable LED<br/>- 1× blue power/status LED                                                         |
 | Audio Feedback   | - Passive buzzer (4 kHz)<br/>- GPIO-controlled                                                                          |
 | Infrared         | - IR LED transmitter<br/>- Remote control and signal transmission capability                                            |
 
