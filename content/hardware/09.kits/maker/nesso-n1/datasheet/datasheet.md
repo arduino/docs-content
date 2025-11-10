@@ -178,6 +178,7 @@ Use the limits below to define the operating environment, thermal margins, and p
 **Power Button Behavior:**
 - **Single press:** Turns on the device if powered down or resets if done while operating
 - **Double press:** Turns off the device
+- **Long press:** Enters Download/Bootloader mode while operating
 
 <div style="page-break-after: always;"></div>
 
