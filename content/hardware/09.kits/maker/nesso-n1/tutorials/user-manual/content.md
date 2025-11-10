@@ -845,8 +845,8 @@ You will need two separate Serial Monitor windows, one for each Nesso N1.
     `ff03::1` is a multicast address that means "all Thread devices here."
 
 9.  **Verify Communication:**
-    *   The Serial Monitor for **Board 2** (the client) should respond with `Done`.
-    *   The Serial Monitor for **Board 1** (the server) should print a message showing it received the packet, for example: `8 bytes from fdde:ad00:beef:0:35e3:3c2f:273f:9442 Hello!`.
+    The Serial Monitor for **Board 2** (the client) should respond with `Done`.
+    The Serial Monitor for **Board 1** (the server) should print a message showing it received the packet, for example: `8 bytes from fdde:ad00:beef:0:35e3:3c2f:273f:9442 Hello!`.
 
 You have now successfully sent and received a message over a peer-to-peer Thread network.
 
