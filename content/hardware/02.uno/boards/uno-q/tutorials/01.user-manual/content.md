@@ -287,8 +287,8 @@ LEDs #1 and #2 are controlled by the MPU.
 There is a dedicated LED interface in our Linux OS for controlling these LEDs, they can be controlled via `/sys/class/leds` from the **Command Line**, using **SSH**, an **ADB** connection from your PC terminal or by using the Linux built-in terminal application when used in single-board computer mode:
 
 ```bash
-echo 1    | sudo tee /sys/class/leds/red:user/brightness   # set HIGH/ON
-echo 0    | sudo tee /sys/class/leds/red:user/brightness   # set LOW/OFF
+echo 1    | tee /sys/class/leds/red:user/brightness   # set HIGH/ON
+echo 0    | tee /sys/class/leds/red:user/brightness   # set LOW/OFF
 ```
 
 ![Linux LED control](assets/linux-led-control.gif)
