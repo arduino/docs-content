@@ -275,7 +275,7 @@ Use the limits below to define the operating environment, thermal margins, and p
 |       3 | GROVE_IO_0     | GPIO 5        |
 |       4 | GROVE_IO_1     | GPIO 4         |
 
-<p style="text-align: justify;">The Grove connector provides both power (5V from boost converter) and signal connections. IO1 and IO2 are controlled through the PI4IOE5V6408 I/O expander, accessible via I²C commands. Use this connector for Grove modules requiring 5V operation or GPIO control.</p>
+<p style="text-align: justify;">The Grove connector provides both power (5V from boost converter) and signal connections. IO_0 and IO_1 are controlled through the GPIO 5 and 4, accessible via I²C commands. Use this connector for Grove modules requiring 5V operation or GPIO control.</p>
 
 <div style="background-color: rgba(255, 193, 7, 0.2); border-left: 6px solid rgba(255, 152, 0, 1); margin: 20px 0; padding: 15px;">
   <strong>Note:</strong> This connector uses a custom pinout that differs from standard Grove connectors. Verify pin compatibility before connecting standard Grove modules.
