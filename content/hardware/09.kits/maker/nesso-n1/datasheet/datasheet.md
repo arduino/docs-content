@@ -149,7 +149,7 @@ Use the limits below to define the operating environment, thermal margins, and p
 
 ### Pinout
 
-![Nesso N1 Pinout](assets/nesso_n1_pinout.png)
+![Nesso N1 Pinout - Simplified Version](assets/TPX00227-pinout.png)
 
 ### Block Diagram
 
@@ -256,7 +256,9 @@ Use the limits below to define the operating environment, thermal margins, and p
 
 ### I/O Expansion
 
-<p style="text-align: justify;">The PI4IOE5V6408 I²C I/O expander provides additional GPIO pins beyond the ESP32-C6's native capabilities, used for controlling the LoRa® subsystem (antenna switch, LNA enable, reset) and providing expansion port pins. It operates on the shared I²C bus (address configurable) and offers interrupt capability for event detection.</p>
+<p style="text-align: justify;">Two PI4IOE5V6408 I²C I/O expanders provide additional GPIO pins for the system. These devices operate on the shared I²C bus with configurable addresses, allowing control of a wider range of peripherals while keeping the ESP32-C6's native GPIO resources for other functions.</p>
+
+<p style="text-align: justify;">The first expander manages display control signals, status indicators, and power monitoring functions. The second expander handles user interface elements such as programmable buttons, manages LoRa® transceiver control signals, and provides GPIO for external expansion connectors. The I/O expanders also offer interrupt capability for event detection.</p>
 
 <div style="page-break-after: always;"></div>
 
@@ -268,12 +270,12 @@ Use the limits below to define the operating environment, thermal margins, and p
 
 **Grove HY2.0-4P Connector** connects Grove ecosystem sensors and actuators with a custom pinout.
 
-| **Pin** | **Signal**      | **Description**                      |
-|--------:|-----------------|--------------------------------------|
-|       1 | GND             | Ground                               |
-|       2 | 5VOUT           | 5 V output from boost converter      |
-|       3 | GROVE_IO_0     | GPIO 5        |
-|       4 | GROVE_IO_1     | GPIO 4         |
+| **Pin** | **Signal** | **Description**                 |
+|--------:|------------|---------------------------------|
+|       1 | GND        | Ground                          |
+|       2 | 5VOUT      | 5 V output from boost converter |
+|       3 | GROVE_IO_0 | GPIO 5                          |
+|       4 | GROVE_IO_1 | GPIO 4                          |
 
 <p style="text-align: justify;">The Grove connector provides both power (5V from boost converter) and signal connections. IO_0 and IO_1 are controlled through the GPIO 5 and 4, accessible via I²C commands. Use this connector for Grove modules requiring 5V operation or GPIO control.</p>
 
