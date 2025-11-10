@@ -1209,9 +1209,6 @@ void loop() {
 
 The onboard SX1262 module can be configured to communicate on public LoRa® networks such as [**The Things Network (TTN)**](https://www.thethingsnetwork.org/) or [**Helium**](https://helium.com/). These networks operate on specific frequencies and use defined radio parameters based on regional plans (e.g., `EU868`, `US915`, `AU915`). To ensure your device can be heard by gateways in your area, you must first configure your LoRa® radio to match your region's frequency.
 
-- To get started with The Things Network, you can [create a free account](https://www.thethingsnetwork.org/get-started).
-- To join the Helium Network, you can [create an account on the Helium Console](https://console.helium.com).
-
 ## Onboard Sensors & Peripherals
 
 ### 6-Axis IMU
