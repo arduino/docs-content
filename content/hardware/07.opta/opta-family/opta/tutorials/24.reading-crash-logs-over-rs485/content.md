@@ -137,7 +137,7 @@ arduino-cli compile demo.ino \
 
 This produces an `output.map` file in the `build` directory.
 
-### 2. Run the crash log parser
+### 2. Run the Crash Log Parser
 
 Once you’ve captured the crash log over RS485 (for example, saved to a file named `crash.txt`), you can parse it as follows:
 
