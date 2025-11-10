@@ -23,16 +23,19 @@ However, if we want to hard-reset the board and perform a fresh installation, it
 
 ### Software Requirements
 
+- [Arduino Flasher CLI](https://www.arduino.cc/en/software/#flasher-tool)
+- At least 10 GB of free disk space
+
 To re-flash the board, we will use the **Arduino Flasher CLI** tool:
 
 - Download the [Arduino Flasher CLI](https://www.arduino.cc/en/software/#flasher-tool)
 
-***Note that this tool will download an image with a size that exceeds 1 GB. A stable Internet connection is recommended.***
+***Note that this tool will download an image with a size that exceeds 1 GB. A stable Internet connection and at least 10 GB of free disk space is recommended.***
 
 ## Download & Install CLI Tool
 
 1. Download the [Arduino Flasher CLI](https://www.arduino.cc/en/software/#flasher-tool) for your OS (MacOS / Linux / Windows)
-2. Unzip the downloaded file, (you will receive a executable binary named `arduino-flasher-cli`)
+2. Unzip the downloaded file, (you will receive an executable binary named `arduino-flasher-cli`)
 
 ### Verify Tool Is Installed
 
@@ -56,7 +59,7 @@ This means it is working, and we can proceed to [flashing the board](#flash-imag
 
 ![Error running ](assets/error-finder.png)
 
-As the tool is ran from the command line with specific flags (explained further below), there is no reason to run it from Finder.
+As the tool is run from the command line with specific flags (explained further below), there is no reason to run it from Finder.
 
 #### Windows
 
