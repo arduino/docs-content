@@ -44,9 +44,17 @@ This document serves as a comprehensive user manual for the Nesso N1, providing 
 ## Product Overview
 
 The Nesso N1 packs a rich set of features into a compact and portable form factor. It includes an integrated color touchscreen, multiple sensors, programmable buttons, and extensive expansion options, all powered by a rechargeable LiPo battery with power management.
+
 ### Product Architecture
 
-Here put what you have in Main Components section
+- **ESP32-C6 SoC**: A powerful single-core RISC-V microcontroller with integrated Wi-Fi® 6, Bluetooth® 5.3 LE, and an 802.15.4 radio supporting Thread and Zigbee® for low-power mesh networking.
+- **SX1262 LoRa® Module**: A long-range, low-power LoRa® transceiver for communication in remote or challenging environments.
+- **1.14" Color Touchscreen**: An intuitive IPS display for user interaction and data visualization.
+- **BMI270 IMU**: A 6-axis Inertial Measurement Unit for precise motion and orientation sensing.
+- **Rechargeable Battery**: A built-in 250 mAh LiPo battery with a sophisticated power management system for portable applications.
+- **Expansion Connectors**: Standard Grove and Qwiic interfaces, plus an 8-pin port compatible with the M5StickC HAT series for easy hardware expansion.
+- **Onboard Peripherals**: Includes an infrared (IR) transmitter, a buzzer for audio feedback, a built-in LED, and two programmable user buttons.
+
 ### Pinout
 
 ![Arduino Nesso N1 Pinout](assets/simple-pinout.png)
@@ -61,15 +69,6 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 - [Nesso N1 datasheet](../../datasheets/TPX00227-datasheet.pdf)
 
-### Main Components
-
-- **ESP32-C6 SoC**: A powerful single-core RISC-V microcontroller with integrated Wi-Fi® 6, Bluetooth® 5.3 LE, and 802.15.4 radios.
-- **SX1262 LoRa® Module**: A long-range, low-power LoRa® transceiver for communication in remote or challenging environments.
-- **1.14" Color Touchscreen**: An intuitive IPS display for user interaction and data visualization.
-- **BMI270 IMU**: A 6-axis Inertial Measurement Unit for precise motion and orientation sensing.
-- **Rechargeable Battery**: A built-in 250 mAh LiPo battery with a sophisticated power management system for portable applications.
-- **Expansion Connectors**: Standard Grove and Qwiic interfaces, plus an 8-pin port compatible with the M5StickC HAT series for easy hardware expansion.
-- **Onboard Peripherals**: Includes an infrared (IR) transmitter, a buzzer for audio feedback, a built-in LED, and two programmable user buttons.
 
 ## Installation
 
@@ -84,6 +83,8 @@ To use the board in the Arduino IDE, you need to install the latest version of t
 3.  Search for **"esp32"** and find the package by **Espressif Systems**.
 4.  Click the **Install** button.
 5.  Once installed, select **Arduino Nesso N1** from the **Tools > Board > esp32** menu.
+
+![Installing the esp32 Boards core in the Arduino IDE](assets/board-manager.png)
 
 ### Arduino Cloud Editor
 
@@ -134,7 +135,8 @@ At the core of the Nesso N1 is the **ESP32-C6**, a highly integrated SoC from Es
 ### Key Features
 
 - **CPU**: Single-core 32-bit RISC-V, up to 160 MHz.
-- **Memory**: 16 MB external flash + 1536 kB on-chip SRAM.
+- **Memory (on-chip)**: 512 kB SRAM.
+- **Memory (external)**: 16 MB Flash.
 
 The ESP32-C6 features a comprehensive set of connectivity options:
 
@@ -153,72 +155,312 @@ The Nesso N1 exposes a variety of pins for interacting with internal and externa
 
 These pins are directly controlled by the main microcontroller.
 
-| Pin Name | GPIO | Function |
-| :--- | :--- | :--- |
-| `SDA` | 10 | I2C Data |
-| `SCL` | 8 | I2C Clock |
-| `MOSI` | 21 | SPI Master Out Slave In |
-| `MISO` | 22 | SPI Master In Slave Out |
-| `SCK` | 20 | SPI Serial Clock |
-| `IR_TX_PIN` | 9 | Infrared Transmitter Output |
-| `BEEP_PIN` | 11 | Buzzer Output |
-| `GROVE_IO_0` | 5 | Grove Connector I/O |
-| `GROVE_IO_1` | 4 | Grove Connector I/O |
-| `LORA_IRQ` | 15 | LoRa® Module Interrupt Request |
-| `LORA_CS` | 23 | LoRa® Module Chip Select (SPI) |
-| `LORA_BUSY` | 19 | LoRa® Module Busy Indicator |
-| `SYS_IRQ` | 3 | System Interrupt (from IMU & I/O expander) |
-| `LCD_CS` | 17 | LCD Chip Select (SPI) |
-| `LCD_RS` | 16 | LCD Register Select |
-| `D1` | 7 | 8-pin Header Digital I/O |
-| `D2` | 2 | 8-pin Header Digital I/O |
-| `D3` | 6 | 8-pin Header Digital I/O |
+| Pin Name     | GPIO | Function                                   |
+| :----------- | :--- | :----------------------------------------- |
+| `SDA`        | 10   | I2C Data                                   |
+| `SCL`        | 8    | I2C Clock                                  |
+| `MOSI`       | 21   | SPI Master Out Slave In                    |
+| `MISO`       | 22   | SPI Master In Slave Out                    |
+| `SCK`        | 20   | SPI Serial Clock                           |
+| `IR_TX_PIN`  | 9    | Infrared Transmitter Output                |
+| `BEEP_PIN`   | 11   | Buzzer Output                              |
+| `GROVE_IO_0` | 5    | Grove Connector I/O                        |
+| `GROVE_IO_1` | 4    | Grove Connector I/O                        |
+| `LORA_IRQ`   | 15   | LoRa® Module Interrupt Request             |
+| `LORA_CS`    | 23   | LoRa® Module Chip Select (SPI)             |
+| `LORA_BUSY`  | 19   | LoRa® Module Busy Indicator                |
+| `SYS_IRQ`    | 3    | System Interrupt (from IMU & I/O expander) |
+| `LCD_CS`     | 17   | LCD Chip Select (SPI)                      |
+| `LCD_RS`     | 16   | LCD Register Select                        |
+| `D1`         | 7    | 8-pin Header Digital I/O                   |
+| `D2`         | 2    | 8-pin Header Digital I/O                   |
+| `D3`         | 6    | 8-pin Header Digital I/O                   |
 
 ### I/O Expander Pins
 
 The Nesso N1 uses two PI4IOE5V6408 I/O expanders (addresses `0x43` and `0x44`) to manage additional pins over the I2C bus. These pins are accessed in code using special `ExpanderPin` objects.
 
-| Pin Object | Expander Port | Function |
-| :--- | :--- | :--- |
-| `KEY1` | E0.P0 | Programmable Button 1 |
-| `KEY2` | E0.P1 | Programmable Button 2 |
-| `LORA_LNA_ENABLE` | E0.P5 | LoRa® Low-Noise Amplifier Enable |
-| `LORA_ANTENNA_SWITCH` | E0.P6 | LoRa® RF Antenna Switch Control |
-| `LORA_ENABLE` | E0.P7 | LoRa® Module Reset/Enable |
-| `POWEROFF` | E1.P0 | System Power Off Control |
-| `LCD_RESET` | E1.P1 | LCD Reset |
-| `GROVE_POWER_EN` | E1.P2 | Grove Connector Power Enable |
-| `VIN_DETECT` | E1.P5 | External Power (VIN) Detection |
-| `LCD_BACKLIGHT` | E1.P6 | LCD Backlight Control |
-| `LED_BUILTIN` | E1.P7 | Onboard Status LED (Green) |
+| Pin Object            | Expander Port | Function                         |
+| :-------------------- | :------------ | :------------------------------- |
+| `KEY1`                | E0.P0         | Programmable Button 1            |
+| `KEY2`                | E0.P1         | Programmable Button 2            |
+| `LORA_LNA_ENABLE`     | E0.P5         | LoRa® Low-Noise Amplifier Enable |
+| `LORA_ANTENNA_SWITCH` | E0.P6         | LoRa® RF Antenna Switch Control  |
+| `LORA_ENABLE`         | E0.P7         | LoRa® Module Reset/Enable        |
+| `POWEROFF`            | E1.P0         | System Power Off Control         |
+| `LCD_RESET`           | E1.P1         | LCD Reset                        |
+| `GROVE_POWER_EN`      | E1.P2         | Grove Connector Power Enable     |
+| `VIN_DETECT`          | E1.P5         | External Power (VIN) Detection   |
+| `LCD_BACKLIGHT`       | E1.P6         | LCD Backlight Control            |
+| `LED_BUILTIN`         | E1.P7         | Onboard Status LED (Green)       |
 
-To use an expander pin, you must first initialize it with `pinMode()`, then you can use `digitalWrite()` and `digitalRead()` as with standard pins.
+
+The configuration of a digital pin is done in the `setup()` function with the `pinMode()` function:
+
+```arduino
+// Pin configured as an input
+pinMode(D1, INPUT);
+
+// Pin configured as an output
+pinMode(D1, OUTPUT);
+
+// Pin configured as an input with internal pull-up resistor enabled
+pinMode(D1, INPUT_PULLUP);
+```
+
+The state of a digital pin configured as an input can be read using `digitalRead()`:
+
+```arduino
+// Read pin state and store it in a variable
+int buttonState = digitalRead(KEY1);
+```
+
+The state of a digital pin configured as an output can be changed using `digitalWrite()`:
+
+```arduino
+// Set pin HIGH
+digitalWrite(D1, HIGH);
+
+// Set pin LOW
+digitalWrite(D1, LOW);
+```
+
+### PWM Pins
+
+The Nesso N1 has three PWM (Pulse Width Modulation) capable pins, accessible via the **8-pin expansion header**:
+
+| Pin Name | GPIO | Function          |
+| :------- | :--- | :---------------- |
+| `D1`     | 7    | Digital I/O / PWM |
+| `D2`     | 2    | Digital I/O / PWM |
+| `D3`     | 6    | Digital I/O / PWM |
+
+This functionality can be used with the built-in `analogWrite()` function. By default, the resolution is 8-bit (value 0-255), but it can be configured up to 16-bit using `analogWriteResolution()`.
+
+```arduino
+// Set PWM resolution to 10-bit (0-1023)
+analogWriteResolution(10);
+
+// Set pin D1 to a 50% duty cycle
+analogWrite(D1, 512);
+```
+
+### Analog Pins (ADC)
+
+The Nesso N1 provides access to two analog input pins through its onboard **Grove connector**. These pins, `GROVE_IO_0` (GPIO5) and `GROVE_IO_1` (GPIO4), are connected to the ESP32-C6's 12-bit Analog-to-Digital Converter (ADC).
+
+***Please note that these analog inputs are not available on the standard pin headers and must be accessed using a Grove-compatible cable.***
+
+The `analogRead()` function will return a value between 0 and 4095, corresponding to an input voltage range of 0 V to 3.3 V.
+
+```arduino
+// Read the analog value from the Grove connector pin
+int sensorValue = analogRead(GROVE_IO_0);
+```
+
+## Communication
+
+The Nesso N1 supports several wired communication protocols for interfacing with sensors, displays, and other devices.
+
+### I2C
+
+The Nesso N1 supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. The pins used for the I2C communication protocol are the following:
+
+| Microcontroller Pin | Arduino Pin Mapping |
+| :------------------ | :------------------ |
+| GPIO8               | `SCL`               |
+| GPIO10              | `SDA`               |
+
+To use I2C communication, include the `Wire` library at the top of your sketch. The `Wire` library provides functions for I2C communication:
+
+```cpp
+#include <Wire.h>
+```
+
+In the `setup()` function, initialize the I2C library. On the Nesso N1, all I2C communication, including the Qwiic connector, is handled by the primary `Wire` object.
+
+```cpp
+// Initialize the primary I2C bus
+Wire.begin();
+```
+
+To scan for connected I2C devices and verify their addresses, you can use the following example sketch. This is a useful utility to ensure your hardware is connected and recognized correctly.
+
+```cpp
+#include <Wire.h>
+
+void setup() {
+  // Initialize the I2C bus
+  Wire.begin();
+  
+  // Initialize Serial for printing the results
+  Serial.begin(115200);
+  while (!Serial); // Wait for Serial to be ready
+  
+  Serial.println("\nI2C Scanner");
+  Serial.println("Scanning for I2C devices...");
+}
+
+void loop() {
+  byte error, address;
+  int nDevices;
+
+  nDevices = 0;
+  for (address = 1; address < 127; address++) {
+    // The i2c_scanner uses the return value of
+    // the Write.endTransmisstion to see if
+    // a device did acknowledge to the address.
+    Wire.beginTransmission(address);
+    error = Wire.endTransmission();
+
+    if (error == 0) {
+      Serial.print("I2C device found at address 0x");
+      if (address < 16) {
+        Serial.print("0");
+      }
+      Serial.println(address, HEX);
+      nDevices++;
+    } else if (error == 4) {
+      Serial.print("Unknown error at address 0x");
+      if (address < 16) {
+        Serial.print("0");
+      }
+      Serial.println(address, HEX);
+    }
+  }
+  if (nDevices == 0) {
+    Serial.println("No I2C devices found\n");
+  } else {
+    Serial.println("Scan complete.\n");
+  }
+  
+  delay(5000); // Wait 5 seconds before scanning again
+}
+```
+
+
+### SPI
+
+The board features one Serial Peripheral Interface (SPI) bus, which is used internally to communicate with the LoRa® module and the color display.
+
+- **MOSI**: GPIO21
+- **MISO**: GPIO22
+- **SCK**: GPIO20
+
+While these pins are primarily used by onboard components, they can be shared with external SPI devices if you use a separate, available digital pin as a Chip Select (CS).
+
+### UART
+
+The Nesso N1 has two hardware UART (Serial) ports.
+
+- **`Serial`**: This object corresponds to the primary UART, which is connected to the USB-C® port. It is used for programming the board and for communication with the Arduino IDE's Serial Monitor. It is not connected to any external pins.
+
+- **`Serial1`**: This is a secondary hardware UART that can be mapped to any available GPIO pins. This allows you to establish serial communication with external devices like GPS modules or other microcontrollers using pins on the **8-pin expansion header** or the **Grove connector**.
+
+To use `Serial1`, you must specify the RX and TX pins in the `Serial1.begin()` function. The following example shows how to set up a UART on pins `D1` (TX) and `D2` (RX).
+
+```arduino
+// D1 (GPIO7) will be TX1
+// D2 (GPIO2) will be RX1
+
+void setup() {
+  // Initialize USB Serial for debugging
+  Serial.begin(115200);
+
+  // Initialize Serial1 on D1 and D2
+  // Format: Serial1.begin(baudrate, config, rxPin, txPin);
+  Serial1.begin(9600, SERIAL_8N1, D2, D1);
+  
+  Serial.println("UART communication example started.");
+  Serial.println("Anything you type here will be sent from D1.");
+}
+
+void loop() {
+  // If data is available from USB Serial, send it to Serial1 (D1)
+  if (Serial.available()) {
+    char c = Serial.read();
+    Serial1.print(c);
+  }
+
+  // If data is available from Serial1 (D2), send it to USB Serial
+  if (Serial1.available()) {
+    char c = Serial1.read();
+    Serial.print(c);
+  }
+}
+```
 
 
 ## Battery
 
-You can interact with the battery system using the `NessoBattery` object and expander pins.
 
-### Enable Charge
+To interact with the battery system from your sketch, the Nesso N1 core provides a built-in `NessoBattery` object.
+
+
+### Enable Charging
+
+***WARNING: By default, the battery charging circuit is disabled. You must explicitly call `battery.enableCharge()` in your `setup()` function for the battery to charge when the device is powered via USB-C® or VIN.***
 
 ```arduino
 // The NessoBattery object is available by default
 NessoBattery battery;
 
 void setup() {
-  Serial.begin(115200);
-
-  // Enable battery charging (it is enabled by default)
+  // Enable the charging circuit
   battery.enableCharge();
-
-}
-
-void loop() {
 }
 ```
 
-Additionally the `VIN_DETECT` expander pin can be read to determine if external power is connected (`HIGH` if connected, `LOW` if running on battery).
+### Get Battery Voltage
 
+Returns the current, instantaneous battery voltage in Volts. This is a direct electrical measurement.
+
+```arduino
+float voltage = battery.getVoltage();
+Serial.print("Voltage: ");
+Serial.print(voltage);
+Serial.println(" V");
+```
+
+### Get Charge Level
+
+Returns the battery's estimated state of charge as a percentage (0-100%). This value is calculated by the BQ27220 fuel gauge IC.
+
+```arduino
+uint16_t chargeLevel = battery.getChargeLevel();
+Serial.print("Charge Level: ");
+Serial.print(chargeLevel);
+Serial.println(" %");
+```
+
+### Understanding Voltage vs. Charge Level
+
+It is important to understand the difference between the two battery reading functions:
+
+- **`getVoltage()`** provides a direct, real-time measurement of the battery's voltage. This value can fluctuate depending on whether the battery is charging or under load (e.g., when Wi-Fi® or the display is active). It's a good raw indicator of the battery's state but not a precise measure of remaining capacity.
+
+- **`getChargeLevel()`** provides a much more accurate *estimate* of the remaining capacity. The BQ27220 fuel gauge uses a sophisticated algorithm that tracks the flow of energy into and out of the battery over time (a technique known as Coulomb counting).
+
+***For the fuel gauge to become reliable, it needs a few full charge and discharge cycles. During the first few uses, you may observe the charge level staying low for a while before ramping up to a more accurate value. This is normal behavior as the IC calibrates itself.***
+
+### Checking for External Power
+
+You can determine if the device is running on external power by reading the `VIN_DETECT` expander pin. This is useful for adjusting your application's behavior, such as entering a low-power mode when on battery.
+
+```arduino
+void setup() {
+  pinMode(VIN_DETECT, INPUT);
+}
+
+void loop() {
+  if (digitalRead(VIN_DETECT) == HIGH) {
+    Serial.println("Running on external power.");
+  } else {
+    Serial.println("Running on battery power.");
+  }
+  delay(5000);
+}
+```
 
 ## Buttons and LED
 
@@ -290,34 +532,95 @@ void loop() {
 
 ## Display & Touchscreen
 
-The Nesso N1 features a 1.14-inch IPS color touchscreen with a resolution of 135 x 240 pixels.
+The Nesso N1 features a 1.14-inch IPS color touchscreen with a resolution of 135 x 240 pixels, providing a vibrant and intuitive interface for your projects.
 
 - **Display Controller**: ST7789, controlled via SPI.
 - **Touch Controller**: FT6336U, controlled via I2C.
 
-The display can be programmed using the [**M5GFX**](https://github.com/m5stack/M5GFX) library, which can be installed using the Arduino IDE Library Manager.
+The display can be programmed using the [**M5GFX**](https://github.com/m5stack/M5GFX) library, which is a powerful graphics library that simplifies drawing text, shapes, and images. You can install it from the Arduino IDE Library Manager by searching for "M5GFX".
 
-Here is an example to display touch input as text on the screen:
+### Basic Text Display
+
+The following example initializes the display and prints a simple text string.
+
+![Display Touch Coordinates](assets/display-example-1.png)
 
 ```arduino
 #include <M5GFX.h>
 
-M5GFX display;  // Create a display instance
+M5GFX display; // Create a display instance
 
 void setup() {
-  // Initialize the display
   display.begin();
-
-  // Set the display to landscape (horizontal) mode
-  display.setRotation(1);
+  display.setRotation(1); // Set to landscape mode
 
   // Set text properties
   display.setTextDatum(MC_DATUM); // Middle-Center datum for text alignment
-  display.setTextColor(TFT_WHITE, TFT_BLACK);
+  display.setTextColor(TFT_WHITE, TFT_BLACK); // White text, black background
   display.setTextSize(2);
 
-  // Clear the screen and display an initial message
+  // Clear the screen and draw the string
   display.fillScreen(TFT_BLACK);
+  display.drawString("Hello, Nesso N1!", display.width() / 2, display.height() / 2);
+}
+
+void loop() {
+  // Nothing to do in the loop
+}
+```
+
+### Drawing Shapes and Colors
+
+The M5GFX library includes functions for drawing basic geometric shapes. You can use predefined color constants (e.g., `TFT_RED`, `TFT_GREEN`, `TFT_BLUE`) or specify 16-bit RGB565 color values.
+
+![Display Touch Coordinates](assets/display-example-2.png)
+
+```arduino
+#include <M5GFX.h>
+
+M5GFX display;
+
+void setup() {
+  display.begin();
+  display.setRotation(1);
+  display.fillScreen(TFT_BLACK);
+
+  // Draw a red rectangle outline
+  display.drawRect(10, 10, 100, 50, TFT_RED);
+
+  // Draw a filled green circle
+  display.fillCircle(180, 60, 30, TFT_GREEN);
+
+  // Draw a blue diagonal line
+  display.drawLine(0, 0, display.width(), display.height(), TFT_BLUE);
+}
+
+void loop() {
+}
+```
+
+### Handling Touch Input
+
+This example demonstrates how to read touch coordinates. It displays an initial message in the center of the screen. When you touch the screen, a "cursor" (a small circle) will appear at the point of contact, and the X/Y coordinates will be displayed in a fixed position at the center of the screen, updating in real-time as you move your finger.
+
+![Display Touch Coordinates](assets/display-example-3.png)
+
+```arduino
+#include <M5GFX.h>
+
+M5GFX display;
+
+void setup() {
+  display.begin();
+  display.setRotation(1); // Set to landscape mode
+  display.fillScreen(TFT_BLACK);
+
+  // Set text properties that will be used for all text in this sketch
+  display.setTextDatum(MC_DATUM); // Middle-Center datum for text alignment
+  display.setTextColor(TFT_WHITE);
+  display.setTextSize(2);
+
+  // Display the initial message centered on the screen
   display.drawString("Touch the screen", display.width() / 2, display.height() / 2);
 }
 
@@ -327,27 +630,416 @@ void loop() {
 
   // Check if the screen is being touched
   if (display.getTouch(&tp)) {
-    String touch = "X: " + String(tp.x) + " Y:" + String(tp.y);
-    display.fillScreen(TFT_BLACK); 
+    // Clear the screen to update both the circle and the text
+    display.fillScreen(TFT_BLACK);
     
-    // Draw the string at the center of the screen
-    display.drawString(touch, display.width() / 2, display.height() / 2);
-  }
+    // Draw a white circle at the current touch coordinates
+    display.fillCircle(tp.x, tp.y, 5, TFT_WHITE);
 
-  // A small delay to keep the loop responsive
-  delay(50);
+    // Create a string with the updated coordinates
+    String coords = "X:" + String(tp.x) + " Y:" + String(tp.y);
+
+    // Draw the coordinates string at the FIXED center of the screen
+    display.drawString(coords, display.width() / 2, display.height() / 2);
+  }
+  
+  delay(20); // Small delay for responsiveness
 }
 ```
 
+
+#### Finding More Examples
+
+The M5GFX library is incredibly versatile and supports advanced features like displaying images (JPG/PNG), using custom fonts, and creating complex animations with sprites. The best way to learn these techniques is by exploring the official examples provided with the library.
+
+You can find a comprehensive collection of examples covering all major features in the [**M5GFX GitHub repository**](https://github.com/m5stack/M5GFX/tree/master/examples/Basic). These examples can be opened directly in the Arduino IDE after you have installed the library.
+
+You are absolutely right. My apologies for the overly complex examples. Providing "bare-bones" functionality is key for a good "Hello World" experience. I have simplified the examples for Wi-Fi, BLE, Zigbee, and Thread to showcase only their most fundamental features. I've also clarified the Matter over Wi-Fi vs. Thread configuration.
+
+Here is the revised "Connectivity" section with the simplified examples and clearer explanations.
+
+***
+
 ## Connectivity
 
-### Wi-Fi®, Bluetooth®, Thread & Zigbee®
+The Nesso N1 is a versatile IoT device, equipped with a comprehensive suite of wireless protocols to suit a wide range of applications, from local device communication to long-range data transmission.
 
-The ESP32-C6 provides a rich set of wireless protocols, making the Nesso N1 a powerful hub for IoT projects.
+### Wi-Fi®
 
-- **Wi-Fi® 6**: Offers higher efficiency, lower latency, and improved performance in dense wireless environments.
-- **Bluetooth® 5.3 Low Energy (LE)**: Enables communication with a wide range of mobile devices and low-power sensors.
-- **Thread & Zigbee®**: The 802.15.4 radio allows the Nesso N1 to participate in low-power mesh networks, essential for smart home and industrial applications. It also supports the **Matter** protocol for interoperability.
+The ESP32-C6 features **Wi-Fi® 6 (802.11ax)**, offering higher efficiency, lower latency, and improved performance in dense wireless environments compared to older standards. This makes it ideal for applications requiring a reliable and fast connection to a local network or the internet.
+
+#### Wi-Fi® Connection Example
+
+This example demonstrates the most basic Wi-Fi® functionality: connecting to a network. It initializes the Wi-Fi® module, attempts to connect to a specified network, and prints the assigned IP address to the Serial Monitor once connected.
+
+```arduino
+#include <WiFi.h>
+
+// Replace with your network credentials
+const char* ssid = "YOUR_SSID";
+const char* password = "YOUR_PASSWORD";
+
+void setup() {
+  Serial.begin(115200);
+  delay(1000); // Give serial a moment to initialize
+
+  Serial.println("Connecting to Wi-Fi...");
+  
+  // Start Wi-Fi connection
+  WiFi.begin(ssid, password);
+
+  // Wait until the connection is established
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("\nConnected!");
+  Serial.print("IP address: ");
+  Serial.println(WiFi.localIP());
+}
+
+void loop() {
+  // Nothing to do in the loop for this basic example
+  delay(1000);
+}
+```
+
+### Bluetooth® Low Energy
+
+The Nesso N1 supports **Bluetooth® 5.3 Low Energy (LE)**, enabling efficient, short-range communication with smartphones, sensors, and other BLE-enabled devices.
+
+***WARNING: The ESP32 board package includes its own library for Bluetooth® that conflicts with the standard `ArduinoBLE` library. If you have the `ArduinoBLE` library installed in your IDE, you may encounter compilation errors. To resolve this, you must uninstall the `ArduinoBLE` library from the Library Manager before compiling sketches for the Nesso N1.***
+
+#### Simple BLE Server Example
+
+This basic example turns your Nesso N1 into a simple Bluetooth® peripheral. It creates a BLE server that advertises a specific name ("Nesso N1 BLE Server"). You can use a free BLE scanner app on your phone to verify that your Nesso N1 appears in the list of nearby devices.
+
+```arduino
+#include <BLEDevice.h>
+#include <BLEServer.h>
+#include <BLEUtils.h>
+
+// See https://www.uuidgenerator.net/ to create your own unique UUIDs
+#define SERVICE_UUID "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
+
+void setup() {
+  Serial.begin(115200);
+  Serial.println("Starting BLE Server...");
+
+  // 1. Initialize the BLE device and set its name
+  BLEDevice::init("Nesso N1 BLE Server");
+
+  // 2. Create the BLE Server
+  BLEServer *pServer = BLEDevice::createServer();
+
+  // 3. Create a BLE Service using the UUID
+  BLEService *pService = pServer->createService(SERVICE_UUID);
+
+  // 4. Start the service. A service must be started before it can be advertised.
+  pService->start();
+
+  // 5. Get the advertising object and add the service UUID to the advertisement
+  BLEAdvertising *pAdvertising = BLEDevice::getAdvertising();
+  pAdvertising->addServiceUUID(SERVICE_UUID);
+  
+  // 6. Start advertising
+  BLEDevice::startAdvertising();
+  
+  Serial.println("Device is now advertising. Check for 'Nesso N1 BLE Server' on your phone.");
+}
+
+void loop() {
+  // The main work is done in the setup; the loop can be empty for this example.
+  delay(2000);
+}
+```
+
+### Thread
+
+**Thread** is a low-power, secure, and self-healing mesh networking protocol based on IPv6. Two Nesso N1 boards can form a minimal Thread network on their own, without needing an external border router. One device will automatically become the "Router" for the network, and the other will join as a "Child".
+
+This test is performed by interacting directly with the OpenThread Command Line Interface (CLI) via the Serial Monitor.
+
+#### Thread CLI Sketch (Upload to Both Boards)
+
+This sketch simply starts the OpenThread stack and opens a console on the Serial Monitor, giving you direct access to the CLI. Upload this exact same sketch to **both** of your Nesso N1 boards.
+
+```arduino
+#include "OThreadCLI.h"
+
+void setup() {
+  Serial.begin(115200);
+  // Initialize the OpenThread stack but do not autostart the network interface.
+  // This gives us manual control via the CLI.
+  OThreadCLI.begin(false);
+  Serial.println("OpenThread CLI started. Type 'help' for a list of commands.");
+  // Start the console to pass Serial input directly to the CLI
+  OThreadCLI.startConsole(Serial);
+}
+
+void loop() {
+  // The console handles all the work. The loop can be empty.
+}
+```
+
+#### How to Test Manually via CLI
+
+You will need two separate Serial Monitor windows, one for each Nesso N1.
+
+1.  **Prepare:** Upload the sketch above to both boards. Connect both boards to your computer and open a Serial Monitor for each one.
+
+2.  **Form a Network (Board 1):** In the Serial Monitor for your first board, create a new Thread network.
+    ```
+    dataset init new
+    ```
+    The board should respond with `Done`. Then, commit the new network settings:
+    ```
+    dataset commit active
+    ```    It will respond with `Done`.
+
+3.  **Get the Network Key (Board 1):** Get the key for the network you just created.
+    ```
+    networkkey
+    ```
+    It will print a 32-character hexadecimal string. **Copy this key.**
+
+4.  **Start the Network (Board 1):** Enable the radio and start the Thread protocol.
+    ```
+    ifconfig up
+    thread start
+    ```
+    After a few seconds, this board will become the network leader. You can verify this by typing `state`, which should return `leader`.
+
+5.  **Join the Network (Board 2):** In the Serial Monitor for your second board, use the key you copied from Board 1.
+    ```
+    dataset networkkey <paste-the-32-char-key-here>
+    ```
+    Replace `<paste-the-32-char-key-here>` with the key. It should respond with `Done`. Then, commit the settings:
+    ```
+    dataset commit active
+    ```
+
+6.  **Start the Network (Board 2):** Enable the radio and start the Thread protocol.
+    ```
+    ifconfig up
+    thread start
+    ```
+    After a few seconds, this board will join the network. You can verify this by typing `state`, which should return `child`.
+
+7.  **Set up the Server (Board 1):** In the Serial Monitor for your first board, set up a UDP listener on port `1234`.
+    ```
+    udp open
+    udp bind :: 1234
+    ```
+    Both commands should respond with `Done`. This board is now listening for messages.
+
+8.  **Send a Message (Board 2):** In the Serial Monitor for your second board, you must also open a UDP socket before you can send.
+    ```
+    udp open
+    ```
+    Once it responds with `Done`, send a UDP message to all devices on the Thread network.
+    ```
+    udp send ff03::1 1234 Hello!
+    ```
+    `ff03::1` is a multicast address that means "all Thread devices here."
+
+9.  **Verify Communication:**
+    *   The Serial Monitor for **Board 2** (the client) should respond with `Done`.
+    *   The Serial Monitor for **Board 1** (the server) should print a message showing it received the packet, for example: `8 bytes from fdde:ad00:beef:0:35e3:3c2f:273f:9442 Hello!`.
+
+You have now successfully sent and received a message over a peer-to-peer Thread network.
+
+### Zigbee®
+
+The Nesso N1's 802.15.4 radio allows it to act as a **Zigbee® End Device**, enabling it to join existing Zigbee® mesh networks. This is ideal for creating low-power devices like sensors or light controllers that integrate with popular smart home hubs.
+
+***To compile this example, you must configure the following settings in the Arduino IDE:***
+- ***Navigate to **Tools > Zigbee Mode** and select **End device**.***
+- ***Navigate to **Tools > Partition Scheme** and select **Zigbee SPIFF 4MB**.***
+
+#### Zigbee® Light Bulb Example
+
+This example configures the Nesso N1 to act as a simple Zigbee® On/Off light bulb. It cannot be tested with a second Nesso N1 running the same code. Instead, it is designed to be added to an existing Zigbee® network controlled by a central hub.
+
+```arduino
+#ifndef ZIGBEE_MODE_ED
+#error "Zigbee end device mode is not selected in Tools->Zigbee mode"
+#endif
+
+#include "Zigbee.h"
+
+// Define the Zigbee endpoint for the light
+#define ZIGBEE_LIGHT_ENDPOINT 10
+
+// Create a ZigbeeLight object
+ZigbeeLight zbLight = ZigbeeLight(ZIGBEE_LIGHT_ENDPOINT);
+
+// Callback function to control the LED
+void setLED(bool value) {
+  // The built-in LED is active-low, so we invert the logic
+  digitalWrite(LED_BUILTIN, !value);
+}
+
+void setup() {
+  Serial.begin(115200);
+
+  // Initialize the built-in LED
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, HIGH); // Start with LED OFF
+
+  // Set a manufacturer and model name for the Zigbee device
+  zbLight.setManufacturerAndModel("Arduino", "Nesso-Light");
+
+  // Set the callback function that gets called when a command is received
+  zbLight.onLightChange(setLED);
+
+  // Add the light endpoint to the Zigbee core
+  Zigbee.addEndpoint(&zbLight);
+
+  // Start the Zigbee stack
+  if (!Zigbee.begin()) {
+    Serial.println("Zigbee failed to start! Rebooting...");
+    ESP.restart();
+  }
+  
+  Serial.println("Zigbee started. Waiting to connect to a network...");
+}
+
+void loop() {
+  // The Zigbee stack runs in the background.
+  // The main loop can be used for other tasks or left empty.
+  delay(1000);
+}
+```
+
+#### How to Test
+
+1.  Upload the sketch to your Nesso N1.
+2.  You will need a **Zigbee® Hub/Coordinator**. Many popular smart home devices have this functionality built-in, such as:
+    *   Amazon Echo (4th Gen, Plus, Studio, Show 10)
+    *   Philips Hue Bridge
+    *   Samsung SmartThings Hub
+3.  Open the companion app for your hub (e.g., Amazon Alexa app, Philips Hue app).
+4.  Put your hub into pairing or "discover devices" mode.
+5.  The hub should discover a new light bulb named "Arduino Nesso-Light".
+6.  Once paired, you can add the device to a room and control the Nesso N1's built-in LED by toggling the light on and off in the app.
+
+### Matter
+
+**Matter** is a smart home connectivity standard that aims to unify the ecosystem, allowing devices from different brands to work together seamlessly. The Nesso N1 supports Matter communication over both **Wi-Fi®** and **Thread**.
+
+The choice of transport is determined by **compile-time definitions** you add at the top of your sketch.
+
+#### Matter Light Bulb Example (Wi-Fi® or Thread)
+
+This example turns your Nesso N1 into a simple On/Off light bulb. The same code works for both Matter over Wi-Fi® and Matter over Thread. After commissioning, you can control the Nesso N1's built-in LED from your smart home app.
+
+```arduino
+#include <Matter.h>
+// Include WiFi.h only if you plan to use Matter over Wi-Fi
+#include <WiFi.h>
+
+// --- Transport Layer Configuration ---
+// To use Matter over Thread, include the three defines below.
+// To use Matter over Wi-Fi, comment out or remove these three defines.
+#define CONFIG_ENABLE_CHIPOBLE 1        // Enables BLE for commissioning
+#define CHIP_DEVICE_CONFIG_ENABLE_THREAD 1 // Enables the Thread stack
+#define CHIP_DEVICE_CONFIG_ENABLE_WIFI 0   // CRITICAL: Disables the Wi-Fi stack
+// -------------------------------------
+
+// --- For Matter over Wi-Fi only ---
+const char* ssid = "YOUR_SSID";
+const char* password = "YOUR_PASSWORD";
+// ------------------------------------
+
+// Create an On/Off Light Endpoint
+MatterOnOffLight OnOffLight;
+
+// This callback function is executed when a Matter controller sends a command
+bool setLightOnOff(bool state) {
+  Serial.printf("Received Matter command: Light %s\r\n", state ? "ON" : "OFF");
+  
+  // Control the built-in LED (inverted logic: LOW is ON)
+  digitalWrite(LED_BUILTIN, state ? LOW : HIGH);
+  
+  return true; // Return true to confirm the command was successful
+}
+
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, HIGH); // Start with the LED off
+  Serial.begin(115200);
+  delay(1000);
+
+  // --- For Matter over Wi-Fi only ---
+  if (!CHIP_DEVICE_CONFIG_ENABLE_THREAD) {
+    Serial.printf("Connecting to %s ", ssid);
+    WiFi.begin(ssid, password);
+    while (WiFi.status() != WL_CONNECTED) {
+      delay(500);
+      Serial.print(".");
+    }
+    Serial.println(" Connected");
+  }
+  // ------------------------------------
+
+  // Initialize the OnOffLight endpoint with an initial state of OFF
+  OnOffLight.begin(false);
+  // Attach the callback function to handle state changes
+  OnOffLight.onChange(setLightOnOff);
+
+  // Start the Matter service.
+  Matter.begin();
+  
+  // If the device was already commissioned, sync its LED state on boot
+  if (Matter.isDeviceCommissioned()) {
+    Serial.println("Matter Node is already commissioned. Ready for use.");
+    setLightOnOff(OnOffLight.getOnOff());
+  }
+}
+
+void loop() {
+  // This block periodically prints the pairing information until the device is commissioned
+  if (!Matter.isDeviceCommissioned()) {
+    static unsigned long lastPrintTime = 0;
+    if (millis() - lastPrintTime > 5000) {
+      Serial.println("\n----------------------------------------------------");
+      Serial.println("Matter Node not commissioned. Waiting for pairing...");
+      Serial.printf("Manual pairing code: %s\r\n", Matter.getManualPairingCode().c_str());
+      Serial.println("----------------------------------------------------");
+      lastPrintTime = millis();
+    }
+  }
+  
+  // A small delay is needed to allow background tasks to run
+  delay(100);
+}
+```
+
+#### Commissioning and Testing Your Matter Device
+
+**1. To Run as Matter over Thread:**
+*   **Requirements:** A **Thread Border Router** must be active on your network.
+*   **Action:** Ensure the three `#define` flags at the top of the sketch are active (`CHIP_DEVICE_CONFIG_ENABLE_THREAD 1`, `CHIP_DEVICE_CONFIG_ENABLE_WIFI 0`), then upload.
+
+**2. To Run as Matter over Wi-Fi®:**
+*   **Requirements:** The Nesso N1 and your Matter Controller must be on the same Wi-Fi network.
+*   **Action:** In the sketch:
+    1.  **Comment out or delete** the three `#define` flags.
+    2.  Uncomment the `ssid` and `password` variables and fill in your network credentials.
+    3.  Uncomment the `if (!CHIP_DEVICE_CONFIG_ENABLE_THREAD)` block inside the `setup()` function.
+    4.  Upload the sketch.
+
+**3. Commissioning the Device:**
+*   **Requirements:** A **Matter Controller** (e.g., Google Home app, Apple Home, `chip-tool`).
+*   **Process:**
+    1.  Open the Serial Monitor. You will see a manual pairing code printed every few seconds.
+    2.  Open your Matter Controller app and choose to add a new device.
+    3.  When prompted, enter the manual pairing code from the Serial Monitor.
+    4.  Follow the on-screen instructions to complete the setup.
+
+**4. Control the Device:** Once commissioned, a new light bulb device will appear in your app or be controllable via the command line tool. You can now toggle it on and off to control the Nesso N1's built-in LED.
 
 ### LoRa®
 
@@ -359,28 +1051,42 @@ The onboard **SX1262** module provides long-range, low-power communication capab
 
 The LoRa® module is controlled via SPI and several dedicated pins on both the ESP32-C6 and the I/O expander.
 
-| Pin Name | GPIO | Expander Port | Function |
-| :--- | :--- | :--- | :--- |
-| `MOSI` | 21 | | SPI Master Out Slave In |
-| `MISO` | 22 | | SPI Master In Slave Out |
-| `SCK` | 20 | | SPI Serial Clock |
-| `LORA_IRQ` | 15 | | LoRa® Module Interrupt Request |
-| `LORA_CS` | 23 | | LoRa® Module Chip Select (SPI) |
-| `LORA_BUSY` | 19 | | LoRa® Module Busy Indicator |
-| `LORA_LNA_ENABLE` | | E0.P5 | LoRa® Low-Noise Amplifier Enable |
-| `LORA_ANTENNA_SWITCH` | | E0.P6 | LoRa® RF Antenna Switch Control |
-| `LORA_ENABLE` | | E0.P7 | LoRa® Module Reset/Enable |
+| Pin Name              | GPIO | Expander Port | Function                         |
+| :-------------------- | :--- | :------------ | :------------------------------- |
+| `MOSI`                | 21   |               | SPI Master Out Slave In          |
+| `MISO`                | 22   |               | SPI Master In Slave Out          |
+| `SCK`                 | 20   |               | SPI Serial Clock                 |
+| `LORA_IRQ`            | 15   |               | LoRa® Module Interrupt Request   |
+| `LORA_CS`             | 23   |               | LoRa® Module Chip Select (SPI)   |
+| `LORA_BUSY`           | 19   |               | LoRa® Module Busy Indicator      |
+| `LORA_LNA_ENABLE`     |      | E0.P5         | LoRa® Low-Noise Amplifier Enable |
+| `LORA_ANTENNA_SWITCH` |      | E0.P6         | LoRa® RF Antenna Switch Control  |
+| `LORA_ENABLE`         |      | E0.P7         | LoRa® Module Reset/Enable        |
 
-#### LoRa® Transmitter Example
+#### LoRa® Peer-to-Peer (P2P) Examples
 
-Here is a simple example to send a "Hello World!" packet every five seconds using [RadioLib](https://github.com/jgromes/RadioLib) library.
+The following examples demonstrate basic LoRa® peer-to-peer (P2P) communication using the [RadioLib](https://github.com/jgromes/RadioLib) library. This is the foundational step for testing your hardware and building more complex network applications.
+
+##### LoRa® Transmitter Example
+
+This example configures the Nesso N1 to send a "Hello World!" packet every five seconds. Remember to set the `LORA_FREQUENCY` variable to match your geographical region.
 
 ```arduino
 #include <RadioLib.h>
 
+// Set the LoRa® frequency based on your region
+// Europe: 868.0
+// North America: 915.0
+// Australia: 915.0
+// Asia: 433.0
+const float LORA_FREQUENCY = 915.0;
+
 // Initialize the radio module, passing RADIOLIB_NC for the reset pin.
 // The reset will be handled manually.
 SX1262 radio = new Module(LORA_CS, LORA_IRQ, RADIOLIB_NC, LORA_BUSY);
+
+// Counter for transmitted packets
+int packetCounter = 0;
 
 void setup() {
   Serial.begin(115200);
@@ -393,20 +1099,22 @@ void setup() {
   delay(10);
 
   // Initialize the LoRa® module
-  // Frequency: 915.0 MHz
-  int state = radio.begin(915.0);
+  Serial.print(F("[SX1262] Initializing... "));
+  int state = radio.begin(LORA_FREQUENCY);
   if (state != RADIOLIB_ERR_NONE) {
     Serial.print(F("failed, code "));
     Serial.println(state);
     while (true);
   }
+  Serial.println(F("success!"));
 }
 
 void loop() {
   Serial.print(F("[SX1262] Transmitting packet... "));
 
-  // Send a simple string
-  int state = radio.transmit("Hello World!");
+  // Create a packet with a counter
+  String packet = "Hello from Nesso N1! #" + String(packetCounter++);
+  int state = radio.transmit(packet);
 
   if (state == RADIOLIB_ERR_NONE) {
     Serial.println(F("success!"));
@@ -415,17 +1123,23 @@ void loop() {
     Serial.println(state);
   }
   
-  delay(5000);
+  delay(5000); // Wait 5 seconds between transmissions
 }
 ```
 
+##### LoRa® Receiver Example
 
-#### LoRa® Receiver Example
-
-This example listens for packets and prints them to the Serial Monitor. It uses a simple polling method where the main loop waits until a packet is received. Upload this code to a second Nesso N1 to receive messages from the transmitter.
+This example configures a second Nesso N1 to listen for LoRa® packets and print them to the Serial Monitor. It uses a simple polling method where the main loop waits until a packet is received.
 
 ```arduino
 #include <RadioLib.h>
+
+// Set the LoRa® frequency based on your region
+// Europe: 868.0
+// North America: 915.0
+// Australia: 915.0
+// Asia: 433.0
+const float LORA_FREQUENCY = 915.0;
 
 // Initialize the radio module, passing RADIOLIB_NC for the reset pin.
 SX1262 radio = new Module(LORA_CS, LORA_IRQ, RADIOLIB_NC, LORA_BUSY);
@@ -441,7 +1155,8 @@ void setup() {
   delay(10);
 
   // Initialize the LoRa® module.
-  int state = radio.begin(915.0);
+  Serial.print(F("[SX1262] Initializing... "));
+  int state = radio.begin(LORA_FREQUENCY);
   if (state != RADIOLIB_ERR_NONE) {
     Serial.print(F("failed, code "));
     Serial.println(state);
@@ -456,6 +1171,7 @@ void setup() {
     Serial.println(state);
     while (true);
   }
+  Serial.println(F("success!"));
 }
 
 void loop() {
@@ -467,7 +1183,7 @@ void loop() {
 
   if (state == RADIOLIB_ERR_NONE) {
     // Packet was received successfully.
-    Serial.print(F("[SX1262] Received packet: "));
+    Serial.print(F("\n[SX1262] Received packet: "));
     Serial.println(str);
 
     // Print packet statistics.
@@ -487,7 +1203,14 @@ void loop() {
 }
 ```
 
-***Please note: because the `LORA_ENABLE` pin is on an I/O expander, it cannot be passed directly to the RadioLib library constructor. The library must be initialized with the reset pin set to `RADIOLIB_NC` and is best practice to perform a manual reset in setup.***
+***Please note: because the `LORA_ENABLE` pin is on an I/O expander, it cannot be passed directly to the RadioLib library constructor. The library must be initialized with the reset pin set to `RADIOLIB_NC` and it is best practice to perform a manual reset in setup.***
+
+#### Configuring for Public LoRa® Networks
+
+The onboard SX1262 module can be configured to communicate on public LoRa® networks such as [**The Things Network (TTN)**](https://www.thethingsnetwork.org/) or [**Helium**](https://helium.com/). These networks operate on specific frequencies and use defined radio parameters based on regional plans (e.g., `EU868`, `US915`, `AU915`). To ensure your device can be heard by gateways in your area, you must first configure your LoRa® radio to match your region's frequency.
+
+- To get started with The Things Network, you can [create a free account](https://www.thethingsnetwork.org/get-started).
+- To join the Helium Network, you can [create an account on the Helium Console](https://console.helium.com).
 
 ## Onboard Sensors & Peripherals
 
@@ -530,22 +1253,36 @@ void loop() {
     IMU.readAcceleration(ax, ay, az);
     IMU.readGyroscope(gx, gy, gz);
 
+    Serial.print("aX:");
     Serial.print(ax, 2);
-    Serial.print('\t');
+    Serial.print(" aY:");
     Serial.print(ay, 2);
-    Serial.print('\t');
+    Serial.print(" aZ:");
     Serial.print(az, 2);
-    Serial.print("\t| ");
+    Serial.print("\t gX:");
     Serial.print(gx, 2);
-    Serial.print('\t');
+    Serial.print(" gY:");
     Serial.print(gy, 2);
-    Serial.print('\t');
+    Serial.print(" gZ:");
     Serial.println(gz, 2);
   }
 
   delay(100);
 }
 ```
+
+#### Visualizing the Output
+
+After uploading the sketch, open the **Serial Plotter** (**Tools > Serial Plotter**) in the Arduino IDE. As you move the Nesso N1, you will see the sensor data graphed in real-time.
+
+By using the checkboxes in the Serial Plotter window, you can isolate different data streams. The animation below shows the accelerometer data (`aX`, `aY`, `aZ`) as the device is tilted.
+
+![Accelerometer Data in Serial Plotter](assets/bmi_accel.gif)
+
+Similarly, you can deselect the accelerometer variables and view only the gyroscope data (`gX`, `gY`, `gZ`) to visualize the rate of rotation, as shown here.
+
+![Gyroscope Data in Serial Plotter](assets/bmi_gyro.gif)
+
 
 ### Buzzer
 
@@ -605,9 +1342,25 @@ Always check your component's datasheet for voltage specifications before connec
 
 ### Qwiic Connector
 
-The Nesso N1 includes one standard **Qwiic** connector for easy, solder-free expansion. It provides a 3.3 V I2C interface (`SCL` on GPIO8, `SDA` on GPIO10).
+The Nesso N1 features an onboard Qwiic connector that provides a simple, tool-free solution for connecting I2C devices. The Qwiic ecosystem, developed by SparkFun, has become an industry standard for rapid prototyping, allowing you to connect sensors, displays, and other peripherals without soldering or complex wiring.
 
 ![Qwiic Connector](assets/qwiic-connector.png)
+
+The Qwiic system’s key advantages include:
+
+- **Plug-and-play connectivity**: No breadboards, jumper wires, or soldering required.
+- **Polarized connectors**: Prevents accidental reverse connections.
+- **Daisy-chain capability**: Connect multiple devices in series.
+- **Standard pinout**: Compatible across all Qwiic ecosystem devices.
+
+***The Qwiic connector on the Nesso N1 is connected to the primary I2C bus, which uses the standard `Wire` object. The connector provides a 3.3 V supply, making it ideal for modern sensors.***
+
+The Qwiic connector allows you to interface with our Modulino family for developing soldering-free projects.
+
+![Modulino nodes](assets/modulino.png)
+
+You can check our [Modulino family](https://store.arduino.cc/collections/modulino) where you will find a variety of **sensors** and **actuators** to expand your projects.
+
 
 ### Grove Connector
 
@@ -621,15 +1374,39 @@ An 8-pin female header provides access to additional I/O and power pins. It is d
 
 ![8 pins Expansion Port](assets/expansion-port.png)
 
-| # | Pin Name | GPIO | Function |
-| :-- | :--- | :--- |:--- |
-| 1 | `GND` | - | Ground |
-| 2 | `+5V OUT` | - | 5 V Output |
-| 3 | `D1` | 7 | Digital PWM I/O |
-| 4 | `D3` | 6 | Digital PWM I/O |
-| 5 | `D2` | 2 | Digital PWM I/O |
-| 6 | `BATTERY OUT` | - | Direct Battery Voltage Output |
-| 7 | `+3V3 OUT` | - | 3.3 V Output |
-| 8 | `+5V IN` | - | 5 V Input (VIN) |
+| #    | Pin Name      | GPIO | Function                      |
+| :--- | :------------ | :--- | :---------------------------- |
+| 1    | `GND`         | -    | Ground                        |
+| 2    | `+5V OUT`     | -    | 5 V Output                    |
+| 3    | `D1`          | 7    | Digital PWM I/O               |
+| 4    | `D3`          | 6    | Digital PWM I/O               |
+| 5    | `D2`          | 2    | Digital PWM I/O               |
+| 6    | `BATTERY OUT` | -    | Direct Battery Voltage Output |
+| 7    | `+3V3 OUT`    | -    | 3.3 V Output                  |
+| 8    | `+5V IN`      | -    | 5 V Input (VIN)               |
 
 ***The `BATTERY OUT` pin provides the direct, unregulated voltage from the LiPo battery. Be cautious when using this pin, as the voltage will vary depending on the charge level.***
+
+## Support
+
+If you encounter any issues or have questions while working with the Arduino Nesso N1, we provide various support resources to help you find answers and solutions.
+
+### Help Center
+
+Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the Nesso N1. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+
+- [Nesso N1 Help Center page](https://support.arduino.cc/hc/en-us/sections/)
+
+### Forum
+
+Join our community forum to connect with other Nesso N1 users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Nesso N1.
+
+- [Nesso N1 category in the Arduino Forum](https://forum.arduino.cc/)
+
+### Contact Us
+
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We are happy to help you with any issues or inquiries about the Nesso N1.
+
+- [Contact us page](https://www.arduino.cc/en/contact-us/)
+
+
