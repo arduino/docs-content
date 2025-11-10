@@ -208,7 +208,7 @@ Upload or link an image of the space you want to monitor. You can then add `mark
 
 ![Image map markers](assets/image-map-markers.png)
 
-You can also add `triggers` and set their label, unit, position and looks. Link any `int`, `Float`, `String`, `Bool` or any Specialized types based on them to the triggers on the image map. 
+You can also add `triggers` and set their label, unit, position and looks. Link any `int`, `float`, `String`, `bool` or any Specialized types based on them to the triggers on the image map. 
 
 Depending on the variable that you link you will get different options. With a `boolean` you can decide if the style should be `On/Off`, `True/False` or `Icons`. Then change the color of the trigger depending on the state if you check the `Custom style` option.
 
