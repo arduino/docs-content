@@ -1,8 +1,8 @@
 ---
 title: Nesso N1
 url_shop: https://store.arduino.cc/products/nesso-n1
-# primary_button_url: /tutorials/nesso-n1/getting-started
-# primary_button_title: Get Started
+primary_button_url: /tutorials/nesso-n1/user-manual
+primary_button_title: User Manual
 core: RISC-V
 forumCategorySlug: '/hardware/kits/nesso-n1'
 sku: [TPX00227]
