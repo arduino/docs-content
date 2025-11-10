@@ -178,7 +178,7 @@ These pins are directly controlled by the main microcontroller.
 
 ### I/O Expander Pins
 
-The Nesso N1 uses two PI4IOE5V6408 I/O expanders (addresses `0x43` and `0x44`) to manage additional pins over the I2C bus. These pins are accessed in code using special `ExpanderPin` objects.
+The Nesso N1 uses two PI4IOE5V6408 I/O expanders (addresses `0x43` and `0x44`) to manage additional pins over the I2C bus. These pins are accessed in code using special `ExpanderPin` objects, which are pre-defined as part of the Nesso N1 board package. You do not need to include any extra libraries to use them.
 
 | Pin Object            | Expander Port | Function                         |
 | :-------------------- | :------------ | :------------------------------- |
@@ -394,7 +394,7 @@ void loop() {
 ## Battery
 
 
-To interact with the battery system from your sketch, the Nesso N1 core provides a built-in `NessoBattery` object.
+To interact with the battery system from your sketch, the Nesso N1 board package provides a built-in `NessoBattery` object named `battery`. It is available for use in your sketch without needing to include a specific library.
 
 
 ### Enable Charging
@@ -483,7 +483,7 @@ Additionally the `POWEROFF` expander pin allows you to shut down the device prog
 
 ### User Buttons
 
-The board has two physical buttons, **KEY1** and **KEY2**, that are connected to the I/O expander. These can be read using `digitalRead()`.
+The board has two physical buttons, **KEY1** and **KEY2**, that are connected to the I/O expander.  These can be read using `digitalRead()`.
 
 ![User Buttons](assets/programmable-buttons.png)
 
@@ -1014,27 +1014,23 @@ void loop() {
 }
 ```
 
-#### Commissioning and Testing Your Matter Device
+#### How to Configure and Test Your Matter Device
 
-**1. To Run as Matter over Thread:**
-*   **Requirements:** A **Thread Border Router** must be active on your network.
-*   **Action:** Ensure the three `#define` flags at the top of the sketch are active (`CHIP_DEVICE_CONFIG_ENABLE_THREAD 1`, `CHIP_DEVICE_CONFIG_ENABLE_WIFI 0`), then upload.
+The same sketch can be used for both Matter over Wi-Fi® and Matter over Thread. The behavior is controlled by **compile-time flags** at the top of the code.
 
-**2. To Run as Matter over Wi-Fi®:**
-*   **Requirements:** The Nesso N1 and your Matter Controller must be on the same Wi-Fi network.
-*   **Action:** In the sketch:
-    1.  **Comment out or delete** the three `#define` flags.
-    2.  Uncomment the `ssid` and `password` variables and fill in your network credentials.
-    3.  Uncomment the `if (!CHIP_DEVICE_CONFIG_ENABLE_THREAD)` block inside the `setup()` function.
-    4.  Upload the sketch.
+**1. To Run as Matter over Wi-Fi®:**
+*   **Action:** In the sketch, **comment out or delete** the three `#define` flags related to Thread. Fill in your Wi-Fi® credentials in the `ssid` and `password` variables.
+*   **Requirements:** Your Nesso N1 and Matter Controller (e.g., smartphone) must be on the same Wi-Fi® network.
+
+**2. To Run as Matter over Thread:**
+*   **Action:** In the sketch, ensure the three `#define` flags for Thread are **active and not commented out**.
+*   **Requirements:** You must have a **Thread Border Router** (e.g., a compatible Google Nest Hub or Apple HomePod) active on your network.
 
 **3. Commissioning the Device:**
-*   **Requirements:** A **Matter Controller** (e.g., Google Home app, Apple Home, `chip-tool`).
-*   **Process:**
-    1.  Open the Serial Monitor. You will see a manual pairing code printed every few seconds.
-    2.  Open your Matter Controller app and choose to add a new device.
-    3.  When prompted, enter the manual pairing code from the Serial Monitor.
-    4.  Follow the on-screen instructions to complete the setup.
+After uploading the correctly configured sketch:
+1.  Open the Serial Monitor. A manual pairing code will be printed every few seconds.
+2.  Open your Matter Controller app (e.g., Google Home, Apple Home) and choose to add a new device.
+3.  When prompted, enter the manual pairing code from the Serial Monitor to complete the setup.
 
 **4. Control the Device:** Once commissioned, a new light bulb device will appear in your app or be controllable via the command line tool. You can now toggle it on and off to control the Nesso N1's built-in LED.
 
@@ -1066,17 +1062,20 @@ The following examples demonstrate basic LoRa® peer-to-peer (P2P) communication
 
 ##### LoRa® Transmitter Example
 
-This example configures the Nesso N1 to send a "Hello World!" packet every five seconds. Remember to set the `LORA_FREQUENCY` variable to match your geographical region.
+This example configures the Nesso N1 to send a "Hello World!" packet every five seconds. 
+
+***WARNING: You must configure the LoRa® frequency (`LORA_FREQUENCY`) variable to match your geographical region. to a value that is legal for your geographical region. Transmitting on an unauthorized frequency can result in fines. Common frequencies are 915.0 MHz for North America/Australia, 868.0 MHz for Europe, and 433.0 MHz for Asia.***
 
 ```arduino
 #include <RadioLib.h>
 
-// Set the LoRa® frequency based on your region
+// LoRa® frequency regions
 // Europe: 868.0
 // North America: 915.0
 // Australia: 915.0
 // Asia: 433.0
-const float LORA_FREQUENCY = 915.0;
+
+const float LORA_FREQUENCY = ; // Set the LoRa® frequency based on your region
 
 // Initialize the radio module, passing RADIOLIB_NC for the reset pin.
 // The reset will be handled manually.
@@ -1131,12 +1130,13 @@ This example configures a second Nesso N1 to listen for LoRa® packets and print
 ```arduino
 #include <RadioLib.h>
 
-// Set the LoRa® frequency based on your region
+// LoRa® frequency regions
 // Europe: 868.0
 // North America: 915.0
 // Australia: 915.0
 // Asia: 433.0
-const float LORA_FREQUENCY = 915.0;
+
+const float LORA_FREQUENCY = ; // Set the LoRa® frequency based on your region
 
 // Initialize the radio module, passing RADIOLIB_NC for the reset pin.
 SX1262 radio = new Module(LORA_CS, LORA_IRQ, RADIOLIB_NC, LORA_BUSY);
@@ -1358,13 +1358,14 @@ You can check our [Modulino family](https://store.arduino.cc/collections/modulin
 
 ### Grove Connector
 
-The Nesso N1 also includes one standard **Grove** connector. It provides a 5 V interface with two digital I/O pins (`GROVE_IO_0` on GPIO5, `GROVE_IO_1` on GPIO4).
+The Nesso N1 also includes one standard **Grove** connector. It provides a 5 V interface with two digital I/O pins (`GROVE_IO_0` on GPIO5, `GROVE_IO_1` on GPIO4), making it compatible with the extensive ecosystem of [Grove modules](https://search.arduino.cc/search?q=grove%20module&tab=store), including those from [M5Stack](https://shop.m5stack.com/pages/search-results-page?q=grove&page=1&rb_tags=ACTUATORS%7CSENSOR) and [Arduino Sensor Kit](https://store.arduino.cc/products/sensor-kit-base).
 
 ![Grove Connector](assets/grove-connector.png)
 
 ### 8-Pin Expansion Port
 
-An 8-pin female header provides access to additional I/O and power pins. It is designed to be compatible with the **M5StickC HAT** series of expansion boards.
+An 8-pin female header provides access to additional I/O and power pins. It is designed to be fully compatible with the **M5StickC HAT** series of expansion boards, allowing you to easily add functionality with modules for everything from sensors to communication. You can explore the range of compatible HATs on the [M5Stack store](https://shop.m5stack.com/collections/for-stick).
+
 
 ![8 pins Expansion Port](assets/expansion-port.png)
 
