@@ -67,7 +67,7 @@ The full pinout is available and downloadable as a PDF from the link below:
 
 The full datasheet is available as a downloadable PDF from the link below:
 
-- [Nesso N1 datasheet](../../datasheets/TPX00227-datasheet.pdf)
+- [Nesso N1 datasheet](resources/datasheets/TPX00227-datasheet.pdf)
 
 
 ## Installation
@@ -854,9 +854,9 @@ You have now successfully sent and received a message over a peer-to-peer Thread
 
 The Nesso N1's 802.15.4 radio allows it to act as a **Zigbee® End Device**, enabling it to join existing Zigbee® mesh networks. This is ideal for creating low-power devices like sensors or light controllers that integrate with popular smart home hubs.
 
-***To compile this example, you must configure the following settings in the Arduino IDE:***
-- ***Navigate to **Tools > Zigbee Mode** and select **End device**.***
-- ***Navigate to **Tools > Partition Scheme** and select **Zigbee SPIFF 4MB**.***
+> To compile this example, you must configure the following settings in the Arduino IDE:
+> - Navigate to **Tools > Zigbee Mode** and select **End device**.
+> - Navigate to **Tools > Partition Scheme** and select **Zigbee SPIFF 4MB**.
 
 #### Zigbee® Light Bulb Example
 
