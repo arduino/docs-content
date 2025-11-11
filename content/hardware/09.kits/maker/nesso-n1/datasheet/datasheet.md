@@ -52,43 +52,43 @@ Smart home automation, remote monitoring, Industrial IoT (IIoT), environmental s
 
 | **Component**   | **Details**                                                                                                                                                           |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Microcontroller | - ESP32-C6 RISC-V 32-bit single-core CPU @ 160 MHz<br/>- Wi-Fi® 6 (802.11ax), Bluetooth® 5.3, 802.15.4 (Zigbee®)<br/>- 16 MB external Flash (GD25Q128/W25Q128) |
-| System Memory   | - 1536 kB on-chip Flash<br/>- 512 kB on-chip SRAM<br/>- 16 MB external Flash for application storage                                                                  |
+| Microcontroller | - ESP32-C6 RISC-V 32-bit single-core CPU @ 160 MHz<br><br/>- Wi-Fi® 6 (802.11ax), Bluetooth® 5.3, 802.15.4 (Zigbee®)<br><br/>- 16 MB external Flash (GD25Q128/W25Q128) |
+| System Memory   | - 1536 kB on-chip Flash<br><br/>- 512 kB on-chip SRAM<br><br/>- 16 MB external Flash for application storage                                                                  |
 
 #### Connectivity and Wireless
 
 | **Component**       | **Details**                                                                                                                                                                                       |
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wireless (ESP32-C6) | - 2.4 GHz Wi-Fi® 6 (802.11ax)<br/>- Bluetooth® 5.3 LE<br/>- 802.15.4 Zigbee®<br/>- Dedicated FPC antenna                                                                                   |
-| LoRa® Module        | - SX1262 transceiver (850-960 MHz)<br/>- Detachable external IPEX4 antenna<br/>- FM8625H LNA for receive path<br/>- SGM13005L4 amplifier for transmit path<br/>- Antenna storage within enclosure |
-| USB Interface       | - USB-C connector<br/>- 5V DC input for charging and programming<br/>- USB 3.0 data interface                                                                                                     |
+| Wireless (ESP32-C6) | - 2.4 GHz Wi-Fi® 6 (802.11ax)<br><br/>- Bluetooth® 5.3 LE<br><br/>- 802.15.4 Zigbee®<br><br/>- Dedicated FPC antenna                                                                                   |
+| LoRa® Module        | - SX1262 transceiver (850-960 MHz)<br><br/>- Detachable external IPEX4 antenna<br><br/>- FM8625H LNA for receive path<br><br/>- SGM13005L4 amplifier for transmit path<br><br/>- Antenna storage within enclosure |
+| USB Interface       | - USB-C connector<br><br/>- 5V DC input for charging and programming<br><br/>- USB 3.0 data interface                                                                                                     |
 
 #### Display and User Interface
 
 | **Component**    | **Details**                                                                                                             |
 |------------------|-------------------------------------------------------------------------------------------------------------------------|
-| Display          | - 1.14" IPS LCD<br/>- ST7789P3 driver @ SPI communication<br/>- Resolution: 135 × 240 pixels<br/>- 262K colors (18-bit) |
-| Touch Controller | - FT6336U capacitive touch controller<br/>- I²C communication                                                           |
-| User Buttons     | - 2× programmable buttons (KEY1, KEY2)<br/>- 1× power button (long-press reset function)                                |
-| LEDs             | - 1× green user programmable LED<br/>- 1× blue power/status LED                                                         |
-| Audio Feedback   | - Passive buzzer (4 kHz)<br/>- GPIO-controlled                                                                          |
-| Infrared         | - IR LED transmitter<br/>- Remote control and signal transmission capability                                            |
+| Display          | - 1.14" IPS LCD<br><br/>- ST7789P3 driver @ SPI communication<br><br/>- Resolution: 135 × 240 pixels<br><br/>- 262K colors (18-bit) |
+| Touch Controller | - FT6336U capacitive touch controller<br><br/>- I²C communication                                                           |
+| User Buttons     | - 2× programmable buttons (KEY1, KEY2)<br><br/>- 1× power button (long-press reset function)                                |
+| LEDs             | - 1× green user programmable LED<br><br/>- 1× blue power/status LED                                                         |
+| Audio Feedback   | - Passive buzzer (4 kHz)<br><br/>- GPIO-controlled                                                                          |
+| Infrared         | - IR LED transmitter<br><br/>- Remote control and signal transmission capability                                            |
 
 #### Sensors and Expansion
 
 | **Component**   | **Details**                                                                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| IMU Sensor      | - BMI270 6-axis IMU<br/>- 3-axis accelerometer + 3-axis gyroscope<br/>- I²C communication<br/>- Motion and orientation detection                                |
-| Expansion Ports | - Grove connector (HY2.0-4P): I²C, GPIO, power<br/>- Qwiic connector (PH1.0-4P): I²C interface<br/>- 8-pin HAT port: M5StickC HAT-compatible (GPIO, ADC, power) |
+| IMU Sensor      | - BMI270 6-axis IMU<br><br/>- 3-axis accelerometer + 3-axis gyroscope<br><br/>- I²C communication<br><br/>- Motion and orientation detection                                |
+| Expansion Ports | - Grove connector (HY2.0-4P): I²C, GPIO, power<br><br/>- Qwiic connector (PH1.0-4P): I²C interface<br><br/>- 8-pin HAT port: M5StickC HAT-compatible (GPIO, ADC, power) |
 
 #### Power System
 
 | **Component**      | **Details**                                                                                                                                                                                      |
 |--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Battery            | - 250 mAh lithium polymer battery (3.7 - 4.2 V)<br/>- Integrated within enclosure                                                                                                                |
-| Power Management   | - AW32001ECSR charge controller with power path management<br/>- BQ27220YZFR battery fuel gauge (real-time capacity, voltage, current monitoring)<br/>- Over-current and over-voltage protection |
-| Voltage Regulation | - JW5712 DC-DC buck converter (battery to 3.3V system rail)<br/>- SGM6603 boost converter (3.3V to 5V output for peripherals)                                                                    |
-| Input Voltage      | - USB-C®: 5V DC input<br/>- Battery nominal: 3.7 V (3.7 - 4.2 V range)                                                                                                                           |
+| Battery            | - 250 mAh lithium polymer battery (3.7 - 4.2 V)<br><br/>- Integrated within enclosure                                                                                                                |
+| Power Management   | - AW32001ECSR charge controller with power path management<br><br/>- BQ27220YZFR battery fuel gauge (real-time capacity, voltage, current monitoring)<br><br/>- Over-current and over-voltage protection |
+| Voltage Regulation | - JW5712 DC-DC buck converter (battery to 3.3V system rail)<br><br/>- SGM6603 boost converter (3.3V to 5V output for peripherals)                                                                    |
+| Input Voltage      | - USB-C®: 5V DC input<br><br/>- Battery nominal: 3.7 V (3.7 - 4.2 V range)                                                                                                                           |
 
 ### Related Products
 
