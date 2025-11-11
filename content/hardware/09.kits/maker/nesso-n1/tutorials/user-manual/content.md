@@ -1396,7 +1396,7 @@ Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a c
 
 Join our community forum to connect with other Nesso N1 users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Nesso N1.
 
-- [Nesso N1 category in the Arduino Forum](https://forum.arduino.cc/)
+- [Nesso N1 category in the Arduino Forum](https://forum.arduino.cc/c/official-hardware/kits/nesso-n1/225)
 
 ### Contact Us
 
