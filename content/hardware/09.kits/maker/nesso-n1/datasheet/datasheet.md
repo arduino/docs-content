@@ -8,7 +8,7 @@ type: maker
 
 # Description
 
-<p style="text-align: justify;">Arduino® Nesso N1 (hereafter Nesso N1) is a compact, all-in-one IoT development kit powered by the ESP32-C6 microcontroller, a single-core 32-bit RISC-V CPU running at up to 160 MHz. Designed for remote monitoring and automation applications, Nesso N1 combines multiple wireless protocols, such as Wi-Fi® 6, Bluetooth® 5.3, and LoRa® into a sleek, portable form factor with an integrated 1.14" touch display and rechargeable 250 mAh battery. Built-in sensors include a 6-axis IMU, passive buzzer, and infrared transmitter, with expansion capabilities through Grove, Qwiic, and M5StickC HAT-compatible connectors.</p>
+<p style="text-align: justify;">Arduino® Nesso N1 (hereafter Nesso N1) is a compact, all-in-one IoT development kit powered by the ESP32-C6 microcontroller, a single-core 32-bit RISC-V CPU running at up to 160 MHz. Designed for remote monitoring and automation applications, Nesso N1 combines multiple wireless protocols, such as Wi-Fi® 6, Bluetooth® 5.3, Thread®, and LoRa® into a sleek, portable form factor with an integrated 1.14" touch display and rechargeable 250 mAh battery. Built-in sensors include a 6-axis IMU, passive buzzer, and infrared transmitter, with expansion capabilities through Grove, Qwiic, and M5StickC HAT-compatible connectors.</p>
 
 <p style="text-align: justify;">Nesso N1 can be programmed using Arduino IDE, MicroPython, or UIFlow, and integrates seamlessly with Arduino Cloud for remote device management and data visualization. With comprehensive documentation, ready-to-use examples, and compatibility with Arduino Modulino® nodes and third-party accessories, Nesso N1 accelerates the development of connected devices for smart homes, industrial automation, and environmental monitoring.</p>
 
@@ -22,9 +22,9 @@ Smart home automation, remote monitoring, Industrial IoT (IIoT), environmental s
 
 ## Application Examples
 
-<p style="text-align: justify;">Nesso N1 combines multi-protocol wireless connectivity (Wi-Fi® 6, Bluetooth® 5.3, LoRa®) with integrated sensors, a touch display, and battery operation, making it a versatile platform for IoT applications. Alongside expansion via Grove, Qwiic, and HAT connectors, it supports Arduino Modulino® nodes and third-party Qwiic, Grove, and M5StickC HAT accessories for diverse connected device projects.</p>
+<p style="text-align: justify;">Nesso N1 combines multi-protocol wireless connectivity (Wi-Fi® 6, Bluetooth® 5.3, Thread, LoRa®) with integrated sensors, a touch display, and battery operation, making it a versatile platform for IoT applications. Alongside expansion via Grove, Qwiic, and HAT connectors, it supports Arduino Modulino® nodes and third-party Qwiic, Grove, and M5StickC HAT accessories for diverse connected device projects.</p>
 
-- **Smart Home Hub:** Central control hub for smart home devices, integrating with platforms like Home Assistant via Wi-Fi®, or LoRa® connectivity.
+**Smart Home Hub:** Central control hub for smart home devices, integrating with platforms like Home Assistant via Wi-Fi®, Thread, or LoRa® connectivity.
 
 - **IR to IoT Gateway:** Transforms traditional infrared remote-controlled devices (TVs, air conditioners, fans) into smart, connected appliances controllable via Wi-Fi® or cloud platforms.
 
@@ -34,9 +34,9 @@ Smart home automation, remote monitoring, Industrial IoT (IIoT), environmental s
 
 - **Asset Tracking:** Monitors equipment location and status in warehouses, construction sites, or logistics operations using integrated IMU and wireless connectivity.
 
-- **Agriculture Monitoring:** Connects soil moisture, weather, and irrigation sensors via LoRa® to optimize resource usage in precision agriculture applications.
+- **Agriculture Monitoring:** Connects soil moisture, weather, and irrigation sensors via LoRa® or Thread to optimize resource usage in precision agriculture applications.
 
-- **Education and Prototyping:** Hands-on learning platform for IoT protocols (Wi-Fi® 6, Bluetooth® 5.3, LoRa®) and rapid development of connected device proof-of-concepts with pre-configured hardware.
+- **Education and Prototyping:** Hands-on learning platform for IoT protocols (Wi-Fi® 6, Bluetooth® 5.3, Thread, LoRa®) and rapid development of connected device proof-of-concepts with pre-configured hardware.
 
 - **Home Automation:** Custom automation systems including automated lighting, security systems, and environmental controls when combined with Modulino nodes or Grove sensors.
 
@@ -52,14 +52,14 @@ Smart home automation, remote monitoring, Industrial IoT (IIoT), environmental s
 
 | **Component**   | **Details**                                                                                                                                                           |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Microcontroller | - ESP32-C6 RISC-V 32-bit single-core CPU @ 160 MHz<br/>- Wi-Fi® 6 (802.11ax), Bluetooth® 5.3, 802.15.4 (Zigbee®)<br/>- 16 MB external Flash (GD25Q128/W25Q128) |
+| Microcontroller | - ESP32-C6 RISC-V 32-bit single-core CPU @ 160 MHz<br/>- Wi-Fi® 6 (802.11ax), Bluetooth® 5.3, 802.15.4 (Thread/Zigbee®)<br/>- 16 MB external Flash (GD25Q128/W25Q128) |
 | System Memory   | - 1536 kB on-chip Flash<br/>- 512 kB on-chip SRAM<br/>- 16 MB external Flash for application storage                                                                  |
 
 #### Connectivity and Wireless
 
 | **Component**       | **Details**                                                                                                                                                                                       |
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wireless (ESP32-C6) | - 2.4 GHz Wi-Fi® 6 (802.11ax)<br/>- Bluetooth® 5.3 LE<br/>- 802.15.4 Zigbee®<br/>- Dedicated FPC antenna                                                                                   |
+| Wireless (ESP32-C6) | - 2.4 GHz Wi-Fi® 6 (802.11ax)<br/>- Bluetooth® 5.3 LE<br/>- 802.15.4 Thread/Zigbee®<br/>- Dedicated FPC antenna                                                                                   |
 | LoRa® Module        | - SX1262 transceiver (850-960 MHz)<br/>- Detachable external IPEX4 antenna<br/>- FM8625H LNA for receive path<br/>- SGM13005L4 amplifier for transmit path<br/>- Antenna storage within enclosure |
 | USB Interface       | - USB-C connector<br/>- 5V DC input for charging and programming<br/>- USB 3.0 data interface                                                                                                     |
 
@@ -204,7 +204,7 @@ Use the limits below to define the operating environment, thermal margins, and p
 
 ### ESP32-C6 Microcontroller
 
-<p style="text-align: justify;">The ESP32-C6 is a single-core 32-bit RISC-V microcontroller running at up to 160 MHz, designed specifically for IoT applications requiring multiple wireless protocols. It integrates 2.4 GHz Wi-Fi® 6 (802.11ax), Bluetooth® 5.3 LE, and IEEE 802.15.4 (Zigbee®) radios on a single chip, reducing component count and system complexity.</p>
+<p style="text-align: justify;">The ESP32-C6 is a single-core 32-bit RISC-V microcontroller running at up to 160 MHz, designed specifically for IoT applications requiring multiple wireless protocols. It integrates 2.4 GHz Wi-Fi® 6 (802.11ax), Bluetooth® 5.3 LE, and IEEE 802.15.4 (Thread/Zigbee®) radios on a single chip, reducing component count and system complexity.</p>
 
 **Key specifications:**
 - 32-bit RISC-V single-core processor @ 160 MHz maximum
@@ -216,7 +216,7 @@ Use the limits below to define the operating environment, thermal margins, and p
 **Wireless capabilities:**
 - **Wi-Fi® 6 (802.11ax):** 2.4 GHz band, supports target wake time (TWT) for power savings
 - **Bluetooth® 5.3 LE:** Low energy mode for peripheral and beacon applications
-- **802.15.4 (Zigbee®):** Mesh networking capability for smart home and industrial applications
+- **802.15.4 (Thread/Zigbee®):** Mesh networking capability for smart home and industrial applications
 
 <div style="background-color: rgba(255, 193, 7, 0.2); border-left: 6px solid rgba(255, 152, 0, 1); margin: 20px 0; padding: 15px;">
   <strong>Note:</strong> The Wi-Fi® and Bluetooth® connectivity uses a dedicated FPC antenna integrated into the device. Removing or modifying the FPC antenna may cause wireless connectivity to stop working.
