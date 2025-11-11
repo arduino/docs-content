@@ -930,11 +930,11 @@ The LoRa® module is controlled via SPI and several dedicated pins on both the E
 | `LORA_ANTENNA_SWITCH` |      | E0.P6         | LoRa® RF Antenna Switch Control  |
 | `LORA_ENABLE`         |      | E0.P7         | LoRa® Module Reset/Enable        |
 
-**LoRa® Peer-to-Peer (P2P) Examples**
+#### LoRa® Peer-to-Peer (P2P) Examples
 
 The following examples demonstrate basic LoRa® peer-to-peer (P2P) communication using the [RadioLib](https://github.com/jgromes/RadioLib) library. This is the foundational step for testing your hardware and building more complex network applications.
 
-#### LoRa® Transmitter Example
+**LoRa® Transmitter Example**
 
 This example configures the Nesso N1 to send a "Hello World!" packet every five seconds. 
 
@@ -997,7 +997,7 @@ void loop() {
 }
 ```
 
-#### LoRa® Receiver Example
+**LoRa® Receiver Example**
 
 This example configures a second Nesso N1 to listen for LoRa® packets and print them to the Serial Monitor. It uses a simple polling method where the main loop waits until a packet is received.
 
