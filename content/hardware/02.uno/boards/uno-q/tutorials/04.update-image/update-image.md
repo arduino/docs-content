@@ -50,7 +50,7 @@ You should see something like:
 
 ![Output from testing tool (MacOS)](assets/macos.png)
 
-This means it is working, and we can proceed to [flashing the board](#flash-image-to-the-board).
+This means it is working, and we can proceed to [preparing the hardware](#preparing-the-hardware).
 
 **Important Note:** Do not run the file directly from Finder, you will receive a prompt window akin to:
 
@@ -70,7 +70,7 @@ A new window should appear, prompting you to install the driver. Install it, and
 
 ![Output from testing tool (Windows)](assets/windows.png)
 
-This means it is working, and we can proceed to [flashing the board](#flash-image-to-the-board).
+This means it is working, and we can proceed to [preparing the hardware](#preparing-the-hardware).
 
 #### Linux
 
@@ -84,7 +84,7 @@ You should see something like:
 
 ![Output from testing tool (Linux)](assets/linux.png)
 
-This means it is working, and we can proceed to [flashing the board](#flash-image-to-the-board).
+This means it is working, and we can proceed to [preparing the hardware](#preparing-the-hardware).
 
 ***Note: in some Linux systems, the `arduino-flasher-cli` could exit with an error right before flashing. This may occur if the kernel module `qcserial` is loaded. A workaround solution to fix this is in place (see section below).***
 
