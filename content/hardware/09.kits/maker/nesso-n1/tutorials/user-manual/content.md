@@ -67,7 +67,7 @@ The full pinout is available and downloadable as a PDF from the link below:
 
 The full datasheet is available as a downloadable PDF from the link below:
 
-- [Nesso N1 datasheet](resources/datasheets/TPX00227-datasheet.pdf)
+- [Nesso N1 datasheet](/resources/datasheets/TPX00227-datasheet.pdf)
 
 
 ## Installation
