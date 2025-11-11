@@ -904,11 +904,9 @@ void loop() {
 1.  **Configure Wi-Fi® Credentials:** In the sketch, replace `"YOUR_SSID"` and `"YOUR_PASSWORD"` with your Wi-Fi® network details.
 2.  **Upload the Sketch:** Connect your Nesso N1 to your computer and upload the sketch using the Arduino IDE.
 3.  **Get the Pairing Code:** Open the Serial Monitor (**Tools > Serial Monitor**) and set the baud rate to **115200**. After connecting to Wi-Fi®, a manual pairing code will be printed every few seconds.
-4.  **Commission the Device:**
-    *   Open your Matter Controller app (e.g., Google Home, Apple Home).
-    *   Choose to add a new device.
-    *   When prompted, enter the manual pairing code from the Serial Monitor to complete the setup. Your Nesso N1 and your smartphone must be on the same Wi-Fi® network.
-5.  **Control the Device:** Once commissioned, a new "On/Off light" device will appear in your app. You can now toggle it to control the Nesso N1's built-in green LED.
+4.  **Start Commissioning:** Open your Matter Controller app (e.g., Google Home, Apple Home) and choose to add a new device.
+5.  **Enter Pairing Code:** When prompted, enter the manual pairing code from the Serial Monitor to complete the setup. Your Nesso N1 and your smartphone must be on the same Wi-Fi® network.
+6.  **Control the Device:** Once commissioned, a new "On/Off light" device will appear in your app. You can now toggle it to control the Nesso N1's built-in green LED.
 
 ### LoRa®
 
