@@ -52,11 +52,9 @@ Below are some project ideas focused on the Modulino® Movement module and its b
 
 ## Related Products
 
-- *SKU: ASX00027* - [Arduino® Sensor Kit](https://store.arduino.cc/products/arduino-sensor-kit)
-
-- *SKU: K000007* - [Arduino® Starter Kit](https://store.arduino.cc/products/arduino-starter-kit-multi-language)
-
-- *SKU: AKX00026* - [Arduino® Oplà IoT Kit](https://store.arduino.cc/products/opla-iot-kit)
+- **SKU: ASX00027** - [Arduino® Sensor Kit](https://store.arduino.cc/products/arduino-sensor-kit)
+- **SKU: K000007** - [Arduino® Starter Kit](https://store.arduino.cc/products/arduino-starter-kit-multi-language)
+- **SKU: AKX00026** - [Arduino® Oplà IoT Kit](https://store.arduino.cc/products/opla-iot-kit)
 
 ## Rating
 
