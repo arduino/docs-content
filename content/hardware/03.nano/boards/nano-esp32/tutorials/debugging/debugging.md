@@ -23,6 +23,8 @@ Debugging is an essential skill for anyone working with technology, whether you'
 
 ## Software & Hardware Needed
 
+***The Arduino ESP32 board package version 2.0.16 and higher requires Arduino IDE 2.3 or higher to debug natively in the IDE.***
+
 - [Arduino Nano ESP32](https://store.arduino.cc/nano-esp32)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - [Arduino ESP32 Board Package](https://github.com/arduino/arduino-esp32) installed (2.0.12 or newer)
