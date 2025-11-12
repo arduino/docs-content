@@ -7,9 +7,10 @@ tags:
   - User Manual
   - Cheat sheet
   - ESP32-C6
-  - Bluetooth
-  - Wi-Fi 6
-  - LoRa
+  - Bluetooth®
+  - Wi-Fi® 6
+  - LoRa®
+  - Thread
   - Zigbee®
   - Matter
 author: 'Ernesto Voltaggio'
@@ -22,7 +23,7 @@ software:
   - web-editor
 ---
 
-The **Arduino® Nesso N1** is an all-in-one enclosed development board. Based on the ESP32-C6 System on Chip (SoC), it integrates a suite of communication protocols, including 2.4 GHz Wi-Fi® 6, Bluetooth® 5.3 LE, 802.15.4 (Zigbee®), and long-range LoRa®. It also includes a 1.14" color touchscreen, buttons, and a built-in LiPo battery for immediate user interaction in portable applications.
+The **Arduino® Nesso N1** is an all-in-one enclosed development board. Based on the ESP32-C6 System on Chip (SoC), it integrates a suite of communication protocols, including 2.4 GHz Wi-Fi® 6, Bluetooth® 5.3 LE, 802.15.4 (Thread/Zigbee®), and long-range LoRa®. It also includes a 1.14" color touchscreen, buttons, and a built-in LiPo battery for immediate user interaction in portable applications.
 
 This document serves as a comprehensive user manual for the Nesso N1, providing technical specifications, set up guides, and detailed explanations of its features to help you bring your projects to life.
 
@@ -46,7 +47,7 @@ The Nesso N1 packs a rich set of features into a compact and portable form facto
 
 ### Product Architecture
 
-- **ESP32-C6 SoC**: A powerful single-core RISC-V microcontroller with integrated Wi-Fi® 6, Bluetooth® 5.3 LE, and an 802.15.4 radio supporting Zigbee® for low-power mesh networking.
+- **ESP32-C6 SoC**: A powerful single-core RISC-V microcontroller with integrated Wi-Fi® 6, Bluetooth® 5.3 LE, and an 802.15.4 radio supporting Thread and Zigbee® for low-power mesh networking.
 - **SX1262 LoRa® Module**: A long-range, low-power LoRa® transceiver for communication in remote or challenging environments.
 - **1.14" Color Touchscreen**: An intuitive IPS display for user interaction and data visualization.
 - **BMI270 IMU**: A 6-axis Inertial Measurement Unit for precise motion and orientation sensing.
@@ -141,7 +142,7 @@ The ESP32-C6 features a comprehensive set of connectivity options:
 
 - 2.4 GHz Wi-Fi® 6 (802.11ax).
 - Bluetooth® 5.3 Low Energy.
-- 802.15.4 radio and Zigbee® protocols.
+- 802.15.4 radio for Thread and Zigbee® protocols.
 - Support for the Matter protocol.
 
 ***WARNING: All GPIO pins are 3.3 V logic only and are not 5 V tolerant.***
@@ -749,6 +750,121 @@ void loop() {
 }
 ```
 
+### Thread
+
+**Thread** is a low-power, secure, and self-healing mesh networking protocol based on IPv6. Two Nesso N1 boards can form a minimal Thread network on their own, without needing an external border router. One device will automatically become the "Router" for the network, and the other will join as a "Child".
+
+This test is performed by interacting directly with the OpenThread Command Line Interface (CLI) via the Serial Monitor.
+
+#### Thread CLI Sketch (Upload to Both Boards)
+
+This sketch simply starts the OpenThread stack and opens a console on the Serial Monitor, giving you direct access to the CLI. Upload this exact same sketch to **both** of your Nesso N1 boards.
+
+```arduino
+#include "OThreadCLI.h"
+void setup() {
+  Serial.begin(115200);
+  // Initialize the OpenThread stack but do not autostart the network interface.
+  // This gives us manual control via the CLI.
+  OThreadCLI.begin(false);
+  Serial.println("OpenThread CLI started. Type 'help' for a list of commands.");
+  // Start the console to pass Serial input directly to the CLI
+  OThreadCLI.startConsole(Serial);
+}
+void loop() {
+  // The console handles all the work. The loop can be empty.
+}
+```
+
+#### How to Test Manually via CLI
+
+You will need two separate Serial Monitor windows, one for each Nesso N1.
+
+1.  **Prepare:** Upload the sketch above to both boards. Connect both boards to your computer and open a Serial Monitor for each one.
+
+2.  **Form a Network (Board 1):** In the Serial Monitor for your first board, create a new Thread network.
+
+    ```
+    dataset init new
+    ```
+
+    The board should respond with `Done`. Then, commit the new network settings:
+
+    ```
+    dataset commit active
+    ```
+    
+    It will respond with `Done`.
+
+3.  **Get the Network Key (Board 1):** Get the key for the network you just created.
+
+    ```
+    networkkey
+    ```
+
+    It will print a 32-character hexadecimal string. **Copy this key.**
+
+4.  **Start the Network (Board 1):** Enable the radio and start the Thread protocol.
+
+    ```
+    ifconfig up
+    thread start
+    ```
+
+    After a few seconds, this board will become the network leader. You can verify this by typing `state`, which should return `leader`.
+
+5.  **Join the Network (Board 2):** In the Serial Monitor for your second board, use the key you copied from Board 1.
+
+    ```
+    dataset networkkey <paste-the-32-char-key-here>
+    ```
+
+    Replace `<paste-the-32-char-key-here>` with the key. It should respond with `Done`. Then, commit the settings:
+
+    ```
+    dataset commit active
+    ```
+
+6.  **Start the Network (Board 2):** Enable the radio and start the Thread protocol.
+
+    ```
+    ifconfig up
+    thread start
+    ```
+
+    After a few seconds, this board will join the network. You can verify this by typing `state`, which should return `child`.
+
+7.  **Set up the Server (Board 1):** In the Serial Monitor for your first board, set up a UDP listener on port `1234`.
+
+    ```
+    udp open
+    udp bind :: 1234
+    ```
+
+    Both commands should respond with `Done`. This board is now listening for messages.
+
+8.  **Send a Message (Board 2):** In the Serial Monitor for your second board, you must also open a UDP socket before you can send.
+
+    ```
+    udp open
+    ```
+
+    Once it responds with `Done`, send a UDP message to all devices on the Thread network.
+
+    ```
+    udp send ff03::1 1234 Hello!
+    ```
+
+    `ff03::1` is a multicast address that means "all Thread devices here.".
+
+9.  **Verify Communication:**
+
+    The Serial Monitor for **Board 2** (the client) should respond with `Done`.
+
+    The Serial Monitor for **Board 1** (the server) should print a message showing it received the packet, for example: `8 bytes from fdde:ad00:beef:0:35e3:3c2f:273f:9442 Hello!`.
+
+You have now successfully sent and received a message over a peer-to-peer Thread network.
+
 ### Zigbee®
 
 The Nesso N1's 802.15.4 radio allows it to act as a **Zigbee® End Device**, enabling it to join existing Zigbee® mesh networks. This is ideal for creating low-power devices like sensors or light controllers that integrate with popular smart home hubs.
@@ -821,22 +937,33 @@ void loop() {
 5.  The hub should discover a new light bulb named "Arduino Nesso-Light".
 6.  Once paired, you can add the device to a room and control the Nesso N1's built-in LED by toggling the light on and off in the app.
 
-### Matter over Wi-Fi®
+### Matter
 
-**Matter** is a smart home connectivity standard that unifies the ecosystem, allowing devices from different brands to work together seamlessly. The Nesso N1 can act as a Matter device over its Wi-Fi® connection.
+**Matter** is a smart home connectivity standard that aims to unify the ecosystem, allowing devices from different brands to work together seamlessly. The Nesso N1 supports Matter communication over both **Wi-Fi®** and **Thread**.
+
+The choice of transport is determined by **compile-time definitions** you add at the top of your sketch.
 
 #### Matter On/Off Light Example
 
-This example turns your Nesso N1 into a simple On/Off light device. After commissioning it into your smart home network, you can control the Nesso N1's built-in LED from your preferred smart home app (e.g., Google Home, Apple Home).
+This example turns your Nesso N1 into a simple On/Off light bulb. The same code works for both Matter over Wi-Fi® and Matter over Thread. After commissioning, you can control the Nesso N1's built-in LED from your smart home app.
 
 ```arduino
 #include <Matter.h>
+// Include WiFi.h only if you plan to use Matter over Wi-Fi
 #include <WiFi.h>
 
-// --- Wi-Fi Configuration ---
+// --- Transport Layer Configuration ---
+// To use Matter over Thread, include the three defines below.
+// To use Matter over Wi-Fi, comment out or remove these three defines.
+#define CONFIG_ENABLE_CHIPOBLE 1        // Enables BLE for commissioning
+#define CHIP_DEVICE_CONFIG_ENABLE_THREAD 1 // Enables the Thread stack
+#define CHIP_DEVICE_CONFIG_ENABLE_WIFI 0   // CRITICAL: Disables the Wi-Fi stack
+// -------------------------------------
+
+// --- For Matter over Wi-Fi only ---
 const char* ssid = "YOUR_SSID";
 const char* password = "YOUR_PASSWORD";
-// ---------------------------
+// ------------------------------------
 
 // Create an On/Off Light Endpoint
 MatterOnOffLight OnOffLight;
@@ -857,14 +984,17 @@ void setup() {
   Serial.begin(115200);
   delay(1000);
 
-  // Connect to Wi-Fi
-  Serial.printf("Connecting to %s ", ssid);
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
+  // --- For Matter over Wi-Fi only ---
+  if (!CHIP_DEVICE_CONFIG_ENABLE_THREAD) {
+    Serial.printf("Connecting to %s ", ssid);
+    WiFi.begin(ssid, password);
+    while (WiFi.status() != WL_CONNECTED) {
+      delay(500);
+      Serial.print(".");
+    }
+    Serial.println(" Connected");
   }
-  Serial.println(" Connected");
+  // ------------------------------------
 
   // Initialize the OnOffLight endpoint with an initial state of OFF
   OnOffLight.begin(false);
@@ -899,14 +1029,25 @@ void loop() {
 }
 ```
 
-#### How to Test Your Matter Device
+#### How to Configure and Test Your Matter Device
 
-1.  **Configure Wi-Fi® Credentials:** In the sketch, replace `"YOUR_SSID"` and `"YOUR_PASSWORD"` with your Wi-Fi® network details.
-2.  **Upload the Sketch:** Connect your Nesso N1 to your computer and upload the sketch using the Arduino IDE.
-3.  **Get the Pairing Code:** Open the Serial Monitor (**Tools > Serial Monitor**) and set the baud rate to **115200**. After connecting to Wi-Fi®, a manual pairing code will be printed every few seconds.
-4.  **Start Commissioning:** Open your Matter Controller app (e.g., Google Home, Apple Home) and choose to add a new device.
-5.  **Enter Pairing Code:** When prompted, enter the manual pairing code from the Serial Monitor to complete the setup. Your Nesso N1 and your smartphone must be on the same Wi-Fi® network.
-6.  **Control the Device:** Once commissioned, a new "On/Off light" device will appear in your app. You can now toggle it to control the Nesso N1's built-in green LED.
+The same sketch can be used for both Matter over Wi-Fi® and Matter over Thread. The behavior is controlled by **compile-time flags** at the top of the code.
+
+**1. To Run as Matter over Wi-Fi®:**
+*   **Action:** In the sketch, **comment out or delete** the three `#define` flags related to Thread. Fill in your Wi-Fi® credentials in the `ssid` and `password` variables.
+*   **Requirements:** Your Nesso N1 and Matter Controller (e.g., smartphone) must be on the same Wi-Fi® network.
+
+**2. To Run as Matter over Thread:**
+*   **Action:** In the sketch, ensure the three `#define` flags for Thread are **active and not commented out**.
+*   **Requirements:** You must have a **Thread Border Router** (e.g., a compatible Google Nest Hub or Apple HomePod) active on your network.
+
+**3. Commissioning the Device:**
+After uploading the correctly configured sketch:
+1.  Open the Serial Monitor. A manual pairing code will be printed every few seconds.
+2.  Open your Matter Controller app (e.g., Google Home, Apple Home) and choose to add a new device.
+3.  When prompted, enter the manual pairing code from the Serial Monitor to complete the setup.
+
+**4. Control the Device:** Once commissioned, a new light bulb device will appear in your app or be controllable via the command line tool. You can now toggle it on and off to control the Nesso N1's built-in LED.
 
 ### LoRa®
 
