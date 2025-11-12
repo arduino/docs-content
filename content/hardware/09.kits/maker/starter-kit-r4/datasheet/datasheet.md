@@ -364,6 +364,8 @@ Now that you have gone through the basics of what you can do with the Starter Ki
 | Height   | 146 mm          |
 | Weight   | 5.4 Kg          |
 
+<div style="page-break-after: always;"></div>
+
 ### UNO R4 WiFi (ABX00087) Dimensions
 
 | **View**      | **Measurement**        |
