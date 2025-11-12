@@ -11,7 +11,7 @@ source: "https://store.arduino.cc/arduino-pro-mini"
 
 The **Arduino Pro Mini** is a microcontroller board based on the [ATmega328P](http://www.atmel.com/Images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet.pdf).
 
-It has 14 digital input/output pins (of which 6 can be used as PWM outputs), 6 analog inputs, an on-board resonator, a reset button, and holes for mounting pin headers. A six pin header can be connected to an FTDI cable or Sparkfun breakout board to provide USB power and communication to the board.
+It has 14 digital input/output pins (of which 6 can be used as PWM outputs), 8 analog inputs, an on-board resonator, a reset button, and holes for mounting pin headers. A six pin header can be connected to an FTDI cable or Sparkfun breakout board to provide USB power and communication to the board.
 The Arduino Pro Mini is intended for semi-permanent installation in objects or exhibitions. The board comes without pre-mounted headers, allowing the use of various types of connectors or direct soldering of wires. The pin layout is compatible with the Arduino Mini.
 
 There are two version of the Pro Mini. One runs at 3.3V and 8 MHz, the other at 5V and 16 MHz.
@@ -63,7 +63,7 @@ Each of the 14 digital pins on the Pro Mini can be used as an input or output, u
 * **SPI: 10 (SS), 11 (MOSI), 12 (MISO), 13 (SCK).** These pins support SPI communication, which, although provided by the underlying hardware, is not currently included in the Arduino language.
 * **LED: 13.** There is a built-in LED connected to digital pin 13\. When the pin is HIGH value, the LED is on, when the pin is LOW, it's off.
 
-The Pro Mini has 8 analog inputs, each of which provide 10 bits of resolution (i.e. 1024 different values). Four of them are on the headers on the edge of the board; two (inputs 4 and 5) on holes in the interior of the board. The analog inputs measure from ground to VCC. Additionally, some pins have specialized functionality:
+The Pro Mini has 8 analog inputs, each of which provide 10 bits of resolution (i.e. 1024 different values). Four of them (inputs 0 through 3) are on the headers on the edge of the board, and two (inputs 4 through 7) on holes in the interior of the board. The analog inputs measure from ground to VCC. Additionally, some pins have specialized functionality:
 
 * **I2C: A4 (SDA) and A5 (SCL).** Support I2C (TWI) communication using the [Wire library](https://www.arduino.cc/reference/en/language/functions/communication/wire/).
 
@@ -109,7 +109,7 @@ The dimensions of the Pro Mini PCB are approximately 0.7" x 1.3".
 | UART                      | 1                                              |
 | SPI                       | 1                                              |
 | I2C                       | 1                                              |
-| Analog Input Pins         | 6                                              |
+| Analog Input Pins         | 8                                              |
 | External Interrupts       | 2                                              |
 | DC Current per I/O Pin    | 40 mA                                          |
 | Flash Memory              | 32KB of which 2 KB used by bootloader \*       |
