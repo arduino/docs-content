@@ -24,10 +24,28 @@ Comes with a detailed, full-color project book that guides you from basic electr
 
 </Feature>
 
+<Feature title="Global Learning, Local Language Support" image="location">
+
+All book content and online projects are available in English, Spanish, Italian, German, and French, accessible and easy to learn for makers worldwide.
+
+</Feature>
+
 <Feature title="Unlock Endless Possibilities Beyond the Book" image="cloud">
 
 Access additional projects online and learn how to connect your creations to the Arduino Cloud, bringing your ideas to the digital world.
 
 </Feature>
+
+<Feature title="AI-Powered Guidance for Every Beginner" image="core">
+
+Built into the Arduino online editor, the GenAI assistant helps beginners overcome coding challenges with smart suggestions, answers, and inspiration.
+
+</Feature>
+
+<Feature title="Earn Your Official Arduino Certification" image="world-map">
+
+Use the exam voucher included in the box to take one attempt at the official Arduino Fundamentals exam online, and validate your new skills with an internationally recognized certificate.
+
+</Feature>  
 
 </FeatureList>
