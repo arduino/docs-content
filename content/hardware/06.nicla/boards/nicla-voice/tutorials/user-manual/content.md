@@ -441,26 +441,26 @@ The example code shown below captures audio from the onboard microphone of the N
 Keep in mind that this example code requires the following libraries:
 
 - [arduino-libg722](https://github.com/pschatzmann/arduino-libg722)
-- [arduino-audio-tools](https://github.com/pschatzmann/arduino-audio-tools)
+- [arduino-audio-tools __v0.9.6__](https://github.com/pschatzmann/arduino-audio-tools/releases/tag/v0.9.6)
 
-***If you encounter compilation or build errors with the `Record_and_stream` example, please try using the [`arduino-audio-tools` library version __0.9.6__](https://github.com/pschatzmann/arduino-audio-tools/releases/tag/v0.9.6).***
+***__Important:__ This code requires `arduino-audio-tools` version __v0.9.6__ to compile.***
 
-Make sure to install these libraries in the Arduino IDE before uploading the code to your Nicla Voice board.
+Make sure that you have updated the NDP120 firmware. See the steps [here](#ndp120-processor-firmware-update).
 
 ```arduino
 // Include necessary libraries for the Nicla Voice board, audio processing, and G722 codec support
 #include "Arduino.h"
 #include "NDP.h"
+
+#undef abs
+#define USE_INT24_FROM_INT
 #include "AudioTools.h"
 #include "AudioCodecs/CodecG722.h"
 
-// Create an instance of the G722Encoder class for handling audio encoding
 G722Encoder encoder;
 
-// Declare a buffer to temporarily store audio data
 uint8_t data[2048];
 
-// Define a function to turn on the green LED for a short duration as an event indicator
 void ledGreenOn() {
   nicla::leds.begin();
   nicla::leds.setColor(green);
@@ -470,49 +470,37 @@ void ledGreenOn() {
 }
 
 void setup() {
-  // Start UART communication at 115200 baud
-  Serial.begin(115200);
 
-  // Initialize the Nicla Voice board, disable the LDO
+  Serial.begin(115200);
   nicla::begin();
   nicla::disableLDO();
-
-  // Initialize the built-in RGB LED, set up as an event indicator
   nicla::leds.begin();
+
   NDP.onEvent(ledGreenOn);
 
-  // Set up the G722 encoder (1 channel, 16 kHz sample rate)
   AudioBaseInfo bi;
   bi.channels = 1;
   bi.sample_rate = 16000;
+
   encoder.setOptions(0);
   encoder.begin(bi);
 
-  // Set the output stream for the encoder to the serial port
   encoder.setOutputStream(Serial);
 
-  // Load the required firmware packages for the NDP processor, turn on the onboard microphone
   NDP.begin("mcu_fw_120_v91.synpkg");
   NDP.load("dsp_firmware_v91.synpkg");
   NDP.load("alexa_334_NDP120_B0_v11_v91.synpkg");
   NDP.turnOnMicrophone();
-
-  // Check the audio chunk size to ensure it doesn't exceed the buffer size
   int chunk_size = NDP.getAudioChunkSize();
   if (chunk_size >= sizeof(data)) {
     for(;;);
   }
 }
 
-// Continuously read audio data from the microphone, encode it using the G722 codec, send it to the serial port
 void loop() {
-  // Declare a variable to store the length of the extracted audio data
   unsigned int len = 0;
 
-  // Extract audio data from the NDP and store it in the data buffer
   NDP.extractData(data, &len);
-
-  // Pass the extracted audio data to the G722 encoder and send it to the serial port
   encoder.write(data, len);
 }
 ```
@@ -541,17 +529,54 @@ In the `loop()` function:
 - The length of the extracted audio data is stored in the `len` variable.
 - The extracted audio data is passed to the G722 encoder, which compresses the audio and sends it to the serial port.
 
-To extract the audio data on a **Linux computer**, you will need to set up the serial port as raw:
+#### Linux Workflow
+
+To extract the audio data on a **Linux computer**, follow the steps below:
+
+- Set up the serial port as raw:
 
 ```bash
 stty -F /dev/ttyACM0 115200 raw
 ```
-Dump the data to a file (e.g., test.g722):
+- Dump the data to a file (e.g., test.g722):
 
 ```bash
 cat /dev/ttyACM0 > test.g722
 ```
-Then, you can open the file with a software like [Audacity](https://www.audacityteam.org/) to play back the audio.
+- Install **ffmpeg** with `sudo apt install ffmpeg` to convert the `.g722` file to `.wav`:
+
+```bash
+ffmpeg -f g722 -i test.g722 -ar 16000 test.wav
+```
+Then, you can open the `.wav` file with a software like [Audacity](https://www.audacityteam.org/) to play back the audio.
+
+#### Windows Workflow
+
+To extract the audio data on a **Windows computer**, follow the steps below:
+
+Download **PuTTY** for free [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), install it and open it.
+
+1. Select "Serial" as connection type
+2. Enter the serial port where your board is connected
+3. Set the baud rate to `115200`
+4. In the left menu, navigate to "Logging"
+5. Select "All session output"
+6. Define the directory to save the recorded file `.g722`
+7. Click on "Open" to start recording audio
+
+![PuTTY steps](assets/serial-g722.png)
+
+- To stop recording, simply close the terminal window
+- Navigate to your `.g722` file directory, and now it is time to convert it to `.wav`
+- Download **FFmpeg** for Windows [here](https://www.gyan.dev/ffmpeg/builds/)
+- From the Command Prompt (CMD), navigate to the download directory to use it, or add it to your system PATH
+- Run the following command to convert the `.g722` file into `.wav`
+
+  ```bash
+  ffmpeg -f g722 -i <update-with-directory>\test.g722 -ar 16000 test.wav
+  ```
+Then, you can open the `.wav` file with a software like [Audacity](https://www.audacityteam.org/) or any media player to play back the audio.
+
 
 #### Machine Learning and Audio Analysis
 
