@@ -6,7 +6,7 @@ The Arduino Starter Kit R4 includes everything you need to dive into the world o
 
 <FeatureList>
 
-<Feature title="Powered by the UNO R4 WiFi" image="mcu">
+<Feature title="Next‑Gen Innovation with UNO R4 WiFi" image="mcu">
 
 The kit is built around the powerful Arduino UNO R4 WiFi, featuring a 32-bit microcontroller, Wi-Fi®, Bluetooth®, and a 12x8 LED matrix for dynamic projects.
 
@@ -18,16 +18,34 @@ Includes a wide selection of sensors, actuators, and electronic components to bu
 
 </Feature>
 
-<Feature title="Step-by-Step Guide" image="led">
+<Feature title="Master Electronics from the Ground Up" image="led">
 
 Comes with a detailed, full-color project book that guides you from basic electronics to more complex concepts, making learning hands-on and fun.
 
 </Feature>
 
-<Feature title="Expand Your Learning Online" image="cloud">
+<Feature title="Global Learning, Local Language Support" image="location">
 
-Access additional projects online and learn how to connect your creations to the Arduino IoT Cloud, bringing your ideas to the digital world.
+All book content and online projects are available in English, Spanish, Italian, German, and French, accessible and easy to learn for makers worldwide.
 
 </Feature>
+
+<Feature title="Unlock Endless Possibilities Beyond the Book" image="cloud">
+
+Access additional projects online and learn how to connect your creations to the Arduino Cloud, bringing your ideas to the digital world.
+
+</Feature>
+
+<Feature title="AI-Powered Guidance for Every Beginner" image="core">
+
+Built into the Arduino online editor, the AI assistant helps beginners overcome coding challenges with smart suggestions, answers, and inspiration.
+
+</Feature>
+
+<Feature title="Earn Your Official Arduino Certification" image="world-map">
+
+Use the exam voucher included in the box to take one attempt at the official Arduino Certification exam online, and validate your new skills with an internationally recognized certificate.
+
+</Feature>  
 
 </FeatureList>

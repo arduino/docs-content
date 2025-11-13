@@ -8,7 +8,7 @@ type: maker
 
 # Description
 
-<p style="text-align: justify;">The Arduino Starter Kit R4 is a hands-on learning platform built around the Arduino UNO R4 WiFi. Featuring an Arm® Cortex®-M4 microcontroller, integrated Wi-Fi® and Bluetooth® via ESP32-S3, and a 12x8 red LED matrix, this kit provides makers, students, and educators with a reliable foundation to learn, prototype, and build interactive electronics projects. With included sensors, motors, and actuators, the Starter Kit R4 bridges theoretical learning and practical experimentation through engaging, hands-on activities that teach fundamental programming and electronics concepts.
+<p style="text-align: justify;">The Arduino® Starter Kit R4 is a hands-on learning platform built around the Arduino® UNO R4 WiFi. Featuring an Arm® Cortex®-M4 microcontroller, integrated Wi-Fi® and Bluetooth® via ESP32-S3, and a 12x8 red LED matrix, this kit provides makers, students, and educators with a reliable foundation to learn, prototype, and build interactive electronics projects. With included sensors, motors, and actuators, the Starter Kit R4 bridges theoretical learning and practical experimentation through engaging, hands-on activities that teach fundamental programming and electronics concepts.
 </p>
 
 # Target Areas
@@ -36,6 +36,8 @@ The Starter Kit R4 offers a wide variety of practical applications, from classro
 <div style="page-break-after: always;"></div>
 
 ## Starter Kit R4 Projects Book
+
+![ ](assets/kit-project.png)
 
 <p style="text-align: justify;">
 The Arduino Starter Kit R4 includes a printed book with 14 projects. Each project helps you learn how to use different components and write code with the Arduino UNO R4 WiFi. The projects start simple and become more advanced as you go.
@@ -105,6 +107,10 @@ The Starter Kit R4 includes the UNO R4 WiFi board and a wide selection of electr
 
 - Arduino UNO R4 WiFi (SKU: ABX00087) (x1)
 
+#### Learning Materials
+
+- Project book - 150 pages (x1)
+
 #### Cables & Power
 
 - USB-C® cable (x1)
@@ -165,7 +171,7 @@ The Starter Kit R4 includes the UNO R4 WiFi board and a wide selection of electr
 
 #### Accessories
 
-- Transparent color gels - red, green, blue (x3 total)
+- Transparent color gels - red, green, blue (x3)
 
 ![Exploded view of the Starter Kit R4 components](assets/kit-components.png)
 
@@ -356,7 +362,9 @@ Now that you have gone through the basics of what you can do with the Starter Ki
 | Width    | 245 mm          |
 | Length   | 160 mm          |
 | Height   | 146 mm          |
-| Weight   | 5.4 Kg          |
+| Weight   | 5.4 kg          |
+
+<div style="page-break-after: always;"></div>
 
 ### UNO R4 WiFi (ABX00087) Dimensions
 
@@ -364,9 +372,8 @@ Now that you have gone through the basics of what you can do with the Starter Ki
 |---------------|------------------------|
 | Width         | 68.58 mm               |
 | Length        | 53.34 mm               |
-| Height        | ~15 mm (approx. max)   |
 
-![Board Dimensions](assets/mechanicalDrawingWiFi.png)
+![Board Dimensions](assets/mechanicalDrawing_R4WiFi.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -512,4 +519,4 @@ As a global supplier of electronic and electrical components, Arduino is aware o
 
 | **Date**   | **Revision** | **Changes**        |
 |------------|--------------|--------------------|
-| 18/09/2025 | 1            | First release      |
+| 18/11/2025 | 1            | First release      |
