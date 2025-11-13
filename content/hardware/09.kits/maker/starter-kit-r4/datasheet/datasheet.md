@@ -8,7 +8,7 @@ type: maker
 
 # Description
 
-<p style="text-align: justify;">The Arduino Starter Kit R4 is a hands-on learning platform built around the Arduino UNO R4 WiFi. Featuring an Arm® Cortex®-M4 microcontroller, integrated Wi-Fi® and Bluetooth® via ESP32-S3, and a 12x8 red LED matrix, this kit provides makers, students, and educators with a reliable foundation to learn, prototype, and build interactive electronics projects. With included sensors, motors, and actuators, the Starter Kit R4 bridges theoretical learning and practical experimentation through engaging, hands-on activities that teach fundamental programming and electronics concepts.
+<p style="text-align: justify;">The Arduino® Starter Kit R4 is a hands-on learning platform built around the Arduino® UNO R4 WiFi. Featuring an Arm® Cortex®-M4 microcontroller, integrated Wi-Fi® and Bluetooth® via ESP32-S3, and a 12x8 red LED matrix, this kit provides makers, students, and educators with a reliable foundation to learn, prototype, and build interactive electronics projects. With included sensors, motors, and actuators, the Starter Kit R4 bridges theoretical learning and practical experimentation through engaging, hands-on activities that teach fundamental programming and electronics concepts.
 </p>
 
 # Target Areas
