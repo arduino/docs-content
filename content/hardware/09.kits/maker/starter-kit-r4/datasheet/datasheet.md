@@ -362,7 +362,7 @@ Now that you have gone through the basics of what you can do with the Starter Ki
 | Width    | 245 mm          |
 | Length   | 160 mm          |
 | Height   | 146 mm          |
-| Weight   | 5.4 Kg          |
+| Weight   | 5.4 kg          |
 
 <div style="page-break-after: always;"></div>
 
