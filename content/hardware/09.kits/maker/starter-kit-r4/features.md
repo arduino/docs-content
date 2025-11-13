@@ -44,7 +44,7 @@ Built into the Arduino online editor, the GenAI assistant helps beginners overco
 
 <Feature title="Earn Your Official Arduino Certification" image="world-map">
 
-Use the exam voucher included in the box to take one attempt at the official Arduino Fundamentals exam online, and validate your new skills with an internationally recognized certificate.
+Use the exam voucher included in the box to take one attempt at the official Arduino Certification exam online, and validate your new skills with an internationally recognized certificate.
 
 </Feature>  
 
