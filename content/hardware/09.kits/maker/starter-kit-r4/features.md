@@ -38,7 +38,7 @@ Access additional projects online and learn how to connect your creations to the
 
 <Feature title="AI-Powered Guidance for Every Beginner" image="core">
 
-Built into the Arduino online editor, the GenAI assistant helps beginners overcome coding challenges with smart suggestions, answers, and inspiration.
+Built into the Arduino online editor, the AI assistant helps beginners overcome coding challenges with smart suggestions, answers, and inspiration.
 
 </Feature>
 
