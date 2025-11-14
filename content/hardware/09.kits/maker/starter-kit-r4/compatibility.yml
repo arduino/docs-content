@@ -3,6 +3,7 @@ software:
   - arduino-cli
   - cloud-editor
 hardware:
-  boards: uno-r4-wifi
+  boards: 
+       - uno-r4-wifi
   shields: ~
   carriers: ~
