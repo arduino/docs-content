@@ -796,8 +796,8 @@ The `Bridge` library provides a communication layer built on top of the `Arduino
 - Process incoming requests (`update()`)
 
 
-`RpcResult`
-- Helper class representing the result of a remote call. It waits for the response, extracts the return value, and propagates error codes if needed.
+`RpcCall`
+- Helper class representing an asynchronous RPC. If its .result method is invoked, it waits for the response, extracts the return value, and propagates error codes if needed.
 
 **Threading and Safety**
 - The bridge uses Zephyr mutexes (`k_mutex`) to guarantee safe concurrent access when reading/writing over the transport. Updates are handled by a background thread that continuously polls for requests.
