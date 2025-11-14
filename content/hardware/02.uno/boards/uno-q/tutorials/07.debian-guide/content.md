@@ -173,6 +173,8 @@ ls -a
 ls -lah
 ```
 
+![UNO Q Architecture](assets/debian-architecture.png)
+
 When you run `ls -lah`, you will see output similar to this:
 
 ```
@@ -646,28 +648,21 @@ ls /dev/video*
 # Result: /dev/video0 /dev/video1
 ```
 
-To test your camera from the command line, you can use `fswebcam`, a simple tool for capturing images.
+To test and use USB cameras on the UNO Q, we can install and use **Cheese**, a user-friendly camera application with a graphical interface. Install it with `sudo apt install cheese` and launch it with the `cheese` command.
 
-After installing it with `sudo apt install fswebcam`, you can capture a test image using `fswebcam -r 1280x720 --no-banner test.jpg`, which saves a 720p image to the current directory without adding timestamp banners.
-
-```bash
-# Install fswebcam
-sudo apt install fswebcam
-```
-
-```bash
-# Capture image
-fswebcam -r 1280x720 --no-banner test.jpg
-```
-
-For a more user-friendly experience with a graphical interface, Cheese is an excellent camera application. Install it with `sudo apt install cheese` and launch it with the `cheese` command.
-
-This opens a window showing your camera feed with options to take photos or record videos, making it easy to test camera functionality without writing code.
+This opens a window showing your camera feed with options to take photos or record videos, making it easy to test camera functionality without writing code. Cheese automatically detects and configures your camera, handling all the technical details in the background.
 
 ```bash
 sudo apt install cheese
 cheese
 # Opens camera application
+```
+
+For programmatic camera access in your projects, Python libraries like OpenCV (`python3-opencv`) provide camera control and image processing capabilities, which integrate well with Arduino App Lab Python scripts.
+
+```bash
+# Install OpenCV for Python (optional, for development)
+sudo apt install python3-opencv
 ```
 
 ### Serial Devices
@@ -713,7 +708,7 @@ This tool allows you to build, start, stop, and manage Apps without using the gr
 The `arduino-app-cli` provides commands for controlling the Apps you create in Arduino App Lab. Navigate to your Apps directory to see all available projects:
 
 ```bash
-cd ~/ArduinoApps
+cd ArduinoApps/
 ```
 
 ```bash
@@ -881,12 +876,12 @@ The connection is saved automatically, allowing your board to reconnect after re
 
 ```bash
 # Connect to network
-sudo nmcli device wifi connect "SSID" password "password"
+nmcli device wifi connect "SSID" password "password"
 ```
 
 ```bash
 # Disconnect from network
-sudo nmcli device disconnect wlan0
+nmcli device disconnect wlan0
 ```
 
 ```bash
@@ -936,20 +931,23 @@ The `up` and `down` arrow keys let you navigate through previously entered comma
 
 Debian includes documentation for nearly every command through the manual system.
 
-Running `man command-name` opens the detailed manual page for any command, complete with explanations of all options, usage examples, and related commands.
+Running `man <command-name>` opens the detailed manual page for any command, complete with explanations of all options, usage examples, and related commands.
 
 For example, `man ls` shows everything about the ls command. For quicker reference, most commands support a `--help` flag, such as`ls --help`, which displays a summary of options directly in the terminal.
 
 ```bash
 # Show command manual
-man command-name
-# Example: man ls
+man <command-name>
+```
+
+```bash
+man ls
 ```
 
 ```bash
 # Show brief help
-command-name --help
-# Example: ls --help
+# <command-name> --help
+ls --help
 ```
 
 ### System Logs and Troubleshooting
@@ -964,12 +962,12 @@ The `dmesg | less` command displays kernel boot messages and hardware detection 
 
 ```bash
 # View system log
-sudo journalctl -xe
+journalctl -xe
 ```
 
 ```bash
 # Follow real-time logs
-sudo journalctl -f
+journalctl -f
 ```
 
 ```bash
