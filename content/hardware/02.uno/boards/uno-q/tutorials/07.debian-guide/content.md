@@ -1002,7 +1002,7 @@ System logs are important for diagnosing problems.
 
 The `journalctl -xe` command shows recent system log entries with explanatory text, helping you understand what's happening when things go wrong.
 
-```bashy
+```bash
 journalctl -xe
 ```
 
