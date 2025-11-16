@@ -8,4 +8,5 @@ forumCategorySlug: '/hardware/12'
 sku: [A000110]
 ---
 
-The Arduino 4 Relays Shield allows your Arduino driving high power loads.
+
+The Arduino 4 Relays Shield allows your Arduino to drive high power loads.
