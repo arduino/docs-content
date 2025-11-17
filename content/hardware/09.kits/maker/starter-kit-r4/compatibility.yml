@@ -5,5 +5,17 @@ software:
 hardware:
   boards: 
        - uno-r4-wifi
-  shields: ~
+  shields: 
+    - 4-relays-shield
+    - motor-shield-rev3
+    - ethernet-shield-rev2
+    - 9-axis-motion-shield
   carriers: ~
+  accessories:
+    - modulino-buttons
+    - modulino-buzzer
+    - modulino-distance
+    - modulino-knob
+    - modulino-movement
+    - modulino-pixels
+    - modulino-thermo
