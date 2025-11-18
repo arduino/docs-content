@@ -41,6 +41,8 @@ There are three main methods to access the Debian shell on your UNO Q, each suit
 
 The Android Debug Bridge (ADB) provides direct shell access via USB connection, making it ideal for quick access when the board is connected to your computer, without requiring any network setup.
 
+![Through USB-C® (ADB)](assets/adb_connection.png)
+
 To use this method, you will need a USB-C® cable and ADB tools installed on your computer. Once connected, the board can be verified by running `adb devices`, which lists all connected devices.
 
 ```bash
@@ -53,7 +55,7 @@ Then run `adb shell` to enter the board's shell environment. This method is part
 adb shell
 ```
 
-![Through USB-C® (ADB)](assets/adb_connection.png)
+![Through USB-C® (ADB)](assets/debian_usbc_connect_1.png)
 
 ### Through SSH (Network)
 
@@ -73,9 +75,10 @@ Replace `<boardname>` with your actual board name. When connecting for the first
 ssh arduino@<boardname>.local
 ```
 
+For example,
+
 ```bash
-# Example
-ssh arduino@myunoq.local
+ssh arduino@unoqtestbench.local
 ```
 
 This remote access capability allows you to work on your UNO Q from anywhere on your network, making it easy to manage projects, upload files, and monitor your board without being physically connected.
@@ -86,9 +89,11 @@ If you encounter connection issues, particularly with mDNS on certain networks, 
 hostname -I
 ```
 
+![Through SSH](assets/debian_ssh_1.png)
+
 On the board (accessible via ADB or SBC mode).
 
-***For detailed SSH setup, file transfer with SCP, and comprehensive troubleshooting, refer to the [SSH tutorial](https://docs.arduino.cc/tutorials/uno-q/ssh/).***
+***For detailed SSH setup, file transfer with SCP, and comprehensive troubleshooting, refer to the dedicated [SSH tutorial](https://docs.arduino.cc/tutorials/uno-q/ssh/).***
 
 ### Through SBC Mode
 
@@ -98,7 +103,7 @@ Connect all peripherals through the USB-C® dongle, power on the system, and log
 
 This method is ideal when you want to use your UNO Q as a workstation, allowing you to browse the web, edit files graphically, and access the terminal all from the same device.
 
-***For complete SBC mode tutorial, refer to the [SBC tutorial](https://docs.arduino.cc/tutorials/uno-q/single-board-computer/).***
+***For complete Single-Board Computer mode tutorial, refer to dedicated [UNO Q Single-Board Computer tutorial](https://docs.arduino.cc/tutorials/uno-q/single-board-computer/).***
 
 ## System Navigation
 
@@ -153,6 +158,8 @@ ls
 ls -lh
 ```
 
+![Navigation commands (1)](assets/debian_nav_1.png)
+
 Adding the `-a` flag with `ls -a` reveals hidden files that start with a dot, and you can combine multiple options like `ls -lah` to see all files with full details in a readable format.
 
 ```bash
@@ -163,7 +170,7 @@ ls -a
 ls -lah
 ```
 
-![Navigation commands (1)](assets/debian_nav_1.png)
+![Navigation commands (2)](assets/debian_nav_2.png)
 
 When you run `ls -lah`, you will see output similar to this:
 
@@ -183,7 +190,7 @@ For example, running `pwd` might display `/home/arduino/Documents`, confirming y
 pwd
 ```
 
-![Navigation commands (2)](assets/debian_nav_2.png)
+![Navigation commands (3)](assets/debian_nav_3.png)
 
 ### File Operations
 
@@ -431,7 +438,9 @@ Debian uses the Advanced Package Tool, commonly known as `apt`, to manage softwa
 
 ### Updating Package Lists
 
-Before installing new software, it is important to update your package lists to make you are getting the latest versions. Running the command:
+Before installing new software or upgrading your system, it is essential to update your package lists to make sure you are getting the latest versions.
+
+Running `sudo apt update` downloads the most current package information from Debian's repositories. You will see output listing various repositories being checked, ending with a summary of available upgrades.
 
 ```bash
 sudo apt update
@@ -439,40 +448,60 @@ sudo apt update
 
 ![Updating package lists (1)](assets/debian_package_update_1.png)
 
-Downloads the most current package information from Debian's repositories. You will see output listing various repositories being checked, ending with:
-
-```bash
-...
-Reading package lists... Done
-...
-```
-
-This process does not install anything. It refreshes your system's knowledge of available software versions. Always run this command before attempting to install new packages to avoid installing outdated versions and to be in synchronous with the database.
-
-```bash
-sudo apt update
-```
-
 The output will show something like:
 
+```bash
+Hit:1 http://deb.debian.org/debian trixie-backports InRelease
+Hit:2 http://deb.debian.org/debian trixie InRelease
+Hit:3 http://deb.debian.org/debian trixie-updates InRelease
+Hit:4 http://deb.debian.org/debian-security trixie-security InRelease
+Hit:5 https://apt-repo.arduino.cc stable InRelease
+58 packages can be upgraded. Run 'apt list --upgradable' to see them.
 ```
-Hit:1 http://deb.debian.org/debian bookworm InRelease
-Reading package lists... Done
+
+In case all available packages are up-to-date, following result can be seen:
+
+![Updating package lists (2)](assets/debian_package_update_2.png)
+
+This process does not install anything; it simply refreshes your system's knowledge of available software versions. The `Hit` messages indicate that your package lists are synchronized with the repositories. If packages can be upgraded, the system will notify you with a count.
+
+### Upgrading Your System
+
+After updating the package lists, you can upgrade installed packages to their latest versions. The `sudo apt upgrade` command updates all installed packages while being conservative about dependencies, allowing for system stability.
+
+```bash
+sudo apt upgrade
 ```
+
+![Updating package lists (3)](assets/debian_package_update_3.png)
+
+For more comprehensive updates that may change package dependencies or install new packages required by upgrades, use `sudo apt full-upgrade`. This command handles complex upgrade scenarios and is more thorough than the standard upgrade.
+
+```bash
+sudo apt full-upgrade
+```
+
+![Updating package lists (4)](assets/debian_package_update_4.png)
+
+Regular updates helps to have the latest security patches and bug fixes, keeping your UNO Q secure and stable. It is a good practice to run `sudo apt update && sudo apt upgrade` periodically to keep your system up-to-date.
+
+***For major system updates or OS version upgrades, it is recommended to use the image flashing procedure described in the dedicated [UNO Q image flash tutorial](https://docs.arduino.cc/tutorials/uno-q/update-image/).***
 
 ### Installing Software
 
-Installing software with apt is straightforward. To install a single package, use `sudo apt install package-name`, which downloads the package and all its dependencies, then installs everything automatically.
+Installing software with *apt* is straightforward. To install a single package, use `sudo apt install package-name`, which downloads the package and all its dependencies, then installs everything automatically.
 
 ```bash
 sudo apt install package-name
 ```
 
-You can install multiple packages in a single command by separating them with spaces, like `sudo apt install python3-pip git curl`. During installation, apt will show you what will be installed and ask for confirmation before proceeding.
+You can install multiple packages in a single command by separating them with spaces, like `sudo apt install python3-pip git curl`. During installation, *apt* will show you what will be installed and ask for confirmation before proceeding.
 
 ```bash
 sudo apt install python3-pip git curl
 ```
+
+![Installing software (1)](assets/debian_software_install_1.png)
 
 For example, if you want to install the Vim text editor, running `sudo apt install vim` will download Vim and any required libraries, then configure everything so it's ready to use immediately.
 
@@ -480,8 +509,9 @@ For example, if you want to install the Vim text editor, running `sudo apt insta
 sudo apt install vim
 ```
 
-The package manager handles all the complexity behind the scenes, making software installation simpler than manual compilation and configuration.
+![Installing software (2)](assets/debian_software_install_2.png)
 
+The package manager handles all the complexity behind the scenes, making software installation simpler than manual compilation and configuration. If a package is already found installed, it will prompt the package availability and the version that is installed.
 
 ### Searching and Managing Packages
 
@@ -520,22 +550,6 @@ Running `sudo apt autoremove` cleans these up automatically, freeing disk space 
 ```bash
 sudo apt autoremove
 ```
-
-### System Updates
-
-Keeping your system updated is important for security and stability. The `sudo apt upgrade` command updates all installed packages to their latest versions while being conservative about dependencies.
-
-```bash
-sudo apt upgrade
-```
-
-For more comprehensive updates that may change package dependencies, use `sudo apt full-upgrade`, which handles complex upgrade scenarios. Regular updates keep you up to date with the latest security patches and bug fixes.
-
-```bash
-sudo apt full-upgrade
-```
-
-***For major system updates or OS version upgrades, it is recommended to use the image flashing procedure described in the [image update tutorial](https://docs.arduino.cc/tutorials/uno-q/update-image/) rather than in-place upgrades.***
 
 ## USB and Peripherals Access
 
@@ -667,7 +681,7 @@ To grant your user account access to serial ports, add yourself to the dialout g
 sudo usermod -a -G dialout arduino
 ```
 
-## Arduino App CLI Control
+## Arduino App CLI
 
 The Arduino UNO Q comes with the Arduino App CLI (`arduino-app-cli`) pre-installed, a command-line tool for managing and controlling Arduino App Lab applications directly from the terminal.
 
@@ -681,13 +695,55 @@ Your Arduino Apps are stored in the `~/ArduinoApps/` directory. Navigate there t
 cd ~/ArduinoApps/
 ```
 
+Using the following command shows all your Arduino App Lab projects:
+
 ```bash
 ls
 ```
 
+These Arduino App Lab projects are examples found within the Arduino App Lab's **My Apps** space.
+
 Each App directory contains your sketch code, Python scripts, and configuration files in the `app.yml` file.
 
 When an App runs, persistent data is saved in the `data/` folder within the App directory, while supporting files like the Python virtual environment are stored in the `.cache/` folder.
+
+To list all available Apps on your board, use:
+
+```bash
+arduino-app-cli app list
+```
+
+![MAnaging Apps (1)](assets/debian_appCli_1.png)
+
+To start or stop Apps from the command line, use the following command format:
+
+```bash
+arduino-app-cli app start user:my-app
+```
+
+For example, to start an example App, use:
+
+```bash
+arduino-app-cli app start examples:blink
+```
+
+![MAnaging Apps (2)](assets/debian_appCli_2.png)
+
+![MAnaging Apps (3)](assets/debian_appCli_3.png)
+
+To stop a running App, use:
+
+```bash
+arduino-app-cli app stop user:my-app
+```
+
+For example, to stop the running Blink LED App, use:
+
+```bash
+arduino-app-cli app stop examples:blink
+```
+
+![MAnaging Apps (4)](assets/debian_appCli_4.png)
 
 ### System and Network Configuration
 
@@ -719,34 +775,41 @@ If you need to view or edit App files manually, navigate to the App directory an
 cd ~/ArduinoApps/MyApp
 ```
 
+Using the following command will view App configuration:
+
 ```bash
 cat app.yml
 ```
+
+Using the following command will view Arduino sketch content:
 
 ```bash
 cat sketch/sketch.ino
 ```
 
+Using the following command will view Python script content:
+
 ```bash
 cat main.py
 ```
 
-***For comprehensive Arduino App CLI documentation and advanced usage, refer to the [official repository](https://github.com/arduino/arduino-app-cli).***
+***For comprehensive Arduino App CLI documentation including creating Apps, monitoring logs, managing Bricks, and system updates, please refer to the dedicated [Arduino App CLI tutorial](/software/app-lab/tutorials/cli/).***
 
 ### Arduino CLI
 
-The standard Arduino CLI tool (`arduino-cli`) is also available on the UNO Q for users who need direct access to Arduino core management, library installation, and sketch compilation outside of the Arduino App Lab ecosystem. This tool is independent of Arduino App Lab and follows the standard Arduino CLI workflow.
+The standard Arduino CLI tool (`arduino-cli`) is also available on the UNO Q for users who need direct access to Arduino core management, library installation, and sketch compilation outside of the Arduino App Lab ecosystem.
+
+This tool is independent of Arduino App Lab and follows the standard Arduino CLI workflow. The following command can be used to check the `arduino-cli` version and the availability:
 
 ```bash
-# Check if arduino-cli is available
 arduino-cli version
 ```
 
 ![Arduino CLI (1)](assets/debian_arduinocli_1.png)
 
-For UNO Q development, **Arduino App Lab and `arduino-app-cli` are the recommended tools** as they are specifically designed for the board's architecture and handle communication between the MPU and MCU automatically.
+For UNO Q development, **Arduino App Lab and [`arduino-app-cli`](#arduino-app-cli) are the recommended tools** as they are specifically designed for the board's architecture and handle communication between the MPU and MCU automatically.
 
-The standard `arduino-cli` is useful for advanced users who need to manage cores and libraries manually or work with other Arduino boards connected to the UNO Q.
+The standard `arduino-cli` is useful for users who need to manage cores and libraries manually or work with other Arduino boards connected to the UNO Q.
 
 ***For detailed Arduino CLI documentation, visit the [official Arduino CLI documentation](https://arduino.github.io/arduino-cli/).***
 
@@ -925,7 +988,7 @@ nmcli connection show
 With the following command, delete the problematic connection:
 
 ```bash
-nmcli connection delete "ConnectionName"
+nmcli connection delete <ConnectionName>
 ```
 
 On Linux, the path is typically:
@@ -938,7 +1001,7 @@ On Linux, the path is typically:
 Then delete the connection as above using the following command:
 
 ```bash
-nmcli connection delete "ConnectionName"
+nmcli connection delete <ConnectionName>
 ```
 
 On Windows, the path uses the user's `AppData` folder:
@@ -951,7 +1014,7 @@ On Windows, the path uses the user's `AppData` folder:
 Then delete the connection as above using the following command:
 
 ```bash
-nmcli connection delete "ConnectionName"
+nmcli connection delete <ConnectionName>
 ```
 
 After deleting the bad connection, you can exit the ADB shell and reconfigure your network either through [Arduino App Lab's first setup process](https://docs.arduino.cc/tutorials/uno-q/user-manual/#install-arduino-app-lab) or by connecting to a working network using the commands above.
