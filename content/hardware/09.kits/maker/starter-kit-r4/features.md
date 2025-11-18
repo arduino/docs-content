@@ -46,6 +46,10 @@ Built into the Arduino online editor, the AI assistant helps beginners overcome 
 
 Use the exam voucher included in the box to take one attempt at the official Arduino Certification exam online, and validate your new skills with an internationally recognized certificate.
 
+<FeatureWrapper>
+  <FeatureLink title="Certification" url="https://www.arduino.cc/education/certification/"/>
+</FeatureWrapper>
+
 </Feature>  
 
 </FeatureList>
