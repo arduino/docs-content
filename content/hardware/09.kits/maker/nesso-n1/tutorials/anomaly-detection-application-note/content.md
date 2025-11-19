@@ -1835,7 +1835,7 @@ void onCloudDisconnect() {
 }
 ```
 
-####  Monitoring and Operation
+#### Monitoring and Operation
 
 Once deployed, the system provides dual monitoring capabilities:
 
