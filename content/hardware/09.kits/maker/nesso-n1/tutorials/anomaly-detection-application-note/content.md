@@ -440,9 +440,9 @@ In this section, we will connect the vibration monitor to Edge Impulse platform 
 
 The first step involves creating an Edge Impulse account and setting up a new project for motor anomaly detection. These steps establish the foundation for machine learning model development:
 
-**Create Account**: Register for a free Edge Impulse account at [studio.edgeimpulse.com](https://studio.edgeimpulse.com/)
+**(1) Create Account**: Register for a free Edge Impulse account at [studio.edgeimpulse.com](https://studio.edgeimpulse.com/)
 
-**New Project**: Create a new project with the following settings:
+**(2) New Project**: Create a new project with the following settings:
 
 - Enter a project name (for example, "`nesso-n1-anomaly-detection`")
 - Choose project type: Personal (free tier with 60 min job limit, 4 GB data limit)
@@ -450,7 +450,7 @@ The first step involves creating an Edge Impulse account and setting up a new pr
 
 ![Creating a new project on Edge Impulse](assets/new-project.png)
 
-**Project Configuration**: Once created, the project will be ready for data collection. Sampling frequency and window settings will be configured later during impulse design.
+**(3) Project Configuration**: Once created, the project will be ready for data collection. Sampling frequency and window settings will be configured later during impulse design.
 
 ### Data Collection with Edge Impulse CLI
 
@@ -506,14 +506,120 @@ With the data forwarder running, you can now collect training data for your anom
 
 Start by mounting the accelerometer securely to the motor housing. You will collect two types of normal operation data:
 
-1. **Idle data collection**: With the motor turned off, **collect 10 to 15 minutes of "idle" operation** data through multiple two second windows. This captures the baseline vibration environment without motor operation. Label all data as `idle` in Edge Impulse Studio.
+1. **Idle data collection**: With the motor turned off, **collect 2 to 5 minutes of "idle" operation** data through multiple two second windows. This captures the baseline vibration environment without motor operation. Label all data as `idle` in Edge Impulse Studio.
 
-2. **Nominal data collection**: With the motor running under normal operating conditions, **collect 10 to 15 minutes of "nominal" operation** data through multiple two second windows. Vary motor load conditions slightly to capture different normal operating scenarios. Label all data as `nominal` in Edge Impulse Studio.
+2. **Nominal data collection**: With the motor running under normal operating conditions, **collect 2 to 5 minutes of "nominal" operation** data through multiple two second windows. Vary motor load conditions slightly to capture different normal operating scenarios. Label all data as `nominal` in Edge Impulse Studio.
 
-Edge Impulse can automatically split your collected data into **training (80%) and testing (20%) sets**. The 20 to 30 minutes total of data ensures you have enough samples for both training the model and validating its performance on unseen data.
+Edge Impulse can automatically split your collected data into **training (80%) and testing (20%) sets**. The 4 to 10 minutes total of data ensures you have enough samples for both training the model and validating its performance on unseen data.
 
 ![Data collection on Edge Impulse Studio](assets/data-collection.png)
 
 After data collection, review the collected samples in Edge Impulse Studio for consistency. Check for proper amplitude ranges and no clipping, verify sample rate consistency and timing accuracy and remove any corrupted or unusual samples from the training set.
 
 ***__Important note__: The anomaly detection model learns what "normal" looks like from both idle and nominal data. Any future vibration patterns that significantly differ from these learned patterns will be flagged as anomalies. This approach allows the system to detect unknown fault conditions without needing examples of actual motor failures.***
+
+### Training the Anomaly Detection Model
+
+Once you have collected sufficient `idle` and `nominal` operation data, the next step involves configuring and training the machine learning model for anomaly detection.
+
+#### Impulse Design Configuration
+
+Within Edge Impulse Studio, configure the impulse design with appropriate processing and learning blocks. Navigate to the "Impulse design" tab and set up the following blocks:
+
+1. **Input Block**: Configure time series data with window size of 1000 ms, window increase of 100 ms, and frequency of 100 Hz to match your data collection sampling rate.
+2. **Processing Block**: Add "Spectral Analysis" block for frequency domain feature extraction
+3. **Classification Learning Block**: Add "Classification (Keras)" to distinguish between `idle` and `nominal` operating states.
+4. **Learning Block**: Select "Anomaly Detection (K-means)" for unsupervised learning approach
+
+![Impulse design on Edge Impulse Studio](assets/impulse-design.png)
+
+This dual approach provides a more robust monitoring system where the classifier identifies the current operating state (`idle` vs `nominal`) while the anomaly detector flags unusual patterns that don't fit either normal category.
+
+#### Feature Extraction Configuration
+
+The spectral analysis block extracts relevant features from the raw vibration signals. Configure the following parameters optimized for the Nesso N1's BMI270 IMU:
+
+- **Type**: None (no filter) to preserve all frequency information from the IMU
+- **Cut-off frequency**: Not applicable when filter type is None
+- **Order**: Not applicable when filter type is None
+- **FFT length**: 64 points for efficient processing on the ESP32-C6
+- **Take log of spectrum**: Disable this option for more linear response with the BMI270
+- **Overlap FFT frames**: Enable this option to increase the number of features extracted from each window
+
+![Spectral features on Edge Impulse Studio](assets/spectral-features.png)
+
+***__Important note__: The BMI270 IMU in the Nesso N1 provides very clean digital data, so heavy filtering is not necessary. Using no filter with a smaller FFT length (64 points) provides better discrimination between `idle` and `nominal` states while reducing computational load on the ESP32-C6 processor.***
+
+#### Model Training Process
+
+Follow these steps to train the anomaly detection model using the collected idle and nominal operation data:
+
+**(1) Generate Features**: Before clicking "Generate features", enable "Calculate feature importance" to identify which frequency bands are most relevant for distinguishing between idle and nominal states. Then click "Generate features" to extract spectral features from all training data. Edge Impulse will process your data and create the feature vectors needed for training.
+
+**(2) Feature Explorer**: Review the feature explorer visualization to verify data quality and feature separation between your idle and nominal classes.
+
+![Feature explorer on Edge Impulse Studio](assets/feature-explorer.png)
+
+**(3) Train Classification Model**: Navigate to the "Classifier" tab and configure the neural network with the following simplified settings optimized for the Nesso N1:
+
+- Number of training cycles: 50 (increased for better convergence)
+- Learning rate: 0.001 (slightly higher for faster training)
+- Neural network architecture: Configure dense layers with 20 neurons (first layer) and 10 neurons (second layer) to provide efficient pattern recognition without overfitting
+- Validation set size: 20%
+
+Start training and monitor the accuracy metrics.
+
+![Classifier on Edge Impulse Studio](assets/classifier.png)
+
+**(4) Train Anomaly Detection Model**: Navigate to the "Anomaly detection" tab and configure K-means clustering with reduced complexity:
+
+- **Cluster count**: 12 clusters (reduced from 32) for more stable anomaly scores
+- **Axes selection**: Use "Select suggested axes" to automatically choose the most relevant spectral features
+- Click "Start training" to train the anomaly detection model
+
+![Anomaly detection on Edge Impulse Studio](assets/anomaly-detection.png)
+
+***__Important note__: Using 12 clusters instead of 32 produces more reasonable anomaly scores (typically in the 0 to 5 range) that are easier to threshold in your application. The BMI270's high sensitivity means fewer clusters are needed to map normal operation patterns effectively.***
+
+![Anomaly explorer on Edge Impulse Studio](assets/anomaly-explorer.png)
+
+#### Special Considerations for the Nesso N1
+
+The Nesso N1's integrated BMI270 IMU has high sensitivity and low noise, which requires some adjustments to the typical training approach:
+
+1. **Gravity Compensation**: The BMI270 always measures 1g acceleration due to gravity. Ensure your training data includes the device in its intended mounting orientation.
+
+2. **Micro-vibration Sensitivity**: The IMU can detect very small vibrations. Collect `idle` data in a truly vibration-free environment, or the model may struggle to distinguish idle from nominal states.
+
+3. **Data Collection Duration**: Due to the sensor's stability, you may need only 5 to 10 minutes each of idle and nominal data rather than the 10 to 15 minutes suggested for analog sensors.
+
+4. **Threshold Calibration**: After deployment, expect to adjust the anomaly threshold based on your specific motor and environment. Start with a threshold of 2.0 and adjust based on false positive/negative rates.
+
+***__Important note__: If the model consistently misclassifies idle as nominal, the IMU may be detecting ambient vibrations or electrical noise. Consider adding a magnitude-based override in your Arduino code to force `idle` classification when vibration levels are below a certain threshold (typically 0.02g variation from baseline).***
+
+#### Model Validation and Testing
+
+After training completion, validate both model performances using the following methods:
+
+- **Live Classification**: Use the "Live classification" feature with data collected directly from the Nesso N1
+- **Classification Performance**: Verify >95% accuracy for `idle`/`nominal` distinction
+- **Anomaly Score Range**: Confirm anomaly scores stay below 2.0 for normal operation
+- **Edge Cases**: Test with motor at different speeds and loads
+- **Environmental Testing**: Verify performance with ambient vibrations present
+
+![Model validation on Edge Impulse Studio](assets/model-validation.png)
+
+### Model Deployment
+
+After successful training and validation, deploy the model as an Arduino library:
+
+1. **Deployment Section**: Navigate to the "Deployment" tab in Edge Impulse Studio
+2. **Arduino Library**: Select "Arduino library" as the deployment target
+3. **Optimization Settings**: Choose `int8` quantization for memory efficiency on the ESP32-C6
+4. **EON Compiler**: Enable "Enable EON Compiler" for optimized performance
+5. **Download Library**: Download the generated Arduino library ZIP file
+6. **Library Installation**: Install in Arduino IDE using "Sketch > Include Library > Add .ZIP Library"
+
+![Model deployment on Edge Impulse Studio](assets/model-deployment.png)
+
+The generated library is optimized for the Nesso N1's ESP32-C6 processor, providing efficient real-time inference with typical processing times under 20ms for both classification and anomaly detection.
