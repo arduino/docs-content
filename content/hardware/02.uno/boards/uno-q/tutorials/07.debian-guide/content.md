@@ -1,5 +1,5 @@
 ---
-title: 'Debian & UNO Q'
+title: 'Debian Linux Basics for UNO Q'
 difficulty: beginner
 compatible-products: [uno-q]
 description: 'Get up to speed with this comprehensive guide to understanding and working with the Debian environment on the UNO Q.'
@@ -11,7 +11,9 @@ hardware:
 
 ## Overview
 
-The Arduino UNO Q runs a full Debian Linux operating system on its Qualcomm® QRB2210 microprocessor (MPU), providing a complete computing environment alongside the Arduino microcontroller (MCU). This guide explains the Debian system, how to access it, navigate the file system, manage permissions, install software, and work with USB peripherals.
+The Arduino UNO Q runs a full Debian Linux operating system on its Qualcomm® QRB2210 microprocessor (MPU), providing a complete computing environment alongside the Arduino microcontroller (MCU).
+
+This guide explains the Debian system, how to access it, navigate the file system, manage permissions, install software, work with USB peripherals, and practices worth keeping in mind.
 
 ![Arduino UNO Q Debian System](assets/debian-system.png)
 
@@ -21,27 +23,29 @@ Understanding the Debian system allows you to leverage the full power of Linux f
 
 Debian is a free and open-source Linux distribution known for its stability, security, and extensive package ecosystem. On the UNO Q, Debian provides a full Linux environment with standard Unix tools and utilities, allowing you to run multiple applications simultaneously and access thousands of software packages through the `apt` package manager.
 
-The system includes built-in support for network services such as SSH, web servers, and various network protocols, as well as pre-installed development tools such as compilers, interpreters, and development libraries.
+The system includes built-in support for network services such as SSH, web servers, and various network protocols, as well as pre-installed development tools, including compilers, interpreters, and development libraries.
 
 ### How Debian Works on the UNO Q
 
 The UNO Q features a hybrid architecture with two different processing environments working together. The Qualcomm® QRB2210 microprocessor runs Debian Linux and handles high-level computing tasks, including managing networking capabilities like Wi-Fi® and Bluetooth®, running Python® scripts and Linux applications, and controlling system resources and peripherals.
 
-Working alongside this is the STM32U585 microcontroller running Zephyr RTOS, which runs Arduino sketches, handles real-time operations, controls GPIO pins and hardware interfaces, and communicates with the MPU through the Bridge mechanism.
+Working alongside this is the STM32U585 microcontroller running Zephyr RTOS, which runs Arduino sketches, handles real-time operations, controls GPIO pins and hardware interfaces, and communicates with the MPU through the **Bridge** mechanism.
 
-![UNO Q Architecture](assets/debian-architecture.png)
+![UNO Q Architecture](assets/uno-q-architecture.png)
 
-The Bridge mechanism is the key element that enables uninterrupted communication between both systems. This allows your Python® scripts running on Debian to interact with Arduino code running on the MCU, creating a flexible hybrid development environment that leverages both the computational power of Linux and the real-time capabilities of Arduino.
+The [Bridge mechanism](https://docs.arduino.cc/tutorials/uno-q/user-manual/#bridge---remote-procedure-call-rpc-library) is the key element that enables uninterrupted communication between both systems. It allows your Python® scripts running on Debian to interact with Arduino code running on the MCU, creating a flexible hybrid development environment that leverages both the computational power of Linux and the real-time capabilities of Arduino.
+
+***If you would like to learn about the UNO Q in general before diving into this Debian guide, please refer to the [__UNO Q user manual__](/tutorials/uno-q/user-manual/) to familiarize yourself with the board.***
 
 ## Accessing the Board Shell
 
 There are three main methods to access the Debian shell on your UNO Q, each suited for different scenarios and workflows.
 
+![Accessing the board shell](assets/adb_connection.png)
+
 ### Through USB-C® (ADB)
 
 The Android Debug Bridge (ADB) provides direct shell access via USB connection, making it ideal for quick access when the board is connected to your computer, without requiring any network setup.
-
-![Through USB-C® (ADB)](assets/adb_connection.png)
 
 To use this method, you will need a USB-C® cable and ADB tools installed on your computer. Once connected, the board can be verified by running `adb devices`, which lists all connected devices.
 
@@ -49,7 +53,7 @@ To use this method, you will need a USB-C® cable and ADB tools installed on you
 adb devices
 ```
 
-Then run `adb shell` to enter the board's shell environment. This method is particularly useful during initial setup or when network connectivity is not available.
+Then run `adb shell` to enter the board's shell environment. This method is useful during initial setup or when network connectivity is not available.
 
 ```bash
 adb shell
@@ -59,7 +63,9 @@ adb shell
 
 ### Through SSH (Network)
 
-Secure Shell (SSH) provides remote access over your local network, allowing you to connect to your board from anywhere on the same network without physical cables. This method requires that your board is connected to Wi-Fi® and that SSH is enabled, which is enabled after completing the first setup in the Arduino App Lab. **Both your computer and the board must be on the same network for this to work.**
+Secure Shell (SSH) provides remote access over your local network, allowing you to connect to your board from anywhere on the same network without physical cables.
+
+This method requires that your board is connected to Wi-Fi® and that SSH is enabled, which is enabled after completing the first setup in the Arduino App Lab. **Both your computer and the board must be on the same network for this to work.**
 
 ![Through SSH](assets/ssh-machine.png)
 
@@ -69,21 +75,17 @@ To connect, open a terminal on your computer and run:
 ssh arduino@<boardname>.local
 ```
 
-Replace `<boardname>` with your actual board name. When connecting for the first time, you will be asked to verify the connection by typing `yes`. After confirming, enter your board's password to gain full shell access.
-
-```bash
-ssh arduino@<boardname>.local
-```
-
-For example,
+Replace `<boardname>` with your actual board name. When connecting for the first time, you will be asked to verify the connection by typing `yes`. After confirming, enter your board's password to gain full shell access. For example, 
 
 ```bash
 ssh arduino@unoqtestbench.local
 ```
 
+![Through SSH](assets/debian_ssh_connect_1.png)
+
 This remote access capability allows you to work on your UNO Q from anywhere on your network, making it easy to manage projects, upload files, and monitor your board without being physically connected.
 
-If you encounter connection issues, particularly with mDNS on certain networks, you can connect directly to the board's IP address instead of its `.local` hostname. Find the IP address by running
+If you encounter connection issues, particularly with mDNS on certain networks, you can connect directly to the board's IP address instead of its `.local` hostname. Find the IP address by running:
 
 ```bash
 hostname -I
@@ -93,35 +95,39 @@ hostname -I
 
 On the board (accessible via ADB or SBC mode).
 
-***For detailed SSH setup, file transfer with SCP, and comprehensive troubleshooting, refer to the dedicated [SSH tutorial](https://docs.arduino.cc/tutorials/uno-q/ssh/).***
+***For detailed SSH setup, file transfer with SCP, and comprehensive troubleshooting, refer to the dedicated [__UNO Q via Secure Shell (SSH) tutorial__](https://docs.arduino.cc/tutorials/uno-q/ssh/).***
 
 ### Through SBC Mode
 
-The single-board computer mode turns your UNO Q into a standalone desktop computer with a graphical user interface. To use this mode, you will need a USB-C® dongle with external power delivery, an HDMI display, and a USB keyboard and mouse.
+The single-board computer mode turns your UNO Q into a standalone desktop computer with a graphical user interface. To use this mode, you will need a [*USB-C® dongle with external power delivery*](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-usb-hub), an HDMI display, and a USB keyboard and mouse.
+
+![Through SBC mode](assets/single-board-computer-mode.png)
+
+***You can use any USB-C dongle with external power delivery capabilities except for [Apple](https://www.apple.com/shop/product/mw5m3am/a/usb-c-digital-av-multiport-adapter) ones.***
 
 Connect all peripherals through the USB-C® dongle, power on the system, and log in using your credentials. Once logged in, you can open the Terminal application directly from the desktop environment, giving you shell access alongside the graphical interface.
 
 This method is ideal when you want to use your UNO Q as a workstation, allowing you to browse the web, edit files graphically, and access the terminal all from the same device.
 
-***For complete Single-Board Computer mode tutorial, refer to dedicated [UNO Q Single-Board Computer tutorial](https://docs.arduino.cc/tutorials/uno-q/single-board-computer/).***
+***For a complete Single-Board Computer mode tutorial, refer to the dedicated [__UNO Q Single-Board Computer tutorial__](https://docs.arduino.cc/tutorials/uno-q/single-board-computer/).***
 
 ## System Navigation
 
 ### Understanding the File System
 
-Debian organizes files in a hierarchical directory structure, with the root directory `/` at the top level containing all other directories.
+Debian organizes files in a hierarchical directory structure, with the root directory `/` at the top level and all other directories below it.
 
-For most UNO Q projects, you will primarily work within `/home/arduino/`, your default user directory.
+For most UNO Q projects, you will mostly work within `/home/arduino/`, your default user directory.
 
-Within your home directory, the `ArduinoApps/` folder is particularly important as it contains all the Apps you create with Arduino App Lab, with each App stored in its own subdirectory.
+Within your home directory, the `ArduinoApps/` folder is important because it contains all the Apps you create with Arduino App Lab, each stored in its own subdirectory.
 
 ```
-/                         # Root directory (top level)
+/                         # Root directory (top level)
 ├── home/
-│   └── arduino/          # Your working directory
-│       └── ArduinoApps/  # Your Arduino App Lab projects
-├── tmp/                  # Temporary files (cleared on reboot)
-└── mnt/                  # Mount points for USB drives
+│   └── arduino/          # Your working directory
+│       └── ArduinoApps/  # Your Arduino App Lab projects
+├── tmp/                  # Temporary files (cleared on reboot)
+└── mnt/                  # Mount points for USB drives
 ```
 
 When navigating the system, you will spend most of your time in `/home/arduino/`. The `/tmp/` directory is useful for temporary files, and `/mnt/` becomes relevant when you mount USB storage devices.
@@ -170,17 +176,9 @@ ls -a
 ls -lah
 ```
 
-![Navigation commands (2)](assets/debian_nav_2.png)
-
 When you run `ls -lah`, you will see output similar to this:
 
-```
-total 24K
-drwxr-xr-x  5 arduino arduino 4.0K Oct 31 10:30 .
-drwxr-xr-x  3 root    root    4.0K Oct 15 14:20 ..
--rw-r--r--  1 arduino arduino  220 Oct 15 14:20 .bashrc
-drwxr-xr-x  2 arduino arduino 4.0K Oct 25 09:15 Documents
-```
+![Navigation commands (2)](assets/debian_nav_2.png)
 
 If you ever need to know exactly where you are in the directory structure, the `pwd` command prints your current working directory.
 
@@ -194,16 +192,16 @@ pwd
 
 ### File Operations
 
-Creating directories is simple with the `mkdir` command. Running `mkdir my_project` creates a new directory in your current location. In contrast, `mkdir -p projects/arduino/sketches` creates all nested directories at once, including any intermediate directories that don't already exist. This is particularly useful when setting up complex project structures.
+Creating directories is simple with the `mkdir` command. Running `mkdir my_project` creates a new directory in your current location.
 
 ```bash
 mkdir my_project
-# Creates a new directory
 ```
+
+On the other hand, `mkdir -p projects/arduino/sketches` creates all nested directories at once, including any intermediate directories that don't already exist. This is useful when setting up complex project structures.
 
 ```bash
 mkdir -p projects/arduino/sketches
-# Creates nested directories
 ```
 
 The `cp` command handles file copying operations. To copy a single file, use `cp source.txt destination.txt`, which creates a duplicate with a new name.
@@ -270,19 +268,21 @@ This permission system provides controlled access to files and system security.
 
 ### Using `sudo` (Superuser Do)
 
-Many system operations require administrator privileges to prevent accidental or malicious modifications to critical system files. The `sudo` command allows you to execute commands with superuser privileges temporarily.
+Many system operations require administrator privileges to prevent unintended modifications to critical system files. The `sudo` command allows you to run commands with superuser privileges *temporarily*.
 
-For example, installing software requires elevated privileges, so you would use `sudo apt install package-name`. Similarly, editing system configuration files like `sudo nano /etc/network/interfaces` needs superuser access.
+For example, installing software usually requires elevated privileges, so you would use `sudo apt install package-name`.
 
 ```bash
 sudo apt install package-name
 ```
 
+Similarly, editing system configuration files like `sudo nano /etc/network/interfaces` needs superuser access.
+
 ```bash
 sudo nano /etc/network/interfaces
 ```
 
-When controlling system services with commands like `sudo systemctl restart networking`, or accessing protected directories such as `sudo ls /root`, you will be prompted for your password before the command executes. This security measure proves that critical system changes are intentional and authenticated.
+When controlling system services with commands like `sudo systemctl restart networking`, or accessing protected directories such as `sudo ls /root`, you will be prompted for your password before the command runs. This security measure proves that critical system changes are intentional and authenticated.
 
 ```bash
 sudo systemctl restart networking
@@ -300,7 +300,7 @@ The `chmod` command modifies file and directory permissions. When you need to ma
 chmod +x script.sh
 ```
 
-For more precise control, you can use numeric notation like `chmod 755 script.sh`, which grants the owner full read, write, and run permissions, while others can only read and execute the file.
+For more control, you can use numeric notation like `chmod 755 script.sh`, which grants the owner full read, write, and run permissions, while others can only read and run the file.
 
 ```bash
 chmod 755 script.sh
@@ -312,27 +312,26 @@ When you need to apply permissions to an entire directory and its contents, the 
 chmod -R 755 folder/
 ```
 
-Common permission codes you will encounter include `755`, which gives the owner full control while others can read and run.
+Common permission codes you will encounter include `755`, which gives the owner full control, while others can read and run.
 
-`644` allows the owner to read and write, while others can only read.
-
-`777` grants everyone full access and should be used with precaution due to security implications.
+- `644` allows the owner to read and write, while others can only read.
+- `777` grants everyone full access and should be used with precaution due to security implications.
 
 ### Changing Ownership
 
-File ownership can be modified using the `chown` command, which is particularly useful when files are created with incorrect ownership or need to be transferred between users.
+File ownership can be modified using the `chown` command, which is useful when files are created with incorrect ownership or need to be transferred between users.
 
 ```bash
 sudo chown arduino file.txt
 ```
 
-Running `sudo chown arduino file.txt` changes the file's owner to the arduino user. You can simultaneously change both the owner and group with `sudo chown arduino:arduino file.txt`.
+Running `sudo chown arduino file.txt` changes the file's owner to the Arduino user. You can simultaneously change both the owner and group with `sudo chown arduino:arduino file.txt`.
 
 ```bash
 sudo chown arduino:arduino file.txt
 ```
 
-For entire directory structures, the recursive option `sudo chown -R arduino:arduino /home/arduino/project/` makes sure all files within the project folder have the correct ownership.
+For entire directory structures, the recursive option `sudo chown -R arduino:arduino /home/arduino/project/` makes sure all files within the project folder have the corresponding ownership.
 
 ```bash
 sudo chown -R arduino:arduino /home/arduino/project/
@@ -350,7 +349,7 @@ The simplest is `cat file.txt`, which prints the entire file directly to your te
 cat file.txt
 ```
 
-For larger files, the `less file.txt` command opens a scrollable viewer where you can navigate using arrow keys, search for text with `/`, and exit by pressing `q`. This provides much more control over how you read the file.
+For larger files, the `less file.txt` command opens a scrollable viewer where you can navigate using arrow keys, search for text with `/`, and exit by pressing `q`. It provides much more control over how you read the file.
 
 ```bash
 less file.txt
@@ -366,33 +365,49 @@ head file.txt
 tail file.txt
 ```
 
-You can customize the number of lines shown with commands like `head -n 20 file.txt`. `tail -f /var/log/syslog` command is particularly useful, which continuously monitors a file and displays new lines as they're added, ideal for watching log files in real-time.
+You can customize the number of lines shown with commands like `head -n 20 file.txt`.
 
 ```bash
 head -n 20 file.txt
 ```
 
+The `tail -f` command is useful as it continuously monitors a file and displays new lines as they are added. It is ideal for watching log files or monitoring output in real-time.
+
 ```bash
-tail -f /var/log/syslog
+tail -f mylogfile.txt
 ```
+
+For monitoring system logs on the UNO Q, the `journalctl` command can be used which shows system log in real-time:
+
+```bash
+sudo journalctl -f
+```
+
+![Monitoring system log](assets/debian_filetrack_1.png)
 
 ### Editing Files with Nano
 
 Nano is a user-friendly terminal text editor that comes pre-installed on the UNO Q, making it a choice for editing configuration files and scripts from the command line.
 
-To edit a file, run `nano myfile.txt`, which will either open the existing file or create a new one if it doesn't exist. When editing system files that require elevated privileges, prefix the command with sudo, like `sudo nano /etc/hostname`.
+To edit a file, run `nano myfile.txt`, which will either open the existing file or create a new one if it doesn't exist.
 
 ```bash
 nano myfile.txt
 ```
 
+![Editing files with Nano (1)](assets/debian_editNano_1.png)
+
+When editing system files that require elevated privileges, prefix the command with sudo, like `sudo nano /etc/hostname`.
+
 ```bash
 sudo nano /etc/hostname
 ```
 
-Once inside Nano, navigation is simple. Use the arrow keys to move through your text, and you will see a helpful menu at the bottom showing available commands.
+![Editing files with Nano (2)](assets/debian_editNano_2.png)
 
-To save your changes, press **CTRL + O** (write **O**ut), confirm the filename, and press Enter. Other basic commands are:
+Once inside Nano, use the arrow keys to move through your text, and you will see a helpful menu at the bottom showing available commands.
+
+To save your changes, press **CTRL + O** (write **O**ut), confirm the filename, and press *Enter*. Other useful commands are:
 
 - **CTRL + X** to exit nano
 - **CTRL + K** to cut the current line
@@ -404,29 +419,35 @@ When you press `CTRL + O` to save, Nano will write your changes to storage, maki
 
 ### Searching Files and Content
 
-The `find` command is useful for locating files based on various criteria. To find all Python files in your home directory, run `find /home/arduino -name "*.py"`, which searches recursively through all subdirectories.
+The `find` command helps locate files based on various criteria. To find all Python files in your home directory, run `find /home/arduino -name "*.py"`, which searches recursively through all subdirectories.
 
 ```bash
 find /home/arduino -name "*.py"
 ```
 
-You can also search based on modification time. For example, `find /home/arduino -mtime -7` finds all files modified in the last seven days. This is useful for locating recently changed files in large directory structures.
+You can also search based on modification time. For example, `find /home/arduino -mtime -7` finds all files modified in the last seven days. It is useful for locating recently changed files in large directory structures.
 
 ```bash
 find /home/arduino -mtime -7
 ```
 
-For searching within file contents rather than filenames, the `grep` command is very useful. Running `grep "Arduino" file.txt` searches for the word "Arduino" in a specific file and displays matching lines.
+![Searching files and content (1)](assets/debian_searchfile_1.png)
+
+For searching within file contents rather than filenames, the `grep` command is useful. Running `grep "Arduino" file.txt` searches for the word `"Arduino"` in a specific file and displays matching lines.
 
 ```bash
 grep "Arduino" file.txt
 ```
 
-To search through an entire directory structure, use `grep -r "TODO" /home/arduino/projects/`, which recursively searches all files for the text "TODO". The case-insensitive option `grep -i "arduino" file.txt` will match "Arduino", "arduino", and "ARDUINO", making searches more flexible.
+To search through an entire directory structure, use `grep -r "TODO" /home/arduino/`, which recursively searches all files for the text `"TODO"`.
 
 ```bash
-grep -r "TODO" /home/arduino/projects/
+grep -r "TODO" /home/arduino/
 ```
+
+![Searching files and content (2)](assets/debian_searchfile_2.png)
+
+The case-insensitive option `grep -i "arduino" file.txt` will match `"Arduino"`, `"arduino"`, and `"ARDUINO"`, making searches more flexible.
 
 ```bash
 grep -i "arduino" file.txt
@@ -434,13 +455,13 @@ grep -i "arduino" file.txt
 
 ## Package Management
 
-Debian uses the Advanced Package Tool, commonly known as `apt`, to manage software installation, updates, and removal. This system handles dependencies automatically, making sure that when you install a program, all required supporting libraries and tools are also installed.
+Debian uses the *Advanced Package Tool*, commonly known as `apt`, to manage software installation, updates, and removal. This system handles dependencies automatically, making sure that when you install a program, all required supporting libraries and tools are installed as well.
 
 ### Updating Package Lists
 
-Before installing new software or upgrading your system, it is essential to update your package lists to make sure you are getting the latest versions.
+Before installing new software or upgrading your system, it is essential to update your package lists to make sure you are using the latest versions.
 
-Running `sudo apt update` downloads the most current package information from Debian's repositories. You will see output listing various repositories being checked, ending with a summary of available upgrades.
+Running `sudo apt update` downloads the most current package information from Debian's repositories. You will see output listing the various repositories being checked, followed by a summary of available upgrades.
 
 ```bash
 sudo apt update
@@ -459,15 +480,15 @@ Hit:5 https://apt-repo.arduino.cc stable InRelease
 58 packages can be upgraded. Run 'apt list --upgradable' to see them.
 ```
 
-In case all available packages are up-to-date, following result can be seen:
+In case all available packages are up-to-date, the following result can be seen:
 
 ![Updating package lists (2)](assets/debian_package_update_2.png)
 
-This process does not install anything; it simply refreshes your system's knowledge of available software versions. The `Hit` messages indicate that your package lists are synchronized with the repositories. If packages can be upgraded, the system will notify you with a count.
+This process does not install anything. It refreshes your system's knowledge of available software versions. The `Hit` messages indicate that your package lists are synchronized with the repositories. If packages can be upgraded, the system will notify you with a count.
 
 ### Upgrading Your System
 
-After updating the package lists, you can upgrade installed packages to their latest versions. The `sudo apt upgrade` command updates all installed packages while being conservative about dependencies, allowing for system stability.
+After updating the package lists, you can upgrade installed packages to their latest versions. The `sudo apt upgrade` command updates all installed packages while remaining conservative about dependencies, providing system stability.
 
 ```bash
 sudo apt upgrade
@@ -483,9 +504,9 @@ sudo apt full-upgrade
 
 ![Updating package lists (4)](assets/debian_package_update_4.png)
 
-Regular updates helps to have the latest security patches and bug fixes, keeping your UNO Q secure and stable. It is a good practice to run `sudo apt update && sudo apt upgrade` periodically to keep your system up-to-date.
+Regular updates help to have the latest security patches and bug fixes, keeping your UNO Q secure and stable. It is a good practice to run `sudo apt update && sudo apt upgrade` regularly to keep your system up to date.
 
-***For major system updates or OS version upgrades, it is recommended to use the image flashing procedure described in the dedicated [UNO Q image flash tutorial](https://docs.arduino.cc/tutorials/uno-q/update-image/).***
+***For major system updates or OS version upgrades, it is recommended to use the image flashing procedure described in the dedicated [__UNO Q image flash tutorial__](https://docs.arduino.cc/tutorials/uno-q/update-image/).***
 
 ### Installing Software
 
@@ -503,7 +524,7 @@ sudo apt install python3-pip git curl
 
 ![Installing software (1)](assets/debian_software_install_1.png)
 
-For example, if you want to install the Vim text editor, running `sudo apt install vim` will download Vim and any required libraries, then configure everything so it's ready to use immediately.
+For example, if you want to install the *Vim* text editor, running `sudo apt install vim` will download Vim and any required libraries, then configure everything so it is ready to use immediately.
 
 ```bash
 sudo apt install vim
@@ -511,13 +532,13 @@ sudo apt install vim
 
 ![Installing software (2)](assets/debian_software_install_2.png)
 
-The package manager handles all the complexity behind the scenes, making software installation simpler than manual compilation and configuration. If a package is already found installed, it will prompt the package availability and the version that is installed.
+The package manager handles all the complexity behind the scenes, making software installation simpler than manual compilation and configuration. If a package is already installed, it will prompt for the package's availability and the installed version.
 
 ### Searching and Managing Packages
 
 When you're not sure of the exact package name, the `apt search keyword` command helps you find packages related to a topic.
 
-For instance, `apt search python3` will list all available packages related to Python 3, with brief descriptions of each. This is useful for exploring the tools available for a specific task or programming language. The following command searches for available packages in general:
+For instance, `apt search python3` will list all available packages related to Python 3, with brief descriptions of each. It is useful for exploring the tools available for a specific task or programming language. The following command searches for available packages in general:
 
 ```bash
 apt search keyword
@@ -545,7 +566,7 @@ If you want to completely remove a package including its configuration files, us
 sudo apt purge package-name
 ```
 
-Running `sudo apt autoremove` cleans these up automatically, freeing disk space by removing packages that are no longer needed.
+Running `sudo apt autoremove` cleans them up automatically, freeing disk space by removing packages no longer needed.
 
 ```bash
 sudo apt autoremove
@@ -583,7 +604,7 @@ lsusb -v
 
 ![Detecting USB devices (2)](assets/debian_usb_2.png)
 
-The following command shows information about USB device tree:
+The following command shows information about the USB device tree:
 
 ```bash
 lsusb -t
@@ -593,7 +614,9 @@ lsusb -t
 
 ### Working with USB Storage Devices
 
-When you connect a USB flash drive or external hard drive in SBC mode to the desktop environment, the system typically auto-mounts it at `/media/arduino/`, making it accessible in the file manager. However, when working from the command line or in headless mode, you will need to mount drives manually.
+When you connect a USB flash drive or external hard drive in SBC mode to the desktop environment, the system typically auto-mounts it at `/media/arduino/`, making it accessible in the file manager.
+
+However, when working from the command line or in headless mode, you will need to mount drives manually.
 
 First, identify your USB drive by running `lsblk`, which lists all block devices and their partitions. You will see output showing device names like `/dev/sdb1` along with their sizes and mount points.
 
@@ -649,7 +672,7 @@ cheese
 
 This opens a window showing your camera feed with options to take photos or record videos, making it easy to test camera functionality without writing code. Cheese automatically detects and configures your camera, handling all the technical details in the background.
 
-For programmatic camera access in your projects, Python libraries like OpenCV (`python3-opencv`) provide camera control and image processing capabilities, which integrate well with Arduino App Lab Python scripts.
+For camera access in your development projects, Python libraries like OpenCV (`python3-opencv`) provide camera control and image processing capabilities, which integrate well with Arduino App Lab Python scripts.
 
 ```bash
 sudo apt install python3-opencv
@@ -659,11 +682,15 @@ sudo apt install python3-opencv
 
 USB serial devices, including Arduino boards and USB-to-serial adapters, appear in the system as special device files in the `/dev/` directory, typically named `/dev/ttyUSB*` for generic USB serial devices or `/dev/ttyACM*` for devices that implement the USB Communications Device Class. You can list all serial ports by running `ls /dev/tty*`, though this will show many entries, including virtual terminals.
 
-To interact with a serial device, the `screen` utility provides a simple terminal interface. First install it with `sudo apt install screen`, then connect to your serial device using `screen /dev/ttyUSB0 115200`, where 115200 is the baud rate. This opens a terminal session connected to the serial port. To exit the screen, press **CTRL+A**, then press **K**, and finally press **Y** to confirm.
+To interact with a serial device, the `screen` utility provides a simple terminal interface. First install it with `sudo apt install screen`, then connect to your serial device using `screen /dev/ttyUSB0 115200`, where 115200 is the baud rate.
+
+This opens a terminal session connected to the serial port. To exit the screen, press **CTRL+A**, then press **K**, and finally press **Y** to confirm.
 
 ```bash
 sudo apt install screen
 ```
+
+![Serial devices (1)](assets/debian_serial_1.png)
 
 ```bash
 screen /dev/ttyUSB0 115200
@@ -701,11 +728,11 @@ Using the following command shows all your Arduino App Lab projects:
 ls
 ```
 
-These Arduino App Lab projects are examples found within the Arduino App Lab's **My Apps** space.
+These Arduino App Lab projects are examples from the **My Apps** space.
 
-Each App directory contains your sketch code, Python scripts, and configuration files in the `app.yml` file.
+Each App directory contains your sketch code, Python scripts, and the `app.yml` configuration file.
 
-When an App runs, persistent data is saved in the `data/` folder within the App directory, while supporting files like the Python virtual environment are stored in the `.cache/` folder.
+When an App runs, persistent data is saved in the `data/` folder within the App directory, while supporting files, such as the Python virtual environment, are stored in the `.cache/` folder.
 
 To list all available Apps on your board, use:
 
@@ -755,7 +782,7 @@ The following command can enable or disable network mode for remote Arduino App 
 arduino-app-cli system network-mode <enable/disable>
 ```
 
-Then, you can use the following command to check network mode status:
+Then, you can use the following command to check the network mode status:
 
 ```bash
 arduino-app-cli system network-mode status
@@ -767,7 +794,9 @@ Network mode is automatically enabled during the first setup, but these commands
 
 ### Working with Apps
 
-For building, starting, and stopping Apps, **Arduino App Lab** (either the desktop application or when running on the board in SBC mode) is the recommended interface. The App Lab handles compilation, deployment, and execution of both the Linux and microcontroller components automatically.
+For building, starting, and stopping Apps, **Arduino App Lab** (either the desktop application or when running on the board in SBC mode) is the recommended interface.
+
+The App Lab automatically handles compilation, deployment, and execution of both the Linux and microcontroller components.
 
 If you need to view or edit App files manually, navigate to the App directory and use standard Linux commands:
 
@@ -775,25 +804,25 @@ If you need to view or edit App files manually, navigate to the App directory an
 cd ~/ArduinoApps/MyApp
 ```
 
-Using the following command will view App configuration:
+Using the following command will view the App configuration:
 
 ```bash
 cat app.yml
 ```
 
-Using the following command will view Arduino sketch content:
+Using the following command will view the Arduino sketch content:
 
 ```bash
 cat sketch/sketch.ino
 ```
 
-Using the following command will view Python script content:
+Using the following command will view the Python script content:
 
 ```bash
 cat main.py
 ```
 
-***For comprehensive Arduino App CLI documentation including creating Apps, monitoring logs, managing Bricks, and system updates, please refer to the dedicated [Arduino App CLI tutorial](/software/app-lab/tutorials/cli/).***
+***For comprehensive Arduino App CLI documentation, including creating Apps, monitoring logs, managing Bricks, and system updates, please refer to the dedicated [__Arduino App CLI tutorial__](https://docs.arduino.cc/software/app-lab/tutorials/cli/).***
 
 ### Arduino CLI
 
@@ -821,7 +850,7 @@ Understanding your system's resource usage helps identify performance bottleneck
 
 The `top` command provides an interactive, real-time view of running processes, showing CPU and memory usage for each process.
 
-Press `q` to quit the top interface. This is particularly useful when tracking down which program is consuming excessive resources.
+Press `q` to quit the top interface. It is useful when tracking down which program is consuming excessive resources.
 
 ```bash
 top
@@ -829,7 +858,9 @@ top
 
 ![Checking system resources (1)](assets/debian_system_resource_1.png)
 
-Disk space management is crucial, especially on the UNO Q's eMMC storage. The `df -h` command displays disk usage for all mounted filesystems in human-readable format (MB, GB), showing total size, used space, available space, and mount points. This helps you monitor storage consumption and identify when you are running low on space.
+Disk space management is crucial, especially on the UNO Q's eMMC storage. The `df -h` command displays disk usage for all mounted filesystems in human-readable format (MB, GB), showing total size, used space, available space, and mount points.
+
+It helps you monitor storage consumption and identify when you are running low on space.
 
 ```bash
 df -h
@@ -859,7 +890,7 @@ free -h
 
 ### System Information
 
-Several commands provide detailed information about your UNO Q's hardware and software configuration. The `uname -a` command displays comprehensive Linux kernel information including the version, build date, and architecture.
+Several commands provide detailed information about your UNO Q's hardware and software configuration. The `uname -a` command displays comprehensive Linux kernel information, including the version, build date, and architecture.
 
 ```bash
 uname -a
@@ -895,7 +926,7 @@ ip addr
 
 ![Checking network status (1)](assets/debian_network_stat_1.png)
 
-To see which interfaces are currently active or inactive, use `ip link show`. This displays the link state for each interface, showing whether it's UP (active) or DOWN (inactive), along with other properties such as MAC addresses and supported features.
+To see which interfaces are currently active or inactive, use `ip link show`. This displays the link state for each interface, indicating whether it's UP (active) or DOWN (inactive), along with other properties such as MAC addresses and supported features.
 
 ```bash
 ip link show
@@ -926,7 +957,9 @@ Connecting to a Wi-Fi® network is possible with `sudo nmcli device wifi connect
 nmcli device wifi connect "SSID" password "password"
 ```
 
-The connection is saved automatically, allowing your board to reconnect after reboots. To disconnect from the current network, use `sudo nmcli device disconnect wlan0`. You can view all saved network connections with `nmcli connection show`, which lists connection names, types, and associated devices.
+The connection is saved automatically, allowing your board to reconnect after reboots. To disconnect from the current network, use `sudo nmcli device disconnect wlan0`.
+
+You can view all saved network connections with `nmcli connection show`, which lists connection names, types, and associated devices.
 
 ```bash
 nmcli device disconnect wlan0
@@ -970,7 +1003,9 @@ nslookup arduino.cc
 
 #### Troubleshooting Network Issues via ADB
 
-If you configure a network that does not work properly, you may find yourself unable to access the board through Arduino App Lab or network mode. In this situation, you can use ADB to access the shell and delete the problematic network connection without needing to reflash the board or use SBC mode with keyboard and mouse.
+If you configure a network that does not work properly, you may find yourself unable to access the board through Arduino App Lab or network mode.
+
+In this situation, you can use ADB to access the shell and delete the problematic network connection without reflashing the board or using SBC mode with a keyboard and mouse.
 
 First, connect your UNO Q via USB-C® cable, then access the shell through ADB. On macOS, the ADB tool is located in your Arduino15 directory:
 
@@ -1019,7 +1054,7 @@ nmcli connection delete <ConnectionName>
 
 After deleting the bad connection, you can exit the ADB shell and reconfigure your network either through [Arduino App Lab's first setup process](https://docs.arduino.cc/tutorials/uno-q/user-manual/#install-arduino-app-lab) or by connecting to a working network using the commands above.
 
-***This ADB method is particularly useful when you are locked out of network access and do not have a USB-C® dongle, keyboard, or mouse available for SBC mode.***
+***This ADB method is useful when you are locked out of network access and do not have a USB-C® dongle, keyboard, or mouse available for SBC mode.***
 
 ## Helpful Tips and Best Practices
 
@@ -1063,7 +1098,7 @@ ls --help
 
 System logs are important for diagnosing problems.
 
-The `journalctl -xe` command shows recent system log entries with explanatory text, helping you understand what's happening when things go wrong.
+The `journalctl -xe` command shows recent system log entries with explanatory text, helping you understand what is happening when things go wrong.
 
 ```bash
 journalctl -xe
@@ -1079,7 +1114,7 @@ journalctl -f
 
 ![System logs and troubleshooting (2)](assets/debian_logtrouble_2.png)
 
-The `dmesg | less` command displays kernel boot messages and hardware detection logs, useful for troubleshooting hardware issues or driver problems.
+The `dmesg | less` command displays kernel boot messages and hardware detection logs, which are helpful in troubleshooting hardware issues or driver problems.
 
 ```bash
 dmesg | less
@@ -1089,27 +1124,29 @@ dmesg | less
 
 ### Safe System Management
 
-Following best practices helps prevent accidents and system damage. Understanding when to use `sudo` is important for safe system management. You should only use `sudo` when you need elevated permissions for system-level operations, such as installing packages with `apt`, editing system configuration files in `/etc/`, or accessing protected directories.
+Following best practices helps prevent system damage. [**Understanding when to use `sudo`**](#using-sudo-superuser-do) is important for safe system management. You should only use `sudo` when you need elevated permissions for system-level operations, such as installing packages with `apt`, editing system configuration files in `/etc/`, or accessing protected directories.
 
-For everyday tasks like creating files in your home directory, editing your own documents, or running programs, `sudo` is not needed and should not be used.
+**For everyday tasks like creating files in your home directory, editing your own documents, or running programs, `sudo` is not needed and should not be used.**
 
-Using `sudo` unnecessarily can actually create problems. When you create or modify files with `sudo`, they are owned by root rather than your user account, which can lead to permission issues later.
+Using `sudo` unnecessarily can actually create problems. When you create or modify files with `sudo`, they are owned by **root** rather than your user account, which can lead to permission issues later.
 
-For example, if you run `sudo nano myfile.txt` in your home directory, the file will be owned by root, and you will need `sudo` to edit it again in the future. This is why you should reserve `sudo` for operations that genuinely require system administrator privileges.
+For example, if you run [**`sudo nano myfile.txt`**](#editing-files-with-nano) in your home directory, the file will be owned by root. You will need `sudo` to edit it again in the future. This is why you should reserve `sudo` for operations that genuinely require system administrator privileges.
 
-Before making significant system changes, always back up important files to external storage or another location. This simple precaution can save hours of work if something goes wrong.
+Before making significant system changes, always back up important files to an [**external storage device**](#usb-and-peripherals-access), such as the Apps you have worked on. This simple precaution can save hours of work if something goes wrong.
 
-When available, use dry-run options on commands to preview changes before implementing them, allowing you to verify the operation without actually modifying anything. Keep your system and packages up to date with regular `sudo apt update && sudo apt upgrade` runs, ensuring you have the latest security patches and bug fixes that protect your board from vulnerabilities.
+When available, use command options to run in dry mode and preview changes before implementing them, allowing you to verify the operation without actually modifying anything.
 
-Being especially cautious with powerful commands like `rm -rf` is essential, as they permanently delete files without confirmation and cannot be undone.
+Keep your system and packages up to date with a [**regular `sudo apt update && sudo apt upgrade` routine**](#updating-package-lists). Keeping the system up to date with the latest security patches, compatibility elements, and bug fixes.
 
-Always double-check paths and filenames before executing destructive commands. Similarly, avoid using `chmod 777` on files or directories unless absolutely necessary, as this grants full access to everyone and creates security vulnerabilities.
+Being especially cautious with commands like [**`rm -rf`**](#file-operations) is important, as they permanently delete files without confirmation and cannot be undone.
 
-When in doubt about a command's effect, consult the manual with `man command-name` or search for examples before proceeding. Taking these extra moments to verify your actions prevents the frustration and data loss that comes from premature mistakes.
+Always double-check paths and filenames before performing destructive commands. Similarly, avoid using [**`chmod 777`**](#**changing-file-permissions) on files or directories unless necessary, as this grants full access to everyone and creates security vulnerabilities.
+
+When in doubt about a command's effect, consult the manual with [**`man <command-name>`**](#getting-help) or search for examples before proceeding. Taking these extra moments to verify your actions prevents the frustration and data loss that comes from premature mistakes.
 
 ## Summary
 
-This guide showed you to the Debian Linux environment running on the Arduino UNO Q's microprocessor. You learned what Debian is and how it integrates with the Arduino microcontroller to create a hybrid platform. The guide covered accessing the board's shell through ADB, SSH, or SBC mode, navigating the Linux file system, managing permissions with `sudo`, installing packages with `apt`, and working with USB peripherals. You also explored the Arduino App CLI for managing Apps and system monitoring tools for tracking resources and network connectivity.
+This guide showed you to the Debian Linux environment running on the Arduino UNO Q's microprocessor. You learned what Debian is and how it integrates with the Arduino microcontroller to create a hybrid platform. The guide covered commands for accessing the board's shell via ADB, SSH, or SBC mode, navigating the Linux file system, managing permissions with `sudo`, installing packages with `apt`, and working with USB peripherals. You also explored the Arduino App CLI for managing Apps and system monitoring tools for tracking resources and network connectivity.
 
 ### Next Steps
 
