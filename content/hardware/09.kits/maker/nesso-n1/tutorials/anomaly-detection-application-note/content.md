@@ -1180,6 +1180,8 @@ When deploying the intelligent anomaly detection system in industrial environmen
 
 The motor anomaly detection system can be extended with remote monitoring capabilities through [Arduino Cloud](https://cloud.arduino.cc/), enabling real-time status visualization from anywhere with internet connectivity. This integration maintains all local functionality while adding cloud-based dashboard indicators for remote monitoring. 
 
+***__Important Note__: The Arduino Cloud integration requires the `ArduinoIoTCloud` library and the ESP32 boards core. Install the ESP32 boards core through the Arduino IDE Boards Manager by searching for and installing "esp32" by Espressif Systems. For the `ArduinoIoTCloud` library, use the IDE's Library Manager to search and install `ArduinoIoTCloud` by Arduino, accepting all dependencies when prompted.***
+
 ### Cloud Architecture Overview
 
 The cloud integration implements a three-state monitoring system using `boolean` variables that mirror the local display states. Each state (`idle`, `nominal`, and `anomaly`) is represented by an exclusive boolean indicator on the Arduino Cloud dashboard, guaranteeing clear and immediate visual feedback for remote operators.
