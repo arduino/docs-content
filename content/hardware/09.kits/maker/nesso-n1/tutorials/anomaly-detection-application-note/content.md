@@ -623,3 +623,573 @@ After successful training and validation, deploy the model as an Arduino library
 ![Model deployment on Edge Impulse Studio](assets/model-deployment.png)
 
 The generated library is optimized for the Nesso N1's ESP32-C6 processor, providing efficient real-time inference with typical processing times under 20ms for both classification and anomaly detection.
+
+## Improving the Vibration Monitor with Machine Learning
+
+Now that we have trained our machine learning models, we can create a smart vibration monitor that automatically detects motor problems in real-time.
+
+The enhanced system does two things: it identifies whether the motor is running (nominal) or stopped (idle), and it alerts you when it detects unusual vibration patterns that might indicate a problem. This all happens directly on the Nesso N1 development kit without needing an internet connection.
+
+The smart monitoring system can do the following:
+
+- Tell if the motor is running (nominal) or stopped (idle)
+- Detect unusual vibrations that might indicate problems
+- Provide full-screen color-coded visual feedback for immediate status recognition
+- Work continuously without needing internet or cloud services
+
+The complete enhanced example sketch is shown below:
+
+```arduino
+/**
+  Intelligent Motor Anomaly Detection System
+  Name: motor_anomaly_detection_nesso.ino
+  Purpose: This sketch implements real-time motor anomaly detection using
+  the Nesso N1's integrated BMI270 IMU and Edge Impulse machine learning 
+  model with full-screen visual feedback for predictive maintenance.
+  
+  @version 5.0 01/11/25
+  @author Arduino Product Experience Team
+*/
+
+// Include the Edge Impulse library (name will match your project name)
+#include <nesso-n1-anomaly-detection_inferencing.h>
+
+// Include libraries for Nesso's IMU and display control
+#include <Arduino_BMI270_BMM150.h>
+#include <M5GFX.h>
+
+// Display instance for the 1.14" touch screen
+M5GFX display;
+
+// Data buffers for model inference
+static float buffer[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE] = { 0 };
+static float inference_buffer[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE];
+
+// Maximum accepted acceleration range (±2g)
+#define MAX_ACCEPTED_RANGE  2.0f
+
+// Detection parameters
+const float ANOMALY_THRESHOLD = 3.0f;   // Threshold for anomaly detection
+const float WARNING_THRESHOLD = 1.5f;   // Warning zone threshold
+const float IDLE_THRESHOLD = 0.02f;     // Vibration threshold for idle detection
+
+// System status variables
+int totalInferences = 0;
+int anomalyCount = 0;
+unsigned long lastInferenceTime = 0;
+const unsigned long INFERENCE_INTERVAL = 2000; // Inference interval in milliseconds
+
+// Buffer management variables
+bool bufferFilled = false;
+int sampleCount = 0;
+
+// Current state tracking
+String currentState = "INITIALIZING";
+bool currentAnomaly = false;
+
+// Function declarations
+float ei_get_sign(float number);
+int raw_feature_get_data(size_t offset, size_t length, float *out_ptr);
+void runInference();
+void updateFullScreenDisplay(String state, bool anomaly);
+float calculateVibrationLevel();
+void processResults(ei_impulse_result_t result, float vibration);
+
+/**
+  Initializes the IMU, display, and machine learning system.
+  Configures the Nesso N1 for optimal performance with the
+  Edge Impulse model and prepares for real-time anomaly detection.
+*/
+void setup() {
+    // Initialize serial communication at 115200 baud
+    Serial.begin(115200);
+    while (!Serial && millis() < 3000);
+    
+    Serial.println("- Nesso N1 Motor Anomaly Monitor");
+    
+    // Initialize the 1.14" touch display
+    display.begin();
+    display.setRotation(1);  // Set to landscape orientation
+    display.fillScreen(TFT_BLACK);
+    display.setTextSize(2);
+    display.setTextColor(TFT_WHITE, TFT_BLACK);
+    display.setTextDatum(MC_DATUM);
+    display.drawString("INITIALIZING...", display.width() / 2, display.height() / 2);
+    
+    // Initialize BMI270 IMU sensor
+    if (!IMU.begin()) {
+        Serial.println("- ERROR: Failed to initialize IMU!");
+        display.fillScreen(TFT_RED);
+        display.setTextColor(TFT_WHITE, TFT_RED);
+        display.drawString("IMU FAILED!", display.width() / 2, display.height() / 2);
+        while (1);  // Halt execution on IMU failure
+    }
+    
+    Serial.println("- BMI270 IMU initialized!");
+    Serial.print("- Sample rate: ");
+    Serial.print(IMU.accelerationSampleRate());
+    Serial.println(" Hz");
+    
+    // Verify Edge Impulse model configuration
+    if (EI_CLASSIFIER_RAW_SAMPLES_PER_FRAME != 3) {
+        Serial.println("ERROR: EI_CLASSIFIER_RAW_SAMPLES_PER_FRAME should be 3");
+        while (1);  // Halt execution on configuration error
+    }
+    
+    Serial.println("\n- Edge Impulse Model loaded!");
+    Serial.print("- Project: ");
+    Serial.println(EI_CLASSIFIER_PROJECT_NAME);
+    
+    Serial.println("\n- Filling buffer...");
+    
+    // Display starting message while buffer fills
+    display.fillScreen(TFT_DARKGREY);
+    display.setTextColor(TFT_WHITE, TFT_DARKGREY);
+    display.drawString("STARTING...", display.width() / 2, display.height() / 2);
+    
+    delay(1000);
+}
+
+/**
+  Main loop that continuously collects vibration data and performs
+  real-time classification and anomaly detection using the embedded
+  machine learning models.
+*/
+void loop() {
+    // Calculate the next sampling tick for precise timing
+    uint64_t next_tick = micros() + (EI_CLASSIFIER_INTERVAL_MS * 1000);
+    
+    // Shift the buffer by 3 samples to create a rolling window
+    numpy::roll(buffer, EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE, -3);
+    
+    // Wait for new acceleration data from the IMU
+    float x, y, z;
+    while (!IMU.accelerationAvailable()) {
+        delayMicroseconds(10);
+    }
+    
+    // Read acceleration values (already in g units)
+    IMU.readAcceleration(x, y, z);
+    
+    // Store new data at the end of the buffer
+    buffer[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE - 3] = x;
+    buffer[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE - 2] = y;
+    buffer[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE - 1] = z;
+    
+    // Clip acceleration values to the maximum accepted range
+    for (int i = 0; i < 3; i++) {
+        float* val = &buffer[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE - 3 + i];
+        if (fabs(*val) > MAX_ACCEPTED_RANGE) {
+            *val = ei_get_sign(*val) * MAX_ACCEPTED_RANGE;
+        }
+    }
+    
+    // Track buffer filling progress during initialization
+    if (!bufferFilled) {
+        sampleCount++;
+        if (sampleCount >= EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE / 3) {
+            bufferFilled = true;
+            Serial.println("- Buffer filled, starting monitoring...\n");
+        }
+    }
+    
+    // Maintain precise sampling rate
+    uint64_t time_to_wait = next_tick - micros();
+    if (time_to_wait > 0 && time_to_wait < 1000000) {
+        delayMicroseconds(time_to_wait);
+    }
+    
+    // Execute inference at the specified interval
+    if (bufferFilled && (millis() - lastInferenceTime >= INFERENCE_INTERVAL)) {
+        lastInferenceTime = millis();
+        runInference();
+    }
+}
+
+/**
+  Executes the Edge Impulse inference on collected vibration data.
+  Processes the data through both classification and anomaly detection
+  models to determine motor state and detect unusual patterns.
+*/
+void runInference() {
+    // Copy the current buffer for inference processing
+    memcpy(inference_buffer, buffer, EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE * sizeof(float));
+    
+    // Calculate vibration level for additional state verification
+    float vibration = calculateVibrationLevel();
+    
+    // Create signal structure for Edge Impulse
+    signal_t signal;
+    signal.total_length = EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE;
+    signal.get_data = &raw_feature_get_data;
+    
+    // Run the Edge Impulse classifier
+    ei_impulse_result_t result = { 0 };
+    EI_IMPULSE_ERROR res = run_classifier(&signal, &result, false);
+    
+    if (res != EI_IMPULSE_OK) {
+        Serial.printf("- ERROR: Failed to run classifier (%d)!\n", res);
+        return;
+    }
+    
+    // Override classification if vibration indicates clear idle state
+    if (vibration < IDLE_THRESHOLD) {
+        for (size_t ix = 0; ix < EI_CLASSIFIER_LABEL_COUNT; ix++) {
+            if (strcmp(ei_classifier_inferencing_categories[ix], "idle") == 0) {
+                result.classification[ix].value = 0.99f;
+            } else {
+                result.classification[ix].value = 0.01f;
+            }
+        }
+    }
+    
+    // Process and display the inference results
+    processResults(result, vibration);
+}
+
+/**
+  Processes inference results and updates the full-screen display.
+  Analyzes classification confidence and anomaly scores to determine
+  the current motor state and trigger appropriate visual feedback.
+*/
+void processResults(ei_impulse_result_t result, float vibration) {
+    totalInferences++;
+    
+    // Find the classification with highest confidence
+    String bestLabel = "unknown";
+    float bestValue = 0;
+    
+    Serial.printf("- Inference #%d\n", totalInferences);
+    
+    for (size_t ix = 0; ix < EI_CLASSIFIER_LABEL_COUNT; ix++) {
+        if (result.classification[ix].value > bestValue) {
+            bestValue = result.classification[ix].value;
+            bestLabel = String(ei_classifier_inferencing_categories[ix]);
+        }
+    }
+    
+    Serial.printf("- State: %s (%.0f%% confidence)\n", bestLabel.c_str(), bestValue * 100);
+    Serial.printf("- Vibration: %.4f g\n", vibration);
+    
+    // Evaluate anomaly detection results
+    bool isAnomaly = false;
+    
+#if EI_CLASSIFIER_HAS_ANOMALY
+    float anomalyScore = result.anomaly;
+    Serial.printf("- Anomaly score: %.3f", anomalyScore);
+    
+    if (anomalyScore < WARNING_THRESHOLD) {
+        Serial.println(" [NORMAL]");
+    } else if (anomalyScore < ANOMALY_THRESHOLD) {
+        Serial.println(" [WARNING]");
+    } else {
+        Serial.println(" [ANOMALY!]");
+        isAnomaly = true;
+        anomalyCount++;
+    }
+#endif
+    
+    // Update display only when state or anomaly status changes
+    if (bestLabel != currentState || isAnomaly != currentAnomaly) {
+        currentState = bestLabel;
+        currentAnomaly = isAnomaly;
+        updateFullScreenDisplay(currentState, currentAnomaly);
+    }
+    
+    Serial.printf("- Timing: DSP %d ms, Classification %d ms\n\n", 
+                  result.timing.dsp, result.timing.classification);
+}
+
+/**
+  Updates the full-screen display with color-coded motor status.
+  Provides immediate visual feedback using background colors:
+  Blue for idle, Green for nominal operation, Red for anomalies.
+*/
+void updateFullScreenDisplay(String state, bool anomaly) {
+    uint16_t bgColor;
+    uint16_t textColor;
+    String displayText;
+    
+    if (anomaly) {
+        // Anomaly detected - Display red background with white text
+        bgColor = TFT_RED;
+        textColor = TFT_WHITE;
+        displayText = "ANOMALY";
+        Serial.println(">>> Display: RED - ANOMALY");
+    } else if (state == "idle") {
+        // Motor idle - Display blue background with white text
+        bgColor = TFT_BLUE;
+        textColor = TFT_WHITE;
+        displayText = "IDLE";
+        Serial.println(">>> Display: BLUE - IDLE");
+    } else if (state == "nominal") {
+        // Normal operation - Display green background with black text
+        bgColor = TFT_GREEN;
+        textColor = TFT_BLACK;
+        displayText = "NOMINAL";
+        Serial.println(">>> Display: GREEN - NOMINAL");
+    } else {
+        // Unknown state - Display grey background with white text
+        bgColor = TFT_DARKGREY;
+        textColor = TFT_WHITE;
+        displayText = "UNKNOWN";
+        Serial.println(">>> Display: GREY - UNKNOWN");
+    }
+    
+    // Fill entire screen with the status color
+    display.fillScreen(bgColor);
+    
+    // Configure text properties for centered display
+    display.setTextColor(textColor, bgColor);
+    display.setTextSize(3);
+    display.setTextDatum(MC_DATUM);
+    
+    // Draw the status text in the center of the screen
+    display.drawString(displayText, display.width() / 2, display.height() / 2);
+}
+
+/**
+  Calculates the vibration level from collected acceleration data.
+  Removes gravity component and computes the average magnitude
+  of vibration across multiple samples.
+*/
+float calculateVibrationLevel() {
+    float sum = 0;
+    int samples = min(30, EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE / 3);
+    
+    // Calculate vibration magnitude for each sample
+    for (int i = 0; i < samples; i++) {
+        float x = buffer[i * 3];
+        float y = buffer[i * 3 + 1];
+        float z = buffer[i * 3 + 2] - 1.0f;  // Remove gravity component
+        sum += sqrt(x*x + y*y + z*z);
+    }
+    
+    return sum / samples;
+}
+
+/**
+  Returns the sign of a number.
+  Used for clipping acceleration values to the maximum range.
+*/
+float ei_get_sign(float number) {
+    return (number >= 0.0) ? 1.0 : -1.0;
+}
+
+/**
+  Callback function for Edge Impulse library to access feature data.
+  Provides the machine learning model with vibration data in the
+  required format for inference processing.
+*/
+int raw_feature_get_data(size_t offset, size_t length, float *out_ptr) {
+    memcpy(out_ptr, inference_buffer + offset, length * sizeof(float));
+    return 0;
+}
+```
+
+The following sections will help you understand the main components of the enhanced example sketch, which can be divided into the following areas:
+
+- Edge Impulse library integration
+- Real-time data collection using the integrated IMU
+- Machine learning inference execution
+- Visual feedback system with full-screen color coding
+
+### Edge Impulse Library Integration and IMU Setup
+
+The enhanced sketch starts by including the Edge Impulse library and configuring the integrated BMI270 IMU sensor.
+
+```arduino
+// Include the Edge Impulse library (name will match your project name)
+#include <nesso-n1-anomaly-detection_inferencing.h>
+
+// Include libraries for IMU and display control
+#include <Arduino_BMI270_BMM150.h>
+#include <M5GFX.h>
+
+// Detection parameters
+const float ANOMALY_THRESHOLD = 3.0f;   // Adjusted for K-means clustering
+const float IDLE_THRESHOLD = 0.02f;     // Vibration threshold for idle detection
+
+// Data buffers for the models
+static float buffer[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE] = { 0 };
+static float inference_buffer[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE];
+```
+
+The library contains both the classification model (to identify if the motor is idle or running) and the anomaly detection model (to spot unusual vibrations). The integrated BMI270 IMU provides calibrated digital acceleration data directly in g units, eliminating the need for analog-to-digital conversion or manual calibration.
+
+### Machine Learning Inference Execution
+
+The system analyzes the collected vibration data using both machine learning models to determine motor state and detect anomalies.
+
+```arduino
+/**
+  Executes the Edge Impulse inference on collected vibration data.
+  Processes the data through both classification and anomaly detection
+  models to determine motor state and detect unusual patterns.
+*/
+void runInference() {
+    // Copy the current buffer for inference processing
+    memcpy(inference_buffer, buffer, EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE * sizeof(float));
+    
+    // Calculate vibration level for additional state verification
+    float vibration = calculateVibrationLevel();
+    
+    // Create signal structure for Edge Impulse
+    signal_t signal;
+    signal.total_length = EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE;
+    signal.get_data = &raw_feature_get_data;
+    
+    // Run the Edge Impulse classifier
+    ei_impulse_result_t result = { 0 };
+    EI_IMPULSE_ERROR res = run_classifier(&signal, &result, false);
+    
+    if (res != EI_IMPULSE_OK) {
+        Serial.printf("- ERROR: Failed to run classifier (%d)!\n", res);
+        return;
+    }
+    
+    // Override classification if vibration indicates clear idle state
+    if (vibration < IDLE_THRESHOLD) {
+        for (size_t ix = 0; ix < EI_CLASSIFIER_LABEL_COUNT; ix++) {
+            if (strcmp(ei_classifier_inferencing_categories[ix], "idle") == 0) {
+                result.classification[ix].value = 0.99f;
+            } else {
+                result.classification[ix].value = 0.01f;
+            }
+        }
+    }
+    
+    // Process and display the inference results
+    processResults(result, vibration);
+}
+```
+
+This function performs the complete inference pipeline. It first copies the rolling buffer data, calculates the current vibration level, and then runs the Edge Impulse classifier. If the vibration level is very low (below 0.02g), it overrides the classification to force an "idle" state, which helps compensate for the high sensitivity of the BMI270 IMU.
+
+### Processing Results and Anomaly Detection
+
+After inference, the system processes the results to determine the motor state and check for anomalies:
+
+```arduino
+/**
+  Processes inference results and updates the full-screen display.
+  Analyzes classification confidence and anomaly scores to determine
+  the current motor state and trigger appropriate visual feedback.
+*/
+void processResults(ei_impulse_result_t result, float vibration) {
+    totalInferences++;
+    
+    // Find the classification with highest confidence
+    String bestLabel = "unknown";
+    float bestValue = 0;
+    
+    for (size_t ix = 0; ix < EI_CLASSIFIER_LABEL_COUNT; ix++) {
+        if (result.classification[ix].value > bestValue) {
+            bestValue = result.classification[ix].value;
+            bestLabel = String(ei_classifier_inferencing_categories[ix]);
+        }
+    }
+    
+    // Evaluate anomaly detection results
+    bool isAnomaly = false;
+    
+#if EI_CLASSIFIER_HAS_ANOMALY
+    float anomalyScore = result.anomaly;
+    
+    if (anomalyScore > ANOMALY_THRESHOLD) {
+        isAnomaly = true;
+        anomalyCount++;
+    }
+#endif
+    
+    // Update display only when state changes
+    if (bestLabel != currentState || isAnomaly != currentAnomaly) {
+        currentState = bestLabel;
+        currentAnomaly = isAnomaly;
+        updateFullScreenDisplay(currentState, currentAnomaly);
+    }
+}
+```
+
+This function analyzes the inference results to find the most likely motor state (idle or nominal) and checks if the anomaly score exceeds the threshold. It only updates the display when the state actually changes, avoiding unnecessary screen refreshes.
+
+### Visual Feedback System
+
+The Nesso N1's display provides immediate visual feedback using full-screen color coding:
+
+```arduino
+/**
+  Updates the full-screen display with color-coded motor status.
+  Provides immediate visual feedback using background colors:
+  Blue for idle, Green for nominal operation, Red for anomalies.
+*/
+void updateFullScreenDisplay(String state, bool anomaly) {
+    uint16_t bgColor;
+    uint16_t textColor;
+    String displayText;
+    
+    if (anomaly) {
+        bgColor = TFT_RED;
+        textColor = TFT_WHITE;
+        displayText = "ANOMALY";
+    } else if (state == "idle") {
+        bgColor = TFT_BLUE;
+        textColor = TFT_WHITE;
+        displayText = "IDLE";
+    } else if (state == "nominal") {
+        bgColor = TFT_GREEN;
+        textColor = TFT_BLACK;
+        displayText = "NOMINAL";
+    }
+    
+    display.fillScreen(bgColor);
+    display.setTextColor(textColor, bgColor);
+    display.setTextSize(3);
+    display.setTextDatum(MC_DATUM);
+    display.drawString(displayText, display.width() / 2, display.height() / 2);
+}
+```
+
+This function creates a clear, unmistakable visual indication of the motor status that can be seen from across a room. After uploading the enhanced sketch to the Nesso N1 development kit, the display will show real-time motor status with color-coded feedback:
+
+- **Blue screen with "IDLE"**: Motor is stopped
+- **Green screen with "NOMINAL"**: Motor is running normally
+- **Red screen with "ANOMALY"**: Unusual vibration pattern detected
+
+![Visual indiication of the motor status on the Nesso N1's display](assets/visual-indication.png)
+
+The IDE's Serial Monitor also provides detailed information including classification confidence, anomaly scores, and timing metrics for debugging and performance monitoring.
+
+### Complete Enhanced Example Sketch
+
+The complete intelligent motor anomaly detection sketch can be downloaded [here](assets/motor_anomaly_detection_nesso.zip).
+
+[![ ](assets/download-button.png)](assets/motor_anomaly_detection_nesso.zip)
+
+### System Integration Considerations
+
+When deploying the intelligent anomaly detection system in industrial environments, consider the following factors based on your sensor choice:
+
+- **Environmental Protection**: Protect the Nano R4 board and accelerometer from dust, moisture and temperature extremes using appropriate enclosures rated for the operating environment.
+- **Mounting Stability**: Ensure secure mechanical mounting of both the accelerometer sensor and the Nano R4 enclosure to prevent sensor movement that could affect measurement accuracy.
+- **Power Management**: Implement appropriate power supply filtering and protection circuits, especially in electrically noisy industrial environments with motor drives and switching equipment.
+- **Calibration Procedures**: Establish baseline measurements for each motor installation to account for mounting variations and motor-specific characteristics that may affect anomaly thresholds.
+- **Maintenance Integration**: Plan integration with existing maintenance management systems through data logging interfaces or communication protocols for complete predictive maintenance programs.
+
+## Conclusions
+
+This application note demonstrates how to implement motor anomaly detection using the Nesso N1 development kit, combined with Edge Impulse machine learning platform for industrial predictive maintenance applications.
+
+The solution combines the Nesso N1's 32-bit processing power with Edge Impulse's machine learning tools to enable real-time anomaly detection directly on the embedded device. This eliminates the need for cloud connectivity and provides immediate response to potential equipment issues with inference times under 20 milliseconds.
+
+The unsupervised anomaly detection approach using K-means clustering requires only normal operation data for training, making it practical for industrial deployment where fault data may be difficult to obtain. This approach can detect previously unseen fault conditions that differ from established normal patterns.
+
+## Next Steps
+
+Building upon this foundation, several enhancements can further improve the motor anomaly detection system:
+
+- **Multi-Sensor Fusion**: Integrate additional sensors such as temperature, current or acoustic sensors to provide a more complete view of motor health and improve detection accuracy. The Modulino Movement's built-in gyroscope can provide additional motion analysis capabilities.
+- **Wireless Communication**: Add wireless connectivity using the onboard LoRa module to enable remote monitoring and integration with existing plant systems.
+- **Advanced Analysis**: Implement data logging for trend analysis, industrial protocol integration for SCADA systems or multi-class fault classification to distinguish between different types of motor problems.
+
+The foundation provided in this application note enables rapid development of custom motor monitoring solutions tailored to specific industrial requirements, with the flexibility to choose the sensor option that best fits your application needs.
