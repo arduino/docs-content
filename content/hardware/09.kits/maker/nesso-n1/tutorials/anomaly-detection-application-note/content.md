@@ -1156,7 +1156,7 @@ This function creates a clear, unmistakable visual indication of the motor statu
 - **Green screen with "NOMINAL"**: Motor is running normally
 - **Red screen with "ANOMALY"**: Unusual vibration pattern detected
 
-![Visual indiication of the motor status on the Nesso N1's display](assets/visual-indication.png)
+![Visual indication of the motor status on the Nesso N1's display](assets/visual-indication.png)
 
 The IDE's Serial Monitor also provides detailed information including classification confidence, anomaly scores, and timing metrics for debugging and performance monitoring.
 
@@ -1176,13 +1176,700 @@ When deploying the intelligent anomaly detection system in industrial environmen
 - **Calibration Procedures**: Establish baseline measurements for each motor installation to account for mounting variations and motor-specific characteristics that may affect anomaly thresholds.
 - **Maintenance Integration**: Plan integration with existing maintenance management systems through data logging interfaces or communication protocols for complete predictive maintenance programs.
 
+## Arduino IoT Cloud Integration
+
+The motor anomaly detection system can be extended with remote monitoring capabilities through [Arduino Cloud](https://cloud.arduino.cc/), enabling real-time status visualization from anywhere with internet connectivity. This integration maintains all local functionality while adding cloud-based dashboard indicators for remote monitoring. 
+
+### Cloud Architecture Overview
+
+The cloud integration implements a three-state monitoring system using `boolean` variables that mirror the local display states. Each state (`idle`, `nominal`, and `anomaly`) is represented by an exclusive boolean indicator on the Arduino Cloud dashboard, guaranteeing clear and immediate visual feedback for remote operators.
+
+The system maintains bidirectional synchronization between the Nesso N1 development kit and the Arduino Cloud platform, updating dashboard widgets in real-time as motor conditions change. This architecture complement remote monitoring capabilities rather than replace local visualization, providing redundancy and flexibility in deployment scenarios.
+
+### Setting Up Arduino Cloud Components
+
+**A. Create Device**
+
+Begin by establishing the device identity in the Arduino Cloud platform:
+
+1. Navigate to the [Arduino Cloud "**Devices**" page](https://app.arduino.cc/devices)
+2. Click the **+ CREATE** button in the top right corner
+3. Select "**Any device**" from the Setup Device dialog
+4. Click **CONTINUE** to generate device credentials
+5. Adjust the device name if desired (for example, "Nesso-Motor-Monitor")
+6. Save the generated Device ID and Secret Key securely
+7. Confirm credential storage and click "**CONTINUE**"
+
+**B. Create Thing**
+
+Configure the Thing to represent your motor monitoring system:
+
+1. Open the [Arduino Cloud "**Things**" page](https://app.arduino.cc/things)
+2. Click "**+ THING**" to create a new Thing
+3. Rename the Thing to "Motor_Anomaly_Monitor" using the dropdown menu
+4. Add three Cloud Variables with the specifications shown below
+5. Associate the Thing with your previously created Device using the "**Select Device**" button
+
+**Cloud variables to add:**
+
+| **Variable Name** | **Type** | **Permission** | **Update Policy** |
+|:-----------------:|:--------:|:--------------:|:-----------------:|
+|       `idle`      |  Boolean |    Read Only   |     On Change     |
+|     `nominal`     |  Boolean |    Read Only   |     On Change     |
+|     `anomaly`     |  Boolean |    Read Only   |     On Change     |
+
+**C. Create Dashboard**
+
+Design the visual interface for remote monitoring:
+
+1. Access the [Arduino Cloud Dashboards page](https://app.arduino.cc/dashboards)
+2. Click "**+ DASHBOARD**" to create a new dashboard
+3. Rename the dashboard to "Motor Status Monitor"
+4. Enter Edit mode and click "**ADD**" to add widgets
+5. Select the "**THINGS**" tab and choose your Motor_Anomaly_Monitor Thing
+6. Configure three STATUS widgets (idle in blue, nominal inn green, and anomaly in red)
+7. Arrange widgets horizontally for optimal visibility
+8. Click DONE to save the dashboard configuration
+
+### Complete Cloud-Enabled Sketch
+
+The complete enhanced example sketch with Arduino Cloud integration is shown below:
+
+```arduino
+/**
+  Intelligent Motor Anomaly Detection System - Arduino Cloud Edition
+  Name: motor_anomaly_detection_cloud.ino
+  Purpose: This sketch implements real-time motor anomaly detection using
+  the Nesso N1's integrated BMI270 IMU and Edge Impulse machine learning 
+  model with Arduino IoT Cloud integration for remote monitoring through
+  three boolean state indicators.
+  
+  @version 6.0 01/11/25
+  @author Arduino Product Experience Team
+*/
+
+// Include Arduino Cloud configuration and connection handler
+#include "thingProperties.h"
+
+// Include the Edge Impulse library (name will match your project name)
+#include <nesso-n1-anomaly-detection_inferencing.h>
+
+// Include libraries for Nesso's IMU and display control
+#include <Arduino_BMI270_BMM150.h>
+#include <M5GFX.h>
+
+// Display instance for the 1.14" touch screen
+M5GFX display;
+
+// Data buffers for model inference
+static float buffer[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE] = { 0 };
+static float inference_buffer[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE];
+
+// Maximum accepted acceleration range (±2g)
+#define MAX_ACCEPTED_RANGE  2.0f
+
+// Detection parameters
+const float ANOMALY_THRESHOLD = 3.0f;   // Threshold for anomaly detection
+const float WARNING_THRESHOLD = 1.5f;   // Warning zone threshold
+const float IDLE_THRESHOLD = 0.02f;     // Vibration threshold for idle detection
+
+// System status variables
+int totalInferences = 0;
+int anomalyCount = 0;
+unsigned long lastInferenceTime = 0;
+const unsigned long INFERENCE_INTERVAL = 2000; // Inference interval in milliseconds
+
+// Buffer management variables
+bool bufferFilled = false;
+int sampleCount = 0;
+
+// Current state tracking
+String currentState = "INITIALIZING";
+bool currentAnomaly = false;
+
+// Cloud connection status
+bool cloudConnected = false;
+
+// Function declarations
+float ei_get_sign(float number);
+int raw_feature_get_data(size_t offset, size_t length, float *out_ptr);
+void runInference();
+void updateFullScreenDisplay(String state, bool anomaly);
+float calculateVibrationLevel();
+void processResults(ei_impulse_result_t result, float vibration);
+void updateCloudStates(String state, bool isAnomaly);
+void onCloudConnect();
+void onCloudDisconnect();
+
+/**
+  Initializes the IMU, display, machine learning system, and Arduino Cloud.
+  Configures the Nesso N1 for optimal performance with the Edge Impulse model
+  and establishes connection to Arduino IoT Cloud for remote monitoring.
+*/
+void setup() {
+    // Initialize serial communication at 115200 baud
+    Serial.begin(115200);
+    // Don't wait too long for Serial in case running standalone
+    unsigned long serialStart = millis();
+    while (!Serial && millis() - serialStart < 3000);
+    
+    Serial.println("- Nesso N1 Motor Anomaly Monitor with Cloud");
+    Serial.println("- Version 6.0 - Arduino IoT Cloud Integration");
+    
+    // Initialize the 1.14" touch display
+    display.begin();
+    display.setRotation(1);  // Set to landscape orientation
+    display.fillScreen(TFT_BLACK);
+    display.setTextSize(2);
+    display.setTextColor(TFT_WHITE, TFT_BLACK);
+    display.setTextDatum(MC_DATUM);
+    display.drawString("CLOUD CONNECT", display.width() / 2, display.height() / 2);
+    
+    // Initialize Arduino Cloud properties defined in thingProperties.h
+    initProperties();
+    
+    // Connect to Arduino IoT Cloud with preferred connection method
+    ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+    ArduinoCloud.addCallback(ArduinoIoTCloudEvent::CONNECT, onCloudConnect);
+    ArduinoCloud.addCallback(ArduinoIoTCloudEvent::DISCONNECT, onCloudDisconnect);
+    
+    // Set debug message level for cloud connection troubleshooting
+    setDebugMessageLevel(2);
+    ArduinoCloud.printDebugInfo();
+    
+    Serial.println("- Connecting to Arduino IoT Cloud...");
+    
+    // Attempt cloud connection with 30 second timeout
+    unsigned long cloudStart = millis();
+    while (!ArduinoCloud.connected() && millis() - cloudStart < 30000) {
+        ArduinoCloud.update();
+        delay(100);
+    }
+    
+    if (ArduinoCloud.connected()) {
+        Serial.println("- Connected to Arduino IoT Cloud!");
+        cloudConnected = true;
+    } else {
+        Serial.println("- Cloud connection timeout - continuing offline");
+        cloudConnected = false;
+    }
+    
+    // Initialize all cloud state variables to false
+    idle = false;
+    nominal = false;
+    anomaly = false;
+    
+    // Update display for IMU initialization phase
+    display.fillScreen(TFT_BLACK);
+    display.drawString("INITIALIZING...", display.width() / 2, display.height() / 2);
+    
+    // Initialize BMI270 IMU sensor
+    if (!IMU.begin()) {
+        Serial.println("- ERROR: Failed to initialize IMU!");
+        display.fillScreen(TFT_RED);
+        display.setTextColor(TFT_WHITE, TFT_RED);
+        display.drawString("IMU FAILED!", display.width() / 2, display.height() / 2);
+        while (1) {
+            ArduinoCloud.update(); // Keep cloud connection alive during error
+            delay(100);
+        }
+    }
+    
+    Serial.println("- BMI270 IMU initialized!");
+    Serial.print("- Sample rate: ");
+    Serial.print(IMU.accelerationSampleRate());
+    Serial.println(" Hz");
+    
+    // Verify Edge Impulse model configuration
+    if (EI_CLASSIFIER_RAW_SAMPLES_PER_FRAME != 3) {
+        Serial.println("ERROR: EI_CLASSIFIER_RAW_SAMPLES_PER_FRAME should be 3");
+        while (1) {
+            ArduinoCloud.update();
+            delay(100);
+        }
+    }
+    
+    Serial.println("\n- Edge Impulse Model loaded!");
+    Serial.print("- Project: ");
+    Serial.println(EI_CLASSIFIER_PROJECT_NAME);
+    
+    Serial.println("\n- Filling buffer...");
+    
+    // Display starting message while buffer fills
+    display.fillScreen(TFT_DARKGREY);
+    display.setTextColor(TFT_WHITE, TFT_DARKGREY);
+    display.drawString("STARTING...", display.width() / 2, display.height() / 2);
+    
+    delay(1000);
+}
+
+/**
+  Main loop that continuously collects vibration data, performs real-time
+  classification and anomaly detection, and updates both local display
+  and Arduino Cloud dashboard indicators.
+*/
+void loop() {
+    // Update Arduino Cloud connection and synchronize variables
+    ArduinoCloud.update();
+    
+    // Calculate the next sampling tick for precise timing
+    uint64_t next_tick = micros() + (EI_CLASSIFIER_INTERVAL_MS * 1000);
+    
+    // Shift the buffer by 3 samples to create a rolling window
+    numpy::roll(buffer, EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE, -3);
+    
+    // Wait for new acceleration data from the IMU
+    float x, y, z;
+    while (!IMU.accelerationAvailable()) {
+        delayMicroseconds(10);
+    }
+    
+    // Read acceleration values (already in g units)
+    IMU.readAcceleration(x, y, z);
+    
+    // Store new data at the end of the buffer
+    buffer[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE - 3] = x;
+    buffer[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE - 2] = y;
+    buffer[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE - 1] = z;
+    
+    // Clip acceleration values to the maximum accepted range
+    for (int i = 0; i < 3; i++) {
+        float* val = &buffer[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE - 3 + i];
+        if (fabs(*val) > MAX_ACCEPTED_RANGE) {
+            *val = ei_get_sign(*val) * MAX_ACCEPTED_RANGE;
+        }
+    }
+    
+    // Track buffer filling progress during initialization
+    if (!bufferFilled) {
+        sampleCount++;
+        if (sampleCount >= EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE / 3) {
+            bufferFilled = true;
+            Serial.println("- Buffer filled, starting monitoring...\n");
+        }
+    }
+    
+    // Maintain precise sampling rate
+    uint64_t time_to_wait = next_tick - micros();
+    if (time_to_wait > 0 && time_to_wait < 1000000) {
+        delayMicroseconds(time_to_wait);
+    }
+    
+    // Execute inference at the specified interval
+    if (bufferFilled && (millis() - lastInferenceTime >= INFERENCE_INTERVAL)) {
+        lastInferenceTime = millis();
+        runInference();
+    }
+}
+
+/**
+  Executes the Edge Impulse inference on collected vibration data.
+  Processes the data through both classification and anomaly detection
+  models to determine motor state and detect unusual patterns.
+*/
+void runInference() {
+    // Copy the current buffer for inference processing
+    memcpy(inference_buffer, buffer, EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE * sizeof(float));
+    
+    // Calculate vibration level for additional state verification
+    float vibration = calculateVibrationLevel();
+    
+    // Create signal structure for Edge Impulse
+    signal_t signal;
+    signal.total_length = EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE;
+    signal.get_data = &raw_feature_get_data;
+    
+    // Run the Edge Impulse classifier
+    ei_impulse_result_t result = { 0 };
+    EI_IMPULSE_ERROR res = run_classifier(&signal, &result, false);
+    
+    if (res != EI_IMPULSE_OK) {
+        Serial.printf("- ERROR: Failed to run classifier (%d)!\n", res);
+        return;
+    }
+    
+    // Override classification if vibration indicates clear idle state
+    if (vibration < IDLE_THRESHOLD) {
+        for (size_t ix = 0; ix < EI_CLASSIFIER_LABEL_COUNT; ix++) {
+            if (strcmp(ei_classifier_inferencing_categories[ix], "idle") == 0) {
+                result.classification[ix].value = 0.99f;
+            } else {
+                result.classification[ix].value = 0.01f;
+            }
+        }
+    }
+    
+    // Process and display the inference results
+    processResults(result, vibration);
+}
+
+/**
+  Processes inference results and updates both the full-screen display
+  and Arduino Cloud dashboard. Analyzes classification confidence and
+  anomaly scores to determine the current motor state and trigger
+  appropriate visual feedback locally and remotely.
+*/
+void processResults(ei_impulse_result_t result, float vibration) {
+    totalInferences++;
+    
+    // Find the classification with highest confidence
+    String bestLabel = "unknown";
+    float bestValue = 0;
+    
+    Serial.printf("- Inference #%d", totalInferences);
+    if (cloudConnected) {
+        Serial.println(" [Cloud: Connected]");
+    } else {
+        Serial.println(" [Cloud: Offline]");
+    }
+    
+    for (size_t ix = 0; ix < EI_CLASSIFIER_LABEL_COUNT; ix++) {
+        if (result.classification[ix].value > bestValue) {
+            bestValue = result.classification[ix].value;
+            bestLabel = String(ei_classifier_inferencing_categories[ix]);
+        }
+    }
+    
+    Serial.printf("- State: %s (%.0f%% confidence)\n", bestLabel.c_str(), bestValue * 100);
+    Serial.printf("- Vibration: %.4f g\n", vibration);
+    
+    // Evaluate anomaly detection results
+    bool isAnomaly = false;
+    
+#if EI_CLASSIFIER_HAS_ANOMALY
+    float anomalyScore = result.anomaly;
+    Serial.printf("- Anomaly score: %.3f", anomalyScore);
+    
+    if (anomalyScore < WARNING_THRESHOLD) {
+        Serial.println(" [NORMAL]");
+    } else if (anomalyScore < ANOMALY_THRESHOLD) {
+        Serial.println(" [WARNING]");
+    } else {
+        Serial.println(" [ANOMALY!]");
+        isAnomaly = true;
+        anomalyCount++;
+    }
+#endif
+    
+    // Update display and cloud only when state or anomaly status changes
+    if (bestLabel != currentState || isAnomaly != currentAnomaly) {
+        currentState = bestLabel;
+        currentAnomaly = isAnomaly;
+        updateFullScreenDisplay(currentState, currentAnomaly);
+        updateCloudStates(currentState, currentAnomaly);
+    }
+    
+    Serial.printf("- Timing: DSP %d ms, Classification %d ms\n\n", 
+                  result.timing.dsp, result.timing.classification);
+}
+
+/**
+  Updates Arduino Cloud dashboard variables based on motor state.
+  Sets one of three boolean indicators (idle, nominal, anomaly) to true
+  while ensuring the others are false, providing exclusive state indication
+  for remote monitoring through the IoT Cloud dashboard.
+*/
+void updateCloudStates(String state, bool isAnomaly) {
+    // Reset all state indicators to false
+    idle = false;
+    nominal = false;
+    anomaly = false;
+    
+    // Set the appropriate state indicator based on current condition
+    if (isAnomaly) {
+        anomaly = true;
+        Serial.println(">>> Cloud Update: ANOMALY = true");
+    } else if (state == "idle") {
+        idle = true;
+        Serial.println(">>> Cloud Update: IDLE = true");
+    } else if (state == "nominal") {
+        nominal = true;
+        Serial.println(">>> Cloud Update: NOMINAL = true");
+    }
+    
+    // Force immediate cloud variable synchronization
+    ArduinoCloud.update();
+}
+
+/**
+  Updates the full-screen display with color-coded motor status.
+  Provides immediate visual feedback using background colors:
+  Blue for idle, Green for nominal operation, Red for anomalies.
+  Also displays cloud connection status in the corner.
+*/
+void updateFullScreenDisplay(String state, bool isAnomaly) {
+    uint16_t bgColor;
+    uint16_t textColor;
+    String displayText;
+    
+    if (isAnomaly) {
+        // Anomaly detected - Display red background with white text
+        bgColor = TFT_RED;
+        textColor = TFT_WHITE;
+        displayText = "ANOMALY";
+        Serial.println(">>> Display: RED - ANOMALY");
+    } else if (state == "idle") {
+        // Motor idle - Display blue background with white text
+        bgColor = TFT_BLUE;
+        textColor = TFT_WHITE;
+        displayText = "IDLE";
+        Serial.println(">>> Display: BLUE - IDLE");
+    } else if (state == "nominal") {
+        // Normal operation - Display green background with black text
+        bgColor = TFT_GREEN;
+        textColor = TFT_BLACK;
+        displayText = "NOMINAL";
+        Serial.println(">>> Display: GREEN - NOMINAL");
+    } else {
+        // Unknown state - Display grey background with white text
+        bgColor = TFT_DARKGREY;
+        textColor = TFT_WHITE;
+        displayText = "UNKNOWN";
+        Serial.println(">>> Display: GREY - UNKNOWN");
+    }
+    
+    // Fill entire screen with the status color
+    display.fillScreen(bgColor);
+    
+    // Configure text properties for centered display
+    display.setTextColor(textColor, bgColor);
+    display.setTextSize(3);
+    display.setTextDatum(MC_DATUM);
+    
+    // Draw the status text in the center of the screen
+    display.drawString(displayText, display.width() / 2, display.height() / 2);
+    
+    // Add cloud connection status indicator in top-left corner
+    display.setTextSize(1);
+    display.setTextDatum(TL_DATUM);
+    if (cloudConnected) {
+        display.drawString("CLOUD: ON", 5, 5);
+    } else {
+        display.drawString("CLOUD: OFF", 5, 5);
+    }
+}
+
+/**
+  Calculates the vibration level from collected acceleration data.
+  Removes gravity component and computes the average magnitude
+  of vibration across multiple samples for accurate state detection.
+*/
+float calculateVibrationLevel() {
+    float sum = 0;
+    int samples = min(30, EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE / 3);
+    
+    // Calculate vibration magnitude for each sample
+    for (int i = 0; i < samples; i++) {
+        float x = buffer[i * 3];
+        float y = buffer[i * 3 + 1];
+        float z = buffer[i * 3 + 2] - 1.0f;  // Remove gravity component
+        sum += sqrt(x*x + y*y + z*z);
+    }
+    
+    return sum / samples;
+}
+
+/**
+  Callback function triggered when Arduino Cloud connection is established.
+  Updates the cloud connection status and synchronizes the current motor
+  state with the cloud dashboard for immediate remote visibility.
+*/
+void onCloudConnect() {
+    cloudConnected = true;
+    Serial.println(">>> Arduino IoT Cloud CONNECTED");
+    
+    // Synchronize current state with cloud dashboard on connection
+    updateCloudStates(currentState, currentAnomaly);
+}
+
+/**
+  Callback function triggered when Arduino Cloud connection is lost.
+  Updates the connection status to allow the system to continue
+  operating in offline mode while attempting reconnection.
+*/
+void onCloudDisconnect() {
+    cloudConnected = false;
+    Serial.println(">>> Arduino IoT Cloud DISCONNECTED");
+}
+
+/**
+  Returns the sign of a number.
+  Used for clipping acceleration values to the maximum range.
+*/
+float ei_get_sign(float number) {
+    return (number >= 0.0) ? 1.0 : -1.0;
+}
+
+/**
+  Callback function for Edge Impulse library to access feature data.
+  Provides the machine learning model with vibration data in the
+  required format for inference processing.
+*/
+int raw_feature_get_data(size_t offset, size_t length, float *out_ptr) {
+    memcpy(out_ptr, inference_buffer + offset, length * sizeof(float));
+    return 0;
+}
+```
+
+The cloud-enabled sketch extends the original motor anomaly detection code with Arduino Cloud integration. The implementation requires two primary files: the main sketch and two supporting configuration files.
+
+### Supporting Configuration Files
+
+#### Thing Properties Configuration
+
+Create a `thingProperties.h` file in the Arduino IDE in a new tab (Ctrl + Shift + N)  to define cloud variables and connection parameters:
+
+```arduino
+/**
+  Arduino IoT Cloud Thing Properties Configuration
+  Defines cloud variables and connection settings for remote monitoring
+*/
+
+#include <ArduinoIoTCloud.h>
+#include "arduino_secrets.h"
+
+// Cloud dashboard state indicators
+bool idle;      // Motor in idle state
+bool nominal;   // Normal operation
+bool anomaly;   // Anomaly detected
+
+void initProperties() {    
+    // Register state variables
+    ArduinoCloud.addProperty(idle, READ, ON_CHANGE, NULL);
+    ArduinoCloud.addProperty(nominal, READ, ON_CHANGE, NULL);
+    ArduinoCloud.addProperty(anomaly, READ, ON_CHANGE, NULL);
+    
+    ArduinoCloud.setBoardId(SECRET_DEVICE_ID);
+    ArduinoCloud.setSecretDeviceKey(SECRET_DEVICE_KEY);
+}
+
+// Network connection handler
+WiFiConnectionHandler ArduinoIoTPreferredConnection(SECRET_WIFI_SSID, SECRET_WIFI_PASS);
+```
+
+#### Arduino Secrets Configuration
+
+Create an `arduino_secrets.h` file in the Arduino IDE in a new tab (Ctrl + Shift + N) to store sensitive credentials (created and stored before):
+
+```arduino
+// Credentials for your Wi-Fi access point.
+#define SECRET_WIFI_SSID "your-wifi-network-name"
+#define SECRET_WIFI_PASS "your-wifi-password"
+
+// Device ID is not actually secret, but is defined alongside the secret key for convenience.
+#define SECRET_DEVICE_ID "your-device-secret-id"
+#define SECRET_DEVICE_KEY "your-device-secret-key"
+```
+
+### Cloud Integration Implementation
+
+The cloud-enabled sketch version maintains all original functionality while adding remote monitoring capabilities. Key modifications include the following:
+
+#### Initialization Enhancements
+
+The setup function now initializes cloud connectivity before starting motor monitoring:
+
+```arduino
+void setup() {
+    // Initialize display with cloud connection status
+    display.drawString("CLOUD CONNECT", display.width() / 2, display.height() / 2);
+    
+    // Initialize Arduino Cloud
+    initProperties();
+    ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+    ArduinoCloud.addCallback(ArduinoIoTCloudEvent::CONNECT, onCloudConnect);
+    ArduinoCloud.addCallback(ArduinoIoTCloudEvent::DISCONNECT, onCloudDisconnect);
+    
+    // Attempt connection with timeout
+    unsigned long cloudStart = millis();
+    while (!ArduinoCloud.connected() && millis() - cloudStart < 30000) {
+        ArduinoCloud.update();
+        delay(100);
+    }
+    
+    // Continue with IMU and model initialization...
+}
+```
+
+#### State Synchronization
+
+The system updates cloud variables whenever the motor state changes:
+
+```arduino
+void updateCloudStates(String state, bool isAnomaly) {
+    // Reset all indicators
+    idle = false;
+    nominal = false;
+    anomaly = false;
+    
+    // Set appropriate state
+    if (isAnomaly) {
+        anomaly = true;
+    } else if (state == "idle") {
+        idle = true;
+    } else if (state == "nominal") {
+        nominal = true;
+    }
+    
+    // Force cloud synchronization
+    ArduinoCloud.update();
+}
+```
+
+#### Connection Management
+
+Callback functions handle cloud connection events:
+
+```arduino
+void onCloudConnect() {
+    cloudConnected = true;
+    Serial.println(">>> Arduino IoT Cloud CONNECTED");
+    updateCloudStates(currentState, currentAnomaly);
+}
+
+void onCloudDisconnect() {
+    cloudConnected = false;
+    Serial.println(">>> Arduino IoT Cloud DISCONNECTED");
+}
+```
+
+####  Monitoring and Operation
+
+Once deployed, the system provides dual monitoring capabilities:
+
+**Local Display**: 
+
+The Nesso N1's display continues to show real-time status with color-coded backgrounds:
+- **Blue**: Motor idle (no vibration detected)
+- **Green**: Nominal operation (normal vibration patterns)
+- **Red**: Anomaly detected (abnormal vibration patterns)
+
+Also, a small indicator in the corner of the Nesso N1's display shows cloud connection status ("CLOUD: ON" or "CLOUD: OFF").
+
+![Visual indication of the motor status on the Nesso N1's display with Arduino Cloud Integration](assets/visual-indication-cloud.png)
+
+**Remote Dashboard**: 
+
+The Arduino Cloud dashboard displays three STATUS widgets that mirror the local display state. Only one STATUS wiget is active at any time, providing clear status indication for remote monitoring. The system maintains full offline functionality, automatically reconnecting to the cloud when network connectivity is restored.
+
+![Arduino Cloud dashboard for the Nesso N1 motor anomaly detection monitor](assets/dashboard.gif)
+
+This cloud integration transforms the motor anomaly detection system into an EdgeAIoT solution, enabling predictive maintenance teams to monitor multiple motors remotely while maintaining the reliability and responsiveness of local edge computing.
+
+### Complete Enhanced Example Sketch
+
+The complete intelligent motor anomaly detection sketch with Arduino Cloud integration can be downloaded [here](assets/motor_anomaly_detection_cloud.zip).
+
+[![ ](assets/download-button.png)](assets/motor_anomaly_detection_cloud.zip)
+
 ## Conclusions
 
-This application note demonstrates how to implement motor anomaly detection using the Nesso N1 development kit, combined with Edge Impulse machine learning platform for industrial predictive maintenance applications.
+This application note demonstrates how to implement motor anomaly detection using the Nesso N1 development kit, combining Edge Impulse machine learning with Arduino Cloud for industrial predictive maintenance applications.
 
-The solution combines the Nesso N1's 32-bit processing power with Edge Impulse's machine learning tools to enable real-time anomaly detection directly on the embedded device. This eliminates the need for cloud connectivity and provides immediate response to potential equipment issues with inference times under 20 milliseconds.
+The solution uses the Nesso N1's ESP32-S3 dual-core processor to perform real-time anomaly detection directly on-device with inference times under 20 milliseconds, while Arduino Cloud integration enables remote monitoring without compromising edge processing performance.
+The unsupervised K-means clustering approach requires only normal operation data for training, making it practical for industrial deployment where fault data may be scarce. This methodology effectively detects previously unseen fault conditions that deviate from established normal patterns.
 
-The unsupervised anomaly detection approach using K-means clustering requires only normal operation data for training, making it practical for industrial deployment where fault data may be difficult to obtain. This approach can detect previously unseen fault conditions that differ from established normal patterns.
+The dual-mode architecture—edge processing with cloud connectivity—ensures system resilience through continued operation during network interruptions while providing remote monitoring capabilities when connected. Visual feedback through both local display and cloud dashboard widgets delivers intuitive status indication for operators and remote maintenance teams.s
 
 ## Next Steps
 
