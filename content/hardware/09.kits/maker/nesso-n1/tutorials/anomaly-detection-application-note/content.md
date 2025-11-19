@@ -75,7 +75,7 @@ The Nesso N1 operates from its built-in rechargeable lithium-polymer battery or 
 
 ### Physical Mounting Considerations
 
-Proper mounting of the Nesso N1 is essential for effective vibration monitoring. The development kit must be securely attached to the motor housing or equipment using appropriate mechanical fasteners or industrial-grade adhesive. A good mechanical connection between the mounting surface and the device ensures accurate vibration transmission from the motor to the onboard IMU.
+Proper mounting of the Nesso N1 is essential for effective vibration monitoring. The development kit must be securely attached to the motor housing or equipment using appropriate mechanical fasteners or industrial-grade adhesive. A good mechanical connection between the mounting surface and the device guaranteess accurate vibration transmission from the motor to the onboard IMU.
 
 The Nesso N1's enclosed design provides basic protection against dust and minor vibrations, making it suitable for many industrial environments. However, additional protective measures may be needed in extreme conditions.
 
@@ -310,7 +310,7 @@ In this code:
 
 ### Data Collection Timing and Control
 
-To ensure accurate vibration analysis and successful machine learning training, we need consistent data collection timing. These parameters control how data is gathered:
+To guarantees accurate vibration analysis and successful machine learning training, we need consistent data collection timing. These parameters control how data is gathered:
 
 ```arduino
 // Sampling parameters
@@ -408,7 +408,7 @@ In this code:
 
 - The `fillRect()` function clears only the area where values are displayed, preserving the labels
 - Green text color provides good contrast against the black background
-- The `printf()` format ensures consistent display with sign (+/-) and three decimal places
+- The `printf()` format guarantees consistent display with sign (+/-) and three decimal places
 - Values update at 100 Hz
 
 This visual feedback helps during setup by:
@@ -510,7 +510,7 @@ Start by mounting the accelerometer securely to the motor housing. You will coll
 
 2. **Nominal data collection**: With the motor running under normal operating conditions, **collect 2 to 5 minutes of "nominal" operation** data through multiple two second windows. Vary motor load conditions slightly to capture different normal operating scenarios. Label all data as `nominal` in Edge Impulse Studio.
 
-Edge Impulse can automatically split your collected data into **training (80%) and testing (20%) sets**. The 4 to 10 minutes total of data ensures you have enough samples for both training the model and validating its performance on unseen data.
+Edge Impulse can automatically split your collected data into **training (80%) and testing (20%) sets**. The 4 to 10 minutes total of data guarantees you have enough samples for both training the model and validating its performance on unseen data.
 
 ![Data collection on Edge Impulse Studio](assets/data-collection.png)
 
@@ -587,7 +587,7 @@ Start training and monitor the accuracy metrics.
 
 The Nesso N1's integrated BMI270 IMU has high sensitivity and low noise, which requires some adjustments to the typical training approach:
 
-1. **Gravity Compensation**: The BMI270 always measures 1g acceleration due to gravity. Ensure your training data includes the device in its intended mounting orientation.
+1. **Gravity Compensation**: The BMI270 always measures 1g acceleration due to gravity. Make sure your training data includes the device in its intended mounting orientation.
 
 2. **Micro-vibration Sensitivity**: The IMU can detect very small vibrations. Collect `idle` data in a truly vibration-free environment, or the model may struggle to distinguish idle from nominal states.
 
@@ -1171,7 +1171,7 @@ The complete intelligent motor anomaly detection sketch can be downloaded [here]
 When deploying the intelligent anomaly detection system in industrial environments, consider the following factors based on your sensor choice:
 
 - **Environmental Protection**: Protect the Nano R4 board and accelerometer from dust, moisture and temperature extremes using appropriate enclosures rated for the operating environment.
-- **Mounting Stability**: Ensure secure mechanical mounting of both the accelerometer sensor and the Nano R4 enclosure to prevent sensor movement that could affect measurement accuracy.
+- **Mounting Stability**: Make sure secure mechanical mounting of both the accelerometer sensor and the Nano R4 enclosure to prevent sensor movement that could affect measurement accuracy.
 - **Power Management**: Implement appropriate power supply filtering and protection circuits, especially in electrically noisy industrial environments with motor drives and switching equipment.
 - **Calibration Procedures**: Establish baseline measurements for each motor installation to account for mounting variations and motor-specific characteristics that may affect anomaly thresholds.
 - **Maintenance Integration**: Plan integration with existing maintenance management systems through data logging interfaces or communication protocols for complete predictive maintenance programs.
@@ -1188,7 +1188,7 @@ The unsupervised anomaly detection approach using K-means clustering requires on
 
 Building upon this foundation, several enhancements can further improve the motor anomaly detection system:
 
-- **Multi-Sensor Fusion**: Integrate additional sensors such as temperature, current or acoustic sensors to provide a more complete view of motor health and improve detection accuracy. The Modulino Movement's built-in gyroscope can provide additional motion analysis capabilities.
+- **Multi-Sensor Fusion**: Integrate additional sensors such as temperature, current or acoustic sensors to provide a more complete view of motor health and improve detection accuracy. The onboard IMU's built-in gyroscope can provide additional motion analysis capabilities.
 - **Wireless Communication**: Add wireless connectivity using the onboard LoRa module to enable remote monitoring and integration with existing plant systems.
 - **Advanced Analysis**: Implement data logging for trend analysis, industrial protocol integration for SCADA systems or multi-class fault classification to distinguish between different types of motor problems.
 
