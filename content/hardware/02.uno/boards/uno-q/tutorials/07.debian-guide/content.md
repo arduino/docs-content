@@ -696,6 +696,8 @@ sudo apt install screen
 screen /dev/ttyUSB0 115200
 ```
 
+![Serial devices (2)](assets/debian_serial_2.png)
+
 Serial devices are often configured with restricted permissions by default. Running `ls -l /dev/ttyUSB0` might show that only users in the `dialout` group have access.
 
 ```bash
