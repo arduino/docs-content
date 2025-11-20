@@ -151,7 +151,7 @@ This will list all available Apps (including examples), and their status:
 
 To set a board name using the `arduino-app-cli`, we can use the `set-name` command.
 
-```
+```sh
 arduino-app-cli system set-name "my-board"
 ```
 
