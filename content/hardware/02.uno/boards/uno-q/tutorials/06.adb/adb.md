@@ -50,7 +50,7 @@ To verify the tool is installed, run `adb version`.
 
 To install ADB tools on a **Debian/Ubuntu Linux distribution**, open a terminal and run the following command:
 
-```
+```sh
 sudo apt-get install android-sdk-platform-tools
 ```
 
