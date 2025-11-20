@@ -40,7 +40,7 @@ You can also access the board via SSH, which is typically installed on your syst
 
 ## Connect via SSH
 
-***Note: to use SSH, the [first setup](/tutorials/app-lab/getting-started) needs to be completed. This is done by connecting your board via USB, open the Arduino App Lab, and select the USB option. Here you will need to give your board a name, a new password as well as providing Wi-Fi® credentials. SSH will be automatically configured during this setup.***
+***Note: to use SSH, the [first setup](tutorials/getting-started) needs to be completed. This is done by connecting your board via USB, open the Arduino App Lab, and select the USB option. Here you will need to give your board a name, a new password as well as providing Wi-Fi® credentials. SSH will be automatically configured during this setup.***
 
 1. Open a terminal on your machine.
 2. Run `ssh arduino@<boardname>.local`
