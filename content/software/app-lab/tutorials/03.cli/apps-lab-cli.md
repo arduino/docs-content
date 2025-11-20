@@ -127,7 +127,7 @@ This will list the logs of the App:
 
 To run built-in examples and Apps that we create, we can use the `user` and `examples` shortcut (instead of specifying path).
 
-```
+```sh
 # run your own app
 arduino-app-cli app start user:my-app 
 
