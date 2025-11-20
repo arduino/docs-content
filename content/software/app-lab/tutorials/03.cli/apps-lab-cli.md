@@ -106,7 +106,7 @@ This will launch the App on your UNO Q board.
 
 To stop the App, use:
 
-```
+```sh
 arduino-app-cli app stop "/home/arduino/ArduinoApps/test"
 ```
 
