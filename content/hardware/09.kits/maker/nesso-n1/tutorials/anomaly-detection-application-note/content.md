@@ -41,7 +41,8 @@ This application note will help you to:
 - Train a machine learning model using Edge Impulse to detect anomalies based on vibration data.
 - Deploy the trained model directly to the Nesso N1 development kit for real-time anomaly detection without needing cloud connectivity.
 - Set up visual and audio feedback through the kit's built-in RGB LED, touch display, and buzzer to show detected anomalies and system status.
-- Leverage the Nesso N1's multiple connectivity protocols (Wi-Fi 6, LoRaWAN, Thread, Bluetooth 5.3) to transmit alerts and data to remote monitoring systems.
+- Leverage the Nesso N1's multiple connectivity protocols (Wi-Fi® 6, LoRa®, Thread, Bluetooth® 5.3) to transmit alerts and data to remote monitoring systems.
+
 - Create industrial predictive maintenance solutions using cost-effective embedded intelligence in a compact, pre-assembled enclosure.
 
 ## Hardware and Software Requirements
