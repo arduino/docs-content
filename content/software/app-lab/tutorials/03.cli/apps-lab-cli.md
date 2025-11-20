@@ -188,7 +188,7 @@ Currently, it is only possible to list available Bricks and specific details for
 
 This is done by running:
 
-```
+```sh
 # List out Bricks installed on the board
 arduino-app-cli brick list
 # Details for a specific Brick
