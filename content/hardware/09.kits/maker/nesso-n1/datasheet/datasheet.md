@@ -10,10 +10,10 @@ type: maker
 
 <p style="text-align: justify;">Arduino® Nesso N1 (hereafter Nesso N1) is a compact, all-in-one IoT development kit powered by the ESP32-C6 microcontroller, a single-core 32-bit RISC-V CPU running at up to 160 MHz. Designed for remote monitoring and automation applications, Nesso N1 combines multiple wireless protocols, such as Wi-Fi® 6, Bluetooth® 5.3, Thread®, and LoRa® into a sleek, portable form factor with an integrated 1.14" touch display and rechargeable 250 mAh battery. Built-in sensors include a 6-axis IMU, passive buzzer, and infrared transmitter, with expansion capabilities through Grove, Qwiic, and M5StickC HAT-compatible connectors.</p>
 
-<p style="text-align: justify;">Nesso N1 can be programmed using Arduino IDE, MicroPython, or UIFlow (2.0), and integrates seamlessly with Arduino Cloud for remote device management and data visualization. With comprehensive documentation, ready-to-use examples, and compatibility with Arduino Modulino® nodes and third-party accessories, Nesso N1 accelerates the development of connected devices for smart homes, industrial automation, and environmental monitoring.</p>
+<p style="text-align: justify;">Nesso N1 can be programmed using Arduino IDE, MicroPython, or UIFlow* (2.0), and integrates seamlessly with Arduino Cloud for remote device management and data visualization. With comprehensive documentation, ready-to-use examples, and compatibility with Arduino Modulino® nodes and third-party accessories, Nesso N1 accelerates the development of connected devices for smart homes, industrial automation, and environmental monitoring.</p>
 
 <div style="background-color: rgba(255, 193, 7, 0.2); border-left: 6px solid rgba(255, 152, 0, 1); margin: 20px 0; padding: 15px;">
-  <strong>UIFlow v2.0 Support:</strong> UIFlow v2.0 support for Nesso N1 will be available by end of Q4 2025.
+  <strong>* UIFlow v2.0 Support:</strong> UIFlow support is not yet available. Support will be available by the end of Q4 2025.
 </div>
 
 # Target Areas
@@ -361,10 +361,10 @@ Nesso N1 supports multiple programming methods:
 - **Arduino IDE** [1]
 - **Arduino Cloud Editor** [2]
 - **MicroPython**
-- **UIFlow v2.0**
+- **UIFlow v2.0***
 
 <div style="background-color: rgba(255, 193, 7, 0.2); border-left: 6px solid rgba(255, 152, 0, 1); margin: 20px 0; padding: 15px;">
-  <strong>UIFlow v2.0 Support:</strong> UIFlow v2.0 support is on the way for Nesso N1, with availability expected by the end of Q4 2025. This will provide a visual programming interface for rapid prototyping and educational applications.
+  <strong>* UIFlow v2.0 Support:</strong> UIFlow support is not yet available. UIFlow v2.0 support is on the way for Nesso N1, with availability expected by the end of Q4 2025. This will provide a visual programming interface for rapid prototyping and educational applications.
 </div>
 
 ## Device Operation
