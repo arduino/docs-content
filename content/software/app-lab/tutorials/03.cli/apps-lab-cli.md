@@ -114,7 +114,7 @@ arduino-app-cli app stop "/home/arduino/ArduinoApps/test"
 
 To monitor the logs of a running App, use the `logs` command:
 
-```
+```sh
 arduino-app-cli app logs /home/arduino/ArduinoApps/test --all
 ```
 
