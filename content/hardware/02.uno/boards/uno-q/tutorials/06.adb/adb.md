@@ -40,7 +40,7 @@ To install the ADB tools on **Windows**, we can use `winget`, supported on Windo
 
 Open a terminal and run the following:
 
-```
+```sh
 winget install Google.PlatformTools
 ```
 
