@@ -139,7 +139,7 @@ arduino-app-cli app start examples:blink
 
 To list available Apps, use the `app list` command.
 
-```
+```sh
 arduino-app-cli app list
 ```
 
