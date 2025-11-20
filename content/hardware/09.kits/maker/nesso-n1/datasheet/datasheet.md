@@ -513,6 +513,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Document Revision History
 
-|  **Date**  | **Revision** | **Changes**   |
-|:----------:|:------------:|---------------|
-| 14/10/2025 |      1       | First release |
+|  **Date**  | **Revision** | **Changes**                           |
+|:----------:|:------------:|---------------------------------------|
+| 20/11/2025 |     1.1      | Added UIFlow v2.0 support information |
+| 14/10/2025 |      1       | First release                         |
