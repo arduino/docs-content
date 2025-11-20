@@ -28,7 +28,7 @@ The ADB command line tool is supported on MacOS, Windows & Linux. For more speci
 
 To install the ADB tools on **MacOS**, we can use `homebrew`. Open the terminal and run the following command:
 
-```
+```sh
 brew install android-platform-tools
 ```
 
