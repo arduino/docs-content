@@ -163,7 +163,7 @@ The `system` command allows you to manage system configurations and updates on y
 
 To check for updates, run:
 
-```
+```sh
 arduino-app-cli system update
 ```
 This will prompt you to install any available updates.
