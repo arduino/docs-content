@@ -68,7 +68,7 @@ To manage Apps, we use the `app` command.
 
 To create an app, we can use:
 
-```
+```sh
 arduino-app-cli app new "test"
 ```
 
