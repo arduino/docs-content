@@ -24,7 +24,8 @@ software:
 
 ## Introduction
 
-Motor condition monitoring is crucial in industrial settings, where unexpected equipment failures can lead to significant downtime and high maintenance costs. This application note demonstrates how to construct a motor anomaly detection system utilizing the Nesso N1 development kit, its onboard 6-axis Inertial Measurement Unit (IMU), and Edge Impulse.
+Motor condition monitoring is crucial in industrial settings, where unexpected equipment failures can lead to significant downtime and high maintenance costs. This application note demonstrates how to construct a motor anomaly detection system utilizing the Nesso N1 development kit, its onboard 6-axis Inertial Measurement Unit (IMU), and Edge Impulse®.
+
 
 ![ ](assets/hero-banner.png)
 
