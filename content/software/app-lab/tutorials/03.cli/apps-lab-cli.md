@@ -88,7 +88,7 @@ adb pull /home/arduino/ArduinoApps /path/to/localfolder
 
 And to push it, use: 
 
-```
+```sh
 adb push /path/to/localfolder /home/arduino/ArduinoApps
 ```
 
