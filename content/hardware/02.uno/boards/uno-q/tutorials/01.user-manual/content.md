@@ -785,6 +785,35 @@ The `Bridge` library provides a communication layer built on top of the `Arduino
 - **MPU side (Qualcomm QRB, Linux)**: Runs higher-level services and can remotely invoke MCU functions.
 - **MCU side (STM32, Zephyr RTOS)**: Handles time-critical tasks and exposes functions to the MPU via RPC.
 
+#### The Arduino Router (Infrastructure)
+
+Under the hood, the communication is managed by a background Linux service called the Arduino Router (`arduino-router`).
+
+While the `Bridge` library is what you use in your code, the Router is the traffic controller that makes it possible. It implements a **Star Topology** network using MessagePack RPC.
+
+**Key Features:**
+
+- **Multipoint Communication:** Unlike simple serial communication (which is typically point-to-point), the Router allows multiple Linux processes to communicate with the MCU simultaneously. For example, you could have a Python script reading sensor data while a separate C++ application commands motors, both interacting with the same running Sketch.
+
+- **Service Discovery:** Clients (like your Python script or the MCU Sketch) "register" functions they want to expose. The Router keeps a directory of these functions and routes calls to the correct destination.
+
+**Managing the Router Service**
+
+The arduino-router runs automatically as a system service. In most cases, you do not need to interact with it directly. However, if you are debugging advanced issues or need to restart the communication stack, you can control it via the Linux terminal:
+
+**Check Status** To see if the router is running and connected:
+```bash
+systemctl status arduino-router
+```
+**Restart the Service** If the communication seems stuck, you can restart the router without rebooting the board:
+```bash
+sudo systemctl restart arduino-router
+```
+**View Logs** To view the real-time logs for debugging (e.g., to see if RPC messages are being rejected or if a client has disconnected):
+```bash
+journalctl -u arduino-router -f
+```
+
 #### Core Components
 
 `BridgeClass`
