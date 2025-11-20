@@ -147,15 +147,6 @@ This will list all available Apps (including examples), and their status:
 
 ![List Apps.](assets/list-apps.png)
 
-## Set Board Name
-
-To set a board name using the `arduino-app-cli`, we can use the `set-name` command.
-
-```sh
-arduino-app-cli system set-name "my-board"
-```
-
-This will change the name of the board, which will take effect after resetting the board.
 
 ## System Configuration and Updates
 
@@ -167,6 +158,13 @@ To check for updates, run:
 arduino-app-cli system update
 ```
 This will prompt you to install any available updates.
+
+To set the board name, use:
+
+```sh
+arduino-app-cli system set-name "my-board"
+```
+This will change the name of the board, which will take effect after resetting the board.
 
 To enable or disable the network mode, use:
 
