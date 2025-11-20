@@ -10,7 +10,9 @@ type: maker
 
 <p style="text-align: justify;">Arduino® Nesso N1 (hereafter Nesso N1) is a compact, all-in-one IoT development kit powered by the ESP32-C6 microcontroller, a single-core 32-bit RISC-V CPU running at up to 160 MHz. Designed for remote monitoring and automation applications, Nesso N1 combines multiple wireless protocols, such as Wi-Fi® 6, Bluetooth® 5.3, Thread®, and LoRa® into a sleek, portable form factor with an integrated 1.14" touch display and rechargeable 250 mAh battery. Built-in sensors include a 6-axis IMU, passive buzzer, and infrared transmitter, with expansion capabilities through Grove, Qwiic, and M5StickC HAT-compatible connectors.</p>
 
-<p style="text-align: justify;">Nesso N1 can be programmed using Arduino IDE, MicroPython, or UIFlow, and integrates seamlessly with Arduino Cloud for remote device management and data visualization. With comprehensive documentation, ready-to-use examples, and compatibility with Arduino Modulino® nodes and third-party accessories, Nesso N1 accelerates the development of connected devices for smart homes, industrial automation, and environmental monitoring.</p>
+<p style="text-align: justify;">Nesso N1 can be programmed using Arduino IDE, MicroPython, or UIFlow (2.0), and integrates seamlessly with Arduino Cloud for remote device management and data visualization. With comprehensive documentation, ready-to-use examples, and compatibility with Arduino Modulino® nodes and third-party accessories, Nesso N1 accelerates the development of connected devices for smart homes, industrial automation, and environmental monitoring.</p>
+
+***__Note:__ UIFlow v2.0 support for Nesso N1 will be available by end of Q4 2025.***
 
 # Target Areas
 
@@ -349,6 +351,17 @@ Use the limits below to define the operating environment, thermal margins, and p
 <p style="text-align: justify;">An infrared LED transmitter enables remote control applications for IR-compatible consumer devices such as TVs, air conditioners, and fans. The IR transmitter is GPIO-controlled via a transistor driver. It supports standard infrared remote control protocols, allowing the Nesso N1 to function as a universal remote or IoT gateway for traditional IR-based devices.</p>
 
 <div style="page-break-after: always;"></div>
+
+### Programming Options
+
+Nesso N1 supports multiple programming environments:
+
+- **Arduino IDE** [1]
+- **Arduino Cloud Editor** [2]
+- **MicroPython**
+- **UIFlow v2.0**(available end of Q4 2025)
+
+***__UIFlow v2.0 Support:__ UIFlow v2.0 support is on the way for Nesso N1, with availability expected by the end of Q4 2025. This will provide a visual programming interface for rapid prototyping and educational applications.***
 
 ## Device Operation
 
