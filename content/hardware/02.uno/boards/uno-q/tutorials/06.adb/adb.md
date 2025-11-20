@@ -28,7 +28,7 @@ The ADB command line tool is supported on MacOS, Windows & Linux. For more speci
 
 To install the ADB tools on **MacOS**, we can use `homebrew`. Open the terminal and run the following command:
 
-```sh
+```bash
 brew install android-platform-tools
 ```
 
@@ -40,7 +40,7 @@ To install the ADB tools on **Windows**, we can use `winget`, supported on Windo
 
 Open a terminal and run the following:
 
-```sh
+```bash
 winget install Google.PlatformTools
 ```
 
@@ -50,7 +50,7 @@ To verify the tool is installed, run `adb version`.
 
 To install ADB tools on a **Debian/Ubuntu Linux distribution**, open a terminal and run the following command:
 
-```sh
+```bash
 sudo apt-get install android-sdk-platform-tools
 ```
 
