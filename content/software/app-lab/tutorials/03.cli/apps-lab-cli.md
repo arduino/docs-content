@@ -170,7 +170,7 @@ This will prompt you to install any available updates.
 
 To enable or disable the network mode, use:
 
-```
+```sh
 arduino-app-cli system network enable/disable
 ```
 
