@@ -98,7 +98,7 @@ adb push /path/to/localfolder /home/arduino/ArduinoApps
 
 Once an App is created and edited, it can be launched through the following command:
 
-```
+```sh
 arduino-app-cli app start "/home/arduino/ArduinoApps/test"
 ```
 
