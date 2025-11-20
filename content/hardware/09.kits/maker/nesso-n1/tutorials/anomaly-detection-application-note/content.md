@@ -29,7 +29,8 @@ Motor condition monitoring is crucial in industrial settings, where unexpected e
 
 ![ ](assets/hero-banner.png)
 
-The developed system monitors vibration patterns in real-time to identify unusual operating conditions that may signal mechanical problems, wear, or potential failures. The system utilizes machine learning to identify vibration patterns that deviate from regular motor operation, enabling predictive maintenance. The Nesso N1's multiple connectivity options (Wi-Fi 6, LoRaWAN, Thread, and Bluetooth 5.3) enable flexible deployment in various industrial environments, ranging from local monitoring to long-range remote sensing applications.
+The developed system monitors vibration patterns in real-time to identify unusual operating conditions that may signal mechanical problems, wear, or potential failures. The system utilizes machine learning to identify vibration patterns that deviate from regular motor operation, enabling predictive maintenance. The Nesso N1's multiple connectivity options (Wi-Fi® 6, LoRa®, Thread, and Bluetooth® 5.3) enable flexible deployment in various industrial environments, ranging from local monitoring to long-range remote sensing applications.
+
 
 ## Goals
 
