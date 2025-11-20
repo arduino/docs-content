@@ -178,7 +178,7 @@ Network mode will enable SSH and allows clients to connect to the board over a l
 
 Finally, you can gain back some storage space by cleaning up unused containers and images by running:
 
-```
+```sh
 arduino-app-cli system cleanup
 ```
 
