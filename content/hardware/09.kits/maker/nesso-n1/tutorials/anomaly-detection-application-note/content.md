@@ -1874,7 +1874,8 @@ This application note demonstrates how to implement motor anomaly detection usin
 The solution uses the Nesso N1's ESP32-S3 dual-core processor to perform real-time anomaly detection directly on-device with inference times under 20 milliseconds, while Arduino Cloud integration enables remote monitoring without compromising edge processing performance.
 The unsupervised K-means clustering approach requires only normal operation data for training, making it practical for industrial deployment where fault data may be scarce. This methodology effectively detects previously unseen fault conditions that deviate from established normal patterns.
 
-The dual-mode architecture—edge processing with cloud connectivity—ensures system resilience through continued operation during network interruptions while providing remote monitoring capabilities when connected. Visual feedback through both local display and cloud dashboard widgets delivers intuitive status indication for operators and remote maintenance teams.s
+The dual-mode architecture, featuring edge processing with cloud connectivity, provides system resilience through continued operation during network interruptions, while also offering remote monitoring capabilities when connected. Visual feedback through both local display and cloud dashboard widgets delivers intuitive status indication for operators and remote maintenance teams.s
+
 
 ## Next Steps
 
