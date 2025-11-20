@@ -31,12 +31,12 @@ You can also access the board via SSH, which is typically installed on your syst
 
 >Note that it may take up to a minute for the device to appear after connecting it.
 
-1. Run `adb shell`. 
-2. You should now be inside your board's terminal.
+3. Run `adb shell`. 
+4. You should now be inside your board's terminal.
 
     ![Terminal on the board.](assets/board-terminal.png)
 
-3. You are now able to run commands via the terminal on your board! To exit from the terminal, simply type `exit`.
+5. You are now able to run commands via the terminal on your board! To exit from the terminal, simply type `exit`.
 
 >Note: If you have not set up your board prior to this via the Arduino App Lab, the first time you run a command that requires authentication (such as `sudo`), you will be prompted to create a new password.
 
