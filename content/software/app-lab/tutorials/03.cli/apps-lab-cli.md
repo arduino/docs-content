@@ -82,7 +82,7 @@ If you are accessing the board via `adb`, you can **pull** and **push** the file
 
 To pull the file, use:
 
-```
+```sh
 adb pull /home/arduino/ArduinoApps /path/to/localfolder
 ```
 
