@@ -1,6 +1,6 @@
 ---
 productsLibrariesMap:
-  - Servo 
-  - LiquidCrystal
-  - Arduino_CapacitiveTouch
+  - servo
+  - liquidCrystal
+  - arduino_CapacitiveTouch
 ---
