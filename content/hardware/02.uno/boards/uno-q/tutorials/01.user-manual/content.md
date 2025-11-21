@@ -816,20 +816,24 @@ journalctl -u arduino-router -f
 
 #### Core Components
 
-`BridgeClass`
-- Main class managing RPC clients and servers. Provides methods to:
-- Initialize the bridge (`begin()`)
-- Call remote procedures (`call()`)
-- Notify without waiting for a response (`notify()`)
-- Expose local functions for remote execution (`provide()`, `provide_safe()`)
-- Process incoming requests (`update()`)
+`BridgeClass` The main class managing RPC clients and servers.
+- `begin()`: Initializes the bridge and the internal serial transport.
+- `call(method, args...)`: Invokes a function on the Linux side and waits for a result.
+- `notify(method, args...)`: Invokes a function on the Linux side without waiting for a response (fire-and-forget).
+- `provide(name, function)`: Exposes a local MCU function to Linux. Note: The function executes in the high-priority background RPC thread. Keep these functions short and thread-safe.
+- `provide_safe(name, function)`: Exposes a local MCU function, but ensures it executes within the main `loop()` context. Use this if your function interacts with standard Arduino APIs (like `digitalWrite` or `Serial`) to avoid concurrency crashes.
+- `update()`: Process incoming requests.
 
+`RpcCall`
+- Helper class representing an asynchronous RPC. If its `.result` method is invoked, it waits for the response, extracts the return value, and propagates error codes if needed.
 
-`RpcResult`
-- Helper class representing the result of a remote call. It waits for the response, extracts the return value, and propagates error codes if needed.
+`Monitor` 
+- The library includes a pre-defined Monitor object. This allows the Linux side to send text streams to the MCU (acting like a virtual Serial Monitor) via the RPC method mon/write.
 
 **Threading and Safety**
 - The bridge uses Zephyr mutexes (`k_mutex`) to guarantee safe concurrent access when reading/writing over the transport. Updates are handled by a background thread that continuously polls for requests.
+- **Incoming Updates**: Handled by a dedicated background thread (`updateEntryPoint`) that continuously polls for requests.
+- **Safe Execution**: The provide_safe mechanism hooks into the main loop (`__loopHook`) to execute user callbacks safely when the processor is idle.
 
 #### Usage Example
 
