@@ -1396,7 +1396,7 @@ An 8 pin female header provides access to additional I/O and power pins. It is d
 
 ***The `BATTERY OUT` pin provides the direct, unregulated voltage from the LiPo battery. Be cautious when using this pin, as the voltage will vary depending on the charge level.***
 
-#### Using I2C M5StickC compatible HATs
+#### Using I2C M5StickC Compatible HATs
 
 M5StickC HATs that use I2C expect the bus on the D1 and D3 pins of this connector. On the Nesso N1 you must explicitly remap the I2C pins in your sketch so that:
 
