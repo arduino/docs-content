@@ -793,7 +793,11 @@ While the `Bridge` library is what you use in your code, the Router is the traff
 
 **Key Features:**
 
-- **Multipoint Communication:** Unlike simple serial communication (which is typically point-to-point), the Router allows multiple Linux processes to communicate with the MCU simultaneously. For example, you could have a Python script reading sensor data while a separate C++ application commands motors, both interacting with the same running Sketch.
+- **Multipoint Communication:** Unlike simple serial communication (which is typically point-to-point), the Router allows multiple Linux processes to communicate with the MCU simultaneously (and with each other).
+
+  **Linux ↔ MCU:** Multiple Linux processes can interact with the MCU simultaneously (e.g., a Python script reading sensors while a separate C++ application commands motors).
+
+  **Linux ↔ Linux:** You can use the Router to bridge different applications running on the MPU. For example, a Python script can expose an RPC function that another Python or C++ application calls directly, allowing services to exchange data without involving the MCU at all.
 
 - **Service Discovery:** Clients (like your Python script or the MCU Sketch) "register" functions they want to expose. The Router keeps a directory of these functions and routes calls to the correct destination.
 
@@ -814,6 +818,55 @@ sudo systemctl restart arduino-router
 journalctl -u arduino-router -f
 ```
 
+To capture more detailed information in the logs, you can append the `--verbose` argument to the systemd service configuration.
+
+- Open the service file for editing:
+  ```bash
+  sudo nano /etc/systemd/system/arduino-router.service
+  ```
+
+- Locate the line beginning with `ExecStart=` and append `--verbose` to the end of the command. The updated service file should look like this:
+
+  ```bash
+  [Unit]
+  Description=Arduino Router Service
+  After=network-online.target
+  Wants=network-online.target
+  Requires=
+
+  [Service]
+  # Put the micro in a ready state.
+  ExecStartPre=-/usr/bin/gpioset -c /dev/gpiochip1 -t0 37=0
+  ExecStart=/usr/bin/arduino-router --unix-port /var/run/arduino-router.sock --serial-port /dev/ttyHS1 --serial-baudrate 115200 --verbose # <--- ADD THIS
+  # End the boot animation after the router is started.
+  ExecStartPost=/usr/bin/gpioset -c /dev/gpiochip1 -t0 70=1
+  StandardOutput=journal
+  StandardError=journal
+  Restart=always
+  RestartSec=3
+
+  [Install]
+  WantedBy=multi-user.target
+  ```
+
+- You must reload the systemd daemon for the configuration changes to take effect.
+
+  ```bash
+  sudo systemctl daemon-reload
+  ```
+
+- Restart the Router:
+  
+  ```bash
+  sudo systemctl restart arduino-router
+  ```
+
+- View the verbose logs:
+  
+  ```bash
+  journalctl -u arduino-router -f
+  ```
+
 #### Core Components
 
 `BridgeClass` The main class managing RPC clients and servers.
@@ -822,7 +875,6 @@ journalctl -u arduino-router -f
 - `notify(method, args...)`: Invokes a function on the Linux side without waiting for a response (fire-and-forget).
 - `provide(name, function)`: Exposes a local MCU function to Linux. Note: The function executes in the high-priority background RPC thread. Keep these functions short and thread-safe.
 - `provide_safe(name, function)`: Exposes a local MCU function, but ensures it executes within the main `loop()` context. Use this if your function interacts with standard Arduino APIs (like `digitalWrite` or `Serial`) to avoid concurrency crashes.
-- `update()`: Process incoming requests.
 
 `RpcCall`
 - Helper class representing an asynchronous RPC. If its `.result` method is invoked, it waits for the response, extracts the return value, and propagates error codes if needed.
