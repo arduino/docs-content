@@ -374,7 +374,7 @@ If you want to program your Nesso N1 while offline you need to install the Ardui
 
 ### Getting Started - Arduino Cloud
 
-All Arduino IoT enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino IoT enabled products are supported on Arduino Cloud **[2]** which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Online Resources
 
@@ -502,7 +502,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | No. | Reference                      | Link                                                                                     |
 |:---:|--------------------------------|------------------------------------------------------------------------------------------|
 |  1  | Arduino IDE (Desktop)          | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)       |
-|  2  | Arduino IDE (Cloud)            | [https://create.arduino.cc/editor](https://create.arduino.cc/editor)                     |
+|  2  | Arduino Cloud                  | [https://cloud.arduino.cc/](https://cloud.arduino.cc/)                                   |
 |  3  | Arduino Nesso N1 Documentation | [https://docs.arduino.cc/hardware/nesso-n1/](https://docs.arduino.cc/hardware/nesso-n1/) |
 |  4  | Project Hub                    | [https://create.arduino.cc/projecthub](https://create.arduino.cc/projecthub)             |
 |  5  | Library Reference              | [https://github.com/arduino-libraries/](https://github.com/arduino-libraries/)           |
