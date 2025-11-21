@@ -797,7 +797,7 @@ While the `Bridge` library is what you use in your code, the Router is the traff
 
   **Linux ↔ MCU:** Multiple Linux processes can interact with the MCU simultaneously (e.g., a Python® script reading sensors while a separate C++ application commands motors).
 
-  **Linux ↔ Linux:** You can use the Router to bridge different applications running on the MPU. For example, a Python script can expose an RPC function that another Python or C++ application calls directly, allowing services to exchange data without involving the MCU at all.
+  **Linux ↔ Linux:** You can use the Router to bridge different applications running on the MPU. For example, a Python script can expose an RPC function that another Python® or C++ application calls directly, allowing services to exchange data without involving the MCU at all.
 
 - **Service Discovery:** Clients (like your Python script or the MCU Sketch) "register" functions they want to expose. The Router keeps a directory of these functions and routes calls to the correct destination.
 
