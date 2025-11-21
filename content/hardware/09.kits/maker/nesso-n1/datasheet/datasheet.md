@@ -359,7 +359,6 @@ Use the limits below to define the operating environment, thermal margins, and p
 Nesso N1 supports multiple programming methods:
 
 - **Arduino IDE** [1]
-- **Arduino Cloud Editor** [2]
 - **MicroPython**
 - **UIFlow v2.0***
 
