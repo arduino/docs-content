@@ -795,7 +795,7 @@ While the `Bridge` library is what you use in your code, the Router is the traff
 
 - **Multipoint Communication:** Unlike simple serial communication (which is typically point-to-point), the Router allows multiple Linux processes to communicate with the MCU simultaneously (and with each other).
 
-  **Linux ↔ MCU:** Multiple Linux processes can interact with the MCU simultaneously (e.g., a Python script reading sensors while a separate C++ application commands motors).
+  **Linux ↔ MCU:** Multiple Linux processes can interact with the MCU simultaneously (e.g., a Python® script reading sensors while a separate C++ application commands motors).
 
   **Linux ↔ Linux:** You can use the Router to bridge different applications running on the MPU. For example, a Python script can expose an RPC function that another Python or C++ application calls directly, allowing services to exchange data without involving the MCU at all.
 
