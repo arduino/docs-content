@@ -188,7 +188,8 @@ void loop()
 voltADC = rawADC * 3.3 / 4096.0;
 ```
 
-**14.** The `voltADC` variable gives us the voltage sensed directly on the PB09 pin. This voltage is passed through the voltage divider, so it is a fraction of the actual battery voltage. We can then calculate the equivilanet battery voltage as follows.
+**14.** The `voltADC` variable gives us the voltage sensed directly on the PB09 pin. This voltage is passed through the voltage divider, so it is a fraction of the actual battery voltage. We can then calculate the equivalent battery voltage as follows.
+
 ```arduino
 voltBat = max_Source_voltage * rawADC / 4096.0;
 ```
