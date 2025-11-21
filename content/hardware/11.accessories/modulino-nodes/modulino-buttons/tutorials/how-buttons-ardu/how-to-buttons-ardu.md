@@ -297,7 +297,7 @@ An example sketch, AddressChanger, is also included with the library inside the 
 - Connect the module to your board, remove any other modules that might be in the chain. Connection must be via I²C.
 - Upload the sketch.
 - Open the Serial Monitor.
-- Text should now appear. Make sure the correct bauld-rate is selected if the displayed characters seem corrupted.
+- Text should now appear. Make sure the correct baud rate is selected if the displayed characters seem corrupted.
 
   ![Expected console output](assets/adressChanger.png)
 
