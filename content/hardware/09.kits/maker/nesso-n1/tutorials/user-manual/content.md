@@ -1403,9 +1403,7 @@ If you encounter any issues or have questions while working with the Arduino Nes
 
 ### Help Center
 
-Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the Nesso N1. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
-
-- [Nesso N1 Help Center page](https://support.arduino.cc/hc/en-us/sections/)
+Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for our products. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
 ### Forum
 
