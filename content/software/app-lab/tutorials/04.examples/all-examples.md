@@ -1,5 +1,5 @@
 ---
-title: Arduino® UNO Q Applications
+title: Arduino® UNO Q Example Applications
 description: An overview of various applications developed for the Arduino® UNO Q platform, showcasing unique functionalities from environmental monitoring to machine learning.
 author: Karl Söderby and Christopher Méndez
 tags: [AI, Computer Vision, Audio Classification, Arduino App Lab]
@@ -182,23 +182,6 @@ The **System Resources Logger** monitors and displays real-time system performan
 - **dbstorage_tsstore:** Brick to store CPU and memory usage data in a time series database with retention and aggregation capability.
 - **web_ui:** Brick to create a web interface with real-time charts and historical data visualization.
 
-### Weather Forecast on LED Matrix
-
-![Weather Forecast on LED Matrix](assets/weather-forecast-on-led-matrix-hero.png)
-
-The **Weather Forecasting System** displays real-time weather information from the *open-meteo.com* service on the Arduino UNO Q LED matrix.
-
-[**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/weather-forecast)
-
-#### How it Works
-
-- **Weather Data:** The `weather_forecast` Brick fetches data from the *open-meteo.com* API.
-- **LED Display:** The Arduino sketch manages LED matrix animations based on weather conditions.
-
-#### Bricks Used
-
-- **weather_forecast:** Brick to fetch weather data from the open-meteo.com API and convert weather codes into simple categories.
-
 ### UNO Q Pin Toggle
 
 ![UNO Q Pin Toggle](assets/uno-q-pin-toggle-hero.png)
@@ -215,6 +198,23 @@ The **UNO Q Pin Toggle** example lets you control the state of every pin of the 
 #### Bricks Used
 
 - **web_ui:** Brick to create a web interface with the UNO Q illustration and allow real-time pin control.
+
+### Weather Forecast on LED Matrix
+
+![Weather Forecast on LED Matrix](assets/weather-forecast-on-led-matrix-hero.png)
+
+The **Weather Forecasting System** displays real-time weather information from the *open-meteo.com* service on the Arduino UNO Q LED matrix.
+
+[**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/weather-forecast)
+
+#### How it Works
+
+- **Weather Data:** The `weather_forecast` Brick fetches data from the *open-meteo.com* API.
+- **LED Display:** The Arduino sketch manages LED matrix animations based on weather conditions.
+
+#### Bricks Used
+
+- **weather_forecast:** Brick to fetch weather data from the open-meteo.com API and convert weather codes into simple categories.
 
 ## Examples Using Additional Hardware
 
