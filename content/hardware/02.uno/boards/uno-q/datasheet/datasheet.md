@@ -254,6 +254,8 @@ JMISC handles both domains: 1.8 V MPU lines sit alongside 3.3 V MCU signals (e.g
   MPU GPIO signals operate in the application processor's low-voltage domain (1.8 V). Ensure any connection to the microcontroller is level-compatible with its I/O voltage rail (3.3 V). For example, use a level shifter or an open-drain configuration with a pull-up to the microcontroller's I/O rail.
 </div>
 
+<div style="page-break-after: always;"></div>
+
 ## Hardware Acceleration
 
 <p style="text-align: justify;">The UNO Q provides hardware acceleration for both 3D graphics and video encoding/decoding through the integrated Adreno 702 GPU running at 845 MHz.</p>
