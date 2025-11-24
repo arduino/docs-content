@@ -80,7 +80,7 @@ To use the board in the Arduino IDE, you must install the latest version of the 
 1.  Open the Arduino IDE.
 2.  Navigate to **Boards Manager** (**Tools > Board > Boards Manager...**).
 3.  Search for **"esp32"** and find the package by **Espressif Systems**.
-4.  Click the **Install** (or Update) button.
+4.  Click the **Install** (or **Update**) button.
 5.  Once installed, select **Arduino Nesso N1** from the **Tools > Board > esp32** menu.
 
 ![Installing the esp32 Boards core in the Arduino IDE](assets/board-manager.png)
