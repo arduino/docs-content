@@ -118,7 +118,7 @@ The **Image Classification** example lets you perform image classification using
 
 #### How it Works
 
-- **Image Classification:** The `image_classification` Brick to classify objects within an image file.
+- **Image Classification:** The `image_classification` Brick classifies objects within an image file.
 - **Web Interface:** Supports image file upload and displays classification results with confidence scores.
 
 #### Bricks Used
@@ -249,7 +249,7 @@ The **Code Detector** scans barcodes and QR codes using a USB camera, displaying
 
 The **Detect Objects on Camera** example lets you detect objects on a live feed from a USB camera and visualize bounding boxes around the detections in real-time.
 
-[**Example Source Code**](hhttps://github.com/arduino/app-bricks-examples/tree/main/examples/video-generic-object-detection)
+[**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/video-generic-object-detection)
 
 #### Additional Hardware
 
@@ -271,7 +271,7 @@ The **Detect Objects on Camera** example lets you detect objects on a live feed 
 
 ![Face Detector on Camera](assets/face-detector-on-camera-hero.png)
 
-The **Face Detector on Camera** example lets you detect objects on a live feed from a USB camera and visualize bounding boxes around the detections in real-time.
+The **Face Detector on Camera** example lets you detect faces on a live feed from a USB camera and visualize bounding boxes around the detections in real-time.
 
 [**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/video-face-detection)
 
@@ -311,7 +311,7 @@ The **Hey Arduino!** example triggers an LED matrix animation whenever the keywo
 
 #### Bricks Used
 
-- **keyword_spotting:** this Brick is designed to detect sound patterns, triggering event in case of a match.
+- **keyword_spotting:** this Brick is designed to detect sound patterns, triggering an event in case of a match.
 
 ### Home Climate Monitoring
 
@@ -356,7 +356,7 @@ The **Real Time Accelerometer Data** example records accelerometer data from the
 
 #### Bricks Used
 
-- **motion_detection:** For processing accelerometer data and detect movement patterns using machine learning.
+- **motion_detection:** For processing accelerometer data and detecting movement patterns using machine learning.
 - **web_ui:** Brick to create a web interface to display the accelerometer data and the detected movements.
 
 ### Person Classifier on Camera
@@ -377,7 +377,7 @@ The **Person Classifier** example lets you detect people on a live feed from a c
 #### How it Works
 
 - **Video Stream:** Processes frames from a USB camera using the `video_imageclassification` Brick.
-- **Web Interface:** Displays the classification results and model controls, triggers a gretting on person detections.
+- **Web Interface:** Displays the classification results and model controls, triggers a greeting on person detections.
 
 #### Bricks Used
 
