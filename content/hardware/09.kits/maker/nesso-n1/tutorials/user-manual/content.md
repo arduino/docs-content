@@ -137,35 +137,30 @@ Because "Manual Devices" do not automatically generate a downloadable sketch, yo
 5.  Paste the following code into `arduino_secrets.h` and fill in your details:
 
     ```cpp
-    #define SECRET_SSID "YOUR_WIFI_SSID"
-    #define SECRET_OPTIONAL_PASS "YOUR_WIFI_PASSWORD"
-    #define SECRET_DEVICE_LOGIN_NAME "YOUR_DEVICE_ID" // From Step 1
-    #define SECRET_DEVICE_KEY "YOUR_SECRET_KEY"       // From Step 1
+    #define SECRET_WIFI_SSID "YOUR_WIFI_SSID"
+    #define SECRET_WIFI_PASS "YOUR_WIFI_PASSWORD"
+    #define SECRET_DEVICE_ID "YOUR_DEVICE_ID" // From Step 1
+    #define SECRET_DEVICE_KEY "YOUR_SECRET_KEY" // From Step 1
     ```
 
 6.  Create another new tab named `thingProperties.h` and paste the following configuration code:
 
     ```cpp
     #include <ArduinoIoTCloud.h>
-    #include <Arduino_ConnectionHandler.h>
     #include "arduino_secrets.h"
-
-    const char SSID[]     = SECRET_SSID;
-    const char PASS[]     = SECRET_OPTIONAL_PASS;
-    const char DEVICE_LOGIN_NAME[]  = SECRET_DEVICE_LOGIN_NAME;
-    const char DEVICE_KEY[]  = SECRET_DEVICE_KEY;
 
     void onLedChange();
 
     bool led;
 
-    void initProperties(){
-      ArduinoCloud.setBoardId(DEVICE_LOGIN_NAME);
-      ArduinoCloud.setSecretDeviceKey(DEVICE_KEY);
-      ArduinoCloud.addProperty(led, READWRITE, ON_CHANGE, onLedChange);
-    }
+    WiFiConnectionHandler ArduinoIoTPreferredConnection(SECRET_WIFI_SSID, SECRET_WIFI_PASS);
 
-    WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS);
+    void initProperties(){
+      ArduinoCloud.addProperty(led, READWRITE, ON_CHANGE, onLedChange);
+      
+      ArduinoCloud.setBoardId(SECRET_DEVICE_ID);
+      ArduinoCloud.setSecretDeviceKey(SECRET_DEVICE_KEY);
+    }
     ```
 
 7.  Finally, paste the main application code into your `.ino` file:
