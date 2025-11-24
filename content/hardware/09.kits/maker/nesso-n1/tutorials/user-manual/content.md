@@ -112,15 +112,16 @@ Follow these steps to connect your Nesso N1 to the Cloud.
 1.  Go to the [Things page](https://app.arduino.cc/things).
 2.  Click **+ THING** to create a new Thing.
 3.  Click **Select Device** and associate it with the "Manual Device" you just created.
-4.  Click **Add Variable** to create a test variable: **Name**: `led`, **Type**: Boolean, **Permission**: Read & Write, **Update Policy**: On Change.
+4.  Click **ADD** in Cloud Variables section to create a test variable: **Name**: `led`, **Type**: Boolean, **Permission**: Read & Write, **Update Policy**: On Change.
 5.  Click **Add Variable** to confirm.
 
 ### 3. Create a Dashboard
 
 1.  Go to the [Dashboards page](https://app.arduino.cc/dashboards).
-2.  Click **+ DASHBOARD**.
+2.  Click **+ DASHBOARD** and click **EDIT**.
 3.  Click **ADD** and select the **Things** tab.
 4.  Select your Thing and create a widget for the `led` variable (a Switch widget is recommended).
+5.  Click **DONE**.
 
 ### 4. Program the Board via Desktop IDE
 
