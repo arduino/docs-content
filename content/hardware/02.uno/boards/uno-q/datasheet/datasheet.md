@@ -254,6 +254,120 @@ JMISC handles both domains: 1.8 V MPU lines sit alongside 3.3 V MCU signals (e.g
   MPU GPIO signals operate in the application processor's low-voltage domain (1.8 V). Ensure any connection to the microcontroller is level-compatible with its I/O voltage rail (3.3 V). For example, use a level shifter or an open-drain configuration with a pull-up to the microcontroller's I/O rail.
 </div>
 
+## Hardware Acceleration
+
+<p style="text-align: justify;">The UNO Q provides hardware acceleration for both 3D graphics and video encoding/decoding through the integrated Adreno 702 GPU running at 845 MHz.</p>
+
+### Graphics Acceleration
+
+<p style="text-align: justify;">The Adreno 702 GPU provides hardware-accelerated 3D graphics rendering through open-source Mesa drivers. Applications can access GPU acceleration via standard graphics APIs, including OpenGL, OpenGL ES, Vulkan, and OpenCL.</p>
+
+| **Graphics API** | **Driver** | **Hardware Support** | **Current Driver Version** | **Device Name** |
+|------------------|------------|----------------------|----------------------------|------------------------|
+| Desktop OpenGL   | freedreno  | -                    | 3.1                        | FD702                  |
+| OpenGL ES        | freedreno  | 3.1                  | 3.1                        | FD702                  |
+| Vulkan           | turnip     | 1.1                  | 1.0.318                    | Turnip Adreno (TM) 702 |
+| OpenCL           | Mesa       | 2.0                  | 2.0                        | -                      |
+
+<p style="text-align: justify;">The Adreno 702 GPU features unified memory architecture, sharing system RAM with the CPU for data transfer. It supports 64-bit memory addressing and provides direct rendering capabilities for optimal graphics performance.</p>
+
+| **Parameter** | **Specification** |
+|--------------------------------|----------------------------------|
+| Clock Frequency                | 845 MHz                          |
+| Memory Architecture            | Unified (shared with system RAM) |
+| Available Video Memory         | 1740 MB                          |
+| Memory Addressing              | 64-bit                           |
+| Direct Rendering               | Yes                              |
+| Maximum 2D Texture Size        | 16384 × 16384 pixels             |
+| Maximum 3D Texture Size        | 2048³ voxels                     |
+| Maximum Cube Map Size          | 16384 × 16384 pixels             |
+| OpenGL Shading Language (GLSL) | 1.40                             |
+| OpenGL ES Shading Language     | 3.10 ES                          |
+
+<p style="text-align: justify;">The Mesa graphics stack provides full support for standard OpenGL extensions and features. Applications using OpenGL, OpenGL ES, or Vulkan will automatically use hardware acceleration without additional configuration. Standard graphics utilities such as <code>mesa-utils</code> and <code>vulkan-tools</code> work out of the box on the UNO Q.</p>
+
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+ <strong>Note:</strong> The OpenGL and Vulkan drivers are available through the <strong>freedreno (OpenGL/OpenGL ES)</strong> and <strong>turnip (Vulkan)</strong> open-source Mesa drivers, providing full transparency and community support. While the Adreno 702 hardware supports Vulkan 1.1, the current driver implementation provides Vulkan 1.0.318 with ongoing development for additional features.
+</div>
+
+### Video Acceleration
+
+<p style="text-align: justify;">The Adreno 702 GPU includes dedicated hardware video encoders and decoders accessible through the <code>V4L2 (Video4Linux2)</code> API via <code>/dev/video0</code> and <code>/dev/video1</code> devices. Hardware acceleration is available for the following video codecs:</p>
+
+| **Codec** | **Encoding** | **Decoding** | **GStreamer Element** |
+|--------------|--------------|--------------|---------------------------|
+| H.264 (AVC)  | Yes          | Yes          | v4l2h264enc / v4l2h264dec |
+| H.265 (HEVC) | Yes          | Yes          | v4l2h265enc / v4l2h265dec |
+| VP9          | No           | Yes          | v4l2vp9dec                |
+
+#### Video Encoding Capabilities
+
+<p style="text-align: justify;">The hardware video encoder offloads compression tasks from the CPU to dedicated encoding hardware, allowing real-time video capture and streaming. This reduces system power consumption and allows the CPU to focus on application logic rather than video processing.</p>
+
+| **Parameter** | **Specification** |
+|-------------------------|-----------------------------------------------------|
+| Maximum Resolution      | 1920×1080 (Full HD, 1080p)                          |
+| CPU Load Reduction      | Significant reduction compared to software encoding |
+| Bitrate Control         | Configurable constant/variable bitrate modes        |
+| Quality Parameters      | Adjustable encoding quality and compression ratio   |
+| Supported Pixel Formats | NV12, YUV420                                        |
+
+#### Video Decoding Capabilities
+
+<p style="text-align: justify;">The hardware video decoder enables smooth playback of compressed video streams with minimal CPU utilization. This is particularly beneficial for media player applications, video conferencing, and streaming services, where efficient decoding is essential for maintaining frame rates and reducing battery consumption.</p>
+
+| **Parameter** | **Specification** |
+|-------------------------|-----------------------------------------------------|
+| Maximum Resolution      | 1920×1080 (Full HD, 1080p)                          |
+| Performance             | Real-time decoding at 30 fps for Full HD            |
+| CPU Utilization         | Minimal CPU load during hardware-accelerated decode |
+| Use Cases               | Video playback, streaming, conferencing             |
+| Supported Pixel Formats | NV12, YUV420 output                                 |
+
+#### GStreamer Integration
+
+<p style="text-align: justify;">The recommended approach for accessing hardware video acceleration is through <strong>GStreamer</strong>, which provides a high-level pipeline interface to the V4L2 devices. The following GStreamer elements provide hardware-accelerated video processing:</p>
+
+**Example H.264 Decoding Pipeline:**
+```bash
+gst-launch-1.0 filesrc location=video.mp4 \
+ ! qtdemux name=demux demux.video_0 ! queue ! h264parse ! v4l2h264dec \
+  ! videoconvert ! autovideosink
+```
+
+**Example H.265 Encoding Pipeline:**
+```bash
+gst-launch-1.0 videotestsrc num-buffers=30 \
+ ! video/x-raw,width=1920,height=1080,framerate=30/1 \
+  ! v4l2h265enc ! h265parse ! mp4mux ! filesink location=output.mp4
+```
+
+**Example VP9 Decoding Pipeline:**
+```bash
+gst-launch-1.0 filesrc location=video.webm \
+ ! matroskademux ! queue ! v4l2vp9dec \
+  ! videoconvert ! autovideosink
+```
+
+**Concurrent Encoding/Decoding:**
+```bash
+gst-launch-1.0 -v videotestsrc num-buffers=1000 \
+ ! video/x-raw,format=NV12,width=1280,height=720,framerate=30/1 \
+  ! v4l2h264enc capture-io-mode=4 output-io-mode=2 ! h264parse \
+ ! v4l2h264dec capture-io-mode=4 output-io-mode=2 ! videoconvert \
+  ! autovideosink
+```
+
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+ <strong>Developer Access:</strong> The V4L2 video devices are accessible through standard Linux APIs, allowing direct integration into C/C++ applications using libv4l2 or through higher-level frameworks like GStreamer, FFmpeg, or OpenCV with V4L2 backend support.
+</div>
+
+### OpenCL Support
+
+<p style="text-align: justify;">OpenCL 2.0 support is available through the Mesa implementation, allowing general-purpose GPU (GPGPU) computing for parallel processing tasks, scientific computing, and compute-intensive operations. The Adreno 702's OpenCL capabilities allow offloading compute-intensive workloads from the CPU to the GPU for improved performance.</p>
+
+<div style="page-break-after: always;"></div>
+
 ## Peripherals
 
 ![UNO Q Peripherals](assets/ABX00162-ABX00173_headers.png)
@@ -538,7 +652,7 @@ For first time setting up:
 
 1. Install Arduino App Lab [1], launch it, and connect UNO Q, use a **USB-C data** cable for PC-hosted mode, or simply power the board for SBC mode.
 2. The board will automatically check for updates. If there are any updates available, you will be prompted to install them. Once the update is finished, the Arduino App Lab[1] will need to be restarted.
-3. During the first setup, you will be asked to provide a name and password for the device (default is `arduino` / `arduino`). You will also be asked to provide Wi-Fi® credentials for your local network.
+3. During the first setup, you will be asked to provide a name and password for the device. You will also be asked to provide Wi-Fi® credentials for your local network.
 4. To test the board, navigate to an example App in the **"Examples"** section of the Arduino App Lab[1], and click on the "Run" button in the top right corner. You can also create a new App in the **"Apps"** section.
 5. The status of the App can be monitored in the console tab of the App.
 
