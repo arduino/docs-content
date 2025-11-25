@@ -367,7 +367,6 @@ The **Person Classifier** example lets you detect people on a live feed from a c
 
 [**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/video-person-classification)
 
-
 #### Additional Hardware
 
 - USB camera
