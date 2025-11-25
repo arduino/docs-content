@@ -103,7 +103,7 @@ Follow these steps to connect your Nesso N1 to the Cloud.
 2.  Click **+ DEVICE**.
 3.  Select **Any Device** (under Manual Setup).
 4.  Click **Continue**.
-5.  Name your device (e.g., "MyNessoN1") and **Confirm**.
+5.  Name your device (e.g., "MyNessoN1") and confirm.
 6.  **Important:** A screen will appear with your **Device ID** and **Secret Key**. Save these credentials in a secure place immediately; you will not be able to view the Secret Key again.
 7.  **Check the box** confirming you have saved your credentials and click **Continue**.
 
