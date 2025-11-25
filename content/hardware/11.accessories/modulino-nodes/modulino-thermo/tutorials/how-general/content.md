@@ -49,41 +49,41 @@ The Modulino features two QWIIC connectors, which are internally connected in pa
 
 ### Solderable Header
 
-When QWIIC is not available, you can use the exposed solderable pins on the module. You can solder pins to the unpopulated pads; just remember the pinout provided in each module's guide to connect to the right pins of your board.
+When QWIIC is not available, you can use the exposed solderable pins on the node. You can solder pins to the unpopulated pads; just remember the pinout provided in each node's guide to connect to the right pins of your board.
 
 ![Solderable Header](assets/connection-guide-gen-jumper.png)
 
 ### Daisy-Chaining Multiple Modulino Nodes
 
-Regardless of whether you connect the first Modulino via QWIIC or through the solderable pins, you can still take advantage of the extra QWIIC connector to daisy-chain additional modules.
+Regardless of whether you connect the first Modulino via QWIIC or through the solderable pins, you can still take advantage of the extra QWIIC connector to daisy-chain additional nodes.
 
 ![QWIIC Chain](assets/connection-guide-thermo-qwiic-chain.png)
 
-Each Modulino includes two QWIIC connectors wired in parallel, allowing you to connect one module to the next in a chain. As long as each module is configured with a unique I²C address, they can all communicate on the same bus.
+Each Modulino includes two QWIIC connectors wired in parallel, allowing you to connect one node to the next in a chain. As long as each node is configured with a unique I²C address, they can all communicate on the same bus.
 
 This approach keeps your setup clean, modular, and expandable without adding extra wiring complexity.
 
 ***Important considerations for daisy-chaining:***
-- The number of modules you can connect will depend on what modules you are chaining together, as this system allows for multiple sensors from different manufacturers to be added
+- The number of nodes you can connect will depend on what nodes you are chaining together, as this system allows for multiple sensors from different manufacturers to be added
 - The cables you use for these connections will play a significant role in the setup's performance
 - Ensure your cables are properly connected and capable of handling the required data transfer
-- Each module should have a unique address on a chain if you plan to address them individually
-- Multiple modules with the same address will cause conflicts on the I²C bus and will not allow you to address them individually
+- Each node should have a unique address on a chain if you plan to address them individually
+- Multiple nodes with the same address will cause conflicts on the I²C bus and will not allow you to address them individually
 
 ## Power Specifications
 
-All Modulinos are typically powered by **+3.3 VDC** when using the QWIIC interface as per the I²C standard. Each module includes:
+All Modulino nodes are typically powered by **+3.3 VDC** when using the QWIIC interface as per the I²C standard. Each node includes:
 - Power LED indicator (typically draws 1 mA)
 - Shared power distribution between QWIIC connectors and headers
-- Protection against reverse polarity (on most modules)
+- Protection against reverse polarity (on most nodes)
 
-Always check your specific module's documentation for detailed power consumption specifications.
+Always check your specific node's documentation for detailed power consumption specifications.
 
 ## Installing The Modulino Library
 
 ### For Arduino IDE
 
-You need the official Modulino library to use any Modulino module with Arduino. The Arduino IDE provides tools that make adding a library straightforward.
+You need the official Modulino library to use any Modulino node with Arduino. The Arduino IDE provides tools that make adding a library straightforward.
 
 To install the IDE, please visit our [getting started page](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing/).
 
@@ -132,14 +132,16 @@ By default, the Modulino library uses `Wire1`. If your board model has a differe
 
 ## How To Change I²C Address
 
-Some Modulinos support software-configurable I²C addresses, allowing multiple identical modules to work on the same bus. Modules with fixed addresses cannot be changed and will require alternative solutions for multiple units.
+Some Modulino nodes support software-configurable I²C addresses, allowing multiple identical nodes to work on the same bus. Nodes with fixed addresses cannot be changed and will require alternative solutions for multiple units.
 
 ### For Arduino (Software-Configurable Modules)
 
-An example sketch, `AddressChanger`, is included with the library inside the `Utilities` folder and available [here](https://github.com/arduino-libraries/Modulino/blob/main/examples/Utilities/AddressChanger/AddressChanger.ino).![Sketch Location](assets/adressChangeFile.png)
+An example sketch, `AddressChanger`, is included with the library inside the `Utilities` folder and available [here](https://github.com/arduino-libraries/Modulino/blob/main/examples/Utilities/AddressChanger/AddressChanger.ino).
+
+![Sketch Location](assets/adressChangeFile.png)
 
 To change the address:
-1. Connect the module to your board (remove any other modules from the chain)
+1. Connect the node to your board (remove any other nodes from the chain)
 2. Upload the AddressChanger sketch
 3. Open the Serial Monitor
 4. Ensure the correct baud rate is selected if displayed characters seem corrupted
@@ -157,7 +159,7 @@ ModulinoBuzzer buzzer(0x3E); // Replace 0x3E with your specific address
 A script is available [here](https://github.com/arduino/arduino-modulino-mpy/blob/main/examples/change_address.py).
 
 To change the address:
-1. Connect the module to your board via I²C (ensure no other modules are in the chain)
+1. Connect the node to your board via I²C (ensure no other modules are in the chain)
 2. Run the script in a MicroPython environment
 3. Follow the on-screen instructions (REPL) to select the device and enter a new address
 4. The script will attempt to change the address and confirm success
@@ -169,11 +171,11 @@ buzzer_module = ModulinoBuzzer(address=0x45)  # Replace 0x45 with your specific 
 
 ### Tracking Address Changes
 
-To keep track of the address in use, modules have a white rectangle on the back. Use this space to write the selected address for future reference.
+To keep track of the address in use, nodes have a white rectangle on the back. Use this space to write the selected address for future reference.
 
-## Module Addressing Reference
+## Node Addressing Reference
 
-| Module | Default Modulino Address | Hardware Address | Configurable |
+| Node | Default Modulino Address | Hardware Address | Configurable |
 |--------|-------------------------|------------------|--------------|
 | Buttons | 0x7C | 0x3E | Software |
 | Buzzer | 0x3C | 0x1E | Software |
@@ -183,17 +185,17 @@ To keep track of the address in use, modules have a white rectangle on the back.
 | Pixels | 0x6C | 0x36 | Software |
 | Thermo | 0x44 | 0x44 | No |
 
-When scanning for I²C addresses on the bus, you might find the modulino using the **Hardware I²C Address**. However, you should always use the **Modulino I²C Address** when using the official Modulino library.
+When scanning for I²C addresses on the bus, you might find the Modulino node using the **Hardware I²C Address**. However, you should always use the **Modulino I²C Address** when using the official Modulino library.
 
 ## General Troubleshooting
 
-### Module Not Responding
+### Node Not Responding
 
-If your Modulino's power LED isn't on or the module isn't responsive:
+If your Modulino's power LED isn't on or the node isn't responsive:
 - Ensure both the board and the Modulino are connected to your computer
 - Verify that the power LEDs on both are lit
 - Check that the QWIIC cable is properly clicked into place
-- Verify the module is receiving 3.3V power
+- Verify the node is receiving 3.3V power
 
 ### Library Not Installed Properly
 
@@ -230,18 +232,18 @@ If you encounter an issue with `from modulino import` commands:
 
 2. **Cable Management**: Use appropriate length QWIIC cables. Excessive cable length can cause signal degradation.
 
-3. **Address Management**: Document all address changes on the white label provided on each module.
+3. **Address Management**: Document all address changes on the white label provided on each node.
 
-4. **Environmental Considerations**: Keep modules away from sources of electromagnetic interference, excessive heat, or moisture unless specifically rated for such conditions.
+4. **Environmental Considerations**: Keep nodes away from sources of electromagnetic interference, excessive heat, or moisture unless specifically rated for such conditions.
 
-5. **Development Workflow**: Test modules individually before connecting them in a chain to isolate any issues.
+5. **Development Workflow**: Test nodes individually before connecting them in a chain to isolate any issues.
 
 ## What's Next?
 
 Now that you understand the fundamentals of the Modulino system:
-- Explore individual module guides for specific features and capabilities
-- Experiment with combining multiple modules in your projects
+- Explore individual node guides for specific features and capabilities
+- Experiment with combining multiple nodes in your projects
 - Share your creations with the Arduino community
-- Check for updates and new modules in the Modulino ecosystem
+- Check for updates and new nodes in the Modulino ecosystem
 
-For detailed information about specific modules, refer to their individual documentation pages, which include pinouts, specifications, and programming examples for both Arduino and MicroPython.
+For detailed information about specific nodes, refer to their individual documentation pages, which include pinouts, specifications, and programming examples for both Arduino and MicroPython.
