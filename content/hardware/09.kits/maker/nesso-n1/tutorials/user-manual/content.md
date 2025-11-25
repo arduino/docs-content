@@ -153,7 +153,7 @@ Because "Manual Devices" do not automatically generate a downloadable sketch, yo
     WiFiConnectionHandler ArduinoIoTPreferredConnection(SECRET_WIFI_SSID, SECRET_WIFI_PASS);
 
     void initProperties(){
-      ArduinoCloud.addProperty(led, READWRITE, ON_CHANGE, onLedChange);
+      ArduinoCloud.addProperty(led, Permission::ReadWrite).onUpdate(onLedChange);
       
       ArduinoCloud.setBoardId(SECRET_DEVICE_ID);
       ArduinoCloud.setSecretDeviceKey(SECRET_DEVICE_KEY);
