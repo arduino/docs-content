@@ -1,0 +1,14 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - cloud-editor
+hardware:
+  shields: ~
+  carriers: ~
+  boards: 
+    - uno-rev3
+    - uno-rev3-smd
+    - uno-wifi-rev2
+    - uno-r4-wifi
+    - uno-r4-minima
+    - uno-q

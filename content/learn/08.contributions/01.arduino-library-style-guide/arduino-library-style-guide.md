@@ -12,7 +12,7 @@ This is a style guide to writing library APIs in an Arduino style. Some of these
 
 **Match your API to the underlying capabilities.** You don’t want to expose implementation details to the user but you also don’t want an API that suggests an inaccurate mental model of the possibilities. For example, if there are only a few possible options for a particular setting, don’t use a function that takes an int, as it implies you can use any value you want.
 
-**Organize your public functions around the data and functionality that the user wants.** Quite often, the command set for a particular electronic module is overly complicated for the most common uses, or can be re-organized around higher level functionality. Think about what the average person thinks the thing does, and try to organise your API functions around that. Adafruit's [BMP085 library](https://github.com/adafruit/Adafruit-BMP085-Library) is a good example. The `readPressure()` function performs all the necessary steps to get the final pressure. The library wraps this commonly executed series of functions into a high-level single command which returns the value the user's looking for in a format she expects. It abstracts away not only the low-level I2C commands, but also the mid-level temperature and pressure calculations, while still offering those mid-level functions as public functions for those who want them.
+**Organize your public functions around the data and functionality that the user wants.** Quite often, the command set for a particular electronic module is overly complicated for the most common uses, or can be re-organized around higher level functionality. Think about what the average person thinks the thing does, and try to organise your API functions around that. The Adafruit® [BMP085 library](https://github.com/adafruit/Adafruit-BMP085-Library) is a good example. The `readPressure()` function performs all the necessary steps to get the final pressure. The library wraps this commonly executed series of functions into a high-level single command which returns the value the user's looking for in a format she expects. It abstracts away not only the low-level I2C commands, but also the mid-level temperature and pressure calculations, while still offering those mid-level functions as public functions for those who want them.
 
 **Use full, everyday words.** Don’t be terse with your function names or variables. Use everyday terms instead of technical ones. Pick terms that correspond to popular perception of the concept at hand. Don’t assume specialized knowledge. For example, this is why we used `analogWrite()` rather than `pwm()`. Abbreviations are acceptable, though, if they’re in common use or are the primary name for something. For example, “HTML” is relatively common and “SPI” is effectively the name of that protocol (“serial-peripheral interface” is probably too long). (“Wire” was probably a mistake, as the protocol it uses is typically called “TWI” or “I2C”.)
 
@@ -49,26 +49,27 @@ void printArray(char[] array);
 Though there are some libraries where we pass pointers by using structures like const chars, avoid anything that requires the user to pass them. For example,rather than:
 
 ```arduino
-  foo.readAccel(&x, &y, &z);
+foo.readAccel(&x, &y, &z);
 ```
 
 use something like this:
 
 ```arduino
-  xAxis = adxl.readX();
-  yAxis = adxl.readY();
-  zAxis = adxl.readZ();
+xAxis = adxl.readX();
+yAxis = adxl.readY();
+zAxis = adxl.readZ();
 ```
 
 When using serial communication, allow the user to specify any `Stream` object, rather than hard-coding `Serial`. This will make your library compatible with all serial ports on boards with multiple (e.g., Mega), and can also use alternate interfaces like SoftwareSerial. The Stream object can be passed to your library's constructor or to a `begin()` function (as a reference, not a pointer). See [Firmata 2.3](https://www.arduino.cc/reference/en/libraries/firmata/) or [XBee 0.4](https://github.com/andrewrapp/xbee-arduino) for examples of each approach.
 
 When writing a library that provides byte-stream communication, inherit Arduino's `Stream` class, so your library can be used with all other libraries that accept `Stream` objects. If possible, buffer incoming data, so that `read()` immediately accesses the buffer but does not wait for more data to arrive. If possible, your `write()` method should store data to a transmit buffer, but `write()` must wait if the buffer does not have enough space to immediately store all outgoing data. The `yield()` function should be called while waiting.
 
-Here are a few libraries that are exemplary from Adafruit. She breaks the functions of the devices down into their high-level activities really well. 
+Here are a few libraries that are exemplary from Adafruit®. She breaks the functions of the devices down into their high-level activities really well. 
 
 * https://github.com/adafruit/Adafruit-BMP085-Library 
 * https://github.com/adafruit/DHT-sensor-library 
 
 This does a nice job of abstracting from the Wire (I2C) library: https://github.com/adafruit/RTClib 
+
 
 The text of the Arduino reference is licensed under a [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the reference are released into the public domain.

@@ -1,0 +1,13 @@
+software:
+  - app-lab
+  - arduino-ide
+  - arduino-cli
+  - cloud-editor
+hardware:
+  boards: ~
+  carriers: 
+  shields: 
+    - 4-relays-shield
+    - motor-shield-rev3
+    - spe-shield
+    - 9-axis-motion-shield

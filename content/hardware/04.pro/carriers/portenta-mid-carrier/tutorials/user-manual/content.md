@@ -179,7 +179,7 @@ The complete schematics are available and downloadable as PDF from the link belo
 
 The complete _STEP_ files are available and downloadable from the link below:
 
-- [Portenta Mid Carrier STEP files](assets/ASX00055-step.zip)
+- [Portenta Mid Carrier STEP files](../../downloads/ASX00055-step.zip)
 
 ### Mechanical Information
 
@@ -187,7 +187,7 @@ In this section, you can find mechanical information about the Portenta Mid Carr
 
 Suppose you desire to design and manufacture a custom mounting device or create a custom enclosure for your carrier. In that case, the following image shows the dimensions for the mounting holes and general board layout. The given dimensions are all in **millimeters [mm]**.
 
-You can also access the STEP files, available [here](assets/ASX00055-step.zip).
+You can also access the STEP files, available [here](../../downloads/ASX00055-step.zip).
 
 ![Portenta Mid Carrier Dimension Outline](assets/portentaMIDcarrier_Outline.png)
 
@@ -659,7 +659,8 @@ To accommodate the power requirements and ensure reliable connectivity, jumper c
 This precaution is necessary to prevent wire overheating and ensure reliable power transmission for the connected Mini PCIe-compatible module, such as Cat.4 modems. A minimum requirement to set the mini PCIe interface with the Portenta Mid Carrier consists of:
 
 - **3V3 PCIE** pin connected to **3V3 BUCK** pin
-- Properly inserted mini PCIe module, e.g., Pro 4G GNSS Module Global (EG25) / Pro 4G EMEA (EC200A-EU) Module
+- **OUT VCC** pin connected to **3V3 BUCK EN** pin
+- Properly inserted mini PCIe module, e.g., [Pro 4G GNSS Module Global (EG25)](https://store.arduino.cc/products/4g-module-global) / [Pro 4G EMEA (EC200A-EU)](https://store.arduino.cc/products/4g-module-emea) Module
 
 ***Please use a 5.0 V external power source when using an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules due to their high power consumption. This is important for maintaining a stable power supply to the Portenta SOM and the carrier, particularly for extended periods of use.***
 
@@ -2501,6 +2502,23 @@ These parameters are always required to use the SIM functionalities within the m
 It will show a similar result when the Portenta C33 is used as the core device with the Portenta Mid Carrier and the Pro 4G Module:
 
 ![Portenta C33 & Pro 4G Module - HTTPClient Example](assets/portentaMIDcarrier_c33_mpcie_4gmodem_result.png)
+
+In case the example encounters a `301` error like the following:
+
+```bash
+<head><title>301 Moved Permanently</title></head>
+```
+
+Try updating the `server[]` and `resource[]` to use a different HTTP endpoint of your preference, or use this testing service:
+
+```
+const char server[]   = "httpbin.org";
+const char resource[] = "/get";
+```
+
+You should see a result similar to the following:
+
+![Portenta C33 & Pro 4G Module - HTTPClient Example](assets/portentaMIDcarrier_c33_mpcie_4gmodem_result_2.png)
 
 You may find additional examples within the library to try various functionalities such as deleting SMS, getting GPS location, and connecting to web servers securely:
 
@@ -4378,7 +4396,7 @@ while (Wire.available()) {
 }
 ```
 
-For example, just as we have implemented with the Portenta X8, this setup can be replicated with the Portenta H7 and C33 models. In this context, the [Adafruit BME280 library](https://www.arduino.cc/reference/en/libraries/adafruit-bme280-library/), which works in conjunction with the [`Wire` library](https://reference.arduino.cc/reference/en/language/functions/communication/wire/), is suitable for similar objectives of already implementing calibration functions.
+For example, just as we have implemented with the Portenta X8, this setup can be replicated with the Portenta H7 and C33 models. In this context, the [Adafruit® BME280 library](https://www.arduino.cc/reference/en/libraries/adafruit-bme280-library/), which works in conjunction with the [`Wire` library](https://reference.arduino.cc/reference/en/language/functions/communication/wire/), is suitable for similar objectives of already implementing calibration functions.
 
 This library is accessible through the Library Manager in the Arduino IDE, and the *`bme280test`* example from it will be used to obtain readings from the BME280 sensor. 
 

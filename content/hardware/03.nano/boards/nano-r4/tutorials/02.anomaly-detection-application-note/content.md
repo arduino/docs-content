@@ -1,6 +1,6 @@
 ---
-title: 'Motor Anomaly Detection with the Arduino® Nano R4'
-description: "This application note describes how to implement a motor anomaly detection system using the Nano R4 board, the ADXL335 accelerometer and Edge Impulse."
+title: 'Motor Anomaly Detection with the Nano R4'
+description: "This application note describes how to implement a motor anomaly detection system using the Nano R4 board, an accelerometer and Edge Impulse."
 difficulty: intermediate
 compatible-products: [nano-r4]
 tags:
@@ -12,9 +12,11 @@ tags:
   - Edge Impulse
   - ADXL335
   - Nano R4
+  - Modulino Movement
 author: 'José Bagur'
 hardware:
-  - hardware/04.pro/boards/nano-r4
+  - hardware/03.nano/boards/nano-r4
+  - hardware/11.accessories/modulino-nodes/modulino-movement
 software:
   - ide-v2
   - edge-impulse
@@ -22,7 +24,7 @@ software:
 
 ## Introduction
 
-Motor condition monitoring is essential in industrial settings where unexpected equipment failures can cause significant downtime and high maintenance costs. This application note shows how to build a motor anomaly detection system using the Nano R4 board, an ADXL335 accelerometer and Edge Impulse®.
+Motor condition monitoring is essential in industrial settings where unexpected equipment failures can cause significant downtime and high maintenance costs. This application note shows how to build a motor anomaly detection system using the Nano R4 board, an accelerometer and Edge Impulse®.
 
 ![ ](assets/hero-banner.png)
 
@@ -44,9 +46,10 @@ This application note will help you to:
 ### Hardware Requirements
 
 - [Arduino Nano R4](https://store.arduino.cc/products/nano-r4) (x1)
-- [ADXL335 accelerometer breakout board](https://www.adafruit.com/product/163) (x1)
+- [ADXL335 accelerometer breakout board](https://www.adafruit.com/product/163) (x1) or [Modulino Movement](https://store.arduino.cc/products/modulino-movement) (x1)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
-- Breadboard and jumper wires (x1 set)
+- [Qwiic cable](https://store.arduino.cc/products/qwiic-cables-bundle) (x1) (only required if using Modulino Movement option)
+- Breadboard and jumper wires (x1 set) (only required if using ADXL335 option)
 - Motor or rotating equipment for testing (for example, a small DC motor or fan) (x1)
 - Power supply for the motor (if needed) (x1)
 
@@ -54,6 +57,7 @@ This application note will help you to:
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
 - [Arduino Renesas Core](https://github.com/arduino/ArduinoCore-renesas) (needed for the Nano R4 board)
+- [Modulino library](https://github.com/arduino-libraries/Arduino_Modulino) (only required if using Modulino Movement option)
 - [Edge Impulse account](https://studio.edgeimpulse.com/) (free tier available)
 - [Edge Impulse CLI tools](https://docs.edgeimpulse.com/docs/cli-installation) for data collection
 
@@ -61,17 +65,29 @@ This application note will help you to:
 
 ## Hardware Setup Overview
 
-The electrical connections for the motor anomaly detection system are shown in the diagram below:
+The electrical connections for the motor anomaly detection system are shown in the diagrams below. Choose the setup that matches your selected accelerometer option.
 
-![The motor anomaly detection system hardware setup](assets/hardware-setup.png)
+**1. Option 1: ADXL335 Accelerometer Setup**
 
-This diagram shows how the system components connect. **The Nano R4 board acts as the main controller**, while **the ADXL335 accelerometer collects vibration data** from the motor.
+![The motor anomaly detection system hardware setup with the ADXL335](assets/hardware-setup-adxl335.png)
+
+This diagram shows the system components using the ADXL335 accelerometer. **The Nano R4 board acts as the main controller**, while **the ADXL335 accelerometer collects vibration data** from the motor through direct analog connections.
 
 The ADXL335 accelerometer connects to the Nano R4 board using analog input pins. In this setup, an external +5 VDC power supply powers both the Nano R4 and the test motor, while the ADXL335 gets power through its built-in voltage regulator from the board's +5 VDC pin.
+
+**2. Option 2: Modulino Movement Setup**
+
+![The motor anomaly detection system hardware setup with the Modulino Movement](assets/hardware-setup-modulino.png)
+
+This diagram shows the system components using the Modulino Movement. **The Nano R4 board acts as the main controller**, while **the Modulino Movement collects vibration data** from the motor through I²C digital communication via the Qwiic connector.
+
+The Modulino Movement connects to the Nano R4 board using a Qwiic cable for plug-and-play connectivity. The Modulino operates at +3.3 VDC and communicates digitally, providing higher precision measurements and additional features like gyroscope data.
 
 ***__Important note__: This power setup is for testing and demonstration only. In real industrial environments, proper power system design should include electrical isolation, noise filtering, surge protection and compliance with industrial safety standards for your specific application.***
 
 ### Circuit Connections
+
+**1. ADXL335 Accelerometer Connections**
 
 The following connections establish the interface between the Nano R4 board and the ADXL335 accelerometer:
 
@@ -84,11 +100,24 @@ The following connections establish the interface between the Nano R4 board and 
 |       `Z`       |       `A2`      | Z-axis analog output |
 |       `ST`      |  Not connected  | Self-test (optional) |
 
+**2. Modulino Movement Connections**
+
+The following connections establish the interface between the Nano R4 board and the Modulino Movement:
+
+| **Modulino Movement** | **Nano R4 Pin** |       **Description**      |
+|:---------------------:|:---------------:|:--------------------------:|
+|         `VCC`         |      `3V3`      |        Power supply        |
+|         `GND`         |      `GND`      |      Ground reference      |
+|         `SDA`         |       `A4`      |  I²C data line (via Qwiic) |
+|         `SCL`         |       `A5`      | I²C clock line (via Qwiic) |
+
+***The Modulino Movement connects via Qwiic cable to the Nano R4's onboard Qwiic connector, eliminating breadboard wiring. The default I²C address is `0x6A`.***
+
 ### Physical Mounting Considerations
 
 Proper accelerometer mounting is essential for effective vibration monitoring. The sensor must be securely attached to the motor housing or equipment using appropriate mechanical fasteners. Good mechanical connection between the mounting surface and sensor ensures accurate vibration transmission and reliable measurements.
 
-***For this application note, we will use a computer cooling fan to simulate motor operation and demonstrate the anomaly detection system. The ADXL335 accelerometer will be mounted on top of the fan using a custom 3D-printed enclosure, providing a stable and consistent mounting solution for testing.***
+***For this application note, we will use a computer cooling fan to simulate motor operation and demonstrate the anomaly detection system. Either the ADXL335 accelerometer or the Modulino Movement can be mounted on top of the fan using a custom 3D-printed enclosure, providing a stable and consistent mounting solution for testing.***
 
 ## Understanding Motor Vibration Analysis
 
@@ -108,9 +137,13 @@ Common motor faults that can be detected through vibration analysis include:
 
 Effective motor condition monitoring relies on sensors that can accurately detect and measure mechanical vibrations. These sensors must capture the small changes in vibration patterns that indicate developing faults or abnormal operating conditions. The choice of sensor technology directly affects the system's ability to detect problems early and provide reliable maintenance information.
 
-This application note uses the [ADXL335 accelerometer](https://www.analog.com/media/en/technical-documentation/data-sheets/adxl335.pdf) to provide accurate, real-time measurements of motor vibrations. The ADXL335 offers several key advantages for motor monitoring applications:
+This application note supports two accelerometer options, each offering distinct advantages for motor vibration monitoring applications.
 
-- **3-Axis measurement**: Captures vibrations in X, Y, and Z directions 
+**1. ADXL335 Analog Accelerometer**
+
+The [ADXL335 accelerometer](https://www.analog.com/media/en/technical-documentation/data-sheets/adxl335.pdf) provides accurate, real-time measurements of motor vibrations with several key advantages:
+
+- **3-Axis measurement**: Captures vibrations in X, Y, and Z directions
 - **Analog output**: Direct compatibility with the Nano R4 board analog inputs without needing complex digital interfaces
 - **Low power consumption**: Only 320 μA current consumption makes it suitable for continuous monitoring applications
 - **Wide frequency range**: 0.5 Hz to 1600 Hz bandwidth covers most common motor fault frequencies
@@ -124,7 +157,42 @@ The ADXL335 technical specifications include:
 |       Output      | Ratiometric analog voltages |       +1.65 VDC represents 0g acceleration       |
 |    Power supply   |       +1.8 to +3.6 VDC      | Usually regulated to +3.3 VDC on breakout boards |
 
-Signal processing considerations include selecting appropriate sampling rates based on the expected frequency content of motor vibrations, typically following the Nyquist rule to avoid aliasing. The Nano R4 board's 14-bit ADC provides sufficient resolution for most vibration monitoring applications.
+**2. Modulino Movement (LSM6DSOXTR)**
+
+The Modulino Movement features the [LSM6DSOXTR](https://www.st.com/resource/en/datasheet/lsm6dsox.pdf) 6-axis inertial measurement unit, offering advanced capabilities for vibration monitoring:
+
+- **6-Axis measurement**: 3-axis accelerometer + 3-axis gyroscope for comprehensive motion analysis
+- **Digital I²C interface**: High-precision 16-bit digital output with built-in noise filtering
+- **Configurable ranges**: ±2g, ±4g, ±8g, ±16g selectable ranges for different vibration amplitudes
+- **High sampling rate**: Up to 6.7 kHz sampling rate for detailed frequency analysis
+- **Low power operation**: Advanced power management with multiple operating modes
+
+The Modulino Movement technical specifications include:
+
+| **Specification** |              **Value**             |                   **Notes**                   |
+|:-----------------:|:----------------------------------:|:---------------------------------------------:|
+| Measurement range | ±2g, ±4g, ±8g, ±16g (configurable) | Adaptable to different motor vibration levels |
+|     Resolution    |               16-bit               | Superior precision compared to analog systems |
+|     Data rate     |            Up to 6.7 kHz           |   High-frequency vibration analysis capable   |
+|   Communication   |             I²C digital            |  Immune to electrical noise and interference  |
+|    Power supply   |              +3.3 VDC              |     Low power consumption with sleep modes    |
+
+**3. Sensor Selection Considerations**
+
+Choose the ADXL335 if you prefer:
+
+- Simple analog signal processing
+- Direct connection without complex protocols
+- Cost-effective solution for basic vibration monitoring
+
+Choose the Modulino Movement if you need:
+
+- Higher precision and configurable measurement ranges
+- Additional gyroscope data for advanced motion analysis
+- Digital noise immunity and built-in filtering
+- Professional-grade applications requiring maximum accuracy
+
+Signal processing considerations include selecting appropriate sampling rates based on the expected frequency content of motor vibrations, typically following the Nyquist rule to avoid aliasing. The Nano R4 board's 14-bit ADC provides sufficient resolution for analog sensors, while the Modulino Movement's 16-bit digital output offers even higher precision for demanding applications.
 
 ## Simple Vibration Monitor Example Sketch
 
@@ -134,48 +202,100 @@ Edge Impulse needs training data in a specific format to build effective anomaly
 
 This section breaks down the example sketch and guides you through its functionality. We will explore how the accelerometer is initialized, how vibration data is collected at consistent intervals, and how the results are formatted for Edge Impulse data collection and model training.
 
+***This example sketch supports both the ADXL335 and Modulino Movement options. Simply uncomment the sensor definition that matches your hardware setup.***
+
 The complete example sketch is shown below.
 
 ```arduino
 /**
   Motor Vibration Data Collection for Edge Impulse
   Name: motor_vibration_collector.ino
-  Purpose: This sketch reads 3-axis acceleration data from an ADXL335 
-  accelerometer connected to an Arduino Nano R4. The data is formatted 
-  for Edge Impulse data collection and training.
+  Purpose: This sketch reads 3-axis acceleration data from either an ADXL335 
+  accelerometer or Modulino Movement connected to an Arduino Nano R4. 
+  The data is formatted for Edge Impulse data collection and training.
   
-  @version 1.0 01/06/25
+  @version 2.5 01/06/25
   @author Arduino Product Experience Team
 */
 
-// Pin definitions for ADXL335
-const int xPin = A0;
-const int yPin = A1;
-const int zPin = A2;
+// Sensor selection - uncomment the sensor you are using
+#define USE_ADXL335     // For ADXL335 analog accelerometer
+// #define USE_MODULINO    // For Modulino Movement (LSM6DSOXTR)
 
-// Arduino ADC specifications
-const int ADCMaxVal = 16383;        // 14-bit ADC max value
-const float mVMaxVal = 5000.0;      // ADC reference voltage in mV
+#ifdef USE_MODULINO
+  #include <Modulino.h>
+  ModulinoMovement movement;
+#endif
 
-// ADXL335 specifications (calibrated values for this specific breakout board)
-const float supplyMidPointmV = 1237.0;  // Measured 0g bias point
-const float mVperg = 303.0;             // Measured sensitivity (mV/g)
+#ifdef USE_ADXL335
+  // Pin definitions for ADXL335
+  const int xPin = A0;
+  const int yPin = A1;
+  const int zPin = A2;
+
+  // Arduino ADC specifications
+  const int ADCMaxVal = 16383;        // 14-bit ADC max value
+  const float mVMaxVal = 5000.0;      // ADC reference voltage in mV
+
+  // ADXL335 specifications (calibrated values for this specific breakout board)
+  const float supplyMidPointmV = 1237.0;  // Measured 0g bias point
+  const float mVperg = 303.0;             // Measured sensitivity (mV/g)
+
+  // Conversion factor from ADC to mV
+  const float mVPerADC = mVMaxVal / ADCMaxVal;
+#endif
 
 // Sampling parameters
 const int sampleRate = 100;         // 100 Hz
 const unsigned long sampleTime = 1000 / sampleRate; // 10ms between samples
-
-// Conversion factor from ADC to mV
-const float mVPerADC = mVMaxVal / ADCMaxVal;
 
 // Data collection variables
 unsigned long lastSample = 0;
 
 void setup() {
   Serial.begin(115200);
-  analogReadResolution(14);
+  while (!Serial);
   
-  Serial.println("- Motor Vibration Data Collector");
+  #ifdef USE_MODULINO
+    // Initialize Modulino I2C communication
+    Modulino.begin();
+    
+    // Detect and connect to movement sensor module
+    if (!movement.begin()) {
+      Serial.println("Failed to initialize Modulino Movement!");
+      while (1);
+    }
+    
+    Serial.println("- Motor Vibration Data Collector (Modulino Movement)");
+    Serial.println("- LSM6DSOXTR 6-axis sensor initialized");
+    
+    // Wait for sensor stabilization
+    delay(500);
+    
+    // Test initial reading
+    movement.update();
+    float testX = movement.getX();
+    float testY = movement.getY();
+    float testZ = movement.getZ();
+    
+    Serial.print("- Initial readings (g): X=");
+    Serial.print(testX, 3);
+    Serial.print(", Y=");
+    Serial.print(testY, 3);
+    Serial.print(", Z=");
+    Serial.println(testZ, 3);
+    
+    Serial.println("- Sensor ready - values already in g units");
+  #endif
+  
+  #ifdef USE_ADXL335
+    // Configure ADC for maximum resolution
+    analogReadResolution(14);
+    
+    Serial.println("- Motor Vibration Data Collector (ADXL335)");
+    Serial.println("- Analog accelerometer initialized");
+  #endif
+  
   Serial.println("- Streaming continuous data for Edge Impulse");
   Serial.println("- Data format: X_accel,Y_accel,Z_accel");
   
@@ -186,27 +306,48 @@ void loop() {
   unsigned long currentTime = millis();
   
   if (currentTime - lastSample >= sampleTime) {
-    // Read raw ADC values
-    int xRaw = analogRead(xPin);
-    int yRaw = analogRead(yPin);
-    int zRaw = analogRead(zPin);
+    float xAccel, yAccel, zAccel;
+    bool dataValid = false;
     
-    // Convert ADC values to millivolts
-    float xVoltmV = xRaw * mVPerADC;
-    float yVoltmV = yRaw * mVPerADC;
-    float zVoltmV = zRaw * mVPerADC;
+    #ifdef USE_MODULINO
+      // Read new movement data from the sensor
+      movement.update();
+      
+      // Get acceleration values (already in g units)
+      xAccel = movement.getX();
+      yAccel = movement.getY();
+      zAccel = movement.getZ();
+      
+      dataValid = true;
+    #endif
     
-    // Convert to acceleration in g units
-    float xAccel = (xVoltmV - supplyMidPointmV) / mVperg;
-    float yAccel = (yVoltmV - supplyMidPointmV) / mVperg;
-    float zAccel = (zVoltmV - supplyMidPointmV) / mVperg;
+    #ifdef USE_ADXL335
+      // Read raw ADC values
+      int xRaw = analogRead(xPin);
+      int yRaw = analogRead(yPin);
+      int zRaw = analogRead(zPin);
+      
+      // Convert ADC values to millivolts
+      float xVoltmV = xRaw * mVPerADC;
+      float yVoltmV = yRaw * mVPerADC;
+      float zVoltmV = zRaw * mVPerADC;
+      
+      // Convert to acceleration in g units
+      xAccel = (xVoltmV - supplyMidPointmV) / mVperg;
+      yAccel = (yVoltmV - supplyMidPointmV) / mVperg;
+      zAccel = (zVoltmV - supplyMidPointmV) / mVperg;
+      
+      dataValid = true;
+    #endif
     
-    // Output CSV format
-    Serial.print(xAccel, 4);
-    Serial.print(",");
-    Serial.print(yAccel, 4);
-    Serial.print(",");
-    Serial.println(zAccel, 4);
+    // Output CSV format for Edge Impulse
+    if (dataValid) {
+      Serial.print(xAccel, 4);
+      Serial.print(",");
+      Serial.print(yAccel, 4);
+      Serial.print(",");
+      Serial.println(zAccel, 4);
+    }
     
     lastSample = currentTime;
   }
@@ -215,14 +356,40 @@ void loop() {
 
 The following sections will help you understand the main components of the example sketch, which can be divided into the following areas:
 
+- Sensor selection and initialization
 - Hardware configuration and calibration
 - Data collection timing and control
 - Signal processing and conversion
 - Edge Impulse data formatting
 
+### Sensor Selection and Initialization
+
+The sketch begins by allowing you to choose which sensor you're using through preprocessor definitions:
+
+```arduino
+// Sensor selection - uncomment the sensor you are using
+#define USE_ADXL335     // For ADXL335 analog accelerometer
+// #define USE_MODULINO    // For Modulino Movement (LSM6DSOXTR)
+
+#ifdef USE_MODULINO
+  #include <Modulino.h>
+  ModulinoMovement movement;
+#endif
+```
+
+In this code:
+
+- Only one sensor definition should be uncommented at a time
+- The appropriate libraries are included based on your sensor selection
+- Sensor objects are instantiated only when needed, reducing memory usage
+
 ### Hardware Configuration and Calibration
 
 Before we can collect vibration data, we need to configure the Nano R4 board to interface with the ADXL335 accelerometer and set its calibration parameters.
+
+**ADXL335 Configuration**
+
+For the ADXL335 option, the configuration includes analog pin assignments and calibration parameters:
 
 ```arduino
 // Pin definitions for ADXL335
@@ -250,6 +417,34 @@ In this code:
 
 ***__Important note__: ADXL335 breakout boards typically include onboard voltage regulators that convert the input voltage (+5 VDC from the Nano R4) to a lower voltage (usually +3.3 VDC or less) to power the accelerometer chip. This means the actual supply voltage to the ADXL335 may be different from what you expect. The values shown in this code (supplyMidPointmV = 1237.0 and mVperg = 303.0) are calibrated for a specific breakout board and may need adjustment for your hardware.***
 
+**Modulino Movement Configuration**
+
+For the Modulino Movement option, the configuration uses digital I²C communication:
+
+```arduino
+#ifdef USE_MODULINO
+  // Initialize Modulino I2C communication
+  Modulino.begin();
+  
+  // Detect and connect to movement sensor module
+  if (!movement.begin()) {
+    Serial.println("Failed to initialize Modulino Movement!");
+    while (1);
+  }
+  
+  Serial.println("- Motor Vibration Data Collector (Modulino Movement)");
+  Serial.println("- LSM6DSOXTR 6-axis sensor initialized");
+#endif
+```
+
+In this code:
+
+- `Modulino.begin()` initializes the Modulino system
+- `movement.begin()` specifically initializes the Movement sensor with default settings
+- No pin assignments are needed as the sensor communicates via I²C through the Qwiic connector
+- The sensor automatically configures itself with optimal settings for vibration monitoring
+- Values are returned directly in **g** units without requiring additional conversion
+
 ### Data Collection Timing and Control
 
 To ensure accurate vibration analysis and successful machine learning training, we need consistent data collection timing. These parameters control how data is gathered:
@@ -268,27 +463,29 @@ In this code:
 
 ### Signal Processing and Conversion
 
-Once we have the raw sensor readings, we need to convert them into useful acceleration values. This conversion process transforms the ADC readings into calibrated acceleration data:
+Once we have the raw sensor readings, we need to convert them into useful acceleration values. The conversion process differs between the two sensor options:
+
+**ADXL335 Signal Processing**
+
+For the analog ADXL335, the conversion process transforms ADC readings into calibrated acceleration data:
 
 ```arduino
-void loop() {
-  unsigned long currentTime = millis();
+#ifdef USE_ADXL335
+  // Read raw ADC values
+  int xRaw = analogRead(xPin);
+  int yRaw = analogRead(yPin);
+  int zRaw = analogRead(zPin);
   
-  if (currentTime - lastSample >= sampleTime) {
-    // Read raw ADC values
-    int xRaw = analogRead(xPin);
-    int yRaw = analogRead(yPin);
-    int zRaw = analogRead(zPin);
-    
-    // Convert ADC values to millivolts
-    float xVoltmV = xRaw * mVPerADC;
-    float yVoltmV = yRaw * mVPerADC;
-    float zVoltmV = zRaw * mVPerADC;
-    
-    // Convert to acceleration in g units
-    float xAccel = (xVoltmV - supplyMidPointmV) / mVperg;
-    float yAccel = (yVoltmV - supplyMidPointmV) / mVperg;
-    float zAccel = (zVoltmV - supplyMidPointmV) / mVperg;
+  // Convert ADC values to millivolts
+  float xVoltmV = xRaw * mVPerADC;
+  float yVoltmV = yRaw * mVPerADC;
+  float zVoltmV = zRaw * mVPerADC;
+  
+  // Convert to acceleration in g units
+  xAccel = (xVoltmV - supplyMidPointmV) / mVperg;
+  yAccel = (yVoltmV - supplyMidPointmV) / mVperg;
+  zAccel = (zVoltmV - supplyMidPointmV) / mVperg;
+#endif
 ```
 
 In this code:
@@ -299,17 +496,42 @@ In this code:
 
 ***__Important note__: For accurate measurements, you should calibrate your specific ADXL335 breakout board by placing it flat on a table with the Z-axis pointing up and measuring the actual voltage outputs. The X and Y axes should read approximately the same voltage (this is your zero-g bias point), while the Z-axis should read higher due to gravity (1g acceleration). The difference between Z-axis voltage and the zero-g bias point gives you the sensitivity in mV/g. This calibration accounts for variations in onboard regulators and manufacturing tolerances.***
 
+**Modulino Movement Signal Processing**
+
+For the digital Modulino Movement, the conversion is handled internally by the sensor:
+
+```arduino
+#ifdef USE_MODULINO
+  // Read new movement data from the sensor
+  movement.update();
+  
+  // Get acceleration values (already in g units)
+  xAccel = movement.getX();
+  yAccel = movement.getY();
+  zAccel = movement.getZ();
+#endif
+```
+
+In this code:
+
+- `movement.update()` refreshes the sensor data
+- The acceleration values are returned directly in **g** units, eliminating manual calibration
+- Built-in digital filtering provides clean, noise-free measurements
+- No conversion calculations are needed as the sensor handles all processing internally
+
 ### Edge Impulse Data Formatting
 
 The final step formats our acceleration data so it can be used with Edge Impulse data collection tools:
 
 ```arduino
-    // Output CSV format
-    Serial.print(xAccel, 4);
-    Serial.print(",");
-    Serial.print(yAccel, 4);
-    Serial.print(",");
-    Serial.println(zAccel, 4);
+// Output CSV format for Edge Impulse
+    if (dataValid) {
+      Serial.print(xAccel, 4);
+      Serial.print(",");
+      Serial.print(yAccel, 4);
+      Serial.print(",");
+      Serial.println(zAccel, 4);
+    }
 ```
 
 In this code:
@@ -317,8 +539,9 @@ In this code:
 - CSV format with four decimal places gives us the precision needed for machine learning training
 - Single-line output per sample makes it easy to integrate with the Edge Impulse data forwarder
 - Comma separation follows standard CSV format that most data processing tools expect
+- The output format is identical regardless of which sensor is used, ensuring compatibility with Edge Impulse
 
-After uploading the example sketch to the Nano R4 board, you should see this output in the Arduino IDE's Serial Monitor when data collection is active:
+After uploading the example sketch to the Nano R4 board, you should see output in the Arduino IDE's Serial Monitor similar to this:
 
 ![Example sketch output showing vibration data collection](assets/example-sketch-1.png)
 
@@ -419,7 +642,7 @@ After data collection, review the collected samples in Edge Impulse Studio for c
    
 ### Training the Anomaly Detection Model
 
-Once you have collected sufficient `idle` and `nominal`  operation data, the next step involves configuring and training the machine learning model for anomaly detection.
+Once you have collected sufficient `idle` and `nominal` operation data, the next step involves configuring and training the machine learning model for anomaly detection.
 
 #### Impulse Design Configuration
 
@@ -522,6 +745,8 @@ The smart monitoring system can do the following:
 - Flash an LED and show alerts when something seems wrong
 - Work continuously without needing internet or cloud services
 
+***This enhanced example sketch supports both the ADXL335 and Modulino Movement options. Simply uncomment the sensor definition that matches your hardware setup.***
+
 The complete enhanced example sketch is shown below:
 
 ```arduino
@@ -529,31 +754,42 @@ The complete enhanced example sketch is shown below:
   Intelligent Motor Anomaly Detection System
   Name: motor_anomaly_detection.ino
   Purpose: This sketch implements real-time motor anomaly detection using
-  an ADXL335 accelerometer and Edge Impulse machine learning model deployed
-  on Arduino Nano R4 for predictive maintenance applications.
+  either an ADXL335 accelerometer or Modulino Movement and Edge Impulse 
+  machine learning model deployed on Arduino Nano R4 for predictive maintenance.
   
-  @version 1.0 01/06/25
+  @version 2.1 01/06/25
   @author Arduino Product Experience Team
 */
 
 // Include the Edge Impulse library (name will match your project)
 #include <nano-r4-anomaly-detection_inferencing.h>
 
-// Pin definitions for ADXL335 accelerometer
-const int xPin = A0;
-const int yPin = A1;
-const int zPin = A2;
+// Sensor selection - uncomment the sensor you are using
+#define USE_ADXL335     // For ADXL335 analog accelerometer
+// #define USE_MODULINO    // For Modulino Movement (LSM6DSOXTR)
 
-// Arduino ADC specifications
-const int ADCMaxVal = 16383;        // 14-bit ADC max value
-const float mVMaxVal = 5000.0;      // ADC reference voltage in mV
+#ifdef USE_MODULINO
+  #include <Modulino.h>
+  ModulinoMovement movement;
+#endif
 
-// ADXL335 specifications (calibrated values for this specific breakout board)
-const float supplyMidPointmV = 1237.0;  // Measured 0g bias point
-const float mVperg = 303.0;             // Measured sensitivity (mV/g)
+#ifdef USE_ADXL335
+  // Pin definitions for ADXL335 accelerometer
+  const int xPin = A0;
+  const int yPin = A1;
+  const int zPin = A2;
 
-// Conversion factor from ADC to mV
-const float mVPerADC = mVMaxVal / ADCMaxVal;
+  // Arduino ADC specifications
+  const int ADCMaxVal = 16383;        // 14-bit ADC max value
+  const float mVMaxVal = 5000.0;      // ADC reference voltage in mV
+
+  // ADXL335 specifications (calibrated values for this specific breakout board)
+  const float supplyMidPointmV = 1237.0;  // Measured 0g bias point
+  const float mVperg = 303.0;             // Measured sensitivity (mV/g)
+
+  // Conversion factor from ADC to mV
+  const float mVPerADC = mVMaxVal / ADCMaxVal;
+#endif
 
 // Edge Impulse model parameters
 const int samplingFreq = EI_CLASSIFIER_FREQUENCY;
@@ -563,7 +799,7 @@ const int sampleLength = EI_CLASSIFIER_RAW_SAMPLE_COUNT;
 float features[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE];
 int featureIndex = 0;
 
-// Detection parameters - AJUSTADOS
+// Detection parameters
 const float anomalyThreshold = 0.6;      // Increased from 0.3 to reduce false alarms
 const float confidenceThreshold = 0.7;   // Minimum confidence for classification
 const int alertPin = LED_BUILTIN;
@@ -574,7 +810,7 @@ unsigned long lastInference = 0;
 unsigned long lastAlert = 0;
 bool systemReady = false;
 
-// Performance tracking - NUEVO
+// Performance tracking
 int totalInferences = 0;
 int anomalyCount = 0;
 
@@ -588,13 +824,32 @@ void setup() {
   Serial.begin(115200);
   while (!Serial);
   
-  // Configure hardware
-  analogReadResolution(14);     // Maximum ADC resolution
-  pinMode(alertPin, OUTPUT);    // Configure alert LED
+  #ifdef USE_MODULINO
+    // Initialize Modulino I2C communication
+    Modulino.begin();
+    
+    // Detect and connect to movement sensor module
+    if (!movement.begin()) {
+      Serial.println("Failed to initialize Modulino Movement!");
+      while (1);
+    }
+    
+    ei_printf("Motor Anomaly Detection System (Modulino Movement)\n");
+    ei_printf("LSM6DSOXTR 6-axis sensor initialized\n");
+  #endif
+  
+  #ifdef USE_ADXL335
+    // Configure ADC for maximum resolution
+    analogReadResolution(14);     // Maximum ADC resolution
+    
+    ei_printf("Motor Anomaly Detection System (ADXL335)\n");
+    ei_printf("Analog accelerometer initialized\n");
+  #endif
+  
+  // Configure alert LED
+  pinMode(alertPin, OUTPUT);    
   digitalWrite(alertPin, LOW);  // Ensure LED starts off
   
-  // System initialization message
-  ei_printf("Motor Anomaly Detection System\n");
   ei_printf("Initializing Edge Impulse model...\n");
   
   // Display model information
@@ -631,7 +886,7 @@ void loop() {
 
 /**
   Collects a complete window of vibration data for machine learning inference.
-  OPTIMIZED VERSION - faster and more reliable timing.
+  Supports both ADXL335 and Modulino Movement sensors.
 */
 void collectVibrationWindow() {
   featureIndex = 0;
@@ -640,21 +895,34 @@ void collectVibrationWindow() {
   // Collect samples according to model requirements
   for (int sample = 0; sample < (sampleLength / 3); sample++) {
     unsigned long sampleStart = micros();
+    float xAccel, yAccel, zAccel;
     
-    // Read raw ADC values
-    int xRaw = analogRead(xPin);
-    int yRaw = analogRead(yPin);
-    int zRaw = analogRead(zPin);
+    #ifdef USE_MODULINO
+      // Read new movement data from the sensor
+      movement.update();
+      
+      // Get acceleration values (already in g units)
+      xAccel = movement.getX();
+      yAccel = movement.getY();
+      zAccel = movement.getZ();
+    #endif
     
-    // Convert ADC values to millivolts
-    float xVoltmV = xRaw * mVPerADC;
-    float yVoltmV = yRaw * mVPerADC;
-    float zVoltmV = zRaw * mVPerADC;
-    
-    // Convert to acceleration in g units
-    float xAccel = (xVoltmV - supplyMidPointmV) / mVperg;
-    float yAccel = (yVoltmV - supplyMidPointmV) / mVperg;
-    float zAccel = (zVoltmV - supplyMidPointmV) / mVperg;
+    #ifdef USE_ADXL335
+      // Read raw ADC values
+      int xRaw = analogRead(xPin);
+      int yRaw = analogRead(yPin);
+      int zRaw = analogRead(zPin);
+      
+      // Convert ADC values to millivolts
+      float xVoltmV = xRaw * mVPerADC;
+      float yVoltmV = yRaw * mVPerADC;
+      float zVoltmV = zRaw * mVPerADC;
+      
+      // Convert to acceleration in g units
+      xAccel = (xVoltmV - supplyMidPointmV) / mVperg;
+      yAccel = (yVoltmV - supplyMidPointmV) / mVperg;
+      zAccel = (zVoltmV - supplyMidPointmV) / mVperg;
+    #endif
     
     // Store in feature buffer for inference
     features[featureIndex++] = xAccel;
@@ -788,17 +1056,22 @@ The following sections will help you understand the main components of the enhan
 - Machine learning inference execution
 - Anomaly detection and alert system
 
-### Edge Impulse Library Integration
+### Sensor Selection and Edge Impulse Library Integration
 
-The enhanced sketch starts by including the Edge Impulse library and setting up the necessary constants.
+The enhanced sketch starts by selecting the appropriate sensor and including the Edge Impulse library with the necessary constants.
 
 ```arduino
 // Include the Edge Impulse library (name will match your project)
 #include <nano-r4-anomaly-detection_inferencing.h>
 
-// ADXL335 specifications (calibrated for this specific breakout board)
-const float supplyMidPointmV = 1237.0;  // Measured 0g bias point
-const float mVperg = 303.0;             // Measured sensitivity (mV/g)
+// Sensor selection - uncomment the sensor you are using
+#define USE_ADXL335     // For ADXL335 analog accelerometer
+// #define USE_MODULINO    // For Modulino Movement (LSM6DSOXTR)
+
+#ifdef USE_MODULINO
+  #include <Modulino.h>
+  ModulinoMovement movement;
+#endif
 
 // Detection parameters
 const float anomalyThreshold = 0.6;      // Reduced false alarms
@@ -808,11 +1081,66 @@ const float confidenceThreshold = 0.7;   // Minimum confidence for classificatio
 float features[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE];
 ```
 
-The library contains both the classification model (to identify if the motor is idle or running) and the anomaly detection model (to spot unusual vibrations). The ADXL335 constants use measured values from the actual sensor rather than theoretical values for better accuracy.
+The library contains both the classification model (to identify if the motor is idle or running) and the anomaly detection model (to spot unusual vibrations). The sensor selection allows the same code to work with either accelerometer option by simply changing the `#define` statement.
+
+For the ADXL335 option, calibrated constants use measured values from the actual sensor rather than theoretical values for better accuracy:
+
+```arduino
+#ifdef USE_ADXL335
+  // ADXL335 specifications (calibrated for this specific breakout board)
+  const float supplyMidPointmV = 1237.0;  // Measured 0g bias point
+  const float mVperg = 303.0;             // Measured sensitivity (mV/g)
+#endif
+```
+
+For the Modulino Movement option, no calibration constants are needed as the sensor provides direct acceleration values in g units through its digital interface.
 
 ### Real-Time Data Collection And Buffering
 
-The system collects vibration data for the machine learning models to analyze.
+The system collects vibration data for the machine learning models to analyze. The data collection process adapts automatically based on your selected sensor.
+
+**ADXL335 Data Collection**
+
+For the analog ADXL335, the system performs ADC conversion and calibration:
+
+```arduino
+#ifdef USE_ADXL335
+  // Read raw ADC values
+  int xRaw = analogRead(xPin);
+  int yRaw = analogRead(yPin);
+  int zRaw = analogRead(zPin);
+  
+  // Convert ADC values to millivolts
+  float xVoltmV = xRaw * mVPerADC;
+  float yVoltmV = yRaw * mVPerADC;
+  float zVoltmV = zRaw * mVPerADC;
+  
+  // Convert to acceleration in g units
+  xAccel = (xVoltmV - supplyMidPointmV) / mVperg;
+  yAccel = (yVoltmV - supplyMidPointmV) / mVperg;
+  zAccel = (zVoltmV - supplyMidPointmV) / mVperg;
+#endif
+```
+
+**Modulino Movement Data Collection**
+
+For the digital Modulino Movement, the system reads calibrated acceleration values directly:
+
+```arduino
+#ifdef USE_MODULINO
+  // Read new movement data from the sensor
+  movement.update();
+  
+  // Get acceleration values (already in g units)
+  xAccel = movement.getX();
+  yAccel = movement.getY();
+  zAccel = movement.getZ();
+#endif
+```
+
+**Complete Data Collection Function**
+
+The complete `collectVibrationWindow()` function combines both sensor options:
 
 ```arduino
 void collectVibrationWindow() {
@@ -822,23 +1150,12 @@ void collectVibrationWindow() {
   // Collect samples according to model requirements
   for (int sample = 0; sample < (sampleLength / 3); sample++) {
     unsigned long sampleStart = micros();
+    float xAccel, yAccel, zAccel;
     
-    // Read raw ADC values
-    int xRaw = analogRead(xPin);
-    int yRaw = analogRead(yPin);
-    int zRaw = analogRead(zPin);
+    // Sensor-specific data acquisition (code shown above)
+    // ...
     
-    // Convert ADC values to millivolts
-    float xVoltmV = xRaw * mVPerADC;
-    float yVoltmV = yRaw * mVPerADC;
-    float zVoltmV = zRaw * mVPerADC;
-    
-    // Convert to acceleration in g units
-    float xAccel = (xVoltmV - supplyMidPointmV) / mVperg;
-    float yAccel = (yVoltmV - supplyMidPointmV) / mVperg;
-    float zAccel = (zVoltmV - supplyMidPointmV) / mVperg;
-    
-    // Store in feature buffer for inference
+    // Store in feature buffer for inference (common to both sensors)
     features[featureIndex++] = xAccel;
     features[featureIndex++] = yAccel;
     features[featureIndex++] = zAccel;
@@ -851,11 +1168,11 @@ void collectVibrationWindow() {
 }
 ```
 
-This function reads vibration data from the accelerometer and converts it to the format needed by the machine learning models. It collects exactly 200 samples (two seconds of data) and maintains precise timing to match the training data.
+This function reads vibration data from the selected accelerometer and converts it to the format needed by the machine learning models. It collects exactly 200 samples (two seconds of data) and maintains precise timing to match the training data.
 
 ### Machine Learning Inference Execution
 
-The system analyzes the collected vibration data using both machine learning models to determine motor state and detect anomalies.
+The system analyzes the collected vibration data using both machine learning models to determine motor state and detect anomalies. The inference process is identical regardless of which sensor you're using, as both provide the same data format to the models.
 
 ```arduino
 void performInference() {
@@ -897,7 +1214,7 @@ This function runs both models on the collected data. The classification model d
 
 ### Anomaly Detection and Alert System
 
-The system provides feedback when it detects problems with the motor.
+The system provides feedback when it detects problems with the motor, using the same alert mechanism regardless of which sensor is providing the data.
 
 ```arduino
 void triggerAnomalyAlert() {
@@ -926,7 +1243,7 @@ After uploading the enhanced sketch to the Nano R4 board, you should see the fol
 
 ![Enhanced example sketch output showing real-time anomaly detection](assets/ml-monitor-output.png)
 
-When an anomaly is detected, the built-in LED will flash twice and the serial output will display the anomaly score above the configured threshold along with a warning message.
+When an anomaly is detected, the built-in LED will flash three times and the serial output will display the anomaly score above the configured threshold along with a warning message.
 
 ### Complete Enhanced Example Sketch
 
@@ -937,7 +1254,7 @@ The complete intelligent motor anomaly detection sketch can be downloaded [here]
 
 ### System Integration Considerations
 
-When deploying the intelligent anomaly detection system in industrial environments, consider the following factors:
+When deploying the intelligent anomaly detection system in industrial environments, consider the following factors based on your sensor choice:
 
 - **Environmental Protection**: Protect the Nano R4 board and accelerometer from dust, moisture and temperature extremes using appropriate enclosures rated for the operating environment.
 - **Mounting Stability**: Ensure secure mechanical mounting of both the accelerometer sensor and the Nano R4 enclosure to prevent sensor movement that could affect measurement accuracy.
@@ -947,7 +1264,7 @@ When deploying the intelligent anomaly detection system in industrial environmen
 
 ## Conclusions
 
-This application note demonstrates how to implement motor anomaly detection using the Nano R4 board, ADXL335 accelerometer and Edge Impulse machine learning platform for industrial predictive maintenance applications.
+This application note demonstrates how to implement motor anomaly detection using the Nano R4 board with either an ADXL335 accelerometer or Modulino Movement, combined with Edge Impulse machine learning platform for industrial predictive maintenance applications.
 
 The solution combines the Nano R4's 32-bit processing power with Edge Impulse's machine learning tools to enable real-time anomaly detection directly on the embedded device. This eliminates the need for cloud connectivity and provides immediate response to potential equipment issues with inference times under 20 milliseconds.
 
@@ -957,8 +1274,8 @@ The unsupervised anomaly detection approach using K-means clustering requires on
 
 Building upon this foundation, several enhancements can further improve the motor anomaly detection system:
 
-- **Multi-Sensor Fusion**: Integrate additional sensors such as temperature, current or acoustic sensors to provide a more complete view of motor health and improve detection accuracy.
+- **Multi-Sensor Fusion**: Integrate additional sensors such as temperature, current or acoustic sensors to provide a more complete view of motor health and improve detection accuracy. The Modulino Movement's built-in gyroscope can provide additional motion analysis capabilities.
 - **Wireless Communication**: Add wireless connectivity using LoRaWAN, Wi-Fi or other modules to enable remote monitoring and integration with existing plant systems.
 - **Advanced Analysis**: Implement data logging for trend analysis, industrial protocol integration for SCADA systems or multi-class fault classification to distinguish between different types of motor problems.
 
-The foundation provided in this application note enables rapid development of custom motor monitoring solutions tailored to specific industrial requirements.
+The foundation provided in this application note enables rapid development of custom motor monitoring solutions tailored to specific industrial requirements, with the flexibility to choose the sensor option that best fits your application needs.

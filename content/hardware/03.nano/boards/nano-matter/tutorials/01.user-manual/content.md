@@ -1669,7 +1669,6 @@ The Nano Matter ADC reference voltage is 3.3 V by default, it can be configured 
 | AR_EXTERNAL_1V25 |    External 1.25V reference    |
 |      AR_VDD      |   VDD (unbuffered to ground)   |
 |     AR_08VDD     | 0.8 * VDD (buffered to ground) |
-|      AR_MAX      |         Maximum value          |
 
 To set a different analog reference from the default one, see the following example:
 

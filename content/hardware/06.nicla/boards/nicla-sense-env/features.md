@@ -42,7 +42,7 @@ Designed for long-lasting, autonomous applications, it can be battery-powered fo
 <Feature title="ZMOD4510 Outdoor Air Quality Sensor" image="uv-sensor">
   The ZMOD4510 outdoor air quality sensor monitors nitrogen dioxide (NO₂) and ozone (O₃), ideal for environmental monitoring applications.
   <FeatureWrapper>
-    <FeatureLink title="Datasheet" url="https://www.renesas.com/us/en/document/dst/zmod4410-datasheet" download blank/>
+    <FeatureLink title="Datasheet" url="https://www.renesas.com/en/document/dst/zmod4510-datasheet" download blank/>
   </FeatureWrapper>
 </Feature>
 

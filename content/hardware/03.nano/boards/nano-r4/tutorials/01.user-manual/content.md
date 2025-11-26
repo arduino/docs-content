@@ -31,7 +31,7 @@ This user manual provides a comprehensive overview of the Nano R4 board, highlig
 
 ### Software Requirements
 
-- [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Arduino UNO R4 Boards core](https://github.com/arduino/ArduinoCore-renesas)
 
 ***The Nano R4 is compatible with the complete Arduino ecosystem and can be programmed directly as a standalone device.***
@@ -138,6 +138,32 @@ The Nano R4 can be connected to your computer using its onboard USB-C connector.
 - **Module mounting**: Using the board's castellated pins for direct soldering to PCBs
 
 ***__Important note:__ The Nano R4 operates at +5 VDC natively. When connecting sensors or modules that operate at +3.3 VDC, make sure to verify voltage compatibility to avoid component damage.***
+
+### Voltage Compatibility Considerations
+
+Before connecting any external components to your Nano R4, it is important to understand its voltage characteristics to prevent damage to your sensors and modules:
+
+**The Nano R4 operates at +5 VDC**, which means:
+
+- All digital I/O pins use +5 VDC logic levels (HIGH = +5 VDC, LOW = 0 VDC)
+- Analog inputs can safely accept 0 to +5 VDC
+- Communication pins (I²C, SPI, UART) operate at +5 VDC logic levels
+
+**For +3.3 VDC components**, you have these safe options:
+
+- Use the onboard **Qwiic connector** for I²C devices (includes built-in level shifting)
+- Add **external level shifters** for digital communication pins
+- Use the onboard **+3.3 VDC power pin** to power your devices (but still need level shifting for data lines)
+
+**Common components that typically require level shifting:**
+
+- Modern sensors from SparkFun (Qwiic), Adafruit (STEMMA QT), and Pimoroni for example
+- Most MEMS sensors (for example, accelerometers, gyroscopes, pressure sensors)
+- Many OLED and TFT displays
+- SD card modules
+- Most wireless modules (Wi-Fi®, Bluetooth®, LoRa®)
+
+Always check your component's datasheet for voltage specifications before connecting. When in doubt, use a multimeter to verify voltage levels or add protective level shifting.
 
 ### Powering the Board
 
@@ -416,6 +442,7 @@ The Nano R4's pins are organized into the following categories:
 
 The Nano R4 offers several advanced pin capabilities including multi-function pins that can serve multiple purposes depending on your project needs, native +5 VDC operation for compatibility with classic Arduino shields, internal +3.3 VDC level translation for modern sensors and electronic components via Qwiic, and built-in advanced peripherals such as DAC, CAN bus and operational amplifiers on specific pins of the board.
 
+***__Important voltage compatibility Note__: Unlike many other boards in the Nano family (Nano 33 BLE Sense, Nano 33 IoT, Nano ESP32) that operate at +3.3 VDC, the Nano R4 operates at +5 VDC. This fundamental difference affects ALL digital and analog pins, including communication interfaces like I²C (`A4/A5`), SPI, and UART. Before connecting any sensors, modules, or shields, always verify their voltage compatibility. __Using +3.3 VDC devices without proper level shifting can result in permanent damage to those components__.***
 
 The following table shows the electrical specifications and operating limits for all pins on the Nano R4 board:
 
@@ -733,6 +760,8 @@ You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see th
 
 The Nano R4 board  features multiple pins with PWM capability that can be used to generate analog-like output signals. PWM works by rapidly switching a digital output between `HIGH` and `LOW` states, where the ratio of `HIGH` time to the total period determines the effective analog voltage output.
 
+***__PWM Compatibility Note__: The Nano R4 shares identical PWM capabilities with the UNO R4 Minima, as both boards use the same RA4M1 microcontroller. This includes the same default 8-bit resolution, maximum 16-bit resolution, and PWM frequency control features. Code written for PWM on the UNO R4 Minima will work identically on the Nano R4.***
+
 The Nano R4 board provides PWM functionality on the following pins:
 
 | **Arduino Pin** | **Microcontroller Pin** | **PWM Channel** | **Primary Function**  |
@@ -744,8 +773,14 @@ The Nano R4 board provides PWM functionality on the following pins:
 |      `D10`      |         `P103`          |   Channel 2A    |  Digital I/O, SPI CS  |
 |      `D11`      |         `P101`          |   Channel 5A    | Digital I/O, SPI MOSI |
 
-***__Important note:__ Pins `A4` and `A5` also have PWM capability but are primarily used for I²C communication (SDA and SCL respectively). The onboard LEDs (`LEDR`, `LEDG`, `LEDB`, `LED_BUILTIN`) also support PWM for brightness control.***
+***__Important notes__: Pins `D3` and `D9` share the same PWM channel (`Channel 0B`) and cannot be used for PWM simultaneously. When using PWM on one of these pins, the other cannot output an independent PWM signal. Similarly, pins `D6`, `D3`, and `D9` all use timer `GPT0`, which means they will share the same PWM frequency setting. The onboard LEDs (`LEDR`, `LEDG`, `LEDB`, `LED_BUILTIN`) also support PWM for brightness control.***
 
+The Nano R4's PWM offers the following technical specifications:
+
+|  **Specification** |     **Value**    |            **Notes**           |
+|:------------------:|:----------------:|:------------------------------:|
+| Default Resolution |   8-bit (0-255)  | Standard Arduino compatibility |
+| Maximum Resolution | 16-bit (0-65535) |     Full precision control     |
 
 You can use PWM pins as analog output pins with the `analogWrite()` function:
 
@@ -753,11 +788,19 @@ You can use PWM pins as analog output pins with the `analogWrite()` function:
 analogWrite(pin, value);
 ```
 
-By default, the resolution is 8-bit (0 to 255). You can use analogWriteResolution() to change this, supporting up to 12-bit (0 to 4095) resolution: 
+**By default, the resolution is 8-bit (0 to 255)**. You can use the `analogWriteResolution()` resolution to change this, supporting up to 16-bit (0 to 65535) resolution: 
 
 ```arduino
 analogWriteResolution(resolution);
 ```
+
+The Nano R4 supports the following PWM resolution options that you can configure based on your project's precision requirements:
+
+- `analogWriteResolution(8)`: 8-bit resolution (0 to 255, **default resolution**)
+- `analogWriteResolution(10)`: 10-bit resolution (0 to 1023)
+- `analogWriteResolution(12)`: 12-bit resolution (0 to 4095)
+- `analogWriteResolution(14)`: 14-bit resolution (0 to 16383)
+- `analogWriteResolution(16)`: 16-bit resolution (0 to 65535, **maximum resolution**)
 
 ***The following PWM examples use the built-in orange user LED (`LED_BUILTIN`) of the Nano R4 board, which supports PWM for brightness control. This eliminates the need for external components and allows you to test PWM functionality immediately.***
 
@@ -1727,6 +1770,24 @@ When working with SPI on the Nano R4, there are several key points to keep in mi
 
 The Nano R4 board features built-in I²C (Inter-Integrated Circuit) communication that allows your projects to communicate with multiple devices using just two wires. I²C is implemented within the RA4M1 microcontroller and uses two dedicated pins to provide reliable serial communication with sensors, displays, memory modules and other microcontrollers. This makes it perfect for projects that need to connect several devices without using many pins.
 
+***__CRITICAL WARNING__: The Nano R4's I²C pins (A4/A5) operate at +5 VDC logic levels WITHOUT built-in level shifting. Directly connecting +3.3 VDC I²C devices to these pins may damage them permanently. This is different from many other Nano family boards that operate at +3.3 VDC.***
+
+Understanding the voltage differences between the Nano R4's I²C interfaces is important for protecting your components. The board offers two different I²C connection methods, each with distinct voltage characteristics. The following table summarizes these critical differences:
+
+|  **Interface**  | **Operating Voltage** | **Level Shifting** | **Safe for +3.3 VDC Devices** |
+|:---------------:|:---------------------:|:------------------:|:-----------------------------:|
+|    Pins A4/A5   |         +5 VDC        |        None        | ❌ No (Requires level shifter) |
+| Qwiic Connector |        +3.3 VDC       |      Built-in      |   ✅ Yes (direct connection)   |
+
+When you need to connect +3.3 VDC I²C devices to your Nano R4 board, you have three main options to ensure safe and reliable operation:
+
+1. **Use the Qwiic connector `Wire1`**: This is the simplest solution as it provides automatic level translation and +3.3 VDC power supply for your devices
+2. **Add an external level shifter**: Bi-directional I²C level translators like the [SparkFun Logic Level Converter (BOB-12009)](https://www.sparkfun.com/sparkfun-logic-level-converter-bi-directional.html) or the [Adafruit 4-Channel I2C-Safe Bi-directional Logic Level Converter (BSS138)](https://www.adafruit.com/product/757) can safely convert between +5 VDC and +3.3 VDC logic levels
+
+3. **Use +5 VDC-compatible sensors**: Select I²C devices specifically designed to operate at +5 VDC to avoid any compatibility issues
+
+### I²C Overview
+
 I²C is particularly useful when your project needs to communicate with multiple sensors and devices in a simple way, rather than using complex wiring. While SPI is excellent for high-speed communication and UART for basic serial data exchange, I²C excels at connecting many devices with minimal wiring. Multiple I²C devices can share the same two-wire bus, each with its own unique address, making it ideal for sensor networks, display modules and expandable systems.
 
 The Nano R4's I²C interface offers the following technical specifications:
@@ -1749,6 +1810,8 @@ The Nano R4 uses the following pins for I²C communication:
 |       `A5`      |          `P010`         |        SCL       | Serial Clock Line |
 
 You can communicate via I²C using the dedicated `Wire.h` library, which is included in the Arduino UNO R4 Boards core. The library provides simple functions to initialize the bus, send and receive data and manage multiple devices.
+
+***__Important note__: The Nano R4 board has two I²C interfaces. Use `Wire` for the standard I²C interface on pins `A4/A5` (+5 VDC logic), and `Wire1` for the Qwiic connector (+3.3 VDC with built-in level shifting). This dual-interface design allows you to separate +5 VDC and +3.3 VDC I²C devices on different buses if needed.***
 
 The following example demonstrates basic I²C communication patterns:
 
@@ -2226,6 +2289,398 @@ When working with HID on the Nano R4, there are several key points to keep in mi
 - For debugging HID projects, use `Serial.println()` statements to track what your code is doing, since you cannot rely on the Arduino IDE's Serial Monitor once HID actions start interfering with your computer.
 - The Nano R4 can function as both a keyboard and mouse simultaneously, allowing for complex automation sequences that combine typing, shortcuts and mouse control.
 - Remember that different operating systems may have slightly different keyboard layouts and shortcuts, so test your HID projects on your target platform to ensure compatibility.
+
+## External Interrupts
+
+The Nano R4 features external interrupt capability through the RA4M1 microcontroller's ICU (Interrupt Control Unit). Interrupts allow your Nano R4 board to immediately respond to pin state changes by temporarily pausing the main program to execute an Interrupt Service Routine (ISR), then returning to where it left off. This makes interrupts essential for time-critical applications like button detection, encoder reading, and sensor monitoring.
+
+### Interrupt Specifications
+
+The Nano R4 board's external interrupt capabilities offer the following technical specifications:
+
+|      **Parameter**     | **Value** |                 **Notes**                |
+|:----------------------:|:---------:|:----------------------------------------:|
+|    Hardware Channels   |     9     |         Channels 0-7, 9 available        |
+| Interrupt-capable Pins |  13 pins  |         7 digital + 6 analog pins        |
+|      Trigger Modes     |     4     | `RISING`, `FALLING`, `CHANGE`, and `LOW` |
+|      Response Time     |   < 1 μs  |         Typical interrupt latency        |
+
+### Interrupt-Capable Pins
+
+The following pins support external interrupts on the Nano R4 board:
+
+| **Arduino Pin** | **Interrupt Channel** | **Primary Function** |          **Notes**         |
+|:---------------:|:---------------------:|:--------------------:|:--------------------------:|
+|       `D0`      |       Channel 6       |      Digital I/O     |  Shares channel with `A1`  |
+|       `D1`      |       Channel 5       |      Digital I/O     |      Dedicated channel     |
+|       `D2`      |       Channel 0       |      Digital I/O     | Recommended for interrupts |
+|       `D3`      |       Channel 1       |   Digital I/O, PWM   |  Shares channel with `A4`  |
+|       `D8`      |       Channel 9       |      Digital I/O     |      Dedicated channel     |
+|      `D12`      |       Channel 3       |   Digital I/O, MISO  |  Shares channel with `A6`  |
+|      `D13`      |       Channel 4       |   Digital I/O, SCK   |      Dedicated channel     |
+|       `A1`      |       Channel 6       |    Analog, OPAMP+    |  Shares channel with `D0`  |
+|       `A2`      |       Channel 7       |    Analog, OPAMP-    |      Dedicated channel     |
+|       `A3`      |       Channel 2       |   Analog, OPAMP OUT  |  Shares channel with `A5`  |
+|       `A4`      |       Channel 1       |    Analog, I²C SDA   |  Shares channel with `D3`  |
+|       `A5`      |       Channel 2       |    Analog, I²C SCL   |  Shares channel with `A3`  |
+|       `A6`      |       Channel 3       |     Analog input     |  Shares channel with `D12` |
+
+***__Important note__: Pins sharing the same interrupt channel cannot be used for interrupts simultaneously. For example, `D3` and `A4` both use channel 1, so only one can be configured for interrupt functionality at a time.***
+
+### Interrupt Trigger Modes
+
+The Nano R4 board supports four interrupt trigger modes:
+
+|  **Mode** |         **Trigger Condition**        |        **Typical Use Cases**       |
+|:---------:|:------------------------------------:|:----------------------------------:|
+|  `RISING` | Pin transitions from `LOW` to `HIGH` | Button press detection (pull-down) |
+| `FALLING` | Pin transitions from `HIGH` to `LOW` |  Button press detection (pull-up)  |
+|  `CHANGE` | Pin changes state (either direction) |   Encoder reading, pulse counting  |
+|   `LOW`   |      Pin remains at `LOW` level      |       Level-triggered events       |
+
+***__Important note__: The `HIGH` trigger mode is not supported by the hardware. If specified, it will behave as `RISING` mode (detecting only the `LOW`-to-`HIGH` transition, not the continuous `HIGH` state). For continuous `HIGH` level detection, use polling with `digitalRead()` instead.***
+
+You can attach interrupts using the dedicated Arduino functions:
+
+```arduino
+attachInterrupt(digitalPinToInterrupt(pin), ISR_function, mode);
+detachInterrupt(digitalPinToInterrupt(pin));
+```
+
+The following example demonstrates basic interrupt usage:
+
+```arduino
+/**
+External Interrupt Example for the Arduino Nano R4 Board
+Name: nano_r4_interrupt_example.ino
+Purpose: This sketch demonstrates how to use external interrupts
+to detect button presses.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+const int buttonPin = 2;
+const int ledPin = LED_BUILTIN;
+
+// Variables shared with ISR must be volatile
+volatile bool buttonPressed = false;
+volatile unsigned long pressCount = 0;
+
+// Interrupt Service Routine - keep it short!
+void buttonISR() {
+  buttonPressed = true;
+  pressCount++;
+}
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(ledPin, OUTPUT);
+  
+  // Attach interrupt to button pin
+  attachInterrupt(digitalPinToInterrupt(buttonPin), buttonISR, FALLING);
+  
+  Serial.println("- Arduino Nano R4 - External Interrupt Example started...");
+  Serial.println("- Press the button to trigger interrupts");
+}
+
+void loop() {
+  if (buttonPressed) {
+    buttonPressed = false;
+    digitalWrite(ledPin, !digitalRead(ledPin));
+    
+    Serial.print("- Button pressed! Count: ");
+    Serial.println(pressCount);
+  }
+  
+  delay(10);
+}
+```
+
+To test this example, connect a push button to the Nano R4 board as follows:
+
+- Connect one leg of a push button to pin `D2`
+- Connect the other leg of the push button to `GND`
+- No external components needed (using built-in LED and internal pull-up)
+
+![Interrupt pins test circuit on the Nano R4 board](assets/interrupt-pins-1.png)
+
+Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the interrupt count increase with each button press.
+
+![Arduino IDE Serial Monitor output for the basic interrupt example sketch](assets/interrupt-pins-2.png)
+
+When working with interrupts on the Nano R4 board, there are several key points to keep in mind for successful implementation:
+
+- Keep ISR functions short and fast: Avoid `delay()`, `Serial.print()`, or complex calculations inside ISRs as they block other interrupts.
+- Use volatile variables: Always declare variables shared between ISRs and main code as volatile to prevent compiler optimization issues.
+- Manage channel conflicts: Verify that pins don't share the same interrupt channel when using multiple interrupts.
+- Consider debouncing: Mechanical switches may cause multiple triggers (add a 100nF capacitor or implement software debouncing).
+- Protect shared multi-byte variables: Disable interrupts temporarily when accessing them.
+
+## Qwiic Connector
+
+The Nano R4 board features an onboard Qwiic connector that provides a simple, tool-free solution for connecting I²C devices. The Qwiic ecosystem, developed by SparkFun Electronics, has become an industry standard for rapid prototyping with I²C devices, allowing you to connect sensors, displays, and other peripherals without soldering or complex wiring. This makes it perfect for quickly building sensor networks, adding displays, or expanding your project's capabilities with minimal effort.
+
+![Qwiic connector of the Nano R4 board](assets/qwiic-connector.png)
+
+The Qwiic connector enhances the Nano R4's versatility by providing a dedicated interface for the extensive ecosystem of +3.3 VDC I²C modules. While the Nano R4's native +5 VDC operation ensures compatibility with classic Arduino shields and components, the Qwiic interface adds seamless integration with modern sensors and modules. The board includes built-in level translation between the +5 VDC microcontroller and the +3.3 VDC Qwiic bus, giving you the best of both worlds: full compatibility with traditional Arduino hardware on the main pins, plus instant access to the latest Qwiic-compatible devices.
+
+### Qwiic Specifications
+
+The Nano R4's Qwiic connector offers the following specifications:
+
+|   **Parameter**   |          **Value**         |                    **Notes**                   |
+|:-----------------:|:--------------------------:|:----------------------------------------------:|
+|   Connector Type  |      JST SH 4-pin 1mm      |             Industry standard Qwiic            |
+| Operating Voltage |          +3.3 VDC          |          Powered by onboard regulator          |
+|   I²C Interface   |           `Wire1`          |         Secondary I²C bus (not `Wire`)         |
+|   Level Shifting  |          Built-in          | Automatic +5 VDC to +3.3 VDC level translation |
+|     Pin Order     | `GND`, `VCC`, `SDA`, `SCL` |              Standard Qwiic pinout             |
+
+The Qwiic connector is a small 4-pin connector with a 1.00 mm pitch. The mechanical details of the connector can be found in the connector's [datasheet](https://www.jst-mfg.com/product/pdf/eng/eSH.pdf).
+
+The pin layout of the Qwiic connector is the following:
+
+- `GND`: Ground
+- `VCC`: +3.3 VDC power supply
+- `SDA`: I²C data line
+- `SCL`: I²C clock line
+
+The `VCC` pin provides a stable +3.3 VDC output from the onboard regulator when the board is powered. The manufacturer part number of the Qwiic connector is [SM04B-SRSS-TB](https://www.jst-mfg.com/product/pdf/eng/eSH.pdf), and its matching cable assemblies use the [SHR-04V-S-B](https://www.jst-mfg.com/product/pdf/eng/eSH.pdf) receptacle.
+
+### Understanding the Dual I²C Architecture
+
+The Nano R4 implements a dual I²C bus architecture that separates +5 VDC and +3.3 VDC devices:
+
+| **I²C Bus** | **Arduino Object** | **Physical Connection** | **Voltage** | **Level Shifter** |          **Use Case**         |
+|:-----------:|:------------------:|:-----------------------:|:-----------:|:-----------------:|:-----------------------------:|
+|   Primary   |       `Wire`       |       Pins `A4/A5`      |    +5 VDC   |        None       |  +5V sensors, Arduino shields |
+|  Secondary  |       `Wire1`      |     Qwiic Connector     |   +3.3 VDC  |      Built-in     | Modern sensors, Qwiic devices |
+
+***__Important note__: The Qwiic connector uses `Wire1` object, not the standard `Wire` object. This is different from boards with a single I²C bus. Always use `Wire1.begin()` and related `Wire1` functions when communicating with Qwiic devices.***
+
+### Connecting Qwiic Devices
+
+Connecting Qwiic devices to your Nano R4 board is straightforward. Simply get a standard Qwiic cable (available in various lengths) and plug one end into the Nano R4's Qwiic connector and the other into your Qwiic device. Most Qwiic devices have two connectors, allowing you to daisy-chain multiple devices without any soldering or breadboarding. The polarized connectors prevent incorrect connections, making the setup process foolproof.
+
+![Nano R4 and Modulino Movement connected via Qwiic](assets/qwiic-connection.png)
+
+The Qwiic system's key advantages include:
+
+- **Plug-and-play connectivity**: No breadboards, jumper wires, or soldering required
+- **Polarized connectors**: Prevents accidental reverse connections
+- **Daisy-chain capability**: Connect multiple devices in series
+- **Built-in pull-up resistors**: No external resistors needed
+- **Standard pinout**: Compatible across all Qwiic ecosystem devices
+
+### Working with Qwiic Devices
+
+The following example demonstrates how to use the [Arduino Modulino Movement](https://store.arduino.cc/collections/modulino/products/modulino-movement) sensor via the Qwiic connector:
+
+```arduino
+/**
+Modulino Movement Example for the Arduino Nano R4 Board
+Name: nano_r4_modulino_movement.ino
+Purpose: This sketch demonstrates reading motion data from the 
+Modulino Movement sensor via the Qwiic connector.
+
+@author Arduino Product Experience Team
+@version 1.0 01/06/25
+*/
+
+#include <Modulino.h>
+#include <Wire.h>
+
+// Create Modulino Movement object
+ModulinoMovement movement;
+
+// Variables for sensor data
+float x, y, z;
+float roll, pitch, yaw;
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  Serial.println("- Arduino Nano R4 - Modulino Movement Example started...");
+  
+  // Initialize Wire1 for Qwiic connector
+  Wire1.begin();
+  
+  // Initialize Modulino system
+  Modulino.begin();
+  
+  // Initialize Movement sensor
+  movement.begin();
+  
+  Serial.println("- Modulino Movement connected successfully!");
+  Serial.println("- Reading motion data...\n");
+}
+
+void loop() {
+  // Read new movement data from the sensor
+  movement.update();
+  
+  // Get acceleration values
+  x = movement.getX();
+  y = movement.getY();
+  z = movement.getZ();
+  
+  // Get gyroscope values
+  roll = movement.getRoll();
+  pitch = movement.getPitch();
+  yaw = movement.getYaw();
+  
+  // Display acceleration
+  Serial.print("- Accel (g): X=");
+  Serial.print(x, 2);
+  Serial.print(" Y=");
+  Serial.print(y, 2);
+  Serial.print(" Z=");
+  Serial.print(z, 2);
+  
+  // Display gyroscope
+  Serial.print(" | Gyro (dps): Roll=");
+  Serial.print(roll, 1);
+  Serial.print(" Pitch=");
+  Serial.print(pitch, 1);
+  Serial.print(" Yaw=");
+  Serial.print(yaw, 1);
+  
+  Serial.println();
+  
+  // Update at 10Hz
+  delay(100);
+}
+```
+
+***To test this example, you need an [Arduino Modulino Movement](https://store.arduino.cc/collections/modulino/products/modulino-movement) connected to the Nano R4's Qwiic connector via a Qwiic cable. Install the Modulino library from the Arduino IDE Library Manager (Tools > Manage Libraries > Search "Modulino").***
+
+You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the real-time acceleration and gyroscope data. Try moving or rotating the sensor to see the values change.
+
+![Arduino IDE Serial Monitor output for the Modulino Movement sketch](assets/qwicc-modulino-serial-monitor.png)
+
+This example demonstrates the key aspects of using Qwiic devices with the Nano R4:
+
+- Using `Wire1.begin()` instead of `Wire.begin()` for the Qwiic connector
+- Direct plug-and-play connection without additional wiring
+- Automatic +3.3 VDC power and level translation
+- Access to Arduino's ecosystem of Modulino sensors
+
+## Bootloader
+
+The Nano R4 board features a built-in bootloader that enables sketch uploading directly from the Arduino IDE without requiring external programming hardware. The bootloader is a small program stored in a protected area of the RA4M1 microcontroller's flash memory that runs each time the board powers on or resets. It manages the critical communication between your computer and the board during sketch uploads, making the development process simple and accessible.
+
+During normal operation, when you connect your Nano R4 to your computer and upload a sketch, the bootloader receives the new program data via USB and writes it to the appropriate memory location. This process happens automatically and transparently, allowing you to focus on developing your projects rather than managing low-level programming details.
+
+### Understanding the Bootloader Operation
+
+When the Nano R4 board resets or powers on, the bootloader performs the following sequence:
+
+1. **Initialization**: The bootloader initializes the USB communication and checks for incoming programming commands
+2. **Wait Period**: It waits briefly for new sketch data from the Arduino IDE
+3. **Program Execution**: If no new sketch is received, it jumps to your previously uploaded program
+
+This automatic process ensures that your board is always ready to receive new sketches while maintaining quick startup times for your applications.
+
+### Bootloader Recovery
+
+In certain situations, the bootloader may become corrupted or stop functioning properly. Common symptoms of bootloader issues include:
+
+- The board is not recognized by the Arduino IDE
+- Upload attempts fail with timeout errors
+- The board appears as an unknown device in your computer's device manager
+- The onboard LEDs behave abnormally during connection attempts
+
+The Nano R4 includes a special hardware feature for bootloader recovery: the `BOOT` pin. This pin, when connected to ground (`GND`) during power-up, puts the board into a special programming mode that allows you to restore the bootloader using the Renesas Flash Programmer tool.
+
+![The Nano R4 BOOT pin (top view)](assets/boot-pin.png)
+
+***__Important note__: The `BOOT` pin is located on the bottom side of the board and is clearly labeled. This pin should only be used for bootloader recovery or advanced programming operations. During normal use, leave this pin unconnected.***
+
+### Technical Specifications
+
+The Nano R4's bootloader offers the following technical specifications:
+
+|   **Parameter**  |         **Value**        |                 **Notes**                |
+|:----------------:|:------------------------:|:----------------------------------------:|
+|  Recovery Method |    `BOOT` pin + `GND`    |     Hardware recovery mode activation    |
+|  Bootloader File |      `dfu_nano.hex`      | Included with Arduino UNO R4 Boards core |
+| Programming Tool | Renesas Flash Programmer |   Official tool for bootloader recovery  |
+
+### Bootloader File Location
+
+The bootloader file (`dfu_nano.hex`) can be obtained in two ways:
+
+**Option 1: Direct Download (recommended)**: 
+
+Download directly from the Arduino GitHub repository:
+
+- [Download dfu_nano.hex](https://github.com/arduino/ArduinoCore-renesas/blob/main/bootloaders/NANOR4/dfu_nano.hex)
+
+**Option 2: From Arduino IDE Installation**:
+
+The bootloader file (`dfu_nano.hex`) is automatically installed with the Arduino UNO R4 Boards core. You can find it in the following locations:
+
+**Windows:**
+
+```bash
+C:\Users\[YourUsername]\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\[version]\bootloaders\NANOR4\
+```
+
+**macOS:**
+
+```bash
+~/Library/Arduino15/packages/arduino/hardware/renesas_uno/[version]/bootloaders/NANOR4/
+```
+
+**Linux:**
+
+```bash
+~/.arduino15/packages/arduino/hardware/renesas_uno/[version]/bootloaders/NANOR4/
+```
+
+***Replace `[YourUsername]` with your actual username and `[version]` with the installed core version number.***
+
+### When to Consider Bootloader Recovery
+
+Bootloader recovery should be considered when:
+
+- Standard troubleshooting steps (different cables, USB ports, driver reinstallation) have failed
+- The board was working previously but stopped being recognized after a failed upload
+- Power was interrupted during a sketch upload
+- You need to restore the board to factory programming state
+- The board is not responding to the reset button normally
+
+### Bootloader Recovery Tutorial
+
+For detailed step-by-step instructions on recovering and reflashing the bootloader on your Nano R4 board, please refer to our **[Nano R4 Bootloader Recovery and Flashing Tutorial](https://docs.arduino.cc/tutorials/nano-r4/bootloader-flashing/)**. This tutorial covers the following topics:
+
+
+- Preparing your board for bootloader flashing
+- Installing and configuring the Renesas Flash Programmer tool
+- Step-by-step flashing process
+- Verifying successful bootloader restoration
+- Troubleshooting common issues
+
+***__Important note__: Bootloader recovery should only be performed when necessary. Ensure stable power supply and follow the tutorial instructions carefully. The process requires only the Renesas Flash Programmer tool and the bootloader file.***
+
+### Maintaining Bootloader Health
+
+To minimize the risk of bootloader corruption and ensure reliable operation, we recommend the following:
+
+- **Always allow uploads to complete**: Never disconnect the USB cable or remove power during sketch uploads
+- **Use quality USB cables**: Poor quality or damaged cables can cause communication errors
+- **Ensure stable power**: Use a reliable power source when uploading sketches
+- **Keep the Arduino IDE updated**: Newer versions often include improvements to the upload process
+- **Handle the board carefully**: Avoid static discharge and physical damage to the board
+
+The bootloader is a critical component that makes the Nano R4 board user-friendly and accessible. While it's designed to be robust and reliable, understanding its operation and recovery options ensures you can always restore your board to working condition if issues arise.
 
 ## Support
 

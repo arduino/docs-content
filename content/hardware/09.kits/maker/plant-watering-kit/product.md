@@ -3,6 +3,7 @@ title: Plant Watering Kit
 url_guide: /tutorials/plant-watering-kit/iot-smart-garden-setup-with-nanorp2040
 primary_button_url: /tutorials/plant-watering-kit/iot-smart-garden-setup-with-nanorp2040
 primary_button_title: Get Started
+status: end-of-life
 sku: [AKX00041]
 ---
 

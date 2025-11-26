@@ -86,7 +86,7 @@ Now that we have finished setting up the hardware, it is time to connect our ene
 
 ![Thing Set up](./assets/configureThing.png)
 
-- Set up your [MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010) and configure your network credentials.
+- Set up your [MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010) and configure your network credentials. The network credentials can be found on the device page. Follow [this tutorial](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/) for more information.
 
 ### Creating a Sketch for a "Thing" in the Arduino Cloud IoT
 

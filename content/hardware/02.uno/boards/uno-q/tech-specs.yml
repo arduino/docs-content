@@ -1,0 +1,67 @@
+Board:
+  Name: Arduino® UNO Q
+  SKUs:
+    2 GB RAM /16 GB eMMC: ABX00162
+    4 GB RAM/32 GB eMMC: ABX00173
+Microprocessor Unit:
+  Module: Qualcomm Dragonwing™ QRB2210
+  CPU: Quad-core Arm® Cortex®-A53 @ 2.0 GHz
+  GPU: Adreno 702 GPU @ 845 MHz | 3D graphics accelerator
+  ISP: 2x Image Signal Processor (13 MP + 13 MP or 25 MP) @ 30 fps
+  Operating System: Debian Linux OS with upstream support
+  Memory:
+    Storage: 16 GB (ABX000162) or 32 GB (ABX00173) eMMC
+    RAM: 2 GB (ABX00162) or 4 GB (ABX00173) LPDDR4
+  Pins:
+    Digital I/O Pins: 12x exposed on JMISC
+  Media Interfaces:
+    Audio: Microphone IN / Headphone OUT / Line OUT and Ear OUT on JMISC header
+    Video: Video output support via USB-C,  HDMI display (through USB-C dongle) and MIPI DSI bus on JMEDIA header
+    Camera: Support for USB cameras via a USB-C dongle, plus dual MIPI CSI interfaces available through the JMEDIA header.
+  User Interfaces:
+   RGB LED: Yes (2x)
+   Power Button: Yes
+Microcontroller Unit:
+  Core: STM32U585 Arm® Cortex®-M33 up to 160 MHz
+  Operating System: Arduino Code on Zephyr OS
+  Memory:
+    Flash: 2 MB
+    SRAM: 786 kB
+  Pins:
+    Digital I/O Pins: 47x (22x exposed on JANALOG/JDIGITAL, and 25x on JMISC)
+    ADC:
+      14-bit: 6x analog inputs on JANALOG
+    DAC:
+      12-bit: Yes (2x)
+    PWM pins: 6x (shared with GPIOs)
+    OPAMP: Yes (2x)
+    External interrupts: Yes (16x assignable to GPIOs)
+  Communication:
+    USART: Yes (3x)
+    UART: Yes (2x)
+    I2C: Yes (4x)
+    SPI: Yes (3x)
+    CAN: Yes (1x FDCAN)
+    SAI: Yes (2x)
+    PSSI: Yes (1x)
+  User Interfaces:
+    RGB LED: Yes (2x)
+    LED Matrix: Yes (8x13)
+Radio Module:
+  Module: WCBN3536A
+  WiFi: Wi-Fi® 5 Dual-band 2.4/5 GHz with onboard antenna
+  Bluetooth: Bluetooth® 5.1 with onboard antenna
+USB:
+  USB-C®: With host/device role switching, power role switch and video output
+  Voltage: +5 VDC max at 3 A
+Power:
+  USB-C®: +5 VDC max at 3 A to power the board.
+  Input voltage (VIN): 7 - 24 VDC
+  I/O operating voltage: +3.3 VDC MCU (+5 VDC tolerant) | +1.8 VDC MPU
+  DC Current per I/O Pin: 20 mA (JANALOG and JMEDIA)
+Special Connectors:
+  Qwiic: Yes, for I2C (3V3)
+  JCTL: Yes, MPU Remote Debug connector
+Dimensions:
+  Width: 53.34 mm
+  Length: 68.58 mm

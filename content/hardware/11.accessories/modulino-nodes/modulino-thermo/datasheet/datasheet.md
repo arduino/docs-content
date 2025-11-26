@@ -111,9 +111,8 @@ These pads and the Qwiic connectors share the same I2C bus. You can optionally s
 ### I2C Address Reference
 | **Board Silk Name** | **Sensor** | **Modulino® I2C Address (HEX)** | **Editable Addresses (HEX)**             | **Hardware I2C Address (HEX)** |
 |---------------------|-----------|--------------------------------|------------------------------------------|--------------------------------|
-| MODULINO THERMO     | HS3003    | 0x44                           | Any custom address (via software config) | 0x44                           |
+| MODULINO THERMO     | HS3003    | 0x44                           | Custom address not supported | 0x44                           |
 
-**Note:** Default address is **0x44**. Adjustments may be made via software if multiple identical sensors are on the same bus.
 
 ## Device Operation
 The Modulino® Thermo node acts as an I2C target device on the Qwiic bus. Simply connect it via a Qwiic cable to the 3.3 V I2C interface of your microcontroller. Read humidity and temperature values via standard I2C transactions.
@@ -201,6 +200,7 @@ Operation is subject to the following two conditions:
 # Revision History
 | **Date**   | **Revision** | **Changes**          |
 | ---------- | ------------ | -------------------- |
+| 24/11/2025 | 5            | I2C information changed        |
 | 01/07/2025 | 4            | Certification        |
 | 17/06/2025 | 3            | Nomenclature updates |
 | 23/05/2025 | 2            | Power info           |
