@@ -20,7 +20,6 @@ software:
   - ide-v1
   - ide-v2
   - iot-cloud
-  - web-editor
 ---
 
 The **Arduino® Nesso N1** is an all-in-one enclosed development board. Based on the ESP32-C6 System on Chip (SoC), it integrates a suite of communication protocols, including 2.4 GHz Wi-Fi® 6, Bluetooth® 5.3 LE, 802.15.4 (Thread/Zigbee®), and long-range LoRa®. It also includes a 1.14" color touchscreen, buttons, and a built-in LiPo battery for immediate user interaction in portable applications.
@@ -38,8 +37,8 @@ This document serves as a comprehensive user manual for the Nesso N1, providing 
 
 ### Software Requirements
 
-- [Arduino IDE](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://app.arduino.cc/sketches)
-- [ESP32 Boards core by Espressif](https://github.com/espressif/arduino-esp32)
+- [Arduino IDE](https://www.arduino.cc/en/software) (v2.0 or higher recommended)
+- [ESP32 Boards core by Espressif](https://github.com/espressif/arduino-esp32) (v3.3.3 or higher)
 
 ## Product Overview
 
@@ -72,25 +71,133 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 ## Installation
 
-The Nesso N1 can be programmed using the Arduino IDE or the Arduino Cloud Editor. To get started, you will need to install the appropriate board package.
+The Nesso N1 is programmed using the desktop Arduino IDE. To get started, you will need to install the appropriate board package.
 
 ### Arduino IDE
 
-To use the board in the Arduino IDE, you need to install the latest version of the **esp32 by Espressif Systems** package from the boards manager.
+To use the board in the Arduino IDE, you must install the latest version of the **esp32 by Espressif Systems** package. Support for the Nesso N1 requires version **3.3.3** or newer.
 
 1.  Open the Arduino IDE.
 2.  Navigate to **Boards Manager** (**Tools > Board > Boards Manager...**).
 3.  Search for **"esp32"** and find the package by **Espressif Systems**.
-4.  Click the **Install** button.
+4.  Click the **Install** (or **Update**) button.
 5.  Once installed, select **Arduino Nesso N1** from the **Tools > Board > esp32** menu.
 
 ![Installing the esp32 Boards core in the Arduino IDE](assets/board-manager.png)
 
 ### Arduino Cloud Editor
 
-The Arduino Cloud Editor is an online IDE that supports the Nesso N1 without requiring manual installation of the board package.
+Direct support for the Nesso N1 in the **Arduino Cloud Editor** (the online web IDE) is coming soon. Currently, the Cloud Editor does not support the specific ESP32 core version required for this board.
 
-Read more in the [Getting Started with the Cloud Editor](https://docs.arduino.cc/arduino-cloud/guides/editor/) guide.
+Please use the **Arduino IDE** (desktop version) to compile and upload code to the Nesso N1.
+
+## Arduino IoT Cloud
+
+Although the Nesso N1 cannot yet be programmed directly via the Cloud Editor, you can still use it with **Arduino IoT Cloud** dashboards and variables. This is done by configuring it as a "Manual Device" and uploading the sketch from your desktop IDE.
+
+Follow these steps to connect your Nesso N1 to the Cloud.
+
+### 1. Create a Manual Device
+
+1.  Go to the [Arduino IoT Cloud Devices page](https://app.arduino.cc/devices).
+2.  Click **+ DEVICE**.
+3.  Select **Any Device** (under Manual Setup).
+4.  Click **Continue**.
+5.  Name your device (e.g., "MyNessoN1") and confirm.
+6.  **Important:** A screen will appear with your **Device ID** and **Secret Key**. Save these credentials in a secure place immediately; you will not be able to view the Secret Key again.
+7.  **Check the box** confirming you have saved your credentials and click **Continue**.
+
+### 2. Create a Thing
+
+1.  Go to the [Things page](https://app.arduino.cc/things).
+2.  Click **+ THING** to create a new Thing.
+3.  Click **Select Device** and associate it with the "Manual Device" you just created.
+4.  Click **ADD** in Cloud Variables section to create a test variable: **Name**: `led`, **Type**: Boolean, **Permission**: Read & Write, **Update Policy**: On Change.
+5.  Click **Add Variable** to confirm.
+
+### 3. Create a Dashboard
+
+1.  Go to the [Dashboards page](https://app.arduino.cc/dashboards).
+2.  Click **+ DASHBOARD** and click **EDIT**.
+3.  Click **ADD** and select the **Things** tab.
+4.  Select your Thing and create a widget for the `led` variable (a Switch widget is recommended).
+5.  Click **DONE**.
+
+### 4. Program the Board via Desktop IDE
+
+Because "Manual Devices" do not automatically generate a downloadable sketch, you must create one manually.
+
+1.  Open the **Arduino IDE** on your computer.
+2.  Install the **ArduinoIoTCloud** library via the Library Manager (**Tools > Manage Libraries...**).
+3.  Create a new sketch (**File > New Sketch**).
+4.  To keep your credentials secure, create a new tab named `arduino_secrets.h` (click the 3-dot icon near the tab bar > **New Tab**).
+5.  Paste the following code into `arduino_secrets.h` and fill in your details:
+
+    ```cpp
+    #define SECRET_WIFI_SSID "YOUR_WIFI_SSID"
+    #define SECRET_WIFI_PASS "YOUR_WIFI_PASSWORD"
+    #define SECRET_DEVICE_ID "YOUR_DEVICE_ID" // From Step 1
+    #define SECRET_DEVICE_KEY "YOUR_SECRET_KEY" // From Step 1
+    ```
+
+6.  Create another new tab named `thingProperties.h` and paste the following configuration code:
+
+    ```cpp
+    #include <ArduinoIoTCloud.h>
+    #include "arduino_secrets.h"
+
+    void onLedChange();
+
+    bool led;
+
+    WiFiConnectionHandler ArduinoIoTPreferredConnection(SECRET_WIFI_SSID, SECRET_WIFI_PASS);
+
+    void initProperties(){
+      ArduinoCloud.addProperty(led, Permission::ReadWrite).onUpdate(onLedChange);
+      
+      ArduinoCloud.setBoardId(SECRET_DEVICE_ID);
+      ArduinoCloud.setSecretDeviceKey(SECRET_DEVICE_KEY);
+    }
+    ```
+
+7.  Finally, paste the main application code into your `.ino` file:
+
+    ```cpp
+    #include "thingProperties.h"
+
+    void setup() {
+      Serial.begin(115200);
+      delay(1500); // Wait for Serial Monitor
+
+      // Initialize the Nesso N1 built-in LED
+      pinMode(LED_BUILTIN, OUTPUT);
+      
+      // Initialize Cloud properties and connection
+      initProperties();
+      ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+      
+      // Set debug level to see connection status in Serial Monitor
+      setDebugMessageLevel(2);
+      ArduinoCloud.printDebugInfo();
+    }
+
+    void loop() {
+      ArduinoCloud.update();
+    }
+
+    // This function is called whenever the 'led' variable changes in the Cloud
+    void onLedChange() {
+      // The Nesso N1 LED uses inverted logic (LOW is ON)
+      if (led) {
+        digitalWrite(LED_BUILTIN, LOW);
+      } else {
+        digitalWrite(LED_BUILTIN, HIGH);
+      }
+    }
+    ```
+
+8.  Select **Arduino Nesso N1** as your board and upload the sketch.
+9.  Open the **Serial Monitor** to verify the connection. Once connected, you can toggle the switch on your Cloud Dashboard to control the LED on the board.
 
 ## First Use
 
@@ -1416,5 +1523,3 @@ Join our community forum to connect with other Nesso N1 users, share your experi
 Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We are happy to help you with any issues or inquiries about the Nesso N1.
 
 - [Contact us page](https://www.arduino.cc/en/contact-us/)
-
-
