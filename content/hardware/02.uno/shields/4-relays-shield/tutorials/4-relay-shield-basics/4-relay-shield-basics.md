@@ -79,10 +79,10 @@ We will now get to the programming part of this tutorial.
 
 First, let's take a look at how we will activate our relays. We are actually not using a library, as the operation is very basic.
 
-- `int relay_1 = 4;` - assigns `relay_1` to pin 4. It is important that we assign it to pin 1, as the relay is internally wired to this pin.
-- `int relay_2 = 7;` - assigns `relay_2` to pin 7. Same here, the relay is wired to pin 2, so we can't use a pin of our choosing. 
-- `int relay_3 = 8;` - assigns `relay_3` to pin 8. Same here, the relay is wired to pin 2, so we can't use a pin of our choosing. 
-- `int relay_4 = 12;` - assigns `relay_4` to pin 12. Same here, the relay is wired to pin 2, so we can't use a pin of our choosing. 
+- `int relay_1 = 4;` - assigns `relay_1` to pin 4. It is important that we assign it to pin 4, as the relay is internally wired to this pin.
+- `int relay_2 = 7;` - assigns `relay_2` to pin 7. Same here, the relay is wired to pin 7, so we can't use a pin of our choosing. 
+- `int relay_3 = 8;` - assigns `relay_3` to pin 8. Same here, the relay is wired to pin 8, so we can't use a pin of our choosing. 
+- `int relay_4 = 12;` - assigns `relay_4` to pin 12. Same here, the relay is wired to pin 12, so we can't use a pin of our choosing. 
 - `pinMode(relay_X, OUTPUT)` - configures relay 1 to be an `OUTPUT`.
 - `digitalWrite(relay_X, state)` - write either a high or low state to relay 1.
 
