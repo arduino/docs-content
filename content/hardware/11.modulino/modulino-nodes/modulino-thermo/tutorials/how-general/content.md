@@ -143,11 +143,19 @@ An example sketch, `AddressChanger`, is included with the library inside the `Ut
 To change the address:
 1. Connect the node to your board (remove any other nodes from the chain)
 2. Upload the AddressChanger sketch
-3. Open the Serial Monitor
-4. Ensure the correct baud rate is selected if displayed characters seem corrupted
-5. Select the new address and confirm
-![Address Selection](assets/I2CAdressChange.png)
-6. Valid I²C addresses range from 0x08 to 0x77 (7-bit values in hexadecimal format)
+3. Open the Serial Monitor (115200 baud)
+4. The sketch will scan and display all detected Modulino nodes with their current addresses
+5. When prompted, enter two hexadecimal numbers separated by a space in the format: `<current_address> <new_address>`
+6. **Important:** Enter addresses **without** the "0x" prefix and with a space between them (example: `3A 3B`)
+7. Special commands: Enter `<address> 0` to reset the device at the specified address to its default, or `0 0` to reset all devices to their defaults
+8. Valid I²C addresses range from **0x08 to 0x77** (7-bit hexadecimal format)
+
+**Example usage:**
+```
+> 3A 3B          (changes address from 0x3A to 0x3B)
+> 3C 0           (resets device at 0x3C to default address)
+> 0 0            (resets all devices to default addresses)
+```
 
 When using a custom address in your sketch, specify this address when creating the module object:
 ```arduino
