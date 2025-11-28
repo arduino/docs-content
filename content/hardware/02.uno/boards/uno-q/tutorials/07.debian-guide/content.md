@@ -41,6 +41,8 @@ The [Bridge mechanism](https://docs.arduino.cc/tutorials/uno-q/user-manual/#brid
 
 There are three main methods to access the Debian shell on your UNO Q, each suited for different scenarios and workflows.
 
+***For low-level debugging and early boot diagnostics, the board also provides a dedicated [Hardware Debug UART Interface](/tutorials/uno-q/user-manual/#hardware-debug-uart-interface) operating at 1.8V logic levels through the JCTL connector.***
+
 ![Accessing the board shell](assets/adb_connection.png)
 
 ### Through USB-C® (ADB)
