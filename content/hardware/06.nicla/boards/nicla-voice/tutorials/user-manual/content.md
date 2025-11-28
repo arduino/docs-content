@@ -557,7 +557,8 @@ To extract the audio data on a **Windows computer**, follow the steps below:
 
 Download **PuTTY** for free [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), install it and open it.
 
-1. Select "Serial" as connection type
+1. Select "Serial" as the connection type
+
 2. Enter the serial port where your board is connected
 3. Set the baud rate to `115200`
 4. In the left menu, navigate to "Logging"
