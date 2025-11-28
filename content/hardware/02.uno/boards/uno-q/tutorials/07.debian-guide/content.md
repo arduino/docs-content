@@ -39,9 +39,7 @@ The [Bridge mechanism](https://docs.arduino.cc/tutorials/uno-q/user-manual/#brid
 
 ## Accessing the Board Shell
 
-There are three main methods to access the Debian shell on your UNO Q, each suited for different scenarios and workflows.
-
-***For low-level debugging and early boot diagnostics, the board also provides a dedicated [Hardware Debug UART Interface](/tutorials/uno-q/user-manual/#hardware-debug-uart-interface) operating at 1.8V logic levels through the JCTL connector.***
+There are four methods to access the Debian shell on your UNO Q, each suited for different scenarios and workflows.
 
 ![Accessing the board shell](assets/adb_connection.png)
 
@@ -112,6 +110,16 @@ Connect all peripherals through the USB-C® dongle, power on the system, and log
 This method is ideal when you want to use your UNO Q as a workstation, allowing you to browse the web, edit files graphically, and access the terminal all from the same device.
 
 ***For a complete Single-Board Computer mode tutorial, refer to the dedicated [__UNO Q Single-Board Computer tutorial__](https://docs.arduino.cc/tutorials/uno-q/single-board-computer/).***
+
+### Through Hardware Debug UART
+
+For low-level debugging and early boot diagnostics, the board provides a dedicated Hardware Debug UART interface operating at 1.8 V logic levels (115200 baud) through the JCTL connector.
+
+![Through Hardware Debug UART](../01.user-manual/assets/debug-shell.gif)
+
+This interface connects directly to the SoC's main console (TTY), allowing you to monitor boot and kernel logs, troubleshoot system issues, or access a shell environment before network services like SSH or ADB are available. You can log in using your Linux credentials to interact with the system through the shell.
+
+***This method requires a 1.8V USB-to-TTL converter and is intended for advanced users. For complete setup instructions and technical specifications, refer to the [__Hardware Debug UART Interface__](/tutorials/uno-q/user-manual/#hardware-debug-uart-interface) section in the user manual.***
 
 ## System Navigation
 
