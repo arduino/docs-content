@@ -1486,8 +1486,7 @@ The Nesso N1 also includes one standard **Grove** connector. It provides a 5 V i
 
 ### 8-Pin Expansion Port
 
-An 8-pin female header provides access to additional I/O and power pins. It is designed to be fully compatible with the **M5StickC HAT** series of expansion boards, allowing you to easily add functionality with modules for everything from sensors to communication. You can explore the range of compatible HATs on the [M5Stack store](https://shop.m5stack.com/collections/for-stick).
-
+An 8 pin female header provides access to additional I/O and power pins. It is designed to be fully compatible with the **M5StickC HAT** series of expansion boards, so you can easily add modules for sensors, inputs, and extra connectivity. You can explore the range of compatible HATs on the [M5Stack store](https://shop.m5stack.com/collections/for-stick).
 
 ![8 pins Expansion Port](assets/expansion-port.png)
 
@@ -1496,13 +1495,31 @@ An 8-pin female header provides access to additional I/O and power pins. It is d
 | 1    | `GND`         | -    | Ground                        |
 | 2    | `+5V OUT`     | -    | 5 V Output                    |
 | 3    | `D1`          | 7    | Digital PWM I/O               |
-| 4    | `D3`          | 6    | Digital PWM I/O               |
-| 5    | `D2`          | 2    | Digital PWM I/O               |
+| 4    | `D2`          | 2    | Digital PWM I/O               |
+| 5    | `D3`          | 6    | Digital PWM I/O               |
 | 6    | `BATTERY OUT` | -    | Direct Battery Voltage Output |
 | 7    | `+3V3 OUT`    | -    | 3.3 V Output                  |
 | 8    | `+5V IN`      | -    | 5 V Input (VIN)               |
 
 ***The `BATTERY OUT` pin provides the direct, unregulated voltage from the LiPo battery. Be cautious when using this pin, as the voltage will vary depending on the charge level.***
+
+#### Using I2C M5StickC Compatible HATs
+
+M5StickC HATs that use I2C expect the bus on the D1 and D3 pins of this connector. On the Nesso N1 you must explicitly remap the I2C pins in your sketch so that:
+
+- `D1` (GPIO7) is SCL  
+- `D3` (GPIO6) is SDA  
+
+Initialize the I2C bus like this:
+
+```arduino
+#include <Wire.h>
+
+void setup() {
+  // SDA on D3 (GPIO6), SCL on D1 (GPIO7)
+  Wire.begin(D3, D1);
+}
+```
 
 ## Support
 
