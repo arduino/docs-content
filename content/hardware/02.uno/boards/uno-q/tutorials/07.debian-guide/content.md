@@ -809,7 +809,7 @@ cd ~/ArduinoApps/MyApp
 Using the following command will view the App configuration:
 
 ```bash
-cat app.yml
+cat app.yaml
 ```
 
 Using the following command will view the Arduino sketch content:
