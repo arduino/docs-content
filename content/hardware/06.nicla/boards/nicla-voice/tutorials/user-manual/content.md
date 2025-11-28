@@ -577,7 +577,8 @@ Download **PuTTY** for free [here](https://www.chiark.greenend.org.uk/~sgtatham/
   ```bash
   ffmpeg -f g722 -i <update-with-directory>\test.g722 -ar 16000 test.wav
   ```
-Then, you can open the `.wav` file with a software like [Audacity](https://www.audacityteam.org/) or any media player to play back the audio.
+Then, you can open the `.wav` file with software like [Audacity](https://www.audacityteam.org/) or any media player to play back the audio.
+
 
 
 #### Machine Learning and Audio Analysis
