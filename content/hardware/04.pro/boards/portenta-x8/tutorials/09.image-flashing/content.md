@@ -160,7 +160,7 @@ An alternative method to update the Portenta X8 with the latest OS image is to u
 
 Go to [Arduino Download repository](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz), and a compressed `.tar.gz` with the latest version of all the required OS image files will be there to download.
 
-![lpm-manifest repository overview](assets/lpm-manifest-overview.png)
+![lmp-manifest repository overview](assets/lmp-manifest-overview.png)
 
 Please extract the files after you have downloaded the compressed file. The extracted contents have the following structure.
 
