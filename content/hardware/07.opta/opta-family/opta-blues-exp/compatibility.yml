@@ -1,0 +1,10 @@
+hardware:
+  boards:
+    - opta
+    - opta-digital-exp
+    - opta-analog-exp
+software:
+  - arduino-ide
+  - arduino-cli
+  - iot-cloud
+ 
