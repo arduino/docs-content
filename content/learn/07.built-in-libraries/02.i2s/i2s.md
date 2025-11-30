@@ -110,6 +110,36 @@ None
 #### Returns
 The next sample of incoming I2S data available (or 0 if no data is available)
 
+
+### `read()`
+
+#### Description
+
+Reads incoming I2S data from the I2S interface. This method reads and removes the next sample of incoming I2S data available from the internal I2S buffer. read() inherits from the Stream utility class.
+
+#### Syntax
+
+```
+I2S.read()
+```
+
+```
+I2S.read(buffer, length)
+```
+
+#### Parameters
+
+None (for single sample read)
+
+buffer: an array to read data into
+
+length: the number of samples to read
+
+#### Returns
+
+The first sample of incoming I2S data available (or -1 if no data is available) - int
+
+For buffer read: the number of samples read into the buffer
 ### `write()`
 
 #### Description
