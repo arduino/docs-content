@@ -154,6 +154,40 @@ You should now see the red LED of the built-in RGB LED turning on for one second
 
 ***The LED controlled in this example is driven by the STM32 microcontroller through the Arduino sketch.***
 
+### Arduino IDE (Beta)
+
+The Arduino UNO Q is compatible with the standard Arduino IDE, allowing you to program the board using the familiar Arduino language and ecosystem.
+
+![Arduino IDE + UNO Q](assets/arduino-ide.png)
+
+***<strong>Important Note:</strong> The Arduino UNO Q features a dual-processor architecture. The Arduino IDE is strictly used to program the __UNO Q Microcontroller (STM32)__. If you wish to program the Qualcomm Microprocessor, please refer to the [Arduino App Lab section](#install-arduino-app-lab).***
+
+#### Installing the UNO Q Core
+
+To start using the board, you must first install the specific core that supports the UNO Q architecture (based on Zephyr).
+
+1.  Open the Arduino IDE.
+2.  Navigate to **Tools > Board > Boards Manager...** or click the **Boards Manager** icon in the left sidebar.
+3.  In the search bar, type `UNO Q`.
+4.  Locate the **Arduino UNO Q Zephyr Core** and click **Install**.
+
+![Installing the UNO Q Zephyr Core](assets/bsp-install.png)
+
+***<strong>Troubleshooting:</strong> If the core does not appear in the search results, you may need to add the package manually. Go to __File > Preferences__ and add the following link to the __Additional Boards Manager URLs__ field: `https://downloads.arduino.cc/packages/package_zephyr_index.json`***
+
+#### Hello World (Blink)
+
+Once the core is installed, you can verify that everything is working by uploading the classic Blink sketch.
+
+1.  **Select the Board:** Go to **Tools > Board > Arduino UNO Q Board** and select **Arduino UNO Q**.
+2.  **Select the Port:** Connect your board via USB-C. Go to **Tools > Port** and select the port corresponding to your UNO Q.
+3.  **Open the Example:** Go to **File > Examples > 01.Basics > Blink**.
+4.  **Upload:** Click the **Upload** button (right arrow icon) in the top toolbar.
+
+The IDE will compile the sketch and upload it to the STM32 microcontroller. You should now see the red LED of the built-in RGB LED turning on for one second, then off for one second, repeatedly.
+
+![Red LED blinking](assets/blinking-led.gif)
+
 ## Onboard User Interface
 
 The Arduino UNO Q offers a wide range of user interfaces, making interaction intuitive and straightforward.
