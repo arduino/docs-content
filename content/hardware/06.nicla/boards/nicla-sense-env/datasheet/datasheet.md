@@ -94,24 +94,30 @@ The table below provides a comprehensive guideline for the optimal use of the Ni
 
 <div style="text-align:center;">
 
-|           **Parameter**          |   **Symbol**   | **Min** | **Typ** | **Max** | **Unit** |
-|:--------------------------------:|:--------------:|:-------:|:-------:|:-------:|:--------:|
-| Supply Input Voltage<sup>1</sup> | V<sub>IN</sub> |    -    |   3.3   |    -    |     V    |
-|        ESLOV Input Voltage       |     VESLOV     |    -    |   5.0   |    -    |     V    |
-|       Operating Temperature      | T<sub>OP</sub> |   -40   |    -    |    85   |    °C    |
+|            **Parameter**            |    **Symbol**   | **Min** | **Typ** | **Max** | **Unit** |
+|:-----------------------------------:|:---------------:|:-------:|:-------:|:-------:|:--------:|
+|  `IN` Pin Input Voltage<sup>1</sup> |  V<sub>IN</sub> |   2.3   |   5.0   |   6.5   |     V    |
+| `OUT` Pin Input Voltage<sup>2</sup> | V<sub>OUT</sub> |    -    |   3.3   |   3.3   |     V    |
+|         ESLOV Input Voltage         |      VESLOV     |    -    |   5.0   |    -    |     V    |
+|        Operating Temperature        |  T<sub>OP</sub> |   -40   |    -    |    85   |    °C    |
 
 </div>
 
-<sup>1</sup> Nicla Sense Env powered through the VCC pin (+3.3 VDC).
+<p style="text-align: justify;">
+<sup>1</sup> Power input through the <code>IN</code> pin, regulated to +3.3 VDC by the onboard voltage regulator.
+</p>
+
+<p style="text-align: justify;">
+<sup>2</sup> Direct +3.3 VDC power input through the <code>OUT</code> pin, bypassing the onboard voltage regulator.
+</p>
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;"><strong>Tip:</strong> To put the Nicla Sense Env in <strong>deep sleep mode</strong>, use the API provided by the <strong>Nicla Sense Env Arduino library</strong>.</p>
+<p style="text-align: justify;"><strong>Power Tip:</strong> To put the Nicla Sense Env in <strong>deep sleep mode</strong>, use the API provided by the <strong>Nicla Sense Env Arduino library</strong>.</p>
 </div>
 
 <div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;"><strong>Safety Note:</strong> The Nicla Sense Env board operates at 3.3 VDC, and while its pins are 5 VDC tolerant, we recommend using a level translator when connecting it to 5 VDC-compatible Arduino boards to ensure safe communication and prevent potential damage to the components. This connection can be made either through the Nicla Sense Env’s ESLOV connector or its dedicated I2C pins (I2C0).</p>
+<p style="text-align: justify;"><strong>Safety Note:</strong> The Nicla Sense Env board operates at +3.3 VDC, and while its pins are +5 VDC tolerant, we recommend using a level translator when connecting it to +5 VDC-compatible Arduino boards to ensure safe communication and prevent potential damage to the components. This connection can be made either through the Nicla Sense Env's ESLOV connector or its dedicated I2C pins (I2C0).</p>
 </div>
-
 
 <div style="page-break-after: always;"></div>
 
@@ -143,9 +149,10 @@ An overview of the high-level architecture of the Nicla Sense Env is illustrated
 
 The Nicla Sense Env can be powered through one of the following interfaces:
 
-- **ESLOV connector**: The Nicla Sense Env can be powered through the power supply of a connected Portenta or MKR family board by using the ESLOV connector. 
-- **External +3.3 VDC power supply**: This can be connected to the VCC pin of the board's header connector.
-- **Onboard P-MOD connector**: The Nicla Sense Env can also be powered through the power pins (VCC pin) of the onboard P-MOD connector (VCC pin) using an external +3.3 VDC power supply. 
+- **ESLOV connector**: The Nicla Sense Env can be powered through the power supply of a connected Portenta or MKR family board by using the ESLOV connector.
+- **External +2.3 to +6.5 VDC power supply**: This can be connected to the `IN` pin (pin 9) of the board's header connector. The onboard voltage regulator converts this input to +3.3 VDC for the internal circuitry.
+- **External +3.3 VDC power supply**: This can be connected to the `OUT` pin (pin 7) of the board's header connector, **bypassing the onboard voltage regulator**.
+- **Onboard P-MOD connector**: The Nicla Sense Env can also be powered through the `+3V3` power pin of the onboard P-MOD connector using an external +3.3 VDC power supply.
 
 A detailed figure below illustrates the power options available on the Nicla Sense Env and the main system power architecture.
 
@@ -158,7 +165,7 @@ A detailed figure below illustrates the power options available on the Nicla Sen
 </div>
 
 <div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
-<strong>Safety Note:</strong> If you power your Nicla Sense Env board through its VCC pin, notice that <strong>the only operating input voltage is +3.3 VDC; any other voltage will permanently damage the board</strong>. 
+<strong>Safety Note:</strong> Do not exceed the voltage limits specified for each power pin: +2.3 to +6.5 VDC for the <code>IN</code> pin and +3.3 VDC for the <code>OUT</code> pin. Voltages outside these ranges will permanently damage the board. <strong>Neither pin has reverse polarity protection</strong>; always verify all connections before applying power.
 </div>
 
 <div style="page-break-after: always;"></div>
