@@ -160,7 +160,7 @@ The Arduino UNO Q is compatible with the standard Arduino IDE, allowing you to p
 
 ![Arduino IDE + UNO Q](assets/arduino-ide.png)
 
-***The Arduino UNO Q features a dual-processor architecture. The Arduino IDE is strictly used to program the __UNO Q Microcontroller (STM32)__. If you wish to program the Qualcomm Microprocessor, please refer to the [Arduino App Lab section](#install-arduino-app-lab).***
+***The Arduino UNO Q features a dual-processor architecture. The Arduino IDE targets and programs only the __UNO Q Microcontroller (STM32)__. If you wish to program the Qualcomm Microprocessor, please refer to the [Arduino App Lab section](#install-arduino-app-lab).***
 
 #### Installing the UNO Q Core
 
