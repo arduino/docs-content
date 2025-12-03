@@ -39,7 +39,8 @@ This document serves as a comprehensive user manual for the Nesso N1, providing 
 
 - [Arduino IDE](https://www.arduino.cc/en/software) (v2.0 or higher recommended)
 - [ESP32 Boards core by Espressif](https://github.com/espressif/arduino-esp32) (v3.3.3 or higher)
-    - *Note: Safe battery management requires version 3.3.5 or higher (pending release).*
+
+*Note: Safe battery management requires version 3.3.5 or higher (pending release).*
 
 ## Product Overview
 
