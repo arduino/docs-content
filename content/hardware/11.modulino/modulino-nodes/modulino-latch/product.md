@@ -1,12 +1,12 @@
 ---
 title: Modulino Latch Relay
-url_shop: https://store.arduino.cc/products/modulino-latch
+url_shop: https://store.arduino.cc/products/modulino-latch-relay
 url_guide: https://courses.arduino.cc/plugandmake
 primary_button_url: https://docs.arduino.cc/tutorials/modulino-latch/how-latch/
 primary_button_title: Get Started
 secondary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-general/
 secondary_button_title: More on Modulino Nodes
-forumCategorySlug: '/hardware/accessories/modulino-latch/?!?!'
+forumCategorySlug: '/hardware/accessories/modulino-thermo/220'
 sku: [ABX00138]
 ---
 
