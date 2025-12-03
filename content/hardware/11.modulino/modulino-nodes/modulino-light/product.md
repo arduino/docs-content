@@ -2,10 +2,10 @@
 title: Modulino Light
 url_shop: https://store.arduino.cc/products/modulino-light
 url_guide: https://courses.arduino.cc/plugandmake
-primary_button_url: TODO_light_prim
-primary_button_title: With Arduino
-secondary_button_url: TODO_light_sec
-secondary_button_title: With MicroPython
+primary_button_url: https://docs.arduino.cc/tutorials/modulino-light/how-light/
+primary_button_title: Get Started
+secondary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-general/
+secondary_button_title: More on Modulino Nodes
 forumCategorySlug: '/hardware/accessories/modulino-light/?!?!'
 sku: [ABX00111]
 ---
