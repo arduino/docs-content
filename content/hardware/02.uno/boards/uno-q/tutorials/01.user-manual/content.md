@@ -1297,6 +1297,47 @@ If you want to forget the saved network so it doesn’t auto-connect again, you 
 sudo nmcli connection delete <SSID>
 ```
 
+#### WPA2-Enterprise Connections
+
+To connect to a WPA2-Enterprise network, you need to provide additional authentication configuration. The possible configurations can be complex; please refer to the [official documentation](https://people.freedesktop.org/~lkundrak/nm-dbus-api/nm-settings.html) for a comprehensive list of options.
+
+For example, here is the configuration for **Eduroam**, an international Wi-Fi roaming service for users in research and education.
+
+```bash
+nmcli con add \
+  type wifi \
+  connection.id Eduroam \ # Connection name
+  wifi.ssid eduroam \   # Network Wi-Fi SSID
+  wifi.mode infrastructure \
+  wifi-sec.key-mgmt wpa-eap \
+  802-1x.eap peap \
+  802-1x.phase2-auth mschapv2 \
+  802-1x.identity <your identity>
+```
+
+
+
+Here's another example using TTLS authentication with PAP:
+
+```bash
+nmcli con add \
+  type wifi \
+  connection.id ExampleNetwork \ # Connection name
+  wifi.ssid <your Wi-Fi SSID> \ # Network Wi-Fi SSID
+  wifi.mode infrastructure \
+  wifi-sec.key-mgmt wpa-eap \
+  802-1x.eap ttls \
+  802-1x.phase2-auth pap \
+  802-1x.domain-suffix-match example.com \
+  802-1x.identity <your identity>
+```
+
+If you prefer not to store your password in plain text (especially when it contains special characters), you can use the `--ask` flag to be prompted for the password interactively when connecting:
+
+```bash
+nmcli --ask con up <your network name>
+```
+
 #### From the Microcontroller 
 
 Since the radio module is connected to the Qualcomm microprocessor, we need the **Bridge** to expose the connectivity to the microcontroller.
