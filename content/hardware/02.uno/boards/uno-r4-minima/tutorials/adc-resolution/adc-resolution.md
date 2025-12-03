@@ -25,7 +25,7 @@ The goals of this tutorials are:
 
 An analog-to-digital converter (ADC) transforms an analog signal to a digital one. The standard resolution on Arduino boards is set to 10-bit (0-1023). The UNO R4 Minima supports up to 14-bit resolutions, which can provide a more precise value from analog signals.
 
-To update the resolution, you will only need to use the [analogReadResolution()](https://reference.arduino.cc/reference/en/language/functions/zero-due-mkr-family/analogreadresolution/) command.
+To update the resolution, you will only need to use the [analogReadResolution()](https://docs.arduino.cc/language-reference/en/functions/analog-io/analogReadResolution/) command.
 
 To use it, simply include it in your `setup()`, and use `analogRead()` to retrieve a value from an analog pin.
 
