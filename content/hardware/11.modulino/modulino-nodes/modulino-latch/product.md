@@ -1,6 +1,6 @@
 ---
 title: Modulino Latch Relay
-url_shop: https://store.arduino.cc/products/modulino-latch
+url_shop: https://store.arduino.cc/products/modulino-latch-relay
 url_guide: https://courses.arduino.cc/plugandmake
 primary_button_url: https://docs.arduino.cc/tutorials/modulino-latch/how-latch/
 primary_button_title: Get Started
