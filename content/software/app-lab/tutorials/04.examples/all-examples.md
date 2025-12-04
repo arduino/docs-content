@@ -14,7 +14,7 @@ This article provides a comprehensive overview of various applications developed
 - [Arduino® UNO Q](https://store.arduino.cc/products/uno-q)
 - [USB-C® cable](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-usb-hub)
 
-## Built-in Examples
+## Examples Without Additional Hardware
 
 ### Air Quality Monitoring App
 
