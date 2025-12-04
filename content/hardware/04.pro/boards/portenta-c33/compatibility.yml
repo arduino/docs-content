@@ -10,7 +10,7 @@ hardware:
     - nicla-vision
   shields:
     - portenta-vision-shield
-    - portenta-cat-m1-nb-iot-gnss-shield
+    #- portenta-cat-m1-nb-iot-gnss-shield
   carriers:
     - portenta-breakout
     - portenta-max-carrier
