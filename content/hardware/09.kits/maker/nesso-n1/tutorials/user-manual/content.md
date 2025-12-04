@@ -40,6 +40,8 @@ This document serves as a comprehensive user manual for the Nesso N1, providing 
 - [Arduino IDE](https://www.arduino.cc/en/software) (v2.0 or higher recommended)
 - [ESP32 Boards core by Espressif](https://github.com/espressif/arduino-esp32) (v3.3.3 or higher)
 
+*Note: Safe battery management requires version 3.3.5 or higher (pending release).*
+
 ## Product Overview
 
 The Nesso N1 packs a rich set of features into a compact and portable form factor. It includes an integrated color touchscreen, multiple sensors, programmable buttons, and extensive expansion options, all powered by a rechargeable LiPo battery with power management.
@@ -144,6 +146,7 @@ Because "Manual Devices" do not automatically generate a downloadable sketch, yo
 
     ```cpp
     #include <ArduinoIoTCloud.h>
+    #include <Arduino_ConnectionHandler.h>
     #include "arduino_secrets.h"
 
     void onLedChange();
@@ -222,18 +225,28 @@ For projects where a slimmer profile is desired, the included hexagon key can be
 The Nesso N1 can be powered in three ways:
 
 - **USB-C® Connector**: Provide a regulated 5 V DC supply through the USB-C® port. This method also charges the internal battery.
-- **Built-in Battery**: The onboard 250 mAh LiPo battery allows the device to operate untethered, making it ideal for portable and remote monitoring applications.
+- **Built-in Battery**: The onboard 250 mAh LiPo battery allows the device to operate untethered. **(Note: Please see the Battery section below for critical safety information regarding battery usage with the current software version.)**
 - **VIN Pin**: You can use the `VIN` pin on the 8-pin expansion header to power the board from an external 5 V DC source.
 
 ***WARNING: Handle the internal LiPo battery with care. Do not puncture, short-circuit, or expose it to high temperatures.***
 
 ## Battery Management
 
-The board incorporates a power management system featuring the **AW32001** power path management chip and the **BQ27220** battery monitoring chip. This system provides:
+The board incorporates a power management system featuring the **AW32001** power path management chip and the **BQ27220** battery monitoring chip.
 
-- **Automatic Charging**: The battery charges automatically when a 5 V source is connected via USB-C®.
-- **Real-Time Monitoring**: You can programmatically access battery voltage, current, and capacity to monitor the power status of your application.
-- **Over-Current & Over-Voltage Protection**: Ensures safe and stable operation during charging and discharging cycles.
+### ⚠️ CRITICAL WARNING: Battery Software Support Pending
+
+Full support for the Nesso N1 battery management system (BMS) requires the **esp32** board package version **3.3.5** (or newer), which is currently pending release.
+
+**Do not attempt to enable battery charging with the current board package (version 3.3.4 or older).**
+
+Allowing the battery to fully deplete while using the current software may cause the device to become unresponsive and fail to power on, even when connected to USB.
+
+**Recommendation:**
+*   **Power the device exclusively via USB-C** until the software update is available.
+*   **Do not** call `battery.enableCharge()` in your sketches.
+
+Once the updated board package is released, this manual will be updated with instructions for safe battery management.
 
 ## Microcontroller (ESP32-C6)
 
@@ -497,77 +510,6 @@ void loop() {
 }
 ```
 
-
-## Battery
-
-
-To interact with the battery system from your sketch, the Nesso N1 board package provides a built-in `NessoBattery` object named `battery`. It is available for use in your sketch without needing to include a specific library.
-
-
-### Enable Charging
-
-***WARNING: By default, the battery charging circuit is disabled. You must explicitly call `battery.enableCharge()` in your `setup()` function for the battery to charge when the device is powered via USB-C® or VIN.***
-
-```arduino
-// The NessoBattery object is available by default
-NessoBattery battery;
-
-void setup() {
-  // Enable the charging circuit
-  battery.enableCharge();
-}
-```
-
-### Get Battery Voltage
-
-Returns the current, instantaneous battery voltage in Volts. This is a direct electrical measurement.
-
-```arduino
-float voltage = battery.getVoltage();
-Serial.print("Voltage: ");
-Serial.print(voltage);
-Serial.println(" V");
-```
-
-### Get Charge Level
-
-Returns the battery's estimated state of charge as a percentage (0-100%). This value is calculated by the BQ27220 fuel gauge IC.
-
-```arduino
-uint16_t chargeLevel = battery.getChargeLevel();
-Serial.print("Charge Level: ");
-Serial.print(chargeLevel);
-Serial.println(" %");
-```
-
-### Understanding Voltage vs. Charge Level
-
-It is important to understand the difference between the two battery reading functions:
-
-- **`getVoltage()`** provides a direct, real-time measurement of the battery's voltage. This value can fluctuate depending on whether the battery is charging or under load (e.g., when Wi-Fi® or the display is active). It's a good raw indicator of the battery's state but not a precise measure of remaining capacity.
-
-- **`getChargeLevel()`** provides a much more accurate *estimate* of the remaining capacity. The BQ27220 fuel gauge uses a sophisticated algorithm that tracks the flow of energy into and out of the battery over time (a technique known as Coulomb counting).
-
-***For the fuel gauge to become reliable, it needs a few full charge and discharge cycles. During the first few uses, you may observe the charge level staying low for a while before ramping up to a more accurate value. This is normal behavior as the IC calibrates itself.***
-
-### Checking for External Power
-
-You can determine if the device is running on external power by reading the `VIN_DETECT` expander pin. This is useful for adjusting your application's behavior, such as entering a low-power mode when on battery.
-
-```arduino
-void setup() {
-  pinMode(VIN_DETECT, INPUT);
-}
-
-void loop() {
-  if (digitalRead(VIN_DETECT) == HIGH) {
-    Serial.println("Running on external power.");
-  } else {
-    Serial.println("Running on battery power.");
-  }
-  delay(5000);
-}
-```
 
 ## Buttons and LED
 
