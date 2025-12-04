@@ -181,6 +181,22 @@ rpc_client = RpcClient(rpc_address)
 temperature = rpc_client.call('temperature')
 ```
 
+You have two options to run the Python® application. For a quick setup, you can use the pre-built `arduino/python-rpc-sensors` image that's maintained. This makes sure you always have the latest compatible version:
+
+```bash
+adb shell
+```
+
+Pull and run the pre-built image using following command:
+
+```bash
+docker run --rm --network=host arduino/python-rpc-sensors
+```
+
+This approach is recommended as it's simpler and always uses the latest tested version compatible with the current OS.
+
+If you want to modify the Python® script or learn how the container is built, you can build the image from source.
+
 The complete Python® application files are available in the repository [here](https://github.com/arduino/portenta-containers/tree/main/python-rpc-sensors). Clone or download the repository to your local machine, then upload the `python-rpc-sensors` folder to the Portenta X8 via:
 
 ```bash
