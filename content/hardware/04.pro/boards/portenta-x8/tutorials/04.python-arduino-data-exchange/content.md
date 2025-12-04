@@ -48,7 +48,7 @@ While RPC aims to closely replicate local procedure calls, complete equivalence 
 - **`At most once` semantics** ensures that a remote call may fail but will not be run multiple times.
 - **`At least once` semantics** guarantees that the call is made at least once, even if it results in multiple activations.
 
-The Portenta X8 uses **MessagePack-RPC** for its communication (see the [library repository](https://github.com/msgpack-rpc/msgpack-rpc) for details). *MessagePack-RPC* relies on *MessagePack* as the serialization protocol, encoding data in *MsgPack* format, and is supported over:
+The Portenta X8 uses **MessagePack-RPC** for its communication (see the [library repository](https://github.com/msgpack-rpc/msgpack-rpc-python) for details). *MessagePack-RPC* relies on *MessagePack* as the serialization protocol, encoding data in *MsgPack* format, and is supported over:
 
 - OpenAMP via Shared Memory
 - SPI
@@ -117,7 +117,7 @@ Alternatively, you could bind the name to an existing, named function instead. T
 
 ![The iMX8 and the STM32H747 processor communicate via SPI](assets/component-placement.svg)
 
-You can find the sketch in the software package [here](assets/python-sensor-rpc.zip). You may need to change the sketch depending on the choice of the sensor to read from. If you're using an I<sup>2</sup>C sensor, you can connect SCL to **PWM6** and SDA to **PWM8** on the Portenta breakout.
+You can find the sketch and complete example [here](https://github.com/arduino/portenta-containers/tree/main/python-rpc-sensors). You may need to change the sketch depending on the choice of the sensor to read from. If you're using an I<sup>2</sup>C sensor, you can connect SCL to **PWM6** and SDA to **PWM8** on the Portenta breakout.
 
 That is because the labeled I<sup>2</sup>C pins on the Portenta Breakout are only available on the Linux side. If you are using an analog sensor, you can connect it to any analog pin. Please refer to the pinout diagram on the Portenta Breakout [documentation page](/hardware/portenta-breakout).
 
@@ -129,16 +129,16 @@ Make sure you have installed the **Arduino Mbed OS Portenta Boards** core and up
 
 To check if the Arduino sketch is working correctly, you may want to read the messages from the `Serial.println` statements. You cannot currently read them directly in the serial monitor of the Arduino IDE. Instead, you can use a simple service called **`py-serialrpc`**, which listens for those messages and prints them to the console.
 
-This service needs to run on the Linux side of the X8. You can get the files [here](assets/py-serialrpc.zip). The compressed file will have every file needed to build a container as the docker compose app. From the command prompt of your local machine, navigate to the adb tool folder and upload the files to the X8 with command:
+This service needs to run on the Linux side of the X8. You can get the files [here](https://github.com/arduino/portenta-containers/tree/main/python-rpc-serial). Clone or download the repository to your local machine, then from the command prompt, navigate to the adb tool folder and upload the files to the X8 with command:
 
 ```bash
-adb push <local directory path>/py-serialrpc /home/fio
+adb push <local directory path>/python-rpc-serial /home/fio
 ```
 
-Log into the X8 shell with `adb shell` and navigate into the `serialrpc` folder. Build the container using
+Log into the X8 shell with `adb shell` and navigate into the `python-rpc-serial` folder. Build the container using
 
 ```bash
-docker build . -t py-serialrpc
+docker build . -t python-rpc-serial
 ```
 
 The `-t` flag assigns a tag to the container. Then run the container by executing `cd..` and then:
@@ -181,16 +181,16 @@ rpc_client = RpcClient(rpc_address)
 temperature = rpc_client.call('temperature')
 ```
 
-The complete Python® application files are in the same package as the Arduino sketch (see above). Like in the previous step, upload the `python-sensor-rpc` folder to the Portenta X8 via:
+The complete Python® application files are available in the repository [here](https://github.com/arduino/portenta-containers/tree/main/python-rpc-sensors). Clone or download the repository to your local machine, then upload the `python-rpc-sensors` folder to the Portenta X8 via:
 
 ```bash
-adb push <local directory path>/python-sensor-rpc /home/fio
+adb push <local directory path>/python-rpc-sensors /home/fio
 ```
 
-Log into the X8 via `adb shell`. Then navigate into the `python-sensor-rpc` folder and execute:
+Log into the X8 via `adb shell`. Then navigate into the `python-rpc-sensors` folder and execute:
 
 ```bash
-docker build . -t python-sensor-rpc
+docker build . -t python-rpc-sensors
 ```
 
 When it has finished, you can run the container with:
@@ -202,22 +202,22 @@ docker compose up
 After a few seconds, you should see the output from the Python application featuring the sensor readings on the M4 that exchanges through the RPC mechanism. The output should look similar to the following:
 
 ```bash
-python-sensor-rpc_1  | ============================================
-python-sensor-rpc_1  | ==       Portenta X8 Sensor reading       ==
-python-sensor-rpc_1  | ============================================
-python-sensor-rpc_1  |
-python-sensor-rpc_1  | Temperature:  25.904266357421875
-python-sensor-rpc_1  | Humidity:  25.564695358276367
-python-sensor-rpc_1  | Pressure:  976.4400024414062
-python-sensor-rpc_1  | Gas:  136.496
-python-sensor-rpc_1  | Altitude:  311.0769348144531
+python-rpc-sensors_1  | ============================================
+python-rpc-sensors_1  | ==       Portenta X8 Sensor reading       ==
+python-rpc-sensors_1  | ============================================
+python-rpc-sensors_1  |
+python-rpc-sensors_1  | Temperature:  25.904266357421875
+python-rpc-sensors_1  | Humidity:  25.564695358276367
+python-rpc-sensors_1  | Pressure:  976.4400024414062
+python-rpc-sensors_1  | Gas:  136.496
+python-rpc-sensors_1  | Altitude:  311.0769348144531
 ```
 
 Whenever you change anything in the Python® script on your computer, you will have to resync and push the new script to the Portenta X8 and rebuild the container. Following command sequence will help you to do this process:
 
 ```bash
 # On your computer
-adb push python-sensor-rpc /home/fio
+adb push python-rpc-sensors /home/fio
 ```
 
 ```bash
@@ -227,7 +227,7 @@ docker compose down
 
 ```bash
 # On the Portenta X8
-docker build . -t python-sensor-rpc
+docker build . -t python-rpc-sensors
 ```
 
 ```bash
