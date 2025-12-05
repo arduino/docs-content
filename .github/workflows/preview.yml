@@ -94,13 +94,13 @@ jobs:
           find content -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.svg" -o -name "*.gif" \) -size +2M -print0 |
           while IFS= read -r -d $'\0' file; do
             size=$(ls -lh "$file" | awk '{print $5}')
-            echo "::warning file=$file::Image is very large: $size. Consider optimizing it."
+            echo "::warning file=$file::File '$file' is very large: $size. Consider optimizing it."
           done
 
           find content -type f \( -name "*.pdf" -o -name "*.zip" -o -name "*.mp4" \) -size +10M -print0 |
           while IFS= read -r -d $'\0' file; do
             size=$(ls -lh "$file" | awk '{print $5}')
-            echo "::warning file=$file::Asset file is very large: $size. This can impact repository size and checkout times."
+            echo "::warning file=$file::File '$file' is very large: $size. This can impact repository size and checkout times."
           done
 
       - name: Gatsby main cache
