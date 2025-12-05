@@ -91,7 +91,10 @@ jobs:
 
       - run: npm install
 
-      - run: npm run build
+      - name: Build with increased memory
+        env:
+          NODE_OPTIONS: --max-old-space-size=12288
+        run: npm run build
 
       - name: Clean up node_modules # Just to save space
         run: rm -rf node_modules
