@@ -71,6 +71,20 @@ jobs:
           find ./content/hardware -type f -name "*-pinout.png" -exec cp {} ./static/resources/pinouts/ \;
           find ./content/hardware -type f -name "*-step.zip" -exec cp {} ./static/resources/models/ \;
 
+      - name: Check for large files
+        run: |
+          find content -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.svg" -o -name "*.gif" \) -size +2M -print0 |
+          while IFS= read -r -d $'\0' file; do
+            size=$(ls -lh "$file" | awk '{print $5}')
+            echo "::warning file=$file::File '$file' is very large: $size. Consider optimizing it."
+          done
+
+          find content -type f \( -name "*.pdf" -o -name "*.zip" -o -name "*.mp4" \) -size +10M -print0 |
+          while IFS= read -r -d $'\0' file; do
+            size=$(ls -lh "$file" | awk '{print $5}')
+            echo "::warning file=$file::File '$file' is very large: $size. This can impact repository size and checkout times."
+          done
+
       - name: Gatsby main cache
         uses: actions/cache@v4
         id: gatsby-cache-folder
@@ -91,7 +105,12 @@ jobs:
 
       - run: npm install
 
-      - run: npm run build
+      - name: Patch Gatsby Config
+        run: |
+          sed -i.bak "/path: \`${__dirname}\/content\`,\s*$/a \ \ \ \ \ \ \ \ ignore: [\`**/*.zip\`, \`**/*.mp4\`, \`**/*.pdf\`, \`**/*.gif\`]," gatsby-config.js
+
+      - name: Build
+        run: npm run build
 
       - name: Clean up node_modules # Just to save space
         run: rm -rf node_modules
