@@ -91,6 +91,10 @@ jobs:
 
       - run: npm install
 
+      - name: Patch Gatsby Config
+        run: |
+          sed -i.bak "s|path: \`\${__dirname}/content\`,\s*}|path: \`\${__dirname}/content\`,\n        ignore: [\`**/*.zip\`, \`**/*.mp4\`, \`**/*.pdf\`, \`**/*.gif\`]\n      }|" gatsby-config.js
+
       - name: Build with increased memory
         env:
           NODE_OPTIONS: --max-old-space-size=12288
