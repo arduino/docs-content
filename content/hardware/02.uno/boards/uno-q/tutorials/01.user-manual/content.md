@@ -848,7 +848,7 @@ The Router manages the physical connection between the two processors. It is imp
 * **MCU Side (STM32):** The router claims the hardware serial port `Serial`.
 
 > **⚠️ WARNING: Reserved Resources**
-> Do not attempt to open `/dev/ttyHS1` (on Linux) or `Serial` (on Arduino/Zephyr) in your own code. These interfaces are exclusively locked by the `arduino-router` service. Attempting to access them directly will cause the Bridge to fail.
+> Do not attempt to open `/dev/ttyHS1` (on Linux) or `Serial1` (on Arduino/Zephyr) in your own code. These interfaces are exclusively locked by the `arduino-router` service. Attempting to access them directly will cause the Bridge to fail.
 
 #### Managing the Router Service
 
