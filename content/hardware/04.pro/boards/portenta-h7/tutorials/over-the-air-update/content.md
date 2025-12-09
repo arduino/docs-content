@@ -16,6 +16,9 @@ libraries:
 hardware:
   - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/boards/portenta-h7-lite-connected
+  - hardware/06.nicla/boards/nicla-vision
+  - hardware/07.opta/opta-family/opta
+  - hardware/10.mega/boards/giga-r1-wifi
 software:
   - ide-v1
   - ide-v2
@@ -24,6 +27,7 @@ software:
 ---
 
 ## Overview
+
 In this tutorial, you will learn how to use and allow firmware updates via **OTA (Over-The-Air)** with the **Arduino Portenta H7**. With this tutorial, you will be able to create a binary file to be used with the OTA feature and use the internal **QSPI** or an external **SD card** to accomplish the OTA (Over-The-Air) process.
 
 ***To proceed with OTA using an SD Card, you will need to use a carrier or shield with an SD card slot, e.g., Portenta Breakout, Portenta Max Carrier, or Portenta Vision Shield.***
@@ -276,6 +280,8 @@ The complete script is as follows.
 
 ### QSPI Storage Mode
 
+You can open this sketch from the Arduino IDE by going to **File > Examples > Arduino_Portenta_OTA > OTA_Qspi_Flash**.
+
 ```cpp
 /*
  * This example demonstrates how to update the firmware of the Arduino Portenta H7 using
@@ -417,6 +423,8 @@ void loop()
 ```
 
 ### SD Card Storage Mode
+
+You can open this sketch from the Arduino IDE by going to **File > Examples > Arduino_Portenta_OTA > OTA_SD_Portenta**.
 
 ```cpp
 /*
@@ -560,7 +568,7 @@ The standard OTA examples use a two-step process:
 
 However, the `Arduino_Portenta_OTA` library also supports **on-the-fly decompression**, where the file is decompressed as it's being downloaded, which can be more efficient for certain use cases.
 
-The following example shows both methods and allows you to compare their performance:
+You can open this sketch from the Arduino IDE by going to **File > Examples > Arduino_Portenta_OTA > LZSS**. The following example shows both methods and allows you to compare their performance:
 
 ```cpp
 /*
@@ -749,9 +757,13 @@ void decompress_on_the_fly_cbk(const char* buffer, uint32_t size) {
 void putc_file(const uint8_t c) {
     fwrite(&c, 1, 1, download_target);
 }
-
-
 ```
+
+## Conclusion
+
+In this tutorial, you learned how to set up and perform Over-The-Air (OTA) firmware updates on the Arduino Portenta H7 and compatible boards. You explored how to create OTA files from compiled binaries, configure both QSPI and SD card storage options, and successfully deploy wireless firmware updates. Additionally, you gained insight into LZSS compression methods and their performance characteristics for different use cases.
+
+Thanks to the `Arduino_Portenta_OTA` library and its flexibility, you can remotely update your devices without physical access, choose between storage methods based on your hardware configuration, and select the decompression approach that best fits your performance requirements. It makes OTA updates a good capability for maintaining deployed IoT systems, prototyping advanced applications, and building production-ready solutions that can be updated over the network.
 
 ## Troubleshooting
 
