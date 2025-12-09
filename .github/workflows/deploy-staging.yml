@@ -85,6 +85,46 @@ jobs:
             echo "::warning file=$file::File '$file' is very large: $size. This can impact repository size and checkout times."
           done
 
+      # - name: Fail on Oversized Files
+      #   id: fail_on_oversized_files
+      #   run: |
+      #     #!/bin/bash
+      #     # This script is a stricter check that fails the workflow if files exceed size limits.
+      #     set -e
+
+      #     # Thresholds in Megabytes (same as the warning step)
+      #     IMAGE_LIMIT_MB=2
+      #     ASSET_LIMIT_MB=10
+
+      #     # Find oversized files and prepare a detailed report
+      #     OVERSIZED_FILES=$(find content -type f \
+      #       \( \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.svg" -o -name "*.gif" \) -size "+${IMAGE_LIMIT_MB}M" \) -o \
+      #       \( \( -name "*.pdf" -o -name "*.zip" -o -name "*.mp4" \) -size "+${ASSET_LIMIT_MB}M" \) \
+      #       -exec ls -lh {} + | awk '{printf "  - %s (%s)\n", $9, $5}')
+
+      #     # Check if the report is non-empty and fail the job if so
+      #     if [ -n "$OVERSIZED_FILES" ]; then
+      #       echo "::error::Found files exceeding size limits. This new check is failing the build as intended."
+      #       echo "--------------------------------------------------"
+      #       echo "Oversized Files Found:"
+      #       echo "$OVERSIZED_FILES"
+      #       echo "--------------------------------------------------"
+      #       echo "Limits:"
+      #       echo "  - Images (PNG, JPG, SVG, GIF): ${IMAGE_LIMIT_MB}MB"
+      #       echo "  - Assets (PDF, ZIP, MP4): ${ASSET_LIMIT_MB}MB"
+      #       exit 1
+      #     else
+      #       echo "No oversized files found. New check passed."
+      #     fi
+
+      - name: Compress Large Images
+        run: |
+          sudo apt-get update && sudo apt-get install -y jpegoptim optipng
+          echo "Compressing large JPGs..."
+          find content -type f \( -name "*.jpg" -o -name "*.jpeg" \) -size +2M -print -exec jpegoptim --strip-all {} \;
+          echo "Compressing large PNGs..."
+          find content -type f -name "*.png" -size +2M -print -exec optipng -o2 {} \;
+
       - name: Gatsby main cache
         uses: actions/cache@v4
         id: gatsby-cache-folder
@@ -104,9 +144,6 @@ jobs:
             ${{ runner.os }}-public-gatsby-main
 
       - run: npm install
-
-      - name: Verify Gatsby Config
-        run: cat gatsby-config.js
 
       - name: Build
         run: npm run build
