@@ -30,6 +30,8 @@ software:
 
 In this tutorial, you will learn how to use and allow firmware updates via **OTA (Over-The-Air)** with the **Arduino Portenta H7**. With this tutorial, you will be able to create a binary file for use with the OTA (Over-The-Air) feature and either use the internal **QSPI** or an external **SD card** to complete the OTA process.
 
+![OTA (Over-The-Air) Feature](assets/over-the-air.png)
+
 ***To proceed with OTA using an SD Card, you will need to use a carrier or shield with an SD card slot, e.g., Portenta Breakout, Portenta Max Carrier, or Portenta Vision Shield.***
 
 ## Goals
