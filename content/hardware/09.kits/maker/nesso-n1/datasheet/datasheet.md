@@ -10,7 +10,11 @@ type: maker
 
 <p style="text-align: justify;">Arduino® Nesso N1 (hereafter Nesso N1) is a compact, all-in-one IoT development kit powered by the ESP32-C6 microcontroller, a single-core 32-bit RISC-V CPU running at up to 160 MHz. Designed for remote monitoring and automation applications, Nesso N1 combines multiple wireless protocols, such as Wi-Fi® 6, Bluetooth® 5.3, Thread®, and LoRa® into a sleek, portable form factor with an integrated 1.14" touch display and rechargeable 250 mAh battery. Built-in sensors include a 6-axis IMU, passive buzzer, and infrared transmitter, with expansion capabilities through Grove, Qwiic, and M5StickC HAT-compatible connectors.</p>
 
-<p style="text-align: justify;">Nesso N1 can be programmed using Arduino IDE, MicroPython, or UIFlow, and integrates seamlessly with Arduino Cloud for remote device management and data visualization. With comprehensive documentation, ready-to-use examples, and compatibility with Arduino Modulino® nodes and third-party accessories, Nesso N1 accelerates the development of connected devices for smart homes, industrial automation, and environmental monitoring.</p>
+<p style="text-align: justify;">Nesso N1 can be programmed using Arduino IDE, MicroPython, or UIFlow* (2.0), and integrates seamlessly with Arduino Cloud for remote device management and data visualization. With comprehensive documentation, ready-to-use examples, and compatibility with Arduino Modulino® nodes and third-party accessories, Nesso N1 accelerates the development of connected devices for smart homes, industrial automation, and environmental monitoring.</p>
+
+<div style="background-color: rgba(255, 193, 7, 0.2); border-left: 6px solid rgba(255, 152, 0, 1); margin: 20px 0; padding: 15px;">
+  <strong>* UIFlow v2.0 Support:</strong> UIFlow support is not yet available. Support will be available by the end of Q4 2025.
+</div>
 
 # Target Areas
 
@@ -350,21 +354,27 @@ Use the limits below to define the operating environment, thermal margins, and p
 
 <div style="page-break-after: always;"></div>
 
+### Programming Options
+
+Nesso N1 supports multiple programming methods:
+
+- **Arduino IDE** [1]
+- **MicroPython**
+- **UIFlow v2.0***
+
+<div style="background-color: rgba(255, 193, 7, 0.2); border-left: 6px solid rgba(255, 152, 0, 1); margin: 20px 0; padding: 15px;">
+  <strong>* UIFlow v2.0 Support:</strong> UIFlow support is not yet available. UIFlow v2.0 support is on the way for Nesso N1, with availability expected by the end of Q4 2025. This will provide a visual programming interface for rapid prototyping and educational applications.
+</div>
+
 ## Device Operation
 
 ### Getting Started - IDE
 
 If you want to program your Nesso N1 while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Nesso N1 to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the green power LED (LED1).
 
-### Getting Started - Arduino Cloud Editor
-
-All Arduino boards, including this one, work out-of-the-box on the Arduino® Cloud Editor **[2]**, by just installing a simple plugin.
-
-The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[2]** to start coding on the browser and upload your sketches onto your board.
-
 ### Getting Started - Arduino Cloud
 
-All Arduino IoT enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino IoT enabled products are supported on Arduino Cloud **[2]** which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Online Resources
 
@@ -492,7 +502,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | No. | Reference                      | Link                                                                                     |
 |:---:|--------------------------------|------------------------------------------------------------------------------------------|
 |  1  | Arduino IDE (Desktop)          | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)       |
-|  2  | Arduino IDE (Cloud)            | [https://create.arduino.cc/editor](https://create.arduino.cc/editor)                     |
+|  2  | Arduino Cloud                  | [https://cloud.arduino.cc/](https://cloud.arduino.cc/)                                   |
 |  3  | Arduino Nesso N1 Documentation | [https://docs.arduino.cc/hardware/nesso-n1/](https://docs.arduino.cc/hardware/nesso-n1/) |
 |  4  | Project Hub                    | [https://create.arduino.cc/projecthub](https://create.arduino.cc/projecthub)             |
 |  5  | Library Reference              | [https://github.com/arduino-libraries/](https://github.com/arduino-libraries/)           |
@@ -500,6 +510,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Document Revision History
 
-|  **Date**  | **Revision** | **Changes**   |
-|:----------:|:------------:|---------------|
-| 14/10/2025 |      1       | First release |
+|  **Date**  | **Revision** | **Changes**                           |
+|:----------:|:------------:|---------------------------------------|
+| 20/11/2025 |     1.1      | Added UIFlow v2.0 support information |
+| 14/10/2025 |      1       | First release                         |

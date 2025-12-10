@@ -154,6 +154,40 @@ You should now see the red LED of the built-in RGB LED turning on for one second
 
 ***The LED controlled in this example is driven by the STM32 microcontroller through the Arduino sketch.***
 
+### Arduino IDE (Beta)
+
+The Arduino UNO Q is compatible with the standard Arduino IDE, allowing you to program the board using the familiar Arduino language and ecosystem.
+
+![Arduino IDE + UNO Q](assets/arduino-ide.png)
+
+***The Arduino UNO Q features a dual-processor architecture. The Arduino IDE targets and programs only the __UNO Q Microcontroller (STM32)__. If you wish to program the Qualcomm Microprocessor, please refer to the [Arduino App Lab section](#install-arduino-app-lab).***
+
+#### Installing the UNO Q Core
+
+To start using the board, you must first install the specific core that supports the UNO Q architecture (based on Zephyr).
+
+1.  Open the Arduino IDE.
+2.  Navigate to **Tools > Board > Boards Manager...** or click the **Boards Manager** icon in the left sidebar.
+3.  In the search bar, type `UNO Q`.
+4.  Locate the **Arduino UNO Q Zephyr Core** and click **Install**.
+
+![Installing the UNO Q Zephyr Core](assets/bsp-install.png)
+
+***<strong>Troubleshooting:</strong> If the core does not appear in the search results, you may need to add the package manually. Go to __File > Preferences__ and add the following link to the __Additional Boards Manager URLs__ field: `https://downloads.arduino.cc/packages/package_zephyr_index.json`***
+
+#### Hello World (Blink)
+
+Once the core is installed, you can verify that everything is working by uploading the classic Blink sketch.
+
+1.  **Select the Board:** Go to **Tools > Board > Arduino UNO Q Board** and select **Arduino UNO Q**.
+2.  **Select the Port:** Connect your board via USB-C. Go to **Tools > Port** and select the port corresponding to your UNO Q.
+3.  **Open the Example:** Go to **File > Examples > 01.Basics > Blink**.
+4.  **Upload:** Click the **Upload** button (right arrow icon) in the top toolbar.
+
+The IDE will compile the sketch and upload it to the STM32 microcontroller. You should now see the red LED of the built-in RGB LED turning on for one second, then off for one second, repeatedly.
+
+![Red LED blinking](assets/blinking-led.gif)
+
 ## Onboard User Interface
 
 The Arduino UNO Q offers a wide range of user interfaces, making interaction intuitive and straightforward.
@@ -785,24 +819,126 @@ The `Bridge` library provides a communication layer built on top of the `Arduino
 - **MPU side (Qualcomm QRB, Linux)**: Runs higher-level services and can remotely invoke MCU functions.
 - **MCU side (STM32, Zephyr RTOS)**: Handles time-critical tasks and exposes functions to the MPU via RPC.
 
+#### The Arduino Router (Infrastructure)
+
+Under the hood, the communication is managed by a background Linux service called the **Arduino Router** (`arduino-router`).
+
+While the `Bridge` library is what you use in your code, the Router is the traffic controller that makes it possible. It implements a **Star Topology** network using MessagePack RPC.
+
+**Key Features:**
+
+- **Multipoint Communication:** Unlike simple serial communication (which is typically point-to-point), the Router allows multiple Linux processes to communicate with the MCU simultaneously (and with each other).
+
+  **Linux ↔ MCU:** Multiple Linux processes can interact with the MCU simultaneously (e.g., a Python® script reading sensors while a separate C++ application commands motors).
+
+  **Linux ↔ Linux:** You can use the Router to bridge different applications running on the MPU. For example, a Python script can expose an RPC function that another Python® or C++ application calls directly, allowing services to exchange data without involving the MCU at all.
+
+- **Service Discovery:** Clients (like your Python® script or the MCU Sketch) "register" functions they want to expose. The Router keeps a directory of these functions and routes calls to the correct destination.
+
+**Source Code:**
+
+- **[Arduino Router Service](https://github.com/arduino/arduino-router)**
+- **[Arduino_RouterBridge Library](https://github.com/arduino-libraries/Arduino_RouterBridge/tree/main)**
+
+#### System Configuration & Hardware Interfaces
+
+The Router manages the physical connection between the two processors. It is important to know which hardware resources are claimed by the Router to avoid conflicts in your own applications.
+
+* **Linux Side (MPU):** The router claims the serial device `/dev/ttyHS1`.
+* **MCU Side (STM32):** The router claims the hardware serial port `Serial1`.
+
+> **⚠️ WARNING: Reserved Resources**
+> Do not attempt to open `/dev/ttyHS1` (on Linux) or `Serial1` (on Arduino/Zephyr) in your own code. These interfaces are exclusively locked by the `arduino-router` service. Attempting to access them directly will cause the Bridge to fail.
+
+#### Managing the Router Service
+
+The arduino-router runs automatically as a system service. In most cases, you do not need to interact with it directly. However, if you are debugging advanced issues or need to restart the communication stack, you can control it via the Linux terminal:
+
+**Check Status** To see if the router is running and connected:
+```bash
+systemctl status arduino-router
+```
+**Restart the Service** If the communication seems stuck, you can restart the router without rebooting the board:
+```bash
+sudo systemctl restart arduino-router
+```
+**View Logs** To view the real-time logs for debugging (e.g., to see if RPC messages are being rejected or if a client has disconnected):
+```bash
+journalctl -u arduino-router -f
+```
+
+To capture more detailed information in the logs, you can append the `--verbose` argument to the systemd service configuration.
+
+- Open the service file for editing:
+  ```bash
+  sudo nano /etc/systemd/system/arduino-router.service
+  ```
+
+- Locate the line beginning with `ExecStart=` and append `--verbose` to the end of the command. The updated service file should look like this:
+
+  ```bash
+  [Unit]
+  Description=Arduino Router Service
+  After=network-online.target
+  Wants=network-online.target
+  Requires=
+
+  [Service]
+  # Put the micro in a ready state.
+  ExecStartPre=-/usr/bin/gpioset -c /dev/gpiochip1 -t0 37=0
+  ExecStart=/usr/bin/arduino-router --unix-port /var/run/arduino-router.sock --serial-port /dev/ttyHS1 --serial-baudrate 115200 --verbose # <--- ADD THIS
+  # End the boot animation after the router is started.
+  ExecStartPost=/usr/bin/gpioset -c /dev/gpiochip1 -t0 70=1
+  StandardOutput=journal
+  StandardError=journal
+  Restart=always
+  RestartSec=3
+
+  [Install]
+  WantedBy=multi-user.target
+  ```
+
+- You must reload the systemd daemon for the configuration changes to take effect.
+
+  ```bash
+  sudo systemctl daemon-reload
+  ```
+
+- Restart the Router:
+  
+  ```bash
+  sudo systemctl restart arduino-router
+  ```
+
+- View the verbose logs:
+  
+  ```bash
+  journalctl -u arduino-router -f
+  ```
+
 #### Core Components
 
-`BridgeClass`
-- Main class managing RPC clients and servers. Provides methods to:
-- Initialize the bridge (`begin()`)
-- Call remote procedures (`call()`)
-- Notify without waiting for a response (`notify()`)
-- Expose local functions for remote execution (`provide()`, `provide_safe()`)
-- Process incoming requests (`update()`)
+`BridgeClass` The main class managing RPC clients and servers.
+- `begin()`: Initializes the bridge and the internal serial transport.
+- `call(method, args...)`: Invokes a function on the Linux side and waits for a result.
+- `notify(method, args...)`: Invokes a function on the Linux side without waiting for a response (fire-and-forget).
+- `provide(name, function)`: Exposes a local MCU function to Linux. Note: The function executes in the high-priority background RPC thread. Keep these functions short and thread-safe.
+- `provide_safe(name, function)`: Exposes a local MCU function, but ensures it executes within the main `loop()` context. Use this if your function interacts with standard Arduino APIs (like `digitalWrite` or `Serial`) to avoid concurrency crashes.
 
+***__Warning:__ Do not use `Bridge.call()` or `Monitor.print()` inside `provide()` functions. Initiating a new communication while responding to one causes system deadlocks.***
 
 `RpcCall`
-- Helper class representing an asynchronous RPC. If its .result method is invoked, it waits for the response, extracts the return value, and propagates error codes if needed.
+- Helper class representing an asynchronous RPC. If its `.result` method is invoked, it waits for the response, extracts the return value, and propagates error codes if needed.
+
+`Monitor` 
+- The library includes a pre-defined Monitor object. This allows the Linux side to send text streams to the MCU (acting like a virtual Serial Monitor) via the RPC method mon/write.
 
 **Threading and Safety**
 - The bridge uses Zephyr mutexes (`k_mutex`) to guarantee safe concurrent access when reading/writing over the transport. Updates are handled by a background thread that continuously polls for requests.
+- **Incoming Updates**: Handled by a dedicated background thread (`updateEntryPoint`) that continuously polls for requests.
+- **Safe Execution**: The provide_safe mechanism hooks into the main loop (`__loopHook`) to execute user callbacks safely when the processor is idle.
 
-#### Usage Example
+#### Usage Example (Arduino App Lab)
 
 This example shows the **Linux side (Qualcomm QRB)** toggling an LED on the **MCU (STM32)** by calling a remote function over the Bridge.
 
@@ -862,6 +998,117 @@ After pasting the Python script into your App’s Python file and the Arduino co
 ![Red LED blinking](assets/blinking-led.gif)
 
 ***There are more advanced methods in the Bridge RPC library that you can discover by testing our different built-in examples inside Arduino App Lab.***
+
+#### Interacting via Unix Socket (Advanced)
+
+Linux processes communicate with the Router using a **Unix Domain Socket** located at:
+`/var/run/arduino-router.sock`
+
+While the `Bridge` library handles this automatically for you, you can manually connect to this socket to interact with the MCU or other Linux services using any language that supports **MessagePack RPC** (e.g., Python, C++, Rust, Go).
+
+#### Usage Example (Custom Python Client)
+
+The following example demonstrates how to control an MCU function (`set_led_state`) from a standard Python script using the `msgpack` library, without using the Arduino App Lab helper classes. This is useful for integrating Arduino functions into existing Linux applications.
+
+**Prerequisites:**
+
+1. **Flash the MCU Sketch**
+   
+   Upload the following code using the Arduino IDE or Arduino App Lab. This registers the function we want to call.
+
+    ```cpp
+    #include "Arduino_RouterBridge.h"
+
+    void setup() {
+      pinMode(LED_BUILTIN, OUTPUT);
+
+      Bridge.begin();
+      // We use provide_safe to ensure the hardware call runs in the main loop context
+      Bridge.provide_safe("set_led_state", set_led_state);
+    }
+
+    void loop() {
+    }
+
+    void set_led_state(bool state) {
+      digitalWrite(LED_BUILTIN, state ? LOW : HIGH);
+    }
+    ```
+2. **Install the Python Dependency** 
+   
+    Install the msgpack library using the system package manager:
+
+    ```bash
+    sudo apt install python3-msgpack
+    ```
+3. **Create the Python Script** 
+   
+   Create a new file named msgpack_test.py:
+
+    ```bash
+    nano msgpack_test.py
+    ```
+4. **Add the Script Content**
+  
+   Copy and paste the following code. This script connects manually to the Router's Unix socket and sends a raw RPC request.
+  
+    ```python
+    import socket
+    import msgpack
+    import sys
+
+    # 1. Define the connection to the Router's Unix Socket
+    SOCKET_PATH = "/var/run/arduino-router.sock"
+
+    # 2. Parse command line arguments
+    # Default to turning LED ON (True) if no argument is provided
+    led_state = True 
+
+    if len(sys.argv) > 1:
+        arg = sys.argv[1]
+        if arg == "1":
+            led_state = True
+        elif arg == "0":
+            led_state = False
+        else:
+            print("Usage: python3 msgpack_test.py [1|0]")
+            sys.exit(1)
+
+    print(f"Sending request to set LED: {led_state}")
+
+    # 3. Create the MessagePack RPC Request
+    # Format: [type=0 (Request), msgid=1, method="set_led_state", params=[led_state]]
+    request = [0, 1, "set_led_state", [led_state]]
+    packed_req = msgpack.packb(request)
+
+    # 4. Send the request
+    try:
+        with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as client:
+            client.connect(SOCKET_PATH)
+            client.sendall(packed_req)
+            
+            # 5. Receive the response
+            response_data = client.recv(1024)
+            response = msgpack.unpackb(response_data)
+            
+            # Response Format: [type=1 (Response), msgid=1, error=None, result=None]
+            print(f"Router Response: {response}")
+            
+    except Exception as e:
+        print(f"Connection failed: {e}")
+    ```
+
+**Running the Example**
+
+You can now test the connection by running the script from the terminal and passing `1` (ON) or `0` (OFF):
+
+```bash
+python3 msgpack_test.py 1 # to turn on the LED
+# or
+python3 msgpack_test.py 0 # to turn off the LED
+```
+![Custom Python to Router example](assets/custom-python-rpc.png)
+
 
 ### SPI
 

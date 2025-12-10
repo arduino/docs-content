@@ -20,7 +20,6 @@ software:
   - ide-v1
   - ide-v2
   - iot-cloud
-  - web-editor
 ---
 
 The **Arduino® Nesso N1** is an all-in-one enclosed development board. Based on the ESP32-C6 System on Chip (SoC), it integrates a suite of communication protocols, including 2.4 GHz Wi-Fi® 6, Bluetooth® 5.3 LE, 802.15.4 (Thread/Zigbee®), and long-range LoRa®. It also includes a 1.14" color touchscreen, buttons, and a built-in LiPo battery for immediate user interaction in portable applications.
@@ -38,8 +37,10 @@ This document serves as a comprehensive user manual for the Nesso N1, providing 
 
 ### Software Requirements
 
-- [Arduino IDE](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://app.arduino.cc/sketches)
-- [ESP32 Boards core by Espressif](https://github.com/espressif/arduino-esp32)
+- [Arduino IDE](https://www.arduino.cc/en/software) (v2.0 or higher recommended)
+- [ESP32 Boards core by Espressif](https://github.com/espressif/arduino-esp32) (v3.3.3 or higher)
+
+*Note: Safe battery management requires version 3.3.5 or higher (pending release).*
 
 ## Product Overview
 
@@ -72,25 +73,134 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 ## Installation
 
-The Nesso N1 can be programmed using the Arduino IDE or the Arduino Cloud Editor. To get started, you will need to install the appropriate board package.
+The Nesso N1 is programmed using the desktop Arduino IDE. To get started, you will need to install the appropriate board package.
 
 ### Arduino IDE
 
-To use the board in the Arduino IDE, you need to install the latest version of the **esp32 by Espressif Systems** package from the boards manager.
+To use the board in the Arduino IDE, you must install the latest version of the **esp32 by Espressif Systems** package. Support for the Nesso N1 requires version **3.3.3** or newer.
 
 1.  Open the Arduino IDE.
 2.  Navigate to **Boards Manager** (**Tools > Board > Boards Manager...**).
 3.  Search for **"esp32"** and find the package by **Espressif Systems**.
-4.  Click the **Install** button.
+4.  Click the **Install** (or **Update**) button.
 5.  Once installed, select **Arduino Nesso N1** from the **Tools > Board > esp32** menu.
 
 ![Installing the esp32 Boards core in the Arduino IDE](assets/board-manager.png)
 
 ### Arduino Cloud Editor
 
-The Arduino Cloud Editor is an online IDE that supports the Nesso N1 without requiring manual installation of the board package.
+Direct support for the Nesso N1 in the **Arduino Cloud Editor** (the online web IDE) is coming soon. Currently, the Cloud Editor does not support the specific ESP32 core version required for this board.
 
-Read more in the [Getting Started with the Cloud Editor](https://docs.arduino.cc/arduino-cloud/guides/editor/) guide.
+Please use the **Arduino IDE** (desktop version) to compile and upload code to the Nesso N1.
+
+## Arduino IoT Cloud
+
+Although the Nesso N1 cannot yet be programmed directly via the Cloud Editor, you can still use it with **Arduino IoT Cloud** dashboards and variables. This is done by configuring it as a "Manual Device" and uploading the sketch from your desktop IDE.
+
+Follow these steps to connect your Nesso N1 to the Cloud.
+
+### 1. Create a Manual Device
+
+1.  Go to the [Arduino IoT Cloud Devices page](https://app.arduino.cc/devices).
+2.  Click **+ DEVICE**.
+3.  Select **Any Device** (under Manual Setup).
+4.  Click **Continue**.
+5.  Name your device (e.g., "MyNessoN1") and confirm.
+6.  **Important:** A screen will appear with your **Device ID** and **Secret Key**. Save these credentials in a secure place immediately; you will not be able to view the Secret Key again.
+7.  **Check the box** confirming you have saved your credentials and click **Continue**.
+
+### 2. Create a Thing
+
+1.  Go to the [Things page](https://app.arduino.cc/things).
+2.  Click **+ THING** to create a new Thing.
+3.  Click **Select Device** and associate it with the "Manual Device" you just created.
+4.  Click **ADD** in Cloud Variables section to create a test variable: **Name**: `led`, **Type**: Boolean, **Permission**: Read & Write, **Update Policy**: On Change.
+5.  Click **Add Variable** to confirm.
+
+### 3. Create a Dashboard
+
+1.  Go to the [Dashboards page](https://app.arduino.cc/dashboards).
+2.  Click **+ DASHBOARD** and click **EDIT**.
+3.  Click **ADD** and select the **Things** tab.
+4.  Select your Thing and create a widget for the `led` variable (a Switch widget is recommended).
+5.  Click **DONE**.
+
+### 4. Program the Board via Desktop IDE
+
+Because "Manual Devices" do not automatically generate a downloadable sketch, you must create one manually.
+
+1.  Open the **Arduino IDE** on your computer.
+2.  Install the **ArduinoIoTCloud** library via the Library Manager (**Tools > Manage Libraries...**).
+3.  Create a new sketch (**File > New Sketch**).
+4.  To keep your credentials secure, create a new tab named `arduino_secrets.h` (click the 3-dot icon near the tab bar > **New Tab**).
+5.  Paste the following code into `arduino_secrets.h` and fill in your details:
+
+    ```cpp
+    #define SECRET_WIFI_SSID "YOUR_WIFI_SSID"
+    #define SECRET_WIFI_PASS "YOUR_WIFI_PASSWORD"
+    #define SECRET_DEVICE_ID "YOUR_DEVICE_ID" // From Step 1
+    #define SECRET_DEVICE_KEY "YOUR_SECRET_KEY" // From Step 1
+    ```
+
+6.  Create another new tab named `thingProperties.h` and paste the following configuration code:
+
+    ```cpp
+    #include <ArduinoIoTCloud.h>
+    #include <Arduino_ConnectionHandler.h>
+    #include "arduino_secrets.h"
+
+    void onLedChange();
+
+    bool led;
+
+    WiFiConnectionHandler ArduinoIoTPreferredConnection(SECRET_WIFI_SSID, SECRET_WIFI_PASS);
+
+    void initProperties(){
+      ArduinoCloud.addProperty(led, Permission::ReadWrite).onUpdate(onLedChange);
+      
+      ArduinoCloud.setBoardId(SECRET_DEVICE_ID);
+      ArduinoCloud.setSecretDeviceKey(SECRET_DEVICE_KEY);
+    }
+    ```
+
+7.  Finally, paste the main application code into your `.ino` file:
+
+    ```cpp
+    #include "thingProperties.h"
+
+    void setup() {
+      Serial.begin(115200);
+      delay(1500); // Wait for Serial Monitor
+
+      // Initialize the Nesso N1 built-in LED
+      pinMode(LED_BUILTIN, OUTPUT);
+      
+      // Initialize Cloud properties and connection
+      initProperties();
+      ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+      
+      // Set debug level to see connection status in Serial Monitor
+      setDebugMessageLevel(2);
+      ArduinoCloud.printDebugInfo();
+    }
+
+    void loop() {
+      ArduinoCloud.update();
+    }
+
+    // This function is called whenever the 'led' variable changes in the Cloud
+    void onLedChange() {
+      // The Nesso N1 LED uses inverted logic (LOW is ON)
+      if (led) {
+        digitalWrite(LED_BUILTIN, LOW);
+      } else {
+        digitalWrite(LED_BUILTIN, HIGH);
+      }
+    }
+    ```
+
+8.  Select **Arduino Nesso N1** as your board and upload the sketch.
+9.  Open the **Serial Monitor** to verify the connection. Once connected, you can toggle the switch on your Cloud Dashboard to control the LED on the board.
 
 ## First Use
 
@@ -115,18 +225,28 @@ For projects where a slimmer profile is desired, the included hexagon key can be
 The Nesso N1 can be powered in three ways:
 
 - **USB-C® Connector**: Provide a regulated 5 V DC supply through the USB-C® port. This method also charges the internal battery.
-- **Built-in Battery**: The onboard 250 mAh LiPo battery allows the device to operate untethered, making it ideal for portable and remote monitoring applications.
+- **Built-in Battery**: The onboard 250 mAh LiPo battery allows the device to operate untethered. **(Note: Please see the Battery section below for critical safety information regarding battery usage with the current software version.)**
 - **VIN Pin**: You can use the `VIN` pin on the 8-pin expansion header to power the board from an external 5 V DC source.
 
 ***WARNING: Handle the internal LiPo battery with care. Do not puncture, short-circuit, or expose it to high temperatures.***
 
 ## Battery Management
 
-The board incorporates a power management system featuring the **AW32001** power path management chip and the **BQ27220** battery monitoring chip. This system provides:
+The board incorporates a power management system featuring the **AW32001** power path management chip and the **BQ27220** battery monitoring chip.
 
-- **Automatic Charging**: The battery charges automatically when a 5 V source is connected via USB-C®.
-- **Real-Time Monitoring**: You can programmatically access battery voltage, current, and capacity to monitor the power status of your application.
-- **Over-Current & Over-Voltage Protection**: Ensures safe and stable operation during charging and discharging cycles.
+### ⚠️ CRITICAL WARNING: Battery Software Support Pending
+
+Full support for the Nesso N1 battery management system (BMS) requires the **esp32** board package version **3.3.5** (or newer), which is currently pending release.
+
+**Do not attempt to enable battery charging with the current board package (version 3.3.4 or older).**
+
+Allowing the battery to fully deplete while using the current software may cause the device to become unresponsive and fail to power on, even when connected to USB.
+
+**Recommendation:**
+*   **Power the device exclusively via USB-C** until the software update is available.
+*   **Do not** call `battery.enableCharge()` in your sketches.
+
+Once the updated board package is released, this manual will be updated with instructions for safe battery management.
 
 ## Microcontroller (ESP32-C6)
 
@@ -390,77 +510,6 @@ void loop() {
 }
 ```
 
-
-## Battery
-
-
-To interact with the battery system from your sketch, the Nesso N1 board package provides a built-in `NessoBattery` object named `battery`. It is available for use in your sketch without needing to include a specific library.
-
-
-### Enable Charging
-
-***WARNING: By default, the battery charging circuit is disabled. You must explicitly call `battery.enableCharge()` in your `setup()` function for the battery to charge when the device is powered via USB-C® or VIN.***
-
-```arduino
-// The NessoBattery object is available by default
-NessoBattery battery;
-
-void setup() {
-  // Enable the charging circuit
-  battery.enableCharge();
-}
-```
-
-### Get Battery Voltage
-
-Returns the current, instantaneous battery voltage in Volts. This is a direct electrical measurement.
-
-```arduino
-float voltage = battery.getVoltage();
-Serial.print("Voltage: ");
-Serial.print(voltage);
-Serial.println(" V");
-```
-
-### Get Charge Level
-
-Returns the battery's estimated state of charge as a percentage (0-100%). This value is calculated by the BQ27220 fuel gauge IC.
-
-```arduino
-uint16_t chargeLevel = battery.getChargeLevel();
-Serial.print("Charge Level: ");
-Serial.print(chargeLevel);
-Serial.println(" %");
-```
-
-### Understanding Voltage vs. Charge Level
-
-It is important to understand the difference between the two battery reading functions:
-
-- **`getVoltage()`** provides a direct, real-time measurement of the battery's voltage. This value can fluctuate depending on whether the battery is charging or under load (e.g., when Wi-Fi® or the display is active). It's a good raw indicator of the battery's state but not a precise measure of remaining capacity.
-
-- **`getChargeLevel()`** provides a much more accurate *estimate* of the remaining capacity. The BQ27220 fuel gauge uses a sophisticated algorithm that tracks the flow of energy into and out of the battery over time (a technique known as Coulomb counting).
-
-***For the fuel gauge to become reliable, it needs a few full charge and discharge cycles. During the first few uses, you may observe the charge level staying low for a while before ramping up to a more accurate value. This is normal behavior as the IC calibrates itself.***
-
-### Checking for External Power
-
-You can determine if the device is running on external power by reading the `VIN_DETECT` expander pin. This is useful for adjusting your application's behavior, such as entering a low-power mode when on battery.
-
-```arduino
-void setup() {
-  pinMode(VIN_DETECT, INPUT);
-}
-
-void loop() {
-  if (digitalRead(VIN_DETECT) == HIGH) {
-    Serial.println("Running on external power.");
-  } else {
-    Serial.println("Running on battery power.");
-  }
-  delay(5000);
-}
-```
 
 ## Buttons and LED
 
@@ -1379,8 +1428,7 @@ The Nesso N1 also includes one standard **Grove** connector. It provides a 5 V i
 
 ### 8-Pin Expansion Port
 
-An 8-pin female header provides access to additional I/O and power pins. It is designed to be fully compatible with the **M5StickC HAT** series of expansion boards, allowing you to easily add functionality with modules for everything from sensors to communication. You can explore the range of compatible HATs on the [M5Stack store](https://shop.m5stack.com/collections/for-stick).
-
+An 8 pin female header provides access to additional I/O and power pins. It is designed to be fully compatible with the **M5StickC HAT** series of expansion boards, so you can easily add modules for sensors, inputs, and extra connectivity. You can explore the range of compatible HATs on the [M5Stack store](https://shop.m5stack.com/collections/for-stick).
 
 ![8 pins Expansion Port](assets/expansion-port.png)
 
@@ -1389,13 +1437,31 @@ An 8-pin female header provides access to additional I/O and power pins. It is d
 | 1    | `GND`         | -    | Ground                        |
 | 2    | `+5V OUT`     | -    | 5 V Output                    |
 | 3    | `D1`          | 7    | Digital PWM I/O               |
-| 4    | `D3`          | 6    | Digital PWM I/O               |
-| 5    | `D2`          | 2    | Digital PWM I/O               |
+| 4    | `D2`          | 2    | Digital PWM I/O               |
+| 5    | `D3`          | 6    | Digital PWM I/O               |
 | 6    | `BATTERY OUT` | -    | Direct Battery Voltage Output |
 | 7    | `+3V3 OUT`    | -    | 3.3 V Output                  |
 | 8    | `+5V IN`      | -    | 5 V Input (VIN)               |
 
 ***The `BATTERY OUT` pin provides the direct, unregulated voltage from the LiPo battery. Be cautious when using this pin, as the voltage will vary depending on the charge level.***
+
+#### Using I2C M5StickC Compatible HATs
+
+M5StickC HATs that use I2C expect the bus on the D1 and D3 pins of this connector. On the Nesso N1 you must explicitly remap the I2C pins in your sketch so that:
+
+- `D1` (GPIO7) is SCL  
+- `D3` (GPIO6) is SDA  
+
+Initialize the I2C bus like this:
+
+```arduino
+#include <Wire.h>
+
+void setup() {
+  // SDA on D3 (GPIO6), SCL on D1 (GPIO7)
+  Wire.begin(D3, D1);
+}
+```
 
 ## Support
 
@@ -1403,9 +1469,7 @@ If you encounter any issues or have questions while working with the Arduino Nes
 
 ### Help Center
 
-Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the Nesso N1. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
-
-- [Nesso N1 Help Center page](https://support.arduino.cc/hc/en-us/sections/)
+Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for our products. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
 ### Forum
 
@@ -1418,5 +1482,3 @@ Join our community forum to connect with other Nesso N1 users, share your experi
 Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We are happy to help you with any issues or inquiries about the Nesso N1.
 
 - [Contact us page](https://www.arduino.cc/en/contact-us/)
-
-
