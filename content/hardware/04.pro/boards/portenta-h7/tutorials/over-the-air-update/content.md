@@ -986,7 +986,7 @@ The standard two-step method, as shown in the [`OTA_Qspi_Flash`](#qspi-storage-m
 
 On-the-Fly with `downloadAndDecompress()` method combines downloading and decompression into a single operation, reducing storage requirements. It provides a practical balance between efficiency and ease of use, making it suitable for production deployments with limited storage space.
 
-The LZSS example provides direct access to the compression functions, enabling custom implementations and detailed performance analysis. It requires more complex error handling and a thorough understanding of the compression process.
+The LZSS example provides direct access to the compression functions, enabling custom implementations and detailed performance analysis. It requires more error handling and better understanding of the compression process.
 
 For typical use cases, the standard two-step method provides the best starting point. Consider the `downloadAndDecompress()` function when storage management is important. Use the low-level LZSS approach only when you need custom behavior or detailed performance measurements.
 
