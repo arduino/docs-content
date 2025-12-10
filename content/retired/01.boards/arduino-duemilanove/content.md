@@ -3,8 +3,6 @@ title: "Arduino Duemilanove"
 source: "https://arduino.cc/en/Main/ArduinoBoardDuemilanove"
 ---
 
-***Note: This page refers to a product that is retired.***
-
 ## Arduino Duemilanove
 
 ![](assets/ArduinoDuemilanove.jpg)

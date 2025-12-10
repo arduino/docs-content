@@ -57,11 +57,11 @@ The Nicla Sense ME can be programmed through the **Arduino IDE 2**. To install y
 
 - [How to use the board manager with the Arduino IDE 2](https://www.arduino.cc/en/Tutorial/getting-started-with-ide-v2/ide-v2-board-manager)
 
-### Web Editor
+### Cloud Editor
 
-The Nicla Sense ME can be programmed through the **Web Editor**. To get started with your board, you will only need to install a plugin, which is explained in the guide below:
+The Nicla Sense ME can be programmed through the **Cloud Editor**. To get started with your board, you will only need to install a plugin, which is explained in the guide below:
 
-- [Getting started with the Web Editor](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)
+- [Getting started with the Cloud Editor](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)
 
 ### Board Not Detected
 
@@ -731,7 +731,7 @@ Use the sensor IDs from the section "Sensor IDs" to enable and configure the des
 
 The BHI260AP sensor runs a customizable firmware based on the BSX Sensor Fusion library. It provides a complete 9-axis fusion solution, which combines the measurements from 3-axis gyroscope, 3-axis geomagnetic sensor and a 3-axis accelerometer, to provide a robust absolute orientation vector. The algorithm fuses the sensor raw data from the accelerometer, geomagnetic sensor and gyroscope in an intelligent way to improve each sensor’s output.
 
-Go to this [site](https://www.bosch-sensortec.com/software-tools/software/sensor-fusion-software/) or take a look at the BHI260AP's [datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bhi260ap-ds000.pdf) for more information.
+Go to this [site](https://www.bosch-sensortec.com/software-tools/software/sensor-fusion-software-bsx/) or take a look at the BHI260AP's [datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bhi260ap-ds000.pdf) for more information.
 
 ## Communication
 

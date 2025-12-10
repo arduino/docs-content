@@ -7,16 +7,18 @@ The MKR NB 1500 brings NB-IoT / CAT-M1 connectivity to your projects. Using the 
 <Feature title="Network Connectivity" image="cellular">
 
 This module can communicate over the LTE-M, NB-IoT and EGPRS networks and it is possible to send and receive SMS.
-
+<FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-nb-1500/nb-scan-network"/>
   <FeatureLink variant="secondary" title="library" url="https://www.arduino.cc/reference/en/libraries/mkrnb/"/>
+</FeatureWrapper>
 </Feature>
 
 <Feature title="Coverage" image="world-map">
 
 NB-IoT and LTE-M coverage includes many regions, such as Europe, North & South America and large parts of Asia.
-
+<FeatureWrapper>
   <FeatureLink variant="primary" title="Link to map" url="https://www.gsma.com/iot/deployment-map/"/>
+</FeatureWrapper>
 </Feature>
 
 </FeatureList>

@@ -8,9 +8,8 @@ author: Karl Söderby
 The communication between IoT devices and the Arduino Cloud is handled through something called **Things**. Things are a virtual twin of your hardware/setup, where you perform a lot of the configurations for your projects. 
 
 In the Thing interface you can:
-- Create cloud variables that can be synced across devices,
-- select the main device you want to associate with,
-- enter network credentials (such as Wi-Fi network/password),
+- create Cloud variables that can be synced across devices,
+- select the main device you want to associate with
 - edit & upload sketches to your board,
 - set webhooks that trigger whenever data changes,
 - edit the timezone.
@@ -23,7 +22,7 @@ The Thing interface is designed for ease-of-use and only has a few sections, whi
 
 - **1. Cloud Variables** - create variables that synchronize between a device and the Arduino Cloud.
 - **2. Devices** - configure a device that will be associated with your Thing.
-- **3. Network** - network credentials, e.g. Wi-Fi® network/password.
+- **3. Network** - to modify your Wi-Fi® network/password go to Device page.
 - **4. Setup** - the main configuration space tab.
 - **5. Sketch** - access the sketch associated with your Thing.
 - **6. Metadata** - metadata such as tags, timezone and Thing ID.
@@ -38,7 +37,7 @@ The variables section is where you create **"Cloud Variables"**, a variable that
 
 When you create a variable, it is automatically\* added to your `thingProperties.h` file, which is included in your Arduino Cloud sketch. This means that you do not need to declare them again. Read more in the [Automatic Sketch Generation](#automatic-sketch-generation) section further down.
 
-For example, if you want to send temperature values to the cloud from a sensor, all you need to do is:
+For example, if you want to send temperature values to the Cloud from a sensor, all you need to do is:
 
 ```arduino
 temperature = sensor.readTemperature();
@@ -58,7 +57,7 @@ In the device section, you can select either a previously configured device, or 
 
 You can connect one of the following devices:
 - [Arduino Wi-Fi® devices](/arduino-cloud/hardware/wifi) - official Arduino devices with a Wi-Fi® enabled module.
-- [Arduino LoRaWAN® devices](/arduino-cloud/hardware/lora) - official Arduino devices with a LoRaWAN® module.
+- [Arduino LoRa®-enabled devices](/arduino-cloud/hardware/lora) - official Arduino devices with a LoRa® technology.
 - [Third-party ESP32/ESP8266 devices](/arduino-cloud/hardware/wifi) - third party devices with an ESP32/ESP8266 SoC.
 - [Manual devices](/arduino-cloud/hardware/devices#manual-devices) - a virtual device using MicroPython, Python or JavaScript. These devices do not have a sketch associated.
 
@@ -68,30 +67,33 @@ The status of your device is also displayed in this section (online/offline).
 
 ## Network
 
-In the network section, you configure the credentials for your network, such as your Wi-Fi® network, secret key (for ESP32 boards) and other credentials e.g. LoRaWAN® & cellular. The network details are securely stored.
+***This option has been moved to the [Devices](/arduino-cloud/hardware/devices) section on the specific device page.***
+
+![Network settings on device page](assets/netowrk-settings-device-page.png)
+
+In the network section, you configure the credentials for your network, such as your Wi-Fi® network, secret key (for ESP32 boards) and other credentials e.g. LoRa®-based networks & cellular. The network details are securely stored.
 
 ![Network configuration.](assets/network-creds.png)
 
-The credentials entered are automatically included in your sketch (see [automatic sketch generation](#automatic-sketch-generation)). 
-
 ## Sketch
 
-The sketch tab contains a built-in editor where you can edit, compile and upload sketches to your devices.
+The sketch tab will open the Cloud Editor where you can edit, compile and upload sketches to your devices.
 
 ![Built-in editor.](assets/built-in-editor.png)
 
-- **1. Verify / Upload** - compile and upload code to your devices.
-- **2. Connected devices** - connected devices will appear here.
-- **3. Open full editor** - opens the full Cloud Editor.
-- **4. Serial Monitor** - view serial data from your device.
-- **5. Auto Indentation** - auto indents your code.
-- **6. Notifications** - whenever you change something in your Thing, a notification will appear here with the changes made.
-  
-This editor is a mirror of the [Cloud Editor](https://create.arduino.cc/editor/), which you can access via the **"Open Full Editor"** button.
+1. **Arduino Cloud Menu** - navigation menu for the Arduino Cloud platform and to go back to Cloud homepage.
+2. **Examples** - a set of basic Arduino examples.
+3. **Libraries** - all libraries that are included in the Arduino library manager (5000+).
+4. **Reference** - the Arduino Reference provides an overview of the available methods in the Arduino programming API.
+5. **Editor** - the code editor area, where we write the program for our board.
+6. **Console Log** - this window informs you of the status of your compilation / upload. 
+7. **Verify/Upload** - verify (compile) your code using the checkmark button, and upload it to your board using the right arrow. 
+8. **Board / Port Selection** - the board connected to your computer will be automatically displayed here. You can also manually change this.
+9. **Serial Monitor** - a tool that reads serial data sent from your board to the computer. 
 
 The editor includes all cores for official Arduino boards, and over 6000+ libraries. Many boards also supports **Over-the-air (OTA)** uploads, which is enabled after your first upload via USB.
 
-***For more information on the editor, check out the [Cloud Editor](/arduino-cloud/guides/cloud-editor) tutorial.***
+***For more information on the editor, check out the [Cloud Editor](https://docs.arduino.cc/arduino-cloud/guides/editor/) tutorial.***
 
 ## Metadata
 
@@ -105,7 +107,7 @@ Your Thing ID can be obtained from your metadata tab, and looks like this:
 cd628fe4-31d1-42a8-bf33-a627997ce602
 ```
 
-This ID is used when connecting with the [REST API](/arduino-cloud/api/arduino-iot-api) or with the [Arduino CLI](/arduino-cloud/arduino-cloud-cli/getting-started). Using either of these clients provides information about your Thing, such as device associated and cloud variables.
+This ID is used when connecting with the [REST API](/arduino-cloud/api/arduino-iot-api) or with the [Arduino CLI](/arduino-cloud/arduino-cloud-cli/getting-started). Using either of these clients provides information about your Thing, such as device associated and Cloud variables.
 
 ### Timezone
 
@@ -127,8 +129,12 @@ For example:
 - Associating a Wi-Fi board will automatically update the connection method.
 - Creating a variable will add it to your `thingProperties.h` file.
 - Creating a variable with **read/write** permission will also add a callback function at the bottom of your sketch. This will trigger any time the value changes.
-- Changing your network credentials will update the `arduino_secrets.h` file.
+- Changing your network credentials will update the `arduino_secrets.h` file, if you are using provisioning version 1.0, for more information read [here](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/).
 
-This is implemented so that the connection and synchronization between the board and cloud is handled automatically, meaning you do not need to do any networking code when using the Arduino / C++ language.
+This is implemented so that the connection and synchronization between the board and Cloud is handled automatically, meaning you do not need to do any networking code when using the Arduino / C++ language.
 
-***Please note that if you are using an offline environment, [Arduino IDE](/software/ide-v2), changes will only be made in the cloud environment and will manually need to be adjusted. If you plan on using the offline IDE, you make use of the [sketch synchronisation](/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync) feature that allows you to push/pull your cloud sketches from the offline IDE.***
+***Please note that if you are using an offline environment, [Arduino IDE](/software/ide-v2), changes will only be made in the Cloud environment and will manually need to be adjusted. If you plan on using the offline IDE, you make use of the [sketch synchronisation](/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync) feature that allows you to push/pull your Cloud sketches from the offline IDE.***
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

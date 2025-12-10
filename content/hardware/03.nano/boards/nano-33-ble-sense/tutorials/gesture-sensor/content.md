@@ -32,7 +32,7 @@ The goals of this project are:
 
 ## Hardware & Software Needed
 * This project uses no external sensors or components. 
-* In this tutorial we will use the [Arduino Create Web Editor](https://create.arduino.cc/editor) to program the board. 
+* In this tutorial we will use the [Arduino Create Cloud Editor](https://create.arduino.cc/editor) to program the board. 
 
 
 ## APDS9960 Sensor
@@ -80,13 +80,13 @@ For the purposes of this tutorial we will only focus on the gesture readings, wh
 
 **1. Setting up** 
 
-Let's start by opening the Arduino Web Editor, click on the **Libraries** tab and search for the **APDS9960** library. Then in **> Examples**, open the **GestureSensor** sketch and once it opens, you could rename it as Gesture&LEDs.
+Let's start by opening the Arduino Cloud Editor, click on the **Libraries** tab and search for the **APDS9960** library. Then in **> Examples**, open the **GestureSensor** sketch and once it opens, you could rename it as Gesture&LEDs.
 
-![Finding the library in the Web Editor.](./assets/nano33BS_07_library.png)
+![Finding the library in the Cloud Editor.](./assets/nano33BS_07_library.png)
 
 **2. Connecting the board**
 
-Now, connect the Arduino Nano 33 BLE Sense to the computer and make sure that the Web Editor recognizes it, if so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognize your board.
+Now, connect the Arduino Nano 33 BLE Sense to the computer and make sure that the Cloud Editor recognizes it, if so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognize your board.
 
 ![Selecting the board.](assets/nano33BS_07_board_port.png)
 

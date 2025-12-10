@@ -3,11 +3,9 @@ title: "Arduino Mini 05"
 description: "The Arduino Mini is a very compact version of the Arduino Nano without an on-board USB to Serial connection"
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoMini"
 coverImage: "assets/A000087_featured_2.jpg"
-sku: "A000087"
+sku: [A000087]
 source: "https://store.arduino.cc/arduino-mini-05"
 ---
-
-***Note: This page refers to a product that is retired.***
 
 ![The Arduino Mini 05 board, with headers](./assets/A000087_iso_2.jpg)
 
@@ -35,12 +33,12 @@ In the [Getting Started section](https://www.arduino.cc/en/Guide/ArduinoMini), y
 
 Arduino Mini is open-source hardware! You can build your own board using the following files:
 
-[ARDUINO MINI 05](https://www.arduino.cc/en/uploads/Main/arduino_mini_schematic05.pdf) 
-[ARDUINO MINI 04](https://www.arduino.cc/en/uploads/Main/arduino_mini_schematic04.pdf) 
+[ARDUINO MINI 05](https://www.arduino.cc/en/uploads/Main/arduino_mini_schematic05.pdf)
+[ARDUINO MINI 04](https://www.arduino.cc/en/uploads/Main/arduino_mini_schematic04.pdf)
 [ARDUINO MINI 03](https://www.arduino.cc/en/uploads/Main/arduino_mini_schematic03.pdf)
 
-[EAGLE FILES MINI 05](https://www.arduino.cc/en/uploads/Main/ArduinoMini05-EAGLE.zip) 
-[GERBER FILES MINI 04](https://www.arduino.cc/en/uploads/Main/ArduinoMini04-gerber.zip) 
+[EAGLE FILES MINI 05](https://www.arduino.cc/en/uploads/Main/ArduinoMini05-EAGLE.zip)
+[GERBER FILES MINI 04](https://www.arduino.cc/en/uploads/Main/ArduinoMini04-gerber.zip)
 [USB ADAPTOR ZIP FILES](https://www.arduino.cc/en/uploads/Main/ArduinoMini04-gerber.zip)
 
 ### Programming
@@ -51,7 +49,7 @@ To program the Arduino Mini, you will need a [USB Serial adapter](https://www.ar
 
 The ATmega328 on the Arduino Mini comes preburned with a [bootloader](https://www.arduino.cc/en/Tutorial/Bootloader) that allows you to upload new code to it without the use of an in-system-programmer. The bootloader communicates using the original STK500 protocol ([reference](http://www.atmel.com/dyn/resources/prod_documents/doc2525.pdf), [C header files](http://www.atmel.com/dyn/resources/prod_documents/avr061.zip)).
 
-You can also bypass the bootloader and program the ATmega328 with ICSP (In-Circuit Serial Programming); see the page on [bootloading the Mini](http://www.arduino.cc/en/Hacking/MiniBootloader) for information on wiring up an ICSP header to the Mini and the [programmer](https://www.arduino.cc/en/Hacking/Programmer) for instructions on using a programmer to upload a sketch. 
+You can also bypass the bootloader and program the ATmega328 with ICSP (In-Circuit Serial Programming); see the page on [bootloading the Mini](http://www.arduino.cc/en/Hacking/MiniBootloader) for information on wiring up an ICSP header to the Mini and the [programmer](https://www.arduino.cc/en/Hacking/Programmer) for instructions on using a programmer to upload a sketch.
 
 ### Input and Output
 

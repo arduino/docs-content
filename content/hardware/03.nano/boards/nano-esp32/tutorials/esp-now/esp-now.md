@@ -11,6 +11,8 @@ tags: [ESP32, Debugging, IDE]
 
 ESP-NOW is a wireless communication protocol developed by Espressif, the company behind the ESP32 microcontroller (MCU). Since the Arduino Nano ESP32 is equipped with that MCU it also supports the ESP-NOW protocol out of the box. It's designed for efficient and low-latency communication between devices, capable of sending up to 250 bytes.
 
+***Note: The Nano ESP32 utilizes the Arduino ESP32 Boards core based on the 2.x branch of the arduino-esp32 core, leveraging ESP-IDF version [v5.1.4](https://docs.espressif.com/projects/esp-idf/en/v5.1.4/esp32/api-reference/network/esp_now.html). Please be aware that functions and features may differ between versions, so ensure you reference the correct documentation for this setup.***
+
 ## Hardware Requirements
 
 ESP-NOW is supported on the following microcontrollers: 
@@ -65,7 +67,7 @@ Like other wireless communication technologies operating in the 2.4 GHz band, ES
 ESP-NOW is designed for point-to-point and point-to-multipoint communication but doesn't provide the infrastructure for building complex network topologies. If your application requires a network with multiple interconnected devices or Internet connectivity, you may need to complement ESP-NOW with additional networking solutions.
 
 ### Limited Data Payload 
-ESP-NOW is optimized for transmitting smaller amounts of data, with a maximum payload of around 250 bytes. If your application requires high-bandwidth data transfer or large file exchanges, other services such as the [Arduino IoT Cloud](https://cloud.arduino.cc/) might be more suitable.
+ESP-NOW is optimized for transmitting smaller amounts of data, with a maximum payload of around 250 bytes. If your application requires high-bandwidth data transfer or large file exchanges, other services such as the [Arduino Cloud](https://cloud.arduino.cc/) might be more suitable.
 
 ### Security Considerations
 While ESP-NOW offers some level of data privacy, it may not be as secure as other communication protocols like HTTPS or MQTT with robust encryption. If your project involves sensitive data, consider implementing additional security measures to protect against eavesdropping and unauthorized access.
@@ -76,13 +78,13 @@ ESP-NOW does not provide built-in acknowledgment mechanisms for confirming succe
 ### Compatibility
 ESP-NOW is primarily designed for use with ESP8266 and ESP32 microcontrollers. While it can be compatible with other ESP32-based devices, it may not work seamlessly with other non-ESP platforms. Compatibility should be considered when designing a system with multiple types of devices.
 
-## Arduino IoT Cloud
+## Arduino Cloud
 
-Arduino provides their own service for handling wireless communication called Arduino IoT Cloud. You can read more about it [here](https://docs.arduino.cc/arduino-cloud/).
+Arduino provides their own service for handling wireless communication called Arduino Cloud. You can read more about it [here](https://docs.arduino.cc/arduino-cloud/).
 
-While the Arduino IoT Cloud offers similar features to the ESP-NOW protocols they are vastly different and should be used for specific use cases. Check the comparison table below for more information.
+While the Arduino Cloud offers similar features to the ESP-NOW protocols they are vastly different and should be used for specific use cases. Check the comparison table below for more information.
 
-|                     | Arduino IoT Cloud                                                           | ESP-NOW                                                                        |
+|                     | Arduino Cloud                                                           | ESP-NOW                                                                        |
 |---------------------|-----------------------------------------------------------------------------|--------------------------------------------------------------------------------|
 | Range               | Depends on Internet connectivity, suitable for global reach.                | Approx. 220 m.                                                                   |
 | Security            | Secure communication with encryption and authentication.                    | Basic security, may need additional measures.                                  |
@@ -91,10 +93,10 @@ While the Arduino IoT Cloud offers similar features to the ESP-NOW protocols the
 | Device Compatibility| Compatible with various Arduino boards and IoT devices.                     | Primarily used with ESP8266 and ESP32 microcontrollers.                        |
 | Protocol            | Uses MQTT for communication.                                                | Uses a custom ESP-NOW protocol.                                                |
 | Power Consumption   | May consume more power, especially when connected to the internet.          | Known for low power consumption.                                               |
-| Data Processing     | Allows for cloud-based data processing and analytics.                       | Primarily for direct device-to-device communication.                           |
-| Use Cases           | IoT projects requiring global connectivity and cloud-based data management. | Applications needing low-latency, local communication.                         |
+| Data Processing     | Allows for Cloud-based data processing and analytics.                       | Primarily for direct device-to-device communication.                           |
+| Use Cases           | IoT projects requiring global connectivity and Cloud-based data management. | Applications needing low-latency, local communication.                         |
 
-***Check out the different Arduino IoT Cloud plans [here](https://cloud.arduino.cc/plans).***
+***Check out the different Arduino Cloud plans [here](https://cloud.arduino.cc/plans).***
 
 ## Code
 

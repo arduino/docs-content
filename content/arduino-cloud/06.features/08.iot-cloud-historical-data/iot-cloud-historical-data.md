@@ -13,12 +13,12 @@ It is possible to download historical data from your [Arduino Cloud](https://app
 
 The goals of this tutorial are:
 
-- Learn about Arduino cloud historical data
+- Learn about Arduino Cloud historical data
 - Learn how to use this data
 
 ## Hardware & Software Needed
 
-You do not need an active board to download the historical data, but for initial data collection, you will need a cloud compatible board.
+You do not need an active board to download the historical data, but for initial data collection, you will need a Cloud compatible board.
 
 To see all compatible boards, check out the link below:
 
@@ -44,7 +44,7 @@ Combined with 15 days or three months of historical data, you can build a detail
 
 First, to download historical data navigate into one of your dashboards on the [Arduino Cloud](https://app.arduino.cc/dashboards).
 
-![Arduino cloud dashboard.](assets/cloud-historical-data-dashboard.png)
+![Arduino Cloud dashboard.](assets/cloud-historical-data-dashboard.png)
 
 While inside a dashboard, press the **Download** icon up in the right corner. This will open a new window that allows you to select historical data to download.
 

@@ -7,7 +7,7 @@ description: 'The first steps to setting up your Arduino Fio'
 
 The ATmega328P on the Arduino Fio comes preburned with a [bootloader](https://docs.arduino.cc/hacking/software/Bootloader) that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the original STK500 protocol ([reference](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2525.pdf), [C header files](http://www.atmel.com/dyn/resources/prod%5Fdocuments/avr061.zip)).
 
-There are two ways you can upload new sketches to the Arduino Fio: you can use an FTDI USB-to-serial cable, or USB-to-serial adaptor board; or you can program it wirelessly, over a pair of XBee radios. If you're new to the XBee radios, it's helpful to know a bit about them before attempting the wireless programming. This [introduction](http://itp.nyu.edu/physcomp/Tutorials/XbeeBasics) may help.
+There are two ways you can upload new sketches to the Arduino Fio: you can use an FTDI USB-to-serial cable, or USB-to-serial adaptor board; or you can program it wirelessly, over a pair of XBee radios. If you're new to the XBee radios, it's helpful to know a bit about them before attempting the wireless programming. This [introduction](https://web.archive.org/web/20140813203852/http://itp.nyu.edu/physcomp/Tutorials/XbeeBasics) may help.
 
 You can also bypass the bootloader and program the ATmega328P with an external programmer; see [these instructions](https://docs.arduino.cc/hacking/software/MiniBootloader) for details.
 
@@ -55,7 +55,7 @@ In order to upload sketches wirelessly using XBee radios, you'll need the follow
 
 * **two [XBee or XBee Pro 802.15.4](http://www.digi.com/products/wireless/point-multipoint/xbee-series1-module.jsp#overview) XBee modules.** These are also known as Series 1 modules, for those who've worked with XBees for awhile. You can't use the DigiMesh or ZB series radios (aka Series 2 or 2.5). Those modules do not allow for automatic IO Line Passing that is required for toggling the reset pin when programming.
 * **a recent version of the 802.15.4 firmware (10A5 or later).** If you need to upgrade your firmware, you need to use [X-CTU](http://ftp1.digi.com/support/utilities/40002637%5Fc.exe) (Windows only, unfortunately). If you confirmed these points, please follow the following steps.
-* **a USB-to-serial adaptor** for one of the modules. You can use Sparkfun's [XBee Explorer USB](http://www.sparkfun.com/commerce/product%5Finfo.php?products%5Fid=8687) or Adafruit's [XBee Adapter kit](http://www.adafruit.com/index.php?main%5Fpage=product%5Finfo&cPath=29&products%5Fid=126&zenid=820efea6fe32ea04a0a7879262db3e54) or any other FTDI-to-XBee adaptor.
+* **a USB-to-serial adaptor** for one of the modules. You can use Sparkfun's [XBee Explorer USB](http://www.sparkfun.com/commerce/product%5Finfo.php?products%5Fid=8687) or Adafruit® [XBee Adapter kit](http://www.adafruit.com/index.php?main%5Fpage=product%5Finfo&cPath=29&products%5Fid=126&zenid=820efea6fe32ea04a0a7879262db3e54) or any other FTDI-to-XBee adaptor.
 
 #### Modifying the XBee\-to-USB adaptor
 
@@ -63,7 +63,7 @@ On your USB-to-serial adaptor, solder in a tiny jumper between the RTS pin and D
 
 ![Modified XBee Explorer USB](assets/XBeeExplorerUSBForFio.jpg)
 
-![Modified Adafruit XBee Adapter Kit. The arrow shows the added solder connection](assets/AdafruitXBeeUSBForFio.jpg)
+![Modified Adafruit® XBee Adapter Kit. The arrow shows the added solder connection](assets/AdafruitXBeeUSBForFio.jpg)
 
 ### Preparing the XBee radios
 
@@ -93,7 +93,7 @@ If you're running Windows, you have to make a slight change to the driver prefer
 
 ## How to configure XBee modems
 
-You can configure your radios using a terminal application, or using X-CTU on Windows, or you can use the [Fio XBee Config Tool](//www.arduino.cc/en/uploads/Main/XBeeConfigTool.zip). This is a modified version of Shigeru Kobayashi's [XBeeConfigTool](http://funnel.googlecode.com/files/XBeeConfigTool.zip).
+You can configure your radios using a terminal application, or using X-CTU on Windows, or you can use the [Fio XBee Config Tool](//www.arduino.cc/en/uploads/Main/XBeeConfigTool.zip). This is a modified version of Shigeru Kobayashi's XBeeConfigTool.
 
 #### Using Arduino Fio XbeeConfigTool
 

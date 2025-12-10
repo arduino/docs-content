@@ -50,7 +50,7 @@ Following a detailed description of the Sketch; the first code section is used t
 
 **MKRGSM** include all the GSM connection, localization and SMS management functionalities, this are available through the object **GSMClient, GPRS, GSM** and **GSMLocation,** the SMS management APIs are available through the object **GSM_SMS**, the header **ArduinoLowPower** import the APIs that allow low power management of the Board's module.
 
-If you download the code from the Web Editor, you will find an **arduino_secrets.h** file that includes the sensible data like **PIN, APN, user** and **password.** On the web editor, you have to fill the sensible data in the Secrets Tab.
+If you download the code from the Cloud Editor, you will find an **arduino_secrets.h** file that includes the sensible data like **PIN, APN, user** and **password.** On the Cloud Editor, you have to fill the sensible data in the Secrets Tab.
 
 ```arduino
 // include the GSM library

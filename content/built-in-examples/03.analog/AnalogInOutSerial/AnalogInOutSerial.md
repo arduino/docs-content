@@ -16,7 +16,7 @@ This example shows you how to read an analog input pin, map the result to a rang
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - Potentiometer
 

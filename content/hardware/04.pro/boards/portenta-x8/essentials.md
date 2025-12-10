@@ -11,9 +11,15 @@
 </EssentialsColumn>
     
 <EssentialsColumn title="Suggested Repositories">
-    <EssentialElement link="https://github.com/arduino/portenta-containers" title="Portenta X8 containers" type="article">
+
+<EssentialElement link="https://github.com/arduino/portenta-containers/" title="Portenta X8 containers" type="article">
         Some containers examples for Portenta X8, these containers are accessible through your Foundries.io factory.
     </EssentialElement>
+
+<EssentialElement link="https://github.com/arduino/meta-partner-arduino/" title="Meta Partner Arduino layer" type="article">
+        This repository contains Yocto recipes for building a Linux image for the Arduino Portenta X8.
+    </EssentialElement>
+
 </EssentialsColumn>
 
 <EssentialsColumn title="Firmware Images">
@@ -26,7 +32,7 @@
         Download the latest firmware for Portenta X8 (Recommended).
     </EssentialElement>
 
-<EssentialElement title="Firmware Release Notes" type="article" link="/tutorials/portenta-x8/x8-firmware-release-notes">
+<EssentialElement link="/tutorials/portenta-x8/x8-firmware-release-notes" title="Firmware Release Notes" type="library">
         All available Portenta X8 firmware release notes.
     </EssentialElement>
 

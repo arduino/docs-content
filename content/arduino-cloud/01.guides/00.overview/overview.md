@@ -5,7 +5,7 @@ tags: [Arduino Cloud, Getting Started]
 author: 'Karl Söderby'
 ---
 
-The [Arduino Cloud](https://app.arduino.cc/) is a platform for developing Arduino projects and connecting them to the world. It supports secure connections with boards via [Wi-Fi®](/arduino-cloud/hardware/wifi), [LoRa®](/arduino-cloud/hardware/lora), [Ethernet](/arduino-cloud/hardware/ethernet) and [Cellular (GSM/NB-IoT)](/arduino-cloud/hardware/cellular), and lets you create a system for sending any variable information you can think of from one board to another within minutes of unboxing them.
+The [Arduino Cloud](https://app.arduino.cc/) is a platform for developing Arduino projects and connecting them to the world. It supports secure connections with boards via [Wi-Fi®](/arduino-cloud/hardware/wifi), [LoRa®-enabled devices](/arduino-cloud/hardware/lora), [Ethernet](/arduino-cloud/hardware/ethernet) and [Cellular (GSM/NB-IoT)](/arduino-cloud/hardware/cellular), and lets you create a system for sending any variable information you can think of from one board to another within minutes of unboxing them.
 
 The Arduino Cloud platform includes:
 - an **Integrated Development Environment (IDE)** for programming your boards,
@@ -38,15 +38,15 @@ Networking code and data synchronizing is **automatically done**, so just focus 
 
 ## Compatible Boards
 
-***Throughout the documentation, we will often refer to a "board" as a "device". A board is your physical hardware or virtual setup (Python/JS), and a "device" is how it is configured in the cloud.***
+***Throughout the documentation, we will often refer to a "board" as a "device". A board is your physical hardware or virtual setup (Python/JS), and a "device" is how it is configured in the Cloud.***
 
 Compatibility with the Arduino Cloud is divided into two categories: 
-- **Cloud Editor Support** - you can program **any** official Arduino board in the cloud editor. The editor also supports a large amount of third party boards.
+- **Cloud Editor Support** - you can program **any** official Arduino board in the Cloud editor. The editor also supports a large amount of third party boards.
 - **IoT Support** - board with a radio module (e.g. Wi-Fi®) are supported. ESP32 based boards are also supported. 
 
 For more information and list of supported boards, see the links below:
 - [Wi-Fi®](/arduino-cloud/hardware/wifi)
-- [LoRa®](/arduino-cloud/hardware/lora)
+- [LoRa®-enabled devices](/arduino-cloud/hardware/lora)
 - [Ethernet](/arduino-cloud/hardware/ethernet)
 - [Cellular (GSM/NB-IoT)](/arduino-cloud/hardware/cellular).
 
@@ -76,7 +76,7 @@ Setting up a project in the Arduino Cloud is easy, and can be done through a few
 
 To use the Arduino Cloud, you will need an Arduino account, which you can register [here](https://login.arduino.cc/login).
 
-By default, you will have a **free plan**, which can be upgraded to a number of affordable plans starting at 1.99$ a month.
+By default, you will have a **free plan**, which can be upgraded to a number of affordable plans.
 
 ***Read more about [Arduino Cloud plans](https://cloud.arduino.cc/plans)***
 
@@ -92,11 +92,13 @@ The configurations varies between boards, but everything is covered in the insta
 
 ### 3. Create a Thing
 
-After configuring a device, we can create a Thing, which is the **virtual twin** of your board. Here we configure network details, select device we want to associate and create the variables that we want to synchronize.
+After configuring a device, we can create a Thing, which is the **virtual twin** of your board. Here we can select the device to associate and create the variables that we want to synchronize with.
 
 ![Things in the Arduino Cloud.](assets/thing.png)
 
-Variables we create will be used in the sketch, and will keep synchronizing as long as the board is connected to the cloud. 
+To configure network details go to the [devices page](https://app.arduino.cc/devices), select your device and set the network credentials.
+
+Variables we create will be used in the sketch, and will keep synchronizing as long as the board is connected to the Cloud. 
 
 When working with your IoT projects, consider this the "main space" for configurations, as you can access your sketches from here as well. 
 
@@ -104,7 +106,7 @@ When working with your IoT projects, consider this the "main space" for configur
 
 ### 4. Write a Sketch
 
-Once you have done the above configurations, you can move on to **create a program/sketch**. This is where *you* decide what you want to create, and what data you want sent to the cloud.
+Once you have done the above configurations, you can move on to **create a program/sketch**. This is where *you* decide what you want to create, and what data you want sent to the Cloud.
 
 ![A sketch in the Arduino Cloud.](assets/editor.png)
 
@@ -148,3 +150,7 @@ Make sure to explore the various features of the Arduino Cloud through the links
 - [**Webhooks**](/arduino-cloud/features/webhooks) - integrate your project with another service, such as IFTTT.
 - [**Amazon Alexa Support**](/arduino-cloud/guides/alexa) - make your project voice controlled with the Amazon Alexa integration. 
 - [**Dashboard Sharing**](/arduino-cloud/features/sharing-dashboards) - share your data with other people around the world. 
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

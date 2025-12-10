@@ -2,11 +2,9 @@
 title: "Arduino WiFi Shield"
 description: "The Arduino WiFi Shield connects your Arduino to the internet wirelessly"
 coverImage: "assets/store_a000058_featured.jpg"
-sku: "A000058"
+sku: [A000058]
 source: "https://store.arduino.cc/arduino-wifi-shield"
 ---
-
-***Note: This page refers to a product that is retired.***
 
 ![The Arduino WiFi Shield](./assets/store_a000058_featured.jpg)
 
@@ -39,7 +37,7 @@ You can find in the [Getting Started section](https://www.arduino.cc/en/Guide/Ar
 
 Arduino WiFi Shield is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](http://download.arduino.org/products/WIFISHIELD/arduino-wifi-shield-reference-design.zip) 
+[EAGLE FILES IN .ZIP](http://download.arduino.org/products/WIFISHIELD/arduino-wifi-shield-reference-design.zip)
 
 [SCHEMATICS IN .PDF](http://download.arduino.org/products/WIFISHIELD/arduino-wifi-shield-schematic.pdf)
 
@@ -110,14 +108,14 @@ Supported commands and their parameters:
 * **connect** `<ssid>`
 * **setkey** `<key\_idx (0-3)>` `<key in hex>` ("**setkey** none" will delete all WEP keys)
 * **status**
-* **debug** `<section>` `<level>`  
-   * *section*: init, cm, spi, tcp , util, warn  
+* **debug** `<section>` `<level>`
+   * *section*: init, cm, spi, tcp , util, warn
    * *level* : 0 (off), 1 (on), 2 (verbose)
-* **ttcp** \-t/-r \[-options\] host  
-   * \-l length of bufs written to network (default 1024)  
-   * \-n number of bufs written to network (default 1024)  
-   * \-p port number to send to (default 2000)  
-   * \-u udp  
+* **ttcp** \-t/-r \[-options\] host
+   * \-l length of bufs written to network (default 1024)
+   * \-n number of bufs written to network (default 1024)
+   * \-p port number to send to (default 2000)
+   * \-u udp
    * \-v verbose
 * **wpass** `<ssid>` `<passphrase>` (set passphrase associated to ssid)
 * **dpass** `<ssid>` (delete passphrase associated to ssid)
@@ -130,14 +128,14 @@ If you send a string or character that is not recognized, you'll get a list of s
 
 The WiFi shield provides wireless connectivity per the IEEE 802.11 b/g standard through the HDG204 (or HDG104) module. The TCP/IP stack and the APIs for WiFi library are managed by the AT32UC3A1512 (or AT32UC3A1256) called AT32UC3 for short microcontroller on the shield. Your Arduino connects to the shield using SPI through the WiFi library.
 
-Both the AT32UC3 and the HDG204/HDG104 modules have firmware upgradable through the mini USB connector. 
+Both the AT32UC3 and the HDG204/HDG104 modules have firmware upgradable through the mini USB connector.
 
 This tutorial shows you how to upgrade:
 
 * the HDG204/HDG104 WiFi module firmware, for when the manufacturer provides a new firmware binary for their device.
 * the AT32UC3 when there is a new version of the firmware available from Arduino. Alternately, if you are an expert C programmer you can customise the official source code to make a derivative firmware for yourself. Check the [WiFi library repository](https://github.com/arduino/ArduinoCore-avr/tree/master/firmwares) for the source code.
 
-**When upgrading the firmware, the WiFi shield should not be connected to the Arduino board.** 
+**When upgrading the firmware, the WiFi shield should not be connected to the Arduino board.**
 
 Upgrading the firmware on the devices is a two step process:
 
@@ -148,41 +146,41 @@ Upgrading the firmware on the devices is a two step process:
 
 You'll need additional software to update the code on the 32UC3.
 
-**Windows**: Download Atmel's flip programmer from [here](http://%e2%80%8bwww.microchip.com/developmenttools/productdetails.aspx?partno=flip) 
+**Windows**: Download Atmel's flip programmer from [here](http://%e2%80%8bwww.microchip.com/developmenttools/productdetails.aspx?partno=flip)
 
-**Mac**: Install MacPorts following the instructions on this [page](http://www.macports.org/install.php#pkg). Once MacPorts is installed, in a Terminal window, type: `sudo port install dfu-programmer` 
+**Mac**: Install MacPorts following the instructions on this [page](http://www.macports.org/install.php#pkg). Once MacPorts is installed, in a Terminal window, type: `sudo port install dfu-programmer`
 
 To update macPorts:
 
-`sudo port selfupdate` 
+`sudo port selfupdate`
 
 To update dfu-programmer and other ports to the most recent version:
 
-`sudo port upgrade outdated` 
+`sudo port upgrade outdated`
 
 Make sure you're using dfu-programer version 0.5.4 or later
 
-*NB: If you've never used sudo before, it will ask for your password. Use the password you login to your Mac with. sudo allows you to run commands as the administrator of the computer* 
+*NB: If you've never used sudo before, it will ask for your password. Use the password you login to your Mac with. sudo allows you to run commands as the administrator of the computer*
 
-**Linux**: from a command line type 
+**Linux**: from a command line type
 
-`sudo apt-get install dfu-programme` 
+`sudo apt-get install dfu-programme`
 
-or 
+or
 
-`sudo aptitude install dfu-programmer` 
+`sudo aptitude install dfu-programmer`
 
 depending on your distribution.
 
 ### Download updated firmware for the 32UC3A1256/AT32UC3A1256
 
-The latest version is [here](https://github.com/arduino/ArduinoCore-avr/tree/master/firmwares). Choose WiFi shield firmware. 
+The latest version is [here](https://github.com/arduino/ArduinoCore-avr/tree/master/firmwares). Choose WiFi shield firmware.
 
-The firmware is also located with the Arduino software in the /hardware/avr/arduino/firmwares/wifishield folder. On OSX, right-click or command-click on the Arduino application and select "show package contents" to find this folder. 
+The firmware is also located with the Arduino software in the /hardware/avr/arduino/firmwares/wifishield folder. On OSX, right-click or command-click on the Arduino application and select "show package contents" to find this folder.
 
 ### Windows procedure
 
-On Windows, you need to install the [AVR 32 Drivers](//www.arduino.cc/en/uploads/Hacking/AVR32%5FUSB%5FDriver.zip) . On Windows use the [Flip](http://www.atmel.com/tools/FLIP.aspx) software provided by Atmel to program the device using the DFU mode (Device Firmware Update). Flip supplies a utility called batchisp that you'll use to make the upgrade. Once you've installed Flip, open a command prompt (CMD) and reach the following path contained inside the Flip installation directory, usually: `cd C:\Program Files (x86)\Atmel\Flip 3.4.5\bin` but it depends where the Atmel software is installed. Now you are able to download the firmware on the shield. 
+On Windows, you need to install the [AVR 32 Drivers](//www.arduino.cc/en/uploads/Hacking/AVR32%5FUSB%5FDriver.zip) . On Windows use the [Flip](http://www.atmel.com/tools/FLIP.aspx) software provided by Atmel to program the device using the DFU mode (Device Firmware Update). Flip supplies a utility called batchisp that you'll use to make the upgrade. Once you've installed Flip, open a command prompt (CMD) and reach the following path contained inside the Flip installation directory, usually: `cd C:\Program Files (x86)\Atmel\Flip 3.4.5\bin` but it depends where the Atmel software is installed. Now you are able to download the firmware on the shield.
 
 #### Note
 
@@ -232,9 +230,9 @@ Once the upgrade is done you can remove the J3 jumper and restart the shield. No
 
 On Linux and Mac we wrote a script that automates the process. The script is a command line utility, so in order to use it you need to open a terminal on your system.
 
-You can find the script inside your IDE at the following path: `~/arduino1.x.x/hardware/avr/arduino/firmwares/wifishield/scripts` 
+You can find the script inside your IDE at the following path: `~/arduino1.x.x/hardware/avr/arduino/firmwares/wifishield/scripts`
 
-The WiFi shield upgrading script also make use of the [dfu-programmer](http://dfu-programmer.sourceforge.net/) that you need to install on your system previously (make sure that the version is 0.5.4 or later). 
+The WiFi shield upgrading script also make use of the [dfu-programmer](http://dfu-programmer.sourceforge.net/) that you need to install on your system previously (make sure that the version is 0.5.4 or later).
 
 Connect a jumper on the J3 connector, that put the shield in the programming mode. Then connect the USB cable to the shield USB mini socket.
 
@@ -245,9 +243,9 @@ Open a Terminal window and move to the path were you saved the script and type a
 
 On Linux you need to run the script as root in order to access correctly to the USB DFU peripherals.
 
-With the `-a` parameter you'll pass to the script the current Arduino installation path, for example: `/home/user/Coding` 
+With the `-a` parameter you'll pass to the script the current Arduino installation path, for example: `/home/user/Coding`
 
-With the `-f` parameter you'll make the choice of which firmware install: 
+With the `-f` parameter you'll make the choice of which firmware install:
 
 * `shield` to upgrade only the shield firmware
 * `all` to upgrade both the firmwares

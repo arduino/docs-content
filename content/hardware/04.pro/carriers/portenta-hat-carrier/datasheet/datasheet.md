@@ -777,15 +777,15 @@ Upon positioning the _BTSEL_ switch to the _ON_ state, the Portenta X8 is config
 
 <p style="text-align: justify;">If you want to program your Portenta Hat Carrier offline, you'll need to install the Arduino Desktop IDE [1]. To connect your Portenta family board with the Portenta Hat Carrier to your computer, a USB-C® cable is required.</p>
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino devices work out-of-the-box with the Arduino Web Editor [2] after installing a straightforward plugin.
+All Arduino devices work out-of-the-box with the Arduino Cloud Editor [2] after installing a straightforward plugin.
 
-<p style="text-align: justify;">Being hosted online ensures that the Arduino Web Editor remains up-to-date, boasting the latest features and comprehensive support for all boards and devices. To begin coding in the browser and uploading your sketches to your device, follow the instructions here [3].</p>
+<p style="text-align: justify;">Being hosted online ensures that the Arduino Cloud Editor remains up-to-date, boasting the latest features and comprehensive support for all boards and devices. To begin coding in the browser and uploading your sketches to your device, follow the instructions here [3].</p>
 
-### Getting Started - Arduino IoT Cloud
+### Getting Started - Arduino Cloud
 
-<p style="text-align: justify;">The Arduino IoT Cloud supports all Arduino IoT-enabled products, enabling you to log, visualize, and analyze sensor data, initiate events, and automate either your home or business.</p>
+<p style="text-align: justify;">The Arduino Cloud supports all Arduino IoT-enabled products, enabling you to log, visualize, and analyze sensor data, initiate events, and automate either your home or business.</p>
 
 ### Getting Started - Portenta Hat Carrier with Portenta X8 - Linux
 
@@ -933,8 +933,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**               |
-| ---------- | ------------ | ------------------------- |
-| 02/11/2023 | 2            | Flashing Mode Description |
-| 25/10/2023 | 1            | First Release             |
+| Date       | **Revision** | **Changes**                          |
+|------------|--------------|--------------------------------------|
+| 03/09/2024 | 3            | Cloud Editor updated from Web Editor |
+| 02/11/2023 | 2            | Flashing Mode Description            |
+| 25/10/2023 | 1            | First Release                        |
 

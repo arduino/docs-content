@@ -9,7 +9,7 @@ You can get the length of [Strings](https://www.arduino.cc/en/Reference/StringOb
 
 ## Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 ## Circuit
 

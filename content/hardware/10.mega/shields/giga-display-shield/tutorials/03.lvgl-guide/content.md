@@ -17,12 +17,12 @@ tags: [Display, LVGL]
 - [Arduino GIGA Display Shield](https://store.arduino.cc/products/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
-## Downloading the Library and Core
+## Downloading the Library and Board Package
 
-The GIGA R1 core includes the [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library that handles the display.
+The GIGA R1 Board Package includes the [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library that handles the display.
 
 In this guide, we will be using three different libraries:
-- [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video), this one is bundled with the core, so make sure you have the latest version of the [Mbed core](https://github.com/arduino/ArduinoCore-mbed) installed.
+- [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video), this one is bundled with the Board Package, so make sure you have the latest version of the [GIGA Board Package](https://github.com/arduino/ArduinoCore-mbed) installed.
 - [Arduino_GigaDisplayTouch](https://www.arduino.cc/reference/en/libraries/arduino_gigadisplaytouch/)
 - [lvgl](https://github.com/lvgl/lvgl)
 
@@ -64,6 +64,7 @@ In the `setup()`, we begin by initializing the display and the touch detector.
 
 ```arduino
 void setup(){
+  delay(3000);
   Display.begin();
   TouchDetector.begin();
 }
@@ -133,7 +134,7 @@ Take a look at this graphic to understand it better:
 
 ### Update Loop
 
-Include this in the loop of your sketch to make sure the LVGL engine is running and updating the screen.
+Include this in the loop of your sketch to make sure the LVGL engine is running and updating the screen. The `lv_timer_handler()` function should be called at max every 5 milliseconds. If it would be called more frequently than that please use a non-blocking method to delay it.
 
 ```arduino
 void loop() { 
@@ -154,6 +155,7 @@ Arduino_H7_Video Display(800, 480, GigaDisplayShield);
 Arduino_GigaDisplayTouch TouchDetector;
 
 void setup() {
+  delay(3000);
   Display.begin();
   TouchDetector.begin();
 
@@ -198,7 +200,7 @@ void loop() {
 
 ### Image
 
-To display an image on the screen we first need to define what that image that should be. Take the desired image, [convert it into the correct format](https://docs.lvgl.io/master/overview/img.html#online-converter) and place the image in the same folder as the sketch. Now use `LV_IMG_DECLARE(filename);`. For example the image we use will be named `img_arduinologo`.
+To display an image on the screen we first need to define what that image that should be. Take the desired image, [convert it into the correct format](https://docs.lvgl.io/master/overview/image.html#online-converter) and place the image in the same folder as the sketch. Now use `LV_IMG_DECLARE(filename);`. For example the image we use will be named `img_arduinologo`.
 
 ```arduino
   LV_IMG_DECLARE(img_arduinologo);
@@ -236,6 +238,7 @@ To make sure we see the image use the align function to make it centered. Then a
 Arduino_H7_Video          Display(800, 480, GigaDisplayShield);
 
 void setup() {
+  delay(3000);
   Display.begin();
 
   lv_obj_t * screen = lv_obj_create(lv_scr_act());
@@ -335,6 +338,7 @@ Arduino_H7_Video          Display(800, 480, GigaDisplayShield);
 Arduino_GigaDisplayTouch  TouchDetector;
 
 void setup() {
+  delay(3000);
   Display.begin();
   TouchDetector.begin();
 
@@ -410,6 +414,7 @@ Arduino_H7_Video          Display(800, 480, GigaDisplayShield);
 Arduino_GigaDisplayTouch  TouchDetector;
 
 void setup() {
+  delay(3000);
   Display.begin();
   TouchDetector.begin();
 
@@ -506,6 +511,7 @@ Arduino_H7_Video          Display(800, 480, GigaDisplayShield); /* Arduino_H7_Vi
 Arduino_GigaDisplayTouch  TouchDetector;
 
 void setup() {
+  delay(3000);
   Display.begin();
   TouchDetector.begin();
 
@@ -634,6 +640,7 @@ static void set_slider_val(void * bar, int32_t val) {
 }
 
 void setup() {
+  delay(3000);
   Display.begin();
   TouchDetector.begin();
 
@@ -752,6 +759,7 @@ static void btn_event_cb(lv_event_t * e) {
 }
 
 void setup() {
+  delay(3000);
   Display.begin();
   TouchDetector.begin();
 

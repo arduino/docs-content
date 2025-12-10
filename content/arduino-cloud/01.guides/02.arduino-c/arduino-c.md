@@ -12,7 +12,7 @@ The default option for programming your board to connect to the Arduino Cloud is
 Whenever you create a [Thing](/arduino-cloud/cloud-interface/things) in the Arduino Cloud, you automatically start generating a set of files that will handle the configurations, credentials & connection:
 - `<sketchname>.ino` - your main sketch file,
 - `thingProperties.h` - your main configuration file,
-- `arduino_secrets.h` - your credentials file (for API key, Wi-Fi network etc.)
+- `arduino_secrets.h` - your credentials file (for API key, Wi-Fi network etc.), if the board is using provisioning version 1.0. If the board is using version 2.0 the credentials are stored on the board. To find out more about this read [here](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/).
 
 ***If you want to find out more about what the Arduino Cloud service can do, go to the [overview](/arduino-cloud/guides/overview) section.*** 
 
@@ -24,7 +24,7 @@ For this guide, you will need to have a registered account at Arduino. Register 
 You will also need a supported board:
 - [Official Arduino Wi-Fi® boards](/arduino-cloud/hardware/wifi)
 - [ESP32 / ESP8266 boards](/arduino-cloud/hardware/wifi#configure-esp-boards)
-- [Official LoRaWAN® boards](/arduino-cloud/hardware/lora) 
+- [Official boards compatible with LoRa®-based networks](/arduino-cloud/hardware/lora) 
 - [Official Ethernet setups](/arduino-cloud/hardware/ethernet)
 - [Official cellular boards (GSM/NB-IoT)](/arduino-cloud/hardware/cellular)
 
@@ -44,11 +44,13 @@ Next, navigate to the **Things** tab. Here you will see a list of your Things, a
 
 ![Arduino Cloud Thing Interface](assets/thing-config.png)
 
-A "Thing" is a virtual twin of your hardware, and it is here that we create variables that we want to synchronize between the cloud and board. Any changes we make here will be reflected in an [automatically generated sketch](/arduino-cloud/cloud-interface/sketches#iot-sketches).
+A "Thing" is a virtual twin of your hardware, and it is here that we create variables that we want to synchronize between the Cloud and board. Any changes we make here will be reflected in an [automatically generated sketch](/arduino-cloud/cloud-interface/sketches#iot-sketches).
 
 1. First, let's attach the device we want to use, by clicking the **"Select Device"** button in the **"Associated Devices"** section to the right. 
-2. let's create a new variable, call it `test`, and select it to be a `boolean` type and with a **read/write** permission.
-3. finally, configure your network in the **Network** section. Here you will enter your Wi-Fi® credentials, and if you are using an ESP32 based board, you need to enter the secret key here.
+2. Let's create a new variable, call it `test`, and select it to be a `boolean` type and with a **read/write** permission.
+
+3. Finally, configure your network in the **Network** section on the device page. Here you will enter your Wi-Fi® credentials, and if you are using an ESP32 based board, you need to enter the secret key here.
+
 
 ![Enter network credentials.](assets/esp32-only.png)
 
@@ -60,7 +62,7 @@ All the above configurations have now been generated into a set of files that ca
 
 ### Create Sketch
 
-The automatically generated sketch is now available to be edited. This sketch includes all necessities to connect to the cloud, and has a callback function generated for each **read/write** variable.
+The automatically generated sketch is now available to be edited. This sketch includes all necessities to connect to the Cloud, and has a callback function generated for each **read/write** variable.
 
 Below is a sketch generated for a single `boolean` variable called `test`. We modified it to turn on/off the built-in LED of the board anytime the `test` bool is `true`.
 
@@ -97,8 +99,8 @@ void onTestChange()  {
 
 - The sketch is automatically updated whenever you change your Thing (e.g. adding a variable, changing device),
 - **Read/Write** permission variables adds a callback function to the bottom of your code. This function executes whenever the variable changes,
-- the `ArduinoCloud.update()` function synchronises data between the board and cloud.
-- if we update the `test` variable in the sketch, if it is connected to the cloud, we will see the change there as well. 
+- the `ArduinoCloud.update()` function synchronises data between the board and Cloud.
+- if we update the `test` variable in the sketch, if it is connected to the Cloud, we will see the change there as well. 
 
 ### Compile & Upload
 
@@ -125,3 +127,7 @@ To control the state of the `test` variable, we can setup a **dashboard** and a 
 ![Dashboard in the Arduino Cloud.](assets/dashboard.png)
 
 ***You can find more details in the [dashboards documentation](/arduino-cloud/cloud-interface/dashboard-widgets).***
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

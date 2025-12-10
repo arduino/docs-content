@@ -3,7 +3,7 @@ title: "Arduino Robot"
 description: "The first Arduino on wheels, the easiest way to get started with robotics."
 url_guide: "https://www.arduino.cc/en/Guide/Robot"
 coverImage: "assets/store_a000078_featured.jpg"
-sku: "A000078"
+sku: [A000078]
 source: "https://store.arduino.cc/arduino-robot"
 ---
 
@@ -27,7 +27,7 @@ In the [Getting Started section](https://www.arduino.cc/en/Guide/Robot), you can
 * On Projects [on the Arduino Forum](https://forum.arduino.cc/index.php?board=3.0)
 * On the Product itself through [our Customer Support](https://support.arduino.cc/hc)
 
-## Documentation 
+## Documentation
 
 ### OSH: Schematics
 
@@ -52,8 +52,8 @@ The ATmega32u4 has 32 KB (with 4 KB used for the bootloader). It also has 2.5 KB
 The Robot comes with a series of pre-soldered connectors. There are a number of additional spots for you to install additional parts if needed. All the connectors are labelled on the boards and mapped to named ports through the [Robot library](https://www.arduino.cc/en/Reference/RobotLibrary) allowing access to standard Arduino functions. Each pin can provide or receive a maximum of 40mA at 5V. Some pins have specialized functions:
 
 * Control Board TK0 to TK7: these pins are multiplexed to a single analog pin on theControl Board's microprocessor. They can be used as analog inputs for sensors like distance sensors, analog ultrasound sensors, or mechanical switches to detect collisions.
-* Control Board TKD0 to TKD5: these are digital I/O pins directly connected to the processor, addressed using [Robot.digitalRead()](https://www.arduino.cc/en/Reference/RobotDigitalRead) and [Robot.digitalWrite)](https://www.arduino.cc/en/Reference/RobotDigitalWrite) functions. Pins TKD0 to TKD3 can also be used as analog inputs with [Robot.analogRead()](https://www.arduino.cc/en/Reference/RobotAnalogRead)  
-  
+* Control Board TKD0 to TKD5: these are digital I/O pins directly connected to the processor, addressed using [Robot.digitalRead()](https://www.arduino.cc/en/Reference/RobotDigitalRead) and [Robot.digitalWrite)](https://www.arduino.cc/en/Reference/RobotDigitalWrite) functions. Pins TKD0 to TKD3 can also be used as analog inputs with [Robot.analogRead()](https://www.arduino.cc/en/Reference/RobotAnalogRead)
+
 *Note: if you have one of the first generation robots, you will see that the TKD\* pins are named TDK\* on the Robot's silkscreen. TKD\* is the proper name for them and is how we address them on the software.*
 
 ![](assets/LottieLemon_figure_ref_top.png)
@@ -131,7 +131,7 @@ The Robot comes with a series of pre-soldered connectors. There are a number of 
 
 ### Communication
 
-The Robot has a number of facilities for communicating with a computer, another Arduino, or other microcontrollers. The ATmega32U4 provides UART TTL (5V) serial communication, which is available on digital the 10-pin board-to-board connector. The 32U4 also allows for serial (CDC) communication over USB and appears as a virtual com port to software on the computer. The chip also acts as a full speed USB 2.0 device, using standard USB COM drivers. [On Windows, a .inf file is required](http://arduino.cc/en/Guide/Windows#toc4). The Arduino software includes a serial monitor which allows simple textual data to be sent to and from the Robot board. The RX (LED1) and TX LEDs on the board will flash when data is being transmitted via the USB connection to the computer (but not for serial communication between boards). *Each one of the boards has a separate USB product identifier and will show up as different ports on you IDE.* *Make sure you choose the right one when programming.* The ATmega32U4 also supports I2C (TWI) and SPI communication. The Arduino software includes a Wire library to simplify use of the I2C bus; see the [documentation](https://www.arduino.cc/en/Reference/Wire) for details. For SPI communication, use the [SPI library](https://www.arduino.cc/en/Reference/SPI). 
+The Robot has a number of facilities for communicating with a computer, another Arduino, or other microcontrollers. The ATmega32U4 provides UART TTL (5V) serial communication, which is available on digital the 10-pin board-to-board connector. The 32U4 also allows for serial (CDC) communication over USB and appears as a virtual com port to software on the computer. The chip also acts as a full speed USB 2.0 device, using standard USB COM drivers. [On Windows, a .inf file is required](http://arduino.cc/en/Guide/Windows#toc4). The Arduino software includes a serial monitor which allows simple textual data to be sent to and from the Robot board. The RX (LED1) and TX LEDs on the board will flash when data is being transmitted via the USB connection to the computer (but not for serial communication between boards). *Each one of the boards has a separate USB product identifier and will show up as different ports on you IDE.* *Make sure you choose the right one when programming.* The ATmega32U4 also supports I2C (TWI) and SPI communication. The Arduino software includes a Wire library to simplify use of the I2C bus; see the [documentation](https://www.arduino.cc/en/Reference/Wire) for details. For SPI communication, use the [SPI library](https://www.arduino.cc/en/Reference/SPI).
 
 ### Programming
 

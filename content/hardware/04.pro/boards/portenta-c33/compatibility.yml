@@ -1,8 +1,7 @@
 software:
   - arduino-ide
   - arduino-cli
-  - iot-cloud
-  - web-editor
+  - cloud-editor
   #- openmv-ide
 hardware:
   boards:
@@ -11,7 +10,13 @@ hardware:
     - nicla-vision
   shields:
     - portenta-vision-shield
-    - portenta-cat-m1-nb-iot-gnss-shield
+    #- portenta-cat-m1-nb-iot-gnss-shield
   carriers:
     - portenta-breakout
     - portenta-max-carrier
+    - portenta-hat-carrier
+    - portenta-mid-carrier
+  modules:
+    - pro-4g-module
+    #- 4g-module-emea
+    #- 4g-module-global

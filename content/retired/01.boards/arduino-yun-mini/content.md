@@ -3,11 +3,9 @@ title: "Arduino Yún Mini"
 description: "The Arduino Yún Mini is a compact version of the Arduino YUN"
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoYunMini"
 coverImage: "assets/A000108_ArduinoYunMini1_featured_2.jpg"
-sku: "A000108"
+sku: [A000108]
 source: "https://store.arduino.cc/arduino-yun-mini"
 ---
-
-***Note: This page refers to a product that is retired.***
 
 ![The Arduino Yún Mini board](./assets/A000108_ArduinoYunMini1_featured_2.jpg)
 
@@ -29,9 +27,9 @@ You can find in the [Getting Started section](https://www.arduino.cc/en/Guide/Ho
 
 The Arduino Yún Mini is open-source hardware! You can build your own board using the following files:
 
-[SCHEMATICS IN .PDF](https://content.arduino.cc/assets/Arduino-yun-mini-schematics.pdf) 
+[SCHEMATICS IN .PDF](https://content.arduino.cc/assets/Arduino-yun-mini-schematics.pdf)
 
-[SCHEMATICS DogUSB](https://content.arduino.cc/assets/DOGUSB-Arduino-yun-mini-schematics.pdf) 
+[SCHEMATICS DogUSB](https://content.arduino.cc/assets/DOGUSB-Arduino-yun-mini-schematics.pdf)
 
 [SCHEMATICS DogRJ45](https://content.arduino.cc/assets/DOGRJ45-Arduino-yun-mini-schematics.pdf)
 
@@ -74,7 +72,7 @@ AVR 32u4 pins: Each of the 20 digital i/o pins on the Yún Mini can be used as a
 
 There are 3 reset buttons with different functions on the board:
 
-![](assets/Arduino_yun_mini_diagram_front.jpg)  
+![](assets/Arduino_yun_mini_diagram_front.jpg)
 
 ![](assets/Arduino_yun_mini_diagram_back.jpg)
 

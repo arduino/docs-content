@@ -3,11 +3,9 @@ title: "Arduino Yún with PoE"
 description: "Arduino YÚN is the perfect board to use when designing connected devices and, more in general, Internet of Things projects. It combines the power of Linux with the ease of use of Arduino."
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoYunLin"
 coverImage: "assets/a000003_featured.jpg"
-sku: "A000003"
+sku: [A000003]
 source: "https://store.arduino.cc/arduino-yun-with-poe"
 ---
-
-***Note: This page refers to a product that is retired.***
 
 ![The Arduino Yún board with PoE](./assets/a000003_featured.jpg)
 
@@ -55,7 +53,7 @@ This board version comes with the PoE module on board.
 
 Arduino Yún is open-source hardware! You can build your own board using the following files:
 
-[SCHEMATICS IN DSN](https://www.arduino.cc/en/uploads/Main/YUN-V04(20150114).DSN.zip) 
+[SCHEMATICS IN DSN](https://www.arduino.cc/en/uploads/Main/YUN-V04(20150114).DSN.zip)
 
 [SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/YUN-V04(20150114).pdf)
 
@@ -79,9 +77,9 @@ The power pins are as follows:
 
 The ATmega32u4 has 32 KB (with 4 KB used for the bootloader). It also has 2.5 KB of SRAM and 1 KB of EEPROM (which can be read and written with the EEPROM library).
 
-The memory on the AR9331 is not embedded inside the processor. The RAM and the storage memory are externally connected. The Yún has 64 MB of DDR2 RAM and 16 MB of flash memory. The flash memory is preloaded in factory with a Linux distribution based on OpenWrt called Linino OS. You can change the content of the factory image, such as when you install a program or when you change a configuration file. You can return to the factory configuration by pressing the "WLAN RST" button for 30 seconds. 
+The memory on the AR9331 is not embedded inside the processor. The RAM and the storage memory are externally connected. The Yún has 64 MB of DDR2 RAM and 16 MB of flash memory. The flash memory is preloaded in factory with a Linux distribution based on OpenWrt called Linino OS. You can change the content of the factory image, such as when you install a program or when you change a configuration file. You can return to the factory configuration by pressing the "WLAN RST" button for 30 seconds.
 
-The Linino OS installation occupies around 9 MB of the 16 MB available of the internal flash memory. You can use a micro SD card if you need more disk space for installing applications. 
+The Linino OS installation occupies around 9 MB of the 16 MB available of the internal flash memory. You can use a micro SD card if you need more disk space for installing applications.
 
 ### Input and Output
 
@@ -99,7 +97,7 @@ The hardware serials of the ATmega32U4 and the AR9331 on the Yún are connected 
 * Analog Inputs: A0 - A5, A6 - A11 (on digital pins 4, 6, 8, 9, 10, and 12). The Yún has 12 analog inputs, labeled A0 through A11, all of which can also be used as digital i/o. Pins A0-A5 appear in the same locations as on the Uno; inputs A6-A11 are on digital i/o pins 4, 6, 8, 9, 10, and 12 respectively. Each analog input provide 10 bits of resolution (i.e. 1024 different values). By default the analog inputs measure from ground to 5 volts, though is it possible to change the upper end of their range using the AREF pin and the analogReference() function.
 * AREF. Reference voltage for the analog inputs. Used with analogReference().
 
-There are 3 reset buttons with different functions on the board: 
+There are 3 reset buttons with different functions on the board:
 
 ![Arduino Yun](assets/ArduinoYunSchema2.jpg)
 
@@ -109,23 +107,23 @@ There are 3 reset buttons with different functions on the board:
 
 ### Communication
 
-The Yún has a number of facilities for communicating with a computer, another Arduino, or other microcontrollers. The ATmega32U4 provides a dedicated UART TTL (5V) serial communication. The 32U4 also allows for serial (CDC) communication over USB and appears as a virtual com port to software on the computer. The chip also acts as a full speed USB 2.0 device, using standard USB COM drivers. The Arduino software includes a serial monitor which allows simple textual data to be sent to and from the Arduino board. The RX and TX LEDs on the board will flash when data is being transmitted via the USB connection to the computer.  
+The Yún has a number of facilities for communicating with a computer, another Arduino, or other microcontrollers. The ATmega32U4 provides a dedicated UART TTL (5V) serial communication. The 32U4 also allows for serial (CDC) communication over USB and appears as a virtual com port to software on the computer. The chip also acts as a full speed USB 2.0 device, using standard USB COM drivers. The Arduino software includes a serial monitor which allows simple textual data to be sent to and from the Arduino board. The RX and TX LEDs on the board will flash when data is being transmitted via the USB connection to the computer.
 
-Digital pins 0 and 1 are used for serial communication between the 32U4 and the AR9331\.   
+Digital pins 0 and 1 are used for serial communication between the 32U4 and the AR9331\.
 
-You can use Ciao library to communication between the processors.  
+You can use Ciao library to communication between the processors.
 
 A SoftwareSerial library allows for serial communication on any of the Yún's digital pins. Pins 0 and 1 should be avoided as they are used by the Bridge library. The ATmega32U4 also supports I2C (TWI) and SPI communication. The Arduino software includes a Wire library to simplify use of the I2C bus;. For SPI communication, use the SPI library.
 
 The Yún appears as a generic keyboard and mouse, and can be programmed to control these input devices using the Keyboard and Mouse classes.
 
-The onboard Ethernet and WiFi interfaces are exposed directly to the AR9331 processor. To send and receive data through them, use the Bridge library. 
+The onboard Ethernet and WiFi interfaces are exposed directly to the AR9331 processor. To send and receive data through them, use the Bridge library.
 
-The Yún also has USB host capabilities through Linino OS. You can connect peripherals like USB flash devices for additional storage, keyboards, or webcams. You may need to download and install additional software for these devices to work. 
+The Yún also has USB host capabilities through Linino OS. You can connect peripherals like USB flash devices for additional storage, keyboards, or webcams. You may need to download and install additional software for these devices to work.
 
 ### Programming
 
-The Yún can be programmed with the Arduino software ([download](https://www.arduino.cc/en/software "Download Arduino Yun software")). Select "Arduino Yún from the Tools > Board menu (according to the microcontroller on your board). 
+The Yún can be programmed with the Arduino software ([download](https://www.arduino.cc/en/software "Download Arduino Yun software")). Select "Arduino Yún from the Tools > Board menu (according to the microcontroller on your board).
 
 The ATmega32U4 on the Arduino Yún comes preburned with a bootloader that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the AVR109 protocol.
 

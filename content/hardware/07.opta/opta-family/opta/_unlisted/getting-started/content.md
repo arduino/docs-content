@@ -35,7 +35,7 @@ The Opta™ is a robust micro PLC solution with many engaging features. In this 
 
 - Opta™ PLC (x1) 
 - USB-C® cable (x1)
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - Power supply of 12-24V DC, 1A (optional if not running the section related to the relays) (x1)
 - Analog inputs (optional, alternatively the section related to analog inputs will work but reading random values)
 
@@ -374,7 +374,7 @@ You may notice from the output values that when the maximum value reaches 10V, t
 
 ### Connecting Opta™ to the Cloud
 
-It is possible to use the Opta™ with the Arduino Cloud. To set up the Opta™ to the cloud, go to the [Arduino Cloud](https://cloud.arduino.cc/). For help with how to get started with the cloud, check [Getting started with the cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started) tutorial. More helpful tutorials regarding the Arduino Cloud can be found [here](https://docs.arduino.cc/arduino-cloud/) to help you expand its capabilities.
+It is possible to use the Opta™ with the Arduino Cloud. To set up the Opta™ to the Cloud, go to the [Arduino Cloud](https://cloud.arduino.cc/). For help with how to get started with the Cloud, check [Getting started with the Arduino Cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started) tutorial. More helpful tutorials regarding the Arduino Cloud can be found [here](https://docs.arduino.cc/arduino-cloud/) to help you expand its capabilities.
 
 ## Conclusion
 

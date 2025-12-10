@@ -1,6 +1,7 @@
 ---
 title: 'Audio Analysis with Machine Learning and the Nicla Voice'
 description: 'Learn to use the Nicla Voice to create your own Machine Learning audio models with this getting started tutorial.'
+difficulty: intermediate
 tags: 
   - Getting started
   - Machine Learning tools
@@ -42,7 +43,7 @@ To make use of these keyword triggers, such as blinking the LED when the board r
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - To create your ML model, we will use the [Arduino Cloud](https://create.arduino.cc/iot/things) (you will need to create an account if you don't have one yet)
 - [The compiled uploaders for various operating systems and the updated NDP120 processor firmware and speech recognition model files](assets/nicla_voice_uploader_and_firmwares.zip)
 
@@ -55,21 +56,21 @@ The Nicla Voice has a built-in speech recognition example: **the Alexa demo**. Y
 2. Extract [this .zip file](assets/nicla_voice_uploader_and_firmwares.zip), which contains the compiled uploaders for various operating systems, as well as the updated NDP120 processor firmware and speech recognition model. 
 3. Open a new terminal where the .zip file was extracted and execute the following command:
 
-    ```
+    ```bash
     ./syntiant-uploader send -m "Y" -w "Y" -p $portName $filename
     ```
 
     Replace `portName` and `filename` with the relevant information. Three different files must be uploaded to the board by executing the following three commands:
 
-    ```
+    ```bash
     ./syntiant-uploader send -m "Y" -w "Y" -p COM6 mcu_fw_120_v91.synpkg
     ```
 
-    ```
+    ```bash
     ./syntiant-uploader send -m "Y" -w "Y" -p COM6 dsp_firmware_v91.synpkg
     ```
 
-    ```
+    ```bash
     ./syntiant-uploader send -m "Y" -w "Y" -p COM6 model_name.synpkg
     ```
 

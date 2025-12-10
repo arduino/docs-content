@@ -12,53 +12,51 @@ software:
 
 ## Overview
 
-In this tutorial, we will create a simple container and upload it to the Arduino Portenta X8 with its manager. A container consists of an image file and all its dependencies if required. This tutorial will go through the needed files to create a container and its functions. Building this container locally and then uploading it to a Portenta X8. Using docker with ADB to build, run and attach our container to the Portenta X8.
+In this tutorial, we will create a Docker container for the Arduino Portenta X8. We will start by building a Docker image, which includes all necessary code and dependencies. Then, we will show how to deploy this image to the Portenta X8 and run it as a container. This process involves using ADB for device communication to manage containers on the Portenta X8.
 
 ## Goals
 
-- Learn how to create a container for use with the Portenta X8
-- Learn how to upload a container to the Portenta X8
+- Learn how to create and understand Docker images for the Portenta X8
+- Learn how to deploy and run containers on the Portenta X8
 
 ### Required Hardware and Software
 
 - [Portenta X8](https://store.arduino.cc/portenta-x8)
 - ADB: [Check how to connect to your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience)
-- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
-- Arduino Pro Cloud Subscription [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud)
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
+- [Arduino Cloud Subscription](https://cloud.arduino.cc/)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 
 ## Instructions
 
-An active container uses an isolated filesystem. The container image provides its custom filesystem. Since the image contains the container’s filesystem, it must have everything required to run an application - all dependencies, configuration, scripts, binaries, etc. The image also contains further configurations for the container, such as environment variables, a default command to run, and other metadata.
+A Docker container operates with an isolated filesystem derived from its image. The container's image acts as a blueprint, providing a custom filesystem containing all necessary components, such as dependencies, configurations, scripts, and binaries. It also includes settings like environment variables, default commands, and other metadata to ensure the container runs as intended.
 
 ## Container File Structure
 
-To create the container, we need to collect the necessary files. Creating a folder called **x8-custom-test**, the following files need to be in the folder:
+Organize the essential files within a directory named **x8-custom-test** to prepare for container creation. This directory should include:
 
-- docker-build.conf
-- docker-compose.yml
-- Dockerfile
-- requirements.txt
-- src folder
-- main.py (This file should be inside the src folder)
+- **docker-build.conf**: Configuration for build specifics, including tests to verify the container's functionality.
+- **docker-compose.yml**: YAML file for defining and running multi-container Docker applications.
+- **Dockerfile**: A script with commands to assemble the image.
+- **requirements.txt**: A list of Python® packages required for the application.
+- **src folder**: A directory for source code.
+- **main.py**: The main Python® script, located inside the src folder.
 
-The complete folder will look like this:
+This organization eases a structured approach to building the Docker container. The complete folder should look as the following structure:
 
 ![Folder structure for container](assets/custom-container-folder.png)
 
-Let us go through what these files contain and do.
+### Docker-build.conf
 
-### Container File: Docker-build.conf
-
-A file containing the minimal "unit test" command is to be executed on the container to prove it's working. Our file will make our containers minimal unit test a test of the Python3 help command.
+This file specifies commands for basic validation tests within the container. Our setup defines a simple test to ensure the container's Python® environment is operational:
 
 ```python
 TEST_CMD="python3 --help"
 ```
 
-### Container File: Docker-compose.yml
+### Docker-compose.yml
 
-This file defines the app name through the Factory, permissions, and settings for the involved containers. The argument in the image tag will make it, so our image file builds locally.
+The **docker-compose.yml** file stages the configuration of your application's services. This example defines a single service named **x8-custom-test**, configuring it with specific runtime properties such as restart policy, user permissions, and system settings. The image tag specifies the Docker image to use, in this case, *blob-opera:latest*, which will be built locally if it does not exist in the Docker registry.
 
 ```python
 version: '3.6'
@@ -77,9 +75,11 @@ services:
     - /tmp
 ```
 
-### Container File: Dockerfile
+### Dockerfile
 
-This is used to build the container. A Dockerfile is a text file that contains all the instructions (FROM, COPY, COMMAND, ENTRYPOINT, etc.) that a user can use from the command line to create different image layers. Although the final image can be created using the docker `build` command, the dockerfile serves just as an image definition.
+The **Dockerfile** is a blueprint for building a Docker image, containing all the instructions (`FROM`, `COPY`, `COMMAND`, `ENTRYPOINT`, etc.) and detailing all steps from the base to the final image. It specifies the base image to use, the working directory, dependencies to install, and the command to run on container startup.
+
+It sets up a Python® environment, installs dependencies from *requirements.txt*, and ensures the *main.py* script runs when the container is created.
 
 ```python
 FROM python:3-alpine3.15
@@ -103,17 +103,19 @@ ENV UDEV=1
 CMD ["python","-u","main.py"]
 ```
 
-### Container File: Requirements.txt
+### Requirements.txt
 
-The requirements text file defines needed dependencies. These dependencies serves as useful tools to build the application of the container.
+This file lists the Python® packages required by your application, ensuring all dependencies are installed during the image build process. For this example, *Flask* is the required dependency, pinned to a specific version for consistency, reliability, or preference.
 
 ```python
 Flask==0.12.3
 ```
 
-### Container File: Source
+### Source
 
 Here we will keep the source code of the app you want to run in the container or a startup script. We will create a **main.py** file in this folder. This script will print "Hello World!" in the CLI window.
+
+This section is dedicated to the application's source code or startup script for container execution. In the *src* folder, we will create a file named *main.py*. This script, using *Flask*, will display `"Hello World!"` in the CLI window.
 
 ```python
 from flask import Flask
@@ -129,9 +131,9 @@ if __name__ == '__main__':
 
 ## Uploading the Container Folder
 
-First, you will need to set up your board to a Factory setting, as shown in the Portenta X8 [Out-of-the-box experience from the User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience).
+Begin by resetting your board to its Factory settings as outlined in the Portenta X8 [Out-of-the-box experience from the User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience).
 
-Once finished, we will push our folder to a repository within the Factory. Let us place our folder "x8-custom-test" inside the "containers.git" repository. You can find this repository inside your Factory page under "Source". Then, on "container.git", the page URL will be used in the following command.
+Next, upload the **x8-custom-test folder** to a repository within the Factory environment. This repository, typically named *containers.git*, can be found on your Factory page under *Source*. Use the repository's URL for the following operations.
 
 ![Source on Foundries.io Factory page](assets/custom-factory-page.png)
 
@@ -139,84 +141,97 @@ Once finished, we will push our folder to a repository within the Factory. Let u
 
 ![Container.git page](assets/custom-git.png)
 
-To pull or push repositories, you have to generate an API key. This is done by going to the user settings on the Factory page. Click on the user drop-down menu, go into the tokens page and follow the steps of creating a new API key. When creating the API key, please make sure to select the "Use for source code access" option and the correct Factory that you want to use the key for. This token will be used as the password for all git operations while the username can be anything, except an empty string.
+To pull or push repositories, you have to generate an API key. This is done by going to the user settings on the Factory page. Click on the user drop-down menu, enter the tokens page, and follow the steps to create a new API key. When creating the API key, please select the *Use for source code access* option and the correct Factory for which you want to use the key.
+
+This token will be the password for all git operations, while the username can be anything except an empty string.
 
 ![User settings on your Factory page](assets/factory-user-settings.png)
 
 ![Token creation section in Foundries.io](assets/token-creation-page.png)
 
-Use the following command in git on your machine. To get the repository on your machine, replace "YOUR_FACTORY" with the name of your Factory. The "-b" parameter specifies a branch to checkout after cloning the repository. Running this command will get the container repository, where we will put our folder.
+Use the following command in git on your machine. To get the repository on your machine, replace *YOUR_FACTORY* with the name of your Factory. After cloning the repository, the *-b* parameter specifies a branch to checkout. Running this command will get the container repository, where we will put our folder.
 
-```
+```bash
 git clone https://source.foundries.io/factories/YOUR_FACTORY/containers.git -b devel
 ```
 
-Put the "x8-custom-test" folder in the repository and push it with git. When you have put the folder into the git folder, use `git status` to see the changed files in the folder, it will show the unadded changes in red, then use `git add` to add the changes you want to your git commit. Then use `git commit` and `git push` to finally push the changes to the repo. If you push the commit to "containers.git" a new target will automatically build on your FoundriesFactory, you can inspect it on the "Targets" page.
+After cloning, add the **x8-custom-test** folder to this repository and push it with git.
+
+When you have put the folder into the git folder, use *`git status`* to review changes; it will show the unadded changes in red. Then use *`git add`* to add the changes you want to your *`git commit`*. Then use *`git commit`* and *`git push`* to finally push the changes to the repository. Successfully pushing to "containers.git" triggers a new build in your FoundriesFactory, visible on the *Targets* page.
 
 ### Building and Running the Container
 
-After the build finishes, it can take up to 10 minutes for your device to update over-the-air to this new version. You can inspect it via the "Devices" tab of your FoundriesFactory. After your device takes the update, navigate into the "x8-custom-test" folder, which should be located on your board now. This allows us to build our container with a simple command. Using ```docker build``` with a ```--tag``` will let us give the container a tag so we can easily keep track of what version of the build this is.
+Once the build process is complete, it may take up to 10 minutes for your device to receive and apply the update over-the-air. You can monitor the update's progress through the *Devices* tab in your FoundriesFactory interface. After the update, the **x8-custom-test** folder will be on your device, ready for the next steps.
 
-```python
+To build the container, use the *`docker build`* command in your Dockerfile's directory. The *`--tag`* option allows us to assign a version or name to the build, providing easier management of different container versions.
+
+```bash
 docker build --tag "x8-custom-test:latest" .
 ```
 
-Now that it is built, we can run it with ```docker run```, finding it with the tag that we chose to give to the build we want to run. Here we need to enter the user information into the --user tag. This information is found inside the "docker-compose.yml" file.
+You can start the container using *`docker run`* with the built container image. Here, the *`--user`* flag is used to set the user identity (UID) for the container's process, as specified in the *docker-compose.yml* file.
 
-```python
+```bash
 docker run -it --rm --user "63" x8-custom-test:latest
 ```
 
-### Using Docker-Compose
+This command starts the container interactively (*`-it`*), removes it after exit (*`--rm`*), and runs it under the specified user. The container will run with the settings and application defined in your *Dockerfile* and *Docker-compose* configurations.
 
-An option for testing an app or container is to use "docker-compose". It is helpful when we have a lot of settings in our "docker-compose.yml" file since we don't have to use those settings in the run argument with this method. First, navigate into the container folder.
+### Using Docker Compose
 
-```python
+For scenarios involving complex configurations, *`docker compose`* offers a streamlined approach to managing containerized applications. It removes the need for extensive command-line arguments using the settings defined in the *`docker-compose.yml`* file. Begin by navigating to the container's directory:
+
+```bash
 cd /home/fio/x8-custom-test
 ```
 
-This docker-compose command will start your application and register it as a systemd service that will persist even when a reboot occurs. So at the next boot, your docker-compose app will run automatically.
+Using *`docker compose`*, the following command starts your application and sets it up as a `systemd` service, ensuring its persistence across reboots. As a result, your application will automatically start upon system startup:
 
-```python
-docker-compose up --detach
+```bash
+docker compose up --detach
 ```
 
-To stop the docker-compose app from running, use the following command:
+To stop the *`docker compose`* application, use the command below:
 
-```python
-docker-compose stop
+```bash
+docker compose stop
 ```
 
 ## Deploying with Docker Hub
 
-An alternative method to deploy the custom container is by using the Docker Hub platform. For this, it needs a [Docker Hub account](https://hub.docker.com/) to have your own repository to have the custom container uploaded. When you have the repository ready, the following command will let you upload the custom container image.
+Docker Hub provides an alternative deployment method by hosting your container images on its platform. Start by creating a [Docker Hub account](https://hub.docker.com/) and setting up a repository for your container. Once your repository is ready, use the following command to upload your container image:
 
-```
+```bash
 docker push HUB_USERNAME/x8-custom-test
 ```
 
-The custom container image can now be found within `HUB_USERNAME` Docker Hub repository. The image can be accessed whenever any connectivity type grants access to the container image. To pull the image and deploy the container, you will need to connect the Portenta X8 via ADB and use following commands in sequence:
+Your custom container image will be available in your Docker Hub repository and accessible from any location with internet connectivity. To deploy this image to your Portenta X8, connect the device via ADB and execute the following commands. First, enter the device's shell:
 
-```
+```bash
 adb shell
+```
+
+Then, pull and deploy the container image:
+
+```bash
 docker pull x8-custom-test
 ```
 
-It will pull the container image and deploy the container on your Portenta X8.
+This command retrieves the container image, allowing you to deploy and run the container on your Portenta X8.
 
-***To know more about how to create and manage repositories on Docker Hub to manage your custom containers for Portenta X8, check out [here](https://docs.docker.com/docker-hub/repos/#:~:text=To%20push%20an%20image%20to,docs%2Fbase%3Atesting%20).)***
+***For detailed instructions on creating and managing Docker Hub repositories for your custom Portenta X8 containers, refer to the official [Docker Hub Documentation](https://docs.docker.com/docker-hub/repos/#:~:text=To%20push%20an%20image%20to,docs%2Fbase%3Atesting%20).)***
 
 ## Conclusion
 
-This tutorial covered what goes into a container, how the folder should be structured, and what files it should contain. It then explained the purpose of each file and what they should have for this example. Then we went through how this relates to the Factory, and how Foundries.io makes the whole process easier for us. We then showed how to build the container and run it on the Portenta X8. Lastly, we showed a useful testing feature with docker-compose, letting us test our container with a faster process.
+In this tutorial, we have outlined how to structure a Docker container for the Portenta X8, describing the necessary files and their purposes. We demonstrated integrating with Foundries.io's Factory for streamlined deployment and highlighted building and running the container on the device. Lastly, we introduced docker compose as a tool for testing containers, emphasizing speed and convenience.
 
 ### Next Steps
 
-To get a better understanding of how to manage containers with Docker, take a look at our [Managing Containers with Docker on Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/docker-container). This tutorial will show some useful commands to use with the docker service and ADB or SSH.
+To get a better understanding of how to manage containers with Docker, take a look at our [Managing Containers with Docker on Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/docker-container). This tutorial will show some useful commands for the docker service and ADB or SSH.
 
 ## Troubleshooting
 
 Here are some errors that might occur in the process of this tutorial:
 
-- Make sure you have followed our other tutorials that shows how to set up the Portenta X8 with [Out-of-the-box experience from the User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience)
+- Make sure you have followed our other tutorials that show how to set up the Portenta X8 with [Out-of-the-box experience from the User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience)
 - If you are having issues with the adb shell, don't forget to try and use `sudo` and `su`

@@ -99,7 +99,7 @@ The voltage line from the barrel jack connector is regulated in Arduino boards u
 -  [Arduino MKR WiFi 1010](https://store.arduino.cc/collections/boards/products/arduino-mkr-wifi-1010)
 -  [Arduino MKR ZERO](https://store.arduino.cc/collections/boards/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)
 -  [Arduino MKR WAN 1310](https://store.arduino.cc/collections/boards/products/arduino-mkr-wan-1310)
--  [Arduino MKR GSM 1400](https://store.arduino.cc/collections/boards/products/arduino-mkr-gsm-1400)
+-  [Arduino MKR GSM 1400](/hardware/mkr-gsm-1400)
 
 
 ***Pro family boards use a 3-pin, 1.2mm SMD ACH battery connector; MKR family boards use a 2-pin, 2mm SMD PH battery connector.***

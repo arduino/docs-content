@@ -25,7 +25,7 @@ A popular application of a barometric sensor, apart from GPS and forecasting sho
 ## Goals
 The goals of this project are:
  - Learn what a LPS22HB sensor is.
- - Use the LPS22HB library.
+ - Use the [LPS22HB library](https://www.arduino.cc/en/Reference/ArduinoLPS22HB).
  - Learn how to output raw sensor data from the Arduino NANO 33 BLE Sense.
  - Learn how to convert the kPa unit to altitude values (meters).
  - Print the data using Serial Monitor.
@@ -34,7 +34,7 @@ The goals of this project are:
 
 ## Hardware & Software Needed
 * This project uses no external sensors or components. 
-* In this tutorial we will use the [Arduino Create Web Editor](https://create.arduino.cc/editor) to program the board. 
+* In this tutorial we will use the [Arduino Create Cloud Editor](https://create.arduino.cc/editor) to program the board. 
 
 
 ## LPS22HB Sensor
@@ -73,14 +73,14 @@ This graph shows the mathematical relationship between atmospheric pressure and 
 
 **1. Setting up**
 
-Let's start by opening the [Arduino Web Editor](https://create.arduino.cc/editor), click on the **Libraries** tab and search for the **LPS22HB** library. Then in **> Examples**, open the **ReadPressure** sketch and once it opens, rename it as **Barometer**.
+Let's start by opening the [Arduino Cloud Editor](https://create.arduino.cc/editor), click on the **Libraries** tab and search for the **LPS22HB** library. Then in **> Examples**, open the **ReadPressure** sketch and once it opens, rename it as **Barometer**.
 
-![Finding the library in the Web Editor.](./assets/nano33BS_05_library.png)
+![Finding the library in the Cloud Editor.](./assets/nano33BS_05_library.png)
 
 
 **2. Connecting the board**
 
-Now, connect the Arduino Nano 33 BLE Sense to the computer and make sure that the Web Editor recognizes it, if so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognize your board.
+Now, connect the Arduino Nano 33 BLE Sense to the computer and make sure that the Cloud Editor recognizes it, if so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognize your board.
 
 
 ![Selecting the board and port.](assets/nano33BS_05_board_port.png)
@@ -181,4 +181,5 @@ Sometimes errors occur, if the code is not working there are some common issues 
 
 ## Conclusion
 In this tutorial we learned what a **LPS22HB** sensor is, how to use the one embedded in the Arduino NANO 33 BLE Sense board and the LPS22HB library, in order to create our own barometer and measure the altitude in meters by retrieving and calculating the atmospheric pressure.
+
 

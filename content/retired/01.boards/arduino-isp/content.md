@@ -3,11 +3,9 @@ title: "Arduino ISP"
 description: "The Arduino ISP is a tool to directly program your microcontroller through the ICSP connector."
 url_guide: "https://www.arduino.cc/en/Main.ArduinoISP"
 coverImage: "assets/A000092_last_featured_2.jpg"
-sku: "A000092"
+sku: [A000092]
 source: "https://store.arduino.cc/arduino-isp"
 ---
-
-***Note: This page refers to a product that is retired.***
 
 ![The Arduino ISP board](assets/A000092_last_featured_2.jpg)
 
@@ -31,9 +29,9 @@ You can find in the [Getting Started section](https://www.arduino.cc/en/Guide/Ho
 
 Arduino ISP is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://content.arduino.cc/assets/arduino-isp-reference-design.zip) 
+[EAGLE FILES IN .ZIP](https://content.arduino.cc/assets/arduino-isp-reference-design.zip)
 
-[SCHEMATICS IN .PDF](https://content.arduino.cc/assets/arduino-isp-schematic.pdf) 
+[SCHEMATICS IN .PDF](https://content.arduino.cc/assets/arduino-isp-schematic.pdf)
 
 [WINDOWS DRIVERS](https://www.arduino.cc/en/uploads/Main/ArduinoISP_WindowsDrivers.zip)
 
@@ -41,11 +39,11 @@ Arduino ISP is open-source hardware! You can build your own board using the foll
 
 Connect the Arduino ISP to your Arduino board's ICSP headers. Make sure to match the orientation of the plugs by looking at the white dot on the corner of the connector. Once connected, open the Arduino IDE and select "Arduino ISP" under the *"Tools > Programmers"*menu. To upload a sketch using the Arduino ISP, choose *"Upload using programmer"* option in the*File* menu, or use the keyboard shortcut: *"CTRL+SHIFT+U"*. If you want to burn the bootloader into the AVR microcontroller select the "Burn bootloader" option under the *"Tools"* menu.
 
-**Note:** The Arduino ISP is only supported by Arduino IDE 1.5.7 or later.  
+**Note:** The Arduino ISP is only supported by Arduino IDE 1.5.7 or later.
 
 For more details about using the Arduino ISP please visit the [Getting Started](https://www.arduino.cc/en/Guide/ArduinoISP) page
 
-### Tutorials 
+### Tutorials
 
 * [Using an Arduino as an AVR ISP](https://www.arduino.cc/en/Tutorial/ArduinoISP): how to use an Arduino board as an AVR ISP (in-system programmer). This allows you to use the board to burn the bootloader onto an AVR (e.g. theATmega168 or ATmega328 used in Arduino).
 * [Programming an ATtiny with Arduino ISP](http://scuola.arduino.cc/courses/lessons/cover/qX1117g): How to install the ATtiny core for the Arduino IDE for programming AVR ATtiny microcontrollers using the Arduino software and the Arduino ISP programmer.

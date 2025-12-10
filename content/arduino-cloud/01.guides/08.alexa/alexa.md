@@ -45,7 +45,7 @@ Simply mount the MKR RGB Shield on top of the MKR WiFi 1010.
 
 ## Cloud Setup
 
-To set up the cloud, you will need to:
+To set up the Cloud, you will need to:
 1. Log in to the [Arduino Cloud](https://login.arduino.cc/login).
 2. Go to **"Things"** and create a new Thing.
 3. Select and attach the device you want to use (or configure a new one).
@@ -59,7 +59,7 @@ With all configurations done, we can move onto creating the program. By clicking
 
 First we need to include two libraries called `ArduinoGraphics` and `Arduino_MKRRGB`. These will help us control the MKR RGB Shield. If you are using any other matrix or RGB pixel, you will need to adjust this example.
 
-When we later on will be connecting the cloud to Alexa, the data will be received directly from the Alexa app. Whenever the data updates, the `onLoungeAreaChange()` will execute, where it will fetch the data from Alexa (the RGB values) and display them on the RGB matrix. You can find the full code in the snippet below.
+When we later on will be connecting the Cloud to Alexa, the data will be received directly from the Alexa app. Whenever the data updates, the `onLoungeAreaChange()` will execute, where it will fetch the data from Alexa (the RGB values) and display them on the RGB matrix. You can find the full code in the snippet below.
 
 ```arduino
 #include <ArduinoGraphics.h>
@@ -161,12 +161,12 @@ Any changes of color / brightness you make will be sent to our MKR WiFi 1010, wh
 
 ### Troubleshooting
 
-One great way of knowing if data is coming through from the Alexa app is by checking the Serial Monitor. The sketch that we uploaded to the board includes a command that prints out the value of **r, g** and **b** whenever they receive new data. If the board is successfully connecting to the cloud, it is most likely a problem on setting up the Alexa device.
+One great way of knowing if data is coming through from the Alexa app is by checking the Serial Monitor. The sketch that we uploaded to the board includes a command that prints out the value of **r, g** and **b** whenever they receive new data. If the board is successfully connecting to the Cloud, it is most likely a problem on setting up the Alexa device.
 
 ## Over-the-Air (OTA)
 
 Did you know that the Arduino Cloud supports over the air uploads? When you've uploaded a sketch to your board once, it will become available for you to upload a new sketch to the board without connecting it to your computer!
 
-***Over the Air uploads require an Entry plan to the Arduino Cloud***
+***Over the Air uploads require a Arduino Cloud subscription plan***
 
 To use this feature, make sure the board has power. If your board is already connected to the Arduino Cloud, you will be able to upload to it over the air. Navigate to the Things sketch tab in the Arduino Cloud interface, and you should see it being discovered just as if it was connected via USB.

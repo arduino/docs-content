@@ -2,7 +2,7 @@
 title: "Arduino LCD Screen"
 description: "Use this small LCD screen with Arduino Robot, Esplora, or on breadboard."
 coverImage: "assets/A000096_featured_2.png"
-sku: "A000096"
+sku: [A000096]
 source: "https://store.arduino.cc/arduino-lcd-screen"
 ---
 
@@ -32,7 +32,7 @@ You can find in the [Getting Started section](https://www.arduino.cc/en/Guide/Ho
 
 Arduino LCD Screen is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/LCD_Rev-4.zip) 
+[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/LCD_Rev-4.zip)
 
 [SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/GLCD_sch.pdf)
 
@@ -49,8 +49,8 @@ The screen is 1.77" diagonal, with 160 x 128 pixel resolution. The TFT library i
 
 ### Library
 
-The Arduino TFT library extends the [Adafruit GFX](https://github.com/adafruit/Adafruit-GFX-Library), and [Adafruit ST7735 libraries](https://github.com/adafruit/Adafruit-ST7735-Library) that it is based on. The GFX library is responsible for the drawing routines, while the ST7735 library is specific to the screen on the Arduino screen. The Arduino specific additions were designed to work as similarly to the Processing API as possible.
+The Arduino TFT library extends the [Adafruit® GFX](https://github.com/adafruit/Adafruit-GFX-Library), and [Adafruit® ST7735 libraries](https://github.com/adafruit/Adafruit-ST7735-Library) that it is based on. The GFX library is responsible for the drawing routines, while the ST7735 library is specific to the screen on the Arduino screen. The Arduino specific additions were designed to work as similarly to the Processing API as possible.
 
-The library is backwards compatible, which means you can still use the Adafruit functions[described here](http://learn.adafruit.com/adafruit-gfx-graphics-library/overview).
+The library is backwards compatible, which means you can still use the Adafruit® functions[described here](http://learn.adafruit.com/adafruit-gfx-graphics-library/overview).
 
 The TFT library relies on the [SPI library](https://www.arduino.cc/en/Reference/SPI), which must be included in any sketch that uses the scree. If you wish to use the SD card, you need to include the [SD library](https://www.arduino.cc/en/Reference/SD) as well.

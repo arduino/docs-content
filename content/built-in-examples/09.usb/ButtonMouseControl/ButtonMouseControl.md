@@ -21,7 +21,7 @@ The fifth button is for controlling a left click from a mouse. When pressed, the
 
 ### Hardware Required
 
-- Arduino Leonardo, Micro or Due board
+- [Arduino Leonardo, Micro or Due board](https://store.arduino.cc/collections/boards-modules)
 
 - 5x momentary pushbuttons
 

@@ -55,9 +55,9 @@ To access your sketchbook, click on the **folder icon** located in the sidebar.
 
 ![Boards Manager.](assets/board-manager.png)
 
-With the Boards Manager, you can browse and install packages, or "cores" for your boards. A core is always required when compiling and uploading code for your board.
+With the Boards Manager, you can browse and install board packages. A board package contains the "instructions" for compiling your code to the boards that are included in the board package.
 
-There are several Arduino cores available, such as **avr, samd, megaavr** and more.
+There are several Arduino board packages available, such as **avr, samd, megaavr** and more.
 
 ***To learn more about the Boards Manager, visit the [Installing new boards tutorial](/software/ide-v2/tutorials/ide-v2-board-manager).***
 
@@ -97,7 +97,7 @@ An important part of the Arduino Documentation are the example sketches that com
 
 Libraries that come bundled as a part of a boards package may also include libraries, and those libraries often include example sketches.
 
-To open the example sketches bundled in either the libraries you have installed manually or that come bundled in core packages, navigate to **File > Examples** and find the library you're searching for in the list that appears.
+To open the example sketches bundled in either the libraries you have installed manually or that come bundled in board packages, navigate to **File > Examples** and find the library you're searching for in the list that appears.
 
 ![Example sketches](./assets/examplesketches.png)
 
@@ -129,9 +129,9 @@ Note that you always need to select your board for autocompletion to work.
 
 The Remote Sketchbook feature lets you sync sketches from your [Arduino Cloud](https://cloud.arduino.cc/) sketchbook with your local computer. To enable this feature, you will need to login to your Arduino Cloud account.
 
-You can also create a new cloud sketch directly in the IDE.
+You can also create a new Cloud sketch directly in the IDE.
 
-![New cloud sketch](./assets/new-cloud.png)
+![New Cloud sketch](./assets/new-cloud.png)
 
 ***To learn more about the Remote Sketchbook feature, visit the [Synchronizing Sketches tutorial](/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync).***
 

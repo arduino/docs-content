@@ -10,7 +10,7 @@ difficulty: beginner
 
 Variables are essential components of the [Arduino Cloud](https://app.arduino.cc) and are created and configured inside a **Thing**.
 
-A cloud variable is synced between your Arduino board and the Arduino Cloud. If a variable is updated on your board (like reading a sensor), the Arduino Cloud will also receive this value. Similarly, if a board receives an update from the cloud, the variable also updates on your board. 
+A Cloud variable is synced between your Arduino board and the Arduino Cloud. If a variable is updated on your board (like reading a sensor), the Arduino Cloud will also receive this value. Similarly, if a board receives an update from the Cloud, the variable also updates on your board. 
 
 As long as your board maintains a connection to the Arduino Cloud, the variables will be updated. 
 
@@ -38,7 +38,7 @@ Inside a variable configuration, we have several options:
   - [**Complex:**](#complex-types) e.g. `CloudColor`, `CloudTelevision`.
 - **Declaration:** the declaration of your variable. This is what you will use in a sketch.
 - **Variable Permission:** 
-  - **Read & Write:** variable can be updated from board and cloud.
+  - **Read & Write:** variable can be updated from board and Cloud.
   - **Read Only:** variable can only be updated from the board.
 - **Variable Update Policy:**
   - **On Change:** variable synchronizes whenever value changes (threshold is `0` by default).
@@ -60,7 +60,7 @@ test_value = 1;
 
 When creating a variable with a **Read & Write** permission, a function is generated at the bottom of your sketch.
 
-For example, a boolean variable named `button_switch` will generate a function called `void onButtonSwitch(){}`. This function executes every time the variable is changed from the cloud (through a dashboard).
+For example, a boolean variable named `button_switch` will generate a function called `void onButtonSwitch(){}`. This function executes every time the variable is changed from the Cloud (through a dashboard).
 
 You can for example implement an ON/OFF switch with the following code:
 
@@ -77,9 +77,9 @@ void onButtonSwitch(){
 
 ## Cloud Updates
 
-Data between a board and the cloud synchronizes whenever the `ArduinoCloud.update()` function is executed. This is automatically included in your sketch, inside the `void loop()`. 
+Data between a board and the Cloud synchronizes whenever the `ArduinoCloud.update()` function is executed. This is automatically included in your sketch, inside the `void loop()`. 
 
-It is a good practice to **not** use the `delay()` function in a cloud sketch. Please refer to the [millis()](https://www.arduino.cc/reference/en/language/functions/time/millis/) function that can be used to create non-blocking delays.
+It is a good practice to **not** use the `delay()` function in a Cloud sketch. Please refer to the [millis()](https://www.arduino.cc/reference/en/language/functions/time/millis/) function that can be used to create non-blocking delays.
 
 Below is an example of how to use the `millis()` function:
 
@@ -98,13 +98,13 @@ void loop(){
     previousMillis = currentMillis;
 
     //code here will update every 1 second
-    //without blocking the program and the cloud update
+    //without blocking the program and the Cloud update
   }
 }
 
 ```
 
-***Note that a variable's sync between a board and the cloud is limited to two messages per second (500ms)***
+***Note that a variable's sync between a board and the Cloud is limited to two messages per second (500ms)***
 
 ## Variable Synchronisation
 
@@ -175,7 +175,7 @@ You can use them just like a normal variable of the wrapped type since they supp
 | Counter              | `CloudCounter variableName;`             | `int`             |
 | Data Rate            | `CloudDataRate variableName;`            | `float`           |
 | Electric Current     | `CloudElectricCurrent variableName;`     | `float`           |
-| Electric Potention   | `CloudElectricPotention variableName;`   | `float`           |
+| Electric Potential   | `CloudElectricPotential variableName;`   | `float`           |
 | Electric Resistance  | `CloudElectricResistance variableName;`  | `float`           |
 | Energy               | `CloudEnergy variableName;`              | `float`           |
 | Flow Rate            | `CloudFlowRate variableName;`            | `float`           |
@@ -265,8 +265,10 @@ To read the location values, we can use the following method `Location coordinat
 
 | Property  | Type    | Read value        | Set value                   |
 | --------- | ------- | ----------------- | --------------------------- |
-| Latitude  | `float` | `coordinates.lat` | This variable is ready only |
-| Longitude | `float` | `coordinates.lon` | This variable is ready only |
+| Latitude  | `float` | `coordinates.lat` | See information below |
+| Longitude | `float` | `coordinates.lon` | See information below |
+
+The value of a `CloudLocation` variable is set using a `Location` object. The coordinate values are passed as arguments to the `Location` constructor: `x = Location(latitude, longitude);`.
 
 ***The format of the `lat` and `lon` is in Decimal Degrees (DD), for example `41.40338`, `2.17403`.***
 
@@ -289,9 +291,9 @@ Here are some examples of how to use the variables in a sketch:
 
 ### Basic Types
 
-The example below shows how to use some of the basic types. Remember that cloud variables are configured in the Arduino Cloud, and generated into your Thing's `thingProperties.h` file.
+The example below shows how to use some of the basic types. Remember that Cloud variables are configured in the Arduino Cloud, and generated into your Thing's `thingProperties.h` file.
 
-In this example, we are using the following cloud variables:
+In this example, we are using the following Cloud variables:
 
 - `buttonSwitch` - boolean.
 - `sensorVal` - int.
@@ -556,4 +558,4 @@ In this article, we have covered how to use variables in the Arduino Cloud, and 
 
 We have also shown some code examples and good practices to keep variable synchronization optimal, such as using the `millis()` function.
 
-The use of cloud variables is almost identical to how you use variables in a regular sketch, with the exception that they are synchronized with the Arduino Cloud. 
+The use of Cloud variables is almost identical to how you use variables in a regular sketch, with the exception that they are synchronized with the Arduino Cloud. 

@@ -43,23 +43,23 @@ The system will send the temperature values from the Portenta Machine Control to
 ### Hardware Requirements
 
 - [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control) (x1)
-- [Opta™ with RS-485](https://store.arduino.cc/collections/home-industrial-automation) (x1)
-- Micro-USB cable (x1)
-- USB-C® cable (x1)
+Opta™ PLC with RS-485 support: [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
+- [Micro-USB cable](https://store.arduino.cc/products/usb-cable-type-a-male-to-micro-type-b-male) (x1)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 - PT100 RTD (x1)
 
 ### Software Requirements
 
-- The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide) (including Arduino PLC IDE Tools)
+- The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide)
 - [Portenta Machine Control - PLC IDE Activation](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license)
 - [Opta™ - Set up with PLC IDE](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license#7-license-activation-with-pre-licensed-products-opta)
 - You can directly download the Arduino [PLC IDE Projects](assets/pmc-opta-temp-ctrl.zip) and extract them in your workspace
 
-***It is recommendable to read ["Connect RTD/Thermocouple to the Portenta Machine Control"](https://docs.arduino.cc/tutorials/portenta-machine-control/rtd-thermocouple-pmc) tutorial before continuing present tutorial.***
+***It is recommended to read ["Connect RTD/Thermocouple to the Portenta Machine Control"](https://docs.arduino.cc/tutorials/portenta-machine-control/rtd-thermocouple-pmc) tutorial before continuing to follow the present tutorial.***
 
 ## Temperature Sensor
 
-In this tutorial, a **Two-wire PT100 RTD** is used, but you can also use a Three-wire RTD or a thermocouple depending on your requirements or preferences. You can learn more about the differences between these temperature sensors and how to connect them to the Portenta Machine Control following the [previously mentioned tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/rtd-thermocouple-pmc). It is recommendable to read [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/rtd-thermocouple-pmc) to learn the basics about the temperature sensors introduced earlier.
+In this tutorial, a **Two-wire PT100 RTD** is used, but you can also use a Three-wire RTD or a thermocouple depending on your requirements or preferences. You can learn more about the differences between these temperature sensors and how to connect them to the Portenta Machine Control following the [previously mentioned tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/rtd-thermocouple-pmc). It is recommended to read [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/rtd-thermocouple-pmc) to learn the basics about the temperature sensors introduced earlier.
 
 ## Connections
 
@@ -153,7 +153,7 @@ Inside the `Project` window, double-click on the `Main` program located under `T
 
 In the code section, you have to write the following code:
 
-```
+```cpp
 temp0 := sysTempProbes[0].temperature;
 temp_send := temp0 * 100.00;
 ```
@@ -262,7 +262,7 @@ Now that we have created the global variable where we are going to store the tem
 
 In the code window, paste the next code:
 
-```
+```cpp
 //Set the temperature threshold to trigger on the relay
 
 threshold := 30.00;

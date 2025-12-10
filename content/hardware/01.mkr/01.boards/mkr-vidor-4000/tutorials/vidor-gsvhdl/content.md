@@ -27,7 +27,7 @@ If you're interested in a deeper dive around FPGAs, check out his article about 
 
 ## Setting Up the Basics
 
-Before you can begin, you need to install the board's core in Arduino IDE. If you are using Windows, the necessary drivers will be installed automatically when you perform these steps.
+Before you can begin, you need to install the board's Board Package in Arduino IDE. If you are using Windows, the necessary drivers will be installed automatically when you perform these steps.
 
 In Arduino IDE, select **Tools** and open the board manager; in the window that opens up, search for "MKR 4000" and install the following package:
 

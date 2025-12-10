@@ -3,11 +3,9 @@ title: "LilyPad Arduino USB"
 description: "The LilyPad Arduino USB is the perfect board for e-textiles and wearables projects. It can be sewn to fabric and to power supplies, sensors and actuators with conductive thread. You can attach this board directly to your computer using only a micro USB cable."
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoLilyPad"
 coverImage: "assets/store_e000017_featured_1.jpg"
-sku: "E000017"
+sku: [E000017]
 source: "https://store.arduino.cc/lilypad-arduino-usb"
 ---
-
-***Note: This page refers to a product that is retired.***
 
 ![The LilyPad Arduino USB board](./assets/store_e000017_featured_1.jpg)
 
@@ -32,7 +30,7 @@ In the [Getting Started section](https://www.arduino.cc/en/Guide/ArduinoLilyPadU
 
 The Lilypad Arduino USB is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-lilypad-usb-reference-design.zip) 
+[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-lilypad-usb-reference-design.zip)
 
 [SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/arduino-lilypad-usb-schematic.pdf)
 
@@ -42,8 +40,8 @@ The LilyPad Arduino USB can be powered via the micro USB connection or with a 3.
 
 The board can be turned on and off with the on-board switch. With the switch in the ON position, the microcontroller receives power and the board runs. With the switch in the "CHG" position, the microcontroller doesn't receive power. (This is true whether the board is powered via USB or a battery.)
 
-The board contains a MCP73831 LiPo battery charging chip. If the board is connected to both USB and a battery, the USB power will charge the battery. This is true regardless of the position of the switch. The LED above the word "CHG" lights up while the battery is being charged. The charging will stop automatically when the battery is fully charged.  
-  
+The board contains a MCP73831 LiPo battery charging chip. If the board is connected to both USB and a battery, the USB power will charge the battery. This is true regardless of the position of the switch. The LED above the word "CHG" lights up while the battery is being charged. The charging will stop automatically when the battery is fully charged.
+
 The power pins are as follows:
 
 * **\+** The regulated 3.3V power supply used to power the microcontroller and other components on the board. This can come either from the USB connection or a battery, both via the on-board regulator. This pin is only powered when the on-board switch is in the ON position.

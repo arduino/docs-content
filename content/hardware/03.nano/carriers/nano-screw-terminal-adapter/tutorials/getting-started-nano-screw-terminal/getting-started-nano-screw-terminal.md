@@ -28,6 +28,7 @@ The Nano Screw Terminal Adapter is compatible with the following boards:
 - [Nano 33 BLE](https://store.arduino.cc/nano-33-ble)
 - [Nano 33 BLE Sense](https://store.arduino.cc/nano-33-ble-sense)
 - [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect)
+- [Nano R4](https://store.arduino.cc/products/nano-r4)
 
 
 ## Overview

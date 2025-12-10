@@ -13,18 +13,18 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/plant-communicator
 
 ## Apps and Online Services
 
-- [Arduino IoT Cloud](https://cloud.arduino.cc)
+- [Arduino Cloud](https://cloud.arduino.cc)
 - [Arduino IoT Cloud Remote app](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US)
 
 ## About This Project
 
-**Create a plant communicator with the help of the Arduino IoT Cloud!**
+**Create a plant communicator with the help of the Arduino Cloud!**
 
 As the English poet William Wordsworth once said:
 
 "Your mind is the garden, your thoughts are the seeds, the harvest can be either flowers or weeds."
 
-Keeping our plants alive can be quite the challenge as there’s a lack of clear communication between us and plants. One way to keep them happy is to bring our plants with us, but maybe we don't want to lug around with that big-ole-cactus or fern sticking out of our winter jacket pockets. Also, most plants dislike the cold. After spending months trying to communicate with our Spider Plant, we gave up and used the IoT Bundle components together with the Arduino IoT Cloud to create a device that remotely surveys the well being of any plant instead.
+Keeping our plants alive can be quite the challenge as there’s a lack of clear communication between us and plants. One way to keep them happy is to bring our plants with us, but maybe we don't want to lug around with that big-ole-cactus or fern sticking out of our winter jacket pockets. Also, most plants dislike the cold. After spending months trying to communicate with our Spider Plant, we gave up and used the IoT Bundle components together with the Arduino Cloud to create a device that remotely surveys the well being of any plant instead.
 
 ### In a Nutshell
 
@@ -38,14 +38,14 @@ By the end of this project, your plant will communicate its needs with you visua
 * Phototransistor
 * DIY moisture sensor
 
-> **Note:** to achieve all the functions demonstrated in this project, you would need a subscription to the Arduino IoT Cloud. The project can be carried without an Arduino IoT Cloud subscription by removing one of the variables (Light, Temperature, or moisture).
+> **Note:** to achieve all the functions demonstrated in this project, you would need a subscription to the Arduino Cloud. The project can be carried without an Arduino Cloud subscription by removing one of the variables (Light, Temperature, or moisture).
 
 ### Learning Goals
 
-* Introducing the Arduino IoT Cloud
-* Introducing the Arduino IoT Remote app
+* Introducing the Arduino Cloud
+* Introducing the Arduino IoT Cloud Remote app
 * Building a DIY moisture sensor
-* Creating an Arduino IoT Cloud Dashboard
+* Creating an Arduino Cloud Dashboard
 
 ### Want to Know More?
 
@@ -56,19 +56,19 @@ This tutorial is part of a series of experiments that familiarize you with the A
 * [Pavlov's Cat with the Arduino IoT Bundle](/tutorials/iot-bundle/pavlovs-cat)
 * [The Nerd with the Arduino IoT Bundle](/tutorials/iot-bundle/the-nerd)
 
-### Setting up the Arduino IoT Cloud
+### Setting up the Arduino Cloud
 
-If you are new to the Arduino IoT Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
+If you are new to the Arduino Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
 
 ### Template
 
-To connect your board to the Arduino IoT Cloud, we will use the [Plant Communicator Template](https://create.arduino.cc/iot/templates/plant-communicator). This template installs a specific sketch on your board and creates a dashboard that allows you to interact with your board: you don't need to write any code at all! 
+To connect your board to the Arduino Cloud, we will use the [Plant Communicator Template](https://create.arduino.cc/iot/templates/plant-communicator). This template installs a specific sketch on your board and creates a dashboard that allows you to interact with your board: you don't need to write any code at all! 
 
 See the image below to understand how to set it up.
 
 ![Thing overview](assets/template_overview.png)
 
-We will start by setting up the Arduino IoT Cloud by following the steps below:
+We will start by setting up the Arduino Cloud by following the steps below:
 
 * **Login** to your Arduino Create account
 * Creating a **Thing**
@@ -76,9 +76,9 @@ We will start by setting up the Arduino IoT Cloud by following the steps below:
 * Adding **Variables**
 * Adding **Network** credentials
 
-![Setting up the Arduino IoT Cloud](assets/plant_communicator_01.gif)
+![Setting up the Arduino Cloud](assets/plant_communicator_01.gif)
 
-Setting up the Arduino IoT Cloud
+Setting up the Arduino Cloud
 
 ### Variables
 
@@ -109,7 +109,7 @@ void setup() {
  delay(1500);  
  /* Defined in thingProperties.h */  
  initProperties();  
- /* Connect to Arduino IoT Cloud */  
+ /* Connect to Arduino Cloud */  
  ArduinoCloud.begin(ArduinoIoTPreferredConnection);  
  /*  
  The following function allows you to obtain more information  
@@ -173,7 +173,7 @@ void setup() {
  delay(1500);  
  /* Defined in thingProperties.h */  
  initProperties();  
- /* Connect to Arduino IoT Cloud */  
+ /* Connect to Arduino Cloud */  
  ArduinoCloud.begin(ArduinoIoTPreferredConnection);  
  /*  
  The following function allows you to obtain more information  

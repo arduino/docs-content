@@ -3,11 +3,9 @@ title: "Arduino Mega ADK Rev3"
 description: "The Arduino Mega ADK has the same features as the Arduino Mega board but it is specially designed to work with Android"
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoADK"
 coverImage: "assets/A000069_featured_2.jpg"
-sku: "A000069"
+sku: [A000069]
 source: "https://store.arduino.cc/arduino-mega-adk-rev3"
 ---
-
-***Note: This page refers to a product that is retired.***
 
 ![The Arduino Mega ADK Rev3 board](./assets/A000069_front_2.jpg)
 
@@ -15,9 +13,9 @@ The **Arduino MEGA ADK** is a microcontroller board based on the ATmega2560\. It
 
 The MEGA ADK is based on the [Mega 2560](https://www.arduino.cc/en/Main/ArduinoBoardMega2560).
 
-Similar to the Mega 2560 and Uno, it features an ATmega8U2 programmed as a USB-to-serial converter.  
+Similar to the Mega 2560 and Uno, it features an ATmega8U2 programmed as a USB-to-serial converter.
 
-Revision 2 of the Mega ADK board has a resistor pulling the 8U2 HWB line to ground, making it easier to put into [DFU mode](https://www.arduino.cc/en/Hacking/DFUProgramming8U2).  
+Revision 2 of the Mega ADK board has a resistor pulling the 8U2 HWB line to ground, making it easier to put into [DFU mode](https://www.arduino.cc/en/Hacking/DFUProgramming8U2).
 
 Revision 3 of the board has the following new features:
 
@@ -43,7 +41,7 @@ In the [Getting Started section](https://www.arduino.cc/en/Guide/ArduinoADK), yo
 
 Arduino Mega ADK is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-mega-adk-reference-design.zip) 
+[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-mega-adk-reference-design.zip)
 
 [SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/arduino-mega-adk-schematic.pdf)
 
@@ -81,7 +79,7 @@ Each of the 50 digital pins on the MEGA ADK can be used as an input or output, u
 
 The MAX3421E communicate with Arduino with the SPI bus. So it uses the following pins:
 
-* Digital: 7 (RST), 50 (MISO), 51 (MOSI), 52 (SCK).  
+* Digital: 7 (RST), 50 (MISO), 51 (MOSI), 52 (SCK).
 *NB:Please do not use Digital pin 7 as input or output because is used in the communication with MAX3421E*
 * Non broken out on headers: PJ3 (GP\_MAX), PJ6 (INT\_MAX), PH7 (SS).
 * LED: 13.There is a built-in LED connected to digital pin 13\. When the pin is HIGH value, the LED is on, when the pin is LOW, it's off.
@@ -115,7 +113,7 @@ You can also bypass the bootloader and program the microcontroller through the I
 The ATmega8U2 firmware source code is available [in the Arduino repository](https://github.com/arduino/ArduinoCore-avr/tree/master/firmwares). The ATmega8U2 is loaded with a DFU bootloader, which can be activated by:
 
 * On Rev1 boards: connecting the solder jumper on the back of the board (near the map of Italy) and then resetting the 8U2.
-* On Rev2 or later boards: there is a resistor that pulling the 8U2/16U2 HWB line to ground, making it easier to put into DFU mode. You can then use [Atmel's FLIP software](http://www.atmel.com/dyn/products/tools_card.asp?tool_id=3886) (Windows) or the [DFU programmer](http://dfu-programmer.sourceforge.net/) (Mac OS X and Linux) to load a new firmware. Or you can use the ISP header with an external programmer (overwriting the DFU bootloader). 
+* On Rev2 or later boards: there is a resistor that pulling the 8U2/16U2 HWB line to ground, making it easier to put into DFU mode. You can then use [Atmel's FLIP software](http://www.atmel.com/dyn/products/tools_card.asp?tool_id=3886) (Windows) or the [DFU programmer](http://dfu-programmer.sourceforge.net/) (Mac OS X and Linux) to load a new firmware. Or you can use the ISP header with an external programmer (overwriting the DFU bootloader).
 
 ### Automatic (Software) Reset
 

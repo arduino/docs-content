@@ -14,7 +14,7 @@ This example shows how to use the `tone()` command to generate notes.  It plays 
 
 ### Hardware Required
 
-- Arduino board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - piezo buzzer or a speaker
 

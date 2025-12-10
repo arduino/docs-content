@@ -34,12 +34,12 @@ $ npm install arduino-iot-js
 $ yarn add arduino-iot-js
 ```
 
-***Check out the [JavaScript Setup guide](/arduino-cloud/guides/javascript) for more information and a detailed step by step tutorial.***  
+***Check out the [JavaScript Setup guide](/arduino-cloud/guides/javascript) for more information and a detailed step by step tutorial.***
 
 ## Connection Methods
 
 There are three available methods for connection:
-- Using device credentials (recommended method). 
+- Using device credentials (recommended method).
 - Using an API key (generated and listed at [Arduino Cloud API keys](https://app.arduino.cc/app-keys)).
 - Using a [JWT token](https://jwt.io/)
 

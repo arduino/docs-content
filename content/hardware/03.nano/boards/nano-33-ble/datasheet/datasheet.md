@@ -7,7 +7,7 @@ type: maker
 ![](assets/featured.jpg)
 
 # Description
-Nano 33 BLE is a miniature sized module containing a NINA B306 module, based on Nordic nRF52480 and containing a Cortex M4F and a 9 axis IMU. The module can either be mounted as a DIP component (when mounting pin headers), or as a SMT component, directly soldering it via the castellated pads.
+Arduino® Nano 33 BLE is a miniature sized module containing a NINA B306 module, based on Nordic nRF52480 and containing an Arm® Cortex®-M4F and a 9-axis IMU. The module can either be mounted as a DIP component (when mounting pin headers), or as a SMT component, directly soldering it via the castellated pads.
 
 # Target areas:
 Maker, enhancements, basic IoT application scenarios
@@ -15,8 +15,8 @@ Maker, enhancements, basic IoT application scenarios
 # Features
 - **NINA B306 Module** 
     - **Processor**
-        - 64 MHz Arm® Cortex-M4F (with FPU)
-        - 1 MB Flash + 256 KB RAM 
+        - 64 MHz Arm® Cortex®-M4F (with FPU)
+        - 1 MB Flash + 256 kB RAM 
 
     - **Bluetooth®  5 multiprotocol radio**
         - 2 Mbps
@@ -30,7 +30,7 @@ Maker, enhancements, basic IoT application scenarios
         - Integrated balun with 50 Ω single-ended output
         - IEEE 802.15.4 radio support
         - Thread
-        - Zigbee 
+        - Zigbee® 
 
 - **Peripherals**
     - Full-speed 12 Mbps USB
@@ -44,7 +44,7 @@ Maker, enhancements, basic IoT application scenarios
     - 128 bit AES/ECB/CCM/AAR co-processor
 
 
-- **LSM9DS1** (9 axis IMU)
+- **LSM9DS1** (9-axis IMU)
     - 3 acceleration channels, 3 angular rate channels, 3 magnetic field channels
     - ±2/±4/±8/±16 g linear acceleration full scale
     - ±4/±8/±12/±16 gauss magnetic full scale
@@ -59,14 +59,14 @@ Maker, enhancements, basic IoT application scenarios
 ## The Board
 As all Nano form factor boards, Nano 33 BLE does not have a battery charger but can be powered through USB or headers.
 
-**NOTE:** Arduino Nano 33 BLE only supports 3.3V I/Os and is **NOT** 5V tolerant so please make sure you are not directly connecting 5V signals to this board or it will be damaged. Also, as opposed to Arduino Nano boards that support 5V operation, the 5V pin does NOT supply voltage but is rather connected, through a jumper, to the USB power input.
+**NOTE:** Nano 33 BLE only supports 3.3V I/Os and is **NOT** 5V tolerant so please make sure you are not directly connecting 5V signals to this board or it will be damaged. Also, as opposed to Arduino Nano boards that support 5V operation, the 5V pin does NOT supply voltage but is rather connected, through a jumper, to the USB power input.
 
 ### Application Examples
-**Sound spectrum:** Create a sound spectrum to visualize sound frequencies. Connect an Arduino 33 Nano BLE and a microphone or amplifier.
+**Sound spectrum:** Create a sound spectrum to visualize sound frequencies. Connect an Nano 33 BLE and a microphone or amplifier.
 
 **Social distancing sensor:** Keeping the social distance has become more important than ever to ensure your own, as well as others health. By connecting an Arduino Nano 33 BLE with a sensor and a LED display, you can create a wearable band that alerts you when you get too close to other people.
 
-**Healthy plant scanner:** Watering your plants isn’t always enough to keep them happy. Diseases, lack of sunlight etc. could also be vital factors for unhealthy plants. Keep your plants happy by creating a detector and train it to detect any diseases, all with an Arduino Nano 33 BLE 
+**Healthy plant scanner:** Watering your plants isn’t always enough to keep them happy. Diseases, lack of sunlight etc. could also be vital factors for unhealthy plants. Keep your plants happy by creating a detector and train it to detect any diseases, all with an Nano 33 BLE. 
 
 ### Ratings
 #### Recommended Operating Conditions
@@ -101,7 +101,7 @@ As all Nano form factor boards, Nano 33 BLE does not have a battery charger but 
 | SJ3      | D8 Jumper       | SJ4      | 3v3 Jumper     |
 
 ### Processor 
-The Main Processor is a Cortex M4F running at up to 64MHz. Most of its pins are connected to the external headers, however some are reserved for internal communication with the wireless module and the on-board internal I<sup>2</sup>C peripherals (IMU and Crypto).
+The Main Processor is a Arm® Cortex®-M4F running at up to 64MHz. Most of its pins are connected to the external headers, however some are reserved for internal communication with the wireless module and the on-board internal I<sup>2</sup>C peripherals (IMU and Crypto).
 
 **NOTE**: As opposed to other Arduino Nano boards, pins A4 and A5 have an internal pull up and default to be used as an I<sup>2</sup>C Bus so usage as analog inputs is not recommended.
 
@@ -114,21 +114,21 @@ The board can be powered via USB connector, V<sub>IN</sub> or V<sub>USB</sub> pi
 
 ## Board Operation 
 ### Getting Started - IDE
-If you want to program your Arduino Nano 33 BLE while offline you need to install the Arduino Desktop IDE [1] To connect the Arduino Nano 33 BLE to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your Nano 33 BLE while offline you need to install the Arduino Desktop IDE [1] To connect the Nano 33 BLE to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [2], by just installing a simple plugin.
+### Getting Started - Arduino Cloud Editor
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor [2], by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
-### Getting Started - Arduino IoT Cloud
-All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
+### Getting Started - Arduino Cloud
+All Arduino IoT enabled products are supported on Arduino Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
-Sample sketches for the Arduino Nano 33 BLE can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the Arduino Pro website [4]
+Sample sketches for the Nano 33 BLE can be found either in the “Examples” menu in the Arduino IDE or in Arduino Docs [4].
 
 ### Online Resources
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]**, the Arduino Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more
 
 ### Board Recover 
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
@@ -279,26 +279,29 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Company Address | Via Andrea Appiani 25 20900 MONZA Italy |
 
 ## Reference Documentation
-| Reference                 | **Link**                                                     |
-| ------------------------- | ------------------------------------------------------------ |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                           |
-| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                             |
-| Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
-| Forum                     | http://forum.arduino.cc/                                     |
-| SAMD21G18                 | https://ww1.microchip.com/downloads/aemDocuments/documents/MCU32/ProductDocuments/DataSheets/SAM-D21DA1-Family-Data-Sheet-DS40001882G.pdf |
-| NINA W102                 | https://content.u-blox.com/sites/default/files/NINA-W10_DataSheet_UBX-17065507.pdf |
-| ECC608                    | https://ww1.microchip.com/downloads/aemDocuments/documents/SCBU/ProductDocuments/DataSheets/ATECC608A-CryptoAuthentication-Device-Summary-Data-Sheet-DS40001977B.pdf |
-| MPM3610                   | https://www.monolithicpower.com/pub/media/document/MPM3610_r1.01.pdf |
-| NINA Firmware             | https://github.com/arduino/nina-fw                           |
-| ECC608 Library            | https://github.com/arduino-libraries/ArduinoECCX08           |
-| LSM6DSL Library           | https://github.com/stm32duino/LSM6DSL                        |
-| ProjectHub                | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
-| Library Reference         | https://www.arduino.cc/reference/en/                         |
-| Arduino Store             | https://store.arduino.cc/                                    |
+| Reference                              | **Link**                                                     |
+| -------------------------------------- | ------------------------------------------------------------ |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/software                           |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                             |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/         |
+| Arduino Documentation                  | https://docs.arduino.cc                                      |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
+| Library Reference                      | https://www.arduino.cc/reference/en/                         |
+| Arduino Store                          | https://store.arduino.cc/                                    |
+| Forum                                  | http://forum.arduino.cc/                                     |
+| SAMD21G18                              | https://ww1.microchip.com/downloads/aemDocuments/documents/MCU32/ProductDocuments/DataSheets/SAM-D21DA1-Family-Data-Sheet-DS40001882G.pdf |
+| NINA W102                              | https://content.u-blox.com/sites/default/files/NINA-W10_DataSheet_UBX-17065507.pdf |
+| ECC608                                 | https://ww1.microchip.com/downloads/aemDocuments/documents/SCBU/ProductDocuments/DataSheets/ATECC608A-CryptoAuthentication-Device-Summary-Data-Sheet-DS40001977B.pdf |
+| MPM3610                                | https://www.monolithicpower.com/pub/media/document/MPM3610_r1.01.pdf |
+| NINA Firmware                          | https://github.com/arduino/nina-fw                           |
+| ECC608 Library                         | https://github.com/arduino-libraries/ArduinoECCX08           |
+| LSM6DSL Library                        | https://github.com/stm32duino/LSM6DSL                        |
+
 
 ## Revision History
 
 | Date       | **Revision** | **Changes**                           |
 | ---------- | ------------ | ------------------------------------- |
+| 25/04/2024 | 3            | Updated link to new Cloud Editor      |
 | 03/08/2022 | 2            | Reference documentation links updates |
 | 21/04/2021 | 1            | General datasheet updates             |

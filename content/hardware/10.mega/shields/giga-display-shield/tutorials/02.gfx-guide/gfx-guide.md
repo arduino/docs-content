@@ -43,6 +43,7 @@ To use the library, we simply need to create a display object, initialize the li
 GigaDisplay_GFX display; // create the object
 
 void setup() {
+  delay(3000);
   display.begin(); //init library
   
   display.setCursor(10,10); //x,y
@@ -56,7 +57,7 @@ The above example will simply print `Hello World!` at the `x` and `y` coordinate
 
 ## Methods Overview
 
-There are several methods available. In this section, we will list out a number of useful ones. To see the full list, check out Adafruit's documentation of this library in [this page](https://learn.adafruit.com/adafruit-gfx-graphics-library).
+There are several methods available. In this section, we will list out a number of useful ones. To see the full list, check out the Adafruit® documentation of this library in [this page](https://learn.adafruit.com/adafruit-gfx-graphics-library).
 
 ### Coordinates
 
@@ -97,6 +98,7 @@ GigaDisplay_GFX display; // create the object
 #define BLACK 0x0000
 
 void setup() {
+  delay(3000);
   display.begin();
   display.fillScreen(BLACK);
   display.setCursor(10,10); //x,y
@@ -131,6 +133,7 @@ GigaDisplay_GFX display;
 #define BLACK 0x0000
 
 void setup() {
+  delay(3000);
   display.begin();
   display.fillScreen(WHITE);
   display.drawTriangle(100, 200, 300, 400, 300, 600, BLACK);
@@ -173,6 +176,7 @@ int counter;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
+  delay(3000);
   display.begin();
 
   if (touchDetector.begin()) {

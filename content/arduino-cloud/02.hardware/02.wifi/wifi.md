@@ -11,11 +11,11 @@ There are currently two ways of configuring a Wi-Fi® board:
 - By configuring an onboard crypto chip (available for a number of official Arduino boards only).
 - Through a Secret Key / API key (ESP32/ESP8266 based boards\*).
 
-***\*Note that the [UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi) and [Nano ESP32](https://store.arduino.cc/products/nano-esp32) boards use this method.***
+***\*Note that the [Nano ESP32](https://store.arduino.cc/products/nano-esp32) board uses this method.***
 
 ## Supported Boards
 
-Connection via Wi-Fi® is an easy alternative, and your credentials can safely be entered during the configuration of a project. This type of connection is most suitable for low-range projects, where you connect your board to the cloud via your home/work/school network router.
+Connection via Wi-Fi® is an easy alternative, and your credentials can safely be entered during the configuration of a project. This type of connection is most suitable for low-range projects, where you connect your board to the Cloud via your home/work/school network router.
 
 ## Configure Wi-Fi® Boards
 
@@ -32,6 +32,8 @@ The following boards connect to the Arduino Cloud via Wi-Fi®, using the onboard
 - [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 - [Opta](https://store.arduino.cc/products/opta-wifi)
+
+***Check the GitHub repository [here](https://github.com/arduino-libraries/ArduinoIoTCloud?tab=readme-ov-file#what).*** 
 
 ### Setup a Wi-Fi® Board
 
@@ -61,7 +63,6 @@ There is a large number of ESP32/ESP8266 supported boards, which you select from
 
 The following official boards have an ESP32 as main/co-processor and connect using a secret key as well.
 
-- [UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)
 - [Nano ESP32](https://store.arduino.cc/products/nano-esp32)
 
 ### Setup ESP32/ESP8266 Boards

@@ -1,9 +1,8 @@
 ---
 title: Arduino Fio
 source: https://www.arduino.cc/en/Main/ArduinoBoardFio
+sku: [E000055]
 ---
-
-***Note: This page refers to a product that is retired.***
 
 ![The Arduino Fio board.](./assets/ArduinoFio.jpg)
 

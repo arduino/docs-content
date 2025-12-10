@@ -1,6 +1,6 @@
 ---
-title: "Act on Multiple Sketches at Once on the Web Editor! "
-description: "Want to clean up or better organize your online sketchbook? Do it in just a few clicks on the Arduino Web Editor!"
+title: "Act on Multiple Sketches at Once on the Cloud Editor! "
+description: "Want to clean up or better organize your online sketchbook? Do it in just a few clicks on the Arduino Cloud Editor!"
 difficulty: beginner
 coverImage: "assets/3BZEBNijceWf0Bz68jvI.png"
 tags: [arduino create, organize, sketchbook]
@@ -10,7 +10,7 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/act-on-multiple-sk
 
 ## Apps and Online Services
 
-- [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino Cloud Editor](https://create.arduino.cc/editor)
 
 ## About This Project
 

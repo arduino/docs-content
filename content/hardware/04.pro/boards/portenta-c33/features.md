@@ -16,34 +16,37 @@ The board also supports MicroPython and other high-level programming languages, 
 <Feature title="Renesas R7FA6M5BH2CBG microcontroller" image="mcu">
 
   The R7FA6M5BH2CBG microcontroller of the Portenta C33 uses the Arm® Cortex®-M33, a 32-bit processor that offers efficient performance, low power consumption, and advanced security features, making it an ideal choice for a wide range of embedded systems applications.
-
+<FeatureWrapper>
   <FeatureLink title="Datasheet" url="https://www.renesas.com/us/en/document/dst/ra6m5-group-datasheet?r=1493931" download/>
+</FeatureWrapper>
 </Feature>
 
 <Feature title="Espressif ESP32-C3-MINI-1U Wi-Fi® and Bluetooth® module" image="wifi-bluetooth">
 
   The ESP32-C3-MINI-1U is a compact Wi-Fi® and Bluetooth® module with low power consumption, high performance, and various peripheral interfaces, making it a well-suited option for battery-powered IoT devices that require long battery life and real-time data processing.
-
+<FeatureWrapper>
   <FeatureLink title="Datasheet" url="https://www.espressif.com/sites/default/files/documentation/esp32-c3-mini-1_datasheet_en.pdf" download blank/>
+</FeatureWrapper>
 </Feature>
 
 <Feature title="NXP® SE050C2 IoT Secure Element" image="crypto-chip">
 
   The SE050C2 secure element offers secure storage and processing of sensitive data, cryptographic key management, and protection against physical and software-based attacks.
-
+<FeatureWrapper>
   <FeatureLink title="Datasheet" url="https://www.nxp.com/docs/en/data-sheet/SE050-DATASHEET.pdf" download blank/>
+</FeatureWrapper>
 </Feature>
 
 <Feature title="MicroPython Language Support" image="python">
 
   Program the Portenta C33 with MicroPython and other high-level programming languages, offering rapid prototyping, efficient use of resources, and a Python®-based development environment for IoT applications.
-  
+
 </Feature>
 
 <Feature title="Low-power design" image="power">
 
   The Portenta C33 was designed with low power consumption in mind, making it well qualified for battery-powered IoT devices that require long battery life. Its microcontroller is designed for efficient power usage, allowing it to perform real-time processing tasks while consuming minimal energy.
-  
+
 </Feature>
 
 </FeatureList>

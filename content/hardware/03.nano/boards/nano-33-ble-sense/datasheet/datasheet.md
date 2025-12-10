@@ -7,7 +7,7 @@ type: maker
 ![](assets/featured.jpg)
 
 # Description 
-Nano 33 BLE Sense is a miniature sized module containing a NINA B306 module, based on Nordic nRF52480 and containing a Cortex M4F, a crypto chip which can securely store certificates and pre shared keys and a 9 axis IMU. The module can either be mounted as a DIP component (when mounting pin headers), or as a SMT component, directly soldering it via the castellated pads
+Arduino® Nano 33 BLE Sense is a miniature sized module containing a NINA B306 module, based on Nordic nRF52480 and containing an Arm® Cortex®-M4F, a crypto chip which can securely store certificates and pre shared keys and a 9 axis IMU. The module can either be mounted as a DIP component (when mounting pin headers), or as a SMT component, directly soldering it via the castellated pads
 
 # Target areas:
 Maker, enhancements, IoT application 
@@ -16,7 +16,7 @@ Maker, enhancements, IoT application
 # Features
 - **NINA B306 Module** 
     - **Processor**
-        - 64 MHz Arm® Cortex-M4F (with FPU)
+        - 64 MHz Arm® Cortex®-M4F (with FPU)
         - 1 MB Flash + 256 KB RAM 
     - **Bluetooth®  5 multiprotocol radio**
         - 2 Mbps
@@ -41,7 +41,7 @@ Maker, enhancements, IoT application
         - EasyDMA for all digital interfaces
         - 12-bit 200 ksps ADC
         - 128 bit AES/ECB/CCM/AAR co-processor
-- **LSM9DS1** (9 axis IMU)
+- **LSM9DS1** (9-axis IMU)
     - 3 acceleration channels, 3 angular rate channels, 3 magnetic field channels
     - ±2/±4/±8/±16 g linear acceleration full scale
     - ±4/±8/±12/±16 gauss magnetic full scale
@@ -85,7 +85,7 @@ Maker, enhancements, IoT application
 ## The Board
 As all Nano form factor boards, Nano 33 BLE Sense does not have a battery charger but can be powered through USB or headers.
 
-**NOTE:** Arduino Nano 33 BLE Sense only supports 3.3V I/Os and is **NOT** 5V tolerant so please make sure you are not directly connecting 5V signals to this board or it will be damaged. Also, as opposed to Arduino Nano boards that support 5V operation, the 5V pin does NOT supply voltage but is rather connected, through a jumper, to the USB power input.
+**NOTE:** Nano 33 BLE Sense only supports 3.3V I/Os and is **NOT** 5V tolerant so please make sure you are not directly connecting 5V signals to this board or it will be damaged. Also, as opposed to Arduino Nano boards that support 5V operation, the 5V pin does NOT supply voltage but is rather connected, through a jumper, to the USB power input.
 
 ### Ratings
 
@@ -126,32 +126,32 @@ Bottom:
 | SJ3      | 3v3 Jumper      | SJ4      | D8 Jumper       |
 
 ### Processor 
-The Main Processor is a Cortex M4F running at up to 64MHz. Most of its pins are connected to the external headers, however some are reserved for internal communication with the wireless module and the on-board internal I<sup>2</sup>C peripherals (IMU and Crypto).
+The Main Processor is a Arm® Cortex®-M4F running at up to 64 MHz. Most of its pins are connected to the external headers, however some are reserved for internal communication with the wireless module and the on-board internal I<sup>2</sup>C peripherals (IMU and Crypto).
 
 **NOTE**: As opposed to other Arduino Nano boards, pins A4 and A5 have an internal pull up and default to be used as an I<sup>2</sup>C Bus so usage as analog inputs is not recommended.
 
 ### Crypto
 The crypto chip in Arduino IoT boards is what makes the difference with other less secure boards as it provides a secure way to store secrets (such as certificates) and accelerates secure protocols while never exposing secrets in plain text.
 
-Source code for the Arduino Library that supports the Crypto is available **[8]**
+Source code for the Arduino Library that supports the Crypto is available **[8]**.
 
 ### IMU
 Arduino Nano 33 BLE has an embedded 9 axis IMU which can be used to measure board orientation (by checking the gravity acceleration vector orientation or by using the 3D compass) or to measure shocks, vibration, acceleration and rotation speed.
 
-Source code for the Arduino Library that supports the IMU is available **[9]**
+Source code for the Arduino Library that supports the IMU is available **[9]**.
 
 ### Barometer and Temperature Sensor
 The embedded Barometer and temperature sensor allow measuring ambient pressure. The temperature sensor integrated with the barometer can be used to compensate the pressure measurement.
 
-Source code for the Arduino Library that supports the Barometer is available **[10]**
+Source code for the Arduino Library that supports the Barometer is available **[10]**.
 
 ### Relative Humidity and Temperature Sensor
 Relative humidity sensor measures ambient relative humidity. As the Barometer this sensor has an integrated temperature sensor that can be used to compensate for the measurement.
 
-Source code for the Arduino Library that supports the Humidity sensor is available **[11]**
+Source code for the Arduino Library that supports the Humidity sensor is available **[11]**.
 
 ### Digital Proximity, Ambient Light, RGB and Gesture Sensor
-Source code for the Arduino Library that supports the Proximity/gesture/ALS sensor is available **[12]**
+Source code for the Arduino Library that supports the Proximity/gesture/ALS sensor is available **[12]**.
 
 #### Gesture Detection
 Gesture detection utilizes four directional photodiodes to sense reflected IR energy (sourced by the integrated LED) to convert physical motion information (i.e. velocity, direction and distance) to a digital information. The architecture of the gesture engine features automatic activation (based on Proximity engine results), ambient light subtraction, cross-talk cancellation, dual 8-bit data converters, power saving inter-conversion delay, 32-dataset FIFO, and interrupt driven I2C communication. The gesture engine accommodates a wide range of mobile device gesturing requirements: simple UP-DOWN-RIGHT-LEFT gestures or more complex gestures can be accurately sensed. Power consumption and noise are minimized with adjustable IR LED timing. 
@@ -177,15 +177,15 @@ The board can be powered via USB connector, V<sub>IN</sub> or V<sub>USB</sub> pi
 
 ## Board Operation 
 ### Getting Started - IDE
-If you want to program your Arduino Nano 33 BLE while offline you need to install the Arduino Desktop IDE [1] To connect the Arduino Nano 33 BLE to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your Nano 33 BLE Sense while offline you need to install the Arduino Desktop IDE [1] To connect the Nano 33 BLE Sense to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [2], by just installing a simple plugin.
+### Getting Started - Arduino Cloud Editor
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor [2], by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
-### Getting Started - Arduino IoT Cloud
-All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
+### Getting Started - Arduino Cloud
+All Arduino IoT enabled products are supported on Arduino Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
 Sample sketches for the Arduino Nano 33 BLE can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the Arduino Pro website [4]
@@ -345,26 +345,28 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| Reference                 | **Link**                                                     |
-| ------------------------- | ------------------------------------------------------------ |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                           |
-| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                             |
-| Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
-| Forum                     | http://forum.arduino.cc/                                     |
-| Nina B306                 | https://content.u-blox.com/sites/default/files/NINA-B3_DataSheet_UBX-17052099.pdf |
-| ECC608                    | https://ww1.microchip.com/downloads/aemDocuments/documents/SCBU/ProductDocuments/DataSheets/ATECC608A-CryptoAuthentication-Device-Summary-Data-Sheet-DS40001977B.pdf |
-| MPM3610                   | https://www.monolithicpower.com/pub/media/document/MPM3610_r1.01.pdf |
-| ECC608 Library            | https://github.com/arduino-libraries/ArduinoECCX08           |
-| LSM6DSL Library           | https://github.com/adafruit/Adafruit_LSM9DS1                 |
-| LPS22HB                   | https://github.com/stm32duino/LPS22HB                        |
-| HTS221 Library            | https://github.com/stm32duino/HTS221                         |
-| APDS9960 Library          | https://github.com/adafruit/Adafruit_APDS9960                |
-| ProjectHub                | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
-| Library Reference         | https://www.arduino.cc/reference/en/                         |
+| Reference                              | **Link**                                                     |
+| -------------------------------------- | ------------------------------------------------------------ |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/software                           |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                             |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/         |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
+| Library Reference                      | https://www.arduino.cc/reference/en/                         |
+| Forum                                  | http://forum.arduino.cc/                                     |
+| Nina B306                              | https://content.u-blox.com/sites/default/files/NINA-B3_DataSheet_UBX-17052099.pdf |
+| ECC608                                 | https://ww1.microchip.com/downloads/aemDocuments/documents/SCBU/ProductDocuments/DataSheets/ATECC608A-CryptoAuthentication-Device-Summary-Data-Sheet-DS40001977B.pdf |
+| MPM3610                                | https://www.monolithicpower.com/pub/media/document/MPM3610_r1.01.pdf |
+| ECC608 Library                         | https://github.com/arduino-libraries/ArduinoECCX08           |
+| LSM6DSL Library                        | https://github.com/adafruit/Adafruit_LSM9DS1                 |
+| LPS22HB                                | https://github.com/stm32duino/LPS22HB                        |
+| HTS221 Library                         | https://github.com/stm32duino/HTS221                         |
+| APDS9960 Library                       | https://github.com/adafruit/Adafruit_APDS9960                |
+
 
 ## Revision History
 
 | Date       | **Revision** | **Changes**                           |
 | ---------- | ------------ |-------------------------------------- |
+| 25/04/2024 | 3            | Updated link to new Cloud Editor      |
 | 03/08/2022 | 2            | Reference documentation links updates |
 | 27/04/2021 | 1            | General datasheet updates             |

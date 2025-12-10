@@ -8,7 +8,7 @@ tags:
   - Serial
 author: 'Karl Söderby'
 libraries: 
-  - name: Adafruit GFX
+  - name: Adafruit® GFX
     url: https://github.com/adafruit/Adafruit-GFX-Library
   - name: SSD1306
     url: https://github.com/adafruit/Adafruit_SSD1306
@@ -25,7 +25,7 @@ featuredImage: 'light'
 
 ## Introduction
 
-In this tutorial, we will go through a basic setup that allows us to write messages from the Serial Monitor to an SSD1306 OLED screen. We will be using the [Adafruit GFX library](https://github.com/adafruit/Adafruit-GFX-Library) and the [SSD1306 library](https://github.com/adafruit/Adafruit_SSD1306), where the text size adjusts according to the length of the message.
+In this tutorial, we will go through a basic setup that allows us to write messages from the Serial Monitor to an SSD1306 OLED screen. We will be using the [Adafruit® GFX library](https://github.com/adafruit/Adafruit-GFX-Library) and the [SSD1306 library](https://github.com/adafruit/Adafruit_SSD1306), where the text size adjusts according to the length of the message.
 
 ## Goals
 
@@ -38,7 +38,7 @@ The goals of this tutorial are:
 ## Hardware & Software Needed
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
-- [Adafruit GFX](https://github.com/adafruit/Adafruit-GFX-Library) and [SSD1306 library](https://github.com/adafruit/Adafruit_SSD1306)
+- [Adafruit® GFX](https://github.com/adafruit/Adafruit-GFX-Library) and [SSD1306 library](https://github.com/adafruit/Adafruit_SSD1306)
 - Arduino MKR WiFi 1010  ([link to store](https://store.arduino.cc/mkr-wifi-1010))
 - SSD1306 128x32 OLED Screen (other dimensions works but requires some adjusting)
 
@@ -59,11 +59,11 @@ The SSD1306 display is of the PMOLED type, and its behavior can be controlled by
 
 ## Step by Step
 
-**1.** First, we need to make sure the drivers for the MKR WiFi 1010 board is installed properly. The Web Editor already comes equipped with these, but if we are using an offline editor, we will need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and click on the install button.
+**1.** First, we need to make sure the drivers for the MKR WiFi 1010 board is installed properly. The Cloud Editor already comes equipped with these, but if we are using an offline editor, we will need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and click on the install button.
 
 ![Installing the correct drivers.](assets/mkr_tutorial_08_img_03.png)
 
-**2.** We will first need to make sure we install the libraries needed to program the OLED screen. If we are using the Web Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **Adafruit_GFX** and **Adafruit_SSD1306**. We will need to install both of them.
+**2.** We will first need to make sure we install the libraries needed to program the OLED screen. If we are using the Cloud Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **Adafruit_GFX** and **Adafruit_SSD1306**. We will need to install both of them.
 
 **3.** With the dependencies now installed, we can now take a look at some of the main functions we will use in the program.
 

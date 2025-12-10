@@ -9,7 +9,7 @@ description: This tutorial teaches you how to set up a MKR board with the Segger
 This tutorial will show you how to debug an Arduino sketch using an Arduino MKR board and the Segger J-Link probe. It will go through how to connect these and use the Arduino IDE 2 to then debug a sketch.
 
 ### Required Hardware and Software
--   [Arduino IDE 2](https://www.arduino.cc/en/software)
+-   [Arduino IDE](https://www.arduino.cc/en/software) version 2.3.0 or higher
 -   Segger J-link device ([EDU](https://store.arduino.cc/products/j-link-edu) or [BASE](https://store.arduino.cc/products/j-link-base-compact))
 -   [Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) (other boards from the MKR family works as well).
 -   Soldering equipment
@@ -67,16 +67,25 @@ Now we are ready to start debugging our sketch. Connect the power to the MKR boa
 
 Then create or open the sketch that you want to debug. If you don't already have a sketch in mind, feel free to use the example sketch found at the end of this tutorial.
 
+Select **Tools > Programmer > Segger J-Link** from the Arduino IDE menus.
+
 Now go to the folder where the sketch is located. Add a `.json` file in the same folder as your sketch and name it `debug_custom.json`. The easiest way would be to create a text file and rename it `debug_custom.json`. In the `.json` file, add the following lines:
 
 ```arduino
-{
-  "servertype": "jlink",
-  "device": "ATSAMD21G18",
-  "interface": "SWD",
-  "serverpath": "C:/Program Files/SEGGER/JLink/JLinkGDBServerCL"
-}
+[
+  {
+    "configId": "arduino:samd:mkrwifi1010:programmer=jlink",
+    "server": "jlink",
+    "servertype": "jlink",
+    "device": "ATSAMD21G18",
+    "interface": "SWD",
+    "serverPath": "C:/Program Files/SEGGER/JLink/JLinkGDBServerCL",
+    "serverpath": "C:/Program Files/SEGGER/JLink/JLinkGDBServerCL"
+  }
+]
 ```
+
+If you are using a board other than the **MKR WiFi 1010**, you will need to adjust the `arduino:samd:mkrwifi1010` part of the `configId` field. Hover the mouse pointer over the board selection in the Arduino IDE toolbar in order to learn the correct identifier for the board you are using.
 
 The `"serverpath"` field needs to be set to the path of the "J-Link GDB Server CL" tool executable file that is located under the folder of the J-Link package you installed in the previous step. The file is named:
 

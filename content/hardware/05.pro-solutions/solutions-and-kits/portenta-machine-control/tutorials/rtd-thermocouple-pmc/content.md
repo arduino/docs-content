@@ -50,7 +50,7 @@ The goals of this tutorial are:
 
 ### Software Requirements
 
-- The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide) (Including Arduino PLC IDE Tools)
+- The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide)
 - If you have not done so, set up and activate the Portenta Machine Control license following the steps of [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license)
 
 ## Temperature Sensors
@@ -187,7 +187,7 @@ If everything is correct, when you double-click on **Global_vars**, a table with
 
 Now that we have created the variables, we have to make it work by defining the variables in the **main** program code. To do this, double-click on "main" and write the next lines in the code box:
 
-```
+```cpp
 TP00 := sysTempProbes[0];
 temp0:= systempProbes[0].temperature;
 ```

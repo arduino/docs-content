@@ -1,0 +1,180 @@
+Readme:
+
+==================================================================================
+Note: WisGateOS 2 is available only for version 2 WisGate Edge gateways.
+The supported models are: 
+
+WisGate Edge Pro version 2: RAK7289V2, RAK7289CV2, RAK7289V2H, RAK7289CV2H
+
+WisGate Edge Lite 2 version 2:  RAK7268V2, RAK7268CV2, RAK7268V2H, RAK7268CV2H
+
+WisGate Edge Prime version 2: RAK7240V2, RAK7240CV2, RAK7240V2H, RAK7240CV2H
+
+==================================================================================
+
+
+====================WisGateOS 2 v2.2.2====================
+February 27, 2024
+
+IMPORTANT UPDATE NOTICE:
+- The WisGateOS2 firmware has been updated significantly. After this update, it is no longer possible to revert to previous versions of WisDM or the local WebUI. All WisGateOS2 2.2.x extensions are digitally signed. During this process, extensions will automatically update. Contact RAK support before updating the WireGuard Extension.
+- An internet connection is mandatory for the update process. This is because the new firmware signature needs to be confirmed, and the Extension Gallery should be accessible to update the already installed extensions.
+
+New Features: 
+- Upgraded OpenWRT to version 2102 to enhance system security and reliability.
+- Online extension updated with signature verification.
+- Added Chinese Language support in gateway UI.
+- Display syslog in sequence in gateway UI for download.
+- Now supports spaces in ESSID.
+- TDOA support in gateway UI.
+- ChirpStack V4 (MQTT Bridge) integration.
+- WisDM agent updated to v1.2.5 to allow adding gateways in Basics Station mode without erasing individual keys. 
+- Support Client ID for user to fill in when the gateway works in Built-in NS mode.
+
+Fixed bugs:
+
+WisGateOS2 related
+•	Checks PF-UDP server address inaccurately.   
+•	No IP is assigned to the connected via the Wi-Fi AP device.
+•	Safe Mode is activated if the reset button is pressed during the gateway reset procedure. 
+•	In UDP Packet Forwarder mode, the region number in the topic does not match the actual value.
+•	In UDP Packet Forwardr mode, the topic sent to the Built-In NS is incorrect.
+•	In Built-In NS mode, the value of maxEIRP in the "TxParamSetupReq" is wrong.
+•	In Built-In NS mode, devices which statistical data have been viewed, will have wrong statistical data.
+•	For RAK72xxV2/CV2, NO ETH LED after upgrading to WisGateOS2 2.2.1.
+•	WisGateOS2.x OpenVPN lost the client configuration after firmware update.
+•	For a gateways without LTE, If both ETH and FiWi are configured and ETH is with Priority 2, the ETH is still used as Primary.
+•	Failed to add Trackit to gateway on WisGateOS2 2.2.0_b68.
+•	When both Cellular and ETH connections are presented Wireguard fails to connect normally.
+•	After update to WisGateOS2 2.2.x failed to install extension due to "wes" missing.
+•	Slow loading of the gateway overview page when there's no 4G module.
+•	Missing some mandatory channels for the RU864 region.
+•	Loss of a customized logo after firmware upgrade.
+•	When creating a gateway for the AS923 region on the TTN server, no frequency is assigned.
+•	Errors encountered after connecting the gateway to AWS IOT Core/TTN.
+•	Incomplete devEUI display in the subscribed topic when sending uplink data to the AWS server.
+•	Slow gateway loading and status issues when adjusting the priority of one of the Multi-WAN networks.
+•	Inability to receive confirm-ok data after a node sends uplink data via FSK or STD frequency.
+•	Abnormal status of wan0 (apcli0) on the Multi-WAN page when Wi-Fi is set to static IP.
+•	The ap_client process doesn't stop after changing Wi-Fi mode from AP STA to AP.
+•	Specification requirement for the maximum payload size of downlink in the LoRaWAN protocol.
+•	Gateway doesn't return a new channel plan after receiving an End Device's uplink data for regions KR920/AS923-1/AS923-2/AS923-3/AS923-4.
+•	Built-in ns enters a dead loop when the MQTT client TLS version doesn't match the MQTT broker.
+•	The gateway stops functioning normally after connecting to ChirpStack in BS mode for 2 days.
+•	Connection failures to ChirpStack via TLS authentication in Basics Station mode.
+•	Incorrect status information is displayed when the Ethernet protocol type is set to a static address.
+•	Some extensions with added MD5 hash become unusable after upgrading to version 2.2.x.
+•	MQTT password now supports a null value (no password).
+•	LAN-Wi-Fi exhibits abnormalities after enabling WAN-Wi-Fi.
+•	The previous client IP remains available after switching from AP + Client.
+•	Abnormal status of wan0 (apcli0) on the Multi-WAN page when Wi-Fi is configured as a static IP.
+
+
+
+
+====================WisGateOS 2 v2.1.8====================
+September 15, 2023
+
+Improvement and New Features: 
+
+•	Beacon even in Basics Station mode is added to the system log 
+•	CA-certificates updated to 20230311 (Azure IoT root certs)
+•	WisSM Agent updated to version 1.2.3
+•	WiFi Password support space
+•	WisSM Agent updated to version 1.2.4 fixing onboarding to WisDM error.
+
+Fixed bugs: 
+
+•	Failed to obtain the beacons from AWS IoT Core for LoRaWAN in Basics Station mode, Class B end devices
+•	In case the end device/s sends uplink data every 3 seconds(too frequently), the gateway reports an error "ERROR: [up] failed packet fetch, exiting"
+•	China cannot be selected on the "Change your country" page for CN470 gateways
+•	ASS923 band only - After a node sends uplink data through FSK or STD frequency, it cannot receive confirm-ok data
+•	The maximum payload size of the downlink should be specified in the LoRaWan protocol.
+•	In Built-in server mode, AS923 band, downlink phy payload size larger than the max limit
+•	The frame count stored in DB by NS is inconsistent after restarting the server.
+•	In Basics Station mode, connected to Chirp Stack, an error failed to open COM port /dev/ttyACM0
+•	NS mode, Adding "/" at the beginning when configuring the Downlink Topic in Integration Interface Parameters will cause an NS error.
+•	Enhanced the NTP server synchronization function. Users requiring time stamps from the NTP server will experience improved accuracy, addressing previous issues with incorrect time stamp synchronization.
+•	Fixed global integration topic. The update rectifies the issue of incomplete devEUI displays in the subscribed topic when transmitting uplink data and connecting to an AWS server.
+•	 Resolved an issue where the Packet Forwarder occasionally failed to initialize after starting the gateway.
+
+
+
+
+====================WisGateOS 2 v2.1.4====================
+March 24, 2023
+
+New Features:
+•	WisDM redirection in WisGateOS - a quick link to the WisDM is added to the WebUI footer.
+•	Pre-Upgrade announcement - provides the most important release notes for the new firmware before the update from the WebUI.
+•	Add "enable automatic data recovery" for Packet Forwarder mode.
+
+Fixed bugs:
+•	Downlinks are rejected by the forwarder sometimes.
+•	The Built-in NS will fall in an infinite loop when the MQTT client tls version does not match the MQTT-broker.
+•	If using the AWS IoT MQTT client to get 64 bytes uplink data, failed to get the data if the data is more than 64 bytes.
+•	Basics Station won't connect to Actility NS after the gateway is rebooted.
+•	Default ping interval field setting to 10 minutes in MultiWAN.
+•	The RSSI value of FSK channel data displayed on the gateway exceeds the expected range.
+•	4G default Ping interval revised to reduce the SIM data consumption
+•	In the AS923 band, after connecting to TTN, devices cannot join normally.
+•	Support "-" or "_",”!” in the WiFi WAN/LAN password.
+•	Timestamp report to Chirpstack the fineTimestampType is always"NONE".
+•	Cellular connection can not be established after reboot in some cases.
+•	After configuring the whitelist, the parameters do not take effect
+•	Packet Filter, White List, and Network ID cannot be set to 0
+•	Basics Station can not start successfully in some cases. 
+•	Support config Json type(array/object) auto-detection for sx1302
+•	Logic error causes Packet Forwarder to keep restarting
+•	MAC Commands with uplink are not displayed in the gateway packet capture.
+•	After setting the SSL/TLS Mode to Self-signed server & client certification and configuring the certificate, the process is with abnormal behavior
+
+Coming soon:
+WisGateOS2.2 
+•	Chinese Language support in UI. 
+•	OpenWRT 2102. 
+•	Syslog display in sequence
+•	Online extension Gallery.
+
+
+
+====================WisGateOS 2 v2.1.2====================
+January 13, 2023
+
+Improvement and New Features: 
+
+•	Support full-duplex for RAK7289V2/RAK7289CV2 Full Duplex gateway.
+•	Fix Join and connection issue with TTN
+•	Fix Rejected downlinks by the forwarder in some cases.
+•	Fix BasicsStation backup of the certificates issued. 
+
+
+====================WisGateOS 2 v2.1.1====================
+October 18, 2022
+
+Improvement and New Features: 
+
+•	Support LBT feature. Country settings Extension.
+•	Fix statistics lost in the AWS IoT Core connection scenario.
+•	Fix BasicsStation reconnect issues in case of LTE failure.
+•	Fix the RSSI value issue in the RU864 band. 
+
+
+====================WisGateOS 2 v2.1.0====================
+September 13, 2022
+
+Improvement and New Features: 
+•	WisDM agent update
+•	RSSI statistics fix
+•	Breathing Light(RAk7268V2/RAK7268CV2) fix
+•	Support for LBT extension/Country settings 
+
+====================WisGateOS 2 v2.0.1====================
+June 10, 2022
+
+
+Improvement and New Features: 
+•	UI/UX Improvements - Redesigned UI for a great experience with Responsive Design for quick and easy gateway configuration and monitoring.
+•	Extensions - Extensions allow adding more features and tools to the WisGateOS2. Available extensions are available here https://docs.rakwireless.com/Product-Categories/Software-APIs-and-Libraries/WisGateOS-2-Extensions/ 
+•	Support the latest OpenSSL version 1.1.1. 
+•       Improved security and performance (Optimized TSL handshake, new encryption algorithm, attack security improvement). 

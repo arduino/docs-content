@@ -13,9 +13,9 @@ Any modern device with a screen uses sensors to determine the correct orientatio
 - [Arduino GIGA Display Shield](https://store.arduino.cc/products/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
-## Downloading the Library and Core
+## Downloading the Library and Board Package
 
-Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) is included in the core. Now you have to install the library needed for the IMU and the library for handling the image. Go to **Tools > Manage libraries..**, search for **Arduino_BMI270_BMM150**, and install it. This library will help us with reading values from the IMU. Now search for **LVGL**, and install it. This library will be used for the image and rotating it.
+Make sure the latest GIGA Board Package is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) is included in the Board Package. Now you have to install the library needed for the IMU and the library for handling the image. Go to **Tools > Manage libraries..**, search for **Arduino_BMI270_BMM150**, and install it. This library will help us with reading values from the IMU. Now search for **LVGL**, and install it. This library will be used for the image and rotating it.
 
 ## Using the IMU Readings With the Image
 
@@ -33,13 +33,14 @@ BoschSensorClass imu(Wire1);
 
 Start receiving IMU readings with `imu.begin();` and start the display with `Display.begin();`.
 
-Then we can assign attributes to the images such as its source, alignment and how the rotation should behave. For more information on image attributes with LVGL, check out our [LVGL tutorial](lvgl-guide#image).
+Then we can assign attributes to the images such as its source, alignment and how the rotation should behave. For more information on image attributes with LVGL, check out our [LVGL tutorial](/tutorials/giga-display-shield/lvgl-guide).
 
 ```arduino
 LV_IMG_DECLARE(img_arduinologo);
 lv_obj_t * img;
 
 void setup() {
+  delay(3000);
   Serial.begin(115200);
   
   Display.begin();
@@ -91,6 +92,7 @@ The easiest way to tell what values you are getting depending on the orientation
 BoschSensorClass imu(Wire1);
 
 void setup(){
+  delay(3000);
   Serial.begin(115200);
   imu.begin();
 }
@@ -114,7 +116,7 @@ void loop(){
 
 Please note that the image that you want to use with the sketch needs to be in the same folder as the sketch for it to work. It should look like the image below:
 
-![Folder structure](assets/folder-struct.svg)
+![Folder structure](assets/folder-struct.png)
 
 Now to put it all together where the image will change depending on how we rotate the board and shield:
 
@@ -131,6 +133,7 @@ LV_IMG_DECLARE(img_arduinologo);
 lv_obj_t * img;
 
 void setup() {
+  delay(3000);
   Serial.begin(115200);
   
   Display.begin();
@@ -173,8 +176,6 @@ Any image could be used in the sketch. This tutorial and the example uses an ima
 ## Testing It Out
 
 Now try rotating your device to see if the image behaves correctly. If the image does not rotate correctly have another look at the values you entered into the previous sketch. It might help to try and run the simple IMU readings printer sketch to take a quick look at the IMU values in the serial monitor. This will help you figure out what values should be considered when the device is being moved. 
-
-![GIF of the orientation sketch running on the screen](assets/image-orientation.gif)
 
 ## Conclusion
 

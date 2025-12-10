@@ -1,3 +1,8 @@
+---
+productsLibrariesMap:
+  - arduinoble
+---
+
 <EssentialsColumn title="First Steps">
   <EssentialElement title="Quickstart Guide" type="getting-started" link="/tutorials/nano-esp32/getting-started-nano-esp32">
     All you need to know to get started with your new Arduino board.
@@ -13,17 +18,9 @@
 
 </EssentialsColumn>
 
-<EssentialsColumn title="Suggested Libraries">
-
-<EssentialElement title="ArduinoBLE" type="library" link="https://www.arduino.cc/en/Reference/ArduinoBLE">
-The ArduinoBLE library is designed for Arduino boards that have hardware enabled for Bluetooth® Low Energy and Bluetooth® 4.0 and above. 
-</EssentialElement>
-
-</EssentialsColumn>
-
 <EssentialsColumn title="Arduino Basics">
   <EssentialElement title="Built-in Examples" type="tutorial" link="/built-in-examples/">
-    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands. 
+    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands.
   </EssentialElement>
   <EssentialElement title="Learn" type="resource" link="/learn/">
     Discover interesting articles, principles and techniques related to the Arduino ecosystem.

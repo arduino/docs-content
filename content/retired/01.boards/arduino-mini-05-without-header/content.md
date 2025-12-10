@@ -2,11 +2,9 @@
 title: "Arduino Mini 05 without header"
 description: "The Arduino Mini is a very compact version of the Arduino Nano without an on-board USB to Serial connection. This version is without header"
 coverImage: "assets/a000088_featured.jpg"
-sku: "A000088"
+sku: [A000088]
 source: "https://store.arduino.cc/arduino-mini-05-without-header"
 ---
-
-***Note: This page refers to a product that is retired.***
 
 ![The Arduino Mini 05 board, without headers](./assets/a000088_featured.jpg)
 

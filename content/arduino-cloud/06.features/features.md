@@ -1,3 +1,4 @@
 ---
 title: Features
+icon: IconSquare
 ---

@@ -12,7 +12,7 @@ This example contains the bare minimum of code you need for a sketch to compile 
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 ### Circuit
 

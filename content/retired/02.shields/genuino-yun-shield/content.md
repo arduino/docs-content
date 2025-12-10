@@ -3,15 +3,13 @@ title: "Arduino Yún Shield"
 description: "The Yún Shield easily brings the Yún features to your Arduino and Genuino boards. It is the perfect shield for your IoT projects!."
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoYunShield"
 coverImage: "assets/GSX00102_featured_2.jpg"
-sku: "GSX00102"
+sku: [GSX00102]
 source: "https://store.arduino.cc/genuino-yun-shield"
 ---
 
-***Note: This page refers to a product that is retired.***
-
 ![The Arduino Yún Shield](./assets/GSX00102_featured_2.jpg)
 
-The **Arduino Yún Shield** extends your Arduino & Genuino board with the power of a Linux based system that enables advanced network connections and applications.  
+The **Arduino Yún Shield** extends your Arduino & Genuino board with the power of a Linux based system that enables advanced network connections and applications.
 
 Connection to your WiFi or wired network is simple thanks to the Yún Web Panel and the dedicated[ ''YunFirstConfig'' sketch](https://www.arduino.cc/en/Tutorial/YunFirstConfig). The Web panel allows you to manage your shield preferences and upload your sketch (in .hex format) on the attached Arduino or Genuino board. The Yún Shield uses the [ Bridge library](https://www.arduino.cc/en/Reference/YunBridgeLibrary) and so extends your board capabilities using the Linux processor, in the same way as the Yún board.
 
@@ -33,7 +31,7 @@ You can find in the [Getting Started section](https://www.arduino.cc/en/Guide/Ar
 
 Yún Shield is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://content.arduino.cc/assets/YunShield_Rev1.0.zip) 
+[EAGLE FILES IN .ZIP](https://content.arduino.cc/assets/YunShield_Rev1.0.zip)
 
 [SCHEMATICS IN .PDF](https://content.arduino.cc/assets/YunShield_Rev1.0_sch.pdf)
 

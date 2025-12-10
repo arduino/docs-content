@@ -50,7 +50,7 @@ To communicate with the Portenta H7 via Bluetooth®, you need to upload a pre-bu
 
 ### 1. The Basic Setup
 
-Begin by plugging in your Portenta board to the computer using a USB-C® cable and open the Arduino IDE. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [set up the Portenta H7 for Arduino](setting-up-portenta) before you proceed.
+Begin by plugging in your Portenta board to the computer using a USB-C® cable and open the Arduino IDE. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [set up the Portenta H7 for Arduino](https://docs.arduino.cc/tutorials/portenta-h7/setting-up-portenta/) before you proceed.
 
 ![The Portenta H7 can be connected to the computer using an appropriate USB-C® cable](assets/por_ard_ble_basic_setup.svg)
 
@@ -184,18 +184,18 @@ On your mobile device install **nRF Connect** or an equivalent app that allows f
 
 Once you have downloaded the nRF application on your mobile device, look for your Portenta in the device list. You may filter the list by "Portenta" to easierly find your board in case you are using **nRF Connect**. 
 
-- When you found your board in the list tap "Connect". 
+- When you find your board in the list tap "Connect". 
 - Navigate to the "Services" screen and tap the arrow up button. 
 - Switch to "Bool" type and move the toggle to "True". Confirm the dialog with a tap on "Write" and you should see the built-in LED turned on. If you do the same procedure again but setting the toggle switch to "False", it will turn off the LED.
 
 ![In the nRF Connect app use a Bool toggle switch to toggle the built-in LED.](assets/por_ard_ble_nrf_connect.png)
 
 ## Conclusion
-This tutorial shows how to connect and control the built-in LED using a Bluetooth® Low Energy connection. You have learnt how a simple Bluetooth® Low Energy connection between your Portenta and your cell phone, which has basic communication abilities between the two devices, works.
+This tutorial shows how to connect and control the built-in LED using a Bluetooth® Low Energy connection. You have learned how a simple Bluetooth® Low Energy connection between your Portenta and your cell phone, which has basic communication abilities between the two devices, works.
 
 ### Next Steps
 
-Now that you learnt how to configure the Portenta as a Bluetooth® Low Energy endpoint, you can try with two Portentas (or other Bluetooth® Low Energy capable Arduino devices), to facilitate bidirectional communication. More information on how to achieve that can be found on the [BLE library reference page](https://www.arduino.cc/en/Reference/ArduinoBLE).
+Now that you learned how to configure the Portenta as a Bluetooth® Low Energy endpoint, you can try with two Portentas (or other Bluetooth® Low Energy capable Arduino devices), to facilitate bidirectional communication. More information on how to achieve that can be found on the [BLE library reference page](https://www.arduino.cc/en/Reference/ArduinoBLE).
 
 
 ## Troubleshooting

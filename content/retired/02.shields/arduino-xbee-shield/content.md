@@ -1,9 +1,8 @@
 ---
 title: "Arduino Xbee Shield"
 source: "https://arduino.cc/en/Main/ArduinoXbeeShield"
+sku: [A000007]
 ---
-
-***Note: This page refers to a product that is retired.***
 
 ## Arduino Xbee Shield
 

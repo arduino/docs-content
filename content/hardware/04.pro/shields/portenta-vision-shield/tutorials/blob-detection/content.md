@@ -25,8 +25,8 @@ In this tutorial you will use the Portenta Vision Shield to detect the presence 
 
 - [Portenta H7 board](https://store.arduino.cc/portenta-h7)
 - [Arduino Portenta Vision Shield - Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet)
-- USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
-- Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software) or [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
 - Portenta Bootloader Version 20+
 - OpenMV IDE 2.6.4+
 

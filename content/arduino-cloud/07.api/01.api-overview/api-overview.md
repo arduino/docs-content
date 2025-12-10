@@ -13,7 +13,7 @@ The main goal of the Application API is to allow you to create and manage IoT re
 
 The core of those APIs is organized around  [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer). Our API has predictable resource-oriented URLs, accepts  [form-encoded](https://en.wikipedia.org/wiki/POST_(HTTP)#Use_for_submitting_web_forms)  request bodies, returns  [JSON-encoded](http://www.json.org/) responses, and uses standard HTTP response codes, authentication, and verbs. 
 
-You can use those APIs, both directly calling our HTTP endpoints or using our clients that wrap those calls into easy-to-use abstractions like objects and functions. We have Applications API clients available in `javascript`, `golang`, and `python`. To use the Application API, you need to create an **API Key** in the [API Keys](https://cloud.arduino.cc/home/api-keys) section.
+You can use those APIs, both directly calling our HTTP endpoints or using our clients that wrap those calls into easy-to-use abstractions like objects and functions. We have Applications API clients available in `javascript`, `golang`, and `python`. To use the Application API, you need to create an **API Key** in the [API Keys](https://cloud.arduino.cc/api-keys) section.
 
 With this API, you can:
 - Build an automated script to create your things, in bulk
@@ -36,7 +36,7 @@ The **Device API** allows sending and receiving any kind of data (sensors' value
 - manage compression, data format, and transport protocols
 
 With this API, you can:
-- Send sensors' values to the cloud
+- Send sensors' values to the Cloud
 - Send and receive input and commands from and to dashboards
 - Listen for variables' values changes and act upon them
 
@@ -81,7 +81,7 @@ Full examples and documentation can be found at:
 
 ### MicroPython
 
-The [Arduino Cloud Python Client](https://github.com/arduino/arduino-iot-cloud-py) can be installed on a board running MicroPython, and is designed to be easy to use. With just a few lines of code you can connect to the cloud, using credentials obtained during the manual device configuration.
+The [Arduino Cloud Python Client](https://github.com/arduino/arduino-iot-cloud-py) can be installed on a board running MicroPython, and is designed to be easy to use. With just a few lines of code you can connect to the Cloud, using credentials obtained during the manual device configuration.
 
 Below is a minimal example:
 

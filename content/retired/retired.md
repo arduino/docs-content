@@ -1,3 +1,3 @@
 ---
-title: Retired Products & Legacy Documentation
+title: Legacy Documentation
 ---

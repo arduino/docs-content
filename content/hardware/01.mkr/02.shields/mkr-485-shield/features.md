@@ -9,9 +9,10 @@ The MKR 485 Shield is based on the **MAXIM MAX3157** transceiver, which guarante
 <Feature title="half & full duplex communication" image="communication">
 
 A transceiver with guaranteed data rates of up to 250kbps, which can be used for half-duplex or full-duplex communication.
-
+<FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-485-shield/mkr-485-communication"/>
   <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduinors485/"/>
+</FeatureWrapper>
 </Feature>
 
 <Feature title="Power with battery" image="power">

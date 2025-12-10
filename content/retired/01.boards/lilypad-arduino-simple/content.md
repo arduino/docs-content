@@ -3,16 +3,14 @@ title: "LilyPad Arduino Simple"
 description: "The LilyPad Arduino Simple is designed for e-textiles and wearables projects. It can be sewn to fabric and similarly mounted power supplies, sensors and actuators with conductive thread."
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoLilyPad"
 coverImage: "assets/lilypad.jpg"
-sku: "DEV-10274"
+sku: [DEV-10274]
 source: "https://store.arduino.cc/lilypad-arduino-simple"
 ---
 
-***Note: This page refers to a product that is retired.***
-
 ![The LilyPad Arduino Simple board](./assets/lilypad.jpg)
 
-Unlike the [LilyPad Arduino Main Board](https://www.arduino.cc/en/Main/ArduinoBoardLilyPad), the **LilyPad Simple** has only 9 pins for input/output. Additionally, it has a JST connector and a built in charging circuit for Lithium Polymer batteries. The board is based on the [ATmega328](http://www.atmel.com/assets/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf).  
-  
+Unlike the [LilyPad Arduino Main Board](https://www.arduino.cc/en/Main/ArduinoBoardLilyPad), the **LilyPad Simple** has only 9 pins for input/output. Additionally, it has a JST connector and a built in charging circuit for Lithium Polymer batteries. The board is based on the [ATmega328](http://www.atmel.com/assets/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf).
+
 The LilyPad Arduino Simple was designed and developed by Leah Buechley and SparkFun Electronics.
 
 You can find your board warranty information [here](https://www.arduino.cc/en/Main/warranty).
@@ -33,13 +31,13 @@ In the [Getting Started section](https://www.arduino.cc/en/Guide/ArduinoLilyPad)
 
 Lilypad Simple is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](http://dlnmh9ip6v2uc.cloudfront.net/datasheets/Dev/LilyPad/LilyPad-Simple-v25.zip) 
+[EAGLE FILES IN .ZIP](http://dlnmh9ip6v2uc.cloudfront.net/datasheets/Dev/LilyPad/LilyPad-Simple-v25.zip)
 [SCHEMATICS IN .PDF](http://dlnmh9ip6v2uc.cloudfront.net/datasheets/Dev/LilyPad/LilyPad-Simple-v25.pdf)
 
 ### Power
 
-The LilyPad Arduino Simple can be powered via an external power supply or an FTDI compatible adapter like the [USBSerial Light Adapter](https://www.arduino.cc/en/Main/USBSerial).  
-  
+The LilyPad Arduino Simple can be powered via an external power supply or an FTDI compatible adapter like the [USBSerial Light Adapter](https://www.arduino.cc/en/Main/USBSerial).
+
 The board can be turned on and off with the on-board switch. When the board is unplugged from an FTDI adapter and powered via a battery, the switch turns the board on and off; with the switch in the ON position, the microcontroller receives power and the board runs and with the switch in the OFF position, the microcontroller doesn't receive power. When the board is powered via an FTDI adapter, the board remains on all of the time; with the switch in the ON position, the microcontroller receives power from the battery (or the FTDI board via the battery charging circuit if no battery is attached) and with the switch in the OFF position, the microcontroller receives power from the FTDI adapter.
 
 An external power supply should provide between 2.7 and 5.5 volts. The Lilypad Simple is designed with battery use in mind; 3.7 volt Lithium Polymer batteries can be plugged directly into the on-board JST connector. Again, *don't power the LilyPad Arduino Simple with more than 5.5 volts, or plug the power in backwards: you'll kill it*.
@@ -95,5 +93,5 @@ We recommend washing projects in cold water by hand with a mild detergent. Drip 
 | SRAM                   | 2 KB                                                                                                               |
 | EEPROM                 | 1 KB                                                                                                               |
 | Clock Speed            | 8 MHz                                                                                                              |
-  
+
 Warning: *Don't power the LilyPad Arduino with more than 5.5 volts, or plug the power in backwards, you'll kill it.*

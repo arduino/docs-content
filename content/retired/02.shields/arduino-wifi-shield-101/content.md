@@ -3,11 +3,9 @@ title: "Arduino WiFi Shield 101"
 description: "The Arduino WiFi Shield 101 is a powerful IoT shield with crypto-authentication which allows you to wirelessly connect your Arduino or Genuino with ease. This shield is perfect for your IoT projects!"
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoWiFiShield101"
 coverImage: "assets/store_asx00001_featured.jpg"
-sku: "ASX00001"
+sku: [ASX00001]
 source: "https://store.arduino.cc/arduino-wifi-101-shield"
 ---
-
-***Note: This page refers to a product that is retired.***
 
 ![The Arduino WiFi Shield 101](./assets/store_asx00001_featured.jpg)
 
@@ -20,8 +18,8 @@ source: "https://store.arduino.cc/arduino-wifi-101-shield"
 * Connection with Arduino or Genuino on SPI port
 * Onboard CryptoAuthentication by ATMEL
 
-You can find [here](https://www.arduino.cc/en/Main/warranty) your board warranty information.  
-  
+You can find [here](https://www.arduino.cc/en/Main/warranty) your board warranty information.
+
 The WiFi Shield 101 needs certificates to ensure SSL connection. To upload new certificates and update the firmware, please refer to the Utilities section in the [WiFi101 Library](https://arduino.cc/en/Reference/WiFi101) reference.
 
 ## Getting Started
@@ -34,13 +32,13 @@ You can find in the [Getting Started section](https://www.arduino.cc/en/Guide/Ho
 * On Projects [on the Arduino Forum](https://forum.arduino.cc/index.php?board=3.0)
 * On the Product itself through [our Customer Support](https://support.arduino.cc/hc)
 
-## Documentation 
+## Documentation
 
 ### OSH: Schematics
 
 The Arduino WiFi Shield 101 is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/ArduinoWiFiShield101.zip) 
+[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/ArduinoWiFiShield101.zip)
 
 [SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/Arduino-WiFi101-schematic.pdf)
 
@@ -48,15 +46,15 @@ The Arduino WiFi Shield 101 allows an Arduino or Genuino board to connect to the
 
 The WiFi Shield 101 also features an hardware encryption/decryption security protocol provided by the ATECC508A CryptoAuthentication chip that is an ultra secure method to provide key agreement for encryption/decryption, specifically designed for the IoT market.
 
-Digital pin 7 is used as a handshake pin between the WiFi 101 Shield and the board, and should not be used.  
+Digital pin 7 is used as a handshake pin between the WiFi 101 Shield and the board, and should not be used.
 
 Digital pin 5 is used as RESET pin between the WiFi 101 Shield and the board, and should not be used.
 
 Usage with Arduino/Genuino UNO board
 
-Please note that Uno + WiFi Shield 101 is not compatible with the [Software Serial library.](https://www.arduino.cc/en/Reference/SoftwareSerial)  
+Please note that Uno + WiFi Shield 101 is not compatible with the [Software Serial library.](https://www.arduino.cc/en/Reference/SoftwareSerial)
 
-The WiFi Shield 101 carries a library that is very complex and occupies more than 60% of the available memory, leaving little room for sketches.  
+The WiFi Shield 101 carries a library that is very complex and occupies more than 60% of the available memory, leaving little room for sketches.
 
 Please keep in mind even if that basic usage is supported for the Uno, for complex projects we strongly recommend to use the WiFi Shield 101 with a Arduino/Genuino [Zero](https://www.arduino.cc/en/Main/ArduinoBoardZero), [101](https://www.arduino.cc/en/Main/ArduinoBoard101) or [Mega 2560](https://www.arduino.cc/en/Main/ArduinoBoardMega2560).
 

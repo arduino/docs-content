@@ -13,7 +13,7 @@ The [**String**](https://www.arduino.cc/en/Reference/StringObject) function `sub
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 ### Circuit
 

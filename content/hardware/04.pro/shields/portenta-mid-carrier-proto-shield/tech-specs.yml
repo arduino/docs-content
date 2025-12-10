@@ -1,0 +1,21 @@
+Board:
+  Name: Arduino® Portenta Mid Carrier Proto Shield
+  SKU: ASX00072
+Interfaces:
+  Portenta Mid Carrier Interface: 2x 44-pin female headers
+  Arduino UNO Shield Interface: 20-pin female headers
+  ESLOV Connectors: 2
+  QWIIC Connector: 1
+  ADC, GPIO, SPI: Accessible through Arduino UNO shield headers
+Communication:
+  I2C: Supported via ESLOV and QWIIC connectors
+  SPI, ADC, GPIO: Accessible through Arduino UNO Shield Interface headers
+Power:
+  Supply Input Voltage (VJACK): 7-30 VDC (via dedicated power jack connector)
+Pinout features:
+  Compatibility: Arduino UNO Shields, Nicla sensorized nodes, and Modulino®
+Operating Temperature: -40 °C to + 85 °C
+Dimensions:
+  Width: 61.28 mm
+  Length: 86.5 mm
+

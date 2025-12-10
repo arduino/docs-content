@@ -12,13 +12,13 @@ author: 'Jacob Hylén'
 
 The Arduino Cloud is a powerful platform that can help you with setting up your own IoT devices within minutes. 
 
-It is now possible to synchronize your phone's sensor data with the cloud, using the Arduino IoT Remote App for [iOS](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431) and [Android](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US). Furthermore, this data can also be used to control your Arduino boards, such as mapping a value from a sensor on your phone to an actuator on your Arduino.
+It is now possible to synchronize your phone's sensor data with the Cloud, using the Arduino IoT Remote App for [iOS](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431) and [Android](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US). Furthermore, this data can also be used to control your Arduino boards, such as mapping a value from a sensor on your phone to an actuator on your Arduino.
 
 Your smartphone is absolutely **packed** with sophisticated sensors that constantly measure everything from GPS position, to magnetic fields, acceleration, and so on. But they're difficult for a maker to take advantage of without having extensive knowledge of mobile development. 
 
 That is changed by the Arduino IoT Remote app - as you are able to, with the latest version of the app for [Android](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) and [iOS](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431), set up a dashboard in the Arduino Cloud that tracks and displays all your sensor data in a neat dashboard within a minute.
 
-The goal with this project is to learn about how you can use your smartphone as a remote, sending sensor data to the Arduino Cloud. You'll also learn how this sensor data can be used by other Things in your Arduino Cloud account, essentially letting you control your IoT devices depending on your variables such as GPS position, compass orientation, or any of the other in the long list of variables the IoT Remote app can stream live to the cloud. 
+The goal with this project is to learn about how you can use your smartphone as a remote, sending sensor data to the Arduino Cloud. You'll also learn how this sensor data can be used by other Things in your Arduino Cloud account, essentially letting you control your IoT devices depending on your variables such as GPS position, compass orientation, or any of the other in the long list of variables the IoT Remote app can stream live to the Cloud. 
 
 You will learn this by making a small project where a servo motor reacts to where you point your phone, as shown below.
 

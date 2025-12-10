@@ -34,7 +34,7 @@ The Opta™ is a powerful micro PLC device with many features that can be custom
 
 - Opta™ PLC with connectivity support (x1)
 - Ethernet (RJ45) cable (x1)
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®) (x1)
 - Wi-Fi® Access Point with Internet Access
 
@@ -44,7 +44,7 @@ The Opta™ is a powerful micro PLC device with many features that can be custom
 
 Using the Arduino IDE, we can easily work with the connectivity features, which have libraries that we can make use of. First, make sure the latest version of the Arduino IDE is installed. The IDE can be downloaded [here](https://www.arduino.cc/en/software).
 
-Then we need to install the appropriate core for Opta™. Go to **Tools > Board > Boards Manager**, in the board's manager section search for **Opta mbed** and install it. For more detailed instructions on setting up the Opta™ with the Arduino IDE, have a look at the [Getting started with Opta™ tutorial](/tutorials/opta/getting-started).
+Then we need to install the appropriate core for Opta™. Go to **Tools > Board > Boards Manager**, in the board's manager section search for **Opta mbed** and install it. For more detailed instructions on setting up the Opta™ with the Arduino IDE, have a look at the [Opta™ User Manual](/tutorials/opta/user-manual).
 
 ### Wi-Fi®
 

@@ -7,7 +7,7 @@ tags: [Arduino Cloud, Remote App, Phone Data]
 
 The **Arduino IoT Remote** phone application lets you control and monitor all of your dashboards in the [Arduino Cloud](https://app.arduino.cc/). With the app, you can also access your phone's internal sensors such as GPS data, light sensor, IMU and more (depending on what phone you have).
 
-The phone's sensor data is automatically stored in cloud variables, which you can also synchronize with other Things. This means your phone can become a part of your IoT system, acting as another node in your network.
+The phone's sensor data is automatically stored in Cloud variables, which you can also synchronize with other Things. This means your phone can become a part of your IoT system, acting as another node in your network.
 
 ***The Arduino IoT Remote app now supports data collection in background mode. This can be enabled inside the app. Please note that your microphone is NEVER used in background mode, only when the app is being used directly. See more in the [Background Mode](#background-mode) section***
 
@@ -23,7 +23,7 @@ The phone's sensor data is automatically stored in cloud variables, which you ca
 
 To use the Arduino IoT Remote app, visit Google Play / App Store and search for **"Arduino IoT Remote"**. Links are available just above.
 
-***NOTE: The IoT Remote app requires iOS 12.4 or later for iOS the version. If you are using Android, version 8.0 or later is required. Make sure the iOS or Android version on your device is up to date before downloading the app.***
+***NOTE: The IoT Remote app requires iOS 15.1 or later for iOS the version. If you are using Android, version 8.0 or later is required. Make sure the iOS or Android version on your device is up to date before downloading the app.***
 
 After installing the app, you will need to log in to your Arduino account. If you do not have one, you can [sign up here](https://login.arduino.cc/login).
 
@@ -37,6 +37,12 @@ You can change between the default (light) to the dark theme, by navigating to *
 
 ![Change theme (light/dark)](assets/app-theme.png)
 
+## Edit Dashboards
+
+You can also edit your dashboards directly from the IoT Remote app. Simply select one of your existing dashboards, press three dots in the upper right corner, and click on "Rearrange". To move widgets around press and hold them until they appear in a light blue color. To resize them hold and drag on of the corners and resize to the size you want.
+
+
+![Edit Mode](./assets/edit-dashbaord.png)
 
 ## Access Phone Sensor Data
 
@@ -59,7 +65,7 @@ For a more in depth guide on how to set this up, and how to use it to control yo
 
 ### Background Mode
 
-Now that you've got access to your phone's data, you can also enable the **background mode**. This will allow your phone to continue streaming data to the cloud, even though the app is not being used.
+Now that you've got access to your phone's data, you can also enable the **background mode**. This will allow your phone to continue streaming data to the Cloud, even though the app is not being used.
 
 The exception is your microphone, this one is always disabled in background mode, for data privacy reasons.
 

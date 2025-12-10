@@ -73,7 +73,7 @@ Each command has a set of **subcommands** which we will be exploring in this gui
 
 - `arduino-cloud-cli credentials`
 
-***Get your API key from the [Arduino Cloud home page](https://cloud.arduino.cc/home/) (bottom left corner of the page)***
+***Get your API key from the [Arduino Cloud API Keys page](https://app.arduino.cc/api-keys)***
 
 To authenticate with the Arduino Cloud, we will need to first set our credentials, using our `clientId` and `clientSecret` which is obtained from the Arduino Cloud API keys section.
 
@@ -126,15 +126,15 @@ Here's follows the FQBN's list of the supported devices:
 * `arduino:samd:mkrgsm1400` [Arduino MKR GSM 1400](https://docs.arduino.cc/hardware/mkr-gsm-1400)
 * `arduino:samd:mkrnb1500` [Arduino MKR NB 1500](https://docs.arduino.cc/hardware/mkr-nb-1500) 
 
-### LoRaWAN® Devices
+### LoRa®-Enabled Devices
 
-To configure LoRaWAN® devices, use the additional `create-lora` and the `--frequency-plan` flag. This 
+To configure LoRa®-enabled devices, use the additional `create-lora` and the `--frequency-plan` flag. This  
 
 ```
 arduino-cloud-cli device create-lora --name <deviceName> --frequency-plan <freqID> --port <port> --fqbn <deviceFqbn>
 ```
 
-LoRaWAN® devices that are supported: 
+LoRa®-enabled devices that are supported: 
 
 * `arduino:samd:mkrwan1310`
 * `arduino:samd:mkrwan1300`
@@ -211,7 +211,7 @@ arduino-cloud-cli device delete-tags --id <deviceID> --keys <key0>,<key1>
 
 - `arduino-cloud-cli things`
 
-**Things** in the Arduino Cloud is the virtual twin of your hardware device. In a Thing, you create variables, attach device and add network credentials. 
+**Things** in the Arduino Cloud is the virtual twin of your hardware device. In a Thing, you create variables and attach a device. 
 
 With `arduino-cloud-cli` you can:
 
@@ -454,6 +454,9 @@ The Arduino Cloud CLI can also be well combined with the [Arduino CLI](https://a
 To recap, this tool can be used to:
 - Extract templates from your existing Things & dashboards previously created in the Arduino Cloud.
 - Perform the same actions as the Arduino Cloud but from a terminal (like creating/deleting devices, Things and linking them).
-- List all available components from the cloud (like `thing list`).
+- List all available components from the Cloud (like `thing list`).
 - Tag your devices & Things with the `--tags <key0>=<value0>` command.
 
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

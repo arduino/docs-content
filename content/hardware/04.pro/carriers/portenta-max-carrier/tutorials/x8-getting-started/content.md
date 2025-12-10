@@ -30,6 +30,7 @@ The goals of this project are:
 
 - [Arduino® Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - [Arduino® Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
 
 ## The Portenta Max Carrier
 
@@ -38,14 +39,14 @@ The Arduino® Portenta Max Carrier was designed to add capabilities to the Ardui
 To make use of the Portenta Max Carrier you will need to power it through either the barrel jack connector or with a 3.7V 18650 Li-Ion battery, connected to the Portenta Max Carriers battery clips.
 
 | Function                 | Supported on the Portenta X8 M4 Core | Supported on Portenta X8's NXP® i.MX 8M Mini Processor |
-| ------------------------ | ------------------------------------ | ------------------------------------------------------ |
+|--------------------------|--------------------------------------|--------------------------------------------------------|
 | USB Host                 | USB 1.0                              | USB 2.0                                                |
 | Ethernet                 | Fast Ethernet                        | 1 Gbps                                                 |
 | CAN                      | Yes                                  | Yes                                                    |
 | Mini PCIe (USB)          | USB 1.0                              | USB 2.0                                                |
 | Mini PCIe (PCIe)         | No                                   | PCIe 2.0                                               |
 | Battery Charger          | Yes                                  | Yes                                                    |
-| LoRa®                    | Yes (additional software required)   | Yes (additional software required)                     |
+| LoRa® technology         | Yes (additional software required)   | Yes (additional software required)                     |
 | NBIoT/CatM1/2G           | Yes (additional software required)   | Yes (additional software required)                     |
 | Camera                   | No                                   | MIPI up to 4 lanes                                     |
 | Audio                    | Limited                              | Yes                                                    |
@@ -62,7 +63,8 @@ To make use of the Portenta Max Carrier you will need to power it through either
 The Portenta Max Carrier equips two different memory units onboard, a flash memory and a mini SD card slot. The Flash memory onboard the Portenta Max Carrier has 2 MB of storage via QSPI. The Mini SD card interface makes it possible to extend the storage size. It can be used to process log data, from sensors or programmed on-board computer registry.
 
 If you have an SD card connected to the Max Carrier you can create a directory on the SD card by using the following command:
-```python
+
+```bash
 mkdir -p /tmp/sdcard
 ```
 
@@ -73,7 +75,8 @@ The Portenta Max Carrier features the CS42L52 from Cirrus Logic®, a stereo CODE
 ![Audio connections on the Portenta Max Carrier](assets/audio-interface-max-carrier.svg)
 
 To use this feature with Linux, you could use something like the [alsa-lib](https://github.com/alsa-project/alsa-lib). You can run it with this command:
-```python
+
+```bash
 apk update && apk add alsa-utils alsa-utils-doc alsa-lib alsaconf alsa-ucm-conf && speaker-test -t sine -f 440 -c 2 -r 48000 -D hw:0,0
 ```
 
@@ -87,20 +90,21 @@ The Portenta Max Carrier carries a cellular modem SARA-R412M-02B to carry out ta
 
 If you want to use this feature with Python® scripts, have a look at the [Modem Manager API](https://www.freedesktop.org/software/ModemManager/doc/latest/ModemManager/).
 
-### LoRa®
+### LoRa® Technology
 
-One of the many features of the Portenta Max Carrier is the Murata CMWX1ZZABZ-078 which enables LoRaWAN® connectivity. LoRaWAN® is a Low Power Wide Area Network (LPWAN) designed to connect low-power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput.
+One of the many features of the Portenta Max Carrier is the Murata CMWX1ZZABZ-078 which enables LoRa® connectivity. LoRa technology is a Low Power Wide Area Network (LPWAN) protocol designed to connect low-power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput.
 
 The appropriate antenna and frequencies depend on the region. The common frequencies are 915 MHz for North America and Australia and 863 MHz for the European region. Frequencies are on a range, so for example in the Australia region it is possible to use a 928 MHz compatible antenna and configuration.
 
-For more in-depth information about LoRa® and LoRaWAN®, please read [The Arduino Guide to LoRa® and LoRaWAN®](/learn/communication/lorawan-101).
+For more in-depth information about LoRa® and its networks, please refer to [this documentation](/learn/communication/lorawan-101).
 
 ### Ethernet
 
 The Gigabit Ethernet physical interface is directly connected to the high-density connector to the Portenta X8 board. The connector includes an LED for indicating activity using the color orange, there is also a LED using the color green to indicate speed.
 
 To access the 1 Gbps connection Ethernet peripheral on the Max Carrier you can use the following command:
-```python
+
+```bash
 ETH_1G=`dmesg | grep "fec 30be0000.ethernet eth0: Link is Up - 1Gbps/Full"`
 ```
 
@@ -208,3 +212,7 @@ If you want to use the Portenta X8 and Max Carrier with a FoundriesFactory, Pyth
 |                        | 33                                                                 | mPCIe_TX_P  | Diff.   | PCIe Transmission Differential Positive |
 |                        | 36                                                                 | USB_DN      | Diff.   | USB Data Differential Negative          |
 |                        | 38                                                                 | USB_DN      | Diff.   | USB Differential Positive               |
+
+## Trademark Acknowledgments
+
+- **LoRa®** is a registered trademark of Semtech Corporation.

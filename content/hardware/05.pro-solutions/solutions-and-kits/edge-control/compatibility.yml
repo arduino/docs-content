@@ -1,8 +1,7 @@
 software:
   - arduino-ide
   - arduino-cli
-  - iot-cloud
-  - web-editor
+  - cloud-editor
 hardware:
   boards:
     - portenta-h7
@@ -22,4 +21,3 @@ hardware:
 
   enclosures:
     - enclosure-kit
-

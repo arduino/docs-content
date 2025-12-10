@@ -34,7 +34,7 @@ The goals of this project are:
 ## Hardware & Software Needed
 
 * This project uses no external sensors or components.
-* In this tutorial we will use the Arduino Create Web Editor to program the board.
+* In this tutorial we will use the Arduino Create Cloud Editor to program the board.
 
 
 ## The LSM6DS3 Inertial Module
@@ -73,14 +73,14 @@ In this example, we will use the gyroscope as an indicator for the direction of 
 
 **1. Setting up**
 
-Let's start by opening the [Arduino Web Editor](https://create.arduino.cc/editor), click on the **Libraries** tab and search for the **LSM6DS3** library. Then in **> Examples**, open the **SimpleGyroscope** sketch and once it opens, rename it as **Gyroscope**.
+Let's start by opening the [Arduino Cloud Editor](https://create.arduino.cc/editor), click on the **Libraries** tab and search for the **LSM6DS3** library. Then in **> Examples**, open the **SimpleGyroscope** sketch and once it opens, rename it as **Gyroscope**.
 
-![Finding the library in the Web Editor.](./assets/nano33IOT_02_include_library.png)
+![Finding the library in the Cloud Editor.](./assets/nano33IOT_02_include_library.png)
 
 
 **2. Connecting the board**
 
-Now, connect the Arduino Nano 33 IoT to the computer and make sure that the Web Editor recognizes it, if so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognize your board.
+Now, connect the Arduino Nano 33 IoT to the computer and make sure that the Cloud Editor recognizes it, if so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognize your board.
 
 
 ![Selecting the board.](assets/nano33IOT_02_board_port.png)

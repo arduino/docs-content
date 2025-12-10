@@ -64,6 +64,12 @@ Work files: [Inkscape SVGs in zip File](https://content.arduino.cc/assets/Arduin
 * **Email/url:** kaushlendra.sisodia@gmail.com / The IoT Academy
 * [PDF version](/resources/arduino-comics/arduino-comic-devNagri-hindi.pdf)
 
+**FRENCH / français **
+
+* **Translated by:** Alban Crommer
+* **Email/url:** https://git.interhacker.space/tmplab/arduino-comic-fr
+* [PDF version](/resources/arduino-comics/arduino-comic-fr.pdf)
+
 **GREEK / ΕΛΛΗΝΙΚΑ**
 
 - **Translated by:** Anna Maragkoudaki

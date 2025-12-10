@@ -1,0 +1,60 @@
+Board:
+  Name: Arduino Nesso N1
+  SKU: TPX00227
+
+Microcontroller:
+  SoC: ESP32-C6
+  Architecture: Single-core 32-bit RISC-V CPU
+  Clock Speed: up to 160 MHz
+
+Wireless Communication:
+  Wi-Fi: 2.4 GHz Wi-Fi® 6
+  Bluetooth: Bluetooth® LE 5.3
+  802.15.4: Thread / Zigbee® (Supports Matter Thread endpoint devices)
+  LoRa®: SX1262 module (850–960 MHz)
+
+Memory:
+  Flash: 16 MB external
+  SRAM: 512 kB (Internal)
+
+Power:
+  Input Voltage: 5 V (via USB-C®)
+  Power Source: USB DC-5V input or built-in battery power
+  Battery: 250 mAh LiPo (rechargeable)
+  Power Management: AW32001 (power path management, charge control, and over-current & over-voltage protection)
+  Battery Monitoring: BQ27220 (real-time monitoring of battery capacity, voltage, and current)
+
+Interfaces:
+  USB: 1× USB-C® (Programming / Power)
+  Grove: 1× Standard Grove interface
+  Qwiic: 1× Qwiic interface standard
+  Expansion Port: 1× 8-pin (M5StickC HAT compatible)
+
+Onboard Peripherals:
+  Display: 1.14" IPS LCD touchscreen (135×240 px, 262K colors, ST7789P3 driver, FT6336U capacitive touch)
+  IMU: BMI270 (6-axis)
+  Infrared: 1× IR transmitter (IR LED, connected to GPIO9 pin)
+  Audio: 1× Buzzer (connected to GPIO11 pin)
+  User Buttons: 2× programmable (KEY1/KEY2) + 1× Power/Reset/Bootloader button
+  User LEDs: 1× Green programmable (LED_BUILTIN) + 1× Blue (status indications)
+
+Operating Temperature: 0–40 °C
+
+Antennas:
+  ESP32-C6: on-board FPC antenna (dedicated)
+  LoRa®: detachable external antenna
+
+Dimensions (Device without antenna storage):
+  Width: 24 mm
+  Length: 48 mm
+  Height: 14 mm
+
+Dimensions (Device with antenna storage):
+  Width: 24 mm
+  Length: 48 mm
+  Height: 21.1 mm
+
+Dimensions (LoRa® antenna):
+  Width: 10.8 mm
+  Length: 45.5 mm
+  Height: 4.8 mm

@@ -16,7 +16,7 @@ This example demonstrates how to send multiple values from the Arduino board to 
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - 3 Analog Sensors (potentiometer, photocell, FSR, etc.)
 

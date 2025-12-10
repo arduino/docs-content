@@ -1,3 +1,8 @@
+---
+productsLibrariesMap:
+  - servo
+---
+
 <EssentialsColumn title="First Steps">
 
   <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v2/tutorials/ide-v2-board-manager">
@@ -13,21 +18,15 @@
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
-
-<EssentialElement title="Servo" type="library" link="https://www.arduino.cc/reference/en/libraries/servo/">
-The Servo library allows an Arduino board to control RC (hobby) servo motors.
-</EssentialElement>
-
-  <EssentialElement title="Wire" type="library" link="https://www.arduino.cc/en/reference/wire">
+  <EssentialElement title="Wire" type="library" link="https://docs.arduino.cc/language-reference/en/functions/communication/Wire/">
 This library allows you to communicate with I2C / TWI devices.
   </EssentialElement>
-
 </EssentialsColumn>
 
 <EssentialsColumn title="Arduino Basics">
-  
+
   <EssentialElement title="Built-in Examples" type="tutorial" link="/built-in-examples/">
-    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands. 
+    Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands.
   </EssentialElement>
 
   <EssentialElement title="Learn" type="resource" link="/learn/">

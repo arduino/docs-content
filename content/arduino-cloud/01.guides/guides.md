@@ -1,3 +1,4 @@
 ---
 title: Guides
+icon: IconBrackets
 ---

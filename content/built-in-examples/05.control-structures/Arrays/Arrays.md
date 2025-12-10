@@ -23,7 +23,7 @@ This technique of putting the pins in an array is very handy. You don't have to 
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - 6 LEDs
 - 6 220 ohm resistors

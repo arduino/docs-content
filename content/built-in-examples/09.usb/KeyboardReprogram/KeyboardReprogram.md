@@ -15,7 +15,7 @@ This example uses the Keyboard library to open a new Arduino Software (IDE) sket
 
 ### Hardware Required
 
-- Arduino Leonardo, Micro, or Due board
+- [Arduino Leonardo, Micro, or Due board](https://store.arduino.cc/collections/boards-modules)
 
 - pushbutton
 
