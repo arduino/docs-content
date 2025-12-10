@@ -226,7 +226,7 @@ Open `lzss.py` in a text editor (e.g., Notepad) and locate *line 15*, which shou
 lzss_functions = ctypes.CDLL(LZSS_SO_FILE)
 ```
 
-Replace it with the following code:
+Replace and update it with the following code:
 
 ```python
 import os
