@@ -214,7 +214,7 @@ temperature = rpc_client.call('temperature')
 
 You have two options to run the Python® application.
 
-### Using the Pre-built Docker Image
+### Using the Pre-Built Docker Image
 
 For a quick setup, you can use the pre-built `arduino/python-rpc-sensors` image that Arduino maintains. This way, you always have the latest compatible version. Log into the X8 via `adb shell` and then pull and run the pre-built image using the following command:
 
@@ -224,7 +224,7 @@ docker run --rm --network=host arduino/python-rpc-sensors
 
 This approach is recommended for most as it is simpler and always uses the latest tested version compatible with the current OS.
 
-### Building the Image from Source
+### Building the Image From Source
 
 If you want to modify the Python® script or learn how the container is built, you can build the image from source. The complete Python® application files are available in the repository [here](https://github.com/arduino/portenta-containers/tree/main/python-rpc-sensors). Clone or download the repository to your local machine, then upload the `python-rpc-sensors` folder to the Portenta X8 via:
 
@@ -376,7 +376,7 @@ sudo /usr/arduino/extra/program.sh
 
 The programming script will verify and flash the new firmware. You should see output indicating the programming progress, verification, and successful reset. After flashing completes, restart the X8 and try rerunning your Python application.
 
-### Building Firmware from Source
+### Building Firmware From Source
 
 If you need to build the firmware yourself or make modifications, you will need Git, the ARM GCC toolchain (`arm-none-eabi-gcc`), and Make installed on your system.
 
