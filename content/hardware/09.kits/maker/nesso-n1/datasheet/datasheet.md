@@ -182,7 +182,7 @@ Use the limits below to define the operating environment, thermal margins, and p
 **Power Button Behavior:**
 - **Single press:** Turns on the device if powered down or resets if done while operating
 - **Double press:** Turns off the device
-- **Long press:** Enters Download/Bootloader mode while operating
+- **Long press:** Enters Download/Bootloader mode (works both when the device is on or off)
 
 <div style="page-break-after: always;"></div>
 
@@ -198,7 +198,7 @@ Use the limits below to define the operating environment, thermal margins, and p
   - **KEY1 (S1):** User-programmable button connected to I/O expander P0
   - **KEY2 (S2):** User-programmable button connected to I/O expander P1
 
-- **Power Button (SW_PWR):** Controls device power state. Single-press turns on the device if powered down or resets if done while operating. Double-press turns off the device.
+- **Power Button (SW_PWR):** Controls device power state. Single-press turns on the device if powered down or resets if done while operating. Double-press turns off the device. Long press enters Download/Bootloader mode.
 
 - **Buzzer (BZ1):** 4 kHz passive buzzer driven by `GPIO11` through transistor driver circuit. Provides audio feedback for alarms, notifications, and user interactions.
 
