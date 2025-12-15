@@ -146,6 +146,9 @@ jobs:
       - run: npm install
 
       - name: Build
+        env:
+          NODE_OPTIONS: "--max-old-space-size=8192"
+          GATSBY_HF_CDN_URL: ""
         run: npm run build
 
       - name: Clean up node_modules # Just to save space
