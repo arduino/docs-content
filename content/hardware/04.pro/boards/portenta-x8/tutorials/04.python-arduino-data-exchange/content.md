@@ -92,16 +92,16 @@ If the service has stopped unexpectedly, you can restart it with the following c
 sudo systemctl restart m4-proxy
 ```
 
-## The Arduino Sketch
+## Arduino Sketch: Sensor Data Over RPC
 
 The Arduino sketch to read sensor data does not look much different from an ordinary sketch. The only difference is that we expose the sensor data via RPC.
 
 ```arduino
-RPC.bind("temperature", []{ return bme.temperature; });
-RPC.bind("humidity", []{ return bme.humidity; });
-RPC.bind("pressure", []{ return bme.pressure / 100.0F; });
-RPC.bind("gas", []{ return bme.gas_resistance / 1000.0; });
-RPC.bind("altitude", []{ return bme.readAltitude(SEALEVELPRESSURE_HPA); });
+RPC.bind("temperature", []{ return 100; });
+RPC.bind("humidity", []{ return 200; });
+RPC.bind("pressure", []{ return 300; });
+RPC.bind("gas", []{ return 400; });
+RPC.bind("altitude", []{ return 500; });
 ```
 
 Two additional header files need to be included to enable the RPC mechanism on Portenta X8:
@@ -125,13 +125,13 @@ That is because the labeled I<sup>2</sup>C pins on the Portenta Breakout are onl
 
 Make sure you have installed the **Arduino Mbed OS Portenta Boards** core and upload the sketch to the X8 in the Arduino IDE or via Arduino CLI.
 
-***The example code provided in the repository uses preset sensor values (returning fixed values like 100, 200, 300, etc.) for demonstration purposes. It allows you to test the RPC mechanism without connecting actual hardware sensors. To use real sensor data, you will need to modify the Arduino sketch to include your sensor library and update the `RPC.bind()` calls to return actual sensor readings instead of the preset values.***
+***The example code provided in the repository uses preset sensor values (returning fixed values like 100, 200, 300, etc.) for demonstration purposes. It allows you to test the RPC mechanism without connecting actual hardware sensors. To use real sensor data, you will need to modify the Arduino sketch to include your sensor library and update the `RPC.bind()` calls to return actual sensor readings instead of the preset values. For sensor implementation example please refer to [this section](#sensor-implementation).***
 
 ### Debugging the Arduino Sketch
 
-To check if the Arduino sketch is working correctly, you may want to read the messages from the `Serial.println` statements. You cannot currently read them directly from the Arduino IDE's serial monitor. Instead, you can use a simple service called **`py-serialrpc`**, which listens for those messages and prints them to the console.
+To check if the Arduino sketch is working correctly, you may want to read the messages from the `Serial.println` statements. You cannot currently read them directly from the Arduino IDE's serial monitor. Instead, you can use the **`python-rpc-serial`** container, which listens for those messages and prints them to the console.
 
-This service needs to run on the Linux side of the X8. You can get the files [here](https://github.com/arduino/portenta-containers/tree/main/python-rpc-serial). Clone or download the repository to your local machine, then from the command prompt, navigate to the adb tool folder and upload the files to the X8 with the command:
+This container needs to run on the Linux side of the X8. You can get the files [here](https://github.com/arduino/portenta-containers/tree/main/python-rpc-serial). Clone or download the repository to your local machine, then from the command prompt, navigate to the adb tool folder and upload the files to the X8 with the command:
 
 ```bash
 adb push <local directory path>/python-rpc-serial /home/fio
@@ -177,6 +177,9 @@ Or if using `docker run`:
 
 ```bash
 docker stop python-rpc-serial
+```
+
+```bash
 docker rm python-rpc-serial
 ```
 
@@ -200,16 +203,16 @@ docker logs -f python-rpc-serial
 
 If you do not wish to run the container in the background, skip the `-d` flag, you will get the console output directly in the executing shell. Once the container is running, you will see the messages being sent from the M4.
 
-## The Python® Application
+## Python® Application: Reading Sensor Data
 
 The Python® application requests the sensor data from the M4 over RPC and unpacks the message. Data can be requested by calling the function exposed over RPC on the M4, e.g.:
 
 ```python
-m4_proxy_address = 'm4-proxy'
-m4_proxy_port = 5001
-rpc_address = RpcAddress(m4_proxy_address, m4_proxy_port)
-rpc_client = RpcClient(rpc_address)
-temperature = rpc_client.call('temperature')
+m4_proxy_host = 'm4-proxy'
+m4_proxy_call_port = 5001
+rpc_address = RpcAddress(m4_proxy_host, m4_proxy_call_port)
+get_value = lambda value: RpcClient(rpc_address).call(value)
+temperature = get_value('temperature')
 ```
 
 You have two options to run the Python® application.
@@ -262,17 +265,7 @@ docker run -d \
 
 After a few seconds, you should see the output from the Python application featuring the sensor readings on the M4 that exchanges through the RPC mechanism. The output should look similar to the following:
 
-```bash
-python-rpc-sensors_1  | ============================================
-python-rpc-sensors_1  | ==       Portenta X8 Sensor reading       ==
-python-rpc-sensors_1  | ============================================
-python-rpc-sensors_1  |
-python-rpc-sensors_1  | Temperature:  100
-python-rpc-sensors_1  | Humidity:  200
-python-rpc-sensors_1  | Pressure:  300
-python-rpc-sensors_1  | Gas:  400
-python-rpc-sensors_1  | Altitude:  500
-```
+![Portenta X8 RPC Example](assets/x8-python-sensor-factory.gif)
 
 View the logs using:
 
@@ -330,6 +323,174 @@ If you're wondering how to specify the Python® script to run when a container i
 ENTRYPOINT ["python3", "main.py"]
 ```
 
+## Sensor Implementation
+
+The example provided in the repository uses preset sensor values for testing. To connect and read from actual sensors, you need to modify the Arduino sketch to include the appropriate sensor library and implement proper sensor initialization and reading.
+
+### BME680 Sensor Example
+
+The BME680 is an environmental sensor that provides temperature, humidity, pressure, gas resistance, and altitude readings. Here is an example implementation:
+
+```arduino
+#include <RPC.h>
+#include <SerialRPC.h>
+#include <Wire.h>
+#include <Adafruit_Sensor.h>
+#include "Adafruit_BME680.h"
+
+#define SEALEVELPRESSURE_HPA (1013.25)
+
+Adafruit_BME680 bme;
+
+void setup()
+{
+  Serial.begin(115200);
+  Serial.println("BME680 test on M4");
+  
+  Wire.begin();
+  RPC.begin();
+  
+  Serial.println("Trying to find sensor...");
+  
+  for (auto status = bme.begin(); !status; delay(250)) {
+    Serial.println("Could not find a valid BME680 sensor, check wiring!");
+  }
+  
+  // Configure sensor oversampling and filter
+  bme.setTemperatureOversampling(BME680_OS_8X);
+  bme.setHumidityOversampling(BME680_OS_2X);
+  bme.setPressureOversampling(BME680_OS_4X);
+  bme.setIIRFilterSize(BME680_FILTER_SIZE_3);
+  bme.setGasHeater(320, 150); // 320°C for 150 ms
+  
+  Serial.println("Registering RPC calls...");
+  RPC.bind("temperature", []{ return bme.temperature; });
+  RPC.bind("humidity", []{ return bme.humidity; });
+  RPC.bind("pressure", []{ return bme.pressure / 100.0F; });
+  RPC.bind("gas", []{ return bme.gas_resistance / 1000.0; });
+  RPC.bind("altitude", []{ return bme.readAltitude(SEALEVELPRESSURE_HPA); });
+  
+  Serial.println("Finished Init");
+}
+
+void loop()
+{
+  if (!bme.performReading()) {
+    Serial.println("Failed to perform reading");
+    return;
+  }
+  
+  Serial.print("Temperature = ");
+  Serial.print(bme.temperature);
+  Serial.println(" *C");
+  
+  Serial.print("Pressure = ");
+  Serial.print(bme.pressure / 100.0);
+  Serial.println(" hPa");
+  
+  Serial.print("Humidity = ");
+  Serial.print(bme.humidity);
+  Serial.println(" %");
+  
+  Serial.print("Gas = ");
+  Serial.print(bme.gas_resistance / 1000.0);
+  Serial.println(" KOhms");
+  
+  Serial.print("Approx. Altitude = ");
+  Serial.print(bme.readAltitude(SEALEVELPRESSURE_HPA));
+  Serial.println(" m");
+  
+  Serial.println();
+  delay(1000);
+}
+```
+
+This sketch includes sensor initialization with error checking, configuration of oversampling rates, and continuous sensor readings in the loop that can be monitored through the serial output or accessed via RPC from the Python application.
+
+### BME280 Sensor Example
+
+The BME280 provides temperature, humidity, pressure, and altitude readings but lacks a gas sensor. Here is an example implementation:
+
+```arduino
+#include <RPC.h>
+#include <SerialRPC.h>
+#include <Wire.h>
+#include <Adafruit_BME280.h>
+#include <Adafruit_Sensor.h>
+
+#define SEALEVELPRESSURE_HPA (1013.25)
+
+Adafruit_BME280 bme;
+
+void setup()
+{
+  Serial.begin(115200);
+  Serial.println("BME280 test on M4");
+  
+  Wire.begin();
+  RPC.begin();
+  
+  for (auto status = bme.begin(); !status; delay(250)) {
+    Serial.println("Could not find a valid BME280 sensor, check wiring!");
+    Serial.print("SensorID was: 0x");
+    Serial.println(bme.sensorID(), 16);
+  }
+  
+  Serial.println("Registering RPC calls...");
+  RPC.bind("temperature", []{ return bme.readTemperature(); });
+  RPC.bind("humidity", []{ return bme.readHumidity(); });
+  RPC.bind("pressure", []{ return bme.readPressure() / 100.0F; });
+  RPC.bind("gas", []{ return 0; }); // BME280 has no gas sensor
+  RPC.bind("altitude", []{ return bme.readAltitude(SEALEVELPRESSURE_HPA); });
+  
+  Serial.println("Finished Init");
+}
+
+void loop()
+{
+  Serial.print("Temperature = ");
+  Serial.print(bme.readTemperature());
+  Serial.println(" *C");
+  
+  Serial.print("Pressure = ");
+  Serial.print(bme.readPressure() / 100.0F);
+  Serial.println(" hPa");
+  
+  Serial.print("Humidity = ");
+  Serial.print(bme.readHumidity());
+  Serial.println(" %");
+  
+  Serial.print("Approx. Altitude = ");
+  Serial.print(bme.readAltitude(SEALEVELPRESSURE_HPA));
+  Serial.println(" m");
+  
+  Serial.println();
+  delay(1000);
+}
+```
+
+For the BME280, a dummy gas RPC binding that returns 0 is included since this sensor does not have gas sensing capabilities. This provides compatibility with the Python script that expects all five RPC calls.
+
+![Portenta X8 RPC](assets/x8-rpc-c.gif)
+
+### Python Script Considerations
+
+The Python script in the repository uses an optimized approach for making multiple RPC calls:
+
+```python
+def get_data_from_m4(rpc_address):
+    data = ()
+    sensors = ('temperature', 'humidity', 'pressure', 'gas', 'altitude')
+    try:
+        get_value = lambda value: RpcClient(rpc_address).call(value)
+        data = tuple(get_value(measure) for measure in sensors)
+    except RpcError.TimeoutError:
+        print("Unable to retrieve data from the M4.")
+    return data
+```
+
+This approach creates a new `RpcClient` instance for each call due to a known limitation with the `msgpackrpc` library. The lambda function and tuple comprehension provide a clean way to collect all sensor readings.
+
 ## Troubleshooting
 
 ### RPC Communication Issues
@@ -374,7 +535,9 @@ Flash the firmware using the programming script:
 sudo /usr/arduino/extra/program.sh
 ```
 
-The programming script will verify and flash the new firmware. You should see output indicating the programming progress, verification, and successful reset. After flashing completes, restart the X8 and try rerunning your Python application.
+The programming script will verify and flash the new firmware. You should see output indicating the programming progress, verification, and successful reset. After flashing completes, restart the X8 and try rerunning your Python application or [example](#building-the-image-from-source).
+
+![Portenta X8 STM32H7 firmware flashed](assets/stm32h7-flash-rpc.png)
 
 ### Building Firmware From Source
 
@@ -406,41 +569,12 @@ Replace `YOUR_USERNAME` with your actual Windows username. Build the firmware:
 make
 ```
 
-### Understanding the Example Code
-
-The `python-rpc-sensors` example uses preset sensor values for demonstration purposes. The Arduino sketch returns fixed preset values (100, 200, 300, 400, 500) rather than reading from actual hardware sensors. It allows you to test the RPC mechanism without connecting physical sensors.
-
-To use real sensor data, you need to modify the Arduino sketch to include your sensor library (such as `Adafruit_BME680` or `Adafruit_BMP280`) and update the `RPC.bind()` calls to return actual sensor readings. For example, with a real BME680 sensor:
-
-```arduino
-#include <Adafruit_BME680.h>
-Adafruit_BME680 bme;
-
-void setup() {
-  bme.begin();
-  RPC.bind("temperature", []{ return bme.temperature; });
-  RPC.bind("humidity", []{ return bme.humidity; });
-  RPC.bind("pressure", []{ return bme.pressure / 100.0F; });
-  RPC.bind("gas", []{ return bme.gas_resistance / 1000.0; });
-  RPC.bind("altitude", []{ return bme.readAltitude(SEALEVELPRESSURE_HPA); });
-}
-```
-
-If you are using a BMP280 sensor instead of a BME680, be aware that the BMP280 provides temperature, humidity, pressure, and altitude readings but lacks a gas resistance sensor. The example Python script calls all five RPC functions, including `gas`, which will cause a timeout error if your Arduino sketch does not implement it.
-
-To use a BMP280 sensor, you can either modify your Arduino sketch to provide a dummy gas value by adding:
-
-```arduino
-RPC.bind("gas", []{ return 0; });
-```
-
-Since the BMP280 does not have a gas sensor, you can modify the Python script to skip the gas reading by commenting out the gas RPC call. The BMP280 does support altitude calculation, so you can include that RPC call in your BMP280 sketch if needed.
-
 ## Conclusion
 
-In this tutorial, you learned how to use the Docker infrastructure to run a Python® application on the Portenta X8. You explored two approaches to running the application: using a prebuilt Docker image for quick deployment and building the image from source for customization. You have also learned how to use the RPC mechanism to exchange data between the microcontroller and the iMX8, which runs Linux.
+In this tutorial, you learned how to use the Docker infrastructure to run a Python® application on the Portenta X8. You explored two approaches to running the application: using a prebuilt Docker image for quick deployment and building the image from source for customization. You have also learned how to use the RPC mechanism to exchange data between the microcontroller and the iMX8, which runs Linux, and how to implement real sensor readings using BME680 and BME280 sensors.
 
 ### Next Steps
 
 - You may further process the data you receive from the Arduino sketch and, e.g., upload it to a Cloud service or similar.
 - Familiarize yourself with Docker commands to adjust the docker configuration to your needs.
+- Experiment with other sensors and create custom RPC bindings for your specific use case.
