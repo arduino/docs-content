@@ -134,7 +134,6 @@ Network Mode relies on **local network discovery (mDNS)** to automatically find 
 **Note**  
 Being able to access the board via browser, SSH, or IP address does not guarantee that it will appear in Network Mode. Arduino App Lab uses local network discovery to list boards automatically.
 
-With this method, you can access your UNO Q from other machines on the same local network using Arduino App Lab. When the board is discovered, you can develop and run Apps in the same way as if it were connected directly via USB-C®.
 
 ### Hello World Example
 
