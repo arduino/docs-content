@@ -522,7 +522,7 @@ The Nesso N1 has a multi-function button for power control:
 - **Click (from off state)**: Power on.
 - **Click (from on state)**: Reset the device.
 - **Double-click (from on state)**: Power off.
-- **Press and hold (from on state)**: Enter Download/Bootloader mode.
+- **Long press**: Enter Download/Bootloader mode (works both when the device is on or off).
 
 ![Power Button](assets/power-button.png)
 
