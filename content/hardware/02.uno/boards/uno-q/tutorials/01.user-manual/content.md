@@ -121,13 +121,18 @@ To install it in your personal computer for a **PC Hosted** setup, go to the [so
 
 Even when you have set up your Arduino UNO Q as a **single-board computer**, you can access it remotely from your personal machine by using the Arduino App Lab desktop and the **Network Mode**. Both modes can be used simultaneously.
 
-- When you open Arduino App Lab, you will see your board listed with the "Network" tag.
+- When you open Arduino App Lab, your board will appear with the **Network** tag if it can be discovered on your local network.
 - Click on it and enter the Linux password to log in.
 - You will now have access to the board remotely.
 
 ![Network Mode](assets/network-mode.gif)
 
-With this method, you can access your UNO Q from any machine in your local network. This allows you to use Arduino App Lab as if you were connected directly to the board, where you can develop & run Apps in the same way as if it was connected via USB-C®.
+Network Mode relies on **local network discovery (mDNS)** to automatically find boards on the same network. Some network configurations such as guest Wi-Fi, corporate or IoT networks, VPNs, or strict firewall rules may prevent automatic discovery, even if the board is connected to Wi-Fi.
+
+**Note**  
+Being able to access the board via browser, SSH, or IP address does not guarantee that it will appear in Network Mode. Arduino App Lab uses local network discovery to list boards automatically.
+
+With this method, you can access your UNO Q from other machines on the same local network using Arduino App Lab. When the board is discovered, you can develop and run Apps in the same way as if it were connected directly via USB-C®.
 
 ### Hello World Example
 
