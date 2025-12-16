@@ -53,7 +53,8 @@ connections. Compared to its predecessors the board has a much larger memory: 8x
 | Digital Inputs        | GPIO (21x - All exposed I/O can be used as digital), PWM (6x)                                                                                 |
 | Analog Inputs         | 14-bit ADC (8x)                                                                                                                               |
 | Real-time Clock (RTC) | Yes (external crystal oscillator included)                                                                                                    |
-| Communication         | UART (2x: Serial: USB, Serial1: D0/D1), I2C (2x) (5 V over breakout and 3.3 V over Qwiic), SPI (1x), CAN (external transceiver required) (1x) |
+| Communication         | Serial interfaces (2x: Serial over USB, Serial1 on D0/D1), I2C (2x) (5 V over breakout and 3.3 V over Qwiic), SPI (1x), CAN (external transceiver required) (1x) |
+
 | Dimensions            | 18 mm x 45 mm                                                                                                                                 |
 | Operating Temperature | -40 °C to +85 °C                                                                                                                              |
 
