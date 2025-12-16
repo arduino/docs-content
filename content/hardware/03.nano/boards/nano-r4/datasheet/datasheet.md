@@ -43,19 +43,20 @@ The Nano R4 is an evolution of its predecessor, the Nano Classic, which was prev
 The board features the standard 14x digital I/O ports, 8x analog channels, dedicated pins for I2C, SPI and UART
 connections. Compared to its predecessors the board has a much larger memory: 8x times more flash memory (256 kB) and 16x times more SRAM (32 kB).
 
-| Feature               | Description                                                                                                      |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| Microcontroller       | R7FA4M1AB3CFM 32-bit Arm® Cortex®-M4                                                                             |
-| Frequency             | 48 MHz                                                                                                           |
-| Internal Memory       | 256 kB Flash / 32 kB RAM / 8 kB EEPROM                                                                           |
-| USB Connectivity      | USB-C® port for power and data                                                                                   |
-| Power                 | Input voltage (VIN): 6-21 V / Power via USB-C® at 5 V                                                            |
-| Digital Inputs        | GPIO (21x - All exposed I/O can be used as digital), PWM (6x)                                                    |
-| Analog Inputs         | 14-bit ADC (8x)                                                                                                  |
-| Real-time Clock (RTC) | Yes (external crystal oscillator included)                                                                       |
-| Communication         | UART (1x), I2C (2x) (5 V over breakout and 3.3 V over Qwiic), SPI (1x), CAN (external transceiver required) (1x) |
-| Dimensions            | 18 mm x 45 mm                                                                                                    |
-| Operating Temperature | -40 °C to +85 °C                                                                                                 |
+| **Feature**           | **Description**                                                                                                                               |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Microcontroller       | R7FA4M1AB3CFM 32-bit Arm® Cortex®-M4                                                                                                          |
+| Frequency             | 48 MHz                                                                                                                                        |
+| Internal Memory       | 256 kB Flash/32 kB RAM/8 kB EEPROM                                                                                                            |
+| USB Connectivity      | USB-C® port for power and data                                                                                                                |
+| Power                 | Input voltage (VIN): 6-21 V / Power via USB-C® at 5 V                                                                                         |
+| Digital Inputs        | GPIO (21x - All exposed I/O can be used as digital), PWM (6x)                                                                                 |
+| Analog Inputs         | 14-bit ADC (8x)                                                                                                                               |
+| Real-time Clock (RTC) | Yes (external crystal oscillator included)                                                                                                    |
+| Communication         | Serial interfaces (2x: Serial over USB, Serial1 on D0/D1), I2C (2x) (5 V over breakout and 3.3 V over Qwiic), SPI (1x), CAN (external transceiver required) (1x) |
+
+| Dimensions            | 18 mm x 45 mm                                                                                                                                 |
+| Operating Temperature | -40 °C to +85 °C                                                                                                                              |
 
 ### Microcontroller
 
