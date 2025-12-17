@@ -1,0 +1,69 @@
+name: 'Image Size Check'
+description: 'Checks for oversized images in a pull request.'
+runs:
+  using: 'composite'
+  steps:
+    - name: Get changed files
+      id: changed-files
+      uses: tj-actions/changed-files@v44
+      with:
+        separator: '\n'
+        files_ignore_pattern: |
+          **/*.pdf
+          **/*.zip
+
+    - name: Enforce Image Size Limits on Changed Files
+      if: steps.changed-files.outputs.all_changed_files
+      shell: bash
+      run: |
+        IMAGE_LIMIT_MB=2
+        GIF_LIMIT_MB=10
+
+        OVERSIZED_IMAGES=""
+        OVERSIZED_GIFS=""
+
+        while IFS= read -r file; do
+          if [ -z "$file" ]; then continue; fi
+          if [ ! -f "$file" ]; then
+            echo "Warning: Changed file not found, skipping: $file"
+            continue
+          fi
+
+          if [[ "$file" == *.png || "$file" == *.jpg || "$file" == *.jpeg || "$file" == *.svg ]]; then
+            size_in_bytes=$(stat -c%s "$file")
+            limit_in_bytes=$((IMAGE_LIMIT_MB * 1024 * 1024))
+            if [ "$size_in_bytes" -gt "$limit_in_bytes" ]; then
+              size_human=$(ls -lh "$file" | awk '{print $5}')
+              OVERSIZED_IMAGES+="  - $file ($size_human)\n"
+            fi
+          elif [[ "$file" == *.gif ]]; then
+            size_in_bytes=$(stat -c%s "$file")
+            limit_in_bytes=$((GIF_LIMIT_MB * 1024 * 1024))
+            if [ "$size_in_bytes" -gt "$limit_in_bytes" ]; then
+              size_human=$(ls -lh "$file" | awk '{print $5}')
+              OVERSIZED_GIFS+="  - $file ($size_human)\n"
+            fi
+          fi
+        done <<< "${{ steps.changed-files.outputs.all_changed_files }}"
+
+        # --- Report errors if any oversized files are found ---
+        ERROR_MESSAGE=""
+        if [ -n "$OVERSIZED_IMAGES" ]; then
+          ERROR_MESSAGE+="Found images exceeding the ${IMAGE_LIMIT_MB}MB limit:\n"
+          ERROR_MESSAGE+="${OVERSIZED_IMAGES}"
+        fi
+
+        if [ -n "$OVERSIZED_GIFS" ]; then
+          ERROR_MESSAGE+="Found GIFs exceeding the ${GIF_LIMIT_MB}MB limit:\n"
+          ERROR_MESSAGE+="${OVERSIZED_GIFS}"
+        fi
+
+        if [ -n "$ERROR_MESSAGE" ]; then
+          echo -e "::error::Oversized images found in this PR. Please optimize or remove them.\n"
+          echo -e "--------------------------------------------------"
+          echo -e "$ERROR_MESSAGE"
+          echo -e "--------------------------------------------------"
+          exit 1
+        else
+          echo "All changed images are within their size limits. Check passed."
+        fi
