@@ -229,7 +229,11 @@ Each official example provides a detailed documentation provided in the `readme.
 Once an App is launched, the status of the App is available in the **Console**. There are three tabs available:
 - **Start-up** - outputs the logs from the start-up process. Here you will find information regarding compilation for the microcontroller and deployment of the Python® application on the Linux system.
 - **Main (Python®)** - view the logs from the Python® application (`print()`)
-- **Sketch (Microcontroller)** - view serial data from the sketch (`Serial.println()`)
+- **Sketch (Microcontroller)** – view data sent from the sketch using `monitor.print()`.
+   
+  > Note: `Serial.println()` outputs data over UART and is not shown in the App Lab Console.
+  > To display messages in the Console, use `monitor.print()`.
+  > Learn more in [From Serial to Monitor](https://docs.arduino.cc/tutorials/uno-q/user-manual/#from-serial-to-monitor)
 
 ![App logs](assets/app-logs.png)
 
