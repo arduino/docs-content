@@ -35,6 +35,8 @@ Working alongside this is the STM32U585 microcontroller running Zephyr RTOS, whi
 
 The [Bridge mechanism](https://docs.arduino.cc/tutorials/uno-q/user-manual/#bridge---remote-procedure-call-rpc-library) is the key element that enables uninterrupted communication between both systems. It allows your Python® scripts running on Debian to interact with Arduino code running on the MCU, creating a flexible hybrid development environment that leverages both the computational power of Linux and the real-time capabilities of Arduino.
 
+Python® is the officially supported language for MPU-side development on the UNO Q. As development continues, additional programming languages and alternative methods for MPU/MCU communication will become available, providing more options for integrating custom applications with the hardware.
+
 ***If you would like to learn about the UNO Q in general before diving into this Debian guide, please refer to the [__UNO Q user manual__](/tutorials/uno-q/user-manual/) to familiarize yourself with the board.***
 
 ## Accessing the Board Shell
