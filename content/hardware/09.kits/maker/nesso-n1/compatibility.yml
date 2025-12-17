@@ -13,6 +13,3 @@ hardware:
   - modulino-knob
   - modulino-movement
   - modulino-pixels
-notes:
-- Modulino Thermo uses I2C address 0x44, which conflicts with the Nesso N1 I/O expander on the Qwiic connector and is therefore not compatible.
-
