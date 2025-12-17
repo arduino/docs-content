@@ -19,7 +19,7 @@ The onboard 1.14-inch color touchscreen provides a clear and intuitive way to di
 </Feature>
 
 <Feature title="Expandable With Grove, Qwiic & HAT" image="connection">
-Easily integrate a wide range of sensors and peripherals from the Arduino Modulino family and third-party modules using the built-in Grove, Qwiic, and 8-pin HAT connectors for plug-and-play expansion. The internal expander uses I2C address 0x44, so Qwiic devices that share this address—such as the Modulino Thermo module—are not supported on the Qwiic connector.
+Easily integrate Modulino and third-party sensors using the built-in Grove, Qwiic, and 8-pin HAT connectors for plug-and-play expansion. Modulino Thermo not supported on Qwiic.
 </Feature>
 
 <Feature title="Built-in 6-Axis IMU" image="imu">
