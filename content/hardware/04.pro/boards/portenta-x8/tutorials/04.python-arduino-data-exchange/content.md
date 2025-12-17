@@ -151,7 +151,7 @@ docker compose up -d
 
 The `-d` flag detaches the container so it runs in the background. Note that this will run the Docker Compose app and have the container built persistently across reboots by registering it as a systemd service.
 
-If you encounter issues with `docker compose` (such as `invalid reference format` errors), you can run the container directly using:
+The provided `docker-compose.yml` files are preconfigured to pull images from a specific container registry (`hub.foundries.io/${FACTORY}/python-rpc-serial:latest`). When building locally, the `${FACTORY}` environment variable may not be defined in your environment, causing `invalid reference format` errors. For local development with locally-built images, it is recommended to use `docker run` directly as shown below:
 
 ```bash
 docker run -d \
@@ -247,7 +247,7 @@ When it has finished, you can run the container with:
 docker compose up
 ```
 
-If you encounter issues with `docker compose`, you can run the container directly using:
+The `docker-compose.yml` file requires a `${FACTORY}` environment variable for registry configuration. If undefined, this causes `invalid reference format` errors. You can run the container directly using your locally-built image:
 
 ```bash
 docker run -d \
@@ -263,7 +263,7 @@ docker run -d \
   python-rpc-sensors:latest
 ```
 
-After a few seconds, you should see the output from the Python application featuring the sensor readings on the M4 that exchanges through the RPC mechanism. The output should look similar to the following:
+After a few seconds, you should see the output from the Python® application featuring the sensor readings on the M4 that exchanges through the RPC mechanism. The output should look similar to the following:
 
 ![Portenta X8 RPC Example](assets/x8-python-sensor-factory.gif)
 
@@ -317,15 +317,33 @@ docker run -d --name python-rpc-sensors --restart unless-stopped -e PYTHONUNBUFF
 
 Alternatively, you could modify the files directly on the X8 using an editor such as **VIM**, so you do not need to upload the files every time. Rebuilding the container will be necessary in any case, though.
 
-If you're wondering how to specify the Python® script to run when a container is started, have a look at the `Dockerfile` in the repository. There you will find the `ENTRYPOINT` command that takes multiple arguments. In this example:
+The repository contains the Python® script at `/python/main.py` which is copied into the container at `/app/python/main.py` during the build process. The Arduino sketch is also included in the repository at `/firmware/rpc-sensors` for reference.
+
+If you are wondering how to specify the Python® script to run when a container is started, have a look at the `Dockerfile` in the repository. For the `python-rpc-sensors` example, the Dockerfile uses:
 
 ```python
-ENTRYPOINT ["python3", "main.py"]
+CMD ["python","-u","main.py"]
 ```
+
+The `-u` flag runs Python® in unbuffered mode, making sure that print statements and logs appear in the container output.
 
 ## Sensor Implementation
 
 The example provided in the repository uses preset sensor values for testing. To connect and read from actual sensors, you need to modify the Arduino sketch to include the appropriate sensor library and implement proper sensor initialization and reading.
+
+### Required Arduino Libraries
+
+To try out the sensor examples, you need to install the corresponding libraries in the Arduino IDE:
+
+- [Adafruit BME680 Library](https://github.com/adafruit/Adafruit_BME680)
+- [Adafruit BME280 Library](https://github.com/adafruit/Adafruit_BME280_Library)
+- Adafruit Unified Sensor (Notified when installing either libraries above using the Arduino IDE's library manager)
+
+Install these libraries via the Arduino IDE Library Manager **Sketch > Include Library > Manage Libraries**, then upload the modified sketch to the Portenta X8.
+
+![Adafruit BMEX80 Library](assets/bme-library-manager.png)
+
+The Python® script and Docker configuration do not require any changes when switching from preset sensor values to real sensors. The same `main.py`, `Dockerfile`, and container setup work with both implementations since they use the same RPC function names (`temperature`, `humidity`, `pressure`, `gas`, `altitude`).
 
 ### BME680 Sensor Example
 
@@ -405,7 +423,7 @@ void loop()
 }
 ```
 
-This sketch includes sensor initialization with error checking, configuration of oversampling rates, and continuous sensor readings in the loop that can be monitored through the serial output or accessed via RPC from the Python application.
+This sketch includes sensor initialization with error checking, configuration of oversampling rates, and continuous sensor readings in the loop that can be monitored through the serial output or accessed via RPC from the Python® application.
 
 ### BME280 Sensor Example
 
@@ -469,13 +487,13 @@ void loop()
 }
 ```
 
-For the BME280, a dummy gas RPC binding that returns 0 is included since this sensor does not have gas sensing capabilities. This provides compatibility with the Python script that expects all five RPC calls.
+For the BME280, a dummy gas RPC binding that returns 0 is included since this sensor does not have gas sensing capabilities. This provides compatibility with the Python® script that expects all five RPC calls.
 
 ![Portenta X8 RPC](assets/x8-rpc-c.gif)
 
-### Python Script Considerations
+### Python® Script Considerations
 
-The Python script in the repository uses an optimized approach for making multiple RPC calls:
+The Python® script in the repository uses an optimized approach for making multiple RPC calls:
 
 ```python
 def get_data_from_m4(rpc_address):
@@ -495,7 +513,7 @@ This approach creates a new `RpcClient` instance for each call due to a known li
 
 ### RPC Communication Issues
 
-If you are experiencing issues with RPC communication, such as the Python script outputting:
+If you are experiencing issues with RPC communication, such as the Python® script outputting:
 
 ```
 Unable to retrieve data from the M4
@@ -535,7 +553,7 @@ Flash the firmware using the programming script:
 sudo /usr/arduino/extra/program.sh
 ```
 
-The programming script will verify and flash the new firmware. You should see output indicating the programming progress, verification, and successful reset. After flashing completes, restart the X8 and try rerunning your Python application or [example](#building-the-image-from-source).
+The programming script will verify and flash the new firmware. You should see output indicating the programming progress, verification, and successful reset. After flashing completes, restart the X8 and try rerunning your Python® application or [example](#building-the-image-from-source).
 
 ![Portenta X8 STM32H7 firmware flashed](assets/stm32h7-flash-rpc.png)
 
@@ -569,9 +587,33 @@ Replace `YOUR_USERNAME` with your actual Windows username. Build the firmware:
 make
 ```
 
+The compiled binary will be located at:
+
+```
+build/STM32H747AII6_CM7.bin
+```
+
+If you encounter compilation errors with `src/pwm.c` regarding `initializer element is not constant`, you may need to apply a fix. Edit line 38 in `src/pwm.c` and change:
+
+```c
+static unsigned int const MAX_PWM_CHANNEL_NUM = (NUM_PWM_CHANNELS - 1);
+```
+
+To
+
+```c
+#define MAX_PWM_CHANNEL_NUM (NUM_PWM_CHANNELS - 1)
+```
+
+Then run the following command again:
+
+```bash
+make clean && make
+```
+
 ## Conclusion
 
-In this tutorial, you learned how to use the Docker infrastructure to run a Python® application on the Portenta X8. You explored two approaches to running the application: using a prebuilt Docker image for quick deployment and building the image from source for customization. You have also learned how to use the RPC mechanism to exchange data between the microcontroller and the iMX8, which runs Linux, and how to implement real sensor readings using BME680 and BME280 sensors.
+In this tutorial, you learned how to use the Docker infrastructure to run a Python® application on the Portenta X8. You explored two approaches to running the application: using a prebuilt Docker image for quick deployment and building the image from source for customization. You have also learned how to use the RPC mechanism to exchange data between the microcontroller and the iMX8, which runs Linux, and how real sensor readings can be implemented using BME680 and BME280 sensors.
 
 ### Next Steps
 
