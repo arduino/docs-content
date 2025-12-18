@@ -19,7 +19,7 @@ The onboard 1.14-inch color touchscreen provides a clear and intuitive way to di
 </Feature>
 
 <Feature title="Expandable With Grove, Qwiic & HAT" image="connection">
-Easily integrate Modulino and third-party sensors using the built-in Grove, Qwiic, and 8-pin HAT connectors for plug-and-play expansion. Modulino Thermo not supported on Qwiic.
+Easily integrate Modulino and third-party sensors using the built-in Grove, Qwiic, and 8-pin HAT connectors for plug-and-play expansion. <strong>Note:</strong> Modulino Thermo is not supported on the Qwiic connector.
 </Feature>
 
 <Feature title="Built-in 6-Axis IMU" image="imu">

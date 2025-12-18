@@ -1415,9 +1415,9 @@ The Qwiic system’s key advantages include:
 
 ***The Qwiic connector on the Nesso N1 is connected to the primary I2C bus, which uses the standard `Wire` object. The connector provides a 3.3 V supply, making it ideal for modern sensors.***
 
-***Important: The internal I/O expander uses I2C address `0x44`, which conflicts with devices that share the same address. The Modulino Thermo module uses address `0x44` and cannot be used on the Nesso N1 Qwiic connector.***
+***__Important:__ The Modulino Thermo module cannot be used with the Nesso N1 Qwiic connector because both the module and an internal I/O expander use I2C address `0x44`.***
 
-The Qwiic connector allows you to interface with our Modulino family for developing soldering-free projects, with the exception of the Modulino Thermo module on the Qwiic port.
+The Qwiic connector allows you to interface with our Modulino family for solder-free project development, except for the Modulino Thermo module on the Qwiic port.
 
 ![Modulino nodes](assets/modulino.png)
 
