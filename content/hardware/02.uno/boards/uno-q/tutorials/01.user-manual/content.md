@@ -1360,11 +1360,13 @@ With this example the UNO Q will send back whatever it receives on the UART.
 
 #### From Serial to Monitor
 
-Because of the UNO Q’s architecture, using `Serial` does not display data in the Arduino App Lab Serial Monitor as you might expect.
+Because of the UNO Q’s architecture, using `Serial` does not display data in the Arduino App Lab **Console** as you might expect.
 
-To make debugging just as easy as on other Arduino boards, we provide the `Monitor` object, which you can use to print debugging messages, sensor readings, or any other information directly to the Serial Monitor.
+To make debugging just as easy as on other Arduino boards, we provide the `Monitor` object, which you can use to print debugging messages, sensor readings, or any other information directly to the App Lab Console.
 
-You can do exactly the same, but with a minor prerequisite; including the `Arduino_RouterBridge` library in your sketch:
+Note: `Serial` still works over UART, but its output is not shown in App Lab.
+
+You can achieve the same behavior with a minor prerequisite: include the `Arduino_RouterBridge` library in your sketch.
 
 ```cpp
 #include <Arduino_RouterBridge.h>
