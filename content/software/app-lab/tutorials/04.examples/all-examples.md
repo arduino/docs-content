@@ -1,13 +1,13 @@
 ---
-title: Arduino® UNO Q Example Applications
-description: An overview of various applications developed for the Arduino® UNO Q platform, showcasing unique functionalities from environmental monitoring to machine learning.
+title: App Lab Example Applications Overview
+description: An overview of various applications developed for the Arduino App Lab platform, showcasing unique functionalities from environmental monitoring to machine learning.
 author: Karl Söderby and Christopher Méndez
 tags: [AI, Computer Vision, Audio Classification, Arduino App Lab]
 ---
 
 ## Overview
 
-This article provides a comprehensive overview of various applications developed for the Arduino® UNO Q platform. Each application showcases unique functionalities, from environmental monitoring to machine learning, leveraging the capabilities of the Arduino ecosystem. Below is a summary of each example, detailing the App's purpose, functionality, and components used.
+This article provides a comprehensive overview of various applications developed for Arduino App Lab. Each application showcases unique functionalities, from environmental monitoring to machine learning, leveraging the capabilities of the Arduino ecosystem. Below is a summary of each example, detailing the App's purpose, functionality, and components used.
 
 ## Requirements
 
