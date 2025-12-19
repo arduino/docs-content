@@ -1,5 +1,5 @@
 ---
-title: App Lab Example Applications Overview
+title: Arduino App Lab Example Applications Overview
 description: An overview of various applications developed for the Arduino App Lab platform, showcasing unique functionalities from environmental monitoring to machine learning.
 author: Karl Söderby and Christopher Méndez
 tags: [AI, Computer Vision, Audio Classification, Arduino App Lab]
