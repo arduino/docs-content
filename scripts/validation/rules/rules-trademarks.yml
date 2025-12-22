@@ -44,13 +44,13 @@
 
 # Edge Impulse® rule
 # Skip the match if it is inside tags' lists
-- regex: "(?<!http[s]?:\\/\\/\\S*|  - )(?:Edge[ -]Impulse|[eE]dge[iI]mpulse)(?!®)\\b"
-  regexModifiers: "gi"
-  shouldMatch: false
-  includeCodeBlocks: false
-  format: markdown
-  type: warning
-  errorMessage: The Edge Impulse® trademark is not used correctly.
+# - regex: "(?<!http[s]?:\\/\\/\\S*|  - )(?:Edge[ -]Impulse|[eE]dge[iI]mpulse)(?!®)\\b"
+#   regexModifiers: "gi"
+#   shouldMatch: false
+#   includeCodeBlocks: false
+#   format: markdown
+#   type: warning
+#   errorMessage: The Edge Impulse® trademark is not used correctly.
 
 # Adafruit® rule
 # Skip the match if it is inside tags' lists
