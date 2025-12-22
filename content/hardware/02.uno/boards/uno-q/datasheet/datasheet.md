@@ -900,7 +900,7 @@ UNO Q 提供两种型号：
 
 #### 处理器与内存
 
-![](/assets/ABX00162-ABX00173-main-components.png)
+![](assets/ABX00162-ABX00173-main-components.png)
 
 | **子系统**   | **详细信息**                                                 |
 | ------------ | ------------------------------------------------------------ |
@@ -926,7 +926,7 @@ UNO Q 提供两种型号：
 
 #### 扩展与头
 
-![](/assets/ABX00162-ABX00173-header-expansion.png)
+![](assets/ABX00162-ABX00173-header-expansion.png)
 
 | **接口 (连接器)**    | **电压与引脚数量**                        | **详细信息**                                                 |
 | -------------------- | ----------------------------------------- | ------------------------------------------------------------ |
@@ -1009,7 +1009,7 @@ UNO Q 提供两种型号：
 
 ### 方框图
 
-![](/assets/ABX00162-ABX00173_block_diagram.png)
+![](assets/ABX00162-ABX00173_block_diagram.png)
 
 ### 电源
 
@@ -1025,7 +1025,7 @@ UNO Q 提供两种型号：
 
 <p style="text-align: justify;">当板卡作为USB主机/OTG运行时，<em>受保护的P沟道MOSFET</em>（<code>Q2801</code>）可从<code>5V_SYS</code>为USB <code>VBUS</code>供电。<code>VCOIN</code>仅为PMIC的实时时钟供电，不为Linux或MCU域供电。<code>VBAT</code>为<code>MCU</code>的实时时钟供电。</p>
 
-![Arduino UNO Q Power Tree](/assets/ABX00162-ABX00173_power_tree.png)
+![Arduino UNO Q Power Tree](assets/ABX00162-ABX00173_power_tree.png)
 
 <div style="page-break-after: always;"></div>
 
