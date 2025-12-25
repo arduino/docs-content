@@ -15,50 +15,14 @@ The following hardware is required:
 - [Arduino UNO Q](https://store.arduino.cc/products/uno-q)
 - [USB-C® type cable](https://store.arduino.cc/products/usb-cable2in1-type-c)
 
-You will also need to have the following software installed:
+To access the board via `adb` (over USB), you will also need to have the following software installed:
 - [Android Debug Bridge](https://developer.android.com/tools/releases/platform-tools)
 
-## Installing ADB (Host Computer)
-
-***Note: if you are using the board as a Single Board Computer (SBC Mode (Preview) without a host computer), you do not need to install ADB. You can run `arduino-app-cli` directly from the terminal.***
-
-The ADB command line tool is supported on MacOS, Windows & Linux. For more specific instructions for your OS, see the sections below. 
-
-***You can find more information and download the latest version for the tool for all operating systems directly from the [Android SDK Platform Tools](https://developer.android.com/tools/releases/platform-tools#downloads) page.***
-
-### MacOS
-
-To install the ADB tools on **MacOS**, we can use `homebrew`. Open the terminal and run the following command:
-
-```sh
-brew install android-platform-tools
-```
-
-To verify the tool is installed, run `adb version`.
-
-### Windows
-
-To install the ADB tools on **Windows**, we can use `winget`, supported on Windows 11 and on some earlier Windows 10 versions. 
-
-Open a terminal and run the following:
-
-```sh
-winget install Google.PlatformTools
-```
-
-To verify the tool is installed, run `adb version`.
-
-### Linux
-
-To install ADB tools on a **Debian/Ubuntu Linux distribution**, open a terminal and run the following command:
-
-```sh
-sudo apt-get install android-sdk-platform-tools
-```
-
-To verify the tool is installed, run `adb version`.
+You can also access the board via SSH, which is typically installed on your system by default.
 
 ## Connect via ADB
+
+***To learn more about setting up `adb`, check out the [Connect to UNO Q via ADB](/tutorials/uno-q/adb/) tutorial. This guide will walk you through the installation steps.***
 
 1. Connect the UNO Q board to your computer via USB-C.
 2. Run `adb devices` in the terminal. This should list the connected devices.
@@ -67,16 +31,18 @@ To verify the tool is installed, run `adb version`.
 
 >Note that it may take up to a minute for the device to appear after connecting it.
 
-3. Run `adb shell`. If you have not set up your board prior to this via the Arduino App Lab, you may be required to provide a password, which is `arduino`.
+3. Run `adb shell`. 
 4. You should now be inside your board's terminal.
 
     ![Terminal on the board.](assets/board-terminal.png)
 
 5. You are now able to run commands via the terminal on your board! To exit from the terminal, simply type `exit`.
 
+>Note: If you have not set up your board prior to this via the Arduino App Lab, the first time you run a command that requires authentication (such as `sudo`), you will be prompted to create a new password.
+
 ## Connect via SSH
 
-***Note: to use SSH, the [first setup]() needs to be completed. This is done by connecting your board via USB, open the Arduino App Lab, and select the USB option. Here you will need to give your board a name, a new password as well as providing Wi-Fi® credentials. SSH will be automatically configured during this setup.***
+***Note: to use SSH, the [first setup](/software/app-lab/tutorials/getting-started#install--set-up-arduino-app-lab) needs to be completed. This is done by connecting your board via USB, open the Arduino App Lab, and select the USB option. Here you will need to give your board a name, a new password as well as providing Wi-Fi® credentials. SSH will be automatically configured during this setup.***
 
 1. Open a terminal on your machine.
 2. Run `ssh arduino@<boardname>.local`
@@ -183,15 +149,6 @@ This will list all available Apps (including examples), and their status:
 
 ![List Apps.](assets/list-apps.png)
 
-## Set Board Name
-
-To set a board name using the `arduino-app-cli`, we can use the `set-name` command.
-
-```sh
-arduino-app-cli board set-name "my-board"
-```
-
-This will change the name of the board, which will take effect after resetting the board.
 
 ## System Configuration and Updates
 
@@ -203,6 +160,13 @@ To check for updates, run:
 arduino-app-cli system update
 ```
 This will prompt you to install any available updates.
+
+To set the board name, use:
+
+```sh
+arduino-app-cli system set-name "my-board"
+```
+This will change the name of the board, which will take effect after resetting the board.
 
 To enable or disable the network mode, use:
 

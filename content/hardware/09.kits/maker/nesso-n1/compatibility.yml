@@ -1,0 +1,15 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - cloud-editor
+hardware:
+  boards: ~
+  carriers: ~
+  shields: ~
+  accessories:
+  - modulino-buttons
+  - modulino-buzzer
+  - modulino-distance
+  - modulino-knob
+  - modulino-movement
+  - modulino-pixels

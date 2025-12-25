@@ -1,0 +1,40 @@
+Kit:
+  Name: Arduino® Starter Kit R4
+  SKU: K000007_R4
+Components:
+  Arduino UNO R4 WiFi (ABX00087): 1x
+  USB-C® cable: 1x
+  9V battery snap connector: 1x
+  Breadboard: 1x
+  Easy-to-assemble base: 1x
+  Solid core jumper wires: 70x
+  Stranded jumper wires: 2x
+  Male pin strip (40x1): 1x
+  Pushbuttons: 6x
+  LCD display (16x2 characters): 1x
+  Piezo capsule: 1x
+  Bright white LED: 1x
+  RGB LED: 1x
+  Red LEDs: 8x
+  Green LEDs: 8x
+  Yellow LEDs: 8x
+  Blue LEDs: 3x
+  Phototransistors: 4x
+  Temperature sensor: 1x
+  Tilt sensor: 1x
+  Small DC motor (6/9 V): 1x
+  Small servo motor: 1x
+  H-bridge motor driver: 1x
+  Optocouplers: 2x
+  MOSFET transistor: 1x
+  Diodes: 3x
+  Potentiometers (10k ohm): 3x
+  Capacitors (100 µF): 3x
+  Resistors (220 Ω): 11x
+  Resistors (560 Ω): 3x
+  Resistors (1 kΩ): 3x
+  Resistors (4.7 kΩ): 3x
+  Resistors (10 kΩ): 11x
+  Resistors (1 MΩ): 7x
+  Resistors (10 MΩ): 3x
+  Transparent color gels (red, green, blue): 3x

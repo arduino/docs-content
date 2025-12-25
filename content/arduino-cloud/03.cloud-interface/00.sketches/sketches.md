@@ -311,6 +311,57 @@ void initProperties(){
   ArduinoCloud.addProperty(variable, READWRITE, ON_CHANGE, onVariableChange);
 }
 ```
+### How to set up the Reconfiguration Procedure
+
+As the Provisioning 2.0 ends, the Bluetooth LE interface is turned off. 
+
+To restart the Bluetooth LE interface to update the network settings, the [**Arduino_NetworkConfigurator**](https://github.com/arduino-libraries/Arduino_NetworkConfigurator?tab=readme-ov-file) library provides a procedure called "Reconfiguration Procedure". This procedure is based on the shorting of two pins of the board.
+
+The library provides a default implementation according to the board type. 
+
+- `Arduino Opta`: Press and hold the user button (BTN_USER) until the led (LED_USER) turns off
+- `Arduino MKR WiFi 1010`: Short pin 7 to GND until the led turns off
+- `Arduino GIGA R1 WiFi`: Short pin 7 to GND until the led turns off
+- `Nicla Vision`: Short the pin PA_13 to GND until the led turns off
+- `Arduino Portenta H7`: Short pin 0 to GND until the led turns off
+- `Arduino Portenta C33`: Short pin 0 to GND until the led turns off
+- `Other boards`: Short pin 2 to GND until the led turns off
+- `Portenta Machine Control`: Currently the reset procedure is not available
+
+***Internally, the pin designated for the procedure is set as INPUT_PULLUP (except for Arduino Opta ), and it's attached to an ISR fired on every change of the pin's status.***
+
+#### How to use the Reconfiguration pin in your sketch
+
+If you want to use the Reconfiguration pin in your sketch, you can add a custom callback function to be fired every time the pin’s state changes.
+
+1. Define a function having this signature: `void func(void)`
+Example:
+```
+void onReconfigurationPinInterrupt()
+```
+2. Pass the callback function to the `NetworkConfigurator`, adding this line in the `initProperties()` function of the `thingProperties.h`
+```
+NetworkConfigurator.addReconfigurePinCallback(onReconfigurationPinInterrupt);
+```
+
+#### Change the Reconfiguration pin
+
+Despite the default reconfiguration pin, you can change it using the following code:
+```
+NetworkConfigurator.setReconfigurePin(your_pin);
+```
+in the `initProperties()` function of the `thingProperties.h`
+
+The new pin must be in the list of digital pins usable for interrupts. 
+Please refer to the Arduino documentation for more [details](https://docs.arduino.cc/language-reference/en/functions/external-interrupts/attachInterrupt/).
+
+#### Disable the Reconfiguration feature
+
+To disable the reconfiguration procedure, use the following function:
+```
+NetworkConfigurator.setReconfigurePin(DISABLE_PIN);
+```
+in the `initProperties()` function of the `thingProperties.h`
 
 ## Offline Sketches
 

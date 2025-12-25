@@ -1,7 +1,7 @@
 Board:
   Name: Arduino® Nicla Vision
   SKU: ABX00051
-Microcontroller: STM32H757AII6 Dual Arm® Cortex® M7/M4
+Microcontroller: STM32H747AII6 Dual Arm® Cortex® M7/M4
 USB connector: Micro USB (USB-B)
 Pins:
   LED built-in: 1 RGB LED (I2C)

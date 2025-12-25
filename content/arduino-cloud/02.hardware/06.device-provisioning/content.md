@@ -146,7 +146,7 @@ During this process you will be asked to wipe out the current network configurat
 3. Click on the device you want to update the network settings for.
 4. Click on the "change" button by the network section.
 5. If you are using the Arduino Cloud webpage, select the Bluetooth method.
-6. Reset the board using the method of your board. Have a look at the [How to set up the Reconfiguration Procedure](#how-to-set-up-the-reconfiguration-procedure) section of this article to find the default board reset pin. If you have changed the reset pin from the default one, please use that.
+6. Reset the board using the method of your board. Have a look at the [How to set up the Reconfiguration Procedure](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches/#how-to-set-up-the-reconfiguration-procedure) article to find the default board reset pin. If you have changed the reset pin from the default one, please use that.
 7. The board will reboot, and you will see the LED pulsing.
 8. Connect to the board on the Arduino Cloud.
 9. Input the new network configuration.
@@ -173,7 +173,7 @@ If you want to delete the stored network configuration without updating it, ther
 
 To proceed with the next steps, the Cloud-generated sketch must be uploaded to the board.
 
-Reset the board using the method of your board. Have a look at the [How to set up the Reconfiguration Procedure](#how-to-set-up-the-reconfiguration-procedure) section of this article to find the default board reset pin. If you have changed the reset pin from the default one, please use that.
+Reset the board using the method of your board. Have a look at the [How to set up the Reconfiguration Procedure](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches/#how-to-set-up-the-reconfiguration-procedure) article to find the default board reset pin. If you have changed the reset pin from the default one, please use that.
 
 ### Using the DeleteConfiguration Sketch
 
@@ -181,19 +181,3 @@ Open Arduino IDE and on the left side open the **Library Manager**. Search for *
 
 The sketch can also be found [here](https://github.com/arduino-libraries/Arduino_NetworkConfigurator/blob/main/examples/utility/DeleteConfiguration/DeleteConfiguration.ino).
 
-### How to set up the Reconfiguration Procedure
-
-As the Provisioning 2.0 ends, the Bluetooth LE interface is turned off. 
-
-To restart the Bluetooth LE interface to update the network settings, the [**Arduino_NetworkConfigurator**](https://github.com/arduino-libraries/Arduino_NetworkConfigurator?tab=readme-ov-file) library provides a procedure called "Reconfiguration Procedure". This procedure is based on the shorting of two pins of the board.
-
-The library provides a default implementation according to the board type. 
-
-- `Arduino Opta`: Press and hold the user button (BTN_USER) until the led (LED_USER) turns off
-- `Arduino MKR WiFi 1010`: Short pin 7 to GND until the led turns off
-- `Arduino GIGA R1 WiFi`: Short pin 7 to GND until the led turns off
-- `Arduino Nano RP2040 Connect`: Short pin 2 to 3.3V until the led turns off
-- `Arduino Portenta H7`: Short pin 0 to GND until the led turns off
-- `Arduino Portenta C33`: Short pin 0 to GND until the led turns off
-- `Other boards`: Short pin 2 to GND until the led turns off
-- `Portenta Machine Control`: Currently the reset procedure is not available

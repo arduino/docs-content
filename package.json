@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "bash node_modules/@arduino/docs-arduino-cc/bin/commands.sh bootstrap"
+    "postinstall": "bash node_modules/@arduino/docs-arduino-cc/bin/commands.sh bootstrap",
+    "compress:images": "node scripts/compress-images.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,7 @@
   },
   "homepage": "https://github.com/arduino/docs-content#readme",
   "dependencies": {
-    "@arduino/docs-arduino-cc": "^2.1.5",
+    "@arduino/docs-arduino-cc": "^2.1.8",
     "gatsby": "^5.11.0",
     "gatsby-background-image": "^1.6.0",
     "gatsby-image": "^3.11.0",
@@ -43,5 +44,11 @@
   "volta": {
     "node": "18.16.1",
     "npm": "9.8.0"
+  },
+  "devDependencies": {
+    "fast-glob": "^3.3.3",
+    "glob-all": "^3.3.1",
+    "sharp": "^0.34.5",
+    "svgo": "^4.0.0"
   }
 }
