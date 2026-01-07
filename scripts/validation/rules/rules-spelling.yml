@@ -76,12 +76,12 @@
   errorMessage: Space between unit and value required
 
 # Excludes Wi-Fi in URLs (prepended by dash or slash) and WiFi.XY and MKR WiFi
-- regex: "(?<![\\/-]|Arduino |UNO |MKR |MKR 1000 |MKR1000)[wW]i[fF]i(?![-\\/]|\\.?\\S| [sS]hield|101| 101)"
-  shouldMatch: false
-  type: warning
-  format: markdown
-  includeCodeBlocks: false
-  errorMessage: "Incorrect spelling of 'Wi-Fi' found."
+# - regex: "(?<![\\/-]|Arduino |UNO |MKR |MKR 1000 |MKR1000)[wW]i[fF]i(?![-\\/]|\\.?\\S| [sS]hield|101| 101)"
+#   shouldMatch: false
+#   type: warning
+#   format: markdown
+#   includeCodeBlocks: false
+#   errorMessage: "Incorrect spelling of 'Wi-Fi' found."
 
 - regex: "(?<!\\/|-)\\b(master|slave)\\b"
   regexModifiers: "gi"
