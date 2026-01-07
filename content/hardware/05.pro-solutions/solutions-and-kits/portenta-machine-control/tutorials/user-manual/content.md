@@ -1133,7 +1133,7 @@ void setup() {
 
     // Initialize the RS-485 interface with a baud rate of 115200 and specific timings,
     // the timings define the preamble and postamble durations for RS-485 communication
-    MachineControl_RS485Comm.begin(115200, 0, 500);
+    MachineControl_RS485Comm.begin(115200, SERIAL_8N1, 0, 500);
 
     // Set the RS-485 interface in receive mode initially
     MachineControl_RS485Comm.receive();
@@ -1170,7 +1170,7 @@ In this example sketch, a message is periodically sent over the RS-485 interface
 
 The example sketch uses the following functions from the `Arduino_PortentaMachineControl` library for RS-485 communication. Here is an explanation of the functions:
 
-- `MachineControl_RS485Comm.begin(baud, pre, post)`: Initializes the RS-485 module with specified baud rate and timing settings.
+- `MachineControl_RS485Comm.begin(baud, config, pre, post)`: Initializes the RS-485 module with specified baud rate, serial_config and timing settings.
 - `MachineControl_RS485Comm.receive()`: Puts the module in receive mode.
 - `MachineControl_RS485Comm.noReceive()`: Disables receive mode for transmission.
 - `MachineControl_RS485Comm.beginTransmission()`: Prepares the module to start transmitting data.
@@ -1216,7 +1216,7 @@ void setup() {
 
   // Initialize the RS-485 interface with specific settings,
   // specify baud rate, preamble and postamble times for RS-485 communication
-  MachineControl_RS485Comm.begin(115200, 0, 500);
+  MachineControl_RS485Comm.begin(115200, SERIAL_8N1, 0, 500);
 
   // Enable full duplex mode and 120 Ohm termination resistors
   MachineControl_RS485Comm.setFullDuplex(true);
@@ -1311,7 +1311,7 @@ void setup() {
   // Wait for serial port to connect (necessary for boards with native USB)
   //while (!Serial);
   // Initialize RS-485 communication with specified baud rate and delays
-  MachineControl_RS485Comm.begin(baudrate, preDelay, postDelay);
+  MachineControl_RS485Comm.begin(baudrate, SERIAL_8N1, preDelay, postDelay);
   
   MachineControl_RS485Comm.setFullDuplex(true);
 
@@ -1398,7 +1398,7 @@ void setup() {
   Serial.println("- Modbus RTU Server");
 
   // Set RS485 transmission delays as per Modbus specification
-  MachineControl_RS485Comm.begin(baudrate, preDelay, postDelay);
+  MachineControl_RS485Comm.begin(baudrate, SERIAL_8N1, preDelay, postDelay);
 
   // Enable full duplex mode and 120 Ohm termination resistors
   MachineControl_RS485Comm.setFullDuplex(true);
@@ -1637,7 +1637,7 @@ void setup() {
   Serial.begin(9600);
 
   // Initialize RS-485 communication with specified baud rate and delays
-  MachineControl_RS485Comm.begin(baudrate, preDelay, postDelay);
+  MachineControl_RS485Comm.begin(baudrate, SERIAL_8N1, preDelay, postDelay);
 
   // Short delay to ensure RS-485 communication is stable
   delay(2500);
