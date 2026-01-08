@@ -9,7 +9,7 @@ author: José Bagur
 
 # Description
 
-<p style="text-align: justify;">Build smarter and prototype faster with the Arduino Matter Discovery Bundle, an all-in-one solution for creating interoperable Internet of Things (IoT) devices using Matter, the industry-backed smart home connectivity standard supported by Apple, Google, Amazon, Home Assistant, and other major platforms. At the core of this bundle is the Arduino Nano Matter board with pre-mounted headers, powered by Silicon Labs' MGM240S module for Matter-over-Thread connectivity. Combined with the Arduino Nano Connector Carrier featuring Qwiic and Grove interfaces and three Arduino Modulino® modules, this bundle enables rapid prototyping of smart home devices in minutes.</p>
+<p style="text-align: justify;">Build smarter and prototype faster with the Arduino Matter Discovery Bundle, an all-in-one solution for creating interoperable Internet of Things (IoT) devices using Matter, the industry-backed smart home connectivity standard supported by Apple®, Google, Amazon, Home Assistant, and other major platforms. At the core of this bundle is the Arduino Nano Matter board with pre-mounted headers, powered by Silicon Labs' MGM240S module for Matter-over-Thread connectivity. Combined with the Arduino Nano Connector Carrier featuring Qwiic and Grove interfaces and three Arduino Modulino® modules, this bundle enables rapid prototyping of smart home devices in minutes.</p>
 
 # Target Areas
 
@@ -23,7 +23,7 @@ author: José Bagur
 <p style="text-align: justify;">Discover how the Matter Discovery Bundle can accelerate your smart home projects through the following application examples:</p>
 
 - **Smart home device development**: Create Matter-compatible devices that work across multiple ecosystems:
-  - <p style="text-align: justify;"><strong>Smart temperature monitoring</strong>: Use the Arduino Modulino® Thermo to build a Matter-compatible temperature and humidity sensor that integrates with Apple HomeKit, Google Home, and Amazon Alexa. Monitor environmental conditions in real-time and trigger automations based on temperature thresholds.</p>
+  - <p style="text-align: justify;"><strong>Smart temperature monitoring</strong>: Use the Arduino Modulino® Thermo to build a Matter-compatible temperature and humidity sensor that integrates with Apple® HomeKit, Google Home™, and Amazon Alexa. Monitor environmental conditions in real-time and trigger automations based on temperature thresholds.</p>
   - <p style="text-align: justify;"><strong>Presence-aware automation</strong>: Leverage the Arduino Modulino® Distance with its Time-of-Flight sensor to create occupancy detection systems. Build smart room sensors that detect presence and communicate with Matter controllers to automate lighting, HVAC, and security systems.</p>
   - <p style="text-align: justify;"><strong>Smart relay control</strong>: Use the Arduino Modulino® Latch Relay to retrofit traditional appliances with smart capabilities. Control lights, fans, coffee makers, and other devices through Matter-compatible voice assistants and automation platforms.</p>
 
@@ -34,10 +34,10 @@ author: José Bagur
 
 - **Legacy device retrofitting**: Modernize existing appliances:
   - <p style="text-align: justify;"><strong>Smart appliance conversion</strong>: Transform conventional electrical devices into Matter-compatible smart nodes; add voice control and automation capabilities to legacy equipment without redesigning the original appliance.</p>
-  - <p style="text-align: justify;"><strong>Home automation integration</strong>: Connect analog systems to Home Assistant, Apple HomeKit, or other Matter platforms. Schedule and automate legacy devices through modern smart home interfaces.</p>
+  - <p style="text-align: justify;"><strong>Home automation integration</strong>: Connect analog systems to Home Assistant, Apple® HomeKit, or other Matter platforms. Schedule and automate legacy devices through modern smart home interfaces.</p>
 
 - **Interoperability testing**: Validate device compatibility across ecosystems:
-  - <p style="text-align: justify;"><strong>Cross-platform validation</strong>: Test device behavior across Apple HomeKit, Google Home, Amazon Alexa, and Home Assistant to ensure consistent performance and compliance with Matter protocols.</p>
+  - <p style="text-align: justify;"><strong>Cross-platform validation</strong>: Test device behavior across Apple® HomeKit, Google Home™, Amazon Alexa, and Home Assistant to ensure consistent performance and compliance with Matter protocols.</p>
   - <p style="text-align: justify;"><strong>Certification preparation</strong>: Use the bundle as a test bench for validating Matter protocol compliance before pursuing official CSA certification for commercial products.</p>
 
 ## Features
