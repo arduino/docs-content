@@ -150,7 +150,8 @@ Below is a summary of the most important technical specifications of the Modulin
 
 #### Modulino® Distance (SKU: ABX00102)
 
-<p style="text-align: justify;">The Modulino Distance module is a compact sensor module featuring a Time-of-Flight (ToF) proximity sensor for accurate distance measurements. It is ideal for presence detection, object proximity sensing, and occupancy monitoring applications. The module connects via the Qwiic interface for simple integration with with the Nano Connector Carrier and can be daisy-chained with other Modulino nodes.</p>
+<p style="text-align: justify;">The Modulino Distance module is a compact sensor module featuring a Time-of-Flight (ToF) proximity sensor for accurate distance measurements. It is ideal for presence detection, object proximity sensing, and occupancy monitoring applications. The module connects via the Qwiic interface for simple integration with the Nano Connector Carrier and can be daisy-chained with other Modulino nodes.</p>
+
 
 <img src="assets/modulino_distance.jpg" alt="The Modulino Distance module" style="width: 45%; height: auto;"></img>
 
