@@ -179,7 +179,8 @@ Below is a summary of the most important technical specifications of the Modulin
 
 #### Modulino® Thermo (SKU: ABX00103)
 
-<p style="text-align: justify;">The Modulino Thermo is a compact environmental-sensing module with temperature and humidity sensors. It is designed for climate monitoring, HVAC control, and environmental data collection applications. The module connects via the Qwiic interface for simple integration with with the Nano Connector Carrier and can be daisy-chained with other Modulino nodes.</p>
+<p style="text-align: justify;">The Modulino Thermo is a compact environmental-sensing module with temperature and humidity sensors. It is designed for climate monitoring, HVAC control, and environmental data collection applications. The module connects via the Qwiic interface for simple integration with the Nano Connector Carrier and can be daisy-chained with other Modulino nodes.</p>
+
 
 <img src="assets/modulino_thermo.jpg" alt="The Modulino Thermo module" style="width: 45%; height: auto;"></img>
 
