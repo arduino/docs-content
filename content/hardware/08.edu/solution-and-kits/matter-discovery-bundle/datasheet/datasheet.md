@@ -1,6 +1,6 @@
 ---
 identifier: AKX00081
-title: Arduino® Matter® Discovery Bundle
+title: Arduino® Matter Discovery Bundle
 type: maker
 author: José Bagur
 ---
@@ -9,7 +9,7 @@ author: José Bagur
 
 # Description
 
-<p style="text-align: justify;">Build smarter and prototype faster with the Arduino Matter® Discovery Bundle, an all-in-one solution for creating interoperable Internet of Things (IoT) devices using Matter, the industry-backed smart home connectivity standard supported by Apple, Google, Amazon, Home Assistant, and other major platforms. At the core of this bundle is the Arduino Nano Matter board with pre-mounted headers, powered by Silicon Labs' MGM240S module for Matter-over-Thread connectivity. Combined with the Nano Connector Carrier featuring Qwiic and Grove interfaces and three Modulino® modules, this bundle enables rapid prototyping of smart home devices in minutes.</p>
+<p style="text-align: justify;">Build smarter and prototype faster with the Arduino Matter Discovery Bundle, an all-in-one solution for creating interoperable Internet of Things (IoT) devices using Matter, the industry-backed smart home connectivity standard supported by Apple, Google, Amazon, Home Assistant, and other major platforms. At the core of this bundle is the Arduino Nano Matter board with pre-mounted headers, powered by Silicon Labs' MGM240S module for Matter-over-Thread connectivity. Combined with the Arduino Nano Connector Carrier featuring Qwiic and Grove interfaces and three Arduino Modulino® modules, this bundle enables rapid prototyping of smart home devices in minutes.</p>
 
 # Target Areas
 
@@ -18,17 +18,17 @@ author: José Bagur
 # CONTENTS
 ## Application Examples
 
-<p style="text-align: justify;">The Arduino Matter® Discovery Bundle is designed for rapid prototyping of Matter-compatible smart home devices. With built-in Thread connectivity and seamless integration with major smart home ecosystems, this bundle enables developers to create interoperable IoT solutions quickly.</p>
+<p style="text-align: justify;">The Arduino Matter Discovery Bundle is designed for rapid prototyping of Matter-compatible smart home devices. With built-in Thread connectivity and seamless integration with major smart home ecosystems, this bundle enables developers to create interoperable IoT solutions quickly.</p>
 
 <p style="text-align: justify;">Discover how the Matter Discovery Bundle can accelerate your smart home projects through the following application examples:</p>
 
 - **Smart home device development**: Create Matter-compatible devices that work across multiple ecosystems:
-  - <p style="text-align: justify;"><strong>Smart temperature monitoring</strong>: Use the Modulino® Thermo to build a Matter-compatible temperature and humidity sensor that integrates with Apple HomeKit, Google Home, and Amazon Alexa. Monitor environmental conditions in real-time and trigger automations based on temperature thresholds.</p>
-  - <p style="text-align: justify;"><strong>Presence-aware automation</strong>: Leverage the Modulino Distance with its Time-of-Flight sensor to create occupancy detection systems. Build smart room sensors that detect presence and communicate with Matter controllers to automate lighting, HVAC, and security systems.</p>
-  - <p style="text-align: justify;"><strong>Smart relay control</strong>: Use the Modulino Latch Relay to retrofit traditional appliances with smart capabilities. Control lights, fans, coffee makers, and other devices through Matter-compatible voice assistants and automation platforms.</p>
+  - <p style="text-align: justify;"><strong>Smart temperature monitoring</strong>: Use the Arduino Modulino® Thermo to build a Matter-compatible temperature and humidity sensor that integrates with Apple HomeKit, Google Home, and Amazon Alexa. Monitor environmental conditions in real-time and trigger automations based on temperature thresholds.</p>
+  - <p style="text-align: justify;"><strong>Presence-aware automation</strong>: Leverage the Arduino Modulino® Distance with its Time-of-Flight sensor to create occupancy detection systems. Build smart room sensors that detect presence and communicate with Matter controllers to automate lighting, HVAC, and security systems.</p>
+  - <p style="text-align: justify;"><strong>Smart relay control</strong>: Use the Arduino Modulino® Latch Relay to retrofit traditional appliances with smart capabilities. Control lights, fans, coffee makers, and other devices through Matter-compatible voice assistants and automation platforms.</p>
 
 - **Education and training**: Teach modern IoT connectivity standards:
-  - <p style="text-align: justify;"><strong>STEM curriculum integration</strong>: With its 7-chapter Academy course, the bundle provides structured learning materials for understanding Matter protocol fundamentals, Thread networking and embedded programming for smart devices.</p>
+  - <p style="text-align: justify;"><strong>STEM curriculum integration</strong>: With its 7-module course, the bundle provides structured learning materials for understanding Matter protocol fundamentals, Thread networking and embedded programming for smart devices.</p>
   - <p style="text-align: justify;"><strong>Hands-on IoT labs</strong>: Perfect for technical universities and bootcamps to deliver practical experience with industry-relevant Matter certification processes and device interoperability testing.</p>
   - <p style="text-align: justify;"><strong>Professional development</strong>: Enable corporate training programs for embedded engineers and IoT developers looking to expand their expertise in Matter technology and smart home connectivity.</p>
 
@@ -44,13 +44,13 @@ author: José Bagur
 
 ### Bundle Contents
 
-<p style="text-align: justify;">The Arduino Matter® Discovery Bundle includes all the hardware components necessary to prototype Matter-over-Thread smart home devices in no time. Below is the list of included items and their main features and specifications:</p>
+<p style="text-align: justify;">The Arduino Matter Discovery Bundle includes all the hardware components necessary to prototype Matter-over-Thread smart home devices in no time. Below is the list of included items and their main features and specifications:</p>
 
 - Arduino Nano Matter with headers (SKU: ABX00137) (x1)
-- Nano Connector Carrier (SKU: ASX00061) (x1)
-- Modulino® Latch Relay (SKU: ABX00138) (x1)
-- Modulino® Distance (SKU: ABX00102) (x1)
-- Modulino® Thermo (SKU: ABX00103) (x1)
+- Arduino Nano Connector Carrier (SKU: ASX00061) (x1)
+- Arduino Modulino® Latch Relay (SKU: ABX00138) (x1)
+- Arduino Modulino® Distance (SKU: ABX00102) (x1)
+- Arduino Modulino® Thermo (SKU: ABX00103) (x1)
 - Qwiic cables (x4)
 - USB-C® cable (x1)
 
@@ -92,41 +92,40 @@ Below is a summary of the most important technical specifications of the Arduino
 
 <div style="page-break-after: always;"></div>
 
-#### Nano Connector Carrier (SKU: ASX00061)
+#### Arduino Nano Connector Carrier (SKU: ASX00061)
 
-<p style="text-align: justify;">The Nano Connector Carrier is a versatile expansion board that simplifies prototyping with Arduino Nano-form-factor boards. It provides multiple connectivity options, including Grove and Qwiic connectors for plug-and-play integration with sensors and actuators. The carrier also features a MicroSD card slot for data logging applications and a voltage selection switch for compatibility with both +3.3 VDC and +5 VDC devices.</p>
+<p style="text-align: justify;">The Arduino Nano Connector Carrier is a versatile expansion board that simplifies prototyping with Arduino Nano-form-factor boards. It provides multiple connectivity options, including Grove and Qwiic connectors for plug-and-play integration with sensors and actuators. The carrier also features a MicroSD card slot for data logging applications and a voltage selection switch for compatibility with both +3.3 VDC and +5 VDC devices.</p>
 
-<img src="assets/nano_connector_carrier.jpg" alt="The Nano Connector Carrier board" style="width: 45%; height: auto;"></img>
+<img src="assets/nano_connector_carrier.jpg" alt="The Arduino Nano Connector Carrier board" style="width: 45%; height: auto;"></img>
 
-Below is a summary of the most important technical specifications of the Nano Connector Carrier:
+Below is a summary of the most important technical specifications of the Arduino Nano Connector Carrier:
 
 |   **Feature**   | **Specification**                                               |
 |:---------------:|-----------------------------------------------------------------|
 |  **Connectors** | Grove analog/digital I/O (x2), Grove I²C, Grove UART, Qwiic I²C |
 |   **Storage**   | MicroSD card slot                                               |
-|   **Headers**   | Double female board header for Nano boards                      |
+|   **Headers**   | Double female board header for Arduino Nano family boards       |
 | **I/O Voltage** | Switchable between +3.3 VDC and +5 VDC                          |
 |  **Dimensions** | 28 mm x 43 mm                                                   |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   <p style="text-align: justify;">
-    For detailed information about the Nano Connector Carrier, please refer to its corresponding documentation available on Arduino Docs:
+    For detailed information about the Arduino Nano Connector Carrier, please refer to its corresponding documentation available on Arduino Docs:
     <a href="https://docs.arduino.cc/hardware/nano-connector-carrier/" target="_blank" style="color: #0056b3; text-decoration: underline;">
-      Nano Connector Carrier Official Documentation [2]
+      Arduino Nano Connector Carrier Official Documentation [2]
     </a>
   </p>
 </div>
 
 <div style="page-break-after: always;"></div>
 
-#### Modulino® Latch Relay (SKU: ABX00138)
+#### Arduino Modulino® Latch Relay (SKU: ABX00138)
 
-<p style="text-align: justify;">The Modulino Latch Relay is a compact actuator module designed for controlling external devices at higher voltages. It features a latching relay that maintains its state without continuous power, making it ideal for energy-efficient smart home applications. The module connects via the Qwiic interface for simple integration with the Nano Connector Carrier and can be daisy-chained with other Modulino nodes.</p>
+<p style="text-align: justify;">The Arduino Modulino® Latch Relay is a compact actuator module designed for controlling external devices at higher voltages. It features a latching relay that maintains its state without continuous power, making it ideal for energy-efficient smart home applications. The module connects via the Qwiic interface for simple integration with with the Nano Connector Carrier and can be daisy-chained with other Arduino Modulino® nodes.</p>
 
+<img src="assets/modulino_latch_relay.jpg" alt="The Arduino Modulino® Latch Relay module" style="width: 45%; height: auto;"></img>
 
-<img src="assets/modulino_latch_relay.jpg" alt="The Modulino Latch Relay module" style="width: 45%; height: auto;"></img>
-
-Below is a summary of the most important technical specifications of the Modulino Latch Relay module:
+Below is a summary of the most important technical specifications of the Arduino Modulino® Latch Relay module:
 
 |       **Feature**      | **Specification**                          |
 |:----------------------:|--------------------------------------------|
@@ -139,23 +138,22 @@ Below is a summary of the most important technical specifications of the Modulin
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   <p style="text-align: justify;">
-    For detailed information about the Modulino Latch Relay module, please refer to its corresponding documentation available on Arduino Docs:
+    For detailed information about the Arduino Modulino® Latch Relay module, please refer to its corresponding documentation available on Arduino Docs:
     <a href="https://docs.arduino.cc/hardware/modulino-latch/" target="_blank" style="color: #0056b3; text-decoration: underline;">
-      Modulino Latch Relay Official Documentation [3]
+      Arduino Modulino® Latch Relay Official Documentation [3]
     </a>
   </p>
 </div>
 
 <div style="page-break-after: always;"></div>
 
-#### Modulino® Distance (SKU: ABX00102)
+#### Arduino Modulino® Distance (SKU: ABX00102)
 
-<p style="text-align: justify;">The Modulino Distance module is a compact sensor module featuring a Time-of-Flight (ToF) proximity sensor for accurate distance measurements. It is ideal for presence detection, object proximity sensing, and occupancy monitoring applications. The module connects via the Qwiic interface for simple integration with the Nano Connector Carrier and can be daisy-chained with other Modulino nodes.</p>
+<p style="text-align: justify;">The Arduino Modulino® Distance module is a compact sensor module featuring a Time-of-Flight (ToF) proximity sensor for accurate distance measurements. It is ideal for presence detection, object proximity sensing, and occupancy monitoring applications. The module connects via the Qwiic interface for simple integration with with the Nano Connector Carrier and can be daisy-chained with other Arduino Modulino® nodes.</p>
 
+<img src="assets/modulino_distance.jpg" alt="The Arduino Modulino® Distance module" style="width: 45%; height: auto;"></img>
 
-<img src="assets/modulino_distance.jpg" alt="The Modulino Distance module" style="width: 45%; height: auto;"></img>
-
-Below is a summary of the most important technical specifications of the Modulino Distance module:
+Below is a summary of the most important technical specifications of the Arduino Modulino® Distance module:
 
 |      **Feature**      | **Specification**                          |
 |:---------------------:|--------------------------------------------|
@@ -168,23 +166,22 @@ Below is a summary of the most important technical specifications of the Modulin
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   <p style="text-align: justify;">
-    For detailed information about the Modulino Distance module, please refer to its corresponding documentation available on Arduino Docs:
+    For detailed information about the Arduino Modulino® Distance module, please refer to its corresponding documentation available on Arduino Docs:
     <a href="https://docs.arduino.cc/hardware/modulino-distance/" target="_blank" style="color: #0056b3; text-decoration: underline;">
-      Modulino Distance Official Documentation [4]
+      Arduino Modulino® Distance Official Documentation [4]
     </a>
   </p>
 </div>
 
 <div style="page-break-after: always;"></div>
 
-#### Modulino® Thermo (SKU: ABX00103)
+#### Arduino Modulino® Thermo (SKU: ABX00103)
 
-<p style="text-align: justify;">The Modulino Thermo is a compact environmental-sensing module with temperature and humidity sensors. It is designed for climate monitoring, HVAC control, and environmental data collection applications. The module connects via the Qwiic interface for simple integration with the Nano Connector Carrier and can be daisy-chained with other Modulino nodes.</p>
+<p style="text-align: justify;">The Arduino Modulino® Thermo is a compact environmental-sensing module with temperature and humidity sensors. It is designed for climate monitoring, HVAC control, and environmental data collection applications. The module connects via the Qwiic interface for simple integration with with the Nano Connector Carrier and can be daisy-chained with other Arduino Modulino® nodes.</p>
 
+<img src="assets/modulino_thermo.jpg" alt="The Arduino Modulino® Thermo module" style="width: 45%; height: auto;"></img>
 
-<img src="assets/modulino_thermo.jpg" alt="The Modulino Thermo module" style="width: 45%; height: auto;"></img>
-
-Below is a summary of the most important technical specifications of the Modulino Thermo:
+Below is a summary of the most important technical specifications of the Arduino Modulino® Thermo:
 
 |     **Feature**     | **Specification**                          |
 |:-------------------:|--------------------------------------------|
@@ -196,9 +193,9 @@ Below is a summary of the most important technical specifications of the Modulin
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   <p style="text-align: justify;">
-    For detailed information about the Modulino Thermo module, please refer to its corresponding documentation available on Arduino Docs:
+    For detailed information about the Arduino Modulino® Thermo module, please refer to its corresponding documentation available on Arduino Docs:
     <a href="https://docs.arduino.cc/hardware/modulino-thermo/" target="_blank" style="color: #0056b3; text-decoration: underline;">
-      Modulino Thermo Official Documentation [5]
+      Arduino Modulino® Thermo Official Documentation [5]
     </a>
   </p>
 </div>
@@ -212,11 +209,11 @@ Below is a summary of the most important technical specifications of the Modulin
 
 ### Bundle Related Products
 
-- Modulino Movement (SKU: ABX00101)
-- Modulino Knob (SKU: ABX00107)
-- Modulino Buzzer (SKU: ABX00108)
-- Modulino Pixels (SKU: ABX00109)
-- Modulino Buttons (SKU: ABX00110)
+- Arduino Modulino® Movement (SKU: ABX00101)
+- Arduino Modulino® Knob (SKU: ABX00107)
+- Arduino Modulino® Buzzer (SKU: ABX00108)
+- Arduino Modulino® Pixels (SKU: ABX00109)
+- Arduino Modulino® Buttons (SKU: ABX00110)
 
 <div style="page-break-after: always;"></div>
 
@@ -224,7 +221,7 @@ Below is a summary of the most important technical specifications of the Modulin
 
 ### Recommended Operating Conditions
 
-<p style="text-align: justify;">The table below provides a comprehensive guideline for the optimal use of the Arduino Matter Discovery Bundle, outlining typical operating conditions and design limits. The operating conditions of the Matter Discovery Bundle are largely determined by its components' specifications.</p>
+<p style="text-align: justify;">The table below provides a comprehensive guideline for the optimal use of the Arduino Matter Discovery Bundle, outlining typical operating conditions and design limits. The operating conditions of the Arduino Matter Discovery Bundle are largely determined by its components' specifications.</p>
 
 |      **Parameter**     |    **Symbol**   | **Min** | **Typ** | **Max** | **Unit** |
 |:----------------------:|:---------------:|:-------:|:-------:|:-------:|:--------:|
@@ -237,7 +234,7 @@ Below is a summary of the most important technical specifications of the Modulin
 </p>
 
 <p style="text-align: justify;">
-<sup>2</sup> Input voltage via <code>VIN</code> pad on the Arduino Nano Matter board, accessible through the Nano Connector Carrier.
+<sup>2</sup> Input voltage via <code>VIN</code> pad on the Arduino Nano Matter board, accessible through the Arduino Nano Connector Carrier.
 </p>
 
 <p style="text-align: justify;">
@@ -245,7 +242,7 @@ Below is a summary of the most important technical specifications of the Modulin
 </p>
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;"><strong>Important Note:</strong> The recommended methods for powering the kit are through the USB-C® connector on the Arduino Nano Matter or via the <code>VIN</code> pad accessible through the Nano Connector Carrier. When using the <code>VIN</code> pad, ensure the input voltage is within the +6 to +21 VDC range. <strong>Do not apply power through both methods simultaneously</strong>.</p>
+<p style="text-align: justify;"><strong>Important Note:</strong> The recommended methods for powering the bundle are through the USB-C® connector on the Arduino Nano Matter or via the <code>VIN</code> pad accessible through the Arduino Nano Connector Carrier. When using the <code>VIN</code> pad, ensure the input voltage is within the +6 to +21 VDC range. <strong>Do not apply power through both methods simultaneously</strong>.</p>
 </div>
 
 <div style="page-break-after: always;"></div>
@@ -255,10 +252,10 @@ Below is a summary of the most important technical specifications of the Modulin
 <p style="text-align: justify;">The Arduino Matter Discovery Bundle can be powered through the following recommended methods:</p>
 
 - <p style="text-align: justify;"><strong>USB-C® connector on the Arduino Nano Matter</strong>: Provides a +5 VDC input through the onboard USB-C® port. This is the recommended method for powering the entire bundle during development and prototyping.</p>
-- <p style="text-align: justify;"><strong>VIN pad via Nano Connector Carrier</strong>: The <code>VIN</code> pad on the Arduino Nano Matter is accessible through the Nano Connector Carrier's female headers, allowing external power supply connection. This pad accepts an unregulated +6 to +21 VDC input (typical +7 VDC) that is internally regulated. This method is suitable for standalone deployments or when higher current capacity is required.</p>
+- <p style="text-align: justify;"><strong>VIN pad via Arduino Nano Connector Carrier</strong>: The <code>VIN</code> pad on the Arduino Nano Matter is accessible through the Arduino Nano Connector Carrier's female headers, allowing external power supply connection. This pad accepts an unregulated +6 to +21 VDC input (typical +7 VDC) that is internally regulated. This method is suitable for standalone deployments or when higher current capacity is required.</p>
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;"><strong>Power Tip:</strong> When using the Modulino® Latch Relay module to control external devices, ensure that the external power supply for the controlled device is properly isolated from the bundle's power supply to prevent any damage.</p>
+<p style="text-align: justify;"><strong>Power Tip:</strong> When using the Arduino Modulino® Latch Relay module to control external devices, ensure that the external power supply for the controlled device is properly isolated from the bundle's power supply to prevent any damage.</p>
 </div>
 
 <div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
@@ -275,15 +272,15 @@ Below is a summary of the most important technical specifications of the Modulin
 
 ### Getting Started - Arduino Cloud Editor
 
-<p style="text-align: justify;">All components of the Matter Discovery Bundle work seamlessly with the Arduino Cloud Editor <strong>[7]</strong> by installing a simple plugin. The Arduino Cloud Editor is hosted online, ensuring it is always up-to-date with the latest features and support for all boards and devices. Follow <strong>[8]</strong> to start coding in the browser and upload your sketches onto the Arduino Nano Matter board.</p>
+<p style="text-align: justify;">All components of the Arduino Matter Discovery Bundle work with the Arduino Cloud Editor <strong>[7]</strong> by installing a simple plugin. The Arduino Cloud Editor is hosted online, ensuring it is always up-to-date with the latest features and support for all boards and devices. Follow <strong>[8]</strong> to start coding in the browser and upload your sketches onto the Arduino Nano Matter board.</p>
 
 ### Getting Started - Arduino Cloud
 
-<p style="text-align: justify;">The Matter Discovery Bundle is supported on Arduino Cloud, enabling you to log sensor data, trigger events and automate processes for smart home applications via the Arduino Nano Matter board. Take a look at the official documentation <strong>[8]</strong> to learn more about how to integrate the kit into your IoT projects.</p>
+<p style="text-align: justify;">The Arduino Matter Discovery Bundle is supported on Arduino Cloud, enabling you to log sensor data, trigger events and automate processes for smart home applications via the Arduino Nano Matter board. Take a look at the official documentation <strong>[8]</strong> to learn more about how to integrate the kit into your IoT projects.</p>
 
-### Matter Arduino Academy Course
+### Matter Discovery Course
 
-<p style="text-align: justify;">The Arduino Matter Discovery Bundle includes access to a 7-chapter Arduino Academy course <strong>[10]</strong> designed to help you master Matter technology:</p>
+<p style="text-align: justify;">The Arduino Matter Discovery Bundle includes access to the Matter Discovery Course, a 7-module course <strong>[10]</strong> designed to help you master Matter technology. The course's modules are the following:</p>
 
 - <strong>Module 1</strong>: Introduction to Matter (Theory)
 - <strong>Module 2</strong>: Setting Up the Arduino Nano Matter Board (Practice)
@@ -297,11 +294,11 @@ Below is a summary of the most important technical specifications of the Modulin
 
 ### Sample Sketches
 
-<p style="text-align: justify;">Sample sketches for the Matter Discovery Bundle can be found in the "Examples" menu in the Arduino IDE under the Matter library. These examples include basic Matter device implementations, sensor integration and relay control applications demonstrating smart home connectivity.</p>
+<p style="text-align: justify;">Sample sketches for the Arduino Matter Discovery Bundle can be found in the "Examples" menu in the Arduino IDE under the Matter library. These examples include basic Matter device implementations, sensor integration and relay control applications demonstrating smart home connectivity.</p>
 
 ### Online Resources
 
-<p style="text-align: justify;">Explore the endless possibilities of the Matter Discovery Bundle by checking projects on Arduino Project Hub <strong>[11]</strong>, the Arduino Library Reference <strong>[12]</strong> and the Matter Arduino Academy course <strong>[10]</strong>. Additional resources from Silicon Labs, including the Matter Developer Journey documentation<strong>[13]</strong>, provide in-depth technical information for advanced implementations.</p>
+<p style="text-align: justify;">Explore the endless possibilities of the Arduino Matter Discovery Bundle by checking projects on Arduino Project Hub <strong>[11]</strong>, the Arduino Library Reference <strong>[12]</strong> and the Matter Discovery course <strong>[10]</strong>. Additional resources from Silicon Labs, including the Matter Developer Journey documentation<strong>[13]</strong>, provide in-depth technical information for advanced implementations.</p>
 
 <div style="page-break-after: always;"></div>
 
@@ -317,13 +314,13 @@ The Arduino Matter Discovery Bundle offers mechanical flexibility, supporting mu
 The table below summarizes the dimensions of each component included in the kit:
 </p>
 
-| **Component**          | **Width** | **Length** | **Unit** |
-|:----------------------:|:---------:|:----------:|:--------:|
-| Arduino Nano Matter    |    18     |     45     |    mm    |
-| Nano Connector Carrier |    28     |     43     |    mm    |
-| Modulino Latch Relay   |   25.36   |     41     |    mm    |
-| Modulino Distance      |   25.36   |     41     |    mm    |
-| Modulino Thermo        |   25.36   |     41     |    mm    |
+|          **Component**         | **Width** | **Length** | **Unit** |
+|:------------------------------:|:---------:|:----------:|:--------:|
+|       Arduino Nano Matter      |     18    |     45     |    mm    |
+| Arduino Nano Connector Carrier |     28    |     43     |    mm    |
+|  Arduino Modulino® Latch Relay |   25.36   |     41     |    mm    |
+|   Arduino Modulino® Distance   |   25.36   |     41     |    mm    |
+|    Arduino Modulino® Thermo    |   25.36   |     41     |    mm    |
 
 <div style="page-break-after: always;"></div>
 
@@ -332,10 +329,10 @@ The table below summarizes the dimensions of each component included in the kit:
 <p style="text-align: justify;">The Arduino Matter Discovery Bundle consists of multiple individual Arduino products, each of which complies with specific regulations and certifications. For detailed product compliance information, please refer to the corresponding datasheets of each component included in the kit:</p>
 
 - [Arduino Nano Matter Documentation](https://docs.arduino.cc/hardware/nano-matter/) **[1]**
-- [Nano Connector Carrier Documentation](https://docs.arduino.cc/hardware/nano-connector-carrier/) **[2]**
-- [Modulino Latch Relay Documentation](https://docs.arduino.cc/hardware/modulino-latch//) **[3]**
-- [Modulino Distance Documentation](https://docs.arduino.cc/hardware/modulino-distance/) **[4]**
-- [Modulino Thermo Documentation](https://docs.arduino.cc/hardware/modulino-thermo/) **[5]**
+- [Arduino Nano Connector Carrier Documentation](https://docs.arduino.cc/hardware/nano-connector-carrier/) **[2]**
+- [Arduino Modulino® Latch Relay Documentation](https://docs.arduino.cc/hardware/modulino-latch//) **[3]**
+- [Arduino Modulino® Distance Documentation](https://docs.arduino.cc/hardware/modulino-distance/) **[4]**
+- [Arduino Modulino® Thermo Documentation](https://docs.arduino.cc/hardware/modulino-thermo/) **[5]**
 
 ## FCC Caution
 
@@ -353,21 +350,21 @@ The table below summarizes the dimensions of each component included in the kit:
 
 ## Reference Documentation
 
-| **No.** |             **Reference**             | **Link**                                                         |
-|:-------:|:-------------------------------------:|------------------------------------------------------------------|
-|    1    |   Arduino Nano Matter Documentation   | https://docs.arduino.cc/hardware/nano-matter/                    |
-|    2    |  Nano Connector Carrier Documentation | https://docs.arduino.cc/hardware/nano-connector-carrier/         |
-|    3    |   Modulino Latch Relay Documentation  | https://docs.arduino.cc/hardware/modulino-latch/                 |
-|    4    |    Modulino Distance Documentation    | https://docs.arduino.cc/hardware/modulino-distance/              |
-|    5    |     Modulino Thermo Documentation     | https://docs.arduino.cc/hardware/modulino-thermo/                |
-|    6    |         Arduino IDE (Desktop)         | https://www.arduino.cc/en/software                               |
-|    7    |          Arduino Cloud Editor         | https://create.arduino.cc/editor                                 |
-|    8    |    Arduino Cloud - Getting Started    | https://docs.arduino.cc/arduino-cloud/guides/overview/           |
-|    9    | Matter Discovery Bundle Documentation | https://docs.arduino.cc/hardware/matter-discovery-bundle/        |
-|    10   |     Arduino Academy Matter Course     | https://academy.arduino.cc/                                      |
-|    11   |          Arduino Project Hub          | https://create.arduino.cc/projecthub                             |
-|    12   |       Arduino Library Reference       | https://docs.arduino.cc/language-reference/                      |
-|    13   | Silicon Labs Matter Developer Journey | https://www.silabs.com/support/training/matter-developer-journey |
+| **No.** |                 **Reference**                 | **Link**                                                         |
+|:-------:|:---------------------------------------------:|------------------------------------------------------------------|
+|    1    |       Arduino Nano Matter Documentation       | https://docs.arduino.cc/hardware/nano-matter/                    |
+|    2    |  Arduino Nano Connector Carrier Documentation | https://docs.arduino.cc/hardware/nano-connector-carrier/         |
+|    3    |  Arduino Modulino® Latch Relay Documentation  | https://docs.arduino.cc/hardware/modulino-latch/                 |
+|    4    |    Arduino Modulino® Distance Documentation   | https://docs.arduino.cc/hardware/modulino-distance/              |
+|    5    |     Arduino Modulino® Thermo Documentation    | https://docs.arduino.cc/hardware/modulino-thermo/                |
+|    6    |             Arduino IDE (Desktop)             | https://www.arduino.cc/en/software                               |
+|    7    |              Arduino Cloud Editor             | https://create.arduino.cc/editor                                 |
+|    8    |        Arduino Cloud - Getting Started        | https://docs.arduino.cc/arduino-cloud/guides/overview/           |
+|    9    | Arduino Matter Discovery Bundle Documentation | https://docs.arduino.cc/hardware/matter-discovery-bundle/        |
+|    10   |            Matter Discovery Course            | https://academy.arduino.cc/                                      |
+|    11   |              Arduino Project Hub              | https://create.arduino.cc/projecthub                             |
+|    12   |           Arduino Library Reference           | https://docs.arduino.cc/language-reference/                      |
+|    13   |     Silicon Labs Matter Developer Journey     | https://www.silabs.com/support/training/matter-developer-journey |
 
 ## Document Revision History
 
