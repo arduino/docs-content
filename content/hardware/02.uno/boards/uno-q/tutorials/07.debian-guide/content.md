@@ -1172,15 +1172,19 @@ or
 sudo poweroff
 ```
 
-The board performs a clean shutdown of the Debian system but automatically restarts shortly after. This behavior is built into the board's power management system and cannot be changed through software configuration alone.
+The board performs a clean shutdown of the Debian system but automatically restarts shortly after. This behavior is built into the board's power management system.
 
-To safely power down your UNO Q for extended storage or when moving the board, you need to combine a proper Linux shutdown with timely power disconnection. The recommended approach is to use the following command:
+To safely power down your UNO Q for extended storage or when carrying the board, you need to use a proper Linux shutdown with timely power disconnection. You can use either the command-line method or the graphical interface in SBC mode.
+
+#### Command-Line Shutdown Method
+
+The recommended command-line approach is to use the following command:
 
 ```bash
 halt
 ```
 
-This stops all system processes and brings Linux to a safe state, allowing power to be removed without risk of file system corruption.
+It stops all system processes and brings Linux to a safe state, allowing power to be removed without risk of file system corruption.
 
 The safe shutdown procedure involves three steps. From the shell, whether accessed via SSH, ADB, or terminal in SBC mode, run the `halt` command:
 
@@ -1190,13 +1194,30 @@ sudo halt
 
 Watch the green power LED on the board, which will turn off when the system has halted completely. Then, disconnect the power immediately once the LED goes out to prevent the automatic restart sequence from beginning.
 
-The timing is important because the board will attempt to restart shortly after halting. You have a brief window after the LED turns off to disconnect power safely. If you wait too long, the system will begin its reboot sequence.
+#### Graphical Interface Shutdown Method (SBC Mode)
 
-For boards powered via USB-C®, unplug the USB-C® cable once the LED turns off. When using the *VIN* pin for power with a 7-24 VDC input, disconnect your external power supply at this time. If your board receives power from the 5 V pin, disconnect the 5 V power supply when the LED indicator turns off.
+When using your UNO Q in SBC mode with a desktop environment, you can begin shutdown through the graphical interface:
 
-In SBC mode with a USB-C® dongle, you can use the graphical interface shutdown option as an alternative, then quickly disconnect the dongle's power supply when the LED turns off.
+- Click on **"arduino"** located in the top right corner of the desktop.
+- Select the **"Shut Down"** option from the dropdown menu that appears.
+- Watch the green power LED on the board, which will turn off when the system has halted completely.
+- Disconnect the power immediately once the LED goes out to prevent the automatic restart sequence from beginning.
 
-While proper shutdown procedures prevent file system corruption and data loss, the UNO Q's eMMC storage includes protective measures that minimize data loss in the event of an unexpected power loss. If you must disconnect power immediately during an emergency, the system will likely recover on the next boot. However, any unsaved work would be lost.
+#### Power Disconnection Timing
+
+The timing is important because the board will attempt to restart shortly after halting, regardless of which shutdown method you use. You have a brief window after the LED turns off to safely disconnect power. If you wait too long, the system will begin its reboot sequence.
+
+- For boards powered via USB-C®, unplug the USB-C® cable once the LED turns off
+- When using the *VIN* pin for power with a 7-24 VDC input, disconnect your external power supply at this time
+- If your board receives power from the 5 V pin, disconnect the 5 V power supply when the LED indicator turns off
+
+In SBC mode with a USB-C® dongle, disconnect the dongle's power supply after the LED turns off when initiating shutdown through either the graphical interface or the command line.
+
+#### Emergency Shutdown and Best Practices
+
+While proper shutdown procedures prevent file system corruption and data loss, the UNO Q's eMMC storage includes protective measures that minimize data loss in the event of an unexpected power loss.
+
+If you must disconnect power immediately during an emergency, the system will likely recover on the next boot. However, any unsaved work would be lost.
 
 For long-term storage or when carrying the board, always perform a proper halt command followed by power disconnection:
 
@@ -1206,13 +1227,15 @@ sudo halt
 
 For continuous operation or automated systems where the board runs indefinitely, manual shutdown procedures are not necessary.
 
+#### Understanding Shutdown Commands
+
 Understanding the behavior of different shutdown commands helps avoid confusion. The following command cleanly restarts the system as intended:
 
 ```bash
 sudo reboot
 ```
 
-Both of the following commands attempt to shut down the system, but trigger the auto-restart behavior instead:
+The following commands perform a clean system shutdown, but the board's auto-restart functionality will power the system back on shortly after shutdown completes:
 
 ```bash
 sudo shutdown now
@@ -1222,7 +1245,7 @@ sudo shutdown now
 sudo poweroff
 ```
 
-The following command is specifically designed for situations where you want to stop Linux completely before removing power, making it the correct choice for the UNO Q's architecture.
+The following command is specifically designed for cases where you want to stop Linux completely before removing power, making it the correct choice for the UNO Q's architecture:
 
 ```bash
 sudo halt
