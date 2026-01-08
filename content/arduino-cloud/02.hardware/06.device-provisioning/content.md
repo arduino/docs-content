@@ -34,11 +34,11 @@ If your board is provisioned to the Cloud with version 2.0 the network credentia
 |     MKR WAN 1300    | Version 1.0 |
 |     MKR WAN 1310    | Version 1.0 |
 |     MKR 1000 WiFi       | Version 1.0 |
-|     MKR WiFi 1010   | Version 1.0 |
+|     MKR WiFi 1010   | Version 2.0 |
 |     MKR GSM 1400    | Version 1.0 |
-|     Nano 33 IoT     | Version 1.0 |
+|     Nano 33 IoT     | Version 2.0 |
 |     Nano ESP32      | Version 1.0 |
-| Nano RP2040 Connect | Version 1.0 |
+| Nano RP2040 Connect | Version 2.0 |
 |     Portenta C33    | Version 1.0 |
 |     Portenta X8     | Version 1.0 |
 
