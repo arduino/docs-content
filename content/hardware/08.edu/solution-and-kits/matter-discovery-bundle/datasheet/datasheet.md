@@ -214,6 +214,9 @@ Below is a summary of the most important technical specifications of the Arduino
 - Arduino Modulino® Buzzer (SKU: ABX00108)
 - Arduino Modulino® Pixels (SKU: ABX00109)
 - Arduino Modulino® Buttons (SKU: ABX00110)
+- Arduino Modulino® Light (SKU: ABX00111)
+- Arduino Modulino® Joystick (SKU: ABX00135)
+- Arduino Modulino® Vibro (SKU: ABX00130)
 
 <div style="page-break-after: always;"></div>
 
@@ -321,6 +324,7 @@ The table below summarizes the dimensions of each component included in the kit:
 |  Arduino Modulino® Latch Relay |   25.36   |     41     |    mm    |
 |   Arduino Modulino® Distance   |   25.36   |     41     |    mm    |
 |    Arduino Modulino® Thermo    |   25.36   |     41     |    mm    |
+|        Qwiic cables (x4)       |     -     |     50     |    mm    |
 
 <div style="page-break-after: always;"></div>
 
