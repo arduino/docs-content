@@ -121,7 +121,8 @@ Below is a summary of the most important technical specifications of the Nano Co
 
 #### Modulino® Latch Relay (SKU: ABX00138)
 
-<p style="text-align: justify;">The Modulino Latch Relay is a compact actuator module designed for controlling external devices at higher voltages. It features a latching relay that maintains its state without continuous power, making it ideal for energy-efficient smart home applications. The module connects via the Qwiic interface for simple integration with with the Nano Connector Carrier and can be daisy-chained with other Modulino nodes.</p>
+<p style="text-align: justify;">The Modulino Latch Relay is a compact actuator module designed for controlling external devices at higher voltages. It features a latching relay that maintains its state without continuous power, making it ideal for energy-efficient smart home applications. The module connects via the Qwiic interface for simple integration with the Nano Connector Carrier and can be daisy-chained with other Modulino nodes.</p>
+
 
 <img src="assets/modulino_latch_relay.jpg" alt="The Modulino Latch Relay module" style="width: 45%; height: auto;"></img>
 
