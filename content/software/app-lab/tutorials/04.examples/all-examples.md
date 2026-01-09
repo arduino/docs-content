@@ -36,7 +36,7 @@ The **Air Quality Monitoring App** displays real-time air quality data using the
 
 ### Bedtime Story Teller
 
-![Bedtime Story Teller Example](assets/docs_assets/thumbnail.png)
+![Bedtime Story Teller Example](assets/bedtime-storyteller.png)
 
 The **Bedtime Story Teller** example demonstrates how to build a generative AI application using the Arduino UNO Q. It uses a Large Language Model (LLM) to create personalized bedtime stories based on user-selected parameters like age, theme, and characters, streaming the result in real-time to a web interface.
 
@@ -167,7 +167,7 @@ The **Linux® Blink** example toggles an LED state on the board through a web-ba
 
 ### Mascot Jump Game
 
-![Mascot Jump Game Example](assets/docs_assets/thumbnail.png)
+![Mascot Jump Game Example](assets/mascot-jump-game.png)
 
 The **Mascot Jump Game** is an endless runner game inspired by the classic browser dinosaur game. It features an LED character jumping over electronic components, synchronized between the web browser and the UNO Q's LED matrix.
 
@@ -400,7 +400,7 @@ The **Real Time Accelerometer Data** example records accelerometer data from the
 
 ### Object Hunting
 
-![Object Hunting Game Example](assets/docs_assets/thumbnail.png)
+![Object Hunting Game Example](assets/object-hunting.png)
 
 The **Object Hunting** game is an interactive scavenger hunt that uses real-time object detection. Players must locate specific physical objects (e.g., Book, Bottle, Chair) using a USB camera to win the game.
 
@@ -448,11 +448,11 @@ The **Person Classifier** example lets you detect people on a live feed from a c
 
 ### Theremin Simulator
 
-![Theremin Simulator](assets/docs_assets/theremin-simulator.png)
+![Theremin Simulator](assets/theremin-simulator.png)
 
 The **Theremin Simulator** creates a virtual instrument that generates real-time audio based on user input. It uses a web interface for pitch and volume control, streaming synthesized audio to a USB device with low latency.
 
-[**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/theremin-simulator)
+[**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/theremin)
 
 #### Additional Hardware
 
@@ -471,7 +471,7 @@ The **Theremin Simulator** creates a virtual instrument that generates real-time
 
 ### Vibration Anomaly Detection
 
-![Vibration Monitoring](assets/docs_assets/vibration-anomaly.png)
+![Vibration Monitoring](assets/vibration-anomaly.png)
 
 The **Vibration Anomaly Detection** example monitors the physical status of machinery (e.g., a fan) in real-time. It visualizes raw accelerometer data and allows users to dynamically adjust anomaly detection sensitivity.
 
