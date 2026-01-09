@@ -1,7 +1,7 @@
 ---
 title: Arduino App Lab Example Applications Overview
 description: An overview of various applications developed for the Arduino App Lab platform, showcasing unique functionalities from environmental monitoring to machine learning.
-author: Karl Söderby and Christopher Méndez
+author: Karl Söderby, Christopher Méndez and Ernesto Voltaggio
 tags: [AI, Computer Vision, Audio Classification, Arduino App Lab]
 ---
 
@@ -33,6 +33,27 @@ The **Air Quality Monitoring App** displays real-time air quality data using the
 #### Bricks Used
 
 - **None:** Direct communication between Python® and Arduino is facilitated through the Router Bridge.
+
+### Bedtime Story Teller
+
+![Bedtime Story Teller Example](assets/docs_assets/thumbnail.png)
+
+The **Bedtime Story Teller** example demonstrates how to build a generative AI application using the Arduino UNO Q. It uses a Large Language Model (LLM) to create personalized bedtime stories based on user-selected parameters like age, theme, and characters, streaming the result in real-time to a web interface.
+
+**Note:** This example requires a valid API Key from an LLM provider (Google Gemini, OpenAI GPT, or Anthropic Claude).
+
+[**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/bedtime-story-teller)
+
+#### How it Works
+
+- **User Input Collection:** The web interface collects story parameters (age, theme, tone) or triggers a random generation.
+- **AI Inference:** The backend constructs a prompt and sends it to the cloud provider via the `cloud_llm` Brick.
+- **Stream Processing:** The story is streamed back to the browser text-token by text-token for immediate feedback.
+
+#### Bricks Used
+
+- **cloud_llm:** Brick to interact with cloud-based Large Language Models.
+- **web_ui:** Brick to create the web interface for parameter input and story display.
 
 ### Blink LED
 
@@ -123,8 +144,8 @@ The **Image Classification** example lets you perform image classification using
 
 #### Bricks Used
 
-- `image_classification`: Brick to classify objects within an image. 
-- `web_ui`: Brick to create a web interface to display the image classification dashboard.
+- **image_classification:** Brick to classify objects within an image. 
+- **web_ui:** Brick to create a web interface to display the image classification dashboard.
 
 ### Linux® Blink with UI (JavaScript)
 
@@ -143,6 +164,24 @@ The **Linux® Blink** example toggles an LED state on the board through a web-ba
 #### Bricks Used
 
 - **web_ui:** Brick to create a web interface to display the LED control toggle switch.
+
+### Mascot Jump Game
+
+![Mascot Jump Game Example](assets/docs_assets/thumbnail.png)
+
+The **Mascot Jump Game** is an endless runner game inspired by the classic browser dinosaur game. It features an LED character jumping over electronic components, synchronized between the web browser and the UNO Q's LED matrix.
+
+[**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/mascot-jump-game)
+
+#### How it Works
+
+- **Game Physics:** The backend runs the physics engine and collision detection at 60 FPS.
+- **Synchronization:** The web interface renders the game while the UNO Q simultaneously displays matching animations (running, jumping, game over) on the LED matrix.
+- **Progressive Difficulty:** The game speed increases as the score grows.
+
+#### Bricks Used
+
+- **web_ui:** Brick to create a web interface with real-time communication for game state updates and input handling.
 
 ### Object Detection
 
@@ -359,6 +398,29 @@ The **Real Time Accelerometer Data** example records accelerometer data from the
 - **motion_detection:** For processing accelerometer data and detecting movement patterns using machine learning.
 - **web_ui:** Brick to create a web interface to display the accelerometer data and the detected movements.
 
+### Object Hunting
+
+![Object Hunting Game Example](assets/docs_assets/thumbnail.png)
+
+The **Object Hunting** game is an interactive scavenger hunt that uses real-time object detection. Players must locate specific physical objects (e.g., Book, Bottle, Chair) using a USB camera to win the game.
+
+[**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/object-hunting)
+
+#### Additional Hardware
+
+- USB Webcam
+- USB-C® Hub with external power
+
+#### How it Works
+
+- **Video Streaming:** The `video_objectdetection` Brick streams video and performs continuous inference using the YoloX Nano model.
+- **Game Logic:** The web interface tracks detected objects against a checklist and triggers a win condition when all items are found.
+
+#### Bricks Used
+
+- **web_ui:** Brick to create the interactive game interface and handle WebSocket communication.
+- **video_objectdetection:** Brick that manages the USB camera stream and provides real-time detection results.
+
 ### Person Classifier on Camera
 
 ![Person Classifier on Camera](assets/person-classifier-on-camera-hero.png)
@@ -382,3 +444,50 @@ The **Person Classifier** example lets you detect people on a live feed from a c
 
 - **web_ui:** Brick to create a web interface to display the classification results and model controls.
 - **video_imageclassification:** Brick to classify objects within a live video feed from a camera.
+
+
+### Theremin Simulator
+
+![Theremin Simulator](assets/docs_assets/theremin-simulator.png)
+
+The **Theremin Simulator** creates a virtual instrument that generates real-time audio based on user input. It uses a web interface for pitch and volume control, streaming synthesized audio to a USB device with low latency.
+
+[**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/theremin-simulator)
+
+#### Additional Hardware
+
+- USB Audio Device (Speaker or Wireless Dongle)
+- USB-C® Hub with external power
+
+#### How it Works
+
+- **User Interaction:** The frontend captures mouse/touch coordinates and sends them to the backend via WebSockets.
+- **Synthesis:** The `wave_generator` Brick applies envelope smoothing and streams the generated sine wave to the USB audio device.
+
+#### Bricks Used
+
+- **web_ui:** Brick that provides the web interface and a WebSocket channel for real-time control.
+- **wave_generator:** Brick that handles audio synthesis, envelope control, and streaming to the USB audio device.
+
+### Vibration Anomaly Detection
+
+![Vibration Monitoring](assets/docs_assets/vibration-anomaly.png)
+
+The **Vibration Anomaly Detection** example monitors the physical status of machinery (e.g., a fan) in real-time. It visualizes raw accelerometer data and allows users to dynamically adjust anomaly detection sensitivity.
+
+[**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/vibration-anomaly-detection)
+
+#### Additional Hardware
+
+- Modulino® Movement
+- Qwiic cable
+
+#### How it Works
+
+- **Acquisition:** The system reads sensor data and converts it for the detection algorithm.
+- **Detection:** The `vibration_anomaly_detection` Brick analyzes patterns and triggers an event if the vibration exceeds the user-defined threshold.
+
+#### Bricks Used
+
+- **web_ui:** Brick to create a web interface to display the dashboard.
+- **vibration_anomaly_detection:** Brick that processes accelerometer data to detect irregular vibration patterns.
