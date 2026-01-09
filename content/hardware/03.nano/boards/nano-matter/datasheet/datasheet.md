@@ -11,6 +11,8 @@ author: José Bagur, Christopher Méndez
 
 <p style="text-align: justify;">Expand your home automation and building management projects with the Arduino Nano Matter. This board integrates the high-performance MGM240S microcontroller from Silicon Labs and directly brings the advanced Matter standard for Internet of Things (IoT) connectivity to hobbyists and professionals. The Nano Matter's compact and sturdy build, measuring 18 mm x 45 mm, is perfect for projects that demand energy efficiency and diverse connectivity options, such as Bluetooth® Low Energy and OpenThread. Embrace the simplicity and versatility of the Nano Matter to effortlessly interface with any Matter® compatible devices and leverage the Arduino ecosystem's wide range of peripherals and inputs/outputs to enhance your device connectivity and project capabilities. </p>
 
+The Nano Matter is available in two variants: without headers (SKU: ABX00112) and with pre-installed headers (SKU: ABX00137).
+
 # Target Areas
 
 Internet of Things, home automation, professional automation, environmental monitoring, and climate control
@@ -306,19 +308,12 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 <div style="page-break-after: always;"></div>
 
-**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
-device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
-reasonable protection against harmful interference in a residential installation. This equipment
-generates, uses and can radiate radio frequency energy and, if not installed and used in
-accordance with the instructions, may cause harmful interference to radio communications.
-However, there is no guarantee that interference will not occur in a particular installation. If
-this equipment does cause harmful interference to radio or television reception, which can be
-determined by turning the equipment off and on, the user is encouraged to try to correct the
+**Note:** This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the
 interference by one or more of the following measures:
+
 - Reorient or relocate the receiving antenna.
 - Increase the separation between the equipment and receiver.
-- Connect the equipment into an outlet on a circuit different from that to which the
-receiver is connected.
+- Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
 - Consult the dealer or an experienced radio/TV technician for help.
 
 English:
@@ -329,7 +324,7 @@ User manuals for license-exempt radio apparatus shall contain the following or e
 2. This device must accept any interference, including interference that may cause undesired operation of the device.
 
 French:
-Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes:
+Le présent appareil est conforme aux CNR ISED applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes:
 
 1. L’ appareil nedoit pas produire de brouillage
 
@@ -367,10 +362,11 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |                      **Changes**                      |
-| :--------: | :----------: | :---------------------------------------------------: |
-| 11/02/2025 |      5       | Header Version and SKU added as Collective Datasheet  |
-| 14/11/2024 |      4       | Official launch revision and power information update |
-| 05/09/2024 |      3       |         Cloud Editor updated from Web Editor          |
-| 07/05/2024 |      2       |                     Board update                      |
-| 21/03/2024 |      1       |               Community Preview Release               |
+|  **Date**  | **Revision** |                      **Changes**                           |
+| :--------: | :----------: | :--------------------------------------------------------: |
+| 01/12/2025 |      6       | Additional note on multiple SKUs and certification updates  |
+| 11/02/2025 |      5       | Header Version and SKU added as Collective Datasheet       |
+| 14/11/2024 |      4       | Official launch revision and power information update      |
+| 05/09/2024 |      3       |         Cloud Editor updated from Web Editor               |
+| 07/05/2024 |      2       |                     Board update                           |
+| 21/03/2024 |      1       |               Community Preview Release                    |
