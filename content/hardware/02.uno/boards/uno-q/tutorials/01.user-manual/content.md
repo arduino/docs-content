@@ -131,6 +131,12 @@ With this method, you can access your UNO Q from any machine in your local netwo
 
 Network Mode relies on **local network discovery (mDNS)** to automatically find boards on the same network. Some network configurations such as guest Wi-Fi, corporate or IoT networks, VPNs, or strict firewall rules may prevent automatic discovery, even if the board is connected to Wi-Fi.
 
+**Troubleshooting Discovery Issues**
+
+*   **Windows Users:** When launching Arduino App Lab for the first time, you may receive a prompt from Windows Defender (or other security software) regarding `mdns-discovery.exe`. You must **allow** this access for the board to be discovered.
+    *   **Note:** The prompt may not appear on systems that have already run Arduino IDE at some point.
+*   **Firewall Settings:** If the board does not appear, ensure that your firewall allows traffic on **UDP port 5353**, which is required for mDNS discovery.
+
 **Note**  
 Being able to access the board via browser, SSH, or IP address does not guarantee that it will appear in Network Mode. Arduino App Lab uses local network discovery to list boards automatically.
 
@@ -1585,4 +1591,3 @@ Join our community forum to connect with other UNO Q users, share your experienc
 Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We are happy to help you with any issues or inquiries about the UNO Q.
 
 - [Contact us page](https://www.arduino.cc/en/contact-us/)
-
