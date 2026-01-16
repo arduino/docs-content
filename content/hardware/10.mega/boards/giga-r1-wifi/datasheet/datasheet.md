@@ -428,7 +428,6 @@ Radio apparatus containing digital circuitry which can function separately from 
 
 Cet appareil numérique de la classe B est conforme à la norme NMB-003 du Canada.
 
-
 ## Company Information
 
 | Company name    | Arduino SRL                                 |
