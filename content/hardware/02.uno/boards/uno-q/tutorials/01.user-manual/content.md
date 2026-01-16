@@ -121,13 +121,24 @@ To install it in your personal computer for a **PC Hosted** setup, go to the [so
 
 Even when you have set up your Arduino UNO Q as a **single-board computer**, you can access it remotely from your personal machine by using the Arduino App Lab desktop and the **Network Mode**. Both modes can be used simultaneously.
 
-- When you open Arduino App Lab, you will see your board listed with the "Network" tag.
+- When you open Arduino App Lab, your board will appear with the **Network** tag if it can be discovered on your local network.
 - Click on it and enter the Linux password to log in.
 - You will now have access to the board remotely.
 
 ![Network Mode](assets/network-mode.gif)
 
 With this method, you can access your UNO Q from any machine in your local network. This allows you to use Arduino App Lab as if you were connected directly to the board, where you can develop & run Apps in the same way as if it was connected via USB-C®.
+
+Network Mode relies on **local network discovery (mDNS)** to automatically find boards on the same network. Some network configurations such as guest Wi-Fi, corporate or IoT networks, VPNs, or strict firewall rules may prevent automatic discovery, even if the board is connected to Wi-Fi.
+
+**Troubleshooting Discovery Issues**
+
+*   **Windows Users:** When launching Arduino App Lab for the first time, you may receive a prompt from Windows Defender (or other security software) regarding `mdns-discovery.exe`. You must **allow** this access for the board to be discovered. *Note: The prompt may not appear on systems that have already run Arduino IDE at some point.*
+*   **Firewall Settings:** If the board does not appear, ensure that your firewall allows traffic on **UDP port 5353**, which is required for mDNS discovery.
+
+**Note**  
+Being able to access the board via browser, SSH, or IP address does not guarantee that it will appear in Network Mode. Arduino App Lab uses local network discovery to list boards automatically.
+
 
 ### Hello World Example
 
@@ -1581,4 +1592,3 @@ Join our community forum to connect with other UNO Q users, share your experienc
 Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We are happy to help you with any issues or inquiries about the UNO Q.
 
 - [Contact us page](https://www.arduino.cc/en/contact-us/)
-
