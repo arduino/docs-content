@@ -133,8 +133,7 @@ Network Mode relies on **local network discovery (mDNS)** to automatically find 
 
 **Troubleshooting Discovery Issues**
 
-*   **Windows Users:** When launching Arduino App Lab for the first time, you may receive a prompt from Windows Defender (or other security software) regarding `mdns-discovery.exe`. You must **allow** this access for the board to be discovered.
-    *   **Note:** The prompt may not appear on systems that have already run Arduino IDE at some point.
+*   **Windows Users:** When launching Arduino App Lab for the first time, you may receive a prompt from Windows Defender (or other security software) regarding `mdns-discovery.exe`. You must **allow** this access for the board to be discovered. *Note: The prompt may not appear on systems that have already run Arduino IDE at some point.*
 *   **Firewall Settings:** If the board does not appear, ensure that your firewall allows traffic on **UDP port 5353**, which is required for mDNS discovery.
 
 **Note**  
