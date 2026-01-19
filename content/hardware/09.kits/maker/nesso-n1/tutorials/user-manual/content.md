@@ -90,10 +90,7 @@ To use the board in the Arduino IDE, you must install the latest version of the 
 If the installation of the ESP32 boards platform fails due to a timeout/network error, you may need to increase the download timeout value.
 
 1.  Close the Arduino IDE.
-2.  Open the `arduino-cli.yaml` configuration file in a text editor:
-    *   **Windows:** `C:\Users\<username>\.arduinoIDE\arduino-cli.yaml`
-    *   **macOS:** `~/.arduinoIDE/arduino-cli.yaml`
-    *   **Linux:** `~/.arduinoIDE/arduino-cli.yaml`
+2.  Open the `arduino-cli.yaml` configuration file in a text editor. On Windows, it is located at `C:\Users\<username>\.arduinoIDE\arduino-cli.yaml`. On macOS and Linux, it is located at `~/.arduinoIDE/arduino-cli.yaml`.
 3.  Add (or update) the following content:
     ```yaml
     network:
