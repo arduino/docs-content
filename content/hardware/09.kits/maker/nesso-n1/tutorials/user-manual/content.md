@@ -38,9 +38,7 @@ This document serves as a comprehensive user manual for the Nesso N1, providing 
 ### Software Requirements
 
 - [Arduino IDE](https://www.arduino.cc/en/software) (v2.0 or higher recommended)
-- [ESP32 Boards core by Espressif](https://github.com/espressif/arduino-esp32) (v3.3.3 or higher)
-
-*Note: Safe battery management requires version 3.3.5 or higher (pending release).*
+- [ESP32 Boards core by Espressif](https://github.com/espressif/arduino-esp32) (v3.3.5 or higher)
 
 ## Product Overview
 
@@ -77,7 +75,7 @@ The Nesso N1 is programmed using the desktop Arduino IDE. To get started, you wi
 
 ### Arduino IDE
 
-To use the board in the Arduino IDE, you must install the latest version of the **esp32 by Espressif Systems** package. Support for the Nesso N1 requires version **3.3.3** or newer.
+To use the board in the Arduino IDE, you must install the latest version of the **esp32 by Espressif Systems** package. Support for the Nesso N1 requires version **3.3.5** or newer.
 
 1.  Open the Arduino IDE.
 2.  Navigate to **Boards Manager** (**Tools > Board > Boards Manager...**).
@@ -86,6 +84,23 @@ To use the board in the Arduino IDE, you must install the latest version of the 
 5.  Once installed, select **Arduino Nesso N1** from the **Tools > Board > esp32** menu.
 
 ![Installing the esp32 Boards core in the Arduino IDE](assets/board-manager.png)
+
+#### Troubleshooting: ESP32 Core Installation
+
+If the installation of the ESP32 boards platform fails due to a timeout/network error, you may need to increase the download timeout value.
+
+1.  Close the Arduino IDE.
+2.  Open the `arduino-cli.yaml` configuration file in a text editor:
+    *   **Windows:** `C:\Users\<username>\.arduinoIDE\arduino-cli.yaml`
+    *   **macOS:** `~/.arduinoIDE/arduino-cli.yaml`
+    *   **Linux:** `~/.arduinoIDE/arduino-cli.yaml`
+3.  Add (or update) the following content:
+    ```yaml
+    network:
+      connection_timeout: 300s
+    ```
+4.  Save the file and restart the Arduino IDE.
+5.  Try installing or updating the "esp32" boards platform again.
 
 ### Arduino Cloud Editor
 
@@ -225,7 +240,7 @@ For projects where a slimmer profile is desired, the included hexagon key can be
 The Nesso N1 can be powered in three ways:
 
 - **USB-C® Connector**: Provide a regulated 5 V DC supply through the USB-C® port. This method also charges the internal battery.
-- **Built-in Battery**: The onboard 250 mAh LiPo battery allows the device to operate untethered. **(Note: Please see the Battery section below for critical safety information regarding battery usage with the current software version.)**
+- **Built-in Battery**: The onboard 250 mAh LiPo battery allows the device to operate untethered.
 - **VIN Pin**: You can use the `VIN` pin on the 8-pin expansion header to power the board from an external 5 V DC source.
 
 ***WARNING: Handle the internal LiPo battery with care. Do not puncture, short-circuit, or expose it to high temperatures.***
@@ -234,19 +249,52 @@ The Nesso N1 can be powered in three ways:
 
 The board incorporates a power management system featuring the **AW32001** power path management chip and the **BQ27220** battery monitoring chip.
 
-### ⚠️ CRITICAL WARNING: Battery Software Support Pending
+Support for these features is provided by the **Arduino_Nesso_N1** library (v1.0.0 or higher) combined with the **esp32** board package (v3.3.5 or higher).
 
-Full support for the Nesso N1 battery management system (BMS) requires the **esp32** board package version **3.3.5** (or newer), which is currently pending release.
+### Using the Battery Library
 
-**Do not attempt to enable battery charging with the current board package (version 3.3.4 or older).**
+To use the battery features, you must include the `Arduino_Nesso_N1` library in your sketch. This library simplifies the interaction with the power management chips.
 
-Allowing the battery to fully deplete while using the current software may cause the device to become unresponsive and fail to power on, even when connected to USB.
+1.  **Install the Library:** In the Arduino IDE, go to **Tools > Manage Libraries...**, search for **"Arduino_Nesso_N1"**, and install the latest version.
+2.  **Include the Header:** Add `#include <Arduino_Nesso_N1.h>` to your sketch.
+3.  **Initialize:** Create a `NessoBattery` object and call `.begin()` in `setup()`.
+4.  **Enable Charging:** Call `battery.enableCharge()` to allow the battery to charge when USB power is connected.
 
-**Recommendation:**
-*   **Power the device exclusively via USB-C** until the software update is available.
-*   **Do not** call `battery.enableCharge()` in your sketches.
+### Battery Status Example
 
-Once the updated board package is released, this manual will be updated with instructions for safe battery management.
+The following example demonstrates how to enable charging and print the battery status to the Serial Monitor.
+
+```cpp
+#include <Arduino_Nesso_N1.h>
+
+NessoBattery battery;
+
+void setup() {
+  Serial.begin(115200);
+  
+  // Initialize the battery library
+  battery.begin();
+
+  // Enable charging
+  battery.enableCharge();
+}
+
+void loop() {
+  // Read and print battery status
+  float voltage = battery.getVoltage();
+  uint16_t percentage = battery.getChargeLevel();
+  bool charging = (battery.getChargeStatus() == NessoBattery::CHARGING);
+
+  Serial.print("Voltage: ");
+  Serial.print(voltage);
+  Serial.print(" V, Percentage: ");
+  Serial.print(percentage);
+  Serial.print(" %, Charging: ");
+  Serial.println(charging ? "Yes" : "No");
+  
+  delay(1000);
+}
+```
 
 ## Microcontroller (ESP32-C6)
 
@@ -534,11 +582,13 @@ Additionally, the `POWEROFF` expander pin allows you to shut down the device pro
 
 ### User Buttons
 
-The board has two physical buttons, **KEY1** and **KEY2**, that are connected to the I/O expander.  These can be read using `digitalRead()`.
+The board has two physical buttons, **KEY1** and **KEY2**, that are connected to the I/O expander. To use them, you must include the `Arduino_Nesso_N1` library.
 
 ![User Buttons](assets/programmable-buttons.png)
 
 ```arduino
+#include <Arduino_Nesso_N1.h>
+
 void setup() {
   Serial.begin(115200);
   pinMode(KEY1, INPUT_PULLUP);
@@ -564,6 +614,8 @@ The board has an onboard green LED that can be controlled using the `LED_BUILTIN
 ![Built-in LED](assets/built-in-led.png)
 
 ```arduino
+#include <Arduino_Nesso_N1.h>
+
 void setup() {
   // Configure the built-in LED as an output
   pinMode(LED_BUILTIN, OUTPUT);
@@ -583,23 +635,23 @@ void loop() {
 
 ## Display & Touchscreen
 
-The Nesso N1 features a 1.14-inch IPS color touchscreen with a resolution of 135 x 240 pixels, providing a vibrant and intuitive interface for your projects.
+The Nesso N1 features a 1.14-inch IPS color touchscreen with a resolution of 135 x 240 pixels.
 
 - **Display Controller**: ST7789, controlled via SPI.
 - **Touch Controller**: FT6336U, controlled via I2C.
 
-The display can be programmed using the [**M5GFX**](https://github.com/m5stack/M5GFX) library, which is a powerful graphics library that simplifies drawing text, shapes, and images. You can install it from the Arduino IDE Library Manager by searching for "M5GFX".
+The display and touch features are easily accessed using the `Arduino_Nesso_N1` library, which provides the `NessoDisplay` and `NessoTouch` classes. The `NessoDisplay` class is based on [M5GFX](https://github.com/m5stack/M5GFX), so you can use all the powerful graphics functions it offers.
 
 ### Basic Text Display
 
-The following example initializes the display and prints a simple text string.
+The following example initializes the display using the `NessoDisplay` class and prints a simple text string.
 
 ![Display Touch Coordinates](assets/display-example-1.png)
 
 ```arduino
-#include <M5GFX.h>
+#include <Arduino_Nesso_N1.h>
 
-M5GFX display; // Create a display instance
+NessoDisplay display; // Create a display instance
 
 void setup() {
   display.begin();
@@ -622,14 +674,14 @@ void loop() {
 
 ### Drawing Shapes and Colors
 
-The M5GFX library includes functions for drawing basic geometric shapes. You can use predefined color constants (e.g., `TFT_RED`, `TFT_GREEN`, `TFT_BLUE`) or specify 16-bit RGB565 color values.
+Since `NessoDisplay` inherits from `M5GFX`, you can draw shapes using standard functions.
 
 ![Display Touch Coordinates](assets/display-example-2.png)
 
 ```arduino
-#include <M5GFX.h>
+#include <Arduino_Nesso_N1.h>
 
-M5GFX display;
+NessoDisplay display;
 
 void setup() {
   display.begin();
@@ -652,49 +704,47 @@ void loop() {
 
 ### Handling Touch Input
 
-This example demonstrates how to read touch coordinates. It displays an initial message in the center of the screen. When you touch the screen, a "cursor" (a small circle) will appear at the point of contact, and the X/Y coordinates will be displayed in a fixed position at the center of the screen, updating in real-time as you move your finger.
+This example demonstrates how to read touch coordinates using the `NessoTouch` class.
 
 ![Display Touch Coordinates](assets/display-example-3.png)
 
 ```arduino
-#include <M5GFX.h>
+#include <Arduino_Nesso_N1.h>
 
-M5GFX display;
+NessoDisplay display;
+NessoTouch touch;
 
 void setup() {
   display.begin();
+  touch.begin();
+  
   display.setRotation(1); // Set to landscape mode
   display.fillScreen(TFT_BLACK);
 
-  // Set text properties that will be used for all text in this sketch
-  display.setTextDatum(MC_DATUM); // Middle-Center datum for text alignment
+  display.setTextDatum(MC_DATUM);
   display.setTextColor(TFT_WHITE);
   display.setTextSize(2);
 
-  // Display the initial message centered on the screen
   display.drawString("Touch the screen", display.width() / 2, display.height() / 2);
 }
 
 void loop() {
-  // Create a structure to hold touch data
-  lgfx::touch_point_t tp;
+  int16_t x, y;
 
   // Check if the screen is being touched
-  if (display.getTouch(&tp)) {
-    // Clear the screen to update both the circle and the text
+  if (touch.read(x, y)) {
+    // Clear the screen
     display.fillScreen(TFT_BLACK);
     
-    // Draw a white circle at the current touch coordinates
-    display.fillCircle(tp.x, tp.y, 5, TFT_WHITE);
+    // Draw a circle at the touch point
+    display.fillCircle(x, y, 5, TFT_WHITE);
 
-    // Create a string with the updated coordinates
-    String coords = "X:" + String(tp.x) + " Y:" + String(tp.y);
-
-    // Draw the coordinates string at the FIXED center of the screen
+    // Display coordinates
+    String coords = "X:" + String(x) + " Y:" + String(y);
     display.drawString(coords, display.width() / 2, display.height() / 2);
   }
   
-  delay(20); // Small delay for responsiveness
+  delay(20);
 }
 ```
 
@@ -1276,12 +1326,14 @@ The onboard SX1262 module can be configured to communicate on public LoRa® netw
 
 ### 6-Axis IMU
 
-The **BMI270** is a high-performance 6-axis Inertial Measurement Unit (IMU) that combines a 3-axis accelerometer and a 3-axis gyroscope. It connects to the ESP32-C6 via the I2C bus (`SCL` on GPIO8, `SDA` on GPIO10) and provides an interrupt signal on `SYS_IRQ` (GPIO3). It is ideal for motion tracking, gesture recognition, and orientation sensing.
+The **BMI270** is a high-performance 6-axis Inertial Measurement Unit (IMU) that combines a 3-axis accelerometer and a 3-axis gyroscope.
 
-Here is a minimal example using the [Arduino_BMI270_BMM150](https://github.com/arduino-libraries/arduino_bmi270_bmm150)  library:
+To use the IMU, it is recommended to include the `Arduino_Nesso_N1` library. This library automatically configures the correct pins and settings for the onboard sensor.
+
+Here is a minimal example:
 
 ```arduino
-#include <Arduino_BMI270_BMM150.h>
+#include <Arduino_Nesso_N1.h>
 
 void setup() {
   Serial.begin(115200);
