@@ -14,7 +14,7 @@ author: "Arduino"
 ---
 
 
-> These APIs should not be used in new projects. Use [SPISettings](https://www.arduino.cc/en/Reference/SPISettings) with [SPI.beginTransaction()](https://www.arduino.cc/en/Tutorial/SPITransaction) to configure SPI parameters.
+> These APIs should not be used in new projects. Use [SPISettings](https://docs.arduino.cc/language-reference/en/functions/communication/SPI/SPISettings/) with [SPI.beginTransaction()](https://www.arduino.cc/en/Tutorial/SPITransaction) to configure SPI parameters.
 
 On the Arduino Due, the SAM3X has advanced SPI capabilities. It is possible to use these extended methods, or the AVR-based ones.
 
