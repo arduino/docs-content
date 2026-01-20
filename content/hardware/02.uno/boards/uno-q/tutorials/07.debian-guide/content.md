@@ -1194,7 +1194,7 @@ sudo halt
 
 The green power LED on the board will turn off when the system has halted completely. The board will remain powered off and will not restart automatically.
 
-It makes `sudo halt` ideal for long-term storage, carrying the board, or any situation where you want the board to stay off until you manually power it back on.
+This makes `sudo halt` ideal for long-term storage, carrying the board, or any situation where you want the board to stay off until you manually power it back on.
 
 #### Alternative Shutdown Methods
 
