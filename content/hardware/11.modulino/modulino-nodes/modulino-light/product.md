@@ -6,7 +6,7 @@ primary_button_url: https://docs.arduino.cc/tutorials/modulino-light/how-light/
 primary_button_title: Get Started
 secondary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-general/
 secondary_button_title: More on Modulino Nodes
-forumCategorySlug: '/hardware/accessories/modulino-thermo/220'
+forumCategorySlug: '/hardware/accessories/213'
 sku: [ABX00111]
 ---
 

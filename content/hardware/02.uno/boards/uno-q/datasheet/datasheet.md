@@ -74,11 +74,10 @@ The STM32U585 manages ADC, PWM, CAN, the LED matrix, and the 3.3 V headers (JDIG
 
 ![](assets/ABX00162-ABX00173-comm-components.png)
 
-| **Subsystem**      | **Details**                                                                                                                                                                                                                                                                                                                                                       |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wireless Module    | - WCBN3536A (Qualcomm WCN3980) (U2901) <br></br>- Wi-Fi® 5 802.11a/b/g/n/ac (dual-band) + Bluetooth® 5.1                                                                                                                                                                                                                                                          |
-| USB-C Port (JUSB1) | - USB 3.1 with Role-Switching Capabilities<br></br>- DisplayPort Alt-Mode via the ANX7625 DSI-to-DP bridge (U3001) (SuperSpeed differential pairs on the Type-C are routed for DP Alt Mode)<br></br>- USB Power Delivery negotiation requests a **5 V / 3 A** contract only (no higher-voltage profiles)<br></br>- VBUS load-switch/back-drive protection (Q2801) |
-
+| **Subsystem**      | **Details**                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wireless Module    | - WCBN3536A (Qualcomm WCN3980) (U2901) <br></br>- Wi-Fi® 5 802.11a/b/g/n/ac (dual-band) + Bluetooth® 5.1                                                                                                                                                                                                                                                                                                                                                                         |
+| USB-C Port (JUSB1) | - USB 3.1 with Role-Switching Capabilities<br></br>- DisplayPort Alt-Mode via the ANX7625 DSI-to-DP bridge (U3001) (SuperSpeed differential pairs on the Type-C are routed for DP Alt Mode)<br></br>- Video output (SBC mode): Supports Full HD (1920 × 1080p) displays; optimal resolution is 1280 × 720p<br></br>- USB Power Delivery negotiation requests a **5 V / 3 A** contract only (no higher-voltage profiles)<br></br>- VBUS load-switch/back-drive protection (Q2801) |
 
 The wireless module uses SDIO for Wi-Fi® data and a UART for Bluetooth® control, with a shared PCB antenna.
 
@@ -623,7 +622,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 - **Camera:** Four-lane **MIPI-CSI-2** (1.8 V I/O).
 
-- **Display:** Four-lane **MIPI-DSI** into **ANX7625** for DisplayPort Alt-Mode on USB-C.
+- **Display:** Four-lane **MIPI-DSI** into **ANX7625** for DisplayPort Alt-Mode on USB-C. When operating in Single-Board Computer (SBC) mode, the board supports Full HD (1920 × 1080p) displays with optimal resolution at 1280 × 720p.
 
 - **Wireless:** Dual-band Wi-Fi® (802.11a/b/g/n/ac) and Bluetooth® 5.1 on a shared module.
 
@@ -839,10 +838,11 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 # Document Revision History
 
-|  **Date**  | **Revision** | **Changes**                                    |
-| :--------: | :----------: | ---------------------------------------------- |
+|  **Date**  | **Revision** | **Changes**                                                                                                                  |
+|:----------:|:------------:|------------------------------------------------------------------------------------------------------------------------------|
+| 19/01/2026 |      5       | Add video output resolution specifications                                                                                   |
 | 24/11/2025 |      4       | Add hardware acceleration section (graphics APIs, video codecs, OpenCL support); remove incorrect default password reference |
-| 05/11/2025 |      3       | Update operational information                 |
-| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update |
-| 01/10/2025 |      1       | First release                                  |
+| 05/11/2025 |      3       | Update operational information                                                                                               |
+| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update                                                                               |
+| 01/10/2025 |      1       | First release                                                                                                                |
 

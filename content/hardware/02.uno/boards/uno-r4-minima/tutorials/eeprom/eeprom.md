@@ -26,7 +26,7 @@ The goals of this tutorials are:
 
 Electronically erasable programmable read-only memory (EEPROM) is a memory that can be used to store data that can be retrieved after power loss. This memory can be effective to use during run-time to log data that can be used to re-initialize whenever a system comes back online.
 
-The Arduino Uno R4 Minima has 8 kB of EEPROM.
+The Arduino UNO R4 Minima has 8 kB of EEPROM.
 
 When writing to the EEPROM memory, we specify two parameters: the **address** and **value**. Each byte can hold a value between 0-255.
 
