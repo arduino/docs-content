@@ -1269,7 +1269,7 @@ sudo shutdown now
 sudo poweroff
 ```
 
-Use `sudo halt` to keep the board off. Use the other shutdown methods only if you specifically want the board to restart, or if you are prepared to disconnect power to prevent the automatic restart quickly, given certain application requirement.
+Use `sudo halt` to keep the board off. Use the other shutdown methods only if you specifically want the board to restart, or if you are prepared to disconnect power to prevent the automatic restart quickly, given certain application requirements.
 
 ## Summary
 
