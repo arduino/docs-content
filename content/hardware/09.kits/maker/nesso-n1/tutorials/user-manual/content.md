@@ -142,7 +142,9 @@ Follow these steps to connect your Nesso N1 to the Cloud.
 Because "Manual Devices" do not automatically generate a downloadable sketch, you must create one manually.
 
 1.  Open the **Arduino IDE** on your computer.
-2.  Install the **ArduinoIoTCloud** library via the Library Manager (**Tools > Manage Libraries...**).
+2.  Install the following libraries via the Library Manager (**Tools > Manage Libraries...**):
+    *   **ArduinoIoTCloud**
+    *   **Arduino_Nesso_N1**
 3.  Create a new sketch (**File > New Sketch**).
 4.  To keep your credentials secure, create a new tab named `arduino_secrets.h` (click the 3-dot icon near the tab bar > **New Tab**).
 5.  Paste the following code into `arduino_secrets.h` and fill in your details:
@@ -178,6 +180,7 @@ Because "Manual Devices" do not automatically generate a downloadable sketch, yo
 7.  Finally, paste the main application code into your `.ino` file:
 
     ```cpp
+    #include <Arduino_Nesso_N1.h>
     #include "thingProperties.h"
 
     void setup() {
@@ -343,7 +346,15 @@ These pins are directly controlled by the main microcontroller.
 
 ### I/O Expander Pins
 
-The Nesso N1 uses two PI4IOE5V6408 I/O expanders (addresses `0x43` and `0x44`) to manage additional pins over the I2C bus. These pins are accessed in code using special `ExpanderPin` objects, which are pre-defined as part of the Nesso N1 board package. You do not need to include any extra libraries to use them.
+The Nesso N1 uses two PI4IOE5V6408 I/O expanders (addresses `0x43` and `0x44`) to manage additional pins over the I2C bus.
+
+Starting from version **3.3.5** of the **esp32** boards platform, these pins require the **Arduino_Nesso_N1** library. If you use `pinMode()`, `digitalRead()`, or `digitalWrite()` with any of the expander pins listed below, you **must** install this library and include the header at the top of your sketch:
+
+```cpp
+#include <Arduino_Nesso_N1.h>
+```
+
+Failure to include this library will result in a compilation error.
 
 | Pin Object            | Expander Port | Function                         |
 | :-------------------- | :------------ | :------------------------------- |
@@ -968,6 +979,7 @@ You have now successfully sent and received a message over a peer-to-peer Thread
 The Nesso N1's 802.15.4 radio allows it to act as a **Zigbee® End Device**, enabling it to join existing Zigbee® mesh networks. This is ideal for creating low-power devices like sensors or light controllers that integrate with popular smart home hubs.
 
 To compile this example, you must configure the following settings in the Arduino IDE:
+- Install the **Arduino_Nesso_N1** library via the Library Manager.
 - Navigate to **Tools > Zigbee Mode** and select **End device**.
 - Navigate to **Tools > Partition Scheme** and select **Zigbee SPIFF 4MB**.
 
@@ -980,6 +992,7 @@ This example configures the Nesso N1 to act as a simple Zigbee® On/Off light bu
 #error "Zigbee end device mode is not selected in Tools->Zigbee mode"
 #endif
 
+#include <Arduino_Nesso_N1.h>
 #include "Zigbee.h"
 
 // Define the Zigbee endpoint for the light
@@ -1045,7 +1058,10 @@ The choice of transport is determined by **compile-time definitions** you add at
 
 This example turns your Nesso N1 into a simple On/Off light bulb. The same code works for both Matter over Wi-Fi® and Matter over Thread. After commissioning, you can control the Nesso N1's built-in LED from your smart home app.
 
+***Before compiling, ensure you have installed the **Arduino_Nesso_N1** library via the Library Manager.***
+
 ```arduino
+#include <Arduino_Nesso_N1.h>
 #include <Matter.h>
 // Include WiFi.h only if you plan to use Matter over Wi-Fi
 #include <WiFi.h>
@@ -1173,6 +1189,8 @@ The LoRa® module is controlled via SPI and several dedicated pins on both the E
 
 The following examples demonstrate basic LoRa® peer-to-peer (P2P) communication using the [RadioLib](https://github.com/jgromes/RadioLib) library. This is the foundational step for testing your hardware and building more complex network applications.
 
+***Before compiling these examples, ensure you have installed the **RadioLib** and **Arduino_Nesso_N1** libraries via the Library Manager.***
+
 **LoRa® Transmitter Example**
 
 This example configures the Nesso N1 to send a "Hello World!" packet every five seconds. 
@@ -1180,6 +1198,7 @@ This example configures the Nesso N1 to send a "Hello World!" packet every five 
 ***WARNING: You must configure the LoRa® frequency (`LORA_FREQUENCY`) variable to match your geographical region. to a value that is legal for your geographical region. Transmitting on an unauthorized frequency can result in fines. Common frequencies are 915.0 MHz for North America/Australia, 868.0 MHz for Europe, and 433.0 MHz for Asia.***
 
 ```arduino
+#include <Arduino_Nesso_N1.h>
 #include <RadioLib.h>
 
 // LoRa® frequency regions
@@ -1241,6 +1260,7 @@ void loop() {
 This example configures a second Nesso N1 to listen for LoRa® packets and print them to the Serial Monitor. It uses a simple polling method where the main loop waits until a packet is received.
 
 ```arduino
+#include <Arduino_Nesso_N1.h>
 #include <RadioLib.h>
 
 // LoRa® frequency regions
