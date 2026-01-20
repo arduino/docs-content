@@ -33,7 +33,7 @@ You will be guided on how to set up this. It is recommended to familiarize yours
 
 - [Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - [Portenta breakout](https://docs.arduino.cc/hardware/portenta-breakout)
-- Any sensor (in this example, we will use an [BME680](https://www.bosch-sensortec.com/products/environmental-sensors/gas-sensors/bme680/) I<sup>2</sup>C module)
+- Any sensor (in this example, we will use a [BME680](https://www.bosch-sensortec.com/products/environmental-sensors/gas-sensors/bme680/) I<sup>2</sup>C module)
 - [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 
@@ -622,4 +622,5 @@ In this tutorial, you learned how to use the Docker infrastructure to run a Pyth
 
 - You may further process the data you receive from the Arduino sketch and, e.g., upload it to a Cloud service or similar.
 - Familiarize yourself with Docker commands to adjust the docker configuration to your needs.
+
 - Experiment with other sensors and create custom RPC bindings for your specific use case.
