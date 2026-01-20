@@ -142,9 +142,7 @@ Follow these steps to connect your Nesso N1 to the Cloud.
 Because "Manual Devices" do not automatically generate a downloadable sketch, you must create one manually.
 
 1.  Open the **Arduino IDE** on your computer.
-2.  Install the following libraries via the Library Manager (**Tools > Manage Libraries...**):
-    *   **ArduinoIoTCloud**
-    *   **Arduino_Nesso_N1**
+2.  Install the **ArduinoIoTCloud** and **Arduino_Nesso_N1** libraries via the Library Manager (**Tools > Manage Libraries...**).
 3.  Create a new sketch (**File > New Sketch**).
 4.  To keep your credentials secure, create a new tab named `arduino_secrets.h` (click the 3-dot icon near the tab bar > **New Tab**).
 5.  Paste the following code into `arduino_secrets.h` and fill in your details:
