@@ -249,9 +249,9 @@ The board incorporates a power management system featuring the **AW32001** power
 
 Support for these features is provided by the **Arduino_Nesso_N1** library (v1.0.0 or higher) combined with the **esp32** board package (v3.3.5 or higher).
 
-### Using the Battery Library
+### Enable Battery
 
-To use the battery features, you must include the `Arduino_Nesso_N1` library in your sketch. This library simplifies the interaction with the power management chips.
+To enable battery operation, you must include the `Arduino_Nesso_N1` library in your sketch. This library acts as a wrapper for the system's components, simplifying interaction with the power management system.
 
 1.  **Install the Library:** In the Arduino IDE, go to **Tools > Manage Libraries...**, search for **"Arduino_Nesso_N1"**, and install the latest version.
 2.  **Include the Header:** Add `#include <Arduino_Nesso_N1.h>` to your sketch.
@@ -680,7 +680,7 @@ void loop() {
 
 ### Drawing Shapes and Colors
 
-Since `NessoDisplay` inherits from `M5GFX`, you can draw shapes using standard functions.
+NessoDisplay inherits from 'M5GFX', you can therefore draw shapes using established methods.
 
 ![Display Touch Coordinates](assets/display-example-2.png)
 
@@ -811,7 +811,7 @@ void loop() {
 
 The Nesso N1 supports **Bluetooth® 5.3 Low Energy (LE)**, enabling efficient, short-range communication with smartphones, sensors, and other BLE-enabled devices.
 
-***WARNING: The ESP32 board package includes its own library for Bluetooth® that conflicts with the standard `ArduinoBLE` library. If you have the `ArduinoBLE` library installed in your IDE, you may encounter compilation errors. To resolve this, you must uninstall the `ArduinoBLE` library from the Library Manager before compiling sketches for the Nesso N1.***
+***WARNING: The ESP32 board package includes its own library for Bluetooth® that conflicts with the standard `ArduinoBLE` library. If you have the `ArduinoBLE` library installed in your IDE, you may encounter compilation errors. To resolve this, you must uninstall the `ArduinoBLE` library from the Library Manager before running sketches for the Nesso N1.***
 
 #### Simple BLE Server Example
 
@@ -976,7 +976,7 @@ You have now successfully sent and received a message over a peer-to-peer Thread
 
 The Nesso N1's 802.15.4 radio allows it to act as a **Zigbee® End Device**, enabling it to join existing Zigbee® mesh networks. This is ideal for creating low-power devices like sensors or light controllers that integrate with popular smart home hubs.
 
-To compile this example, you must configure the following settings in the Arduino IDE:
+To run this example, you must configure the following settings in the Arduino IDE:
 - Install the **Arduino_Nesso_N1** library via the Library Manager.
 - Navigate to **Tools > Zigbee Mode** and select **End device**.
 - Navigate to **Tools > Partition Scheme** and select **Zigbee SPIFF 4MB**.
@@ -1056,7 +1056,7 @@ The choice of transport is determined by **compile-time definitions** you add at
 
 This example turns your Nesso N1 into a simple On/Off light bulb. The same code works for both Matter over Wi-Fi® and Matter over Thread. After commissioning, you can control the Nesso N1's built-in LED from your smart home app.
 
-***Before compiling, ensure you have installed the **Arduino_Nesso_N1** library via the Library Manager.***
+***Before running the example, ensure you have installed the **Arduino_Nesso_N1** library via the Library Manager.***
 
 ```arduino
 #include <Arduino_Nesso_N1.h>
@@ -1187,7 +1187,7 @@ The LoRa® module is controlled via SPI and several dedicated pins on both the E
 
 The following examples demonstrate basic LoRa® peer-to-peer (P2P) communication using the [RadioLib](https://github.com/jgromes/RadioLib) library. This is the foundational step for testing your hardware and building more complex network applications.
 
-***Before compiling these examples, ensure you have installed the **RadioLib** and **Arduino_Nesso_N1** libraries via the Library Manager.***
+***Before running the examples, ensure you have installed the **RadioLib** and **Arduino_Nesso_N1** libraries via the Library Manager.***
 
 **LoRa® Transmitter Example**
 
