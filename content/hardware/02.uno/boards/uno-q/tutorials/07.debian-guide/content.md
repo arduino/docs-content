@@ -1217,7 +1217,7 @@ With the graphical interface method (SBC mode):
 
 When using any of these methods, the board will perform a clean shutdown and then automatically restart within a few seconds.
 
-If you need to keep the board powered off when using these methods, you must disconnect the power source immediately after the green LED turns off and before the restart sequence begins.
+If you need to keep the board powered off while using these methods, you must disconnect the power source immediately after the green LED turns off and before the restart sequence begins.
 
 The timing is important when using these auto-restart methods. You have only a brief window after the LED turns off to safely disconnect power. If you wait too long, the system will begin its reboot sequence.
 
