@@ -340,7 +340,7 @@ To try out the sensor examples, you need to install the corresponding libraries 
 
 - [Adafruit BME680 Library](https://github.com/adafruit/Adafruit_BME680)
 - [Adafruit BME280 Library](https://github.com/adafruit/Adafruit_BME280_Library)
-- Adafruit Unified Sensor (Notified when installing either libraries above using the Arduino IDE's library manager)
+- Adafruit Unified Sensor (Notified when installing either of the libraries above using the Arduino IDE's library manager)
 
 Install these libraries via the Arduino IDE Library Manager **Sketch > Include Library > Manage Libraries**, then upload the modified sketch to the Portenta X8.
 
