@@ -473,7 +473,7 @@ The **Theremin Simulator** creates a virtual instrument that generates real-time
 
 ![Vibration Monitoring](assets/vibration-anomaly.png)
 
-The **Vibration Anomaly Detection** example monitors the physical status of machinery (e.g., a fan) in real-time. It visualizes raw accelerometer data and allows users to dynamically adjust anomaly detection sensitivity.
+The **Vibration Anomaly Detection** example monitors the physical condition of machinery (e.g., a fan) in real time. It visualizes raw accelerometer data and allows users to dynamically adjust the sensitivity of anomaly detection.
 
 [**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/vibration-anomaly-detection)
 
