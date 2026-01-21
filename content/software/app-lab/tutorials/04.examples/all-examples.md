@@ -38,7 +38,7 @@ The **Air Quality Monitoring App** displays real-time air quality data using the
 
 ![Bedtime Story Teller Example](assets/bedtime-storyteller.png)
 
-The **Bedtime Story Teller** example demonstrates how to build a generative AI application using the Arduino UNO Q. It uses a Large Language Model (LLM) to create personalized bedtime stories based on user-selected parameters like age, theme, and characters, streaming the result in real-time to a web interface.
+The **Bedtime Story Teller** example demonstrates how to build a generative AI application using the Arduino UNO Q. It uses a Large Language Model (LLM) to create personalized bedtime stories based on user-selected parameters such as age, theme, and characters, streaming the results in real time to a web interface.
 
 **Note:** This example requires a valid API Key from an LLM provider (Google Gemini, OpenAI GPT, or Anthropic Claude).
 
