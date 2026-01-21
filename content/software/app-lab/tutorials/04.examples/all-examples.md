@@ -450,7 +450,7 @@ The **Person Classifier** example lets you detect people on a live feed from a c
 
 ![Theremin Simulator](assets/theremin-simulator.png)
 
-The **Theremin Simulator** creates a virtual instrument that generates real-time audio based on user input. It uses a web interface for pitch and volume control, streaming synthesized audio to a USB device with low latency.
+The **Theremin Simulator** creates a virtual instrument that generates real-time audio in response to user input. It uses a web interface for pitch and volume control, streaming synthesized audio to a USB device with low latency.
 
 [**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/theremin)
 
