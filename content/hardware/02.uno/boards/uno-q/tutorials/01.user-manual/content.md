@@ -165,6 +165,29 @@ You should now see the red LED of the built-in RGB LED turning on for one second
 
 ***The LED controlled in this example is driven by the STM32 microcontroller through the Arduino sketch.***
 
+### Running an App at Startup
+
+You can configure a specific App to launch automatically whenever the UNO Q is powered on. This is useful for standalone projects where the board operates without a computer connection.
+
+**Note:** You cannot set a built-in **Example** as the startup app directly from the UI. You must first click **Copy and edit app** from the example or create a new **App** from scratch.
+
+1.  Open your custom App (or the copy of an example).
+2.  Locate the **Run** button in the top right corner.
+3.  Click the arrow (▼) next to the Run button to open the menu.
+4.  Toggle the **Run at startup** switch to the **ON** position.
+
+![Run at startup option](assets/run-at-startup.png)
+
+Once configured, a **DEFAULT** badge will appear next to your App's name, indicating it will run automatically upon boot.
+
+#### Advanced: Using the CLI
+
+Alternatively, you can set the default app using the command line interface (CLI) inside the UNO Q terminal:
+
+```bash
+arduino-app-cli properties set default user:<NAME_OF_YOUR_APP>
+```
+
 ### Arduino IDE (Beta)
 
 The Arduino UNO Q is compatible with the standard Arduino IDE, allowing you to program the board using the familiar Arduino language and ecosystem.
