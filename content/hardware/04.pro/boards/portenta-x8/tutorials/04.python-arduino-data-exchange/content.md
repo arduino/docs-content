@@ -140,7 +140,7 @@ To check if the Arduino sketch is working correctly, you may want to read the me
 
 You have two options to run this container. By pulling the pre-built image or building from the source.
 
-Using the pre-built image is recommended process. Log into the X8 via `adb shell` and pull the pre-built image:
+Using the pre-built image is the recommended process. Log into the X8 via `adb shell` and pull the pre-built image:
 
 ```bash
 docker pull arduino/python-rpc-serial
