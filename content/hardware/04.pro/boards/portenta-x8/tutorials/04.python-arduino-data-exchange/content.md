@@ -174,7 +174,7 @@ Log into the X8 shell with `adb shell` and navigate into the `python-rpc-serial`
 docker build . -t python-rpc-serial
 ```
 
-The `-t` flag assigns a tag to the container. Then run the container by executing `cd..` and then:
+The `-t` flag assigns a tag to the container. Then run the container by executing `cd ..` and then:
 
 ```bash
 docker compose up -d
