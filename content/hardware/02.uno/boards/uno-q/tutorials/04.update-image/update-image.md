@@ -63,7 +63,7 @@ As the tool is run from the command line with specific flags (explained further 
 
 #### Windows
 
-Navigate to the unzipped folder (e.g. `arduino-flasher-cli-x.x.x-darwin-arm64`), and run the following command:
+Navigate to the unzipped folder (e.g. `arduino-flasher-cli-x.x.x-windows-amd64`), and run the following command:
 
 ```
 arduino-flasher-cli
@@ -77,7 +77,7 @@ This means it is working, and we can proceed to [preparing the hardware](#prepar
 
 #### Linux
 
-Navigate to the unzipped folder (e.g. `arduino-flasher-cli-x.x.x-darwin-arm64`), and run the following command:
+Navigate to the unzipped folder (e.g. `arduino-flasher-cli-x.x.x-linux-amd64`), and run the following command:
 
 ```
 ./arduino-flasher-cli

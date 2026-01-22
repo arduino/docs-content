@@ -121,13 +121,24 @@ To install it in your personal computer for a **PC Hosted** setup, go to the [so
 
 Even when you have set up your Arduino UNO Q as a **single-board computer**, you can access it remotely from your personal machine by using the Arduino App Lab desktop and the **Network Mode**. Both modes can be used simultaneously.
 
-- When you open Arduino App Lab, you will see your board listed with the "Network" tag.
+- When you open Arduino App Lab, your board will appear with the **Network** tag if it can be discovered on your local network.
 - Click on it and enter the Linux password to log in.
 - You will now have access to the board remotely.
 
 ![Network Mode](assets/network-mode.gif)
 
 With this method, you can access your UNO Q from any machine in your local network. This allows you to use Arduino App Lab as if you were connected directly to the board, where you can develop & run Apps in the same way as if it was connected via USB-C®.
+
+Network Mode relies on **local network discovery (mDNS)** to automatically find boards on the same network. Some network configurations such as guest Wi-Fi, corporate or IoT networks, VPNs, or strict firewall rules may prevent automatic discovery, even if the board is connected to Wi-Fi.
+
+**Troubleshooting Discovery Issues**
+
+*   **Windows Users:** When launching Arduino App Lab for the first time, you may receive a prompt from Windows Defender (or other security software) regarding `mdns-discovery.exe`. You must **allow** this access for the board to be discovered. *Note: The prompt may not appear on systems that have already run Arduino IDE at some point.*
+*   **Firewall Settings:** If the board does not appear, ensure that your firewall allows traffic on **UDP port 5353**, which is required for mDNS discovery.
+
+**Note**  
+Being able to access the board via browser, SSH, or IP address does not guarantee that it will appear in Network Mode. Arduino App Lab uses local network discovery to list boards automatically.
+
 
 ### Hello World Example
 
@@ -153,6 +164,29 @@ You should now see the red LED of the built-in RGB LED turning on for one second
 ![Red LED blinking](assets/blinking-led.gif)
 
 ***The LED controlled in this example is driven by the STM32 microcontroller through the Arduino sketch.***
+
+### Running an App at Startup
+
+You can configure a specific App to launch automatically whenever the UNO Q is powered on. This is useful for standalone projects where the board operates without a computer connection.
+
+**Note:** You cannot set a built-in **Example** as the startup app directly from the UI. You must first click **Copy and edit app** from the example or create a new **App** from scratch.
+
+1.  Open your custom App (or the copy of an example).
+2.  Locate the **Run** button in the top right corner.
+3.  Click the arrow (▼) next to the Run button to open the menu.
+4.  Toggle the **Run at startup** switch to the **ON** position.
+
+![Run at startup option](assets/run-at-startup.png)
+
+Once configured, a **DEFAULT** badge will appear next to your App's name, indicating it will run automatically upon boot.
+
+#### Advanced: Using the CLI
+
+Alternatively, you can set the default app using the command line interface (CLI) inside the UNO Q terminal:
+
+```bash
+arduino-app-cli properties set default user:<NAME_OF_YOUR_APP>
+```
 
 ### Arduino IDE (Beta)
 
@@ -821,7 +855,7 @@ The `Bridge` library provides a communication layer built on top of the `Arduino
 
 #### The Arduino Router (Infrastructure)
 
-Under the hood, the communication is managed by a background Linux service called the Arduino Router (`arduino-router`).
+Under the hood, the communication is managed by a background Linux service called the **Arduino Router** (`arduino-router`).
 
 While the `Bridge` library is what you use in your code, the Router is the traffic controller that makes it possible. It implements a **Star Topology** network using MessagePack RPC.
 
@@ -835,7 +869,22 @@ While the `Bridge` library is what you use in your code, the Router is the traff
 
 - **Service Discovery:** Clients (like your Python® script or the MCU Sketch) "register" functions they want to expose. The Router keeps a directory of these functions and routes calls to the correct destination.
 
-**Managing the Router Service**
+**Source Code:**
+
+- **[Arduino Router Service](https://github.com/arduino/arduino-router)**
+- **[Arduino_RouterBridge Library](https://github.com/arduino-libraries/Arduino_RouterBridge/tree/main)**
+
+#### System Configuration & Hardware Interfaces
+
+The Router manages the physical connection between the two processors. It is important to know which hardware resources are claimed by the Router to avoid conflicts in your own applications.
+
+* **Linux Side (MPU):** The router claims the serial device `/dev/ttyHS1`.
+* **MCU Side (STM32):** The router claims the hardware serial port `Serial1`.
+
+> **⚠️ WARNING: Reserved Resources**
+> Do not attempt to open `/dev/ttyHS1` (on Linux) or `Serial1` (on Arduino/Zephyr) in your own code. These interfaces are exclusively locked by the `arduino-router` service. Attempting to access them directly will cause the Bridge to fail.
+
+#### Managing the Router Service
 
 The arduino-router runs automatically as a system service. In most cases, you do not need to interact with it directly. However, if you are debugging advanced issues or need to restart the communication stack, you can control it via the Linux terminal:
 
@@ -923,7 +972,7 @@ To capture more detailed information in the logs, you can append the `--verbose`
 - **Incoming Updates**: Handled by a dedicated background thread (`updateEntryPoint`) that continuously polls for requests.
 - **Safe Execution**: The provide_safe mechanism hooks into the main loop (`__loopHook`) to execute user callbacks safely when the processor is idle.
 
-#### Usage Example
+#### Usage Example (Arduino App Lab)
 
 This example shows the **Linux side (Qualcomm QRB)** toggling an LED on the **MCU (STM32)** by calling a remote function over the Bridge.
 
@@ -983,6 +1032,117 @@ After pasting the Python script into your App’s Python file and the Arduino co
 ![Red LED blinking](assets/blinking-led.gif)
 
 ***There are more advanced methods in the Bridge RPC library that you can discover by testing our different built-in examples inside Arduino App Lab.***
+
+#### Interacting via Unix Socket (Advanced)
+
+Linux processes communicate with the Router using a **Unix Domain Socket** located at:
+`/var/run/arduino-router.sock`
+
+While the `Bridge` library handles this automatically for you, you can manually connect to this socket to interact with the MCU or other Linux services using any language that supports **MessagePack RPC** (e.g., Python, C++, Rust, Go).
+
+#### Usage Example (Custom Python Client)
+
+The following example demonstrates how to control an MCU function (`set_led_state`) from a standard Python script using the `msgpack` library, without using the Arduino App Lab helper classes. This is useful for integrating Arduino functions into existing Linux applications.
+
+**Prerequisites:**
+
+1. **Flash the MCU Sketch**
+   
+   Upload the following code using the Arduino IDE or Arduino App Lab. This registers the function we want to call.
+
+    ```cpp
+    #include "Arduino_RouterBridge.h"
+
+    void setup() {
+      pinMode(LED_BUILTIN, OUTPUT);
+
+      Bridge.begin();
+      // We use provide_safe to ensure the hardware call runs in the main loop context
+      Bridge.provide_safe("set_led_state", set_led_state);
+    }
+
+    void loop() {
+    }
+
+    void set_led_state(bool state) {
+      digitalWrite(LED_BUILTIN, state ? LOW : HIGH);
+    }
+    ```
+2. **Install the Python Dependency** 
+   
+    Install the msgpack library using the system package manager:
+
+    ```bash
+    sudo apt install python3-msgpack
+    ```
+3. **Create the Python Script** 
+   
+   Create a new file named msgpack_test.py:
+
+    ```bash
+    nano msgpack_test.py
+    ```
+4. **Add the Script Content**
+  
+   Copy and paste the following code. This script connects manually to the Router's Unix socket and sends a raw RPC request.
+  
+    ```python
+    import socket
+    import msgpack
+    import sys
+
+    # 1. Define the connection to the Router's Unix Socket
+    SOCKET_PATH = "/var/run/arduino-router.sock"
+
+    # 2. Parse command line arguments
+    # Default to turning LED ON (True) if no argument is provided
+    led_state = True 
+
+    if len(sys.argv) > 1:
+        arg = sys.argv[1]
+        if arg == "1":
+            led_state = True
+        elif arg == "0":
+            led_state = False
+        else:
+            print("Usage: python3 msgpack_test.py [1|0]")
+            sys.exit(1)
+
+    print(f"Sending request to set LED: {led_state}")
+
+    # 3. Create the MessagePack RPC Request
+    # Format: [type=0 (Request), msgid=1, method="set_led_state", params=[led_state]]
+    request = [0, 1, "set_led_state", [led_state]]
+    packed_req = msgpack.packb(request)
+
+    # 4. Send the request
+    try:
+        with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as client:
+            client.connect(SOCKET_PATH)
+            client.sendall(packed_req)
+            
+            # 5. Receive the response
+            response_data = client.recv(1024)
+            response = msgpack.unpackb(response_data)
+            
+            # Response Format: [type=1 (Response), msgid=1, error=None, result=None]
+            print(f"Router Response: {response}")
+            
+    except Exception as e:
+        print(f"Connection failed: {e}")
+    ```
+
+**Running the Example**
+
+You can now test the connection by running the script from the terminal and passing `1` (ON) or `0` (OFF):
+
+```bash
+python3 msgpack_test.py 1 # to turn on the LED
+# or
+python3 msgpack_test.py 0 # to turn off the LED
+```
+![Custom Python to Router example](assets/custom-python-rpc.png)
+
 
 ### SPI
 
@@ -1234,11 +1394,13 @@ With this example the UNO Q will send back whatever it receives on the UART.
 
 #### From Serial to Monitor
 
-Because of the UNO Q’s architecture, using `Serial` does not display data in the Arduino App Lab Serial Monitor as you might expect.
+Because of the UNO Q’s architecture, using `Serial` does not display data in the Arduino App Lab **Console** as you might expect.
 
-To make debugging just as easy as on other Arduino boards, we provide the `Monitor` object, which you can use to print debugging messages, sensor readings, or any other information directly to the Serial Monitor.
+To make debugging just as easy as on other Arduino boards, we provide the `Monitor` object, which you can use to print debugging messages, sensor readings, or any other information directly to the App Lab Console.
 
-You can do exactly the same, but with a minor prerequisite; including the `Arduino_RouterBridge` library in your sketch:
+Note: `Serial` still works over UART, but its output is not shown in App Lab.
+
+You can achieve the same behavior with a minor prerequisite: include the `Arduino_RouterBridge` library in your sketch.
 
 ```cpp
 #include <Arduino_RouterBridge.h>
@@ -1295,6 +1457,47 @@ If you want to forget the saved network so it doesn’t auto-connect again, you 
 
 ```bash
 sudo nmcli connection delete <SSID>
+```
+
+#### WPA2-Enterprise Connections
+
+To connect to a WPA2-Enterprise network, you need to provide additional authentication configuration. The possible configurations can be complex; please refer to the [official documentation](https://people.freedesktop.org/~lkundrak/nm-dbus-api/nm-settings.html) for a comprehensive list of options.
+
+For example, here is the configuration for **Eduroam**, an international Wi-Fi roaming service for users in research and education.
+
+```bash
+nmcli con add \
+  type wifi \
+  connection.id Eduroam \ # Connection name
+  wifi.ssid eduroam \   # Network Wi-Fi SSID
+  wifi.mode infrastructure \
+  wifi-sec.key-mgmt wpa-eap \
+  802-1x.eap peap \
+  802-1x.phase2-auth mschapv2 \
+  802-1x.identity <your identity>
+```
+
+
+
+Here's another example using TTLS authentication with PAP:
+
+```bash
+nmcli con add \
+  type wifi \
+  connection.id ExampleNetwork \ # Connection name
+  wifi.ssid <your Wi-Fi SSID> \ # Network Wi-Fi SSID
+  wifi.mode infrastructure \
+  wifi-sec.key-mgmt wpa-eap \
+  802-1x.eap ttls \
+  802-1x.phase2-auth pap \
+  802-1x.domain-suffix-match example.com \
+  802-1x.identity <your identity>
+```
+
+If you prefer not to store your password in plain text (especially when it contains special characters), you can use the `--ask` flag to be prompted for the password interactively when connecting:
+
+```bash
+nmcli --ask con up <your network name>
 ```
 
 #### From the Microcontroller 
@@ -1412,4 +1615,3 @@ Join our community forum to connect with other UNO Q users, share your experienc
 Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We are happy to help you with any issues or inquiries about the UNO Q.
 
 - [Contact us page](https://www.arduino.cc/en/contact-us/)
-
