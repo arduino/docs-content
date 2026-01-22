@@ -1158,6 +1158,119 @@ Always double-check paths and filenames before performing destructive commands. 
 
 When in doubt about a command's effect, consult the manual with [**`man <command-name>`**](#getting-help) or search for examples before proceeding. Taking these extra moments to verify your actions prevents the frustration and data loss that comes from premature mistakes.
 
+### Shutting Down Your UNO Q Safely
+
+Unlike traditional computers, the UNO Q has auto-restart functionality. When you run standard Linux shutdown commands like:
+
+```bash
+sudo shutdown now
+```
+
+or
+
+```bash
+sudo poweroff
+```
+
+The board performs a clean shutdown of the Debian system but automatically restarts shortly after. This behavior is built into the board's power management system.
+
+To safely power down your UNO Q for extended storage or when carrying the board, you need to use a proper command that safely shuts down the board and keeps it powered off:
+
+```bash
+sudo halt
+```
+
+#### Recommended Shutdown Method
+
+The `halt` command is the recommended approach for safely shutting down your UNO Q. It stops all system processes, brings Linux to a safe state, and keeps the board powered off, preventing an automatic restart.
+
+To shut down your UNO Q properly, run:
+
+```bash
+sudo halt
+```
+
+![Shutting Down Your UNO Q Safely (1)](assets/debian_shutdown_halt.gif)
+
+The green power LED on the board will turn off when the system has halted completely. The board will remain powered off and will not restart automatically.
+
+This makes `sudo halt` ideal for long-term storage, carrying the board, or any situation where you want the board to stay off until you manually power it back on.
+
+#### Alternative Shutdown Methods
+
+The following shutdown methods will cleanly shut down the Debian system but trigger the board's auto-restart functionality:
+
+```bash
+sudo shutdown now
+```
+
+```bash
+sudo poweroff
+```
+
+With the graphical interface method (SBC mode):
+
+- Click on **"arduino"** located in the top right corner of the desktop
+- Select the **"Shut Down"** option from the dropdown menu that appears
+
+![Shutting Down Your UNO Q Safely (2)](assets/debian_shutdown_gui.gif)
+
+When using any of these methods, the board will perform a clean shutdown and then automatically restart within a few seconds.
+
+If you need to keep the board powered off while using these methods, you must disconnect the power source immediately after the green LED turns off and before the restart sequence begins.
+
+The timing is important when using these auto-restart methods. You have only a brief window after the LED turns off to safely disconnect power. If you wait too long, the system will begin its reboot sequence.
+
+In case of power disconnection by the source:
+
+- For boards powered via USB-C®, unplug the USB-C® cable once the LED turns off
+- When using the *VIN* pin for power with a 7-24 VDC input, disconnect your external power supply at this time
+- If your board receives power from the 5 V pin, disconnect the 5 V power supply when the LED indicator turns off
+
+In SBC mode with a USB-C® dongle, disconnect the dongle's power supply after the LED turns off.
+
+#### Emergency Shutdown & Best Practices
+
+While proper shutdown procedures prevent file system corruption and data loss, the UNO Q's eMMC storage includes protective measures that minimize data loss in the event of an unexpected power loss.
+
+If you must disconnect power immediately during an emergency, the system will likely recover on the next boot. However, any unsaved work can be lost.
+
+For long-term storage or when carrying the board, use the `sudo halt` command to shut down properly:
+
+```bash
+sudo halt
+```
+
+For continuous operation or automated systems where the board runs indefinitely, manual shutdown procedures are not necessary.
+
+#### Understanding Shutdown Commands
+
+Understanding the behavior of different shutdown commands helps you choose the right approach for your situation.
+
+The following command cleanly restarts the system as intended:
+
+```bash
+sudo reboot
+```
+
+The following command safely shuts down the board and keeps it powered off, which is the recommended method for this case:
+
+```bash
+sudo halt
+```
+
+The following commands perform a clean system shutdown, but the board's auto-restart functionality will power the system back on shortly after shutdown completes:
+
+```bash
+sudo shutdown now
+```
+
+```bash
+sudo poweroff
+```
+
+Use `sudo halt` to keep the board off. Use the other shutdown methods only if you specifically want the board to restart, or if you are prepared to disconnect power to prevent the automatic restart quickly, given certain application requirements.
+
 ## Summary
 
 This guide showed you to the Debian Linux environment running on the Arduino UNO Q's microprocessor. You learned what Debian is and how it integrates with the Arduino microcontroller to create a hybrid platform. The guide covered commands for accessing the board's shell via ADB, SSH, or SBC mode, navigating the Linux file system, managing permissions with `sudo`, installing packages with `apt`, and working with USB peripherals. You also explored the Arduino App CLI for managing Apps and system monitoring tools for tracking resources and network connectivity.
