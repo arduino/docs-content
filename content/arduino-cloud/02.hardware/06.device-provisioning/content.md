@@ -64,6 +64,7 @@ Now you have to decide how you want to set up your board with the Cloud, either 
 Here are the boards that are compatible with Bluetooth provisioning via a Bluetooth connection:
 
 - [Arduino UNO R4 WiFi](https://docs.arduino.cc/hardware/uno-r4-wifi/) (Wi-Fi firmware version 0.6.0 or later required)
+- [Arduino Giga R1 WiFi](https://docs.arduino.cc/hardware/giga-r1-wifi/)
 
 A board that is ready for Bluetooth provisioning has a specific provisioning sketch installed and displays a pulsing LED or a Bluetooth icon on the LED matrix (for UNO R4 WiFi). Newer boards are delivered with this specific sketch already installed. If the pulsing LED is not visible, please use the USB provisioning method.
 
