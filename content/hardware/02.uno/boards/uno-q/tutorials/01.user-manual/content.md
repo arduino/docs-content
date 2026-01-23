@@ -139,6 +139,236 @@ Network Mode relies on **local network discovery (mDNS)** to automatically find 
 **Note**  
 Being able to access the board via browser, SSH, or IP address does not guarantee that it will appear in Network Mode. Arduino App Lab uses local network discovery to list boards automatically.
 
+Network Mode relies on **local network discovery (mDNS)** to automatically find boards on the same network. Some network configurations such as guest Wi-Fi, corporate or IoT networks, VPNs, or strict firewall rules may prevent automatic discovery, even if the board is connected to Wi-Fi.
+
+**Troubleshooting Discovery Issues**
+
+*   **Windows Users:** When launching Arduino App Lab for the first time, you may receive a prompt from Windows Defender (or other security software) regarding `mdns-discovery.exe`. You must **allow** this access for the board to be discovered. *Note: The prompt may not appear on systems that have already run Arduino IDE at some point.*
+*   **Firewall Settings:** If the board does not appear, ensure that your firewall allows traffic on **UDP port 5353**, which is required for mDNS discovery.
+
+***__Note__: Being able to access the board via browser, SSH, or IP address does not guarantee that it will appear in Network Mode. Arduino App Lab uses local network discovery to list boards automatically.***
+
+### Linux Host Setup (Required for Linux Users)
+
+If you are using the UNO Q from a Linux host machine, you must configure USB device permissions for your user account. Without proper permissions, several operations may fail, resulting in frustrating errors.
+
+When Arduino App Lab attempts to connect to the board via USB, it will fail silently. You may need to check the DevTools console to see the actual error message about insufficient device permissions.
+
+Similarly, if you try to flash a new image to the board, the process will fail with the following error:
+
+![udev Rules (1)](assets/udev_rules_1.png)
+
+The same error will occur when trying to communicate with the board via ADB commands such as `adb shell`.
+
+<details>
+  <summary><strong>Click to expand this section</strong></summary>
+
+
+#### Understanding the Permission
+
+By default, USB devices on Linux are accessible only by the root user or users in specific groups. When the UNO Q connects to your computer, it creates USB device files, typically in the following directory:
+
+```bash
+/dev/bus/usb/
+```
+
+That requires write permissions for communication.
+
+The UNO Q supports two USB modes, each with its own USB identifier. In regular operation, the board uses USB VID `2341` and PID `0078`.
+
+When you need to flash the board's firmware, it enters **Emergency Download Mode (EDL)**, which uses USB VID `05c6` and PID `9008`. Both modes require proper permissions to function correctly.
+
+#### Installing Udev Rules
+
+The correct way to configure the necessary permissions for your user account is via **udev rules**. `udev` is the Linux subsystem that manages device nodes in the `/dev` directory. The following udev rules will grant your user account access to the UNO Q:
+
+```bash
+# Operating mode
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0078", MODE="0660", TAG+="uaccess"
+# EDL mode
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="05c6", ATTRS{idProduct}=="9008", MODE="0660", TAG+="uaccess"
+```
+
+Run this command to install the necessary udev rules:
+
+```bash
+echo \
+'# Operating mode
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0078", MODE="0660", TAG+="uaccess"
+# EDL mode
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="05c6", ATTRS{idProduct}=="9008", MODE="0660", TAG+="uaccess"' \
+| \
+  sudo \
+    tee \
+      "/etc/udev/rules.d/60-Arduino-UNO-Q.rules" \
+&& \
+sudo \
+  udevadm control \
+    --reload-rules \
+&& \
+sudo \
+  udevadm trigger
+```
+
+![udev Rules (2)](assets/udev_rules_2.png)
+
+This command performs several operations in sequence. First, it creates the rule file and writes the udev rules to:
+
+```bash
+/etc/udev/rules.d/60-Arduino-UNO-Q.rules
+```
+
+The `60-` prefix determines the rule processing order, where lower numbers indicate higher priority. Files in the `/etc/udev/rules.d/` directory are user-specific overrides that are kept across system updates.
+
+Each rule matches USB devices based on specific criteria. The `SUBSYSTEMS=="usb"` parameter allows the rule to only apply to USB devices.
+
+The `ATTRS{idVendor}` and `ATTRS{idProduct}` parameters identify the UNO Q by its unique USB vendor and product IDs. The `MODE="0660"` parameter sets the device file permissions, allowing the owner and group to read and write to the device.
+
+The `TAG+="uaccess"` parameter grants access to the currently logged-in user through `systemd-logind`.
+
+After creating the rule file, the command reloads all udev rules by running as follows:
+
+```bash
+udevadm control --reload-rules
+```
+
+![udev Rules (3)](assets/udev_rules_3.png)
+
+This tells udev to reload all rule files without requiring a system restart.
+
+The `udevadm trigger` reprocesses all existing devices with the newly loaded rules, making sure that any currently connected UNO Q boards receive the correct permissions.
+
+#### Verifying the Installation
+
+Using the following command, verify the rules were installed correctly:
+
+```bash
+cat /etc/udev/rules.d/60-Arduino-UNO-Q.rules
+```
+
+![udev Rules (4)](assets/udev_rules_4.png)
+
+This should display the two udev rules you just installed.
+
+To check if the UNO Q is detected, the following command can be used:
+
+```bash
+lsusb | grep -E "2341:0078|05c6:9008"
+```
+
+When the board is connected in operating mode, you should see similar to the following output:
+
+![udev Rules (5)](assets/udev_rules_5.png)
+
+#### Applying the Changes
+
+After installing the udev rules, **you need to disconnect and reconnect your board for the changes to take effect**.
+
+Unplug the UNO Q from your computer and wait a few seconds. Then reconnect the board. The new permissions will be applied automatically when the board reconnects.
+
+If you had any applications open when you installed the rules, such as Arduino App Lab or a terminal running ADB commands, you should close and restart them after reconnecting the board. This allows applications to properly detect the board with its new permissions. 
+
+For ADB commands, the following commands can be used:
+
+```bash
+adb devices
+```
+
+This command lists all Android Debug Bridge devices connected to your system. Your UNO Q should appear in the list without any error messages. 
+
+The following command can be used to access the UNO Q:
+
+```bash
+adb shell
+```
+
+![udev Rules (6)](assets/udev_rules_6.png)
+
+#### Alternative Installation Method
+
+You can use the official `post-install` script from the [*Arduino Core Zephyr repository*](https://github.com/arduino/ArduinoCore-zephyr) to configure these permissions automatically. This script performs the same [udev rule installation as the manual method](#linux-users-usb-permissions-required) described above.
+
+To download and run the `post-install` script, navigate to your Downloads directory and use `wget` to fetch the script from the repository:
+
+```bash
+cd ~/Downloads
+```
+
+```bash
+wget https://raw.githubusercontent.com/arduino/ArduinoCore-zephyr/main/post_install.sh
+```
+
+![udev Rules (7)](assets/udev_rules_7.png)
+
+```bash
+chmod +x post_install.sh
+```
+
+```bash
+sudo ./post_install.sh
+```
+
+![udev Rules (8)](assets/udev_rules_8.png)
+
+If wget is not available on your system, you can use `curl` instead:
+
+```bash
+cd ~/Downloads
+```
+
+```bash
+curl -O https://raw.githubusercontent.com/arduino/ArduinoCore-zephyr/main/post_install.sh
+```
+
+```bash
+chmod +x post_install.sh
+```
+
+```bash
+sudo ./post_install.sh
+```
+
+```bash
+sudo ~/.arduino15/packages/arduino/hardware/zephyr/<version>/post_install.sh
+```
+
+Alternatively, you can clone the entire repository and run the script from there:
+
+```bash
+cd ~/Downloads
+```
+
+```bash
+git clone https://github.com/arduino/ArduinoCore-zephyr.git
+```
+
+```bash
+cd ArduinoCore-zephyr
+```
+
+```bash
+chmod +x post_install.sh
+```
+
+```bash
+sudo ./post_install.sh
+```
+
+When prompted, enter your password. The script will create the udev rules file, reload the udev rules, and apply them to any currently connected devices, just like the manual installation method.
+
+After running the script, you can verify the installation using the same command shown in the manual installation section:
+
+```bash
+cat /etc/udev/rules.d/60-arduino-zephyr.rules
+```
+
+![udev Rules (9)](assets/udev_rules_9.png)
+
+Note that the script creates a file named `60-arduino-zephyr.rules` rather than `60-Arduino-UNO-Q.rules`, but it has the same permission rules for both operating modes.
+
+After installing the udev rules using either method, **unplug your UNO Q board from the computer, wait a few seconds, then reconnect it**. This allows the new permissions to be applied. Once reconnected, you can continue to the next steps in the flashing process.
+
+</details>
 
 ### Hello World Example
 
