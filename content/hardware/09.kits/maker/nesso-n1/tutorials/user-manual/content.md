@@ -1426,7 +1426,9 @@ You can check our [Modulino family](https://store.arduino.cc/collections/modulin
 
 ### Grove Connector
 
-The Nesso N1 also includes one standard **Grove** connector. It provides a 5 V interface with two digital I/O pins (`GROVE_IO_0` on GPIO5, `GROVE_IO_1` on GPIO4), making it compatible with the extensive ecosystem of [Grove modules](https://search.arduino.cc/search?q=grove%20module&tab=store), including those from [M5Stack](https://shop.m5stack.com/pages/search-results-page?q=grove&page=1&rb_tags=ACTUATORS%7CSENSOR) and [Arduino Sensor Kit](https://store.arduino.cc/products/sensor-kit-base).
+The Nesso N1 also includes one standard **Grove** connector. It provides **5 V power** and two digital I/O pins (GROVE_IO_0 on GPIO5, GROVE_IO_1 on GPIO4) operating at **3.3 V logic**. This interface makes the board compatible with the extensive ecosystem of [Grove modules](https://search.arduino.cc/search?q=grove%20module&tab=store), including those from [M5Stack](https://shop.m5stack.com/pages/search-results-page?q=grove&page=1&rb_tags=ACTUATORS%7CSENSOR) and [Arduino Sensor Kit](https://store.arduino.cc/products/sensor-kit-base).
+
+**Important:** Do not input 5 V logic signals to these pins, as they are not 5 V tolerant.
 
 ![Grove Connector](assets/grove-connector.png)
 
