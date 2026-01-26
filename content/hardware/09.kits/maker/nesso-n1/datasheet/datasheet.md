@@ -301,7 +301,7 @@ Use the limits below to define the operating environment, thermal margins, and p
 <p style="text-align: justify;">The Qwiic connector shares the main I²C bus with internal peripherals (BMI270 IMU, BQ27220 fuel gauge, touch controller, I/O expander). I²C pull-up resistors are provided on the SDA and SCL lines. Maximum I²C bus speed is 400 kHz (Fast Mode).</p>
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  <strong>I²C Bus Considerations:</strong> Multiple devices share the same I²C bus. Ensure connected modules use unique I²C addresses to avoid conflicts. The system I²C addresses include: BMI270 (0x68/0x69), BQ27220 (0x55), FT6336U (0x38), PI4IOE5V6408 (0x20/0x21 selectable).
+  <strong>I²C Bus Considerations:</strong> Multiple devices share the same I²C bus. Ensure connected modules use unique I²C addresses to avoid conflicts. The system I²C addresses include: BMI270 (0x68/0x69), BQ27220 (0x55), AW32001A (0x49), FT6336U (0x38), and PI4IOE5V6408 (0x43, 0x44).
 </div>
 
 ### HAT Connector (J4)
