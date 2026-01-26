@@ -89,6 +89,8 @@ sudo apt install libwebkit2gtk-4.1-0
 sudo pacman -S webkit2gtk-4.1
 ```
 
+***Note: To ensure the UNO Q board is properly detected by the Arduino App Lab, your user account must have specific write permissions for the USB device. Without these permissions, the board may not appear in the application or allow connections. Please refer to the [Linux Host Setup](/tutorials/uno-q/user-manual/#linux-host-setup-required-for-linux-users) section in the UNO Q User Manual to install the necessary `udev` rules.***
+
 ## Board Modes
 
 The board can be used in **three different modes:**
