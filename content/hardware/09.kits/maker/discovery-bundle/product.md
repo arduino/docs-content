@@ -1,7 +1,7 @@
 ---
 title: Matter Discovery Bundle
 url_shop: https://store.arduino.cc/products/matter-discovery-bundle
-primary_button_url: https://academy.arduino.cc/courses/
+primary_button_url: https://courses.arduino.cc/matter-discovery/
 primary_button_title: GO TO COURSE
 core: arduino:mbed_nano
 sku: [AKX00081]
