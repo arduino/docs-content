@@ -23,7 +23,7 @@ A plug-and-play carrier board that turns your ideas into working projects in min
 <Feature title="Modulino Nodes" image="temperature-sensor">
 Three included Modulino boards to jumpstart your projects:
 <br/>
-<a href="/hardware/modulino-latch"><strong>Modulino Latch RELAY</strong></a>: Control higher voltage devices (24V - 6A).<br/>
+<a href="/hardware/modulino-latch"><strong>Modulino Latch Relay</strong></a>: Control higher voltage devices (24V - 6A).<br/>
 <a href="/hardware/modulino-distance"><strong>Modulino Distance</strong></a>: Time-of-Flight Proximity Sensor (0 to 1200 mm).<br/>
 <a href="/hardware/modulino-thermo"><strong>Modulino THERMO</strong></a>: Temperature and Humidity Sensor.
 
