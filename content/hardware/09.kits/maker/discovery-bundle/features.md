@@ -7,7 +7,7 @@ The Arduino Matter Discovery Bundle is designed to help you build smart, interop
 <FeatureList>
 
 <Feature title="Nano Matter Board with Headers" image="mkr-form-factor">
-At the core is the Nano Matter with pre-mounted headers for easy setup. It features the Silicon Labs MGM240S microcontroller with a Cortex-M33, 1536 kB Flash, and 256 kB RAM. It supports Thread®, Bluetooth® Low Energy 5.3, and Bluetooth® Mesh, making it ready for Matter-compatible smart home connectivity. Includes Secure Vault® High security and USB-C connector for debugging.
+At the core is the Nano Matter with pre-mounted headers for easy setup. It features the Silicon Labs MGM240S microcontroller with a Cortex-M33, 1536 kB Flash, and 256 kB RAM. It supports Thread®, Bluetooth® Low Energy 5.3, and Bluetooth® Mesh, making it ready for Matter-compatible smart home connectivity. Includes Secure Vault® High security and USB-C® connector for debugging.
 <FeatureWrapper>
 <FeatureLink title="Read More" url="/hardware/nano-matter"/>
 </FeatureWrapper>
