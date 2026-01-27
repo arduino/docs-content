@@ -1,15 +1,18 @@
 ---
 productsLibrariesMap:
-  - m5gfx
+  - arduino_nesso_n1
   - nimble-arduino
   - arduino-modulino
   - radiolib
   - wire
-  - arduino_bmi270_bmm150
   - irremote
 ---
 
 <EssentialsColumn title="Suggested Libraries">
+
+  <EssentialElement title="Arduino_Nesso_N1" type="library" link="https://docs.arduino.cc/libraries/arduino-nesso-n1">
+    The official library for the Nesso N1, providing a simple interface for battery management, display control, and onboard sensors.
+  </EssentialElement>
 
   <EssentialElement title="Arduino-Modulino" type="library" link="https://docs.arduino.cc/libraries/arduino-modulino">
     A simple interface to control the Arduino Modulino family of products via the Qwiic connector.
