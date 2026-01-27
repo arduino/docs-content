@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The Arduino Matter Discovery Bundle is designed to help you build smart, interoperable devices with ease. Matter is designed to reduce vendor lock-in and improve interoperability across smart home ecosystems, helping your projects work with platforms such as Alexa, Google Home, Apple Home, Home Assistant, and more. The bundle combines the power of the Nano Matter board with the convenience of plug-and-play Modulino nodes and a versatile carrier, all backed by a comprehensive learning curriculum to help you go from idea to working prototype.
+The Arduino Matter Discovery Bundle is designed to help you build smart, interoperable devices with ease. Matter is designed to reduce vendor lock-in and improve interoperability across smart home ecosystems, helping your projects work with platforms such as Amazon Alexa, Google Home™, Apple HomeKit™, Home Assistant, and more. The bundle combines the power of the Nano Matter board with the convenience of plug-and-play Modulino nodes and a versatile carrier, all backed by a comprehensive learning curriculum to help you go from idea to working prototype.
 
 </FeatureDescription>
 
