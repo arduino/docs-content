@@ -652,7 +652,7 @@ The display and touch features are easily accessed using the `Arduino_Nesso_N1` 
 
 The following example initializes the display using the `NessoDisplay` class and prints a simple text string.
 
-![Display Touch Coordinates](assets/display-example-1.png)
+![Display Text](assets/display-example-1.png)
 
 ```arduino
 #include <Arduino_Nesso_N1.h>
@@ -682,7 +682,7 @@ void loop() {
 
 NessoDisplay inherits from 'M5GFX', you can therefore draw shapes using established methods.
 
-![Display Touch Coordinates](assets/display-example-2.png)
+![Display Shapes](assets/display-example-2.png)
 
 ```arduino
 #include <Arduino_Nesso_N1.h>
