@@ -36,7 +36,7 @@ All modules feature Qwiic connectors for easy integration.
 <Feature title="Academy Matter Course" image="pencil">
 A 7-chapter hands-on curriculum tailored for embedded engineers, hardware designers, and makers. Learn how to build with Matter from setting up the board to deploying a Matter® network, with practical guidance and resources to help you move faster.
 <FeatureWrapper>
-<FeatureLink title="View Course Details" url="https://academy.arduino.cc"/> 
+<FeatureLink title="View Course Details" url="https://courses.arduino.cc/matter-discovery/"/> 
 </FeatureWrapper>
 </Feature>
 
