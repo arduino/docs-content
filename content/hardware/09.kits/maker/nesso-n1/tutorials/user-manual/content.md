@@ -233,6 +233,12 @@ For projects where a slimmer profile is desired, the included hexagon key can be
 
 ***The Nesso N1 does not include a USB-C® cable, which is required to connect the board to your computer. A compatible cable is [available separately here](https://store.arduino.cc/products/usb-cable2in1-type-c).***
 
+### Factory Sketch
+
+If you wish to restore the Nesso N1 to its original state, or if you want to explore the code that comes preloaded on the board, you can download the source code below:
+
+- [**Nesso N1 Factory Sketch**](assets/NessoN1-Factory-Sketch.zip)
+
 ## Power Supply
 
 The Nesso N1 can be powered in three ways:
