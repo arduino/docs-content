@@ -1,0 +1,8 @@
+# Update with the appropriate compatible software / boards / shields / carriers
+
+software:
+  - arduino-ide
+  - arduino-cli
+  - iot-cloud
+  - web-editor
+

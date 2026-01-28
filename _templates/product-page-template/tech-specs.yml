@@ -1,0 +1,35 @@
+Board:
+  Name: 
+  SKU: 
+Microcontroller: 
+USB connector: 
+Pins:
+  Built-in LED Pin: 
+  Digital I/O Pins: 
+  Analog input pins: 
+  PWM pins: 
+  External interrupts: 
+Connectivity:
+  Wi-Fi: 
+  Bluetooth: 
+  Secure element: 
+Sensors:
+  IMU: 
+  Microphone: 
+Communication:
+  UART: 
+  I2C: 
+  SPI: 
+Power:
+  Circuit operating voltage: 
+  Input voltage (VIN): 
+  DC Current per I/O Pin: 
+Clock speed:
+  Processor: 
+Memory:
+  : 
+  : 
+Dimensions:
+  Weight:  g
+  Width:  mm
+  Length:  mm

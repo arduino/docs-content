@@ -1,0 +1,1 @@
+This is the Technical Specifications of the **Product-Name**.
