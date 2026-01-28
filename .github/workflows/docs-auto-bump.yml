@@ -1,0 +1,65 @@
+name: Bump docs.arduino.cc Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_version:
+        description: 'Target version to bump to. Leave blank to use the latest version.'
+        required: false
+        type: string
+
+jobs:
+  bump_version:
+    runs-on: ubuntu-latest
+    env:
+      REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Determine version to install
+        id: get_version
+        env:
+          NPM_CONFIG_USERCONFIG: ${{ github.workspace }}/.npmrc
+          NODE_AUTH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+        run: |
+          VERSION="${{ github.event.inputs.target_version }}"
+          if [ -z "$VERSION" ]; then
+            echo "No target_version provided. Finding the latest version..."
+            LATEST_VERSION=$(npm view @arduino/docs.arduino.cc version)
+            echo "Latest version is $LATEST_VERSION"
+            echo "version=$LATEST_VERSION" >> "$GITHUB_OUTPUT"
+          else
+            echo "Using target version: $VERSION"
+            echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Update package.json files
+        env:
+          VERSION: ${{ steps.get_version.outputs.version }}
+        run: |
+          find . -name "package.json" -exec sed -i 's/@arduino\/docs-arduino-cc": "^.*"/@arduino\/docs-arduino-cc": "^'${VERSION}'"/' {} \;
+
+      - name: Install dependencies with pnpm
+        run: npm install
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.BUMP_DOCS_TOKEN }}
+          commit-message: 'Bump @arduino/docs.arduino.cc to v${{ steps.get_version.outputs.version }}'
+          title: 'Bump docs.arduino.cc to version ${{ steps.get_version.outputs.version }}'
+          body: 'Automated PR to update the `@arduino/docs.arduino.cc` dependency to version ${{ steps.get_version.outputs.version }}.'
+          branch: 'bump-docs-arduino-cc-to-v${{ steps.get_version.outputs.version }}'
+          base: 'main'
