@@ -676,36 +676,36 @@ void printMacAddress(byte mac[]) {
  by Tom Igoe
  modified 23 March 2023
  by Karl Söderby
+ modified 18 September 2025
+ by Michele Zaffalon
  */
 
-#include <SPI.h>
 #include <WiFi.h>
 
-#include "arduino_secrets.h" 
+#include "arduino_secrets.h"
 ///////please enter your sensitive data in the Secret tab/arduino_secrets.h
-char ssid[] = SECRET_SSID;        // your network SSID (name)
-char pass[] = SECRET_PASS;    // your network password (use for WPA, or use as key for WEP)
+char ssid[] = SECRET_SSID;  // your network SSID (name)
+char pass[] = SECRET_PASS;  // your network password (use for WPA, or use as key for WEP)
 
-int keyIndex = 0;            // your network key index number (needed only for WEP)
+int keyIndex = 0;  // your network key index number (needed only for WEP)
 
 int status = WL_IDLE_STATUS;
 
 WiFiServer server(23);
 
-boolean alreadyConnected = false; // whether or not the client was connected previously
-
 void setup() {
   //Initialize serial and wait for port to open:
   Serial.begin(9600);
   while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
+    ;  // wait for serial port to connect. Needed for native USB port only
   }
 
   // check for the WiFi module:
   if (WiFi.status() == WL_NO_MODULE) {
     Serial.println("Communication with WiFi module failed!");
     // don't continue
-    while (true);
+    while (true)
+      ;
   }
 
 
@@ -729,27 +729,27 @@ void setup() {
 
 void loop() {
   // wait for a new client:
-  WiFiClient client = server.available();
-
+  WiFiClient client = server.accept();
 
   // when the client sends the first byte, say hello:
   if (client) {
-    if (!alreadyConnected) {
-      // clear out the input buffer:
-      client.flush();
-      Serial.println("We have a new client");
-      client.println("Hello, client!");
-      alreadyConnected = true;
+    Serial.println("We have a new client.");
+    client.println("Hello, client!");
+
+    while (client.connected()) {
+      if (client.available() > 0) {
+        // read the bytes incoming from the client:
+        char thisChar = client.read();
+        // echo the bytes back to the client:
+        client.println(thisChar);
+        // echo the bytes to the server as well:
+        Serial.write(thisChar);
+      }
     }
 
-    if (client.available() > 0) {
-      // read the bytes incoming from the client:
-      char thisChar = client.read();
-      // echo the bytes back to the client:
-      server.write(thisChar);
-      // echo the bytes to the server as well:
-      Serial.write(thisChar);
-    }
+    // close the connection:
+    client.stop();
+    Serial.println("client disconnected");
   }
 }
 
@@ -769,6 +769,11 @@ void printWifiStatus() {
   Serial.print("signal strength (RSSI):");
   Serial.print(rssi);
   Serial.println(" dBm");
+
+  // print the command to use with the telnet client:
+  Serial.print("To see this program in action, open a telnet client and type \"open ");
+  Serial.print(ip);
+  Serial.println("\"");
 }
 ```
 
