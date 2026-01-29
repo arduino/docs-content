@@ -1237,7 +1237,7 @@ int packetCounter = 0;
 void setup() {
   Serial.begin(115200);
 
-  // Enable the SX1262 module (active high reset)
+  // Enable the SX1262 module
   pinMode(LORA_ENABLE, OUTPUT);
   digitalWrite(LORA_ENABLE, HIGH);
 
@@ -1358,7 +1358,7 @@ void loop() {
 }
 ```
 
-***Please note: because the `LORA_ENABLE` pin is on an I/O expander, it cannot be passed directly to the RadioLib library constructor. The library must be initialized with the reset pin set to `RADIOLIB_NC` and it is best practice to perform a manual reset in setup.***
+***Please note: because the `LORA_ENABLE` pin is on an I/O expander, it cannot be passed directly to the RadioLib library constructor. The library must be initialized with the reset pin set to `RADIOLIB_NC`.***
 
 #### Configuring for Public LoRa® Networks
 
