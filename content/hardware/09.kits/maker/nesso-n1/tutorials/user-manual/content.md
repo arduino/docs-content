@@ -1303,7 +1303,7 @@ SX1262 radio = new Module(LORA_CS, LORA_IRQ, RADIOLIB_NC, LORA_BUSY);
 void setup() {
   Serial.begin(115200);
 
-  // Enable the SX1262 module (active high reset)
+  // Enable the SX1262 module
   pinMode(LORA_ENABLE, OUTPUT);
   digitalWrite(LORA_ENABLE, HIGH);
 
