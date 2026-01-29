@@ -266,16 +266,16 @@ The SX1262 LoRa® transceiver connects to the ESP32-C6 and I/O expander with the
 | BUSY       | `LORA_BUSY` (GPIO19)             | SX1262 BUSY      | Busy status indicator                        |
 | IRQ        | `LORA_IRQ` (GPIO15)              | SX1262 DIO1      | Interrupt request                            |
 | NRST       | `LORA_ENABLE` (EXP P7)           | SX1262 /nRESET   | Module reset/enable (HIGH: enabled)          |
-| ANT SW     | `LORA_ANTENNA_SWITCH` (EXP P6)   | FM8625 VDD       | RF switch power (HIGH: ON, LOW: OFF)         |
-| LNA EN     | `LORA_LNA_ENABLE` (EXP P5)       | SGM1300 ENABLE   | LNA enable (HIGH: Rx ON, LOW: Rx disabled)   |
+| ANT SW     | `LORA_ANTENNA_SWITCH` (EXP P6)   | FM8625H VDD      | RF switch power (HIGH: ON, LOW: OFF)         |
+| LNA EN     | `LORA_LNA_ENABLE` (EXP P5)       | SGM13005L4 ENABLE| LNA enable (HIGH: Rx ON, LOW: Rx disabled)   |
 
 #### Antenna Path and LNA Control
 
 <p style="text-align: justify;">The Rx/Tx antenna path switching between transmit (SRFO) and receive (SRFI) is controlled automatically by the SX1262's DIO2 pin when configured using <code>setDio2AsRfSwitch(true)</code> in RadioLib.</p>
 
-<p style="text-align: justify;">The SGM1300 Low Noise Amplifier (LNA) on the receive path <strong>must be enabled (HIGH) for the antenna signal to reach the SX1262 receiver</strong>. Setting <code>LORA_LNA_ENABLE</code> LOW will disable the route between the antenna and the SX1262's receive input. For power-sensitive applications, the LNA can be disabled during transmit and enabled only during receive operations.</p>
+<p style="text-align: justify;">The SGM13005L4 Low Noise Amplifier (LNA) on the receive path <strong>must be enabled (HIGH) for the antenna signal to reach the SX1262 receiver</strong>. Setting <code>LORA_LNA_ENABLE</code> LOW will disable the route between the antenna and the SX1262's receive input. For power-sensitive applications, the LNA can be disabled during transmit and enabled only during receive operations.</p>
 
-<p style="text-align: justify;">The <code>LORA_ANTENNA_SWITCH</code> pin controls power to the FM8625 RF switch and must be HIGH for normal LoRa® operation.</p>
+<p style="text-align: justify;">The <code>LORA_ANTENNA_SWITCH</code> pin controls power to the FM8625H RF switch and must be HIGH for normal LoRa® operation.</p>
 
 <div style="background-color: rgba(255, 193, 7, 0.2); border-left: 6px solid rgba(255, 152, 0, 1); margin: 20px 0; padding: 15px;">
   <strong>Note:</strong> For proper LoRa® operation, initialize the control pins as follows: set <code>LORA_ENABLE</code> HIGH to enable the SX1262, set <code>LORA_LNA_ENABLE</code> HIGH to enable the receive path, and set <code>LORA_ANTENNA_SWITCH</code> HIGH to power the RF switch. If two devices are very close, communication may appear to work even with the LNA or antenna switch disabled—this is unreliable behavior and should not be relied upon.
