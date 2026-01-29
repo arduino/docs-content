@@ -7,7 +7,7 @@ tags:
   - Wireless
   - Ping Pong
   - Antenna
-author: 'Arduino'
+author: 'Ernesto Voltaggio'
 libraries: 
   - name: RadioLib
     url: https://github.com/jgromes/RadioLib
