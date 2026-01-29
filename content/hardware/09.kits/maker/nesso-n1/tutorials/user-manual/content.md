@@ -1189,6 +1189,20 @@ The LoRa® module is controlled via SPI and several dedicated pins on both the E
 | `LORA_ANTENNA_SWITCH` |      | E0.P6         | LoRa® RF Antenna Switch Control  |
 | `LORA_ENABLE`         |      | E0.P7         | LoRa® Module Reset/Enable        |
 
+#### Understanding the LoRa® Antenna Control Pins
+
+The Nesso N1 includes an RF antenna switch (FM8625) and a Low Noise Amplifier (SGM1300) for the LoRa® receive path. Understanding how these work is important for reliable communication:
+
+- **`LORA_ENABLE` (EXP P7):** Controls the SX1262 module reset. Set HIGH to enable the module, LOW to reset.
+
+- **`LORA_ANTENNA_SWITCH` (EXP P6):** Powers the RF antenna switch. Must be set HIGH for normal LoRa® operation. This controls the VDD supply to the FM8625 RF switch IC.
+
+- **`LORA_LNA_ENABLE` (EXP P5):** Enables the SGM1300 Low Noise Amplifier on the receive path. **This must be set HIGH for the antenna signal to reach the SX1262 receiver.** Setting it LOW will disable the route between the antenna and the SX1262's receive input (SRFI). For power-sensitive applications, you can disable the LNA during transmit and enable it only during receive.
+
+- **Rx/Tx Switching:** The actual antenna path switching between transmit (SRFO) and receive (SRFI) is handled automatically by the SX1262's DIO2 pin when configured with `radio.setDio2AsRfSwitch(true)` in RadioLib.
+
+***Note: If two Nesso N1 devices are very close to each other, communication may appear to work even with the LNA or antenna switch disabled. This should be considered unreliable behavior and is not suitable for production use.***
+
 #### LoRa® Peer-to-Peer (P2P) Examples
 
 The following examples demonstrate basic LoRa® peer-to-peer (P2P) communication using the [RadioLib](https://github.com/jgromes/RadioLib) library. This is the foundational step for testing your hardware and building more complex network applications.
