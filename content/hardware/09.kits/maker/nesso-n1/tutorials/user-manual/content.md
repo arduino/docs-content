@@ -1223,12 +1223,17 @@ int packetCounter = 0;
 void setup() {
   Serial.begin(115200);
 
-  // Manually reset the LoRa module using the expander pin for reliability.
+  // Enable the SX1262 module (active high reset)
   pinMode(LORA_ENABLE, OUTPUT);
-  digitalWrite(LORA_ENABLE, LOW);
-  delay(10);
   digitalWrite(LORA_ENABLE, HIGH);
-  delay(10);
+
+  // Enable the LNA (required for receiving - antenna signal won't pass through if LOW)
+  pinMode(LORA_LNA_ENABLE, OUTPUT);
+  digitalWrite(LORA_LNA_ENABLE, HIGH);
+
+  // Enable the RF antenna switch power
+  pinMode(LORA_ANTENNA_SWITCH, OUTPUT);
+  digitalWrite(LORA_ANTENNA_SWITCH, HIGH);
 
   // Initialize the LoRa® module
   Serial.print(F("[SX1262] Initializing... "));
@@ -1239,6 +1244,9 @@ void setup() {
     while (true);
   }
   Serial.println(F("success!"));
+
+  // Tell the SX1262 to use its DIO2 pin to control the antenna Rx/Tx switch
+  radio.setDio2AsRfSwitch(true);
 }
 
 void loop() {
@@ -1281,14 +1289,19 @@ SX1262 radio = new Module(LORA_CS, LORA_IRQ, RADIOLIB_NC, LORA_BUSY);
 void setup() {
   Serial.begin(115200);
 
-  // Manually reset the LoRa module.
+  // Enable the SX1262 module (active high reset)
   pinMode(LORA_ENABLE, OUTPUT);
-  digitalWrite(LORA_ENABLE, LOW);
-  delay(10);
   digitalWrite(LORA_ENABLE, HIGH);
-  delay(10);
 
-  // Initialize the LoRa® module.
+  // Enable the LNA (required for receiving - antenna signal won't pass through if LOW)
+  pinMode(LORA_LNA_ENABLE, OUTPUT);
+  digitalWrite(LORA_LNA_ENABLE, HIGH);
+
+  // Enable the RF antenna switch power
+  pinMode(LORA_ANTENNA_SWITCH, OUTPUT);
+  digitalWrite(LORA_ANTENNA_SWITCH, HIGH);
+
+  // Initialize the LoRa® module
   Serial.print(F("[SX1262] Initializing... "));
   int state = radio.begin(LORA_FREQUENCY);
   if (state != RADIOLIB_ERR_NONE) {
@@ -1296,16 +1309,10 @@ void setup() {
     Serial.println(state);
     while (true);
   }
-
-  // Start listening for LoRa packets.
-  Serial.print(F("[SX1262] Starting to listen... "));
-  state = radio.startReceive();
-  if (state != RADIOLIB_ERR_NONE) {
-    Serial.print(F("failed, code "));
-    Serial.println(state);
-    while (true);
-  }
   Serial.println(F("success!"));
+
+  // Tell the SX1262 to use its DIO2 pin to control the antenna Rx/Tx switch
+  radio.setDio2AsRfSwitch(true);
 }
 
 void loop() {
