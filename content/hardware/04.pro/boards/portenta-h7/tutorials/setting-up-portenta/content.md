@@ -19,6 +19,7 @@ software:
   - ide-v2
   - web-editor
 ---
+
 ## Overview
 Congratulations on your purchase of one of our most powerful microcontroller boards to date! We know you are eager to try out your new board but before you can start using the Portenta H7 to run Arduino sketches you need to configure your computer and the Arduino IDE. This tutorial teaches you how to set up the board, how to configure your computer and how to run the classic Arduino blink example to verify if the configuration was successful.
 
@@ -124,13 +125,20 @@ If you're having troubles getting your Portenta to work on Ubuntu you can try th
 
 - Make sure **modemmanager** is not installed. Otherwise remove it with `sudo apt-get remove modemmanager`
 - Add the following rules to you udev rules 
+
 ```cpp
-SUBSYSTEM=="usb", ATTRS{idVendor}=="2341", MODE="0666"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="1fc9", MODE="0666"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0525", MODE="0666"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", MODE:="0666"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="1fc9", MODE:="0666"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0525", MODE:="0666"
 ```
 
 - Reboot your PC
 - You may use the following commands to create a new udev rule from scratch:
-`echo 'SUBSYSTEMS=="usb", ATTR{idVendor}=="2341", MODE:="0666"' > 20-portenta.rules` 
-`sudo mv 20-portenta.rules /etc/udev/rules.d/`
+
+```bash
+echo 'SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", MODE:="0666"' > 20-portenta.rules
+```
+
+```bash
+sudo mv 20-portenta.rules /etc/udev/rules.d/
+```
