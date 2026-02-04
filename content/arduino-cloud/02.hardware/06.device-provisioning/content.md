@@ -66,7 +66,7 @@ Here are the boards that are compatible with Bluetooth provisioning via a Blueto
 - [Arduino UNO R4 WiFi](https://docs.arduino.cc/hardware/uno-r4-wifi/) (Wi-Fi firmware version 0.6.0 or later required)
 - [Arduino Giga R1 WiFi](https://docs.arduino.cc/hardware/giga-r1-wifi/)
 
-A board that is ready for Bluetooth provisioning has a specific provisioning sketch installed and displays a pulsing LED or a Bluetooth icon on the LED matrix (for UNO R4 WiFi). Newer boards are delivered with this specific sketch already installed. If the pulsing LED is not visible, please use the USB provisioning method.
+A board that is ready for Bluetooth provisioning has a specific provisioning sketch installed and displays a pulsing LED or a Bluetooth icon on the LED matrix (for UNO R4 WiFi). Newer boards are delivered with this specific sketch already installed. If the pulsing LED is not visible, please use the USB provisioning method or follow the 2 Steps Migration to setup your board for BLE provisioning.
 
 ### Setting up Your Device With Bluetooth
 
@@ -116,6 +116,9 @@ To find out more about Arduino Cloud Things, go [here](https://docs.arduino.cc/a
 
 If you would like to upgrade your board from 1.0 to 2.0, so that your network credentials are saved on the boards storage and so that the board can be updated via BLE. And If you have a board that is compatible with version 2.0 but have provisioned it previously with version 1.0, please follow the instructions in this section! 
 
+### 1 Step Migration
+These steps will guide you to upgrade your board to Provisioning 2.0 and to provision it seamlessly.
+
 Go to the device page [here](https://app.arduino.cc/devices), if the board is on the list already please delete it. Then press the **+ DEVICE** button.
 
 ![Device page](assets/creating-new-device.png)
@@ -129,6 +132,18 @@ Now your board will be updated to version 2.0, wait for the process to finish.
 ![Board being updated](assets/migration-process.png)
 
 When this is done you can continue setting up the network connection for your board and it will now be using the latest provisioning method with the Arduino Cloud!
+
+### 2 Steps Migration
+This procedure prepares the board for BLE provisioning if it is not already configured. Once the steps are completed, the board can be registered on the Arduino IoT Cloud using either the mobile app or the Web UI through the BLE interface.
+
+***If the board being migrated is an Arduino UNO R4, the Wi-Fi firmware must be updated to version 0.6.0 or later before following this guide. Otherwise, the procedure will fail.***
+
+1. Download the Arduino IoT Cloud CLI (version >= 0.5.0) [here](https://github.com/arduino/arduino-cloud-cli/releases)
+2. Follow the instructions in the “Installation” and “Credentials” section of this [guide](https://docs.arduino.cc/arduino-cloud/arduino-cloud-cli/getting-started/)
+3. Plug-in the board to be migrated
+4. Run the command `arduino-cloud-cli device migrate`
+
+It will take around a minute to complete the procedure and after that the board is ready for the BLE provisioning and it will start pulsing the LED.
 
 ## How to update the Stored Network Configuration
 
