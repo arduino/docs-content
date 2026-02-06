@@ -143,7 +143,7 @@ Once the steps are completed, the board can be registered on the Arduino IoT Clo
 1. Download the Arduino IoT Cloud CLI (version >= 0.5.0) [here](https://github.com/arduino/arduino-cloud-cli/releases)
 2. Follow the instructions in the “Installation” and “Credentials” section of this [guide](https://docs.arduino.cc/arduino-cloud/arduino-cloud-cli/getting-started/)
 3. Plug-in the board to be migrated
-4. Run the command `arduino-cloud-cli device provisioning --migrate`
+4. Run the command `arduino-cloud-cli device provisioning migrate`
 
 It will take around a minute to complete the procedure and after that the board is ready for the BLE provisioning and it will start pulsing the LED.
 
