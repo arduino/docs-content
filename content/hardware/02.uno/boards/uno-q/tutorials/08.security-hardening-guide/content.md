@@ -59,7 +59,7 @@ Some details of interest are as follows:
 - Don't use easily guessed words for your password. It includes usernames, machine names, account names, family member or pet names, dictionary words, or simple character sequences like `12345` or `qwerty`.   
 - Avoid reusing passwords. Please don't use the same one for different accounts or systems.
 
-### Auditing login operations 
+### Auditing Login Operations
 
 The **last** command in Linux provides a **history of user logins and logouts** by reading from a binary log file located at `/var/log/wtmp`. This file isn't plain text; instead, system processes write a record to it every time a user **successfully logs in**, **logs out**, or the **system is rebooted**. 
 
@@ -87,7 +87,7 @@ OS updates are distributed via Debian Packages and installed with the `apt-get` 
 
 To ensure your system is as secure as possible, run the command `arduino-app-cli system update` to update the list of Debian packages and apply any available updates (download new packages for both the OS and the Arduino software components). 
 
-### Physical access
+### Physical Access
 
 By default, UNO Q comes preconfigured with the ADB (Android Debug Bridge) daemon listening on the USB port. Hence, when connected to a PC or laptop via USB, it's possible to issue adb commands (e.g., `adb shell`) and access the Linux Operating System as the `arduino` user. The `arduino` user can also become an admin via the “sudo” command.   
 App Lab uses this feature to allow programming UNO Q via USB in `PC connected` mode.
@@ -120,7 +120,7 @@ The service can be restarted in auto-start mode by using the following command:
 sudo systemctl enable adbd
 ```
 
-### Network access
+### Network Access
 
 The pre-installed Debian distribution on UNO Q does not expose any open TCP port on the network by default.   
 
@@ -128,7 +128,7 @@ The user might want to enable network services such as SSH, depending on the int
 
 The recommended method for securely exposing a service is **SSH tunnelling**. An example of its implementation is provided below.
 
-#### How to protect a local service through SSH Tunnelling (Local Port Forwarding) 
+#### How to Protect a Local Service Through SSH Tunnelling (Local Port Forwarding)
 
 SSH tunnelling is useful because it creates a secure, encrypted channel between your local machine and a remote server. Instead of exposing a service's native port, for example, a service listening on port `8900` to the internet, you can keep it firewalled and inaccessible.
 
@@ -136,11 +136,11 @@ You then use your SSH connection to `tunnel` traffic from a local port on your c
 
 The following example shows commands to protect a service listening on TCP port `8900` on the UNO Q system. The firewall rules allow only SSH tunnelling to this service.
 
-##### Prerequisites
+#### Prerequisites
 
 - The SSH service must be configured and running in the UNO Q system and must be accessible to proceed further and configure the SSH tunnelling
 
-##### Step 1: Allow all incoming connections from localhost to the service 
+#### Step 1: Allow All Incoming Connections From Localhost to the Service
 
 The first step is to apply an incoming firewall rule that allows all connections from the UNO Q's localhost interface to itself. This rule is necessary because all incoming requests to the exposed service will be denied unless they originate from localhost (or from the SSH tunnel).
 
@@ -148,7 +148,7 @@ The first step is to apply an incoming firewall rule that allows all connections
 sudo iptables -A INPUT -i lo -j ACCEPT
 ```
 
-##### Step 2: Protect the running service from external access 
+#### Step 2: Protect the Running Service From External Access
 
 The second step is to implement firewall deny rules to block all incoming traffic to the exposed service listening on port `8900`.
 
@@ -158,7 +158,7 @@ By applying this rule, no one will be able to connect to the service, except for
 sudo iptables -A INPUT -p tcp --dport 8900 -j DROP
 ```
 
-##### Step 3: Establish the SSH Tunnel
+#### Step 3: Establish the SSH Tunnel
 
 Any external user can connect to the protected service running on port `8900` via an SSH tunnel, as shown below.
 
@@ -168,7 +168,7 @@ ssh -L 9999:<UNOQ_Ip_Address>:8900 arduino@UNOQ_Ip_Address
 
 The user is using an SSH tunnel that connects their local port `9999` to port `8900`, which is listening on the UNO Q service. Since the redirection happens within the UNO Q system through the SSH service, the connection is permitted because it originates from the local interface of UNO Q rather than an external one.
 
-### Communicating with web services
+### Communicating With Web Services
 
 When implementing applications on your UNO Q, it's important to make sure that secure communication protocols are used, for example:
 
@@ -182,7 +182,7 @@ For this reason, certificates can be provided by the user in a known directory s
 
 If no certificates are provided but HTTPS is required by user configuration, self-signed certificates will be automatically generated and placed in the same known directory.
 
-#### Configuring WebUI brick with HTTPS and Custom Certification Authority
+#### Configuring WebUI Brick With HTTPS and Custom Certification Authority
 
 To provide a secure connection between the WebUI brick and the browser, you can use the **mkcert** tool. 
 
@@ -193,7 +193,7 @@ The scope is:
 * **Export the root CA** provided by mkcert  
 * **Trust the root CA** in the client host to verify the connection
 
-##### Install mkcert 
+#### Install Mkcert
 
 Install the latest version of mkcert, which at the time of writing is `v1.4.4`, from the following link: [https://github.com/FiloSottile/mkcert/](https://github.com/FiloSottile/mkcert/), using the commands shown below:
 
@@ -218,7 +218,7 @@ sudo mv mkcert-v1.4.4-linux-arm64 /usr/local/bin/mkcert
 mkcert -version
 ```
 
-##### Configure certificates
+#### Configure Certificates
 
 Log in to the Arduino UNO Q device and:
 
@@ -311,7 +311,7 @@ adb pull /home/arduino/.local/share/mkcert/rootCA.pem
 
 In the final configuration step, you need to add the `rootCA.pem` file as a trusted certificate in your browser.
 
-#### Configuring WebUI brick with HTTPS and Public Certification Authority 
+#### Configuring WebUI Brick With HTTPS and Public Certification Authority
 
 To provide a secure connection between the WebUI brick and the browser with a certificate provided by a public Certification Authority.
 
@@ -365,7 +365,7 @@ ui = WebUI(use_ssl=True)
 
 If you are using UNO Q to store private information, it is recommended that you implement encryption at rest to protect it. Various approaches are available; some of them are proposed below:
 
-#### Add an encrypted private directory to the user's home directory 
+#### Add an Encrypted Private Directory to the User's Home Directory
 
 The following procedure outlines how to create a subdirectory within the user's home directory that is managed by the operating system, allowing data to be stored and guaranteeing protection at rest.
 
@@ -377,7 +377,7 @@ It is important to note that all files outside the `\~/Private\` directory, even
 
 To configure a specific system user to use an encrypted home directory, please follow these steps.
 
-##### Step 1: Install the encryptfs-utils components
+#### Step 1: Install the Encryptfs-utils Components
 
 The following command must be performed as root:
 
@@ -389,7 +389,7 @@ sudo apt update
 sudo apt install ecryptfs-utils
 ```
 
-##### Step 2: Create the Private encrypted directory in the user's home
+#### Step 2: Create the Private Encrypted Directory in the User's Home
 
 The following command must be run by the user who wants to create a private directory within their home directory.
 
@@ -399,7 +399,7 @@ The user's password is required, and there is an option to provide a custom moun
 ecryptfs-setup-private
 ```
 
-##### Step 3: Save the encryption passphrase in a safe location 
+#### Step 3: Save the Encryption Passphrase in a Safe Location
 
 To make sure the safe recovery of your data in the future, it is important to store the chosen encryption passphrase in a secure online/offline location, such as a Password Manager. 
 
@@ -409,7 +409,7 @@ The following command retrieves the unwrapped passphrase set during setup.
 ecryptfs-unwrap-passphrase ~/.ecryptfs/wrapped-passphrase
 ```
 
-##### Step 4: Mount the encrypted Private directory 
+#### Step 4: Mount the Encrypted Private Directory
 
 The private directory located at `~/Private` is automatically mounted using the passphrase provided during setup after a successful login.
 
@@ -425,15 +425,15 @@ sudo su -l arduino
 
 Once the command above is performed successfully, the private directory will be mounted at `~/Private` as expected.
 
-### Monitoring device
+### Monitoring Device
 
 If your UNO Q is part of a critical application, it's a best practice to set up monitoring for failures and resource usage.
 
-#### Configure the log service and sending messages to remote server 
+#### Configure the Log Service and Sending Messages to Remote Server
 
 **rsyslog** is the standard system logger on modern Debian systems and is usually installed by default. This guide will cover verifying the installation, configuring it to send specific logs to a new file, and setting up log rotation.
 
-##### Check Installation & Status
+#### Check Installation & Status
 
 First, let's make sure `rsyslog` is installed and running.
 
@@ -465,7 +465,7 @@ sudo systemctl enable rsyslog
 sudo systemctl start rsyslog
 ```
 
-##### Understand the Configuration Structure 
+#### Understand the Configuration Structure
 
 Before making changes, it's good to know where `rsyslog` stores its files.
 
@@ -478,7 +478,7 @@ The basic syntax for a logging rule is: `facility.priority action`.
 * **Priority**: The severity of the message (e.g., `info`, `notice`, `warning`, `err`, `crit`).  
 * **Action**: What to do with the message (e.g., write it to a file like `/var/log/auth.log`).
 
-##### Sending logs to a Centralized Logs Server
+#### Sending Logs to a Centralized Logs Server
 
 1. Create a Forwarding Rule
 
@@ -521,11 +521,11 @@ Apply the new configuration to the client.
 sudo systemctl restart rsyslog
 ```
 
-#### Send notification from the board
+#### Send Notification From the Board
 
 **Monit** is a lightweight, open-source utility that automatically monitors and manages server processes, files, directories, and devices. If a service fails, *Monit* can automatically restart it and send you an alert.
 
-##### Installation
+#### Installation
 
 1. First, update your package list and install the *Monit* package.
 
@@ -539,7 +539,7 @@ sudo apt update && sudo apt install monit
 sudo systemctl status monit
 ```
 
-##### Core Configuration
+#### Core Configuration
 
 The main configuration file is located at **`/etc/monit/monitrc`**. Let's edit this file to set up email alerts and enable the web interface.
 
@@ -549,7 +549,7 @@ sudo nano /etc/monit/monitrc
 
 Scroll through the file and make the following changes:
 
-###### Set Up Mail Server
+#### Set Up Mail Server
 
 Find the mail server section. Uncomment the lines and fill in the details for your SMTP server. This example uses *Gmail*, which requires an **App Password** if you have 2-Factor Authentication enabled.
 
@@ -576,7 +576,7 @@ set alert your-recipient-email@example.com
 
 Replace the placeholder values with your actual email, App Password, and the recipient's email address.
 
-###### Enable the Web Interface
+#### Enable the Web Interface
 
 The web interface provides a convenient dashboard to view the status of all monitored services. Find the `set httpd port 2812` section and uncomment it.
 
@@ -596,7 +596,7 @@ For security, it's best to keep `use address localhost` and access it via an SSH
 
 The `allow admin:monit` line sets the username to `admin` and the password to `monit`.
 
-##### Example: Monitor for Hardware Failure
+#### Example: Monitor for Hardware Failure
 
 *Hardware failure* can mean many things. A common and easy-to-monitor proxy for a failing hard drive is rapidly increasing **disk space usage** or running out of **inodes**. **Monit** can monitor this for you.
 
@@ -619,7 +619,7 @@ check filesystem rootfs with path /
 
 3. The `alert` action tells Monit to send an email to the recipient you configured in `monitrc`.
 
-##### Apply and Test 
+#### Apply and Test
 
 1. **Test the Monit configuration for syntax errors:**
 
