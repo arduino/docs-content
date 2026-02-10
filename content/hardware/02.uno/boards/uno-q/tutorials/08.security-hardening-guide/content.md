@@ -377,7 +377,7 @@ It is important to note that all files outside the `\~/Private\` directory, even
 
 To configure a specific system user to use an encrypted home directory, please follow these steps.
 
-#### Step 1: Install the Encryptfs-utils Components
+#### Step 1: Install the Ecryptfs-Utils Components
 
 The following command must be performed as root:
 
