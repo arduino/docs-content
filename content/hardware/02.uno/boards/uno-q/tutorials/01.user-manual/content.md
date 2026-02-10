@@ -107,7 +107,7 @@ The [Arduino App Lab](https://docs.arduino.cc/software/app-lab/) is a unified de
 
 With code building blocks called Bricks, preconfigured AI models, and integrated orchestration, it reduces complexity while enabling you to create everything from simple prototypes to advanced, computation-intensive applications.
 
-![Arduino App Lab IDE](assets/app-lab.png)
+![Arduino App Lab](assets/app-lab.png)
 
 Arduino App Lab comes **pre-installed** on the UNO Q and can be used in Single-Board Computer (SBC) mode. We highly recommend the <strong>4 GB of RAM</strong> UNO Q variant for a better **standalone** experience.
 
@@ -439,6 +439,10 @@ To start using the board, you must first install the specific core that supports
 
 ***<strong>Troubleshooting:</strong> If the core does not appear in the search results, you may need to add the package manually. Go to __File > Preferences__ and add the following link to the __Additional Boards Manager URLs__ field: `https://downloads.arduino.cc/packages/package_zephyr_index.json`***
 
+5. Install the **Arduino_RouterBridge** library by navigating to the Library Manager in the IDE left menu. Install it with all its dependencies.
+
+![Arduino_RouterBridge Library](assets/lib-install.png)
+
 #### Hello World (Blink)
 
 Once the core is installed, you can verify that everything is working by uploading the classic Blink sketch.
@@ -610,6 +614,8 @@ You can also control these LEDs from a Python script as follows. Remember to **c
 ```python
 import time
 
+from arduino.app_utils import App
+
 LED1_R = "/sys/class/leds/red:user/brightness"
 LED1_G = "/sys/class/leds/green:user/brightness"
 LED1_B = "/sys/class/leds/blue:user/brightness"
@@ -625,24 +631,51 @@ def set_led_brightness(led_file, value):
     except Exception as e:
         print(f"Error writing to {led_file}: {e}")
 
-def main():
-  # turn off all LEDs
-  set_led_brightness(LED1_R, 0)
-  set_led_brightness(LED1_G, 0)
-  set_led_brightness(LED1_B, 0)
-  set_led_brightness(LED2_R, 0)
-  set_led_brightness(LED2_G, 0)
-  set_led_brightness(LED2_B, 0)
+# turn off all LEDs
+set_led_brightness(LED1_R, 0)
+set_led_brightness(LED1_G, 0)
+set_led_brightness(LED1_B, 0)
+set_led_brightness(LED2_R, 0)
+set_led_brightness(LED2_G, 0)
+set_led_brightness(LED2_B, 0)
 
-  while True:
+def loop():
     #blink the LED 1 RED segment
     set_led_brightness(LED1_R, 1)
     time.sleep(1)
     set_led_brightness(LED1_R, 0)
     time.sleep(1)
 
-if __name__ == "__main__":
-    main()
+App.run(user_loop=loop)
+```
+
+You can also control these LEDs by using their dedicated Linux module `Leds` as follows:
+
+
+```python
+# Arguments corresponds to R, G, and B colors respectively
+Leds.set_led1_color(1,0,0) # LED 1 in red
+Leds.set_led2_color(1,0,0) # LED 2 in red
+```
+
+Remember to **create a new App** inside Arduino App Lab and then copy and paste the script below in the python section of your App:
+
+```python
+import time
+from arduino.app_utils import App
+from arduino.app_utils import Leds
+
+def loop():
+    # Blink LED 1 in red
+    # Turn on the LED red segment(1, 0, 0)
+    Leds.set_led1_color(1,0,0)
+    time.sleep(1)
+    
+    # Turn off the LED (0, 0, 0)
+    Leds.set_led1_color(0,0,0)
+    time.sleep(1)
+
+App.run(user_loop=loop)
 ```
 
 #### MCU Controlled LEDs
@@ -832,8 +865,12 @@ The example code shown below uses digital pin `D5` to control an LED and reads t
 
 ![Digital I/O example wiring](assets/digital-io.png)
 
-Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+- Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
+- Install the **Arduino_RouterBridge** library by clicking in **Add Sketch Library** and searching for it.
+![Library install](assets/lib-install-app-lab.png)
+
+- Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 #include <Arduino_RouterBridge.h>
@@ -920,8 +957,12 @@ The example code shown below reads the analog input value from a potentiometer c
 
 ![ADC input example wiring](assets/analog-adc.png)
 
-Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+- Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
+- Install the **Arduino_RouterBridge** library by clicking in **Add Sketch Library** and searching for it.
+![Library install](assets/lib-install-app-lab.png)
+
+- Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 #include <Arduino_RouterBridge.h>
@@ -969,8 +1010,10 @@ analogWrite(DAC0, value);   // the value should be in the range of the DAC resol
 
 The following sketch will create a **60 Hz sine wave** signal in the `A0/DAC0` UNO Q pin:
 
-Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+- Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
+
+- Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 const float freq = 60.0f;
@@ -1030,8 +1073,10 @@ analogWriteResolution(10);
 
 Here is an example of how to create a variable duty-cycle PWM signal:
 
-Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+- Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
+
+- Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 const int analogInPin = A0;  // Analog input pin that the potentiometer is attached to
@@ -1206,9 +1251,10 @@ To capture more detailed information in the logs, you can append the `--verbose`
 
 This example shows the **Linux side (Qualcomm QRB)** toggling an LED on the **MCU (STM32)** by calling a remote function over the Bridge.
 
-Create a new App in the Arduino App Lab, then copy and paste the example below in the "Python" and "sketch" parts of your new App respectively.
-
+- Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
+
+- Copy and paste the example below in the "Python" and "sketch" parts of your new App respectively.
 
 1. **Linux (QRB) example to call a remote MCU function**
 
@@ -1414,8 +1460,10 @@ void setup() {
 
 To transmit data to an SPI-compatible device, you can use the commands used in the following example:
 
-Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+- Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
+
+- Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 #include <SPI.h>
@@ -1483,8 +1531,10 @@ Wire1.begin(); // I2C in Qwiic connector
 
 To transmit data to an I2C-compatible device, you can use the commands used in the following example:
 
-Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+- Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
+
+- Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 #include <Wire.h>
@@ -1736,8 +1786,12 @@ Since the radio module is connected to the Qualcomm microprocessor, we need the 
 
 The following example gets the UTC time using TCP over socket RPC calls and prints it in the Serial Monitor:
 
-Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+- Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
+- Install the **Arduino_RouterBridge** library by clicking in **Add Sketch Library** and searching for it.
+![Library install](assets/lib-install-app-lab.png)
+
+- Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 #include <Arduino_RouterBridge.h>
