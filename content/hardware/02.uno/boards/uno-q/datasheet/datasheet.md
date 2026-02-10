@@ -748,104 +748,6 @@ Use a 5 V / 3 A USB-C source and cable, or power from the 5 V or VIN pins as spe
 
 <div style="page-break-after: always;"></div>
 
-# Certifications
-
-## Declaration of Conformity CE DoC (EU)
-
-English: We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
-
-French : Nous déclarons sous notre seule responsabilité que les produits indiqués ci-dessus sont conformes aux exigences essentielles des directives de l'Union européenne mentionnées ci-après, et qu'ils remplissent à ce titre les conditions permettant la libre circulation sur les marchés de l'Union européenne (UE) et de l'Espace économique européen (EEE).
-
-## Declaration of Conformity to EU RoHS & REACH 191 11/26/2018
-
-<p style="text-align: justify;">Arduino boards are in compliance with Directive 2011/65/EU of the European Parliament and Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.</p>
-
-| **Substance**                          | **Maximum Limit (ppm)** |
-|----------------------------------------|-------------------------|
-| Lead (Pb)                              | 1000                    |
-| Cadmium (Cd)                           | 100                     |
-| Mercury (Hg)                           | 1000                    |
-| Hexavalent Chromium (Cr6+)             | 1000                    |
-| Poly Brominated Biphenyls (PBB)        | 1000                    |
-| Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
-| Bis(2-Ethylhexyl) phthalate (DEHP)     | 1000                    |
-| Benzyl butyl phthalate (BBP)           | 1000                    |
-| Dibutyl phthalate (DBP)                | 1000                    |
-| Diisobutyl phthalate (DIBP)            | 1000                    |
-
-Exemptions: No exemptions are claimed.
-
-<p style="text-align: justify;">Arduino boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.</p>
-
-## Conflict Minerals Declaration
-
-<p style="text-align: justify;">As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.</p>
-
-## FCC Caution
-
-Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
-
-This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
-
-(1) This device may not cause harmful interference
-
-(2) this device must accept any interference received, including interference that may cause undesired operation.
-
-**FCC RF Radiation Exposure Statement:**
-
-1. This Transmitter must not be co-located or operating in conjunction with any other antenna or transmitter.
-
-2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment.
-
-3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
-
-English:
-<p style="text-align: justify;">User manuals for licence-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:</p>
-
-(1) this device may not cause interference
-
-(2) this device must accept any interference, including interference that may cause undesired operation of the device.
-
-French:
-<p style="text-align: justify;">Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes:</p>
-
-(1) l’ appareil nedoit pas produire de brouillage
-
-(2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
-
-**IC SAR Warning:**
-
-English
-This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
-
-French:
-Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
-
-# Company Information
-
-| Company name | Arduino S.r.l.                             |
-|--------------|--------------------------------------------|
-| Address      | Via Andrea Appiani 25, 20900 Monza (Italy) |
-
-# Documentation Reference
-
-| No. | Reference                   | Link                                                                               |
-|:---:|-----------------------------|------------------------------------------------------------------------------------|
-|  1  | Arduino App Lab             | [https://www.arduino.cc/en/software](https://www.arduino.cc/en/software)           |
-|  2  | Arduino UNO Q Documentation | [https://docs.arduino.cc/hardware/uno-q/](https://docs.arduino.cc/hardware/uno-q/) |
-|  3  | Project Hub                 | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/)                   |
-|  4  | Library Reference           | [https://docs.arduino.cc/libraries/](https://docs.arduino.cc/libraries/)           |
-|  5  | Arduino Store               | [https://store.arduino.cc/](https://store.arduino.cc/)                             |
-
-# Document Revision History
-
-|  **Date**  | **Revision** | **Changes**                                    |
-| :--------: | :----------: | ---------------------------------------------- |
-| 24/11/2025 |      4       | Add hardware acceleration section (graphics APIs, video codecs, OpenCL support); remove incorrect default password reference |
-| 05/11/2025 |      3       | Update operational information                 |
-| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update |
-| 01/10/2025 |      1       | First release                                  |
-
 ![](assets/featured.png)
 
 # 描述
@@ -1614,103 +1516,166 @@ Arduino App Lab 可安装在您的电脑上，或直接在单板计算机模式�
 
 <div style="page-break-after: always;"></div>
 
-# 认证
+# Certifications
 
-## 符合性声明 CE DoC（欧盟）
+## Brazil
 
-我们在此郑重声明，上述产品符合以下欧盟指令的基本要求，因此有资格在包括欧盟（EU）和欧洲经济区（EEA）在内的市场内自由流通。
+### Anatel
 
-French : Nous déclarons sous notre seule responsabilité que les produits indiqués ci-dessus sont conformes aux exigences essentielles des directives de l'Union européenne mentionnées ci-après, et qu'ils remplissent à ce titre les conditions permettant la libre circulation sur les marchés de l'Union européenne (UE) et de l'Espace économique européen (EEE).
+Este equipamento não tem direito à proteção contra interferência prejudicial e não pode causar interferência em sistemas devidamente autorizados. Para maiores informações, consulte o site da ANATEL – http://www.anatel.gov.br 
 
-## 声明符合欧盟 RoHS 和 REACH 191 11/26/2018
+## EU
 
-<p style="text-align: justify;">Arduino 电路板符合欧洲议会关于限制在电子电气设备中使用某些有害物质的  指令 2011/65/EU 和欧盟理事会于 2015 年 6 月 4 日颁布的关于限制在电子电气设备中使用某些有害物质的  指令 2015/863/EU。</p>
+### RED
 
-| **物质**                        | **最大限值（ppm)** |
-| ------------------------------- | ------------------ |
-| 铅 (Pb)                         | 1000               |
-| 镉 (Cd)                         | 100                |
-| 汞 (Hg)                         | 1000               |
-| 六价铬（Cr6+）                  | 1000               |
-| 多溴联苯（PBB）                 | 1000               |
-| 多溴联苯醚（PBDE）              | 1000               |
-| 邻苯二甲酸二(2-乙基己)酯 (DEHP) | 1000               |
-| 邻苯二甲酸丁苄酯 (BBP)          | 1000               |
-| 邻苯二甲酸二丁酯（DBP）         | 1000               |
-| 邻苯二甲酸二异丁酯（DIBP）      | 1000               |
+* Česky [Czech]	Arduino S.r.l tímto prohlašuje, že tento Radiolan je ve shodě se základními požadavky a dalšími příslušnými ustanoveními směrnice 2014/53/EU.
+* Dansk [Danish]	Undertegnede Arduino S.r.l erklærer herved, at følgende udstyr Radiolan overholder de væsentlige krav og øvrige relevante krav i direktiv 2014/53/EU.
+* Deutsch [German]	Hiermit erklärt Arduino S.r.l dass sich das Gerät Radiolan in Übereinstimmung mit den grundlegenden Anforderungen und den übrigen einschlägigen Bestimmungen der Richtlinie 2014/53/EU befindet.
+* Eesti [Estonian]	Käesolevaga kinnitab Arduino S.r.l seadme Radiolan vastavust direktiivi 2014/53/EU põhinõuetele ja nimetatud direktiivist tulenevatele teistele asjakohastele sätetele.
+* English	Hereby, Arduino S.r.l, declares that this Radiolan is in compliance with the essential requirements and other relevant provisions of Directive 2014/53/EU.
+* Español [Spanish]	Por medio de la presente Arduino S.r.l declara que el Radiolan cumple con los requisitos esenciales y cualesquiera otras disposiciones aplicables o exigibles de la Directiva 2014/53/EU.
+* Ελληνική [Greek]	ΜΕ ΤΗΝ ΠΑΡΟΥΣΑ Arduino S.r.l ΔΗΛΩΝΕΙ ΟΤΙ Radiolan ΣΥΜΜΟΡΦΩΝΕΤΑΙ ΠΡΟΣ ΤΙΣ ΟΥΣΙΩΔΕΙΣ ΑΠΑΙΤΗΣΕΙΣ ΚΑΙ ΤΙΣ ΛΟΙΠΕΣ ΣΧΕΤΙΚΕΣ ΔΙΑΤΑΞΕΙΣ ΤΗΣ ΟΔΗΓΙΑΣ 2014/53/EU.
+* Français [French]	Par la présente Arduino S.r.l déclare que l'appareil Radiolan est conforme aux exigences essentielles et aux autres dispositions pertinentes de la directive 2014/53/EU.
+* Íslenska [Icelandic]	Hér með lýsir Arduino S.r.l yfir því að Radiolan er í samræmi við grunnkröfur og aðrar kröfur, sem gerðar eru í tilskipun 2014/53/EU.
+* Italiano [Italian]	Con la presente Arduino S.r.l dichiara che questo Radiolan è conforme ai requisiti essenziali ed alle altre disposizioni pertinenti stabilite dalla direttiva 2014/53/EU.
+* Latviski [Latvian]	Ar šo Arduino S.r.l deklarē, ka Radiolan atbilst Direktīvas 2014/53/EU būtiskajām prasībām un citiem ar to saistītajiem noteikumiem.
+* Lietuvių [Lithuanian]	Šiuo Arduino S.r.l deklaruoja, kad šis Radiolan atitinka esminius reikalavimus ir kitas 2014/53/EU Direktyvos nuostatas.
+* Malti [Maltese]	Hawnhekk, Arduino S.r.l, jiddikjara li dan Radiolan jikkonforma mal-ħtiġijiet essenzjali u ma provvedimenti oħrajn relevanti li hemm fid-Dirrettiva 2014/53/EU.
+* Magyar [Hungarian]	Alulírott, Arduino S.r.l nyilatkozom, hogy a Radiolan megfelel a vonatkozó alapvetõ követelményeknek és az 2014/53/EU irányelv egyéb elõírásainak.
+* Nederlands [Dutch]	Hierbij verklaart Arduino S.r.l dat het toestel Radiolan in overeenstemming is met de essentiële eisen en de andere relevante bepalingen van richtlijn 2014/53/EU.
+* Norsk [Norwegian]	Arduino S.r.l erklærer herved at utstyret Radiolan er i samsvar med de grunnleggende krav og øvrige relevante krav i direktiv 2014/53/EU.
+* Polski [Polish]	Niniejszym Arduino S.r.l oświadcza, że Radiolan jest zgodny z zasadniczymi wymogami oraz pozostałymi stosownymi postanowieniami Dyrektywy 2014/53/EU.
+* Português [Portuguese]	Arduino S.r.l declara que este Radiolan está conforme com os requisitos essenciais e outras disposições da Directiva 2014/53/EU.
+* Slovensko [Slovenian]	Arduino S.r.l izjavlja, da je ta Radiolan v skladu z bistvenimi zahtevami in ostalimi relevantnimi določili direktive 2014/53/EU.
+* Slovensky [Slovak]	Arduino S.r.l týmto vyhlasuje, že Radiolan spĺňa základné požiadavky a všetky príslušné ustanovenia Smernice 2014/53/EU.
+* Suomi [Finnish]	Arduino S.r.l vakuuttaa täten että Radiolan tyyppinen laite on direktiivin 2014/53/EU oleellisten vaatimusten ja sitä koskevien direktiivin muiden ehtojen mukainen.
+* Svenska [Swedish]	Härmed intygar Arduino S.r.l att denna Radiolan står I överensstämmelse med de väsentliga egenskapskrav och övriga relevanta bestämmelser som framgår av direktiv 2014/53/EU.
 
-豁免：未申请任何豁免。
+Operations in the 5.15-5.35GHz band are restricted to indoor usage only.
 
-<p style="text-align: justify;">Arduino 电路板完全符合欧盟法规 (EC) 1907/2006 中关于化学品注册、评估、许可和限制 (REACH) 的相关要求。我们声明，所有产品（包括包装）中的 SVHC (https://echa.europa.eu/web/guest/candidate-list-table), （欧洲化学品管理局目前发布的《高度关注物质候选授权清单》）含量总浓度均未超过 0.1%。据我们所知，我们还声明，我们的产品不含 ECHA（欧洲化学品管理局）1907/2006/EC 公布的候选清单附件 XVII 中规定的“授权清单”（REACH 法规附件 XIV）和高度关注物质 (SVHC) 所列的任何物质。</p>
+This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
-## 冲突矿产声明
+**Module EIRP power (avarage power):**
 
-<p style="text-align: justify;">作为电子和电气元件的全球供应商，Arduino 意识到我们有义务遵守有关冲突矿产的法律法规，特别是《多德-弗兰克华尔街改革与消费者保护法案》第 1502 条。Arduino 不直接采购或加工锡、钽、钨或金等冲突矿物。冲突矿物以焊料的形式或作为金属合金的组成部分存在于我们的产品中。作为我们合理尽职调查的一部分，Arduino 已联系供应链中的元件供应商，以核实他们是否始终遵守法规的相关规定。根据迄今收到的信息，我们声明我们的产品中含有来自非冲突地区的冲突矿物。</p>
+* 2.4GHz: XX dBm
+* 5GHz
+* 5.18 ~ 5.25 GHz: XX dBm
+* 5.26 ~ 5.32 GHz: XX dBm
+* 5.5 ~ 5.7 GHz: XX dBm
+* 5.745 ~ 5.825 GHz: XX dBm <or mW><or mW><or mW><or mW>
+* 5.745 ~ 5.865 GHz: XX dBm
+* 2.4GHz Bluetooth
+* BT-EDR: XX dBm
+* BT-LE: XX dBm
 
-## FCC 警告
+## Japan
 
-任何未经合规性负责方明确批准的更改或修改都可能导致用户无权操作设备。
+### MIC
 
-本设备符合 FCC 规则第 15 部分的规定。操作须满足以下两个条件：
+5GHz band (W52, W53) Indoor use only
 
-(1) 此设备不会造成有害干扰。
+## South Africa
 
-(2) 此设备必须接受接收到的任何干扰，包括可能导致不良操作的干扰。
-
-**FCC 射频辐射暴露声明:**
-
-1. 此发射器不得与任何其他天线或发射器放置在同一位置或同时运行。
-
-2. 此设备符合为非受控环境规定的射频辐射暴露限值。
-
-3. 安装和操作本设备时，辐射源与您的身体之间至少应保持 20 厘米的距离。
+### ICASA
 
 English:
 
-<p style="text-align: justify;">User manuals for licence-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:</p>
+5GHz band (W52,W53): Indoor use only (except communicate to high power radio)
 
-(1) this device may not cause interference
+Japanese:
 
-(2) this device must accept any interference, including interference that may cause undesired operation of the device.
+5GHz 帯(W52, W53)は屋内利用に限る (高出力システムと通信する場合を除く)
 
-French:
+## United States of America
 
-<p style="text-align: justify;">Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes:</p>
+### FCC
 
-(1) l’ appareil nedoit pas produire de brouillage
+**FCC compliance information**
 
-(2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
+This device complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation.
 
-**IC SAR警告:**
+This product does not contain any user serviceable components. Any unauthorized product changes or modifications will invalidate warranty and all applicable regulatory certifications and approvals, including authority to operate this device.
 
-English
-This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
+**FCC Part 15 Digital Emissions Compliance**
 
-French:
-Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
+We [System Manufacturer Name, Address, Telephone], declare under our sole responsibility that the product [System Name] complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation.
+WARNING: This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates and radiates radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications.
 
-# 公司信息
+However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
 
-| 公司名称 | Arduino S.r.l.                                 |
-| -------- | ---------------------------------------------- |
-| 公司地址 | Via Andrea Appiani, 25 - 20900 MONZA（意大利） |
+*	Reorient or relocate the receiving antenna.
+*	Increase the separation between the equipment and receiver.
+* Connect the equipment into an outlet on a circuit different from the one the receiver is connected to.
+*	Consult the dealer or an experienced radio/TV technician for help.
 
-# 参考资料
+The user may find the following booklet prepared by the Federal Communications Commission helpful:
 
-| 版本号 | 参考资料            | 链接                                                         |
-| :----: | ------------------- | ------------------------------------------------------------ |
-|   1    | Arduino App Lab     | [https://www.arduino.cc/en/software](https://www.arduino.cc/en/software) |
-|   2    | Arduino UNO Q 文档  | [https://docs.arduino.cc/hardware/uno-q/](https://docs.arduino.cc/hardware/uno-q/) |
-|   3    | Arduino Project Hub | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/) |
-|   4    | 库参考              | [https://docs.arduino.cc/libraries/](https://docs.arduino.cc/libraries/) |
-|   5    | Arduino 在线商店    | [https://store.arduino.cc/](https://store.arduino.cc/)       |
+**The Interference Handbook**
 
-# 修订记录
+This booklet is available from the U.S. Government Printing Office, Washington, D.C. 20402. Stock No.004-000-00345-4.
 
-|  **日期**  | **版次** | **变更**                                                     |
-| :--------: | :------: | ------------------------------------------------------------ |
-| 24/11/2025 |    4     | 添加硬件加速部分（图形处理API、视频编解码器、OpenCL支持）；删除错误的默认密码引用 |
-| 05/11/2025 |    3     | 更新运行信息                                                 |
-| 27/10/2025 |    2     | 机械图纸及RTC电源细节更新                                    |
-| 01/10/2025 |    1     | 首次发布                                                     |
+**Radiation Exposure Statement**
 
+The product complies with the FCC portable RF exposure limit set forth for an uncontrolled environment and is safe for intended operation as described in this manual. Further RF exposure reduction can be achieved if the product can be kept as far as possible from the user’s body or by setting the device to lower output power if such function is available."
+
+## Canada
+
+English:
+
+This device complies with Canadian RSS-247.
+This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device may not cause interference, and (2) this device must accept any interference, including interference that may cause undesired operation of the device.
+
+French : 
+Ce dispositif est conforme à la norme CNR-247 d'Industrie Canada applicable aux appareils radio exempts de licence. Son fonctionnement est sujet aux deux conditions suivantes: (1) le dispositif ne doit pas produire de brouillage préjudiciable, et (2) ce dispositif doit accepter tout brouillage reçu, y compris un brouillage susceptible de provoquer un fonctionnement indésirable.
+
+English:
+
+Caution:
+
+(i) the device for operation in the band 5150-5250 MHz is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems;
+(ii) the maximum antenna gain permitted for devices in the bands 5250-5350 MHz and 5470-5725 MHz shall comply with the e.i.r.p. limit; and
+(iii) the maximum antenna gain permitted for devices in the band 5725-5825 MHz shall comply with the e.i.r.p. limits specified for point-to-point and non-point-to-point operation as appropriate.
+(iv) Users should also be advised that high-power radars are allocated as primary users (i.e. priority users) of the bands 5250-5350 MHz and 5650-5850 MHz and that these radars could cause interference and/or damage to LE-LAN devices.
+
+French :
+
+Avertissement:
+
+Le guide d’utilisation des dispositifs pour réseaux locaux doit inclure des instructions précises sur les restrictions susmentionnées, notamment :
+
+(i) les dispositifs fonctionnant dans la bande 5 150-5 250 MHz sont réservés uniquement pour une utilisation à l’intérieur afin de réduire les risques de brouillage préjudiciable aux systèmes de satellites mobiles utilisant les mêmes canaux;
+(ii) le gain maximal d’antenne permis pour les dispositifs utilisant les bandes 5 250-5 350 MHz et 5 470-5 725 MHz doit se conformer à la limite de p.i.r.e.;
+(iii) le gain maximal d’antenne permis (pour les dispositifs utilisant la bande 5 725-5 825 MHz) doit se conformer à la limite de p.i.r.e. spécifiée pour l’exploitation point à point et  non point à point, selon le cas.
+(iv) De plus, les utilisateurs devraient aussi être avisés que les utilisateurs de radars de haute puissance sont désignés utilisateurs principaux (c.-à-d., qu’ils ont la priorité) pour les bandes 5 250-5 350 MHz et 5 650-5 850 MHz et que ces radars pourraient causer du brouillage et/ou des dommages aux dispositifs LAN-EL.
+
+**NOTE:**	For 5GHz and/or when co-located with 5 GHz transmitters, the following statements should be provided in the user information
+
+**Radiation Exposure Statement**
+
+The product complies with the Canada portable RF exposure limit set forth for an uncontrolled environment and is safe for intended operation as described in this manual. Further RF exposure reduction can be achieved if the product can be kept as far as possible from the user’s body or by setting the device to lower output power if such function is available.
+
+# Company Information
+
+| Company name | Arduino S.r.l.                             |
+|--------------|--------------------------------------------|
+| Address      | Via Andrea Appiani 25, 20900 Monza (Italy) |
+
+# Documentation Reference
+
+| No. | Reference                   | Link                                                                               |
+|:---:|-----------------------------|------------------------------------------------------------------------------------|
+|  1  | Arduino App Lab             | [https://www.arduino.cc/en/software](https://www.arduino.cc/en/software)           |
+|  2  | Arduino UNO Q Documentation | [https://docs.arduino.cc/hardware/uno-q/](https://docs.arduino.cc/hardware/uno-q/) |
+|  3  | Project Hub                 | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/)                   |
+|  4  | Library Reference           | [https://docs.arduino.cc/libraries/](https://docs.arduino.cc/libraries/)           |
+|  5  | Arduino Store               | [https://store.arduino.cc/](https://store.arduino.cc/)                             |
+
+# Document Revision History
+
+|  **Date**  | **Revision** | **Changes**                                    |
+| :--------: | :----------: | ---------------------------------------------- |
+| 10/02/2026 |     5        | Translations in Chinese, added certification updates |
+| 24/11/2025 |      4       | Add hardware acceleration section (graphics APIs, video codecs, OpenCL support); remove incorrect default password reference |
+| 05/11/2025 |      3       | Update operational information                 |
+| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update |
+| 01/10/2025 |      1       | First release                                  |
