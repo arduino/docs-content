@@ -983,7 +983,6 @@ MPU（微处理器单元）是一种高性能应用处理器，专为运行完�
 </ul>
 
 
-
 <p style="text-align: justify;">
 JMISC同时处理两个电压域：1.8 V MPU线路与3.3 V MCU信号（如PSSI、SDMMC1、TRACE、I2C4）及模拟/音频信号并行。连接载板或外部逻辑电路时，请务必核查电压等级。
 </p>
@@ -1338,7 +1337,6 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
   所有JDIGITAL线路均为3.3V逻辑电平。
 </div>
 
-
 ### JANALOG (A3) (JANALOG1) - 引脚功能概述
 
 | **引脚** | **名称**     | **网络 / MCU 引脚** | **功能**                                               | **域名**     | **注释**             |
@@ -1361,7 +1359,6 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   A0（PA4）和A1（PA5）是直接参考<code>VREF+</code>的STM32U585 ADC输入引脚。它们不耐受5V电压，有效输入范围为<code>0-VREF+</code>（≈3.3V）。引脚绝对最大电压为<code>VDD + 0.3 V</code>（约3.6 V）。超过此电压时，MCU内部保护二极管将开始导通。该接口还提供<code>5V_SYS</code>和<code>PWR_3P3V</code>电源引脚，仅用于电源供应。切勿向<strong>A0</strong>或<strong>A1</strong>引脚施加5V电压。IOREF引脚连接至3.3V电源轨（<code>PWR_3P3V</code>），作为扩展板的参考/输出端口，严禁将其用于向主板回馈电源。
 </div>
-
 
 ## 高速外围设备
 
@@ -1494,106 +1491,60 @@ Arduino App Lab 可安装在您的电脑上，或直接在单板计算机模式�
 
 ![](assets/mechanical_drawing_unoq.svg)
 
+<div style="page-break-after: always;"></div>
+
 ![](assets/featured.png)
-
-
 
 # Descrição
 
-
-
-<p style="text-align: justify;">O Arduino® UNO Q (doravante denominado UNO Q) é um computador de placa única que combina o microprocessador Qualcomm® Dragonwing™ QRB2210 (MPU), um Arm® Cortex®-A53 quad-core com sistema operativo Debian Linux, com o microcontrolador STMicroelectronics STM32U585 (MCU), um Arm® Cortex®-M33 com Arduino Core no sistema operativo Zephyr. O sistema Linux e o microcontrolador comunicam-se através da Bridge, a biblioteca RPC (Remote Procedure Call) da Arduino. Isso permite que os esboços Arduino no microcontrolador acessem os serviços Linux para tarefas de alto nível, enquanto as aplicações Linux podem interagir com os periféricos do microcontrolador para lidar com operações em tempo real dentro do mesmo projeto.
+<p style="text-align: justify;">O Arduino® UNO Q (doravante denominado UNO Q) é um computador de placa única que combina o microprocessador Qualcomm® Dragonwing™ QRB2210 (MPU), um Arm® Cortex®-A53 quad-core com sistema operativo Debian Linux, com o microcontrolador STMicroelectronics STM32U585 (MCU), um Arm® Cortex®-M33 com Arduino Core no sistema operativo Zephyr. O sistema Linux e o microcontrolador comunicam-se através da Bridge, a biblioteca RPC (Remote Procedure Call) da Arduino. Isso permite que os sketchs Arduino no microcontrolador acessem os serviços Linux para tarefas de alto nível, enquanto as aplicações Linux podem interagir com os periféricos do microcontrolador para lidar com operações em tempo real dentro do mesmo projeto.
 </p>
 
-
-
-O UNO Q vem com armazenamento eMMC incorporado (opções de 16 GB, 32 GB) e LPDDR4X SDRAM (opções de 2 GB, 4 GB) para executar o Linux e os seus projetos com facilidade. Possui Wi-Fi® 5 de banda dupla e Bluetooth® 5.1 para conectividade sem fios, um conector USB-C® com entrada de alimentação e saída de vídeo e conectores compatíveis com Arduino para fácil expansão com shields, carriers e acessórios.
+<p style="text-align: justify;">O UNO Q vem com armazenamento eMMC incorporado (opções de 16 GB, 32 GB) e LPDDR4X SDRAM (opções de 2 GB, 4 GB) para executar o Linux e os seus projetos com facilidade. Possui Wi-Fi® 5 de banda dupla e Bluetooth® 5.1 para conectividade sem fios, um conector USB-C® com entrada de alimentação e saída de vídeo e conectores compatíveis com Arduino para fácil expansão com shields, carriers e acessórios.
 </p>
 
-
-
-<p style="text-align: justify;">O UNO Q integra-se perfeitamente com o Arduino App Lab, permitindo que os programadores combinem esboços Arduino, aplicações Linux e modelos de IA num único ambiente. O App Lab pode ser executado diretamente na placa ou a partir de um PC conectado, oferecendo exemplos prontos a utilizar e a flexibilidade para criar aplicações personalizadas adaptadas aos seus projetos.
+<p style="text-align: justify;">O UNO Q integra-se perfeitamente com o Arduino App Lab, permitindo que os programadores combinem sketchs Arduino, aplicações Linux e modelos de IA num único ambiente. O App Lab pode ser executado diretamente na placa ou a partir de um PC conectado, oferecendo exemplos prontos a utilizar e a flexibilidade para criar aplicações personalizadas adaptadas aos seus projetos.
 </p>
 
-
-
-Áreas-alvo
-
-
+# Áreas
 
 Prototipagem, IA e ML de ponta, visão artificial, educação, dispositivos inteligentes, robótica, automação residencial e predial, jogos
 
-
-
 <div style="page-break-after: always;"></div>
-
-
 
 # ÍNDICE
 
-
-
 ## Exemplos de aplicações
-
-
 
 <p style="text-align: justify;">O UNO Q combina um processador Linux com capacidade para IA com um microcontrolador em tempo real, oferecendo o melhor da computação de alto nível e do controlo determinístico. Além dessa arquitetura dupla, ele suporta um amplo ecossistema de shields Arduino, carriers, nós Modulino® e acessórios de terceiros, tornando-o uma plataforma flexível para diversas aplicações.
 </p>
 
-
-
 - **Prototipagem:** provas de conceito rápidas, como ferramentas de inspeção baseadas em visão, quiosques inteligentes ou computadores compactos de ponta com conectividade integrada.
-
-
 
 - **Educação:** Ensino de Linux, programação em tempo real, IA e visão computacional por meio de aprendizagem baseada em projetos, desde experiências científicas até robôs educacionais interativos.
 
-
-
 - **Robótica:** Robôs de entrega autônomos, companheiros que seguem gestos e braços robóticos com feedback visual, combinando visão Linux com controle de motor acionado por MCU.
-
-
 
 - **Dispositivos de consumo inteligentes:** Câmaras inteligentes DIY, ecrãs interativos ou projetos de RA alimentados por câmaras duplas e aceleração GPU.
 
-
-
 - **Automação residencial e predial:** Campainhas inteligentes com reconhecimento facial, sistemas controlados por voz e hubs climáticos personalizados.
-
-
 
 - **Jogos:** emulação de consolas retrô, gabinetes de arcade personalizados ou jogabilidade aprimorada com controles baseados em gestos, rastreamento facial e feedback em tempo real.
 
-
-
 <div style="page-break-after: always;"></div>
-
-
 
 ## Características
 
-
-
 ### Variantes do UNO Q
 
-
-
 O UNO Q está disponível em duas variantes:
-
-
 
 - **ABX00162**: 2 GB de RAM, 16 GB de armazenamento integrado
 - **ABX00173**: 4 GB de RAM, 32 GB de armazenamento integrado
 
-
-
 ### Visão geral das especificações gerais
 
-
-
 #### Processamento e memória
-
-
 
 ![](assets/ABX00162-ABX00173-main-components.png)
 
@@ -1628,20 +1579,13 @@ O STM32U585 gerencia ADC, PWM, CAN, a matriz LED e os conectores de 3,3 V (JDIGI
 | Porta USB-C (JUSB1) | - USB 3.1 com capacidades de troca de funções<br></br>- Modo alternativo DisplayPort através da ponte ANX7625 DSI-para-DP (U3001) (os pares diferenciais SuperSpeed no Tipo C são encaminhados para o modo alternativo DP)<br></br>- Saída de vídeo (modo SBC): suporta monitores Full HD (1920 × 1080p); a resolução ideal é 1280 × 720p<br></br>- A negociação USB Power Delivery solicita apenas um contrato de **5 V / 3 A** (sem perfis de tensão mais elevada)<br></br>- Proteção VBUS load-switch/back-drive (Q2801) |
 
 
-
 O módulo sem fios utiliza SDIO para dados Wi-Fi® e um UART para controlo Bluetooth®, com uma antena PCB partilhada.
-
-
 
 #### Expansão e conectores
 
-
-
 ![](assets/ABX00162-ABX00173-header-expansion.png)
 
-
-
-| **Interface (conector)** | **Tensão e número de pinos**       | **Detalhes**                                                                                                                                                                                                                                                                                                                                            |
+| **Interface (conector)** | **Tensão e número de pin**       | **Detalhes**                                                                                                                                                                                                                                                                                                                                            |
 |---------------------------|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | JMEDIA (JMEDIA1)          | Sinais de 1,8 V, 60 pinos         | - Linhas de alta velocidade para câmera/monitor (MIPI DSI, CSI) <br></br>- Barramento de controle da câmera (CCI I²C) - dedicado, não GPIO de uso geral <br></br>- Relógios de câmara (SOC_CAM_MCLK0/1) <br></br>- Também transporta trilhos de alimentação (+3V3 OUT, VIN IN) e GND |
 | JMISC (JMISC1)            | Misto 1,8 V / 3,3 V, 60 pinos   | - GPIO e SDIO mistos <br></br>- Periféricos MCU: SDMMC1, TRACE, PSSI (câmara paralela), I²C4, pinos MCO/CRS_SYNC, OPAMP1 <br></br>- Terminais de áudio: Mic2 INP/INM/BIAS, Auscultadores L/R + REF, LineOut P/M, Auricular P/R, HS_DET <br></br>- Bancos GPIO MPU (SoC) (SE0) a 1,8 V <br></br>- Também transporta trilhos de alimentação (+5V USB OUT, +3V3 OUT, +1V8 OUT, VBAT IN, VCOIN IN) e GND |
@@ -1651,34 +1595,20 @@ O módulo sem fios utiliza SDIO para dados Wi-Fi® e um UART para controlo Bluet
 | JSPI (JSPI1)              | Lógica de 3,3 V, 6 pinos + 5 V VBUS | - SPI dedicado: MOSI, MISO, SCLK <br></br>- Reinicialização do MCU (NRST) <br></br>- Terra <br></br>- 5 V VBUS (alimentação USB)                                                                                                                                                                                                                                                                |
 | Qwiic (QWIIC1)            | 3,3 V, 4 pinos | - I²C (ecossistema Qwiic) |
 
-
-
 ### Produtos relacionados
 
-
-
 - Shields Arduino UNO via JDIGITAL e JANALOG
-- Placas transportadoras compatíveis com UNO Q
-- Cabo USB-C completo de 24 pinos
+- Placas carrier compatíveis com UNO Q
+- Cabo USB-C completo de 24 pin
 - Dongle USB-C com capacidade de fornecimento de energia externa
-
-
 
 <div style="page-break-after: always;"></div>
 
-
-
 ## Classificações
-
-
 
 ### Potência de entrada
 
-
-
 ![Métodos de entrada UNO Q](assets/ABX00162-ABX00173-power-supply.png)
-
-
 
 | **Fonte**  | **Intervalo de tensão** | **Corrente máxima** | **Conector**         |
 |-------------|------------------:|--------------------:|-----------------------|
@@ -1687,27 +1617,18 @@ O módulo sem fios utiliza SDIO para dados Wi-Fi® e um UART para controlo Bluet
 | Pino 5 V     |               5 V |           até 3 A | JANALOG               |
 
 
-
 <p style="text-align: justify;">O UNO Q suporta duas entradas de alimentação: uma porta USB-C e uma entrada de 7-24 V CC. Através da USB Power Delivery, solicita apenas o contrato de 5 V / 3 A e não solicita perfis PD de tensão mais elevada. Utilize uma fonte e um cabo com classificação para 5 V a 3 A para evitar subtensão durante picos de atividade curtos, como rajadas sem fios ou inicialização do ecrã. Uma fonte externa regulada de 5 V DC também pode ser utilizada para fornecer energia à placa através do pino de 5 V no conector JANALOG.
 </p>
 
-
-
-O <em>USB-C VBUS</em> e a saída de 5 V do buck de 7-24 V são combinados por <em>diodo OR</em> no barramento de 5 V do sistema (<code>5V_SYS</code>). A partir de <code>5V_SYS</code>, o projeto deriva o nó pré-regulador de 3,8 V e, subsequentemente, o de 3,3 V.
+<p style="text-align: justify;">O <em>USB-C VBUS</em> e a saída de 5 V do buck de 7-24 V são combinados por <em>diodo OR</em> no barramento de 5 V do sistema (<code>5V_SYS</code>). A partir de <code>5V_SYS</code>, o projeto deriva o nó pré-regulador de 3,8 V e, subsequentemente, o de 3,3 V.
 O PMIC, alimentado por 5V_SYS, deriva o trilho de 1,8 V.
 </p>
-
-
 
 <p style="text-align: justify;"><strong>Proteção contra polaridade inversa:</strong> Verificado com -24 V aplicados à entrada DC IN. A operação é especificada apenas com a polaridade correta. Não aplique tensão inversa durante o uso normal.
 </p>
 
-
-
 <p style="text-align: justify;"><strong>Caminho OR Schottky:</strong> A queda de tensão direta da saída buck para <code>5V_SYS</code> foi medida da seguinte forma (injeção JANALOG VIN, alimentação Rigol DP832 em série, medição Keithley DMM6500, carga ativa 8542B). A dissipação de energia é calculada como <code>P = I × Vf</code>.
 </p>
-
-
 
 | **Corrente de carga** | **Queda direta (`Vf`)** | **Dissipação do díodo** |
 |-----------------:|------------------------:|----------------------:|
@@ -1719,10 +1640,7 @@ O PMIC, alimentado por 5V_SYS, deriva o trilho de 1,8 V.
 
 ### Condições operacionais recomendadas
 
-
-
 Utilize os limites abaixo para dimensionar fontes de alimentação, definir tolerâncias de trilhos e planejar margem térmica:
-
 
 
 | **Parâmetro**         | **Símbolo**  | **Mínimo** | **Típico** | **Máximo** | **Unidade** |
@@ -1733,14 +1651,10 @@ Utilize os limites abaixo para dimensionar fontes de alimentação, definir tole
 | Temperatura de funcionamento | `T_OP`      |     -10     |      -      |     60      |    °C    |
 
 
-
 <p style="text-align: justify;"><em>Mínimo</em> indica o valor contínuo mais baixo para operação regular; quedas breves podem causar reinicializações ou quedas de ligação. <em>Típico</em> é o ponto nominal de projeto. <em>Máximo</em> não deve ser excedido. Para <code>DC_IN</code> (7-24 V), selecione uma fonte que cubra confortavelmente a carga de 5 V e utilize cabos curtos para reduzir a queda de tensão. A faixa <code>PWR_3P3V</code> reflete a tolerância do regulador e a carga. A faixa de temperatura refere-se ao ar ambiente próximo à placa, e operar perto dos limites pode reduzir a corrente de saída disponível.
 </p>
 
-
-
 ### Trilhos de tensão integrados
-
 
 
 | **Tensão** | **Rail**         | **Origem / Regulador**                                                       |
@@ -1751,118 +1665,68 @@ Utilize os limites abaixo para dimensionar fontes de alimentação, definir tole
 |       1,8 V | `VREG_L15A_1P8V` | PM4125 LDO L15A  de `5V_SYS`                                               |
 
 
-
 <div style="page-break-after: always;"></div>
-
-
 
 ## Visão geral funcional
 
-
-
 ### Pinagem
-
-
 
 ![](assets/ABX00162-ABX00173_pinout.png)
 
-
-
 ### Diagrama de blocos
-
-
 
 ![](assets/ABX00162-ABX00173_block_diagram.png)
 
-
-
 ### Fonte de alimentação
-
-
 
 <p style="text-align: justify;">O UNO Q suporta duas entradas de alimentação: uma porta USB-C e uma entrada de 7-24 V CC. 
 O <em>USB-C VBUS</em> e a saída de 5 V do buck de 7-24 V são combinados por <em>diodo OR</em> no barramento de 5 V do sistema (5V_SYS).</p>
 
-
-
 <p style="text-align: justify;"><code>5V_SYS</code> fornece o <strong>PM4125 PMIC (PMIC1)</strong> em <code>USB_IN</code>.
 O LDO L15A do PMIC fornece o trilho de 1,8 V (<code>VREG_L15A_1P8V</code>) e alimenta os bancos de E/S do SoC, ANX7625 <code>DVDD18</code>, lógica digital Wi-Fi® e os shifters de nível integrados. O trilho de 1,8 V também está disponível em <code>JMISC</code>.
 A partir de <code>5V_SYS</code>, um buck gera o <code>PWR_3P8V (3,8 V)</code> reservado para o design do sistema e recursos futuros.
-Um segundo regulador buck gera <code>PWR_3P3V</code> para o STM32U585, o ANX7625 (trilhos de 3,3 V), o domínio Wi-Fi® de 3,3 V e os pinos do conector de 3,3 V.
+Um segundo regulador buck gera <code>PWR_3P3V</code> para o STM32U585, o ANX7625 (trilhos de 3,3 V), o domínio Wi-Fi® de 3,3 V e os pinos do conector de 3,3 V.</p>
 
-
-
-Um <em>MOSFET de canal P protegido</em> (<code>Q2801</code>) pode fornecer USB <code>VBUS</code> a partir de <code>5V_SYS</code> quando a placa funciona como um host USB/OTG. O <code>VCOIN</code> alimenta apenas o relógio em tempo real do PMIC e não alimenta os domínios Linux ou MCU. O <code>VBAT</code> alimenta o relógio em tempo real do <code>MCU</code>. </p>
-
-
+<p style="text-align: justify;">Um <em>MOSFET de canal P protegido</em> (<code>Q2801</code>) pode fornecer USB <code>VBUS</code> a partir de <code>5V_SYS</code> quando a placa funciona como um host USB/OTG. O <code>VCOIN</code> alimenta apenas o relógio em tempo real do PMIC e não alimenta os domínios Linux ou MCU. O <code>VBAT</code> alimenta o relógio em tempo real do <code>MCU</code>. </p>
 
 ![Arduino UNO Q Power Tree](assets/ABX00162-ABX00173_power_tree.png)
 
-
-
 <div style="page-break-after: always;"></div>
-
-
 
 ## IU e indicadores
 
-
-
 ![](assets/ABX00162-ABX00173-leds.png)
 
-
-
 - **LEDs RGB (controlados por Linux):** Dois LEDs tricolores são acionados pelo processador de aplicativos Qualcomm Dragonwing™ QRB2210 e expostos via `/sys/class/leds/`.
-
-
 
   - **LED RGB 1 (D27301):** canais: `vermelho:usuário` → **GPIO_41**, `verde:usuário` → **GPIO_42**, `azul:usuário` → **GPIO_60**.
   - **LED RGB 2 (D27302):** canais: `vermelho:pânico` → **GPIO_39**, `verde:wlan` → **GPIO_40**, `azul:bt` → **GPIO_47**.
     
-    
-    
     Por predefinição, o LED RGB 2 indica o estado do sistema, `PANIC`, `WLAN` e `BT`, mas também pode ser controlado pelo utilizador. A frequência PWM é de aproximadamente 2 kHz para transições de cor suaves.
-
-
 
 - **LEDs RGB (controlados por MCU):** Dois LEDs tricolores são acionados pelo STM32U585.
 
-
-
   - **LED RGB 3 (D27401):** `LED3_R` → **PH10**, `LED3_G` → **PH11**, `LED3_B` → **PH12**.
   - **LED RGB 4 (D27402):** `LED4_R` → **PH13**, `LED4_G` → **PH14**, `LED4_B` → **PH15**.
-
 
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
 Os LEDs RGB são ativos baixos, o que significa que se acendem quando acionados para a lógica `0`.
 </div>
 
-
-
 - **Matriz LED (D27001..D27104):** Matriz LED monocromática azul 8 × 13 (104 pixels) acionada pelo STM32U585. Exibe o logótipo de inicialização por aproximadamente 20 a 30 segundos durante a inicialização do Linux. O acesso à matriz antes da conclusão da inicialização pode interferir na operação do MCU.
-
-
 
 - **LED de alimentação (D27201):** Indicador verde ligado ao trilho de 3,3 V e aceso sempre que a placa é alimentada.
 
-
-
 ## MPU e MCU
 
-
-
 <p style="text-align: justify;">
-Uma MPU (unidade de microprocessador) é um processador de aplicativos de alto desempenho projetado para executar um sistema operacional completo e softwares complexos. Uma MCU (unidade de microcontrolador) é um controlador pequeno e com baixo consumo de energia, focado em temporização rápida e precisa para E/S e controle. O UNO Q combina ambos para emparelhar a computação ao nível do sistema operativo com um controlo responsivo e crítico em termos de tempo numa placa única e comunicar através do Bridge, uma camada RPC implementada em ambos os lados.
-
-
+Uma MPU (unidade de microprocessador) é um processador de aplicativos de alto desempenho projetado para executar um sistema operacional completo e softwares complexos. Uma MCU (unidade de microcontrolador) é um controlador pequeno e com baixo consumo de energia, focado em temporização rápida e precisa para E/S e controle. O UNO Q combina ambos para emparelhar a computação ao nível do sistema operativo com um controlo responsivo e crítico em termos de tempo numa placa única e comunicar através do Bridge, uma camada RPC implementada em ambos os lados.</p>
 
 ### Processador de Aplicações (MPU)
 <p style="text-align: justify;">
 O Qualcomm® Dragonwing™ QRB2210 é um Arm® Cortex®-A53 quad-core que executa o sistema operativo Debian Linux. A sua E/S opera a 1,8 V e lida com mídia de alta velocidade e política Type-C/PD.
 </p>
-
-
 
 <ul>
   <li>Domínio de tensão: 1,8 V para MPU (SoC) GPIO e interfaces de alta velocidade</li>
@@ -1872,65 +1736,41 @@ O Qualcomm® Dragonwing™ QRB2210 é um Arm® Cortex®-A53 quad-core que execut
   <li>Saída DisplayPort via ANX7625 integrado (converte MIPI-DSI para DP Alt-Mode)</li>
 </ul>
 
-
-
 ### Microcontrolador em tempo real (MCU)
+
 <p style="text-align: justify;">
 O STMicroelectronics® STM32U585 é um Arm® Cortex®-M33 que executa o Arduino Core no Zephyr OS. Ele fornece temporização rápida e precisa para tarefas de controlo e conectores de E/S de 3,3 V.
 </p>
-
-
 
 <ul>
   <li>Domínio de tensão: 3,3 V para GPIO e analógico (VREF+ ≈ 3,3 V)</li>
   <li>Gerencia ADC, PWM, CAN, matriz LED, temporizadores</li>
   <li>Lida com conectores de 3,3 V: JDIGITAL, JANALOG, JSPI, Qwiic</li>
 </ul>
-
-
-
 <p style="text-align: justify;">
-O JMISC lida com ambos os domínios: linhas MPU de 1,8 V ficam ao lado de sinais MCU de 3,3 V (por exemplo, PSSI, SDMMC1, TRACE, I²C4) e analógico/áudio. Verifique os níveis de tensão ao conectar portadoras ou lógica externa.
+O JMISC lida com ambos os domínios: linhas MPU de 1,8 V ficam ao lado de sinais MCU de 3,3 V (por exemplo, PSSI, SDMMC1, TRACE, I²C4) e analógico/áudio. Verifique os níveis de tensão ao conectar carrier ou lógica externa.
 </p>
-
 
 
 ## Comunicação entre processadores
 
+<p style="text-align: justify;">O Qualcomm® Dragonwing™ QRB2210 (MPU) e o STM32U585 (MCU) comunicam através da Arduino Bridge, uma camada de Chamada de Procedimento Remoto (RPC) baseada em software implementada tanto no lado Linux como no lado MCU. A Bridge fornece uma API orientada a serviços que permite que qualquer um dos processadores exponha serviços para o outro chamar, ao mesmo tempo que suporta notificações unidirecionais para eventos assíncronos. Ela gerencia o encaminhamento de mensagens entre processadores e acomoda vários transportes físicos. Através da sua API, a Bridge permite chamadas de função seguras, permitindo que sketchs de microcontroladores invoquem serviços Linux e recebam respostas estruturadas, ou enviem dados através de notificações.</p>
 
-
-<p style="text-align: justify;">O Qualcomm® Dragonwing™ QRB2210 (MPU) e o STM32U585 (MCU) comunicam através da Arduino Bridge, uma camada de Chamada de Procedimento Remoto (RPC) baseada em software implementada tanto no lado Linux como no lado MCU. A Bridge fornece uma API orientada a serviços que permite que qualquer um dos processadores exponha serviços para o outro chamar, ao mesmo tempo que suporta notificações unidirecionais para eventos assíncronos. Ela gerencia o encaminhamento de mensagens entre processadores e acomoda vários transportes físicos. Através da sua API, a Bridge permite chamadas de função seguras, permitindo que esboços de microcontroladores invoquem serviços Linux e recebam respostas estruturadas, ou enviem dados através de notificações.
-
-
-
-Se for necessário um indicador de hardware para uma placa transportadora ou lógica externa, o firmware pode dedicar um GPIO MPU de 1,8 V no JMISC ou um GPIO JCTL disponível como saída pronta ou de ativação. Este sinal pode ser recebido num GPIO MCU através de circuitos compatíveis com o nível, tais como um deslocador de nível ou uma configuração de dreno aberto com um resistor pull-up. O firmware define a função exata deste sinal. Alternativamente, a atividade no transporte selecionado (USB CDC, UART ou SPI) pode servir como fonte de ativação quando o MCU está no modo de suspensão.
-
-
+<p style="text-align: justify;">Se for necessário um indicador de hardware para uma placa carrier ou lógica externa, o firmware pode dedicar um GPIO MPU de 1,8 V no JMISC ou um GPIO JCTL disponível como saída pronta ou de ativação. Este sinal pode ser recebido num GPIO MCU através de circuitos compatíveis com o nível, tais como um deslocador de nível ou uma configuração de dreno aberto com um resistor pull-up. O firmware define a função exata deste sinal. Alternativamente, a atividade no transporte selecionado (USB CDC, UART ou SPI) pode servir como fonte de ativação quando o MCU está no modo de suspensão</p>
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   Os sinais GPIO do MPU operam no domínio de baixa tensão do processador da aplicação (1,8 V). Certifique-se de que qualquer ligação ao microcontrolador seja compatível com o nível da sua tensão de E/S (3,3 V). Por exemplo, utilize um nivelador ou uma configuração de dreno aberto com um pull-up para a tensão de E/S do microcontrolador.
 </div>
 
-
-
 <div style="page-break-after: always;"></div>
-
-
 
 ## Aceleração de hardware
 
-
-
 <p style="text-align: justify;">O UNO Q fornece aceleração de hardware para gráficos 3D e codificação/decodificação de vídeo através da GPU Adreno 702 integrada, operando a 845 MHz.</p>
-
-
 
 ### Aceleração gráfica
 
-
-
 <p style="text-align: justify;">A GPU Adreno 702 fornece renderização de gráficos 3D acelerada por hardware através de controladores Mesa de código aberto. As aplicações podem aceder à aceleração da GPU através de APIs gráficas padrão, incluindo OpenGL, OpenGL ES, Vulkan e OpenCL.</p>
-
 
 
 | **API gráfica** | **Controlador** | **Suporte de hardware** | **Versão atual do controlador** | **Nome do dispositivo**        |
@@ -1960,23 +1800,15 @@ Se for necessário um indicador de hardware para uma placa transportadora ou ló
 | Linguagem de sombreamento OpenGL ES     | 3.10 ES                          |
 
 
-
-A pilha gráfica Mesa oferece suporte para extensões e recursos OpenGL padrão. Aplicações que utilizam OpenGL, OpenGL ES ou Vulkan utilizarão automaticamente a aceleração de hardware sem configuração adicional. Utilitários gráficos padrão, como mesa-utils e vulkan-tools, funcionam imediatamente no UNO Q.
-
-
+<p style="text-align: justify;">A pilha gráfica Mesa oferece suporte para extensões e recursos OpenGL padrão. Aplicações que utilizam OpenGL, OpenGL ES ou Vulkan utilizarão automaticamente a aceleração de hardware sem configuração adicional. Utilitários gráficos padrão, como mesa-utils e vulkan-tools, funcionam imediatamente no UNO Q.</p>
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   <strong>Observação:</strong> Os controladores OpenGL e Vulkan estão disponíveis através dos controladores Mesa de código aberto <strong>freedreno (OpenGL/OpenGL ES)</strong> e <strong>turnip (Vulkan)</strong>, proporcionando transparência e suporte da comunidade. Embora o hardware Adreno 702 seja compatível com Vulkan 1.1, a implementação atual do controlador oferece Vulkan 1.0.318. <strong>Não há exemplos específicos do UNO Q para OpenGL ou Vulkan. No entanto, os utilitários padrão do Mesa e os exemplos do projeto Mesa podem ser usados como referência.</strong>
 </div>
 
-
-
 ### Aceleração de vídeo
 
-
-
 <p style="text-align: justify;">A GPU Adreno 702 inclui codificadores e descodificadores de vídeo de hardware dedicados acessíveis através da API <code>V4L2 (Video4Linux2)</code> através dos dispositivos <code>/dev/video0</code> e <code>/dev/video1</code>. A aceleração de hardware está disponível para os seguintes codecs de vídeo:</p>
-
 
 
 | **Codec**    | **Codificação** | **Decodificação** | **Elemento GStreamer**     |
@@ -1989,19 +1821,11 @@ A pilha gráfica Mesa oferece suporte para extensões e recursos OpenGL padrão.
 
 <p style="text-align: justify;">O codificador e descodificador de vídeo de hardware descarregam as tarefas de compressão e descompressão da CPU para hardware dedicado, permitindo um processamento de vídeo em tempo real eficiente. Isto reduz o consumo de energia do sistema e permite que a CPU se concentre na lógica da aplicação. A aceleração de hardware está disponível para resoluções de até 1920×1080 (Full HD), incluindo formatos comuns como 720p (1280×720).</p>
 
+#### Integração com o GStreamer
 
-
-Integração com o GStreamer
-
-
-
-A abordagem recomendada para aceder à aceleração de vídeo por hardware é através do GStreamer, que fornece uma interface de pipeline de alto nível para os dispositivos V4L2. Os seguintes elementos do GStreamer fornecem processamento de vídeo acelerado por hardware:
-
-
+<p style="text-align: justify;">A abordagem recomendada para aceder à aceleração de vídeo por hardware é através do GStreamer, que fornece uma interface de pipeline de alto nível para os dispositivos V4L2. Os seguintes elementos do GStreamer fornecem processamento de vídeo acelerado por hardware:</p>
 
 Para decodificação H.264, o seguinte pipeline pode ser utilizado:
-
-
 
 ```bash
 gst-launch-1.0 filesrc location=videos/xxxxx.mp4 \
@@ -2009,11 +1833,7 @@ gst-launch-1.0 filesrc location=videos/xxxxx.mp4 \
   ! videoconvert ! autovideosink
 ```
 
-
-
 Para a descodificação H.265, pode ser utilizado o seguinte pipeline:
-
-
 
 ```bash
 gst-launch-1.0 filesrc location=videos/xxxxx.mp4 \
@@ -2021,11 +1841,7 @@ gst-launch-1.0 filesrc location=videos/xxxxx.mp4 \
   ! videoconvert ! autovideosink
 ```
 
-
-
 Para decodificação VP9, o seguinte pipeline pode ser utilizado:
-
-
 
 ```bash
 gst-launch-1.0 filesrc location=videos/xxxxx.webm \
@@ -2033,11 +1849,7 @@ gst-launch-1.0 filesrc location=videos/xxxxx.webm \
   ! videoconvert ! autovideosink
 ```
 
-
-
 Para codificação H.264, pode-se utilizar o seguinte pipeline:
-
-
 
 ```bash
 gst-launch-1.0 videotestsrc num-buffers=30 \
@@ -2045,11 +1857,7 @@ gst-launch-1.0 videotestsrc num-buffers=30 \
   ! v4l2h264enc ! h264parse ! mp4mux ! filesink location=/tmp/output.mp4
 ```
 
-
-
 Para codificação H.265, pode-se utilizar o seguinte pipeline:
-
-
 
 ```bash
 gst-launch-1.0 videotestsrc num-buffers=30 \
@@ -2057,11 +1865,7 @@ gst-launch-1.0 videotestsrc num-buffers=30 \
   ! v4l2h265enc ! h265parse ! mp4mux ! filesink location=/tmp/output.mp4
 ```
 
-
-
 Para codificação e descodificação simultâneas, pode ser utilizado o seguinte pipeline:
-
-
 
 ```bash
 gst-launch-1.0 -v videotestsrc num-buffers=1000 \
@@ -2071,71 +1875,40 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
   ! autovideosink
 ```
 
-
-
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
  <strong>Acesso para desenvolvedores:</strong> Os dispositivos de vídeo V4L2 são acessíveis por meio de APIs padrão do Linux, permitindo a integração direta em aplicações C/C++ usando libv4l2 ou por meio de frameworks de nível superior, como GStreamer, FFmpeg ou OpenCV com suporte de backend V4L2.
 </div>
 
-
-
 ### Suporte a OpenCL
 
-
-
-<p style="text-align: justify;">O suporte a OpenCL 2.0 está disponível por meio da implementação Mesa, permitindo computação GPU de uso geral (GPGPU) para tarefas de processamento paralelo, computação científica e operações computacionais intensivas. Os recursos OpenCL do Adreno 702 permitem transferir cargas de trabalho computacionais intensivas da CPU para a GPU, melhorando o desempenho.
-
-
+<p style="text-align: justify;">O suporte a OpenCL 2.0 está disponível por meio da implementação Mesa, permitindo computação GPU de uso geral (GPGPU) para tarefas de processamento paralelo, computação científica e operações computacionais intensivas. Os recursos OpenCL do Adreno 702 permitem transferir cargas de trabalho computacionais intensivas da CPU para a GPU, melhorando o desempenho.</p>
 
 <div style="page-break-after: always;"></div>
 
-
-
 ## Periféricos
-
-
 
 ![Periféricos UNO Q](assets/ABX00162-ABX00173_headers.png)
 
-
-
 - **JDIGITAL (A2) (JDIGITAL1) / JANALOG (A3) (JANALOG1):** GPIO de 3,3 V com suporte para entradas SPI, UART, CAN, PWM e ADC. As entradas analógicas são referenciadas a `VREF+` no trilho de 3,3 V. A faixa de entrada válida é de 0 V a `VREF+`. Alguns pads STM32U585 podem ser tolerantes a 5 V no modo digital, mas quando configurados como ADC ou qualquer função analógica (como *A0* a *A5*), eles não são tolerantes a 5 V e não devem exceder `VDD + 0,3 V`. Utilize condicionamento externo, como um divisor de tensão ou buffer, para tensões mais altas. Para *A4/A5* quando utilizado como I2C3 (PC1/PC0), utilize pull-ups apenas para 3,3 V.
-
-
 
 - **Conector QWIIC (A4) (QWIIC1):** Barramento I²C adicional (lógica de 3,3 V). Mapeia como **PD13 (I2C4_SDA)** e **PD12 (I2C4_SCL)**. Garante compatibilidade plug-and-play com nós Modulino® e sensores e atuadores de terceiros.
 
-
-
 - **JSPI (A5) (JSPI1):** Conector SPI de 3,3 V para periféricos que fornece sinais MOSI, MISO e SCLK, com seleção de chip disponível através de um pino GPIO em JDIGITAL/JMISC. Os pinos utilizam configuração do tipo STM32U585 FT com MISO em PC2, MOSI em PC3 e SCK em PD1. São tolerantes a 5 V como entradas ou em dreno aberto, enquanto as saídas conduzem 3,3 V. Adicione mudança de nível se for necessário um limiar de entrada de 5 V ou sinalização bidirecional de 5 V. Inclui um pino de alimentação `5V_SYS`.
-
-
 
 - **JMEDIA (B2) (JMEDIA1):** Sinais de câmara e ecrã de quatro vias no domínio de 1,8 V (MIPI-CSI-2 e MIPI-DSI).
 
-
-
 - **JMISC (B1) (JMISC):** Conector de função mista que combina sinais MCU de 3,3 V e sinais MPU de 1,8 V. Fornece barramento MCU PSSI (câmara paralela), pinos de teste SDMMC1, TRACE, I2C4, MCO/CRS_SYNC e pinos analógicos OPAMP1. Além disso, ele divide o áudio (Mic2, Headphone L/R+REF, LineOut P/M, Earpiece P/R, HS_DET) e os trilhos de alimentação (+3V3, +5V_USB, +1V8, VBAT e VCOIN para uso do sistema). Observe os domínios de tensão: **os pinos MCU são 3,3 V, os GPIO MPU são 1,8 V**.
-
-
 
 - **JCTL (A1) (JCTL1):** Pinos do modo de inicialização, reinicialização e sinais de ativação de baixa potência (lógica de 1,8 V).
 
+<p style="text-align: justify;"><strong>SE4 UART</strong> é a consola do sistema (<code>shell UART</code>). É separada dos UARTs da aplicação e não deve ser reutilizada para E/S do utilizador. Opera no domínio de E/S de <strong>1,8 V</strong> da MPU.</p>
+
+<p style="text-align: justify;">Não utilize as linhas Qualcomm Dragonwing™ QRB2210 reservadas para <strong>I²C</strong>, <strong>JMEDIA CCI</strong> (Camera Control Interface) ou <strong>MI2S0</strong> (barramento de áudio I²S) como E/S de uso geral. Estes sinais são dedicados à interface, operam a <strong>1,8 V</strong> e estão reservados na árvore de dispositivos Linux. Os conectores expõem-nos apenas para essas funções.</p>
 
 
-<p style="text-align: justify;"><strong>SE4 UART</strong> é a consola do sistema (<code>shell UART</code>). É separada dos UARTs da aplicação e não deve ser reutilizada para E/S do utilizador. Opera no domínio de E/S de <strong>1,8 V</strong> da MPU.
+### JMISC (B1) (JMISC1) - Mapa de pin
 
-
-
-Não utilize as linhas Qualcomm Dragonwing™ QRB2210 reservadas para <strong>I²C</strong>, <strong>JMEDIA CCI</strong> (Camera Control Interface) ou <strong>MI2S0</strong> (barramento de áudio I²S) como E/S de uso geral. Estes sinais são dedicados à interface, operam a <strong>1,8 V</strong> e estão reservados na árvore de dispositivos Linux. Os conectores expõem-nos apenas para essas funções.
-
-
-
-### JMISC (B1) (JMISC1) - Mapa de pinos
-
-
-
-| **Pino** | **Designação** | **Pino MCU/SoC** | **Domínio** | **Notas**                 |
+| **Pin** | **Designação** | **Pino MCU/SoC** | **Domínio** | **Notas**                 |
 |--------:|-----------------|-----------------|------------|---------------------------|
 |       1 | MCU_PSSI_D0     | PC6             | 3,3 V MCU   | PSSI D0                   |
 |       2 | MCU_SDMMC1_CMD  | PD2             | 3,3 V MCU   | SDMMC1 CMD / teste         |
@@ -2204,14 +1977,9 @@ Não utilize as linhas Qualcomm Dragonwing™ QRB2210 reservadas para <strong>I�
   Nota: As linhas GPIO SoC no JMISC são dedicadas à interface (não são GPIO do fabricante). As MCU têm lógica de 3,3 V, as MPU têm lógica de 1,8 V e o áudio/microfone são analógicos.
 </div>
 
-
-
 <div style="page-break-after: always;"></div>
 
-
-
-### JMEDIA (B2) (JMEDIA1) - Mapa de pinos
-
+### JMEDIA (B2) (JMEDIA1) - Mapa de pin
 
 
 | **Pin** | **Designação**         | **Domínio** | **Notas**               |
@@ -2283,17 +2051,12 @@ Não utilize as linhas Qualcomm Dragonwing™ QRB2210 reservadas para <strong>I�
   Observação: as pistas MIPI CSI/DSI são pares diferenciais D-PHY e não E/S de uso geral. As linhas de controle (CCI_I2C_*, SOC_CAM_MCLK*) são do domínio MPU de 1,8 V. VIN no JMEDIA é a entrada bruta de 7-24 V (apenas alimentação).
 </div>
 
-
-
 <div style="page-break-after: always;"></div>
 
+### Qwiic (A4) (QWIIC1) - Mapa de pin
 
 
-### Qwiic (A4) (QWIIC1) - Mapa de pinos
-
-
-
-| **Pino** | **Designação** | **Rede/Função** | **Domínio** | **Notas**                |
+| **Pin** | **Designação** | **Rede/Função** | **Domínio** | **Notas**                |
 |--------:|-----------------|--------------------|------------|--------------------------|
 |       1 | GND             | Terra             | Alimentação      | -                        |
 |       2 | +3V3 OUT        | PWR_3P3V           | Alimentação      | Alimentação para dispositivos Qwiic |
@@ -2302,11 +2065,11 @@ Não utilize as linhas Qualcomm Dragonwing™ QRB2210 reservadas para <strong>I�
 
 
 
-### JSPI (A5) (JSPI1) - Mapa de pinos
+### JSPI (A5) (JSPI1) - Mapa de pin
 
 
 
-| **Pino** | **Designação** | **Rede/Função** | **Domínio** | **Notas**  |
+| **Pin** | **Designação** | **Rede/Função** | **Domínio** | **Notas**  |
 |--------:|-----------------|--------------------|------------|------------|
 |       1 | MISO            | PC2 (SPI2_MISO)    | 3,3 V      | -          |
 |       2 | +5V             | 5V_USB_VBUS        | Alimentação      | Apenas alimentação |
@@ -2316,12 +2079,10 @@ Não utilize as linhas Qualcomm Dragonwing™ QRB2210 reservadas para <strong>I�
 |       6 | GND             | Terra             | Alimentação      | -          |
 
 
-
-### JCTL (A1) (JCTL1) - Mapa de pinos
-
+### JCTL (A1) (JCTL1) - Mapa de pin
 
 
-| **Pino** | **Designação** | **Rede/Função**        | **Domínio** | **Observações**          |
+| **Pin** | **Designação** | **Rede/Função**        | **Domínio** | **Observações**          |
 |--------:|-----------------|---------------------------|------------|--------------------|
 |       1 | GND             | Terra                    | Alimentação      | -                  |
 |       2 | USB_BOOT        | Bootstrap                | 1,8 V      | -                  |
@@ -2338,9 +2099,7 @@ Não utilize as linhas Qualcomm Dragonwing™ QRB2210 reservadas para <strong>I�
 
 <div style="page-break-after: always;"></div>
 
-
-
-### JDIGITAL (A2) (JDIGITAL1) - Mapa de pinos
+### JDIGITAL (A2) (JDIGITAL1) - Mapa de pin
 
 
 
@@ -2372,12 +2131,10 @@ Todas as linhas JDIGITAL são lógicas de 3,3 V.
 </div>
 
 
-
-### JANALOG (A3) (JANALOG1) - Mapa de pinos
-
+### JANALOG (A3) (JANALOG1) - Mapa de pin
 
 
-| **Pino** | **Designação** | **Pino de rede/MCU** | **Funções**                                            | **Domínio**     | **Notas**                     |
+| **Pin** | **Designação** | **Pin de rede/MCU** | **Funções**                                            | **Domínio**     | **Notas**                     |
 |--------:|-----------------|-------------------|----------------------------------------------------------|----------------|-------------------------------|
 |       1 | BOOT            | MCU_BOOT0         | - Bootstrap                                             | 3,3 V          | -                             |
 |       2 | IOREF           | PWR_3P3V          | - Referência de tensão de E/S (espelha o trilho de 3,3 V)             | Alimentação          | Apenas saída; não retroalimentar |
@@ -2395,105 +2152,62 @@ Todas as linhas JDIGITAL são lógicas de 3,3 V.
 |      14 | A5 /  D19       | PC0               | - Entrada ADC <br></br>- I2C3_SCL <br></br>- LPTIM1_IN1    | Analógico / 3,3 V | -                             |
 
 
-
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   A0 (PA4) e A1 (PA5) são entradas ADC diretas do STM32U585 referenciadas a <code>VREF+</code>. Elas não são tolerantes a 5 V. A faixa de entrada válida é <code>0-VREF+</code> (≈3,3 V). O máximo absoluto no pino é <code>VDD + 0,3 V</code>, aproximadamente 3,6 V. Acima deste nível, os díodos de proteção internos do MCU começam a conduzir. O conector também fornece pinos de alimentação <code>5V_SYS</code> e <code>PWR_3P3V</code>, que se destinam apenas à alimentação. Não aplique 5 V a <strong>A0</strong> ou <strong>A1</strong>. O IOREF está ligado ao trilho de 3,3 V (<code>PWR_3P3V</code>) e é fornecido como referência/saída para blindagens. Não deve ser utilizado para alimentar energia de volta à placa.
 </div>
 
-
-
 ## Periféricos de alta velocidade
-
-
 
 - **USB-C:** USB 3.1 com capacidades de troca de funções. Modo alternativo DisplayPort através da ponte ANX7625 DSI-para-DP. Os pares diferenciais SuperSpeed do conector são partilhados entre o modo alternativo DP e os dados USB 3.1. Quando o modo alternativo DisplayPort está ativo, a velocidade dos dados USB é reduzida.
 
-
-
 - **Câmara:** Quatro vias **MIPI-CSI-2** (1,8 V I/O).
-
-
 
 - **Ecrã:** **MIPI-DSI** de quatro vias para **ANX7625** para DisplayPort Alt-Mode em USB-C. Ao operar no modo Single-Board Computer (SBC), a placa suporta ecrãs Full HD (1920 × 1080p) com resolução ideal de 1280 × 720p.
 
-
-
-- **Sem fios:** Wi-Fi® de banda dupla (802.11a/b/g/n/ac) e Bluetooth® 5.1 num módulo partilhado.
-
-
+- **Wireless:** Wi-Fi® de banda dupla (802.11a/b/g/n/ac) e Bluetooth® 5.1 num módulo partilhado.
 
 <div style="page-break-after: always;"></div>
 
-
-
 ## Operação do dispositivo
-
-
 
 ### Introdução - Arduino App Lab
 
-
-
-O Arduino App Lab [1] é um editor unificado que cria e executa projetos em ambos os processadores da placa. Um projeto é um **aplicativo** que pode incluir: 
-
-
+O Arduino App Lab [1] é um editor unificado que cria e executa projetos em ambos os processadores da placa. Um projeto é um **App** que pode incluir: 
 
 - Um programa Python® que é executado no sistema Linux (Qualcomm Dragonwing™ QRB2210)
-- Um esboço Arduino que é executado no microcontrolador (MCU) (STM32U585)
-- **Brick** opcional (serviços pré-empacotados, como modelos de IA, servidores web ou clientes API) que são implementados juntamente com a aplicação (também executados no sistema Linux).
-
-
+- Um sketch Arduino que é executado no microcontrolador (MCU) (STM32U585)
+- **Brick** opcional (serviços pré-empacotados, como modelos de IA, servidores web ou clientes API) que são implementados juntamente com a App (também executados no sistema Linux).
 
 Os aplicativos utilizam o **Bridge** para trocar dados entre o lado Linux e o microcontrolador.
 
-
-
 O Arduino App Lab pode ser instalado no seu PC ou executado diretamente no UNO Q no modo Computador de Placa Única. Para esta configuração, recomenda-se a variante LPDDR4X de 4 GB do UNO Q para garantir memória suficiente para uma operação estável e aplicações que exigem muitos recursos. Para utilizar a placa: 
 
-
-
-- Inicie um exemplo pronto a utilizar no Arduino App Lab, personalize-o de acordo com as suas necessidades ou crie uma nova aplicação a partir do zero utilizando o editor integrado.
+- Inicie um exemplo pronto a utilizar no Arduino App Lab, personalize-o de acordo com as suas necessidades ou crie uma nova App  a partir do zero utilizando o editor integrado.
 - Pressione o botão **Run** no Arduino App Lab [1].
-- O editor cria o componente Linux, grava o esboço da MCU, implementa qualquer Brick selecionado e inicia tudo na placa.
+- O editor cria o componente Linux, grava o sketch da MCU, implementa qualquer Brick selecionado e inicia tudo na placa.
 - Os registos de ambos os lados estão disponíveis no editor e pode iterar sem sair do Arduino App Lab.
 
-
-
 Para a primeira configuração:
-
-
 
 1. Instale o Arduino App Lab [1], inicie-o e conecte o UNO Q, utilize um cabo de dados USB-C para o modo hospedado no PC ou simplesmente ligue a placa para o modo SBC.
 2. A placa verificará automaticamente se há atualizações. Se houver atualizações disponíveis, será solicitado que as instale. Quando a atualização estiver concluída, o Arduino App Lab [1] precisará ser reiniciado.
 3. Durante a primeira configuração, será solicitado que forneça um nome e uma palavra-passe para o dispositivo. Também será solicitado que forneça as credenciais Wi-Fi® da sua rede local.
-4. Para testar a placa, navegue até um aplicativo de exemplo na seção **"Exemplos"** do Arduino App Lab[1] e clique no botão "Executar" no canto superior direito. Você também pode criar um novo aplicativo na seção **"Aplicativos"**.
-5. O status do aplicativo pode ser monitorado na guia do console do aplicativo.
-
-
+4. Para testar a placa, navegue até um aplicativo de exemplo na seção **"Examples"** do Arduino App Lab[1] e clique no botão "Run" no canto superior direito. Você também pode criar um novo aplicativo na seção **"App"**.
+5. O status do App pode ser monitorado na guia do console do App.
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;"> <p style="text-align: justify;">
   <strong>Observação:</strong> No modo <strong>Hospedado no PC</strong>, é necessária uma conexão <em>de dados USB</em> para a configuração inicial. Posteriormente, é possível utilizar o destino <strong>Rede</strong> através da LAN (SSH). No modo <strong>Computador de placa única (SBC)</strong>, não é necessário um link de dados USB para a configuração, basta ligar a placa e utilizar o destino <strong>Rede</strong> assim que ela se juntar à sua rede. Para periféricos no modo SBC (teclado, rato, câmara USB, microfone), utilize um dongle USB-C com capacidade de fornecimento de energia externa. Quando o DisplayPort Alt-Mode está ativo, a velocidade dos dados USB é reduzida.
 </div>
 
-
-
 Utilize uma fonte e um cabo USB-C de 5 V / 3 A ou alimente a partir dos pinos de 5 V ou VIN, conforme especificado na [secção de alimentação de entrada](#input-power) (USB-C é apenas 5 V / VIN é 7-24 V).
-
-
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   A primeira inicialização normalmente leva de 20 a 30 segundos enquanto o Linux é iniciado. Aguarde a sequência do LED de inicialização ou a animação da matriz de LED terminar antes de interagir com a placa.
 </div>
 
+### Bricks
 
-
-### Blocos
-
-
-
-<p style="text-align: justify;"><strong>Bricks</strong> são blocos de construção modulares no Arduino App Lab que permitem ampliar a sua aplicação sem precisar escrever toda a infraestrutura subjacente. Cada Brick encapsula funcionalidades prontas, como integração de sensores, modelos de IA, bases de dados ou interfaces de utilizador, que podem ser inseridas em um projeto. Os Bricks típicos fornecem:</p>
-
-
+<p style="text-align: justify;"><strong>Bricks</strong> são blocos de construção modulares no Arduino App Lab que permitem ampliar a sua App sem precisar escrever toda a infraestrutura subjacente. Cada Brick encapsula funcionalidades prontas, como integração de sensores, modelos de IA, bases de dados ou interfaces de utilizador, que podem ser inseridas em um projeto. Os Bricks típicos fornecem:</p>
 
 <ul>
   <li>Um modelo de IA (por exemplo, classificação de objetos ou deteção de palavras-chave)</li>
@@ -2501,109 +2215,73 @@ Utilize uma fonte e um cabo USB-C de 5 V / 3 A ou alimente a partir dos pinos de
   <li>Uma integração com uma fonte de dados externa</li>
 </ul>
 
-
-
-<p style="text-align: justify;">Os Bricks são implementados juntamente com a aplicação e geridos pelo lado Linux. O fluxo de trabalho típico é:</p>
-
-
+<p style="text-align: justify;">Os Bricks são implementados juntamente com a App e geridos pelo lado Linux. O fluxo de trabalho típico é:</p>
 
 <ol>
   <li>Crie um <strong>aplicativo</strong> no Arduino App Lab.</li>
-  <li>Selecione qualquer <strong>Brick</strong> que o aplicativo deva utilizar.</li>
-  <li>Adicione o seu código Python® (Linux) e/ou o seu esboço Arduino (MCU).</li>
+  <li>Selecione qualquer <strong>Brick</strong> que o App deva utilizar.</li>
+  <li>Adicione o seu código Python® (Linux) e/ou o seu sketch Arduino (MCU).</li>
   <li>O Brick precisa ser importado para o seu ficheiro `main.py` e inicializado seguindo a API do Brick.</li>
   <li>Pressione <strong>Executar</strong> para implementar a aplicação Linux, atualizar a MCU e iniciar a sua aplicação juntamente com os seus Bricks.</li>
   <li>A ferramenta <strong>Bridge</strong> lida com a troca de dados entre o Linux e o MCU.</li>
 </ol>
 
-
-
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   Enquanto uma aplicação está vinculada e em execução, as interfaces USB podem estar ocupadas pelo sistema. Utilize o Arduino App Lab [1] para implementar e monitorizar. Para utilizar ferramentas CLI externas via USB, interrompa a aplicação ou desconecte a placa.
 </div>
 
+### Hello World
 
-
-### Olá, mundo
-
-
-
-<p style="text-align: justify;">Vamos programar o UNO Q com o clássico "Olá, mundo" do Arduino - o exemplo <em>Blink LED</em>. Isso ajuda a verificar se a placa está conectada corretamente ao Arduino App Lab.</p>
-
-
+<p style="text-align: justify;">Vamos programar o UNO Q com o clássico "Hello World" do Arduino - o exemplo <em>Blink LED</em>. Isso ajuda a verificar se a placa está conectada corretamente ao Arduino App Lab.</p>
 
 <ol>
   <li>Abra o Arduino App Lab. Ele inicia na secção <strong>Exemplos</strong>.</li>
   <li>Se não estiver a utilizar o modo de computador de placa única, <strong>conecte o UNO Q</strong> ao seu PC.</li>
-  <li>Abra <em>Blink LED</em>. Reveja as notas do exemplo para ver como o aplicativo funciona.</li>
+  <li>Abra <em>Blink LED</em>. Reveja as notas do exemplo para ver como o App  funciona.</li>
   <li>Clique em <strong>Executar</strong> e aguarde a conclusão do upload.</li>
 </ol>
 
+<p style="text-align: justify;">Agora deve ver o canal vermelho do LED RGB integrado acender por um segundo e, em seguida, apagar por um segundo, repetidamente. O LED é acionado pelo microcontrolador STM32U585 através do Arduino sketch.</p>
 
-
-<p style="text-align: justify;">Agora deve ver o canal vermelho do LED RGB integrado acender por um segundo e, em seguida, apagar por um segundo, repetidamente. O LED é acionado pelo microcontrolador STM32U585 através do esboço do Arduino.</p>
-
-
-
-<p style="text-align: justify;">Pode começar com um aplicativo em branco ou utilizar um exemplo existente. Para o primeiro uso, recomenda-se o exemplo Hello World para aprender a estrutura básica.</p>
-
-
+<p style="text-align: justify;">Pode começar com um App  em branco ou utilizar um exemplo existente. Para o primeiro uso, recomenda-se o exemplo Hello World para aprender a estrutura básica.</p>
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  Sempre que executa uma aplicação, o esboço do microcontrolador é compilado e a aplicação Python® é iniciada no sistema Linux. Dependendo da complexidade, isso pode demorar até um minuto.
+  Sempre que executa uma aplicação, o sketch do microcontrolador é compilado e a aplicação Python® é iniciada no sistema Linux. Dependendo da complexidade, isso pode demorar até um minuto.
 </div>
-
-
 
 ### Como verificar se o aplicativo está em execução
 
-
-
 <p style="text-align: justify;">Abra o <strong>Console</strong> no App Lab. Existem três guias:</p>
-
-
 
 <ul>
   <li><strong>Inicialização</strong>: registos da sequência de inicialização, incluindo compilação do MCU e implementação do Linux</li>
   <li><strong>Principal (Python®)</strong>: saída do aplicativo Python® (<code>print()</code>)</li>
-  <li><strong>Esboço (Microcontrolador)</strong>: saída serial do esboço Arduino (<code>Serial.println()</code>)</li>
+  <li><strong>Sketch (Microcontrolador)</strong>: saída serial do Arduino sketch(<code>Serial.println()</code>)</li>
 </ul>
 
-
-
-<p style="text-align: justify;">Uma aplicação pode ser iniciada com sucesso, mas ainda assim apresentar problemas de tempo de execução. Verifique se há erros no log do Python®. Se ocorrer um erro de compilação do esboço, o início será abortado.</p>
-
-
+<p style="text-align: justify;">Uma aplicação pode ser iniciada com sucesso, mas ainda assim apresentar problemas de tempo de execução. Verifique se há erros no log do Python®. Se ocorrer um erro de compilação do sketch, o início será abortado.</p>
 
 <div style="page-break-after: always;"></div>
 
-
-
 ### Botão de alimentação
 
-
-
-<p style="text-align: justify;">O UNO Q inclui um <strong>botão liga/desliga (JBTN1)</strong> que pode ser utilizado para reiniciar a placa. 
-
-
+<p style="text-align: justify;">O UNO Q inclui um <strong>botão liga/desliga (JBTN1)</strong> que pode ser utilizado para reiniciar a placa. </p>
 
 ![Botão de alimentação do UNO Q](assets/ABX00162-ABX00173-power-button.png)
-
-
 
 <strong>Pressione longamente (≥ 5 s):</strong> reinicia o sistema Linux (MPU). Isso não corta a energia da placa.
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  <strong>Observação:</strong> uma reinicialização com pressão longa reinicia o ambiente Linux e pode interromper os aplicativos em execução. Salve o trabalho e garanta o encerramento seguro dos processos externos, quando aplicável. A placa inicializa automaticamente quando a energia é fornecida. Não é necessário pressionar o botão para uma inicialização normal.
+  <strong>Observação:</strong> uma reinicialização com pressão longa reinicia o ambiente Linux e pode interromper os App em execução. Salve o trabalho e garanta o encerramento seguro dos processos externos, quando aplicável. A placa inicializa automaticamente quando a energia é fornecida. Não é necessário pressionar o botão para uma inicialização normal.
 </div>
 
 ### Recursos online
 
-Explore projetos da comunidade no Project Hub [3], navegue pela Biblioteca de Referência [4] para APIs suportadas e encontre acessórios como sensores Qwiic, UNO Shield e placas transportadoras na Loja Arduino [5].
+<p style="text-align: justify;">Explore projetos da comunidade no Project Hub [3], navegue pela Biblioteca de Referência [4] para APIs suportadas e encontre acessórios como sensores Qwiic, UNO Shield e placas carrier na Arduino Store [5].</p>
 
 ## Informações mecânicas
 
-<p style="text-align: justify;">A placa mede 68,58 mm × 53,34 mm, com as partes inferiores mantidas abaixo de 2 mm para que a placa possa ser empilhada em bases transportadoras. O contorno e o padrão de orifícios seguem e são compatíveis com o formato UNO.
+<p style="text-align: justify;">A placa mede 68,58 mm × 53,34 mm, com as partes inferiores mantidas abaixo de 2 mm para que a placa possa ser empilhada em bases de carrier. O contorno e o padrão de orifícios seguem e são compatíveis com o formato UNO.</p>
 
 ![](assets/mechanical_drawing_unoq.svg)
 
