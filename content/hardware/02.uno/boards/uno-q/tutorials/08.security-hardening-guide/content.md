@@ -222,9 +222,9 @@ mkcert -version
 
 Log in to the Arduino UNO Q device and:
 
-1. Enter the WebUI Application directory;  
-2. Create a **certs** directory inside the Application where you have to add the private key and certificate;  
-3. Enter the **certs** directory.
+1. Enter the WebUI Application directory
+2. Create a **certs** directory inside the Application where you have to add the private key and certificate
+3. Enter the **certs** directory
 
 ```bash
 cd ~/ArduinoApps/APPLICATION_NAME
@@ -238,11 +238,13 @@ cd certs
 
 Then you have to:
 
-1. Install the root CA provided by mkcert in the system trust store (optional);  
-2. Create a certificate and a private key for your application;  
-3. Rename the file with the path expected by WebUI brick:   
-   - `cert.pem` for certificate  
-   - `key.pem` for private key  
+1. Install the root CA provided by mkcert in the system trust store (optional)
+2. Create a certificate and a private key for your application
+3. Rename the file with the path expected by WebUI brick:
+
+- `cert.pem` for certificate  
+- `key.pem` for private key  
+
 4. Upload the files to the application path
 
 **Step 1: Install mkcert CA (optional)**
@@ -340,11 +342,13 @@ cd certs
 
 Then you have to:
 
-1. Create the CSR and private key for your application.
+1. Create the CSR and private key for your application
 2. Sign the CSR with the Public Certification Authority  
-3. Rename the files with the name expected by WebUI brick:   
+3. Rename the files with the name expected by WebUI brick:
+
 - `cert.pem` for certificate  
 - `key.pem` for private key  
+
 4. Upload the files to the application path
 
 ```bash
