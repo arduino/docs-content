@@ -3,7 +3,7 @@ title: 'UNO Q Security Hardening Guide'
 difficulty: advanced
 compatible-products: [uno-q]
 description: 'Security best practices and hardening procedures for the UNO Q.'
-author: 'Alessandro Braccio'
+author: 'Alessandro Braccio & Taddy Chung'
 tags:
   - Security
   - Cybersecurity
