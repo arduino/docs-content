@@ -1526,7 +1526,7 @@ Prototipagem, IA e ML de ponta, visão artificial, educação, dispositivos inte
 
 ## Características
 
-###  UNO Q Variantes
+### UNO Q Variantes
 
 O UNO Q está disponível em duas variantes:
 
@@ -1580,7 +1580,7 @@ O módulo sem fios utiliza SDIO para dados Wi-Fi® e um UART para controlo Bluet
 | JSPI (JSPI1)              | Lógica de 3,3 V, 6 pinos + 5 V VBUS | - SPI dedicado: MOSI, MISO, SCLK <br></br>- Reinicialização do MCU (NRST) <br></br>- Terra <br></br>- 5 V VBUS (alimentação USB)                                                                                                                                                                                                                                                                |
 | Qwiic (QWIIC1)            | 3,3 V, 4 pinos | - I²C (ecossistema Qwiic) |
 
-### Produtos relacionados
+### Produtos Relacionados
 
 - Shields Arduino UNO via JDIGITAL e JANALOG
 - Placas carrier compatíveis com UNO Q
@@ -1888,8 +1888,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 <p style="text-align: justify;">Não utilize as linhas Qualcomm Dragonwing™ QRB2210 reservadas para <strong>I²C</strong>, <strong>JMEDIA CCI</strong> (Camera Control Interface) ou <strong>MI2S0</strong> (barramento de áudio I²S) como E/S de uso geral. Estes sinais são dedicados à interface, operam a <strong>1,8 V</strong> e estão reservados na árvore de dispositivos Linux. Os conectores expõem-nos apenas para essas funções.</p>
 
-
-### JMISC (B1) (JMISC1) - Mapa de Pin
+### JMISC (B1) (JMISC1) - Mapa De Pin
 
 | **Pin** | **Designação** | **Pino MCU/SoC** | **Domínio** | **Notas**                 |
 |--------:|-----------------|-----------------|------------|---------------------------|
@@ -1962,7 +1961,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 <div style="page-break-after: always;"></div>
 
-### JMEDIA (B2) (JMEDIA1) - Mapa de Pin
+### JMEDIA (B2) (JMEDIA1) - Mapa De Pin
 
 
 | **Pin** | **Designação**         | **Domínio** | **Notas**               |
@@ -2062,7 +2061,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |       6 | GND             | Terra             | Alimentação      | -          |
 
 
-### JCTL (A1) (JCTL1) - Mapa de pin
+### JCTL (A1) (JCTL1) - Mapa De Pin
 
 
 | **Pin** | **Designação** | **Rede/Função**        | **Domínio** | **Observações**          |
@@ -2082,7 +2081,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 <div style="page-break-after: always;"></div>
 
-### JDIGITAL (A2) (JDIGITAL1) - Mapa De pin
+### JDIGITAL (A2) (JDIGITAL1) - Mapa De Pin
 
 
 
