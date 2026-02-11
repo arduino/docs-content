@@ -2319,7 +2319,7 @@ This equipment should be installed and operated with a minimum distance of 20 cm
 * 5.18 ~ 5.25 GHz: XX dBm
 * 5.26 ~ 5.32 GHz: XX dBm
 * 5.5 ~ 5.7 GHz: XX dBm
-* 5.745 ~ 5.825 GHz: XX dBm <or mW><or mW><or mW><or mW>
+* 5.745 ~ 5.825 GHz: XX dBm 
 * 5.745 ~ 5.865 GHz: XX dBm
 * 2.4GHz Bluetooth
 * BT-EDR: XX dBm
@@ -2429,10 +2429,10 @@ The product complies with the Canada portable RF exposure limit set forth for an
 
 # Document Revision History
 
-|  **Date**  | **Revision** | **Changes**                                    |
-| :--------: | :----------: | ---------------------------------------------- |
-| 10/02/2026 |     5        | Translations in Chinese, added certification updates |
+|  **Date**  | **Revision** | **Changes**                                                  |
+| :--------: | :----------: | ------------------------------------------------------------ |
+| 10/02/2026 |      5       | Translations in Chinese, Portuguese, Certification updates   |
 | 24/11/2025 |      4       | Add hardware acceleration section (graphics APIs, video codecs, OpenCL support); remove incorrect default password reference |
-| 05/11/2025 |      3       | Update operational information                 |
-| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update |
-| 01/10/2025 |      1       | First release                                  |
+| 05/11/2025 |      3       | Update operational information                               |
+| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update               |
+| 01/10/2025 |      1       | First release                                                |
