@@ -1706,7 +1706,7 @@ Os LEDs RGB são ativos baixos, o que significa que se acendem quando acionados 
 ## MPU & MCU
 
 <p style="text-align: justify;">
-Uma MPU (unidade de microprocessador) é um processador de aplicativos de alto desempenho projetado para executar um sistema operacional completo e softwares complexos. Uma MCU (unidade de microcontrolador) é um controlador pequeno e com baixo consumo de energia, focado em temporização rápida e precisa para E/S e controle. O UNO Q combina ambos para emparelhar a computação ao nível do sistema operativo com um controlo responsivo e crítico em termos de tempo numa placa única e comunicar através do Bridge, uma camada RPC implementada em ambos os lados.</p>
+Uma MPU (unidade de microprocessador) é um processador de aplicativos de alto desempenho projetado para executar um sistema operacional completo e software complexos. Uma MCU (unidade de microcontrolador) é um controlador pequeno e com baixo consumo de energia, focado em temporização rápida e precisa para E/S e controle. O UNO Q combina ambos para emparelhar a computação ao nível do sistema operativo com um controlo responsivo e crítico em termos de tempo numa placa única e comunicar através do Bridge, uma camada RPC implementada em ambos os lados.</p>
 
 ### Processador De Aplicações (MPU)
 <p style="text-align: justify;">
@@ -2312,7 +2312,7 @@ Operations in the 5.15-5.35GHz band are restricted to indoor usage only.
 
 This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
-**Module EIRP power (avarage power):**
+**Module EIRP power (average power):**
 
 * 2.4GHz: XX dBm
 * 5GHz
