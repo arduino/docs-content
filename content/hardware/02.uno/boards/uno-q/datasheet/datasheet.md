@@ -1535,7 +1535,7 @@ O UNO Q está disponível em duas variantes:
 - **ABX00162**: 2 GB de RAM, 16 GB de armazenamento integrado
 - **ABX00173**: 4 GB de RAM, 32 GB de armazenamento integrado
 
-### Visão geral das especificações gerais
+## Visão geral das especificações gerais
 
 #### Processamento e memória
 
@@ -1556,14 +1556,9 @@ O MPU controla as interfaces da câmara MIPI-CSI-2 e do ecrã MIPI-DSI no JMEDIA
 O JMISC é um conector de tensão mista que também transporta sinais MCU de 3,3 V e áudio analógico juntamente com as linhas MPU de 1,8 V. O vídeo DisplayPort é fornecido pelo ANX7625 integrado, que converte o MIPI-DSI do MPU para DisplayPort Alt-Mode no USB-C.
 O STM32U585 gerencia ADC, PWM, CAN, a matriz LED e os conectores de 3,3 V (JDIGITAL, JANALOG, JSPI e Qwiic).
 
-
-
 #### Conectividade e mídia
 
-
-
 ![](assets/ABX00162-ABX00173-comm-components.png)
-
 
 
 | **Subsistema**      | **Detalhes**                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -1743,8 +1738,6 @@ O STMicroelectronics® STM32U585 é um Arm® Cortex®-M33 que executa o Arduino 
 <p style="text-align: justify;">
 O JMISC lida com ambos os domínios: linhas MPU de 1,8 V ficam ao lado de sinais MCU de 3,3 V (por exemplo, PSSI, SDMMC1, TRACE, I²C4) e analógico/áudio. Verifique os níveis de tensão ao conectar carrier ou lógica externa.
 </p>
-
-
 ## Comunicação entre processadores
 
 <p style="text-align: justify;">O Qualcomm® Dragonwing™ QRB2210 (MPU) e o STM32U585 (MCU) comunicam através da Arduino Bridge, uma camada de Chamada de Procedimento Remoto (RPC) baseada em software implementada tanto no lado Linux como no lado MCU. A Bridge fornece uma API orientada a serviços que permite que qualquer um dos processadores exponha serviços para o outro chamar, ao mesmo tempo que suporta notificações unidirecionais para eventos assíncronos. Ela gerencia o encaminhamento de mensagens entre processadores e acomoda vários transportes físicos. Através da sua API, a Bridge permite chamadas de função seguras, permitindo que sketches de microcontroladores invoquem serviços Linux e recebam respostas estruturadas, ou enviem dados através de notificações.</p>
