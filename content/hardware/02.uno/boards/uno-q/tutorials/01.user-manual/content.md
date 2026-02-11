@@ -470,11 +470,11 @@ It is a versatile display you can use to show data, status indicators, icons, or
 
 Here is a list of basic examples for using the **LED matrix**. To test them, follow the steps below:
 
-- Connect the UNO Q to your PC (if you are not in single-board computer mode).
+1. Connect the UNO Q to your PC (if you are not in single-board computer mode).
   ![SBC mode and PC-Hosted setup](assets/modes.png)
-- Open the Arduino App Lab, navigate to **My Apps** and click on **Create new app+**.
+2. Open the Arduino App Lab, navigate to **My Apps** and click on **Create new app+**.
   ![Create a new app](assets/create-app.png)
-- A new App must be created to test each of the examples below.
+3. A new App must be created to test each of the examples below.
 
 #### Image Drawing
 
@@ -865,12 +865,12 @@ The example code shown below uses digital pin `D5` to control an LED and reads t
 
 ![Digital I/O example wiring](assets/digital-io.png)
 
-- Create a new App in the Arduino App Lab.
+1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
-- Install the **Arduino_RouterBridge** library by clicking in **Add Sketch Library** and searching for it.
+2. Install the **Arduino_RouterBridge** library by clicking in **Add Sketch Library** and searching for it.
 ![Library install](assets/lib-install-app-lab.png)
 
-- Copy and paste the example below in the "sketch" part of your new App.
+3. Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 #include <Arduino_RouterBridge.h>
@@ -957,12 +957,12 @@ The example code shown below reads the analog input value from a potentiometer c
 
 ![ADC input example wiring](assets/analog-adc.png)
 
-- Create a new App in the Arduino App Lab.
+1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
-- Install the **Arduino_RouterBridge** library by clicking in **Add Sketch Library** and searching for it.
+2. Install the **Arduino_RouterBridge** library by clicking in **Add Sketch Library** and searching for it.
 ![Library install](assets/lib-install-app-lab.png)
 
-- Copy and paste the example below in the "sketch" part of your new App.
+3. Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 #include <Arduino_RouterBridge.h>
@@ -1010,10 +1010,10 @@ analogWrite(DAC0, value);   // the value should be in the range of the DAC resol
 
 The following sketch will create a **60 Hz sine wave** signal in the `A0/DAC0` UNO Q pin:
 
-- Create a new App in the Arduino App Lab.
+1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
 
-- Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 const float freq = 60.0f;
@@ -1073,10 +1073,10 @@ analogWriteResolution(10);
 
 Here is an example of how to create a variable duty-cycle PWM signal:
 
-- Create a new App in the Arduino App Lab.
+1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
 
-- Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 const int analogInPin = A0;  // Analog input pin that the potentiometer is attached to
@@ -1251,12 +1251,12 @@ To capture more detailed information in the logs, you can append the `--verbose`
 
 This example shows the **Linux side (Qualcomm QRB)** toggling an LED on the **MCU (STM32)** by calling a remote function over the Bridge.
 
-- Create a new App in the Arduino App Lab.
+1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
 
-- Copy and paste the example below in the "Python" and "sketch" parts of your new App respectively.
+2. Copy and paste the example below in the "Python" and "sketch" parts of your new App respectively.
 
-1. **Linux (QRB) example to call a remote MCU function**
+- **Linux (QRB) example to call a remote MCU function**
 
     This Python script runs on the QRB and calls an MCU-exposed RPC named `set_led_state` once per second:
 
@@ -1277,7 +1277,7 @@ This example shows the **Linux side (Qualcomm QRB)** toggling an LED on the **MC
     ```
     This sends a boolean to the MCU every second using `Bridge.call("set_led_state", <bool>)`
 
-2. **MCU (STM32) setup to include the Bridge and start it**
+- **MCU (STM32) setup to include the Bridge and start it**
 
     This sketch includes the Bridge library and configures the LED pin.
 
@@ -1460,10 +1460,10 @@ void setup() {
 
 To transmit data to an SPI-compatible device, you can use the commands used in the following example:
 
-- Create a new App in the Arduino App Lab.
+1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
 
-- Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 #include <SPI.h>
@@ -1531,10 +1531,10 @@ Wire1.begin(); // I2C in Qwiic connector
 
 To transmit data to an I2C-compatible device, you can use the commands used in the following example:
 
-- Create a new App in the Arduino App Lab.
+1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
 
-- Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 #include <Wire.h>
@@ -1786,12 +1786,12 @@ Since the radio module is connected to the Qualcomm microprocessor, we need the 
 
 The following example gets the UTC time using TCP over socket RPC calls and prints it in the Serial Monitor:
 
-- Create a new App in the Arduino App Lab.
+1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
-- Install the **Arduino_RouterBridge** library by clicking in **Add Sketch Library** and searching for it.
+2. Install the **Arduino_RouterBridge** library by clicking in **Add Sketch Library** and searching for it.
 ![Library install](assets/lib-install-app-lab.png)
 
-- Copy and paste the example below in the "sketch" part of your new App.
+3. Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 #include <Arduino_RouterBridge.h>
