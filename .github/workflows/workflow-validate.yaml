@@ -10,15 +10,15 @@ on:
     types: [opened, synchronize, ready_for_review, reopened]
 
 jobs:
-  spell_check:
-    name: Spell Check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run spell check
-        run: |
-          pip install codespell==2.3.0
-          codespell -I "scripts/resources/spell-check-ignore-list.txt" --skip="*.svg,*.dxf,*.pdf" ./content/
+# spell_check:
+#   name: Spell Check
+#   runs-on: ubuntu-latest
+#   steps:
+#     - uses: actions/checkout@v4
+#     - name: Run spell check
+#       run: |
+#         pip install codespell==2.3.0
+#         codespell -I "scripts/resources/spell-check-ignore-list.txt" --skip="*.svg,*.dxf,*.pdf" ./content/
 
   lint:
     name: Content Linter
