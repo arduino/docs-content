@@ -1533,7 +1533,7 @@ O UNO Q está disponível em duas variantes:
 - **ABX00162**: 2 GB de RAM, 16 GB de armazenamento integrado
 - **ABX00173**: 4 GB de RAM, 32 GB de armazenamento integrado
 
-## Especificações Gerais
+### Especificações Gerais
 
 #### Processamento & Memória
 
