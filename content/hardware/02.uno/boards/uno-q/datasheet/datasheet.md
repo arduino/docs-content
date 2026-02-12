@@ -739,6 +739,8 @@ Use a 5 V / 3 A USB-C source and cable, or power from the 5 V or VIN pins as spe
 
 <div style="page-break-after: always;"></div>
 
+## 中文
+
 ![](assets/featured.png)
 
 # 描述
@@ -1485,6 +1487,8 @@ Arduino App Lab 可安装在您的电脑上，或直接在单板计算机模式�
 
 <div style="page-break-after: always;"></div>
 
+## Português
+
 ![](assets/featured.png)
 
 # Descrição
@@ -1495,7 +1499,6 @@ Arduino App Lab 可安装在您的电脑上，或直接在单板计算机模式�
 <p style="text-align: justify;">O UNO Q vem com armazenamento eMMC incorporado (opções de 16 GB, 32 GB) e LPDDR4X SDRAM (opções de 2 GB, 4 GB) para executar o Linux e os seus projetos com facilidade. Possui Wi-Fi® 5 de banda dupla e Bluetooth® 5.1 para conectividade sem fios, um conector USB-C® com entrada de alimentação e saída de vídeo e conectores compatíveis com Arduino para fácil expansão com shields, carriers e acessórios.</p>
 
 <p style="text-align: justify;">O UNO Q integra-se perfeitamente com o Arduino App Lab, permitindo que os programadores combinem Arduino sketch, aplicações Linux e modelos de IA num único ambiente. O App Lab pode ser executado diretamente na placa ou a partir de um PC conectado, oferecendo exemplos prontos a utilizar e a flexibilidade para criar aplicações personalizadas adaptadas aos seus projetos.</p>
-
 
 # Áreas
 
@@ -1694,7 +1697,6 @@ Um segundo regulador buck gera <code>PWR_3P3V</code> para o STM32U585, o ANX7625
   - **LED RGB 3 (D27401):** `LED3_R` → **PH10**, `LED3_G` → **PH11**, `LED3_B` → **PH12**.
   - **LED RGB 4 (D27402):** `LED4_R` → **PH13**, `LED4_G` → **PH14**, `LED4_B` → **PH15**.
 
-
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
 Os LEDs RGB são ativos baixos, o que significa que se acendem quando acionados para a lógica `0`.
 </div>
@@ -1735,6 +1737,7 @@ O STMicroelectronics® STM32U585 é um Arm® Cortex®-M33 que executa o Arduino 
 <p style="text-align: justify;">
 O JMISC lida com ambos os domínios: linhas MPU de 1,8 V ficam ao lado de sinais MCU de 3,3 V (por exemplo, PSSI, SDMMC1, TRACE, I²C4) e analógico/áudio. Verifique os níveis de tensão ao conectar carrier ou lógica externa.
 </p>
+
 ## Comunicação entre Processadores
 
 <p style="text-align: justify;">O Qualcomm® Dragonwing™ QRB2210 (MPU) e o STM32U585 (MCU) comunicam através da Arduino Bridge, uma camada de Chamada de Procedimento Remoto (RPC) baseada em software implementada tanto no lado Linux como no lado MCU. A Bridge fornece uma API orientada a serviços que permite que qualquer um dos processadores exponha serviços para o outro chamar, ao mesmo tempo que suporta notificações unidirecionais para eventos assíncronos. Ela gerencia o encaminhamento de mensagens entre processadores e acomoda vários transportes físicos. Através da sua API, a Bridge permite chamadas de função seguras, permitindo que sketches de microcontroladores invoquem serviços Linux e recebam respostas estruturadas, ou enviem dados através de notificações.</p>
@@ -2273,15 +2276,8 @@ Utilize uma fonte e um cabo USB-C de 5 V / 3 A ou alimente a partir dos pinos de
 
 # Certifications
 
-## Brazil
+## RED
 
-### Anatel
-
-Este equipamento não tem direito à proteção contra interferência prejudicial e não pode causar interferência em sistemas devidamente autorizados. Para maiores informações, consulte o site da ANATEL – http://www.anatel.gov.br 
-
-## EU
-
-### RED 
 
 | CE                     | Europe – EU Declaration of Conformity                        |
 | ---------------------- | ------------------------------------------------------------ |
@@ -2325,27 +2321,7 @@ This equipment should be installed and operated with a minimum distance of 20 cm
 * BT-EDR: XX dBm
 * BT-LE: XX dBm
 
-## Japan
-
-### MIC
-
-5GHz band (W52, W53) Indoor use only. 
-
-日本語:
-
-5GHz 帯(W52, W53)は屋内利用に限る (高出力システムと通信する場合を除く)
-
-## South Africa
-
-### ICASA
-
-English:
-
-5GHz band (W52,W53): Indoor use only (except communicate to high power radio)
-
-## United States of America
-
-### FCC
+## FCC
 
 **FCC compliance information**
 
@@ -2355,7 +2331,7 @@ This product does not contain any user serviceable components. Any unauthorized 
 
 **FCC Part 15 Digital Emissions Compliance**
 
-We [System Manufacturer Name, Address, Telephone], declare under our sole responsibility that the product [System Name] complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation.
+We Arduino S.r.l.  - Via Andrea Appiani 25, 20900 Monza (Italy), declare under our sole responsibility that the product Arduino UNO Q complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation.
 WARNING: This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates and radiates radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications.
 
 However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
@@ -2373,43 +2349,86 @@ This booklet is available from the U.S. Government Printing Office, Washington, 
 
 **Radiation Exposure Statement**
 
-The product complies with the FCC portable RF exposure limit set forth for an uncontrolled environment and is safe for intended operation as described in this manual. Further RF exposure reduction can be achieved if the product can be kept as far as possible from the user’s body or by setting the device to lower output power if such function is available."
+The product complies with the FCC portable RF exposure limit set forth for an uncontrolled environment and is safe for intended operation as described in this manual. Further RF exposure reduction can be achieved if the product can be kept as far as possible from the user’s body or by setting the device to lower output power if such function is available.
 
-## Canada
+## ISED
 
-English:
+*English:*
 
 This device complies with Canadian RSS-247.
 This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device may not cause interference, and (2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
-French : 
+*French :* 
+
 Ce dispositif est conforme à la norme CNR-247 d'Industrie Canada applicable aux appareils radio exempts de licence. Son fonctionnement est sujet aux deux conditions suivantes: (1) le dispositif ne doit pas produire de brouillage préjudiciable, et (2) ce dispositif doit accepter tout brouillage reçu, y compris un brouillage susceptible de provoquer un fonctionnement indésirable.
 
-English:
+*English:*
 
 Caution:
 
 (i) the device for operation in the band 5150-5250 MHz is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems;
+
 (ii) the maximum antenna gain permitted for devices in the bands 5250-5350 MHz and 5470-5725 MHz shall comply with the e.i.r.p. limit; and
+
 (iii) the maximum antenna gain permitted for devices in the band 5725-5825 MHz shall comply with the e.i.r.p. limits specified for point-to-point and non-point-to-point operation as appropriate.
+
 (iv) Users should also be advised that high-power radars are allocated as primary users (i.e. priority users) of the bands 5250-5350 MHz and 5650-5850 MHz and that these radars could cause interference and/or damage to LE-LAN devices.
 
-French :
+*French :*
 
-Avertissement:
+Avertissement :
 
 Le guide d’utilisation des dispositifs pour réseaux locaux doit inclure des instructions précises sur les restrictions susmentionnées, notamment :
 
-(i) les dispositifs fonctionnant dans la bande 5 150-5 250 MHz sont réservés uniquement pour une utilisation à l’intérieur afin de réduire les risques de brouillage préjudiciable aux systèmes de satellites mobiles utilisant les mêmes canaux;
-(ii) le gain maximal d’antenne permis pour les dispositifs utilisant les bandes 5 250-5 350 MHz et 5 470-5 725 MHz doit se conformer à la limite de p.i.r.e.;
+(i) les dispositifs fonctionnant dans la bande 5 150-5 250 MHz sont réservés uniquement pour une utilisation à l’intérieur afin de réduire les risques de brouillage préjudiciable aux systèmes de satellites mobiles utilisant les mêmes canaux ;
+
+(ii) le gain maximal d’antenne permis pour les dispositifs utilisant les bandes 5 250-5 350 MHz et 5 470-5 725 MHz doit se conformer à la limite de p.i.r.e. ;
+
 (iii) le gain maximal d’antenne permis (pour les dispositifs utilisant la bande 5 725-5 825 MHz) doit se conformer à la limite de p.i.r.e. spécifiée pour l’exploitation point à point et  non point à point, selon le cas.
+
 (iv) De plus, les utilisateurs devraient aussi être avisés que les utilisateurs de radars de haute puissance sont désignés utilisateurs principaux (c.-à-d., qu’ils ont la priorité) pour les bandes 5 250-5 350 MHz et 5 650-5 850 MHz et que ces radars pourraient causer du brouillage et/ou des dommages aux dispositifs LAN-EL.
 
-**NOTE:** For 5GHz and/or when co-located with 5 GHz transmitters, the following statements should be provided in the user information
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+  <strong>Note:</strong> For 5GHz and/or when co-located with 5 GHz transmitters, the following statements should be provided in the user information. 
+</div>
 
 **Radiation Exposure Statement**
 
 The product complies with the Canada portable RF exposure limit set forth for an uncontrolled environment and is safe for intended operation as described in this manual. Further RF exposure reduction can be achieved if the product can be kept as far as possible from the user’s body or by setting the device to lower output power if such function is available.
+
+## MIC
+
+5GHz band (W52, W53) Indoor use only. 
+
+日本語:
+
+5GHz 帯(W52, W53)は屋内利用に限る (高出力システムと通信する場合を除く)
+
+## SRRC
+
+本设备包含型号核准代码为: ABX00162 - CMIIT ID: 26J996Q0A162 (M) / ABX00173 - CMIIT ID: 26J996Q0A173 (M) 的无线电发射模块。
+
+## ICASA
+
+English:
+
+5GHz band (W52,W53): Indoor use only (except communicate to high power radio)
+
+## NCC
+
+根據 NCC LP0002 低功率射頻器材技術規範_章節3.8.2：
+**警語:** 取得審驗證明之低功率射頻器材，非經核准，公司、商號或使用者均不得擅自變更頻
+率、加大功率或變更原設計之特性及功能。
+低功率射頻器材之使用不得影響飛航安全及干擾合法通信；經發現有干擾現象時，應
+立即停用，並改善至無干擾時方得繼續使用。
+前述合法通信，指依電信管理法規定作業之無線電通信。
+低功率射頻器材須忍受合法通信或工業、科學及醫療用電波輻射性電機設備之干擾。
+應避免影響附近雷達系統之操作。
+
+## Anatel
+
+Este equipamento não tem direito à proteção contra interferência prejudicial e não pode causar interferência em sistemas devidamente autorizados. Para maiores informações, consulte o site da ANATEL – http://www.anatel.gov.br 
+
 
 # Company Information
 
