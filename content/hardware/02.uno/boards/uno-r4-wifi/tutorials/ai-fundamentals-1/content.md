@@ -27,7 +27,7 @@ Let's consider **a practical example**: a machine learning model trained to dete
 
 * **2.** **Inference:** Once trained, the model can process new, previously unseen data and generate predictions based on the learned patterns. This phase is considerably less demanding in terms of computational resources and is the one executed on edge devices. In the case of motor vibrations, the model will analyze new vibration measurements and classify them as normal or anomalous in real time, allowing motor operators to make preventive decisions.
 
-### What is Edge AI?
+### What Is Edge AI?
 
 Now that we understand how machine learning models work, we can explore where these models are executed. Traditionally, inference of complex models required powerful servers or cloud services. However, Edge AI is changing this dynamic.
 
@@ -153,7 +153,7 @@ In this course, we will primarily work with the Arduino UNO R4 WiFi board due to
 
 The Arduino UNO R4 WiFi represents the evolution of the UNO family, incorporating a significantly more powerful microcontroller than its predecessors while maintaining compatibility with the existing Arduino ecosystem. This combination makes it an excellent educational platform for Edge AI.
 
-![UNO R4 wifi specifications](/_assets/uno-r4-callout.png)
+![UNO R4 WiFi board hardware specifications](assets/uno-r4-callout.png)
 
 The technical specifications of the UNO R4 WiFi are presented below [13]:
 
