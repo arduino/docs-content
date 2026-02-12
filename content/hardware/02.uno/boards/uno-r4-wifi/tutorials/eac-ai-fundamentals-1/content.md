@@ -9,8 +9,6 @@ hardware:
   - hardware/02.hero/boards/uno-r4-wifi
 ---
 
-# AI Fundamentals for Edge Devices
-
 This module introduces the fundamental concepts of Edge Artificial Intelligence (Edge AI), establishing the theoretical foundations necessary to understand how to implement machine learning solutions on resource-constrained devices such as microcontrollers and embedded systems.
 
 ## Introduction to Edge AI
@@ -23,9 +21,9 @@ A machine learning model is a **mathematical representation of a particular even
 
 Let's consider **a practical example**: a machine learning model trained to detect anomalies in industrial *motor vibrations*. The process of creating a machine learning model involves **two fundamental phases**:
 
-* **1.** **Training:** During this phase, the model analyzes a set of labeled data (input data with their corresponding correct outputs) and adjusts its internal parameters to minimize the error between its predictions and the actual measured values [2]. In our practical example it learns which vibration patterns correspond to normal operation and which indicate potential failures. This phase typically requires significant computational resources and is performed on high-capacity computers or in the cloud.
+- **(1) Training:** During this phase, the model analyzes a set of labeled data (input data with their corresponding correct outputs) and adjusts its internal parameters to minimize the error between its predictions and the actual measured values [2]. In our practical example it learns which vibration patterns correspond to normal operation and which indicate potential failures. This phase typically requires significant computational resources and is performed on high-capacity computers or in the cloud.
 
-* **2.** **Inference:** Once trained, the model can process new, previously unseen data and generate predictions based on the learned patterns. This phase is considerably less demanding in terms of computational resources and is the one executed on edge devices. In the case of motor vibrations, the model will analyze new vibration measurements and classify them as normal or anomalous in real time, allowing motor operators to make preventive decisions.
+- **(2) Inference:** Once trained, the model can process new, previously unseen data and generate predictions based on the learned patterns. This phase is considerably less demanding in terms of computational resources and is the one executed on edge devices. In the case of motor vibrations, the model will analyze new vibration measurements and classify them as normal or anomalous in real time, allowing motor operators to make preventive decisions.
 
 ### What Is Edge AI?
 
