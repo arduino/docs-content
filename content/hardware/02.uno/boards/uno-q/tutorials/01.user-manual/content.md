@@ -439,7 +439,7 @@ To start using the board, you must first install the specific core that supports
 
 ***<strong>Troubleshooting:</strong> If the core does not appear in the search results, you may need to add the package manually. Go to __File > Preferences__ and add the following link to the __Additional Boards Manager URLs__ field: `https://downloads.arduino.cc/packages/package_zephyr_index.json`***
 
-5. Install the **Arduino_RouterBridge** library by navigating to the Library Manager in the IDE left menu. Install it with all its dependencies.
+5. Install the **Arduino_RouterBridge** library by navigating to the Library Manager in the left menu of the IDE. Install it with all its dependencies.
 
 ![Arduino_RouterBridge Library](assets/lib-install.png)
 
