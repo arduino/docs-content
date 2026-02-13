@@ -959,7 +959,7 @@ The example code shown below reads the analog input value from a potentiometer c
 
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
-2. Install the **Arduino_RouterBridge** library by clicking in **Add Sketch Library** and searching for it.
+2. Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
 ![Library install](assets/lib-install-app-lab.png)
 
 3. Copy and paste the example below in the "sketch" part of your new App.
@@ -1788,7 +1788,7 @@ The following example gets the UTC time using TCP over socket RPC calls and prin
 
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
-2. Install the **Arduino_RouterBridge** library by clicking in **Add Sketch Library** and searching for it.
+2. Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
 ![Library install](assets/lib-install-app-lab.png)
 
 3. Copy and paste the example below in the "sketch" part of your new App.
