@@ -8,7 +8,7 @@ A description of the analog input pins on an Arduino chip (ATmega8, ATmega168, A
 
 ## A/D Converter
 
-The ATmega controllers used for the Arduino contain an onboard 6 channel (8 channels on the Mini and Nano, 16 on the Mega) analog-to-digital (A/D) converter. The converter has 10-bit resolution, returning integers from 0 to 1023. While the main function of the analog pins for most Arduino users is to read analog sensors, the analog pins also have all the functionality of general purpose input/output (GPIO) pins (the same as digital pins 0–13).
+The ATmega controllers used for the Arduino contain an onboard 6-channel (8 channels on the Mini and Nano, 16 on the Mega) analog-to-digital (A/D) converter. The converter has 10-bit resolution, returning integers from 0 to 1023. While the main function of the analog pins for most Arduino users is to read analog sensors, the analog pins also have all the functionality of general purpose input/output (GPIO) pins (the same as digital pins 0–13).
 
 Consequently, if a user needs more general purpose input/output pins, and all the analog pins are not in use, the analog pins may be used for GPIO.
 
