@@ -17,6 +17,8 @@ hardware:
 
 In the previous module, we introduced the Edge AI development cycle and its six phases. Now we will delve deeper into the four central phases of the workflow: data collection, preprocessing, model training, and evaluation. The goal is to understand how each phase is executed in practice and what decisions are key to achieving good results.
 
+![four phases of the edge ai cycle](assets/workflow4-fasi.png)
+
 ## Phase 1: Data Collection
 
 Data is the most important component of any machine learning project. A model can only be as good as the data it was trained on. In this section, we will examine the types of data used in Edge AI, strategies for collecting them correctly, and considerations about their quantity and representativeness.
