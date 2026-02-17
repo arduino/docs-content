@@ -180,7 +180,7 @@ The PMIC's L15A LDO provides the 1.8 V rail (<code>VREG_L15A_1P8V</code>) and po
 From <code>5V_SYS</code>, a buck generates the <code>PWR_3P8V (3.8 V)</code> reserved for system design and future features.
 A second buck generates <code>PWR_3P3V</code> for the STM32U585, the ANX7625 (3.3 V rails), the Wi-Fi® 3.3 V domain, and the 3.3 V header pins.</p>
 
-<p style="text-align: justify;">A <em>protected P-channel MOSFET</em> (<code>Q2801</code>) can source USB <code>VBUS</code> from <code>5V_SYS</code> when the board operates as a USB host/OTG. The <code>VCOIN</code> powers only the real-time clock of the PMIC and does not power the Linux or MCU domains. The <code>VBAT</code> powers the real-time clock of the <code>MCU</code>. </p>
+<p style="text-align: justify;">A <em>protected P-channel MOSFET</em> (<code>Q2801</code>) can source USB <code>VBUS</code> from <code>5V_SYS</code> when the board operates as a USB host/OTG. The <code>VCOIN</code> powers only the real-time clock of the PMIC and does not power the Linux or MCU domains. The <code>VBAT</code> connects to the <code>PWR_3P8V</code> and is reserved for system design and future features. </p>
 
 ![Arduino UNO Q Power Tree](assets/ABX00162-ABX00173_power_tree.png)
 
@@ -389,68 +389,68 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ### JMISC (B1) (JMISC1) - Pin Map
 
-| **Pin** | **Designation** | **MCU/SoC Pin** | **Domain** | **Notes**                 |
-|--------:|-----------------|-----------------|------------|---------------------------|
-|       1 | MCU_PSSI_D0     | PC6             | 3.3V MCU   | PSSI D0                   |
-|       2 | MCU_SDMMC1_CMD  | PD2             | 3.3V MCU   | SDMMC1 CMD / test         |
-|       3 | MCU_PSSI_D1     | PC7             | 3.3V MCU   | PSSI D1                   |
-|       4 | MCU_TRACE_CLK   | PE2             | 3.3V MCU   | Trace clock               |
-|       5 | MCU_PSSI_D2     | PC8             | 3.3V MCU   | PSSI D2                   |
-|       6 | MCU_TRACE_D0    | PE3             | 3.3V MCU   | Trace data 0              |
-|       7 | MCU_PSSI_D3     | PC9             | 3.3V MCU   | PSSI D3                   |
-|       8 | MCU_TRACE_D2    | PE5             | 3.3V MCU   | Trace data 2              |
-|       9 | MCU_PSSI_D4     | PE4             | 3.3V MCU   | PSSI D4                   |
-|      10 | MCU_TRACE_D3    | PE6             | 3.3V MCU   | Trace data 3              |
-|      11 | MCU_PSSI_D5     | PI4             | 3.3V MCU   | PSSI D5                   |
-|      12 | MCU_PE7         | PE7             | 3.3V MCU   | GPIO                      |
-|      13 | MCU_PSSI_D6     | PI6             | 3.3V MCU   | PSSI D6                   |
-|      14 | MCU_PE8         | PE8             | 3.3V MCU   | GPIO                      |
-|      15 | MCU_PSSI_D7     | PI7             | 3.3V MCU   | PSSI D7                   |
-|      16 | MCU_I2C4_SCL    | PF14            | 3.3V MCU   | I²C4 SCL                  |
-|      17 | MCU_PSSI_PDCK   | PD9             | 3.3V MCU   | PSSI clock                |
-|      18 | MCU_I2C4_SDA    | PF15            | 3.3V MCU   | I²C4 SDA                  |
-|      19 | MCU_PSSI_RDY    | PI5             | 3.3V MCU   | PSSI ready                |
-|      20 | MCU_OPAMP1_VOUT | PA3             | Analog     | OpAmp1 VOUT               |
-|      21 | MCU_PSSI_DE     | PD8             | 3.3V MCU   | PSSI data enable          |
-|      22 | MCU_OPAMP1_VINP | PA0             | Analog     | OpAmp1 VINP               |
-|      23 | MCU_MCO         | PA8             | 3.3V MCU   | MCU clock out             |
-|      24 | MCU_OPAMP1_VINM | PA1             | Analog     | OpAmp1 VINM               |
-|      25 | MCU_CRS_SYNC    | PA10            | 3.3V MCU   | CRS sync                  |
-|      26 | GND             | -               | Power      | Ground                    |
-|      27 | GND             | -               | Power      | Ground                    |
-|      28 | EAR_P_R         | -               | Analog     | Audio ear P_R             |
-|      29 | MIC2_INP        | -               | Analog     | Mic2 IN+                  |
-|      30 | EAR_M_R         | -               | Analog     | Audio ear M_R             |
-|      31 | MIC2_INM        | -               | Analog     | Mic2 IN−                  |
-|      32 | LINEOUT_P       | -               | Analog     | Line out P                |
-|      33 | MIC2_BIAS       | -               | Analog     | Mic2 bias                 |
-|      34 | LINEOUT_M       | -               | Analog     | Line out M                |
-|      35 | GND             | -               | Power      | Ground                    |
-|      36 | HPH_L           | -               | Analog     | Headphone L               |
-|      37 | SOC_GPIO_0_SE0  | -               | 1.8V MPU   | SoC GPIO 0 (SE0)          |
-|      38 | HPH_R           | -               | Analog     | Headphone R               |
-|      39 | SOC_GPIO_1_SE0  | -               | 1.8V MPU   | SoC GPIO 1 (SE0)          |
-|      40 | HPH_REF         | -               | Analog     | Headphone REF             |
-|      41 | SOC_GPIO_2_SE0  | -               | 1.8V MPU   | SoC GPIO 2 (SE0)          |
-|      42 | HS_DET          | -               | Analog     | Headset detect            |
-|      43 | SOC_GPIO_3_SE0  | -               | 1.8V MPU   | SoC GPIO 3 (SE0)          |
-|      44 | GND             | -               | Power      | Ground                    |
-|      45 | SOC_GPIO_86_SE0 | -               | 1.8V MPU   | SoC GPIO 86 (SE0)         |
-|      46 | SOC_GPIO_98     | -               | 1.8V MPU   | SoC GPIO 98               |
-|      47 | SOC_GPIO_82_SE0 | -               | 1.8V MPU   | SoC GPIO 82 (SE0)         |
-|      48 | SOC_GPIO_99     | -               | 1.8V MPU   | SoC GPIO 99               |
-|      49 | SOC_GPIO_18     | -               | 1.8V MPU   | SoC GPIO 18               |
-|      50 | SOC_GPIO_100    | -               | 1.8V MPU   | SoC GPIO 100              |
-|      51 | SOC_GPIO_28     | -               | 1.8V MPU   | SoC GPIO 28               |
-|      52 | SOC_GPIO_101    | -               | 1.8V MPU   | SoC GPIO 101              |
-|      53 | +3V3 (OUT)      | -               | Power      | 3.3 V power out           |
-|      54 | +5V_USB (OUT)   | -               | Power      | 5 V power out             |
-|      55 | +3V3 (OUT)      | -               | Power      | 3.3 V power out           |
-|      56 | +5V_USB (OUT)   | -               | Power      | 5 V power out             |
-|      57 | +1V8 (IN)       | -               | Power      | 1.8 V rail in             |
-|      58 | GND             | -               | Power      | Ground                    |
-|      59 | VCOIN (IN)      | -               | Power      | System voltage (PMIC RTC) |
-|      60 | VBAT (IN)       | -               | Power      | System voltage (MCU RTC)  |
+| **Pin** | **Designation** | **MCU/SoC Pin** | **Domain** | **Notes**                                                       |
+|--------:|-----------------|-----------------|------------|-----------------------------------------------------------------|
+|       1 | MCU_PSSI_D0     | PC6             | 3.3V MCU   | PSSI D0                                                         |
+|       2 | MCU_SDMMC1_CMD  | PD2             | 3.3V MCU   | SDMMC1 CMD / test                                               |
+|       3 | MCU_PSSI_D1     | PC7             | 3.3V MCU   | PSSI D1                                                         |
+|       4 | MCU_TRACE_CLK   | PE2             | 3.3V MCU   | Trace clock                                                     |
+|       5 | MCU_PSSI_D2     | PC8             | 3.3V MCU   | PSSI D2                                                         |
+|       6 | MCU_TRACE_D0    | PE3             | 3.3V MCU   | Trace data 0                                                    |
+|       7 | MCU_PSSI_D3     | PC9             | 3.3V MCU   | PSSI D3                                                         |
+|       8 | MCU_TRACE_D2    | PE5             | 3.3V MCU   | Trace data 2                                                    |
+|       9 | MCU_PSSI_D4     | PE4             | 3.3V MCU   | PSSI D4                                                         |
+|      10 | MCU_TRACE_D3    | PE6             | 3.3V MCU   | Trace data 3                                                    |
+|      11 | MCU_PSSI_D5     | PI4             | 3.3V MCU   | PSSI D5                                                         |
+|      12 | MCU_PE7         | PE7             | 3.3V MCU   | GPIO                                                            |
+|      13 | MCU_PSSI_D6     | PI6             | 3.3V MCU   | PSSI D6                                                         |
+|      14 | MCU_PE8         | PE8             | 3.3V MCU   | GPIO                                                            |
+|      15 | MCU_PSSI_D7     | PI7             | 3.3V MCU   | PSSI D7                                                         |
+|      16 | MCU_I2C4_SCL    | PF14            | 3.3V MCU   | I²C4 SCL                                                        |
+|      17 | MCU_PSSI_PDCK   | PD9             | 3.3V MCU   | PSSI clock                                                      |
+|      18 | MCU_I2C4_SDA    | PF15            | 3.3V MCU   | I²C4 SDA                                                        |
+|      19 | MCU_PSSI_RDY    | PI5             | 3.3V MCU   | PSSI ready                                                      |
+|      20 | MCU_OPAMP1_VOUT | PA3             | Analog     | OpAmp1 VOUT                                                     |
+|      21 | MCU_PSSI_DE     | PD8             | 3.3V MCU   | PSSI data enable                                                |
+|      22 | MCU_OPAMP1_VINP | PA0             | Analog     | OpAmp1 VINP                                                     |
+|      23 | MCU_MCO         | PA8             | 3.3V MCU   | MCU clock out                                                   |
+|      24 | MCU_OPAMP1_VINM | PA1             | Analog     | OpAmp1 VINM                                                     |
+|      25 | MCU_CRS_SYNC    | PA10            | 3.3V MCU   | CRS sync                                                        |
+|      26 | GND             | -               | Power      | Ground                                                          |
+|      27 | GND             | -               | Power      | Ground                                                          |
+|      28 | EAR_P_R         | -               | Analog     | Audio ear P_R                                                   |
+|      29 | MIC2_INP        | -               | Analog     | Mic2 IN+                                                        |
+|      30 | EAR_M_R         | -               | Analog     | Audio ear M_R                                                   |
+|      31 | MIC2_INM        | -               | Analog     | Mic2 IN−                                                        |
+|      32 | LINEOUT_P       | -               | Analog     | Line out P                                                      |
+|      33 | MIC2_BIAS       | -               | Analog     | Mic2 bias                                                       |
+|      34 | LINEOUT_M       | -               | Analog     | Line out M                                                      |
+|      35 | GND             | -               | Power      | Ground                                                          |
+|      36 | HPH_L           | -               | Analog     | Headphone L                                                     |
+|      37 | SOC_GPIO_0_SE0  | -               | 1.8V MPU   | SoC GPIO 0 (SE0)                                                |
+|      38 | HPH_R           | -               | Analog     | Headphone R                                                     |
+|      39 | SOC_GPIO_1_SE0  | -               | 1.8V MPU   | SoC GPIO 1 (SE0)                                                |
+|      40 | HPH_REF         | -               | Analog     | Headphone REF                                                   |
+|      41 | SOC_GPIO_2_SE0  | -               | 1.8V MPU   | SoC GPIO 2 (SE0)                                                |
+|      42 | HS_DET          | -               | Analog     | Headset detect                                                  |
+|      43 | SOC_GPIO_3_SE0  | -               | 1.8V MPU   | SoC GPIO 3 (SE0)                                                |
+|      44 | GND             | -               | Power      | Ground                                                          |
+|      45 | SOC_GPIO_86_SE0 | -               | 1.8V MPU   | SoC GPIO 86 (SE0)                                               |
+|      46 | SOC_GPIO_98     | -               | 1.8V MPU   | SoC GPIO 98                                                     |
+|      47 | SOC_GPIO_82_SE0 | -               | 1.8V MPU   | SoC GPIO 82 (SE0)                                               |
+|      48 | SOC_GPIO_99     | -               | 1.8V MPU   | SoC GPIO 99                                                     |
+|      49 | SOC_GPIO_18     | -               | 1.8V MPU   | SoC GPIO 18                                                     |
+|      50 | SOC_GPIO_100    | -               | 1.8V MPU   | SoC GPIO 100                                                    |
+|      51 | SOC_GPIO_28     | -               | 1.8V MPU   | SoC GPIO 28                                                     |
+|      52 | SOC_GPIO_101    | -               | 1.8V MPU   | SoC GPIO 101                                                    |
+|      53 | +3V3 (OUT)      | -               | Power      | 3.3 V power out                                                 |
+|      54 | +5V_USB (OUT)   | -               | Power      | 5 V power out                                                   |
+|      55 | +3V3 (OUT)      | -               | Power      | 3.3 V power out                                                 |
+|      56 | +5V_USB (OUT)   | -               | Power      | 5 V power out                                                   |
+|      57 | +1V8 (IN)       | -               | Power      | 1.8 V rail in                                                   |
+|      58 | GND             | -               | Power      | Ground                                                          |
+|      59 | VCOIN (IN)      | -               | Power      | System voltage (PMIC RTC)                                       |
+|      60 | VBAT (OUT)      | -               | Power      | System voltage (Reserved for system design and future features) |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   Note: SoC GPIO lines on JMISC are interface-dedicated (not maker GPIO). MCU are at 3.3 V logic, MPU are at 1.8 V logic, and audio/mic are analog.
@@ -840,6 +840,7 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 |  **Date**  | **Revision** | **Changes**                                                                                                                  |
 |:----------:|:------------:|------------------------------------------------------------------------------------------------------------------------------|
+| 17/02/2026 |      6       | Update VBAT description in Power Supply section and JMISC pin 60 note                                                        |
 | 19/01/2026 |      5       | Add video output resolution specifications                                                                                   |
 | 24/11/2025 |      4       | Add hardware acceleration section (graphics APIs, video codecs, OpenCL support); remove incorrect default password reference |
 | 05/11/2025 |      3       | Update operational information                                                                                               |
