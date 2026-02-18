@@ -12,7 +12,7 @@ productsLibrariesMap:
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
-    <EssentialElement link="https://github.com/arduino-libraries/Arduino_MachineControl" title="Arduino Machine Control" type="library">
+    <EssentialElement link="https://github.com/arduino-libraries/Arduino_PortentaMachineControl" title="Arduino Machine Control" type="library">
         The official Arduino Library for the Portenta Machine Control.
     </EssentialElement>
     <EssentialElement link="https://github.com/arduino-libraries/Arduino_Pro_Tutorials" title="Arduino Pro Tutorials" type="library">
