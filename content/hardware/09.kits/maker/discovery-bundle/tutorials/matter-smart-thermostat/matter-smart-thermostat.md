@@ -58,7 +58,7 @@ Download the complete project code [here](assets/matter_smart_thermostat.zip).
 
 ### Board Core and Libraries
 
-The **Silicon Labs** core contains the libraries and examples you need to work with the board's components, such as its Matter, Bluetooth® Low Energy, and I/Os. To install the Nano Matter core, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
+The **Silicon Labs** core contains the libraries and examples required to use the board’s features, such as Matter, Bluetooth® Low Energy, and its I/O capabilities. To install the Nano Matter core, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
 
 ![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install-2.png)
 
