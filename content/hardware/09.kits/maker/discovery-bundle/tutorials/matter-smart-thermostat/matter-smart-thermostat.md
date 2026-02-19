@@ -1,5 +1,5 @@
 ---
-title: Matter Smart Thermostat with the Arduino Matter Discovery Bundle
+title: Matter Smart Thermostat with Discovery Bundle
 difficulty: intermediate
 description: Learn how to build a Matter-enabled smart thermostat using Arduino Nano Matter and Modulino.
 tags:
@@ -34,7 +34,7 @@ The goal is to control a home heating system based on two key factors: ambient t
 
 By utilizing the Matter® protocol, this system integrates natively with major smart home platforms such as Amazon Alexa, Google Home™, and Apple Home. This allows you to monitor climate data and manage your heating directly through your preferred home assistant.
 
-### How it works
+### How It Works
 
 The system relies on three primary modules: a temperature sensor, a proximity sensor, and a relay. When the ambient temperature drops below a customizable threshold AND presence is detected in the room, the relay activates the heating system. If the room becomes unoccupied OR the temperature rises above the set threshold, the system automatically switches the heating off to conserve energy.
 
@@ -80,7 +80,7 @@ This allows you to safely simulate the system's heating cycles in a controlled e
 Matter is the universal communication standard that allows smart devices from different manufacturers to work together locally and securely in a smart home network.
 It uses Device Profiles to standardize how a product (like a light or a lock) communicates with a smart home ecosystem.
 
-### The Thermostat profile
+### The Thermostat Profile
 
 By utilizing the dedicated Matter Thermostat Profile, this project is instantly recognized as a native climate controller by platforms like Apple Home, Google Home, and Home Assistant.
 This profile allows the system to:
