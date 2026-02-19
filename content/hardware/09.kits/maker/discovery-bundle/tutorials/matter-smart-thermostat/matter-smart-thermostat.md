@@ -106,7 +106,7 @@ The sketch integrates the Arduino Matter library with the Modulino ecosystem and
 
 ### 1. Initialization and Setup
 
-In the `setup()`, the first step is to initialize communication with the Modulino nodes and start the Matter stack. A crucial part of this process is the commissioning check: if the board is not yet paired with a smart home hub, the code retrieves and prints an onboarding URL to the Serial Monitor, which provides the QR Code needed for pairing.
+In the `setup()`, the first step is to initialize communication with the Modulino nodes and start the Matter stack. A crucial part of this process is the commissioning check: if the board is not yet paired with a smart home hub, the code retrieves and prints an onboarding URL to the Serial Monitor, which provides the QR Code needed for pairing. For a complete explanation of the pairing procedure and commissioning flow, see the Matter section in the [Nano Matter user manual](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#matter).
 
 ```cpp
 void setup() {
