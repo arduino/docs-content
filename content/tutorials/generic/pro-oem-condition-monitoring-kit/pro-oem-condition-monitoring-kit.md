@@ -65,7 +65,7 @@ If you want to learn more about the technologies of the kit, we propose the foll
 |                                                                   Experience                                                                   | Machine Control |
 |:----------------------------------------------------------------------------------------------------------------------------------------------:|:---------------:|
 |    [Temperature Management with Portenta Machine Control ](https://docs.arduino.cc/tutorials/portenta-machine-control/rtd-thermocouple-pmc)    |       Yes       |
-|         [Portenta Machine Control Library examples](https://github.com/arduino-libraries/Arduino_MachineControl/tree/master/examples)          |       Yes       |
+|      [Portenta Machine Control Library examples](https://github.com/arduino-libraries/Arduino_PortentaMachineControl/tree/main/examples)       |       Yes       |
 |                  [CAN Bus Setup with Arduino® PLC IDE](https://docs.arduino.cc/tutorials/portenta-machine-control/can-setup)                   |       Yes       |
 |                 [Modbus Setup with Arduino® PLC IDE](https://docs.arduino.cc/tutorials/portenta-machine-control/modbus-setup)                  |       Yes       |
 |                 [Arduino® PLC IDE Pin Mapping](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-pin-mapping)                 |       Yes       |
