@@ -344,6 +344,12 @@ The table below summarizes the dimensions of each component included in the kit:
 
 - [Arduino Nano Matter Documentation](https://docs.arduino.cc/hardware/nano-matter/) **[1]**
 
+## ISED Caution
+
+<p style="text-align: justify;">The components of the Arduino Matter Discovery Bundle are subject to individual Canada ISED regulations. Please refer to the ISED documentation linked in each Arduino component's datasheet for specific compliance details:</p>
+
+- [Arduino Nano Matter Documentation](https://docs.arduino.cc/hardware/nano-matter/) **[1]**
+
 <div style="page-break-after: always;"></div>
 
 ## Company Information
