@@ -231,7 +231,7 @@ Training parameters control how the model learns. Configuring them correctly is 
 
 The learning rate determines how much the model adjusts its internal weights at each training step. It is the most important parameter.
 
-It can be visualized as the size of the steps a person takes when searching for the lowest point of a valley blindfolded. Very large steps (at a high rate) cause the person to jump from side to side without reaching the bottom. Very small steps (low rate) cause progress to be so slow that they might get stuck in a depression that is not the lowest point. A typical starting value is 0.005.
+It can be visualized as adjusting the hot water knob in a shower. If you turn it too much at once (high rate), you go from cold to scalding and back without ever finding the right temperature. If you turn it too little (low rate), you wait too long and might settle for a temperature that is not ideal. A typical starting value is 0.005.
 
 #### Number of Epochs
 
