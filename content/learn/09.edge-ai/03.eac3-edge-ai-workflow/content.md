@@ -182,7 +182,7 @@ For voice command recognition, adding background noise is particularly important
 
 Images offer a wide range of possible transformations. The most commonly used in Edge AI include slight rotation (typically ±15°), brightness and contrast adjustments, random crops, and horizontal flip (when it makes sense for the application).
 
-The transformations must be realistic. For example, for a product classifier on a shelf, rotating the image 180° would not make sense because products are always oriented upward.
+The transformations must be realistic. For instance, it would not make sense to rotate a product classifier on a shelf 180° because products are always oriented upward.
 
 #### Limitations of Data Augmentation
 
