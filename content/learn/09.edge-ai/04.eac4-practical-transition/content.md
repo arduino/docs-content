@@ -65,7 +65,7 @@ Motion sensors combine accelerometers and gyroscopes to measure linear accelerat
 
 Options compatible with R4 boards:
 
-- **Modulino Movement**: IMU sensor that connects via the Qwiic connector, offering simple integration without manual wiring. It includes a 6-axis accelerometer and gyroscope.
+- **[Modulino Movement](https://docs.arduino.cc/hardware/modulino-movement/)**: IMU sensor that connects via the Qwiic connector, offering simple integration without manual wiring. It includes a 6-axis accelerometer and gyroscope.
 - **ADXL335**: 3-axis analog accelerometer that connects to the board’s analog pins. It is an economical option for vibration detection projects.
 
 #### Audio Sensors
