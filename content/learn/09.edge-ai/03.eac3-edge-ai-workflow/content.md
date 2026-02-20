@@ -101,7 +101,7 @@ As a general reference, the recommended quantities according to task type are as
 
 An imbalanced dataset, where some classes have many more samples than others, can bias the model toward the classes with more examples. For example, if there are 500 samples of “walking” but only 50 of “running”, the model will tend to classify everything as “walking” because that is the correct answer most of the time [7].
 
-It is recommended to maintain a similar number of samples in each class. When an imbalance is unavoidable (for example, in anomaly detection, where abnormal events are rare), we can use compensation techniques discussed in the preprocessing section.
+It is recommended to maintain a similar number of samples in each class. When an imbalance is unavoidable (for example, in anomaly detection, where abnormal events are rare), we can use compensation techniques that will be discussed in the preprocessing section.
 
 #### Dataset Split
 
