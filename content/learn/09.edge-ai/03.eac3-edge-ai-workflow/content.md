@@ -17,7 +17,7 @@ hardware:
 
 In the previous module, we introduced the Edge AI development cycle and its six phases. Now we will delve deeper into the four central phases of the workflow: data collection, preprocessing, model training, and evaluation. The goal is to understand how each phase is executed in practice and what decisions are key to achieving good results.
 
-![four phases of the edge ai cycle](assets/workflow4-fasi.png)
+![4 phases workflow](assets/4-fasi.png)
 
 ## Phase 1: Data Collection
 
@@ -141,7 +141,7 @@ Feature extraction transforms raw data into more compact representations that ca
 
 These features are calculated directly on the original signal and describe its general properties. For example, the mean indicates the signal's central value, the standard deviation measures how much the values vary from the mean, and the maximum and minimum values delimit the signal’s range.
 
-![standard deviation general illustration](assets/mean.png)
+![Standard deviation general illustration](assets/mean.png)
 
 To illustrate their usefulness, when distinguishing between “walking” and “running” with an accelerometer, the standard deviation is a very informative feature. When running, the acceleration variations are much greater than when walking, so the standard deviation will be significantly higher.
 

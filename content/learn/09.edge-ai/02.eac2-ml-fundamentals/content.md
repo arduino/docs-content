@@ -124,7 +124,7 @@ To run machine learning models on devices with kilobytes of memory and milliwatt
 
 #### Efficient Model Design
 
-The first step in TinyML is to design or select inherently efficient model architectures. Neural networks process data through a series of *layers*, similar to how an assembly line processes a product through different stations. **Shallow neural networks**, with only 2-4 layers, are sufficient for many Edge AI tasks and reduce both model size and inference time.
+The first step in TinyML is to design or select inherently efficient model architectures. A *layer* is a group of connected units of information. **Shallow neural networks**, with 2-4 layers, are sufficient for many Edge AI tasks and reduce both model size and inference time.
 
 **Depthwise Separable Convolutions**, used in architectures like MobileNet, significantly reduce the number of operations in convolutional layers by separating spatial convolutions from channel-wise convolutions [9]. Complementarily, **channel reduction** limits the number of filters per layer, thereby proportionally reducing model size and required operations.
 
