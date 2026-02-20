@@ -59,7 +59,7 @@ Data quality largely determines the final model’s performance. Poor collection
 
 Before starting the collection, it is necessary to establish a clear plan that defines the experimental conditions. This protocol should specify which sensor will be used and at what frequency, how long each sample lasts, the conditions under which data are captured, how many repetitions are needed, and how each sample will be labeled.
 
-For example, in a gesture recognition project with an accelerometer, the protocol might specify that each gesture be repeated 50 times per participant, with a maximum duration of 2 seconds per gesture, and that the sensor be placed on the right wrist.
+In a gesture recognition project with an accelerometer, for example, the protocol might specify that each participant repeat each gesture 50 times, with a maximum duration of two seconds per gesture, and that the sensor be placed on the right wrist.
 
 #### Diversity in Data
 
