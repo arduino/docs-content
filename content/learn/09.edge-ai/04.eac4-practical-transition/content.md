@@ -98,7 +98,7 @@ The platform offers several advantages for developers getting started with Edge 
 - **Visual interface**: The entire workflow, from data collection to deployment, is managed through an intuitive web interface.
 - **Arduino integration**: Arduino boards connect directly to the platform to collect data and download optimized models.
 - **Automatic optimization**: The platform automatically quantizes and optimizes models for the selected hardware.
-- **Free tier:** The free plan is sufficient for educational projects and prototypes.
+- **Free tier**: The free plan is sufficient for educational projects and prototypes.
 
 #### Workflow in Edge Impulse
 
