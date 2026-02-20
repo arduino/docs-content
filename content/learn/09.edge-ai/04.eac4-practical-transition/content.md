@@ -85,7 +85,7 @@ Cameras enable the implementation of computer vision applications such as object
 These measure variables such as temperature, humidity, and air quality for monitoring and prediction applications.
 
 - **[Modulino Thermo](https://docs.arduino.cc/hardware/modulino-thermo/)**: Temperature sensor with Qwiic connection.
-- **BME280:** Combined sensor for temperature, humidity, and atmospheric pressure.
+- **BME280**: Combined sensor for temperature, humidity, and atmospheric pressure.
 
 ### The Edge Impulse Platform
 
