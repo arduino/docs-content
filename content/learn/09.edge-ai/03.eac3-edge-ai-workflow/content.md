@@ -239,7 +239,7 @@ An epoch is a complete pass through all the training data. The number of epochs 
 
 With few epochs, the model has not seen the data enough times to learn the patterns. With too many epochs, the model may memorize the training data rather than learn general patterns. This is known as **overfitting** and is one of the most common problems in machine learning.
 
-Edge Impulse includes a technique called **early stopping** that monitors the model’s performance during training and automatically stops it when it stops improving, preventing overfitting.
+Edge Impulse includes an early stopping technique that monitors the model’s performance during training. It automatically stops the training process when the model stops improving, which prevents overfitting.
 
 #### Batch Size
 
