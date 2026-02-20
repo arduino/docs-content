@@ -173,7 +173,7 @@ For specific instructions on connecting Arduino boards, visit the [Edge Impulse 
 
 ## Guided Activity: Reference Project
 
-To illustrate how all the concepts learned in previous modules integrate, we will explore a complete Edge AI project: a motor anomaly detection system.
+To illustrate how all the concepts learned in previous modules integrate, we will explore a complete Edge AI project: a **motor anomaly detection system**.
 
 ### Project Description
 
