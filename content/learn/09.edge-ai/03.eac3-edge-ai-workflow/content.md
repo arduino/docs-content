@@ -108,7 +108,7 @@ It is recommended to maintain a similar number of samples in each class. When an
 The collected data must be divided into three sets with distinct purposes:
 
 - **Training set (60-80%)**: The dataset from which the model learns. The model adjusts its internal parameters to recognize the patterns present in this data.
-- **Validation set (10-20%)**: Used during training to verify that the model is not simply memorizing the data. It allows detecting overfitting problems.
+- **Validation set (10-20%)**: Used during training to verify that the model is not simply memorizing the data. 
 - **Test set (10-20%)**: Used only once at the end of the process to obtain a real estimate of the model’s performance with completely new data.
 
 Test data must never be used during training. If the model has already “seen” that data, the evaluation will not reflect its real performance with new data.
