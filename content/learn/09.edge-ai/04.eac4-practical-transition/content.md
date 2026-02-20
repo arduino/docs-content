@@ -221,8 +221,6 @@ The complete application note includes step-by-step instructions for:
 
 **Access the complete application note:** [Motor Anomaly Detection with the Arduino R4 WiFi](link-to-application-note)
 
-In Part 2 of the course, we will work with this project and similar ones, applying step by step everything learned in Part 1.
-
 ## Concept Review and Preparation for Part 2
 
 ### Part 1 Summary
@@ -236,24 +234,6 @@ Throughout the four modules of Part 1, we have built a solid foundation of Edge 
 **Module 1.3 - Workflow for Creating Applications:** We delved into the four central development phases: data collection, preprocessing, training, and evaluation.
 
 **Module 1.4 - Transition to Practical Implementation:** We introduced the hardware and software we will use, set up the development environment, and explored a reference project.
-
-### What to Expect in Part 2
-
-Part 2 of the course focuses on practical implementation. Throughout 10 hours of guided work, we will develop complete Edge AI projects:
-
-- **Practical projects:** We will implement real applications such as gesture recognition, sound classification, and anomaly detection.
-- **Step-by-step work:** Each project will be developed following the complete workflow, from data collection to deployment.
-- **Troubleshooting:** We will learn to diagnose and solve common problems in Edge AI projects.
-- **Customization:** We will explore how to adapt projects to specific needs.
-
-### Preparation for Part 2
-
-Before continuing with Part 2, make sure to:
-
-1. **Have the hardware ready:** An Arduino UNO R4 WiFi board with a USB-C cable
-2. **Set up the environment:** Arduino IDE installed with R4 board support
-3. **Create your account:** An active Edge Impulse account
-4. **Review the reference project:** Familiarize yourself with the structure of the anomaly detection application note
 
 If you have questions about any of the theoretical concepts, this is a good time to review the previous modules before moving on to practical implementation.
 
