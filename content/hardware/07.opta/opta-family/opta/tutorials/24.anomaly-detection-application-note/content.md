@@ -84,9 +84,9 @@ The following connections establish the interface between the Opta™ and the AD
 |:---------------:|:------------------:|:---------------------------------:|
 |      `VCC`      |         -          | External +5 VDC regulated supply  |
 |      `GND`      |         -          | Common ground reference           |
-|       `X`       |        `I0`        |       X-axis analog output        |
-|       `Y`       |        `I1`        |       Y-axis analog output        |
-|       `Z`       |        `I2`        |       Z-axis analog output        |
+|       `X`       |        `I1`        |       X-axis analog output        |
+|       `Y`       |        `I2`        |       Y-axis analog output        |
+|       `Z`       |        `I3`        |       Z-axis analog output        |
 |       `ST`      |   Not connected    |      Self-test (optional)         |
 
 ***__Important note__: The ADXL335 breakout board requires a separate regulated power supply (+3.3 VDC or +5 VDC depending on the breakout board version), as the Opta™'s screw terminals are designed for industrial I/O signaling rather than powering external sensors. Ensure a common ground reference between the ADXL335 power supply and the Opta™.***
