@@ -493,7 +493,7 @@ Follow these steps to train the anomaly detection model using the collected idle
 
 ***__Important note__: The feature explorer shows how well your idle and nominal data separate in the feature space. Good separation means the model can clearly distinguish between different operating states. If the data points overlap significantly, you may need to collect more diverse data or adjust your sensor mounting.***
 
-The classification model learns to distinguish between known operating states, while the anomaly detection model creates clusters representing all normal operation patterns. This combination allows the system to both identify the current operating mode and detect unusual conditions that don't fit any normal pattern.
+The classification model learns to distinguish between known operating states, while the anomaly detection model creates clusters that represent all normal operating patterns. This combination allows the system to both identify the current operating mode and detect unusual conditions that don't fit any normal pattern.
 
 ![Anomaly explorer on Edge Impulse Studio](assets/anomaly-explorer.png)
 
