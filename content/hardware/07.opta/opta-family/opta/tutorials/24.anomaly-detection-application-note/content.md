@@ -271,7 +271,7 @@ In this code:
 
 ### Data Collection Timing and Control
 
-To ensure accurate vibration analysis and successful machine learning training, we need consistent data collection timing. These parameters control how data is gathered:
+To ensure accurate vibration analysis and successful machine learning training, we need consistent timing for data collection. These parameters control how data is gathered:
 
 ```arduino
 // Sampling parameters
