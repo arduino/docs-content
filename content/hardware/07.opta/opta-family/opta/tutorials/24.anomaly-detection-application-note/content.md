@@ -999,7 +999,7 @@ The complete intelligent motor anomaly detection sketch can be downloaded [here]
 
 ## Advanced: Dual-Core Anomaly Detection
 
-The Opta's STM32H747XI microcontroller features two independent processor cores: an Arm® Cortex®-M7 running at 480 MHz and an Arm® Cortex®-M4 running at 240 MHz. This section shows how to split the anomaly detection system across both cores for a more responsive and industrially robust architecture.
+The Opta's STM32H747XI microcontroller features two independent processor cores: an Arm® Cortex®-M7 running at 480 MHz and an Arm® Cortex®-M4 running at 240 MHz. This section shows how to split the anomaly detection system across both cores to achieve a more responsive, industrially robust architecture.
 
 ### Dual-Core Architecture Overview
 
