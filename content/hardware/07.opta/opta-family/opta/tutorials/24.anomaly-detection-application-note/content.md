@@ -1348,7 +1348,7 @@ When deploying the intelligent anomaly detection system in industrial environmen
 
 ## Conclusions
 
-This application note demonstrates how to implement motor anomaly detection using the Opta™ with either an ADXL335 accelerometer, combined with Edge Impulse machine learning platform for industrial predictive maintenance applications.
+This application note demonstrates how to implement motor anomaly detection using the Opta™ with an ADXL335 accelerometer, combined with the Edge Impulse machine learning platform, for industrial predictive maintenance applications.
 
 The solution combines the Opta's 32-bit processing power with Edge Impulse's machine learning tools to enable real-time anomaly detection directly on the embedded device. This eliminates the need for cloud connectivity and provides immediate response to potential equipment issues with inference times under 20 milliseconds.
 
