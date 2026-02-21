@@ -1,8 +1,6 @@
 ---
-title: 'Motor Anomaly Detection with Opta™'
-description: "This application note describes how to implement a motor anomaly detection system using the Opta™, an accelerometer and Edge Impulse."
-difficulty: advanced
-compatible-products: [opta]
+title: 'Dual-Core Predictive Maintenance with Opta™'
+description: "This application note describes how to implement a dual-core predictive maintenance system using the Opta™, an accelerometer and Edge Impulse for real-time motor anomaly detection."
 tags:
   - Motor monitoring
   - Anomaly detection
@@ -14,6 +12,9 @@ tags:
   - Opta™
   - Predictive maintenance
   - Industrial IoT
+  - Dual-core
+  - RPC
+  - STM32H747XI
 author: 'José Bagur'
 hardware:
   - hardware/07.opta/opta
@@ -24,9 +25,9 @@ software:
 
 ## Introduction
 
-Motor condition monitoring is essential in industrial settings, where unexpected equipment failures can lead to significant downtime and high maintenance costs. This application note shows how to build a motor anomaly detection system using the Opta™ micro PLC, an accelerometer and Edge Impulse®.
+Motor condition monitoring is essential in industrial settings, where unexpected equipment failures can lead to significant downtime and high maintenance costs. This application note shows how to build a predictive maintenance system using the Opta™ micro PLC, an accelerometer and Edge Impulse®, taking advantage of the Opta™'s dual-core STM32H747XI microcontroller to separate real-time data acquisition from machine learning inference.
 
-The developed system monitors vibration patterns in real-time to identify unusual operating conditions that may signal mechanical problems, wear or potential failures. The system uses machine learning to detect vibration patterns that differ from normal motor operation, enabling predictive maintenance. By leveraging Opta's industrial-grade design and powerful dual-core microcontroller, this solution integrates directly into existing industrial environments with DIN rail mounting and robust I/O capabilities.
+The developed system monitors vibration patterns to identify unusual operating conditions that may signal mechanical problems, wear or potential failures. It uses machine learning to detect vibration patterns that differ from normal motor operation. The application note progresses from a single-core implementation to a dual-core architecture where the Cortex®-M4 core handles all I/O operations (sensor reading, LED control, relay outputs) while the Cortex®-M7 core runs the Edge Impulse inference engine. This separation demonstrates how industrial predictive maintenance systems can benefit from dedicated processing for time-sensitive I/O and compute-intensive tasks, a pattern applicable to many real-world industrial monitoring scenarios.
 
 ## Goals
 
@@ -37,7 +38,8 @@ This application note will help you to:
 - Train a machine learning model using Edge Impulse to detect anomalies based on vibration data.
 - Deploy the trained model directly to the Opta™ for real-time anomaly detection without needing cloud connectivity.
 - Set up visual feedback through the board's built-in user LED and relay outputs to signal detected anomalies and system status.
-- Create industrial predictive maintenance solutions using the Opta's edge computing capabilities.
+- Implement a dual-core architecture that separates data acquisition (M4 core) from machine learning inference (M7 core) using inter-processor communication via the RPC.h library.
+- Create industrial predictive maintenance solutions that leverage the Opta™'s dual-core edge computing capabilities for responsive, real-time monitoring.
 
 ## Hardware and Software Requirements
 
@@ -46,7 +48,7 @@ This application note will help you to:
 - [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1) (Opta™ Lite or Opta™ RS485 variants are also compatible)
 - [ADXL335 accelerometer breakout board](https://www.adafruit.com/product/163) (x1)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
-- 12-24 VDC power supply for the Opta™ (x1)
+- +12-24 VDC power supply for the Opta™ (x1)
 - Jumper wires or industrial cabling for connecting the accelerometer to screw terminals (x1 set)
 - Motor or rotating equipment for testing (for example, an industrial motor or fan) (x1)
 - Power supply for the motor (if needed) (x1)
@@ -55,10 +57,11 @@ This application note will help you to:
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
 - [Arduino Mbed OS Opta Boards core](https://github.com/arduino/ArduinoCore-mbed) (needed for the Opta™)
+- `RPC.h` library (included with the Arduino Mbed OS Opta Boards core) for dual-core communication
 - [Edge Impulse account](https://studio.edgeimpulse.com/) (free tier available)
 - [Edge Impulse CLI tools](https://docs.edgeimpulse.com/docs/cli-installation) for data collection
 
-***The Opta™ features a dual-core STM32H747XI microcontroller with an Arm® Cortex®-M7 running at 480 MHz and an Arm® Cortex®-M4 running at 240 MHz, 2 MB Flash memory, 1 MB SRAM and 16 MB external QSPI Flash, providing substantial processing power and memory for machine learning tasks. For complete hardware specifications, see the [Opta™ documentation](https://docs.arduino.cc/hardware/opta/).***
+***The Opta™ features a dual-core STM32H747XI microcontroller with an Arm® Cortex®-M7 running at 480 MHz and an Arm® Cortex®-M4 running at 240 MHz, 2 MB Flash memory, 1 MB SRAM and 16 MB external QSPI Flash. This dual-core architecture is central to this application note: it enables dedicated cores for I/O operations and machine learning inference, connected through the RPC (Remote Procedure Call) shared memory mechanism. For complete hardware specifications, see the [Opta™ documentation](https://docs.arduino.cc/hardware/opta/).***
 
 ## Hardware Setup Overview
 
@@ -122,7 +125,7 @@ Effective motor condition monitoring relies on sensors that can accurately detec
 The [ADXL335 accelerometer](https://www.analog.com/media/en/technical-documentation/data-sheets/adxl335.pdf) provides accurate, real-time measurements of motor vibrations with several key advantages:
 
 - **3-axis measurement**: Captures vibrations in X, Y, and Z directions.
-- **Analog output**: Direct compatibility with the Opta's analog input terminals without needing complex digital interfaces.
+- **Analog output**: Direct compatibility with the Opta™'s analog input terminals without needing complex digital interfaces.
 - **Low power consumption**: Only 320 μA current consumption makes it suitable for continuous monitoring applications.
 - **Wide frequency range**: Up to 1600 Hz bandwidth on the X and Y axes (550 Hz on the Z axis) covers most common motor fault frequencies across all three measurement directions.
 
@@ -135,7 +138,7 @@ The ADXL335 technical specifications include:
 |       Output      | Ratiometric analog voltages |       +1.65 VDC represents 0g acceleration       |
 |    Power supply   |      +1.8 to +3.6 VDC      | Usually regulated to +3.3 VDC on breakout boards |
 
-Signal processing considerations include selecting appropriate sampling rates based on the expected frequency content of motor vibrations, typically following the Nyquist rule to avoid aliasing. The Opta's STM32H747XI microcontroller provides a high-resolution ADC and substantial processing power on both its Cortex®-M7 and Cortex®-M4 cores, enabling real-time signal analysis and machine learning inference simultaneously.
+Signal processing considerations include selecting appropriate sampling rates based on the expected frequency content of motor vibrations, typically following the Nyquist rule to avoid aliasing. The Opta™'s STM32H747XI microcontroller provides a high-resolution ADC and substantial processing power on both its Cortex®-M7 and Cortex®-M4 cores, enabling real-time signal analysis and machine learning inference simultaneously.
 
 ## Simple Vibration Monitor Example Sketch
 
@@ -152,23 +155,23 @@ The complete example sketch is shown below.
   Motor Vibration Data Collection for Edge Impulse
   Name: motor_vibration_collector.ino
   Purpose: This sketch reads 3-axis acceleration data from an ADXL335 
-  accelerometer connected to an Opta™ micro PLC. 
+  accelerometer connected to an Opta micro PLC. 
   The data is formatted for Edge Impulse data collection and training.
   
   @version 1.0 01/06/25
   @author Arduino Product Experience Team
 */
 
-// Pin definitions for ADXL335 (mapped to Opta™ input terminals)
+// Pin definitions for ADXL335 (mapped to Opta input terminals)
 // I1 = A0, I2 = A1, I3 = A2
 const int xPin = A0;  // I1: X-axis
 const int yPin = A1;  // I2: Y-axis
 const int zPin = A2;  // I3: Z-axis
 
-// Opta™ ADC specifications
+// Opta ADC specifications
 const float VOLTAGE_MAX = 3.3;    // Maximum voltage at the MCU ADC
 const float RESOLUTION  = 4095.0; // 12-bit ADC max value
-const float DIVIDER     = 0.3034; // Opta™ internal voltage divider ratio
+const float DIVIDER     = 0.3034; // Opta internal voltage divider ratio
 
 // ADXL335 specifications (calibrated values for this specific breakout board)
 const float supplyMidPointmV = 1237.0;  // Measured 0g bias point in mV
@@ -200,13 +203,13 @@ void loop() {
   unsigned long currentTime = millis();
 
   if (currentTime - lastSample >= sampleTime) {
-    // Read raw ADC values from Opta™ analog input terminals
+    // Read raw ADC values from Opta analog input terminals
     int xRaw = analogRead(xPin);
     int yRaw = analogRead(yPin);
     int zRaw = analogRead(zPin);
 
     // Convert ADC values to actual input voltage (mV) 
-    // accounting for Opta™ internal voltage divider
+    // accounting for Opta internal voltage divider
     float xVoltmV = (xRaw * (VOLTAGE_MAX / RESOLUTION) / DIVIDER) * 1000.0;
     float yVoltmV = (yRaw * (VOLTAGE_MAX / RESOLUTION) / DIVIDER) * 1000.0;
     float zVoltmV = (zRaw * (VOLTAGE_MAX / RESOLUTION) / DIVIDER) * 1000.0;
@@ -242,16 +245,16 @@ Before we can collect vibration data, we need to configure the Opta™ to interf
 The configuration includes terminal assignments, ADC specifications and calibration parameters:
 
 ```arduino
-// Pin definitions for ADXL335 (mapped to Opta™ input terminals)
+// Pin definitions for ADXL335 (mapped to Opta input terminals)
 // I1 = A0, I2 = A1, I3 = A2
 const int xPin = A0;  // Terminal I1: X-axis
 const int yPin = A1;  // Terminal I2: Y-axis
 const int zPin = A2;  // Terminal I3: Z-axis
 
-// Opta™ ADC specifications
+// Opta ADC specifications
 const float VOLTAGE_MAX = 3.3;    // Maximum voltage at the MCU ADC
 const float RESOLUTION  = 4095.0; // 12-bit ADC max value
-const float DIVIDER     = 0.3034; // Opta™ internal voltage divider ratio
+const float DIVIDER     = 0.3034; // Opta internal voltage divider ratio
 
 // ADXL335 specifications (calibrated values for this specific breakout board)
 const float supplyMidPointmV = 1237.0;  // Measured 0g bias point in mV
@@ -292,13 +295,13 @@ Once we have the raw sensor readings, we need to convert them into useful accele
 The conversion transforms ADC readings into calibrated acceleration data in three stages: raw ADC readings to MCU-voltage, MCU-voltage to the actual input voltage (reversing the divider), and the actual input voltage to acceleration in g units.
 
 ```arduino
-// Read raw ADC values from Opta™ analog input terminals
+// Read raw ADC values from Opta analog input terminals
 int xRaw = analogRead(xPin);
 int yRaw = analogRead(yPin);
 int zRaw = analogRead(zPin);
 
 // Convert ADC values to actual input voltage (mV) 
-// accounting for Opta™ internal voltage divider
+// accounting for Opta internal voltage divider
 float xVoltmV = (xRaw * (VOLTAGE_MAX / RESOLUTION) / DIVIDER) * 1000.0;
 float yVoltmV = (yRaw * (VOLTAGE_MAX / RESOLUTION) / DIVIDER) * 1000.0;
 float zVoltmV = (zRaw * (VOLTAGE_MAX / RESOLUTION) / DIVIDER) * 1000.0;
@@ -526,7 +529,7 @@ After successful training and validation of both models, deploy them as an Ardui
 
 ![Model deployment on Edge Impulse Studio](assets/model-deployment.png)
 
-The generated library includes optimized inference code for both the neural network classifier and K-means anomaly detector, specifically compiled for Opta's Arm® Cortex®-M4 and M7 processors. This enables efficient real-time classification of operating states (idle/nominal) and detection of anomalous conditions with low computational overhead.
+The generated library includes optimized inference code for both the neural network classifier and K-means anomaly detector, specifically compiled for Opta™'s Arm® Cortex®-M4 and M7 processors. This enables efficient real-time classification of operating states (idle/nominal) and detection of anomalous conditions with low computational overhead.
 
 ## Improving the Vibration Monitor with Machine Learning
 
@@ -549,7 +552,7 @@ The complete enhanced example sketch is shown below:
   Name: motor_anomaly_detection.ino
   Purpose: This sketch implements real-time motor anomaly detection using
   an ADXL335 accelerometer and an Edge Impulse machine learning model 
-  deployed on the Opta™ micro PLC for predictive maintenance.
+  deployed on the Opta micro PLC for predictive maintenance.
   
   @version 1.0 01/06/25
   @author Arduino Product Experience Team
@@ -558,16 +561,16 @@ The complete enhanced example sketch is shown below:
 // Include the Edge Impulse library (name will match your project)
 #include <opta-anomaly-detection_inferencing.h>
 
-// Pin definitions for ADXL335 accelerometer (mapped to Opta™ input terminals)
+// Pin definitions for ADXL335 accelerometer (mapped to Opta input terminals)
 // I1 = A0, I2 = A1, I3 = A2
 const int xPin = A0;  // Terminal I1: X-axis
 const int yPin = A1;  // Terminal I2: Y-axis
 const int zPin = A2;  // Terminal I3: Z-axis
 
-// Opta™ ADC specifications
+// Opta ADC specifications
 const float VOLTAGE_MAX = 3.3;    // Maximum voltage at the MCU ADC
 const float RESOLUTION  = 4095.0; // 12-bit ADC max value
-const float DIVIDER     = 0.3034; // Opta™ internal voltage divider ratio
+const float DIVIDER     = 0.3034; // Opta internal voltage divider ratio
 
 // ADXL335 specifications (calibrated values for this specific breakout board)
 const float supplyMidPointmV = 1237.0;  // Measured 0g bias point in mV
@@ -586,8 +589,8 @@ const float anomalyThreshold = 0.6;      // Increased from 0.3 to reduce false a
 const float confidenceThreshold = 0.7;   // Minimum confidence for classification
 const int alertDuration = 2000;          // Minimum time between alerts (ms)
 
-// Opta™ status LEDs and relay outputs
-// LED_D0 to LED_D3 are the four status LEDs on the Opta™
+// Opta status LEDs and relay outputs
+// LED_D0 to LED_D3 are the four status LEDs on the Opta
 // D0 to D3 are the four relay outputs
 const int statusLED = LED_D0;            // Status LED for system state
 const int alertLED  = LED_D1;            // Alert LED for anomaly indication
@@ -604,7 +607,7 @@ int anomalyCount = 0;
 
 /**
   Initializes the accelerometer, LEDs, relay outputs and machine learning
-  system. Configures the Opta™ for optimal performance with the Edge Impulse
+  system. Configures the Opta for optimal performance with the Edge Impulse
   model and prepares for real-time anomaly detection.
 */
 void setup() {
@@ -668,7 +671,7 @@ void loop() {
 
 /**
   Collects a complete window of vibration data for machine learning inference.
-  Reads the ADXL335 accelerometer through the Opta™ analog input terminals.
+  Reads the ADXL335 accelerometer through the Opta analog input terminals.
 */
 void collectVibrationWindow() {
   featureIndex = 0;
@@ -678,13 +681,13 @@ void collectVibrationWindow() {
   for (int sample = 0; sample < (sampleLength / 3); sample++) {
     unsigned long sampleStart = micros();
 
-    // Read raw ADC values from Opta™ analog input terminals
+    // Read raw ADC values from Opta analog input terminals
     int xRaw = analogRead(xPin);
     int yRaw = analogRead(yPin);
     int zRaw = analogRead(zPin);
 
     // Convert ADC values to actual input voltage (mV)
-    // accounting for Opta™ internal voltage divider
+    // accounting for Opta internal voltage divider
     float xVoltmV = (xRaw * (VOLTAGE_MAX / RESOLUTION) / DIVIDER) * 1000.0;
     float yVoltmV = (yRaw * (VOLTAGE_MAX / RESOLUTION) / DIVIDER) * 1000.0;
     float zVoltmV = (zRaw * (VOLTAGE_MAX / RESOLUTION) / DIVIDER) * 1000.0;
@@ -835,7 +838,7 @@ The following sections will help you understand the main components of the enhan
 
 ### Edge Impulse Library Integration
 
-The enhanced sketch starts by including the Edge Impulse library with the necessary constants and configuring the Opta™'s hardware resources for both sensing and alerting.
+The enhanced sketch starts by including the Edge Impulse library with the necessary constants and configuring the Opta's hardware resources for both sensing and alerting.
 
 ```arduino
 // Include the Edge Impulse library (name will match your project)
@@ -862,7 +865,7 @@ const float mVperg = 303.0;             // Measured sensitivity (mV/g)
 The Opta™ provides multiple output options for signaling detected anomalies. The sketch uses the onboard status LEDs for visual feedback and a relay output for triggering external alarm systems, which is a key advantage of using an industrial micro PLC for this application:
 
 ```arduino
-// Opta™ status LEDs and relay outputs
+// Opta status LEDs and relay outputs
 const int statusLED = LED_D0;   // Status LED for system state
 const int alertLED  = LED_D1;   // Alert LED for anomaly indication
 const int alertRelay = D0;      // Relay output for external alarm
@@ -880,13 +883,13 @@ void collectVibrationWindow() {
   for (int sample = 0; sample < (sampleLength / 3); sample++) {
     unsigned long sampleStart = micros();
 
-    // Read raw ADC values from Opta™ analog input terminals
+    // Read raw ADC values from Opta analog input terminals
     int xRaw = analogRead(xPin);
     int yRaw = analogRead(yPin);
     int zRaw = analogRead(zPin);
 
     // Convert ADC values to actual input voltage (mV)
-    // accounting for Opta™ internal voltage divider
+    // accounting for Opta internal voltage divider
     float xVoltmV = (xRaw * (VOLTAGE_MAX / RESOLUTION) / DIVIDER) * 1000.0;
     float yVoltmV = (yRaw * (VOLTAGE_MAX / RESOLUTION) / DIVIDER) * 1000.0;
     float zVoltmV = (zRaw * (VOLTAGE_MAX / RESOLUTION) / DIVIDER) * 1000.0;
@@ -983,7 +986,7 @@ void triggerAnomalyAlert() {
 
 When the system detects unusual vibration patterns, it activates relay output D0 (which can trigger external alarm systems such as sirens, indicator lights or SCADA notifications), flashes the onboard alert LED three times and prints a warning message. The alert system prevents spam by waiting at least 2 seconds between alerts, even if multiple anomalies are detected. During normal operation, the relay and alert LED are deactivated to ensure clean signaling.
 
-***__Important note__: Opta's relay outputs are rated for 250 VAC / 10A, making them suitable for directly driving industrial alarm devices. However, ensure that any connected alarm equipment is properly rated and that wiring complies with local electrical safety standards.***
+***__Important note__: Opta™'s relay outputs are rated for 250 VAC / 10A, making them suitable for directly driving industrial alarm devices. However, ensure that any connected alarm equipment is properly rated and that wiring complies with local electrical safety standards.***
 
 After uploading the enhanced sketch to the Opta™, you should see the following output in the Arduino IDE's Serial Monitor during normal operation:
 
@@ -997,13 +1000,13 @@ The complete intelligent motor anomaly detection sketch can be downloaded [here]
 
 [![ ](assets/download-button.png)](assets/motor_anomaly_detection.zip)
 
-## Advanced: Dual-Core Anomaly Detection
+## Dual-Core Anomaly Detection
 
-The Opta's STM32H747XI microcontroller features two independent processor cores: an Arm® Cortex®-M7 running at 480 MHz and an Arm® Cortex®-M4 running at 240 MHz. This section shows how to split the anomaly detection system across both cores to achieve a more responsive, industrially robust architecture.
+The Opta™'s STM32H747XI microcontroller features two independent processor cores: an Arm® Cortex®-M7 running at 480 MHz and an Arm® Cortex®-M4 running at 240 MHz. This section shows how to split the anomaly detection system across both cores to achieve a more responsive, industrially robust architecture.
 
 ### Dual-Core Architecture Overview
 
-The single-core implementation from the previous section runs data collection and machine learning inference sequentially on the M7 core. While this works well, it means the system cannot collect new vibration data while processing the previous window. By distributing tasks across both cores, we can separate real-time I/O operations from compute-intensive inference:
+The single-core implementation from the previous section runs data collection and machine learning inference sequentially on the M7 core. While this approach is simpler, it means the system cannot collect new vibration data while processing the previous window. The dual-core implementation addresses this by distributing tasks across both cores, separating real-time I/O operations from compute-intensive inference:
 
 - **M4 core (I/O core)**: Reads the ADXL335 accelerometer through the analog input terminals, controls status LEDs and relay outputs, and manages the alert system. This core handles all time-sensitive I/O operations.
 - **M7 core (inference core)**: Runs the Edge Impulse machine learning model and logs diagnostic information to the Serial Monitor. This core handles the computationally intensive inference workload.
@@ -1165,13 +1168,13 @@ The M4 core sketch handles all hardware interaction: reading the accelerometer, 
 
 #include <RPC.h>
 
-// Pin definitions for ADXL335 (mapped to Opta™ input terminals)
+// Pin definitions for ADXL335 (mapped to Opta input terminals)
 // I1 = A0, I2 = A1, I3 = A2
 const int xPin = A0;
 const int yPin = A1;
 const int zPin = A2;
 
-// Opta™ ADC specifications
+// Opta ADC specifications
 const float VOLTAGE_MAX = 3.3;
 const float ADC_RESOLUTION = 4095.0;
 const float DIVIDER = 0.3034;
@@ -1190,7 +1193,7 @@ const int BYTES_PER_WINDOW = FLOATS_PER_WINDOW * sizeof(float);
 // Local feature buffer
 float features[FLOATS_PER_WINDOW];
 
-// Opta™ outputs
+// Opta outputs
 const int statusLED  = LED_D0;
 const int alertLED   = LED_D1;
 const int alertRelay = D0;
@@ -1340,17 +1343,17 @@ The complete advanced intelligent motor anomaly detection sketch can be download
 
 When deploying the intelligent anomaly detection system in industrial environments, consider the following factors to ensure reliable and safe operation:
 
-- **Environmental Protection**: Protect Opta and accelerometer from dust, moisture and temperature extremes using appropriate enclosures rated for the operating environment.
-- **Mounting Stability**: Ensure secure mechanical mounting of both the accelerometer sensor and Opta to prevent sensor movement that could affect measurement accuracy.
+- **Environmental Protection**: Protect Opta™ and accelerometer from dust, moisture and temperature extremes using appropriate enclosures rated for the operating environment.
+- **Mounting Stability**: Ensure secure mechanical mounting of both the accelerometer sensor and Opta™ to prevent sensor movement that could affect measurement accuracy.
 - **Power Management**: Implement appropriate power supply filtering and protection circuits, especially in electrically noisy industrial environments with motor drives and switching equipment.
 - **Calibration Procedures**: Establish baseline measurements for each motor installation to account for mounting variations and motor-specific characteristics that may affect anomaly thresholds.
 - **Maintenance Integration**: Plan integration with existing maintenance management systems through data logging interfaces or communication protocols for complete predictive maintenance programs.
 
 ## Conclusions
 
-This application note demonstrates how to implement motor anomaly detection using the Opta™ with an ADXL335 accelerometer, combined with the Edge Impulse machine learning platform, for industrial predictive maintenance applications.
+This application note demonstrates how to implement a dual-core predictive maintenance system using the Opta™ with an ADXL335 accelerometer and the Edge Impulse machine learning platform. The solution progresses from single-core data collection and inference to a dual-core architecture where the Cortex®-M4 handles real-time I/O and the Cortex®-M7 runs the machine learning inference engine, connected through the RPC shared memory mechanism.
 
-The solution combines Opta's 32-bit processing power with Edge Impulse's machine learning tools to enable real-time anomaly detection directly on the embedded device. This eliminates the need for cloud connectivity and provides immediate response to potential equipment issues with inference times under 20 milliseconds.
+This architectural separation demonstrates a pattern applicable to many industrial monitoring scenarios: dedicating one core to time-sensitive hardware interaction while the other handles compute-intensive processing. Combined with Edge Impulse's machine learning tools, the system enables real-time anomaly detection directly on the embedded device without cloud connectivity, with inference times under 20 milliseconds.
 
 The unsupervised anomaly detection approach using K-means clustering requires only normal operation data for training, making it practical for industrial deployment where fault data may be difficult to obtain. This approach can detect previously unseen fault conditions that differ from established normal patterns.
 
@@ -1358,6 +1361,7 @@ The unsupervised anomaly detection approach using K-means clustering requires on
 
 Building upon this foundation, several enhancements can further improve the motor anomaly detection system:
 
+- **True Parallel Processing**: Implement double-buffering with synchronization flags to enable the M4 core to collect the next vibration window while the M7 core processes the current one, achieving continuous monitoring without gaps between inference cycles.
 - **Multi-Sensor Fusion**: Integrate additional sensors such as temperature, current or acoustic sensors to provide a more complete view of motor health and improve detection accuracy
 - **Wireless Communication**: Add wireless connectivity using LoRaWAN, Wi-Fi or other modules to enable remote monitoring and integration with existing plant systems.
 - **Advanced Analysis**: Implement data logging for trend analysis, industrial protocol integration for SCADA systems or multi-class fault classification to distinguish between different types of motor problems.
