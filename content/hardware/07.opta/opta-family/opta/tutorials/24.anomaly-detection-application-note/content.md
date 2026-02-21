@@ -26,7 +26,7 @@ software:
 
 Motor condition monitoring is essential in industrial settings, where unexpected equipment failures can lead to significant downtime and high maintenance costs. This application note shows how to build a motor anomaly detection system using the Opta™ micro PLC, an accelerometer and Edge Impulse®.
 
-The developed system monitors vibration patterns in real-time to identify unusual operating conditions that may signal mechanical problems, wear or potential failures. The system uses machine learning to detect vibration patterns that differ from normal motor operation, enabling predictive maintenance. By leveraging the Opta's industrial-grade design and powerful dual-core microcontroller, this solution integrates directly into existing industrial environments with DIN rail mounting and robust I/O capabilities.
+The developed system monitors vibration patterns in real-time to identify unusual operating conditions that may signal mechanical problems, wear or potential failures. The system uses machine learning to detect vibration patterns that differ from normal motor operation, enabling predictive maintenance. By leveraging Opta's industrial-grade design and powerful dual-core microcontroller, this solution integrates directly into existing industrial environments with DIN rail mounting and robust I/O capabilities.
 
 ## Goals
 
