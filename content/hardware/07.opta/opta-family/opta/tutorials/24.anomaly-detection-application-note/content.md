@@ -520,7 +520,7 @@ After successful training and validation of both models, deploy them as an Ardui
 1. **Deployment Section**: Navigate to the "Deployment" tab in Edge Impulse Studio
 2. **Arduino Library**: Select "Arduino library" as the deployment target
 3. **Optimization Settings**: Choose `int8` quantization for memory efficiency on the Opta™
-4. **Model Analysis**:Review memory usage and inference timing estimates
+4. **Model Analysis**: Review memory usage and inference timing estimates
 5. **Download Library**: Download the generated Arduino library ZIP file
 6. **Library Installation**: Install in the Arduino IDE using "Sketch > Include Library > Add .ZIP Library"
 
