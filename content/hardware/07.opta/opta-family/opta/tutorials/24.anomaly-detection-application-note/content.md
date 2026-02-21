@@ -335,7 +335,7 @@ In this code:
 
 - CSV format with four decimal places gives us the precision needed for machine learning training
 - Single-line output per sample makes it easy to integrate with the Edge Impulse data forwarder
-- Comma separation follows standard CSV format that most data processing tools expect
+- Comma separation follows the standard CSV format that most data processing tools expect
 
 After uploading the example sketch to the Opta™, you should see output in the Arduino IDE's Serial Monitor similar to this:
 
