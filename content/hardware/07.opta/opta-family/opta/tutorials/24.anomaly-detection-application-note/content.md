@@ -1338,7 +1338,7 @@ The complete advanced intelligent motor anomaly detection sketch can be download
 
 ### System Integration Considerations
 
-When deploying the intelligent anomaly detection system in industrial environments, consider the following factors based on your sensor choice:
+When deploying the intelligent anomaly detection system in industrial environments, consider the following factors to ensure reliable and safe operation:
 
 - **Environmental Protection**: Protect Opta and accelerometer from dust, moisture and temperature extremes using appropriate enclosures rated for the operating environment.
 - **Mounting Stability**: Ensure secure mechanical mounting of both the accelerometer sensor and Opta to prevent sensor movement that could affect measurement accuracy.
