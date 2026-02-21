@@ -237,7 +237,7 @@ The following sections will help you understand the main components of the examp
 
 ### Hardware Configuration and Calibration
 
-Before we can collect vibration data, we need to configure the Opta™ to interface with the ADXL335 accelerometer and set its calibration parameters. The Opta™'s input terminals (`I1`-`I8`) are mapped to Arduino pin names `A0`-`A7` in the board's core, and each terminal features an internal voltage divider that scales the input voltage down to the microcontroller's ADC range.
+Before we can collect vibration data, we need to configure the Opta™ to interface with the ADXL335 accelerometer and set its calibration parameters. The Opta™'s input terminals (`I1`-`I8`) are mapped to Arduino pin names `A0`-`A7` in the board's core. Each terminal features an internal voltage divider that scales the input voltage down to the microcontroller's ADC range.
 
 The configuration includes terminal assignments, ADC specifications and calibration parameters:
 
