@@ -1298,6 +1298,7 @@ void blinkLED(int pin, int times, int delayMs) {
 }
 ```
 
+***Important note: The M4 sketch uses hardcoded sample count values (SAMPLES_PER_WINDOW = 200) that need to match the window size of your trained Edge Impulse model. If you retrain the model with a different window size, update these constants manually to keep both sketches in sync.***
 ### How the Dual-Core Communication Works
 
 The two sketches communicate through the `RPC.h` library, which uses a shared memory region inside the STM32H747XI to pass data between cores. The communication follows a simple request-response cycle:
