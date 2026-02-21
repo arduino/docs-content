@@ -1008,7 +1008,7 @@ The single-core implementation from the previous section runs data collection an
 - **M4 core (I/O core)**: Reads the ADXL335 accelerometer through the analog input terminals, controls status LEDs and relay outputs, and manages the alert system. This core handles all time-sensitive I/O operations.
 - **M7 core (inference core)**: Runs the Edge Impulse machine learning model and logs diagnostic information to the Serial Monitor. This core handles the computationally intensive inference workload.
 
-The two cores communicate using the `RPC.h` library, which provides a bidirectional data stream over shared memory. The M4 core sends raw acceleration data to the M7 core as binary floats, and the M7 core sends back a compact result containing the motor state and anomaly score.
+The two cores communicate using the `RPC.h` library, which provides a bidirectional data stream over shared memory. The M4 core sends raw acceleration data to the M7 core as binary floats, and the M7 core returns a compact result containing the motor state and an anomaly score.
 
 ***__Important note__: This dual-core approach requires two separate sketches, one for each core, and a specific Flash memory configuration. Make sure to follow the setup and upload procedures described below carefully.***
 
