@@ -428,7 +428,7 @@ Start by mounting the accelerometer securely to the motor housing. You will coll
 
 2. **Nominal data collection**: With the motor running under normal operating conditions, **collect 10 to 15 minutes of "nominal" operation** data through multiple two second windows. Vary motor load conditions slightly to capture different normal operating scenarios. Label all data as `nominal` in Edge Impulse Studio.
 
-Edge Impulse can automatically split your collected data into **training (80%) and testing (20%) sets**. The 20 to 30 minutes total of data ensures you have enough samples for both training the model and validating its performance on unseen data.
+Edge Impulse can automatically split your collected data into **training (80%) and testing (20%) sets**. The 20 to 30 minutes of total data ensures you have enough samples for both training the model and validating its performance on unseen data.
 
 ![Data collection on Edge Impulse Studio](assets/data-collection.png)
 
