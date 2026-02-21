@@ -420,7 +420,7 @@ Once configured, the forwarder will stream data from your Opta™ board to Edge 
 
 #### Data Collection Process
 
-With the data forwarder running, you can now collect training data for your anomaly detection model. For effective anomaly detection, you need high-quality data representing normal motor operation in different states.
+With the data forwarder running, you can now collect training data for your anomaly detection model. For effective anomaly detection, you need high-quality data that represent normal motor operation across different states.
 
 Start by mounting the accelerometer securely to the motor housing. You will collect two types of normal operation data:
 
