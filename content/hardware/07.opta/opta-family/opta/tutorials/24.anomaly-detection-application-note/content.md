@@ -312,7 +312,7 @@ float zAccel = (zVoltmV - supplyMidPointmV) / mVperg;
 In this code:
 
 - Timing control maintains consistent sample intervals, which is essential for proper frequency analysis
-- ADC conversion uses the Opta™'s 12-bit resolution and accounts for the internal voltage divider by dividing by the `DIVIDER` constant (0.3034), effectively recovering the actual voltage at the input terminal
+- ADC conversion uses Opta™'s 12-bit resolution and accounts for the internal voltage divider by dividing by the `DIVIDER` constant (0.3034), effectively recovering the actual voltage at the input terminal
 - The multiplication by 1000.0 converts the result from volts to millivolts, matching the ADXL335 calibration values
 - Acceleration calculation applies the calibrated zero-point and sensitivity values to get accurate g-force measurements
 
