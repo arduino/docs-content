@@ -526,7 +526,7 @@ After successful training and validation of both models, deploy them as an Ardui
 
 ![Model deployment on Edge Impulse Studio](assets/model-deployment.png)
 
-The generated library includes optimized inference code for both the neural network classifier and K-means anomaly detector, specifically compiled for the Opta's Arm® Cortex®-M4 and M7 processors. This enables efficient real-time classification of operating states (idle/nominal) and detection of anomalous conditions with low computational overhead.
+The generated library includes optimized inference code for both the neural network classifier and K-means anomaly detector, specifically compiled for Opta's Arm® Cortex®-M4 and M7 processors. This enables efficient real-time classification of operating states (idle/nominal) and detection of anomalous conditions with low computational overhead.
 
 ## Improving the Vibration Monitor with Machine Learning
 
