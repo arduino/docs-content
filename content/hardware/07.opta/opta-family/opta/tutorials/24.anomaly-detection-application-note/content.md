@@ -532,7 +532,7 @@ The generated library includes optimized inference code for both the neural netw
 
 Now that we have trained our machine learning models, we can create a smart vibration monitor that automatically detects motor problems in real-time.
 
-The enhanced system does two things: it identifies whether the motor is running (nominal) or stopped (idle), and it alerts you when it detects unusual vibration patterns that might indicate a problem. This all happens directly on the Opta™ without needing an internet connection, leveraging the dual-core STM32H747XI microcontroller's processing capabilities for edge inference.
+The enhanced system does two things: it identifies whether the motor is running (nominal) or stopped (idle), and it alerts you when it detects unusual vibration patterns that might indicate a problem. This all happens directly on the Opta™ without needing an internet connection. The system leverages the dual-core STM32H747XI microcontroller's processing capabilities for edge inference.
 
 The smart monitoring system can do the following:
 
