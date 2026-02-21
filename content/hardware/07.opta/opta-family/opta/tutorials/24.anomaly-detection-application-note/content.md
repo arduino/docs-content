@@ -131,7 +131,7 @@ The ADXL335 technical specifications include:
 | **Specification** |          **Value**          |                     **Notes**                    |
 |:-----------------:|:---------------------------:|:------------------------------------------------:|
 | Measurement range |       ±3g on all axes       |   Appropriate for common motor vibration levels  |
-|    Sensitivity    |       330 mV/g nominal      |  Provides good resolution for vibration analysis |
+|    Sensitivity    |       300 mV/g typical      |  Provides good resolution for vibration analysis. The code uses a measured calibrated value of 303 mV/g for this specific breakout board. |
 |       Output      | Ratiometric analog voltages |       +1.65 VDC represents 0g acceleration       |
 |    Power supply   |      +1.8 to +3.6 VDC      | Usually regulated to +3.3 VDC on breakout boards |
 
