@@ -289,7 +289,7 @@ In this code:
 
 Once we have the raw sensor readings, we need to convert them into useful acceleration values. The conversion process for the Opta™ involves an additional step compared to typical Arduino boards: accounting for the internal voltage divider that scales the 0-10 VDC input range down to the microcontroller's ADC range.
 
-The conversion transforms ADC readings into calibrated acceleration data in three stages: raw ADC to voltage at the MCU, voltage at the MCU to actual input voltage (reversing the divider) and actual input voltage to acceleration in g units.
+The conversion transforms ADC readings into calibrated acceleration data in three stages: raw ADC readings to MCU-voltage, MCU-voltage to the actual input voltage (reversing the divider), and the actual input voltage to acceleration in g units.
 
 ```arduino
 // Read raw ADC values from Opta™ analog input terminals
