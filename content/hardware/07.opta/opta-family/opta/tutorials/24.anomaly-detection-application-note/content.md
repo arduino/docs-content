@@ -93,7 +93,7 @@ The following connections establish the interface between the Opta™ and the AD
 
 ### Physical Mounting Considerations
 
-Proper accelerometer mounting is essential for effective vibration monitoring. The sensor must be securely attached to the motor housing or equipment using appropriate mechanical fasteners. Good mechanical connection between the mounting surface and sensor ensures accurate vibration transmission and reliable measurements.
+Proper accelerometer mounting is essential for effective vibration monitoring. The sensor must be securely attached to the motor housing or equipment using appropriate mechanical fasteners.  A good mechanical connection between the mounting surface and the sensor ensures accurate vibration transmission and reliable measurements.
 
 The Opta™ itself should be installed on a standard EN60715 DIN rail, keeping it away from high-vibration areas to avoid false readings. Route sensor cables separately from power lines to minimize electrical noise interference.
 
