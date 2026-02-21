@@ -70,7 +70,7 @@ The electrical connections for the motor anomaly detection system are shown in t
 
 This diagram shows the system components using the ADXL335 accelerometer. **The Opta™ acts as the main controller**, while **the ADXL335 accelerometer collects vibration data** from the motor through analog connections to the Opta™'s configurable input terminals.
 
-The ADXL335 accelerometer connects to the Opta™ using its configurable analog input terminals (`I0`, `I1`, `I2`). The Opta™ is powered by a 12-24 VDC external power supply, while the ADXL335 requires a separate regulated +3.3 VDC or +5 VDC power source through its breakout board's onboard voltage regulator.
+The ADXL335 accelerometer connects to the Opta™ using its configurable analog input terminals (`I1`, `I2`, `I3`). The Opta™ is powered by a 12-24 VDC external power supply, while the ADXL335 requires a separate regulated +3.3 VDC or +5 VDC power source through its breakout board's onboard voltage regulator.
 
 ***__Important note__: The Opta™'s analog inputs are designed for 0-10 VDC industrial signals. The ADXL335 outputs a lower voltage range (typically 0-3.3 VDC). While the sensor signals can be read directly, the effective resolution will be reduced since only the lower portion of the input range is used. For production deployments, consider adding signal conditioning circuitry to scale the ADXL335 output to the full 0-10 VDC input range.***
 
