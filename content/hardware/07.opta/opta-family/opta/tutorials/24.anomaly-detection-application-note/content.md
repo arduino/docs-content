@@ -983,7 +983,7 @@ void triggerAnomalyAlert() {
 
 When the system detects unusual vibration patterns, it activates relay output D0 (which can trigger external alarm systems such as sirens, indicator lights or SCADA notifications), flashes the onboard alert LED three times and prints a warning message. The alert system prevents spam by waiting at least 2 seconds between alerts, even if multiple anomalies are detected. During normal operation, the relay and alert LED are deactivated to ensure clean signaling.
 
-***__Important note__: The Opta's relay outputs are rated for 250 VAC / 10A, making them suitable for directly driving industrial alarm devices. However, ensure that any connected alarm equipment is properly rated and that wiring complies with local electrical safety standards.***
+***__Important note__: Opta's relay outputs are rated for 250 VAC / 10A, making them suitable for directly driving industrial alarm devices. However, ensure that any connected alarm equipment is properly rated and that wiring complies with local electrical safety standards.***
 
 After uploading the enhanced sketch to the Opta™, you should see the following output in the Arduino IDE's Serial Monitor during normal operation:
 
