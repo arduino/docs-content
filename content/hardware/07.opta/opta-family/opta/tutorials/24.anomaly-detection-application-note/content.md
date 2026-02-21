@@ -1339,8 +1339,8 @@ The complete advanced intelligent motor anomaly detection sketch can be download
 
 When deploying the intelligent anomaly detection system in industrial environments, consider the following factors based on your sensor choice:
 
-- **Environmental Protection**: Protect the Nano R4 board and accelerometer from dust, moisture and temperature extremes using appropriate enclosures rated for the operating environment.
-- **Mounting Stability**: Ensure secure mechanical mounting of both the accelerometer sensor and the Nano R4 enclosure to prevent sensor movement that could affect measurement accuracy.
+- **Environmental Protection**: Protect Opta and accelerometer from dust, moisture and temperature extremes using appropriate enclosures rated for the operating environment.
+- **Mounting Stability**: Ensure secure mechanical mounting of both the accelerometer sensor and Opta to prevent sensor movement that could affect measurement accuracy.
 - **Power Management**: Implement appropriate power supply filtering and protection circuits, especially in electrically noisy industrial environments with motor drives and switching equipment.
 - **Calibration Procedures**: Establish baseline measurements for each motor installation to account for mounting variations and motor-specific characteristics that may affect anomaly thresholds.
 - **Maintenance Integration**: Plan integration with existing maintenance management systems through data logging interfaces or communication protocols for complete predictive maintenance programs.
