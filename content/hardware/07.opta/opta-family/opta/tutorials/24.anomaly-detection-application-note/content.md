@@ -124,7 +124,7 @@ The [ADXL335 accelerometer](https://www.analog.com/media/en/technical-documentat
 - **3-axis measurement**: Captures vibrations in X, Y, and Z directions.
 - **Analog output**: Direct compatibility with the Opta's analog input terminals without needing complex digital interfaces.
 - **Low power consumption**: Only 320 μA current consumption makes it suitable for continuous monitoring applications.
-- **Wide frequency range**: 0.5 Hz to 1600 Hz bandwidth covers most common motor fault frequencies.
+- **Wide frequency range**: Up to 1600 Hz bandwidth on the X and Y axes (550 Hz on the Z axis) covers most common motor fault frequencies across all three measurement directions.
 
 The ADXL335 technical specifications include:
 
