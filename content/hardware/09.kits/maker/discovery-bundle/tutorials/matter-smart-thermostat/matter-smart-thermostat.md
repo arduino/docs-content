@@ -281,4 +281,4 @@ void loop() {
 
 ---
 
-*Google Home is a trademark of Google LLC. Amazon Alexa is a trademark of Amazon.com, Inc. HomeKit is a trademark of Apple Inc.*
+*legal side note: Google Home is a trademark of Google LLC. - Amazon Alexa is a trademark of Amazon.com, Inc. - HomeKit is a trademark of Apple Inc.*
