@@ -108,7 +108,7 @@ The sketch integrates the Arduino Matter library with the Modulino ecosystem and
 
 In the `setup()`, the first step is to initialize communication with the Modulino nodes and start the Matter stack. A crucial part of this process is the commissioning check: if the board is not yet paired with a smart home hub, the code retrieves and prints an onboarding URL to the Serial Monitor, which provides the QR Code needed for pairing. For a complete explanation of the pairing procedure and commissioning flow, see the Matter section in the [Nano Matter user manual](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#matter).
 
-```cpp
+```arduino
 void setup() {
   Modulino.begin();
   thermo.begin();
@@ -132,7 +132,7 @@ Inside the `loop()`, the device acts as a bridge between the physical environmen
 *   **Temperature Update**: We read the real-time value from the Modulino Thermo and send it to the smart home app using `set_local_temperature()`.
 *   **Reading the Setpoint**: We retrieve the target temperature (set by the user on their smartphone) using `get_heating_setpoint()`.
 
-```cpp
+```arduino
 float currentTemp = thermo.getTemperature();
 matter_thermostat.set_local_temperature(currentTemp);
 
@@ -143,7 +143,7 @@ float setpoint = matter_thermostat.get_heating_setpoint();
 
 We utilize the Modulino Distance sensor to determine if the room is occupied. If the sensor detects an object at a distance of less than 1 meter (1000 mm), the system considers the room "occupied."
 
-```cpp
+```arduino
 bool personPresent = (distance.get() < 1000);
 ```
 
@@ -154,7 +154,7 @@ The heating system activation occurs only if all conditions are met simultaneous
 *   `relay.set()`: Sends a pulse to close the contact of the bistable relay (Heating system ON).
 *   `relay.reset()`: Opens the contact (Heating system OFF), saving energy if the room is empty or the target temperature is reached.
 
-```cpp
+```arduino
 if (mode == MatterThermostat::thermostat_mode_t::HEAT && currentTemp < setpoint && personPresent) {
     relay.set();
 } else {
@@ -173,7 +173,7 @@ Thanks to the Modulino ecosystem, expanding the project is effortless:
 
 ## Complete Code
 
-```cpp
+```arduino
 #include <Matter.h>
 #include <MatterThermostat.h>
 #include <Arduino_Modulino.h>
@@ -202,10 +202,8 @@ void setup() {
   // If not commissioned, it will print the QR code URL in the Serial Monitor
   if (!Matter.isDeviceCommissioned()) {
     Serial.println("Device not commissioned. Scan the QR code in the Serial Monitor:");
-    Serial.printf("Manual pairing code: %s
-", Matter.getManualPairingCode().c_str());
-    Serial.printf("QR code URL: %s
-", Matter.getOnboardingQRCodeUrl().c_str());
+    Serial.printf("Manual pairing code: %s", Matter.getManualPairingCode().c_str());
+    Serial.printf("QR code URL: %s", Matter.getOnboardingQRCodeUrl().c_str());
   }
 
   while (!Matter.isDeviceCommissioned()) {
@@ -277,6 +275,10 @@ void loop() {
     }
   }
 
-  delay(1000); 
+  delay(1000);
 }
 ```
+
+---
+
+*Google Home is a trademark of Google LLC. Amazon Alexa is a trademark of Amazon.com, Inc. HomeKit is a trademark of Apple Inc.*
