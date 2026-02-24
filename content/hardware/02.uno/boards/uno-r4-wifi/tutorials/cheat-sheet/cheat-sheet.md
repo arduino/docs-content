@@ -573,8 +573,8 @@ The pins CANRX and CANTX can be connected to a CAN transceiver, such as a MCP255
 
 | Pin | Function |
 | --- | -------- |
-| D10 | CANRX    |
-| D13 | CANTX    |
+| D10 | CANTX    |
+| D13 | CANRX    |
 
 The built-in **Arduino_CAN** library is used to communicate with other CAN devices. 
 
