@@ -1,6 +1,6 @@
 ---
 title: Portenta Breakout
-url_shop: https://store.arduino.cc/portenta-breakout
+url_shop: https://store.arduino.cc/products/portenta-breakout
 url_guide: /tutorials/portenta-breakout/getting-started/
 primary_button_url: /tutorials/portenta-breakout/getting-started/
 primary_button_title: Get Started
