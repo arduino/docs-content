@@ -12,7 +12,6 @@ type: maker
 
 <p style="text-align: justify;">UNO Q comes with embedded eMMC storage (options 16 GB, 32 GB) and LPDDR4X SDRAM (options 2 GB, 4 GB) to run Linux and your projects smoothly. It features dual-band Wi-Fi® 5 and Bluetooth® 5.1 for wireless connectivity, a USB-C® connector with power delivery input and video output, and Arduino-compatible headers for easy expansion with shields, carriers, and accessories.</p>
 
-
 <p style="text-align: justify;">UNO Q integrates seamlessly with Arduino App Lab, enabling developers to combine Arduino sketches, Linux applications, and AI models in one environment. App Lab can run directly on the board or from a connected PC, offering ready-to-use examples, and the flexibility to create custom apps tailored to your projects.</p>
 
 # Target Areas
@@ -102,8 +101,6 @@ The wireless module uses SDIO for Wi-Fi® data and a UART for Bluetooth® contro
 | JANALOG (JANALOG1)        | 3.3 V, 14-pin                 | - Analog I/O <br></br>- ADC channels and references                                                                                                                                                                                                                                                                                                                             |
 | JSPI (JSPI1)              | 3.3 V logic, 6-pin + 5 V VBUS | - Dedicated SPI: MOSI, MISO, SCLK <br></br>- MCU reset (NRST) <br></br>- Ground <br></br>- 5 V VBUS (USB power)                                                                                                                                                                                                                                                                 |
 | Qwiic (QWIIC1)            | 3.3 V, 4-pin                  | - I²C (Qwiic ecosystem)                                                                                                                                                                                                                                                                                                                                                         |
->>>>>>> main
-
 ### Related Products
 
 - Arduino UNO shields via JDIGITAL and JANALOG
@@ -178,15 +175,6 @@ Use the limits below to size power sources, define rail tolerances, and plan the
 
 <p style="text-align: justify;">UNO Q supports dual power inputs: a USB-C port and a 7-24V DC input. 
 <em>USB-C VBUS</em> and the 5 V output of the 7-24 V buck are <em>diode-OR</em> combined onto the system 5 V bus (5V_SYS).</p>
-
-<p style="text-align: justify;"><code>5V_SYS</code> supplies the <strong>PM4125 PMIC (PMIC1)</strong> at <code>USB_IN</code>.
-The PMIC's L15A LDO provides the 1.8 V rail (<code>VREG_L15A_1P8V</code>) and powers the SoC I/O banks, ANX7625 <code>DVDD18</code>, Wi-Fi® digital logic, and the on-board level shifters. The 1.8 V rail is also available on <code>JMISC</code>.
-From <code>5V_SYS</code>, a buck generates the <code>PWR_3P8V (3.8 V)</code> reserved for system design and future features.
-A second buck generates <code>PWR_3P3V</code> for the STM32U585, the ANX7625 (3.3 V rails), the Wi-Fi® 3.3 V domain, and the 3.3 V header pins.</p>
-<<<<<<< PXCT-1634-UNO-Q-Zh+PT
-=======
-
->>>>>>> main
 <p style="text-align: justify;">A <em>protected P-channel MOSFET</em> (<code>Q2801</code>) can source USB <code>VBUS</code> from <code>5V_SYS</code> when the board operates as a USB host/OTG. The <code>VCOIN</code> powers only the real-time clock of the PMIC and does not power the Linux or MCU domains. The <code>VBAT</code> connects to the <code>PWR_3P8V</code> and is reserved for system design and future features. </p>
 
 ![Arduino UNO Q Power Tree](assets/ABX00162-ABX00173_power_tree.png)
@@ -396,69 +384,6 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ### JMISC (B1) (JMISC1) - Pin Map
 
-<<<<<<< PXCT-1634-UNO-Q-Zh+PT
-| **Pin** | **Designation** | **MCU/SoC Pin** | **Domain** | **Notes**                                                    |
-| ------: | --------------- | --------------- | ---------- | ------------------------------------------------------------ |
-|       1 | MCU_PSSI_D0     | PC6             | 3.3V MCU   | PSSI D0                                                      |
-|       2 | MCU_SDMMC1_CMD  | PD2             | 3.3V MCU   | SDMMC1 CMD / test                                            |
-|       3 | MCU_PSSI_D1     | PC7             | 3.3V MCU   | PSSI D1                                                      |
-|       4 | MCU_TRACE_CLK   | PE2             | 3.3V MCU   | Trace clock                                                  |
-|       5 | MCU_PSSI_D2     | PC8             | 3.3V MCU   | PSSI D2                                                      |
-|       6 | MCU_TRACE_D0    | PE3             | 3.3V MCU   | Trace data 0                                                 |
-|       7 | MCU_PSSI_D3     | PC9             | 3.3V MCU   | PSSI D3                                                      |
-|       8 | MCU_TRACE_D2    | PE5             | 3.3V MCU   | Trace data 2                                                 |
-|       9 | MCU_PSSI_D4     | PE4             | 3.3V MCU   | PSSI D4                                                      |
-|      10 | MCU_TRACE_D3    | PE6             | 3.3V MCU   | Trace data 3                                                 |
-|      11 | MCU_PSSI_D5     | PI4             | 3.3V MCU   | PSSI D5                                                      |
-|      12 | MCU_PE7         | PE7             | 3.3V MCU   | GPIO                                                         |
-|      13 | MCU_PSSI_D6     | PI6             | 3.3V MCU   | PSSI D6                                                      |
-|      14 | MCU_PE8         | PE8             | 3.3V MCU   | GPIO                                                         |
-|      15 | MCU_PSSI_D7     | PI7             | 3.3V MCU   | PSSI D7                                                      |
-|      16 | MCU_I2C4_SCL    | PF14            | 3.3V MCU   | I²C4 SCL                                                     |
-|      17 | MCU_PSSI_PDCK   | PD9             | 3.3V MCU   | PSSI clock                                                   |
-|      18 | MCU_I2C4_SDA    | PF15            | 3.3V MCU   | I²C4 SDA                                                     |
-|      19 | MCU_PSSI_RDY    | PI5             | 3.3V MCU   | PSSI ready                                                   |
-|      20 | MCU_OPAMP1_VOUT | PA3             | Analog     | OpAmp1 VOUT                                                  |
-|      21 | MCU_PSSI_DE     | PD8             | 3.3V MCU   | PSSI data enable                                             |
-|      22 | MCU_OPAMP1_VINP | PA0             | Analog     | OpAmp1 VINP                                                  |
-|      23 | MCU_MCO         | PA8             | 3.3V MCU   | MCU clock out                                                |
-|      24 | MCU_OPAMP1_VINM | PA1             | Analog     | OpAmp1 VINM                                                  |
-|      25 | MCU_CRS_SYNC    | PA10            | 3.3V MCU   | CRS sync                                                     |
-|      26 | GND             | -               | Power      | Ground                                                       |
-|      27 | GND             | -               | Power      | Ground                                                       |
-|      28 | EAR_P_R         | -               | Analog     | Audio ear P_R                                                |
-|      29 | MIC2_INP        | -               | Analog     | Mic2 IN+                                                     |
-|      30 | EAR_M_R         | -               | Analog     | Audio ear M_R                                                |
-|      31 | MIC2_INM        | -               | Analog     | Mic2 IN−                                                     |
-|      32 | LINEOUT_P       | -               | Analog     | Line out P                                                   |
-|      33 | MIC2_BIAS       | -               | Analog     | Mic2 bias                                                    |
-|      34 | LINEOUT_M       | -               | Analog     | Line out M                                                   |
-|      35 | GND             | -               | Power      | Ground                                                       |
-|      36 | HPH_L           | -               | Analog     | Headphone L                                                  |
-|      37 | SOC_GPIO_0_SE0  | -               | 1.8V MPU   | SoC GPIO 0 (SE0)                                             |
-|      38 | HPH_R           | -               | Analog     | Headphone R                                                  |
-|      39 | SOC_GPIO_1_SE0  | -               | 1.8V MPU   | SoC GPIO 1 (SE0)                                             |
-|      40 | HPH_REF         | -               | Analog     | Headphone REF                                                |
-|      41 | SOC_GPIO_2_SE0  | -               | 1.8V MPU   | SoC GPIO 2 (SE0)                                             |
-|      42 | HS_DET          | -               | Analog     | Headset detect                                               |
-|      43 | SOC_GPIO_3_SE0  | -               | 1.8V MPU   | SoC GPIO 3 (SE0)                                             |
-|      44 | GND             | -               | Power      | Ground                                                       |
-|      45 | SOC_GPIO_86_SE0 | -               | 1.8V MPU   | SoC GPIO 86 (SE0)                                            |
-|      46 | SOC_GPIO_98     | -               | 1.8V MPU   | SoC GPIO 98                                                  |
-|      47 | SOC_GPIO_82_SE0 | -               | 1.8V MPU   | SoC GPIO 82 (SE0)                                            |
-|      48 | SOC_GPIO_99     | -               | 1.8V MPU   | SoC GPIO 99                                                  |
-|      49 | SOC_GPIO_18     | -               | 1.8V MPU   | SoC GPIO 18                                                  |
-|      50 | SOC_GPIO_100    | -               | 1.8V MPU   | SoC GPIO 100                                                 |
-|      51 | SOC_GPIO_28     | -               | 1.8V MPU   | SoC GPIO 28                                                  |
-|      52 | SOC_GPIO_101    | -               | 1.8V MPU   | SoC GPIO 101                                                 |
-|      53 | +3V3 (OUT)      | -               | Power      | 3.3 V power out                                              |
-|      54 | +5V_USB (OUT)   | -               | Power      | 5 V power out                                                |
-|      55 | +3V3 (OUT)      | -               | Power      | 3.3 V power out                                              |
-|      56 | +5V_USB (OUT)   | -               | Power      | 5 V power out                                                |
-|      57 | +1V8 (IN)       | -               | Power      | 1.8 V rail in                                                |
-|      58 | GND             | -               | Power      | Ground                                                       |
-|      59 | VCOIN (IN)      | -               | Power      | System voltage (PMIC RTC)                                    |
-=======
 | **Pin** | **Designation** | **MCU/SoC Pin** | **Domain** | **Notes**                                                       |
 |--------:|-----------------|-----------------|------------|-----------------------------------------------------------------|
 |       1 | MCU_PSSI_D0     | PC6             | 3.3V MCU   | PSSI D0                                                         |
@@ -520,7 +445,6 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |      57 | +1V8 (IN)       | -               | Power      | 1.8 V rail in                                                   |
 |      58 | GND             | -               | Power      | Ground                                                          |
 |      59 | VCOIN (IN)      | -               | Power      | System voltage (PMIC RTC)                                       |
->>>>>>> main
 |      60 | VBAT (OUT)      | -               | Power      | System voltage (Reserved for system design and future features) |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
@@ -829,8 +753,6 @@ Use a 5 V / 3 A USB-C source and cable, or power from the 5 V or VIN pins as spe
 <p style="text-align: justify;">UNO Q 配备嵌入式 eMMC 存储（可选 16 GB 或 32 GB）和 LPDDR4X SDRAM（可选 2 GB 或 4 GB），可流畅运行 Linux 系统及您的项目。该开发板支持双频Wi-Fi® 5和Bluetooth® 5.1蓝牙模块实现无线连接，配备支持电源输入与视频输出的USB-C®接口，并提供兼容Arduino的扩展接口，便于通过扩展板、载体板及配件进行功能扩展。</p>
 
 <p style="text-align: justify;">UNO Q与Arduino App Lab无缝集成，使开发者能够在一个环境中同时运行Arduino程序、Linux应用程序和AI模型。App Lab既可直接在开发板上运行，也可通过连接的电脑运行，提供现成的示例程序，并支持灵活创建定制应用程序以满足项目需求。
-
-
 </p>
 
 # 目标领域
@@ -845,7 +767,6 @@ Use a 5 V / 3 A USB-C source and cable, or power from the 5 V or VIN pins as spe
 
 <p style="text-align: justify;">UNO Q融合了具备AI能力的Linux处理器与实时微控制器，实现了高级计算与确定性控制的完美结合。凭借这种双架构设计，它兼容广泛的生态系统，包括Arduino扩展板、载体板、Modulino®节点及第三方配件，成为适用于多样化应用的灵活平台。
 </p>
-
 
 - **原型设计:** 快速实现概念验证，例如基于视觉的检测工具、智能自助终端或内置连接功能的紧凑型边缘计算机。
 
@@ -937,12 +858,10 @@ UNO Q 提供两种型号：
 <p style="text-align: justify;">UNO Q支持双电源输入：USB-C接口和7-24V直流输入。通过USB电源传输协议时，仅请求5V/3A供电协议，不请求更高电压的PD配置文件。请使用额定5V/3A的电源线和线缆，以避免在无线传输突发或显示初始化等短时活动高峰期间出现欠压情况。也可通过JANALOG接头上的5V引脚，使用稳压外部5V直流电源为电路板供电。
 </p>
 
-
 <p style="text-align: justify;"><em>USB-C VBUS</em>与7-24V降压稳压器的5V输出经<em>二极管</em>或门组合接入系统5V总线（<code>5V_SYS</code>）。设计从<code>5V_SYS</code>衍生出3.8V预稳压节点，进而生成3.3V电源。由5V_SYS供电的PMIC则衍生出1.8V电源轨。</p>
 
 <p style="text-align: justify;"><strong>反极性保护：</strong>经直流输入端施加-24V电压验证。本器件仅在正确极性条件下保证工作特性。正常使用时请勿施加反向电压。
 </p>
-
 
 <p style="text-align: justify;"><strong>肖特基或路径</strong>：从降压输出到<code>5V_SYS</code>的正向电压降测量如下（JANALOG VIN注入，Rigol DP832电源串联，Keithley DMM6500测量，8542B有源负载）。功耗按<code>P = I × Vf</code>计算。</p>
 
@@ -1468,16 +1387,6 @@ Arduino App Lab 可安装在您的电脑上，或直接在单板计算机模式�
 
 首次设置时：
 =======
-|  **Date**  | **Revision** | **Changes**                                                                                                                  |
-|:----------:|:------------:|------------------------------------------------------------------------------------------------------------------------------|
-| 17/02/2026 |      6       | Update VBAT description in Power Supply section and JMISC pin 60 note                                                        |
-| 19/01/2026 |      5       | Add video output resolution specifications                                                                                   |
-| 24/11/2025 |      4       | Add hardware acceleration section (graphics APIs, video codecs, OpenCL support); remove incorrect default password reference |
-| 05/11/2025 |      3       | Update operational information                                                                                               |
-| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update                                                                               |
-| 01/10/2025 |      1       | First release                                                                                                                |
->>>>>>> main
-
 1. 安装Arduino App Lab [1]并启动，连接UNO Q开发板：采用**USB-C数据线**进入PC主机模式，或直接供电进入单板计算机模式。
 2. 该开发板将自动检查更新。若有可用更新，系统将提示您安装。更新完成后，需重新启动Arduino App Lab[1]。
 3. 初始设置将要求您为设备设置名称和密码，同时需提供本地网络的Wi-Fi®凭证。
@@ -2271,7 +2180,8 @@ Para a primeira configuração:
 5. O status do App pode ser monitorado na guia do console do App.
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;"> <p style="text-align: justify;">
-  <strong>Observação:</strong> No modo <strong>Hospedado no PC</strong>, é necessária uma conexão <em>de dados USB</em> para a configuração inicial. Posteriormente, é possível utilizar o destino <strong>Rede</strong> através da LAN (SSH). No modo <strong>Computador de placa única (SBC)</strong>, não é necessário um link de dados USB para a configuração, basta ligar a placa e utilizar o destino <strong>Rede</strong> assim que ela se juntar à sua rede. Para periféricos no modo SBC (teclado, rato, câmara USB, microfone), utilize um dongle USB-C com capacidade de fornecimento de energia externa. Quando o DisplayPort Alt-Mode está ativo, a velocidade dos dados USB é reduzida.</p>
+  <strong>Observação:</strong> No modo <strong>Hospedado no PC</strong>, é necessária uma conexão <em>de dados USB</em> para a configuração inicial. Posteriormente, é possível utilizar o destino <strong>Rede</strong> através da LAN (SSH). No modo <strong>Computador de placa única (SBC)</strong>, não é necessário um link de dados USB para a configuração, basta ligar a placa e utilizar o destino <strong>Rede</strong> assim que ela se juntar à sua rede. Para periféricos no modo SBC (teclado, rato, câmara USB, microfone), utilize um dongle USB-C com capacidade de fornecimento de energia externa. Quando o DisplayPort Alt-Mode está ativo, a velocidade dos dados USB é reduzida.
+  </p>
 </div>
 
 Utilize uma fonte e um cabo USB-C de 5 V / 3 A ou alimente a partir dos pinos de 5 V ou VIN, conforme especificado na [secção de alimentação de entrada](#input-power) (USB-C é apenas 5 V / VIN é 7-24 V).
