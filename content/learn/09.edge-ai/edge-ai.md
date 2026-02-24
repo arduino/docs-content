@@ -1,4 +1,4 @@
 ---
 title: Edge AI
-icon: IconArduino
+icon: IconBuild
 ---
