@@ -4,7 +4,7 @@ Kit:
 
 Components:
   Nano Matter:
-    Microcontroller: Silicon Labs MGM240S (32-bit ARM Cortex®-M33)
+    Microcontroller: Silicon Labs MGM240S (32-bit Arm Cortex®-M33)
     Memory: 1536 kB Flash, 256 kB RAM
     Connectivity: 802.15.4 Thread®, Bluetooth® Low Energy 5.3, Bluetooth® Mesh
     Security: Secure Vault® High
@@ -16,8 +16,8 @@ Components:
     Dimensions: 28 mm x 43 mm
     Power: Switch between 3.3V and 5V I/O
 
-  Modulinos:
-    Modulino DISTANCE: Time-of-Flight Proximity Sensor (0 to 1200 mm)
-    Modulino THERMO: Temperature and Humidity Sensor
-    Modulino Latch RELAY: Control external devices (24V - 6A)
+  Modulino Nodes:
+    Modulino Distance: Time-of-Flight Proximity Sensor (0 to 1200 mm)
+    Modulino Thermo: Temperature and Humidity Sensor
+    Modulino Latch Relay: Control external devices (24V - 6A)
     Common: QWIIC connectors (I2C bus), 41 mm x 25.36 mm dimensions
