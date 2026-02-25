@@ -1,0 +1,33 @@
+Board:
+  SKUs:
+    Blues Wireless for Arduino Opta - Cellular Edition EMEA: TPX00220
+    Blues Wireless for Arduino Opta - Cellular Edition NA: TPX00221
+Microcontroller:
+  ID: STM32U575OIY6QTR ARM® Cortex®-M4
+  Cortex-M4 core: Up to 160 MHz
+Power:
+  Input voltage: 12-24 VDC
+  Backup Power Supply: Vinatech VEL13353R8257G Lithium-Ion Capacitor with 250F @ 3.8V
+Connectivity:
+  Cellular: LTE Cat 1 (North America or EMEA)
+  WiFi: 2.4 GHz
+Ports:
+  USB-C®: For direct Notecard programming and debugging
+  SIM slot: For bringing your own Cellular connectivity (Optional)
+Communication:
+  I2C: AUX port to Opta controller
+Antennas: 2 x SMA connectors with 2 LTE antennas included
+Security: Integrated STSAFE Secure element on Notecard
+Memory:
+  Flash: 2 MB
+  SRAM: 768 KB on Notecard
+Dimensions:
+  Weight: 130 g
+  Width: 70 mm
+  Length: 89 mm
+  Height: 62 mm
+IP Protection: IP20
+Operating Temperature: -40 °C to +90 °C
+Programming:
+  Arduino programming language: Via Arduino IDE, Arduino CLI, Arduino Cloud
+  JSON: Notehub In-Browser Terminal
