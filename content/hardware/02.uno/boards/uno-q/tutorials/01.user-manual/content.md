@@ -25,10 +25,9 @@ This user manual will guide you through a practical journey covering the most in
 ## Hardware and Software Requirements
 ### Hardware Requirements
 
-- [UNO Q](https://store.arduino.cc/products/uno-q) (1x)
+- (1x) [UNO Q 2GB](https://store.arduino.cc/products/uno-q) or [UNO Q 4GB](https://store.arduino.cc/products/uno-q-4gb)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (1x)
-- [USB-C multiport adapter (dongle) with external power delivery](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-usb-hub) (1x)
-
+- [USB-C multiport adapter (dongle) with external power delivery](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-usb-hub) (1x
 ***You can use any USB-C dongle with external power delivery capabilities except for [Apple](https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter) ones.***
 
 ### Software Requirements
