@@ -34,11 +34,11 @@ If your board is provisioned to the Cloud with version 2.0 the network credentia
 |     MKR WAN 1300    | Version 1.0 |
 |     MKR WAN 1310    | Version 1.0 |
 |     MKR 1000 WiFi       | Version 1.0 |
-|     MKR WiFi 1010   | Version 1.0 |
+|     MKR WiFi 1010   | Version 2.0 |
 |     MKR GSM 1400    | Version 1.0 |
-|     Nano 33 IoT     | Version 1.0 |
+|     Nano 33 IoT     | Version 2.0 |
 |     Nano ESP32      | Version 1.0 |
-| Nano RP2040 Connect | Version 1.0 |
+| Nano RP2040 Connect | Version 2.0 |
 |     Portenta C33    | Version 1.0 |
 |     Portenta X8     | Version 1.0 |
 
@@ -68,6 +68,9 @@ Here are the boards that are compatible with Bluetooth provisioning via a Blueto
 - [Arduino Opta](https://docs.arduino.cc/hardware/opta/)
 - [Arduino Portenta H7](https://docs.arduino.cc/hardware/portenta-h7/) (follow the guide [*Make your board compatible with BLE provisioning*](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/#make-your-board-compatible-with-ble-provisioning))
 - [Arduino Nicla Vision](https://docs.arduino.cc/hardware/nicla-vision/) (follow the guide [*Make your board compatible with BLE provisioning*](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/#make-your-board-compatible-with-ble-provisioning))
+- [MKR WiFi 1010](https://docs.arduino.cc/hardware/mkr-wifi-1010/) (follow the guide [*Make your board compatible with BLE provisioning*](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/#make-your-board-compatible-with-ble-provisioning))
+- [Nano 33 IoT](https://docs.arduino.cc/hardware/nano-33-iot/) (follow the guide [*Make your board compatible with BLE provisioning*](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/#make-your-board-compatible-with-ble-provisioning))
+- [Nano RP2040 Connect](https://docs.arduino.cc/hardware/nano-rp2040-connect/) (follow the guide [*Make your board compatible with BLE provisioning*](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/#make-your-board-compatible-with-ble-provisioning))
 
 A board that is ready for Bluetooth provisioning has a specific provisioning sketch installed and displays a pulsing LED or a Bluetooth icon on the LED matrix (for UNO R4 WiFi). Newer boards are delivered with this specific sketch already installed. If the pulsing LED is not visible, please use the USB provisioning method or follow the [*Make your board compatible with BLE provisioning* guide](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/#make-your-board-compatible-with-ble-provisioning) in this article.
 
