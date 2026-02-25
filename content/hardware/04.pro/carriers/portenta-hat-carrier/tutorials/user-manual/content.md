@@ -1170,11 +1170,11 @@ Following these steps, you will be able to successfully capture and stream video
 
 ### PWM Fan Control
 
-The Portenta Hat Carrier is designed to be a thermal dissipation reference carrier for Portenta X8, including dedicated Pulse Width Modulation (PWM) pins for external fan control. The principle of PWM involves varying the width of the pulses sent to the device, in this case, a fan, to control its speed or position.
+The Portenta Hat Carrier is designed to be a thermal dissipation reference carrier for Portenta X8, including dedicated Pulse Width Modulation (PWM) pins for external fan control. The principle of PWM involves varying the width of the pulses sent to the device, in this case a fan, to control its speed or position.
 
 ![Portenta Hat Carrier Fan Mount](assets/board_fan_mount.gif)
 
-The fan can be connected via PWM pins available on the Portenta Hat Carrier. The connector has the following structure:
+The fan can be connected via the PWM pins available on the Portenta Hat Carrier. The connector has the following structure:
 
 | **Pin number** | **Silkscreen** | **Power Net** | **Portenta HD Standard Pin** |                         **High-Density Pin**                         |
 | :------------: | :------------: | :-----------: | :--------------------------: | :------------------------------------------------------------------: |
@@ -1188,6 +1188,13 @@ The fan can be connected via PWM pins available on the Portenta Hat Carrier. The
 <br></br>
 
 The fan's speed can be controlled using the following code sequence when you are using the Portenta X8 within the Linux environment.
+
+First, connect to the board and make sure you have root permissions:
+
+```
+adb shell
+sudo su -
+```
 
 Export the PWM channel:
 
@@ -2392,7 +2399,7 @@ Run the `gpios.py` script to read the status of all available GPIOs on the 40-pi
 import os
 
 if os.environ['CARRIER_NAME'] != "rasptenta":
-    print("This script requires Portenta HAT carrier")
+    print("This script requires a Portenta HAT carrier")
     exit(1)
 
 import Portenta.GPIO as GPIO
