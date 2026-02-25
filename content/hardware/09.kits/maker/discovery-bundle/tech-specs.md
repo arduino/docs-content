@@ -1,0 +1,1 @@
+Here you will find the technical specifications for the Arduino Matter Discovery Bundle. **For detailed specifications of each component in the kit, please visit its respective page on Arduino Docs**.
