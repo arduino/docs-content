@@ -326,7 +326,7 @@ In this step, we will upload the new image to the board using the Arduino Flashe
 2. Open a terminal and navigate to the directory where you unzipped the Arduino Flasher CLI (normally `cd /Downloads`).
 3. Run the following command in the terminal: `./arduino-flasher-cli flash latest`.
 4. A download sequence will begin (the image is >1 GB). Once the download is complete, it will flash the board with the new image. **Please note:** this will take several minutes. Do **not** disconnect the USB cable during this process.
-5. Once flashing completes and the tool reports success, **power-cycle** the board (unplug and re-plug USB) so it boots the new OS.
+5. Once flashing completes and the tool reports success, remove the jumper and **power-cycle** the board (unplug and re-plug USB) so it boots the new OS.
 
 The steps above are summarized in the graphic below:
 
