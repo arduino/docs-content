@@ -243,7 +243,7 @@ Once an App is launched, the status of the App is available in the **Console**. 
 
 To create a new App, click on the **"Create New App"** on the main page.
 
-When creating a new App from scratch, the `sketch.ino` and `main.py` will need to be written manually,  and Brick will need to be imported manually.
+When creating a new App from scratch, the `sketch.ino` and `main.py` will be automatically created with the minimum necessary code required to launch the app, while Bricks will need to be imported manually.
 
 To add a Brick, click on the **"Add Bricks"** button, and select the Brick you'd like to use. The Brick can now be used in your `main.py` file.
 
