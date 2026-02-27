@@ -1,7 +1,7 @@
 ---
 title: Arduino App Lab Example Applications Overview
 description: An overview of various applications developed for the Arduino App Lab platform, showcasing unique functionalities from environmental monitoring to machine learning.
-author: Karl Söderby, Christopher Méndez and Ernesto Voltaggio
+author: Karl Söderby, Christopher Méndez, Ernesto Voltaggio and Pedro Lima
 tags: [AI, Computer Vision, Audio Classification, Arduino App Lab]
 ---
 
@@ -491,3 +491,51 @@ The **Vibration Anomaly Detection** example monitors the physical condition of m
 
 - **web_ui:** Brick to create a web interface to display the dashboard.
 - **vibration_anomaly_detection:** Brick that processes accelerometer data to detect irregular vibration patterns.
+
+### Mobile Video Generic Object Detection
+
+![Mobile Video Generic Object Detection](assets/mobile-video-generic-object-detection.png)
+
+The **Mobile Video Generic Object Detection** example enables real-time object detection on smartphone camera feeds. Stream video from your phone using the Arduino IoT Remote app to your Arduino UNO Q, which processes the video through an AI model and displays bounding boxes around detected objects in a web interface.
+
+[**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/mobile-video-generic-object-detection)
+
+#### Additional Hardware
+
+- Smartphone (iOS or Android)
+- Arduino IoT Remote app (available on App Store and Google Play)
+
+#### How it Works
+
+- **Mobile Streaming:** The Arduino IoT Remote app streams live video from your smartphone camera to the Arduino UNO Q board over the same network using a secure pairing QR code.
+- **AI Object Detection:** The board processes video frames through an object detection AI model that can recognize 80+ object classes including cats, dogs, cups, and cell phones.
+- **Web Interface:** Displays the live video feed with bounding boxes around detected objects, confidence scores, and allows users to adjust detection thresholds via an interactive slider.
+- **Real-time Results:** The last five detections are displayed with object class, confidence score, and timestamp.
+
+#### Bricks Used
+
+- **web_ui:** Brick to create the interactive web interface for displaying results, controls, and the pairing QR code.
+- **video_objectdetection:** Brick to process live video frames through an object detection AI model.
+
+### Color Your LEDs
+
+![Color Your LEDs](assets/color-your-leds.png)
+
+The **Color Your LEDs** example enables interactive control of the four built-in RGB LEDs on the Arduino UNO Q through a web-based interface. It demonstrates managing a hybrid architecture where different LEDs connect to different processors on the board.
+
+[**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/color-your-leds)
+
+#### Additional Hardware
+
+No additional hardware required beyond the Arduino UNO Q board and USB-C® cable. Optionally, you can use a USB-C® hub with mouse, keyboard, and monitor to run the board as a Single Board Computer.
+
+#### How it Works
+
+- **Hybrid Architecture:** LEDs 1-2 connect to the Qualcomm QRB2210 MPU and are controlled via direct API calls, while LEDs 3-4 connect to the STM32U585 MCU and are controlled via RouterBridge communication.
+- **Web Dashboard:** The web interface provides toggle switches for ON/OFF states and color selectors for each LED.
+- **Color Control:** LEDs 1, 2, and 4 offer basic color options, while LED 3 features a full color palette due to PWM capabilities for precise RGB mixing.
+- **Real-time Updates:** Socket.IO connections enable instant LED control responses when users select colors from the browser interface.
+
+#### Bricks Used
+
+- **web_ui:** Brick to create the interactive color control dashboard accessible via browser.
