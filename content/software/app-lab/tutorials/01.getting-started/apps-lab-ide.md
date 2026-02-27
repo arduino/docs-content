@@ -98,7 +98,7 @@ The board can be used in **three different modes:**
 - **Over local Wi-Fi® network (network mode)<sup>1</sup>** - using this mode, a connection with the board is established over the local network (over Wi-Fi®), using SSH<sup>2</sup>.
 - **Using board as an Single Board Computer (SBC mode)** - by connecting a USB dongle with a monitor, keyboard & mouse connected, the UNO Q can be used as an SBC.
 
-***<sup>1</sup>Network mode only works once the first setup is complete, which requires a USB connection. After the first setup, when launching the Arduino App Lab, select the "Network" mode.***
+***<sup>1</sup>Network mode only works once the first setup is complete. After the first setup, when launching the Arduino App Lab, select the "Network" mode.***
 
 ***<sup>2</sup>The computer connecting to the board needs to be connected to the same local network.***
 
