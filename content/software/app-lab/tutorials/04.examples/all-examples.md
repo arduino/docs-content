@@ -500,11 +500,6 @@ The **Mobile Video Generic Object Detection** example enables real-time object d
 
 [**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/mobile-video-generic-object-detection)
 
-#### Additional Hardware
-
-- Smartphone (iOS or Android)
-- Arduino IoT Remote app (available on App Store and Google Play)
-
 #### How it Works
 
 - **Mobile Streaming:** The Arduino IoT Remote app streams live video from your smartphone camera to the Arduino UNO Q board over the same network using a secure pairing QR code.
@@ -524,10 +519,6 @@ The **Mobile Video Generic Object Detection** example enables real-time object d
 The **Color Your LEDs** example enables interactive control of the four built-in RGB LEDs on the Arduino UNO Q through a web-based interface. It demonstrates managing a hybrid architecture where different LEDs connect to different processors on the board.
 
 [**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/color-your-leds)
-
-#### Additional Hardware
-
-No additional hardware required beyond the Arduino UNO Q board and USB-C® cable. Optionally, you can use a USB-C® hub with mouse, keyboard, and monitor to run the board as a Single Board Computer.
 
 #### How it Works
 
