@@ -7,7 +7,7 @@ primary_button_title: Get Started
 core: arduino:mbed_nano
 forumCategorySlug: '/hardware/nano-family/nano-33-ble-sense/160'
 status: end-of-life
-productCode: '032'
+productCode: ['032']
 sku: [ABX00031, ABX00035]
 ---
 

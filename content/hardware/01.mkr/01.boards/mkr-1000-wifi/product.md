@@ -7,7 +7,7 @@ primary_button_title: Get Started
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkr1000/137'
 status: end-of-life
-productCode: '017'
+productCode: ['017']
 sku: [ABX00004, ABX00011]
 ---
 

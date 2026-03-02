@@ -5,7 +5,7 @@ url_guide: /tutorials/uno-mini-le/uno-mini-le-guide
 primary_button_url: /tutorials/uno-mini-limited-edition/uno-mini-le-guide
 primary_button_title: Get Started
 core: arduino:avr
-productCode: '117'
+productCode: ['117']
 forumCategorySlug: '/hardware/12'
 sku: [ABX00062]
 ---

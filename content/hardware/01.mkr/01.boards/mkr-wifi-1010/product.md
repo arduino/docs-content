@@ -5,7 +5,7 @@ url_guide: /software/ide-v2/tutorials/ide-v2-board-manager#samd
 draft: true
 core: arduino:samd
 forumCategorySlug: "/hardware/mkr-boards/mkrwifi1010/147"
-productCode: "025"
+productCode: ['025']
 primary_button_url: /software/ide-v2/tutorials/ide-v2-board-manager#samd
 primary_button_title: Get Started
 secondary_button_url: /tutorials/generic/WiFiNINAFirmwareUpdater
