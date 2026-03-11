@@ -9,8 +9,8 @@ libraries:
   - name: USBHost
     url: https://www.arduino.cc/reference/en/libraries/usbhost/
 hardware:
-  - hardware/02.uno/boards/due
-  - hardware/02.uno/boards/zero
+  - hardware/10.mega/boards/due
+  - hardware/12.hero/boards/zero
 software:
   - ide-v1
   - ide-v2
