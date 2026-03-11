@@ -7,7 +7,7 @@ author: 'Arduino'
 tags:
   - Firmware
 hardware:
-  - hardware/02.uno/boards/due
+  - hardware/10.mega/boards/due
 software:
   - ide-v1
   - web-editor
