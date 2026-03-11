@@ -12,7 +12,7 @@ libraries:
 hardware:
   - hardware/01.mkr/boards/mkr-zero
   - hardware/01.mkr/boards/mkr-1000-wifi
-  - hardware/02.uno/boards/zero
+  - hardware/12.hero/boards/zero
 software:
   - ide-v1
   - ide-v2
