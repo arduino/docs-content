@@ -19,7 +19,7 @@ Duemilanove - This is the latest revision of the basic Arduino USB board. It con
 
 Nano - A compact board designed for breadboard use, the Nano connects to the computer using a USB Mini-B cable.
 
-[![](assets/ArduinoMega240.jpg)](content/hardware/02.uno/boards/mega-2560)
+[![](assets/ArduinoMega240.jpg)](content/hardware/10.mega/boards/mega-2560)
 
 Mega - A larger, more powerful Arduino board, shield compatible with the Duemilanove and Diecmila.
 
