@@ -9,8 +9,8 @@ libraries:
   - name: Scheduler
     url: https://www.arduino.cc/reference/en/libraries/scheduler/
 hardware:
-  - hardware/02.uno/boards/due
-  - hardware/02.uno/boards/zero
+  - hardware/10.mega/boards/due
+  - hardware/12.hero/boards/zero
   - hardware/01.mkr/01.boards/mkr-1000-wifi
   - hardware/01.mkr/01.boards/mkr-zero
 software:
