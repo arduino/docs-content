@@ -10,7 +10,7 @@ libraries:
   - name: Waveforms
     url: https://github.com/hoilett/Waveforms/blob/master/Waveforms.h
 hardware:
-  - hardware/02.uno/boards/due
+  - hardware/10.mega/boards/due
 software:
   - ide-v1
   - ide-v2
