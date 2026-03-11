@@ -9,7 +9,7 @@ libraries:
   - name: ArduinoJson Library
     url: https://github.com/bblanchon/ArduinoJson
 hardware:
-  - hardware/02.uno/boards/zero
+  - hardware/12.hero/boards/zero
 software:
   - ide-v1
   - ide-v2

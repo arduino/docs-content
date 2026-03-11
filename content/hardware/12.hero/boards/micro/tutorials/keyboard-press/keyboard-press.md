@@ -10,7 +10,7 @@ libraries:
   - name: Keyboard
     url: https://www.arduino.cc/reference/en/language/functions/usb/keyboard/
 hardware:
-  - hardware/02.uno/boards/micro
+  - hardware/12.hero/boards/micro
 software:
   - ide-v1
   - ide-v2
