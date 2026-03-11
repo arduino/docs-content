@@ -8,11 +8,11 @@ tags:
   - Wi-Fi
   - Access Point
 author: 'Karl Söderby'
-libraries: 
+libraries:
   - name: WiFiNINA
     url: https://www.arduino.cc/en/Reference/WiFiNINA
 hardware:
-  - hardware/02.hero/boards/uno-wifi-rev-2
+  - hardware/02.uno/boards/uno-wifi-rev-2
   - _snippets/hardware/led
   - _snippets/hardware/jumper-wires
   - _snippets/hardware/breadboard
@@ -48,7 +48,7 @@ ___
 
 ## Creating an Access Point
 
-This tutorial barely uses any external hardware: we only need an LED that we will control remotely. But the most interesting aspects lie in the library we are going to use: **WiFiNINA**. This library can be used for many different connectivity projects, where we can both connect to WiFi, make GET requests and - as we will explore in this tutorial - create an access point (AP) and hosting a web server that we can connect to.  
+This tutorial barely uses any external hardware: we only need an LED that we will control remotely. But the most interesting aspects lie in the library we are going to use: **WiFiNINA**. This library can be used for many different connectivity projects, where we can both connect to WiFi, make GET requests and - as we will explore in this tutorial - create an access point (AP) and hosting a web server that we can connect to.
 
 We will go through the following steps in order to create a web server on our Arduino UNO WiFi Rev2:
 - First, we need to initialize the **WiFiNINA** library.
@@ -67,7 +67,7 @@ And that is the configuration we will be using in this tutorial. There are a few
 
 ## Programming the Board
 
-1. First, let's make sure we have the drivers installed. If we are using the Cloud Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino megaAVR Boards** and install it. 
+1. First, let's make sure we have the drivers installed. If we are using the Cloud Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino megaAVR Boards** and install it.
 
 2. Now, we need to install the library needed. If we are using the Cloud Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **WiFiNINA** and install it.
 
@@ -87,7 +87,7 @@ And that is the configuration we will be using in this tutorial. There are a few
 
 Upload the code to the board, and make sure the right board and port are selected.
 
-***Note: both `ssid` and `pass` needs to be a minimum of 8 characters long***. 
+***Note: both `ssid` and `pass` needs to be a minimum of 8 characters long***.
 
 ```arduino
 #include <WiFiNINA.h>

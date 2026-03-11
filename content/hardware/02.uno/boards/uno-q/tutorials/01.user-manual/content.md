@@ -10,7 +10,7 @@ tags:
   - Python
 author: 'Christopher Méndez'
 hardware:
-  - hardware/02.hero/boards/uno-q
+  - hardware/02.uno/boards/uno-q
 software:
   - app-lab
   - ide-v2
@@ -127,6 +127,16 @@ Even when you have set up your Arduino UNO Q as a **single-board computer**, you
 ![Network Mode](assets/network-mode.gif)
 
 With this method, you can access your UNO Q from any machine in your local network. This allows you to use Arduino App Lab as if you were connected directly to the board, where you can develop & run Apps in the same way as if it was connected via USB-C®.
+
+Network Mode relies on **local network discovery (mDNS)** to automatically find boards on the same network. Some network configurations such as guest Wi-Fi, corporate or IoT networks, VPNs, or strict firewall rules may prevent automatic discovery, even if the board is connected to Wi-Fi.
+
+**Troubleshooting Discovery Issues**
+
+*   **Windows Users:** When launching Arduino App Lab for the first time, you may receive a prompt from Windows Defender (or other security software) regarding `mdns-discovery.exe`. You must **allow** this access for the board to be discovered. *Note: The prompt may not appear on systems that have already run Arduino IDE at some point.*
+*   **Firewall Settings:** If the board does not appear, ensure that your firewall allows traffic on **UDP port 5353**, which is required for mDNS discovery.
+
+**Note**
+Being able to access the board via browser, SSH, or IP address does not guarantee that it will appear in Network Mode. Arduino App Lab uses local network discovery to list boards automatically.
 
 Network Mode relies on **local network discovery (mDNS)** to automatically find boards on the same network. Some network configurations such as guest Wi-Fi, corporate or IoT networks, VPNs, or strict firewall rules may prevent automatic discovery, even if the board is connected to Wi-Fi.
 
@@ -255,7 +265,7 @@ After installing the udev rules, **you need to disconnect and reconnect your boa
 
 Unplug the UNO Q from your computer and wait a few seconds. Then reconnect the board. The new permissions will be applied automatically when the board reconnects.
 
-If you had any applications open when you installed the rules, such as Arduino App Lab or a terminal running ADB commands, you should close and restart them after reconnecting the board. This allows applications to properly detect the board with its new permissions. 
+If you had any applications open when you installed the rules, such as Arduino App Lab or a terminal running ADB commands, you should close and restart them after reconnecting the board. This allows applications to properly detect the board with its new permissions.
 
 For ADB commands, the following commands can be used:
 
@@ -263,7 +273,7 @@ For ADB commands, the following commands can be used:
 adb devices
 ```
 
-This command lists all Android Debug Bridge devices connected to your system. Your UNO Q should appear in the list without any error messages. 
+This command lists all Android Debug Bridge devices connected to your system. Your UNO Q should appear in the list without any error messages.
 
 The following command can be used to access the UNO Q:
 
@@ -659,7 +669,7 @@ def loop():
     # Turn on the LED red segment(1, 0, 0)
     Leds.set_led1_color(1,0,0)
     time.sleep(1)
-    
+
     # Turn off the LED (0, 0, 0)
     Leds.set_led1_color(0,0,0)
     time.sleep(1)
@@ -1203,13 +1213,13 @@ To capture more detailed information in the logs, you can append the `--verbose`
   ```
 
 - Restart the Router:
-  
+
   ```bash
   sudo systemctl restart arduino-router
   ```
 
 - View the verbose logs:
-  
+
   ```bash
   journalctl -u arduino-router -f
   ```
@@ -1228,7 +1238,7 @@ To capture more detailed information in the logs, you can append the `--verbose`
 `RpcCall`
 - Helper class representing an asynchronous RPC. If its `.result` method is invoked, it waits for the response, extracts the return value, and propagates error codes if needed.
 
-`Monitor` 
+`Monitor`
 - The library includes a pre-defined Monitor object. This allows the Linux side to send text streams to the MCU (acting like a virtual Serial Monitor) via the RPC method mon/write.
 
 **Threading and Safety**
@@ -1312,7 +1322,7 @@ The following example demonstrates how to control an MCU function (`set_led_stat
 **Prerequisites:**
 
 1. **Flash the MCU Sketch**
-   
+
    Upload the following code using the Arduino IDE or Arduino App Lab. This registers the function we want to call.
 
     ```cpp
@@ -1333,24 +1343,24 @@ The following example demonstrates how to control an MCU function (`set_led_stat
       digitalWrite(LED_BUILTIN, state ? LOW : HIGH);
     }
     ```
-2. **Install the Python Dependency** 
-   
+2. **Install the Python Dependency**
+
     Install the msgpack library using the system package manager:
 
     ```bash
     sudo apt install python3-msgpack
     ```
-3. **Create the Python Script** 
-   
+3. **Create the Python Script**
+
    Create a new file named msgpack_test.py:
 
     ```bash
     nano msgpack_test.py
     ```
 4. **Add the Script Content**
-  
+
    Copy and paste the following code. This script connects manually to the Router's Unix socket and sends a raw RPC request.
-  
+
     ```python
     import socket
     import msgpack
@@ -1361,7 +1371,7 @@ The following example demonstrates how to control an MCU function (`set_led_stat
 
     # 2. Parse command line arguments
     # Default to turning LED ON (True) if no argument is provided
-    led_state = True 
+    led_state = True
 
     if len(sys.argv) > 1:
         arg = sys.argv[1]
@@ -1385,14 +1395,14 @@ The following example demonstrates how to control an MCU function (`set_led_stat
         with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as client:
             client.connect(SOCKET_PATH)
             client.sendall(packed_req)
-            
+
             # 5. Receive the response
             response_data = client.recv(1024)
             response = msgpack.unpackb(response_data)
-            
+
             # Response Format: [type=1 (Response), msgid=1, error=None, result=None]
             print(f"Router Response: {response}")
-            
+
     except Exception as e:
         print(f"Connection failed: {e}")
     ```
@@ -1689,7 +1699,7 @@ void loop() {
 
 ## Wireless Connectivity
 
-The UNO Q features the WCBN3536A radio module that provides dual-band Wi-Fi® 5 (2.4/5 GHz) and Bluetooth® 5.1 to the board. This allows seamless wireless connectivity for both IoT and peripheral communication. 
+The UNO Q features the WCBN3536A radio module that provides dual-band Wi-Fi® 5 (2.4/5 GHz) and Bluetooth® 5.1 to the board. This allows seamless wireless connectivity for both IoT and peripheral communication.
 
 ![Radio Module](assets/radio-module.png)
 
@@ -1718,7 +1728,7 @@ To **disconnect** the UNO Q from the current Wi-Fi network, go to the same place
 Or run the following command in the terminal:
 
 ```bash
-sudo nmcli d disconnect wlan0 
+sudo nmcli d disconnect wlan0
 ```
 ***`wlan0` is the typical name of the Wi-Fi interface, you can verify yours running `nmcli device` in the terminal.***
 
@@ -1769,7 +1779,7 @@ If you prefer not to store your password in plain text (especially when it conta
 nmcli --ask con up <your network name>
 ```
 
-#### From the Microcontroller 
+#### From the Microcontroller
 
 Since the radio module is connected to the Qualcomm microprocessor, we need the **Bridge** to expose the connectivity to the microcontroller.
 
@@ -1849,14 +1859,14 @@ From here, you can do the following:
 You can also manage the Bluetooth connection from the terminal by using `bluetoothctl` as follows:
 
 ```bash
-bluetoothctl power on # turn on Bluetooth 
-bluetoothctl power off # turn off Bluetooth 
+bluetoothctl power on # turn on Bluetooth
+bluetoothctl power off # turn off Bluetooth
 ```
 
 You can enter the Bluetooth manager prompt by running `bluetoothctl` and inside you can run specific commands:
 
 ```bash
-power on # turn on Bluetooth 
+power on # turn on Bluetooth
 power off # turn off Bluetooth
 scan on # start searching for nearby Bluetooth devices
 scan off # stop searching for devices

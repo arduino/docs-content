@@ -5,7 +5,7 @@ author: Hannes Siebeneicher
 tags: [CAN Bus, Communication Protocols]
 hardware:
   - hardware/01.mkr/01.boards/mkr-wifi-1010
-  - hardware/02.hero/boards/uno-r4-wifi
+  - hardware/02.uno/boards/uno-r4-wifi
   - hardware/10.mega/boards/due
 software:
   - ide-v1
@@ -15,7 +15,7 @@ software:
 
 ## Introduction
 
-Controller Area Network (CAN), is a robust and versatile communication protocol that can be used to send data between an Arduino board and other devices in a networked environment without a host computer. Originally developed by Bosch for automotive applications, CAN bus offers advantages in scenarios demanding robust, noise-resistant, and error-checked data transmission. 
+Controller Area Network (CAN), is a robust and versatile communication protocol that can be used to send data between an Arduino board and other devices in a networked environment without a host computer. Originally developed by Bosch for automotive applications, CAN bus offers advantages in scenarios demanding robust, noise-resistant, and error-checked data transmission.
 
 Communication via CAN is enabled through different CAN libraries and is dependent on the hardware used for the setup. This article will mainly focus on the [Arduino_CAN](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/Arduino_CAN) library and its available methods with references to different hardware and respective libraries.
 
@@ -60,7 +60,7 @@ The CAN bus, or Controller Area Network, was developed by the German company Bos
 **1986: CAN 1.0**
 
 The first version of the CAN protocol was released in 1986, supporting a bit rate of up to 125 kilobits per second. Initially, it was used primarily for diagnostic communication within vehicles.
-  
+
  **1991: CAN 2.0**
 
 The influential CAN 2.0 standard was released, introducing significant advancements. This version supported bit rates of up to 1 megabit per second and introduced two frame formats: the standard 11-bit identifier and the extended 29-bit identifier. CAN 2.0 became widely adopted not just in automotive applications but also in industrial and other embedded systems. When using an Arduino, this is the version that is as of today (08.15.2024) supported by the [Arduino_CAN](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/Arduino_CAN) library.
@@ -79,7 +79,7 @@ The latest revision of the ISO standard incorporated CAN FD, making it an integr
 
 **Ongoing: CAN XL (Extra Large)**
 
-Currently in development, CAN XL aims to further enhance the capabilities of the CAN protocol, offering even higher bit rates and larger payloads. This ongoing evolution is driven by the need to compete with Ethernet and other high-speed communication protocols in automotive and industrial applications. 
+Currently in development, CAN XL aims to further enhance the capabilities of the CAN protocol, offering even higher bit rates and larger payloads. This ongoing evolution is driven by the need to compete with Ethernet and other high-speed communication protocols in automotive and industrial applications.
 
 ### How CAN Works
 
@@ -141,29 +141,29 @@ A typical CAN frame consists of the following fields:
 2. **Arbitration Field:**
 
   **Identifier:** A unique value used to identify the message and determine its priority during arbitration.
-  
+
   **RTR (Remote Transmission Request):** Differentiates between data frames and remote frames (requests data).
 
 3. **Control Field:**
-   
+
   **IDE (Identifier Extension):** Indicates whether the identifier field is standard (11 bits) or extended (29 bits).
-  
+
   **r (Reserved bit):** Reserved for future use, should always be dominant.
-  
+
   **DLC (Data Length Code):** Specifies the number of bytes of data (0 to 8 bytes).
 
 4. **Data Field:** Contains the actual payload data, from 0 to 8 bytes.
 
 5. **CRC Field:**
-   
+
    **CRC Sequence:** Holds the Cyclic Redundancy Check value for error detection.
-   
+
    **CRC Delimiter (DEL):** A single recessive bit separating the CRC field from the acknowledgment field.
 
 6. **ACK Field:**
-   
+
    **ACK Slot:** Indicates successful receipt of the message by setting a dominant bit.
-   
+
    **ACK Delimiter (DEL):** Follows the acknowledgment bit and is recessive.
 
 7. **End of Frame (EOF):** Consists of seven recessive bits marking the end of the frame.

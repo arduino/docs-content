@@ -10,7 +10,7 @@ tags:
   - Bluetooth
 author: 'Jacob Hylén'
 hardware:
-  - hardware/02.hero/boards/uno-r4-wifi
+  - hardware/02.uno/boards/uno-r4-wifi
 software:
   - ide-v1
   - ide-v2
@@ -19,7 +19,7 @@ software:
 
 The **Arduino UNO** is our most popular and globally recognized development board, and has become a staple in the maker community and education since its release. The **Arduino UNO R4 WiFi** board is part of the 4th revision of UNO boards, and the first to feature a 32-bit MCU (RA4M1 series from Renesas).
 
-This document serves as a technical overview for the UNO R4 WiFi, where you will find a collection of links to resources and guides to help you get started with your next project. 
+This document serves as a technical overview for the UNO R4 WiFi, where you will find a collection of links to resources and guides to help you get started with your next project.
 
 The ESP32 module and the Renesas RA4M1-chip are part of a sophisticated USB-Serial system that is highly flexible and adaptive to allow for HID features while still keeping the ability to program both the main MCU, and the ESP32, if you so wish (although this is an advanced option and requires some hacking).
 
@@ -27,7 +27,7 @@ The ESP32 module and the Renesas RA4M1-chip are part of a sophisticated USB-Seri
 
 You can also visit the documentation platform for the [Arduino UNO R4 WiFi](/hardware/uno-r4-wifi).
 
-## Datasheet 
+## Datasheet
 The full datasheet is available as a downloadable PDF from the link below:
 
 - [Download the UNO R4 WiFi datasheet](/resources/datasheets/ABX00087-datasheet.pdf)
@@ -40,9 +40,9 @@ When powered via the VIN pin, you are using the onboard regulator to bring down 
 
 ***External devices with a high current draw (e.g. servo motors) should never be powered via the 5 V pin. It is mainly intended for devices drawing lower current such as sensor modules.***
 
-If you’re using the USB-C® connector you must power it with 5 V. 
+If you’re using the USB-C® connector you must power it with 5 V.
 
-When powered via USB, you are bypassing the onboard voltage regulator completely. In this case, the 5 V pin can provide up to 2 A without damaging the board. 
+When powered via USB, you are bypassing the onboard voltage regulator completely. In this case, the 5 V pin can provide up to 2 A without damaging the board.
 
 ## Board Package
 
@@ -72,7 +72,7 @@ The Arduino UNO R4 WiFi is compatible with the [Arduino Cloud](https://create.ar
 
 ## Renesas RA4M1
 
-The UNO R4 WiFi features the powerful and robust Renesas microcontroller also found on the UNO R4 Minima. Renesas microcontrollers are known for their high performance and robustness, including their built-in peripheral set. 
+The UNO R4 WiFi features the powerful and robust Renesas microcontroller also found on the UNO R4 Minima. Renesas microcontrollers are known for their high performance and robustness, including their built-in peripheral set.
 
 These peripherals include analog-to-digital converters, timers, pulse width modulation (PWM) units, communication interfaces (such as UART, SPI, and I2C) and more.
 
@@ -80,14 +80,14 @@ These peripherals include analog-to-digital converters, timers, pulse width modu
 
 ### Memory
 
-The board features 
-- 32 kB of SRAM 
-- 256 kB flash 
+The board features
+- 32 kB of SRAM
+- 256 kB flash
 - 8 kB data (EEPROM).
 
 ## Pins
 
-The UNO R4 WiFi gives you access to many different pins and many of them have special features that will be accounted for in the upcoming sections of this article. Keep reading to learn what you can do with them. 
+The UNO R4 WiFi gives you access to many different pins and many of them have special features that will be accounted for in the upcoming sections of this article. Keep reading to learn what you can do with them.
 
 If you just need a quick overview of the pins functionality, this is a full table of all the IO pins on the UNO R4 WiFi.
 
@@ -183,7 +183,7 @@ The reference voltage of all digital pins is 5 V.
 
 ### PWM
 
-PWM (Pulse Width Modulation) capability allows a digital pin to emulate an analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins. 
+PWM (Pulse Width Modulation) capability allows a digital pin to emulate an analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins.
 
 The UNO R4 WiFi supports PWM on pins marked with ~ on the headers. Officially supported pins are:
 
@@ -196,7 +196,7 @@ The UNO R4 WiFi supports PWM on pins marked with ~ on the headers. Officially su
 | D10 | P103  | GTIOC2A |
 | D11 | P411  | GTIOC6A |
 
-You may use them as analog output pins with the function: 
+You may use them as analog output pins with the function:
 
 ```arduino
 analogWrite(pin, value);
@@ -208,7 +208,7 @@ By default, the resolution is 8 bit (0-255), You can use `analogWriteResolution(
 analogWriteResolution(resolution);
 ```
 
-Please note that the following pins are PWM capable but may interfere with other functionalities of the UNO R4 WiFi board. When writing library functions, please do not use these as they are not officially supported PWM pins. 
+Please note that the following pins are PWM capable but may interfere with other functionalities of the UNO R4 WiFi board. When writing library functions, please do not use these as they are not officially supported PWM pins.
 
 | Pin       | RA4M1 | Timer   |
 | --------- | ----- | ------- |
@@ -230,7 +230,7 @@ The LED Matrix on the UNO R4 WiFi is available to use in your program, to displa
 
 To learn about the LED matrix in depth, check out the [LED Matrix Guide](/tutorials/uno-r4-wifi/led-matrix/).
 
--  `Arduino_LED_Matrix matrix` - Initialises a LED matrix. 
+-  `Arduino_LED_Matrix matrix` - Initialises a LED matrix.
 -  `Arduino_LED_Matrix.load()` - Loads a frame into the frame buffer.
 Here's a basic example:
 
@@ -302,7 +302,7 @@ void loop() {
 
  // Get current time from RTC
   RTC.getTime(currenttime);
-  
+
   // Print out date (DD/MM//YYYY)
   Serial.print(currenttime.getDayOfMonth());
   Serial.print("/");
@@ -369,7 +369,7 @@ void setup() {
   digitalWrite(CS, LOW);
 
   SPI.transfer(0x00);
-  
+
   digitalWrite(CS, HIGH);
 }
 
@@ -407,7 +407,7 @@ And to write something to a device connected via I2C, we can use the following c
 
 ```arduino
 Wire.beginTransmission(1); //begin transmit to device 1
-Wire.write(byte(0x00)); //send instruction byte 
+Wire.write(byte(0x00)); //send instruction byte
 Wire.write(val); //send a value
 Wire.endTransmission(); //stop transmit
 ```
@@ -420,7 +420,7 @@ Wire.endTransmission(); //stop transmit
 
 The UNO R4 WiFi features a Qwiic/STEMMA connector that you can use to connect modules, often allowing you to daisy chain several modules and control all of them through a single connector.
 
-Qwiic or STEMMA are both names for a type of connector developed by SparkFun and Adafruit® respectively, which bundles the I2C pins of a development board and breakout modules. What this means is that if you have a development board (such as for example the Arduino UNO R4 WiFi) and a breakout module, and both have a Qwiic or STEMMA connector, you can hook them up together and with absolutely minimal wiring you can quickly create multi-faceted projects. 
+Qwiic or STEMMA are both names for a type of connector developed by SparkFun and Adafruit® respectively, which bundles the I2C pins of a development board and breakout modules. What this means is that if you have a development board (such as for example the Arduino UNO R4 WiFi) and a breakout module, and both have a Qwiic or STEMMA connector, you can hook them up together and with absolutely minimal wiring you can quickly create multi-faceted projects.
 
 If your breakout board features more than one of these connectors, which many do, you can use the second one to daisychain *another* Qwiic module to add another interactive node to your project.
 
@@ -432,7 +432,7 @@ The UNO R4 WiFi features two I2C buses, and the Qwiic connector is connected to 
 void setup(){
   Wire1.begin();
   Wire1.beginTransmission(1);   //begin transmit to device 1
-  Wire1.write(byte(0x00));      //send instruction byte 
+  Wire1.write(byte(0x00));      //send instruction byte
   Wire1.write(val);             //send a value
   Wire1.endTransmission();      //stop transmit
 }
@@ -440,9 +440,9 @@ void setup(){
 
 ## USB Serial & UART
 
-The UNO R4 WiFi board features 2 separate hardware serial ports. 
+The UNO R4 WiFi board features 2 separate hardware serial ports.
 
-- One port is exposed via USB-C®, and 
+- One port is exposed via USB-C®, and
 - One is exposed via RX/TX pins.
 
 This is one of the few things that are distinctly different from UNO R3 to UNO R4, as the UNO R3 only features one hardware serial port, that is connected to **both** the USB port and the RX/TX pins on the board.
@@ -538,7 +538,7 @@ The UNO R4 WiFi has an extended set of Serial methods that can be enabled whenev
 - `Serial.dtr()` - Returns the status of the Data Terminal Ready (DTR) signal **(bool)** and also sets the- ignore_dtr flag to true if the DTR signal is actively used.
 - `Serial.rts()` - Returns the status of the Request to Send (RTS) signal **(bool)**.
 
-The `<HID.h>` library remaps the `Serial` object to `SerialUSB`, which enables these additional features. 
+The `<HID.h>` library remaps the `Serial` object to `SerialUSB`, which enables these additional features.
 
 Supported links:
 - [SerialUSB.h](https://github.com/arduino/ArduinoCore-renesas/blob/main/cores/arduino/usb/SerialUSB.h) (Github).
@@ -567,7 +567,7 @@ Supported links:
 
 ## CAN Module
 
-The UNO R4 WiFi's RA4M1 has a built-in CAN module that complies with the CAN 2.0A/CAN 2.0B standard. 
+The UNO R4 WiFi's RA4M1 has a built-in CAN module that complies with the CAN 2.0A/CAN 2.0B standard.
 
 The pins CANRX and CANTX can be connected to a CAN transceiver, such as a MCP2551 or TJA1050 ICs.
 
@@ -576,12 +576,12 @@ The pins CANRX and CANTX can be connected to a CAN transceiver, such as a MCP255
 | D10 | CANTX    |
 | D13 | CANRX    |
 
-The built-in **Arduino_CAN** library is used to communicate with other CAN devices. 
+The built-in **Arduino_CAN** library is used to communicate with other CAN devices.
 
 ```arduino
 //set CAN bit rate and init library at
-//choose from BR_125k,BR_250k,BR_500k,BR_1000k 
-CAN.begin(CanBitRate::BR_250k); 
+//choose from BR_125k,BR_250k,BR_500k,BR_1000k
+CAN.begin(CanBitRate::BR_250k);
 ```
 
 Construct a CAN message and send it:
@@ -598,7 +598,7 @@ Read an incoming CAN message.
 CanMsg const msg = CAN.read(); //read
 ```
 
-***Please note that without a CAN transceiver it is not possible to communicate with other CAN devices.*** 
+***Please note that without a CAN transceiver it is not possible to communicate with other CAN devices.***
 
 To learn more about the CAN capabilities of the UNO R4 WiFi, check out the [CAN Guide](/tutorials/uno-r4-wifi/can).
 
@@ -814,7 +814,7 @@ If you want to learn more about Bluetooth LE check out our article [here](/learn
 
 The ESP32 module and the Renesas RA4M1-chip are part of a sophisticated USB-Serial system that is highly flexible and adaptive to allow for HID features while still keeping the ability to program both the main MCU, and the ESP32, if you so wish. By default, the ESP32's is used mainly as a radio module using Wi-Fi® and Bluetooth®.
 
-Overwriting the ESP32's firmware disrupts the communication between the two MCUs, but enables them to act independently. If you wish to restore the board to its initial state, you can follow the steps for espflash in our [Help Center article](https://support.arduino.cc/hc/en-us/articles/9670986058780-Update-the-connectivity-module-firmware-on-UNO-R4-WiFi#espflash). 
+Overwriting the ESP32's firmware disrupts the communication between the two MCUs, but enables them to act independently. If you wish to restore the board to its initial state, you can follow the steps for espflash in our [Help Center article](https://support.arduino.cc/hc/en-us/articles/9670986058780-Update-the-connectivity-module-firmware-on-UNO-R4-WiFi#espflash).
 
 ***Note: To reprogram the ESP32 module, you need to short the ESP_Download pin to GND while resetting the board. This will put the ESP32 module in a bootloader state where you can establish a connection to it and reprogram the module.***
 

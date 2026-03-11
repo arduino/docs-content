@@ -7,7 +7,7 @@ tags:
   - Machine Learning
 author: 'José Bagur'
 hardware:
-  - hardware/02.hero/boards/uno-r4-wifi
+  - hardware/02.uno/boards/uno-r4-wifi
 ---
 
 In the previous module, we explored what Edge AI is and why it is relevant for embedded applications and edge devices. In this module, we will delve deeper into the fundamentals of machine learning for resource-constrained devices, covering the most suitable algorithms, optimization techniques, and the complete lifecycle of Edge AI applications.
@@ -140,7 +140,7 @@ This technique trains a small model (student) to mimic the behavior of a larger,
 
 ### Model Quantization and Compression
 
-Quantization reduces the numerical precision of model weights and activations. Machine learning models typically use 32-bit floating-point numbers (FP32), but in Edge AI, we can use more compact representations [12]. 
+Quantization reduces the numerical precision of model weights and activations. Machine learning models typically use 32-bit floating-point numbers (FP32), but in Edge AI, we can use more compact representations [12].
 
 Quantization is one of the most important techniques for reducing model size and accelerating inference on edge devices. Its impact is so significant that virtually all models deployed on microcontrollers use some form of quantization.
 
@@ -284,7 +284,7 @@ Edge AI development presents unique challenges [16]. Below are the most common o
 
 When there is not enough training data or some classes have many more examples than others, data augmentation techniques (rotation, scaling, noise addition), class rebalancing through oversampling or undersampling, transfer learning with pre-trained models, or additional collection focused on minority classes can be applied.
 
-#### Challenge 2: Too Large Model 
+#### Challenge 2: Too Large Model
 
 If the trained model exceeds the device's available memory, solutions include applying more aggressive quantization (INT8 or INT4), reducing the architecture size (fewer layers, fewer neurons), pruning to remove unnecessary weights, or using hardware with more memory.
 

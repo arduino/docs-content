@@ -5,7 +5,7 @@ tags:
   - CAN
 author: 'Karl Söderby'
 hardware:
-  - hardware/02.hero/boards/uno-r4-wifi
+  - hardware/02.uno/boards/uno-r4-wifi
 ---
 
 In this tutorial you will learn how to use the CAN controller on the **Arduino UNO R4 WiFi** board. The CAN controller is embedded in the UNO R4 WiFi's microcontroller (RA4M1). CAN is a serial protocol that is mainly used in the automotive industry.
@@ -31,7 +31,7 @@ The goals of this tutorial are:
 
 ## Controller Area Network (CAN)
 
-The CAN bus uses two wires: **CAN high** and **CAN low**. On the UNO R4 WiFi, these pins are: 
+The CAN bus uses two wires: **CAN high** and **CAN low**. On the UNO R4 WiFi, these pins are:
 - D13/CANRX0 (receive)
 - D10/CANTX0 (transmit)
 
@@ -79,7 +79,7 @@ memcpy((void *)(msg_data + 4), &msg_cnt, sizeof(msg_cnt));
 CanMsg msg(CAN_ID, sizeof(msg_data), msg_data);
 ```
 
-After you have crafted a CAN message, we can send it off, by using the `CAN.write()` method. The following example creates a CAN message that increases each time `void loop()` is executed. 
+After you have crafted a CAN message, we can send it off, by using the `CAN.write()` method. The following example creates a CAN message that increases each time `void loop()` is executed.
 
 <CodeBlock url="https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/Arduino_CAN/examples/CANWrite/CANWrite.ino" className="arduino"/>
 
