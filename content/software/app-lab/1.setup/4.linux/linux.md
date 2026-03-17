@@ -10,7 +10,7 @@ tags:
   - UNO Q
 ---
 
-This guide details how to prepare your Linux computer for developing with the Arduino UNO Q, including installing dependencies, configuring `udev` rules, and setting user permissions.
+This guide details how to prepare your Linux computer for developing with Arduino App Lab, including installing dependencies, configuring `udev` rules, and setting user permissions.
 
 ## Overview
 
