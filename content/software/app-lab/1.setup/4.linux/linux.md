@@ -12,7 +12,7 @@ tags:
 
 This guide details how to prepare your Linux computer for developing with Arduino App Lab, including installing dependencies, configuring `udev` rules, and setting user permissions.
 
-## Overview
+## Setup on Linux
 
 1. [Prepare Your System](#prepare-your-system)
 1. [Install Arduino App Lab](#install-arduino-app-lab)

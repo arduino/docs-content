@@ -12,7 +12,7 @@ tags:
 
 This guide outlines the steps to prepare your macOS computer for developing with Arduino App Lab.
 
-## Overview
+## Setup on macOS
 
 1. [Install Arduino App Lab](#install-arduino-app-lab)
 1. [Connect to a board](#install-arduino-app-lab)
