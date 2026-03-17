@@ -98,10 +98,8 @@ sudo usermod -a -G dialout $USER
 ## Connect Your Board
 
 1. Launch Arduino App Lab.
-
-1. Connect your UNO Q to your PC using a USB-C cable.
-
-1. Select your board when it appears in the Arduino App Lab interface (this may take up to 60 seconds).
+2. Connect your UNO Q to your PC using a USB-C® cable.
+3. Select your board when it appears in the Arduino App Lab interface (this may take up to 60 seconds).
 
 ## Next steps
 
