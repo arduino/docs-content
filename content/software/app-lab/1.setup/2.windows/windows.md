@@ -10,7 +10,7 @@ tags:
   - UNO Q
 ---
 
-This guide details how to prepare your Windows computer for use with the Arduino UNO Q, covering the installation of necessary tools and connecting your board.
+This guide details how to prepare your Windows computer for use with Arduino App Lab, covering the installation of necessary tools and connecting your board.
 
 ## Setup on Windows
 
