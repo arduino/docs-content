@@ -90,6 +90,27 @@ This example allows remote control of the onboard LED from the Arduino Cloud usi
 
 - **arduino_cloud:** Brick to create a connection to the Arduino Cloud.
 
+### Chatbot
+
+![Chatbot](assets/chatbot-hero.png)
+
+The **Chatbot** example transforms the Arduino UNO Q into an AI-powered assistant using cloud-based Large Language Models. It features a web interface for conversational interaction with streaming responses for daily assistance tasks.
+
+**Note:** This example requires a valid API Key from an LLM provider (Google Gemini, OpenAI GPT, or Anthropic Claude).
+
+[**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/chatbot-cloud-llm)
+
+#### How it Works
+
+- **User Interface:** The web interface provides a chat-style layout with pre-configured prompts and free-text input.
+- **AI Processing:** User prompts are transmitted to the selected cloud provider using securely stored API credentials.
+- **Real-Time Streaming:** Responses arrive as token chunks via WebSocket, displaying progressively for immediate feedback.
+
+#### Bricks Used
+
+- **cloud_llm:** Brick to interact with cloud-based Large Language Models like Google Gemini, OpenAI GPT, or Anthropic Claude.
+- **web_ui:** Brick to create a web interface for configuration and chat display.
+
 ### Concrete Crack Detector
 
 ![Concrete Crack Detector](assets/concrete-crack-detector-hero.png)
@@ -218,8 +239,30 @@ The **System Resources Logger** monitors and displays real-time system performan
 
 #### Bricks Used
 
-- **dbstorage_tsstore:** Brick to store CPU and memory usage data in a time series database with retention and aggregation capability.
-- **web_ui:** Brick to create a web interface with real-time charts and historical data visualization.
+1- **dbstorage_tsstore:** Brick to store CPU and memory usage data in a time series database with retention and aggregation capability.
+2- **web_ui:** Brick to create a web interface with real-time charts and historical data visualization.
+
+### Telegram Bot
+
+![Telegram Bot](assets/telegram-bot-hero.png)
+
+The **Telegram Bot** example transforms the Arduino UNO Q into an interactive Telegram bot capable of responding to commands, analyzing text sentiment, and detecting objects in images shared by users.
+
+**Note:** This example requires an active Telegram account and a bot token obtained from @BotFather.
+
+[**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/telegram-bot)
+
+#### How it Works
+
+- **Command Responses:** The bot responds to text commands such as `/hello` and `/help`.
+- **Text Analysis:** Analyzes sentiment and mood from text messages using AI.
+- **Image Processing:** Detects objects in photos sent to the bot using machine learning.
+
+#### Bricks Used
+
+- **telegram_bot:** Brick to manage communication with Telegram's Bot API, handling both messages and photo exchanges.
+- **object_detection:** Brick to perform AI-powered visual analysis on uploaded images.
+- **mood_detector:** Brick to analyze emotional sentiment from text messages.
 
 ### UNO Q Pin Toggle
 
@@ -374,6 +417,31 @@ The **Home Climate Monitoring** app records temperature and humidity data from t
 
 - **dbstorage_tsstore:** Brick to store sensor data in a time series database with retention and aggregation capability.
 - **web_ui:** For deploying a user interface to display real-time and historical data.
+
+### Music Composer
+
+![Music Composer](assets/music-composer-hero.png)
+
+The **Music Composer** example transforms the Arduino UNO Q into a browser-based music workstation featuring a step sequencer for composing melodies and chords. It includes real-time audio synthesis with effects processing and supports exporting compositions as reusable Python code.
+
+[**Example Source Code**](https://github.com/arduino/app-bricks-examples/tree/main/examples/music-composer)
+
+#### Additional Hardware
+
+- USB speaker with cable
+- USB-C® hub with external power
+- 5V, 3A power supply for hub
+
+#### How it Works
+
+- **Grid Interface:** Users compose music using a grid where rows represent musical notes (F#3 to B4) and columns represent sixteenth-note time steps.
+- **Audio Synthesis:** Real-time playback with three waveform options (sine, square, triangle) and five adjustable effects (bitcrusher, chorus, tremolo, vibrato, overdrive).
+- **Playback Controls:** BPM adjustment (40-240 range), undo/redo functionality, and code export for reuse.
+
+#### Bricks Used
+
+- **web_ui:** Brick to provide the interactive frontend and WebSocket communication channel.
+- **sound_generator:** Brick to handle audio synthesis, effects processing, and step sequence playback.
 
 ### Real Time Accelerometer Data
 
