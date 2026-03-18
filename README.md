@@ -101,3 +101,5 @@ Whenever you create a Pull Request (PR) and the label `preview` is assigned to i
 ![](https://i.creativecommons.org/l/by-sa/3.0/88x31.png)
 
 Please note that your contribution to the Arduino Documentation is licensed under a Creative Commons Attribution-Share Alike 4.0 License. see https://creativecommons.org/licenses/by-sa/4.0/
+
+
