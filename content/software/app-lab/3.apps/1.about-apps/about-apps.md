@@ -1,6 +1,6 @@
 ---
 title: About Apps in Arduino App Lab
-nav_label: About Apps
+overwriteSidebar: About Apps
 description: Understand the structure of an App, including the roles of sketch.ino, main.py, and app.yaml.
 tags:
   - Architecture
