@@ -1,6 +1,6 @@
 ---
 title: Setup Arduino App Lab on Windows
-nav_label: Windows
+overwriteSidebar: Windows
 description: Learn how to download and install Arduino App Lab on Windows.
 author: Arduino Team
 tags:

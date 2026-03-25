@@ -1,6 +1,6 @@
 ---
 title: Setup Arduino App Lab on Linux
-nav_label: Linux
+overwriteSidebar: Linux
 description: Learn how to install Arduino App Lab and configure your Linux system for the UNO Q.
 author: Arduino Team
 tags:

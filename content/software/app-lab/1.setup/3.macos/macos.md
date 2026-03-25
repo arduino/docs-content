@@ -1,6 +1,6 @@
 ---
 title: Setup Arduino App Lab on macOS
-nav_label: macOS
+overwriteSidebar: macOS
 description: Learn how to download and install Arduino App Lab on macOS.
 author: Arduino Team
 tags:
