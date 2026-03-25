@@ -31,8 +31,7 @@ Every app contains three primary configuration and source files:
 | `sketch/sketch.yaml` | Mandatory if `sketch/` exists | The configuration file for the sketch. |
 | `README.md` | Optional | A Markdown document that provides instructions to the user. |
 
-> [!NOTE]
-> The `app.yaml` and `sketch.yaml` files are managed automatically by Arduino App Lab.
+<Alert type="info">**Note:** The `app.yaml` and `sketch.yaml` files are managed automatically by Arduino App Lab.</Alert>
 
 ## Storage Location
 
