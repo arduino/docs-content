@@ -18,7 +18,6 @@ Running an example allows you to quickly test hardware and software capabilities
 Take the following steps to run an example App:
 
 1. Select the **Examples** tab in the left sidebar.
-   ![Screenshot of Arduino App Lab, highlighting the Examples tab in the left sidebar.](../../assets/app-lab-editor-examples-hl-sidebar-button.png)
 2. Select the example you want to run on your board.
 3. Click the **Run** button in the top right corner.
    ![](../../assets/app-lab-editor-example-editor-hl-run.png)
