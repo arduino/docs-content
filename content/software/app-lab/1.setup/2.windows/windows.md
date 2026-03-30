@@ -32,8 +32,6 @@ This guide details how to prepare your Windows computer for use with Arduino App
 
 4. Run the downloaded `.exe` file and follow the on-screen instructions to complete the installation.
 
-5. [Connect to a board](#connect-your-board)
-
 ## Connect Your Board
 
 1. Launch Arduino App Lab.
