@@ -15,7 +15,7 @@ This guide outlines the steps to prepare your macOS computer for developing with
 ## Setup on macOS
 
 1. [Install Arduino App Lab](#install-arduino-app-lab)
-1. [Connect to a board](#install-arduino-app-lab)
+1. [Connect Your Board](#connect-your-board)
 1. [Get Started with Arduino App Lab](../../2.getting-started/1.quickstart/content.md)
 
 ## Install Arduino App Lab
@@ -25,7 +25,7 @@ This guide outlines the steps to prepare your macOS computer for developing with
 3. Download the installer for macOS (.dmg).
 4. Open the downloaded `.dmg` file and drag the **Arduino App Lab** application to your **Applications** folder.
 
-## Connect to a Board
+## Connect Your Board
 
 1. Launch Arduino App Lab.
 
