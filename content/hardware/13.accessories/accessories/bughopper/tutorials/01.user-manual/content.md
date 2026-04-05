@@ -81,15 +81,21 @@ When you open the Bughopper antistatic bag, you will find the board and its corr
 
 Before connecting the Bughopper to your development machine, connect it to the target board first. Align the Bughopper's female 2.54 mm header (J2) with the JCTL 2.54 mm male header on the target board and press firmly until the connector is fully seated as shown in the image below.
 
+![The Bughopper and the UNO Q board connected](assets/connection-1.png)
+
+In the image above, the Bughopper is connected to the Arduino UNO Q board, used here as an example of a compatible target board.
+
 <Alert type="danger"><strong>Safety note</strong>: Ensure that the JCTL 2.54 mm connector is properly aligned before applying pressure. Misalignment can damage the header pins on both boards.</Alert>
 
-Once connected, the Bughopper receives V<sub>TARGET</sub> from the target board through the JCTL connector. This voltage is used as the reference for the level translator and the V<sub>TARGET</sub> status LED. Refer to your target board's documentation for its specific V<sub>TARGET</sub> value. For example, the Arduino UNO Q V<sub>TARGET</sub> is +1.8 VDC.
+Once connected, the Bughopper receives V<sub>TARGET</sub> from the target board through the JCTL connector. This voltage is used as the reference for the level translator and the V<sub>TARGET</sub> status LED. Refer to your target board's documentation for its specific V<sub>TARGET</sub> value. For example, for the UNO Q, V<sub>TARGET</sub> is +1.8 VDC.
 
-<Alert type="note">Beyond serial monitoring, the Bughopper's CBUS GPIO lines (CBUS0-CBUS3) can be used to remotely control the target board, for example, to trigger a USB recovery mode or reboot the system. This makes the Bughopper a useful tool for automated testing and continuous integration setups that require hands-free board control.</Alert>
+<Alert type="note">Beyond serial monitoring, the Bughopper's CBUS GPIO lines (CBUS0–CBUS3) can be used to remotely control the target board, for example, to trigger a USB recovery mode or reboot the system. This makes the Bughopper a useful tool for automated testing and continuous integration setups that require hands-free board control.</Alert>
 
 ### Connecting the Bughopper to Your Computer
 
 With the Bughopper connected to the target board, connect it to your development machine using a USB-C cable. The green power LED will turn on to confirm that the +3.3 VDC rail is active. If the target board is also powered on, the red V<sub>TARGET</sub> LED will turn on as well.
+
+![The Bughopper power LEDs](assets/connection-2.png)
 
 The Bughopper will appear as a standard COM port on your development machine via FTDI's Virtual COM Port (VCP) drivers.
 
