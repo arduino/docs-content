@@ -50,7 +50,7 @@ The bottom view of the Bughopper is shown in the image below:
 
 ![Bughopper bottom view](assets/bughopper-bottom-view.png)
 
-Here is an overview of the board's main components, shown in the image above:
+Here is an overview of the board's main components, shown in the images above:
 
 - **USB-C connector**: This is the primary power and communication interface. It connects the Bughopper to a USB host, such as your development machine. It provides +5 VDC power and the USB data link for serial communication.
 - **FTDI FT230XQ**: This is the main integrated circuit (IC) of the board. It manages the USB protocol and converts USB data to UART signals. It also generates +3.3 VDC via its built-in voltage regulator, and offers four configurable general-purpose input/output (GPIO) lines (CBUS0–CBUS3).
