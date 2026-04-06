@@ -105,7 +105,11 @@ The Bughopper will appear as a standard COM port on your development machine via
 
 The Bughopper uses the FTDI FT230XQ, which requires FTDI's VCP drivers to appear as a serial COM port on your development machine. On most systems, these drivers are installed automatically when the Bughopper is connected for the first time. If the board is not recognized, or if you need to update existing drivers, download the latest version from the [FTDI website](https://ftdichip.com/drivers/vcp-drivers/) and follow the installation instructions for your operating system.
 
-Once the drivers are active, the Bughopper will appear as a new serial port on your system. On Windows, it will show as a `COMx` port (where `x` is a number assigned by the system) in the Device Manager. On macOS, it will appear as `/dev/cu.usbserial-XXXXXXXX` in the terminal, where `XXXXXXXX` is the chip's serial number. On Linux, it will appear as `/dev/ttyUSBx`, where `x` is an index assigned in order of connection, starting from `0`.
+Once the drivers are active, the Bughopper will appear as a new serial port on your system.
+
+- On Windows, it will show as a `COMx` port (where `x` is a number assigned by the system) in the Device Manager.
+- On macOS, it will appear as `/dev/cu.usbserial-XXXXXXXX` in the terminal, where `XXXXXXXX` is the chip's serial number.
+- On Linux, it will appear as `/dev/ttyUSBx`, where `x` is an index assigned in order of connection, starting from `0`.
 
 ### Opening a Serial Terminal
 
