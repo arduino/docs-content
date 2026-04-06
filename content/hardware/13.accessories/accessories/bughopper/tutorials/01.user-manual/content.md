@@ -83,7 +83,7 @@ Before connecting the Bughopper to your development machine, connect it to the t
 
 ![The Bughopper and the UNO Q board connected](assets/connection-1.png)
 
-In the image above, the Bughopper is connected to the Arduino UNO Q board, used here as an example of a compatible target board.
+In the image above, the Bughopper is connected to the Arduino UNO Q, which is used here as an example of a compatible target board.
 
 <Alert type="danger"><strong>Safety note</strong>: Ensure that the JCTL 2.54 mm connector is properly aligned before applying pressure. Misalignment can damage the header pins on both boards.</Alert>
 
