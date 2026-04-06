@@ -115,7 +115,7 @@ Once the drivers are active, the Bughopper will appear as a new serial port on y
 
 With the Bughopper connected and the drivers active, open a serial terminal application of your choice. The [Arduino IDE Serial Monitor](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-serial-monitor/), [PuTTY](https://www.putty.org/), and [CoolTerm](https://freeware.the-meiers.org/) are all compatible options.
 
-Select the Bughopper's COM port in your terminal application and set the baud rate to match the target board's debug output configuration. Refer to your target board's documentation for the correct baud rate. Once the connection is open, the yellow TXD (DL2) and RXD (DL4) LEDs will flash to indicate serial activity.
+Select the Bughopper's COM port in your terminal application and set the baud rate to match the target board's debug output configuration. Refer to your target board's documentation for the correct baud rate. For example, the UNO Q debug UART operates at 115200 bps. Once the connection is open, the yellow TXD (DL2) and RXD (DL4) LEDs will flash to indicate serial activity.
 **Note**: When used with the UNO Q, the Bughopper connects to the SE4 system console UART which is the SoC's main TTY. It provides access to boot logs, bootloader output and the Linux shell, not the Arduino sketch's serial output.
 ## Troubleshooting
 
