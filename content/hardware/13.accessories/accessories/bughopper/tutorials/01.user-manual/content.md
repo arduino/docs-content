@@ -87,7 +87,7 @@ In the image above, the Bughopper is connected to the Arduino UNO Q, which is us
 
 <Alert type="danger"><strong>Safety note</strong>: Ensure that the JCTL 2.54 mm connector is properly aligned before applying pressure. Misalignment can damage the header pins on both boards.</Alert>
 
-Once connected, the Bughopper receives V<sub>TARGET</sub> from the target board through the JCTL connector. This voltage is used as the reference for the level translator and the V<sub>TARGET</sub> status LED. Refer to your target board's documentation for its specific V<sub>TARGET</sub> value. For example, for the UNO Q, V<sub>TARGET</sub> is +1.8 VDC.
+Once connected, the Bughopper receives V<sub>TARGET</sub> from the target board through the JCTL connector. This voltage is used as the reference for the level translator and the V<sub>TARGET</sub> status LED. Refer to your target board's documentation for its specific V<sub>TARGET</sub> value. For example, on the UNO Q, V<sub>TARGET</sub> is +1.8 VDC.
 
 <Alert type="note">Beyond serial monitoring, the Bughopper's CBUS GPIO lines (CBUS0–CBUS3) can be used to remotely control the target board, for example, to trigger a USB recovery mode or reboot the system. This makes the Bughopper a useful tool for automated testing and continuous integration setups that require hands-free board control.</Alert>
 
