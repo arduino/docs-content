@@ -193,7 +193,15 @@ You should see your Media Carrier LEDs blinking as follows:
 
 ### MIPI Camera
 
+The UNO Media Carrier features two MIPI CSI connectors for ...
 
+### MIPI Display
+
+### Audio
+
+#### Audio Playback
+
+#### Audio Recording
 
 ## Support
 
