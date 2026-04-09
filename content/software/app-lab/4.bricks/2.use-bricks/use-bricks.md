@@ -17,7 +17,7 @@ You manage Bricks through the graphical interface in Arduino App Lab. When you a
 
 1. [Open an App](../../3.apps/2.manage-apps/manage-apps.md#open-an-app).
 2. Click the **Add Brick** button in the left sidebar to open the Bricks catalog.
-   ![Screenshot of the App Editor in Arduino App Lab, highlighting the Bricks section in the left sidebar.](../../../assets/app-lab-editor-hl-bricks.png)
+   ![Screenshot of the App Editor in Arduino App Lab, highlighting the Bricks section in the left sidebar.](../../assets/app-lab-editor-hl-bricks.png)
 3. Select a Brick from the list.
 4. Follow the prompts to configure any required settings (e.g., port numbers or authentication keys).
 5. Arduino App Lab automatically adds the Brick entry to your `app.yaml` file.
