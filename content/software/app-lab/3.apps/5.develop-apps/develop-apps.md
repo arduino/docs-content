@@ -1,7 +1,7 @@
 ---
 title: Develop Apps in Arduino App Lab
 overwriteSidebar: Develop Apps
-description: Learn how to write code, manage dependencies, and use the Bridge to build hybrid applications in the Arduino App Lab.
+description: Learn how to write code, manage dependencies, and use the Bridge to build hybrid applications in Arduino App Lab.
 tags:
   - Apps
   - Development
