@@ -10,8 +10,8 @@ tags:
   - Edge AI
   - Linux
 hardware:
-  - hardware/02.hero/boards/uno-q
-  - hardware/accessories/carriers/uno-breakout-carrier
+  - hardware/02.uno/boards/uno-q
+  - hardware/02.uno/carriers/uno-breakout-carrier
 software:
   - app-lab
 ---
