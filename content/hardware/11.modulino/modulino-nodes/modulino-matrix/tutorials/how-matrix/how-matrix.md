@@ -35,7 +35,7 @@ The Modulino LED Matrix features 96 individually controllable LEDs arranged in a
 | Resolution   | Columns   | -       | 12      | -       | -    |
 | Current      | All LEDs  | -       | -       | 200     | mA   |
 
-### Sensor Details
+### Device Details
 
 The **Modulino LED Matrix** module uses an 8×12 LED matrix controlled via charlieplexing technology. The LEDs do not have native I²C capabilities. Instead, the matrix is driven by the Modulino's onboard microcontroller (STM32C011F4), which handles the complex timing required for charlieplexing and provides I²C communication.
 
@@ -461,9 +461,9 @@ while True:
 
 ## Troubleshooting
 
-### Sensor Not Reachable
+### Device Not Reachable
 
-If your Modulino's power LED isn't on or the sensor isn't responsive:
+If your Modulino's power LED isn't on or the device isn't responsive:
 - Ensure both the board and the Modulino are connected to your computer
 - Verify that the power LEDs on both are lit
 - Check that the QWIIC cable is properly clicked into place

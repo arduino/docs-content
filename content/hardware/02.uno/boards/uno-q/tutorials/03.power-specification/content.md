@@ -8,7 +8,7 @@ tags:
   - Voltage Regulation
 author: 'Taddy Chung'
 hardware:
-  - hardware/uno/boards/uno-q
+  - hardware/02.uno/boards/uno-q
 ---
 
 ![UNO Q Power Specifications](assets/uno-q-power-hero.png)
