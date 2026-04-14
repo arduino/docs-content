@@ -193,9 +193,15 @@ You should see your Media Carrier LEDs blinking as follows:
 
 ### MIPI Camera
 
-The UNO Media Carrier features two MIPI CSI connectors for ...
+The UNO Media Carrier features two 22-pin MIPI-CSI connectors compatible with standard Raspberry Pi cameras, enabling dual-camera computer vision applications such as stereo depth mapping, multi-angle capture, and object tracking.
+
+![Media Carrier MIPI-CSI Connectors]()
 
 ### MIPI Display
+
+The UNO Media Carrier features a 22-pin MIPI-DSI connector compatible with standard Raspberry Pi displays, enabling interactive visual output for applications such as touchscreen user interfaces, real-time data dashboards, and multimedia playback.
+
+![Media Carrier MIPI-DSI Connector]()
 
 ### Audio
 
