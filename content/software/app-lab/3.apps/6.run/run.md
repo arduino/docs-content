@@ -42,7 +42,7 @@ You can **stop** a running App in two ways:
 
 ## Monitor an App
 
-When an App is running, you can monitor its execution through the **Console** at the bottom of the screen. The console features three tabs, each focusing on a specific part of the system:
+When an App is running, you can monitor its execution through the **Console** at the top of the screen. Select the tabs at the top to switch between views:
 
 * **App launch:** Displays logs related to code compilation, file transfer, and the deployment process. Check this tab if your App fails to launch.
 * **Serial Monitor:** Displays logs from your microcontroller's sketch. To see output here, you must use the `Monitor.print()` function in your Arduino code instead of the standard `Serial.print()`.

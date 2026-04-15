@@ -194,7 +194,7 @@ See [Getting Started with the Bridge](../../5.bridge/1.get-started-with-bridge/g
 
 Once your code is ready, click the **Run** button in the top right corner. The environment will compile the sketch, flash it to the microcontroller, and start the Python container.
 
-Monitor your App using the **Console** tab:
+Monitor your App using the **Console** at the top of the interface by selecting the following tabs:
 
 * **App launch**: Compilation output and deployment logs.
 * **Serial Monitor**: `Monitor.print()` output from your Arduino sketch.
