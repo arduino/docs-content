@@ -172,8 +172,6 @@ The system routes standard `Serial.print()` commands from your sketch to hardwar
 1. Call `Monitor.begin();` inside your `setup()` function.
 1. Use `Monitor.print()` or `Monitor.println()` for logging. Output will appear in the **Serial Monitor** tab of the Console.
 
-![Screenshot of Arduino App Lab, displaying the Serial Monitor tab of the Console.](../../assets/app-lab-editor-console-serial-monitor-top.png)
-
 This sketch will print `Hello from the MCU!` once per second:
 
 ```cpp
@@ -189,6 +187,8 @@ void loop() {
   delay(1000);
 }
 ```
+
+![Screenshot of Arduino App Lab, displaying the Serial Monitor tab of the Console.](../../assets/app-lab-editor-console-serial-monitor-top.png)
 
 ## Python/Sketch Communication
 
