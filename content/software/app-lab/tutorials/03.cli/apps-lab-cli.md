@@ -1,5 +1,6 @@
 ---
-title: 'Arduino App CLI: Manage Apps from the Command Line'
+title: 'Mange Apps Using Arduino App CLI'
+overwriteSidebar: Arduino App CLI
 description: Learn how to use the Arduino App Lab CLI, the command line interface for launching Apps on the UNO Q board.
 author: Karl Söderby
 tags: [UNO Q, Linux, CLI]
