@@ -1,5 +1,6 @@
 ---
-title: Arduino App Lab and IoT Remote Phone App Integration
+title: IoT Remote App Integration for Arduino App Lab
+overwriteSidebar: IoT Remote App Integration
 description: This tutorial teaches you how to leverage the Arduino IoT Remote app to use your phone sensors with Arduino App Lab applications.
 author: Christopher Méndez
 hardware:
