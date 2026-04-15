@@ -23,7 +23,7 @@ Because these boards run a standard Linux OS, they support a wide range of I/O c
 
 ## Connect power, display, and input devices
 
-For the most reliable first-time experience, we recommend using a display and a USB mouse and keyboard.
+For the most reliable experience during initial setup and configuration, we recommend using a USB-C hub to connect a display and a wired USB mouse and keyboard. Once the system is configured, you can connect Bluetooth peripherals as needed.
 
 ### What You'll Need
 
