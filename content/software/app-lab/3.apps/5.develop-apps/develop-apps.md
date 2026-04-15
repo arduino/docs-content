@@ -136,7 +136,13 @@ You can use external Python packages (like `numpy` or `flask`) by creating a req
 
 1. In the file browser, create a new file named `requirements.txt`.
 2. **Important:** Place the `requirements.txt` file inside the `python/` folder, not the root of the App.
-3. List your packages (one per line) in the file.
+3. List your packages (one per line) in the file. For example:
+
+   ```text
+   numpy
+   requests
+   ```
+
 4. When you click **Run**, the `uv` package manager automatically installs the listed packages into the App's virtual environment.
 
 ## Sketch Development
