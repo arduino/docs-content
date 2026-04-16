@@ -82,14 +82,15 @@ sudo usermod -a -G dialout $USER
 ## Install Arduino App Lab
 
 1. Visit the official [Arduino software page](https://www.arduino.cc/en/software/#app-lab-section).
-2. Download the **Arduino App Lab** archive for Linux (.tar.gz).
-3. Create an Applications directory in your home folder:
+1. Locate the **Arduino App Lab** section.
+1. Download the Arduino App Lab archive for Linux (.tar.gz).
+1. Create an Applications directory in your home folder:
 
    ```bash
    mkdir -p ~/Applications
    ```
 
-4. Extract the archive into that folder:
+1. Extract the archive into that folder:
 
    ```bash
    tar -xf ~/Downloads/ArduinoAppLab*.tar.gz -C ~/Applications

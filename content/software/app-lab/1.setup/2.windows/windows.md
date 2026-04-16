@@ -22,7 +22,7 @@ This guide details how to prepare your Windows computer for use with Arduino App
 
 1. Visit the official [Arduino software page](https://www.arduino.cc/en/software/#app-lab-section).
 
-2. Scroll to the **Arduino App Lab** section.
+2. Locate the **Arduino App Lab** section.
 
 3. Download the installer for Windows:
 
