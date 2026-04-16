@@ -113,6 +113,12 @@ Bridge.provide("my_function", my_function)
 App.run()
 ```
 
+Then, you can trigger this function from your Arduino sketch (`sketch.ino`) using the Bridge library:
+
+```cpp
+Bridge.call("my_function");
+```
+
 ### Add Bricks
 
 Bricks are pre-packaged code modules that run as separate processes alongside your App. Each Brick provides a specific functionality, such as a web interface or a database, that you can interact with from your Python script.
