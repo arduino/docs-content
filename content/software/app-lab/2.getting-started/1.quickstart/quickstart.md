@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Using Arduino App Lab"
-overwriteSidebar: "Tutorial"
+overwriteSidebar: "App Lab Tutorial"
 description: "Learn how to use Arduino App Lab to develop and run Apps on your board."
 tags:
   - Getting Started
