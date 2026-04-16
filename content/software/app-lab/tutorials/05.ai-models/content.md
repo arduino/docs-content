@@ -1,5 +1,6 @@
 ---
 title: Custom AI Models for Arduino App Lab
+overwriteSidebar: Custom AI Models
 description: This tutorial teaches you how to create and train your own AI models to customize your App Bricks.
 author: Christopher Méndez
 hardware:
@@ -289,6 +290,3 @@ Thanks to the seamless integration between Arduino App Lab and Edge Impulse, you
 * Try creating an audio classification model using a USB microphone to teach your UNO Q to recognize voice commands or environmental sounds.
 * Integrate your new custom model into a Logic flow within App Lab to trigger specific actions, such as turning on an LED or sending a notification, when a specific object is detected.
 * Export the `.eim` file manually from Edge Impulse to experiment with running your custom model in C++ or Python projects outside of Arduino App Lab.
-
-
-
