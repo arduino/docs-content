@@ -54,23 +54,35 @@ Built-in examples are read-only. To modify the code, you must create a copy of t
 
 The red LED on your board now blinks at a much faster rate.
 
-## Step 4: Log and Monitor
+## Step 4: Log and Monitor with Python
 
-To debug your hybrid App or track its internal state, you can send messages from the Arduino sketch to the App Lab interface using the `Monitor` object.
+Printing messages from your code is the simplest way to track your app's behavior and debug issues. In App Lab, standard Python `print()` statements are automatically captured and displayed in the **Python** console tab.
 
-1. In the **Files** panel, select `sketch/sketch.ino`.
-2. Inside the `set_led_state()` function, add this code to log the state of the LED:
+1. Select `python/main.py` in the **Files** panel.
+2. Locate the `loop()` function and add the following `print` statements to log the state of the LED:
 
-    ```cpp
-    digitalWrite(LED3_R, HIGH);
-    if led_state:
-        print("LED ON")
-    else:
-        print("LED OFF")
+    ```python
+    def loop():
+        global led_state
+        time.sleep(1)
+        led_state = not led_state
+        Bridge.call("set_led_state", led_state)
+
+        # Log the LED state to the console
+        if led_state:
+            print("LED is ON")
+        else:
+            print("LED is OFF")
     ```
 
-3. Select **Run**. The **Console** will open automatically.
-   ![Screenshot of the Serial Monitor in Arduino App Lab, displaying the output.](../../assets/examples/blink-led/monitor/blink-led-monitor.png)
+3. Select **Run** to start the app.
+4. When the **Console** opens, select the **Python** tab to see your messages appearing in real-time
+
+<!-- TODO: Add additional section for Serial Monitor logging in Sketch
+
+[Screenshot of the Serial Monitor in Arduino App Lab, displaying the output.](../../assets/examples/blink-led/monitor/blink-led-monitor.png)
+
+-->
 
 ## Next Steps
 
