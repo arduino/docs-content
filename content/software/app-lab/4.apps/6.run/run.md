@@ -35,15 +35,15 @@ Once configured, your board will automatically start the App on boot.
 
 You can **stop** a running App in two ways:
 
-* When you run an App, the **Run** button will be replaced by a **Stop** button. Click it to halt the application.
+- When you run an App, the **Run** button will be replaced by a **Stop** button. Click it to halt the application.
   ![Screenshot of the App Editor in Arduino App Lab, highlighting the Stop button in the top-right corner.](../../assets/app-lab-console/running/running-hl-top-stop-button.png)
-* You can always stop a running App by clicking the **Stop** button in the right corner of the **bottom status bar**.
+- You can always stop a running App by clicking the **Stop** button in the right corner of the **bottom status bar**.
   ![Screenshot of Arduino App Lab, highlighting the Stop button in the right corner of the bottom status bar.](../../assets/app-lab-console/running/running-hl-bottom-stop-button.png)
 
 ## Monitor an App
 
 When an App is running, you can monitor its execution through the **Console** at the top of the screen. Select the tabs at the top to switch between views:
 
-* **App launch:** Displays logs related to code compilation, file transfer, and the deployment process. Check this tab if your App fails to launch.
-* **Serial Monitor:** Displays logs from your microcontroller's sketch. To see output here, you must use the `Monitor.print()` function in your Arduino code instead of the standard `Serial.print()`.
-* **Python:** Displays standard output from your Python script, such as `print()` statements. This is where you monitor the high-level logic and any errors on the Linux side.
+- **App launch:** Displays logs related to code compilation, file transfer, and the deployment process. Check this tab if your App fails to launch.
+- **Serial Monitor:** Displays logs from your microcontroller's sketch. To see output here, you must use the `Monitor.print()` function in your Arduino code instead of the standard `Serial.print()`.
+- **Python:** Displays standard output from your Python script, such as `print()` statements. This is where you monitor the high-level logic and any errors on the Linux side.

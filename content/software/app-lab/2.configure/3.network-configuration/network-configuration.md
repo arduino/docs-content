@@ -15,8 +15,8 @@ Arduino App Lab uses **mDNS (Multicast DNS)** to automatically detect your UNO Q
 
 To ensure discovery works correctly:
 
-* **Allow UDP Port 5353:** Your firewall must allow traffic on this port, which is the standard for mDNS.
-* **Approve mdns-discovery:** On Windows, you must allow `mdns-discovery.exe` through the Windows Defender Firewall when prompted during the first launch of App Lab.
+- **Allow UDP Port 5353:** Your firewall must allow traffic on this port, which is the standard for mDNS.
+- **Approve mdns-discovery:** On Windows, you must allow `mdns-discovery.exe` through the Windows Defender Firewall when prompted during the first launch of App Lab.
 
 ## Required Ports
 
@@ -32,9 +32,9 @@ Depending on the features and Bricks you use, the UNO Q requires access to the f
 
 ## Supported Network Types
 
-* **WPA/WPA2 Personal:** Natively supported via the App Lab Wi-Fi setup wizard.
-* **WPA2-Enterprise:** Supported by the underlying Debian OS but requires manual configuration via the terminal using `nmcli`.
-* **Captive Portals:** Networks requiring a web-based login or "Agree" page are **not supported** by the App Lab setup wizard.
+- **WPA/WPA2 Personal:** Natively supported via the App Lab Wi-Fi setup wizard.
+- **WPA2-Enterprise:** Supported by the underlying Debian OS but requires manual configuration via the terminal using `nmcli`.
+- **Captive Portals:** Networks requiring a web-based login or "Agree" page are **not supported** by the App Lab setup wizard.
 
 ## Domain Whitelist
 
@@ -42,17 +42,17 @@ If you are operating behind a restrictive firewall, you must allow traffic to th
 
 ### Core Infrastructure
 
-* `downloads.arduino.cc`: System updates, toolchains, and library indexes.
-* `apt-repo.arduino.cc`: Official Arduino Debian package repository.
-* `public.ecr.aws`: Docker container images for App Lab Bricks.
-* `github.com` and `raw.githubusercontent.com`: Source code and package retrieval.
+- `downloads.arduino.cc`: System updates, toolchains, and library indexes.
+- `apt-repo.arduino.cc`: Official Arduino Debian package repository.
+- `public.ecr.aws`: Docker container images for App Lab Bricks.
+- `github.com` and `raw.githubusercontent.com`: Source code and package retrieval.
 
 ### Arduino Cloud
 
-* `app.arduino.cc`
-* `login.arduino.cc`
+- `app.arduino.cc`
+- `login.arduino.cc`
 
 ### Application Specific
 
-* `api.open-meteo.com`: Used by the Weather Forecast example.
-* `time.nist.gov`: Used for NTP time synchronization.
+- `api.open-meteo.com`: Used by the Weather Forecast example.
+- `time.nist.gov`: Used for NTP time synchronization.

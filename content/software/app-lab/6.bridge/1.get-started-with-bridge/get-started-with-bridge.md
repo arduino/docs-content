@@ -19,9 +19,9 @@ The Bridge is an RPC-based communication layer that allows the Linux microproces
 
 The easiest way to see the Bridge in action is to explore the built-in examples. These example projects use the Bridge to establish communication between the Linux MPU and the Arduino MCU:
 
-* **Blink LED:** A simple example of using Python to toggle an LED pin on the microcontroller.
-* **Blink LED with UI:** Uses the WebUI Brick to control the MCU LED from a browser-based dashboard.
-* **Weather forecast on LED Matrix:** Fetches weather data in Python and sends it to the MCU to be displayed on an LED matrix.
+- **Blink LED:** A simple example of using Python to toggle an LED pin on the microcontroller.
+- **Blink LED with UI:** Uses the WebUI Brick to control the MCU LED from a browser-based dashboard.
+- **Weather forecast on LED Matrix:** Fetches weather data in Python and sends it to the MCU to be displayed on an LED matrix.
 
 To learn more about how to access and run Examples, see [Using Examples](../../getting%20started/examples/).
 
@@ -134,19 +134,19 @@ Next, configure the Linux MPU to send data to the MCU using the Bridge.
 
 Try these modifications to see how the communication changes. Remember to **Stop** and **Run** the App again after making changes.
 
-* **Change the Frequency:** In `main.py`, change `time.sleep(2)` to `0.5`. Notice how much faster the messages appear.
-* **Send Different Data:** Instead of a simple counter, try sending a calculation or a random number (using the [random](https://docs.python.org/3/library/random.html#functions-for-integers) module in Python).
-* **Multiple Arguments:** You can pass multiple values. Update your C++ function to accept two integers `void handle_message(int a, int b)` and update your Python call: `Bridge.call("print_value", val1, val2)`.
-* **Bidirectional Communication:** You can also expose functions in Python using `App.provide()` and call them from C++ using `Bridge.call()`.
+- **Change the Frequency:** In `main.py`, change `time.sleep(2)` to `0.5`. Notice how much faster the messages appear.
+- **Send Different Data:** Instead of a simple counter, try sending a calculation or a random number (using the [random](https://docs.python.org/3/library/random.html#functions-for-integers) module in Python).
+- **Multiple Arguments:** You can pass multiple values. Update your C++ function to accept two integers `void handle_message(int a, int b)` and update your Python call: `Bridge.call("print_value", val1, val2)`.
+- **Bidirectional Communication:** You can also expose functions in Python using `App.provide()` and call them from C++ using `Bridge.call()`.
 
 <Alert type="info">**Note:** Arguments passed between Python and C++ must strictly match the receiving function's type signature. Sending a Python integer to a C++ function that expects a string will fail.</Alert>
 
 ## Best Practices
 
-* **Avoid Deadlocks:** Never call `Bridge.call()` or `Monitor.print()` inside a C++ function that you have exposed via `Bridge.provide()`. This can cause the communication layer to hang.
-* **Non-Blocking Code:** Ensure your `loop()` in both C++ and Python does not contain long `delay()` or `sleep()` calls that might prevent the Bridge from processing incoming requests.
+- **Avoid Deadlocks:** Never call `Bridge.call()` or `Monitor.print()` inside a C++ function that you have exposed via `Bridge.provide()`. This can cause the communication layer to hang.
+- **Non-Blocking Code:** Ensure your `loop()` in both C++ and Python does not contain long `delay()` or `sleep()` calls that might prevent the Bridge from processing incoming requests.
 
 ## Next Steps
 
-* **[Bridge API Reference](../bridge-api/)**
-* **[Using Bricks with Bridge](../../bricks/use-bricks/)**
+- **[Bridge API Reference](../bridge-api/)**
+- **[Using Bricks with Bridge](../../bricks/use-bricks/)**

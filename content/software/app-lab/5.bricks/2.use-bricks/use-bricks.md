@@ -63,7 +63,7 @@ App.run()
 
 Each Brick includes its own specific API and usage examples.
 
-* When you add a Brick, its documentation opens automatically in a new tab.
-* To view the documentation for an existing Brick, click on the Brick's name in the left sidebar.
+- When you add a Brick, its documentation opens automatically in a new tab.
+- To view the documentation for an existing Brick, click on the Brick's name in the left sidebar.
 
 <Alert type="success">**Tip:** Use the **Usage examples** in the Brick documentation to find the exact code snippets needed for your implementation.</Alert>

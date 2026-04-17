@@ -27,10 +27,10 @@ For the most reliable experience during initial setup and configuration, we reco
 
 ### What You'll Need
 
-* **Display:** Any monitor or TV with HDMI, DisplayPort, or USB-C input.
-* **Input devices (USB):** A keyboard and mouse that can be connected to a USB port.
-* **USB-C multiport hub:** A hub that connects to the board's USB-C port and includes ports for both your display and input devices.
-* **Power supply:** The hub must be powered externally (USB-C or a standalone power supply).
+- **Display:** Any monitor or TV with HDMI, DisplayPort, or USB-C input.
+- **Input devices (USB):** A keyboard and mouse that can be connected to a USB port.
+- **USB-C multiport hub:** A hub that connects to the board's USB-C port and includes ports for both your display and input devices.
+- **Power supply:** The hub must be powered externally (USB-C or a standalone power supply).
 
 ### Setup Instructions
 
@@ -53,7 +53,7 @@ If you connect to the Internet, Arduino App Lab may prompt you to install any av
 
 ## Next Steps
 
-* [Getting Started with Arduino App Lab](/software/app-lab/getting%20started/quickstart/)
+- [Getting Started with Arduino App Lab](/software/app-lab/getting%20started/quickstart/)
 
 ## Alternative Configurations
 

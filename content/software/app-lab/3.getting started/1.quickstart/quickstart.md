@@ -14,19 +14,19 @@ This onboarding journey assumes you have already installed App Lab and configure
 
 ## Prerequisites
 
-* [Setup Arduino App Lab](../../setup/overview/)
-* [Connect, Configure, and Update boards in Arduino App Lab](../../configure/config/)
+- [Setup Arduino App Lab](../../setup/overview/)
+- [Connect, Configure, and Update boards in Arduino App Lab](../../configure/config/)
 
 ## Step 1: Explore the Interface
 
 After configuration, App Lab displays the main interface. The left sidebar contains the primary navigation:
 
-* **My Apps**: View, edit, and manage Apps you create or duplicate.
-* **Examples**: Browse built-in, ready-to-run projects provided by Arduino.
-* **Bricks**: Explore modular code blocks that provide pre-packaged functionalities, such as web servers or AI models.
-* **Learn**: Access offline documentation and tutorials.
-* **Settings**: Manage preferences, including Wi-Fi networks, Linux passwords, and keyboard layouts.
-* **Account**: Access your Arduino account settings.
+- **My Apps**: View, edit, and manage Apps you create or duplicate.
+- **Examples**: Browse built-in, ready-to-run projects provided by Arduino.
+- **Bricks**: Explore modular code blocks that provide pre-packaged functionalities, such as web servers or AI models.
+- **Learn**: Access offline documentation and tutorials.
+- **Settings**: Manage preferences, including Wi-Fi networks, Linux passwords, and keyboard layouts.
+- **Account**: Access your Arduino account settings.
 
 ![Screenshot of Arduino App Lab, highlighting the left sidebar.](../../assets/sidebar/sidebar-hl-all.png)
 
@@ -88,5 +88,5 @@ Printing messages from your code is the simplest way to track your app's behavio
 
 Now that you've learned the basics, explore these resources to start building your own projects:
 
-* [Manage Apps in Arduino App Lab](../apps/manage-apps/)
-* [Develop Apps in Arduino App Lab](../../apps/develop-apps/)
+- [Manage Apps in Arduino App Lab](../apps/manage-apps/)
+- [Develop Apps in Arduino App Lab](../../apps/develop-apps/)

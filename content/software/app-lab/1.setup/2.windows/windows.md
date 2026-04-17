@@ -26,9 +26,9 @@ This guide details how to prepare your Windows computer for use with Arduino App
 
 3. Download the installer for Windows:
 
-   * _Windows (10/11) NSIS Installer._ Recommended for most systems.
+   - _Windows (10/11) NSIS Installer._ Recommended for most systems.
 
-   * _Windows 11 (ARM) NSIS Installer._ Select this option if you are using a device with an ARM processor, like a Surface Pro.
+   - _Windows 11 (ARM) NSIS Installer._ Select this option if you are using a device with an ARM processor, like a Surface Pro.
 
 4. Run the downloaded `.exe` file and follow the on-screen instructions to complete the installation.
 
@@ -44,7 +44,7 @@ This guide details how to prepare your Windows computer for use with Arduino App
 
 ## Next steps
 
-* [Getting Started with Arduino App Lab](/software/app-lab/getting%20started/quickstart/)
+- [Getting Started with Arduino App Lab](/software/app-lab/getting%20started/quickstart/)
 
 ## About mdns-discovery.exe
 

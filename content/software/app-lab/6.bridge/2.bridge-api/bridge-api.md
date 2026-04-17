@@ -20,10 +20,10 @@ The Arduino Router (`arduino-router`) background Linux service manages the under
 
 The Bridge infrastructure claims specific hardware resources to maintain the communication link.
 
-* **Linux Interface:** `/dev/ttyHS1`.
-* **MCU Interface:** `Serial1`.
-* **Baud Rate:** 115200 bps.
-* **Maximum Message Size:** 256 bytes.
+- **Linux Interface:** `/dev/ttyHS1`.
+- **MCU Interface:** `Serial1`.
+- **Baud Rate:** 115200 bps.
+- **Maximum Message Size:** 256 bytes.
 
 Do not attempt to open `/dev/ttyHS1` (on Linux) or `Serial1` (on Arduino/Zephyr) in application code. The `arduino-router` service exclusively locks these interfaces. Attempting direct access causes the Bridge to fail.
 
@@ -49,8 +49,8 @@ Invokes a registered function on the Linux side and waits for a result.
 
 #### Parameters
 
-* `method` `String`: The name of the registered method to invoke.
-* `args` `Args...`: A variable number of arguments to pass to the method.
+- `method` `String`: The name of the registered method to invoke.
+- `args` `Args...`: A variable number of arguments to pass to the method.
 
 #### Returns
 
@@ -62,7 +62,7 @@ Waits for the response, extracts the return value into the provided variable, an
 
 #### Parameters
 
-* `variable` `Variable`: The variable to store the extracted return value.
+- `variable` `Variable`: The variable to store the extracted return value.
 
 #### Returns
 
@@ -74,8 +74,8 @@ Invokes a function on the Linux side without waiting for a response. This provid
 
 #### Parameters
 
-* `method` `String`: The name of the method to notify.
-* `args` `Args...`: A variable number of arguments to pass.
+- `method` `String`: The name of the method to notify.
+- `args` `Args...`: A variable number of arguments to pass.
 
 #### Returns
 
@@ -89,8 +89,8 @@ Exposes a local MCU function to the Linux environment. The provided function exe
 
 #### Parameters
 
-* `name` `String`: The name to register the function under.
-* `function` `Function`: The callback function to execute.
+- `name` `String`: The name to register the function under.
+- `function` `Function`: The callback function to execute.
 
 #### Returns
 
@@ -102,8 +102,8 @@ Exposes a local MCU function to the Linux environment and ensures it executes wi
 
 #### Parameters
 
-* `name` `String`: The name to register the function under.
-* `function` `Function`: The callback function to execute safely.
+- `name` `String`: The name to register the function under.
+- `function` `Function`: The callback function to execute safely.
 
 #### Returns
 
@@ -119,8 +119,8 @@ Invokes a registered function on the microcontroller and blocks execution until 
 
 #### Parameters
 
-* `method_name` `str`: The name of the method to call.
-* `*args` `Any`: A variable number of arguments to pass to the method.
+- `method_name` `str`: The name of the method to call.
+- `*args` `Any`: A variable number of arguments to pass to the method.
 
 #### Returns
 
@@ -128,7 +128,7 @@ Invokes a registered function on the microcontroller and blocks execution until 
 
 #### Exceptions
 
-* `ValueError`: Raised for requests exceeding the 256-byte limit.
+- `ValueError`: Raised for requests exceeding the 256-byte limit.
 
 ### `notify(str, *args)`
 
@@ -136,8 +136,8 @@ Sends data to a registered function on the microcontroller without blocking exec
 
 #### Parameters
 
-* `method_name` `str`: The name of the method to notify.
-* `*args` `Any`: A variable number of arguments to pass.
+- `method_name` `str`: The name of the method to notify.
+- `*args` `Any`: A variable number of arguments to pass.
 
 #### Returns
 
@@ -149,8 +149,8 @@ Registers a Python function to receive calls from the microcontroller. When the 
 
 #### Parameters
 
-* `method_name` `str`: The tag/name to register the function under.
-* `function` `Callable`: The Python function to invoke.
+- `method_name` `str`: The tag/name to register the function under.
+- `function` `Callable`: The Python function to invoke.
 
 #### Returns
 
@@ -193,7 +193,7 @@ Transmits data to the Serial Monitor.
 
 #### Parameters
 
-* `value` `Any`: The data to transmit.
+- `value` `Any`: The data to transmit.
 
 #### Returns
 
@@ -205,7 +205,7 @@ Transmits data to the Serial Monitor and appends a newline character to the outp
 
 #### Parameters
 
-* `value` `Any`: The data to transmit.
+- `value` `Any`: The data to transmit.
 
 #### Returns
 

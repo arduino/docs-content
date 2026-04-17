@@ -25,20 +25,20 @@ This guide details how to prepare your Linux computer for developing with Arduin
 
 Arduino App Lab requires the `libwebkit2gtk-4.1-0` library to render the user interface.
 
-* **Debian/Ubuntu:**
+- **Debian/Ubuntu:**
 
   ```bash
   sudo apt update
   sudo apt install libwebkit2gtk-4.1-0
   ```
 
-* **Arch Linux:**
+- **Arch Linux:**
 
   ```bash
   sudo pacman -S webkit2gtk-4.1
   ```
 
-* **Fedora:**
+- **Fedora:**
 
   ```bash
   sudo dnf install webkit2gtk4.1
@@ -104,4 +104,4 @@ sudo usermod -a -G dialout $USER
 
 ## Next steps
 
-* [Getting Started with Arduino App Lab](/software/app-lab/getting%20started/quickstart/)
+- [Getting Started with Arduino App Lab](/software/app-lab/getting%20started/quickstart/)

@@ -17,14 +17,14 @@ Developing an App for the Arduino UNO Q involves programming for two distinct en
 
 Every App contains two core files that host your code:
 
-* **`python/main.py`**: The entry point for the Linux-side application, [written in Python](#python-development).
-* **`sketch/sketch.ino`**: The [Arduino sketch](#sketch-development) running on the microcontroller.
-* **`README.md`**: Project documentation.
+- **`python/main.py`**: The entry point for the Linux-side application, [written in Python](#python-development).
+- **`sketch/sketch.ino`**: The [Arduino sketch](#sketch-development) running on the microcontroller.
+- **`README.md`**: Project documentation.
 
 Arduino App Lab automatically manages these configuration files:
 
-* **`sketch/sketch.yaml`**: The configuration file for the sketch (read-only).
-* **`app.yaml`**: The configuration file for Bricks and App properties (read-only).
+- **`sketch/sketch.yaml`**: The configuration file for the sketch (read-only).
+- **`app.yaml`**: The configuration file for Bricks and App properties (read-only).
 
 To learn more about the App file structure, see [About Apps](../about-apps/).
 
@@ -45,22 +45,22 @@ To learn more about the App file structure, see [About Apps](../about-apps/).
 1. Click the **Create file** icon.
    ![The "Create file" icon in Arduino App Lab.](../../assets/app-lab-editor-files-hl-add.png)
 1. Select one of the following:
-   * _Create new file_
-   * _Create new folder_
+   - _Create new file_
+   - _Create new folder_
 
 **Create a file or folder inside a folder:**
 
 1. **Right-click** on a folder.
 1. Select one of the following:
-   * _Create new file_
-   * _Create new folder_
+   - _Create new file_
+   - _Create new folder_
 
 ### Rename or Delete Files
 
 1. **Right-click** on the file you want to rename or delete.
 1. Select one of the following:
-   * _Rename_
-   * _Delete_
+   - _Rename_
+   - _Delete_
 
 ### Moving files and folders
 
@@ -208,8 +208,8 @@ Once your code is ready, click the **Run** button in the top right corner. The e
 
 Monitor your App using the **Console** at the top of the interface by selecting the following tabs:
 
-* **App launch**: Compilation output and deployment logs.
-* **Serial Monitor**: `Monitor.print()` output from your Arduino sketch.
-* **Python**: `print()` output from your Python script.
+- **App launch**: Compilation output and deployment logs.
+- **Serial Monitor**: `Monitor.print()` output from your Arduino sketch.
+- **Python**: `print()` output from your Python script.
 
 See [Run and Monitor Apps](../run/) to learn more.

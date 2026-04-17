@@ -66,4 +66,4 @@ When you add a Brick to your App via the App Lab interface, the IDE performs the
 
 ## Next Steps
 
-* [Use Bricks in Your App](../use-bricks/)
+- [Use Bricks in Your App](../use-bricks/)

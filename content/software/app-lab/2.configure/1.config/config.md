@@ -10,7 +10,7 @@ After connecting, App Lab performs an automated check to ensure your board is co
 
 ## Prerequisites
 
-* [Setup Arduino App Lab](../../setup/overview/)
+- [Setup Arduino App Lab](../../setup/overview/)
 
 ## Board Selection (Connected Mode)
 
@@ -20,8 +20,8 @@ After connecting, App Lab performs an automated check to ensure your board is co
 1. Wait for the board to boot (this may take up to 60 seconds).
 1. If prompted by your system, allow the board to connect to your computer.
 1. Detected boards will appear in Arduino App Lab. Depending on the board configuration, they may have one or more connection options:
-   * **USB:** Indicated by a USB icon next to the board model.
-   * **Network:** Indicated by a Wi-Fi icon next to the board model.
+   - **USB:** Indicated by a USB icon next to the board model.
+   - **Network:** Indicated by a Wi-Fi icon next to the board model.
    ![Screenshot of the board selection screen in Arduino App Lab.](../../assets/configuration/initial/board-selection.png)
 1. Select a board to connect to it.
 
@@ -34,8 +34,8 @@ A setup wizard will automatically launch if the board has not been configured, i
 Follow these steps to complete the setup:
 
 1. **Board Configuration:**
-   * _Keyboard Layout._ Choose your preferred keyboard layout. This is essential if you plan to use the board in Standalone (SBC) mode with a physical keyboard.
-   * _Board Name._ Assign a unique name to your UNO Q. This name will identify your board in the App Lab interface and on your local network (e.g., `my-uno-q.local`).
+   - _Keyboard Layout._ Choose your preferred keyboard layout. This is essential if you plan to use the board in Standalone (SBC) mode with a physical keyboard.
+   - _Board Name._ Assign a unique name to your UNO Q. This name will identify your board in the App Lab interface and on your local network (e.g., `my-uno-q.local`).
    ![Selecting a board in Arduino App Lab.](../../assets/configuration/initial/board-configuration.png)
 1. **Network Setup:** Select your local Wi-Fi network and enter the password. An internet connection is required for downloading "Bricks" and system updates. When your board connects to the Internet, it will automatically check for software updates.
 1. **Set Linux Password:** Create a custom password for the default `arduino` user account.
@@ -54,4 +54,4 @@ If updates are available, Arduino App Lab will ask if you want to install the av
 
 ## Next Steps
 
-* [Get Started with Arduino App Lab](../../getting%20started/quickstart/)
+- [Get Started with Arduino App Lab](../../getting%20started/quickstart/)
