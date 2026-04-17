@@ -40,7 +40,7 @@ The UNO Breakout Carrier is designed for prototyping, hardware validation, resea
 
 ## Product Overview
 
-The Arduino UNO Breakout Carrier expands the capabilities of the Arduino UNO Q by providing complete, direct access to all relevant signals available on the JMEDIA and JMISC high-speed connectors. Signals including audio, I2C, SPI, UART, PWM, PSSI, GPIO, OPAMP and power rails are routed to 2.54 mm and 1.27 mm male headers, making the carrier an ideal tool for hardware validation, system integration and signal analysis.
+The Arduino UNO Breakout Carrier extends the capabilities of the Arduino UNO Q by providing direct, complete access to all relevant signals on the JMEDIA and JMISC high-speed connectors. Signals including audio, I2C, SPI, UART, PWM, PSSI, GPIO, OPAMP and power rails are routed to 2.54 mm and 1.27 mm male headers, making the carrier an ideal tool for hardware validation, system integration and signal analysis.
 
 ![UNO Breakout Carrier Overview](assets/ASX00085-block-diagram.png)
 
@@ -137,7 +137,7 @@ To attach the UNO Q to the UNO Breakout Carrier, follow the steps below:
 
 ### Powering the Carrier
 
-Once the UNO Q is mounted on the carrier, the carrier is powered through the UNO Q's high-density connectors. The UNO Q itself can be powered by any of its standard power inputs:
+Once the UNO Q is mounted on the carrier, the carrier is powered through the UNO Q's high-density connectors. Any of its standard power inputs can power the UNO Q itself:
 
 - A USB-C® cable providing 5 VDC 3 A connected to the UNO Q.
 - An external +5 VDC power supply connected to the UNO Q's 5V pin.
@@ -391,7 +391,7 @@ JMISC is a 2x30 high-speed male header (1.27 mm pitch) that provides a direct pa
 
 ## Power
 
-The UNO Breakout Carrier exposes several power rails from the UNO Q through the J14 and JMISC headers. These rails can be used to supply power to external circuits, sensors or peripherals connected to the carrier.
+The UNO Breakout Carrier exposes several power rails from the UNO Q through the J14 and JMISC headers. These rails can supply power to external circuits, sensors, or peripherals connected to the carrier.
 
 | **Rail** | **Voltage** | **Available On**                    | **Description**              |
 |----------|-------------|-------------------------------------|------------------------------|
@@ -718,16 +718,16 @@ AUDIO_DEVICE = "hw:0,0"
 RECORDING_PATH = "/home/arduino/recording.wav"
 
 def loop():
-  # Record 5 seconds of audio from the microphone input
+  # Record 5 seconds of audio from the microphone input
   subprocess.run([
-    "arecord", "-D", AUDIO_DEVICE,
-    "-f", "S16_LE", "-r", "44100", "-c", "2",
-    "-d", "5", RECORDING_PATH
+      "arecord", "-D", AUDIO_DEVICE,
+      "-f", "S16_LE", "-r", "44100", "-c", "2",
+      "-d", "5", RECORDING_PATH
   ])
   time.sleep(1)
-  # Play back the recorded audio through the headphone output
+  # Play back the recorded audio through the headphone output
   subprocess.run([
-    "aplay", "-D", AUDIO_DEVICE, RECORDING_PATH
+      "aplay", "-D", AUDIO_DEVICE, RECORDING_PATH
   ])
   time.sleep(1)
 
@@ -744,7 +744,7 @@ The earphone output exposes a single-ended differential pair (`EAR_P_R` / `EAR_M
 
 ### Headset Detection
 
-The `HS_DET` signal on J14 pin 40 and JMISC pin 42 can be monitored from the MPU's Linux system to detect when a headset is physically connected, enabling automatic audio routing changes in software.
+The `HS_DET` signal on J14 pin 40 and JMISC pin 42 can be monitored on the MPU's Linux system to detect when a headset is physically connected, enabling automatic software-based audio routing changes.
 
 ## PWM
 
@@ -861,3 +861,24 @@ void loop() {
 }
 ```
 
+## Support
+
+If you encounter any issues or have questions while working with the Arduino® UNO Breakout Carrier, we provide various support resources to help you find answers and solutions.
+
+### Help Center
+
+Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the UNO Breakout Carrier. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+
+- [UNO Breakout Carrier Help Center page](https://support.arduino.cc/hc/en-us)
+
+### Forum
+
+Join our community forum to connect with other UNO Breakout Carrier users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the UNO Breakout Carrier.
+
+- [UNO Breakout Carrier category in the Arduino Forum](https://forum.arduino.cc/c/official-hardware/uno-family/uno-breaout-carrier/228)
+
+### Contact Us
+
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We are happy to help you with any issues or inquiries about the UNO Breakout Carrier.
+
+- [Contact us page](https://www.arduino.cc/en/contact-us/)
