@@ -131,7 +131,7 @@ Next, configure the Linux MPU to send data to the MCU using the Bridge.
 Try these modifications to see how the communication changes. Remember to **Stop** and **Run** the App again after making changes.
 
 *   **Change the Frequency:** In `main.py`, change `time.sleep(2)` to `0.5`. Notice how much faster the messages appear.
-*   **Send Different Data:** Instead of a simple counter, try sending a calculation or a random number (using the `random` module in Python).
+*   **Send Different Data:** Instead of a simple counter, try sending a calculation or a random number (using the [random](https://docs.python.org/3/library/random.html#functions-for-integers) module in Python).
 *   **Multiple Arguments:** You can pass multiple values. Update your C++ function to accept two integers `void handle_message(int a, int b)` and update your Python call: `Bridge.call("print_value", val1, val2)`.
 *   **Bidirectional Communication:** You can also expose functions in Python using `App.provide()` and call them from C++ using `Bridge.call()`.
 
