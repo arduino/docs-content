@@ -189,7 +189,7 @@ None.
 
 ### `print(Any)`
 
-Transmits data to the App Lab Console.
+Transmits data to the Serial Monitor.
 
 #### Parameters
 
@@ -201,7 +201,7 @@ None.
 
 ### `println(Any)`
 
-Transmits data to the App Lab Console and appends a newline character to the output.
+Transmits data to the Serial Monitor and appends a newline character to the output.
 
 #### Parameters
 
