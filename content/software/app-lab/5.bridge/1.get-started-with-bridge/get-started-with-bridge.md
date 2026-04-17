@@ -68,6 +68,9 @@ Open your `sketch/sketch.ino` file. We will build the sketch piece by piece:
    void setup() {
      // Start the Bridge communication layer
      Bridge.begin();
+
+     // Start the Monitor
+     Monitor.begin()
    
      // Expose the function to the Bridge so Python can call it.
      // We use "print_value" as the name Python will use to find it.
