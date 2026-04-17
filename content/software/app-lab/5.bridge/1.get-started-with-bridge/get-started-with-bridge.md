@@ -147,5 +147,5 @@ Try these modifications to see how the communication changes. Remember to **Stop
 
 ## Next Steps
 
-*   **[Bridge API Reference](/software/app-lab/5.bridge/1.bridge-api/content.md)**
-*   **[Using Bricks with Bridge](/software/app-lab/4.bricks/2.use-bricks/use-bricks.md)**
+*   **[Bridge API Reference](../2.bridge-api/bridge-api.md)**
+*   **[Using Bricks with Bridge](../../4.bricks/2.use-bricks/use-bricks.md)**

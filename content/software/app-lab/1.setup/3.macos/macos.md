@@ -41,4 +41,4 @@ This guide outlines the steps to prepare your macOS computer for developing with
 
 ## Next steps
 
-* [Getting Started with Arduino App Lab](/software/app-lab/2.getting-started/1.quickstart/content.md)
+* [Getting Started with Arduino App Lab](../../2.getting%20started/1.quickstart/quickstart.md)
