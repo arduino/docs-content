@@ -26,9 +26,9 @@ Depending on the features and Bricks you use, the UNO Q requires access to the f
 | :--- | :--- | :--- | :--- |
 | 5353 | UDP | mDNS | Automatic board discovery on the local network. |
 | 22 | TCP | SSH | Used for "Network Mode" to deploy and manage Apps. |
-| 7000 | TCP | WebUI | The default port for the **WebUI Brick** dashboard. |
 | 80 / 443 | TCP | HTTP/HTTPS | Fetching system updates, Docker images, and API data. |
 | 123 | UDP | NTP | Synchronizing the internal Linux system clock. |
+| 7000 | TCP | WebUI | The default port for the WebUI Brick. Can be overridden when initializing the Brick. |
 
 ## Supported Network Types
 
