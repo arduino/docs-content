@@ -138,6 +138,8 @@ Try these modifications to see how the communication changes. Remember to **Stop
 *   **Multiple Arguments:** You can pass multiple values. Update your C++ function to accept two integers `void handle_message(int a, int b)` and update your Python call: `Bridge.call("print_value", val1, val2)`.
 *   **Bidirectional Communication:** You can also expose functions in Python using `App.provide()` and call them from C++ using `Bridge.call()`.
 
+<Alert type="info">**Note:** Arguments passed between Python and C++ must strictly match the receiving function's type signature. Sending a Python integer to a C++ function that expects a string will fail.</Alert>
+
 ## Best Practices
 
 *   **Avoid Deadlocks:** Never call `Bridge.call()` or `Monitor.print()` inside a C++ function that you have exposed via `Bridge.provide()`. This can cause the communication layer to hang.
