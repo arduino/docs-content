@@ -7,7 +7,7 @@ tags:
   - DAC
 author: 'Jacob Hylén'
 hardware:
-  - hardware/02.hero/boards/uno-r4-wifi
+  - hardware/02.uno/boards/uno-r4-wifi
 software:
   - ide-v1
   - ide-v2
@@ -26,10 +26,10 @@ In this article, you will learn:
 - how to output this waveform on a piezo speaker.
 
 ## Hardware & Software Needed
-  To follow along with this article, you will need the following hardware: 
-  
+  To follow along with this article, you will need the following hardware:
+
   - [Arduino UNO R4 WiFi](https://store.arduino.cc/uno-r4-wifi)
-  - Piezo buzzer 
+  - Piezo buzzer
   - Potentiometer
   - Jumper wires
 
@@ -39,25 +39,25 @@ The circuit required for this tutorial can be found in the diagram below:
 ![Piezo buzzer connected to UNO R4](./assets/circuit.png)
 
 ## Analog Output vs PWM
-For many use cases when analog output is required, using PWM (Pulse Width Modulation) instead of genuine analog output will yield essentially the same results. A digital output pin can only either be fully on (HIGH) or fully off (LOW), but by turning on and off very quickly with precise timings, the average voltage can be controlled and emulate an analog output. This method is called [PWM](/learn/microcontrollers/analog-output). 
+For many use cases when analog output is required, using PWM (Pulse Width Modulation) instead of genuine analog output will yield essentially the same results. A digital output pin can only either be fully on (HIGH) or fully off (LOW), but by turning on and off very quickly with precise timings, the average voltage can be controlled and emulate an analog output. This method is called [PWM](/learn/microcontrollers/analog-output).
 
-For example when dimming an LED, you can freely use a PWM enabled digital pin as an analog output pin and the LED would dim just the same as if you'd be using a DAC output. 
+For example when dimming an LED, you can freely use a PWM enabled digital pin as an analog output pin and the LED would dim just the same as if you'd be using a DAC output.
 
 However this will not always be the case, and for many uses you will need to use a genuine analog output to get your desired results. One such case is in audio purposes, where a PWM output simply will not give the same quality of sound as a genuine analog output, and requires some fiddling to work in the first place.
 
 ## Code
 The code for this tutorial is split in two parts, one main sketch and a header file containing a pre-generated sine waveform.
 
-With this sketch, we have pre-generated a sine waveform. You could also dynamically generate it either at the beginning of your sketch or during, but doing so would be less efficient without gaining any performance. So going this route is the best practice. 
+With this sketch, we have pre-generated a sine waveform. You could also dynamically generate it either at the beginning of your sketch or during, but doing so would be less efficient without gaining any performance. So going this route is the best practice.
 
-The waveform is being stored as samples in an array, and with every loop of the sketch we'll update the DACs output value to the next value in the array.  
+The waveform is being stored as samples in an array, and with every loop of the sketch we'll update the DACs output value to the next value in the array.
 
 Open a new sketch and paste the following code into your window.
 
 <CodeBlock url="https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/AnalogWave/examples/SineWave/SineWave.ino" className="arduino"/>
 
 ## Testing It Out
-Once you have uploaded the code to the board, it should start generating a sine wave oscillation on the DAC, that depending on the frequency could be used to produce sound on a piezo buzzer or speaker. If you have an oscilloscope at hand, connecting its probe to the DAC output might be an interesting exercise so see what the wave looks like. 
+Once you have uploaded the code to the board, it should start generating a sine wave oscillation on the DAC, that depending on the frequency could be used to produce sound on a piezo buzzer or speaker. If you have an oscilloscope at hand, connecting its probe to the DAC output might be an interesting exercise so see what the wave looks like.
 
 Now try twisting the potentiometer, and listen to how the sound changes.
 
@@ -67,14 +67,14 @@ The sketch above generates what is known as a sine wave. It is called a sine wav
 
 There are other types of analog waves that will produce a distinctly different type of sound compared to a sine wave. The library we're using in this sketch also allows you to create sawtooth and square waves. These types of wave also gets their names from how they look when the voltages are plotted against time.
 
-Try changing the wave type and listen how it changes the feel of the sound. 
+Try changing the wave type and listen how it changes the feel of the sound.
 
 Change the wave by replacing **Line 18 in the sketch** "`wave.sine(freq);`" with either
 
  ```arduino
  wave.square(freq);
  ```
-or 
+or
 ```arduino
 wave.saw(freq);
 ```

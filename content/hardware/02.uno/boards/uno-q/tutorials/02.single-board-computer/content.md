@@ -3,7 +3,7 @@ title: UNO Q as a Single-Board Computer
 description: This tutorial teaches you how to use the Arduino UNO Q as a Single-Board Computer, leveraging its expandability to create a desktop experience.
 author: Christopher Méndez
 hardware:
-  - hardware/uno/boards/uno-q
+  - hardware/02.uno/boards/uno-q
 tags: [SBC, Linux, Debian, Desktop]
 difficulty: beginner
 ---

@@ -228,7 +228,7 @@ void setup() {
 
     Serial.println("\nDo you want to use LittleFS to format user data partition? Y/[n]");
     Serial.println("If No, FatFS will be used to format user partition.");
-    Serial.println("Note: LittleFS is not supported by the OPTA PLC runtime.");
+    Serial.println("Note: Arduino PLC IDE is using LittleFS to store runtime data on this partition.");
     if (true == waitResponse()) {
       Serial.println("Formatting user partition with LittleFS.");
       user_data_fs = new mbed::LittleFileSystem("user");
@@ -261,20 +261,20 @@ extern const unsigned char wifi_firmware_image_data[];
 
 void flashWiFiFirmwareAndCertificates() {
   FILE* fp = fopen("/wlan/4343WA1.BIN", "wb");
-  uint32_t chunck_size = 1024;
+  uint32_t chunk_size = 1024;
   uint32_t byte_count = 0;
 
   Serial.println("Flashing WiFi firmware");
   printProgress(byte_count, file_size, 10, true);
   while (byte_count < file_size) {
-    if(byte_count + chunck_size > file_size)
-      chunck_size = file_size - byte_count;
-    int ret = fwrite(&wifi_firmware_image_data[byte_count], chunck_size, 1, fp);
+    if(byte_count + chunk_size > file_size)
+      chunk_size = file_size - byte_count;
+    int ret = fwrite(&wifi_firmware_image_data[byte_count], chunk_size, 1, fp);
     if (ret != 1) {
       Serial.println("Error writing firmware data");
       break;
     }
-    byte_count += chunck_size;
+    byte_count += chunk_size;
     printProgress(byte_count, file_size, 10, false);
   }
   fclose(fp);
@@ -282,39 +282,39 @@ void flashWiFiFirmwareAndCertificates() {
   fp = fopen("/wlan/cacert.pem", "wb");
 
   Serial.println("Flashing certificates");
-  chunck_size = 128;
+  chunk_size = 128;
   byte_count = 0;
   printProgress(byte_count, cacert_pem_len, 10, true);
   while (byte_count < cacert_pem_len) {
-    if(byte_count + chunck_size > cacert_pem_len)
-      chunck_size = cacert_pem_len - byte_count;
-    int ret = fwrite(&cacert_pem[byte_count], chunck_size, 1 ,fp);
+    if(byte_count + chunk_size > cacert_pem_len)
+      chunk_size = cacert_pem_len - byte_count;
+    int ret = fwrite(&cacert_pem[byte_count], chunk_size, 1 ,fp);
     if (ret != 1) {
       Serial.println("Error writing certificates");
       break;
     }
-    byte_count += chunck_size;
+    byte_count += chunk_size;
     printProgress(byte_count, cacert_pem_len, 10, false);
   }
   fclose(fp);
 }
 
 void flashWiFiFirmwareMapped() {
-  uint32_t chunck_size = 1024;
+  uint32_t chunk_size = 1024;
   uint32_t byte_count = 0;
   const uint32_t offset = 15 * 1024 * 1024 + 1024 * 512;
 
   Serial.println("Flashing memory mapped WiFi firmware");
   printProgress(byte_count, file_size, 10, true);
   while (byte_count < file_size) {
-    if (byte_count + chunck_size > file_size)
-      chunck_size = file_size - byte_count;
-    int ret = root->program(wifi_firmware_image_data, offset + byte_count, chunck_size);
+    if (byte_count + chunk_size > file_size)
+      chunk_size = file_size - byte_count;
+    int ret = root->program(&wifi_firmware_image_data[byte_count], offset + byte_count, chunk_size);
     if (ret != 0) {
       Serial.println("Error writing memory mapped firmware");
       break;
     }
-    byte_count += chunck_size;
+    byte_count += chunk_size;
     printProgress(byte_count, file_size, 10, false);
   }
 }
@@ -337,9 +337,9 @@ The sketch shown above performs the following tasks:
 
 3. **Write Wi-Fi firmware and certificate data**: The sketch writes the Wi-Fi firmware and certificate data to the appropriate partitions in the QSPI Flash memory and flashes the memory-mapped Wi-Fi firmware and certificates.
 
-4. **Format the user data partition:** The sketch prompts you to choose between **LittleFS** or **FatFS** for formatting the user data partition. When using the Opta™ with the PLC IDE, you should select **`n` (No)** when prompted to choose user data partition format. This will use **FatFS** instead, which is required for proper compatibility with the PLC runtime.
+4. **Format the user data partition:** The sketch prompts you to choose between **LittleFS** or **FatFS** for formatting the user data partition. When using the Opta™ with the PLC IDE, you should select **`Y` (Yes)** when prompted to choose user data partition format. This will use **LittleFS**, which is required for proper compatibility with the PLC runtime. If you need to use **FatFS** to format the user data partition, please enter **`n`**.
 
-***As indicated in the sketch output, __LittleFS__ is not supported by the OPTA PLC runtime.***
+***As indicated in the sketch output, the Arduino PLC IDE uses __LittleFS__ to store runtime data on the user data partition.***
 
 5. **Display progress in the Arduino IDE Serial Monitor**: The sketch provides a visual indication of the progress of the flashing process using one of the built-in LEDs of the Opta™ and through messages in the Arduino IDE Serial Monitor.
 
@@ -359,7 +359,7 @@ At the end of the memory partitioning process, you'll be prompted if you want to
 
 ![Memory partitioning results of the Opta™ as shown in the Arduino IDE's Serial Monitor](assets/arduino-ide-3.png)
 
-When planning to use the Opta™ with the PLC IDE, you must enter **`n`** to format the user data partition with **FatFS**. This is required for proper compatibility with the PLC runtime. If you need to use **LittleFS** to format the user data partition, please enter **`Y`**.
+When planning to use the Opta™ with the PLC IDE, you must enter **`Y`** to format the user data partition with **LittleFS**. This is required for proper compatibility with the PLC runtime. If you need to use **FatFS** to format the user data partition, please enter **`n`**.
 
 You should see a brief success message in the Serial Monitor if everything went as intended. Your Opta™ device should now be properly partitioned and formatted, making it ready for use. The process typically takes a few minutes to complete, with progress indicators keeping you informed. The following clip shows the complete memory partitioning process from start to finish:
 
@@ -524,7 +524,7 @@ void setup() {
 
     Serial.println("\nDo you want to use LittleFS to format user data partition? Y/[n]");
     Serial.println("If No, FatFS will be used to format user partition.");
-    Serial.println("Note: LittleFS is not supported by the OPTA PLC runtime.");
+    Serial.println("Note: Arduino PLC IDE is using LittleFS to store runtime data on this partition.");
     if (true == waitResponse()) {
       Serial.println("Formatting user partition with LittleFS.");
       user_data_fs = new mbed::LittleFileSystem("user");
@@ -557,20 +557,20 @@ extern const unsigned char wifi_firmware_image_data[];
 
 void flashWiFiFirmwareAndCertificates() {
   FILE* fp = fopen("/wlan/4343WA1.BIN", "wb");
-  uint32_t chunck_size = 1024;
+  uint32_t chunk_size = 1024;
   uint32_t byte_count = 0;
 
   Serial.println("Flashing WiFi firmware");
   printProgress(byte_count, file_size, 10, true);
   while (byte_count < file_size) {
-    if(byte_count + chunck_size > file_size)
-      chunck_size = file_size - byte_count;
-    int ret = fwrite(&wifi_firmware_image_data[byte_count], chunck_size, 1, fp);
+    if(byte_count + chunk_size > file_size)
+      chunk_size = file_size - byte_count;
+    int ret = fwrite(&wifi_firmware_image_data[byte_count], chunk_size, 1, fp);
     if (ret != 1) {
       Serial.println("Error writing firmware data");
       break;
     }
-    byte_count += chunck_size;
+    byte_count += chunk_size;
     printProgress(byte_count, file_size, 10, false);
   }
   fclose(fp);
@@ -578,39 +578,39 @@ void flashWiFiFirmwareAndCertificates() {
   fp = fopen("/wlan/cacert.pem", "wb");
 
   Serial.println("Flashing certificates");
-  chunck_size = 128;
+  chunk_size = 128;
   byte_count = 0;
   printProgress(byte_count, cacert_pem_len, 10, true);
   while (byte_count < cacert_pem_len) {
-    if(byte_count + chunck_size > cacert_pem_len)
-      chunck_size = cacert_pem_len - byte_count;
-    int ret = fwrite(&cacert_pem[byte_count], chunck_size, 1 ,fp);
+    if(byte_count + chunk_size > cacert_pem_len)
+      chunk_size = cacert_pem_len - byte_count;
+    int ret = fwrite(&cacert_pem[byte_count], chunk_size, 1 ,fp);
     if (ret != 1) {
       Serial.println("Error writing certificates");
       break;
     }
-    byte_count += chunck_size;
+    byte_count += chunk_size;
     printProgress(byte_count, cacert_pem_len, 10, false);
   }
   fclose(fp);
 }
 
 void flashWiFiFirmwareMapped() {
-  uint32_t chunck_size = 1024;
+  uint32_t chunk_size = 1024;
   uint32_t byte_count = 0;
   const uint32_t offset = 15 * 1024 * 1024 + 1024 * 512;
 
   Serial.println("Flashing memory mapped WiFi firmware");
   printProgress(byte_count, file_size, 10, true);
   while (byte_count < file_size) {
-    if (byte_count + chunck_size > file_size)
-      chunck_size = file_size - byte_count;
-    int ret = root->program(wifi_firmware_image_data, offset + byte_count, chunck_size);
+    if (byte_count + chunk_size > file_size)
+      chunk_size = file_size - byte_count;
+    int ret = root->program(&wifi_firmware_image_data[byte_count], offset + byte_count, chunk_size);
     if (ret != 0) {
       Serial.println("Error writing memory mapped firmware");
       break;
     }
-    byte_count += chunck_size;
+    byte_count += chunk_size;
     printProgress(byte_count, file_size, 10, false);
   }
 }

@@ -2,14 +2,14 @@
 title: 'Mouse Controller'
 difficulty: intermediate
 description: 'Use the Arduino Due as a USB host for a mouse.'
-tags: 
+tags:
   - USB Host
   - Computer Mice
 libraries:
   - name: USBHost
     url: https://www.arduino.cc/reference/en/libraries/usbhost/
 hardware:
-  - hardware/02.hero/boards/due
+  - hardware/10.mega/boards/due
 software:
   - ide-v1
   - ide-v2
@@ -41,7 +41,7 @@ There is no circuit for this tutorial. Simply connect your Arduino Due with the 
 
 ## Programming the Board
 
-**1.** First, let's make sure we have correct the drivers installed. If we are using the Cloud Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAM boards (32-bits ARM Cortex-M3)** and install it. 
+**1.** First, let's make sure we have correct the drivers installed. If we are using the Cloud Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAM boards (32-bits ARM Cortex-M3)** and install it.
 
 **2.** Now, we need to install the libraries needed. Simply go to **Tools > Manage libraries...** and search for **USBHost** and install it.
 
@@ -54,7 +54,7 @@ Before we begin, let's take a look at some of the core functions in the program:
 - `USBHost` - USBHost is the base class for all calls that rely on USB host communication. When invoked, it initializes a USB controller.
 
 - `MouseController mouse(usb);` - MouseController is the class for all calls to the USBHost relating to an attached mouse.
-  
+
 - `mouseMoved()` - A function that is called whenever a connected USB mouse moves.
 
 ```arduino
@@ -219,4 +219,4 @@ If the code is not working, there are some common issues we can troubleshoot:
 
 ## Conclusion
 
-The Arduino Due has a number of facilities for communicating with a computer, another Arduino or other microcontrollers, and different devices like phones, tablets, cameras and so on. In this example, we have learned how to use the Arduino Due as a USB host for a mouse. 
+The Arduino Due has a number of facilities for communicating with a computer, another Arduino or other microcontrollers, and different devices like phones, tablets, cameras and so on. In this example, we have learned how to use the Arduino Due as a USB host for a mouse.

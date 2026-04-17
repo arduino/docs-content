@@ -5,7 +5,7 @@ author: Hannes Siebeneicher
 tags: [Bluetooth® Low Energy]
 hardware:
   - hardware/01.mkr/01.boards/mkr-wifi-1010
-  - hardware/02.hero/boards/uno-r4-wifi
+  - hardware/02.uno/boards/uno-r4-wifi
   - hardware/03.nano/boards/nano-33-ble
   - hardware/03.nano/boards/nano-33-sense
   - hardware/03.nano/boards/nano-33-sense-rev2
@@ -101,7 +101,7 @@ Bluetooth® Low Energy devices operate using different roles and modes that defi
 
 In Bluetooth® LE, services and characteristics are fundamental concepts that organize and describe the data exchanged between devices. Let's explore these concepts in detail:
 
-**Services** 
+**Services**
 
 In Bluetooth® LE, a service can be thought of as a logical grouping of related data measurements or functionalities provided by a peripheral device. These data measurements can represent various aspects of the device's capabilities or the information it collects.
 
@@ -183,7 +183,7 @@ Some key differences are:
 
 ## ArduinoBLE Library
 
-The [ArduinoBLE Library](https://www.arduino.cc/reference/en/libraries/arduinoble/) is the main library enabling Bluetooth® Low Energy on compatible Arduino boards. You must first download and install the ArduinoBLE library. See our [instructions](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-installing-a-library) on how to install a library. 
+The [ArduinoBLE Library](https://www.arduino.cc/reference/en/libraries/arduinoble/) is the main library enabling Bluetooth® Low Energy on compatible Arduino boards. You must first download and install the ArduinoBLE library. See our [instructions](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-installing-a-library) on how to install a library.
 
 In the following section you will find an overview and explanation of the library's most important methods and how to use them:
 
@@ -490,21 +490,21 @@ void setup() {
 }
 
 void loop() {
-  
+
   BLEDevice central = BLE.central(); // wait for a Bluetooth® Low Energy central
 
   if (central) {  // if a central is connected to the peripheral
     Serial.print("Connected to central: ");
-    
+
     Serial.println(central.address()); // print the central's BT address
-    
+
     digitalWrite(LED_BUILTIN, HIGH); // turn on the LED to indicate the connection
 
     // check the battery level every 200ms
     // while the central is connected:
     while (central.connected()) {
       long currentMillis = millis();
-      
+
       if (currentMillis - previousMillis >= 200) { // if 200ms have passed, we check the battery level
         previousMillis = currentMillis;
 
@@ -523,7 +523,7 @@ void loop() {
 
       }
     }
-    
+
     digitalWrite(LED_BUILTIN, LOW); // when the central disconnects, turn off the LED
     Serial.print("Disconnected from central: ");
     Serial.println(central.address());

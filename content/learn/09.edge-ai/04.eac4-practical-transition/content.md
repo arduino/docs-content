@@ -13,7 +13,7 @@ tags:
   - Implementation
 author: 'José Bagur'
 hardware:
-  - hardware/02.hero/boards/uno-r4-wifi
+  - hardware/02.uno/boards/uno-r4-wifi
 ---
 
 In the previous modules, we explored the theoretical foundations of Edge AI: what it is, how machine learning algorithms operate on resource-constrained devices, and the workflow for creating applications. Now it is time to prepare for practical implementation.

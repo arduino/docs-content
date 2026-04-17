@@ -10,15 +10,15 @@ tags:
   - Linux
   - Debian
 hardware:
-  - hardware/02.hero/boards/uno-q
+  - hardware/02.uno/boards/uno-q
 software:
   - app-lab
   - app-cli
 ---
 
-### Overview 
+### Overview
 
-Arduino UNO Q is a hardware development board that comes with a pre-installed distribution of Arduino Debian for UNO Q. This operating system is based on the open-source Debian project ([https://www.debian.org/](https://www.debian.org/)). 
+Arduino UNO Q is a hardware development board that comes with a pre-installed distribution of Arduino Debian for UNO Q. This operating system is based on the open-source Debian project ([https://www.debian.org/](https://www.debian.org/)).
 
 In addition, the board has a set of software packages developed by Arduino, as follows:
 
@@ -35,9 +35,9 @@ Using these software tools, users can create their own Applications running on L
 
 The following guide provides information on how to adapt the security posture of UNO Q to the specific type of user application developed.
 
-Some of the limitations to take into consideration are as follows: 
+Some of the limitations to take into consideration are as follows:
 
-* Arduino does not recommend the usage of UNO Q as part of systems involving credit card payments or other forms of payment or transactions; this is not an intended usage and hence not part of the cybersecurity recommendations.   
+* Arduino does not recommend the usage of UNO Q as part of systems involving credit card payments or other forms of payment or transactions; this is not an intended usage and hence not part of the cybersecurity recommendations.  
 * If the product is used to build toys or solutions for kids, it's the user's responsibility to provide proper parental control features
 
 ### Authentication / Access Control / Password Protection
@@ -54,20 +54,20 @@ It is recommended to set a strong password that consists of at least 12 characte
 - Digits 0 through 9  
 - Punctuation marks
 
-Some details of interest are as follows: 
+Some details of interest are as follows:
 
-- Don't use easily guessed words for your password. It includes usernames, machine names, account names, family member or pet names, dictionary words, or simple character sequences like `12345` or `qwerty`.   
+- Don't use easily guessed words for your password. It includes usernames, machine names, account names, family member or pet names, dictionary words, or simple character sequences like `12345` or `qwerty`.  
 - Avoid reusing passwords. Please don't use the same one for different accounts or systems.
 
 ### Auditing Login Operations
 
-The **last** command in Linux provides a **history of user logins and logouts** by reading from a binary log file located at `/var/log/wtmp`. This file isn't plain text; instead, system processes write a record to it every time a user **successfully logs in**, **logs out**, or the **system is rebooted**. 
+The **last** command in Linux provides a **history of user logins and logouts** by reading from a binary log file located at `/var/log/wtmp`. This file isn't plain text; instead, system processes write a record to it every time a user **successfully logs in**, **logs out**, or the **system is rebooted**.
 
 When you run the last command, it reads this `wtmp` file from the end to the beginning, translating the binary records into a human-readable list. Each line of output typically shows:
 
-* the username,   
-* the terminal they used (e.g., `pts/0` for a remote SSH session),   
-* the source IP address or hostname they connected from,   
+* the username,  
+* the terminal they used (e.g., `pts/0` for a remote SSH session),  
+* the source IP address or hostname they connected from,  
 * the login and logout times,  
 * the total duration of the session.
 
@@ -83,16 +83,16 @@ Regularly updating your UNO Q operating system is an important security practice
 
 * *Stability and Reliability:* The Debian package management system is designed to provide stable and reliable updates. The updates are tested to ensure they don't break existing functionality. This helps your hardware board remain operational and secure.
 
-OS updates are distributed via Debian Packages and installed with the `apt-get` command; in particular, packages come from official Debian repositories and from a dedicated Arduino repository containing Debian packages for Arduino software. This mechanism leverages the strong security features provided by the Debian registry (PGP signatures, TLS transport, etc). 
+OS updates are distributed via Debian Packages and installed with the `apt-get` command; in particular, packages come from official Debian repositories and from a dedicated Arduino repository containing Debian packages for Arduino software. This mechanism leverages the strong security features provided by the Debian registry (PGP signatures, TLS transport, etc).
 
-To ensure your system is as secure as possible, run the command `arduino-app-cli system update` to update the list of Debian packages and apply any available updates (download new packages for both the OS and the Arduino software components). 
+To ensure your system is as secure as possible, run the command `arduino-app-cli system update` to update the list of Debian packages and apply any available updates (download new packages for both the OS and the Arduino software components).
 
 ### Physical Access
 
-By default, UNO Q comes preconfigured with the ADB (Android Debug Bridge) daemon listening on the USB port. Hence, when connected to a PC or laptop via USB, it's possible to issue adb commands (e.g., `adb shell`) and access the Linux Operating System as the `arduino` user. The `arduino` user can also become an admin via the “sudo” command.   
+By default, UNO Q comes preconfigured with the ADB (Android Debug Bridge) daemon listening on the USB port. Hence, when connected to a PC or laptop via USB, it's possible to issue adb commands (e.g., `adb shell`) and access the Linux Operating System as the `arduino` user. The `arduino` user can also become an admin via the “sudo” command.  
 App Lab uses this feature to allow programming UNO Q via USB in `PC connected` mode.
 
-If the ability to program the board via USB cable is not desirable (for example, when the development process is complete and the board is ready for its final application), ADB can be stopped as described below. 
+If the ability to program the board via USB cable is not desirable (for example, when the development process is complete and the board is ready for its final application), ADB can be stopped as described below.
  
 Note that this implies that the only way to access the board to program it will be to connect a monitor, keyboard, and mouse directly in **Single-Board Computer** mode.
 
@@ -122,9 +122,9 @@ sudo systemctl enable adbd
 
 ### Network Access
 
-The pre-installed Debian distribution on UNO Q does not expose any open TCP port on the network by default.   
+The pre-installed Debian distribution on UNO Q does not expose any open TCP port on the network by default.  
 
-The user might want to enable network services such as SSH, depending on the intended use (for example, during development). In general, it is recommended to switch off SSH or other network access protocols when the device is used in production. 
+The user might want to enable network services such as SSH, depending on the intended use (for example, during development). In general, it is recommended to switch off SSH or other network access protocols when the device is used in production.
 
 The recommended method for securely exposing a service is **SSH tunnelling**. An example of its implementation is provided below.
 
@@ -184,13 +184,13 @@ If no certificates are provided but HTTPS is required by user configuration, sel
 
 #### Configuring WebUI Brick With HTTPS and Custom Certification Authority
 
-To provide a secure connection between the WebUI brick and the browser, you can use the **mkcert** tool. 
+To provide a secure connection between the WebUI brick and the browser, you can use the **mkcert** tool.
 
 The scope is:
 
-* **Create a Certification Authority** to provide secure keys and certificates  
-* **Create a private key and a signed certificate** to use with the WebUI brick and expose an HTTPS service  
-* **Export the root CA** provided by mkcert  
+* **Create a Certification Authority** to provide secure keys and certificates
+* **Create a private key and a signed certificate** to use with the WebUI brick and expose an HTTPS service
+* **Export the root CA** provided by mkcert
 * **Trust the root CA** in the client host to verify the connection
 
 #### Install Mkcert
@@ -242,8 +242,8 @@ Then you have to:
 2. Create a certificate and a private key for your application
 3. Rename the file with the path expected by WebUI brick:
 
-- `cert.pem` for certificate  
-- `key.pem` for private key  
+- `cert.pem` for certificate
+- `key.pem` for private key
 
 4. Upload the files to the application path
 
@@ -365,7 +365,7 @@ Now, to use HTTPS, you have to pass the following parameters to the WebUI constr
 ui = WebUI(use_ssl=True)
 ```
 
-### Data Protection 
+### Data Protection
 
 If you are using UNO Q to store private information, it is recommended that you implement encryption at rest to protect it. Various approaches are available; some of them are proposed below:
 
@@ -405,7 +405,7 @@ ecryptfs-setup-private
 
 #### Step 3: Save the Encryption Passphrase in a Safe Location
 
-To make sure the safe recovery of your data in the future, it is important to store the chosen encryption passphrase in a secure online/offline location, such as a Password Manager. 
+To make sure the safe recovery of your data in the future, it is important to store the chosen encryption passphrase in a secure online/offline location, such as a Password Manager.
 
 The following command retrieves the unwrapped passphrase set during setup.
 
@@ -564,7 +564,7 @@ set mailserver smtp.gmail.com port 587
     using tlsv12
 
 # Customize the email format (optional)
-set mail-format { 
+set mail-format {
   from:    monit@your-server-hostname.com
   subject: Monit Alert -- $EVENT on $SERVICE
   message: $EVENT Service $SERVICE
@@ -588,10 +588,10 @@ The web interface provides a convenient dashboard to view the status of all moni
 # Enable the web interface
 set httpd port 2812 and
     # Restrict access to localhost only for security
-    use address localhost 
+    use address localhost
     # Or allow access from a specific IP
-    # use address 192.168.1.100  
-    
+    # use address 192.168.1.100
+
     # Set a username and password
     allow admin:monit
 ```

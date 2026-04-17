@@ -205,6 +205,8 @@ The Nano Matter (ABX00112) has dual castellated/through-hole pins along both lon
 The Nano Matter with headers pre-installed (ABX00137) is also available, providing convenient access for probing and testing.
 </p>
 
+![Nano Matter variants](assets/headers.png)
+
 ### Board Dimensions
 
 The Nano Matter board outline and mounting holes dimensions are shown in the figure below; all the dimensions are in mm. 
@@ -364,6 +366,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 |  **Date**  | **Revision** |                      **Changes**                           |
 | :--------: | :----------: | :--------------------------------------------------------: |
+| 24/03/2026 |      7       | Updating top image to include both variants                |
 | 01/12/2025 |      6       | Additional note on multiple SKUs and certification updates  |
 | 11/02/2025 |      5       | Header Version and SKU added as Collective Datasheet       |
 | 14/11/2024 |      4       | Official launch revision and power information update      |

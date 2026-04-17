@@ -1,0 +1,28 @@
+Board:
+  Name: Arduino® UNO Media Carrier
+  SKU: ASX00083
+Camera:
+  MIPI-CSI Connector: 2x 22-pin (CSI0, CSI1)
+  Compatible cameras: Standard MIPI-CSI camera modules (Raspberry Pi camera compatible)
+Display:
+  MIPI-DSI Connector: 1x 22-pin (DSI0)
+  Compatible displays: Standard MIPI-DSI display modules (Raspberry Pi display compatible)
+Audio:
+  MIC-IN / Headphones Out: 1x 3.5 mm jack (combined microphone input and headphone output)
+  Line Out: 1x 3.5 mm jack
+  Ear Out: 1x 3.5 mm jack
+Board Interface:
+  JMEDIA Connector: 1x 60-pin female (passthrough)
+  JMISC Connector: 1x 60-pin female (passthrough)
+Available Interfaces:
+  I2C: CCI I2C (1.8 V, via JMEDIA) and MCU I2C4 (3.3 V, via JMISC)
+  PSSI: 8-bit parallel camera interface (via JMISC)
+  GPIO: SoC GPIO (1.8 V) and MCU GPIO (3.3 V) via JMISC
+Power:
+  Main source: Host board via JMEDIA and JMISC connectors
+  VIN (DC_IN): 7-24 V DC (via J13)
+  VCOIN: 3.0 V DC input for host board RTC (max 3.6 V, via J10)
+Operating temperature: -10 to 60 °C
+Dimensions:
+  Width: 53.34 mm
+  Length: 68.58 mm

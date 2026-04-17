@@ -6,7 +6,7 @@ tags:
   - Alarm
 author: 'Karl Söderby'
 hardware:
-  - hardware/02.hero/boards/uno-r4-wifi
+  - hardware/02.uno/boards/uno-r4-wifi
 ---
 
 In this tutorial you will learn how to access the EEPROM (memory) on an **Arduino UNO R4 WiFi** board. The EEPROM is embedded in the UNO R4 WiFi's microcontroller (RA4M1).
@@ -46,7 +46,7 @@ There are several more methods available when working with EEPROM, and you can r
 
 ***Please note: EEPROM is a type of memory with a limited amount of write cycles. Be cautious when writing to this memory as you may significantly reduce the lifespan of this memory.***
 
-### EEPROM Write 
+### EEPROM Write
 
 A minimal example on how to **write** to the EEPROM can be found below:
 
@@ -54,12 +54,12 @@ A minimal example on how to **write** to the EEPROM can be found below:
 #include <EEPROM.h>
 
 int addr = 0;
-byte value = 100; 
+byte value = 100;
 
 void setup() {
   EEPROM.write(addr, value);
 }
-void loop(){ 
+void loop(){
 }
 ```
 

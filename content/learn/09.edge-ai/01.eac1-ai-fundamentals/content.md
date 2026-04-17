@@ -6,7 +6,7 @@ tags:
   - Fundamentals
 author: 'José Bagur'
 hardware:
-  - hardware/02.hero/boards/uno-r4-wifi
+  - hardware/02.uno/boards/uno-r4-wifi
 ---
 
 This module introduces the fundamental concepts of Edge Artificial Intelligence (Edge AI), establishing the theoretical foundations necessary to understand how to implement machine learning solutions on resource-constrained devices such as microcontrollers and embedded systems.
@@ -17,7 +17,7 @@ This module introduces the fundamental concepts of Edge Artificial Intelligence 
 
 Before exploring Edge AI, it is important to understand what a machine learning model is. Machine Learning is a branch of Artificial Intelligence (AI) that enables computer systems to learn patterns from data and make predictions or decisions without being explicitly programmed for each specific situation [1].
 
-A machine learning model is a **mathematical representation of a particular event or process that captures the relationships between input and output variables** of that event. 
+A machine learning model is a **mathematical representation of a particular event or process that captures the relationships between input and output variables** of that event.
 
 Let's consider **a practical example**: a machine learning model trained to detect anomalies in industrial *motor vibrations*. The process of creating a machine learning model involves **two fundamental phases**:
 

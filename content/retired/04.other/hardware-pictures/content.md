@@ -5,7 +5,7 @@ source: "https://arduino.cc/en/Main/HardwarePictures"
 
 ***Note: This page refers to products that are retired.***
 
-There are multiple versions of the Arduino board. The current basic board, the Duemilanove, uses the Atmel ATmega328 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc8161.pdf)). The older Diecimila, and the first run of Duemilanoves used the Atmel ATmega168 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2545.pdf)), while older boards use the ATmega8 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2486.pdf)). The Arduino Mega is based on the ATmega1280 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2549.pdf)). 
+There are multiple versions of the Arduino board. The current basic board, the Duemilanove, uses the Atmel ATmega328 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc8161.pdf)). The older Diecimila, and the first run of Duemilanoves used the Atmel ATmega168 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2545.pdf)), while older boards use the ATmega8 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2486.pdf)). The Arduino Mega is based on the ATmega1280 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2549.pdf)).
 
 Note: The reference designs for arduino are distributed under a Creative Commons license [Attribution-ShareAlike 2.5](http://creativecommons.org/licenses/by-sa/2.5/). See [So you want to make an Arduino?](//www.arduino.cc/en/Main/Policy) for more information and guidelines on producing your own hardware.
 
@@ -19,7 +19,7 @@ Duemilanove - This is the latest revision of the basic Arduino USB board. It con
 
 Nano - A compact board designed for breadboard use, the Nano connects to the computer using a USB Mini-B cable.
 
-[![](assets/ArduinoMega240.jpg)](content/hardware/02.hero/boards/mega-2560)
+[![](assets/ArduinoMega240.jpg)](content/hardware/10.mega/boards/mega-2560)
 
 Mega - A larger, more powerful Arduino board, shield compatible with the Duemilanove and Diecmila.
 
@@ -39,7 +39,7 @@ LilyPad \- Designed for wearable application, this board can be sewn onto fabric
 
 [![](assets/ArduinoFio240.jpg)](content/retired/01.boards/arduino-fio)
 
-Fio - Designed for wireless applications. It includes a socket for an XBee radio, a connector for a LiPo battery, and integrated battery charging circuitry. [details](content/retired/01.boards/arduino-fio) 
+Fio - Designed for wireless applications. It includes a socket for an XBee radio, a connector for a LiPo battery, and integrated battery charging circuitry. [details](content/retired/01.boards/arduino-fio)
 
 [![](assets/ArduinoPro240.jpg)](content/retired/01.boards/arduino-pro)
 
@@ -47,11 +47,11 @@ Pro - This board is designed for advanced users who want to leave a board embedd
 
 [![](assets/ArduinoProMini240.jpg)](content/retired/01.boards/arduino-pro-mini)
 
-Pro Mini - Like the Pro, the Pro Mini is designed for advanced users requiring a low-cost, small board and willing to do some extra work. 
+Pro Mini - Like the Pro, the Pro Mini is designed for advanced users requiring a low-cost, small board and willing to do some extra work.
 
-Serial - It's a basic board that uses RS232 as an interface to a computer for programming or communication. This board is easy to assemble even as a learning exercise. 
+Serial - It's a basic board that uses RS232 as an interface to a computer for programming or communication. This board is easy to assemble even as a learning exercise.
 
-Serial Single Sided - This board is designed to be etched and assembled by hand. It is slightly larger than the Diecimila, but still shield compatible. 
+Serial Single Sided - This board is designed to be etched and assembled by hand. It is slightly larger than the Diecimila, but still shield compatible.
 
 ## Looking for an older board?
 
@@ -59,11 +59,11 @@ The [hardware index](https://docs.arduino.cc/retired/other/arduino-older-boards/
 
 ## Shields
 
-Shields are boards to be mounted on top of the Arduino board and that extend the functionality of Arduino to control different devices, acquire data, etc. 
+Shields are boards to be mounted on top of the Arduino board and that extend the functionality of Arduino to control different devices, acquire data, etc.
 
 * Xbee Shield - This shield allows multiple Arduino boards to communicate wirelessly over distances up to 100 feet (indoors) or 300 feet (outdoors) using the Maxstream Xbee Zigbee module.
 * Motor Shield - This shield allows an Arduino board to control DC motors and read encoders.
-* Ethernet Shield - This shield allows an Arduino board to connect to the internet. 
+* Ethernet Shield - This shield allows an Arduino board to connect to the internet.
 
 ## Recommended Third-Party Hardware
 

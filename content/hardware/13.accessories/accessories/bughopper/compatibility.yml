@@ -1,0 +1,6 @@
+software:
+  - arduino-ide
+  - arduino-cli
+hardware:
+  boards:
+    - uno-q

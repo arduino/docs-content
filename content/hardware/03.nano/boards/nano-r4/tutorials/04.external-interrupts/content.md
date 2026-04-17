@@ -7,7 +7,7 @@ tags:
     - Event detection
 author: 'José Bagur'
 hardware:
-    - hardware/04.nano/boards/nano-r4
+    - hardware/03.nano/boards/nano-r4
 software:
     - ide-v2
 ---

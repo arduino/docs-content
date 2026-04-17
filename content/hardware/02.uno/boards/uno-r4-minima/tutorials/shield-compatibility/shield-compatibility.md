@@ -8,8 +8,8 @@ tags:
   - UNO R4 WiFi
 author: 'Hannes Siebeneicher'
 hardware:
-  - hardware/02.hero/boards/uno-r4-minima
-  - hardware/02.hero/boards/uno-r4-wifi
+  - hardware/02.uno/boards/uno-r4-minima
+  - hardware/02.uno/boards/uno-r4-wifi
 ---
 
 This article covers a list of shields compatible with the [UNO R4 Minima](/hardware/uno-r4-minima) and the [UNO R4 WiFi](/hardware/uno-r4-wifi).

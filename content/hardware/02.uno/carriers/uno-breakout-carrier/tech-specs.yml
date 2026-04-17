@@ -1,0 +1,17 @@
+Carrier:
+  Name: Arduino® UNO Breakout Carrier
+  SKU: ASX00085
+Connectors:
+  Standard Headers: Two 2x20 Male Headers (2.54 mm)
+  High-Speed Headers: Two 2x30 Male Headers (1.27 mm) for JMEDIA and JMISC
+  Pads: 1x8 through-hole pads (2.54 mm)
+Interfaces (I/O):
+  Communication: I2C, SPI, UART
+  Audio: Microphone In / Headphone Out, Earphone Out, Audio Line Out
+  Other I/O: PWM, PSSI, GPIO, OPAMP
+Power:
+  Input: VIN input power rails (+7-24 VDC)
+  Output Rails: +5V USB, +3.3V, +1.8V
+Dimensions:
+  Width: 53.34 mm
+  Length: 107.6 mm

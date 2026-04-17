@@ -1,0 +1,1 @@
+Here you will find the technical specifications for the Arduino® USB-C Hub (8 in 1).
