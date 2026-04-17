@@ -20,7 +20,7 @@ software:
 
 This user manual provides a comprehensive guide to the Arduino® UNO Breakout Carrier, covering all its features in one place for easy reference. It includes instructions for setting up, connecting and using its various onboard interfaces.
 
-![Arduino UNO Breakout Carrier](assets/ASX00085-topology.png)
+![Arduino UNO Breakout Carrier](assets/ASX00085-banner.png)
 
 The UNO Breakout Carrier is designed for prototyping, hardware validation, research and development, and education. It exposes the complete signal set of the UNO Q's JMEDIA and JMISC high-speed connectors through labeled standard headers, removing the need for complex adapters or custom breakout solutions.
 
@@ -127,7 +127,9 @@ The connector layout of the UNO Breakout Carrier is shown in the figure below. A
 
 To attach the UNO Q to the UNO Breakout Carrier, follow the steps below:
 
-![UNO Q Mounting on Carrier](assets/ASX00085-mounting.png)
+![UNO Q Mounting on Carrier (1/2)](assets/ASX00085-mounting-1.png)
+
+![UNO Q Mounting on Carrier (2/2)](assets/ASX00085-mounting-2.png)
 
 1. Hold the UNO Q with the high-density connectors (JMEDIA and JMISC) facing down, aligned with the corresponding connectors on the carrier.
 2. Gently press the UNO Q straight down until both connectors are fully seated. Apply even pressure across both connectors to avoid misalignment.
@@ -143,7 +145,7 @@ Once the UNO Q is mounted on the carrier, the carrier is powered through the UNO
 - An external +5 VDC power supply connected to the UNO Q's 5V pin.
 - An external +7–24 VDC supply connected to the UNO Q's VIN pin.
 
-![UNO Q Power Options](assets/power-options-3.png)
+![UNO Q Power Options](assets/ASX00085-power-options.png)
 
 For applications that require the carrier to supply power independently to external circuits connected to the J14 header, a VIN supply of +7–24 VDC can be connected to the VIN pads (pins 1 and 3) of J14.
 
