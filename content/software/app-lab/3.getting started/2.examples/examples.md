@@ -20,7 +20,7 @@ Take the following steps to run an example App:
 1. Select the **Examples** tab in the left sidebar.
 2. Select the example you want to run on your board.
 3. Click the **Run** button in the top right corner.
-   ![](../../assets/app-lab-editor-example-editor-hl-run.png)
+   ![Screenshot of Arduino App Lab, highlighting the "Run" button near the top-right corner.](../../assets/app-lab-editor-example-editor-hl-run.png)
 4. Wait for the loading process to finish.
 5. Interact with the App once the start-up is complete.
 
@@ -32,7 +32,7 @@ Take the following steps to duplicate an example:
 
 1. Navigate to the **Examples** tab and select an example.
 2. Click the **Copy and edit app** button in the top right corner next to the **Run** button.
-   ![](../../assets/app-lab-editor-example-editor-hl-copy.png)
+   ![Screenshot of Arduino App Lab, highlighting the ""Copy and edit app" button near the top-right corner.](../../assets/app-lab-editor-example-editor-hl-copy.png)
 3. Enter a name for the App.
 4. Click **Create new**.
 

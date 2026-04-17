@@ -15,8 +15,8 @@ tags:
 
 An App is a container for two separate programs that can communicate with each other:
 
-*   **Python (`python/main.py`):** This script runs in the Linux environment on the board's microprocessor's. It handles high-level logic, AI models, networking, and web interfaces. It runs standard Python 3.
-*   **Sketch (`sketch/sketch.ino`):** The Sketch runs on the board's microcontroller. It manages low-level hardware interactions, such as reading sensors and controlling motors, with real-time precision. The Sketch is written in the Arduino/C++ language.
+* **Python (`python/main.py`):** This script runs in the Linux environment on the board's microprocessor's. It handles high-level logic, AI models, networking, and web interfaces. It runs standard Python 3.
+* **Sketch (`sketch/sketch.ino`):** The Sketch runs on the board's microcontroller. It manages low-level hardware interactions, such as reading sensors and controlling motors, with real-time precision. The Sketch is written in the Arduino/C++ language.
 
 ## Core Files
 

@@ -13,6 +13,7 @@ After connecting, App Lab performs an automated check to ensure your board is co
 * [Setup Arduino App Lab](../../setup/overview/)
 
 ## Board Selection (Connected Mode)
+
 <Alert type="info">**Note:** Skip this step if you are running Arduino App Lab in [Single Board Computer mode](../standalone/).</Alert>
 
 1. Connect your board to your computer using a USB-C cable.

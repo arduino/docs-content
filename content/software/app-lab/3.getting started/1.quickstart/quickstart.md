@@ -50,7 +50,7 @@ Built-in examples are read-only. To modify the code, you must create a copy of t
 1. Select `python/main.py` in the **Files** panel on the left.
    ![Screenshot of the App Editor in Arduino App Lab, highlighting in the Files browser.](../../assets/app-lab-editor-multi-tab-hl-files.png)
 1. Locate the `time.sleep(1)` command in the `loop` function and change it to `time.sleep(0.1)`.
-5. Select **Run** to start the modified App. If another App is already active, App Lab will prompt you to replace it before proceeding. Select **Confirm and replace** to switch to your new App.
+1. Select **Run** to start the modified App. If another App is already active, App Lab will prompt you to replace it before proceeding. Select **Confirm and replace** to switch to your new App.
 
 The red LED on your board now blinks at a much faster rate.
 

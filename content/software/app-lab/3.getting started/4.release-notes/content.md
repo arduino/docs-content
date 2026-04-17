@@ -73,7 +73,7 @@ Below is a list of release notes for previous versions.
 
 You can now connect App Lab with Arduino Cloud and your Edge Impulse account! This means that you can now use the IoT Remote App as a camera input to your examples, as well as create your own custom models using Edge Impulse.
 
-New Examples: 
+New Examples:
 
 * Color Your LEDs
 * Video Object Detection on Mobile
@@ -115,7 +115,7 @@ See a full list of what's new and which bugs have been fixed below.
 
 #### GitHub Release
 
-https://github.com/arduino/arduino-app-lab/releases/tag/al-0.5.0
+<https://github.com/arduino/arduino-app-lab/releases/tag/al-0.5.0>
 
 </details>
 
@@ -145,12 +145,12 @@ https://github.com/arduino/arduino-app-lab/releases/tag/al-0.5.0
 
 #### GitHub Release
 
-https://github.com/arduino/arduino-app-lab/releases/tag/al-0.4.0
+<https://github.com/arduino/arduino-app-lab/releases/tag/al-0.4.0>
 
 </details>
 
 <br></br>
 
-If you have already downloaded App Lab once, you should get your updates automatically next time you open the software. You can also [download the latest release here](https://www.arduino.cc/en/software/#app-lab-section). 
+If you have already downloaded App Lab once, you should get your updates automatically next time you open the software. You can also [download the latest release here](https://www.arduino.cc/en/software/#app-lab-section).
 
 <!-- markdownlint-disable-file MD033 MD059 -->
