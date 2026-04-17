@@ -153,4 +153,4 @@ See a full list of what's new and which bugs have been fixed below.
 
 If you have already downloaded App Lab once, you should get your updates automatically next time you open the software. You can also [download the latest release here](https://www.arduino.cc/en/software/#app-lab-section).
 
-<!-- markdownlint-disable-file MD033 MD059 -->
+<!-- markdownlint-disable-file MD033 MD059 MD004 -->
