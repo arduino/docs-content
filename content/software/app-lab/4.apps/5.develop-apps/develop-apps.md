@@ -26,11 +26,11 @@ Arduino App Lab automatically manages these configuration files:
 * **`sketch/sketch.yaml`**: The configuration file for the sketch (read-only).
 * **`app.yaml`**: The configuration file for Bricks and App properties (read-only).
 
-To learn more about the App file structure, see [About Apps](../1.about-apps/about-apps.md).
+To learn more about the App file structure, see [About Apps](../about-apps/).
 
 ### Explore and Open Files
 
-1. [Open an App](../2.manage-apps/manage-apps.md#open-an-app).
+1. [Open an App](../manage-apps/#open-an-app).
 1. Find the **File Manager** in the left sidebar.
    ![Screenshot of the App Editor in Arduino App Lab, highlighting in the Files browser.](../../assets/app-lab-editor-multi-tab-hl-files.png)
 1. If folders are not displaying correctly, try closing and expanding the File Manager.
@@ -200,7 +200,7 @@ void loop() {
 
 The `Bridge` allows your Python script and Arduino sketch to exchange data using Remote Procedure Calls (RPC).
 
-See [Getting Started with the Bridge](../../5.bridge/1.get-started-with-bridge/get-started-with-bridge.md) to learn more.
+See [Getting Started with the Bridge](../../bridge/get-started-with-bridge/) to learn more.
 
 ## Running and Monitoring Your App
 
@@ -212,4 +212,4 @@ Monitor your App using the **Console** at the top of the interface by selecting 
 * **Serial Monitor**: `Monitor.print()` output from your Arduino sketch.
 * **Python**: `print()` output from your Python script.
 
-See [Run and Monitor Apps](../6.run/run.md) to learn more.
+See [Run and Monitor Apps](../run/) to learn more.

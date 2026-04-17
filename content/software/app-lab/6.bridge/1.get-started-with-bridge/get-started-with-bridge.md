@@ -23,7 +23,7 @@ The easiest way to see the Bridge in action is to explore the built-in examples.
 *   **Blink LED with UI:** Uses the WebUI Brick to control the MCU LED from a browser-based dashboard.
 *   **Weather forecast on LED Matrix:** Fetches weather data in Python and sends it to the MCU to be displayed on an LED matrix.
 
-To learn more about how to access and run Examples, see [Using Examples](../../2.getting-started/3.examples/examples.md).
+To learn more about how to access and run Examples, see [Using Examples](../../getting%20started/examples/).
 
 ## Use Bridge Communication in Your App
 
@@ -44,7 +44,7 @@ First, configure the MCU to listen for commands and respond. This is done by def
 
 Open your `sketch/sketch.ino` file. We will build the sketch piece by piece:
 
-1. **[Use the Sketch Library Manager](../../3.apps/5.develop-apps/develop-apps.md#add-sketch-libraries)** to add the `Arduino_RouterBridge` library to your App.
+1. **[Use the Sketch Library Manager](../../apps/develop-apps/#add-sketch-libraries)** to add the `Arduino_RouterBridge` library to your App.
 
 1. **Include the Library:**
    At the top of your file, include the Bridge library:
@@ -147,5 +147,5 @@ Try these modifications to see how the communication changes. Remember to **Stop
 
 ## Next Steps
 
-*   **[Bridge API Reference](../2.bridge-api/bridge-api.md)**
-*   **[Using Bricks with Bridge](../../4.bricks/2.use-bricks/use-bricks.md)**
+*   **[Bridge API Reference](../bridge-api/)**
+*   **[Using Bricks with Bridge](../../bricks/use-bricks/)**

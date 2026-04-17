@@ -41,4 +41,4 @@ Each App resides in its own subdirectory named after your App title.
 
 ## Next Steps
 
-* [Manage Apps in Arduino App Lab](../../3.apps/2.manage-apps/manage-apps.md)
+* [Manage Apps in Arduino App Lab](../../apps/manage-apps/)

@@ -14,8 +14,8 @@ This onboarding journey assumes you have already installed App Lab and configure
 
 ## Prerequisites
 
-* [Setup Arduino App Lab](../../1.setup/1.overview/overview.md)
-* [Connect, Configure, and Update boards in Arduino App Lab](../../2.configure/0.config/config.md)
+* [Setup Arduino App Lab](../../setup/overview/)
+* [Connect, Configure, and Update boards in Arduino App Lab](../../configure/config/)
 
 ## Step 1: Explore the Interface
 
@@ -88,5 +88,5 @@ Printing messages from your code is the simplest way to track your app's behavio
 
 Now that you've learned the basics, explore these resources to start building your own projects:
 
-* [Manage Apps in Arduino App Lab](../3.apps/2.manage-apps/manage-apps.md)
-* [Develop Apps in Arduino App Lab](../../3.apps/5.develop-apps/develop-apps.md)
+* [Manage Apps in Arduino App Lab](../apps/manage-apps/)
+* [Develop Apps in Arduino App Lab](../../apps/develop-apps/)

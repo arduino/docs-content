@@ -56,7 +56,7 @@ This section details the low-level firmware and OS image currently running on th
 * **Linux Distribution**: The active Linux distribution and version.
 * **Kernel Version**: The active Linux kernel version.
 * **Release date**: The release date of the installed OS image.
-* **Install another OS version (Flash)**: Select the **Flash Board** button to initiate the flashing process and install a different operating system image. See [Flash a New Linux Image](../3.flash/flash.md) to learn more.
+* **Install another OS version (Flash)**: Select the **Flash Board** button to initiate the flashing process and install a different operating system image. See [Flash a New Linux Image](../flash/) to learn more.
 
 ### Network Connections
 

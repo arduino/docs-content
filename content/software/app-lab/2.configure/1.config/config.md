@@ -4,16 +4,16 @@ overwriteSidebar: Connect, Configure & Update
 description: "Learn how to perform the initial configuration of your board and manage system updates using Arduino App Lab."
 ---
 
-Once Arduino App Lab is running, it will automatically detect and prepare your board for development. If you are using App Lab in [Single Board Computer (SBC) mode](../../2.getting-started/5.standalone/standalone.md), the software is already running on the board and no manual connection step is required. If you are working from a separate computer, you will first need to select and connect to your board over USB or your local network.
+Once Arduino App Lab is running, it will automatically detect and prepare your board for development. If you are using App Lab in [Single Board Computer (SBC) mode](../../getting%20started/standalone/), the software is already running on the board and no manual connection step is required. If you are working from a separate computer, you will first need to select and connect to your board over USB or your local network.
 
 After connecting, App Lab performs an automated check to ensure your board is correctly configured. While you will typically walk through these steps during your first session, App Lab may prompt you again if certain requirements are missing—for example, if a network connection is unavailable or if a Linux password needs to be set for Network Mode deployment and remote access via SSH.
 
 ## Prerequisites
 
-* [Setup Arduino App Lab](../../1.setup/1.overview/)
+* [Setup Arduino App Lab](../../setup/overview/)
 
 ## Board Selection (Connected Mode)
-<Alert type="info">**Note:** Skip this step if you are running Arduino App Lab in [Single Board Computer mode](../5.standalone/standalone.md).</Alert>
+<Alert type="info">**Note:** Skip this step if you are running Arduino App Lab in [Single Board Computer mode](../standalone/).</Alert>
 
 1. Connect your board to your computer using a USB-C cable.
 1. Wait for the board to boot (this may take up to 60 seconds).
@@ -53,4 +53,4 @@ If updates are available, Arduino App Lab will ask if you want to install the av
 
 ## Next Steps
 
-* [Get Started with Arduino App Lab](../../2.getting-started/1.quickstart/quickstart.md)
+* [Get Started with Arduino App Lab](../../getting%20started/quickstart/)

@@ -11,7 +11,7 @@ The App Lab provides a seamless interface for testing, deploying, and managing a
 
 When you have finished writing or modifying your code in the App Lab, you can execute it directly on your connected board.
 
-1. [Open an App](../2.manage-apps/manage-apps.md#open-an-app).
+1. [Open an App](../manage-apps/#open-an-app).
 2. Click the **Run (▶)** button in the top navigation bar.
 3. The **Console** opens automatically as Arduino App Lab compiles your project, transfers it to the board's active memory, and launches it. Start-up logs appear in the **App launch** tab.
    ![Screenshot of Arduino App Lab. An App is being launched, and the text "Running..." is displayed next to the Run button.](../../assets/app-lab-console/launching/launching.png)
@@ -23,7 +23,7 @@ When you have finished writing or modifying your code in the App Lab, you can ex
 
 If you want your application to launch automatically whenever your board receives power, you must configure it as a **startup app**.
 
-1. [Open an App](../2.manage-apps/manage-apps.md#open-an-app).
+1. [Open an App](../manage-apps/#open-an-app).
 1. Select the arrow (**▼**) next to the **Run** button.
 1. Enable **Run at Startup**.
 
