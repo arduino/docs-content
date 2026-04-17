@@ -19,7 +19,7 @@ def build_markdown_table():
     # Initialize table headers
     rows = [
         "| Example | Description | Source |",
-        "|---|---|---|"
+        "| --- | --- | --- |"
     ]
     
     examples_data = []

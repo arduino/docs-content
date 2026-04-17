@@ -44,7 +44,7 @@ Examples can only be viewed in Arduino App Lab when connected to a board. Howeve
 
 <!-- app-bricks-examples table start -->
 | Example | Description | Source |
-|---|---|---|
+| --- | --- | --- |
 | Air quality on LED matrix | An Air Quality Monitoring System that uses air quality AQI API data to show the air quality state on the LED matrix. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/air-quality-monitoring) |
 | Bedtime story teller | This example shows how to create a bedtime story teller using Arduino. It uses a cloud-based language model to generate a story based on user input and shows the story on a web interface. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/bedtime-story-teller) |
 | Blink LED | This example shows how to make the LED blink alternately. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/blink) |
