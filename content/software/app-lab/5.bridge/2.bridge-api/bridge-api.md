@@ -213,7 +213,7 @@ None.
 
 ### `read()`
 
-Reads incoming serial data from the queue.
+Reads incoming data from the queue.
 
 #### Parameters
 
