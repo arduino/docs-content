@@ -494,7 +494,7 @@ To use this I2C bus from an Arduino sketch running in Arduino App Lab:
 
 2. Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
 
-![Library install](assets/lib-install-app-lab.png)
+![Library install](assets/lib-install.png)
 
 3. Copy and paste the example below into the sketch part of your new App.
 
@@ -528,6 +528,8 @@ void loop() {
 }
 ```
 
+![I2C data stream](assets/i2c.png)
+
 ***The MCU I2C4 bus uses the `Wire1` object, not `Wire`. `Wire` is mapped to the standard UNO-style header pins (D20/D21) on the UNO Q itself.***
 
 ## GPIO
@@ -546,7 +548,7 @@ To use an MCU GPIO exposed on the J15 header or JMISC connector:
 
 2. Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
 
-![Library install](assets/lib-install-app-lab.png)
+![Library install](assets/lib-install.png)
 
 3. Copy and paste the example below into the sketch part of your new App.
 
@@ -823,7 +825,7 @@ The following example reads the voltage at the OPAMP inputs and outputs and prin
 
 2. Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
 
-![Library install](assets/lib-install-app-lab.png)
+![Library install](assets/lib-install.png)
 
 3. Copy and paste the example below into the sketch part of your new App.
 
