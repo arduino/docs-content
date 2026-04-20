@@ -1,4 +1,4 @@
 ---
 title: Configure
-icon: IconBoard
+icon: IconHardware
 ---
