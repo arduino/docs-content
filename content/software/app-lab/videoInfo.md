@@ -25,7 +25,7 @@ info:
       icon: IconCLI,
       title: 'Arduino App CLI',
       description: "Learn how to use the Arduino App Lab CLI to manage Apps from the command line.",
-      link: /software/app-lab/tutorials/cli,
+      link: /software/app-lab/cli/cli,
     },
   ]
 ---
