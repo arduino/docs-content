@@ -1,4 +1,4 @@
 ---
 title: Integrations
-icon: CloudConnected
+icon: IconCloudConnected
 ---
