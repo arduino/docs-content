@@ -23,7 +23,7 @@ The easiest way to see the Bridge in action is to explore the built-in examples.
 - **Blink LED with UI:** Uses the WebUI Brick to control the MCU LED from a browser-based dashboard.
 - **Weather forecast on LED Matrix:** Fetches weather data in Python and sends it to the MCU to be displayed on an LED matrix.
 
-To learn more about how to access and run Examples, see [Using Examples](../../getting%20started/examples/).
+To learn more about how to access and run Examples, see [Using Examples](../../getting-started/examples/).
 
 ## Use Bridge Communication in Your App
 

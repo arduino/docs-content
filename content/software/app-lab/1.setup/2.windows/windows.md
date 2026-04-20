@@ -16,7 +16,7 @@ This guide details how to prepare your Windows computer for use with Arduino App
 
 1. [Install Arduino App Lab](#install-arduino-app-lab)
 1. [Connect Your Board](#connect-your-board)
-1. [Get Started with Arduino App Lab](../../getting%20started/quickstart/)
+1. [Get Started with Arduino App Lab](../../getting-started/quickstart/)
 
 ## Install Arduino App Lab
 
@@ -44,7 +44,7 @@ This guide details how to prepare your Windows computer for use with Arduino App
 
 ## Next steps
 
-- [Getting Started with Arduino App Lab](/software/app-lab/getting%20started/quickstart/)
+- [Getting Started with Arduino App Lab](/software/app-lab/getting-started/quickstart/)
 
 ## About mdns-discovery.exe
 

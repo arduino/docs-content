@@ -16,7 +16,7 @@ This guide outlines the steps to prepare your macOS computer for developing with
 
 1. [Install Arduino App Lab](#install-arduino-app-lab)
 1. [Connect Your Board](#connect-your-board)
-1. [Get Started with Arduino App Lab](../../getting%20started/quickstart/)
+1. [Get Started with Arduino App Lab](../../getting-started/quickstart/)
 
 ## Install Arduino App Lab
 
@@ -41,4 +41,4 @@ This guide outlines the steps to prepare your macOS computer for developing with
 
 ## Next steps
 
-- [Getting Started with Arduino App Lab](../../getting%20started/quickstart/)
+- [Getting Started with Arduino App Lab](../../getting-started/quickstart/)

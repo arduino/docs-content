@@ -25,8 +25,8 @@ If you're unsure, Connected Mode is a great way to get started. You can switch b
 1. Follow the instructions for your [selected setup mode](#choose-your-setup-mode).
    - [Windows](../windows/), [macOS](../macos/), or [Linux](../linux/) (Connected Mode, running on your PC)
    - [Single-Board Computer](../standalone/) (SBC Mode, running directly on your board)
-2. [Configure your board in Arduino App Lab](../../getting%20started/config/)
-3. [Get started with Arduino App Lab](../../getting%20started/quickstart/)
+2. [Configure your board in Arduino App Lab](../../getting-started/config/)
+3. [Get started with Arduino App Lab](../../getting-started/quickstart/)
 
 ## Supported Boards
 
@@ -36,4 +36,4 @@ If you're unsure, Connected Mode is a great way to get started. You can switch b
 
 ## Next Steps
 
-- [Get Started with Arduino App Lab](../../getting%20started/quickstart/)
+- [Get Started with Arduino App Lab](../../getting-started/quickstart/)

@@ -17,7 +17,7 @@ This guide details how to prepare your Linux computer for developing with Arduin
 1. [Prepare Your System](#prepare-your-system)
 1. [Install Arduino App Lab](#install-arduino-app-lab)
 1. [Connect Your Board](#connect-your-board)
-1. [Get Started with Arduino App Lab](../../getting%20started/quickstart/)
+1. [Get Started with Arduino App Lab](../../getting-started/quickstart/)
 
 ## Prepare Your System
 
@@ -104,4 +104,4 @@ sudo usermod -a -G dialout $USER
 
 ## Next steps
 
-- [Getting Started with Arduino App Lab](/software/app-lab/getting%20started/quickstart/)
+- [Getting Started with Arduino App Lab](/software/app-lab/getting-started/quickstart/)

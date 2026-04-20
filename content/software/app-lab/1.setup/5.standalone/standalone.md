@@ -20,7 +20,7 @@ Because these boards run a standard Linux OS, they support a wide range of I/O c
 
 1. [Connect power, display, and input devices](#connect-power-display-and-input-devices)
 1. [Boot into Linux](#boot-into-linux)
-1. [Get Started with Arduino App Lab](../../getting%20started/quickstart/)
+1. [Get Started with Arduino App Lab](../../getting-started/quickstart/)
 
 ## Connect power, display, and input devices
 
@@ -54,7 +54,7 @@ If you connect to the Internet, Arduino App Lab may prompt you to install any av
 
 ## Next Steps
 
-- [Getting Started with Arduino App Lab](/software/app-lab/getting%20started/quickstart/)
+- [Getting Started with Arduino App Lab](/software/app-lab/getting-started/quickstart/)
 
 ## Alternative Configurations
 
