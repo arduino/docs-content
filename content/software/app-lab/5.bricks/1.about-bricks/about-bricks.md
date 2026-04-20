@@ -13,7 +13,7 @@ Bricks are the modular building blocks of the Arduino App Lab ecosystem. They al
 
 ## What is a Brick?
 
-A **Brick** is a pre-configured service or Docker container that runs on the UNO Q's Linux environment. Each Brick provides a specific set of capabilities that your Python script (`main.py`) can interact with through a high-level API.
+A **Brick** is a pre-configured service or Docker container that runs on the board's Linux environment. Each Brick provides a specific set of capabilities that your Python script (`main.py`) can interact with through a high-level API.
 
 ## How Bricks Work
 

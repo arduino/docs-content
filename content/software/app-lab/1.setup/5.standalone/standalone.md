@@ -7,6 +7,7 @@ tags:
   - Standalone Mode
   - SBC
   - Setup
+  - UNO Q
 ---
 
 Compatible Arduino boards can operate as a **Single-Board Computer (SBC)** running a full Linux environment. In this mode, the board functions like a desktop computer, and you develop directly on the board without needing a separate host PC.

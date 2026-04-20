@@ -11,7 +11,7 @@ tags:
   - Arduino App Lab
 ---
 
-Developing an App for the Arduino UNO Q involves programming for two distinct environments simultaneously: a Linux microprocessor running Python, and an STM32 microcontroller running an Arduino C++ sketch.
+Developing an App for your board involves programming for two distinct environments simultaneously: a Linux microprocessor running Python, and a microcontroller running an Arduino C++ sketch.
 
 ## Project Files
 

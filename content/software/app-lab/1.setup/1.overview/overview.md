@@ -9,7 +9,7 @@ tags:
   - UNO Q
 ---
 
-Arduino App Lab is the integrated development environment (IDE) specifically designed for the Arduino UNO Q. It allows you to develop, deploy, and manage hybrid applications that combine the power of a Linux microprocessor with the real-time reliability of a microcontroller running Arduino/C++.
+Arduino App Lab is the integrated development environment (IDE) specifically designed for hybrid application development on the Arduino UNO Q. It allows you to develop, deploy, and manage applications that combine the power of a Linux microprocessor with the real-time reliability of a microcontroller running Arduino/C++.
 
 ## Choose Your Setup Mode
 

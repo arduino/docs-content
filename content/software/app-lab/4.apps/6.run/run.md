@@ -1,11 +1,11 @@
 ---
 title: Run and Monitor Apps
-description: Learn how to run, stop, and configure startup applications on your Arduino UNO Q using App Lab.
+description: Learn how to run, stop, and configure startup applications on your board using App Lab.
 overwriteSidebar: Run & Monitor
 tags: [UNO Q, App Lab, Startup, Default App, Headless]
 ---
 
-The App Lab provides a seamless interface for testing, deploying, and managing applications on your Arduino UNO Q. This guide covers the essential execution workflows, from running your first example to configuring startup apps.
+The App Lab provides a seamless interface for testing, deploying, and managing applications on your board. This guide covers the essential execution workflows, from running your first example to configuring startup apps.
 
 ## Run an App
 
