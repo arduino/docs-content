@@ -208,3 +208,5 @@ More documentation for the Arduino App Lab is available at:
 - [Arduino App Lab Documentation](https://docs.arduino.cc/software/app-lab/)
 
 You can also visit the [Arduino® UNO Q](/hardware/uno-q) hardware page for details on the board. 
+
+<!-- markdownlint-disable-file -->

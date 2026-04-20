@@ -214,3 +214,5 @@ This integration eliminates the need for external USB webcams, allowing you to p
 - **Integrate into Custom Apps:** Use the code snippets provided in the "Mobile Integration Feature" section to add phone camera support to your own Arduino App Lab projects.
 - **Experiment with Other Bricks:** Try feeding the mobile camera stream into different Bricks, such as the `video_classifier` or `face_detection` Bricks.
 - **Optimize Performance:** Experiment with different video resolutions and frame rates in the `WebSocketCamera` configuration to balance quality and latency for your specific network conditions.
+
+<!-- markdownlint-disable-file -->

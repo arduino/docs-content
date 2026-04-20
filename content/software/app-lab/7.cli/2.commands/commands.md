@@ -5,7 +5,7 @@ description:
 tags: [Arduino App CLI, UNO Q, Linux, CLI]
 ---
 
-A CLI to manage Arduino Apps
+A CLI to manage Arduino Apps. It allows you to control the lifecycle of your Apps, manage bricks, and configure the system settings of your board directly from the terminal.
 
 ## arduino-app-cli
 
@@ -356,3 +356,4 @@ Print the version number of Arduino App CLI
 
 * `--port`: The daemon network port (default "8800")
 
+<!-- markdownlint-disable-file -->
