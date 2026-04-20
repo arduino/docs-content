@@ -1,0 +1,4 @@
+---
+title: Configure
+icon: IconBoard
+---
