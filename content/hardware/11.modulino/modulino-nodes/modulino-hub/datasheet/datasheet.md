@@ -1,6 +1,6 @@
 ---
 identifier: ABX00100
-title: Arduino® Modulino® Hub
+title: Arduino® Modulino Hub
 type: maker
 author: Pedro Sousa Lima
 ---
@@ -21,7 +21,7 @@ author: Pedro Sousa Lima
 ### Contents
 | **SKU**    | **Name**            | **Purpose**                                    | **Quantity** |
 | ---------- | ------------------- | ---------------------------------------------- | ------------ |
-| ABX00100   | Modulino® Hub       | I2C multiplexer with 8 independent channels    | 1            |
+| ABX00100   | Modulino Hub       | I2C multiplexer with 8 independent channels    | 1            |
 |            | I2C Qwiic cable     | Compatible with the Qwiic standard             | 1            |
 
 
@@ -39,17 +39,17 @@ author: Pedro Sousa Lima
 - Pull-up resistors: Depends on bus activity and connected devices
 
 ## Power Tree
-The power tree for the Modulino® node can be consulted below:
+The power tree for the Modulino node can be consulted below:
 
-![Modulino® Hub Power Tree](assets/Modulino_Hub_Power_Tree.png)
+![Modulino Hub Power Tree](assets/Modulino_Hub_Power_Tree.png)
 
 ## Block Diagram
 This module features a TCA9548ARGER I2C multiplexer that creates eight independent I2C channels from a single main bus. Each channel can be individually enabled or disabled via I2C commands to the multiplexer.
 
-![Modulino® Hub block diagram](assets/Modulino_Hub_Block_Diagram.png)
+![Modulino Hub block diagram](assets/Modulino_Hub_Block_Diagram.png)
 
 ## Functional Overview
-The Modulino® Hub acts as an intelligent I2C switch, routing the main I2C bus to any combination of its eight output channels. The TCA9548ARGER allows multiple channels to be active simultaneously or individually, controlled by writing to its configuration register. Each channel has independent 4.7 kΩ pull-up resistors to ensure signal integrity. This design solves the common problem of I2C address conflicts by isolating devices with identical addresses on separate channels.
+The Modulino Hub acts as an intelligent I2C switch, routing the main I2C bus to any combination of its eight output channels. The TCA9548ARGER allows multiple channels to be active simultaneously or individually, controlled by writing to its configuration register. Each channel has independent 4.7 kΩ pull-up resistors to ensure signal integrity. This design solves the common problem of I2C address conflicts by isolating devices with identical addresses on separate channels.
 
 ### Technical Specifications (Module-Specific)
 | **Specification**       | **Details**                                     |
@@ -70,7 +70,7 @@ The Modulino® Hub acts as an intelligent I2C switch, routing the main I2C bus t
 | SDA     | I2C Data (main bus)      |
 | SCL     | I2C Clock (main bus)     |
 
-These two connectors allow daisy-chaining the Hub with other Modulino® nodes on the main I2C bus.
+These two connectors allow daisy-chaining the Hub with other Modulino nodes on the main I2C bus.
 
 **Channel Connectors**
 
@@ -116,9 +116,9 @@ Optional connection for manual or programmatic reset of the TCA9548ARGER.
 - **TCA9548ARGER voltage range:** 1.65 V–3.6 V
 
 ### Mechanical Information
-![Modulino® Hub Mechanical Information](assets/HubMec.png)
+![Modulino Hub Mechanical Information](assets/HubMec.png)
 
-![Modulino® Hub Mechanical Information - Alternative View](assets/HubMec002.png)
+![Modulino Hub Mechanical Information - Alternative View](assets/HubMec002.png)
 
 - Board dimensions: 41 mm × 25.36 mm
 - Thickness: 1.6 mm (±0.2 mm)
@@ -126,7 +126,7 @@ Optional connection for manual or programmatic reset of the TCA9548ARGER.
   - Hole spacing: 16 mm vertically, 32 mm horizontally
 
 ### I2C Address Reference
-| **Board Silk Name** | **Component**     | **Modulino® I2C Address (HEX)** | **Editable Addresses (HEX)**                | **Hardware I2C Address (HEX)** |
+| **Board Silk Name** | **Component**     | **Modulino I2C Address (HEX)** | **Editable Addresses (HEX)**                | **Hardware I2C Address (HEX)** |
 |---------------------|-------------------|---------------------------------|---------------------------------------------|--------------------------------|
 | MODULINO HUB        | TCA9548ARGER      | 0x70 (default)                  | 0x70–0x77 (via solder jumpers A0, A1, A2)  | 0x70                           |
 
