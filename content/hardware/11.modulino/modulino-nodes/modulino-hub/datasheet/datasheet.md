@@ -28,15 +28,13 @@ author: Pedro Sousa Lima
 ## Rating
 
 ### Recommended Operating Conditions
-- **Supply voltage:** 1.65 V – 3.6 V (TCA9548ARGER)
+- **Supply voltage:** 3.3 V
 - **Powered at 3.3 V** through the Qwiic interface (in accordance with the Qwiic standard)
 - **Operating temperature:** –40 °C to +85 °C
-- **Maximum I2C speed:** 400 kHz (Fast-mode)
 
 **Typical current consumption:**
 - TCA9548ARGER idle: ~3 µA
 - Active operation: ~50 µA (varies with number of active channels)
-- Pull-up resistors: Depends on bus activity and connected devices
 
 ## Power Tree
 The power tree for the Modulino node can be consulted below:
