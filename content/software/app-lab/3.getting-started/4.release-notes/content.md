@@ -1,5 +1,6 @@
 ---
 title: 'App Lab Release Notes'
+overwriteSidebar: Release Notes
 tags: [app-lab, releases]
 description: 'This article contains release notes of App Lab.'
 author: Arduino Team
