@@ -1,5 +1,5 @@
 ---
-url: https://www.youtube.com/watch?v=uN2Ro-nJjds
+url: https://www.youtube.com/embed/uN2Ro-nJjds
 
 info:
   [
