@@ -7,8 +7,7 @@ tags:
   - Breakout
   - Prototyping
   - Audio
-  - Edge AI
-  - Linux
+author: 'Taddy Chung'
 hardware:
   - hardware/02.uno/boards/uno-q
   - hardware/02.uno/carriers/uno-breakout-carrier
