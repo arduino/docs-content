@@ -1,6 +1,6 @@
 ---
 title: 'UNO Breakout Carrier User Manual'
-difficulty: intermediate
+difficulty: beginner
 compatible-products: [uno-q]
 description: 'Learn about the hardware and software features of the Arduino® UNO Breakout Carrier.'
 tags:
