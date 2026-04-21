@@ -56,16 +56,19 @@ Here is an overview of the carrier's main components:
 - **Power Management**: The carrier is powered directly from the host UNO Q through the high-density connectors. An external VIN input (+7–24 VDC) is also available via the J14 header for applications that require independent power delivery to external circuits.
 - **Audio Interfaces**: The carrier exposes the UNO Q's full audio signal set from the JMISC connector, including microphone input (MIC IN), headphone output (HP OUT), audio line output (LINE OUT) and earphone output (EAR OUT) through the J14 and J15 headers.
 
+The carrier's J14, J15 and J1 are the headers you work with day to day, while JMEDIA and JMISC are the mechanical and electrical interface that connects the carrier to the UNO Q.
+
 ### Carrier Topology
 
 ![UNO Breakout Carrier Topology](assets/ASX00085-topology.png)
 
-| **Ref.** | **Description**                                       |
-| :------: | :---------------------------------------------------- |
-|   J14    | Male header connector 2x20, 2.54 mm pitch             |
-|   J15    | Male header connector 2x20, 2.54 mm pitch             |
-|  JMEDIA  | High-speed male header connector 2x30, 1.27 mm pitch  |
-|  JMISC   | High-speed male header connector 2x30, 1.27 mm pitch  |
+| **Ref.** | **Description**                                            |
+|:--------:|:-----------------------------------------------------------|
+|    J1    | Through-hole PCB pads 1x8, 2.54 mm pitch                   |
+|   J14    | Breakout male header 2x20, 2.54 mm pitch                   |
+|   J15    | Breakout male header 2x20, 2.54 mm pitch                   |
+|  JMEDIA  | UNO Q interface high-density connector 2x30, 1.27 mm pitch |
+|  JMISC   | UNO Q interface high-density connector 2x30, 1.27 mm pitch |
 
 ### Pinout
 
@@ -477,6 +480,8 @@ Save the script to a file on the board (e.g. `i2c_test.py`) and run it from the 
 python3 i2c_test.py
 ```
 
+Replace `SMBus(0)` with the correct bus number and update `device_address`, `register` and `value` to match your device.
+
 #### MCU I2C (I2C4)
 
 The MCU I2C bus (I2C4) is routed from the STM32U585 microcontroller through the J15 header (pins 16 and 18) and the JMISC connector (pins 16 and 18). This bus works at a 3.3 V logic level and is compatible with the standard Arduino `Wire1` interface.
@@ -490,11 +495,11 @@ To use this I2C bus from an Arduino sketch running in Arduino App Lab:
 
 1. Create a new App in the Arduino App Lab.
 
-![Create a new App](assets/create-app.png)
+![Create a new App](assets/app-lab-create-app.png)
 
 2. Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
 
-![Library install](assets/lib-install.png)
+![Library install](assets/app-lab-lib-install.png)
 
 3. Copy and paste the example below into the sketch part of your new App.
 
@@ -528,13 +533,13 @@ void loop() {
 }
 ```
 
-![I2C data stream](assets/i2c.png)
+The example transmits a register address and a value byte to a device connected at J15 pins 16 and 18. `Wire1` is used because I2C4 is the secondary MCU bus. `Wire` is reserved for the UNO-style header pins D20 and D21 on the UNO Q itself. Update `deviceAddress`, `instruction` and `value` to match your device.
 
 ***The MCU I2C4 bus uses the `Wire1` object, not `Wire`. `Wire` is mapped to the standard UNO-style header pins (D20/D21) on the UNO Q itself.***
 
 ## GPIO
 
-The UNO Breakout Carrier exposes GPIO lines from both the MPU and the MCU through the J14, J15, JMEDIA, and JMISC headers. The MCU GPIO signals operate at a 3.3 V logic level and are controlled by the STM32U585 microcontroller. The MPU GPIO signals (SOC_GPIO) operate at 1.8 V and are controlled by the Qualcomm® QRB2210 microprocessor.
+The UNO Breakout Carrier exposes GPIO lines from both the MPU and the MCU through the J14, J15, JMEDIA, and JMISC headers. The MCU GPIO signals operate at a 3.3 V logic level and are controlled by the STM32U585 microcontroller. The MPU GPIO signals (`SOC_GPIO`) operate at 1.8 V and are controlled by the Qualcomm® QRB2210 microprocessor.
 
 ### MCU GPIO
 
@@ -544,15 +549,15 @@ To use an MCU GPIO exposed on the J15 header or JMISC connector:
 
 1. Create a new App in the Arduino App Lab.
 
-![Create a new App](assets/create-app.png)
+![Create a new App](assets/app-lab-create-app.png)
 
 2. Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
 
-![Library install](assets/lib-install.png)
+![Library install](assets/app-lab-lib-install.png)
 
 3. Copy and paste the example below into the sketch part of your new App.
 
-The following example configures `MCU_PSSI_D0 (PC6)`, available on J15 pin 1 and JMISC pin 1, as a digital output and toggles it every 500 ms:
+The example uses `PC6` (`MCU_PSSI_D0`), accessible at J15 pin 1. It is configured as a digital output and toggled every 500 ms. Any MCU GPIO pin on J15 can be used in the same way by replacing `PC6` with the corresponding MCU pin name from the J15.
 
 ```cpp
 #include <Arduino_RouterBridge.h>
@@ -576,7 +581,7 @@ void loop() {
 }
 ```
 
-The same pin can be configured as a digital input with an internal pull-up resistor:
+A pin can also be configured as a digital input. The example below uses `INPUT_PULLUP` to enable the internal pull-up resistor, then reads and prints the pin state:
 
 ```cpp
 // Pin configured as an input with internal pull-up resistor enabled
@@ -599,7 +604,7 @@ Access the board's terminal via ADB, SSH, or SBC mode and install the `gpiod` pa
 sudo apt install gpiod
 ```
 
-Before controlling a specific GPIO, use `gpiodetect` to list the available GPIO chips on the system, then `gpioinfo` to identify the correct chip and line number for the signal you want to control:
+Before driving any line, use `gpiodetect` to list the GPIO chips on the system, then `gpioinfo` to identify the exact chip name and line number for the SOC_GPIO signal you want to control. Replace `gpiochip0` with the chip name shown by `gpiodetect` on your board:
 
 ```bash
 # List all GPIO chips
@@ -611,7 +616,7 @@ gpiodetect
 gpioinfo gpiochip0
 ```
 
-Once you have identified the correct chip and line number, use `gpioset` to drive the signal and `gpioget` to read its state:
+Once you have identified the correct chip and line number, use `gpioset` to drive the signal and `gpioget` to read its state. Replace `<line_number>` with the value identified in the previous step:
 
 ```bash
 # Set a GPIO line high
@@ -628,7 +633,7 @@ gpioset gpiochip0 <line_number>=0
 gpioget gpiochip0 <line_number>
 ```
 
-You can also control MPU GPIO lines from the Python section of an Arduino App Lab App. Create a new App, then copy and paste the script below into the Python section of your App:
+The same can be done from the Python section of an Arduino App Lab app. The variables `GPIO_CHIP` and `GPIO_LINE` must be set to the values identified using `gpiodetect` and `gpioinfo`. Create a new App and copy and paste the example below into the Python section:
 
 ```python
 import subprocess
@@ -758,7 +763,7 @@ To use PWM from an Arduino sketch running in Arduino App Lab, on any of the UNO 
 
 1. Create a new App in the Arduino App Lab.
 
-![Create a new App](assets/create-app.png)
+![Create a new App](assets/app-lab-create-app.png)
 
 2. Copy and paste the example below into the sketch part of your new App.
 
@@ -782,6 +787,8 @@ void loop() {
   }
 }
 ```
+
+The example uses `D3` and sweeps the duty cycle from 0% to 100% and back continuously. The resolution is set to 10 bit, giving a value range of 0 to 1023. Any of the six PWM-capable pins can be used in place of `D3`.
 
 ***PWM frequency on the UNO Q is fixed to 500 Hz. For a full list of PWM-capable pins and their mappings, refer to the [UNO Q user manual](https://docs.arduino.cc/tutorials/uno-q/user-manual/#pwm-pins).***
 
@@ -817,15 +824,15 @@ The STM32U585 MCU's internal operational amplifier (`OPAMP1`) is exposed through
 
 The OPAMP pins are also mapped to the UNO Q's standard analog header (D3 / OPAMP OUT, D16 / OPAMP IN+, D17 / OPAMP IN-), which remain accessible on the top side UNO-style connector when the carrier is mounted.
 
-The following example reads the voltage at the OPAMP inputs and outputs and prints the raw ADC values to the App Lab console. To try it in Arduino App Lab:
+The example below reads the raw ADC value at each OPAMP pin and prints it to the App Lab console. `PA0` is the non-inverting input (J15 pin 22), `PA1` is the inverting input (J15 pin 24), and `PA3` is the output (J15 pin 20). The ADC resolution is set to 14 bit, giving a raw range of 0 to 16383. To try it in Arduino App Lab:
 
 1. Create a new App in the Arduino App Lab.
 
-![Create a new App](assets/create-app.png)
+![Create a new App](assets/app-lab-create-app.png)
 
 2. Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
 
-![Library install](assets/lib-install.png)
+![Library install](assets/app-lab-lib-install.png)
 
 3. Copy and paste the example below into the sketch part of your new App.
 
