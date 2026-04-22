@@ -7,7 +7,26 @@ author: Pedro Sousa Lima
 
 ![](assets/featured.png)
 
+# Description
+The Modulino® Extender features the LTC4311 I2C accelerator, enabling reliable I2C communication over long cable distances and with high-capacitance loads. By providing boosted pull-up current during bus transitions, this transparent module allows extended cable runs up to 30 meters while maintaining signal integrity and communication speed.
+
+# Target Areas
+Maker, beginner, education, advanced prototyping
+
 # Contents
+## Application Examples
+
+- **Long-Distance Sensor Networks**
+  Connect sensors and modules over extended cable runs (tested up to 30 m).
+
+- **High-Capacitance Systems**
+  Maintain reliable I2C communication when bus capacitance exceeds the standard 400 pF limit.
+
+- **Remote Installations**
+  Place sensors and actuators at greater distances from the main controller for flexible project layouts.
+
+<div style="page-break-after: always;"></div>
+
 ## Features
 - **LTC4311** I2C/SMBus accelerator for enhanced signal integrity.
 - **Transparent operation** requiring no address configuration or special commands.
@@ -24,6 +43,11 @@ author: Pedro Sousa Lima
 | ABX00174   | Modulino® Extender    | I2C signal accelerator for long cables         | 1            |
 |            | I2C Qwiic cable       | Compatible with the Qwiic standard             | 1            |
 
+
+## Related Products
+- **SKU: ASX00027** – [Arduino® Sensor Kit](https://store.arduino.cc/products/arduino-sensor-kit)
+- **SKU: K000007** – [Arduino® Starter Kit](https://store.arduino.cc/products/arduino-starter-kit-multi-language)
+- **SKU: AKX00026** – [Arduino® Oplà IoT Kit](https://store.arduino.cc/products/opla-iot-kit)
 
 ## Rating
 
@@ -118,6 +142,15 @@ The Modulino® Extender has no I2C address. It operates transparently on the bus
 | **Board Silk Name**   | **Component**     | **Modulino® I2C Address (HEX)** | **Notes** |
 |-----------------------|-------------------|---------------------------------|-----------|
 | MODULINO EXTENDER     | LTC4311           | N/A (transparent)               | No addressing required, pass-through operation |
+
+## Device Operation
+The Extender requires no configuration or addressing. Simply insert it into your I2C chain between the controller and remote devices. The LTC4311 automatically detects bus activity and provides accelerated pull-up during positive transitions. For best results, place the Extender close to the controller (beginning of the cable run) or in the middle of long cable segments.
+
+### Performance Characteristics
+Testing has demonstrated:
+- Standard Qwiic cables: Improved waveform squareness, faster rise times
+- 30 m cables: Maintains reliable communication
+- Compatible with all Modulino® modules and standard I2C devices
 
 # Company Information
 
