@@ -1,6 +1,6 @@
 ---
 identifier: ABX00174
-title: Arduino® Modulino® Extender
+title: Arduino® Modulino Extender
 type: maker
 author: Pedro Sousa Lima
 ---
@@ -8,7 +8,7 @@ author: Pedro Sousa Lima
 ![](assets/featured.png)
 
 # Description
-The Modulino® Extender features the LTC4311 I2C accelerator, enabling reliable I2C communication over long cable distances and with high-capacitance loads. By providing boosted pull-up current during bus transitions, this transparent module allows extended cable runs up to 30 meters while maintaining signal integrity and communication speed.
+The Modulino Extender features the LTC4311 I2C accelerator, enabling reliable I2C communication over long cable distances and with high-capacitance loads. By providing boosted pull-up current during bus transitions, this transparent module allows extended cable runs up to 30 meters while maintaining signal integrity and communication speed.
 
 # Target Areas
 Maker, beginner, education, advanced prototyping
@@ -40,7 +40,7 @@ Maker, beginner, education, advanced prototyping
 ### Contents
 | **SKU**    | **Name**              | **Purpose**                                    | **Quantity** |
 | ---------- | --------------------- | ---------------------------------------------- | ------------ |
-| ABX00174   | Modulino® Extender    | I2C signal accelerator for long cables         | 1            |
+| ABX00174   | Modulino Extender    | I2C signal accelerator for long cables         | 1            |
 |            | I2C Qwiic cable       | Compatible with the Qwiic standard             | 1            |
 
 
@@ -62,17 +62,17 @@ Maker, beginner, education, advanced prototyping
 - Additional current during bus transitions for accelerated pull-up
 
 ## Power Tree
-The power tree for the Modulino® node can be consulted below:
+The power tree for the Modulino node can be consulted below:
 
-![Modulino® Extender Power Tree](assets/Modulino_Extender_Power_Tree.png)
+![Modulino Extender Power Tree](assets/Modulino_Extender_Power_Tree.png)
 
 ## Block Diagram
 This module features an LTC4311 I2C accelerator that sits transparently between I2C devices. It detects bus transitions and provides boosted current to speed up rising edges, improving signal integrity for long cables and high-capacitance loads.
 
-![Modulino® Extender block diagram](assets/Modulino_Extender_Block_Diagram.png)
+![Modulino Extender block diagram](assets/Modulino_Extender_Block_Diagram.png)
 
 ## Functional Overview
-The Modulino® Extender solves a common problem in I2C systems: signal degradation over long cables or with many connected devices. Standard I2C pull-up resistors provide constant current, resulting in slow rise times when bus capacitance is high. The LTC4311 monitors the I2C bus and injects additional pull-up current only during positive transitions (low-to-high), significantly increasing the slew rate and maintaining square waveforms. This acceleration is transparent to the I2C protocol and requires no configuration. The device automatically handles both standard-mode (100 kHz) and fast-mode (400 kHz) I2C communication. Testing has confirmed reliable operation with cables up to 30 m in length.
+The Modulino Extender solves a common problem in I2C systems: signal degradation over long cables or with many connected devices. Standard I2C pull-up resistors provide constant current, resulting in slow rise times when bus capacitance is high. The LTC4311 monitors the I2C bus and injects additional pull-up current only during positive transitions (low-to-high), significantly increasing the slew rate and maintaining square waveforms. This acceleration is transparent to the I2C protocol and requires no configuration. The device automatically handles both standard-mode (100 kHz) and fast-mode (400 kHz) I2C communication. Testing has confirmed reliable operation with cables up to 30 m in length.
 
 ### Technical Specifications (Module-Specific)
 | **Specification**       | **Details**                                     |
@@ -129,7 +129,7 @@ The Extender sits between two Qwiic connectors, transparently accelerating signa
 - **LTC4311 voltage range:** 1.6 V–5.5 V
 
 ### Mechanical Information
-![Modulino® Extender Mechanical Information](assets/ExtenderMec.png)
+![Modulino Extender Mechanical Information](assets/ExtenderMec.png)
 
 - Board dimensions: 41 mm × 25.36 mm
 - Thickness: 1.6 mm (±0.2 mm)
@@ -137,9 +137,9 @@ The Extender sits between two Qwiic connectors, transparently accelerating signa
   - Hole spacing: 16 mm vertically, 32 mm horizontally
 
 ### I2C Address Reference
-The Modulino® Extender has no I2C address. It operates transparently on the bus, accelerating signals without appearing as a device.
+The Modulino Extender has no I2C address. It operates transparently on the bus, accelerating signals without appearing as a device.
 
-| **Board Silk Name**   | **Component**     | **Modulino® I2C Address (HEX)** | **Notes** |
+| **Board Silk Name**   | **Component**     | **Modulino I2C Address (HEX)** | **Notes** |
 |-----------------------|-------------------|---------------------------------|-----------|
 | MODULINO EXTENDER     | LTC4311           | N/A (transparent)               | No addressing required, pass-through operation |
 
@@ -150,7 +150,7 @@ The Extender requires no configuration or addressing. Simply insert it into your
 Testing has demonstrated:
 - Standard Qwiic cables: Improved waveform squareness, faster rise times
 - 30 m cables: Maintains reliable communication
-- Compatible with all Modulino® modules and standard I2C devices
+- Compatible with all Modulino modules and standard I2C devices
 
 # Company Information
 
