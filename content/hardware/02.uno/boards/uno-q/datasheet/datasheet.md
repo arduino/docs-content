@@ -2413,6 +2413,10 @@ English:
 低功率射頻器材須忍受合法通信或工業、科學及醫療用電波輻射性電機設備之干擾。
 應避免影響附近雷達系統之操作。
 
+## ANATEL
+
+Este equipamento não tem direito à proteção contra interferência prejudicial e não pode causar interferência em sistemas devidamente autorizados. Para maiores informações, consulte o site da ANATEL –  [http://www.anatel.gov.br](http://www.anatel.gov.br/)
+
 # Company Information
 
 | Company name | Arduino S.r.l.                             |
@@ -2431,13 +2435,14 @@ English:
 
 # Document Revision History
 
-|  **Date**  | **Revision** | **Changes**                                                                                                                  |
-|:----------:|:------------:|------------------------------------------------------------------------------------------------------------------------------|
-| 24/03/2026 |      8       | General documentation update                                                                                                 |
-| 17/02/2026 |      7       | Update VBAT description in Power Supply section and JMISC pin 60 note                                                        |
-| 10/02/2026 |      6       | Translations in Chinese, Portuguese, Certification updates                                                                   |
-| 19/01/2026 |      5       | Add video output resolution specifications                                                                                   |
+|  **Date**  | **Revision** | **Changes**                                                  |
+| :--------: | :----------: | ------------------------------------------------------------ |
+| 15/04/2026 |      9       | Add Anatel Certification                                     |
+| 24/03/2026 |      8       | General documentation update                                 |
+| 17/02/2026 |      7       | Update VBAT description in Power Supply section and JMISC pin 60 note |
+| 10/02/2026 |      6       | Translations in Chinese, Portuguese, Certification updates   |
+| 19/01/2026 |      5       | Add video output resolution specifications                   |
 | 24/11/2025 |      4       | Add hardware acceleration section (graphics APIs, video codecs, OpenCL support); remove incorrect default password reference |
-| 05/11/2025 |      3       | Update operational information                                                                                               |
-| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update                                                                               |
-| 01/10/2025 |      1       | First release                                                                                                                |
+| 05/11/2025 |      3       | Update operational information                               |
+| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update               |
+| 01/10/2025 |      1       | First release                                                |

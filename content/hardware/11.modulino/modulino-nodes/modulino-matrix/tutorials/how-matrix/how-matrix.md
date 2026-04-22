@@ -98,13 +98,11 @@ You can connect to the I²C pins (SDA and SCL) using either the **QWIIC connecto
 
 There's also a small power LED indicator that lights up when the board is on.
 
-You can grab the full schematic and PCB files from the [Modulino Matrix page](https://docs.arduino.cc/hardware/modulinos/modulino-matrix).
+You can grab the full schematic and PCB files from the [Modulino Matrix page](https://docs.arduino.cc/hardware/modulino-matrix/).
 
 ## Programming with Arduino
 
 The Modulino LED Matrix is fully compatible with the Arduino IDE and the official Modulino library. The following examples showcase how to display text, graphics, and animations on your LED matrix.
-
-**Note:** The Modulino library currently provides control via the `ModulinoPixels` class for 8-LED operations. Full 8×12 matrix control will be available in future library updates.
 
 ### Prerequisites
 
@@ -118,133 +116,130 @@ Library repository available [here](https://github.com/arduino-libraries/Arduino
 ### Basic Example
 
 ```arduino
-#include <Modulino.h>
+/**
+ * This example shows how to use the Modulino LED Matrix library to display
+ * basic graphics and animations on the Modulino LED Matrix display.
+ *
+ * Initial author: Sebastian Romero
+ */
 
-ModulinoPixels matrix;
+#include "Modulino_LED_Matrix.h"
+#include "LEDMatrixGallery.h" // This header contains predefined animations for the LED matrix display.
+
+ModulinoLEDMatrix matrix;
 
 void setup() {
-  Modulino.begin();
-  matrix.begin();
+  if (!matrix.begin()) {
+    // If initialization fails, we enter an infinite loop and
+    // blink the built-in LED to indicate an error.
+    while (true){
+      digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN)); // Blink built-in LED to indicate error
+      delay(500);
+    }
+  }
 }
 
 void loop() {
-  // Turn on LEDs sequentially with different colours
-  for (int i = 0; i < 8; i++) {
-    // Set LED with RGB colour and brightness (0-100)
-    if (i == 0) matrix.set(i, 255, 0, 0, 50);      // Red
-    else if (i == 1) matrix.set(i, 255, 127, 0, 50); // Orange
-    else if (i == 2) matrix.set(i, 255, 255, 0, 50); // Yellow
-    else if (i == 3) matrix.set(i, 0, 255, 0, 50);   // Green
-    else if (i == 4) matrix.set(i, 0, 255, 255, 50); // Cyan
-    else if (i == 5) matrix.set(i, 0, 0, 255, 50);   // Blue
-    else if (i == 6) matrix.set(i, 128, 0, 255, 50); // Purple
-    else if (i == 7) matrix.set(i, 255, 0, 255, 50); // Magenta
-    
-    // Update the display
-    matrix.show();
-    delay(200);
-  }
-  
+  // Play startup animation from gallery
+  matrix.setSequence(LEDMATRIX_ANIMATION_STARTUP);
+  matrix.play();
+  delay(500);
+
+  // Show the UNO icon from the gallery
+  matrix.setFrame(LEDMATRIX_UNO);
   delay(1000);
-  
-  // Clear all LEDs
+
+  // Clear the display
   matrix.clear();
-  matrix.show();
-  delay(1000);
+  delay(500);
 }
 ```
 
 ### Key Functions
 
-- `set(index, red, green, blue, brightness)`: Sets LED colour (RGB 0-255, brightness 0-100)
-- `set(index, ModulinoColor, brightness)`: Sets LED using ModulinoColor object
-- `clear(index)`: Clears a specific LED
-- `clear()`: Clears all LEDs
-- `show()`: Updates the display with current LED states
+- `begin()`: Initializes I2C communication with the LED Matrix (returns 1 on success)
+- `setFrame(buffer)`: Displays a single frame on the matrix (accepts predefined icons or custom data)
+- `setSequence(frames)`: Loads an animation sequence into the matrix
+- `play(looping)`: Plays the loaded animation sequence (blocking, optional looping parameter)
+- `nextFrame()`: Advances to the next frame in a sequence (non-blocking)
+- `clear()`: Turns off all LEDs
+- `setMode(DisplayMode)`: Sets the display mode (MonochromaticVertical, MonochromaticHorizontal, or Grayscale)
 
-### Advanced Example - LED Patterns
+### Advanced Example - Graphics Drawing
+
+This example demonstrates how to use the ArduinoGraphics library integration to draw shapes, lines, and patterns on the LED matrix.
 
 ```arduino
-#include <Modulino.h>
+/*
+* This example shows how to use the Modulino LED Matrix library to display
+* basic shapes using the ArduinoGraphics library.
+* The sketch cycles through displaying a point, a line, a rectangle, and a circle on the LED matrix.
+*
+* Initial author: Sebastian Romero
+*/
 
-ModulinoPixels matrix;
+#include "ArduinoGraphics.h"
+#include "Modulino_LED_Matrix.h"
+
+ModulinoLEDMatrix matrix;
 
 void setup() {
-  Serial.begin(9600);
-  Modulino.begin();
-  matrix.begin();
-  
-  Serial.println("LED Matrix Pattern Demo");
+  // Initialize the LED matrix
+  if (!matrix.begin()) {
+    // If initialization fails, we enter an infinite loop and
+    // blink the built-in LED to indicate an error.
+    while (true){
+      digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN)); // Blink built-in LED to indicate error
+      delay(500);
+    }
+  }
 }
 
 void loop() {
-  // Pattern 1: Knight Rider sweep
-  Serial.println("Knight Rider");
-  knightRider();
-  delay(500);
-  
-  // Pattern 2: Breathing effect
-  Serial.println("Breathing");
-  breathingEffect();
-  delay(500);
-  
-  // Pattern 3: Random sparkle
-  Serial.println("Sparkle");
-  randomSparkle();
-  delay(500);
-}
+  // Draw a Point
+  matrix.clear();
+  matrix.beginDraw();
+  matrix.stroke(0xFFFFFF); // Set color to white (ON)
+  matrix.point(5, 4);      // Draw a point at x=5, y=4
+  matrix.endDraw();
+  delay(2000);
 
-void knightRider() {
-  // Sweep right
-  for (int i = 0; i < 8; i++) {
-    matrix.clear();
-    matrix.set(i, 255, 0, 0, 80);
-    if (i > 0) matrix.set(i - 1, 255, 0, 0, 20);
-    matrix.show();
-    delay(50);
-  }
-  
-  // Sweep left
-  for (int i = 7; i >= 0; i--) {
-    matrix.clear();
-    matrix.set(i, 255, 0, 0, 80);
-    if (i < 7) matrix.set(i + 1, 255, 0, 0, 20);
-    matrix.show();
-    delay(50);
-  }
-}
+  // Draw a Line
+  matrix.clear();
+  matrix.beginDraw();
+  matrix.stroke(0xFFFFFF);
+  matrix.line(0, 0, 11, 7); // Draw a line from (0,0) to (11,7)
+  matrix.endDraw();
+  delay(2000);
 
-void breathingEffect() {
-  // Fade in
-  for (int brightness = 0; brightness <= 100; brightness += 5) {
-    for (int i = 0; i < 8; i++) {
-      matrix.set(i, 0, 100, 255, brightness);
-    }
-    matrix.show();
-    delay(30);
-  }
-  
-  // Fade out
-  for (int brightness = 100; brightness >= 0; brightness -= 5) {
-    for (int i = 0; i < 8; i++) {
-      matrix.set(i, 0, 100, 255, brightness);
-    }
-    matrix.show();
-    delay(30);
-  }
-}
+  // Draw a Rectangle (outlined)
+  matrix.clear();
+  matrix.beginDraw();
+  matrix.stroke(0xFFFFFF);
+  matrix.noFill();
+  // Rect parameters: x, y, width, height
+  matrix.rect(2, 1, 8, 6);
+  matrix.endDraw();
+  delay(2000);
 
-void randomSparkle() {
-  for (int j = 0; j < 20; j++) {
-    matrix.clear();
-    int randomLED = random(0, 8);
-    int randomR = random(0, 256);
-    int randomG = random(0, 256);
-    int randomB = random(0, 256);
-    matrix.set(randomLED, randomR, randomG, randomB, 80);
-    matrix.show();
-    delay(100);
-  }
+  // Draw a Circle
+  matrix.clear();
+  matrix.beginDraw();
+  matrix.stroke(0xFFFFFF);
+  matrix.noFill();
+  // Circle parameters: x, y, radius
+  matrix.circle(6, 4, 3);
+  matrix.endDraw();
+  delay(2000);
+
+  // Draw a Filled Rectangle
+  matrix.clear();
+  matrix.beginDraw();
+  matrix.stroke(0xFFFFFF);
+  matrix.fill(0xFFFFFF); // Enable fill
+  matrix.rect(3, 2, 6, 4);
+  matrix.endDraw();
+  delay(2000);
 }
 ```
 
@@ -272,83 +267,58 @@ The LED Matrix supports three display modes:
 #### Grayscale Example
 
 ```arduino
-#include <Modulino_LED_Matrix.h>
+/**
+ * This example shows how to use the Modulino LED Matrix library to display
+ * grayscale graphics and animations on the Modulino LED Matrix display.
+ *
+ * Initial author: Sebastian Romero
+ */
+
+#include "Modulino_LED_Matrix.h"
+#include "flames_animation.h"
+
+/* Graphic in 4-bit grayscale */
+constexpr uint8_t GRADIENT[] = { 	0x01, 0x23, 0x45, 0x67, 0x89, 0xAB, 0x01, 0x23, 0x45, 0x67, 0x89, 0xAB, 0x01, 0x23, 0x45, 0x67,
+									0x89, 0xAB, 0x01, 0x23, 0x45, 0x67, 0x89, 0xAB, 0x01, 0x23, 0x45, 0x67, 0x89, 0xAB, 0x01, 0x23,
+									0x45, 0x67, 0x89, 0xAB, 0x01, 0x23, 0x45, 0x67, 0x89, 0xAB, 0x01, 0x23, 0x45, 0x67, 0x89, 0xAB};
 
 ModulinoLEDMatrix matrix;
 
-// Create a gradient pattern (48 bytes = 96 pixels)
-// Each byte contains 2 pixels (high nibble, low nibble)
-const uint8_t GRADIENT[] = {
-  0x01, 0x23, 0x45, 0x67, 0x89, 0xAB, 0xCD, 0xEF,  // Row 1
-  0xFE, 0xDC, 0xBA, 0x98, 0x76, 0x54, 0x32, 0x10,  // Row 2
-  0x01, 0x23, 0x45, 0x67, 0x89, 0xAB, 0xCD, 0xEF,  // Row 3
-  0xFE, 0xDC, 0xBA, 0x98, 0x76, 0x54, 0x32, 0x10,  // Row 4
-  0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88,  // Row 5 (mid-gray)
-  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,  // Row 6 (bright)
-  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // Row 7 (off)
-  0x0F, 0x0F, 0x0F, 0x0F, 0x0F, 0x0F, 0x0F, 0x0F   // Row 8 (alternating)
-};
-
-void setup() {
-  Serial.begin(115200);
-
-  // Initialize the LED Matrix
-  if (!matrix.begin()) {
-    Serial.println("Failed to initialize LED Matrix!");
-    while (1);
-  }
-
-  Serial.println("Grayscale Display Example");
-
-  // Set display mode to grayscale
-  matrix.setMode(DisplayMode::Grayscale);
-
-  // Display the gradient pattern
-  matrix.setFrame(GRADIENT);
-}
-
-void loop() {
-  // Frame persists on display
-}
-```
-
-#### Grayscale Animation Example
-
-```arduino
-#include <Modulino_LED_Matrix.h>
-
-ModulinoLEDMatrix matrix;
-
-// Animation callback
-void onAnimationComplete() {
-  Serial.println("Animation cycle completed!");
-  digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+/**
+ * Blinks the built-in LED to signal that the animation sequence is done.
+ */
+void blinkLED(){
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(100);
+  digitalWrite(LED_BUILTIN, LOW);
 }
 
 void setup() {
-  Serial.begin(115200);
   pinMode(LED_BUILTIN, OUTPUT);
 
   if (!matrix.begin()) {
-    Serial.println("Failed to initialize LED Matrix!");
-    while (1);
+    // If initialization fails, we enter an infinite loop and
+    // blink the built-in LED to indicate an error.
+    while (true){
+      digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN)); // Blink built-in LED to indicate error
+      delay(500);
+    }
   }
 
-  Serial.println("Grayscale Animation Example");
+  // Set a callback to be called when the sequence is done
+  matrix.setSequenceDoneCallback(blinkLED);
 
-  // Register completion callback
-  matrix.setSequenceDoneCallback(onAnimationComplete);
-
-  // Set grayscale mode
+  // Set the display to Grayscale mode and show a gradient
   matrix.setMode(DisplayMode::Grayscale);
+  matrix.setFrame(GRADIENT);
+  delay(1000);
 
-  // Load and play your animation sequence
-  // matrix.setSequence(YOUR_ANIMATION_DATA);
-  // matrix.play(true);  // true = loop animation
+  // Play a grayscale animation in a loop
+  matrix.setSequence(FLAMES);
+  matrix.play(true);
 }
 
 void loop() {
-  // Animation plays automatically
 }
 ```
 
@@ -356,108 +326,379 @@ void loop() {
 
 ## Programming with MicroPython
 
-The Modulino LED Matrix is fully compatible with MicroPython through the official Modulino MicroPython library. The following examples demonstrate how to create visual displays and animations in your MicroPython projects.
+The Modulino LED Matrix is fully compatible with MicroPython through the official Modulino MicroPython library. The following examples demonstrate how to create visual displays, graphics, and animations in your MicroPython projects.
 
 ### Prerequisites
 
 - Install the Modulino MicroPython library (see [Getting Started with Modulinos](./how-general) for detailed instructions)
 - Ensure Arduino Lab for MicroPython is installed
 
+Library repository available [here](https://github.com/arduino/arduino-modulino-mpy).
+
 ### Basic Example
 
 ```python
-from modulino import ModulinoPixels
-from time import sleep
+"""
+This example demonstrates how to use the Modulino LED Matrix module.
+It shows how to set and unset individual pixels, draw shapes, display text, frames,
+and run a simple Matrix-style rain animation.
 
-matrix = ModulinoPixels()
+Initial author: Sebastian Romero
+"""
 
-# Define rainbow colours
-colours = [
-    (255, 0, 0),     # Red
-    (255, 127, 0),   # Orange
-    (255, 255, 0),   # Yellow
-    (0, 255, 0),     # Green
-    (0, 255, 255),   # Cyan
-    (0, 0, 255),     # Blue
-    (128, 0, 255),   # Purple
-    (255, 0, 255)    # Magenta
-]
+from modulino import ModulinoLEDMatrix
+from time import sleep_ms
 
-while True:
-    # Display rainbow
-    for i in range(8):
-        r, g, b = colours[i]
-        matrix.set_led(i, r, g, b, brightness=50)
-    matrix.show()
-    sleep(1)
-    
-    # Clear display
+led_matrix = ModulinoLEDMatrix()
+led_matrix.clear().show()
+
+def fill_pixels(matrix: ModulinoLEDMatrix):
+    # Set all pixels one by one
+    for y in range(8):
+        for x in range(12):
+            matrix.set_pixel(x, y)
+            matrix.show()
+            sleep_ms(10)
+
+def unfill_pixels(matrix: ModulinoLEDMatrix):
+    # Unset all pixels in reverse order
+    for y in range(7, -1, -1):
+        for x in range(11, -1, -1):
+            matrix.set_pixel(x, y, False)
+            matrix.show()
+            sleep_ms(10)
+
+def draw_spiral(matrix: ModulinoLEDMatrix):
+    # Spiral pattern
+    for layer in range(6):
+        for x in range(layer, 12 - layer):
+            matrix.set_pixel(x, layer)
+            matrix.show()
+            sleep_ms(10)
+        for y in range(layer + 1, 8 - layer):
+            matrix.set_pixel(11 - layer, y)
+            matrix.show()
+            sleep_ms(10)
+        for x in range(11 - layer - 1, layer - 1, -1):
+            matrix.set_pixel(x, 7 - layer)
+            matrix.show()
+            sleep_ms(10)
+        for y in range(7 - layer - 1, layer, -1):
+            matrix.set_pixel(layer, y)
+            matrix.show()
+            sleep_ms(10)
+
+def draw_squares(matrix: ModulinoLEDMatrix):
+    # Draw small squares and circles
+    for i in range(4):
+        matrix.rect(i, i, 12 - 2 * i, 8 - 2 * i).show()
+        sleep_ms(500)
+        matrix.clear()
+
+def draw_circles(matrix: ModulinoLEDMatrix):
+    for i in range(4):
+        matrix.ellipse(6, 3, 3 - i, 3 - i).show()
+        sleep_ms(500)
+        matrix.clear()
+
+def display_text_animation(matrix: ModulinoLEDMatrix):
+    """Display a simple text animation."""
+    for c in "ARDUINO IS":
+        matrix.clear()
+        matrix.text(2, 0, c).show()
+        sleep_ms(250)
+
+def display_ascii_frame(matrix: ModulinoLEDMatrix):
+    """Display a simple ASCII art frame."""
+    heart_frame = """
+    ............
+    ..##....##..
+    .##########.
+    .##########.
+    ..########..
+    ...######...
+    ....####....
+    .....##.....
+    """
     matrix.clear()
+    matrix.set_frame_from_ascii(heart_frame).show()
+
+def raining_code(matrix: ModulinoLEDMatrix, steps: int = 300, spawn_chance: int = 35, delay_ms: int = 70):
+    """Play a brief Matrix-style rain animation."""
+    from random import getrandbits
+
+    def _randint(n: int) -> int:
+        """Small helper to avoid importing full random."""
+        return getrandbits(16) % n
+
+    drops = []  # each drop: (x, head_y, length)
+
+    for _ in range(steps):
+        # Maybe spawn a new drop at the top
+        if _randint(100) < spawn_chance:
+            x = _randint(12)
+            length = 2 + _randint(4)  # 2..5 pixels long
+            drops.append([x, -1, length])
+
+        matrix.clear()
+
+        active = []
+        for x, head_y, length in drops:
+            head_y += 1
+            tail_y = head_y - length
+
+            # Draw the drop from head down to tail within bounds
+            for y in range(max(0, tail_y), min(matrix._height, head_y + 1)):
+                matrix.set_pixel(x, y, True)
+
+            # Keep drop if it still intersects the display
+            if tail_y < matrix._height:
+                active.append([x, head_y, length])
+
+        drops = active
+        matrix.show()
+        sleep_ms(delay_ms)
+
+def draw_checkerboard(matrix: ModulinoLEDMatrix):
+    """Draw a checkerboard pattern using hline and vline."""
+    for y in range(8):
+        if y % 2 == 0:
+            matrix.hline(0, y, 12, True)
+    for x in range(12):
+        if x % 2 == 0:
+            matrix.vline(x, 0, 8, True)
+
     matrix.show()
-    sleep(1)
+def draw_diamond(matrix: ModulinoLEDMatrix):
+    """Draw a diamond shape using poly()."""
+    points = [(6, 0), (11, 3), (6, 7), (1, 3)]
+    matrix.poly(0,0,points).show()
+
+
+# Run the animations sequentially
+fill_pixels(led_matrix)
+sleep_ms(500)
+unfill_pixels(led_matrix)
+sleep_ms(500)
+draw_spiral(led_matrix)
+sleep_ms(500)
+draw_squares(led_matrix)
+sleep_ms(500)
+draw_circles(led_matrix)
+sleep_ms(500)
+draw_checkerboard(led_matrix)
+sleep_ms(500)
+draw_diamond(led_matrix)
+sleep_ms(1000)
+display_text_animation(led_matrix)
+sleep_ms(500)
+display_ascii_frame(led_matrix)
+sleep_ms(500)
+raining_code(led_matrix)
+led_matrix.clear().show()
 ```
 
 ### Key Methods
 
-- `.set_led(index, r, g, b, brightness=50)`: Sets LED colour (RGB 0-255, brightness 0-100)
-- `.clear()`: Clears all LEDs
-- `.show()`: Updates the display with current LED states
+**Initialization:**
+- `ModulinoLEDMatrix()`: Creates LED Matrix instance (default address)
+- `ModulinoLEDMatrix(address=0x39)`: Creates instance with custom I2C address
+- `ModulinoLEDMatrix(use_grayscale=True)`: Enable 16-level grayscale mode
 
-### Advanced Example - Animation
+**Drawing Methods:**
+- `.set_pixel(x, y, color)`: Set individual pixel (x: 0-11, y: 0-7)
+- `.clear_pixel(x, y)`: Turn off a specific pixel
+- `.clear()`: Turn off all pixels
+- `.fill(color)`: Fill entire matrix with color
+- `.hline(x, y, length, color)`: Draw horizontal line
+- `.vline(x, y, length, color)`: Draw vertical line
+- `.line(x1, y1, x2, y2, color)`: Draw line between two points
+- `.rect(x, y, width, height, color)`: Draw rectangle outline
+- `.ellipse(x, y, width, height, color)`: Draw ellipse
+- `.text(x, y, string, color)`: Display text
+- `.show()`: Update the display with current buffer
+
+**Frame Operations:**
+- `.set_frame(data)`: Load frame from bytes/bytearray
+- `.set_frame_from_ascii(ascii_art, fill_char='#')`: Create frame from ASCII art
+
+### Advanced Example - Animations
+
+This example demonstrates how to create a simple animation on the Modulino LED Matrix by cycling through a series of pre-defined frames with specific durations.
 
 ```python
-from modulino import ModulinoPixels
-from time import sleep
+"""
+This example demonstrates how to create a simple animation on the Modulino LED Matrix
+by cycling through a series of pre-defined frames with specific durations.
 
-matrix = ModulinoPixels()
+Initial author: Sebastian Romero
+"""
 
-def knight_rider():
-    """Knight Rider sweep animation"""
-    # Sweep right
-    for i in range(8):
-        matrix.clear()
-        matrix.set_led(i, 255, 0, 0, brightness=80)
-        if i > 0:
-            matrix.set_led(i - 1, 255, 0, 0, brightness=20)
-        matrix.show()
-        sleep(0.05)
-    
-    # Sweep left
-    for i in range(7, -1, -1):
-        matrix.clear()
-        matrix.set_led(i, 255, 0, 0, brightness=80)
-        if i < 7:
-            matrix.set_led(i + 1, 255, 0, 0, brightness=20)
-        matrix.show()
-        sleep(0.05)
+from modulino import ModulinoLEDMatrix, Animation
 
-def breathing():
-    """Breathing effect animation"""
-    # Fade in
-    for brightness in range(0, 101, 5):
-        for i in range(8):
-            matrix.set_led(i, 0, 100, 255, brightness=brightness)
-        matrix.show()
-        sleep(0.03)
-    
-    # Fade out
-    for brightness in range(100, -1, -5):
-        for i in range(8):
-            matrix.set_led(i, 0, 100, 255, brightness=brightness)
-        matrix.show()
-        sleep(0.03)
+led_matrix = ModulinoLEDMatrix(use_grayscale=False)
+led_matrix.clear().show()
 
-print("💡 LED Matrix Animation Demo")
+frames = [
+    (b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00', 66),
+    (b'\x00\x00\x00\x00\x10\x00\x00\x00\x00\x00\x00\x00', 66),
+    (b'\x00\x00\x00\x20\x10\x00\x00\x00\x00\x00\x00\x00', 40),
+    (b'\x00\x00\x20\x20\x10\x00\x00\x00\x00\x00\x00\x00', 40),
+    (b'\x00\x20\x20\x20\x10\x00\x00\x00\x00\x00\x00\x00', 40),
+    (b'\x10\x20\x20\x20\x10\x00\x00\x00\x00\x00\x00\x00', 40),
+    (b'\x18\x20\x20\x20\x10\x00\x00\x00\x00\x00\x00\x00', 40),
+    (b'\x1c\x20\x20\x20\x10\x00\x00\x00\x00\x00\x00\x00', 40),
+    (b'\x1c\x22\x20\x20\x10\x00\x00\x00\x00\x00\x00\x00', 30),
+    (b'\x1c\x22\x22\x20\x10\x00\x00\x00\x00\x00\x00\x00', 30),
+    (b'\x1c\x22\x22\x22\x10\x00\x00\x00\x00\x00\x00\x00', 30),
+    (b'\x1c\x22\x22\x22\x14\x00\x00\x00\x00\x00\x00\x00', 30),
+    (b'\x1c\x22\x22\x22\x14\x08\x00\x00\x00\x00\x00\x00', 30),
+    (b'\x1c\x22\x22\x22\x14\x08\x10\x00\x00\x00\x00\x00', 30),
+    (b'\x1c\x22\x22\x22\x14\x08\x10\x20\x00\x00\x00\x00', 30),
+    (b'\x1c\x22\x22\x22\x14\x08\x10\x20\x20\x00\x00\x00', 30),
+    (b'\x1c\x22\x22\x22\x14\x08\x10\x20\x20\x20\x00\x00', 30),
+    (b'\x1c\x22\x22\x22\x14\x08\x10\x20\x20\x20\x10\x00', 40),
+    (b'\x1c\x22\x22\x22\x14\x08\x10\x20\x20\x20\x18\x00', 40),
+    (b'\x1c\x22\x22\x22\x14\x08\x10\x20\x20\x20\x1c\x00', 40),
+    (b'\x1c\x22\x22\x22\x14\x08\x10\x20\x20\x22\x1c\x00', 40),
+    (b'\x1c\x22\x22\x22\x14\x08\x10\x20\x22\x22\x1c\x00', 40),
+    (b'\x1c\x22\x22\x22\x14\x08\x10\x22\x22\x22\x1c\x00', 66),
+    (b'\x1c\x22\x22\x22\x14\x08\x14\x22\x22\x22\x1c\x00', 240),
+    (b'\x1c\x22\x32\x22\x14\x08\x14\x22\x26\x22\x1c\x02', 66),
+    (b'\x1c\x22\x2a\x22\x14\x08\x14\x22\x2a\x22\x1c\x01', 400),
+    (b'\x22\x2a\x22\x14\x08\x14\x22\x2a\x22\x1c\x01\x00', 66),
+    (b'\x2a\x22\x14\x08\x14\x22\x2a\x22\x1c\x01\x00\x3c', 66),
+    (b'\x22\x14\x08\x14\x22\x2a\x22\x1c\x01\x00\x3c\x0a', 66),
+    (b'\x14\x08\x14\x22\x2a\x22\x1c\x01\x00\x3c\x0a\x0a', 66),
+    (b'\x08\x14\x22\x2a\x22\x1c\x01\x00\x3c\x0a\x0a\x3c', 66),
+    (b'\x14\x22\x2a\x22\x1c\x01\x00\x3c\x0a\x0a\x3c\x00', 66),
+    (b'\x22\x2a\x22\x1c\x01\x00\x3c\x0a\x0a\x3c\x00\x3e', 66),
+    (b'\x2a\x22\x1c\x01\x00\x3c\x0a\x0a\x3c\x00\x3e\x0a', 66),
+    (b'\x22\x1c\x01\x00\x3c\x0a\x0a\x3c\x00\x3e\x0a\x0a', 66),
+    (b'\x1c\x01\x00\x3c\x0a\x0a\x3c\x00\x3e\x0a\x0a\x34', 66),
+    (b'\x01\x00\x3c\x0a\x0a\x3c\x00\x3e\x0a\x0a\x34\x00', 66),
+    (b'\x00\x3c\x0a\x0a\x3c\x00\x3e\x0a\x0a\x34\x00\x3e', 100),
+    (b'\x3c\x0a\x0a\x3c\x00\x3e\x0a\x0a\x34\x00\x3e\x22', 66),
+    (b'\x0a\x0a\x3c\x00\x3e\x0a\x0a\x34\x00\x3e\x22\x22', 66),
+    (b'\x0a\x3c\x00\x3e\x0a\x0a\x34\x00\x3e\x22\x22\x1c', 66),
+    (b'\x3c\x00\x3e\x0a\x0a\x34\x00\x3e\x22\x22\x1c\x00', 66),
+    (b'\x00\x3e\x0a\x0a\x34\x00\x3e\x22\x22\x1c\x00\x1e', 66),
+    (b'\x3e\x0a\x0a\x34\x00\x3e\x22\x22\x1c\x00\x1e\x20', 66),
+    (b'\x0a\x0a\x34\x00\x3e\x22\x22\x1c\x00\x1e\x20\x20', 66),
+    (b'\x0a\x34\x00\x3e\x22\x22\x1c\x00\x1e\x20\x20\x1e', 66),
+    (b'\x34\x00\x3e\x22\x22\x1c\x00\x1e\x20\x20\x1e\x00', 66),
+    (b'\x00\x3e\x22\x22\x1c\x00\x1e\x20\x20\x1e\x00\x22', 66),
+    (b'\x3e\x22\x22\x1c\x00\x1e\x20\x20\x1e\x00\x22\x3e', 66),
+    (b'\x22\x22\x1c\x00\x1e\x20\x20\x1e\x00\x22\x3e\x22', 66),
+    (b'\x22\x1c\x00\x1e\x20\x20\x1e\x00\x22\x3e\x22\x00', 66),
+    (b'\x1c\x00\x1e\x20\x20\x1e\x00\x22\x3e\x22\x00\x3e', 66),
+    (b'\x00\x1e\x20\x20\x1e\x00\x22\x3e\x22\x00\x3e\x04', 66),
+    (b'\x1e\x20\x20\x1e\x00\x22\x3e\x22\x00\x3e\x04\x08', 66),
+    (b'\x20\x20\x1e\x00\x22\x3e\x22\x00\x3e\x04\x08\x3e', 66),
+    (b'\x20\x1e\x00\x22\x3e\x22\x00\x3e\x04\x08\x3e\x00', 66),
+    (b'\x1e\x00\x22\x3e\x22\x00\x3e\x04\x08\x3e\x00\x1c', 66),
+    (b'\x00\x22\x3e\x22\x00\x3e\x04\x08\x3e\x00\x1c\x22', 66),
+    (b'\x22\x3e\x22\x00\x3e\x04\x08\x3e\x00\x1c\x22\x22', 66),
+    (b'\x3e\x22\x00\x3e\x04\x08\x3e\x00\x1c\x22\x22\x1c', 66),
+    (b'\x22\x00\x3e\x04\x08\x3e\x00\x1c\x22\x22\x1c\x00', 66),
+    (b'\x00\x3e\x04\x08\x3e\x00\x1c\x22\x22\x1c\x00\x00', 66),
+    (b'\x3e\x04\x08\x3e\x00\x1c\x22\x22\x1c\x00\x00\x00', 66),
+    (b'\x04\x08\x3e\x00\x1c\x22\x22\x1c\x00\x00\x00\x00', 66),
+    (b'\x08\x3e\x00\x1c\x22\x22\x1c\x00\x00\x00\x00\x00', 66),
+    (b'\x3e\x00\x1c\x22\x22\x1c\x00\x00\x00\x00\x00\x00', 66),
+    (b'\x00\x1c\x22\x22\x1c\x00\x00\x00\x00\x00\x00\x00', 66),
+    (b'\x1c\x22\x22\x1c\x00\x00\x00\x00\x00\x00\x00\x00', 66),
+    (b'\x22\x22\x1c\x00\x00\x00\x00\x00\x00\x00\x00\x00', 66),
+    (b'\x22\x1c\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00', 66),
+    (b'\x1c\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00', 66),
+    (b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00', 66),
+]
 
-while True:
-    print("Knight Rider")
-    knight_rider()
-    
-    print("Breathing")
-    breathing()
-    
-    sleep(0.5)
+print(f"Playing animation with {len(frames)} frames. {len(frames)*len(frames[0]):,} bytes in total.")
+print("Press Ctrl+C to stop.")
+
+try:
+    animation = Animation(led_matrix, frames)
+    animation.play(loop=True)
+
+except KeyboardInterrupt:
+    print("Animation stopped by user.")
+    led_matrix.clear().show()
 ```
+
+### Advanced Example - Grayscale Mode
+
+```python
+from modulino import ModulinoLEDMatrix
+from time import sleep_ms
+
+led_matrix = ModulinoLEDMatrix(use_grayscale=True)
+led_matrix.clear().show()
+
+def gradient_pattern(matrix: ModulinoLEDMatrix):
+    # Set each row of 12 pixels to increasing brightness
+    for row in range(8):
+        for col in range(12):
+            brightness = col  # Brightness increases from 0 to 11
+            matrix.set_pixel(col, row, brightness)
+    matrix.show()
+
+def raining_code(matrix: ModulinoLEDMatrix, steps: int = 300, spawn_chance: int = 35, delay_ms: int = 70):
+    """
+    Play a brief Matrix-style rain animation with a grayscale trail.
+
+    Args:
+        matrix: The ModulinoLEDMatrix instance to use.
+        steps: Number of animation steps to perform.
+        spawn_chance: Chance (0-100) of spawning a new drop each step.
+        delay_ms: Delay in milliseconds between each animation step. This controls speed.
+    """
+    from random import getrandbits
+
+    def _randint(n: int) -> int:
+        """Small helper to avoid importing full random."""
+        return getrandbits(16) % n
+
+    drops = []  # each drop: (x, head_y, length)
+
+    for _ in range(steps):
+        # Maybe spawn a new drop at the top
+        if _randint(100) < spawn_chance:
+            x = _randint(12)
+            length = 2 + _randint(4)  # 2..5 pixels long
+            drops.append([x, -1, length])
+
+        matrix.clear()
+
+        active = []
+        for x, head_y, length in drops:
+            head_y += 1
+            tail_y = head_y - length
+
+            # Draw the drop from head down to tail within bounds, brighter toward the head
+            for y in range(max(0, tail_y), min(matrix._height, head_y + 1)):
+                distance_from_head = head_y - y  # 0 at head, increases upward
+                brightness = 15 - (distance_from_head * 14) // max(1, length - 1)
+                brightness = 0 if brightness < 0 else brightness  # clamp to avoid wrapping negatives
+                matrix.set_pixel(x, y, brightness)
+
+            # Keep drop if it still intersects the display
+            if tail_y < matrix._height:
+                active.append([x, head_y, length])
+
+        drops = active
+        matrix.show()
+        sleep_ms(delay_ms)
+
+
+gradient_pattern(led_matrix)
+sleep_ms(2000)
+led_matrix.clear().show()
+
+raining_code(led_matrix)
+```
+
+**Note:** For more examples including MPJ file animations from the [LED Matrix Editor](https://ledmatrix-editor.arduino.cc/), check the [arduino-modulino-mpy examples](https://github.com/arduino/arduino-modulino-mpy/tree/main/examples).
 
 ## Troubleshooting
 
@@ -465,15 +706,26 @@ while True:
 
 If your Modulino's power LED isn't on or the device isn't responsive:
 - Ensure both the board and the Modulino are connected to your computer
-- Verify that the power LEDs on both are lit
-- Check that the QWIIC cable is properly clicked into place
+- Verify that the power LED on the Modulino is lit
+- Check that the QWIIC cable is properly clicked into place on both ends
+- Try a different QWIIC cable if available
+- Verify the I2C address (default is 0x39) matches your configuration
 
-### LEDs Not Lighting
+### LEDs Not Displaying
 
-If the LEDs don't illuminate:
-- Ensure you're calling `.show()` after setting LED values
-- Check that brightness is set to a visible level (> 0)
-- Verify your power supply can handle the current draw
+If the LEDs don't illuminate or show the expected pattern:
+- Check that you're using `setFrame()` or the graphics `endDraw()` method to update the display
+- Verify your frame data format matches the selected display mode (monochromatic vs grayscale)
+- Ensure your power supply can handle the current draw (up to 200mA with all LEDs on)
+- Try the basic example first to confirm the hardware is working
+
+### Animation Issues
+
+If animations don't play or appear glitchy:
+- Verify your animation data format is correct (frame data + duration)
+- Check that `play()` is called after `setSequence()`
+- For manual frame control, ensure `nextFrame()` is called at appropriate intervals
+- Verify the frame count matches your animation data
 
 ### Library Issues
 
