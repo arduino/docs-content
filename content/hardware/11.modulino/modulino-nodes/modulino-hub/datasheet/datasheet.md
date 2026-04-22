@@ -7,7 +7,26 @@ author: Pedro Sousa Lima
 
 ![](assets/featured.png)
 
+# Description
+The Modulino Hub features the TCA9548ARGER I2C multiplexer, providing eight independent I2C channels through a single main bus connection. This powerful module enables complex I2C networks by allowing multiple devices with identical addresses to coexist on separate channels, making it ideal for expanding large-scale sensor networks and complex modular projects.
+
+# Target Areas
+Maker, beginner, education, advanced prototyping
+
 # Contents
+## Application Examples
+
+- **Address Conflict Resolution**
+  Connect multiple sensors or modules with the same I2C address by placing them on different Hub channels.
+
+- **Large Sensor Networks**
+  Build complex monitoring systems with dozens of sensors organized across multiple independent I2C buses.
+
+- **Modular Project Expansion**
+  Scale projects from simple single-sensor setups to comprehensive multi-sensor installations without redesigning.
+
+<div style="page-break-after: always;"></div>
+
 ## Features
 - **TCA9548ARGER** I2C multiplexer with **eight independent channels**.
 - Each channel includes **4.7 kΩ pull-up resistors** for reliable I2C operation.
@@ -24,6 +43,11 @@ author: Pedro Sousa Lima
 | ABX00100   | Modulino Hub       | I2C multiplexer with 8 independent channels    | 1            |
 |            | I2C Qwiic cable     | Compatible with the Qwiic standard             | 1            |
 
+
+## Related Products
+- **SKU: ASX00027** – [Arduino® Sensor Kit](https://store.arduino.cc/products/arduino-sensor-kit)
+- **SKU: K000007** – [Arduino® Starter Kit](https://store.arduino.cc/products/arduino-starter-kit-multi-language)
+- **SKU: AKX00026** – [Arduino® Oplà IoT Kit](https://store.arduino.cc/products/opla-iot-kit)
 
 ## Rating
 
@@ -145,6 +169,12 @@ Optional connection for manual or programmatic reset of the TCA9548ARGER.
 - Default configuration (all jumpers open) uses address **0x70**.
 - Three solder jumpers (A0, A1, A2) on the bottom of the board can be bridged to select different addresses.
 ![Hub bottom showing address selection jumpers](assets/I2CTag.png)
+
+## Device Operation
+The Hub operates as an I2C target device on the main bus. After power-up, all channels are disabled by default. To enable channels, write to the TCA9548ARGER control register at the Hub's I2C address. Each bit in the control register corresponds to one channel (bit 0 = channel 0, bit 1 = channel 1, etc.). Multiple channels can be enabled simultaneously by setting multiple bits. Once enabled, devices on those channels become accessible from the main bus.
+
+### Using Multiple Hubs
+Up to 8 Hubs can coexist on the same main I2C bus by configuring different addresses via the solder jumpers. This creates up to 64 independent I2C channels (8 Hubs × 8 channels each), enabling extremely complex sensor networks and modular systems.
 
 # Company Information
 
