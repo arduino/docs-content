@@ -1,4 +1,11 @@
-# Arduino App Lab Ecosystem Glossary
+---
+title: Arduino App Lab Glossary
+overwriteSidebar: Glossary
+description: Definitions for common terms and concepts used in the Arduino App Lab ecosystem.
+tags:
+  - Glossary
+  - Arduino App Lab
+---
 
 ## ADB (Android Debug Bridge)
 A command-line tool used to access the board's Linux shell over a USB connection. It allows for file management and terminal access without a network connection.
