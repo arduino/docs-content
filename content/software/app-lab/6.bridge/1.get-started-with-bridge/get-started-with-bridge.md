@@ -17,7 +17,7 @@ Establish communication between Python logic on the Linux microprocessor (MPU) a
 
 ## Explore the Examples
 
-The easiest way to see the Bridge in action is to explore the built-in examples. These projects use the Bridge to establish communication between the two processors:
+The easiest way to see the Bridge in action is to explore the built-in examples. These projects demonstrate how to pass data and trigger functions between your Python script and the Arduino C++ sketch:
 
 - **Blink LED:** A simple example of using Python to toggle an LED pin on the microcontroller.
 - **Blink LED with UI:** Uses the WebUI Brick to control the MCU LED from a browser-based dashboard.
