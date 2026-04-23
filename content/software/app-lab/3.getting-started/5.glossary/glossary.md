@@ -23,7 +23,7 @@ An Arduino App is a modular software architecture that orchestrates multiple com
 The mandatory manifest file for every App. It stores metadata and configuration, such as the App's name, icon, and the list of Bricks used in the project.
 
 ## Arduino CLI
-The command-line tool that handles board detection and sketch compilation. It serves as the underlying engine for managing the C++ components of an App.
+The command-line tool that handles sketch compilation and library management. It serves as the underlying engine for managing the Arduino Sketch (C++) components of an App.
 
 ## Arduino App CLI
 A specialized command-line tool pre-installed on compatible boards. It automates the lifecycle of an App, including building, starting, and stopping services directly from the Linux terminal.
