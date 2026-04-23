@@ -10,7 +10,7 @@ The simulation of human intelligence by machines. In App Lab, AI models are typi
 A set of rules allowing software entities to communicate. Bricks expose high-level APIs that allow Python scripts to access complex features like machine learning or hardware drivers.
 
 ## App
-An Arduino App is a modular software architecture that orchestrates multiple components into a single project. The core logic runs via high-level code (Python) on the board's Linux subsystem. Apps can also include an Arduino **Sketch** running on a microcontroller for precise hardware control, and **Bricks**—pre-built software components (like AI models or databases) running in isolated containers. Every App is defined by a project folder containing a mandatory `app.yaml` manifest and a `python/main.py` entry point. For more information, see [About Apps](../../apps/1.about-apps/).
+An Arduino App is a modular software architecture that orchestrates multiple components into a single project. The core logic runs via high-level code (Python) on the board's Linux subsystem. Apps can also include an Arduino **Sketch** running on a microcontroller for precise hardware control, and **Bricks**—pre-built software components (like AI models or databases) running in isolated containers. Every App is defined by a project folder containing a mandatory `app.yaml` manifest and a `python/main.py` entry point. For more information, see [About Apps](../../apps/about-apps/).
 
 ## app.yaml
 The mandatory manifest file for every App. It stores metadata and configuration, such as the App's name, icon, and the list of Bricks used in the project.
@@ -31,7 +31,7 @@ A standalone utility used to "flash" or reset a board with a fresh Linux operati
 A background Linux service (`arduino-router`) that manages data traffic between the Linux processor and the microcontroller, enabling the **Bridge** connection.
 
 ## Brick
-A reusable building block that an app can include to provide a specific feature, such as a web interface, a camera pipeline, an AI model, storage, or cloud connectivity. Bricks expose a high-level API so apps can use their functionality without implementing it from scratch. For more information, see [About Bricks](../../bricks/1.about-bricks/).
+A reusable building block that an app can include to provide a specific feature, such as a web interface, a camera pipeline, an AI model, storage, or cloud connectivity. Bricks expose a high-level API so apps can use their functionality without implementing it from scratch. For more information, see [About Bricks](../../bricks/about-bricks/).
 
 ## Bridge
 The communication mechanism that enables the Linux processor (MPU) and the microcontroller (MCU) to exchange data. It allows Python and C++ code to interact through **Remote Procedure Calls (RPC)**.

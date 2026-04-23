@@ -21,7 +21,7 @@ An Arduino App is organized into a main logic layer, along with an optional real
 - **`sketch/sketch.ino`**: Optional. The C++ sketch that runs on the board's microcontroller.
 - **`README.md`**: Optional. Project documentation displayed in the App Lab UI.
 
-The system also manages two configuration files: `app.yaml` (mandatory manifest for App metadata and Bricks) and `sketch.yaml` (mandatory only if a sketch is present). To learn more about the directory structure, see [About Apps](../1.about-apps/).
+The system also manages two configuration files: `app.yaml` (mandatory manifest for App metadata and Bricks) and `sketch.yaml` (mandatory only if a sketch is present). To learn more about the directory structure, see [About Apps](../about-apps/).
 
 ### Explore and Open Files
 
