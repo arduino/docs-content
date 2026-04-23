@@ -90,28 +90,65 @@ The complete STEP files are available and downloadable from the link below:
 
 ## Hardware Features & Interfaces
 
+To leverage the UNO Media Carrier features easily, we developed a CLI that is included on the Arduino UNO Q. See the supported commands below:
+
+<Alert type="success">Use your UNO Q terminal (through SSH or ADB).</Alert>
+
+```bash
+# List available carriers and devices
+arduino-linux-config carrier list
+```
+This above command will print the available carriers and supported devices as follows:
+
+```bash
+CARRIER          DEVICE     OPTIONS
+-------          ------     -------
+media-carrier    camera0    none, type1-2lanes, type1-4lanes
+                 camera1    none, type1-2lanes, type1-4lanes
+                 display    none, 8-dsi-touch-a
+```
+
+To enable the Media Carrier and configure a specific connector to manage above listed devices, use:
+
+```bash
+# Configure a carrier with specific devices
+arduino-linux-config carrier enable media-carrier camera0=type1-2lanes display=8-dsi-touch-a
+```
+
+<Alert type="info">The command above configure the MIPI CSI0 connector to control an IMX219 camera and an 8" DSI touch display.</Alert>
+
+To check the current or pending configuration to be applied, run:
+
+```bash
+# Show current and pending configuration
+arduino-linux-config carrier show media-carrier
+```
+
+<Alert type="note">Any carrier configuration change will be applied after a board reboot.</Alert>
+
+To disable the UNO Media Carrier, use:
+
+```bash
+# Reset a carrier to factory defaults
+arduino-linux-config carrier disable media-carrier
+```
+
+We are going to use the commands from above on dedicated sections below to show how to use the different supported features.
+
 ### RGB LEDs
 
 The Arduino UNO Q Media Carrier features four onboard RGB LEDs designed to provide customizable visual feedback for your applications. To optimize the board's native pinout, these LEDs are not driven directly by the microprocessor's GPIOs. Instead, they are routed through a Texas Instruments TCA9555 I2C GPIO expander. Thanks to the integrated drivers, this I2C expander is mapped directly into the standard Linux LED subsystem, making control seamless.
 
 ![Media Carrier LEDs](assets/carrier-leds.png)
 
-#### Enabling the Media Carrier Overlay
+#### Enabling the UNO Media Carrier
 
-To use the LEDs, the system must load the hardware map for the Media Carrier. This is done by applying the official Device Tree Overlay (`.dtbo`). 
-
-Run the following commands to merge the Media Carrier and the standard Video/Sound overlays into the base UNO Q device tree:
+Run the following commands to enable the UNO Media Carrier:
 
 ```bash
-cd /boot/efi/dtb/qcom/
-
-sudo fdtoverlay -i qrb2210-arduino-imola-base.dtb \
-                -o qrb2210-arduino-imola.dtb \
-                qrb2210-arduino-imola-carrier-media.dtbo \
-                qrb2210-arduino-imola-video_sound-usbc.dtbo
-
+arduino-linux-config carrier enable media-carrier
 # Synchronize filesystem and reboot to apply the new hardware map
-sync && sudo reboot
+sudo reboot
 ```
 
 #### Verifying LED Subsystem
@@ -195,7 +232,23 @@ You should see your Media Carrier LEDs blinking as follows:
 
 The UNO Media Carrier features two 22-pin MIPI-CSI connectors compatible with standard Raspberry Pi cameras, enabling dual-camera computer vision applications such as stereo depth mapping, multi-angle capture, and object tracking.
 
-![Media Carrier MIPI-CSI Connectors]()
+![Media Carrier MIPI-CSI Connectors](assets/camera-connectors.png)
+
+To use a MIPI camera, connect it to "CAMERA0" or "CAMERA1" connectors with the UNO Q **unpowered**. 
+
+<Alert type="note">Only __IMX219__ cameras are supported right now, we will be adding support for other modules in the future.</Alert>
+
+Power your board and then run the following command from the terminal:
+
+```bash
+arduino-linux-config carrier enable media-carrier camera0=type1-2lanes
+```
+
+<Alert type="note">Remember to __reboot__ your Arduino UNO Q after any configuration change.</Alert>
+
+
+
+
 
 ### MIPI Display
 
