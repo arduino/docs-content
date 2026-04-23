@@ -246,8 +246,50 @@ arduino-linux-config carrier enable media-carrier camera0=type1-2lanes
 
 <Alert type="note">Remember to __reboot__ your Arduino UNO Q after any configuration change.</Alert>
 
+#### Capturing Images
+Once your board has rebooted, you can start capturing images. There are several ways to interact with the camera, depending on whether you prefer the command line or a graphical interface.
 
+#### Using the Command Line (CLI)
 
+To capture images directly from the terminal, we use **GStreamer**. Install it with:
+
+```bash
+sudo apt update
+sudo apt install gstreamer1.0-tools gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-libcamera
+```
+
+To take a snapshot with the first detected camera and specific resolution (1280x720), use:
+
+```bash
+sudo gst-launch-1.0 libcamerasrc ! video/x-raw,width=1280,height=720 ! videoconvert ! jpegenc snapshot=true ! filesink location=test_photo.jpg
+```
+
+If you want to capture from a specific camera, add the <code>camera-name</code> parameter as follows:
+
+```bash
+camera-name="/base/soc@0/cci@5c1b000/i2c-bus@0/sensor@10" # for camera0
+camera-name="/base/soc@0/cci@5c1b000/i2c-bus@1/sensor@10" # for camera1
+```
+
+For example:
+
+```bash
+sudo gst-launch-1.0 libcamerasrc camera-name="/base/soc@0/cci@5c1b000/i2c-bus@1/sensor@10" ! video/x-raw,width=1280,height=720 ! videoconvert ! jpegenc snapshot=true ! filesink location=test_photo.jpg
+```
+
+<Alert type="warning">Because MIPI sensors need a brief moment to calibrate their auto-exposure and white balance when turned on, capturing a single instant frame often results in a dark image.</Alert>
+
+To get high-quality photos, run the following command. It will briefly activate the camera and capture 2 frames, giving the sensor time to adjust on the second shot:
+
+```bash
+sudo timeout 2 gst-launch-1.0 libcamerasrc ! video/x-raw,width=1280,height=720 ! videorate ! video/x-raw,framerate=1/1 ! videoconvert ! jpegenc ! multifilesink location=photo_%d.jpg
+```
+
+Using a Graphical Interface (GUI)
+
+If you are running a desktop environment on your UNO Q, the system fully supports Cheese, the standard GNOME camera application.
+
+You can install it using the package manager:
 
 
 ### MIPI Display
