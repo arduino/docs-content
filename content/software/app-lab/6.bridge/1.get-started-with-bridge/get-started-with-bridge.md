@@ -45,7 +45,7 @@ First, configure the MCU to listen for commands and respond. This is done by def
 
 Open your `sketch/sketch.ino` file. We will build the sketch piece by piece:
 
-1. **[Use the Sketch Library Manager](../../../apps/develop-apps/#add-sketch-libraries)** to add the `Arduino_RouterBridge` library to your App.
+1. **[Use the Sketch Library Manager](../../apps/develop-apps/#add-sketch-libraries)** to add the `Arduino_RouterBridge` library to your App.
 
 1. **Include the Library:**
    At the top of your file, include the Bridge library:
