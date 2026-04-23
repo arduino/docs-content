@@ -1,7 +1,7 @@
 ---
 title: Develop Apps in Arduino App Lab
 overwriteSidebar: Develop Apps
-description: Learn how to write code, manage dependencies, and use the Bridge to build hybrid applications in Arduino App Lab.
+description: Learn how to write code, manage dependencies, and use the Bridge to build modular applications in Arduino App Lab.
 tags:
   - Apps
   - Development
@@ -11,22 +11,17 @@ tags:
   - Arduino App Lab
 ---
 
-Developing an App for your board involves programming for two distinct environments simultaneously: a Linux microprocessor running Python, and a microcontroller running an Arduino C++ sketch.
+Develop Apps in Arduino App Lab by managing your project files, configuring optional Bricks, and writing your core Python logic.
 
 ## Project Files
 
-Every App contains two core files that host your code:
+An Arduino App is organized into a main logic layer, along with an optional real-time layer:
 
-- **`python/main.py`**: The entry point for the Linux-side application, [written in Python](#python-development).
-- **`sketch/sketch.ino`**: The [Arduino sketch](#sketch-development) running on the microcontroller.
-- **`README.md`**: Project documentation.
+- **`python/main.py`**: Mandatory. The entry point for the high-level application logic running on Linux.
+- **`sketch/sketch.ino`**: Optional. The C++ sketch that runs on the board's microcontroller.
+- **`README.md`**: Optional. Project documentation displayed in the App Lab UI.
 
-Arduino App Lab automatically manages these configuration files:
-
-- **`sketch/sketch.yaml`**: The configuration file for the sketch (read-only).
-- **`app.yaml`**: The configuration file for Bricks and App properties (read-only).
-
-To learn more about the App file structure, see [About Apps](../about-apps/).
+The system also manages two configuration files: `app.yaml` (mandatory manifest for App metadata and Bricks) and `sketch.yaml` (mandatory only if a sketch is present). To learn more about the directory structure, see [About Apps](../1.about-apps/).
 
 ### Explore and Open Files
 
@@ -153,7 +148,7 @@ You can use external Python packages (like `numpy` or `flask`) by creating a req
 
 ## Sketch Development
 
-The Arduino sketch (`sketch.ino`) handles real-time interaction with hardware, such as reading sensors or controlling motors.
+On your board's microcontroller, you can use an Arduino sketch (`sketch.ino`) to handle real-time interaction with hardware, such as reading sensors or controlling motors.
 
 ### Add Sketch Libraries
 

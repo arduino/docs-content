@@ -8,7 +8,7 @@ tags:
   - UNO Q
 ---
 
-In this tutorial, you learn about the key features of Arduino App Lab to help you get started with hybrid development quickly. You will explore the different components of the user interface, run a built-in example app on your board, and learn how to create an editable copy of an example app to modify its behavior. You'll also explore how to monitor and log your app's internal state to debug your projects.
+Learn about the key features of Arduino App Lab to help you get started with modular App development quickly. Explore the different components of the user interface, run a built-in example app on your board, and create an editable copy of an example app to modify its behavior. You can also monitor and log your app's internal state to debug your projects.
 
 This onboarding journey assumes you have already installed App Lab and configured it with your board; if you haven't, please check the **Prerequisites** section below.
 

@@ -9,7 +9,7 @@ tags:
   - UNO Q
 ---
 
-Learn how to  create, duplicate, import, export, and delete Apps in Arduino App Lab.
+Organize and manage your projects in the **My Apps** library. Use these workflows to create, duplicate, import, and export Apps.
 
 ## Open an App
 

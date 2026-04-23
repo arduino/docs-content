@@ -13,17 +13,17 @@ tags:
   - UNO Q
 ---
 
-The Bridge is an RPC-based communication layer that allows the Linux microprocessor (MPU) and the Arduino microcontroller (MCU) on your board to exchange data. This guide walks you through a basic implementation: sending a message from a Python script on the Linux MPU to the MCU, which then prints a confirmation back to the console.
+Establish communication between Python logic on the Linux microprocessor (MPU) and the C++ sketch on the microcontroller (MCU) using the **Bridge**. Use this workflow to send messages from Python to the MCU and monitor confirmations in the console.
 
 ## Explore the Examples
 
-The easiest way to see the Bridge in action is to explore the built-in examples. These example projects use the Bridge to establish communication between the Linux MPU and the Arduino MCU:
+The easiest way to see the Bridge in action is to explore the built-in examples. These projects use the Bridge to establish communication between the two processors:
 
 - **Blink LED:** A simple example of using Python to toggle an LED pin on the microcontroller.
 - **Blink LED with UI:** Uses the WebUI Brick to control the MCU LED from a browser-based dashboard.
 - **Weather forecast on LED Matrix:** Fetches weather data in Python and sends it to the MCU to be displayed on an LED matrix.
 
-To learn more about how to access and run Examples, see [Using Examples](../../getting-started/examples/).
+To learn more about how to access and run Examples, see [Using Examples](../../3.getting-started/2.examples/examples.md).
 
 ## Use Bridge Communication in Your App
 
@@ -45,7 +45,7 @@ First, configure the MCU to listen for commands and respond. This is done by def
 
 Open your `sketch/sketch.ino` file. We will build the sketch piece by piece:
 
-1. **[Use the Sketch Library Manager](../../apps/develop-apps/#add-sketch-libraries)** to add the `Arduino_RouterBridge` library to your App.
+1. **[Use the Sketch Library Manager](../../../4.apps/5.develop-apps/develop-apps.md#add-sketch-libraries)** to add the `Arduino_RouterBridge` library to your App.
 
 1. **Include the Library:**
    At the top of your file, include the Bridge library:

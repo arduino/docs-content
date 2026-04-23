@@ -9,7 +9,7 @@ tags:
   - UNO Q
 ---
 
-Arduino App Lab is the integrated development environment (IDE) specifically designed for hybrid application development on the Arduino UNO Q. It allows you to develop, deploy, and manage applications that combine the power of a Linux microprocessor with the real-time reliability of a microcontroller running Arduino/C++.
+Arduino App Lab is an all-in-one environment for creating and managing Apps—modular projects that combine powerful software with hardware control. Learn about the different ways you can set up Arduino App Lab to begin building and deploying applications on your board.
 
 ## Choose Your Setup Mode
 
@@ -25,8 +25,8 @@ If you're unsure, Connected Mode is a great way to get started. You can switch b
 1. Follow the instructions for your [selected setup mode](#choose-your-setup-mode).
    - [Windows](../windows/), [macOS](../macos/), or [Linux](../linux/) (Connected Mode, running on your PC)
    - [Single-Board Computer](../standalone/) (SBC Mode, running directly on your board)
-2. [Configure your board in Arduino App Lab](../../getting-started/config/)
-3. [Get started with Arduino App Lab](../../getting-started/quickstart/)
+2. [Configure your board in Arduino App Lab](../../../2.configure/1.config/config.md)
+3. [Get started with Arduino App Lab](../../../3.getting-started/1.quickstart/quickstart.md)
 
 ## Supported Boards
 
@@ -36,4 +36,4 @@ If you're unsure, Connected Mode is a great way to get started. You can switch b
 
 ## Next Steps
 
-- [Get Started with Arduino App Lab](../../getting-started/quickstart/)
+- [Get Started with Arduino App Lab](../../../3.getting-started/1.quickstart/quickstart.md)
