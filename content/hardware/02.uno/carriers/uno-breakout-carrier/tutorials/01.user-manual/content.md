@@ -752,37 +752,85 @@ amixer -c0 cset iface=MIXER,name='MultiMedia3 Mixer TX_CODEC_DMA_TX_3' 0
 
 ### Headphone Output
 
-The headphone output exposes left (`HPH_L`), right (`HPH_R`), and reference (`HPH_REF`) signals on J14 pins 34, 36, and 38, and on JMISC pins 36, 38, and 40. The `HPH_REF` pin provides the common reference voltage required by the headphone driver.
+The headphone output at J14 pins 34 (HPH_L), 36 (HPH_R), and 38 (HPH_REF) provides a stereo output. HPH_REF is the common reference voltage required by the headphone driver and must be connected alongside the left and right channels. The headphone output uses **device 0** on the sound card.
 
-To play back a WAV file through the headphone output, run the following command from the board's terminal:
+Before playback, configure the audio pipeline using the following `amixer` commands. These set up the routing path from the multimedia stream through the codec to the headphone driver and configure the output volume:
 
 ```bash
-aplay -D hw:0,0 /home/arduino/recording.wav
+amixer -c0 cset iface=MIXER,name='RX_CODEC_DMA_RX_0 Audio Mixer MultiMedia1' 1
+amixer -c0 cset iface=MIXER,name='RX_MACRO RX0 MUX' 'AIF1_PB'
+amixer -c0 cset iface=MIXER,name='RX_MACRO RX1 MUX' 'AIF1_PB'
+amixer -c0 cset iface=MIXER,name='RX INT0_1 MIX1 INP0' 'RX0'
+amixer -c0 cset iface=MIXER,name='RX INT1_1 MIX1 INP0' 'RX1'
+amixer -c0 cset iface=MIXER,name='RX INT0 DEM MUX' 'CLSH_DSM_OUT'
+amixer -c0 cset iface=MIXER,name='RX INT1 DEM MUX' 'CLSH_DSM_OUT'
+amixer -c0 cset iface=MIXER,name='RX_COMP1 Switch' 1
+amixer -c0 cset iface=MIXER,name='RX_COMP2 Switch' 1
+amixer -c0 cset iface=MIXER,name='HPHL_RDAC Switch' 1
+amixer -c0 cset iface=MIXER,name='HPHR_RDAC Switch' 1
+amixer -c0 cset iface=MIXER,name='HPHL_COMP Switch' 1
+amixer -c0 cset iface=MIXER,name='HPHR_COMP Switch' 1
+amixer -c0 cset iface=MIXER,name='HPHR Switch' 1
+amixer -c0 cset iface=MIXER,name='HPHL Switch' 1
+amixer -c0 cset iface=MIXER,name='RX_RX0 Digital Volume' 80
+amixer -c0 cset iface=MIXER,name='RX_RX1 Digital Volume' 80
 ```
 
-Both `arecord` and `aplay` can also be called from the Python section of an Arduino App Lab App, which is useful for integrating audio capture or playback into a larger project workflow. Create a new App, then copy and paste the example below into the Python section of your App:
+Then, play back a WAV file using the following command, where `plughw:0,0` is used because the pipeline has been configured with `amixer`:
+
+```bash
+aplay -D plughw:0,0 /home/arduino/recording.wav
+```
+
+After playback, close the pipeline to return the audio subsystem to its default state:
+
+```bash
+amixer -c0 cset iface=MIXER,name='RX_CODEC_DMA_RX_0 Audio Mixer MultiMedia1' 0
+amixer -c0 cset iface=MIXER,name='HPHR Switch' 0
+amixer -c0 cset iface=MIXER,name='HPHL Switch' 0
+```
+
+***Output levels may sound unbalanced or saturated in some configurations. Adjusting the `RX_RX0 Digital Volume` and `RX_RX1 Digital Volume` values can help tune the output level for your setup.***
+
+Both the recording and playback pipelines can also be called from the Python section of an Arduino App Lab App, which is useful for integrating audio into a larger project workflow.
+
+`AUDIO_DEVICE_IN` is set to `plughw:0,2` for microphone capture and `AUDIO_DEVICE_OUT` to `plughw:0,0` for headphone playback. Create a new App and copy and paste the example below into the Python section:
 
 ```python
 import subprocess
 import time
 from arduino.app_utils import App
 
-# Replace hw:0,0 with the correct device identifier from arecord -l / aplay -l
-AUDIO_DEVICE = "hw:0,0"
-RECORDING_PATH = "/home/arduino/recording.wav"
+AUDIO_DEVICE_IN  = "plughw:0,2"
+AUDIO_DEVICE_OUT = "plughw:0,0"
+RECORDING_PATH   = "/home/arduino/recording.wav"
+
+def setup_mic():
+  subprocess.run(["amixer", "-c0", "cset", "iface=MIXER,name='MultiMedia3 Mixer TX_CODEC_DMA_TX_3'", "1"])
+  subprocess.run(["amixer", "-c0", "cset", "iface=MIXER,name='TX DEC0 MUX'", "SWR_MIC"])
+  subprocess.run(["amixer", "-c0", "cset", "iface=MIXER,name='TX SMIC MUX0'", "SWR_MIC1"])
+  subprocess.run(["amixer", "-c0", "cset", "iface=MIXER,name='TX_AIF1_CAP Mixer DEC0'", "1"])
+  subprocess.run(["amixer", "-c0", "cset", "iface=MIXER,name='ADC2 Switch'", "1"])
+  subprocess.run(["amixer", "-c0", "cset", "iface=MIXER,name='ADC2 MUX'", "INP2"])
+  subprocess.run(["amixer", "-c0", "cset", "iface=MIXER,name='ADC2_MIXER Switch'", "1"])
+  subprocess.run(["amixer", "-c0", "cset", "iface=MIXER,name='ADC2 Volume'", "5"])
+  subprocess.run(["amixer", "-c0", "cset", "iface=MIXER,name='TX_DEC0 Volume'", "100"])
+
+def teardown_mic():
+  subprocess.run(["amixer", "-c0", "cset", "iface=MIXER,name='ADC2_MIXER Switch'", "0"])
+  subprocess.run(["amixer", "-c0", "cset", "iface=MIXER,name='MultiMedia3 Mixer TX_CODEC_DMA_TX_3'", "0"])
 
 def loop():
-  # Record 5 seconds of audio from the microphone input
+  setup_mic()
   subprocess.run([
-      "arecord", "-D", AUDIO_DEVICE,
-      "-f", "S16_LE", "-r", "44100", "-c", "2",
-      "-d", "5", RECORDING_PATH
+    "arecord", "-D", AUDIO_DEVICE_IN,
+    "-f", "S16_LE", "-c", "1", "-r", "48000",
+    "-d", "5", RECORDING_PATH
   ])
+  teardown_mic()
   time.sleep(1)
-  # Play back the recorded audio through the headphone output
-  subprocess.run([
-      "aplay", "-D", AUDIO_DEVICE, RECORDING_PATH
-  ])
+
+  subprocess.run(["aplay", "-D", AUDIO_DEVICE_OUT, RECORDING_PATH])
   time.sleep(1)
 
 App.run(user_loop=loop)
@@ -794,11 +842,40 @@ The line output exposes a differential pair (`LINEOUT_P` / `LINEOUT_M`) on J14 p
 
 ### Earphone Output
 
-The earphone output exposes a single-ended differential pair (`EAR_P_R` / `EAR_M_R`) for the right earphone channel on J14 pins 28 and 30, and on JMISC pins 28 and 30.
+The earphone output at J14 pins 28 (`EAR_P_R`) and 30 (`EAR_M_R`) provides the right earphone channel as a differential pair. The earphone output uses device 1 on the sound card.
+
+Before playback, configure the audio pipeline using the following `amixer` commands:
+
+```bash
+amixer -c0 cset iface=MIXER,name='RX_CODEC_DMA_RX_0 Audio Mixer MultiMedia2' 1
+amixer -c0 cset iface=MIXER,name='RX_MACRO RX0 MUX' 1
+amixer -c0 cset iface=MIXER,name='RX INT0_1 MIX1 INP0' 'RX0'
+amixer -c0 cset iface=MIXER,name='RX INT0 DEM MUX' 1
+amixer -c0 cset iface=MIXER,name='EAR_RDAC Switch' 1
+amixer -c0 cset iface=MIXER,name='HPHL Switch' 1
+amixer -c0 cset iface=MIXER,name='RX_RX0 Digital Volume' 80
+```
+
+Then, play back a WAV file using the following command. This interface uses `hw:0,1` directly without the `plughw` conversion layer:
+
+```bash
+aplay -D hw:0,1 /home/arduino/recording.wav
+```
+
+After playback, close the pipeline to return the audio subsystem to its default state:
+
+```bash
+amixer -c0 cset iface=MIXER,name='RX_CODEC_DMA_RX_0 Audio Mixer MultiMedia2' 0
+amixer -c0 cset iface=MIXER,name='RX_MACRO RX0 MUX' 'ZERO'
+amixer -c0 cset iface=MIXER,name='RX INT0_1 MIX1 INP0' 'ZERO'
+amixer -c0 cset iface=MIXER,name='RX INT0 DEM MUX' 'NORMAL_DSM_OUT'
+amixer -c0 cset iface=MIXER,name='EAR_RDAC Switch' 0
+amixer -c0 cset iface=MIXER,name='HPHL Switch' 0
+```
 
 ### Headset Detection
 
-The `HS_DET` signal on J14 pin 40 and JMISC pin 42 can be monitored on the MPU's Linux system to detect when a headset is physically connected, enabling automatic software-based audio routing changes.
+The `HS_DET` signal on J14 pin 40 and JMISC pin 42 can be monitored on the MPU's Linux system to detect when a headset is physically connected, allowing automatic software-based audio routing changes.
 
 ## PWM
 
