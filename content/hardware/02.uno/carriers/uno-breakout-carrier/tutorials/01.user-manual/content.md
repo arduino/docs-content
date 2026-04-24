@@ -838,7 +838,26 @@ App.run(user_loop=loop)
 
 ### Audio Line Output
 
-The line output exposes a differential pair (`LINEOUT_P` / `LINEOUT_M`) on J14 pins 27 and 29, and on JMISC pins 32 and 34. This interface is suitable for connection to external amplifiers or line-level audio equipment.
+The line output exposes a differential pair (`LINEOUT_P` / `LINEOUT_M`) on J14 pins 27 and 29, and on JMISC pins 32 and 34. This interface is suitable for connection to external amplifiers or line-level audio equipment. The line output uses device 3
+on the sound card, routed through the secondary MI2S (SEC_MI2S) digital audio interface.
+
+Before playback, configure the audio pipeline using the following `amixer` command:
+
+```bash
+amixer -c0 cset iface=MIXER,name='SEC_MI2S_RX Audio Mixer MultiMedia4' 1
+```
+
+Then play back a *WAV* file using the following command:
+
+```bash
+aplay -D hw:0,3 /home/arduino/recording.wav
+```
+
+After playback, close the pipeline to return the audio subsystem to its default state:
+
+```bash
+amixer -c0 cset iface=MIXER,name='SEC_MI2S_RX Audio Mixer MultiMedia4' 0
+```
 
 ### Earphone Output
 
