@@ -721,7 +721,7 @@ When using `amixer` routing commands to configure the audio pipeline before reco
 
 ### Microphone Input
 
-The microphone input at J14 pins 20 (MIC2_INP), 22 (MIC2_INM) and 24 (MIC2_BIAS) exposes a differential input pair and a bias voltage for powering electret-type microphones. The microphone input uses **device 2** on the sound card.
+The microphone input at J14 pins 20 (MIC2_INP), 22 (MIC2_INM) and 24 (MIC2_BIAS) exposes a differential input pair and a bias voltage for powering electret-type microphones. The microphone input uses *device 2* on the sound card.
 
 Before recording, configure the audio pipeline using the following `amixer` commands. These set up the routing path from the microphone through the codec and configure the capture gain:
 
@@ -752,7 +752,7 @@ amixer -c0 cset iface=MIXER,name='MultiMedia3 Mixer TX_CODEC_DMA_TX_3' 0
 
 ### Headphone Output
 
-The headphone output at J14 pins 34 (HPH_L), 36 (HPH_R), and 38 (HPH_REF) provides a stereo output. HPH_REF is the common reference voltage required by the headphone driver and must be connected alongside the left and right channels. The headphone output uses **device 0** on the sound card.
+The headphone output at J14 pins 34 (HPH_L), 36 (HPH_R), and 38 (HPH_REF) provides a stereo output. HPH_REF is the common reference voltage required by the headphone driver and must be connected alongside the left and right channels. The headphone output uses *device 0* on the sound card.
 
 Before playback, configure the audio pipeline using the following `amixer` commands. These set up the routing path from the multimedia stream through the codec to the headphone driver and configure the output volume:
 
@@ -838,7 +838,7 @@ App.run(user_loop=loop)
 
 ### Audio Line Output
 
-The line output exposes a differential pair (`LINEOUT_P` / `LINEOUT_M`) on J14 pins 27 and 29, and on JMISC pins 32 and 34. This interface is suitable for connection to external amplifiers or line-level audio equipment. The line output uses device 3
+The line output exposes a differential pair (`LINEOUT_P` / `LINEOUT_M`) on J14 pins 27 and 29, and on JMISC pins 32 and 34. This interface is suitable for connection to external amplifiers or line-level audio equipment. The line output uses *device 3*
 on the sound card, routed through the secondary MI2S (SEC_MI2S) digital audio interface.
 
 Before playback, configure the audio pipeline using the following `amixer` command:
@@ -861,7 +861,7 @@ amixer -c0 cset iface=MIXER,name='SEC_MI2S_RX Audio Mixer MultiMedia4' 0
 
 ### Earphone Output
 
-The earphone output at J14 pins 28 (`EAR_P_R`) and 30 (`EAR_M_R`) provides the right earphone channel as a differential pair. The earphone output uses device 1 on the sound card.
+The earphone output at J14 pins 28 (`EAR_P_R`) and 30 (`EAR_M_R`) provides the right earphone channel as a differential pair. The earphone output uses *device 1* on the sound card.
 
 Before playback, configure the audio pipeline using the following `amixer` commands:
 
