@@ -690,19 +690,65 @@ arecord -l
 aplay -l
 ```
 
-The device identifier used in the examples below (`hw:0,0`) refers to card 0, device 0. Replace this with the correct values for your setup based on the output of the commands above.
+On the UNO Q, both commands return the same output, as all interfaces share a single sound card. The output will look similar to the following:
+
+```bash
+**** List of PLAYBACK Hardware Devices ****
+card 0: ArduinoImolaHPH [Arduino-Imola-HPH-LOUT], device 0: MultiMedia1 (*) []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 0: ArduinoImolaHPH [Arduino-Imola-HPH-LOUT], device 1: MultiMedia2 (*) []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 0: ArduinoImolaHPH [Arduino-Imola-HPH-LOUT], device 2: MultiMedia3 (*) []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 0: ArduinoImolaHPH [Arduino-Imola-HPH-LOUT], device 3: MultiMedia4 (*) []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
+
+The board has a single sound card (`card 0`, named `Arduino-Imola-HPH-LOUT`) with four logical devices (0–3), each corresponding to a different multimedia stream (MultiMedia1–4).
+
+The device identifier used in audio commands is built from the card and device numbers `hw:0,0` refers to card 0, device 0. The correct device number for each audio interface is noted in each section below.
+
+ALSA supports two device access modes:
+
+- `hw:` provides direct hardware access and requires the audio parameters (sample rate, format, channels) to exactly match what the hardware expects.
+- `plughw:` adds an automatic conversion layer that handles mismatches on the fly.
+
+When using `amixer` routing commands to configure the audio pipeline before recording or playback, `plughw:` must be used in the subsequent `arecord` or `aplay` command. Without it, parameter mismatches between the routing configuration and the command will cause the command to fail.
 
 ### Microphone Input
 
-The microphone input interface provides a differential analog input pair (MIC2_INP/MIC2_INM) and a bias-voltage output (MIC2_BIAS) for powering electret-type microphones. These signals are available on J14 pins 20, 22, and 24, and on JMISC pins 29, 31, and 33.
+The microphone input at J14 pins 20 (MIC2_INP), 22 (MIC2_INM) and 24 (MIC2_BIAS) exposes a differential input pair and a bias voltage for powering electret-type microphones. The microphone input uses **device 2** on the sound card.
 
-To capture audio from the microphone input and save it to a WAV file, run the following command from the board's terminal:
+Before recording, configure the audio pipeline using the following `amixer` commands. These set up the routing path from the microphone through the codec and configure the capture gain:
 
 ```bash
-arecord -D hw:0,0 -f S16_LE -r 44100 -c 2 -d 5 /home/arduino/recording.wav
+amixer -c0 cset iface=MIXER,name='MultiMedia3 Mixer TX_CODEC_DMA_TX_3' 1
+amixer -c0 cset iface=MIXER,name='TX DEC0 MUX' 'SWR_MIC'
+amixer -c0 cset iface=MIXER,name='TX SMIC MUX0' 'SWR_MIC1'
+amixer -c0 cset iface=MIXER,name='TX_AIF1_CAP Mixer DEC0' 1
+amixer -c0 cset iface=MIXER,name='ADC2 Switch' 1
+amixer -c0 cset iface=MIXER,name='ADC2 MUX' 'INP2'
+amixer -c0 cset iface=MIXER,name='ADC2_MIXER Switch' 1
+amixer -c0 cset iface=MIXER,name='ADC2 Volume' 5
+amixer -c0 cset iface=MIXER,name='TX_DEC0 Volume' 100
 ```
 
-The `-d 5` flag sets the recording duration to 5 seconds. Skip it to record until interrupted with **CTRL + C**.
+Then capture audio with the following command. `plughw:0,2` is used because the pipeline has been configured with `amixer`. The `-d 5` flag sets the recording duration to 5 seconds and skip it to record until interrupted with **CTRL + C**:
+
+```bash
+arecord -D plughw:0,2 -f S16_LE -c 1 -r 48000 -d 5 /home/arduino/recording.wav
+```
+
+After recording, close the pipeline to return the audio subsystem to its default state:
+
+```bash
+amixer -c0 cset iface=MIXER,name='ADC2_MIXER Switch' 0
+amixer -c0 cset iface=MIXER,name='MultiMedia3 Mixer TX_CODEC_DMA_TX_3' 0
+```
 
 ### Headphone Output
 
