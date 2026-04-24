@@ -538,11 +538,11 @@ The example transmits a register address and a value byte to a device connected 
 
 ## GPIO
 
-The UNO Breakout Carrier exposes GPIO lines from both the MPU and the MCU through the J14, J15, JMEDIA, and JMISC headers. The MCU GPIO signals operate at a 3.3 V logic level and are controlled by the STM32U585 microcontroller. The MPU GPIO signals (`SOC_GPIO`) operate at 1.8 V and are controlled by the Qualcomm® QRB2210 microprocessor.
+The UNO Breakout Carrier exposes GPIO lines from both the MPU and the MCU through the J14 and J15 headers. The MCU GPIO signals operate at a 3.3 V logic level and are controlled by the STM32U585 microcontroller. The MPU GPIO signals (`SOC_GPIO`) operate at 1.8 V and are controlled by the Qualcomm® QRB2210 microprocessor.
 
 ### MCU GPIO
 
-MCU GPIO signals are accessible through the J15 header and the JMISC high-speed connector. These pins can be configured and controlled from Arduino sketches running in the Arduino App Lab using the standard Arduino programming language, just as the UNO Q's standard digital pins.
+MCU GPIO signals are accessible through the J15 header. These pins can be configured and controlled from Arduino sketches running in the Arduino App Lab using the standard Arduino programming language, just as the UNO Q's standard digital pins.
 
 To use an MCU GPIO exposed on the J15 header or JMISC connector:
 
@@ -593,7 +593,7 @@ Monitor.println(state);
 
 ### MPU GPIO
 
-MPU GPIO signals (SOC_GPIO) are accessible through the J15 header and the JMISC connector. These signals are controlled from the UNO Q's Debian Linux environment using the `gpiod` package, which provides the `gpioset` and `gpioget` command-line tools.
+MPU GPIO signals (SOC_GPIO) are accessible through the J15 header. These signals are controlled from the UNO Q's Debian Linux environment using the `gpiod` package, which provides the `gpioset` and `gpioget` command-line tools.
 
 ***MPU GPIO signals work at __1.8 V__ logic level. Use a compatible level shifter when connecting to 3.3 V circuits.***
 
@@ -656,7 +656,7 @@ App.run(user_loop=loop)
 
 ## Audio
 
-The UNO Breakout Carrier exposes the full audio signal set from the UNO Q's JMISC connector through the J14 and J15 headers. These signals originate from the Qualcomm® QRB2210 microprocessor (MPU) and its associated audio subsystem.
+The UNO Breakout Carrier exposes the full audio signal set from the UNO Q's JMISC connector through the J14 header. These signals originate from the Qualcomm® QRB2210 microprocessor (MPU) and its associated audio subsystem.
 
 The available audio interfaces on the carrier are as follows:
 
@@ -838,7 +838,7 @@ App.run(user_loop=loop)
 
 ### Audio Line Output
 
-The line output exposes a differential pair (`LINEOUT_P` / `LINEOUT_M`) on J14 pins 27 and 29, and on JMISC pins 32 and 34. This interface is suitable for connection to external amplifiers or line-level audio equipment. The line output uses *device 3*
+The line output exposes a differential pair (`LINEOUT_P` / `LINEOUT_M`) on J14 pins 27 and 29. This interface is suitable for connection to external amplifiers or line-level audio equipment. The line output uses *device 3*
 on the sound card, routed through the secondary MI2S (SEC_MI2S) digital audio interface.
 
 Before playback, configure the audio pipeline using the following `amixer` command:
@@ -894,7 +894,7 @@ amixer -c0 cset iface=MIXER,name='HPHL Switch' 0
 
 ### Headset Detection
 
-The `HS_DET` signal on J14 pin 40 and JMISC pin 42 can be monitored on the MPU's Linux system to detect when a headset is physically connected, allowing automatic software-based audio routing changes.
+The `HS_DET` signal on J14 pin 40 can be monitored on the MPU's Linux system to detect when a headset is physically connected, allowing automatic software-based audio routing changes.
 
 ## PWM
 
@@ -965,7 +965,7 @@ The STM32U585 MCU's internal operational amplifier (`OPAMP1`) is exposed through
 
 The OPAMP pins are also mapped to the UNO Q's standard analog header (D3 / OPAMP OUT, D16 / OPAMP IN+, D17 / OPAMP IN-), which remain accessible on the top side UNO-style connector when the carrier is mounted.
 
-The example below reads the raw ADC value at each OPAMP pin and prints it to the App Lab console. `PA0` is the non-inverting input (J15 pin 22), `PA1` is the inverting input (J15 pin 24), and `PA3` is the output (J15 pin 20). The ADC resolution is set to 14 bit, giving a raw range of 0 to 16383. To try it in Arduino App Lab:
+The example below reads the raw ADC value at each OPAMP pin and prints it to the App Lab console. `PA0` is the non-inverting input at J15 pin 22, `PA1` is the inverting input at J15 pin 24 and `PA3` is the output at J15 pin 20. These same pins are also accessible on the UNO Q's standard UNO-style header as D16, D17 and D3 respectively. The ADC resolution is set to 14-bit, giving a raw range of 0 to 16383. To try it in Arduino App Lab:
 
 1. Create a new App in the Arduino App Lab.
 
@@ -980,27 +980,17 @@ The example below reads the raw ADC value at each OPAMP pin and prints it to the
 ```cpp
 #include <Arduino_RouterBridge.h>
 
-// OPAMP pins exposed on J15 / JMISC and mirrored on UNO-style header
-#define OPAMP_VINP PA0  // J15 pin 22 / JMISC pin 22 / D16
-#define OPAMP_VINM PA1  // J15 pin 24 / JMISC pin 24 / D17
-#define OPAMP_VOUT PA3  // J15 pin 20 / JMISC pin 20 / D3
-
 void setup() {
   Monitor.begin();
-
-  // Configure OPAMP input pins
-  pinMode(OPAMP_VINP, INPUT);
-  pinMode(OPAMP_VINM, INPUT);
-
-  // Set ADC resolution to 14-bit (0 to 16383)
+  pinMode(PA0, INPUT);
+  pinMode(PA1, INPUT);
   analogReadResolution(14);
 }
 
 void loop() {
-  // Read the OPAMP inputs and output
-  int vinp = analogRead(OPAMP_VINP);
-  int vinm = analogRead(OPAMP_VINM);
-  int vout = analogRead(OPAMP_VOUT);
+  int vinp = analogRead(PA0);
+  int vinm = analogRead(PA1);
+  int vout = analogRead(PA3);
 
   Monitor.print("VINP: ");
   Monitor.print(vinp);
