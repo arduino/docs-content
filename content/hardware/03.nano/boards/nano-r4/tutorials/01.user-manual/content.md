@@ -607,6 +607,7 @@ The Nano R4 analog pins provide the following functionality:
 
 | **Arduino Pin** | **Microcontroller Pin** | **Additional Functions** | **Special Features**  |
 | :-------------: | :---------------------: | :----------------------: | :-------------------: |
+| `AREF` | `AREF` | Analog reference | Analog reference voltage input for the ADC |
 |      `A0`       |         `P014`          |           DAC            |   12-bit DAC output   |
 |      `A1`       |         `P000`          |         OPAMP +          | Operational amplifier |
 |      `A2`       |         `P001`          |         OPAMP -          | Operational amplifier |
