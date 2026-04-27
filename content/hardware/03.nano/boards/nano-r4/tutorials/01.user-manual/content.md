@@ -605,17 +605,17 @@ The Nano R4 features **8 analog input pins** (`A0` to `A7`) that can be read usi
 
 The Nano R4 analog pins provide the following functionality:
 
-| **Arduino Pin** | **Microcontroller Pin** | **Additional Functions** | **Special Features**  |
-| :-------------: | :---------------------: | :----------------------: | :-------------------: |
-| `AREF` | `AREF` | Analog reference | Analog reference voltage input for the ADC |
-|      `A0`       |         `P014`          |           DAC            |   12-bit DAC output   |
-|      `A1`       |         `P000`          |         OPAMP +          | Operational amplifier |
-|      `A2`       |         `P001`          |         OPAMP -          | Operational amplifier |
-|      `A3`       |         `P002`          |        OPAMP OUT         | Operational amplifier |
-|      `A4`       |         `P101`          |        SDA (I²C)         |   I²C communication   |
-|      `A5`       |         `P100`          |        SCL (I²C)         |   I²C communication   |
-|      `A6`       |         `P004`          |        Analog In         |   Analog input only   |
-|      `A7`       |         `P003`          |        Analog In         |   Analog input only   |
+| **Arduino Pin** | **Microcontroller Pin** | **Additional Functions** |            **Special Features**            |
+|:---------------:|:-----------------------:|:------------------------:|:------------------------------------------:|
+|      `AREF`     |          `AREF`         |     Analog reference     | Analog reference voltage input for the ADC |
+|       `A0`      |          `P014`         |            DAC           |              12-bit DAC output             |
+|       `A1`      |          `P000`         |          OPAMP +         |            Operational amplifier           |
+|       `A2`      |          `P001`         |          OPAMP -         |            Operational amplifier           |
+|       `A3`      |          `P002`         |         OPAMP OUT        |            Operational amplifier           |
+|       `A4`      |          `P101`         |         SDA (I²C)        |              I²C communication             |
+|       `A5`      |          `P100`         |         SCL (I²C)        |              I²C communication             |
+|       `A6`      |          `P004`         |         Analog In        |              Analog input only             |
+|       `A7`      |          `P003`         |         Analog In        |              Analog input only             |
 
 ***__Important note:__ Pin `A0` has a built-in 12-bit Digital-to-Analog Converter (DAC) for analog output. Pins `A1`, `A2` and `A3` are connected to the integrated operational amplifier. Pins `A4` and `A5` are primarily used for I²C communication (SDA and SCL respectively).***
 
