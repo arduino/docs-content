@@ -114,10 +114,14 @@ The microcontroller operates on a voltage of 3.3V, applying a higher voltage tha
 
 The **GIGA R1** has 1 MB of SRAM that is internal to the processor, and 8MB of SDRAM which you can access and write to. 
 
-To access the SDRAM you need to use the SDRAM library, include it in your sketch with:
+To access the SDRAM you need to use the SDRAM library, include it in your sketch and initialize with:
 
 ```arduino
 #include "SDRAM.h"
+
+void setup(){
+  SDRAM.begin();
+}
 ```
 
 Before writing to the SDRAM, you need to allocate it, the following code will create an array that reserves 7MB of the SDRAM for you to write to.

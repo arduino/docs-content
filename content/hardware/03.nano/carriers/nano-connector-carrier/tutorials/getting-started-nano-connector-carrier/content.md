@@ -471,7 +471,7 @@ void loop() {
     unsigned long currentTime = millis();
     if (currentTime - lastRecordTime >= RECORD_INTERVAL) {
       // Open the file for writing
-      dataFile = SD.open(fileName, FILE_APPEND);
+      dataFile = SD.open(fileName, FILE_WRITE);
       
       if (dataFile) {
         // Write timestamp and movement data to CSV file

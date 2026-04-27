@@ -1,0 +1,31 @@
+default: true
+
+# Use dashes (-) for unordered lists to maintain a clean, consistent 
+# style across all tutorials, guides, and documentation.
+MD004:
+  style: "dash"
+
+# Enforce spaces over hard tabs to align with Python (PEP 8) and Arduino C++ 
+# standards. This ensures code snippets maintain consistent indentation 
+# across the App Lab IDE, Terminal, and Arduino Docs.
+MD010:
+  code_blocks: true
+
+# Disable the 80-character line length limit.
+MD013: false
+
+# Allow duplicate sub-headings (e.g., "Parameters", "Returns") as long as 
+# they are in different sections. This is required for API references 
+# where method signatures follow a repeating structure.
+MD024:
+  siblings_only: true
+
+# Allow code blocks immediately following list items. This prevents the 
+# Markdown parser from breaking vertical spacing, keeping code examples 
+# visually attached to their corresponding instructions.
+MD031:
+  list_items: false
+
+# Block raw HTML tags by default, but Whitelist the <Alert> MDX component.
+MD033:
+  allowed_elements: ["Alert"]

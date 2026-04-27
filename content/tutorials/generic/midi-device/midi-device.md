@@ -2,15 +2,15 @@
 title: 'Create a MIDI Device'
 description: 'Create a MIDI device to generate music on your computer'
 difficulty: intermediate
-tags: 
+tags:
   - MIDI
   - Synth
 libraries:
   - name: USBHost
     url: https://www.arduino.cc/reference/en/libraries/usbhost/
 hardware:
-  - hardware/02.hero/boards/due
-  - hardware/02.hero/boards/zero
+  - hardware/10.mega/boards/due
+  - hardware/12.hero/boards/zero
 software:
   - ide-v1
   - ide-v2
@@ -67,7 +67,7 @@ The stream of notes and commands routed by VMPK may drive the built-in "Microsof
 
 ## Programming the Board
 
-**1.** First, let's make sure we have correct the drivers installed. If we are using the Cloud Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAM boards (32-bits ARM Cortex-M3)** or if you are using the Zero **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it. 
+**1.** First, let's make sure we have correct the drivers installed. If we are using the Cloud Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAM boards (32-bits ARM Cortex-M3)** or if you are using the Zero **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it.
 
 **2.** Now, we need to install the libraries needed. Simply go to **Tools > Manage libraries...** and search for **MIDIUSB** and install it.
 

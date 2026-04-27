@@ -6,7 +6,7 @@ primary_button_url: /tutorials/stella/user-manual/
 primary_button_title: Get Started
 core: arduino:mbed_nano
 forumCategorySlug: '/hardware/stella/91'
-productCode: '211'
+productCode: ['211']
 sku: [ABX00131]
 ---
 

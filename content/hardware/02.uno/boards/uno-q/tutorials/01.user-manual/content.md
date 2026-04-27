@@ -10,7 +10,7 @@ tags:
   - Python
 author: 'Christopher Méndez'
 hardware:
-  - hardware/02.hero/boards/uno-q
+  - hardware/02.uno/boards/uno-q
 software:
   - app-lab
   - ide-v2
@@ -25,15 +25,14 @@ This user manual will guide you through a practical journey covering the most in
 ## Hardware and Software Requirements
 ### Hardware Requirements
 
-- [UNO Q](https://store.arduino.cc/products/uno-q) (1x)
+- (1x) [UNO Q 2GB](https://store.arduino.cc/products/uno-q) or [UNO Q 4GB](https://store.arduino.cc/products/uno-q-4gb)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (1x)
-- [USB-C multiport adapter (dongle) with external power delivery](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-usb-hub) (1x)
-
+- [USB-C multiport adapter (dongle) with external power delivery](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-usb-hub) (1x
 ***You can use any USB-C dongle with external power delivery capabilities except for [Apple](https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter) ones.***
 
 ### Software Requirements
 
-- [Arduino App Lab 0.1.23+](https://www.arduino.cc/en/software/#app-lab-section)
+- [Arduino App Lab](https://www.arduino.cc/en/software/#app-lab-section)
 
 ***You can still use the __Arduino IDE 2+__ to program only the microcontroller (MCU) side of your UNO Q.***
 
@@ -107,7 +106,7 @@ The [Arduino App Lab](https://docs.arduino.cc/software/app-lab/) is a unified de
 
 With code building blocks called Bricks, preconfigured AI models, and integrated orchestration, it reduces complexity while enabling you to create everything from simple prototypes to advanced, computation-intensive applications.
 
-![Arduino App Lab IDE](assets/app-lab.png)
+![Arduino App Lab](assets/app-lab.png)
 
 Arduino App Lab comes **pre-installed** on the UNO Q and can be used in Single-Board Computer (SBC) mode. We highly recommend the <strong>4 GB of RAM</strong> UNO Q variant for a better **standalone** experience.
 
@@ -136,9 +135,229 @@ Network Mode relies on **local network discovery (mDNS)** to automatically find 
 *   **Windows Users:** When launching Arduino App Lab for the first time, you may receive a prompt from Windows Defender (or other security software) regarding `mdns-discovery.exe`. You must **allow** this access for the board to be discovered. *Note: The prompt may not appear on systems that have already run Arduino IDE at some point.*
 *   **Firewall Settings:** If the board does not appear, ensure that your firewall allows traffic on **UDP port 5353**, which is required for mDNS discovery.
 
-**Note**  
-Being able to access the board via browser, SSH, or IP address does not guarantee that it will appear in Network Mode. Arduino App Lab uses local network discovery to list boards automatically.
+***__Note__: Being able to access the board via browser, SSH, or IP address does not guarantee that it will appear in Network Mode. Arduino App Lab uses local network discovery to list boards automatically.***
 
+### Linux Host Setup (Required for Linux Users)
+
+If you are using the UNO Q from a Linux host machine, you must configure USB device permissions for your user account. Without proper permissions, several operations may fail, resulting in frustrating errors.
+
+When Arduino App Lab attempts to connect to the board via USB, it will fail silently. You may need to check the DevTools console to see the actual error message about insufficient device permissions.
+
+Similarly, if you try to flash a new image to the board, the process will fail with the following error:
+
+![udev Rules (1)](assets/udev_rules_1.png)
+
+The same error will occur when trying to communicate with the board via ADB commands such as `adb shell`.
+
+<details>
+  <summary><strong>Click to expand this section</strong></summary>
+
+
+#### Understanding the Permission
+
+By default, USB devices on Linux are accessible only by the root user or users in specific groups. When the UNO Q connects to your computer, it creates USB device files, typically in the following directory:
+
+```bash
+/dev/bus/usb/
+```
+
+That requires write permissions for communication.
+
+The UNO Q supports two USB modes, each with its own USB identifier. In regular operation, the board uses USB VID `2341` and PID `0078`.
+
+When you need to flash the board's firmware, it enters **Emergency Download Mode (EDL)**, which uses USB VID `05c6` and PID `9008`. Both modes require proper permissions to function correctly.
+
+#### Installing Udev Rules
+
+The correct way to configure the necessary permissions for your user account is via **udev rules**. `udev` is the Linux subsystem that manages device nodes in the `/dev` directory. The following udev rules will grant your user account access to the UNO Q:
+
+```bash
+# Operating mode
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0078", MODE="0660", TAG+="uaccess"
+# EDL mode
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="05c6", ATTRS{idProduct}=="9008", MODE="0660", TAG+="uaccess"
+```
+
+Run this command to install the necessary udev rules:
+
+```bash
+echo \
+'# Operating mode
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0078", MODE="0660", TAG+="uaccess"
+# EDL mode
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="05c6", ATTRS{idProduct}=="9008", MODE="0660", TAG+="uaccess"' \
+| \
+  sudo \
+    tee \
+      "/etc/udev/rules.d/60-Arduino-UNO-Q.rules" \
+&& \
+sudo \
+  udevadm control \
+    --reload-rules \
+&& \
+sudo \
+  udevadm trigger
+```
+
+![udev Rules (2)](assets/udev_rules_2.png)
+
+This command performs several operations in sequence. First, it creates the rule file and writes the udev rules to:
+
+```bash
+/etc/udev/rules.d/60-Arduino-UNO-Q.rules
+```
+
+The `60-` prefix determines the rule processing order, where lower numbers indicate higher priority. Files in the `/etc/udev/rules.d/` directory are user-specific overrides that are kept across system updates.
+
+Each rule matches USB devices based on specific criteria. The `SUBSYSTEMS=="usb"` parameter allows the rule to only apply to USB devices.
+
+The `ATTRS{idVendor}` and `ATTRS{idProduct}` parameters identify the UNO Q by its unique USB vendor and product IDs. The `MODE="0660"` parameter sets the device file permissions, allowing the owner and group to read and write to the device.
+
+The `TAG+="uaccess"` parameter grants access to the currently logged-in user through `systemd-logind`.
+
+After creating the rule file, the command reloads all udev rules by running as follows:
+
+```bash
+udevadm control --reload-rules
+```
+
+![udev Rules (3)](assets/udev_rules_3.png)
+
+This tells udev to reload all rule files without requiring a system restart.
+
+The `udevadm trigger` reprocesses all existing devices with the newly loaded rules, making sure that any currently connected UNO Q boards receive the correct permissions.
+
+#### Verifying the Installation
+
+Using the following command, verify the rules were installed correctly:
+
+```bash
+cat /etc/udev/rules.d/60-Arduino-UNO-Q.rules
+```
+
+![udev Rules (4)](assets/udev_rules_4.png)
+
+This should display the two udev rules you just installed.
+
+To check if the UNO Q is detected, the following command can be used:
+
+```bash
+lsusb | grep -E "2341:0078|05c6:9008"
+```
+
+When the board is connected in operating mode, you should see similar to the following output:
+
+![udev Rules (5)](assets/udev_rules_5.png)
+
+#### Applying the Changes
+
+After installing the udev rules, **you need to disconnect and reconnect your board for the changes to take effect**.
+
+Unplug the UNO Q from your computer and wait a few seconds. Then reconnect the board. The new permissions will be applied automatically when the board reconnects.
+
+If you had any applications open when you installed the rules, such as Arduino App Lab or a terminal running ADB commands, you should close and restart them after reconnecting the board. This allows applications to properly detect the board with its new permissions.
+
+For ADB commands, the following commands can be used:
+
+```bash
+adb devices
+```
+
+This command lists all Android Debug Bridge devices connected to your system. Your UNO Q should appear in the list without any error messages.
+
+The following command can be used to access the UNO Q:
+
+```bash
+adb shell
+```
+
+![udev Rules (6)](assets/udev_rules_6.png)
+
+#### Alternative Installation Method
+
+You can use the official `post-install` script from the [*Arduino Core Zephyr repository*](https://github.com/arduino/ArduinoCore-zephyr) to configure these permissions automatically. This script performs the same [udev rule installation as the manual method](#linux-users-usb-permissions-required) described above.
+
+To download and run the `post-install` script, navigate to your Downloads directory and use `wget` to fetch the script from the repository:
+
+```bash
+cd ~/Downloads
+```
+
+```bash
+wget https://raw.githubusercontent.com/arduino/ArduinoCore-zephyr/main/post_install.sh
+```
+
+![udev Rules (7)](assets/udev_rules_7.png)
+
+```bash
+chmod +x post_install.sh
+```
+
+```bash
+sudo ./post_install.sh
+```
+
+![udev Rules (8)](assets/udev_rules_8.png)
+
+If wget is not available on your system, you can use `curl` instead:
+
+```bash
+cd ~/Downloads
+```
+
+```bash
+curl -O https://raw.githubusercontent.com/arduino/ArduinoCore-zephyr/main/post_install.sh
+```
+
+```bash
+chmod +x post_install.sh
+```
+
+```bash
+sudo ./post_install.sh
+```
+
+```bash
+sudo ~/.arduino15/packages/arduino/hardware/zephyr/<version>/post_install.sh
+```
+
+Alternatively, you can clone the entire repository and run the script from there:
+
+```bash
+cd ~/Downloads
+```
+
+```bash
+git clone https://github.com/arduino/ArduinoCore-zephyr.git
+```
+
+```bash
+cd ArduinoCore-zephyr
+```
+
+```bash
+chmod +x post_install.sh
+```
+
+```bash
+sudo ./post_install.sh
+```
+
+When prompted, enter your password. The script will create the udev rules file, reload the udev rules, and apply them to any currently connected devices, just like the manual installation method.
+
+After running the script, you can verify the installation using the same command shown in the manual installation section:
+
+```bash
+cat /etc/udev/rules.d/60-arduino-zephyr.rules
+```
+
+![udev Rules (9)](assets/udev_rules_9.png)
+
+Note that the script creates a file named `60-arduino-zephyr.rules` rather than `60-Arduino-UNO-Q.rules`, but it has the same permission rules for both operating modes.
+
+After installing the udev rules using either method, **unplug your UNO Q board from the computer, wait a few seconds, then reconnect it**. This allows the new permissions to be applied. Once reconnected, you can continue to the next steps in the flashing process.
+
+</details>
 
 ### Hello World Example
 
@@ -209,6 +428,10 @@ To start using the board, you must first install the specific core that supports
 
 ***<strong>Troubleshooting:</strong> If the core does not appear in the search results, you may need to add the package manually. Go to __File > Preferences__ and add the following link to the __Additional Boards Manager URLs__ field: `https://downloads.arduino.cc/packages/package_zephyr_index.json`***
 
+5. Install the **Arduino_RouterBridge** library by navigating to the Library Manager in the left menu of the IDE. Install it with all its dependencies.
+
+![Arduino_RouterBridge Library](assets/lib-install.png)
+
 #### Hello World (Blink)
 
 Once the core is installed, you can verify that everything is working by uploading the classic Blink sketch.
@@ -236,11 +459,11 @@ It is a versatile display you can use to show data, status indicators, icons, or
 
 Here is a list of basic examples for using the **LED matrix**. To test them, follow the steps below:
 
-- Connect the UNO Q to your PC (if you are not in single-board computer mode).
+1. Connect the UNO Q to your PC (if you are not in single-board computer mode).
   ![SBC mode and PC-Hosted setup](assets/modes.png)
-- Open the Arduino App Lab, navigate to **My Apps** and click on **Create new app+**.
+2. Open the Arduino App Lab, navigate to **My Apps** and click on **Create new app+**.
   ![Create a new app](assets/create-app.png)
-- A new App must be created to test each of the examples below.
+3. A new App must be created to test each of the examples below.
 
 #### Image Drawing
 
@@ -380,6 +603,8 @@ You can also control these LEDs from a Python script as follows. Remember to **c
 ```python
 import time
 
+from arduino.app_utils import App
+
 LED1_R = "/sys/class/leds/red:user/brightness"
 LED1_G = "/sys/class/leds/green:user/brightness"
 LED1_B = "/sys/class/leds/blue:user/brightness"
@@ -395,24 +620,51 @@ def set_led_brightness(led_file, value):
     except Exception as e:
         print(f"Error writing to {led_file}: {e}")
 
-def main():
-  # turn off all LEDs
-  set_led_brightness(LED1_R, 0)
-  set_led_brightness(LED1_G, 0)
-  set_led_brightness(LED1_B, 0)
-  set_led_brightness(LED2_R, 0)
-  set_led_brightness(LED2_G, 0)
-  set_led_brightness(LED2_B, 0)
+# turn off all LEDs
+set_led_brightness(LED1_R, 0)
+set_led_brightness(LED1_G, 0)
+set_led_brightness(LED1_B, 0)
+set_led_brightness(LED2_R, 0)
+set_led_brightness(LED2_G, 0)
+set_led_brightness(LED2_B, 0)
 
-  while True:
+def loop():
     #blink the LED 1 RED segment
     set_led_brightness(LED1_R, 1)
     time.sleep(1)
     set_led_brightness(LED1_R, 0)
     time.sleep(1)
 
-if __name__ == "__main__":
-    main()
+App.run(user_loop=loop)
+```
+
+You can also control these LEDs by using their dedicated Linux module `Leds` as follows:
+
+
+```python
+# Arguments corresponds to R, G, and B colors respectively
+Leds.set_led1_color(1,0,0) # LED 1 in red
+Leds.set_led2_color(1,0,0) # LED 2 in red
+```
+
+Remember to **create a new App** inside Arduino App Lab and then copy and paste the script below in the python section of your App:
+
+```python
+import time
+from arduino.app_utils import App
+from arduino.app_utils import Leds
+
+def loop():
+    # Blink LED 1 in red
+    # Turn on the LED red segment(1, 0, 0)
+    Leds.set_led1_color(1,0,0)
+    time.sleep(1)
+
+    # Turn off the LED (0, 0, 0)
+    Leds.set_led1_color(0,0,0)
+    time.sleep(1)
+
+App.run(user_loop=loop)
 ```
 
 #### MCU Controlled LEDs
@@ -602,8 +854,12 @@ The example code shown below uses digital pin `D5` to control an LED and reads t
 
 ![Digital I/O example wiring](assets/digital-io.png)
 
-Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
+2. Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
+![Library install](assets/lib-install-app-lab.png)
+
+3. Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 #include <Arduino_RouterBridge.h>
@@ -690,8 +946,12 @@ The example code shown below reads the analog input value from a potentiometer c
 
 ![ADC input example wiring](assets/analog-adc.png)
 
-Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
+2. Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
+![Library install](assets/lib-install-app-lab.png)
+
+3. Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 #include <Arduino_RouterBridge.h>
@@ -739,8 +999,10 @@ analogWrite(DAC0, value);   // the value should be in the range of the DAC resol
 
 The following sketch will create a **60 Hz sine wave** signal in the `A0/DAC0` UNO Q pin:
 
-Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
+
+2. Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 const float freq = 60.0f;
@@ -800,8 +1062,10 @@ analogWriteResolution(10);
 
 Here is an example of how to create a variable duty-cycle PWM signal:
 
-Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
+
+2. Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 const int analogInPin = A0;  // Analog input pin that the potentiometer is attached to
@@ -939,13 +1203,13 @@ To capture more detailed information in the logs, you can append the `--verbose`
   ```
 
 - Restart the Router:
-  
+
   ```bash
   sudo systemctl restart arduino-router
   ```
 
 - View the verbose logs:
-  
+
   ```bash
   journalctl -u arduino-router -f
   ```
@@ -964,7 +1228,7 @@ To capture more detailed information in the logs, you can append the `--verbose`
 `RpcCall`
 - Helper class representing an asynchronous RPC. If its `.result` method is invoked, it waits for the response, extracts the return value, and propagates error codes if needed.
 
-`Monitor` 
+`Monitor`
 - The library includes a pre-defined Monitor object. This allows the Linux side to send text streams to the MCU (acting like a virtual Serial Monitor) via the RPC method mon/write.
 
 **Threading and Safety**
@@ -976,11 +1240,12 @@ To capture more detailed information in the logs, you can append the `--verbose`
 
 This example shows the **Linux side (Qualcomm QRB)** toggling an LED on the **MCU (STM32)** by calling a remote function over the Bridge.
 
-Create a new App in the Arduino App Lab, then copy and paste the example below in the "Python" and "sketch" parts of your new App respectively.
-
+1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
 
-1. **Linux (QRB) example to call a remote MCU function**
+2. Copy and paste the example below in the "Python" and "sketch" parts of your new App respectively.
+
+- **Linux (QRB) example to call a remote MCU function**
 
     This Python script runs on the QRB and calls an MCU-exposed RPC named `set_led_state` once per second:
 
@@ -1001,7 +1266,7 @@ Create a new App in the Arduino App Lab, then copy and paste the example below i
     ```
     This sends a boolean to the MCU every second using `Bridge.call("set_led_state", <bool>)`
 
-2. **MCU (STM32) setup to include the Bridge and start it**
+- **MCU (STM32) setup to include the Bridge and start it**
 
     This sketch includes the Bridge library and configures the LED pin.
 
@@ -1047,7 +1312,7 @@ The following example demonstrates how to control an MCU function (`set_led_stat
 **Prerequisites:**
 
 1. **Flash the MCU Sketch**
-   
+
    Upload the following code using the Arduino IDE or Arduino App Lab. This registers the function we want to call.
 
     ```cpp
@@ -1068,24 +1333,24 @@ The following example demonstrates how to control an MCU function (`set_led_stat
       digitalWrite(LED_BUILTIN, state ? LOW : HIGH);
     }
     ```
-2. **Install the Python Dependency** 
-   
+2. **Install the Python Dependency**
+
     Install the msgpack library using the system package manager:
 
     ```bash
     sudo apt install python3-msgpack
     ```
-3. **Create the Python Script** 
-   
+3. **Create the Python Script**
+
    Create a new file named msgpack_test.py:
 
     ```bash
     nano msgpack_test.py
     ```
 4. **Add the Script Content**
-  
+
    Copy and paste the following code. This script connects manually to the Router's Unix socket and sends a raw RPC request.
-  
+
     ```python
     import socket
     import msgpack
@@ -1096,7 +1361,7 @@ The following example demonstrates how to control an MCU function (`set_led_stat
 
     # 2. Parse command line arguments
     # Default to turning LED ON (True) if no argument is provided
-    led_state = True 
+    led_state = True
 
     if len(sys.argv) > 1:
         arg = sys.argv[1]
@@ -1120,14 +1385,14 @@ The following example demonstrates how to control an MCU function (`set_led_stat
         with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as client:
             client.connect(SOCKET_PATH)
             client.sendall(packed_req)
-            
+
             # 5. Receive the response
             response_data = client.recv(1024)
             response = msgpack.unpackb(response_data)
-            
+
             # Response Format: [type=1 (Response), msgid=1, error=None, result=None]
             print(f"Router Response: {response}")
-            
+
     except Exception as e:
         print(f"Connection failed: {e}")
     ```
@@ -1184,8 +1449,10 @@ void setup() {
 
 To transmit data to an SPI-compatible device, you can use the commands used in the following example:
 
-Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
+
+2. Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 #include <SPI.h>
@@ -1253,8 +1520,10 @@ Wire1.begin(); // I2C in Qwiic connector
 
 To transmit data to an I2C-compatible device, you can use the commands used in the following example:
 
-Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
+
+2. Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 #include <Wire.h>
@@ -1420,7 +1689,7 @@ void loop() {
 
 ## Wireless Connectivity
 
-The UNO Q features the WCBN3536A radio module that provides dual-band Wi-Fi® 5 (2.4/5 GHz) and Bluetooth® 5.1 to the board. This allows seamless wireless connectivity for both IoT and peripheral communication. 
+The UNO Q features the WCBN3536A radio module that provides dual-band Wi-Fi® 5 (2.4/5 GHz) and Bluetooth® 5.1 to the board. This allows seamless wireless connectivity for both IoT and peripheral communication.
 
 ![Radio Module](assets/radio-module.png)
 
@@ -1449,7 +1718,7 @@ To **disconnect** the UNO Q from the current Wi-Fi network, go to the same place
 Or run the following command in the terminal:
 
 ```bash
-sudo nmcli d disconnect wlan0 
+sudo nmcli d disconnect wlan0
 ```
 ***`wlan0` is the typical name of the Wi-Fi interface, you can verify yours running `nmcli device` in the terminal.***
 
@@ -1500,14 +1769,18 @@ If you prefer not to store your password in plain text (especially when it conta
 nmcli --ask con up <your network name>
 ```
 
-#### From the Microcontroller 
+#### From the Microcontroller
 
 Since the radio module is connected to the Qualcomm microprocessor, we need the **Bridge** to expose the connectivity to the microcontroller.
 
 The following example gets the UTC time using TCP over socket RPC calls and prints it in the Serial Monitor:
 
-Create a new App in the Arduino App Lab, then copy and paste the example below in the "sketch" part of your new App.
+1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
+2. Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
+![Library install](assets/lib-install-app-lab.png)
+
+3. Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
 #include <Arduino_RouterBridge.h>
@@ -1576,14 +1849,14 @@ From here, you can do the following:
 You can also manage the Bluetooth connection from the terminal by using `bluetoothctl` as follows:
 
 ```bash
-bluetoothctl power on # turn on Bluetooth 
-bluetoothctl power off # turn off Bluetooth 
+bluetoothctl power on # turn on Bluetooth
+bluetoothctl power off # turn off Bluetooth
 ```
 
 You can enter the Bluetooth manager prompt by running `bluetoothctl` and inside you can run specific commands:
 
 ```bash
-power on # turn on Bluetooth 
+power on # turn on Bluetooth
 power off # turn off Bluetooth
 scan on # start searching for nearby Bluetooth devices
 scan off # stop searching for devices

@@ -12,10 +12,10 @@ libraries:
   - name: "Cyberon DSpotter SDK Maker RP2040"
     url: https://github.com/CyberonEBU/Cyberon_DSpotterSDK_Maker_RP2040
 hardware:
+  - hardware/04.pro/shields/portenta-vision-shield
   - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/boards/portenta-h7-lite
   - hardware/04.pro/boards/portenta-h7-lite-connected
-  - hardware/04.pro/shields/portenta-vision-shield
   - hardware/06.nicla/boards/nicla-vision
   - hardware/03.nano/boards/nano-rp2040-connect
   - hardware/03.nano/boards/nano-33-ble-sense

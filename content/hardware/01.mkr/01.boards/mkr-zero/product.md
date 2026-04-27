@@ -6,7 +6,7 @@ primary_button_url: /software/ide-v2/tutorials/ide-v2-board-manager#samd
 primary_button_title: Get Started
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrzero/140'
-productCode: '016'
+productCode: ['016']
 sku: [ABX00007, ABX00012]
 ---
 

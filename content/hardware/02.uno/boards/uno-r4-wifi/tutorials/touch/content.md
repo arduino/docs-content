@@ -5,8 +5,8 @@ description: Learn to use the built-in capacitive sensing capabilities of the Ar
 tags: [Arduino, Capacitive Sensing, UNO R4]
 author: Pedro Lima
 hardware:
-  - hardware/02.hero/boards/uno-r4-wifi
-  - hardware/02.hero/boards/uno-r4-minima
+  - hardware/02.uno/boards/uno-r4-wifi
+  - hardware/02.uno/boards/uno-r4-minima
 software:
   - ide-v2
   - web-editor
@@ -110,7 +110,7 @@ CapacitiveTouch touchButton = CapacitiveTouch(D0);
 
 void setup() {
   Serial.begin(9600);
-  
+
   if(touchButton.begin()){
     Serial.println("Capacitive touch sensor initialized.");
   } else {
@@ -129,7 +129,7 @@ void loop() {
   if (touchButton.isTouched()) {
     Serial.println("Button touched!");
   }
-  
+
   delay(100);
 }
 ```

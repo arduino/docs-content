@@ -60,7 +60,7 @@ The 16 pins of the matrix are hooked up to 16 pins of the Arduino board.  Four o
 
 Two potentiometers, connected to analog pins 0 and 1,  control the movement of a lit LED in the matrix.
 
-To keep your LED matrix from burning, add 8 10kΩ resistors to the wires connected in yellow in the image below.
+To keep your LED matrix from burning, add 8 1kΩ resistors to the wires connected in yellow in the image below.
 
 ![Circuit diagram of the LED matrix.](assets/circuit.png)
 

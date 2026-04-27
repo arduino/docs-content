@@ -1,0 +1,14 @@
+Node:
+  Name: Modulino LED Matrix
+  SKU: ABX00152
+  Board recommended: Arduino® UNO R4 WiFi (ABX00087) and Arduino® UNO Q (ABX00162)
+  Communications: I2C (over Qwiic connector or solderable pads)
+  Operational voltage: 3.3V
+  Microcontroller: STM32C011F4U6TR
+  LED Matrix:
+    Display: 8×12 blue LEDs (96 total)
+    LED Part Number: LTST-C191TBK
+    I2C Address: 0x32 (address can change via software)
+
+Other accessories:
+  Qwiic cables: 1x

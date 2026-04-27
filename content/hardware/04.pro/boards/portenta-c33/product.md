@@ -6,7 +6,7 @@ primary_button_url: /tutorials/portenta-c33/user-manual
 primary_button_title: User Manual
 core: arduino:mbed_portenta
 #forumCategorySlug: '/hardware/portenta/91'
-productCode: '041'
+productCode: ['041']
 sku: [ABX00074]
 ---
 

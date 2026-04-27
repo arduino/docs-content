@@ -7,7 +7,7 @@ primary_button_title: Get Started
 core: arduino:mbed_nano
 forumCategorySlug: '/hardware/nano-family/nano-rp2040-connect/165'
 status: end-of-life
-productCode: '044'
+productCode: ['044']
 sku: [ABX00053, ABX00052]
 ---
 

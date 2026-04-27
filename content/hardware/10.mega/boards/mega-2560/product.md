@@ -5,7 +5,7 @@ url_guide: /tutorials/mega-2560/getting-started/
 primary_button_url: /tutorials/mega-2560/getting-started/
 primary_button_title: Get Started
 core: arduino:avr
-productCode: '002'
+productCode: ['002']
 forumCategorySlug: '/hardware/12'
 sku: [A000067]
 ---

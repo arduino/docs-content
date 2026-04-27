@@ -6,7 +6,7 @@ description: 'Get up to speed with this comprehensive guide to understanding and
 tags: [Linux, Debian]
 author: 'Taddy Ho Chung'
 hardware:
-  - hardware/02.hero/boards/uno-q
+  - hardware/02.uno/boards/uno-q
 ---
 
 ## Overview
@@ -77,7 +77,7 @@ To connect, open a terminal on your computer and run:
 ssh arduino@<boardname>.local
 ```
 
-Replace `<boardname>` with your actual board name. When connecting for the first time, you will be asked to verify the connection by typing `yes`. After confirming, enter your board's password to gain full shell access. For example, 
+Replace `<boardname>` with your actual board name. When connecting for the first time, you will be asked to verify the connection by typing `yes`. After confirming, enter your board's password to gain full shell access. For example,
 
 ```bash
 ssh arduino@unoqtestbench.local

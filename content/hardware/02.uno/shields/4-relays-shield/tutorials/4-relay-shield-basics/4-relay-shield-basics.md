@@ -7,14 +7,14 @@ tags:
   - Relays
 author: 'Karl Söderby'
 hardware:
-  - hardware/02.hero/shields/4-relays-shield
-  - hardware/02.hero/boards/uno-rev3
+  - hardware/02.uno/shields/4-relays-shield
+  - hardware/02.uno/boards/uno-rev3
 software:
   - ide-v1
   - ide-v2
 ---
 
-## Introduction 
+## Introduction
 
 In this tutorial, we will test out the **four relays** on board the [Arduino 4 Relays Shield](https://store.arduino.cc/arduino-mkr-relay-proto-shield). This shield is a great addon for the Arduino UNO board, as it has four relays capable of handling loads up to 48V. To control the relays, we need to use the following pins:
 
@@ -75,14 +75,14 @@ Let's begin by mounting our Arduino 4 Relay Shield on top of an Arduino UNO.
 
 ### Programming the Board
 
-We will now get to the programming part of this tutorial. 
+We will now get to the programming part of this tutorial.
 
 First, let's take a look at how we will activate our relays. We are actually not using a library, as the operation is very basic.
 
 - `int relay_1 = 4;` - assigns `relay_1` to pin 4. It is important that we assign it to pin 4, as the relay is internally wired to this pin.
-- `int relay_2 = 7;` - assigns `relay_2` to pin 7. Same here, the relay is wired to pin 7, so we can't use a pin of our choosing. 
-- `int relay_3 = 8;` - assigns `relay_3` to pin 8. Same here, the relay is wired to pin 8, so we can't use a pin of our choosing. 
-- `int relay_4 = 12;` - assigns `relay_4` to pin 12. Same here, the relay is wired to pin 12, so we can't use a pin of our choosing. 
+- `int relay_2 = 7;` - assigns `relay_2` to pin 7. Same here, the relay is wired to pin 7, so we can't use a pin of our choosing.
+- `int relay_3 = 8;` - assigns `relay_3` to pin 8. Same here, the relay is wired to pin 8, so we can't use a pin of our choosing.
+- `int relay_4 = 12;` - assigns `relay_4` to pin 12. Same here, the relay is wired to pin 12, so we can't use a pin of our choosing.
 - `pinMode(relay_X, OUTPUT)` - configures relay 1 to be an `OUTPUT`.
 - `digitalWrite(relay_X, state)` - write either a high or low state to relay 1.
 
@@ -169,5 +169,5 @@ If the code is not working, there are some common issues we can troubleshoot:
 
 In this tutorial, we have gone through some basics of how a relay works, including how the internal mechanism works, but also how to create a circuit with high power components, and how to create a program that activates or de-activates them.
 
-Relays are incredible popular electronic components that are practically used everywhere: cars, planes, heating systems, industrial machines and many many more. 
+Relays are incredible popular electronic components that are practically used everywhere: cars, planes, heating systems, industrial machines and many many more.
 

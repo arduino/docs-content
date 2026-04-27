@@ -8,11 +8,11 @@ tags:
   - Wi-Fi
   - Web Server
 author: 'Karl Söderby'
-libraries: 
+libraries:
   - name: WiFiNINA
     url: https://www.arduino.cc/en/Reference/WiFiNINA
 hardware:
-  - hardware/02.hero/boards/uno-wifi-rev-2
+  - hardware/02.uno/boards/uno-wifi-rev-2
   - _snippets/hardware/led
   - _snippets/hardware/jumper-wires
   - _snippets/hardware/breadboard
@@ -51,7 +51,7 @@ ___
 
 This tutorial barely uses any external hardware, except an LED that we will control remotely. However, the most interesting aspect lies in the library we are going to use: **WiFiNINA**. This library can be used for many different connectivity projects, where it allows us to connect to WiFi, make GET requests and - as we will explore in this tutorial - to create a web server.
 
-1. First, let's make sure we have the drivers installed. If we are using the Cloud Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino megaAVR Boards** and install it. 
+1. First, let's make sure we have the drivers installed. If we are using the Cloud Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino megaAVR Boards** and install it.
 
 2. Now, we need to install the library needed. If we are using the Cloud Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **WiFiNINA** and install it.
 
@@ -90,7 +90,7 @@ void setup() {
   Serial.begin(9600);
   pinMode(ledPin, OUTPUT);
   while (!Serial);
-  
+
   enable_WiFi();
   connect_WiFi();
 
@@ -174,17 +174,17 @@ void printWEB() {
             client.println("HTTP/1.1 200 OK");
             client.println("Content-type:text/html");
             client.println();
-           
+
             //create the buttons
             client.print("Click <a href=\"/H\">here</a> turn the LED on<br>");
             client.print("Click <a href=\"/L\">here</a> turn the LED off<br><br>");
-            
+
             int randomReading = analogRead(A1);
             client.print("Random reading from analog pin: ");
             client.print(randomReading);
-           
-            
-            
+
+
+
 
             // The HTTP response ends with another blank line:
             client.println();
@@ -200,10 +200,10 @@ void printWEB() {
         }
 
         if (currentLine.endsWith("GET /H")) {
-        digitalWrite(ledPin, HIGH);        
+        digitalWrite(ledPin, HIGH);
         }
         if (currentLine.endsWith("GET /L")) {
-        digitalWrite(ledPin, LOW);       
+        digitalWrite(ledPin, LOW);
         }
 
       }

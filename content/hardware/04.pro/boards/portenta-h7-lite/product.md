@@ -8,7 +8,7 @@ secondary_button_url: /tutorials/portenta-h7/updating-the-bootloader
 secondary_button_title: Bootloader Guide
 core: arduino:mbed_portenta
 forumCategorySlug: '/hardware/portenta/91'
-productCode: '115'
+productCode: ['115']
 sku: [ABX00045]
 ---
 

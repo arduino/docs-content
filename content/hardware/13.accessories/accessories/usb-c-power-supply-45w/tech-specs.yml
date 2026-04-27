@@ -1,0 +1,36 @@
+Power Supply:
+  Name: Arduino® USB-C Power Supply (45 W)
+  SKU: TPX00242
+General:
+  Adapter Type: Interchangeable plug-in adapter
+  Output Connector: USB-C (USB Type-C)
+  Dimensions: 64 × 64 × 30 mm (folded plug) / 64 × 80.06 × 30 mm (unfolded plug)
+  Material: PC (Polycarbonate) housing
+  Regional Plugs: US (Type A), EU (Type C), UK (Type G)
+Input:
+  Rated Voltage: 100 - 240 V AC
+  Voltage Range: 90 - 264 V AC
+  Frequency: 47 - 63 Hz (50/60 Hz)
+  Maximum Current: 1.5 A
+Output:
+  5V: 3.0 A (15 W)
+  9V: 3.0 A (27 W)
+  12V: 3.0 A (36 W)
+  15V: 3.0 A (45 W)
+  20V: 2.25 A (45 W)
+  Combined Maximum Power: 45 W
+Power Delivery:
+  USB PD 3.0: Supported
+  PPS: Supported
+Protection:
+  Types: Over Current, Short Circuit, Over Voltage, Over Temperature
+Operating Conditions:
+  Operating Temperature: 0 °C - 35 °C
+  Storage Temperature: -40 °C - 70 °C
+  Operating Humidity: 10% - 90% RH (non-condensing)
+  Storage Humidity: 5% - 95% RH (non-condensing)
+Safety:
+  Dielectric Strength: 3000 V AC @ 50 Hz
+  Leakage Current: 0.25 mA maximum @ 230 V AC
+  Insulation Resistance: 10 MΩ minimum @ 500 V DC
+  Protection Class: Class II (double insulated)

@@ -10,7 +10,7 @@ author: 'Benjamin Dannegård'
 description: This tutorial teaches you how to connect the PMC and HMI to then run a sketch that makes these communicate with each other.
 libraries:
   - name: Arduino_MachineControl
-    url: https://www.arduino.cc/reference/en/libraries/arduino_machinecontrol/
+    url: https://docs.arduino.cc/libraries/arduino_portentamachinecontrol/
   - name: Arduino_StoneHMIv2
     url: https://www.arduino.cc/en/Reference/Arduino_StoneHMIv2
 hardware:

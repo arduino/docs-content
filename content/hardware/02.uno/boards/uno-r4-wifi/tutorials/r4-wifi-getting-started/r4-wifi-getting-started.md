@@ -3,7 +3,7 @@ title: Getting Started with UNO R4 WiFi
 description: A step-by-step guide to install the board package needed for the UNO R4 WiFi board.
 author: Hannes Siebeneicher
 hardware:
-  - hardware/02.hero/boards/uno-r4-wifi
+  - hardware/02.uno/boards/uno-r4-wifi
 tags: [UNO R4 WiFi, Installation, IDE]
 ---
 
@@ -16,7 +16,7 @@ To install it, you will need the Arduino IDE, which you can download from the [A
 - [Arduino UNO R4 WiFi](https://store.arduino.cc/uno-r4-wifi)
 - [Arduino IDE](/software/ide-v2)
 
-***You can also use the [Cloud Editor](https://create.arduino.cc/editor) which comes with all Arduino boards pre-installed.*** 
+***You can also use the [Cloud Editor](https://create.arduino.cc/editor) which comes with all Arduino boards pre-installed.***
 
 ## Board Registration (Optional)
 

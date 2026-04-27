@@ -6,14 +6,14 @@ tags:
   - LED Matrix
 author: 'Jacob Hylén & Tom Igoe'
 hardware:
-  - hardware/02.hero/boards/uno-r4-wifi
+  - hardware/02.uno/boards/uno-r4-wifi
 software:
   - ide-v1
   - ide-v2
   - web-editor
 ---
 
-The **Arduino UNO R4 WiFi** comes with a built in 12x8 LED Matrix, that is available to be programmed to display graphics, animations, act as an interface, or even play games on. 
+The **Arduino UNO R4 WiFi** comes with a built in 12x8 LED Matrix, that is available to be programmed to display graphics, animations, act as an interface, or even play games on.
 ## Goals
 
 The matrix and its API are developed to be programmed in a few different ways, each suited for different applications. This guide will walk you through the basic concepts for programming the LED matrix, and get you started with creating your own animations, while highlighting two different ways of handling the LEDs to create animations and images. This makes it easier for you to decide what method fits your needs best!
@@ -27,7 +27,7 @@ The matrix and its API are developed to be programmed in a few different ways, e
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
 ## Initializing Matrix
-To use the LED Matrix library, there are a few things that need to be added to your sketch to get off the ground. 
+To use the LED Matrix library, there are a few things that need to be added to your sketch to get off the ground.
 
 First, include the library at the top of your sketch, like this:
 
@@ -65,7 +65,7 @@ The LED Matrix library for the UNO R4 WiFi works on the principle of creating a 
 
 A frame is what we call the "image" that is displayed at any given moment on the matrix. If an animation is a series of images, a frame is one of those images in the series.
 
-In order to control the 12x8 LED matrix on the UNO R4 WiFi, you need a space in memory that's at least 96 bits in size. The library provides two ways to do this. 
+In order to control the 12x8 LED matrix on the UNO R4 WiFi, you need a space in memory that's at least 96 bits in size. The library provides two ways to do this.
 
 The first is simply to make a two-dimensional array of bytes like so:
 ```arduino
@@ -104,7 +104,7 @@ unsigned long frame[] = {
   0xa0040000
 };
 ```
-An unsigned long variable holds 32 bits, and 96/32 is 3, so an unsigned long array is an efficient way to hold all the bits you need for the LED matrix. 
+An unsigned long variable holds 32 bits, and 96/32 is 3, so an unsigned long array is an efficient way to hold all the bits you need for the LED matrix.
 
 But how do those hexadecimal values relate to the positions of the pixels? To find out, convert the hexadecimal values to binary values. Here's a code snippet that will do this:
 
@@ -190,7 +190,7 @@ const uint32_t heart[] = {
 	0x44042081,
 	0x100a0040
 };
-  
+
 void loop(){
   matrix.loadFrame(happy);
   delay(500);
@@ -202,7 +202,7 @@ void loop(){
 
 The sketch is pretty simple, and yet the outcome is very expressive and can help you easily indicate states of your projects.
 
-Now let's change approach and create a bitmap that we change in runtime. This sketch includes several functions that each draw part of a face, and then winks the left eye by turning off certain pixels. 
+Now let's change approach and create a bitmap that we change in runtime. This sketch includes several functions that each draw part of a face, and then winks the left eye by turning off certain pixels.
 
 ```arduino
 #include "Arduino_LED_Matrix.h"
@@ -279,7 +279,7 @@ delay(1000);
 
 ## Resources
 
-The rest of this article is a collection of resources, such as functioning examples, a gallery of frames, and tools that can help you get started with the LED Matrix in different ways. 
+The rest of this article is a collection of resources, such as functioning examples, a gallery of frames, and tools that can help you get started with the LED Matrix in different ways.
 
 ## Scrolling Text Example
 
@@ -359,7 +359,7 @@ void loop() {
 }
 ```
 
-By changing the parameter in `matrix.loadFrame()` in the loop, you can choose among the available frames we designed. 
+By changing the parameter in `matrix.loadFrame()` in the loop, you can choose among the available frames we designed.
 
 The available frames are:
 - `LEDMATRIX_BLUETOOTH`
@@ -383,7 +383,7 @@ Alternatively, play one of the animations on the LED matrix like this:
 #include "Arduino_LED_Matrix.h"   //Include the LED_Matrix library
 
 // Create an instance of the ArduinoLEDMatrix class
-ArduinoLEDMatrix matrix;  
+ArduinoLEDMatrix matrix;
 
 void setup() {
   Serial.begin(115200);
@@ -396,7 +396,7 @@ void setup() {
 void loop() {
 }
 ```
-In this case, you change the parameter of `matrix.loadSequence()` in the setup to one of the available ones to display. 
+In this case, you change the parameter of `matrix.loadSequence()` in the setup to one of the available ones to display.
 
 The available animations are:
 - `LEDMATRIX_ANIMATION_STARTUP`
@@ -426,9 +426,9 @@ The available animations are:
 - `LEDMATRIX_ANIMATION_WIFI_SEARCH`
 
 ## Animation Generation
-We have developed a tool that is used to generate frames and animations to be rendered on the LED Matrix in your browser. This tool is part of [Arduino labs](https://labs.arduino.cc), and is therefore considered experimental software. 
+We have developed a tool that is used to generate frames and animations to be rendered on the LED Matrix in your browser. This tool is part of [Arduino labs](https://labs.arduino.cc), and is therefore considered experimental software.
 
-To use the tool you need to upload the following sketch, allowing the board to read serial inputs sent by the browser. 
+To use the tool you need to upload the following sketch, allowing the board to read serial inputs sent by the browser.
 
 You can also find the sketch in **File > Examples > LED_Matrix > LivePreview**
 
@@ -456,7 +456,7 @@ void loop() {
 }
 ```
 
-[Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool. 
+[Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool.
 
 
 ![LED Matrix Editor](assets/led-matrix-tool.png)
@@ -466,11 +466,11 @@ Once you've made your animations, you can export them from the tool in the forma
 You can find more tips on how to use this tool on [its site](https://ledmatrix-editor.arduino.cc).
 
 
-## API 
+## API
 
 To write more advanced sketches on your own, you may use the full API of the library as found below.
 
- Members                                                       | Descriptions                                
+ Members                                                       | Descriptions
 ---------------------------------------------------------------|---------------------------------------------
 `public ` [`ArduinoLEDMatrix`](#)`()`                          | The main class for controlling the LED matrix.
 `public void` [`autoscroll`](#)`(int32_t interval_ms)`         | Sets the time in ms for each frame to be displayed.
@@ -495,7 +495,7 @@ ArduinoLEDMatrix LEDMatrix;
 
 ### `autoscroll()`
 
-Enable autoscrolling through the frames in a sequence. 
+Enable autoscrolling through the frames in a sequence.
 
 
 **Parameters**
@@ -526,10 +526,10 @@ Loads a single frame that is not part of a sequence.
 ```arduino
 LEDMatrix.loadFrame(buffer[i])
 ```
- 
+
 **Parameters**
 
-- `buffer[3]` an array of three 32bit integers, where each bit represents an LED.  
+- `buffer[3]` an array of three 32bit integers, where each bit represents an LED.
 
 ### `renderFrame()`
 
@@ -553,11 +553,11 @@ LEDMatrix.frames[][4]
 
 **Parameters**
 
-- `frameNumber` Specifies which frame of the sequence should be rendered. 
+- `frameNumber` Specifies which frame of the sequence should be rendered.
 
 ### `play()`
 
-Starts playing the loaded sequence. 
+Starts playing the loaded sequence.
 
 ```
 LEDMatrix.play(state) //true or false

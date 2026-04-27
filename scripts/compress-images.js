@@ -53,10 +53,8 @@ async function compressImages() {
               .toBuffer({ resolveWithObject: true }));
             break;
           case '.gif':
-             // Sharp can read gifs, but optimization is limited.
-             // We can resize or convert, but for just re-saving with potential optimization:
-            ({ data: outputBuffer, info: outputInfo } = await image.toBuffer({ resolveWithObject: true }));
-            break;
+            console.log(`Skipping GIF optimization for: ${path.relative(contentDir, entry)}`);
+            continue;
           default:
             console.log(`Skipping unsupported file type: ${entry}`);
             continue;

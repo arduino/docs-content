@@ -10,7 +10,7 @@ tags:
   - DAC
 author: 'Hannes Siebeneicher'
 hardware:
-  - hardware/02.hero/boards/uno-r4-minima
+  - hardware/02.uno/boards/uno-r4-minima
 software:
   - web-editor
   - ide-v1
@@ -39,9 +39,9 @@ When powered via the VIN pin, you are using the onboard regulator to bring down 
 
 ***External devices with a high current draw (e.g. servo motors) should never be powered via the 5 V pin. It is mainly intended for devices drawing lower current such as sensor modules.***
 
-If you’re using the USB-C® connector you must power it with 5 V. 
+If you’re using the USB-C® connector you must power it with 5 V.
 
-When powered via USB, you are bypassing the onboard voltage regulator completely. In this case, the 5 V pin can provide up to 2 A without damaging the board. 
+When powered via USB, you are bypassing the onboard voltage regulator completely. In this case, the 5 V pin can provide up to 2 A without damaging the board.
 
 
 ## Board Package
@@ -66,7 +66,7 @@ Read more in the [Getting Started with the Cloud Editor](https://docs.arduino.cc
 
 ## Renesas RA4M1
 
-The UNO R4 Minima features the powerful and very robust Renesas microcontroller also found on the UNO R4 WiFi. Renesas microcontrollers are known for their high performance and robustness, including their built-in peripheral set. 
+The UNO R4 Minima features the powerful and very robust Renesas microcontroller also found on the UNO R4 WiFi. Renesas microcontrollers are known for their high performance and robustness, including their built-in peripheral set.
 
 These peripherals include analog-to-digital converters, timers, pulse width modulation (PWM) units, communication interfaces (such as UART, SPI, and I2C), and more.
 
@@ -74,16 +74,16 @@ These peripherals include analog-to-digital converters, timers, pulse width modu
 
 ### Memory
 
-The board features 
-- 32 kB of SRAM 
-- 256 kB flash 
+The board features
+- 32 kB of SRAM
+- 256 kB flash
 - 8 kB data (EEPROM).
 
 ## Pins
 
-The UNO R4 Minima gives you access to many different pins and many of them have special features that will be accounted for in the upcoming sections of this article. Keep reading to learn what you can do with them. 
+The UNO R4 Minima gives you access to many different pins and many of them have special features that will be accounted for in the upcoming sections of this article. Keep reading to learn what you can do with them.
 
-This is a full table of all the IO pins on the UNO R4 Minima: 
+This is a full table of all the IO pins on the UNO R4 Minima:
 
 | Pin | Type    | Function                          |
 | --- | ------- | --------------------------------- |
@@ -153,7 +153,7 @@ The **RA4M1** has an internal OPAMP that is exposed on the UNO R4 Minima as foll
 
 ### PWM
 
-PWM (Pulse Width Modulation) capability allows a digital pin to emulate analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins. 
+PWM (Pulse Width Modulation) capability allows a digital pin to emulate analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins.
 
 The UNO R4 Minima supports PWM on pins marked with ~ on the headers. Officially supported pins are:
 
@@ -166,7 +166,7 @@ The UNO R4 Minima supports PWM on pins marked with ~ on the headers. Officially 
 | D10 | P112  | GTIOC3B |
 | D11 | P109  | GTIOC1A |
 
-You may use them as analog output pins with the function: 
+You may use them as analog output pins with the function:
 
 ```arduino
 analogWrite(pin, value);
@@ -280,7 +280,7 @@ void loop() {
 
  // Get current time from RTC
   RTC.getTime(currenttime);
-  
+
   // Print out date (DD/MM//YYYY)
   Serial.print(currenttime.getDayOfMonth());
   Serial.print("/");
@@ -325,8 +325,8 @@ If you want to read more about the EEPROM check out [this article about Arduino 
 
 The UNO R4 Minima features a Serial Peripheral Interface (SPI) bus. The bus (connector), ‘SPI’ uses the following pins:
 
-| Pin  | Type  | 
-| ---- | ----- | 
+| Pin  | Type  |
+| ---- | ----- |
 | D13  | SCK   |
 | D12  | CIPO  |
 | D11  | COPI  |
@@ -349,7 +349,7 @@ void setup() {
   digitalWrite(CS, LOW);
 
   SPI.transfer(0x00);
-  
+
   digitalWrite(CS, HIGH);
 }
 
@@ -368,7 +368,7 @@ The UNO R4 Minima has one I2C bus which is marked with SCL and SDA. They are sha
 There are a couple of advantages to not mounting the pullup resistors from the factory:
 
  - As the pins used for I2C are directly connected to A4 and A5 respectively, they are also able to be used as digital input/output, and analog input pins. Mounting I2C pullup resistors to these pins would limit the functionality to only I2C, as they would be locically `HIGH` by default.
- - By choosing to mount different resistances, you are able to select if you want to operate a 3.3 V or a 5 V I2C device with these pins. 
+ - By choosing to mount different resistances, you are able to select if you want to operate a 3.3 V or a 5 V I2C device with these pins.
 
 The pins used for I2C on the UNO R4 Minima are the following:
 - SDA - D18 or A4
@@ -390,7 +390,7 @@ And to write something to a device connected via I2C, we can use the following c
 
 ```arduino
 Wire.beginTransmission(1); //begin transmit to device 1
-Wire.write(byte(0x00)); //send instruction byte 
+Wire.write(byte(0x00)); //send instruction byte
 Wire.write(val); //send a value
 Wire.endTransmission(); //stop transmit
 ```
@@ -399,16 +399,16 @@ Learn more about the I2C protocol in our [I2C Protocol Guide](/learn/communicati
 
 ## USB Serial & UART
 
-The UNO R4 Minima board features two separate hardware serial ports. 
+The UNO R4 Minima board features two separate hardware serial ports.
 
-- One port is exposed via USB-C®, and 
+- One port is exposed via USB-C®, and
 - One is exposed via RX/TX pins.
 
 This is one of the few things that are distinctly different from UNO R3 to UNO R4, as the UNO R3 only features one hardware serial port, that is connected to **both** the USB port and the RX/TX pins on the board.
 
 ### Native USB
 
-Sending serial data to your computer is done using the standard `Serial` object. 
+Sending serial data to your computer is done using the standard `Serial` object.
 
 ```arduino
 Serial.begin(9600);
@@ -495,7 +495,7 @@ On the UNO R4 Minima, there is a debugging option available using the SWD connec
 
 ## CAN Module
 
-The UNO R4 Minima's RA4M1 has a built-in CAN module that complies with the CAN 2.0A/CAN 2.0B standard. 
+The UNO R4 Minima's RA4M1 has a built-in CAN module that complies with the CAN 2.0A/CAN 2.0B standard.
 
 The pins CANRX and CANTX can be connected to a CAN transceiver, such as a MCP2551 or TJA1050 ICs.
 
@@ -504,12 +504,12 @@ The pins CANRX and CANTX can be connected to a CAN transceiver, such as a MCP255
 | D4  | CANTX    |
 | D5  | CANRX    |
 
-The built-in **Arduino_CAN** library is used to communicate with other CAN devices. 
+The built-in **Arduino_CAN** library is used to communicate with other CAN devices.
 
 ```arduino
 //set CAN bit rate and init library at
-//choose from BR_125k,BR_250k,BR_500k,BR_1000k 
-CAN.begin(CanBitRate::BR_250k); 
+//choose from BR_125k,BR_250k,BR_500k,BR_1000k
+CAN.begin(CanBitRate::BR_250k);
 ```
 
 Construct a CAN message and send it:
@@ -526,7 +526,7 @@ Read an incoming CAN message.
 CanMsg const msg = CAN.read(); //read
 ```
 
-***Please note that without a CAN transceiver it is not possible to communicate with other CAN devices.*** 
+***Please note that without a CAN transceiver it is not possible to communicate with other CAN devices.***
 
 ## Bootloader
 

@@ -285,7 +285,7 @@ void setup() {
     Serial.println("- Failed to initialize IMU!");
     
     bad++;
-    save_bebug_buffer();
+    save_debug_buffer();
     disp_debug_buffer();
     debug_stop();
   }

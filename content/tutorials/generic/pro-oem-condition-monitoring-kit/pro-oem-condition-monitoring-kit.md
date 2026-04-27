@@ -55,7 +55,7 @@ Additionally, you may need the following accessories:
 
 4. Check the [Portenta Machine Control docs](https://docs.arduino.cc/hardware/portenta-machine-control) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/AKX00032-datasheet.pdf). On [docs.arduino.cc](http://docs.arduino.cc) the [Pinout](https://docs.arduino.cc/resources/pinouts/AKX00032-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/AKX00032-schematics.pdf) are also available.
 
-5. Start practicing the first examples included in the User Manual, deep dive into the knowledge topics needed to exploit all the product’s features such as [Modbus Protocol](https://docs.arduino.cc/learn/communication/modbus), and try the programs available in the [Portenta Machine Control Library](https://github.com/arduino-libraries/Arduino_MachineControl/tree/master/examples), the IDE examples, and the experiences proposed below.
+5. Start practicing the first examples included in the User Manual, deep dive into the knowledge topics needed to exploit all the product’s features such as [Modbus Protocol](https://docs.arduino.cc/learn/communication/modbus), and try the programs available in the [Portenta Machine Control Library](https://github.com/arduino-libraries/Arduino_PortentaMachineControl/tree/main/examples), the IDE examples, and the experiences proposed below.
 
 
 ## Experiences Proposed
@@ -65,7 +65,7 @@ If you want to learn more about the technologies of the kit, we propose the foll
 |                                                                   Experience                                                                   | Machine Control |
 |:----------------------------------------------------------------------------------------------------------------------------------------------:|:---------------:|
 |    [Temperature Management with Portenta Machine Control ](https://docs.arduino.cc/tutorials/portenta-machine-control/rtd-thermocouple-pmc)    |       Yes       |
-|         [Portenta Machine Control Library examples](https://github.com/arduino-libraries/Arduino_MachineControl/tree/master/examples)          |       Yes       |
+|      [Portenta Machine Control Library examples](https://github.com/arduino-libraries/Arduino_PortentaMachineControl/tree/main/examples)       |       Yes       |
 |                  [CAN Bus Setup with Arduino® PLC IDE](https://docs.arduino.cc/tutorials/portenta-machine-control/can-setup)                   |       Yes       |
 |                 [Modbus Setup with Arduino® PLC IDE](https://docs.arduino.cc/tutorials/portenta-machine-control/modbus-setup)                  |       Yes       |
 |                 [Arduino® PLC IDE Pin Mapping](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-pin-mapping)                 |       Yes       |

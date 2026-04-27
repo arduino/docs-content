@@ -1,8 +1,12 @@
 Board:
   Name: Arduino® UNO Q
   SKUs:
-    2 GB RAM /16 GB eMMC: ABX00162
-    4 GB RAM/32 GB eMMC: ABX00173
+    ABX00162: 
+      Memory: 2 GB RAM / 16 GB eMMC
+      Release Date: 07 October 2025
+    ABX00173:
+      Memory: 4 GB / 32 GB eMMC
+      Release Date: 20 January 2026
 Microprocessor Unit:
   Module: Qualcomm Dragonwing™ QRB2210
   CPU: Quad-core Arm® Cortex®-A53 @ 2.0 GHz

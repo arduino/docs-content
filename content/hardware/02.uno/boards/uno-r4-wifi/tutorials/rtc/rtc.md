@@ -6,7 +6,7 @@ tags:
   - Alarm
 author: 'Karl Söderby'
 hardware:
-  - hardware/02.hero/boards/uno-r4-wifi
+  - hardware/02.uno/boards/uno-r4-wifi
 ---
 
 In this tutorial you will learn how to access the real-time clock (RTC) on an **Arduino UNO R4 WiFi** board. The RTC is embedded in the UNO R4 WiFi's microcontroller (RA4M1).
@@ -27,7 +27,7 @@ The goals of this project are:
 
 ## Real-Time Clock (RTC)
 
-The RTC on the UNO R4 WiFi can be accessed using the [RTC](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/RTC) library that is included in the [UNO R4 Board Package](/tutorials/uno-r4-wifi/r4-wifi-getting-started). This library allows you to set/get the time as well as using alarms to trigger interrupts. 
+The RTC on the UNO R4 WiFi can be accessed using the [RTC](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/RTC) library that is included in the [UNO R4 Board Package](/tutorials/uno-r4-wifi/r4-wifi-getting-started). This library allows you to set/get the time as well as using alarms to trigger interrupts.
 
 ***The UNO R4 WiFi features a VRTC pin, that is used to keep the onboard RTC running, even when the boards power supply is is cut off. In order to use this, apply a voltage in the range of 1.6 - 3.6 V to the VRTC pin.***
 
@@ -51,7 +51,7 @@ void setup() {
   Serial.begin(9600);
 
   RTC.begin();
-  
+
   RTCTime startTime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
 
   RTC.setTime(startTime);
@@ -76,7 +76,7 @@ void setup() {
   Serial.begin(9600);
 
   RTC.begin();
-  
+
   RTCTime startTime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
 
   RTC.setTime(startTime);
@@ -110,7 +110,7 @@ void setup() {
   Serial.begin(9600);
 
   RTC.begin();
-  
+
   RTCTime startTime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
 
   RTC.setTime(startTime);
@@ -154,7 +154,7 @@ void setup() {
   Serial.begin(9600);
 
   RTC.begin();
-  
+
   RTCTime startTime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
 
   RTC.setTime(startTime);
@@ -165,7 +165,7 @@ void loop() {
 
   // Get current time from RTC
   RTC.getTime(currentTime);
-  
+
   //Unix timestamp
   Serial.print("Unix timestamp: ");
   Serial.println(currentTime.getUnixTime());
@@ -176,7 +176,7 @@ void loop() {
 
 ### Periodic Interrupt
 
-A periodic interrupt allows you to set a recurring callback. 
+A periodic interrupt allows you to set a recurring callback.
 
 To use this, you will need to initialize the periodic callback, using the `setPeriodicCallback()` method:
 - `RTC.setPeriodicCallback(periodic_cbk, Period::ONCE_EVERY_2_SEC)`
@@ -308,8 +308,8 @@ void alarmCallback() {
 
 ## Network Time Protocol (NTP)
 
-To retrieve and store the current time, we can make a request to an NTP server, `pool.ntp.org`. This will retrieve the UNIX time stamp and store it in an `RTC` object. 
- 
+To retrieve and store the current time, we can make a request to an NTP server, `pool.ntp.org`. This will retrieve the UNIX time stamp and store it in an `RTC` object.
+
 <CodeBlock url="https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/RTC/examples/RTC_NTPSync/RTC_NTPSync.ino" className="arduino"/>
 
 Please also note that you will need to create a new tab called `arduino_secrets.h`. This is used to store your credentials. In this file, you will need to add:

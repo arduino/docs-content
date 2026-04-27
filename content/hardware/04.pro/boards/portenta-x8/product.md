@@ -7,7 +7,7 @@ primary_button_title: User Manual
 secondary_button_url: /tutorials/portenta-x8/x8-fundamentals
 secondary_button_title: Fundamentals Guide
 core: arduino:mbed_portenta
-productCode: '125'
+productCode: ['125']
 sku: [ABX00049]
 ---
 

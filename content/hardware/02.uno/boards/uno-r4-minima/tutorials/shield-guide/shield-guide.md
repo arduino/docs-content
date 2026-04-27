@@ -7,8 +7,8 @@ tags:
   - Arduino UNO R4 WiFi
 author: 'Hannes Siebeneicher'
 hardware:
-  - hardware/02.hero/boards/uno-r4-minima
-  - hardware/02.hero/boards/uno-r4-wifi
+  - hardware/02.uno/boards/uno-r4-minima
+  - hardware/02.uno/boards/uno-r4-wifi
 ---
 
 The Arduino UNO family and its form factor have become a type of standard in the maker scene and remain one of the world's most popular form factors.
@@ -76,13 +76,13 @@ Below is a comparison between the different UNO Family boards.
 
 ### Voltage
 
-Both the UNO R4 Minima and UNO R4 WiFi operate at 5 V. This means connecting 3.3 V peripherals directly may lead to potential issues. Most 3.3 V peripherals expect a 3.3 V logic level for proper operation. One common method is to use level shifters or voltage dividers to convert the 5 V signals to 3.3 V. 
+Both the UNO R4 Minima and UNO R4 WiFi operate at 5 V. This means connecting 3.3 V peripherals directly may lead to potential issues. Most 3.3 V peripherals expect a 3.3 V logic level for proper operation. One common method is to use level shifters or voltage dividers to convert the 5 V signals to 3.3 V.
 
 This only holds true for the signal pin of a sensor and if the goal is to simply connect a 3.3 V power line the UNO R4 boards still provide a 3.3 V pin that can safely be used with sensors needing that lower power input.
 
 ### VIN Min/Max
 
-The min/max voltage supply varies between boards. This is important to consider when choosing the battery source, that you do not exceed the limits to damage the board. 
+The min/max voltage supply varies between boards. This is important to consider when choosing the battery source, that you do not exceed the limits to damage the board.
 
 | UNO R3         | UNO R3 SMD     | UNO WiFi Rev2  | UNO R4 Minima      | UNO R4 WiFi          |
 | -------------- | -------------- | -------------- | ------------------ | -------------------- |
@@ -96,7 +96,7 @@ The UNO R4 boards have serial buses attached to the following pins:
 | -------- | ------------------------------------------ |
 | UART     | RX, TX                                     |
 | SPI      | COPI (11), CIPO (12), SCK (13), CS(10)     |
-| I2C      | D14 (SDA), D15 (SCL) or A4 (SDA), A5 (SCL) |  
+| I2C      | D14 (SDA), D15 (SCL) or A4 (SDA), A5 (SCL) |
 
 ![Communication pins](./assets/connections.png)
 
@@ -122,7 +122,7 @@ Once you have gathered all your materials it's time to start the assembly. The f
 
 **Step 2 Prototype Circuit**
 
-Now it's time to put your components onto your shield. But before you get all excited and start soldering everything onto your shield we highly recommend prototyping and testing your circuit on a breadboard, making sure everything works as expected. 
+Now it's time to put your components onto your shield. But before you get all excited and start soldering everything onto your shield we highly recommend prototyping and testing your circuit on a breadboard, making sure everything works as expected.
 
 You don't want to spend a bunch of time soldering everything neatly into place just to realize afterward that you are missing a resistor or something else and then spend even more time desoldering everything again.
 
@@ -130,7 +130,7 @@ You don't want to spend a bunch of time soldering everything neatly into place j
 
 **Step 3 Solder Components**
 
-After you have verified and made sure everything works as you want it's finally time to solder all components into place. Once done you simply plug in your UNO R4 Minima / UNO R4 WiFi, upload your code, and if everything was done correctly, congratulations you now have built your very own customizable Arduino UNO R4 shield. 
+After you have verified and made sure everything works as you want it's finally time to solder all components into place. Once done you simply plug in your UNO R4 Minima / UNO R4 WiFi, upload your code, and if everything was done correctly, congratulations you now have built your very own customizable Arduino UNO R4 shield.
 
 If it doesn't work as expected make sure that everything is soldered properly and nothing is loose. If you have a multimeter laying around use it to check the connections.
 

@@ -6,7 +6,7 @@ primary_button_title: Get Started
 core: arduino:samd
 forumCategorySlug: '/mkr-boards/mkrfox1200/142'
 status: end-of-life
-productCode: '128'
+productCode: ['128']
 sku: [ABX00014]
 ---
 

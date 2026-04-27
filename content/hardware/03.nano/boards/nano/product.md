@@ -6,7 +6,7 @@ primary_button_url: /tutorials/nano/nano-getting-started/
 primary_button_title: Get Started
 core: arduino:avr
 forumCategorySlug: '/hardware/nano-family/nano/166'
-productCode: '003'
+productCode: ['003']
 sku: [A000005]
 ---
 

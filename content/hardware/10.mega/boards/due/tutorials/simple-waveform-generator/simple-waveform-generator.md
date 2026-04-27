@@ -3,14 +3,14 @@ compatible-products: [due]
 title: 'Simple Waveform Generator with Arduino Due'
 difficulty: intermediate
 description: 'Generate waveforms by using the Arduino Due and its DAC features'
-tags: 
+tags:
   - Waveforms
-  - Frequency 
+  - Frequency
 libraries:
   - name: Waveforms
     url: https://github.com/hoilett/Waveforms/blob/master/Waveforms.h
 hardware:
-  - hardware/02.hero/boards/due
+  - hardware/10.mega/boards/due
 software:
   - ide-v1
   - ide-v2
@@ -51,14 +51,14 @@ Wire up another button in the same fashion, but to digital pin 3.
 
 Hook up the potentiometer by connecting one side to power and the other side to ground. The pin in the middle of the potentiometer goes to analog input 0.
 
-Pins DAC0 and DAC1 will generate the waveform. You can use an oscilloscope to visualize the generated waveforms. 
+Pins DAC0 and DAC1 will generate the waveform. You can use an oscilloscope to visualize the generated waveforms.
 
 ![The circuit for this tutorial.](assets/DueSimpleWaveform_fritzing.png)
 
 ## Programming the Board
 
 The waveforms are stored inside a two-dimensional array where each row represent a different waveform shape. The waveform samples are contained inside the columns, so you can access the waveform table using two indexes:
- 
+
 ```arduino
 waveformsTable[waveformIndex][samplesIndex]
 ```
@@ -246,4 +246,4 @@ If the code is not working, there are some common issues we can troubleshoot:
 
 ## Conclusion
 
-In this example, we have learned how to generate waveforms by using the DAC features of the Arduino Due. 
+In this example, we have learned how to generate waveforms by using the DAC features of the Arduino Due.

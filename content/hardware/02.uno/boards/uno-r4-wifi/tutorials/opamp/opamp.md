@@ -5,31 +5,31 @@ tags:
   - OPAMP
 author: 'Maximilian Gerhardt, Hannes Siebeneicher'
 hardware:
-  - hardware/02.hero/boards/uno-r4-wifi
+  - hardware/02.uno/boards/uno-r4-wifi
 software:
   - web-editor
   - ide-v1
   - ide-v2
 ---
 
-In this tutorial, you will learn how to use the built-in operational amplifier (OPAMP) featured on the [Arduino UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi). Operational amplifiers are very versatile and can be used to e.g. mirror an electrical signal or amplify it. 
+In this tutorial, you will learn how to use the built-in operational amplifier (OPAMP) featured on the [Arduino UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi). Operational amplifiers are very versatile and can be used to e.g. mirror an electrical signal or amplify it.
 
 ## Goals
 
 In this article, you will learn:
 - about the OPAMP feature onboard the UNO R4 WiFi,
-- about the basics of the OPAMP library, 
+- about the basics of the OPAMP library,
 - how to mirror a voltage signal,
 - how to amplify a voltage signal.
 
 ## Hardware & Software Needed
-  To follow along with this article, you will need the following hardware: 
-  
+  To follow along with this article, you will need the following hardware:
+
   - [Arduino UNO R4 WiFi](https://store.arduino.cc/uno-r4-wifi)
   - resistors
   - jumper wires
-  
-  
+
+
 ## Operational Amplifier (OPAMP)
 
 An OPAMP is a versatile and widely used electronic component that belongs to the class of analog integrated circuits. Its primary function is to amplify voltage signals but they are very versatile and can be used to:
@@ -51,7 +51,7 @@ The simplest way to test the OPAMP is to configure it as a voltage follower by c
 
 ***Caution: When amplifying the voltage of a battery using an operational amplifier, you should be aware of potential risks. The amplification process can lead to a high current draw, essentially placing a significant load on the battery, which may result in overheating, damage, or even pose a security risk. To mitigate this risk, you may for example add a resistor in series with the battery.***
 
-A voltage amplifier, as the name suggests, amplifies the voltage. A simple 2x amplifier can be built using e.g. two `10k` resistors. Connect one resistor between "minus" and GND. Then use the second resistor to connect the output and "minus" together. A circuit diagram [can be seen below](#circuit). Any signal input at "plus" will now appear with double the amplitude at the output pin. Of course, the input signal and the Arduino board should share the same `GND`. 
+A voltage amplifier, as the name suggests, amplifies the voltage. A simple 2x amplifier can be built using e.g. two `10k` resistors. Connect one resistor between "minus" and GND. Then use the second resistor to connect the output and "minus" together. A circuit diagram [can be seen below](#circuit). Any signal input at "plus" will now appear with double the amplitude at the output pin. Of course, the input signal and the Arduino board should share the same `GND`.
 
 ***The amplified output signal should not go above ~4.7 V, otherwise clipping will appear and you can damage the board***
 

@@ -3,10 +3,10 @@ title: Nano R4
 url_shop: https://store.arduino.cc/products/nano-r4
 primary_button_url: /tutorials/nano-r4/user-manual/#first-use
 primary_button_title: Get Started
-core: 
+core:
 certifications: [CE, RoHS, REACH, WEEE, UKCA, RCM, FCC, IC, VCCI]
 forumCategorySlug: '/hardware/nano-family/nano-r4/190'
-productCode: '212'
+productCode: ['212']
 sku: [ABX00142, ABX00143]
 ---
 

@@ -31,13 +31,12 @@ jobs:
       - name: Determine version to install
         id: get_version
         env:
-          NPM_CONFIG_USERCONFIG: ${{ github.workspace }}/.npmrc
-          NODE_AUTH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+          GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
         run: |
           VERSION="${{ github.event.inputs.target_version }}"
           if [ -z "$VERSION" ]; then
             echo "No target_version provided. Finding the latest version..."
-            LATEST_VERSION=$(npm view @arduino/docs.arduino.cc version)
+            LATEST_VERSION=$(curl -s -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github.v3+json" https://api.github.com/orgs/arduino/packages/npm/docs-arduino-cc/versions | jq -r '.[0].name')
             echo "Latest version is $LATEST_VERSION"
             echo "version=$LATEST_VERSION" >> "$GITHUB_OUTPUT"
           else
@@ -51,8 +50,8 @@ jobs:
         run: |
           find . -name "package.json" -exec sed -i 's/@arduino\/docs-arduino-cc": "^.*"/@arduino\/docs-arduino-cc": "^'${VERSION}'"/' {} \;
 
-      - name: Install dependencies with pnpm
-        run: npm install
+      - name: Install dependencies
+        run: npm install --ignore-scripts
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6

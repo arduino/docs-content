@@ -6,7 +6,7 @@ primary_button_url: /software/ide-v2/tutorials/ide-v2-board-manager#megaavr
 primary_button_title: Get Started
 core: arduino:megaavr
 forumCategorySlug: '/hardware/nano-family/nano-every/158'
-productCode: '027'
+productCode: ['027']
 sku: [ABX00028, ABX00033, ABX00028-3P, ABX00028-6P]
 ---
 

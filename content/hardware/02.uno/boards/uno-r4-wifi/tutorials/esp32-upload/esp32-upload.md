@@ -4,7 +4,7 @@ description: 'Learn how to load custom firmware to the ESP32-S3 module on the UN
 author: Hannes Siebeneicher
 tags: [ESP32, esptool, Flash]
 hardware:
-  - hardware/02.hero/boards/uno-r4-wifi
+  - hardware/02.uno/boards/uno-r4-wifi
 ---
 
 ***This tutorial is for advanced users. Following along may result in soft-bricking your board.***
@@ -52,7 +52,7 @@ Once the chip is set to the right mode we use esptool to flash custom firmware t
 pip3 install esptool
 ```
 
-Next, `esptool.py` should be added to your **PATH** so you can run it from anywhere, instead of navigating to the installation folder each time. The PATH variable allows you to run commands and programs from any location on your computer without having to specify the full path to the executable file. This is done differently depending on your operating system, you can read more about it [here](https://learn.sparkfun.com/tutorials/configuring-the-path-system-variable/all). 
+Next, `esptool.py` should be added to your **PATH** so you can run it from anywhere, instead of navigating to the installation folder each time. The PATH variable allows you to run commands and programs from any location on your computer without having to specify the full path to the executable file. This is done differently depending on your operating system, you can read more about it [here](https://learn.sparkfun.com/tutorials/configuring-the-path-system-variable/all).
 
 Flashing a new firmware is done in two steps, first erasing the firmware currently on the module and then flashing the new one. Once everything is set up it's just a matter of running the following two commands:
 

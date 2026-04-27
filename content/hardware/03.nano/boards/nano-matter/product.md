@@ -5,7 +5,7 @@ primary_button_url: /tutorials/nano-matter/user-manual/
 primary_button_title: User Manual
 sku: [ABX00112, ABX00137]
 core: arduino:mbed_nano
-productCode: '191'
+productCode: ['191']
 ---
 
 

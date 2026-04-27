@@ -1,0 +1,26 @@
+Cable:
+  Name: Arduino® USB-C Cable (24-pin)
+  SKU: TPX00243
+General:
+  Cable Length: 1000 mm (1 m)
+  Cable Diameter: Ø 4.5 ± 0.15 mm
+  Cable Type: Braided
+  Cable Construction: Braided with aluminum foil and woven shielding, PVC outer jacket
+  Weight: 37 g
+Connectors:
+  Type: USB Type-C Male to USB Type-C Male
+  Pin Configuration: Full 24-pin (all pins connected)
+  Shell Material: Metallic
+Data Transfer:
+  USB Standard: USB 3.0 (USB 3.1 Gen 1)
+  Maximum Data Rate: 5 Gbps
+  Backward Compatibility: USB 2.0 (480 Mbps)
+Video Support:
+  Video Standard: DisplayPort Alt Mode over USB-C
+Power Delivery:
+  Maximum Voltage: 20 V DC
+  Maximum Current: 3 A
+  Maximum Power: 60 W
+Electrical:
+  Conduction Impedance: 2 Ω maximum
+  Insulation Resistance: 10 MΩ minimum @ DC 300 V / 10 ms

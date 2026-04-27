@@ -3,7 +3,7 @@ title: UNO SPE Shield
 url_shop: https://store.arduino.cc/uno-spe-shield
 primary_button_url: /tutorials/spe-shield/getting-started
 primary_button_title: Get Started
-productCode: '221'
+productCode: ['221']
 sku: [ASX00073]
 ---
 
