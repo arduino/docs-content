@@ -44,7 +44,7 @@ digitalWrite(4, HIGH);
 
 ## Code
 
-<iframe src='https://create.arduino.cc/example/library/ethernet_2_0_0/ethernet_2_0_0%5Cexamples%5CWebServer/WebServer/preview?embed' style='height:510px;width:100%;margin:10px 0' frameborder='0'></iframe>
+<iframe src='https://app.arduino.cc/sketches/examples?nav=Examples&eid=ethernet2_1_0_4%2FWebServer&slid=Ethernet2%401.0.4&view-mode=preview'></iframe>
 
 
 **Last revision 2018/09/07 by SM**

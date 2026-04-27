@@ -117,4 +117,4 @@ delay(250);
 
 The complete sketch is below :
 
-<iframe src='https://create.arduino.cc/example/library/tft_1_0_6/tft_1_0_6%5Cexamples%5CArduino%5CTFTDisplayText/TFTDisplayText/preview?embed' style='height:510px;width:100%;margin:10px 0' frameborder='0'></iframe>
+<iframe src='https://app.arduino.cc/sketches/examples?nav=Examples&eid=tft_1_0_6%2FArduino%2FTFTDisplayText&slid=TFT%401.0.6&view-mode=preview' style='height:510px;width:100%;margin:10px 0' frameborder='0'></iframe>

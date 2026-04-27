@@ -27,7 +27,7 @@ image developed using [Fritzing](http://www.fritzing.org). For more circuit exam
 
 ## Code
 
-<iframe src='https://create.arduino.cc/example/library/wifi_1_2_7/wifi_1_2_7%5Cexamples%5CScanNetworks/ScanNetworks/preview?embed' style='height:510px;width:100%;margin:10px 0' frameborder='0'></iframe>
+<iframe src='https://app.arduino.cc/sketches/examples?nav=Examples&eid=wifi_1_2_7%2FScanNetworks&slid=WiFi%401.2.7&view-mode=preview' style='height:510px;width:100%;margin:10px 0' frameborder='0'></iframe>
 
 
 *Last revision 2018/08/23 by SM*

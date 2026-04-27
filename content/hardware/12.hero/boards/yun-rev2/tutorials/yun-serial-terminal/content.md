@@ -134,7 +134,7 @@ void loop() {
 
 Below is the complete code:
 
-<iframe src='https://create.arduino.cc/example/library/bridge_1_7_0/bridge_1_7_0%5Cexamples%5CYunSerialTerminal/YunSerialTerminal/preview?embed' style='height:510px;width:100%;margin:10px 0' frameborder='0'></iframe>
+<iframe src='https://app.arduino.cc/sketches/examples?nav=Examples&eid=bridge_1_7_0%2FYunSerialTerminal&slid=Bridge%401.7.0&view-mode=preview' style='height:510px;width:100%;margin:10px 0' frameborder='0'></iframe>
 
 
 
