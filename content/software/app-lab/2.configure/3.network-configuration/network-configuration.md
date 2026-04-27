@@ -5,7 +5,7 @@ overwriteSidebar: Network Configuration
 tags: [app-lab, network, uno-q, troubleshooting, firewall]
 ---
 
-Arduino App Lab relies on your local network for discovery, application deployment, and communication with your board. Use this guide to ensure your network environment is correctly configured.
+Configure your network environment to ensure reliable remote connectivity. While standard home networks typically work without additional setup, this guide provides the port, domain, and mDNS requirements for advanced users and IT administrators operating on restricted or corporate networks.
 
 ## Local Network Discovery (mDNS)
 

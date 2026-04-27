@@ -9,29 +9,34 @@ tags:
   - Arduino
 ---
 
-**Apps** are hybrid applications that combine the power of a Linux microprocessor (MPU) with the real-time reliability of an microcontroller (MCU) running Arduino sketches. Every app follows a specific structure to ensure compatibility with the Arduino App Lab environment.
+An **Arduino App** is a modular software architecture that orchestrates multiple components into a single functional unit. Unlike a traditional Arduino sketch, the core of an App is high-level **Python** logic running on the board's Linux subsystem. 
 
-## Overview
+While an App is fundamentally a Python application, it is highly extensible. You can enhance it by adding **Bricks** (pre-built modular components like AI models or databases) and, on supported dual-processor boards, an optional **C++ sketch** for real-time hardware control.
 
-An App is a container for two separate programs that can communicate with each other:
+## Anatomy of an App
 
-- **Python (`python/main.py`):** This script runs in the Linux environment on the board's microprocessor's. It handles high-level logic, AI models, networking, and web interfaces. It runs standard Python 3.
-- **Sketch (`sketch/sketch.ino`):** The Sketch runs on the board's microcontroller. It manages low-level hardware interactions, such as reading sensors and controlling motors, with real-time precision. The Sketch is written in the Arduino/C++ language.
+Every App is a folder that can contain the following components:
 
-## Core Files
+- **The Logic Layer (Python):** Mandatory. The "brains" of your application running on Linux. This is where you write code for AI processing, networking, or web interfaces.
+- **Bricks:** Optional. Pre-packaged services running alongside your logic in isolated Docker containers to provide specific features without implementing them from scratch.
+- **The Real-Time Layer (Sketch):** Optional. The "muscles" of your application. This is standard Arduino C++ code running on an onboard microcontroller to interact directly with hardware pins and sensors.
 
-Every app contains three primary configuration and source files:
+When both a Python script and an Arduino sketch are present, they communicate through a system called the **Bridge**, allowing them to share data and trigger functions across processors.
+
+## Project Structure
+
+To ensure compatibility with the Arduino App Lab environment, every App follows a strict file organization.
 
 | File | Status | Role |
 | :--- | :--- | :--- |
-| `app.yaml` | Mandatory | The App Descriptor manifest file that defines the App metadata, network ports, and active Bricks. |
-| `python/main.py` | Mandatory | The entry point for the Python application. |
-| `python/requirements.txt` | Optional | The standard Python dependency list. |
-| `sketch/sketch.ino` | Mandatory if `sketch/` exists | The entry point for the Arduino microcontroller. |
-| `sketch/sketch.yaml` | Mandatory if `sketch/` exists | The configuration file for the sketch. |
-| `README.md` | Optional | A Markdown document that provides instructions to the user. |
+| `app.yaml` | Mandatory | The manifest file that defines App metadata (name, icon) and active Bricks. |
+| `python/main.py` | Mandatory | The entry point for the Python application logic. |
+| `python/requirements.txt` | Optional | A list of external Python libraries (pip packages) needed by the App. |
+| `sketch/sketch.ino` | Optional | The C++ code for the microcontroller. |
+| `sketch/sketch.yaml` | Mandatory if sketch exists | Configuration for the sketch, including required libraries. |
+| `README.md` | Optional | Documentation that is displayed in the App Lab UI. |
 
-<Alert type="info">**Note:** The `app.yaml` and `sketch.yaml` files are managed automatically by Arduino App Lab.</Alert>
+<Alert type="info">**Note:** The `app.yaml` and `sketch.yaml` files are managed automatically by Arduino App Lab. You should not edit them manually unless you are an advanced user.</Alert>
 
 ## Storage Location
 

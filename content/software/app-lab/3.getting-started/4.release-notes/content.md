@@ -57,7 +57,7 @@ See a full list of what’s new and which bugs have been fixed below.
   * Fix audio peripheral enumeration
   * Logging LLM provider logs in case of error
 * Examples
-  * Fix "Detect objects on smartphone camera" example in usb mode
+  * Fix "Detect objects on smartphone camera" example in USB Mode
   * Fix "Detect objects on smartphone camera" example in case of multiple detection
   * Updated libraries used in sketches
 

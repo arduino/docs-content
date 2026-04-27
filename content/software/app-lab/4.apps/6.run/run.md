@@ -5,7 +5,7 @@ overwriteSidebar: Run & Monitor
 tags: [UNO Q, App Lab, Startup, Default App, Headless]
 ---
 
-The App Lab provides a seamless interface for testing, deploying, and managing applications on your board. This guide covers the essential execution workflows, from running your first example to configuring startup apps.
+Arduino App Lab provides a seamless interface for testing, deploying, and managing applications on your board. Execute essential workflows including running examples, monitoring logs, and configuring startup apps.
 
 ## Run an App
 
