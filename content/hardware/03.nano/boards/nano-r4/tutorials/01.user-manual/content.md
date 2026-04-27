@@ -465,8 +465,8 @@ The Nano R4 digital pins provide the following functionality:
 
 | **Arduino Pin** | **Microcontroller Pin** | **Additional Functions** | **Special Features** |
 | :-------------: | :---------------------: | :----------------------: | :------------------: |
-|      `D0`       |         `P302`          |       UART RX, PWM       | Serial communication |
-|      `D1`       |         `P301`          |       UART TX, PWM       | Serial communication |
+|      `D0`       |         `P302`          |       UART TX, PWM       | Serial communication |
+|      `D1`       |         `P301`          |       UART RX, PWM       | Serial communication |
 |      `D2`       |         `P105`          |           PWM            |  External interrupt  |
 |      `D3`       |         `P104`          |           PWM            |  External interrupt  |
 |      `D4`       |         `P103`          |       CAN TX, PWM        |  CAN communication   |
