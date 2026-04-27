@@ -280,8 +280,8 @@ The built-in RGB LED can be accessed through the following macro definitions:
 | **Built-in LED** | **Macro Definition** | **Microcontroller Pin** |
 | :--------------: | :------------------: | :---------------------: |
 |     Red LED      |        `LEDR`        |         `P409`          |
-|    Green LED     |        `LEDG`        |         `P411`          |
-|     Blue LED     |        `LEDB`        |         `P410`          |
+|    Green LED     |        `LEDG`        |         `P410`          |
+|     Blue LED     |        `LEDB`        |         `P411`          |
 
 ***The built-in RGB LED on the Nano R4 must be pulled to ground (`GND`) to make it light up. This means that a voltage level of `LOW` on each of their pins will turn the specific color of the LED on, and a voltage level of `HIGH` will turn them off.***
 
@@ -465,20 +465,20 @@ The Nano R4 digital pins provide the following functionality:
 
 | **Arduino Pin** | **Microcontroller Pin** | **Additional Functions** | **Special Features** |
 | :-------------: | :---------------------: | :----------------------: | :------------------: |
-|      `D0`       |         `P104`          |       UART RX, PWM       | Serial communication |
-|      `D1`       |         `P105`          |       UART TX, PWM       | Serial communication |
-|      `D2`       |         `P213`          |           PWM            |  External interrupt  |
-|      `D3`       |         `P212`          |           PWM            |  External interrupt  |
-|      `D4`       |         `P109`          |       CAN TX, PWM        |  CAN communication   |
-|      `D5`       |         `P110`          |       CAN RX, PWM        |  CAN communication   |
-|      `D6`       |         `P107`          |           PWM            |     Digital I/O      |
-|      `D7`       |         `P106`          |           PWM            |     Digital I/O      |
-|      `D8`       |         `P300`          |           PWM            |     Digital I/O      |
-|      `D9`       |         `P108`          |           PWM            |     Digital I/O      |
-|      `D10`      |         `P103`          |       SPI CS, PWM        |  SPI communication   |
-|      `D11`      |         `P101`          |      SPI MOSI, PWM       |  SPI communication   |
-|      `D12`      |         `P100`          |         SPI MISO         |  SPI communication   |
-|      `D13`      |         `P102`          |         SPI SCK          |  SPI communication   |
+|      `D0`       |         `P302`          |       UART TX, PWM       | Serial communication |
+|      `D1`       |         `P301`          |       UART RX, PWM       | Serial communication |
+|      `D2`       |         `P105`          |           PWM            |  External interrupt  |
+|      `D3`       |         `P104`          |           PWM            |  External interrupt  |
+|      `D4`       |         `P103`          |       CAN TX, PWM        |  CAN communication   |
+|      `D5`       |         `P102`          |       CAN RX, PWM        |  CAN communication   |
+|      `D6`       |         `P106`          |           PWM            |     Digital I/O      |
+|      `D7`       |         `P107`          |           PWM            |     Digital I/O      |
+|      `D8`       |         `P304`          |           PWM            |     Digital I/O      |
+|      `D9`       |         `P303`          |           PWM            |     Digital I/O      |
+|      `D10`      |         `P112`          |       SPI CS, PWM        |  SPI communication   |
+|      `D11`      |         `P109`          |      SPI MOSI, PWM       |  SPI communication   |
+|      `D12`      |         `P110`          |         SPI MISO         |  SPI communication   |
+|      `D13`      |         `P111`          |         SPI SCK          |  SPI communication   |
 
 ***__Important note:__ Pins `D0` and `D1` are used for serial communication (UART) and should be avoided for general digital I/O when using Serial communication. Pins `D4` and `D5` can be used for CAN bus communication. Pins `D10`, `D11`, `D12` and `D13` are used for SPI communication.***
 
@@ -605,16 +605,17 @@ The Nano R4 features **8 analog input pins** (`A0` to `A7`) that can be read usi
 
 The Nano R4 analog pins provide the following functionality:
 
-| **Arduino Pin** | **Microcontroller Pin** | **Additional Functions** | **Special Features**  |
-| :-------------: | :---------------------: | :----------------------: | :-------------------: |
-|      `A0`       |         `P000`          |           DAC            |   12-bit DAC output   |
-|      `A1`       |         `P001`          |         OPAMP +          | Operational amplifier |
-|      `A2`       |         `P002`          |         OPAMP -          | Operational amplifier |
-|      `A3`       |         `P003`          |        OPAMP OUT         | Operational amplifier |
-|      `A4`       |         `P004`          |        SDA (I²C)         |   I²C communication   |
-|      `A5`       |         `P010`          |        SCL (I²C)         |   I²C communication   |
-|      `A6`       |         `P014`          |        Analog In         |   Analog input only   |
-|      `A7`       |         `P015`          |        Analog In         |   Analog input only   |
+| **Arduino Pin** | **Microcontroller Pin** | **Additional Functions** |            **Special Features**            |
+|:---------------:|:-----------------------:|:------------------------:|:------------------------------------------:|
+|      `AREF`     |          `AREF`         |     Analog reference     | Analog reference voltage input for the ADC |
+|       `A0`      |          `P014`         |            DAC           |              12-bit DAC output             |
+|       `A1`      |          `P000`         |          OPAMP +         |            Operational amplifier           |
+|       `A2`      |          `P001`         |          OPAMP -         |            Operational amplifier           |
+|       `A3`      |          `P002`         |         OPAMP OUT        |            Operational amplifier           |
+|       `A4`      |          `P101`         |         SDA (I²C)        |              I²C communication             |
+|       `A5`      |          `P100`         |         SCL (I²C)        |              I²C communication             |
+|       `A6`      |          `P004`         |         Analog In        |              Analog input only             |
+|       `A7`      |          `P003`         |         Analog In        |              Analog input only             |
 
 ***__Important note:__ Pin `A0` has a built-in 12-bit Digital-to-Analog Converter (DAC) for analog output. Pins `A1`, `A2` and `A3` are connected to the integrated operational amplifier. Pins `A4` and `A5` are primarily used for I²C communication (SDA and SCL respectively).***
 
@@ -766,12 +767,12 @@ The Nano R4 board provides PWM functionality on the following pins:
 
 | **Arduino Pin** | **Microcontroller Pin** | **PWM Channel** | **Primary Function**  |
 | :-------------: | :---------------------: | :-------------: | :-------------------: |
-|      `D3`       |         `P212`          |   Channel 0B    |      Digital I/O      |
-|      `D5`       |         `P110`          |   Channel 1B    |      Digital I/O      |
-|      `D6`       |         `P107`          |   Channel 0A    |      Digital I/O      |
-|      `D9`       |         `P108`          |   Channel 0B    |      Digital I/O      |
-|      `D10`      |         `P103`          |   Channel 2A    |  Digital I/O, SPI CS  |
-|      `D11`      |         `P101`          |   Channel 5A    | Digital I/O, SPI MOSI |
+|      `D3`       |         `P104`          |   Channel 0B    |      Digital I/O      |
+|      `D5`       |         `P102`          |   Channel 1B    |      Digital I/O      |
+|      `D6`       |         `P106`          |   Channel 0A    |      Digital I/O      |
+|      `D9`       |         `P303`          |   Channel 0B    |      Digital I/O      |
+|      `D10`      |         `P112`          |   Channel 2A    |  Digital I/O, SPI CS  |
+|      `D11`      |         `P109`          |   Channel 5A    | Digital I/O, SPI MOSI |
 
 ***__Important notes__: Pins `D3` and `D9` share the same PWM channel (`Channel 0B`) and cannot be used for PWM simultaneously. When using PWM on one of these pins, the other cannot output an independent PWM signal. Similarly, pins `D6`, `D3`, and `D9` all use timer `GPT0`, which means they will share the same PWM frequency setting. The onboard LEDs (`LEDR`, `LEDG`, `LEDB`, `LED_BUILTIN`) also support PWM for brightness control.***
 
@@ -925,9 +926,9 @@ The Nano R4 board OPAMP provides the following pin connections:
 
 | **Arduino Pin** | **Microcontroller Pin** | **OPAMP Function** |     **Description**     |
 | :-------------: | :---------------------: | :----------------: | :---------------------: |
-|      `A1`       |         `P001`          |      OPAMP +       | Non-inverting input (+) |
-|      `A2`       |         `P002`          |      OPAMP -       |   Inverting input (-)   |
-|      `A3`       |         `P003`          |     OPAMP OUT      |    Amplifier output     |
+|      `A1`       |         `P000`          |      OPAMP +       | Non-inverting input (+) |
+|      `A2`       |         `P001`          |      OPAMP -       |   Inverting input (-)   |
+|      `A3`       |         `P002`          |     OPAMP OUT      |    Amplifier output     |
 
 ***__Important note:__ When using the OPAMP functionality, pins `A1`, `A2` and `A3` cannot simultaneously be used as regular analog inputs. The positive supply (Vs+) is fixed to approximately +5 VDC and the negative supply (Vs-) is fixed to `GND`.***
 
@@ -1448,8 +1449,8 @@ The Nano R4 board uses the following pins for UART communication:
 
 | **Arduino Pin** | **Microcontroller Pin** | **UART Function** | **Description** |
 |:---------------:|:-----------------------:|:-----------------:|:---------------:|
-|       `D0`      |          `P104`         |         RX        |   Receive Data  |
-|       `D1`      |          `P105`         |         TX        |  Transmit Data  |
+|       `D0`      |          `P302`         |         TX        |   Transmit Data  |
+|       `D1`      |          `P301`         |         RX        |  Receive Data  |
 
 You can communicate via UART using the built-in `Serial` and `Serial1` objects. The `Serial` object is connected to the USB-C port for computer communication, while `Serial1` is connected to pins `D0` and `D1` for external device communication.
 
@@ -1618,10 +1619,10 @@ The Nano R4 board uses the following pins for SPI communication:
 
 | **Arduino Pin** | **Microcontroller Pin** | **SPI Function** |    **Description**   |
 |:---------------:|:-----------------------:|:----------------:|:--------------------:|
-|      `D10`      |          `P103`         |       `CS`       |      Chip Select     |
-|      `D11`      |          `P101`         |      `MOSI`      | Master Out, Slave In |
-|      `D12`      |          `P100`         |      `MISO`      | Master In, Slave Out |
-|      `D13`      |          `P102`         |       `SCK`      |     Serial Clock     |
+|      `D10`      |          `P112`         |       `CS`       |      Chip Select     |
+|      `D11`      |          `P109`         |      `MOSI`      | Master Out, Slave In |
+|      `D12`      |          `P110`         |      `MISO`      | Master In, Slave Out |
+|      `D13`      |          `P111`         |       `SCK`      |     Serial Clock     |
 
 You can communicate via SPI using the dedicated `SPI.h` library, which is included in the Arduino UNO R4 Boards core. The library provides simple functions to initialize the bus, send and receive data and manage multiple devices.
 
@@ -1806,8 +1807,8 @@ The Nano R4 uses the following pins for I²C communication:
 
 | **Arduino Pin** | **Microcontroller Pin** | **I²C Function** |  **Description**  |
 |:---------------:|:-----------------------:|:----------------:|:-----------------:|
-|       `A4`      |          `P004`         |        SDA       |  Serial Data Line |
-|       `A5`      |          `P010`         |        SCL       | Serial Clock Line |
+|       `A4`      |          `P101`         |        SDA       |  Serial Data Line |
+|       `A5`      |          `P100`         |        SCL       | Serial Clock Line |
 
 You can communicate via I²C using the dedicated `Wire.h` library, which is included in the Arduino UNO R4 Boards core. The library provides simple functions to initialize the bus, send and receive data and manage multiple devices.
 
@@ -1961,8 +1962,8 @@ The Nano R4 uses the following pins for CAN communication:
 
 | **Arduino Pin** | **Microcontroller Pin** | **CAN Function** | **Description** |
 |:---------------:|:-----------------------:|:----------------:|:---------------:|
-|       `D4`      |          `P109`         |     `CAN_TX`     |   CAN Transmit  |
-|       `D5`      |          `P110`         |     `CAN_RX`     |   CAN Receive   |
+|       `D4`      |          `P103`         |     `CAN_TX`     |   CAN Transmit  |
+|       `D5`      |          `P102`         |     `CAN_RX`     |   CAN Receive   |
 
 ***__Important note__: The Nano R4's CAN interface provides logic-level signals only. You must use an external CAN transceiver (such as SN65HVD230 from Texas Instruments® or the MCP2561 from Microchip®) to convert these signals to the differential CAN bus levels (`CANH`/`CANL`) required for actual CAN communication.***
 
