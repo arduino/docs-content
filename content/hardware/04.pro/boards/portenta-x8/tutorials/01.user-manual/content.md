@@ -367,7 +367,7 @@ Now, you can navigate to your dashboard [here](https://create.arduino.cc/iot/das
 
 ## Portenta X8 Board Manager
 
-***__Note:__ This is an optional step that enables the possibility of performing remote over-the-air updates on your Portenta X8 OS and applications. To proceed, you need access to the Portenta X8 Board Manager, which is available as part of the Arduino Cloud for Business plan. For more information, please contact our Pro Support team following this [form](https://www.arduino.cc/pro/contact-us/).***
+***__Note:__ This is an optional step that enables the possibility of performing remote over-the-air updates on your Portenta X8 OS and applications. To proceed, you need access to the Portenta X8 Board Manager, which is available as part of the Arduino Cloud for Business plan. For more information, please contact our PRO Support team following this [form](https://www.arduino.cc/pro/contact-us/).***
 
 Now, you can start connecting your Portenta X8 to the Portenta X8 Board Manager. You need an Arduino Cloud for your business account to leverage this feature.
 
@@ -940,7 +940,7 @@ If you are a more advanced user, you can check [Multi-Protocol Gateway With Port
 
 The Portenta X8 Board Manager helps you keep your Portenta X8 Linux image and containers up to date, even remotely, using Over-The-Air (OTA) updates via wireless connectivity.
 
-Access to the Portenta X8 Board Manager is available as part of the **Arduino Cloud for Business** plan. To get access, please contact our Pro Support team following this [form](https://www.arduino.cc/pro/contact-us/).
+Access to the Portenta X8 Board Manager is available as part of the **Arduino Cloud for Business** plan. To get access, please contact our PRO Support team following this [form](https://www.arduino.cc/pro/contact-us/).
 
 ***__Using the Portenta X8 Board Manager is optional and not required for the Portenta X8 to function.__ It leverages Foundries.io's infrastructure to enable features like secure Over-The-Air (OTA) updates for the Portenta X8 OS and applications. __While it simplifies development and management processes, it is not a mandatory component__.***
 
