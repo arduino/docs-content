@@ -1449,8 +1449,8 @@ The Nano R4 board uses the following pins for UART communication:
 
 | **Arduino Pin** | **Microcontroller Pin** | **UART Function** | **Description** |
 |:---------------:|:-----------------------:|:-----------------:|:---------------:|
-|       `D0`      |          `P302`         |         RX        |   Receive Data  |
-|       `D1`      |          `P301`         |         TX        |  Transmit Data  |
+|       `D0`      |          `P302`         |         TX        |   Transmit Data  |
+|       `D1`      |          `P301`         |         RX        |  Receive Data  |
 
 You can communicate via UART using the built-in `Serial` and `Serial1` objects. The `Serial` object is connected to the USB-C port for computer communication, while `Serial1` is connected to pins `D0` and `D1` for external device communication.
 
