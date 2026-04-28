@@ -1,6 +1,6 @@
 ---
 productsLibrariesMap:
-  - Arduino_Modulino
+  - arduino_modulino
   - Servo
 ---
 
