@@ -50,6 +50,8 @@ If updates are available, Arduino App Lab will ask if you want to install the av
 
 ![Reviewing software updates in Arduino App Lab](../../assets/configuration/updates/whats-new.png)
 
+The update process is resumable—if the connection is interrupted, the download will continue once reconnected.
+
 <Alert type="info">**Note:** An active internet connection is required for the board to download update packages.</Alert>
 
 ## Next Steps
