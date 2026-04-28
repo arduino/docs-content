@@ -24,7 +24,7 @@ This user manual provides a comprehensive overview of Bughopper hardware and set
 ### Hardware Requirements
 
 - [Bughopper (SKU: ABX00156)](https://store.arduino.cc/products/bughopper) (x1)
-- Compatible Arduino board with a JCTL 2.54 mm connector (x1)
+- Compatible Arduino board with a JCTL 2.54 mm connector (such as the Arduino UNO™ Q or the Arduino VENTUNO™ Q) (x1)
 - [USB-C® cable (SKU: TPX00094)](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 
 ### Software Requirements
@@ -97,7 +97,9 @@ With the Bughopper connected to the target board, connect it to your development
 
 ![The Bughopper power LEDs](assets/connection-2.png)
 
-The Bughopper will appear as a standard COM port on your development machine via FTDI's Virtual COM Port (VCP) drivers.
+The Bughopper will appear as a standard COM port on your development machine via FTDI's Virtual COM Port (VCP) drivers. In the image shown above, the Bughopper appears as `COM18`.
+
+![The Bughopper showing as a standard COM port on your development machine](assets/connection-3.png)
 
 <Alert type="note"><strong>Note</strong>: The Bughopper provides a separate serial channel from the target board's main USB-C connection. You can monitor debug output through the Bughopper while your development tools communicate with the target board through its own USB-C or network connection, without any interference between the two channels.</Alert>
 
