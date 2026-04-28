@@ -211,4 +211,4 @@ boolean inPaddle(int x, int y, int rectX, int rectY, int rectWidth, int rectHeig
 
 The complete sketch is below :
 
-<iframe src='https://app.arduino.cc/sketches/examples?nav=Examples&eid=tft_1_0_6%2FArduino%2FTFTPong&slid=TFT%401.0.6&view-mode=preview' style='height:510px;width:100%;margin:10px 0' frameborder='0'></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=tft_1_0_6%2FArduino%2FTFTPong&slid=TFT%401.0.6&view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>

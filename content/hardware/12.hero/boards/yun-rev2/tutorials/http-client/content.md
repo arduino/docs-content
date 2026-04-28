@@ -78,4 +78,4 @@ while (client.available()) {
 
 The complete sketch is below:
 
-<iframe src='https://app.arduino.cc/sketches/examples?nav=Examples&eid=bridge_1_7_0%2FHttpClient&slid=Bridge%401.7.0&view-mode=preview' style='height:510px;width:100%;margin:10px 0' frameborder='0'></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=bridge_1_7_0%2FHttpClient&slid=Bridge%401.7.0&view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>

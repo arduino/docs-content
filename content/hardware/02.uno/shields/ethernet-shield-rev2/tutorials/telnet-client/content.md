@@ -34,6 +34,6 @@ Image developed using [Fritzing](http://www.fritzing.org). For more circuit exam
 
 ## Code
 
-<iframe src='https://app.arduino.cc/sketches/examples?nav=Examples&eid=ethernet2_1_0_4%2FTelnetClient&slid=Ethernet2%401.0.4&view-mode=preview' style='height:510px;width:100%;margin:10px 0' frameborder='0'></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=ethernet_2_0_2%2FTelnetClient&slid=Ethernet%402.0.2&view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
 **Last revision 2018/09/07 by SM**
