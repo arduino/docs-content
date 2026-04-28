@@ -836,7 +836,7 @@ Using the following command will view the Python script content:
 cat main.py
 ```
 
-***For comprehensive Arduino App CLI documentation, including creating Apps, monitoring logs, managing Bricks, and system updates, please refer to the dedicated [__Arduino App CLI tutorial__](https://docs.arduino.cc/software/app-lab/tutorials/cli/).***
+***For comprehensive Arduino App CLI documentation, including creating Apps, monitoring logs, managing Bricks, and system updates, please refer to the dedicated [__Arduino App CLI tutorial__](https://docs.arduino.cc/software/app-lab/cli/cli/).***
 
 ### Arduino CLI
 

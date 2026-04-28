@@ -24,7 +24,7 @@ In addition, the board has a set of software packages developed by Arduino, as f
 
 On Linux:
 * [Arduino App Lab](https://docs.arduino.cc/software/app-lab/)  
-* [Arduino App CLI](https://docs.arduino.cc/software/app-lab/tutorials/cli/)  
+* [Arduino App CLI](https://docs.arduino.cc/software/app-lab/cli/cli/)  
 
 On the Microcontroller:
 * [Arduino core for UNO Q based on Zephyr RTOS](https://github.com/arduino/ArduinoCore-zephyr)

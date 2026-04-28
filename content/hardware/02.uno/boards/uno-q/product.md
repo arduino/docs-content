@@ -3,7 +3,7 @@ title: UNO Q
 url_shop: https://store.arduino.cc/pages/uno-q
 primary_button_url: /tutorials/uno-q/user-manual
 primary_button_title: User Manual
-secondary_button_url: /software/app-lab/tutorials/getting-started/
+secondary_button_url: /software/app-lab/getting-started/quickstart/
 secondary_button_title: Arduino App Lab
 forumCategorySlug: '/hardware/uno-familyd/uno-q/222'
 certifications: [CE/RED, RoHS, REACH, WEEE, UKCA, RCM, FCC, IC, MIC, SRRC, NCC, WPC, KC, Anatel, ICASA]
