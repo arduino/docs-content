@@ -9,21 +9,28 @@ tags:
   - Modular
 ---
 
-Bricks are the modular building blocks of the Arduino App Lab ecosystem. They allow you to add complex functionalities—such as machine learning models, web servers, or cloud connectors—to your applications without writing thousands of lines of code from scratch.
+**Bricks** are pre-built, modular components that you can add to your Arduino App to quickly introduce complex features. Think of them as "plug-and-play" services: instead of writing thousands of lines of code for a web server, a database, or an AI model, you can simply add a Brick to your project and interact with it using a few lines of Python.
+
+## How Bricks Help You
+
+Bricks save time by handling heavy infrastructure tasks in the background. For example:
+- **AI & Vision:** Use a Brick to add object detection or face recognition without setting up complex machine learning libraries yourself.
+- **Web Dashboards:** Add a Web UI Brick to create a custom dashboard that you can control from your phone or computer.
+- **Cloud & Storage:** Use Bricks to connect to the Arduino Cloud or store sensor data in a local database.
 
 ## What is a Brick?
 
-A **Brick** is a pre-configured service or Docker container that runs on the board's Linux environment. Each Brick provides a specific set of capabilities that your Python script (`main.py`) can interact with through a high-level API.
+Technically, a **Brick** is a pre-configured service that runs as an isolated **Docker container** on the UNO Q's Linux system. Each Brick exposes a high-level API (Application Programming Interface), which means your Python code (`main.py`) can "talk" to the Brick to send or receive data without needing to know how the Brick works internally.
 
 ## How Bricks Work
 
-When you add a Brick to your App via the App Lab interface, the IDE performs the following actions:
+When you add a Brick to your App via the App Lab interface, the system automates several steps:
 
-1. **Configuration:** Adds the Brick's unique identifier to your `app.yaml` manifest.
-2. **Deployment:** Ensures the necessary Docker image is present on the board's microprocessor.
-3. **Integration:** Makes the corresponding Python library available for import in your `main.py` file.
+1. **Configuration:** The Brick's unique ID is added to your App's `app.yaml` file.
+2. **Deployment:** The system downloads and starts the required container image on your board.
+3. **Integration:** A dedicated Python library is made available, allowing you to `import` the Brick's functionality directly into your script.
 
-<Alert type="info">**Note:** Most Bricks require your board to have an active internet connection during the first deployment to download the necessary Docker images from the Arduino registry.</Alert>
+<Alert type="info">**Note:** Most Bricks require an active internet connection the first time they are deployed so the board can download the necessary files from the Arduino registry.</Alert>
 
 <!-- TODO: Verify current status -->
 

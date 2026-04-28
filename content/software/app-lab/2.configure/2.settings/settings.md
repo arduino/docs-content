@@ -5,7 +5,7 @@ overwriteSidebar: Settings
 tags: [Arduino App Lab, Settings, Reference, UNO Q]
 ---
 
-The **Settings** page in Arduino App Lab provides access to configuration options, system information, and device management tools for the connected board.
+Manage your board's configuration, view system information, and access device management tools through the **Settings** page.
 
 ## Access Settings in Arduino App Lab
 

@@ -9,7 +9,7 @@ tags:
   - UNO Q
 ---
 
-Arduino App Lab includes a variety of built-in examples to help you understand how Apps function on your board. This guide explains how to run these examples and how to duplicate them to create your own editable projects.
+Explore built-in examples to understand the capabilities of modular Apps on your board. Learn how to run these ready-to-use projects and duplicate them to kickstart your own custom applications.
 
 ## Run an Example
 

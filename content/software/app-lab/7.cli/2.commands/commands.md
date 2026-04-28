@@ -5,7 +5,7 @@ description:
 tags: [Arduino App CLI, UNO Q, Linux, CLI]
 ---
 
-A CLI to manage Arduino Apps. It allows you to control the lifecycle of your Apps, manage bricks, and configure the system settings of your board directly from the terminal.
+Manage Arduino Apps directly from the terminal using this command-line interface. Control the lifecycle of your applications, manage Bricks, and configure system settings without a graphical UI.
 
 ## arduino-app-cli
 
