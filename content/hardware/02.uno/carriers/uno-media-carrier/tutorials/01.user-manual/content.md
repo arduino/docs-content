@@ -96,7 +96,7 @@ To leverage the UNO Media Carrier features easily, we developed a CLI that is in
 
 ```bash
 # List available carriers and devices
-arduino-linux-config carrier list
+sudo arduino-linux-config carrier list
 ```
 This above command will print the available carriers and supported devices as follows:
 
@@ -105,14 +105,14 @@ CARRIER          DEVICE     OPTIONS
 -------          ------     -------
 media-carrier    camera0    none, type1-2lanes, type1-4lanes
                  camera1    none, type1-2lanes, type1-4lanes
-                 display    none, 8-dsi-touch-a
+                 display    none, 5-dsi-touch-a, 8-dsi-touch-a, 10-dsi-touch-a
 ```
 
 To enable the Media Carrier and configure a specific connector to manage above listed devices, use:
 
 ```bash
 # Configure a carrier with specific devices
-arduino-linux-config carrier enable media-carrier camera0=type1-2lanes display=8-dsi-touch-a
+sudo arduino-linux-config carrier enable media-carrier camera0=type1-2lanes display=8-dsi-touch-a
 ```
 
 <Alert type="info">The command above configure the MIPI CSI0 connector to control an IMX219 camera and an 8" DSI touch display.</Alert>
@@ -121,7 +121,7 @@ To check the current or pending configuration to be applied, run:
 
 ```bash
 # Show current and pending configuration
-arduino-linux-config carrier show media-carrier
+sudo arduino-linux-config carrier show media-carrier
 ```
 
 <Alert type="note">Any carrier configuration change will be applied after a board reboot.</Alert>
@@ -130,7 +130,7 @@ To disable the UNO Media Carrier, use:
 
 ```bash
 # Reset a carrier to factory defaults
-arduino-linux-config carrier disable media-carrier
+sudo arduino-linux-config carrier disable media-carrier
 ```
 
 We are going to use the commands from above on dedicated sections below to show how to use the different supported features.
@@ -146,7 +146,7 @@ The Arduino UNO Q Media Carrier features four onboard RGB LEDs designed to provi
 Run the following commands to enable the UNO Media Carrier:
 
 ```bash
-arduino-linux-config carrier enable media-carrier
+sudo arduino-linux-config carrier enable media-carrier
 # Synchronize filesystem and reboot to apply the new hardware map
 sudo reboot
 ```
@@ -232,7 +232,7 @@ You should see your Media Carrier LEDs blinking as follows:
 
 The UNO Media Carrier features two 22-pin MIPI-CSI connectors compatible with standard Raspberry Pi cameras, enabling dual-camera computer vision applications such as stereo depth mapping, multi-angle capture, and object tracking.
 
-![Media Carrier MIPI-CSI Connectors](assets/camera-connectors.png)
+![Media Carrier MIPI-CSI](assets/csi-real-setup.png)
 
 To use a MIPI camera, connect it to "CAMERA0" or "CAMERA1" connectors with the UNO Q **unpowered**. 
 
@@ -241,7 +241,7 @@ To use a MIPI camera, connect it to "CAMERA0" or "CAMERA1" connectors with the U
 Power your board and then run the following command from the terminal:
 
 ```bash
-arduino-linux-config carrier enable media-carrier camera1=type1-2lanes
+sudo arduino-linux-config carrier enable media-carrier camera1=type1-2lanes
 ```
 
 <Alert type="note">Remember to __reboot__ your Arduino UNO Q after any configuration change.</Alert>
@@ -326,9 +326,34 @@ After installation, you just need to open the app and start capturing photos or 
 
 The UNO Media Carrier features a 22-pin MIPI-DSI connector compatible with standard Raspberry Pi displays, enabling interactive visual output for applications such as touchscreen user interfaces, real-time data dashboards, and multimedia playback.
 
-![Media Carrier MIPI-DSI Connector]()
+![Media Carrier MIPI-DSI](assets/dsi-real-setup.png)
+
+To use a MIPI display, connect it to "DISPLAY" connector with the UNO Q **unpowered**. 
+
+<Alert type="note">Waveshare 5, 8 and 10 inches displays supported, we will be adding support for other ones in the future.</Alert>
+
+Power your board and then run the following command from the terminal:
+
+```bash
+sudo arduino-linux-config carrier enable media-carrier display=8-dsi-touch-a
+```
+
+<Alert type="note">Remember to __reboot__ your Arduino UNO Q after any configuration change.</Alert>
+
+While your board is rebooting, it will show the boot logs and load the desktop view. Also, you will be able to navigate through it by using the touchscreen.
+
 
 ### Audio
+
+The carrier provides three 3.5 mm audio jacks for flexible audio input and output.
+
+| **Jack**                | **Type**    | **Function**                                   |
+|-------------------------|-------------|------------------------------------------------|
+| MIC-IN / Headphones Out | 3.5 mm jack | Combined microphone input and headphone output |
+| Line Out                | 3.5 mm jack | Line-level audio output                        |
+| Earphones Out           | 3.5 mm jack | Earphone output                                |
+
+
 
 #### Audio Playback
 
