@@ -23,7 +23,7 @@ This user manual provides a comprehensive overview of Bughopper hardware and set
 
 ### Hardware Requirements
 
-- [Bughopper (SKU: ABX00156)](https://store.arduino.cc/products/bughopper) (x1)
+- [Arduino Bughopper (SKU: ABX00156)](https://store.arduino.cc/products/bughopper) (x1)
 - Compatible Arduino board with a JCTL 2.54 mm connector (such as the Arduino UNO™ Q or the Arduino VENTUNO™ Q) (x1)
 - [USB-C® cable (SKU: TPX00094)](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 
