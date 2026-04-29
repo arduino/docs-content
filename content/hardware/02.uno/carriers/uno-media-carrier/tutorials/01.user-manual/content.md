@@ -241,7 +241,7 @@ To use a MIPI camera, connect it to "CAMERA0" or "CAMERA1" connectors with the U
 Power your board and then run the following command from the terminal:
 
 ```bash
-arduino-linux-config carrier enable media-carrier camera0=type1-2lanes
+arduino-linux-config carrier enable media-carrier camera1=type1-2lanes
 ```
 
 <Alert type="note">Remember to __reboot__ your Arduino UNO Q after any configuration change.</Alert>
@@ -279,18 +279,48 @@ sudo gst-launch-1.0 libcamerasrc camera-name="/base/soc@0/cci@5c1b000/i2c-bus@1/
 
 <Alert type="warning">Because MIPI sensors need a brief moment to calibrate their auto-exposure and white balance when turned on, capturing a single instant frame often results in a dark image.</Alert>
 
-To get high-quality photos, run the following command. It will briefly activate the camera and capture 2 frames, giving the sensor time to adjust on the second shot:
+To get better photos, run the following command. It will briefly activate the camera and capture 2 frames, giving the sensor time to adjust on the second shot:
 
 ```bash
 sudo timeout 2 gst-launch-1.0 libcamerasrc ! video/x-raw,width=1280,height=720 ! videorate ! video/x-raw,framerate=1/1 ! videoconvert ! jpegenc ! multifilesink location=photo_%d.jpg
 ```
 
-Using a Graphical Interface (GUI)
+![Still photo from the CLI](assets/good-take.png)
 
-If you are running a desktop environment on your UNO Q, the system fully supports Cheese, the standard GNOME camera application.
+**Even Better Photos**
+
+By using lower-level settings and bypassing the default hardware ISP, you can get much better photos:
+
+![Color corrected photo (full resolution)](assets/the_take_2.png)
+
+Instead of relying on standard high-level video capture methods—which often struggle with memory allocation for high-resolution 10-bit RAW streams and apply generic, uncalibrated color profiles—this pipeline extracts the RAW DMA frames directly from the kernel using `v4l2-ctl`. 
+
+This approach allows us to build a custom Software Image Signal Processor (ISP) pipeline in Python. By manually demosaicing the RAW Bayer data and injecting the official JSON color matrices (CCM) and Auto White Balance (AWB) curves tailored for the IMX219 sensor, we regain absolute control over the color science. This method also allows us to:
+
+- Directly manipulate the physical analog gain and exposure registers of the sensor.
+- Safely handle the massive 8-Megapixel (3280x2464) data payload without memory bottlenecking.
+
+The result is a sharp, color-accurate photograph that perfectly matches the physical lighting of the environment.
+
+<Alert type="success">Check this [dedicated repository](https://github.com/mcmchris/uno-q-mipi-camera-imx219) for achieving better photos and find the best color settings.</Alert>
+
+
+#### Using a Graphical Interface (GUI)
+
+If you are running a desktop environment on your UNO Q, the system fully supports **Cheese**, the standard GNOME camera application.
 
 You can install it using the package manager:
 
+```bash
+sudo apt update
+sudo apt install cheese -y
+```
+
+After installation, you just need to open the app and start capturing photos or video:
+
+![Cheese camera feed](assets/ui_take.png)
+
+<Alert type="note">With Cheese you will get the same color results as before by using the CLI.</Alert> 
 
 ### MIPI Display
 
