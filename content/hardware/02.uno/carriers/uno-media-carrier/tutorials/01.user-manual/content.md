@@ -353,11 +353,204 @@ The carrier provides three 3.5 mm audio jacks for flexible audio input and outpu
 | Line Out                | 3.5 mm jack | Line-level audio output                        |
 | Earphones Out           | 3.5 mm jack | Earphone output                                |
 
+![Audio setup](assets/audio-setup.png)
 
+Audio playback and capture are handled by the ALSA (Advanced Linux Sound Architecture) framework available in the UNO Q's Debian OS. The `alsa-utils` package provides the `arecord` and `aplay` command-line tools.
+
+Install it if not already present by opening a terminal on the board via ADB, SSH, or SBC mode:
+
+```bash
+sudo apt install alsa-utils
+```
+
+Before running any audio command, list the available sound cards and devices on the system to confirm the correct device identifier:
+
+```bash
+# List available capture (input) devices
+arecord -l
+```
+
+```bash
+# List available playback (output) devices
+aplay -l
+```
+
+On the UNO Q, both commands return the same output, as all interfaces share a single sound card. The output will look similar to the following:
+
+```bash
+**** List of PLAYBACK Hardware Devices ****
+card 0: ArduinoImolaHPH [Arduino-Imola-HPH-LOUT], device 0: MultiMedia1 (*) []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 0: ArduinoImolaHPH [Arduino-Imola-HPH-LOUT], device 1: MultiMedia2 (*) []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 0: ArduinoImolaHPH [Arduino-Imola-HPH-LOUT], device 2: MultiMedia3 (*) []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 0: ArduinoImolaHPH [Arduino-Imola-HPH-LOUT], device 3: MultiMedia4 (*) []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
+
+The board has a single sound card (`card 0`, named `Arduino-Imola-HPH-LOUT`) with four logical devices (0–3), each corresponding to a different multimedia stream (MultiMedia1–4).
+
+The device identifier used in audio commands is built from the card and device numbers `hw:0,0` refers to card 0, device 0. The correct device number for each audio interface is noted in each section below.
+
+ALSA supports two device access modes:
+
+- `hw:` provides direct hardware access and requires the audio parameters (sample rate, format, channels) to exactly match what the hardware expects.
+- `plughw:` adds an automatic conversion layer that handles mismatches on the fly.
+
+When using `amixer` routing commands to configure the audio pipeline before recording or playback, `plughw:` must be used in the subsequent `arecord` or `aplay` command. Without it, parameter mismatches between the routing configuration and the command will cause the command to fail.
+
+#### Audio Recording
+
+You can record audio through the **MIC-IN / Headphones Out** connector, it exposes the (MIC2_INP) where referenced to ground a headset microphone can be connected. The microphone input uses *device 2* on the sound card.
+
+![Image here]()
+
+Before recording, configure the audio pipeline using the following `amixer` commands. These set up the routing path from the microphone through the codec and configure the capture gain:
+
+```bash
+amixer -c0 cset iface=MIXER,name='MultiMedia3 Mixer TX_CODEC_DMA_TX_3' 1
+amixer -c0 cset iface=MIXER,name='TX DEC0 MUX' 'SWR_MIC'
+amixer -c0 cset iface=MIXER,name='TX SMIC MUX0' 'SWR_MIC1'
+amixer -c0 cset iface=MIXER,name='TX_AIF1_CAP Mixer DEC0' 1
+amixer -c0 cset iface=MIXER,name='ADC2 Switch' 1
+amixer -c0 cset iface=MIXER,name='ADC2 MUX' 'INP2'
+amixer -c0 cset iface=MIXER,name='ADC2_MIXER Switch' 1
+amixer -c0 cset iface=MIXER,name='ADC2 Volume' 5
+amixer -c0 cset iface=MIXER,name='TX_DEC0 Volume' 100
+```
+
+Then capture audio with the following command. `plughw:0,2` is used because the pipeline has been configured with `amixer`. The `-d 5` flag sets the recording duration to 5 seconds and skip it to record until interrupted with **CTRL + C**:
+
+```bash
+arecord -D plughw:0,2 -f S32_LE -c 1 -r 48000 -d 5 /home/arduino/recording.wav
+```
+
+After recording, close the pipeline to return the audio subsystem to its default state:
+
+```bash
+amixer -c0 cset iface=MIXER,name='ADC2_MIXER Switch' 0
+amixer -c0 cset iface=MIXER,name='MultiMedia3 Mixer TX_CODEC_DMA_TX_3' 0
+```
 
 #### Audio Playback
 
-#### Audio Recording
+**Headphone Output:**
+
+You can play audio through the **MIC-IN / Headphones Out** connector, it provides a stereo output. The headphone output uses *device 0* on the sound card.
+
+![Image here]()
+
+Before playback, configure the audio pipeline using the following `amixer` commands. These set up the routing path from the multimedia stream through the codec to the headphone driver and configure the output volume:
+
+```bash
+amixer -c0 cset iface=MIXER,name='RX_CODEC_DMA_RX_0 Audio Mixer MultiMedia1' 1
+amixer -c0 cset iface=MIXER,name='RX_MACRO RX0 MUX' 'AIF1_PB'
+amixer -c0 cset iface=MIXER,name='RX_MACRO RX1 MUX' 'AIF1_PB'
+amixer -c0 cset iface=MIXER,name='RX INT0_1 MIX1 INP0' 'RX0'
+amixer -c0 cset iface=MIXER,name='RX INT1_1 MIX1 INP0' 'RX1'
+amixer -c0 cset iface=MIXER,name='RX INT0 DEM MUX' 'CLSH_DSM_OUT'
+amixer -c0 cset iface=MIXER,name='RX INT1 DEM MUX' 'CLSH_DSM_OUT'
+amixer -c0 cset iface=MIXER,name='RX_COMP1 Switch' 1
+amixer -c0 cset iface=MIXER,name='RX_COMP2 Switch' 1
+amixer -c0 cset iface=MIXER,name='HPHL_RDAC Switch' 1
+amixer -c0 cset iface=MIXER,name='HPHR_RDAC Switch' 1
+amixer -c0 cset iface=MIXER,name='HPHL_COMP Switch' 1
+amixer -c0 cset iface=MIXER,name='HPHR_COMP Switch' 1
+amixer -c0 cset iface=MIXER,name='HPHR Switch' 1
+amixer -c0 cset iface=MIXER,name='HPHL Switch' 1
+amixer -c0 cset iface=MIXER,name='RX_RX0 Digital Volume' 80
+amixer -c0 cset iface=MIXER,name='RX_RX1 Digital Volume' 80
+```
+
+Then, play back a WAV file using the following command, where `plughw:0,0` is used because the pipeline has been configured with `amixer`:
+
+```bash
+aplay -D plughw:0,0 /usr/share/sounds/alsa/Front_Center.wav
+```
+
+After playback, close the pipeline to return the audio subsystem to its default state:
+
+```bash
+amixer -c0 cset iface=MIXER,name='RX_CODEC_DMA_RX_0 Audio Mixer MultiMedia1' 0
+amixer -c0 cset iface=MIXER,name='HPHR Switch' 0
+amixer -c0 cset iface=MIXER,name='HPHL Switch' 0
+```
+
+***Output levels may sound unbalanced or saturated in some configurations. Adjusting the `RX_RX0 Digital Volume` and `RX_RX1 Digital Volume` values can help tune the output level for your setup.***
+
+**Audio Line Output:**
+
+The line output connector exposes a differential pair (`LINEOUT_P` / `LINEOUT_M`). This interface is suitable for connection to external amplifiers or line-level audio equipment. The line output uses *device 1*
+on the sound card.
+
+![Image here]()
+
+Before playback, configure the audio pipeline using the following `amixer` command:
+
+```bash
+amixer -c0 cset iface=MIXER,name='RX_CODEC_DMA_RX_0 Audio Mixer MultiMedia2' 1
+amixer -c0 cset iface=MIXER,name='RX_MACRO RX0 MUX' 1
+amixer -c0 cset iface=MIXER,name='RX INT0_1 MIX1 INP0' 'RX0'
+amixer -c0 cset iface=MIXER,name='RX INT0 DEM MUX' 1
+amixer -c0 cset iface=MIXER,name='LO_RDAC Switch' 1
+amixer -c0 cset iface=MIXER,name='RX_RX0 Digital Volume' 80
+```
+
+Then play back a *WAV* file using the following command:
+
+```bash
+aplay -D plughw:0,1 /usr/share/sounds/alsa/Front_Center.wav
+```
+
+After playback, close the pipeline to return the audio subsystem to its default state:
+
+```bash
+amixer -c0 cset iface=MIXER,name='RX_CODEC_DMA_RX_0 Audio Mixer MultiMedia2' 0
+amixer -c0 cset iface=MIXER,name='RX_MACRO RX0 MUX' 'ZERO'
+amixer -c0 cset iface=MIXER,name='RX INT0_1 MIX1 INP0' 'ZERO'
+amixer -c0 cset iface=MIXER,name='LO_RDAC Switch' 0
+```
+
+### Earphone Output
+
+The earphone output provides the right earphone channel as a differential pair. The earphone output uses *device 1* on the sound card.
+
+![Image here]()
+
+<Alert type="note">On this output you can connect a tiny speaker with an impedance range of </strong>10.67 Ω – 32 Ω</strong></Alert>
+
+Before playback, configure the audio pipeline using the following `amixer` commands:
+
+```bash
+amixer -c0 cset iface=MIXER,name='RX_CODEC_DMA_RX_0 Audio Mixer MultiMedia2' 1
+amixer -c0 cset iface=MIXER,name='RX_MACRO RX0 MUX' 1
+amixer -c0 cset iface=MIXER,name='RX INT0_1 MIX1 INP0' 'RX0'
+amixer -c0 cset iface=MIXER,name='RX INT0 DEM MUX' 1
+amixer -c0 cset iface=MIXER,name='EAR_RDAC Switch' 1
+amixer -c0 cset iface=MIXER,name='HPHL Switch' 1
+amixer -c0 cset iface=MIXER,name='RX_RX0 Digital Volume' 80
+```
+
+Then, play back a WAV file using the following command. This interface uses `hw:0,1` directly without the `plughw` conversion layer:
+
+```bash
+aplay -D hw:0,1 /home/arduino/recording.wav
+```
+
+After playback, close the pipeline to return the audio subsystem to its default state:
+
+```bash
+amixer -c0 cset iface=MIXER,name='RX_CODEC_DMA_RX_0 Audio Mixer MultiMedia2' 0
+amixer -c0 cset iface=MIXER,name='RX_MACRO RX0 MUX' 'ZERO'
+amixer -c0 cset iface=MIXER,name='RX INT0_1 MIX1 INP0' 'ZERO'
+amixer -c0 cset iface=MIXER,name='RX INT0 DEM MUX' 'NORMAL_DSM_OUT'
+amixer -c0 cset iface=MIXER,name='EAR_RDAC Switch' 0
+amixer -c0 cset iface=MIXER,name='HPHL Switch' 0
 
 ## Support
 
