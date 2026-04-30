@@ -128,7 +128,7 @@ With your single-board computer now configured and ready, you can tap into the f
 
 ### Arduino App Lab
 
-Develop hybrid Arduino Edge AI projects effortlessly with the built-in Arduino App Lab. Follow our [step-by-step tutorial](/software/app-lab/tutorials/getting-started/) to unlock the full potential of your Arduino UNO Q.
+Develop hybrid Arduino Edge AI projects effortlessly with the built-in Arduino App Lab. Follow our [step-by-step tutorial](/software/app-lab/getting-started/quickstart/) to unlock the full potential of your Arduino UNO Q.
 
 ![Arduino App Lab](assets/app-lab.png)
 
