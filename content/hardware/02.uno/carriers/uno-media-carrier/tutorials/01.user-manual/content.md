@@ -408,7 +408,7 @@ When using `amixer` routing commands to configure the audio pipeline before reco
 
 You can record audio through the **MIC-IN / Headphones Out** connector, it exposes the (MIC2_INP) where referenced to ground a headset microphone can be connected. The microphone input uses *device 2* on the sound card.
 
-![Image here]()
+![Microphone Input](assets/mic.png)
 
 Before recording, configure the audio pipeline using the following `amixer` commands. These set up the routing path from the microphone through the codec and configure the capture gain:
 
@@ -443,7 +443,7 @@ amixer -c0 cset iface=MIXER,name='MultiMedia3 Mixer TX_CODEC_DMA_TX_3' 0
 
 You can play audio through the **MIC-IN / Headphones Out** connector, it provides a stereo output. The headphone output uses *device 0* on the sound card.
 
-![Image here]()
+![Headphone output](assets/headphone.png)
 
 Before playback, configure the audio pipeline using the following `amixer` commands. These set up the routing path from the multimedia stream through the codec to the headphone driver and configure the output volume:
 
@@ -485,10 +485,11 @@ amixer -c0 cset iface=MIXER,name='HPHL Switch' 0
 
 **Audio Line Output:**
 
-The line output connector exposes a differential pair (`LINEOUT_P` / `LINEOUT_M`). This interface is suitable for connection to external amplifiers or line-level audio equipment. The line output uses *device 1*
-on the sound card.
+The line output exposes a differential audio pair (`LINEOUT_P` / `LINEOUT_M`) rather than a traditional stereo Left/Right signal. This interface provides a single Mono channel optimized for noise rejection over long cable runs, making it suitable for connection to professional audio equipment, PA systems, or industrial amplifiers with **Balanced Inputs**.
 
-![Image here]()
+The line output uses *device 1* on the sound card.
+
+![Balanced Line Output](assets/lineout.png)
 
 Before playback, configure the audio pipeline using the following `amixer` command:
 
@@ -520,7 +521,7 @@ amixer -c0 cset iface=MIXER,name='LO_RDAC Switch' 0
 
 The earphone output provides the right earphone channel as a differential pair. The earphone output uses *device 1* on the sound card.
 
-![Image here]()
+![Earphone output](assets/earout.png)
 
 <Alert type="note">On this output you can connect a tiny speaker with an impedance range of </strong>10.67 Ω – 32 Ω</strong></Alert>
 
