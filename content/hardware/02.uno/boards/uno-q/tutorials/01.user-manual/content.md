@@ -856,13 +856,9 @@ The example code shown below uses digital pin `D5` to control an LED and reads t
 
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
-2. Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
-![Library install](assets/lib-install-app-lab.png)
-
-3. Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
-#include <Arduino_RouterBridge.h>
 // Define button and LED pin
 int buttonPin = D4;
 int ledPin = D5;
@@ -876,7 +872,7 @@ void setup() {
   pinMode(ledPin, OUTPUT);
 
   // Initialize Serial communication
-  Monitor.begin();
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -886,11 +882,11 @@ void loop() {
   // If the button is pressed, turn on the LED and print its state to the Serial Monitor
   if (buttonState == LOW) {
     digitalWrite(ledPin, HIGH);
-    Monitor.println("- Button is pressed. LED is on.");
+    Serial.println("- Button is pressed. LED is on.");
   } else {
     // If the button is not pressed, turn off the LED and print to the Serial Monitor
     digitalWrite(ledPin, LOW);
-    Monitor.println("- Button is not pressed. LED is off.");
+    Serial.println("- Button is not pressed. LED is off.");
   }
 
   // Wait for 1000 milliseconds
@@ -948,27 +944,22 @@ The example code shown below reads the analog input value from a potentiometer c
 
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
-2. Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
-![Library install](assets/lib-install-app-lab.png)
-
-3. Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
-#include <Arduino_RouterBridge.h>
-
 int sensorPin = A0;   // select the input pin for the potentiometer
 
 int sensorValue = 0;  // variable to store the value coming from the sensor
 
 void setup() {
-  Monitor.begin();
+  Serial.begin(9600);
 }
 
 void loop() {
   // read the value from the sensor:
   sensorValue = analogRead(sensorPin);
 
-  Monitor.println(sensorValue);
+  Serial.println(sensorValue);
   delay(100);
 }
 ```
@@ -1223,7 +1214,7 @@ To capture more detailed information in the logs, you can append the `--verbose`
 - `provide(name, function)`: Exposes a local MCU function to Linux. Note: The function executes in the high-priority background RPC thread. Keep these functions short and thread-safe.
 - `provide_safe(name, function)`: Exposes a local MCU function, but ensures it executes within the main `loop()` context. Use this if your function interacts with standard Arduino APIs (like `digitalWrite` or `Serial`) to avoid concurrency crashes.
 
-***__Warning:__ Do not use `Bridge.call()` or `Monitor.print()` inside `provide()` functions. Initiating a new communication while responding to one causes system deadlocks.***
+***__Warning:__ Do not use `Bridge.call()`, `Monitor.print()` or `Serial.print()` inside `provide()` functions. Initiating a new communication while responding to one causes system deadlocks.***
 
 `RpcCall`
 - Helper class representing an asynchronous RPC. If its `.result` method is invoked, it waits for the response, extracts the return value, and propagates error codes if needed.
@@ -1663,29 +1654,40 @@ With this example the UNO Q will send back whatever it receives on the UART.
 
 #### From Serial to Monitor
 
-Because of the UNO Q’s architecture, using `Serial` does not display data in the Arduino App Lab **Console** as you might expect.
+Starting with **Arduino App Lab 0.7.0**, the UNO Q fully supports standard `Serial` communication for debugging. You can now use standard `Serial.print()` and `Serial.println()` commands to display data, sensor readings, or any other messages directly in the _Arduino App Lab Console_, just as you would with other Arduino boards.
 
-To make debugging just as easy as on other Arduino boards, we provide the `Monitor` object, which you can use to print debugging messages, sensor readings, or any other information directly to the App Lab Console.
+```cpp
+void setup() {
+  // Initialize the Monitor
+  Serial.begin(9600);
+}
 
-Note: `Serial` still works over UART, but its output is not shown in App Lab.
+void loop() {
+  // Transmit the string "Hello UNO Q" followed by a newline character
+  Serial.println("Hello UNO Q");
+  delay(1000);
+}
+```
 
-You can achieve the same behavior with a minor prerequisite: include the `Arduino_RouterBridge` library in your sketch.
+Because of the UNO Q's architecture, earlier versions of Arduino App Lab required a specific `Monitor` object to print to the console instead of `Serial`.
+
+For backward compatibility, the `Monitor` object is still fully supported. If you are maintaining an older project, code using the `Arduino_RouterBridge` library will continue to work without any changes:
 
 ```cpp
 #include <Arduino_RouterBridge.h>
 
 void setup() {
-  // Initialize the Monitor
-  Monitor.begin();
+  // Initialize the legacy Monitor
+  Monitor.begin(9600);
 }
 
 void loop() {
-  // Transmit the string "Hello UNO Q" followed by a newline character
-  Monitor.println("Hello UNO Q");
+  Monitor.println("This still works!");
   delay(1000);
 }
 ```
 
+***While `Monitor` is still supported, we recommend using standard `Serial` for all new projects.***
 
 ## Wireless Connectivity
 
@@ -1777,37 +1779,31 @@ The following example gets the UTC time using TCP over socket RPC calls and prin
 
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
-2. Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
-![Library install](assets/lib-install-app-lab.png)
-
-3. Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App.
 
 ```cpp
-#include <Arduino_RouterBridge.h>
-
 BridgeTCPClient<> client(Bridge);
 
 void setup() {
   if (!Bridge.begin()) {
     while (true) {}
   }
-  if (!Monitor.begin()) {
-    while (true) {}
-  }
 
-  Monitor.println("TCP Daytime Demo started");
+  Serial.begin(9600);
+
+  Serial.println("TCP Daytime Demo started");
 }
 
 void loop() {
-  Monitor.println("\nConnecting to time.nist.gov ...");
+  Serial.println("\nConnecting to time.nist.gov ...");
 
   if (client.connect("time.nist.gov", 13) < 0) {
-    Monitor.println("Connection failed!");
+    Serial.println("Connection failed!");
     delay(5000);
     return;
   }
 
-  Monitor.println("Connected, reading response...");
+  Serial.println("Connected, reading response...");
   String line;
   while (client.connected() || client.available()) {
     if (client.available()) {
@@ -1817,8 +1813,8 @@ void loop() {
     }
   }
 
-  Monitor.print("Server says: ");
-  Monitor.println(line);
+  Serial.print("Server says: ");
+  Serial.println(line);
 
   client.stop();
   delay(10000);
