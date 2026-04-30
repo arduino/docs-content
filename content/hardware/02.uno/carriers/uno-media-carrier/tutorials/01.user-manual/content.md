@@ -280,7 +280,7 @@ To take a snapshot with the first detected camera and specific resolution (1280x
 sudo gst-launch-1.0 libcamerasrc ! video/x-raw,width=1280,height=720 ! videoconvert ! jpegenc snapshot=true ! filesink location=test_photo.jpg
 ```
 
-If you want to capture from a specific camera, add the <code>camera-name</code> parameter as follows:
+If you want to capture from a specific camera, add the `camera-name` parameter as follows:
 
 ```bash
 camera-name="/base/soc@0/cci@5c1b000/i2c-bus@0/sensor@10" # for camera0
@@ -344,7 +344,7 @@ The UNO Media Carrier features a 22-pin MIPI-DSI connector compatible with stand
 
 ![Media Carrier MIPI-DSI](assets/dsi-real-setup.png)
 
-To use a MIPI display, connect it to "DISPLAY" connector with the UNO Q **unpowered**. 
+To use a MIPI display, connect it to the "DISPLAY" connector with the UNO Q **unpowered**. 
 
 <Alert type="note">Waveshare 5, 8 and 10 inches displays supported, we will be adding support for other ones in the future.</Alert>
 
