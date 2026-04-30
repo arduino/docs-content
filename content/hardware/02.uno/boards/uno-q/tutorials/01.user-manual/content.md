@@ -1101,6 +1101,9 @@ The Arduino UNO Q uses RPC (Remote Procedure Call) to exchange data between the 
 
 ![UNO Q RPC](assets/rpc.png)
 
+Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
+![Library install](assets/lib-install-app-lab.png)
+
 #### Overview
 
 The `Bridge` library provides a communication layer built on top of the `Arduino_RPClite` framework. It manages bidirectional RPC traffic between the MPU and MCU, handling method binding, request forwarding, and asynchronous responses.
