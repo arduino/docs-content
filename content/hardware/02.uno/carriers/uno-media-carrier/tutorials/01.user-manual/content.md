@@ -163,6 +163,22 @@ You should see an output listing all 12 color channels across the 4 LEDs, format
 
 #### LED Control Example
 
+**Terminal:**
+
+To turn ON the red channel of the first LED, run the following command:
+
+```bash
+sudo sh -c "echo 1 > /sys/class/leds/media-carrier:red1/brightness"
+```
+
+To turn it back OFF, simply change the value to `0`:
+
+```bash
+sudo sh -c "echo 0 > /sys/class/leds/media-carrier:red1/brightness"
+```
+
+**Python Script:**
+
 By using the terminal connection to your UNO Q (via SSH or ADB), create a python file for the LEDs blink example script:
 
 ```bash
