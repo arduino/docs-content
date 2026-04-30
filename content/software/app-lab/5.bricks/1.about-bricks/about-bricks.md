@@ -22,6 +22,10 @@ Bricks save time by handling heavy infrastructure tasks in the background. For e
 
 Technically, a **Brick** is a pre-configured service that runs as an isolated **Docker container** on the UNO Q's Linux system. Each Brick exposes a high-level API (Application Programming Interface), which means your Python code (`main.py`) can "talk" to the Brick to send or receive data without needing to know how the Brick works internally.
 
+### Custom Bricks
+
+In addition to the built-in Bricks provided by Arduino, App Lab supports **Custom Bricks**. This feature transforms App Lab into an extensible platform, allowing you to package your own specialized Python logic or third-party Docker containers into modular, reusable components for your projects. See [Create Custom Bricks](../custom-bricks/) to learn more.
+
 ## How Bricks Work
 
 When you add a Brick to your App via the App Lab interface, the system automates several steps:
