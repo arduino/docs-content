@@ -46,9 +46,12 @@ Follow these steps to complete the setup:
 
 Arduino App Lab automatically manages the software ecosystem on your board to ensure you have the latest features, security patches, and performance improvements.
 
-If updates are available, Arduino App Lab will ask if you want to install the available updates. Select **Install** to download and install the updates, or **Skip** if you don't want to update the board.
+If updates are available, Arduino App Lab will ask if you want to install the available updates: 
 
-![Reviewing software updates in Arduino App Lab](../../assets/configuration/updates/whats-new.png)
+* Select **Install** to download and install the updates, or **Skip** if you don't want to update the board.
+* Select **Show update details** for additional information about the updates.
+
+![Reviewing software updates in Arduino App Lab](../../assets/configuration/updates/standard/ORIGINAL.png)
 
 The update process is resumable—if the connection is interrupted, the download will continue once reconnected.
 
