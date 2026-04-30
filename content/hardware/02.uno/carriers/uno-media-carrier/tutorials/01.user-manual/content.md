@@ -115,7 +115,7 @@ To enable the Media Carrier and configure a specific connector to manage above l
 sudo arduino-linux-config carrier enable media-carrier camera0=type1-2lanes display=8-dsi-touch-a
 ```
 
-<Alert type="info">The command above configure the MIPI CSI0 connector to control an IMX219 camera and an 8" DSI touch display.</Alert>
+<Alert type="info">The command above configures the MIPI CSI0 connector to control an IMX219 camera and an 8" DSI touch display.</Alert>
 
 To check the current or pending configuration to be applied, run:
 
@@ -523,7 +523,7 @@ The earphone output provides the right earphone channel as a differential pair. 
 
 ![Earphone output](assets/earout.png)
 
-<Alert type="note">On this output you can connect a tiny speaker with an impedance range of </strong>10.67 Ω – 32 Ω</strong></Alert>
+<Alert type="note">On this output you can connect a tiny speaker with an impedance range of <strong>10.67 Ω – 32 Ω</strong></Alert>
 
 Before playback, configure the audio pipeline using the following `amixer` commands:
 
@@ -552,6 +552,7 @@ amixer -c0 cset iface=MIXER,name='RX INT0_1 MIX1 INP0' 'ZERO'
 amixer -c0 cset iface=MIXER,name='RX INT0 DEM MUX' 'NORMAL_DSM_OUT'
 amixer -c0 cset iface=MIXER,name='EAR_RDAC Switch' 0
 amixer -c0 cset iface=MIXER,name='HPHL Switch' 0
+```
 
 ## Support
 
