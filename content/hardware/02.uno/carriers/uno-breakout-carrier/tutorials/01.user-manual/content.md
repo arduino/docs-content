@@ -838,25 +838,32 @@ App.run(user_loop=loop)
 
 ### Audio Line Output
 
-The line output exposes a differential pair (`LINEOUT_P` / `LINEOUT_M`) on J14 pins 27 and 29. This interface is suitable for connection to external amplifiers or line-level audio equipment. The line output uses *device 3*
-on the sound card, routed through the secondary MI2S (SEC_MI2S) digital audio interface.
+The line output at J14 pins 27 (`LINEOUT_P`) and 29 (`LINEOUT_M`) exposes a differential pair suitable for connection to external amplifiers or line-level audio equipment. The line output uses **device 1** on the sound card, routed through the `LO_RDAC` digital-to-analog converter.
 
-Before playback, configure the audio pipeline using the following `amixer` command:
+Before playback, configure the audio pipeline using the following `amixer` commands. These open the SoundWire routing path and enable the line output DAC:
 
 ```bash
-amixer -c0 cset iface=MIXER,name='SEC_MI2S_RX Audio Mixer MultiMedia4' 1
+amixer -c0 cset iface=MIXER,name='RX_CODEC_DMA_RX_0 Audio Mixer MultiMedia2' 1
+amixer -c0 cset iface=MIXER,name='RX_MACRO RX0 MUX' 1
+amixer -c0 cset iface=MIXER,name='RX INT0_1 MIX1 INP0' 'RX0'
+amixer -c0 cset iface=MIXER,name='RX INT0 DEM MUX' 1
+amixer -c0 cset iface=MIXER,name='LO_RDAC Switch' 1
+amixer -c0 cset iface=MIXER,name='RX_RX0 Digital Volume' 80
 ```
 
-Then play back a *WAV* file using the following command:
+Then, play back a WAV file using the following command. `plughw:0,1` is used because the pipeline has been configured with `amixer`:
 
 ```bash
-aplay -D hw:0,3 /home/arduino/recording.wav
+aplay -D plughw:0,1 /home/arduino/recording.wav
 ```
 
 After playback, close the pipeline to return the audio subsystem to its default state:
 
 ```bash
-amixer -c0 cset iface=MIXER,name='SEC_MI2S_RX Audio Mixer MultiMedia4' 0
+amixer -c0 cset iface=MIXER,name='RX_CODEC_DMA_RX_0 Audio Mixer MultiMedia2' 0
+amixer -c0 cset iface=MIXER,name='RX_MACRO RX0 MUX' 'ZERO'
+amixer -c0 cset iface=MIXER,name='RX INT0_1 MIX1 INP0' 'ZERO'
+amixer -c0 cset iface=MIXER,name='LO_RDAC Switch' 0
 ```
 
 ### Earphone Output
