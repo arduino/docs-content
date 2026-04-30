@@ -556,22 +556,22 @@ amixer -c0 cset iface=MIXER,name='HPHL Switch' 0
 
 ## Support
 
-If you encounter any issues or have questions while working with the Arduino UNO Q, we provide various support resources to help you find answers and solutions.
+If you encounter any issues or have questions while working with the Arduino UNO Media Carrier, we provide various support resources to help you find answers and solutions.
 
 ### Help Center
 
-Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the UNO Q. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the Media Carrier. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
-- [UNO Q Help Center page](https://support.arduino.cc/hc/en-us)
+- [Media Carrier Help Center page](https://support.arduino.cc/hc/en-us)
 
 ### Forum
 
-Join our community forum to connect with other UNO Q users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the UNO Q.
+Join our community forum to connect with other Media Carrier users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Media Carrier.
 
-- [UNO Q category in the Arduino Forum](https://forum.arduino.cc/c/official-hardware/uno-family/uno-q/222)
+- [Media Carrier category in the Arduino Forum](https://forum.arduino.cc/c/official-hardware/uno-family/uno-media-carrier/229)
 
 ### Contact Us
 
-Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We are happy to help you with any issues or inquiries about the UNO Q.
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We are happy to help you with any issues or inquiries about the Media Carrier.
 
 - [Contact us page](https://www.arduino.cc/en/contact-us/)
