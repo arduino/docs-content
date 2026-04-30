@@ -441,9 +441,31 @@ Once the core is installed, you can verify that everything is working by uploadi
 3.  **Open the Example:** Go to **File > Examples > 01.Basics > Blink**.
 4.  **Upload:** Click the **Upload** button (right arrow icon) in the top toolbar.
 
+You can copy it directly from the snippet below:
+
+```cpp
+void setup() {
+  Serial.begin(9600); // We can use 'Serial' again!
+  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);  // change state of the LED by setting the pin to the HIGH voltage level
+  delay(1000);                      // wait for a second
+  digitalWrite(LED_BUILTIN, LOW);   // change state of the LED by setting the pin to the LOW voltage level
+  delay(1000);                      // wait for a second
+
+  Serial.println("Hello World");
+}
+```
+
 The IDE will compile the sketch and upload it to the STM32 microcontroller. You should now see the red LED of the built-in RGB LED turning on for one second, then off for one second, repeatedly.
 
 ![Red LED blinking](assets/blinking-led.gif)
+
+<Alert type="success">Also, if you open the Serial Monitor you will see the "Hello World" message!.</Alert>
 
 ## Onboard User Interface
 
