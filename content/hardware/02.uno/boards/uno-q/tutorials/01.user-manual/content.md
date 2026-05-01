@@ -491,7 +491,7 @@ Here is a list of basic examples for using the **LED matrix**. To test them, fol
 
 This example is for drawing **custom frames** in the LED matrix, specifically the Arduino logo.
 
-You can copy and paste the following example into the "sketch" part of your new App in the Arduino App Lab.
+You can copy and paste the following example into the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
 #include <Arduino_LED_Matrix.h>
@@ -552,7 +552,7 @@ matrix.setGrayscaleBits(8); // 8 bits result on 256 brightness levels (0 to 255)
 
 This example is for showing the **supported grayscale** in the LED matrix.
 
-You can copy and paste the following example into the "sketch" part of your new App in the Arduino App Lab.
+You can copy and paste the following example into the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
 #include <Arduino_LED_Matrix.h>
@@ -700,7 +700,7 @@ To test them follow the steps below:
 - Connect the UNO Q to your PC (if you are not in single-board computer mode).
 - Open the Arduino App Lab, navigate to **My Apps** and click on **Create new app+**.
 
-You can copy and paste the following example into the "sketch" part of your new App in the Arduino App Lab.
+You can copy and paste the following example into the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
 void setup(){
@@ -878,7 +878,7 @@ The example code shown below uses digital pin `D5` to control an LED and reads t
 
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
-2. Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
 // Define button and LED pin
@@ -966,7 +966,7 @@ The example code shown below reads the analog input value from a potentiometer c
 
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
-2. Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
 int sensorPin = A0;   // select the input pin for the potentiometer
@@ -1015,7 +1015,7 @@ The following sketch will create a **60 Hz sine wave** signal in the `A0/DAC0` U
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
 
-2. Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
 const float freq = 60.0f;
@@ -1078,7 +1078,7 @@ Here is an example of how to create a variable duty-cycle PWM signal:
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
 
-2. Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
 const int analogInPin = A0;  // Analog input pin that the potentiometer is attached to
@@ -1123,8 +1123,6 @@ The Arduino UNO Q uses RPC (Remote Procedure Call) to exchange data between the 
 
 ![UNO Q RPC](assets/rpc.png)
 
-Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
-![Library install](assets/lib-install-app-lab.png)
 
 #### Overview
 
@@ -1259,7 +1257,7 @@ This example shows the **Linux side (Qualcomm QRB)** toggling an LED on the **MC
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
 
-2. Copy and paste the example below in the "Python" and "sketch" parts of your new App respectively.
+2. Copy and paste the example below in the "Python" and "sketch" parts of your new App found in `python\main.py` and `sketch\sketch.ino` respectivelys.
 
 - **Linux (QRB) example to call a remote MCU function**
 
@@ -1468,7 +1466,7 @@ To transmit data to an SPI-compatible device, you can use the commands used in t
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
 
-2. Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
 #include <SPI.h>
@@ -1539,7 +1537,7 @@ To transmit data to an I2C-compatible device, you can use the commands used in t
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
 
-2. Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
 #include <Wire.h>
@@ -1679,7 +1677,7 @@ With this example the UNO Q will send back whatever it receives on the UART.
 
 #### From Serial to Monitor
 
-Starting with **Arduino App Lab 0.7.0**, the UNO Q fully supports standard `Serial` communication for debugging. You can now use standard `Serial.print()` and `Serial.println()` commands to display data, sensor readings, or any other messages directly in the _Arduino App Lab Console_, just as you would with other Arduino boards.
+Starting with **Arduino App Lab 0.7.0**, the UNO Q fully supports legacy `Serial` communication for debugging. You can now use `Serial.print()` and `Serial.println()` commands to display data, sensor readings, or any other messages directly in the _Arduino App Lab Console_, just as you would with other Arduino boards.
 
 ```cpp
 void setup() {
@@ -1804,7 +1802,7 @@ The following example gets the UTC time using TCP over socket RPC calls and prin
 
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
-2. Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
 BridgeTCPClient<> client(Bridge);
