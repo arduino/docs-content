@@ -50,9 +50,9 @@ productCertifications:
     sourceTitle: "www.ul.com"
     files: null
   - name: "KC"
-    title: "KC"
+    title: "Korea Certification"
     id: 7
-    description: "The KC certification’s primary purpose is to identify and eliminate potential hazards to the health and safety of consumers."
+    description: "KC (Korea Certification) is the mandatory certification scheme for electronic and wireless products in South Korea, ensuring compliance with electromagnetic compatibility and radio frequency requirements. It is issued based on testing and standards managed by the National Radio Research Agency (RRA), the government body responsible for radio wave management and technological regulation, operating under the ministry in charge of science and ICT."
     source: "https://www.korea-certification.com/en/kc/what-is-kc-certification/"
     sourceTitle: "www.korea-certification.com"
     files: null
@@ -73,7 +73,7 @@ productCertifications:
   - name: "NCC"
     title: "National Communications Commission (Taiwan)"
     id: 10
-    description: "The Taiwanese certification is regulated by the National Communications Commission. NCC certification is applicable to controlled telecommunications radio-frequency equipment. When certifying a device in accordance to local Taiwanese regulations, the device should be tested and have type approval issued via a lab."
+    description: "The National Communications Commission (NCC) is an independent statutory agency of Executive Yuan of Taiwan responsible for regulating the development of the telecommunication and broadcasting industries, promoting competition and consumer protection, and regulating licensing, radio frequency and spectrum, programming content, communications standards and specifications in Taiwan."
     source: "https://www.ncc.gov.tw/english/"
     sourceTitle: "www.ncc.gov.tw/"
     files: null
@@ -83,5 +83,40 @@ productCertifications:
     description: "Products that are equipped with radio transmitters and use specific frequency bands require an SRRC certificate, which can be issued by China’s State Radio Monitoring and Testing Center (SRTC). To acquire an SRRC certificate, the device must be tested in a lab located in China that is accredited by the Ministry of Industry and Information Technology (CMIIT)."
     source: "https://www.china-certification.com/en/china-srrc-type-approval/"
     sourceTitle: "www.china-certification.com/"
+    files: null
+  - name: "IMDA"
+    title: "Infocomm Media Development Authority (Singapore)"
+    id: 12
+    description: "The Infocomm Media Development Authority (IMDA) is a statutory board under the Singapore Ministry of Digital Development and Information (MDDI)."
+    source: "https://www.imda.gov.sg"
+    sourceTitle: "www.imda.gov.sg"
+    files: null
+  - name: "Anatel"
+    title: "National Telecommunications Agency (Brazil)"
+    id: 13
+    description: "The National Telecommunications Agency (Portuguese: Agência Nacional de Telecomunicações) or Anatel is a special agency in Brazil created by the general telecommunications act."
+    source: "https://teleco.com.br/en/en_anatel.asp"
+    sourceTitle: "teleco.com"
+    files: null
+  - name: "ICASA"
+    title: "Independent Communications Authority of South Africa"
+    id: 14
+    description: "The Independent Communications Authority of South Africa (ICASA) is an independent regulatory body of the South African government, established in 2000 by the ICASA Act to regulate the telecommunications, broadcasting, and postal sectors of the country, in the public interest."
+    source: "https://www.icasa.org.za/"
+    sourceTitle: "www.icasa.org"
+    files: null
+  - name: "WPC"
+    title: "Wireless Planning and Coordination (India)"
+    id: 15
+    description: "The Wireless Planning & Coordination Wing (WPC) is a Wing of Department of Telecommunications coming under the Ministry of Communications of the Government of India. The department is responsible for issuing amateur radio licenses, allotting the frequency spectrum and monitoring the frequency spectrum."
+    source: "https://www.wpcindia.com/"
+    sourceTitle: "www.wpcindia.com"
+    files: null    
+  - name: "OFCA"
+    title: "Office of the Communications Authority (Hong Kong)"
+    id: 16
+    description: "The Office of the Communications Authority (OFCA) is an executive arm of the Communications Authority in Hong Kong. It is the body responsible for telecommunications regulation (through the Regulatory Affairs Branch), antitrust enforcement (through the Competition Affairs Branch) and allocation of the radio frequency portion of the electromagnetic spectrum (also known as spectrum management, through the Operations Branch)."
+    source: "https://www.ofca.gov.hk/"
+    sourceTitle: "www.ofca.gov.hk/"
     files: null
 ---
