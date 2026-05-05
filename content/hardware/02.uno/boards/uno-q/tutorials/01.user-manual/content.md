@@ -1463,10 +1463,10 @@ void setup() {
   // Set the chip select pin as output
   pinMode(SS, OUTPUT);
 
-  // Pull the SS pin HIGH to unselect the device
+  // Pull the SS pin HIGH to unselect the device initially
   digitalWrite(SS, HIGH);
 
-  // Initialize the SPI communication
+  // Initialize the SPI hardware pins
   SPI.begin();
 }
 
@@ -1475,14 +1475,23 @@ void loop() {
   byte address = 0x35;
   // Replace with the value to send
   byte value = 0xFA;
-  // Pull the SS pin LOW to select the device
+
+  // 1. Begin transaction (Configure speed, data order, and mode)
+  // We use 1 MHz (1000000) for broad compatibility and easy logic analysis
+  SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE0));
+
+  // 2. Pull the SS pin LOW to select the device
   digitalWrite(SS, LOW);
-  // Send the address
+
+  // 3. Send the data
   SPI.transfer(address);
-  // Send the value
   SPI.transfer(value);
-  // Pull the SS pin HIGH to unselect the device
+
+  // 4. Pull the SS pin HIGH to unselect the device
   digitalWrite(SS, HIGH);
+
+  // 5. End the transaction
+  SPI.endTransaction();
 
   delay(2000);
 }
