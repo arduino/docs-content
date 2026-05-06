@@ -51,7 +51,7 @@ App Lab now remembers your last used board and last opened app, so you can pick 
 * Faster, safer board update process
 * Better editor experience
 * SBC mode configuration fix (ongoing hardening)
-* Sound Generator Brick (enhanced)
+* Sound Generator Brick & Video Object Detection (enhanced)
 
 ### GitHub Release
 
