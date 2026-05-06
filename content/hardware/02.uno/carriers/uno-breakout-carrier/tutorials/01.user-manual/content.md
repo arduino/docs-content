@@ -544,7 +544,7 @@ The UNO Breakout Carrier exposes GPIO lines from both the MPU and the MCU throug
 
 MCU GPIO signals are accessible through the J15 header. These pins can be configured and controlled from Arduino sketches running in the Arduino App Lab using the standard Arduino programming language, just as the UNO Q's standard digital pins.
 
-To use an MCU GPIO exposed on the J15 header or JMISC connector:
+To use an MCU GPIO exposed on the J15 header:
 
 1. Create a new App in the Arduino App Lab.
 
@@ -970,9 +970,15 @@ The STM32U585 MCU's internal operational amplifier (`OPAMP1`) is exposed through
 | OPAMP1_VINP |     22      |      22       |     PA0     |
 | OPAMP1_VINM |     24      |      24       |     PA1     |
 
-The OPAMP pins are also mapped to the UNO Q's standard analog header (D3 / OPAMP OUT, D16 / OPAMP IN+, D17 / OPAMP IN-), which remain accessible on the top side UNO-style connector when the carrier is mounted.
+***The UNO Q's standard UNO-style headers expose a second internal operational amplifier (OPAMP2) through pins D3 (PB0 / OPAMP OUT), D16 (PA6 / OPAMP IN+), and D17 (PA7 / OPAMP IN-). OPAMP2 is independent of OPAMP1 and does not require the carrier to be used.***
 
-The example below reads the raw ADC value at each OPAMP pin and prints it to the App Lab console. `PA0` is the non-inverting input at J15 pin 22, `PA1` is the inverting input at J15 pin 24 and `PA3` is the output at J15 pin 20. These same pins are also accessible on the UNO Q's standard UNO-style header as D16, D17 and D3 respectively. The ADC resolution is set to 14-bit, giving a raw range of 0 to 16383. To try it in Arduino App Lab:
+| **Signal**  | **UNO Q Pin** | **MCU Pin** |
+|-------------|:-------------:|:-----------:|
+| OPAMP2_VOUT |      D3       |     PB0     |
+| OPAMP2_VINP |      D16      |     PA6     |
+| OPAMP2_VINM |      D17      |     PA7     |
+
+The example below reads the raw ADC value at each OPAMP1 pin and prints it to the App Lab console. `PA0` is the non-inverting input at J15 pin 22, `PA1` is the inverting input at J15 pin 24 and `PA3` is the output at J15 pin 20. These signals are only accessible through the carrier's J15 header and are not available on the standard UNO Q UNO-style headers. The ADC resolution is set to 14-bit, giving a raw range of 0 to 16383. To try it in Arduino App Lab:
 
 1. Create a new App in the Arduino App Lab.
 
