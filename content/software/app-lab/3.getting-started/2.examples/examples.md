@@ -57,10 +57,8 @@ Examples can only be viewed in Arduino App Lab when connected to a board. Howeve
 | Detect Objects on Camera | This example showcases object detection within a live feed from a USB camera. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/video-generic-object-detection) |
 | Detect objects on images | Object detection in the browser | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/object-detection) |
 | Detect Objects on Smartphone Camera | This example showcases object detection within a live feed from a smartphone's camera. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/mobile-video-generic-object-detection) |
-| Edge AI Assistant | Chatbot powered by a local LLM | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/edge-ai-assistant) |
 | Face Detector on Camera | This example showcases face detection within a live feed from a USB camera. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/video-face-detection) |
 | Fan Vibration Monitoring | Monitor fan vibrations and detect anomalies | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/vibration-anomaly-detection) |
-| Gesture Booth | Detects gesture and provide feedback to the user. Gesture Recognition Example | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/gesture-booth) |
 | Glass breaking sensor | Use a pre-trained model to classify audio files in the browser. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/audio-classification) |
 | Hey Arduino! | When "Hey Arduino!" keyword is detected by the microphone, the led matrix will react | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/keyword-spotting) |
 | Home climate monitoring and storage | A simple data logger that gets temperature and humidity from the board via Modulino Thermo and stores them in a database. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/home-climate-monitoring-and-storage) |
@@ -71,7 +69,6 @@ Examples can only be viewed in Arduino App Lab when connected to a board. Howeve
 | Person classifier on camera | This example showcases person classification on camera, using a camera stream from USB camera | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/video-person-classification) |
 | QR and Barcode Scanner | This example showcases how to use the Camera Code Detector Brick to detect barcodes and QR codes and display the results in a web application as well as saving the results to an SQL database. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/code-detector) |
 | Real-time Accelerometer | Real-time Accelerometer data visualization and movement detection using Modulino Movement sensor | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/real-time-accelerometer) |
-| Smart Mirror | Control a smart mirror with a web interface | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/smart-mirror) |
 | System resources logger | A simple data logger that gets system resources usage from the board and stores them in a database. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/system-resources-logger) |
 | Telegram Bot | Control your board through a Telegram bot | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/telegram-bot) |
 | Theremin simulator | A simple theremin simulator that generates audio based on user input. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/theremin) |
