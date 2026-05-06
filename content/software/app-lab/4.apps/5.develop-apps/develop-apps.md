@@ -188,7 +188,7 @@ void loop() {
 }
 ```
 
-![Screenshot of Arduino App Lab, displaying the Serial Monitor tab of the integrated Console.](../../assets/playwright/editor/console/console-panel-serial-hl-50%.png)
+![Screenshot of Arduino App Lab, displaying the Serial Monitor tab of the integrated Console.](../../assets/playwright/editor/console/console-panel-serial-hl.png)
 
 ## Python/Sketch Communication
 
