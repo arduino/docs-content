@@ -22,10 +22,14 @@ After connecting, App Lab performs an automated check to ensure your board is co
 1. Detected boards will appear in Arduino App Lab. Depending on the board configuration, they may have one or more connection options:
    - **USB:** Indicated by a USB icon next to the board model.
    - **Network:** Indicated by a Wi-Fi icon next to the board model.
-   ![Screenshot of the board selection screen in Arduino App Lab.](../../assets/configuration/initial/board-selection.png)
+   ![Screenshot of the board selection screen in Arduino App Lab.](../../assets/playwright/config/board-selection.png)
 1. Select a board to connect to it.
 
 <Alert type="info">**Note:** Network Mode will only be available once the board has been configured with a Wi-Fi network. Please connect via USB for the initial setup to configure these settings.</Alert>
+
+On subsequent connections, Arduino App Lab automatically selects the last used board and app if detected at startup. To manually switch between detected boards, use the board selection control located in the bottom-left corner.
+
+![Screenshot of the status bar in Arduino App Lab, highlighting the board selection control.](../../assets/playwright/statusbar-board-hl.png)
 
 ## Board Configuration
 
@@ -46,9 +50,14 @@ Follow these steps to complete the setup:
 
 Arduino App Lab automatically manages the software ecosystem on your board to ensure you have the latest features, security patches, and performance improvements.
 
-If updates are available, Arduino App Lab will ask if you want to install the available updates. Select **Install** to download and install the updates, or **Skip** if you don't want to update the board.
+If updates are available, Arduino App Lab will ask if you want to install the available updates: 
 
-![Reviewing software updates in Arduino App Lab](../../assets/configuration/updates/whats-new.png)
+* Select **Install** to download and install the updates, or **Skip** if you don't want to update the board.
+* Select **Show update details** for additional information about the updates.
+
+![Reviewing software updates in Arduino App Lab](../../assets/configuration/updates/standard/ORIGINAL.png)
+
+The update process is resumable—if the connection is interrupted, the download will continue once reconnected.
 
 <Alert type="info">**Note:** An active internet connection is required for the board to download update packages.</Alert>
 

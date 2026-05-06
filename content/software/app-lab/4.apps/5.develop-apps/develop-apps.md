@@ -27,39 +27,30 @@ The system also manages two configuration files: `app.yaml` (mandatory manifest 
 
 1. [Open an App](../manage-apps/#open-an-app).
 1. Find the **File Manager** in the left sidebar.
-   ![Screenshot of the App Editor in Arduino App Lab, highlighting in the Files browser.](../../assets/app-lab-editor-multi-tab-hl-files.png)
+   ![Screenshot of the App Editor in Arduino App Lab, highlighting in the Files browser.](../../assets/playwright/editor/editor-folders-expanded-files-hl.png)
 1. If folders are not displaying correctly, try closing and expanding the File Manager.
 1. Click on a folder to expand it.
 1. Click on a file to open it in a new tab.
 
 ### Add Files or Folders
 
-**Create a file or folder in the project root directory:**
-
-1. Select an existing file on the same level, like `README.md`.
-1. Click the **Create file** icon.
-   ![The "Create file" icon in Arduino App Lab.](../../assets/app-lab-editor-files-hl-add.png)
+1. **Right-click** an empty area in the **File Manager**, or a specific folder where you want to add the new file or folder.
 1. Select one of the following:
    - _Create new file_
    - _Create new folder_
 
-**Create a file or folder inside a folder:**
+You can also click the **Add File** to create a new file or folder at the same level as your current selection.
 
-1. **Right-click** on a folder.
-1. Select one of the following:
-   - _Create new file_
-   - _Create new folder_
+### Rename or Delete Files and Folders
 
-### Rename or Delete Files
-
-1. **Right-click** on the file you want to rename or delete.
+1. **Right-click** on the file or folder you want to rename or delete.
 1. Select one of the following:
    - _Rename_
    - _Delete_
 
 ### Moving files and folders
 
-Arduino App Lab currently does not support moving files and folders.
+The file tree supports **Drag and Drop** organization. Simply click and hold a file or folder, then drag it to your desired location within the project structure.
 
 ## Python Development
 
@@ -120,8 +111,8 @@ Bricks are pre-packaged code modules that run as separate processes alongside yo
 
 **To use a Brick:**
 
-1. Click the **Add Brick** button in the left sidebar to open the Bricks catalog.
-   ![Screenshot of the App Editor in Arduino App Lab, highlighting the Bricks section in the left sidebar.](../../assets/app-lab-editor-hl-bricks.png)
+1. Click the **Add Brick** button at the top of the Editor sidebar to open the Bricks catalog.
+   ![Screenshot of the App Editor in Arduino App Lab, highlighting the Bricks section in the Editor sidebar.](../../assets/playwright/editor/add-brick-button.png)
 2. Select a Brick from the list and follow the prompts to configure any required settings.
 3. Arduino App Lab automatically adds the Brick configuration to your `app.yaml` file. Note that you should not manually edit the `bricks` entry in this file.
 4. Review the Brick's documentation, which Arduino App Lab opens in a new tab when you add the Brick. The **Overview** and **Usage examples** contain the specific code needed for implementation.
@@ -156,40 +147,37 @@ In Arduino App Lab, you install libraries on a per-App basis to prevent version 
 
 **To add a library:**
 
-1. Click the **Add sketch library** button (the open book icon with a **+** sign) in the left sidebar.
-   ![Screenshot of the App Editor in Arduino App Lab. The "Sketch Libraries" section in the left sidebar is highlighted.](../../assets/app-lab-editor-hl-libraries.png)
+1. Click the **Add sketch library** button (the open book icon with a **+** sign) at the top of the Editor sidebar.
+   ![Screenshot of the App Editor in Arduino App Lab. The "Sketch Libraries" section in the Editor sidebar is highlighted.](../../assets/playwright/editor/add-library-button.png)
 2. Search for the library you need (e.g., `Servo` or `OneWire`).
 3. Select the desired version and click **Install**.
 4. Arduino App Lab updates the `sketch.yaml` file automatically and downloads the library when you launch the App.
 
 ### Serial Monitor
 
-The system routes standard `Serial.print()` commands from your sketch to hardware UART pins (0 and 1), so they do not appear in the App Lab console. To debug your code in the UI, use the `Monitor` object.
+Standard `Serial.print()` and `Serial.println()` commands are automatically routed to the **Serial Monitor** tab in the App Lab console.
 
-**To use the Monitor:**
+<Alert type="info">**Note:** As of Zephyr core 0.55.0, `Serial` commands are supported. The **Arduino_RouterBridge** library is included by default, and you no longer need to manually install or include it in your sketch. For more information, see [Migrating to Zephyr core 0.55.0 on UNO Q](https://support.arduino.cc/hc/en-us/articles/27251870677916-Migrating-to-Zephyr-core-0-55-0-on-UNO-Q)</Alert>
 
-1. [Use the Sketch Libraries Manager](#add-sketch-libraries) to add the **Arduino_RouterBridge** library.
-1. Include the bridge header at the top of your sketch: `#include "Arduino_RouterBridge.h"`.
-1. Call `Monitor.begin();` inside your `setup()` function.
-1. Use `Monitor.print()` or `Monitor.println()` for logging. Output will appear in the **Serial Monitor** tab of the Console.
+**To use the Serial Monitor:**
 
-This sketch will print `Hello from the MCU!` once per second:
+1. Open the `serial/sketch.ino` file.
+1. Call `Serial.begin()` inside your `setup()` function.
+1. Use `Serial.print()` or `Serial.println()` for logging. This example sketch prints `Hello from the MCU!` once per second:
+   ```cpp
+   void setup() {
+     Serial.begin();
+   }
+   
+   void loop() {
+     Serial.println("Hello from the MCU!");
+     delay(1000);
+   }
+   ```
+1. When your App is running, output will appear in the **Serial Monitor** tab of the console panel at the bottom of the editor.
+   ![Screenshot of Arduino App Lab, displaying the Serial Monitor tab of the integrated Console.](../../assets/playwright/editor/console/console-panel-serial-hl.png)
 
-```cpp
-#include "Arduino_RouterBridge.h"
-
-void setup() {
-  Bridge.begin();
-  Monitor.begin();
-}
-
-void loop() {
-  Monitor.println("Hello from the MCU!");
-  delay(1000);
-}
-```
-
-![Screenshot of Arduino App Lab, displaying the Serial Monitor tab of the Console.](../../assets/app-lab-editor-console-serial-monitor-top.png)
+<Alert type="success">**Tip:** You may also use the `Monitor` object directly. `Monitor.begin()`, `Monitor.print()`, and `Monitor.println()` are used in many examples.</Alert>
 
 ## Python/Sketch Communication
 
@@ -201,10 +189,10 @@ See [Getting Started with the Bridge](../../bridge/get-started-with-bridge/) to 
 
 Once your code is ready, click the **Run** button in the top right corner. The environment will compile the sketch, flash it to the microcontroller, and start the Python container.
 
-Monitor your App using the **Console** at the top of the interface by selecting the following tabs:
+Monitor your App using the **Console** panel at the bottom of the editor by selecting the following tabs:
 
 - **App launch**: Compilation output and deployment logs.
-- **Serial Monitor**: `Monitor.print()` output from your Arduino sketch.
+- **Serial Monitor**: `Monitor.print()` or `Serial.print()` output from your Arduino sketch.
 - **Python**: `print()` output from your Python script.
 
 See [Run and Monitor Apps](../run/) to learn more.
