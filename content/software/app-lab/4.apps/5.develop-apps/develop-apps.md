@@ -155,40 +155,29 @@ In Arduino App Lab, you install libraries on a per-App basis to prevent version 
 
 ### Serial Monitor
 
-In Arduino App Lab, the standard `Serial.print()` commands are automatically routed to the **Serial Monitor** tab in the App Lab console via the Bridge.
+Standard `Serial.print()` and `Serial.println()` commands are automatically routed to the **Serial Monitor** tab in the App Lab console.
+
+<Alert type="info">**Note:** As of Zephyr core 0.55.0, `Serial` commands are supported. The **Arduino_RouterBridge** library is included by default, and you no longer need to manually install or include it in your sketch. For more information, see [Migrating to Zephyr core 0.55.0 on UNO Q](https://support.arduino.cc/hc/en-us/articles/27251870677916-Migrating-to-Zephyr-core-0-55-0-on-UNO-Q)</Alert>
 
 **To use the Serial Monitor:**
 
-1. [Use the Sketch Libraries Manager](#add-sketch-libraries) to add the **Arduino_RouterBridge** library.
-1. Include the bridge header at the top of your sketch: `#include "Arduino_RouterBridge.h"`.
-1. Call `Serial.begin();` inside your `setup()` function.
-1. Use `Serial.print()` or `Serial.println()` for logging. Output will appear in the **Serial Monitor** tab of the integrated console panel at the bottom of the editor.
+1. Open the `serial/sketch.ino` file.
+1. Call `Serial.begin()` inside your `setup()` function.
+1. Use `Serial.print()` or `Serial.println()` for logging. This example sketch prints `Hello from the MCU!` once per second:
+   ```cpp
+   void setup() {
+     Serial.begin();
+   }
+   
+   void loop() {
+     Serial.println("Hello from the MCU!");
+     delay(1000);
+   }
+   ```
+1. When your App is running, output will appear in the **Serial Monitor** tab of the console panel at the bottom of the editor.
+   ![Screenshot of Arduino App Lab, displaying the Serial Monitor tab of the integrated Console.](../../assets/playwright/editor/console/console-panel-serial-hl.png)
 
-This sketch will print `Hello from the MCU!` once per second:
-
-```cpp
-void setup() {
-  Monitor.begin();
-}
-
-void loop() {
-  Monitor.println("Hello from the MCU!");
-  delay(1000);
-}
-```
-
-```cpp
-void setup() {
-  Serial.begin();
-}
-
-void loop() {
-  Serial.println("Hello from the MCU!");
-  delay(1000);
-}
-```
-
-![Screenshot of Arduino App Lab, displaying the Serial Monitor tab of the integrated Console.](../../assets/playwright/editor/console/console-panel-serial-hl.png)
+<Alert type="success">**Tip:** You may also use the `Monitor` object directly. `Monitor.begin()`, `Monitor.print()`, and `Monitor.println()` are used in many examples.</Alert>
 
 ## Python/Sketch Communication
 
