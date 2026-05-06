@@ -36,9 +36,9 @@ Once configured, your board will automatically start the App on boot.
 You can **stop** a running App in two ways:
 
 - When you run an App, the **Run** button will be replaced by a **Stop** button. Click it to halt the application.
-  ![Screenshot of the App Editor in Arduino App Lab, highlighting the Stop button in the top-right corner.](../../assets/app-lab-console/running/running-hl-top-stop-button.png)
+  ![Screenshot of the App Editor in Arduino App Lab, highlighting the Stop button in the top-right corner.](../../assets/playwright/editor/stop-button.png)
 - You can always stop a running App by clicking the **Stop** button in the right corner of the **bottom status bar**.
-  ![Screenshot of Arduino App Lab, highlighting the Stop button in the right corner of the bottom status bar.](../../assets/app-lab-console/running/running-hl-bottom-stop-button.png)
+  ![Screenshot of Arduino App Lab, highlighting the Stop button in the right corner of the bottom status bar.](../../assets/playwright/editor/stop-button-bottom.png)
 
 ## Monitor an App
 

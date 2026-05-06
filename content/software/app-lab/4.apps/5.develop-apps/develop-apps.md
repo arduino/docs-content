@@ -27,30 +27,19 @@ The system also manages two configuration files: `app.yaml` (mandatory manifest 
 
 1. [Open an App](../manage-apps/#open-an-app).
 1. Find the **File Manager** in the left sidebar.
-   ![Screenshot of the App Editor in Arduino App Lab, highlighting in the Files browser.](../../assets/app-lab-editor-multi-tab-hl-files.png)
+   ![Screenshot of the App Editor in Arduino App Lab, highlighting in the Files browser.](../../assets/playwright/editor/editor-folders-expanded-files-hl.png)
 1. If folders are not displaying correctly, try closing and expanding the File Manager.
 1. Click on a folder to expand it.
 1. Click on a file to open it in a new tab.
 
 ### Add Files or Folders
 
-The **Editor sidebar** features quick-access buttons at the top to **Add Brick**, **Add Sketch Library**, and **Add File**.
-
-**Create a file or folder in the project root directory:**
-
-1. Select an existing file on the same level, like `README.md`.
-1. Click the **Create file** icon at the top of the Editor sidebar.
-   ![The "Create file" icon in Arduino App Lab.](../../assets/app-lab-editor-files-hl-add.png)
+1. **Right-click** an empty area in the **File Manager**, or a specific folder where you want to add the new file or folder.
 1. Select one of the following:
    - _Create new file_
    - _Create new folder_
 
-**Create a file or folder inside a folder:**
-
-1. **Right-click** on a folder.
-1. Select one of the following:
-   - _Create new file_
-   - _Create new folder_
+You can also click the **Add File** to create a new file or folder at the same level as your current selection.
 
 ### Rename or Delete Files and Folders
 
@@ -123,7 +112,7 @@ Bricks are pre-packaged code modules that run as separate processes alongside yo
 **To use a Brick:**
 
 1. Click the **Add Brick** button at the top of the Editor sidebar to open the Bricks catalog.
-   ![Screenshot of the App Editor in Arduino App Lab, highlighting the Bricks section in the Editor sidebar.](../../assets/app-lab-editor-hl-bricks.png)
+   ![Screenshot of the App Editor in Arduino App Lab, highlighting the Bricks section in the Editor sidebar.](../../assets/playwright/editor/add-brick-button.png)
 2. Select a Brick from the list and follow the prompts to configure any required settings.
 3. Arduino App Lab automatically adds the Brick configuration to your `app.yaml` file. Note that you should not manually edit the `bricks` entry in this file.
 4. Review the Brick's documentation, which Arduino App Lab opens in a new tab when you add the Brick. The **Overview** and **Usage examples** contain the specific code needed for implementation.
@@ -159,7 +148,7 @@ In Arduino App Lab, you install libraries on a per-App basis to prevent version 
 **To add a library:**
 
 1. Click the **Add sketch library** button (the open book icon with a **+** sign) at the top of the Editor sidebar.
-   ![Screenshot of the App Editor in Arduino App Lab. The "Sketch Libraries" section in the Editor sidebar is highlighted.](../../assets/app-lab-editor-hl-libraries.png)
+   ![Screenshot of the App Editor in Arduino App Lab. The "Sketch Libraries" section in the Editor sidebar is highlighted.](../../assets/playwright/editor/add-library-button.png)
 2. Search for the library you need (e.g., `Servo` or `OneWire`).
 3. Select the desired version and click **Install**.
 4. Arduino App Lab updates the `sketch.yaml` file automatically and downloads the library when you launch the App.
@@ -178,10 +167,18 @@ In Arduino App Lab, the standard `Serial.print()` commands are automatically rou
 This sketch will print `Hello from the MCU!` once per second:
 
 ```cpp
-#include "Arduino_RouterBridge.h"
-
 void setup() {
-  Bridge.begin();
+  Monitor.begin();
+}
+
+void loop() {
+  Monitor.println("Hello from the MCU!");
+  delay(1000);
+}
+```
+
+```cpp
+void setup() {
   Serial.begin();
 }
 
@@ -191,7 +188,7 @@ void loop() {
 }
 ```
 
-![Screenshot of Arduino App Lab, displaying the Serial Monitor tab of the integrated Console.](../../assets/app-lab-editor-console-serial-monitor-top.png)
+![Screenshot of Arduino App Lab, displaying the Serial Monitor tab of the integrated Console.](../../assets/playwright/editor/console/console-panel-serial-hl-50%.png)
 
 ## Python/Sketch Communication
 

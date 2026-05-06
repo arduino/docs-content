@@ -22,7 +22,7 @@ After connecting, App Lab performs an automated check to ensure your board is co
 1. Detected boards will appear in Arduino App Lab. Depending on the board configuration, they may have one or more connection options:
    - **USB:** Indicated by a USB icon next to the board model.
    - **Network:** Indicated by a Wi-Fi icon next to the board model.
-   ![Screenshot of the board selection screen in Arduino App Lab.](../../assets/configuration/initial/board-selection.png)
+   ![Screenshot of the board selection screen in Arduino App Lab.](../../assets/playwright/config/board-selection.png)
 1. Select a board to connect to it.
 
 <Alert type="info">**Note:** Network Mode will only be available once the board has been configured with a Wi-Fi network. Please connect via USB for the initial setup to configure these settings.</Alert>
