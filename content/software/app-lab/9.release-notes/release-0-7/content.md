@@ -28,10 +28,6 @@ This page contains all release notes for Arduino App Lab. To access the software
 * Improved board update process
 * Fixed bug while configuring board in SBC mode
 
-**New Bricks:**
-
-* Video Object Detection
-
 ### Full Version
 
 **Custom Bricks**
