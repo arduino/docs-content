@@ -27,6 +27,10 @@ After connecting, App Lab performs an automated check to ensure your board is co
 
 <Alert type="info">**Note:** Network Mode will only be available once the board has been configured with a Wi-Fi network. Please connect via USB for the initial setup to configure these settings.</Alert>
 
+On subsequent connections, Arduino App Lab automatically selects the last used board and app if detected at startup. To manually switch between detected boards, use the board selection control located in the bottom-left corner.
+
+![Screenshot of the status bar in Arduino App Lab, highlighting the board selection control.](../../assets/playwright/statusbar-board-hl.png)
+
 ## Board Configuration
 
 A setup wizard will automatically launch if the board has not been configured, is missing network working network credentials, or requires a Linux password.
