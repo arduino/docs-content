@@ -34,7 +34,7 @@ If you want to start with a blank canvas, you can generate a new App template di
 
 1. [Open an App](#open-an-app)
 1. Select the arrow (**▼**) next to the App name near the top left corner.
-   ![Screenshot of App Editor in Arduino App Lab, highlighting the app menu button.](../../assets/app-lab-editor-toolbar-hl-app-menu.png)
+   ![Screenshot of App Editor in Arduino App Lab, highlighting the app menu button.](../../assets/playwright/editor/app-actions-button.png)
 1. In the menu, select **Duplicate**.
 1. Change the emoji or name for your new App (optional).
 1. Click **Create new**.
@@ -45,7 +45,7 @@ You can rename an App you've created directly within the editor.
 
 1. [Open an App](#open-an-app).
 1. Select the arrow (**▼**) next to the App name near the top left corner.
-   ![Screenshot of App Editor in Arduino App Lab, highlighting the app menu button.](../../assets/app-lab-editor-toolbar-hl-app-menu.png)
+   ![Screenshot of App Editor in Arduino App Lab, highlighting the app menu button.](../../assets/playwright/editor/app-actions-button.png)
 1. In the menu, select **Rename**.
 1. Enter a new name for your App and press **Enter**.
 
@@ -59,7 +59,7 @@ App Lab uses emojis as icons to help you identify your projects in the **My Apps
 
 1. [Open an App](#open-an-app).
 2. Select the current emoji next to your App name near the top left corner.
-   ![Screenshot of App Editor in Arduino App Lab, highlighting the App emoji.](../../assets/app-lab-editor-toolbar-hl-emoji-picker.png)
+   ![Screenshot of App Editor in Arduino App Lab, highlighting the App emoji.](../../assets/playwright/editor/emoji-picker-button.png)
 3. Use the emoji picker to select a new icon.
 
 ## Import an App
