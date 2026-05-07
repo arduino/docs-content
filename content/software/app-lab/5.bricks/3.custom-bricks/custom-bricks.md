@@ -1,6 +1,6 @@
 ---
 title: Create Custom Bricks in Arduino App Lab
-description: Learn how to create and manage Custom Bricks to extend your App Lab applications with personalized Python libraries and Docker containers.
+description: Learn how to create and manage Custom Bricks to expand your Apps with custom Python libraries and Docker containers.
 overwriteSidebar: Custom Bricks
 tags:
   - Bricks
@@ -10,42 +10,29 @@ tags:
   - Arduino App Lab
 ---
 
-**Custom Bricks** transform App Lab into an extensible platform, allowing you to package your own specialized services or third-party tools into modular, reusable components. Build something once, package it as a Brick, and reuse it across your project.
+**Custom Bricks** let you package your own Python modules or third-party Docker services into reusable components. Build a feature once, package it as a Custom Brick, and reuse it across your projects.
 
-While the built-in Bricks provide ready-to-use functionalities like AI models and Web UIs, Custom Bricks give you the freedom to integrate any tool or service you need. If you can code it in Python, you can make a Brick out of it.
-
-## Types of Custom Bricks
-
-Custom Bricks come in two varieties, suited to different levels of complexity:
-
-1. **Python-only Bricks**: The simplest approach. You create a Python library that exposes an API to your main program. This is perfect for utility functions, data processing, or custom algorithms you want to reuse.
-2. **Python + Container Bricks**: Add Docker containers to your Brick for more powerful capabilities. This allows you to run specialized tools, external APIs, or complex services (like a PostgreSQL database or a custom MQTT broker) alongside your app in isolated environments.
+While Arduino Bricks provide ready-to-use features, Custom Bricks let you integrate any tool or service your application needs. 
 
 ## Anatomy of a Custom Brick
 
-A Custom Brick is a self-contained Python package stored locally within your App's directory. Each Custom Brick is located inside a reserved `bricks/` folder within your App's root directory, and the Brick's ID corresponds to the name of its Python package folder.
+A Custom Brick is a self-contained package stored locally within your App. Each Custom Brick is located inside the `bricks/` folder within your App's root directory, and the Brick's ID corresponds to the name of its folder. Custom Bricks don't use a namespace prefix (like `arduino:`).
 
 A typical Custom Brick structure looks like this:
 
 ```text
 my-app/
 ├── app.yaml
-├── python/
-│   └── main.py
+├── python/main.py
 └── bricks/
-    └── my_custom_brick/            # The Brick ID and Python package name
-        ├── __init__.py             # Your Python logic
-        ├── brick_config.yaml       # Brick metadata (ID, name, description)
-        ├── brick_compose.yaml      # (Optional) Docker Compose configuration
-        ├── requirements.txt        # (Optional) Python dependencies
-        ├── docs/                   # (Optional) Brick documentation
-        │   └── API.md
-        └── examples/               # (Optional) Usage examples
-            ├── 01_basic.py
-            └── 02_advanced.py
+    └── my_custom_brick/            # The Brick ID and folder name
+        ├── __init__.py             # Python logic (required)
+        ├── brick_config.yaml       # Brick metadata and variables (required)
+        ├── brick_compose.yaml      # Docker Compose configuration (optional)
+        └── requirements.txt        # Python dependencies (optional)
 ```
 
-<Alert type="info">**Note:** Custom Bricks are local to the App they are created in. They are not shared across different Apps or shown in the built-in Bricks index.</Alert>
+<Alert type="info">**Note:** Custom Bricks are local to the App they are created in. They are not shared across different Apps or shown in the official Bricks index.</Alert>
 
 ## Create a Custom Brick
 
@@ -59,61 +46,95 @@ You can generate the foundational structure for a Custom Brick directly from the
 
 ### Configuration (`brick_config.yaml`)
 
-The `brick_config.yaml` file defines the identity of your Brick.
+The `brick_config.yaml` file defines the identity of your Brick and the environment variables it accepts from the App Lab UI.
 
 ```yaml
 id: my_custom_brick
 name: My Custom Brick
 description: "A description of what my Custom Brick does."
+category: miscellaneous
+variables:
+  - name: "MY_SETTING"
+    description: "A custom setting for this brick"
+    default_value: "123"
 ```
-
-When your App is initialized, the system automatically reads this file and makes the Brick available. Ensure the `id` matches the folder name exactly.
 
 ### Python Logic (`__init__.py`)
 
-This is where you write the Python code that interfaces with your App. You expose functionality using the `@brick` decorator provided by the Arduino App Lab utilities.
+Custom Bricks can be implemented in two ways depending on your needs:
+
+#### 1. Simple Function-based Bricks
+For utility functions or simple logic, you define plain Python functions. You don't need to use any special decorators.
 
 ```python
+# bricks/my_custom_brick/__init__.py
+def say_hello():
+    print("Hello from the custom brick!")
+```
+
+#### 2. Managed Class-based Bricks
+If you want your Custom Brick to behave exactly like an official Brick with automatic lifecycle management (background threads, startup/shutdown hooks), you can use the `@brick` decorator.
+
+```python
+# bricks/my_custom_brick/__init__.py
 from arduino.app_utils import brick
+import time
 
 @brick
-class CustomBrick:
-    """My Custom Brick implementation."""
-
-    def __init__(self):
-        print("[CustomBrick] Initialized")
+class MyManagedBrick:
+    def start(self):
+        print("[Brick] Started")
     
-    def do_something(self):
-        print("[CustomBrick] Doing something useful...")
+    @brick.loop
+    def my_background_task(self):
+        print("[Brick] Running in background...")
+        time.sleep(1)
 ```
 
 ### Docker Containers (`brick_compose.yaml`)
 
-If your Custom Brick requires external services, you can define them using a Docker Compose file. The system will automatically pull and run these containers alongside your App.
+If your Custom Brick requires external services (like a database or an AI inference engine), you can define them using a standard Docker Compose file. The orchestrator will automatically pull and run these containers alongside your App. For full details on Docker capabilities and networking, see the [Bricks Technical Reference](../bricks-reference/).
 
 ```yaml
+# bricks/my_custom_brick/brick_compose.yaml
 services:
-  my_service:
-    image: custom_registry/my_service:latest
-    ports:
-      - "8080:8080"
+  my_database:
+    image: postgres:latest
 ```
 
-<Alert type="warning">**Important:** Docker images specified in `brick_compose.yaml` must be publicly accessible, as App Lab does not currently support private registries for Custom Bricks.</Alert>
+<Alert type="warning">**Important:** The orchestrator executes the custom brick's Python code (in `__init__.py`) within the main application's container, **not** inside the custom Docker containers you define here. This means your Python code can't directly access system libraries or files inside `my_database`. Instead, your Python code must communicate with the containerized service over the virtual Docker Compose network using a network API (such as HTTP, WebSockets, or TCP/IP). You can reach the service using the service name defined in your `brick_compose.yaml` (e.g., `my_database`) as the hostname.</Alert>
+
+<Alert type="info">**Note:** Docker images specified in `brick_compose.yaml` must be publicly accessible, as App Lab doesn't currently support private registries for Custom Bricks.</Alert>
 
 ## Using Your Custom Brick
 
-Once created, using a Custom Brick is identical to using a built-in Brick. Import the class from your package and initialize it in your App's `main.py`.
+Once created, you must register your Custom Brick in `app.yaml` and import it into `main.py`.
+
+**1. Registration:** The App Lab UI manages `app.yaml` for you when you create the Custom Brick.
+```yaml
+# app.yaml
+bricks:
+  - my_custom_brick:
+      variables:
+        MY_SETTING: "123"
+```
+
+**2. Implementation:** Because the orchestrator automatically adds the `bricks/` directory to your Python path, you can import your custom brick directly by its folder name. 
 
 ```python
+# python/main.py
+import os
 from arduino.app_utils import App
-from my_custom_brick import CustomBrick
+from my_custom_brick import say_hello, MyManagedBrick
 
-# Initialize the Custom Brick
-my_brick = CustomBrick()
+# Call a simple function
+say_hello()
 
-# Use its functionality
-my_brick.do_something()
+# Read the variable passed from the UI
+print("Setting:", os.getenv("MY_SETTING"))
+
+# Instantiate a managed brick so App.run() handles it
+managed_brick = MyManagedBrick()
 
 # Start the App
 App.run()
@@ -121,28 +142,24 @@ App.run()
 
 ## AI Models in Custom Bricks
 
-Advanced Custom Bricks can utilize their own local index of AI models by including a `models-list.yaml` file. This allows the Brick to declare dependencies on specific models that need to be downloaded to the board.
+In the App Lab ecosystem, there is a strict separation between **AI Bricks** (the Python interface and Docker Runner) and **AI Models** (the data blobs/weights). 
+
+If your Custom Brick relies on Edge Impulse models, you declare them in a `models-list.yaml` file. The orchestrator uses this file to download the `.eim` models to the board so the runner can load them.
 
 ```yaml
-# models-list.yaml inside your Custom Brick folder
+# bricks/my_custom_brick/models-list.yaml
 models:
   - my-model:
       runner: brick
-      name: "Lightweight-Face-Detection"
-      description: "My custom detection model"
-      model_labels:
-        - face
+      name: "Custom Model"
       bricks:
         - id: "my_custom_brick"
-          model_configuration:
-            "MY_ENV": "test"
       metadata:
-        source: "qualcomm-ai-hub"
-        ei-gpu-mode: false
-        ei-project-id: 830703
-        ei-model-url: "https://studio.edgeimpulse.com/public/830703/live"      
-        source-model-id: "face-det-lite"
-        source-model-url: "https://aihub.qualcomm.com/models/face_det_lite"
+        ei-project-id: 12345
+        ei-model-url: "https://studio.edgeimpulse.com/public/12345/live"
 ```
 
 <Alert type="info">**Note:** When you export an App that contains a Custom Brick, the Brick's source code is included in the export. However, external dependencies like AI models or Docker images are not exported and must be re-downloaded when the App is imported elsewhere.</Alert>
+
+>
+
