@@ -6,7 +6,7 @@ import urllib.parse
 
 # Regex for Markdown images: ![alt](link "title")
 # Handles one level of nested parentheses in the link (e.g., for file paths like "image_(1).png").
-MD_IMAGE_REGEX = re.compile(r'!\[(?P<alt>[^\]]*)\]\((?P<inner>(?:[^)(]+|\([^)(]*\))+)\)')
+MD_IMAGE_REGEX = re.compile(r'!\[(?P<alt>[^\]]*)\]\((?P<inner>(?:[^)(]|\([^)(]*\))*)\)')
 
 # Regex for HTML images: <img src="link" ...>
 HTML_IMAGE_REGEX = re.compile(r'<img\s+[^>]*src=["\'](?P<link>[^"\']+)["\'][^>]*>')
