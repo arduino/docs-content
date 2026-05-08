@@ -1674,7 +1674,7 @@ With this example the UNO Q will send back whatever it receives on the UART.
 
 #### From Serial to Monitor
 
-Starting with **Arduino App Lab 0.7.0**, the UNO Q fully supports legacy `Serial` communication for debugging. You can now use `Serial.print()` and `Serial.println()` commands to display data, sensor readings, or any other messages directly in the _Arduino App Lab Console_, just as you would with other Arduino boards.
+Starting with version 0.55.0 of the **Arduino UNO Q Board** platform, the UNO Q fully supports legacy `Serial` communication for debugging. You can now use `Serial.print()` and `Serial.println()` commands to display data, sensor readings, or any other messages directly in the _Arduino App Lab Console_, just as you would with other Arduino boards.
 
 ```cpp
 void setup() {
@@ -1689,7 +1689,7 @@ void loop() {
 }
 ```
 
-Because of the UNO Q's architecture, earlier versions of Arduino App Lab required a specific `Monitor` object to print to the console instead of `Serial`.
+Because of the UNO Q's architecture, earlier versions of the **Arduino UNO Q Board** platform required a specific `Monitor` object to print to the console instead of `Serial`.
 
 For backward compatibility, the `Monitor` object is still fully supported. If you are maintaining an older project, code using the `Arduino_RouterBridge` library will continue to work without any changes:
 
