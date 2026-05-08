@@ -1600,29 +1600,31 @@ The pins used in the UNO Q for the UART communication protocol are the following
 
 Please, refer to the [board pinout section](#pinout) of the user manual to locate them on the board.
 
+***To communicate over the hardware serial pins on the JDIGITAL connector, the `Serial1` object must be used.***
+
 To begin with UART communication, you will need to configure it first. In the `setup()` function, set the baud rate (bits per second):
 
 ```cpp
 // Start UART communication at 115200 baud
-Serial.begin(115200);
+Serial1.begin(115200);
 ```
 
 To transmit data to another device via UART, you can use the `write()` function:
 
 ```cpp
 // Transmit the string "Hello UNO Q"
-Serial.write("Hello UNO Q");
-Serial.write("\r\n"); // new line
+Serial1.write("Hello UNO Q");
+Serial1.write("\r\n"); // new line
 ```
 
 You can also use the `print` and `println()` to send a string without a newline character or followed by a newline character:
 
 ```cpp
 // Transmit the string "Hello UNO Q"
-Serial.print("Hello UNO Q");
+Serial1.print("Hello UNO Q");
 
 // Transmit the string "Hello UNO Q" followed by a newline character
-Serial.println("Hello UNO Q");
+Serial1.println("Hello UNO Q");
 ```
 
 To test the UART transmit method use the following example, remember to create a new App in the Arduino App Lab, then copy and paste the example below:
@@ -1630,12 +1632,12 @@ To test the UART transmit method use the following example, remember to create a
 ```cpp
 void setup() {
   // Initialize the hardware UART at 115200 bps
-  Serial.begin(115200);
+  Serial1.begin(115200);
 }
 
 void loop() {
   // Transmit the string "Hello UNO Q" followed by a newline character
-  Serial.println("Hello UNO Q");
+  Serial1.println("Hello UNO Q");
   delay(1000);
 }
 ```
@@ -1651,16 +1653,16 @@ String incoming = "";
 
 void setup() {
   // Initialize the hardware UART at 115200 baud
-  Serial.begin(115200);
+  Serial1.begin(115200);
 }
 
 void loop() {
-  while (Serial.available()) {
-    char c = Serial.read();
+  while (Serial1.available()) {
+    char c = Serial1.read();
 
     if (c == '\n') {
       // Echo the buffered message and add a newline
-      Serial.println(incoming);
+      Serial1.println(incoming);
 
       // Clear for the next message
       incoming = "";
