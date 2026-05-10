@@ -150,10 +150,6 @@ Once your code is uploaded, open the serial monitor. Make sure the serial monito
 
 The complete sketch is below.
 
-<iframe
-  src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=gsm_generic_1_6_1%2FSendSMS&slid=GSM_Generic%401.6.1&view-mode=embed"
-  style={{ height: "510px", width: "100%", margin: "10px 0" }}
-  frameBorder="0"
-></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=gsm_generic_1_6_1%2FSendSMS&slid=GSM_Generic%401.6.1&view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameBorder="0"></iframe>
 
 *Last revision 2018/08/23 by SM*

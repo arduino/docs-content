@@ -130,8 +130,4 @@ Draw the image onscreen starting at the random coordinates from the previous ste
 
 The complete sketch is below:
 
-<iframe
-  src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=tft_1_0_6%2FArduino%2FTFTBitmapLogo&slid=TFT%401.0.6&view-mode=embed"
-  style={{ height: "510px", width: "100%", margin: "10px 0" }}
-  frameBorder="0"
-></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=tft_1_0_6%2FArduino%2FTFTBitmapLogo&slid=TFT%401.0.6&view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameBorder="0"></iframe>

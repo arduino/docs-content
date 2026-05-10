@@ -214,8 +214,4 @@ void loop() {
 }
 ```
 
-<iframe
-  src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=tft_1_0_6%2FArduino%2FTFTEtchASketch&slid=TFT%401.0.6&view-mode=embed"
-  style={{ height: "510px", width: "100%", margin: "10px 0" }}
-  frameBorder="0"
-></iframe>content/retired/07.library-examples/tft-library/TFTGraph/TFTGraph.md
+<iframe src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=tft_1_0_6%2FArduino%2FTFTEtchASketch&slid=TFT%401.0.6&view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameBorder="0"></iframe>

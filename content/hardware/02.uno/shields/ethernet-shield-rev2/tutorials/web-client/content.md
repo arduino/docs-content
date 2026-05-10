@@ -31,10 +31,6 @@ Image developed using [Fritzing](https://fritzing.org). For more circuit example
 
 ## Code
 
-<iframe
-  src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=ethernet_2_0_2%2FWebServer&slid=Ethernet%402.0.2&view-mode=embed"
-  style={{ height: "510px", width: "100%", margin: "10px 0" }}
-  frameBorder="0"
-></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=ethernet_2_0_2%2FWebClient&slid=Ethernet%402.0.2&view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameBorder="0"></iframe>
 
 *Last revision 2018/09/07 by SM*

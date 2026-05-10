@@ -66,8 +66,4 @@ As long as there are bytes from the server in the client buffer, read the bytes 
 
 The complete sketch is below:
 
-<iframe
-  src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=bridge_1_7_0%2FHttpClient&slid=Bridge%401.7.0&view-mode=embed"
-  style={{ height: "510px", width: "100%", margin: "10px 0" }}
-  frameBorder="0"
-></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=bridge_1_7_0%2FHttpClient&slid=Bridge%401.7.0&view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameBorder="0"></iframe>
