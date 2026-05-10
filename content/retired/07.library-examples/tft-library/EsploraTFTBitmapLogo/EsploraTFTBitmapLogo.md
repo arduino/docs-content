@@ -211,6 +211,7 @@ void loop() {
   EsploraTFT.image(logo, x, y);
 
   // wait a little bit before drawing again
+
   delay(1500);
 }
 ```

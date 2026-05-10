@@ -5,7 +5,7 @@ title: 'Ethernet Shield Web Client'
 description: 'Learn how to make a HTTP request with the Ethernet Shield.'
 ---
 
-This example shows you how to make a HTTP request using an Ethernet shield.  It returns a [Google search for the term "Arduino"](http://www.google.com/search?q=arduino). The results of this search are viewable as HTML in the Serial Monitor.
+This example shows you how to make a HTTP request using an Ethernet shield. It returns a [Google search for the term "Arduino"](https://www.google.com/search?q=arduino). The results of this search are viewable as HTML in the Serial Monitor.
 
 ## Hardware Required
 
@@ -15,15 +15,15 @@ This example shows you how to make a HTTP request using an Ethernet shield.  It 
 
 ## Circuit
 
-The Ethernet shield allows you to connect a WIZNet Ethernet controller to the Arduino boards via the SPI bus. It uses the ICSP header pins and pin 10 as chip select for the SPI connection to the Ethernet controller chip.  Later models of the Ethernet shield also have an SD Card on board. Digital pin 4 is used to control the chip select pin on the SD card.
+The Ethernet shield allows you to connect a WIZNet Ethernet controller to the Arduino boards via the SPI bus. It uses the ICSP header pins and pin 10 as chip select for the SPI connection to the Ethernet controller chip. Later models of the Ethernet shield also have an SD Card on board. Digital pin 4 is used to control the chip select pin on the SD card.
 
-The shield should be connected to a network with an Ethernet cable.  You will need to change the network settings in the program to correspond to your network.
+The shield should be connected to a network with an Ethernet cable. You will need to change the network settings in the program to correspond to your network.
 
 ![The circuit for this tutorial.](assets/EthernetShieldF_bb.png)
 
-Image developed using [Fritzing](http://www.fritzing.org). For more circuit examples, see the [Fritzing project page](http://fritzing.org/projects/)
+Image developed using [Fritzing](https://fritzing.org). For more circuit examples, see the [Fritzing project page](https://fritzing.org/projects/).
 
-***In the above  image, the Arduino board would be stacked below the Ethernet shield.***
+> **Note:** In the above image, the Arduino board would be stacked below the Ethernet shield.
 
 ## Schematic
 
@@ -31,7 +31,10 @@ Image developed using [Fritzing](http://www.fritzing.org). For more circuit exam
 
 ## Code
 
-<iframe src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=ethernet_2_0_2%2FWebServer&slid=Ethernet%402.0.2&view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
+<iframe
+  src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=ethernet_2_0_2%2FWebServer&slid=Ethernet%402.0.2&view-mode=embed"
+  style={{ height: "510px", width: "100%", margin: "10px 0" }}
+  frameBorder="0"
+></iframe>
 
-
-**Last revision 2018/09/07 by SM**
+*Last revision 2018/09/07 by SM*

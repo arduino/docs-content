@@ -5,7 +5,7 @@ title: 'WiFi Chat Server'
 description: 'Set up a simple chat server with the WiFi Shield.'
 ---
 
-A simple server that distributes any incoming messages to all connected clients.  To use, open a terminal window, telnet to your WiFi shield's IP address, and type away.  Any incoming text will be sent to all connected clients (including the one typing). Additionally, you will be able to see the client's input in your Arduino Software (IDE) serial monitor as well.
+A simple server that distributes any incoming messages to all connected clients. To use, open a terminal window, telnet to your WiFi shield's IP address, and type away. Any incoming text will be sent to all connected clients (including the one typing). Additionally, you will be able to see the client's input in your Arduino Software (IDE) serial monitor as well.
 
 ## Hardware Required
 
@@ -17,7 +17,7 @@ A simple server that distributes any incoming messages to all connected clients.
 
 The WiFi shield uses pins 10, 11, 12, and 13 for the SPI connection to the HDG104 module. Digital pin 4 is used to control the chip select pin on the SD card.
 
-You should have access to a 802.11b/g wireless network that connects to the internet for this example. You will need to change the network settings in the sketch to correspond to your particular networks SSID.
+You should have access to a 802.11b/g wireless network that connects to the internet for this example. You will need to change the network settings in the sketch to correspond to your particular network's SSID.
 
 For networks using WPA/WPA2 Personal encryption, you need the SSID and password. The shield will not connect to networks using WPA2 Enterprise encryption.
 
@@ -25,12 +25,16 @@ WEP network passwords are hexadecimal strings known as keys. A WEP network can h
 
 ![](assets/WiFiShield_bb.png)
 
-image developed using [Fritzing](http://www.fritzing.org). For more circuit examples, see the [Fritzing project page](http://fritzing.org/projects/)
+Image developed using [Fritzing](https://fritzing.org). For more circuit examples, see the [Fritzing project page](https://fritzing.org/projects/).
 
-***In the above image, the Arduino board would be stacked below the WiFi shield.***
+> **Note:** In the above image, the Arduino board would be stacked below the WiFi shield.
 
 ## Code
 
-<iframe src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=wifi_1_2_7%2FWiFiChatServer&slid=WiFi%401.2.7&view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
+<iframe
+  src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=wifi_1_2_7%2FWiFiChatServer&slid=WiFi%401.2.7&view-mode=embed"
+  style={{ height: "510px", width: "100%", margin: "10px 0" }}
+  frameBorder="0"
+></iframe>
 
 *Last revision 2018/08/23 by SM*

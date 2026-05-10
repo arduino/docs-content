@@ -6,7 +6,6 @@ description: 'An Arduino implementation of the classic game.'
 ---
 
 
-
 ## TFT Pong
 
 ![](assets/GLCD_PongDemosm.png)
@@ -15,7 +14,7 @@ This sketch is a basic implementation of pong for the TFT screen with an Arduino
 
 This version of the game creates a rectangular platform that can move in two directions, and a ball that bounces against the edges of the screen as well as the movable platform. Two potentiometers (or other analog sensor) control the position of the platform.
 
-The example demonstrates collision detection between objects on the screen, as well as how to quickly update images without erasing the entire screen every `loop()`
+The example demonstrates collision detection between objects on the screen, as well as how to quickly update images without erasing the entire screen every `loop()`.
 
 ## Hardware Required
 
@@ -39,14 +38,15 @@ Place the potentiometers on the breadboard. On each pot, connect one side to gro
 
 ![](assets/GLCD_sketch2.png)
 
-Connect the TFT screen to the breadboard. The headers on the side of the screen with the small blue tab and arrow should be the ones that attach to the board. Pay attention to the orientation of the screen, in these images, it is upside down.
+Connect the TFT screen to the breadboard. The headers on the side of the screen with the small blue tab and arrow should be the ones that attach to the board. Pay attention to the orientation of the screen; in these images, it is upside down.
 
 ![](assets/GLCD_pong3.png)
 
-Connect the BL and +5V pins to power, and GND to ground. Connect CS-LD to pin 10, DC to pin 9, RESET to pin 8, MOSI to pin 11, and SCK to pin 13. If uyou're using a Leonardo, you'll be using different pins. see the [getting started page](https://arduino.cc/en/Guide/TFT) for more details.
+Connect the BL and +5V pins to power, and GND to ground. Connect CS-LD to pin 10, DC to pin 9, RESET to pin 8, MOSI to pin 11, and SCK to pin 13. If you're using a Leonardo, you'll be using different pins. See the [Getting Started page](https://arduino.cc/en/Guide/TFT) for more details.
 
 ![](assets/GTFT_pong4.png)
-Click the image for a larger version
+
+Click the image for a larger version.
 
 ## Code
 
@@ -83,52 +83,42 @@ In `setup()`, initialize the display and clear the screen's background.
 
 ```arduino
 void setup() {
-
   TFTscreen.begin();
-
-  TFTscreen.background(0,0,0);
+  TFTscreen.background(0, 0, 0);
 }
 ```
 
-`loop()` starts by storing the width and height of the screen, an reading the values of the potentiometers, before mapping them to a useful range.
+`loop()` starts by storing the width and height of the screen, and reading the values of the potentiometers, before mapping them to a useful range.
 
 ```arduino
 void loop() {
-
   int myWidth = TFTscreen.width();
-
   int myHeight = TFTscreen.height();
 
-  paddleX = map(analogRead(A0), 0, 1023, 0, myWidth) - 20/2;
-
-  paddleY = map(analogRead(A1), 0, 1023, 0, myHeight) - 5/2;
+  paddleX = map(analogRead(A0), 0, 1023, 0, myWidth) - 20 / 2;
+  paddleY = map(analogRead(A1), 0, 1023, 0, myHeight) - 5 / 2;
 ```
 
 Set the fill color to black, and erase the previous location of the paddle if it has moved.
 
 ```arduino
-TFTscreen.fill(0,0,0);
-
+  TFTscreen.fill(0, 0, 0);
   if (oldPaddleX != paddleX || oldPaddleY != paddleY) {
-
     TFTscreen.rect(oldPaddleX, oldPaddleY, 20, 5);
-
   }
 ```
 
 Set the fill color to white, and draw the paddle.
 
 ```arduino
-TFTscreen.fill(255,255,255);
-
+  TFTscreen.fill(255, 255, 255);
   TFTscreen.rect(paddleX, paddleY, 20, 5);
 ```
 
 Save the paddle's current location as the previous location, so the next time through you can check if it has moved.
 
 ```arduino
-oldPaddleX = paddleX;
-
+  oldPaddleX = paddleX;
   oldPaddleY = paddleY;
 ```
 
@@ -137,10 +127,8 @@ At the end of `loop()`, use the value of the `ballSpeed` variable to determine h
 You'll call a custom function named `moveBall()` to update the ball's position.
 
 ```arduino
-if (millis() % ballSpeed < 2) {
-
-  moveBall();
-
+  if (millis() % ballSpeed < 2) {
+    moveBall();
   }
 }
 ```
@@ -149,66 +137,49 @@ if (millis() % ballSpeed < 2) {
 
 ```arduino
 void moveBall() {
-
   if (ballX > TFTscreen.width() || ballX < 0) {
-
     ballDirectionX = -ballDirectionX;
-
   }
-
   if (ballY > TFTscreen.height() || ballY < 0) {
-
     ballDirectionY = -ballDirectionY;
-
   }
-
   if (inPaddle(ballX, ballY, paddleX, paddleY, 20, 5)) {
-
     ballDirectionY = -ballDirectionY;
-
   }
 
   ballX += ballDirectionX;
-
   ballY += ballDirectionY;
 
-  TFTscreen.fill(0,0,0);
-
+  TFTscreen.fill(0, 0, 0);
   if (oldBallX != ballX || oldBallY != ballY) {
-
     TFTscreen.rect(oldBallX, oldBallY, 5, 5);
-
   }
 
-  TFTscreen.fill(255,255,255);
-
+  TFTscreen.fill(255, 255, 255);
   TFTscreen.rect(ballX, ballY, 5, 5);
 
   oldBallX = ballX;
-
   oldBallY = ballY;
 }
 ```
 
-`inPaddle()` checks to see if the paddle and ball occupy the same space. If so, it returns `TRUE`, which reverses the ball's direction in `moveBall()`.
+`inPaddle()` checks to see if the paddle and ball occupy the same space. If so, it returns `true`, which reverses the ball's direction in `moveBall()`.
 
 ```arduino
 boolean inPaddle(int x, int y, int rectX, int rectY, int rectWidth, int rectHeight) {
-
   boolean result = false;
-
   if ((x >= rectX && x <= (rectX + rectWidth)) &&
-
-    (y >= rectY && y <= (rectY + rectHeight))) {
-
+      (y >= rectY && y <= (rectY + rectHeight))) {
     result = true;
-
   }
-
   return result;
 }
 ```
 
-The complete sketch is below :
+The complete sketch is below:
 
-<iframe src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=tft_1_0_6%2FArduino%2FTFTPong&slid=TFT%401.0.6&view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
+<iframe
+  src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=tft_1_0_6%2FArduino%2FTFTPong&slid=TFT%401.0.6&view-mode=embed"
+  style={{ height: "510px", width: "100%", margin: "10px 0" }}
+  frameBorder="0"
+></iframe>
