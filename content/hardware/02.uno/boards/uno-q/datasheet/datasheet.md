@@ -356,7 +356,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ![UNO Q Peripherals](assets/ABX00162-ABX00173_headers.png)
 
-- **JDIGITAL (A2) (JDIGITAL1) / JANALOG (A3) (JANALOG1):** 3.3 V GPIO with support for SPI, UART, CAN, PWM, and ADC inputs. Analog inputs are referenced to `VREF+` on the 3.3 V rail. Valid input range is 0 V to `VREF+`. Some STM32U585 pads may be 5 V-tolerant in digital mode, but when configured as ADC or any analog function (such as *A0* through *A5*), they are not 5 V-tolerant and must not exceed `VDD + 0.3 V`. Use external conditioning like a voltage divider or buffer for higher voltages. For *A4/A5* when used as I2C3 (PC1/PC0), use pull-ups to 3.3 V only.
+- **JDIGITAL (A2) (JDIGITAL1) / JANALOG (A3) (JANALOG1):** 3.3 V GPIO with support for SPI, UART, CAN, PWM, and ADC inputs. Analog inputs are referenced to `VREF+` on the 3.3 V rail. Valid input range is 0 V to `VREF+`. Some STM32U585 pads are 5 V-tolerant in digital mode, however when configured as ADC or any analog function (such as *A0* through *A5*), they are not 5 V-tolerant and must not exceed `VDD + 0.3 V`. Use external conditioning like a voltage divider or buffer for higher voltages. For *A4/A5* when used as I2C3 (PC1/PC0), use pull-ups to 3.3 V only. Additionally, **~D3 (PB0)** uses a TT-type I/O structure and is 3.6 V-tolerant, it is not 5 V-tolerant in any mode, including digital.
 
 - **QWIIC Connector (A4) (QWIIC1):** Additional I²C bus (3.3 V logic). It maps as **PD13 (I2C4_SDA)** and **PD12 (I2C4_SCL)**. It guarantees plug-and-play compatibility with Modulino® nodes and 3rd party sensors and actuators.
 
@@ -558,7 +558,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |       1 | D0              | PB7         | - USART1_RX <br></br>- TIM4_CH2             | 3.3 V      | UART                        |
 |       2 | D1              | PB6         | - USART1_TX <br></br>- TIM4_CH1             | 3.3 V      | UART                        |
 |       3 | D2              | PB3         | - TIM2_CH2                                  | 3.3 V      | -                           |
-|       4 | ~D3             | PB0         | - OPAMP2_OUTPUT <br></br>- TIM3_CH3         | 3.3 V      | PWM                         |
+|       4 | ~D3             | PB0         | - OPAMP2_OUTPUT <br></br>- TIM3_CH3         | 3.3 V      | PWM / not 5 V-tolerant      |
 |       5 | D4              | PA12        | - FDCAN1_TX <br></br>- TIM1_ETR             | 3.3 V      | -                           |
 |       6 | ~D5             | PA11        | - FDCAN1_RX <br></br>- TIM1_CH4             | 3.3 V      | PWM                         |
 |       7 | ~D6             | PB1         | - TIM3_CH4                                  | 3.3 V      | PWM                         |
@@ -575,7 +575,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |      18 | D21             | PB10        | - I2C2_SCL <br></br>- TIM2_CH3              | 3.3 V      | -                           |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  All JDIGITAL lines are 3.3 V logic.
+  All JDIGITAL lines are 3.3 V logic. Most pins use an FT-type I/O structure and are 5 V-tolerant as inputs. D3 (PB0) uses a TT-type I/O structure and is only 3.6 V-tolerant, do not apply 5 V to this pin in any mode.
 </div>
 
 ### JANALOG (A3) (JANALOG1) - Pin Map
