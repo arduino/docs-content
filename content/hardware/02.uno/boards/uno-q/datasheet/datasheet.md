@@ -1296,26 +1296,26 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ### JDIGITAL (A2) (JDIGITAL1) - 引脚功能概述
 
-| **引脚** | **名称** | **MCU 引脚** | **功能**                                 | **域名** | **注释**                   |
-| -------: | -------- | ------------ | ---------------------------------------- | -------- | -------------------------- |
-|        1 | D0       | PB7          | - USART1_RX <br></br>- TIM4_CH2          | 3.3 V    | UART                       |
-|        2 | D1       | PB6          | - USART1_TX <br></br>- TIM4_CH1          | 3.3 V    | UART                       |
-|        3 | D2       | PB3          | - TIM2_CH2                               | 3.3 V    | -                          |
-|        4 | ~D3      | PB0          | - OPAMP2_OUTPUT <br></br>- TIM3_CH3      | 3.3 V    | PWM                        |
-|        5 | D4       | PA12         | - FDCAN1_TX <br></br>- TIM1_ETR          | 3.3 V    | -                          |
-|        6 | ~D5      | PA11         | - FDCAN1_RX <br></br>- TIM1_CH4          | 3.3 V    | PWM                        |
-|        7 | ~D6      | PB1          | - TIM3_CH4                               | 3.3 V    | PWM                        |
-|        8 | D7       | PB2          | - TIM8_CH4N                              | 3.3 V    | -                          |
-|        9 | D8       | PB4          | - TIM3_CH1                               | 3.3 V    | -                          |
-|       10 | ~D9      | PB8          | - TIM4_CH3                               | 3.3 V    | PWM                        |
-|       11 | ~D10     | PB9          | - SPI2_SS (芯片选择) <br></br>- TIM4_CH4 | 3.3 V    | PWM                        |
-|       12 | ~D11     | PB15         | - SPI2_MOSI <br></br>- TIM1_CH3N         | 3.3 V    | PWM                        |
-|       13 | D12      | PB14         | - SPI2_MISO <br></br>- TIM1_CH2N         | 3.3 V    | -                          |
-|       14 | D13      | PB13         | - SPI2_SCK <br></br>- TIM1_CH1N          | 3.3 V    | -                          |
-|       15 | GND      | -            | - 接地                                   | 电源     | -                          |
+| **引脚** | **名称** | **MCU 引脚** | **功能**                                 | **域名** | **注释**                 |
+|---------:|----------|--------------|------------------------------------------|----------|--------------------------|
+|        1 | D0       | PB7          | - USART1_RX <br></br>- TIM4_CH2          | 3.3 V    | UART                     |
+|        2 | D1       | PB6          | - USART1_TX <br></br>- TIM4_CH1          | 3.3 V    | UART                     |
+|        3 | D2       | PB3          | - TIM2_CH2                               | 3.3 V    | -                        |
+|        4 | ~D3      | PB0          | - OPAMP2_OUTPUT <br></br>- TIM3_CH3      | 3.3 V    | PWM / not 5 V-tolerant   |
+|        5 | D4       | PA12         | - FDCAN1_TX <br></br>- TIM1_ETR          | 3.3 V    | -                        |
+|        6 | ~D5      | PA11         | - FDCAN1_RX <br></br>- TIM1_CH4          | 3.3 V    | PWM                      |
+|        7 | ~D6      | PB1          | - TIM3_CH4                               | 3.3 V    | PWM                      |
+|        8 | D7       | PB2          | - TIM8_CH4N                              | 3.3 V    | -                        |
+|        9 | D8       | PB4          | - TIM3_CH1                               | 3.3 V    | -                        |
+|       10 | ~D9      | PB8          | - TIM4_CH3                               | 3.3 V    | PWM                      |
+|       11 | ~D10     | PB9          | - SPI2_SS (芯片选择) <br></br>- TIM4_CH4 | 3.3 V    | PWM                      |
+|       12 | ~D11     | PB15         | - SPI2_MOSI <br></br>- TIM1_CH3N         | 3.3 V    | PWM                      |
+|       13 | D12      | PB14         | - SPI2_MISO <br></br>- TIM1_CH2N         | 3.3 V    | -                        |
+|       14 | D13      | PB13         | - SPI2_SCK <br></br>- TIM1_CH1N          | 3.3 V    | -                        |
+|       15 | GND      | -            | - 接地                                   | 电源     | -                        |
 |       16 | AREF     | -            | - 模拟参考                               | -        | 模拟基准引脚（非GPIO引脚） |
-|       17 | D20      | PB11         | - I2C2_SDA <br></br>- TIM2_CH4           | 3.3 V    | -                          |
-|       18 | D21      | PB10         | - I2C2_SCL <br></br>- TIM2_CH3           | 3.3 V    | -                          |
+|       17 | D20      | PB11         | - I2C2_SDA <br></br>- TIM2_CH4           | 3.3 V    | -                        |
+|       18 | D21      | PB10         | - I2C2_SCL <br></br>- TIM2_CH3           | 3.3 V    | -                        |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   所有JDIGITAL线路均为3.3V逻辑电平。
@@ -2073,26 +2073,26 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ### JDIGITAL (A2) (JDIGITAL1) - Mapa De Pin
 
-| **Pino** | **Designação** | **Pino MCU** | **Funções** | **Domínio** | **Notas** |
-| ------: | --------------- | ----------- | ------------------------------------------- | ---------- | --------------------------- |
-|       1 | D0              | PB7         | - USART1_RX <br></br>- TIM4_CH2             | 3,3 V      | UART                        |
-|       2 | D1              | PB6         | - USART1_TX <br></br>- TIM4_CH1             | 3,3 V      | UART                        |
-|       3 | D2              | PB3         | - TIM2_CH2                                  | 3,3 V      | -                           |
-|       4 | ~D3             | PB0         | - OPAMP2_OUTPUT <br></br>- TIM3_CH3         | 3,3 V      | PWM                         |
-|       5 | D4              | PA12        | - FDCAN1_TX <br></br>- TIM1_ETR             | 3,3 V      | -                           |
-|       6 | ~D5             | PA11        | - FDCAN1_RX <br></br>- TIM1_CH4             | 3,3 V      | PWM                         |
-|       7 | ~D6             | PB1         | - TIM3_CH4                                  | 3,3 V      | PWM                         |
-|       8 | D7              | PB2         | - TIM8_CH4N                                 | 3,3 V      | -                           |
-|       9 | D8              | PB4         | - TIM3_CH1                                  | 3,3 V      | -                           |
-|      10 | ~D9             | PB8         | - TIM4_CH3                                  | 3,3 V      | PWM                         |
-|      11 | ~D10            | PB9         | - SPI2_SS (Seleção de Chip) <br></br>- TIM4_CH4 | 3,3 V      | PWM                         |
-|      12 | ~D11            | PB15        | - SPI2_MOSI <br></br>- TIM1_CH3N            | 3,3 V      | PWM                         |
-|      13 | D12             | PB14        | - SPI2_MISO <br></br>- TIM1_CH2N            | 3,3 V      | -                           |
-|      14 | D13             | PB13        | - SPI2_SCK <br></br>- TIM1_CH1N             | 3,3 V      | -                           |
-|      15 | GND             | -           | - Terra                                    | Alimentação      | -                           |
-|      16 | AREF            | -           | - Referência analógica                          | -          | Pino de referência analógica (não é um GPIO) |
-|      17 | D20             | PB11        | - I2C2_SDA <br></br>- TIM2_CH4              | 3,3 V      | -                           |
-|      18 | D21             | PB10        | - I2C2_SCL <br></br>- TIM2_CH3              | 3,3 V      | -                           |
+| **Pino** | **Designação** | **Pino MCU** | **Funções**                                     | **Domínio** | **Notas**                                    |
+|---------:|----------------|--------------|-------------------------------------------------|-------------|----------------------------------------------|
+|        1 | D0             | PB7          | - USART1_RX <br></br>- TIM4_CH2                 | 3,3 V       | UART                                         |
+|        2 | D1             | PB6          | - USART1_TX <br></br>- TIM4_CH1                 | 3,3 V       | UART                                         |
+|        3 | D2             | PB3          | - TIM2_CH2                                      | 3,3 V       | -                                            |
+|        4 | ~D3            | PB0          | - OPAMP2_OUTPUT <br></br>- TIM3_CH3             | 3.3 V       | PWM / not 5 V-tolerant                       |
+|        5 | D4             | PA12         | - FDCAN1_TX <br></br>- TIM1_ETR                 | 3,3 V       | -                                            |
+|        6 | ~D5            | PA11         | - FDCAN1_RX <br></br>- TIM1_CH4                 | 3,3 V       | PWM                                          |
+|        7 | ~D6            | PB1          | - TIM3_CH4                                      | 3,3 V       | PWM                                          |
+|        8 | D7             | PB2          | - TIM8_CH4N                                     | 3,3 V       | -                                            |
+|        9 | D8             | PB4          | - TIM3_CH1                                      | 3,3 V       | -                                            |
+|       10 | ~D9            | PB8          | - TIM4_CH3                                      | 3,3 V       | PWM                                          |
+|       11 | ~D10           | PB9          | - SPI2_SS (Seleção de Chip) <br></br>- TIM4_CH4 | 3,3 V       | PWM                                          |
+|       12 | ~D11           | PB15         | - SPI2_MOSI <br></br>- TIM1_CH3N                | 3,3 V       | PWM                                          |
+|       13 | D12            | PB14         | - SPI2_MISO <br></br>- TIM1_CH2N                | 3,3 V       | -                                            |
+|       14 | D13            | PB13         | - SPI2_SCK <br></br>- TIM1_CH1N                 | 3,3 V       | -                                            |
+|       15 | GND            | -            | - Terra                                         | Alimentação | -                                            |
+|       16 | AREF           | -            | - Referência analógica                          | -           | Pino de referência analógica (não é um GPIO) |
+|       17 | D20            | PB11         | - I2C2_SDA <br></br>- TIM2_CH4                  | 3,3 V       | -                                            |
+|       18 | D21            | PB10         | - I2C2_SCL <br></br>- TIM2_CH3                  | 3,3 V       | -                                            |
 
 
 
