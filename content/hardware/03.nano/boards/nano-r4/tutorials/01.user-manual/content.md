@@ -767,14 +767,14 @@ The Nano R4 board provides PWM functionality on the following pins:
 
 | **Arduino Pin** | **Microcontroller Pin** | **PWM Channel** | **Primary Function**  |
 | :-------------: | :---------------------: | :-------------: | :-------------------: |
-|      `D3`       |         `P104`          |   Channel 0B    |      Digital I/O      |
-|      `D5`       |         `P102`          |   Channel 1B    |      Digital I/O      |
-|      `D6`       |         `P106`          |   Channel 0A    |      Digital I/O      |
-|      `D9`       |         `P303`          |   Channel 0B    |      Digital I/O      |
-|      `D10`      |         `P112`          |   Channel 2A    |  Digital I/O, SPI CS  |
-|      `D11`      |         `P109`          |   Channel 5A    | Digital I/O, SPI MOSI |
+|      `D3`       |         `P104`          |   Channel 1B    |      Digital I/O      |
+|      `D5`       |         `P102`          |   Channel 2B    |      Digital I/O      |
+|      `D6`       |         `P106`          |   Channel 0B    |      Digital I/O      |
+|      `D9`       |         `P303`          |   Channel 7B    |      Digital I/O      |
+|      `D10`      |         `P112`          |   Channel 3B    |  Digital I/O, SPI CS  |
+|      `D11`      |         `P109`          |   Channel 1A    | Digital I/O, SPI MOSI |
 
-***__Important notes__: Pins `D3` and `D9` share the same PWM channel (`Channel 0B`) and cannot be used for PWM simultaneously. When using PWM on one of these pins, the other cannot output an independent PWM signal. Similarly, pins `D6`, `D3`, and `D9` all use timer `GPT0`, which means they will share the same PWM frequency setting. The onboard LEDs (`LEDR`, `LEDG`, `LEDB`, `LED_BUILTIN`) also support PWM for brightness control.***
+***__Important notes__: Pins `D3` and `D11` use timer `GPT1`, which means they will share the same PWM frequency setting. The onboard LEDs (`LEDR`, `LEDG`, `LEDB`, `LED_BUILTIN`) also support PWM for brightness control.***
 
 The Nano R4's PWM offers the following technical specifications:
 
