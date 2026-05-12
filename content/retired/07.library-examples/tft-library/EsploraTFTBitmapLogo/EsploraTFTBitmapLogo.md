@@ -128,7 +128,7 @@ The complete sketch is below:
 
   There is a .bmp file included with this sketch.
   - open the sketch folder (Ctrl-K or Cmd-K)
-  - copy the "logo.bmp" file to a micro-SD
+  - copy the "arduino.bmp" file to a micro-SD
   - put the SD into the SD slot of the Arduino LCD module.
 
   This example code is in the public domain.
