@@ -186,7 +186,7 @@ void setup() {
   // image file. The Esplora LED will turn green or red if
   // the loading went OK or not.
   Esplora.writeRGB(0, 0, 0);
-  logo = EsploraTFT.loadImage("logo.bmp");
+  logo = EsploraTFT.loadImage("arduino.bmp");
   if (logo.isValid()) {
     Esplora.writeGreen(255);
   } else {
