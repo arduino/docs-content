@@ -774,7 +774,7 @@ The Nano R4 board provides PWM functionality on the following pins:
 |      `D10`      |         `P112`          |   Channel 3B    |  Digital I/O, SPI CS  |
 |      `D11`      |         `P109`          |   Channel 1A    | Digital I/O, SPI MOSI |
 
-***__Important noteS__: Pins `D3` and `D11` use timer `GPT1`, which means they will share the same PWM frequency setting. The onboard LEDs (`LEDR`, `LEDG`, `LEDB`, `LED_BUILTIN`) also support PWM for brightness control.***
+***__Important notes__: Pins `D3` and `D11` use timer `GPT1`, which means they will share the same PWM frequency setting. The onboard LEDs (`LEDR`, `LEDG`, `LEDB`, `LED_BUILTIN`) also support PWM for brightness control.***
 
 The Nano R4's PWM offers the following technical specifications:
 
