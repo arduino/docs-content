@@ -103,6 +103,6 @@ void loop() { // run over and over
 
 - **Only one software serial port can listen at a time**: If you create more than one `SoftwareSerial` object in the same sketch, only one of them can receive data at a time. You can switch between them using `mySerial.listen()`.
 - **Speed**: `SoftwareSerial` works reliably up to about 115200 bps, but the higher the speed the more work the CPU has to do. Whenever possible, use the hardware serial port for fast or critical communications.
-- **Newer Arduino boards**: Boards such as the UNO R4, Nano ESP32, MKR family, GIGA R1, Portenta, and Nano 33 BLE already include extra hardware serial ports (`Serial1`, `Serial2`, …). On those boards it is better to use the hardware ports directly instead of `SoftwareSerial`.
+- Boards such as the Mega 2560, UNO R4, Nano ESP32, MKR family, GIGA R1, Portenta, and Nano 33 BLE already include extra hardware serial ports (`Serial1`, `Serial2`, …). On those boards it is better to use the hardware ports directly instead of `SoftwareSerial`.
 
 *Last revision 2026/05/04*
