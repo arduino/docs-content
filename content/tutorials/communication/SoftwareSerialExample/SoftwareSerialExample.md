@@ -41,7 +41,7 @@ The example sketch will open in a new editor window.
 
 ## Code
 
-Below is the content of `SoftwareSerialExample.ino` (this example is in the public domain):
+Below is the content of the `SoftwareSerialExample` example:
 
 ```arduino
 /*
