@@ -6,7 +6,6 @@ description: 'Graph the values from a variable resistor to the TFT.'
 ---
 
 
-
 ## TFT Graph
 
 ![](assets/GLCD_GraphDemosm.png)
@@ -35,19 +34,19 @@ Place the potentiometer on the breadboard. Connect one side to ground, and the o
 
 ![](assets/GLCD_text2.png)
 
-Connect the TFT screen to the breadboard. The headers on the side of the screen with the small blue tab and arrow should be the ones that attach to the board. Pay attention to the orientation of the screen, in these images, it is upside down.
+Connect the TFT screen to the breadboard. The headers on the side of the screen with the small blue tab and arrow should be the ones that attach to the board. Pay attention to the orientation of the screen; in these images, it is upside down.
 
 ![](assets/GLCD_text3.png)
 
-Connect the BL and +5V pins to power, and GND to ground. Connect CS-LD to pin 10, DC to pin 9, RESET to pin 8, MOSI to pin 11, and SCK to pin 13. If you're using a Leonardo, you'll be using different pins. see the [getting started page](http://arduino.cc/en/Guide/TFT) for more details.
+Connect the BL and +5V pins to power, and GND to ground. Connect CS-LD to pin 10, DC to pin 9, RESET to pin 8, MOSI to pin 11, and SCK to pin 13. If you're using a Leonardo, you'll be using different pins. See the [Getting Started page](https://arduino.cc/en/Guide/TFT) for more details.
 
 ![](assets/GTFT_text4_small.png)
 
-Click the image for a larger version
+Click the image for a larger version.
 
 ## Code
 
-To use the screen you must first include the SPI  and TFT libraries.
+To use the screen you must first include the SPI and TFT libraries.
 
 ```arduino
 #include <SPI.h>
@@ -69,53 +68,40 @@ Create a variable for holding the position of the x-axis of the graph. You'll in
 ```arduino
 int xPos = 0;
 
-void setup(){
-
+void setup() {
   TFTscreen.begin();
-
-  TFTscreen.background(250,16,200);
+  TFTscreen.background(250, 16, 200);
 }
 ```
 
 In `loop()`, read the value from the potentiometer, and map it to a value that fits in the screen's height.
 
 ```arduino
-void loop(){
-
+void loop() {
   int sensor = analogRead(A0);
-
-  int graphHeight = map(sensor,0,1023,0,LCDscreen.height());
+  int graphHeight = map(sensor, 0, 1023, 0, TFTscreen.height());
 ```
 
-Set the stroke color to something that will stand out against the nice color you chose for the background, and draw a line from the bottom of the screen based on the value of the sensor
+Set the stroke color to something that will stand out against the nice color you chose for the background, and draw a line from the bottom of the screen based on the value of the sensor.
 
 ```arduino
-TFTscreen.stroke(250,180,10);
-
+  TFTscreen.stroke(250, 180, 10);
   TFTscreen.line(xPos, TFTscreen.height() - graphHeight, xPos, TFTscreen.height());
 ```
 
 Before closing up `loop()`, check to make sure the graph hasn't gone past the edge of the screen. If it has, erase everything, and start back at 0 on the x-axis.
 
 ```arduino
-if (xPos >= 160) {
-
+  if (xPos >= 160) {
     xPos = 0;
-
-    TFTscreen.background(250,16,200);
-
-  }
-
-  else {
-
+    TFTscreen.background(250, 16, 200);
+  } else {
     xPos++;
-
   }
-
   delay(16);
 }
 ```
 
-The complete sketch is below :
+The complete sketch is below:
 
-<iframe src='https://create.arduino.cc/example/library/tft_1_0_6/tft_1_0_6%5Cexamples%5CArduino%5CTFTGraph/TFTGraph/preview?embed' style='height:510px;width:100%;margin:10px 0' frameborder='0'></iframe>
+<iframe src="https://app.arduino.cc/sketches/examples?nav=Examples&eid=tft_1_0_6%2FArduino%2FTFTGraph&slid=TFT%401.0.6&view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameBorder="0"></iframe>
