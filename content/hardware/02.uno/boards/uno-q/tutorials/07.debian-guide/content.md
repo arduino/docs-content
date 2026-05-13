@@ -1160,7 +1160,7 @@ When in doubt about a command's effect, consult the manual with [**`man <command
 
 ### Shutting Down Your UNO Q Safely
 
-Unlike traditional computers, the UNO Q has auto-restart functionality. When you run standard Linux shutdown commands like:
+Unlike traditional computers, the UNO Q's shutdown behavior can vary depending on firmware version, software configuration and power source. Understanding these variations helps allow safe power-down procedures. When running standard Linux shutdown commands like:
 
 ```bash
 sudo shutdown now
@@ -1180,9 +1180,13 @@ To safely power down your UNO Q for extended storage or when carrying the board,
 sudo halt
 ```
 
+The `sudo halt` command stops all Linux processes and brings the system to a safe halted state. The board remains powered on, but Linux stops running, the screen goes black, the green LED turns off, and the system becomes unresponsive to network connections.
+
+It is different from a complete power-off but represents a safe state in which all files are properly closed and the filesystem is protected.
+
 #### Recommended Shutdown Method
 
-The `halt` command is the recommended approach for safely shutting down your UNO Q. It stops all system processes, brings Linux to a safe state, and keeps the board powered off, preventing an automatic restart.
+The `halt` command is the recommended approach for safely shutting down your UNO Q. It stops all system processes, brings Linux to a safe state, and in most cases with current firmware, keeps the board powered off without triggering an automatic restart.
 
 To shut down your UNO Q properly, run:
 
@@ -1192,9 +1196,29 @@ sudo halt
 
 ![Shutting Down Your UNO Q Safely (1)](assets/debian_shutdown_halt.gif)
 
-The green power LED on the board will turn off when the system has halted completely. The board will remain powered off and will not restart automatically.
+The green power LED on the board will turn off when the system has halted completely. The board will remain powered on but in a halted state. Power can be disconnected at any time after the halt completes, the filesystem is already safely closed and all processes have stopped.
 
 This makes `sudo halt` ideal for long-term storage, carrying the board, or any situation where you want the board to stay off until you manually power it back on.
+
+***__Note:__ In the halted state, the board will not respond to network connections (SSH, App Lab) and interaction requires a power cycle.***
+
+In some configurations, `sudo halt` may cause the board to restart after a few seconds automatically. This behavior can happen with:
+
+- Certain USB-C hubs with Power Delivery capabilities
+- Older firmware versions
+- Specific power source configurations (VIN pin / USB-C / 5V pin)
+
+If auto-restart happens even with `sudo halt`, the following approaches may help solve the issue.
+
+Make sure the board runs the latest firmware version. Check for updates through Arduino App Lab or refer to the [UNO Q image flash tutorial](https://docs.arduino.cc/tutorials/uno-q/update-image/).
+
+If auto-restart continues after firmware update, you must disconnect the power source immediately after the green LED turns off and before the restart sequence begins. This method requires precise timing. A brief window (1-2 seconds) exists after the LED turns off to disconnect power before the system begins its reboot sequence.
+
+Auto-restart behavior can vary depending on the power source. If experiencing issues with a USB-C hub with Power Delivery, alternative options include:
+
+- Direct USB-C connection to computer
+- VIN pin with external 7-24V DC supply
+- Different USB-C hub or power adapter
 
 #### Alternative Shutdown Methods
 
@@ -1253,7 +1277,7 @@ The following command cleanly restarts the system as intended:
 sudo reboot
 ```
 
-The following command safely shuts down the board and keeps it powered off, which is the recommended method for this case:
+The following command safely shuts down the board and, in most configurations, keeps it powered off without auto-restart, which is the recommended method:
 
 ```bash
 sudo halt
@@ -1270,6 +1294,16 @@ sudo poweroff
 ```
 
 Use `sudo halt` to keep the board off. Use the other shutdown methods only if you specifically want the board to restart, or if you are prepared to disconnect power to prevent the automatic restart quickly, given certain application requirements.
+
+#### Troubleshooting Shutdown Process
+
+If unexpected auto-restart behavior continues to happen with `sudo halt`:
+
+- **Verify firmware version:** Check the board runs the latest version
+- **Check system logs:** Run `journalctl -b` after boot to view shutdown/startup logs
+- **Test different power sources:** Compare USB-C direct connection with hub and VIN pin behavior
+
+If the issue persists across firmware versions and power sources, the timing-based power disconnection method provides a reliable alternative.
 
 ## Summary
 
