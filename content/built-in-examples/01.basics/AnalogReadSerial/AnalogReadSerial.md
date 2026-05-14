@@ -44,7 +44,7 @@ In the sketch below, the only thing that you do in the setup function is to begi
 
 `Serial.begin(9600);`
 
-Next, in the main loop of your code, you need to establish a variable to store the resistance value (which will be between 0 and 1023, perfect for an [`int`datatype](https://www.arduino.cc/reference/en/language/variables/data-types/int/)) coming in from your potentiometer:
+Next, in the main loop of your code, you need to establish a variable to store the resistance value (which will be between 0 and 1023, perfect for an [`int`datatype](https://www.arduino.cc/reference/en/language/variables/data-types/int/) coming in from your potentiometer:
 
 `int sensorValue = analogRead(A0);`
 
