@@ -1,0 +1,9 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - cloud-editor
+  - arduino-lab-micropython
+hardware:
+  boards: ~
+  carriers: ~
+  shields: ~
