@@ -1099,7 +1099,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ![UNO Q Peripherals](assets/ABX00162-ABX00173_headers.png)
 
-- **JDIGITAL (A2) (JDIGITAL1) / JANALOG (A3) (JANALOG1):** 3.3 V GPIO，支持 SPI、UART、CAN、PWM 和 ADC 输入。模拟输入以 3.3 V 电源轨上的 `VREF+` 为基准。有效输入范围为0 V至`VREF+`。部分STM32U585引脚在数字模式下可耐受5 V电压，但配置为ADC或任何模拟功能（如*A0*至*A5*）时，则不耐受5 V电压，且输入电压不得超过`VDD + 0.3 V`。若需处理更高电压，请使用分压器或缓冲器等外部信号调理电路。当*A4/A5*引脚作为I2C3（PC1/PC0）使用时，仅允许使用上拉电阻连接至3.3V。
+- **JDIGITAL (A2) (JDIGITAL1) / JANALOG (A3) (JANALOG1)：** 3.3 V GPIO，支持 SPI、UART、CAN、PWM 和 ADC 输入。模拟输入以 3.3 V 电源轨上的 `VREF+` 为基准。有效输入范围为 0 V 至 `VREF+`。部分 STM32U585 引脚在数字模式下可耐受 5 V 电压，但当配置为 ADC 或任何模拟功能（如 *A0* 至 *A5*）时，则不耐受 5 V 电压，且电压不得超过 `VDD + 0.3 V`。若需处理更高电压，请使用分压器或缓冲器等外部调理电路。当 *A4/A5* 用作 I2C3（PC1/PC0）时，仅可使用上拉至 3.3 V。此外，**~D3 (PB0)** 采用 TT 型 I/O 结构且耐受 3.6 V，但在任何模式下（包括数字模式）均不耐受 5 V。
 
 - **QWIIC连接器（A4）(QWIIC1):** 额外的I2C总线（3.3V逻辑）。其映射为**PD13（I2C4_SDA** 和 **PD12(I2C4_SCL)**。确保与Modulino®节点及第三方传感器和执行器的即插即用兼容性。
 
@@ -1301,7 +1301,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |        1 | D0       | PB7          | - USART1_RX <br></br>- TIM4_CH2          | 3.3 V    | UART                     |
 |        2 | D1       | PB6          | - USART1_TX <br></br>- TIM4_CH1          | 3.3 V    | UART                     |
 |        3 | D2       | PB3          | - TIM2_CH2                               | 3.3 V    | -                        |
-|        4 | ~D3      | PB0          | - OPAMP2_OUTPUT <br></br>- TIM3_CH3      | 3.3 V    | PWM / not 5 V-tolerant   |
+|        4 | ~D3      | PB0          | - OPAMP2_OUTPUT <br></br>- TIM3_CH3      | 3.3 V    | PWM / / 不支持 5 V 电压 |
 |        5 | D4       | PA12         | - FDCAN1_TX <br></br>- TIM1_ETR          | 3.3 V    | -                        |
 |        6 | ~D5      | PA11         | - FDCAN1_RX <br></br>- TIM1_CH4          | 3.3 V    | PWM                      |
 |        7 | ~D6      | PB1          | - TIM3_CH4                               | 3.3 V    | PWM                      |
@@ -1318,8 +1318,9 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |       18 | D21      | PB10         | - I2C2_SCL <br></br>- TIM2_CH3           | 3.3 V    | -                        |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  所有JDIGITAL线路均为3.3V逻辑电平。
+   所有 JDIGITAL 线路均采用 3.3 V 逻辑电平。大多数引脚采用 FT 型 I/O 结构，作为输入时可耐受 5 V 电压。D3（PB0）采用 TT 型 I/O 结构，仅可耐受 3.6 V 电压，在任何模式下均不得向该引脚施加 5 V 电压。
 </div>
+
 
 ### JANALOG (A3) (JANALOG1) - 引脚功能概述
 
@@ -1864,7 +1865,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ![Periféricos UNO Q](assets/ABX00162-ABX00173_headers.png)
 
-- **JDIGITAL (A2) (JDIGITAL1) / JANALOG (A3) (JANALOG1):** GPIO de 3,3 V com suporte para entradas SPI, UART, CAN, PWM e ADC. As entradas analógicas são referenciadas a `VREF+` no trilho de 3,3 V. A faixa de entrada válida é de 0 V a `VREF+`. Alguns pads STM32U585 podem ser tolerantes a 5 V no modo digital, mas quando configurados como ADC ou qualquer função analógica (como *A0* a *A5*), eles não são tolerantes a 5 V e não devem exceder `VDD + 0,3 V`. Utilize condicionamento externo, como um divisor de tensão ou buffer, para tensões mais altas. Para *A4/A5* quando utilizado como I2C3 (PC1/PC0), utilize pull-ups apenas para 3,3 V.
+- **JDIGITAL (A2) (JDIGITAL1) / JANALOG (A3) (JANALOG1):** GPIO de 3,3 V com suporte para entradas SPI, UART, CAN, PWM e ADC. As entradas analógicas são referenciadas a `VREF+` no trilho de 3,3 V. A faixa de entrada válida é de 0 V a `VREF+`. Alguns pinos do STM32U585 toleram 5 V no modo digital; no entanto, quando configurados como ADC ou qualquer função analógica (como *A0* a *A5*), eles não toleram 5 V e não devem exceder `VDD + 0,3 V`. Use condicionamento externo, como um divisor de tensão ou buffer, para tensões mais altas. Para *A4/A5* quando usados como I2C3 (PC1/PC0), use pull-ups apenas para 3,3 V. Além disso, **~D3 (PB0)** usa uma estrutura de E/S do tipo TT e é tolerante a 3,6 V; não é tolerante a 5 V em nenhum modo, incluindo o digital.
 
 - **Conector QWIIC (A4) (QWIIC1):** Barramento I²C adicional (lógica de 3,3 V). Mapeia como **PD13 (I2C4_SDA)** e **PD12 (I2C4_SCL)**. Garante compatibilidade plug-and-play com nós Modulino® e sensores e atuadores de terceiros.
 
@@ -2067,18 +2068,16 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |       9 | +1V8 OUT        | VREG_L15A_1P8V            | Alimentação      | Referência de 1,8 V    |
 |      10 | VBUS_DISABLE    | Desativação do interruptor de alimentação VBUS | 1,8 V      | Controla o caminho VBUS |
 
-
-
 <div style="page-break-after: always;"></div>
 
 ### JDIGITAL (A2) (JDIGITAL1) - Mapa De Pin
 
 | **Pino** | **Designação** | **Pino MCU** | **Funções**                                     | **Domínio** | **Notas**                                    |
-|---------:|----------------|--------------|-------------------------------------------------|-------------|----------------------------------------------|
+| -------: | -------------- | ------------ | ----------------------------------------------- | ----------- | -------------------------------------------- |
 |        1 | D0             | PB7          | - USART1_RX <br></br>- TIM4_CH2                 | 3,3 V       | UART                                         |
 |        2 | D1             | PB6          | - USART1_TX <br></br>- TIM4_CH1                 | 3,3 V       | UART                                         |
 |        3 | D2             | PB3          | - TIM2_CH2                                      | 3,3 V       | -                                            |
-|        4 | ~D3            | PB0          | - OPAMP2_OUTPUT <br></br>- TIM3_CH3             | 3.3 V       | PWM / not 5 V-tolerant                       |
+|        4 | ~D3            | PB0          | - OPAMP2_OUTPUT <br></br>- TIM3_CH3             | 3.3 V       | PWM / não é tolerante a 5 V                  |
 |        5 | D4             | PA12         | - FDCAN1_TX <br></br>- TIM1_ETR                 | 3,3 V       | -                                            |
 |        6 | ~D5            | PA11         | - FDCAN1_RX <br></br>- TIM1_CH4                 | 3,3 V       | PWM                                          |
 |        7 | ~D6            | PB1          | - TIM3_CH4                                      | 3,3 V       | PWM                                          |
@@ -2094,12 +2093,9 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |       17 | D20            | PB11         | - I2C2_SDA <br></br>- TIM2_CH4                  | 3,3 V       | -                                            |
 |       18 | D21            | PB10         | - I2C2_SCL <br></br>- TIM2_CH3                  | 3,3 V       | -                                            |
 
-
-
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-Todas as linhas JDIGITAL são lógicas de 3,3 V.
+Todas as linhas do JDIGITAL operam com lógica de 3,3 V. A maioria dos pinos usa uma estrutura de E/S do tipo FT e tolera 5 V como entrada. O D3 (PB0) usa uma estrutura de E/S do tipo TT e tolera apenas 3,6 V; não apliques 5 V a este pino em nenhum modo.
 </div>
-
 
 ### JANALOG (A3) (JANALOG1) - Mapa De Pin
 
@@ -2212,8 +2208,6 @@ Utilize uma fonte e um cabo USB-C de 5 V / 3 A ou alimente a partir dos pinos de
   <li>Abra <em>Blink LED</em>. Reveja as notas do exemplo para ver como o App  funciona.</li>
   <li>Clique em <strong>Run</strong> e aguarde a conclusão do upload.</li>
 </ol>
-
-
 <p style="text-align: justify;">Agora deve ver o canal vermelho do LED RGB integrado acender por um segundo e, em seguida, apagar por um segundo, repetidamente. O LED é acionado pelo microcontrolador STM32U585 através do Arduino sketch.</p>
 
 <p style="text-align: justify;">Pode começar com um App  em branco ou utilizar um exemplo existente. Para o primeiro uso, recomenda-se o exemplo Hello World para aprender a estrutura básica.</p>
@@ -2437,6 +2431,7 @@ Este equipamento não tem direito à proteção contra interferência prejudicia
 
 |  **Date**  | **Revision** | **Changes**                                                  |
 | :--------: | :----------: | ------------------------------------------------------------ |
+| 16/05/2026 |      10      | Pin description section updates                              |
 | 15/04/2026 |      9       | Add Anatel Certification                                     |
 | 24/03/2026 |      8       | General documentation update                                 |
 | 17/02/2026 |      7       | Update VBAT description in Power Supply section and JMISC pin 60 note |
