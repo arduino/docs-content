@@ -1180,7 +1180,7 @@ To safely power down your UNO Q for extended storage or when carrying the board,
 sudo halt
 ```
 
-The `sudo halt` command stops all Linux processes and brings the system to a safe halted state. The board remains powered on, but Linux stops running, the screen goes black, and the system becomes unresponsive to network connections.
+The `sudo halt` command stops all Linux processes and brings the system to a safe halted state. The board remains powered on, but Linux stops running and the system becomes unresponsive to network connections.
 
 It is different from a complete power-off but represents a safe state in which all files are properly closed and the filesystem is protected.
 
@@ -1196,7 +1196,13 @@ sudo halt
 
 ![Shutting Down Your UNO Q Safely (1)](assets/debian_shutdown_halt.gif)
 
-After running this command, watch for the screen to go black, indicating the system is in the halt process. Wait approximately 10 seconds after the screen goes black to make sure the halt is complete. The board will remain powered on but in a halted state. Power can then be safely disconnected; the filesystem has closed safely and all processes have stopped.
+After running this command, the shutdown process begins. The visual indicators and timing depend on how you are connected to the board.
+
+If using SBC mode with a display connected to the board, watch for the screen connected to the board to go black, indicating the system is in the halt process. Wait approximately 10 seconds after the screen goes black to make sure the halt is complete. The board will remain powered on but in a halted state. Power can then be safely disconnected, as the filesystem has closed safely and all processes have stopped.
+
+If using PC-hosted mode (USB-C/ADB or SSH connection, no display on board), after running the `sudo halt` command, wait approximately 10-15 seconds to make sure the halt is complete. The board will remain powered on but in a halted state. Power can then be safely disconnected, as the filesystem has closed safely and all processes have stopped.
+
+If using Arduino App Lab, it may return to the `Welcome to Arduino App Lab` board discovery view after the shutdown completes.
 
 The `sudo halt` command is ideal for long-term storage, carrying the board, or any situation where you want the board to stay off until you manually power it back on.
 
@@ -1212,7 +1218,7 @@ If auto-restart happens even with `sudo halt`, the following approaches may help
 
 Make sure the board runs the latest firmware version. Check for updates through Arduino App Lab or refer to the [UNO Q image flash tutorial](https://docs.arduino.cc/tutorials/uno-q/update-image/).
 
-If auto-restart continues after firmware update, you must disconnect the power source immediately after the screen goes black and before the restart sequence begins. This method requires precise timing. A brief window (1-2 seconds) exists after the screen goes black to disconnect power before the system begins its reboot sequence.
+If auto-restart continues after a firmware update, you must disconnect the power source immediately after observing the shutdown indicators mentioned above (the screen goes black in SBC mode or the shell disconnects in PC-hosted mode) and before the restart sequence begins. This method requires precise timing. A brief window of 1 to 2 seconds exists after the shutdown indicator to disconnect power before the system begins its reboot sequence.
 
 Auto-restart behavior can vary depending on the power source. If experiencing issues with a USB-C hub with Power Delivery, alternative options include:
 
@@ -1241,17 +1247,17 @@ With the graphical interface method (SBC mode):
 
 When using any of these methods, the board will perform a clean shutdown and then automatically restart within a few seconds.
 
-If you need to keep the board powered off while using these methods, you must disconnect the power source immediately after the screen goes black and before the restart sequence begins.
+If you need to keep the board powered off while using these methods, you must disconnect the power source immediately after observing the shutdown indicator (the screen goes black in SBC mode or the shell disconnects in PC-hosted mode) and before the restart sequence begins.
 
-The timing is important when using these auto-restart methods. You have only a brief window after the screen goes black to disconnect power safely. If you wait too long, the system will begin its reboot sequence.
+The timing is important when using these auto-restart methods. You have only a brief window after the shutdown indicator to safely disconnect power. If you wait too long, the system will begin its reboot sequence.
 
 In case of power disconnection by the source:
 
-- For boards powered via USB-C®, unplug the USB-C® cable once the screen goes black
-- When using the *VIN* pin for power with a 7-24 VDC input, disconnect your external power supply once the screen goes black
-- If your board receives power from the 5 V pin, disconnect the 5 V power supply once the screen goes black
+- For boards powered via USB-C®, unplug the USB-C® cable once the shutdown indicator happens
+- When using the *VIN* pin for power with a 7-24 VDC input, disconnect your external power supply once the shutdown indicator happens
+- If your board receives power from the 5 V pin, disconnect the 5 V power supply once the shutdown indicator happens
 
-In SBC mode with a USB-C® dongle, disconnect the dongle's power supply after the screen goes black.
+In SBC mode with a USB-C® dongle, disconnect the dongle's power supply after the shutdown indicator happens.
 
 #### Emergency Shutdown & Best Practices
 
@@ -1265,7 +1271,7 @@ For long-term storage or when carrying the board, use the `sudo halt` command to
 sudo halt
 ```
 
-Wait approximately 10 seconds after the screen goes black before disconnecting power.
+Wait approximately 10 seconds after the shutdown indicator (the screen goes black in SBC mode and the shell disconnects in PC-hosted mode) before disconnecting power.
 
 For continuous operation or automated systems where the board runs indefinitely, manual shutdown procedures are not necessary.
 
@@ -1295,7 +1301,7 @@ sudo shutdown now
 sudo poweroff
 ```
 
-Use `sudo halt` to keep the board off. Use the other shutdown methods only if you specifically want the board to restart, or if you are prepared to disconnect power to prevent the automatic restart quickly, given certain application requirements.
+Use `sudo halt` to keep the board off. Use the other shutdown methods only if you specifically want the board to restart, or if you are prepared to disconnect power to prevent the automatic restart, given certain application requirements.
 
 #### Troubleshooting Shutdown Process
 
