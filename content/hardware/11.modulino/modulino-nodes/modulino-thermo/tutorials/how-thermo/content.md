@@ -75,7 +75,7 @@ The Modulino Thermo uses a simple circuit built around the **HS3003** sensor (U1
 
 You can connect to the I2C pins (SDA and SCL) using either the **QWIIC connectors** (J1 and J2, recommended) or the **solderable pins** (J4). The board runs on **3.3V** from the QWIIC cable or the **3V3 pin** on J4.
 
-Full schematic and PCB files are available from the [Modulino Thermo page](https://docs.arduino.cc/hardware/modulinos/modulino-thermo).
+Full schematic and PCB files are available from the [Modulino Thermo page](https://docs.arduino.cc/hardware/modulino-thermo).
 
 ## Programming with Arduino
 
