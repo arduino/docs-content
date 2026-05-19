@@ -1218,7 +1218,11 @@ If auto-restart happens even with `sudo halt`, the following approaches may help
 
 Make sure the board runs the latest firmware version. Check for updates through Arduino App Lab or refer to the [UNO Q image flash tutorial](https://docs.arduino.cc/tutorials/uno-q/update-image/).
 
-If auto-restart continues after a firmware update, you must disconnect the power source immediately after observing the shutdown indicators mentioned above (the screen goes black in SBC mode or the shell disconnects in PC-hosted mode) and before the restart sequence begins. This method requires precise timing. A brief window of 1 to 2 seconds exists after the shutdown indicator to disconnect power before the system begins its reboot sequence.
+If auto-restart continues after a firmware update, you must disconnect the power source immediately after observing the shutdown indicators mentioned above and before the restart sequence begins.
+
+For SBC mode, this means when the screen goes black. For PC-hosted mode, wait 1-2 seconds after running the command.
+
+This method requires precise timing. A brief window of 1 to 2 seconds exists after the shutdown indicator to disconnect power before the system begins its reboot sequence.
 
 Auto-restart behavior can vary depending on the power source. If experiencing issues with a USB-C hub with Power Delivery, alternative options include:
 
@@ -1235,6 +1239,14 @@ sudo shutdown now
 ```
 
 ```bash
+sudo shutdown -h now
+```
+
+```bash
+sudo shutdown -P now
+```
+
+```bash
 sudo poweroff
 ```
 
@@ -1247,17 +1259,17 @@ With the graphical interface method (SBC mode):
 
 When using any of these methods, the board will perform a clean shutdown and then automatically restart within a few seconds.
 
-If you need to keep the board powered off while using these methods, you must disconnect the power source immediately after observing the shutdown indicator (the screen goes black in SBC mode or the shell disconnects in PC-hosted mode) and before the restart sequence begins.
+If you need to keep the board powered off while using these methods, you must disconnect the power source immediately after the shutdown indicator appears and before the restart sequence begins.
 
 The timing is important when using these auto-restart methods. You have only a brief window after the shutdown indicator to safely disconnect power. If you wait too long, the system will begin its reboot sequence.
 
 In case of power disconnection by the source:
 
-- For boards powered via USB-C®, unplug the USB-C® cable once the shutdown indicator happens
-- When using the *VIN* pin for power with a 7-24 VDC input, disconnect your external power supply once the shutdown indicator happens
-- If your board receives power from the 5 V pin, disconnect the 5 V power supply once the shutdown indicator happens
+- For boards powered via USB-C®, unplug the USB-C® cable once the shutdown indicator appears
+- When using the *VIN* pin for power with a 7-24 VDC input, disconnect your external power supply once the shutdown indicator appears
+- If your board receives power from the 5 V pin, disconnect the 5 V power supply once the shutdown indicator appears
 
-In SBC mode with a USB-C® dongle, disconnect the dongle's power supply after the shutdown indicator happens.
+In SBC mode with a USB-C® dongle, disconnect the dongle's power supply after the shutdown indicator appears.
 
 #### Emergency Shutdown & Best Practices
 
@@ -1271,7 +1283,7 @@ For long-term storage or when carrying the board, use the `sudo halt` command to
 sudo halt
 ```
 
-Wait approximately 10 seconds after the shutdown indicator (the screen goes black in SBC mode and the shell disconnects in PC-hosted mode) before disconnecting power.
+For SBC mode, wait approximately 10 seconds after the screen goes black before disconnecting power. For PC-hosted mode, wait approximately 10-15 seconds after running the command before disconnecting power.
 
 For continuous operation or automated systems where the board runs indefinitely, manual shutdown procedures are not necessary.
 
@@ -1295,6 +1307,14 @@ The following commands perform a clean system shutdown, but the board's auto-res
 
 ```bash
 sudo shutdown now
+```
+
+```bash
+sudo shutdown -h now
+```
+
+```bash
+sudo shutdown -P now
 ```
 
 ```bash
