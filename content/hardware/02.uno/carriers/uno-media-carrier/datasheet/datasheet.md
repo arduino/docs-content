@@ -10,7 +10,7 @@ type: maker
 
 <p style="text-align: justify;">The Arduino UNO Media Carrier extends the multimedia capabilities of compatible host boards (UNO Q, VENTUNO Q), enabling advanced vision, display, and audio applications with plug-and-play simplicity. Designed for easy integration, it connects via the JMEDIA and JMISC high-speed connectors, both of which feature passthrough designs to keep all pins available for additional modules or carriers in your setup.</p>
 
-<p style="text-align: justify;">Equipped with two MIPI CSI connectors for standard 22-pin 4 lanes MIPI CSI cameras (including Raspberry Pi cameras), the carrier opens the door to dual-camera computer vision projects, from stereo depth mapping to multi-angle image capture. A MIPI DSI interface provides compatibility with 22-pin 4 lanes MIPI DSI displays, making it easy to add rich, interactive visual output to your projects without additional adapters. For audio, the carrier includes three dedicated 3.5 mm jacks: one combined microphone input and headphone output for flexible audio capture and monitoring, one line out for connecting to amplifiers or powered speakers, and one ear out enabling Class-AB differential earpiece output.</p>
+<p style="text-align: justify;">Equipped with two MIPI CSI connectors for standard 22-pin 4 lanes MIPI CSI cameras (including Raspberry Pi cameras), the carrier opens the door to dual-camera computer vision projects, from stereo depth mapping to multi-angle image capture. A MIPI DSI interface provides compatibility with standard 22-pin 4 lanes MIPI DSI displays (e.g. Waveshare), making it easy to add rich, interactive visual output to your projects without additional adapters. For audio, the carrier includes three dedicated 3.5 mm jacks: one combined microphone input and headphone output for flexible audio capture and monitoring, one line out for connecting to amplifiers or powered speakers, and one ear out enabling Class-AB differential earpiece output.</p>
 
 <p style="text-align: justify;"> Together, these interfaces enable a complete edge multimedia hub, ideal for AI-powered kiosks, object tracking, interactive installations, and more.</p>
 
@@ -24,7 +24,7 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 ## Application Examples
 
-<p style="text-align: justify;">The UNO Media Carrier expands the multimedia capabilities of compatible host boards (UNO Q, VENTUNO Q), enabling dual-camera computer vision, interactive displays, and multi-channel audio applications. With plug-and-play compatibility for Raspberry Pi cameras and displays, the carrier simplifies hardware integration for a wide range of multimedia projects.</p>
+<p style="text-align: justify;">The UNO Media Carrier expands the multimedia capabilities of compatible host boards (UNO Q, VENTUNO Q), enabling dual-camera computer vision, interactive displays, and multi-channel audio applications. With plug-and-play compatibility for Raspberry Pi cameras and Waveshare displays, the carrier simplifies hardware integration for a wide range of multimedia projects.</p>
 
 - **Computer Vision and AI:** Stereo depth mapping for robotics, dual-camera object tracking for automated inspection systems, and gesture recognition interfaces using synchronized camera inputs.
 
@@ -46,10 +46,8 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 #### Connectivity & Media
 
-| **Component**     | **Details**                                                                                                       |
-|-------------------|-------------------------------------------------------------------------------------------------------------------|
-| Camera Connectors | - 2× MIPI-CSI 22-pin 4 lanes camera connectors<br></br>- Raspberry Pi camera compatible                           |
-| Display Connector | - 1× MIPI-DSI 22-pin 4 lanes display connector<br></br>- Raspberry Pi display compatible                          |
+| Camera Connectors | - 2× MIPI-CSI 22-pin 4 lanes camera connectors<br></br>- Raspberry Pi camera compatible |
+| Display Connector | - 1× MIPI-DSI 22-pin 4 lanes display connector<br></br>- Waveshare display compatible |
 | Audio Connectors  | - 1× MIC-IN / Headphones Out 3.5 mm jack<br></br>- 1× Line Out 3.5 mm jack<br></br>- 1× Earphones Out 3.5 mm jack |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
@@ -116,7 +114,7 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 ### Display Interface
 
-<p style="text-align: justify;">The UNO Media Carrier includes one MIPI-DSI 22-pin 4 lanes display connector, compatible with Raspberry Pi displays for visual output in interactive applications.</p>
+<p style="text-align: justify;">The UNO Media Carrier includes one MIPI-DSI 22-pin 4 lanes display connector, compatible with Waveshare MIPI-DSI displays for visual output in interactive applications.</p>
 
 | **Connector** | **Type** | **Pin Count** | **Lanes** |
 |---------------|----------|:-------------:|:---------:|
@@ -153,7 +151,7 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 - **LINE OUT (A1):** 3.5 mm audio jack for audio output. Signals routed through JMISC analog audio endpoints (`LINEOUT_P`, `LINEOUT_M`).
 - **MICROPHONE IN / HEADPHONES OUT (A2):** 3.5 mm jack supporting microphone input and headphone output. Microphone signals (`MIC2_INP`, `MIC2_INN`, `MIC2_BIAS`) and headphone signals (`HPH_L`, `HPH_R`, `HPH_REF`, `HS_DET`) routed through JMISC.
 - **EAR OUT (A3):** 3.5 mm audio jack for Class-AB differential earpiece output. Signals routed through JMISC analog audio endpoints (`EAR_P_R`, `EAR_M_R`).
-- **DSI0 (B1):** 22-pin 4 lanes MIPI-DSI display connector compatible with Raspberry Pi displays. Operates at 1.8 V logic level, routed from JMEDIA connector.
+- **DSI0 (B1):** 22-pin 4 lanes MIPI-DSI display connector compatible with Waveshare MIPI-DSI displays. Operates at 1.8 V logic level, routed from JMEDIA connector.
 - **CSI1 (B2):** 22-pin 4 lanes MIPI-CSI camera connector compatible with Raspberry Pi cameras. Operates at 1.8 V logic level, routed from JMEDIA connector. Camera 1 interface.
 - **CSI0 (B3):** 22-pin 4 lanes MIPI-CSI camera connector compatible with Raspberry Pi cameras. Operates at 1.8 V logic level, routed from JMEDIA connector. Camera 0 interface.
 - **JMEDIA CONNECTOR (JMEDIA):** Female 60-pin high-speed connector interfacing with the host board's JMEDIA header. Routes MIPI-CSI camera signals (`CSI0`, `CSI1`), MIPI-DSI display signals (DSI0), Camera Control Interface I<sup>2</sup>C (`CCI_I2C0`, `CCI_I2C1`), camera master clocks (CAM_MCLK0, CAM_MCLK1), and power rails. Signals operate at 1.8 V logic level. Passthrough design maintains pin availability for stacking.
