@@ -7,11 +7,11 @@ The **UNO Media Carrier** is a carrier board that provides access to camera, dis
 <FeatureList>
 
   <Feature title="Dual MIPI-CSI Camera Connectors" image="camera">
-    The UNO Media Carrier provides two 22-pin MIPI-CSI connectors compatible with standard Raspberry Pi cameras, enabling dual-camera computer vision applications such as stereo depth mapping, multi-angle capture, and object tracking.
+    The UNO Media Carrier provides two 22-pin MIPI-CSI connectors compatible with IMX219 cameras (e.g. Raspberry Pi Camera Module 2), enabling dual-camera computer vision applications such as stereo depth mapping, multi-angle capture, and object tracking.
   </Feature>
 
   <Feature title="MIPI-DSI Display Connector" image="display">
-    A 22-pin MIPI-DSI connector supports Raspberry Pi displays, making it easy to add interactive visual output to your projects.
+    A 22-pin MIPI-DSI connector supports Waveshare displays, making it easy to add interactive visual output to your projects.
   </Feature>
 
   <Feature title="Multi-Channel Audio" image="microphone">

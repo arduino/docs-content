@@ -3,10 +3,10 @@ Board:
   SKU: ASX00083
 Camera:
   MIPI-CSI Connector: 2x 22-pin (CSI0, CSI1)
-  Compatible cameras: Standard MIPI-CSI camera modules (Raspberry Pi camera compatible)
+  Compatible cameras: IMX219 camera modules (e.g. Raspberry Pi Camera Module 2)
 Display:
   MIPI-DSI Connector: 1x 22-pin (DSI0)
-  Compatible displays: Standard MIPI-DSI display modules (Raspberry Pi display compatible)
+  Compatible displays: Standard MIPI-DSI display modules (Waveshare display compatible)
 Audio:
   MIC-IN / Headphones Out: 1x 3.5 mm jack (combined microphone input and headphone output)
   Line Out: 1x 3.5 mm jack
