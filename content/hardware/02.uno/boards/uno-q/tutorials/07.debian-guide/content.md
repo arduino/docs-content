@@ -1174,7 +1174,7 @@ sudo poweroff
 
 The board performs a clean shutdown of the Debian system but automatically restarts shortly after. This behavior is built into the board's power management system.
 
-To safely power down your UNO Q for extended storage or when carrying the board, you need to use a proper command that safely shuts down the board and keeps it powered off:
+To safely power down your UNO Q for extended storage or when carrying the board, you need to use a proper command that safely shuts down the board and keeps it in halted state:
 
 ```bash
 sudo halt
@@ -1204,7 +1204,7 @@ If using PC-hosted mode (USB-C/ADB or SSH connection, no display on board), afte
 
 If using Arduino App Lab, it may return to the `Welcome to Arduino App Lab` board discovery view after the shutdown completes.
 
-The `sudo halt` command is ideal for long-term storage, carrying the board, or any situation where you want the board to stay off until you manually power it back on.
+The `sudo halt` command is ideal for long-term storage, carrying the board, or any situation where you want the board to remain halted until the next power cycle.
 
 ***__Note:__ In the halted state, the board will not respond to network connections (SSH, App Lab) and interaction requires a power cycle. The green power LED and LED Matrix may remain on even after the system has halted.***
 
@@ -1259,7 +1259,7 @@ With the graphical interface method (SBC mode):
 
 When using any of these methods, the board will perform a clean shutdown and then automatically restart within a few seconds.
 
-If you need to keep the board powered off while using these methods, you must disconnect the power source immediately after the shutdown indicator appears and before the restart sequence begins.
+If you need to keep the board in halted state while using these methods, you must disconnect the power source immediately after the shutdown indicator appears and before the restart sequence begins.
 
 The timing is important when using these auto-restart methods. You have only a brief window after the shutdown indicator to safely disconnect power. If you wait too long, the system will begin its reboot sequence.
 
@@ -1297,7 +1297,7 @@ The following command cleanly restarts the system as intended:
 sudo reboot
 ```
 
-The following command safely shuts down the board and, in most configurations, keeps it powered off without auto-restart, which is the recommended method:
+The following command safely shuts down the board and, in most configurations, keeps it in halted state without auto-restart, which is the recommended method:
 
 ```bash
 sudo halt
@@ -1321,7 +1321,7 @@ sudo shutdown -P now
 sudo poweroff
 ```
 
-Use `sudo halt` to keep the board off. Use the other shutdown methods only if you specifically want the board to restart, or if you are prepared to disconnect power to prevent the automatic restart, given certain application requirements.
+Use `sudo halt` to keep the board halted. Use the other shutdown methods only if you specifically want the board to restart, or if you are prepared to disconnect power to prevent the automatic restart, given certain application requirements.
 
 #### Troubleshooting Shutdown Process
 
