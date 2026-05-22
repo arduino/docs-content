@@ -15,8 +15,8 @@ links:
       url: /micropython/first-steps/install-guide/,
     },
     { 
-      title: "My First Script ", 
-      url: /micropython/first-steps/first-script/ 
+      title: "My First Script", 
+      url: /micropython/first-steps/first-script/,
     },
     { 
       title: "Arduino Runtime for MicroPython", 
