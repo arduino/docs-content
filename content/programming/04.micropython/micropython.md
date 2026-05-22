@@ -20,7 +20,7 @@ links:
     },
     { 
       title: "Arduino Runtime for MicroPython", 
-      url: /micropython/first-steps/runtime-package/ 
+      url: /micropython/first-steps/runtime-package/,
     },
     {
       title: "Digital I/O",
