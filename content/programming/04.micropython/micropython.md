@@ -28,7 +28,7 @@ links:
     },
     { 
       title: "Analog I/O", 
-      url: /micropython/basics/analog-io/ 
+      url: /micropython/basics/analog-io/,
       },
   ]
 ---
