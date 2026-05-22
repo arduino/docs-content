@@ -1186,7 +1186,7 @@ It is different from a complete power-off but represents a safe state in which a
 
 #### Recommended Shutdown Method
 
-The `halt` command is the recommended approach for safely shutting down your UNO Q. It stops all system processes, brings Linux to a safe state, and in most cases with current firmware, keeps the board powered off without triggering an automatic restart.
+The `halt` command is the recommended approach for safely shutting down your UNO Q. It stops all system processes, brings Linux to a safe state, and in most cases with current firmware, keeps the board in that state without triggering an automatic restart.
 
 To shut down your UNO Q properly, run:
 
