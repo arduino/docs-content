@@ -1,9 +1,0 @@
-software:
-  - arduino-ide
-  - arduino-cli
-  - linux
-hardware:
-  carriers:
-    - portenta-max-carrier
-    - portenta-mid-carrier
-

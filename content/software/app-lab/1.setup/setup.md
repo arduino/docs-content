@@ -1,4 +1,0 @@
----
-title: Setup
-icon: IconSoftware
----

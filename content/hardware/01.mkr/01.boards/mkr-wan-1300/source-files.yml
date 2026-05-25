@@ -1,9 +1,0 @@
-boardView: 
-  link: https://content.arduino.cc/assets/MKRWiFi1010V2.0_0_Altium.zip
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit at libero quis commodo.
-  preview: /downloads/mkr/boards/example/preview.png
-
-pinout: 
-  link: static/downloads/mkr/boards/example/pinout.pdf
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit at libero quis commodo.
-  preview: /downloads/mkr/boards/example/pinout.png

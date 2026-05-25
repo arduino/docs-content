@@ -1,4 +1,0 @@
----
-title: Microcontrollers
-icon: IconBell
----

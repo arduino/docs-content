@@ -1,1 +1,0 @@
-Here you will find the technical specifications for the Arduino Pro 4G Module.

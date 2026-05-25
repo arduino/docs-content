@@ -1,4 +1,0 @@
----
-title: Contributions
-icon: IconArduino
----

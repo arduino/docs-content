@@ -1,1 +1,0 @@
-Here you will find the technical specifications for the Arduino® WisGate Edge Lite 2, a gateway designed for LPWAN applications and compatible with LoRa® technology.

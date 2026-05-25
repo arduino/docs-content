@@ -1,1 +1,0 @@
-Here you will find the technical specifications for the Arduino® Portenta Cat. M1/NB IoT GNSS Shield.

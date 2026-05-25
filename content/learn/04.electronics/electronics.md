@@ -1,4 +1,0 @@
----
-title: Electronics
-icon: IconCloudConnected
----

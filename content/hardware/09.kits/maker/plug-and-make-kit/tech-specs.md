@@ -1,1 +1,0 @@
-Here you will find the technical specifications for the Arduino® Plug and Make Kit.

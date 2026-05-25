@@ -1,9 +1,0 @@
-software:
-  - arduino-ide
-  - arduino-cli
-  - cloud-editor
-hardware:
-  boards:
-    - giga-r1-wifi
-  carriers: ~
-  shields: ~

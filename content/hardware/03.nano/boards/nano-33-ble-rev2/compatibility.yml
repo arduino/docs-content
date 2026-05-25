@@ -1,9 +1,0 @@
-software:
-  - arduino-ide
-  - arduino-cli
-  - cloud-editor
-hardware:
-  carriers:
-    - nano-motor-carrier
-    - nano-screw-terminal-adapter
-  boards: ~

@@ -1,1 +1,0 @@
-**Please note:** While using the Bluetooth® Low Energy mode on the NINA module, the RGB cannot be used by default. While the module is in Bluetooth® Low Energy mode, SPI is deactivated, which is used to control the RGBs.

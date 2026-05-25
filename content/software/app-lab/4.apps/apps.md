@@ -1,4 +1,0 @@
----
-title: Apps
-icon: IconProgramming
----

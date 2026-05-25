@@ -1,4 +1,0 @@
----
-productsLibrariesMap:
-  - modulino
----

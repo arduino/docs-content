@@ -1,4 +1,0 @@
----
-title: Configure
-icon: IconHardware
----
