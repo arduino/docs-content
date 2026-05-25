@@ -12,7 +12,7 @@ This page contains all release notes for Arduino App Lab. To access the software
 
 <Alert type="info">Note: You need to have an UNO Q ([2GB](https://store.arduino.cc/products/uno-q) or [4GB](https://store.arduino.cc/products/uno-q-4gb)) to use Arduino App Lab.</Alert>
 
-## Release 0.8.0 [2026.XX.XX]
+## Release 0.8.0 [2026.05.21]
 
 ### TL;DR
 
