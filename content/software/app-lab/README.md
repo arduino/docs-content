@@ -18,15 +18,15 @@ The documentation is organized following the user journey and logical categoriza
 
 ### Folder Naming Conventions
 
-*   **Category Folders**: Use sequential numbering and **spaces** for multi-word names (e.g., `3.getting started`). Category names are generated directly from the folder name.
+*   **Category Folders**: Use sequential numbering and **hyphens** for multi-word names (e.g., `3.getting-started`).
 *   **Article Folders**: Use sequential numbering and **hyphens** for multi-word names (e.g., `1.setup-guide`).
-*   **Sequential Numbering**: All main folders and subdirectories must start with a number prefix (e.g., `1.`, `2.`). This determined the order the content is displayed on Arduino Docs.
+*   **Sequential Numbering**: All main folders and subdirectories must start with a number prefix (e.g., `1.`, `2.`). Use leading zeros (e.g., `01.`, `02.`) if the total number of items is 10 or more.
 
 ## Content Guidelines
 
 ### Voice & Tone
 
-*   **Active Voice**: Always use active voice (e.g., "Connect the board").
+*   **Active Voice**: Always use active voice (e.g., "Connect the board" instead of "The board should be connected").
 *   **No Filler Words**: Avoid using "simply", "just", "easy", "obviously", or "leverage".
 *   **Board Agnosticism**: Use generic terms like "your board". Use "Arduino UNO Q" only for specific examples.
 
@@ -94,7 +94,7 @@ The tables in the documentation that list available Bricks and Examples are **au
 
 ### CLI Command Reference
 
-The CLI reference page is generated from the `arduino-app-cli` source code.
+The CLI reference page is generated from the `arduino-app-cli` source code. This is a **manual task** that must be performed for each new release of the CLI:
 
 1.  Navigate to the `arduino-app-cli` repository. 
     *   **Note**: You must use the `docs-mono` branch, which is currently [maintained in a fork](https://github.com/swikstrom/arduino-app-cli).
