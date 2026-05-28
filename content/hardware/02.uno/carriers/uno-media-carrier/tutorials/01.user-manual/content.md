@@ -280,6 +280,10 @@ sudo arduino-linux-config carrier enable media-carrier camera1=type1-2lanes
 
 <Alert type="note">Remember to __reboot__ your Arduino UNO Q after any configuration change.</Alert>
 
+Now, with your MIPI camera enabled, you can try the different Arduino App Lab examples that uses a camera input and they will work out of the box:
+
+![Object Detection on Camera example](assets/example-mipi.png)
+
 #### Capturing Images
 Once your board has rebooted, you can start capturing images. There are several ways to interact with the camera, depending on whether you prefer the command line or a graphical interface.
 
