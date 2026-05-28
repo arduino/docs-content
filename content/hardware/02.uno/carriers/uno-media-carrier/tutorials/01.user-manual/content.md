@@ -90,7 +90,13 @@ The complete STEP files are available and downloadable from the link below:
 
 ## Hardware Features & Interfaces
 
-To leverage the UNO Media Carrier features easily, we developed a CLI that is included on the Arduino UNO Q. See the supported commands below:
+The UNO Media Carrier is fully configurable through the Arduino App Lab settings. Navigate to **Settings** and under **Carriers** section you will see:
+
+![Carrier Configuration](assets/carrier-settings.png)
+
+### Through the CLI
+
+To configure the UNO Media Carrier, we also developed a CLI that is included on the Arduino UNO Q. See the supported commands below:
 
 <Alert type="success">Use your UNO Q terminal (through SSH or ADB).</Alert>
 
@@ -143,7 +149,13 @@ The Arduino UNO Q Media Carrier features four onboard RGB LEDs designed to provi
 
 #### Enabling the UNO Media Carrier
 
-Run the following commands to enable the UNO Media Carrier:
+Navigate to **Settings** and toggle the **Enable external carriers** switch:
+
+![Enable Carrier](assets/enable-carrier.png)
+
+Then click on **Apply and reboot**.
+
+Or run the following commands through the terminal:
 
 ```bash
 sudo arduino-linux-config carrier enable media-carrier
@@ -254,7 +266,13 @@ To use a MIPI camera, connect it to "CAMERA0" or "CAMERA1" connectors with the U
 
 <Alert type="note">Only __IMX219__ cameras are supported right now, we will be adding support for other modules in the future.</Alert>
 
-Power your board and then run the following command from the terminal:
+Power your board and inside Arduino App Lab, navigate to **Settings**, enable the carrier and select your camera type on its respective connector:
+
+![Enable IMX219 two lanes on CAMERA0](assets/enable-camera.png)
+
+<Alert type="note">Click on __Apply and Reboot__ after changing any configuration.</Alert>
+
+Or run the following command from the terminal:
 
 ```bash
 sudo arduino-linux-config carrier enable media-carrier camera1=type1-2lanes
@@ -348,7 +366,13 @@ To use a MIPI display, connect it to the "DISPLAY" connector with the UNO Q **un
 
 <Alert type="note">Waveshare 5, 8 and 10 inches displays supported, we will be adding support for other ones in the future.</Alert>
 
-Power your board and then run the following command from the terminal:
+Power your board and inside Arduino App Lab, navigate to **Settings**, enable the carrier and select your display type:
+
+![Enable 8 inches Display](assets/enable-display.png)
+
+<Alert type="note">Click on __Apply and Reboot__ after changing any configuration.</Alert>
+
+Or run the following command from the terminal:
 
 ```bash
 sudo arduino-linux-config carrier enable media-carrier display=8-dsi-touch-a
