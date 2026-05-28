@@ -84,6 +84,9 @@ python3 scripts/validation/relative_links.py fix content/software/app-lab
 
 ## Maintenance and Automation
 
+> [!NOTE]
+> These are manual tasks that must be performed for new releases.
+
 ### Bricks & Examples Tables
 
 The tables in the documentation that list available Bricks and Examples are **auto-generated**. Do not edit them manually, as they will be overwritten.
@@ -94,7 +97,7 @@ The tables in the documentation that list available Bricks and Examples are **au
 
 ### CLI Command Reference
 
-The CLI reference page is generated from the `arduino-app-cli` source code. This is a **manual task** that must be performed for each new release of the CLI:
+The CLI reference page is generated from the `arduino-app-cli` source code.
 
 1.  Navigate to the `arduino-app-cli` repository. 
     *   **Note**: You must use the `docs-mono` branch, which is currently [maintained in a fork](https://github.com/swikstrom/arduino-app-cli).
