@@ -32,7 +32,7 @@ This user manual will guide you through the advanced multimedia capabilities of 
 
 ### Software Requirements
 
-- [Arduino App Lab 0.6.0+](https://www.arduino.cc/en/software/#app-lab-section)
+- [Arduino App Lab 0.8.0+](https://www.arduino.cc/en/software/#app-lab-section)
 
 ***You can still use the __Arduino IDE 2+__ to program only the microcontroller (MCU) side of your UNO Q.***
 
@@ -90,11 +90,25 @@ The complete STEP files are available and downloadable from the link below:
 
 ## Hardware Features & Interfaces
 
-The UNO Media Carrier is fully configurable through the Arduino App Lab settings. Navigate to **Settings** and under **Carriers** section you will see:
+The UNO Media Carrier is fully configurable through the Arduino App Lab settings. 
 
-![Carrier Configuration](assets/carrier-settings.png)
+Navigate to **Settings** and under **Carriers** section you will see the option to **enable** it by toggling the **Enable external carriers** switch:
 
-### Through the CLI
+![Enable Carrier](assets/enable-carrier.png)
+
+You will be adviced to connect the Media Carrier with the board **powered off** if you have not yet:
+
+![Carrier Connection Alert](assets/enable-alert.png)
+
+<Alert type="warning">If the Media Carrier is not connected, turn off the UNO Q, connect the carrier and turn it back on.</Alert>
+
+Click on **Ok, Got it**, and you will see the different carrier configurations.
+
+![Media Carrier Configuration Overview](assets/carrier-settings.png)
+
+Then, click on **Apply and reboot** for applying the new configurations.
+
+### Through the CLI (Optional Alternative)
 
 To configure the UNO Media Carrier, we also developed a CLI that is included on the Arduino UNO Q. See the supported commands below:
 
@@ -146,22 +160,6 @@ We are going to use the commands from above on dedicated sections below to show 
 The Arduino UNO Q Media Carrier features four onboard RGB LEDs designed to provide customizable visual feedback for your applications. To optimize the board's native pinout, these LEDs are not driven directly by the microprocessor's GPIOs. Instead, they are routed through a Texas Instruments TCA9555 I2C GPIO expander. Thanks to the integrated drivers, this I2C expander is mapped directly into the standard Linux LED subsystem, making control seamless.
 
 ![Media Carrier LEDs](assets/carrier-leds.png)
-
-#### Enabling the UNO Media Carrier
-
-Navigate to **Settings** and toggle the **Enable external carriers** switch:
-
-![Enable Carrier](assets/enable-carrier.png)
-
-Then click on **Apply and reboot**.
-
-Or run the following commands through the terminal:
-
-```bash
-sudo arduino-linux-config carrier enable media-carrier
-# Synchronize filesystem and reboot to apply the new hardware map
-sudo reboot
-```
 
 #### Verifying LED Subsystem
 
