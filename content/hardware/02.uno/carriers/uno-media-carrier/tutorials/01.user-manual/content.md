@@ -96,7 +96,7 @@ Navigate to **Settings** and under **Carriers** section you will see the option 
 
 ![Enable Carrier](assets/enable-carrier.png)
 
-You will be adviced to connect the Media Carrier with the board **powered off** if you have not yet:
+You will be advised to connect the Media Carrier with the board **powered off** if you have not yet:
 
 ![Carrier Connection Alert](assets/enable-alert.png)
 
