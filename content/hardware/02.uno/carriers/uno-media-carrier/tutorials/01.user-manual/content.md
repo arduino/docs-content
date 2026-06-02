@@ -96,11 +96,11 @@ Navigate to **Settings** and under **Carriers** section you will see the option 
 
 ![Enable Carrier](assets/enable-carrier.png)
 
-You will be advised to connect the Media Carrier with the board **powered off** if you have not yet:
+You will be advised to connect the Media Carrier with the board **powered off** if you have yet to:
 
 ![Carrier Connection Alert](assets/enable-alert.png)
 
-<Alert type="warning">If the Media Carrier is not connected, turn off the UNO Q, connect the carrier and turn it back on.</Alert>
+<Alert type="warning">If the Media Carrier is not connected, unplug the UNO Q, connect the carrier and plug it back.</Alert>
 
 Click on **Ok, Got it**, and you will see the different carrier configurations.
 
@@ -153,7 +153,7 @@ To disable the UNO Media Carrier, use:
 sudo arduino-linux-config carrier disable media-carrier
 ```
 
-We are going to use the commands from above on dedicated sections below to show how to use the different supported features.
+We are going to use the commands above on dedicated sections below to show how to use the different supported features.
 
 ### RGB LEDs
 
@@ -161,7 +161,7 @@ The Arduino UNO Q Media Carrier features four onboard RGB LEDs designed to provi
 
 ![Media Carrier LEDs](assets/carrier-leds.png)
 
-#### Verifying LED Subsystem
+#### The LED Subsystem
 
 Once the board has rebooted, you can verify that the I2C expander has been successfully registered and the LEDs are available to the OS by listing the LED class devices:
 
@@ -264,7 +264,7 @@ To use a MIPI camera, connect it to "CAMERA0" or "CAMERA1" connectors with the U
 
 <Alert type="note">Only __IMX219__ cameras are supported right now, we will be adding support for other modules in the future.</Alert>
 
-Power your board and inside Arduino App Lab, navigate to **Settings**, enable the carrier and select your camera type on its respective connector:
+Plug your board and inside Arduino App Lab, navigate to **Settings**, enable the carrier and select your camera type on its respective connector:
 
 ![Enable IMX219 two lanes on CAMERA0](assets/enable-camera.png)
 
