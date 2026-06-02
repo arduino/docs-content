@@ -118,7 +118,7 @@ To configure the UNO Media Carrier, we also developed a CLI that is included on 
 # List available carriers and devices
 sudo arduino-linux-config carrier list
 ```
-This above command will print the available carriers and supported devices as follows:
+The command above will print the available carriers and supported devices as follows:
 
 ```bash
 CARRIER          DEVICE     OPTIONS
