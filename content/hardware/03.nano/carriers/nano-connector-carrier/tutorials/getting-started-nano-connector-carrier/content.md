@@ -132,7 +132,7 @@ The pinout includes labeled connections for all the interfaces:
 - Power lines (+5 VDC, +3.3 VDC and GND)
 - Serial interface pins
 
-The board's connectors are mapped to specific Nano family pins, making it straightforward to program your projects. The voltage level switch affects all VCC pins on the Grove and Qwiic connectors, allowing you to match your peripheral's voltage requirements.
+The board's connectors are mapped to specific Nano family pins, making it straightforward to program your projects. The voltage level switch affects the VCC pins on the Grove connectors, allowing you to match your peripheral's voltage requirements. The Qwiic connector's VCC pin is always connected to +3.3 VDC and is not affected by the voltage level switch.
 
 ## What to Do Next?
 
