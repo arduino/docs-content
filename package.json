@@ -1,6 +1,6 @@
 {
   "name": "docs-content",
-  "version": "1.0.0",
+  "version": "2.2.3-alpha.2",
   "description": "content for docs.arduino.cc",
   "main": "index.js",
   "scripts": {
