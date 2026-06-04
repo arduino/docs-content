@@ -23,7 +23,7 @@ Maker, beginner, education, advanced prototyping
   Build complex monitoring systems with dozens of sensors organized across multiple independent I2C buses.
 
 - **Modular Project Expansion**
-  Scale projects from simple single-sensor setups to comprehensive multi-sensor installations without redesigning.
+  Scale projects from simple single-sensor setups to comprehensive multi-sensor installations without having to redesign them.
 
 <div style="page-break-after: always;"></div>
 
