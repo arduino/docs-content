@@ -41,7 +41,7 @@ Maker, beginner, education, advanced prototyping
 | **SKU**    | **Name**              | **Purpose**                                    | **Quantity** |
 | ---------- | --------------------- | ---------------------------------------------- | ------------ |
 | ABX00174   | Modulino Extender    | I2C signal accelerator for long cables         | 1            |
-|            | I2C Qwiic cable       | Compatible with the Qwiic standard             | 1            |
+|            | Long I2C Qwiic cable (10cm)    | Compatible with the Qwiic standard             | 2            |
 
 
 ## Related Products
