@@ -1,6 +1,6 @@
 {
   "name": "docs-content",
-  "version": "2.2.3-alpha.2",
+  "version": "1.0.0",
   "description": "content for docs.arduino.cc",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/arduino/docs-content#readme",
   "dependencies": {
-    "@arduino/docs-arduino-cc": "^2.2.3-alpha.1",
+    "@arduino/docs-arduino-cc": "^2.2.3-alpha.2",
     "gatsby": "^5.11.0",
     "gatsby-background-image": "^1.6.0",
     "gatsby-image": "^3.11.0",
