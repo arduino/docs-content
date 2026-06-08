@@ -58,7 +58,7 @@ Maker, beginner, education, advanced prototyping
 - **Maximum I2C speed:** Up to 400 kHz (supports standard and fast-mode)
 
 **Typical current consumption:**
-- LTC4311I supply current: ~200 µA typical
+- LTC4311 supply current: ~200 µA typical
 - Additional current during bus transitions for accelerated pull-up
 
 ## Power Tree
