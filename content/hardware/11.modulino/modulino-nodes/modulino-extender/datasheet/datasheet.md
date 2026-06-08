@@ -17,7 +17,7 @@ Maker, beginner, education, advanced prototyping
 ## Application Examples
 
 - **Long-Distance Sensor Networks**
-  Connect sensors and modules over extended cable runs (tested up to 30 m).
+  Connect sensors and modules over extended cable runs (tested up to 30 m with Cat5e or Cat6, STP/FTP cables).
 
 - **High-Capacitance Systems**
   Maintain reliable I2C communication when bus capacitance exceeds the standard 400 pF limit.
@@ -45,9 +45,11 @@ Maker, beginner, education, advanced prototyping
 
 
 ## Related Products
-- **SKU: ASX00027** – [Arduino® Sensor Kit](https://store.arduino.cc/products/arduino-sensor-kit)
-- **SKU: K000007** – [Arduino® Starter Kit](https://store.arduino.cc/products/arduino-starter-kit-multi-language)
-- **SKU: AKX00026** – [Arduino® Oplà IoT Kit](https://store.arduino.cc/products/opla-iot-kit)
+- **SKU: ABX00087** – [Arduino® UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)
+- **SKU: ABX00162** – [Arduino® UNO Q](https://store.arduino.cc/products/uno-q)
+- **SKU: ABX00142/ABX00143** – [Arduino® Nano R4](https://store.arduino.cc/products/nano-r4)
+- **SKU: ASX00061** – [Nano Connector Carrier](https://store.arduino.cc/products/nano-connector-carrier)
+- **SKU: AKX00069** – [Plug and Make Kit](https://store.arduino.cc/products/plug-and-make-kit)
 
 ## Rating
 
