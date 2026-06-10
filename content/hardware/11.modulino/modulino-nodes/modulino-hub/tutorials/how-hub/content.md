@@ -100,7 +100,7 @@ This addressing scheme allows up to **8 Modulino Hubs** on the same I2C bus, pro
 
 ![Modulino Hub Block Diagram](assets/Modulino_Hub_Block_Diagram.png)
 
-The Hub receives I2C commands through its main input connectors. The TCA9548ARGER then routes communication to the selected channel(s), with each output having dedicated pull-up resistors for signal integrity.
+The Hub receives I2C commands through its main input connectors. The **TCA9548ARGER** then routes communication to the selected channel(s), with each output having dedicated pull-up resistors for signal integrity.
 
 ### Power Tree
 
@@ -110,9 +110,9 @@ Power is distributed from the input QWIIC connectors to all eight output channel
 
 ## Why Use the Modulino Hub?
 
-The most common scenario for using the Hub is when you want to connect multiple identical sensors. Since I2C devices use addresses to identify themselves on the bus, having two sensors with the same address creates a conflict - your board can't tell them apart. The Hub solves this by letting you isolate each sensor on its own channel. When you want to read from a specific sensor, you simply select that channel, and only that sensor is connected to the main I2C bus.
+The most common scenario for using the Hub is when you want to connect multiple identical sensors. Since I2C devices use addresses to identify themselves on the bus, having two sensors with the same address creates a conflict, your board can't tell them apart. The Hub solves this by letting you isolate each sensor on its own channel. When you want to read from a specific sensor, you simply select that channel, and only that sensor is connected to the main I2C bus.
 
-Beyond solving address conflicts, the Hub helps organize larger projects. You can dedicate specific channels to different parts of your system - maybe all your environmental sensors on channels 0-2, and all your input devices on channels 3-5. This segmentation also helps with signal integrity on larger I2C networks, where long cable runs and many devices can cause capacitance issues.
+Beyond solving address conflicts, the Hub helps organize larger projects. You can dedicate specific channels to different parts of your system, for example connecting all your environmental sensors to channels 0-2, and all your input devices to channels 3-5. This segmentation also helps with signal integrity on larger I2C networks, where long cable runs and many devices can cause capacitance issues.
 
 If your project grows, you can add more Hubs. Each Hub provides eight additional channels, and up to eight Hubs can share the same I2C bus (using different addresses), giving you up to 64 independent I2C channels.
 
@@ -161,7 +161,7 @@ void loop() {
 }
 ```
 
-The Hub automatically handles channel selection when you call `update()` on each sensor. You don't need to manually switch channels - the library takes care of it.
+The Hub automatically handles channel selection when you call `update()` on each sensor. You don't need to manually switch channels, the library takes care of it.
 
 ### Multiple Hubs
 
