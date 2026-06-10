@@ -110,7 +110,7 @@ Power is distributed from the input QWIIC connectors to all eight output channel
 
 ## Why Use the Modulino Hub?
 
-The most common scenario for using the Hub is when you want to connect multiple identical sensors. Since I2C devices use addresses to identify themselves on the bus, having two sensors with the same address creates a conflict, your board can't tell them apart. The Hub solves this by letting you isolate each sensor on its own channel. When you want to read from a specific sensor, you simply select that channel, and only that sensor is connected to the main I2C bus.
+The most common scenario for using the Hub is when you want to connect multiple identical sensors. Since I2C devices use addresses to identify themselves on the bus, having two sensors with the same address creates a conflict, your board can't tell them apart. The Hub solves this by letting you isolate each sensor on its own channel. To read from a specific sensor, select its channel and the Hub connects only that sensor to the I2C bus.
 
 Beyond solving address conflicts, the Hub helps organize larger projects. You can dedicate specific channels to different parts of your system, for example connecting all your environmental sensors to channels 0-2, and all your input devices to channels 3-5. This segmentation also helps with signal integrity on larger I2C networks, where long cable runs and many devices can cause capacitance issues.
 
