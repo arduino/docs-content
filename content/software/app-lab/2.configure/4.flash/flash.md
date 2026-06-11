@@ -4,7 +4,7 @@ description: 'Learn how to flash a new Linux operating system image to your Ardu
 tags: [Arduino App Lab, UNO Q, Flash, Linux image, Arduino Flasher CLI]
 ---
 
-Flashing a new Linux image to your Arduino UNO Q board is necessary when performing a hard reset, installing a fresh operating system, or recovering a board running an outdated software version. This process replaces the entire Linux OS and all stored data on the board.
+Flashing a new Linux image to your Arduino board allows you to install a fresh operating system, recover from system corruption, or switch between different supported Linux distributions. This process replaces the entire Linux OS and all stored data on the board.
 
 There are two primary methods for flashing your board:
 
