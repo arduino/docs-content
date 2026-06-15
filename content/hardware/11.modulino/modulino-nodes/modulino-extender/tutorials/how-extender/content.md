@@ -46,7 +46,7 @@ The module enables:
 
 ![Modulino Extender Pinout](assets/ExtenderPinouts.png)
 
-#### QWIIC Connectors (2×, 1×4 each)
+#### Qwiic Connectors (2×, 1×4 Each)
 
 | Pin | Function |
 |-----|----------|
@@ -57,7 +57,7 @@ The module enables:
 
 The Extender sits between two Qwiic connectors, transparently accelerating signals passing through.
 
-#### Optional 1×4 Headers (2×, not mounted)
+#### Optional 1×4 Headers (2×, Not Mounted)
 
 **Header 1 (Input Side)**
 
