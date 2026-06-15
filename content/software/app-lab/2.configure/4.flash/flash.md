@@ -85,7 +85,13 @@ To use the CLI tool, put the board into **Emergency Download Mode (EDL)**.
 
 ### Waiting for EDL device
 
-If the Flasher tool hangs at a `Waiting for EDL device` message, the board is not correctly in EDL mode. Unplug the board, ensure the jumper cable securely shorts the EDL pins, and then reconnect the USB cable.
+If the Flasher tool hangs at a `Waiting for EDL device` message, it means the tool cannot communicate with the board. There are two primary causes for this:
+
+- **EDL Mode Not Triggered:** The board is not correctly in EDL mode. Unplug the board, ensure the jumper cable securely shorts the EDL pins, and then reconnect the USB cable.
+
+- **Missing udev Rules (Linux):** When the board enters EDL mode, it connects using a Qualcomm USB vendor ID (`05c6`). If your Linux system lacks the necessary `udev` rules or group permissions for this ID, the flasher tool cannot communicate with the board and will hang indefinitely.
+
+  To resolve this, follow the [Configure udev Rules](../../setup/linux/#step-2-configure-udev-rules) and [Set User Permissions](../../setup/linux/#step-3-set-user-permissions) instructions in the Linux Setup Guide.
 
 ### USB Write Failed / Communication Errors
 
