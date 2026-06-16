@@ -403,6 +403,12 @@ The carrier provides three 3.5 mm audio jacks for flexible audio input and outpu
 
 ![Audio setup](assets/audio-setup.png)
 
+You can manage the audio peripherals directly from the **Volume Control** app that is pre-installed on the UNO Q. From it, you can configure your audio inputs and outputs, control their volume and much more:
+
+![Volume Control App](assets/volume-control.png)
+
+**You can also manage audio through the terminal as explained below:**
+
 Audio playback and capture are handled by the ALSA (Advanced Linux Sound Architecture) framework available in the UNO Q's Debian OS. The `alsa-utils` package provides the `arecord` and `aplay` command-line tools.
 
 Install it if not already present by opening a terminal on the board via ADB, SSH, or SBC mode:
