@@ -2344,7 +2344,7 @@ Il-medda tal-frekwenza 5 GHz tista’ tkun soġġetta għal restrizzjonijiet sko
 Podczas pracy zachowaj minimalną odległość 20 cm między urządzeniem a użytkownikiem.
 Pasmo częstotliwości 5 GHz może podlegać ograniczeniom w zależności od kraju użytkowania.
 
-Portuguese (PT):
+**Portuguese (PT):**
 
 Mantenha uma distância mínima de 20 cm entre o dispositivo e o utilizador durante o funcionamento.
 A banda de frequência de 5 GHz pode estar sujeita a restrições de utilização dependendo do país.
