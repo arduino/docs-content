@@ -275,7 +275,7 @@ Plug your board and inside Arduino App Lab, navigate to **Settings**, enable the
 Or run the following command from the terminal:
 
 ```bash
-sudo arduino-linux-config carrier enable media-carrier camera1=type1-2lanes
+sudo arduino-linux-config carrier enable media-carrier camera0=type1-2lanes
 ```
 
 <Alert type="note">Remember to __reboot__ your Arduino UNO Q after any configuration change.</Alert>
@@ -283,6 +283,8 @@ sudo arduino-linux-config carrier enable media-carrier camera1=type1-2lanes
 Now, with your MIPI camera enabled, you can try the different Arduino App Lab examples that uses a camera input and they will work out of the box:
 
 ![Object Detection on Camera example](assets/example-mipi.png)
+
+<Alert type="warning">If you want to use just one camera, make sure to enable and connect it on __CAMERA0__ connector.</Alert>
 
 #### Capturing Images
 Once your board has rebooted, you can start capturing images. There are several ways to interact with the camera, depending on whether you prefer the command line or a graphical interface.
@@ -312,7 +314,7 @@ camera-name="/base/soc@0/cci@5c1b000/i2c-bus@1/sensor@10" # for camera1
 For example:
 
 ```bash
-sudo gst-launch-1.0 libcamerasrc camera-name="/base/soc@0/cci@5c1b000/i2c-bus@1/sensor@10" ! video/x-raw,width=1280,height=720 ! videoconvert ! jpegenc snapshot=true ! filesink location=test_photo.jpg
+sudo gst-launch-1.0 libcamerasrc camera-name="/base/soc@0/cci@5c1b000/i2c-bus@0/sensor@10" ! video/x-raw,width=1280,height=720 ! videoconvert ! jpegenc snapshot=true ! filesink location=test_photo.jpg
 ```
 
 <Alert type="warning">Because MIPI sensors need a brief moment to calibrate their auto-exposure and white balance when turned on, capturing a single instant frame often results in a dark image.</Alert>
