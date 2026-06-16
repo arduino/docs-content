@@ -262,6 +262,8 @@ The UNO Media Carrier features two 22-pin MIPI-CSI connectors compatible with st
 
 To use a MIPI camera, connect it to "CAMERA0" or "CAMERA1" connectors with the UNO Q **unpowered**. 
 
+![MIPI Cable Orientation](assets/mipi-orientation.png)
+
 <Alert type="note">Only __IMX219__ cameras are supported right now, we will be adding support for other modules in the future.</Alert>
 
 Plug your board and inside Arduino App Lab, navigate to **Settings**, enable the carrier and select your camera type on its respective connector:
@@ -365,6 +367,8 @@ The UNO Media Carrier features a 22-pin MIPI-DSI connector compatible with stand
 ![Media Carrier MIPI-DSI](assets/dsi-real-setup.png)
 
 To use a MIPI display, connect it to the "DISPLAY" connector with the UNO Q **unpowered**. 
+
+![MIPI Cable Orientation](assets/mipi-orientation-2.png)
 
 <Alert type="note">Waveshare 5, 8 and 10 inches displays supported, we will be adding support for other ones in the future.</Alert>
 
