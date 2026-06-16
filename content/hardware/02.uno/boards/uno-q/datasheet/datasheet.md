@@ -2254,6 +2254,127 @@ Utilize uma fonte e um cabo USB-C de 5 V / 3 A ou alimente a partir dos pinos de
 
 <div style="page-break-after: always;"></div>
 
+# Safety Information
+
+Maintain a minimum separation distance of 20 cm between the device and the user during operation. The 5 GHz frequency band may be subject to operational restrictions depending on the country of use.
+
+
+**Bulgarian (BG):**
+
+Поддържайте минимално разстояние от 20 см между устройството и потребителя по време на работа.
+Честотната лента 5 GHz може да бъде обект на ограничения за използване в зависимост от държавата.
+
+**Croatian (HR):**
+
+Održavajte minimalnu udaljenost od 20 cm između uređaja i korisnika tijekom rada.
+Frekvencijski pojas od 5 GHz može podlijegati ograničenjima ovisno o zemlji uporabe.
+
+**Czech (CS):**
+
+Udržujte minimální vzdálenost 20 cm mezi zařízením a uživatelem během provozu.
+Pásmo 5 GHz může podléhat provozním omezením v závislosti na zemi použití.
+
+**Danish (DA):**
+
+Oprethold en minimumsafstand på 20 cm mellem enheden og brugeren under drift.
+5 GHz-båndet kan være underlagt driftsmæssige begrænsninger afhængigt af brugslandet.
+
+**Dutch (NL):**
+
+Houd tijdens gebruik een minimale afstand van 20 cm tussen het apparaat en de gebruiker aan.
+De 5GHz-band kan onderhevig zijn aan gebruiksbeperkingen afhankelijk van het land van gebruik.
+
+**Estonian (ET):**
+
+Hoidke seadme ja kasutaja vahel töötamise ajal vähemalt 20 cm kaugust.
+5 GHz sagedusribale võivad kehtida kasutuspiirangud sõltuvalt kasutusriigist.
+
+**Finnish (FI):**
+
+Pidä laitteen ja käyttäjän välillä vähintään 20 cm etäisyys käytön aikana.
+5 GHz taajuuskaistaan voi kohdistua käyttörajoituksia käyttömaasta riippuen.
+
+**French (FR):**
+
+Maintenez une distance minimale de 20 cm entre l’appareil et l’utilisateur pendant son fonctionnement.
+La bande de fréquences 5 GHz peut être soumise à des restrictions d’utilisation selon le pays.
+
+**German (DE):**
+
+Halten Sie während des Betriebs einen Mindestabstand von 20 cm zwischen dem Gerät und dem Benutzer ein.
+Das 5‑GHz‑Frequenzband kann je nach Einsatzland Nutzungsbeschränkungen unterliegen.
+
+**Greek (EL):**
+
+Διατηρείτε ελάχιστη απόσταση 20 cm μεταξύ της συσκευής και του χρήστη κατά τη λειτουργία.
+Η ζώνη συχνοτήτων 5 GHz ενδέχεται να υπόκειται σε περιορισμούς ανάλογα με τη χώρα χρήσης.
+
+**Hungarian (HU):**
+
+A működés során tartson legalább 20 cm távolságot az eszköz és a felhasználó között.
+Az 5 GHz-es frekvenciasáv használata országtól függően korlátozott lehet.
+
+**Irish (GA):**
+
+Coinnigh ar a laghad fad 20 cm idir an gléas agus an t‑úsáideoir le linn úsáide.
+D’fhéadfadh srianta oibriúcháin a bheith ar an mbanda minicíochta 5 GHz ag brath ar an tír.
+
+**Italian (IT):**
+
+Mantenere una distanza minima di 20 cm tra il dispositivo e l’utente durante il funzionamento.
+La banda di frequenza a 5 GHz può essere soggetta a restrizioni operative a seconda del paese.
+
+**Latvian (LV):**
+
+Uzturiet vismaz 20 cm attālumu starp ierīci un lietotāju darbības laikā.
+5 GHz frekvenču joslai var būt izmantošanas ierobežojumi atkarībā no valsts.
+
+**Lithuanian (LT):**
+
+Naudojimo metu laikykite bent 20 cm atstumą tarp įrenginio ir naudotojo.
+5 GHz dažnių juostai gali būti taikomi naudojimo apribojimai priklausomai nuo šalies.
+
+**Maltese (MT):**
+
+Żomm distanza minima ta’ 20 cm bejn l-apparat u l-utent waqt l-użu.
+Il-medda tal-frekwenza 5 GHz tista’ tkun soġġetta għal restrizzjonijiet skont il-pajjiż.
+
+**Polish (PL):**
+
+Podczas pracy zachowaj minimalną odległość 20 cm między urządzeniem a użytkownikiem.
+Pasmo częstotliwości 5 GHz może podlegać ograniczeniom w zależności od kraju użytkowania.
+
+**Portuguese (PT):**
+
+Mantenha uma distância mínima de 20 cm entre o dispositivo e o utilizador durante o funcionamento.
+A banda de frequência de 5 GHz pode estar sujeita a restrições de utilização dependendo do país.
+
+**Romanian (RO):**
+
+Mențineți o distanță minimă de 20 cm între dispozitiv și utilizator în timpul funcționării.
+Banda de frecvență de 5 GHz poate face obiectul unor restricții în funcție de țara de utilizare.
+
+**Slovak (SK):**
+
+Počas prevádzky dodržiavajte minimálnu vzdialenosť 20 cm medzi zariadením a používateľom.
+Pásmo 5 GHz môže podliehať prevádzkovým obmedzeniam v závislosti od krajiny použitia.
+
+**Slovenian (SL):**
+
+Med delovanjem ohranjajte najmanj 20 cm razdalje med napravo in uporabnikom.
+Pas frekvenc 5 GHz je lahko omejen glede na državo uporabe.
+
+**Spanish (ES):**
+
+Mantenga una distancia mínima de 20 cm entre el dispositivo y el usuario durante su funcionamiento.
+La banda de frecuencia de 5 GHz puede estar sujeta a restricciones según el país de uso.
+
+**Swedish (SV):**
+
+Håll ett minsta avstånd på 20 cm mellan enheten och användaren under drift.
+5 GHz-bandet kan vara föremål för driftbegränsningar beroende på användningsland.
+
+
 # Certifications
 
 ## RED / UK
@@ -2434,16 +2555,17 @@ Este equipamento não tem direito à proteção contra interferência prejudicia
 
 # Document Revision History
 
-|  **Date**  | **Revision** | **Changes**                                                                                                                  |
-|:----------:|:------------:|------------------------------------------------------------------------------------------------------------------------------|
-| 01/06/2026 |      11      | Add RED radio equipment frequency band and transmit power information                                                        |
-| 16/05/2026 |      10      | Pin description section updates                                                                                              |
-| 15/04/2026 |      9       | Add Anatel Certification                                                                                                     |
-| 24/03/2026 |      8       | General documentation update                                                                                                 |
-| 17/02/2026 |      7       | Update VBAT description in Power Supply section and JMISC pin 60 note                                                        |
-| 10/02/2026 |      6       | Translations in Chinese, Portuguese, Certification updates                                                                   |
-| 19/01/2026 |      5       | Add video output resolution specifications                                                                                   |
+|  **Date**  | **Revision** | **Changes**                                                  |
+| :--------: | :----------: | ------------------------------------------------------------ |
+| 16/06/2026 |      12      | Add Safety information section                               |
+| 01/06/2026 |      11      | Add RED radio equipment frequency band and transmit power information |
+| 16/05/2026 |      10      | Pin description section updates                              |
+| 15/04/2026 |      9       | Add Anatel Certification                                     |
+| 24/03/2026 |      8       | General documentation update                                 |
+| 17/02/2026 |      7       | Update VBAT description in Power Supply section and JMISC pin 60 note |
+| 10/02/2026 |      6       | Translations in Chinese, Portuguese, Certification updates   |
+| 19/01/2026 |      5       | Add video output resolution specifications                   |
 | 24/11/2025 |      4       | Add hardware acceleration section (graphics APIs, video codecs, OpenCL support); remove incorrect default password reference |
-| 05/11/2025 |      3       | Update operational information                                                                                               |
-| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update                                                                               |
-| 01/10/2025 |      1       | First release                                                                                                                |
+| 05/11/2025 |      3       | Update operational information                               |
+| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update               |
+| 01/10/2025 |      1       | First release                                                |
