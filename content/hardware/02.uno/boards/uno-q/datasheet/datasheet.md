@@ -63,17 +63,17 @@ UNO Q is available in two variants:
 
 <p style="text-align: justify;">The Qualcomm Dragonwing™ QRB2210 I/O operates at 1.8 V.
 The MPU drives the MIPI-CSI-2 camera and MIPI-DSI display interfaces on JMEDIA, and the 1.8 V MPU (SoC) GPIO and audio endpoints exposed on JMISC.
-JMISC is a mixed-voltage header that also carries 3.3 V MCU signals and analog audio alongside the 1.8 V MPU lines. DisplayPort video is provided by the on-board ANX7625, which converts the MPU's MIPI-DSI to DisplayPort Alt-Mode on USB-C.
+JMISC is a mixed-voltage header that also carries 3.3 V MCU signals and analog audio alongside the 1.8 V MPU lines. DisplayPort video is provided by the on-board ANX7625, which converts the MPU's MIPI-DSI to DisplayPort Alt-Mode on USB-C. The same MIPI-DSI signal is also exposed on the JMEDIA header. The two are multiplexed, not independent, so only one display output, either USB-C DisplayPort Alt-Mode or JMEDIA MIPI-DSI, can be active at a time.
 The STM32U585 manages ADC, PWM, CAN, the LED matrix, and the 3.3 V headers (JDIGITAL, JANALOG, JSPI, and Qwiic).</p>
 
 #### Connectivity & Media
 
 ![](assets/ABX00162-ABX00173-comm-components.png)
 
-| **Subsystem**      | **Details**                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wireless Module    | - WCBN3536A (Qualcomm WCN3980) (U2901) <br></br>- Wi-Fi® 5 802.11a/b/g/n/ac (dual-band) + Bluetooth® 5.1                                                                                                                                                                                                                                                                                                                                                                         |
-| USB-C Port (JUSB1) | - USB 3.1 with Role-Switching Capabilities<br></br>- DisplayPort Alt-Mode via the ANX7625 DSI-to-DP bridge (U3001) (SuperSpeed differential pairs on the Type-C are routed for DP Alt Mode)<br></br>- Video output (SBC mode): Supports Full HD (1920 × 1080p) displays; optimal resolution is 1280 × 720p<br></br>- USB Power Delivery negotiation requests a **5 V / 3 A** contract only (no higher-voltage profiles)<br></br>- VBUS load-switch/back-drive protection (Q2801) |
+| **Subsystem**      | **Details**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wireless Module    | - WCBN3536A (Qualcomm WCN3980) (U2901) <br></br>- Wi-Fi® 5 802.11a/b/g/n/ac (dual-band) + Bluetooth® 5.1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| USB-C Port (JUSB1) | - USB 3.1 with Role-Switching Capabilities<br></br>- DisplayPort Alt-Mode via the ANX7625 DSI-to-DP bridge (U3001) (SuperSpeed differential pairs on the Type-C are routed for DP Alt Mode)<br></br>- Video output (SBC mode): Supports Full HD (1920 × 1080p) displays, optimal resolution is 1280 × 720p<br></br>- This MIPI-DSI signal is shared with the JMEDIA header, only one display output (USB-C or JMEDIA) is active at a time<br></br>- USB Power Delivery negotiation requests a **5 V / 3 A** contract only (no higher-voltage profiles)<br></br>- VBUS load-switch/back-drive protection (Q2801) |
 
 The wireless module uses SDIO for Wi-Fi® data and a UART for Bluetooth® control, with a shared PCB antenna.
 
@@ -607,7 +607,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 - **Camera:** Four-lane **MIPI-CSI-2** (1.8 V I/O).
 
-- **Display:** Four-lane **MIPI-DSI** into **ANX7625** for DisplayPort Alt-Mode on USB-C. When operating in Single-Board Computer (SBC) mode, the board supports Full HD (1920 × 1080p) displays with optimal resolution at 1280 × 720p.
+- **Display:** Four-lane **MIPI-DSI** into **ANX7625** for DisplayPort Alt-Mode on USB-C. The same MIPI-DSI signal is also exposed on the JMEDIA header, the two outputs are multiplexed and not simultaneous. When operating in Single-Board Computer (SBC) mode, the board supports Full HD (1920 × 1080p) displays with optimal resolution at 1280 × 720p.
 
 - **Wireless:** Dual-band Wi-Fi® (802.11a/b/g/n/ac) and Bluetooth® 5.1 on a shared module.
 
@@ -2555,17 +2555,18 @@ Este equipamento não tem direito à proteção contra interferência prejudicia
 
 # Document Revision History
 
-|  **Date**  | **Revision** | **Changes**                                                  |
-| :--------: | :----------: | ------------------------------------------------------------ |
-| 16/06/2026 |      12      | Add Safety information section                               |
-| 01/06/2026 |      11      | Add RED radio equipment frequency band and transmit power information |
-| 16/05/2026 |      10      | Pin description section updates                              |
-| 15/04/2026 |      9       | Add Anatel Certification                                     |
-| 24/03/2026 |      8       | General documentation update                                 |
-| 17/02/2026 |      7       | Update VBAT description in Power Supply section and JMISC pin 60 note |
-| 10/02/2026 |      6       | Translations in Chinese, Portuguese, Certification updates   |
-| 19/01/2026 |      5       | Add video output resolution specifications                   |
+|  **Date**  | **Revision** | **Changes**                                                                                                                  |
+|:----------:|:------------:|------------------------------------------------------------------------------------------------------------------------------|
+| 17/06/2026 |      13      | Display output clarification (USB-C and JMEDIA)                                                                              |
+| 16/06/2026 |      12      | Add Safety information section                                                                                               |
+| 01/06/2026 |      11      | Add RED radio equipment frequency band and transmit power information                                                        |
+| 16/05/2026 |      10      | Pin description section updates                                                                                              |
+| 15/04/2026 |      9       | Add Anatel Certification                                                                                                     |
+| 24/03/2026 |      8       | General documentation update                                                                                                 |
+| 17/02/2026 |      7       | Update VBAT description in Power Supply section and JMISC pin 60 note                                                        |
+| 10/02/2026 |      6       | Translations in Chinese, Portuguese, Certification updates                                                                   |
+| 19/01/2026 |      5       | Add video output resolution specifications                                                                                   |
 | 24/11/2025 |      4       | Add hardware acceleration section (graphics APIs, video codecs, OpenCL support); remove incorrect default password reference |
-| 05/11/2025 |      3       | Update operational information                               |
-| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update               |
-| 01/10/2025 |      1       | First release                                                |
+| 05/11/2025 |      3       | Update operational information                                                                                               |
+| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update                                                                               |
+| 01/10/2025 |      1       | First release                                                                                                                |
