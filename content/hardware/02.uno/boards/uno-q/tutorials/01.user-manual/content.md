@@ -355,7 +355,7 @@ cat /etc/udev/rules.d/60-arduino-zephyr.rules
 
 Note that the script creates a file named `60-arduino-zephyr.rules` rather than `60-Arduino-UNO-Q.rules`, but it has the same permission rules for both operating modes.
 
-After installing the udev rules using either method, **unplug your UNO Q board from the computer, wait a few seconds, then reconnect it**. This allows the new permissions to be applied. Once reconnected, you can continue to the next steps in the flashing process.
+After installing the udev rules using either method, **unplug your UNO Q board from the computer, wait a few seconds, then reconnect it**. This allows the new permissions to be applied. Once reconnected, you can continue to the next steps in the [Flash a Linux Image](/software/app-lab/configure/flash/) tutorial.
 
 </details>
 
@@ -1893,6 +1893,27 @@ connect <MAC_ADDRESS> # pair to the device with the specified MAC address
 Here is an example of how looks like to search for Bluetooth devices from the terminal:
 
 ![Bluetooth scan](assets/scan.png)
+
+## Manage the Linux Operating System
+
+The Arduino UNO Q runs a full Debian Linux operating system, allowing you to interact with the system just like any standard Linux environment. For convenience, Arduino App Lab provides integrated tools to help you manage updates, configure your board, and flash new operating system images.
+
+The following sections outline how to work with the Debian environment and how to manage or flash the Linux system image.
+
+### Working with the Debian Environment
+
+The UNO Q runs a full Debian Linux operating system, providing a powerful environment for running Python scripts, managing network services, and installing thousands of open-source packages.
+
+To learn how to access the shell, navigate the file system, manage permissions, and use the built-in system tools, please refer to the comprehensive [Debian Linux Basics for UNO Q guide](/tutorials/uno-q/debian-guide/).
+
+### Flashing a Linux Image
+
+If you need to reset the board to its factory state, recover from system corruption, or switch to a different Linux distribution, you can flash a new system image using one of two tools:
+
+*   **Arduino App Lab**: If your board is functional and recognized by your computer, you can initiate a reset or switch distributions directly from the **Settings** menu. This method allows you to preserve your user data if desired.
+*   **Arduino Flasher CLI**: If your board is unresponsive or cannot be discovered on your network, use this standalone command-line tool to reinstall the OS.
+
+<Alert type="info">For detailed instructions on both methods, please refer to the [Flash a Linux Image](/software/app-lab/configure/flash/) tutorial.</Alert>
 
 ## Support
 

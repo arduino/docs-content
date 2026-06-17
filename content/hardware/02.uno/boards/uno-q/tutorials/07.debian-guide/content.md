@@ -518,7 +518,7 @@ sudo apt full-upgrade
 
 Regular updates help to have the latest security patches and bug fixes, keeping your UNO Q secure and stable. It is a good practice to run `sudo apt update && sudo apt upgrade` regularly to keep your system up to date.
 
-***For major system updates or OS version upgrades, it is recommended to use the image flashing procedure described in the dedicated [__UNO Q image flash tutorial__](https://docs.arduino.cc/tutorials/uno-q/update-image/).***
+<Alert type="info">For major system updates, OS version upgrades, or to perform a full factory reset, refer to the [Flash a Linux Image](/software/app-lab/configure/flash/) tutorial.</Alert>
 
 ### Installing Software
 
@@ -1136,27 +1136,35 @@ dmesg | less
 
 ![System logs and troubleshooting (3)](assets/debian_logtrouble_3.png)
 
+#### Flashing a Linux Image
+
+Flashing a new image allows you to install a fresh operating system, recover from system corruption, or switch between different supported Linux distributions.
+
+If the board is still reachable via Arduino App Lab, you can initiate this from the **Settings** menu. If the board is inaccessible (e.g., won't boot or connect to the network), you can use the **Arduino Flasher CLI** to recover or reinstall the system even if the Linux OS is missing or corrupted.
+
+<Alert type="info">For detailed recovery instructions, refer to the [Flash a Linux Image](/software/app-lab/configure/flash/) tutorial.</Alert>
+
 ### Safe System Management
 
-Following best practices helps prevent system damage. [**Understanding when to use `sudo`**](#using-sudo-superuser-do) is important for safe system management. You should only use `sudo` when you need elevated permissions for system-level operations, such as installing packages with `apt`, editing system configuration files in `/etc/`, or accessing protected directories.
+Following best practices helps prevent system damage. [Understanding when to use `sudo`](#using-sudo-superuser-do) is important for safe system management. You should only use `sudo` when you need elevated permissions for system-level operations, such as installing packages with `apt`, editing system configuration files in `/etc/`, or accessing protected directories.
 
 **For everyday tasks like creating files in your home directory, editing your own documents, or running programs, `sudo` is not needed and should not be used.**
 
 Using `sudo` unnecessarily can actually create problems. When you create or modify files with `sudo`, they are owned by **root** rather than your user account, which can lead to permission issues later.
 
-For example, if you run [**`sudo nano myfile.txt`**](#editing-files-with-nano) in your home directory, the file will be owned by root. You will need `sudo` to edit it again in the future. This is why you should reserve `sudo` for operations that genuinely require system administrator privileges.
+For example, if you run [`sudo nano myfile.txt`](#editing-files-with-nano) in your home directory, the file will be owned by root. You will need `sudo` to edit it again in the future. This is why you should reserve `sudo` for operations that genuinely require system administrator privileges.
 
-Before making significant system changes, always back up important files to an [**external storage device**](#usb-and-peripherals-access), such as the Apps you have worked on. This simple precaution can save hours of work if something goes wrong.
+Before making significant system changes, always back up important files to an [external storage device](#usb-and-peripherals-access), such as the Apps you have worked on. This simple precaution can save hours of work if something goes wrong.
 
 When available, use command options to run in dry mode and preview changes before implementing them, allowing you to verify the operation without actually modifying anything.
 
-Keep your system and packages up to date with a [**regular `sudo apt update && sudo apt upgrade` routine**](#updating-package-lists). Keeping the system up to date with the latest security patches, compatibility elements, and bug fixes.
+Keep your system and packages up to date with a [regular `sudo apt update && sudo apt upgrade` routine](#updating-package-lists). Keeping the system up to date with the latest security patches, compatibility elements, and bug fixes.
 
-Being especially cautious with commands like [**`rm -rf`**](#file-operations) is important, as they permanently delete files without confirmation and cannot be undone.
+Being especially cautious with commands like [`rm -rf`](#file-operations) is important, as they permanently delete files without confirmation and cannot be undone.
 
-Always double-check paths and filenames before performing destructive commands. Similarly, avoid using [**`chmod 777`**](#**changing-file-permissions) on files or directories unless necessary, as this grants full access to everyone and creates security vulnerabilities.
+Always double-check paths and filenames before performing destructive commands. Similarly, avoid using [`chmod 777`](#**changing-file-permissions) on files or directories unless necessary, as this grants full access to everyone and creates security vulnerabilities.
 
-When in doubt about a command's effect, consult the manual with [**`man <command-name>`**](#getting-help) or search for examples before proceeding. Taking these extra moments to verify your actions prevents the frustration and data loss that comes from premature mistakes.
+When in doubt about a command's effect, consult the manual with [`man <command-name>`](#getting-help) or search for examples before proceeding. Taking these extra moments to verify your actions prevents the frustration and data loss that comes from premature mistakes.
 
 ### Shutting Down Your UNO Q Safely
 
@@ -1216,7 +1224,7 @@ In some configurations, `sudo halt` may cause the board to restart after a few s
 
 If auto-restart happens even with `sudo halt`, the following approaches may help solve the issue.
 
-Make sure the board runs the latest firmware version. Check for updates through Arduino App Lab or refer to the [UNO Q image flash tutorial](https://docs.arduino.cc/tutorials/uno-q/update-image/).
+Make sure the board runs the latest firmware version. Check for updates through Arduino App Lab or refer to the [Flash a Linux Image](/software/app-lab/configure/flash/).
 
 If auto-restart continues after a firmware update, you must disconnect the power source immediately after observing the shutdown indicators mentioned above and before the restart sequence begins.
 
@@ -1345,5 +1353,6 @@ For specific topics, consult these tutorials:
 
 - [Connect to UNO Q via Secure Shell (SSH)](https://docs.arduino.cc/tutorials/uno-q/ssh/)
 - [UNO Q as a Single-Board Computer](https://docs.arduino.cc/tutorials/uno-q/single-board-computer/)
-- [Flashing a New Image to the UNO Q](https://docs.arduino.cc/tutorials/uno-q/update-image/)
+- [UNO Q User Manual](/tutorials/uno-q/user-manual/)
+- [Flash a Linux Image](/software/app-lab/configure/flash/)
 - [Arduino App Lab Documentation](https://docs.arduino.cc/software/app-lab/)
