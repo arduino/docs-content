@@ -262,6 +262,8 @@ The UNO Media Carrier features two 22-pin MIPI-CSI connectors compatible with st
 
 To use a MIPI camera, connect it to "CAMERA0" or "CAMERA1" connectors with the UNO Q **unpowered**. 
 
+![MIPI Cable Orientation](assets/mipi-orientation.png)
+
 <Alert type="note">Only __IMX219__ cameras are supported right now, we will be adding support for other modules in the future.</Alert>
 
 Plug your board and inside Arduino App Lab, navigate to **Settings**, enable the carrier and select your camera type on its respective connector:
@@ -273,7 +275,7 @@ Plug your board and inside Arduino App Lab, navigate to **Settings**, enable the
 Or run the following command from the terminal:
 
 ```bash
-sudo arduino-linux-config carrier enable media-carrier camera1=type1-2lanes
+sudo arduino-linux-config carrier enable media-carrier camera0=type1-2lanes
 ```
 
 <Alert type="note">Remember to __reboot__ your Arduino UNO Q after any configuration change.</Alert>
@@ -281,6 +283,8 @@ sudo arduino-linux-config carrier enable media-carrier camera1=type1-2lanes
 Now, with your MIPI camera enabled, you can try the different Arduino App Lab examples that uses a camera input and they will work out of the box:
 
 ![Object Detection on Camera example](assets/example-mipi.png)
+
+<Alert type="warning">If you want to use just one camera, make sure to enable and connect it on __CAMERA0__ connector.</Alert>
 
 #### Capturing Images
 Once your board has rebooted, you can start capturing images. There are several ways to interact with the camera, depending on whether you prefer the command line or a graphical interface.
@@ -310,7 +314,7 @@ camera-name="/base/soc@0/cci@5c1b000/i2c-bus@1/sensor@10" # for camera1
 For example:
 
 ```bash
-sudo gst-launch-1.0 libcamerasrc camera-name="/base/soc@0/cci@5c1b000/i2c-bus@1/sensor@10" ! video/x-raw,width=1280,height=720 ! videoconvert ! jpegenc snapshot=true ! filesink location=test_photo.jpg
+sudo gst-launch-1.0 libcamerasrc camera-name="/base/soc@0/cci@5c1b000/i2c-bus@0/sensor@10" ! video/x-raw,width=1280,height=720 ! videoconvert ! jpegenc snapshot=true ! filesink location=test_photo.jpg
 ```
 
 <Alert type="warning">Because MIPI sensors need a brief moment to calibrate their auto-exposure and white balance when turned on, capturing a single instant frame often results in a dark image.</Alert>
@@ -366,6 +370,8 @@ The UNO Media Carrier features a 22-pin MIPI-DSI connector compatible with stand
 
 To use a MIPI display, connect it to the "DISPLAY" connector with the UNO Q **unpowered**. 
 
+![MIPI Cable Orientation](assets/mipi-orientation-2.png)
+
 <Alert type="note">Waveshare 5, 8 and 10 inches displays supported, we will be adding support for other ones in the future.</Alert>
 
 Power your board and inside Arduino App Lab, navigate to **Settings**, enable the carrier and select your display type:
@@ -396,6 +402,12 @@ The carrier provides three 3.5 mm audio jacks for flexible audio input and outpu
 | Earphones Out           | 3.5 mm jack | Earphone output                                |
 
 ![Audio setup](assets/audio-setup.png)
+
+You can manage the audio peripherals directly from the **Volume Control** app that is pre-installed on the UNO Q. From it, you can configure your audio inputs and outputs, control their volume and much more:
+
+![Volume Control App](assets/volume-control.png)
+
+**You can also manage audio through the terminal as explained below:**
 
 Audio playback and capture are handled by the ALSA (Advanced Linux Sound Architecture) framework available in the UNO Q's Debian OS. The `alsa-utils` package provides the `arecord` and `aplay` command-line tools.
 
