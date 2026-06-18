@@ -130,7 +130,7 @@ The Extender requires no configuration - simply insert it into your I2C chain:
 
 ## Programming with Arduino
 
-**Important:** The Extender requires **NO code changes whatsoever**. It operates completely transparently - your existing code works exactly the same whether the Extender is present or not.
+**Important:** The Extender requires **NO code changes whatsoever**. It operates completely transparently, your existing code works exactly the same whether the Extender is present or not.
 
 ### No Programming Required
 
@@ -222,7 +222,7 @@ If your I2C devices aren't communicating through the Extender:
 ### Intermittent Communication
 
 If communication works sometimes but not always:
-- Check cable quality - poor terminations can cause intermittent issues
+- Check cable quality, poor terminations can cause intermittent issues
 - Verify cable shielding is intact and properly grounded
 - Reduce cable length to test if it's a signal integrity issue
 - Keep I2C cables away from noise sources (motors, power supplies, RF transmitters)
@@ -232,7 +232,7 @@ If communication works sometimes but not always:
 
 If devices respond slowly or unreliably:
 - Reduce I2C bus speed if your application allows
-- Check total bus capacitance - too many devices can still cause issues
+- Check total bus capacitance, too many devices can still cause issues
 - Consider using a Modulino Hub to segment your network
 - For very long runs, place the Extender closer to the controller
 - Verify all devices on the bus have unique addresses
