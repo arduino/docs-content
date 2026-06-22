@@ -428,9 +428,6 @@ To start using the board, you must first install the specific core that supports
 
 ***<strong>Troubleshooting:</strong> If the core does not appear in the search results, you may need to add the package manually. Go to __File > Preferences__ and add the following link to the __Additional Boards Manager URLs__ field: `https://downloads.arduino.cc/packages/package_zephyr_index.json`***
 
-5. Install the **Arduino_RouterBridge** library by navigating to the Library Manager in the left menu of the IDE. Install it with all its dependencies.
-
-![Arduino_RouterBridge Library](assets/lib-install.png)
 
 #### Hello World (Blink)
 
@@ -441,9 +438,31 @@ Once the core is installed, you can verify that everything is working by uploadi
 3.  **Open the Example:** Go to **File > Examples > 01.Basics > Blink**.
 4.  **Upload:** Click the **Upload** button (right arrow icon) in the top toolbar.
 
+You can copy it directly from the snippet below:
+
+```cpp
+void setup() {
+  Serial.begin(9600); // We can use 'Serial' again!
+  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);  // change state of the LED by setting the pin to the HIGH voltage level
+  delay(1000);                      // wait for a second
+  digitalWrite(LED_BUILTIN, LOW);   // change state of the LED by setting the pin to the LOW voltage level
+  delay(1000);                      // wait for a second
+
+  Serial.println("Hello World");
+}
+```
+
 The IDE will compile the sketch and upload it to the STM32 microcontroller. You should now see the red LED of the built-in RGB LED turning on for one second, then off for one second, repeatedly.
 
 ![Red LED blinking](assets/blinking-led.gif)
+
+<Alert type="success">Also, if you open the Serial Monitor you will see the "Hello World" message!.</Alert>
 
 ## Onboard User Interface
 
@@ -469,7 +488,7 @@ Here is a list of basic examples for using the **LED matrix**. To test them, fol
 
 This example is for drawing **custom frames** in the LED matrix, specifically the Arduino logo.
 
-You can copy and paste the following example into the "sketch" part of your new App in the Arduino App Lab.
+You can copy and paste the following example into the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
 #include <Arduino_LED_Matrix.h>
@@ -530,7 +549,7 @@ matrix.setGrayscaleBits(8); // 8 bits result on 256 brightness levels (0 to 255)
 
 This example is for showing the **supported grayscale** in the LED matrix.
 
-You can copy and paste the following example into the "sketch" part of your new App in the Arduino App Lab.
+You can copy and paste the following example into the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
 #include <Arduino_LED_Matrix.h>
@@ -678,7 +697,7 @@ To test them follow the steps below:
 - Connect the UNO Q to your PC (if you are not in single-board computer mode).
 - Open the Arduino App Lab, navigate to **My Apps** and click on **Create new app+**.
 
-You can copy and paste the following example into the "sketch" part of your new App in the Arduino App Lab.
+You can copy and paste the following example into the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
 void setup(){
@@ -856,13 +875,9 @@ The example code shown below uses digital pin `D5` to control an LED and reads t
 
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
-2. Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
-![Library install](assets/lib-install-app-lab.png)
-
-3. Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
-#include <Arduino_RouterBridge.h>
 // Define button and LED pin
 int buttonPin = D4;
 int ledPin = D5;
@@ -876,7 +891,7 @@ void setup() {
   pinMode(ledPin, OUTPUT);
 
   // Initialize Serial communication
-  Monitor.begin();
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -886,11 +901,11 @@ void loop() {
   // If the button is pressed, turn on the LED and print its state to the Serial Monitor
   if (buttonState == LOW) {
     digitalWrite(ledPin, HIGH);
-    Monitor.println("- Button is pressed. LED is on.");
+    Serial.println("- Button is pressed. LED is on.");
   } else {
     // If the button is not pressed, turn off the LED and print to the Serial Monitor
     digitalWrite(ledPin, LOW);
-    Monitor.println("- Button is not pressed. LED is off.");
+    Serial.println("- Button is not pressed. LED is off.");
   }
 
   // Wait for 1000 milliseconds
@@ -948,27 +963,22 @@ The example code shown below reads the analog input value from a potentiometer c
 
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
-2. Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
-![Library install](assets/lib-install-app-lab.png)
-
-3. Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
-#include <Arduino_RouterBridge.h>
-
 int sensorPin = A0;   // select the input pin for the potentiometer
 
 int sensorValue = 0;  // variable to store the value coming from the sensor
 
 void setup() {
-  Monitor.begin();
+  Serial.begin(9600);
 }
 
 void loop() {
   // read the value from the sensor:
   sensorValue = analogRead(sensorPin);
 
-  Monitor.println(sensorValue);
+  Serial.println(sensorValue);
   delay(100);
 }
 ```
@@ -1002,7 +1012,7 @@ The following sketch will create a **60 Hz sine wave** signal in the `A0/DAC0` U
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
 
-2. Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
 const float freq = 60.0f;
@@ -1065,7 +1075,7 @@ Here is an example of how to create a variable duty-cycle PWM signal:
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
 
-2. Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
 const int analogInPin = A0;  // Analog input pin that the potentiometer is attached to
@@ -1109,6 +1119,7 @@ This section of the user manual covers the different communication protocols tha
 The Arduino UNO Q uses RPC (Remote Procedure Call) to exchange data between the Linux (Qualcomm MPU) side and the real-time STM32 MCU. This mechanism allows functions running on one processor to be invoked transparently from the other, as if they were local calls.
 
 ![UNO Q RPC](assets/rpc.png)
+
 
 #### Overview
 
@@ -1223,7 +1234,7 @@ To capture more detailed information in the logs, you can append the `--verbose`
 - `provide(name, function)`: Exposes a local MCU function to Linux. Note: The function executes in the high-priority background RPC thread. Keep these functions short and thread-safe.
 - `provide_safe(name, function)`: Exposes a local MCU function, but ensures it executes within the main `loop()` context. Use this if your function interacts with standard Arduino APIs (like `digitalWrite` or `Serial`) to avoid concurrency crashes.
 
-***__Warning:__ Do not use `Bridge.call()` or `Monitor.print()` inside `provide()` functions. Initiating a new communication while responding to one causes system deadlocks.***
+***__Warning:__ Do not use `Bridge.call()`, `Monitor.print()` or `Serial.print()` inside `provide()` functions. Initiating a new communication while responding to one causes system deadlocks.***
 
 `RpcCall`
 - Helper class representing an asynchronous RPC. If its `.result` method is invoked, it waits for the response, extracts the return value, and propagates error codes if needed.
@@ -1243,7 +1254,7 @@ This example shows the **Linux side (Qualcomm QRB)** toggling an LED on the **MC
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
 
-2. Copy and paste the example below in the "Python" and "sketch" parts of your new App respectively.
+2. Copy and paste the example below in the "Python" and "sketch" parts of your new App found in `python\main.py` and `sketch\sketch.ino` respectivelys.
 
 - **Linux (QRB) example to call a remote MCU function**
 
@@ -1452,7 +1463,7 @@ To transmit data to an SPI-compatible device, you can use the commands used in t
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
 
-2. Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
 #include <SPI.h>
@@ -1463,10 +1474,10 @@ void setup() {
   // Set the chip select pin as output
   pinMode(SS, OUTPUT);
 
-  // Pull the SS pin HIGH to unselect the device
+  // Pull the SS pin HIGH to unselect the device initially
   digitalWrite(SS, HIGH);
 
-  // Initialize the SPI communication
+  // Initialize the SPI hardware pins
   SPI.begin();
 }
 
@@ -1475,14 +1486,23 @@ void loop() {
   byte address = 0x35;
   // Replace with the value to send
   byte value = 0xFA;
-  // Pull the SS pin LOW to select the device
+
+  // 1. Begin transaction (Configure speed, data order, and mode)
+  // We use 1 MHz (1000000) for broad compatibility and easy logic analysis
+  SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE0));
+
+  // 2. Pull the SS pin LOW to select the device
   digitalWrite(SS, LOW);
-  // Send the address
+
+  // 3. Send the data
   SPI.transfer(address);
-  // Send the value
   SPI.transfer(value);
-  // Pull the SS pin HIGH to unselect the device
+
+  // 4. Pull the SS pin HIGH to unselect the device
   digitalWrite(SS, HIGH);
+
+  // 5. End the transaction
+  SPI.endTransaction();
 
   delay(2000);
 }
@@ -1523,7 +1543,7 @@ To transmit data to an I2C-compatible device, you can use the commands used in t
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
 
-2. Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
 #include <Wire.h>
@@ -1589,29 +1609,31 @@ The pins used in the UNO Q for the UART communication protocol are the following
 
 Please, refer to the [board pinout section](#pinout) of the user manual to locate them on the board.
 
+***To communicate over the hardware serial pins on the JDIGITAL connector, the `Serial1` object must be used.***
+
 To begin with UART communication, you will need to configure it first. In the `setup()` function, set the baud rate (bits per second):
 
 ```cpp
 // Start UART communication at 115200 baud
-Serial.begin(115200);
+Serial1.begin(115200);
 ```
 
 To transmit data to another device via UART, you can use the `write()` function:
 
 ```cpp
 // Transmit the string "Hello UNO Q"
-Serial.write("Hello UNO Q");
-Serial.write("\r\n"); // new line
+Serial1.write("Hello UNO Q");
+Serial1.write("\r\n"); // new line
 ```
 
 You can also use the `print` and `println()` to send a string without a newline character or followed by a newline character:
 
 ```cpp
 // Transmit the string "Hello UNO Q"
-Serial.print("Hello UNO Q");
+Serial1.print("Hello UNO Q");
 
 // Transmit the string "Hello UNO Q" followed by a newline character
-Serial.println("Hello UNO Q");
+Serial1.println("Hello UNO Q");
 ```
 
 To test the UART transmit method use the following example, remember to create a new App in the Arduino App Lab, then copy and paste the example below:
@@ -1619,12 +1641,12 @@ To test the UART transmit method use the following example, remember to create a
 ```cpp
 void setup() {
   // Initialize the hardware UART at 115200 bps
-  Serial.begin(115200);
+  Serial1.begin(115200);
 }
 
 void loop() {
   // Transmit the string "Hello UNO Q" followed by a newline character
-  Serial.println("Hello UNO Q");
+  Serial1.println("Hello UNO Q");
   delay(1000);
 }
 ```
@@ -1640,16 +1662,16 @@ String incoming = "";
 
 void setup() {
   // Initialize the hardware UART at 115200 baud
-  Serial.begin(115200);
+  Serial1.begin(115200);
 }
 
 void loop() {
-  while (Serial.available()) {
-    char c = Serial.read();
+  while (Serial1.available()) {
+    char c = Serial1.read();
 
     if (c == '\n') {
       // Echo the buffered message and add a newline
-      Serial.println(incoming);
+      Serial1.println(incoming);
 
       // Clear for the next message
       incoming = "";
@@ -1663,29 +1685,40 @@ With this example the UNO Q will send back whatever it receives on the UART.
 
 #### From Serial to Monitor
 
-Because of the UNO Q’s architecture, using `Serial` does not display data in the Arduino App Lab **Console** as you might expect.
+Starting with version 0.55.0 of the **Arduino UNO Q Board** platform, the UNO Q fully supports legacy `Serial` communication for debugging. You can now use `Serial.print()` and `Serial.println()` commands to display data, sensor readings, or any other messages directly in the _Arduino App Lab Console_, just as you would with other Arduino boards.
 
-To make debugging just as easy as on other Arduino boards, we provide the `Monitor` object, which you can use to print debugging messages, sensor readings, or any other information directly to the App Lab Console.
+```cpp
+void setup() {
+  // Initialize the Monitor
+  Serial.begin(9600);
+}
 
-Note: `Serial` still works over UART, but its output is not shown in App Lab.
+void loop() {
+  // Transmit the string "Hello UNO Q" followed by a newline character
+  Serial.println("Hello UNO Q");
+  delay(1000);
+}
+```
 
-You can achieve the same behavior with a minor prerequisite: include the `Arduino_RouterBridge` library in your sketch.
+Because of the UNO Q's architecture, earlier versions of the **Arduino UNO Q Board** platform required a specific `Monitor` object to print to the console instead of `Serial`.
+
+For backward compatibility, the `Monitor` object is still fully supported. If you are maintaining an older project, code using the `Arduino_RouterBridge` library will continue to work without any changes:
 
 ```cpp
 #include <Arduino_RouterBridge.h>
 
 void setup() {
-  // Initialize the Monitor
-  Monitor.begin();
+  // Initialize the legacy Monitor
+  Monitor.begin(9600);
 }
 
 void loop() {
-  // Transmit the string "Hello UNO Q" followed by a newline character
-  Monitor.println("Hello UNO Q");
+  Monitor.println("This still works!");
   delay(1000);
 }
 ```
 
+***While `Monitor` is still supported, we recommend using standard `Serial` for all new projects.***
 
 ## Wireless Connectivity
 
@@ -1777,37 +1810,31 @@ The following example gets the UTC time using TCP over socket RPC calls and prin
 
 1. Create a new App in the Arduino App Lab.
 ![Create a new app](assets/create-app.png)
-2. Install the **Arduino_RouterBridge** library by clicking on **Add Sketch Library** and searching for it.
-![Library install](assets/lib-install-app-lab.png)
-
-3. Copy and paste the example below in the "sketch" part of your new App.
+2. Copy and paste the example below in the "sketch" part of your new App found in `sketch\sketch.ino`.
 
 ```cpp
-#include <Arduino_RouterBridge.h>
-
 BridgeTCPClient<> client(Bridge);
 
 void setup() {
   if (!Bridge.begin()) {
     while (true) {}
   }
-  if (!Monitor.begin()) {
-    while (true) {}
-  }
 
-  Monitor.println("TCP Daytime Demo started");
+  Serial.begin(9600);
+
+  Serial.println("TCP Daytime Demo started");
 }
 
 void loop() {
-  Monitor.println("\nConnecting to time.nist.gov ...");
+  Serial.println("\nConnecting to time.nist.gov ...");
 
   if (client.connect("time.nist.gov", 13) < 0) {
-    Monitor.println("Connection failed!");
+    Serial.println("Connection failed!");
     delay(5000);
     return;
   }
 
-  Monitor.println("Connected, reading response...");
+  Serial.println("Connected, reading response...");
   String line;
   while (client.connected() || client.available()) {
     if (client.available()) {
@@ -1817,8 +1844,8 @@ void loop() {
     }
   }
 
-  Monitor.print("Server says: ");
-  Monitor.println(line);
+  Serial.print("Server says: ");
+  Serial.println(line);
 
   client.stop();
   delay(10000);

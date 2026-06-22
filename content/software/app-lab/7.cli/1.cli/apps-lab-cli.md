@@ -6,7 +6,7 @@ author: Karl Söderby
 tags: [UNO Q, Linux, CLI]
 ---
 
-The Arduino App Lab is built on top of the `arduino-app-cli` tool, a command line tool that manages Apps made for the [Arduino UNO Q](https://store.arduino.cc/products/uno-q) board.
+Manage your modular Apps through the `arduino-app-cli`, the command-line engine behind Arduino App Lab. This tool allows you to build, start, and stop applications directly from your board's terminal or remotely via ADB and SSH.
 
 The `arduino-app-cli` is pre-installed on the UNO Q board and can be accessed either through using the terminal on the board itself, or by accessing the board's terminal from a host computer via Android Debug Bridge (ADB).
 
@@ -202,7 +202,7 @@ Which will show something akin to:
 
 ## Summary
 
-This article covers some important commands & usage of the `arduino-app-cli`, which allows you to manage Apps on the UNO Q without the desktop UI.
+This article covers some important commands & usage of the `arduino-app-cli`, which allows you to manage Apps on the UNO Q without the graphical interface.
 
 More documentation for the Arduino App Lab is available at:
 - [Arduino App Lab Documentation](https://docs.arduino.cc/software/app-lab/)

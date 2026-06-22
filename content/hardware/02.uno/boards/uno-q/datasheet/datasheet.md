@@ -356,7 +356,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ![UNO Q Peripherals](assets/ABX00162-ABX00173_headers.png)
 
-- **JDIGITAL (A2) (JDIGITAL1) / JANALOG (A3) (JANALOG1):** 3.3 V GPIO with support for SPI, UART, CAN, PWM, and ADC inputs. Analog inputs are referenced to `VREF+` on the 3.3 V rail. Valid input range is 0 V to `VREF+`. Some STM32U585 pads may be 5 V-tolerant in digital mode, but when configured as ADC or any analog function (such as *A0* through *A5*), they are not 5 V-tolerant and must not exceed `VDD + 0.3 V`. Use external conditioning like a voltage divider or buffer for higher voltages. For *A4/A5* when used as I2C3 (PC1/PC0), use pull-ups to 3.3 V only.
+- **JDIGITAL (A2) (JDIGITAL1) / JANALOG (A3) (JANALOG1):** 3.3 V GPIO with support for SPI, UART, CAN, PWM, and ADC inputs. Analog inputs are referenced to `VREF+` on the 3.3 V rail. Valid input range is 0 V to `VREF+`. Some STM32U585 pads are 5 V-tolerant in digital mode, however when configured as ADC or any analog function (such as *A0* through *A5*), they are not 5 V-tolerant and must not exceed `VDD + 0.3 V`. Use external conditioning like a voltage divider or buffer for higher voltages. For *A4/A5* when used as I2C3 (PC1/PC0), use pull-ups to 3.3 V only. Additionally, **~D3 (PB0)** uses a TT-type I/O structure and is 3.6 V-tolerant, it is not 5 V-tolerant in any mode, including digital.
 
 - **QWIIC Connector (A4) (QWIIC1):** Additional I²C bus (3.3 V logic). It maps as **PD13 (I2C4_SDA)** and **PD12 (I2C4_SCL)**. It guarantees plug-and-play compatibility with Modulino® nodes and 3rd party sensors and actuators.
 
@@ -558,7 +558,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |       1 | D0              | PB7         | - USART1_RX <br></br>- TIM4_CH2             | 3.3 V      | UART                        |
 |       2 | D1              | PB6         | - USART1_TX <br></br>- TIM4_CH1             | 3.3 V      | UART                        |
 |       3 | D2              | PB3         | - TIM2_CH2                                  | 3.3 V      | -                           |
-|       4 | ~D3             | PB0         | - OPAMP2_OUTPUT <br></br>- TIM3_CH3         | 3.3 V      | PWM                         |
+|       4 | ~D3             | PB0         | - OPAMP2_OUTPUT <br></br>- TIM3_CH3         | 3.3 V      | PWM / not 5 V-tolerant      |
 |       5 | D4              | PA12        | - FDCAN1_TX <br></br>- TIM1_ETR             | 3.3 V      | -                           |
 |       6 | ~D5             | PA11        | - FDCAN1_RX <br></br>- TIM1_CH4             | 3.3 V      | PWM                         |
 |       7 | ~D6             | PB1         | - TIM3_CH4                                  | 3.3 V      | PWM                         |
@@ -575,7 +575,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |      18 | D21             | PB10        | - I2C2_SCL <br></br>- TIM2_CH3              | 3.3 V      | -                           |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  All JDIGITAL lines are 3.3 V logic.
+  All JDIGITAL lines are 3.3 V logic. Most pins use an FT-type I/O structure and are 5 V-tolerant as inputs. D3 (PB0) uses a TT-type I/O structure and is only 3.6 V-tolerant, do not apply 5 V to this pin in any mode.
 </div>
 
 ### JANALOG (A3) (JANALOG1) - Pin Map
@@ -1099,7 +1099,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ![UNO Q Peripherals](assets/ABX00162-ABX00173_headers.png)
 
-- **JDIGITAL (A2) (JDIGITAL1) / JANALOG (A3) (JANALOG1):** 3.3 V GPIO，支持 SPI、UART、CAN、PWM 和 ADC 输入。模拟输入以 3.3 V 电源轨上的 `VREF+` 为基准。有效输入范围为0 V至`VREF+`。部分STM32U585引脚在数字模式下可耐受5 V电压，但配置为ADC或任何模拟功能（如*A0*至*A5*）时，则不耐受5 V电压，且输入电压不得超过`VDD + 0.3 V`。若需处理更高电压，请使用分压器或缓冲器等外部信号调理电路。当*A4/A5*引脚作为I2C3（PC1/PC0）使用时，仅允许使用上拉电阻连接至3.3V。
+- **JDIGITAL (A2) (JDIGITAL1) / JANALOG (A3) (JANALOG1)：** 3.3 V GPIO，支持 SPI、UART、CAN、PWM 和 ADC 输入。模拟输入以 3.3 V 电源轨上的 `VREF+` 为基准。有效输入范围为 0 V 至 `VREF+`。部分 STM32U585 引脚在数字模式下可耐受 5 V 电压，但当配置为 ADC 或任何模拟功能（如 *A0* 至 *A5*）时，则不耐受 5 V 电压，且电压不得超过 `VDD + 0.3 V`。若需处理更高电压，请使用分压器或缓冲器等外部调理电路。当 *A4/A5* 用作 I2C3（PC1/PC0）时，仅可使用上拉至 3.3 V。此外，**~D3 (PB0)** 采用 TT 型 I/O 结构且耐受 3.6 V，但在任何模式下（包括数字模式）均不耐受 5 V。
 
 - **QWIIC连接器（A4）(QWIIC1):** 额外的I2C总线（3.3V逻辑）。其映射为**PD13（I2C4_SDA** 和 **PD12(I2C4_SCL)**。确保与Modulino®节点及第三方传感器和执行器的即插即用兼容性。
 
@@ -1296,30 +1296,31 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ### JDIGITAL (A2) (JDIGITAL1) - 引脚功能概述
 
-| **引脚** | **名称** | **MCU 引脚** | **功能**                                 | **域名** | **注释**                   |
-| -------: | -------- | ------------ | ---------------------------------------- | -------- | -------------------------- |
-|        1 | D0       | PB7          | - USART1_RX <br></br>- TIM4_CH2          | 3.3 V    | UART                       |
-|        2 | D1       | PB6          | - USART1_TX <br></br>- TIM4_CH1          | 3.3 V    | UART                       |
-|        3 | D2       | PB3          | - TIM2_CH2                               | 3.3 V    | -                          |
-|        4 | ~D3      | PB0          | - OPAMP2_OUTPUT <br></br>- TIM3_CH3      | 3.3 V    | PWM                        |
-|        5 | D4       | PA12         | - FDCAN1_TX <br></br>- TIM1_ETR          | 3.3 V    | -                          |
-|        6 | ~D5      | PA11         | - FDCAN1_RX <br></br>- TIM1_CH4          | 3.3 V    | PWM                        |
-|        7 | ~D6      | PB1          | - TIM3_CH4                               | 3.3 V    | PWM                        |
-|        8 | D7       | PB2          | - TIM8_CH4N                              | 3.3 V    | -                          |
-|        9 | D8       | PB4          | - TIM3_CH1                               | 3.3 V    | -                          |
-|       10 | ~D9      | PB8          | - TIM4_CH3                               | 3.3 V    | PWM                        |
-|       11 | ~D10     | PB9          | - SPI2_SS (芯片选择) <br></br>- TIM4_CH4 | 3.3 V    | PWM                        |
-|       12 | ~D11     | PB15         | - SPI2_MOSI <br></br>- TIM1_CH3N         | 3.3 V    | PWM                        |
-|       13 | D12      | PB14         | - SPI2_MISO <br></br>- TIM1_CH2N         | 3.3 V    | -                          |
-|       14 | D13      | PB13         | - SPI2_SCK <br></br>- TIM1_CH1N          | 3.3 V    | -                          |
-|       15 | GND      | -            | - 接地                                   | 电源     | -                          |
+| **引脚** | **名称** | **MCU 引脚** | **功能**                                 | **域名** | **注释**                 |
+|---------:|----------|--------------|------------------------------------------|----------|--------------------------|
+|        1 | D0       | PB7          | - USART1_RX <br></br>- TIM4_CH2          | 3.3 V    | UART                     |
+|        2 | D1       | PB6          | - USART1_TX <br></br>- TIM4_CH1          | 3.3 V    | UART                     |
+|        3 | D2       | PB3          | - TIM2_CH2                               | 3.3 V    | -                        |
+|        4 | ~D3      | PB0          | - OPAMP2_OUTPUT <br></br>- TIM3_CH3      | 3.3 V    | PWM / / 不支持 5 V 电压 |
+|        5 | D4       | PA12         | - FDCAN1_TX <br></br>- TIM1_ETR          | 3.3 V    | -                        |
+|        6 | ~D5      | PA11         | - FDCAN1_RX <br></br>- TIM1_CH4          | 3.3 V    | PWM                      |
+|        7 | ~D6      | PB1          | - TIM3_CH4                               | 3.3 V    | PWM                      |
+|        8 | D7       | PB2          | - TIM8_CH4N                              | 3.3 V    | -                        |
+|        9 | D8       | PB4          | - TIM3_CH1                               | 3.3 V    | -                        |
+|       10 | ~D9      | PB8          | - TIM4_CH3                               | 3.3 V    | PWM                      |
+|       11 | ~D10     | PB9          | - SPI2_SS (芯片选择) <br></br>- TIM4_CH4 | 3.3 V    | PWM                      |
+|       12 | ~D11     | PB15         | - SPI2_MOSI <br></br>- TIM1_CH3N         | 3.3 V    | PWM                      |
+|       13 | D12      | PB14         | - SPI2_MISO <br></br>- TIM1_CH2N         | 3.3 V    | -                        |
+|       14 | D13      | PB13         | - SPI2_SCK <br></br>- TIM1_CH1N          | 3.3 V    | -                        |
+|       15 | GND      | -            | - 接地                                   | 电源     | -                        |
 |       16 | AREF     | -            | - 模拟参考                               | -        | 模拟基准引脚（非GPIO引脚） |
-|       17 | D20      | PB11         | - I2C2_SDA <br></br>- TIM2_CH4           | 3.3 V    | -                          |
-|       18 | D21      | PB10         | - I2C2_SCL <br></br>- TIM2_CH3           | 3.3 V    | -                          |
+|       17 | D20      | PB11         | - I2C2_SDA <br></br>- TIM2_CH4           | 3.3 V    | -                        |
+|       18 | D21      | PB10         | - I2C2_SCL <br></br>- TIM2_CH3           | 3.3 V    | -                        |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  所有JDIGITAL线路均为3.3V逻辑电平。
+   所有 JDIGITAL 线路均采用 3.3 V 逻辑电平。大多数引脚采用 FT 型 I/O 结构，作为输入时可耐受 5 V 电压。D3（PB0）采用 TT 型 I/O 结构，仅可耐受 3.6 V 电压，在任何模式下均不得向该引脚施加 5 V 电压。
 </div>
+
 
 ### JANALOG (A3) (JANALOG1) - 引脚功能概述
 
@@ -1864,7 +1865,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ![Periféricos UNO Q](assets/ABX00162-ABX00173_headers.png)
 
-- **JDIGITAL (A2) (JDIGITAL1) / JANALOG (A3) (JANALOG1):** GPIO de 3,3 V com suporte para entradas SPI, UART, CAN, PWM e ADC. As entradas analógicas são referenciadas a `VREF+` no trilho de 3,3 V. A faixa de entrada válida é de 0 V a `VREF+`. Alguns pads STM32U585 podem ser tolerantes a 5 V no modo digital, mas quando configurados como ADC ou qualquer função analógica (como *A0* a *A5*), eles não são tolerantes a 5 V e não devem exceder `VDD + 0,3 V`. Utilize condicionamento externo, como um divisor de tensão ou buffer, para tensões mais altas. Para *A4/A5* quando utilizado como I2C3 (PC1/PC0), utilize pull-ups apenas para 3,3 V.
+- **JDIGITAL (A2) (JDIGITAL1) / JANALOG (A3) (JANALOG1):** GPIO de 3,3 V com suporte para entradas SPI, UART, CAN, PWM e ADC. As entradas analógicas são referenciadas a `VREF+` no trilho de 3,3 V. A faixa de entrada válida é de 0 V a `VREF+`. Alguns pinos do STM32U585 toleram 5 V no modo digital; no entanto, quando configurados como ADC ou qualquer função analógica (como *A0* a *A5*), eles não toleram 5 V e não devem exceder `VDD + 0,3 V`. Use condicionamento externo, como um divisor de tensão ou buffer, para tensões mais altas. Para *A4/A5* quando usados como I2C3 (PC1/PC0), use pull-ups apenas para 3,3 V. Além disso, **~D3 (PB0)** usa uma estrutura de E/S do tipo TT e é tolerante a 3,6 V; não é tolerante a 5 V em nenhum modo, incluindo o digital.
 
 - **Conector QWIIC (A4) (QWIIC1):** Barramento I²C adicional (lógica de 3,3 V). Mapeia como **PD13 (I2C4_SDA)** e **PD12 (I2C4_SCL)**. Garante compatibilidade plug-and-play com nós Modulino® e sensores e atuadores de terceiros.
 
@@ -2067,39 +2068,34 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |       9 | +1V8 OUT        | VREG_L15A_1P8V            | Alimentação      | Referência de 1,8 V    |
 |      10 | VBUS_DISABLE    | Desativação do interruptor de alimentação VBUS | 1,8 V      | Controla o caminho VBUS |
 
-
-
 <div style="page-break-after: always;"></div>
 
 ### JDIGITAL (A2) (JDIGITAL1) - Mapa De Pin
 
-| **Pino** | **Designação** | **Pino MCU** | **Funções** | **Domínio** | **Notas** |
-| ------: | --------------- | ----------- | ------------------------------------------- | ---------- | --------------------------- |
-|       1 | D0              | PB7         | - USART1_RX <br></br>- TIM4_CH2             | 3,3 V      | UART                        |
-|       2 | D1              | PB6         | - USART1_TX <br></br>- TIM4_CH1             | 3,3 V      | UART                        |
-|       3 | D2              | PB3         | - TIM2_CH2                                  | 3,3 V      | -                           |
-|       4 | ~D3             | PB0         | - OPAMP2_OUTPUT <br></br>- TIM3_CH3         | 3,3 V      | PWM                         |
-|       5 | D4              | PA12        | - FDCAN1_TX <br></br>- TIM1_ETR             | 3,3 V      | -                           |
-|       6 | ~D5             | PA11        | - FDCAN1_RX <br></br>- TIM1_CH4             | 3,3 V      | PWM                         |
-|       7 | ~D6             | PB1         | - TIM3_CH4                                  | 3,3 V      | PWM                         |
-|       8 | D7              | PB2         | - TIM8_CH4N                                 | 3,3 V      | -                           |
-|       9 | D8              | PB4         | - TIM3_CH1                                  | 3,3 V      | -                           |
-|      10 | ~D9             | PB8         | - TIM4_CH3                                  | 3,3 V      | PWM                         |
-|      11 | ~D10            | PB9         | - SPI2_SS (Seleção de Chip) <br></br>- TIM4_CH4 | 3,3 V      | PWM                         |
-|      12 | ~D11            | PB15        | - SPI2_MOSI <br></br>- TIM1_CH3N            | 3,3 V      | PWM                         |
-|      13 | D12             | PB14        | - SPI2_MISO <br></br>- TIM1_CH2N            | 3,3 V      | -                           |
-|      14 | D13             | PB13        | - SPI2_SCK <br></br>- TIM1_CH1N             | 3,3 V      | -                           |
-|      15 | GND             | -           | - Terra                                    | Alimentação      | -                           |
-|      16 | AREF            | -           | - Referência analógica                          | -          | Pino de referência analógica (não é um GPIO) |
-|      17 | D20             | PB11        | - I2C2_SDA <br></br>- TIM2_CH4              | 3,3 V      | -                           |
-|      18 | D21             | PB10        | - I2C2_SCL <br></br>- TIM2_CH3              | 3,3 V      | -                           |
-
-
+| **Pino** | **Designação** | **Pino MCU** | **Funções**                                     | **Domínio** | **Notas**                                    |
+| -------: | -------------- | ------------ | ----------------------------------------------- | ----------- | -------------------------------------------- |
+|        1 | D0             | PB7          | - USART1_RX <br></br>- TIM4_CH2                 | 3,3 V       | UART                                         |
+|        2 | D1             | PB6          | - USART1_TX <br></br>- TIM4_CH1                 | 3,3 V       | UART                                         |
+|        3 | D2             | PB3          | - TIM2_CH2                                      | 3,3 V       | -                                            |
+|        4 | ~D3            | PB0          | - OPAMP2_OUTPUT <br></br>- TIM3_CH3             | 3.3 V       | PWM / não é tolerante a 5 V                  |
+|        5 | D4             | PA12         | - FDCAN1_TX <br></br>- TIM1_ETR                 | 3,3 V       | -                                            |
+|        6 | ~D5            | PA11         | - FDCAN1_RX <br></br>- TIM1_CH4                 | 3,3 V       | PWM                                          |
+|        7 | ~D6            | PB1          | - TIM3_CH4                                      | 3,3 V       | PWM                                          |
+|        8 | D7             | PB2          | - TIM8_CH4N                                     | 3,3 V       | -                                            |
+|        9 | D8             | PB4          | - TIM3_CH1                                      | 3,3 V       | -                                            |
+|       10 | ~D9            | PB8          | - TIM4_CH3                                      | 3,3 V       | PWM                                          |
+|       11 | ~D10           | PB9          | - SPI2_SS (Seleção de Chip) <br></br>- TIM4_CH4 | 3,3 V       | PWM                                          |
+|       12 | ~D11           | PB15         | - SPI2_MOSI <br></br>- TIM1_CH3N                | 3,3 V       | PWM                                          |
+|       13 | D12            | PB14         | - SPI2_MISO <br></br>- TIM1_CH2N                | 3,3 V       | -                                            |
+|       14 | D13            | PB13         | - SPI2_SCK <br></br>- TIM1_CH1N                 | 3,3 V       | -                                            |
+|       15 | GND            | -            | - Terra                                         | Alimentação | -                                            |
+|       16 | AREF           | -            | - Referência analógica                          | -           | Pino de referência analógica (não é um GPIO) |
+|       17 | D20            | PB11         | - I2C2_SDA <br></br>- TIM2_CH4                  | 3,3 V       | -                                            |
+|       18 | D21            | PB10         | - I2C2_SCL <br></br>- TIM2_CH3                  | 3,3 V       | -                                            |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-Todas as linhas JDIGITAL são lógicas de 3,3 V.
+Todas as linhas do JDIGITAL operam com lógica de 3,3 V. A maioria dos pinos usa uma estrutura de E/S do tipo FT e tolera 5 V como entrada. O D3 (PB0) usa uma estrutura de E/S do tipo TT e tolera apenas 3,6 V; não apliques 5 V a este pino em nenhum modo.
 </div>
-
 
 ### JANALOG (A3) (JANALOG1) - Mapa De Pin
 
@@ -2212,8 +2208,6 @@ Utilize uma fonte e um cabo USB-C de 5 V / 3 A ou alimente a partir dos pinos de
   <li>Abra <em>Blink LED</em>. Reveja as notas do exemplo para ver como o App  funciona.</li>
   <li>Clique em <strong>Run</strong> e aguarde a conclusão do upload.</li>
 </ol>
-
-
 <p style="text-align: justify;">Agora deve ver o canal vermelho do LED RGB integrado acender por um segundo e, em seguida, apagar por um segundo, repetidamente. O LED é acionado pelo microcontrolador STM32U585 através do Arduino sketch.</p>
 
 <p style="text-align: justify;">Pode começar com um App  em branco ou utilizar um exemplo existente. Para o primeiro uso, recomenda-se o exemplo Hello World para aprender a estrutura básica.</p>
@@ -2265,32 +2259,32 @@ Utilize uma fonte e um cabo USB-C de 5 V / 3 A ou alimente a partir dos pinos de
 ## RED / UK
 
 
-| CE                     | Europe – EU Declaration of Conformity                        |
-| ---------------------- | ------------------------------------------------------------ |
-| Česky [Czech]          | Arduino S.r.l tímto prohlašuje, že tento Radiolan je ve shodě se základními požadavky a dalšími příslušnými ustanoveními směrnice 2014/53/EU. |
-| Dansk [Danish]         | Undertegnede Arduino S.r.l erklærer herved, at følgende udstyr Radiolan overholder de væsentlige krav og øvrige relevante krav i direktiv 2014/53/EU. |
+| CE                     | Europe – EU Declaration of Conformity                                                                                                                                                            |
+|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Česky [Czech]          | Arduino S.r.l tímto prohlašuje, že tento Radiolan je ve shodě se základními požadavky a dalšími příslušnými ustanoveními směrnice 2014/53/EU.                                                    |
+| Dansk [Danish]         | Undertegnede Arduino S.r.l erklærer herved, at følgende udstyr Radiolan overholder de væsentlige krav og øvrige relevante krav i direktiv 2014/53/EU.                                            |
 | Deutsch [German]       | Hiermit erklärt Arduino S.r.l dass sich das Gerät Radiolan in Übereinstimmung mit den grundlegenden Anforderungen und den übrigen einschlägigen Bestimmungen der Richtlinie 2014/53/EU befindet. |
-| Eesti [Estonian]       | Käesolevaga kinnitab Arduino S.r.l seadme Radiolan vastavust direktiivi 2014/53/EU põhinõuetele ja nimetatud direktiivist tulenevatele teistele asjakohastele sätetele. |
-| English                | Hereby, Arduino S.r.l, declares that this Radiolan is in compliance with the essential requirements and other relevant provisions of Directive 2014/53/EU. |
-| Español [Spanish]      | Por medio de la presente Arduino S.r.l declara que el Radiolan cumple con los requisitos esenciales y cualesquiera otras disposiciones aplicables o exigibles de la Directiva 2014/53/EU. |
-| Ελληνική [Greek]       | ΜΕ ΤΗΝ ΠΑΡΟΥΣΑ Arduino S.r.l ΔΗΛΩΝΕΙ ΟΤΙ Radiolan ΣΥΜΜΟΡΦΩΝΕΤΑΙ ΠΡΟΣ ΤΙΣ ΟΥΣΙΩΔΕΙΣ ΑΠΑΙΤΗΣΕΙΣ ΚΑΙ ΤΙΣ ΛΟΙΠΕΣ ΣΧΕΤΙΚΕΣ ΔΙΑΤΑΞΕΙΣ ΤΗΣ ΟΔΗΓΙΑΣ 2014/53/EU. |
-| Français [French]      | Par la présente Arduino S.r.l déclare que l'appareil Radiolan est conforme aux exigences essentielles et aux autres dispositions pertinentes de la directive 2014/53/EU. |
-| Íslenska [Icelandic]   | Hér með lýsir Arduino S.r.l yfir því að Radiolan er í samræmi við grunnkröfur og aðrar kröfur, sem gerðar eru í tilskipun 2014/53/EU. |
-| Italiano [Italian]     | Con la presente Arduino S.r.l dichiara che questo Radiolan è conforme ai requisiti essenziali ed alle altre disposizioni pertinenti stabilite dalla direttiva 2014/53/EU. |
-| Latviski [Latvian]     | Ar šo Arduino S.r.l deklarē, ka Radiolan atbilst Direktīvas 2014/53/EU būtiskajām prasībām un citiem ar to saistītajiem noteikumiem. |
-| Lietuvių [Lithuanian]  | Šiuo Arduino S.r.l deklaruoja, kad šis Radiolan atitinka esminius reikalavimus ir kitas 2014/53/EU Direktyvos nuostatas. |
-| Malti [Maltese]        | Hawnhekk, Arduino S.r.l, jiddikjara li dan Radiolan jikkonforma mal-ħtiġijiet essenzjali u ma provvedimenti oħrajn relevanti li hemm fid-Dirrettiva 2014/53/EU. |
-| Magyar [Hungarian]     | Alulírott, Arduino S.r.l nyilatkozom, hogy a Radiolan megfelel a vonatkozó alapvetõ követelményeknek és az 2014/53/EU irányelv egyéb elõírásainak. |
-| Nederlands [Dutch]     | Hierbij verklaart Arduino S.r.l dat het toestel Radiolan in overeenstemming is met de essentiële eisen en de andere relevante bepalingen van richtlijn 2014/53/EU. |
-| Norsk [Norwegian]      | Arduino S.r.l erklærer herved at utstyret Radiolan er i samsvar med de grunnleggende krav og øvrige relevante krav i direktiv 2014/53/EU. |
-| Polski [Polish]        | Niniejszym Arduino S.r.l oświadcza, że Radiolan jest zgodny z zasadniczymi wymogami oraz pozostałymi stosownymi postanowieniami Dyrektywy 2014/53/EU. |
-| Português [Portuguese] | Arduino S.r.l declara que este Radiolan está conforme com os requisitos essenciais e outras disposições da Directiva 2014/53/EU. |
-| Slovensko [Slovenian]  | Arduino S.r.l izjavlja, da je ta Radiolan v skladu z bistvenimi zahtevami in ostalimi relevantnimi določili direktive 2014/53/EU. |
-| Slovensky [Slovak]     | Arduino S.r.l týmto vyhlasuje, že Radiolan spĺňa základné požiadavky a všetky príslušné ustanovenia Smernice 2014/53/EU. |
-| Suomi [Finnish]        | Arduino S.r.l vakuuttaa täten että Radiolan tyyppinen laite on direktiivin 2014/53/EU oleellisten vaatimusten ja sitä koskevien direktiivin muiden ehtojen mukainen. |
-| Svenska [Swedish]      | Härmed intygar Arduino S.r.l att denna Radiolan står I överensstämmelse med de väsentliga egenskapskrav och övriga relevanta bestämmelser som framgår av direktiv 2014/53/EU. |
-| **UK**                 | **United Kingdom – UKCA Declaration of Conformity**          |
-| United Kingdom<br/>    | Hereby, Arduino S.r.l, declares that this Radiolan is in compliance with the essential requirements and other relevant provisions of The Redio Equipment Regulations 2017. |
+| Eesti [Estonian]       | Käesolevaga kinnitab Arduino S.r.l seadme Radiolan vastavust direktiivi 2014/53/EU põhinõuetele ja nimetatud direktiivist tulenevatele teistele asjakohastele sätetele.                          |
+| English                | Hereby, Arduino S.r.l, declares that this Radiolan is in compliance with the essential requirements and other relevant provisions of Directive 2014/53/EU.                                       |
+| Español [Spanish]      | Por medio de la presente Arduino S.r.l declara que el Radiolan cumple con los requisitos esenciales y cualesquiera otras disposiciones aplicables o exigibles de la Directiva 2014/53/EU.        |
+| Ελληνική [Greek]       | ΜΕ ΤΗΝ ΠΑΡΟΥΣΑ Arduino S.r.l ΔΗΛΩΝΕΙ ΟΤΙ Radiolan ΣΥΜΜΟΡΦΩΝΕΤΑΙ ΠΡΟΣ ΤΙΣ ΟΥΣΙΩΔΕΙΣ ΑΠΑΙΤΗΣΕΙΣ ΚΑΙ ΤΙΣ ΛΟΙΠΕΣ ΣΧΕΤΙΚΕΣ ΔΙΑΤΑΞΕΙΣ ΤΗΣ ΟΔΗΓΙΑΣ 2014/53/EU.                                          |
+| Français [French]      | Par la présente Arduino S.r.l déclare que l'appareil Radiolan est conforme aux exigences essentielles et aux autres dispositions pertinentes de la directive 2014/53/EU.                         |
+| Íslenska [Icelandic]   | Hér með lýsir Arduino S.r.l yfir því að Radiolan er í samræmi við grunnkröfur og aðrar kröfur, sem gerðar eru í tilskipun 2014/53/EU.                                                            |
+| Italiano [Italian]     | Con la presente Arduino S.r.l dichiara che questo Radiolan è conforme ai requisiti essenziali ed alle altre disposizioni pertinenti stabilite dalla direttiva 2014/53/EU.                        |
+| Latviski [Latvian]     | Ar šo Arduino S.r.l deklarē, ka Radiolan atbilst Direktīvas 2014/53/EU būtiskajām prasībām un citiem ar to saistītajiem noteikumiem.                                                             |
+| Lietuvių [Lithuanian]  | Šiuo Arduino S.r.l deklaruoja, kad šis Radiolan atitinka esminius reikalavimus ir kitas 2014/53/EU Direktyvos nuostatas.                                                                         |
+| Malti [Maltese]        | Hawnhekk, Arduino S.r.l, jiddikjara li dan Radiolan jikkonforma mal-ħtiġijiet essenzjali u ma provvedimenti oħrajn relevanti li hemm fid-Dirrettiva 2014/53/EU.                                  |
+| Magyar [Hungarian]     | Alulírott, Arduino S.r.l nyilatkozom, hogy a Radiolan megfelel a vonatkozó alapvetõ követelményeknek és az 2014/53/EU irányelv egyéb elõírásainak.                                               |
+| Nederlands [Dutch]     | Hierbij verklaart Arduino S.r.l dat het toestel Radiolan in overeenstemming is met de essentiële eisen en de andere relevante bepalingen van richtlijn 2014/53/EU.                               |
+| Norsk [Norwegian]      | Arduino S.r.l erklærer herved at utstyret Radiolan er i samsvar med de grunnleggende krav og øvrige relevante krav i direktiv 2014/53/EU.                                                        |
+| Polski [Polish]        | Niniejszym Arduino S.r.l oświadcza, że Radiolan jest zgodny z zasadniczymi wymogami oraz pozostałymi stosownymi postanowieniami Dyrektywy 2014/53/EU.                                            |
+| Português [Portuguese] | Arduino S.r.l declara que este Radiolan está conforme com os requisitos essenciais e outras disposições da Directiva 2014/53/EU.                                                                 |
+| Slovensko [Slovenian]  | Arduino S.r.l izjavlja, da je ta Radiolan v skladu z bistvenimi zahtevami in ostalimi relevantnimi določili direktive 2014/53/EU.                                                                |
+| Slovensky [Slovak]     | Arduino S.r.l týmto vyhlasuje, že Radiolan spĺňa základné požiadavky a všetky príslušné ustanovenia Smernice 2014/53/EU.                                                                         |
+| Suomi [Finnish]        | Arduino S.r.l vakuuttaa täten että Radiolan tyyppinen laite on direktiivin 2014/53/EU oleellisten vaatimusten ja sitä koskevien direktiivin muiden ehtojen mukainen.                             |
+| Svenska [Swedish]      | Härmed intygar Arduino S.r.l att denna Radiolan står I överensstämmelse med de väsentliga egenskapskrav och övriga relevanta bestämmelser som framgår av direktiv 2014/53/EU.                    |
+| **UK**                 | **United Kingdom – UKCA Declaration of Conformity**                                                                                                                                              |
+| United Kingdom<br/>    | Hereby, Arduino S.r.l, declares that this Radiolan is in compliance with the essential requirements and other relevant provisions of The Redio Equipment Regulations 2017.                       |
 
 The full text of the EU and UKCA declaration of conformity is available at the following internet address: https://docs.arduino.cc/certifications/
 
@@ -2302,16 +2296,21 @@ Operations in the 5.15-5.35GHz band are restricted to indoor usage only.
 
 This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
-**Module EIRP power (average power):**
+### Radio Equipment Information (RED Compliance)
 
-- 2.4GHz: 19.59 dBm
-- 5GHz
-- 5.15 ~ 5.25 GHz: 14.53 dBm
-- 5.25 ~ 5.35 GHz: 14.36 dBm
-- 5.47 ~ 5.725 GHz: 15.47 dBm 
-- 5.725 ~ 5.875 GHz: 13.95 dBm 
-- 2.4GHz Bluetooth
-- BT-EDR: 15 dBm BT-LE: 9.5 dBm
+This radio equipment operates in the following frequency bands and with the maximum radio-frequency power indicated below:
+
+| Radio Technology            | Frequency Band    | Maximum Transmit Power |
+|-----------------------------|-------------------|------------------------|
+| Bluetooth® Classic          | 2400 - 2483.5 MHz | 15 dBm                 |
+| Bluetooth® Low Energy (BLE) | 2400 - 2483.5 MHz | 9.5 dBm                |
+| Wi-Fi® 2.4 GHz              | 2400 - 2483.5 MHz | 19.59 dBm EIRP         |
+| Wi-Fi® 5 GHz                | 5150 - 5350 MHz   | 17.64 dBm EIRP         |
+| Wi-Fi® 5 GHz                | 5470 - 5725 MHz   | 17.64 dBm EIRP         |
+| Wi-Fi® 5 GHz                | 5725 - 5850 MHz   | 17.64 dBm EIRP         |
+| Wi-Fi® 5 GHz (upper band)   | 5725 - 5875 MHz   | 13.95 dBm EIRP         |
+
+In accordance with EU regulations (RED Directive 2014/53/EU), the use of the 5 GHz band may be subject to national restrictions.
 
 ## FCC
 
@@ -2435,14 +2434,16 @@ Este equipamento não tem direito à proteção contra interferência prejudicia
 
 # Document Revision History
 
-|  **Date**  | **Revision** | **Changes**                                                  |
-| :--------: | :----------: | ------------------------------------------------------------ |
-| 15/04/2026 |      9       | Add Anatel Certification                                     |
-| 24/03/2026 |      8       | General documentation update                                 |
-| 17/02/2026 |      7       | Update VBAT description in Power Supply section and JMISC pin 60 note |
-| 10/02/2026 |      6       | Translations in Chinese, Portuguese, Certification updates   |
-| 19/01/2026 |      5       | Add video output resolution specifications                   |
+|  **Date**  | **Revision** | **Changes**                                                                                                                  |
+|:----------:|:------------:|------------------------------------------------------------------------------------------------------------------------------|
+| 01/06/2026 |      11      | Add RED radio equipment frequency band and transmit power information                                                        |
+| 16/05/2026 |      10      | Pin description section updates                                                                                              |
+| 15/04/2026 |      9       | Add Anatel Certification                                                                                                     |
+| 24/03/2026 |      8       | General documentation update                                                                                                 |
+| 17/02/2026 |      7       | Update VBAT description in Power Supply section and JMISC pin 60 note                                                        |
+| 10/02/2026 |      6       | Translations in Chinese, Portuguese, Certification updates                                                                   |
+| 19/01/2026 |      5       | Add video output resolution specifications                                                                                   |
 | 24/11/2025 |      4       | Add hardware acceleration section (graphics APIs, video codecs, OpenCL support); remove incorrect default password reference |
-| 05/11/2025 |      3       | Update operational information                               |
-| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update               |
-| 01/10/2025 |      1       | First release                                                |
+| 05/11/2025 |      3       | Update operational information                                                                                               |
+| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update                                                                               |
+| 01/10/2025 |      1       | First release                                                                                                                |

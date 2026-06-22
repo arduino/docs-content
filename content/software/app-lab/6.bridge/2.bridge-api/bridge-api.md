@@ -12,7 +12,7 @@ tags:
   - MsgPack
 ---
 
-The `Bridge` library provides a Remote Procedure Call (RPC) communication layer for the Arduino UNO Q. It enables bidirectional data exchange between the Qualcomm QRB2210 microprocessor (MPU) running Linux and the STM32U585 microcontroller (MCU) running Zephyr RTOS.
+Use the `Bridge` library to enable bidirectional communication between the high-level Python logic and the real-time Arduino sketch. This Remote Procedure Call (RPC) layer allows you to exchange data, trigger functions, and synchronize tasks across processors.
 
 The Arduino Router (`arduino-router`) background Linux service manages the underlying network using a Star Topology and MessagePack RPC.
 

@@ -8,7 +8,7 @@ tags:
   - UNO Q
 ---
 
-In this tutorial, you learn about the key features of Arduino App Lab to help you get started with hybrid development quickly. You will explore the different components of the user interface, run a built-in example app on your board, and learn how to create an editable copy of an example app to modify its behavior. You'll also explore how to monitor and log your app's internal state to debug your projects.
+Discover the key features of Arduino App Lab to quickly start building modular Apps for your board. Navigate the user interface, run a built-in example on your board, and create an editable copy to modify its behavior. You'll also monitor and log your App's internal state using Python.
 
 This onboarding journey assumes you have already installed App Lab and configured it with your board; if you haven't, please check the **Prerequisites** section below.
 
@@ -28,7 +28,7 @@ After configuration, App Lab displays the main interface. The left sidebar conta
 - **Settings**: Manage preferences, including Wi-Fi networks, Linux passwords, and keyboard layouts.
 - **Account**: Access your Arduino account settings.
 
-![Screenshot of Arduino App Lab, highlighting the left sidebar.](../../assets/sidebar/sidebar-hl-all.png)
+![Screenshot of Arduino App Lab, highlighting the left sidebar.](../../assets/playwright/navigation/sidebar-icons-hl.png)
 
 ## Step 2: Run an Example App
 
@@ -37,8 +37,8 @@ The fastest way to verify your setup is to run a built-in example without modify
 1. Select **Examples** from the left sidebar.
 2. Select the **Blink LED** example.
 3. Select the **Run** button (play icon) in the top right corner.
-   ![Screenshot of the "Blink LED" example in Arduino App Lab. The Run button is highlighted.](../../assets/examples/blink-led/run/blink-led-hl-run.png)
-4. App Lab compiles the C++ sketch and runs the code on your board. The **Console** tab opens automatically to show launch progress, and you can confirm the App is active when the **Run** button changes to a **Stop** button and a green notification appears at the bottom of the screen.
+   ![Screenshot of the "Blink LED" example in Arduino App Lab. The Run button is highlighted.](../../assets/playwright/examples/blink-led-run.png)
+4. App Lab compiles the C++ sketch and runs the code on your board. The **Console** panel opens automatically at the bottom of the editor to show launch progress. You can confirm the App is active when the **Run** button changes to a **Stop** button and a green notification appears at the bottom of the screen.
 5. Once the **Blink LED** App is running, you will see the red LED (LED3_R) on the board blinking on and off.
 
 ## Step 3: Copy and Modify the App
@@ -47,16 +47,17 @@ Built-in examples are read-only. To modify the code, you must create a copy of t
 
 1. With the **Blink LED** example still open, select **Copy and edit app** in the top right corner.
 1. Enter a name for your App and select **Create new**. App Lab opens your new editable App.
-1. Select `python/main.py` in the **Files** panel on the left.
-   ![Screenshot of the App Editor in Arduino App Lab, highlighting in the Files browser.](../../assets/app-lab-editor-multi-tab-hl-files.png)
-1. Locate the `time.sleep(1)` command in the `loop` function and change it to `time.sleep(0.1)`.
+1. Find the **File Manager** in the left sidebar.
+1. Open the **python** folder and select the `main.py` file.
+   ![Screenshot of the App Editor in Arduino App Lab, highlighting in the Files browser.](../../assets/playwright/editor/editor-folders-expanded-files-hl.png)
+1. The `main.py` file will open in a new tab. Locate the `time.sleep(1)` command in the `loop` function and change it to `time.sleep(0.1)`.
 1. Select **Run** to start the modified App. If another App is already active, App Lab will prompt you to replace it before proceeding. Select **Confirm and replace** to switch to your new App.
 
 The red LED on your board now blinks at a much faster rate.
 
 ## Step 4: Log and Monitor with Python
 
-Printing messages from your code is the simplest way to track your app's behavior and debug issues. In App Lab, standard Python `print()` statements are automatically captured and displayed in the **Python** console tab.
+Printing messages from your code is the simplest way to track your app's behavior and debug issues. In App Lab, standard Python `print()` statements are automatically captured and displayed in the **Python** tab of the integrated console panel.
 
 1. Select `python/main.py` in the **Files** panel.
 2. Locate the `loop()` function and add the following `print` statements to log the state of the LED:
@@ -76,7 +77,7 @@ Printing messages from your code is the simplest way to track your app's behavio
     ```
 
 3. Select **Run** to start the app.
-4. When the **Console** opens, select the **Python** tab to see your messages appearing in real-time
+4. When the **Console** panel opens at the bottom, select the **Python** tab to see your messages appearing in real-time
 
 <!-- TODO: Add additional section for Serial Monitor logging in Sketch
 

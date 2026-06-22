@@ -13,11 +13,11 @@ tags:
   - UNO Q
 ---
 
-The Bridge is an RPC-based communication layer that allows the Linux microprocessor (MPU) and the Arduino microcontroller (MCU) on your board to exchange data. This guide walks you through a basic implementation: sending a message from a Python script on the Linux MPU to the MCU, which then prints a confirmation back to the console.
+Establish communication between Python logic on the Linux microprocessor (MPU) and the C++ sketch on the microcontroller (MCU) using the **Bridge**. Use this workflow to send messages from Python to the MCU and monitor confirmations in the console.
 
 ## Explore the Examples
 
-The easiest way to see the Bridge in action is to explore the built-in examples. These example projects use the Bridge to establish communication between the Linux MPU and the Arduino MCU:
+The easiest way to see the Bridge in action is to explore the built-in examples. These projects demonstrate how to pass data and trigger functions between your Python script and the Arduino C++ sketch:
 
 - **Blink LED:** A simple example of using Python to toggle an LED pin on the microcontroller.
 - **Blink LED with UI:** Uses the WebUI Brick to control the MCU LED from a browser-based dashboard.

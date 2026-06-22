@@ -9,15 +9,15 @@ tags:
   - Arduino App Lab
 ---
 
-Bricks provide modular, pre-packaged functionality—like a web interface or a database—that runs alongside your App's logic. This guide covers the workflow for adding Bricks to your project and initializing them in your code.
+Extend your application's capabilities by adding and configuring **Bricks**—modular components that provide ready-to-use features like web dashboards, AI models, or databases. Use the Arduino App Lab interface to manage Bricks and initialize them within your Python logic.
 
 ## Add a Brick to Your App
 
 You manage Bricks through the graphical interface in Arduino App Lab. When you add a Brick, the system automatically updates your project's configuration.
 
 1. [Open an App](../../apps/manage-apps/#open-an-app).
-2. Click the **Add Brick** button in the left sidebar to open the Bricks catalog.
-   ![Screenshot of the App Editor in Arduino App Lab, highlighting the Bricks section in the left sidebar.](../../assets/app-lab-editor-hl-bricks.png)
+2. Click the **Add Brick** button at the top of the **Editor sidebar** to open the Bricks catalog.
+   ![Screenshot of the App Editor in Arduino App Lab, highlighting the Bricks section in the Editor sidebar.](../../assets/app-lab-editor-hl-bricks.png)
 3. Select a Brick from the list.
 4. Follow the prompts to configure any required settings (e.g., port numbers or authentication keys).
 5. Arduino App Lab automatically adds the Brick entry to your `app.yaml` file.
