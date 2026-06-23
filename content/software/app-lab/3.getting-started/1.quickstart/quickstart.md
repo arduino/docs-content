@@ -89,5 +89,5 @@ Printing messages from your code is the simplest way to track your app's behavio
 
 Now that you've learned the basics, explore these resources to start building your own projects:
 
-- [Manage Apps in Arduino App Lab](../apps/manage-apps/)
+- [Manage Apps in Arduino App Lab](../../apps/manage-apps/)
 - [Develop Apps in Arduino App Lab](../../apps/develop-apps/)
