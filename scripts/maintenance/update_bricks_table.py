@@ -35,6 +35,10 @@ def build_markdown_table():
                 if not config:
                     continue
                     
+                # Do not include disabled bricks
+                if config.get('disabled') is True:
+                    continue
+                    
                 # Extract fields with fallbacks
                 name = config.get('name', folder_name)
                 category = config.get('category', '')
