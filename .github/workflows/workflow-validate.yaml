@@ -9,6 +9,9 @@ on:
   pull_request:
     types: [opened, synchronize, ready_for_review, reopened]
 
+permissions:
+  contents: read
+
 jobs:
   spell_check:
     name: Spell Check
