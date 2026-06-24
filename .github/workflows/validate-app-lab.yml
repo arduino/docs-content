@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   validate:
-    name: Validate Content
+    name: Validate App Lab Content
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
