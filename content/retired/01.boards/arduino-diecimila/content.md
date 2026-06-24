@@ -94,7 +94,7 @@ The ATmega168 also supports I2C (TWI) and SPI communication. The Arduino softwar
 
 The Arduino Diecimila can be programmed with the Arduino software ([download](//www.arduino.cc/en/Main/Software)). For details, see the [reference](//www.arduino.cc/en/Reference/HomePage) and [tutorials](//www.arduino.cc/en/Tutorial/HomePage).
 
-The ATmega168 on the Arduino Diecimila comes preburned with a [bootloader](//www.arduino.cc/en/Tutorial/Bootloader) that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the original STK500 protocol ([reference](./static/resources/datasheets/doc2525.pdf), [C header files](./static/resources/datasheets/avr061.zip)).
+The ATmega168 on the Arduino Diecimila comes preburned with a [bootloader](//www.arduino.cc/en/Tutorial/Bootloader) that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the original STK500 protocol ([reference](/resources/datasheets/doc2525.pdf), [C header files](/resources/datasheets/avr061.zip)).
 
 You can also bypass the bootloader and program the ATmega168 through the ICSP (In-Circuit Serial Programming) header; see [these instructions](//www.arduino.cc/en/Hacking/Programmer) for details.
 
