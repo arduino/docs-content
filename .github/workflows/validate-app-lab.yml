@@ -27,9 +27,7 @@ jobs:
 
       - name: Validate Markdown
         id: markdown
-        run: |
-          cd scripts/validation
-          ./content-lint.sh -p '../../content/software/app-lab/'
+        run: npx markdownlint-cli "content/software/app-lab/**/*.md" --config "content/software/app-lab/.markdownlint.yaml" --ignore-path "content/software/app-lab/.markdownlintignore"
 
       - name: Validate Links
         id: links
