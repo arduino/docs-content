@@ -119,4 +119,11 @@ productCertifications:
     source: "https://www.ofca.gov.hk/"
     sourceTitle: "www.ofca.gov.hk/"
     files: null
+  - name: "Matter"
+    title: "Matter"
+    id: 17
+    description: "Matter certified is a seal of approval indicating that a smart home device operates on the Matter protocol. Developed by the Connectivity Standards Alliance (CSA), it ensures devices work seamlessly across all major smart home ecosystems."
+    source: "https://csa-iot.org/"
+    sourceTitle: "csa-iot.org/"
+    files: null
 ---
