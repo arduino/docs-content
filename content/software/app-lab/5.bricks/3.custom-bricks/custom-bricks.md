@@ -93,7 +93,7 @@ class MyManagedBrick:
 
 ### Docker Containers (`brick_compose.yaml`)
 
-If your Custom Brick requires external services (like a database or an AI inference engine), you can define them using a standard Docker Compose file. The orchestrator will automatically pull and run these containers alongside your App. For full details on Docker capabilities and networking, see the [Bricks Technical Reference](../bricks-reference/).
+If your Custom Brick requires external services (such as databases or companion APIs), you can define them in this file. The `brick_compose.yaml` file is a standard [Docker Compose file](https://docs.docker.com/reference/compose-file/). The orchestrator will automatically pull and run these containers alongside your App. For full details on Docker capabilities and networking, see [Bricks Architecture and Configuration Reference](../bricks-reference/).
 
 ```yaml
 # bricks/my_custom_brick/brick_compose.yaml
