@@ -39,7 +39,7 @@ productCertifications:
     title: "ISED"
     id: 5
     description: "Innovation, Science and Economic Development Canada (ISED) works with Canadians in all areas of the economy and in all parts of the country to improve conditions for investment, enhance Canada's innovation performance, increase Canada's share of global trade, and build a fair, efficient, and competitive marketplace."
-    source: "http://www.ic.gc.ca/eic/site/icgc.nsf/eng/home"
+    source: "https://www.ic.gc.ca/"
     sourceTitle: "www.ic.gc.ca"
     files: null
   - name: "UL"
