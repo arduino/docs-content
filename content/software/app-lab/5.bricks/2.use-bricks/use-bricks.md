@@ -25,14 +25,6 @@ You can either add a pre-built Brick from the Bricks catalog, or create a Custom
 4. Follow the prompts to configure any required settings (e.g., credentials or thresholds).
 5. App Lab automatically adds the Brick to your `app.yaml` file.
 
-### Create a Blank Custom Brick
-If you need to package your own Python logic or Docker containers into a reusable module, you can create a Custom Brick directly within your application.
-
-1. Click the **Add Brick** button in the sidebar.
-2. At the bottom of the catalog, select **Create Custom Brick**.
-3. Enter a name (ID) for your Brick (e.g., `my_sensors`).
-4. App Lab generates a blank Custom Brick in your project. To learn how to write the code and configure this custom module, see [Create Custom Bricks](../custom-bricks/).
-
 ### Configure Brick Variables
 Many Bricks (both Arduino and Custom) accept configuration variables, such as API keys or threshold values.
 
@@ -41,6 +33,12 @@ Many Bricks (both Arduino and Custom) accept configuration variables, such as AP
 3. App Lab automatically saves these settings to your `app.yaml` file, and passes them to the Brick as environment variables when the App runs.
 
 <Alert type="note">**Important:** When you use the App Lab UI, the system manages the `app.yaml` file automatically. Manual changes can cause syntax errors that prevent the editor from opening your project.</Alert>
+
+### Create a Blank Custom Brick
+
+If you need to package your own Python logic or Docker containers into a reusable module, you can create a Custom Brick directly within your application.
+
+To learn more, see [Create Custom Bricks](../custom-bricks/).
 
 ## Use Bricks in Python
 

@@ -40,6 +40,7 @@ You can generate the foundational structure for a Custom Brick directly from the
 
 1. [Open an App](../../apps/manage-apps/#open-an-app).
 2. Click the **Add Brick** button at the top of the **Editor sidebar**.
+   ![Screenshot of the App Editor in Arduino App Lab, highlighting the Bricks section in the left sidebar.](../../assets/app-lab-editor-hl-bricks.png)
 3. At the bottom of the Bricks catalog, select **Create Custom Brick**.
 4. Enter a name (ID) for your Brick. This must be a valid Python package name (e.g., lowercase letters, numbers, and underscores).
 5. App Lab will generate the folder structure and basic files for your Custom Brick inside the `bricks/` directory.
