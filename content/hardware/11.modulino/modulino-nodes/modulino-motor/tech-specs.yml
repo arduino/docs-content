@@ -1,0 +1,16 @@
+Node:
+  Name: Modulino Motor
+  SKU: ABX00114
+  Board recommended: Arduino® UNO R4 WiFi (ABX00087) and Arduino® UNO Q (ABX00162/ABX00173)
+  Communications: I2C (over Qwiic connector or solderable pin)
+  Operational voltage: 3.3V (logic), 5-24V (motor power)
+  Motor Driver: MAX22211 (dual H-bridge)
+  Microcontroller: STM32C011F6
+  Default I2C Address: 0x6A (0x35 hardware)
+  Maximum Current: 3.8A per channel
+  Motor Voltage Range: 5V to 24V (36V transient)
+  Protection: Reverse polarity, 24V TVS diode
+  Fault Detection: Overcurrent, overtemperature, short circuit
+
+Other accessories:
+  Qwiic cables: 2x
