@@ -37,7 +37,7 @@ When you add a Brick to your App via the App Lab interface, the system automates
 1. **Configuration:** The orchestrator registers the Brick in your application's `app.yaml` file.
 2. **Environment Preparation:** For containerized Bricks, the `arduino-app-lab` system manages the deployment, virtual network creation, and startup of all required background containers.
 3. **Python Path Integration:** The orchestrator automatically adds the `bricks/` directory to the Python `sys.path`, allowing you to import your Custom Bricks seamlessly by their folder name.
-4. **Communication:** Bricks communicate with your main Python application (`main.py`) via the Arduino Router. 
+4. **Communication:** Bricks communicate with your main Python application (`main.py`) via the Arduino Router.
 5. **Execution:** The `App.run()` call at the bottom of your script initializes the communication bridge and launches the background processes required by your Bricks.
 
 <Alert type="info">**Note:** Some containerized Bricks require an active internet connection during their first deployment so the board can download the necessary Docker images from the registry.</Alert>

@@ -18,6 +18,7 @@ You manage Bricks through the graphical interface in Arduino App Lab. When you a
 You can either add a pre-built Brick from the Bricks catalog, or create a Custom Brick from scratch.
 
 ### Add an Arduino Brick
+
 1. [Open an App](../../apps/manage-apps/#open-an-app).
 2. Click the **Add Brick** button in the left sidebar to open the Bricks catalog.
    ![Screenshot of the App Editor in Arduino App Lab, highlighting the Bricks section in the left sidebar.](../../assets/app-lab-editor-hl-bricks.png)
@@ -26,6 +27,7 @@ You can either add a pre-built Brick from the Bricks catalog, or create a Custom
 5. App Lab automatically adds the Brick to your `app.yaml` file.
 
 ### Configure Brick Variables
+
 Many Bricks (both Arduino and Custom) accept configuration variables, such as API keys or threshold values.
 
 1. Click on the Brick's name in the left sidebar to open the Brick's detail page.
@@ -42,7 +44,7 @@ To learn more, see [Create Custom Bricks](../custom-bricks/).
 
 ## Use Bricks in Python
 
-After adding a Brick, you must import and initialize it in your `python/main.py` file to use its features. 
+After adding a Brick, you must import and initialize it in your `python/main.py` file to use its features.
 
 The exact implementation depends on the Brick, but generally, you will:
 

@@ -12,7 +12,7 @@ tags:
 
 **Custom Bricks** let you package your own Python modules or third-party Docker services into reusable components. Build a feature once, package it as a Custom Brick, and reuse it across your projects.
 
-While Arduino Bricks provide ready-to-use features, Custom Bricks let you integrate any tool or service your application needs. 
+While Arduino Bricks provide ready-to-use features, Custom Bricks let you integrate any tool or service your application needs.
 
 ## Anatomy of a Custom Brick
 
@@ -65,6 +65,7 @@ variables:
 Custom Bricks can be implemented in two ways depending on your needs:
 
 #### 1. Simple Function-based Bricks
+
 For utility functions or simple logic, you define plain Python functions. You don't need to use any special decorators.
 
 ```python
@@ -74,6 +75,7 @@ def say_hello():
 ```
 
 #### 2. Managed Class-based Bricks
+
 If you want your Custom Brick to behave exactly like an official Brick with automatic lifecycle management (background threads, startup/shutdown hooks), you can use the `@brick` decorator.
 
 ```python
@@ -85,7 +87,7 @@ import time
 class MyManagedBrick:
     def start(self):
         print("[Brick] Started")
-    
+
     @brick.loop
     def my_background_task(self):
         print("[Brick] Running in background...")
@@ -109,9 +111,12 @@ services:
 
 ## Using Your Custom Brick
 
-Once created, you must register your Custom Brick in `app.yaml` and import it into `main.py`.
+Once you create a Custom Brick, using it is identical to using a built-in Brick. You must register the Brick in `app.yaml` and import its Python package into `main.py`.
 
-**1. Registration:** The App Lab UI manages `app.yaml` for you when you create the Custom Brick.
+### 1. Registration (`app.yaml`)
+
+The App Lab UI manages `app.yaml` automatically when you create a Custom Brick.
+
 ```yaml
 # app.yaml
 bricks:
@@ -120,7 +125,9 @@ bricks:
         MY_SETTING: "123"
 ```
 
-**2. Implementation:** Because the orchestrator automatically adds the `bricks/` directory to your Python path, you can import your custom brick directly by its folder name. 
+### 2. Implementation (`python/main.py`)
+
+The orchestrator automatically adds the `bricks/` directory to your Python `sys.path`. You can import the Brick's Python package (its folder name) directly inside `main.py`:
 
 ```python
 # python/main.py
@@ -143,7 +150,7 @@ App.run()
 
 ## AI Models in Custom Bricks
 
-In the App Lab ecosystem, there is a strict separation between **AI Bricks** (the Python interface and Docker Runner) and **AI Models** (the data blobs/weights). 
+In the App Lab ecosystem, there is a strict separation between **AI Bricks** (the Python interface and Docker Runner) and **AI Models** (the data blobs/weights).
 
 If your Custom Brick relies on Edge Impulse models, you declare them in a `models-list.yaml` file. The orchestrator uses this file to download the `.eim` models to the board so the runner can load them.
 

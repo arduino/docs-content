@@ -91,7 +91,7 @@ Every brick requires a `brick_config.yaml` file, which acts as a manifest for th
 ```yaml
 id: "arduino:object_detection"  # Unique identifier
 name: "Object Detection"        # Display name in UI
-description: "Detects objects using AI" 
+description: "Detects objects using AI"
 category: "video"               # UI Category (miscellaneous, video, audio, text, UI, Storage)
 requires_display: webview       # Signal UI to automatically launch a webview window
 required_devices:               # Required device classes (validated at startup)
@@ -119,16 +119,16 @@ mount_devices_into_container: true # Allow Docker containers to access hardware
 
 ### Key Fields Detail
 
-- **`id`**: The unique identifier used by the system.  
-  - **Official Bricks:** Use the `arduino:` prefix (e.g., `arduino:web_ui`).  
-  - **Custom Bricks:** Match the folder name in `bricks/` and do **not** use a namespace prefix.  
-- **`variables`**: Parameters injected as **Environment Variables** into the app's environment.  
-  - Accessed in Python via `os.getenv("VARIABLE_NAME")`.  
-  - **Required Variables:** If `default_value` is missing, the user must provide a value in the UI before running the app.  
-  - **Secrets:** Setting `secret: true` will mask the input field in the App Lab UI.  
-- **`requires_display`**: When set to `webview`, this indicates that the brick exposes a graphical interface. This signals the App Lab desktop application to automatically open a new window or browser tab directed to the brick's web interface as soon as the app finishes starting.  
-- **`requires_services`**: List of core system services (IDs) that must be running for this brick to function (e.g., `arduino:genie` for LLM bricks).  
-- **`required_devices`**: Defines the *classes* of hardware devices the brick requires (e.g., `camera`, `microphone`, `speaker`). When the app is started, the `arduino-app-cli` performs startup validation to ensure at least one physical device of that class is currently connected to the board. If not, an error is raised.  
+- **`id`**: The unique identifier used by the system.
+  - **Official Bricks:** Use the `arduino:` prefix (e.g., `arduino:web_ui`).
+  - **Custom Bricks:** Match the folder name in `bricks/` and do **not** use a namespace prefix.
+- **`variables`**: Parameters injected as **Environment Variables** into the app's environment.
+  - Accessed in Python via `os.getenv("VARIABLE_NAME")`.
+  - **Required Variables:** If `default_value` is missing, the user must provide a value in the UI before running the app.
+  - **Secrets:** Setting `secret: true` will mask the input field in the App Lab UI.
+- **`requires_display`**: When set to `webview`, this indicates that the brick exposes a graphical interface. This signals the App Lab desktop application to automatically open a new window or browser tab directed to the brick's web interface as soon as the app finishes starting.
+- **`requires_services`**: List of core system services (IDs) that must be running for this brick to function (e.g., `arduino:genie` for LLM bricks).
+- **`required_devices`**: Defines the *classes* of hardware devices the brick requires (e.g., `camera`, `microphone`, `speaker`). When the app is started, the `arduino-app-cli` performs startup validation to ensure at least one physical device of that class is currently connected to the board. If not, an error is raised.
 - **`mount_devices_into_container`**: When `true`, hardware devices (like `/dev/video0`) requested in `required_devices` are automatically mounted into the brick's Docker container.
 
 ---
@@ -146,10 +146,10 @@ icon: "😀"                 # Must be a single valid emoji
 ports: []                 # Array of exposed ports for the app
 bricks:
   # Official brick (simple declaration)
-  - arduino:web_ui: {}       
+  - arduino:web_ui: {}
 
   # Custom brick with configuration variables
-  - my_custom_brick:         
+  - my_custom_brick:
       variables:
         NAME: "Arduino"
       model: "my_custom_model_id"  # Optional: Bind a specific AI model
@@ -176,4 +176,3 @@ Bricks can execute within an isolated background Docker container. You configure
 | `arduino/app-bricks-examples` | Reference applications demonstrating brick integration. These are accessible in Arduino App Lab. |
 | `arduino/arduino-app-lab` | The Arduino App Lab application. |
 | `arduino/arduino-app-cli` | Command-line tool for managing and validating apps. |
-ps. |
