@@ -3285,18 +3285,19 @@ Este equipamento não tem direito à proteção contra interferência prejudicia
 
 # Document Revision History
 
-|  **Date**  | **Revision** | **Changes**                                                                                                                  |
-|:----------:|:------------:|------------------------------------------------------------------------------------------------------------------------------|
-| 17/06/2026 |      13      | Display output clarification (USB-C and JMEDIA)                                                                              |
-| 16/06/2026 |      12      | Add Safety information section                                                                                               |
-| 01/06/2026 |      11      | Add RED radio equipment frequency band and transmit power information                                                        |
-| 16/05/2026 |      10      | Pin description section updates                                                                                              |
-| 15/04/2026 |      9       | Add Anatel Certification                                                                                                     |
-| 24/03/2026 |      8       | General documentation update                                                                                                 |
-| 17/02/2026 |      7       | Update VBAT description in Power Supply section and JMISC pin 60 note                                                        |
-| 10/02/2026 |      6       | Translations in Chinese, Portuguese, Certification updates                                                                   |
-| 19/01/2026 |      5       | Add video output resolution specifications                                                                                   |
+|  **Date**  | **Revision** | **Changes**                                                  |
+| :--------: | :----------: | ------------------------------------------------------------ |
+| 26/06/2026 |      14      | Add German language                                          |
+| 17/06/2026 |      13      | Display output clarification (USB-C and JMEDIA)              |
+| 16/06/2026 |      12      | Add Safety information section                               |
+| 01/06/2026 |      11      | Add RED radio equipment frequency band and transmit power information |
+| 16/05/2026 |      10      | Pin description section updates                              |
+| 15/04/2026 |      9       | Add Anatel Certification                                     |
+| 24/03/2026 |      8       | General documentation update                                 |
+| 17/02/2026 |      7       | Update VBAT description in Power Supply section and JMISC pin 60 note |
+| 10/02/2026 |      6       | Translations in Chinese, Portuguese, Certification updates   |
+| 19/01/2026 |      5       | Add video output resolution specifications                   |
 | 24/11/2025 |      4       | Add hardware acceleration section (graphics APIs, video codecs, OpenCL support); remove incorrect default password reference |
-| 05/11/2025 |      3       | Update operational information                                                                                               |
-| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update                                                                               |
-| 01/10/2025 |      1       | First release                                                                                                                |
+| 05/11/2025 |      3       | Update operational information                               |
+| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update               |
+| 01/10/2025 |      1       | First release                                                |
