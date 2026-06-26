@@ -44,13 +44,15 @@ To learn more, see [Create Custom Bricks](../custom-bricks/).
 
 ## Use Bricks in Python
 
-After adding a Brick, you must import and initialize it in your `python/main.py` file to use its features.
+After adding a Brick, you must import its Python package into your App's `main.py` file to instantiate its classes or call its functions.
 
-The exact implementation depends on the Brick, but generally, you will:
+### Managed Bricks
 
-1. **Import:** Import the Brick from its namespace (or its folder name if it's a Custom Brick).
-2. **Initialize:** Instantiate the Brick object so the App framework can manage its background lifecycle.
-3. **Launch the App:** Call `App.run()` at the very bottom of your script to start all registered Bricks.
+The vast majority of Bricks follow a managed execution pattern. You import the class, instantiate it to register it with the orchestrator, and call its methods:
+
+1. Import the Brick's Python package from the `arduino.app_bricks` namespace (or directly by its folder name if it's a Custom Brick).
+2. Instantiate the Brick class (for class-based Bricks) or call its plain functions directly.
+3. Call `App.run()` at the very bottom of your script to start all registered Bricks.
 
 ```python
 from arduino.app_utils import App
@@ -59,7 +61,7 @@ from arduino.app_utils import App
 from arduino.app_bricks.web_ui import WebUI
 from my_sensors import MySensorBrick
 
-# 2. Initialize Bricks
+# 2. Instantiate Bricks
 ui = WebUI()
 sensors = MySensorBrick()
 
@@ -67,7 +69,7 @@ sensors = MySensorBrick()
 App.run()
 ```
 
-<Alert type="warning">**Warning:** The `App.run()` call typically blocks the main thread. Ensure all your setup logic and Brick initializations happen before this call.</Alert>
+<Alert type="note">**Important:** The `App.run()` call typically blocks the main thread. Ensure all your setup logic and Brick initializations happen before this call.</Alert>
 
 ### Unmanaged Bricks
 

@@ -42,7 +42,7 @@ You can generate the foundational structure for a Custom Brick directly from the
 2. Click the **Add Brick** button at the top of the **Editor sidebar**.
    ![Screenshot of the App Editor in Arduino App Lab, highlighting the Bricks section in the left sidebar.](../../assets/app-lab-editor-hl-bricks.png)
 3. At the bottom of the Bricks catalog, select **Create Custom Brick**.
-4. Enter a name (ID) for your Brick. This must be a valid Python package name (e.g., lowercase letters, numbers, and underscores).
+4. Enter a name (ID) for your Brick. This must be a valid Python package name (e.g., lowercase letters, numbers, and underscores). <!-- TODO: Verify -->
 5. App Lab will generate the folder structure and basic files for your Custom Brick inside the `bricks/` directory.
 
 ### Configuration (`brick_config.yaml`)
@@ -113,7 +113,7 @@ ports:
 
 ## Using Your Custom Brick
 
-Once you create a Custom Brick, using it is identical to using a built-in Brick. You must register the Brick in `app.yaml` and import its Python package into `main.py`.
+Once you create a Custom Brick, using it is identical to using a built-in Brick. You import its Python package into your App's `main.py` to instantiate its classes or call its functions.
 
 ### Registration (`app.yaml`)
 
@@ -150,6 +150,8 @@ managed_brick = MyManagedBrick()
 App.run()
 ```
 
+For more details on how to import and initialize Bricks, see [Use Bricks in Your App](../use-bricks/).
+
 ## AI Models in Custom Bricks
 
 In the App Lab ecosystem, there is a strict separation between **AI Bricks** (the Python interface and Docker Runner) and **AI Models** (the data blobs/weights).
@@ -168,5 +170,14 @@ models:
         ei-project-id: 12345
         ei-model-url: "https://studio.edgeimpulse.com/public/12345/live"
 ```
+
+The manifest includes the following parameters:
+
+- **`runner`**: Specifies the execution method for the model. A value of `brick` indicates that the brick's companion container handles the model execution.
+- **`name`**: The display name for the model shown inside the visual App Lab UI.
+- **`bricks`**: A list of brick IDs that are compatible with and will load this model.
+- **`metadata`**: Contains Edge Impulse-specific details:
+  - `ei-project-id`: The unique project identifier inside the Edge Impulse Studio.
+  - `ei-model-url`: The direct download link to retrieve the pre-compiled `.eim` model file.
 
 <Alert type="info">**Note:** When you export an App that contains a Custom Brick, the Brick's source code is included in the export. However, external dependencies like AI models or Docker images are not exported and must be re-downloaded when the App is imported elsewhere.</Alert>
