@@ -1,5 +1,5 @@
 Node:
-  Name: Modulino Motor
+  Name: Modulino Motors
   SKU: ABX00114
   Board recommended: Arduino® UNO R4 WiFi (ABX00087) and Arduino® UNO Q (ABX00162/ABX00173)
   Communications: I2C (over Qwiic connector or solderable pin)

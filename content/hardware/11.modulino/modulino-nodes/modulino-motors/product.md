@@ -1,5 +1,5 @@
 ---
-title: Modulino Motor
+title: Modulino Motors
 url_shop: https://store.arduino.cc/products/modulino-motors
 url_guide: https://courses.arduino.cc/plugandmake
 primary_button_url: https://docs.arduino.cc/tutorials/modulino-motor/how-motor/
