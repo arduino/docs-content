@@ -99,10 +99,12 @@ class MyManagedBrick:
 If your Custom Brick requires external services (such as databases or companion APIs), you can define them in this file. The `brick_compose.yaml` file is a standard [Docker Compose file](https://docs.docker.com/reference/compose-file/). The orchestrator will automatically pull and run these containers alongside your App. For full details on Docker capabilities and networking, see [Bricks Architecture and Configuration Reference](../bricks-reference/).
 
 ```yaml
-# bricks/my_custom_brick/brick_compose.yaml
+ # bricks/my_custom_brick/brick_compose.yaml
 services:
-  my_database:
-    image: postgres:latest
+  my_service:
+    image: some_registry/some_image:latest
+ports:
+  - "8080:8080"
 ```
 
 <Alert type="warning">**Important:** The orchestrator executes the custom brick's Python code (in `__init__.py`) within the main application's container, **not** inside the custom Docker containers you define here. This means your Python code can't directly access system libraries or files inside `my_database`. Instead, your Python code must communicate with the containerized service over the virtual Docker Compose network using a network API (such as HTTP, WebSockets, or TCP/IP). You can reach the service using the service name defined in your `brick_compose.yaml` (e.g., `my_database`) as the hostname.</Alert>
