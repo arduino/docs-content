@@ -64,7 +64,7 @@ variables:
 
 Custom Bricks can be implemented in two ways depending on your needs:
 
-#### 1. Simple Function-based Bricks
+#### Simple Function-based Bricks
 
 For utility functions or simple logic, you define plain Python functions. You don't need to use any special decorators.
 
@@ -74,7 +74,7 @@ def say_hello():
     print("Hello from the custom brick!")
 ```
 
-#### 2. Managed Class-based Bricks
+#### Managed Class-based Bricks
 
 If you want your Custom Brick to behave exactly like an official Brick with automatic lifecycle management (background threads, startup/shutdown hooks), you can use the `@brick` decorator.
 
@@ -113,7 +113,7 @@ services:
 
 Once you create a Custom Brick, using it is identical to using a built-in Brick. You must register the Brick in `app.yaml` and import its Python package into `main.py`.
 
-### 1. Registration (`app.yaml`)
+### Registration (`app.yaml`)
 
 The App Lab UI manages `app.yaml` automatically when you create a Custom Brick.
 
@@ -125,7 +125,7 @@ bricks:
         MY_SETTING: "123"
 ```
 
-### 2. Implementation (`python/main.py`)
+### Implementation (`python/main.py`)
 
 The orchestrator automatically adds the `bricks/` directory to your Python `sys.path`. You can import the Brick's Python package (its folder name) directly inside `main.py`:
 

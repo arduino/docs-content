@@ -12,7 +12,7 @@ tags:
 
 This document details the underlying execution model, thread lifecycle management, file directory structures, and configuration specifications for both preinstalled official bricks and custom bricks in the Arduino App Lab ecosystem.
 
-## 1. Core Concepts & Lifecycle Management
+## Core Concepts & Lifecycle Management
 
 Bricks follow one of two execution patterns inside the `arduino.app_utils` framework, depending on whether you implement them as plain functions or managed classes.
 
@@ -37,9 +37,7 @@ Bricks don't require a managed class structure to execute. They can also be impl
 - **Custom Functions:** A custom brick can define plain functions in its `__init__.py` file. The main application script imports these functions and calls them manually.
 - **Module Wrappers:** The `arduino:streamlit_ui` brick is an example of an unmanaged brick; it exposes the third-party `streamlit` module directly, bypassing the `App.run()` lifecycle entirely.
 
----
-
-## 2. App.run() Thread Management
+## App.run() Thread Management
 
 By default, the `App.run()` function blocks the main thread. It initiates an infinite sleep loop to keep the process alive and ensure that background brick threads continue executing.
 
@@ -62,9 +60,7 @@ App.run(user_loop=my_continuous_loop)
 
 <Alert type="warning">**Warning:** Because `App.run()` blocks the main thread, you must perform all your brick initialization, variable reading, and setup logic *before* calling `App.run()`.</Alert>
 
----
-
-## 3. Custom Bricks Directory Structure
+## Custom Bricks Directory Structure
 
 Custom bricks are stored locally in your application's `bricks/` folder. The folder name must match the custom brick's configuration ID.
 
@@ -80,9 +76,7 @@ my-app/
         └── requirements.txt        # Python dependencies (optional)
 ```
 
----
-
-## 4. Brick Manifest Specification (`brick_config.yaml`)
+## Brick Manifest Specification (`brick_config.yaml`)
 
 Every brick requires a `brick_config.yaml` file, which acts as a manifest for the App Lab UI and the orchestrator.
 
@@ -131,9 +125,7 @@ mount_devices_into_container: true # Allow Docker containers to access hardware
 - **`required_devices`**: Defines the *classes* of hardware devices the brick requires (e.g., `camera`, `microphone`, `speaker`). When the app is started, the `arduino-app-cli` performs startup validation to ensure at least one physical device of that class is currently connected to the board. If not, an error is raised.
 - **`mount_devices_into_container`**: When `true`, hardware devices (like `/dev/video0`) requested in `required_devices` are automatically mounted into the brick's Docker container.
 
----
-
-## 5. Application Configuration (`app.yaml`)
+## Application Configuration (`app.yaml`)
 
 Bricks must be declared in the `bricks` list within the application's `app.yaml` descriptor file. The CLI parses this file to configure the orchestrator.
 
@@ -155,9 +147,7 @@ bricks:
       model: "my_custom_model_id"  # Optional: Bind a specific AI model
 ```
 
----
-
-## 6. Containerization and Networking Constraints
+## Containerization and Networking Constraints
 
 Bricks can execute within an isolated background Docker container. You configure and manage this behavior using the following reference-grade rules:
 
@@ -166,9 +156,7 @@ Bricks can execute within an isolated background Docker container. You configure
 - **Virtual Compose Network:** When defining custom services inside a standard [Docker Compose file](https://docs.docker.com/reference/compose-file/) named `brick_compose.yaml`, the orchestrator runs those containers inside an isolated virtual network. The custom brick's Python code running inside the main application container communicates with these services via network APIs (HTTP, WebSockets, or TCP/IP) using the compose service name as the hostname.
 - **Pre-compiled Images:** Arduino App Lab doesn't support compiling custom Docker images directly on the board from a `Dockerfile` via the `build` directive in `brick_compose.yaml`. You must build custom images beforehand, publish them to a public registry (such as GitHub Container Registry or Docker Hub), or load them onto the board manually using `docker load`.
 
----
-
-## 7. Official Repositories
+## Official Repositories
 
 | Repository | Purpose |
 | :---- | :---- |
