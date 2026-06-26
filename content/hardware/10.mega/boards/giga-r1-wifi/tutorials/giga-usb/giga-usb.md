@@ -443,7 +443,7 @@ The library used for this can be downloaded through Github.
 
 Please note that this library is in **Alpha** development stage. This means support is experimental and examples may not function as expected. Future versions of this library may break the example provided below. 
 
-***The USBHostGiga library is not available in the Arduino IDE and needs to be installed manually. You can do so my navigating to `Sketch` > `Include Library` > `Add .ZIP Library`.***
+***The USBHostGiga library is not available in the Arduino IDE and needs to be installed manually. You can do so by navigating to `Sketch` > `Include Library` > `Add .ZIP Library`.***
 
 ```arduino
 #include "USBHostGiga.h"
