@@ -154,7 +154,7 @@ These pads and the Qwiic connectors share the same I2C bus at 3.3 V.
 ### I2C Address Reference
 | **Board Silk Name** | **Motor Driver**     | **Modulino I2C Address (HEX)** | **Editable Addresses (HEX)**                | **Hardware I2C Address (HEX)** |
 |---------------------|----------------------|--------------------------------|---------------------------------------------|--------------------------------|
-| MODULINO MOTOR      | MAX22211        | 0x6A                           | Any custom address (via software config.)   | 0x35                           |
+| MODULINO MOTORS      | MAX22211        | 0x6A                           | Any custom address (via software config.)   | 0x35                           |
 
 **Note:**
 - Default I2C address is **0x6A**.

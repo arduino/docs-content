@@ -1,6 +1,6 @@
 ---
-title: "Getting Started with Modulino Motor"
-description: "Complete guide for the Modulino Motor and programming it with Arduino and MicroPython."
+title: "Getting Started with Modulino Motors"
+description: "Complete guide for the Modulino Motors and programming it with Arduino and MicroPython."
 tags:
  - Modulino
  - Motor
@@ -19,13 +19,13 @@ software:
 
 ![Motor Overview](assets/motor_overview.gif)
 
-The Modulino Motor is a dual H-bridge motor driver that provides precise control for brushed DC motors, stepper motors, solenoids, and valves. Built around the MAX22211 driver and controlled by an STM32C011F6 microcontroller, it handles up to 3.8A per channel with built-in protection against reverse polarity and voltage transients.
+The Modulino Motors is a dual H-bridge motor driver that provides precise control for brushed DC motors, stepper motors, solenoids, and valves. Built around the MAX22211 driver and controlled by an STM32C011F6 microcontroller, it handles up to 3.8A per channel with built-in protection against reverse polarity and voltage transients.
 
 ## Hardware Overview
 
 ### General Characteristics
 
-The **Modulino Motor** features the **MAX22211** dual H-bridge driver, providing independent control of two motor channels through I²C communication. Each channel delivers up to 3.8A, suitable for small to medium-sized motors and actuators.
+The **Modulino Motors** features the **MAX22211** dual H-bridge driver, providing independent control of two motor channels through I²C communication. Each channel delivers up to 3.8A, suitable for small to medium-sized motors and actuators.
 
 | Specification | Details |
 |---------------|---------|
@@ -42,7 +42,7 @@ The module can control:
 - **1 stepper motor** - Bipolar stepper control for precise positioning
 - **2 solenoids or valves** - On/off control for pneumatic or hydraulic actuators
 
-The default I²C address for the **Modulino Motor** is:
+The default I²C address for the **Modulino Motors** is:
 
 | Modulino I²C Address | Hardware I²C Address | Editable Addresses (HEX) |
 |----------------------|----------------------|--------------------------|
@@ -50,7 +50,7 @@ The default I²C address for the **Modulino Motor** is:
 
 ### Pinout
 
-![Modulino Motor Pinout](assets/MotorPinouts.png)
+![Modulino Motors Pinout](assets/MotorPinouts.png)
 
 #### Left Screw Terminal (Motor Power)
 
@@ -106,22 +106,22 @@ The module includes a power LED (yellow) that draws 1 mA when VM is connected, a
 
 ### Schematic
 
-The Modulino Motor uses the STM32C011F6 microcontroller to control the MAX22211 dual H-bridge driver via I²C communication.
+The Modulino Motors uses the STM32C011F6 microcontroller to control the MAX22211 dual H-bridge driver via I²C communication.
 
 The main components are the **MAX22211 H-bridge driver**, **STM32C011F6 microcontroller** (U1), and the **screw terminals** for motor connections. The separate VM input allows motor voltages up to 24V while control logic operates safely at 3.3V.
 
 You can connect to the I²C pins (SDA and SCL) using either the **QWIIC connectors** (recommended) or the **solderable pins**. The board's logic runs on **3.3V** from the QWIIC cable or the **3V3 pin**.
 
-You can grab the full schematic and PCB files from the [Modulino Motor page](https://docs.arduino.cc/hardware/modulinos/modulino-motor).
+You can grab the full schematic and PCB files from the [Modulino Motors page](https://docs.arduino.cc/hardware/modulinos/modulino-motor).
 
 ## Programming with Arduino
 
-The Modulino Motor is fully compatible with the Arduino IDE and the official Modulino library. The following examples showcase basic motor control functionality for DC motors and stepper motors.
+The Modulino Motors is fully compatible with the Arduino IDE and the official Modulino library. The following examples showcase basic motor control functionality for DC motors and stepper motors.
 
 ### Prerequisites
 
 - Install the Modulino library via the Arduino IDE Library Manager
-- Connect your Modulino Motor via QWIIC
+- Connect your Modulino Motors via QWIIC
 - Connect motor power supply to VM (5-24V) and ground (GND) terminals
 
 ![Motor Wiring](assets/wiring_motors.gif)
