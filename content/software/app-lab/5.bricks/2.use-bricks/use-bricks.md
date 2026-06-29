@@ -48,10 +48,10 @@ After adding a Brick, you must import its Python package into your App's `main.p
 
 ### Managed Bricks
 
-The vast majority of Bricks follow a managed execution pattern. You import the class, instantiate it to register it with the orchestrator, and call its methods:
+The vast majority of Bricks utilize the App framework's lifecycle management system. You import the class, instantiate it to register it with the system, and the App framework automatically manages its execution:
 
 1. Import the Brick's Python package from the `arduino.app_bricks` namespace (or directly by its folder name if it's a Custom Brick).
-2. Instantiate the Brick class (for class-based Bricks) or call its plain functions directly.
+2. Instantiate the Brick class.
 3. Call `App.run()` at the very bottom of your script to start all registered Bricks.
 
 ```python
@@ -73,7 +73,7 @@ App.run()
 
 ### Unmanaged Bricks
 
-Some simpler Custom Bricks or specific official Bricks (like `arduino:streamlit_ui`) don't use managed objects. Instead, you call their functions or import their modules directly, without needing to register them with the App orchestrator.
+Some simpler Custom Bricks or specific official Bricks (like `arduino:streamlit_ui`) don't use the lifecycle management system. Instead, you manage their execution directly from the App's Python script code.
 
 ```python
 import os
