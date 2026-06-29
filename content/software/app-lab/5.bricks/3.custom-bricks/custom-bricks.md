@@ -152,6 +152,99 @@ App.run()
 
 For more details on how to import and initialize Bricks, see [Use Bricks in Your App](../use-bricks/).
 
+## Custom Brick Examples
+
+### Use of a container
+
+```yaml
+services:
+  hello_server:
+    # Create a container from a Docker image that provides the BSD Netcat networking utility.
+    image: toolbelt/netcat
+    # Use Netcat to create a web server that responds with a simple message.
+    # See: https://manpages.debian.org/unstable/netcat-openbsd/nc.1.en.html
+    entrypoint: |
+      sh -c ' \
+        while true; do
+          echo -e "HTTP/1.1 200 OK\r\n\r\nHello, world!" \
+          | \
+            nc -l -p 5000 -q 0 -v
+        done \
+      '
+    ports:
+      # Expose the port for communication with the container's web server.
+      # See: https://docs.docker.com/reference/compose-file/services/#ports
+      - 5000
+```
+
+This Brick provides an interface that can be used from the Python code running on the App's primary container:
+
+```py
+import requests
+
+from arduino.app_utils import App
+
+response = requests.get("http://hello_server:5000")
+print("Web server response:", response.text)
+
+App.run()
+```
+
+Here is a complete demonstration App:
+
+[simple-web-server-brick.zip](https://github.com/user-attachments/files/29425430/simple-web-server-brick.zip)
+
+### Giving the container access to system resources
+
+```yaml
+# See: https://docs.docker.com/reference/compose-file/services/
+services:
+  sound_devices:
+    # Create a container from a Docker image that provides the BSD Netcat networking utility.
+    image: toolbelt/netcat
+    # Make the host system's sound devices available for use inside the container.
+    devices:
+      - /dev/snd
+    # Use Netcat to create a web server that responds with a list of the sound devices present in the container.
+    # See: https://manpages.debian.org/unstable/netcat-openbsd/nc.1.en.html
+    entrypoint: |
+      sh -c ' \
+        while true; do
+          sound_devices="$$(ls -1 /dev/snd)"
+
+          echo -e "HTTP/1.1 200 OK\r\n\r\n$$sound_devices" \
+          | \
+            nc -l -p 5000 -q 0 -v
+        done \
+      '
+    ports:
+      # Expose the port for communication with the container's web server.
+      # See: https://docs.docker.com/reference/compose-file/services/#ports
+      - 5000
+```
+
+Minimal Python code to interact with the Brick from the App's primary container:
+
+```py
+import requests
+
+from arduino.app_utils import App
+
+# Make an HTTP request to the custom Brick's web server.
+# See: https://requests.readthedocs.io/en/latest/user/quickstart/#make-a-request
+response = requests.get("http://sound_devices:5000")
+print("Sound devices:")
+print(response.text)
+
+App.run()
+```
+
+Demonstration App:
+
+[simple-device-access-brick.zip](https://github.com/user-attachments/files/29425418/simple-device-access-brick.zip)
+
+
+
 ## AI Models in Custom Bricks
 
 In the App Lab ecosystem, there is a strict separation between **AI Bricks** (the Python interface and Docker Runner) and **AI Models** (the data blobs/weights).
