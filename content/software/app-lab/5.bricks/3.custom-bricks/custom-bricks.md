@@ -154,7 +154,11 @@ For more details on how to import and initialize Bricks, see [Use Bricks in Your
 
 ## Custom Brick Examples
 
+These examples illustrate key custom container patterns. Each example includes a complete, downloadable App archive that you can [import into Arduino App Lab](../../apps/manage-apps/#import-an-app).
+
 ### Use of a container
+
+This example illustrates how to deploy a standard background container and connect to its services over the virtual network.
 
 ```yaml
 services:
@@ -195,6 +199,8 @@ Here is a complete demonstration App:
 [simple-web-server-brick.zip](https://github.com/user-attachments/files/29425430/simple-web-server-brick.zip)
 
 ### Giving the container access to system resources
+
+This example shows how to configure your Docker service to access physical devices exposed to the container.
 
 ```yaml
 # See: https://docs.docker.com/reference/compose-file/services/
