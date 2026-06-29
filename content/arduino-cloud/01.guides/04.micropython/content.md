@@ -100,7 +100,7 @@ During the [device configuration](#thing--device-configuration), you obtained a 
 WIFI_SSID = "myNetwork"   # Network SSID
 WIFI_PASSWORD = "passwordForWiFi"   # Network key
 DEVICE_ID = b"ef77wer88-0432-4574-85e1-54e3d5cac861"
-CLOUD_PASSWORD = b"TQHFHEKKKLSYMPB1OZLF"
+SECRET_KEY = b"TQHFHEKKKLSYMPB1OZLF"
 ```
 
 In a MicroPython editor, you can create this file, and save it on your board running MicroPython.
@@ -238,7 +238,7 @@ from arduino_iot_cloud import ArduinoCloudClient
 from secrets import WIFI_SSID
 from secrets import WIFI_PASSWORD
 from secrets import DEVICE_ID
-from secrets import CLOUD_PASSWORD
+from secrets import SECRET_KEY
 
 led = Pin("LED_BUILTIN", Pin.OUT) # Configure the desired LED pin as an output.
 
@@ -279,7 +279,7 @@ if __name__ == "__main__":
     # Create a client object to connect to the Arduino Cloud.
     # For MicroPython, the key and cert files must be stored in DER format on the filesystem.
     # Alternatively, a username and password can be used to authenticate:
-    client = ArduinoCloudClient(device_id=DEVICE_ID, username=DEVICE_ID, password=CLOUD_PASSWORD)
+    client = ArduinoCloudClient(device_id=DEVICE_ID, username=DEVICE_ID, password=SECRET_KEY)
 
     # Register Cloud objects.
     # Note: The following objects must be created first in the dashboard and linked to the device.
@@ -504,7 +504,7 @@ if __name__ == "__main__":
 
     # For MicroPython, the key and cert files must be stored in DER format on the filesystem.
     # Alternatively, a username and password can be used to authenticate:
-    client = ArduinoCloudClient(device_id=DEVICE_ID, username=DEVICE_ID, password=CLOUD_PASSWORD)
+    client = ArduinoCloudClient(device_id=DEVICE_ID, username=DEVICE_ID, password=SECRET_KEY)
     client.register(ColoredLight("light", swi=True, on_write=on_colored_light_changed))
 
     # Start the Arduino Cloud client.
@@ -524,3 +524,4 @@ If the code is not working, there are some common issues we can troubleshoot:
 ## Conclusion
 
 This tutorial has guided you through the process of connecting your Arduino device to the Arduino Cloud using MicroPython. You learned how to install the necessary library, set up your device, and control an LED via the Arduino Cloud. This opens up possibilities for more complex applications, as you can control and monitor your Arduino device remotely.
+
