@@ -16,6 +16,8 @@ This document details the underlying execution model, thread lifecycle managemen
 
 Bricks follow one of two execution patterns inside the `arduino.app_utils` framework, depending on whether you implement them as plain functions or managed classes.
 
+<Alert type="warning">**Warning:** Because `App.run()` blocks the main thread, you must perform all your brick initialization, variable reading, and setup logic *before* calling `App.run()`.</Alert>
+
 ### Managed Bricks (Class-based)
 
 The vast majority of preinstalled Arduino Bricks, and advanced custom bricks, use a managed lifecycle. By decorating a class with `@brick`, the `arduino.app_utils.App` framework automatically handles its execution in the background.
@@ -36,29 +38,6 @@ Bricks don't require a managed class structure to execute. They can also be impl
 
 - **Custom Functions:** A custom brick can define plain functions in its `__init__.py` file. The main application script imports these functions and calls them manually.
 - **Module Wrappers:** The `arduino:streamlit_ui` brick is an example of an unmanaged brick; it exposes the third-party `streamlit` module directly, bypassing the `App.run()` lifecycle entirely.
-
-## App.run() Thread Management
-
-By default, the `App.run()` function blocks the main thread. It initiates an infinite sleep loop to keep the process alive and ensure that background brick threads continue executing.
-
-### The `user_loop` Parameter
-
-If you pass a callable function to `App.run(user_loop=...)`, the orchestrator will execute that function repeatedly inside the infinite loop on the main thread. This is ideal for running continuous, repetitive code in simple applications without manually configuring dedicated background threads.
-
-```py
-from arduino.app_utils import App
-import time
-
-def my_continuous_loop():
-    # This runs repeatedly on the main thread
-    print("Main thread active...")
-    time.sleep(1)
-
-# App.run blocks the main thread and repeatedly executes my_continuous_loop
-App.run(user_loop=my_continuous_loop)
-```
-
-<Alert type="warning">**Warning:** Because `App.run()` blocks the main thread, you must perform all your brick initialization, variable reading, and setup logic *before* calling `App.run()`.</Alert>
 
 ## Custom Bricks Directory Structure
 
