@@ -48,7 +48,7 @@ my-app/
 ├── app.yaml
 ├── python/main.py
 └── bricks/
-    └── my_custom_brick/            # The Brick ID (must match folder name)
+    └── my_custom_brick/            # The Brick ID (must match id key in manifest)
         ├── __init__.py             # Python logic (required)
         ├── brick_config.yaml       # Metadata (required)
         ├── brick_compose.yaml      # Docker services (optional)
@@ -106,14 +106,14 @@ mount_devices_into_container: true # Allow Docker containers to access hardware
 
 ## Application Configuration (`app.yaml`)
 
-Bricks must be declared in the `bricks` list within the application's `app.yaml` descriptor file. The CLI parses this file to configure the orchestrator.
+Bricks must be declared in the `bricks` list within the application's `app.yaml` descriptor file.
 
 Arduino App Lab automatically manages this section when using the visual interface.
 
 ```yaml
 name: "My App Name"
 description: "A description of the app"
-icon: "😀"                 # Must be a single valid emoji
+icon: "😀"                 # Must be a single emoji
 ports: []                 # Array of exposed ports for the app
 bricks:
   # Official brick (simple declaration)
@@ -128,18 +128,18 @@ bricks:
 
 ## Containerization and Networking Constraints
 
-Bricks can execute within an isolated background Docker container. You configure and manage this behavior using the following reference-grade rules:
+Bricks can execute within an isolated background Docker container. You can configure and manage this behavior:
 
-- **Service Dependencies (`requires_services`):** If your brick relies on core containerized system services (such as local AI inference engines), list their system IDs here (e.g., `arduino:genie`). The orchestrator ensures these system services are active before launching your brick.
-- **Hardware Access (`mount_devices_into_container`):** Setting this boolean field to `true` instructs the orchestrator to automatically mount any physical hardware devices matching the classes in `required_devices` (e.g., `/dev/video0`) into the brick's Docker container.
+- **Service Dependencies:** If your brick relies on core containerized system services (such as local AI inference engines), list their system IDs (e.g., `arduino:genie`) in the `requires_services` key of `brick_config.yaml`. The orchestrator ensures these system services are active before launching your brick.
+- **Hardware Access:** Setting the `mount_devices_into_container` key of `brick_config.yaml` to `true` instructs the orchestrator to automatically mount any physical hardware devices matching the classes in `required_devices` (e.g., `/dev/video0`) into the brick's Docker container.
 - **Virtual Compose Network:** When defining custom services inside a standard [Docker Compose file](https://docs.docker.com/reference/compose-file/) named `brick_compose.yaml`, the orchestrator runs those containers inside an isolated virtual network. The custom brick's Python code running inside the main application container communicates with these services via network APIs (HTTP, WebSockets, or TCP/IP) using the compose service name as the hostname.
-- **Pre-compiled Images:** Arduino App Lab doesn't support compiling custom Docker images directly on the board from a `Dockerfile` via the `build` directive in `brick_compose.yaml`. You must build custom images beforehand, publish them to a public registry (such as GitHub Container Registry or Docker Hub), or load them onto the board manually using `docker load`.
+- **Custom Images:** Arduino App Lab doesn't support building custom Docker images directly on the board from a `Dockerfile` via the `build` directive in `brick_compose.yaml`. You must build custom images beforehand, publish them to a public registry (such as GitHub Container Registry or Docker Hub), or load them onto the board manually using `docker load`.
 
 ## Official Repositories
 
 | Repository | Purpose |
 | :---- | :---- |
-| `arduino/app-bricks-py` | Source code for preinstalled official bricks. |
-| `arduino/app-bricks-examples` | Reference applications demonstrating brick integration. These are accessible in Arduino App Lab. |
-| `arduino/arduino-app-lab` | The Arduino App Lab application. |
-| `arduino/arduino-app-cli` | Command-line tool for managing and validating apps. |
+| [`arduino/app-bricks-py`](https://github.com/arduino/app-bricks-py) | Source code for preinstalled official bricks. |
+| [`arduino/app-bricks-examples`](https://github.com/arduino/app-bricks-examples) | Reference applications demonstrating brick integration. These are accessible in Arduino App Lab. |
+| [`arduino/arduino-app-lab`](https://github.com/arduino/arduino-app-lab) | The Arduino App Lab application. |
+| [`arduino/arduino-app-cli`](https://github.com/arduino/arduino-app-cli) | Command-line tool for managing and validating apps. |
