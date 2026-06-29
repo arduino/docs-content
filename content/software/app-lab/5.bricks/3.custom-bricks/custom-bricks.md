@@ -10,7 +10,7 @@ tags:
   - Arduino App Lab
 ---
 
-**Custom Bricks** let you package your own Python modules or third-party Docker services into reusable components. Build a feature once, package it as a Custom Brick, and reuse it across your projects.
+**Custom Bricks** allow you to create additional Docker services and companion Python packages for use by an App.
 
 While Arduino Bricks provide ready-to-use features, Custom Bricks let you integrate any tool or service your application needs.
 
@@ -26,7 +26,7 @@ my-app/
 ├── python/main.py
 └── bricks/
     └── my_custom_brick/            # The Brick ID and folder name
-        ├── __init__.py             # Python logic (required)
+        ├── __init__.py             # Python logic (optional)
         ├── brick_config.yaml       # Brick metadata and variables (required)
         ├── brick_compose.yaml      # Docker Compose configuration (optional)
         └── requirements.txt        # Python dependencies (optional)
@@ -42,7 +42,7 @@ You can generate the foundational structure for a Custom Brick directly from the
 2. Click the **Add Brick** button at the top of the **Editor sidebar**.
    ![Screenshot of the App Editor in Arduino App Lab, highlighting the Bricks section in the left sidebar.](../../assets/app-lab-editor-hl-bricks.png)
 3. At the bottom of the Bricks catalog, select **Create Custom Brick**.
-4. Enter a name (ID) for your Brick. This must be a valid Python package name (e.g., lowercase letters, numbers, and underscores). <!-- TODO: Verify -->
+4. Enter a name for your Brick.
 5. App Lab will generate the folder structure and basic files for your Custom Brick inside the `bricks/` directory.
 
 ### Configuration (`brick_config.yaml`)
@@ -52,8 +52,6 @@ The `brick_config.yaml` file defines the identity of your Brick and the environm
 ```yaml
 id: my_custom_brick
 name: My Custom Brick
-description: "A description of what my Custom Brick does."
-category: miscellaneous
 variables:
   - name: "MY_SETTING"
     description: "A custom setting for this brick"
@@ -76,7 +74,7 @@ def say_hello():
 
 #### Managed Class-based Bricks
 
-If you want your Custom Brick to behave exactly like an official Brick with automatic lifecycle management (background threads, startup/shutdown hooks), you can use the `@brick` decorator.
+If you want your Custom Brick to behave exactly like an official Brick with automatic lifecycle management (background threads, startup/shutdown hooks), use the `@brick` decorator on the class. The App lifecycle management system will automatically call certain methods of the decorated class:
 
 ```python
 # bricks/my_custom_brick/__init__.py
@@ -94,12 +92,14 @@ class MyManagedBrick:
         time.sleep(1)
 ```
 
+For details on how to utilize the lifecycle management features of the App framework in the Python package of your custom App, see [Bricks Architecture and Configuration Reference](../bricks-reference/).
+
 ### Docker Containers (`brick_compose.yaml`)
 
 If your Custom Brick requires external services (such as databases or companion APIs), you can define them in this file. The `brick_compose.yaml` file is a standard [Docker Compose file](https://docs.docker.com/reference/compose-file/). The orchestrator will automatically pull and run these containers alongside your App. For full details on Docker capabilities and networking, see [Bricks Architecture and Configuration Reference](../bricks-reference/).
 
 ```yaml
- # bricks/my_custom_brick/brick_compose.yaml
+# bricks/my_custom_brick/brick_compose.yaml
 services:
   my_service:
     image: some_registry/some_image:latest
@@ -107,7 +107,7 @@ ports:
   - "8080:8080"
 ```
 
-<Alert type="warning">**Important:** The orchestrator executes the custom brick's Python code (in `__init__.py`) within the main application's container, **not** inside the custom Docker containers you define here. This means your Python code can't directly access system libraries or files inside `my_database`. Instead, your Python code must communicate with the containerized service over the virtual Docker Compose network using a network API (such as HTTP, WebSockets, or TCP/IP). You can reach the service using the service name defined in your `brick_compose.yaml` (e.g., `my_database`) as the hostname.</Alert>
+<Alert type="warning">**Important:** The orchestrator executes the custom brick's Python code (in `__init__.py`) within the main application's container, **not** inside the custom Docker containers you define here. This means your Python code can't directly access system libraries or files inside the container. Instead, your Python code must communicate with the containerized service over the virtual Docker Compose network using a network API (such as HTTP, WebSockets, or TCP/IP). You can reach the service using the service name defined in your `brick_compose.yaml` (e.g., `my_service`) as the hostname.</Alert>
 
 <Alert type="info">**Note:** Docker images specified in `brick_compose.yaml` must be publicly accessible, as App Lab doesn't currently support private registries for Custom Bricks.</Alert>
 
