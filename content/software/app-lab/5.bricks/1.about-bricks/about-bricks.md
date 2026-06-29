@@ -28,15 +28,15 @@ Technically, a **Brick** is a Python module that interacts with your main applic
 - **Pure Python Bricks:** These run entirely in the board's main Python environment. They provide utility functions, compute logic, or cloud connections without launching external containers.
 - **Containerized Bricks:** These act as Python bridges to isolated **Docker containerized services** running in the background. Your application script (`main.py`) interacts with the Brick's Python API, which handles any necessary network communication with the underlying container behind the scenes.
 
-While App Lab provides a wide catalog of pre-built Arduino Bricks, you can also create **Custom Bricks** directly within your application as a local variant. Custom Bricks use the exact same architecture as pre-built Bricks, allowing you to package your own specialized Python logic or third-party Docker containers into modular, reusable components.
+While App Lab provides a wide catalog of pre-built Arduino Bricks, you can also create **Custom Bricks** directly within your application. Custom Bricks use the exact same architecture as pre-built Bricks, allowing you to package your own specialized Python logic or third-party Docker containers into modular, reusable components.
 
 ## How Bricks Work (Orchestration and Infrastructure)
 
 When you add a Brick to your App via the App Lab interface, the system automates several steps:
 
-1. **Configuration:** The orchestrator registers the Brick in your application's `app.yaml` file.
+1. **Configuration:** App Lab registers the Brick in your application's `app.yaml` file.
 2. **Environment Preparation:** For containerized Bricks, the `arduino-app-lab` system manages the deployment, virtual network creation, and startup of all required background containers.
-3. **Python Path Integration:** The orchestrator automatically adds the `bricks/` directory to the Python `sys.path`, allowing you to import your Custom Bricks seamlessly by their folder name.
+3. **Python Path Integration:** App Lab automatically adds the `bricks/` directory to the Python `sys.path`, allowing you to import your Custom Bricks seamlessly by their folder name.
 4. **Communication:** Bricks communicate with your main Python application (`main.py`) via the Arduino Router.
 5. **Execution:** The `App.run()` call at the bottom of your script initializes the communication bridge and launches the background processes required by your Bricks.
 
