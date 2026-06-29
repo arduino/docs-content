@@ -194,9 +194,7 @@ print("Web server response:", response.text)
 App.run()
 ```
 
-Here is a complete demonstration App:
-
-[simple-web-server-brick.zip](https://github.com/user-attachments/files/29425430/simple-web-server-brick.zip)
+**Download Example:** [simple-web-server-brick.zip](https://github.com/user-attachments/files/29425430/simple-web-server-brick.zip)
 
 ### Giving the container access to system resources
 
@@ -245,11 +243,7 @@ print(response.text)
 App.run()
 ```
 
-Demonstration App:
-
-[simple-device-access-brick.zip](https://github.com/user-attachments/files/29425418/simple-device-access-brick.zip)
-
-
+**Download Example:** [simple-device-access-brick.zip](https://github.com/user-attachments/files/29425418/simple-device-access-brick.zip)
 
 ## AI Models in Custom Bricks
 
