@@ -244,7 +244,7 @@ bool setupNetwork() {
   
   // Create the network components
   networkIO = new TC6::TC6_Io(SPI, CS_PIN, RESET_PIN, IRQ_PIN);
-  networkController = new TC6::TC6_Arduino_10BASE_T1S(networkIO);
+  networkController = new TC6::TC6_Arduino_10BASE_T1S(*networkIO);
   messageService = new Arduino_10BASE_T1S_UDP();
   
   // Set up interrupt (this lets the network chip tell us when data arrives)
