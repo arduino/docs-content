@@ -9,6 +9,9 @@ on:
   pull_request:
     types: [opened, synchronize, ready_for_review, reopened]
 
+permissions:
+  contents: read
+
 jobs:
   spell_check:
     name: Spell Check
@@ -34,3 +37,39 @@ jobs:
         run: |
           cd scripts/validation
           ./content-lint.sh -p '../../content/hardware/'
+
+  validate_app_lab_markdown:
+    name: App Lab - Validate Markdown
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Validate Markdown
+        run: npx markdownlint-cli "content/software/app-lab/**/*.md" --config "content/software/app-lab/.markdownlint.yaml" --ignore-path "content/software/app-lab/.markdownlintignore"
+
+  validate_app_lab_links:
+    name: App Lab - Validate Links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Validate Links
+        run: python3 scripts/validation/relative_links/relative_links.py validate content/software/app-lab
+
+  validate_app_lab_images:
+    name: App Lab - Validate Images
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Validate Images
+        run: python3 scripts/validation/image_links/image_links.py validate content/software/app-lab

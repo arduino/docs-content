@@ -14,6 +14,7 @@ tags:
 ## How Bricks Help You
 
 Bricks save time by handling heavy infrastructure tasks in the background. For example:
+
 - **AI & Vision:** Use a Brick to add object detection or face recognition without setting up complex machine learning libraries yourself.
 - **Web Dashboards:** Add a Web UI Brick to create a custom dashboard that you can control from your phone or computer.
 - **Cloud & Storage:** Use Bricks to connect to the Arduino Cloud or store sensor data in a local database.
