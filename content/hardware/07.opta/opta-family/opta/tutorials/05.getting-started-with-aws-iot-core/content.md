@@ -1,5 +1,5 @@
 ---
-title: 'Getting Started with AWS IoT Core'
+title: 'Connect Arduino Opta™ to AWS IoT Core'
 description: "Learn how to connect your Opta™ device to the AWS IoT Core."
 
 difficulty: intermediate 
@@ -71,7 +71,7 @@ This tutorial will need the latest version of the Arduino IDE; you can download 
 
 ![Installing the Opta™ core in the Arduino IDE](assets/aws-iot_001.png)
 
-This tutorial also requires the latest version of the `NTPClient`, `Arduino_JSON `, `ArduinoECCX08`, `ArduinoBearSSL`, `ArduinoMqttClient`, `Arduino_ConnectionHandler` and `Arduino Cloud Provider Examples` libraries installed on the Arduino IDE. You can do this by navigating to **Tools > Manage Libraries** or clicking the Library Manager icon in the left tab of the IDE. In the Library Manager tab, search for `NTPClient`, `Arduino_JSON `, `ArduinoECCX08`, `ArduinoBearSSL`, `ArduinoMqttClient`, `Arduino_ConnectionHandler` and `Arduino Cloud Provider Examples` and install the latest version.
+This tutorial also requires the latest version of the `NTPClient`, `Arduino_JSON`, `ArduinoECCX08`, `ArduinoBearSSL`, `ArduinoMqttClient`, `Arduino_ConnectionHandler` and `Arduino Cloud Provider Examples` libraries installed on the Arduino IDE. You can do this by navigating to **Tools > Manage Libraries** or clicking the Library Manager icon in the left tab of the IDE. In the Library Manager tab, search for `NTPClient`, `Arduino_JSON`, `ArduinoECCX08`, `ArduinoBearSSL`, `ArduinoMqttClient`, `Arduino_ConnectionHandler` and `Arduino Cloud Provider Examples` and install the latest version.
 
 ![Installing libraries in the Arduino IDE](assets/aws-iot_002.png)
 
@@ -83,7 +83,7 @@ If you do not have an existing AWS account and user, refer to the online AWS doc
 - [Create an administrative user](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#create-an-admin) 
 - [Open the AWS IoT console](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#iot-console-signin)
 
-### Generating a Certificate Signing Request 
+### Generating a Certificate Signing Request
 
 As mentioned, AWS IoT Core requires devices that connect to it using the MQTT protocol to use X.509 certificates for authentication. We'll use an example sketch from the `ArduinoECCX08` library to generate a Certificate Signing Request (CSR) from an Opta™ device and then upload this CSR in the AWS console to create an X.509 certificate.
 
@@ -91,11 +91,11 @@ Open the `ECCX08CSR` example sketch by navigating to **File > Examples > Arduino
 
 ![Verify and Upload buttons of the Arduino IDE](assets/aws-iot_003.png)
 
-When finished, open the IDE's Serial Monitor. Ensure the line ending configuration is set to **Both NL & CR**, as shown in the image below. 
+When finished, open the IDE's Serial Monitor. Ensure the line ending configuration is set to **Both NL & CR**, as shown in the image below.
 
 ![Verify and Upload buttons of the Arduino IDE](assets/aws-iot_004.png)
 
-Provide the information requested by the example sketch to generate a new CSR for your Opta™ device. Copy the generated CSR from the IDE's Serial Monitor, including `-----BEGIN CERTIFICATE REQUEST-----` and `-----END CERTIFICATE REQUEST-----` and save it to a new `.txt` file or `.csr` file using your favorite text editor. You will upload this file to the AWS console next. 
+Provide the information requested by the example sketch to generate a new CSR for your Opta™ device. Copy the generated CSR from the IDE's Serial Monitor, including `-----BEGIN CERTIFICATE REQUEST-----` and `-----END CERTIFICATE REQUEST-----` and save it to a new `.txt` file or `.csr` file using your favorite text editor. You will upload this file to the AWS console next.
 
 ![Generating a CSR with the Arduino ecosystem tools](assets/aws-iot_005.png)
 
@@ -129,11 +129,11 @@ After selecting the Next button, you will be transferred to a page where you can
 
 ![Things properties page](assets/aws-iot_009.png)
 
-After selecting the Next button, you will be transferred to a page where you can upload the generated CSR. Choose the CSR file, then select the **Next** button. 
+After selecting the Next button, you will be transferred to a page where you can upload the generated CSR. Choose the CSR file, then select the **Next** button.
 
 ![Device certificate page](assets/aws-iot_010.png)
 
-After selecting the Next Button, you will be transferred to a page where you can choose the **policies** you want to attach to your Thing, and then select the **Create thing** button. 
+After selecting the Next Button, you will be transferred to a page where you can choose the **policies** you want to attach to your Thing, and then select the **Create thing** button.
 
 ![Device certificate page](assets/aws-iot_011.png)
 
@@ -155,7 +155,7 @@ Once in the Certificate area, select the **Actions** dropdown menu and choose **
 
 The first step to connect your Opta™ device is getting the **device data endpoint** from your AWS account. In your AWS account, navigate to the menu on the left side and choose **Settings**; copy the provided endpoint.
 
-The next step depends on the variant of your Opta™ device you have. 
+The next step depends on the variant of your Opta™ device you have.
 
 - **For Opta™ Lite (SKU: AFX00003)**: Open the AWS IoT Ethernet example sketch in the Arduino IDE using the File > Examples > Arduino Cloud Provider Examples > AWSIoT > AWS_IoT_Opta > **AWS_IoT_Opta_ethernet.ino**
 
@@ -167,7 +167,7 @@ In the `arduino_secrets.h` tab update the Wi-Fi® Setting with the SSID and pass
 
 ![Example sketch](assets/aws-iot_015.png)
 
-Within the `setup()`, the lines `sslClient.setEccSlot(0, certificate)` and the `mqttClient.setId(“clientID”)` are important. The `setECCSlot` function sets the slot you used before for the CSR; the `setId` function sets the name you gave to your Thing in the AWS IoT Core. 
+Within the `setup()`, the lines `sslClient.setEccSlot(0, certificate)` and the `mqttClient.setId(“clientID”)` are important. The `setECCSlot` function sets the slot you used before for the CSR; the `setId` function sets the name you gave to your Thing in the AWS IoT Core.
 
 ![Example sketch](assets/aws-iot_016.png)
 
@@ -183,7 +183,7 @@ The example sketch automatically connects to an Ethernet or a Wi-Fi® network an
 
 ### Testing the Example Sketch
 
-As soon as your Opta™ device is connected to the AWS IoT broker, it publishes automatically a simple message to the `arduino/outgoing` topic every five seconds. On the AWS IoT Core console, open the **MQTT test client** and add a subscription for the `arduino/outgoing` topic; choose the JSON formatting as display option. 
+As soon as your Opta™ device is connected to the AWS IoT broker, it publishes automatically a simple message to the `arduino/outgoing` topic every five seconds. On the AWS IoT Core console, open the **MQTT test client** and add a subscription for the `arduino/outgoing` topic; choose the JSON formatting as the display option.
 
 ![MQTT test client in AWS](assets/aws-iot_019.png)
 
@@ -191,7 +191,7 @@ See messages arriving from your Opta™ device every five seconds.
 
 ![MQTT test client in AWS](assets/aws-iot_020.png)
 
-On the AWS IoT Core console, open the MQTT test client and select the "Publish to a topic" tab. Add `arduino/incoming`  as Topic name and click the "Publish" button to send data to Opta™. Data in the "Message payload" text area shows on the Serial Monitor of the Arduino IDE.
+On the AWS IoT Core console, open the MQTT test client and select the "Publish to a topic" tab. Add `arduino/incoming` as Topic name and click the "Publish" button to send data to Opta™. Data in the "Message payload" text area shows on the Serial Monitor of the Arduino IDE.
 
 ![Receiving data in your Opta™ device](assets/aws-iot_021.png)
 
@@ -205,9 +205,9 @@ Please note the example sketch can parse only JSON messages in the form:
 
 The message can be modified as you like, remember to adapt the example sketch accordingly.
 
-## Troubleshooting 
+## Troubleshooting
 
-For more information with AWS, refer to the AWS online documentation on [Troubleshooting AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/iot_troubleshooting.html). For more details on Opta™ devices, refer to Opta™'s online documentation on [Arduino Docs](https://docs.arduino.cc/hardware/opta). 
+For more information on AWS, refer to the AWS online documentation on [Troubleshooting AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/iot_troubleshooting.html). For more details on Opta™ devices, refer to Opta™'s online documentation on [Arduino Docs](https://docs.arduino.cc/hardware/opta).
 
 If your Opta™ device fails to connect to AWS IoT Core, check the following:
 
