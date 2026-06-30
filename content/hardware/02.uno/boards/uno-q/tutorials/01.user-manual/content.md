@@ -1455,6 +1455,7 @@ void setup() {
 
   // Initialize the SPI communication
   SPI.begin();
+  SPI.beginTransaction(SPISettings(16000000, MSBFIRST, SPI_MODE0));
 }
 ```
 
