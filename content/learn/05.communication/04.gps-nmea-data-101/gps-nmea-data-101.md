@@ -29,7 +29,7 @@ The NMEA 0183 is a simple messaging protocol where **data in this messaging prot
 * Baud rate: 4800 bauds.
 * Data bits: 8.
 * Parity: none.
-* Stop bit: none.
+* Stop bit: 1.
 
 NMEA 0183 "talkers" can be, for example, a satellite, a depth sounder, or a compass, while the "listeners" can be a chart-plotter, a radar or a GPS receiver like the one used in the [Arduino MKR GPS Shield](https://store.arduino.cc/products/arduino-mkr-gps-shield). 
 
