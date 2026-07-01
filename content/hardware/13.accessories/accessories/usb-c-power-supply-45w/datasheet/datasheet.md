@@ -144,6 +144,10 @@ type: maker
 
 **No-Load Power Consumption:** ≤ 0.1 W @ 115-230 V AC
 
+| Model   | Average Active Efficiency | Efficiency @10% Load | No-load Power |
+| ------- | ------------------------- | -------------------- | ------------- |
+| 45W PSU | 87.75%                    | 77.49%               | 0.095 W       |
+
 ### Protection Features
 
 | **Protection Type**         | **Specification**                                                  |
@@ -318,6 +322,7 @@ This equipment complies with FCC radiation exposure limits set forth for an unco
 
 ## Document Revision History
 
-|  **Date**  | **Revision** | **Changes**   |
-|:----------:|:------------:|---------------|
-| 27/03/2026 |      1       | First release |
+|  **Date**  | **Revision** | **Changes**                |
+| :--------: | :----------: | -------------------------- |
+| 01/07/2026 |      2       | Add efficiency at 10% load |
+| 27/03/2026 |      1       | First release              |
