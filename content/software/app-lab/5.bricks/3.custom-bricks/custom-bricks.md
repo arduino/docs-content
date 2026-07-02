@@ -154,7 +154,7 @@ For more details on how to import and initialize Bricks, see [Use Bricks in Your
 
 ## Custom Brick Examples
 
-These examples illustrate key custom container patterns. Each example includes a complete, downloadable App archive that you can [import into Arduino App Lab](../../apps/manage-apps/#import-an-app).
+These examples illustrate key custom container concepts. Each example includes a complete, downloadable App archive that you can [import into Arduino App Lab](../../apps/manage-apps/#import-an-app).
 
 ### Use of a container
 
