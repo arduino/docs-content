@@ -1,4 +1,4 @@
 ---
 title: Bricks
-icon: IconBuild 
+icon: IconBuild
 ---
