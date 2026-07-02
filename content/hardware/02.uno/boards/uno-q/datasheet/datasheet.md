@@ -1443,10 +1443,11 @@ Arduino App Lab 可安装在您的电脑上，或直接在单板计算机模式�
 <p style="text-align: justify;">在 App Lab 中打开<strong>控制台</strong>。共有三个选项卡：</p>
 
 <ul>
-  <li><strong>启动</strong>：启动序列日志，包括MCU编译和Linux部署</li>
-  <li><strong>主程序 (Python®)</strong>: Python®应用程序输出 (<code>print()</code>)</li>
+  <li><strong>Start-up</strong>：启动序列日志，包括MCU编译和Linux部署</li>
+  <li><strong>Main (Python®)</strong>: Python®应用程序输出 (<code>print()</code>)</li>
   <li><strong>Sketch (微控制器)</strong>：Arduino程序串行输出 (<code>Serial.println()</code>)</li>
 </ul>
+
 
 <p style="text-align: justify;">应用程序可能启动成功，但仍存在运行时问题。请检查Python®日志中的错误信息。若发生草图编译错误，启动过程将被中止。</p>
 
@@ -2176,7 +2177,7 @@ Verwende eine USB-C-Stromquelle mit 5 V / 3 A und ein entsprechendes Kabel oder 
 
 <ul>
   <li><strong>Start-up</strong>: Protokolle der Startsequenz, einschließlich MCU-Kompilierung und Linux-Bereitstellung</li>
-  <li><strong>Hauptprogramm (Python®)</strong>: Ausgabe der Python®-Anwendung (<code>print()</code>)</li>
+  <li><strong>Main (Python®)</strong>: Ausgabe der Python®-Anwendung (<code>print()</code>)</li>
   <li><strong>Sketch (Mikrocontroller)</strong>: Serielle Ausgabe aus dem Arduino-Sketch (<code>Serial.println()</code>)</li>
 </ul>
 
