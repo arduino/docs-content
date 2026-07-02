@@ -181,7 +181,7 @@ services:
       - 5000
 ```
 
-This Brick provides an interface that can be used from the Python code running on the App's primary container:
+This Brick provides an interface that can be used from the Python code running on the App's main container:
 
 ```py
 import requests
@@ -227,7 +227,7 @@ services:
       - 5000
 ```
 
-Minimal Python code to interact with the Brick from the App's primary container:
+Minimal Python code to interact with the Brick from the App's main container:
 
 ```py
 import requests
