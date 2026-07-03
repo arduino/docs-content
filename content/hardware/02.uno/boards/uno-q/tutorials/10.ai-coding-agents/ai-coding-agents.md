@@ -65,7 +65,7 @@ curl -fsSL https://opencode.ai/install | bash
 
 ***Note: If you receive a `command not found` error after installing, your terminal hasn't loaded the new path yet. Simply restart your SSH session or run `source ~/.bashrc` (or `source ~/.profile`) to apply the changes.***
 
-**Alternative Agents**  
+#### Claude Code
 If you prefer using **Claude Code**, you can install it via its standalone bash script:
 
 ```bash
