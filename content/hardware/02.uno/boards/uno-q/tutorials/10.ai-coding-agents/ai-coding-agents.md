@@ -33,6 +33,8 @@ Unlike traditional remote editing, running an AI coding agent inside the board's
 
 [OpenCode](https://github.com/anomalyco/opencode) is an open-source coding agent that operates within a terminal interface, but also features a rich Web UI. By bridging it with the UNO Q's Debian system, you can drastically speed up hardware prototyping and system debugging.
 
+We will be using OpenCode in this tutorial, but further below you will also find instructions for installing other coding agents.
+
 ### 1. Connect to the Board
 
 Before using the agent, ensure you can access the board's shell. 
