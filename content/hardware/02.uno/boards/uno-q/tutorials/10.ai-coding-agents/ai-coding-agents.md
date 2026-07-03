@@ -72,7 +72,9 @@ If you prefer using **Claude Code**, you can install it via its standalone bash 
 curl -fsSL https://claude.ai/install.sh | bash
 ```
 
-Similarly, **Codex CLI** provides a standalone installation script without needing a package manager:
+#### Codex CLI
+
+**Codex CLI** is installed via a standalone installation script without needing a package manager:
 
 ```bash
 curl -fsSL https://chatgpt.com/codex/install.sh | sh
