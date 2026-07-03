@@ -27,7 +27,7 @@ Unlike traditional remote editing, running an AI coding agent inside the board's
 - **OpenCode**, or another terminal AI coding agent installed directly on your UNO Q.
 - SSH or ADB access configured on your board.
 
-*Note: For more details on setting up connections, refer to the [ADB tutorial](/tutorials/uno-q/adb/) or the [SSH tutorial](/tutorials/uno-q/ssh/).*
+***Note: For more details on setting up connections, refer to the [ADB tutorial](/tutorials/uno-q/adb/) or the [SSH tutorial](/tutorials/uno-q/ssh/).***
 
 ## Using OpenCode on the UNO Q
 
