@@ -56,7 +56,7 @@ adb shell
 To install an agent directly on the UNO Q board, begin by opening an active SSH or ADB terminal session to your board.
 
 In the sections below you will find the installation steps for some of the most popular agents.
-
+#### OpenCode
 Install OpenCode using its standalone bash script:
 
 ```bash
