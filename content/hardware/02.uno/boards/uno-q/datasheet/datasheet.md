@@ -1576,7 +1576,7 @@ Das wireless Modul nutzt SDIO für Wi-Fi®-Daten und einen UART für die Bluetoo
 
 <div style="page-break-after: always;"></div>
 
-## Bewertungen
+## Elektrische Kenndaten
 
 ### Eingangsleistung
 
