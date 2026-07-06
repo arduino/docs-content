@@ -27,11 +27,13 @@ Unlike traditional remote editing, running an AI coding agent inside the board's
 - **OpenCode**, or another terminal AI coding agent installed directly on your UNO Q.
 - SSH or ADB access configured on your board.
 
-*Note: For more details on setting up connections, refer to the [ADB tutorial](/tutorials/uno-q/adb/) or the [SSH tutorial](/tutorials/uno-q/ssh/).*
+***Note: For more details on setting up connections, refer to the [ADB tutorial](/tutorials/uno-q/adb/) or the [SSH tutorial](/tutorials/uno-q/ssh/).***
 
 ## Using OpenCode on the UNO Q
 
 [OpenCode](https://github.com/anomalyco/opencode) is an open-source coding agent that operates within a terminal interface, but also features a rich Web UI. By bridging it with the UNO Q's Debian system, you can drastically speed up hardware prototyping and system debugging.
+
+We will be using OpenCode in this tutorial, but further below you will also find instructions for installing other coding agents.
 
 ### 1. Connect to the Board
 
@@ -53,24 +55,28 @@ adb shell
 
 ### 2. Install the Agent
 
-You will install the agent directly onto the UNO Q board. Open an active SSH or ADB terminal session to your board to begin.
+To install an agent directly on the UNO Q board, begin by opening an active SSH or ADB terminal session to your board.
 
+In the sections below you will find the installation steps for some of the most popular agents.
+#### OpenCode
 Install OpenCode using its standalone bash script:
 
 ```bash
 curl -fsSL https://opencode.ai/install | bash
 ```
 
-*Note: If you receive a `command not found` error after installing, your terminal hasn't loaded the new path yet. Simply restart your SSH session or run `source ~/.bashrc` (or `source ~/.profile`) to apply the changes.*
+***Note: If you receive a `command not found` error after installing, your terminal hasn't loaded the new path yet. Simply restart your SSH session or run `source ~/.bashrc` (or `source ~/.profile`) to apply the changes.***
 
-**Alternative Agents**  
+#### Claude Code
 If you prefer using **Claude Code**, you can install it via its standalone bash script:
 
 ```bash
 curl -fsSL https://claude.ai/install.sh | bash
 ```
 
-Similarly, **Codex CLI** provides a standalone installation script without needing a package manager:
+#### Codex CLI
+
+**Codex CLI** is installed via a standalone installation script without needing a package manager:
 
 ```bash
 curl -fsSL https://chatgpt.com/codex/install.sh | sh
