@@ -2314,7 +2314,7 @@ O módulo sem fios utiliza SDIO para dados Wi-Fi® e um UART para controlo Bluet
 
 <div style="page-break-after: always;"></div>
 
-## Classificações
+## Características elétricas
 
 ### Potência De Entrada
 
