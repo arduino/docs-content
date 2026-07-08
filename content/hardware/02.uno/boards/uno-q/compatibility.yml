@@ -12,3 +12,16 @@ hardware:
     - spe-shield
     - 9-axis-motion-shield
     - uno-media-carrier
+  modulino-nodes:
+    - modulino-buttons
+    - modulino-buzzer
+    - modulino-distance
+    - modulino-joystick
+    - modulino-knob
+    - modulino-latch
+    - modulino-light
+    - modulino-matrix
+    - modulino-movement
+    - modulino-pixels
+    - modulino-thermo
+    - modulino-vibro
