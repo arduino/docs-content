@@ -1,0 +1,96 @@
+name: Stale Branch Cleanup
+
+on:
+  schedule:
+    # Runs at 03:00 UTC on the 1st day of every month
+    - cron: '0 3 1 * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Only list the branches that would be deleted, without deleting them.'
+        required: false
+        default: true
+        type: boolean
+      days_threshold:
+        description: 'Delete branches whose last commit is older than this many days.'
+        required: false
+        default: '365'
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    name: Delete stale branches
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Delete branches older than threshold
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # For scheduled runs the inputs are empty, so fall back to defaults.
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+          DAYS_THRESHOLD: ${{ github.event.inputs.days_threshold || '365' }}
+        run: |
+          set -euo pipefail
+
+          DEFAULT_BRANCH="${{ github.event.repository.default_branch }}"
+          THRESHOLD_SECONDS=$(( DAYS_THRESHOLD * 24 * 60 * 60 ))
+          NOW=$(date +%s)
+
+          echo "Default branch (protected): $DEFAULT_BRANCH"
+          echo "Deleting branches with last commit older than $DAYS_THRESHOLD days"
+          echo "Dry run: $DRY_RUN"
+          echo "----------------------------------------"
+
+          # Branches that must never be deleted, regardless of age.
+          PROTECTED_REGEX="^(${DEFAULT_BRANCH}|main|master|develop|staging|production|gh-pages)$"
+
+          deleted=0
+          skipped=0
+
+          # List remote branches with the committer date of their tip commit.
+          while IFS=$'\t' read -r commit_ts branch_ref; do
+            branch="${branch_ref#origin/}"
+
+            # Skip HEAD pointer entries and empty lines.
+            if [ -z "$branch" ] || [ "$branch" = "HEAD" ]; then
+              continue
+            fi
+
+            if echo "$branch" | grep -Eq "$PROTECTED_REGEX"; then
+              echo "SKIP (protected): $branch"
+              skipped=$((skipped + 1))
+              continue
+            fi
+
+            age=$(( NOW - commit_ts ))
+            if [ "$age" -lt "$THRESHOLD_SECONDS" ]; then
+              skipped=$((skipped + 1))
+              continue
+            fi
+
+            last_commit_date=$(date -u -d "@$commit_ts" '+%Y-%m-%d')
+
+            if [ "$DRY_RUN" = "true" ]; then
+              echo "WOULD DELETE: $branch (last commit: $last_commit_date)"
+            else
+              echo "DELETING: $branch (last commit: $last_commit_date)"
+              git push origin --delete "$branch"
+            fi
+            deleted=$((deleted + 1))
+          done < <(git for-each-ref --sort=committerdate \
+                    --format='%(committerdate:unix)%09%(refname:short)' \
+                    refs/remotes/origin)
+
+          echo "----------------------------------------"
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "Dry run complete. $deleted branch(es) would be deleted, $skipped kept."
+          else
+            echo "Cleanup complete. $deleted branch(es) deleted, $skipped kept."
+          fi
