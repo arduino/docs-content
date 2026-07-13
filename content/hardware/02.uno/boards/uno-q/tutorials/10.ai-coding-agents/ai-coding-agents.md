@@ -140,7 +140,7 @@ When giving AI agents access to a physical board, keep the following security pr
 - **Physical Access:** The UNO Q has ADB enabled over USB by default (as per the security hardening guide). Ensure physical access to the board is secured if working in a public environment.
 - **API Keys:** Avoid storing API keys permanently on a shared board. Use temporary environment variables instead.
 
-## Alternative: Remote Agent from Your Host Computer
+## Alternative: Remote Agent From Your Host Computer
 
 If you prefer not to install the agent directly on the board—to save memory, keep your API keys strictly on your computer, or simply work from your preferred editor—you can run the agent on your host machine and control the UNO Q remotely.
 
