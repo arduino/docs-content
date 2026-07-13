@@ -27,7 +27,7 @@ Unlike traditional remote editing, running an AI coding agent inside the board's
 - **OpenCode**, or another terminal AI coding agent installed directly on your UNO Q.
 - SSH or ADB access configured on your board.
 
-***Note: For more details on setting up connections, refer to the [ADB tutorial](/tutorials/uno-q/adb/) or the [SSH tutorial](/tutorials/uno-q/ssh/).***
+***Note: For more details on setting up connections, refer to the [ADB tutorial](/tutorials/uno-q/adb/) or the [SSH tutorial](/tutorials/uno-q/ssh/). The easiest route involves zero configuration: you can open an SSH session directly from the Arduino App Lab interface.***
 
 ## Using OpenCode on the UNO Q
 
@@ -140,31 +140,55 @@ When giving AI agents access to a physical board, keep the following security pr
 - **Physical Access:** The UNO Q has ADB enabled over USB by default (as per the security hardening guide). Ensure physical access to the board is secured if working in a public environment.
 - **API Keys:** Avoid storing API keys permanently on a shared board. Use temporary environment variables instead.
 
-## Alternative: Remote Agent via ADB
+## Alternative: Remote Agent from Your Host Computer
 
-If you prefer not to install the agent directly on the board to save memory or keep your API keys strictly on your computer, you can run the agent on your host machine and control the UNO Q via ADB.
+If you prefer not to install the agent directly on the board—to save memory, keep your API keys strictly on your computer, or simply work from your preferred editor—you can run the agent on your host machine and control the UNO Q remotely.
 
-In this topology, the agent runs in your computer's terminal but executes commands on the board using the `adb shell`.
+***Tip: Working from the host has a key advantage: your code and configuration live on your computer, so you don't risk losing or having to transfer files when reflashing the board's Linux image.***
+
+The agent runs in your computer's terminal but executes commands on the board. You can connect via **ADB** (over USB) or **SSH** (over the network). ADB is generally preferred when available since it requires no network configuration; fall back to SSH if USB is not accessible.
 
 ### 1. Host Setup
+
+**Via ADB (USB):**
 1. Connect the UNO Q to your computer via USB-C®.
 2. Ensure the `adb` CLI tool is installed on your computer.
 3. Run `adb devices` in your computer's terminal to confirm the board is recognized.
+
+**Via SSH (Network):**
+1. Ensure your UNO Q is on the same network as your computer. See the [SSH tutorial](/tutorials/uno-q/ssh/) for connection basics.
+2. Set up **key-based authentication** so the agent can connect without being blocked by password prompts. From your computer:
+
+   ```bash
+   ssh-copy-id arduino@<hostname>.local
+   ```
+
+3. Optionally, add an alias to your `~/.ssh/config` so both you and the agent can connect with a short command:
+
+   ```bash
+   Host uno-q
+       HostName <hostname>.local
+       User arduino
+   ```
+
+***If key-based authentication is not possible, you can use `sshpass` with the password stored in an environment variable: `export UNO_Q_PASS="your_password"` then `sshpass -p "$UNO_Q_PASS" ssh arduino@<hostname>.local`.***
+
 4. Install OpenCode on your computer (`curl -fsSL https://opencode.ai/install | bash`).
 
 ### 2. The Context File
-Create a project folder **on your host computer** and add an `AGENTS.md` file. You must explicitly instruct the agent to route all its actions through ADB:
+Create a project folder **on your host computer** and add an `AGENTS.md` file. You must explicitly instruct the agent to route all its actions through the board. The instructions should prioritize ADB if available, and fall back to SSH otherwise:
 
 ```markdown
 You are an AI assistant helping develop for an Arduino UNO Q board.
-You are running on my host machine, but the target environment is connected via Android Debug Bridge (ADB).
+You are running on my host machine, but the target environment is connected via Android Debug Bridge (ADB) or SSH.
 
 CRITICAL RULES:
 1. DO NOT run standard bash commands (like `ls`, `mkdir`, `python`) directly on the host.
-2. To run commands on the board, you MUST wrap them in `adb shell` (e.g., `adb shell "arduino-app-cli --help"`).
-3. To read files from the board, use `adb shell "cat /path/to/file"`.
-4. To write files to the board, write them to this local directory first, then use `adb push <local_file> <board_path>`.
-5. To inspect logs or fetch files, use `adb pull <board_path> <local_file>`.
+2. Prefer ADB when available. To run commands on the board via ADB, wrap them in `adb shell` (e.g., `adb shell "arduino-app-cli --help"`).
+3. If ADB is not available, use SSH instead (e.g., `ssh uno-q "arduino-app-cli --help"`).
+4. To read files from the board, use `adb shell "cat /path/to/file"` or `ssh uno-q "cat /path/to/file"`.
+5. To write files to the board, write them to this local directory first, then use `adb push <local_file> <board_path>` or `scp <local_file> uno-q:<board_path>`.
+6. To inspect logs or fetch files, use `adb pull <board_path> <local_file>` or `scp uno-q:<board_path> <local_file>`.
 ```
 
-When you launch the agent from this local directory, it will automatically bridge the gap: drafting code safely on your computer and pushing it directly to the board via ADB.
+When you launch the agent from this local directory, it will automatically bridge the gap: drafting code safely on your computer and pushing it directly to the board.
