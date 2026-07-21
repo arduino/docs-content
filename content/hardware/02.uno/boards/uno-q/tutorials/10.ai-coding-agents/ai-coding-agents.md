@@ -11,7 +11,7 @@ software:
 
 This tutorial covers how to use modern terminal coding agents, such as [OpenCode](https://github.com/anomalyco/opencode), Claude Code, or Codex, directly within the [Arduino® UNO Q](https://store.arduino.cc/products/uno-q)'s Debian Linux environment.
 
-Unlike traditional remote editing, running an AI coding agent inside the board's shell allows the agent to inspect files, install packages, read logs, and test hardware-specific scripts in real-time. We will focus on OpenCode for this guide.
+Unlike traditional remote editing, running an AI coding agent inside the board's shell allows the agent to inspect files, install packages, read logs, and test hardware-specific scripts in real-time. In this guide, we will focus on OpenCode.
 
 ![AI Agentic development on Arduino UNO Q with OpenCode](assets/hero-banner.png)
 
@@ -19,9 +19,9 @@ Unlike traditional remote editing, running an AI coding agent inside the board's
 
 ### Hardware Requirements
 - [Arduino® UNO Q](https://store.arduino.cc/products/uno-q)
-- A computer (macOS, Windows, or Linux) to connect from
-- USB-C® cable (only required for the ADB-over-USB workflow)
-- Network connection (Ethernet or Wi-Fi®) for the SSH workflow
+- A computer (macOS, Windows, or Linux)
+- A USB-C® cable (only required for the ADB-over-USB workflow)
+- A network connection (Ethernet or Wi-Fi®) for the SSH workflow
 
 ### Software Requirements
 - **OpenCode**, or another terminal AI coding agent installed directly on your UNO Q.
@@ -65,7 +65,7 @@ Install OpenCode using its standalone bash script:
 curl -fsSL https://opencode.ai/install | bash
 ```
 
-***Note: If you receive a `command not found` error after installing, your terminal hasn't loaded the new path yet. Simply restart your SSH session or run `source ~/.bashrc` (or `source ~/.profile`) to apply the changes.***
+***Note: If you receive a `command not found` error after installing, your terminal hasn't loaded the new path yet. Simply restart your SSH session or run `exec "$SHELL"` (or `source ~/.bashrc`) to apply the changes.***
 
 #### Claude Code
 If you prefer using **Claude Code**, you can install it via its standalone bash script:
@@ -97,7 +97,7 @@ git init
 
 ### 4. Provide Hardware Context to the Agent
 
-The UNO Q features the [`arduino-app-cli`](/software/app-lab/tutorials/cli/), a powerful command-line tool built specifically for managing, building, and deploying App Lab applications directly on the board.
+The UNO Q features the [`arduino-app-cli`](/software/app-lab/tutorials/cli/), a powerful command-line tool built specifically for managing, building, and running App Lab applications directly on the board.
 
 To get the most out of your AI agent, you need to provide it with context about this environment. Since the tool is built-in, you can instruct your agent to explore it directly.
 
@@ -105,9 +105,9 @@ When you start your agent, simply give it a strong initial prompt establishing i
 
 > *"You are running on an Arduino UNO Q Debian system. Please explore the `arduino-app-cli` tool by running `arduino-app-cli --help`. Learn how to create, build, and run applications, and use this tool for our upcoming tasks. Avoid modifying network, SSH, ADB, or security settings."*
 
-Alternatively, you can codify these instructions by creating an **`AGENTS.md`** file in your workspace. An `AGENTS.md` (or `CLAUDE.md` for Claude Code) is a plaintext markdown file that acts as a persistent set of instructions for the agent. Whenever the agent starts in that directory, it automatically reads the file and applies your custom guardrails, preferred coding style, and tool usage rules (like prioritizing the `arduino-app-cli`) without needing to be prompted every time. 
+Alternatively, you can codify these instructions by creating an **`AGENTS.md`** file in your workspace. An `AGENTS.md` (or `CLAUDE.md` for Claude Code) is a plain text markdown file that acts as a persistent set of instructions for the agent. Whenever the agent starts in that directory, it automatically reads the file and applies your custom guardrails, preferred coding style, and tool usage rules (like prioritizing the `arduino-app-cli`) without needing to be prompted every time. 
 
-Additionally, agents like OpenCode support **Skills**—modular, reusable scripts or prompt templates that extend the agent's capabilities. You can build custom skills for your workspace that teach the agent exactly how to interact with specific hardware interfaces or `arduino-app-cli` workflows, allowing for highly tailored hardware development.
+Additionally, agents like OpenCode support **Skills** — modular, reusable scripts or prompt templates that extend the agent's capabilities. You can build custom skills for your workspace that teach the agent exactly how to interact with specific hardware interfaces or `arduino-app-cli` workflows, allowing for highly tailored hardware development.
 
 ### 5. Start Developing
 
@@ -119,11 +119,11 @@ Simply type `opencode` to start chatting with the agent directly in your SSH ses
 ![OpenCode Terminal UI](assets/opencode-tui.png)
 
 **Web UI:**  
-OpenCode also features a built-in Web UI, which is excellent for a more visual experience. Launch it by running:
+OpenCode also features a built-in Web UI, which is excellent for a more visual experience. To launch it and broadcast it on your local network securely, run:
 ```bash
-opencode serve
+OPENCODE_SERVER_PASSWORD=your_password opencode serve --mdns
 ```
-This will start a local web server, and you can access the interface from your computer's browser while the agent performs work on the board in the background.
+This will start a local web server protected by a password. You can then access the interface from your computer's browser (e.g., at `http://uno-q.local:4096`) and log in with the default username `opencode` and your password, while the agent performs work on the board in the background.
 
 ![OpenCode Web UI](assets/opencode-webui.png)
 
