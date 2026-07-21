@@ -1,43 +1,44 @@
 ---
-title: Agentic AI Development on UNO Q
-description: Learn how to use AI coding agents like OpenCode to develop, inspect, and run code directly on your Arduino UNO Q over SSH or ADB.
-author: Ernesto Voltaggio
-tags: [UNO Q, AI, SSH, Terminal, OpenCode, App Lab]
+title: 'Agentic AI Development on UNO Q'
+difficulty: intermediate
+compatible-products: [uno-q]
+description: 'Learn how to use AI coding agents like OpenCode to develop, inspect, and run code directly on your Arduino UNO Q over SSH or ADB.'
+author: 'Ernesto Voltaggio'
+tags: [UNO Q, AI, SSH, Terminal, OpenCode, App CLI]
 hardware:
   - hardware/02.uno/boards/uno-q
 software:
-  - ide-v2
+  - app-cli
 ---
 
-This tutorial covers how to use modern terminal coding agents, such as [OpenCode](https://github.com/anomalyco/opencode), Claude Code, or Codex, directly within the [Arduino® UNO Q](https://store.arduino.cc/products/uno-q)'s Debian Linux environment.
-
-Unlike traditional remote editing, running an AI coding agent inside the board's shell allows the agent to inspect files, install packages, read logs, and test hardware-specific scripts in real-time. In this guide, we will focus on OpenCode.
+This tutorial shows how to run AI coding agents such as [OpenCode](https://github.com/anomalyco/opencode), Claude Code, or Codex in the [Arduino® UNO Q](https://store.arduino.cc/products/uno-q)'s Debian Linux environment. Running an agent on the board allows it to inspect files, run commands, read logs, and test applications directly. This guide focuses on OpenCode.
 
 ![AI Agentic development on Arduino UNO Q with OpenCode](assets/hero-banner.png)
 
 ## Required Hardware and Software
 
 ### Hardware Requirements
+
 - [Arduino® UNO Q](https://store.arduino.cc/products/uno-q)
 - A computer (macOS, Windows, or Linux)
 - A USB-C® cable (only required for the ADB-over-USB workflow)
 - A network connection (Ethernet or Wi-Fi®) for the SSH workflow
 
 ### Software Requirements
+
 - **OpenCode**, or another terminal AI coding agent installed directly on your UNO Q.
 - SSH or ADB access configured on your board.
+- An account or API key for a model provider supported by your chosen agent.
 
-***Note: For more details on setting up connections, refer to the [ADB tutorial](/tutorials/uno-q/adb/) or the [SSH tutorial](/tutorials/uno-q/ssh/). The easiest route involves zero configuration: you can open an SSH session directly from the Arduino App Lab interface.***
+***Note: For more details on setting up connections, refer to the [ADB tutorial](/tutorials/uno-q/adb/) or the [SSH tutorial](/tutorials/uno-q/ssh/).***
 
 ## Using OpenCode on the UNO Q
 
-[OpenCode](https://github.com/anomalyco/opencode) is an open-source coding agent that operates within a terminal interface, but also features a rich Web UI. By bridging it with the UNO Q's Debian system, you can drastically speed up hardware prototyping and system debugging.
-
-We will be using OpenCode in this tutorial, but further below you will also find instructions for installing other coding agents.
+[OpenCode](https://github.com/anomalyco/opencode) is an open-source AI coding agent with terminal and web interfaces. The installation section also includes Claude Code and Codex as alternatives.
 
 ### 1. Connect to the Board
 
-Before using the agent, ensure you can access the board's shell. 
+Before using the agent, ensure you can access the board's shell.
 
 **Via Secure Shell (SSH):**
 If the board is on your local network, access it using its hostname (e.g., `uno-q.local` or whatever hostname you configured):
@@ -55,20 +56,22 @@ adb shell
 
 ### 2. Install the Agent
 
-To install an agent directly on the UNO Q board, begin by opening an active SSH or ADB terminal session to your board.
+Open an SSH or ADB session and install one of the following agents.
 
-In the sections below you will find the installation steps for some of the most popular agents.
 #### OpenCode
-Install OpenCode using its standalone bash script:
 
 ```bash
 curl -fsSL https://opencode.ai/install | bash
 ```
 
-***Note: If you receive a `command not found` error after installing, your terminal hasn't loaded the new path yet. Simply restart your SSH session or run `exec "$SHELL"` (or `source ~/.bashrc`) to apply the changes.***
+Restart the SSH session or reload the shell, then verify the installation:
+
+```bash
+exec "$SHELL"
+opencode --version
+```
 
 #### Claude Code
-If you prefer using **Claude Code**, you can install it via its standalone bash script:
 
 ```bash
 curl -fsSL https://claude.ai/install.sh | bash
@@ -76,69 +79,67 @@ curl -fsSL https://claude.ai/install.sh | bash
 
 #### Codex CLI
 
-**Codex CLI** is installed via a standalone installation script without needing a package manager:
-
 ```bash
 curl -fsSL https://chatgpt.com/codex/install.sh | sh
 ```
 
 ### 3. Prepare Your Workspace
 
-Since the UNO Q acts as a dedicated hardware sandbox, you don't necessarily need a strictly isolated workspace. You can work directly in your home directory (`~/`) or within the default App Lab directory (`~/ArduinoApps`).
+Run OpenCode from your home directory (`~`) for board-wide work, or from a dedicated application directory for a clearer project scope and simpler Git tracking. The directory is an organizational boundary, not a security sandbox: the agent has the same access as the `arduino` user. Avoid initializing a Git repository in `~` unless you intend to track the entire home directory.
 
-> **Warning:** AI coding agents can run commands and modify files autonomously. Even in a sandbox environment, we strongly recommend initializing a Git repository where you choose to work to track changes and easily revert mistakes.
-
-Connect to your board (via SSH or ADB) and navigate to your preferred directory:
+For application-specific work, create a dedicated workspace:
 
 ```bash
-cd ~/ArduinoApps
+mkdir -p ~/ArduinoApps/ai-agent-demo
+cd ~/ArduinoApps/ai-agent-demo
 git init
 ```
 
 ### 4. Provide Hardware Context to the Agent
 
-The UNO Q features the [`arduino-app-cli`](/software/app-lab/tutorials/cli/), a powerful command-line tool built specifically for managing, building, and running App Lab applications directly on the board.
+The UNO Q includes [`arduino-app-cli`](/software/app-lab/tutorials/cli/) for creating, building, and running Arduino applications. Give the agent an initial prompt that defines its environment and boundaries. For example:
 
-To get the most out of your AI agent, you need to provide it with context about this environment. Since the tool is built-in, you can instruct your agent to explore it directly.
+> *"You are running on an Arduino UNO Q Debian system. Explore `arduino-app-cli --help`, then use the CLI to create, build, and run applications. Do not change network, SSH, ADB, or security settings."*
 
-When you start your agent, simply give it a strong initial prompt establishing its boundaries and toolset. For example:
-
-> *"You are running on an Arduino UNO Q Debian system. Please explore the `arduino-app-cli` tool by running `arduino-app-cli --help`. Learn how to create, build, and run applications, and use this tool for our upcoming tasks. Avoid modifying network, SSH, ADB, or security settings."*
-
-Alternatively, you can codify these instructions by creating an **`AGENTS.md`** file in your workspace. An `AGENTS.md` (or `CLAUDE.md` for Claude Code) is a plain text markdown file that acts as a persistent set of instructions for the agent. Whenever the agent starts in that directory, it automatically reads the file and applies your custom guardrails, preferred coding style, and tool usage rules (like prioritizing the `arduino-app-cli`) without needing to be prompted every time. 
-
-Additionally, agents like OpenCode support **Skills** — modular, reusable scripts or prompt templates that extend the agent's capabilities. You can build custom skills for your workspace that teach the agent exactly how to interact with specific hardware interfaces or `arduino-app-cli` workflows, allowing for highly tailored hardware development.
+Alternatively, create an `AGENTS.md` file in your workspace. This plain text Markdown file provides persistent instructions that OpenCode discovers when it starts in that directory. OpenCode also supports **Skills** — directories containing a `SKILL.md` file and optional scripts or references that are loaded on demand.
 
 ### 5. Start Developing
 
-Once inside your workspace directory on the board, launch your agent.
-
 **Terminal UI (TUI):**  
-Simply type `opencode` to start chatting with the agent directly in your SSH session.
+Run `opencode` from your chosen directory. On the first launch, enter `/connect`, select a model provider, and follow the authentication instructions. Provider credentials are used by the OpenCode process on the UNO Q.
 
 ![OpenCode Terminal UI](assets/opencode-tui.png)
 
 **Web UI:**  
-OpenCode also features a built-in Web UI, which is excellent for a more visual experience. To launch it and broadcast it on your local network securely, run:
+Replace `your_password` and start the Web UI:
+
 ```bash
-OPENCODE_SERVER_PASSWORD=your_password opencode serve --mdns
+OPENCODE_SERVER_PASSWORD='your_password' opencode web --mdns
 ```
-This will start a local web server protected by a password. You can then access the interface from your computer's browser (e.g., at `http://uno-q.local:4096`) and log in with the default username `opencode` and your password, while the agent performs work on the board in the background.
+
+Open `http://opencode.local:4096`, the default address when that port is available, or use one of the addresses printed in the terminal. Log in as `opencode` with your password. Because the connection uses unencrypted HTTP, use it only on a trusted local network.
 
 ![OpenCode Web UI](assets/opencode-webui.png)
 
 Try these example prompts to see what it can do:
 - **System Inspection:** *"Inspect this board and summarize the Linux version, available memory, storage, and connected Arduino-related tools."*
-- **App Lab Integration:** *"Explore the `arduino-app-cli --help` commands. Once you understand them, scaffold a new Python app that blinks the user LED."*
+- **App CLI Integration:** *"Use `arduino-app-cli` to scaffold an application with a Python component and an Arduino sketch. Make the sketch blink the user LED and let Python start and stop it through the Bridge."*
 - **Debugging:** *"Check the logs for errors from my Python app and suggest the smallest fix."*
+
+**Remote access from another device:**
+- **OpenCode:** Use the Web UI described above, or connect OpenCode Desktop to an OpenCode server running on the UNO Q through a secure tunnel.
+- **Claude Code:** From a trusted project directory, run `claude remote-control` for remote-only access, or `claude --remote-control` to keep an interactive local session. Continue from [claude.ai/code](https://claude.ai/code) or the Claude mobile app.
+- **Codex:** Run `codex remote-control start`, followed by `codex remote-control pair`. When finished, run `codex remote-control stop`. This feature is experimental.
+
+OpenCode connects directly to the server on the board, while Claude Code and Codex use account-linked remote-control services.
 
 ## Safety & Security
 
-When giving AI agents access to a physical board, keep the following security practices in mind:
-- **Git Checkpoints:** Frequently commit your code. This ensures you can roll back if the agent makes destructive changes.
-- **System Files:** Explicitly instruct the agent to avoid editing system directories (`/etc/`, `/root/`) unless strictly necessary.
-- **Physical Access:** The UNO Q has ADB enabled over USB by default (as per the security hardening guide). Ensure physical access to the board is secured if working in a public environment.
-- **API Keys:** Avoid storing API keys permanently on a shared board. Use temporary environment variables instead.
+- **Permissions:** The agent has the same permissions as the `arduino` user. Tell it not to edit system, network, SSH, ADB, or security configuration unless required.
+- **Git:** Commit a working version before asking the agent to make a large change.
+- **Network Access:** The Web UI described above uses HTTP. Keep it on a trusted local network and do not forward its port from your router to the internet.
+- **Credentials:** When the backend runs on the board, provider credentials are also on the board. Revoke them before sharing or transferring it.
+- **Physical Access:** ADB is enabled over USB by default, so secure physical access to the board.
 
 ## Alternative: Remote Agent From Your Host Computer
 
@@ -176,6 +177,7 @@ The agent runs in your computer's terminal but executes commands on the board. Y
 4. Install OpenCode on your computer (`curl -fsSL https://opencode.ai/install | bash`).
 
 ### 2. The Context File
+
 Create a project folder **on your host computer** and add an `AGENTS.md` file. You must explicitly instruct the agent to route all its actions through the board. The instructions should prioritize ADB if available, and fall back to SSH otherwise:
 
 ```markdown
@@ -192,3 +194,5 @@ CRITICAL RULES:
 ```
 
 When you launch the agent from this local directory, it will automatically bridge the gap: drafting code safely on your computer and pushing it directly to the board.
+
+> **Tested versions:** The on-board workflow was verified on an Arduino UNO Q 4 GB running Debian GNU/Linux 13 (trixie), OpenCode 1.17.15, Claude Code 2.1.216, Codex CLI 0.144.6, and Arduino App CLI 0.11.1. Commands may differ in later versions.
