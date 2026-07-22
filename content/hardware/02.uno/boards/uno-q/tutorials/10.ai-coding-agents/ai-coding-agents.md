@@ -151,6 +151,12 @@ The agent runs in your computer's terminal but executes commands on the board. Y
 
 ### 1. Host Setup
 
+Install OpenCode on your computer:
+
+```bash
+curl -fsSL https://opencode.ai/install | bash
+```
+
 **Via ADB (USB):**
 1. Connect the UNO Q to your computer via USB-C®.
 2. Ensure the `adb` CLI tool is installed on your computer.
@@ -173,8 +179,6 @@ The agent runs in your computer's terminal but executes commands on the board. Y
    ```
 
 ***If key-based authentication is not possible, you can use `sshpass` with the password stored in an environment variable: `export UNO_Q_PASS="your_password"` then `sshpass -p "$UNO_Q_PASS" ssh arduino@<hostname>.local`.***
-
-4. Install OpenCode on your computer (`curl -fsSL https://opencode.ai/install | bash`).
 
 ### 2. The Context File
 
