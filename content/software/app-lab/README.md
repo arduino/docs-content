@@ -74,12 +74,12 @@ Configuration file path: `content/software/app-lab/.markdownlint.yaml`
 
 Always validate your changes before committing:
 ```bash
-python3 scripts/validation/relative_links.py validate content/software/app-lab
+python3 scripts/validation/relative_links/relative_links.py validate content/software/app-lab
 ```
 You can also use the `fix` command to automatically correct link formatting:
 
 ```bash
-python3 scripts/validation/relative_links.py fix content/software/app-lab
+python3 scripts/validation/relative_links/relative_links.py fix content/software/app-lab
 ```
 
 ## Maintenance and Automation

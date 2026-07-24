@@ -35,11 +35,11 @@ productCertifications:
     source: "https://www.telec.or.jp/eng/services/tech/"
     sourceTitle: "telec.or.jp"
     files: null
-  - name: "IC"
-    title: "ISED/IC"
+  - name: "ISED"
+    title: "ISED"
     id: 5
     description: "Innovation, Science and Economic Development Canada (ISED) works with Canadians in all areas of the economy and in all parts of the country to improve conditions for investment, enhance Canada's innovation performance, increase Canada's share of global trade, and build a fair, efficient, and competitive marketplace."
-    source: "http://www.ic.gc.ca/eic/site/icgc.nsf/eng/home"
+    source: "https://www.ic.gc.ca/"
     sourceTitle: "www.ic.gc.ca"
     files: null
   - name: "UL"
@@ -118,5 +118,12 @@ productCertifications:
     description: "The Office of the Communications Authority (OFCA) is an executive arm of the Communications Authority in Hong Kong. It is the body responsible for telecommunications regulation (through the Regulatory Affairs Branch), antitrust enforcement (through the Competition Affairs Branch) and allocation of the radio frequency portion of the electromagnetic spectrum (also known as spectrum management, through the Operations Branch)."
     source: "https://www.ofca.gov.hk/"
     sourceTitle: "www.ofca.gov.hk/"
+    files: null
+  - name: "Matter"
+    title: "Matter"
+    id: 17
+    description: "Matter certified is a seal of approval indicating that a smart home device operates on the Matter protocol. Developed by the Connectivity Standards Alliance (CSA), it ensures devices work seamlessly across all major smart home ecosystems."
+    source: "https://csa-iot.org/"
+    sourceTitle: "csa-iot.org/"
     files: null
 ---
