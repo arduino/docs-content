@@ -86,7 +86,7 @@ The projects listed below represent the content available at the time of the kit
 
 <p style="text-align: justify;">
 You can follow the link below to access the official online course platform [11], where you will find the online projects with step-by-step instructions:
-<a href="https://courses.arduino.cc/starterkitr4" target="_blank">courses.arduino.cc/starterkitr4</a>. 
+<a href="https://courses.arduino.cc/starter-kit-r4/" target="_blank">courses.arduino.cc/starter-kit-r4/</a>. 
 To access the course, users need an Arduino account.
 </p>
 
@@ -501,22 +501,23 @@ As a global supplier of electronic and electrical components, Arduino is aware o
 
 ## Reference Documentation
 
-| **No.** | **Reference**                | **Link**                                                           |
-|--------:|------------------------------|--------------------------------------------------------------------|
-|       1 | UNO R4 WiFi Documentation    | https://docs.arduino.cc/hardware/uno-r4-wifi/                      |
-|       2 | Arduino IDE                  | https://www.arduino.cc/en/software                                 |
-|       3 | Arduino Cloud Editor         | https://create.arduino.cc/editor                                   |
-|       4 | Language Reference           | https://www.arduino.cc/reference/en/                               |
-|       5 | Project Hub                  | https://create.arduino.cc/projecthub                               |
-|       6 | Cloud Getting Started Guide  | https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started |
-|       7 | LED Matrix Examples          | https://docs.arduino.cc/tutorials/uno-r4-wifi/led-matrix           |
-|       8 | Wi-Fi Examples               | https://docs.arduino.cc/tutorials/uno-r4-wifi/wifi-examples        |
-|       9 | Library Reference            | https://github.com/arduino-libraries/                              |
-|      10 | Online Store                 | https://store.arduino.cc/products/starter-kit-r4                   |
-|      11 | Online Starter Kit R4 Course | https://courses.arduino.cc/starterkitr4                            |
+| **No.** |         **Reference**        | **Link**                                                    |
+|:-------:|:----------------------------:|-------------------------------------------------------------|
+|    1    |   UNO R4 WiFi Documentation  | https://docs.arduino.cc/hardware/uno-r4-wifi/               |
+|    2    |          Arduino IDE         | https://www.arduino.cc/en/software                          |
+|    3    |     Arduino Cloud Editor     | https://create.arduino.cc/editor                            |
+|    4    |      Language Reference      | https://www.arduino.cc/reference/en/                        |
+|    5    |          Project Hub         | https://create.arduino.cc/projecthub                        |
+|    6    |  Cloud Getting Started Guide | https://docs.arduino.cc/arduino-cloud/guides/overview/      |
+|    7    |      LED Matrix Examples     | https://docs.arduino.cc/tutorials/uno-r4-wifi/led-matrix    |
+|    8    |        Wi-Fi Examples        | https://docs.arduino.cc/tutorials/uno-r4-wifi/wifi-examples |
+|    9    |       Library Reference      | https://github.com/arduino-libraries/                       |
+|    10   |         Online Store         | https://store.arduino.cc/products/starter-kit-r4            |
+|    11   | Online Starter Kit R4 Course | https://courses.arduino.cc/starter-kit-r4/                  |
 
 ## Document Revision History
 
-| **Date**   | **Revision** | **Changes**        |
-|------------|--------------|--------------------|
-| 18/11/2025 | 1            | First release      |
+|  **Date**  | **Revision** |           **Changes**          |
+|:----------:|:------------:|:------------------------------:|
+| 18/11/2025 |       1      |          First release         |
+| 29/07/2026 |       2      | Store and online course update |
