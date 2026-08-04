@@ -109,9 +109,8 @@ The wireless module uses SDIO for Wi-Fi® data and a UART for Bluetooth® contro
 |-------------|------------------:|--------------------:|-----------------------|
 | USB-C VBUS  |               5 V |           up to 3 A | USB-C connector       |
 | VIN (DC IN) |            7-24 V |                   - | JMEDIA, JANALOG (VIN) |
-| 5 V Pin     |               5 V |           up to 3 A | JANALOG               |
 
-<p style="text-align: justify;">UNO Q supports dual power inputs: a USB-C port and a 7-24V DC input. Over USB Power Delivery, it requests only the 5 V / 3 A contract and does not request higher-voltage PD profiles. Use a supply and cable rated for 5 V at 3 A to avoid undervoltage during short activity peaks such as wireless bursts or display initialization. A regulated external 5 V DC source can also be used to supply power to the board via the 5 V pin on the JANALOG header.</p>
+<p style="text-align: justify;">UNO Q supports dual power inputs: a USB-C port and a 7-24V DC input. Over USB Power Delivery, it requests only the 5 V / 3 A contract and does not request higher-voltage PD profiles. Use a supply and cable rated for 5 V at 3 A to avoid undervoltage during short activity peaks such as wireless bursts or display initialization.</p>
 
 <p style="text-align: justify;"><em>USB-C VBUS</em> and the 5 V output of the 7-24 V buck are <em>diode-OR</em> combined onto the system 5 V bus (<code>5V_SYS</code>). From <code>5V_SYS</code>, the design derives the 3.8 V pre-regulator node and, subsequently, the 3.3 V.
 The PMIC, powered by 5V_SYS, derives the 1.8V rail.</p>
@@ -644,7 +643,7 @@ For first time setting up:
   <strong>Note:</strong> In <strong>PC-hosted</strong> mode, a <em>USB data</em> connection is required for first-time setup. Afterwards you can use the <strong>Network</strong> target over LAN (SSH). In <strong>Single-Board Computer (SBC)</strong> mode, no USB data link is needed for setup, just power the board and use the <strong>Network</strong> target once it joins your network. For peripherals in SBC mode (keyboard, mouse, USB camera, microphone), use a USB-C dongle with external power delivery capabilities. When DisplayPort Alt-Mode is active, USB data speed is reduced.</p>
 </div>
 
-Use a 5 V / 3 A USB-C source and cable, or power from the 5 V or VIN pins as specified in the [input power section](#input-power) (USB-C is 5 V only / VIN is 7-24 V).
+Use a 5 V / 3 A USB-C source and cable, or power from the VIN pin as specified in the [input power section](#input-power) (USB-C is 5 V only / VIN is 7-24 V).
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   First boot typically takes 20-30 seconds while Linux starts. Wait for the boot LED sequence or the LED-matrix animation to finish before interacting with the board.
@@ -2557,6 +2556,7 @@ Este equipamento não tem direito à proteção contra interferência prejudicia
 
 |  **Date**  | **Revision** | **Changes**                                                                                                                  |
 |:----------:|:------------:|------------------------------------------------------------------------------------------------------------------------------|
+| 04/08/2026 |      14      | Updated power input option table (JANALOG)                                                                                   |
 | 17/06/2026 |      13      | Display output clarification (USB-C and JMEDIA)                                                                              |
 | 16/06/2026 |      12      | Add Safety information section                                                                                               |
 | 01/06/2026 |      11      | Add RED radio equipment frequency band and transmit power information                                                        |
