@@ -524,14 +524,14 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ### JSPI (A5) (JSPI1) - Pin Map
 
-| **Pin** | **Designation** | **Net / Function** | **Domain** | **Notes**  |
-|--------:|-----------------|--------------------|------------|------------|
-|       1 | MISO            | PC2 (SPI2_MISO)    | 3.3 V      | -          |
-|       2 | +5V             | 5V_USB_VBUS        | Power      | Power only |
-|       3 | SCK             | PD1 (SPI2_SCK)     | 3.3 V      | -          |
-|       4 | MOSI            | PC3 (SPI2_MOSI)    | 3.3 V      | -          |
-|       5 | RESET           | MCU_NRST           | 3.3 V      | -          |
-|       6 | GND             | Ground             | Power      | -          |
+| **Pin** | **Designation** | **Net / Function** | **Domain** | **Notes**                     |
+|--------:|-----------------|--------------------|------------|-------------------------------|
+|       1 | MISO            | PC2 (SPI2_MISO)    | 3.3 V      | -                             |
+|       2 | +5V             | 5V_USB_VBUS        | Power      | Output only; do not back-feed |
+|       3 | SCK             | PD1 (SPI2_SCK)     | 3.3 V      | -                             |
+|       4 | MOSI            | PC3 (SPI2_MOSI)    | 3.3 V      | -                             |
+|       5 | RESET           | MCU_NRST           | 3.3 V      | -                             |
+|       6 | GND             | Ground             | Power      | -                             |
 
 ### JCTL (A1) (JCTL1) - Pin Map
 
@@ -585,7 +585,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |       2 | IOREF           | PWR_3P3V          | - I/O voltage reference (mirrors 3.3 V rail)             | Power          | Output only; do not back-feed |
 |       3 | RESET           | MCU_NRST          | - MCU reset                                              | 3.3 V          | -                             |
 |       4 | +3V3 OUT        | PWR_3P3V          | - 3.3 V supply                                           | Power          | -                             |
-|       5 | +5V USB VBUS    | 5V_USB_VBUS       | - 5 V supply (pass-through)                              | Power          | Power only                    |
+|       5 | +5V USB VBUS    | 5V_USB_VBUS       | - 5 V supply (pass-through)                              | Power          | Output only; do not back-feed |
 |       6 | GND             | GND               | - Ground                                                 | Power          | -                             |
 |       7 | GND             | GND               | - Ground                                                 | Power          | -                             |
 |       8 | VIN IN          | DC_IN             | - 7-24 V input                                           | Power          | Power only                    |
@@ -799,7 +799,6 @@ UNO Q 提供两种型号：
 
 ![](assets/ABX00162-ABX00173-comm-components.png)
 
-<<<<<<< PXCT-1634-UNO-Q-Zh+PT
 | **子系统**                                                   | **详细信息**                                                 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 无线模块                                                     | - WCBN3536A（Qualcomm WCN3980）（U2901）<br></br>- Wi-Fi® 5 802.11a/b/g/n/ac（双频）+ Bluetooth® 5.1 |
@@ -1376,7 +1375,7 @@ Arduino App Lab 可安装在您的电脑上，或直接在单板计算机模式�
 - 编辑器中可同时查看双方日志，无需离开Arduino App Lab即可进行迭代开发。
 
 首次设置时：
-=======
+
 1. 安装Arduino App Lab [1]并启动，连接UNO Q开发板：采用**USB-C数据线**进入PC主机模式，或直接供电进入单板计算机模式。
 2. 该开发板将自动检查更新。若有可用更新，系统将提示您安装。更新完成后，需重新启动Arduino App Lab[1]。
 3. 初始设置将要求您为设备设置名称和密码，同时需提供本地网络的Wi-Fi®凭证。
