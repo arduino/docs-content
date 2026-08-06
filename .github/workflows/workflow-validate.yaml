@@ -18,7 +18,9 @@ jobs:
       - name: Run spell check
         run: |
           pip install codespell==2.3.0
-          codespell -I "scripts/resources/spell-check-ignore-list.txt" --skip="*.svg,*.dxf,*.pdf,./content/hardware/02.uno/boards/uno-q/datasheet/datasheet.md" ./content/
+          # Localized datasheets are written in their own language, which an English dictionary flags
+          # word by word. English datasheets (datasheet.md / en-datasheet.md) are still checked.
+          codespell -I "scripts/resources/spell-check-ignore-list.txt" --skip="*.svg,*.dxf,*.pdf,*de-datasheet.md,*es-datasheet.md,*fr-datasheet.md,*hi-datasheet.md,*it-datasheet.md,*ja-datasheet.md,*pt-datasheet.md,*zh-datasheet.md" ./content/
 
   lint:
     name: Content Linter
