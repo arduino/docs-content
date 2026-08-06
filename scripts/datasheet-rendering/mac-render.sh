@@ -41,4 +41,18 @@ export PUPPETEER_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS
 export PUPPETEER_SKIP_DOWNLOAD=true
 
 echo "Starting rendering..."
-npx datasheet-renderer config.json "$@"
+# Render the default (English) datasheets plus every localized config (config.<lang>.json).
+# Configs whose source files don't exist are skipped: each run costs a tree walk and a browser launch.
+SEARCH_PATH="${1:-../../content/hardware}"
+for config in config.json config.*.json; do
+    [ -e "$config" ] || continue
+    if [ "$config" != "config.json" ]; then
+        PATTERN=$(node -p "JSON.parse(require('fs').readFileSync('$config','utf8')).datasheetFile[0]" 2>/dev/null)
+        if [ -z "$(find "$SEARCH_PATH" -name "$PATTERN" -print -quit 2>/dev/null)" ]; then
+            echo "⏭  Skipping $config (no matching datasheet files)"
+            continue
+        fi
+    fi
+    echo "▶ Rendering datasheets with $config ..."
+    npx datasheet-renderer "$config" "$@"
+done

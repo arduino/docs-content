@@ -1,0 +1,23 @@
+{
+    "datasheetFile": [
+        "zh-datasheet.md"
+    ],
+    "excludePatterns": [
+        ".git",
+        "template",
+        "_unlisted"
+    ],
+    "defaultSourcePath": "../../content/hardware",
+    "relativeBuildPath": "../downloads",
+    "datasheetsFolder": "datasheets",
+    "styleSheetsPath": "./styles",
+    "previousDocumentationFolder": "previous-documentation",
+    "subtitle": "用户手册",
+    "datasheetSuffix": "-zh-datasheet.pdf",
+    "identifierPrefix": "SKU",
+    "sections": {
+        "description": "描述",
+        "target-areas": "目标领域",
+        "contents": "目录"
+    }
+}

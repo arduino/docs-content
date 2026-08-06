@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# Each renderer run walks the content tree and launches a browser, so skip configs whose source
+# files don't exist (e.g. a language nobody has translated yet) instead of paying for a no-op run.
+has_matching_sources() {
+    local config="$1" search_path="${2:-../../content/hardware}" pattern
+    [ "$config" = "config.json" ] && return 0
+    for pattern in $(node -p "JSON.parse(require('fs').readFileSync('$config','utf8')).datasheetFile.join(' ')" 2>/dev/null); do
+        [ -n "$(find "$search_path" -name "$pattern" -print -quit 2>/dev/null)" ] && return 0
+    done
+    return 1
+}
+
 if [ -n "$CI" ]; then
     echo "Current system:"
     uname -a
@@ -40,8 +51,18 @@ if [ -n "$CI" ]; then
     export PUPPETEER_EXECUTABLE_PATH=$(which chromium || which chromium-browser)
 
     echo "Running datasheet-renderer..."
-    time npx datasheet-renderer config.json
-    exit $?
+    # Render the default (English) datasheets plus every localized config (config.<lang>.json).
+    status=0
+    for config in config.json config.*.json; do
+        [ -e "$config" ] || continue
+        if ! has_matching_sources "$config"; then
+            echo "⏭  Skipping $config (no matching datasheet files)"
+            continue
+        fi
+        echo "▶ Rendering datasheets with $config ..."
+        time npx datasheet-renderer "$config" || status=$?
+    done
+    exit $status
 fi
 
 if ! command -v node &> /dev/null
@@ -65,4 +86,13 @@ if [ $? -ne 0 ]; then
     npm install
 fi
 
-npx datasheet-renderer config.json $@
+# Render the default (English) datasheets plus every localized config (config.<lang>.json).
+for config in config.json config.*.json; do
+    [ -e "$config" ] || continue
+    if ! has_matching_sources "$config" "${1:-../../content/hardware}"; then
+        echo "⏭  Skipping $config (no matching datasheet files)"
+        continue
+    fi
+    echo "▶ Rendering datasheets with $config ..."
+    npx datasheet-renderer "$config" $@
+done
