@@ -11,7 +11,7 @@ primary_button_title: Get Started
 secondary_button_url: /tutorials/generic/WiFiNINAFirmwareUpdater
 secondary_button_title: Update Firmware
 sku: [ABX00023]
-usesCases: [prototyping, industrial-automation, robotics, edge-ai, iot-wireless, education]
+useCases: [prototyping, industrial-automation, robotics, edge-ai, iot-wireless, education]
 relevance: 1
 releaseDate: 2026-06-12
 isNew: true
