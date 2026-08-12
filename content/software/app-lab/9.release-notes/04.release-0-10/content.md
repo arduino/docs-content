@@ -42,7 +42,6 @@ This page contains release notes for Arduino App Lab. To access the software, go
 
 **New Bricks:**
 
-* MCP Client
 * Arduino Cloud with Provisioning
 
 #### What’s fixed
