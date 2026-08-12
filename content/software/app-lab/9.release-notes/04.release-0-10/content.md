@@ -52,8 +52,8 @@ This page contains release notes for Arduino App Lab. To access the software, go
 * Board setup validation too permissive
 * Misc cosmetic and functional fixes
 
-### GitHub Release
+### Release Information
 
-<Alert type="info">You can always find the latest release [here](https://github.com/arduino/arduino-app-lab/releases/latest). </Alert>
+You can always find the latest release [here](https://github.com/arduino/arduino-app-lab/releases/latest).
 
-If you have already downloaded App Lab once, you should get your updates automatically next time you open the software. You can also [download the latest release here](https://www.arduino.cc/en/software/#app-lab-section).
+<Alert type="info">If you have already downloaded App Lab once, you should get the latest release automatically next time you open the software. You can also [download the latest release here](https://www.arduino.cc/en/software/#app-lab-section).</Alert>
