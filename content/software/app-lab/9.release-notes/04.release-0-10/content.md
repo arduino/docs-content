@@ -19,7 +19,7 @@ This page contains release notes for Arduino App Lab. To access the software, go
 #### What's New
 
 * Agentic Coding in App Lab
-* Laguage Server support in editor
+* Language Server support in editor
 * Examples organized into 'basics' and 'inspirations'
 * UI updates to side panel
 
