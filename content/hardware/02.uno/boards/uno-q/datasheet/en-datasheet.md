@@ -4,6 +4,8 @@ title: Arduino® UNO Q
 type: maker
 ---
 
+# English
+
 ![](assets/featured.png)
 
 # Description
