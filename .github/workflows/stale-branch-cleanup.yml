@@ -12,7 +12,7 @@ on:
         default: true
         type: boolean
       days_threshold:
-        description: 'Treat a branch as stale when its last commit is older than this many days.'
+        description: 'Treat a branch as stale when it has had no commits and no pushes for this many days.'
         required: false
         default: '365'
         type: string
@@ -58,7 +58,7 @@ jobs:
 
           echo "Repository:      $REPO"
           echo "Default branch:  $DEFAULT_BRANCH"
-          echo "Stale after:     $DAYS_THRESHOLD days without commits"
+          echo "Stale after:     $DAYS_THRESHOLD days with no commits and no pushes"
           echo "Reminders:       $MAX_REMINDERS, one every $REMINDER_INTERVAL_DAYS days"
           echo "Dry run:         $DRY_RUN"
           echo "----------------------------------------"
@@ -76,8 +76,26 @@ jobs:
           gh pr list --repo "$REPO" --state open --limit 500 \
             --json baseRefName --jq '.[].baseRefName' | sort -u > /tmp/base_branches.txt
 
+          # A branch can carry old commits and still be new: it may have been cut from an old
+          # commit, or had old history force-pushed onto it yesterday. The tip commit date on
+          # its own would call that stale, so pair it with the repository activity log, which
+          # records when each ref was really created or pushed to. If this call fails the job
+          # fails with it, on purpose: better a red run than deleting branches unguarded.
+          ACTIVITY_QUERY='per_page=100'
+          if [ "$DAYS_THRESHOLD" -le 365 ]; then
+            ACTIVITY_QUERY="$ACTIVITY_QUERY&time_period=year"
+          fi
+          gh api "repos/$REPO/activity?$ACTIVITY_QUERY" --paginate \
+            --jq '.[] | select(.activity_type == "push" or .activity_type == "force_push"
+                               or .activity_type == "branch_creation")
+                  | select(.ref | startswith("refs/heads/"))
+                  | [(.timestamp | fromdateiso8601), (.ref | sub("^refs/heads/"; ""))] | @tsv' \
+            | awk -F'\t' '$1 > seen[$2] { seen[$2] = $1 }
+                          END { for (b in seen) print seen[b] "\t" b }' > /tmp/branch_activity.tsv
+
           echo "Open pull requests from this repository: $(wc -l < /tmp/open_prs.tsv)"
           echo "Branches used as a base by an open pull request: $(wc -l < /tmp/base_branches.txt)"
+          echo "Branches created or pushed to within the activity window: $(wc -l < /tmp/branch_activity.tsv)"
           echo "----------------------------------------"
 
           PROTECTED_REGEX="^(${DEFAULT_BRANCH}|main|master|develop|staging|production|gh-pages)$"
@@ -102,6 +120,14 @@ jobs:
             fi
 
             if [ $(( NOW - commit_ts )) -lt "$THRESHOLD_SECONDS" ]; then
+              skipped=$((skipped + 1))
+              continue
+            fi
+
+            # Old commits are not enough on their own: the ref must also have been left alone.
+            activity_ts=$(awk -F'\t' -v b="$branch" '$2 == b { print $1; exit }' /tmp/branch_activity.tsv)
+            if [ -n "$activity_ts" ] && [ $(( NOW - activity_ts )) -lt "$THRESHOLD_SECONDS" ]; then
+              echo "SKIP (old commits, but created or pushed on $(date -u -d "@$activity_ts" '+%Y-%m-%d')): $branch"
               skipped=$((skipped + 1))
               continue
             fi
