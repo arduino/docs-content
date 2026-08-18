@@ -6,7 +6,7 @@ primary_button_url: /tutorials/uno-r4-wifi/r4-wifi-getting-started
 primary_button_title: Get Started
 forumCategorySlug: '/hardware/uno-r4/uno-r4-wifi/189'
 productCode: ['161', '206', '210']
-sku: [ABX00087]
+sku: [ABX00087, ABX00087_CN]
 ---
 
 The Arduino UNO R4 WiFi is designed around the 32-bit microcontroller RA4M1 from [Renesas](https://www.renesas.com/us/en) while also featuring a ESP32 module for Wi-Fi® and Bluetooth® connectivity. Its distinctive 12x8 LED matrix makes it possible to prototype visuals directly on the board, and with a Qwiic connector, you can create projects plug-and-play style.

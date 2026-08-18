@@ -1,0 +1,23 @@
+{
+    "datasheetFile": [
+        "hi-datasheet.md"
+    ],
+    "excludePatterns": [
+        ".git",
+        "template",
+        "_unlisted"
+    ],
+    "defaultSourcePath": "../../content/hardware",
+    "relativeBuildPath": "../downloads",
+    "datasheetsFolder": "datasheets",
+    "styleSheetsPath": "./styles",
+    "previousDocumentationFolder": "previous-documentation",
+    "subtitle": "उपयोगकर्ता मैनुअल",
+    "datasheetSuffix": "-hi-datasheet.pdf",
+    "identifierPrefix": "SKU",
+    "sections": {
+        "description": "विवरण",
+        "target-areas": "लक्ष्य क्षेत्र",
+        "contents": "विषय-सूची"
+    }
+}

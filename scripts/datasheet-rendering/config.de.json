@@ -1,0 +1,23 @@
+{
+    "datasheetFile": [
+        "de-datasheet.md"
+    ],
+    "excludePatterns": [
+        ".git",
+        "template",
+        "_unlisted"
+    ],
+    "defaultSourcePath": "../../content/hardware",
+    "relativeBuildPath": "../downloads",
+    "datasheetsFolder": "datasheets",
+    "styleSheetsPath": "./styles",
+    "previousDocumentationFolder": "previous-documentation",
+    "subtitle": "Benutzerhandbuch",
+    "datasheetSuffix": "-de-datasheet.pdf",
+    "identifierPrefix": "SKU",
+    "sections": {
+        "description": "Beschreibung",
+        "target-areas": "Zielgebiete",
+        "contents": "Inhalt"
+    }
+}

@@ -10,6 +10,6 @@
   "author": "Sebastian Romero",
   "license": "ISC",
   "dependencies": {
-    "datasheet-renderer": "^1.0.5"
+    "datasheet-renderer": "git+https://github.com/arduino/datasheet-renderer.git#e36fd5549e1a351c0d85843109817653c8dce15b"
   }
 }
