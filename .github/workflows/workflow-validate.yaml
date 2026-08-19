@@ -37,7 +37,7 @@ jobs:
           ./content-lint.sh -p '../../content/hardware/'
 
   validate_markdown:
-    name: Validate Markdown
+    name: Markdown Check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -53,7 +53,7 @@ jobs:
         run: python3 scripts/validation/markdown_lint/markdown_lint.py content
 
   validate_links:
-    name: Validate Links
+    name: Link Check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -65,7 +65,7 @@ jobs:
         run: python3 scripts/validation/relative_links/relative_links.py validate content
 
   validate_images:
-    name: Validate Images
+    name: Image Check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
