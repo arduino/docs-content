@@ -1,0 +1,24 @@
+default: true
+
+# Use dashes (-) for unordered lists to maintain a clean, consistent style
+MD004:
+  style: "dash"
+
+# Enforce spaces over hard tabs
+MD010:
+  code_blocks: true
+
+# Disable the 80-character line length limit
+MD013: false
+
+# Allow duplicate sub-headings in different sections
+MD024:
+  siblings_only: true
+
+# Allow code blocks immediately following list items
+MD031:
+  list_items: false
+
+# Allow common custom elements like <Alert>
+MD033:
+  allowed_elements: ["Alert"]

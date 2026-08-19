@@ -162,27 +162,32 @@ def get_ignore_patterns(dir_path):
     IGNORE_CACHE[dir_path] = patterns
     return patterns
 
-def is_ignored(file_path, root_dir):
-    current_dir = os.path.dirname(os.path.abspath(file_path))
-    root_dir_abs = os.path.abspath(root_dir)
+def is_ignored(path, repo_root):
+    abs_path = os.path.abspath(path)
+    root_dir_abs = os.path.abspath(repo_root)
     
-    while current_dir.startswith(root_dir_abs):
-        patterns = get_ignore_patterns(current_dir)
+    test_dir = abs_path if os.path.isdir(abs_path) else os.path.dirname(abs_path)
+    while test_dir.startswith(root_dir_abs):
+        patterns = get_ignore_patterns(test_dir)
         if patterns:
-            rel_path = os.path.relpath(file_path, current_dir).replace('\\', '/')
+            rel_path = os.path.relpath(abs_path, test_dir).replace('\\', '/')
             for pattern in patterns:
-                if fnmatch.fnmatch(rel_path, pattern) or fnmatch.fnmatch(rel_path.split('/')[-1], pattern):
+                clean_p = pattern.strip().replace('\\', '/').rstrip('/')
+                if fnmatch.fnmatch(rel_path, clean_p) or fnmatch.fnmatch(rel_path, clean_p + '/*') or fnmatch.fnmatch(rel_path, clean_p + '/**'):
                     return True
-                path_parts = rel_path.split('/')
-                for i in range(len(path_parts)):
-                    if fnmatch.fnmatch('/'.join(path_parts[:i+1]), pattern):
+                if rel_path == clean_p or rel_path.startswith(clean_p + '/'):
+                    return True
+                parts = rel_path.split('/')
+                for i in range(len(parts)):
+                    sub = '/'.join(parts[:i+1])
+                    if sub == clean_p or fnmatch.fnmatch(sub, clean_p):
                         return True
-        if current_dir == root_dir_abs:
+        if test_dir == root_dir_abs:
             break
-        parent = os.path.dirname(current_dir)
-        if parent == current_dir:
+        parent = os.path.dirname(test_dir)
+        if parent == test_dir:
             break
-        current_dir = parent
+        test_dir = parent
     return False
 
 def validate_file(file_path, valid_production_paths, content_dir, anchor_cache):
