@@ -145,20 +145,22 @@ def fix_file(file_path):
         return True
     return False
 
+IGNORE_FILES = ['.lintignore', '.linterignore', '.linklintignore']
 IGNORE_CACHE = {}
 
 def get_ignore_patterns(dir_path):
     if dir_path in IGNORE_CACHE:
         return IGNORE_CACHE[dir_path]
     
-    ignore_path = os.path.join(dir_path, '.linterignore')
     patterns = []
-    if os.path.exists(ignore_path):
-        with open(ignore_path, 'r', encoding='utf-8') as f:
-            for line in f:
-                line = line.strip()
-                if line and not line.startswith('#'):
-                    patterns.append(line)
+    for fname in IGNORE_FILES:
+        ignore_path = os.path.join(dir_path, fname)
+        if os.path.exists(ignore_path):
+            with open(ignore_path, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith('#'):
+                        patterns.append(line)
     IGNORE_CACHE[dir_path] = patterns
     return patterns
 

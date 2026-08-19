@@ -14,20 +14,22 @@ HTML_IMAGE_REGEX = re.compile(r'<img\s+[^>]*src=["\'](?P<link>[^"\']+)["\'][^>]*
 
 IMAGE_EXTENSIONS = ('.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp')
 
+IGNORE_FILES = ['.lintignore', '.linterignore', '.imagelintignore']
 IGNORE_CACHE = {}
 
 def get_ignore_patterns(dir_path):
     if dir_path in IGNORE_CACHE:
         return IGNORE_CACHE[dir_path]
     
-    ignore_path = os.path.join(dir_path, '.linterignore')
     patterns = []
-    if os.path.exists(ignore_path):
-        with open(ignore_path, 'r', encoding='utf-8') as f:
-            for line in f:
-                line = line.strip()
-                if line and not line.startswith('#'):
-                    patterns.append(line)
+    for fname in IGNORE_FILES:
+        ignore_path = os.path.join(dir_path, fname)
+        if os.path.exists(ignore_path):
+            with open(ignore_path, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith('#'):
+                        patterns.append(line)
     IGNORE_CACHE[dir_path] = patterns
     return patterns
 
