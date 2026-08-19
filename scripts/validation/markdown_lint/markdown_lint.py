@@ -3,6 +3,7 @@ import sys
 import subprocess
 import argparse
 import fnmatch
+import tempfile
 
 IGNORE_CACHE = {}
 
@@ -66,6 +67,30 @@ def find_closest_config(file_path, repo_root):
     root_config = os.path.join(repo_root_abs, '.markdownlint.yaml')
     return root_config if os.path.exists(root_config) else None
 
+def prepare_effective_config(cfg_path, repo_root):
+    if not cfg_path:
+        return None, False
+    repo_root_abs = os.path.abspath(repo_root)
+    root_config = os.path.join(repo_root_abs, '.markdownlint.yaml')
+    
+    # If the config is already the root config, or root config doesn't exist, use as-is
+    if os.path.abspath(cfg_path) == root_config or not os.path.exists(root_config):
+        return cfg_path, False
+        
+    try:
+        with open(cfg_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        # If it already extends a config, leave it as-is
+        if 'extends:' in content or '"extends"' in content:
+            return cfg_path, False
+            
+        # Prepend extends from root config so local config acts as an incremental override
+        with tempfile.NamedTemporaryFile('w', suffix='.yaml', delete=False) as tf:
+            tf.write(f'extends: "{root_config}"\n\n{content}\n')
+            return tf.name, True
+    except Exception:
+        return cfg_path, False
+
 def main():
     parser = argparse.ArgumentParser(description="Validate Markdown files using markdownlint with .linterignore and hierarchical configs.")
     parser.add_argument("path", nargs="?", default="content", help="Path to a file or directory to lint (default: content)")
@@ -117,15 +142,20 @@ def main():
         
     has_errors = False
     for cfg, f_list in configs_map.items():
-        cmd = ['npx', 'markdownlint-cli'] + f_list
-        if cfg:
-            cmd.extend(['--config', cfg])
-        if args.fix:
-            cmd.append('--fix')
-            
-        result = subprocess.run(cmd, text=True)
-        if result.returncode != 0:
-            has_errors = True
+        effective_cfg, is_temp = prepare_effective_config(cfg, repo_root)
+        try:
+            cmd = ['npx', 'markdownlint-cli'] + f_list
+            if effective_cfg:
+                cmd.extend(['--config', effective_cfg])
+            if args.fix:
+                cmd.append('--fix')
+                
+            result = subprocess.run(cmd, text=True)
+            if result.returncode != 0:
+                has_errors = True
+        finally:
+            if is_temp and effective_cfg and os.path.exists(effective_cfg):
+                os.remove(effective_cfg)
             
     if has_errors:
         sys.exit(1)
