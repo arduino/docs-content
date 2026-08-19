@@ -52,6 +52,20 @@ def is_ignored(path, repo_root):
         test_dir = parent
     return False
 
+def get_base_config(repo_root):
+    repo_root_abs = os.path.abspath(repo_root)
+    # Check content/.markdownlint.yaml first, then repo root .markdownlint.yaml
+    candidates = [
+        os.path.join(repo_root_abs, 'content', '.markdownlint.yaml'),
+        os.path.join(repo_root_abs, 'content', '.markdownlint.yml'),
+        os.path.join(repo_root_abs, '.markdownlint.yaml'),
+        os.path.join(repo_root_abs, '.markdownlint.yml'),
+    ]
+    for cand in candidates:
+        if os.path.exists(cand):
+            return cand
+    return None
+
 def find_closest_config(file_path, repo_root):
     curr = os.path.dirname(os.path.abspath(file_path))
     repo_root_abs = os.path.abspath(repo_root)
@@ -66,17 +80,15 @@ def find_closest_config(file_path, repo_root):
         if parent == curr:
             break
         curr = parent
-    root_config = os.path.join(repo_root_abs, '.markdownlint.yaml')
-    return root_config if os.path.exists(root_config) else None
+    return get_base_config(repo_root)
 
 def prepare_effective_config(cfg_path, repo_root):
     if not cfg_path:
         return None, False
-    repo_root_abs = os.path.abspath(repo_root)
-    root_config = os.path.join(repo_root_abs, '.markdownlint.yaml')
+    base_config = get_base_config(repo_root)
     
-    # If the config is already the root config, or root config doesn't exist, use as-is
-    if os.path.abspath(cfg_path) == root_config or not os.path.exists(root_config):
+    # If the config is already the base config, or base config doesn't exist, use as-is
+    if not base_config or os.path.abspath(cfg_path) == os.path.abspath(base_config):
         return cfg_path, False
         
     try:
@@ -86,9 +98,9 @@ def prepare_effective_config(cfg_path, repo_root):
         if 'extends:' in content or '"extends"' in content:
             return cfg_path, False
             
-        # Prepend extends from root config so local config acts as an incremental override
+        # Prepend extends from base config so local config acts as an incremental override
         with tempfile.NamedTemporaryFile('w', suffix='.yaml', delete=False) as tf:
-            tf.write(f'extends: "{root_config}"\n\n{content}\n')
+            tf.write(f'extends: "{base_config}"\n\n{content}\n')
             return tf.name, True
     except Exception:
         return cfg_path, False
