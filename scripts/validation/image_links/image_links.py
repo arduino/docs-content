@@ -202,12 +202,13 @@ def main():
         
     repo_root = os.path.dirname(content_dir) if content_dir and os.path.basename(content_dir) == 'content' else (content_dir or current_dir)
 
+    has_errors = False
+
     if args.command == "validate":
         missing, referenced = validate_missing(root_path, repo_root)
         assets = get_all_assets(root_path, repo_root)
         unlinked = assets - referenced
         
-        has_errors = False
         if missing:
             total_missing = sum(len(imgs) for imgs in missing.values())
             print(f"{total_missing} missing images found:")
@@ -223,9 +224,7 @@ def main():
                 print(f"  - {os.path.relpath(img, root_path)}")
             has_errors = True
             
-        if has_errors:
-            sys.exit(1)
-        else:
+        if not has_errors:
             print("Validation successful: No missing or unlinked images found.")
 
     elif args.command == "validate-missing":
@@ -269,6 +268,9 @@ def main():
                     print(f"  Error deleting {img}: {e}")
         else:
             print("No unlinked images to remove.")
+
+    if has_errors:
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
