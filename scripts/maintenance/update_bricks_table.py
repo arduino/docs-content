@@ -3,29 +3,44 @@ import yaml
 import re
 
 # --- Configuration ---
-BRICKS_DIR = "../app-bricks-py/src/arduino/app_bricks"
+# Possible locations for the app_bricks directory
+DEFAULT_BRICKS_PATHS = [
+    os.environ.get("BRICKS_DIR"),
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../app-bricks-py/src/arduino/app_bricks")),
+    os.path.abspath("../app-bricks-py/src/arduino/app_bricks"),
+    os.path.expanduser("~/Documents/GitHub/app-bricks-py/src/arduino/app_bricks"),
+]
+
 GITHUB_BASE_URL = "https://github.com/arduino/app-bricks-py/tree/main/src/arduino/app_bricks/"
 
 # The HTML comments to look for in your Markdown files
 START_MARKER = "<!-- app-bricks-py table start -->"
 END_MARKER = "<!-- app-bricks-py table end -->"
 
+def find_bricks_dir():
+    """Finds the app_bricks directory."""
+    for path in DEFAULT_BRICKS_PATHS:
+        if path and os.path.exists(path) and os.path.isdir(path):
+            return path
+    return None
+
 def build_markdown_table():
     """Reads brick directories and builds the Markdown table."""
-    if not os.path.exists(BRICKS_DIR):
-        print(f"Error: Directory '{BRICKS_DIR}' not found.")
+    bricks_dir = find_bricks_dir()
+    if not bricks_dir:
+        print("Error: 'app_bricks' directory not found.")
         return None
 
     bricks_data = []
 
     # Get all directories in the bricks folder
     brick_dirs = [
-        d for d in os.listdir(BRICKS_DIR) 
-        if os.path.isdir(os.path.join(BRICKS_DIR, d))
+        d for d in os.listdir(bricks_dir) 
+        if os.path.isdir(os.path.join(bricks_dir, d))
     ]
     
     for folder_name in brick_dirs:
-        yaml_path = os.path.join(BRICKS_DIR, folder_name, "brick_config.yaml")
+        yaml_path = os.path.join(bricks_dir, folder_name, "brick_config.yaml")
         
         if os.path.exists(yaml_path):
             try:
@@ -92,7 +107,8 @@ def inject_table_into_markdown(table_content):
     pattern = re.compile(rf"({START_MARKER}\n).*?(\n{END_MARKER})", re.DOTALL)
     
     # Recursively search for all .md files in the repository
-    for root, _, files in os.walk("."):
+    search_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+    for root, _, files in os.walk(search_root):
         for file in files:
             if file.endswith(".md"):
                 filepath = os.path.join(root, file)
