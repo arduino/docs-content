@@ -76,8 +76,12 @@ def find_images_in_file(file_path):
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
             
+            # Strip code blocks and inline code so code mentions are not treated as active images
+            clean_content = re.sub(r'```.*?```', '', content, flags=re.DOTALL)
+            clean_content = re.sub(r'`[^`\n]+`', '', clean_content)
+
             # Find Markdown images
-            for match in MD_IMAGE_REGEX.finditer(content):
+            for match in MD_IMAGE_REGEX.finditer(clean_content):
                 inner = match.group('inner').strip()
                 # Separate the link from any optional title wrapped in quotes
                 link_match = re.match(r'^(.*?)(?:\s+["\'].*["\'])?$', inner)
@@ -85,7 +89,7 @@ def find_images_in_file(file_path):
                     images.append(link_match.group(1).strip())
                     
             # Find HTML images
-            for match in HTML_IMAGE_REGEX.finditer(content):
+            for match in HTML_IMAGE_REGEX.finditer(clean_content):
                 images.append(match.group('link').strip())
                 
     except Exception as e:
