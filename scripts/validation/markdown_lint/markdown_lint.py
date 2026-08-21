@@ -154,6 +154,13 @@ def main():
         cfg = find_closest_config(f, repo_root)
         configs_map.setdefault(cfg, []).append(f)
         
+    custom_rules_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'rules')
+    custom_rules = []
+    if os.path.isdir(custom_rules_dir):
+        for r_file in sorted(os.listdir(custom_rules_dir)):
+            if r_file.endswith('.cjs') or r_file.endswith('.js'):
+                custom_rules.append(os.path.join(custom_rules_dir, r_file))
+
     has_errors = False
     for cfg, f_list in configs_map.items():
         effective_cfg, is_temp = prepare_effective_config(cfg, repo_root)
@@ -161,6 +168,8 @@ def main():
             cmd = ['npx', 'markdownlint-cli'] + f_list
             if effective_cfg:
                 cmd.extend(['--config', effective_cfg])
+            for r in custom_rules:
+                cmd.extend(['--rules', r])
             if args.fix:
                 cmd.append('--fix')
                 

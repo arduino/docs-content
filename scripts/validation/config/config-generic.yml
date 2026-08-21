@@ -1,5 +1,5 @@
 ---
-allowedSyntaxSpecifiers: [arduino, bash, markup, clike, c, cpp, css, css-extras, java, javascript, jsx, js-extras, coffeescript, diff, git, go, graphql, handlebars, json, less, makefile, markdown, objectivec, ocaml, python, reason, sass, scss, sql, stylus, tsx, typescript, wasm, yaml]
+allowedSyntaxSpecifiers: [text, plaintext, arduino, bash, markup, clike, c, cpp, css, css-extras, java, javascript, jsx, js-extras, coffeescript, diff, git, go, graphql, handlebars, json, less, makefile, markdown, objectivec, ocaml, python, reason, sass, scss, sql, stylus, tsx, typescript, wasm, yaml]
 
 baseURL: "https://docs.arduino.cc"
 
