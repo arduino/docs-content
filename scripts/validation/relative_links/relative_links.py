@@ -17,7 +17,7 @@ HEADING_REGEX = re.compile(r'^#{1,6}\s+(.+)$', re.MULTILINE)
 HTML_ID_REGEX = re.compile(r'(?:id|name)=["\']([^"\']+)["\']')
 
 IMAGE_EXTENSIONS = ('.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp')
-ASSET_EXTENSIONS = IMAGE_EXTENSIONS + ('.pdf', '.zip')
+ASSET_EXTENSIONS = IMAGE_EXTENSIONS + ('.pdf', '.zip', '.stl', '.sh', '.eim', '.bin', '.gz', '.tar', '.ino', '.py', '.tflite', '.npy')
 
 def slugify(text):
     """Converts a heading string to a valid Markdown anchor slug."""
@@ -96,7 +96,7 @@ def map_file_to_url(file_path, content_dir):
     rel_path = os.path.relpath(file_path, content_dir).replace('\\', '/')
     
     # Special Hardware Tutorials rule
-    hardware_match = re.match(r'^hardware/(?:[^/]+/)+([^/]+)/tutorials/([^/]+)/[^/]+\.md$', rel_path)
+    hardware_match = re.match(r'^hardware/(?:[^/]+/)+([^/]+)/tutorials/(?:.+/)?([^/]+)/[^/]+\.md$', rel_path)
     if hardware_match:
         board = hardware_match.group(1)
         tutorial = re.sub(r'^\d+\.', '', hardware_match.group(2))
@@ -231,11 +231,14 @@ def validate_file(file_path, valid_production_paths, content_dir, anchor_cache):
         resolved_url_no_slash = resolved_url.rstrip('/')
         target_file_path = None
         
-        # We need to find the matching file path in valid_production_paths (ignoring trailing slash)
-        for url, path in valid_production_paths.items():
-            if url.rstrip('/') == resolved_url_no_slash:
-                target_file_path = path
-                break
+        if clean_link == '':
+            target_file_path = file_path
+        else:
+            # We need to find the matching file path in valid_production_paths (ignoring trailing slash)
+            for url, path in valid_production_paths.items():
+                if url.rstrip('/') == resolved_url_no_slash:
+                    target_file_path = path
+                    break
                 
         if not target_file_path:
             # We don't report an error if it's purely an anchor link and the source file isn't indexed (e.g. ignored file)
