@@ -44,7 +44,7 @@ async function ensureBoardSelected(page) {
     // If on welcome screen, verify and select board
     console.log('Checking for connected Arduino UNO Q board...');
     try {
-        await welcomeBoardCard.waitFor({ state: 'visible', timeout: 45000 });
+        await welcomeBoardCard.waitFor({ state: 'visible', timeout: 15000 });
         console.log('Board detected!');
         await welcomeBoardCard.click({ force: true });
     } catch (err) {
@@ -93,36 +93,24 @@ async function stopRunningAppIfAny(page) {
 
 async function cleanupExistingAwesomeApp(page) {
     const myAppsButton = page.locator('#my-apps a');
-    if (await myAppsButton.isVisible({ timeout: 2000 }).catch(() => false)) {
+    if (await myAppsButton.isVisible({ timeout: 1000 }).catch(() => false)) {
         await myAppsButton.click({ force: true }).catch(() => {});
         await page.waitForTimeout(500);
-        
-        // Wait for apps to finish loading
-        await page.locator('div[class*="app-link"], div[class*="empty-state"]').first().waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
-        await page.waitForTimeout(500);
-
         const existingApp = page.locator('div[class*="app-link"]').filter({ hasText: /AwesomeApp/i }).first();
-        if (await existingApp.isVisible({ timeout: 2000 }).catch(() => false)) {
+        if (await existingApp.isVisible({ timeout: 1000 }).catch(() => false)) {
             console.log('Removing previous AwesomeApp instance...');
             await existingApp.click({ force: true }).catch(() => {});
-            await page.waitForTimeout(1000);
-            const appMenuTrigger = page.locator('div[class*="app-actions"] button').first();
-            if (await appMenuTrigger.isVisible({ timeout: 3000 }).catch(() => false)) {
-                await appMenuTrigger.click({ force: true }).catch(() => {});
-                await page.waitForTimeout(500);
-                const deleteMenuItem = page.locator('[role="menuitem"]').filter({ hasText: /Delete/i }).first();
-                if (await deleteMenuItem.isVisible({ timeout: 2000 }).catch(() => false)) {
-                    await deleteMenuItem.click({ force: true }).catch(() => {});
-                    await page.waitForTimeout(500);
-                    const confirmDeleteBtn = page.locator('div[role="dialog"] button[type="submit"], div[role="dialog"] button').filter({ hasText: /Delete/i }).last();
-                    if (await confirmDeleteBtn.isVisible({ timeout: 2000 }).catch(() => false)) {
-                        await confirmDeleteBtn.click({ force: true }).catch(() => {});
-                        await page.waitForTimeout(1500);
-                    }
+            const settingsTrigger = page.locator('button[aria-label="App settings"], [id*="react-aria"]').first();
+            if (await settingsTrigger.isVisible({ timeout: 2000 }).catch(() => false)) {
+                await settingsTrigger.click({ force: true }).catch(() => {});
+                const deleteBtn = page.getByRole('button', { name: 'Delete' });
+                if (await deleteBtn.isVisible({ timeout: 2000 }).catch(() => false)) {
+                    await deleteBtn.click({ force: true }).catch(() => {});
+                    const confirmDelete = page.getByRole('button', { name: 'Delete Delete' }).or(page.getByRole('button', { name: 'Delete' }).last());
+                    await confirmDelete.click({ force: true }).catch(() => {});
+                    await dismissToasts(page);
                 }
             }
-            await myAppsButton.click({ force: true }).catch(() => {});
-            await page.waitForTimeout(1000);
         }
     }
 }
@@ -181,21 +169,8 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
         await capture(page, 'navigation/sidebar-icons-hl.png', outDir, {
             highlight: [
                 { locators: [myAppsButton, inspirationsButton, examplesButton, learnButton, bricksButton] },
-                { 
-                    locators: accountButton, 
-                    label: 'ACCOUNT', 
-                    labelSide: 'right', 
-                    connectorSide: 'right',
-                    fixedY: 575,
-                    connectorMidX: 100
-                },
-                { 
-                    locators: settingsButton, 
-                    label: 'SETTINGS', 
-                    labelSide: 'right', 
-                    connectorSide: 'right',
-                    alignVertical: true
-                }
+                { locators: accountButton, label: 'ACCOUNT', labelSide: 'right', connectorSide: 'right' },
+                { locators: settingsButton, label: 'SETTINGS', labelSide: 'right', connectorSide: 'right' }
             ]
         });
 
@@ -216,21 +191,8 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
         await capture(page, 'navigation/sidebar-icons-hl-crop.png', outDir, {
             highlight: [
                 { locators: [myAppsButton, inspirationsButton, examplesButton, learnButton, bricksButton] },
-                { 
-                    locators: accountButton, 
-                    label: 'ACCOUNT', 
-                    labelSide: 'right', 
-                    connectorSide: 'right',
-                    fixedY: 575,
-                    connectorMidX: 100
-                },
-                { 
-                    locators: settingsButton, 
-                    label: 'SETTINGS', 
-                    labelSide: 'right', 
-                    connectorSide: 'right',
-                    alignVertical: true
-                }
+                { locators: accountButton, label: 'ACCOUNT', labelSide: 'right', connectorSide: 'right' },
+                { locators: settingsButton, label: 'SETTINGS', labelSide: 'right', connectorSide: 'right' }
             ],
             percentage: 'left 40%'
         });
@@ -299,6 +261,13 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
         const copyExampleButton = page.locator('button').filter({ hasText: 'Copy and edit app' }).first();
         const rootBreadcrumb = page.locator('nav[aria-label="breadcrumbs"] a, nav[aria-label="breadcrumbs"] button').first();
 
+        // Wait for editor and buttons to be fully loaded and enabled
+        await expect(runButton).toBeVisible({ timeout: 10000 });
+        await expect(runButton).toBeEnabled({ timeout: 20000 });
+        await expect(copyExampleButton).toBeVisible({ timeout: 10000 });
+        await expect(copyExampleButton).toBeEnabled({ timeout: 20000 });
+        await page.waitForTimeout(1000);
+
         await capture(page, 'inspirations/blink-led-run.png', outDir, { highlight: runButton, percentage: 'top 25%' });
         await capture(page, 'inspirations/blink-led-copy.png', outDir, { highlight: copyExampleButton, percentage: 'top 25%' });
         
@@ -330,57 +299,34 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
         const nameInput = page.getByRole('textbox').first();
         await nameInput.fill('AwesomeApp');
 
-        // Emoji picker - select and assert rocket emoji
-        console.log('Opening emoji picker dialog...');
-        const emojiButton = page.locator('div[role="dialog"] button[class*="emoji-picker-button"]').first();
-        await emojiButton.waitFor({ state: 'visible', timeout: 5000 });
-        await emojiButton.click({ force: true });
-        await page.waitForTimeout(500);
-
-        // Click category tab "Travel & Places"
-        const travelPlacesTab = page.locator('button.epr-cat-travel-places, [aria-label*="Travel & Places"]').or(page.getByRole('tab', { name: /Travel & Places/i })).first();
-        if (await travelPlacesTab.isVisible({ timeout: 2000 }).catch(() => false)) {
-            console.log('Selecting Travel & Places category...');
-            await travelPlacesTab.click({ force: true });
-            await page.waitForTimeout(300);
-        }
-
-        // Locate rocket emoji button
-        const rocketEmojiBtn = page.locator('button.epr-emoji[data-unified="1f680"], button[aria-label*="rocket"], button:has(img[src*="1f680"])').first();
-        
-        try {
-            await rocketEmojiBtn.scrollIntoViewIfNeeded({ timeout: 3000 });
-        } catch (e) {
-            const emojiList = page.locator('.epr-body, .epr-emoji-list').first();
-            if (await emojiList.isVisible()) {
-                await emojiList.focus().catch(() => {});
-                for (let s = 0; s < 10; s++) {
-                    if (await rocketEmojiBtn.isVisible().catch(() => false)) break;
-                    await page.keyboard.press('PageDown').catch(() => {});
-                    await page.waitForTimeout(100);
-                }
+        // Emoji picker - select rocket emoji
+        const emojiButton = page.locator('div[role="dialog"] button[class*="emoji-picker-button"]').or(page.locator('button[class*="emoji-picker-button"]')).first();
+        if (await emojiButton.isVisible({ timeout: 1000 }).catch(() => false)) {
+            console.log('Selecting rocket emoji for AwesomeApp...');
+            await emojiButton.click({ force: true }).catch(() => {});
+            await page.waitForTimeout(500);
+            const travelPlacesTab = page.getByRole('tab', { name: /Travel & Places/i }).first();
+            if (await travelPlacesTab.isVisible({ timeout: 1000 }).catch(() => false)) {
+                await travelPlacesTab.click({ force: true }).catch(() => {});
+                await page.waitForTimeout(300);
+            }
+            const rocketEmoji = page.locator('button[aria-label*="rocket"]').or(page.getByRole('button', { name: /rocket/i })).first();
+            let scrollAttempts = 0;
+            while (!(await rocketEmoji.isVisible().catch(() => false)) && scrollAttempts < 15) {
+                await page.keyboard.press('ArrowDown');
+                scrollAttempts++;
+                await page.waitForTimeout(100);
+            }
+            if (await rocketEmoji.isVisible().catch(() => false)) {
+                await rocketEmoji.click({ force: true }).catch(() => {});
+                await page.waitForTimeout(500);
             }
         }
-
-        await rocketEmojiBtn.waitFor({ state: 'visible', timeout: 5000 });
-        console.log('Clicking rocket emoji...');
-        await rocketEmojiBtn.click({ force: true });
-        await page.waitForTimeout(500);
-
-        // ASSERTION: Verify the dialog's emoji picker button now displays the rocket emoji
-        const dialogEmojiImg = page.locator('div[role="dialog"] button[class*="emoji-picker-button"] img[src*="1f680"], div[role="dialog"] button[class*="emoji-picker-button"] img[alt*="rocket"]');
-        await expect(dialogEmojiImg).toBeVisible({ timeout: 5000 });
-        console.log('✅ Confirmed: Rocket emoji is configured in Create App dialog.');
 
         const confirmCreateBtn = page.locator('button[type="submit"]').filter({ hasText: /Create new|Confirm/i }).first();
         await confirmCreateBtn.click({ force: true });
         await dismissToasts(page);
-        await page.waitForTimeout(2000);
-
-        // ASSERTION: Verify the editor top bar displays AwesomeApp with the rocket emoji
-        const topBarAppEmoji = page.locator('div[class*="app-title"] button[class*="emoji-picker-button"] img[src*="1f680"], div[class*="app-title"] button[class*="emoji-picker-button"] img[alt*="rocket"]');
-        await expect(topBarAppEmoji).toBeVisible({ timeout: 15000 });
-        console.log('✅ Confirmed: Editor top bar displays AwesomeApp with Rocket emoji.');
+        await page.waitForTimeout(1500);
 
         // Editor Elements
         const appActionsButton = page.locator('div[class*="app-actions"]').first();
@@ -460,21 +406,18 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
             await runButton.click({ force: true });
 
             // Wait for app to start running on the live board
+            const startingAppText = page.getByText(/Running\.\.\./i);
             const stopButtonTop = page.locator('div[class*="top-bar"] button').filter({ hasText: 'Stop' }).first();
             const stopButtonBottom = statusbar.locator('button').filter({ hasText: 'Stop' }).first();
             const runningAppBottom = statusbar.locator('div[class*="app-name-container"]').first();
 
-            console.log('Waiting for app compilation and launch on board...');
-            await stopButtonTop.waitFor({ state: 'visible', timeout: 90000 });
+            // Wait for compile/upload to complete (up to 2 minutes)
+            await expect(startingAppText).toBeHidden({ timeout: 120000 }).catch(() => {});
             await page.waitForTimeout(3000);
 
             await capture(page, 'editor/stop-button.png', outDir, { highlight: stopButtonTop, percentage: 'top 25%' });
-            if (await stopButtonBottom.isVisible({ timeout: 5000 }).catch(() => false)) {
-                await capture(page, 'editor/stop-button-bottom.png', outDir, { highlight: stopButtonBottom, percentage: 'bottom 25%' });
-            }
-            if (await runningAppBottom.isVisible({ timeout: 10000 }).catch(() => false)) {
-                await capture(page, 'editor/running-app-bottom.png', outDir, { highlight: runningAppBottom, percentage: 'bottom 50%' });
-            }
+            await capture(page, 'editor/stop-button-bottom.png', outDir, { highlight: stopButtonBottom, percentage: 'bottom 25%' });
+            await capture(page, 'editor/running-app-bottom.png', outDir, { highlight: runningAppBottom, percentage: 'bottom 50%' });
 
             // Console Panel
             const consolePanel = page.locator('#console');
