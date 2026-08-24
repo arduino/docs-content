@@ -15,7 +15,7 @@ In this tutorial, you will learn how to unlock your smartphone's potential withi
 
 ![](assets/thumbnail.png)
 
-**Note:** Your smartphone will be used as a remote camera input. Both the Arduino UNO Q and your smartphone must be connected to the same network.
+**Note:** Your smartphone will be used as a remote camera input. Both your board and your smartphone must be connected to the same network.
 
 ## Goals
 
@@ -30,7 +30,7 @@ This integration transforms your smartphone into a wireless camera for the Ardui
 
 ### The Pairing Process
 
-1. **QR Code Generation**: When you run your app, the Arduino UNO Q generates a unique one-time password (OTP) and creates a QR code containing connection details (IP address, port, and the secret).
+1. **QR Code Generation**: When you run your app, the board generates a unique one-time password (OTP) and creates a QR code containing connection details (IP address, port, and the secret).
 2. **Secure Handshake**: You scan the QR code with your phone's camera app. The IoT Remote app is opened automatically and receives the secret to authenticate with your board over a secure WebSocket connection.
 3. **Video Streaming**: Once authenticated, your phone begins streaming video over HTTP on port `4912` by default. The board receives these frames and makes them available to your application.
 
@@ -63,13 +63,13 @@ To test this feature, we will leverage the **Detect Objects on Smartphone Camera
 
 ![Detect Objects on Smartphone Camera](assets/mobile-example.png)
 
-***To stream your phone's camera feed to your UNO Q, both must be on the same network.***
+***To stream your phone's camera feed to your board, both must be on the same network.***
 
 ***__Note__: The video stream is delivered over HTTP on __port 4912__. If you're on a corporate or restricted network, make sure this port is accessible. The initial pairing uses a separate WebSocket connection on a dynamically assigned port.***
 
 ### Arduino App Lab Setup
 
-1. Ensure your Arduino UNO Q is powered and connected to the network.
+1. Ensure your board is powered and connected to the network.
 2. Open the Arduino App Lab on your computer.
 3. Run the **Detect Objects on Smartphone Camera** example in Arduino App Lab.
 4. The App should open automatically in the web browser. You can open it manually via `<board-name>.local:7000`.
@@ -93,7 +93,7 @@ You can also configure your phone from the IoT Remote app without scanning the Q
 
 1. Go to Devices, tap on the plus icon to set up a new device and select **Stream phone camera to UNO Q**.
    ![IoT Remote setup](assets/iot-remote.png)
-2. Select your Arduino UNO Q from the list. (It must be connected to the same network)
+2. Select your board from the list. (It must be connected to the same network)
    ![Select your UNO Q](assets/search-uno-q.png)
 3. Enter the 6 digits code below your QR code on the Web UI.
    ![Start streaming](assets/start-streaming.png)
@@ -193,7 +193,7 @@ document.getElementById('videoIframe').src = streamUrl;
 
 - **QR code won't scan**: Low screen brightness or poor lighting conditions can be the cause. Try increasing your computer's screen brightness and ensure the QR code is well lit. Hold your phone steady and at a comfortable distance (10-15 cm) from the screen.
 
-- **"Connection failed" error**: Phone and Arduino UNO Q may be on different networks. Please verify that both devices are connected to the same Wi-Fi® network. Check your phone's Wi-Fi settings and ensure you're not on mobile data.
+- **"Connection failed" error**: Phone and board may be on different networks. Please verify that both devices are connected to the same Wi-Fi® network. Check your phone's Wi-Fi settings and ensure you're not on mobile data.
 
 - **Video stream not loading**: Port 4912 may be blocked by your firewall or network restrictions. Check your computer's firewall settings and make sure port 4912 is open for incoming connections. If you're on a corporate network, you may need to request access from your IT administrator.
 
@@ -205,7 +205,7 @@ document.getElementById('videoIframe').src = streamUrl;
 
 ## Conclusion
 
-In this tutorial, you learned how to transform your smartphone into a wireless input device for Arduino App Lab using the Arduino IoT Remote app. You successfully configured your network environment, paired your phone with the UNO Q via a QR code, and streamed live video to power an AI object detection model.
+In this tutorial, you learned how to transform your smartphone into a wireless input device for Arduino App Lab using the Arduino IoT Remote app. You successfully configured your network environment, paired your phone with your board via a QR code, and streamed live video to power an AI object detection model.
 
 This integration eliminates the need for external USB webcams, allowing you to prototype computer vision applications more freely. By understanding the handshake mechanism between the Python® backend and the JavaScript frontend, you now have the foundation to build custom applications that leverage the powerful sensors already present in your mobile device.
 

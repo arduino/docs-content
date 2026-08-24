@@ -32,7 +32,7 @@ If you're unsure, Connected Mode is a great way to get started. You can switch b
 
 - [Arduino UNO Q 2GB](https://store.arduino.cc/products/uno-q)
 - [Arduino UNO Q 4GB](https://store.arduino.cc/products/uno-q-4gb)
-- [Arduino VENTUNO Q (coming soon)](https://www.arduino.cc/product-ventuno-q)
+- [Arduino VENTUNO Q](https://www.arduino.cc/product-ventuno-q)
 
 ## Next Steps
 
