@@ -1,0 +1,13 @@
+{
+  "name": "docs-playwright",
+  "version": "1.0.0",
+  "description": "Playwright automation for docs screenshots",
+  "main": "runner.js",
+  "scripts": {
+    "start": "node runner.js"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.59.1",
+    "playwright": "^1.59.1"
+  }
+}

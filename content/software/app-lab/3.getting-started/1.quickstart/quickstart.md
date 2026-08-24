@@ -37,7 +37,7 @@ The fastest way to verify your setup is to run a built-in example without modify
 1. Select **Examples** from the left sidebar.
 2. Select the **Blink LED** example.
 3. Select the **Run** button (play icon) in the top right corner.
-   ![Screenshot of the "Blink LED" example in Arduino App Lab. The Run button is highlighted.](../../assets/playwright/examples/blink-led-run.png)
+   ![Screenshot of the "Blink LED" example in Arduino App Lab. The Run button is highlighted.](../../assets/playwright/inspirations/blink-led-run.png)
 4. App Lab compiles the C++ sketch and runs the code on your board. The **Console** panel opens automatically at the bottom of the editor to show launch progress. You can confirm the App is active when the **Run** button changes to a **Stop** button and a green notification appears at the bottom of the screen.
 5. Once the **Blink LED** App is running, you will see the red LED (LED3_R) on the board blinking on and off.
 
