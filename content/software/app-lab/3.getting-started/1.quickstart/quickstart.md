@@ -21,12 +21,16 @@ This onboarding journey assumes you have already installed App Lab and configure
 
 After configuration, App Lab displays the main interface. The left sidebar contains the primary navigation:
 
-- **My Apps**: View, edit, and manage Apps you create or duplicate.
-- **Examples**: Browse built-in, ready-to-run projects provided by Arduino.
-- **Bricks**: Explore modular code blocks that provide pre-packaged functionalities, such as web servers or AI models.
-- **Learn**: Access offline documentation and tutorials.
+- **Apps**: View, edit, and manage Apps you create or duplicate.
+- **Learn and Explore**:
+  - **Inspirations**: Explore community and multi-component showcase projects.
+  - **Examples**: Browse built-in, foundational starter examples.
+  - **Resources**: Access offline documentation and tutorials.
+- **Bricks Manager**:
+  - **Bricks**: Explore modular code blocks.
 - **Settings**: Manage preferences, including Wi-Fi networks, Linux passwords, and keyboard layouts.
 - **Account**: Access your Arduino account settings.
+- **Agent Mode**: AI coding assistant in the bottom footer.
 
 ![Screenshot of Arduino App Lab, highlighting the left sidebar.](../../assets/playwright/navigation/sidebar-icons-hl.png)
 
@@ -34,7 +38,7 @@ After configuration, App Lab displays the main interface. The left sidebar conta
 
 The fastest way to verify your setup is to run a built-in example without modifying it.
 
-1. Select **Examples** from the left sidebar.
+1. Select **Inspirations** from the left sidebar.
 2. Select the **Blink LED** example.
 3. Select the **Run** button (play icon) in the top right corner.
    ![Screenshot of the "Blink LED" example in Arduino App Lab. The Run button is highlighted.](../../assets/playwright/inspirations/blink-led-run.png)

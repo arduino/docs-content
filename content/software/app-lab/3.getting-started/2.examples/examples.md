@@ -9,28 +9,33 @@ tags:
   - UNO Q
 ---
 
-Explore built-in examples to understand the capabilities of modular Apps on your board. Learn how to run these ready-to-use projects and duplicate them to kickstart your own custom applications.
+Explore built-in starter projects to understand the capabilities of modular Apps on your board. In Arduino App Lab, starter projects are divided into two categories:
 
-## Run an Example
+- **Inspirations**: Rich, multi-component showcase projects that are ready to run and provide a complete experience.
+- **Examples**: Basic foundational starter templates focused on a single feature or capability.
 
-Running an example allows you to quickly test hardware and software capabilities without writing code from scratch.
+Learn how to run these projects and duplicate them to kickstart your own custom applications.
 
-Take the following steps to run an example App:
+## Run an Inspiration or Example
 
-1. Select the **Examples** tab in the left sidebar.
-2. Select the example you want to run on your board.
+Running a starter project allows you to quickly test hardware and software capabilities without writing code from scratch.
+
+Take the following steps to run a project:
+
+1. Select either the **Inspirations** or **Examples** tab in the left sidebar.
+2. Select the project you want to run on your board.
 3. Click the **Run** button in the top right corner.
    ![Screenshot of Arduino App Lab, highlighting the "Run" button near the top-right corner.](../../assets/playwright/inspirations/blink-led-run.png)
 4. Wait for the loading process to finish.
 5. Interact with the App once the start-up is complete.
 
-Built-in examples cannot be edited directly. If you want to modify the code or use an existing example as a starting point, you must [duplicate it](#duplicate-an-example).
+Built-in projects cannot be edited directly. If you want to modify the code or use an existing project as a starting point, you must [duplicate it](#duplicate-an-inspiration-or-example).
 
-## Duplicate an Example
+## Duplicate an Inspiration or Example
 
-Take the following steps to duplicate an example:
+Take the following steps to duplicate a project:
 
-1. Navigate to the **Examples** tab and select an example.
+1. Navigate to the **Inspirations** or **Examples** tab and select a project.
 2. Click the **Copy and edit app** button in the top right corner next to the **Run** button.
    ![Screenshot of Arduino App Lab, highlighting the "Copy and edit app" button near the top-right corner.](../../assets/playwright/inspirations/blink-led-copy.png)
 3. Enter a name for the App.
