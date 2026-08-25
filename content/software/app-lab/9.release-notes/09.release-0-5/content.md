@@ -10,8 +10,6 @@ author: Arduino Team
 
 This page contains all release notes for Arduino App Lab. To access the software, go [here](https://www.arduino.cc/en/software/#app-lab-section).
 
-<Alert type="info">Note: You need to have an UNO Q ([2GB](https://store.arduino.cc/products/uno-q) or [4GB](https://store.arduino.cc/products/uno-q-4gb)) to use Arduino App Lab.</Alert>
-
 ## Release 0.5.0 [2026.02.27]
 
 You can now connect App Lab with Arduino Cloud and your Edge Impulse account! This means that you can now use the IoT Remote App as a camera input to your examples, as well as create your own custom models using Edge Impulse.
