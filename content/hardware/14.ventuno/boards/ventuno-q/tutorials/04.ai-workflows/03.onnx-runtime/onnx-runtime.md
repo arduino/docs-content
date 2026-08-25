@@ -126,7 +126,11 @@ models/eyegaze-onnx-w8a16/metadata.json
 
 `metadata.json` is worth reading before you write any preprocessing code — it lists each input and output with its exact shape, dtype, and quantization scale and zero point.
 
-<Alert type="info">**Note:** `fetch` downloads a published asset and works even for models whose `export` path is unavailable. If `python -m qai_hub_models.models.<model>.export` fails with `Model cannot be published: no release assets available`, try `fetch` before assuming the model is unusable.</Alert>
+<Alert type="info">
+
+**Note:** `fetch` downloads a published asset and works even for models whose `export` path is unavailable. If `python -m qai_hub_models.models.<model>.export` fails with `Model cannot be published: no release assets available`, try `fetch` before assuming the model is unusable.
+
+</Alert>
 
 You can also browse the [AI Hub model list](https://aihub.qualcomm.com/models) and use the **Download Model** button, choosing **ONNX Runtime** as the runtime and `w8a8` or `w8a16` as the precision. The chipset filter on the website controls which models display performance data for a given silicon — it does not restrict which files you can download, so a model may be downloadable even when no QCS8275 figures are listed.
 
