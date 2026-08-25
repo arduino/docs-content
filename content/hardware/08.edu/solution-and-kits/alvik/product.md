@@ -7,6 +7,8 @@ secondary_button_url: https://courses.arduino.cc/explore-robotics-micropython/
 secondary_button_title: Course & Projects
 productCode: ['181']
 sku: [AKX00066]
+useCases: [robotics, education]
+releaseDate: 2024-03-25
 ---
 
 

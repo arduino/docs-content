@@ -6,6 +6,8 @@ primary_button_url: /tutorials/mkr-rgb-shield/mkr-rgb-fade
 primary_button_title: Get Started
 forumCategorySlug: '/hardware/mkr-boards/mkr-shields/162'
 sku: [ASX00010]
+useCases: [prototyping]
+releaseDate: 2021-01-09
 ---
 
 The MKR RGB Shield is a great for creating simple light installations out of the box! With 84 programmable RGBs in a 12x7 matrix, you can use it to create scrolling texts, create simple animations or even use it to create retro games.

@@ -9,6 +9,8 @@ secondary_button_title: Fundamentals Guide
 core: arduino:mbed_portenta
 productCode: ['125']
 sku: [ABX00049]
+useCases: [prototyping, industrial-automation, robotics, edge-ai, iot-wireless]
+releaseDate: 2021-05-28
 ---
 
 Portenta X8 offers the best of two approaches: flexibility of usage with Linux combined with real-time applications through the Arduino environment. The board comes with a Linux OS (Yocto) distribution, already preloaded onboard.

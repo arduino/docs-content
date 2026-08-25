@@ -5,6 +5,8 @@ status: end-of-life
 productCode: ['127']
 forumCategorySlug: '/hardware/12'
 sku: [ABX00020]
+useCases: [prototyping]
+releaseDate: 2021-01-07
 ---
 
 The Yún Rev2, Linux powered board with the Arduino simplicity, is the perfect board for your IoT projects!

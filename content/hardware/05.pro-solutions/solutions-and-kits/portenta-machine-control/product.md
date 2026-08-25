@@ -8,6 +8,8 @@ secondary_button_url: /software/plc-ide/
 secondary_button_title: PLC IDE Guide
 core: arduino:mbed_portenta
 sku: [AKX00032]
+useCases: [prototyping, industrial-automation, robotics, edge-ai, iot-wireless]
+releaseDate: 2021-05-10
 ---
 
 The Portenta Machine Control is a fully-centralized, low-power, industrial control unit able to drive equipment and machinery. It can be programmed using the Arduino framework or other embedded development platforms.

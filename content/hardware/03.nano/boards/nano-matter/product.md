@@ -6,6 +6,8 @@ primary_button_title: User Manual
 sku: [ABX00112, ABX00137]
 core: arduino:mbed_nano
 productCode: ['191']
+useCases: [prototyping, iot-wireless]
+releaseDate: 2024-05-07
 ---
 
 
