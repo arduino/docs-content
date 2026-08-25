@@ -44,6 +44,14 @@ jobs:
       - name: Validate Markdown
         run: python3 scripts/validation/markdown_lint/markdown_lint.py content
 
+  validate_alerts:
+    name: Alert Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Alerts
+        run: python3 scripts/validation/alert_tags/alert_tags.py validate content
+
   validate_links:
     name: Link Check
     runs-on: ubuntu-latest

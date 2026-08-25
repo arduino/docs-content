@@ -9,6 +9,7 @@ This directory contains the automated validation tools for `arduino/docs-content
 | Tool | Script Location | CI Job Name | Description |
 | :--- | :--- | :--- | :--- |
 | **Markdown Lint** | `scripts/validation/markdown_lint/markdown_lint.py` | `Markdown Check` | Enforces Markdown formatting standards with hierarchical config inheritance. |
+| **Alert Blocks** | `scripts/validation/alert_tags/alert_tags.py` | `Alert Check` | Enforces and formats empty-line spacing and indentation for MDX `<Alert>` blocks. |
 | **Relative Links** | `scripts/validation/relative_links/relative_links.py` | `Link Check` | Validates all relative links and `#heading-slug` anchors against production route mappings. |
 | **Image & Assets** | `scripts/validation/image_links/image_links.py` | `Image Check` | Flags broken image references and identifies orphaned files in `assets/` folders. |
 | **Content Linter (Legacy)** | `scripts/validation/content-lint.sh` | `Content Linter (Hardware)` | Runs legacy YAML frontmatter schema checks for hardware tutorials during migration. |
@@ -23,13 +24,16 @@ Run all checks from the repository root:
 # 1. Validate Markdown formatting
 python3 scripts/validation/markdown_lint/markdown_lint.py content
 
-# 2. Validate internal links and heading anchors
+# 2. Validate Alert block formatting
+python3 scripts/validation/alert_tags/alert_tags.py validate content
+
+# 3. Validate internal links and heading anchors
 python3 scripts/validation/relative_links/relative_links.py validate content
 
-# 3. Validate image references and orphaned assets
+# 4. Validate image references and orphaned assets
 python3 scripts/validation/image_links/image_links.py validate content
 
-# 4. Spell check
+# 5. Spell check
 codespell -I scripts/resources/spell-check-ignore-list.txt ./content/
 ```
 
@@ -64,5 +68,6 @@ When a directory needs a specific tool bypassed without disabling other checks:
 Detailed documentation for each tool is available in its respective directory:
 
 - [Markdown Lint Documentation](markdown_lint/README.md)
+- [Alert Tags Validator Documentation](alert_tags/README.md)
 - [Relative Links Validator Documentation](relative_links/README.md)
 - [Image Links Validation Documentation](image_links/README.md)
