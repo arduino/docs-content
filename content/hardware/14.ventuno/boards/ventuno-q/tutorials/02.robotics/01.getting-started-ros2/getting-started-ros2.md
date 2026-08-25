@@ -19,7 +19,11 @@ In this tutorial, you will learn how to set up and run ROS 2 (Robot Operating Sy
 
 You will install ROS 2 Jazzy Jalisco based on the official ROS environment setup, verify the installation through the `turtlesim` simulation example, and then create your first ROS 2 project from scratch with a publisher and subscriber node.
 
-<Alert type="info">**Note:** This tutorial can also be replicated on the Arduino® UNO™ Q with minor adaptations.</Alert>
+<Alert type="info">
+
+**Note:** This tutorial can also be replicated on the Arduino® UNO™ Q with minor adaptations.
+
+</Alert>
 
 ## Goals
 
@@ -95,7 +99,11 @@ Replace `<boardname>` with your board's configured hostname. When connecting for
 
 The third option is SBC mode, which is useful if you prefer to work directly on the board with a physical display. Connect a keyboard and mouse to the VENTUNO Q's USB-A ports and an HDMI display to the HDMI port, power the board on, and log in. You will have access to the full desktop environment with Ubuntu and can open a terminal from there.
 
-<Alert type="info">For detailed instructions on setting up ADB, SSH, or SBC mode, refer to the [VENTUNO Q User Manual](/tutorials/ventuno-q/user-manual/).</Alert>
+<Alert type="info">
+
+For detailed instructions on setting up ADB, SSH, or SBC mode, refer to the [VENTUNO Q User Manual](/tutorials/ventuno-q/user-manual/).
+
+</Alert>
 
 ## Installing ROS 2
 
@@ -195,7 +203,11 @@ sudo apt install ros-jazzy-desktop
 
 The installation may take a few minutes, depending on your internet connection. Once it completes, continue to the verification step below.
 
-<Alert type="info">For the full official installation reference, see [ROS 2 Jazzy Installation on Ubuntu (ros.org)](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html).</Alert>
+<Alert type="info">
+
+For the full official installation reference, see [ROS 2 Jazzy Installation on Ubuntu (ros.org)](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html).
+
+</Alert>
 
 ### Verifying the Installation
 

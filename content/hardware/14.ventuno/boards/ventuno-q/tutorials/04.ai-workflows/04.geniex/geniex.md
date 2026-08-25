@@ -33,7 +33,11 @@ In this tutorial you will learn how to:
 4. Run a Vision Language Model (VLM) with an image.
 5. Serve the model through an OpenAI-compatible API.
 
-<Alert type="info">**Note:** GenieX is published as a Developer Preview. The commands below were verified on a VENTUNO Q running Ubuntu® 24.04 with GenieX v0.4.0, but expect the interface to keep changing between releases.</Alert>
+<Alert type="info">
+
+**Note:** GenieX is published as a Developer Preview. The commands below were verified on a VENTUNO Q running Ubuntu® 24.04 with GenieX v0.4.0, but expect the interface to keep changing between releases.
+
+</Alert>
 
 ## Hardware & Software Requirements
 
@@ -47,7 +51,11 @@ In this tutorial you will learn how to:
 - `adb` or `ssh` available on your host machine
 - At least 5 GB of free disk space for the model used in this tutorial
 
-<Alert type="note">**Important:** The VENTUNO Q must be powered from its power supply before you connect a USB-C® cable to a host computer, otherwise the board may crash.</Alert>
+<Alert type="note">
+
+**Important:** The VENTUNO Q must be powered from its power supply before you connect a USB-C® cable to a host computer, otherwise the board may crash.
+
+</Alert>
 
 ## Accessing the Board Shell
 
@@ -63,7 +71,11 @@ adb shell
 ssh arduino@<ip-address>
 ```
 
-<Alert type="info">For more alternatives to remotely access your board, please see the [Remote Access](https://docs.arduino.cc/tutorials/uno-q/remote-access/) tutorial.</Alert>
+<Alert type="info">
+
+For more alternatives to remotely access your board, please see the [Remote Access](https://docs.arduino.cc/tutorials/uno-q/remote-access/) tutorial.
+
+</Alert>
 
 ## Installing GenieX
 
@@ -107,9 +119,17 @@ geniex pull google/gemma-4-E2B-it-qat-q4_0-gguf --model-hub hf
 
 This repository provides a Q4_0 language model and its vision projector. GenieX downloads both and records the cached precision as `Q4_0`.
 
-<Alert type="info">**Note:** Repositories with multiple precisions open an interactive prompt. When scripting one of those pulls over `ssh` or `adb`, append the precision to the model name, for example `:Q4_0`.</Alert>
+<Alert type="info">
 
-<Alert type="info">**Note:** For NPU execution, prefer a Q4_0 quantization. It is the format the Hexagon™ kernels are optimized for.</Alert>
+**Note:** Repositories with multiple precisions open an interactive prompt. When scripting one of those pulls over `ssh` or `adb`, append the precision to the model name, for example `:Q4_0`.
+
+</Alert>
+
+<Alert type="info">
+
+**Note:** For NPU execution, prefer a Q4_0 quantization. It is the format the Hexagon™ kernels are optimized for.
+
+</Alert>
 
 If you already have a `.gguf` file on the board — for example one you produced with `llama-quantize` while following the [llama.cpp tutorial](/tutorials/ventuno-q/llama-cpp) — register it from a local directory instead:
 
@@ -120,7 +140,11 @@ cp ~/path/to/model.gguf ~/models/my-model/
 geniex pull my-model --model-hub localfs --local-path ~/models/my-model
 ```
 
-<Alert type="info">**Note:** `--local-path` expects a directory or an AI Hub `.zip` archive, not a bare `.gguf` file. Pointing it straight at the file fails with `local path ... is a file but not a .zip`.</Alert>
+<Alert type="info">
+
+**Note:** `--local-path` expects a directory or an AI Hub `.zip` archive, not a bare `.gguf` file. Pointing it straight at the file fails with `local path ... is a file but not a .zip`.
+
+</Alert>
 
 List what is cached at any time:
 
@@ -208,7 +232,11 @@ It listens on `127.0.0.1:18181` by default and exposes an OpenAI-compatible API.
 geniex serve --host 0.0.0.0:18181 --compute npu
 ```
 
-<Alert type="warning">**Warning:** The server does not require authentication. Keep the default loopback binding unless remote access is necessary, and only expose it on a trusted network.</Alert>
+<Alert type="warning">
+
+**Warning:** The server does not require authentication. Keep the default loopback binding unless remote access is necessary, and only expose it on a trusted network.
+
+</Alert>
 
 Find the board's network address with `hostname -I`. From a trusted device on the same network, open `http://<board-ip>:18181`. If both devices use Tailscale, run `tailscale ip -4` on the board and use that address instead. This opens the interactive Swagger API explorer, not a chat interface.
 

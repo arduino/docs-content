@@ -47,7 +47,11 @@ To start using the board, you must first install the specific core that supports
 3. In the search bar, type `Arduino Q Boards`.
 4. Locate the **Arduino Q Boards** core and click **Install**.
 
-<Alert type="info">**Troubleshooting:** If the core does not appear in the search results, you may need to add the package manually. Go to `File > Preferences` and add the following link to the Additional Boards Manager URLs field: `https://downloads.arduino.cc/packages/package_zephyr_index.json`</Alert>
+<Alert type="info">
+
+**Troubleshooting:** If the core does not appear in the search results, you may need to add the package manually. Go to `File > Preferences` and add the following link to the Additional Boards Manager URLs field: `https://downloads.arduino.cc/packages/package_zephyr_index.json`
+
+</Alert>
 
 ## Hello World (Blink)
 

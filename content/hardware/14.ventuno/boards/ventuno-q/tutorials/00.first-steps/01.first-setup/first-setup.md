@@ -18,7 +18,11 @@ In this tutorial, you will learn how to set up your [Arduino® VENTUNO™ Q](htt
 
 ![VENTUNO Q](assets/thumbnail.png)
 
-<Alert type="info">This tutorial focuses on setting up your VENTUNO Q using a host computer. To use the VENTUNO Q as a standalone computer with display, mouse & keyboard, see the [Single Board Computer](/tutorials/ventuno-q/sbc-mode-setup/) tutorial.</Alert>
+<Alert type="info">
+
+This tutorial focuses on setting up your VENTUNO Q using a host computer. To use the VENTUNO Q as a standalone computer with display, mouse & keyboard, see the [Single Board Computer](/tutorials/ventuno-q/sbc-mode-setup/) tutorial.
+
+</Alert>
 
 ## Hardware and Software Requirements
 
@@ -31,7 +35,9 @@ In this tutorial, you will learn how to set up your [Arduino® VENTUNO™ Q](htt
 \*Other power supplies can be used, within the range of 7-24 V and ≥ 3 A. See the [User Manual - Power Section](/tutorials/ventuno-q/user-manual/#power-overview) for more information.
 
 <Alert type="note" text="Note">
+
 The Arduino USB-C Power Supply (65W) includes a small adapter that converts USB-C® into a DC barrel jack. Use this adapter to power the board via the barrel jack connector if needed.
+
 </Alert>
 
 ### Software Requirements
@@ -55,7 +61,9 @@ To power the board during the first setup, we can use either the **barrel jack**
 - An external [USB-C® with Power Delivery](https://store.arduino.cc/products/usb-c-power-supply-65w) support (9-20 VDC, 3 A).
   
 <Alert type="warning" text="Warning">
+
 Please note that the board can not be powered directly via the USB port on your computer.
+
 </Alert>
 
 ![VENTUNO Q power options](assets/ventuno-power-options.png)

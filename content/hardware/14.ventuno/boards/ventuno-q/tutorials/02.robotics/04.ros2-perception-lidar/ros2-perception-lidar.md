@@ -41,13 +41,21 @@ The diagram above shows the base VENTUNO Q setup used throughout this tutorial, 
 
 The VENTUNO Q has two USB-A ports, which the keyboard and mouse already occupy in this base setup. Since the LiDAR also needs a USB port, a USB-C hub connected to the board's USB-C port is recommended to provide an additional USB-A port, so you do not need to disconnect the keyboard or mouse each time you connect the sensor.
 
-<Alert type="info">In this tutorial, the display connects through the board's native HDMI port, keeping the USB-C port free for the hub.</Alert>
+<Alert type="info">
+
+In this tutorial, the display connects through the board's native HDMI port, keeping the USB-C port free for the hub.
+
+</Alert>
 
 ### Software Requirements
 
 - ROS 2 Jazzy installed on the VENTUNO Q, and a colcon workspace at `~/ros2_ws` set up, see [Getting Started with ROS 2 on VENTUNO Q](/tutorials/ventuno-q/getting-started-ros2/).
 
-<Alert type="warning">Make sure your VENTUNO Q has the latest system image installed and that ROS 2 Jazzy is working correctly before proceeding with this tutorial.</Alert>
+<Alert type="warning">
+
+Make sure your VENTUNO Q has the latest system image installed and that ROS 2 Jazzy is working correctly before proceeding with this tutorial.
+
+</Alert>
 
 ## LiDAR
 
@@ -168,7 +176,11 @@ Each model also has a corresponding `view_` variant that launches RViz2 alongsid
 
 If you are working over SSH, use the plain launch file above and visualize the data separately, as covered in the Visualizing Sensors section later in this tutorial.
 
-<Alert type="info">Different RPLidar models use different serial baud rates. This is already configured correctly inside each model-specific launch file, so you do not need to set it manually as long as you use the correct launch file for your hardware.</Alert>
+<Alert type="info">
+
+Different RPLidar models use different serial baud rates. This is already configured correctly inside each model-specific launch file, so you do not need to set it manually as long as you use the correct launch file for your hardware.
+
+</Alert>
 
 ### LDROBOT LiDAR
 

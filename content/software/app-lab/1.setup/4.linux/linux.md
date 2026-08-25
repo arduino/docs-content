@@ -77,7 +77,11 @@ Add your user account to the `dialout` group to allow access to the serial and U
 sudo usermod -a -G dialout $USER
 ```
 
-<Alert type="note">**Important:** You must log out and log back in for these group permission changes to take effect.</Alert>
+<Alert type="note">
+
+**Important:** You must log out and log back in for these group permission changes to take effect.
+
+</Alert>
 
 ## Install Arduino App Lab
 

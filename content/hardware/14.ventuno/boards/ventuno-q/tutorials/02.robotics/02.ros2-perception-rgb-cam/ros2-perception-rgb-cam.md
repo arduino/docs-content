@@ -44,13 +44,21 @@ The diagram above shows the base VENTUNO Q setup used throughout this tutorial, 
 
 The VENTUNO Q has two USB-A ports, which the keyboard and mouse already occupy in this base setup. Since the USB webcam also needs a USB port, a USB-C hub connected to the board's USB-C port is recommended to provide an additional USB-A port, so you do not need to disconnect the keyboard or mouse each time you connect the webcam.
 
-<Alert type="info">In this tutorial, the display connects through the board's native HDMI port, keeping the USB-C port free for the hub.</Alert>
+<Alert type="info">
+
+In this tutorial, the display connects through the board's native HDMI port, keeping the USB-C port free for the hub.
+
+</Alert>
 
 ### Software Requirements
 
 - ROS 2 Jazzy installed on the VENTUNO Q, and a colcon workspace at `~/ros2_ws` set up, see [Getting Started with ROS 2 on VENTUNO Q](/tutorials/ventuno-q/getting-started-ros2).
 
-<Alert type="warning">Make sure your VENTUNO Q has the latest system image installed and that ROS 2 Jazzy is working correctly before proceeding with this tutorial.</Alert>
+<Alert type="warning">
+
+Make sure your VENTUNO Q has the latest system image installed and that ROS 2 Jazzy is working correctly before proceeding with this tutorial.
+
+</Alert>
 
 ## USB Webcam
 
@@ -404,7 +412,11 @@ The launch file composes the camera node into a container and starts streaming. 
 
 Leave this running in the terminal for as long as you want the camera, closing it stops the stream for every downstream node.
 
-<Alert type="info">The launch file configures 1280x720 at 30 FPS. The QRB ROS Camera repository documents 1920x1080 as the parameter default, but the launch file sets its own values, which take precedence.</Alert>
+<Alert type="info">
+
+The launch file configures 1280x720 at 30 FPS. The QRB ROS Camera repository documents 1920x1080 as the parameter default, but the launch file sets its own values, which take precedence.
+
+</Alert>
 
 With the camera running, open a second terminal to check what it is publishing. The node creates one topic per stream, named after the camera ID and the stream name, so the default single-stream configuration gives `/cam0_stream1` for the image and `/cam0_stream1_camera_info` for the calibration data:
 
@@ -468,11 +480,19 @@ step: 1280
 data: '<sequence type: uint8, length: 1382400>'
 ```
 
-<Alert type="warning">`rqt_image_view` cannot display this topic directly. It relies on `cv_bridge`, which does not recognize `nv12` as an image encoding and reports `Unrecognized image encoding [nv12]`. The subscription itself works, only the conversion for display fails. To view the camera output, use a node that decodes NV12, such as the Edge Impulse integration covered below, or use `gscam` which publishes RGB8.</Alert>
+<Alert type="warning">
+
+`rqt_image_view` cannot display this topic directly. It relies on `cv_bridge`, which does not recognize `nv12` as an image encoding and reports `Unrecognized image encoding [nv12]`. The subscription itself works, only the conversion for display fails. To view the camera output, use a node that decodes NV12, such as the Edge Impulse integration covered below, or use `gscam` which publishes RGB8.
+
+</Alert>
 
 ### Gscam
 
-<Alert type="info">A CSI camera pipeline improvement is currently in progress and will be included in this section once it becomes available.</Alert>
+<Alert type="info">
+
+A CSI camera pipeline improvement is currently in progress and will be included in this section once it becomes available.
+
+</Alert>
 
 `gscam` is the alternative path. It wraps a GStreamer pipeline using Qualcomm's `qtiqmmfsrc` source and converts to RGB8 before publishing, which is useful when a downstream tool expects a standard color encoding rather than NV12.
 
@@ -591,9 +611,15 @@ Install the Edge Impulse Linux SDK. The SDK imports `pyaudio` at load time even 
 pip install --user --break-system-packages edge_impulse_linux pyaudio
 ```
 
-<Alert type="warning">Do not clone the Edge Impulse Linux SDK (`linux-sdk-python`) into your workspace `src/` directory, colcon will try to build it as a ROS package. Install it with `pip` as shown above instead.</Alert>
+<Alert type="warning">
 
-<Alert type="warning">If you previously tested the community `edgeimpulse_ros` package earlier in this series, remove it first, both packages declare the same internal ROS package name and cannot coexist in the same workspace:
+Do not clone the Edge Impulse Linux SDK (`linux-sdk-python`) into your workspace `src/` directory, colcon will try to build it as a ROS package. Install it with `pip` as shown above instead.
+
+</Alert>
+
+<Alert type="warning">
+
+If you previously tested the community `edgeimpulse_ros` package earlier in this series, remove it first, both packages declare the same internal ROS package name and cannot coexist in the same workspace:
 
 ```bash
 rm -rf ~/ros2_ws/src/edgeimpulse_ros

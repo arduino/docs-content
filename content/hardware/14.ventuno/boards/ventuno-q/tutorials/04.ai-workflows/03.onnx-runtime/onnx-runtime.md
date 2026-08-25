@@ -45,7 +45,11 @@ The eye gaze tracking example at the end of this guide additionally needs:
 - A USB camera connected to one of the USB-A ports
 - A display, keyboard, and mouse connected to the board (the script opens a live window on-screen)
 
-<Alert type="info">**Note:** The setup and inference sections up to that example need only the board and a power supply, and can be followed entirely over SSH or ADB.</Alert>
+<Alert type="info">
+
+**Note:** The setup and inference sections up to that example need only the board and a power supply, and can be followed entirely over SSH or ADB.
+
+</Alert>
 
 ### Software
 
@@ -72,7 +76,11 @@ source .venv/bin/activate
 
 The `(.venv)` prefix in your prompt confirms the environment is active. Run the activate command again at the start of each new session.
 
-<Alert type="note">**Important:** The virtual environment is not optional here. The VENTUNO Q's system Python is [externally managed](https://peps.python.org/pep-0668/) (PEP 668), so `pip install` outside a virtual environment is refused outright.</Alert>
+<Alert type="note">
+
+**Important:** The virtual environment is not optional here. The VENTUNO Q's system Python is [externally managed](https://peps.python.org/pep-0668/) (PEP 668), so `pip install` outside a virtual environment is refused outright.
+
+</Alert>
 
 ### 2. Install ONNX Runtime with QNN Support
 
@@ -84,7 +92,11 @@ The QNN-enabled build of ONNX Runtime is not a plain `pip install onnxruntime` �
 pip install qai-hub-models
 ```
 
-<Alert type="info">**Note:** This will install a large collection of libraries, which will take up a lot of memory.</Alert>
+<Alert type="info">
+
+**Note:** This will install a large collection of libraries, which will take up a lot of memory.
+
+</Alert>
 
 #### Step 2: Remove the Default ONNX Runtime Package
 
@@ -138,7 +150,11 @@ If you downloaded the model on your host computer instead of directly on the boa
 
 In the example further below, we use the [EyeGaze](https://aihub.qualcomm.com/iot/models/eyegaze) model.
 
-<Alert type="info">**Note:** Quantized models give the best throughput and the smallest download, so `w8a8` or `w8a16` is the recommended choice. A `float` model is not excluded, though — the NPU cannot execute FP32, but the QNN backend converts the graph to FP16 when it loads it, so a float ONNX model still runs on the NPU. See the [NPU guide](/tutorials/ventuno-q/npu-guide) for the trade-off.</Alert>
+<Alert type="info">
+
+**Note:** Quantized models give the best throughput and the smallest download, so `w8a8` or `w8a16` is the recommended choice. A `float` model is not excluded, though — the NPU cannot execute FP32, but the QNN backend converts the graph to FP16 when it loads it, so a float ONNX model still runs on the NPU. See the [NPU guide](/tutorials/ventuno-q/npu-guide) for the trade-off.
+
+</Alert>
 
 ## Fixing Dynamic Input Shapes
 
@@ -161,7 +177,11 @@ for inp in sess.get_inputs():
     print(inp.name, inp.shape)
 ```
 
-<Alert type="info">**Note:** Some AI Hub models, including the EyeGaze model used below, already export with static input shapes. Running the fixed-shape conversion on them is still worth doing, since it also inlines the model's external weight data (normally stored in a separate `.data` file next to the `.onnx` file) into a single self-contained `.onnx` file.</Alert>
+<Alert type="info">
+
+**Note:** Some AI Hub models, including the EyeGaze model used below, already export with static input shapes. Running the fixed-shape conversion on them is still worth doing, since it also inlines the model's external weight data (normally stored in a separate `.data` file next to the `.onnx` file) into a single self-contained `.onnx` file.
+
+</Alert>
 
 ## Running Inference on the NPU
 
@@ -187,7 +207,11 @@ output = sess.run(None, {input_name: input_data})
 
 Replace `input_data` with a NumPy array matching the model's expected input shape and dtype. Check the model page on AI Hub for the exact preprocessing steps (input resolution, normalization, channel order, and quantization range).
 
-<Alert type="info">**Note:** Calling `sess.get_providers()` after loading the session typically reports both `QNNExecutionProvider` and `CPUExecutionProvider`. This is expected — a small number of shape-related operations always fall back to the CPU, while the rest of the graph still runs on the NPU.</Alert>
+<Alert type="info">
+
+**Note:** Calling `sess.get_providers()` after loading the session typically reports both `QNNExecutionProvider` and `CPUExecutionProvider`. This is expected — a small number of shape-related operations always fall back to the CPU, while the rest of the graph still runs on the NPU.
+
+</Alert>
 
 ### Three Steps Every Inference Follows
 
@@ -383,7 +407,11 @@ cap.release()
 cv2.destroyAllWindows()
 ```
 
-<Alert type="info">**Note:** The VENTUNO Q exposes several `/dev/videoN` nodes, and not all of them are cameras — the hardware video codec registers its own nodes, and a USB webcam usually claims two indices (only the first delivers frames). Which index your camera lands on depends on what else is attached, so it is not safe to assume `cv2.VideoCapture(0)`. The script above probes indices in order and picks the first one that actually returns a frame; pass `--camera-index N` to force a specific device. Run `ls /dev/video*` to see what is available, and `cat /sys/class/video4linux/video0/name` to check what a given node is.</Alert>
+<Alert type="info">
+
+**Note:** The VENTUNO Q exposes several `/dev/videoN` nodes, and not all of them are cameras — the hardware video codec registers its own nodes, and a USB webcam usually claims two indices (only the first delivers frames). Which index your camera lands on depends on what else is attached, so it is not safe to assume `cv2.VideoCapture(0)`. The script above probes indices in order and picks the first one that actually returns a frame; pass `--camera-index N` to force a specific device. Run `ls /dev/video*` to see what is available, and `cat /sys/class/video4linux/video0/name` to check what a given node is.
+
+</Alert>
 
 ### 4. Run the Demo
 
@@ -411,8 +439,16 @@ After running the example, you should see a frame pop up in the display connecte
 
 Dot number 32 follows your pupil, and as you move your eye it will follow. This example was designed to demonstrate how the model works and does not have any triggers when the values changes, but provides a good visual reference that can be expanded upon.
 
-<Alert type="info">**Note:** The script derives the landmark positions from the `heatmaps` output, but the model returns two more outputs that are useful if you want to build on this example. `landmarks` (shape `[1, 34, 2]`) contains the same 34 points already decoded, as `(y, x)` pairs in heatmap coordinates — dequantize them, swap the axes and multiply by two to get the same pixel positions the script draws. `gaze_pitchyaw` (shape `[1, 2]`) gives the gaze direction directly, in radians, which is what you would act on to detect where someone is looking rather than only where their eye is. Both are quantized `uint16`; `metadata.json` in the downloaded model folder lists the scale and zero point for each.</Alert>
+<Alert type="info">
+
+**Note:** The script derives the landmark positions from the `heatmaps` output, but the model returns two more outputs that are useful if you want to build on this example. `landmarks` (shape `[1, 34, 2]`) contains the same 34 points already decoded, as `(y, x)` pairs in heatmap coordinates — dequantize them, swap the axes and multiply by two to get the same pixel positions the script draws. `gaze_pitchyaw` (shape `[1, 2]`) gives the gaze direction directly, in radians, which is what you would act on to detect where someone is looking rather than only where their eye is. Both are quantized `uint16`; `metadata.json` in the downloaded model folder lists the scale and zero point for each.
+
+</Alert>
 
 ![Eye movement with tags](assets/eye-movement.gif)
 
-<Alert type="info">**Note:** This example was run with a low-quality USB web camera, with different results expected upon using a higher quality camera.</Alert> The script's center-crop targets an 800 × 600 region; a low-resolution webcam (for example 640 × 480) is smaller than that in both dimensions, so the crop becomes a no-op and you see the full, uncropped frame instead — this is why moving the camera close to your eye is necessary to fill the frame on cameras like this. A higher-resolution camera will show the crop actually taking effect.
+<Alert type="info">
+
+**Note:** This example was run with a low-quality USB web camera, with different results expected upon using a higher quality camera.
+
+</Alert> The script's center-crop targets an 800 × 600 region; a low-resolution webcam (for example 640 × 480) is smaller than that in both dimensions, so the crop becomes a no-op and you see the full, uncropped frame instead — this is why moving the camera close to your eye is necessary to fill the frame on cameras like this. A higher-resolution camera will show the crop actually taking effect.

@@ -56,6 +56,10 @@ See a full list of what's new and which bugs have been fixed below.
 * Examples
   * Fixes on Object Detection in case of multiple detection
 
-<Alert type="info">You can always find the latest release [here](https://github.com/arduino/arduino-app-lab/releases). </Alert>
+<Alert type="info">
+
+You can always find the latest release [here](https://github.com/arduino/arduino-app-lab/releases).
+
+</Alert>
 
 If you have already downloaded App Lab once, you should get your updates automatically next time you open the software. You can also [download the latest release here](https://www.arduino.cc/en/software/#app-lab-section).

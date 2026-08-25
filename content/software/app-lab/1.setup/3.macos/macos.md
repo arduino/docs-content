@@ -31,7 +31,11 @@ This guide outlines the steps to prepare your macOS computer for developing with
 
 1. Connect your UNO Q to your Mac using a USB-C cable.
 
-   <Alert type="info">**Note:** Some third-party USB-C hubs or adapters may not be fully compatible with the UNO Q. For the most reliable connection during setup, connect the board directly to your Mac.</Alert>
+   <Alert type="info">
+
+   **Note:** Some third-party USB-C hubs or adapters may not be fully compatible with your board. For the most reliable connection during setup, connect the board directly to your Mac.
+
+   </Alert>
 
 1. If prompted by macOS, allow the board to connect to your computer.
 

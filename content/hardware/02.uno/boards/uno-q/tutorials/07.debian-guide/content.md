@@ -518,7 +518,11 @@ sudo apt full-upgrade
 
 Regular updates help to have the latest security patches and bug fixes, keeping your UNO Q secure and stable. It is a good practice to run `sudo apt update && sudo apt upgrade` regularly to keep your system up to date.
 
-<Alert type="info">For major system updates, OS version upgrades, or to perform a full factory reset, refer to the [Flash a Linux Image](/software/app-lab/configure/flash/) tutorial.</Alert>
+<Alert type="info">
+
+For major system updates, OS version upgrades, or to perform a full factory reset, refer to the [Flash a Linux Image](/software/app-lab/configure/flash/) tutorial.
+
+</Alert>
 
 ### Installing Software
 
@@ -1142,7 +1146,11 @@ Flashing a new image allows you to install a fresh operating system, recover fro
 
 If the board is still reachable via Arduino App Lab, you can initiate this from the **Settings** menu. If the board is inaccessible (e.g., won't boot or connect to the network), you can use the **Arduino Flasher CLI** to recover or reinstall the system even if the Linux OS is missing or corrupted.
 
-<Alert type="info">For detailed recovery instructions, refer to the [Flash a Linux Image](/software/app-lab/configure/flash/) tutorial.</Alert>
+<Alert type="info">
+
+For detailed recovery instructions, refer to the [Flash a Linux Image](/software/app-lab/configure/flash/) tutorial.
+
+</Alert>
 
 ### Safe System Management
 

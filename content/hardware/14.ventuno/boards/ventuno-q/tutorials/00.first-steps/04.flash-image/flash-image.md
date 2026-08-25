@@ -39,7 +39,9 @@ Flashing a new Linux® image allows you to install a clean operating system, per
 To flash the board, the Qualcomm® Dragonwing™ IQ8 (QCS8275) processor must enter **Emergency Download Mode (EDL)**.
 
 <Alert type="warning">
+
 **Important:** Bridge the bootloader pins and power the board **before** connecting the USB-C cable to your computer. Failure to do so may prevent the flasher tool from detecting the device.
+
 </Alert>
 
 1. Disconnect the USB-C cable and unplug power from the VENTUNO Q.
@@ -52,7 +54,9 @@ To flash the board, the Qualcomm® Dragonwing™ IQ8 (QCS8275) processor must en
 5. With the board powered and the jumper in place, connect the USB-C data cable to your computer.
 
 <Alert type="info">
+
 **Tip:** Once the board is powered and connected to your computer in EDL mode, you can safely remove the jumper. The board will stay in bootloader mode until it is power-cycled.
+
 </Alert>
 
 ## Step 2: Download and Prepare the Arduino Flasher CLI
@@ -78,7 +82,9 @@ Extract the archive, then open a terminal or command prompt and navigate to the 
 Arduino Flasher CLI 0.5.4 adds the `ventunoq` board identifier used to download and flash the latest official Ubuntu image.
 
 <Alert type="warning">
+
 Flashing a VENTUNO Q erases the existing system and user data. Back up important files before continuing.
+
 </Alert>
 
 ### Automatically Download and Flash the Latest Image

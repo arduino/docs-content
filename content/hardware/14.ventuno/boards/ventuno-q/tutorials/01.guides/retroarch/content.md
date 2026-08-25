@@ -46,7 +46,9 @@ For the next steps we need to have a monitor, keyboard and mouse connected to th
 ![Hardware setup](assets/ventuno-q-connections.png)
 
 <Alert type="info">
+
 The barrel jack supports 7-24 V up to 5 A. With 12 V / 5 A or 24 V / 3 A as the recommended target. Please make sure your power supply meets these requirements.
+
 </Alert>
 
 ## Board Setup
@@ -75,7 +77,9 @@ In this tutorial we will install the following open-source components:
 - **Beetle PSX** (GPL-2+) - a PlayStation 1 core
 
 <Alert type="info">
+
 Important: RetroArch and its cores do not include games. Before downloading or using any ROM, verify that you have the legal right to use it and that its license permits your intended use. Many commercial games remain protected by copyright even if the original hardware is no longer sold.
+
 </Alert>
 
 Install RetroArch and the selected components by running:
@@ -134,7 +138,11 @@ After going in to drivers find the "Video" option, here you can change the video
 
 To play any game with RetroArch a "Core" and BIOS file is required. The core has been installed with the RetroArch install command we used before. The BIOS file however have to be downloaded separately, you can find these files online.
 
-<Alert type="info">Important: The BIOS file required is dependent on the region the game is made for, there are different BIOS files for different regions. Make sure you have the correct BIOS file for the game you are trying to run.</Alert>
+<Alert type="info">
+
+Important: The BIOS file required is dependent on the region the game is made for, there are different BIOS files for different regions. Make sure you have the correct BIOS file for the game you are trying to run.
+
+</Alert>
 
 The BIOS files should be placed in the "System" folder inside the RetroArch folder. This folder can be found in the "Home" folder, press CTRL + H to show hidden folders, then go into the ".config" folder.
 

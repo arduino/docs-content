@@ -61,7 +61,11 @@ The main objectives of this tutorial are:
 - [Arduino App Lab](https://www.arduino.cc/en/software/#app-lab-section)
 - [Edge Impulse Studio account](https://studio.edgeimpulse.com/public/985298/live) (Optional, for custom Keyword models)
 
-<Alert type="note">You can log in to Edge Impulse Studio using your same Arduino account.</Alert>
+<Alert type="note">
+
+You can log in to Edge Impulse Studio using your same Arduino account.
+
+</Alert>
 
 ## AI Assistant System Setup
 
@@ -123,7 +127,11 @@ On your Keyword Spotting Brick, select the model to be used:
 
 ![Keyword Spotting Model](assets/kws-model.png)
 
-<Alert type="note">Learn more in the [Custom AI Models guide](https://docs.arduino.cc/software/app-lab/integrations/ai-models/).</Alert>
+<Alert type="note">
+
+Learn more in the [Custom AI Models guide](https://docs.arduino.cc/software/app-lab/integrations/ai-models/).
+
+</Alert>
 
 #### Local Large Language Model
 
@@ -131,7 +139,11 @@ On your Large Language Model (LLM) Brick, **download** the model `Qwen 3-4B Inst
 
 ![LLM Model Download](assets/llm-model.png)
 
-<Alert type="warning">**Warning:** Make sure to download before running the App, the run will fail if the model is missing.</Alert>
+<Alert type="warning">
+
+**Warning:** Make sure to download before running the App, the run will fail if the model is missing.
+
+</Alert>
 
 #### Automatic Speech Recognition Model
 
@@ -139,7 +151,11 @@ On your Automatic Speech Recognition Model (ASR) Brick, **download** the model `
 
 ![ASR Model Download](assets/asr-model.png)
 
-<Alert type="warning">**Warning:** Make sure to download before running the App, the run will fail if the model is missing.</Alert>
+<Alert type="warning">
+
+**Warning:** Make sure to download before running the App, the run will fail if the model is missing.
+
+</Alert>
 
 ### 2. Understanding the Code
 
@@ -152,7 +168,9 @@ Let's look at the key concepts and configurable settings that make this applicat
 This project takes advantage of the **Custom Bricks** feature. Since the advanced Kokoro TTS model is not part of the standard built-in Bricks, it is bundled directly into the project under the `bricks/kokoro_tts/` directory. This allows the Python backend to seamlessly import it (`from kokoro_tts import KokoroTTS`) just like any native component.
 
 <Alert type="success">
+
 Learn more about Custom Bricks on this [Blog Post](https://blog.arduino.cc/2026/04/29/arduino-app-lab-0-7-custom-bricks-are-here/)
+
 </Alert>
 
 #### 2. Microphone Architecture & Hardware Management
@@ -183,7 +201,9 @@ formatted_time = local_time.strftime("%I:%M %p, %A, %B %d, %Y")
 ```
 
 <Alert type="note">
+
 You can find your specific timezone string in the [Time Zone Database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+
 </Alert>
 
 #### 4. Audio Output Configuration (ALSA Routing)
@@ -266,7 +286,9 @@ Now that your VENTUNO Q is powered on and the project is imported, it's time to 
 2. **Run the Application:** Click the **Run** button in Arduino App Lab.
 
   <Alert type="warning">
+
   The very first time this could take a while. Custom Brick dependencies are being installed.
+
   </Alert>
 
 1. **Wake the Assistant:** Speak your configured wake word clearly into the USB microphone (e.g., *"Ventuno"*).

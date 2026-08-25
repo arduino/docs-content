@@ -34,7 +34,11 @@ In this tutorial you will learn how to:
 4. Serve the model and access it from a browser on your local network.
 5. Run the same model on the Hexagon™ NPU with GenieX, and compare the two.
 
-<Alert type="info">**Note:** The [Qwen2.5-1.5B model](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/blob/main/qwen2.5-1.5b-instruct-fp16.gguf) used in this tutorial is about 3.6 GB, and the quantized copy you create from it needs additional space. Make sure you have enough free disk space before starting this tutorial.</Alert>
+<Alert type="info">
+
+**Note:** The [Qwen2.5-1.5B model](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/blob/main/qwen2.5-1.5b-instruct-fp16.gguf) used in this tutorial is about 3.6 GB, and the quantized copy you create from it needs additional space. Make sure you have enough free disk space before starting this tutorial.
+
+</Alert>
 
 ### Choosing Between the GPU and the NPU
 
@@ -67,7 +71,9 @@ For the NPU without the SDK, [GenieX](/tutorials/ventuno-q/geniex) reaches the s
 - [Arduino® USB Type-C® Cable (2in1)](https://store.arduino.cc/products/usb-cable2in1-type-c) (1x)
 
 <Alert type="warning">
+
 **Important:** Always connect the power supply to the barrel jack **before** connecting a USB-C® cable. Connecting USB-C® first while the board is unpowered may cause the board to crash.
+
 </Alert>
 
 ## Accessing the Board Shell
@@ -86,7 +92,11 @@ adb shell
 ssh arduino@<ip-address>
 ```
 
-<Alert type="info">For more alternatives to remotely access your board, please see the [Remote Access](https://docs.arduino.cc/tutorials/uno-q/remote-access/) tutorial.</Alert>
+<Alert type="info">
+
+For more alternatives to remotely access your board, please see the [Remote Access](https://docs.arduino.cc/tutorials/uno-q/remote-access/) tutorial.
+
+</Alert>
 
 ## Building llama.cpp
 
@@ -112,7 +122,11 @@ sudo apt update
 sudo apt install ocl-icd-opencl-dev opencl-headers qcom-adreno-cl1
 ```
 
-<Alert type="note">**Important:** `qcom-adreno-cl1` is the Qualcomm® Adreno™ OpenCL user-mode driver, and llama.cpp will not use the GPU without it. The open-source Mesa driver (`mesa-opencl-icd`, also known as `rusticl`) does detect the Adreno™ 623 and will show up in `clinfo`, but it does not expose the OpenCL subgroups extension that llama.cpp's OpenCL backend requires. With only Mesa installed, llama.cpp prints `drop unsupported device` and silently falls back to the CPU.</Alert>
+<Alert type="note">
+
+**Important:** `qcom-adreno-cl1` is the Qualcomm® Adreno™ OpenCL user-mode driver, and llama.cpp will not use the GPU without it. The open-source Mesa driver (`mesa-opencl-icd`, also known as `rusticl`) does detect the Adreno™ 623 and will show up in `clinfo`, but it does not expose the OpenCL subgroups extension that llama.cpp's OpenCL backend requires. With only Mesa installed, llama.cpp prints `drop unsupported device` and silently falls back to the CPU.
+
+</Alert>
 
 To verify that OpenCL is detected, install `clinfo`:
 
@@ -125,7 +139,11 @@ With the Qualcomm® driver in place you should see the `QUALCOMM Snapdragon(TM)`
 
 **Option B — Build from source (for full control over versions):**
 
-<Alert type="warning">**Caution:** Option B replaces files that belong to the system. It deletes `/usr/lib/libOpenCL.so` and the entire `/usr/include/CL` directory before symlinking its own copies in their place, which affects every other program on the board that uses OpenCL. Only use it if you specifically need header or loader versions that differ from the packaged ones — Option A is sufficient for building llama.cpp, and leaves the system packages intact.</Alert>
+<Alert type="warning">
+
+**Caution:** Option B replaces files that belong to the system. It deletes `/usr/lib/libOpenCL.so` and the entire `/usr/include/CL` directory before symlinking its own copies in their place, which affects every other program on the board that uses OpenCL. Only use it if you specifically need header or loader versions that differ from the packaged ones — Option A is sufficient for building llama.cpp, and leaves the system packages intact.
+
+</Alert>
 
 ```bash
 mkdir -p ~/dev/llm
@@ -238,7 +256,11 @@ wget https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/qwen2.5
 llama-quantize --pure qwen2.5-1.5b-instruct-fp16.gguf qwen2.5-1.5b-instruct-q4_0-pure.gguf Q4_0
 ```
 
-<Alert type="info">**Note:** The same repository also publishes a ready-made `qwen2.5-1.5b-instruct-q4_0.gguf`, but do not use it as a shortcut here. A standard `Q4_0` file keeps some tensors at higher precision, while the `--pure` flag forces every tensor to `Q4_0`, which is what the OpenCL backend needs in order to run the whole model on the GPU. Downloading the fp16 model and quantizing it yourself is the reliable way to get a genuinely pure file.</Alert>
+<Alert type="info">
+
+**Note:** The same repository also publishes a ready-made `qwen2.5-1.5b-instruct-q4_0.gguf`, but do not use it as a shortcut here. A standard `Q4_0` file keeps some tensors at higher precision, while the `--pure` flag forces every tensor to `Q4_0`, which is what the OpenCL backend needs in order to run the whole model on the GPU. Downloading the fp16 model and quantizing it yourself is the reliable way to get a genuinely pure file.
+
+</Alert>
 
 ## Serving the LLM on Your Local Network
 
@@ -252,7 +274,11 @@ hostname -I
 
 ![Find the right IP address](assets/correct-ip-address.png)
 
-<Alert type="info">Running `hostname -I` should reveal the IP address of your board. Make sure it is connected to a Wi-Fi® network.</Alert>
+<Alert type="info">
+
+Running `hostname -I` should reveal the IP address of your board. Make sure it is connected to a Wi-Fi® network.
+
+</Alert>
 
 **2.** Start the server on port `9876`:
 
@@ -279,7 +305,11 @@ load_tensors:       OpenCL model buffer size =   828.59 MiB
 
 No extra flag is needed for this — llama.cpp offloads the whole model to the Adreno™ GPU by default once it is built with the OpenCL backend. On a VENTUNO Q running Ubuntu 24.04, this model generates at roughly **7.4 tokens per second**.
 
-<Alert type="info">**Note:** You may see `libOpenCL.so.1: no version information available` printed a few times at startup. This comes from the Qualcomm® driver's symbol versioning and is harmless — check the `offloaded 29/29 layers to GPU` line instead to confirm the GPU is being used.</Alert>
+<Alert type="info">
+
+**Note:** You may see `libOpenCL.so.1: no version information available` printed a few times at startup. This comes from the Qualcomm® driver's symbol versioning and is harmless — check the `offloaded 29/29 layers to GPU` line instead to confirm the GPU is being used.
+
+</Alert>
 
 **3.** On any device connected to the same network, open a browser and navigate to:
 

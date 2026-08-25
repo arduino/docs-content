@@ -14,7 +14,11 @@ After connecting, App Lab performs an automated check to ensure your board is co
 
 ## Board Selection (Connected Mode)
 
-<Alert type="info">**Note:** Skip this step if you are running Arduino App Lab in [Single Board Computer mode](../../setup/standalone/).</Alert>
+<Alert type="info">
+
+**Note:** Skip this step if you are running Arduino App Lab in [Single Board Computer mode](../../setup/standalone/).
+
+</Alert>
 
 1. Connect your board to your computer using a USB-C cable.
 1. Wait for the board to boot (this may take up to 60 seconds).
@@ -25,7 +29,11 @@ After connecting, App Lab performs an automated check to ensure your board is co
    ![Screenshot of the board selection screen in Arduino App Lab.](../../assets/playwright/config/board-selection.png)
 1. Select a board to connect to it.
 
-<Alert type="info">**Note:** Network Mode will only be available once the board has been configured with a Wi-Fi network. Please connect via USB for the initial setup to configure these settings.</Alert>
+<Alert type="info">
+
+**Note:** Network Mode will only be available once the board has been configured with a Wi-Fi network. Please connect via USB for the initial setup to configure these settings.
+
+</Alert>
 
 On subsequent connections, Arduino App Lab automatically selects the last used board and app if detected at startup. To manually switch between detected boards, use the board selection control located in the bottom-left corner.
 
@@ -43,7 +51,11 @@ Follow these steps to complete the setup:
    ![Selecting a board in Arduino App Lab.](../../assets/configuration/initial/board-configuration.png)
 1. **Network Setup:** Select your local Wi-Fi network and enter the password. An internet connection is required for downloading "Bricks" and system updates. When your board connects to the Internet, it will automatically check for software updates.
 1. **Set Linux Password:** Create a custom password for the default `arduino` user account.
-   <Alert type="warning">**Important:** The Linux password is required for Network Mode, SSH access, and logging into the Debian desktop in SBC mode. Ensure you save it securely.</Alert>
+   <Alert type="warning">
+
+   **Important:** The Linux password is required for Network Mode, SSH access, and logging into the Debian desktop in SBC mode. Ensure you save it securely.
+
+   </Alert>
 1. **Arduino Account:** Sign in with your Arduino account to enable additional features. If Arduino App Lab does not prompt you to sign in, you can do this later from the **Account** tab in the sidebar.
 
 ## Manage Software Updates
@@ -59,7 +71,11 @@ If updates are available, Arduino App Lab will ask if you want to install the av
 
 The update process is resumable—if the connection is interrupted, the download will continue once reconnected.
 
-<Alert type="info">**Note:** An active internet connection is required for the board to download update packages.</Alert>
+<Alert type="info">
+
+**Note:** An active internet connection is required for the board to download update packages.
+
+</Alert>
 
 ## Next Steps
 

@@ -35,7 +35,11 @@ The Bridge library comes pre-bundled with the software installed on the VENTUNO 
 
 - [Arduino App Lab](https://www.arduino.cc/en/software/#app-lab-section)
 
-<Alert type="info">You can also use the [Arduino IDE 2+](https://www.arduino.cc/en/software) to program only the microcontroller side of the VENTUNO Q.</Alert>
+<Alert type="info">
+
+You can also use the [Arduino IDE 2+](https://www.arduino.cc/en/software) to program only the microcontroller side of the VENTUNO Q.
+
+</Alert>
 
 ### Bridge - Remote Procedure Call (RPC) Library
 
@@ -79,7 +83,9 @@ The Router manages the physical connection between the two processors. It is imp
 - **MCU Side (STM32H5F5):** The router claims the hardware serial port `Serial1`.
 
 <Alert type="warning" text="Warning">
+
 **⚠️ WARNING: Reserved Resources**: Do not attempt to open `/dev/ttyHS1` (on Linux) or `Serial1` (on Arduino/Zephyr) in your own code. These interfaces are exclusively locked by the `arduino-router` service. Attempting to access them directly will cause the Bridge to fail.
+
 </Alert>
 
 #### Managing the Router Service
@@ -165,7 +171,9 @@ To capture more detailed information in the logs, you can append the `--verbose`
 - `provide_safe(name, function)`: Exposes a local MCU function, but ensures it executes within the main `loop()` context. Use this if your function interacts with standard Arduino APIs (like `digitalWrite` or `Serial`) to avoid concurrency crashes.
 
 <Alert type="warning" text="Warning">
+
 **Warning:** Do not use `Bridge.call()` or `Monitor.print()` inside `provide()` functions. Initiating a new communication while responding to one causes system deadlocks.
+
 </Alert>
 
 `RpcCall`
@@ -237,13 +245,21 @@ Create a new App in the Arduino App Lab, then copy and paste the example below i
 
    This registers the local MCU function `set_led_state` as an RPC service named `"set_led_state"`, so that the Linux (Dragonwing™ QCS8275) side can call it remotely as if it were a local function using `Bridge.provide("set_led_state", set_led_state);`
 
-<Alert type="info">You can do the same the other way around, Python functions can be provided to the MCU sketch to be used locally.</Alert>
+<Alert type="info">
+
+You can do the same the other way around, Python functions can be provided to the MCU sketch to be used locally.
+
+</Alert>
 
 After pasting the Python script into your App’s Python file and the Arduino code to the sketch, you can run the App and observe LED #1 blinking in red every second.
 
 ![Red LED blinking](assets/ventuno-blink.gif)
 
-<Alert type="info">There are more advanced methods in the Bridge RPC library that you can discover by testing our different built-in examples inside Arduino App Lab.</Alert>
+<Alert type="info">
+
+There are more advanced methods in the Bridge RPC library that you can discover by testing our different built-in examples inside Arduino App Lab.
+
+</Alert>
 
 #### Interacting via Unix Socket (Advanced)
 
