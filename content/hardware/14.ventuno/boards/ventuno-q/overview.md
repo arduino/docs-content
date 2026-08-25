@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-url: https://www.youtube.com/embed/watch?v=SzT6vDtz6rU
+url: https://www.youtube.com/embed/ySLLIKD9Quk
 info:
   - icon: IconCloudConnected
     title: User Manual
