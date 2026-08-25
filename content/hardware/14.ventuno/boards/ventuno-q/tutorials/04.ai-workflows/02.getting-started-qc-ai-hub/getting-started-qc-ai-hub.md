@@ -35,7 +35,11 @@ In this guide we will cover:
 6. Running the exported model on the VENTUNO Q's NPU.
 7. Running a model's reference demo on the VENTUNO Q.
 
-<Alert type="info">**Note:** The [QAI Hub Models package](https://pypi.org/project/qai-hub-models/) used in this tutorial takes up ~5-8 GB of disk space. Make sure you have a reliable Internet connection and enough space on your disk before starting this tutorial. For a full list of packages installed, click the link above.</Alert>
+<Alert type="info">
+
+**Note:** The [QAI Hub Models package](https://pypi.org/project/qai-hub-models/) used in this tutorial takes up ~5-8 GB of disk space. Make sure you have a reliable Internet connection and enough space on your disk before starting this tutorial. For a full list of packages installed, click the link above.
+
+</Alert>
 
 ## Hardware & Software Requirements
 
@@ -44,7 +48,11 @@ In this guide we will cover:
 - [Arduino® VENTUNO™ Q](https://store.arduino.cc/products/ventuno-q)
 - [Arduino® USB-C Power Supply (65W)](https://store.arduino.cc/products/usb-c-power-supply-65w)
 
-<Alert type="info">**Note:** If you are using this board as a Single Board Computer (SBC), you will need a keyboard, mouse & display.</Alert>
+<Alert type="info">
+
+**Note:** If you are using this board as a Single Board Computer (SBC), you will need a keyboard, mouse & display.
+
+</Alert>
 
 ### Software
 
@@ -73,7 +81,11 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-<Alert type="info">If activating the environment fails, you may need to manually install `-venv` by running `sudo apt install python3.12-venv`.</Alert>
+<Alert type="info">
+
+If activating the environment fails, you may need to manually install `-venv` by running `sudo apt install python3.12-venv`.
+
+</Alert>
 
 The `(venv)` prefix in your prompt confirms the environment is active. Activate it again each session before running any of the commands below.
 
@@ -85,7 +97,11 @@ With the virtual environment active, install the `qai-hub-models` package:
 pip install qai-hub-models
 ```
 
-<Alert type="info">**Note:** This is a large package and requires a fast & stable Internet connection to download.</Alert>
+<Alert type="info">
+
+**Note:** This is a large package and requires a fast & stable Internet connection to download.
+
+</Alert>
 
 Some models require additional dependencies. Check the model's README for any extras, e.g.:
 
@@ -164,7 +180,11 @@ Compute Unit(s)                 : npu (201 ops) gpu (0 ops) cpu (0 ops)
 
 All 201 operations were placed on the NPU, which is what you want to see before moving to the next step.
 
-<Alert type="info">**Note:** Not every model in the AI Hub library can be re-exported from source. Some fail with `Model cannot be published: no release assets available` — the `face_det_lite` model used later in this tutorial is currently one of them, which is why the export example above uses YOLOv7. This only affects `export`; the already-compiled asset can still be downloaded with `qai-hub-models fetch <model> --runtime tflite --precision w8a8`, which is how the [Face Detection](/tutorials/ventuno-q/face-detection) tutorial obtains it.</Alert>
+<Alert type="info">
+
+**Note:** Not every model in the AI Hub library can be re-exported from source. Some fail with `Model cannot be published: no release assets available` — the `face_det_lite` model used later in this tutorial is currently one of them, which is why the export example above uses YOLOv7. This only affects `export`; the already-compiled asset can still be downloaded with `qai-hub-models fetch <model> --runtime tflite --precision w8a8`, which is how the [Face Detection](/tutorials/ventuno-q/face-detection) tutorial obtains it.
+
+</Alert>
 
 ## Running the Exported Model on the NPU
 
@@ -193,7 +213,11 @@ Install LiteRT into your virtual environment:
 pip install ai-edge-litert==1.3.0
 ```
 
-<Alert type="note">**Important:** The version matters. `qai-hub-models`, installed earlier in this tutorial, depends on `ai-edge-litert>=2.0.2` and will already have pulled in a 2.x release, so the command above is a deliberate downgrade. Version 2.x does not work with the QNN HTP delegate — it rejects every convolution with `Failed to validate op ... Conv2d`, silently falls back to the CPU, and runs slower than plain CPU execution because of the added delegation overhead. Confirm the version before continuing:</Alert>
+<Alert type="note">
+
+**Important:** The version matters. `qai-hub-models`, installed earlier in this tutorial, depends on `ai-edge-litert>=2.0.2` and will already have pulled in a 2.x release, so the command above is a deliberate downgrade. Version 2.x does not work with the QNN HTP delegate — it rejects every convolution with `Failed to validate op ... Conv2d`, silently falls back to the CPU, and runs slower than plain CPU execution because of the added delegation overhead. Confirm the version before continuing:
+
+</Alert>
 
 ```bash
 pip show ai-edge-litert | grep Version   # must report 1.3.0
@@ -255,7 +279,11 @@ The measured NPU figure is close to the 10.8 ms that AI Hub estimated during exp
 
 Besides running an exported model yourself, `qai-hub-models` ships a reference demo for each model. These are useful for checking that a model behaves as expected, and for seeing the exact preprocessing and postprocessing a model needs.
 
-<Alert type="info">**Note:** These demos run the model's original PyTorch weights on the CPU, not on the NPU. The `--quantize w8a8` flag simulates the numerics of the quantized model, but it does not dispatch the graph to the Hexagon™ hardware. The demo's `--eval-mode on-device` option runs on a cloud-hosted device through AI Hub Workbench rather than on your board. To use the NPU on the VENTUNO Q itself, follow [Running the Exported Model on the NPU](#running-the-exported-model-on-the-npu) above.</Alert>
+<Alert type="info">
+
+**Note:** These demos run the model's original PyTorch weights on the CPU, not on the NPU. The `--quantize w8a8` flag simulates the numerics of the quantized model, but it does not dispatch the graph to the Hexagon™ hardware. The demo's `--eval-mode on-device` option runs on a cloud-hosted device through AI Hub Workbench rather than on your board. To use the NPU on the VENTUNO Q itself, follow [Running the Exported Model on the NPU](#running-the-exported-model-on-the-npu) above.
+
+</Alert>
 
 ### Face Detection Example
 
