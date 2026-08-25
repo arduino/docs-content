@@ -287,7 +287,11 @@ No extra flag is needed for this — llama.cpp offloads the whole model to the A
 http://<ip-address>:9876
 ```
 
-<Alert type="info">**Note:** Replace `<ip-address>` with the address found in step 1.</Alert>
+<Alert type="info">
+
+**Note:** Replace `<ip-address>` with the address found in step 1.
+
+</Alert>
 
 **4.** The built-in chat interface lets you send prompts directly to the model:
 

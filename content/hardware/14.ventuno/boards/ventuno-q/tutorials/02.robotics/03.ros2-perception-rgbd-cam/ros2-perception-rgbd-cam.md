@@ -49,7 +49,7 @@ The VENTUNO Q has two USB-A ports, which the keyboard and mouse already occupy i
 
 - ROS 2 Jazzy installed on the VENTUNO Q, and a colcon workspace at `~/ros2_ws` set up, see [Getting Started with ROS 2 on VENTUNO Q](/tutorials/ventuno-q/getting-started-ros2).
 
-<Alert type="warning">Make sure your VENTUNO Q has the latest system image installed and that ROS 2 Jazzy is working correctly before proceeding with this tutorial.</Alert>
+<Alert type="warning">**Warning:** Make sure your VENTUNO Q has the latest system image installed and that ROS 2 Jazzy is working correctly before proceeding with this tutorial.</Alert>
 
 ## RealSense Camera
 
@@ -101,7 +101,7 @@ cd librealsense/scripts
 sudo bash patch-realsense-ubuntu-lts-hwe.sh
 ```
 
-<Alert type="warning">This method requires network access to `git.launchpad.net`. If that host is unreachable in your environment, for example due to network policy restrictions, the script will hang or fail at the kernel source fetch step. Please check the connectivity first:
+<Alert type="warning">**Warning:** This method requires network access to `git.launchpad.net`. If that host is unreachable in your environment, for example due to network policy restrictions, the script will hang or fail at the kernel source fetch step. Please check the connectivity first:
 
 ```bash
 curl -v https://git.launchpad.net
@@ -265,7 +265,9 @@ sudo LD_LIBRARY_PATH=/opt/ros/jazzy/lib/aarch64-linux-gnu /opt/ros/jazzy/bin/rs-
 
 Do not disconnect the camera while the update is in progress.
 
-<Alert type="warning">If the update is interrupted, for example by a missing library path causing the command to fail partway through, the camera can be left in recovery mode, where it only responds to firmware commands and not normal operation. If a later `rs-fw-update` reports `Device is in recovery mode, use -r to recover`, rerun the same command with the `-r` flag added:
+<Alert type="warning">
+
+**Warning:** If the update is interrupted, for example by a missing library path causing the command to fail partway through, the camera can be left in recovery mode, where it only responds to firmware commands and not normal operation. If a later `rs-fw-update` reports `Device is in recovery mode, use -r to recover`, rerun the same command with the `-r` flag added:
 
 ```bash
 sudo LD_LIBRARY_PATH=/opt/ros/jazzy/lib/aarch64-linux-gnu /opt/ros/jazzy/bin/rs-fw-update -r -f ~/Downloads/Signed_Image_UVC_<version>.bin
