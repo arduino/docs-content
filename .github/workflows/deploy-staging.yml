@@ -21,8 +21,29 @@ jobs:
   render-datasheets:
     name: Render Datasheets
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
+      # Checkout stalls intermittently on this repo (~9 GB): on 2026-08-25, 4 of
+      # 8 checkouts hung with no progress at all. Bound the attempt and retry
+      # once, instead of letting a stalled transfer run into the 6h default.
       - uses: actions/checkout@v4
+        id: checkout
+        continue-on-error: true
+        timeout-minutes: 15
+        with:
+          fetch-depth: 1
+
+      # A checkout killed by the timeout leaves a partial clone behind (and
+      # sometimes a stale index.lock): wiping the workspace makes the second
+      # attempt genuinely independent of the first.
+      - name: Reset workspace before checkout retry
+        if: steps.checkout.outcome == 'failure'
+        run: |
+          shopt -s dotglob
+          rm -rf "${GITHUB_WORKSPACE:?}"/*
+
+      - uses: actions/checkout@v4
+        if: steps.checkout.outcome == 'failure'
         with:
           fetch-depth: 1
 
@@ -36,17 +57,44 @@ jobs:
     needs: render-datasheets
     runs-on: ubuntu-latest
     environment: staging
+    timeout-minutes: 150
     env:
       REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
       APP_ENV: staging
 
     steps:
+      # fetch-depth: 0 is required by gatsby-transformer-gitinfo, which runs
+      # `git log -n 1 -- <file>` on every content file to populate
+      # gitLogLatestDate (the "last updated" date shown on tutorial pages).
+      # filter: blob:none still fetches every commit and every tree - so that
+      # git log keeps resolving locally - while skipping historical blob
+      # contents, which are the bulk of this repo's ~11 GB of git history.
+      # Do NOT swap this for fetch-depth: 1: it would blank out gitLogLatestDate.
+      # Checkout stalls intermittently on this repo (~9 GB): on 2026-08-25, 4 of
+      # 8 checkouts hung with no progress at all. Bound the attempt and retry
+      # once, instead of letting a stalled transfer run into the 6h default.
       - uses: actions/checkout@v4
+        id: checkout
+        continue-on-error: true
+        timeout-minutes: 20
         with:
           fetch-depth: "0"
+          filter: blob:none
 
-      - name: Cleanup runner disk
-        uses: ./.github/actions/cleanup-disk # Cleanup machine before starting the build
+      # A checkout killed by the timeout leaves a partial clone behind (and
+      # sometimes a stale index.lock): wiping the workspace makes the second
+      # attempt genuinely independent of the first.
+      - name: Reset workspace before checkout retry
+        if: steps.checkout.outcome == 'failure'
+        run: |
+          shopt -s dotglob
+          rm -rf "${GITHUB_WORKSPACE:?}"/*
+
+      - uses: actions/checkout@v4
+        if: steps.checkout.outcome == 'failure'
+        with:
+          fetch-depth: "0"
+          filter: blob:none
 
       - uses: actions/setup-node@v4
         with:
@@ -120,10 +168,15 @@ jobs:
       - name: Compress Large Images
         run: |
           sudo apt-get update && sudo apt-get install -y jpegoptim optipng
+          # -exec ... \; spawns one process per file, sequentially on a single
+          # core. xargs -P "$(nproc)" does the same work across every available
+          # core: the files are independent, so the result is identical.
           echo "Compressing large JPGs..."
-          find content -type f \( -name "*.jpg" -o -name "*.jpeg" \) -size +2M -print -exec jpegoptim --strip-all {} \;
+          find content -type f \( -name "*.jpg" -o -name "*.jpeg" \) -size +2M -print0 |
+            xargs -0 -r -P "$(nproc)" -n 1 jpegoptim --strip-all
           echo "Compressing large PNGs..."
-          find content -type f -name "*.png" -size +2M -print -exec optipng -o2 {} \;
+          find content -type f -name "*.png" -size +2M -print0 |
+            xargs -0 -r -P "$(nproc)" -n 1 optipng -o2
 
       - name: Gatsby main cache
         uses: actions/cache@v4
@@ -162,6 +215,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment: staging
+    timeout-minutes: 10
     steps:
       - name: Purge Cloudflare Cache
         shell: bash
