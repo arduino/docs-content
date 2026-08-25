@@ -8,6 +8,8 @@ secondary_button_url: /hardware/pro-4g-module
 secondary_button_title: Pro 4G Module
 forumCategorySlug: '/hardware/portenta/91'
 sku: [ASX00055]
+useCases: [prototyping, industrial-automation, robotics, edge-ai, iot-wireless]
+releaseDate: 2024-03-29
 ---
 
 The **Portenta Mid Carrier** is an innovative solution enabling multiple robotics, industrial, and building automation projects. Combined with the Portenta X8, H7, or C33 boards, it evolves into a powerful industrial platform, further complemented by its accessibility to every available interface of the System on Modules it carries.

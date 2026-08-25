@@ -8,6 +8,8 @@ secondary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-gene
 secondary_button_title: More on Modulino Nodes
 forumCategorySlug: '/hardware/accessories/modulino-knob/217'
 sku: [ABX00107]
+useCases: [prototyping, accessories]
+releaseDate: 2025-05-23
 ---
 
 A rotary encoder with a built-in SPST switch—ideal for menu navigation, parameter tuning, or interactive input. Effortlessly integrate with Arduino UNO R4 WiFi or other Qwiic-enabled boards, or use the solderable pins if Qwiic is not available. No complex wiring needed to start turning your ideas into reality.

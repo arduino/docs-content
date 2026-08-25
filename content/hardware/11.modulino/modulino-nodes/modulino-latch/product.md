@@ -8,6 +8,8 @@ secondary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-gene
 secondary_button_title: More on Modulino Nodes
 forumCategorySlug: '/hardware/accessories/213'
 sku: [ABX00138]
+useCases: [prototyping, accessories]
+releaseDate: 2025-12-04
 ---
 
 A bistable latching relay that maintains its state without continuous power, ideal for DC power control and automation. Switch high-current loads up to 30V DC with easy I2C control. Compatible with Arduino UNO R4 WiFi or any Qwiic-enabled board. Control motors, pumps, or lighting systems without complex wiring.

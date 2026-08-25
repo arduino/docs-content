@@ -1,0 +1,58 @@
+Board:
+  Name: Arduino® VENTUNO™ Q
+  SKU: ABX00181
+  Release Date: 25 August 2026
+Microprocessor Unit:
+  Module: Qualcomm Dragonwing™ IQ8 (QCS8275) on a BGA Module
+  CPU: Octa-core Arm® Cortex®
+  GPU: Adreno GPU/VPU Arm® Cortex® A623 at 877 MHz
+  NPU: Hexagon Tensor AI Processor up to 40 dense TOPS
+  ISP: Qualcomm Spectra 692 ISP
+  Operating System: Ubuntu Linux OS with upstream support (Debian also supported)
+  Memory:
+    Storage: 64 GB eMMC, M.2 connector for NVME Gen.4 external storage
+    RAM: 16 GB (2x8GB) LPDDR5
+  Media Interfaces:
+    Audio: 2x Microphone IN / 1x Headphone OUT / 1x Ear OUT / 1x Line OUT on JMISC and JOMEGA headers
+    Video: 1x HDMI muxed with MIPI DSI on JMEDIA header, MIPI DSI pins on JMEDIA header and Video output (DP Alt mode) support via USB-C
+    Camera: USB camera support, 3x MIPI CSI connectors muxed with 2x MIPI CSI on JMEDIA header
+  User Interfaces:
+   RGB LED: Yes (4x MCU-controlled LEDs)
+   Power Button: Yes
+Microcontroller Unit:
+  Core: STM32H5F5 Arm® Cortex®-M33 at 250 MHz
+  Operating System: Arduino Core on Zephyr OS
+  Memory:
+    Flash: 4 MB
+    RAM: 1.5 MB
+  Interfaces:
+    I2C/I3C: Yes
+    SPI: Yes
+    PWM: Yes
+    UART: Yes
+    PSSI: Yes
+    GPIO: Yes
+    JTAG: Yes
+    ADC: Yes
+  Communication:
+    CAN: 1x CAN-FD PHY on screw terminal, 3x CAN-FD (no PHY) on JOMEGA header, 1x CAN-FD (no PHY) on UNO Shield headers
+  User Interfaces:
+    LED Matrix: Yes (8x13 Blue)
+Radio Module / Network:
+  WiFi: Wi-Fi® 6 2.4/5/6 GHz with onboard antenna
+  Bluetooth: Bluetooth® 5.3 with onboard antenna
+  Ethernet: 1x 2.5Gbit RJ45 Ethernet
+USB:
+  USB-C®: 1× USB-C port with host/device role switching, power role switch and video output
+  USB-A: 2x USB 3.0 Type A
+  USB expansion: 2x USB 3.0 on JOMEGA header
+Power:
+  USB-C®: 9-20 VDC (Power Delivery)
+  Input voltage (VIN): 7-24 VDC via 5.5x2.1 mm Power Jack, 7-24 VDC via Screw Terminal, 7-24 V on JOMEGA
+Special Connectors:
+  Qwiic: 1x Qwiic connector voltage 3V3, I2C (for example using the Arduino Modulino nodes)
+  Headers: UNO Shield Headers, Expansion Header (JOMEGA), UNO Carrier Headers (JMEDIA and JMISC)
+Dimensions:
+  Width: 100 mm
+  Length: 160 mm
+  Height: 25.8 mm

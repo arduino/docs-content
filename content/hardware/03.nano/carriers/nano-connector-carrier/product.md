@@ -5,6 +5,8 @@ primary_button_url: /tutorials/nano-connector-carrier/getting-started-nano-conne
 primary_button_title: Get Started
 forumCategorySlug: '/hardware/12'
 sku: [ASX00061]
+useCases: [prototyping]
+releaseDate: 2025-05-22
 ---
 
 The Nano Connector Carrier brings plug & play compatibility with QWIIC and Grove modules, making rapid prototyping easier than ever.

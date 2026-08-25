@@ -8,6 +8,7 @@ core: arduino:mbed_portenta
 forumCategorySlug: '/hardware/portenta/91'
 productCode: ['213']
 sku: [ASX00074]
+useCases: [prototyping, industrial-automation, robotics, edge-ai, iot-wireless]
 ---
 
 The Arduino® Portenta UWB Shield, based on the Truesense DCU150, serves as a versatile UWB communication solution facilitating two-way ranging and real-time location services (RTLS). Ideal for smart logistics, interactive environments, and precision proximity sensing applications, its dual role as both base station and client device enhances connectivity and responsiveness across IoT systems. It is designed to integrate with the Arduino Portenta C33 via the high-density connectors.

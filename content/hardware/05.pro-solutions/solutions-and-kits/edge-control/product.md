@@ -8,6 +8,8 @@ secondary_button_url: /tutorials/edge-control/smart-irrigation-system
 secondary_button_title: Smart Farms
 core: arduino:mbed_edge
 sku: [AKX00034]
+useCases: [prototyping, iot-wireless]
+releaseDate: 2021-04-23
 ---
 
 A remote monitoring and control solution, optimized for outdoor environments. Collect real-time data from smart sensors and leverage all on the edge.

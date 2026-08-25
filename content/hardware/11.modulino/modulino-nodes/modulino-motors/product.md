@@ -8,6 +8,7 @@ secondary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-gene
 secondary_button_title: More on Modulino Nodes
 forumCategorySlug: '/hardware/accessories/modulino-motor/###'
 sku: [ABX00114]
+useCases: [prototyping, accessories]
 ---
 
 Drive your robotics projects with precision motor control. Built around the MAX22211 dual H-bridge driver, this module can handle two brushed DC motors, one bipolar stepper motor, or multiple solenoids and valves with up to 3.8A per channel. Connect via Qwiic for plug-and-play simplicity and use the screw terminals for direct motor wiring with 5-24V power supply support.

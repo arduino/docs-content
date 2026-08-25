@@ -6,6 +6,8 @@ primary_button_url: /tutorials/mkr-imu-shield/mkr-imu-shield-basics
 primary_button_title: Get Started
 forumCategorySlug: '/hardware/mkr-boards/mkr-shields/162'
 sku: [ASX00002]
+useCases: [prototyping]
+releaseDate: 2021-01-04
 ---
 
 The MKR IMU Shield helps you integrate inertial measurements with your projects. Read three-dimensional acceleration, yaw rate and magnetical field by simply mounting it on top of a MKR family board.

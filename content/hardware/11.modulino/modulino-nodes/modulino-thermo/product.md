@@ -8,6 +8,8 @@ secondary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-gene
 secondary_button_title: More on Modulino Nodes
 forumCategorySlug: '/hardware/accessories/modulino-thermo/220'
 sku: [ABX00103]
+useCases: [prototyping, accessories]
+releaseDate: 2025-05-22
 ---
 
 Monitor temperature and humidity seamlessly with the HS3003 sensor. Whether building a weather station or a climate control project, this module makes data capture straightforward. Designed for Arduino UNO R4 WiFi or any Qwiic-capable board; solderable pins provide an alternative wiring option.

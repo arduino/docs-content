@@ -11,6 +11,8 @@ primary_button_title: Get Started
 secondary_button_url: /tutorials/generic/WiFiNINAFirmwareUpdater
 secondary_button_title: Update Firmware
 sku: [ABX00023]
+useCases: [prototyping, iot-wireless]
+releaseDate: 2021-01-04
 ---
 
 <SubTitle>The easiest entry point to basic IoT and pico-network application design.</SubTitle>

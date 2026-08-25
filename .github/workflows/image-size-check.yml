@@ -9,10 +9,14 @@ jobs:
     name: Image Size Check
     runs-on: ubuntu-latest
     steps:
+      # blob:none keeps the full commit history the diff needs, without downloading
+      # every historical version of the PDFs and ZIPs: those blobs are ~10GB of the
+      # 10.4GB pack and they filled the runner disk, so the checkout never completed.
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          filter: blob:none
 
       - name: Check Image Sizes
         uses: ./.github/actions/image-size-check

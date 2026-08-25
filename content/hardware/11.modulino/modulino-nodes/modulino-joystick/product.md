@@ -8,6 +8,8 @@ secondary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-gene
 secondary_button_title: More on Modulino Nodes
 forumCategorySlug: '/hardware/accessories/213'
 sku: [ABX00135]
+useCases: [prototyping, accessories]
+releaseDate: 2025-12-04
 ---
 
 A dual-axis analogue joystick with integrated pushbutton for precise directional control. Perfect for gaming controllers, robotics navigation, or interactive interfaces. Compatible with Arduino UNO R4 WiFi or any Qwiic-enabled board, with solderable pins available for custom wiring. Get smooth, responsive control without complex circuitry.

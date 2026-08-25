@@ -9,6 +9,8 @@ forumCategorySlug: '/hardware/nano-family/nano-33-ble/159'
 status: end-of-life
 productCode: ['031']
 sku: [ABX00030, ABX00034]
+useCases: [prototyping, iot-wireless]
+releaseDate: 2021-01-04
 ---
 
 The Arduino Nano 33 BLE shares its pinout with the classic Arduino Nano but builds on the nRF52840 microcontroller with 1MB CPU Flash Memory. Featuring a 9 axis inertial measurement unit and the possibility for Bluetooth® Low Energy connectivity it can help you to create your next Bluetooth® Low Energy enabled project.

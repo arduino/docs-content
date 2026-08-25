@@ -6,6 +6,8 @@ primary_button_url: retired/getting-started-guides/ArduinoEthernetShield
 primary_button_title: Get Started
 forumCategorySlug: '/hardware/12'
 sku: [A000024]
+useCases: [prototyping, iot-wireless]
+releaseDate: 2021-01-04
 ---
 
 Have an idea for a network project? Connect your Arduino to an ethernet shield and you will quickly be able to start sending sensor data to your network to interact with other gadgets in your home.

@@ -6,6 +6,8 @@ primary_button_url: /tutorials/motor-shield-rev3/msr3-controlling-dc-motor
 primary_button_title: Get Started
 forumCategorySlug: '/hardware/12'
 sku: [A000079]
+useCases: [prototyping]
+releaseDate: 2021-01-04
 ---
 
 The Arduino Motor Shield allows your arduino to drive DC and stepper motors, relays and solenoids.

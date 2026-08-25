@@ -8,6 +8,8 @@ secondary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-gene
 secondary_button_title: More on Modulino Nodes
 forumCategorySlug: '/hardware/accessories/modulino-buzzer/215'
 sku: [ABX00108]
+useCases: [prototyping, accessories]
+releaseDate: 2025-05-23
 ---
 
 Easily add audible alerts and notifications to any project with the built-in buzzer. From simple beeps to quick tunes, it keeps you informed. It connects to Arduino UNO R4 WiFi or other Qwiic-capable boards, and solderable pins allow for direct wiring whenever needed.

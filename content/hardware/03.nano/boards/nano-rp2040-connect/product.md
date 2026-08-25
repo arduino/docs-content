@@ -9,6 +9,8 @@ forumCategorySlug: '/hardware/nano-family/nano-rp2040-connect/165'
 status: end-of-life
 productCode: ['044']
 sku: [ABX00053, ABX00052]
+useCases: [prototyping]
+releaseDate: 2021-05-13
 ---
 
 The Arduino Nano RP2040 Connect is the feature packed Arduino Nano board built with Raspberry Pi's new silicon.
