@@ -15,7 +15,11 @@ When you have finished writing or modifying your code in the App Lab, you can ex
 2. Click the **Run (▶)** button in the top navigation bar.
 3. The **Console** panel opens automatically at the bottom of the editor as Arduino App Lab compiles your project, transfers it to the board's active memory, and launches it. Start-up logs appear in the **App launch** tab.
    ![Screenshot of Arduino App Lab. An App is being launched, and the text "Running..." is displayed next to the Run button.](../../assets/app-lab-console/launching/launching.png)
-   <Alert type="info">**Note:** While the App is starting, only the **App launch** tab is available, and the system displays the text _"Running…"_ next to the **Stop** button.</Alert>
+   <Alert type="info">
+
+   **Note:** While the App is starting, only the **App launch** tab is available, and the system displays the text _"Running…"_ next to the **Stop** button.
+
+   </Alert>
 4. When the App launch completes, the text in the **App launch** tab turns green, and the **Serial Monitor** and **Python** tabs become available.
    ![Screenshot of Arduino App Lab, displaying the App launch tab in the Console with green color text.](../../assets/app-lab-console/running/running.png)
 
@@ -29,7 +33,11 @@ If you want your application to launch automatically whenever your board receive
 
 Once configured, your board will automatically start the App on boot.
 
-<Alert type="note">**Important:** Only one App can be set to run at startup at any given time. Setting a new App as the startup app will replace the previous configuration.</Alert>
+<Alert type="note">
+
+**Important:** Only one App can be set to run at startup at any given time. Setting a new App as the startup app will replace the previous configuration.
+
+</Alert>
 
 ## Stop an App
 

@@ -38,7 +38,11 @@ Examples in this guide are designed to run in the Arduino App Lab environment, w
 - [Arduino® USB Type-C® Cable 2in1](https://store.arduino.cc/products/usb-cable2in1-type-c) (1x)
 - [Arduino® USB-C Power Supply (65W)](https://store.arduino.cc/products/usb-c-power-supply-65w)
 
-<Alert type="info">Most examples require additional components to work, such as common electronic components (LEDs, pushbuttons, resistors).</Alert>
+<Alert type="info">
+
+Most examples require additional components to work, such as common electronic components (LEDs, pushbuttons, resistors).
+
+</Alert>
 
 ### Software Requirements
 
@@ -163,7 +167,11 @@ To output an analog voltage value through a DAC pin, use the `analogWrite()` fun
 analogWrite(DAC0, value);   // the value should be in the range of the DAC resolution (e.g. 0-4095 with a 12 bits resolution)
 ```
 
-<Alert type="info">If a normal GPIO is passed to the `analogWrite()` function, the output will be a PWM signal.</Alert>
+<Alert type="info">
+
+If a normal GPIO is passed to the `analogWrite()` function, the output will be a PWM signal.
+
+</Alert>
 
 The following sketch will create a **60 Hz sine wave** signal in the `A0/DAC0` VENTUNO Q pin:
 
@@ -245,7 +253,11 @@ Now you can control the PWM signal duty-cycle by turning the potentiometer.
 
 ![PWM output signal using the PWM](assets/ventuno-pwm-output.png)
 
-<Alert type="info">PWM frequency is fixed to 500 Hz.</Alert>
+<Alert type="info">
+
+PWM frequency is fixed to 500 Hz.
+
+</Alert>
 
 ## Communication Protocols
 
@@ -385,7 +397,11 @@ void loop() {
 
 With this example the VENTUNO Q will send back whatever it receives on the UART.
 
-<Alert type="info">To communicate over the hardware serial pins on the JDIGITAL connector, the `Serial1` object must be used. Otherwise, `Serial` will communicate with your USB serial terminal.</Alert>
+<Alert type="info">
+
+To communicate over the hardware serial pins on the JDIGITAL connector, the `Serial1` object must be used. Otherwise, `Serial` will communicate with your USB serial terminal.
+
+</Alert>
 
 ## Enabling Wi-Fi® on the MCU
 

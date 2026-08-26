@@ -41,7 +41,11 @@ In this guide we will cover:
 - USB camera connected to the USB-A port, reachable as `/dev/video0`
 - A display, keyboard, and mouse\* connected to the board (the script opens a live window on-screen)
 
-<Alert type="info">**Note:** To use the VENTUNO Q as an SBC, a mouse is not required (but makes it easier).</Alert>
+<Alert type="info">
+
+**Note:** To use the VENTUNO Q as an SBC, a mouse is not required (but makes it easier).
+
+</Alert>
 
 ### Software
 
@@ -49,7 +53,9 @@ In this guide we will cover:
 - Python 3.12 (pre-installed on the VENTUNO Q)
 
 <Alert type="warning">
+
 The VENTUNO Q must be powered with its power supply **before** connecting a USB-C® cable to a host computer, otherwise the board may crash. The recommended power supply is a minimum of 65 W in the range of 7–24 V.
+
 </Alert>
 
 ## Accessing the Board Shell
@@ -72,10 +78,16 @@ ssh arduino@<ip-address>
 
 If you don't know the board's IP address, connect a keyboard and monitor and run `hostname -I` on the board, or configure Wi-Fi® on the board first with `sudo nmtui`.
 
-<Alert type="info">For more alternatives to remotely access your board, please see the [Remote Access](https://docs.arduino.cc/tutorials/uno-q/remote-access/) tutorial.</Alert>
+<Alert type="info">
+
+For more alternatives to remotely access your board, please see the [Remote Access](https://docs.arduino.cc/tutorials/uno-q/remote-access/) tutorial.
+
+</Alert>
 
 <Alert type="warning">
+
 __Note:__ Because this demo opens a live camera window on-screen, run it from the board's actual desktop session (a physical monitor and keyboard, or a VNC/X11 session into the board). `adb` and `ssh` are still the easiest way to install dependencies and confirm the script runs before switching to the desktop session to watch the camera feed.
+
 </Alert>
 
 ## Setting Up the Python Environment

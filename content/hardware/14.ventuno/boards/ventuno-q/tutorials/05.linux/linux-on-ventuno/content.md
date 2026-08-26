@@ -46,7 +46,9 @@ This tutorial assumes the board has already been set up and that you have a work
 - Basic familiarity with the Linux command line.
 
 <Alert type="info">
+
 The commands shown in this tutorial are standard Ubuntu utilities and behave identically to a desktop Ubuntu installation. The examples are related to the VENTUNO Q where the device context is relevant.
+
 </Alert>
 
 ## Managing System Services with Systemd
@@ -465,7 +467,9 @@ This lists the TCP and UDP ports the board is listening on, along with the assoc
 Beyond monitoring, several system parameters influence how the VENTUNO Q performs under sustained load. The mechanisms described in this section are standard across Ubuntu systems, but the available options and their effects depend on the specific kernel and the Dragonwing™ QCS8275 platform.
 
 <Alert type="warning">
+
 The settings described in this section affect system behavior, power consumption, and thermal output. The available options, default values, and optimal configurations depend on the specific kernel and hardware of the VENTUNO Q. Verify each setting on your board, and test changes under your actual workload before applying them in a production deployment.
+
 </Alert>
 
 ### Identifying Bottlenecks First

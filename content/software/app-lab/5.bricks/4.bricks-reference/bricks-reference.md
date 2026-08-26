@@ -16,7 +16,11 @@ This document details the underlying execution model, thread lifecycle managemen
 
 Bricks follow one of two execution patterns inside the `arduino.app_utils` framework, depending on whether you implement them as plain functions or managed classes.
 
-<Alert type="warning">**Warning:** Because `App.run()` blocks the main thread, you must perform all your brick initialization, variable reading, and setup logic *before* calling `App.run()`.</Alert>
+<Alert type="warning">
+
+**Warning:** Because `App.run()` blocks the main thread, you must perform all your brick initialization, variable reading, and setup logic *before* calling `App.run()`.
+
+</Alert>
 
 ### Managed Bricks (Class-based)
 

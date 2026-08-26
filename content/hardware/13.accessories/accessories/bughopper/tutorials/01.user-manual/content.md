@@ -75,7 +75,11 @@ When you open the Bughopper antistatic bag, you will find the board and its corr
 
 ![The Bughopper and its antistatic bag](assets/unboxing.png)
 
-<Alert type="warning">The Bughopper is a companion board that works alongside a compatible Arduino board with a JCTL 2.54 mm connector. <strong>It does not operate as a standalone device</strong>.</Alert>
+<Alert type="warning">
+
+The Bughopper is a companion board that works alongside a compatible Arduino board with a JCTL 2.54 mm connector. <strong>It does not operate as a standalone device</strong>.
+
+</Alert>
 
 ### Connecting the Bughopper to the Target Board
 
@@ -85,11 +89,19 @@ Before connecting the Bughopper to your development machine, connect it to the t
 
 In the image above, the Bughopper is connected to the Arduino UNO Q, which is used here as an example of a compatible target board.
 
-<Alert type="danger"><strong>Safety note</strong>: Ensure that the JCTL 2.54 mm connector is properly aligned before applying pressure. Misalignment can damage the header pins on both boards.</Alert>
+<Alert type="danger">
+
+<strong>Safety note</strong>: Ensure that the JCTL 2.54 mm connector is properly aligned before applying pressure. Misalignment can damage the header pins on both boards.
+
+</Alert>
 
 Once connected, the Bughopper receives V<sub>TARGET</sub> from the target board through the JCTL connector. This voltage is used as the reference for the level translator and the V<sub>TARGET</sub> status LED. Refer to your target board's documentation for its specific V<sub>TARGET</sub> value. For example, on the UNO Q, V<sub>TARGET</sub> is +1.8 VDC.
 
-<Alert type="note">Beyond serial monitoring, the Bughopper's CBUS GPIO lines (CBUS0–CBUS3) can be used to remotely control the target board, for example, to trigger a USB recovery mode or reboot the system. This makes the Bughopper a useful tool for automated testing and continuous integration setups that require hands-free board control.</Alert>
+<Alert type="note">
+
+Beyond serial monitoring, the Bughopper's CBUS GPIO lines (CBUS0–CBUS3) can be used to remotely control the target board, for example, to trigger a USB recovery mode or reboot the system. This makes the Bughopper a useful tool for automated testing and continuous integration setups that require hands-free board control.
+
+</Alert>
 
 ### Connecting the Bughopper to Your Computer
 
@@ -101,7 +113,11 @@ The Bughopper will appear as a standard COM port on your development machine via
 
 ![The Bughopper showing as a standard COM port on your development machine](assets/connection-3.png)
 
-<Alert type="note"><strong>Note</strong>: The Bughopper provides a separate serial channel from the target board's main USB-C connection. You can monitor debug output through the Bughopper while your development tools communicate with the target board through its own USB-C or network connection, without any interference between the two channels.</Alert>
+<Alert type="note">
+
+<strong>Note</strong>: The Bughopper provides a separate serial channel from the target board's main USB-C connection. You can monitor debug output through the Bughopper while your development tools communicate with the target board through its own USB-C or network connection, without any interference between the two channels.
+
+</Alert>
 
 ### Installing FTDI Drivers
 

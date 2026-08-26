@@ -51,7 +51,11 @@ You can rename an App you've created directly within the editor.
 
 Renaming an App automatically updates its metadata in the underlying `app.yaml` file.
 
-<Alert type="success">**Tip:** You can also edit the name by clicking on it.</Alert>
+<Alert type="success">
+
+**Tip:** You can also edit the name by clicking on it.
+
+</Alert>
 
 ## Change an App Icon
 

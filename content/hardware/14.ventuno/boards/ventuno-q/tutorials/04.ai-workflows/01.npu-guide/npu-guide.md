@@ -77,7 +77,9 @@ For comparison, the QCS8275's other compute blocks on the VENTUNO Q run at:
 | GPU (Adreno™ 623) | Up to 877 MHz                                                                              |
 
 <Alert type="info" text="Note">
+
 TOPS is a peak theoretical figure for 8-bit integer multiply-accumulate throughput. Real-world inference speed also depends on model architecture, memory bandwidth, and how much of the graph can actually run on the NPU (see [Common Constraints](#common-constraints-when-targeting-the-npu) below).
+
 </Alert>
 
 ## Three Ways to Run a Model on the NPU
@@ -168,7 +170,9 @@ ls /usr/lib/libQnnHtp.so /usr/lib/libQnnTFLiteDelegate.so
 ```
 
 <Alert type="info" text="Note">
+
 Because `/usr/lib` is on the default library search path, the delegate can be loaded by name (`libQnnTFLiteDelegate.so`) without specifying a full path.
+
 </Alert>
 
 ### Creating a Python Virtual Environment

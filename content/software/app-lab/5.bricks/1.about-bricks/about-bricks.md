@@ -40,7 +40,11 @@ When you add a Brick to your App via the App Lab interface, the system automates
 4. **Communication:** Bricks communicate with your main Python application (`main.py`) via the Arduino Router.
 5. **Execution:** The `App.run()` call at the bottom of your script initializes the communication bridge and launches the background processes required by your Bricks.
 
-<Alert type="info">**Note:** Some containerized Bricks require an active internet connection during their first deployment so the board can download the necessary Docker images from the registry.</Alert>
+<Alert type="info">
+
+**Note:** Some containerized Bricks require an active internet connection during their first deployment so the board can download the necessary Docker images from the registry.
+
+</Alert>
 
 ## List of Bricks
 

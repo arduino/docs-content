@@ -54,4 +54,8 @@ This page contains release notes for Arduino App Lab. To access the software, go
 
 You can always find the latest release [here](https://github.com/arduino/arduino-app-lab/releases/latest).
 
-<Alert type="info">If you have already downloaded App Lab once, you should get the latest release automatically next time you open the software. You can also [download the latest release here](https://www.arduino.cc/en/software/#app-lab-section).</Alert>
+<Alert type="info">
+
+If you have already downloaded App Lab once, you should get the latest release automatically next time you open the software. You can also [download the latest release here](https://www.arduino.cc/en/software/#app-lab-section).
+
+</Alert>

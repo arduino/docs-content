@@ -41,14 +41,22 @@ In this guide we will cover:
 - USB camera connected to the USB-A port, reachable as `/dev/video0`
 - A display, keyboard, and mouse\* connected to the board (the script opens a live window on-screen)
 
-<Alert type="info">**Note:** To use the VENTUNO Q as an SBC, a mouse is not required (but makes it easier).</Alert>
+<Alert type="info">
+
+**Note:** To use the VENTUNO Q as an SBC, a mouse is not required (but makes it easier).
+
+</Alert>
 
 ### Software
 
 - `adb` (Android® Platform Tools) or `ssh` available on your host machine
 - Python 3.12 (pre-installed on the VENTUNO Q)
 
-<Alert type="warning">The VENTUNO Q must be powered with its power supply **before** connecting a USB-C® cable to a host computer, otherwise the board may crash. The recommended power supply is a minimum of 65 W in the range of 7–24 V.</Alert>
+<Alert type="warning">
+
+The VENTUNO Q must be powered with its power supply **before** connecting a USB-C® cable to a host computer, otherwise the board may crash. The recommended power supply is a minimum of 65 W in the range of 7–24 V.
+
+</Alert>
 
 ## Accessing the Board Shell
 
@@ -70,10 +78,16 @@ ssh arduino@<ip-address>
 
 If you don't know the board's IP address, connect a keyboard and monitor and run `hostname -I` on the board, or configure Wi-Fi® on the board first with `sudo nmtui`.
 
-<Alert type="info">For more alternatives to remotely access your board, please see the [Remote Access](https://docs.arduino.cc/tutorials/uno-q/remote-access/) tutorial.</Alert>
+<Alert type="info">
+
+For more alternatives to remotely access your board, please see the [Remote Access](https://docs.arduino.cc/tutorials/uno-q/remote-access/) tutorial.
+
+</Alert>
 
 <Alert type="warning">
+
 **Note:** Because this demo opens a live camera window on-screen, run it from the board's actual desktop session (a physical monitor and keyboard, or a VNC/X11 session into the board). `adb` and `ssh` are still the easiest way to install dependencies and confirm the script runs before switching to the desktop session to watch the camera feed.
+
 </Alert>
 
 ## Setting Up the Python Environment
@@ -145,7 +159,9 @@ cp face_det_lite-tflite-w8a8/face_det_lite.tflite ./face_det_lite-lightweight-fa
 After this step, your `/home/arduino/face-detection` directory should contain `face_det_lite-lightweight-face-detection-w8a8.tflite`.
 
 <Alert type="warning">
+
 **Important:** `qai-hub-models` depends on `ai-edge-litert>=2.0.2`, so installing it **upgrades** the `ai-edge-litert==1.3.0` you installed earlier. Version 2.x does not work with the QNN HTP delegate: the delegate rejects every convolution with `Failed to validate op ... Conv2d`, silently falls back to the CPU, and ends up *slower* than plain CPU execution because of the added delegation overhead. After fetching the model, put version 1.3.0 back:
+
 </Alert>
 
 ```bash
@@ -158,7 +174,11 @@ Confirm you are on the working version before running the demo:
 pip show ai-edge-litert | grep Version   # must report 1.3.0
 ```
 
-<Alert type="info">**Note:** `pip` prints a line beginning with `ERROR:` reporting that `qai-hub-models` requires a newer `ai-edge-litert`. The downgrade still succeeds, and `qai-hub-models fetch` keeps working afterwards, so this message can be ignored.</Alert>
+<Alert type="info">
+
+**Note:** `pip` prints a line beginning with `ERROR:` reporting that `qai-hub-models` requires a newer `ai-edge-litert`. The downgrade still succeeds, and `qai-hub-models fetch` keeps working afterwards, so this message can be ignored.
+
+</Alert>
 
 Alternatively, keep `qai-hub-models` in a separate virtual environment used only for downloading models, and leave the demo environment pinned to `ai-edge-litert==1.3.0`.
 

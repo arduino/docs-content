@@ -21,7 +21,9 @@ software:
 This tutorial walks through installing [Ollama](https://ollama.com) — a framework for running large language models locally — and running lightweight models on the Arduino® VENTUNO™ Q's Qualcomm® Dragonwing™ QCS8275 processor.
 
 <Alert type="note">
+
 Note: Please be advised that the Ollama installation + a model will take up a large amount of disk space, and requires a stable Internet connection.
+
 </Alert>
 
 ## Hardware & Software Needed
@@ -48,7 +50,11 @@ To connect via `ssh`, ensure the VENTUNO Q is connected to the same network as y
 ssh arduino@<ip-address>
 ```
 
-<Alert type="info">For more alternatives to remotely access your board, please see the [Remote Access](https://docs.arduino.cc/tutorials/uno-q/remote-access/) tutorial.</Alert>
+<Alert type="info">
+
+For more alternatives to remotely access your board, please see the [Remote Access](https://docs.arduino.cc/tutorials/uno-q/remote-access/) tutorial.
+
+</Alert>
 
 ## Installing Ollama
 
@@ -59,7 +65,11 @@ Ollama can be installed using `curl`:
 curl -fsSL https://ollama.com/install.sh | sh
 ```
 
-<Alert type="info">**Note:** The installer writes to `/usr/local` and registers a `systemd` service, so it asks for your password. Run it from an interactive terminal on the board — through a non-interactive session the prompt cannot be answered and the install stops at `sudo: a password is required`.</Alert>
+<Alert type="info">
+
+**Note:** The installer writes to `/usr/local` and registers a `systemd` service, so it asks for your password. Run it from an interactive terminal on the board — through a non-interactive session the prompt cannot be answered and the install stops at `sudo: a password is required`.
+
+</Alert>
 
 When it finishes, Ollama runs as a background service. Check it with:
 

@@ -85,7 +85,11 @@ None.
 
 Exposes a local MCU function to the Linux environment. The provided function executes in the high-priority background RPC thread. Functions registered with this method must remain short and thread-safe.
 
-<Alert type="danger">**Danger:** Do not use `Bridge.call()` or `Monitor.print()` inside functions registered with `Bridge.provide()`. Initiating a new communication while responding to one causes system deadlocks.</Alert>
+<Alert type="danger">
+
+**Danger:** Do not use `Bridge.call()` or `Monitor.print()` inside functions registered with `Bridge.provide()`. Initiating a new communication while responding to one causes system deadlocks.
+
+</Alert>
 
 #### Parameters
 
@@ -223,4 +227,8 @@ None.
 
 `int`: Returns the next byte of data.
 
-<Alert type="info">**Note:** The current C++ implementation of `Monitor.read()` returns `0` instead of `-1` when the queue is empty, which differs from the standard `Stream` class specification.</Alert>
+<Alert type="info">
+
+**Note:** The current C++ implementation of `Monitor.read()` returns `0` instead of `-1` when the queue is empty, which differs from the standard `Stream` class specification.
+
+</Alert>

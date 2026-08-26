@@ -34,7 +34,11 @@ Many Bricks (both Arduino and Custom) accept configuration variables, such as AP
 2. Configure any required settings.
 3. App Lab automatically saves these settings to your `app.yaml` file, and passes them to the Brick as environment variables when the App runs.
 
-<Alert type="note">**Important:** When you use the App Lab UI, the system manages the `app.yaml` file automatically. Manual changes can cause syntax errors that prevent the editor from opening your project.</Alert>
+<Alert type="note">
+
+**Important:** When you use the App Lab UI, the system manages the `app.yaml` file automatically. Manual changes can cause syntax errors that prevent the editor from opening your project.
+
+</Alert>
 
 ### Create a Blank Custom Brick
 
@@ -69,7 +73,11 @@ sensors = MySensorBrick()
 App.run()
 ```
 
-<Alert type="note">**Important:** The `App.run()` call typically blocks the main thread. Ensure all your setup logic and Brick initializations happen before this call.</Alert>
+<Alert type="note">
+
+**Important:** The `App.run()` call typically blocks the main thread. Ensure all your setup logic and Brick initializations happen before this call.
+
+</Alert>
 
 ### Unmanaged Bricks
 
@@ -90,4 +98,8 @@ Each Brick includes its own specific API and usage examples.
 - When you add a Brick, its documentation opens automatically in a new tab.
 - To view the documentation for an existing Brick, click on the Brick's name in the left sidebar.
 
-<Alert type="success">**Tip:** Use the **Usage examples** in the Brick documentation to find the exact code snippets needed for your implementation.</Alert>
+<Alert type="success">
+
+**Tip:** Use the **Usage examples** in the Brick documentation to find the exact code snippets needed for your implementation.
+
+</Alert>

@@ -125,7 +125,11 @@ Configure the CLI with your token:
 qai-hub configure --api_token YOUR_API_TOKEN
 ```
 
-<Alert type="info">API token access is only needed for compilation and profiling on AI Hub Workbench. You can browse the model library and download pre-compiled models from [aihub.qualcomm.com/models](https://aihub.qualcomm.com/models) without an account.</Alert>
+<Alert type="info">
+
+API token access is only needed for compilation and profiling on AI Hub Workbench. You can browse the model library and download pre-compiled models from [aihub.qualcomm.com/models](https://aihub.qualcomm.com/models) without an account.
+
+</Alert>
 
 ## Find a Compatible Model
 
@@ -223,7 +227,11 @@ pip install ai-edge-litert==1.3.0
 pip show ai-edge-litert | grep Version   # must report 1.3.0
 ```
 
-<Alert type="info">**Note:** `pip` prints a line beginning with `ERROR:` reporting that `qai-hub-models` requires a newer `ai-edge-litert`. The downgrade still succeeds, and `qai-hub-models fetch` keeps working afterwards, so this message can be ignored.</Alert>
+<Alert type="info">
+
+**Note:** `pip` prints a line beginning with `ERROR:` reporting that `qai-hub-models` requires a newer `ai-edge-litert`. The downgrade still succeeds, and `qai-hub-models fetch` keeps working afterwards, so this message can be ignored.
+
+</Alert>
 
 Then create `benchmark.py`, which loads the exported model and times it with and without the NPU delegate:
 
@@ -273,7 +281,11 @@ On a VENTUNO Q running Ubuntu 24.04, this produces:
 
 The measured NPU figure is close to the 10.8 ms that AI Hub estimated during export, which is a good sign that the graph is running the way the profiler predicted.
 
-<Alert type="info">**Note:** The first NPU run takes noticeably longer than later ones. The delegate has to prepare and finalize the graph for the Hexagon™ hardware before the first inference, which is why the script above performs a warm-up pass before timing.</Alert>
+<Alert type="info">
+
+**Note:** The first NPU run takes noticeably longer than later ones. The delegate has to prepare and finalize the graph for the Hexagon™ hardware before the first inference, which is why the script above performs a warm-up pass before timing.
+
+</Alert>
 
 ## Running a Model's Reference Demo
 

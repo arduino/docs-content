@@ -129,7 +129,11 @@ Use the limits below to size power sources, define rail tolerances and plan ther
 
 **Minimum** is the lowest continuous value required for regular operation. Brief dips below this can cause resets or brownouts on the SoM. **Typical** is the nominal design point. **Maximum** must not be exceeded. For DC inputs, use short and adequately rated cables to minimize voltage drop under load.
 
-<Alert type="info">**Note:** The USB-C® PD controller supports multiple voltage profiles (9 V, 15 V, 20 V) when connected to a PD-capable power supply.</Alert>
+<Alert type="info">
+
+**Note:** The USB-C® PD controller supports multiple voltage profiles (9 V, 15 V, 20 V) when connected to a PD-capable power supply.
+
+</Alert>
 
 ### On-Board Voltage Rails
 
@@ -168,7 +172,11 @@ Under worst-case conditions, with the MPU, NPU and GPU all running simultaneousl
 
 The board total, including the Ethernet PHY, audio codec, USB hub and other on board ICs, can draw more than the SoM figure alone, which is why the board-level worst case figure used for power budgeting is approximately 25 W or more.
 
-<Alert type="warning">**Warning:** The `+3V3` rail feeds the SoM directly. Any significant droop on `+3V3` under load, for example due to an undersized supply or long cable resistance, will affect the SoM's internal power management and can cause instability or an unexpected reset. Use a supply and cabling sized to hold `+3V3` within the tolerances in the [Recommended Operating Conditions](#recommended-operating-conditions) table under your expected peak load.</Alert>
+<Alert type="warning">
+
+**Warning:** The `+3V3` rail feeds the SoM directly. Any significant droop on `+3V3` under load, for example due to an undersized supply or long cable resistance, will affect the SoM's internal power management and can cause instability or an unexpected reset. Use a supply and cabling sized to hold `+3V3` within the tolerances in the [Recommended Operating Conditions](#recommended-operating-conditions) table under your expected peak load.
+
+</Alert>
 
 ## Key Power Components
 
@@ -250,7 +258,11 @@ The Smart Mirror App scenario represents the most demanding real-world workload 
 
 Peak draw reached **33.0 W** at 12 V, **36.6 W** at 24 V and **34.2 W** at 20 V USB-C PD. The Edge AI Chatbot scenario shows characteristically transient consumption, drawing peak power during LLM inference before settling back during idle. No average is reported during boot since boot is a transient, non-steady-state event.
 
-<Alert type="info">**Note:** These figures reflect board-level input power measured at the supply. Differences between input voltages reflect real measurement variation and regulator efficiency, not a difference in what the board is doing.</Alert>
+<Alert type="info">
+
+**Note:** These figures reflect board-level input power measured at the supply. Differences between input voltages reflect real measurement variation and regulator efficiency, not a difference in what the board is doing.
+
+</Alert>
 
 The table below shows the maximum power budget available at the barrel jack's rated 5 A limit, at three representative input voltages.
 
@@ -278,13 +290,21 @@ This data shows NPU power scaling approximately linearly with the number of para
 
 A follow-up 5-minute sustained peak run combined this NPU x4 load with a CPU stress test (`stress-ng`, 8 workers) running simultaneously. The board completed the full run with no instability and negligible voltage sag (26 mV), showing stable operation under this combined CPU and NPU load, within the supply's rated capacity.
 
-<Alert type="info">**Note:** These NPU figures isolate compute load only, with no camera, display or USB audio active. They are lower than the Smart Mirror figures above, which combine compute load with a USB camera, USB audio and an HDMI display simultaneously. Both datasets describe different workloads, use whichever is closer to your intended application when budgeting a power supply.</Alert>
+<Alert type="info">
+
+**Note:** These NPU figures isolate compute load only, with no camera, display or USB audio active. They are lower than the Smart Mirror figures above, which combine compute load with a USB camera, USB audio and an HDMI display simultaneously. Both datasets describe different workloads, use whichever is closer to your intended application when budgeting a power supply.
+
+</Alert>
 
 ### USB-A Power Draw
 
 Each USB Type-A port delivers up to *8.55 W*. With both ports at maximum simultaneous load, the USB-A subsystem can draw up to approximately *17 W* from the `+5V` rail.
 
-<Alert type="warning">**Warning:** With the board at full power (~25 W) and both USB-A ports at maximum load (~17 W), total draw can approach 42 W. At 7 V from the barrel jack, this exceeds the connector's 35 W budget and risks damaging the connector. Use 12 V or 24 V input when running the board at full SoM load with active USB-A peripherals.</Alert>
+<Alert type="warning">
+
+**Warning:** With the board at full power (~25 W) and both USB-A ports at maximum load (~17 W), total draw can approach 42 W. At 7 V from the barrel jack, this exceeds the connector's 35 W budget and risks damaging the connector. Use 12 V or 24 V input when running the board at full SoM load with active USB-A peripherals.
+
+</Alert>
 
 ### Limited Rails
 
@@ -323,7 +343,11 @@ The VENTUNO Q separates signal pins by voltage domain across its headers. The ac
 | UNO Shield headers          | 3.3 V                                            | Standard Arduino UNO Shield logic level                                                                                                               |
 | Qwiic                       | 3.3 V                                            | I2C signals from MCU. 3.3 V only, not compatible with 5 V I2C devices                                                                                 |
 
-<Alert type="danger">**Danger:** Applying incorrect voltages to active pins on JCTL, JMEDIA or JMISC can permanently damage the QCS8275 SoM. Pin 9 on JCTL exposes the SoM's internal 1.8 V rail directly. Never apply external voltage to it, and never back-feed power into any `+3V3 OUT`, `+5V OUT`, or `SOM_VREG_MDPX3_1P8` pin from an attached shield, HAT or carrier.</Alert>
+<Alert type="danger">
+
+**Danger:** Applying incorrect voltages to active pins on JCTL, JMEDIA or JMISC can permanently damage the QCS8275 SoM. Pin 9 on JCTL exposes the SoM's internal 1.8 V rail directly. Never apply external voltage to it, and never back-feed power into any `+3V3 OUT`, `+5V OUT`, or `SOM_VREG_MDPX3_1P8` pin from an attached shield, HAT or carrier.
+
+</Alert>
 
 ## Header Rails
 
@@ -363,7 +387,11 @@ Once the main power path is enabled, the MPQ4371GVE buck converters start with a
 
 Dedicated MP5077GG-Z load switches, mostly under SOM GPIO control, gate the M.2 NVMe slot, `+3V3_LIMITED`, `+5V_LIMITED` and other peripheral rails after boot.
 
-<Alert type="warning">**Warning:** Avoid connecting or disconnecting DC sources while the board is under heavy load. Rapid source switching during the power-OR transition can cause brief undervoltage events that may reset the SoM.</Alert>
+<Alert type="warning">
+
+**Warning:** Avoid connecting or disconnecting DC sources while the board is under heavy load. Rapid source switching during the power-OR transition can cause brief undervoltage events that may reset the SoM.
+
+</Alert>
 
 ## Conclusion
 

@@ -42,7 +42,9 @@ Powering the board can be done through the following options:
 - An external [USB-C® with Power Delivery](https://store.arduino.cc/products/usb-c-power-supply-65w) support (9-20 VDC, 3 A)
 
 <Alert type="warning" text="Warning">
+
 Power over USB requires **at least** 9 V (Power Delivery negotiation). Powering with e.g. 5 V only (e.g. via computer USB port) is not accepted and will result in a USB fault (blinking red LED next to the USB). This error is not damaging to the board and a power-cycle to reset it will remove the LED blinking sequence.
+
 </Alert>
 
 ## Connect Display, Mouse & Keyboard

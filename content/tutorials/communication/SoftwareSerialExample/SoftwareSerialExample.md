@@ -37,7 +37,11 @@ The `SoftwareSerial` library and its example come pre-installed with your board'
 
 The example sketch will open in a new editor window.
 
-<Alert type="note"><strong>Tip</strong>: If you do not see `SoftwareSerial` listed under **File > Examples**, make sure that an Arduino board is currently selected. The IDE only shows the examples available for the board you have chosen.</Alert>
+<Alert type="note">
+
+<strong>Tip</strong>: If you do not see `SoftwareSerial` listed under **File > Examples**, make sure that an Arduino board is currently selected. The IDE only shows the examples available for the board you have chosen.
+
+</Alert>
 
 ## Code
 

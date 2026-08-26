@@ -45,7 +45,9 @@ The Dragonwing™ QCS8275 features:
 \*Other power supplies can be used, within the range of 7-24 V and ≥ 3 A. See the [Power Overview Section](#power-overview) for more information.
 
 <Alert type="note" text="Note">
+
 The Arduino USB-C Power Supply (65W) includes a small adapter that converts USB-C® into a DC barrel jack. Use this adapter to power the board via the barrel jack connector if needed.
+
 </Alert>
 
 Additionally, to use the board as a [Single Board Computer (SBC)](#single-board-computer-sbc-mode), you will need the following:
@@ -57,7 +59,9 @@ Additionally, to use the board as a [Single Board Computer (SBC)](#single-board-
 - USB dongle (optional)\*
 
 <Alert type="note">
+
 \*Mouse, keyboard and display can be connected to the USB-A and HDMI connector. For more peripherals, use a USB-C® dongle connected to the USB-C® connector.
+
 </Alert>
 
 ### Software Requirements
@@ -120,7 +124,9 @@ VENTUNO Q has multiple options for powering the board:
 - Screw terminals (7-24 V max 10 A)
 
 <Alert type="warning" text="Warning">
+
 <sup>1</sup> Power over USB requires **at least** 9 V (Power Delivery negotiation). Powering with e.g. 5 V only (e.g. via computer USB port) is not accepted and will result in a USB fault (blinking red LED next to the USB). This error is not damaging to the board and a power-cycle to reset it will remove the LED blinking sequence.
+
 </Alert>
 
 It is recommended to use a 12/24 V power supply at **maximum 5 A**. Drawing more than 5 A will damage the DC jack.
@@ -133,7 +139,9 @@ The maximum ratings (using a 12/24 V power supply) for the DC jack are:
 ### Power Safety Considerations
 
 <Alert type="warning" text="Warning">
+
 Please read these statements carefully as it is possible to damage the board if powered incorrectly.
+
 </Alert>
 
 Please note that when powering the board with lower voltages, the amount of power the board can draw is limited.
@@ -152,7 +160,11 @@ The `+3V3_LIMITED` and `+5V_LIMITED` nets (used for shields, hats, Qwiic connect
 - 3.3 V × 2.8 A = **~9.5 W**
 - 5 V × 2.8 A = **14 W**
 
-<Alert type="info">Note that the [carrier connectors](#uno-carrier-headers--connectors) and [JOMEGA](#jomega-expansion-header) are not part of the limited net and can draw more power.</Alert>
+<Alert type="info">
+
+Note that the [carrier connectors](#uno-carrier-headers--connectors) and [JOMEGA](#jomega-expansion-header) are not part of the limited net and can draw more power.
+
+</Alert>
 
 #### VIN Pin Ratings
 
@@ -196,7 +208,11 @@ The VENTUNO Q features a new larger form factor (160 mm x 100 mm), but is equipp
 
 ### Board Clearance
 
-<Alert type="warning">Always mount the VENTUNO Q on the included standoffs. Without them, exposed solder joints on the underside can short-circuit against a conductive surface, damaging the board.</Alert>
+<Alert type="warning">
+
+Always mount the VENTUNO Q on the included standoffs. Without them, exposed solder joints on the underside can short-circuit against a conductive surface, damaging the board.
+
+</Alert>
 
 Four spacers and nuts are included in the packaging for this purpose: place a spacer under each of the board's four corners, then secure it with a nut through the mounting hole on top.
 
@@ -231,12 +247,18 @@ Powering the board can be done through the following options:
 \*Only available in **Network Mode** or **Single Board Computer** mode.
 
 <Alert type="warning">
+
 Power over USB requires **at least** 9 V. Powering with e.g. 5 V only (e.g. via computer USB port) is not accepted and will result in a USB fault (blinking red LED next to the USB). This error is not damaging to the board and a power-cycle will remove the LED blinking sequence.
+
 </Alert>
 
 ### PC Mode (USB-C®)
 
-<Alert type="info">The complete instructions for the first setup is documented in the [VENTUNO Q - First Setup](/tutorials/ventuno-q/first-setup/) tutorial.</Alert>
+<Alert type="info">
+
+The complete instructions for the first setup is documented in the [VENTUNO Q - First Setup](/tutorials/ventuno-q/first-setup/) tutorial.
+
+</Alert>
 
 The most common way to interact with your board is by using the **PC mode**, where you program the board from your computer, over either USB-C® or local network.
 
@@ -266,7 +288,11 @@ Once password is entered, you will be able to program your board using the Ardui
 
 ### Single Board Computer (SBC) Mode
 
-<Alert type="info">The complete instructions for setting up your board as Single Board Computer is documented in the [VENTUNO Q - Single Board Computer](/tutorials/ventuno-q/sbc-mode-setup/) tutorial.</Alert>
+<Alert type="info">
+
+The complete instructions for setting up your board as Single Board Computer is documented in the [VENTUNO Q - Single Board Computer](/tutorials/ventuno-q/sbc-mode-setup/) tutorial.
+
+</Alert>
 
 The VENTUNO Q runs a full Ubuntu operating system, complete with a graphical user interface. With other words: it can be setup as a regular computer, with a mouse, keyboard & display.
 
@@ -306,7 +332,11 @@ Apps can be configured to launch when VENTUNO Q is powered on. This is very usef
 
 Once configured, a **DEFAULT** badge will appear next to your App's name, indicating it will run automatically upon boot.
 
-<Alert type="info">Note that built-in examples cannot run on start up, you will need to click the "Copy and Edit App" button to use this feature.</Alert>
+<Alert type="info">
+
+Note that built-in examples cannot run on start up, you will need to click the "Copy and Edit App" button to use this feature.
+
+</Alert>
 
 #### Advanced: Using the CLI
 
@@ -322,7 +352,11 @@ Another alternative to use the board is by accessing the board's terminal via `s
 
 Note that to access via `ssh`, you will need to connect your board to your Wi-Fi® network, which can be done through the Arduino App Lab, or by accessing the board first via `adb`.
 
-<Alert type="info">It is recommended to first complete the Arduino App Lab first configuration before connecting via ADB or SSH, as you will be able to set a password for your board, as well as connect to a Wi-Fi® network.</Alert>
+<Alert type="info">
+
+It is recommended to first complete the Arduino App Lab first configuration before connecting via ADB or SSH, as you will be able to set a password for your board, as well as connect to a Wi-Fi® network.
+
+</Alert>
 
 ### Access via ADB
 
@@ -395,7 +429,11 @@ To see all the installed Apps (as well as user Apps), run the `arduino-app-cli a
 
 The Arduino VENTUNO Q is compatible with the standard Arduino IDE, allowing you to program the microcontroller side (STM32) of the board using the familiar Arduino language and ecosystem.
 
-<Alert type="info">To learn more about flashing the microcontroller using Arduino IDE, visit [this tutorial](/tutorials/ventuno-q/arduino-ide/).</Alert>
+<Alert type="info">
+
+To learn more about flashing the microcontroller using Arduino IDE, visit [this tutorial](/tutorials/ventuno-q/arduino-ide/).
+
+</Alert>
 
 ## Onboard User Interface
 
@@ -418,7 +456,11 @@ The LED Matrix is programmed on the MCU side, and can be used to display animati
 
 The Matrix is controlled through the `Arduino_LED_Matrix`, with a variety of methods for control. This library is built-in to the core ([ArduinoCore-zephyr](https://github.com/arduino/ArduinoCore-zephyr)) comes pre-installed on the STM32F5H5 MCU.
 
-<Alert type="info">To learn more about controlling the LED Matrix, visit the [VENTUNO Q LED Matrix Guide](/tutorials/ventuno-q/led-matrix/).</Alert>
+<Alert type="info">
+
+To learn more about controlling the LED Matrix, visit the [VENTUNO Q LED Matrix Guide](/tutorials/ventuno-q/led-matrix/).
+
+</Alert>
 
 ### RGB LEDs
 
@@ -465,7 +507,11 @@ To control them in the code, use the table below for reference:
 | LED 3 | `LED3_R` | `LED3_G` | `LED3_B` |
 | LED 4 | `LED4_R` | `LED4_G` | `LED4_B` |
 
-<Alert type="info">The RGB LEDs are active low, this means they turn ON with logic '0'.</Alert>
+<Alert type="info">
+
+The RGB LEDs are active low, this means they turn ON with logic '0'.
+
+</Alert>
 
 ### Power Button
 
@@ -475,7 +521,11 @@ The VENTUNO Q features a **power button** that can be used to reboot the board.
 
 - **Long press**: the board is shut down completely when the button is pressed for **10+** seconds. It will remain off until power is disconnected and reconnected.
 
-<Alert type="info">You do not need to press the power button for the board to power up, it boots automatically after being powered.</Alert>
+<Alert type="info">
+
+You do not need to press the power button for the board to power up, it boots automatically after being powered.
+
+</Alert>
 
 ### User Button
 
@@ -504,7 +554,11 @@ You can also write a Python script to access the user button.
 5. Save the script (CTRL+X while in edit mode).
 6. Run it using `python3 user-button.py`
 
-<Alert type="info">You can also run this script with a `--verbose` flag, e.g. `python3 user-button.py --verbose` to display more data regarding the button click.</Alert>
+<Alert type="info">
+
+You can also run this script with a `--verbose` flag, e.g. `python3 user-button.py --verbose` to display more data regarding the button click.
+
+</Alert>
 
 **user-button.py**
 
@@ -602,7 +656,11 @@ There are 22 digital pins from the MCU available through the UNO header (D0-D21)
 |   PH12   |       D20       |     GPIO / I2C SDA      |
 |   PH11   |       D21       |     GPIO / I2C SCL      |
 
-<Alert type="info">Notice that pins D14 to D19 also have analog capabilities.</Alert>
+<Alert type="info">
+
+Notice that pins D14 to D19 also have analog capabilities.
+
+</Alert>
 
 The digital pins of the VENTUNO Q can be used as inputs or outputs through the built-in functions of the Arduino programming language.
 
@@ -633,13 +691,21 @@ digitalWrite(pin, HIGH);
 digitalWrite(pin, LOW);
 ```
 
-<Alert type="info">To learn more, visit the [VENTUNO Q Microcontroller Examples - Digital I/O](/tutorials/ventuno-q/mcu-examples/#digital-pins).</Alert>
+<Alert type="info">
+
+To learn more, visit the [VENTUNO Q Microcontroller Examples - Digital I/O](/tutorials/ventuno-q/mcu-examples/#digital-pins).
+
+</Alert>
 
 ### Analog Pins
 
 The VENTUNO Q features 6 analog pins in the **JANALOG** connector, with 6x ADC channels, 2x DAC channels and OPAMP.
 
-<Alert type="info">Pin A0-A5 can be used as GPIOs, but not simultaneously as the other functionalities.</Alert>
+<Alert type="info">
+
+Pin A0-A5 can be used as GPIOs, but not simultaneously as the other functionalities.
+
+</Alert>
 
 #### Analog to Digital Converter (ADC)
 
@@ -673,7 +739,11 @@ The default ADC **voltage reference** is 3.3V and can be changed by software usi
 |               2.5 V               | AR_INTERNAL2V5  | Internal |
 |             2 V ~ VDD             |   AR_EXTERNAL   | External |
 
-<Alert type="info">An external voltage reference can be provided through the AREF pin when `AR_EXTERNAL` reference is used.</Alert>
+<Alert type="info">
+
+An external voltage reference can be provided through the AREF pin when `AR_EXTERNAL` reference is used.
+
+</Alert>
 
 To set a different analog reference from the default one, see the following example:
 
@@ -681,7 +751,11 @@ To set a different analog reference from the default one, see the following exam
 analogReference(AR_INTERNAL2V5);
 ```
 
-<Alert type="info">To learn more, visit the [VENTUNO Q Microcontroller Examples - ADC](/tutorials/ventuno-q/mcu-examples/#analog-to-digital-converter-adc).</Alert>
+<Alert type="info">
+
+To learn more, visit the [VENTUNO Q Microcontroller Examples - ADC](/tutorials/ventuno-q/mcu-examples/#analog-to-digital-converter-adc).
+
+</Alert>
 
 #### Digital to Analog Converter (DAC)
 
@@ -701,9 +775,17 @@ The DAC output resolution can be configured from 8 to 12 bits using the `analogW
 analogWriteResolution(12);  // enter the desired resolution in bits (8, 10, 12)
 ```
 
-<Alert type="warning">**Warning:** The ADC and DAC cannot be used at the same time.</Alert>
+<Alert type="warning">
 
-<Alert type="info">To learn more, visit the [VENTUNO Q Microcontroller Examples - DAC](/tutorials/ventuno-q/mcu-examples/#digital-to-analog-converter-dac).</Alert>
+**Warning:** The ADC and DAC cannot be used at the same time.
+
+</Alert>
+
+<Alert type="info">
+
+To learn more, visit the [VENTUNO Q Microcontroller Examples - DAC](/tutorials/ventuno-q/mcu-examples/#digital-to-analog-converter-dac).
+
+</Alert>
 
 ### PWM Pins
 
@@ -731,7 +813,11 @@ By default, the output resolution is **8 bits**, so the output value should be b
 analogWriteResolution(10);
 ```
 
-<Alert type="info">To learn more, visit the [VENTUNO Q Microcontroller Examples - PWM](/tutorials/ventuno-q/mcu-examples/#pwm-example).</Alert>
+<Alert type="info">
+
+To learn more, visit the [VENTUNO Q Microcontroller Examples - PWM](/tutorials/ventuno-q/mcu-examples/#pwm-example).
+
+</Alert>
 
 ## Connectors & Expansion Ports
 
@@ -750,7 +836,11 @@ Below is a table with the main features of the USB-C connector that expands the 
 | USB Standard       | USB 3.1 Gen 1 (5 Gb/s)           |
 | Display over USB-C | DisplayPort                      |
 
-<Alert type="info">The board can also power USB-C® peripherals, meaning it supports a Dual Role Power (DRP) specification. The board can both receive and provide power via its USB-C® port.</Alert>
+<Alert type="info">
+
+The board can also power USB-C® peripherals, meaning it supports a Dual Role Power (DRP) specification. The board can both receive and provide power via its USB-C® port.
+
+</Alert>
 
 By using a USB-C dongle (adapter/hub) you can also leverage the following features:
 
@@ -803,7 +893,11 @@ The Qwiic system’s key advantages include:
 - **Built-in pull-up resistors**: No external resistors needed
 - **Standard pinout**: Compatible across all Qwiic ecosystem devices
 
-<Alert type="info">The Qwiic connector on the VENTUNO Q is connected to the secondary I2C bus (I2C4), which uses the `Wire1` object rather than the `Wire` object. Please note that the Qwiic connector is 3.3 V only.</Alert>
+<Alert type="info">
+
+The Qwiic connector on the VENTUNO Q is connected to the secondary I2C bus (I2C4), which uses the `Wire1` object rather than the `Wire` object. Please note that the Qwiic connector is 3.3 V only.
+
+</Alert>
 
 The Qwiic connector allows you to interface our Modulino nodes for developing soldering-free projects.
 
@@ -871,7 +965,11 @@ The connector exposes four PCIe Gen 4 differential TX/RX lane pairs, a reference
 | SMBus       | Yes (device management) |
 | Power rails | 3.3 V, 1.8 V            |
 
-<Alert type="warning">**Warning:** Make sure that the VENTUNO Q is powered OFF when connecting any external devices.</Alert>
+<Alert type="warning">
+
+**Warning:** Make sure that the VENTUNO Q is powered OFF when connecting any external devices.
+
+</Alert>
 
 #### Compatible Devices
 
@@ -882,7 +980,9 @@ The M.2 M-key slot is compatible with **NVMe SSDs** in the **2230** form factor 
 | 2230        | 22 mm × 30 mm | Compact NVMe SSDs |
 
 <Alert type="note">
+
 The M-key slot supports only **PCIe (NVMe)** drives. SATA-based M.2 drives are **not** compatible.
+
 </Alert>
 
 ### RPi 40-Pin Header
@@ -939,6 +1039,7 @@ The pin header features 28 connected GPIOs, listed below:
 | 40      | MD_GPIO_119               | I2S1_DATA1 |
 
 <Alert type="note">
+
 Note that the following pins are not available on JHAT while Bluetooth® is in use, neither as UART nor as GPIO:
 
 - **Pin 8** (UART TX, `MD_GPIO_86`)
@@ -947,13 +1048,18 @@ Note that the following pins are not available on JHAT while Bluetooth® is in u
 - **Pin 36** (UART CTS, `MD_GPIO_84`)
 
 These four pins are level-translated to 3.3 V for the JHAT connector, but on the 1.8 V side (before translation) they are shared with the UART used between the MPU and the onboard Wi-Fi®/Bluetooth® module, including flow control. Whenever Bluetooth® is active, this UART link claims all four pins, making them unavailable for external HAT use.
+
 </Alert>
 
 ### MIPI / CSI Camera
 
 ![VENTUNO Q MIPI / CSI connector](assets/ventuno-camera-connector.png)
 
-<Alert type="info">**Note:** Currently, only the IMX577 camera module is supported.</Alert>
+<Alert type="info">
+
+**Note:** Currently, only the IMX577 camera module is supported.
+
+</Alert>
 
 The VENTUNO Q features **three dedicated MIPI CSI-2 camera connectors** (CAMERA0, CAMERA1, CAMERA2), each driven by the Qualcomm Spectra 692 ISP inside the Dragonwing™ QCS8275. This allows simultaneous connection of up to three independent cameras for multi-camera edge AI applications such as stereo vision, 360° capture, or multi-angle object detection.
 
@@ -1014,7 +1120,9 @@ gst-launch-1.0 -e qtiqmmfsrc camera=0 name=camsrc video_0::type=preview ! video/
 To set up a simple live stream of the camera, you can use the following Python script.
 
 <Alert type="note" text="note">
+
 Note that you need a display via HDMI connected to the VENTUNO Q to use this example.
+
 </Alert>
 
 ```python
@@ -1131,7 +1239,11 @@ sudo ip link set can0 type can bitrate 500000 dbitrate 2000000 fd on # CAN-FD (F
 sudo ip li set can0 up
 ```
 
-<Alert type="info">**Note:** The CAN physical bitrate limit is 5 Mbps.</Alert>
+<Alert type="info">
+
+**Note:** The CAN physical bitrate limit is 5 Mbps.
+
+</Alert>
 
 To send a message to the bus, use the following format:
 
@@ -1349,7 +1461,9 @@ This connector is also used to extend functionalities of the board, and is also 
 |  Pin 60   | NC              |                 |
 
 <Alert type="note">
+
 Pin 59 (SOC_VCOIN / MCU_VBAT) is an RTC backup battery input, accepting a battery of up to 3.3 V. It only powers the real-time clocks on the MPU and MCU so they keep time while the board is unpowered — by "backup" we don't mean backup power for the rest of the board. Expected current draw is very low.
+
 </Alert>
 
 ### JOMEGA Expansion Header
@@ -1483,7 +1597,11 @@ The `Bridge` library provides a communication layer built on top of the `Arduino
 - **Linux side (Dragonwing™ QCS8275)**: Runs higher-level services and can remotely invoke MCU functions.
 - **MCU side (STM32, Zephyr RTOS)**: Handles time-critical tasks and exposes functions to the Linux processor via RPC.
 
-<Alert type="info">To read more about the Bridge library, visit the [Bridge](/software/app-lab/bridge/get-started-with-bridge/) article.</Alert>
+<Alert type="info">
+
+To read more about the Bridge library, visit the [Bridge](/software/app-lab/bridge/get-started-with-bridge/) article.
+
+</Alert>
 
 ### SPI
 
@@ -1523,11 +1641,19 @@ void setup() {
 }
 ```
 
-<Alert type="info">To learn more, visit the [VENTUNO Q Microcontroller Examples - SPI](/tutorials/ventuno-q/mcu-examples/#spi).</Alert>
+<Alert type="info">
+
+To learn more, visit the [VENTUNO Q Microcontroller Examples - SPI](/tutorials/ventuno-q/mcu-examples/#spi).
+
+</Alert>
 
 ### I2C
 
-<Alert type="info">See the section about [Qwiic](#qwiic) to understand how to connect Modulino nodes and other devices directly via the board's Qwiic connector.</Alert>
+<Alert type="info">
+
+See the section about [Qwiic](#qwiic) to understand how to connect Modulino nodes and other devices directly via the board's Qwiic connector.
+
+</Alert>
 
 The VENTUNO Q supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. The pins used in the VENTUNO Q for the I2C communication protocol are the following:
 
@@ -1553,7 +1679,11 @@ Wire.begin(); // I2C in UNO-style headers (D20, D21)
 Wire1.begin(); // I2C in Qwiic connector
 ```
 
-<Alert type="info">To learn more, visit the [VENTUNO Q Microcontroller Examples - I2C](/tutorials/ventuno-q/mcu-examples/#i2c).</Alert>
+<Alert type="info">
+
+To learn more, visit the [VENTUNO Q Microcontroller Examples - I2C](/tutorials/ventuno-q/mcu-examples/#i2c).
+
+</Alert>
 
 ### UART
 
@@ -1566,7 +1696,11 @@ The pins used in the VENTUNO Q for the UART communication protocol are the follo
 
 Please, refer to the [board pinout section](#pinout) of the user manual to locate them on the board.
 
-<Alert type="info">To communicate over the hardware serial pins on the JDIGITAL connector, the `Serial1` object must be used. Otherwise, `Serial` will communicate with your USB serial terminal.</Alert>
+<Alert type="info">
+
+To communicate over the hardware serial pins on the JDIGITAL connector, the `Serial1` object must be used. Otherwise, `Serial` will communicate with your USB serial terminal.
+
+</Alert>
 
 To begin with UART communication, you will need to configure it first. In the `setup()` function, set the baud rate (bits per second):
 
@@ -1593,7 +1727,11 @@ Serial1.print("Hello VENTUNO Q");
 Serial1.println("Hello VENTUNO Q");
 ```
 
-<Alert type="info">To learn more, visit the [VENTUNO Q Microcontroller Examples - UART](/tutorials/ventuno-q/mcu-examples/#uart).</Alert>
+<Alert type="info">
+
+To learn more, visit the [VENTUNO Q Microcontroller Examples - UART](/tutorials/ventuno-q/mcu-examples/#uart).
+
+</Alert>
 
 ## Hardware Debug UART Interface
 
@@ -1601,7 +1739,11 @@ The VENTUNO Q provides a dedicated low-level UART interface for debugging and sy
 
 To access the logs, we recommend the [Arduino® Bughopper](https://store.arduino.cc/products/bughopper), as it is designed to be used with this board.\*
 
-<Alert type="warning">**Warning:** Using a different serial device than the Bughopper may cause the VENTUNO Q to boot incorrectly. This is due to the fact that the Dragonwing™ QCS8275 processor can accidentally be backpowered with the TX/RX pins. The Bughopper is designed to prevent this from happening, as the TX/RX channels are powered from the board itself (not from the serial adapter).</Alert>
+<Alert type="warning">
+
+**Warning:** Using a different serial device than the Bughopper may cause the VENTUNO Q to boot incorrectly. This is due to the fact that the Dragonwing™ QCS8275 processor can accidentally be backpowered with the TX/RX pins. The Bughopper is designed to prevent this from happening, as the TX/RX channels are powered from the board itself (not from the serial adapter).
+
+</Alert>
 
 ![VENTUNO Q + Bughopper placement](assets/ventuno-bughopper.png)
 
@@ -1649,7 +1791,11 @@ sudo nmcli d wifi connect <SSID> password <YOUR_PASSWORD>
 sudo nmcli d disconnect wlan0
 ```
 
-<Alert type="info">`wlan0` is the typical name of the Wi-Fi interface, you can verify yours running `nmcli device` in the terminal.</Alert>
+<Alert type="info">
+
+`wlan0` is the typical name of the Wi-Fi interface, you can verify yours running `nmcli device` in the terminal.
+
+</Alert>
 
 #### WPA2-Enterprise Connections (Nmcli)
 

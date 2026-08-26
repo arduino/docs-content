@@ -40,7 +40,11 @@ This tutorial provides a step-by-step guide to installing OpenClaw on your Ardui
 
 To access the shell (terminal) on your VENTUNO Q, you can use `adb` or `ssh`.
 
-<Alert type="note">**Important:** The VENTUNO Q board must be powered with a power supply connected to the power jack before connecting a USB-C® cable to your computer, otherwise the board may crash. The recommended power supply is a minimum of 65 W in the range of 7-24 V.</Alert>
+<Alert type="note">
+
+**Important:** The VENTUNO Q board must be powered with a power supply connected to the power jack before connecting a USB-C® cable to your computer, otherwise the board may crash. The recommended power supply is a minimum of 65 W in the range of 7-24 V.
+
+</Alert>
 
 To connect via `adb`, connect a USB-C® cable between your VENTUNO Q and your computer, then run:
 
@@ -56,7 +60,11 @@ To connect via `ssh`, ensure your VENTUNO Q is connected to the same Wi-Fi® net
 ssh arduino@<ip-address>
 ```
 
-<Alert type="info">For more alternatives to remotely access your board, please see the [Remote Access](https://docs.arduino.cc/tutorials/uno-q/remote-access/) tutorial.</Alert>
+<Alert type="info">
+
+For more alternatives to remotely access your board, please see the [Remote Access](https://docs.arduino.cc/tutorials/uno-q/remote-access/) tutorial.
+
+</Alert>
 
 ## Installing OpenClaw
 
@@ -71,7 +79,11 @@ OpenClaw is distributed as an `npm` package, so the installer needs a recent Nod
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
 
-    <Alert type="info">**Note:** Run this from an interactive terminal on the board. The installer prompts for your password to install Node.js, and it cannot read that prompt if you pipe the command through a non-interactive session.</Alert>
+    <Alert type="info">
+
+    **Note:** Run this from an interactive terminal on the board. The installer prompts for your password to install Node.js, and it cannot read that prompt if you pipe the command through a non-interactive session.
+
+    </Alert>
 
     The installer places OpenClaw in `~/.npm-global/bin` and adds that directory to your `PATH` in `~/.bashrc`.
 

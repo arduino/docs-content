@@ -43,13 +43,21 @@ The diagram above shows the base VENTUNO Q setup used throughout this tutorial, 
 
 The VENTUNO Q has two USB-A ports, which the keyboard and mouse already occupy in this base setup. Since the RealSense also needs a USB port, a USB-C hub connected to the board's USB-C port is recommended to provide an additional USB-A port, so you do not need to disconnect the keyboard or mouse each time you connect the camera.
 
-<Alert type="info">In this tutorial, the display connects through the board's native HDMI port, keeping the USB-C port free for the hub.</Alert>
+<Alert type="info">
+
+In this tutorial, the display connects through the board's native HDMI port, keeping the USB-C port free for the hub.
+
+</Alert>
 
 ### Software Requirements
 
 - ROS 2 Jazzy installed on the VENTUNO Q, and a colcon workspace at `~/ros2_ws` set up, see [Getting Started with ROS 2 on VENTUNO Q](/tutorials/ventuno-q/getting-started-ros2).
 
-<Alert type="warning">**Warning:** Make sure your VENTUNO Q has the latest system image installed and that ROS 2 Jazzy is working correctly before proceeding with this tutorial.</Alert>
+<Alert type="warning">
+
+**Warning:** Make sure your VENTUNO Q has the latest system image installed and that ROS 2 Jazzy is working correctly before proceeding with this tutorial.
+
+</Alert>
 
 ## RealSense Camera
 
@@ -65,7 +73,11 @@ The fourth opening is the RGB camera, capturing the normal color image. Depth co
 
 ![Realsense D435 Setup](assets/realsense_d435_setup.png)
 
-<Alert type="info">The RealSense GitHub organization was migrated to RealSenseAI. Please refer to [`realsenseai/realsense-ros`](https://github.com/realsenseai/realsense-ros) in case you find references to `IntelRealSense/realsense-ros`.</Alert>
+<Alert type="info">
+
+The RealSense GitHub organization was migrated to RealSenseAI. Please refer to [`realsenseai/realsense-ros`](https://github.com/realsenseai/realsense-ros) in case you find references to `IntelRealSense/realsense-ros`.
+
+</Alert>
 
 ### Installing the RealSense SDK
 
@@ -101,13 +113,16 @@ cd librealsense/scripts
 sudo bash patch-realsense-ubuntu-lts-hwe.sh
 ```
 
-<Alert type="warning">**Warning:** This method requires network access to `git.launchpad.net`. If that host is unreachable in your environment, for example due to network policy restrictions, the script will hang or fail at the kernel source fetch step. Please check the connectivity first:
+<Alert type="warning">
+
+**Warning:** This method requires network access to `git.launchpad.net`. If that host is unreachable in your environment, for example due to network policy restrictions, the script will hang or fail at the kernel source fetch step. Please check the connectivity first:
 
 ```bash
 curl -v https://git.launchpad.net
 ```
 
 If this does not connect, use the *RSUSB backend build below instead*.
+
 </Alert>
 
 #### RSUSB Backend Build
@@ -148,7 +163,9 @@ sudo cp ../config/99-realsense-libusb.rules /etc/udev/rules.d/
 sudo udevadm control --reload-rules && sudo udevadm trigger
 ```
 
-<Alert type="warning">If `ros-jazzy-librealsense2` is also installed, it takes priority when the ROS wrapper is built, regardless of `CMAKE_PREFIX_PATH` or `-Drealsense2_DIR` overrides. To build the ROS wrapper against this source build specifically, remove the apt package first:
+<Alert type="warning">
+
+If `ros-jazzy-librealsense2` is also installed, it takes priority when the ROS wrapper is built, regardless of `CMAKE_PREFIX_PATH` or `-Drealsense2_DIR` overrides. To build the ROS wrapper against this source build specifically, remove the apt package first:
 
 ```bash
 sudo apt remove --purge ros-jazzy-librealsense2*
@@ -375,7 +392,11 @@ ros2 launch realsense2_camera rs_launch.py align_depth.enable:=true
 
 Aligning depth to color makes each pixel in the depth image correspond to the same pixel in the color image. It publishes the aligned stream on `/camera/camera/aligned_depth_to_color/image_raw`.
 
-<Alert type="warning">On the VENTUNO Q's ARM64 build of realsense-ros, the point cloud filter is registered internally as `pointcloud__neon_`, a NEON-optimized variant, rather than the standard `pointcloud` name used in most RealSense documentation. Enable it using the corresponding parameter name at runtime, once the node is already running.</Alert>
+<Alert type="warning">
+
+On the VENTUNO Q's ARM64 build of realsense-ros, the point cloud filter is registered internally as `pointcloud__neon_`, a NEON-optimized variant, rather than the standard `pointcloud` name used in most RealSense documentation. Enable it using the corresponding parameter name at runtime, once the node is already running.
+
+</Alert>
 
 With the node already running, enable the point cloud by setting the correct parameter directly at runtime instead:
 
@@ -452,7 +473,11 @@ At this resolution, the color stream maintains a stable 15 Hz:
 
 ![Realsense - ROS (12)](assets/realsense_d435_usb32_hz.png)
 
-<Alert type="info">If the node reports `Device USB type: 2.1` at startup, check that the camera's firmware is current, see the [Updating the Firmware section](#updating-the-firmware) above. At this reduced resolution, a USB 3.x connection produces the most consistent results measured on this board, with tighter frame timing and no dropped connections over sustained use.</Alert>
+<Alert type="info">
+
+If the node reports `Device USB type: 2.1` at startup, check that the camera's firmware is current, see the [Updating the Firmware section](#updating-the-firmware) above. At this reduced resolution, a USB 3.x connection produces the most consistent results measured on this board, with tighter frame timing and no dropped connections over sustained use.
+
+</Alert>
 
 ### Verifying the Topics
 

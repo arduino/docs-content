@@ -14,7 +14,11 @@ Compatible Arduino boards can operate as a **Single-Board Computer (SBC)** runni
 
 Because these boards run a standard Linux OS, they support a wide range of I/O configurations. You can connect peripherals via USB hubs, use monitors with built-in docking capabilities, or pair wireless accessories once the system is configured.
 
-<Alert type="note">**Important:** To ensure smooth performance in Standalone Mode, use a board with at least 4 GB of RAM.</Alert>
+<Alert type="note">
+
+**Important:** To ensure smooth performance in Standalone Mode, use a board with at least 4 GB of RAM.
+
+</Alert>
 
 ## Setup in Single-Board Computer Mode
 
@@ -49,7 +53,11 @@ Depending on your board model, you can connect your display and input peripheral
 
 ![Illustration showing an UNO Q board in Single-Board Computer mode connected to a HDMI display, USB keyboard and mouse, and a power supply via a USB-C multiport adapter.](../../assets/illustrations/sbc-configuration.png)
 
-<Alert type="warning">**Compatibility Note:** Most standard USB-C hubs work correctly, but **Apple USB-C Digital AV Multiport Adapters** are often incompatible with these boards and should be avoided for Standalone Mode.</Alert>
+<Alert type="warning">
+
+**Compatibility Note:** Most standard USB-C hubs work correctly, but **Apple USB-C Digital AV Multiport Adapters** are often incompatible with these boards and should be avoided for Standalone Mode.
+
+</Alert>
 
 ## Boot Into Linux
 

@@ -462,7 +462,11 @@ The IDE will compile the sketch and upload it to the STM32 microcontroller. You 
 
 ![Red LED blinking](assets/blinking-led.gif)
 
-<Alert type="success">Also, if you open the Serial Monitor you will see the "Hello World" message!.</Alert>
+<Alert type="success">
+
+Also, if you open the Serial Monitor you will see the "Hello World" message!.
+
+</Alert>
 
 ## Onboard User Interface
 
@@ -1913,7 +1917,11 @@ If you need to reset the board to its factory state, recover from system corrupt
 *   **Arduino App Lab**: If your board is functional and recognized by your computer, you can initiate a reset or switch distributions directly from the **Settings** menu. This method allows you to preserve your user data if desired.
 *   **Arduino Flasher CLI**: If your board is unresponsive or cannot be discovered on your network, use this standalone command-line tool to reinstall the OS.
 
-<Alert type="info">For detailed instructions on both methods, please refer to the [Flash a Linux Image](/software/app-lab/configure/flash/) tutorial.</Alert>
+<Alert type="info">
+
+For detailed instructions on both methods, please refer to the [Flash a Linux Image](/software/app-lab/configure/flash/) tutorial.
+
+</Alert>
 
 ## Support
 

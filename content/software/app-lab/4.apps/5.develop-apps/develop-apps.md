@@ -139,7 +139,11 @@ Bricks are pre-packaged code modules that run as separate processes alongside yo
 4. Review the Brick's documentation, which Arduino App Lab opens in a new tab when you add the Brick. The **Overview** and **Usage examples** contain the specific code needed for implementation.
 5. Import and initialize the Brick in your `main.py` file.
 
-<Alert type="success">**Tip:** Click on an added Brick in the sidebar to open its documentation.</Alert>
+<Alert type="success">
+
+**Tip:** Click on an added Brick in the sidebar to open its documentation.
+
+</Alert>
 
 ### Use Python Packages
 
@@ -178,7 +182,11 @@ In Arduino App Lab, you install libraries on a per-App basis to prevent version 
 
 Standard `Serial.print()` and `Serial.println()` commands are automatically routed to the **Serial Monitor** tab in the App Lab console.
 
-<Alert type="info">**Note:** As of Zephyr core 0.55.0, `Serial` commands are supported. The **Arduino_RouterBridge** library is included by default, and you no longer need to manually install or include it in your sketch. For more information, see [Migrating to Zephyr core 0.55.0 on UNO Q](https://support.arduino.cc/hc/en-us/articles/27251870677916-Migrating-to-Zephyr-core-0-55-0-on-UNO-Q)</Alert>
+<Alert type="info">
+
+**Note:** As of Zephyr core 0.55.0, `Serial` commands are supported. The **Arduino_RouterBridge** library is included by default, and you no longer need to manually install or include it in your sketch. For more information, see [Migrating to Zephyr core 0.55.0 on UNO Q](https://support.arduino.cc/hc/en-us/articles/27251870677916-Migrating-to-Zephyr-core-0-55-0-on-UNO-Q)
+
+</Alert>
 
 **To use the Serial Monitor:**
 
@@ -198,7 +206,11 @@ Standard `Serial.print()` and `Serial.println()` commands are automatically rout
 1. When your App is running, output will appear in the **Serial Monitor** tab of the console panel at the bottom of the editor.
    ![Screenshot of Arduino App Lab, displaying the Serial Monitor tab of the integrated Console.](../../assets/playwright/editor/console/console-panel-serial-hl.png)
 
-<Alert type="success">**Tip:** You may also use the `Monitor` object directly. `Monitor.begin()`, `Monitor.print()`, and `Monitor.println()` are used in many examples.</Alert>
+<Alert type="success">
+
+**Tip:** You may also use the `Monitor` object directly. `Monitor.begin()`, `Monitor.print()`, and `Monitor.println()` are used in many examples.
+
+</Alert>
 
 ## Python/Sketch Communication
 

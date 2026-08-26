@@ -340,7 +340,11 @@ WARNING V4LCamera: Camera FPS set to 9 instead of requested 30
 
 The application still works (the 2:3 crop is applied to whatever arrives), but an uncompressed format at a low frame rate makes the gesture overlay visibly laggy.
 
-<Alert type="warning">Check the application logs after the first start. Treat any of these warnings as a reason to change camera rather than to change the code, a Logitech C920, for example, accepts the requested mode with no warnings at all.</Alert>
+<Alert type="warning">
+
+Check the application logs after the first start. Treat any of these warnings as a reason to change camera rather than to change the code, a Logitech C920, for example, accepts the requested mode with no warnings at all.
+
+</Alert>
 
 The full module is in the bundle under `python/main.py`.
 
@@ -519,7 +523,11 @@ The same application can be managed from a shell, which is what the kiosk autost
    arduino-app-cli app start user:photo-booth
    ```
 
-   <Alert type="note">The first run pulls the gesture recognition container and may take a few minutes. Subsequent runs start in seconds.</Alert>
+   <Alert type="note">
+
+   The first run pulls the gesture recognition container and may take a few minutes. Subsequent runs start in seconds.
+
+   </Alert>
 
 3. Open `http://<board-ip>:7000` in a browser. The kiosk page should appear, ready to be triggered with the physical button or the on-screen start button.
 
@@ -626,7 +634,9 @@ This is the same sequence from the visitor's side:
 6. **Collect the photo.** The kiosk returns to the splash screen by itself, ready for the next visitor.
 
 <Alert type="note">
+
 If the visitor drops their hand before the flash, no photo is taken and the booth shows a "no gesture" screen instead. Holding the pose all the way through the countdown is the one instruction worth giving people.
+
 </Alert>
 
 Every waiting state is bounded by a timer, so an abandoned session always recovers on its own: an unprinted photo is discarded after 10 seconds. After printing is requested, the screen waits for an explicit success or failure acknowledgement and then returns to idle; if no acknowledgement arrives within 90 seconds, it reports that the print status is unknown before resetting. Elapsed time is never presented as a successful print.
