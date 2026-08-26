@@ -83,15 +83,15 @@ The wireless module uses SDIO for Wi-Fi® data and a UART for Bluetooth® contro
 
 ![](assets/ABX00162-ABX00173-header-expansion.png)
 
-| **Interface (Connector)** | **Voltage & Pin Count**       | **Details**                                                  |
-| ------------------------- | ----------------------------- | ------------------------------------------------------------ |
-| JMEDIA (JMEDIA1)          | 1.8 V signals, 60-pin         | - High-speed camera/display lanes (MIPI DSI, CSI) <br></br>- Camera control bus (CCI I²C) - dedicated, not general-purpose GPIO <br></br>- Camera clocks (SOC_CAM_MCLK0/1) <br></br>- Also carries power rails (+3V3 OUT, VIN IN) and GND                                                                                                                                       |
-| JMISC (JMISC1)            | Mixed 1.8 V / 3.3 V, 60-pin   | - Mixed GPIO and SDIO <br></br>- MCU peripherals: SDMMC1, TRACE, PSSI (parallel camera), I²C4, MCO/CRS_SYNC, OPAMP1 pins <br></br>- Audio endpoints: Mic2 INP/INM/BIAS, Headphone L/R + REF, LineOut P/M, Earpiece P/R, HS_DET <br></br>- MPU (SoC) GPIO banks (SE0) at 1.8 V <br></br>- Also carries power rails (+5V USB OUT, +3V3 OUT, +1V8 OUT, VBAT OUT, VCOIN IN) and GND |
-| JCTL (JCTL1)              | 1.8 V, 10-pin                 | - SE4 UART console <br></br>- Forced USB boot input <br></br>- PMIC reset input <br></br>- VBUS power-switch disable <br></br>- 1.8 V rail and GND                                                                                                                                                                                                                              |
-| JDIGITAL (JDIGITAL1)      | 3.3 V, 18-pin                 | - Digital I/O for SPI, I²C, UART, PWM, CAN                                                                                                                                                                                                                                                                                                                                      |
-| JANALOG (JANALOG1)        | 3.3 V, 14-pin                 | - Analog I/O <br></br>- ADC channels and references                                                                                                                                                                                                                                                                                                                             |
-| JSPI (JSPI1)              | 3.3 V logic, 6-pin + 5 V VBUS | - Dedicated SPI: MOSI, MISO, SCLK <br></br>- MCU reset (NRST) <br></br>- Ground <br></br>- 5 V VBUS (USB power)                                                                                                                                                                                                                                                                 |
-| Qwiic (QWIIC1)            | 3.3 V, 4-pin                  | - I²C (Qwiic ecosystem)                                                                                                                                                                                                                                                                                                                                                         |
+| **Interface (Connector)** | **Voltage & Pin Count**      | **Details**                                                                                                                                                                                                                                                                                                                                                                     |
+|---------------------------|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| JMEDIA (JMEDIA1)          | 1.8 V signals, 60-pin        | - High-speed camera/display lanes (MIPI DSI, CSI) <br></br>- Camera control bus (CCI I²C) - dedicated, not general-purpose GPIO <br></br>- Camera clocks (SOC_CAM_MCLK0/1) <br></br>- Also carries power rails (+3V3 OUT, VIN IN) and GND                                                                                                                                       |
+| JMISC (JMISC1)            | Mixed 1.8 V / 3.3 V, 60-pin  | - Mixed GPIO and SDIO <br></br>- MCU peripherals: SDMMC1, TRACE, PSSI (parallel camera), I²C4, MCO/CRS_SYNC, OPAMP1 pins <br></br>- Audio endpoints: Mic2 INP/INM/BIAS, Headphone L/R + REF, LineOut P/M, Earpiece P/R, HS_DET <br></br>- MPU (SoC) GPIO banks (SE0) at 1.8 V <br></br>- Also carries power rails (+5V SYS OUT, +3V3 OUT, +1V8 OUT, VBAT OUT, VCOIN IN) and GND |
+| JCTL (JCTL1)              | 1.8 V, 10-pin                | - SE4 UART console <br></br>- Forced USB boot input <br></br>- PMIC reset input <br></br>- VBUS power-switch disable <br></br>- 1.8 V rail and GND                                                                                                                                                                                                                              |
+| JDIGITAL (JDIGITAL1)      | 3.3 V, 18-pin                | - Digital I/O for SPI, I²C, UART, PWM, CAN                                                                                                                                                                                                                                                                                                                                      |
+| JANALOG (JANALOG1)        | 3.3 V, 14-pin                | - Analog I/O <br></br>- ADC channels and references                                                                                                                                                                                                                                                                                                                             |
+| JSPI (JSPI1)              | 3.3 V logic, 6-pin + 5 V SYS | - Dedicated SPI: MOSI, MISO, SCLK <br></br>- MCU reset (NRST) <br></br>- Ground <br></br>- 5 V SYS (diode-OR output)                                                                                                                                                                                                                                                            |
+| Qwiic (QWIIC1)            | 3.3 V, 4-pin                 | - I²C (Qwiic ecosystem)                                                                                                                                                                                                                                                                                                                                                         |
 ### Related Products
 
 - Arduino UNO shields via JDIGITAL and JANALOG
@@ -107,13 +107,13 @@ The wireless module uses SDIO for Wi-Fi® data and a UART for Bluetooth® contro
 
 ![UNO Q Input Methods](assets/ABX00162-ABX00173-power-supply.png)
 
-| **Source**  | **Voltage Range** | **Maximum Current** | **Connector**         |
-|-------------|------------------:|--------------------:|-----------------------|
-| USB-C VBUS  |               5 V |           up to 3 A | USB-C connector       |
-| VIN (DC IN) |            7-24 V |                   - | JMEDIA, JANALOG (VIN) |
-| 5 V Pin     |               5 V |           up to 3 A | JANALOG               |
+| **Source**       | **Voltage Range** | **Maximum Current** | **Connector**         |
+|------------------|------------------:|--------------------:|-----------------------|
+| USB-C VBUS       |               5 V |           up to 3 A | USB-C connector       |
+| VIN (DC IN)      |            7-24 V |                   - | JMEDIA, JANALOG (VIN) |
+| 5 V Pin (5V_SYS) |               5 V |           up to 3 A | JANALOG, JMISC, JSPI  |
 
-<p style="text-align: justify;">UNO Q supports dual power inputs: a USB-C port and a 7-24V DC input. Over USB Power Delivery, it requests only the 5 V / 3 A contract and does not request higher-voltage PD profiles. Use a supply and cable rated for 5 V at 3 A to avoid undervoltage during short activity peaks such as wireless bursts or display initialization. A regulated external 5 V DC source can also be used to supply power to the board via the 5 V pin on the JANALOG header.</p>
+<p style="text-align: justify;">UNO Q supports three power inputs: a USB-C port, a 7-24V DC input, and the <code>5V_SYS</code> pin available on JANALOG, JMISC or JSPI. Over USB Power Delivery, it requests only the 5 V / 3 A contract and does not request higher-voltage PD profiles. Use a supply and cable rated for 5 V at 3 A to avoid undervoltage during short activity peaks such as wireless bursts or display initialization. A regulated external 5 V DC source can also be used to supply power to the board via the <code>5V_SYS</code> pin on JANALOG, JMISC or JSPI.</p>
 
 <p style="text-align: justify;"><em>USB-C VBUS</em> and the 5 V output of the 7-24 V buck are <em>diode-OR</em> combined onto the system 5 V bus (<code>5V_SYS</code>). From <code>5V_SYS</code>, the design derives the 3.8 V pre-regulator node and, subsequently, the 3.3 V.
 The PMIC, powered by 5V_SYS, derives the 1.8V rail.</p>
@@ -366,7 +366,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 - **JMEDIA (B2) (JMEDIA1):** Four-lane camera and display signals in the 1.8 V domain (MIPI-CSI-2 and MIPI-DSI).
 
-- **JMISC (B1) (JMISC):** Mixed function header combining 3.3 V MCU signals and 1.8 V MPU signals. It provides MCU PSSI (parallel camera) bus, SDMMC1 test pins, TRACE, I2C4, MCO/CRS_SYNC, and OPAMP1 analog pins. Also it breakout out audio (Mic2, Headphone L/R+REF, LineOut P/M, Earpiece P/R, HS_DET) and power rails (+3V3, +5V_USB, +1V8, VBAT and VCOIN for system use). Observe voltage domains: **MCU pins are 3.3 V, MPU GPIO are 1.8 V**.
+- **JMISC (B1) (JMISC):** Mixed function header combining 3.3 V MCU signals and 1.8 V MPU signals. It provides MCU PSSI (parallel camera) bus, SDMMC1 test pins, TRACE, I2C4, MCO/CRS_SYNC, and OPAMP1 analog pins. Also it breakout out audio (Mic2, Headphone L/R+REF, LineOut P/M, Earpiece P/R, HS_DET) and power rails (+3V3, +5V_SYS, +1V8, VBAT and VCOIN for system use). Observe voltage domains: **MCU pins are 3.3 V, MPU GPIO are 1.8 V**.
 
 - **JCTL (A1) (JCTL1):** Boot-mode pins, reset, and low-power wake signals (1.8 V logic).
 
@@ -376,68 +376,68 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ### JMISC (B1) (JMISC1) - Pin Map
 
-| **Pin** | **Designation** | **MCU/SoC Pin** | **Domain** | **Notes**                                                       |
-|--------:|-----------------|-----------------|------------|-----------------------------------------------------------------|
-|       1 | MCU_PSSI_D0     | PC6             | 3.3V MCU   | PSSI D0                                                         |
-|       2 | MCU_SDMMC1_CMD  | PD2             | 3.3V MCU   | SDMMC1 CMD / test                                               |
-|       3 | MCU_PSSI_D1     | PC7             | 3.3V MCU   | PSSI D1                                                         |
-|       4 | MCU_TRACE_CLK   | PE2             | 3.3V MCU   | Trace clock                                                     |
-|       5 | MCU_PSSI_D2     | PC8             | 3.3V MCU   | PSSI D2                                                         |
-|       6 | MCU_TRACE_D0    | PE3             | 3.3V MCU   | Trace data 0                                                    |
-|       7 | MCU_PSSI_D3     | PC9             | 3.3V MCU   | PSSI D3                                                         |
-|       8 | MCU_TRACE_D2    | PE5             | 3.3V MCU   | Trace data 2                                                    |
-|       9 | MCU_PSSI_D4     | PE4             | 3.3V MCU   | PSSI D4                                                         |
-|      10 | MCU_TRACE_D3    | PE6             | 3.3V MCU   | Trace data 3                                                    |
-|      11 | MCU_PSSI_D5     | PI4             | 3.3V MCU   | PSSI D5                                                         |
-|      12 | MCU_PE7         | PE7             | 3.3V MCU   | GPIO                                                            |
-|      13 | MCU_PSSI_D6     | PI6             | 3.3V MCU   | PSSI D6                                                         |
-|      14 | MCU_PE8         | PE8             | 3.3V MCU   | GPIO                                                            |
-|      15 | MCU_PSSI_D7     | PI7             | 3.3V MCU   | PSSI D7                                                         |
-|      16 | MCU_I2C4_SCL    | PF14            | 3.3V MCU   | I²C4 SCL                                                        |
-|      17 | MCU_PSSI_PDCK   | PD9             | 3.3V MCU   | PSSI clock                                                      |
-|      18 | MCU_I2C4_SDA    | PF15            | 3.3V MCU   | I²C4 SDA                                                        |
-|      19 | MCU_PSSI_RDY    | PI5             | 3.3V MCU   | PSSI ready                                                      |
-|      20 | MCU_OPAMP1_VOUT | PA3             | Analog     | OpAmp1 VOUT                                                     |
-|      21 | MCU_PSSI_DE     | PD8             | 3.3V MCU   | PSSI data enable                                                |
-|      22 | MCU_OPAMP1_VINP | PA0             | Analog     | OpAmp1 VINP                                                     |
-|      23 | MCU_MCO         | PA8             | 3.3V MCU   | MCU clock out                                                   |
-|      24 | MCU_OPAMP1_VINM | PA1             | Analog     | OpAmp1 VINM                                                     |
-|      25 | MCU_CRS_SYNC    | PA10            | 3.3V MCU   | CRS sync                                                        |
-|      26 | GND             | -               | Power      | Ground                                                          |
-|      27 | GND             | -               | Power      | Ground                                                          |
-|      28 | EAR_P_R         | -               | Analog     | Audio ear P_R                                                   |
-|      29 | MIC2_INP        | -               | Analog     | Mic2 IN+                                                        |
-|      30 | EAR_M_R         | -               | Analog     | Audio ear M_R                                                   |
-|      31 | MIC2_INM        | -               | Analog     | Mic2 IN−                                                        |
-|      32 | LINEOUT_P       | -               | Analog     | Line out P                                                      |
-|      33 | MIC2_BIAS       | -               | Analog     | Mic2 bias                                                       |
-|      34 | LINEOUT_M       | -               | Analog     | Line out M                                                      |
-|      35 | GND             | -               | Power      | Ground                                                          |
-|      36 | HPH_L           | -               | Analog     | Headphone L                                                     |
-|      37 | SOC_GPIO_0_SE0  | -               | 1.8V MPU   | SoC GPIO 0 (SE0)                                                |
-|      38 | HPH_R           | -               | Analog     | Headphone R                                                     |
-|      39 | SOC_GPIO_1_SE0  | -               | 1.8V MPU   | SoC GPIO 1 (SE0)                                                |
-|      40 | HPH_REF         | -               | Analog     | Headphone REF                                                   |
-|      41 | SOC_GPIO_2_SE0  | -               | 1.8V MPU   | SoC GPIO 2 (SE0)                                                |
-|      42 | HS_DET          | -               | Analog     | Headset detect                                                  |
-|      43 | SOC_GPIO_3_SE0  | -               | 1.8V MPU   | SoC GPIO 3 (SE0)                                                |
-|      44 | GND             | -               | Power      | Ground                                                          |
-|      45 | SOC_GPIO_86_SE0 | -               | 1.8V MPU   | SoC GPIO 86 (SE0)                                               |
-|      46 | SOC_GPIO_98     | -               | 1.8V MPU   | SoC GPIO 98                                                     |
-|      47 | SOC_GPIO_82_SE0 | -               | 1.8V MPU   | SoC GPIO 82 (SE0)                                               |
-|      48 | SOC_GPIO_99     | -               | 1.8V MPU   | SoC GPIO 99                                                     |
-|      49 | SOC_GPIO_18     | -               | 1.8V MPU   | SoC GPIO 18                                                     |
-|      50 | SOC_GPIO_100    | -               | 1.8V MPU   | SoC GPIO 100                                                    |
-|      51 | SOC_GPIO_28     | -               | 1.8V MPU   | SoC GPIO 28                                                     |
-|      52 | SOC_GPIO_101    | -               | 1.8V MPU   | SoC GPIO 101                                                    |
-|      53 | +3V3 (OUT)      | -               | Power      | 3.3 V power out                                                 |
-|      54 | +5V_USB (OUT)   | -               | Power      | 5 V power out                                                   |
-|      55 | +3V3 (OUT)      | -               | Power      | 3.3 V power out                                                 |
-|      56 | +5V_USB (OUT)   | -               | Power      | 5 V power out                                                   |
-|      57 | +1V8 (IN)       | -               | Power      | 1.8 V rail in                                                   |
-|      58 | GND             | -               | Power      | Ground                                                          |
-|      59 | VCOIN (IN)      | -               | Power      | System voltage (PMIC RTC)                                       |
-|      60 | VBAT (OUT)      | -               | Power      | System voltage (Reserved for system design and future features) |
+| **Pin** | **Designation** | **MCU/SoC Pin** | **Domain** | **Notes**                                                              |
+|--------:|-----------------|-----------------|------------|------------------------------------------------------------------------|
+|       1 | MCU_PSSI_D0     | PC6             | 3.3V MCU   | PSSI D0                                                                |
+|       2 | MCU_SDMMC1_CMD  | PD2             | 3.3V MCU   | SDMMC1 CMD / test                                                      |
+|       3 | MCU_PSSI_D1     | PC7             | 3.3V MCU   | PSSI D1                                                                |
+|       4 | MCU_TRACE_CLK   | PE2             | 3.3V MCU   | Trace clock                                                            |
+|       5 | MCU_PSSI_D2     | PC8             | 3.3V MCU   | PSSI D2                                                                |
+|       6 | MCU_TRACE_D0    | PE3             | 3.3V MCU   | Trace data 0                                                           |
+|       7 | MCU_PSSI_D3     | PC9             | 3.3V MCU   | PSSI D3                                                                |
+|       8 | MCU_TRACE_D2    | PE5             | 3.3V MCU   | Trace data 2                                                           |
+|       9 | MCU_PSSI_D4     | PE4             | 3.3V MCU   | PSSI D4                                                                |
+|      10 | MCU_TRACE_D3    | PE6             | 3.3V MCU   | Trace data 3                                                           |
+|      11 | MCU_PSSI_D5     | PI4             | 3.3V MCU   | PSSI D5                                                                |
+|      12 | MCU_PE7         | PE7             | 3.3V MCU   | GPIO                                                                   |
+|      13 | MCU_PSSI_D6     | PI6             | 3.3V MCU   | PSSI D6                                                                |
+|      14 | MCU_PE8         | PE8             | 3.3V MCU   | GPIO                                                                   |
+|      15 | MCU_PSSI_D7     | PI7             | 3.3V MCU   | PSSI D7                                                                |
+|      16 | MCU_I2C4_SCL    | PF14            | 3.3V MCU   | I²C4 SCL                                                               |
+|      17 | MCU_PSSI_PDCK   | PD9             | 3.3V MCU   | PSSI clock                                                             |
+|      18 | MCU_I2C4_SDA    | PF15            | 3.3V MCU   | I²C4 SDA                                                               |
+|      19 | MCU_PSSI_RDY    | PI5             | 3.3V MCU   | PSSI ready                                                             |
+|      20 | MCU_OPAMP1_VOUT | PA3             | Analog     | OpAmp1 VOUT                                                            |
+|      21 | MCU_PSSI_DE     | PD8             | 3.3V MCU   | PSSI data enable                                                       |
+|      22 | MCU_OPAMP1_VINP | PA0             | Analog     | OpAmp1 VINP                                                            |
+|      23 | MCU_MCO         | PA8             | 3.3V MCU   | MCU clock out                                                          |
+|      24 | MCU_OPAMP1_VINM | PA1             | Analog     | OpAmp1 VINM                                                            |
+|      25 | MCU_CRS_SYNC    | PA10            | 3.3V MCU   | CRS sync                                                               |
+|      26 | GND             | -               | Power      | Ground                                                                 |
+|      27 | GND             | -               | Power      | Ground                                                                 |
+|      28 | EAR_P_R         | -               | Analog     | Audio ear P_R                                                          |
+|      29 | MIC2_INP        | -               | Analog     | Mic2 IN+                                                               |
+|      30 | EAR_M_R         | -               | Analog     | Audio ear M_R                                                          |
+|      31 | MIC2_INM        | -               | Analog     | Mic2 IN−                                                               |
+|      32 | LINEOUT_P       | -               | Analog     | Line out P                                                             |
+|      33 | MIC2_BIAS       | -               | Analog     | Mic2 bias                                                              |
+|      34 | LINEOUT_M       | -               | Analog     | Line out M                                                             |
+|      35 | GND             | -               | Power      | Ground                                                                 |
+|      36 | HPH_L           | -               | Analog     | Headphone L                                                            |
+|      37 | SOC_GPIO_0_SE0  | -               | 1.8V MPU   | SoC GPIO 0 (SE0)                                                       |
+|      38 | HPH_R           | -               | Analog     | Headphone R                                                            |
+|      39 | SOC_GPIO_1_SE0  | -               | 1.8V MPU   | SoC GPIO 1 (SE0)                                                       |
+|      40 | HPH_REF         | -               | Analog     | Headphone REF                                                          |
+|      41 | SOC_GPIO_2_SE0  | -               | 1.8V MPU   | SoC GPIO 2 (SE0)                                                       |
+|      42 | HS_DET          | -               | Analog     | Headset detect                                                         |
+|      43 | SOC_GPIO_3_SE0  | -               | 1.8V MPU   | SoC GPIO 3 (SE0)                                                       |
+|      44 | GND             | -               | Power      | Ground                                                                 |
+|      45 | SOC_GPIO_86_SE0 | -               | 1.8V MPU   | SoC GPIO 86 (SE0)                                                      |
+|      46 | SOC_GPIO_98     | -               | 1.8V MPU   | SoC GPIO 98                                                            |
+|      47 | SOC_GPIO_82_SE0 | -               | 1.8V MPU   | SoC GPIO 82 (SE0)                                                      |
+|      48 | SOC_GPIO_99     | -               | 1.8V MPU   | SoC GPIO 99                                                            |
+|      49 | SOC_GPIO_18     | -               | 1.8V MPU   | SoC GPIO 18                                                            |
+|      50 | SOC_GPIO_100    | -               | 1.8V MPU   | SoC GPIO 100                                                           |
+|      51 | SOC_GPIO_28     | -               | 1.8V MPU   | SoC GPIO 28                                                            |
+|      52 | SOC_GPIO_101    | -               | 1.8V MPU   | SoC GPIO 101                                                           |
+|      53 | +3V3 (OUT)      | -               | Power      | 3.3 V power out                                                        |
+|      54 | +5V_SYS (OUT)   | -               | Power      | Power input or output; source and board power OR'd via Schottky diodes |
+|      55 | +3V3 (OUT)      | -               | Power      | 3.3 V power out                                                        |
+|      56 | +5V_SYS (OUT)   | -               | Power      | Power input or output; source and board power OR'd via Schottky diodes |
+|      57 | +1V8 (IN)       | -               | Power      | 1.8 V rail in                                                          |
+|      58 | GND             | -               | Power      | Ground                                                                 |
+|      59 | VCOIN (IN)      | -               | Power      | System voltage (PMIC RTC)                                              |
+|      60 | VBAT (OUT)      | -               | Power      | System voltage (Reserved for system design and future features)        |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   Note: SoC GPIO lines on JMISC are interface-dedicated (not maker GPIO). MCU are at 3.3 V logic, MPU are at 1.8 V logic, and audio/mic are analog.
@@ -527,14 +527,14 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ### JSPI (A5) (JSPI1) - Pin Map
 
-| **Pin** | **Designation** | **Net / Function** | **Domain** | **Notes**  |
-|--------:|-----------------|--------------------|------------|------------|
-|       1 | MISO            | PC2 (SPI2_MISO)    | 3.3 V      | -          |
-|       2 | +5V             | 5V_USB_VBUS        | Power      | Power only |
-|       3 | SCK             | PD1 (SPI2_SCK)     | 3.3 V      | -          |
-|       4 | MOSI            | PC3 (SPI2_MOSI)    | 3.3 V      | -          |
-|       5 | RESET           | MCU_NRST           | 3.3 V      | -          |
-|       6 | GND             | Ground             | Power      | -          |
+| **Pin** | **Designation** | **Net / Function** | **Domain** | **Notes**                                                              |
+|--------:|-----------------|--------------------|------------|------------------------------------------------------------------------|
+|       1 | MISO            | PC2 (SPI2_MISO)    | 3.3 V      | -                                                                      |
+|       2 | +5V             | 5V_SYS             | Power      | Power input or output; source and board power OR'd via Schottky diodes |
+|       3 | SCK             | PD1 (SPI2_SCK)     | 3.3 V      | -                                                                      |
+|       4 | MOSI            | PC3 (SPI2_MOSI)    | 3.3 V      | -                                                                      |
+|       5 | RESET           | MCU_NRST           | 3.3 V      | -                                                                      |
+|       6 | GND             | Ground             | Power      | -                                                                      |
 
 ### JCTL (A1) (JCTL1) - Pin Map
 
@@ -582,22 +582,22 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ### JANALOG (A3) (JANALOG1) - Pin Map
 
-| **Pin** | **Designation** | **Net / MCU pin** | **Functions**                                            | **Domain**     | **Notes**                     |
-|--------:|-----------------|-------------------|----------------------------------------------------------|----------------|-------------------------------|
-|       1 | BOOT            | MCU_BOOT0         | - Boot strap                                             | 3.3 V          | -                             |
-|       2 | IOREF           | PWR_3P3V          | - I/O voltage reference (mirrors 3.3 V rail)             | Power          | Output only; do not back-feed |
-|       3 | RESET           | MCU_NRST          | - MCU reset                                              | 3.3 V          | -                             |
-|       4 | +3V3 OUT        | PWR_3P3V          | - 3.3 V supply                                           | Power          | -                             |
-|       5 | +5V USB VBUS    | 5V_USB_VBUS       | - 5 V supply (pass-through)                              | Power          | Power only                    |
-|       6 | GND             | GND               | - Ground                                                 | Power          | -                             |
-|       7 | GND             | GND               | - Ground                                                 | Power          | -                             |
-|       8 | VIN IN          | DC_IN             | - 7-24 V input                                           | Power          | Power only                    |
-|       9 | A0 / D14        | PA4               | - ADC input <br></br>- DAC0 <br></br>- TIM2_CH1          | Analog / 3.3 V | Direct ADC / not 5 V-tolerant |
-|      10 | A1 /  D15       | PA5               | - ADC input <br></br>- DAC1 <br></br>- TIM3_CH1          | Analog / 3.3 V | Direct ADC / not 5 V-tolerant |
-|      11 | A2 /  D16       | PA6               | - ADC input <br></br>- OPAMP2_INPUT+ <br></br>- TIM3_CH2 | Analog / 3.3 V |                               |
-|      12 | A3 /  D17       | PA7               | - ADC input <br></br>- OPAMP2_INPUT−                     | Analog / 3.3 V | -                             |
-|      13 | A4 /  D18       | PC1               | - ADC input <br></br>- I2C3_SDA <br></br>- LPTIM1_CH1    | Analog / 3.3 V | -                             |
-|      14 | A5 /  D19       | PC0               | - ADC input <br></br>- I2C3_SCL <br></br>- LPTIM1_IN1    | Analog / 3.3 V | -                             |
+| **Pin** | **Designation** | **Net / MCU pin** | **Functions**                                            | **Domain**     | **Notes**                                                              |
+|--------:|-----------------|-------------------|----------------------------------------------------------|----------------|------------------------------------------------------------------------|
+|       1 | BOOT            | MCU_BOOT0         | - Boot strap                                             | 3.3 V          | -                                                                      |
+|       2 | IOREF           | PWR_3P3V          | - I/O voltage reference (mirrors 3.3 V rail)             | Power          | Output only; do not back-feed                                          |
+|       3 | RESET           | MCU_NRST          | - MCU reset                                              | 3.3 V          | -                                                                      |
+|       4 | +3V3 OUT        | PWR_3P3V          | - 3.3 V supply                                           | Power          | -                                                                      |
+|       5 | +5V OUT         | 5V_SYS            | - 5 V supply (diode-OR output)                           | Power          | Power input or output; source and board power OR'd via Schottky diodes |
+|       6 | GND             | GND               | - Ground                                                 | Power          | -                                                                      |
+|       7 | GND             | GND               | - Ground                                                 | Power          | -                                                                      |
+|       8 | VIN IN          | DC_IN             | - 7-24 V input                                           | Power          | Power only                                                             |
+|       9 | A0 / D14        | PA4               | - ADC input <br></br>- DAC0 <br></br>- TIM2_CH1          | Analog / 3.3 V | Direct ADC / not 5 V-tolerant                                          |
+|      10 | A1 /  D15       | PA5               | - ADC input <br></br>- DAC1 <br></br>- TIM3_CH1          | Analog / 3.3 V | Direct ADC / not 5 V-tolerant                                          |
+|      11 | A2 /  D16       | PA6               | - ADC input <br></br>- OPAMP2_INPUT+ <br></br>- TIM3_CH2 | Analog / 3.3 V |                                                                        |
+|      12 | A3 /  D17       | PA7               | - ADC input <br></br>- OPAMP2_INPUT−                     | Analog / 3.3 V | -                                                                      |
+|      13 | A4 /  D18       | PC1               | - ADC input <br></br>- I2C3_SDA <br></br>- LPTIM1_CH1    | Analog / 3.3 V | -                                                                      |
+|      14 | A5 /  D19       | PC0               | - ADC input <br></br>- I2C3_SCL <br></br>- LPTIM1_IN1    | Analog / 3.3 V | -                                                                      |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   A0 (PA4) and A1 (PA5) are direct STM32U585 ADC inputs referenced to <code>VREF+</code>. They are not 5 V-tolerant. Valid input range is <code>0-VREF+</code> (≈3.3 V). The absolute maximum at the pin is <code>VDD + 0.3 V</code>, approximately 3.6 V. Above this level, the MCU's internal protection diodes begin to conduct. The header also provides <code>5V_SYS</code> and <code>PWR_3P3V</code> power pins, which are intended for power supply only. Do not apply 5 V to <strong>A0</strong> or <strong>A1</strong>. IOREF is connected to the 3.3 V rail (<code>PWR_3P3V</code>) and is provided as a reference/output for shields. It is not to be used to feed power back into the board.
@@ -1035,19 +1035,20 @@ Este equipamento não tem direito à proteção contra interferência prejudicia
 
 # Document Revision History
 
-|  **Date**  | **Revision** | **Changes**                                                  |
-| :--------: | :----------: | ------------------------------------------------------------ |
-| 26/06/2026 |      14      | Add German language                                          |
-| 17/06/2026 |      13      | Display output clarification (USB-C and JMEDIA)              |
-| 16/06/2026 |      12      | Add Safety information section                               |
-| 01/06/2026 |      11      | Add RED radio equipment frequency band and transmit power information |
-| 16/05/2026 |      10      | Pin description section updates                              |
-| 15/04/2026 |      9       | Add Anatel Certification                                     |
-| 24/03/2026 |      8       | General documentation update                                 |
-| 17/02/2026 |      7       | Update VBAT description in Power Supply section and JMISC pin 60 note |
-| 10/02/2026 |      6       | Translations in Chinese, Portuguese, Certification updates   |
-| 19/01/2026 |      5       | Add video output resolution specifications                   |
+|  **Date**  | **Revision** | **Changes**                                                                                                                  |
+|:----------:|:------------:|------------------------------------------------------------------------------------------------------------------------------|
+| 26/08/2026 |      15      | Update 5 V power pin (5V_SYS) input option on JANALOG, JMISC, JSPI                                                           |
+| 26/06/2026 |      14      | Add German language                                                                                                          |
+| 17/06/2026 |      13      | Display output clarification (USB-C and JMEDIA)                                                                              |
+| 16/06/2026 |      12      | Add Safety information section                                                                                               |
+| 01/06/2026 |      11      | Add RED radio equipment frequency band and transmit power information                                                        |
+| 16/05/2026 |      10      | Pin description section updates                                                                                              |
+| 15/04/2026 |      9       | Add Anatel Certification                                                                                                     |
+| 24/03/2026 |      8       | General documentation update                                                                                                 |
+| 17/02/2026 |      7       | Update VBAT description in Power Supply section and JMISC pin 60 note                                                        |
+| 10/02/2026 |      6       | Translations in Chinese, Portuguese, Certification updates                                                                   |
+| 19/01/2026 |      5       | Add video output resolution specifications                                                                                   |
 | 24/11/2025 |      4       | Add hardware acceleration section (graphics APIs, video codecs, OpenCL support); remove incorrect default password reference |
-| 05/11/2025 |      3       | Update operational information                               |
-| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update               |
-| 01/10/2025 |      1       | First release                                                |
+| 05/11/2025 |      3       | Update operational information                                                                                               |
+| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update                                                                               |
+| 01/10/2025 |      1       | First release                                                                                                                |
