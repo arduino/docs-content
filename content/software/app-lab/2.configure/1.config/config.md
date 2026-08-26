@@ -22,7 +22,7 @@ After connecting, App Lab performs an automated check to ensure your board is co
 1. Detected boards will appear in Arduino App Lab. Depending on the board configuration, they may have one or more connection options:
    - **USB:** Indicated by a USB icon next to the board model.
    - **Network:** Indicated by a Wi-Fi icon next to the board model.
-   ![Screenshot of the board selection screen in Arduino App Lab.](../../assets/playwright/config/board-selection.png)
+   ![Screenshot of the board selection screen in Arduino App Lab.](../../assets/board-selection.png)
 1. Select a board to connect to it.
 
 <Alert type="info">**Note:** Network Mode will only be available once the board has been configured with a Wi-Fi network. Please connect via USB for the initial setup to configure these settings.</Alert>
@@ -39,7 +39,7 @@ Follow these steps to complete the setup:
 
 1. **Board Configuration:**
    - _Keyboard Layout._ Choose your preferred keyboard layout. This is essential if you plan to use the board in Standalone (SBC) mode with a physical keyboard.
-   - _Board Name._ Assign a unique name to your UNO Q. This name will identify your board in the App Lab interface and on your local network (e.g., `my-uno-q.local`).
+   - _Board Name._ Assign a unique name to your board. This name will identify your board in the App Lab interface and on your local network (e.g., `my-board.local`).
    ![Selecting a board in Arduino App Lab.](../../assets/configuration/initial/board-configuration.png)
 1. **Network Setup:** Select your local Wi-Fi network and enter the password. An internet connection is required for downloading "Bricks" and system updates. When your board connects to the Internet, it will automatically check for software updates.
 1. **Set Linux Password:** Create a custom password for the default `arduino` user account.
