@@ -518,7 +518,11 @@ sudo apt full-upgrade
 
 Regular updates help to have the latest security patches and bug fixes, keeping your UNO Q secure and stable. It is a good practice to run `sudo apt update && sudo apt upgrade` regularly to keep your system up to date.
 
-***For major system updates or OS version upgrades, it is recommended to use the image flashing procedure described in the dedicated [__UNO Q image flash tutorial__](https://docs.arduino.cc/tutorials/uno-q/update-image/).***
+<Alert type="info">
+
+For major system updates, OS version upgrades, or to perform a full factory reset, refer to the [Flash a Linux Image](/software/app-lab/configure/flash/) tutorial.
+
+</Alert>
 
 ### Installing Software
 
@@ -836,7 +840,7 @@ Using the following command will view the Python script content:
 cat main.py
 ```
 
-***For comprehensive Arduino App CLI documentation, including creating Apps, monitoring logs, managing Bricks, and system updates, please refer to the dedicated [__Arduino App CLI tutorial__](https://docs.arduino.cc/software/app-lab/tutorials/cli/).***
+***For comprehensive Arduino App CLI documentation, including creating Apps, monitoring logs, managing Bricks, and system updates, please refer to the dedicated [__Arduino App CLI tutorial__](https://docs.arduino.cc/software/app-lab/cli/cli/).***
 
 ### Arduino CLI
 
@@ -1136,31 +1140,43 @@ dmesg | less
 
 ![System logs and troubleshooting (3)](assets/debian_logtrouble_3.png)
 
+#### Flashing a Linux Image
+
+Flashing a new image allows you to install a fresh operating system, recover from system corruption, or switch between different supported Linux distributions.
+
+If the board is still reachable via Arduino App Lab, you can initiate this from the **Settings** menu. If the board is inaccessible (e.g., won't boot or connect to the network), you can use the **Arduino Flasher CLI** to recover or reinstall the system even if the Linux OS is missing or corrupted.
+
+<Alert type="info">
+
+For detailed recovery instructions, refer to the [Flash a Linux Image](/software/app-lab/configure/flash/) tutorial.
+
+</Alert>
+
 ### Safe System Management
 
-Following best practices helps prevent system damage. [**Understanding when to use `sudo`**](#using-sudo-superuser-do) is important for safe system management. You should only use `sudo` when you need elevated permissions for system-level operations, such as installing packages with `apt`, editing system configuration files in `/etc/`, or accessing protected directories.
+Following best practices helps prevent system damage. [Understanding when to use `sudo`](#using-sudo-superuser-do) is important for safe system management. You should only use `sudo` when you need elevated permissions for system-level operations, such as installing packages with `apt`, editing system configuration files in `/etc/`, or accessing protected directories.
 
 **For everyday tasks like creating files in your home directory, editing your own documents, or running programs, `sudo` is not needed and should not be used.**
 
 Using `sudo` unnecessarily can actually create problems. When you create or modify files with `sudo`, they are owned by **root** rather than your user account, which can lead to permission issues later.
 
-For example, if you run [**`sudo nano myfile.txt`**](#editing-files-with-nano) in your home directory, the file will be owned by root. You will need `sudo` to edit it again in the future. This is why you should reserve `sudo` for operations that genuinely require system administrator privileges.
+For example, if you run [`sudo nano myfile.txt`](#editing-files-with-nano) in your home directory, the file will be owned by root. You will need `sudo` to edit it again in the future. This is why you should reserve `sudo` for operations that genuinely require system administrator privileges.
 
-Before making significant system changes, always back up important files to an [**external storage device**](#usb-and-peripherals-access), such as the Apps you have worked on. This simple precaution can save hours of work if something goes wrong.
+Before making significant system changes, always back up important files to an [external storage device](#usb-and-peripherals-access), such as the Apps you have worked on. This simple precaution can save hours of work if something goes wrong.
 
 When available, use command options to run in dry mode and preview changes before implementing them, allowing you to verify the operation without actually modifying anything.
 
-Keep your system and packages up to date with a [**regular `sudo apt update && sudo apt upgrade` routine**](#updating-package-lists). Keeping the system up to date with the latest security patches, compatibility elements, and bug fixes.
+Keep your system and packages up to date with a [regular `sudo apt update && sudo apt upgrade` routine](#updating-package-lists). Keeping the system up to date with the latest security patches, compatibility elements, and bug fixes.
 
-Being especially cautious with commands like [**`rm -rf`**](#file-operations) is important, as they permanently delete files without confirmation and cannot be undone.
+Being especially cautious with commands like [`rm -rf`](#file-operations) is important, as they permanently delete files without confirmation and cannot be undone.
 
-Always double-check paths and filenames before performing destructive commands. Similarly, avoid using [**`chmod 777`**](#**changing-file-permissions) on files or directories unless necessary, as this grants full access to everyone and creates security vulnerabilities.
+Always double-check paths and filenames before performing destructive commands. Similarly, avoid using [`chmod 777`](#**changing-file-permissions) on files or directories unless necessary, as this grants full access to everyone and creates security vulnerabilities.
 
-When in doubt about a command's effect, consult the manual with [**`man <command-name>`**](#getting-help) or search for examples before proceeding. Taking these extra moments to verify your actions prevents the frustration and data loss that comes from premature mistakes.
+When in doubt about a command's effect, consult the manual with [`man <command-name>`](#getting-help) or search for examples before proceeding. Taking these extra moments to verify your actions prevents the frustration and data loss that comes from premature mistakes.
 
 ### Shutting Down Your UNO Q Safely
 
-Unlike traditional computers, the UNO Q has auto-restart functionality. When you run standard Linux shutdown commands like:
+Unlike traditional computers, the UNO Q's shutdown behavior can vary depending on firmware version, software configuration and power source. Understanding these variations helps allow safe power-down procedures. When running standard Linux shutdown commands like:
 
 ```bash
 sudo shutdown now
@@ -1174,15 +1190,19 @@ sudo poweroff
 
 The board performs a clean shutdown of the Debian system but automatically restarts shortly after. This behavior is built into the board's power management system.
 
-To safely power down your UNO Q for extended storage or when carrying the board, you need to use a proper command that safely shuts down the board and keeps it powered off:
+To safely power down your UNO Q for extended storage or when carrying the board, you need to use a proper command that safely shuts down the board and keeps it in halted state:
 
 ```bash
 sudo halt
 ```
 
+The `sudo halt` command stops all Linux processes and brings the system to a safe halted state. The board remains powered on, but Linux stops running and the system becomes unresponsive to network connections.
+
+It is different from a complete power-off but represents a safe state in which all files are properly closed and the filesystem is protected.
+
 #### Recommended Shutdown Method
 
-The `halt` command is the recommended approach for safely shutting down your UNO Q. It stops all system processes, brings Linux to a safe state, and keeps the board powered off, preventing an automatic restart.
+The `halt` command is the recommended approach for safely shutting down your UNO Q. It stops all system processes, brings Linux to a safe state, and in most cases with current firmware, keeps the board in that state without triggering an automatic restart.
 
 To shut down your UNO Q properly, run:
 
@@ -1192,9 +1212,39 @@ sudo halt
 
 ![Shutting Down Your UNO Q Safely (1)](assets/debian_shutdown_halt.gif)
 
-The green power LED on the board will turn off when the system has halted completely. The board will remain powered off and will not restart automatically.
+After running this command, the shutdown process begins. The visual indicators and timing depend on how you are connected to the board.
 
-This makes `sudo halt` ideal for long-term storage, carrying the board, or any situation where you want the board to stay off until you manually power it back on.
+If using SBC mode with a display connected to the board, watch for the screen connected to the board to go black, indicating the system is in the halt process. Wait approximately 10 seconds after the screen goes black to make sure the halt is complete. The board will remain powered on but in a halted state. Power can then be safely disconnected, as the filesystem has closed safely and all processes have stopped.
+
+If using PC-hosted mode (USB-C/ADB or SSH connection, no display on board), after running the `sudo halt` command, wait approximately 10-15 seconds to make sure the halt is complete. The board will remain powered on but in a halted state. Power can then be safely disconnected, as the filesystem has closed safely and all processes have stopped.
+
+If using Arduino App Lab, it may return to the `Welcome to Arduino App Lab` board discovery view after the shutdown completes.
+
+The `sudo halt` command is ideal for long-term storage, carrying the board, or any situation where you want the board to remain halted until the next power cycle.
+
+***__Note:__ In the halted state, the board will not respond to network connections (SSH, App Lab) and interaction requires a power cycle. The green power LED and LED Matrix may remain on even after the system has halted.***
+
+In some configurations, `sudo halt` may cause the board to restart after a few seconds automatically. This behavior can happen with:
+
+- Certain USB-C hubs with Power Delivery capabilities
+- Older firmware versions
+- Specific power source configurations (VIN pin / USB-C / 5V pin)
+
+If auto-restart happens even with `sudo halt`, the following approaches may help solve the issue.
+
+Make sure the board runs the latest firmware version. Check for updates through Arduino App Lab or refer to the [Flash a Linux Image](/software/app-lab/configure/flash/).
+
+If auto-restart continues after a firmware update, you must disconnect the power source immediately after observing the shutdown indicators mentioned above and before the restart sequence begins.
+
+For SBC mode, this means when the screen goes black. For PC-hosted mode, wait 1-2 seconds after running the command.
+
+This method requires precise timing. A brief window of 1 to 2 seconds exists after the shutdown indicator to disconnect power before the system begins its reboot sequence.
+
+Auto-restart behavior can vary depending on the power source. If experiencing issues with a USB-C hub with Power Delivery, alternative options include:
+
+- Direct USB-C connection to computer
+- VIN pin with external 7-24V DC supply
+- Different USB-C hub or power adapter
 
 #### Alternative Shutdown Methods
 
@@ -1202,6 +1252,14 @@ The following shutdown methods will cleanly shut down the Debian system but trig
 
 ```bash
 sudo shutdown now
+```
+
+```bash
+sudo shutdown -h now
+```
+
+```bash
+sudo shutdown -P now
 ```
 
 ```bash
@@ -1217,17 +1275,17 @@ With the graphical interface method (SBC mode):
 
 When using any of these methods, the board will perform a clean shutdown and then automatically restart within a few seconds.
 
-If you need to keep the board powered off while using these methods, you must disconnect the power source immediately after the green LED turns off and before the restart sequence begins.
+If you need to keep the board in halted state while using these methods, you must disconnect the power source immediately after the shutdown indicator appears and before the restart sequence begins.
 
-The timing is important when using these auto-restart methods. You have only a brief window after the LED turns off to safely disconnect power. If you wait too long, the system will begin its reboot sequence.
+The timing is important when using these auto-restart methods. You have only a brief window after the shutdown indicator to safely disconnect power. If you wait too long, the system will begin its reboot sequence.
 
 In case of power disconnection by the source:
 
-- For boards powered via USB-C®, unplug the USB-C® cable once the LED turns off
-- When using the *VIN* pin for power with a 7-24 VDC input, disconnect your external power supply at this time
-- If your board receives power from the 5 V pin, disconnect the 5 V power supply when the LED indicator turns off
+- For boards powered via USB-C®, unplug the USB-C® cable once the shutdown indicator appears
+- When using the *VIN* pin for power with a 7-24 VDC input, disconnect your external power supply once the shutdown indicator appears
+- If your board receives power from the 5 V pin, disconnect the 5 V power supply once the shutdown indicator appears
 
-In SBC mode with a USB-C® dongle, disconnect the dongle's power supply after the LED turns off.
+In SBC mode with a USB-C® dongle, disconnect the dongle's power supply after the shutdown indicator appears.
 
 #### Emergency Shutdown & Best Practices
 
@@ -1241,6 +1299,8 @@ For long-term storage or when carrying the board, use the `sudo halt` command to
 sudo halt
 ```
 
+For SBC mode, wait approximately 10 seconds after the screen goes black before disconnecting power. For PC-hosted mode, wait approximately 10-15 seconds after running the command before disconnecting power.
+
 For continuous operation or automated systems where the board runs indefinitely, manual shutdown procedures are not necessary.
 
 #### Understanding Shutdown Commands
@@ -1253,7 +1313,7 @@ The following command cleanly restarts the system as intended:
 sudo reboot
 ```
 
-The following command safely shuts down the board and keeps it powered off, which is the recommended method for this case:
+The following command safely shuts down the board and, in most configurations, keeps it in halted state without auto-restart, which is the recommended method:
 
 ```bash
 sudo halt
@@ -1266,10 +1326,28 @@ sudo shutdown now
 ```
 
 ```bash
+sudo shutdown -h now
+```
+
+```bash
+sudo shutdown -P now
+```
+
+```bash
 sudo poweroff
 ```
 
-Use `sudo halt` to keep the board off. Use the other shutdown methods only if you specifically want the board to restart, or if you are prepared to disconnect power to prevent the automatic restart quickly, given certain application requirements.
+Use `sudo halt` to keep the board halted. Use the other shutdown methods only if you specifically want the board to restart, or if you are prepared to disconnect power to prevent the automatic restart, given certain application requirements.
+
+#### Troubleshooting Shutdown Process
+
+If unexpected auto-restart behavior continues to happen with `sudo halt`:
+
+- **Verify firmware version:** Check the board runs the latest version
+- **Check system logs:** Run `journalctl -b` after boot to view shutdown/startup logs
+- **Test different power sources:** Compare USB-C direct connection with hub and VIN pin behavior
+
+If the issue persists across firmware versions and power sources, the timing-based power disconnection method provides a reliable alternative.
 
 ## Summary
 
@@ -1283,5 +1361,6 @@ For specific topics, consult these tutorials:
 
 - [Connect to UNO Q via Secure Shell (SSH)](https://docs.arduino.cc/tutorials/uno-q/ssh/)
 - [UNO Q as a Single-Board Computer](https://docs.arduino.cc/tutorials/uno-q/single-board-computer/)
-- [Flashing a New Image to the UNO Q](https://docs.arduino.cc/tutorials/uno-q/update-image/)
+- [UNO Q User Manual](/tutorials/uno-q/user-manual/)
+- [Flash a Linux Image](/software/app-lab/configure/flash/)
 - [Arduino App Lab Documentation](https://docs.arduino.cc/software/app-lab/)

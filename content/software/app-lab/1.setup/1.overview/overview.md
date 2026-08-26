@@ -25,15 +25,15 @@ If you're unsure, Connected Mode is a great way to get started. You can switch b
 1. Follow the instructions for your [selected setup mode](#choose-your-setup-mode).
    - [Windows](../windows/), [macOS](../macos/), or [Linux](../linux/) (Connected Mode, running on your PC)
    - [Single-Board Computer](../standalone/) (SBC Mode, running directly on your board)
-2. [Configure your board in Arduino App Lab](../../../configure/config/)
-3. [Get started with Arduino App Lab](../../../getting-started/quickstart/)
+2. [Configure your board in Arduino App Lab](../../configure/config/)
+3. [Get started with Arduino App Lab](../../getting-started/quickstart/)
 
 ## Supported Boards
 
 - [Arduino UNO Q 2GB](https://store.arduino.cc/products/uno-q)
 - [Arduino UNO Q 4GB](https://store.arduino.cc/products/uno-q-4gb)
-- [Arduino VENTUNO Q (coming soon)](https://www.arduino.cc/product-ventuno-q)
+- [Arduino VENTUNO Q](https://www.arduino.cc/product-ventuno-q)
 
 ## Next Steps
 
-- [Get Started with Arduino App Lab](../../../getting-started/quickstart/)
+- [Get Started with Arduino App Lab](../../getting-started/quickstart/)

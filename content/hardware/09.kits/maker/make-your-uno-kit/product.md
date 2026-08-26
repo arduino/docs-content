@@ -5,6 +5,8 @@ url_guide: https://makeyouruno.arduino.cc/
 primary_button_url: https://makeyouruno.arduino.cc/
 primary_button_title: Get Started
 sku: [AKX00037]
+useCases: [kits, education]
+releaseDate: 2022-10-31
 ---
 
 Build your own Arduino UNO from scratch using raw electronic components! The Make Your UNO Kit includes all electronic components needed to build the classic UNO board, a long with 3D instructions, video & text content to support your journey.

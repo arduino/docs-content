@@ -15,6 +15,9 @@
     "coverImage": {
       "type": "string"
     },
+    "overwriteSidebar": {
+      "type": "string"
+    },
     "author": {
       "type": "string"
     },

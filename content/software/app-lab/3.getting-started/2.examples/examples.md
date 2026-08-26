@@ -9,30 +9,35 @@ tags:
   - UNO Q
 ---
 
-Explore built-in examples to understand the capabilities of modular Apps on your board. Learn how to run these ready-to-use projects and duplicate them to kickstart your own custom applications.
+Explore built-in starter projects to understand the capabilities of modular Apps on your board. In Arduino App Lab, starter projects are divided into two categories:
 
-## Run an Example
+- **Inspirations**: Rich, multi-component showcase projects that are ready to run and provide a complete experience.
+- **Examples**: Basic foundational starter templates focused on a single feature or capability.
 
-Running an example allows you to quickly test hardware and software capabilities without writing code from scratch.
+Learn how to run these projects and duplicate them to kickstart your own custom applications.
 
-Take the following steps to run an example App:
+## Run an Inspiration or Example
 
-1. Select the **Examples** tab in the left sidebar.
-2. Select the example you want to run on your board.
+Running a starter project allows you to quickly test hardware and software capabilities without writing code from scratch.
+
+Take the following steps to run a project:
+
+1. Select either the **Inspirations** or **Examples** tab in the left sidebar.
+2. Select the project you want to run on your board.
 3. Click the **Run** button in the top right corner.
-   ![Screenshot of Arduino App Lab, highlighting the "Run" button near the top-right corner.](../../assets/app-lab-editor-example-editor-hl-run.png)
+   ![Screenshot of Arduino App Lab, highlighting the "Run" button near the top-right corner.](../../assets/playwright/inspirations/blink-led-run.png)
 4. Wait for the loading process to finish.
 5. Interact with the App once the start-up is complete.
 
-Built-in examples cannot be edited directly. If you want to modify the code or use an existing example as a starting point, you must [duplicate it](#duplicate-an-example).
+Built-in projects cannot be edited directly. If you want to modify the code or use an existing project as a starting point, you must [duplicate it](#duplicate-an-inspiration-or-example).
 
-## Duplicate an Example
+## Duplicate an Inspiration or Example
 
-Take the following steps to duplicate an example:
+Take the following steps to duplicate a project:
 
-1. Navigate to the **Examples** tab and select an example.
+1. Navigate to the **Inspirations** or **Examples** tab and select a project.
 2. Click the **Copy and edit app** button in the top right corner next to the **Run** button.
-   ![Screenshot of Arduino App Lab, highlighting the ""Copy and edit app" button near the top-right corner.](../../assets/app-lab-editor-example-editor-hl-copy.png)
+   ![Screenshot of Arduino App Lab, highlighting the "Copy and edit app" button near the top-right corner.](../../assets/playwright/inspirations/blink-led-copy.png)
 3. Enter a name for the App.
 4. Click **Create new**.
 
@@ -43,39 +48,59 @@ After completing these steps, Arduino App Lab redirects you into a new, fully ed
 Examples can only be viewed in Arduino App Lab when connected to a board. However, the documentation and source files can be accessed in a public code repository.
 
 <!-- app-bricks-examples table start -->
+### Common Examples
+
 | Example | Description | Source |
 | --- | --- | --- |
-| Air quality on LED matrix | An Air Quality Monitoring System that uses air quality AQI API data to show the air quality state on the LED matrix. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/air-quality-monitoring) |
-| Bedtime story teller | This example shows how to create a bedtime story teller using Arduino. It uses a cloud-based language model to generate a story based on user input and shows the story on a web interface. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/bedtime-story-teller) |
-| Blink LED | This example shows how to make the LED blink alternately. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/blink) |
-| Blink LED with UI | Blink an LED via microcontroller using RPC calls | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/blink-with-ui) |
-| Blinking LED from Arduino Cloud | Control the LED from the Arduino IoT Cloud using RPC calls | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/cloud-blink) |
-| Classify images | Image classification in the browser using a web-based interface. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/image-classification) |
-| Cloud AI Assistant | Simple chatbot with Cloud LLM | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/chatbot-cloud-llm) |
-| Color your LEDs | Control the color of your LEDs from a web interface. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/color-your-leds) |
-| Concrete crack detector | Detect anomalies (cracks, defects on concrete walls) in images | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/anomaly-detection) |
-| Detect Objects on Camera | This example showcases object detection within a live feed from a USB camera. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/video-generic-object-detection) |
-| Detect objects on images | Object detection in the browser | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/object-detection) |
-| Detect Objects on Smartphone Camera | This example showcases object detection within a live feed from a smartphone's camera. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/mobile-video-generic-object-detection) |
-| Edge AI Assistant | Chatbot powered by a local LLM | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/edge-ai-assistant) |
-| Face Detector on Camera | This example showcases face detection within a live feed from a USB camera. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/video-face-detection) |
-| Fan Vibration Monitoring | Monitor fan vibrations and detect anomalies | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/vibration-anomaly-detection) |
-| Gesture Booth | Detects gesture and provide feedback to the user. Gesture Recognition Example | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/gesture-booth) |
-| Glass breaking sensor | Use a pre-trained model to classify audio files in the browser. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/audio-classification) |
-| Hey Arduino! | When "Hey Arduino!" keyword is detected by the microphone, the led matrix will react | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/keyword-spotting) |
-| Home climate monitoring and storage | A simple data logger that gets temperature and humidity from the board via Modulino Thermo and stores them in a database. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/home-climate-monitoring-and-storage) |
-| Led Matrix Painter | This example shows how to create a tool to design frames for an LED matrix using Arduino. It provides a web interface where users can design frames and animations and export them as C/C++ code. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/led-matrix-painter) |
-| Mascot Jump Game | An endless runner game where you jump over electronic components with the LED character | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/mascot-jump-game) |
-| Music Composer | A music composer app that lets you create melodies by composing notes and play them using sound generator brick. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/music-composer) |
-| Object Hunting | Detect a list of object to win the game | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/object-hunting) |
-| Person classifier on camera | This example showcases person classification on camera, using a camera stream from USB camera | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/video-person-classification) |
-| QR and Barcode Scanner | This example showcases how to use the Camera Code Detector Brick to detect barcodes and QR codes and display the results in a web application as well as saving the results to an SQL database. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/code-detector) |
-| Real-time Accelerometer | Real-time Accelerometer data visualization and movement detection using Modulino Movement sensor | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/real-time-accelerometer) |
-| Smart Mirror | Control a smart mirror with a web interface | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/smart-mirror) |
-| System resources logger | A simple data logger that gets system resources usage from the board and stores them in a database. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/system-resources-logger) |
-| Telegram Bot | Control your board through a Telegram bot | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/telegram-bot) |
-| Theremin simulator | A simple theremin simulator that generates audio based on user input. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/theremin) |
-| UNO Q Pin Toggle | Control each Arduino UNO Q pin through a visual UI | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/unoq-pin-toggle) |
-| Weather forecast on LED matrix | A weather forecast system that get the current weather and display it on LED matrix. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/examples/weather-forecast) |
+| Air Quality Monitoring App | An Air Quality Monitoring System that uses air quality AQI API data to show the air quality state on the LED matrix. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/air-quality-monitoring) |
+| Bedtime Story Teller | This example shows how to create a bedtime story teller with an Arduino board. It uses a cloud-based language model to generate a story based on user input and shows the story on a web interface. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/bedtime-story-teller) |
+| Blink LED from Python | This example shows how to make the LED blink alternately from Python. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/blink) |
+| Blink LED with UI | Blink an LED via microcontroller using RPC calls | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/blink-with-ui) |
+| Blinking LED from Arduino Cloud | Control the LED from the Arduino IoT Cloud using RPC calls | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/cloud-blink) |
+| Cloud AI Assistant | Simple chatbot with Cloud LLM | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/chatbot-cloud-llm) |
+| Concrete Crack Detector | Detect anomalies (cracks, defects on concrete walls) in images | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/anomaly-detection) |
+| Detect Objects on Camera | This example showcases object detection within a live feed from a USB camera. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/video-generic-object-detection) |
+| Detect objects on images | Object detection in the browser | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/object-detection) |
+| Detect Objects on Smartphone Camera | This example showcases object detection within a live feed from a smartphone's camera. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/mobile-video-generic-object-detection) |
+| Glass Breaking Sensor | Use a pre-trained model to classify audio files in the browser. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/audio-classification) |
+| Hey Arduino! | When "Hey Arduino!" keyword is detected by the microphone, the led matrix will react | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/keyword-spotting) |
+| Home Climate Monitoring | A simple data logger that gets temperature and humidity from the board via Modulino Thermo and stores them in a database. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/home-climate-monitoring-and-storage) |
+| Image Classification | Image classification in the browser using a web-based interface. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/image-classification) |
+| Led Matrix Painter | This example shows how to create a tool to design frames for an LED matrix using Arduino boards. It provides a web interface where users can design frames and animations and export them as C/C++ code. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/led-matrix-painter) |
+| Mascot Jump Game | An endless runner game where you jump over electronic components with an LED character | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/mascot-jump-game) |
+| Music Composer | A music composer app that lets you create melodies by composing notes and play them using sound generator brick. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/music-composer) |
+| Object Hunting | Detect a list of object to win the game | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/object-hunting) |
+| Person Classifier on Camera | This example showcases person classification on camera, using a camera stream from USB camera | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/video-person-classification) |
+| QR and Barcode Scanner | This example showcases how to use the Camera Code Detector Brick to detect barcodes and QR codes and display the results in a web application as well as saving the results to an SQL database. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/code-detector) |
+| Real-time Accelerometer Data | Real-time Accelerometer data visualization and movement detection using Modulino Movement sensor | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/real-time-accelerometer) |
+| System Resources Logger | A simple data logger that gets system resources usage from the board and stores them in a database. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/system-resources-logger) |
+| Telegram Bot | Control your board through a Telegram bot | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/telegram-bot) |
+| Theremin Simulator | A simple theremin simulator that generates audio based on user input. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/theremin) |
+| Vibration Anomaly Detection | Monitor fan vibrations and detect anomalies | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/vibration-anomaly-detection) |
+| Weather Forecast on LED Matrix | A weather forecast system that get the current weather and display it on LED matrix. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/weather-forecast) |
+
+### Examples for UNO Q
+
+| Example | Description | Source |
+| --- | --- | --- |
+| Color your LEDs | Control the color of your LEDs from a web interface. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/platform_unoq/color-your-leds) |
+| Edge AI Assistant | Chatbot powered by a local LLM | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/platform_unoq/edge-ai-assistant) |
+| Face Detector on Camera | This example showcases face detection within a live feed from a USB camera. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/platform_unoq/video-face-detection) |
+| UNO Q Pin Toggle | Control each Arduino UNO Q pin through a visual UI | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/platform_unoq/unoq-pin-toggle) |
+
+### Examples for VENTUNO Q
+
+| Example | Description | Source |
+| --- | --- | --- |
+| Edge AI Assistant | Chatbot powered by a local LLM | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/platform_ventunoq/edge-ai-assistant) |
+| Edge Dictation Assistant | A simple dictation assistant that converts your speech to text and displays it on a UI. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/platform_ventunoq/edge-dictation-assistant) |
+| Edge Speech Assistant | A text-to-speech assistant that converts text input into spoken audio. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/platform_ventunoq/edge-speech-assistant) |
+| Face Detector on Camera | This example showcases face detection within a live feed from a USB camera. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/platform_ventunoq/video-face-detection) |
+| Gesture Booth | Detects gesture and provide feedback to the user. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/platform_ventunoq/gesture-booth) |
+| Smart Mirror | Control a smart mirror with a web interface | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/platform_ventunoq/smart-mirror) |
 
 <!-- app-bricks-examples table end -->
+
+### Core and Foundational Examples
+
+You can find smaller, single-topic code samples in the [Core and Foundational examples](https://github.com/arduino/app-bricks-examples/tree/main/core-and-foundational) folder.

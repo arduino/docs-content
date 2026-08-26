@@ -8,6 +8,8 @@ core: arduino:esp32
 forumCategorySlug: '/hardware/nano-family/nano-esp32/190'
 productCode: ['160']
 sku: [ABX00083, ABX00092]
+useCases: [prototyping]
+releaseDate: 2023-06-19
 ---
 
 The Arduino Nano ESP32 is the first ever Arduino board based on a ESP32 microcontroller from [Espressif](https://www.espressif.com/en/products/socs/esp32), the **NORA-W106 module** from u-blox®. USB-C® connector, 16 MB (128 Mbit) of Flash, support for MicroPython & Arduino Cloud enabled, it is a very versatile development board.

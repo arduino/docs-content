@@ -8,6 +8,8 @@ secondary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-gene
 secondary_button_title: More on Modulino Nodes
 forumCategorySlug: '/hardware/accessories/modulino-distance/216'
 sku: [ABX00102]
+useCases: [prototyping, accessories]
+releaseDate: 2025-05-25
 ---
 
 Precise time-of-flight distance sensing in a compact form factor (VL53L4CDV0DH/1). Ideal for proximity detection, robotics, or smart-home triggers. Easily connect to the Arduino UNO R4 WiFi or any board with a Qwiic interface, or use the solderable pins for a custom wiring solution.

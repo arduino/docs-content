@@ -1,0 +1,16 @@
+Node:
+  Name: Modulino Hub
+  SKU: ABX00100
+  Board recommended: Arduino® UNO R4 WiFi (ABX00087) and Arduino® UNO Q (ABX00162/ABX00173)
+  Communications: I2C (over Qwiic connector)
+  Operational voltage: 3.3V
+  Multiplexer:
+    TCA9548ARGER I2C switch: 0x70 (address configurable via hardware solder jumpers 0x70-0x77)
+    Channels: 8 independent I2C buses
+    Pull-up resistors: 4.7kΩ on all channels
+    Qwiic connectors: 10 total (2 input + 8 output)
+    Operating current (all channels inactive): 1.5 mA
+    Operating current (all channels active): 3.5 mA
+
+Other accessories:
+  Qwiic cables: 1x

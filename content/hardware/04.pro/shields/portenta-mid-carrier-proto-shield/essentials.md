@@ -1,6 +1,6 @@
 ---
 productsLibrariesMap:
-  - modulino
+  - arduino_modulino
 ---
 
 <EssentialsColumn title="Guides">

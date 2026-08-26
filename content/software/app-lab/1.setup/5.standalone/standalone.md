@@ -14,7 +14,11 @@ Compatible Arduino boards can operate as a **Single-Board Computer (SBC)** runni
 
 Because these boards run a standard Linux OS, they support a wide range of I/O configurations. You can connect peripherals via USB hubs, use monitors with built-in docking capabilities, or pair wireless accessories once the system is configured.
 
-<Alert type="note">**Important:** To ensure smooth performance in Standalone Mode, use a board with at least 4 GB of RAM.</Alert>
+<Alert type="note">
+
+**Important:** To ensure smooth performance in Standalone Mode, use a board with at least 4 GB of RAM.
+
+</Alert>
 
 ## Setup in Single-Board Computer Mode
 
@@ -24,24 +28,36 @@ Because these boards run a standard Linux OS, they support a wide range of I/O c
 
 ## Connect power, display, and input devices
 
-For the most reliable experience during initial setup and configuration, we recommend using a USB-C hub to connect a display and a wired USB mouse and keyboard. Once the system is configured, you can connect Bluetooth peripherals as needed.
+Depending on your board model, you can connect your display and input peripherals either directly to onboard ports or through a USB-C multiport hub.
 
 ### What You'll Need
 
 - **Display:** Any monitor or TV with HDMI, DisplayPort, or USB-C input.
 - **Input devices (USB):** A keyboard and mouse that can be connected to a USB port.
-- **USB-C multiport hub:** A hub that connects to the board's USB-C port and includes ports for both your display and input devices.
-- **Power supply:** The hub must be powered externally (USB-C or a standalone power supply).
+- **Power supply:** A power supply compatible with your board (e.g. USB-C PD or DC power adapter).
+- **USB-C multiport hub:** Required for boards with only a single USB-C port (such as the UNO Q) to connect displays, input devices, and power simultaneously.
 
 ### Setup Instructions
+
+**Boards with a single USB-C port (e.g., UNO Q):**
 
 1. **Connect display and inputs to the hub:** Plug your monitor, keyboard, and mouse into the USB-C hub.
 2. **Connect your board to the hub:** Your board should be connected to the hub as the host PC. Many "dongle"-style hubs have a built-in cable for this. If yours does not have a cable, look for a port with a computer icon, or check the documentation for your hub.
 3. **Connect power:** Connect your power supply to the **PD (Power Delivery) port** on the hub, or use a dedicated power supply (if included with your hub).
 
-![Illustration showing an UNO Q board in Single-Board Computer mode connected to a HDMI display, USB keyboard and mouse, and a 5 V power supply via a USB-C multiport adapter.](../../assets/illustrations/sbc-configuration.png)
+**Boards with onboard display and USB ports:**
 
-<Alert type="warning">**Compatibility Note:** Most standard USB-C hubs work correctly, but **Apple USB-C Digital AV Multiport Adapters** are often incompatible with these boards and should be avoided for Standalone Mode.</Alert>
+1. Connect your display directly to the onboard video output (e.g., HDMI).
+2. Plug your keyboard and mouse into the onboard USB ports.
+3. Connect power to the board using a compatible power supply (e.g., barrel jack or USB-C PD).
+
+![Illustration showing an UNO Q board in Single-Board Computer mode connected to a HDMI display, USB keyboard and mouse, and a power supply via a USB-C multiport adapter.](../../assets/illustrations/sbc-configuration.png)
+
+<Alert type="warning">
+
+**Compatibility Note:** Most standard USB-C hubs work correctly, but **Apple USB-C Digital AV Multiport Adapters** are often incompatible with these boards and should be avoided for Standalone Mode.
+
+</Alert>
 
 ## Boot Into Linux
 

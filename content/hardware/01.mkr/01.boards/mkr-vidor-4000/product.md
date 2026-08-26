@@ -9,6 +9,8 @@ forumCategorySlug: '/hardware/mkr-boards/mkrvidor4000/150'
 status: end-of-life
 productCode: ['024']
 sku: [ABX00022]
+useCases: [prototyping, iot-wireless]
+releaseDate: 
 ---
 
 The Arduino MKR Vidor 4000 is without a doubt the most advanced and featured-packed board in the MKR family, and the only one with a FPGA chip on board. With a camera & HDMI connector, a Wi-Fi® / Bluetooth® module and up to 25 configurable pins, the sky is really the limit with this board.

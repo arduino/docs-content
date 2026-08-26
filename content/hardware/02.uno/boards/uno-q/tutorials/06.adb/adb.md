@@ -77,4 +77,4 @@ To verify the tool is installed, run `adb version`.
 Connecting via ADB is an easy way to gain access to your board's shell, allowing you to perform actions such as installing packages, editing files and running scripts.
 
 The `arduino-app-cli` can also be used directly via the shell, allowing you to launch Apps directly from the command line. You can read more about that in the link below:
-- [Arduino App CLI: Manage Apps from the Command Line](/software/app-lab/tutorials/cli/)
+- [Arduino App CLI: Manage Apps from the Command Line](/software/app-lab/cli/cli/)

@@ -53,7 +53,7 @@ To create these custom models, we use **Edge Impulse Studio**.
 
 ![Edge Impulse Studio](assets/edge-impulse.png)
 
-Edge Impulse is the leading development platform for embedded machine learning. Think of it as a "lab" where we prepare our AI. It handles the entire pipeline required to build a model that can run on the UNO Q.
+Edge Impulse is the leading development platform for embedded machine learning. Think of it as a "lab" where we prepare our AI. It handles the entire pipeline required to build a model that can run on your board.
 
 #### The Workflow
 
@@ -61,7 +61,7 @@ Instead of writing code to define the neural network, you use the Studio's visua
 
 ![Edge Impulse workflow](assets/workflow-2.png)
 
-1.  **Data Acquisition:** This is the most critical step. You collect/import images or audio samples to Edge Impulse. You can do this by using your mobile phone, your computer, or even capturing data directly from the UNO Q.
+1.  **Data Acquisition:** This is the most critical step. You collect/import images or audio samples to Edge Impulse. You can do this by using your mobile phone, your computer, or even capturing data directly from the board.
 2.  **Labeling:** Once your data is uploaded, you must assign a category or "label" to each sample. This step establishes the ground truth for the system, teaching it exactly which patterns correspond to which output class. Accurate and consistent labeling is essential, as it directly dictates what the model learns to recognize.
 3.  **Impulse Design:** This is where you structure your "brain." You define an **Input block** (e.g., Audio or Image data), a **Processing block** (to clean up the data), and a **Learning block** (the neural network that learns the patterns).
 4.  **Training:** The Studio uses its cloud servers to crunch the numbers. It will look at your data thousands of times until it learns to recognize the keywords or objects you defined.
@@ -145,7 +145,7 @@ Define the classes your model should detect (e.g., apple, banana). We will use t
 
 To train your model, you first need data. Start by creating a dataset of the objects you want to detect.
 
-From your project **Dashboard**, click on **Collect new data**. You can build your dataset using your phone, computer, or the UNO Q itself, or by uploading existing images directly.
+From your project **Dashboard**, click on **Collect new data**. You can build your dataset using your phone, computer, or the board itself, or by uploading existing images directly.
 
 ![Collecting new data](assets/app-lab-9.png)
 
@@ -258,7 +258,7 @@ Once you return to the Arduino App Lab, your new model will appear in your Brick
 
 ![Custom model selection](assets/app-lab-21.1.png)
 
-To use it in your App, click on the **Install** button and wait for it to be built and installed on your Arduino UNO Q.
+To use it in your App, click on the **Install** button and wait for it to be built and installed on your board.
 
 ![Model installation](assets/app-lab-22.1.png)
 
@@ -274,7 +274,7 @@ Now, run your App, and it will be using your custom AI model to detect apples an
 
 ***In the Python console you will see the detection logs and their confidence.***
 
-Also, you can preview your cameras live feed and see the model running in real-time by navigating to `<UNO-Q-IP-ADDRESS>:4912` in your favorite browser.
+Also, you can preview your cameras live feed and see the model running in real-time by navigating to `<BOARD-IP-ADDRESS>:4912` in your favorite browser.
 
 ![Image of the Edge Impulse live feed](assets/fruits-detector.gif)
 
@@ -282,12 +282,12 @@ Also, you can preview your cameras live feed and see the model running in real-t
 
 In this tutorial, you learned how to extend the capabilities of Arduino App Lab by engineering and deploying custom AI models using Edge Impulse Studio. You explored the complete machine learning pipeline—from collecting a custom dataset of images to training a MobileNetV2 SSD object detection model optimized for the Arduino UNO Q.
 
-Thanks to the seamless integration between Arduino App Lab and Edge Impulse, you can now swap generic "models" for specialized ones, enabling your Bricks to recognize specific objects like apples and bananas with high precision. This transforms your UNO Q from a simple computer into a tailored edge AI device capable of solving unique, real-world problems.
+Thanks to the seamless integration between Arduino App Lab and Edge Impulse, you can now swap generic "models" for specialized ones, enabling your Bricks to recognize specific objects like apples and bananas with high precision. This transforms your board from a simple computer into a tailored edge AI device capable of solving unique, real-world problems.
 
 ## Next Steps
 
 * Expand your current dataset with more samples and variations (lighting, angles) to improve your object detection model's accuracy and robustness.
-* Try creating an audio classification model using a USB microphone to teach your UNO Q to recognize voice commands or environmental sounds.
+* Try creating an audio classification model using a USB microphone to teach your board to recognize voice commands or environmental sounds.
 * Integrate your new custom model into a Logic flow within App Lab to trigger specific actions, such as turning on an LED or sending a notification, when a specific object is detected.
 * Export the `.eim` file manually from Edge Impulse to experiment with running your custom model in C++ or Python projects outside of Arduino App Lab.
 

@@ -8,6 +8,8 @@ core: arduino:avr
 forumCategorySlug: '/hardware/12'
 productCode: ['001']
 sku: [A000066]
+useCases: [prototyping]
+releaseDate: 2021-01-04
 ---
 
 The Arduino UNO is the best board to get started with electronics and coding. If this is your first experience tinkering with the platform, the UNO is the most robust board you can start playing with. The UNO is the most used and documented board of the whole Arduino family.

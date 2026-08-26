@@ -8,6 +8,8 @@ secondary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-gene
 secondary_button_title: More on Modulino Nodes
 forumCategorySlug: '/hardware/accessories/modulino-buttons/214'
 sku: [ABX00110]
+useCases: [prototyping, accessories]
+releaseDate: 2025-05-25
 ---
 
 Easily add user interaction to your projects with three SPST push buttons and integrated yellow LEDs. Compatible with the Arduino UNO R4 WiFi or any board with a Qwiic interface, and includes solderable pins for direct wiring if you aren’t using Qwiic. Focus on creating interactive experiences without the need for complex circuits.

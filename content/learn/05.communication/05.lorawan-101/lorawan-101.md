@@ -178,7 +178,7 @@ Using Arduino hardware and software to communicate with LoRa®-based networks is
 
 ![Circuit used in the example.](assets/lorawan-101_img13.png)
 
-Before sending and receiving messages from TTN, you need to register your board first to the network. For this, you need to know your board's `Device EUI`. You can get your board's `Device EUI` by running the `FirstConfiguration` example from the MKRWAN library. With your Device EUI, you can register your board in TTN by creating an account in TTN, adding an application, and registering your board. This [tutorial](https://www.thethingsnetwork.org/docs/devices/node/quick-start/) from TTN explains the process. 
+Before sending and receiving messages from TTN, you need to register your board first to the network. For this, you need to know your board's `Device EUI`. You can get your board's `Device EUI` by running the `FirstConfiguration` example from the MKRWAN library. With your Device EUI, you can register your board in TTN by creating an account in TTN, adding an application, and registering your board. This [tutorial](https://www.thethingsindustries.com/docs/hardware/devices/models/mkr1310/) from TTN explains the process. 
 
 Once your device is registered on TTN, you can start sending and receiving data with the following code:
 

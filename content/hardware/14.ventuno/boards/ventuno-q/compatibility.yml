@@ -1,0 +1,30 @@
+software:
+  - app-lab
+hardware:
+  boards: ~
+  carriers: ~ 
+  shields: 
+    - 4-relays-shield
+    - motor-shield-rev3
+    - spe-shield
+    - 9-axis-motion-shield
+  accessories:
+    - bughopper
+    - usb-c-power-supply-65w
+    - usb-c-cable-24-pin
+    - usb-c-hub-8-in-1
+    - modulino-buttons
+    - modulino-buzzer
+    - modulino-distance
+    - modulino-extender
+    - modulino-hub
+    - modulino-joystick
+    - modulino-knob
+    - modulino-latch
+    - modulino-light
+    - modulino-matrix
+    - modulino-motors
+    - modulino-movement
+    - modulino-pixels
+    - modulino-thermo
+    - modulino-vibro

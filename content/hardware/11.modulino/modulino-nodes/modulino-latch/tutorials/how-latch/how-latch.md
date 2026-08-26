@@ -119,121 +119,80 @@ Library repository available [here](https://github.com/arduino-libraries/Arduino
 ### Basic Example
 
 ```arduino
-#include <Modulino.h>
+/*
+ * Modulino Latch Relay - Basic
+ *
+ * This example demonstrates how to control the Modulino Latch Relay module via serial commands.
+ * A latch relay maintains its state (ON or OFF) even when power is removed, making it
+ * energy-efficient for applications that need to maintain a state.
+ *
+ * Serial Commands:
+ * - 's': Set the relay to ON position (energize/close the relay)
+ * - 'r': Reset the relay to OFF position (de-energize/open the relay)
+ * - 'x': Check and display the current relay status
+ *
+ * Relay Status Values:
+ * - 0: Relay is OFF (open circuit)
+ * - 1: Relay is ON (closed circuit)
+ * - Negative value: Status unknown or error
+ *
+ * Usage:
+ * 1. Open the Serial Monitor (set to 115200 baud)
+ * 2. Type 's' and press Enter to turn the relay ON
+ * 3. Type 'r' and press Enter to turn the relay OFF
+ * 4. Type 'x' and press Enter to check the current status
+ *
+ * This example code is in the public domain.
+ * Copyright (c) 2025 Arduino
+ * SPDX-License-Identifier: MPL-2.0
+ */
 
-ModulinoRelay relay;
+#include <Arduino_Modulino.h>
+
+ModulinoLatchRelay relay;
 
 void setup() {
-  Serial.begin(9600);
   Modulino.begin();
+  Serial.begin(115200);
   relay.begin();
-  
-  Serial.println("Relay Control Started");
 }
 
 void loop() {
-  // Turn relay on
-  Serial.println("Relay ON");
-  relay.on();
-  delay(2000);
-  
-  // Turn relay off
-  Serial.println("Relay OFF");
-  relay.off();
-  delay(2000);
+  if (Serial.available()) {
+    char c = Serial.read();
+    switch (c) {
+      case 's':
+        relay.set();
+        break;
+      case 'r':
+        relay.reset();
+        break;
+      case 'x':
+        auto status = relay.getStatus();
+        if (status == 0) {
+          Serial.println("Relay OFF");
+        }
+        if (status == 1) {
+          Serial.println("Relay ON");
+        }
+        if (status < 0) {
+          Serial.println("Relay status unknown");
+        }
+        break;
+    }
+  }
 }
 ```
 
 ### Key Functions
 
-- `on()`: Activates the relay (closes NO contacts, opens NC contacts)
-- `off()`: Deactivates the relay (opens NO contacts, closes NC contacts)
-- `update()`: Updates relay state, returns `true` if state changed
-- `getStatus()`: Returns current relay state (`true` = on, `false` = off)
-
-### Advanced Example - Timed Control
-
-```arduino
-#include <Modulino.h>
-
-ModulinoRelay relay;
-
-// Timing configuration
-const unsigned long ON_DURATION = 5000;   // 5 seconds on
-const unsigned long OFF_DURATION = 10000; // 10 seconds off
-
-// State tracking
-unsigned long lastChangeTime = 0;
-bool relayState = false;
-
-void setup() {
-  Serial.begin(9600);
-  Modulino.begin();
-  relay.begin();
-  
-  Serial.println("Timed Relay Control System");
-  Serial.println("ON: 5 seconds, OFF: 10 seconds");
-  
-  // Start with relay off
-  relay.off();
-  lastChangeTime = millis();
-}
-
-void loop() {
-  unsigned long currentTime = millis();
-  unsigned long elapsed = currentTime - lastChangeTime;
-  
-  // Check if it's time to change state
-  if (relayState) {
-    // Relay is ON, check if on-duration has elapsed
-    if (elapsed >= ON_DURATION) {
-      relay.off();
-      relayState = false;
-      lastChangeTime = currentTime;
-      
-      Serial.println("=== Relay switched OFF ===");
-      Serial.print("Next cycle in: ");
-      Serial.print(OFF_DURATION / 1000);
-      Serial.println(" seconds");
-    }
-  } else {
-    // Relay is OFF, check if off-duration has elapsed
-    if (elapsed >= OFF_DURATION) {
-      relay.on();
-      relayState = true;
-      lastChangeTime = currentTime;
-      
-      Serial.println("=== Relay switched ON ===");
-      Serial.print("Active for: ");
-      Serial.print(ON_DURATION / 1000);
-      Serial.println(" seconds");
-    }
-  }
-  
-  // Display status every second
-  static unsigned long lastStatusTime = 0;
-  if (currentTime - lastStatusTime >= 1000) {
-    lastStatusTime = currentTime;
-    
-    Serial.print("Status: ");
-    Serial.print(relayState ? "ON " : "OFF");
-    Serial.print(" | Time remaining: ");
-    
-    if (relayState) {
-      Serial.print((ON_DURATION - elapsed) / 1000);
-    } else {
-      Serial.print((OFF_DURATION - elapsed) / 1000);
-    }
-    Serial.println(" s");
-  }
-  
-  delay(100);
-}
-```
+- `set()`: Energizes the relay to the ON position (closes NO contacts, opens NC contacts)
+- `reset()`: De-energizes the relay to the OFF position (opens NO contacts, closes NC contacts)
+- `getStatus()`: Returns current relay state (`0` = OFF, `1` = ON, negative value = error/unknown)
 
 ## Programming with MicroPython
 
-The Modulino Relay is fully compatible with MicroPython through the official Modulino MicroPython library. The following examples demonstrate how to control loads and create automated systems in your MicroPython projects.
+The Modulino Relay is fully compatible with MicroPython through the official Modulino MicroPython library. The following example demonstrates how to control the relay in your MicroPython projects.
 
 ### Prerequisites
 
@@ -243,84 +202,42 @@ The Modulino Relay is fully compatible with MicroPython through the official Mod
 ### Basic Example
 
 ```python
-from modulino import ModulinoRelay
-from time import sleep
+"""
+This example demonstrates how to use the Modulino Latch Relay module
+to turn a relay on and off repeatedly.
 
-relay = ModulinoRelay()
+Initial author: Sebastian Romero
+"""
+
+from modulino import ModulinoLatchRelay
+from time import sleep_ms
+
+relay = ModulinoLatchRelay()
+initial_state = relay.is_on
+
+if initial_state is None:
+    print("Relay state is unknown (last state before poweroff is maintained)")
+else:
+    print(f"Relay is currently {'on' if initial_state else 'off'}")
 
 while True:
-    # Turn relay on
-    print("Relay ON")
+    print("Turning relay on")
     relay.on()
-    sleep(2)
-    
-    # Turn relay off
-    print("Relay OFF")
+    sleep_ms(150) # Wait for the relay to settle
+    print(f"Relay is currently {'on' if relay.is_on else 'off'}")
+    sleep_ms(1000)  # Keep the relay on for 1 second
+    print("Turning relay off")
     relay.off()
-    sleep(2)
+    sleep_ms(150) # Wait for the relay to settle
+    print(f"Relay is currently {'on' if relay.is_on else 'off'}")
+    sleep_ms(1000)  # Keep the relay off for 1 second
 ```
 
 ### Key Methods
 
-- `.on()`: Activates the relay
-- `.off()`: Deactivates the relay
-- `.status`: Returns current relay state (True = on, False = off)
-
-### Advanced Example - Automated Controller
-
-```python
-from modulino import ModulinoRelay
-from time import sleep, ticks_ms
-
-relay = ModulinoRelay()
-
-# Timing configuration (in milliseconds)
-ON_DURATION = 5000   # 5 seconds
-OFF_DURATION = 10000  # 10 seconds
-
-# State tracking
-last_change_time = ticks_ms()
-relay_state = False
-
-print("🔌 Timed Relay Control System")
-print("ON: 5 seconds, OFF: 10 seconds")
-
-# Start with relay off
-relay.off()
-
-while True:
-    current_time = ticks_ms()
-    elapsed = current_time - last_change_time
-    
-    # Check if it's time to change state
-    if relay_state:
-        # Relay is ON
-        if elapsed >= ON_DURATION:
-            relay.off()
-            relay_state = False
-            last_change_time = current_time
-            print("\n=== Relay switched OFF ===")
-            print(f"Next cycle in: {OFF_DURATION / 1000:.0f} seconds")
-    else:
-        # Relay is OFF
-        if elapsed >= OFF_DURATION:
-            relay.on()
-            relay_state = True
-            last_change_time = current_time
-            print("\n=== Relay switched ON ===")
-            print(f"Active for: {ON_DURATION / 1000:.0f} seconds")
-    
-    # Display status
-    status_text = "ON " if relay_state else "OFF"
-    if relay_state:
-        remaining = (ON_DURATION - elapsed) / 1000
-    else:
-        remaining = (OFF_DURATION - elapsed) / 1000
-    
-    print(f"Status: {status_text} | Time remaining: {remaining:.0f} s", end='\r')
-    
-    sleep(1)
-```
+- `.on()`: Energizes the relay to the ON position
+- `.off()`: De-energizes the relay to the OFF position
+- `.is_on`: Returns current relay state (`True` = ON, `False` = OFF, `None` = unknown)
 
 ## Troubleshooting
 

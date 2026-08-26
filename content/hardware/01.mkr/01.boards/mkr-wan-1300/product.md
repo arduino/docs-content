@@ -8,6 +8,8 @@ core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrwan1300/145'
 productCode: ['129']
 sku: [ABX00017]
+useCases: [prototyping]
+releaseDate: 2021-01-14
 ---
 
 The Arduino MKR WAN 1300 was the first LoRa® board released by Arduino, offering a practical and cost-effective solution with minimal power requirements. This open source board can connect to the Arduino Cloud, your own LoRa-based network using the Arduino LoRa® PRO Gateway, existing public networks such as The Things Network (TTN) or even other boards using direct connectivity mode.

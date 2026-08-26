@@ -8,15 +8,15 @@
     Learn how to use your UNO Q as a Single-Board Computer.
   </EssentialElement>
 
-<EssentialElement title="Working with Apps" type="tutorial" link="/software/app-lab/tutorials/getting-started/">
+<EssentialElement title="Working with Apps" type="tutorial" link="/software/app-lab/getting-started/quickstart/">
     Learn how to create your own apps using Arduino App Lab.
   </EssentialElement>
 
-<EssentialElement title="Working with Bricks" type="tutorial" link="/software/app-lab/tutorials/bricks/">
+<EssentialElement title="Working with Bricks" type="tutorial" link="/software/app-lab/bricks/about-bricks/">
     Learn how Bricks work and how to build yours.
   </EssentialElement>
 
-<EssentialElement title="Arduino App Lab CLI" type="tutorial" link="/software/app-lab/tutorials/cli/">
+<EssentialElement title="Arduino App Lab CLI" type="tutorial" link="/software/app-lab/cli/cli/">
     Learn how to the Arduino App Lab CLI.
   </EssentialElement>
 

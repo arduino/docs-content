@@ -8,6 +8,8 @@ core: arduino:avr
 forumCategorySlug: '/hardware/nano-family/nano/166'
 productCode: ['003']
 sku: [A000005]
+useCases: [prototyping]
+releaseDate: 2021-01-04
 ---
 
 The Arduino Nano is Arduino's classic breadboard friendly designed board with the smallest dimensions. The Arduino Nano comes with pin headers that allow for an easy attachment onto a breadboard and features a Mini-B USB connector.
