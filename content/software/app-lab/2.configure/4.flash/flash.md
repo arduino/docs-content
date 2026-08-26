@@ -1,6 +1,6 @@
 ---
 title: 'Flash a Linux Image'
-description: 'Learn how to flash a new Linux operating system image to your Arduino UNO Q board using the built-in flasher in App Lab or the Arduino Flasher CLI tool.'
+description: 'Learn how to flash a new Linux operating system image to your board using the built-in flasher in App Lab or the Arduino Flasher CLI tool.'
 tags: [Arduino App Lab, UNO Q, Flash, Linux image, Arduino Flasher CLI]
 ---
 
@@ -19,7 +19,7 @@ There are two primary methods for flashing your board:
 
 ## Use the Built-in Flasher in App Lab
 
-If your Arduino UNO Q board is already discovered by Arduino App Lab, you can initiate a flash directly from the interface.
+If your board is already discovered by Arduino App Lab, you can initiate a flash directly from the interface.
 
 1. Open **Arduino App Lab** and ensure your board is connected.
 2. Select **Settings** (gear icon) from the left sidebar.
@@ -48,7 +48,7 @@ To use the CLI tool, put the board into **Emergency Download Mode (EDL)**.
 
 </Alert>
 
-1. Disconnect the Arduino UNO Q from your computer.
+1. Disconnect the board from your computer.
 2. Locate the two **EDL pins** on the board.
    ![The EDL pins on the UNO Q.](../../assets/flashing/flashing-pins.png)
 3. Short these two pins together using a female-to-female jumper cable or a jumper cap.
@@ -59,7 +59,7 @@ To use the CLI tool, put the board into **Emergency Download Mode (EDL)**.
 
    </Alert>
 
-4. With the jumper in place, connect the Arduino UNO Q to your computer using a USB-C cable.
+4. With the jumper in place, connect the board to your computer using a USB-C cable.
 
 <Alert type="success">
 

@@ -1,6 +1,6 @@
 ---
 title: Bridge API Reference
-description: Comprehensive reference for the Arduino UNO Q Bridge RPC API, covering C++, Python, and data type mappings.
+description: Comprehensive reference for the Arduino App Lab Bridge RPC API, covering C++, Python, and data type mappings.
 overwriteSidebar: Bridge API
 tags:
   - Reference

@@ -29,7 +29,7 @@ This guide outlines the steps to prepare your macOS computer for developing with
 
 1. Launch Arduino App Lab.
 
-1. Connect your UNO Q to your Mac using a USB-C cable.
+1. Connect your board to your Mac using a USB-C cable.
 
    <Alert type="info">
 

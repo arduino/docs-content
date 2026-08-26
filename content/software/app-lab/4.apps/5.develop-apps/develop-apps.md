@@ -30,7 +30,8 @@ The system also manages two configuration files: `app.yaml` (mandatory manifest 
    ![Screenshot of the App Editor in Arduino App Lab, highlighting in the Files browser.](../../assets/playwright/editor/editor-folders-expanded-files-hl.png)
 1. If folders are not displaying correctly, try closing and expanding the File Manager.
 1. Click on a folder to expand it.
-1. Click on a file to open it in a new tab.
+1. **Single-click** a file to open it in **Preview Mode**. The tab title will appear italicized, and opening another file will replace this tab.
+1. **Double-click** a file, or modify a previewed file, to **Pin** the tab. Pinned tabs remain open until you close them.
 
 ### Add Files or Folders
 
@@ -51,6 +52,26 @@ You can also click the **Add File** to create a new file or folder at the same l
 ### Moving files and folders
 
 The file tree supports **Drag and Drop** organization. Simply click and hold a file or folder, then drag it to your desired location within the project structure.
+
+## Editor
+
+### Split-Panel Mode
+
+To view multiple files simultaneously—such as editing `main.py` alongside `sketch.ino`, or viewing a `README.md` while coding—you can split the editor:
+
+1. Click and hold a file tab.
+2. Drag it to the right or bottom edge of the editor area until a highlighted drop zone appears.
+3. Release the mouse button to create a new split panel.
+
+### Language Server Protocol (LSP)
+
+Arduino App Lab includes integrated Language Server Protocol (LSP) support for Python and C++. This provides advanced coding assistance:
+
+- **Auto-completion**: As you type, the editor suggests functions, variables, and imported modules.
+- **Syntax Diagnostics**: Errors and warnings are highlighted in real-time. Hover over highlighted code to read the error message.
+- **Go-to-Definition**: Hold `Ctrl` (or `Cmd` on Mac) and click on a function or variable to jump directly to where it is defined.
+
+You can verify the LSP is active by checking the **STATUS** indicator in the bottom right corner of the status bar.
 
 ## Python Development
 
@@ -196,6 +217,22 @@ Standard `Serial.print()` and `Serial.println()` commands are automatically rout
 The `Bridge` allows your Python script and Arduino sketch to exchange data using Remote Procedure Calls (RPC).
 
 See [Getting Started with the Bridge](../../bridge/get-started-with-bridge/) to learn more.
+
+## Agent Mode (AI Assistant)
+
+Arduino App Lab features a built-in AI coding assistant designed to help you write, understand, and debug code. 
+
+To use the AI assistant:
+1. Locate the footer status bar at the bottom of the screen.
+2. Toggle the switch from **EDITOR** to **AGENT MODE**.
+   ![Screenshot of the status bar in Arduino App Lab, highlighting the Agent Mode toggle.](../../assets/playwright/statusbar-controls-hl.png)
+3. App Lab switches from the editor to the **Agent Mode** view.
+
+You can prompt the agent to:
+- Scaffold boilerplate code for new features.
+- Suggest appropriate Bricks for your project goals.
+- Explain complex code segments.
+- Debug compilation errors or runtime exceptions.
 
 ## Running and Monitoring Your App
 
