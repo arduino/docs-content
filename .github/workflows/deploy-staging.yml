@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@v4
         id: checkout
         continue-on-error: true
-        timeout-minutes: 15
+        timeout-minutes: 5
         with:
           fetch-depth: 1
 
@@ -76,7 +76,7 @@ jobs:
       - uses: actions/checkout@v4
         id: checkout
         continue-on-error: true
-        timeout-minutes: 20
+        timeout-minutes: 5
         with:
           fetch-depth: "0"
           filter: blob:none
@@ -188,10 +188,11 @@ jobs:
           # -exec ... \; spawns one process per file on a single core: xargs -P "$(nproc)" spreads the same work over every core
           find content -type f \( -name "*.jpg" -o -name "*.jpeg" \) -size +2M -print0 > /tmp/big-jpg.lst
           find content -type f -name "*.png" -size +2M -print0 > /tmp/big-png.lst
+          # find -exec ignored the exit status of each command, xargs reports 123 if any file fails: a few .png are really JPEGs
           echo "Compressing large JPGs..."
-          xargs -0 -r -P "$(nproc)" -n 1 jpegoptim --strip-all < /tmp/big-jpg.lst
+          xargs -0 -r -P "$(nproc)" -n 1 jpegoptim --strip-all < /tmp/big-jpg.lst || echo "Some JPGs could not be optimized, continuing"
           echo "Compressing large PNGs..."
-          xargs -0 -r -P "$(nproc)" -n 1 optipng -o2 < /tmp/big-png.lst
+          xargs -0 -r -P "$(nproc)" -n 1 optipng -o2 < /tmp/big-png.lst || echo "Some PNGs could not be optimized, continuing"
           # The list is captured before compressing: some files drop under 2M and find would no longer report them
           cat /tmp/big-jpg.lst /tmp/big-png.lst | tar --null -cf /tmp/compressed-images.tar -T -
 
