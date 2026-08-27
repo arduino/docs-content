@@ -160,21 +160,38 @@ jobs:
       #       echo "No oversized files found. New check passed."
       #     fi
 
+      # Key on the paths and sizes of the files the step compresses, so it changes as soon as any of them does
+      - name: Compressed images key
+        id: images-key
+        run: echo "hash=$(find content -type f \( -name '*.jpg' -o -name '*.jpeg' -o -name '*.png' \) -size +2M -printf '%p %s\n' | sort | sha256sum | cut -c1-40)" >> "$GITHUB_OUTPUT"
+
+      - name: Compressed images cache
+        uses: actions/cache@v4
+        with:
+          path: /tmp/compressed-images.tar
+          key: ${{ runner.os }}-compressed-images-${{ steps.images-key.outputs.hash }}
+
       - name: Compress Large Images
         run: |
+          # jpegoptim and optipng are deterministic, so a hit means the same bytes without spending ~9 min again
+          if [ -f /tmp/compressed-images.tar ]; then
+            echo "Restoring images compressed by an earlier run..."
+            tar xf /tmp/compressed-images.tar
+            exit 0
+          fi
           sudo apt-get update && sudo apt-get install -y jpegoptim optipng
-          # -exec ... \; spawns one process per file, sequentially on a single
-          # core. xargs -P "$(nproc)" does the same work across every available
-          # core: the files are independent, so the result is identical.
+          # -exec ... \; spawns one process per file on a single core: xargs -P "$(nproc)" spreads the same work over every core
+          find content -type f \( -name "*.jpg" -o -name "*.jpeg" \) -size +2M -print0 > /tmp/big-jpg.lst
+          find content -type f -name "*.png" -size +2M -print0 > /tmp/big-png.lst
           echo "Compressing large JPGs..."
-          find content -type f \( -name "*.jpg" -o -name "*.jpeg" \) -size +2M -print0 |
-            xargs -0 -r -P "$(nproc)" -n 1 jpegoptim --strip-all
+          xargs -0 -r -P "$(nproc)" -n 1 jpegoptim --strip-all < /tmp/big-jpg.lst
           echo "Compressing large PNGs..."
-          find content -type f -name "*.png" -size +2M -print0 |
-            xargs -0 -r -P "$(nproc)" -n 1 optipng -o2
+          xargs -0 -r -P "$(nproc)" -n 1 optipng -o2 < /tmp/big-png.lst
+          # The list is captured before compressing: some files drop under 2M and find would no longer report them
+          cat /tmp/big-jpg.lst /tmp/big-png.lst | tar --null -cf /tmp/compressed-images.tar -T -
 
       - name: Gatsby main cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         id: gatsby-cache-folder
         with:
           path: .cache
@@ -183,7 +200,7 @@ jobs:
             ${{ runner.os }}-cache-gatsby-main
 
       - name: Gatsby Public Folder
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         id: gatsby-public-folder
         with:
           path: public/
@@ -191,8 +208,26 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-public-gatsby-main
 
-      - run: npm install
+      - run: npm install --prefer-offline --no-audit --fund=false
       - run: GATSBY_HF_CDN_URL="" npm run build
+        env:
+          # Gatsby defaults to physical cores, which is half the vCPUs of a runner
+          GATSBY_CPU_COUNT: logical_cores
+
+      # A PR's ~4 GB public/ entry is unreadable by other PRs and evicts main's, the one they all restore from: only main writes
+      - name: Save Gatsby main cache
+        if: github.ref_name == 'main'
+        uses: actions/cache/save@v4
+        with:
+          path: .cache
+          key: ${{ runner.os }}-cache-gatsby-main-${{ github.run_id }}
+
+      - name: Save Gatsby Public Folder
+        if: github.ref_name == 'main'
+        uses: actions/cache/save@v4
+        with:
+          path: public/
+          key: ${{ runner.os }}-public-gatsby-main-${{ github.run_id }}
 
       - name: Install Netlify
         run: npm install netlify-cli@17.23.2 -g
