@@ -1,13 +1,13 @@
 ---
 title: Force USB Host Mode on UNO Q
-description: While powered externally, USB host mode is not automatically activated. Learn how to force it by bridging two pins on the JCTL header.
+description: USB host mode is not automatically enabled when the UNO Q is powered via its 5V / VIN pin. This tutorial explains how to enable it.
 author: Karl Söderby
 tags: [UNO Q, USB, Host Mode, JCTL, PMIC]
 ---
 
 When the **Arduino® UNO Q** is powered externally via the 5V/VIN pin rather than the USB-C® port, the **Power Management Integrated Circuit (PMIC)** does not detect a USB connection and therefore does not enable the VBUS lines, preventing USB peripherals connected to the USB-C® port from being properly powered and initialized/detected.
 
-To work around this, you can force USB host mode by bridging two specific pins on the **JCTL** header. This instructs the USB-C® controller to operate as a host regardless of how the board is powered.
+To work around this, you can force USB host mode by bridging two pins on the **JCTL** header. This instructs the USB-C® controller to operate as a host regardless of how the board is powered.
 
 ## Requirements
 
