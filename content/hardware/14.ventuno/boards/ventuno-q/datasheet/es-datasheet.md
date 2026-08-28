@@ -1395,7 +1395,7 @@ The terms HDMI, HDMI High-Definition Multimedia Interface, HDMI trade dress and 
 
 # Historial de revisiones del documento
 
-| **Date**   | **Revision** | **Changes**   |
+| **Fecha**  | **Revisión** | **Cambios**         |
 | :--------: | :----------: | ------------- |
 | 25/08/2026 |      1       | Primera publicación |
 | 28/08/2026 |      2       | Updated Certifications |
