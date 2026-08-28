@@ -1057,95 +1057,118 @@ Maintain a minimum separation distance of 20 cm between the device and the user 
 
 **Bulgarian (BG):**
 
-Поддържайте минимално разстояние от 20 см между устройството и потребителя по време на работа. Честотната лента 5 GHz може да бъде обект на ограничения за използване в зависимост от държавата.
+Поддържайте минимално разстояние от 20 см между устройството и потребителя по време на работа.
+Честотната лента 5 GHz може да бъде обект на ограничения за използване в зависимост от държавата.
 
 **Croatian (HR):**
 
-Održavajte minimalnu udaljenost od 20 cm između uređaja i korisnika tijekom rada. Frekvencijski pojas od 5 GHz može podlijegati ograničenjima ovisno o zemlji uporabe.
+Održavajte minimalnu udaljenost od 20 cm između uređaja i korisnika tijekom rada.
+Frekvencijski pojas od 5 GHz može podlijegati ograničenjima ovisno o zemlji uporabe.
 
 **Czech (CS):**
 
-Udržujte minimální vzdálenost 20 cm mezi zařízením a uživatelem během provozu. Pásmo 5 GHz může podléhat provozním omezením v závislosti na zemi použití.
+Udržujte minimální vzdálenost 20 cm mezi zařízením a uživatelem během provozu.
+Pásmo 5 GHz může podléhat provozním omezením v závislosti na zemi použití.
 
 **Danish (DA):**
 
-Oprethold en minimumsafstand på 20 cm mellem enheden og brugeren under drift. 5 GHz-båndet kan være underlagt driftsmæssige begrænsninger afhængigt af brugslandet.
+Oprethold en minimumsafstand på 20 cm mellem enheden og brugeren under drift.
+5 GHz-båndet kan være underlagt driftsmæssige begrænsninger afhængigt af brugslandet.
 
 **Dutch (NL):**
 
-Houd tijdens gebruik een minimale afstand van 20 cm tussen het apparaat en de gebruiker aan. De 5GHz-band kan onderhevig zijn aan gebruiksbeperkingen afhankelijk van het land van gebruik.
+Houd tijdens gebruik een minimale afstand van 20 cm tussen het apparaat en de gebruiker aan.
+De 5GHz-band kan onderhevig zijn aan gebruiksbeperkingen afhankelijk van het land van gebruik.
 
 **Estonian (ET):**
 
-Hoidke seadme ja kasutaja vahel töötamise ajal vähemalt 20 cm kaugust. 5 GHz sagedusribale võivad kehtida kasutuspiirangud sõltuvalt kasutusriigist.
+Hoidke seadme ja kasutaja vahel töötamise ajal vähemalt 20 cm kaugust.
+5 GHz sagedusribale võivad kehtida kasutuspiirangud sõltuvalt kasutusriigist.
 
 **Finnish (FI):**
 
-Pidä laitteen ja käyttäjän välillä vähintään 20 cm etäisyys käytön aikana. 5 GHz taajuuskaistaan voi kohdistua käyttörajoituksia käyttömaasta riippuen.
+Pidä laitteen ja käyttäjän välillä vähintään 20 cm etäisyys käytön aikana.
+5 GHz taajuuskaistaan voi kohdistua käyttörajoituksia käyttömaasta riippuen.
 
 **French (FR):**
 
-Maintenez une distance minimale de 20 cm entre l’appareil et l’utilisateur pendant son fonctionnement. La bande de fréquences 5 GHz peut être soumise à des restrictions d’utilisation selon le pays.
+Maintenez une distance minimale de 20 cm entre l’appareil et l’utilisateur pendant son fonctionnement.
+La bande de fréquences 5 GHz peut être soumise à des restrictions d’utilisation selon le pays.
 
 **German (DE):**
 
-Halten Sie während des Betriebs einen Mindestabstand von 20 cm zwischen dem Gerät und dem Benutzer ein. Das 5‑GHz‑Frequenzband kann je nach Einsatzland Nutzungsbeschränkungen unterliegen.
+Halten Sie während des Betriebs einen Mindestabstand von 20 cm zwischen dem Gerät und dem Benutzer ein.
+Das 5‑GHz‑Frequenzband kann je nach Einsatzland Nutzungsbeschränkungen unterliegen.
 
 **Greek (EL):**
 
-Διατηρείτε ελάχιστη απόσταση 20 cm μεταξύ της συσκευής και του χρήστη κατά τη λειτουργία. Η ζώνη συχνοτήτων 5 GHz ενδέχεται να υπόκειται σε περιορισμούς ανάλογα με τη χώρα χρήσης.
+Διατηρείτε ελάχιστη απόσταση 20 cm μεταξύ της συσκευής και του χρήστη κατά τη λειτουργία.
+Η ζώνη συχνοτήτων 5 GHz ενδέχεται να υπόκειται σε περιορισμούς ανάλογα με τη χώρα χρήσης.
 
 **Hungarian (HU):**
 
-A működés során tartson legalább 20 cm távolságot az eszköz és a felhasználó között. Az 5 GHz-es frekvenciasáv használata országtól függően korlátozott lehet.
+A működés során tartson legalább 20 cm távolságot az eszköz és a felhasználó között.
+Az 5 GHz-es frekvenciasáv használata országtól függően korlátozott lehet.
 
 **Irish (GA):**
 
-Coinnigh ar a laghad fad 20 cm idir an gléas agus an t‑úsáideoir le linn úsáide. D’fhéadfadh srianta oibriúcháin a bheith ar an mbanda minicíochta 5 GHz ag brath ar an tír.
+Coinnigh ar a laghad fad 20 cm idir an gléas agus an t‑úsáideoir le linn úsáide.
+D’fhéadfadh srianta oibriúcháin a bheith ar an mbanda minicíochta 5 GHz ag brath ar an tír.
 
 **Italian (IT):**
 
-Mantenere una distanza minima di 20 cm tra il dispositivo e l’utente durante il funzionamento. La banda di frequenza a 5 GHz può essere soggetta a restrizioni operative a seconda del paese.
+Mantenere una distanza minima di 20 cm tra il dispositivo e l’utente durante il funzionamento.
+La banda di frequenza a 5 GHz può essere soggetta a restrizioni operative a seconda del paese.
 
 **Latvian (LV):**
 
-Uzturiet vismaz 20 cm attālumu starp ierīci un lietotāju darbības laikā. 5 GHz frekvenču joslai var būt izmantošanas ierobežojumi atkarībā no valsts.
+Uzturiet vismaz 20 cm attālumu starp ierīci un lietotāju darbības laikā.
+5 GHz frekvenču joslai var būt izmantošanas ierobežojumi atkarībā no valsts.
 
 **Lithuanian (LT):**
 
-Naudojimo metu laikykite bent 20 cm atstumą tarp įrenginio ir naudotojo. 5 GHz dažnių juostai gali būti taikomi naudojimo apribojimai priklausomai nuo šalies.
+Naudojimo metu laikykite bent 20 cm atstumą tarp įrenginio ir naudotojo.
+5 GHz dažnių juostai gali būti taikomi naudojimo apribojimai priklausomai nuo šalies.
 
 **Maltese (MT):**
 
-Żomm distanza minima ta’ 20 cm bejn l-apparat u l-utent waqt l-użu. Il-medda tal-frekwenza 5 GHz tista’ tkun soġġetta għal restrizzjonijiet skont il-pajjiż.
+Żomm distanza minima ta’ 20 cm bejn l-apparat u l-utent waqt l-użu.
+Il-medda tal-frekwenza 5 GHz tista’ tkun soġġetta għal restrizzjonijiet skont il-pajjiż.
 
 **Polish (PL):**
 
-Podczas pracy zachowaj minimalną odległość 20 cm między urządzeniem a użytkownikiem. Pasmo częstotliwości 5 GHz może podlegać ograniczeniom w zależności od kraju użytkowania.
+Podczas pracy zachowaj minimalną odległość 20 cm między urządzeniem a użytkownikiem.
+Pasmo częstotliwości 5 GHz może podlegać ograniczeniom w zależności od kraju użytkowania.
 
 **Portuguese (PT):**
 
-Mantenha uma distância mínima de 20 cm entre o dispositivo e o utilizador durante o funcionamento. A banda de frequência de 5 GHz pode estar sujeita a restrições de utilização dependendo do país.
+Mantenha uma distância mínima de 20 cm entre o dispositivo e o utilizador durante o funcionamento.
+A banda de frequência de 5 GHz pode estar sujeita a restrições de utilização dependendo do país.
 
 **Romanian (RO):**
 
-Mențineți o distanță minimă de 20 cm între dispozitiv și utilizator în timpul funcționării. Banda de frecvență de 5 GHz poate face obiectul unor restricții în funcție de țara de utilizare.
+Mențineți o distanță minimă de 20 cm între dispozitiv și utilizator în timpul funcționării.
+Banda de frecvență de 5 GHz poate face obiectul unor restricții în funcție de țara de utilizare.
 
 **Slovak (SK):**
 
-Počas prevádzky dodržiavajte minimálnu vzdialenosť 20 cm medzi zariadením a používateľom. Pásmo 5 GHz môže podliehať prevádzkovým obmedzeniam v závislosti od krajiny použitia.
+Počas prevádzky dodržiavajte minimálnu vzdialenosť 20 cm medzi zariadením a používateľom.
+Pásmo 5 GHz môže podliehať prevádzkovým obmedzeniam v závislosti od krajiny použitia.
 
 **Slovenian (SL):**
 
-Med delovanjem ohranjajte najmanj 20 cm razdalje med napravo in uporabnikom. Pas frekvenc 5 GHz je lahko omejen glede na državo uporabe.
+Med delovanjem ohranjajte najmanj 20 cm razdalje med napravo in uporabnikom.
+Pas frekvenc 5 GHz je lahko omejen glede na državo uporabe.
 
 **Spanish (ES):**
 
-Mantenga una distancia mínima de 20 cm entre el dispositivo y el usuario durante su funcionamiento. La banda de frecuencia de 5 GHz puede estar sujeta a restricciones según el país de uso.
+Mantenga una distancia mínima de 20 cm entre el dispositivo y el usuario durante su funcionamiento.
+La banda de frecuencia de 5 GHz puede estar sujeta a restricciones según el país de uso.
 
 **Swedish (SV):**
 
-Håll ett minsta avstånd på 20 cm mellan enheten och användaren under drift. 5 GHz-bandet kan vara föremål för driftbegränsningar beroende på användningsland.
+Håll ett minsta avstånd på 20 cm mellan enheten och användaren under drift.
+5 GHz-bandet kan vara föremål för driftbegränsningar beroende på användningsland.
 
 ## ESD Warning
 
@@ -1222,10 +1245,6 @@ This product is a development board that contains ESD-sensitive components. Appr
 | **UK**                 | **United Kingdom - UKCA Declaration of Conformity**                                                                                                                                              |
 | United Kingdom         | Hereby, Arduino S.r.l, declares that this Radiolan is in compliance with the essential requirements and other relevant provisions of The Radio Equipment Regulations 2017.                       |
 
-The full text of the EU and UKCA declaration of conformity is available at the following internet address: <https://docs.arduino.cc/certifications>
-
-The product complies with the requirements of the RoHS Directive (2011/65/EU and 2015/863/EU) and the REACH Regulation (EC) 1907/2006. A copy of the compliance documentation is available at: <https://docs.arduino.cc/certifications>
-
 Requirements in:
 
 Belgium (BE), Bulgaria (BG), Czech Republic (CZ), Denmark (DK), Germany (DE), Iceland (IS), Estonia (EE), Ireland (IE), Greece (EL), Spain (ES), France (FR), Croatia (HR), Italy (IT), Cyprus (CY), Latvia (LV), Liechtenstein (LI), Lithuania (LT), Luxembourg (LU), Hungary (HU), Malta (MT), Netherlands (NL), Norway (NO), Austria (AT), Poland (PL), Portugal (PT), Romania (RO), Slovenia (SI), Slovakia (SK), Turkey (TR), Finland (FI), Sweden (SE), Switzerland (CH), United Kingdom (North Irland) (UK(NI)), and United Kingdom (UK).
@@ -1261,7 +1280,7 @@ Arduino S.r.l. hereby declares that this product is in compliance with the essen
 
 Contains FCC ID: J9C-QCNFA725
 
-**FCC compliance information**
+**FCC Compliance Information**
 
 This device complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation.
 
@@ -1305,7 +1324,8 @@ Contains IC: 2723A-QCNFA725
 
 *English:*
 
-This device complies with Canadian RSS-247. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device may not cause interference, and (2) this device must accept any interference, including interference that may cause undesired operation of the device.
+This device complies with Canadian RSS-247.
+This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device may not cause interference, and (2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
 *French:*
 
@@ -1329,7 +1349,9 @@ Le guide d'utilisation des dispositifs pour réseaux locaux doit inclure des ins
 
 (iv) Les radars à haute puissance sont désignés comme utilisateurs principaux (c'est-à-dire utilisateurs prioritaires) des bandes de fréquences 5250-5350 MHz et 5650-5850 MHz. Ces radars peuvent causer des interférences et/ou endommager les dispositifs LE-LAN.
 
-**Note:** For 5GHz and/or when co-located with 5 GHz transmitters, the following statements should be provided in the user information.
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+  <strong>Note:</strong> For 5GHz and/or when co-located with 5 GHz transmitters, the following statements should be provided in the user information.
+</div>
 
 **Radiation Exposure Statement**
 
@@ -1350,40 +1372,6 @@ Devices shall not be used for control of or communications with unmanned aircraf
 *French :*
 
 Les dispositifs ne doivent pas être utilisés pour commander des systèmes d'aéronef sans pilote ni pour communiquer avec de tels systèmes; Les dispositifs ne doivent pas être utilisés sur les plateformes de forage pétrolier; Les dispositifs ne doivent pas être utilisés dans les aéronefs, à l'exception des points d'accès intérieurs de faible puissance, des dispositifs subordonnés intérieurs, des dispositifs clients de faible puissance et des dispositifs de très faible puissance fonctionnant dans la bande de 5 925 à 6 425 MHz, qui peuvent être utilisés dans les gros aéronefs tel qu'il est défini dans le Règlement de l'aviation canadien, et ce, lorsqu'ils volent à une altitude supérieure à 3 048 mètres (10 000 pieds).
-
-## MIC
-
-Contains MIC: 003-230390 / D220065003
-
-5GHz band (W52,W53): Indoor use only (except communicate to high power radio)
-
-5GHz 帯(W52, W53)は屋内利用に限る (高出力システムと通信する場合を除く)
-
-## Anatel
-
-ANATEL: 13700-21-02245
-
-Este equipamento não tem direito à proteção contra interferência prejudicial e não pode causar interferência em sistemas devidamente autorizados.
-
-Para maiores informações, consulte o site da ANATEL - <https://www.gov.br/anatel>
-
-## NCC
-
-Contains NCC: CCAI21Y10060T5
-
-台灣: 國家通訊傳播委員會
-
-取得審驗證明之低功率射頻器材，非經核准，公司、商號或使 用者均不得擅自變更頻率、加大功率或變更原設計之特性及功能。低功率射頻器材之使用不得影響飛航安全及干擾合法通信；經發現有干擾現象時，應立即停用，並改善至無干擾時方得繼續使用。前述合法通信，指依電信管理法規定作業之無線電通信。低功率射頻器材須忍受合法通信或工業、科學及醫療用電波輻射性電機設備之干擾。
-
-應避免影響附近雷達系統之操作
-
-```
-高增益指向性天線只得應用於固定式點對點系統。
-```
-
-## OFCA
-
-5150 ~5350MHz & 6GHz band Wi-Fi (LPI) are also required to be used indoor in HongKong.
 
 ## Marcas comerciales
 
@@ -1408,5 +1396,6 @@ Los términos «HDMI», «HDMI High-Definition Multimedia Interface», la imagen
 # Historial de revisiones del documento
 
 | **Fecha**  | **Revisión** | **Cambios**         |
-| :--------: | :----------: | ------------------- |
+| :--------: | :----------: | ------------- |
 | 25/08/2026 |      1       | Primera publicación |
+| 28/08/2026 |      2       | Updated Certifications |
