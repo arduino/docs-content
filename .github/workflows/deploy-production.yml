@@ -197,7 +197,7 @@ jobs:
           cat /tmp/big-jpg.lst /tmp/big-png.lst | tar --null -cf /tmp/compressed-images.tar -T -
 
       - name: Gatsby main cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         id: gatsby-cache-folder
         with:
           path: .cache
@@ -206,7 +206,7 @@ jobs:
             ${{ runner.os }}-cache-gatsby-main
 
       - name: Gatsby Public Folder cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         id: gatsby-public-folder
         with:
           path: public/
@@ -218,6 +218,19 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      # A warm public/ is worth 38 minutes of sharp, and costs ~4 GB of quota: main writes it, every other branch only reads
+      - name: Save Gatsby main cache
+        uses: actions/cache/save@v4
+        with:
+          path: .cache
+          key: ${{ runner.os }}-cache-gatsby-main-${{ github.run_id }}
+
+      - name: Save Gatsby Public Folder cache
+        uses: actions/cache/save@v4
+        with:
+          path: public/
+          key: ${{ runner.os }}-public-gatsby-main-${{ github.run_id }}
 
       - name: Clean up node_modules # Just to save space
         run: rm -rf node_modules
