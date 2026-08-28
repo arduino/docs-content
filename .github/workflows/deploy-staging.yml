@@ -63,6 +63,15 @@ jobs:
       APP_ENV: staging
 
     steps:
+      # A full-history checkout plus node_modules and a restored public/ do not fit beside the preinstalled toolchains: a
+      # checkout on a full disk dies with "unable to write new index file". The local action cannot be used before checkout.
+      - name: Free up disk space
+        run: |
+          df -h /
+          sudo rm -rf /opt/hostedtoolcache /usr/share/dotnet /usr/local/lib/android /usr/share/swift /usr/local/julia* \
+            /opt/pipx /usr/lib/mono /opt/google/chrome /opt/microsoft /usr/local/lib/node_modules /usr/local/share/powershell
+          df -h /
+
       # fetch-depth: 0 is required by gatsby-transformer-gitinfo, which runs
       # `git log -n 1 -- <file>` on every content file to populate
       # gitLogLatestDate (the "last updated" date shown on tutorial pages).
