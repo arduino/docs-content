@@ -215,21 +215,6 @@ jobs:
           # Gatsby defaults to physical cores, which is half the vCPUs of a runner
           GATSBY_CPU_COUNT: logical_cores
 
-      # A PR's ~4 GB public/ entry is unreadable by other PRs and evicts main's, the one they all restore from: only main writes
-      - name: Save Gatsby main cache
-        if: github.ref_name == 'main'
-        uses: actions/cache/save@v4
-        with:
-          path: .cache
-          key: ${{ runner.os }}-cache-gatsby-main-${{ github.run_id }}
-
-      - name: Save Gatsby Public Folder
-        if: github.ref_name == 'main'
-        uses: actions/cache/save@v4
-        with:
-          path: public/
-          key: ${{ runner.os }}-public-gatsby-main-${{ github.run_id }}
-
       - name: Install Netlify
         run: npm install netlify-cli@17.23.2 -g
 

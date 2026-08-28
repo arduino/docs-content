@@ -197,7 +197,7 @@ jobs:
           cat /tmp/big-jpg.lst /tmp/big-png.lst | tar --null -cf /tmp/compressed-images.tar -T -
 
       - name: Gatsby main cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         id: gatsby-cache-folder
         with:
           path: .cache
@@ -206,7 +206,7 @@ jobs:
             ${{ runner.os }}-cache-gatsby-main
 
       - name: Gatsby Public Folder cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         id: gatsby-public-folder
         with:
           path: public/
