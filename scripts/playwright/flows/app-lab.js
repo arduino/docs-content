@@ -148,6 +148,19 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
     const sidebar = page.locator('nav, aside, div[class*="side-panel"], div[class*="sidebar"]').first();
 
     // ==========================================
+    // STEP: BOARD SHELL (TERMINAL)
+    // ==========================================
+    if (step === 'terminal') {
+        console.log('\n--- Step: Board Shell (Terminal) ---');
+        await capture(page, 'statusbar-terminal-hl.png', outDir, {
+            highlight: [
+                { locators: openTerminalButton, label: 'SHELL', labelSide: 'top', connectorSide: 'top' }
+            ],
+            percentage: 'bottom 25%'
+        });
+    }
+
+    // ==========================================
     // STEP: NAVIGATION & STATUS BAR
     // ==========================================
     if (step === 'all' || step === 'navigation') {
@@ -213,6 +226,14 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
         });
 
         await capture(page, 'statusbar-crop.png', outDir, { crop: statusbar });
+
+        // Board shell button (opens a terminal on the board over ADB or SSH)
+        await capture(page, 'statusbar-terminal-hl.png', outDir, {
+            highlight: [
+                { locators: openTerminalButton, label: 'SHELL', labelSide: 'top', connectorSide: 'top' }
+            ],
+            percentage: 'bottom 25%'
+        });
 
         // Tab transitions
         await myAppsButton.click({ force: true });
