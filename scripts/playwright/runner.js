@@ -49,6 +49,41 @@ async function run() {
 
     const browser = await chromium.launch({ headless: true });
     const context = await browser.newContext({ viewport: CONFIG.viewport, deviceScaleFactor: 1 });
+    await context.addInitScript(() => {
+        const injectStyles = () => {
+            if (document.getElementById('playwright-suppress-overlays')) return;
+            const style = document.createElement('style');
+            style.id = 'playwright-suppress-overlays';
+            style.textContent = `
+                [role="tooltip"],
+                [data-role="tooltip"],
+                [data-radix-popper-content-wrapper],
+                [data-radix-tooltip-content],
+                div[class*="react-aria-Tooltip"],
+                body > div[class*="_tooltip_"],
+                body > div[class*="Tooltip_"],
+                div[class*="Snackbar_"], 
+                li[class*="Toastify"], 
+                div[class*="toast"], 
+                div[class*="sonner"],
+                #message-dialog-container,
+                dialog.message-dialog,
+                div[role="status"] { 
+                    display: none !important; 
+                    opacity: 0 !important;
+                    visibility: hidden !important;
+                    pointer-events: none !important; 
+                }
+            `;
+            if (document.head) {
+                document.head.appendChild(style);
+            } else {
+                document.addEventListener('DOMContentLoaded', () => document.head && document.head.appendChild(style));
+            }
+        };
+        injectStyles();
+        window.addEventListener('DOMContentLoaded', injectStyles);
+    });
     const page = await context.newPage();
     
     page.on('console', msg => {
