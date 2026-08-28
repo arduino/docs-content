@@ -1375,7 +1375,7 @@ Les dispositifs ne doivent pas être utilisés pour commander des systèmes d'a�
 
 ## Trademarks
 
-The terms HDMI, HDMI High-Definition Multimedia Interface, HDMI trade dress and the HDMI Logos are trademarks or registered trademarks of HDMI Licensing Administrator, Inc.
+Los términos «HDMI», «HDMI High-Definition Multimedia Interface», la imagen comercial de HDMI y los logotipos de HDMI son marcas comerciales o marcas registradas de HDMI Licensing Administrator, Inc.
 
 # Información de la empresa
 
