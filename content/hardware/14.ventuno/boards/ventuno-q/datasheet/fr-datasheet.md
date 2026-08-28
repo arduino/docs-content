@@ -1373,9 +1373,9 @@ Devices shall not be used for control of or communications with unmanned aircraf
 
 Les dispositifs ne doivent pas être utilisés pour commander des systèmes d'aéronef sans pilote ni pour communiquer avec de tels systèmes; Les dispositifs ne doivent pas être utilisés sur les plateformes de forage pétrolier; Les dispositifs ne doivent pas être utilisés dans les aéronefs, à l'exception des points d'accès intérieurs de faible puissance, des dispositifs subordonnés intérieurs, des dispositifs clients de faible puissance et des dispositifs de très faible puissance fonctionnant dans la bande de 5 925 à 6 425 MHz, qui peuvent être utilisés dans les gros aéronefs tel qu'il est défini dans le Règlement de l'aviation canadien, et ce, lorsqu'ils volent à une altitude supérieure à 3 048 mètres (10 000 pieds).
 
-## Trademarks
+## Marques déposées
 
-The terms HDMI, HDMI High-Definition Multimedia Interface, HDMI trade dress and the HDMI Logos are trademarks or registered trademarks of HDMI Licensing Administrator, Inc.
+Les termes « HDMI », « HDMI High-Definition Multimedia Interface », l’habillage commercial HDMI et les logos HDMI sont des marques commerciales ou des marques déposées de HDMI Licensing Administrator, Inc.
 
 # Informations sur la société
 
