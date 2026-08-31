@@ -26,8 +26,12 @@ jobs:
           codespell -I "scripts/resources/spell-check-ignore-list.txt" --skip="*.svg,*.dxf,*.pdf,*de-datasheet.md,*es-datasheet.md,*fr-datasheet.md,*hi-datasheet.md,*it-datasheet.md,*ja-datasheet.md,*nl-datasheet.md,*pt-datasheet.md,*zh-datasheet.md" ./content/
 
   lint:
-    name: Content Linter (Hardware)
+    name: Content Linter
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: [14]
+
     steps:
       - uses: actions/checkout@v4
 

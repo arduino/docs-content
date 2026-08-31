@@ -12,7 +12,7 @@ This directory contains the automated validation tools for `arduino/docs-content
 | **Alert Blocks** | `scripts/validation/alert_tags/alert_tags.py` | `Alert Check` | Enforces and formats empty-line spacing and indentation for MDX `<Alert>` blocks. |
 | **Relative Links** | `scripts/validation/relative_links/relative_links.py` | `Link Check` | Validates all relative links and `#heading-slug` anchors against production route mappings. |
 | **Image & Assets** | `scripts/validation/image_links/image_links.py` | `Image Check` | Flags broken image references and identifies orphaned files in `assets/` folders. |
-| **Content Linter (Legacy)** | `scripts/validation/content-lint.sh` | `Content Linter (Hardware)` | Runs legacy YAML frontmatter schema checks for hardware tutorials during migration. |
+| **Content Linter (Legacy)** | `scripts/validation/content-lint.sh` | `Content Linter` | Runs legacy YAML frontmatter schema checks for hardware tutorials during migration. |
 
 ---
 
