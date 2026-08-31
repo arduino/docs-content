@@ -86,7 +86,7 @@ For more alternatives to remotely access your board, please see the [Remote Acce
 
 <Alert type="warning">
 
-__Note:__ Because this demo opens a live camera window on-screen, run it from the board's actual desktop session (a physical monitor and keyboard, or a VNC/X11 session into the board). `adb` and `ssh` are still the easiest way to install dependencies and confirm the script runs before switching to the desktop session to watch the camera feed.
+**Note:** Because this demo opens a live camera window on-screen, run it from the board's actual desktop session (a physical monitor and keyboard, or a VNC/X11 session into the board). `adb` and `ssh` are still the easiest way to install dependencies and confirm the script runs before switching to the desktop session to watch the camera feed.
 
 </Alert>
 
