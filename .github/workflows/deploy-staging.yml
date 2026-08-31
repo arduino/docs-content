@@ -247,8 +247,17 @@ jobs:
 
       - run: npm install --prefer-offline --no-audit --fund=false
 
+      # nproc and free tell us whether logical_cores actually doubled the workers, and how much headroom they have
+      - name: Runner capacity
+        run: |
+          echo "vCPU: $(nproc)"
+          free -g
+
       - name: Build
         run: npm run build
+        env:
+          # Gatsby defaults to physical cores, which is half the vCPUs of a runner
+          GATSBY_CPU_COUNT: logical_cores
 
       - name: Clean up node_modules # Just to save space
         run: rm -rf node_modules
