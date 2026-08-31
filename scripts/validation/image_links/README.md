@@ -49,12 +49,17 @@ Delete orphaned images from `assets` folders:
 python3 scripts/validation/image_links/image_links.py remove-unlinked content
 ```
 
-## Ignore Configuration
+## Ignore & Asset Retention Configuration
 
 The script automatically discovers ignore patterns by traversing from the target directory up to the repository root:
 
-- `.lintignore` (universal ignore across all validation tools)
-- `.imagelintignore` (tool-specific ignore for image validation)
-- `.linterignore` (legacy compatibility)
+- **Validation Ignores:**
+  - `.lintignore` (universal ignore across all validation tools)
+  - `.imagelintignore` (tool-specific ignore for image validation)
+  - `.linterignore` (legacy compatibility)
+
+- **Asset Retention (`.assetsignore` / `.keepassets`):**
+  - Place `.assetsignore`, `.assetignore`, or `.keepassets` in any directory to preserve standalone or dynamically referenced assets without triggering `validate-unlinked` or `remove-unlinked` errors.
+  - Supports standard glob patterns (e.g. `*.svg`, `schematics/*`) or an empty file to retain all assets within that directory.
 
 Patterns follow standard `.gitignore` glob syntax relative to the location of the ignore file.

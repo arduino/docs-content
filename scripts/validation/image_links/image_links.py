@@ -17,6 +17,9 @@ IMAGE_EXTENSIONS = ('.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp')
 IGNORE_FILES = ['.lintignore', '.linterignore', '.imagelintignore']
 IGNORE_CACHE = {}
 
+ASSET_IGNORE_FILES = ['.assetsignore', '.assetignore', '.keepassets']
+ASSET_IGNORE_CACHE = {}
+
 def get_ignore_patterns(dir_path):
     if dir_path in IGNORE_CACHE:
         return IGNORE_CACHE[dir_path]
@@ -40,6 +43,56 @@ def is_ignored(path, repo_root):
     test_dir = abs_path if os.path.isdir(abs_path) else os.path.dirname(abs_path)
     while test_dir.startswith(root_dir_abs):
         patterns = get_ignore_patterns(test_dir)
+        if patterns:
+            rel_path = os.path.relpath(abs_path, test_dir).replace('\\', '/')
+            for pattern in patterns:
+                clean_p = pattern.strip().replace('\\', '/').rstrip('/')
+                if fnmatch.fnmatch(rel_path, clean_p) or fnmatch.fnmatch(rel_path, clean_p + '/*') or fnmatch.fnmatch(rel_path, clean_p + '/**'):
+                    return True
+                if rel_path == clean_p or rel_path.startswith(clean_p + '/'):
+                    return True
+                parts = rel_path.split('/')
+                for i in range(len(parts)):
+                    sub = '/'.join(parts[:i+1])
+                    if sub == clean_p or fnmatch.fnmatch(sub, clean_p):
+                        return True
+        if test_dir == root_dir_abs:
+            break
+        parent = os.path.dirname(test_dir)
+        if parent == test_dir:
+            break
+        test_dir = parent
+    return False
+
+def get_asset_ignore_patterns(dir_path):
+    if dir_path in ASSET_IGNORE_CACHE:
+        return ASSET_IGNORE_CACHE[dir_path]
+    
+    patterns = []
+    has_marker = False
+    for fname in ASSET_IGNORE_FILES:
+        ignore_path = os.path.join(dir_path, fname)
+        if os.path.exists(ignore_path):
+            has_marker = True
+            with open(ignore_path, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith('#'):
+                        patterns.append(line)
+    # If a marker file (like an empty .keepassets or .assetsignore) exists without patterns, match all in directory
+    if has_marker and not patterns:
+        patterns.append('*')
+        
+    ASSET_IGNORE_CACHE[dir_path] = patterns
+    return patterns
+
+def is_asset_retained(path, repo_root):
+    abs_path = os.path.abspath(path)
+    root_dir_abs = os.path.abspath(repo_root)
+    
+    test_dir = abs_path if os.path.isdir(abs_path) else os.path.dirname(abs_path)
+    while test_dir.startswith(root_dir_abs):
+        patterns = get_asset_ignore_patterns(test_dir)
         if patterns:
             rel_path = os.path.relpath(abs_path, test_dir).replace('\\', '/')
             for pattern in patterns:
@@ -153,6 +206,8 @@ def validate_missing(root_path, repo_root):
 def get_all_assets(root_path, repo_root):
     """
     Collects absolute paths for all image files located within any directory named 'assets'.
+    Files matching general ignores or asset retention ignores (.assetsignore / .keepassets)
+    are excluded from unlinked orphan detection.
     
     Args:
         root_path (str): The root directory to scan.
@@ -163,14 +218,14 @@ def get_all_assets(root_path, repo_root):
     """
     assets = set()
     for root, _, files in os.walk(root_path):
-        if is_ignored(root, repo_root):
+        if is_ignored(root, repo_root) or is_asset_retained(root, repo_root):
             continue
         # Restrict the search to directories explicitly named 'assets'
         if 'assets' in root.split(os.sep):
             for file in files:
                 if file.lower().endswith(IMAGE_EXTENSIONS):
                     asset_path = os.path.normpath(os.path.join(root, file))
-                    if not is_ignored(asset_path, repo_root):
+                    if not is_ignored(asset_path, repo_root) and not is_asset_retained(asset_path, repo_root):
                         assets.add(asset_path)
     return assets
 

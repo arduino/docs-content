@@ -53,13 +53,14 @@ hardware/01.mkr/
 hardware/08.legacy/
 ```
 
-### 2. Tool-Specific Ignores
+### 2. Tool-Specific Ignores & Retention
 
-When a directory needs a specific tool bypassed without disabling other checks:
+When a directory needs a specific tool bypassed or assets preserved:
 
 - **`.markdownlintignore`**: Skips Markdown formatting checks (e.g. for auto-generated docs or complex MDX).
 - **`.linklintignore`**: Skips relative link validation (e.g. for draft docs with pending route targets).
 - **`.imagelintignore`**: Skips image asset validation.
+- **`.assetsignore` / `.keepassets`**: Preserves unreferenced, standalone, or dynamically loaded image assets in `assets/` folders without triggering orphaned asset errors or removals during `validate-unlinked` / `remove-unlinked`.
 
 ---
 
