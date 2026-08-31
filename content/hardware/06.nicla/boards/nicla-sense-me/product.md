@@ -9,6 +9,8 @@ secondary_button_title: Cheat Sheet
 core: arduino:mbed_nicla
 productCode: ['043']
 sku: [ABX00050]
+useCases: [prototyping, edge-ai, iot-wireless]
+releaseDate: 
 ---
 
 The Nicla Sense ME houses 4 low power sensors in a small footprint enabling powerful data fusion capabilities on the edge. Analyse '**M**otion' and '**E**nvironment' with industrial grade Bosch sensors that can accurately measure rotation, acceleration, pressure, humidity, temperature, air quality and CO<sub>2</sub> levels.

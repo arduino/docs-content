@@ -8,6 +8,8 @@ core: arduino:samd
 forumCategorySlug: '/hardware/arduino-zero/74'
 productCode: ['016']
 sku: [ABX00003]
+useCases: [prototyping]
+releaseDate: 2021-01-04
 ---
 
 Arduino Zero is a simple and powerful 32-bit extension of the platform established by the UNO. This board aims to provide a platform for innovative projects in smart IoT devices, wearable technology, high-tech automation, crazy robotics, and much more.

@@ -100,7 +100,11 @@ You will be advised to connect the Media Carrier with the board **powered off** 
 
 ![Carrier Connection Alert](assets/enable-alert.png)
 
-<Alert type="warning">If the Media Carrier is not connected, unplug the UNO Q, connect the carrier and plug it back.</Alert>
+<Alert type="warning">
+
+If the Media Carrier is not connected, unplug the UNO Q, connect the carrier and plug it back.
+
+</Alert>
 
 Click on **Ok, Got it**, and you will see the different carrier configurations.
 
@@ -112,7 +116,11 @@ Then, click on **Apply and reboot** for applying the new configurations.
 
 To configure the UNO Media Carrier, we also developed a CLI that is included on the Arduino UNO Q. See the supported commands below:
 
-<Alert type="success">Use your UNO Q terminal (through SSH or ADB).</Alert>
+<Alert type="success">
+
+Use your UNO Q terminal (through SSH or ADB).
+
+</Alert>
 
 ```bash
 # List available carriers and devices
@@ -135,7 +143,11 @@ To enable the Media Carrier and configure a specific connector to manage above l
 sudo arduino-linux-config carrier enable media-carrier camera0=type1-2lanes display=8-dsi-touch-a
 ```
 
-<Alert type="info">The command above configures the MIPI CSI0 connector to control an IMX219 camera and an 8" DSI touch display.</Alert>
+<Alert type="info">
+
+The command above configures the MIPI CSI0 connector to control an IMX219 camera and an 8" DSI touch display.
+
+</Alert>
 
 To check the current or pending configuration to be applied, run:
 
@@ -144,7 +156,11 @@ To check the current or pending configuration to be applied, run:
 sudo arduino-linux-config carrier show media-carrier
 ```
 
-<Alert type="note">Any carrier configuration change will be applied after a board reboot.</Alert>
+<Alert type="note">
+
+Any carrier configuration change will be applied after a board reboot.
+
+</Alert>
 
 To disable the UNO Media Carrier, use:
 
@@ -264,13 +280,21 @@ To use a MIPI camera, connect it to "CAMERA0" or "CAMERA1" connectors with the U
 
 ![MIPI Cable Orientation](assets/mipi-orientation.png)
 
-<Alert type="note">Only __IMX219__ cameras are supported right now, we will be adding support for other modules in the future.</Alert>
+<Alert type="note">
+
+Only __IMX219__ cameras are supported right now, we will be adding support for other modules in the future.
+
+</Alert>
 
 Plug your board and inside Arduino App Lab, navigate to **Settings**, enable the carrier and select your camera type on its respective connector:
 
 ![Enable IMX219 two lanes on CAMERA0](assets/enable-camera.png)
 
-<Alert type="note">Click on __Apply and Reboot__ after changing any configuration.</Alert>
+<Alert type="note">
+
+Click on __Apply and Reboot__ after changing any configuration.
+
+</Alert>
 
 Or run the following command from the terminal:
 
@@ -278,13 +302,21 @@ Or run the following command from the terminal:
 sudo arduino-linux-config carrier enable media-carrier camera0=type1-2lanes
 ```
 
-<Alert type="note">Remember to __reboot__ your Arduino UNO Q after any configuration change.</Alert>
+<Alert type="note">
+
+Remember to __reboot__ your Arduino UNO Q after any configuration change.
+
+</Alert>
 
 Now, with your MIPI camera enabled, you can try the different Arduino App Lab examples that uses a camera input and they will work out of the box:
 
 ![Object Detection on Camera example](assets/example-mipi.png)
 
-<Alert type="warning">If you want to use just one camera, make sure to enable and connect it on __CAMERA0__ connector.</Alert>
+<Alert type="warning">
+
+If you want to use just one camera, make sure to enable and connect it on __CAMERA0__ connector.
+
+</Alert>
 
 #### Capturing Images
 Once your board has rebooted, you can start capturing images. There are several ways to interact with the camera, depending on whether you prefer the command line or a graphical interface.
@@ -317,7 +349,11 @@ For example:
 sudo gst-launch-1.0 libcamerasrc camera-name="/base/soc@0/cci@5c1b000/i2c-bus@0/sensor@10" ! video/x-raw,width=1280,height=720 ! videoconvert ! jpegenc snapshot=true ! filesink location=test_photo.jpg
 ```
 
-<Alert type="warning">Because MIPI sensors need a brief moment to calibrate their auto-exposure and white balance when turned on, capturing a single instant frame often results in a dark image.</Alert>
+<Alert type="warning">
+
+Because MIPI sensors need a brief moment to calibrate their auto-exposure and white balance when turned on, capturing a single instant frame often results in a dark image.
+
+</Alert>
 
 To get better photos, run the following command. It will briefly activate the camera and capture 2 frames, giving the sensor time to adjust on the second shot:
 
@@ -342,7 +378,11 @@ This approach allows us to build a custom Software Image Signal Processor (ISP) 
 
 The result is a sharp, color-accurate photograph that perfectly matches the physical lighting of the environment.
 
-<Alert type="success">Check this [dedicated repository](https://github.com/mcmchris/uno-q-mipi-camera-imx219) for achieving better photos and find the best color settings.</Alert>
+<Alert type="success">
+
+Check this [dedicated repository](https://github.com/mcmchris/uno-q-mipi-camera-imx219) for achieving better photos and find the best color settings.
+
+</Alert>
 
 
 #### Using a Graphical Interface (GUI)
@@ -360,7 +400,11 @@ After installation, you just need to open the app and start capturing photos or 
 
 ![Cheese camera feed](assets/ui_take.png)
 
-<Alert type="note">With Cheese you will get the same color results as before by using the CLI.</Alert> 
+<Alert type="note">
+
+With Cheese you will get the same color results as before by using the CLI.
+
+</Alert> 
 
 ### MIPI Display
 
@@ -372,13 +416,21 @@ To use a MIPI display, connect it to the "DISPLAY" connector with the UNO Q **un
 
 ![MIPI Cable Orientation](assets/mipi-orientation-2.png)
 
-<Alert type="note">Waveshare 5, 8 and 10 inches displays supported, we will be adding support for other ones in the future.</Alert>
+<Alert type="note">
+
+Waveshare 5, 8 and 10 inches displays supported, we will be adding support for other ones in the future.
+
+</Alert>
 
 Power your board and inside Arduino App Lab, navigate to **Settings**, enable the carrier and select your display type:
 
 ![Enable 8 inches Display](assets/enable-display.png)
 
-<Alert type="note">Click on __Apply and Reboot__ after changing any configuration.</Alert>
+<Alert type="note">
+
+Click on __Apply and Reboot__ after changing any configuration.
+
+</Alert>
 
 Or run the following command from the terminal:
 
@@ -386,7 +438,11 @@ Or run the following command from the terminal:
 sudo arduino-linux-config carrier enable media-carrier display=8-dsi-touch-a
 ```
 
-<Alert type="note">Remember to __reboot__ your Arduino UNO Q after any configuration change.</Alert>
+<Alert type="note">
+
+Remember to __reboot__ your Arduino UNO Q after any configuration change.
+
+</Alert>
 
 While your board is rebooting, it will show the boot logs and load the desktop view. Also, you will be able to navigate through it by using the touchscreen.
 
@@ -577,7 +633,11 @@ The earphone output provides the right earphone channel as a differential pair. 
 
 ![Earphone output](assets/earout.png)
 
-<Alert type="note">On this output you can connect a tiny speaker with an impedance range of <strong>10.67 Ω – 32 Ω</strong></Alert>
+<Alert type="note">
+
+On this output you can connect a tiny speaker with an impedance range of <strong>10.67 Ω – 32 Ω</strong>
+
+</Alert>
 
 Before playback, configure the audio pipeline using the following `amixer` commands:
 

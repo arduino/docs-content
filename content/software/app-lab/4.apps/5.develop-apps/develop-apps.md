@@ -30,7 +30,8 @@ The system also manages two configuration files: `app.yaml` (mandatory manifest 
    ![Screenshot of the App Editor in Arduino App Lab, highlighting in the Files browser.](../../assets/playwright/editor/editor-folders-expanded-files-hl.png)
 1. If folders are not displaying correctly, try closing and expanding the File Manager.
 1. Click on a folder to expand it.
-1. Click on a file to open it in a new tab.
+1. **Single-click** a file to open it in **Preview Mode**. The tab title will appear italicized, and opening another file will replace this tab.
+1. **Double-click** a file, or modify a previewed file, to **Pin** the tab. Pinned tabs remain open until you close them.
 
 ### Add Files or Folders
 
@@ -51,6 +52,26 @@ You can also click the **Add File** to create a new file or folder at the same l
 ### Moving files and folders
 
 The file tree supports **Drag and Drop** organization. Simply click and hold a file or folder, then drag it to your desired location within the project structure.
+
+## Editor
+
+### Split-Panel Mode
+
+To view multiple files simultaneously—such as editing `main.py` alongside `sketch.ino`, or viewing a `README.md` while coding—you can split the editor:
+
+1. Click and hold a file tab.
+2. Drag it to the right or bottom edge of the editor area until a highlighted drop zone appears.
+3. Release the mouse button to create a new split panel.
+
+### Language Server Protocol (LSP)
+
+Arduino App Lab includes integrated Language Server Protocol (LSP) support for Python and C++. This provides advanced coding assistance:
+
+- **Auto-completion**: As you type, the editor suggests functions, variables, and imported modules.
+- **Syntax Diagnostics**: Errors and warnings are highlighted in real-time. Hover over highlighted code to read the error message.
+- **Go-to-Definition**: Hold `Ctrl` (or `Cmd` on Mac) and click on a function or variable to jump directly to where it is defined.
+
+You can verify the LSP is active by checking the **STATUS** indicator in the bottom right corner of the status bar.
 
 ## Python Development
 
@@ -118,7 +139,11 @@ Bricks are pre-packaged code modules that run as separate processes alongside yo
 4. Review the Brick's documentation, which Arduino App Lab opens in a new tab when you add the Brick. The **Overview** and **Usage examples** contain the specific code needed for implementation.
 5. Import and initialize the Brick in your `main.py` file.
 
-<Alert type="success">**Tip:** Click on an added Brick in the sidebar to open its documentation.</Alert>
+<Alert type="success">
+
+**Tip:** Click on an added Brick in the sidebar to open its documentation.
+
+</Alert>
 
 ### Use Python Packages
 
@@ -157,7 +182,11 @@ In Arduino App Lab, you install libraries on a per-App basis to prevent version 
 
 Standard `Serial.print()` and `Serial.println()` commands are automatically routed to the **Serial Monitor** tab in the App Lab console.
 
-<Alert type="info">**Note:** As of Zephyr core 0.55.0, `Serial` commands are supported. The **Arduino_RouterBridge** library is included by default, and you no longer need to manually install or include it in your sketch. For more information, see [Migrating to Zephyr core 0.55.0 on UNO Q](https://support.arduino.cc/hc/en-us/articles/27251870677916-Migrating-to-Zephyr-core-0-55-0-on-UNO-Q)</Alert>
+<Alert type="info">
+
+**Note:** As of Zephyr core 0.55.0, `Serial` commands are supported. The **Arduino_RouterBridge** library is included by default, and you no longer need to manually install or include it in your sketch. For more information, see [Migrating to Zephyr core 0.55.0 on UNO Q](https://support.arduino.cc/hc/en-us/articles/27251870677916-Migrating-to-Zephyr-core-0-55-0-on-UNO-Q)
+
+</Alert>
 
 **To use the Serial Monitor:**
 
@@ -177,13 +206,33 @@ Standard `Serial.print()` and `Serial.println()` commands are automatically rout
 1. When your App is running, output will appear in the **Serial Monitor** tab of the console panel at the bottom of the editor.
    ![Screenshot of Arduino App Lab, displaying the Serial Monitor tab of the integrated Console.](../../assets/playwright/editor/console/console-panel-serial-hl.png)
 
-<Alert type="success">**Tip:** You may also use the `Monitor` object directly. `Monitor.begin()`, `Monitor.print()`, and `Monitor.println()` are used in many examples.</Alert>
+<Alert type="success">
+
+**Tip:** You may also use the `Monitor` object directly. `Monitor.begin()`, `Monitor.print()`, and `Monitor.println()` are used in many examples.
+
+</Alert>
 
 ## Python/Sketch Communication
 
 The `Bridge` allows your Python script and Arduino sketch to exchange data using Remote Procedure Calls (RPC).
 
 See [Getting Started with the Bridge](../../bridge/get-started-with-bridge/) to learn more.
+
+## Agent Mode (AI Assistant)
+
+Arduino App Lab features a built-in AI coding assistant designed to help you write, understand, and debug code. 
+
+To use the AI assistant:
+1. Locate the footer status bar at the bottom of the screen.
+2. Toggle the switch from **EDITOR** to **AGENT MODE**.
+   ![Screenshot of the status bar in Arduino App Lab, highlighting the Agent Mode toggle.](../../assets/playwright/statusbar-controls-hl.png)
+3. App Lab switches from the editor to the **Agent Mode** view.
+
+You can prompt the agent to:
+- Scaffold boilerplate code for new features.
+- Suggest appropriate Bricks for your project goals.
+- Explain complex code segments.
+- Debug compilation errors or runtime exceptions.
 
 ## Running and Monitoring Your App
 

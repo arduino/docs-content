@@ -462,7 +462,11 @@ The IDE will compile the sketch and upload it to the STM32 microcontroller. You 
 
 ![Red LED blinking](assets/blinking-led.gif)
 
-<Alert type="success">Also, if you open the Serial Monitor you will see the "Hello World" message!.</Alert>
+<Alert type="success">
+
+Also, if you open the Serial Monitor you will see the "Hello World" message!.
+
+</Alert>
 
 ## Onboard User Interface
 
@@ -1154,10 +1158,9 @@ While the `Bridge` library is what you use in your code, the Router is the traff
 The Router manages the physical connection between the two processors. It is important to know which hardware resources are claimed by the Router to avoid conflicts in your own applications.
 
 * **Linux Side (MPU):** The router claims the serial device `/dev/ttyHS1`.
-* **MCU Side (STM32):** The router claims the hardware serial port `Serial1`.
 
 > **⚠️ WARNING: Reserved Resources**
-> Do not attempt to open `/dev/ttyHS1` (on Linux) or `Serial1` (on Arduino/Zephyr) in your own code. These interfaces are exclusively locked by the `arduino-router` service. Attempting to access them directly will cause the Bridge to fail.
+> Do not attempt to open `/dev/ttyHS1` (on Linux) in your own code. This interface is exclusively locked by the `arduino-router` service. Attempting to access it directly will cause the Bridge to fail.
 
 #### Managing the Router Service
 
@@ -1913,7 +1916,11 @@ If you need to reset the board to its factory state, recover from system corrupt
 *   **Arduino App Lab**: If your board is functional and recognized by your computer, you can initiate a reset or switch distributions directly from the **Settings** menu. This method allows you to preserve your user data if desired.
 *   **Arduino Flasher CLI**: If your board is unresponsive or cannot be discovered on your network, use this standalone command-line tool to reinstall the OS.
 
-<Alert type="info">For detailed instructions on both methods, please refer to the [Flash a Linux Image](/software/app-lab/configure/flash/) tutorial.</Alert>
+<Alert type="info">
+
+For detailed instructions on both methods, please refer to the [Flash a Linux Image](/software/app-lab/configure/flash/) tutorial.
+
+</Alert>
 
 ## Support
 

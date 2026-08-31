@@ -8,6 +8,8 @@ secondary_button_url: /tutorials/wisgate-edge-pro/update-firmware
 secondary_button_title: Update Firmware
 url_datasheet: https://docs.rakwireless.com/Product-Categories/WisGate/RAK7289/Datasheet
 sku: [TPX00095, TPX00096, TPX00097]
+useCases: [industrial-automation]
+releaseDate: 2022-08-31
 ---
 
 The WisGate Edge Pro gateway, featuring RAKWireless<sup>TM</sup> technology, is designed for professional applications using LoRa® technology.

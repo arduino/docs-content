@@ -8,6 +8,8 @@ core: arduino:avr
 productCode: ['117']
 forumCategorySlug: '/hardware/12'
 sku: [ABX00062]
+useCases: [prototyping]
+releaseDate: 2021-11-26
 ---
 
 The Arduino UNO Mini Limited Edition (LE) is a unique black & gold board, that pays tribute to everyone's favorite maker board: [the Arduino UNO](https://store-usa.arduino.cc/products/arduino-uno-rev3). It is only 25% of the area size of the original UNO, comes with a USB-C® connector and is delivered in a special case.

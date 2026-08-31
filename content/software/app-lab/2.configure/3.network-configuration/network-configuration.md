@@ -1,6 +1,6 @@
 ---
 title: Network Configuration for Arduino App Lab
-description: Learn about the ports, domains, and network types required for the Arduino UNO Q and App Lab.
+description: Learn about the ports, domains, and network types required for your board and App Lab.
 overwriteSidebar: Network Configuration
 tags: [app-lab, network, uno-q, troubleshooting, firewall]
 ---
@@ -9,9 +9,13 @@ Configure your network environment to ensure reliable remote connectivity. While
 
 ## Local Network Discovery (mDNS)
 
-Arduino App Lab uses **mDNS (Multicast DNS)** to automatically detect your UNO Q board on the local network.
+Arduino App Lab uses **mDNS (Multicast DNS)** to automatically detect your board on the local network.
 
-<Alert type="warning">**Warning:** Some network environments—such as guest Wi-Fi, corporate networks, or VPNs—may block mDNS traffic, preventing the board from appearing in the App Lab interface.</Alert>
+<Alert type="warning">
+
+**Warning:** Some network environments—such as guest Wi-Fi, corporate networks, or VPNs—may block mDNS traffic, preventing the board from appearing in the App Lab interface.
+
+</Alert>
 
 To ensure discovery works correctly:
 
@@ -20,7 +24,7 @@ To ensure discovery works correctly:
 
 ## Required Ports
 
-Depending on the features and Bricks you use, the UNO Q requires access to the following ports:
+Depending on the features and Bricks you use, your board requires access to the following ports:
 
 | Port | Protocol | Service | Usage |
 | :--- | :--- | :--- | :--- |
@@ -38,7 +42,7 @@ Depending on the features and Bricks you use, the UNO Q requires access to the f
 
 ## Domain Whitelist
 
-If you are operating behind a restrictive firewall, you must allow traffic to the following domains for the UNO Q to function correctly:
+If you are operating behind a restrictive firewall, you must allow traffic to the following domains for your board to function correctly:
 
 ### Core Infrastructure
 

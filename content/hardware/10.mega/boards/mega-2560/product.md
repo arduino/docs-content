@@ -8,6 +8,8 @@ core: arduino:avr
 productCode: ['002']
 forumCategorySlug: '/hardware/12'
 sku: [A000067]
+useCases: [prototyping]
+releaseDate: 2021-01-04
 ---
 
 The 8-bit board with 54 digital pins, 16 analog inputs, and 4 serial ports.

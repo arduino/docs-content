@@ -8,6 +8,8 @@ secondary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-gene
 secondary_button_title: More on Modulino Nodes
 forumCategorySlug: '/hardware/accessories/213'
 sku: [ABX00152]
+useCases: [prototyping, accessories]
+releaseDate: 2026-04-03
 ---
 
 An 8×12 LED matrix display for showing text, graphics, and animations in your projects. Create scrolling messages, visual notifications, or interactive games with 96 individually controllable LEDs. Compatible with Arduino UNO R4 WiFi or any Qwiic-enabled board, with the same functionality as the UNO R4 WiFi built-in matrix for easy code compatibility.

@@ -8,6 +8,8 @@ secondary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-gene
 secondary_button_title: More on Modulino Nodes
 forumCategorySlug: '/hardware/accessories/modulino-movement/218'
 sku: [ABX00101]
+useCases: [prototyping, accessories]
+releaseDate: 2025-05-25
 ---
 
 Measure acceleration and rotation with ease thanks to the integrated 6-axis sensor (LSM6DSOXTR). Perfect for robotics, wearables, or motion-driven applications. Compatible with the Arduino UNO R4 WiFi or any Qwiic-enabled board, and features optional solderable pins if you prefer direct wiring.

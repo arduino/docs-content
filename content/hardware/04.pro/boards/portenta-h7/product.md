@@ -10,6 +10,8 @@ core: arduino:mbed_portenta
 forumCategorySlug: '/hardware/portenta/91'
 productCode: ['041']
 sku: [ABX00042]
+useCases: [prototyping, industrial-automation, robotics, edge-ai, iot-wireless]
+releaseDate: 2021-01-04
 ---
 
 The Portenta H7 follows the Arduino MKR form factor, but enhanced with the Portenta family 80 pin high-density connector. Program it with high-level languages and AI while performing low-latency operations on its customizable hardware.

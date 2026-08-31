@@ -1,7 +1,7 @@
 ---
 title: Setup Arduino App Lab on Linux
 overwriteSidebar: Linux
-description: Learn how to install Arduino App Lab and configure your Linux system for the UNO Q.
+description: Learn how to install Arduino App Lab and configure your Linux system for your board.
 author: Arduino Team
 tags:
   - Linux
@@ -46,7 +46,7 @@ Arduino App Lab requires the `libwebkit2gtk-4.1-0` library to render the user in
 
 ### Step 2: Configure udev Rules
 
-You must create a `udev` rule to ensure your Linux system correctly identifies and grants permission to the UNO Q hardware.
+You must create a `udev` rule to ensure your Linux system correctly identifies and grants permission to your board.
 
 1. Create a new rules file:
 
@@ -77,7 +77,11 @@ Add your user account to the `dialout` group to allow access to the serial and U
 sudo usermod -a -G dialout $USER
 ```
 
-<Alert type="note">**Important:** You must log out and log back in for these group permission changes to take effect.</Alert>
+<Alert type="note">
+
+**Important:** You must log out and log back in for these group permission changes to take effect.
+
+</Alert>
 
 ## Install Arduino App Lab
 
@@ -99,7 +103,7 @@ sudo usermod -a -G dialout $USER
 ## Connect Your Board
 
 1. Launch Arduino App Lab.
-2. Connect your UNO Q to your PC using a USB-C® cable.
+2. Connect your board to your PC using a USB-C® cable.
 3. Select your board when it appears in the Arduino App Lab interface (this may take up to 60 seconds).
 
 ## Next steps

@@ -1,14 +1,14 @@
 ---
 title: 'Manage Apps Using Arduino App CLI'
 overwriteSidebar: Arduino App CLI
-description: Learn how to use the Arduino App Lab CLI, the command line interface for launching Apps on the UNO Q board.
+description: Learn how to use the Arduino App Lab CLI, the command line interface for launching Apps on your board.
 author: Karl Söderby
 tags: [UNO Q, Linux, CLI]
 ---
 
 Manage your modular Apps through the `arduino-app-cli`, the command-line engine behind Arduino App Lab. This tool allows you to build, start, and stop applications directly from your board's terminal or remotely via ADB and SSH.
 
-The `arduino-app-cli` is pre-installed on the UNO Q board and can be accessed either through using the terminal on the board itself, or by accessing the board's terminal from a host computer via Android Debug Bridge (ADB).
+The `arduino-app-cli` is pre-installed on the board and can be accessed either through using the terminal on the board itself, or by accessing the board's terminal from a host computer via Android Debug Bridge (ADB).
 
 ## Requirements
 
@@ -25,7 +25,7 @@ You can also access the board via SSH, which is typically installed on your syst
 
 ***To learn more about setting up `adb`, check out the [Connect to UNO Q via ADB](/tutorials/uno-q/adb/) tutorial. This guide will walk you through the installation steps.***
 
-1. Connect the UNO Q board to your computer via USB-C.
+1. Connect the board to your computer via USB-C.
 2. Run `adb devices` in the terminal. This should list the connected devices.
 
     ![Connected devices](assets/connected-devices.png)
@@ -105,7 +105,7 @@ Once an App is created and edited, it can be launched through the following comm
 arduino-app-cli app start "/home/arduino/ArduinoApps/test"
 ```
 
-This will launch the App on your UNO Q board.
+This will launch the App on your board.
 
 To stop the App, use:
 
@@ -202,7 +202,7 @@ Which will show something akin to:
 
 ## Summary
 
-This article covers some important commands & usage of the `arduino-app-cli`, which allows you to manage Apps on the UNO Q without the graphical interface.
+This article covers some important commands & usage of the `arduino-app-cli`, which allows you to manage Apps on your board without the graphical interface.
 
 More documentation for the Arduino App Lab is available at:
 - [Arduino App Lab Documentation](https://docs.arduino.cc/software/app-lab/)

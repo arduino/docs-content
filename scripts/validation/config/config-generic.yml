@@ -24,5 +24,11 @@ debug: false
 # Defines rules for what links not to check. Usually relative links should not be checked.
 brokenLinkExcludePatterns: [^./, ^../, ^#, ^chrome://, localhost , ^assets/, ^images/]
 
+# Paths skipped when collecting articles. Read from here only: validate.js passes
+# getConfig("generic").excludePatterns to the ArticleManager, so the same key in the
+# tutorials and datasheets configs has no effect. category.md labels a folder and is
+# not a tutorial, so it must not be held to the tutorial metadata schema.
+excludePatterns: [".git", "/template", ".DS_Store", "category.md"]
+
 # Define a list of foldernames that get ignored during folder name validation
 folderNameIgnoreList: ["_unlisted"]

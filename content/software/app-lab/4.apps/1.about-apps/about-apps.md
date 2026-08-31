@@ -36,7 +36,11 @@ To ensure compatibility with the Arduino App Lab environment, every App follows 
 | `sketch/sketch.yaml` | Mandatory if sketch exists | Configuration for the sketch, including required libraries. |
 | `README.md` | Optional | Documentation that is displayed in the App Lab UI. |
 
-<Alert type="info">**Note:** The `app.yaml` and `sketch.yaml` files are managed automatically by Arduino App Lab. You should not edit them manually unless you are an advanced user.</Alert>
+<Alert type="info">
+
+**Note:** The `app.yaml` and `sketch.yaml` files are managed automatically by Arduino App Lab. You should not edit them manually unless you are an advanced user.
+
+</Alert>
 
 ## Storage Location
 

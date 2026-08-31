@@ -11,6 +11,9 @@ tags:
 
 A command-line tool used to access the board's Linux shell over a USB connection. It allows for file management and terminal access without a network connection.
 
+## Agent Mode
+A built-in AI coding assistant in App Lab designed to help you write, understand, and debug code via a chat interface.
+
 ## AI (Artificial Intelligence)
 
 The simulation of human intelligence by machines. In App Lab, AI models are typically deployed within **Bricks** to perform tasks like object detection or speech recognition locally on the board.
@@ -67,13 +70,22 @@ The interface within App Lab used to view real-time logs. It displays deployment
 
 A low-level boot mode used when flashing a new Linux image to the board. It is required for the **Arduino Flasher CLI** to communicate with the hardware.
 
+## Examples
+Basic, foundational starter templates in App Lab focused on demonstrating a single feature or capability. The ready-to-run showcase projects previously known as Examples are now called [Inspirations](#inspirations).
+
 ## GPIO (General Purpose Input/Output)
 
 Digital pins on the board that can be programmed as inputs or outputs to interact with external electronic components.
 
+## Inspirations
+Rich, multi-component showcase projects in App Lab that are ready to run and provide a complete experience.
+
 ## Linux Image
 
 The operating system file that contains the customized Linux distribution and drivers required to run the board and App Lab.
+
+## LSP (Language Server Protocol)
+A protocol integrated into App Lab that provides advanced coding assistance, such as auto-completion, syntax diagnostics, and go-to-definition for Python and C++.
 
 ## main.py
 

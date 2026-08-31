@@ -6,6 +6,8 @@ primary_button_url: /tutorials/mkr-can-shield/mkr-can-communication
 primary_button_title: Get Started
 forumCategorySlug: '/hardware/mkr-boards/mkr-shields/162'
 sku: [ASX00005]
+useCases: [prototyping]
+releaseDate: 2021-01-04
 ---
 
 The MKR CAN Shield is a great addon for MKR family boards, and allows you to connect to a CAN (Controller Area Network) bus, widely used in the automotive industry.

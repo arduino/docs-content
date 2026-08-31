@@ -32,7 +32,11 @@ my-app/
         └── requirements.txt        # Python dependencies (optional)
 ```
 
-<Alert type="info">**Note:** Custom Bricks are local to the App they are created in. They are not shared across different Apps or shown in the official Bricks index.</Alert>
+<Alert type="info">
+
+**Note:** Custom Bricks are local to the App they are created in. They are not shared across different Apps or shown in the official Bricks index.
+
+</Alert>
 
 ## Create a Custom Brick
 
@@ -107,9 +111,17 @@ ports:
   - "8080:8080"
 ```
 
-<Alert type="warning">**Important:** The orchestrator executes the custom brick's Python code (in `__init__.py`) within the main application's container, **not** inside the custom Docker containers you define here. This means your Python code can't directly access system libraries or files inside the container. Instead, your Python code must communicate with the containerized service over the virtual Docker Compose network using a network API (such as HTTP, WebSockets, or TCP/IP). You can reach the service using the service name defined in your `brick_compose.yaml` (e.g., `my_service`) as the hostname.</Alert>
+<Alert type="warning">
 
-<Alert type="info">**Note:** Docker images specified in `brick_compose.yaml` must be publicly accessible, as App Lab doesn't currently support private registries for Custom Bricks.</Alert>
+**Important:** The orchestrator executes the custom brick's Python code (in `__init__.py`) within the main application's container, **not** inside the custom Docker containers you define here. This means your Python code can't directly access system libraries or files inside the container. Instead, your Python code must communicate with the containerized service over the virtual Docker Compose network using a network API (such as HTTP, WebSockets, or TCP/IP). You can reach the service using the service name defined in your `brick_compose.yaml` (e.g., `my_service`) as the hostname.
+
+</Alert>
+
+<Alert type="info">
+
+**Note:** Docker images specified in `brick_compose.yaml` must be publicly accessible, as App Lab doesn't currently support private registries for Custom Bricks.
+
+</Alert>
 
 ## Using Your Custom Brick
 
@@ -273,4 +285,8 @@ The manifest includes the following parameters:
   - `ei-project-id`: The unique project identifier inside the Edge Impulse Studio.
   - `ei-model-url`: The direct download link to retrieve the pre-compiled `.eim` model file.
 
-<Alert type="info">**Note:** When you export an App that contains a Custom Brick, the Brick's source code is included in the export. However, external dependencies like AI models or Docker images are not exported and must be re-downloaded when the App is imported elsewhere.</Alert>
+<Alert type="info">
+
+**Note:** When you export an App that contains a Custom Brick, the Brick's source code is included in the export. However, external dependencies like AI models or Docker images are not exported and must be re-downloaded when the App is imported elsewhere.
+
+</Alert>

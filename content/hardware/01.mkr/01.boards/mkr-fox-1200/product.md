@@ -8,6 +8,7 @@ forumCategorySlug: '/mkr-boards/mkrfox1200/142'
 status: end-of-life
 productCode: ['128']
 sku: [ABX00014]
+useCases: [prototyping]
 ---
 
 The MKR FOX 1200 is your entry point to start working with the European Sigfox networks. The board can easily be added to the Sigfox infrastructure. It also features very low power consumption, and is designed to run on batteries for a longer period of time.
