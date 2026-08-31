@@ -1053,7 +1053,7 @@ Unter Worst-Case-Bedingungen, bei denen MPU, NPU und GPU gleichzeitig mit voller
 
 # Safety Information
 
-Maintain a minimum separation distance of 20 cm between the device and the user during operation. The 5 GHz frequency band may be subject to operational restrictions depending on the country of use.
+Maintain a minimum separation distance of 20 cm between the device and the user during operation. The 5 GHz and 6GHz frequency band may be subject to operational restrictions depending on the country of use.
 
 **Bulgarian (BG):**
 
@@ -1337,7 +1337,7 @@ Caution:
 
 (i) the device for operation in the band 5150-5250 MHz is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems;
 
-(iv) Users should also be advised that high-power radars are allocated as primary users (i.e. priority users) of the bands 5250-5350 MHz and 5650-5850 MHz and that these radars could cause interference and/or damage to LE-LAN devices.
+(ii) Users should also be advised that high-power radars are allocated as primary users (i.e. priority users) of the bands 5250-5350 MHz and 5650-5850 MHz and that these radars could cause interference and/or damage to LE-LAN devices.
 
 *French:*
 
@@ -1347,7 +1347,7 @@ Le guide d'utilisation des dispositifs pour réseaux locaux doit inclure des ins
 
 (i) les dispositifs fonctionnant dans la bande 5 150-5 250 MHz sont réservés uniquement pour une utilisation à l'intérieur afin de réduire les risques de brouillage préjudiciable aux systèmes de satellites mobiles utilisant les mêmes canaux ;
 
-(iv) Les radars à haute puissance sont désignés comme utilisateurs principaux (c'est-à-dire utilisateurs prioritaires) des bandes de fréquences 5250-5350 MHz et 5650-5850 MHz. Ces radars peuvent causer des interférences et/ou endommager les dispositifs LE-LAN.
+(ii) Les radars à haute puissance sont désignés comme utilisateurs principaux (c'est-à-dire utilisateurs prioritaires) des bandes de fréquences 5250-5350 MHz et 5650-5850 MHz. Ces radars peuvent causer des interférences et/ou endommager les dispositifs LE-LAN.
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   <strong>Note:</strong> For 5GHz and/or when co-located with 5 GHz transmitters, the following statements should be provided in the user information.
@@ -1399,3 +1399,4 @@ The terms HDMI, HDMI High-Definition Multimedia Interface, HDMI trade dress and 
 | :--------: | :----------: | ------------- |
 | 25/08/2026 |      1       | Erste Veröffentlichung |
 | 28/08/2026 |      2       | Updated Certifications |
+| 31/08/2026 |      3       | Adding 6 GHz to Safety Information |
