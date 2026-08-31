@@ -43,7 +43,22 @@ jobs:
           rm -rf "${GITHUB_WORKSPACE:?}"/*
 
       - uses: actions/checkout@v4
+        id: checkout-retry
         if: steps.checkout.outcome == 'failure'
+        continue-on-error: true
+        timeout-minutes: 5
+        with:
+          fetch-depth: 1
+
+      # Attempt 2 has failed outright before, not only stalled: one more wipe and one last try
+      - name: Reset workspace before last checkout attempt
+        if: steps.checkout.outcome == 'failure' && steps.checkout-retry.outcome == 'failure'
+        run: |
+          shopt -s dotglob
+          rm -rf "${GITHUB_WORKSPACE:?}"/*
+
+      - uses: actions/checkout@v4
+        if: steps.checkout.outcome == 'failure' && steps.checkout-retry.outcome == 'failure'
         with:
           fetch-depth: 1
 
@@ -63,15 +78,6 @@ jobs:
       APP_ENV: staging
 
     steps:
-      # A full-history checkout plus node_modules and a restored public/ do not fit beside the preinstalled toolchains: a
-      # checkout on a full disk dies with "unable to write new index file". The local action cannot be used before checkout.
-      - name: Free up disk space
-        run: |
-          df -h /
-          sudo rm -rf /opt/hostedtoolcache /usr/share/dotnet /usr/local/lib/android /usr/share/swift /usr/local/julia* \
-            /opt/pipx /usr/lib/mono /opt/google/chrome /opt/microsoft /usr/local/lib/node_modules /usr/local/share/powershell
-          df -h /
-
       # fetch-depth: 0 is required by gatsby-transformer-gitinfo, which runs
       # `git log -n 1 -- <file>` on every content file to populate
       # gitLogLatestDate (the "last updated" date shown on tutorial pages).
@@ -100,7 +106,23 @@ jobs:
           rm -rf "${GITHUB_WORKSPACE:?}"/*
 
       - uses: actions/checkout@v4
+        id: checkout-retry
         if: steps.checkout.outcome == 'failure'
+        continue-on-error: true
+        timeout-minutes: 5
+        with:
+          fetch-depth: "0"
+          filter: blob:none
+
+      # Attempt 2 has failed outright before, not only stalled: one more wipe and one last try
+      - name: Reset workspace before last checkout attempt
+        if: steps.checkout.outcome == 'failure' && steps.checkout-retry.outcome == 'failure'
+        run: |
+          shopt -s dotglob
+          rm -rf "${GITHUB_WORKSPACE:?}"/*
+
+      - uses: actions/checkout@v4
+        if: steps.checkout.outcome == 'failure' && steps.checkout-retry.outcome == 'failure'
         with:
           fetch-depth: "0"
           filter: blob:none
