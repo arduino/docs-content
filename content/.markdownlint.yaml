@@ -11,6 +11,14 @@ MD013: false
 MD024:
   siblings_only: true
 
+# Disallow trailing punctuation in headings, but permit question marks
+MD026:
+  punctuation: ".,;:!。，；：！"
+
+# Allow ordered lists to use either repeating '1.' or sequential '1. 2. 3.' numbering
+MD029:
+  style: "one_or_ordered"
+
 # Allow code blocks immediately following list items
 MD031:
   list_items: false
