@@ -42,8 +42,8 @@
     "npm": "^10.4.0"
   },
   "volta": {
-    "node": "18.16.1",
-    "npm": "9.8.0"
+    "node": "22.22.3",
+    "npm": "10.9.8"
   },
   "devDependencies": {
     "fast-glob": "^3.3.3",
