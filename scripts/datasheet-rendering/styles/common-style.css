@@ -297,3 +297,19 @@ h1::after, h2::after, h3::after, h4::after {
     height: 300px;
     margin-bottom: -300px;
 }
+
+/* Notes written as plain markdown blockquotes, so a datasheet needs no inline HTML for them */
+blockquote {
+    background-color: rgba(0, 170, 228, 0.2);
+    border-left: 6px solid rgba(0, 120, 180, 1);
+    margin: 20px 0;
+    padding: 15px;
+}
+
+blockquote > :first-child {
+    margin-block-start: 0;
+}
+
+blockquote > :last-child {
+    margin-block-end: 0;
+}
