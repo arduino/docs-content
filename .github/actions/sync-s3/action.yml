@@ -11,7 +11,7 @@ runs:
   using: composite
   steps:
     - name: Configure AWS credentials from Staging account
-      uses: aws-actions/configure-aws-credentials@v4
+      uses: aws-actions/configure-aws-credentials@v6
       with:
         role-to-assume: ${{ inputs.role-to-assume }}
         aws-region: us-east-1

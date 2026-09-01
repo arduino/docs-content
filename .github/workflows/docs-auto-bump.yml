@@ -15,10 +15,10 @@ jobs:
       REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 20
           cache: 'npm'
@@ -54,7 +54,7 @@ jobs:
         run: npm install --ignore-scripts
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.BUMP_DOCS_TOKEN }}
           commit-message: 'Bump @arduino/docs.arduino.cc to v${{ steps.get_version.outputs.version }}'

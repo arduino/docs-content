@@ -23,7 +23,7 @@ jobs:
       # Checkout stalls intermittently on this repo (~9 GB): on 2026-08-25, 4 of
       # 8 checkouts hung with no progress at all. Bound the attempt and retry
       # once, instead of letting a stalled transfer run into the 6h default.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         id: checkout
         continue-on-error: true
         timeout-minutes: 5
@@ -39,7 +39,7 @@ jobs:
           shopt -s dotglob
           rm -rf "${GITHUB_WORKSPACE:?}"/*
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         id: checkout-retry
         if: steps.checkout.outcome == 'failure'
         continue-on-error: true
@@ -54,7 +54,7 @@ jobs:
           shopt -s dotglob
           rm -rf "${GITHUB_WORKSPACE:?}"/*
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         if: steps.checkout.outcome == 'failure' && steps.checkout-retry.outcome == 'failure'
         with:
           fetch-depth: 1
@@ -81,7 +81,7 @@ jobs:
 
       - name: Find PR Preview Comment
         if: github.event_name == 'pull_request'
-        uses: peter-evans/find-comment@v1
+        uses: peter-evans/find-comment@v4
         id: deploy-preview-comment
         with:
           issue-number: ${{ github.event.pull_request.number }}
@@ -90,7 +90,7 @@ jobs:
 
       - name: Update Comment if exists
         if: github.event_name == 'pull_request' && steps.deploy-preview-comment.outputs.comment-id != 0
-        uses: peter-evans/create-or-update-comment@v1.4.5
+        uses: peter-evans/create-or-update-comment@v5
         with:
           comment-id: ${{ steps.deploy-preview-comment.outputs.comment-id }}
           edit-mode: replace
@@ -101,7 +101,7 @@ jobs:
       # Checkout stalls intermittently on this repo (~9 GB): on 2026-08-25, 4 of
       # 8 checkouts hung with no progress at all. Bound the attempt and retry
       # once, instead of letting a stalled transfer run into the 6h default.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         id: checkout
         continue-on-error: true
         timeout-minutes: 5
@@ -117,7 +117,7 @@ jobs:
           shopt -s dotglob
           rm -rf "${GITHUB_WORKSPACE:?}"/*
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         id: checkout-retry
         if: steps.checkout.outcome == 'failure'
         continue-on-error: true
@@ -132,19 +132,19 @@ jobs:
           shopt -s dotglob
           rm -rf "${GITHUB_WORKSPACE:?}"/*
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         if: steps.checkout.outcome == 'failure' && steps.checkout-retry.outcome == 'failure'
         with:
           fetch-depth: 1
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 18
           cache: "npm"
           cache-dependency-path: "**/package-lock.json"
 
       - name: Retrieve Datasheets
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: datasheets
           path: static/resources/datasheets
@@ -196,7 +196,7 @@ jobs:
         run: echo "hash=$(find content -type f \( -name '*.jpg' -o -name '*.jpeg' -o -name '*.png' \) -size +2M -printf '%p %s\n' | sort | sha256sum | cut -c1-40)" >> "$GITHUB_OUTPUT"
 
       - name: Compressed images cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: /tmp/compressed-images.tar
           key: ${{ runner.os }}-compressed-images-${{ steps.images-key.outputs.hash }}
@@ -222,7 +222,7 @@ jobs:
           cat /tmp/big-jpg.lst /tmp/big-png.lst | tar --null -cf /tmp/compressed-images.tar -T -
 
       - name: Gatsby main cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         id: gatsby-cache-folder
         with:
           path: .cache
@@ -231,7 +231,7 @@ jobs:
             ${{ runner.os }}-cache-gatsby-main
 
       - name: Gatsby Public Folder
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         id: gatsby-public-folder
         with:
           path: public/
@@ -278,7 +278,7 @@ jobs:
 
       - name: Create PR Preview Comment
         if: github.event_name == 'pull_request' && steps.deploy-preview-comment.outputs.comment-id == 0
-        uses: peter-evans/create-or-update-comment@v1.4.5
+        uses: peter-evans/create-or-update-comment@v5
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
@@ -288,7 +288,7 @@ jobs:
 
       - name: Update PR Preview Comment
         if: github.event_name == 'pull_request' && steps.deploy-preview-comment.outputs.comment-id != 0
-        uses: peter-evans/create-or-update-comment@v1.4.5
+        uses: peter-evans/create-or-update-comment@v5
         with:
           comment-id: ${{ steps.deploy-preview-comment.outputs.comment-id }}
           edit-mode: replace

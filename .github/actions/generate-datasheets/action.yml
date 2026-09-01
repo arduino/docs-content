@@ -12,13 +12,13 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       id: cache
       with:
         path: ${{ inputs.datasheets-path }}
         key: ${{ runner.os }}-datasheets-${{ hashFiles('**/*datasheet.md') }}
 
-    - uses: actions/setup-node@v4
+    - uses: actions/setup-node@v5
       if: steps.cache.outputs.cache-hit != 'true'
       with:
         node-version: 18
@@ -36,7 +36,7 @@ runs:
       shell: bash
 
     - name: Export artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: ${{ inputs.artifact-name }}
         path: ${{ inputs.datasheets-path }}
