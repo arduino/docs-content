@@ -1060,9 +1060,6 @@ This potentiometer controls the `delayTime` variable.
  This example code is in the public domain.
  https://docs.arduino.cc/learn/electronics/lcd-displays#custom-character
 
- Also useful:
- http://icontexto.com/charactercreator/
-
 */
 
 // include the library code:
