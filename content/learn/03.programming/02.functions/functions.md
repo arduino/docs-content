@@ -91,4 +91,4 @@ int sens;
 sens = ReadSens_and_Condition();
 ```
 
-As you can see, even if a function does not have parameters and no returns is expected "(" and ")" brackets plus ";" must be given.
+As you can see, even if a function is not passed any parameters, the "()" brackets are required to call it.
