@@ -997,6 +997,7 @@ Le guide d’utilisation des dispositifs pour réseaux locaux doit inclure des i
 
 (i) les dispositifs fonctionnant dans la bande 5 150-5 250 MHz sont réservés uniquement pour une utilisation à l’intérieur afin de réduire les risques de brouillage préjudiciable aux systèmes de satellites mobiles utilisant les mêmes canaux ;
 
+> [!NOTE]
 > **Note:** For 5GHz and/or when co-located with 5 GHz transmitters, the following statements should be provided in the user information.
 
 **Radiation Exposure Statement**

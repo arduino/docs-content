@@ -313,3 +313,14 @@ blockquote > :first-child {
 blockquote > :last-child {
     margin-block-end: 0;
 }
+
+/* Severities from a [!WARNING] or [!CAUTION] marker, same colours the inline HTML notes used */
+blockquote.warning {
+    background-color: #FFFFE0;
+    border-left-color: #FFD700;
+}
+
+blockquote.caution {
+    background-color: #FFCCCC;
+    border-left-color: #FF0000;
+}
