@@ -242,6 +242,14 @@ CONFIG_OPENTHREAD_COMMISSIONER=y
 CONFIG_OPENTHREAD_JOINER=y
 ```
 
+With the same editor, open the 'sdkconfig.defaults' file located in `esp-thread-br/examples/basic_thread_border_router/sdkconfig.defaults` and do the following modifications:
+
+- Disable the default setting for the RCP firmware auto-update verifying this parameter is not set. This setting will otherwise overwrite the line on sdkconfig file during build.
+
+```bash
+# CONFIG_OPENTHREAD_BR_AUTO_UPDATE_RCP=y
+```
+
 - Navigate to `esp-thread-br/examples/basic_thread_border_router/main/esp_ot_config.h`
 
 - Modify the Serial port baud rate to `115200`, the result should look like this:
