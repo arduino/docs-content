@@ -129,7 +129,7 @@ jobs:
 
       - uses: actions/setup-node@v5
         with:
-          node-version: 18
+          node-version: 22
           cache: "npm"
           cache-dependency-path: "package-lock.json"
 
@@ -232,18 +232,18 @@ jobs:
         id: gatsby-cache-folder
         with:
           path: .cache
-          key: ${{ runner.os }}-cache-gatsby-${{ github.ref_name }}
+          key: ${{ runner.os }}-cache-gatsby-node22-${{ github.ref_name }}
           restore-keys: |
-            ${{ runner.os }}-cache-gatsby-main
+            ${{ runner.os }}-cache-gatsby-node22-main
 
       - name: Gatsby Public Folder cache
         uses: actions/cache/restore@v5
         id: gatsby-public-folder
         with:
           path: public/
-          key: ${{ runner.os }}-public-gatsby-${{ github.ref_name }}
+          key: ${{ runner.os }}-public-gatsby-node22-${{ github.ref_name }}
           restore-keys: |
-            ${{ runner.os }}-public-gatsby-main
+            ${{ runner.os }}-public-gatsby-node22-main
 
       - run: npm install --prefer-offline --no-audit --fund=false
 
@@ -258,13 +258,13 @@ jobs:
         uses: actions/cache/save@v5
         with:
           path: .cache
-          key: ${{ runner.os }}-cache-gatsby-main-${{ github.run_id }}
+          key: ${{ runner.os }}-cache-gatsby-node22-main-${{ github.run_id }}
 
       - name: Save Gatsby Public Folder cache
         uses: actions/cache/save@v5
         with:
           path: public/
-          key: ${{ runner.os }}-public-gatsby-main-${{ github.run_id }}
+          key: ${{ runner.os }}-public-gatsby-node22-main-${{ github.run_id }}
 
       - name: Clean up node_modules # Just to save space
         run: rm -rf node_modules
