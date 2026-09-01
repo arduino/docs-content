@@ -242,7 +242,7 @@ Now that you have everything ready, let's retrieve the previous values from the 
 }
 ```
 
-To finish the sketch, create `getSketchStats` and `setSketchStats` functions at the bottom of the sketch (after the `setup()` and `loop()`). 
+To finish the sketch, create `getSketchStats` and `setSketchStats` functions above `setup()` and `loop()`. 
 
 The `getSketchStats` function tries to retrieve the stats values stored in the Flash using the key `key` and returns them via the `stats` pointer parameter. Our `SketchStats` data struct is very simple and has a fixed size. You can therefore deserialize the buffer with a simple `memcpy`.
 
