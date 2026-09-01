@@ -5,7 +5,9 @@ runs:
   steps:
     - name: Get changed files
       id: changed-files
-      uses: tj-actions/changed-files@v44
+      # Pinned to a commit SHA rather than a tag: this action had all of its tags
+      # rewritten to point at malicious code in the March 2025 compromise (CVE-2025-30066).
+      uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
       with:
         separator: '\n'
         files_ignore_pattern: |
