@@ -20,13 +20,9 @@ You will use the board as a desktop system with a USB-C® hub, set up Docker, pu
 
 This is the first of two documents. Once the container is running, the [First ROS 2 Project on UNO Q](/tutorials/uno-q/ros2-first-project/) tutorial covers the turtlesim example and how to build your own publisher and subscriber package.
 
-<Alert type="info">
-The Arduino® VENTUNO Q runs Ubuntu and supports a native ROS 2 installation without a container. See the <a href="/tutorials/ventuno-q/getting-started-ros2/">Getting Started with ROS 2 on VENTUNO Q</a> tutorial for that variant.
-</Alert>
-
 ## Goals
 
-- Assemble the UNO Q with a USB-C hub for display and peripherals.
+- Assemble the UNO Q with a USB-C® hub for display and peripherals.
 - Access the UNO Q shell via SSH, ADB or SBC mode.
 - Understand why ROS 2 runs in a container on the UNO Q.
 - Prepare Docker on the board and pull the official ROS 2 Jazzy image.
@@ -47,10 +43,18 @@ The Arduino® VENTUNO Q runs Ubuntu and supports a native ROS 2 installation wit
 - Wi-Fi® Access Point or Ethernet with internet access (x1)
 
 <Alert type="warning">
-You can use any USB-C hub with external power delivery capabilities except for <a href="https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter">Apple</a> ones, which have been tested and found to be incompatible with the UNO Q.
+
+You can use any USB-C® hub with external power delivery capabilities except for [Apple](https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter) ones, which have been tested and found to be incompatible with the UNO Q.
+ 
 </Alert>
 
-Unlike boards with dedicated video and USB-A connectors, the UNO Q routes display output, USB peripherals and Ethernet through its single USB-C connector. A hub is therefore not optional for this series. The hub must have its own power input, since the UNO Q's USB-C connector is a 5 VDC 3 A power sink and cannot supply the peripherals itself.
+Unlike boards with dedicated video and USB-A connectors, the UNO Q routes display output, USB peripherals and Ethernet through its single USB-C® connector. A hub is therefore not optional for this series. The hub must have its own power input, since the UNO Q's USB-C connector is a 5 VDC 3 A power sink and cannot supply the peripherals itself.
+
+<Alert type="info">
+
+For a complete Single-Board Computer mode tutorial, refer to the dedicated [UNO Q Single-Board Computer tutorial](https://docs.arduino.cc/tutorials/uno-q/single-board-computer/).
+
+</Alert>
 
 ### Software Requirements
 
@@ -58,7 +62,6 @@ Before you begin, verify that your UNO Q has the latest system image installed. 
 
 - Terminal access to the UNO Q via ADB, SSH or SBC mode. If you are not familiar with either method, refer to the [UNO Q User Manual](/tutorials/uno-q/user-manual/).
 - An active internet connection on the board.
-- Free storage on the board for the container image and ROS 2 packages.
 
 ## What Is ROS 2
 
@@ -80,7 +83,7 @@ Throughout this series, we use [**ROS 2 Jazzy Jalisco**](https://docs.ros.org/en
 
 ROS 2 Jazzy is distributed as pre-built packages for Ubuntu 24.04. The UNO Q runs Debian, so the standard installation procedure from the ROS 2 package repository does not apply. Running those steps on the board would add a repository entry that Debian cannot resolve, so the installation would not be possible.
 
-Rather than building ROS 2 from source, which is impractical on the board's storage and memory budget, we run the official ROS 2 container image. Docker gives you the Ubuntu 24.04 environment ROS 2 expects, isolated from the Debian system underneath, while still giving you access to the board's display, network, and USB devices.
+Rather than building ROS 2 from source, which would impact the board's storage and memory budget, we run the official ROS 2 container image. Docker gives you the Ubuntu 24.04 environment ROS 2 expects, isolated from the Debian system underneath, while still giving you access to the board's display, network, and USB devices.
 
 It also has a practical benefit. Everything ROS 2 installs stays inside the container, so your Debian system stays clean and you can remove or rebuild the whole ROS 2 environment with a single command.
 
@@ -88,7 +91,7 @@ It also has a practical benefit. Everything ROS 2 installs stays inside the cont
 
 The graphical parts of this series need a display, so set up the board as a desktop system before you start.
 
-1. Connect the USB-C hub to the USB-C connector on the UNO Q.
+1. Connect the USB-C® hub to the USB-C connector on the UNO Q.
 2. Plug the USB keyboard and mouse into the hub's USB-A ports.
 3. Connect the display to the hub's HDMI port.
 4. Connect the +5 VDC 3 A power supply to the hub's power input.
@@ -102,11 +105,15 @@ The board boots automatically once powered. For more detail on this setup, refer
 
 Run all steps in this tutorial directly on the UNO Q, not on your computer. You can access a terminal on the board in three ways.
 
-The first option for initial access is ADB (Android Debug Bridge). It provides direct shell access over USB-C without any network setup, making it the best starting point before you configure Wi-Fi.
+The first option for initial access is ADB (Android Debug Bridge). It provides direct shell access over USB-C® without any network setup, making it the best starting point before you configure Wi-Fi®.
 
-<Alert type="note" text="ADB uses the same USB-C connector as the hub. To use ADB, disconnect the hub and connect the board directly to your computer with a USB-C cable. Once the board is on the network, use SSH or SBC mode instead so the hub can stay attached."></Alert>
+<Alert type="note">
 
-Connect the UNO Q to your computer via USB-C and run the following to list connected devices and confirm the board is recognized:
+**Note:** ADB uses the same USB-C® connector as the hub. To use ADB, disconnect the hub and connect the board directly to your computer with a USB-C cable. Once the board is on the network, use SSH or SBC mode instead so the hub can stay attached.
+ 
+</Alert>
+
+Connect the UNO Q to your computer via USB-C® and run the following to list connected devices and confirm the board is recognized:
 
 ```bash
 adb devices
@@ -118,7 +125,7 @@ Then open the shell:
 adb shell
 ```
 
-Once you are in, you can navigate the Debian system through the terminal. If you have not yet connected the board to a Wi-Fi network, you can do so from the ADB shell using `nmtui`:
+Once you are in, you can navigate the Debian system through the terminal. If you have not yet connected the board to a Wi-Fi® network, you can do so from the ADB shell using `nmtui`:
 
 ```bash
 sudo nmtui
@@ -132,10 +139,12 @@ ssh arduino@<boardname>.local
 
 Replace `<boardname>` with your board's configured hostname. When connecting for the first time, you will be asked to verify the connection by typing `yes` to confirm the fingerprint. Then enter your board's password.
 
-The third option is **SBC mode**, which is what the graphical sections of this series assume. With the hub assembled as described above, power the board on and log in. You will have access to the full desktop environment and can open a terminal from there.
+The third option is **SBC mode**, which the graphical sections of this series require. With the hub configured as described above, power the board on and log in. You will have access to the full desktop environment and can open a terminal from there.
 
 <Alert type="info">
-For detailed instructions on setting up ADB, SSH or SBC mode, refer to the <a href="/tutorials/uno-q/user-manual/">UNO Q User Manual</a>.
+
+For detailed instructions on setting up ADB, SSH or SBC mode, refer to the [UNO Q User Manual](/tutorials/uno-q/user-manual/).
+ 
 </Alert>
 
 ## Preparing the System
@@ -182,7 +191,7 @@ If this prints a confirmation message without a permissions error, Docker is rea
 
 ### Checking Available Storage
 
-The ROS 2 container image and the packages installed into it need several gigabytes. Check what you have available before pulling:
+The ROS 2 container image and the packages installed in it need plenty of storage. Check what you have available before pulling:
 
 ```bash
 df -h /
@@ -204,7 +213,7 @@ docker pull ros:jazzy-ros-base
 
 ![Pulling the image](assets/unoq_ros2_docker_4.png)
 
-The download takes a few minutes depending on your connection. We use the `ros-base` image rather than a full desktop image because itis much smaller, and we add only the specific packages each tutorial needs.
+The download takes a few minutes depending on your connection. We use the `ros-base` image rather than a full desktop image because it is much smaller, and we add only the specific packages each tutorial needs.
 
 ### Preparing the Workspace Directory
 
@@ -224,7 +233,11 @@ For graphical ROS 2 tools to draw on your screen, the container needs permission
 xhost +local:docker
 ```
 
-<Alert type="note" text="This grants local containers access to your display for the current session only. It resets when you log out, so it needs to be run again after each reboot."></Alert>
+<Alert type="note">
+
+This grants local containers access to your display for the current session only. It resets when you log out, so you need to run it again after each reboot.
+ 
+</Alert>
 
 ### Starting the Container
 
@@ -233,17 +246,17 @@ With Docker ready, the image pulled and the workspace directory in place, start 
 ```bash
 docker run -it \
   --name unoq_ros2 \
-    --network host \
+  --network host \
   --ipc host \
-    -e DISPLAY=$DISPLAY \
+  -e DISPLAY=$DISPLAY \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
-    -v ~/ros2_ws:/root/ros2_ws \
+  -v ~/ros2_ws:/root/ros2_ws \
   ros:jazzy-ros-base
 ```
 
 ![Starting the container](assets/unoq_ros2_docker_5.png)
 
-Each option matters here:
+Each option is important here:
 
 - `--name unoq_ros2` gives the container a fixed name so you can return to it later.
 - `--network host` and `--ipc host` let ROS 2 nodes discover each other and use shared memory transport. Without these, nodes in different shells will not find one another.
@@ -270,7 +283,7 @@ These stay installed as long as you do not delete the container.
 
 ### Opening Additional Shells
 
-Several sections in this series need more than one terminal. Rather than starting a second container, open another shell inside the same one. From a new terminal on the board:
+Many sections in this series need more than one terminal. Rather than starting a second container, open another shell inside the same one. From a new terminal on the board:
 
 ```bash
 docker exec -it unoq_ros2 bash
@@ -294,14 +307,14 @@ Use `docker rm unoq_ros2` only when you want to discard the ROS 2 environment en
 
 ## Verifying the Installation
 
-Confirm that ROS 2 is working before moving on. ROS 2 includes a set of demo packages specifically for this purpose.
+Check that ROS 2 is working before moving on. ROS 2 includes a set of demo packages specifically for this purpose.
 
 You will run two of them:
 
 - `talker`, which publishes a simple string message on a topic once per second
 - `listener`, which subscribes to that topic and prints each message it receives.
 
-If the two nodes can find each other and exchange messages, it confirms that the core communication layer is working as expected.
+If the two nodes can find each other and exchange messages, it confirms that the core communication layer works as expected.
 
 In your container shell, start the talker node:
 
@@ -354,7 +367,11 @@ The listener subscribes to the same topic that the talker is publishing on and p
 
 If you see both nodes producing output like this, your ROS 2 installation is working correctly. You can stop both nodes with `Ctrl+C`.
 
-<Alert type="note" text="This verification runs entirely in the console, so it works over SSH or ADB without a display attached. The graphical tools in the next tutorial need the hub and display connected."></Alert>
+<Alert type="note">
+
+**Note:** This verification runs entirely in the console, so it works over SSH or ADB without a display attached. The graphical tools in the next tutorial require the hub and display to be connected.
+ 
+</Alert>
 
 ## Making the Environment Persistent
 
@@ -376,9 +393,11 @@ From this point on, every shell you open in the container will have ROS 2 availa
 
 ## Troubleshooting
 
-If `docker` commands fail with a permissions error, confirm your user is in the `docker` group with `groups`, and log out and back in if you added it in this session.
+If `docker` commands fail with a permissions error, check that your user is in the `docker` group with `groups`, and log out and back in if you added it in this session.
 
-If the `ros2` command is not found inside the container, source the setup file with `source /opt/ros/jazzy/setup.bash`, or confirm this line is present in the container's `.bashrc`. Shells opened with `docker exec` do not source it automatically unless you added it. Refer to the [Making the Environment Persistent](#making-the-environment-persistent) section if you have not done this yet.
+If the `ros2` command is not found inside the container, source the setup file with `source /opt/ros/jazzy/setup.bash`, or confirm this line is present in the container's `.bashrc`.
+
+Shells opened with `docker exec` do not source it automatically unless you added it. Refer to the [Making the Environment Persistent](#making-the-environment-persistent) section if you have not done this yet.
 
 If nodes running in different shells cannot discover each other, first confirm the container was started with `--network host` and `--ipc host`. Without these, each shell sees an isolated network namespace and DDS discovery fails. You can check the current settings with:
 
@@ -402,7 +421,7 @@ export ROS_DOMAIN_ID=0
 echo "export ROS_DOMAIN_ID=0" >> ~/.bashrc
 ```
 
-To confirm the container received display access, which the next tutorial depends on, check the variable from the board:
+To check the container received display access, which the next tutorial depends on, check the variable from the board:
 
 ```bash
 docker exec unoq_ros2 printenv DISPLAY
@@ -417,12 +436,14 @@ docker system prune -a
 ```
 
 <Alert type="warning">
-This removes all images not currently used by a container. You will need to pull the ROS 2 image again if you remove the <code>unoq_ros2</code> container first.
+
+This removes all images not currently used by a container. You will need to pull the ROS 2 image again if you remove the `unoq_ros2` container first.
+ 
 </Alert>
 
 ## Conclusion
 
-In this tutorial, you have assembled the UNO Q as a desktop system with a USB-C hub, prepared Docker on the board, pulled the official ROS 2 Jazzy image, and started a container with network, display and shared workspace access. You then verified the ROS 2 communication layer with the talker and listener demo nodes.
+In this tutorial, you have assembled the UNO Q as a desktop system with a USB-C® hub, prepared Docker on the board, pulled the official ROS 2 Jazzy image, and started a container with network, display and shared workspace access. You then verified the ROS 2 communication layer with the talker and listener demo nodes.
 
 ### Next Steps
 

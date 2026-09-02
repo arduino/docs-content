@@ -23,7 +23,7 @@ You will run the `turtlesim` simulation to see nodes, topics and services workin
 This tutorial continues from [Running ROS 2 on UNO Q with Docker](/tutorials/uno-q/ros2-setup/). It assumes you already have the `unoq_ros2` container set up and running.
 
 <Alert type="info">
-This tutorial can also be replicated on the Arduino® VENTUNO Q, where ROS 2 runs natively rather than in a container. See the <a href="/tutorials/ventuno-q/getting-started-ros2/">Getting Started with ROS 2 on VENTUNO Q</a> tutorial for that variant.
+You can also replicate this tutorial on the Arduino® VENTUNO Q, where ROS 2 runs natively. See the <a href="/tutorials/ventuno-q/getting-started-ros2/">Getting Started with ROS 2 on VENTUNO Q</a> tutorial for that variant.
 </Alert>
 
 ## Goals
@@ -95,7 +95,7 @@ apt install -y ros-jazzy-turtlesim python3-colcon-common-extensions nano
 
 ![Installing the tutorial packages](assets/unoq_ros2_project_1.png)
 
-`colcon` is the standard build tool for ROS 2. It reads the build configuration from each package in your workspace and compiles them in the correct order. You will use it later in this tutorial.
+`colcon` is the standard ROS 2 build tool. It reads each package's build configuration and compiles them in the correct order. You will use it later in this tutorial.
 
 These packages stay installed as long as you do not remove the container.
 
@@ -191,7 +191,7 @@ ros2 topic list
 
 ![Turtlesim Example (6)](assets/unoq_ros2_turtlesim_6.png)
 
-`ros2 topic echo` prints every message being published on a topic in real time. Running it on `/turtle1/cmd_vel` lets you see the velocity commands flowing while the turtle is moving:
+`ros2 topic echo` prints every message being published on a topic in real time. Running it on `/turtle1/cmd_vel` lets you see the velocity commands streaming while the turtle is moving:
 
 ```bash
 ros2 topic echo /turtle1/cmd_vel
@@ -238,7 +238,7 @@ cd /root/ros2_ws
 
 Put all packages in `src/`. When you run `colcon build` from the workspace root, it compiles them.
 
-It generates three directories alongside `src/`:
+It creates three directories alongside `src/`:
 
 - `build/` for intermediate files
 - `install/` for the compiled outputs
@@ -294,18 +294,18 @@ from rclpy.node import Node
 from std_msgs.msg import String
 
 class UNOQPublisher(Node):
-    def __init__(self):
-        super().__init__('unoq_publisher')
-        self.publisher_ = self.create_publisher(String, 'unoq_topic', 10)
-        self.timer = self.create_timer(1.0, self.timer_callback)
-        self.count = 0
+    def __init__(self):
+        super().__init__('unoq_publisher')
+        self.publisher_ = self.create_publisher(String, 'unoq_topic', 10)
+        self.timer = self.create_timer(1.0, self.timer_callback)
+        self.count = 0
 
-    def timer_callback(self):
+    def timer_callback(self):
         msg = String()
         msg.data = f'Hello from UNO Q: {self.count}'
-        self.publisher_.publish(msg)
-        self.get_logger().info(f'Publishing: "{msg.data}"')
-        self.count += 1
+        self.publisher_.publish(msg)
+        self.get_logger().info(f'Publishing: "{msg.data}"')
+        self.count += 1
 
 def main(args=None):
     rclpy.init(args=args)
@@ -315,7 +315,7 @@ def main(args=None):
     rclpy.shutdown()
 
 if __name__ == '__main__':
-    main()
+    main()
 ```
 
 This node inherits from the ROS 2 `Node` base class and registers itself as `unoq_publisher`. In the constructor, it creates a publisher on the `unoq_topic` topic with a queue size of 10 and sets up a timer that calls `timer_callback` once per second.
@@ -341,17 +341,17 @@ from std_msgs.msg import String
 
 class UNOQSubscriber(Node):
 
-    def __init__(self):
-        super().__init__('unoq_subscriber')
-        self.subscription = self.create_subscription(
+    def __init__(self):
+        super().__init__('unoq_subscriber')
+        self.subscription = self.create_subscription(
             String,
-            'unoq_topic',
-            self.listener_callback,
-            10
+            'unoq_topic',
+            self.listener_callback,
+            10
         )
 
-    def listener_callback(self, msg):
-        self.get_logger().info(f'Received: "{msg.data}"')
+    def listener_callback(self, msg):
+        self.get_logger().info(f'Received: "{msg.data}"')
 
 def main(args=None):
     rclpy.init(args=args)
@@ -361,7 +361,7 @@ def main(args=None):
     rclpy.shutdown()
 
 if __name__ == '__main__':
-    main()
+    main()
 ```
 
 This node subscribes to `unoq_topic` with a queue size of 10. Whenever a message arrives on that topic, the `listener_callback` function is called, and the message content is printed to the console. The node name is `unoq_subscriber`.
@@ -378,9 +378,9 @@ Find the `entry_points` dictionary and update it as follows:
 
 ```python
 entry_points={
-    'console_scripts': [
-        'publisher = unoq_pubsub.publisher:main',
-        'subscriber = unoq_pubsub.subscriber:main',
+    'console_scripts': [
+        'publisher = unoq_pubsub.publisher:main',
+        'subscriber = unoq_pubsub.subscriber:main',
     ],
 },
 ```
@@ -480,7 +480,7 @@ ros2 topic list
 
 ![Creating First ROS 2 Project (5)](assets/unoq_ros2_project_6.png)
 
-`ros2 topic echo` prints each message as it arrives on the topic in real time, which is a quick way to confirm data is flowing without running a dedicated subscriber node:
+`ros2 topic echo` prints each message as it arrives on the topic in real time, which is a quick way to check that data is streaming without running a dedicated subscriber node:
 
 ```bash
 ros2 topic echo /unoq_topic
@@ -500,13 +500,15 @@ ros2 topic info /unoq_topic
 
 If the `ros2` command is not found, source the setup file with `source /opt/ros/jazzy/setup.bash`, or confirm this line is present in the container's `.bashrc`. Shells opened with `docker exec` do not source it automatically unless you added it.
 
-If the `turtlesim` window does not appear, check the following in order. First, confirm you are working from the board's desktop session in **SBC mode** with the hub and display attached, not over SSH or ADB. Second, confirm you ran `xhost +local:docker` in the desktop session. This resets on logout, so you need to run it again after each reboot. Third, check the container has the DISPLAY variable set, using the following from a terminal on the board:
+If the `turtlesim` window does not appear, check the following in order. First, confirm you are working from the board's desktop session in **SBC mode** with the hub and display attached, not over SSH or ADB.
+
+Second, confirm you ran `xhost +local:docker` in the desktop session. This resets on logout, so you need to run it again after each reboot. Third, check that the container has the DISPLAY variable set, using the following from a terminal on the board:
 
 ```bash
 docker exec unoq_ros2 printenv DISPLAY
 ```
 
-If this prints nothing, the container was started without `-e DISPLAY`. Remove and recreate it using the full run command from [Running ROS 2 on UNO Q with Docker](LINK).
+If this prints nothing, the container was started without `-e DISPLAY`. Remove and recreate it using the full run command from [Running ROS 2 on UNO Q with Docker](/tutorials/uno-q/ros2-setup/#starting-the-container).
 
 When you start a graphical node, the terminal prints a few warnings before the window appears. These are expected on the UNO Q and do not indicate a problem.
 
@@ -582,7 +584,7 @@ Then run `rosdep` before building again:
 rosdep install --from-paths src --ignore-src -r -y
 ```
 
-If the build fails or the board becomes unresponsive during `colcon build`, you may be running out of memory. This is most likely on the 2 GB variant. Limit colcon to a single worker:
+If the build fails or the board becomes unresponsive during `colcon build`, you may be running out of memory. Limit colcon to a single worker:
 
 ```bash
 colcon build --packages-select unoq_pubsub --parallel-workers 1
