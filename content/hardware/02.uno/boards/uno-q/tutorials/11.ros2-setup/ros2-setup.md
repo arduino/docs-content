@@ -18,7 +18,7 @@ In this tutorial, you will learn how to run ROS 2 (Robot Operating System 2) on 
 
 You will use the board as a desktop system with a USB-C® hub, set up Docker, pull the official ROS 2 container image, and verify that the ROS 2 communication layer works.
 
-This is the first of two documents. Once the container is running, the [First ROS 2 Project on UNO Q](LINK) tutorial covers the turtlesim example and how to build your own publisher and subscriber package.
+This is the first of two documents. Once the container is running, the [First ROS 2 Project on UNO Q](/tutorials/uno-q/ros2-first-project/) tutorial covers the turtlesim example and how to build your own publisher and subscriber package.
 
 ***__Note:__ The Arduino® VENTUNO Q runs Ubuntu and supports a native ROS 2 installation without a container. See the [Getting Started with ROS 2 on VENTUNO Q](/tutorials/ventuno-q/getting-started-ros2/) tutorial for that variant.***
 
@@ -418,7 +418,7 @@ In this tutorial, you have assembled the UNO Q as a desktop system with a USB-C 
 
 ### Next Steps
 
-With the container running, you can move on to [First ROS 2 Project on UNO Q](LINK), which covers the turtlesim example and building your own publisher and subscriber package in the shared workspace.
+With the container running, you can move on to [First ROS 2 Project on UNO Q](/tutorials/uno-q/ros2-first-project/), which covers the turtlesim example and building your own publisher and subscriber package in the shared workspace.
 
 For a broader introduction to ROS 2 concepts, the [official ROS 2 tutorials](https://docs.ros.org/en/jazzy/Tutorials.html) are a recommended starting point.
 

@@ -18,7 +18,7 @@ In this tutorial, you will explore the fundamental concepts of ROS 2 (Robot Oper
 
 You will run the `turtlesim` simulation to see nodes, topics and services working together, then create a colcon workspace, write a publisher node and a subscriber node in Python, build the package and watch the two nodes communicate.
 
-This tutorial continues from [Running ROS 2 on UNO Q with Docker](LINK). It assumes you already have the `unoq_ros2` container set up and running.
+This tutorial continues from [Running ROS 2 on UNO Q with Docker](/tutorials/uno-q/ros2-setup/). It assumes you already have the `unoq_ros2` container set up and running.
 
 ***__Note:__ You can also replicate this tutorial on the Arduino® VENTUNO Q, where ROS 2 runs natively rather than in a container. See the [Getting Started with ROS 2 on VENTUNO Q](/tutorials/ventuno-q/getting-started-ros2/) tutorial for that variant.***
 
@@ -46,7 +46,7 @@ This tutorial continues from [Running ROS 2 on UNO Q with Docker](LINK). It assu
 
 ### Software Requirements
 
-- The `unoq_ros2` container from [Running ROS 2 on UNO Q with Docker](LINK), set up and verified.
+- The `unoq_ros2` container from [Running ROS 2 on UNO Q with Docker](/tutorials/uno-q/ros2-setup/), set up and verified.
 - An active internet connection on the board to install the tutorial packages.
 
 ## Resuming the Container
@@ -79,10 +79,10 @@ Inside the container, refresh the package lists:
 apt update
 ```
 
-Then install `turtlesim` and the colcon build tool:
+Then install `turtlesim`, the colcon build tool and a text editor:
 
 ```bash
-apt install -y ros-jazzy-turtlesim python3-colcon-common-extensions
+apt install -y ros-jazzy-turtlesim python3-colcon-common-extensions nano
 ```
 
 ![Installing the tutorial packages](assets/unoq_ros2_project_1.png)
@@ -263,7 +263,7 @@ src/
     ├── resource
     ├── test
     └── unoq_pubsub/
-    └── __init__.py
+        └── __init__.py
 ```
 
 The `package.xml` file describes the package metadata and dependencies. The `setup.py` file registers your Python scripts as executable ROS 2 nodes. The inner `unoq_pubsub/` directory is the Python module where your node scripts will live.
@@ -310,7 +310,7 @@ This node inherits from the ROS 2 `Node` base class and registers itself as `uno
 
 Each time the callback fires, it builds a `String` message with the current count, publishes it to the topic, and logs the content to the console.
 
-***If `nano` is not present in the container, install it with `apt install -y nano`, or edit the files from the board's desktop session since the workspace is shared.***
+***The container image does not include a text editor by default, which is why `nano` was installed with the tutorial packages earlier. You can also edit these files from the board's desktop session, since the workspace is shared.***
 
 ### Writing the Subscriber Node
 
@@ -441,8 +441,6 @@ You should see it receiving and printing each message the publisher sends:
 
 ![Creating First ROS 2 Project (4)](assets/unoq_ros2_project_5.png)
 
-![Creating First ROS 2 Project (4_1)](assets/unoq_ros2_example_python.gif)
-
 If both nodes show the expected output, your first ROS 2 project is working correctly.
 
 ### Inspecting the System
@@ -530,6 +528,26 @@ Then make it permanent:
 
 ```bash
 echo "export ROS_DOMAIN_ID=0" >> ~/.bashrc
+```
+
+If `ros2 node list` returns nothing while your nodes are running, but `ros2 topic list` shows the expected topics, the ROS 2 daemon is holding incomplete graph information.
+
+The daemon caches the state of the system in the background and can miss nodes that started before it did. Query the graph directly, without the daemon:
+
+```bash
+ros2 node list --no-daemon
+```
+
+If your nodes appear, restart the daemon:
+
+```bash
+ros2 daemon stop
+```
+
+The daemon starts again automatically with the next `ros2` command, so run the list once more to confirm:
+
+```bash
+ros2 node list
 ```
 
 If the `unoq_pubsub` package is not found after building, source the workspace install directory:
