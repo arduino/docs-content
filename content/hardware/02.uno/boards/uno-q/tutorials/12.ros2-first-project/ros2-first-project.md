@@ -18,9 +18,13 @@ In this tutorial, you will explore the fundamental concepts of ROS 2 (Robot Oper
 
 You will run the `turtlesim` simulation to see nodes, topics and services working together, then create a colcon workspace, write a publisher node and a subscriber node in Python, build the package and watch the two nodes communicate.
 
+![Turtlesim Example (2_1)](assets/unoq_ros2_turtlesim_circle.gif)
+
 This tutorial continues from [Running ROS 2 on UNO Q with Docker](/tutorials/uno-q/ros2-setup/). It assumes you already have the `unoq_ros2` container set up and running.
 
-***__Note:__ You can also replicate this tutorial on the Arduino® VENTUNO Q, where ROS 2 runs natively rather than in a container. See the [Getting Started with ROS 2 on VENTUNO Q](/tutorials/ventuno-q/getting-started-ros2/) tutorial for that variant.***
+<Alert type="info">
+This tutorial can also be replicated on the Arduino® VENTUNO Q, where ROS 2 runs natively rather than in a container. See the <a href="/tutorials/ventuno-q/getting-started-ros2/">Getting Started with ROS 2 on VENTUNO Q</a> tutorial for that variant.
+</Alert>
 
 ## Goals
 
@@ -42,7 +46,9 @@ This tutorial continues from [Running ROS 2 on UNO Q with Docker](/tutorials/uno
 - HDMI display (x1)
 - Wi-Fi® Access Point or Ethernet with internet access (x1)
 
-***The `turtlesim` sections of this tutorial open a graphical window, so the board must be running in SBC mode with the hub and display attached. The UNO Q routes video and USB peripherals through its single USB-C connector, so the hub is required. You can use any USB-C hub with external power delivery capabilities except for [Apple](https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter) ones, which have been tested and found to be incompatible with the UNO Q.***
+<Alert type="warning">
+The <code>turtlesim</code> sections of this tutorial open a graphical window, so the board must be running in SBC mode with the hub and display attached. The UNO Q routes video and USB peripherals through its single USB-C connector, so the hub is required. You can use any USB-C hub with external power delivery capabilities except for <a href="https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter">Apple</a> ones, which have been tested and found to be incompatible with the UNO Q.
+</Alert>
 
 ### Software Requirements
 
@@ -69,7 +75,9 @@ The following sections need more than one terminal. To open additional shells in
 docker exec -it unoq_ros2 bash
 ```
 
-***If you did not add the ROS 2 setup file to the container's `.bashrc` in the previous tutorial, run `source /opt/ros/jazzy/setup.bash` in each new shell before using any `ros2` command.***
+<Alert type="note">
+If you did not add the ROS 2 setup file to the container's <code>.bashrc</code> in the previous tutorial, run <code>source /opt/ros/jazzy/setup.bash</code> in each new shell before using any <code>ros2</code> command.
+</Alert>
 
 ## Installing the Tutorial Packages
 
@@ -116,7 +124,9 @@ The terminal will publish initialization messages confirming the node started an
 
 The turtlesim window will appear on the display connected to your hub. If you are connected via SSH or ADB without a display attached, the node will still run and publish topics, but the graphical window will not render.
 
-***__Note:__ The terminal may also print `XDG_RUNTIME_DIR not set` and several `MESA-LOADER` warnings before the window appears. These are expected when running graphical nodes from a container and do not affect rendering. See the [Troubleshooting](#troubleshooting) section for details.***
+<Alert type="note">
+The terminal may also print <code>XDG_RUNTIME_DIR not set</code> and several <code>MESA-LOADER</code> warnings before the window appears. These are expected when running graphical nodes from a container and do not affect rendering. See the <a href="#troubleshooting">Troubleshooting</a> section for details.
+</Alert>
 
 ### Controlling the Turtle
 
@@ -234,7 +244,9 @@ It generates three directories alongside `src/`:
 - `install/` for the compiled outputs
 - `log/` for build logs
 
-***Files created inside the container are owned by `root`, so they will appear as root-owned when you browse `~/ros2_ws` from the board's Debian session. Run `sudo chown -R $USER:$USER ~/ros2_ws` on the board if you want to edit them with a desktop editor.***
+<Alert type="note">
+Files created inside the container are owned by <code>root</code>, so they will appear as root-owned when you browse <code>~/ros2_ws</code> from the board's Debian session. Run <code>sudo chown -R $USER:$USER ~/ros2_ws</code> on the board if you want to edit them with a desktop editor.
+</Alert>
 
 ### Creating a Python Package
 
@@ -310,7 +322,9 @@ This node inherits from the ROS 2 `Node` base class and registers itself as `uno
 
 Each time the callback fires, it builds a `String` message with the current count, publishes it to the topic, and logs the content to the console.
 
-***The container image does not include a text editor by default, which is why `nano` was installed with the tutorial packages earlier. You can also edit these files from the board's desktop session, since the workspace is shared.***
+<Alert type="note">
+The container image does not include a text editor by default, which is why <code>nano</code> was installed with the tutorial packages earlier. You can also edit these files from the board's desktop session, since the workspace is shared.
+</Alert>
 
 ### Writing the Subscriber Node
 
@@ -602,7 +616,7 @@ Explore our Help Center, which offers a comprehensive collection of articles and
 
 Join our community forum to connect with other users, share your experiences, and ask questions.
 
-- [UNO Q category in the Arduino Forum](LINK)
+- [UNO Q category in the Arduino Forum](https://forum.arduino.cc/c/official-hardware/uno-family/uno-q/222)
 
 ### Contact Us
 

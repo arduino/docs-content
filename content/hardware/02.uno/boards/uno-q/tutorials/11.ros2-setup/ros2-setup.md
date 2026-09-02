@@ -20,7 +20,9 @@ You will use the board as a desktop system with a USB-C® hub, set up Docker, pu
 
 This is the first of two documents. Once the container is running, the [First ROS 2 Project on UNO Q](/tutorials/uno-q/ros2-first-project/) tutorial covers the turtlesim example and how to build your own publisher and subscriber package.
 
-***__Note:__ The Arduino® VENTUNO Q runs Ubuntu and supports a native ROS 2 installation without a container. See the [Getting Started with ROS 2 on VENTUNO Q](/tutorials/ventuno-q/getting-started-ros2/) tutorial for that variant.***
+<Alert type="info">
+The Arduino® VENTUNO Q runs Ubuntu and supports a native ROS 2 installation without a container. See the <a href="/tutorials/ventuno-q/getting-started-ros2/">Getting Started with ROS 2 on VENTUNO Q</a> tutorial for that variant.
+</Alert>
 
 ## Goals
 
@@ -44,7 +46,9 @@ This is the first of two documents. Once the container is running, the [First RO
 - HDMI display (x1)
 - Wi-Fi® Access Point or Ethernet with internet access (x1)
 
-***You can use any USB-C hub with external power delivery capabilities except for [Apple](https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter) ones, which have been tested and found to be incompatible with the UNO Q.***
+<Alert type="warning">
+You can use any USB-C hub with external power delivery capabilities except for <a href="https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter">Apple</a> ones, which have been tested and found to be incompatible with the UNO Q.
+</Alert>
 
 Unlike boards with dedicated video and USB-A connectors, the UNO Q routes display output, USB peripherals and Ethernet through its single USB-C connector. A hub is therefore not optional for this series. The hub must have its own power input, since the UNO Q's USB-C connector is a 5 VDC 3 A power sink and cannot supply the peripherals itself.
 
@@ -100,7 +104,7 @@ Run all steps in this tutorial directly on the UNO Q, not on your computer. You 
 
 The first option for initial access is ADB (Android Debug Bridge). It provides direct shell access over USB-C without any network setup, making it the best starting point before you configure Wi-Fi.
 
-***__Note:__ ADB uses the same USB-C connector as the hub. To use ADB, disconnect the hub and connect the board directly to your computer with a USB-C cable. Once the board is on the network, use SSH or SBC mode instead so the hub can stay attached.***
+<Alert type="note" text="ADB uses the same USB-C connector as the hub. To use ADB, disconnect the hub and connect the board directly to your computer with a USB-C cable. Once the board is on the network, use SSH or SBC mode instead so the hub can stay attached."></Alert>
 
 Connect the UNO Q to your computer via USB-C and run the following to list connected devices and confirm the board is recognized:
 
@@ -130,7 +134,9 @@ Replace `<boardname>` with your board's configured hostname. When connecting for
 
 The third option is **SBC mode**, which is what the graphical sections of this series assume. With the hub assembled as described above, power the board on and log in. You will have access to the full desktop environment and can open a terminal from there.
 
-***For detailed instructions on setting up ADB, SSH, or SBC mode, refer to the [UNO Q User Manual](/tutorials/uno-q/user-manual/).***
+<Alert type="info">
+For detailed instructions on setting up ADB, SSH or SBC mode, refer to the <a href="/tutorials/uno-q/user-manual/">UNO Q User Manual</a>.
+</Alert>
 
 ## Preparing the System
 
@@ -218,7 +224,7 @@ For graphical ROS 2 tools to draw on your screen, the container needs permission
 xhost +local:docker
 ```
 
-***This grants local containers access to your display for the current session only. It resets when you log out, so you need to run it again after each reboot.***
+<Alert type="note" text="This grants local containers access to your display for the current session only. It resets when you log out, so it needs to be run again after each reboot."></Alert>
 
 ### Starting the Container
 
@@ -348,7 +354,7 @@ The listener subscribes to the same topic that the talker is publishing on and p
 
 If you see both nodes producing output like this, your ROS 2 installation is working correctly. You can stop both nodes with `Ctrl+C`.
 
-***__Note:__ This verification runs entirely in the console, so it works over SSH or ADB without a display attached. The graphical tools in the next tutorial need the hub and display connected.***
+<Alert type="note" text="This verification runs entirely in the console, so it works over SSH or ADB without a display attached. The graphical tools in the next tutorial need the hub and display connected."></Alert>
 
 ## Making the Environment Persistent
 
@@ -410,7 +416,9 @@ If you run out of storage, remove unused images and build cache from the board's
 docker system prune -a
 ```
 
-***This removes all images not currently used by a container. You will need to pull the ROS 2 image again if you remove the container first.***
+<Alert type="warning">
+This removes all images not currently used by a container. You will need to pull the ROS 2 image again if you remove the <code>unoq_ros2</code> container first.
+</Alert>
 
 ## Conclusion
 
@@ -440,7 +448,7 @@ Explore our Help Center, which offers a comprehensive collection of articles and
 
 Join our community forum to connect with other users, share your experiences, and ask questions.
 
-- [UNO Q category in the Arduino Forum](LINK)
+- [UNO Q category in the Arduino Forum](https://forum.arduino.cc/c/official-hardware/uno-family/uno-q/222)
 
 ### Contact Us
 
