@@ -90,7 +90,7 @@ The graphical parts of this series need a display, so set up the board as a desk
 4. Connect the +5 VDC 3 A power supply to the hub's power input.
 5. If you are using a wired network, connect the Ethernet cable to the hub's Ethernet port if available.
 
-![Assembling the UNO Q](assets/unoq_ros2_docker_assembly_1.png)
+![Assembling the UNO Q](assets/single-board-computer-mode.png)
 
 The board boots automatically once powered. For more detail on this setup, refer to the [UNO Q as a Single-Board Computer](/tutorials/uno-q/sbc-mode-setup/) tutorial.
 
