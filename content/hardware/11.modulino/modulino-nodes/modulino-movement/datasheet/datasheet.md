@@ -101,8 +101,8 @@ The Modulino® Movement node uses the LSM6DSOXTR sensor for 3‑axis acceleratio
 |---------|-------------------|
 | GND     | Ground            |
 | 3.3 V   | Power Supply (3.3 V) |
-| SDA     | I2C Data          |
-| SCL     | I2C Clock         |
+| SDA     | I2C Data / SPI Data In (MOSI) |
+| SCL     | I2C Clock / SPI Clock (SCK) |
 
 These pads and the Qwiic connectors share the same I2C bus. You can optionally solder header pins here.
 
@@ -113,12 +113,12 @@ These pads and the Qwiic connectors share the same I2C bus. You can optionally s
 | GND     | Ground           |
 | INT1    | Interrupt 1      |
 | INT2    | Interrupt 2      |
-| SDO/SA0 | SPI Data Out     |
-| SCx     | SPI Clock        |
-| SDx     | SPI Data         |
-| CS      | SPI Chip Select  |
-| SDOAUX  | Auxiliary Output |
-| OCSAUX  | Auxiliary Output |
+| SDO/SA0 | SPI Data Out (MISO)     |
+| SCx     | Auxiliary SPI Clock / Auxiliary I2C Clock        |
+| SDx     | Auxiliary SPI Data / Auxiliary I2C Data         |
+| CS      | SPI Chip Select, When LOW, Chip operates in SPI mode, when HIGH it operates as I2C device  |
+| SDOAUX  | Auxiliary SPI Data Out |
+| OCSAUX  | Auxiliary SPI CS |
 
 **Note:** By cutting its solder jumper, you can isolate **VDDIO** from 3.3 V if needed.
 
