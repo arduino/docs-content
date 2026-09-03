@@ -115,11 +115,10 @@ Il modulo wireless utilizza SDIO per i dati Wi-Fi® e un'interfaccia UART per il
 | VIN (DC IN) |                     7-24 V |                    - | JMEDIA, JANALOG (VIN) |
 | Pin 5 V (5V_SYS)     |                        5 V |           fino a 3 A | JANALOG, JMISC, JSPI                |
 
-<p style="text-align: justify;">UNO Q supporta tre tipi di alimentazione: una porta USB-C, un ingresso da 7-24 V CC e il pin <code>5V_SYS</code> disponibile su JANALOG, JMISC o JSPI. Tramite USB Power Delivery, richiede solo il profilo da 5 V / 3 A e non richiede profili PD con tensioni più elevate. Usa un alimentatore e un cavo con valori nominali di 5 V a 3 A per evitare cali di tensione durante brevi picchi di attività, come i burst wireless o l’inizializzazione del display. Puoi anche usare una sorgente esterna regolata a 5 V CC per alimentare la scheda tramite il pin <code>5V_SYS</code> su JANALOG, JMISC o JSPI.</p>
+<p style="text-align: justify;">UNO Q supporta tre tipi di alimentazione: una porta USB-C, un ingresso da 7-24 V CC e il pin <code>5V_SYS</code> disponibile su JANALOG, JMISC o JSPI. Tramite USB Power Delivery, richiede solo il profilo da 5 V / 3 A e non richiede profili PD con tensioni più elevate. Usa un alimentatore e un cavo con valori nominali di 5 V a 3 A per evitare cali di tensione durante brevi picchi di attività, come i burst wireless o l’inizializzazione del display. È anche possibile utilizzare una fonte esterna regolata a  5 V CC per alimentare la scheda tramite il pin <code>5V_SYS</code> su JANALOG, JMISC o JSPI.</p>
 
 <p style="text-align: justify;"><em>Il VBUS USB-C</em> e l'uscita a 5 V del convertitore buck 7-24 V sono combinati <em>tramite un circuito OR a diodi</em> sul bus di sistema a 5 V (<code>5V_SYS</code>). Da <code>5V_SYS</code>, il progetto ricava il nodo del preregolatore a 3,8 V e, successivamente, quello a 3,3 V.
 Il PMIC, alimentato da 5V_SYS, genera la tensione di 1,8 V.</p>
-
 
 <p style="text-align: justify;"><strong>Protezione contro l'inversione di polarità:</strong> verificata con una tensione di -24 V applicata all'ingresso CC (DC IN). Il funzionamento è garantito solo con la polarità corretta. Non applicare tensione inversa durante il normale utilizzo.</p>
 
