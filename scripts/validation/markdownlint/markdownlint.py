@@ -5,6 +5,11 @@ import argparse
 import fnmatch
 import tempfile
 
+try:
+    from .validate_readme import validate_readme_content, update_readme_rules
+except (ImportError, ValueError):
+    from validate_readme import validate_readme_content, update_readme_rules
+
 IGNORE_FILES = ['.lintignore', '.linterignore', '.markdownlintignore']
 IGNORE_CACHE = {}
 
@@ -107,29 +112,63 @@ def prepare_effective_config(cfg_path, repo_root):
 
 def main():
     parser = argparse.ArgumentParser(description="Validate Markdown files using markdownlint with .linterignore and hierarchical configs.")
-    parser.add_argument("path", nargs="?", default="content", help="Path to a file or directory to lint (default: content)")
+    parser.add_argument("path", nargs="?", default="content", help="Path to a file or directory to lint, or 'validate-readme' (default: content)")
     parser.add_argument("--fix", action="store_true", help="Automatically fix fixable markdownlint issues.")
+    parser.add_argument("--validate-readme", action="store_true", help="Validate that README.md accurately reflects the rule configuration in .markdownlint.yaml.")
+    parser.add_argument("--update-readme", action="store_true", help="Automatically synchronize README.md rules table with .markdownlint.yaml.")
+    parser.add_argument("--skip-readme-validation", action="store_true", help="Skip validating that README.md matches .markdownlint.yaml during markdown linting.")
     
     args = parser.parse_args()
-    target_path = os.path.abspath(args.path)
+
+    script_dir = os.path.dirname(os.path.abspath(__file__))
     
+    # Find repo root
+    current_check = script_dir
+    repo_root = None
+    while current_check and current_check != '/':
+        if os.path.isdir(os.path.join(current_check, 'content')):
+            repo_root = current_check
+            break
+        current_check = os.path.dirname(current_check)
+    if not repo_root:
+        repo_root = os.path.abspath(os.path.join(script_dir, '..', '..', '..'))
+
+    base_cfg = get_base_config(repo_root) or os.path.join(repo_root, 'content', '.markdownlint.yaml')
+    readme_path = os.path.join(script_dir, 'README.md')
+    rules_dir = os.path.join(script_dir, 'rules')
+
+    # Handle update-readme action
+    if args.update_readme or args.path == "update-readme":
+        update_readme_rules(base_cfg, readme_path, rules_dir)
+        sys.exit(0)
+
+    # Handle validate-readme only action
+    if args.validate_readme or args.path == "validate-readme":
+        valid, errors = validate_readme_content(base_cfg, readme_path, rules_dir)
+        if not valid:
+            print(f"❌ Markdownlint README validation failed ({len(errors)} errors found):")
+            for err in errors:
+                print(f"  - {err}")
+            print("\nTip: Run 'python3 scripts/validation/markdownlint/validate_readme.py --update' to sync README.md automatically.")
+            sys.exit(1)
+        else:
+            print(f"✓ Markdownlint README validation passed: rules documentation matches '{base_cfg}'.")
+            sys.exit(0)
+
+    # Validate README documentation first unless explicitly skipped
+    if not args.skip_readme_validation:
+        valid, errors = validate_readme_content(base_cfg, readme_path, rules_dir)
+        if not valid:
+            print(f"❌ Markdownlint README validation failed ({len(errors)} errors found):")
+            for err in errors:
+                print(f"  - {err}")
+            print("\nTip: Run 'python3 scripts/validation/markdownlint/validate_readme.py --update' to sync README.md automatically.")
+            sys.exit(1)
+
+    target_path = os.path.abspath(args.path)
     if not os.path.exists(target_path):
         print(f"Error: Path '{args.path}' does not exist.")
         sys.exit(1)
-        
-    current_dir = target_path
-    content_dir = None
-    test_dir = current_dir if os.path.isdir(current_dir) else os.path.dirname(current_dir)
-    while test_dir and test_dir != '/':
-        if os.path.isdir(os.path.join(test_dir, 'content')):
-            content_dir = os.path.join(test_dir, 'content')
-            break
-        if os.path.basename(test_dir) == 'content':
-            content_dir = test_dir
-            break
-        test_dir = os.path.dirname(test_dir)
-        
-    repo_root = os.path.dirname(content_dir) if content_dir and os.path.basename(content_dir) == 'content' else (content_dir or current_dir)
 
     files_to_lint = []
     if os.path.isfile(target_path):
@@ -154,12 +193,11 @@ def main():
         cfg = find_closest_config(f, repo_root)
         configs_map.setdefault(cfg, []).append(f)
         
-    custom_rules_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'rules')
     custom_rules = []
-    if os.path.isdir(custom_rules_dir):
-        for r_file in sorted(os.listdir(custom_rules_dir)):
+    if os.path.isdir(rules_dir):
+        for r_file in sorted(os.listdir(rules_dir)):
             if r_file.endswith('.cjs') or r_file.endswith('.js'):
-                custom_rules.append(os.path.join(custom_rules_dir, r_file))
+                custom_rules.append(os.path.join(rules_dir, r_file))
 
     has_errors = False
     for cfg, f_list in configs_map.items():
