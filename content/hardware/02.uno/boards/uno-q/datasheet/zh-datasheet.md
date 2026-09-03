@@ -4,9 +4,9 @@ title: Arduino® UNO Q
 type: maker
 ---
 
-# 中文
-
 ![](assets/featured.png)
+
+# 中文
 
 # 描述
 
@@ -86,15 +86,15 @@ UNO Q 提供两种型号：
 
 ![](assets/ABX00162-ABX00173-header-expansion.png)
 
-| **接口 (连接器)**    | **电压与引脚数量**                        | **详细信息**                                                 |
-| -------------------- | ----------------------------------------- | ------------------------------------------------------------ |
-| JMEDIA (JMEDIA1)     | 1.8 V 信号, 60 引脚                       | - 高速摄像头/显示通道（MIPI DSI、CSI）<br></br>- 摄像头控制总线（CCI I2C）-<br></br> 专用接口，非通用GPIO- 摄像头时钟（SOC_CAM_MCLK0/1）<br></br>- 同时承载电源轨（+3V3 OUT、VIN IN）及地线（GND） |
-| JMISC (JMISC1)       | 混合 1.8 V / 3.3 V, 60 引脚               | - 混合GPIO和SDIO <br></br>- MCU外设：SDMMC1、TRACE、PSSI（并行摄像头）、I2C4、MCO/CRS_SYNC、运算放大器1引脚 <br></br>- 音频端点： 麦克风2输入/负反馈/偏置、耳机L/R+参考、线路输出P/M、听筒P/R、耳机检测器 HS_DET<br></br>- MPU（SoC）GPIO银行（SE0）工作于1.8V <br></br>- 同时承载电源轨（+5V USB输出、+3.3V输出、+1.8V输出、电池电压输出、硬币电压输入）及地线 (GND) |
-| JCTL (JCTL1)         | 1.8 V, 10 引脚                            | - SE4 UART控制台 <br></br>- 强制USB启动输入<br></br> - PMIC复位输入 <br></br>- VBUS电源开关禁用<br></br> - 1.8V电源轨及接地 |
-| JDIGITAL (JDIGITAL1) | 3.3 V, 18 引脚                            | - 用于SPI、I2C、UART、PWM、CAN的数字I/O                      |
-| JANALOG (JANALOG1)   | 3.3 V, 14 引脚                            | - 模拟I/O<br></br> - ADC通道及基准电压                       |
-| JSPI (JSPI1)         | 3.3 V 数字逻辑电压参考, 6 引脚 + 5 V VBUS | - 专用SPI：MOSI、MISO、SCLK- MCU复位（NRST）- 接地- 5V VBUS（USB供电） |
-| Qwiic (QWIIC1)       | 3.3 V, 4 引脚                             | - I2C（Qwiic生态系统）                                       |
+| **接口 (连接器)**    | **电压与引脚数量**                       | **详细信息**                                                 |
+| -------------------- | ---------------------------------------- | ------------------------------------------------------------ |
+| JMEDIA (JMEDIA1)     | 1.8 V 信号, 60 引脚                      | - 高速摄像头/显示通道（MIPI DSI、CSI）<br></br>- 摄像头控制总线（CCI I2C）-<br></br> 专用接口，非通用GPIO- 摄像头时钟（SOC_CAM_MCLK0/1）<br></br>- 同时承载电源轨（+3V3 OUT、VIN IN）及地线（GND） |
+| JMISC (JMISC1)       | 混合 1.8 V / 3.3 V, 60 引脚              | - 混合GPIO和SDIO <br></br>- MCU外设：SDMMC1、TRACE、PSSI（并行摄像头）、I2C4、MCO/CRS_SYNC、运算放大器1引脚 <br></br>- 音频端点： 麦克风2输入/负反馈/偏置、耳机L/R+参考、线路输出P/M、听筒P/R、耳机检测器 HS_DET<br></br>- MPU（SoC）GPIO银行（SE0）工作于1.8V <br></br>- 同时承载电源轨（+5V USB输出、+3.3V输出、+1.8V输出、电池电压输出、硬币电压输入）及地线 (GND) |
+| JCTL (JCTL1)         | 1.8 V, 10 引脚                           | - SE4 UART控制台 <br></br>- 强制USB启动输入<br></br> - PMIC复位输入 <br></br>- VBUS电源开关禁用<br></br> - 1.8V电源轨及接地 |
+| JDIGITAL (JDIGITAL1) | 3.3 V, 18 引脚                           | - 用于SPI、I2C、UART、PWM、CAN的数字I/O                      |
+| JANALOG (JANALOG1)   | 3.3 V, 14 引脚                           | - 模拟I/O<br></br> - ADC通道及基准电压                       |
+| JSPI (JSPI1)         | 3.3 V 数字逻辑电压参考, 6 引脚 + 5 V SYS | - 专用SPI：MOSI、MISO、SCLK- MCU复位（NRST）- 接地- 5V SYS（二极管或门输出） |
+| Qwiic (QWIIC1)       | 3.3 V, 4 引脚                            | - I2C（Qwiic生态系统）                                       |
 
 ### 相关产品
 
@@ -111,13 +111,13 @@ UNO Q 提供两种型号：
 
 ![UNO Q Input Methods](assets/ABX00162-ABX00173-power-supply.png)
 
-| **源电流**  | **工作电压** | **最大限值** | **连接器**            |
-| ----------- | -----------: | -----------: | --------------------- |
-| USB-C VBUS  |          5 V |   高达3 A 位 | USB-C  连接器         |
-| VIN (DC IN) |       7-24 V |            - | JMEDIA, JANALOG (VIN) |
-| 5 V 引脚    |          5 V |   高达3 A 位 | JANALOG               |
+| **源电流**        | **工作电压** | **最大限值** | **连接器**            |
+| ----------------- | -----------: | -----------: | --------------------- |
+| USB-C VBUS        |          5 V |   高达3 A 位 | USB-C  连接器         |
+| VIN (DC IN)       |       7-24 V |            - | JMEDIA, JANALOG (VIN) |
+| 5 V 引脚 (5V_SYS) |          5 V |   高达3 A 位 | JANALOG, JMISC, JSPI  |
 
-<p style="text-align: justify;">UNO Q支持双电源输入：USB-C接口和7-24V直流输入。通过USB电源传输协议时，仅请求5V/3A供电协议，不请求更高电压的PD配置文件。请使用额定5V/3A的电源线和线缆，以避免在无线传输突发或显示初始化等短时活动高峰期间出现欠压情况。也可通过JANALOG接头上的5V引脚，使用稳压外部5V直流电源为电路板供电。
+<p style="text-align: justify;">UNO Q 支持三种电源输入方式：一个 USB-C 接口、一个 7-24V 直流输入，以及 JANALOG、JMISC 或 JSPI 上的 <code>5V_SYS</code> 引脚。通过 USB 供电（PD）协议，它仅请求 5 V / 3 A 配置，不请求更高电压的 PD 配置文件。请使用额定值为 5 V、3 A 的电源和线缆，以避免在无线数据突发或显示屏初始化等短暂活动高峰期间出现欠压。也可以使用稳压的外部 5 V 直流电源，通过 JANALOG、JMISC 或 JSPI 上的 <code>5V_SYS</code> 引脚为该板供电。
 </p>
 
 <p style="text-align: justify;"><em>USB-C VBUS</em>与7-24V降压稳压器的5V输出经<em>二极管</em>或门组合接入系统5V总线（<code>5V_SYS</code>）。设计从<code>5V_SYS</code>衍生出3.8V预稳压节点，进而生成3.3V电源。由5V_SYS供电的PMIC则衍生出1.8V电源轨。</p>
@@ -379,7 +379,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 - **JMEDIA (B2) (JMEDIA1):** 四通道摄像头与显示信号，工作于1.8V电压域（MIPI-CSI-2和MIPI-DSI）。
 
-- **JMISC (B1) (JMISC):** 混合功能接口，整合3.3V MCU信号与1.8V MPU信号。提供MCU PSSI（并行摄像头）总线、SDMMC1测试引脚、TRACE、I2C4、MCO/CRS_SYNC及OPAMP1模拟引脚。同时引出音频接口（麦克风2、耳机L/R+参考电平、线路输出P/M、听筒P/R、耳机检测HS_DET）及电源轨（+3V3、+5V_USB、+1V8、系统用VBAT和VCOIN）。注意电压域：**MCU引脚为3.3V，MPU通用输入输出为1.8V**。
+- **JMISC (B1) (JMISC):** 混合功能接口，整合3.3V MCU信号与1.8V MPU信号。提供MCU PSSI（并行摄像头）总线、SDMMC1测试引脚、TRACE、I2C4、MCO/CRS_SYNC及OPAMP1模拟引脚。同时引出音频接口（麦克风2、耳机L/R+参考电平、线路输出P/M、听筒P/R、耳机检测HS_DET）及电源轨（+3V3、+5V_SYS、+1V8、系统用VBAT和VCOIN）。注意电压域：**MCU引脚为3.3V，MPU通用输入输出为1.8V**。
 
 - **JCTL (A1) (JCTL1):** 启动模式引脚、复位信号及低功耗唤醒信号（1.8V逻辑电平）。
 
@@ -389,74 +389,72 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ### JMISC (B1) (JMISC1) - 引脚功能概述
 
-| **引脚** | **名称**        | **MCU/SoC 引脚** | **域名** | **注释**                               |
-| -------: | --------------- | ---------------- | -------- | -------------------------------------- |
-|        1 | MCU_PSSI_D0     | PC6              | 3.3V MCU | PSSI D0                                |
-|        2 | MCU_SDMMC1_CMD  | PD2              | 3.3V MCU | SDMMC1 CMD / 测试                      |
-|        3 | MCU_PSSI_D1     | PC7              | 3.3V MCU | PSSI D1                                |
-|        4 | MCU_TRACE_CLK   | PE2              | 3.3V MCU | 跟踪时钟                               |
-|        5 | MCU_PSSI_D2     | PC8              | 3.3V MCU | PSSI D2                                |
-|        6 | MCU_TRACE_D0    | PE3              | 3.3V MCU | 跟踪数据 0                             |
-|        7 | MCU_PSSI_D3     | PC9              | 3.3V MCU | PSSI D3                                |
-|        8 | MCU_TRACE_D2    | PE5              | 3.3V MCU | 跟踪数据 2                             |
-|        9 | MCU_PSSI_D4     | PE4              | 3.3V MCU | PSSI D4                                |
-|       10 | MCU_TRACE_D3    | PE6              | 3.3V MCU | 跟踪数据 3                             |
-|       11 | MCU_PSSI_D5     | PI4              | 3.3V MCU | PSSI D5                                |
-|       12 | MCU_PE7         | PE7              | 3.3V MCU | GPIO                                   |
-|       13 | MCU_PSSI_D6     | PI6              | 3.3V MCU | PSSI D6                                |
-|       14 | MCU_PE8         | PE8              | 3.3V MCU | GPIO                                   |
-|       15 | MCU_PSSI_D7     | PI7              | 3.3V MCU | PSSI D7                                |
-|       16 | MCU_I2C4_SCL    | PF14             | 3.3V MCU | I2C4 SCL                               |
-|       17 | MCU_PSSI_PDCK   | PD9              | 3.3V MCU | PSSI 时钟                              |
-|       18 | MCU_I2C4_SDA    | PF15             | 3.3V MCU | I2C4 SDA                               |
-|       19 | MCU_PSSI_RDY    | PI5              | 3.3V MCU | PSSI 就绪                              |
-|       20 | MCU_OPAMP1_VOUT | PA3              | 模拟     | OpAmp1 VOUT                            |
-|       21 | MCU_PSSI_DE     | PD8              | 3.3V MCU | PSSI数据启用                           |
-|       22 | MCU_OPAMP1_VINP | PA0              | 模拟     | OpAmp1 VINP                            |
-|       23 | MCU_MCO         | PA8              | 3.3V MCU | MCU时钟输出                            |
-|       24 | MCU_OPAMP1_VINM | PA1              | 模拟     | OpAmp1 VINM                            |
-|       25 | MCU_CRS_SYNC    | PA10             | 3.3V MCU | CRS同步                                |
-|       26 | GND             | -                | 电源     | 接地                                   |
-|       27 | GND             | -                | 电源     | 接地                                   |
-|       28 | EAR_P_R         | -                | 模拟     | 音频耳机P_R                            |
-|       29 | MIC2_INP        | -                | 模拟     | Mic2 IN+                               |
-|       30 | EAR_M_R         | -                | 模拟     | Audio ear M_R                          |
-|       31 | MIC2_INM        | -                | 模拟     | Mic2 IN−                               |
-|       32 | LINEOUT_P       | -                | 模拟     | 线路输出P                              |
-|       33 | MIC2_BIAS       | -                | 模拟     | 麦克风2偏置                            |
-|       34 | LINEOUT_M       | -                | 模拟     | 线路输出M                              |
-|       35 | GND             | -                | 电源     | 接地                                   |
-|       36 | HPH_L           | -                | 模拟     | 耳机L                                  |
-|       37 | SOC_GPIO_0_SE0  | -                | 1.8V MPU | SoC GPIO 0 (SE0)                       |
-|       38 | HPH_R           | -                | 模拟     | 耳机R                                  |
-|       39 | SOC_GPIO_1_SE0  | -                | 1.8V MPU | SoC GPIO 1 (SE0)                       |
-|       40 | HPH_REF         | -                | 模拟     | 耳机REF                                |
-|       41 | SOC_GPIO_2_SE0  | -                | 1.8V MPU | SoC GPIO 2 (SE0)                       |
-|       42 | HS_DET          | -                | 模拟     | 耳机检测                               |
-|       43 | SOC_GPIO_3_SE0  | -                | 1.8V MPU | SoC GPIO 3 (SE0)                       |
-|       44 | GND             | -                | 电源     | 接地                                   |
-|       45 | SOC_GPIO_86_SE0 | -                | 1.8V MPU | SoC GPIO 86 (SE0)                      |
-|       46 | SOC_GPIO_98     | -                | 1.8V MPU | SoC GPIO 98                            |
-|       47 | SOC_GPIO_82_SE0 | -                | 1.8V MPU | SoC GPIO 82 (SE0)                      |
-|       48 | SOC_GPIO_99     | -                | 1.8V MPU | SoC GPIO 99                            |
-|       49 | SOC_GPIO_18     | -                | 1.8V MPU | SoC GPIO 18                            |
-|       50 | SOC_GPIO_100    | -                | 1.8V MPU | SoC GPIO 100                           |
-|       51 | SOC_GPIO_28     | -                | 1.8V MPU | SoC GPIO 28                            |
-|       52 | SOC_GPIO_101    | -                | 1.8V MPU | SoC GPIO 101                           |
-|       53 | +3V3 (输出)     | -                | 电源     | 3.3V电源输出                           |
-|       54 | +5V_USB (输出)  | -                | 电源     | 5 V 电源输出                           |
-|       55 | +3V3 (输出)     | -                | 电源     | 3.3V电源输出                           |
-|       56 | +5V_USB (输出)  | -                | 电源     | 5 V 电源输出                           |
-|       57 | +1V8 (IN)       | -                | 电源     | 1.8 V 电源轨                           |
-|       58 | GND             | -                | 电源     | 接地                                   |
-|       59 | VCOIN (IN)      | -                | 电源     | 系统电压（PMIC RTC）                   |
-|       60 | VBAT (OUT)      | -                | 电源     | 系统电压（保留用于系统设计和未来功能） |
+| **引脚** | **名称**        | **MCU/SoC 引脚** | **域名** | **注释**                                                     |
+| -------: | --------------- | ---------------- | -------- | ------------------------------------------------------------ |
+|        1 | MCU_PSSI_D0     | PC6              | 3.3V MCU | PSSI D0                                                      |
+|        2 | MCU_SDMMC1_CMD  | PD2              | 3.3V MCU | SDMMC1 CMD / 测试                                            |
+|        3 | MCU_PSSI_D1     | PC7              | 3.3V MCU | PSSI D1                                                      |
+|        4 | MCU_TRACE_CLK   | PE2              | 3.3V MCU | 跟踪时钟                                                     |
+|        5 | MCU_PSSI_D2     | PC8              | 3.3V MCU | PSSI D2                                                      |
+|        6 | MCU_TRACE_D0    | PE3              | 3.3V MCU | 跟踪数据 0                                                   |
+|        7 | MCU_PSSI_D3     | PC9              | 3.3V MCU | PSSI D3                                                      |
+|        8 | MCU_TRACE_D2    | PE5              | 3.3V MCU | 跟踪数据 2                                                   |
+|        9 | MCU_PSSI_D4     | PE4              | 3.3V MCU | PSSI D4                                                      |
+|       10 | MCU_TRACE_D3    | PE6              | 3.3V MCU | 跟踪数据 3                                                   |
+|       11 | MCU_PSSI_D5     | PI4              | 3.3V MCU | PSSI D5                                                      |
+|       12 | MCU_PE7         | PE7              | 3.3V MCU | GPIO                                                         |
+|       13 | MCU_PSSI_D6     | PI6              | 3.3V MCU | PSSI D6                                                      |
+|       14 | MCU_PE8         | PE8              | 3.3V MCU | GPIO                                                         |
+|       15 | MCU_PSSI_D7     | PI7              | 3.3V MCU | PSSI D7                                                      |
+|       16 | MCU_I2C4_SCL    | PF14             | 3.3V MCU | I2C4 SCL                                                     |
+|       17 | MCU_PSSI_PDCK   | PD9              | 3.3V MCU | PSSI 时钟                                                    |
+|       18 | MCU_I2C4_SDA    | PF15             | 3.3V MCU | I2C4 SDA                                                     |
+|       19 | MCU_PSSI_RDY    | PI5              | 3.3V MCU | PSSI 就绪                                                    |
+|       20 | MCU_OPAMP1_VOUT | PA3              | 模拟     | OpAmp1 VOUT                                                  |
+|       21 | MCU_PSSI_DE     | PD8              | 3.3V MCU | PSSI数据启用                                                 |
+|       22 | MCU_OPAMP1_VINP | PA0              | 模拟     | OpAmp1 VINP                                                  |
+|       23 | MCU_MCO         | PA8              | 3.3V MCU | MCU时钟输出                                                  |
+|       24 | MCU_OPAMP1_VINM | PA1              | 模拟     | OpAmp1 VINM                                                  |
+|       25 | MCU_CRS_SYNC    | PA10             | 3.3V MCU | CRS同步                                                      |
+|       26 | GND             | -                | 电源     | 接地                                                         |
+|       27 | GND             | -                | 电源     | 接地                                                         |
+|       28 | EAR_P_R         | -                | 模拟     | 音频耳机P_R                                                  |
+|       29 | MIC2_INP        | -                | 模拟     | Mic2 IN+                                                     |
+|       30 | EAR_M_R         | -                | 模拟     | Audio ear M_R                                                |
+|       31 | MIC2_INM        | -                | 模拟     | Mic2 IN−                                                     |
+|       32 | LINEOUT_P       | -                | 模拟     | 线路输出P                                                    |
+|       33 | MIC2_BIAS       | -                | 模拟     | 麦克风2偏置                                                  |
+|       34 | LINEOUT_M       | -                | 模拟     | 线路输出M                                                    |
+|       35 | GND             | -                | 电源     | 接地                                                         |
+|       36 | HPH_L           | -                | 模拟     | 耳机L                                                        |
+|       37 | SOC_GPIO_0_SE0  | -                | 1.8V MPU | SoC GPIO 0 (SE0)                                             |
+|       38 | HPH_R           | -                | 模拟     | 耳机R                                                        |
+|       39 | SOC_GPIO_1_SE0  | -                | 1.8V MPU | SoC GPIO 1 (SE0)                                             |
+|       40 | HPH_REF         | -                | 模拟     | 耳机REF                                                      |
+|       41 | SOC_GPIO_2_SE0  | -                | 1.8V MPU | SoC GPIO 2 (SE0)                                             |
+|       42 | HS_DET          | -                | 模拟     | 耳机检测                                                     |
+|       43 | SOC_GPIO_3_SE0  | -                | 1.8V MPU | SoC GPIO 3 (SE0)                                             |
+|       44 | GND             | -                | 电源     | 接地                                                         |
+|       45 | SOC_GPIO_86_SE0 | -                | 1.8V MPU | SoC GPIO 86 (SE0)                                            |
+|       46 | SOC_GPIO_98     | -                | 1.8V MPU | SoC GPIO 98                                                  |
+|       47 | SOC_GPIO_82_SE0 | -                | 1.8V MPU | SoC GPIO 82 (SE0)                                            |
+|       48 | SOC_GPIO_99     | -                | 1.8V MPU | SoC GPIO 99                                                  |
+|       49 | SOC_GPIO_18     | -                | 1.8V MPU | SoC GPIO 18                                                  |
+|       50 | SOC_GPIO_100    | -                | 1.8V MPU | SoC GPIO 100                                                 |
+|       51 | SOC_GPIO_28     | -                | 1.8V MPU | SoC GPIO 28                                                  |
+|       52 | SOC_GPIO_101    | -                | 1.8V MPU | SoC GPIO 101                                                 |
+|       53 | +3V3 (输出)     | -                | 电源     | 3.3V电源输出                                                 |
+|       54 | +5V_SYS (输出)  | -                | 电源     | 电源输入或输出；电源和电路板电源通过肖特基二极管进行“或”连接 |
+|       55 | +3V3 (输出)     | -                | 电源     | 3.3V电源输出                                                 |
+|       56 | +5V_SYS (输出)  | -                | 电源     | 电源输入或输出；电源和电路板电源通过肖特基二极管进行“或”连接 |
+|       57 | +1V8 (IN)       | -                | 电源     | 1.8 V 电源轨                                                 |
+|       58 | GND             | -                | 电源     | 接地                                                         |
+|       59 | VCOIN (IN)      | -                | 电源     | 系统电压（PMIC RTC）                                         |
+|       60 | VBAT (OUT)      | -                | 电源     | 系统电压（保留用于系统设计和未来功能）                       |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   注：JMISC上的SoC GPIO引脚为专用接口 (非创客GPIO)。MCU采用3.3V逻辑电平，MPU采用1.8V逻辑电平，音频/麦克风为模拟信号。
 </div>
-
-
 <div style="page-break-after: always;"></div>
 
 ### JMEDIA (B2) (JMEDIA1) - 引脚功能概述
@@ -540,14 +538,14 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ### JSPI (A5) (JSPI1) - 引脚功能概述
 
-| **引脚** | **名称** | **网络 / 功能** | **域名** | **注释** |
-| -------: | -------- | --------------- | -------- | -------- |
-|        1 | MISO     | PC2 (SPI2_MISO) | 3.3 V    | -        |
-|        2 | +5V      | 5V_USB_VBUS     | 电源     | 仅供电力 |
-|        3 | SCK      | PD1 (SPI2_SCK)  | 3.3 V    | -        |
-|        4 | MOSI     | PC3 (SPI2_MOSI) | 3.3 V    | -        |
-|        5 | RESET    | MCU_NRST        | 3.3 V    | -        |
-|        6 | GND      | 接地            | 电源     | -        |
+| **引脚** | **名称** | **网络 / 功能** | **域名** | **注释**                                                     |
+| -------: | -------- | --------------- | -------- | ------------------------------------------------------------ |
+|        1 | MISO     | PC2 (SPI2_MISO) | 3.3 V    | -                                                            |
+|        2 | +5V      | 5V_SYS          | 电源     | 电源输入或输出；电源和电路板电源通过肖特基二极管进行“或”连接 |
+|        3 | SCK      | PD1 (SPI2_SCK)  | 3.3 V    | -                                                            |
+|        4 | MOSI     | PC3 (SPI2_MOSI) | 3.3 V    | -                                                            |
+|        5 | RESET    | MCU_NRST        | 3.3 V    | -                                                            |
+|        6 | GND      | 接地            | 电源     | -                                                            |
 
 ### JCTL (A1) (JCTL1) - 引脚功能概述
 
@@ -592,30 +590,29 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
    所有 JDIGITAL 线路均采用 3.3 V 逻辑电平。大多数引脚采用 FT 型 I/O 结构，作为输入时可耐受 5 V 电压。D3（PB0）采用 TT 型 I/O 结构，仅可耐受 3.6 V 电压，在任何模式下均不得向该引脚施加 5 V 电压。
 </div>
-
-
 ### JANALOG (A3) (JANALOG1) - 引脚功能概述
 
-| **引脚** | **名称**     | **网络 / MCU 引脚** | **功能**                                               | **域名**     | **注释**             |
-| -------: | ------------ | ------------------- | ------------------------------------------------------ | ------------ | -------------------- |
-|        1 | BOOT         | MCU_BOOT0           | - 自举电路                                             | 3.3 V        | -                    |
-|        2 | IOREF        | PWR_3P3V            | - I/O电压基准（镜像3.3V电源轨）                        | 电源         | 仅输出；禁止反向馈入 |
-|        3 | RESET        | MCU_NRST            | - MCU 复位                                             | 3.3 V        | -                    |
-|        4 | +3V3 OUT     | PWR_3P3V            | - 3.3 V 电源                                           | 电源         | -                    |
-|        5 | +5V USB VBUS | 5V_USB_VBUS         | - 5V电源（直通）                                       | 电源         | 仅供电力             |
-|        6 | GND          | GND                 | - 接地                                                 | 电源         | -                    |
-|        7 | GND          | GND                 | - 接地                                                 | 电源         | -                    |
-|        8 | VIN IN       | DC_IN               | - 7-24 V 输入                                          | 电源         | 仅供电力             |
-|        9 | A0 / D14     | PA4                 | - ADC 输入<br></br>- DAC0 <br></br>- TIM2_CH1          | 模拟 / 3.3 V | 直接ADC / 不耐5V     |
-|       10 | A1 /  D15    | PA5                 | - ADC 输入<br></br>- DAC1 <br></br>- TIM3_CH1          | 模拟 / 3.3 V | 直接ADC / 不耐5V     |
-|       11 | A2 /  D16    | PA6                 | - ADC 输入<br></br>- OPAMP2_INPUT+ <br></br>- TIM3_CH2 | 模拟 / 3.3 V |                      |
-|       12 | A3 /  D17    | PA7                 | - ADC 输入<br></br>- OPAMP2_INPUT−                     | 模拟 / 3.3 V | -                    |
-|       13 | A4 /  D18    | PC1                 | - ADC 输入<br></br>- I2C3_SDA <br></br>- LPTIM1_CH1    | 模拟 / 3.3 V | -                    |
-|       14 | A5 /  D19    | PC0                 | - ADC 输入<br></br>- I2C3_SCL <br></br>- LPTIM1_IN1    | 模拟 / 3.3 V | -                    |
+| **引脚** | **名称**  | **网络 / MCU 引脚** | **功能**                                               | **域名**     | **注释**                                                     |
+| -------: | --------- | ------------------- | ------------------------------------------------------ | ------------ | ------------------------------------------------------------ |
+|        1 | BOOT      | MCU_BOOT0           | - 自举电路                                             | 3.3 V        | -                                                            |
+|        2 | IOREF     | PWR_3P3V            | - I/O电压基准（镜像3.3V电源轨）                        | 电源         | 仅输出；禁止反向馈入                                         |
+|        3 | RESET     | MCU_NRST            | - MCU 复位                                             | 3.3 V        | -                                                            |
+|        4 | +3V3 OUT  | PWR_3P3V            | - 3.3 V 电源                                           | 电源         | -                                                            |
+|        5 | +5V OUT   | 5V_SYS              | - 5V电源（二极管或门输出）                             | 电源         | 电源输入或输出；电源和电路板电源通过肖特基二极管进行“或”连接 |
+|        6 | GND       | GND                 | - 接地                                                 | 电源         | -                                                            |
+|        7 | GND       | GND                 | - 接地                                                 | 电源         | -                                                            |
+|        8 | VIN IN    | DC_IN               | - 7-24 V 输入                                          | 电源         | 仅供电力                                                     |
+|        9 | A0 / D14  | PA4                 | - ADC 输入<br></br>- DAC0 <br></br>- TIM2_CH1          | 模拟 / 3.3 V | 直接ADC / 不耐5V                                             |
+|       10 | A1 /  D15 | PA5                 | - ADC 输入<br></br>- DAC1 <br></br>- TIM3_CH1          | 模拟 / 3.3 V | 直接ADC / 不耐5V                                             |
+|       11 | A2 /  D16 | PA6                 | - ADC 输入<br></br>- OPAMP2_INPUT+ <br></br>- TIM3_CH2 | 模拟 / 3.3 V |                                                              |
+|       12 | A3 /  D17 | PA7                 | - ADC 输入<br></br>- OPAMP2_INPUT−                     | 模拟 / 3.3 V | -                                                            |
+|       13 | A4 /  D18 | PC1                 | - ADC 输入<br></br>- I2C3_SDA <br></br>- LPTIM1_CH1    | 模拟 / 3.3 V | -                                                            |
+|       14 | A5 /  D19 | PC0                 | - ADC 输入<br></br>- I2C3_SCL <br></br>- LPTIM1_IN1    | 模拟 / 3.3 V | -                                                            |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  A0（PA4）和A1（PA5）是直接参考<code>VREF+</code>的STM32U585 ADC输入引脚。它们不耐受5V电压，有效输入范围为<code>0-VREF+</code>（≈3.3V）。引脚绝对最大电压为<code>VDD + 0.3 V</code>（约3.6 V）。超过此电压时，MCU内部保护二极管将开始导通。该接口还提供<code>5V_SYS</code>和<code>PWR_3P3V</code>电源引脚，仅用于电源供应。切勿向<strong>A0</strong>或<strong>A1</strong>引脚施加5V电压。IOREF引脚连接至3.3V电源轨（<code>PWR_3P3V</code>），作为扩展板的参考/输出端口，严禁将其用于向主板回馈电源。
+  A0（PA4）和 A1（PA5）是直接连接到 STM32U585 ADC 的输入端，其参考电压为 <code>VREF+</code>。它们不支持 5 V 电压。有效输入范围为 <code>0-VREF+</code>（≈3.3 V）。该引脚的绝对最大值小于codeVDD + 0.3 V</code>，约为 3.6 V。超过此电平，MCU 的内部保护二极管将开始导通。该排针还提供了 <code>5V_SYS</code>（由肖特基二极管或门保护）和 <code>PWR_3P3V</code>（仅输出）电源引脚，与支持ADC功能的A0/A1引脚不同。请勿向 <strong>A0</strong> 或 <strong>A1</strong> 施加 5 V 电压。IOREF 连接至 3.3 V 电源轨（<code>PWR_3P3V</code>），并作为扩展板的参考电压/输出提供。该引脚不得用于向主板回馈电源。
 </div>
+
 
 ## 高速外围设备
 
@@ -1054,6 +1051,7 @@ Este equipamento não tem direito à proteção contra interferência prejudicia
 
 |  **Date**  | **Revision** | **Changes**                                                  |
 | :--------: | :----------: | ------------------------------------------------------------ |
+| 26/08/2026 |      15      | Update 5 V power pin (5V_SYS) input option on JANALOG, JMISC, JSPI |
 | 26/06/2026 |      14      | Add German language                                          |
 | 17/06/2026 |      13      | Display output clarification (USB-C and JMEDIA)              |
 | 16/06/2026 |      12      | Add Safety information section                               |
