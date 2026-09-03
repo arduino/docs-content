@@ -37,8 +37,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          # A cron has nobody watching it, so it only reports unless a person dispatches and asks for the real run
+          DRY_RUN: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run }}
           # For scheduled runs the inputs are empty, so fall back to defaults.
-          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
           DAYS_THRESHOLD: ${{ github.event.inputs.days_threshold || '365' }}
           # A stale pull request gets this many reminders, one per run, before it is closed.
           MAX_REMINDERS: '3'
