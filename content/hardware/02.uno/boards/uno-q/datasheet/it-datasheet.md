@@ -4,9 +4,9 @@ title: Arduino® UNO Q
 type: maker
 ---
 
-# Italiano 
-
 ![](assets/featured.png)
+
+# Italiano 
 
 # Descrizione
 
@@ -84,15 +84,15 @@ Il modulo wireless utilizza SDIO per i dati Wi-Fi® e un'interfaccia UART per il
 
 ![](assets/ABX00162-ABX00173-header-expansion.png)
 
-| **Interfaccia (connettore)** | **Tensione e numero di pin**       | **Dettagli**                                                 |
-| ---------------------------- | ---------------------------------- | ------------------------------------------------------------ |
-| JMEDIA (JMEDIA1)             | Segnali a 1,8 V, 60 pin            | - Linee per telecamera/display ad alta velocità (MIPI DSI, CSI) <br></br>- Bus di controllo della telecamera (CCI I²C) - dedicato, non GPIO generico <br></br>- Clock della telecamera (SOC_CAM_MCLK0/1) <br></br>- Trasporta anche linee di alimentazione (+3V3 OUT, VIN IN) e GND |
-| JMISC (JMISC1)               | Misto 1,8 V / 3,3 V, 60 pin        | - Misto GPIO e SDIO <br></br>- Periferiche MCU: SDMMC1, TRACE, PSSI (telecamera parallela), I²C4, MCO/CRS_SYNC, pin OPAMP1 <br></br>- Endpoint audio: Mic2 INP/INM/BIAS, Cuffie L/R + REF, LineOut P/M, Auricolare P/R, HS_DET <br></br>- Banchi GPIO MPU (SoC) (SE0) a 1,8 V <br></br>- Trasporta anche i rail di alimentazione (+5V USB OUT, +3V3 OUT, +1V8 OUT, VBAT OUT, VCOIN IN) e GND |
-| JCTL (JCTL1)                 | 1,8 V, 10 pin                      | - Console UART SE4 <br></br>- Ingresso avvio USB forzato <br></br>- Ingresso reset PMIC <br></br>- Disabilitazione interruttore di alimentazione VBUS <br></br>- Rotaia da 1,8 V e GND |
-| JDIGITAL (JDIGITAL1)         | 3,3 V, 18 pin                      | - I/O digitale per SPI, I²C, UART, PWM, CAN                  |
-| JANALOG (JANALOG1)           | 3,3 V, 14 pin                      | - I/O analogici <br></br>- Canali ADC e riferimenti          |
-| JSPI (JSPI1)                 | Logica a 3,3 V, VBUS a 6 pin + 5 V | - SPI dedicato: MOSI, MISO, SCLK <br></br>- Reset MCU (NRST) <br></br>- Massa <br></br>- VBUS a 5 V (alimentazione USB) |
-| Qwiic (QWIIC1)               | 3,3 V, 4 pin                       | - I²C (ecosistema Qwiic)                                     |
+| **Interfaccia (connettore)** | **Tensione e numero di pin**     | **Dettagli**                                                 |
+| ---------------------------- | -------------------------------- | ------------------------------------------------------------ |
+| JMEDIA (JMEDIA1)             | Segnali a 1,8 V, 60 pin          | - Linee per telecamera/display ad alta velocità (MIPI DSI, CSI) <br></br>- Bus di controllo della telecamera (CCI I²C) - dedicato, non GPIO generico <br></br>- Clock della telecamera (SOC_CAM_MCLK0/1) <br></br>- Trasporta anche linee di alimentazione (+3V3 OUT, VIN IN) e GND |
+| JMISC (JMISC1)               | Misto 1,8 V / 3,3 V, 60 pin      | - Misto GPIO e SDIO <br></br>- Periferiche MCU: SDMMC1, TRACE, PSSI (telecamera parallela), I²C4, MCO/CRS_SYNC, pin OPAMP1 <br></br>- Endpoint audio: Mic2 INP/INM/BIAS, Cuffie L/R + REF, LineOut P/M, Auricolare P/R, HS_DET <br></br>- Banchi GPIO MPU (SoC) (SE0) a 1,8 V <br></br>- Trasporta anche i rail di alimentazione (+5V USB OUT, +3V3 OUT, +1V8 OUT, VBAT OUT, VCOIN IN) e GND |
+| JCTL (JCTL1)                 | 1,8 V, 10 pin                    | - Console UART SE4 <br></br>- Ingresso avvio USB forzato <br></br>- Ingresso reset PMIC <br></br>- Disabilitazione interruttore di alimentazione VBUS <br></br>- Rotaia da 1,8 V e GND |
+| JDIGITAL (JDIGITAL1)         | 3,3 V, 18 pin                    | - I/O digitale per SPI, I²C, UART, PWM, CAN                  |
+| JANALOG (JANALOG1)           | 3,3 V, 14 pin                    | - I/O analogici <br></br>- Canali ADC e riferimenti          |
+| JSPI (JSPI1)                 | Logica a 3,3 V,  6 pin + 5 V SYS | - SPI dedicato: MOSI, MISO, SCLK <br></br>- Reset MCU (NRST) <br></br>- Massa <br></br>- SYS a 5 V (diode-OR output) |
+| Qwiic (QWIIC1)               | 3,3 V, 4 pin                     | - I²C (ecosistema Qwiic)                                     |
 
 ### Prodotti correlati
 
@@ -113,9 +113,9 @@ Il modulo wireless utilizza SDIO per i dati Wi-Fi® e un'interfaccia UART per il
 | ----------- | -------------------------: | -------------------: | --------------------- |
 | USB-C VBUS  |                        5 V |           fino a 3 A | Connettore USB-C      |
 | VIN (DC IN) |                     7-24 V |                    - | JMEDIA, JANALOG (VIN) |
-| Pin 5 V     |                        5 V |           fino a 3 A | JANALOG               |
+| Pin 5 V (5V_SYS)     |                        5 V |           fino a 3 A | JANALOG, JMISC, JSPI                |
 
-<p style="text-align: justify;">UNO Q supporta due tipi di alimentazione: una porta USB-C e un ingresso da 7-24 V CC. Tramite USB Power Delivery, richiede solo il profilo da 5 V / 3 A e non richiede profili PD con tensioni più elevate. Usa un alimentatore e un cavo da 5 V a 3 A per evitare sottotensioni durante brevi picchi di attività, come i burst wireless o l'inizializzazione del display. È anche possibile utilizzare una fonte esterna regolata a 5 V CC per alimentare la scheda tramite il pin da 5 V sull'header JANALOG.</p>
+<p style="text-align: justify;">UNO Q supporta tre tipi di alimentazione: una porta USB-C, un ingresso da 7-24 V CC e il pin <code>5V_SYS</code> disponibile su JANALOG, JMISC o JSPI. Tramite USB Power Delivery, richiede solo il profilo da 5 V / 3 A e non richiede profili PD con tensioni più elevate. Usa un alimentatore e un cavo con valori nominali di 5 V a 3 A per evitare cali di tensione durante brevi picchi di attività, come i burst wireless o l’inizializzazione del display. Puoi anche usare una sorgente esterna regolata a 5 V CC per alimentare la scheda tramite il pin <code>5V_SYS</code> su JANALOG, JMISC o JSPI.</p>
 
 <p style="text-align: justify;"><em>Il VBUS USB-C</em> e l'uscita a 5 V del convertitore buck 7-24 V sono combinati <em>tramite un circuito OR a diodi</em> sul bus di sistema a 5 V (<code>5V_SYS</code>). Da <code>5V_SYS</code>, il progetto ricava il nodo del preregolatore a 3,8 V e, successivamente, quello a 3,3 V.
 Il PMIC, alimentato da 5V_SYS, genera la tensione di 1,8 V.</p>
@@ -374,13 +374,13 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 - **JDIGITAL (A2) (JDIGITAL1) / JANALOG (A3) (JANALOG1):** GPIO a 3,3 V con supporto per ingressi SPI, UART, CAN, PWM e ADC. Gli ingressi analogici fanno riferimento a `VREF+` sul rail da 3,3 V. L'intervallo di ingresso valido va da 0 V a `VREF+`. Alcuni pad STM32U585 tollerano 5 V in modalità digitale, tuttavia quando configurati come ADC o qualsiasi funzione analogica (come da *A0* a *A5*), non tollerano 5 V e non devono superare `VDD + 0,3 V`. Per tensioni più elevate, usa un condizionamento esterno come un partitore di tensione o un buffer. Per *A4/A5* quando vengono usati come I2C3 (PC1/PC0), usa solo pull-up a 3,3 V. Inoltre, **~D3 (PB0)** utilizza una struttura I/O di tipo TT ed è tollerante a 3,6 V, ma non è tollerante a 5 V in nessuna modalità, compresa quella digitale.
 
-- **Connettore QWIIC (A4) (QWIIC1):** Bus I²C aggiuntivo (logica a 3,3 V). Viene mappato come **PD13 (I2C4_SDA)** e **PD12 (I2C4_SCL)**. Garantisce la compatibilità plug-and-play con i nodi Modulino® e con sensori e attuatori di terze parti.
+- **Connettore QWIIC (A4) (QWIIC1):** Bus I²C aggiuntivo (logica a 3,3 V). Viene mappato come **PD13 (I2C4_SDA)** e **PD12 (I2C4_SCL)**. Garantisce la compatibilità plug-and-play con i  Modulino® nodes e con sensori e attuatori di terze parti.
 
 - **JSPI (A5) (JSPI1):** Connettore SPI a 3,3 V per periferiche che fornisce i segnali MOSI, MISO e SCLK, con selezione del chip disponibile tramite un pin GPIO su JDIGITAL/JMISC. I pin utilizzano la configurazione di tipo FT STM32U585 con MISO su PC2, MOSI su PC3 e SCK su PD1. Sono tolleranti a 5 V come ingressi o in open-drain, mentre le uscite pilotano 3,3 V. Aggiungi un convertitore di livello se è richiesta una soglia di ingresso a 5 V o una segnalazione bidirezionale a 5 V. Include un pin di alimentazione `5V_SYS`.
 
 - **JMEDIA (B2) (JMEDIA1):** Segnali video e di visualizzazione a quattro canali nel dominio a 1,8 V (MIPI-CSI-2 e MIPI-DSI).
 
-- **JMISC (B1) (JMISC):** Connettore multifunzione che combina segnali MCU a 3,3 V e segnali MPU a 1,8 V. Fornisce il bus PSSI (telecamera parallela) dell'MCU, i pin di test SDMMC1, TRACE, I2C4, MCO/CRS_SYNC e i pin analogici OPAMP1. Inoltre, dispone di uscite audio (Mic2, Cuffie L/R+REF, LineOut P/M, Auricolare P/R, HS_DET) e linee di alimentazione (+3V3, +5V_USB, +1V8, VBAT e VCOIN per uso di sistema). Rispetta i domini di tensione: **i pin MCU sono a 3,3 V, i GPIO MPU sono a 1,8 V**.
+- **JMISC (B1) (JMISC):** Connettore multifunzione che combina segnali MCU a 3,3 V e segnali MPU a 1,8 V. Fornisce il bus PSSI (telecamera parallela) dell'MCU, i pin di test SDMMC1, TRACE, I2C4, MCO/CRS_SYNC e i pin analogici OPAMP1. Inoltre, dispone di uscite audio (Mic2, Cuffie L/R+REF, LineOut P/M, Auricolare P/R, HS_DET) e linee di alimentazione (+3V3, +5V_SYS, +1V8, VBAT e VCOIN per uso di sistema). Rispetta i domini di tensione: **i pin MCU sono a 3,3 V, i GPIO MPU sono a 1,8 V**.
 
 - **JCTL (A1) (JCTL1):** Pin boot, reset e segnali di riattivazione a basso consumo (logica a 1,8 V).
 
@@ -445,9 +445,9 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |      51 | SOC_GPIO_28       | -               | 1,8 V MPU     | GPIO 28 del SoC                                              |
 |      52 | SOC_GPIO_101      | -               | 1,8 V MPU     | SoC GPIO 101                                                 |
 |      53 | +3V3 (OUT)        | -               | Alimentazione | Uscita di alimentazione a 3,3 V                              |
-|      54 | +5V_USB (OUT)     | -               | Alimentazione | Uscita di alimentazione a 5 V                                |
+|      54 | +5V_SYS (OUT)     | -               | Alimentazione | Ingresso o uscita di alimentazione; alimentazione della sorgente e della scheda collegate in OR tramite diodi Schottky |
 |      55 | +3V3 (OUT)        | -               | Alimentazione | Uscita di alimentazione a 3,3 V                              |
-|      56 | +5V_USB (OUT)     | -               | Alimentazione | Uscita di alimentazione a 5 V                                |
+|      56 | +5V_SYS (OUT)     | -               | Alimentazione | Ingresso o uscita di alimentazione; alimentazione della sorgente e della scheda collegate in OR tramite diodi Schottky |
 |      57 | +1V8 (IN)         | -               | Alimentazione | 1,8 V in ingresso                                            |
 |      58 | GND               | -               | Alimentazione | Massa                                                        |
 |      59 | VCOIN (IN)        | -               | Alimentazione | Tensione di sistema (PMIC RTC)                               |
@@ -456,8 +456,6 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   Nota: le linee GPIO del SoC su JMISC sono dedicate all'interfaccia (non sono GPIO del maker). Le MCU hanno una logica a 3,3 V, le MPU a 1,8 V, mentre i canali audio/microfono sono analogici.
 </div>
-
-
 <div style="page-break-after: always;"></div>
 
 ### JMEDIA (B2) (JMEDIA1) - Schema dei pin
@@ -528,8 +526,6 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   Nota: le linee MIPI CSI/DSI sono coppie differenziali D-PHY e non I/O generici. Le linee di controllo (CCI_I2C_*, SOC_CAM_MCLK*) appartengono al dominio MPU a 1,8 V. VIN su JMEDIA è l'ingresso grezzo da 7-24 V (solo alimentazione).
 </div>
-
-
 <div style="page-break-after: always;"></div>
 
 ### Qwiic (A4) (QWIIC1) - Schema dei pin
@@ -543,14 +539,14 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ### JSPI (A5) (JSPI1) - Schema dei pin
 
-| **Pin** | **Denominazione** | **Rete / Funzione** | **Dominio**   | **Note**           |
-| ------: | ----------------- | ------------------- | ------------- | ------------------ |
-|       1 | MISO              | PC2 (SPI2_MISO)     | 3,3 V         | -                  |
-|       2 | +5V               | 5V_USB_VBUS         | Alimentazione | Solo alimentazione |
-|       3 | SCK               | PD1 (SPI2_SCK)      | 3,3 V         | -                  |
-|       4 | MOSI              | PC3 (SPI2_MOSI)     | 3,3 V         | -                  |
-|       5 | RESET             | MCU_NRST            | 3,3 V         | -                  |
-|       6 | GND               | Massa               | Alimentazione | -                  |
+| **Pin** | **Denominazione** | **Rete / Funzione** | **Dominio**   | **Note**                                                     |
+| ------: | ----------------- | ------------------- | ------------- | ------------------------------------------------------------ |
+|       1 | MISO              | PC2 (SPI2_MISO)     | 3,3 V         | -                                                            |
+|       2 | +5V               | 5V_SYS              | Alimentazione | Ingresso o uscita di alimentazione; alimentazione della sorgente e della scheda collegate in OR tramite diodi Schottky |
+|       3 | SCK               | PD1 (SPI2_SCK)      | 3,3 V         | -                                                            |
+|       4 | MOSI              | PC3 (SPI2_MOSI)     | 3,3 V         | -                                                            |
+|       5 | RESET             | MCU_NRST            | 3,3 V         | -                                                            |
+|       6 | GND               | Massa               | Alimentazione | -                                                            |
 
 ### JCTL (A1) (JCTL1) - Schema dei pin
 
@@ -595,31 +591,28 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   Tutte le linee JDIGITAL utilizzano una logica a 3,3 V. La maggior parte dei pin utilizza una struttura I/O di tipo FT e tollera 5 V in ingresso. D3 (PB0) utilizza una struttura I/O di tipo TT e tollera solo 3,6 V; non applicare 5 V a questo pin in nessuna modalità.
 </div>
-
-
 ### JANALOG (A3) (JANALOG1) - Schema dei pin
 
-| **Pin** | **Denominazione** | **Pin netto / MCU** | **Funzioni**                                                | **Ambito**        | **Note**                              |
-| ------: | ----------------- | ------------------- | ----------------------------------------------------------- | ----------------- | ------------------------------------- |
-|       1 | BOOT              | MCU_BOOT0           | - Circuito di avvio                                         | 3,3 V             | -                                     |
-|       2 | IOREF             | PWR_3P3V            | - Riferimento di tensione I/O (rispecchia il rail da 3,3 V) | Alimentazione     | Solo uscita; non reimmettere corrente |
-|       3 | RESET             | MCU_NRST            | - Reset MCU                                                 | 3,3 V             | -                                     |
-|       4 | Uscita +3,3 V     | PWR_3P3V            | Alimentazione a -3,3 V                                      | Alimentazione     | -                                     |
-|       5 | +5V USB VBUS      | 5V_USB_VBUS         | Alimentazione a -5 V (pass-through)                         | Alimentazione     | Solo alimentazione                    |
-|       6 | GND               | GND                 | - Massa                                                     | Alimentazione     | -                                     |
-|       7 | GND               | GND                 | - Massa                                                     | Alimentazione     | -                                     |
-|       8 | VIN IN            | DC_IN               | - Ingresso 7-24 V                                           | Alimentazione     | Solo alimentazione                    |
-|       9 | A0 / D14          | PA4                 | - Ingresso ADC <br></br>- DAC0 <br></br>- TIM2_CH1          | Analogico / 3,3 V | ADC diretto / non tollerante a 5 V    |
-|      10 | A1 /  D15         | PA5                 | - Ingresso ADC <br></br>- DAC1 <br></br>- TIM3_CH1          | Analogico / 3,3 V | ADC diretto / non compatibile con 5 V |
-|      11 | A2 /  D16         | PA6                 | - Ingresso ADC <br></br>- OPAMP2_INPUT+ <br></br>- TIM3_CH2 | Analogico / 3,3 V |                                       |
-|      12 | A3 /  D17         | PA7                 | - Ingresso ADC <br></br>- OPAMP2_INPUT−                     | Analogico / 3,3 V | -                                     |
-|      13 | A4 /  D18         | PC1                 | - Ingresso ADC <br></br>- I2C3_SDA <br></br>- LPTIM1_CH1    | Analogico / 3,3 V | -                                     |
-|      14 | A5 /  D19         | PC0                 | - Ingresso ADC <br></br>- I2C3_SCL <br></br>- LPTIM1_IN1    | Analogico / 3,3 V | -                                     |
+| **Pin** | **Denominazione** | **Pin netto / MCU** | **Funzioni**                                                | **Ambito**        | **Note**                                                     |
+| ------: | ----------------- | ------------------- | ----------------------------------------------------------- | ----------------- | ------------------------------------------------------------ |
+|       1 | BOOT              | MCU_BOOT0           | - Circuito di avvio                                         | 3,3 V             | -                                                            |
+|       2 | IOREF             | PWR_3P3V            | - Riferimento di tensione I/O (rispecchia il rail da 3,3 V) | Alimentazione     | Solo uscita; non reimmettere corrente                        |
+|       3 | RESET             | MCU_NRST            | - Reset MCU                                                 | 3,3 V             | -                                                            |
+|       4 | Uscita +3,3 V     | PWR_3P3V            | Alimentazione a -3,3 V                                      | Alimentazione     | -                                                            |
+|       5 | +5V OUT           | 5V_SYS              | Alimentazione a -5 V (diode-OR output)                      | Alimentazione     | Ingresso o uscita di alimentazione; alimentazione della sorgente e della scheda collegate in OR tramite diodi Schottky |
+|       6 | GND               | GND                 | - Massa                                                     | Alimentazione     | -                                                            |
+|       7 | GND               | GND                 | - Massa                                                     | Alimentazione     | -                                                            |
+|       8 | VIN IN            | DC_IN               | - Ingresso 7-24 V                                           | Alimentazione     | Solo alimentazione                                           |
+|       9 | A0 / D14          | PA4                 | - Ingresso ADC <br></br>- DAC0 <br></br>- TIM2_CH1          | Analogico / 3,3 V | ADC diretto / non tollerante a 5 V                           |
+|      10 | A1 /  D15         | PA5                 | - Ingresso ADC <br></br>- DAC1 <br></br>- TIM3_CH1          | Analogico / 3,3 V | ADC diretto / non compatibile con 5 V                        |
+|      11 | A2 /  D16         | PA6                 | - Ingresso ADC <br></br>- OPAMP2_INPUT+ <br></br>- TIM3_CH2 | Analogico / 3,3 V |                                                              |
+|      12 | A3 /  D17         | PA7                 | - Ingresso ADC <br></br>- OPAMP2_INPUT−                     | Analogico / 3,3 V | -                                                            |
+|      13 | A4 /  D18         | PC1                 | - Ingresso ADC <br></br>- I2C3_SDA <br></br>- LPTIM1_CH1    | Analogico / 3,3 V | -                                                            |
+|      14 | A5 /  D19         | PC0                 | - Ingresso ADC <br></br>- I2C3_SCL <br></br>- LPTIM1_IN1    | Analogico / 3,3 V | -                                                            |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  A0 (PA4) e A1 (PA5) sono ingressi ADC diretti dell'STM32U585 con riferimento a <code>VREF+.</code> Non sono resistenti a 5 V. L'intervallo di ingresso valido è compreso tra <code>0 e VREF+</code> (≈3,3 V). Il valore massimo assoluto sul pin è <code>VDD + 0,3 V</code>, circa 3,6 V. Al di sopra di questo livello, i diodi di protezione interni dell'MCU iniziano a condurre. L'header fornisce anche i pin <code>5V_SYS</code> e <code>PWR_3P3V</code>, destinati esclusivamente all'alimentazione. Non applicare 5 V a <strong>A0</strong> o <strong>A1</strong>. IOREF è collegato al rail da 3,3 V (<code>PWR_3P3V</code>) ed è fornito come riferimento/uscita per gli shield. Non deve essere utilizzato per reimmettere alimentazione nella scheda.
+  A0 (PA4) e A1 (PA5) sono ingressi diretti dell'ADC dell'STM32U585 con riferimento a <code>VREF+</code>. Non tollerano tensioni a 5 V. L'intervallo di ingresso valido è <code>0-VREF+</code> (≈3,3 V). Il valore massimo assoluto sul pin è <code>VDD + 0,3 V</code>, circa 3,6 V. Oltre questo livello, i diodi di protezione interni dell’MCU iniziano a condurre. Il connettore fornisce anche i pin di alimentazione <code>5V_SYS</code> (protetti dal diodo Schottky-OR) e <code>PWR_3P3V</code> (solo in uscita), diversi dai pin A0/A1 compatibili con l'ADC. Non applicare 5 V a <strong>A0</strong> o <strong>A1</strong>. IOREF è collegato al rail da 3,3 V (<code>PWR_3P3V</code>) ed è fornito come riferimento/uscita per gli shield. Non deve essere utilizzato per reimmettere alimentazione nella scheda.
 </div>
-
 
 ## Periferiche ad alta velocità
 
@@ -719,8 +712,6 @@ Usa una fonte di alimentazione USB-C da 5 V / 3 A e un cavo USB-C, oppure alimen
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   Ogni volta che avvii un'app, lo sketch del microcontrollore viene compilato e l'applicazione Python® si avvia sul sistema Linux. A seconda della complessità, l'operazione può richiedere fino a un minuto.
 </div>
-
-
 ### Come verificare se l'app è in esecuzione
 
 <p style="text-align: justify;">Apri la <strong>Console</strong> in App Lab. Ci sono tre schede:</p>
@@ -730,8 +721,6 @@ Usa una fonte di alimentazione USB-C da 5 V / 3 A e un cavo USB-C, oppure alimen
   <li><strong>Main (Python®)</strong>: output dell'applicazione Python® (<code>print()</code>)</li>
   <li><strong>Sketch (microcontrollore)</strong>: output seriale dallo sketch Arduino (<code>Serial.println()</code>)</li>
 </ul>
-
-
 <p style="text-align: justify;">Un'app può avviarsi correttamente ma presentare comunque problemi di esecuzione. Controlla il log di Python® per verificare la presenza di errori. Se si verifica un errore di compilazione dello sketch, l'avvio viene interrotto.</p>
 
 <div style="page-break-after: always;"></div>
@@ -747,8 +736,6 @@ Usa una fonte di alimentazione USB-C da 5 V / 3 A e un cavo USB-C, oppure alimen
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
 <strong>Nota:</strong> un riavvio tramite pressione prolungata riavvia l'ambiente Linux e potrebbe interrompere le app in esecuzione. Salva il lavoro e assicurati di chiudere in modo sicuro i processi esterni, se necessario. La scheda si avvia automaticamente all'accensione. Per l'avvio normale non è necessario premere il pulsante.
 </div>
-
-
 ### Risorse online
 
 <p style="text-align: justify;">Scopri i progetti della community su Project Hub [3], consulta la sezione Library Reference [4] per conoscere le API supportate e trova accessori come i sensori Qwiic, gli UNO shield e carrier nell'Arduino Store [5].</p>
@@ -1064,6 +1051,7 @@ Este equipamento não tem direito à proteção contra interferência prejudicia
 
 |  **Date**  | **Revision** | **Changes**                                                  |
 | :--------: | :----------: | ------------------------------------------------------------ |
+| 26/08/2026 |      15      | Update 5 V power pin (5V_SYS) input option on JANALOG, JMISC, JSPI |
 | 26/06/2026 |      14      | Add German language                                          |
 | 17/06/2026 |      13      | Display output clarification (USB-C and JMEDIA)              |
 | 16/06/2026 |      12      | Add Safety information section                               |
