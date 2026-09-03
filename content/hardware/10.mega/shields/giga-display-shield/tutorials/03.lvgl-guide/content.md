@@ -296,7 +296,7 @@ If you want to insert a variable that is not a string, use:
 lv_label_set_text_fmt(label, "%d", 13)
 ```
 
-To use bigger font sizes it has to be enabled in the `lv_conf.h` file. This file can be found in the **mbed_giga/libraries/Arduino_H7_Video/src** folder. Find the **FONT USAGE** section, here you can see all the font sizes. If you want to enable any size simply change the `0` next to any of the font sizes into a `1`. Like this:
+To use bigger font sizes it has to be enabled in the `lv_conf_internal.h` file. This file can be found in the **arduino\libraries/lvgl/src/** folder. Find the **FONT USAGE** section, here you can see all the font sizes. If you want to enable any size simply change the `0` next to any of the font sizes into a `1`. Like this:
 
 ![lv_config font section](assets/lv_config.svg)
 
