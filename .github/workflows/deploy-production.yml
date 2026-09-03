@@ -50,7 +50,7 @@ jobs:
         with:
           fetch-depth: 1
 
-      # Attempt 2 has failed outright before, not only stalled: one more wipe and one last try
+      # Attempt 2 has failed outright before, not only stalled: one more wipe and a last try, bounded by the job timeout
       - name: Reset workspace before last checkout attempt
         if: steps.checkout.outcome == 'failure' && steps.checkout-retry.outcome == 'failure'
         run: |
@@ -114,7 +114,7 @@ jobs:
           fetch-depth: "0"
           filter: blob:none
 
-      # Attempt 2 has failed outright before, not only stalled: one more wipe and one last try
+      # Attempt 2 has failed outright before, not only stalled: one more wipe and a last try, bounded by the job timeout
       - name: Reset workspace before last checkout attempt
         if: steps.checkout.outcome == 'failure' && steps.checkout-retry.outcome == 'failure'
         run: |
@@ -196,10 +196,15 @@ jobs:
       #       echo "No oversized files found. New check passed."
       #     fi
 
-      # Key on the paths and sizes of the files the step compresses, so it changes as soon as any of them does
+      # Key on the git blob hash of each file, not its size: two different images of equal weight would share a key
       - name: Compressed images key
         id: images-key
-        run: echo "hash=$(find content -type f \( -name '*.jpg' -o -name '*.jpeg' -o -name '*.png' \) -size +2M -printf '%p %s\n' | sort | sha256sum | cut -c1-40)" >> "$GITHUB_OUTPUT"
+        run: |
+          find content -type f \( -name '*.jpg' -o -name '*.jpeg' -o -name '*.png' \) -size +2M -print0 > /tmp/big-images.lst
+          xargs -0 -r git ls-files -s -- < /tmp/big-images.lst > /tmp/big-images.idx
+          # An untracked image would be compressed but absent from the key, so require one index line per file found
+          test "$(tr -dc '\0' < /tmp/big-images.lst | wc -c)" -eq "$(wc -l < /tmp/big-images.idx)"
+          echo "hash=$(sort /tmp/big-images.idx | sha256sum | cut -c1-40)" >> "$GITHUB_OUTPUT"
 
       - name: Compressed images cache
         uses: actions/cache@v5
@@ -216,6 +221,8 @@ jobs:
             exit 0
           fi
           sudo apt-get update && sudo apt-get install -y jpegoptim optipng
+          # A missing compressor is a systemic failure and must stop the job, unlike the per-file errors tolerated below
+          command -v jpegoptim > /dev/null && command -v optipng > /dev/null
           # -exec ... \; spawns one process per file on a single core: xargs -P "$(nproc)" spreads the same work over every core
           find content -type f \( -name "*.jpg" -o -name "*.jpeg" \) -size +2M -print0 > /tmp/big-jpg.lst
           find content -type f -name "*.png" -size +2M -print0 > /tmp/big-png.lst
@@ -253,14 +260,16 @@ jobs:
           # Gatsby defaults to physical cores, which is half the vCPUs of a runner
           GATSBY_CPU_COUNT: logical_cores
 
-      # A warm public/ is worth 38 minutes of sharp, and costs ~4 GB of quota: main writes it, every other branch only reads
+      # A warm public/ is worth 38 minutes of sharp and ~4 GB of quota: only a run on main writes the entry every branch reads
       - name: Save Gatsby main cache
+        if: github.ref_name == 'main'
         uses: actions/cache/save@v5
         with:
           path: .cache
           key: ${{ runner.os }}-cache-gatsby-node22-main-${{ github.run_id }}
 
       - name: Save Gatsby Public Folder cache
+        if: github.ref_name == 'main'
         uses: actions/cache/save@v5
         with:
           path: public/
