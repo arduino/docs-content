@@ -8,7 +8,7 @@ tags:
  - RGB
  - QWIIC
  - I2C
-author: 'Pedro Sousa Lima'
+author: 'Pedro Sousa Lima, José Bagur'
 hardware:
  - hardware/11.modulinos/modulinos/modulino-light
 software:
@@ -358,7 +358,7 @@ while True:
 
 ***Note the spelling: the API uses `color`, not `colour`.***
 
-### Differences from the Arduino Library
+### Differences From the Arduino Library
 
 The MicroPython implementation is not a direct port of the Arduino one. Keep these differences in mind when moving an application between the two.
 
