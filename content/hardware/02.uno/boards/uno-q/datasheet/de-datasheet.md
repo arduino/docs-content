@@ -85,11 +85,11 @@ Das wireless Modul nutzt SDIO für Wi-Fi®-Daten und einen UART für die Bluetoo
 | **Schnittstelle (Anschluss)** | **Spannung & Pin-Anzahl**      | **Details**                                                  |
 | ----------------------------- | ------------------------------ | ------------------------------------------------------------ |
 | JMEDIA (JMEDIA1)              | 1.8-V-Signale, 60-Pin          | - Hochgeschwindigkeits-Kamera-/Anzeigekanäle (MIPI DSI, CSI) <br></br>- Kamerasteuerbus (CCI I²C) – dediziert, kein universeller GPIO- <br></br>- Kameratakte (SOC_CAM_MCLK0/1) <br></br>- Führt außerdem Stromschienen (+3V3 OUT, VIN IN) und GND |
-| JMISC (JMISC1)                | Gemischt 1.8 V / 3.3 V, 60-Pin | - Gemischte GPIO- und SDIO- <br></br>- MCU-Peripheriegeräte: SDMMC1, TRACE, PSSI (Parallelkamera), I²C4, MCO/CRS_SYNC, OPAMP1-Pins <br></br>- Audio-Endpunkte: Mic2 INP/INM/BIAS, Kopfhörer L/R + REF, LineOut P/M, Ohrhörer P/R, HS_DET <br></br>- MPU (SoC) GPIO-Bänke (SE0) bei 1.8 V <br></br>- Führt außerdem Stromschienen (+5V USB OUT, +3V3 OUT, +1V8 OUT, VBAT OUT, VCOIN IN) und GND |
+| JMISC (JMISC1)                | Gemischt 1.8 V / 3.3 V, 60-Pin | - Gemischte GPIO- und SDIO- <br></br>- MCU-Peripheriegeräte: SDMMC1, TRACE, PSSI (Parallelkamera), I²C4, MCO/CRS_SYNC, OPAMP1-Pins <br></br>- Audio-Endpunkte: Mic2 INP/INM/BIAS, Kopfhörer L/R + REF, LineOut P/M, Ohrhörer P/R, HS_DET <br></br>- MPU (SoC) GPIO-Bänke (SE0) bei 1.8 V <br></br>- Führt außerdem Stromschienen (+5V SYS OUT, +3V3 OUT, +1V8 OUT, VBAT OUT, VCOIN IN) und GND |
 | JCTL (JCTL1)                  | 1.8 V, 10-Pin                  | - SE4-UART-Konsolen- <br></br>- Eingang für erzwungenen USB-Boot <br></br>- PMIC-Reset-Eingang <br></br>- VBUS-Stromschalter deaktivieren <br></br>- 1.8-V-Schiene und GND |
 | JDIGITAL (JDIGITAL1)          | 3.3 V, 18-Pin                  | - Digitale Ein-/Ausgänge für SPI, I²C, UART, PWM, CAN        |
 | JANALOG (JANALOG1)            | 3.3 V, 14-Pin                  | - Analog-I/O- <br></br>- ADC-Kanäle und Referenzspannungen   |
-| JSPI (JSPI1)                  | 3.3-V-Logik, 6-Pin + 5 V VBUS  | - Dediziertes SPI: MOSI, MISO, SCLK <br></br>- MCU-Reset (NRST) <br></br>- Masse <br></br>- 5 V VBUS (USB-Stromversorgung) |
+| JSPI (JSPI1)                  | 3.3-V-Logik, 6-Pin + 5 V SYS   | - Dediziertes SPI: MOSI, MISO, SCLK <br></br>- MCU-Reset (NRST) <br></br>- Masse <br></br>- 5 V SYS (diode-OR output) |
 | Qwiic (QWIIC1)                | 3.3 V, 4-Pin                   | - I²C (Qwiic-Ökosystem)                                      |
 ### Ähnliche Produkte
 
@@ -106,13 +106,13 @@ Das wireless Modul nutzt SDIO für Wi-Fi®-Daten und einen UART für die Bluetoo
 
 ![UNO Q-Eingabemethoden](assets/ABX00162-ABX00173-power-supply.png)
 
-| **Quelle**  | **Spannungsbereich** | **Maximalstrom** | **Anschluss**         |
-| ----------- | -------------------: | ---------------: | --------------------- |
-| USB-C VBUS  |                  5 V |       bis zu 3 A | USB-C-Anschluss       |
-| VIN (DC IN) |               7-24 V |                - | JMEDIA, JANALOG (VIN) |
-| 5-V-Pin     |                  5 V |       bis zu 3 A | JANALOG               |
+| **Quelle**       | **Spannungsbereich** | **Maximalstrom** | **Anschluss**          |
+| ---------------- | -------------------: | ---------------: | ---------------------- |
+| USB-C VBUS       |                  5 V |       bis zu 3 A | USB-C-Anschluss        |
+| VIN (DC IN)      |               7-24 V |                - | JMEDIA, JANALOG (VIN)  |
+| 5-V-Pin (5V_SYS) |                  5 V |       bis zu 3 A | JANALOG, , JMISC, JSPI |
 
-<p style="text-align: justify;">UNO Q unterstützt zwei Stromversorgungsanschlüsse: einen USB-C-Anschluss und einen 7-24V Gleichstromeingang. Über USB Power Delivery fordert es nur das 5-V/3-A-Profil an und keine PD-Profile mit höherer Spannung. Verwende ein Netzteil und ein Kabel, die für 5 V bei 3 A ausgelegt sind, um eine Unterspannung während kurzer Aktivitätsspitzen wie z. B. bei einer drahtlosen Datenübertragung oder der Initialisierung des Displays zu vermeiden. Eine geregelte externe 5-V-Gleichstromquelle kann ebenfalls verwendet werden, um das Board über den 5-V-Pin am JANALOG-Header mit Strom zu versorgen.</p>
+<p style="text-align: justify;">UNO Q unterstützt drei Stromversorgungsanschlüsse: einen USB-C-Anschluss, einen 7–24-V-Gleichstromeingang und den Pin <code>5V_SYS</code>, der auf JANALOG, JMISC oder JSPI verfügbar ist. Über USB Power Delivery fordert es nur den 5-V-/3-A-Vertrag an und fordert keine PD-Profile mit höherer Spannung an. Verwende ein Netzteil und ein Kabel, die für 5 V bei 3 A ausgelegt sind, um Unterspannung während kurzer Aktivitätsspitzen wie Funkbursts oder der Initialisierung des Displays zu vermeiden. Eine geregelte externe 5-V-Gleichstromquelle kann ebenfalls verwendet werden, um die Platine über den <code>5V_SYS</code>-Pin an JANALOG, JMISC oder JSPI mit Strom zu versorgen.</p>
 
 <p style="text-align: justify;"><em>Der USB-C-VBUS</em> und der 5-V-Ausgang des 7-24-V-Buck-Wandlers werden über <em>eine Dioden-ODER-Verknüpfung</em> auf den 5-V-Systembus (<code>5V_SYS</code>) geführt. Aus <code>5V_SYS</code> leitet das Design den 3.8-V-Vorreglerknoten und anschließend die 3,3 V ab.
 Der PMIC, der mit 5V_SYS betrieben wird, liefert die 1.8-V-Spannung.</p>
@@ -365,7 +365,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 - **JMEDIA (B2) (JMEDIA1):** Vierkanalige Kamera- und Anzeigesignale im 1.8-V-Bereich (MIPI-CSI-2 und MIPI-DSI).
 
-- **JMISC (B1) (JMISC):** Header mit gemischten Funktionen, der 3.3-V-MCU-Signale und 1.8-V-MPU-Signale kombiniert. Er bietet den MCU-PSSI-Bus (Parallelkamera), SDMMC1-Testpins, TRACE, I2C4, MCO/CRS_SYNC sowie die analogen OPAMP1-Pins. Außerdem führt er Audioanschlüsse (Mic2, Headphone L/R+REF, LineOut P/M, Earpiece P/R, HS_DET) und Spannungsschienen (+3V3, +5V_USB, +1V8, VBAT und VCOIN für den Systemgebrauch) heraus. Beachte die Spannungsbereiche: **MCU-Pins sind 3.3 V, MPU-GPIO sind 1.8 V**.
+- **JMISC (B1) (JMISC):** Header mit gemischten Funktionen, der 3.3-V-MCU-Signale und 1.8-V-MPU-Signale kombiniert. Er bietet den MCU-PSSI-Bus (Parallelkamera), SDMMC1-Testpins, TRACE, I2C4, MCO/CRS_SYNC sowie die analogen OPAMP1-Pins. Außerdem führt er Audioanschlüsse (Mic2, Headphone L/R+REF, LineOut P/M, Earpiece P/R, HS_DET) und Spannungsschienen (+3V3, +5V_SYS, +1V8, VBAT und VCOIN für den Systemgebrauch) heraus. Beachte die Spannungsbereiche: **MCU-Pins sind 3.3 V, MPU-GPIO sind 1.8 V**.
 
 - **JCTL (A1) (JCTL1):** Pins für den Boot-Modus, Reset und Signale zum Aufwachen aus dem Energiesparmodus (1.8-V-Logik).
 
@@ -430,9 +430,9 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |      51 | SOC_GPIO_28     | -               | 1.8 V MPU       | SoC GPIO 28                                                  |
 |      52 | SOC_GPIO_101    | -               | 1.8 V MPU       | SoC GPIO 101                                                 |
 |      53 | +3V3 (OUT)      | -               | Stromversorgung | 3.3-V-Ausgang                                                |
-|      54 | +5V_USB (OUT)   | -               | Stromversorgung | 5-V-Ausgang                                                  |
+|      54 | +5V_SYS (OUT)   | -               | Stromversorgung | Stromeingang oder -ausgang; Stromversorgung der Quelle und das Board werden über Schottky-Dioden logisch ODER-verknüpft |
 |      55 | +3V3 (OUT)      | -               | Stromversorgung | 3.3-V-Ausgang                                                |
-|      56 | +5V_USB (OUT)   | -               | Stromversorgung | 5-V-Ausgang                                                  |
+|      56 | +5V_SYS (OUT)   | -               | Stromversorgung | Stromeingang oder -ausgang; Stromversorgung der Quelle und das Board werden über Schottky-Dioden logisch ODER-verknüpft |
 |      57 | +1V8 (IN)       | -               | Stromversorgung | 1.8-V-Versorgungsspannung eingehend                          |
 |      58 | GND             | -               | Stromversorgung | Masse                                                        |
 |      59 | VCOIN (IN)      | -               | Stromversorgung | Systemspannung (PMIC RTC)                                    |
@@ -529,7 +529,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 | **Pin** | **Bezeichnung** | **Netzwerk / Funktion** | **Domäne**      | **Anmerkungen**     |
 | ------: | --------------- | ----------------------- | --------------- | ------------------- |
 |       1 | MISO            | PC2 (SPI2_MISO)         | 3.3 V           | -                   |
-|       2 | +5V             | 5V_USB_VBUS             | Stromversorgung | Nur Stromversorgung |
+|       2 | +5V             | 5V_SYS             | Stromversorgung | Stromeingang oder -ausgang; Stromversorgung der Quelle und das Board werden über Schottky-Dioden logisch ODER-verknüpft |
 |       3 | SCK             | PD1 (SPI2_SCK)          | 3.3 V           | -                   |
 |       4 | MOSI            | PC3 (SPI2_MOSI)         | 3.3 V           | -                   |
 |       5 | RESET           | MCU_NRST                | 3.3 V           | -                   |
@@ -587,7 +587,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |       2 | IOREF           | PWR_3P3V           | – I/O-Spannungsreferenz (spiegelt die 3.3-V-Schiene)       | Stromversorgung | Nur Ausgang; keine Rückspeisung |
 |       3 | RESET           | MCU_NRST           | - MCU reset                                                | 3.3 V           | -                               |
 |       4 | +3V3 OUT        | PWR_3P3V           | - 3.3-V-Versorgung                                         | Stromversorgung | -                               |
-|       5 | +5V USB VBUS    | 5V_USB_VBUS        | - 5-V-Versorgung (Durchleitung)                            | Stromversorgung | Nur Stromversorgung             |
+|       5 | +5V OUT    | 5V_SYS       | - 5-V-Versorgung (diode-OR output)           | Stromversorgung | Stromeingang oder -ausgang; Stromversorgung der Quelle und das Board werden über Schottky-Dioden logisch ODER-verknüpft |
 |       6 | GND             | GND                | - Masse                                                    | Stromversorgung | -                               |
 |       7 | GND             | GND                | - Masse                                                    | Stromversorgung | -                               |
 |       8 | VIN IN          | DC_IN              | - 7-24 V Eingang                                           | Stromversorgung | Nur Stromversorgung             |
@@ -599,7 +599,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |      14 | A5 /  D19       | PC0                | - ADC-Eingang <br></br>- I2C3_SCL <br></br>- LPTIM1_IN1    | Analog / 3.3 V  | -                               |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-A0 (PA4) und A1 (PA5) sind direkte ADC-Eingänge des STM32U585, die auf <code>VREF+</code> bezogen sind. Sie sind nicht 5-V-tolerant. Der gültige Eingangsbereich ist <code>0-VREF+</code> (≈3,3 V). Der absolute Höchstwert am Pin beträgt <code>VDD + 0,3 V</code>, also ungefähr 3,6 V. Oberhalb dieses Pegels beginnen die internen Schutzdioden der MCU zu leiten. Der Steckverbinder bietet außerdem die Stromversorgungs-Pins <code>5V_SYS</code> und <code>PWR_3P3V</code>, die ausschließlich für die Stromversorgung vorgesehen sind. Lege keine 5 V an <strong>A0</strong> oder <strong>A1</strong> an.IOREF ist an die 3.3-V-Versorgungsspannung angeschlossen (<code>PWR_3P3V</code>) und dient als Referenz/Ausgang für Shields. Es darf nicht verwendet werden, um Strom zurück in das Board zu leiten.
+  A0 (PA4) und A1 (PA5) sind direkte ADC-Eingänge des STM32U585, die auf <code>VREF+</code> bezogen sind. Sie sind nicht 5-V-tolerant. Der gültige Eingangsbereich liegt zwischen <code>0 und VREF+</code> (≈3,3 V). Der absolute Höchstwert am Pin beträgt <code>VDD + 0,3 V</code>, also etwa 3,6 V. Oberhalb dieses Wertes beginnen die internen Schutzdioden der MCU zu leiten. Der Steckverbinder bietet außerdem die Stromversorgungs-Pins <code>5V_SYS</code> (geschützt durch die Schottky-Dioden-OR-Schaltung) und <code>PWR_3P3V</code> (nur Ausgang), die sich von den ADC-fähigen Pins A0/A1 unterscheiden. Lege keine 5 V an <strong>A0</strong> oder <strong>A1</strong> an. IOREF ist mit der 3,3-V-Schiene (<code>PWR_3P3V</code>) verbunden und dient als Referenz-/Ausgang für Shields. Es darf nicht dazu verwendet werden, Strom zurück in das Board zu leiten.
 </div>
 
 ## Hochgeschwindigkeits-Peripheriegeräte
@@ -1036,6 +1036,7 @@ Este equipamento não tem direito à proteção contra interferência prejudicia
 
 |  **Date**  | **Revision** | **Changes**                                                  |
 | :--------: | :----------: | ------------------------------------------------------------ |
+| 26/08/2026 |      15      | Update 5 V power pin (5V_SYS) input option on JANALOG, JMISC, JSPI |
 | 26/06/2026 |      14      | Add German language                                          |
 | 17/06/2026 |      13      | Display output clarification (USB-C and JMEDIA)              |
 | 16/06/2026 |      12      | Add Safety information section                               |
