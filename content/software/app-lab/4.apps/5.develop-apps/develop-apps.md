@@ -220,15 +220,17 @@ See [Getting Started with the Bridge](../../bridge/get-started-with-bridge/) to 
 
 ## Agent Mode (AI Assistant)
 
-Arduino App Lab features a built-in AI coding assistant designed to help you write, understand, and debug code. 
+Arduino App Lab features a built-in AI coding assistant designed to help you write, understand, and debug code.
 
 To use the AI assistant:
+
 1. Locate the footer status bar at the bottom of the screen.
 2. Toggle the switch from **EDITOR** to **AGENT MODE**.
    ![Screenshot of the status bar in Arduino App Lab, highlighting the Agent Mode toggle.](../../assets/playwright/statusbar-controls-hl.png)
 3. App Lab switches from the editor to the **Agent Mode** view.
 
 You can prompt the agent to:
+
 - Scaffold boilerplate code for new features.
 - Suggest appropriate Bricks for your project goals.
 - Explain complex code segments.

@@ -9,6 +9,9 @@ on:
   pull_request:
     types: [opened, synchronize, ready_for_review, reopened]
 
+permissions:
+  contents: read
+
 jobs:
   spell_check:
     name: Spell Check
@@ -36,3 +39,35 @@ jobs:
         run: |
           cd scripts/validation
           ./content-lint.sh -p '../../content/hardware/'
+
+  validate_markdown:
+    name: Markdown Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Markdown
+        run: python3 scripts/validation/markdownlint/markdownlint.py content
+
+  validate_alerts:
+    name: Alert Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Alerts
+        run: python3 scripts/validation/alert_tags/alert_tags.py validate content
+
+  validate_links:
+    name: Link Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Links
+        run: python3 scripts/validation/relative_links/relative_links.py validate content
+
+  validate_images:
+    name: Image Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Images
+        run: python3 scripts/validation/image_links/image_links.py validate content

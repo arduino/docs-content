@@ -1,0 +1,40 @@
+default: true
+
+# Disable unordered list style enforcement
+MD004: false
+
+# Enforce spaces over hard tabs
+MD010:
+  code_blocks: true
+
+# Disable the 80-character line length limit
+MD013: false
+
+# Disable dollar signs before commands without showing output
+MD014: false
+
+# Allow duplicate sub-headings in different sections
+MD024:
+  siblings_only: true
+
+# Disallow trailing punctuation in headings, but permit question marks
+MD026:
+  punctuation: ".,;:!。，；：！"
+
+# Allow ordered lists to use either repeating '1.' or sequential '1. 2. 3.' numbering
+MD029:
+  style: "one_or_ordered"
+
+# Allow code blocks immediately following list items
+MD031:
+  list_items: false
+
+# Allow common custom elements like <Alert>, <sup>, <sub>, and <br>
+MD033:
+  allowed_elements: ["Alert", "sup", "sub", "br"]
+
+# Disable emphasis as heading rule
+MD036: false
+
+# Disable table column style and alignment enforcement
+MD060: false

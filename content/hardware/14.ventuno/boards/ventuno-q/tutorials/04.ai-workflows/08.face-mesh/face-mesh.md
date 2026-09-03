@@ -86,7 +86,7 @@ For more alternatives to remotely access your board, please see the [Remote Acce
 
 <Alert type="info">
 
-__Note:__ Because this demo opens a live camera window on-screen, run it from the board's actual desktop session (a physical monitor and keyboard, or a VNC/X11 session into the board). `adb` and `ssh` are still the easiest way to install dependencies and confirm the script runs before switching to the desktop session to watch the camera feed.
+**Note:** Because this demo opens a live camera window on-screen, run it from the board's actual desktop session (a physical monitor and keyboard, or a VNC/X11 session into the board). `adb` and `ssh` are still the easiest way to install dependencies and confirm the script runs before switching to the desktop session to watch the camera feed.
 
 </Alert>
 
@@ -166,7 +166,7 @@ cp mediapipe_face-tflite-w8a8/face_landmark_detector.tflite ./face_landmark_dete
 
 <Alert type="warning">
 
-__Important:__ `qai-hub-models` depends on `ai-edge-litert>=2.0.2`, so installing it **upgrades** the `ai-edge-litert==1.3.0` you installed earlier. Version 2.x does not work with the QNN HTP delegate: the delegate rejects every convolution with `Failed to validate op ... Conv2d`, silently falls back to the CPU, and ends up *slower* than plain CPU execution because of the added delegation overhead. After fetching the model files, put version 1.3.0 back:
+**Important:** `qai-hub-models` depends on `ai-edge-litert>=2.0.2`, so installing it **upgrades** the `ai-edge-litert==1.3.0` you installed earlier. Version 2.x does not work with the QNN HTP delegate: the delegate rejects every convolution with `Failed to validate op ... Conv2d`, silently falls back to the CPU, and ends up *slower* than plain CPU execution because of the added delegation overhead. After fetching the model files, put version 1.3.0 back:
 
 </Alert>
 

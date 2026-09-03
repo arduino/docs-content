@@ -17,7 +17,7 @@ HEADING_REGEX = re.compile(r'^#{1,6}\s+(.+)$', re.MULTILINE)
 HTML_ID_REGEX = re.compile(r'(?:id|name)=["\']([^"\']+)["\']')
 
 IMAGE_EXTENSIONS = ('.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp')
-ASSET_EXTENSIONS = IMAGE_EXTENSIONS + ('.pdf', '.zip')
+ASSET_EXTENSIONS = IMAGE_EXTENSIONS + ('.pdf', '.zip', '.stl', '.sh', '.eim', '.bin', '.gz', '.tar', '.ino', '.py', '.tflite', '.npy')
 
 def slugify(text):
     """Converts a heading string to a valid Markdown anchor slug."""
@@ -96,7 +96,7 @@ def map_file_to_url(file_path, content_dir):
     rel_path = os.path.relpath(file_path, content_dir).replace('\\', '/')
     
     # Special Hardware Tutorials rule
-    hardware_match = re.match(r'^hardware/(?:[^/]+/)+([^/]+)/tutorials/([^/]+)/[^/]+\.md$', rel_path)
+    hardware_match = re.match(r'^hardware/(?:[^/]+/)+([^/]+)/tutorials/(?:.+/)?([^/]+)/[^/]+\.md$', rel_path)
     if hardware_match:
         board = hardware_match.group(1)
         tutorial = re.sub(r'^\d+\.', '', hardware_match.group(2))
@@ -145,44 +145,51 @@ def fix_file(file_path):
         return True
     return False
 
+IGNORE_FILES = ['.lintignore', '.linterignore', '.linklintignore']
 IGNORE_CACHE = {}
 
 def get_ignore_patterns(dir_path):
     if dir_path in IGNORE_CACHE:
         return IGNORE_CACHE[dir_path]
     
-    ignore_path = os.path.join(dir_path, '.linterignore')
     patterns = []
-    if os.path.exists(ignore_path):
-        with open(ignore_path, 'r', encoding='utf-8') as f:
-            for line in f:
-                line = line.strip()
-                if line and not line.startswith('#'):
-                    patterns.append(line)
+    for fname in IGNORE_FILES:
+        ignore_path = os.path.join(dir_path, fname)
+        if os.path.exists(ignore_path):
+            with open(ignore_path, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith('#'):
+                        patterns.append(line)
     IGNORE_CACHE[dir_path] = patterns
     return patterns
 
-def is_ignored(file_path, root_dir):
-    current_dir = os.path.dirname(os.path.abspath(file_path))
-    root_dir_abs = os.path.abspath(root_dir)
+def is_ignored(path, repo_root):
+    abs_path = os.path.abspath(path)
+    root_dir_abs = os.path.abspath(repo_root)
     
-    while current_dir.startswith(root_dir_abs):
-        patterns = get_ignore_patterns(current_dir)
+    test_dir = abs_path if os.path.isdir(abs_path) else os.path.dirname(abs_path)
+    while test_dir.startswith(root_dir_abs):
+        patterns = get_ignore_patterns(test_dir)
         if patterns:
-            rel_path = os.path.relpath(file_path, current_dir).replace('\\', '/')
+            rel_path = os.path.relpath(abs_path, test_dir).replace('\\', '/')
             for pattern in patterns:
-                if fnmatch.fnmatch(rel_path, pattern) or fnmatch.fnmatch(rel_path.split('/')[-1], pattern):
+                clean_p = pattern.strip().replace('\\', '/').rstrip('/')
+                if fnmatch.fnmatch(rel_path, clean_p) or fnmatch.fnmatch(rel_path, clean_p + '/*') or fnmatch.fnmatch(rel_path, clean_p + '/**'):
                     return True
-                path_parts = rel_path.split('/')
-                for i in range(len(path_parts)):
-                    if fnmatch.fnmatch('/'.join(path_parts[:i+1]), pattern):
+                if rel_path == clean_p or rel_path.startswith(clean_p + '/'):
+                    return True
+                parts = rel_path.split('/')
+                for i in range(len(parts)):
+                    sub = '/'.join(parts[:i+1])
+                    if sub == clean_p or fnmatch.fnmatch(sub, clean_p):
                         return True
-        if current_dir == root_dir_abs:
+        if test_dir == root_dir_abs:
             break
-        parent = os.path.dirname(current_dir)
-        if parent == current_dir:
+        parent = os.path.dirname(test_dir)
+        if parent == test_dir:
             break
-        current_dir = parent
+        test_dir = parent
     return False
 
 def validate_file(file_path, valid_production_paths, content_dir, anchor_cache):
@@ -224,11 +231,14 @@ def validate_file(file_path, valid_production_paths, content_dir, anchor_cache):
         resolved_url_no_slash = resolved_url.rstrip('/')
         target_file_path = None
         
-        # We need to find the matching file path in valid_production_paths (ignoring trailing slash)
-        for url, path in valid_production_paths.items():
-            if url.rstrip('/') == resolved_url_no_slash:
-                target_file_path = path
-                break
+        if clean_link == '':
+            target_file_path = file_path
+        else:
+            # We need to find the matching file path in valid_production_paths (ignoring trailing slash)
+            for url, path in valid_production_paths.items():
+                if url.rstrip('/') == resolved_url_no_slash:
+                    target_file_path = path
+                    break
                 
         if not target_file_path:
             # We don't report an error if it's purely an anchor link and the source file isn't indexed (e.g. ignored file)
