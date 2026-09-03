@@ -18,6 +18,8 @@ In this tutorial, you will learn how to run ROS 2 (Robot Operating System 2) on 
 
 You will use the board as a desktop system with a USB-C® hub, set up Docker, pull the official ROS 2 container image, and verify that the ROS 2 communication layer works.
 
+![ROS 2 Jazzy](assets/unoq_ros2_docker_8.png)
+
 This is the first of two documents. Once the container is running, the [First ROS 2 Project on UNO Q](/tutorials/uno-q/ros2-first-project/) tutorial covers the turtlesim example and how to build your own publisher and subscriber package.
 
 ## Goals
