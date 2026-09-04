@@ -121,7 +121,7 @@ It might be a mDNS issue with your local network. To work around this, there are
 **Connect directly via the IP address:** The board's IP address can be found through:
 - Arduino IDE 2 (needs the Zephyr core installed)
 - Arduino CLI, by running `arduino-cli board list`
-- Running `hostname -I` while in the board's shell. You can access the board via `adb shell` ([instructions](/software/app-lab/cli/cli/#connect-via-adb)), or [using the board in SBC mode](/tutorials/uno-q/single-board-computer/).
+- Running `hostname -I` while in the board's shell. You can access the board via `adb shell` ([instructions](/tutorials/uno-q/adb/)), or [using the board in SBC mode](/tutorials/uno-q/single-board-computer/).
 
 After obtaining the IP address, you should be able to connect via SSH using `ssh arduino@10.0.20.138`.
 
