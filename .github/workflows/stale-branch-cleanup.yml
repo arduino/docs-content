@@ -1,0 +1,271 @@
+name: Stale Branch Cleanup
+
+on:
+  schedule:
+    # Runs at 03:00 UTC every Monday
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Only report what would happen, without commenting, closing or deleting.'
+        required: false
+        default: true
+        type: boolean
+      days_threshold:
+        description: 'Treat a branch as stale when it has had no commits and no pushes for this many days.'
+        required: false
+        default: '365'
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  cleanup:
+    name: Remind on stale pull requests, delete abandoned branches
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Process stale branches
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          # A cron has nobody watching it, so it only reports unless a person dispatches and asks for the real run
+          DRY_RUN: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run }}
+          # For scheduled runs the inputs are empty, so fall back to defaults.
+          DAYS_THRESHOLD: ${{ github.event.inputs.days_threshold || '365' }}
+          # A stale pull request gets this many reminders, one per run, before it is closed.
+          MAX_REMINDERS: '3'
+          REMINDER_INTERVAL_DAYS: '7'
+          # Branches and pull requests carrying this label are never touched.
+          EXEMPT_LABEL: 'keep-open'
+        run: |
+          set -euo pipefail
+
+          THRESHOLD_SECONDS=$(( DAYS_THRESHOLD * 24 * 60 * 60 ))
+          # Half a day of slack so a weekly cron is never skipped for firing a few minutes early.
+          REMINDER_SECONDS=$(( REMINDER_INTERVAL_DAYS * 24 * 60 * 60 - 43200 ))
+          NOW=$(date +%s)
+
+          REMINDER_MARKER='<!-- stale-branch-cleanup:reminder -->'
+          CLOSED_MARKER='<!-- stale-branch-cleanup:closed -->'
+
+          echo "Repository:      $REPO"
+          echo "Default branch:  $DEFAULT_BRANCH"
+          echo "Stale after:     $DAYS_THRESHOLD days with no commits and no pushes"
+          echo "Reminders:       $MAX_REMINDERS, one every $REMINDER_INTERVAL_DAYS days"
+          echo "Dry run:         $DRY_RUN"
+          echo "----------------------------------------"
+
+          # Open pull requests whose head branch lives in this repository. Pull requests from
+          # forks are out of scope: their branch is not ours to delete.
+          gh pr list --repo "$REPO" --state open --limit 500 \
+            --json number,headRefName,author,isCrossRepository,labels,createdAt \
+            --jq '.[] | select(.isCrossRepository == false)
+                  | [.headRefName, .number, .author.login, .createdAt[0:10],
+                     ([.labels[].name] | join(","))] | @tsv' > /tmp/open_prs.tsv
+
+          # Deleting the base branch of an open pull request closes it, so those are protected
+          # too, even when the base branch itself is old. Fork pull requests count here.
+          gh pr list --repo "$REPO" --state open --limit 500 \
+            --json baseRefName --jq '.[].baseRefName' | sort -u > /tmp/base_branches.txt
+
+          # A branch can carry old commits and still be new: it may have been cut from an old
+          # commit, or had old history force-pushed onto it yesterday. The tip commit date on
+          # its own would call that stale, so pair it with the repository activity log, which
+          # records when each ref was really created or pushed to. If this call fails the job
+          # fails with it, on purpose: better a red run than deleting branches unguarded.
+          ACTIVITY_QUERY='per_page=100'
+          if [ "$DAYS_THRESHOLD" -le 365 ]; then
+            ACTIVITY_QUERY="$ACTIVITY_QUERY&time_period=year"
+          fi
+          gh api "repos/$REPO/activity?$ACTIVITY_QUERY" --paginate \
+            --jq '.[] | select(.activity_type == "push" or .activity_type == "force_push"
+                               or .activity_type == "branch_creation")
+                  | select(.ref | startswith("refs/heads/"))
+                  | [(.timestamp | fromdateiso8601), (.ref | sub("^refs/heads/"; ""))] | @tsv' \
+            | awk -F'\t' '$1 > seen[$2] { seen[$2] = $1 }
+                          END { for (b in seen) print seen[b] "\t" b }' > /tmp/branch_activity.tsv
+
+          echo "Open pull requests from this repository: $(wc -l < /tmp/open_prs.tsv)"
+          echo "Branches used as a base by an open pull request: $(wc -l < /tmp/base_branches.txt)"
+          echo "Branches created or pushed to within the activity window: $(wc -l < /tmp/branch_activity.tsv)"
+          echo "----------------------------------------"
+
+          PROTECTED_REGEX="^(${DEFAULT_BRANCH}|main|master|develop|staging|production|gh-pages)$"
+
+          reminded=0
+          closed=0
+          deleted=0
+          waiting=0
+          skipped=0
+
+          while IFS=$'\t' read -r commit_ts branch_ref; do
+            branch="${branch_ref#origin/}"
+
+            # Skip the HEAD pointer entry and empty lines.
+            if [ -z "$branch" ] || [ "$branch" = "HEAD" ]; then
+              continue
+            fi
+
+            if echo "$branch" | grep -Eq "$PROTECTED_REGEX"; then
+              skipped=$((skipped + 1))
+              continue
+            fi
+
+            if [ $(( NOW - commit_ts )) -lt "$THRESHOLD_SECONDS" ]; then
+              skipped=$((skipped + 1))
+              continue
+            fi
+
+            # Old commits are not enough on their own: the ref must also have been left alone.
+            activity_ts=$(awk -F'\t' -v b="$branch" '$2 == b { print $1; exit }' /tmp/branch_activity.tsv)
+            if [ -n "$activity_ts" ] && [ $(( NOW - activity_ts )) -lt "$THRESHOLD_SECONDS" ]; then
+              echo "SKIP (old commits, but created or pushed on $(date -u -d "@$activity_ts" '+%Y-%m-%d')): $branch"
+              skipped=$((skipped + 1))
+              continue
+            fi
+
+            if grep -qxF "$branch" /tmp/base_branches.txt; then
+              echo "SKIP (base branch of an open pull request): $branch"
+              skipped=$((skipped + 1))
+              continue
+            fi
+
+            last_commit_date=$(date -u -d "@$commit_ts" '+%Y-%m-%d')
+            stale_days=$(( (NOW - commit_ts) / 86400 ))
+
+            pr_row=$(awk -F'\t' -v b="$branch" '$1 == b { print; exit }' /tmp/open_prs.tsv)
+
+            # No open pull request: nothing to discuss, the branch just goes.
+            if [ -z "$pr_row" ]; then
+              if [ "$DRY_RUN" = "true" ]; then
+                echo "WOULD DELETE branch (no open pull request): $branch (last commit: $last_commit_date)"
+              else
+                echo "DELETING branch (no open pull request): $branch (last commit: $last_commit_date)"
+                if ! git push origin --delete "$branch"; then
+                  echo "  WARNING: could not delete $branch, leaving it in place"
+                  continue
+                fi
+              fi
+              deleted=$((deleted + 1))
+              continue
+            fi
+
+            IFS=$'\t' read -r _ pr_number pr_author pr_created pr_labels <<< "$pr_row"
+
+            if echo ",$pr_labels," | grep -qF ",$EXEMPT_LABEL,"; then
+              echo "SKIP (labelled $EXEMPT_LABEL): PR #$pr_number <- $branch"
+              skipped=$((skipped + 1))
+              continue
+            fi
+
+            # Count the reminders we already posted. Only those newer than the last commit
+            # count, so pushing to the branch restarts the cycle from scratch.
+            reminder_count=0
+            last_reminder_ts=0
+            while read -r created_at; do
+              if [ -z "$created_at" ]; then
+                continue
+              fi
+              reminder_ts=$(date -u -d "$created_at" +%s)
+              if [ "$reminder_ts" -gt "$commit_ts" ]; then
+                reminder_count=$((reminder_count + 1))
+                if [ "$reminder_ts" -gt "$last_reminder_ts" ]; then
+                  last_reminder_ts=$reminder_ts
+                fi
+              fi
+            done < <(gh api --paginate "repos/$REPO/issues/$pr_number/comments" \
+                       --jq ".[] | select(.body | contains(\"$REMINDER_MARKER\")) | .created_at" \
+                       < /dev/null || true)
+
+            # Nothing is due yet if the previous reminder is younger than the interval.
+            if [ "$reminder_count" -gt 0 ] && \
+               [ $(( NOW - last_reminder_ts )) -lt "$REMINDER_SECONDS" ]; then
+              echo "WAIT (reminder $reminder_count/$MAX_REMINDERS sent $(date -u -d "@$last_reminder_ts" '+%Y-%m-%d')): PR #$pr_number <- $branch"
+              waiting=$((waiting + 1))
+              continue
+            fi
+
+            if [ "$reminder_count" -lt "$MAX_REMINDERS" ]; then
+              next=$((reminder_count + 1))
+              deletion_date=$(date -u -d "+$(( (MAX_REMINDERS - next + 1) * REMINDER_INTERVAL_DAYS )) days" '+%Y-%m-%d')
+
+              body=$(cat <<EOF
+          $REMINDER_MARKER
+          Hi @$pr_author 👋 — **reminder $next of $MAX_REMINDERS.**
+
+          This pull request has been open since $pr_created and its branch \`$branch\` has had no new commits for $stale_days days.
+
+          Could you take a look?
+
+          - Still useful? Push an update or merge it — any new commit on the branch stops these reminders.
+          - No longer needed? Please close it.
+          - Should stay open as it is? Add the \`$EXEMPT_LABEL\` label and this workflow will leave it alone.
+
+          If nothing changes, this pull request will be closed and the branch \`$branch\` deleted on or after **$deletion_date**.
+          EOF
+              )
+
+              if [ "$DRY_RUN" = "true" ]; then
+                echo "WOULD REMIND ($next/$MAX_REMINDERS) @$pr_author: PR #$pr_number <- $branch"
+              else
+                echo "REMINDING ($next/$MAX_REMINDERS) @$pr_author: PR #$pr_number <- $branch"
+                gh pr comment "$pr_number" --repo "$REPO" --body "$body" < /dev/null
+              fi
+              reminded=$((reminded + 1))
+              continue
+            fi
+
+            # Reminder quota exhausted and still no reaction: close and delete.
+            body=$(cat <<EOF
+          $CLOSED_MARKER
+          Closing after $MAX_REMINDERS reminders with no activity: the branch \`$branch\` has had no commits for $stale_days days.
+
+          Nothing is lost — reopen this pull request or restore the branch from this page if the work is still wanted.
+          EOF
+            )
+
+            if [ "$DRY_RUN" = "true" ]; then
+              echo "WOULD CLOSE PR #$pr_number and delete branch $branch ($MAX_REMINDERS reminders, no reply)"
+              deleted=$((deleted + 1))
+            else
+              echo "CLOSING PR #$pr_number and deleting branch $branch ($MAX_REMINDERS reminders, no reply)"
+              gh pr comment "$pr_number" --repo "$REPO" --body "$body" < /dev/null
+              gh pr close "$pr_number" --repo "$REPO" < /dev/null
+              if git push origin --delete "$branch"; then
+                deleted=$((deleted + 1))
+              else
+                echo "  WARNING: pull request closed but branch $branch could not be deleted"
+              fi
+            fi
+            closed=$((closed + 1))
+          done < <(git for-each-ref --sort=committerdate \
+                    --format='%(committerdate:unix)%09%(refname:short)' \
+                    refs/remotes/origin)
+
+          echo "----------------------------------------"
+          {
+            echo "## Stale branch cleanup"
+            echo ""
+            if [ "$DRY_RUN" = "true" ]; then
+              echo "_Dry run — nothing was commented, closed or deleted._"
+              echo ""
+            fi
+            echo "| Outcome | Count |"
+            echo "| --- | --- |"
+            echo "| Reminders sent | $reminded |"
+            echo "| Pull requests closed | $closed |"
+            echo "| Branches deleted | $deleted |"
+            echo "| Waiting for the next reminder | $waiting |"
+            echo "| Untouched | $skipped |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          echo "Reminders sent: $reminded | Pull requests closed: $closed | Branches deleted: $deleted | Waiting: $waiting | Untouched: $skipped"

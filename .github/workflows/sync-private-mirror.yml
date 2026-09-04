@@ -8,7 +8,7 @@ jobs:
     if: "github.repository == 'arduino/docs-content'"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
         with:
           fetch-depth: "0"
           ref: "main"
