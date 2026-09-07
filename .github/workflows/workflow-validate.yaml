@@ -68,7 +68,7 @@ jobs:
     name: Markdown Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Validate Markdown
         run: python3 scripts/validation/markdownlint/markdownlint.py content
 
@@ -76,7 +76,7 @@ jobs:
     name: Alert Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Validate Alerts
         run: python3 scripts/validation/alert_tags/alert_tags.py validate content
 
@@ -84,7 +84,7 @@ jobs:
     name: Link Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Validate Links
         run: python3 scripts/validation/relative_links/relative_links.py validate content
 
@@ -92,6 +92,6 @@ jobs:
     name: Image Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Validate Images
         run: python3 scripts/validation/image_links/image_links.py validate content
