@@ -610,7 +610,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |       14 | A5 /  D19 | PC0                 | - ADC 输入<br></br>- I2C3_SCL <br></br>- LPTIM1_IN1    | 模拟 / 3.3 V | -                                                            |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  A0（PA4）和 A1（PA5）是直接连接到 STM32U585 ADC 的输入端，其参考电压为 <code>VREF+</code>。它们不支持 5 V 电压。有效输入范围为 <code>0-VREF+</code>（≈3.3 V）。该引脚的绝对最大值小于codeVDD + 0.3 V</code>，约为 3.6 V。超过此电平，MCU 的内部保护二极管将开始导通。该排针还提供了 <code>5V_SYS</code>（由肖特基二极管或门保护）和 <code>PWR_3P3V</code>（仅输出）电源引脚，与支持ADC功能的A0/A1引脚不同。请勿向 <strong>A0</strong> 或 <strong>A1</strong> 施加 5 V 电压。IOREF 连接至 3.3 V 电源轨（<code>PWR_3P3V</code>），并作为扩展板的参考电压/输出提供。该引脚不得用于向主板回馈电源。
+  A0（PA4）和 A1（PA5）是直接连接到 STM32U585 ADC 的输入端，其参考电压为 <code>VREF+</code>。它们不支持 5 V 电压。有效输入范围为 <code>0-VREF+</code>（≈3.3 V）。该引脚的绝对最大值小于<code>VDD + 0.3 V</code>，约为 3.6 V。超过此电平，MCU 的内部保护二极管将开始导通。该排针还提供了 <code>5V_SYS</code>（由肖特基二极管或门保护）和 <code>PWR_3P3V</code>（仅输出）电源引脚，与支持ADC功能的A0/A1引脚不同。请勿向 <strong>A0</strong> 或 <strong>A1</strong> 施加 5 V 电压。IOREF 连接至 3.3 V 电源轨（<code>PWR_3P3V</code>），并作为扩展板的参考电压/输出提供。该引脚不得用于向主板回馈电源。
 </div>
 
 
