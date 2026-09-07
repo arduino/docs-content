@@ -21,8 +21,44 @@ jobs:
   render-datasheets:
     name: Render Datasheets
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      # Checkout stalls intermittently on this repo (~9 GB): on 2026-08-25, 4 of
+      # 8 checkouts hung with no progress at all. Bound the attempt and retry
+      # once, instead of letting a stalled transfer run into the 6h default.
+      - uses: actions/checkout@v5
+        id: checkout
+        continue-on-error: true
+        timeout-minutes: 5
+        with:
+          fetch-depth: 1
+
+      # A checkout killed by the timeout leaves a partial clone behind (and
+      # sometimes a stale index.lock): wiping the workspace makes the second
+      # attempt genuinely independent of the first.
+      - name: Reset workspace before checkout retry
+        if: steps.checkout.outcome == 'failure'
+        run: |
+          shopt -s dotglob
+          rm -rf "${GITHUB_WORKSPACE:?}"/*
+
+      - uses: actions/checkout@v5
+        id: checkout-retry
+        if: steps.checkout.outcome == 'failure'
+        continue-on-error: true
+        timeout-minutes: 5
+        with:
+          fetch-depth: 1
+
+      # Attempt 2 has failed outright before, not only stalled: one more wipe and a last try, bounded by the job timeout
+      - name: Reset workspace before last checkout attempt
+        if: steps.checkout.outcome == 'failure' && steps.checkout-retry.outcome == 'failure'
+        run: |
+          shopt -s dotglob
+          rm -rf "${GITHUB_WORKSPACE:?}"/*
+
+      - uses: actions/checkout@v5
+        if: steps.checkout.outcome == 'failure' && steps.checkout-retry.outcome == 'failure'
         with:
           fetch-depth: 1
 
@@ -36,26 +72,69 @@ jobs:
     needs: render-datasheets
     runs-on: ubuntu-latest
     environment: staging
+    timeout-minutes: 150
     env:
       REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
       APP_ENV: staging
 
     steps:
-      - uses: actions/checkout@v4
+      # fetch-depth: 0 is required by gatsby-transformer-gitinfo, which runs
+      # `git log -n 1 -- <file>` on every content file to populate
+      # gitLogLatestDate (the "last updated" date shown on tutorial pages).
+      # filter: blob:none still fetches every commit and every tree - so that
+      # git log keeps resolving locally - while skipping historical blob
+      # contents, which are the bulk of this repo's ~11 GB of git history.
+      # Do NOT swap this for fetch-depth: 1: it would blank out gitLogLatestDate.
+      # Checkout stalls intermittently on this repo (~9 GB): on 2026-08-25, 4 of
+      # 8 checkouts hung with no progress at all. Bound the attempt and retry
+      # once, instead of letting a stalled transfer run into the 6h default.
+      - uses: actions/checkout@v5
+        id: checkout
+        continue-on-error: true
+        timeout-minutes: 5
         with:
           fetch-depth: "0"
+          filter: blob:none
 
-      - name: Cleanup runner disk
-        uses: ./.github/actions/cleanup-disk # Cleanup machine before starting the build
+      # A checkout killed by the timeout leaves a partial clone behind (and
+      # sometimes a stale index.lock): wiping the workspace makes the second
+      # attempt genuinely independent of the first.
+      - name: Reset workspace before checkout retry
+        if: steps.checkout.outcome == 'failure'
+        run: |
+          shopt -s dotglob
+          rm -rf "${GITHUB_WORKSPACE:?}"/*
 
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+        id: checkout-retry
+        if: steps.checkout.outcome == 'failure'
+        continue-on-error: true
+        timeout-minutes: 5
         with:
-          node-version: 18
+          fetch-depth: "0"
+          filter: blob:none
+
+      # Attempt 2 has failed outright before, not only stalled: one more wipe and a last try, bounded by the job timeout
+      - name: Reset workspace before last checkout attempt
+        if: steps.checkout.outcome == 'failure' && steps.checkout-retry.outcome == 'failure'
+        run: |
+          shopt -s dotglob
+          rm -rf "${GITHUB_WORKSPACE:?}"/*
+
+      - uses: actions/checkout@v5
+        if: steps.checkout.outcome == 'failure' && steps.checkout-retry.outcome == 'failure'
+        with:
+          fetch-depth: "0"
+          filter: blob:none
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
           cache: "npm"
           cache-dependency-path: "package-lock.json"
 
       - name: Retrieve Datasheets
-        uses: actions/download-artifact@v4 # Retrieve the datasheets generated in the previous job
+        uses: actions/download-artifact@v8 # Retrieve the datasheets generated in the previous job
         with:
           name: datasheets
           path: static/resources/datasheets
@@ -117,36 +196,76 @@ jobs:
       #       echo "No oversized files found. New check passed."
       #     fi
 
+      # Key on the git blob hash of each file, not its size: two different images of equal weight would share a key
+      - name: Compressed images key
+        id: images-key
+        run: |
+          find content -type f \( -name '*.jpg' -o -name '*.jpeg' -o -name '*.png' \) -size +2M -print0 > /tmp/big-images.lst
+          xargs -0 -r git ls-files -s -- < /tmp/big-images.lst > /tmp/big-images.idx
+          # An untracked image would be compressed but absent from the key, so require one index line per file found
+          test "$(tr -dc '\0' < /tmp/big-images.lst | wc -c)" -eq "$(wc -l < /tmp/big-images.idx)"
+          echo "hash=$(sort /tmp/big-images.idx | sha256sum | cut -c1-40)" >> "$GITHUB_OUTPUT"
+
+      - name: Compressed images cache
+        uses: actions/cache@v5
+        with:
+          path: /tmp/compressed-images.tar
+          key: ${{ runner.os }}-compressed-images-${{ steps.images-key.outputs.hash }}
+
       - name: Compress Large Images
         run: |
+          # jpegoptim and optipng are deterministic, so a hit means the same bytes without spending ~9 min again
+          if [ -f /tmp/compressed-images.tar ]; then
+            echo "Restoring images compressed by an earlier run..."
+            tar xf /tmp/compressed-images.tar
+            exit 0
+          fi
           sudo apt-get update && sudo apt-get install -y jpegoptim optipng
+          # A missing compressor is a systemic failure and must stop the job, unlike the per-file errors tolerated below
+          command -v jpegoptim > /dev/null && command -v optipng > /dev/null
+          # -exec ... \; spawns one process per file on a single core: xargs -P "$(nproc)" spreads the same work over every core
+          find content -type f \( -name "*.jpg" -o -name "*.jpeg" \) -size +2M -print0 > /tmp/big-jpg.lst
+          find content -type f -name "*.png" -size +2M -print0 > /tmp/big-png.lst
+          # find -exec ignored the exit status of each command, xargs reports 123 if any file fails: a few .png are really JPEGs
           echo "Compressing large JPGs..."
-          find content -type f \( -name "*.jpg" -o -name "*.jpeg" \) -size +2M -print -exec jpegoptim --strip-all {} \;
+          xargs -0 -r -P "$(nproc)" -n 1 jpegoptim --strip-all < /tmp/big-jpg.lst || echo "Some JPGs could not be optimized, continuing"
           echo "Compressing large PNGs..."
-          find content -type f -name "*.png" -size +2M -print -exec optipng -o2 {} \;
+          xargs -0 -r -P "$(nproc)" -n 1 optipng -o2 < /tmp/big-png.lst || echo "Some PNGs could not be optimized, continuing"
+          # The list is captured before compressing: some files drop under 2M and find would no longer report them
+          cat /tmp/big-jpg.lst /tmp/big-png.lst | tar --null -cf /tmp/compressed-images.tar -T -
 
+      # Staging runs one branch at a time, so it keeps its own entries; the quota was drained by per-PR previews, not by these
       - name: Gatsby main cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         id: gatsby-cache-folder
         with:
           path: .cache
-          key: ${{ runner.os }}-cache-gatsby-${{ github.ref_name }}
+          key: ${{ runner.os }}-cache-gatsby-node22-${{ github.ref_name }}
           restore-keys: |
-            ${{ runner.os }}-cache-gatsby-main
+            ${{ runner.os }}-cache-gatsby-node22-main
 
       - name: Gatsby Public Folder cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         id: gatsby-public-folder
         with:
           path: public/
-          key: ${{ runner.os }}-public-gatsby-${{ github.ref_name }}
+          key: ${{ runner.os }}-public-gatsby-node22-${{ github.ref_name }}
           restore-keys: |
-            ${{ runner.os }}-public-gatsby-main
+            ${{ runner.os }}-public-gatsby-node22-main
 
-      - run: npm install
+      - run: npm install --prefer-offline --no-audit --fund=false
+
+      # nproc and free tell us whether logical_cores actually doubled the workers, and how much headroom they have
+      - name: Runner capacity
+        run: |
+          echo "vCPU: $(nproc)"
+          free -g
 
       - name: Build
         run: npm run build
+        env:
+          # Gatsby defaults to physical cores, which is half the vCPUs of a runner
+          GATSBY_CPU_COUNT: logical_cores
 
       - name: Clean up node_modules # Just to save space
         run: rm -rf node_modules
@@ -162,6 +281,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment: staging
+    timeout-minutes: 10
     steps:
       - name: Purge Cloudflare Cache
         shell: bash
