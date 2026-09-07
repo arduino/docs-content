@@ -57,6 +57,10 @@ This will take you to the setup menu for your device. You can now choose between
 
 Now you have to decide how you want to set up your board with the Cloud, either via Bluetooth® or USB cable (you can check if your board is compatible with the Bluetooth method below). These two options have different processes, pick the method that suits your needs best and follow the section for your chosen method.
 
+### Connecting the UNO Q to the Arduino Cloud
+
+The UNO Q can be connected to the Arduino Cloud via Arduino App Lab. For more information about how this works, please have a look at the [UNO Q Cloud Tutorial](https://docs.arduino.cc/tutorials/uno-q/arduino-cloud/).
+
 ## Bluetooth Provisioning
 
 ### Compatible boards
