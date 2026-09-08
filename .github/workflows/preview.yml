@@ -228,9 +228,9 @@ jobs:
           # The list is captured before compressing: some files drop under 2M and find would no longer report them
           cat /tmp/big-jpg.lst /tmp/big-png.lst | tar --null -cf /tmp/compressed-images.tar -T -
 
-      # .cache is ~0.1 GB, so every PR can keep its own across pushes
+      # Restore only: production on main is the single writer, so a PR cannot evict the entry every PR reads
       - name: Gatsby main cache
-        uses: actions/cache@v5
+        uses: actions/cache/restore@v5
         id: gatsby-cache-folder
         with:
           path: .cache
