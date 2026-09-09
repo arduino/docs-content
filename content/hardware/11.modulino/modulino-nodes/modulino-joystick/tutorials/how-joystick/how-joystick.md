@@ -33,6 +33,12 @@ The Modulino Joystick features a two-axis analogue joystick with push button fun
 | Y-Axis Range | - | 0 | 2048 | 4095 | - |
 | Resolution | - | - | 12 | - | bit |
 
+<Alert type="note">
+
+The Modulino Joystick is shipped with the top unmounted. Make sure to firmly attach the top on the joystick shaft before you start using the node.
+
+</Alert>
+
 ### Sensor Details
 
 The **Modulino Joystick** module features an analogue joystick with two potentiometers (horizontal and vertical axes) and an integrated push button. The joystick does not have native I²C capabilities. Instead, the readings are processed by the Modulino's onboard microcontroller (STM32C011F4), which provides I²C communication.
