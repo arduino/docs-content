@@ -2,7 +2,7 @@ name: Stale Branch Cleanup
 
 on:
   schedule:
-    # Runs at 03:00 UTC every Monday
+    # Every Monday at 03:00 UTC, but new work is only picked up on the first Monday of the month
     - cron: '0 3 * * 1'
   workflow_dispatch:
     inputs:
@@ -54,6 +54,13 @@ jobs:
           REMINDER_SECONDS=$(( REMINDER_INTERVAL_DAYS * 24 * 60 * 60 - 43200 ))
           NOW=$(date +%s)
 
+          # Only the first Monday of the month takes on new work, so the other weekly runs just advance cycles already open
+          if [ "${GITHUB_EVENT_NAME:-}" != "schedule" ] || [ "$((10#$(date -u +%d)))" -le 7 ]; then
+            DISCOVER=true
+          else
+            DISCOVER=false
+          fi
+
           REMINDER_MARKER='<!-- stale-branch-cleanup:reminder -->'
           CLOSED_MARKER='<!-- stale-branch-cleanup:closed -->'
 
@@ -61,6 +68,7 @@ jobs:
           echo "Default branch:  $DEFAULT_BRANCH"
           echo "Stale after:     $DAYS_THRESHOLD days with no commits and no pushes"
           echo "Reminders:       $MAX_REMINDERS, one every $REMINDER_INTERVAL_DAYS days"
+          echo "Picks up new:    $DISCOVER"
           echo "Dry run:         $DRY_RUN"
           echo "----------------------------------------"
 
@@ -105,6 +113,7 @@ jobs:
           closed=0
           deleted=0
           waiting=0
+          held=0
           skipped=0
 
           while IFS=$'\t' read -r commit_ts branch_ref; do
@@ -146,6 +155,11 @@ jobs:
 
             # No open pull request: nothing to discuss, the branch just goes.
             if [ -z "$pr_row" ]; then
+              # Nobody can be warned about a branch with no pull request, so this waits for the monthly scan
+              if [ "$DISCOVER" != "true" ]; then
+                held=$((held + 1))
+                continue
+              fi
               if [ "$DRY_RUN" = "true" ]; then
                 echo "WOULD DELETE branch (no open pull request): $branch (last commit: $last_commit_date)"
               else
@@ -195,6 +209,11 @@ jobs:
             fi
 
             if [ "$reminder_count" -lt "$MAX_REMINDERS" ]; then
+              # The first notice opens a cycle, so it waits for the monthly scan; the ones after it do not
+              if [ "$reminder_count" -eq 0 ] && [ "$DISCOVER" != "true" ]; then
+                held=$((held + 1))
+                continue
+              fi
               next=$((reminder_count + 1))
               deletion_date=$(date -u -d "+$(( (MAX_REMINDERS - next + 1) * REMINDER_INTERVAL_DAYS )) days" '+%Y-%m-%d')
 
@@ -265,6 +284,7 @@ jobs:
             echo "| Pull requests closed | $closed |"
             echo "| Branches deleted | $deleted |"
             echo "| Waiting for the next reminder | $waiting |"
+            echo "| Held for the monthly scan | $held |"
             echo "| Untouched | $skipped |"
           } >> "$GITHUB_STEP_SUMMARY"
 

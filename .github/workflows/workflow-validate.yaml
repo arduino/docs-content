@@ -25,12 +25,36 @@ jobs:
           # word by word. English datasheets (datasheet.md / en-datasheet.md) are still checked.
           codespell -I "scripts/resources/spell-check-ignore-list.txt" --skip="*.svg,*.dxf,*.pdf,*de-datasheet.md,*es-datasheet.md,*fr-datasheet.md,*hi-datasheet.md,*it-datasheet.md,*ja-datasheet.md,*nl-datasheet.md,*pt-datasheet.md,*zh-datasheet.md" ./content/
 
+  # The files codespell skips above: cspell is the only checker that can be told which language a file is in
+  spell_check_localized:
+    name: Spell Check (localized datasheets)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      # Installed outside the repo, because npm install here would pull the whole Gatsby tree and need the theme token
+      - name: Install cspell
+        run: |
+          npm install --no-save --no-audit --fund=false --prefix /tmp/cspell \
+            cspell@8.19.4 @cspell/dict-de-de@4.1.2 @cspell/dict-es-es@3.0.8 \
+            @cspell/dict-fr-fr@2.3.2 @cspell/dict-it-it@3.1.6 \
+            @cspell/dict-nl-nl@2.4.2 @cspell/dict-pt-pt@3.0.6
+      # Chinese is left out: no cspell dictionary exists for it, and a word list cannot segment CJK anyway
+      - name: Run spell check
+        env:
+          NODE_PATH: /tmp/cspell/node_modules
+        run: /tmp/cspell/node_modules/.bin/cspell --no-progress --config cspell.json "content/**/{de,es,fr,it,nl,pt}-datasheet.md"
+
   lint:
     name: Content Linter
     runs-on: ubuntu-latest
     strategy:
+      # Both values only shape the job name: main still requires "Content Linter (14)" and "Content Linter (Hardware)"
+      fail-fast: false
       matrix:
-        node_version: [14]
+        node_version: [14, Hardware]
 
     steps:
       - uses: actions/checkout@v5

@@ -260,7 +260,6 @@ jobs:
           # Gatsby defaults to physical cores, which is half the vCPUs of a runner
           GATSBY_CPU_COUNT: logical_cores
 
-      # A warm public/ is worth 38 minutes of sharp and ~4 GB of quota: only a run on main writes the entry every branch reads
       - name: Save Gatsby main cache
         if: github.ref_name == 'main'
         uses: actions/cache/save@v5

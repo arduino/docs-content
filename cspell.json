@@ -1,0 +1,100 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "import": [
+    "@cspell/dict-de-de/cspell-ext.json",
+    "@cspell/dict-es-es/cspell-ext.json",
+    "@cspell/dict-fr-fr/cspell-ext.json",
+    "@cspell/dict-it-it/cspell-ext.json",
+    "@cspell/dict-nl-nl/cspell-ext.json",
+    "@cspell/dict-pt-pt/cspell-ext.json"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "arduino-technical",
+      "path": "./scripts/resources/cspell/technical.txt",
+      "addWords": false
+    },
+    {
+      "name": "arduino-de",
+      "path": "./scripts/resources/cspell/de.txt",
+      "addWords": false
+    },
+    {
+      "name": "arduino-es",
+      "path": "./scripts/resources/cspell/es.txt",
+      "addWords": false
+    },
+    {
+      "name": "arduino-fr",
+      "path": "./scripts/resources/cspell/fr.txt",
+      "addWords": false
+    },
+    {
+      "name": "arduino-it",
+      "path": "./scripts/resources/cspell/it.txt",
+      "addWords": false
+    },
+    {
+      "name": "arduino-nl",
+      "path": "./scripts/resources/cspell/nl.txt",
+      "addWords": false
+    },
+    {
+      "name": "arduino-pt",
+      "path": "./scripts/resources/cspell/pt.txt",
+      "addWords": false
+    }
+  ],
+  "dictionaries": [
+    "arduino-technical"
+  ],
+  "ignoreRegExpList": [
+    "/^# Certifications[\\s\\S]*?(?=^# )/gm",
+    "/^\\*\\*[A-Za-z ]+ \\([A-Z]{2}\\):\\*\\*\\n\\n(?:.+\\n)+/gm"
+  ],
+  "overrides": [
+    {
+      "filename": "**/de-datasheet.md",
+      "language": "de,en",
+      "dictionaries": [
+        "arduino-de"
+      ]
+    },
+    {
+      "filename": "**/es-datasheet.md",
+      "language": "es,en",
+      "dictionaries": [
+        "arduino-es"
+      ]
+    },
+    {
+      "filename": "**/fr-datasheet.md",
+      "language": "fr,en",
+      "dictionaries": [
+        "arduino-fr"
+      ]
+    },
+    {
+      "filename": "**/it-datasheet.md",
+      "language": "it,en",
+      "dictionaries": [
+        "arduino-it"
+      ]
+    },
+    {
+      "filename": "**/nl-datasheet.md",
+      "language": "nl,en",
+      "dictionaries": [
+        "arduino-nl"
+      ]
+    },
+    {
+      "filename": "**/pt-datasheet.md",
+      "language": "pt,en",
+      "dictionaries": [
+        "arduino-pt"
+      ]
+    }
+  ]
+}
