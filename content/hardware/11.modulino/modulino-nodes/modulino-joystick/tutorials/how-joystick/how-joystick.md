@@ -56,6 +56,7 @@ The default I²C address for the **Modulino Joystick** module is:
 ![Modulino Joystick Pinout](assets/JoystickPinout.png)
 
 **Qwiic / I2C (1×4 Header)**
+
 | **Pin** | **Function**              |
 |---------|---------------------------|
 | GND     | Ground                   |
@@ -66,6 +67,7 @@ The default I²C address for the **Modulino Joystick** module is:
 These pads and the Qwiic connectors share the same I2C bus at 3.3 V.
 
 **Additional 1×4 Header (MCU Debug Signals)**
+
 | **Pin** | **Function**      |
 |---------|-------------------|
 | PF2     | RESET (NRST)      |
@@ -74,6 +76,7 @@ These pads and the Qwiic connectors share the same I2C bus at 3.3 V.
 | TX1     | USART Transmit (PA9) |
 
 **1×4 Header (Joystick & MCU Signals)**
+
 | **Pin** | **Function**              |
 |---------|---------------------------|
 | RX1     | USART Receive (PA10)      |
