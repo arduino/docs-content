@@ -35,7 +35,7 @@ The Modulino Joystick features a two-axis analogue joystick with push button fun
 
 <Alert type="note">
 
-The Modulino Joystick is shipped with the top unmounted. Make sure to firmly attach the top on the joystick shaft before you start using the node.
+If the top on your Modulino Joystick is unmounted, make sure to firmly attach the top on the joystick shaft before you start using the node.
 
 </Alert>
 
