@@ -1126,14 +1126,36 @@ Note that you need a display via HDMI connected to the VENTUNO Q to use this exa
 </Alert>
 
 ```python
+import os
 import signal
 import sys
 import time
+
+# Must be set before GStreamer/Wayland touches the display — do this first,
+# so the script works whether it's launched from the graphical session or
+# from a plain SSH/serial shell that never inherited these.
+os.environ.setdefault("XDG_RUNTIME_DIR", f"/run/user/{os.getuid()}")
+os.environ.setdefault("WAYLAND_DISPLAY", "wayland-0")
 
 import gi
 
 gi.require_version("Gst", "1.0")
 from gi.repository import Gst, GLib
+
+_wayland_socket = os.path.join(
+    os.environ["XDG_RUNTIME_DIR"], os.environ["WAYLAND_DISPLAY"]
+)
+HAS_DISPLAY = os.path.exists(_wayland_socket)
+
+if HAS_DISPLAY:
+    _SINK = "waylandsink name=sink sync=false"
+else:
+    print(
+        f"no wayland compositor socket at {_wayland_socket} — "
+        "running headless, dropping frames via fakesink instead of displaying them",
+        file=sys.stderr,
+    )
+    _SINK = "fakesink name=sink sync=false"
 
 PIPELINE_DESC = (
     "qtiqmmfsrc camera=0 name=camsrc video_0::type=preview ! "
@@ -1141,7 +1163,7 @@ PIPELINE_DESC = (
     "interlace-mode=progressive,colorimetry=bt601 ! "
     "queue ! v4l2h264enc capture-io-mode=4 output-io-mode=5 ! h264parse ! "
     "v4l2h264dec ! video/x-raw,format=NV12 ! "
-    "queue ! waylandsink name=sink sync=false"
+    f"queue ! {_SINK}"
 )
 
 PRINT_INTERVAL_S = 1.0
@@ -1207,6 +1229,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 ```
 
 After running the example, you should see the logs in the terminal (latency), and a screen should appear on your display.
