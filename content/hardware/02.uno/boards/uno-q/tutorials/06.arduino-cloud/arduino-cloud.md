@@ -37,9 +37,9 @@ To set this up, follow the instructions below:
 2. From here, you can click "Create a new device" and select "Arduino Uno Q" (or the most similar option for Q devices).
 3. This will prompt you to open Arduino App Lab if it's installed, or invite you to download it first.
 4. Open Arduino App Lab, go to device settings, and in the Cloud section click "Connect".
+    ![Arduino Cloud settings](assets/cloud-app-lab-settings.png)
 5. If you're not logged in with your Arduino account in the App Lab, you'll first be asked to log in, a web authentication page opens, you log in, and the App Lab reopens automatically.
 6. Select which of your Cloud spaces to add the device to, among your personal and organization spaces.
-    ![Arduino Cloud credentials](assets/cloud-blink-device.png)
 7. If everything is successful, you'll see a confirmation message, and your device will appear in the devices list of the selected space in the Arduino Cloud.
 8. Go to the [things](https://app.arduino.cc/things) page and create a new thing.
 9. Inside the thing, create a new **boolean** variable, and name it **"led"**. We also need to associate the device we created with this thing.
