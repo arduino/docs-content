@@ -1053,6 +1053,12 @@ These four pins are level-translated to 3.3 V for the JHAT connector, but on the
 
 ### MIPI / CSI Camera
 
+<Alert type="info">
+
+Visit the [VENTUNO Q MIPI-CSI Camera Guide](/tutorials/ventuno-q/mipi-csi-camera) guide for more details and ready-made scripts.
+
+</Alert>
+
 ![VENTUNO Q MIPI / CSI connector](assets/ventuno-camera-connector.png)
 
 <Alert type="info">
