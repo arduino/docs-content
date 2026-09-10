@@ -35,7 +35,11 @@ Arduino App Lab selects the connection method based on how the board is connecte
 - **USB mode**: the shell is opened over ADB (Android Debug Bridge). No password is required.
 - **Network mode**: the shell is opened over SSH. Provide the board password you set during the first setup.
 
-***To open the board's shell manually, or from a computer without Arduino App Lab, see the [Connect to UNO Q via ADB](/tutorials/uno-q/adb/) and [Connect to UNO Q via Secure Shell (SSH)](/tutorials/uno-q/ssh/) tutorials.***
+<Alert type="info">
+
+**Note:** To open the board's shell manually, or from a computer without Arduino App Lab, see the [Connect to UNO Q via ADB](/tutorials/uno-q/adb/) and [Connect to UNO Q via Secure Shell (SSH)](/tutorials/uno-q/ssh/) tutorials.
+
+</Alert>
 
 ## Using Arduino App CLI
 
