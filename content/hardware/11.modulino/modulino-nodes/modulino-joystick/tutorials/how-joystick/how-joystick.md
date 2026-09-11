@@ -33,6 +33,12 @@ The Modulino Joystick features a two-axis analogue joystick with push button fun
 | Y-Axis Range | - | 0 | 2048 | 4095 | - |
 | Resolution | - | - | 12 | - | bit |
 
+<Alert type="note">
+
+If the top on your Modulino Joystick is unmounted, make sure to firmly attach the top on the joystick shaft before you start using the node.
+
+</Alert>
+
 ### Sensor Details
 
 The **Modulino Joystick** module features an analogue joystick with two potentiometers (horizontal and vertical axes) and an integrated push button. The joystick does not have native I²C capabilities. Instead, the readings are processed by the Modulino's onboard microcontroller (STM32C011F4), which provides I²C communication.
@@ -50,6 +56,7 @@ The default I²C address for the **Modulino Joystick** module is:
 ![Modulino Joystick Pinout](assets/JoystickPinout.png)
 
 **Qwiic / I2C (1×4 Header)**
+
 | **Pin** | **Function**              |
 |---------|---------------------------|
 | GND     | Ground                   |
@@ -60,6 +67,7 @@ The default I²C address for the **Modulino Joystick** module is:
 These pads and the Qwiic connectors share the same I2C bus at 3.3 V.
 
 **Additional 1×4 Header (MCU Debug Signals)**
+
 | **Pin** | **Function**      |
 |---------|-------------------|
 | PF2     | RESET (NRST)      |
@@ -68,6 +76,7 @@ These pads and the Qwiic connectors share the same I2C bus at 3.3 V.
 | TX1     | USART Transmit (PA9) |
 
 **1×4 Header (Joystick & MCU Signals)**
+
 | **Pin** | **Function**              |
 |---------|---------------------------|
 | RX1     | USART Receive (PA10)      |
