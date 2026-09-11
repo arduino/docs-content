@@ -683,7 +683,7 @@ Open a browser on any device connected to the same network as the VENTUNO Q, and
 
 You can also embed the stream in a web page with a plain `<img>` tag:
 
-```html
+```bash
 <img src="http://<board-ip>:8080/stream">
 ```
 
