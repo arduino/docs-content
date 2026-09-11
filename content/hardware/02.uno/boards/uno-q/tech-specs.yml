@@ -62,7 +62,7 @@ Power:
   USB-C®: +5 VDC max at 3 A to power the board.
   Input voltage (VIN): 7 - 24 VDC
   I/O operating voltage: +3.3 VDC MCU (+5 VDC tolerant) | +1.8 VDC MPU
-  DC Current per I/O Pin: 20 mA (JANALOG and JMEDIA)
+  DC Current per I/O Pin: 20 mA MCU (JDIGITAL, JANALOG, and JMISC)
 Special Connectors:
   Qwiic: Yes, for I2C (3V3)
   JCTL: Yes, MPU Remote Debug connector
