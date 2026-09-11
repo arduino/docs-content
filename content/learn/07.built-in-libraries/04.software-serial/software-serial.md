@@ -21,12 +21,23 @@ SoftwareSerial library has the following known limitations:
 
 * It cannot transmit and receive data at the same time.
 * If using multiple software serial ports, only one can receive data at a time.
-* Not all pins on the Mega and Mega 2560 boards support change interrupts, so only the following can be used for RX: 10, 11, 12, 13, 14, 15, 50, 51, 52, 53, A8 (62), A9 (63), A10 (64), A11 (65), A12 (66), A13 (67), A14 (68), A15 (69).
-Not all pins on the Leonardo and Micro boards support change interrupts, so only the following can be used for RX: 8, 9, 10, 11, 14 (MISO), 15 (SCK), 16 (MOSI).
-* On Arduino or Genuino 101 boards the current maximum RX speed is 57600bps. 
-* On Arduino or Genuino 101 boards RX doesn't work on digital pin 13.
+* On some boards, not all pins can be used. See the "**Supported Pins**" table below for details.
+* On Arduino or Genuino 101 boards the current maximum RX speed is 57600bps.
 
 If your project requires simultaneous data flows, see Paul Stoffregen's [AltSoftSerial library](https://www.pjrc.com/teensy/td_libs_AltSoftSerial.html).
+
+### Supported Pins
+
+| Board                                                                                               | RX                                           | TX        |
+| --------------------------------------------------------------------------------------------------- | -------------------------------------------- | --------- |
+| [101](/retired/boards/arduino-101-619/)                                                             | 0-12, 14 (A0) - 19 (A5)                      |           |
+| [Leonardo](/hardware/leonardo/)<br />[Micro](/hardware/micro/)<br />[Yún Rev2](/hardware/yun-rev2/) | 8, 9, 10, 11, 14 (MISO), 15 (SCK), 16 (MOSI) | Any       |
+| [Mega](/retired/other/hardware-pictures/)<br />[Mega 2560 Rev3](/hardware/mega-2560/)               | 10-15, 50-53, A8 (62)-A15 (69)               | Any       |
+| [Nano](/hardware/nano/)                                                                             | 0-19 (A5)                                    | 0-19 (A5) |
+| [Nano Every](/hardware/nano-every/)<br />[UNO WiFi Rev2](/hardware/uno-wifi-rev2/)                  | Any                                          | Any       |
+| [UNO R3](/hardware/uno-rev3/)                                                                       | Any                                          | Any       |
+| [UNO R4 Minima](/hardware/uno-r4-minima/)                                                           | 0-3, 8, 12, 13, 15 (A1)-19 (A5)              | Any       |
+| [UNO R4 WiFi](/hardware/uno-r4-wifi/)                                                               | 0-3, 6, 8, 11, 12, 15 (A1)-19 (A5)           | Any       |
 
 ## Examples
 
