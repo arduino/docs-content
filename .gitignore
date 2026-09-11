@@ -15,4 +15,5 @@ content/de
 content/pt
 .nvmrc
 .env
+.envrc
 **/__pycache__
