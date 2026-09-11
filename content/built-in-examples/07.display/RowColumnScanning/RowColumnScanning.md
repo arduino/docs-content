@@ -64,6 +64,8 @@ To keep your LED matrix from burning, add 8 1kΩ resistors to the wires connecte
 
 ![Circuit diagram of the LED matrix.](assets/circuit.png)
 
+NOTE: In the circuit drawing it looks like all rows are on one side of the matrix and all columns are on the other. To wire up the display you need to find the correct pins. Place the matrix so that you view it from the top, the marking facing you. Then pin one is on the lower left of the LED matrix.
+
 
 ### Schematic
 
