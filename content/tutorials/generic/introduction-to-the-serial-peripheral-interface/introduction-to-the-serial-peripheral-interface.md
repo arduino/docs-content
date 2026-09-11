@@ -241,11 +241,11 @@ delay(10);
 We end the setup function by sending the word "hi" plus a line feed out the built in serial port for debugging purposes. This way if our data comes out looking funny later on we can tell it isn't just the serial port acting up:
 
 ```arduino
-Serial.print('h',BYTE);
+Serial.print('h');
 
-  Serial.print('i',BYTE);
+  Serial.print('i');
 
-  Serial.print('\n',BYTE);//debug
+  Serial.print('\n');//debug
 
   delay(1000);
 }
@@ -431,11 +431,11 @@ void setup()
 
   delay(3000);
 
-  Serial.print('h',BYTE);
+  Serial.print('h');
 
-  Serial.print('i',BYTE);
+  Serial.print('i');
 
-  Serial.print('\n',BYTE);//debug
+  Serial.print('\n');//debug
 
   delay(1000);
 }
@@ -469,7 +469,7 @@ void loop()
 
   Serial.print(eeprom_output_data,DEC);
 
-  Serial.print('\n',BYTE);
+  Serial.print('\n');
 
   address++;
 
