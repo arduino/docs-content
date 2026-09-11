@@ -391,11 +391,8 @@ You can configure a specific App to launch automatically whenever the UNO Q is p
 **Note:** You cannot set a built-in **Example** as the startup app directly from the UI. You must first click **Copy and edit app** from the example or create a new **App** from scratch.
 
 1.  Open your custom App (or the copy of an example).
-2.  Locate the **Run** button in the top right corner.
-3.  Click the arrow (▼) next to the Run button to open the menu.
-4.  Toggle the **Run at startup** switch to the **ON** position.
-
-![Run at startup option](assets/run-at-startup.png)
+2.  Select the arrow (▼) next to the App name near the top left corner.
+3.  Toggle the **Run at startup** switch to the **ON** position.
 
 Once configured, a **DEFAULT** badge will appear next to your App's name, indicating it will run automatically upon boot.
 
