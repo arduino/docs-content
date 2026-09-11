@@ -2,13 +2,13 @@
 title: 'Manage Apps Using Arduino App CLI'
 overwriteSidebar: Arduino App CLI
 description: Learn how to use the Arduino App Lab CLI, the command line interface for launching Apps on your board.
-author: Karl Söderby
+author: 'Karl Söderby, Ernesto Voltaggio'
 tags: [UNO Q, Linux, CLI]
 ---
 
 Manage your modular Apps through the `arduino-app-cli`, the command-line engine behind Arduino App Lab. This tool allows you to build, start, and stop applications directly from your board's terminal or remotely via ADB and SSH.
 
-The `arduino-app-cli` is pre-installed on the board and can be accessed either through using the terminal on the board itself, or by accessing the board's terminal from a host computer via Android Debug Bridge (ADB).
+The `arduino-app-cli` is pre-installed on the board. You can run it directly from a terminal on the board (in SBC mode) or through a shell on your computer (in Connected Mode, also referred to as PC-hosted mode).
 
 ## Requirements
 
@@ -16,43 +16,43 @@ The following hardware is required:
 - [Arduino UNO Q](https://store.arduino.cc/products/uno-q)
 - [USB-C® type cable](https://store.arduino.cc/products/usb-cable2in1-type-c)
 
-To access the board via `adb` (over USB), you will also need to have the following software installed:
-- [Android Debug Bridge](https://developer.android.com/tools/releases/platform-tools)
+In Connected Mode, Arduino App Lab opens the board's shell for you, so no additional software is required. To connect manually, or to transfer files with `adb pull` and `adb push`, you also need [Android Debug Bridge](https://developer.android.com/tools/releases/platform-tools) installed. SSH is typically installed on your system by default.
 
-You can also access the board via SSH, which is typically installed on your system by default.
+## Open the Board's Shell
 
-## Connect via ADB
+How you access the board's shell depends on whether you are running in Connected Mode or SBC Mode:
 
-***To learn more about setting up `adb`, check out the [Connect to UNO Q via ADB](/tutorials/uno-q/adb/) tutorial. This guide will walk you through the installation steps.***
+### Connected Mode (PC-Hosted)
 
-1. Connect the board to your computer via USB-C.
-2. Run `adb devices` in the terminal. This should list the connected devices.
+When using the board in Connected Mode (PC-hosted) with Arduino App Lab running on your computer, App Lab can open a shell on the board directly from its interface without manually configuring `adb` or `ssh`:
 
-    ![Connected devices](assets/connected-devices.png)
+1. Connect your board and make sure it is selected in the footer status bar.
+2. Select the **Connect to the board's shell** button (terminal icon) next to the board name.
 
->Note that it may take up to a minute for the device to appear after connecting it.
+   ![Screenshot of the status bar in Arduino App Lab, highlighting the button that opens a shell on the board.](../../assets/playwright/statusbar-terminal-hl.png)
 
-3. Run `adb shell`. 
-4. You should now be inside your board's terminal.
+3. A terminal window opens on your computer, already logged in on the board as the `arduino` user.
+4. Run the commands you need on the board. To close the session, type `exit`.
 
-    ![Terminal on the board.](assets/board-terminal.png)
+Arduino App Lab selects the connection method based on how the board is connected:
 
-5. You are now able to run commands via the terminal on your board! To exit from the terminal, simply type `exit`.
+- **USB mode**: the shell is opened over ADB (Android Debug Bridge). No password is required.
+- **Network mode**: the shell is opened over SSH. Provide the board password you set during the first setup.
 
->Note: If you have not set up your board prior to this via the Arduino App Lab, the first time you run a command that requires authentication (such as `sudo`), you will be prompted to create a new password.
+<Alert type="info">
 
-## Connect via SSH
+**Note:** To open the board's shell manually, or from a computer without Arduino App Lab, see the [Connect to UNO Q via ADB](/tutorials/uno-q/adb/) and [Connect to UNO Q via Secure Shell (SSH)](/tutorials/uno-q/ssh/) tutorials.
 
-***Note: to use SSH, the [first setup](../../configure/config/) needs to be completed. This is done by connecting your board via USB, open the Arduino App Lab, and select the USB option. Here you will need to give your board a name, a new password as well as providing Wi-Fi® credentials. SSH will be automatically configured during this setup.***
+</Alert>
 
-1. Open a terminal on your machine.
-2. Run `ssh arduino@<boardname>.local`
-3. Provide the password for the board.
-4. We can now interact with the board's shell remotely! ✅
+### SBC Mode (Standalone)
 
-![Connect via SSH](assets/ssh-macos.png)
+When using the board in [Single-Board Computer (SBC) mode](/tutorials/uno-q/debian-guide/#through-sbc-mode) with a monitor, keyboard, and mouse connected:
 
-- A more detailed tutorial on connecting to the UNO Q via SSH is available [here](/tutorials/uno-q/ssh).
+1. Open the application menu on the desktop.
+2. Select **Applications > Terminal Emulator**.
+
+A terminal window will open on the desktop where you can run `arduino-app-cli` and other Linux commands directly on the board.
 
 ## Using Arduino App CLI
 

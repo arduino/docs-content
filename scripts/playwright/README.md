@@ -31,6 +31,7 @@ You can run specific steps of a flow using the `--step` flag:
 - `node runner.js --flow app-lab --step inspirations` (Inspirations card and detail views)
 - `node runner.js --flow app-lab --step editor` (App creation and Editor panels)
 - `node runner.js --flow app-lab --step run` (App compile, execution, stop, and console)
+- `node runner.js --flow app-lab --step terminal` (Board shell button in the status bar)
 
 ## Modifying Locators and Adding Flows
 
