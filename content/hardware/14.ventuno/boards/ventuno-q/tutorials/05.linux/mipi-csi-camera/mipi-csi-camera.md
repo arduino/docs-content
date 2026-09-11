@@ -31,11 +31,11 @@ This guide covers how to connect, detect and stream video from a **MIPI-CSI came
 
 The camera hardware is managed by a single background service, `cam-server` (the QMMF, Qualcomm Multimedia Framework, camera daemon), which every capture pipeline in this guide talks to as a client. Three ready-to-use Python scripts are provided further down to cover the most common ways of viewing the feed:
 
-| Script | Output | View with | Quality / efficiency |
-| ------ | ------ | --------- | --------------------- |
-| `camera_test.py` | Local display connected to the VENTUNO Q | Nothing extra, the video appears in a window on the board itself | Hardware H264 round-trip (encode + decode), best for measuring local pipeline latency |
-| `camera_rtsp_server.py` | RTSP stream over the network | VLC, `ffplay`, or any RTSP-capable player | Best, hardware H264 at low bandwidth |
-| `camera_mjpeg_server.py` | HTTP MJPEG stream over the network | Any web browser, plain URL or `<img>` tag | Simplest client, but higher bandwidth (a full JPEG per frame) |
+| Script                   | Output                                   | View with                                                        | Quality / efficiency                                                                  |
+| ------------------------ | ---------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `camera_test.py`         | Local display connected to the VENTUNO Q | Nothing extra, the video appears in a window on the board itself | Hardware H264 round-trip (encode + decode), best for measuring local pipeline latency |
+| `camera_rtsp_server.py`  | RTSP stream over the network             | VLC, `ffplay`, or any RTSP-capable player                        | Best, hardware H264 at low bandwidth                                                  |
+| `camera_mjpeg_server.py` | HTTP MJPEG stream over the network       | Any web browser, plain URL or `<img>` tag                        | Simplest client, but higher bandwidth (a full JPEG per frame)                         |
 
 <Alert type="info">
 
@@ -191,14 +191,14 @@ You need a display connected via HDMI to the VENTUNO Q to use this example.
 
 ### Dependencies
 
-| Package | Provides |
-| ------- | -------- |
-| `qcom-camera-server` | The `cam-server` service that owns the camera hardware |
-| `gstreamer1.0-plugins-qcom-qmmfsrc` | `qtiqmmfsrc`, the camera source element |
-| `gstreamer1.0-plugins-qcom-good` | `v4l2h264enc` / `v4l2h264dec`, hardware H264 encode/decode |
-| `gstreamer1.0-plugins-qcom-bad` | `h264parse` |
-| `libgstreamer-qcom1.0-0` | Core pipeline elements (`queue`, bus) |
-| `python3-gi` | Python bindings for GStreamer (`import gi`) |
+| Package                             | Provides                                                   |
+| ----------------------------------- | ---------------------------------------------------------- |
+| `qcom-camera-server`                | The `cam-server` service that owns the camera hardware     |
+| `gstreamer1.0-plugins-qcom-qmmfsrc` | `qtiqmmfsrc`, the camera source element                    |
+| `gstreamer1.0-plugins-qcom-good`    | `v4l2h264enc` / `v4l2h264dec`, hardware H264 encode/decode |
+| `gstreamer1.0-plugins-qcom-bad`     | `h264parse`                                                |
+| `libgstreamer-qcom1.0-0`            | Core pipeline elements (`queue`, bus)                      |
+| `python3-gi`                        | Python bindings for GStreamer (`import gi`)                |
 
 All of the packages above ship pre-installed on the VENTUNO Q board image. If one is missing, for example after a custom image build, install them with:
 
@@ -353,9 +353,9 @@ Pipeline (built and run internally by `GstRtspMediaFactory`): `qtiqmmfsrc → v4
 
 This builds on the same packages as the [Local Display Stream](#local-display-stream), plus:
 
-| Package | Provides |
-| ------- | -------- |
-| `libgstrtspserver-1.0-0` | RTSP server shared library |
+| Package                      | Provides                                                                        |
+| ---------------------------- | ------------------------------------------------------------------------------- |
+| `libgstrtspserver-1.0-0`     | RTSP server shared library                                                      |
 | `gir1.2-gst-rtsp-server-1.0` | Python bindings for `GstRtspServer` (`from gi.repository import GstRtspServer`) |
 
 `libgstrtspserver-1.0-0` ships pre-installed, but `gir1.2-gst-rtsp-server-1.0` does not. Install it with:
@@ -504,8 +504,8 @@ Pipeline: `qtiqmmfsrc (image/jpeg output) → appsink`, with a background Python
 
 This builds on the same base packages as the [Local Display Stream](#local-display-stream), plus:
 
-| Package | Provides |
-| ------- | -------- |
+| Package                     | Provides  |
+| --------------------------- | --------- |
 | `gstreamer1.0-plugins-base` | `appsink` |
 
 All of the packages required for this script ship pre-installed on the VENTUNO Q board image, no additional installation is required. The script itself only relies on Python's standard library (`threading`, `http.server`) in addition to `python3-gi`.
