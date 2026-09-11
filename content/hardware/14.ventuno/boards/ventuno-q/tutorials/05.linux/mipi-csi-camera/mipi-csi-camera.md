@@ -478,11 +478,7 @@ hostname -I
 
    ![Open Network in VLC](assets/cam-vlc-access.png)
 
-2. Enter the stream URL, replacing `<board-ip>` with your board's IP address, and click **Open**:
-
-   ```
-   rtsp://<board-ip>:8554/test
-   ```
+2. Enter the stream URL `rtsp://<board-ip>:8554/test`, replacing `<board-ip>` with your board's IP address, and click **Open**:
 
    ![VLC playing the RTSP camera stream](assets/cam-vlc-access-2.png)
 
@@ -681,11 +677,7 @@ hostname -I
 
 ### View the Stream in a Browser
 
-Open a browser on any device connected to the same network as the VENTUNO Q, and navigate to:
-
-```
-http://<board-ip>:8080/stream
-```
+Open a browser on any device connected to the same network as the VENTUNO Q, and navigate to `http://<board-ip>:8080/stream`.
 
 ![Viewing the MJPEG camera stream in a browser](assets/cam-browser-access.png)
 
