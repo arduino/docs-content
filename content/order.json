@@ -1,0 +1,62 @@
+{
+  "hardware": {
+    "ventuno": {
+      "boards/ventuno-q/tutorials": {
+        "first-steps": [
+          "user-manual",
+          "first-setup",
+          "sbc-mode-setup",
+          "power-specifications",
+          "flash-image"
+        ],
+        "guides": [
+          "arduino-ide",
+          "bridge",
+          "led-matrix",
+          "mcu-examples",
+          "retroarch"
+        ],
+        "robotics": [
+          "getting-started-ros2",
+          "ros2-perception-rgb-cam",
+          "ros2-perception-rgbd-cam",
+          "ros2-perception-lidar"
+        ],
+        "use-cases": [
+          "local-ai-assistant",
+          "photo-booth",
+          "smart-mirror"
+        ],
+        "ai-workflows": [
+          "npu-guide",
+          "getting-started-qc-ai-hub",
+          "onnx-runtime",
+          "geniex",
+          "llama-cpp",
+          "ollama",
+          "face-detection",
+          "face-mesh",
+          "segformer-seg",
+          "install-openclaw",
+          "edge-impulse"
+        ],
+        "linux": [
+          "linux-on-ventuno"
+        ]
+      }
+    },
+    "mkr": {},
+    "uno": {},
+    "nano": {},
+    "pro": {},
+    "pro-solutions": {},
+    "nicla": {},
+    "opta": {},
+    "edu": {},
+    "kits": {},
+    "mega": {},
+    "modulino": {},
+    "hero": {},
+    "accessories": {}
+  }
+}
