@@ -593,6 +593,243 @@ void decommission_handler() {
 ```
 The sketch above allows you to decommission your board manually after **pressing** the Nano Matter user button for **10 seconds**. You can monitor the status in the Arduino IDE Serial Monitor.
 
+## Zigbee 
+
+Developing Zigbee-compatible IoT solutions has never been easier with the Arduino ecosystem.
+
+![Nano Matter - Zigbee](assets/nano-matter-zigbee-banner.png)
+
+The Nano Matter can communicate with smart home hubs through a Zigbee network, so the hubs used must be Zigbee coordinators (or Zigbee-compatible gateways).
+
+The Silicon Labs core in the Arduino IDE includes several Zigbee examples ready to test with the Nano Matter and serves as a starting point for almost any IoT device we can imagine building.
+
+![Zigbee examples](assets/zigbee-examples.png)
+
+First, to start creating Zigbee-enabled solutions, we need to select the Zigbee protocol in Tools > Protocol stack > Zigbee:
+
+![Zigbee protocol stack](assets/protocol-stack-zigbee.png)
+
+In the example below, we will use the Nano Matter as a Lightbulb. For this, navigate to **File > Examples > Zigbee** and open the built-in sketch called **zigbee_lightbulb_color**.
+
+```cpp
+#include <Zigbee.h>
+#include <ZigbeeColorLightbulb.h>
+
+ZigbeeColorLightbulb zigbee_bulb;
+const uint8_t button_pin = BTN_BUILTIN;
+
+void led_off();
+void update_rgb_led();
+
+void setup()
+{
+  Serial.begin(115200);
+  Serial.println("Zigbee color lightbulb");
+
+  pinMode(LEDR, OUTPUT);
+  pinMode(LEDG, OUTPUT);
+  pinMode(LEDB, OUTPUT);
+  led_off();
+  pinMode(button_pin, INPUT_PULLUP);
+
+  // Hold the button during boot to factory reset (clear stored network credentials)
+  if (digitalRead(button_pin) == LOW) {
+    Serial.println("Factory resetting...");
+    Serial.println("Release the button to reboot");
+    while (digitalRead(button_pin) == LOW) {
+      delay(100);
+    }
+    Zigbee.factoryReset();
+  }
+
+  Zigbee.setVendorName("Silicon Labs");
+  Zigbee.setProductName("Zigbee Color Lightbulb");
+  Zigbee.setFirmwareVersion(0x00000072);
+  Zigbee.begin();
+  zigbee_bulb.begin();
+
+  if (!Zigbee.isPaired()) {
+    Serial.println("Device is not commissioned");
+    Serial.println("Please pair it to your Zigbee Coordinator");
+    zigbee_bulb.set_onoff(true);
+    zigbee_bulb.set_brightness_percent(100);
+    zigbee_bulb.set_saturation_percent(100);
+    zigbee_bulb.set_true_hue(0);
+    zigbee_bulb.set_rgb(255, 255, 255);
+  }
+}
+
+void loop()
+{
+  static bool joined = false;
+  if (!joined && Zigbee.isConnectedToNetwork()) {
+    joined = true;
+    Serial.print("Connected to Zigbee network; ");
+    Serial.print("Channel: ");
+    Serial.print(Zigbee.getChannel());
+    Serial.print(" | PAN ID: 0x");
+    Serial.println(Zigbee.getPanId(), HEX);
+  }
+
+  static bool bulb_on_prev = false;
+  bool bulb_on = zigbee_bulb.get_onoff();
+  if (bulb_on && !bulb_on_prev) {
+    bulb_on_prev = bulb_on;
+    Serial.println("Bulb ON");
+    update_rgb_led();
+  }
+  if (!bulb_on && bulb_on_prev) {
+    bulb_on_prev = bulb_on;
+    led_off();
+    Serial.println("Bulb OFF");
+  }
+
+  static uint8_t hue_prev = zigbee_bulb.get_hue();
+  static uint8_t saturation_prev = zigbee_bulb.get_saturation_percent();
+  static uint8_t brightness_prev = zigbee_bulb.get_brightness_percent();
+  uint8_t hue_current = zigbee_bulb.get_hue();
+  uint8_t saturation_current = zigbee_bulb.get_saturation_percent();
+  uint8_t brightness_current = zigbee_bulb.get_brightness_percent();
+
+  if (hue_current != hue_prev || saturation_current != saturation_prev || brightness_current != brightness_prev) {
+    hue_prev = hue_current;
+    saturation_prev = saturation_current;
+    brightness_prev = brightness_current;
+
+    if (bulb_on) {
+      update_rgb_led();
+    }
+  }
+
+  // Toggle the bulb with the button - this even works when Zigbee is not connected
+  static bool btn_last = true;
+  bool btn_state = digitalRead(button_pin);
+  if (!btn_state && btn_last) {
+    zigbee_bulb.toggle();
+  }
+  btn_last = btn_state;
+
+  delay(50);
+}
+
+void led_off()
+{
+  if (LED_BUILTIN_ACTIVE == LOW) {
+    analogWrite(LEDR, 255);
+    analogWrite(LEDG, 255);
+    analogWrite(LEDB, 255);
+  } else {
+    analogWrite(LEDR, 0);
+    analogWrite(LEDG, 0);
+    analogWrite(LEDB, 0);
+  }
+}
+
+void update_rgb_led()
+{
+  if (!zigbee_bulb.get_onoff()) {
+    led_off();
+    return;
+  }
+
+  uint8_t r;
+  uint8_t g;
+  uint8_t b;
+  zigbee_bulb.get_rgb(&r, &g, &b);
+  Serial.printf("Setting bulb color to > r: %u  g: %u  b: %u\n", r, g, b);
+
+  if (LED_BUILTIN_ACTIVE == LOW) {
+    analogWrite(LEDR, 255 - r);
+    analogWrite(LEDG, 255 - g);
+    analogWrite(LEDB, 255 - b);
+  } else {
+    analogWrite(LEDR, r);
+    analogWrite(LEDG, g);
+    analogWrite(LEDB, b);
+  }
+}
+```
+
+Here is the example sketch main functions explanation:
+
+* In the `setup()` function, a hardware check is performed first. If the built-in button is held during boot, `Zigbee.factoryReset()` is called to leave any current network, clear stored credentials, and restart the device from a clean state.
+
+* Device metadata is configured using `Zigbee.setVendorName()`, `Zigbee.setProductName()`, and `Zigbee.setFirmwareVersion()` so the coordinator can properly identify the device during the pairing process.
+
+* The Zigbee stack and network steering are initialized with `Zigbee.begin()`, followed immediately by `zigbee_bulb.begin()` which allocates and enables the color lightbulb endpoint.
+
+* A commissioning check is performed with `Zigbee.isPaired()`. If the device is not currently paired to a network, the sketch manually sets default fallback values for the brightness, saturation, hue, and RGB attributes.
+
+* In the `loop()` function, the connection status is monitored using `Zigbee.isConnectedToNetwork()`. Once the device successfully joins a network, it confirms the connection details using `Zigbee.getChannel()` and `Zigbee.getPanId()`.
+
+* The requested state from the network is retrieved with `zigbee_bulb.get_onoff()`. The sketch compares it to the previous state and turns the physical light off with `led_off()` or on with `update_rgb_led()`. 
+
+* The sketch continuously tracks the current color parameters via `zigbee_bulb.get_hue()`, `zigbee_bulb.get_saturation_percent()`, and `zigbee_bulb.get_brightness_percent()`. If any of these attributes change from the coordinator, the physical LED is refreshed to match the new color profile.
+
+* The physical button state is read to allow manual control. If pressed, the `zigbee_bulb.toggle()` function flips the current on/off state, updating both the physical LED and the Zigbee attribute even if the device is offline.
+
+* In the custom `update_rgb_led()` function, the exact color defined in the app is retrieved using `zigbee_bulb.get_rgb(&r, &g, &b)`. This stores the requested color code into standard RGB variables, which are then used to drive the PWM signals on the `LEDR`, `LEDG`, and `LEDB` pins.
+
+To upload the code to the Nano Matter, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the board with the sketch.
+
+![Verify and upload](assets/upload-zigbee.png)
+
+After you upload the code, your end device is ready to be commissioned. Unlike Matter, you don't need credentials. Just start searching for new devices on your **Zigbee coordinator**.
+
+### Zigbee Coordinator
+
+![Zigbee hub](assets/zigbee-coordinator.png)
+
+To create your first IoT device with Nano Matter and a Zigbee network, you first need a Zigbee-compatible hub (often called a Coordinator). The commercial products that can work directly as a **Zigbee hub** are listed below:
+
+* **Amazon Alexa Ecosystem:** Echo (4th Gen), Echo Show 10 (3rd Gen), Echo Studio, and Echo Hub.
+* **Samsung SmartThings:** Aeotec Smart Home Hub (V3) and SmartThings Station.
+* **Home Assistant:** Home Assistant Yellow/Green, or any server setup using a compatible USB Zigbee dongle. *(Note: You can even flash the [EZSP coordinator firmware](https://github.com/SiliconLabs/arduino_staging/blob/bozont-zigbee/extra/firmware/readme.md) on another Arduino Nano Matter to act as your dongle!)*
+* **Dedicated Local Hubs:** Hubitat Elevation (C-8) and IKEA DIRIGERA Hub.
+
+***Note: Neither Google Nest nor Apple HomePod devices have built-in Zigbee radios. To control Zigbee devices with Google Home or Apple Home, you must use an intermediate hub (like SmartThings or Home Assistant) to bridge them.***
+
+To commission your device, open your preferred smart home coordinator app (e.g., Alexa, SmartThings, or Home Assistant ZHA), navigate to devices, click on **add device**, and select the option to pair a new **Zigbee device** to put the hub in permit-join mode:
+
+![Adding a new Zigbee device to the coordinator](assets/zigbee-add.gif)
+
+Finally, you can control the Nano Matter **built-in LED** as a native smart device. You can turn it on and off from the app, or manually toggle it using the configured button on your board.
+
+![Lightbulb control with Nano Matter](assets/zigbee-colors.gif)
+
+Depending on the hub you choose, you can also control your device with voice commands through your personal assistant (such as Alexa or Google Assistant).
+
+#### Device Decommissioning
+
+If you want to commission your Nano Matter solution with another service or network, you must first clear its stored network credentials. 
+
+For this, simply hold the Nano Matter user button and briefly press the reset button. The board will restart and get decommissioned. 
+
+![Zigbee decommissioning](assets/zigbee-decommission.gif)
+
+In the serial terminal you should see the following confirming the process:
+
+```bash
+Factory resetting...
+Release the button to reboot
+Zigbee color lightbulb
+Device is not commissioned
+Please pair it to your Zigbee Coordinator
+```
+
+## VS Code and Simplicity Studio
+
+The Arduino Nano Matter is also fully compatible with the Silicon Labs development environment via Visual Studio Code. This integration lets you take your development to the next level, offering professional tools to program and debug your code natively, directly from the editor.
+
+![VS Code Extension](assets/vs-code.png)
+
+If you want to go beyond the standard Arduino ecosystem and fully use the MG24 SoC's hardware debugging capabilities, this is the recommended tool.
+
+To get started, install the extension and access step-by-step configuration tutorials (Getting Started). Visit the official documentation on the VS Code Marketplace:
+
+[Silicon Labs OpenOCD (Simplicity Studio Extension)](https://marketplace.visualstudio.com/items?itemName=silabs-bozont.silabs-openocd-flasher)
+
+
 ## Arduino Cloud
 
 The Nano Matter has no built-in Wi-Fi® but can be seamlessly integrated with the Arduino Cloud using its [API](https://www.arduino.cc/reference/en/iot/api/) and Matter. 
