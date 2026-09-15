@@ -107,6 +107,8 @@ For more alternatives to remotely access your board, please see the [VENTUNO Q U
 
 ## Connect the Camera Module
 
+![Connecting a camera to the CAMERA0 CSI connector](assets/csi-connector.png)
+
 <Alert type="warning">
 
 **Warning:** Make sure the VENTUNO Q is powered OFF when connecting a camera module to one of the CSI connectors.
