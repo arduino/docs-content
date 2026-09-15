@@ -35,6 +35,13 @@
     </FeatureWrapper>
   </Feature>
 
+  <Feature title="Zigbee®" image="communication">
+    Leverage the widely-adopted Zigbee standard to build reliable, low-power mesh networks for home automation and industrial projects.
+    <FeatureWrapper>
+      <FeatureLink title="Zigbee" url="https://docs.silabs.com/zigbee/latest/zigbee-start/" download blank/>
+    </FeatureWrapper>
+  </Feature>
+
   <Feature title="Debugging over USB" image="usb">
     No external debugging device is needed. Connect the board to the computer over USB and have access to a SWD interface. 
   </Feature>

@@ -9,7 +9,7 @@ author: José Bagur, Christopher Méndez
 
 # Description
 
-<p style="text-align: justify;">Expand your home automation and building management projects with the Arduino Nano Matter. This board integrates the high-performance MGM240S microcontroller from Silicon Labs and directly brings the advanced Matter standard for Internet of Things (IoT) connectivity to hobbyists and professionals. The Nano Matter's compact and sturdy build, measuring 18 mm x 45 mm, is perfect for projects that demand energy efficiency and diverse connectivity options, such as Bluetooth® Low Energy and OpenThread. Embrace the simplicity and versatility of the Nano Matter to effortlessly interface with any Matter® compatible devices and leverage the Arduino ecosystem's wide range of peripherals and inputs/outputs to enhance your device connectivity and project capabilities. </p>
+<p style="text-align: justify;">Expand your home automation and building management projects with the Arduino Nano Matter. This board integrates the high-performance MGM240S microcontroller from Silicon Labs and directly brings the advanced Matter and Zigbee standards for Internet of Things (IoT) connectivity to hobbyists and professionals. The Nano Matter's compact and sturdy build, measuring 18 mm x 45 mm, is perfect for projects that demand energy efficiency and diverse connectivity options, such as Bluetooth® Low Energy, OpenThread and Zigbee. Embrace the simplicity and versatility of the Nano Matter to effortlessly interface with any Matter® or Zigbee® compatible devices and leverage the Arduino ecosystem's wide range of peripherals and inputs/outputs to enhance your device connectivity and project capabilities. </p>
 
 The Nano Matter is available in two variants: without headers (SKU: ABX00112) and with pre-installed headers (SKU: ABX00137).
 
@@ -42,7 +42,7 @@ The Arduino Nano Matter is not just an IoT board, it is a gateway to innovation 
 ### General Specifications Overview
 
 <p style="text-align: justify;">
-The Arduino Nano Matter merges the well-known Arduino way of making complex technology more accessible, bringing Matter, one of the most popular IoT connectivity standards, closer to the hobbyist and professional world. The powerful MGM240S multi-protocol wireless module from Silicon Labs is the main controller of the board.
+The Arduino Nano Matter merges the well-known Arduino way of making complex technology more accessible, bringing Matter and Zigbee, two of the most popular IoT connectivity standards, closer to the hobbyist and professional world. The powerful MGM240S multi-protocol wireless module from Silicon Labs is the main controller of the board.
 
 The main features are highlighted in the table shown below.
 </p>
@@ -52,7 +52,7 @@ The main features are highlighted in the table shown below.
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Microcontroller     | 78 MHz, 32-bit Arm® Cortex®-M33 core (MGM240SD22VNA)                                                                                                                   |
 | Internal Memory     | 1536 kB Flash and 256 kB RAM                                                                                                                                           |
-| Connectivity        | 802.15.4 Thread, Bluetooth® Low Energy 5.3, and Bluetooth® Mesh                                                                                                        |
+| Connectivity        | 802.15.4 Thread, Zigbee, Bluetooth® Low Energy 5.3, and Bluetooth® Mesh                                                                                                        |
 | Security            | Secure Vault® from Silicon Labs                                                                                                                                        |
 | USB Connectivity    | USB-C® port for power and data                                                                                                                                         |
 | Power Supply        | Various options for easily powering the board: USB-C® port and external power supply connected through the board's Nano-styled header connector pins (5V, VIN)         |
@@ -228,7 +228,7 @@ The Nano Matter was designed to be usable as a surface-mount module and presents
 ### Board Peripherals and Actuators 
 
 <p style="text-align: justify;">
-The Nano Matter has one push button and one RGB LED available for the user; both the push button and the RGB LED are placed on the top side of the board.  Their placement is shown in the figure below; all the dimensions are in mm.
+The Nano Matter has one push button and one RGB LED available for the user; both the push button and the RGB LED are placed on the top side of the board. Their placement is shown in the figure below; all the dimensions are in mm.
 </p>
 
 ![](assets/Nano_Matter_PeripheralsActuators.png)
