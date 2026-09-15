@@ -285,6 +285,12 @@ async function capture(page, pathname, outDir, options = {}) {
         insetHighlight = false
     } = options;
 
+    // Move mouse away to prevent hover tooltips or active states
+    await page.mouse.move(0, 0).catch(() => {});
+    await page.evaluate(() => window.scrollTo(0, 0)).catch(() => {});
+    await suppressToasts(page);
+    await dismissToasts(page);
+
     let labelRects = [];
 
     if (highlight) {
@@ -377,6 +383,13 @@ async function capture(page, pathname, outDir, options = {}) {
 async function suppressToasts(page) {
     await page.addStyleTag({ 
         content: `
+            [role="tooltip"],
+            [data-role="tooltip"],
+            [data-radix-popper-content-wrapper],
+            [data-radix-tooltip-content],
+            div[class*="react-aria-Tooltip"],
+            body > div[class*="_tooltip_"],
+            body > div[class*="Tooltip_"],
             div[class*="Snackbar_"], 
             li[class*="Toastify"], 
             div[class*="toast"], 
@@ -385,6 +398,8 @@ async function suppressToasts(page) {
             dialog.message-dialog,
             div[role="status"] { 
                 display: none !important; 
+                opacity: 0 !important;
+                visibility: hidden !important;
                 pointer-events: none !important; 
             }
         `
@@ -392,9 +407,8 @@ async function suppressToasts(page) {
 }
 
 async function dismissToasts(page) {
-    await page.evaluate(() => {
-        document.querySelectorAll('div[class*="Snackbar_"], li[class*="Toastify"], div[class*="toast"], div[class*="sonner"], #message-dialog-container, dialog.message-dialog').forEach(el => el.remove());
-    }).catch(() => {});
+    // CSS suppression in suppressToasts hides toasts and tooltips safely without breaking React DOM trees.
+    await suppressToasts(page);
 }
 
 module.exports = {
