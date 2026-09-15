@@ -35,6 +35,10 @@ The 5V pin of the SEN136B5B is connected to the 5V pin on the board, the GND pin
 
 <iframe src='https://create.arduino.cc/example/builtin/06.Sensors%5CPing/Ping/preview?embed&snippet' style='height:510px;width:100%;margin:10px 0' frameborder='0'></iframe>
 
+### Code For TRIG and ECHO PIN Range Finder
+
+<iframe src=https://create.arduino.cc/editor/hunzalaqamar/6a03e92f-a53e-4327-94da-8840eefdd98d/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
+
 ### Learn more
 
 You can find more basic tutorials in the [built-in examples](/built-in-examples) section.
