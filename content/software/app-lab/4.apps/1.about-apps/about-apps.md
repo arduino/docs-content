@@ -9,7 +9,7 @@ tags:
   - Arduino
 ---
 
-An **Arduino App** is a modular software architecture that orchestrates multiple components into a single functional unit. Unlike a traditional Arduino sketch, the core of an App is high-level **Python** logic running on the board's Linux subsystem. 
+An **Arduino App** is a modular software architecture that orchestrates multiple components into a single functional unit. Unlike a traditional Arduino sketch, the core of an App is high-level **Python** logic running on the board's Linux subsystem.
 
 While an App is fundamentally a Python application, it is highly extensible. You can enhance it by adding **Bricks** (pre-built modular components like AI models or databases) and, on supported dual-processor boards, an optional **C++ sketch** for real-time hardware control.
 

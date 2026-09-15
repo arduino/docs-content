@@ -29,7 +29,7 @@ Compatible carriers with the supported device:
 
 The following section highlights the critical updates and enhancements introduced in the latest firmware version. It presents the most significant progress and optimizations implemented to improve performance, enhance user experience, and strengthen security.
 
-## Latest Firmware Version: __2025.08.12 (Release arduino-91.9, OS Image 934)__
+## Latest Firmware Version: __2026.06.03 (Release arduino-95.3, OS Image 1007)__
 
 The listing herein offers a glimpse into the Portenta X8 firmware's continuous improvement and enhancement. You can expect a concise overview of the integrated key new features, major bug fixes, and critical security patches to ensure the highest level of functionality and performance within the Portenta X8 system.
 
@@ -37,14 +37,31 @@ The listing herein offers a glimpse into the Portenta X8 firmware's continuous i
 
 ***__You can download the latest firmware version [here](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).__ If you need instructions on updating the Portenta X8, you can follow [this guide](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/) using the __uuu__ tool.***
 
-**Bug Fixes:**
-- [H7] Updated H7 firmware: prevent buffer overflow during rx phase
+**Changelog:**
+- Update containers to latest versions
 
-***For more information on the Foundries Core related to our release, please refer to the [__LmP V91 Release Notes — FoundriesFactory 91 documentation__](https://docs.foundries.io/91/).***
+***For more information on the Foundries Core related to our release, please refer to the [__LmP v95 Release Notes__](https://github.com/foundriesio/docs/blob/main/release-notes/rn_v95.md).***
 
 ## Available Firmware Versions
 
 Below is a list of all available firmware versions with their release notes.
+
+### OS Image 934
+
+<details>
+  <summary><strong>2025.08.12 (Release arduino-91.9, OS Image 934)</strong></summary>
+
+#### Image Access
+  - Full image [download](https://downloads.arduino.cc/portentax8image/934.tar.gz)
+
+#### Bug Fixes
+  - [H7] Updated H7 firmware: prevent buffer overflow during rx phase
+
+#### Additional Notes
+  - Based on [LmP v91](https://foundries.io/products/releases/91/). It is based on the Yocto manifest. For docker-compose apps, check out [here](https://github.com/arduino/portenta-containers/tree/release).
+
+</details>
+<br></br>
 
 ### OS Image 910
 
@@ -118,7 +135,7 @@ Below is a list of all available firmware versions with their release notes.
 
 #### Bug Fixes
   - [RS-485] Fixed RS-485 `ttyX0` not working.
-  - [PXIE] Fixed PCIe on kernel 6.1.
+  - [PCIe] Fixed PCIe on kernel 6.1.
 
 #### Additional Notes
   - Based on [LmP v91](https://foundries.io/products/releases/91/). It is based on the Yocto manifest. For docker-compose apps, check out [here](https://github.com/arduino/portenta-containers/tree/release).

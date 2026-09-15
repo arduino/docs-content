@@ -1053,7 +1053,7 @@ Unter Worst-Case-Bedingungen, bei denen MPU, NPU und GPU gleichzeitig mit voller
 
 # Safety Information
 
-Maintain a minimum separation distance of 20 cm between the device and the user during operation. The 5 GHz frequency band may be subject to operational restrictions depending on the country of use.
+Maintain a minimum separation distance of 20 cm between the device and the user during operation. The 5 GHz and 6GHz frequency band may be subject to operational restrictions depending on the country of use.
 
 **Bulgarian (BG):**
 
@@ -1245,10 +1245,6 @@ This product is a development board that contains ESD-sensitive components. Appr
 | **UK**                 | **United Kingdom - UKCA Declaration of Conformity**                                                                                                                                              |
 | United Kingdom         | Hereby, Arduino S.r.l, declares that this Radiolan is in compliance with the essential requirements and other relevant provisions of The Radio Equipment Regulations 2017.                       |
 
-The full text of the EU and UKCA declaration of conformity is available at the following internet address: <https://docs.arduino.cc/certifications>
-
-The product complies with the requirements of the RoHS Directive (2011/65/EU and 2015/863/EU) and the REACH Regulation (EC) 1907/2006. A copy of the compliance documentation is available at: <https://docs.arduino.cc/certifications>
-
 Requirements in:
 
 Belgium (BE), Bulgaria (BG), Czech Republic (CZ), Denmark (DK), Germany (DE), Iceland (IS), Estonia (EE), Ireland (IE), Greece (EL), Spain (ES), France (FR), Croatia (HR), Italy (IT), Cyprus (CY), Latvia (LV), Liechtenstein (LI), Lithuania (LT), Luxembourg (LU), Hungary (HU), Malta (MT), Netherlands (NL), Norway (NO), Austria (AT), Poland (PL), Portugal (PT), Romania (RO), Slovenia (SI), Slovakia (SK), Turkey (TR), Finland (FI), Sweden (SE), Switzerland (CH), United Kingdom (North Irland) (UK(NI)), and United Kingdom (UK).
@@ -1263,16 +1259,16 @@ This equipment should be installed and operated with a minimum distance of 20 cm
 
 This radio equipment operates in the following frequency bands and with the maximum radio-frequency power indicated below:
 
-| **Radio Technology**                | **Frequency Band** | **Maximum Transmit Power** |
-|-------------------------------------|--------------------|----------------------------|
-| Bluetooth® EDR                      | 2400 - 2483.5 MHz  | 18.31 dBm                  |
-| Bluetooth® LE                       | 2400 - 2483.5 MHz  | 9.97 dBm                   |
-| Wi-Fi® 2.4 GHz                      | 2400 - 2483.5 MHz  | 19.91 dBm EIRP             |
-| Wi-Fi® 5 GHz                        | 5150 - 5350 MHz    | 22.92 dBm EIRP             |
-| Wi-Fi® 5 GHz                        | 5470 - 5725 MHz    | 22.97 dBm EIRP             |
-| Wi-Fi® 5 GHz                        | 5725 - 5850 MHz    | 13.84 dBm EIRP             |
-| Wi-Fi® 6 GHz (LPI client)           | 5945 - 6425 MHz    | 22.83 dBm EIRP             |
-| Wi-Fi® 6 GHz (VLP)                  | 5945 - 6425 MHz    | 13.77 dBm EIRP             |
+| **Radio Technology**      | **Frequency Band** | **Maximum Transmit Power** |
+| ------------------------- | ------------------ | -------------------------- |
+| Bluetooth® EDR            | 2400 - 2483.5 MHz  | 18.31 dBm                  |
+| Bluetooth® LE             | 2400 - 2483.5 MHz  | 9.97 dBm                   |
+| Wi-Fi® 2.4 GHz            | 2400 - 2483.5 MHz  | 19.91 dBm EIRP             |
+| Wi-Fi® 5 GHz              | 5150 - 5350 MHz    | 22.92 dBm EIRP             |
+| Wi-Fi® 5 GHz              | 5470 - 5725 MHz    | 22.97 dBm EIRP             |
+| Wi-Fi® 5 GHz              | 5725 - 5850 MHz    | 13.84 dBm EIRP             |
+| Wi-Fi® 6 GHz (LPI client) | 5945 - 6425 MHz    | 22.83 dBm EIRP             |
+| Wi-Fi® 6 GHz (VLP)        | 5945 - 6425 MHz    | 13.77 dBm EIRP             |
 
 In accordance with EU regulations (RED Directive 2014/53/EU), the use of the 5 GHz band may be subject to national restrictions.
 
@@ -1284,7 +1280,7 @@ Arduino S.r.l. hereby declares that this product is in compliance with the essen
 
 Contains FCC ID: J9C-QCNFA725
 
-**FCC compliance information**
+**FCC Compliance Information**
 
 This device complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation.
 
@@ -1341,7 +1337,7 @@ Caution:
 
 (i) the device for operation in the band 5150-5250 MHz is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems;
 
-(iv) Users should also be advised that high-power radars are allocated as primary users (i.e. priority users) of the bands 5250-5350 MHz and 5650-5850 MHz and that these radars could cause interference and/or damage to LE-LAN devices.
+(ii) Users should also be advised that high-power radars are allocated as primary users (i.e. priority users) of the bands 5250-5350 MHz and 5650-5850 MHz and that these radars could cause interference and/or damage to LE-LAN devices.
 
 *French:*
 
@@ -1351,7 +1347,7 @@ Le guide d'utilisation des dispositifs pour réseaux locaux doit inclure des ins
 
 (i) les dispositifs fonctionnant dans la bande 5 150-5 250 MHz sont réservés uniquement pour une utilisation à l'intérieur afin de réduire les risques de brouillage préjudiciable aux systèmes de satellites mobiles utilisant les mêmes canaux ;
 
-(iv) Les radars à haute puissance sont désignés comme utilisateurs principaux (c'est-à-dire utilisateurs prioritaires) des bandes de fréquences 5250-5350 MHz et 5650-5850 MHz. Ces radars peuvent causer des interférences et/ou endommager les dispositifs LE-LAN.
+(ii) Les radars à haute puissance sont désignés comme utilisateurs principaux (c'est-à-dire utilisateurs prioritaires) des bandes de fréquences 5250-5350 MHz et 5650-5850 MHz. Ces radars peuvent causer des interférences et/ou endommager les dispositifs LE-LAN.
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   <strong>Note:</strong> For 5GHz and/or when co-located with 5 GHz transmitters, the following statements should be provided in the user information.
@@ -1377,38 +1373,6 @@ Devices shall not be used for control of or communications with unmanned aircraf
 
 Les dispositifs ne doivent pas être utilisés pour commander des systèmes d'aéronef sans pilote ni pour communiquer avec de tels systèmes; Les dispositifs ne doivent pas être utilisés sur les plateformes de forage pétrolier; Les dispositifs ne doivent pas être utilisés dans les aéronefs, à l'exception des points d'accès intérieurs de faible puissance, des dispositifs subordonnés intérieurs, des dispositifs clients de faible puissance et des dispositifs de très faible puissance fonctionnant dans la bande de 5 925 à 6 425 MHz, qui peuvent être utilisés dans les gros aéronefs tel qu'il est défini dans le Règlement de l'aviation canadien, et ce, lorsqu'ils volent à une altitude supérieure à 3 048 mètres (10 000 pieds).
 
-## MIC
-
-Contains MIC: 003-230390 / D220065003
-
-5GHz band (W52,W53): Indoor use only (except communicate to high power radio)
-
-5GHz 帯(W52, W53)は屋内利用に限る (高出力システムと通信する場合を除く)
-
-## Anatel
-
-ANATEL: 13700-21-02245
-
-Este equipamento não tem direito à proteção contra interferência prejudicial e não pode causar interferência em sistemas devidamente autorizados.
-
-Para maiores informações, consulte o site da ANATEL - <https://www.gov.br/anatel>
-
-## NCC
-
-Contains NCC: CCAI21Y10060T5
-
-台灣: 國家通訊傳播委員會
-
-取得審驗證明之低功率射頻器材，非經核准，公司、商號或使 用者均不得擅自變更頻率、加大功率或變更原設計之特性及功能。低功率射頻器材之使用不得影響飛航安全及干擾合法通信；經發現有干擾現象時，應立即停用，並改善至無干擾時方得繼續使用。前述合法通信，指依電信管理法規定作業之無線電通信。低功率射頻器材須忍受合法通信或工業、科學及醫療用電波輻射性電機設備之干擾。
-
-應避免影響附近雷達系統之操作
-
-    高增益指向性天線只得應用於固定式點對點系統。
-
-## OFCA
-
-5150 ~5350MHz & 6GHz band Wi-Fi (LPI) are also required to be used indoor in HongKong.
-
 ## Trademarks
 
 The terms HDMI, HDMI High-Definition Multimedia Interface, HDMI trade dress and the HDMI Logos are trademarks or registered trademarks of HDMI Licensing Administrator, Inc.
@@ -1432,5 +1396,7 @@ The terms HDMI, HDMI High-Definition Multimedia Interface, HDMI trade dress and 
 # Versionshistorie des Dokuments
 
 | **Datum**   | **Revision** | **Änderungen**         |
-| :---------: | :----------: | ---------------------- |
-| 25.08.2026  |      1       | Erste Veröffentlichung |
+| :--------: | :----------: | ------------- |
+| 25/08/2026 |      1       | Erste Veröffentlichung |
+| 28/08/2026 |      2       | Updated Certifications |
+| 31/08/2026 |      3       | Adding 6 GHz to Safety Information |

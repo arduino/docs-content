@@ -6,16 +6,16 @@ tags: [Arduino App Lab, UNO Q, Flash, Linux image, Arduino Flasher CLI]
 
 Flashing a new Linux image to your Arduino board allows you to install a fresh operating system, recover from system corruption, or switch between different supported Linux distributions. This process replaces the entire Linux OS and all stored data on the board.
 
-<Alert type="info">
-
-**Note:** These instructions apply to the UNO Q only. Support for VENTUNO Q will be introduced in upcoming Arduino App Lab and Arduino Flasher CLI releases.
-
-</Alert>
-
 There are two primary methods for flashing your board:
 
 1. **Built-in Flasher in App Lab:** Use this method for boards already connected and recognized by App Lab.
 2. **Arduino Flasher CLI:** A standalone command-line tool for recovering boards that cannot be reached via App Lab or for performing a low-level hardware reset.
+
+<Alert type="note">
+
+**Important:** These instructions apply to the UNO Q only. For instructions on flashing the VENTUNO Q, see [Flashing the Ubuntu Image](/tutorials/ventuno-q/flash-image/).
+
+</Alert>
 
 ## Use the Built-in Flasher in App Lab
 

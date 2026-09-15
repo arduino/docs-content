@@ -1158,10 +1158,9 @@ While the `Bridge` library is what you use in your code, the Router is the traff
 The Router manages the physical connection between the two processors. It is important to know which hardware resources are claimed by the Router to avoid conflicts in your own applications.
 
 * **Linux Side (MPU):** The router claims the serial device `/dev/ttyHS1`.
-* **MCU Side (STM32):** The router claims the hardware serial port `Serial1`.
 
 > **⚠️ WARNING: Reserved Resources**
-> Do not attempt to open `/dev/ttyHS1` (on Linux) or `Serial1` (on Arduino/Zephyr) in your own code. These interfaces are exclusively locked by the `arduino-router` service. Attempting to access them directly will cause the Bridge to fail.
+> Do not attempt to open `/dev/ttyHS1` (on Linux) in your own code. This interface is exclusively locked by the `arduino-router` service. Attempting to access it directly will cause the Bridge to fail.
 
 #### Managing the Router Service
 

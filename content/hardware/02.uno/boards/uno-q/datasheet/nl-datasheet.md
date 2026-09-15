@@ -4,9 +4,9 @@ title: Arduino® UNO Q
 type: maker
 ---
 
-# Nederlands
-
 ![](assets/featured.png)
+
+# Nederlands
 
 # Beschrijving
 
@@ -86,11 +86,11 @@ De draadloze module maakt gebruik van SDIO voor Wi-Fi®-gegevens en een UART voo
 | **Interface (connector)** | **Spanning & aantal pinnen**       | **Details**                                                  |
 | ------------------------- | ----------------------------- | ------------------------------------------------------------ |
 | JMEDIA (JMEDIA1)          | 1,8 V-signalen, 60-pins         | - Snelheidscamera-/beeldschermsporen (MIPI DSI, CSI) <br></br>- Camerabesturingsbus (CCI I²C) - speciaal, geen algemene GPIO- <br></br>- Cameraklokken (SOC_CAM_MCLK0/1) <br></br>- Bevat ook voedingsspanningen (+3V3 OUT, VIN IN) en GND                                                                                                                                       |
-| JMISC (JMISC1)            | Gemengd 1,8 V / 3,3 V, 60-pins   | - Gemengde GPIO- en SDIO- <br></br>- MCU-randapparatuur: SDMMC1, TRACE, PSSI (parallelle camera), I²C4, MCO/CRS_SYNC, OPAMP1-pinnen <br></br>- Audio-eindpunten: Mic2 INP/INM/BIAS, Hoofdtelefoon L/R + REF, LineOut P/M, Oortelefoon P/R, HS_DET <br></br>- MPU (SoC) GPIO-banken (SE0) op 1,8 V <br></br>- Bevat ook voedingsspanningen (+5V USB OUT, +3V3 OUT, +1V8 OUT, VBAT OUT, VCOIN IN) en GND |
+| JMISC (JMISC1)            | Gemengd 1,8 V / 3,3 V, 60-pins   | - Gemengde GPIO- en SDIO- <br></br>- MCU-randapparatuur: SDMMC1, TRACE, PSSI (parallelle camera), I²C4, MCO/CRS_SYNC, OPAMP1-pinnen <br></br>- Audio-eindpunten: Mic2 INP/INM/BIAS, Hoofdtelefoon L/R + REF, LineOut P/M, Oortelefoon P/R, HS_DET <br></br>- MPU (SoC) GPIO-banken (SE0) op 1,8 V <br></br>- Bevat ook voedingsspanningen (+5V SYS OUT, +3V3 OUT, +1V8 OUT, VBAT OUT, VCOIN IN) en GND |
 | JCTL (JCTL1)              | 1,8 V, 10-pins                 | - SE4 UART-console <br></br>- Ingang voor geforceerd opstarten via USB <br></br>- PMIC-reset-ingang <br></br>- VBUS-voedingsschakelaar uitschakelen <br></br>- 1,8 V-rail en GND                                                                                                                                                                                                                              |
 | JDIGITAL (JDIGITAL1)      | 3,3 V, 18-pins                 | - Digitale I/O voor SPI, I²C, UART, PWM, CAN                                                                                                                                                                                                                                                                                                                                      |
 | JANALOG (JANALOG1)        | 3,3 V, 14-pins                 | - Analoge I/O- <br></br>- ADC-kanalen en referenties                                                                                                                                                                                                                                                                                                                             |
-| JSPI (JSPI1)              | 3,3 V-logica, 6-pins + 5 V VBUS | - Speciale SPI: MOSI, MISO, SCLK <br></br>- MCU-reset (NRST) <br></br>- Aarde <br></br>- 5 V VBUS (USB-voeding)                                                                                                                                                                                                                                                                 |
+| JSPI (JSPI1)              | 3,3 V-logica, 6-pins + 5 V SYS | - Speciale SPI: MOSI, MISO, SCLK <br></br>- MCU-reset (NRST) <br></br>- Aarde <br></br>- 5 V SYS (diode-OR output)                                                                                                                                                                                                                                            |
 | Qwiic (QWIIC1)            | 3,3 V, 4-pins                  | - I²C (Qwiic-ecosysteem)                                                                                                                                                                                                                                                                                                                                                         |
 ### Gerelateerde producten
 
@@ -113,7 +113,7 @@ De draadloze module maakt gebruik van SDIO voor Wi-Fi®-gegevens en een UART voo
 | VIN (DC IN) |            7-24 V |                   - | JMEDIA, JANALOG (VIN) |
 | 5 V-pin     |               5 V |           tot 3 A | JANALOG               |
 
-<p style="text-align: justify;">De UNO Q ondersteunt twee voedingsingangen: een USB-C-poort en een 7-24 V DC-ingang. Via USB Power Delivery vraagt het apparaat alleen het 5 V / 3 A-profiel aan en geen PD-profielen met een hogere spanning. Gebruik een voeding en kabel die geschikt zijn voor 5 V bij 3 A om onderspanning te voorkomen tijdens korte pieken in het stroomverbruik, zoals draadloze bursts of het initialiseren van het scherm. Je kunt ook een gereguleerde externe 5 V DC-bron gebruiken om het bord van stroom te voorzien via de 5 V-pin op de JANALOG-header.</p>
+<p style="text-align: justify;">UNO Q supporta tre tipi di alimentazione: una porta USB-C, un ingresso da 7-24 V CC e il pin <code>5V_SYS</code> disponibile su JANALOG, JMISC o JSPI. Tramite USB Power Delivery, richiede solo il profilo da 5 V / 3 A e non richiede profili PD con tensioni più elevate. Usa un alimentatore e un cavo con specifiche di 5 V a 3 A per evitare sottotensioni durante brevi picchi di attività, come i burst wireless o l’inizializzazione del display. È anche possibile utilizzare una sorgente esterna regolata a 5 V CC per alimentare la scheda tramite il pin <code>5V_SYS</code> su JANALOG, JMISC o JSPI.</p>
 
 <p style="text-align: justify;"><em>De USB-C VBUS</em> en de 5 V-uitgang van de 7-24 V-buck worden <em>via een diode-OR-schakeling</em> samengevoegd tot de 5 V-systeembus (<code>5V_SYS</code>). Vanuit <code>5V_SYS</code> leidt het ontwerp het 3,8 V-voorregelknooppunt af en vervolgens de 3,3 V.
 De PMIC, gevoed door 5V_SYS, levert de 1,8V-spanning.</p>
@@ -366,7 +366,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 - **JMEDIA (B2) (JMEDIA1):** Vierkanaals camera- en beeldsignalen in het 1,8 V-bereik (MIPI-CSI-2 en MIPI-DSI).
 
-- **JMISC (B1) (JMISC):** Header met gemengde functies die 3,3 V MCU-signalen en 1,8 V MPU-signalen combineert. Deze biedt een MCU PSSI-bus (parallelle camera), SDMMC1-testpinnen, TRACE, I2C4, MCO/CRS_SYNC en OPAMP1 analoge pinnen. Ook zijn er audio-aansluitingen (Mic2, Headphone L/R+REF, LineOut P/M, Earpiece P/R, HS_DET) en voedingsspanningen (+3V3, +5V_USB, +1V8, VBAT en VCOIN voor systeemgebruik). Let op de spanningsdomeinen: **MCU-pinnen zijn 3,3 V, MPU GPIO zijn 1,8 V**.
+- **JMISC (B1) (JMISC):** Header met gemengde functies die 3,3 V MCU-signalen en 1,8 V MPU-signalen combineert. Deze biedt een MCU PSSI-bus (parallelle camera), SDMMC1-testpinnen, TRACE, I2C4, MCO/CRS_SYNC en OPAMP1 analoge pinnen. Ook zijn er audio-aansluitingen (Mic2, Headphone L/R+REF, LineOut P/M, Earpiece P/R, HS_DET) en voedingsspanningen (+3V3, +5V_SYS, +1V8, VBAT en VCOIN voor systeemgebruik). Let op de spanningsdomeinen: **MCU-pinnen zijn 3,3 V, MPU GPIO zijn 1,8 V**.
 
 - **JCTL (A1) (JCTL1):** Pinnen voor opstartmodus, reset en signalen voor ontwaken uit slaapstand (1,8 V-logica).
 
@@ -431,9 +431,9 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |      51 | SOC_GPIO_28     | -               | 1,8 V MPU   | SoC GPIO 28                                                     |
 |      52 | SOC_GPIO_101    | -               | 1,8 V MPU   | SoC GPIO 101                                                    |
 |      53 | +3V3 (OUT)      | -               | Voeding      | 3,3 V-uitgang                                                 |
-|      54 | +5V_USB (OUT)   | -               | Voeding      | 5 V-uitgang                                                   |
+|      54 | +5V_SYS (OUT) | -               | Voeding      | Voedingsingang of -uitgang; bron- en bordvoeding ge-OR'd via Schottky-diodes |
 |      55 | +3V3 (OUT)      | -               | Voeding      | 3,3 V-uitgang                                                 |
-|      56 | +5V_USB (OUT)   | -               | Voeding      | 5 V-uitgang                                                   |
+|      56 | +5V_SYS (OUT) | -               | Voeding      | Voedingsingang of -uitgang; bron- en bordvoeding ge-OR'd via Schottky-diodes |
 |      57 | +1V8 (IN)       | -               | Voeding      | 1,8 V-rail in                                                   |
 |      58 | GND             | -               | Voeding      | Aarde                                                          |
 |      59 | VCOIN (IN)      | -               | Voeding      | Systeemspanning (PMIC RTC)                                       |
@@ -527,14 +527,14 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 ### JSPI (A5) (JSPI1) - Pinindeling
 
-| **Pin** | **Benaming** | **Netwerk / Functie** | **Domein** | **Opmerkingen**  |
-|--------:|-----------------|--------------------|------------|------------|
-|       1 | MISO            | PC2 (SPI2_MISO)    | 3,3 V      | -          |
-|       2 | +5V             | 5V_USB_VBUS        | Stroom      | Alleen stroom |
-|       3 | SCK             | PD1 (SPI2_SCK)     | 3,3 V      | -          |
-|       4 | MOSI            | PC3 (SPI2_MOSI)    | 3,3 V      | -          |
-|       5 | RESET           | MCU_NRST           | 3,3 V      | -          |
-|       6 | GND             | Aarde             | Voeding      | -          |
+| **Pin** | **Benaming** | **Netwerk / Functie** | **Domein** | **Opmerkingen** |
+| ------: | ------------ | --------------------- | ---------- | --------------- |
+|       1 | MISO         | PC2 (SPI2_MISO)       | 3,3 V      | -               |
+|       2 | +5V          | 5V_SYS                | Stroom     | Voeding of uitgang; de bron en de printplaat worden via Schottky-diodes met elkaar verbonden via een OR-schakeling  |
+|       3 | SCK          | PD1 (SPI2_SCK)        | 3,3 V      | -               |
+|       4 | MOSI         | PC3 (SPI2_MOSI)       | 3,3 V      | -               |
+|       5 | RESET        | MCU_NRST              | 3,3 V      | -               |
+|       6 | GND          | Aarde                 | Voeding    | -               |
 
 ### JCTL (A1) (JCTL1) - Aansluitingsoverzicht
 
@@ -588,7 +588,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |       2 | IOREF           | PWR_3P3V          | - I/O-spanningsreferentie (spiegelt de 3,3 V-spanningsrail)             | Voeding          | Alleen uitgang; geen terugvoeding |
 |       3 | RESET           | MCU_NRST          | - MCU-reset                                              | 3,3 V          | -                             |
 |       4 | +3V3 OUT        | PWR_3P3V          | - 3,3 V-voeding                                           | Voeding          | -                             |
-|       5 | +5V USB VBUS    | 5V_USB_VBUS       | - 5 V-voeding (doorvoer)                              | Stroom          | Alleen stroom                    |
+|       5 | +5V OUT | 5V_SYS    | - 5 V-voeding (diode-OR output)               | Stroom          | Voeding of uitgang; de bron en de printplaat worden via Schottky-diodes met elkaar verbonden via een OR-schakeling |
 |       6 | GND             | GND               | - Aarde                                                 | Voeding          | -                             |
 |       7 | GND             | GND               | - Aarde                                                 | Voeding          | -                             |
 |       8 | VIN IN          | DC_IN             | - 7-24 V-ingang                                           | Voeding          | Alleen voeding                    |
@@ -600,8 +600,9 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |      14 | A5 /  D19       | PC0               | - ADC-ingang <br></br>- I2C3_SCL <br></br>- LPTIM1_IN1    | Analoog / 3,3 V | -                             |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  A0 (PA4) en A1 (PA5) zijn directe ADC-ingangen van de STM32U585 die zijn gekoppeld aan <code>VREF+.</code> Ze zijn niet bestand tegen 5 V. Het geldige ingangsbereik is <code>0-VREF+</code> (≈3,3 V). Het absolute maximum op de pin is <code>VDD + 0,3 V</code>, ongeveer 3,6 V. Boven dit niveau beginnen de interne beveiligingsdiodes van de MCU te geleiden. De header biedt ook <code>5V_SYS-</code> en <code>PWR_3P3V-voedingspinnen</code>, die alleen bedoeld zijn voor de stroomvoorziening. Breng geen 5 V aan op <strong>A0</strong> of <strong>A1</strong>. IOREF is aangesloten op de 3,3 V-rail (<code>PWR_3P3V</code>) en dient als referentie/uitgang voor shields. Het mag niet worden gebruikt om stroom terug te voeren naar het bord.
+  A0 (PA4) en A1 (PA5) zijn directe ADC-ingangen van de STM32U585, met als referentie <code>VREF+</code>. Ze zijn niet bestand tegen 5 V. Het geldige ingangsbereik is <code>0-VREF+</code> (≈3,3 V). Het absolute maximum op de pin is <code>VDD + 0,3 V</code>, ongeveer 3,6 V. Boven dit niveau beginnen de interne beveiligingsdiodes van de MCU te geleiden. De header biedt ook <code>5V_SYS</code> (beveiligd door de Schottky-diode-OR) en <code>PWR_3P3V</code> (alleen uitgang) voedingspinnen, die verschillen van de ADC-geschikte A0/A1-pinnen. Leg geen 5 V aan op <strong>A0</strong> of <strong>A1</strong>. IOREF is aangesloten op de 3,3 V-rail (<code>PWR_3P3V</code>) en dient als referentie/uitgang voor shields. Je mag het niet gebruiken om stroom terug te voeren naar het bord.
 </div>
+
 
 ## Snelle randapparatuur
 
@@ -1038,6 +1039,7 @@ Este equipamento não tem direito à proteção contra interferência prejudicia
 
 |  **Date**  | **Revision** | **Changes**                                                  |
 | :--------: | :----------: | ------------------------------------------------------------ |
+| 26/08/2026 |      15      | Update 5 V power pin (5V_SYS) input option on JANALOG, JMISC, JSPI |
 | 26/06/2026 |      14      | Add German language                                          |
 | 17/06/2026 |      13      | Display output clarification (USB-C and JMEDIA)              |
 | 16/06/2026 |      12      | Add Safety information section                               |

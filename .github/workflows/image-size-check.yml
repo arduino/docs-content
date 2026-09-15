@@ -13,7 +13,7 @@ jobs:
       # every historical version of the PDFs and ZIPs: those blobs are ~10GB of the
       # 10.4GB pack and they filled the runner disk, so the checkout never completed.
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
           filter: blob:none

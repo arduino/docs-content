@@ -71,11 +71,17 @@ Download the latest **Arduino Flasher CLI** release from the [Arduino Software](
 
 Extract the archive, then open a terminal or command prompt and navigate to the extracted directory.
 
-***<strong>macOS tip:</strong> Use <strong>Archive Utility</strong> to preserve the executable permissions.***
+<Alert type="info">
 
+**macOS tip:** Use **Archive Utility** to preserve the executable permissions.
 
-***<strong>Linux users:</strong> Configure the `udev` rule for Qualcomm devices with vendor ID `05c6` and add your user to the `dialout` group. Follow the [Linux setup guide](/software/app-lab/setup/linux/#step-2-configure-udev-rules) for instructions.***
+</Alert>
 
+<Alert type="info">
+
+**Linux users:** Configure the `udev` rule for Qualcomm devices with vendor ID `05c6` and add your user to the `dialout` group. Follow the [Linux setup guide](/software/app-lab/setup/linux/#step-2-configure-udev-rules) for instructions.
+
+</Alert>
 
 ## Step 3: Flash the Ubuntu Image
 
@@ -92,7 +98,7 @@ Flashing a VENTUNO Q erases the existing system and user data. Back up important
 Run the command for your operating system:
 
 **macOS / Linux:**
-s
+
 ```bash
 ./arduino-flasher-cli flash ventunoq
 ```
@@ -105,7 +111,6 @@ s
 
 When prompted to confirm, type `y` and press **Enter**. The tool finds the latest official VENTUNO Q Ubuntu image, downloads it, verifies its checksum, and flashes the board.
 
-
 **Tip:** List the available versions using `list`, then use `--version` to flash a specific one. Replace `VERSION` with one shown by the `list` command.
 
 ```bash
@@ -113,8 +118,11 @@ When prompted to confirm, type `y` and press **Enter**. The tool finds the lates
 ./arduino-flasher-cli flash ventunoq --version VERSION # this flashes the specified version
 ```
 
-***On Windows, replace `./arduino-flasher-cli` with `.\arduino-flasher-cli.exe`.***
+<Alert type="info">
 
+On Windows, replace `./arduino-flasher-cli` with `.\arduino-flasher-cli.exe`.
+
+</Alert>
 
 ## Step 4: Finalize, Reboot, and Verify
 

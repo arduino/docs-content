@@ -4,9 +4,9 @@ title: Arduino® UNO Q
 type: maker
 ---
 
-# Português
-
 ![](assets/featured.png)
+
+# Português
 
 # Descrição
 
@@ -97,7 +97,7 @@ O módulo sem fios utiliza SDIO para dados Wi-Fi® e um UART para controlo Bluet
 | JCTL (JCTL1)              | 1,8 V, 10 pinos                 | - Consola SE4 UART <br></br>- Entrada de arranque USB forçada <br></br>- Entrada de reinicialização PMIC <br></br>- Desativação do interruptor de alimentação VBUS <br></br>- Trilho de 1,8 V e GND |
 | JDIGITAL (JDIGITAL1)      | 3,3 V, 18 pinos                 | - E/S digital para SPI, I²C, UART, PWM, CAN |
 | JANALOG (JANALOG1)        | 3,3 V, 14 pinos | - E/S analógica - Canais ADC e referências |
-| JSPI (JSPI1)              | Lógica de 3,3 V, 6 pinos + 5 V VBUS | - SPI dedicado: MOSI, MISO, SCLK <br></br>- Reinicialização do MCU (NRST) <br></br>- Terra <br></br>- 5 V VBUS (alimentação USB)                                                                                                                                                                                                                                                                |
+| JSPI (JSPI1)              | Lógica de 3,3 V, 6 pinos + 5 V SYS | - SPI dedicado: MOSI, MISO, SCLK <br></br>- Reinicialização do MCU (NRST) <br></br>- Terra <br></br>- 5 V SYS (SYS (diode-OR output))                                                                                                                                                                                                                                                                |
 | Qwiic (QWIIC1)            | 3,3 V, 4 pinos | - I²C (ecossistema Qwiic) |
 
 ### Produtos Relacionados
@@ -119,11 +119,11 @@ O módulo sem fios utiliza SDIO para dados Wi-Fi® e um UART para controlo Bluet
 |-------------|------------------:|--------------------:|-----------------------|
 | USB-C VBUS  |               5 V |           até 3 A | Conector USB-C       |
 | VIN (DC IN) |            7-24 V |                   - | JMEDIA, JANALOG (VIN) |
-| Pino 5 V     |               5 V |           até 3 A | JANALOG               |
+| 5 V Pino (5V_SYS) |               5 V |           até 3 A | JANALOG, JMISC, JSPI  |
 
-
-<p style="text-align: justify;">O UNO Q suporta duas entradas de alimentação: uma porta USB-C e uma entrada de 7-24 V CC. Através da USB Power Delivery, solicita apenas o contrato de 5 V / 3 A e não solicita perfis PD de tensão mais elevada. Utilize uma fonte e um cabo com classificação para 5 V a 3 A para evitar subtensão durante picos de atividade curtos, como rajadas sem fios ou inicialização do ecrã. Uma fonte externa regulada de 5 V DC também pode ser utilizada para fornecer energia à placa através do pino de 5 V no conector JANALOG.
+<p style="text-align: justify;">UNO Q suporta três entradas de alimentação: uma porta USB-C, uma entrada de 7 a 24 V CC e o pino <code>5V_SYS</code> disponível no JANALOG, JMISC ou JSPI. Por meio do USB Power Delivery, ele solicita apenas o contrato de 5 V / 3 A e não solicita perfis PD de tensão mais alta. Use uma fonte de alimentação e um cabo com especificação de 5 V a 3 A para evitar subtensão durante picos curtos de atividade, como rajadas de comunicação sem fio ou inicialização da tela. Também dá pra usar uma fonte externa regulada de 5 V CC pra alimentar a placa pelo pino <code>5V_SYS</code> no JANALOG, JMISC ou JSPI.
 </p>
+
 
 <p style="text-align: justify;">O <em>USB-C VBUS</em> e a saída de 5 V do buck de 7-24 V são combinados por <em>diodo OR</em> no barramento de 5 V do sistema (<code>5V_SYS</code>). A partir de <code>5V_SYS</code>, o projeto deriva o nó pré-regulador de 3,8 V e, subsequentemente, o de 3,3 V.
 O PMIC, alimentado por 5V_SYS, deriva o trilho de 1,8 V.
@@ -399,7 +399,7 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 
 - **JMEDIA (B2) (JMEDIA1):** Sinais de câmara e ecrã de quatro vias no domínio de 1,8 V (MIPI-CSI-2 e MIPI-DSI).
 
-- **JMISC (B1) (JMISC):** Conector de função mista que combina sinais MCU de 3,3 V e sinais MPU de 1,8 V. Fornece barramento MCU PSSI (câmara paralela), pinos de teste SDMMC1, TRACE, I2C4, MCO/CRS_SYNC e pinos analógicos OPAMP1. Além disso, ele divide o áudio (Mic2, Headphone L/R+REF, LineOut P/M, Earpiece P/R, HS_DET) e os trilhos de alimentação (+3V3, +5V_USB, +1V8, VBAT e VCOIN para uso do sistema). Observe os domínios de tensão: **os pinos MCU são 3,3 V, os GPIO MPU são 1,8 V**.
+- **JMISC (B1) (JMISC):** Conector de função mista que combina sinais MCU de 3,3 V e sinais MPU de 1,8 V. Fornece barramento MCU PSSI (câmara paralela), pinos de teste SDMMC1, TRACE, I2C4, MCO/CRS_SYNC e pinos analógicos OPAMP1. Além disso, ele divide o áudio (Mic2, Headphone L/R+REF, LineOut P/M, Earpiece P/R, HS_DET) e os trilhos de alimentação (+3V3, +5V_SYS, +1V8, VBAT e VCOIN para uso do sistema). Observe os domínios de tensão: **os pinos MCU são 3,3 V, os GPIO MPU são 1,8 V**.
 
 - **JCTL (A1) (JCTL1):** Pinos do modo de inicialização, reinicialização e sinais de ativação de baixa potência (lógica de 1,8 V).
 
@@ -464,15 +464,13 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |      51 | SOC_GPIO_28     | -               | 1,8 V MPU   | SoC GPIO 28               |
 |      52 | SOC_GPIO_101    | -               | 1,8 V MPU   | SoC GPIO 101              |
 |      53 | +3V3 (OUT)      | -               | Alimentação      | Saída de alimentação de 3,3 V           |
-|      54 | +5V_USB (OUT)   | -               | Alimentação      | Saída de alimentação de 5 V             |
+|      54 | +5V_SYS (OUT)   | -               | Alimentação      | Entrada ou saída de energia; a alimentação da fonte e da placa são ligadas por OR por meio de diodos Schottky             |
 |      55 | +3V3 (OUT)      | -               | Alimentação      | Saída de alimentação de 3,3 V           |
-|      56 | +5V_USB (OUT)   | -               | Alimentação      | Saída de alimentação de 5 V             |
+|      56 | +5V_SYS (OUT)   | -               | Alimentação      | Entrada ou saída de energia; a alimentação da fonte e da placa são ligadas por OR por meio de diodos Schottky             |
 |      57 | +1V8 (ENTRADA)       | -               | Alimentação      | Entrada de 1,8 V             |
 |      58 | GND             | -               | Alimentação      | Terra                    |
 |      59 | VCOIN (ENTRADA)      | -               | Alimentação      | Tensão do sistema (PMIC RTC) |
 |      60 | VBAT (OUT)     | -               | Alimentação      | Tensão do sistema (reservada para o design do sistema e funcionalidades futuras) |
-
-
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   Nota: As linhas GPIO SoC no JMISC são dedicadas à interface (não são GPIO do fabricante). As MCU têm lógica de 3,3 V, as MPU têm lógica de 1,8 V e o áudio/microfone são analógicos.
@@ -565,13 +563,12 @@ gst-launch-1.0 -v videotestsrc num-buffers=1000 \
 |       4 | SCL             | PD12 (I2C4_SCL)    | 3,3 V      | -                        |
 
 
-
 ### JSPI (A5) (JSPI1) - Mapa De Pin
 
 | **Pin** | **Designação** | **Rede/Função** | **Domínio** | **Notas**  |
 |--------:|-----------------|--------------------|------------|------------|
 |       1 | MISO            | PC2 (SPI2_MISO)    | 3,3 V      | -          |
-|       2 | +5V             | 5V_USB_VBUS        | Alimentação      | Apenas alimentação |
+|       2 | +5V             | 5V_SYS        | Alimentação      | Entrada ou saída de energia; a alimentação da fonte e da placa são ligadas por OR por meio de diodos Schottky |
 |       3 | SCK             | PD1 (SPI2_SCK)     | 3,3 V      | -          |
 |       4 | MOSI            | PC3 (SPI2_MOSI)    | 3,3 V      | -          |
 |       5 | RESET           | MCU_NRST           | 3,3 V      | -          |
@@ -632,7 +629,7 @@ Todas as linhas do JDIGITAL operam com lógica de 3,3 V. A maioria dos pinos usa
 |       2 | IOREF           | PWR_3P3V          | - Referência de tensão de E/S (espelha o trilho de 3,3 V)             | Alimentação          | Apenas saída; não retroalimentar |
 |       3 | RESET           | MCU_NRST          | - Reinicialização da MCU                                              | 3,3 V          | -                             |
 |       4 | +3V3 OUT        | PWR_3P3V          | - Alimentação de 3,3 V                                           | Alimentação          | -                             |
-|       5 | +5V USB VBUS    | 5V_USB_VBUS       | - Alimentação de 5 V (passagem)                              | Alimentação          | Apenas alimentação                    |
+|       5 | +5V OUT | 5V_SYS    | - Alimentação de 5 V (diode-OR output)             | Alimentação          | Entrada ou saída de energia; a alimentação da fonte e da placa são ligadas por OR por meio de diodos Schottky |
 |       6 | GND             | GND               | - Terra                                                 | Alimentação          | -                             |
 |       7 | GND             | GND               | - Terra                                                 | Alimentação          | -                             |
 |       8 | VIN IN          | DC_IN             | - Entrada de 7-24 V                                           | Alimentação          | Apenas alimentação                    |
@@ -643,10 +640,10 @@ Todas as linhas do JDIGITAL operam com lógica de 3,3 V. A maioria dos pinos usa
 |      13 | A4 /  D18       | PC1               | - Entrada ADC <br></br>- I2C3_SDA <br></br>- LPTIM1_CH1    | Analógico / 3,3 V | -                             |
 |      14 | A5 /  D19       | PC0               | - Entrada ADC <br></br>- I2C3_SCL <br></br>- LPTIM1_IN1    | Analógico / 3,3 V | -                             |
 
-
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  A0 (PA4) e A1 (PA5) são entradas ADC diretas do STM32U585 referenciadas a <code>VREF+</code>. Elas não são tolerantes a 5 V. A faixa de entrada válida é <code>0-VREF+</code> (≈3,3 V). O máximo absoluto no pino é <code>VDD + 0,3 V</code>, aproximadamente 3,6 V. Acima deste nível, os díodos de proteção internos do MCU começam a conduzir. O conector também fornece pinos de alimentação <code>5V_SYS</code> e <code>PWR_3P3V</code>, que se destinam apenas à alimentação. Não aplique 5 V a <strong>A0</strong> ou <strong>A1</strong>. O IOREF está ligado ao trilho de 3,3 V (<code>PWR_3P3V</code>) e é fornecido como referência/saída para blindagens. Não deve ser utilizado para alimentar energia de volta à placa.
+  A0 (PA4) e A1 (PA5) são entradas diretas do ADC do STM32U585, referenciadas a <code>VREF+</code>. Elas não suportam 5 V. A faixa de entrada válida é <code>0-VREF+</code> (≈3,3 V). O valor máximo absoluto no pino é <code>VDD + 0,3 V</code>, ou seja, cerca de 3,6 V. Acima desse nível, os diodos de proteção internos do MCU começam a conduzir. O conector também oferece os pinos de alimentação <code>5V_SYS</code> (protegido pelo diodo Schottky-OR) e <code>PWR_3P3V</code> (somente saída), diferentes dos pinos A0/A1 com capacidade de ADC. Não aplique 5 V em <strong>A0</strong> ou <strong>A1</strong>. O IOREF está conectado ao trilho de 3,3 V (<code>PWR_3P3V</code>) e serve como referência/saída para shields. Ele não deve ser usado para devolver energia à placa.
 </div>
+
 
 ## Periféricos Alta Velocidade
 
@@ -1083,6 +1080,7 @@ Este equipamento não tem direito à proteção contra interferência prejudicia
 
 |  **Date**  | **Revision** | **Changes**                                                  |
 | :--------: | :----------: | ------------------------------------------------------------ |
+| 26/08/2026 |      15      | Update 5 V power pin (5V_SYS) input option on JANALOG, JMISC, JSPI |
 | 26/06/2026 |      14      | Add German language                                          |
 | 17/06/2026 |      13      | Display output clarification (USB-C and JMEDIA)              |
 | 16/06/2026 |      12      | Add Safety information section                               |

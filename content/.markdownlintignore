@@ -1,0 +1,6 @@
+# Exclude modular product tab component fragments
+*features.md
+*tech-specs.md
+
+# Exclude PDF source datasheets
+*datasheet.md
