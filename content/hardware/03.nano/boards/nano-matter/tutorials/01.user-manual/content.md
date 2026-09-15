@@ -36,7 +36,7 @@ This user manual will guide you through a practical journey covering the most in
 
 ### Board Core and Libraries
 
-The **Silicon Labs** core contains the libraries and examples you need to work with the board's components, such as its Matter, Bluetooth® Low Energy, and I/Os. To install the Nano Matter core, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
+The **Silicon Labs** core contains the libraries and examples you need to work with the board's components, such as its Matter, Zigbee, Bluetooth® Low Energy, and I/Os. To install the Nano Matter core, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
 
 ![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install-2.png)
 
@@ -44,7 +44,7 @@ The **Silicon Labs** core contains the libraries and examples you need to work w
 
 The Nano Matter merges the well-known Arduino way of making complex technology more accessible with the powerful MGM240S from Silicon Labs, to bring Matter closer to the maker world, in one of the smallest form factors in the market.  
 
-It enables 802.15.4 (Thread®) and Bluetooth® Low Energy connectivity, to interact with Matter-compatible devices with a user-friendly software layer ready for quick prototyping.
+It enables 802.15.4 (Thread®, Zigbee®) and Bluetooth® Low Energy connectivity, to interact with Matter-compatible devices with a user-friendly software layer ready for quick prototyping.
 
 ### Board Architecture Overview
 
@@ -56,7 +56,7 @@ optimized for the needs of battery and line-powered IoT devices for 2.4 GHz mesh
 Here is an overview of the board's main components, as shown in the image above:
 
 - **Microcontroller**: at the heart of the Nano Matter is the MGM240S, a high-performance wireless module from Silicon Labs. The MGM240S is built around a 32-bit Arm® Cortex®-M33 processor running at 78 MHz.
-- **Wireless connectivity**: the Nano Matter microcontroller also features multiprotocol connectivity to enable Matter IoT protocol and Bluetooth® Low Energy. This allows the Nano Matter to be integrated with smart home systems and communicate wirelessly with other devices.
+- **Wireless connectivity**: the Nano Matter microcontroller also features multiprotocol connectivity to enable Matter IoT protocol, Zigbee and Bluetooth® Low Energy. This allows the Nano Matter to be integrated with smart home systems and communicate wirelessly with other devices.
 
 ### Pinout
 
@@ -117,7 +117,7 @@ For low-power consumption applications, the following hacks are recommended:
 
 ### Install Board Core and Libraries
 
-The **Silicon Labs** core contains the libraries and examples you need to work with the board's components, such as its Matter, Bluetooth® Low Energy, and I/Os. To install the Nano Matter core, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
+The **Silicon Labs** core contains the libraries and examples you need to work with the board's components, such as its Matter, Zigbee, Bluetooth® Low Energy, and I/Os. To install the Nano Matter core, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
 
 ![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install-2.png)
 
