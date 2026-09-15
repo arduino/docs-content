@@ -161,7 +161,7 @@ The `Probe failed` lines are expected. The kernel scans several sensor driver sl
 
 ## Capture a Video Recording
 
-To test the camrea, we can record a video stream sample, and save it locally.
+To test the camera, we can record a video stream sample, and save it locally.
 
 Run the following command, which will start a recording. End the recording with `CTRL + C`. The video file will be found in the same directory the command was run from (or in a different location if specified with the `location` flag).
 
