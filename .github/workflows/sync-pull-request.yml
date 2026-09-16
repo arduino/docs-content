@@ -7,6 +7,17 @@ jobs:
     if: "github.repository == 'arduino/docs-content-private'"
     runs-on: ubuntu-latest
     steps:
+      # The full history this job needs is ~12 GB, against the ~14 GB a standard
+      # runner has free: the checkout filled the disk to the point the runner agent
+      # could no longer write its own log, and every sync since 2026-08-20 died
+      # inside it with "No space left on device". None of these toolchains are used
+      # here, and dropping them frees well over 20 GB.
+      - name: Free disk space
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache /usr/local/share/boost
+          df -h /
+
       - uses: actions/checkout@v5
         with:
           fetch-depth: "0"
