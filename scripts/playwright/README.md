@@ -12,6 +12,19 @@
    npx playwright install chromium
    ```
 
+## Directory layout
+
+```text
+scripts/playwright/
+├── runner.js            # Entry point: parses flags, launches Chromium, invokes the flow
+├── core/capture.js      # Capture engine: CONFIG, capture(), highlights, callouts, overlay suppression
+├── flows/app-lab.js     # The App Lab interaction sequence and locators
+├── flows/arduino-cloud.js # Template/placeholder for a future flow
+└── sketch.ino           # Sample sketch typed into the editor during the `editor` step
+```
+
+Each `capture()` call's `pathname` maps to an output path, e.g. `capture(page, 'editor/run-button.png', …)` → `…/playwright/editor/run-button.png`.
+
 ## Running
 
 From `scripts/playwright`, with the App Lab dev build up:
@@ -37,31 +50,6 @@ A full run takes several minutes because it compiles and runs a real app on the 
 - `run` — app compile, execution, stop, and console (also runs the `editor` setup it depends on)
 - `terminal` — board shell button in the status bar
 
-## Post-run cleanup & committing
-
-The automation script captures intermediate views and alternate crops that may not all be referenced in documentation. Additionally, dynamic indicators in the status bar (such as CPU load, memory utilization, or network state) vary across runs, causing otherwise byte-identical images to show file modifications in Git.
-
-1. **Prune unreferenced captures**: Run the image linter to automatically delete unlinked images and keep repository checks green:
-   ```bash
-   python3 scripts/validation/image_links/image_links.py remove-unlinked content/software/app-lab
-   ```
-2. **Review image diffs selectively**: Many screenshots across various folders (such as bottom-anchored views in `editor/` or full-window captures) include the status bar. Because live system metrics (CPU load, memory utilization, network activity) constantly fluctuate, regenerated screenshots may show binary diffs in Git even when the underlying UI layout is unchanged.
-
-   Inspect `git status` carefully and **only stage and commit images that reflect intentional UI or documentation updates**. Discard cosmetic diffs on unchanged views (e.g. using `git restore <file>`).
-
-## Directory layout
-
-```text
-scripts/playwright/
-├── runner.js            # Entry point: parses flags, launches Chromium, invokes the flow
-├── core/capture.js      # Capture engine: CONFIG, capture(), highlights, callouts, overlay suppression
-├── flows/app-lab.js     # The App Lab interaction sequence and locators
-├── flows/arduino-cloud.js # Template/placeholder for a future flow
-└── sketch.ino           # Sample sketch typed into the editor during the `editor` step
-```
-
-Each `capture()` call's `pathname` maps to an output path, e.g. `capture(page, 'editor/run-button.png', …)` → `…/playwright/editor/run-button.png`.
-
 ## Adding a screenshot or flow
 
 Screenshots are produced by `capture(page, pathname, outDir, options)` in `core/capture.js`. Its `options` control framing (`crop`, `percentage`, `padding`) and annotation (`highlight` for orange outlines, labelled callouts with connector lines, `insetHighlight` for large panels). Rather than repeat the option list here, copy from the real call sites in `flows/app-lab.js` — e.g. the `statusbar-controls-hl.png` capture is a worked multi-label callout example.
@@ -74,6 +62,18 @@ Naming conventions:
 - Group related shots into subfolders (`navigation/`, `editor/`, `editor/console/`, `inspirations/`).
 
 To add a flow, create `flows/<name>.js` exporting `async (page, outDir, options)` (see `flows/arduino-cloud.js`) and run it with `--flow <name>`.
+
+## Post-run cleanup & committing
+
+The automation script captures intermediate views and alternate crops that may not all be referenced in documentation. Additionally, dynamic indicators in the status bar (such as CPU load, memory utilization, or network state) vary across runs, causing otherwise byte-identical images to show file modifications in Git.
+
+1. **Prune unreferenced captures**: Run the image linter to automatically delete unlinked images and keep repository checks green:
+   ```bash
+   python3 scripts/validation/image_links/image_links.py remove-unlinked content/software/app-lab
+   ```
+2. **Review image diffs selectively**: Many screenshots across various folders (such as bottom-anchored views in `editor/` or full-window captures) include the status bar. Because live system metrics (CPU load, memory utilization, network activity) constantly fluctuate, regenerated screenshots may show binary diffs in Git even when the underlying UI layout is unchanged.
+
+   Inspect `git status` carefully and **only stage and commit images that reflect intentional UI or documentation updates**. Discard cosmetic diffs on unchanged views (e.g. using `git restore <file>`).
 
 ## Debugging
 
