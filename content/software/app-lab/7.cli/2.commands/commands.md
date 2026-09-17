@@ -7,6 +7,7 @@ tags: [Arduino App CLI, UNO Q, Linux, CLI]
 
 Manage Arduino Apps directly from the terminal using this command-line interface. Control the lifecycle of your applications, manage Bricks, and configure system settings without a graphical UI.
 
+<!-- arduino-app-cli commands start -->
 ## arduino-app-cli
 
 **Usage:**
@@ -27,7 +28,7 @@ Manage Arduino Apps directly from the terminal using this command-line interface
 
 ### Global Options
 
-* `--format`: Output format (text, json) (default "text")
+* `--format`: Output format (text, json, json-lines) (default "text")
 * `--log-level`: Set the log level (debug, info, warn, error) (default "error")
 
 ---
@@ -57,7 +58,7 @@ A CLI tool to manage Arduino Apps, including starting, stopping, logging, and pr
 Delete app cache
 
 **Usage:**
-`arduino-app-cli app clean-cache <app_id> [flags]`
+`arduino-app-cli app clean-cache <app-id> [flags]`
 
 **Options:**
 
@@ -135,14 +136,22 @@ Creates a new Arduino App
 Restart or Start an Arduino App
 
 **Usage:**
-`arduino-app-cli app restart <app_path>`
+`arduino-app-cli app restart <app_path> [flags]`
+
+**Options:**
+
+* `-v, --verbose`: Enable verbose output
 
 ## app start
 
 Start an Arduino App
 
 **Usage:**
-`arduino-app-cli app start <app_path>`
+`arduino-app-cli app start <app_path> [flags]`
+
+**Options:**
+
+* `-v, --verbose`: Enable verbose output
 
 ## app stop
 
@@ -190,7 +199,7 @@ Generates completion scripts for various shells (bash, zsh, fish, powershell)
 
 **Example:**
 ```text
-  /var/folders/58/gntldnl9249ck9fjblgv9jdw0000gp/T/go-build862741151/b001/exe/gendoc completion bash > completion.sh
+  arduino-app-cli completion bash > completion.sh
   source completion.sh
 ```
 
@@ -355,5 +364,7 @@ Print the version number of Arduino App CLI
 **Options:**
 
 * `--port`: The daemon network port (default "8800")
+
+<!-- arduino-app-cli commands end -->
 
 <!-- markdownlint-disable-file -->
