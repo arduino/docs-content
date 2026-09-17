@@ -147,7 +147,7 @@ The [tutorial schema](scripts/validation/rules/tutorial-metadata-schema.json) de
 
 | Field | Type | Required | Purpose |
 | --- | --- | --- | --- |
-| `title` | String | Yes | Maximum 60 characters under this schema; page title in Title Case |
+| `title` | String | Yes | Page title in Title Case. The schema limits this to a maximum of 60 characters for layout and SEO purposes. |
 | `description` | String | Yes | Concise description of what the reader learns or accomplishes |
 | `author` | String | Yes | Actual author or approved attribution |
 | `tags` | Array of strings | Yes | Relevant topic tags, following existing terminology |
@@ -173,7 +173,7 @@ The [datasheet schema](scripts/validation/rules/datasheet-metadata-schema.json) 
 
 | Field | Type | Required | Purpose |
 | --- | --- | --- | --- |
-| `title` | String | Yes | Maximum 60 characters |
+| `title` | String | Yes | Page title in Title Case. The schema limits this to a maximum of 60 characters for layout and SEO purposes. |
 | `identifier` | String | Yes | Approved datasheet identifier |
 | `type` | String | Yes | `maker`, `edu`, `pro`, or `limited-edition` |
 | `author` | String | No | Author attribution |
