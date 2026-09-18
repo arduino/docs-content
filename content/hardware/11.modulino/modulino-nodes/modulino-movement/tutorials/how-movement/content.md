@@ -73,21 +73,21 @@ The address can be changed through hardware modification (see the generic guide 
 | GND     | Ground           |
 | INT1    | Interrupt 1      |
 | INT2    | Interrupt 2      |
-| SDO/SA0 | SPI Data Out     |
-| SCx     | SPI Clock        |
-| SDx     | SPI Data         |
-| CS      | SPI Chip Select  |
-| SDOAUX  | Auxiliary Output |
-| OCSAUX  | Auxiliary Output |
+| SDO/SA0 | SPI Data Out (MISO)     |
+| SCx     | Auxiliary SPI Clock / Auxiliary I2C Clock        |
+| SDx     | Auxiliary SPI Data / Auxiliary I2C Data         |
+| CS      | SPI Chip Select |
+| SDOAUX  | Auxiliary SPI Data Out |
+| OCSAUX  | Auxiliary SPI CS |
 
-#### 1x4 Header (I2C)
+#### Qwiic / I2C (1×4 Header)
 
 | Pin   | Function     |
 |-------|--------------|
-| GND   | Ground       |
-| 3.3 V | Power Supply |
-| SDA   | I²C Data     |
-| SCL   | I²C Clock    |
+| GND     | Ground            |
+| 3.3 V   | Power Supply (3.3 V) |
+| SDA     | I2C Data / SPI Data In (MOSI) |
+| SCL     | I2C Clock / SPI Clock (SCK) |
 
 ### Power Specifications
 
