@@ -125,11 +125,243 @@ The file cannot be edited in the Arduino Cloud as it is in sync with the platfor
 
 ### Secret File
 
-The "Secret" File contains your secret credentials, such as Wi-Fi® network SSID/PASS or device secret key.
+The "Secret" File contains your secret credentials, such as Wi-Fi® network SSID/PASS or device secret key, if the board is using provisioning version 1.0. If the board is using version 2.0 the credentials are stored on the board. To find out more about this read [here](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/).
 
 This file will be visible as a "Secret" tab in the Cloud Editor and is named `arduino_secrets.h`, which is not visible on the Cloud platform.
 
-Note that if you are using the offline IDE / Arduino CLI, you will need to manually create this file. More information is in the **Offline Sketches section** just below.
+Note that if you are using the offline IDE / Arduino CLI, you will need to manually create this file. More information is in the **Offline Sketches section**.
+
+## thingsProperties.h and the NetworkConfigurator
+
+The thingProperties.h file plays a key role in managing credential capabilities, including the NetworkConfigurator, which enables two main features:
+
+- **Credentials stored on NVS**: Boards can now securely store network settings in Non-Volatile Storage (NVS), removing them from the sketch (secrets.h).
+- **Over-the-Air (OTA) communication**: Enables the possibility to provide network configuration settings via Bluetooth LE.
+
+The `thingProperties.h` will be generated accordingly to the provisioning mechanism, so if the board has been registered using Provisioning 2.0, the `thingProperties.h` file will automatically have the NetworkConfigurator component enabled. A board registered with Provisioning 2.0 includes `Arduino_NetworkConfigurator.h` in the generated `thingProperties.h` file. For more information about device provisioning have a look [here](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/).
+
+### How the NetworkConfigurator works
+
+To work, the NetworkConfigurator needs:
+
+- **One or more Configurator Agents**: Objects that handle the communication between the board and the user device (PC, laptop, or Mobile phone).
+- **A Key-Value Storage library**: the NetworkConfigurator needs an external storage library that implements the KVStoreInterface. Arduino provides the `Arduino_KVStore` library for handling the storage and saving the NetworkConfigurator configurations.
+- **A ConnectionHandler**: the object responsible for the board's Internet connection management.
+
+The `NetworkConfigurator` library out-of-the-box provides two Agents:
+
+- `BLEAgent` for handling the Bluetooth LE communication.
+- `SerialAgent` for the Serial communication.
+
+## thingsProperties.h Default Setup
+
+Here is how the `thingsProperties.h` file changes to set up the NetworkConfigurator. This setup is automatically generated if the board has been registered with Provisioning 2.0.
+
+*** Do not follow these steps if the board has not been registered with the Provisioning 2.0. For more information about device provisioning have a look [here](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/). ***
+
+### Libraries and Object Declarations
+
+The following libraries are automatically included:
+
+- Arduino_NetworkConfigurator library
+- BLEAgent.h
+- SerialAgent.h
+
+These objects are declared in `thingsProperties.h`:
+
+- `kvStore`: handles the NVM operations
+- `BLEAgent`: handles the Bluetooth LE interface
+- `SerialAgent`: handles the Serial Interface
+- `NetworkConfigurator`: the networkConfigurator instance
+
+```arduino
+#include <ArduinoIoTCloud.h>
+#include <Arduino_ConnectionHandler.h>
+#include <Arduino_NetworkConfigurator.h>
+#include <configuratorAgents/agents/BLEAgent.h>
+#include <configuratorAgents/agents/SerialAgent.h>
+void onVariableChange();
+int variable;
+KVStore kvStore;
+BLEAgentClass BLEAgent;
+SerialAgentClass SerialAgent;
+WiFiConnectionHandler ArduinoIoTPreferredConnection; 
+NetworkConfiguratorClass NetworkConfigurator(ArduinoIoTPreferredConnection);
+```
+
+### initProperties()
+
+In the initProperties function, the following instructions are added:
+
+- `NetworkConfigurator.addAgent(BLEAgent);` For enabling the BLEAgent.
+- `NetworkConfigurator.addAgent(SerialAgent);` For enabling the SerialAgent.
+- `NetworkConfigurator.setStorage(kvStore);` For setting the KVStore.
+- `ArduinoCloud.setConfigurator(NetworkConfigurator);` For embedding the NetworkConfigurator in the ArduinoCloud.
+
+```arduino
+NetworkConfigurator.addAgent(BLEAgent);
+NetworkConfigurator.addAgent(SerialAgent);
+NetworkConfigurator.setStorage(kvStore);
+ArduinoCloud.setConfigurator(NetworkConfigurator);
+```
+
+The final `thingProperties.h` file:
+
+```arduino
+#include <ArduinoIoTCloud.h>
+#include <Arduino_ConnectionHandler.h>
+#include <Arduino_NetworkConfigurator.h>
+#include <configuratorAgents/agents/BLEAgent.h>
+#include <configuratorAgents/agents/SerialAgent.h>
+void onVariableChange();
+int variable;
+KVStore kvStore;
+BLEAgentClass BLEAgent;
+SerialAgentClass SerialAgent;
+WiFiConnectionHandler ArduinoIoTPreferredConnection; 
+NetworkConfiguratorClass NetworkConfigurator(ArduinoIoTPreferredConnection);
+void initProperties(){
+  NetworkConfigurator.addAgent(BLEAgent);
+  NetworkConfigurator.addAgent(SerialAgent);
+  NetworkConfigurator.setStorage(kvStore);
+  ArduinoCloud.setConfigurator(NetworkConfigurator);
+// For changing the default reset pin (2) uncomment and set your preferred pin. Use DISABLE_PIN for disabling the reset procedure.
+// NetworkConfigurator.setReconfigurePin(YOUR_PIN);
+  ArduinoCloud.addProperty(variable, READWRITE, ON_CHANGE, onVariableChange);
+}
+```
+
+### Disable the BLEAgent
+
+To save board storage and memory, after the provisioning, the `BLEAgent` can be removed. ~30 kB of storage and ~2 kB of memory are saved for BSS and Data. The network credentials provided in the provisioning phase can no longer be changed via Bluetooth if this is disabled.
+
+To disable the `BLEAgent`, just comment out or remove the lines of code that include, declare, and enable it. The final result should be the following:
+
+```arduino
+#include <ArduinoIoTCloud.h>
+#include <Arduino_ConnectionHandler.h>
+#include <Arduino_NetworkConfigurator.h>
+//#include <configuratorAgents/agents/BLEAgent.h>
+#include <configuratorAgents/agents/SerialAgent.h>
+void onVariableChange();
+int variable;
+KVStore kvStore;
+//BLEAgentClass BLEAgent;
+SerialAgentClass SerialAgent;
+WiFiConnectionHandler ArduinoIoTPreferredConnection; 
+NetworkConfiguratorClass NetworkConfigurator(ArduinoIoTPreferredConnection);
+void initProperties(){
+//  NetworkConfigurator.addAgent(BLEAgent);
+  NetworkConfigurator.addAgent(SerialAgent);
+  NetworkConfigurator.setStorage(kvStore);
+  ArduinoCloud.setConfigurator(NetworkConfigurator);
+// For changing the default reset pin (2) uncomment and set your preferred pin. Use DISABLE_PIN for disabling the reset procedure.
+// NetworkConfigurator.setReconfigurePin(YOUR_PIN);
+  ArduinoCloud.addProperty(variable, READWRITE, ON_CHANGE, onVariableChange);
+}
+```
+
+### Disable the SerialAgent
+
+To save board storage and memory, after the provisioning, the SerialAgent can be removed. ~1 kB of storage is saved for BSS and Data. The network credentials provided in the provisioning phase can no longer be changed via USB if this is disabled.
+
+To disable the `SerialAgent`, just comment out or remove the lines of code that include, declare, and enable it. The final result should be the following:
+
+```arduino
+#include <ArduinoIoTCloud.h>
+#include <Arduino_ConnectionHandler.h>
+#include <Arduino_NetworkConfigurator.h>
+#include <configuratorAgents/agents/BLEAgent.h>
+//#include <configuratorAgents/agents/SerialAgent.h>
+void onVariableChange();
+int variable;
+KVStore kvStore;
+BLEAgentClass BLEAgent;
+//SerialAgentClass SerialAgent;
+WiFiConnectionHandler ArduinoIoTPreferredConnection; 
+NetworkConfiguratorClass NetworkConfigurator(ArduinoIoTPreferredConnection);
+void initProperties(){
+  NetworkConfigurator.addAgent(BLEAgent);
+//  NetworkConfigurator.addAgent(SerialAgent);
+  NetworkConfigurator.setStorage(kvStore);
+  ArduinoCloud.setConfigurator(NetworkConfigurator);
+// For changing the default reset pin (2) uncomment and set your preferred pin. Use DISABLE_PIN for disabling the reset procedure.
+// NetworkConfigurator.setReconfigurePin(YOUR_PIN);
+  ArduinoCloud.addProperty(variable, READWRITE, ON_CHANGE, onVariableChange);
+}
+```
+
+### Disable the NetworkConfigurator
+
+To save board storage and memory, after the provisioning, the NetworkConfigurator can be removed. ~40 kB of storage and ~2.9 kB of memory are saved for BSS and Data.
+
+In this setup, the only way to handle network settings is to return to using the secrets declared in `secrets.h` file. This can be done manually by adding the `secrets.h` file with the defines needed.
+
+In order to change the network settings, you must flash your sketch with the updated network settings in the `secrets.h` file. The network settings can no longer be updated using the Arduino Cloud webpage or the mobile app. The final result should be the following (`thingProperties.h` file):
+
+```arduino
+#include <ArduinoIoTCloud.h>
+#include <Arduino_ConnectionHandler.h>
+const char SSID[]     = SECRET_SSID;    // Network SSID (name)
+const char PASS[]     = SECRET_OPTIONAL_PASS;    // Network password (use for WPA, or use as key for WEP)
+void onVariableChange();
+int variable;
+WiFiConnectionHandler ArduinoIoTPreferredConnection(SECRET_SSID, SECRET_OPTIONAL_PASS); 
+void initProperties(){
+  ArduinoCloud.addProperty(variable, READWRITE, ON_CHANGE, onVariableChange);
+}
+```
+### How to set up the Reconfiguration Procedure
+
+As the Provisioning 2.0 ends, the Bluetooth LE interface is turned off. 
+
+To restart the Bluetooth LE interface to update the network settings, the [**Arduino_NetworkConfigurator**](https://github.com/arduino-libraries/Arduino_NetworkConfigurator?tab=readme-ov-file) library provides a procedure called "Reconfiguration Procedure". This procedure is based on the shorting of two pins of the board.
+
+The library provides a default implementation according to the board type. 
+
+- `Arduino Opta`: Press and hold the user button (BTN_USER) until the led (LED_USER) turns off
+- `Arduino MKR WiFi 1010`: Short pin 7 to GND until the led turns off
+- `Arduino GIGA R1 WiFi`: Short pin 7 to GND until the led turns off
+- `Nicla Vision`: Short the pin PA_13 to GND until the led turns off
+- `Arduino Portenta H7`: Short pin 0 to GND until the led turns off
+- `Arduino Portenta C33`: Short pin 0 to GND until the led turns off
+- `Other boards`: Short pin 2 to GND until the led turns off
+- `Portenta Machine Control`: Currently the reset procedure is not available
+
+***Internally, the pin designated for the procedure is set as INPUT_PULLUP (except for Arduino Opta ), and it's attached to an ISR fired on every change of the pin's status.***
+
+#### How to use the Reconfiguration pin in your sketch
+
+If you want to use the Reconfiguration pin in your sketch, you can add a custom callback function to be fired every time the pin’s state changes.
+
+1. Define a function having this signature: `void func(void)`
+Example:
+```
+void onReconfigurationPinInterrupt()
+```
+2. Pass the callback function to the `NetworkConfigurator`, adding this line in the `initProperties()` function of the `thingProperties.h`
+```
+NetworkConfigurator.addReconfigurePinCallback(onReconfigurationPinInterrupt);
+```
+
+#### Change the Reconfiguration pin
+
+Despite the default reconfiguration pin, you can change it using the following code:
+```
+NetworkConfigurator.setReconfigurePin(your_pin);
+```
+in the `initProperties()` function of the `thingProperties.h`
+
+The new pin must be in the list of digital pins usable for interrupts. 
+Please refer to the Arduino documentation for more [details](https://docs.arduino.cc/language-reference/en/functions/external-interrupts/attachInterrupt/).
+
+#### Disable the Reconfiguration feature
+
+To disable the reconfiguration procedure, use the following function:
+```
+NetworkConfigurator.setReconfigurePin(DISABLE_PIN);
+```
+in the `initProperties()` function of the `thingProperties.h`
 
 ## Offline Sketches
 

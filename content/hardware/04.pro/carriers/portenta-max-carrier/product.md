@@ -7,8 +7,9 @@ primary_button_title: User Manual
 secondary_button_url: /tutorials/portenta-max-carrier/x8-getting-started
 secondary_button_title: Get Started With X8
 core: arduino:mbed_portenta
-certifications: [CE, UKCA, FCC, RCM, RoHS,IC]
 sku: [ABX00043]
+useCases: [prototyping, industrial-automation, robotics, edge-ai, iot-wireless]
+releaseDate: 2022-06-10
 ---
 
 Transform your Portenta board to an edge computer solution with the Portenta Max Carrier.

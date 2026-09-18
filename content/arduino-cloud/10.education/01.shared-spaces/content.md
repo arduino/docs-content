@@ -17,7 +17,7 @@ A **shared space** is a virtual classroom environment where you can optimize cla
 
 In this article, we're spilling the beans on all the necessary tips and tricks you could do with a shared space and how to set it up for your classroom. Let's get started! 
 
-***Note: In order to get started with Arduino Cloud, you need to [have an Arduino account](https://login.arduino.cc/login). If you do not have an account yet, feel free to create a new one. You can follow [this tutorial](https://support.arduino.cc/hc/en-us/articles/360016724040-Create-an-Arduino-account) for a step-by-step explanation on how to do it.***
+***Note: In order to get started with Arduino Cloud, you need to [have an Arduino account](https://login.arduino.cc/login) and a Team, Custom or School cloud plan. If you do not have an account yet, feel free to create a new one. You can follow [this tutorial](https://support.arduino.cc/hc/en-us/articles/360016724040-Create-an-Arduino-account) for a step-by-step explanation on how to do it.***
 
 ## What you will learn 
 
@@ -56,7 +56,7 @@ In the next sections we will take you through setting up a shared space for your
 
 ## Create a Shared Space 
 
-Creating a shared space is simple and straightforward, however it requires you to have an Arduino account before you can get started. If you haven't created any in the past, [create one](https://support.arduino.cc/hc/en-us/articles/360016724040-Create-an-Arduino-account) now! 
+Creating a shared space is simple and straightforward, however it requires you to have an Arduino account and either a Business plan or School Plan before you can get started. If you haven't created any in the past, [create one](https://support.arduino.cc/hc/en-us/articles/360016724040-Create-an-Arduino-account) now!
 
 ### Login to your Private Space
 
@@ -64,23 +64,13 @@ Login to https://app.arduino.cc/ with your Arduino account by default, any new u
 
 ![Arduino Cloud Homepage view](assets/cloud-home-u.png)
 
-***Note: A private space is an automatically created once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class.*** 
-
-### Create a Shared Space for your classroom 
-
-Now that you have a private space let's get you started. In order to create a shared space go to [this link](https://app.arduino.cc/space?spaceType="edu").
-
-Then you will be asked which type of shared space you want to create (i.e. For Business or For Education). Click on **For Education** and proceed with creating an online space to share with your students or other colleagues.
-
-![Shared space type selection](assets/shared-space-type-selection.png)
-
-Fill in additional information such as the name of your School, Country and Grade. 
-
-![Fill in school information for the new space](assets/fillschoolinfo.png)
-
-Congratulations! Now you own a shared space linked to your Arduino account. In the next section we will show you how to add members into your space and make it lively. 
+***Note: A private space is an automatically created once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class.***
 
 ## Adding members to a Shared Space
+
+A shared space is automatically created when you sign up for a School plan. For the following sections make sure that you switch to your shared space in the upper left corner, as shown in the image below.
+
+![Selecting the shared space](assets/cloud-shared-spaces.png)
 
 In this section we will show you how to add students, teachers and Administrators to your shared space and manage them effectively. 
 
@@ -157,7 +147,7 @@ Once they click **Join**, they will then be added to your shared space and be vi
 
 ## Space Settings 
 
-In space settings, you can configure everything from `Change Image` of your space profile to adding and removing members. If you have a free plan you can also track the usage of the Cloud tools and choose to upgrade to a School plan. 
+In space settings, you can configure everything from `Change Image` of your space profile to adding and removing members.
 
 To change the current settings of your shared space, navigate to the **Space Settings** tab using the sidebar.
 
@@ -193,7 +183,7 @@ If you have more than three spaces, there will be pop up listing out all the sha
 
 ![More than three spaces preview](assets/mote-than-3.png)
 
-***Note: with a Free Plan or School Plan there are no limitations in the number of shared spaces you can have.***
+***Note: with a School Plan there are no limitations in the number of shared spaces you can have.***
 
 ### Keep track on plan usage
 

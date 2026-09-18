@@ -14,116 +14,116 @@ productCertifications:
     source: "https://www.fcc.gov/about/overview"
     sourceTitle: "www.fcc.gov"
     files: null
-  - name: "REACH"
-    title: "REACH"
-    id: 2
-    description: "REACH is a regulation of the European Union, adopted to improve the protection of human health and the environment from the risks that can be posed by chemicals, while enhancing the competitiveness of the EU chemicals industry. It also promotes alternative methods for the hazard assessment of substances in order to reduce the number of tests on animals."
-    source: "https://echa.europa.eu/regulations/reach/understanding-reach"
-    sourceTitle: "echa.europa.eu"
-    files:
-      - title: "Download REACH certification document for Arduino boards."
-        url: "resources/reach/arduino-reach.pdf"
   - name: "CE"
     title: "CE"
-    id: 3
+    id: 2
     description: "The letters 'CE' appear on many products traded on the extended Single Market in the European Economic Area (EEA). They signify that products sold in the EEA have been assessed to meet high safety, health, and environmental protection requirements. CE marking also supports fair competition by holding all companies accountable to the same rules."
     source: "https://ec.europa.eu/growth/single-market/ce-marking_en"
     sourceTitle: "ec.europa.eu"
     files: null
-  - name: "RoHS"
-    title: "RoHS"
-    id: 4
-    description: "Restriction of Hazardous Substances in Electrical and Electronic Equipment (RoHS). EU rules restricting the use of hazardous substances in electrical and electronic equipment to protect the environment and public health."
-    source: "https://ec.europa.eu/environment/topics/waste-and-recycling/rohs-directive_en"
-    sourceTitle: "ec.europa.eu"
-    files: null
   - name: "RCM"
     title: "RCM"
-    id: 5
+    id: 3
     description: "The Regulatory Compliance Mark RCM is a trademark owned by the electrical regulator (Regulatory Authorities (RAs)) and Australian Communications Media Authority (ACMA)."
     source: "https://www.eess.gov.au/rcm/regulatory-compliance-mark-rcm-general/"
     sourceTitle: "eess.gov.au"
     files: null
   - name: "MIC"
     title: "MIC"
-    id: 6
+    id: 4
     description: "Specified radio equipment such as cellular phones, wireless LAN, and business-purpose radios used in Japan are required to conform to the technical standards regulated by the Ministry of Internal Affairs and Communications (MIC) of Japan."
     source: "https://www.telec.or.jp/eng/services/tech/"
     sourceTitle: "telec.or.jp"
     files: null
-  - name: "IC"
-    title: "ISED/IC"
-    id: 7
+  - name: "ISED"
+    title: "ISED"
+    id: 5
     description: "Innovation, Science and Economic Development Canada (ISED) works with Canadians in all areas of the economy and in all parts of the country to improve conditions for investment, enhance Canada's innovation performance, increase Canada's share of global trade, and build a fair, efficient, and competitive marketplace."
-    source: "http://www.ic.gc.ca/eic/site/icgc.nsf/eng/home"
+    source: "https://www.ic.gc.ca/"
     sourceTitle: "www.ic.gc.ca"
     files: null
   - name: "UL"
     title: "UL/cUL"
-    id: 8
+    id: 6
     description: "UL standards aim to prevent users of electric products from risks of fire and electric shock."
     source: "https://www.ul.com/"
     sourceTitle: "www.ul.com"
     files: null
   - name: "KC"
-    title: "KC"
-    id: 9
-    description: "The KC certification’s primary purpose is to identify and eliminate potential hazards to the health and safety of consumers."
+    title: "Korea Certification"
+    id: 7
+    description: "KC (Korea Certification) is the mandatory certification scheme for electronic and wireless products in South Korea, ensuring compliance with electromagnetic compatibility and radio frequency requirements. It is issued based on testing and standards managed by the National Radio Research Agency (RRA), the government body responsible for radio wave management and technological regulation, operating under the ministry in charge of science and ICT."
     source: "https://www.korea-certification.com/en/kc/what-is-kc-certification/"
     sourceTitle: "www.korea-certification.com"
     files: null
-  - name: "CMRT"
-    title: "CMRT"
-    id: 10
-    description: "The Conflict Minerals Reporting Template (CMRT) is a standardized reporting template developed by the Responsible Minerals Initiative (RMI). It is used by companies to disclose information about their supply chains concerning conflict minerals, specifically tin, tungsten, tantalum, and gold (3TG). The CMRT helps companies comply with regulations such as the U.S. Dodd-Frank Act and the EU Conflict Minerals Regulation by providing a consistent method to report the source and chain of custody of these minerals."
-    source: "https://www.responsiblemineralsinitiative.org/reporting-templates/cmrt/"
-    sourceTitle: "www.responsiblemineralsinitiative.org"
-    files:
-      - title: "Download CMRT certification document for Arduino boards - First CMRT certification document"
-        url: "resources/cmrt/arduino-cmrt_1.docx"
-      - title: "Download CMRT certification document for Arduino boards - Second CMRT certification document"
-        url: "resources/cmrt/arduino-cmrt_2.xlsx"
   - name: "ENEC"
     title: "ENEC"
-    id: 11
+    id: 8
     description: "ENEC certification is complementary to the mandatory CE marking for electrical products in the European market. Unlike CE marking, which is self-declared by manufacturers or importers, ENEC certification is granted by an independent third party. When you see the ENEC mark, you can trust that the product is safe, aligning with the relevant European Standards."
     source: "https://www.enec.com/"
     sourceTitle: "www.enec.com"
     files: null
-  - name: "PSTI"
-    title: "PSTI"
-    id: 12
-    description: |
-      About PSTI:
-      The purpose of the UK PSTI is to enhance the security of connectable products and minimize cybersecurity risks associated with these products in the United Kingdom. As outlined in the Regulation, the key requirements include:
-        - Each device must be equipped with a unique password, or users must be provided with the ability to establish their own.
-        - The manufacturer is obligated to furnish clear instructions for reporting security vulnerabilities.
-
-      Arduino's Password Security Protocols:
-      Arduino devices, in their factory default state, are not configured with preset passwords. During the initialization process of certain features, users are granted the capability to create personalized passwords. For other critical functions, such as authentication and communication with Arduino's cloud-based services or user-hosted platforms, cryptographic keys, certificates, and/or API keys are employed.
-
-      Reporting Security Vulnerabilities:
-      To report any security vulnerabilities, please contact us here. Upon submission, a support ticket will be promptly generated, and an acknowledgment will be issued within a reasonable timeframe. Should the reported issue be validated, you will receive consistent updates until the matter is fully resolved.
-    source: "https://www.legislation.gov.uk/uksi/2023/1007/contents/made"
-    sourceTitle: "www.legislation.gov.uk"
-    files:
-      - title: "Download PSTI certification document for Arduino boards."
-        url: "resources/psti/arduino-psti.pdf"
   - name: "VCCI"
     title: "VCCI (Voluntary Control Council for Interference by Information Technology Equipment)"
-    id: 13
+    id: 9
     description: "VCCI is Japan’s alternative to EMC certification. Even though the certification is completely voluntary, it is common practice to carry out VCCI compliance test to ensure users and customers of the product’s quality. VCCI approval can only be achieved by testing the product in organizations accredited by VCCI."
     source: "https://www.vcci.jp/english/index.html"
     sourceTitle: "www.vcci.jp"
     files: null
-  - name: "SCIP"
-    title: "SCIP (Substances of Concern In articles as such or in complex objects (Products))"
+  - name: "NCC"
+    title: "National Communications Commission (Taiwan)"
+    id: 10
+    description: "The National Communications Commission (NCC) is an independent statutory agency of Executive Yuan of Taiwan responsible for regulating the development of the telecommunication and broadcasting industries, promoting competition and consumer protection, and regulating licensing, radio frequency and spectrum, programming content, communications standards and specifications in Taiwan."
+    source: "https://www.ncc.gov.tw/english/"
+    sourceTitle: "www.ncc.gov.tw/"
+    files: null
+  - name: "SRRC"
+    title: "State Radio Regulation of China"
+    id: 11
+    description: "Products that are equipped with radio transmitters and use specific frequency bands require an SRRC certificate, which can be issued by China’s State Radio Monitoring and Testing Center (SRTC). To acquire an SRRC certificate, the device must be tested in a lab located in China that is accredited by the Ministry of Industry and Information Technology (CMIIT)."
+    source: "https://www.china-certification.com/en/china-srrc-type-approval/"
+    sourceTitle: "www.china-certification.com/"
+    files: null
+  - name: "IMDA"
+    title: "Infocomm Media Development Authority (Singapore)"
+    id: 12
+    description: "The Infocomm Media Development Authority (IMDA) is a statutory board under the Singapore Ministry of Digital Development and Information (MDDI)."
+    source: "https://www.imda.gov.sg"
+    sourceTitle: "www.imda.gov.sg"
+    files: null
+  - name: "Anatel"
+    title: "National Telecommunications Agency (Brazil)"
+    id: 13
+    description: "The National Telecommunications Agency (Portuguese: Agência Nacional de Telecomunicações) or Anatel is a special agency in Brazil created by the general telecommunications act."
+    source: "https://teleco.com.br/en/en_anatel.asp"
+    sourceTitle: "teleco.com"
+    files: null
+  - name: "ICASA"
+    title: "Independent Communications Authority of South Africa"
     id: 14
-    description: "SCIP is the database for information on Substances of Concern In articles as such or in complex objects (Products) established under the Waste Framework Directive (WFD).
-    Companies supplying articles containing substances of very high concern (SVHCs) on the Candidate List in a concentration above 0.1% weight by weight (w/w) on the EU market have to submit information on these articles to ECHA, as from 5 January 2021. The SCIP database ensures that the information on articles containing Candidate List substances is available throughout the whole lifecycle of products and materials, including at the waste stage. The information in the database is then made available to waste operators and consumers."
-    source: "https://echa.europa.eu/scip"
-    sourceTitle: "www.echa.europa.eu"
-    files:
-      - title: "Download SCIP document for Arduino boards"
-        url: "resources/scip/arduino-scip.pdf"
+    description: "The Independent Communications Authority of South Africa (ICASA) is an independent regulatory body of the South African government, established in 2000 by the ICASA Act to regulate the telecommunications, broadcasting, and postal sectors of the country, in the public interest."
+    source: "https://www.icasa.org.za/"
+    sourceTitle: "www.icasa.org"
+    files: null
+  - name: "WPC"
+    title: "Wireless Planning and Coordination (India)"
+    id: 15
+    description: "The Wireless Planning & Coordination Wing (WPC) is a Wing of Department of Telecommunications coming under the Ministry of Communications of the Government of India. The department is responsible for issuing amateur radio licenses, allotting the frequency spectrum and monitoring the frequency spectrum."
+    source: "https://www.wpcindia.com/"
+    sourceTitle: "www.wpcindia.com"
+    files: null    
+  - name: "OFCA"
+    title: "Office of the Communications Authority (Hong Kong)"
+    id: 16
+    description: "The Office of the Communications Authority (OFCA) is an executive arm of the Communications Authority in Hong Kong. It is the body responsible for telecommunications regulation (through the Regulatory Affairs Branch), antitrust enforcement (through the Competition Affairs Branch) and allocation of the radio frequency portion of the electromagnetic spectrum (also known as spectrum management, through the Operations Branch)."
+    source: "https://www.ofca.gov.hk/"
+    sourceTitle: "www.ofca.gov.hk/"
+    files: null
+  - name: "Matter"
+    title: "Matter"
+    id: 17
+    description: "Matter certified is a seal of approval indicating that a smart home device operates on the Matter protocol. Developed by the Connectivity Standards Alliance (CSA), it ensures devices work seamlessly across all major smart home ecosystems."
+    source: "https://csa-iot.org/"
+    sourceTitle: "csa-iot.org/"
+    files: null
 ---

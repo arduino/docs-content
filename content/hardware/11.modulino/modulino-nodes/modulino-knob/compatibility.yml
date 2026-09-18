@@ -1,0 +1,17 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - web-editor
+hardware:
+  boards: 
+    - nano-33-iot
+    - nano-33-ble
+    - nano-33-ble-sense
+    - nano-rp2040-connect
+    - nano-esp32
+    - nano-matter
+    - uno-r4-wifi
+    - uno-q
+  shields: ~
+  carriers: 
+    - nano-connector-carrier

@@ -5,8 +5,8 @@ primary_button_url: /tutorials/portenta-mid-carrier/user-manual
 primary_button_title: Mid Carrier User Manual
 secondary_button_url: /tutorials/portenta-max-carrier/user-manual
 secondary_button_title: Max Carrier User Manual
-certifications: [CE, UKCA, FCC, IC]
 sku: [TPX00200, TPX00201]
+releaseDate: 2024-03-21
 ---
 
 Start taking advantage of the fast data throughput and high bandwidths offered by the **Arduino Pro 4G Module**.

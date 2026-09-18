@@ -14,7 +14,7 @@ source: "https://create.arduino.cc/projecthub/45374/mkr-fox-1200-movement-trigge
 - [Jumper wires (generic)](https://www.newark.com/88W2571?COM=ref_hackster)
 - [AA Batteries](http://www.amazon.com/dp/B00451SSBI/?tag=octopart00-20)
 - 2 x AA battery holder
-- [Adafruit MMA8451 3 Axis accelerometer](https://www.adafruit.com/product/2019)
+- [Adafruit® MMA8451 3 Axis accelerometer](https://www.adafruit.com/product/2019)
 
 ## About This Project
 

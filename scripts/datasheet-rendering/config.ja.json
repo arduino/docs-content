@@ -1,0 +1,23 @@
+{
+    "datasheetFile": [
+        "ja-datasheet.md"
+    ],
+    "excludePatterns": [
+        ".git",
+        "template",
+        "_unlisted"
+    ],
+    "defaultSourcePath": "../../content/hardware",
+    "relativeBuildPath": "../downloads",
+    "datasheetsFolder": "datasheets",
+    "styleSheetsPath": "./styles",
+    "previousDocumentationFolder": "previous-documentation",
+    "subtitle": "ユーザーマニュアル",
+    "datasheetSuffix": "-ja-datasheet.pdf",
+    "identifierPrefix": "SKU",
+    "sections": {
+        "description": "説明",
+        "target-areas": "対象分野",
+        "contents": "目次"
+    }
+}

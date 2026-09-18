@@ -126,9 +126,9 @@ On the registration page, first you have to fill in information about your board
 
 ![Entering the device EUI](assets/vs_ard_ttn_register_device_1.png)
 
-In the second step of registering the device, fill in **End device ID** and **DevEUI**. You can click the generate button next to the AppKey field to generate an app key for this device. Similarly, you can press the button next to the AppEUI field to make it all zeros, or enter your own AppEUI.
+In the second step of device registration, enter the **JoinEUI** as a sequence of zeros or enter your own **JoinEUI**. Then, fill in the **DevEUI** with the device ID obtained from the serial monitor. You can click the Generate button next to the AppKey field to generate an application key for this device. The end device ID is automatically prefilled using the **DevEUI**. Finally, click **Register** on the end device to validate the registration.
 
-**Note**: The Device ID must be lowercase and without spaces. The **DevEUI** should be copied from the Serial Monitor.
+***__Note__: The Device ID must be lowercase and without spaces. The __DevEUI__ should be copied from the IDE's Serial Monitor.***
 
 ![Second step of registering device](assets/vs_ard_ttn_register_device_2.png)
 

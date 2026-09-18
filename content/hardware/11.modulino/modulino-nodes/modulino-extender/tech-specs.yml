@@ -1,0 +1,13 @@
+Node:
+  Name: Modulino Extender
+  SKU: ABX00174
+  Board recommended: Arduino® UNO R4 WiFi (ABX00087) and Arduino® UNO Q (ABX00162/ABX00173)
+  Communications: I2C pass-through (over Qwiic connector or solderable pin)
+  Operational voltage: 3.3V
+  Component:
+    LTC4311 I2C Accelerator: Transparent operation, no I2C address, supports up to 400 kHz
+    Maximum cable distance: tested up to 30m (on Cat5e and Cat6 STP/FTP cables)
+    Supply current: ~200 µA typical
+
+Other accessories:
+  Qwiic cables: 2x (10cm)

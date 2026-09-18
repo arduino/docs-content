@@ -33,7 +33,7 @@ With this project, you will be able to create in a few minutes a temperature and
 
 In order to build the weather data logger we will use an Arduino MKR Zero board. The small form factor and built-in SD card reader makes it a perfect choice for this project.
 
-Second we will need a DHT22 temperature and humidity sensor. This sensor is easily available and very versatile. It can be powered from 3.3V to 6V. We will connect the power pin of the DHT22 to the VCC (3.3V) pin in our MKRZero. We will also need a 4k7ohm pull up resistor for the data line and a 100nF capacitor to clean the noise in the power line. For more info on DHT22, see[ Adafruit's DHT tutoria](https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor)l. 
+Second we will need a DHT22 temperature and humidity sensor. This sensor is easily available and very versatile. It can be powered from 3.3V to 6V. We will connect the power pin of the DHT22 to the VCC (3.3V) pin in our MKRZero. We will also need a 4k7ohm pull up resistor for the data line and a 100nF capacitor to clean the noise in the power line. For more info on DHT22, see the [Adafruit® DHT tutorial](https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor). 
 
 We will use a small breadboard with 3 jumper wires to connect everything together, a SD card to store the information and a 3.7V LiPo battery to make our data logger portable.
 

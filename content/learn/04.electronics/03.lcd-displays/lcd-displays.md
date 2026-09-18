@@ -1054,7 +1054,7 @@ This potentiometer controls the `delayTime` variable.
  modified 7 Nov 2016
  by Arturo Guadalupi
 
- Based on Adafruit's example at
+ Based on the Adafruit® example at
  https://github.com/adafruit/SPI_VFD/blob/master/examples/createChar/createChar.pde
 
  This example code is in the public domain.

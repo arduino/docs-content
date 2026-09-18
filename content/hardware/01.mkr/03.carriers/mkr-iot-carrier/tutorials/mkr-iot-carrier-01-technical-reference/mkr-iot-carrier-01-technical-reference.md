@@ -435,7 +435,7 @@ The MKR IoT Carrier comes with 5 **digital RGB LEDs** placed on the top side of 
 
 #### Code
 
-The LEDs are controlled with the Adafruit’s DotStar library, which is included in the `MKRIoTCarrier` library.
+The LEDs are controlled with the Adafruit® DotStar library, which is included in the `MKRIoTCarrier` library.
 
 The `carrier.leds.show();` method is necessary for updating the new state of the LEDs and needs to be called after any change of the state of the LEDs (turning on & off or change of color).
 

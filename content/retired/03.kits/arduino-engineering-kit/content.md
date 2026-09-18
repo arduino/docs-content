@@ -30,7 +30,7 @@ The kit is sold in a hard plastic, stackable tool box for storage and years of r
 
 In addition, students get access to a dedicated e-learning platform and other learning materials. Additionally, they are granted a one-year individual license of MATLAB and Simulink. This license is for educational use only, not for government, research, commercial, or other organizational use.
 
-### Need Help?
+## Need Help?
 
 * On the Software [on the Arduino Forum](https://forum.arduino.cc/index.php?board=63.0)
 * On Projects [on the Arduino Forum](https://forum.arduino.cc/index.php?board=124.0)

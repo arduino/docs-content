@@ -6,9 +6,10 @@ primary_button_url: /software/ide-v2/tutorials/ide-v2-board-manager#samd
 primary_button_title: Get Started
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrnb1500/156'
-certifications: [RCM, CE, UKCA]
-productCode: '022'
+productCode: ['022']
 sku: [ABX00019]
+useCases: [prototyping, iot-wireless]
+releaseDate: 2021-01-19
 ---
 
 The Arduino MKR NB 1500 adds Narrowband communication to your projects. It can communicate over NB-IoT and LTE-M networks, and is excellent to use for low-power projects in remote areas. The MKR NB 1500 is also compatible with the Arduino Cloud, making it easy to access wherever you are in the world.

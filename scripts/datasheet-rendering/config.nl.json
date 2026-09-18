@@ -1,0 +1,23 @@
+{
+    "datasheetFile": [
+        "nl-datasheet.md"
+    ],
+    "excludePatterns": [
+        ".git",
+        "template",
+        "_unlisted"
+    ],
+    "defaultSourcePath": "../../content/hardware",
+    "relativeBuildPath": "../downloads",
+    "datasheetsFolder": "datasheets",
+    "styleSheetsPath": "./styles",
+    "previousDocumentationFolder": "previous-documentation",
+    "subtitle": "Gebruikershandleiding",
+    "datasheetSuffix": "-nl-datasheet.pdf",
+    "identifierPrefix": "SKU",
+    "sections": {
+        "description": "Beschrijving",
+        "target-areas": "Doelgebieden",
+        "contents": "Inhoud"
+    }
+}

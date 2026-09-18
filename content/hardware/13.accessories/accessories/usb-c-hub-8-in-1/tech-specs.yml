@@ -1,0 +1,32 @@
+Hub:
+  Name: Arduino® USB-C Hub (8 in 1)
+  SKU: TPX00241
+General:
+  Cable Length: 175 mm
+  Dimensions: 119 × 27.8 × 16 mm
+  Color: Black
+  Weight: 60 g
+Ports:
+  USB-C PD (Power): 65 W Power Delivery
+  USB-C Data: 480 Mbps
+  USB-A 2.0: 480 Mbps
+  USB-A 3.0: 5 Gbps
+  HDMI: 4K @ 30 Hz (3840 × 2160)
+  RJ45 Ethernet: 100 Mbps
+  SD Card Reader: USB 2.0, supports SD/SDHC UHS-I-II / SDXC UHS-I-II
+  TF Card Reader: Supports microSD/microSDHC UHS-I / microSDXC UHS-I
+Video Output:
+  Interface: HDMI Type-A
+  Maximum Resolution: 4K (3840 × 2160) @ 30 Hz
+  Supported Resolutions: 1080p, 720p, 480p
+  Audio Support: HDMI audio pass-through
+Network:
+  Interface: RJ45 Ethernet
+  Speed: 10/100 Mbps (Fast Ethernet)
+Power Delivery:
+  Input Voltage: 5 V – 20 V (USB PD standard)
+  Maximum Power: 65 W
+  Output: Pass-through to connected device
+Operating Conditions:
+  Operating Temperature: 0 °C – 50 °C
+  Storage Temperature: -20 °C – 60 °C

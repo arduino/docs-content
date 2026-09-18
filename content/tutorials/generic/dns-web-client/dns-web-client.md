@@ -1,14 +1,14 @@
 ---
 title: 'DNS Web Client'
 description: 'Connect to a server using the Arduino Ethernet Shield.'
-tags: 
+tags:
   - DNS
   - Data storage
 libraries:
   - name: Ethernet Library
     url: https://www.arduino.cc/en/Reference/Ethernet
 hardware:
-  - hardware/02.hero/boards/uno-rev3
+  - hardware/02.uno/boards/uno-rev3
 software:
   - ide-v1
   - ide-v2
@@ -19,7 +19,7 @@ contributeURL: content/tutorials/generic
 
 ## Introduction
 
-This example connects to a named server and makes a request using an Ethernet shield.  The sketch in the example illustrates how to connect using DHCP and DNS. 
+This example connects to a named server and makes a request using an Ethernet shield.  The sketch in the example illustrates how to connect using DHCP and DNS.
 
 
 ## You Will Learn
@@ -60,12 +60,12 @@ We need to install the libraries needed. Simply go to **Tools > Manage libraries
 Upload the sketch to the board.
 
 
-## Code 
+## Code
 
 Before we start, lets take a look at some core functions of the program:
 
 - `Client` - Client is the base class for all Ethernet client based calls. It is not called directly, but invoked whenever you use a function that relies on it.
-  
+
 - `EthernetClient()` - Creates a client which can connect to a specified internet IP address and port (defined in the `client.connect()` function).
 - `client.connected()` - Whether or not the client is connected. Note that a client is considered connected if the connection has been closed but there is still unread data.
 - DNS lookup happens when `client.connect(servername,port)` is called. `servername` is a URL string, like `"www.arduino.cc"`.
@@ -199,7 +199,7 @@ void loop()
 After you have uploaded the code to your board, open the Serial Monitor in your IDE. You should see this:
 ![Incoming bytes shown on the Serial Monitor.](assets/connecting.png)
 
-In the Serial Monitor we print the incoming bytes from the `client.println("GET /search?q=arduino HTTP/1.0");` function where we search for `arduino` on Google. We defined `char c` as `client.read();` and then print it. 
+In the Serial Monitor we print the incoming bytes from the `client.println("GET /search?q=arduino HTTP/1.0");` function where we search for `arduino` on Google. We defined `char c` as `client.read();` and then print it.
 
 ### Troubleshoot
 If the code is not working, there are some common issues we can troubleshoot:
@@ -209,4 +209,4 @@ If the code is not working, there are some common issues we can troubleshoot:
 
 ## Conclusion
 
-In this tutorial we have used the Arduino Ethernet Shield to connect to Google and make a search request. The data from the search request is then printed to the Serial Monitor in the Arduino IDE. 
+In this tutorial we have used the Arduino Ethernet Shield to connect to Google and make a search request. The data from the search request is then printed to the Serial Monitor in the Arduino IDE.

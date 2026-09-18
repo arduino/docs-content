@@ -7,19 +7,28 @@ link: /micropython/
 links:
   [
     {
-      title: "Digital and Analog Pins",
-      url: /micropython/basics/digital-analog-pins/,
+      title: "Introduction to MicroPython",
+      url: /micropython/first-steps/intro-micropython/,
     },
     {
-      title: "Board Installation",
-      url: /micropython/basics/board-installation/,
+      title: "Installing MicroPython",
+      url: /micropython/first-steps/install-guide/,
     },
-    { title: "Examples by Boards", url: /micropython/basics/board-examples/ },
-    { title: "Code Editors", url: /micropython/basics/code-editors/ },
+    { 
+      title: "My First Script", 
+      url: /micropython/first-steps/first-script/,
+    },
+    { 
+      title: "Arduino Runtime for MicroPython", 
+      url: /micropython/first-steps/runtime-package/,
+    },
     {
-      title: "MicroPython Basics",
-      url: /micropython/basics/micropython-basics/,
+      title: "Digital I/O",
+      url: /micropython/basics/digital-io/,
     },
-    { title: "Overview", url: /micropython/basics/overview/ },
+    { 
+      title: "Analog I/O", 
+      url: /micropython/basics/analog-io/,
+      },
   ]
 ---

@@ -7,3 +7,4 @@ hardware:
   carriers: ~
   boards:
     - nano-33-iot
+    - nano-r4

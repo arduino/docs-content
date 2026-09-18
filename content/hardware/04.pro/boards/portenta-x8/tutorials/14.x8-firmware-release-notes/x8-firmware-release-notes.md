@@ -29,38 +29,124 @@ Compatible carriers with the supported device:
 
 The following section highlights the critical updates and enhancements introduced in the latest firmware version. It presents the most significant progress and optimizations implemented to improve performance, enhance user experience, and strengthen security.
 
-## Latest Firmware Version: __2024.06 (Release arduino-91.2, OS Image 861)__
+## Latest Firmware Version: __2026.06.03 (Release arduino-95.3, OS Image 1007)__
 
 The listing herein offers a glimpse into the Portenta X8 firmware's continuous improvement and enhancement. You can expect a concise overview of the integrated key new features, major bug fixes, and critical security patches to ensure the highest level of functionality and performance within the Portenta X8 system.
 
 **Image Access:**
 
-***__You can download the latest firmware version [here](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).__ If you need instructions on updating the Portenta X8, you can follow [this guide](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool) using the __uuu__ tool.***
+***__You can download the latest firmware version [here](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).__ If you need instructions on updating the Portenta X8, you can follow [this guide](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/) using the __uuu__ tool.***
 
-**New Features:**
-- Added support for Akida Brainchip PCIe module in NPU.
-- Added support for Hailo 8R PCIe module in NPU.
-- Support for new panel modules and touchscreen controllers **jadard-ek79202d** and **atmel-mxt-ts** in `MIPI-DSI`.
+**Changelog:**
+- Update containers to latest versions
 
-**Enhancements:**
-- Increased CAN throughput, see details with **x8h7** tags.
-- [x8h7] Changed low level protocol for **X8H7** to use a fixed packet size and hardware-assisted checksum.
-- [x8h7] **X8H7** initialization now happens earlier, linked to `sysinit.target`.
-
-**Bug Fixes:**
-- Fixed RS-485 `ttyX0` not working.
-- Fixed PCIe on kernel 6.1.
-
-***For more information on the Foundries Core related to our release, please refer to the [__LmP V93 Release Notes — FoundriesFactory 93 documentation__](https://docs.foundries.io/latest/release-notes/release-notes.html).***
+***For more information on the Foundries Core related to our release, please refer to the [__LmP v95 Release Notes__](https://github.com/foundriesio/docs/blob/main/release-notes/rn_v95.md).***
 
 ## Available Firmware Versions
 
 Below is a list of all available firmware versions with their release notes.
 
+### OS Image 934
+
+<details>
+  <summary><strong>2025.08.12 (Release arduino-91.9, OS Image 934)</strong></summary>
+
+#### Image Access
+  - Full image [download](https://downloads.arduino.cc/portentax8image/934.tar.gz)
+
+#### Bug Fixes
+  - [H7] Updated H7 firmware: prevent buffer overflow during rx phase
+
+#### Additional Notes
+  - Based on [LmP v91](https://foundries.io/products/releases/91/). It is based on the Yocto manifest. For docker-compose apps, check out [here](https://github.com/arduino/portenta-containers/tree/release).
+
+</details>
+<br></br>
+
+### OS Image 910
+
+<details>
+  <summary><strong>2025.01.17 (Release arduino-91.8, OS Image 910)</strong></summary>
+
+#### Image Access
+  - Full image [download](https://downloads.arduino.cc/portentax8image/910.tar.gz)
+
+#### New Features
+  - [DRIVER] Added out of tree `lan865x` module
+
+#### Enhancements
+  - [TRACEABILITY] Append arduino layer sha in `/etc/os-release`
+  - [OFFLINE UPDATE] Use RGB led to signal success / failure, more robust handling
+  - [OOTB] Refactor usb gadget creation script and handle usb gadget removal
+
+#### Bug Fixes
+  - [INITRAMFS] Fixed `linuxrc` script for `initramfs` images
+
+#### Additional Notes
+  - Based on [LmP v91](https://foundries.io/products/releases/91/). It is based on the Yocto manifest. For docker-compose apps, check out [here](https://github.com/arduino/portenta-containers/tree/release).
+
+</details>
+<br></br>
+
+### OS Image 881
+
+<details>
+  <summary><strong>2024.09.16 (Release arduino-91.4, OS Image 881)</strong></summary>
+
+#### Image Access
+  - Full image [download](https://downloads.arduino.cc/portentax8image/881.tar.gz)
+
+#### New Features
+  - [UTILS] New shell scripts `disable-adb` `disable-ssh`
+
+#### Enhancements
+  - [X8H7 GPIO] Remove ack from irq gpio
+  - [X8H7 CAN] sync received CAN frames to X8 at least every 10 ms
+
+#### Bug Fixes
+  - [UUU] Fixed `initramfs` image, using `initrc`
+
+#### Security Updates
+  - [LOGIN] Removed user password completely >> UK PTSI April 2024
+
+#### Additional Notes
+  - Based on [LmP v91](https://foundries.io/products/releases/91/). It is based on the Yocto manifest. For docker-compose apps, check out [here](https://github.com/arduino/portenta-containers/tree/release).
+
+</details>
+<br></br>
+
+### OS Image 861
+
+<details>
+  <summary><strong>2024.06.26 (Release arduino-91.2, OS Image 861)</strong></summary>
+
+#### Image Access
+  - Full image [download](https://downloads.arduino.cc/portentax8image/861.tar.gz)
+
+#### New Features
+  - [NPU] Added support for Akida Brainchip PCIe module in NPU.
+  - [NPU] Added support for Hailo 8R PCIe module in NPU.
+  - [MIPI-DSI] Support for new panel modules and touchscreen controllers **jadard-ek79202d** and **atmel-mxt-ts** in `MIPI-DSI`.
+
+#### Enhancements
+  - [CAN] Increased CAN throughput, see details with **X8H7** tags.
+  - [X8H7] Changed low level protocol for **X8H7** to use a fixed packet size and hardware-assisted checksum.
+  - [X8H7] **X8H7** initialization now happens earlier, linked to `sysinit.target`.
+
+#### Bug Fixes
+  - [RS-485] Fixed RS-485 `ttyX0` not working.
+  - [PCIe] Fixed PCIe on kernel 6.1.
+
+#### Additional Notes
+  - Based on [LmP v91](https://foundries.io/products/releases/91/). It is based on the Yocto manifest. For docker-compose apps, check out [here](https://github.com/arduino/portenta-containers/tree/release).
+
+</details>
+<br></br>
+
 ### OS Image 846
 
 <details>
-  <summary><strong>2024.05 (Release arduino-91.1, OS Image 846)</strong></summary>
+  <summary><strong>2024.05.15 (Release arduino-91.1, OS Image 846)</strong></summary>
 
 #### Image Access
   - Full image [download](https://downloads.arduino.cc/portentax8image/846.tar.gz)
@@ -77,7 +163,7 @@ Below is a list of all available firmware versions with their release notes.
 ### OS Image 844
 
 <details>
-  <summary><strong>2024.05 (Release arduino-91, OS Image 844)</strong></summary>
+  <summary><strong>2024.05.10 (Release arduino-91, OS Image 844)</strong></summary>
 
 #### Image Access
   - Full image [download](https://downloads.arduino.cc/portentax8image/844.tar.gz)
@@ -108,7 +194,7 @@ Below is a list of all available firmware versions with their release notes.
 ### OS Image 822
 
 <details>
-  <summary><strong>2024.04 (Release arduino-88.94, OS Image 822)</strong></summary>
+  <summary><strong>2024.04.08 (Release arduino-88.94, OS Image 822)</strong></summary>
 
 #### Image Access
   - Full image [download](https://downloads.arduino.cc/portentax8image/822.tar.gz)
@@ -138,7 +224,7 @@ Below is a list of all available firmware versions with their release notes.
 ### OS Image 746
 
 <details>
-  <summary><strong>2023.10 (Release arduino-88.91, OS Image 746)</strong></summary>
+  <summary><strong>2023.10.25 (Release arduino-88.91, OS Image 746)</strong></summary>
 
 #### Image Access
   - Full image [download](https://downloads.arduino.cc/portentax8image/746.tar.gz)
@@ -166,7 +252,7 @@ Below is a list of all available firmware versions with their release notes.
 ### OS Image 719
 
 <details>
-  <summary><strong>2023.09 (Release arduino-88.7, OS Image 719)</strong></summary>
+  <summary><strong>2023.09.27 (Release arduino-88.7, OS Image 719)</strong></summary>
 
 #### Image Access
   - Full image [download](https://downloads.arduino.cc/portentax8image/719.tar.gz)
@@ -190,7 +276,7 @@ Below is a list of all available firmware versions with their release notes.
 </details>
 <br></br>
 
-For instructions on how to install or upgrade to the latest firmware version, you can use the [Portenta X8 Out-of-the-box](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience) or [flash it manually](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool) downloading the newest version directly from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).
+For instructions on how to install or upgrade to the latest firmware version, you can use the [Arduino Linux Wizard for the Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/user-manual/#setup-with-the-arduino-linux-wizard) or [flash it manually](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/) downloading the newest version directly from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).
 
 
 ## Older Firmware Versions

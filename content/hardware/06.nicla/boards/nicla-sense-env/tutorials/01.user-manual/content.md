@@ -139,12 +139,25 @@ As shown in the image above, the use of a dedicated level translator between the
 
 The Nicla Sense Env can be powered by:
 
-- Using the onboard **ESLOV connector**, which has a dedicated +5 VDC power line regulated onboard to +3.3 VDC.
-- Using an **external +3.3 VDC power supply** connected to the `VCC` pin (please refer to the [board pinout section](#pinout) of the user manual).
+- Via **ESLOV connector**: Using the onboard ESLOV connector, which provides a dedicated +5 VDC power line. This voltage is internally regulated to +3.3 VDC by the onboard voltage regulator.
+- Via **`IN` pin**: Using an external +2.3 to +6.5 VDC power supply connected to the `IN` pin (pin 9). This method uses the same internal regulation circuit as the ESLOV connector.
+- Via **`OUT` pin**: Using an external regulated +3.3 VDC power supply connected to the `OUT` pin (pin 7). **This method bypasses the onboard voltage regulator**.
 
 ![Different ways to power the Nicla Sense Env](assets/user-manual-5.png)
 
-***The Nicla Sense Env's `VCC` pin can be connected only to a +3.3 VDC power supply; any other voltage will permanently damage the board. Furthermore, the `VCC` pin does not have reverse polarity protection. Double-check your connections to avoid damaging the board.***
+The board's power architecture includes a voltage regulator (ISL9008A) that converts the input voltage to +3.3 VDC for the internal circuitry. When powering via ESLOV or the `IN` pin, the onboard regulator handles this conversion automatically and can supply up to 150 mA of current through the `OUT` pin.
+
+#### Power Pins Reference
+
+The following table summarizes the power-related pins on the Nicla Sense Env board:
+
+| **Pin** | **Name** |    **Voltage**   |                     **Description**                     |
+|:-------:|:--------:|:----------------:|:-------------------------------------------------------:|
+|    9    |   `IN`   | +2.3 to +6.5 VDC |  Power input connected to the onboard voltage regulator |
+|    7    |   `OUT`  |     +3.3 VDC     | Regulated +3.3 VDC output/External +3.3 VDC power input |
+|    6    |   `GND`  |       0 VDC      |                     Ground reference                    |
+
+***__Important note:__ Do not exceed the voltage limits specified for each power pin: +2.3 to +6.5 VDC for the `IN` pin and +3.3 VDC for the `OUT` pin. Voltages outside these ranges will permanently damage the board. Neither pin has reverse polarity protection; always verify all connections before applying power.***
 
 In this user manual, we will use the board's ESLOV connector to power it.
 

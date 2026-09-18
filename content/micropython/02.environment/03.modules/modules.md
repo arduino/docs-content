@@ -36,7 +36,7 @@ In this example, `time.sleep()` introduces a delay. Built-in modules like `time`
 
 ## External Modules
 
-Some modules aren’t included with the default MicroPython installation and need to be installed separately. External modules, often provided by the community or specific hardware packages, extend MicroPython’s functionality. For example, the [Modulino library](https://github.com/arduino/arduino-modulino-mpy) is an external module that provides tools for working with Arduino Modulinos.
+Some modules aren’t included with the default MicroPython installation and need to be installed separately. External modules, often provided by the community or specific hardware packages, extend MicroPython’s functionality. For example, the [Modulino library](https://github.com/arduino/arduino-modulino-mpy) is an external module that provides tools for working with Arduino Modulino nodes.
 
 To demonstrate how to use external modules, we’ll go through the steps to install the Modulino package on an Arduino board.
 
@@ -51,14 +51,14 @@ Before we can install external modules, we need to have MicroPython running on o
 
 ***For more details, visit the [MicroPython installation guide](/micropython/first-steps/install-guide)***
 
-### Step 2: Install the Modulino Package
+### Step 2: Install a Package
 
 There are multiple ways to install external modules in MicroPython. We’ll cover two common methods:  
 - **Using the MicroPython Package Installer (GUI)** (Recommended for ease of use)
 - **Using `mpremote` (Command-line installation)**
 
 #### Option 1: Using the MicroPython Package Installer (Recommended)
-The **MicroPython Package Installer** is a graphical tool that makes it easy to install external modules without needing to use the command line.
+The **MicroPython Package Installer** is a graphical tool that makes it easy to install external MicroPython packages.
 
 1. **Download and install** the [MicroPython Package Installer](https://github.com/arduino/lab-micropython-package-installer/releases).
 2. **Open the tool** and plug in your board.
@@ -67,9 +67,9 @@ The **MicroPython Package Installer** is a graphical tool that makes it easy to 
 If the board does not appear in the `Detected Boards` section, click `Reload`.
 If the board is still not detected, ensure no other programs (e.g., a code editor) are using the board's COM port.
 
-3. **Search for the Modulino package** using the search feature.
-4. Click **Install** and wait for the installation confirmation.
-5. **Disconnect the board** from the tool before returning to your code editor to avoid conflicts due to the COM port being busy.
+1. **Search for a package** using the search feature.
+2. Click **Install** and wait for the installation confirmation.
+3. **Disconnect the board** from the tool before returning to your code editor to avoid conflicts due to the COM port being busy.
 
 ![Package Installer UI](assets/package-installer.png)  
 

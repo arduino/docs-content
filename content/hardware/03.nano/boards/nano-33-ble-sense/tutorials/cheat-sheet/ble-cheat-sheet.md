@@ -45,7 +45,7 @@ The Nano 33 BLE Sense uses the [Arduino Mbed OS Nano Board Package](https://gith
 
 The full datasheet is available as a downloadable PDF from the link below:
 
-- [Download the Arduino Nano 33 BLE Sense datasheet](docs.arduino.cc/resources/datasheets/ABX00031-datasheet.pdf)
+- [Download the Arduino Nano 33 BLE Sense datasheet](https://docs.arduino.cc/resources/datasheets/ABX00031-datasheet.pdf)
 
 ## Installation
 

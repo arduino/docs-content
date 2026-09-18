@@ -13,7 +13,8 @@ Communication:
   I2C: 2
   SPI: 2
 Connectivity:
-  Matter: Matter-ready Smart Home Connectivity
+  Matter®: Matter-ready Smart Home Connectivity
+  Zigbee®: Zigbee-ready Smart Home Connectivity
   LR-WPANs: IEEE 802.15.4 w/ Thread
   Bluetooth®: Bluetooth® Low Energy 5.3 & Bluetooth® Mesh
 Additional Compatible Protocols: OpenThread

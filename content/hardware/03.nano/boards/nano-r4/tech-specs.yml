@@ -1,0 +1,31 @@
+Board:
+  Name: Arduino® Nano R4
+  SKU: ABX00142 (Castellated Pins) / ABX00143 (With Headers)
+Microcontroller: Renesas RA4M1 (Arm® Cortex®-M4)
+USB:
+  USB-C®: Programming Port
+Pins:
+  Digital I/O Pins: 21 (all the exposed I/O can be used as digital I/O pins)
+  Analog input pins: 8
+  DAC: 1 (A0)
+  OPAMP: A1, A2, A3
+  VBAT: J5
+  PWM pins: 6
+  External interrupts: 2,3
+Communication:
+  Serial interfaces: "2 (Serial over USB, Serial1 on D0/D1)"
+
+  I2C: "2 (5 V: A4, A5 / 3.3 V: QWIIC, J3, J4)"
+  SPI: 1
+  CAN: 1
+Power:
+  Circuit operating voltage: +5 VDC
+  Input voltage (VIN): +6-21 VDC
+  DC Current per I/O Pin: 8 mA
+Clock speed:
+  Main core: 48 MHz
+Memory:
+  RA4M1: 256 kB Flash, 32 kB RAM, 8 kB EEPROM
+Dimensions:
+  Width: 18 mm
+  Length: 45 mm

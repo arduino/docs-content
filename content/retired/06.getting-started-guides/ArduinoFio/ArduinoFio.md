@@ -55,7 +55,7 @@ In order to upload sketches wirelessly using XBee radios, you'll need the follow
 
 * **two [XBee or XBee Pro 802.15.4](http://www.digi.com/products/wireless/point-multipoint/xbee-series1-module.jsp#overview) XBee modules.** These are also known as Series 1 modules, for those who've worked with XBees for awhile. You can't use the DigiMesh or ZB series radios (aka Series 2 or 2.5). Those modules do not allow for automatic IO Line Passing that is required for toggling the reset pin when programming.
 * **a recent version of the 802.15.4 firmware (10A5 or later).** If you need to upgrade your firmware, you need to use [X-CTU](http://ftp1.digi.com/support/utilities/40002637%5Fc.exe) (Windows only, unfortunately). If you confirmed these points, please follow the following steps.
-* **a USB-to-serial adaptor** for one of the modules. You can use Sparkfun's [XBee Explorer USB](http://www.sparkfun.com/commerce/product%5Finfo.php?products%5Fid=8687) or Adafruit's [XBee Adapter kit](http://www.adafruit.com/index.php?main%5Fpage=product%5Finfo&cPath=29&products%5Fid=126&zenid=820efea6fe32ea04a0a7879262db3e54) or any other FTDI-to-XBee adaptor.
+* **a USB-to-serial adaptor** for one of the modules. You can use Sparkfun's [XBee Explorer USB](http://www.sparkfun.com/commerce/product%5Finfo.php?products%5Fid=8687) or Adafruit® [XBee Adapter kit](http://www.adafruit.com/index.php?main%5Fpage=product%5Finfo&cPath=29&products%5Fid=126&zenid=820efea6fe32ea04a0a7879262db3e54) or any other FTDI-to-XBee adaptor.
 
 #### Modifying the XBee\-to-USB adaptor
 
@@ -63,7 +63,7 @@ On your USB-to-serial adaptor, solder in a tiny jumper between the RTS pin and D
 
 ![Modified XBee Explorer USB](assets/XBeeExplorerUSBForFio.jpg)
 
-![Modified Adafruit XBee Adapter Kit. The arrow shows the added solder connection](assets/AdafruitXBeeUSBForFio.jpg)
+![Modified Adafruit® XBee Adapter Kit. The arrow shows the added solder connection](assets/AdafruitXBeeUSBForFio.jpg)
 
 ### Preparing the XBee radios
 

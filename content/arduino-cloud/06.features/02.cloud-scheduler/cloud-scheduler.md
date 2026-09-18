@@ -186,7 +186,7 @@ In order for our job to go off at the right time, we need to set the **time zone
 
 ### Network Credentials
 
-To connect your device to the Arduino Cloud, you need to enter your network credentials in the "network" section.
+To connect your device to the Arduino Cloud, you need to enter your network credentials in the "network" section on the device page.
 
 ***Note that this only applies to Wi-Fi enabled boards.***
 

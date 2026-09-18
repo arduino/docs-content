@@ -9,7 +9,7 @@ Welcome to Arduino! Before you start controlling the world around you, you'll ne
 
 ## IDE
 
-An Integrated Development Environment (IDE) is a software that allows you to write code and upload it to your Arduino hardware. We have our own [Arduino Software (IDE)]([https://www.arduino.cc/en/software](https://www.arduino.cc/en/software) application available for Windows, macOS and Linux users. Besides the convenient code editing functions, the Arduino Software (IDE) is equipped with a list of libraries that provide extra functionality for use in sketches, making it easier for you to connect sensors, displays, modules, etc.
+An Integrated Development Environment (IDE) is a software that allows you to write code and upload it to your Arduino hardware. We have our own [Arduino Software (IDE)](https://www.arduino.cc/en/software) application available for Windows, macOS and Linux users. Besides the convenient code editing functions, the Arduino Software (IDE) is equipped with a list of libraries that provide extra functionality for use in sketches, making it easier for you to connect sensors, displays, modules, etc.
 
 ## Arduino Tools
 

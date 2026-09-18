@@ -165,8 +165,8 @@ Alvik includes a set of  different sensors listed below, all connected to the ST
 | **Sensor name**              | **Part name** | **Test program name** |
 |------------------------------|---------------|-----------------------|
 | RGB Color detection          | APDS 9660     | read_color_sensor.py  |
-| ToF 8x8 Array - up to 350 cm | LSM6DSOX      | read_tof.py           |
-| IMU - 6 degree               | VL53L7CX      | read_imu.py           |
+| ToF 8x8 Array - up to 350 cm | VL53L7CX      | read_tof.py           |
+| IMU - 6 degree               | LSM6DSOX      | read_imu.py           |
 | 3x Line follower             | custom made   | line_follower.py      |
 | 7x Touch sensor              | AT42QT2120    | read_touch.py         |
 
@@ -256,7 +256,7 @@ The Arduino Alvik robot is equipped with an onboard IMU (Inertial Measurement Un
 
 ### Motors
 
-The Alvik is equipped with two geared motors, specifically the GM12-N20VA-08255-150-EN. These motors allow for precise and reliable movement, essential for accurate navigation and control as  each motor includes a magnetic relative encoder to ensure precise control and feedback of the motor's position.
+The Alvik is equipped with two geared motors, specifically the GM12-N20VA-08255-150-EN. These motors allow for precise and reliable movement, essential for accurate navigation and control as each motor includes a magnetic relative encoder to ensure precise control and feedback of the motor's position.
 
 - **Gear Ratio:** 1:150
 - **Operating Voltage:** 6V
@@ -300,7 +300,7 @@ To get started to play with Alvik you will need the following hardware and softw
 
 It may happen that you used your Nano ESP32 for other projects than Alvik, or you need to replace it. In order to make your Nano ESP32 work with Alvik, there are few steps needed:
 
-1. Install the MicroPython bootloader on it following [this guide](https://docs.arduino.cc/micropython/basics/board-installation/).
+1. Install the MicroPython bootloader on it following [this guide](https://docs.arduino.cc/micropython/first-steps/install-guide/).
 
 2. Download the Alvik Micropython libraries Alvik MicroPython libraries from the [Alvik repository](https://github.com/arduino/arduino-alvik-mpy/tree/main)
 ucPack libraries from the [ucPack repository](https://github.com/arduino/ucPack-mpy/tree/main)
@@ -1864,13 +1864,13 @@ Now you can open the Arduino Lab for MicroPython, connect Alvik and open the exa
 Understanding Alvik's dimensions and mechanical details is key for designing custom components and ensuring it works well with other hardware. This information is here to help you easily create and adapt Alvik for your specific projects and needs.
 
 - **Front**
-![Alvik's front side dimensions](assets/Alvik_Docs_Dimensions_Front.jpg)
+![Alvik's Front Side Dimensions](assets/AlvikMecFront_cleaned.png)
 - **Side**
-![Alvik's side side dimensions](assets/Alvik_Docs_Dimensions_Side.jpg)
+![Alvik's Side Dimensions](assets/AlvikMecSides_cleaned.png)
 - **Back**
-![Alvik's back side dimensions 1/2](assets/Alvik_Docs_Dimensions_Back_02.jpg) ![Alvik's back side dimensions 2/2](assets/Alvik_Docs_Dimensions_Back_01.jpg)
+![Alvik's Back Side Dimensions](assets/AlvikMecBack_cleaned.png)
 - **Top**
-![Alvik's top side dimensions 1/2](assets/Alvik_Docs_Dimensions_Top_01.jpg) ![Alvik's top side dimensions 2/2](assets/Alvik_Docs_Dimensions_Top_02.jpg)
+![Alvik's Top Side Dimensions](assets/AlvikMecTop_cleaned.png)
 - **Bottom**
 ![Alvik's bottom side dimensions](assets/Alvik_Docs_Dimensions_Bottom.jpg)
 

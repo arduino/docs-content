@@ -55,7 +55,7 @@ For example, if we want a tutorial that lives here `content/tutorials/generic/ba
 To create symlinks using Windows OS, follow the below steps:
 
 - Start a terminal (CMD) as admin.
-- Navigate to the folder you want the symlinks. For example, to create a link for the UNO board, navigate to `docs.arduino.cc\content\hardware\02.hero\boards\uno-rev3\tutorials`.
+- Navigate to the folder you want the symlinks. For example, to create a link for the UNO board, navigate to `docs.arduino.cc\content\hardware\02.uno\boards\uno-rev3\tutorials`.
 - To create a symlink, you will need to run a command akin to:
 
 ```cmd

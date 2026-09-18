@@ -23,7 +23,7 @@ This tutorial will focus on the 3-axis gyroscope sensor of the IMU system on the
 
 The goals of this project are:
 - Understand how the IMU system on the Arduino Nano 33 BLE Sense Rev2 works.
-- Use the BMI270_BMM150 library.
+- Use the [BMI270_BMM150 library](https://docs.arduino.cc/libraries/arduino_bmi270_bmm150/).
 - Read data from the gyroscope's sensor.
 - Convert the raw data into direction of force.
 - Print out live data through the Serial Monitor.

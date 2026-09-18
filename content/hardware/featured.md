@@ -1,5 +1,8 @@
 ---
-title: ARDUINO UNO R4 WiFi
-description: Designed around Renesas RA4M1 microcontroller, ESP32 for Wi-Fi® and Bluetooth®. 12x8 LED matrix, Qwiic connector. buy on Arduino Store.
-url: /hardware/uno-r4-wifi
+title: ARDUINO UNO Q
+description: Arduino UNO Q bridges high-performance computing with real-time control. Get power and ease of use – all wrapped up into UNO.
+label: FEATURED
+buttons: [
+    { label: "DISCOVER MORE", url: "/hardware/uno-q" },
+    { label: "BUY NOW", url: "https://store.arduino.cc/pages/uno-q" }]
 ---

@@ -7,8 +7,9 @@ primary_button_title:  Get Started
 secondary_button_url: https://docs.rakwireless.com/Product-Categories/WisGate/RAK7268/Datasheet
 secondary_button_title: Datasheet
 url_datasheet: https://docs.rakwireless.com/Product-Categories/WisGate/RAK7268/Datasheet
-certifications: [CE, UKCA]
 sku: [TXP00098, TXP00100, TXP00099]
+useCases: [industrial-automation]
+releaseDate: 2022-08-26
 ---
 
 The WisGate Edge Lite 2 gateway, featuring RAKwireless<sup>TM</sup> technology, is designed for indoor LPWAN applications, supporting LoRa® technology for home and small-to-medium industrial environments.

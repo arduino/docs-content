@@ -167,6 +167,6 @@ One great way of knowing if data is coming through from the Alexa app is by chec
 
 Did you know that the Arduino Cloud supports over the air uploads? When you've uploaded a sketch to your board once, it will become available for you to upload a new sketch to the board without connecting it to your computer!
 
-***Over the Air uploads require an Entry plan to the Arduino Cloud***
+***Over the Air uploads require a Arduino Cloud subscription plan***
 
 To use this feature, make sure the board has power. If your board is already connected to the Arduino Cloud, you will be able to upload to it over the air. Navigate to the Things sketch tab in the Arduino Cloud interface, and you should see it being discovered just as if it was connected via USB.

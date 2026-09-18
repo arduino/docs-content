@@ -180,7 +180,7 @@ The Modulino® nodes offer a versatile and user-friendly introduction to IoT and
 
 The Modulino® nodes provide a straightforward introduction to IoT and electronics. These nodes connect easily using Qwiic cables for I2C communication, simplifying the setup. This modular design is ideal for both beginners and experienced users.
 
-All Modulinos® share common features such as standardized connectors, blue solder mask, and consistent mechanical dimensions and hole locations, ensuring compatibility.
+All Modulino® nodes share common features such as standardized connectors, blue solder mask, and consistent mechanical dimensions and hole locations, ensuring compatibility.
 
 #### Mechanical Information
 
@@ -203,7 +203,7 @@ Each Modulino® node of the kit is designed to be connected to the Arduino® UNO
 
 In the case multiple nodes of the same kind are connected to the I2C "daisy-chain", they may have the same I2C default address, causing communication problems. All Modulino® nodes are designed to have the possibility of having different I2C addresses via hardware or firmware changes as presented in the following table.
 
-| **Board Silk Name** | **Sensor/Actuator**     | **Modulino I2C Address (HEX)** | **Editable Addresses (HEX)**                    | **Hardware I2C Address (HEX)** |
+| **Board Silk Name** | **Sensor/Actuator**     | **Modulino® I2C Address (HEX)** | **Editable Addresses (HEX)**                    | **Hardware I2C Address (HEX)** |
 | ------------------- | ----------------------- | ------------------------------ | ----------------------------------------------- | ------------------------------ |
 | MODULINO MOVEMENT   | LSM6DSOXTR              | 0x6A                           | 0x6A, 0x6B (via solder jumper)                  | 0x6A & 0x7E                    |
 | MODULINO DISTANCE   | VL53L4CDV0DH/1          | 0x29                           | Any custom address (via software configuration) | 0x29                           |
@@ -213,7 +213,7 @@ In the case multiple nodes of the same kind are connected to the I2C "daisy-chai
 | MODULINO PIXELS     | Eight LC8822-2020       | 0x6C                           | Any custom address (via software configuration) | 0x36                           |
 | MODULINO BUTTONS    | Three SPST Push Buttons | 0x7C                           | Any custom address (via software configuration) | 0x3E                           |
 
-**Please note:** When scanning for I2C addresses connected to the bus, the boards might identify themselves using the **Hardware I2C Address** listed in the last column of the table. However, you should always use the **Modulino I2C Address** provided in your code if using the official Modulino library.
+**Please note:** When scanning for I2C addresses connected to the bus, the boards might identify themselves using the **Hardware I2C Address** listed in the last column of the table. However, you should always use the **Modulino® I2C Address** provided in your code if using the official Modulino® library.
 
 With the provided software, users can change the default I2C address of the dedicated I2C interface controller firmware. Assigning different addresses allows users to connect multiple boards of the same type in a chain.
 To facilitate this, a white rectangle is positioned on the bottom silk of the board, where users can write the new I2C address directly on the board itself.

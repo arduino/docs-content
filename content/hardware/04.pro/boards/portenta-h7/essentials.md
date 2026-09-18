@@ -1,6 +1,7 @@
 ---
 productsLibrariesMap:
-  - wifi
+  - lvgl
+  - arduino_portenta_ota
   - arduinoble
 ---
 

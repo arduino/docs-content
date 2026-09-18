@@ -25,7 +25,7 @@ In this tutorial we will use an **Arduino Nano 33 BLE Sense Rev2** board to meas
 ## Goals
 The goals of this project are:
 - Learn how to output raw sensor data from the Arduino Nano 33 BLE Sense Rev2.
-- Use the HS300x library.
+- Use the [HS300x library](https://docs.arduino.cc/libraries/arduino_hs300x/).
 - Print temperature and humidity values in the Serial Monitor when they are within a certain range. 
 - Create your own temperature and humidity monitor.
 

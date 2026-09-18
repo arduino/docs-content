@@ -1,0 +1,12 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - cloud-editor
+  - iot-cloud
+hardware:
+  boards: ~
+  carriers: ~
+  shields:
+    - nano-connector-carrier
+    - nano-screw-terminal-adapter
+    - nano-motor-carrier

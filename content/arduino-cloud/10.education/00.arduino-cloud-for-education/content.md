@@ -66,7 +66,7 @@ The **Sidebar** on the left provides you quick access to all the important tools
 - **Devices, Things, Dashboards, Triggers** - these are the core functionalities of the Cloud Platform, enabling  you to build IoT projects that allows you to collect, analyze and monitor data from the environment. 
 - **Resources, Courses & Templates** - These are learning materials and ready-made IoT projects to get you started with your educational kits or other Arduino hardware. 
 - **Integrations** - Integrate with third-party APIs and extend your projects functionality. 
-- **Plans Usage** - Here you can track the usage of your free plans. You can always upgrade to a School Plan whenever you want. If you are curious, take a look at our [School Plans options](https://cloud.arduino.cc/#schools).
+- **Plans Usage** - Here you can track the usage of your free plans.
 
 ***If you are new to the platform, make sure you try out the interactive walkthrough for a faster onboarding experience.***
 
@@ -108,7 +108,7 @@ Each Thing is represented by a collection of properties, such as
 
 - **Variables** - they are very similar to the variables we create in a regular sketch where they are used to retrieve and store information. 
 - **Associated device** - The device that is used to collect data from the real world. 
-- **Network Credentials** - Contains information about Wi-Fi® name and password 
+- **Network Credentials** - This can be found on the [**Devices**](https://app.arduino.cc/devices) page. Click on the device you want to configure and on that page you can change the network configuration.
 - **Sketch** - access to the editor to edit or preview a sketch saved in the Cloud.
 - **Metadata** - such as tags, time zone and Thing ID.
 
@@ -209,6 +209,7 @@ You can find a full list of tutorials on the [Arduino Cloud documentation page](
 If you are a enthusiast and would like to explore more about our Cloud platform, here are some documentation on all the important elements you can familiarize yourself with: 
 
 - [Sketches](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches/)
+- [Device Provisioning](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/)
 - [Arduino Cloud Editor](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor)
 - [Cloud Variables](https://docs.arduino.cc/arduino-cloud/cloud-interface/variables/) 
 - [Dashboards & Widgets](https://docs.arduino.cc/arduino-cloud/cloud-interface/dashboard-widgets)
