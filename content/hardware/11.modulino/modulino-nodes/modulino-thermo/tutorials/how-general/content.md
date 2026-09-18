@@ -183,17 +183,46 @@ To keep track of the address in use, nodes have a white rectangle on the back. U
 
 ## Node Addressing Reference
 
-| Node | Default Modulino Address | Hardware Address | Configurable |
-|--------|-------------------------|------------------|--------------|
-| Buttons | 0x7C | 0x3E | Software |
-| Buzzer | 0x3C | 0x1E | Software |
-| Distance | 0x52 | 0x52 | No |
-| Knob | 0x76 | 0x3A | Software |
-| Movement | 0x6A | 0x6A | Hardware (0x6A/0x6B) |
-| Pixels | 0x6C | 0x36 | Software |
-| Thermo | 0x44 | 0x44 | No |
+The following table provides a consolidated address reference for
+the 15 Modulino products.
 
-When scanning for I²C addresses on the bus, you might find the Modulino node using the **Hardware I²C Address**. However, you should always use the **Modulino I²C Address** when using the official Modulino library.
+All I2C addresses are expressed in 7-bit hexadecimal notation, as
+used by the Arduino Wire library.
+
+| Modulino | Default address | Hardware configuration | Software configuration |
+|---|---|---|---|
+| Buttons | 0x3E | No | Yes |
+| Buzzer | 0x1E | No | Yes |
+| Distance | 0x29 | No | No |
+| Knob | 0x3A / 0x3B | No | Yes |
+| Movement | 0x6A | 0x6A / 0x6B (solder jumper) | No |
+| Pixels | 0x36 | No | Yes |
+| Thermo | 0x44 | No | No |
+| Joystick | 0x2C | No | Yes |
+| Light | 0x53 | No | No |
+| Latch Relay | Pending confirmation | No | Yes |
+| Vibro | 0x38 | No | Yes |
+| LED Matrix | 0x39 | No | Yes |
+| Hub | 0x70 | 0x70–0x77 (solder jumpers) | No |
+| Motors | 0x48 | No | Yes |
+| Extender | N/A | N/A | N/A |
+
+### Address configuration
+
+- Software-configurable modules can be assigned a different I2C
+  address using the Arduino_Modulino AddressChanger utility.
+- Fixed-address modules do not support address changes through
+  that utility.
+- The Movement and Hub modules support hardware address
+  selection using solder jumpers.
+- The Extender does not require an I2C address.
+
+Some older documentation uses firmware pinstrap values instead of
+7-bit I2C addresses. For example, Buttons uses pinstrap value
+0x7C, corresponding to the 7-bit bus address 0x3E.
+
+When changing a module's address, choose an unused address and
+power-cycle the module after configuration.
 
 ## General Troubleshooting
 
