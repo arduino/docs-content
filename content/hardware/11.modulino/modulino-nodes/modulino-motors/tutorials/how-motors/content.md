@@ -112,7 +112,7 @@ The main components are the **MAX22211 H-bridge driver**, **STM32C011F6 microcon
 
 You can connect to the I²C pins (SDA and SCL) using either the **QWIIC connectors** (recommended) or the **solderable pins**. The board's logic runs on **3.3V** from the QWIIC cable or the **3V3 pin**.
 
-You can grab the full schematic and PCB files from the [Modulino Motors page](https://docs.arduino.cc/hardware/modulinos/modulino-motor).
+You can grab the full schematic and PCB files from the [Modulino Motors page](https://docs.arduino.cc/hardware/modulino-motor).
 
 ## Programming with Arduino
 
