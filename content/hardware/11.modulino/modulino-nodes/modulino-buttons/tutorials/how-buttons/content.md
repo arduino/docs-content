@@ -90,7 +90,7 @@ The main components are the **three tactile buttons**, **three user-programmable
 
 You can connect to the I²C pins (SDA and SCL) using either the **QWIIC connectors** (J1 and J2, this is the recommended method) or the **solderable pins** (J4). The board runs on **3.3V**, which comes from the QWIIC cable or the **3V3 pin** on J4.
 
-You can grab the full schematic and PCB files from the [Modulino Buttons page](https://docs.arduino.cc/hardware/modulinos/modulino-buttons).
+You can grab the full schematic and PCB files from the [Modulino Buttons page](https://docs.arduino.cc/hardware/modulino-buttons).
 
 ## Programming with Arduino
 

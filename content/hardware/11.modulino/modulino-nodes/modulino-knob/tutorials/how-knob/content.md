@@ -96,7 +96,7 @@ You can connect to the I²C pins (SDA and SCL) using either the **QWIIC connecto
 
 There's also a small power LED indicator (green) that lights up when the board is on.
 
-You can grab the full schematic and PCB files from the [Modulino Knob page](https://docs.arduino.cc/hardware/modulinos/modulino-knob).
+You can grab the full schematic and PCB files from the [Modulino Knob page](https://docs.arduino.cc/hardware/modulino-knob).
 
 ## Programming with Arduino
 

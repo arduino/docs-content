@@ -105,7 +105,7 @@ You can connect to the I²C pins (SDA and SCL) using either the **QWIIC connecto
 
 There's also a small power LED indicator that lights up when the board is on.
 
-You can grab the full schematic and PCB files from the [Modulino Joystick page](https://docs.arduino.cc/hardware/modulinos/modulino-joystick).
+You can grab the full schematic and PCB files from the [Modulino Joystick page](https://docs.arduino.cc/hardware/modulino-joystick).
 
 ## Programming with Arduino
 

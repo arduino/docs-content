@@ -94,7 +94,7 @@ You can connect to the I²C pins (SDA and SCL) using either the **QWIIC connecto
 
 There's also a small power LED indicator that lights up when the board is on.
 
-You can grab the full schematic and PCB files from the [Modulino Vibra page](https://docs.arduino.cc/hardware/modulinos/modulino-vibra).
+You can grab the full schematic and PCB files from the [Modulino Vibra page](https://docs.arduino.cc/hardware/modulino-vibra).
 
 ## Programming with Arduino
 
