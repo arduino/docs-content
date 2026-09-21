@@ -59,7 +59,7 @@ You can also connect via `nmtui` on the board's shell, via `nmcli`.
 
 ## Instructions
 
-### 1. Check the board resources
+### 1. Check the Board Resources
 
 Before installing anything, confirm that the board is recognized and that there is enough space available for the model and binaries.
 
@@ -71,7 +71,7 @@ df -h /                                                        # free disk space
 
 An UNO Q 4GB version generally has about 3.6 GB of free RAM and a small root filesystem. That is enough for a compact 0.8B model in 4-bit quantization, but not for large F16 models or a source build. Keep the installation lean by choosing one prebuilt release and one smaller GGUF model.
 
-### 2. Download a prebuilt llama.cpp release
+### 2. Download a Prebuilt Release
 
 The UNO Q runs Debian on the Linux side, and it does not come with a compiler toolchain or passwordless `sudo`. Compiling from source would require extra packages and is not the most practical approach. Instead, download the official prebuilt `ubuntu-arm64` release for the board.
 
@@ -104,7 +104,7 @@ LD_LIBRARY_PATH=. ./llama-cli --version
 
 > `LD_LIBRARY_PATH=.` is required because the release ships its shared libraries next to the binaries instead of installing them system-wide.
 
-### 3. Download the Qwen3.5-0.8B GGUF model
+### 3. Download the Qwen3.5-0.8B GGUF Model
 
 llama.cpp expects the model in GGUF format. A good default for the UNO Q is the Qwen3.5-0.8B model in Q4_K_M quantization, because it is relatively small and still practical for local inference.
 
@@ -118,7 +118,7 @@ wget -O Qwen3.5-0.8B-Q4_K_M.gguf \
 
 This model is roughly 500 MB. If space is tight, check `df -h /` before and after the download and delete unused files with `rm` if needed.
 
-### 4. Run inference locally
+### 4. Run Inference Locally
 
 Now start the model with a single prompt and stop after the response. This is a good way to confirm that the install works before moving to longer or interactive sessions.
 
@@ -149,7 +149,7 @@ T-rex has short arms and have been extinct for...
 
 Generation at roughly 3.6 tokens per second is typical for CPU-only inference on the UNO Q. This is fine for short experiments and small demos, but not for long interactive sessions.
 
-### 5. Use the model in interactive or server mode
+### 5. Use the Model in Interactive or Server Mode
 
 For a chat-style REPL, omit `--single-turn` and `-p` and let the model run interactively:
 
@@ -170,7 +170,7 @@ LD_LIBRARY_PATH=. ./llama-server \
 
 This exposes `/v1/chat/completions` on the local network so other code running on the board or elsewhere can call the model.
 
-### 6. Make the binaries easier to run
+### 6. Make the Binaries Easier to Run
 
 Add an alias so you do not have to type the `LD_LIBRARY_PATH` prefix and full path each time:
 
