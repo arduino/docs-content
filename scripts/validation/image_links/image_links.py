@@ -155,31 +155,59 @@ def is_remote(link):
     """
     return link.startswith(('http://', 'https://', 'mailto:', '//', 'data:'))
 
-def validate_missing(root_path, repo_root):
+def find_content_dir(path):
+    current_dir = os.path.abspath(path)
+    test_dir = current_dir if os.path.isdir(current_dir) else os.path.dirname(current_dir)
+    while test_dir:
+        if os.path.isdir(os.path.join(test_dir, 'content')):
+            return os.path.join(test_dir, 'content')
+        if os.path.basename(test_dir) == 'content':
+            return test_dir
+        parent = os.path.dirname(test_dir)
+        if parent == test_dir:
+            break
+        test_dir = parent
+    return None
+
+def validate_missing(root_path, repo_root, content_dir=None):
     """
-    Scans the given directory for Markdown files and checks if the local images they reference exist.
+    Scans Markdown files and checks if the local images they reference exist.
+    Populates referenced_images from all Markdown files (including ignored files)
+    so active assets are not falsely flagged as unlinked orphans.
+    Only reports missing images for non-ignored files within root_path.
     
     Args:
-        root_path (str): The root directory to scan.
-        repo_root (str): The repository root containing .linterignore.
+        root_path (str): The root directory or file to validate for missing images.
+        repo_root (str): The repository root containing ignore files.
+        content_dir (str, optional): The content directory root for discovering all references.
         
     Returns:
         tuple: (missing_images dict, referenced_images set)
             - missing_images: A dictionary mapping file paths to a list of broken image links.
-            - referenced_images: A set of absolute paths to all existing referenced images.
+            - referenced_images: A set of absolute paths to all referenced images.
     """
     missing_images = {}
     referenced_images = set()
     
-    for root, _, files in os.walk(root_path):
-        if is_ignored(root, repo_root):
-            continue
+    root_path_abs = os.path.abspath(root_path)
+    if content_dir is None:
+        content_dir = find_content_dir(root_path_abs)
+        
+    scan_dir = content_dir if content_dir else (root_path_abs if os.path.isdir(root_path_abs) else os.path.dirname(root_path_abs))
+    
+    for root, _, files in os.walk(scan_dir):
         for file in files:
             if file.endswith('.md'):
-                file_path = os.path.join(root, file)
-                if is_ignored(file_path, repo_root):
-                    continue
+                file_path = os.path.normpath(os.path.join(root, file))
                 images = find_images_in_file(file_path)
+                
+                # Check if this file is within the requested root_path target
+                if os.path.isfile(root_path_abs):
+                    is_target = (file_path == root_path_abs)
+                else:
+                    is_target = (file_path == root_path_abs or file_path.startswith(root_path_abs + os.sep))
+                
+                file_ignored = None
                 
                 for img in images:
                     if is_remote(img):
@@ -187,19 +215,25 @@ def validate_missing(root_path, repo_root):
                     
                     # Clean up queries/anchors and decode URL encoding (like %20 to spaces)
                     img_path_clean = urllib.parse.unquote(img.split('#')[0].split('?')[0])
+                    if not img_path_clean:
+                        continue
                     
                     # Resolve path relative to the specific markdown file
                     if img_path_clean.startswith('/'):
-                        full_img_path = os.path.normpath(os.path.join(root_path, img_path_clean.lstrip('/')))
+                        base_for_abs = content_dir if content_dir else scan_dir
+                        full_img_path = os.path.normpath(os.path.join(base_for_abs, img_path_clean.lstrip('/')))
                     else:
                         full_img_path = os.path.normpath(os.path.join(root, img_path_clean))
                     
                     referenced_images.add(full_img_path)
                     
-                    if not os.path.exists(full_img_path):
-                        if file_path not in missing_images:
-                            missing_images[file_path] = []
-                        missing_images[file_path].append(img)
+                    if is_target and not os.path.exists(full_img_path):
+                        if file_ignored is None:
+                            file_ignored = is_ignored(file_path, repo_root)
+                        if not file_ignored:
+                            if file_path not in missing_images:
+                                missing_images[file_path] = []
+                            missing_images[file_path].append(img)
                         
     return missing_images, referenced_images
 
@@ -248,23 +282,13 @@ def main():
         sys.exit(1)
         
     current_dir = root_path
-    content_dir = None
-    test_dir = current_dir if os.path.isdir(current_dir) else os.path.dirname(current_dir)
-    while test_dir and test_dir != '/':
-        if os.path.isdir(os.path.join(test_dir, 'content')):
-            content_dir = os.path.join(test_dir, 'content')
-            break
-        if os.path.basename(test_dir) == 'content':
-            content_dir = test_dir
-            break
-        test_dir = os.path.dirname(test_dir)
-        
+    content_dir = find_content_dir(current_dir)
     repo_root = os.path.dirname(content_dir) if content_dir and os.path.basename(content_dir) == 'content' else (content_dir or current_dir)
 
     has_errors = False
 
     if args.command == "validate":
-        missing, referenced = validate_missing(root_path, repo_root)
+        missing, referenced = validate_missing(root_path, repo_root, content_dir=content_dir)
         assets = get_all_assets(root_path, repo_root)
         unlinked = assets - referenced
         
@@ -287,7 +311,7 @@ def main():
             print("Validation successful: No missing or unlinked images found.")
 
     elif args.command == "validate-missing":
-        missing, _ = validate_missing(root_path, repo_root)
+        missing, _ = validate_missing(root_path, repo_root, content_dir=content_dir)
         if missing:
             total_missing = sum(len(imgs) for imgs in missing.values())
             print(f"{total_missing} missing images found:")
@@ -300,7 +324,20 @@ def main():
             print("No missing images found.")
             
     elif args.command == "validate-unlinked":
-        _, referenced = validate_missing(root_path, repo_root)
+        _, referenced = validate_missing(root_path, repo_root, content_dir=content_dir)
+        assets = get_all_assets(root_path, repo_root)
+        unlinked = assets - referenced
+        
+        if unlinked:
+            print(f"\n{len(unlinked)} unlinked images found in assets folders:")
+            for img in sorted(list(unlinked)):
+                print(f"  - {os.path.relpath(img, root_path)}")
+            has_errors = True
+        else:
+            print("No unlinked images found in assets folders.")
+            
+    elif args.command == "remove-unlinked":
+        _, referenced = validate_missing(root_path, repo_root, content_dir=content_dir)
         assets = get_all_assets(root_path, repo_root)
         unlinked = assets - referenced
         
