@@ -278,7 +278,24 @@ def validate_file(file_path, valid_production_paths, content_dir, anchor_cache):
             
     return issues
 
-def main():
+def build_route_map(content_dir):
+    """
+    Crawls content_dir to build a mapping of production URLs to lists of file paths.
+    All Markdown files (including those in ignored folders) are indexed so active
+    pages can link to them.
+    """
+    valid_production_paths = {}
+    for root, _, files in os.walk(content_dir):
+        for file in files:
+            if file.endswith('.md'):
+                f_path = os.path.join(root, file)
+                url = map_file_to_url(f_path, content_dir)
+                if url not in valid_production_paths:
+                    valid_production_paths[url] = []
+                valid_production_paths[url].append(f_path)
+    return valid_production_paths
+
+def main(argv=None):
     parser = argparse.ArgumentParser(description="Manage relative links in Markdown files.")
     subparsers = parser.add_subparsers(dest="command", required=True)
     
@@ -288,7 +305,7 @@ def main():
     validate_parser = subparsers.add_parser("validate")
     validate_parser.add_argument("path", help="Path to a file or directory")
     
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     
     if not os.path.exists(args.path):
         print(f"Error: Path '{args.path}' does not exist.")
@@ -325,15 +342,7 @@ def main():
         print(f"Processed {len(files_to_process)} files. Fixed {fixed_count} files.")
         
     elif args.command == "validate":
-        valid_production_paths = {}
-        for root, _, files in os.walk(content_dir):
-            for file in files:
-                if file.endswith('.md'):
-                    f_path = os.path.join(root, file)
-                    url = map_file_to_url(f_path, content_dir)
-                    if url not in valid_production_paths:
-                        valid_production_paths[url] = []
-                    valid_production_paths[url].append(f_path)
+        valid_production_paths = build_route_map(content_dir)
                         
         anchor_cache = {}
         all_issues = {}

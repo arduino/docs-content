@@ -263,7 +263,7 @@ def get_all_assets(root_path, repo_root):
                         assets.add(asset_path)
     return assets
 
-def main():
+def main(argv=None):
     parser = argparse.ArgumentParser(description="Validate and manage local image links in Markdown files.")
     subparsers = parser.add_subparsers(dest="command", required=True)
     
@@ -274,7 +274,7 @@ def main():
     
     parser.add_argument("path", help="Path to the content directory to process (e.g., content/software/app-lab)")
     
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     root_path = os.path.abspath(args.path)
     
     if not os.path.exists(root_path):
@@ -342,19 +342,6 @@ def main():
         unlinked = assets - referenced
         
         if unlinked:
-            print(f"{len(unlinked)} unlinked images found in assets folders:")
-            for img in sorted(list(unlinked)):
-                print(f"  - {os.path.relpath(img, root_path)}")
-            has_errors = True
-        else:
-            print("No unlinked images found in assets folders.")
-            
-    elif args.command == "remove-unlinked":
-        _, referenced = validate_missing(root_path, repo_root)
-        assets = get_all_assets(root_path, repo_root)
-        unlinked = assets - referenced
-        
-        if unlinked:
             print(f"Removing {len(unlinked)} unlinked images...")
             for img in unlinked:
                 try:
@@ -362,6 +349,7 @@ def main():
                     print(f"  Deleted: {os.path.relpath(img, root_path)}")
                 except Exception as e:
                     print(f"  Error deleting {img}: {e}")
+                    has_errors = True
         else:
             print("No unlinked images to remove.")
 

@@ -3,6 +3,8 @@ import tempfile
 import os
 import shutil
 import sys
+import io
+import contextlib
 
 # Add repo root to sys.path so scripts can be imported
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
@@ -12,13 +14,16 @@ if REPO_ROOT not in sys.path:
 from scripts.validation.image_links.image_links import (
     validate_missing,
     get_all_assets,
+    main as image_links_main,
     IGNORE_CACHE,
     ASSET_IGNORE_CACHE,
 )
 from scripts.validation.relative_links.relative_links import (
     validate_file,
     map_file_to_url,
+    build_route_map,
     is_ignored,
+    main as relative_links_main,
     IGNORE_CACHE as REL_IGNORE_CACHE,
 )
 
@@ -111,6 +116,52 @@ class TestImageLinksIgnoreDecoupling(unittest.TestCase):
         unlinked = assets - referenced
         self.assertEqual(unlinked, {os.path.normpath(orphan_path)})
 
+    def test_remove_unlinked_cli_deletes_orphan_and_preserves_ignored_doc_reference(self):
+        """
+        Review item 1: Entry-point test asserting that remove-unlinked deletes a genuine orphan
+        while preserving an image referenced by an ignored document.
+        """
+        assets_dir = os.path.join(self.content_dir, 'shared', 'assets')
+        os.makedirs(assets_dir)
+        kept_img = os.path.join(assets_dir, 'kept.png')
+        orphan_img = os.path.join(assets_dir, 'review-orphan.png')
+        with open(kept_img, 'wb') as f:
+            f.write(b'\x89PNG\r\n\x1a\n')
+        with open(orphan_img, 'wb') as f:
+            f.write(b'\x89PNG\r\n\x1a\n')
+
+        # Create ignored document referencing kept_img
+        ignored_sub = os.path.join(self.content_dir, 'software', 'app-lab', 'cli')
+        os.makedirs(ignored_sub)
+        with open(os.path.join(self.content_dir, 'software', 'app-lab', '.lintignore'), 'w') as f:
+            f.write('cli/\n')
+
+        md_file = os.path.join(ignored_sub, 'guide.md')
+        rel_img = os.path.relpath(kept_img, ignored_sub).replace('\\', '/')
+        with open(md_file, 'w', encoding='utf-8') as f:
+            f.write(f'# App Lab CLI\n\n![Screenshot]({rel_img})\n')
+
+        # Before removal, validate-unlinked CLI detects the orphan and exits with 1
+        with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            with self.assertRaises(SystemExit) as cm:
+                image_links_main(["validate-unlinked", self.content_dir])
+            self.assertEqual(cm.exception.code, 1)
+
+        # Run remove-unlinked CLI entry point
+        stdout = io.StringIO()
+        with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(io.StringIO()):
+            image_links_main(["remove-unlinked", self.content_dir])
+
+        # Assert genuine orphan was deleted, and referenced image was preserved
+        self.assertFalse(os.path.exists(orphan_img), "Genuine orphan image was not deleted by remove-unlinked")
+        self.assertTrue(os.path.exists(kept_img), "Image referenced by ignored doc was wrongly deleted")
+        self.assertIn("review-orphan.png", stdout.getvalue())
+
+        # Validate-unlinked CLI now passes cleanly
+        with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            # Returns normally without raising SystemExit(1)
+            image_links_main(["validate-unlinked", self.content_dir])
+
 
 class TestRelativeLinksIgnoreDecoupling(unittest.TestCase):
     def setUp(self):
@@ -123,47 +174,70 @@ class TestRelativeLinksIgnoreDecoupling(unittest.TestCase):
         shutil.rmtree(self.test_dir, ignore_errors=True)
         REL_IGNORE_CACHE.clear()
 
-    def test_unignored_page_can_link_to_ignored_page(self):
+    def test_build_route_map_indexes_ignored_files(self):
         """
-        PAT-23 Part 2: Markdown files in ignored directories still build production routes.
-        When indexing valid_production_paths, all .md files must be included so active
-        articles can link to them without false-positive Broken Link errors.
+        Tests the extracted route-indexing function build_route_map() directly to ensure
+        files in ignored directories are present in the route map.
         """
-        # Create ignored legacy hardware section
         legacy_dir = os.path.join(self.content_dir, 'hardware', 'legacy-mkr')
         os.makedirs(legacy_dir)
         with open(os.path.join(self.content_dir, '.lintignore'), 'w') as f:
             f.write('hardware/legacy-mkr\n')
 
-        with open(os.path.join(legacy_dir, 'mkr-zero.md'), 'w', encoding='utf-8') as f:
-            f.write('# MKR Zero\n\nSome pinout information.\n')
+        legacy_file = os.path.join(legacy_dir, 'mkr-zero.md')
+        with open(legacy_file, 'w', encoding='utf-8') as f:
+            f.write('# MKR Zero\n')
 
-        # Create active unignored section linking to the legacy section
+        routes = build_route_map(self.content_dir)
+        expected_url = map_file_to_url(legacy_file, self.content_dir)
+        self.assertIn(expected_url, routes)
+        self.assertIn(legacy_file, routes[expected_url])
+
+    def test_main_validate_active_linking_to_ignored_target_and_anchor(self):
+        """
+        Review item 2: Production discovery and validation exercised through main().
+        - Active page links to an ignored target and an anchor within it.
+        - Broken outbound links in the ignored page remain suppressed.
+        - Validation completes cleanly.
+        """
+        # Create ignored legacy hardware section with an anchor AND a broken outbound link
+        legacy_dir = os.path.join(self.content_dir, 'hardware', 'legacy-mkr')
+        os.makedirs(legacy_dir)
+        with open(os.path.join(self.content_dir, '.lintignore'), 'w') as f:
+            f.write('hardware/legacy-mkr\n')
+
+        legacy_file = os.path.join(legacy_dir, 'mkr-zero.md')
+        with open(legacy_file, 'w', encoding='utf-8') as f:
+            f.write(
+                '# MKR Zero\n\n'
+                '## Pinout\n'
+                'Pinout details here.\n\n'
+                'Check out [Broken Outbound Link](/does/not/exist/) and '
+                '[Broken Outbound Anchor](/also/missing/#anchor).\n'
+            )
+
+        # Create active unignored section linking to the legacy section and its anchor
         active_dir = os.path.join(self.content_dir, 'software', 'app-lab')
         os.makedirs(active_dir)
         active_file = os.path.join(active_dir, 'getting-started.md')
         with open(active_file, 'w', encoding='utf-8') as f:
-            f.write('# Getting Started\n\nCheck out [MKR Zero](/hardware/legacy-mkr/) for hardware details.\n')
+            f.write(
+                '# Getting Started\n\n'
+                'Check out [MKR Zero](/hardware/legacy-mkr/) and '
+                '[MKR Zero Pinout](/hardware/legacy-mkr/#pinout) for hardware details.\n'
+            )
 
-        # Build route map as validate does
-        valid_production_paths = {}
-        for root, _, files in os.walk(self.content_dir):
-            for file in files:
-                if file.endswith('.md'):
-                    f_path = os.path.join(root, file)
-                    url = map_file_to_url(f_path, self.content_dir)
-                    if url not in valid_production_paths:
-                        valid_production_paths[url] = []
-                    valid_production_paths[url].append(f_path)
+        # Run production discovery and validation through relative_links main()
+        stdout = io.StringIO()
+        with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(io.StringIO()):
+            # Must complete without SystemExit(1)
+            relative_links_main(["validate", self.content_dir])
 
-        # Validate active file
-        anchor_cache = {}
-        issues = validate_file(active_file, valid_production_paths, self.content_dir, anchor_cache)
-        self.assertEqual(issues, [])
+        self.assertIn("Validation successful", stdout.getvalue())
 
-    def test_broken_link_to_nonexistent_page_is_still_flagged(self):
+    def test_main_validate_broken_link_to_nonexistent_page_fails(self):
         """
-        Links that actually resolve nowhere must still be reported as broken.
+        Review item 2: Genuine missing targets still fail in production main() validation.
         """
         active_dir = os.path.join(self.content_dir, 'software')
         os.makedirs(active_dir)
@@ -171,20 +245,40 @@ class TestRelativeLinksIgnoreDecoupling(unittest.TestCase):
         with open(active_file, 'w', encoding='utf-8') as f:
             f.write('# Intro\n\n[Broken Link](/does/not/exist/)\n')
 
-        valid_production_paths = {}
-        for root, _, files in os.walk(self.content_dir):
-            for file in files:
-                if file.endswith('.md'):
-                    f_path = os.path.join(root, file)
-                    url = map_file_to_url(f_path, self.content_dir)
-                    if url not in valid_production_paths:
-                        valid_production_paths[url] = []
-                    valid_production_paths[url].append(f_path)
+        stdout = io.StringIO()
+        with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(io.StringIO()):
+            with self.assertRaises(SystemExit) as cm:
+                relative_links_main(["validate", self.content_dir])
+            self.assertEqual(cm.exception.code, 1)
 
-        anchor_cache = {}
-        issues = validate_file(active_file, valid_production_paths, self.content_dir, anchor_cache)
-        self.assertEqual(len(issues), 1)
-        self.assertIn("Broken link", issues[0])
+        self.assertIn("Broken link", stdout.getvalue())
+        self.assertIn("/does/not/exist/", stdout.getvalue())
+
+    def test_main_validate_broken_anchor_fails(self):
+        """
+        Review item 2: Genuine missing anchors in valid/ignored targets still fail in production main().
+        """
+        legacy_dir = os.path.join(self.content_dir, 'hardware', 'legacy-mkr')
+        os.makedirs(legacy_dir)
+        with open(os.path.join(self.content_dir, '.lintignore'), 'w') as f:
+            f.write('hardware/legacy-mkr\n')
+
+        with open(os.path.join(legacy_dir, 'mkr-zero.md'), 'w', encoding='utf-8') as f:
+            f.write('# MKR Zero\n\n## Valid Anchor\nContent.\n')
+
+        active_dir = os.path.join(self.content_dir, 'software')
+        os.makedirs(active_dir)
+        with open(os.path.join(active_dir, 'guide.md'), 'w', encoding='utf-8') as f:
+            f.write('# Guide\n\n[Broken Anchor](/hardware/legacy-mkr/#missing-anchor)\n')
+
+        stdout = io.StringIO()
+        with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(io.StringIO()):
+            with self.assertRaises(SystemExit) as cm:
+                relative_links_main(["validate", self.content_dir])
+            self.assertEqual(cm.exception.code, 1)
+
+        self.assertIn("Broken anchor", stdout.getvalue())
+        self.assertIn("#missing-anchor", stdout.getvalue())
 
     def test_multi_file_route_anchor_validation(self):
         """
@@ -209,16 +303,7 @@ class TestRelativeLinksIgnoreDecoupling(unittest.TestCase):
         with open(tut_file, 'w', encoding='utf-8') as f:
             f.write('# Guide\n\nSee [Uno Q Pinout](/hardware/uno-q/#pinout).\n')
 
-        valid_production_paths = {}
-        for root, _, files in os.walk(self.content_dir):
-            for file in files:
-                if file.endswith('.md'):
-                    f_path = os.path.join(root, file)
-                    url = map_file_to_url(f_path, self.content_dir)
-                    if url not in valid_production_paths:
-                        valid_production_paths[url] = []
-                    valid_production_paths[url].append(f_path)
-
+        valid_production_paths = build_route_map(self.content_dir)
         anchor_cache = {}
         issues = validate_file(tut_file, valid_production_paths, self.content_dir, anchor_cache)
         self.assertEqual(issues, [])
