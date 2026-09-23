@@ -10,6 +10,8 @@ type: maker
 
 <p style="text-align: justify;">The Arduino® USB-C Cable (24-pin) (TPX00243) is a USB-C to USB-C cable featuring 24-pin connectivity for complete functionality, including data transfer, video output, and power delivery. This 1-meter braided cable supports USB 3.0 data speeds up to 5 Gbps, power delivery up to 60 W (20 V / 3 A), and DisplayPort Alt Mode for video transmission. Designed for use with USB-C devices requiring full-featured connectivity, it provides reliable performance for development, prototyping, and deployment scenarios.</p>
 
+![Arduino USB-C Cable](assets/TPX00243_cable.png)
+
 <div style="page-break-after: always;"></div>
 
 # CONTENTS
@@ -37,11 +39,11 @@ type: maker
 | Pin Configuration  | Full 24-pin                                    |
 | Pin Range          | A1-A12, B1-B12 (both connectors)               |
 | Connector Type     | Reversible, symmetrical insertion              |
-| Connector Shell    | Nickel-plated                                  |
+| Connector Shell    | Metallic                                       |
 | Cable Construction | Braided with aluminum foil and woven shielding |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  <strong>Note:</strong> This cable features 24-pin connectivity with proper wire shielding and color-coded internal wiring for data integrity. All pins (A1-A12, B1-B12) are connected on both ends to provide functionality for data, video, and power delivery. Not all USB-C cables support all 24 pins. Check full-featured cable requirements for your application.
+  <strong>Note:</strong> This cable uses the full 24-pin USB-C pinout (A1-A12, B1-B12) on both connectors with wire shielding for data integrity, supporting data, video, and power delivery in either plug orientation. As with all USB-C to USB-C cables, only one USB 2.0 D+/D- pair is wired, so B6 and B7 do not show end-to-end continuity. Not all USB-C cables support all 24 pins. Check full-featured cable requirements for your application.
 </div>
 
 ### Functionalities
