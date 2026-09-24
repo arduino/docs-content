@@ -90,7 +90,7 @@ The Modulino Light uses a simple circuit built around the **LTR-381RGB-01** sens
 
 You can connect to the I²C pins (SDA and SCL) using either the **QWIIC connectors** (J1 and J2, recommended) or the **solderable pins** (J4). The board runs on **3.3V** from the QWIIC cable or the **3V3 pin** on J4.
 
-Full schematic and PCB files are available from the [Modulino Light page](https://docs.arduino.cc/hardware/modulinos/modulino-light).
+Full schematic and PCB files are available from the [Modulino Light page](https://docs.arduino.cc/hardware/modulino-light).
 
 ## Programming with Arduino
 
