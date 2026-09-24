@@ -9,7 +9,7 @@ author: José Bagur
 
 # Description
 
-<p style="text-align: justify;">The Arduino Nano XL Link is a compact microcontroller board designed for industrial and building automation applications. Based on the PIC32CK1025GC01144 microcontroller from Microchip®, the board extends the standard Nano pinout through two 2.54 mm double-row headers and integrates three industrial communication transceivers: CAN FD, RS-485, and a 10/100 Ethernet PHY. These interfaces allow the Nano XL Link to communicate directly with industrial equipment without additional interface boards, while retaining full compatibility with the Arduino ecosystem.</p>
+<p style="text-align: justify;">The Arduino Nano XL Link is a compact microcontroller board designed for industrial and building automation applications. Based on the PIC32CK2051SG01144 microcontroller from Microchip®, the board extends the standard Nano pinout through two 2.54 mm double-row headers and integrates three industrial communication transceivers: CAN FD, RS-485, and a 10/100 Ethernet PHY. These interfaces allow the Nano XL Link to communicate directly with industrial equipment without additional interface boards, while retaining full compatibility with the Arduino ecosystem.</p>
 
 # Target Areas
  
@@ -43,7 +43,7 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
  
 ### General Specifications Overview
  
-<p style="text-align: justify;">The Nano XL Link is built around the PIC32CK1025GC01144, a 32-bit Arm® Cortex®-M33 microcontroller from Microchip®. In addition to the microcontroller, the board integrates a CAN FD transceiver, an RS-485 transceiver, and a 10/100 Ethernet PHY, as well as a Qwiic connector, a reset push-button, and onboard status LEDs.</p>
+<p style="text-align: justify;">The Nano XL Link is built around the PIC32CK2051SG01144, a 32-bit Arm® Cortex®-M33 microcontroller from Microchip®. In addition to the microcontroller, the board integrates a CAN FD transceiver, an RS-485 transceiver, and a 10/100 Ethernet PHY, as well as a Qwiic connector, a reset push-button, and onboard status LEDs.</p>
 
 <p style="text-align: justify;">Table 1 summarizes the board's main features; Table 2 shows more detailed information about the board's microcontroller.</p>
 
@@ -51,10 +51,10 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
 
 |        **Feature**       | **Description**                                                                                                           |
 |:------------------------:|---------------------------------------------------------------------------------------------------------------------------|
-|      Microcontroller     | 120 MHz, 32-bit Arm® Cortex®-M33 core microcontroller (PIC32CK1025GC01144)                                                |
-|      Internal Memory     | 1024 kB Flash and 256 kB RAM                                                                                              |
-|    Fieldbus Interfaces   | CAN FD (TCAN3414DDFR transceiver), RS-485 (THVD2410DRBR transceiver), 10/100 Ethernet (KSZ8081RNACA PHY)                  |
-| Communication Interfaces | USB, I2C/I3C, I2S, SPI, UART                                                                                              |
+|      Microcontroller     | 120 MHz, 32-bit Arm® Cortex®-M33 core microcontroller (PIC32CK2051SG01144) with integrated Hardware Security Module (HSM)                                                |
+|      Internal Memory     | 2 MB Flash and 512 kB RAM                                                                                                 |
+|    Fieldbus Interfaces   | CAN FD (TCAN3414DDFR transceiver), RS-485 (THVD2410DRBR transceiver), 10/100 Ethernet (KSZ8081RNAIA PHY)                  |
+| Communication Interfaces | USB, I2C, I2S, SPI, UART                                                                                                  |
 |       USB Connector      | USB-C® connector for programming and power (+5 VDC)                                                                       |
 |          Headers         | Two 2.54 mm double-row 2×15 headers (60 pins in total) exposing fieldbus, digital, analog, and communication signals      |
 |       Analog Inputs      | 8× analog inputs (A0–A7), ADC up to 12-bit resolution, external reference (AREF) available                                |
@@ -63,6 +63,7 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
 |       Onboard LEDs       | Green (power), yellow (built-in user LED), RGB user LED                                                                   |
 |        Push-Button       | Reset push-button                                                                                                         |
 |           Debug          | SWD interface available on headers and bottom-side test points                                                            |
+|       Arduino Cloud      | Arduino Cloud ready (no OTA update support)                                                                               |
 |       Power Supply       | +5 VDC via USB-C® connector or +7 to +24 VDC via VIN pin; +3.3 VDC generated by the onboard step-down converter (MPQ4334) |
 |        I/O Voltage       | +3.3 VDC                                                                                                                  |
 |        Dimensions        | 23 mm × 43 mm                                                                                                             |
@@ -73,7 +74,7 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
 
 ### Microcontroller
  
-<p style="text-align: justify;">The Nano XL Link is based on the PIC32CK1025GC01144 microcontroller from Microchip. Table 2 summarizes its main characteristics.</p>
+<p style="text-align: justify;">The Nano XL Link is based on the PIC32CK2051SG01144 microcontroller from Microchip. Table 2 summarizes its main characteristics.</p>
 
 <div style="text-align:center;">
 
@@ -81,9 +82,10 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
 |:------------------------------------------:|-------------------------------------------------------------------------------------------------------------------|
 |                    Core                    | 32-bit Arm® Cortex®-M33                                                                                           |
 |                 Clock Speed                | 120 MHz                                                                                                           |
-|                Flash Memory                | 1024 kB                                                                                                           |
-|                     RAM                    | 256 kB                                                                                                            |
-|               External Clock               | 24 MHz crystal (X252012MMB4SI-24)                                                                                 |
+|                Flash Memory                | 2 MB                                                                                                              |
+|                     RAM                    | 512 kB                                                                                                            |
+|              Hardware Security              | Integrated Hardware Security Module (HSM)                                                                         |
+|               External Clock               | 12 MHz crystal (X252012MMB4SI-24)                                                                                 |
 | Peripherals Used on the Nano XL Link Board | USB HS, USB FS, CAN0 (CAN FD), ENET (RMII), UART0, UART1, UART6, SPI2, SPI5, I2C3, I2C4, I2S, ADC, TCC (PWM), SWD |
  
 <caption>Table 2. Nano XL Link microcontroller details</caption>
@@ -98,18 +100,26 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
 
 | **Interface** |          **Transceiver**         | **Details**                                                                                                                                                                                                                                                                                     |
 |:-------------:|:--------------------------------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     CAN FD    | TCAN3414DDFR (Texas Instruments) | +3.3 VDC CAN FD transceiver connected to the microcontroller's CAN0 peripheral; CANH/CANL signals available on the headers; 120 Ω termination selectable via solder jumper (SJ1)                                                                                                                |
-|     RS-485    | THVD2410DRBR (Texas Instruments) | +3.3 VDC RS-485 transceiver connected to the microcontroller's UART0 peripheral; driver/receiver enable controlled by the UART0 RTS signal; A/B signals available on the headers; 120 Ω termination selectable via solder jumper (SJ2)                                                          |
-|    Ethernet   |    KSZ8081RNACA-TR (Microchip)   | 10/100 Mbps Ethernet PHY connected to the microcontroller's Ethernet MAC through an RMII interface; 25 MHz reference oscillator (DSC1522JI1A-25M00000T); TX/RX differential pairs and link/activity LED signal available on the headers; magnetics and RJ45 connector not included on the board |
+|     CAN FD    | TCAN3414DDFR (Texas Instruments) | +3.3 VDC CAN FD transceiver connected to the microcontroller's CAN0 peripheral; CANH/CANL signals available on the headers; 120 Ω termination selectable via solder jumper (SJ1, open by default)                                                                                                                |
+|     RS-485    | THVD2410DRBR (Texas Instruments) | +3.3 VDC RS-485 transceiver connected to the microcontroller's UART0 peripheral; driver/receiver enable controlled by the UART0 RTS signal; A/B signals available on the headers; 120 Ω termination selectable via solder jumper (SJ2, open by default)                                                          |
+|    Ethernet   |    KSZ8081RNAIA (Microchip)      | 10/100 Mbps industrial temperature range Ethernet PHY connected to the microcontroller's Ethernet MAC through an RMII interface; 25 MHz reference oscillator (DSC1522JI1A-25M00000T); TX/RX differential pairs and link/activity LED signal available on the headers; magnetics and RJ45 connector not included on the board |
  
 <caption>Table 3. Nano XL Link fieldbus interfaces</caption>
 
 </div>
 
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;"><strong>Note:</strong> The 120 Ω termination resistors of the CAN FD (SJ1) and RS-485 (SJ2) interfaces are <strong>open by default</strong>. Close the corresponding solder jumper only when the Nano XL Link is located at one end of the bus.</p>
+</div>
+
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;"><strong>Note:</strong> The Ethernet magnetics and the RJ45 connector are not included on the Nano XL Link. The PHY TX/RX differential pairs are routed to the headers and must be terminated on a carrier board.</p>
+</div>
+
 ### Related Products
  
 - Arduino® Nano XL Link Connector Carrier (SKU: ASX00090)
-- Arduino® Nano XL Link Relay Expansion (SKU: TBD)
+- Arduino® Nano XL Link Relay Expansion (SKU: ASX00091)
 
 <div style="page-break-after: always;"></div>
 
@@ -126,7 +136,7 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
 | USB Supply Input Voltage | V<sub>USB</sub>  |    -    |   5.0   |    -    |    V     |
 | Supply Input Voltage     | V<sub>IN</sub>   |   7.0   |    -    |  24.0   |    V     |
 | I/O Voltage              | V<sub>IO</sub>   |    -    |   3.3   |    -    |    V     |
-| Operating Temperature    | T<sub>OP</sub>   |   -40   |    -    |   85    |    °C    |
+| Operating Temperature    | T<sub>OP</sub>   |   -20   |    -    |   85    |    °C    |
  
 <caption>Table 4. Recommended operating conditions of the Nano XL Link</caption>
 
@@ -150,7 +160,7 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
 
 ## Functional Overview
  
-<p style="text-align: justify;">The core of the Nano XL Link is the PIC32CK1025GC01144 microcontroller from Microchip. The board also contains several peripherals connected to its microcontroller, described in the following subsections.</p>
+<p style="text-align: justify;">The core of the Nano XL Link is the PIC32CK2051SG01144 microcontroller from Microchip. The board also contains several peripherals connected to its microcontroller, described in the following subsections.</p>
 
 
 ### Pinout
@@ -185,13 +195,17 @@ The Nano XL Link can be powered through one of these interfaces:
 - USB-C® connector (+5 VDC)
 - VIN pin on the headers (+7–24 VDC)
 
-The +5 VDC from the USB-C® connector (VBUS) passes through a load switch with current limiting (MP5077GG-Z) and is protected by a TVS diode (STN101050B301) and an ESD protection device on the data lines (ESD321DYAR). The VIN input is protected by a TVS diode (SJD12C24L01) and a Schottky diode (TPMEG4020EPK). Both inputs feed the onboard step-down converter (MPQ4334GDE-1000-ABC1-Z), which generates the +3.3 VDC rail that supplies the microcontroller, the transceivers, the Ethernet PHY, the Qwiic connector, and the onboard LEDs.
+The +5 VDC from the USB-C® connector (VBUS) passes through a load switch (MP5077GG-Z) that ensures correct power sequencing and is protected by a TVS diode (STN101050B301) and an ESD protection device on the data lines (ESD321DYAR). The VIN input is protected by a TVS diode (SJD12C24L01) and a Schottky diode (TPMEG4020EPK). Both inputs feed the onboard step-down converter (MPQ4334GDE-1000-ABC1-Z), which generates the +3.3 VDC rail that supplies the microcontroller, the transceivers, the Ethernet PHY, the Qwiic connector, and the onboard LEDs.
  
 Figure 3 shows the power options available on the Nano XL Link and illustrates the main system power architecture.
 
 </div>
 
 ![Figure 3. Power architecture of the Nano XL Link](assets/placeholder.png)
+
+<div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;"><strong>Safety Note:</strong> Do not apply a voltage outside the +7 to +24 VDC range to the VIN pin. The +3.3 VDC pin is an output of the onboard step-down converter and <strong>must not be used as a power input</strong>.</p>
+</div>
 
 <div style="page-break-after: always;"></div>
 
@@ -202,6 +216,10 @@ Figure 3 shows the power options available on the Nano XL Link and illustrates t
 ### Qwiic Connector
  
 <p style="text-align: justify;">The board features a Qwiic connector (SM04B-SRSS-TB) connected to the microcontroller's I2C4 peripheral. The SDA and SCL lines have 5.1 kΩ pull-up resistors to +3.3 VDC, and the connector provides +3.3 VDC power to the connected modules. This connector allows direct connection of Modulino® nodes and other Qwiic-compatible devices.</p>
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;"><strong>Power Tip:</strong> The Qwiic connector supplies +3.3 VDC to the connected modules from the onboard step-down converter. Take the total current drawn by the connected modules into account when powering the board through the USB-C® connector.</p>
+</div>
 
 ### LEDs and Push-Button
  
@@ -229,6 +247,40 @@ Figure 3 shows the power options available on the Nano XL Link and illustrates t
 
 <div style="page-break-after: always;"></div>
 
+## Device Operation
+
+<div style="text-align:justify;">
+
+### Getting Started - IDE
+
+<p style="text-align: justify;">If you want to program your Nano XL Link while offline, you need to install the Arduino® Desktop IDE <strong>[1]</strong>. To connect the Nano XL Link to your computer, you will need a USB-C® cable.</p>
+
+### Getting Started - Arduino Cloud Editor
+
+<p style="text-align: justify;">All Arduino® devices work out-of-the-box on the Arduino® Cloud Editor <strong>[2]</strong> by just installing a simple plugin.</p>
+
+<p style="text-align: justify;">The Arduino® Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow <strong>[3]</strong> to start coding on the browser and upload your sketches onto your device.</p>
+
+### Getting Started - Arduino Cloud
+
+<p style="text-align: justify;">All Arduino® IoT enabled products are supported on Arduino Cloud, which allows you to log, graph, and analyze sensor data, trigger events, and automate your home or business.</p>
+
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;"><strong>Note:</strong> The Nano XL Link is Arduino Cloud ready; however, it <strong>does not support Over-The-Air (OTA) updates</strong>. Sketches must be uploaded to the board through its USB-C® connector using the Arduino IDE or the Arduino Cloud Editor.</p>
+</div>
+
+### Sample Sketches
+
+<p style="text-align: justify;">Sample sketches for the Nano XL Link can be found either in the "Examples" menu in the Arduino® IDE or in the "Nano XL Link Documentation" section of Arduino® <strong>[4]</strong>.</p>
+
+### Online Resources
+
+<p style="text-align: justify;">Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on Project Hub <strong>[5]</strong>, the Arduino® Library Reference <strong>[6]</strong>, and the online store <strong>[7]</strong>, where you will be able to complement your Nano XL Link with additional extensions, sensors, and actuators.</p>
+
+</div>
+
+<div style="page-break-after: always;"></div>
+
 ## Mechanical Information
  
 <p style="text-align: justify;">The Nano XL Link is a double-sided 23 mm × 43 mm board with a USB-C® connector on one of its short edges, two 2.54 mm double-row 2×15 headers along its long edges, and a Qwiic connector. Test points and a QR code are located on the bottom side of the board.</p>
@@ -251,7 +303,7 @@ The placement of the Nano XL Link connectors is shown in Figure 6; **all the dim
 
 ### Board Peripherals and Actuators
  
-<p style="text-align: justify;">The Nano XL Link has three onboard LEDs (green power LED, yellow built-in LED, and RGB LED) and a reset push-button. The placement of these components is shown in Figure 7; **all the dimensions are in mm**.</p>
+<p style="text-align: justify;">The Nano XL Link has three onboard LEDs (green power LED, yellow built-in LED, and RGB LED) and a reset push-button. The placement of these components is shown in Figure 7; <strong>all the dimensions are in mmv</strong>.</p>
 
 ![Figure 7. Nano XL Link LEDs and push-button placement (top view)](assets/placeholder.png)
 
@@ -303,15 +355,15 @@ Exemptions: No exemptions are claimed.
  
 ## Reference Documentation
  
-|        **Ref**                     | **Link**                                                                                    |
-|:----------------------------------:|---------------------------------------------------------------------------------------------|
-| Arduino IDE (Desktop)              | https://www.arduino.cc/en/Main/Software                                                     |
-| Arduino IDE (Cloud)                | https://create.arduino.cc/editor                                                            |
-| Arduino Cloud - Getting started    | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started             |
-| Nano XL Link Documentation         | https://docs.arduino.cc/hardware/nano-xl-link                                               |
-| Project Hub                        | https://create.arduino.cc/projecthub                                                        |
-| Library Reference                  | https://www.arduino.cc/reference/en/                                                        |
-| Online Store                       | https://store.arduino.cc/                                                                   |
+| **No.** | **Reference**                   | **Link**                                                                        |
+|:-------:|---------------------------------|---------------------------------------------------------------------------------|
+|    1    | Arduino IDE (Desktop)           | https://www.arduino.cc/en/Main/Software                                         |
+|    2    | Arduino IDE (Cloud)             | https://create.arduino.cc/editor                                                |
+|    3    | Arduino Cloud - Getting started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
+|    4    | Nano XL Link Documentation      | https://docs.arduino.cc/hardware/nano-xl-link                                   |
+|    5    | Project Hub                     | https://create.arduino.cc/projecthub                                            |
+|    6    | Library Reference               | https://www.arduino.cc/reference/en/                                            |
+|    7    | Arduino Store                   | https://store.arduino.cc/                                                       |
  
  
 ## Document Revision History
