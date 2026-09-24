@@ -116,8 +116,8 @@ VENTUNO Q is available in one variant:
 
 | **Source**               | **Voltage Range** | **Maximum Current** | **Connector**          |
 | ------------------------ | ----------------: | ------------------: | ---------------------- |
-| USB-C PD                 |            9-20 V |           up to 3 A | USB-C connector        |
-| Barrel Jack (5.5×2.1 mm) |            7-24 V |           up to 5 A | 5.5×2.1 mm Barrel Jack |
+| USB-C PD                 |              20 V |           up to 3 A | USB-C connector        |
+| Barrel Jack (5.5×2.1 mm) |           12-24 V |           up to 5 A | 5.5×2.1 mm Barrel Jack |
 | Screw Terminal           |            7-24 V |          up to 10 A | Screw Terminal         |
 
 ![Input Power Options](assets/ABX00181_power_options.png)
@@ -130,7 +130,6 @@ Both input paths are TVS-protected (SMBJ24CA, 24 V bidirectional) and route thro
 >
 > The two USB Type-A ports can each deliver up to 5 V × 1.71 A = 8.55 W, for a combined maximum of ~17 W additional draw. With the board at full power and both USB-A ports at maximum load, total draw can approach 42 W, exceeding the 35 W limit of the DC jack at 7 V and risking connector damage.
 >
-> The 3.3 V rail for UNO Shields, HATs and Qwiic (`+3V3_LIMITED`) is limited to 2.8 A (~ 9.3 W maximum). The 5 V rail for shields and HATs (`+5V_LIMITED`) is also limited to 2.8 A (~ 14 W maximum). Note that the 3.3 V and 5 V rails provided to UNO carrier connectors and JOMEGA are **not** current-limited.
 >
 > **Operating at 12 V or 24 V is strongly recommended** for any deployment involving AI inference, USB peripherals and connected shields or HATs simultaneously.
 >
@@ -138,13 +137,14 @@ Both input paths are TVS-protected (SMBJ24CA, 24 V bidirectional) and route thro
 
 ### Recommended Operating Conditions
 
-| **Parameter**         | **Symbol**       | **Minimum** | **Typical** | **Maximum** | **Unit** |
-| --------------------- | ---------------- | :---------: | :---------: | :---------: | :------: |
-| USB-C PD input        | V<sub>USBC</sub> |      9      |      -      |    20.0     |    V     |
-| DC input (Jack/Screw) | V<sub>IN</sub>   |     7.0     |      -      |    24.0     |    V     |
-| 5.0 V rail (output)   | V<sub>+5V</sub>  |    4.75     |     5.0     |    5.25     |    V     |
-| 3.3 V rail (output)   | V<sub>3P3</sub>  |    3.14     |     3.3     |    3.47     |    V     |
-| Operating temperature | T<sub>OP</sub>   |     -10     |      -      |     60      |    °C    |
+| **Parameter**             | **Symbol**       | **Minimum** | **Typical** | **Maximum** | **Unit** |
+| ------------------------- | ---------------- | :---------: | :---------: | :---------: | :------: |
+| USB-C PD input            | V<sub>USBC</sub> |      -      |      -      |    20.0     |    V     |
+| DC input (Screw Terminal) | V<sub>IN</sub>   |     7.0     |      -      |    24.0     |    V     |
+| DC input (Barrel Jack)    | V<sub>IN</sub>   |    12.0     |      -      |    24.0     |    V     |
+| 5.0 V rail (output)       | V<sub>+5V</sub>  |    4.75     |     5.0     |    5.25     |    V     |
+| 3.3 V rail (output)       | V<sub>3P3</sub>  |    3.14     |     3.3     |    3.47     |    V     |
+| Operating temperature     | T<sub>OP</sub>   |     -10     |      -      |     60      |    °C    |
 
 >📝 **Note:** The USB-C® PD controller supports multiple voltage profiles (9 V, 15 V, 20 V) when connected to a PD-capable power supply.
 
