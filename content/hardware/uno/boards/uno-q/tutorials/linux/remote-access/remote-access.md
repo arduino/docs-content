@@ -1,5 +1,6 @@
 ---
 title: Remote Access Options for UNO Q
+overwriteSidebar: Remote Access Options
 description: Learn how to access your UNO Q remotely from anywhere using Tailscale, xrdp, or RustDesk.
 author: Ernesto Voltaggio
 tags: [UNO Q, remote access, ssh, tailscale, xrdp, rdp, rustdesk]

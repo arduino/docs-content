@@ -1,5 +1,6 @@
 ---
 title: 'Agentic AI Development on UNO Q'
+overwriteSidebar: Agentic AI
 difficulty: intermediate
 compatible-products: [uno-q]
 description: 'Learn how to use AI coding agents like OpenCode to develop, inspect, and run code directly on your Arduino UNO Q over SSH or ADB.'
