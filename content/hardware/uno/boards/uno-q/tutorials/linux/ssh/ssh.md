@@ -1,5 +1,6 @@
 ---
 title: Connect to UNO Q via Secure Shell (SSH)
+overwriteSidebar: SSH
 description: Learn how to access an UNO Q's shell via SSH.
 tags: [UNO Q, SSH, Terminal]
 author: Karl Söderby

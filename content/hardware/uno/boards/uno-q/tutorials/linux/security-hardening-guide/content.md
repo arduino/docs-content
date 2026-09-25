@@ -1,5 +1,6 @@
 ---
 title: 'UNO Q Security Hardening Guide'
+overwriteSidebar: Security Hardening Guide
 difficulty: advanced
 compatible-products: [uno-q]
 description: 'Security best practices and hardening procedures for the UNO Q.'

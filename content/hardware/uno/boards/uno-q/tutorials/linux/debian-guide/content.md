@@ -1,5 +1,6 @@
 ---
 title: 'Debian Linux Basics for UNO Q'
+overwriteSidebar: Debian Basics
 difficulty: beginner
 compatible-products: [uno-q]
 description: 'Get up to speed with this comprehensive guide to understanding and working with the Debian environment on the UNO Q.'

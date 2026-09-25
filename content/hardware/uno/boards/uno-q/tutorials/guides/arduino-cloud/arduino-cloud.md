@@ -1,5 +1,6 @@
 ---
 title: Connect UNO Q to the Arduino Cloud
+overwriteSidebar: Connect the Cloud
 description: Learn how to connect the UNO Q to the Arduino Cloud
 tags: [UNO Q, Arduino Cloud, IoT]
 author: Karl Söderby

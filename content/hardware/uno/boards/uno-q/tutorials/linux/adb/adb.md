@@ -1,5 +1,6 @@
 ---
 title: Connect to UNO Q via ADB
+overwriteSidebar: ADB
 description: Learn how to connect to the UNO Q's shell via ADB.
 author: Karl Söderby
 tags: [UNO Q, ADB, Linux]
