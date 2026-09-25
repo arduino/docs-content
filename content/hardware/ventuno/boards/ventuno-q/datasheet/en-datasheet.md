@@ -1400,3 +1400,4 @@ The terms HDMI, HDMI High-Definition Multimedia Interface, HDMI trade dress and 
 | 25/08/2026 |      1       | First release |
 | 28/08/2026 |      2       | Updated Certifications |
 | 31/08/2026 |      3       | Adding 6 GHz to Safety Information |
+| 25/09/2026 |      4       | Updating values for inputs |
