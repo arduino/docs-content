@@ -38,7 +38,7 @@ python3 scripts/validation/relative_links/relative_links.py fix content/software
 
 ## How It Works
 
-1. The script crawls the `content` directory to build a route map of valid production URLs to their respective source file paths.
+1. The script crawls the `content` directory to build a route map of valid production URLs to their respective source file paths (including unmigrated or ignored folders).
 2. It resolves any relative link inside a Markdown file against that file's mapped production URL.
 3. It verifies that the resolved target URL exists in the global route map.
 4. If an anchor (`#heading-slug`) is present, it parses the target file for Markdown headings and HTML ID tags, caches them, and verifies that the anchor slug exists.
@@ -50,3 +50,5 @@ The script automatically discovers ignore patterns by traversing from the target
 - `.lintignore` (universal ignore across all validation tools)
 - `.linklintignore` (tool-specific ignore for relative link validation)
 - `.linterignore` (legacy compatibility)
+
+Files matching ignore patterns are excluded from having their own outbound links inspected, but they remain indexed in the production route map so other non-ignored documents can safely link to them.

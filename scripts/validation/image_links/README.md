@@ -57,6 +57,7 @@ The script automatically discovers ignore patterns by traversing from the target
   - `.lintignore` (universal ignore across all validation tools)
   - `.imagelintignore` (tool-specific ignore for image validation)
   - `.linterignore` (legacy compatibility)
+  Files matching validation ignores are suppressed from broken link error reporting, while their image references are still indexed to prevent active assets from being falsely flagged as unlinked orphans.
 
 - **Asset Retention (`.assetsignore` / `.keepassets`):**
   - Place `.assetsignore`, `.assetignore`, or `.keepassets` in any directory to preserve standalone or dynamically referenced assets without triggering `validate-unlinked` or `remove-unlinked` errors.

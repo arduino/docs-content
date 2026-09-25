@@ -192,6 +192,20 @@ def is_ignored(path, repo_root):
         test_dir = parent
     return False
 
+def find_content_dir(path):
+    current_dir = os.path.abspath(path)
+    test_dir = current_dir if os.path.isdir(current_dir) else os.path.dirname(current_dir)
+    while test_dir:
+        if os.path.isdir(os.path.join(test_dir, 'content')):
+            return os.path.join(test_dir, 'content')
+        if os.path.basename(test_dir) == 'content':
+            return test_dir
+        parent = os.path.dirname(test_dir)
+        if parent == test_dir:
+            break
+        test_dir = parent
+    return None
+
 def validate_file(file_path, valid_production_paths, content_dir, anchor_cache):
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -229,18 +243,21 @@ def validate_file(file_path, valid_production_paths, content_dir, anchor_cache):
         
         # Validate base URL
         resolved_url_no_slash = resolved_url.rstrip('/')
-        target_file_path = None
+        target_file_paths = []
         
         if clean_link == '':
-            target_file_path = file_path
+            target_file_paths = [file_path]
         else:
             # We need to find the matching file path in valid_production_paths (ignoring trailing slash)
-            for url, path in valid_production_paths.items():
+            for url, path_entry in valid_production_paths.items():
                 if url.rstrip('/') == resolved_url_no_slash:
-                    target_file_path = path
+                    if isinstance(path_entry, list):
+                        target_file_paths = path_entry
+                    else:
+                        target_file_paths = [path_entry]
                     break
                 
-        if not target_file_path:
+        if not target_file_paths:
             # We don't report an error if it's purely an anchor link and the source file isn't indexed (e.g. ignored file)
             if clean_link != '' or source_url in valid_production_paths:
                 issues.append(f"Broken link: '{raw_link}' resolves to '{resolved_url}' which does not map to any markdown file.")
@@ -248,15 +265,37 @@ def validate_file(file_path, valid_production_paths, content_dir, anchor_cache):
             
         # Validate Anchor
         if anchor:
-            if target_file_path not in anchor_cache:
-                anchor_cache[target_file_path] = extract_anchors(target_file_path)
-                
-            if anchor not in anchor_cache[target_file_path]:
-                issues.append(f"Broken anchor: '#{anchor}' does not exist in {os.path.relpath(target_file_path, content_dir)}")
+            found = False
+            for target_file in target_file_paths:
+                if target_file not in anchor_cache:
+                    anchor_cache[target_file] = extract_anchors(target_file)
+                if anchor in anchor_cache[target_file]:
+                    found = True
+                    break
+            if not found:
+                target_desc = os.path.relpath(target_file_paths[0], content_dir) if len(target_file_paths) == 1 else resolved_url
+                issues.append(f"Broken anchor: '#{anchor}' does not exist in {target_desc}")
             
     return issues
 
-def main():
+def build_route_map(content_dir):
+    """
+    Crawls content_dir to build a mapping of production URLs to lists of file paths.
+    All Markdown files (including those in ignored folders) are indexed so active
+    pages can link to them.
+    """
+    valid_production_paths = {}
+    for root, _, files in os.walk(content_dir):
+        for file in files:
+            if file.endswith('.md'):
+                f_path = os.path.join(root, file)
+                url = map_file_to_url(f_path, content_dir)
+                if url not in valid_production_paths:
+                    valid_production_paths[url] = []
+                valid_production_paths[url].append(f_path)
+    return valid_production_paths
+
+def main(argv=None):
     parser = argparse.ArgumentParser(description="Manage relative links in Markdown files.")
     subparsers = parser.add_subparsers(dest="command", required=True)
     
@@ -266,24 +305,14 @@ def main():
     validate_parser = subparsers.add_parser("validate")
     validate_parser.add_argument("path", help="Path to a file or directory")
     
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     
     if not os.path.exists(args.path):
         print(f"Error: Path '{args.path}' does not exist.")
         sys.exit(1)
         
     current_dir = os.path.abspath(args.path)
-    content_dir = None
-    
-    test_dir = current_dir if os.path.isdir(current_dir) else os.path.dirname(current_dir)
-    while test_dir and test_dir != '/':
-        if os.path.isdir(os.path.join(test_dir, 'content')):
-            content_dir = os.path.join(test_dir, 'content')
-            break
-        if os.path.basename(test_dir) == 'content':
-            content_dir = test_dir
-            break
-        test_dir = os.path.dirname(test_dir)
+    content_dir = find_content_dir(current_dir)
         
     if not content_dir:
         print("Warning: Could not find 'content' directory. URL validation might fail.")
@@ -313,14 +342,7 @@ def main():
         print(f"Processed {len(files_to_process)} files. Fixed {fixed_count} files.")
         
     elif args.command == "validate":
-        valid_production_paths = {}
-        for root, _, files in os.walk(content_dir):
-            for file in files:
-                if file.endswith('.md'):
-                    f_path = os.path.join(root, file)
-                    if not is_ignored(f_path, repo_root):
-                        url = map_file_to_url(f_path, content_dir)
-                        valid_production_paths[url] = f_path
+        valid_production_paths = build_route_map(content_dir)
                         
         anchor_cache = {}
         all_issues = {}
