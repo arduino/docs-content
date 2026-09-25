@@ -46,7 +46,30 @@
       }
     },
     "mkr": {},
-    "uno": {},
+    "uno": {
+     "boards/uno-q/tutorials": {
+        "first-steps": [
+          "user-manual",
+          "power-specifications"
+        ],
+        "guides": [
+          "single-board-computer",
+          "arduino-cloud",
+          "host-mode"
+        ],
+        "linux": [
+          "ssh",
+          "adb",
+          "debian-guide",
+          "remote-access",
+          "security-hardening-guide",
+          "routerbridge-multilanguage"
+        ],
+        "use-cases": [
+          "ai-coding-agents"
+        ]
+      }
+    },
     "nano": {},
     "pro": {},
     "pro-solutions": {},
