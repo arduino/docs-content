@@ -73,6 +73,7 @@ jobs:
     runs-on: docs-ubuntu-8core
     environment: staging
     timeout-minutes: 150
+    if: github.repository == 'arduino/docs-content'
     env:
       REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
       APP_ENV: staging
