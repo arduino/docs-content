@@ -1,5 +1,6 @@
 ---
 title: 'Working with Arduino Router RPC'
+overwriteSidebar: Router RPC
 difficulty: advanced
 compatible-products: [uno-q]
 description: 'Learn how to communicate with the UNO Q MCU using C++, Python®, and other languages via the arduino-router daemon'
