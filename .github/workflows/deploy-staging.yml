@@ -70,7 +70,7 @@ jobs:
   build:
     name: Build and Deploy
     needs: render-datasheets
-    runs-on: ubuntu-latest
+    runs-on: docs-ubuntu-8core
     environment: staging
     timeout-minutes: 150
     env:
