@@ -1097,7 +1097,7 @@ Les bandes de fréquences 5 GHz et 6 GHz peuvent être soumises à des restricti
 **German (DE):**
 
 Halten Sie während des Betriebs einen Mindestabstand von 20 cm zwischen dem Gerät und dem Benutzer ein.
-Für die Frequenzen 5 GHz und 6 GHz können je nach Einsatzland Nutzungsbeschränkungen gelten.
+Für die Frequenzen 5 GHz und 6 GHz können je nach Einsatzland Nutzungsbeschränkungen unterliegen.
 
 **Greek (EL):**
 
@@ -1107,67 +1107,67 @@ Für die Frequenzen 5 GHz und 6 GHz können je nach Einsatzland Nutzungsbeschrä
 **Hungarian (HU):**
 
 A működés során tartson legalább 20 cm távolságot az eszköz és a felhasználó között.
-Az 5 GHz-es frekvenciasáv használata országtól függően korlátozott lehet.
+Az 5 GHz-es és 6 GHz-es frekvenciasáv használatára a országonként különböző üzemeltetési korlátozások vonatkozhatnak.
 
 **Irish (GA):**
 
 Coinnigh ar a laghad fad 20 cm idir an gléas agus an t‑úsáideoir le linn úsáide.
-D’fhéadfadh srianta oibriúcháin a bheith ar an mbanda minicíochta 5 GHz ag brath ar an tír.
+D'fhéadfadh go mbeadh srianuimh oibríochtúla i bhfeidhm ar an mbanda minicíochta 5 GHz agus 6 GHz ag brath ar an tír ina n-úsáidtear é.
 
 **Italian (IT):**
 
 Mantenere una distanza minima di 20 cm tra il dispositivo e l’utente durante il funzionamento.
-La banda di frequenza a 5 GHz può essere soggetta a restrizioni operative a seconda del paese.
+Le bande di frequenza a 5 GHz e 6GHz possono essere soggette a restrizioni operative a seconda del paese.
 
 **Latvian (LV):**
 
 Uzturiet vismaz 20 cm attālumu starp ierīci un lietotāju darbības laikā.
-5 GHz frekvenču joslai var būt izmantošanas ierobežojumi atkarībā no valsts.
+5 GHz un 6 GHz frekvenču joslā var tikt piemēroti ekspluatācijas ierobežojumi atkarībā no izmantošanas valsts.
 
 **Lithuanian (LT):**
 
 Naudojimo metu laikykite bent 20 cm atstumą tarp įrenginio ir naudotojo.
-5 GHz dažnių juostai gali būti taikomi naudojimo apribojimai priklausomai nuo šalies.
+5 GHz ir 6 GHz dažnių juostose gali būti taikomi naudojimo apribojimai, priklausomai nuo šalies, kurioje naudojamas įrenginys.
 
 **Maltese (MT):**
 
 Żomm distanza minima ta’ 20 cm bejn l-apparat u l-utent waqt l-użu.
-Il-medda tal-frekwenza 5 GHz tista’ tkun soġġetta għal restrizzjonijiet skont il-pajjiż.
+Il-medda tal-frekwenza 5 GHz u 6 GHz tista’ tkun soġġetta għal restrizzjonijiet skont il-pajjiż.
 
 **Polish (PL):**
 
 Podczas pracy zachowaj minimalną odległość 20 cm między urządzeniem a użytkownikiem.
-Pasmo częstotliwości 5 GHz może podlegać ograniczeniom w zależności od kraju użytkowania.
+Pasma częstotliwości 5 GHz i 6 GHz mogą podlegać ograniczeniom eksploatacyjnym w zależności od kraju, w którym są używane.
 
 **Portuguese (PT):**
 
 Mantenha uma distância mínima de 20 cm entre o dispositivo e o utilizador durante o funcionamento.
-A banda de frequência de 5 GHz pode estar sujeita a restrições de utilização dependendo do país.
+As bandas de frequência de 5 GHz e 6 GHz podem estar sujeitas a restrições de utilização dependendo do país.
 
 **Romanian (RO):**
 
 Mențineți o distanță minimă de 20 cm între dispozitiv și utilizator în timpul funcționării.
-Banda de frecvență de 5 GHz poate face obiectul unor restricții în funcție de țara de utilizare.
+Banda de frecvență de 5 GHz și 6 GHz poate face obiectul unor restricții în funcție de țara de utilizare.
 
 **Slovak (SK):**
 
 Počas prevádzky dodržiavajte minimálnu vzdialenosť 20 cm medzi zariadením a používateľom.
-Pásmo 5 GHz môže podliehať prevádzkovým obmedzeniam v závislosti od krajiny použitia.
+Pásmo frekvencií 5 GHz a 6 GHz môže podliehať prevádzkovým obmedzeniam v závislosti od krajiny, v ktorej sa zariadenie používa.
 
 **Slovenian (SL):**
 
 Med delovanjem ohranjajte najmanj 20 cm razdalje med napravo in uporabnikom.
-Pas frekvenc 5 GHz je lahko omejen glede na državo uporabe.
+Frekvenčni pasovi 5 GHz in 6 GHz so lahko predmet omejitev uporabe, odvisno od države uporabe.
 
 **Spanish (ES):**
 
 Mantenga una distancia mínima de 20 cm entre el dispositivo y el usuario durante su funcionamiento.
-La banda de frecuencia de 5 GHz puede estar sujeta a restricciones según el país de uso.
+Las bandas de frecuencia de 5 GHz y 6 GHz pueden estar sujetas a restricciones según el país de uso.
 
 **Swedish (SV):**
 
 Håll ett minsta avstånd på 20 cm mellan enheten och användaren under drift.
-5 GHz-bandet kan vara föremål för driftbegränsningar beroende på användningsland.
+5 GHz- och 6 GHz-frekvensbanden kan vara föremål för driftsbegränsningar beroende på användningsland.
 
 ## ESD Warning
 
