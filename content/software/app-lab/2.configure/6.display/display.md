@@ -9,7 +9,7 @@ The **Arduino® UNO Media Carrier** provides a 22-pin MIPI-DSI connector (DISPLA
 
 <Alert type="info">
 
-The supported displays are the Waveshare 5", 7", and 10" DSI touch displays.
+The supported displays are the Waveshare 5", 8", and 10" DSI Touch "A" series displays.
 
 </Alert>
 
@@ -21,7 +21,7 @@ In the Arduino App Lab **Settings**, enable the **Media Carrier** under the **Ca
 
 ## Select Display
 
-1. Select the display size that matches your connected display (5", 7", 10" supported).
+1. Select the display size that matches your connected display (5", 8", 10" supported).
 2. Click **Apply and Reboot** to apply changes. This will reboot your board.
 
 ![Select display type](assets/select-display.png)
