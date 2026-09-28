@@ -784,7 +784,7 @@ To create your first IoT device with Nano Matter and a Zigbee network, you first
 
 * **Amazon Alexa Ecosystem:** Echo (4th Gen), Echo Show 10 (3rd Gen), Echo Studio, and Echo Hub.
 * **Samsung SmartThings:** Aeotec Smart Home Hub (V3) and SmartThings Station.
-* **Home Assistant:** Home Assistant Yellow/Green, or any server setup using a compatible USB Zigbee dongle. *(Note: You can even flash the [EZSP coordinator firmware](https://github.com/SiliconLabs/arduino_staging/blob/bozont-zigbee/extra/firmware/readme.md) on another Arduino Nano Matter to act as your dongle!)*
+* **Home Assistant:** Home Assistant Yellow/Green, or any server setup using a compatible USB Zigbee dongle. *(Note: You can even flash the [EZSP coordinator firmware](https://github.com/SiliconLabsSoftware/arduino/blob/main/extra/firmware/readme.md) on another Arduino Nano Matter to act as your dongle!)*
 * **Dedicated Local Hubs:** Hubitat Elevation (C-8) and IKEA DIRIGERA Hub.
 
 ***Note: Neither Google Nest nor Apple HomePod devices have built-in Zigbee radios. To control Zigbee devices with Google Home or Apple Home, you must use an intermediate hub (like SmartThings or Home Assistant) to bridge them.***
