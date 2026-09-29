@@ -51,7 +51,7 @@ Use the **session selector** in the Agent Mode panel (to the left) to switch bet
 
 ## Output
 
-Apps that are created through the Agent Mode will appear in the "Apps" section. Here you can manually review the App and make changes to the code. 
+Apps that are created through the Agent Mode will appear in the "Apps" section. Here you can manually review the App and make changes to the code.
 
 ## Successful Prompting
 
@@ -61,4 +61,3 @@ In Agent Mode, the agent owns the code — you focus on **what** you want to bui
 - **Split work into tasks:** Split the work that needs to be done into tasks. The agent can then execute them in sequence, and can be set to ask for your permission to continue.
 - **Review results:** After the agent completes a task, test the behavior (run the app, check outputs). If something is wrong, describe the problem and the agent will locate and fix it.
 - **Use a new session for unrelated tasks:** Keeping sessions focused prevents the agent from applying context from a previous project to the current one. A good rule of thumb is to keep one session per App, as the session history will be included.
-
