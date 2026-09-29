@@ -130,8 +130,6 @@ VENTUNO Q 提供一种配置：
 >
 > 两个 USB Type-A 端口每个最多可提供 5 V × 1.71 A = 8.55 W，合计最大额外功耗约为 17 W。 当板子满载且两个 USB-A 端口均处于最大负载时，总功耗可能接近 42 W，这将超过 7 V 直流插孔 35 W 的限制，并可能导致连接器损坏。
 >
-> 用于 UNO 扩展板、HAT 和 Qwiic 的 3.3 V 电源轨（`+3V3_LIMITED`）限流为 2.8 A（最大约 9.3 W）。 扩展板和 HAT 的 5 V 电源轨（`+5V_LIMITED`）同样限制在 2.8 A（最大约 14 W）。请注意，提供给 UNO 载板连接器和 JOMEGA 的 3.3 V 及 5 V 电源轨**不**受限流。
->
 > **强烈建议使用 12 V 或 24 V 供电**，适用于同时涉及 AI 推理、USB 外设以及连接的扩展板或 HAT 的任何部署场景。
 >
 > 对于涉及 AI 推理、USB 外设或扩展应用的重负载场景，建议所有电源的额定功率均达到 **60 W 或更高**，以确保在可能出现的峰值功耗期间运行保持稳定。 使用**圆柱插头**（5.5×2.1 mm，最大 5 A）时，建议采用**12 V / 5 A 或 24 V / 3 A**的电源作为示例。
@@ -1400,3 +1398,4 @@ Les dispositifs ne doivent pas être utilisés pour commander des systèmes d'a�
 | 25/08/2026 |      1       | 首次发布 |
 | 28/08/2026 |      2       | Updated Certifications |
 | 31/08/2026 |      3       | Adding 6 GHz to Safety Information |
+| 29/09/2026 |      4       | Updating values for inputs |
