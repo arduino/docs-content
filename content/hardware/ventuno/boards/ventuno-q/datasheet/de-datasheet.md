@@ -116,8 +116,8 @@ VENTUNO Q ist in einer Variante erhältlich:
 
 | **Quelle**                 | **Spannungsbereich** | **Maximale Stromstärke** | **Anschluss**            |
 | -------------------------- | -------------------: | -----------------------: | ------------------------ |
-| USB-C PD                   |               9–20 V |               bis zu 3 A | USB-C-Anschluss          |
-| Rundstecker (5,5 × 2,1 mm) |               7–24 V |               bis zu 5 A | 5,5 × 2,1 mm Rundstecker |
+| USB-C PD                   |               20 V |               bis zu 3 A | USB-C-Anschluss          |
+| Rundstecker (5,5 × 2,1 mm) |               12–24 V |               bis zu 5 A | 5,5 × 2,1 mm Rundstecker |
 | Schraubklemme              |               7–24 V |              bis zu 10 A | Schraubklemme            |
 
 ![Eingangsversorgungsoptionen](assets/ABX00181_power_options.png)
@@ -138,13 +138,14 @@ Beide Eingangswege sind durch TVS-Schutzdioden (SMBJ24CA, 24 V bidirektional) ge
 
 ### Empfohlene Betriebsbedingungen
 
-| **Parameter**                                | **Symbol**       | **Minimum** | **Typisch** | **Maximum** | **Einheit** |
-| -------------------------------------------- | ---------------- | :---------: | :---------: | :---------: | :---------: |
-| USB-C-PD-Eingang                             | V<sub>USBC</sub> |      9      |      -      |    20,0     |      V      |
-| Gleichstromeingang (Buchse/Schraubanschluss) | V<sub>IN</sub>   |     7,0     |      -      |    24,0     |      V      |
-| 5,0-V-Schiene (Ausgang)                      | V<sub>+5V</sub>  |    4,75     |     5,0     |    5,25     |      V      |
-| 3,3-V-Schiene (Ausgang)                      | V<sub>3P3</sub>  |    3,14     |     3,3     |    3,47     |      V      |
-| Betriebstemperatur                           | T<sub>OP</sub>   |     -10     |      -      |     60      |     °C      |
+| **Parameter**                         | **Symbol**       | **Minimum** | **Typisch** | **Maximum** | **Einheit** |
+| ------------------------------------- | ---------------- | :---------: | :---------: | :---------: | :---------: |
+| USB-C-PD-Eingang                      | V<sub>USBC</sub> |      9      |      -      |    20,0     |      V      |
+| Gleichstromeingang (Schraubanschluss) | V<sub>IN</sub>   |     7,0     |      -      |    24,0     |      V      |
+| Gleichstromeingang (Buchse)           | V<sub>IN</sub>   |    12,0     |      -      |    24,0     |      V      |
+| 5,0-V-Schiene (Ausgang)               | V<sub>+5V</sub>  |    4,75     |     5,0     |    5,25     |      V      |
+| 3,3-V-Schiene (Ausgang)               | V<sub>3P3</sub>  |    3,14     |     3,3     |    3,47     |      V      |
+| Betriebstemperatur                    | T<sub>OP</sub>   |     -10     |      -      |     60      |     °C      |
 
 >📝 **Hinweis:** Der USB-C®-PD-Controller unterstützt mehrere Spannungsprofile (9 V, 15 V, 20 V), wenn er an ein PD-fähiges Netzteil angeschlossen ist.
 
