@@ -130,8 +130,6 @@ Entrambi i percorsi di ingresso sono protetti da TVS (SMBJ24CA, bidirezionale a 
 >
 > Le due porte USB di tipo A possono erogare ciascuna fino a 5 V × 1,71 A = 8,55 W, per un assorbimento aggiuntivo massimo combinato di circa 17 W. Con la scheda a piena potenza ed entrambe le porte USB-A al carico massimo, l’assorbimento totale può avvicinarsi ai 42 W, superando il limite di 35 W del jack CC a 7 V e rischiando di danneggiare il connettore.
 >
-> Il rail da 3,3 V per UNO Shield, HAT e Qwiic (`+3V3_LIMITED`) è limitato a 2,8 A (circa 9,3 W al massimo). Anche il rail da 5 V per shield e HAT (`+5V_LIMITED`) è limitato a 2,8 A (circa 14 W al massimo). Si noti che i rail da 3,3 V e 5 V forniti ai connettori del carrier UNO e a JOMEGA **non** sono limitati in corrente.
->
 > **Si raccomanda vivamente l’utilizzo a 12 V o 24 V** per qualsiasi implementazione che preveda contemporaneamente inferenza AI, periferiche USB e shield o HAT collegati.
 >
 > Per carichi di lavoro intensi che comportano inferenza AI, periferiche USB o applicazioni estese, si raccomanda un alimentatore con una potenza nominale di **60 W o superiore** su tutte le fonti di alimentazione, al fine di garantire che il funzionamento rimanga stabile durante eventuali picchi di consumo. Quando si utilizza il **connettore cilindrico** (5,5×2,1 mm, max 5 A), si raccomanda, a titolo esemplificativo, un'alimentazione di **12 V / 5 A o 24 V / 3 A**.
@@ -1400,3 +1398,4 @@ I termini HDMI, HDMI High-Definition Multimedia Interface, l’immagine commerci
 | 25/08/2026 |      1       | Prima versione |
 | 28/08/2026 |      2       | Updated Certifications |
 | 31/08/2026 |      3       | Adding 6 GHz to Safety Information |
+| 29/09/2026 | 4 | Updating values for inputs |
