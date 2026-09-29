@@ -130,8 +130,6 @@ Les deux voies d’entrée sont protégées par des diodes TVS (SMBJ24CA, bidire
 >
 > Les deux ports USB de type A peuvent fournir chacun jusqu'à 5 V × 1,71 A = 8,55 W, soit une consommation supplémentaire maximale combinée d'environ ~17 W. Lorsque la carte fonctionne à pleine puissance et que les deux ports USB de type A sont soumis à une charge maximale, la consommation totale peut avoisiner les 42 W, dépassant ainsi la limite de 35 W de la prise CC à 7 V et risquant d’endommager les connecteurs.
 >
-> Le rail 3,3 V destiné aux shields UNO, aux HAT et aux modules Qwiic (`+3V3_LIMITED`) est limité à 2,8 A (environ ~9,3 W au maximum). Le rail 5 V destiné aux shields et aux HAT (`+5V_LIMITED`) est également limité à 2,8 A (environ ~14 W maximum). Veuillez noter que les rails 3,3 V et 5 V fournis aux connecteurs du support UNO et au JOMEGA ne sont **pas** limités en courant.
->
 > **Il est fortement recommandé de fonctionner à 12 V ou 24 V** pour tout déploiement impliquant simultanément l’inférence IA, des périphériques USB et des shields ou HAT connectés.
 >
 > Pour les charges de travail importantes impliquant l’inférence IA, des périphériques USB ou des applications étendues, il est recommandé d’utiliser une alimentation d’une puissance nominale de **60 W ou plus** pour l’ensemble des sources d’alimentation afin de garantir un fonctionnement stable lors d’éventuels pics de consommation. En cas d’utilisation de la **prise cylindrique** (5,5 × 2,1 mm, 5 A max.), une alimentation de **12 V / 5 A ou 24 V / 3 A** est recommandée à titre d’exemple.
@@ -1400,3 +1398,4 @@ Les termes « HDMI », « HDMI High-Definition Multimedia Interface », l’habi
 | 25/08/2026 |      1       | Première publication |
 | 28/08/2026 |      2       | Updated Certifications |
 | 31/08/2026 |      3       | Adding 6 GHz to Safety Information |
+| 29/09/2026 | 4 | Updating values for inputs |
