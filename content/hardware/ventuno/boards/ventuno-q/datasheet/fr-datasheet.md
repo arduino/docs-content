@@ -116,8 +116,8 @@ Le VENTUNO Q est disponible en une seule variante :
 
 | **Source**                       | **Plage de tension** | **Courant maximal** | **Connecteur**                 |
 | -------------------------------- | -------------------: | ------------------: | ------------------------------ |
-| USB-C PD                         |               9-20 V |         jusqu’à 3 A | Connecteur USB-C               |
-| Prise cylindrique (5,5 × 2,1 mm) |               7-24 V |         jusqu’à 5 A | Prise cylindrique 5,5 × 2,1 mm |
+| USB-C PD                         |                 20 V |         jusqu’à 3 A | Connecteur USB-C               |
+| Prise cylindrique (5,5 × 2,1 mm) |              12-24 V |         jusqu’à 5 A | Prise cylindrique 5,5 × 2,1 mm |
 | Borne à vis                      |               7-24 V |        jusqu’à 10 A | Borne à vis                    |
 
 ![Options d'alimentation](assets/ABX00181_power_options.png)
@@ -141,7 +141,8 @@ Les deux voies d’entrée sont protégées par des diodes TVS (SMBJ24CA, bidire
 | **Paramètre**                 | **Symbole**      | **Minimum** | **Typique** | **Maximum** | **Unité** |
 | ----------------------------- | ---------------- | :---------: | :---------: | :---------: | :-------: |
 | Entrée USB-C PD               | V<sub>USBC</sub> |      9      |      -      |    20,0     |     V     |
-| Entrée CC (prise jack/vis)    | V<sub>IN</sub>   |     7,0     |      -      |    24,0     |     V     |
+| Entrée CC (vis)               | V<sub>IN</sub>   |     7,0     |      -      |    24,0     |     V     |
+| Entrée CC (prise jack)        | V<sub>IN</sub>   |    12,0     |      -      |    24,0     |     V     |
 | Rail 5,0 V (sortie)           | V<sub>+5V</sub>  |    4,75     |     5,0     |    5,25     |     V     |
 | Rail 3,3 V (sortie)           | V<sub>3P3</sub>  |    3,14     |     3,3     |    3,47     |     V     |
 | Température de fonctionnement | T<sub>OP</sub>   |     -10     |      -      |     60      |    °C     |
