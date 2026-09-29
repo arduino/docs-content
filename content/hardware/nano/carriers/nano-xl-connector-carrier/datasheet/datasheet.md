@@ -6,7 +6,7 @@ variant: 'Datasheet'
 author: Christopher Méndez
 ---
 
-![](assets/nano-connector-top.png)
+![](assets/nano-xl-carrier-top.png)
 
 # Description
 
@@ -46,181 +46,220 @@ The main features of the Nano XL Link Connector Carrier are detailed in the tabl
 | Dimensions             | 66 mm x 71.8 mm                                                                                                                                                                                    |
 | Operating Temperatures | -40 °C to +85 °C                                                                                                                                                                                   |
 
-### Board Selection
-
-The Nano Connector Carrier lets you select +5 V or +3.3 V Nano boards to ensure compatibility with the whole Nano family. To do this, toggle the carrier onboard switch to its respective position, following the table below.
-
-![Board Selector Switch](assets/board-selector.png)
-
-| **3V3**                | **5V**       |
-| ---------------------- | ------------ |
-| Nano ESP32             | Arduino Nano |
-| Nano 33 IoT            | Nano Every   |
-| Nano 33 BLE            |              |
-| Nano 33 BLE Rev2       |              |
-| Nano 33 BLE Sense      |              |
-| Nano 33 BLE Sense Rev2 |              |
-| Nano RP2040 Connect    |              |
-| Nano Matter            |              |
-
-Setting the switch to a specific position (3.3 V or 5V) also manages the voltage output on the Grove connector VCC pin.
-
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The logic and power voltage of the Qwiic connector and the microSD card slot are always +3.3 V regardless of the board selector switch position.
-</div>
 
 ### Qwiic I2C Connector
 
-The Qwiic connector is connected to the standard I2C bus on the board (via A4 and A5 pins). It is powered via +3.3 V, following the Qwiic standard system, making the Nano Connector Carrier compatible with the Arduino Modulino nodes.
+The Qwiic I2C connector (J7) is connected to the standard I2C bus on the board. It is powered via the +3.3 V output line, following the standard Qwiic ecosystem to allow seamless plug-and-play integration with a wide variety of external I2C sensors and modules.
 
-Its logic level is fixed to +3.3 V, which is translated to the host Nano board voltage defined by the board selector switch.
+![Carrier Qwiic Connector](assets/qwiic.png)
 
-![Nano Connector Carrier Qwiic Connector](assets/qwiic.png)
+### Breakout Headers
 
-### Grove Connectors
+The carrier features dual 2x20 female Breakout Headers (J1) that expose the extended pinout of the host Nano XL Link board. These headers provide access to all standard and extended GPIOs, SPI, I2C, I2S, and UART interfaces, allowing for highly flexible prototyping.
 
-The Nano Connector Carrier features 4x Grove connectors that expose the host board's main communication interfaces.
-
-![Nano Connector Carrier Grove Connectors](assets/grove.png)
-
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The Grove connectors VCC voltage is controlled by the board selector switch.
-</div>
+![Carrier Breakout Headers](assets/breakout.png)
 
 <div style="page-break-after: always;"></div>
 
-### Micro SD Card 
+### SWD/JTAG Connector
 
-The onboard microSD card slot unlocks new possibilities for data logging, Edge AI and real-time storage needs.
+For advanced development, the board includes an SWD/JTAG 2x5 1.27mm Connector (J6). This provides a direct interface for low-level debugging and programming of the microcontroller, and is powered by the board's +3.3 V line.
 
-![Nano Connector Carrier Grove Connectors](assets/sd.png)
+![Nano XL Link Connector Carrier JTAG Connector](assets/jtag.png)
+
+### Screw Terminals
+
+The Screw Terminals block (J8) is designed for robust, industrial-grade connections. It securely exposes the **RS485** and **CAN bus** interfaces for reliable communication in high-vibration environments. Additionally, it provides a Power IN terminal (J9) that accepts a +7-24V input (VIN) to power the carrier.
+
+![Nano XL Link Connector Carrier Screw Terminals](assets/screw_terminals.png)
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The microSD card SPI Slave Select (SS) pin can be changed using the solder jumpers on the carrier. See <a href = "#pinout">pinout section</a> for more details.
+<strong>Note:</strong> The VIN power input is protected by a Schottky diode and a TVS diode before feeding the Nano XL Link Header[cite: 6].
 </div>
+
+### WiFi Module Connector
+
+The carrier includes a dedicated 2x4 female header (J5) designed to host an ESP8266 ESP-01 WiFi module. This connector is powered by the +3.3 V line and interfaces directly with the host board via UART1 and standard GPIOs, offering an immediate path to add wireless capabilities to your setup.
+
+![Nano XL Link Connector Carrier WiFi Connector](assets/wifi.png)
+
+<div style="page-break-after: always;"></div>
 
 ### Communication Interfaces
 
-The Nano Connector Carrier exposes all the Nano host board connections and communication interfaces through the header pins and connectors.  
+The Nano XL Link Connector Carrier exposes all the host board connections and communication interfaces through its dedicated ports and breakout headers.
 
-| Interfaces     | Connector                                                                     |
-| -------------- | ----------------------------------------------------------------------------- |
-| UART (x1)      | - Nano header connector <br></br>- Grove connector                                                             |
-| SPI (x1)       | - Nano header connector <br></br>- Micro SD card slot                         |
-| I2C (x1)       | - Nano header connector <br></br>- Qwiic connector <br></br>- Grove connector |
-| Analog/Digital | - Nano header connector <br></br>- 2x Grove connectors                        |
+| Interfaces    | Connector                                                                            |
+| ------------- | ------------------------------------------------------------------------------------ |
+| I2C           | - Breakout headers <br></br>- Qwiic I2C connector (J7)                          |
+| RS485         | - Breakout headers <br></br>- Screw Terminals (J8)                              |
+| CAN bus       | - Breakout headers <br></br>- Screw Terminals (J8)                              |
+| Serial (UART) | - Breakout headers (UART/USART) <br></br>- WiFi Module ESP-01 Connector (UART1) |
+| WiFi          | - WiFi Module ESP-01 Connector (J5)                                                  |
+| Ethernet      | - Ethernet RJ45 Connector (J2)                                                       |
 
 ### Related Products
 
-- Nano (A000005)
-- Nano 33 BLE (ABX00030)
-- Nano 33 BLE Rev2 (ABX00071 / ABX00072)
-- Nano 33 BLE Sense (ABX00031)
-- Nano 33 BLE Sense Rev2 (ABX00069)
-- Nano 33 IoT (ABX00027)
-- Nano ESP32 (ABX00083 / ABX00092 / ABX00083_CN / ABX00092_CN)
-- Nano Every (ABX00028)
-- Nano Matter (ABX00112 / ABX00137)
-- Nano RP2040 Connect (ABX00053)
+- Nano XL Link (ABX00182)
 - Modulino® nodes
 
 ## Power and Ratings
 ### Recommended Operating Conditions
 
-| Symbol         | Description                     | Min | Typ | Max | Unit |
-| -------------- | ------------------------------- | --- | --- | --- | ---- |
-| 3V3            | Input voltage from 3.3 V boards | -   | 3.3 | -   | V    |
-| 5V             | Input voltage from 5 V boards   | -   | 5.0 | -   | V    |
-| T<sub>OP</sub> | Operating Temperature           | -40 | 25  | 85  | °C   |
+| Symbol         | Description           | Min | Typ | Max | Unit |
+| -------------- | --------------------- | --- | --- | --- | ---- |
+| VIN            | Input voltage         | 7.0 | -   | 24  | V    |
+| T<sub>OP</sub> | Operating Temperature | -40 | 25  | 85  | °C   |
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The Nano Connector Carrier is powered by the host board's nominal voltage.
+<strong>Note:</strong> The Nano XL Link Connector Carrier is powered by the host board's regulated power nets.
 </div>
 
 ### Power Tree
 
-The following diagram illustrates the Nano Connector Carrier's main system power architecture.
+The following diagram illustrates the Nano XL Link Connector Carrier's main system power architecture.
 
-![Nano Connector Carrier Power Tree](assets/power-tree.png)
+![Nano XL Link Connector Carrier Power Tree](assets/Nano_XL_Link_Connector_Carrier_Power_Tree.png)
 
 ## Functional Overview
 
-The Nano Connector Carrier expands the connectivity of the Nano boards family, featuring a variety of Grove and Qwiic connectors. It also includes a Micro SD card interface for data logging.  
+The Nano XL Link Connector Carrier expands the connectivity of the Nano XL Link board, featuring a variety of communication interfaces including CAN, RS485, and Ethernet. It also includes a Qwiic I2C connector, an ESP-01 WiFi module header, and robust screw terminals for industrial environments.
 
 ### Pinout
 
-The Nano Connector Carrier pinout is shown in the following figure.
+The Nano XL Link Connector Carrier pinout is shown in the following figure.
 
-![Pinout for Nano Connector Carrier](assets/ASX00061-pinout-v2.png)
+![Pinout for Nano XL Link Connector Carrier](assets/Simple-pinout-ASX00090-num.png)
 
-#### Analog (JP1)
+#### Nano Header (J4)
 
-| Pin | Function  | Type      | Description                             |
-| --- | --------- | --------- | --------------------------------------- |
-| 1   | D13 / SCK | Digital   | Serial Clock                            |
-| 2   | +3.3 V      | Power Out | +3.3 V Power Rail                         |
-| 3   | B0 / AREF | Analog    | Analog Reference                        |
-| 4   | A0        | Analog    | Analog input 0                          |
-| 5   | A1        | Analog    | Analog input 1                          |
-| 6   | A2        | Analog    | Analog input 2                          |
-| 7   | A3        | Analog    | Analog input 3                          |
-| 8   | A4        | Analog    | Analog input 4 / I²C Serial Data (SDA)  |
-| 9   | A5        | Analog    | Analog input 5 / I²C Serial Clock (SCL) |
-| 10  | A6        | Analog    | Analog input 6                          |
-| 11  | A7        | Analog    | Analog input 7                          |
-| 12  | +5V       | Power     | USB power (5 V)                         |
-| 13  | BOOT1     | Mode      | Board Reset 1                           |
-| 14  | GND       | Power     | Ground                                  |
-| 15  | VIN       | Power     | Voltage Input                           |
 
-#### Digital (JP2)
+| Pin No. | Inner Pin (Standard Nano Digital) | Pin No. | Outer Pin (XL Extension) |
+| ------- | --------------------------------- | ------- | ------------------------ |
+| 1       | D12                               | 30      | NC                       |
+| 2       | D11                               | 29      | NC                       |
+| 3       | D10                               | 28      | GND                      |
+| 4       | D9                                | 27      | ETH_TXP                  |
+| 5       | D8                                | 26      | ETH_TXN                  |
+| 6       | D7                                | 25      | GND                      |
+| 7       | D6                                | 24      | ETH_RXP                  |
+| 8       | D5                                | 23      | ETH_RXN                  |
+| 9       | D4                                | 22      | GND                      |
+| 10      | D3                                | 21      | LED_ACT                  |
+| 11      | D2                                | 20      | NC                       |
+| 12      | GND                               | 19      | CAN-H                    |
+| 13      | RESET                             | 18      | CAN-L                    |
+| 14      | UART6_RX                          | 17      | RS485-A                  |
+| 15      | UART6_TX                          | 16      | RS485-B                  |
 
-| Pin | Function    | Type     | Description                             |
-| --- | ----------- | -------- | --------------------------------------- |
-| 15  | D12 / MISO  | Digital  | Master In Slave Out                     |
-| 14  | D11 / MOSI  | Digital  | Master Out Slave In                     |
-| 13  | D10 / SS    | Digital  | Slave Select                            |
-| 12  | D9          | Digital  | Digital pin 9                           |
-| 11  | D8          | Digital  | Digital pin 8                           |
-| 10  | D7          | Digital  | Digital pin 7                           |
-| 9   | D6          | Digital  | Digital pin 6                           |
-| 8   | D5          | Digital  | Digital pin 5                           |
-| 7   | D4 / SD_SS  | Digital  | Digital pin 4 / Default SD card SS      |
-| 6   | D3 / *SD_SS | Digital  | Digital pin 3 / Optional SD card SS     |
-| 5   | D2 / *SD_SS | Digital  | Digital pin 2 / Optional SD card SS     |
-| 4   | GND         | Power    | Ground                                  |
-| 3   | RST         | Internal | Reset                                   |
-| 2   | D0 / RX     | Digital  | Digital pin 0 / Serial Receiver (RX)    |
-| 1   | D1 / TX     | Digital  | Digital pin 1 / Serial Transmitter (TX) |
+#### Nano Header (J3)
 
-__*SD_SS__ are optional SPI Slave Select (SS) pins for the Micro SD card communication. See [pinout](#pinout) for more details.
+
+| Pin No. | Outer Pin (XL Extension) | Pin No. | Inner Pin (Standard Nano Analog) |
+| ------- | ------------------------ | ------- | -------------------------------- |
+| 1       | USB D+                   | 30      | D13                              |
+| 2       | USB D-                   | 29      | +3V3                             |
+| 3       | COPI                     | 28      | AREF                             |
+| 4       | CIPO                     | 27      | A0                               |
+| 5       | SCLK                     | 26      | A1                               |
+| 6       | CS                       | 25      | A2                               |
+| 7       | SDA                      | 24      | A3                               |
+| 8       | SCL                      | 23      | A4                               |
+| 9       | CK                       | 22      | A5                               |
+| 10      | WS                       | 21      | A6                               |
+| 11      | SDI                      | 20      | A7                               |
+| 12      | SDO                      | 19      | VBUS                             |
+| 13      | SWCLK                    | 18      | SWDIO                            |
+| 14      | UART1_TX                 | 17      | GND                              |
+| 15      | UART1_RX                 | 16      | VIN                              |
+
+#### Nano Breakout Headers (J1)
+
+The carrier exposes the board's I/O through a 2x20 pin breakout header.
+
+| Pin | Function | Pin | Function |
+| --- | -------- | --- | -------- |
+| 1   | D9       | 2   | VIN      |
+| 3   | D8       | 4   | GND      |
+| 5   | D5       | 6   | VBUS     |
+| 7   | D3       | 8   | USB D+   |
+| 9   | D13      | 10  | USB D-   |
+| 11  | D12      | 12  | COPI     |
+| 13  | D11      | 14  | CIPO     |
+| 15  | D10      | 16  | SCLK     |
+| 17  | GND      | 18  | CS       |
+| 19  | AREF     | 20  | SDA      |
+| 21  | A0       | 22  | SCL      |
+| 23  | A1       | 24  | CK       |
+| 25  | A2       | 26  | WS       |
+| 27  | A3       | 28  | SDI      |
+| 29  | A4       | 30  | SDO      |
+| 31  | A5       | 32  | GND      |
+| 33  | A6       | 34  | UART6_RX |
+| 35  | A7       | 36  | UART6_TX |
+| 37  | GND      | 38  | SWDIO    |
+| 39  | +3V3     | 40  | SWCLK    |
+
+#### WiFi Module ESP-01 Connector (J5)
+
+This 2x4 header provides connections to an ESP-01 WiFi module via UART1 and GPIOs.
+
+| Pin | Function | Pin | Function |
+| --- | -------- | --- | -------- |
+| 1   | UART1_RX | 2   | GND      |
+| 3   | D6       | 4   | D4       |
+| 5   | D7       | 6   | D2       |
+| 7   | +3V3     | 8   | UART1_TX |
+
+#### SWD/JTAG 2x5 1.27mm Connector (J6)
+
+Used for low-level debugging and programming of the microcontroller.
+
+| Pin | Function | Pin | Function |
+| --- | -------- | --- | -------- |
+| 1   | +3V3     | 2   | SWDIO    |
+| 3   | GND      | 4   | SWCLK    |
+| 5   | GND      | 6   | NC       |
+| 7   | NC       | 8   | NC       |
+| 9   | NC       | 10  | JTAG_RST |
+
+#### Qwiic I2C Connector (J7)
+
+Follows the standard Qwiic ecosystem for plug-and-play I2C modules.
+
+| Pin | Function  | Description       |
+| --- | --------- | ----------------- |
+| 1   | GND       | Ground            |
+| 2   | +3V3      | +3.3 V Power Rail |
+| 3   | SDA       | I2C Serial Data   |
+| 4   | SCL       | I2C Serial Clock  |
 
 <div style="page-break-after: always;"></div>
 
 ### Block Diagram
 
-An overview of the Nano Connector Carrier high-level architecture is illustrated in the figure below.
+An overview of the Nano XL Link Connector Carrier high-level architecture is illustrated in the figure below.
 
-![Nano Connector Carrier Block Diagram](assets/Block_Diagram.png)
+![Nano XL Link Connector Carrier Block Diagram](assets/Nano_XL_Link_Connector_Carrier_Block_Diagram.png)
 
 <div style="page-break-after: always;"></div>
 
 ## Board Topology
 ### Overall View
 
-![Top View of Nano Connector Carrier](assets/topology.jpg)
+![Top View of Nano XL Link Connector Carrier](assets/mechanical-1.png)
 
-| **Reference**  | **Description**                          |
-| -------------- | ---------------------------------------- |
-| U1, U2, U3, U5 | Push pull translators (SN74LVC1G125DCKR) |
-| U4             | Open drain translator (TCA9406DCUR)      |
-| J2, J3         | Nano board headers                       |
-| S1             | Board selector switch                    |
-| J5             | Grove analog connector                   |
-| J7             | Grove analog connector                   |
-| J4             | Grove UART connector                     |
-| J8             | Qwiic I2C connector                      |
-| J9             | microSD card connector                   |
+| **Reference** | **Description**                    |
+| ------------- | ---------------------------------- |
+| J1            | Breakout Headers (2.54 mm)         |
+| J2            | Ethernet RJ45 Connector            |
+| J3, J4        | Nano XL Link Headers (2.54 mm)     |
+| J5            | WiFi Module ESP-01 Connector       |
+| J6            | SWD/JTAG 2x5 1.27mm Connector      |
+| J7            | Qwiic I2C Connector                |
+| J8            | Screw Terminals block (CAN, RS485) |
+| J9            | Screw Terminals block (POWER IN)   |
+
 
 ## Device Operation
 
@@ -237,17 +276,15 @@ Now that you have learned the basics of what you can do with the carrier, you ca
 The Nano Connector Carrier is a double-sided 28 mm x 43 mm board with female double row Nano headers around the top long edges, 4x Grove horizontal connectors, one on each corner of the bottom side, a Micro SD card slot and a Qwiic connector on the bottom edges.
 
 ### Board Dimensions
-The outline and dimensions of the Nano Connector Carrier and mounting holes can be seen in the following figure; all the dimensions are in mm.
+The outline and dimensions of the Nano XL Link Connector Carrier can be seen in the following figure; all the dimensions are in mm.
 
-![Mechanical View of Nano Connector Carrier](assets/dimensions-rect.png)
-
-The Nano Connector Carrier has two 3.2 mm drilled mounting holes for mechanical fixing.
+![Mechanical View of Nano XL Link Connector Carrier](assets/mechanical-2.png)
 
 ### Board Connectors
 
-The Nano Connector Carrier's connectors are placed on the top side of the board, as shown in the figure below; all the dimensions are in mm.
+The Nano XL Link Connector Carrier's connectors are placed on the top side of the board, as shown in the figure below; all the dimensions are in mm.
 
-![Mechanical View of Nano Connector Carrier's Connectors](assets/connectors-rect.png)
+![Mechanical View of Nano XL Link Connector Carrier's Connectors](assets/mechanical-3.png)
 
 ## Certifications
 
@@ -356,7 +393,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| Date      | **Revision** | **Changes**   |
-| --------- | ------------ | ------------- |
-| 22/05/2025 | 2            | Technical corrections, voltage notation standardization, nomenclature fixes and change log correction  |
-| 21/05/2025 | 1            | First Release |
+| Date       | **Revision** | **Changes**   |
+| ---------- | ------------ | ------------- |
+| 29/09/2026 | 1            | First Release |
