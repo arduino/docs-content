@@ -22,7 +22,7 @@ The commands are the same for both boards unless a step is labeled **UNO Q** or 
 
 ### Hardware Requirements
 
-- [Arduino® UNO Q](https://store.arduino.cc/products/uno-q) or [Arduino® VENTUNO™ Q](https://store.arduino.cc/products/ventuno-q)
+- [Arduino UNO Q](https://store.arduino.cc/products/uno-q) or [Arduino VENTUNO Q](https://store.arduino.cc/products/ventuno-q)
 - A computer (macOS, Windows, or Linux) to connect from
 - USB-C® cable (only required for the ADB-over-USB workflow)
 - Network connection (Ethernet or Wi-Fi®) for LAN- or VPN-based methods
@@ -278,7 +278,7 @@ EndSection
 EOF
 ```
 
-### 3. Configure Auto-Login
+### 3. Configure The Login Manager
 
 The login manager starts the desktop session when the board boots. The UNO Q uses LightDM and the VENTUNO Q uses GDM, so the steps depend on your board.
 
@@ -303,9 +303,10 @@ To revert auto-login later, open `/etc/lightdm/lightdm.conf` with a text editor 
 
    ```bash
    sudo sed -i 's/^#[[:space:]]*WaylandEnable=false/WaylandEnable=false/' /etc/gdm3/custom.conf
+   grep -q '^WaylandEnable=false' /etc/gdm3/custom.conf || sudo sed -i '/^\[daemon\]/a WaylandEnable=false' /etc/gdm3/custom.conf
    ```
 
-   Verify that the setting is active. The output must be `WaylandEnable=false`, without a `#` at the start of the line:
+   The first command activates the line if it is commented out. The second one adds it under `[daemon]` if your `custom.conf` does not have it at all. Verify that the setting is active. The output must be `WaylandEnable=false`, without a `#` at the start of the line:
 
    ```bash
    grep WaylandEnable /etc/gdm3/custom.conf
