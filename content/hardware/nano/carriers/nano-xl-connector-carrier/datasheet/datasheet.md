@@ -74,7 +74,7 @@ The Screw Terminals block (J8) is designed for robust, industrial-grade connecti
 ![Nano XL Link Connector Carrier Screw Terminals](assets/screw_terminals.png)
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The VIN power input is protected by a Schottky diode and a TVS diode before feeding the Nano XL Link Header[cite: 6].
+<strong>Note:</strong> The VIN power input is protected by a Schottky diode and a TVS diode before feeding the Nano XL Link Header.
 </div>
 
 ### WiFi Module Connector
