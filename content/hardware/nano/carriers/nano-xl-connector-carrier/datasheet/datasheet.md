@@ -91,10 +91,10 @@ The Nano XL Link Connector Carrier exposes all the host board connections and co
 
 | Interfaces    | Connector                                                                            |
 | ------------- | ------------------------------------------------------------------------------------ |
-| I2C           | - Breakout headers <br></br>- Qwiic I2C connector (J7)                          |
-| RS485         | - Breakout headers <br></br>- Screw Terminals (J8)                              |
-| CAN bus       | - Breakout headers <br></br>- Screw Terminals (J8)                              |
-| Serial (UART) | - Breakout headers (UART/USART) <br></br>- WiFi Module ESP-01 Connector (UART1) |
+| I2C           | - Breakout Headers <br></br>- Qwiic I2C connector (J7)                          |
+| RS485         | - Breakout Headers <br></br>- Screw Terminals (J8)                              |
+| CAN bus       | - Breakout Headers <br></br>- Screw Terminals (J8)                              |
+| Serial (UART) | - Breakout Headers (UART/USART) <br></br>- WiFi Module ESP-01 Connector (UART1) |
 | WiFi          | - WiFi Module ESP-01 Connector (J5)                                                  |
 | Ethernet      | - Ethernet RJ45 Connector (J2)                                                       |
 
@@ -265,7 +265,7 @@ An overview of the Nano XL Link Connector Carrier high-level architecture is ill
 
 ### Getting Started - IDE
 
-If you want to program your Nano board to use the Nano Connector Carrier while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Nano board to your computer, you will need a USB cable, which can also provide power to the board.
+If you want to program your Nano XL Link board to use the Nano XL Link Connector Carrier while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Nano board to your computer, you will need a USB cable, which can also provide power to the board.
 
 ### Online Resources
 
@@ -273,7 +273,11 @@ Now that you have learned the basics of what you can do with the carrier, you ca
 
 ## Mechanical Information
 
-The Nano Connector Carrier is a double-sided 28 mm x 43 mm board with female double row Nano headers around the top long edges, 4x Grove horizontal connectors, one on each corner of the bottom side, a Micro SD card slot and a Qwiic connector on the bottom edges.
+The Nano XL Link Connector Carrier is a double-sided 66 mm x 71.8 mm board. It features dual 30-pin female headers in the center to receive the host Nano XL Link board, flanked by two 2x20 breakout headers that expose all the board's pins.
+
+Along the top edge, it includes an 8-position screw terminal block dedicated to power input, CAN bus, and RS485 connections. The board houses a RJ45 Ethernet port in the bottom left corner. Additional peripheral interfaces include a 2x4 female header on the left side for an ESP-01 WiFi module, a small Qwiic I2C connector in the right edge, and a 2x5 SWD/JTAG connector located near the top right corner.
+
+To simplify system integration, the Nano XL Link Connector Carrier features a form factor compatible with standard 4U DIN-rail open enclosures. This makes it an ideal, production-ready solution for transitioning directly from prototyping to industrial deployment.
 
 ### Board Dimensions
 The outline and dimensions of the Nano XL Link Connector Carrier can be seen in the following figure; all the dimensions are in mm.
@@ -288,7 +292,7 @@ The Nano XL Link Connector Carrier's connectors are placed on the top side of th
 
 ## Certifications
 
-### Certificactions Summary
+### Certifications Summary
 
 |  **Certification**  | **Status** |
 | :-----------------: | :--------: |
@@ -371,7 +375,7 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 **Important:** The operating temperature of the EUT can’t exceed 85 ℃ and shouldn’t be lower than -40 ℃.
 
-Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
+Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
 ## Company Information
 
