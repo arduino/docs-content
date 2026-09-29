@@ -130,7 +130,6 @@ Beide Eingangswege sind durch TVS-Schutzdioden (SMBJ24CA, 24 V bidirektional) ge
 >
 > Die beiden USB-Typ-A-Anschlüsse können jeweils bis zu 5 V × 1,71 A = 8,55 W liefern, was zusammen eine zusätzliche Leistungsaufnahme von maximal ~17 W ergibt. Bei voller Leistung des Boards und maximaler Auslastung beider USB-A-Anschlüsse kann die Gesamtleistungsaufnahme fast 42 W erreichen, was die 35-W-Grenze der Gleichstrombuchse bei 7 V überschreitet und zu einer Beschädigung des Anschlusses führen kann.
 >
-> Die 3,3-V-Schiene für UNO-Shields, HATs und Qwiic (`+3V3_LIMITED`) ist auf 2,8 A begrenzt (maximal ~9,3 W). Die 5-V-Schiene für Shields und HATs (`+5V_LIMITED`) ist ebenfalls auf 2,8 A begrenzt (maximal ~14 W). Hinweis: Die 3,3-V- und 5-V-Versorgungsspannungen, die an die UNO-Carrier-Anschlüsse und an JOMEGA geliefert werden, **sind** nicht strombegrenzt.
 >
 > **Der Betrieb mit 12 V oder 24 V wird dringend empfohlen** für alle Einsatzszenarien, bei denen gleichzeitig AI-Inferenz, USB-Peripheriegeräte und angeschlossene Shields oder HATs zum Einsatz kommen.
 >
@@ -1400,3 +1399,4 @@ The terms HDMI, HDMI High-Definition Multimedia Interface, HDMI trade dress and 
 | 25/08/2026 |      1       | Erste Veröffentlichung |
 | 28/08/2026 |      2       | Updated Certifications |
 | 31/08/2026 |      3       | Adding 6 GHz to Safety Information |
+| 29/09/2026 |      4       | Updating values for inputs |
