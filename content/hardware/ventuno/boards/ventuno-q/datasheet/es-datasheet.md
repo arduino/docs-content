@@ -116,8 +116,8 @@ VENTUNO Q está disponible en una variante:
 
 | **Fuente**                       | **Rango de tensión** | **Corriente máxima** | **Conector**                      |
 | -------------------------------- | -------------------: | -------------------: | --------------------------------- |
-| USB-C PD                         |               9-20 V |            hasta 3 A | Conector USB-C                    |
-| Conector cilíndrico (5,5×2,1 mm) |               7-24 V |            hasta 5 A | Conector cilíndrico de 5,5×2,1 mm |
+| USB-C PD                         |                 20 V |            hasta 3 A | Conector USB-C                    |
+| Conector cilíndrico (5,5×2,1 mm) |              12-24 V |            hasta 5 A | Conector cilíndrico de 5,5×2,1 mm |
 | Terminal de tornillo             |               7-24 V |           hasta 10 A | Terminal de tornillo              |
 
 ![Opciones de alimentación de entrada](assets/ABX00181_power_options.png)
@@ -138,13 +138,14 @@ Ambas vías de entrada cuentan con protección TVS (SMBJ24CA, bidireccional de 2
 
 ### Condiciones de funcionamiento recomendadas
 
-| **Parámetro**                     | **Símbolo**      | **Mínimo** | **Típico** | **Máximo** | **Unidad** |
-| --------------------------------- | ---------------- | :--------: | :--------: | :--------: | :--------: |
-| Entrada USB-C PD                  | V<sub>USBC</sub> |     9      |     -      |    20,0    |     V      |
-| Entrada de CC (conector/tornillo) | V<sub>IN</sub>   |    7,0     |     -      |    24,0    |     V      |
-| Vía de 5,0 V (salida)             | V<sub>+5V</sub>  |    4,75    |    5,0     |    5,25    |     V      |
-| Vía de 3,3 V (salida)             | V<sub>3P3</sub>  |    3,14    |    3,3     |    3,47    |     V      |
-| Temperatura de funcionamiento     | T<sub>OP</sub>   |    -10     |     -      |     60     |     °C     |
+| **Parámetro**                 | **Símbolo**      | **Mínimo** | **Típico** | **Máximo** | **Unidad** |
+| ----------------------------- | ---------------- | :--------: | :--------: | :--------: | :--------: |
+| Entrada USB-C PD              | V<sub>USBC</sub> |     9      |     -      |    20,0    |     V      |
+| Entrada de CC (Tornillo)      | V<sub>IN</sub>   |    7,0     |     -      |    24,0    |     V      |
+| Entrada de CC (Conector Jack) | V<sub>IN</sub>   |    12,0    |     -      |    24,0    |     V      |
+| Vía de 5,0 V (salida)         | V<sub>+5V</sub>  |    4,75    |    5,0     |    5,25    |     V      |
+| Vía de 3,3 V (salida)         | V<sub>3P3</sub>  |    3,14    |    3,3     |    3,47    |     V      |
+| Temperatura de funcionamiento | T<sub>OP</sub>   |    -10     |     -      |     60     |     °C     |
 
 >📝 **Nota:** El controlador USB-C® PD admite varios perfiles de tensión (9 V, 15 V, 20 V) cuando se conecta a una fuente de alimentación compatible con PD.
 
