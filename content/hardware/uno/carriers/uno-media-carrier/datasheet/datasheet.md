@@ -343,7 +343,7 @@ Through the JMEDIA and JMISC connectors, the board provides access to:
 4. Connect cameras to the `CSI0` and `CSI1` connectors as needed.
 5. Connect a display to the `DSI0` connector if required.
 6. Connect audio peripherals to the 3.5 mm jacks as needed.
-7. Power on the host board. The UNO Q support 7-24 V DC via VIN input. It can alternatively be powered via 5 V DC / 3 A USB-C.
+7. Power on the host board. The UNO Q supports 7-24 V DC via VIN input. It can alternatively be powered via 5 V DC / 3 A USB-C.
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   <strong>Note:</strong> Make sure the host board is powered off before installing or removing the UNO Media Carrier to prevent damage to the connectors or components.
