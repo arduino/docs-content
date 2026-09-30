@@ -24,7 +24,7 @@ This is the first of two documents. Once the container is running, the [First RO
 
 ## Goals
 
-- Assemble the UNO Q with a USB-C® hub for display and peripherals.
+- Assemble the UNO Q with a USB-C hub for display and peripherals.
 - Access the UNO Q shell via SSH, ADB or SBC mode.
 - Understand why ROS 2 runs in a container on the UNO Q.
 - Prepare Docker on the board and pull the official ROS 2 Jazzy image.
@@ -39,20 +39,20 @@ This is the first of two documents. Once the container is running, the [First RO
 ### Hardware Requirements
 
 - [Arduino® UNO Q](https://store.arduino.cc/products/uno-q-4gb) (x1), the 4 GB RAM / 32 GB storage variant (ABX00173) is recommended
-- USB-C® multiport adapter (hub) with external power delivery, [Arduino USB-C Hub (8 in 1)](https://store.arduino.cc/products/usb-c-hub-8-in-1) (x1)
+- USB-C multiport adapter (hub) with external power delivery, [Arduino USB-C Hub (8 in 1)](https://store.arduino.cc/products/usb-c-hub-8-in-1) (x1)
 - Power supply, +5 VDC at 3 A, to power the hub (x1)
-- USB-C® cable for ADB connection (x1)
+- USB-C cable for ADB connection (x1)
 - USB keyboard and mouse (x1 each)
 - HDMI display (x1)
 - Wi-Fi® Access Point or Ethernet with internet access (x1)
 
 <Alert type="warning">
 
-You can use any USB-C® hub with external power delivery capabilities except for [Apple](https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter) ones, which have been tested and found to be incompatible with the UNO Q.
+You can use any USB-C hub with external power delivery capabilities except for [Apple](https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter) ones, which have been tested and found to be incompatible with the UNO Q.
  
 </Alert>
 
-Unlike boards with dedicated video and USB-A connectors, the UNO Q routes display output, USB peripherals and Ethernet through its single USB-C® connector. A hub is therefore not optional for this series. The hub must have its own power input, since the UNO Q's USB-C connector is a 5 VDC 3 A power sink and cannot supply the peripherals itself.
+Unlike boards with dedicated video and USB-A connectors, the UNO Q routes display output, USB peripherals and Ethernet through its single USB-C connector. A hub is therefore not optional for this series. The hub must have its own power input, since the UNO Q's USB-C connector is a 5 VDC 3 A power sink and cannot supply the peripherals itself.
 
 <Alert type="info">
 
@@ -95,7 +95,7 @@ It also has a practical benefit. Everything ROS 2 installs stays inside the cont
 
 The graphical parts of this series need a display, so set up the board as a desktop system before you start.
 
-1. Connect the USB-C® hub to the USB-C connector on the UNO Q.
+1. Connect the USB-C hub to the USB-C connector on the UNO Q.
 2. Plug the USB keyboard and mouse into the hub's USB-A ports.
 3. Connect the display to the hub's HDMI port.
 4. Connect the +5 VDC 3 A power supply to the hub's power input.
@@ -109,15 +109,15 @@ The board boots automatically once powered. For more detail on this setup, refer
 
 Run all steps in this tutorial directly on the UNO Q, not on your computer. You can access a terminal on the board in three ways.
 
-The first option for initial access is ADB (Android Debug Bridge). It provides direct shell access over USB-C® without any network setup, making it the best starting point before you configure Wi-Fi®.
+The first option for initial access is ADB (Android Debug Bridge). It provides direct shell access over USB-C without any network setup, making it the best starting point before you configure Wi-Fi®.
 
 <Alert type="note">
 
-**Note:** ADB uses the same USB-C® connector as the hub. To use ADB, disconnect the hub and connect the board directly to your computer with a USB-C cable. Once the board is on the network, use SSH or SBC mode instead so the hub can stay attached.
+**Note:** ADB uses the same USB-C connector as the hub. To use ADB, disconnect the hub and connect the board directly to your computer with a USB-C cable. Once the board is on the network, use SSH or SBC mode instead so the hub can stay attached.
  
 </Alert>
 
-Connect the UNO Q to your computer via USB-C® and run the following to list connected devices and confirm the board is recognized:
+Connect the UNO Q to your computer via USB-C and run the following to list connected devices and confirm the board is recognized:
 
 ```bash
 adb devices
@@ -237,17 +237,17 @@ Add the `data-root` setting pointing to the new folder:
 
 ```json
 {
-  "data-root": "/home/arduino/docker-data"
+  "data-root": "/home/arduino/docker-data"
 }
 ```
 
-If the file already contains other settings, add the `data-root` line inside the same pair of braces, separated from the existing settings by a comma, instead of replacing them. Save the file with `Ctrl+O`, exit with `Ctrl+X` and start Docker again:
+If the file already has other settings, add the `data-root` line inside the same pair of braces, separated from the existing settings by a comma, instead of replacing them. Save the file with `Ctrl+O`, exit with `Ctrl+X` and start Docker again:
 
 ```bash
 sudo systemctl start docker
 ```
 
-Docker initializes a fresh data folder in the new location. Confirm that it is in use:
+Docker initializes a fresh data folder in the new location. Check that it is in use:
 
 ```bash
 docker info | grep "Docker Root Dir"
@@ -312,7 +312,7 @@ Copy its `ros2` folder to your home directory, so your working copy stays separa
 cp -r ~/workshop_robotics_unoq/ros2 ~/ros2
 ```
 
-Alternatively, clone or download the repository on your computer, connect the board over USB-C® and push the `ros2` folder with ADB. Run the following from inside the repository folder on your computer:
+Alternatively, clone or download the repository on your computer, connect the board over USB-C and push the `ros2` folder with ADB. Run the following from inside the repository folder on your computer:
 
 ```bash
 adb push -a ./ros2 /home/arduino
@@ -622,7 +622,7 @@ This removes all images not currently used by a container. You will need to rebu
 
 ## Conclusion
 
-In this tutorial, you have assembled the UNO Q as a desktop system with a USB-C® hub, prepared Docker on the board and moved its data folder to the larger storage partition, pulled the official ROS 2 Jazzy image, and used Docker Compose to build and start a container with preinstalled packages and network, display and shared workspace access. You then verified the ROS 2 communication layer with the talker and listener demo nodes.
+In this tutorial, you have assembled the UNO Q as a desktop system with a USB-C hub, prepared Docker on the board and moved its data folder to the larger storage partition, pulled the official ROS 2 Jazzy image, and used Docker Compose to build and start a container with preinstalled packages and network, display and shared workspace access. You then verified the ROS 2 communication layer with the talker and listener demo nodes.
 
 ### Next Steps
 
