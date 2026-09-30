@@ -16,7 +16,7 @@ hardware:
 
 In this tutorial, you will explore the fundamental concepts of ROS 2 (Robot Operating System 2) on the Arduino® UNO Q and build your first project from scratch.
 
-You will run the `turtlesim` simulation to see nodes, topics and services working together, then create a ROS 2 package in the shared workspace, write a publisher node and a subscriber node in Python, build the package and watch the two nodes communicate.
+You will run the `turtlesim` simulation to see nodes, topics and services working together, then create a ROS 2 package in the shared workspace, write a publisher node and a subscriber node in Python®, build the package and watch the two nodes communicate.
 
 ![Turtlesim Example (2_1)](assets/unoq_ros2_turtlesim_circle.gif)
 
@@ -34,7 +34,7 @@ This tutorial continues from [Getting Started with ROS 2 on UNO Q](/tutorials/un
 - Understand the fundamental concepts of ROS 2: nodes, topics, services and actions.
 - Run the `turtlesim` example and control the turtle through topics and services.
 - Check a running system with the ROS 2 command-line tools.
-- Create a ROS 2 Python package in a workspace that persists outside the container.
+- Create a ROS 2 Python® package in a workspace that persists outside the container.
 - Write a publisher and subscriber node and verify communication between them.
 
 ## Hardware and Software Requirements
@@ -50,7 +50,7 @@ This tutorial continues from [Getting Started with ROS 2 on UNO Q](/tutorials/un
 
 <Alert type="warning">
 
-The `turtlesim` sections of this tutorial open a graphical window, so the board must be running in SBC mode with the hub and display attached. The UNO Q routes video and USB peripherals through its single USB-C connector, so the hub is required. You can use any USB-C hub with external power delivery capabilities except for [Apple](https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter) ones, which have been tested and found to be incompatible with the UNO Q.
+The `turtlesim` sections of this tutorial open a graphical window, so the board must be running in SBC mode with the hub and display attached. The UNO Q routes video and USB peripherals through its single USB-C connector, so you need a hub. You can use any USB-C hub with external power delivery capabilities except for [Apple](https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter) ones, which have been tested and found incompatible with the UNO Q.
 
 </Alert>
 
@@ -121,7 +121,9 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 ```
 
-In each block, only the last package carries `&&`, which separates the install command from the cleanup command after it. Every other package line ends with just a backslash. Since `ros-jazzy-turtlesim` is now the last package in the demo nodes block, remove the `&&` from the `ros-jazzy-demo-nodes-cpp` line. If it stays, the build fails with a `not found` error.
+In each block, only the last package carries `&&`, which separates the install command from the cleanup command that follows. Every other package line ends with just a backslash.
+
+Since `ros-jazzy-turtlesim` is now the last package in the demo nodes block, remove the `&&` from the `ros-jazzy-demo-nodes-cpp` line. If it stays, the build fails with a `not found` error.
 
 Save the file with `Ctrl+O` and exit with `Ctrl+X`. Then rebuild the image and recreate the container:
 
@@ -255,16 +257,16 @@ Getting comfortable with these commands helps because they work the same way reg
 
 ## Creating First ROS 2 Project
 
-With ROS 2 verified and turtlesim explored, the next step is to build a project from scratch. You will create a workspace, write a publisher node and a subscriber node in Python, build the package, and run both nodes to see them communicate.
+With ROS 2 verified and turtlesim explored, the next step is to build a project from scratch. You will create a workspace, write a publisher node and a subscriber node in Python®, build the package, and run both nodes to see them communicate.
 
-This section follows the official ROS 2 Python publisher and subscriber guide, adapted to run on the UNO Q. The full reference is available at [Writing a Simple Publisher and Subscriber (Python)](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html).
+This section follows the official ROS 2 Python® publisher and subscriber guide, adapted to run on the UNO Q. The full reference is available at [Writing a Simple Publisher and Subscriber (Python)](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html).
 
 ### ROS 2 Core Concepts
 
 Before writing code, it is useful to understand the key concepts you will work with:
 
 - **Node:** a single process that performs one specific task, such as reading a sensor, processing data, or sending commands to a motor. Nodes communicate with each other using topics, services and actions. In a real robot, dozens of nodes can run simultaneously, each responsible for a different part of the system.
-- **Topic:** a named channel over which nodes exchange messages asynchronously. Think of it as a radio frequency where any node can broadcast on it, and any node can tune in to listen. Any number of nodes can publish to or subscribe to the same topic at the same time.
+- **Topic:** a named channel over which nodes exchange messages asynchronously. Think of it as a radio frequency where any node can broadcast, and any node can tune in to listen. Any number of nodes can publish to or subscribe to the same topic at the same time.
 - **Publisher:** a component of a node that sends messages to a topic.
 - **Subscriber:** a component of a node that receives messages from a topic and passes them to a callback function.
 - **Package:** the basic unit of software organization in ROS 2. A package groups related nodes, libraries, configuration files, and build instructions.
@@ -294,7 +296,7 @@ It places the results in three directories alongside `src/`, which the container
 
 </Alert>
 
-### Creating a Python Package
+### Creating a Python® Package
 
 Navigate into `src/`:
 
@@ -302,7 +304,7 @@ Navigate into `src/`:
 cd /ros2_ws/src
 ```
 
-Create a new package using the `ament_python` build type, which is the standard for pure Python packages in ROS 2:
+Create a new package using the `ament_python` build type, which is the standard for pure Python® packages in ROS 2:
 
 ```bash
 ros2 pkg create --build-type ament_python unoq_pubsub
@@ -324,11 +326,11 @@ src/
         └── __init__.py
 ```
 
-The `package.xml` file describes the package metadata and dependencies. The `setup.py` file registers your Python scripts as executable ROS 2 nodes. The inner `unoq_pubsub/` directory is the Python module where your node scripts will live.
+The `package.xml` file describes the package metadata and dependencies. The `setup.py` file registers your Python® scripts as executable ROS 2 nodes. The inner `unoq_pubsub/` directory is the Python module where your node scripts will live.
 
 ### Writing the Publisher Node
 
-Create the publisher script inside the package's Python module directory:
+Create the publisher script inside the package's Python® module directory:
 
 ```bash
 nano /ros2_ws/src/unoq_pubsub/unoq_pubsub/publisher.py
@@ -538,7 +540,7 @@ If the `ros2` command is not found, make sure you opened the shell with `docker 
 
 If the `turtlesim` window does not appear, check the following in order. First, confirm you are working from the board's desktop session in **SBC mode** with the hub and display attached, not over SSH or ADB.
 
-Second, confirm you ran `xhost +local:docker` in the desktop session. This resets on logout, so you need to run it again after each reboot. Third, check that the container has the `DISPLAY` variable set, using the following from a terminal on the board, inside the `~/ros2` folder:
+Second, make sure you ran `xhost +local:docker` in the desktop session. This resets on logout, so you need to run it again after each reboot. Third, check that the container has the `DISPLAY` variable set, using the following from a terminal on the board, inside the `~/ros2` folder:
 
 ```bash
 docker compose exec ros2 printenv DISPLAY
@@ -558,7 +560,7 @@ The `XDG_RUNTIME_DIR not set` message comes from Qt looking for a per-user runti
 export XDG_RUNTIME_DIR=/tmp/runtime-root
 ```
 
-The `MESA-LOADER: failed to retrieve device information` messages appear because the graphics device node is not present inside the container. Mesa then falls back to requesting access through the X server, which succeeds, so it still uses hardware acceleration. To confirm this, refresh the package lists inside the container, since the image removes them to save space:
+The `MESA-LOADER: failed to retrieve device information` messages appear because the graphics device node is not present inside the container. Mesa then falls back to requesting access through the X server, which succeeds, so it still uses hardware acceleration. To check this, refresh the package lists inside the container, since the image removes them to save space:
 
 ```bash
 apt update
@@ -576,7 +578,7 @@ Check which renderer is active:
 glxinfo | grep "OpenGL renderer"
 ```
 
-On the UNO Q this reports `FD702`, which is the driver for the board's GPU. If it reports `llvmpipe` instead, the system has fallen back to software rendering. Turtlesim still runs in that case, but heavier graphical tools will be slow.
+On the UNO Q, this reports `FD702`, which is the driver for the board's GPU. If it reports `llvmpipe` instead, the system has fallen back to software rendering. Turtlesim still runs in that case, but heavier graphical tools will be slow.
 
 The `os_same_file_description` message that follows comes from Docker blocking a system call that Mesa uses to compare file descriptors. Mesa continues with a safe assumption and rendering is unaffected.
 
@@ -588,7 +590,7 @@ echo $ROS_DOMAIN_ID
 
 If `ros2 node list` returns nothing while your nodes are running, but `ros2 topic list` shows the expected topics, the ROS 2 daemon is holding incomplete graph information.
 
-The daemon caches the state of the system in the background and can miss nodes that started before it did. Query the graph directly, without the daemon:
+The daemon caches the system state in the background and can miss nodes that started before it did. Query the graph directly, without the daemon:
 
 ```bash
 ros2 node list --no-daemon
@@ -626,7 +628,7 @@ colcon build --packages-select unoq_pubsub --parallel-workers 1
 
 ## Conclusion
 
-In this tutorial, you have explored the core concepts of ROS 2 through the `turtlesim` example, inspected a live system with the ROS 2 command-line tools, and built your first ROS 2 project with a publisher and subscriber communicating over a topic. The patterns introduced here, nodes, topics, packages and workspaces, are the base of every tutorial in this series.
+In this tutorial, you have explored the core concepts of ROS 2 through the `turtlesim` example, checked a live system with the ROS 2 command-line tools, and built your first ROS 2 project with a publisher and subscriber communicating over a topic. The patterns introduced here, nodes, topics, packages and workspaces, are the base of every tutorial in this series.
 
 ### Next Steps
 
