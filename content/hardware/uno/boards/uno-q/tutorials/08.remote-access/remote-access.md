@@ -376,10 +376,16 @@ else
     mv "$BAK" "$CONF"
     echo "Switched to dummy (headless/RustDesk)"
 fi
-systemctl restart display-manager
+systemctl restart lightdm
 EOF
 
 sudo chmod +x /usr/local/bin/toggle-display
+```
+
+**VENTUNO Q:** The VENTUNO Q uses GDM instead of LightDM. Change the last line of the script so that it restarts GDM:
+
+```bash
+sudo sed -i 's/systemctl restart lightdm/systemctl restart gdm3/' /usr/local/bin/toggle-display
 ```
 
 Switch anytime by running:
