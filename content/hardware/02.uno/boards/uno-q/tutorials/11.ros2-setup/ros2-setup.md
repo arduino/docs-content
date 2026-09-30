@@ -205,7 +205,7 @@ df -h / /home/arduino
 
 ![Checking available storage](assets/unoq_ros2_docker_3.png)
 
-On a board with 32 GB of storage, the root partition is around 10 GB and the home partition around 18 GB.
+On a 32 GB board, for example, the root partition can be around 10 GB and the home partition around 18 GB.
 
 By default, Docker stores all images, containers and build data under `/var/lib/docker`, which is on the root partition. A ROS 2 image can fill that partition quickly, and removing unused data with `docker system prune` only recovers space after the fact. Move Docker's data folder to the larger partition before pulling any ROS 2 image.
 
@@ -258,17 +258,7 @@ docker info | grep "Docker Root Dir"
 
 The output should show `/home/arduino/docker-data`.
 
-<Alert type="warning">
-
-Do not copy the contents of `/var/lib/docker` to the new location, since a plain copy breaks the internal links Docker uses to store image layers. If you use Arduino App Lab on this board, the images it has already downloaded stay in the old location and are no longer visible to Docker, so App Lab may need to download them again. Keep `/var/lib/docker` in place unless you are sure you no longer need that data.
-
-</Alert>
-
-<Alert type="info">
-
-**Note:** As an alternative to moving the data folder, you can reflash the board with a partition layout that gives the root partition more space. Reflashing erases the board. See the [Flashing a New Image to the UNO Q](/tutorials/uno-q/update-image/) tutorial for the flashing procedure.
-
-</Alert>
+If you use Arduino App Lab, it downloads its images again the next time you run an app, since Docker now starts from an empty data folder.
 
 ## Running ROS 2 in a Container
 
@@ -390,9 +380,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 ```
 
-In each block, only the last package carries `&&`, which separates the install command from the cleanup command after it. Every other package line ends with just a backslash.
-
-Since `ros-jazzy-demo-nodes-cpp` is now the last package in the block, move the `&&` from the `ros-jazzy-demo-nodes-py` line to it. If it stays on the previous line, the build fails with a `not found` error.
+In each block, only the last package carries `&&`, which separates the install command from the cleanup command after it. Every other package line ends with just a backslash. Since `ros-jazzy-demo-nodes-cpp` is now the last package in the block, move the `&&` from the `ros-jazzy-demo-nodes-py` line to it. If it stays on the previous line, the build fails with a `not found` error.
 
 Save the file with `Ctrl+O` and exit with `Ctrl+X`.
 
@@ -663,7 +651,13 @@ If the output still shows `/var/lib/docker`, the data folder change was not appl
 sudo systemctl restart docker
 ```
 
-Once the data folder is on the larger partition, you can remove unused images and build cache to recover space:
+After the move, the old `/var/lib/docker` folder still takes up space on the root partition, since Docker no longer uses it. Once App Lab and the ROS 2 container both work from the new location, you can remove it:
+
+```bash
+sudo rm -rf /var/lib/docker
+```
+
+You can also remove unused images and build cache from the new location to recover space:
 
 ```bash
 docker system prune -a
