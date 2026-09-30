@@ -24,15 +24,11 @@ This is the first of two documents. Once the container is running, the [First RO
 
 ## Goals
 
-- Assemble the UNO Q with a USB-C hub for display and peripherals.
-- Access the UNO Q shell via SSH, ADB or SBC mode.
+- Assemble the UNO Q with a USB-C hub and access its shell via SSH, ADB or SBC mode.
 - Understand why ROS 2 runs in a container on the UNO Q.
-- Prepare Docker on the board and pull the official ROS 2 Jazzy image.
-- Move Docker's data folder to the larger storage partition.
-- Preinstall packages in the container image with a Dockerfile.
-- Start a container with Docker Compose, with network, display and shared workspace access.
-- Verify the ROS 2 communication layer with the talker and listener demo nodes.
-- Manage the container across sessions without losing your work.
+- Prepare Docker on the board and build a ROS 2 Jazzy container with preinstalled packages.
+- Run and manage the ROS 2 container with Docker Compose.
+- Verify that ROS 2 works with the talker and listener demo nodes.
 
 ## Hardware and Software Requirements
 
@@ -87,7 +83,7 @@ Throughout this series, we use [**ROS 2 Jazzy Jalisco**](https://docs.ros.org/en
 
 ROS 2 Jazzy is distributed as pre-built packages for Ubuntu 24.04. The UNO Q runs Debian, so the standard installation procedure from the ROS 2 package repository does not apply. Running those steps on the board would add a repository entry that Debian cannot resolve, so the installation would not be possible.
 
-Rather than building ROS 2 from source, which would impact the board's storage and memory budget, we run the official ROS 2 container image. Docker gives you the Ubuntu 24.04 environment ROS 2 expects, isolated from the Debian system underneath, while still giving you access to the board's display, network, and USB devices.
+Rather than building ROS 2 from source, which would impact the board's storage and memory budget, we run the official ROS 2 container image. Docker gives you the Ubuntu 24.04 environment ROS 2 expects, isolated from the Debian system underneath, while still giving you access to the board's display and network. USB devices can also be passed through to the container when a tutorial needs them.
 
 It also has a practical benefit. Everything ROS 2 installs stays inside the container, so your Debian system stays clean and you can remove or rebuild the whole ROS 2 environment with a single command.
 
@@ -163,7 +159,7 @@ The `apt update` command refreshes the list of available packages from the confi
 
 ### Verifying Docker
 
-Check whether Docker is already available on your board:
+Docker is normally already present on the UNO Q, since Arduino App Lab uses it to run applications. Check that it is available on your board:
 
 ```bash
 docker --version
@@ -227,27 +223,32 @@ Create a new, empty folder for Docker's data in your home directory, which sits 
 sudo mkdir -p /home/arduino/docker-data
 ```
 
-Open the Docker daemon configuration file. If the file does not exist yet, this command creates it:
+Open the Docker daemon configuration file:
 
 ```bash
 sudo nano /etc/docker/daemon.json
 ```
 
-Add the `data-root` setting pointing to the new folder:
+On the UNO Q, the file already contains logging settings. Keep them, add a comma after the closing brace of the `log-opts` block, and add the `data-root` setting pointing to the new folder. The complete file looks like this:
 
 ```json
 {
-  "data-root": "/home/arduino/docker-data"
+	"log-driver": "json-file",
+	"log-opts": {
+		"max-size": "10m",
+		"max-file": "2"
+	},
+	"data-root": "/home/arduino/docker-data"
 }
 ```
 
-If the file already has other settings, add the `data-root` line inside the same pair of braces, separated from the existing settings by a comma, instead of replacing them. Save the file with `Ctrl+O`, exit with `Ctrl+X` and start Docker again:
+The comma after the `log-opts` block is required. Without it, Docker cannot read the file and fails to start. Save the file with `Ctrl+O`, exit with `Ctrl+X` and start Docker again:
 
 ```bash
 sudo systemctl start docker
 ```
 
-Docker initializes a fresh data folder in the new location. Check that it is in use:
+Docker initializes a fresh data folder in the new location. Confirm that it is in use:
 
 ```bash
 docker info | grep "Docker Root Dir"
@@ -389,6 +390,10 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 ```
 
+In each block, only the last package carries `&&`, which separates the install command from the cleanup command after it. Every other package line ends with just a backslash.
+
+Since `ros-jazzy-demo-nodes-cpp` is now the last package in the block, move the `&&` from the `ros-jazzy-demo-nodes-py` line to it. If it stays on the previous line, the build fails with a `not found` error.
+
 Save the file with `Ctrl+O` and exit with `Ctrl+X`.
 
 ![Installing the demo packages](assets/unoq_ros2_docker_5.png)
@@ -472,7 +477,13 @@ You are now inside the container, with a prompt like `root@<boardname>:/ros2_ws#
 
 ### Opening Additional Shells
 
-Many sections in this series need more than one terminal. Rather than starting a second container, open another shell inside the same one. From a new terminal on the board, inside the `~/ros2` folder:
+Many sections in this series need more than one terminal. Rather than starting a second container, open another shell inside the same one. Each new terminal on the board opens in your home directory, so move into the project folder first:
+
+```bash
+cd ~/ros2
+```
+
+Then open the shell:
 
 ```bash
 docker compose exec ros2 bash
@@ -538,7 +549,13 @@ You should see it printing a new message every second:
 
 ![Verifying the installation (1)](assets/unoq_ros2_docker_7.png)
 
-Now open a second shell in the container from a new terminal on the board, inside the `~/ros2` folder:
+Now open a new terminal on the board and move into the project folder:
+
+```bash
+cd ~/ros2
+```
+
+Then open a second shell in the container:
 
 ```bash
 docker compose exec ros2 bash
@@ -576,6 +593,18 @@ If `docker compose` reports that the command is not found, or that no configurat
 
 If the `ros2` command is not found inside the container, make sure you opened the shell with `docker compose exec ros2 bash`. That shell loads the container's `.bashrc`, which sources ROS 2 and the workspace automatically.
 
+If `ros2 run demo_nodes_cpp talker` reports `Package 'demo_nodes_cpp' not found`, the image was built without the C++ demo nodes. Check the `Dockerfile` from a terminal on the board, inside the `~/ros2` folder:
+
+```bash
+grep demo Dockerfile
+```
+
+If `ros-jazzy-demo-nodes-cpp` is missing, add it as shown in the [Installing the Demo Packages](#installing-the-demo-packages) section. Then rebuild the image and recreate the container:
+
+```bash
+docker compose up -d --build
+```
+
 If nodes running in different shells cannot discover each other, first confirm the compose file contains `network_mode: host` and `ipc: host`. Without these, each shell sees an isolated network namespace and DDS discovery fails. You can check the current settings with:
 
 ```bash
@@ -602,13 +631,39 @@ docker compose exec ros2 printenv DISPLAY
 
 If this prints nothing, the compose file is missing the `DISPLAY` setting. Add it as shown in the [Starting the Container](#starting-the-container) section and recreate the container with `docker compose up -d`.
 
+If Docker fails to start after you edit `/etc/docker/daemon.json`, check the reason it reported:
+
+```bash
+sudo journalctl -u docker.service -n 30 --no-pager
+```
+
+A message such as `unable to configure the Docker daemon` followed by `invalid character` means the file has a syntax error, most often a missing comma between two settings. Compare the file with the example in the [Moving Docker's Data Folder](#moving-dockers-data-folder) section and correct it. After several failed attempts, systemd stops retrying, so clear the failed state first:
+
+```bash
+sudo systemctl reset-failed docker
+```
+
+Then start Docker again:
+
+```bash
+sudo systemctl start docker
+```
+
+The journal may also show a message about an unset `DOCKER_OPTS` variable. It is unrelated to the failure and can be ignored.
+
 If the root partition runs out of storage, check where Docker is storing its data:
 
 ```bash
 docker info | grep "Docker Root Dir"
 ```
 
-If the output still shows `/var/lib/docker`, the data folder change was not applied. Check `/etc/docker/daemon.json` for syntax errors, such as a missing comma or brace, and restart Docker. Once the data folder is on the larger partition, you can remove unused images and build cache to recover space:
+If the output still shows `/var/lib/docker`, the data folder change was not applied. Check that `/etc/docker/daemon.json` contains the `data-root` line, then restart Docker so it reads the file again:
+
+```bash
+sudo systemctl restart docker
+```
+
+Once the data folder is on the larger partition, you can remove unused images and build cache to recover space:
 
 ```bash
 docker system prune -a
