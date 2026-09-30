@@ -86,7 +86,9 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
 |                     RAM                    | 512 kB                                                                                                            |
 |              Hardware Security              | Integrated Hardware Security Module (HSM)                                                                         |
 |               External Clock               | 12 MHz crystal (X252012MMB4SI-24)                                                                                 |
-| Peripherals Used on the Nano XL Link Board | USB HS, USB FS, CAN0 (CAN FD), ENET (RMII), UART0, UART1, UART6, SPI2, SPI5, I2C3, I2C4, I2S, ADC, TCC (PWM), SWD |
+|      Peripherals Exposed on the Headers     | USB HS, USB FS, UART1, UART6, SPI2, SPI5, I2C3, I2S, ADC, TCC (PWM), SWD                                          |
+| Peripherals Connected to Onboard Transceivers | CAN0 (CAN FD transceiver), UART0 (RS-485 transceiver), ENET/RMII (Ethernet PHY)                                   |
+|     Peripheral Connected to the Qwiic Connector    | I2C4                                                                                                              |
  
 <caption>Table 2. Nano XL Link microcontroller details</caption>
 
@@ -100,8 +102,8 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
 
 | **Interface** |          **Transceiver**         | **Details**                                                                                                                                                                                                                                                                                     |
 |:-------------:|:--------------------------------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     CAN FD    | TCAN3414DDFR (Texas Instruments) | +3.3 VDC CAN FD transceiver connected to the microcontroller's CAN0 peripheral; CANH/CANL signals available on the headers; 120 Ω termination selectable via solder jumper (SJ1, open by default)                                                                                                                |
-|     RS-485    | THVD2410DRBR (Texas Instruments) | +3.3 VDC RS-485 transceiver connected to the microcontroller's UART0 peripheral; driver enable (DE) controlled by the UART0 RTS signal and receiver enable (RE) by the UART0 CTS signal; A/B signals available on the headers; 120 Ω termination selectable via solder jumper (SJ2, open by default)                                                          |
+|     CAN FD    | TCAN3414DDFR (Texas Instruments) | +3.3 VDC CAN FD transceiver connected to the microcontroller's CAN0 peripheral; CANH/CANL signals available on the headers; 120 Ω termination selectable via solder jumper (SJ1, closed by default)                                                                                                                |
+|     RS-485    | THVD2410DRBR (Texas Instruments) | +3.3 VDC RS-485 transceiver connected to the microcontroller's UART0 peripheral; driver enable (DE) controlled by the UART0 RTS signal and receiver enable (RE) by the UART0 CTS signal; A/B signals available on the headers; 120 Ω termination selectable via solder jumper (SJ2, closed by default)                                                          |
 |    Ethernet   |    KSZ8081RNAIA (Microchip)      | 10/100 Mbps industrial temperature range Ethernet PHY connected to the microcontroller's Ethernet MAC through an RMII interface; 25 MHz reference oscillator (DSC1522JI1A-25M00000T); auto-negotiation enabled by default (100 Mbps default speed); TX/RX differential pairs and link/activity LED signal available on the headers; magnetics and RJ45 connector not included on the board |
  
 <caption>Table 3. Nano XL Link fieldbus interfaces</caption>
@@ -109,12 +111,13 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
 </div>
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;"><strong>Note:</strong> The 120 Ω termination resistors of the CAN FD (SJ1) and RS-485 (SJ2) interfaces are <strong>open by default</strong>. Close the corresponding solder jumper only when the Nano XL Link is located at one end of the bus. The Ethernet magnetics and the RJ45 connector are not included on the Nano XL Link. The PHY TX/RX differential pairs are routed to the headers and must be terminated on a carrier board.</p>
+<p style="text-align: justify;"><strong>Note:</strong> The 120 Ω termination resistors of the CAN FD (SJ1) and RS-485 (SJ2) interfaces are <strong>enabled by default</strong> (solder jumpers closed). Open the corresponding solder jumper when the Nano XL Link is not located at one end of the bus. The Ethernet magnetics and the RJ45 connector are not included on the Nano XL Link. The PHY TX/RX differential pairs are routed to the headers and must be terminated on a carrier board.</p>
 </div>
 
 ### Related Products
  
 - Arduino® Nano XL Link Connector Carrier (SKU: ASX00090)
+- Arduino® Nano XL Link Relay Expansion (SKU: ASX00091)
 
 <div style="page-break-after: always;"></div>
 
@@ -171,7 +174,7 @@ The Nano XL Link headers pinout is shown in Figure 1.
 - **Power:** VIN, VBUS (+5 VDC), 3.3V (+3.3 VDC), GND, AREF
 - **Analog:** A0–A7 (ADC inputs)
 - **Digital/PWM:** D2–D9 (TCC waveform outputs), additional digital I/Os
-- **Communication:** SPI2, SPI5, I2C3, I2S (WS, CK, SDI, SDO), UART1, UART6, USB FS (D+/D-)
+- **Communication:** SPI2, SPI5, I2C3, I2S (WS, CK, SDI, SDO), UART1, UART6, USB HS (D+/D-, shared with the USB-C® connector), USB FS (D+/D-)
 - **Fieldbus:** CANH/CANL, RS-485 A/B, Ethernet TX+/TX-/RX+/RX-, Ethernet link/activity LED signal
 - **System:** RESET, SWDIO, SWCLK
 
@@ -188,9 +191,9 @@ An overview of the Nano XL Link high-level architecture is illustrated in Figure
 <div style="text-align:justify;">
 
 Figure 3 shows the power options available on the Nano XL Link and illustrates the main system power architecture.
- 
+
 ![Figure 3. Power architecture of the Nano XL Link](assets/Nano_XL_Link_Power_Tree.png)
- 
+
 <p style="text-align: justify;">The Nano XL Link can be powered through the USB-C® connector (+5 VDC) or the VIN pin on the headers (+7 to +24 VDC). Both inputs feed the onboard step-down converter (MPQ4334), which generates the +3.3 VDC rail that supplies the microcontroller, the transceivers, the Ethernet PHY, the Qwiic connector, and the onboard LEDs. VBUS and VIN are protected by TVS diodes, and a load switch (MP5077) delays the VBUS signal to the microcontroller's VBUS pin to ensure correct power sequencing; this load switch is not user-controllable.</p>
 
 </div>
@@ -214,7 +217,7 @@ Figure 3 shows the power options available on the Nano XL Link and illustrates t
 <p style="text-align: justify;">The board features a Qwiic connector (SM04B-SRSS-TB) connected to the microcontroller's I2C4 peripheral. The SDA and SCL lines have 5.1 kΩ pull-up resistors to +3.3 VDC, and the connector provides +3.3 VDC power to the connected modules. This connector allows direct connection of Modulino® nodes and other Qwiic-compatible devices.</p>
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;"><strong>Power Tip:</strong> The Qwiic connector supplies +3.3 VDC to the connected modules from the onboard step-down converter. The current drawn by the connected modules counts toward the 1 A maximum load of the +3.3 VDC rail; take it into account when powering the board through the USB-C® connector.</p>
+<p style="text-align: justify;"><strong>Power Tip:</strong> The Qwiic connector supplies +3.3 VDC to the connected modules from the onboard step-down converter. The current drawn by these modules counts toward the 1 A maximum load of the +3.3 VDC rail. When the board is powered only through the USB-C® connector, the total current available for the board and all its external loads is additionally limited by the USB source (500 mA for USB 2.0).</p>
 </div>
 
 ### LEDs and Push-Button
@@ -236,7 +239,8 @@ Figure 3 shows the power options available on the Nano XL Link and illustrates t
 <div style="text-align:justify;">
  
 - **Nano XL Link:** Provides the microcontroller, the CAN FD, RS-485, and Ethernet transceivers, and the extended pinout.
-- **Nano XL Link Connector Carrier:** DIN-rail-mountable carrier board compatible with standard 4U DIN-rail open enclosures. It provides the Nano XL Link a socket, an Ethernet connector, screw terminal connectors, a GPIO connector, and a Qwiic connector. It also serves as a reference design for custom carrier boards.
+- **Nano XL Link Connector Carrier:** DIN-rail-mountable carrier board compatible with standard 4U DIN-rail open enclosures. It provides a socket for the Nano XL Link, an Ethernet connector, screw terminal connectors, a GPIO connector, a 2×5 debug header, and a Qwiic connector. It also serves as a reference design for custom carrier boards.
+- **Nano XL Link Relay Expansion:** Module with eight relays (up to 10 A per channel), connected through the Qwiic interface. Onboard DIP switches allow chaining up to eight units, for a total of 64 relay outputs. It fits inside 4U DIN-rail open enclosures alongside the Connector Carrier.
 
 </div>
 
@@ -365,4 +369,4 @@ Exemptions: No exemptions are claimed.
  
 |  **Date**  | **Revision** |   **Changes**   |
 |:----------:|:------------:|:---------------:|
-| 27/09/2026 |      1       |  First release  |
+| 22/09/2026 |      1       |  First release  |
