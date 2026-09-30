@@ -16,7 +16,7 @@ hardware:
 
 In this tutorial, you will learn how to run ROS 2 (Robot Operating System 2) on the Arduino® UNO Q. The UNO Q runs Debian Linux on its Qualcomm® QRB2210 microprocessor (MPU). ROS 2 Jazzy Jalisco runs on top of it inside a Docker container.
 
-You will use the board as a desktop system with a USB-C® hub, set up Docker, pull the official ROS 2 container image, and verify that the ROS 2 communication layer works.
+You will use the board as a desktop system with a USB-C® hub, set up Docker, pull the official ROS 2 container image, build and start it with Docker Compose, and verify that the ROS 2 communication layer works.
 
 ![ROS 2 Jazzy](assets/unoq_ros2_docker_8.png)
 
@@ -28,7 +28,9 @@ This is the first of two documents. Once the container is running, the [First RO
 - Access the UNO Q shell via SSH, ADB or SBC mode.
 - Understand why ROS 2 runs in a container on the UNO Q.
 - Prepare Docker on the board and pull the official ROS 2 Jazzy image.
-- Start a container with network, display and shared workspace access.
+- Move Docker's data folder to the larger storage partition.
+- Preinstall packages in the container image with a Dockerfile.
+- Start a container with Docker Compose, with network, display and shared workspace access.
 - Verify the ROS 2 communication layer with the talker and listener demo nodes.
 - Manage the container across sessions without losing your work.
 
@@ -167,12 +169,18 @@ Check whether Docker is already available on your board:
 docker --version
 ```
 
-![Verifying Docker (1)](assets/unoq_ros2_docker_1.png)
-
-If the command is not found, install it:
+This series also uses Docker Compose to build and run the ROS 2 container. Check that it is available:
 
 ```bash
-sudo apt install docker.io
+docker compose version
+```
+
+![Verifying Docker (1)](assets/unoq_ros2_docker_1.png)
+
+If either command is not found, install Docker and Docker Compose:
+
+```bash
+sudo apt install docker.io docker-compose
 ```
 
 Add your user to the `docker` group so you can run Docker commands without `sudo`:
@@ -193,15 +201,73 @@ If this prints a confirmation message without a permissions error, Docker is rea
 
 ### Checking Available Storage
 
-The ROS 2 container image and the packages installed in it need plenty of storage. Check what you have available before pulling:
+The ROS 2 container image and the packages installed in it need plenty of storage. The UNO Q's storage is divided into partitions. The root partition holds the operating system, while your home directory, `/home/arduino`, is on a separate and much larger partition. Compare the free space on both before pulling:
 
 ```bash
-df -h /
+df -h / /home/arduino
 ```
 
 ![Checking available storage](assets/unoq_ros2_docker_3.png)
 
-If you are running the 16 GB variant and space is tight, free some up with `docker system prune` and `sudo apt autoremove` before continuing.
+On a board with 32 GB of storage, the root partition is around 10 GB and the home partition around 18 GB.
+
+By default, Docker stores all images, containers and build data under `/var/lib/docker`, which is on the root partition. A ROS 2 image can fill that partition quickly, and removing unused data with `docker system prune` only recovers space after the fact. Move Docker's data folder to the larger partition before pulling any ROS 2 image.
+
+### Moving Docker's Data Folder
+
+Stop the Docker service and its socket, so Docker does not restart while you change its configuration:
+
+```bash
+sudo systemctl stop docker docker.socket
+```
+
+Create a new, empty folder for Docker's data in your home directory, which sits on the larger partition:
+
+```bash
+sudo mkdir -p /home/arduino/docker-data
+```
+
+Open the Docker daemon configuration file. If the file does not exist yet, this command creates it:
+
+```bash
+sudo nano /etc/docker/daemon.json
+```
+
+Add the `data-root` setting pointing to the new folder:
+
+```json
+{
+  "data-root": "/home/arduino/docker-data"
+}
+```
+
+If the file already contains other settings, add the `data-root` line inside the same pair of braces, separated from the existing settings by a comma, instead of replacing them. Save the file with `Ctrl+O`, exit with `Ctrl+X` and start Docker again:
+
+```bash
+sudo systemctl start docker
+```
+
+Docker initializes a fresh data folder in the new location. Confirm that it is in use:
+
+```bash
+docker info | grep "Docker Root Dir"
+```
+
+![Verifying the Docker data folder](assets/unoq_ros2_docker_9.png)
+
+The output should show `/home/arduino/docker-data`.
+
+<Alert type="warning">
+
+Do not copy the contents of `/var/lib/docker` to the new location, since a plain copy breaks the internal links Docker uses to store image layers. If you use Arduino App Lab on this board, the images it has already downloaded stay in the old location and are no longer visible to Docker, so App Lab may need to download them again. Keep `/var/lib/docker` in place unless you are sure you no longer need that data.
+
+</Alert>
+
+<Alert type="info">
+
+**Note:** As an alternative to moving the data folder, you can reflash the board with a partition layout that gives the root partition more space. Reflashing erases the board. See the [Flashing a New Image to the UNO Q](/tutorials/uno-q/update-image/) tutorial for the flashing procedure.
+
+</Alert>
 
 ## Running ROS 2 in a Container
 
@@ -217,15 +283,54 @@ docker pull ros:jazzy-ros-base
 
 The download takes a few minutes depending on your connection. We use the `ros-base` image rather than a full desktop image because it is much smaller, and we add only the specific packages each tutorial needs.
 
-### Preparing the Workspace Directory
+### Preparing the Project Files
 
-Anything written inside a container is lost when you delete the container. To keep your project files safe on the board, create the workspace on the Debian side first and share it with the container:
+Anything written inside a container is lost when you delete the container. To keep your project files safe on the board, the workspace lives on the Debian side and is shared with the container through a volume.
+
+The Docker setup used in this series is available in the [Arduino UNO Q robotics workshop repository](https://github.com/arduino/workshop_robotics_unoq/tree/main/ros2). Its `ros2` folder contains everything needed to build and run the ROS 2 container:
+
+- `Dockerfile` defines the container image and the packages preinstalled in it.
+- `docker-compose.yml` defines how the container runs, including its networking and the workspace volume.
+- `ros_entrypoint.sh` prepares the ROS 2 environment every time the container starts.
+- `ros2_ws/src/` is the workspace folder where your ROS 2 packages go.
+
+To get the files directly on the board, make sure `git` is installed:
 
 ```bash
-mkdir -p ~/ros2_ws/src
+sudo apt install git
 ```
 
-You will use this directory in the next tutorial when you build your own package. Creating it now means the container starts with the mount already in place, so you won't have to rebuild later.
+Clone the repository into your home directory:
+
+```bash
+git clone https://github.com/arduino/workshop_robotics_unoq.git ~/workshop_robotics_unoq
+```
+
+Copy its `ros2` folder to your home directory, so your working copy stays separate from the cloned repository:
+
+```bash
+cp -r ~/workshop_robotics_unoq/ros2 ~/ros2
+```
+
+Alternatively, clone or download the repository on your computer, connect the board over USB-C® and push the `ros2` folder with ADB. Run the following from inside the repository folder on your computer:
+
+```bash
+adb push -a ./ros2 /home/arduino
+```
+
+Either method creates the `/home/arduino/ros2` folder on the board. Move into it:
+
+```bash
+cd ~/ros2
+```
+
+You will use its `ros2_ws` folder in the next tutorial when you build your own package.
+
+<Alert type="note">
+
+**Note:** Run all `docker compose` commands in this series from inside the `~/ros2` folder. Docker Compose reads the `docker-compose.yml` file and the `Dockerfile` from the current directory.
+
+</Alert>
 
 ### Allowing Container Access to the Display
 
@@ -238,74 +343,168 @@ xhost +local:docker
 <Alert type="note">
 
 This grants local containers access to your display for the current session only. It resets when you log out, so you need to run it again after each reboot.
- 
+
 </Alert>
-
-### Starting the Container
-
-With Docker ready, the image pulled and the workspace directory in place, start the container:
-
-```bash
-docker run -it \
-  --name unoq_ros2 \
-  --network host \
-  --ipc host \
-  -e DISPLAY=$DISPLAY \
-  -v /tmp/.X11-unix:/tmp/.X11-unix \
-  -v ~/ros2_ws:/root/ros2_ws \
-  ros:jazzy-ros-base
-```
-
-![Starting the container](assets/unoq_ros2_docker_5.png)
-
-Each option is important here:
-
-- `--name unoq_ros2` gives the container a fixed name so you can return to it later.
-- `--network host` and `--ipc host` let ROS 2 nodes discover each other and use shared memory transport. Without these, nodes in different shells will not find one another.
-- `-e DISPLAY` and the `/tmp/.X11-unix` mount give graphical nodes access to the screen.
-- The `~/ros2_ws` mount shares your workspace between the board and the container, so your code survives even if the container is removed.
-
-You are now inside the container, with a prompt like `root@unoq:/#`. The ROS 2 environment is sourced automatically for you in this session.
 
 ### Installing the Demo Packages
 
-Inside the container, install the demo nodes used to verify the installation:
+Instead of installing packages by hand inside a running container, add them to the container image through the `Dockerfile`. Anything installed with `apt` inside a running container is lost when the container is recreated, while packages listed in the `Dockerfile` are part of the image and are present every time the container starts.
+
+Open the `Dockerfile`:
 
 ```bash
-apt update
+nano Dockerfile
 ```
+
+It starts from the ROS 2 base image you pulled earlier and sets the workspace location inside the container:
+
+```dockerfile
+FROM ros:jazzy-ros-base
+
+ENV ROS_WS=/ros2_ws
+WORKDIR ${ROS_WS}
+```
+
+Each `RUN` instruction executes a command while the image is being built. Every package block follows the same pattern: refresh the package lists, install the packages, then delete the downloaded lists to keep the image small. The first block installs the tools used to build ROS 2 packages:
+
+```dockerfile
+# Install common tools
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    git \
+    python3-colcon-common-extensions \
+    python3-rosdep \
+    python3-pip && \
+    rm -rf /var/lib/apt/lists/*
+```
+
+The second block installs the demo nodes used to verify the installation. Add `ros-jazzy-demo-nodes-cpp` to it:
+
+```dockerfile
+# Install the ROS 2 demo nodes (talker / listener)
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    ros-jazzy-demo-nodes-py \
+    ros-jazzy-demo-nodes-cpp && \
+    rm -rf /var/lib/apt/lists/*
+```
+
+Save the file with `Ctrl+O` and exit with `Ctrl+X`.
+
+![Installing the demo packages](assets/unoq_ros2_docker_5.png)
+
+The same pattern works for any package available for Ubuntu 24.04, including ROS 2 packages, whose names follow the `ros-jazzy-<package-name>` format. The next tutorial uses it to add the packages it needs.
+
+The rest of the `Dockerfile` copies the workspace sources into the image, installs their dependencies with `rosdep` and builds them with colcon. It also adds the ROS 2 setup files to the container's `.bashrc`, so every shell you open has ROS 2 and your workspace available without sourcing anything by hand. Finally, it sets `ros_entrypoint.sh` as the script that runs when the container starts.
+
+### Starting the Container
+
+Docker Compose replaces a long `docker run` command with the `docker-compose.yml` file, which describes how the container runs. Open it:
 
 ```bash
-apt install -y ros-jazzy-demo-nodes-cpp
+nano docker-compose.yml
 ```
 
-![Installing the demo packages](assets/unoq_ros2_docker_6.png)
+Add the `DISPLAY` variable to the `environment` list and the display socket to the `volumes` list, so graphical nodes can reach the screen. With its comments removed, the file looks like this:
 
-These stay installed as long as you do not delete the container.
+```yaml
+services:
+  ros2:
+    build: .
+    image: ros2-jazzy-unoq
+    container_name: ros2_jazzy
+    network_mode: host
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID=0
+      - DISPLAY=${DISPLAY:-:0}
+    volumes:
+      - ./ros2_ws:/ros2_ws
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    stdin_open: true
+    tty: true
+    command: bash
+```
+
+Each setting is important here:
+
+- `build: .` builds the image from the `Dockerfile` in the same folder, and `image` names the result `ros2-jazzy-unoq`.
+- `ros2` is the service name you use with `docker compose` commands, and `container_name` gives the running container the fixed name `ros2_jazzy`.
+- `network_mode: host` and `ipc: host` let ROS 2 nodes discover each other and use shared memory transport. Without these, nodes in different shells will not find one another.
+- `ROS_DOMAIN_ID=0` sets the ROS 2 domain for every shell in the container.
+- `DISPLAY` and the `/tmp/.X11-unix` mount give graphical nodes access to the screen. `${DISPLAY:-:0}` takes the value from the terminal where you run `docker compose`, and falls back to `:0`, the board's main display, when none is set, such as in an SSH session.
+- The `./ros2_ws` volume shares your workspace between the board and the container, so your code and the `build/`, `install/` and `log/` folders survive even if the container is removed.
+- `stdin_open` and `tty` keep the container running in the background, ready for you to open shells in it.
+
+![docker-compose.yml](assets/unoq_ros2_docker_10.png)
+
+Save the file and exit. Build the image:
+
+```bash
+docker compose build
+```
+
+The build installs every package listed in the `Dockerfile`, so the first build takes a few minutes. Later builds reuse the steps that have not changed and finish much faster.
+
+Start the container in the background:
+
+```bash
+docker compose up -d
+```
+
+![Starting the container](assets/unoq_ros2_docker_6.png)
+
+On the first start, `ros_entrypoint.sh` builds the mounted workspace, because the workspace shared from the board replaces the one built inside the image. This creates the `build/`, `install/` and `log/` folders on the board. Later starts skip this step. You can follow its progress with the following command, then press `Ctrl+C` to stop following the logs. The container keeps running.
+
+```bash
+docker compose logs -f
+```
+
+Open a shell inside the container:
+
+```bash
+docker compose exec ros2 bash
+```
+
+You are now inside the container, with a prompt like `root@<boardname>:/ros2_ws#`. The ROS 2 environment is sourced automatically for you in every shell.
+
+![Inside the container](assets/unoq_ros2_docker_11.png)
 
 ### Opening Additional Shells
 
-Many sections in this series need more than one terminal. Rather than starting a second container, open another shell inside the same one. From a new terminal on the board:
+Many sections in this series need more than one terminal. Rather than starting a second container, open another shell inside the same one. From a new terminal on the board, inside the `~/ros2` folder:
 
 ```bash
-docker exec -it unoq_ros2 bash
+docker compose exec ros2 bash
 ```
 
-Shells opened this way do not source ROS 2 automatically, so run this first each time:
+Shells opened this way source ROS 2 and the workspace automatically through the container's `.bashrc`, so `ros2` commands work right away.
 
-```bash
-source /opt/ros/jazzy/setup.bash
-```
+<Alert type="note">
+
+**Note:** Always open an interactive shell with `docker compose exec ros2 bash` before running `ros2` commands. Running a command directly, such as `docker compose exec ros2 ros2 topic list`, fails with an `executable file not found` error, because that form does not load the shell settings that source ROS 2.
+
+</Alert>
 
 ### Stopping and Resuming
 
-Typing `exit` in the original shell stops the container. Your installed packages and files remain. To resume:
+The container keeps running in the background when you exit a shell. Run the following commands from inside the `~/ros2` folder. To stop and remove the container:
 
 ```bash
-docker start -ai unoq_ros2
+docker compose down
 ```
 
-Use `docker rm unoq_ros2` only when you want to discard the ROS 2 environment entirely. Your `~/ros2_ws` directory on the board is unaffected either way.
+Your installed packages and files remain, since the packages are part of the image and the workspace lives on the board. To resume:
+
+```bash
+docker compose up -d
+```
+
+After changing the `Dockerfile` or the `docker-compose.yml` file, rebuild the image and recreate the container in one step:
+
+```bash
+docker compose up -d --build
+```
 
 ## Verifying the Installation
 
@@ -339,16 +538,10 @@ You should see it printing a new message every second:
 
 ![Verifying the installation (1)](assets/unoq_ros2_docker_7.png)
 
-Now open a second shell in the container:
+Now open a second shell in the container from a new terminal on the board, inside the `~/ros2` folder:
 
 ```bash
-docker exec -it unoq_ros2 bash
-```
-
-Source the environment:
-
-```bash
-source /opt/ros/jazzy/setup.bash
+docker compose exec ros2 bash
 ```
 
 Then start the listener:
@@ -372,66 +565,50 @@ If you see both nodes producing output like this, your ROS 2 installation is wor
 <Alert type="note">
 
 **Note:** This verification runs entirely in the console, so it works over SSH or ADB without a display attached. The graphical tools in the next tutorial require the hub and display to be connected.
- 
+ 
 </Alert>
-
-## Making the Environment Persistent
-
-You may have noticed that shells opened with `docker exec` need `source /opt/ros/jazzy/setup.bash` before any `ros2` command works. This is because the setup file configures environment variables local to the current shell session.
-
-To avoid running this command every time, append it to the container's `.bashrc`, which is a shell script that runs automatically whenever a new shell session starts:
-
-```bash
-echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
-```
-
-Then reload it in the current session so the change takes effect immediately:
-
-```bash
-source ~/.bashrc
-```
-
-From this point on, every shell you open in the container will have ROS 2 available automatically. Note that this applies to the container, not to the Debian system on the board.
 
 ## Troubleshooting
 
 If `docker` commands fail with a permissions error, check that your user is in the `docker` group with `groups`, and log out and back in if you added it in this session.
 
-If the `ros2` command is not found inside the container, source the setup file with `source /opt/ros/jazzy/setup.bash`, or confirm this line is present in the container's `.bashrc`.
+If `docker compose` reports that the command is not found, or that no configuration file was found, check two things. First, confirm Docker Compose is installed with `docker compose version`. Second, confirm you are running the command from inside the `~/ros2` folder, where the `docker-compose.yml` file lives.
 
-Shells opened with `docker exec` do not source it automatically unless you added it. Refer to the [Making the Environment Persistent](#making-the-environment-persistent) section if you have not done this yet.
+If the `ros2` command is not found inside the container, make sure you opened the shell with `docker compose exec ros2 bash`. That shell loads the container's `.bashrc`, which sources ROS 2 and the workspace automatically.
 
-If nodes running in different shells cannot discover each other, first confirm the container was started with `--network host` and `--ipc host`. Without these, each shell sees an isolated network namespace and DDS discovery fails. You can check the current settings with:
-
-```bash
-docker inspect --format '{{.HostConfig.NetworkMode}} {{.HostConfig.IpcMode}}' unoq_ros2
-```
-
-If the network mode is not `host`, remove the container and start it again with the full command from the [Starting the Container](#starting-the-container) section:
+If nodes running in different shells cannot discover each other, first confirm the compose file contains `network_mode: host` and `ipc: host`. Without these, each shell sees an isolated network namespace and DDS discovery fails. You can check the current settings with:
 
 ```bash
-docker rm unoq_ros2
+docker inspect --format '{{.HostConfig.NetworkMode}} {{.HostConfig.IpcMode}}' ros2_jazzy
 ```
 
-Also check that all shells share the same `ROS_DOMAIN_ID`. By default, this is 0, but if you changed it in one session, the nodes will not find each other. You can set it explicitly and make it permanent:
+If either value is not `host`, restore the settings in `docker-compose.yml` as shown in the [Starting the Container](#starting-the-container) section and recreate the container:
 
 ```bash
-export ROS_DOMAIN_ID=0
+docker compose up -d
 ```
+
+Also check that all shells share the same `ROS_DOMAIN_ID`. The compose file sets it to 0 for every shell, so a mismatch only happens if you changed it by hand in one session. Print the current value in each shell with:
 
 ```bash
-echo "export ROS_DOMAIN_ID=0" >> ~/.bashrc
+echo $ROS_DOMAIN_ID
 ```
 
-To check the container received display access, which the next tutorial depends on, check the variable from the board:
+To check the container received display access, which the next tutorial depends on, check the variable from the board, inside the `~/ros2` folder:
 
 ```bash
-docker exec unoq_ros2 printenv DISPLAY
+docker compose exec ros2 printenv DISPLAY
 ```
 
-If this prints nothing, the container was started without `-e DISPLAY`. Remove and restart it with the full command.
+If this prints nothing, the compose file is missing the `DISPLAY` setting. Add it as shown in the [Starting the Container](#starting-the-container) section and recreate the container with `docker compose up -d`.
 
-If you run out of storage, remove unused images and build cache from the board's Debian session:
+If the root partition runs out of storage, check where Docker is storing its data:
+
+```bash
+docker info | grep "Docker Root Dir"
+```
+
+If the output still shows `/var/lib/docker`, the data folder change was not applied. Check `/etc/docker/daemon.json` for syntax errors, such as a missing comma or brace, and restart Docker. Once the data folder is on the larger partition, you can remove unused images and build cache to recover space:
 
 ```bash
 docker system prune -a
@@ -439,13 +616,13 @@ docker system prune -a
 
 <Alert type="warning">
 
-This removes all images not currently used by a container. You will need to pull the ROS 2 image again if you remove the `unoq_ros2` container first.
- 
+This removes all images not currently used by a container. You will need to rebuild the ROS 2 image with `docker compose build` if the container was not running when you ran the command.
+
 </Alert>
 
 ## Conclusion
 
-In this tutorial, you have assembled the UNO Q as a desktop system with a USB-C® hub, prepared Docker on the board, pulled the official ROS 2 Jazzy image, and started a container with network, display and shared workspace access. You then verified the ROS 2 communication layer with the talker and listener demo nodes.
+In this tutorial, you have assembled the UNO Q as a desktop system with a USB-C® hub, prepared Docker on the board and moved its data folder to the larger storage partition, pulled the official ROS 2 Jazzy image, and used Docker Compose to build and start a container with preinstalled packages and network, display and shared workspace access. You then verified the ROS 2 communication layer with the talker and listener demo nodes.
 
 ### Next Steps
 

@@ -16,11 +16,11 @@ hardware:
 
 In this tutorial, you will explore the fundamental concepts of ROS 2 (Robot Operating System 2) on the Arduino® UNO Q and build your first project from scratch.
 
-You will run the `turtlesim` simulation to see nodes, topics and services working together, then create a colcon workspace, write a publisher node and a subscriber node in Python, build the package and watch the two nodes communicate.
+You will run the `turtlesim` simulation to see nodes, topics and services working together, then create a ROS 2 package in the shared workspace, write a publisher node and a subscriber node in Python, build the package and watch the two nodes communicate.
 
 ![Turtlesim Example (2_1)](assets/unoq_ros2_turtlesim_circle.gif)
 
-This tutorial continues from [Running ROS 2 on UNO Q with Docker](/tutorials/uno-q/ros2-setup/). It assumes you already have the `unoq_ros2` container set up and running.
+This tutorial continues from [Getting Started with ROS 2 on UNO Q](/tutorials/uno-q/ros2-setup/). It assumes you already have the ROS 2 container set up and running.
 
 <Alert type="info">
 
@@ -34,7 +34,7 @@ This tutorial continues from [Running ROS 2 on UNO Q with Docker](/tutorials/uno
 - Understand the fundamental concepts of ROS 2: nodes, topics, services and actions.
 - Run the `turtlesim` example and control the turtle through topics and services.
 - Check a running system with the ROS 2 command-line tools.
-- Create a colcon workspace and a ROS 2 Python package that persists outside the container.
+- Create a ROS 2 Python package in a workspace that persists outside the container.
 - Write a publisher and subscriber node and verify communication between them.
 
 ## Hardware and Software Requirements
@@ -56,15 +56,21 @@ The `turtlesim` sections of this tutorial open a graphical window, so the board 
 
 ### Software Requirements
 
-- The `unoq_ros2` container from [Running ROS 2 on UNO Q with Docker](/tutorials/uno-q/ros2-setup/), set up and verified.
+- The ROS 2 container from [Getting Started with ROS 2 on UNO Q](/tutorials/uno-q/ros2-setup/), set up and verified, with the project files in the `~/ros2` folder on the board.
 - An active internet connection on the board to install the tutorial packages.
 
 ## Resuming the Container
 
-If the container is not currently running, start it again from a terminal on the board:
+If the container is not currently running, start it again from a terminal on the board. Move into the project folder:
 
 ```bash
-docker start -ai unoq_ros2
+cd ~/ros2
+```
+
+Then start the container in the background:
+
+```bash
+docker compose up -d
 ```
 
 Since `turtlesim` needs to draw on the screen, grant local containers display access again. This permission resets on logout, so run it in a terminal on the desktop session after each reboot:
@@ -73,37 +79,67 @@ Since `turtlesim` needs to draw on the screen, grant local containers display ac
 xhost +local:docker
 ```
 
-The following sections need more than one terminal. To open additional shells inside the same container, use the following from a new terminal on the board:
+The following sections need more than one terminal. Each new terminal on the board opens in your home directory, so move into the project folder first:
 
 ```bash
-docker exec -it unoq_ros2 bash
+cd ~/ros2
 ```
 
-<Alert type="note">
+Then open a shell inside the same container:
 
-**Note:** If you did not add the ROS 2 setup file to the container's `.bashrc` in the previous tutorial, run `source /opt/ros/jazzy/setup.bash` in each new shell before using any `ros2` command.
-
-</Alert>
+```bash
+docker compose exec ros2 bash
+```
 
 ## Installing the Tutorial Packages
 
-Inside the container, refresh the package lists:
+Add the packages this tutorial needs to the container image, the same way you added the demo nodes in the previous tutorial. From a terminal on the board, inside the `~/ros2` folder, open the `Dockerfile`:
 
 ```bash
-apt update
+nano Dockerfile
 ```
 
-Then install `turtlesim`, the colcon build tool and a text editor:
+Add a text editor to the common tools block and `turtlesim` to the demo nodes block:
+
+```dockerfile
+# Install common tools
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    git \
+    nano \
+    python3-colcon-common-extensions \
+    python3-rosdep \
+    python3-pip && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install the ROS 2 demo nodes (talker / listener) and turtlesim
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    ros-jazzy-demo-nodes-py \
+    ros-jazzy-demo-nodes-cpp \
+    ros-jazzy-turtlesim && \
+    rm -rf /var/lib/apt/lists/*
+```
+
+In each block, only the last package carries `&&`, which separates the install command from the cleanup command after it. Every other package line ends with just a backslash. Since `ros-jazzy-turtlesim` is now the last package in the demo nodes block, remove the `&&` from the `ros-jazzy-demo-nodes-cpp` line. If it stays, the build fails with a `not found` error.
+
+Save the file with `Ctrl+O` and exit with `Ctrl+X`. Then rebuild the image and recreate the container:
 
 ```bash
-apt install -y ros-jazzy-turtlesim python3-colcon-common-extensions nano
+docker compose up -d --build
 ```
 
 ![Installing the tutorial packages](assets/unoq_ros2_project_1.png)
 
-`colcon` is the standard ROS 2 build tool. It reads each package's build configuration and compiles them in the correct order. You will use it later in this tutorial.
+Rebuilding closes any shells that were open in the previous container. Open a new one:
 
-These packages stay installed as long as you do not remove the container.
+```bash
+docker compose exec ros2 bash
+```
+
+`colcon` is the standard ROS 2 build tool. It reads each package's build configuration and compiles them in the correct order. It is already part of the image, installed in the common tools block, and you will use it later in this tutorial.
+
+These packages stay installed as long as they are listed in the `Dockerfile`, even when the container is recreated.
 
 ## Turtlesim Example
 
@@ -236,17 +272,17 @@ Before writing code, it is useful to understand the key concepts you will work w
 
 ### Using the Shared Workspace
 
-You created `~/ros2_ws/src` on the board in the previous tutorial. You mounted it into the container, where it appears at `/root/ros2_ws`. Everything you write there is stored on the board's eMMC, not inside the container.
+The `ros2_ws` folder inside `~/ros2` on the board is shared with the container through a volume, where it appears at `/ros2_ws`. Everything you write there is stored on the board's eMMC, not inside the container.
 
-Move into it in your container shell:
+Container shells already open in this folder. If you have moved elsewhere, return to it:
 
 ```bash
-cd /root/ros2_ws
+cd /ros2_ws
 ```
 
 Put all packages in `src/`. When you run `colcon build` from the workspace root, it compiles them.
 
-It creates three directories alongside `src/`:
+It places the results in three directories alongside `src/`, which the container created on its first start:
 
 - `build/` for intermediate files
 - `install/` for the compiled outputs
@@ -254,7 +290,7 @@ It creates three directories alongside `src/`:
 
 <Alert type="note">
 
-**Note:** Files created inside the container are owned by `root`, so they will appear as root-owned when you browse `~/ros2_ws` from the board's Debian session. Run `sudo chown -R $USER:$USER ~/ros2_ws` on the board if you want to edit them with a desktop editor.
+**Note:** Files created inside the container are owned by `root`, so they will appear as root-owned when you browse `~/ros2/ros2_ws` from the board's Debian session. Run `sudo chown -R $USER:$USER ~/ros2/ros2_ws` on the board if you want to edit them with a desktop editor.
 
 </Alert>
 
@@ -263,7 +299,7 @@ It creates three directories alongside `src/`:
 Navigate into `src/`:
 
 ```bash
-cd /root/ros2_ws/src
+cd /ros2_ws/src
 ```
 
 Create a new package using the `ament_python` build type, which is the standard for pure Python packages in ROS 2:
@@ -295,7 +331,7 @@ The `package.xml` file describes the package metadata and dependencies. The `set
 Create the publisher script inside the package's Python module directory:
 
 ```bash
-nano /root/ros2_ws/src/unoq_pubsub/unoq_pubsub/publisher.py
+nano /ros2_ws/src/unoq_pubsub/unoq_pubsub/publisher.py
 ```
 
 ```python
@@ -343,7 +379,7 @@ Each time the callback fires, it builds a `String` message with the current coun
 Create the subscriber script in the same directory:
 
 ```bash
-nano /root/ros2_ws/src/unoq_pubsub/unoq_pubsub/subscriber.py
+nano /ros2_ws/src/unoq_pubsub/unoq_pubsub/subscriber.py
 ```
 
 ```python
@@ -383,7 +419,7 @@ This node subscribes to `unoq_topic` with a queue size of 10. Whenever a message
 For nodes to be launchable with `ros2 run`, register them as console script entry points in `setup.py`. This tells colcon to create executable wrappers for each node during the build. Open the file:
 
 ```bash
-nano /root/ros2_ws/src/unoq_pubsub/setup.py
+nano /ros2_ws/src/unoq_pubsub/setup.py
 ```
 
 Find the `entry_points` dictionary and update it as follows:
@@ -402,7 +438,7 @@ entry_points={
 Return to the workspace root:
 
 ```bash
-cd /root/ros2_ws
+cd /ros2_ws
 ```
 
 Build the package:
@@ -421,19 +457,7 @@ source install/setup.bash
 
 The `--packages-select` flag tells colcon to build only the specified package instead of everything in the workspace. It is useful when you have multiple packages and want to save time by rebuilding only the one you are working on. Without it, colcon would try to build all packages in `src/`.
 
-To avoid sourcing the workspace manually in every new shell, add it to the container's shell profile:
-
-```bash
-echo "source /root/ros2_ws/install/setup.bash" >> ~/.bashrc
-```
-
-Then reload it so the change takes effect immediately:
-
-```bash
-source ~/.bashrc
-```
-
-![Creating First ROS 2 Project (3)](assets/unoq_ros2_project_4.png)
+You only need to source the workspace by hand in shells that were already open before the build. New shells opened with `docker compose exec ros2 bash` load the workspace automatically, since the container's `.bashrc` sources `/ros2_ws/install/setup.bash` whenever it exists.
 
 ### Running the Nodes
 
@@ -510,17 +534,21 @@ ros2 topic info /unoq_topic
 
 ## Troubleshooting
 
-If the `ros2` command is not found, source the setup file with `source /opt/ros/jazzy/setup.bash`, or confirm this line is present in the container's `.bashrc`. Shells opened with `docker exec` do not source it automatically unless you added it.
+If the `ros2` command is not found, make sure you opened the shell with `docker compose exec ros2 bash`. That shell loads the container's `.bashrc`, which sources ROS 2 and the workspace automatically.
 
 If the `turtlesim` window does not appear, check the following in order. First, confirm you are working from the board's desktop session in **SBC mode** with the hub and display attached, not over SSH or ADB.
 
-Second, confirm you ran `xhost +local:docker` in the desktop session. This resets on logout, so you need to run it again after each reboot. Third, check that the container has the DISPLAY variable set, using the following from a terminal on the board:
+Second, confirm you ran `xhost +local:docker` in the desktop session. This resets on logout, so you need to run it again after each reboot. Third, check that the container has the `DISPLAY` variable set, using the following from a terminal on the board, inside the `~/ros2` folder:
 
 ```bash
-docker exec unoq_ros2 printenv DISPLAY
+docker compose exec ros2 printenv DISPLAY
 ```
 
-If this prints nothing, the container was started without `-e DISPLAY`. Remove and recreate it using the full run command from [Running ROS 2 on UNO Q with Docker](/tutorials/uno-q/ros2-setup/#starting-the-container).
+If this prints nothing, the compose file is missing the `DISPLAY` setting. Add it as shown in [Getting Started with ROS 2 on UNO Q](/tutorials/uno-q/ros2-setup/#starting-the-container), then recreate the container:
+
+```bash
+docker compose up -d
+```
 
 When you start a graphical node, the terminal prints a few warnings before the window appears. These are expected on the UNO Q and do not indicate a problem.
 
@@ -530,13 +558,19 @@ The `XDG_RUNTIME_DIR not set` message comes from Qt looking for a per-user runti
 export XDG_RUNTIME_DIR=/tmp/runtime-root
 ```
 
-The `MESA-LOADER: failed to retrieve device information` messages appear because the graphics device node is not present inside the container. Mesa then falls back to requesting access through the X server, which succeeds, so it still uses hardware acceleration. To confirm this, install the Mesa utilities:
+The `MESA-LOADER: failed to retrieve device information` messages appear because the graphics device node is not present inside the container. Mesa then falls back to requesting access through the X server, which succeeds, so it still uses hardware acceleration. To confirm this, refresh the package lists inside the container, since the image removes them to save space:
+
+```bash
+apt update
+```
+
+Then install the Mesa utilities. This installation lasts until the container is recreated:
 
 ```bash
 apt install -y mesa-utils
 ```
 
-Then check which renderer is active:
+Check which renderer is active:
 
 ```bash
 glxinfo | grep "OpenGL renderer"
@@ -546,16 +580,10 @@ On the UNO Q this reports `FD702`, which is the driver for the board's GPU. If i
 
 The `os_same_file_description` message that follows comes from Docker blocking a system call that Mesa uses to compare file descriptors. Mesa continues with a safe assumption and rendering is unaffected.
 
-If nodes running in different shells cannot discover each other, confirm the container was started with `--network host` and `--ipc host`, and that all shells share the same `ROS_DOMAIN_ID`. By default, this is 0, but if you change it in one session, the nodes will not find each other. You can set it explicitly:
+If nodes running in different shells cannot discover each other, confirm the compose file contains `network_mode: host` and `ipc: host`, and that all shells share the same `ROS_DOMAIN_ID`. The compose file sets it to 0 for every shell, so a mismatch only happens if you changed it by hand in one session. Print the current value in each shell with:
 
 ```bash
-export ROS_DOMAIN_ID=0
-```
-
-Then make it permanent:
-
-```bash
-echo "export ROS_DOMAIN_ID=0" >> ~/.bashrc
+echo $ROS_DOMAIN_ID
 ```
 
 If `ros2 node list` returns nothing while your nodes are running, but `ros2 topic list` shows the expected topics, the ROS 2 daemon is holding incomplete graph information.
@@ -581,19 +609,13 @@ ros2 node list
 If the `unoq_pubsub` package is not found after building, source the workspace install directory:
 
 ```bash
-source /root/ros2_ws/install/setup.bash
+source /ros2_ws/install/setup.bash
 ```
 
-If the build fails due to missing dependencies, move to the workspace root:
+If the build fails due to missing dependencies, declare them in the package's `package.xml` and rebuild the image from a terminal on the board, inside the `~/ros2` folder. The `Dockerfile` runs `rosdep` during the build, which installs every dependency declared by the packages in `src/` into the image:
 
 ```bash
-cd /root/ros2_ws
-```
-
-Then run `rosdep` before building again:
-
-```bash
-rosdep install --from-paths src --ignore-src -r -y
+docker compose up -d --build
 ```
 
 If the build fails or the board becomes unresponsive during `colcon build`, you may be running out of memory. Limit colcon to a single worker:
