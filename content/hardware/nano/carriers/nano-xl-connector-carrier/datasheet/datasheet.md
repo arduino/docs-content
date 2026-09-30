@@ -12,13 +12,15 @@ author: Christopher Méndez
 
 The Nano XL Link Connector Carrier is a practical solution for expanding the capabilities of the Nano XL Link development board.
 
-Whether you are working on complex communication networks, developing control applications, or building robust solutions, this carrier exposes all extended connections of the Nano XL form factor via pin headers and screw terminals. This provides a simple and straightforward platform to bring your ideas to life.
+Whether you are working on complex communication networks, developing control applications, or building robust solutions, this carrier exposes all extended connections of the Nano XL form factor via pin headers and screw terminals.
 
 The hardware integrates an RJ45 Ethernet port, along with dedicated connections for RS485 and CAN bus, unlocking new possibilities for automation, data acquisition, and real-time industrial communication needs.
 
 # Target Areas:
 
 Industrial Automation, Production-Ready Solutions, Industrial Communication, Research and Development
+
+<div style="page-break-after: always;"></div>
 
 # CONTENTS
 
@@ -89,14 +91,14 @@ The carrier includes a dedicated 2x4 female header (J5) designed to host an ESP8
 
 The Nano XL Link Connector Carrier exposes all the host board connections and communication interfaces through its dedicated ports and breakout headers.
 
-| Interfaces    | Connector                                                                            |
-| ------------- | ------------------------------------------------------------------------------------ |
+| Interfaces    | Connector                                                                       |
+| ------------- | ------------------------------------------------------------------------------- |
 | I2C           | - Breakout Headers <br></br>- Qwiic I2C connector (J7)                          |
 | RS485         | - Breakout Headers <br></br>- Screw Terminals (J8)                              |
 | CAN bus       | - Breakout Headers <br></br>- Screw Terminals (J8)                              |
 | Serial (UART) | - Breakout Headers (UART/USART) <br></br>- WiFi Module ESP-01 Connector (UART1) |
-| WiFi          | - WiFi Module ESP-01 Connector (J5)                                                  |
-| Ethernet      | - Ethernet RJ45 Connector (J2)                                                       |
+| WiFi          | - WiFi Module ESP-01 Connector (J5)                                             |
+| Ethernet      | - Ethernet RJ45 Connector (J2)                                                  |
 
 ### Related Products
 
@@ -131,7 +133,7 @@ The Nano XL Link Connector Carrier pinout is shown in the following figure.
 
 ![Pinout for Nano XL Link Connector Carrier](assets/Simple-pinout-ASX00090-num.png)
 
-#### Nano Header (J4)
+#### Nano XL Header (J4)
 
 
 | Pin No. | Inner Pin (Standard Nano Digital) | Pin No. | Outer Pin (XL Extension) |
@@ -152,7 +154,7 @@ The Nano XL Link Connector Carrier pinout is shown in the following figure.
 | 14      | UART6_RX                          | 17      | RS485-A                  |
 | 15      | UART6_TX                          | 16      | RS485-B                  |
 
-#### Nano Header (J3)
+#### Nano XL Header (J3)
 
 
 | Pin No. | Outer Pin (XL Extension) | Pin No. | Inner Pin (Standard Nano Analog) |
@@ -379,21 +381,21 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Company Information
 
-| Company Information    | Details                               |
-| --------------- | -------------------------------------------- |
-| Company Name    | Arduino S.r.l.                               |
-| Company Address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
+| Company Information | Details                                    |
+| ------------------- | ------------------------------------------ |
+| Company Name        | Arduino S.r.l.                             |
+| Company Address     | Via Andrea Appiani 25, 20900 Monza (Italy) |
 
 ## Reference Documentation
 
-| Reference                       | Link                                                                                                             |
-| ------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)           | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                               |
-| Arduino IDE (Cloud)             | [https://app.arduino.cc/sketches](https://app.arduino.cc/sketches)                                               |
-| Arduino Cloud - Getting Started | [https://docs.arduino.cc/arduino-cloud/guides/overview/](https://docs.arduino.cc/arduino-cloud/guides/overview/) |
-| Project Hub                     | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/)                                                 |
-| Language Reference              | [https://docs.arduino.cc/language-reference/](https://docs.arduino.cc/language-reference/)                       |
-| Online Store                    | [https://store.arduino.cc/](https://store.arduino.cc/)                                                           |
+| Reference                                    | Link                                                                                                 |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)                        | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                   |
+| Arduino IDE (Cloud)                          | [https://app.arduino.cc/sketches](https://app.arduino.cc/sketches)                                   |
+| Nano XL Link Connector Carrier Documentation | [https://docs.arduino.cc/hardware/nano-xl-carrier](https://docs.arduino.cc/hardware/nano-xl-carrier) |
+| Project Hub                                  | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/)                                     |
+| Language Reference                           | [https://docs.arduino.cc/language-reference/](https://docs.arduino.cc/language-reference/)           |
+| Arduino Store                                | [https://store.arduino.cc/](https://store.arduino.cc/)                                               |
 
 ## Change Log
 
