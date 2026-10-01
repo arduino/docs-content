@@ -557,7 +557,7 @@ ros2 run demo_nodes_cpp listener
 
 The listener subscribes to the same topic that the talker is publishing on and prints each message it receives:
 
-```
+```bash
 [INFO] [listener]: I heard: [Hello World: 1]
 [INFO] [listener]: I heard: [Hello World: 2]
 [INFO] [listener]: I heard: [Hello World: 3]
