@@ -101,7 +101,7 @@ nano Dockerfile
 
 Add a text editor to the common tools block and `turtlesim` to the demo nodes block:
 
-```dockerfile
+```bash
 # Install common tools
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -159,7 +159,7 @@ ros2 run turtlesim turtlesim_node
 
 The terminal will publish initialization messages confirming the node started and spawned the turtle:
 
-```
+```bash
 [INFO] [turtlesim]: Starting turtlesim with node name /turtlesim
 [INFO] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 ```
@@ -314,7 +314,7 @@ ros2 pkg create --build-type ament_python unoq_pubsub
 
 The command creates the following structure:
 
-```
+```bash
 src/
 └── unoq_pubsub/
     ├── package.xml
@@ -471,7 +471,7 @@ ros2 run unoq_pubsub publisher
 
 You should see it printing a new message every second:
 
-```
+```bash
 [INFO] [unoq_publisher]: Publishing: "Hello from UNO Q: 0"
 [INFO] [unoq_publisher]: Publishing: "Hello from UNO Q: 1"
 [INFO] [unoq_publisher]: Publishing: "Hello from UNO Q: 2"
@@ -485,7 +485,7 @@ ros2 run unoq_pubsub subscriber
 
 You should see it receiving and printing each message the publisher sends:
 
-```
+```bash
 [INFO] [unoq_subscriber]: Received: "Hello from UNO Q: 0"
 [INFO] [unoq_subscriber]: Received: "Hello from UNO Q: 1"
 [INFO] [unoq_subscriber]: Received: "Hello from UNO Q: 2"
@@ -505,7 +505,7 @@ With both nodes running, open a third shell and use the ROS 2 command-line tools
 ros2 node list
 ```
 
-```
+```bash
 /unoq_publisher
 /unoq_subscriber
 ```

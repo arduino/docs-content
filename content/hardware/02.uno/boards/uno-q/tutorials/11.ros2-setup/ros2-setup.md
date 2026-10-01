@@ -45,7 +45,7 @@ This is the first of two documents. Once the container is running, the [First RO
 <Alert type="warning">
 
 You can use any USB-C hub with external power delivery capabilities except for [Apple](https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter) ones, which have been tested and found to be incompatible with the UNO Q.
- 
+
 </Alert>
 
 Unlike boards with dedicated video and USB-A connectors, the UNO Q routes display output, USB peripherals and Ethernet through its single USB-C connector. A hub is therefore not optional for this series. The hub must have its own power input, since the UNO Q's USB-C connector is a 5 VDC 3 A power sink and cannot supply the peripherals itself.
@@ -60,7 +60,7 @@ For a complete Single-Board Computer mode tutorial, refer to the dedicated [UNO 
 
 Before you begin, verify that your UNO Q has the latest system image installed. We will also need:
 
-- Terminal access to the UNO Q via ADB, SSH or SBC mode. If you are not familiar with either method, refer to the [UNO Q User Manual](/tutorials/uno-q/user-manual/).
+- Terminal access to the UNO Q via ADB, SSH or SBC mode. If you are not familiar with either method, refer to the [UNO Q User Manual](https://docs.arduino.cc/tutorials/uno-q/user-manual/).
 - An active internet connection on the board.
 
 ## What Is ROS 2
@@ -99,7 +99,7 @@ The graphical parts of this series need a display, so set up the board as a desk
 
 ![Assembling the UNO Q](assets/single-board-computer-mode.png)
 
-The board boots automatically once powered. For more detail on this setup, refer to the [UNO Q as a Single-Board Computer](/tutorials/uno-q/sbc-mode-setup/) tutorial.
+The board boots automatically once powered. For more detail on this setup, refer to the [UNO Q as a Single-Board Computer](https://docs.arduino.cc/tutorials/uno-q/single-board-computer/) tutorial.
 
 ## Accessing the UNO Q
 
@@ -110,7 +110,7 @@ The first option for initial access is ADB (Android Debug Bridge). It provides d
 <Alert type="note">
 
 **Note:** ADB uses the same USB-C connector as the hub. To use ADB, disconnect the hub and connect the board directly to your computer with a USB-C cable. Once the board is on the network, use SSH or SBC mode instead so the hub can stay attached.
- 
+
 </Alert>
 
 Connect the UNO Q to your computer via USB-C and run the following to list connected devices and confirm the board is recognized:
@@ -143,8 +143,8 @@ The third option is **SBC mode**, which the graphical sections of this series re
 
 <Alert type="info">
 
-For detailed instructions on setting up ADB, SSH or SBC mode, refer to the [UNO Q User Manual](/tutorials/uno-q/user-manual/).
- 
+For detailed instructions on setting up ADB, SSH or SBC mode, refer to the [UNO Q User Manual](https://docs.arduino.cc/tutorials/uno-q/user-manual/).
+
 </Alert>
 
 ## Preparing the System
@@ -233,12 +233,12 @@ On the UNO Q, the file already contains logging settings. Keep them, add a comma
 
 ```json
 {
-	"log-driver": "json-file",
-	"log-opts": {
-		"max-size": "10m",
-		"max-file": "2"
-	},
-	"data-root": "/home/arduino/docker-data"
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "10m",
+    "max-file": "2"
+  },
+  "data-root": "/home/arduino/docker-data"
 }
 ```
 
@@ -349,7 +349,7 @@ nano Dockerfile
 
 It starts from the ROS 2 base image you pulled earlier and sets the workspace location inside the container:
 
-```dockerfile
+```bash
 FROM ros:jazzy-ros-base
 
 ENV ROS_WS=/ros2_ws
@@ -358,7 +358,7 @@ WORKDIR ${ROS_WS}
 
 Each `RUN` instruction executes a command while the image is being built. Every package block follows the same pattern: refresh the package lists, install the packages, then delete the downloaded lists to keep the image small. The first block installs the tools used to build ROS 2 packages:
 
-```dockerfile
+```bash
 # Install common tools
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -371,7 +371,7 @@ RUN apt-get update && \
 
 The second block installs the demo nodes used to verify the installation. Add `ros-jazzy-demo-nodes-cpp` to it:
 
-```dockerfile
+```bash
 # Install the ROS 2 demo nodes (talker / listener)
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -429,7 +429,7 @@ Each setting is important here:
 - The `./ros2_ws` volume shares your workspace between the board and the container, so your code and the `build/`, `install/` and `log/` folders survive even if the container is removed.
 - `stdin_open` and `tty` keep the container running in the background, ready for you to open shells in it.
 
-![docker-compose.yml](assets/unoq_ros2_docker_10.png)
+![Docker Compose](assets/unoq_ros2_docker_10.png)
 
 Save the file and exit. Build the image:
 
@@ -529,7 +529,7 @@ The `ros2 run` command takes two arguments:
 
 You should see it printing a new message every second:
 
-```
+```bash
 [INFO] [talker]: Publishing: 'Hello World: 1'
 [INFO] [talker]: Publishing: 'Hello World: 2'
 [INFO] [talker]: Publishing: 'Hello World: 3'
@@ -570,7 +570,7 @@ If you see both nodes producing output like this, your ROS 2 installation is wor
 <Alert type="note">
 
 **Note:** This verification runs entirely in the console, so it works over SSH or ADB without a display attached. The graphical tools in the next tutorial require the hub and display to be connected.
- 
+
 </Alert>
 
 ## Troubleshooting
