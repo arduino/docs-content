@@ -205,7 +205,8 @@ pip install ai-edge-litert==1.3.0 opencv-python numpy
 ```python
 from ai_edge_litert.interpreter import Interpreter, load_delegate
 
-qnn_delegate = load_delegate("libQnnTFLiteDelegate.so", options={"backend_type": "htp"})
+# "htp_performance_mode": "2" runs the NPU in burst mode — see "NPU Performance Modes" below.
+qnn_delegate = load_delegate("libQnnTFLiteDelegate.so", options={"backend_type": "htp", "htp_performance_mode": "2"})
 interpreter = Interpreter(model_path="model.tflite", experimental_delegates=[qnn_delegate])
 ```
 
@@ -235,14 +236,71 @@ These limitations apply across all three paths, and explain why the tutorials in
 - **Not every sub-graph benefits equally.** In mixed pipelines (a detector feeding a landmark model, for instance), one stage's NPU-quantized weights may be poorly calibrated for a given input distribution while its CPU/float counterpart is not — the [Face Mesh tutorial](/tutorials/ventuno-q/face-mesh) documents exactly this case, where the face detector deliberately runs on the CPU using float weights, while only the landmark model runs on the NPU.
 - **Small models may not show a speedup.** As the SqueezeNet PyTorch example above shows, fixed per-inference overhead can outweigh the NPU's raw throughput advantage on very small graphs.
 
+## NPU Performance Modes: Burst vs. Default
+
+Placing a graph on the NPU will significantly increase performance, but this can be improved even further. The Hexagon™ Tensor Processor also runs at a selectable **clock/power profile**, and by default it uses a conservative, power-saving one. If you load the QNN HTP delegate with only `{"backend_type": "htp"}`, the whole graph still runs on the NPU — but at the default DVFS (dynamic voltage and frequency scaling) profile, which can be several times slower than the hardware is capable of. The `htp_performance_mode` option selects the profile, and switching it to **burst mode** is often the single biggest NPU speedup available.
+
+The gap is large. The same models measured in the default mode versus burst on a VENTUNO Q:
+
+| Model                                  | NPU (default mode) | NPU (burst mode) |
+| -------------------------------------- | ------------------ | ---------------- |
+| YOLOv7 (640×640, FP16)                 | ~40 ms             | ~12.5 ms         |
+| Face landmark detector (192×192, INT8) | ~2.7 ms            | ~0.5 ms          |
+
+In both cases the whole graph was on the NPU either way — the only difference is the clock profile. Enabling burst mode will consume more power, and may not be suitable for intense, recurring jobs running on battery powered projects.
+
+### Switching Modes in LiteRT
+
+Pass `htp_performance_mode` alongside `backend_type` when you create the delegate:
+
+```python
+from ai_edge_litert.interpreter import Interpreter, load_delegate
+
+delegate = load_delegate(
+    "libQnnTFLiteDelegate.so",
+    options={"backend_type": "htp", "htp_performance_mode": "2"},  # 2 = burst
+)
+interpreter = Interpreter(model_path="model.tflite", experimental_delegates=[delegate])
+```
+
+The commonly used values are:
+
+| Value | Mode                       | Use for                                                    |
+| ----- | -------------------------- | ---------------------------------------------------------- |
+| `"0"` | default                    | Lowest power; the implicit mode when the option is omitted |
+| `"1"` | sustained_high_performance | Long-running workloads where thermals matter               |
+| `"2"` | **burst**                  | Lowest latency — the fastest option                        |
+| `"3"` | high_performance           | High clocks without the burst peak                         |
+
+<Alert type="warning" text="Note">
+
+**For the LiteRT delegate the value must be a numeric string.** The QNN TFLite delegate parses `htp_performance_mode` as an integer, so pass `"2"`, not `"burst"` — passing a name raises `std::invalid_argument` and aborts the process.
+
+</Alert>
+
+### Switching Modes in ONNX Runtime
+
+The QNN execution provider exposes the same control through its `htp_performance_mode` provider option. Unlike the LiteRT delegate, ONNX Runtime takes the mode **name** as a string (`burst`, `sustained_high_performance`, `high_performance`, `default`, and so on):
+
+```python
+providers = [("QNNExecutionProvider", {
+    "backend_type": "htp",
+    "htp_performance_mode": "burst",
+    "library_path": "/usr/lib/libQnnHtp.so",
+})]
+sess = ort.InferenceSession("model.onnx", providers=providers)
+```
+
+Burst mode trades power for latency. For battery- or thermally-constrained deployments, `sustained_high_performance` is a better long-running default, since it holds high clocks without the short-lived peak (and heat) that burst targets.
+
 ## Benchmarks: How Much Faster Is the NPU?
 
-The figures below were measured on a VENTUNO Q running Ubuntu 24.04, averaged over repeated inferences after one warm-up pass. The first model is quantized to INT8; the second is an unquantized FP32 export, which the runtime converts to FP16 to run on the NPU:
+The figures below were measured on a VENTUNO Q running Ubuntu 24.04, averaged over repeated inferences after one warm-up pass, with the NPU in [burst mode](#npu-performance-modes-burst-vs-default). The first model is quantized to INT8; the second is an unquantized FP32 export, which the runtime converts to FP16 to run on the NPU:
 
-| Model                                        | Model precision | CPU       | NPU (QNN HTP delegate) | Speedup |
-| -------------------------------------------- | --------------- | --------- | ---------------------- | ------- |
-| Face landmark detector (192×192)             | INT8 (`w8a8`)   | 9.10 ms   | 0.46 ms                | ~20x    |
-| YOLOv7 (640×640)                             | FP32 → FP16     | 440.42 ms | 12.60 ms               | ~35x    |
+| Model                            | Model precision | CPU       | NPU (QNN HTP delegate) | Speedup |
+| -------------------------------- | --------------- | --------- | ---------------------- | ------- |
+| Face landmark detector (192×192) | INT8 (`w8a8`)   | 9.10 ms   | 0.46 ms                | ~20x    |
+| YOLOv7 (640×640)                 | FP32 → FP16     | 440.42 ms | 12.60 ms               | ~35x    |
 
 The YOLOv7 figure is a useful illustration of the FP16 path: the model was exported from Qualcomm® AI Hub without quantization, and AI Hub's own profiler placed all 201 operations on the NPU. Comparing its NPU output against the same graph run on the CPU shows a median relative deviation of about 5.2 × 10⁻⁴, which matches FP16's precision rather than FP32's — confirming the runtime converted the graph to half precision to execute it.
 

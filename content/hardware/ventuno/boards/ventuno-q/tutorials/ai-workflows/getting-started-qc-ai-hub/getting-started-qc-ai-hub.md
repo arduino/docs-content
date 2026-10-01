@@ -103,11 +103,17 @@ pip install qai-hub-models
 
 </Alert>
 
-Some models require additional dependencies. Check the model's README for any extras, e.g.:
+Individual models declare their own extra dependencies (datasets, model-specific packages, external repositories, and so on). Use the `qai-hub-models install` command to resolve and install everything a given model needs. For the YOLOv7 model used later in this guide:
 
 ```bash
-pip install "qai-hub-models[yolov7]"
+qai-hub-models install yolov7
 ```
+
+<Alert type="info">
+
+**Note:** Run this with the virtual environment active, since the command calls `pip` internally. It asks for confirmation once before installing; add `-y` to skip the prompt.
+
+</Alert>
 
 ### Qualcomm® ID and API Token
 
@@ -150,7 +156,7 @@ With your API token configured, use the export script to compile a model for the
 
 ```bash
 # Example: export YOLOv7 for the VENTUNO Q (TFLite runtime)
-python3 -m qai_hub_models.models.yolov7.export --target-runtime tflite --device "Arduino VENTUNO Q"
+qai-hub-models export yolov7 --target-runtime tflite --device "Arduino VENTUNO Q"
 ```
 
 AI Hub lists the VENTUNO Q itself as a target device, so you can compile against the real board rather than a proxy chipset. To see every device that matches this silicon, run:
@@ -173,7 +179,7 @@ The export script will:
 3. Profile it on a real cloud-hosted device.
 4. Download the compiled model (`.tflite`) to your working directory on the VENTUNO Q.
 
-When the job completes, the script prints a profiling summary from the cloud device and saves the model. For the YOLOv7 example above, the artifacts land in `export-out/yolov7-tflite-float/`, and the summary reports how the graph was distributed across the board's processors:
+When the job completes, the script prints a profiling summary from the cloud device and saves the model. For the YOLOv7 example above, the artifacts land in `export_assets/yolov7-tflite-float/`, and the summary reports how the graph was distributed across the board's processors:
 
 ```text
 Device                          : Arduino VENTUNO Q (UBUNTU 24.04)
@@ -211,39 +217,28 @@ ls /usr/lib/libQnnTFLiteDelegate.so
 
 ### Run the Model
 
-Install LiteRT into your virtual environment:
+`qai-hub-models`, installed earlier in this tutorial, already pulled in **LiteRT** (`ai-edge-litert`) as a dependency, so there is nothing extra to install. Confirm it is available:
 
 ```bash
-pip install ai-edge-litert==1.3.0
+pip show ai-edge-litert | grep Version
 ```
 
-<Alert type="note">
-
-**Important:** The version matters. `qai-hub-models`, installed earlier in this tutorial, depends on `ai-edge-litert>=2.0.2` and will already have pulled in a 2.x release, so the command above is a deliberate downgrade. Version 2.x does not work with the QNN HTP delegate — it rejects every convolution with `Failed to validate op ... Conv2d`, silently falls back to the CPU, and runs slower than plain CPU execution because of the added delegation overhead. Confirm the version before continuing:
-
-</Alert>
-
-```bash
-pip show ai-edge-litert | grep Version   # must report 1.3.0
-```
-
-<Alert type="info">
-
-**Note:** `pip` prints a line beginning with `ERROR:` reporting that `qai-hub-models` requires a newer `ai-edge-litert`. The downgrade still succeeds, and `qai-hub-models fetch` keeps working afterwards, so this message can be ignored.
-
-</Alert>
-
-Then create `benchmark.py`, which loads the exported model and times it with and without the NPU delegate:
+To test the model, create `benchmark.py`, which loads the exported model and times it with and without the NPU delegate:
 
 ```python
 import sys, time, numpy as np
 from ai_edge_litert.interpreter import Interpreter, load_delegate
 
-MODEL = "export-out/yolov7-tflite-float/yolov7.tflite"
+MODEL = "export_assets/yolov7-tflite-float/yolov7.tflite"
 use_npu = "--use-npu" in sys.argv
 
 if use_npu:
-    delegate = load_delegate("libQnnTFLiteDelegate.so", options={"backend_type": "htp"})
+    # "htp_performance_mode": "2" selects the Hexagon "burst" clock profile.
+    # Without it the NPU stays in its default power mode and runs ~3x slower.
+    delegate = load_delegate(
+        "libQnnTFLiteDelegate.so",
+        options={"backend_type": "htp", "htp_performance_mode": "2"},
+    )
     interpreter = Interpreter(model_path=MODEL, experimental_delegates=[delegate])
 else:
     interpreter = Interpreter(model_path=MODEL)
@@ -265,6 +260,12 @@ print("Mode: %s" % ("NPU" if use_npu else "CPU"))
 print("Average latency: %.2f ms" % elapsed)
 ```
 
+<Alert type="note">
+
+**Important:** The `htp_performance_mode` option is what makes the NPU fast. It sets the Hexagon™ clock profile, and `"2"` is *burst* mode. If you omit it, the delegate still places the whole graph on the NPU, but in the default power mode the same model takes ~40 ms instead of ~12 ms. The value is passed as a string because the delegate parses it as an integer — passing a name such as `"burst"` raises `std::invalid_argument`.
+
+</Alert>
+
 Run it on the CPU first, then on the NPU:
 
 ```bash
@@ -276,10 +277,10 @@ On a VENTUNO Q running Ubuntu 24.04, this produces:
 
 | Mode | Average latency | Speedup |
 | ---- | --------------- | ------- |
-| CPU  | 440.42 ms       | —       |
-| NPU  | 12.60 ms        | ~35x    |
+| CPU        | 437.73 ms | —    |
+| NPU (burst) | 12.52 ms  | ~35x |
 
-The measured NPU figure is close to the 10.8 ms that AI Hub estimated during export, which is a good sign that the graph is running the way the profiler predicted.
+The measured NPU figure is close to the ~10 ms that AI Hub estimated during export, which is a good sign that the graph is running the way the profiler predicted.
 
 <Alert type="info">
 
@@ -309,9 +310,8 @@ For this example, there are two ways to test it out:
 To set it up, follow the steps below:
 
 1. Activate the virtual environment we created earlier by running `source .venv/bin/activate`
-2. Install the dependencies `pip3 install numpy setuptools Cython shapely ai-edge-litert==1.3.0 Pillow`
-3. Install the Face Detection Model by running `pip3 install --no-build-isolation "qai-hub-models[face-det-lite]"`
-4. Create a directory for the example, e.g. `face-detection-example` and navigate to the directory using `cd`.
+2. Install the Face Detection model and its dependencies by running `qai-hub-models install face_det_lite`
+3. Create a directory for the example, e.g. `face-detection-example` and navigate to the directory using `cd`.
 
 #### Static Image Example
 
@@ -324,7 +324,7 @@ wget https://cdn.edgeimpulse.com/qc-ai-docs/example-images/three-people-640-480.
 Then, to run the inference, run:
 
 ```bash
-python3 -m qai_hub_models.models.face_det_lite.demo --quantize w8a8 --image ./three-people-640-480.jpg --output-dir out/
+qai-hub-models demo face_det_lite --quantize w8a8 --image ./three-people-640-480.jpg --output-dir out/
 ```
 
 The first run downloads the model weights (~3.6 MB), so allow a little extra time before inference starts.
