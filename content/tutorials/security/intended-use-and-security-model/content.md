@@ -1,6 +1,6 @@
 ---
 title: 'Arduino Hardware Products: Intended Use and Security Model'
-description: ''
+description: 'This document describes the intended use and security model for Arduino Hardware Products.'
 tags: 
   - security
   - hardware
