@@ -1,5 +1,6 @@
 ---
 title: 'UNO Q User Manual'
+overwriteSidebar: User Manual
 difficulty: beginner
 compatible-products: [uno-q]
 description: 'Learn about the hardware and software features of the Arduino® UNO Q.'

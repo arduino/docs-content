@@ -1,5 +1,6 @@
 ---
 title: Force USB Host Mode on UNO Q
+overwriteSidebar: Force USB Host Mode
 description: USB host mode is not automatically enabled when the UNO Q is powered via its 5V / VIN pin. This tutorial explains how to enable it.
 author: Karl Söderby
 tags: [UNO Q, USB, Host Mode, JCTL, PMIC]
