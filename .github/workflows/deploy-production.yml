@@ -70,9 +70,10 @@ jobs:
   build:
     name: Build and Deploy
     needs: render-datasheets
-    runs-on: ubuntu-latest
+    runs-on: docs-ubuntu-8core
     environment: production
     timeout-minutes: 150
+    if: github.repository == 'arduino/docs-content'
     env:
       REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
       APP_ENV: prod
