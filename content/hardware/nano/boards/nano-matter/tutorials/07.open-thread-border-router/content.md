@@ -56,7 +56,7 @@ This tutorial's main objective is to guide you through the build and configurati
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
 - [Silicon Labs Core](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#board-core-and-libraries)
-- [Simplicity Studio](https://www.silabs.com/developers/simplicity-studio)
+- [Simplicity Studio v5](https://www.silabs.com/software-and-tools/simplicity-studio/simplicity-studio-version-5)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
   
@@ -81,13 +81,13 @@ We recommend you to use this pre-compiled binary to flash your Nano Matter board
 
 - Update the `username` field with yours.
 - Update the `project-directory` field with the binary directory you downloaded in the previous step.
-- Open the Command Prompt and paste the formatted command.
+- Open the Command Prompt or Powershell and paste the formatted command (take care of the slash direction).
 - Connect the Nano Matter to your PC using a USB-C® cable.
 - Run the command and verify the download process was successful.
 
 ![Binary flash process](assets/binary-flash.png)
 
-***Make sure to have the [Silicon Labs core](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#board-core-and-libraries) installed on your Arduino IDE so you can use the __openocd__ tool for flashing.***
+***Make sure to have the [Silicon Labs core](https://docs.arduino.cc/tutorials/nano-matter/user-manual/#board-core-and-libraries) installed on your Arduino IDE so you can use the __OpenOCD__ tool for flashing.***
 
 From here, jump directly to the [Matter Controller section](https://docs.arduino.cc/tutorials/nano-matter/open-thread-border-router/#the-matter-controller-nano-esp32).
 
@@ -95,7 +95,7 @@ From here, jump directly to the [Matter Controller section](https://docs.arduino
 
 If you want to build the Nano Matter program by yourself, follow the steps below:
 
-- Download Simplicity Studio. Silicon Labs provides this IDE, which is designed to simplify the development process for Silicon Labs hardware platforms. Download latest version [here](https://www.silabs.com/developers/simplicity-studio).
+- Download Simplicity Studio v5. Silicon Labs provides this IDE, which is designed to simplify the development process for Silicon Labs hardware platforms. Download [here](https://www.silabs.com/software-and-tools/simplicity-studio/simplicity-studio-version-5).
 
 - Open Simplicity Studio and create a new project by clicking **File > New > Silicon Labs Project Wizard**.
   
@@ -134,14 +134,11 @@ The default pinout is **PA8 > TX** and **PA9 > RX**, but we need to change it to
 
 #### Disable USART Flow Control
 
-- Open the `<project-folder>/config/sl_uartdrv_usart_vcom_config.h` file.
-  
-- Modify the `SL_UARTDRV_USART_VCOM_FLOW_CONTROL_TYPE` variable as follows:
-```
-#define SL_UARTDRV_USART_VCOM_FLOW_CONTROL_TYPE uartdrvFlowControlNone
-```
+- In your Simplicity Studio project, navigate to **Software Components** and search for `VCOM`, then in the left-hand menu, deploy __Services > IO stream > Driver > IO Stream: USART > VCOM__:
 
-![Flow Control Disabled](assets/flow-ctrl.png)
+![Flow Control Disabled](assets/flow-ctrl.gif)
+
+***In __USART settings__ set the _Flow control_ to `None`.***
 
 #### Build and Flash the Project
 
@@ -149,9 +146,9 @@ The default pinout is **PA8 > TX** and **PA9 > RX**, but we need to change it to
 
 ![Project Build](assets/build-prj.png)
 
-- In your project directory navigate to the `/GNU ARM v12.2.1 - Default/` folder, right click on it and open a **Command Line**.
+- In your project directory navigate to the `/GNU ARM v12.2.1 - Default/` folder, right-click on it and open a **Command Line**.
 
-Use the following command to flash the firmware to the Nano Matter, make sure to modify the `<username>` and `<project name>` with yours:
+Use the following command to flash the firmware to the Nano Matter, make sure to modify the `<username>` and `<project name>` with yours (take care of slash direction):
 
 ```bash
 /Users/<your-username>/AppData/Local/Arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/bin/openocd -d2 -s /Users/<your-username>/AppData/Local/Arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/share/openocd/scripts/ -f interface/cmsis-dap.cfg -f target/efm32s2_g23.cfg -c "init; reset_config srst_nogate; reset halt; program {<project-name>.hex}; reset; exit"
@@ -159,7 +156,7 @@ Use the following command to flash the firmware to the Nano Matter, make sure to
 
 ![Firmware flashing using Command Line](assets/fw-flash.gif)
 
-***The __Openocd__ tool directory may vary according to your OS, modify the command above respectively.***
+***The __OpenOCD__ tool directory may vary according to your OS, modify the command above respectively.***
 
 ### The Matter Controller: Nano ESP32
 
@@ -207,50 +204,31 @@ cd esp-thread-br/examples/basic_thread_border_router/
 idf.py set-target esp32s3
 ```
 
+- Open the `menuconfig` to customize the settings for the solution:
+
+```bash
+idf.py menuconfig
+```
+
+![ESP IDF menuconfig interface](assets/menuconfig.png)
+
 Using a **code editor**, open the `sdkconfig` file located in `esp-thread-br/examples/basic_thread_border_router/sdkconfig` and do the following modifications:
 
-- Update the Wi-Fi credentials with your network `SSID` and `Password`:
+- Update the Wi-Fi credentials with your network `SSID` and `Password` by navigating to `Example Connection Configuration`:
 
-```bash
-CONFIG_EXAMPLE_WIFI_SSID="<your-wifi-ssid>"
-CONFIG_EXAMPLE_WIFI_PASSWORD="<your-wifi-password>"
-```
+![WiFi credentials change](assets/wifi-set.png)
 
-- Modify the Serial pinout so it matches with the Arduino Nano layout:
+- **Disable** the RCP firmware auto-update, **enable** the automatic start mode and **enable** the webserver by navigating to `ESP Thread Border Router Example`:
 
-```bash
-CONFIG_PIN_TO_RCP_TX=43
-CONFIG_PIN_TO_RCP_RX=44
-```
+![RCP Auto Update Disabling and Webserver Enabling](assets/auto-update-and-web.png)
 
-- Disable the RCP firmware auto-update verifying this parameter is not set:
+- Modify the Serial pinout so it matches with the Arduino Nano layout, `TX - 43` and `RX - 44` by navigating to `ESP Thread Border Router Example > Board Configuration` :
 
-```bash
-# CONFIG_OPENTHREAD_BR_AUTO_UPDATE_RCP=y
-```
-
-- Enable the OpenThread webserver:
-
-```bash
-CONFIG_OPENTHREAD_BR_START_WEB=y
-```
-
-- Enable OpenThread commissioner and joiner:
-
-```bash
-CONFIG_OPENTHREAD_COMMISSIONER=y
-CONFIG_OPENTHREAD_JOINER=y
-```
-
-- Navigate to `esp-thread-br/examples/basic_thread_border_router/main/esp_ot_config.h`
-
-- Modify the Serial port baud rate to `115200`, the result should look like this:
-
-![Baud rate configuration update](assets/baud-rate.png)
+![Serial pinout configuration](assets/usart-pins.png)
 
 - Navigate to `esp-thread-br/examples/common/thread_border_router/src/border_router_launch.c`.
 
-- Disable the ESP RCP update process by commenting the following line of the `border_router_launch.c` file, the result should look like this:
+- Disable the ESP RCP update process by commenting the following line (`ESP_ERROR_CHECK(esp_rcp_update_init(update_config));`) of the `border_router_launch.c` file, the result should look like this:
 
 ![RCP auto update disabling](assets/auto-update.png)
 
@@ -269,7 +247,7 @@ idf.py -p /dev/ttyACM0 flash monitor
 
 ![Flashing process](assets/esp-flash-2.gif)
 
-***Do not run the `idf.py set-target esp32s3` command again to avoid overriding the customized configurations.***
+***If the flashing command fails, force the Nano ESP32 bootloader mode by shorting __B1__ and __GND__ pins and press the reset button, then try again.***
 
 ### OTBR Assembly
 
@@ -306,7 +284,7 @@ Before building, you must install a few OS specific dependencies.
 sudo apt-get install git gcc g++ pkg-config libssl-dev libdbus-1-dev \
      libglib2.0-dev libavahi-client-dev ninja-build python3-venv python3-dev \
      python3-pip unzip libgirepository1.0-dev libcairo2-dev libreadline-dev \
-     default-jre
+     default-jre libevent-dev
 ```
 
 - Open a command prompt in the `connectedhomeip` directory and run the following command:
@@ -429,16 +407,24 @@ Here is an example using the previously gathered parameters:
 ```bash
 ./out/debug/chip-tool pairing code-thread 1 hex:0e080000000000010000000300000f35060004001fffe00208dead00beef00cafe0708fd000db800a00000051000112233445566778899aabbccddeeff030e4f70656e5468726561642d455350010212340410104810e2315100afd6bc9215a6bfac530c0402a0f7f8 34970112332
 ```
+***Make sure your Linux machine is connected to your network over __WiFi__. We have tested that if only ethernet is used, the commissioning can fail.***
 
-If commissioning phase works fine, on the end-device serial monitor you will get the following:
+If the commissioning phase works fine, on the end-device serial monitor you will get the following:
 
 ![Commissioning process](assets/commission.png)
+
+On the Chip Tool (Linux machine), the terminal will be freed and you will see success messages like:
+
+```bash
+[1790958858.864] [158960:158962] [CTL] Commissioning complete for node ID 0x0000000000000001: success
+[1790958858.864] [158960:158962] [TOO] Device commissioning completed with success
+```
 
 Now we are ready to control the Smart Outlet from the CHIP Tool system.
 
 ### Final Result (Testing)
 
-To control the Smart Outlet use the following command format:
+To control the Smart Outlet use the following command format on the Linux machine terminal:
 
 ```bash
 ./out/debug/chip-tool <cluster-name> <command> <node-id> <endpoint-id>
@@ -454,6 +440,26 @@ To control the Smart Outlet use the following command format:
 Every time you run the command, the Smart Outlet toggles, turning the connected load on or off.
 
 ![Smart outlet working demo](assets/final-demo.gif)
+
+### OpenThread Web GUI
+
+The ESP-OpenThread Web GUI is a built-in graphical interface on the ESP32 that allows you to manage, monitor, and visualize the Thread network state directly from a web browser. You can access it by navigating to `http://<ESP32-IP-ADDRESS>/index.html` on your browser:
+
+![OpenThread Web GUI](assets/web-ui.png)
+
+*   **Status Monitoring (Status):** The status tab provides a comprehensive overview divided into several sections (Overview, IPv6, Network, OpenThread, RCP, WPAN). From here, you can review:
+    *   **IP Addresses:** Including Link Local, Routing Local, and Mesh Local addresses.
+    *   **Network Information:** Critical data such as the network name, PANID, Partition ID, and Extended PANID.
+    *   **OpenThread and RCP Parameters:** Allows you to verify the firmware version, the node's role (e.g., "leader"), and radio co-processor settings like the operating channel (e.g., Channel 11) and transmission power (TxPower).
+
+![Thread Network Topology](assets/topology.png)
+
+*   **Topology Visualization (Topology):** Provides an intuitive visual map of the Thread network structure. 
+    *   It graphically displays the connections between devices, differentiating them by color based on their role within the mesh: **Leader** (purple), **Router** (cyan), and **Child** (green).
+    *   It includes a quick summary showing the network name, the current leader's ID, and the number of active routers.
+
+*   **Management and Configuration:** Using the additional menu options (Home, Scan, Form, Settings), the interface allows you to scan for available Thread networks in the area, form a completely new network, or adjust the Border Router configurations.
+
 
 ## Conclusion
 
