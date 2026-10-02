@@ -460,7 +460,6 @@ The ESP-OpenThread Web GUI is a built-in graphical interface on the ESP32 that a
 
 *   **Management and Configuration:** Using the additional menu options (Home, Scan, Form, Settings), the interface allows you to scan for available Thread networks in the area, form a completely new network, or adjust the Border Router configurations.
 
-
 ## Conclusion
 
 This tutorial showed how to create an OpenThread Border Router using the Arduino Nano Matter and the Nano ESP32 alongside a Linux computer. With this solution you can easily integrate and control Matter Accessory Devices for Smart Homes or Industries.
