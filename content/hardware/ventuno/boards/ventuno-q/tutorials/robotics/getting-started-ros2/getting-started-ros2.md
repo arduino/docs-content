@@ -517,7 +517,7 @@ def main(args=None):
 	rclpy.shutdown()
 
 if __name__ == '__main__':
-    main()
+	main()
 ```
 
 This node inherits from the ROS 2 `Node` base class and registers itself with the name `vntq_publisher`. In the constructor, it creates a publisher on the topic `vntq_topic` with a queue size of 10, and sets up a timer that calls `timer_callback` once per second.
@@ -559,7 +559,7 @@ def main(args=None):
     rclpy.shutdown()
 
 if __name__ == '__main__':
-    main()
+	main()
 ```
 
 This node creates a subscription on `vntq_topic` with a matching queue size of 10. Whenever a message arrives on that topic, the `listener_callback` function is called, and the message content is printed to the console. The node name is `vntq_subscriber`.
