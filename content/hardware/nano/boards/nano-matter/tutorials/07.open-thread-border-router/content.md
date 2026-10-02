@@ -447,18 +447,18 @@ The ESP-OpenThread Web GUI is a built-in graphical interface on the ESP32 that a
 
 ![OpenThread Web GUI](assets/web-ui.png)
 
-*   **Status Monitoring (Status):** The status tab provides a comprehensive overview divided into several sections (Overview, IPv6, Network, OpenThread, RCP, WPAN). From here, you can review:
-    *   **IP Addresses:** Including Link Local, Routing Local, and Mesh Local addresses.
-    *   **Network Information:** Critical data such as the network name, PANID, Partition ID, and Extended PANID.
-    *   **OpenThread and RCP Parameters:** Allows you to verify the firmware version, the node's role (e.g., "leader"), and radio co-processor settings like the operating channel (e.g., Channel 11) and transmission power (TxPower).
+**Status Monitoring (Status):** The status tab provides a comprehensive overview divided into several sections (Overview, IPv6, Network, OpenThread, RCP, WPAN). From here, you can review:
+* **IP Addresses:** Including Link Local, Routing Local, and Mesh Local addresses.
+* **Network Information:** Critical data such as the network name, PANID, Partition ID, and Extended PANID.
+* **OpenThread and RCP Parameters:** Allows you to verify the firmware version, the node's role (e.g., "leader"), and radio co-processor settings like the operating channel (e.g., Channel 11) and transmission power (TxPower).
 
 ![Thread Network Topology](assets/topology.png)
 
-*   **Topology Visualization (Topology):** Provides an intuitive visual map of the Thread network structure. 
-    *   It graphically displays the connections between devices, differentiating them by color based on their role within the mesh: **Leader** (purple), **Router** (cyan), and **Child** (green).
-    *   It includes a quick summary showing the network name, the current leader's ID, and the number of active routers.
+**Topology Visualization (Topology):** Provides an intuitive visual map of the Thread network structure. 
+* It graphically displays the connections between devices, differentiating them by color based on their role within the mesh: **Leader** (purple), **Router** (cyan), and **Child** (green).
+* It includes a quick summary showing the network name, the current leader's ID, and the number of active routers.
 
-*   **Management and Configuration:** Using the additional menu options (Home, Scan, Form, Settings), the interface allows you to scan for available Thread networks in the area, form a completely new network, or adjust the Border Router configurations.
+**Management and Configuration:** Using the additional menu options (Home, Scan, Form, Settings), the interface allows you to scan for available Thread networks in the area, form a completely new network, or adjust the Border Router configurations.
 
 ## Conclusion
 
