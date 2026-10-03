@@ -25,7 +25,7 @@ The Modulino Light is a modular color sensor that measures ambient light, RGB co
 
 ### General Characteristics
 
-The Modulino Light is based on the LTR-381RGB-01 sensor from Lite-On, an integrated ambient light sensor (ALS) and colour sensor (CS) in a single package.
+The Modulino Light is based on the LTR-381RGB-01 sensor from Lite-On, an integrated ambient light sensor (ALS) and color sensor (CS) in a single package.
 
 |     **Parameter**     | **Minimum** | **Typical** | **Maximum** | **Unit** |
 |:---------------------:|:-----------:|:-----------:|:-----------:|:--------:|
