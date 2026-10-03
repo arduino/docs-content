@@ -43,7 +43,7 @@ The sensor supply range above is the specification of the LTR-381RGB-01 itself. 
 
 ### Sensor Details
 
-The **Modulino Light** node uses the **LTR-381RGB-01** colour sensor from Lite-On. This sensor natively supports digital communication (I²C), meaning it connects directly to the I²C bus without requiring additional conversion circuitry. The sensor provides measurements for the following:
+The **Modulino Light** node uses the **LTR-381RGB-01** color sensor from Lite-On. This sensor natively supports digital communication (I²C), meaning it connects directly to the I²C bus without requiring additional conversion circuitry. The sensor provides measurements for the following:
 
 - Red, green and blue colour channels
 - Ambient light level
