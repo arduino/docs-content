@@ -4,7 +4,7 @@ description: "Complete guide for the Modulino Light color sensor module and prog
 tags:
  - Modulino
  - Light Sensor
- - Colour Detection
+ - Color Detection
  - RGB
  - QWIIC
  - I2C
