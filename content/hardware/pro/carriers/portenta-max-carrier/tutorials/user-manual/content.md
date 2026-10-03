@@ -631,7 +631,7 @@ You can easily connect your solution to the internet leveraging the more suitabl
 
 To use the cellular connectivity we are going to use a __Portenta H7__ alongside the Max Carrier. To drive the module we recommend the `MKRNB` library which can be downloaded directly from the Arduino IDE Library Manager.
 
-To quickly find out if the setup successfully connects to mobile networks, we are going to use an example code that can be found on **File > Examples > MKRNB > NBWwebClient**. 
+To quickly find out if the setup successfully connects to mobile networks, we are going to use an example code that can be found on **File > Examples > MKRNB > NBWebClient**. 
 
 Go to the __arduino_secrets.h__ tab that opens with the example and enter the PIN of the SIM card you are using into the `SECRET_PINNUMBER` variable.
 
