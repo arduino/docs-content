@@ -95,7 +95,7 @@ From here, jump directly to the [Matter Controller section](https://docs.arduino
 
 If you want to build the Nano Matter program by yourself, follow the steps below:
 
-- Download Simplicity Studio v5. Silicon Labs provides this IDE, which is designed to simplify the development process for Silicon Labs hardware platforms. Download [here](https://www.silabs.com/software-and-tools/simplicity-studio/simplicity-studio-version-5).
+- Download Simplicity Studio v5. Silicon Labs provides this IDE to simplify development for Silicon Labs hardware platforms. Download [here](https://www.silabs.com/software-and-tools/simplicity-studio/simplicity-studio-version-5).
 
 - Open Simplicity Studio and create a new project by clicking **File > New > Silicon Labs Project Wizard**.
   
@@ -443,7 +443,7 @@ Every time you run the command, the Smart Outlet toggles, turning the connected 
 
 ### OpenThread Web GUI
 
-The ESP-OpenThread Web GUI is a built-in graphical interface on the ESP32 that allows you to manage, monitor, and visualize the Thread network state directly from a web browser. You can access it by navigating to `http://<ESP32-IP-ADDRESS>/index.html` on your browser:
+The ESP-OpenThread Web GUI is a built-in graphical interface on the ESP32 that lets you manage, monitor, and visualize the Thread network state directly in a web browser. You can access it by navigating to `http://<ESP32-IP-ADDRESS>/index.html` on your browser:
 
 ![OpenThread Web GUI](assets/web-ui.png)
 
@@ -458,7 +458,7 @@ The ESP-OpenThread Web GUI is a built-in graphical interface on the ESP32 that a
 * It graphically displays the connections between devices, differentiating them by color based on their role within the mesh: **Leader** (purple), **Router** (cyan), and **Child** (green).
 * It includes a quick summary showing the network name, the current leader's ID, and the number of active routers.
 
-**Management and Configuration:** Using the additional menu options (Home, Scan, Form, Settings), the interface allows you to scan for available Thread networks in the area, form a completely new network, or adjust the Border Router configurations.
+**Management and Configuration:** Using the additional menu options (Home, Scan, Form, Settings), the interface allows you to scan for available Thread networks in the area, form a completely new network, or adjust the Border Router configuration.
 
 ## Conclusion
 
