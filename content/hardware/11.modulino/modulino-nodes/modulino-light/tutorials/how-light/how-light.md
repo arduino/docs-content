@@ -19,7 +19,7 @@ software:
 
 ![Light Overview](assets/LightOverview.png)
 
-The Modulino Light is a modular colour sensor that measures ambient light, RGB colour components, and infrared levels, making it perfect to add colour detection and light sensing to your projects. It uses the Modulino form factor with QWIIC connectors for easy integration.
+The Modulino Light is a modular color sensor that measures ambient light, RGB colour components, and infrared levels, making it perfect to add color detection and light sensing to your projects. It uses the Modulino form factor with QWIIC connectors for easy integration.
 
 ## Hardware Overview
 
