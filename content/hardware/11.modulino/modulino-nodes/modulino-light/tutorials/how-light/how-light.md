@@ -114,7 +114,7 @@ The Modulino Light uses a simple circuit built around the **LTR-381RGB-01** sens
 
 You can connect to the I²C pins (SDA and SCL) using either the **QWIIC connectors** (J1 and J2, recommended) or the **solderable pins** (J4). The board runs on **3.3 V** from the QWIIC cable or the **3V3 pin** on J4.
 
-Full schematic and PCB files are available from the [Modulino Light page](https://docs.arduino.cc/hardware/modulino-light/).
+Full schematic and PCB files are available from the [Modulino Light page](https://docs.arduino.cc/hardware/modulinos/modulino-light).
 
 ## Programming with Arduino
 
@@ -122,8 +122,18 @@ The Modulino Light is fully compatible with the Arduino IDE and the official Mod
 
 ### Prerequisites
 
+- An Arduino board with an onboard Qwiic connector: the **UNO R4 WiFi**, the **UNO Q** or the **Nano R4**. Boards in the Nano form factor can also be mounted on the **Nano Connector Carrier**, which adds Qwiic connectors to them
+- A Qwiic cable. Every Modulino node ships with a 5 cm cable
 - Install the Modulino library via the Arduino IDE Library Manager
 - Connect your Modulino Light via QWIIC or solderable headers
+
+On the UNO R4 WiFi, the UNO Q and the Nano R4, the Qwiic connector is wired to the secondary I²C interface, and `Modulino.begin()` selects `Wire1` automatically. On any other board the library defaults to `Wire`. You do not need to specify the interface in your sketch.
+
+<Alert type="note">
+
+The Modulino Light operates at +3.3 VDC. The Arduino boards listed above supply that voltage through the Qwiic connector and handle the logic level translation, so no additional circuitry is required. If you wire the module through its solderable pins instead, confirm that your board drives the I²C lines at +3.3 VDC.
+
+</Alert>
 
 For detailed instructions on setting up your Arduino environment and installing libraries, please refer to the [Getting Started with Modulinos guide](../how-general).
 
@@ -317,6 +327,8 @@ The Modulino Light is fully compatible with MicroPython through the official Mod
 
 ### Prerequisites
 
+- An Arduino board that officially supports MicroPython, such as the **Nano ESP32**, the **Nano RP2040 Connect**, the **Nano 33 BLE Sense**, the **GIGA R1 WiFi** or the **Portenta H7**. Mount a Nano form factor board on the **Nano Connector Carrier** to connect the Modulino Light through Qwiic
+- A Qwiic cable. Every Modulino node ships with a 5 cm cable
 - Install the Modulino MicroPython library. The recommended method uses `mpremote` and `mip`:
 
   ```
@@ -326,6 +338,8 @@ The Modulino Light is fully compatible with MicroPython through the official Mod
   This also installs the `ltr381rgb` sensor driver, which the Modulino Light depends on.
 
 - Ensure Arduino Lab for MicroPython is installed
+
+On Arduino boards the library detects the correct I²C interface automatically, so `ModulinoLight()` needs no arguments.
 
 See [Getting Started with Modulinos](../how-general) for detailed instructions.
 
