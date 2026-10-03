@@ -219,7 +219,7 @@ Very bright, very dark or very desaturated readings return one of the neutral na
 
 ***When you compare the result against a colour, match a substring rather than the whole string. `colourName == "BLUE"` will fail for a reading of `VIVID LIGHT BLUE`, while `colourName.indexOf("BLUE") >= 0` will succeed.***
 
-### Advanced Example - Colour Categorisation
+### Advanced Example - Colour Categorization
 
 This example groups the detected colour into families and prints the result. It matches substrings, so it works with the compound names returned by the library.
 
