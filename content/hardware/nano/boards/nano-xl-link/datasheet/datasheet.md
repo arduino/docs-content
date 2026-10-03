@@ -117,7 +117,6 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
 ### Related Products
  
 - Arduino® Nano XL Link Connector Carrier (SKU: ASX00090)
-- Arduino® Nano XL Link Relay Expansion (SKU: ASX00091)
 
 <div style="page-break-after: always;"></div>
 
@@ -133,6 +132,7 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
 |:---------------------------------:|:----------------:|:-------:|:-------:|:-------:|:--------:|
 | USB Supply Input Voltage          | V<sub>USB</sub>  |    -    |   5.0   |    -    |    V     |
 | Supply Input Voltage              | V<sub>IN</sub>   |   7.0   |    -    |  24.0   |    V     |
+| +3.3 VDC Pin Supply Input Voltage<sup>1</sup> | V<sub>3V3</sub> |    -    |   3.3   |    -    |    V     |
 | I/O Voltage                       | V<sub>IO</sub>   |    -    |   3.3   |    -    |    V     |
 | VBUS Header Pin Output Current    | I<sub>VBUS</sub> |    -    |    -    |   500   |    mA    |
 | +3.3 VDC Header Pin Output Current| I<sub>3V3</sub>  |    -    |    -    |  1000   |    mA    |
@@ -142,19 +142,7 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
 
 </div>
 
-### Current Consumption
-
-<p style="text-align: justify;">Table 5 summarizes the power consumption of the Nano XL Link on different test cases. Notice that the operating current of the board will depend greatly on the application.</p>
- 
-<div style="text-align:center;">
-
-|      **Parameter**       |    **Symbol**    | **Min** | **Typ** | **Max** | **Unit** |
-|:------------------------:|:----------------:|:-------:|:-------:|:-------:|:--------:|
-| Operating Current (typ.) | I<sub>OP</sub>   |    -    |   TBD   |    -    |    mA    |
- 
-<caption>Table 5. Current consumption of the Nano XL Link</caption>
-
-</div>
+<p style="text-align: justify;"><sup>1</sup> The +3.3 VDC header pin is primarily the output of the onboard step-down converter. It can also be used to power the board from a regulated +3.3 VDC supply, bypassing the step-down converter; in that case, the board must not be powered through VIN or the USB-C® connector at the same time.</p>
 
 <div style="page-break-after: always;"></div>
 
@@ -203,7 +191,7 @@ Figure 3 shows the power options available on the Nano XL Link and illustrates t
 </div>
 
 <div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;"><strong>Safety Note:</strong> Do not apply a voltage outside the +7 to +24 VDC range to the VIN pin. The +3.3 VDC pin is an output of the onboard step-down converter and <strong>must not be used as a power input</strong>.</p>
+<p style="text-align: justify;"><strong>Safety Note:</strong> Do not apply a voltage outside the +7 to +24 VDC range to the VIN pin. The +3.3 VDC pin is primarily the output of the onboard step-down converter; the board can also be powered through this pin with a regulated +3.3 VDC supply, in which case the step-down converter is bypassed. <strong>Never power the board through the +3.3 VDC pin and through VIN or the USB-C® connector at the same time</strong>.</p>
 </div>
 
 <div style="page-break-after: always;"></div>
@@ -240,7 +228,6 @@ Figure 3 shows the power options available on the Nano XL Link and illustrates t
  
 - **Nano XL Link:** Provides the microcontroller, the CAN FD, RS-485, and Ethernet transceivers, and the extended pinout.
 - **Nano XL Link Connector Carrier:** DIN-rail-mountable carrier board compatible with standard 4U DIN-rail open enclosures. It provides a socket for the Nano XL Link, an Ethernet connector, screw terminal connectors, a GPIO connector, a 2×5 debug header, and a Qwiic connector. It also serves as a reference design for custom carrier boards.
-- **Nano XL Link Relay Expansion:** Module with eight relays (up to 10 A per channel), connected through the Qwiic interface. Onboard DIP switches allow chaining up to eight units, for a total of 64 relay outputs. It fits inside 4U DIN-rail open enclosures alongside the Connector Carrier.
 
 </div>
 
@@ -369,4 +356,4 @@ Exemptions: No exemptions are claimed.
  
 |  **Date**  | **Revision** |   **Changes**   |
 |:----------:|:------------:|:---------------:|
-| 30/09/2026 |      1       |  First release  |
+| 03/10/2026 |      1       |  First release  |
