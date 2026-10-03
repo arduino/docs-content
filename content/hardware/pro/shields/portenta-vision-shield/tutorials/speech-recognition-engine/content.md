@@ -5,11 +5,11 @@ tags: [speech recognition, voice commands, machine learning]
 description: Control your device with voice commands using the Arduino Speech Recognition Engine
 author: Pablo Marquínez
 libraries:
-  - name: "Cyberon DSpotterSDK Maker PortentaH7"
+  - name: "DSpotterSDK_Maker_PortentaH7"
     url: https://github.com/CyberonEBU/Cyberon_DSpotterSDK_Maker_PortentaH7
-  - name: "Cyberon DSpotterSDK Maker 33BLE"
+  - name: "DSpotterSDK_Maker_33BLE"
     url: https://github.com/CyberonEBU/Cyberon_DSpotterSDK_Maker_33BLE
-  - name: "Cyberon DSpotter SDK Maker RP2040"
+  - name: "DSpotterSDK_Maker_RP2040"
     url: https://github.com/CyberonEBU/Cyberon_DSpotterSDK_Maker_RP2040
 hardware:
   - hardware/04.pro/shields/portenta-vision-shield
@@ -83,10 +83,10 @@ In case you would like to extend the engine functionalities, you will have to pu
 ### Setup
 #### Setup the Library
 There are three libraries, you will need to install one or another depending on which board you are using:
-* **Portenta H7 Family**: Cyberon_DSpotterSDK_Maker_PortentaH7
-* **Nicla Vision**: Cyberon_DSpotterSDK_Maker_NiclaVision
-* **Nano 33 BLE Sense (Rev1 & Rev2)**: Cyberon_DSpotterSDK_Maker_33BLE
-* **Nano RP2040**: Cyberon_DSpotterSDK_Maker_RP2040
+* **Portenta H7 Family**: DSpotterSDK_Maker_PortentaH7
+* **Nicla Vision**: DSpotterSDK_Maker_NiclaVision
+* **Nano 33 BLE Sense (Rev1 & Rev2)**: DSpotterSDK_Maker_33BLE
+* **Nano RP2040**: DSpotterSDK_Maker_RP2040
 
 ***Inside each of the libraries and under the folder "extra", you will find additional documentation made by Cyberon. Check them out in case you need more information***
 
