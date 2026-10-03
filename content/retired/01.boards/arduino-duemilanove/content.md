@@ -87,7 +87,7 @@ The ATmega168 and ATmega328 also support I2C (TWI) and SPI communication. The Ar
 
 The Arduino Duemilanove can be programmed with the Arduino software ([download](//www.arduino.cc/en/Main/Software)). Select "Arduino Diecimila or Duemilanove w/ ATmega168" or "Arduino Duemilanove w/ ATmega328" from the **Tools > Board** menu (according to the microcontroller on your board). For details, see the [reference](//www.arduino.cc/en/Reference/HomePage) and [tutorials](//www.arduino.cc/en/Tutorial/HomePage).
 
-The ATmega168 or ATmega328 on the Arduino Duemilanove comes preburned with a [bootloader](//www.arduino.cc/en/Tutorial/Bootloader) that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the original STK500 protocol ([reference](./static/resources/datasheets/doc2525.pdf), [C header files](./static/resources/datasheets/avr061.zip)).
+The ATmega168 or ATmega328 on the Arduino Duemilanove comes preburned with a [bootloader](//www.arduino.cc/en/Tutorial/Bootloader) that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the original STK500 protocol ([reference](/resources/datasheets/doc2525.pdf), [C header files](/resources/datasheets/avr061.zip)).
 
 You can also bypass the bootloader and program the microcontroller through the ICSP (In-Circuit Serial Programming) header; see [these instructions](https://docs.arduino.cc/hacking/software/Programmer) for details.
 
