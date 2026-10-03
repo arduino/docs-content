@@ -1,6 +1,6 @@
 ---
 title: "Getting Started with Modulino Light"
-description: "Complete guide for the Modulino Light colour sensor module and programming with Arduino and MicroPython."
+description: "Complete guide for the Modulino Light color sensor module and programming with Arduino and MicroPython."
 tags:
  - Modulino
  - Light Sensor
