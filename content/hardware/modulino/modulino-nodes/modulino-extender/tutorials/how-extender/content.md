@@ -8,7 +8,7 @@ tags:
  - LTC4311
  - Long Distance
  - Qwiic
-author: 'Pedro Sousa Lima'
+author: 'Pedro Sousa Lima, José Bagur'
 hardware:
  - hardware/11.modulinos/modulinos/modulino-extender
 software:
