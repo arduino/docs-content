@@ -257,7 +257,7 @@ The Nano Connector Carrier's connectors are placed on the top side of the board,
 
 ## Certifications
 
-### Certificactions Summary
+### Certifications Summary
 
 |  **Certification**  | **Status** |
 | :-----------------: | :--------: |

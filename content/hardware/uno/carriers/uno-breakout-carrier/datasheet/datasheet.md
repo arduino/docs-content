@@ -346,7 +346,7 @@ the dimensions are in mm.
 
 ## Certifications
 
-### Certificactions Summary
+### Certifications Summary
 
 |  **Certification**  | **Status** |
 | :-----------------: | :--------: |
