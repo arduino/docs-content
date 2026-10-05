@@ -1903,9 +1903,11 @@ The Nano Matter ADC reference voltage is 3.3 V by default, it can be configured 
 |   **Argument**   |        **Description**         |
 |:----------------:|:------------------------------:|
 |  AR_INTERNAL1V2  |    Internal 1.2V reference     |
-| AR_EXTERNAL_1V25 |    External 1.25V reference    |
+| AR_EXTERNAL_1V25* |    External 1.25V reference    |
 |      AR_VDD      |   VDD (unbuffered to ground)   |
 |     AR_08VDD     | 0.8 * VDD (buffered to ground) |
+
+> *To enable the AREF pin for an external reference, short the AREF jumper on the bottom of the board. Note that this pin is shared with the user button.
 
 To set a different analog reference from the default one, see the following example:
 

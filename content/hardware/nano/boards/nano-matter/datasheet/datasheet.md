@@ -176,13 +176,9 @@ A detailed figure below illustrates the power options available on the Nano Matt
 
 If you want to program your Nano Matter offline, install the Arduino Desktop IDE **[1]**. To connect the Nano Matter to your computer, you will need a USB-C® cable.
 
-### Getting Started - Arduino Cloud Editor
-
-All Arduino devices work out of the box on the Arduino Cloud Editor **[2]** by installing a simple plugin. The Arduino Cloud Editor is hosted online. Therefore, it will always be up-to-date with all the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
-
 ### Getting Started - Arduino Cloud
 
-All Arduino IoT-enabled products are supported on Arduino Cloud, which allows you to log, graph, and analyze sensor data, trigger events, and automate your home or business. Take a look at the official documentation to know more.
+While the Nano Matter does not have built-in Wi-Fi, it is possible to integrate it with the Arduino Cloud using a workaround based on its Matter protocol and the Arduino Cloud API. By connecting the board to a third-party Matter controller (like Home Assistant), you can forward data to the Arduino Cloud.
 
 ### Sample Sketches
 
@@ -351,25 +347,27 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Company address  | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
 ## Reference Documentation
-|             **Ref**             | **Link**                                                                        |
-|:-------------------------------:|---------------------------------------------------------------------------------|
-|      Arduino IDE (Desktop)      | https://www.arduino.cc/en/Main/Software                                         |
-|       Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                |
-| Arduino Cloud - Getting started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
-|    Nano Matter Documentation    | https://docs.arduino.cc/hardware/nano-matter                                    |
-|           Project Hub           | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending        |
-|        Library Reference        | https://www.arduino.cc/reference/en/                                            |
-|          Online Store           | https://store.arduino.cc/                                                       |
-         
+
+|             **Ref**             | **Link**                                                                                 |
+| :-----------------------------: | ---------------------------------------------------------------------------------------- |
+|      Arduino IDE (Desktop)      | https://www.arduino.cc/en/Main/Software                                                  |
+| Arduino Cloud - Getting started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started          |
+|    Nano Matter Documentation    | https://docs.arduino.cc/hardware/nano-matter                                             |
+|           Project Hub           | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                 |
+|        Library Reference        | https://www.arduino.cc/reference/en/                                                     |
+|    Simplicity Studio Support    | https://marketplace.visualstudio.com/items?itemName=silabs-bozont.silabs-openocd-flasher |
+|          Online Store           | https://store.arduino.cc/                                                                |
+       
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |                      **Changes**                           |
-| :--------: | :----------: | :--------------------------------------------------------: |
-| 24/03/2026 |      7       | Updating top image to include both variants                |
-| 01/12/2025 |      6       | Additional note on multiple SKUs and certification updates  |
-| 11/02/2025 |      5       | Header Version and SKU added as Collective Datasheet       |
-| 14/11/2024 |      4       | Official launch revision and power information update      |
-| 05/09/2024 |      3       |         Cloud Editor updated from Web Editor               |
-| 07/05/2024 |      2       |                     Board update                           |
-| 21/03/2024 |      1       |               Community Preview Release                    |
+|  **Date**  | **Revision** |                          **Changes**                          |
+| :--------: | :----------: | :-----------------------------------------------------------: |
+| 05/10/2026 |      8       | Updating the protocols supported and programming environments |
+| 24/03/2026 |      7       |          Updating top image to include both variants          |
+| 01/12/2025 |      6       |  Additional note on multiple SKUs and certification updates   |
+| 11/02/2025 |      5       |     Header Version and SKU added as Collective Datasheet      |
+| 14/11/2024 |      4       |     Official launch revision and power information update     |
+| 05/09/2024 |      3       |             Cloud Editor updated from Web Editor              |
+| 07/05/2024 |      2       |                         Board update                          |
+| 21/03/2024 |      1       |                   Community Preview Release                   |
