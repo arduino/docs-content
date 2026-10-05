@@ -1,6 +1,6 @@
 ---
-title: "Getting Started with Modulino Vibra"
-description: "Complete guide for the Modulino Vibra haptic feedback module and programming with Arduino and MicroPython."
+title: "Getting Started with Modulino Vibro"
+description: "Complete guide for the Modulino Vibro haptic feedback module and programming with Arduino and MicroPython."
 tags:
  - Modulino
  - Vibration
@@ -10,22 +10,22 @@ tags:
  - I2C
 author: 'Pedro Sousa Lima'
 hardware:
- - hardware/11.modulinos/modulinos/modulino-vibra
+ - hardware/11.modulinos/modulinos/modulino-vibro
 software:
  - ide-v2
  - web-editor
  - micropython
 ---
 
-![Vibra Overview](assets/VibraOverview.png)
+![Vibro Overview](assets/VibroOverview.png)
 
-The Modulino Vibra is a modular haptic feedback device that provides tactile notifications through vibration, making it perfect to add physical feedback to your projects! It uses the standardised Modulino form factor with QWIIC connectors for easy integration.
+The Modulino Vibro is a modular haptic feedback device that provides tactile notifications through vibration, making it perfect to add physical feedback to your projects! It uses the standardised Modulino form factor with QWIIC connectors for easy integration.
 
 ## Hardware Overview
 
 ### General Characteristics
 
-The Modulino Vibra is based on the VZ43FM1B8230001L vibration motor, capable of generating different vibration patterns for haptic feedback.
+The Modulino Vibro is based on the VZ43FM1B8230001L vibration motor, capable of generating different vibration patterns for haptic feedback.
 
 | Parameter  | Condition | Minimum | Typical | Maximum | Unit |
 |------------|-----------|---------|---------|---------|------|
@@ -35,11 +35,11 @@ The Modulino Vibra is based on the VZ43FM1B8230001L vibration motor, capable of 
 
 ### Sensor Details
 
-The **Modulino Vibra** module uses the **VZ43FM1B8230001L** vibration motor, which does not have native I²C capabilities. Instead, the motor is controlled by the Modulino's onboard microcontroller (STM32C011F4), which drives the motor through an N-channel MOSFET. This microcontroller provides I²C communication, allowing for flexible control of vibration intensity and duration.
+The **Modulino Vibro** module uses the **VZ43FM1B8230001L** vibration motor, which does not have native I²C capabilities. Instead, the motor is controlled by the Modulino's onboard microcontroller (STM32C011F4), which drives the motor through an N-channel MOSFET. This microcontroller provides I²C communication, allowing for flexible control of vibration intensity and duration.
 
 One unique feature of this setup is the ability to change the I²C address via software, making it adaptable to different system configurations.
 
-The default I²C address for the **Modulino Vibra** module is:
+The default I²C address for the **Modulino Vibro** module is:
 
 | Modulino I²C Address | Hardware I²C Address | Editable Addresses (HEX)                        |
 |----------------------|----------------------|--------------------------------------------------|
@@ -47,28 +47,30 @@ The default I²C address for the **Modulino Vibra** module is:
 
 ### Pinout
 
-![Modulino Vibra Pinout](assets/VibroPinouts.png)
+![Modulino Vibro Pinout](assets/VibroPinouts.png)
 
 **Qwiic / I2C (1×4 Header)**
-| **Pin** | **Function**              |
-|---------|---------------------------|
-| GND     | Ground                   |
-| 3.3 V    | Power Supply (3.3 V)     |
-| SDA     | I2C Data                 |
-| SCL     | I2C Clock                |
+
+| **Pin** | **Function**         |
+| ------- | -------------------- |
+| GND     | Ground               |
+| 3.3 V   | Power Supply (3.3 V) |
+| SDA     | I2C Data             |
+| SCL     | I2C Clock            |
 
 These pads and the Qwiic connectors share the same I2C bus at 3.3 V.
 
 **Additional 1×8 Header (Motor & MCU Signals)**
-| **Pin** | **Function**   |
-|---------|----------------|
-| GND     | Ground          |
-| 3V3     | 3.3 V Power      |
-| PF2     | RESET (NRST)    |
-| SWCLK   | SWD Clock (PA14) |
-| SWDIO   | SWD Data (PA13)  |
-| TX1     | USART Transmit (PA9) |
-| RX1     | USART Receive (PA10) |
+
+| **Pin** | **Function**                |
+| ------- | --------------------------- |
+| GND     | Ground                      |
+| 3V3     | 3.3 V Power                 |
+| PF2     | RESET (NRST)                |
+| SWCLK   | SWD Clock (PA14)            |
+| SWDIO   | SWD Data (PA13)             |
+| TX1     | USART Transmit (PA9)        |
+| RX1     | USART Receive (PA10)        |
 | PA2     | Motor Control (MOSFET gate) |
 
 **Note:** PA0 controls the N-channel MOSFET gate to switch the vibration motor on/off. You can also access additional microcontroller pins (PA1, PA2, PA3, PA5) via test pads for custom applications.
@@ -86,7 +88,7 @@ The module includes a power LED that draws 1 mA and turns on as soon as it is po
 
 ### Schematic
 
-The Modulino Vibra features a simple yet effective circuit design for haptic feedback.
+The Modulino Vibro features a simple yet effective circuit design for haptic feedback.
 
 The main components are the **VZ43FM1B8230001L** vibration motor and the **STM32C011F4** microcontroller (U1), which handles motor control via PWM signals to the MOSFET gate as well as I²C communication.
 
@@ -94,16 +96,16 @@ You can connect to the I²C pins (SDA and SCL) using either the **QWIIC connecto
 
 There's also a small power LED indicator that lights up when the board is on.
 
-You can grab the full schematic and PCB files from the [Modulino Vibra page](https://docs.arduino.cc/hardware/modulino-vibra).
+You can grab the full schematic and PCB files from the [Modulino Vibro page](https://docs.arduino.cc/hardware/modulino-vibro).
 
 ## Programming with Arduino
 
-The Modulino Vibra is fully compatible with the Arduino IDE and the official Modulino library. The following examples showcase how to generate vibration patterns and add haptic feedback to your Arduino projects.
+The Modulino Vibro is fully compatible with the Arduino IDE and the official Modulino library. The following examples showcase how to generate vibration patterns and add haptic feedback to your Arduino projects.
 
 ### Prerequisites
 
 - Install the Modulino library via the Arduino IDE Library Manager
-- Connect your Modulino Vibra via QWIIC or solderable headers
+- Connect your Modulino Vibro via QWIIC or solderable headers
 
 For detailed instructions on setting up your Arduino environment and installing libraries, please refer to the [Getting Started with Modulinos guide](../how-general).
 
@@ -190,7 +192,7 @@ void loop() {
 
 ## Programming with MicroPython
 
-The Modulino Vibra is fully compatible with MicroPython through the official Modulino MicroPython library. The following examples demonstrate how to generate vibration patterns and implement haptic feedback in your MicroPython projects.
+The Modulino Vibro is fully compatible with MicroPython through the official Modulino MicroPython library. The following examples demonstrate how to generate vibration patterns and implement haptic feedback in your MicroPython projects.
 
 ### Prerequisites
 
@@ -286,7 +288,7 @@ See the [Getting Started with Modulinos](./how-general) guide for library instal
 
 ## Project Ideas
 
-Now that you've learned how to use your Modulino Vibra, try these projects:
+Now that you've learned how to use your Modulino Vibro, try these projects:
 
 - **Notification Device**: Create haptic alerts for incoming messages or calls
 - **Game Controller**: Add force feedback to gaming projects
