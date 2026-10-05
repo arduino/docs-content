@@ -9,7 +9,11 @@ The **Arduino® UNO Media Carrier** provides a 22-pin MIPI-DSI connector (DISPLA
 
 <Alert type="info">
 
-The supported displays are the Waveshare 5", 8", and 10" DSI Touch "A" series displays.
+The supported displays are the Waveshare DSI Touch "A" series:
+
+- Waveshare 5" DSI Touch Display (A)
+- Waveshare 8" DSI Touch Display (A)
+- Waveshare 10" DSI Touch Display (A)
 
 </Alert>
 
@@ -27,6 +31,16 @@ In the Arduino App Lab **Settings**, enable the **Media Carrier** under the **Ca
 ![Select display type](assets/select-display.png)
 
 After rebooting, the display is active and the desktop environment will render on it. Touch input is available immediately without additional configuration.
+
+## How Carrier Configuration Works
+
+MIPI-DSI displays do not support plug-and-play detection, so the Linux kernel must be told explicitly what hardware is attached. When you select a display size and click **Apply and Reboot**, App Lab stages a Device Tree Overlay (`.dtbo`) that is merged onto the board's base device tree. The Qualcomm kernel reads the device tree only once at startup to configure the display drivers, which is why a full reboot is required for any change to take effect.
+
+<Alert type="info">
+
+These settings apply to the **UNO Q** used with the UNO Media Carrier. The **VENTUNO Q** instead provides a native HDMI port that handles EDID autodiscovery, so no configuration or reboot is required and the display does not appear in the **Carriers** settings.
+
+</Alert>
 
 ## Further Reading
 
