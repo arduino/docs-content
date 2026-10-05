@@ -7,15 +7,13 @@ tags: [Arduino App Lab, UNO Q, MIPI, Display, Media Carrier, DSI]
 
 The **Arduino® UNO Media Carrier** provides a 22-pin MIPI-DSI connector (DISPLAY) for attaching touch displays. The display must be connected to the carrier while the UNO Q is unpowered.
 
-<Alert type="info">
-
 The supported displays are the Waveshare DSI Touch "A" series:
 
-- Waveshare 5" DSI Touch Display (A)
-- Waveshare 8" DSI Touch Display (A)
-- Waveshare 10" DSI Touch Display (A)
-
-</Alert>
+| Preset Setting | Display Model | Specifications |
+| :--- | :--- | :--- |
+| `5-dsi-touch-a` | [Waveshare 5″ DSI LCD (A)](https://www.waveshare.com/5-dsi-touch-a.htm) | 800×480 resolution, capacitive touch |
+| `8-dsi-touch-a` | [Waveshare 8″ DSI LCD (A)](https://www.waveshare.com/8-dsi-touch-a.htm) | 1280×800 IPS, capacitive touch |
+| `10-dsi-touch-a` | [Waveshare 10.1″ DSI LCD (A)](https://www.waveshare.com/10.1-dsi-touch-a.htm) | 1280×800 IPS, capacitive touch |
 
 ## Enable Carrier Mode
 
