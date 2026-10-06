@@ -55,7 +55,7 @@ Some Arduino Boards provide optional hardware-backed protections that can streng
 
 Because these protections are optional and not present on every Board, the integrity of a solution deployed in an uncontrolled environment depends largely on the configuration implemented by the developer.
 
-# Software Supply Chain
+## Software Supply Chain
 
 Arduino Boards support a broad ecosystem of software components, libraries, and AI models. The developer is responsible for the integrity and trustworthiness of every component used, and third-party libraries and models should be vetted as part of the development workflow.
 
