@@ -135,8 +135,6 @@ The <strong>Nano Matter with headers (ABX00137)</strong> shares the same archite
 > [!NOTE]
 > The AREF pin is not connected to the microcontroller by default. To use an external analog reference, close the AREF solder jumper on the bottom of the board with a small amount of solder. Note that this pin is shared with the user button.
 
-<div style="page-break-after: always;"></div>
-
 ### Block Diagram
 
 An overview of the high-level architecture of the Nano Matter is illustrated in the figure below.
