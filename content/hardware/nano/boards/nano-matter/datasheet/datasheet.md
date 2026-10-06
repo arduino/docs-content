@@ -49,10 +49,10 @@ The main features are highlighted in the table shown below.
 
 
 | Feature             | Description                                                                                                                                                            |
-|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Microcontroller     | 78 MHz, 32-bit Arm® Cortex®-M33 core (MGM240SD22VNA)                                                                                                                   |
 | Internal Memory     | 1536 kB Flash and 256 kB RAM                                                                                                                                           |
-| Connectivity        | 802.15.4 Thread, Zigbee, Bluetooth® Low Energy 5.3, and Bluetooth® Mesh                                                                                                        |
+| Connectivity        | 802.15.4 Thread, Zigbee, Bluetooth® Low Energy 5.3, and Bluetooth® Mesh                                                                                                |
 | Security            | Secure Vault® from Silicon Labs                                                                                                                                        |
 | USB Connectivity    | USB-C® port for power and data                                                                                                                                         |
 | Power Supply        | Various options for easily powering the board: USB-C® port and external power supply connected through the board's Nano-styled header connector pins (5V, VIN)         |
