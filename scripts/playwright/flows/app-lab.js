@@ -38,6 +38,7 @@ async function ensureBoardSelected(page) {
     // Check if main workspace is already loaded
     if (await page.locator('#my-apps, footer[class*="footer-bar"]').first().isVisible({ timeout: 2000 }).catch(() => false)) {
         console.log('Board already selected and workspace ready.');
+        await goToApps(page);
         return;
     }
 
@@ -55,9 +56,24 @@ async function ensureBoardSelected(page) {
     try {
         await page.locator('#my-apps, footer[class*="footer-bar"]').first().waitFor({ state: 'visible', timeout: 20000 });
         console.log('Main workspace loaded successfully.');
+        await goToApps(page);
     } catch (err) {
         throw new Error('Arduino App Lab workspace failed to load after selecting board.');
     }
+}
+
+// App Lab reopens the last workspace on launch, which can be an App editor without the sidebar.
+async function goToApps(page) {
+    const myAppsButton = page.locator('#my-apps a');
+    if (!(await myAppsButton.isVisible({ timeout: 1000 }).catch(() => false))) {
+        const appsBreadcrumb = page.locator('nav[aria-label="breadcrumbs"] a, nav[aria-label="breadcrumbs"] button').first();
+        if (await appsBreadcrumb.isVisible({ timeout: 1000 }).catch(() => false)) {
+            await appsBreadcrumb.click({ force: true });
+        }
+        await myAppsButton.waitFor({ state: 'visible', timeout: 10000 });
+    }
+    await myAppsButton.click({ force: true });
+    await page.waitForTimeout(1000);
 }
 
 async function dismissAnyOpenModals(page) {
@@ -92,8 +108,8 @@ async function stopRunningAppIfAny(page) {
 async function cleanupExistingAwesomeApp(page) {
     await dismissAnyOpenModals(page);
     const myAppsButton = page.locator('#my-apps a');
+    await goToApps(page);
     if (await myAppsButton.isVisible({ timeout: 2000 }).catch(() => false)) {
-        await myAppsButton.click({ force: true }).catch(() => {});
         await page.locator('div[class*="app-link"]').first().waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
         await page.waitForTimeout(1000);
 
@@ -120,6 +136,123 @@ async function cleanupExistingAwesomeApp(page) {
     }
 }
 
+async function createAwesomeApp(page) {
+    await goToApps(page);
+
+    // Open create app dialog
+    const createAppDropdown = page.locator('button').filter({ hasText: /Create new app|Create App/i }).first();
+    await createAppDropdown.waitFor({ state: 'visible', timeout: 10000 });
+    await createAppDropdown.click({ force: true });
+    await page.waitForTimeout(300);
+    const createAppMenuItem = page.locator('[role="menuitem"]').filter({ hasText: /Create/i }).first();
+    if (await createAppMenuItem.isVisible({ timeout: 2000 }).catch(() => false)) {
+        await createAppMenuItem.click({ force: true });
+        await page.waitForTimeout(500);
+    }
+
+    // Fill dialog
+    const nameInput = page.locator('div[role="dialog"] input[type="text"]').or(page.getByRole('textbox')).first();
+    await nameInput.waitFor({ state: 'visible', timeout: 10000 });
+    await nameInput.fill('AwesomeApp');
+
+    // Emoji picker - select rocket emoji
+    const emojiButton = page.locator('div[role="dialog"] button[class*="emoji-picker-button"]').or(page.locator('button[class*="emoji-picker-button"]')).first();
+    if (await emojiButton.isVisible({ timeout: 1000 }).catch(() => false)) {
+        console.log('Selecting rocket emoji for AwesomeApp...');
+        await emojiButton.click({ force: true }).catch(() => {});
+        await page.waitForTimeout(500);
+
+        // Attempt to use search input
+        const searchInput = page.locator('input.epr-search, input[placeholder*="Search"]').first();
+        if (await searchInput.isVisible({ timeout: 1000 }).catch(() => false)) {
+            await searchInput.fill('rocket');
+            await page.waitForTimeout(1000);
+            const rocketEmoji = page.locator('button[aria-label*="rocket"]').or(page.getByRole('button', { name: /rocket/i })).or(page.locator('button[data-unified*="1f680"]')).first();
+            if (await rocketEmoji.isVisible({ timeout: 1000 }).catch(() => false)) {
+                await rocketEmoji.click({ force: true }).catch(() => {});
+                await page.waitForTimeout(500);
+            }
+        } else {
+            const travelPlacesTab = page.getByRole('tab', { name: /Travel & Places/i }).first();
+            if (await travelPlacesTab.isVisible({ timeout: 1000 }).catch(() => false)) {
+                await travelPlacesTab.click({ force: true }).catch(() => {});
+                await page.waitForTimeout(300);
+            }
+            const scrollable = page.locator('.epr-body, [class*="emoji-scroll"]').first();
+            const rocketEmoji = page.locator('button[aria-label*="rocket"]').or(page.getByRole('button', { name: /rocket/i })).or(page.locator('button[data-unified*="1f680"]')).first();
+
+            if (await scrollable.isVisible().catch(() => false)) {
+                let found = false;
+                for(let i=0; i<30; i++) {
+                    const c = await rocketEmoji.count();
+                    if (c > 0 && await rocketEmoji.isVisible()) {
+                        await rocketEmoji.click({ force: true }).catch(() => {});
+                        await page.waitForTimeout(500);
+                        found = true;
+                        break;
+                    }
+                    await scrollable.evaluate(el => el.scrollBy(0, 150)).catch(() => {});
+                    await page.waitForTimeout(100);
+                }
+            } else if (await rocketEmoji.count() > 0) {
+                await rocketEmoji.click({ force: true }).catch(() => {});
+                await page.waitForTimeout(500);
+            }
+        }
+        await page.evaluate(() => {
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+        }).catch(() => {});
+    }
+
+    const confirmCreateBtn = page.locator('div[role="dialog"] button').filter({ hasText: /Create new app|Create new|Create|Confirm/i }).last();
+    await confirmCreateBtn.click({ force: true });
+    await dismissToasts(page);
+    await page.evaluate(() => window.scrollTo(0, 0)).catch(() => {});
+    await page.locator('div[class*="app-actions"]').first().waitFor({ state: 'visible', timeout: 15000 });
+}
+
+// Opens AwesomeApp in the editor, creating it first when a step runs on its own.
+async function openAwesomeApp(page) {
+    await dismissAnyOpenModals(page);
+    await goToApps(page);
+    const existingApp = page.locator('div[class*="app-link"]').filter({ hasText: /AwesomeApp/i }).first();
+    if (await existingApp.isVisible({ timeout: 3000 }).catch(() => false)) {
+        await existingApp.click({ force: true });
+        await page.locator('div[class*="app-actions"]').first().waitFor({ state: 'visible', timeout: 15000 });
+    } else {
+        await createAwesomeApp(page);
+    }
+    await page.waitForTimeout(1500);
+    await closeConsole(page);
+}
+
+// The run step leaves the console open, and it covers the lower half of the editor.
+async function closeConsole(page) {
+    const closeConsoleButton = page.locator('#console button[aria-label="Close"]').first();
+    if (await closeConsoleButton.isVisible({ timeout: 1000 }).catch(() => false)) {
+        await closeConsoleButton.click({ force: true }).catch(() => {});
+        await page.waitForTimeout(500);
+    }
+}
+
+async function openAppActionsMenu(page) {
+    await page.locator('div[class*="app-actions"] button').first().click({ force: true });
+    await page.locator('[role="menuitem"]').first().waitFor({ state: 'visible', timeout: 5000 });
+    await page.waitForTimeout(300);
+}
+
+async function closeDialog(page) {
+    const closeButton = page.locator('div[role="dialog"] button[class*="dialog-header-close"]').last();
+    if (await closeButton.isVisible({ timeout: 1000 }).catch(() => false)) {
+        await closeButton.click({ force: true }).catch(() => {});
+    } else {
+        await page.keyboard.press('Escape').catch(() => {});
+    }
+    await page.locator('div[role="dialog"]').last().waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {});
+}
+
 module.exports = async function runAppLabFlow(page, outDir, options = {}) {
     const { step = 'all' } = options;
 
@@ -137,8 +270,9 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
     const openTerminalButton = page.locator('button[aria-label*="Connect to the board"]').first();
     const systemStatus = page.locator('div[class*="_footer-section--center"]').first();
     const notificationsButton = page.locator('div[class*="notification-icon-container"]').last();
-    const networkButton = page.locator('div[class*="network-icon-container"]').last();
-    const agentModeButton = statusbar.locator('div[class*="ai-assistant-entry"] button, button[aria-label*="Agent Mode"], button[aria-label*="Editor Mode"]').first();
+    // The network button is labeled with the connected SSID, so match its icon-button shape instead.
+    const networkButton = statusbar.locator('div[class*="footer-section--right"] button[class*="_icon-button_"]').first();
+    const agentModeButton = statusbar.locator('div[class*="ai-assistant-entry"] button, button[aria-label="Agent mode" i], button[aria-label="Editor mode" i]').first();
 
     // Navigation rows
     const myAppsButton = page.locator('#my-apps a');
@@ -342,82 +476,7 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
     if (step === 'all' || step === 'editor' || step === 'run') {
         console.log('\n--- Step: Editor & App Creation ---');
         await cleanupExistingAwesomeApp(page);
-
-        await myAppsButton.click({ force: true });
-        await page.waitForTimeout(500);
-
-        // Open create app dialog
-        const createAppDropdown = page.locator('button').filter({ hasText: /Create new app|Create App/i }).first();
-        await createAppDropdown.waitFor({ state: 'visible', timeout: 10000 });
-        await createAppDropdown.click({ force: true });
-        await page.waitForTimeout(300);
-        const createAppMenuItem = page.locator('[role="menuitem"]').filter({ hasText: /Create/i }).first();
-        if (await createAppMenuItem.isVisible({ timeout: 2000 }).catch(() => false)) {
-            await createAppMenuItem.click({ force: true });
-            await page.waitForTimeout(500);
-        }
-
-        // Fill dialog
-        const nameInput = page.locator('div[role="dialog"] input[type="text"]').or(page.getByRole('textbox')).first();
-        await nameInput.waitFor({ state: 'visible', timeout: 10000 });
-        await nameInput.fill('AwesomeApp');
-
-        // Emoji picker - select rocket emoji
-        const emojiButton = page.locator('div[role="dialog"] button[class*="emoji-picker-button"]').or(page.locator('button[class*="emoji-picker-button"]')).first();
-        if (await emojiButton.isVisible({ timeout: 1000 }).catch(() => false)) {
-            console.log('Selecting rocket emoji for AwesomeApp...');
-            await emojiButton.click({ force: true }).catch(() => {});
-            await page.waitForTimeout(500);
-
-            // Attempt to use search input
-            const searchInput = page.locator('input.epr-search, input[placeholder*="Search"]').first();
-            if (await searchInput.isVisible({ timeout: 1000 }).catch(() => false)) {
-                await searchInput.fill('rocket');
-                await page.waitForTimeout(1000);
-                const rocketEmoji = page.locator('button[aria-label*="rocket"]').or(page.getByRole('button', { name: /rocket/i })).or(page.locator('button[data-unified*="1f680"]')).first();
-                if (await rocketEmoji.isVisible({ timeout: 1000 }).catch(() => false)) {
-                    await rocketEmoji.click({ force: true }).catch(() => {});
-                    await page.waitForTimeout(500);
-                }
-            } else {
-                const travelPlacesTab = page.getByRole('tab', { name: /Travel & Places/i }).first();
-                if (await travelPlacesTab.isVisible({ timeout: 1000 }).catch(() => false)) {
-                    await travelPlacesTab.click({ force: true }).catch(() => {});
-                    await page.waitForTimeout(300);
-                }
-                const scrollable = page.locator('.epr-body, [class*="emoji-scroll"]').first();
-                const rocketEmoji = page.locator('button[aria-label*="rocket"]').or(page.getByRole('button', { name: /rocket/i })).or(page.locator('button[data-unified*="1f680"]')).first();
-                
-                if (await scrollable.isVisible().catch(() => false)) {
-                    let found = false;
-                    for(let i=0; i<30; i++) {
-                        const c = await rocketEmoji.count();
-                        if (c > 0 && await rocketEmoji.isVisible()) {
-                            await rocketEmoji.click({ force: true }).catch(() => {});
-                            await page.waitForTimeout(500);
-                            found = true;
-                            break;
-                        }
-                        await scrollable.evaluate(el => el.scrollBy(0, 150)).catch(() => {});
-                        await page.waitForTimeout(100);
-                    }
-                } else if (await rocketEmoji.count() > 0) {
-                    await rocketEmoji.click({ force: true }).catch(() => {});
-                    await page.waitForTimeout(500);
-                }
-            }
-            await page.evaluate(() => {
-                window.scrollTo(0, 0);
-                document.documentElement.scrollTop = 0;
-                document.body.scrollTop = 0;
-            }).catch(() => {});
-        }
-
-        const confirmCreateBtn = page.locator('div[role="dialog"] button').filter({ hasText: /Create new app|Create new|Create|Confirm/i }).last();
-        await confirmCreateBtn.click({ force: true });
-        await dismissToasts(page);
-        await page.evaluate(() => window.scrollTo(0, 0)).catch(() => {});
-        await page.locator('div[class*="app-actions"]').first().waitFor({ state: 'visible', timeout: 15000 });
+        await createAwesomeApp(page);
 
         // Editor Elements
         const appActionsButton = page.locator('div[class*="app-actions"]').first();
@@ -426,9 +485,9 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
         const breadcrumbs = page.locator('nav[aria-label="breadcrumbs"]').first();
         const runButton = page.locator('button').filter({ hasText: 'Run' }).first();
 
-        const addBrickButton = page.locator('button[aria-label="Add Brick"]').first();
-        const addLibraryButton = page.locator('button[aria-label="Add Sketch Library"]').first();
-        const addFileButton = page.locator('button[aria-label="Add File"]').first();
+        const addBrickButton = page.locator('button[aria-label="Add Brick" i]').first();
+        const addLibraryButton = page.locator('button[aria-label="Add sketch library" i]').first();
+        const addFileButton = page.locator('button[aria-label="Add file" i]').first();
 
         const sketchFolder = page.locator('div[role="treeitem"]').filter({ hasText: /^sketch$/i }).first();
         const pythonFolder = page.locator('div[role="treeitem"]').filter({ hasText: /^python$/i }).first();
@@ -500,7 +559,7 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
             const startingAppText = page.getByText(/Running\.\.\./i);
             const stopButtonTop = page.locator('div[class*="top-bar"] button').filter({ hasText: 'Stop' }).first();
             const stopButtonBottom = statusbar.locator('button').filter({ hasText: 'Stop' }).first();
-            const runningAppBottom = statusbar.locator('div[class*="app-name-container"]').first();
+            const runningAppBottom = statusbar.locator('button').filter({ has: page.locator('span[class*="app-content"]') }).first();
 
             // Wait for 'Running...' state to appear so we can screenshot it
             await expect(startingAppText).toBeVisible({ timeout: 120000 }).catch(() => {});
@@ -534,5 +593,155 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
             // Clean up: stop the app
             await stopRunningAppIfAny(page);
         }
+    }
+
+    // ==========================================
+    // STEP: APP MANAGEMENT (import, Project Hub, releases)
+    // ==========================================
+    if (step === 'all' || step === 'manage') {
+        console.log('\n--- Step: App Management ---');
+        await openAwesomeApp(page);
+
+        // Import lives in the "Create new App" dropdown on the Apps page
+        await goToApps(page);
+        const createAppDropdown = page.locator('button').filter({ hasText: /Create new app/i }).last();
+        await createAppDropdown.click({ force: true });
+        const importMenuItem = page.locator('[role="menuitem"]').filter({ hasText: /Import or install/i }).first();
+        await importMenuItem.waitFor({ state: 'visible', timeout: 5000 });
+        await page.waitForTimeout(300);
+        await capture(page, 'apps/create-app-menu-import-hl.png', outDir, { highlight: importMenuItem, percentage: 'top 40%' });
+        await importMenuItem.click({ force: true });
+        await page.locator('div[role="dialog"]').last().waitFor({ state: 'visible', timeout: 5000 });
+        await page.waitForTimeout(800);
+        await capture(page, 'apps/import-app-dialog.png', outDir, {});
+        await closeDialog(page);
+
+        await openAwesomeApp(page);
+
+        await openAppActionsMenu(page);
+        const publishMenuItem = page.locator('[role="menuitem"]').filter({ hasText: /Publish on Project Hub/i }).first();
+        const releaseMenuItem = page.locator('[role="menuitem"]').filter({ hasText: /Create release/i }).first();
+        await capture(page, 'editor/app-actions-menu-publish-hl.png', outDir, { highlight: publishMenuItem, percentage: 'top 50%' });
+        await capture(page, 'editor/app-actions-menu-release-hl.png', outDir, { highlight: releaseMenuItem, percentage: 'top 50%' });
+
+        // Project Hub: capture the dialog, never upload
+        await publishMenuItem.click({ force: true });
+        await page.getByRole('button', { name: /Upload as draft/i }).waitFor({ state: 'visible', timeout: 5000 });
+        await page.waitForTimeout(800);
+        await capture(page, 'editor/publish-project-hub-dialog.png', outDir, {});
+        await closeDialog(page);
+
+        // App release: skip the one-time intro, capture the form, never build
+        await openAppActionsMenu(page);
+        await releaseMenuItem.click({ force: true });
+        const continueButton = page.getByRole('button', { name: 'Continue', exact: true });
+        await continueButton.waitFor({ state: 'visible', timeout: 3000 }).catch(() => {});
+        if (await continueButton.isVisible().catch(() => false)) {
+            await page.waitForTimeout(800);
+            await capture(page, 'editor/create-release-intro-dialog.png', outDir, {});
+            await continueButton.click({ force: true });
+        }
+        await page.getByRole('button', { name: /Save and download/i }).waitFor({ state: 'visible', timeout: 5000 });
+        await page.waitForTimeout(800);
+        await capture(page, 'editor/create-release-dialog.png', outDir, {});
+        await closeDialog(page);
+    }
+
+    // ==========================================
+    // STEP: AGENT PANEL
+    // ==========================================
+    if (step === 'all' || step === 'agent') {
+        console.log('\n--- Step: Agent Panel ---');
+        await openAwesomeApp(page);
+
+        const agentPanelButton = page.getByRole('button', { name: /Agent panel/i }).first();
+        await agentPanelButton.waitFor({ state: 'visible', timeout: 5000 });
+        await capture(page, 'editor/agent-panel-button.png', outDir, {
+            highlight: [
+                { locators: agentPanelButton, label: 'AGENT PANEL', labelSide: 'left', alignVertical: true }
+            ],
+            percentage: 'top 25%'
+        });
+        await capture(page, 'statusbar-agent-mode-hl.png', outDir, { highlight: agentModeButton, percentage: 'bottom 115px' });
+
+        await agentPanelButton.click({ force: true });
+        await page.waitForTimeout(2000);
+        const agentPanelSidebar = page.locator('div[class*="_agent-panel-slot"]').first();
+        await capture(page, 'editor/agent-panel-open.png', outDir, { highlight: agentPanelSidebar, insetHighlight: true });
+        await agentPanelButton.click({ force: true });
+        await page.waitForTimeout(500);
+    }
+
+    // ==========================================
+    // STEP: AI MODELS (Hugging Face)
+    // ==========================================
+    if (step === 'all' || step === 'models') {
+        console.log('\n--- Step: AI Models ---');
+        await openAwesomeApp(page);
+
+        // Add the Language model Brick unless a previous run already did
+        const llmBrickRow = page.locator('#side').getByText(/Large Language Model/i).first();
+        if (!(await llmBrickRow.isVisible({ timeout: 1000 }).catch(() => false))) {
+            await page.locator('button[aria-label="Add Brick" i]').first().click({ force: true });
+            const addBrickDialog = page.locator('div[role="dialog"]').last();
+            await addBrickDialog.getByText('Large Language Model (LLM)', { exact: true }).click({ timeout: 10000 });
+            await page.waitForTimeout(500);
+            await addBrickDialog.getByRole('button', { name: 'Add', exact: true }).click({ force: true });
+            await page.getByRole('button', { name: /Check usage examples/i }).waitFor({ state: 'visible', timeout: 30000 }).catch(() => {});
+            await closeDialog(page);
+        } else {
+            await llmBrickRow.click({ force: true });
+        }
+
+        const aiModelsTab = page.getByText('AI Models', { exact: true }).first();
+        await aiModelsTab.waitFor({ state: 'visible', timeout: 10000 });
+        await aiModelsTab.click({ force: true });
+        const addHuggingFaceButton = page.getByRole('button', { name: /Add model from Hugging Face/i }).first();
+        await addHuggingFaceButton.waitFor({ state: 'visible', timeout: 15000 });
+        await addHuggingFaceButton.scrollIntoViewIfNeeded();
+        await page.waitForTimeout(1000);
+        await capture(page, 'bricks/llm-ai-models-hugging-face-hl.png', outDir, { highlight: addHuggingFaceButton });
+
+        await addHuggingFaceButton.click({ force: true });
+        await page.getByRole('button', { name: /Download model/i }).waitFor({ state: 'visible', timeout: 5000 });
+        await page.waitForTimeout(800);
+        await capture(page, 'bricks/hugging-face-add-model-dialog.png', outDir, {});
+        await closeDialog(page);
+    }
+
+    // ==========================================
+    // STEP: SETTINGS (board extensions, flasher)
+    // ==========================================
+    if (step === 'all' || step === 'settings') {
+        console.log('\n--- Step: Settings ---');
+        await dismissAnyOpenModals(page);
+        await goToApps(page);
+        await settingsButton.click({ force: true });
+        await page.getByText('Device details', { exact: true }).waitFor({ state: 'visible', timeout: 15000 });
+        await page.waitForTimeout(1500);
+
+        const boardExtensionsTitle = page.getByText('Board extensions', { exact: true }).first();
+        if (await boardExtensionsTitle.isVisible({ timeout: 3000 }).catch(() => false)) {
+            const boardExtensionsCard = page.locator('div[class*="_settings-section-card"]').filter({ has: page.getByText('How to attach a carrier', { exact: true }) }).first();
+            await boardExtensionsTitle.scrollIntoViewIfNeeded();
+            await page.waitForTimeout(500);
+            await capture(page, 'settings/settings-board-extensions-hl.png', outDir, { highlight: boardExtensionsCard });
+        } else {
+            console.log('Board extensions section not shown for this board, skipped.');
+        }
+
+        const flashBoardButton = page.getByRole('button', { name: /Flash board/i }).first();
+        await flashBoardButton.scrollIntoViewIfNeeded();
+        await page.waitForTimeout(500);
+        await capture(page, 'settings/settings-flash-board-hl.png', outDir, { highlight: flashBoardButton });
+
+        // The flasher opens on its configuration step; capture it and exit without flashing
+        await flashBoardButton.click({ force: true });
+        const startFlashingButton = page.getByRole('button', { name: /Start flashing/i });
+        await startFlashingButton.waitFor({ state: 'visible', timeout: 20000 });
+        await page.waitForTimeout(1000);
+        await capture(page, 'settings/flasher-configure.png', outDir, {});
+        await page.getByRole('button', { name: /^Exit/ }).first().click({ force: true });
+        await page.waitForTimeout(1000);
     }
 };

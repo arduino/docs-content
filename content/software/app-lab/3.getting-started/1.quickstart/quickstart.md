@@ -22,11 +22,11 @@ This onboarding journey assumes you have already installed App Lab and configure
 After configuration, App Lab displays the main interface. The left sidebar contains the primary navigation:
 
 - **Apps**: View, edit, and manage Apps you create or duplicate.
-- **Learn and Explore**:
+- **Learn and explore**:
   - **Inspirations**: Explore community and multi-component showcase projects.
   - **Examples**: Browse built-in, foundational starter examples.
   - **Resources**: Access offline documentation and tutorials.
-- **Bricks Manager**:
+- **Bricks manager**:
   - **Bricks**: Explore modular code blocks.
 - **Settings**: Manage preferences, including Wi-Fi networks, Linux passwords, and keyboard layouts.
 - **Account**: Access your Arduino account settings.
@@ -39,17 +39,17 @@ After configuration, App Lab displays the main interface. The left sidebar conta
 The fastest way to verify your setup is to run a built-in example without modifying it.
 
 1. Select **Inspirations** from the left sidebar.
-2. Select the **Blink LED** example.
+2. Select the **Blink LED from Python** example.
 3. Select the **Run** button (play icon) in the top right corner.
-   ![Screenshot of the "Blink LED" example in Arduino App Lab. The Run button is highlighted.](../../assets/playwright/inspirations/blink-led-run.png)
+   ![Screenshot of the "Blink LED from Python" example in Arduino App Lab. The Run button is highlighted.](../../assets/playwright/inspirations/blink-led-run.png)
 4. App Lab compiles the C++ sketch and runs the code on your board. The **Console** panel opens automatically at the bottom of the editor to show launch progress. You can confirm the App is active when the **Run** button changes to a **Stop** button and a green notification appears at the bottom of the screen.
-5. Once the **Blink LED** App is running, you will see the red LED (LED3_R) on the board blinking on and off.
+5. Once the **Blink LED from Python** App is running, you will see the red LED (LED3_R) on the board blinking on and off.
 
 ## Step 3: Copy and Modify the App
 
 Built-in examples are read-only. To modify the code, you must create a copy of the App.
 
-1. With the **Blink LED** example still open, select **Copy and edit app** in the top right corner.
+1. With the **Blink LED from Python** example still open, select **Copy and edit App** in the top right corner.
 1. Enter a name for your App and select **Create new**. App Lab opens your new editable App.
 1. Find the **File Manager** in the left sidebar.
 1. Open the **python** folder and select the `main.py` file.

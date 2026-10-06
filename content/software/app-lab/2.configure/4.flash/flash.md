@@ -11,12 +11,6 @@ There are two primary methods for flashing your board:
 1. **Built-in Flasher in App Lab:** Use this method for boards already connected and recognized by App Lab.
 2. **Arduino Flasher CLI:** A standalone command-line tool for recovering boards that cannot be reached via App Lab or for performing a low-level hardware reset.
 
-<Alert type="note">
-
-**Important:** These instructions apply to the UNO Q only. For instructions on flashing the VENTUNO Q, see [Flashing the Ubuntu Image](/tutorials/ventuno-q/flash-image/).
-
-</Alert>
-
 ## Use the Built-in Flasher in App Lab
 
 If your board is already discovered by Arduino App Lab, you can initiate a flash directly from the interface.
@@ -24,9 +18,13 @@ If your board is already discovered by Arduino App Lab, you can initiate a flash
 1. Open **Arduino App Lab** and ensure your board is connected.
 2. Select **Settings** (gear icon) from the left sidebar.
 3. Scroll down to the **Operating system** section.
-4. Select the **Flash Board** button.
-5. In the flashing dialog, check **Preserve user data during the board flashing process** if you want to keep the `userdata` partition (mounted at `/home/arduino`).
-6. Follow the on-screen instructions to download the latest image and complete the flashing process.
+4. Select the **Flash board** button. App Lab opens the **Flash board** page.
+5. In the **Configure** step, review the **Build version**. App Lab selects the latest image by default; select **Change** to install a different version.
+6. Choose the data option:
+   * On the **UNO Q**, **Preserve existing data during the board flashing process** is selected by default and keeps the `userdata` partition (mounted at `/home/arduino`). Clear the checkbox for a full reset.
+   * The **VENTUNO Q** image has no separate user partition, so flashing erases all data on the board. **Back up your files or export your Apps before flashing.**
+   ![Screenshot of the Configure step of the Flash board page in Arduino App Lab.](../../assets/playwright/settings/flasher-configure.png)
+7. Select **Start flashing**, then follow the on-screen instructions in the **Preparing the hardware** and **Flash** steps. Flashing cannot be stopped once it starts.
 
    <Alert type="info">
 
@@ -51,6 +49,13 @@ To use the CLI tool, put the board into **Emergency Download Mode (EDL)**.
 1. Disconnect the board from your computer.
 2. Locate the two **EDL pins** on the board.
    ![The EDL pins on the UNO Q.](../../assets/flashing/flashing-pins.png)
+
+   <Alert type="info">
+
+   **Note:** The image shows the EDL pins on the UNO Q. The VENTUNO Q has its EDL pins in a different location; see [Flashing the Ubuntu Image](/tutorials/ventuno-q/flash-image/) for VENTUNO Q instructions.
+
+   </Alert>
+
 3. Short these two pins together using a female-to-female jumper cable or a jumper cap.
 
    <Alert type="info">
@@ -91,18 +96,28 @@ To use the CLI tool, put the board into **Emergency Download Mode (EDL)**.
    **macOS / Linux:**
 
    ```bash
-   ./arduino-flasher-cli flash latest
+   ./arduino-flasher-cli flash unoq
+   # or
+   ./arduino-flasher-cli flash ventunoq
    ```
 
    **Windows:**
 
    ```powershell
-   arduino-flasher-cli.exe flash latest
+   arduino-flasher-cli.exe flash unoq
+   # or
+   arduino-flasher-cli.exe flash ventunoq
    ```
 
    <Alert type="success">
 
-   **Tip:** To keep your stored data and configurations (the `userdata` partition mounted at `/home/arduino`), add the `--preserve-user` flag to the command.
+   **Tip:** If you are flashing an **UNO Q**, you can add the `--preserve-user` flag to the command to keep your stored data and configurations (the `userdata` partition mounted at `/home/arduino`). Note that this flag is not supported for VENTUNO Q, as its image does not have a separate user partition.
+
+   </Alert>
+
+   <Alert type="info">
+
+   **Note:** You can use the `--version <version>` flag to flash a specific image version instead of the latest one, and the `--serial <serial>` flag to target a specific board when multiple are connected. You can also run just `flash` to enter interactive mode.
 
    </Alert>
 
@@ -141,11 +156,11 @@ Flashing requires significant temporary disk space (approx. 8 GB). If your syste
 **macOS / Linux:**
 
 ```bash
-./arduino-flasher-cli flash latest --temp-dir /path/to/larger/disk
+./arduino-flasher-cli flash unoq --temp-dir /path/to/larger/disk
 ```
 
 **Windows:**
 
 ```powershell
-arduino-flasher-cli.exe flash latest --temp-dir D:\path\to\larger\disk
+arduino-flasher-cli.exe flash unoq --temp-dir D:\path\to\larger\disk
 ```

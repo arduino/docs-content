@@ -32,6 +32,16 @@ You can run specific steps of a flow using the `--step` flag:
 - `node runner.js --flow app-lab --step editor` (App creation and Editor panels)
 - `node runner.js --flow app-lab --step run` (App compile, execution, stop, and console)
 - `node runner.js --flow app-lab --step terminal` (Board shell button in the status bar)
+- `node runner.js --flow app-lab --step manage` (Import, Publish on Project Hub, and App release dialogs)
+- `node runner.js --flow app-lab --step agent` (Agent panel in the editor and Agent mode toggle)
+- `node runner.js --flow app-lab --step models` (Hugging Face models in the Large Language Model Brick)
+- `node runner.js --flow app-lab --step settings` (Board extensions, Flash board button, and the flasher configuration step)
+
+The `manage`, `agent`, and `models` steps reuse the `AwesomeApp` created by the `editor` step, and create it when it is missing. The `models` step adds the Large Language Model Brick to `AwesomeApp`; the next `editor` run deletes and recreates the App. No step uploads, builds, installs, or flashes anything: dialogs are captured and closed.
+
+App Lab reopens the last workspace on launch, so the flow returns to the **Apps** page before each step.
+
+When a step fails, the runner writes a DOM dump, a screenshot, and the error details to the `debug/` directory.
 
 ## Modifying Locators and Adding Flows
 

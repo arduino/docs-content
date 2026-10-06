@@ -15,11 +15,30 @@ Currently, **Claude Code™** (by Anthropic) is supported. Additional agents (Co
 
 ## Accessing the Agent Mode
 
-The Agent Mode panel is located in the **bottom-right corner** of the App Lab interface, where an animation will play until you discover it. Clicking on it will enable "Agent Mode" view.
+There are two ways to interact with the Agent depending on your workflow:
+
+### Full-Screen Agent Mode
+
+The full-screen Agent Mode panel is located in the **bottom-right corner** of the App Lab interface (in the status bar). Clicking on it will transform the entire editor into the "Agent Mode" view.
 
 ![Switch to Agent Mode](assets/agent-mode.png)
 
-To go back to normal editor mode, click on the same button. The agent will continue to run in the background and you can easily change between **editor mode** or **agent mode** without interrupting any ongoing processes.
+To go back to normal editor mode, click on the same button. The agent will continue to run in the background and you can easily change between **editor mode** and **agent mode** without interrupting any ongoing processes.
+
+### Agent Panel in the Editor
+
+If you prefer to chat with the agent while keeping your code visible, open the **Agent panel** next to the editor:
+
+* Press **⌘L** (macOS) or **Ctrl+L** (Windows and Linux).
+* Or, click the **Agent panel** button in the top-right corner of the editor tabs bar.
+
+![The Agent panel button in the editor tabs bar](../../assets/playwright/editor/agent-panel-button.png)
+
+The **AI Assistant** panel opens alongside your code, so you can follow the agent's changes in real time. The panel header shows the App the session works on, and buttons to start a new session, browse your session history, and close the panel. When you send a prompt, the agent also receives the file you have open and any code you have selected, so you can ask about a specific part of your code.
+
+![The Agent panel open next to the editor](../../assets/playwright/editor/agent-panel-open.png)
+
+If no agent is installed yet, the panel shows a **Set up an agent** button that takes you to the agent settings.
 
 ## Installing and Authenticating Claude Code
 

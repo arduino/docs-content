@@ -124,7 +124,10 @@ async function run() {
             fs.writeFileSync(dumpPath, htmlContent, 'utf8');
             const logData = `Timestamp: ${new Date().toISOString()}\nURL: ${currentUrl}\nStep: ${stepName}\nError:\n${err.stack || err.message}\n`;
             fs.writeFileSync(logPath, logData, 'utf8');
+            const shotPath = path.join(debugDir, 'failure-screenshot.png');
+            await page.screenshot({ path: shotPath }).catch(() => {});
             console.log(`🔍 Wrote DOM failure dump to: ${dumpPath}`);
+            console.log(`🔍 Wrote failure screenshot to: ${shotPath}`);
             console.log(`🔍 Wrote failure details to: ${logPath}`);
         } catch (dumpErr) {
             console.error(`Could not write failure dump: ${dumpErr.message}`);

@@ -146,9 +146,41 @@ To list available Apps, use the `app list` command.
 arduino-app-cli app list
 ```
 
-This will list all available Apps (including examples), and their status:
+This lists your Apps and the App releases installed on the board. Add `--examples` to list the example Apps, or `--all` to list everything:
+
+```sh
+arduino-app-cli app list --all
+```
+
+To see the live status of Apps on the board (starting, running, stopping, or failed), use the `app ps` command. Add `--all` to also include stopped Apps:
+
+```sh
+arduino-app-cli app ps
+```
+
+<Alert type="info">
+
+**Note:** In Arduino App CLI versions earlier than 0.14, `app list` shows all Apps, including examples, together with their status:
 
 ![List Apps.](assets/list-apps.png)
+
+</Alert>
+
+### Build and Install App Releases
+
+An App release is a ready-to-run package of an App, saved as a `.ard` archive. To build a release from an App, use the `app build` command:
+
+```sh
+arduino-app-cli app build /home/arduino/ArduinoApps/test
+```
+
+To install a release on the board, use the `app install` command. The command also downloads the containers and AI models the release needs:
+
+```sh
+arduino-app-cli app install /path/to/release.ard
+```
+
+See the [Commands reference](../commands/) for all options, and [Create an App Release](../../apps/manage-apps/#create-an-app-release) to create releases from App Lab.
 
 
 ## System Configuration and Updates

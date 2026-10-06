@@ -32,6 +32,26 @@ async function highlightElement(page, highlightDefs, isInsetGlobal = false) {
     if (defsWithHandles.length === 0) return [];
 
     return await page.evaluate((defs) => {
+        // Fail instead of outlining empty space when a target is hidden or covered (e.g. by a panel or dialog).
+        const problems = [];
+        defs.forEach(def => def.nodes.forEach(n => {
+            const r = n.getBoundingClientRect();
+            const name = def.label || `<${n.tagName.toLowerCase()}> "${(n.textContent || '').trim().slice(0, 40)}"`;
+            if (r.width === 0 || r.height === 0) {
+                problems.push(`${name} has no size`);
+                return;
+            }
+            const x = Math.min(Math.max(r.left + r.width / 2, 0), window.innerWidth - 1);
+            const y = Math.min(Math.max(r.top + r.height / 2, 0), window.innerHeight - 1);
+            const hit = document.elementFromPoint(x, y);
+            if (!hit || !(hit === n || n.contains(hit) || hit.contains(n))) {
+                problems.push(`${name} is covered by <${hit ? hit.tagName.toLowerCase() : 'nothing'} class="${hit ? String(hit.className).slice(0, 60) : ''}">`);
+            }
+        }));
+        if (problems.length > 0) {
+            throw new Error(`Highlight target not visible: ${problems.join('; ')}`);
+        }
+
         const labelRectsResult = [];
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         svg.setAttribute('class', 'playwright-highlight-overlay');

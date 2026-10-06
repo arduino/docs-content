@@ -40,7 +40,7 @@ The system also manages two configuration files: `app.yaml` (mandatory manifest 
    - _Create new file_
    - _Create new folder_
 
-You can also click the **Add File** to create a new file or folder at the same level as your current selection.
+You can also click the **Add file** button to create a new file or folder at the same level as your current selection.
 
 ### Rename or Delete Files and Folders
 
@@ -70,6 +70,7 @@ Arduino App Lab includes integrated Language Server Protocol (LSP) support for P
 - **Auto-completion**: As you type, the editor suggests functions, variables, and imported modules.
 - **Syntax Diagnostics**: Errors and warnings are highlighted in real-time. Hover over highlighted code to read the error message.
 - **Go-to-Definition**: Hold `Ctrl` (or `Cmd` on Mac) and click on a function or variable to jump directly to where it is defined.
+- **Find All References**: Right-click a function or variable and select **Find All References** to list every place it is used. Select a result in the **References** panel to jump to it.
 
 You can verify the LSP is active by checking the **STATUS** indicator in the bottom right corner of the status bar.
 
@@ -220,21 +221,9 @@ See [Getting Started with the Bridge](../../bridge/get-started-with-bridge/) to 
 
 ## Agent Mode (AI Assistant)
 
-Arduino App Lab features a built-in AI coding assistant designed to help you write, understand, and debug code.
+Arduino App Lab features a built-in AI coding assistant designed to help you write, understand, and debug code autonomously. You can chat with the agent in a split-view panel alongside your code (`⌘L`), or toggle the full-screen **Agent Mode** from the footer status bar to access your full session history.
 
-To use the AI assistant:
-
-1. Locate the footer status bar at the bottom of the screen.
-2. Toggle the switch from **EDITOR** to **AGENT MODE**.
-   ![Screenshot of the status bar in Arduino App Lab, highlighting the Agent Mode toggle.](../../assets/playwright/statusbar-controls-hl.png)
-3. App Lab switches from the editor to the **Agent Mode** view.
-
-You can prompt the agent to:
-
-- Scaffold boilerplate code for new features.
-- Suggest appropriate Bricks for your project goals.
-- Explain complex code segments.
-- Debug compilation errors or runtime exceptions.
+To learn how to install, configure, and prompt the AI, see the [Agent Mode integration guide](../../integrations/agent-mode/).
 
 ## Running and Monitoring Your App
 
@@ -245,5 +234,6 @@ Monitor your App using the **Console** panel at the bottom of the editor by sele
 - **App launch**: Compilation output and deployment logs.
 - **Serial Monitor**: `Monitor.print()` or `Serial.print()` output from your Arduino sketch.
 - **Python**: `print()` output from your Python script.
+- **Brick logs**: One tab for each Brick that runs in its own container.
 
 See [Run and Monitor Apps](../run/) to learn more.

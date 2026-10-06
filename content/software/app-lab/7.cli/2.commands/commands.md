@@ -42,16 +42,71 @@ A CLI tool to manage Arduino Apps, including starting, stopping, logging, and pr
 
 **Subcommands:**
 
+* [brick](#app-brick)
+* [build](#app-build)
 * [clean-cache](#app-clean-cache)
 * [destroy](#app-destroy)
 * [export](#app-export)
 * [import](#app-import)
+* [install](#app-install)
 * [list](#app-list)
 * [logs](#app-logs)
 * [new](#app-new)
+* [ports](#app-ports)
+* [ps](#app-ps)
 * [restart](#app-restart)
 * [start](#app-start)
 * [stop](#app-stop)
+
+## app brick
+
+Manage the bricks of an Arduino App
+
+**Usage:**
+`arduino-app-cli app brick [subcommand]`
+
+**Subcommands:**
+
+* [config](#app-brick-config)
+
+## app brick config
+
+Set the value of a brick's variable in an Arduino App.
+
+The variables are given as name=value pairs, and an empty value clears one. Only the
+variables named are changed, as the app API does it.
+
+If the given app is an App Release, then only brick variables that are secret can be
+changed.
+
+**Usage:**
+`arduino-app-cli app brick config <app_path> brick_id [name=value...] [flags]`
+
+**Options:**
+
+* `--model`: The AI model the brick runs, by id
+
+## app build
+
+Build an Arduino App into a release archive.
+
+The release is the app frozen with all its dependencies: the python environment is
+built and the compose files are resolved for the target board, so that installing
+it generates nothing. The release is named after the build date, and the target
+board defaults to the one running the build.
+
+**Usage:**
+`arduino-app-cli app build <app_path> [flags]`
+
+**Options:**
+
+* `--include-data`: Include data directory in the archive
+* `--notes`: File with the release notes, or - to read them from the standard input
+* `-o, --output`: Output archive, which names the release folder as well, or the directory to write it in
+* `--overwrite`: Overwrite the output archive if it exists
+* `--release-label`: Optional label to attach to the release, stored in its manifest
+* `--target`: Board the release is built for (unoq, ventunoq). Defaults to the board running the build
+* `-v, --verbose`: Enable verbose output
 
 ## app clean-cache
 
@@ -92,15 +147,40 @@ Use '-' as zip_path to read the zip from stdin.
 **Usage:**
 `arduino-app-cli app import <zip_path>`
 
+## app install
+
+Install an Arduino App release archive.
+
+A release is installed in the releases dir, apart from the apps, and it is read
+only: the python environment and the compose files the build froze are its cache,
+so that starting it generates nothing and nothing may change it. It must be built
+for this board, and it is named after the release, date included.
+
+The install then downloads what the release needs to run, its containers and its
+models, which a start would otherwise wait for. Pass --no-prepare to install the
+release alone, and prepare it later with 'start --prepare'.
+
+**Usage:**
+`arduino-app-cli app install release_path [flags]`
+
+**Options:**
+
+* `--no-prepare`: Install the release alone, without downloading its containers and its models
+
 ## app list
 
-List the Arduino apps
+List the Arduino apps catalog.
+By default the user apps and the apps installed from a release are shown. Use --examples to list the example apps, --releases to list only the apps installed from a release, or --all to list everything.
+To see the live status of the apps on the board, use 'app ps' instead.
 
 **Usage:**
 `arduino-app-cli app list [flags]`
 
 **Options:**
 
+* `-a, --all`: List user apps, example apps and apps installed from a release
+* `--examples`: Only list the example apps
+* `--releases`: Only list the apps installed from a release
 * `--show-broken-apps`: Output a list of broken apps
 
 ## app logs
@@ -127,9 +207,28 @@ Creates a new Arduino App
 
 * `-b, --bricks`: List of bricks to include in the app
 * `-d, --description`: Description for the app
-* `--from-app`: Create the new app from the path of an existing app
+* `--from-app`: Create the new app from an existing app, example or App Release (path or ID)
 * `-i, --icon`: Icon for the app
 * `--no-sketch`: Do not include Sketch files
+
+## app ports
+
+Show the ports exposed by an app: the ones declared by its app.yaml, the ones declared by its bricks, and the ones published by the services the bricks require.
+
+**Usage:**
+`arduino-app-cli app ports <app_path>`
+
+## app ps
+
+List the Arduino apps that have been initialized at least once, and their live status.
+By default, only starting, running, stopping and failed apps are shown. Use --all to also include stopped apps. Apps that have never been started are never shown; use 'app list' to browse the full catalog instead.
+
+**Usage:**
+`arduino-app-cli app ps [flags]`
+
+**Options:**
+
+* `-a, --all`: Also show stopped apps
 
 ## app restart
 
@@ -151,6 +250,7 @@ Start an Arduino App
 
 **Options:**
 
+* `--no-prepare`: Start the app without preparing it first, failing if its containers or models are not already on the board
 * `-v, --verbose`: Enable verbose output
 
 ## app stop
@@ -242,6 +342,7 @@ Manage Arduino Models
 **Subcommands:**
 
 * [delete](#model-delete)
+* [install](#model-install)
 * [list](#model-list)
 
 ## model delete
@@ -254,6 +355,21 @@ Delete the provided custom model
 **Options:**
 
 * `--force`: Delete model in use.
+
+## model install
+
+Install the provided model.
+
+The argument is a model id from the catalog, a llama.cpp Hugging Face id
+("llamacpp:owner/repo[:quant]"), or the URL of a model file the catalog does not
+declare.
+
+**Usage:**
+`arduino-app-cli model install [flags]`
+
+**Options:**
+
+* `--mmproj-url`: URL of the companion mmproj file, when installing from a URL or a llama.cpp id
 
 ## model list
 
@@ -308,11 +424,19 @@ Manage the board’s system configuration
 
 **Subcommands:**
 
+* [check](#system-check)
 * [cleanup](#system-cleanup)
 * [keyboard](#system-keyboard)
 * [network-mode](#system-network-mode)
 * [set-name](#system-set-name)
 * [update](#system-update)
+
+## system check
+
+Verify the board provides what the apps need of it
+
+**Usage:**
+`arduino-app-cli system check`
 
 ## system cleanup
 

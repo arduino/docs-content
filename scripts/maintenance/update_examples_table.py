@@ -38,9 +38,9 @@ def build_markdown_table():
         return None
 
     sections = [
-        ("Common Examples", os.path.join(inspirational_dir, "common")),
-        ("Examples for UNO Q", os.path.join(inspirational_dir, "platform_unoq")),
-        ("Examples for VENTUNO Q", os.path.join(inspirational_dir, "platform_ventunoq")),
+        ("Common Inspirations", os.path.join(inspirational_dir, "common")),
+        ("Inspirations for UNO Q", os.path.join(inspirational_dir, "platform_unoq")),
+        ("Inspirations for VENTUNO Q", os.path.join(inspirational_dir, "platform_ventunoq")),
     ]
 
     output_sections = []
@@ -86,7 +86,7 @@ def build_markdown_table():
 
             table_rows = [
                 f"### {section_title}\n",
-                "| Example | Description | Source |",
+                "| Name | Description | Source |",
                 "| --- | --- | --- |"
             ]
             for example in examples_data:

@@ -71,7 +71,7 @@ When you export for the UNO Q, you get an **.eim (Edge Impulse Model)** file. Th
 
 ## Creating your Custom AI Model
 
-- Inside the Arduino App Lab, navigate to **My Apps** and click on **Create New App**. Give it a name and save it.
+- Inside the Arduino App Lab, navigate to **Apps** and click on **Create new App +**. Give it a name and save it.
 - In your App Python file, update the `main.py` script by copying and pasting this:
 
   ```python
@@ -265,6 +265,32 @@ To use it in your App, click on the **Install** button and wait for it to be bui
 Finally, you can select your new model by clicking on your **Brick Configuration** button.
 
 ![Model selection](assets/app-lab-23.1.png)
+
+### Adding Models from Hugging Face
+
+For language models, you can also download an existing model directly from **Hugging Face** without training one.
+
+<Alert type="note">
+
+**Important:** This feature is only available for the **Large Language Model (LLM)** Brick (`arduino:llm`).
+
+</Alert>
+
+To add a model:
+
+1. Ensure your App includes the **Large Language Model (LLM)** Brick.
+2. Select the Brick in the **Bricks** section of the editor sidebar and open the **AI Models** tab.
+3. Under **Bring your own model**, click **Add model from Hugging Face**.
+   ![The Add model from Hugging Face button in the AI Models tab](../../assets/playwright/bricks/llm-ai-models-hugging-face-hl.png)
+4. Enter the model ID in the format `owner/model-name` (e.g., `unsloth/Qwen3.5-0.8B-GGUF`), or paste the full URL of the model page. You can also paste the URL of a specific `.gguf` file from the **Files and versions** tab of the model repository.
+   ![The Add model dialog](../../assets/playwright/bricks/hugging-face-add-model-dialog.png)
+5. Click **Download model**. App Lab checks that the model is compatible, downloads it to your board, and selects it for the Brick.
+
+<Alert type="success">
+
+**Tip:** To find a model ID, open the model on [huggingface.co/models](https://huggingface.co/models) and click the copy icon next to the model name at the top of the page.
+
+</Alert>
 
 ### Running the App
 

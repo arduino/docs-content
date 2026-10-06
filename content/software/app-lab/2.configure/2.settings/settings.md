@@ -19,7 +19,7 @@ You can only access the Settings menu when connected to a board.
 
 ## Settings Overview
 
-The settings page is divided into five sections that allow you to manage the Arduino App Lab software, view hardware details, and configure the board's system and network settings.
+The settings page is divided into sections that allow you to manage the Arduino App Lab software, view hardware details, connect the board to Arduino Cloud, configure board extensions, manage the board's system and network settings, and set up an AI agent.
 
 ### Arduino App Lab
 
@@ -37,6 +37,27 @@ This section identifies the properties of the connected board.
 - **FQBN**: The Fully Qualified Board Name used by the compilation tools, such as `arduino:zephyr:unoq`.
 - **Serial Number**: The unique hardware serial number of the board.
 - **Disk Storage**: Used capacity versus the total available storage capacity.
+
+### Arduino App-Cloud Connector
+
+This section links the board to your Arduino Cloud account.
+
+- **Connect your device to Arduino Cloud**: Select the **Connect device** button to provision the board for Arduino Cloud.
+- **Manage your device on Arduino Cloud**: Select **More info** to learn how to manage the board from Arduino Cloud.
+
+### Board Extensions
+
+This section configures carriers attached to your board.
+
+- **Carriers connected to your board**: Turn on the toggle when a carrier is attached, then select which peripheral you are connecting to the carrier. Select **How to attach a carrier** for instructions.
+
+![Screenshot of the Board extensions section in the Arduino App Lab settings.](../../assets/playwright/settings/settings-board-extensions-hl.png)
+
+<Alert type="note">
+
+**Important:** Attach carriers while the board is powered off. If your board runs an older system version, App Lab asks you to update the board before you can configure board extensions.
+
+</Alert>
 
 ### System Info
 
@@ -56,7 +77,9 @@ This section details the low-level firmware and OS image currently running on th
 - **Linux Distribution**: The active Linux distribution and version.
 - **Kernel Version**: The active Linux kernel version.
 - **Release date**: The release date of the installed OS image.
-- **Install another OS version (Flash)**: Select the **Flash Board** button to initiate the flashing process and install a different operating system image. See [Flash a New Linux Image](../flash/) to learn more.
+- **Install another OS version (flash)**: Select the **Flash board** button to initiate the flashing process and install a different operating system image. See [Flash a New Linux Image](../flash/) to learn more.
+
+![Screenshot of the Operating system section in the Arduino App Lab settings, highlighting the Flash board button.](../../assets/playwright/settings/settings-flash-board-hl.png)
 
 ### Network Connections
 
@@ -64,3 +87,7 @@ This section manages the active network interfaces.
 
 - **SSID**: The name of the currently connected Wi-Fi network. Select the **Change network** button to connect the board to a different wireless network.
 - **IP**: The local IP address currently assigned to the board.
+
+### Agent
+
+This section lists the AI coding agents you can use in [Agent Mode](../../integrations/agent-mode/). Select **Install** on an agent card to install it on your computer and sign in.
