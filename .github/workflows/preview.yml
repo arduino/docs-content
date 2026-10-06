@@ -5,7 +5,7 @@ on:
     branches:
       - main
   pull_request:
-    types: [opened, synchronize, labeled]
+    types: [labeled]
 
 concurrency:
   group: netlify-${{ github.workflow }}-${{ github.ref }}
@@ -16,7 +16,7 @@ jobs:
   # It's a separate job so we don't have to cleanup the machine afterwards.
   render-datasheets:
     name: Render Datasheets
-    if: ${{ contains(github.event.pull_request.labels.*.name, 'preview') || github.ref_name == 'main' }}
+    if: ${{ github.event.label.name == 'preview' || github.ref_name == 'main' }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -65,7 +65,7 @@ jobs:
           datasheets-path: static/resources/datasheets
 
   preview-build:
-    if: ${{ contains(github.event.pull_request.labels.*.name, 'preview') || github.ref_name == 'main' }}
+    if: ${{ github.event.label.name == 'preview' || github.ref_name == 'main' }}
     runs-on: docs-ubuntu-8core
     needs: render-datasheets
     timeout-minutes: 150
