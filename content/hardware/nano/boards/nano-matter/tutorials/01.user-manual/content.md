@@ -1962,7 +1962,9 @@ The DAC voltage reference can be configured using the `analogReferenceDAC()` fun
 |     DAC_VREF_1V25     | Internal 1.25V reference |
 |     DAC_VREF_2V5      | Internal 2.5V reference  |
 |     DAC_VREF_AVDD     |        Analog VDD        |
-| DAC_VREF_EXTERNAL_PIN |    External AREF pin     |
+| DAC_VREF_EXTERNAL_PIN* |    External AREF pin     |
+
+> *Requires the AREF jumper on the bottom of the board to be shorted. See the note in the Analog Input Pins (ADC) section.
 
 ```arduino
 analogReferenceDAC(DAC_VREF_2V5);  // enter the desired reference as argument

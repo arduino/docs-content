@@ -132,6 +132,9 @@ The Nano-styled header connectors pinout is shown in the figure below.
 The <strong>Nano Matter with headers (ABX00137)</strong> shares the same architecture as the <strong>Nano Matter (ABX00112)</strong> but comes with headers pre-installed.
 </div>
 
+> [!NOTE]
+> **Note:** The AREF pin is not connected to the microcontroller by default. To use an external analog reference, close the AREF solder jumper on the bottom of the board with a small amount of solder. Note that this pin is shared with the user button.
+
 <div style="page-break-after: always;"></div>
 
 ### Block Diagram
@@ -178,15 +181,15 @@ If you want to program your Nano Matter offline, install the Arduino Desktop IDE
 
 ### Getting Started - Arduino Cloud
 
-While the Nano Matter does not have built-in Wi-Fi, it is possible to integrate it with the Arduino Cloud using a workaround based on its Matter protocol and the Arduino Cloud API. By connecting the board to a third-party Matter controller (like Home Assistant), you can forward data to the Arduino Cloud.
+While the Nano Matter does not have built-in Wi-Fi, it is possible to integrate it with the Arduino Cloud using a workaround based on its Matter protocol and the Arduino Cloud API. By connecting the board to a third-party Matter controller (like Home Assistant), you can forward data to the Arduino Cloud. To get started with the Arduino Cloud, see **[2]**.
 
 ### Sample Sketches
 
-Sample sketches for the Nano Matter can be found either in the “Examples” menu in the Arduino IDE or the “Nano Matter Documentation” section of Arduino documentation **[4]**.
+Sample sketches for the Nano Matter can be found either in the “Examples” menu in the Arduino IDE or the “Nano Matter Documentation” section of Arduino documentation **[3]**.
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]**, the Arduino Library Reference **[6]**, and the online store **[7]** where you will be able to complement your Nano Matter board with additional extensions, sensors, and actuators.
+Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking out exciting projects on Arduino Project Hub **[4]**, the Arduino Library Reference **[5]**, and the online store **[7]**, where you will be able to complement your Nano Matter board with additional extensions, sensors, and actuators.
 </div>
 
 <div style="page-break-after: always;"></div>
@@ -363,7 +366,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 |  **Date**  | **Revision** |                          **Changes**                          |
 | :--------: | :----------: | :-----------------------------------------------------------: |
-| 05/10/2026 |      8       | Updating the protocols supported and programming environments |
+| 05/10/2026 |      8       | Updating supported protocols, programming environments and AREF jumper note |
 | 24/03/2026 |      7       |          Updating top image to include both variants          |
 | 01/12/2025 |      6       |  Additional note on multiple SKUs and certification updates   |
 | 11/02/2025 |      5       |     Header Version and SKU added as Collective Datasheet      |
