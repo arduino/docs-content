@@ -20,7 +20,7 @@ You will run the `turtlesim` simulation to see nodes, topics and services workin
 
 ![Turtlesim Example (2_1)](assets/unoq_ros2_turtlesim_circle.gif)
 
-This tutorial continues from [Getting Started with ROS 2 on UNO Q](/tutorials/uno-q/ros2-setup/). It assumes you already have the ROS 2 container set up and running.
+This tutorial continues from [Getting Started with ROS 2 on UNO Q](/tutorials/uno-q/ros2-setup/). It uses the same project files, `docker-compose.yml` and container you set up there, without changes.
 
 <Alert type="info">
 
@@ -30,7 +30,7 @@ This tutorial continues from [Getting Started with ROS 2 on UNO Q](/tutorials/un
 
 ## Goals
 
-- Resume the ROS 2 container and install the tutorial packages.
+- Resume the ROS 2 container from the setup tutorial.
 - Understand the fundamental concepts of ROS 2: nodes, topics, services and actions.
 - Run the `turtlesim` example and control the turtle through topics and services.
 - Check a running system with the ROS 2 command-line tools.
@@ -57,7 +57,6 @@ The `turtlesim` sections of this tutorial open a graphical window, so the board 
 ### Software Requirements
 
 - The ROS 2 container from [Getting Started with ROS 2 on UNO Q](/tutorials/uno-q/ros2-setup/), set up and verified, with the project files in the `~/ros2` folder on the board.
-- An active internet connection on the board to install the tutorial packages.
 
 ## Resuming the Container
 
@@ -91,57 +90,23 @@ Then open a shell inside the same container:
 docker compose exec ros2 bash
 ```
 
-## Installing the Tutorial Packages
+## Checking the Tutorial Packages
 
-Add the packages this tutorial needs to the container image, the same way you added the demo nodes in the previous tutorial. From a terminal on the board, inside the `~/ros2` folder, open the `Dockerfile`:
-
-```bash
-nano Dockerfile
-```
-
-Add a text editor to the common tools block and `turtlesim` to the demo nodes block:
+The image you built in the previous tutorial already includes everything this tutorial needs: `turtlesim`, the colcon build tool and the `nano` text editor. In your container shell, check that `turtlesim` is available:
 
 ```bash
-# Install common tools
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    git \
-    nano \
-    python3-colcon-common-extensions \
-    python3-rosdep \
-    python3-pip && \
-    rm -rf /var/lib/apt/lists/*
-
-# Install the ROS 2 demo nodes (talker / listener) and turtlesim
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    ros-jazzy-demo-nodes-py \
-    ros-jazzy-demo-nodes-cpp \
-    ros-jazzy-turtlesim && \
-    rm -rf /var/lib/apt/lists/*
+ros2 pkg list | grep turtlesim
 ```
 
-In each block, only the last package carries `&&`, which separates the install command from the cleanup command that follows. Every other package line ends with just a backslash.
+![Checking the tutorial packages](assets/unoq_ros2_project_1.png)
 
-Since `ros-jazzy-turtlesim` is now the last package in the demo nodes block, remove the `&&` from the `ros-jazzy-demo-nodes-cpp` line. If it stays, the build fails with a `not found` error.
-
-Save the file with `Ctrl+O` and exit with `Ctrl+X`. Then rebuild the image and recreate the container:
+The output should show `turtlesim`. If nothing is printed, the image was built without it. Add it to the `Dockerfile` as shown in the [Installing the Packages](/tutorials/uno-q/ros2-setup/#installing-the-packages) section of the previous tutorial. Then rebuild the image from a terminal on the board, inside the `~/ros2` folder:
 
 ```bash
 docker compose up -d --build
 ```
 
-![Installing the tutorial packages](assets/unoq_ros2_project_1.png)
-
-Rebuilding closes any shells that were open in the previous container. Open a new one:
-
-```bash
-docker compose exec ros2 bash
-```
-
-`colcon` is the standard ROS 2 build tool. It reads each package's build configuration and compiles them in the correct order. It is already part of the image, installed in the common tools block, and you will use it later in this tutorial.
-
-These packages stay installed as long as they are listed in the `Dockerfile`, even when the container is recreated.
+`colcon` is the standard ROS 2 build tool. It reads each package's build configuration and compiles them in the correct order. You will use it later in this tutorial.
 
 ## Turtlesim Example
 
@@ -257,7 +222,7 @@ Getting comfortable with these commands helps because they work the same way reg
 
 ## Creating First ROS 2 Project
 
-With ROS 2 verified and turtlesim explored, the next step is to build a project from scratch. You will create a workspace, write a publisher node and a subscriber node in Python®, build the package, and run both nodes to see them communicate.
+With ROS 2 verified and turtlesim explored, the next step is to build a project from scratch. You will create a package in the shared workspace, write a publisher node and a subscriber node in Python®, build the package and run both nodes to see them communicate.
 
 This section follows the official ROS 2 Python® publisher and subscriber guide, adapted to run on the UNO Q. The full reference is available at [Writing a Simple Publisher and Subscriber (Python)](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html).
 
@@ -372,7 +337,7 @@ Each time the callback fires, it builds a `String` message with the current coun
 
 <Alert type="note">
 
-**Note:** The container image does not include a text editor by default, which is why `nano` was installed with the tutorial packages earlier. You can also edit these files from the board's desktop session, since the workspace is shared.
+**Note:** The `nano` editor is available in the container because you added it to the `Dockerfile` in the previous tutorial. You can also edit these files from the board's desktop session, since the workspace is shared.
 
 </Alert>
 
@@ -491,7 +456,7 @@ You should see it receiving and printing each message the publisher sends:
 [INFO] [unoq_subscriber]: Received: "Hello from UNO Q: 2"
 ```
 
-![Creating First ROS 2 Project (4)](assets/unoq_ros2_project_5.png)
+![Creating First ROS 2 Project (3)](assets/unoq_ros2_project_4.png)
 
 If both nodes show the expected output, your first ROS 2 project is working correctly.
 
@@ -516,7 +481,7 @@ ros2 node list
 ros2 topic list
 ```
 
-![Creating First ROS 2 Project (5)](assets/unoq_ros2_project_6.png)
+![Creating First ROS 2 Project (4)](assets/unoq_ros2_project_5.png)
 
 `ros2 topic echo` prints each message as it arrives on the topic in real time, which is a quick way to check that data is streaming without running a dedicated subscriber node:
 
@@ -524,7 +489,7 @@ ros2 topic list
 ros2 topic echo /unoq_topic
 ```
 
-![Creating First ROS 2 Project (6)](assets/unoq_ros2_project_7.png)
+![Creating First ROS 2 Project (5)](assets/unoq_ros2_project_6.png)
 
 `ros2 topic info` shows the message type, how many nodes are publishing to the topic, and how many are subscribed to it:
 
@@ -532,7 +497,7 @@ ros2 topic echo /unoq_topic
 ros2 topic info /unoq_topic
 ```
 
-![Creating First ROS 2 Project (7)](assets/unoq_ros2_project_8.png)
+![Creating First ROS 2 Project (6)](assets/unoq_ros2_project_7.png)
 
 ## Troubleshooting
 

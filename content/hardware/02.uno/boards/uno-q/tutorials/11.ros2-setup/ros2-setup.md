@@ -209,6 +209,12 @@ On a 32 GB board, for example, the root partition can be around 10 GB and the ho
 
 By default, Docker stores all images, containers and build data under `/var/lib/docker`, which is on the root partition. A ROS 2 image can fill that partition quickly, and removing unused data with `docker system prune` only recovers space after the fact. Move Docker's data folder to the larger partition before pulling any ROS 2 image.
 
+<Alert type="info">
+
+**Note:** You can also change the partition sizes when flashing the board. The Arduino Flasher CLI runs on your computer and flashes the UNO Q connected over USB-C. Version 0.5.4 and later let you set the root partition size, either through the interactive wizard that starts when you run `arduino-flasher-cli flash` without arguments, or with the `--root-size` option, for example, `arduino-flasher-cli flash unoq --root-size 12GB`. Changing the partition sizes erases the whole board, including your home directory, so back up your files first. See the [UNO Q flashing guide](https://docs.arduino.cc/software/app-lab/configure/flash/) for the full procedure. Moving Docker's data folder, as shown below, works without reflashing.
+
+</Alert>
+
 ### Moving Docker's Data Folder
 
 Stop the Docker service and its socket, so Docker does not restart while you change its configuration:
@@ -337,7 +343,7 @@ This grants local containers access to your display for the current session only
 
 </Alert>
 
-### Installing the Demo Packages
+### Installing the Packages
 
 Instead of installing packages by hand inside a running container, add them to the container image through the `Dockerfile`. Anything installed with `apt` inside a running container is lost when the container is recreated, while packages listed in the `Dockerfile` are part of the image and are present every time the container starts.
 
@@ -356,37 +362,43 @@ ENV ROS_WS=/ros2_ws
 WORKDIR ${ROS_WS}
 ```
 
-Each `RUN` instruction executes a command while the image is being built. Every package block follows the same pattern: refresh the package lists, install the packages, then delete the downloaded lists to keep the image small. The first block installs the tools used to build ROS 2 packages:
+Each `RUN` instruction executes a command while the image is being built. Every package block follows the same pattern: refresh the package lists, install the packages, then delete the downloaded lists to keep the image small.
+
+The first block installs the tools used to build ROS 2 packages. The ROS 2 base image does not include a text editor, which you will need in the next tutorial to write code inside the container. Add `nano` to the list:
 
 ```bash
 # Install common tools
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     git \
+    nano \
     python3-colcon-common-extensions \
     python3-rosdep \
     python3-pip && \
     rm -rf /var/lib/apt/lists/*
 ```
 
-The second block installs the demo nodes used to verify the installation. Add `ros-jazzy-demo-nodes-cpp` to it:
+The second block installs the demo nodes. Add `ros-jazzy-demo-nodes-cpp`, which you use to verify the installation in this tutorial, and `ros-jazzy-turtlesim`, the simulation used in the next tutorial:
 
 ```bash
-# Install the ROS 2 demo nodes (talker / listener)
+# Install the ROS 2 demo nodes (talker / listener) and turtlesim
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     ros-jazzy-demo-nodes-py \
-    ros-jazzy-demo-nodes-cpp && \
+    ros-jazzy-demo-nodes-cpp \
+    ros-jazzy-turtlesim && \
     rm -rf /var/lib/apt/lists/*
 ```
 
-In each block, only the last package carries `&&`, which separates the install command from the cleanup command after it. Every other package line ends with just a backslash. Since `ros-jazzy-demo-nodes-cpp` is now the last package in the block, move the `&&` from the `ros-jazzy-demo-nodes-py` line to it. If it stays on the previous line, the build fails with a `not found` error.
+In each block, only the last package carries `&&`, which separates the install command from the cleanup command after it. Every other package line ends with just a backslash.
+
+Since `ros-jazzy-turtlesim` is now the last package in the block, move the `&&` from the `ros-jazzy-demo-nodes-py` line to it. If it stays on an earlier line, the build fails with a `not found` error.
 
 Save the file with `Ctrl+O` and exit with `Ctrl+X`.
 
-![Installing the demo packages](assets/unoq_ros2_docker_5.png)
+![Installing the packages](assets/unoq_ros2_docker_5.png)
 
-The same pattern works for any package available for Ubuntu 24.04, including ROS 2 packages, whose names follow the `ros-jazzy-<package-name>` format. The next tutorial uses it to add the packages it needs.
+The same pattern works for any package available for Ubuntu 24.04, including ROS 2 packages, whose names follow the `ros-jazzy-<package-name>` format. To add a package later, list it in the `Dockerfile` and rebuild the image.
 
 The rest of the `Dockerfile` copies the workspace sources into the image, installs their dependencies with `rosdep` and builds them with colcon. It also adds the ROS 2 setup files to the container's `.bashrc`, so every shell you open has ROS 2 and your workspace available without sourcing anything by hand. Finally, it sets `ros_entrypoint.sh` as the script that runs when the container starts.
 
@@ -587,7 +599,7 @@ If `ros2 run demo_nodes_cpp talker` reports `Package 'demo_nodes_cpp' not found`
 grep demo Dockerfile
 ```
 
-If `ros-jazzy-demo-nodes-cpp` is missing, add it as shown in the [Installing the Demo Packages](#installing-the-demo-packages) section. Then rebuild the image and recreate the container:
+If `ros-jazzy-demo-nodes-cpp` is missing, add it as shown in the [Installing the Packages](#installing-the-packages) section. Then rebuild the image and recreate the container:
 
 ```bash
 docker compose up -d --build
