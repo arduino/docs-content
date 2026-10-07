@@ -41,8 +41,8 @@ This user manual will guide you through the advanced multimedia capabilities of 
 The UNO Media Carrier extends the multimedia capabilities of compatible boards, enabling advanced vision, display, and audio applications with plug-and-play simplicity. It connects via the JMEDIA and JMISC high-speed connectors, providing access to dual MIPI-CSI camera interfaces, a MIPI-DSI display interface, and three 3.5 mm audio jacks, all in the UNO form factor.
 
 Key features include:
-- **1x MIPI DSI Interface:** For connecting high-resolution LCD/OLED displays.
-- **2x MIPI CSI Interfaces:** For connecting dual camera modules (e.g., IMX708, IMX219).
+- **1x MIPI DSI Interface:** For connecting LCD panels, ([supported models](#compatible-mipi-dsi-displays)).
+- **2x MIPI CSI Interfaces:** For connecting dual camera modules (e.g. IMX219).
 - **3x Audio Jacks:** Dedicated ports for Line Out, Ear Out, and a CTIA-standard Headset (Mic + Headphones).
 - **4x RGB LEDs:** Controlled via an onboard I2C expander.
 
@@ -272,7 +272,7 @@ You should see your Media Carrier LEDs blinking as follows:
 
 ### MIPI Camera
 
-The UNO Media Carrier features two 22-pin MIPI-CSI connectors compatible with standard Raspberry Pi cameras, enabling dual-camera computer vision applications such as stereo depth mapping, multi-angle capture, and object tracking.
+The UNO Media Carrier features two 22-pin MIPI-CSI connectors compatible with the Raspberry Pi Camera Module 2 (IMX219), enabling dual-camera computer vision applications such as stereo depth mapping, multi-angle capture, and object tracking.
 
 ![Media Carrier MIPI-CSI](assets/csi-real-setup.png)
 
@@ -408,7 +408,7 @@ With Cheese you will get the same color results as before by using the CLI.
 
 ### MIPI Display
 
-The UNO Media Carrier features a 22-pin MIPI-DSI connector compatible with standard Raspberry Pi displays, enabling interactive visual output for applications such as touchscreen user interfaces, real-time data dashboards, and multimedia playback.
+The UNO Media Carrier features a 22-pin MIPI-DSI connector compatible with specific Raspberry Pi displays (see supported models below), enabling interactive visual output for applications such as touchscreen user interfaces, real-time data dashboards, and multimedia playback.
 
 ![Media Carrier MIPI-DSI](assets/dsi-real-setup.png)
 
@@ -416,9 +416,19 @@ To use a MIPI display, connect it to the "DISPLAY" connector with the UNO Q **un
 
 ![MIPI Cable Orientation](assets/mipi-orientation-2.png)
 
-<Alert type="note">
+#### Compatible MIPI DSI Displays
 
-Waveshare 5, 8 and 10 inches displays supported, we will be adding support for other ones in the future.
+![Compatible Displays](assets/compatible-displays.png)
+
+| Preset Setting   | Display Model                                                                 | Specifications                       |
+| :--------------- | :---------------------------------------------------------------------------- | :----------------------------------- |
+| `5-dsi-touch-a`  | [Waveshare 5″ DSI LCD (A)](https://www.waveshare.com/5-dsi-touch-a.htm)       | 800×480 resolution, capacitive touch |
+| `8-dsi-touch-a`  | [Waveshare 8″ DSI LCD (A)](https://www.waveshare.com/8-dsi-touch-a.htm)       | 1280×800 IPS, capacitive touch       |
+| `10-dsi-touch-a` | [Waveshare 10.1″ DSI LCD (A)](https://www.waveshare.com/10.1-dsi-touch-a.htm) | 1280×800 IPS, capacitive touch       |
+
+<Alert type="warning">
+
+Different displays than the ones listed above are not compatible out of the box. But you can manually support them by modifying the devicetree ([tool here](https://github.com/dcuartielles/uno_q_dsi_displays)).
 
 </Alert>
 

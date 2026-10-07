@@ -10,7 +10,7 @@ type: maker
 
 <p style="text-align: justify;">The Arduino UNO Media Carrier extends the multimedia capabilities of compatible host boards (UNO Q), enabling advanced vision, display, and audio applications with plug-and-play simplicity. Designed for easy integration, it connects via the JMEDIA and JMISC high-speed connectors, both of which feature passthrough designs to keep all pins available for additional modules or carriers in your setup.</p>
 
-<p style="text-align: justify;">Equipped with two MIPI CSI connectors for IMX219 cameras (e.g. Raspberry Pi Camera Module 2), the carrier opens the door to dual-camera computer vision projects, from stereo depth mapping to multi-angle image capture. A MIPI DSI interface provides compatibility with standard 22-pin 4 lanes MIPI DSI displays (e.g. Waveshare), making it easy to add rich, interactive visual output to your projects without additional adapters. For audio, the carrier includes three dedicated 3.5 mm jacks: one combined microphone input and headphone output for flexible audio capture and monitoring, one line out for connecting to amplifiers or powered speakers, and one ear out enabling Class-AB differential earpiece output.</p>
+<p style="text-align: justify;">Equipped with two MIPI CSI connectors for IMX219 cameras (e.g. Raspberry Pi Camera Module 2), the carrier opens the door to dual-camera computer vision projects, from stereo depth mapping to multi-angle image capture. A MIPI DSI interface provides compatibility with specific MIPI DSI displays from Waveshare (<a href="#display-interface">supported displays</a>), making it easy to add rich, interactive visual output to your projects without additional adapters. For audio, the carrier includes three dedicated 3.5 mm jacks: one combined microphone input and headphone output for flexible audio capture and monitoring, one line out for connecting to amplifiers or powered speakers, and one ear out enabling Class-AB differential earpiece output.</p>
 
 <p style="text-align: justify;"> Together, these interfaces enable a complete edge multimedia hub, ideal for AI-powered kiosks, object tracking, interactive installations, and more.</p>
 
@@ -24,7 +24,7 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 ## Application Examples
 
-<p style="text-align: justify;">The UNO Media Carrier expands the multimedia capabilities of compatible host boards (UNO Q), enabling dual-camera computer vision, interactive displays, and multi-channel audio applications. With plug-and-play compatibility for Raspberry Pi cameras and Waveshare displays, the carrier simplifies hardware integration for a wide range of multimedia projects.</p>
+<p style="text-align: justify;">The UNO Media Carrier expands the multimedia capabilities of compatible host boards (UNO Q), enabling dual-camera computer vision, interactive displays, and multi-channel audio applications. With plug-and-play compatibility for Raspberry Pi cameras (IMX219) and specific Waveshare displays (<a href="#display-interface">supported displays</a>), the carrier simplifies hardware integration for a wide range of multimedia projects.</p>
 
 - **Computer Vision and AI:** Stereo depth mapping for robotics, dual-camera object tracking for automated inspection systems, and gesture recognition interfaces using synchronized camera inputs.
 
@@ -46,12 +46,20 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 #### Connectivity & Media
 
-| Camera Connectors | - 2× MIPI-CSI 22-pin 4 lanes camera connectors<br></br>- Raspberry Pi camera compatible |
-| Display Connector | - 1× MIPI-DSI 22-pin 4 lanes display connector<br></br>- Waveshare display compatible |
+| **Connector**     | **Details**                                                                                                       |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Camera Connectors | - 2× MIPI-CSI 22-pin 4 lanes camera connectors<br></br>- Raspberry Pi camera compatible                           |
+| Display Connector | - 1× MIPI-DSI 22-pin 4 lanes display connector<br></br>- Waveshare display compatible                             |
 | Audio Connectors  | - 1× MIC-IN / Headphones Out 3.5 mm jack<br></br>- 1× Line Out 3.5 mm jack<br></br>- 1× Earphones Out 3.5 mm jack |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  <strong>Hardware Support:</strong> The UNO Media Carrier officially supports cameras based on the IMX219 sensor and the Waveshare 8-DSI-TOUCH-A display (<a href="https://www.waveshare.com/wiki/8-DSI-TOUCH-A" target="_blank">https://www.waveshare.com/wiki/8-DSI-TOUCH-A</a>) initially. Additional camera and display modules may be supported in future software updates.
+  <strong>Hardware Support:</strong> The UNO Media Carrier officially supports cameras based on the IMX219 sensor (e.g., Raspberry Pi Camera Module 2) and the following Waveshare touchscreen LCD displays:
+  <ul style="margin-top: 10px; margin-bottom: 10px; padding-left: 20px;">
+    <li><a href="https://www.waveshare.com/5-dsi-touch-a.htm" target="_blank">Waveshare 5″ DSI LCD (A)</a>: 800×480 resolution, capacitive touch (Preset: <code>5-dsi-touch-a</code>)</li>
+    <li><a href="https://www.waveshare.com/8-dsi-touch-a.htm" target="_blank">Waveshare 8″ DSI LCD (A)</a>: 1280×800 IPS, capacitive touch (Preset: <code>8-dsi-touch-a</code>)</li>
+    <li><a href="https://www.waveshare.com/10.1-dsi-touch-a.htm" target="_blank">Waveshare 10.1″ DSI LCD (A)</a>: 1280×800 IPS, capacitive touch (Preset: <code>10-dsi-touch-a</code>)</li>
+  </ul>
+  Additional camera and display modules may be supported in future software updates.
 </div>
 
 #### Board Interface & Expansion
@@ -114,14 +122,20 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 ### Display Interface
 
-<p style="text-align: justify;">The UNO Media Carrier includes one MIPI-DSI 22-pin 4 lanes display connector, compatible with Waveshare MIPI-DSI displays for visual output in interactive applications.</p>
+<p style="text-align: justify;">The UNO Media Carrier includes one MIPI-DSI 22-pin 4 lanes display connector, compatible with specific Waveshare MIPI-DSI displays for visual output in interactive applications.</p>
 
 | **Connector** | **Type** | **Pin Count** | **Lanes** |
 |---------------|----------|:-------------:|:---------:|
 | DSI0          | MIPI-DSI |      22       |     4     |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  <strong>Display Support:</strong> The UNO Media Carrier officially supports the Waveshare 8-DSI-TOUCH-A portrait touchscreen LCD display initially (<a href="https://www.waveshare.com/wiki/8-DSI-TOUCH-A" target="_blank">https://www.waveshare.com/wiki/8-DSI-TOUCH-A</a>). Additional display modules may be supported in future software updates.
+  <strong>Display Support:</strong> The UNO Media Carrier officially supports the following Waveshare touchscreen LCD displays:
+  <ul style="margin-top: 10px; margin-bottom: 10px; padding-left: 20px;">
+    <li><a href="https://www.waveshare.com/5-dsi-touch-a.htm" target="_blank">Waveshare 5″ DSI LCD (A)</a>: 720x1280 resolution, capacitive touch</li>
+    <li><a href="https://www.waveshare.com/8-dsi-touch-a.htm" target="_blank">Waveshare 8″ DSI LCD (A)</a>: 800×1280 IPS, capacitive touch</li>
+    <li><a href="https://www.waveshare.com/10.1-dsi-touch-a.htm" target="_blank">Waveshare 10.1″ DSI LCD (A)</a>: 800×1280 IPS, capacitive touch</li>
+  </ul>
+  Additional display modules may be supported in future software updates.
 </div>
 
 ### Audio Interfaces
@@ -151,7 +165,7 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 - **LINE OUT (A1):** 3.5 mm audio jack for audio output. Signals routed through JMISC analog audio endpoints (`LINEOUT_P`, `LINEOUT_M`).
 - **MICROPHONE IN / HEADPHONES OUT (A2):** 3.5 mm jack supporting microphone input and headphone output. Microphone signals (`MIC2_INP`, `MIC2_INN`, `MIC2_BIAS`) and headphone signals (`HPH_L`, `HPH_R`, `HPH_REF`, `HS_DET`) routed through JMISC.
 - **EAR OUT (A3):** 3.5 mm audio jack for Class-AB differential earpiece output. Signals routed through JMISC analog audio endpoints (`EAR_P_R`, `EAR_M_R`).
-- **DSI0 (B1):** 22-pin 4 lanes MIPI-DSI display connector compatible with Waveshare MIPI-DSI displays. Operates at 1.8 V logic level, routed from JMEDIA connector.
+- **DSI0 (B1):** 22-pin 4 lanes MIPI-DSI display connector compatible with [specific](#display-interface) Waveshare MIPI-DSI displays. Operates at 1.8 V logic level, routed from JMEDIA connector.
 - **CSI1 (B2):** 22-pin 4 lanes MIPI-CSI camera connector compatible with IMX219 cameras (e.g. Raspberry Pi Camera Module 2). Operates at 1.8 V logic level, routed from JMEDIA connector. Camera 1 interface.
 - **CSI0 (B3):** 22-pin 4 lanes MIPI-CSI camera connector compatible with IMX219 cameras. Operates at 1.8 V logic level, routed from JMEDIA connector. Camera 0 interface.
 - **JMEDIA CONNECTOR (JMEDIA):** Female 60-pin high-speed connector interfacing with the host board's JMEDIA header. Routes MIPI-CSI camera signals (`CSI0`, `CSI1`), MIPI-DSI display signals (DSI0), Camera Control Interface I<sup>2</sup>C (`CCI_I2C0`, `CCI_I2C1`), camera master clocks (CAM_MCLK0, CAM_MCLK1), and power rails. Signals operate at 1.8 V logic level. Passthrough design maintains pin availability for stacking.
@@ -419,7 +433,7 @@ Use a 5 V DC / 3 A USB-C source and cable, or power from the 5 V or VIN pins as 
 
 ### Camera Setup
 
-<p style="text-align: justify;">The UNO Media Carrier supports MIPI-CSI cameras connected via the 22-pin MIPI-CSI connectors. Cameras are controlled through the host board's Linux system using V4L2 drivers.</p>
+<p style="text-align: justify;">The UNO Media Carrier supports MIPI-CSI cameras (IMX219) connected via the 22-pin MIPI-CSI connectors. Cameras are controlled through the host board's Linux system using V4L2 drivers.</p>
 
 1. Lift the locking tab on the CSI connector (`CSI0` or `CSI1`).
 2. Insert the camera ribbon cable with contacts facing down.
@@ -428,7 +442,7 @@ Use a 5 V DC / 3 A USB-C source and cable, or power from the 5 V or VIN pins as 
 
 ### Display Setup
 
-<p style="text-align: justify;">The UNO Media Carrier supports MIPI-DSI displays connected via the 22-pin MIPI-DSI connector. Displays are driven through the host board's MIPI-DSI interface.</p>
+<p style="text-align: justify;">The UNO Media Carrier supports specific MIPI-DSI displays (<a href="#display-interface">supported displays</a>) connected via the 22-pin MIPI-DSI connector. Displays are driven through the host board's MIPI-DSI interface.</p>
 
 1. Lift the locking tab on the DSI connector.
 2. Insert the display ribbon cable with contacts facing down.
