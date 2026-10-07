@@ -2,7 +2,8 @@ name: Remove Preview Label
 
 # A new push drops the label, so a preview only runs when the label is added again
 on:
-  pull_request:
+  # Fork PRs get a read-only token on pull_request; this is safe only while no PR code is checked out
+  pull_request_target:
     types: [synchronize]
 
 permissions:
