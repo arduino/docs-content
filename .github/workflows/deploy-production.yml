@@ -2,9 +2,9 @@ name: Deploy to docs-content.arduino.cc
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: "0 8 * * *"
+      timezone: "Europe/Rome"
 
 concurrency:
   group: deploy-production
@@ -16,10 +16,42 @@ permissions:
   contents: read
 
 jobs:
+  # A scheduled run deploys only if no run has deployed main's latest commit yet, a manual one always does
+  check-changes:
+    name: Check for new commits
+    if: github.repository == 'arduino/docs-content'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: read
+    outputs:
+      deploy: ${{ steps.check.outputs.deploy }}
+    steps:
+      - id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" != "schedule" ]; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # Filtering by commit, not taking the latest run: the filtered list once came back out of order
+          deployed=$(gh run list --workflow deploy-production.yml --commit "$GITHUB_SHA" --status success --limit 1 --json databaseId --jq length)
+          if [ "$deployed" != "0" ]; then
+            echo "$GITHUB_SHA is already in production, skipping the deploy"
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "$GITHUB_SHA is not in production yet"
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          fi
+
   # This job is used to render datasheets, but only if they have changed.
   # It's a separate job so we don't have to cleanup the machine afterwards.
   render-datasheets:
     name: Render Datasheets
+    needs: check-changes
+    if: needs.check-changes.outputs.deploy == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:

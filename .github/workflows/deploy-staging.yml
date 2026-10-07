@@ -2,9 +2,6 @@ name: Deploy to docs-content.oniudra.cc
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - ghaction
 
 concurrency:
   group: deploy-staging
