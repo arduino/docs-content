@@ -114,11 +114,11 @@ VENTUNO Q 提供一种配置：
 
 ### 输入电源
 
-| **电源**            | **电压范围** | **最大电流** | **连接器**         |
-| ----------------- | -------: | -------: | --------------- |
-| USB-C PD          |   9-20 V |   最高 3 A | USB-C 接口        |
-| 圆柱插头 (5.5×2.1 mm) |   7-24 V |   最高 5 A | 5.5×2.1 mm 圆柱插头 |
-| 螺丝端子              |   7-24 V |  最高 10 A | 螺丝端子            |
+| **电源**              | **电压范围** | **最大电流** | **连接器**          |
+| --------------------- | -----------: | -----------: | ------------------- |
+| USB-C PD              |         20 V |     最高 3 A | USB-C 接口          |
+| 圆柱插头 (5.5×2.1 mm) |      12-24 V |     最高 5 A | 5.5×2.1 mm 圆柱插头 |
+| 螺丝端子              |       7-24 V |    最高 10 A | 螺丝端子            |
 
 ![输入电源选项](assets/ABX00181_power_options.png)
 
@@ -130,21 +130,20 @@ VENTUNO Q 提供一种配置：
 >
 > 两个 USB Type-A 端口每个最多可提供 5 V × 1.71 A = 8.55 W，合计最大额外功耗约为 17 W。 当板子满载且两个 USB-A 端口均处于最大负载时，总功耗可能接近 42 W，这将超过 7 V 直流插孔 35 W 的限制，并可能导致连接器损坏。
 >
-> 用于 UNO 扩展板、HAT 和 Qwiic 的 3.3 V 电源轨（`+3V3_LIMITED`）限流为 2.8 A（最大约 9.3 W）。 扩展板和 HAT 的 5 V 电源轨（`+5V_LIMITED`）同样限制在 2.8 A（最大约 14 W）。请注意，提供给 UNO 载板连接器和 JOMEGA 的 3.3 V 及 5 V 电源轨**不**受限流。
->
 > **强烈建议使用 12 V 或 24 V 供电**，适用于同时涉及 AI 推理、USB 外设以及连接的扩展板或 HAT 的任何部署场景。
 >
 > 对于涉及 AI 推理、USB 外设或扩展应用的重负载场景，建议所有电源的额定功率均达到 **60 W 或更高**，以确保在可能出现的峰值功耗期间运行保持稳定。 使用**圆柱插头**（5.5×2.1 mm，最大 5 A）时，建议采用**12 V / 5 A 或 24 V / 3 A**的电源作为示例。
 
 ### 推荐工作条件
 
-| **参数**         | **符号**           | **最小值** | **典型值** | **最大值** | **单位** |
-| -------------- | ---------------- | :-----: | :-----: | :-----: | :----: |
-| USB-C PD 输入    | V<sub>USBC</sub> |    9    |    -    |  20.0   |   V    |
-| 直流输入（插孔/螺丝）    | V<sub>IN</sub>   |   7.0   |    -    |  24.0   |   V    |
-| 5.0 V 电源轨（输出）  | V<sub>+5V</sub>  |  4.75   |   5.0   |  5.25   |   V    |
-| 3.3 V 电源轨 （输出） | V<sub>3P3</sub>  |  3.14   |   3.3   |  3.47   |   V    |
-| 工作温度           | T<sub>OP</sub>   |   -10   |    -    |   60    |   °C   |
+| **参数**               | **符号**         | **最小值** | **典型值** | **最大值** | **单位** |
+| ---------------------- | ---------------- | :--------: | :--------: | :--------: | :------: |
+| USB-C PD 输入          | V<sub>USBC</sub> |     9      |     -      |    20.0    |    V     |
+| 直流输入（螺丝端子）   | V<sub>IN</sub>   |    7.0     |     -      |    24.0    |    V     |
+| 直流输入（圆柱形插孔） | V<sub>IN</sub>   |    12.0    |     -      |    24.0    |    V     |
+| 5.0 V 电源轨（输出）   | V<sub>+5V</sub>  |    4.75    |    5.0     |    5.25    |    V     |
+| 3.3 V 电源轨 （输出）  | V<sub>3P3</sub>  |    3.14    |    3.3     |    3.47    |    V     |
+| 工作温度               | T<sub>OP</sub>   |    -10     |     -      |     60     |    °C    |
 
 >📝 **注意：** 当连接到支持 PD 的电源时，USB-C® PD 控制器支持多种电压配置文件（9 V、15 V、20 V）。
 
@@ -1057,118 +1056,117 @@ Maintain a minimum separation distance of 20 cm between the device and the user 
 
 **Bulgarian (BG):**
 
-Поддържайте минимално разстояние от 20 см между устройството и потребителя по време на работа.
-Честотната лента 5 GHz може да бъде обект на ограничения за използване в зависимост от държавата.
+Поддържайте минимално разстояние от 20 см между устройството и потребителя по време на работа. Честотните ленти 5 GHz и 6 GHz можете да подлежат на ограничения за експлоатация в зависимост от държавата, в която се използва устройството.
 
 **Croatian (HR):**
 
 Održavajte minimalnu udaljenost od 20 cm između uređaja i korisnika tijekom rada.
-Frekvencijski pojas od 5 GHz može podlijegati ograničenjima ovisno o zemlji uporabe.
+Frekvencijski pojas od 5 GHz i 6 GHz može podlijegati ograničenjima ovisno o zemlji uporabe.
 
 **Czech (CS):**
 
 Udržujte minimální vzdálenost 20 cm mezi zařízením a uživatelem během provozu.
-Pásmo 5 GHz může podléhat provozním omezením v závislosti na zemi použití.
+Pásmo 5 GHz a 6 GHz může podléhat provozním omezením v závislosti na zemi použití.
 
 **Danish (DA):**
 
 Oprethold en minimumsafstand på 20 cm mellem enheden og brugeren under drift.
-5 GHz-båndet kan være underlagt driftsmæssige begrænsninger afhængigt af brugslandet.
+5 GHz og 6 GHz-båndet kan være underlagt driftsmæssige begrænsninger afhængigt af brugslandet.
 
 **Dutch (NL):**
 
 Houd tijdens gebruik een minimale afstand van 20 cm tussen het apparaat en de gebruiker aan.
-De 5GHz-band kan onderhevig zijn aan gebruiksbeperkingen afhankelijk van het land van gebruik.
+De 5GHz en 6 GHz-band kan onderhevig zijn aan gebruiksbeperkingen afhankelijk van het land van gebruik.
 
 **Estonian (ET):**
 
 Hoidke seadme ja kasutaja vahel töötamise ajal vähemalt 20 cm kaugust.
-5 GHz sagedusribale võivad kehtida kasutuspiirangud sõltuvalt kasutusriigist.
+5 GHz ja 6 GHz sagedusribale võivad kehtida kasutuspiirangud sõltuvalt kasutusriigist.
 
 **Finnish (FI):**
 
 Pidä laitteen ja käyttäjän välillä vähintään 20 cm etäisyys käytön aikana.
-5 GHz taajuuskaistaan voi kohdistua käyttörajoituksia käyttömaasta riippuen.
+5 GHz:n ja 6 GHz:n taajuusalueilla voi olla käyttörajoituksia käyttömaasta riippuen.
 
 **French (FR):**
 
 Maintenez une distance minimale de 20 cm entre l’appareil et l’utilisateur pendant son fonctionnement.
-La bande de fréquences 5 GHz peut être soumise à des restrictions d’utilisation selon le pays.
+Les bandes de fréquences 5 GHz et 6 GHz peuvent être soumises à des restrictions d'utilisation selon le pays où tu t'en sers.
 
 **German (DE):**
 
 Halten Sie während des Betriebs einen Mindestabstand von 20 cm zwischen dem Gerät und dem Benutzer ein.
-Das 5‑GHz‑Frequenzband kann je nach Einsatzland Nutzungsbeschränkungen unterliegen.
+Für die Frequenzen 5 GHz und 6 GHz können je nach Einsatzland Nutzungsbeschränkungen unterliegen.
 
 **Greek (EL):**
 
 Διατηρείτε ελάχιστη απόσταση 20 cm μεταξύ της συσκευής και του χρήστη κατά τη λειτουργία.
-Η ζώνη συχνοτήτων 5 GHz ενδέχεται να υπόκειται σε περιορισμούς ανάλογα με τη χώρα χρήσης.
+Οι ζώνες συχνοτήτων των 5 GHz και 6 GHz ενδέχεται να υπόκεινται σε περιορισμούς λειτουργίας, ανάλογα με τη χώρα χρήσης.
 
 **Hungarian (HU):**
 
 A működés során tartson legalább 20 cm távolságot az eszköz és a felhasználó között.
-Az 5 GHz-es frekvenciasáv használata országtól függően korlátozott lehet.
+Az 5 GHz-es és 6 GHz-es frekvenciasáv használatára a országonként különböző üzemeltetési korlátozások vonatkozhatnak.
 
 **Irish (GA):**
 
 Coinnigh ar a laghad fad 20 cm idir an gléas agus an t‑úsáideoir le linn úsáide.
-D’fhéadfadh srianta oibriúcháin a bheith ar an mbanda minicíochta 5 GHz ag brath ar an tír.
+D'fhéadfadh go mbeadh srianuimh oibríochtúla i bhfeidhm ar an mbanda minicíochta 5 GHz agus 6 GHz ag brath ar an tír ina n-úsáidtear é.
 
 **Italian (IT):**
 
 Mantenere una distanza minima di 20 cm tra il dispositivo e l’utente durante il funzionamento.
-La banda di frequenza a 5 GHz può essere soggetta a restrizioni operative a seconda del paese.
+Le bande di frequenza a 5 GHz e 6GHz possono essere soggette a restrizioni operative a seconda del paese.
 
 **Latvian (LV):**
 
 Uzturiet vismaz 20 cm attālumu starp ierīci un lietotāju darbības laikā.
-5 GHz frekvenču joslai var būt izmantošanas ierobežojumi atkarībā no valsts.
+5 GHz un 6 GHz frekvenču joslā var tikt piemēroti ekspluatācijas ierobežojumi atkarībā no izmantošanas valsts.
 
 **Lithuanian (LT):**
 
 Naudojimo metu laikykite bent 20 cm atstumą tarp įrenginio ir naudotojo.
-5 GHz dažnių juostai gali būti taikomi naudojimo apribojimai priklausomai nuo šalies.
+5 GHz ir 6 GHz dažnių juostose gali būti taikomi naudojimo apribojimai, priklausomai nuo šalies, kurioje naudojamas įrenginys.
 
 **Maltese (MT):**
 
 Żomm distanza minima ta’ 20 cm bejn l-apparat u l-utent waqt l-użu.
-Il-medda tal-frekwenza 5 GHz tista’ tkun soġġetta għal restrizzjonijiet skont il-pajjiż.
+Il-medda tal-frekwenza 5 GHz u 6 GHz tista’ tkun soġġetta għal restrizzjonijiet skont il-pajjiż.
 
 **Polish (PL):**
 
 Podczas pracy zachowaj minimalną odległość 20 cm między urządzeniem a użytkownikiem.
-Pasmo częstotliwości 5 GHz może podlegać ograniczeniom w zależności od kraju użytkowania.
+Pasma częstotliwości 5 GHz i 6 GHz mogą podlegać ograniczeniom eksploatacyjnym w zależności od kraju, w którym są używane.
 
 **Portuguese (PT):**
 
 Mantenha uma distância mínima de 20 cm entre o dispositivo e o utilizador durante o funcionamento.
-A banda de frequência de 5 GHz pode estar sujeita a restrições de utilização dependendo do país.
+As bandas de frequência de 5 GHz e 6 GHz podem estar sujeitas a restrições de utilização dependendo do país.
 
 **Romanian (RO):**
 
 Mențineți o distanță minimă de 20 cm între dispozitiv și utilizator în timpul funcționării.
-Banda de frecvență de 5 GHz poate face obiectul unor restricții în funcție de țara de utilizare.
+Banda de frecvență de 5 GHz și 6 GHz poate face obiectul unor restricții în funcție de țara de utilizare.
 
 **Slovak (SK):**
 
 Počas prevádzky dodržiavajte minimálnu vzdialenosť 20 cm medzi zariadením a používateľom.
-Pásmo 5 GHz môže podliehať prevádzkovým obmedzeniam v závislosti od krajiny použitia.
+Pásmo frekvencií 5 GHz a 6 GHz môže podliehať prevádzkovým obmedzeniam v závislosti od krajiny, v ktorej sa zariadenie používa.
 
 **Slovenian (SL):**
 
 Med delovanjem ohranjajte najmanj 20 cm razdalje med napravo in uporabnikom.
-Pas frekvenc 5 GHz je lahko omejen glede na državo uporabe.
+Frekvenčni pasovi 5 GHz in 6 GHz so lahko predmet omejitev uporabe, odvisno od države uporabe.
 
 **Spanish (ES):**
 
 Mantenga una distancia mínima de 20 cm entre el dispositivo y el usuario durante su funcionamiento.
-La banda de frecuencia de 5 GHz puede estar sujeta a restricciones según el país de uso.
+Las bandas de frecuencia de 5 GHz y 6 GHz pueden estar sujetas a restricciones según el país de uso.
 
 **Swedish (SV):**
 
 Håll ett minsta avstånd på 20 cm mellan enheten och användaren under drift.
-5 GHz-bandet kan vara föremål för driftbegränsningar beroende på användningsland.
+5 GHz- och 6 GHz-frekvensbanden kan vara föremål för driftsbegränsningar beroende på användningsland.
 
 ## ESD Warning
 
@@ -1400,3 +1398,4 @@ Les dispositifs ne doivent pas être utilisés pour commander des systèmes d'a�
 | 25/08/2026 |      1       | 首次发布 |
 | 28/08/2026 |      2       | Updated Certifications |
 | 31/08/2026 |      3       | Adding 6 GHz to Safety Information |
+| 29/09/2026 |      4       | Updating values for inputs |

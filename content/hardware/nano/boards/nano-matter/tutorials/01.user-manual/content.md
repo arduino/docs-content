@@ -32,7 +32,7 @@ This user manual will guide you through a practical journey covering the most in
 
 ### Software Requirements
 
-- [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
 
 ### Board Core and Libraries
 
@@ -784,7 +784,7 @@ To create your first IoT device with Nano Matter and a Zigbee network, you first
 
 * **Amazon Alexa Ecosystem:** Echo (4th Gen), Echo Show 10 (3rd Gen), Echo Studio, and Echo Hub.
 * **Samsung SmartThings:** Aeotec Smart Home Hub (V3) and SmartThings Station.
-* **Home Assistant:** Home Assistant Yellow/Green, or any server setup using a compatible USB Zigbee dongle. *(Note: You can even flash the [EZSP coordinator firmware](https://github.com/SiliconLabs/arduino_staging/blob/bozont-zigbee/extra/firmware/readme.md) on another Arduino Nano Matter to act as your dongle!)*
+* **Home Assistant:** Home Assistant Yellow/Green, or any server setup using a compatible USB Zigbee dongle. *(Note: You can even flash the [EZSP coordinator firmware](https://github.com/SiliconLabsSoftware/arduino/blob/main/extra/firmware/readme.md) on another Arduino Nano Matter to act as your dongle!)*
 * **Dedicated Local Hubs:** Hubitat Elevation (C-8) and IKEA DIRIGERA Hub.
 
 ***Note: Neither Google Nest nor Apple HomePod devices have built-in Zigbee radios. To control Zigbee devices with Google Home or Apple Home, you must use an intermediate hub (like SmartThings or Home Assistant) to bridge them.***
@@ -1903,9 +1903,11 @@ The Nano Matter ADC reference voltage is 3.3 V by default, it can be configured 
 |   **Argument**   |        **Description**         |
 |:----------------:|:------------------------------:|
 |  AR_INTERNAL1V2  |    Internal 1.2V reference     |
-| AR_EXTERNAL_1V25 |    External 1.25V reference    |
+| AR_EXTERNAL_1V25* |    External 1.25V reference    |
 |      AR_VDD      |   VDD (unbuffered to ground)   |
 |     AR_08VDD     | 0.8 * VDD (buffered to ground) |
+
+> *To enable the AREF pin for an external reference, short the AREF jumper on the bottom of the board. Note that this pin is shared with the user button.
 
 To set a different analog reference from the default one, see the following example:
 
@@ -1960,7 +1962,9 @@ The DAC voltage reference can be configured using the `analogReferenceDAC()` fun
 |     DAC_VREF_1V25     | Internal 1.25V reference |
 |     DAC_VREF_2V5      | Internal 2.5V reference  |
 |     DAC_VREF_AVDD     |        Analog VDD        |
-| DAC_VREF_EXTERNAL_PIN |    External AREF pin     |
+| DAC_VREF_EXTERNAL_PIN* |    External AREF pin     |
+
+> *Requires the AREF jumper on the bottom of the board to be shorted. See the note in the Analog Input Pins (ADC) section.
 
 ```arduino
 analogReferenceDAC(DAC_VREF_2V5);  // enter the desired reference as argument

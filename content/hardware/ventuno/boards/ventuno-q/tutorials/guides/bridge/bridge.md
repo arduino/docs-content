@@ -79,12 +79,12 @@ While the `Bridge` library is what you use in your code, the Router is the traff
 
 The Router manages the physical connection between the two processors. It is important to know which hardware resources are claimed by the Router to avoid conflicts in your own applications.
 
-- **Linux Side (Dragonwing™ QCS8275):** The router claims the serial device `/dev/ttyHS1`.
-- **MCU Side (STM32H5F5):** The router claims the hardware serial port `Serial1`.
+- **Linux Side (Dragonwing™ QCS8275):** The router claims the serial device `/dev/ttyACM0` (also available as `/dev/ttySTM0`).
+- **MCU Side (STM32H5F5):** The router claims the hardware serial port `SerialUSB`.
 
 <Alert type="warning" text="Warning">
 
-**⚠️ WARNING: Reserved Resources**: Do not attempt to open `/dev/ttyHS1` (on Linux) or `Serial1` (on Arduino/Zephyr) in your own code. These interfaces are exclusively locked by the `arduino-router` service. Attempting to access them directly will cause the Bridge to fail.
+**⚠️ WARNING: Reserved Resources**: Do not attempt to open `/dev/ttyACM0` (on Linux) or `SerialUSB` (on Arduino/Zephyr) in your own code. These interfaces are exclusively locked by the `arduino-router` service. Attempting to access them directly will cause the Bridge to fail.
 
 </Alert>
 
@@ -129,10 +129,10 @@ To capture more detailed information in the logs, you can append the `--verbose`
 
   [Service]
   # Put the micro in a ready state.
-  ExecStartPre=-/usr/bin/gpioset -c /dev/gpiochip1 -t0 37=0
-  ExecStart=/usr/bin/arduino-router --unix-port /var/run/arduino-router.sock --serial-port /dev/ttyHS1 --serial-baudrate 115200 --verbose # <--- ADD THIS
+  ExecStartPre=-/usr/bin/gpioset -c /dev/gpiochip1 -t0 78=0
+  ExecStart=/usr/bin/arduino-router --unix-port /var/run/arduino-router.sock --serial-port /dev/ttyACM0 --serial-baudrate 115200 --verbose # <--- ADD THIS
   # End the boot animation after the router is started.
-  ExecStartPost=/usr/bin/gpioset -c /dev/gpiochip1 -t0 70=1
+  ExecStartPost=/usr/bin/gpioset -c /dev/gpiochip1 -t0 95=1
   StandardOutput=journal
   StandardError=journal
   Restart=always

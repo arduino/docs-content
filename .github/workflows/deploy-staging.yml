@@ -264,6 +264,7 @@ jobs:
         env:
           # Gatsby defaults to physical cores, which is half the vCPUs of a runner
           GATSBY_CPU_COUNT: logical_cores
+          ALGOLIA_INDEXER_KEY: ${{ secrets.ALGOLIA_INDEXER_KEY }}
 
       - name: Clean up node_modules # Just to save space
         run: rm -rf node_modules

@@ -116,8 +116,8 @@ VENTUNO Q è disponibile in un’unica variante:
 
 | **Sorgente**                 | **Intervallo di tensione** | **Corrente massima** | **Connettore**             |
 | ---------------------------- | -------------------------: | -------------------: | -------------------------- |
-| USB-C PD                     |                     9-20 V |           fino a 3 A | Connettore USB-C           |
-| Jack cilindrico (5,5×2,1 mm) |                     7-24 V |           fino a 5 A | Jack cilindrico 5,5×2,1 mm |
+| USB-C PD                     |                       20 V |           fino a 3 A | Connettore USB-C           |
+| Jack cilindrico (5,5×2,1 mm) |                    12-24 V |           fino a 5 A | Jack cilindrico 5,5×2,1 mm |
 | Morsetto a vite              |                     7-24 V |          fino a 10 A | Morsetto a vite            |
 
 ![Opzioni di alimentazione in ingresso](assets/ABX00181_power_options.png)
@@ -130,21 +130,20 @@ Entrambi i percorsi di ingresso sono protetti da TVS (SMBJ24CA, bidirezionale a 
 >
 > Le due porte USB di tipo A possono erogare ciascuna fino a 5 V × 1,71 A = 8,55 W, per un assorbimento aggiuntivo massimo combinato di circa 17 W. Con la scheda a piena potenza ed entrambe le porte USB-A al carico massimo, l’assorbimento totale può avvicinarsi ai 42 W, superando il limite di 35 W del jack CC a 7 V e rischiando di danneggiare il connettore.
 >
-> Il rail da 3,3 V per UNO Shield, HAT e Qwiic (`+3V3_LIMITED`) è limitato a 2,8 A (circa 9,3 W al massimo). Anche il rail da 5 V per shield e HAT (`+5V_LIMITED`) è limitato a 2,8 A (circa 14 W al massimo). Si noti che i rail da 3,3 V e 5 V forniti ai connettori del carrier UNO e a JOMEGA **non** sono limitati in corrente.
->
 > **Si raccomanda vivamente l’utilizzo a 12 V o 24 V** per qualsiasi implementazione che preveda contemporaneamente inferenza AI, periferiche USB e shield o HAT collegati.
 >
 > Per carichi di lavoro intensi che comportano inferenza AI, periferiche USB o applicazioni estese, si raccomanda un alimentatore con una potenza nominale di **60 W o superiore** su tutte le fonti di alimentazione, al fine di garantire che il funzionamento rimanga stabile durante eventuali picchi di consumo. Quando si utilizza il **connettore cilindrico** (5,5×2,1 mm, max 5 A), si raccomanda, a titolo esemplificativo, un'alimentazione di **12 V / 5 A o 24 V / 3 A**.
 
 ### Condizioni operative consigliate
 
-| **Parametro**                | **Simbolo**      | **Minimo** | **Tipico** | **Massimo** | **Unità** |
-| ---------------------------- | ---------------- | :--------: | :--------: | :---------: | :-------: |
-| Ingresso USB-C PD            | V<sub>USBC</sub> |     9      |     -      |    20,0     |     V     |
-| Ingresso CC (jack/a vite)    | V<sub>IN</sub>   |    7,0     |     -      |    24,0     |     V     |
-| Linea a 5,0 V (uscita)       | V<sub>+5V</sub>  |    4,75    |    5,0     |    5,25     |     V     |
-| Linea a 3,3 V (uscita)       | V<sub>3P3</sub>  |    3,14    |    3,3     |    3,47     |     V     |
-| Temperatura di funzionamento | T<sub>OP</sub>   |    -10     |     -      |     60      |    °C     |
+| **Parametro**                  | **Simbolo**      | **Minimo** | **Tipico** | **Massimo** | **Unità** |
+| ------------------------------ | ---------------- | :--------: | :--------: | :---------: | :-------: |
+| Ingresso USB-C PD              | V<sub>USBC</sub> |     9      |     -      |    20,0     |     V     |
+| Ingresso CC (terminale a vite) | V<sub>IN</sub>   |    7,0     |     -      |    24,0     |     V     |
+| Ingresso CC (Barrel jack)      | V<sub>IN</sub>   |    12,0    |     -      |    24,0     |     V     |
+| Linea a 5,0 V (uscita)         | V<sub>+5V</sub>  |    4,75    |    5,0     |    5,25     |     V     |
+| Linea a 3,3 V (uscita)         | V<sub>3P3</sub>  |    3,14    |    3,3     |    3,47     |     V     |
+| Temperatura di funzionamento   | T<sub>OP</sub>   |    -10     |     -      |     60      |    °C     |
 
 >📝 **Note:** Il controller USB-C® PD supporta diversi profili di tensione (9 V, 15 V, 20 V) quando è collegato a un alimentatore compatibile con PD.
 
@@ -1057,118 +1056,117 @@ Maintain a minimum separation distance of 20 cm between the device and the user 
 
 **Bulgarian (BG):**
 
-Поддържайте минимално разстояние от 20 см между устройството и потребителя по време на работа.
-Честотната лента 5 GHz може да бъде обект на ограничения за използване в зависимост от държавата.
+Поддържайте минимално разстояние от 20 см между устройството и потребителя по време на работа. Честотните ленти 5 GHz и 6 GHz можете да подлежат на ограничения за експлоатация в зависимост от държавата, в която се използва устройството.
 
 **Croatian (HR):**
 
 Održavajte minimalnu udaljenost od 20 cm između uređaja i korisnika tijekom rada.
-Frekvencijski pojas od 5 GHz može podlijegati ograničenjima ovisno o zemlji uporabe.
+Frekvencijski pojas od 5 GHz i 6 GHz može podlijegati ograničenjima ovisno o zemlji uporabe.
 
 **Czech (CS):**
 
 Udržujte minimální vzdálenost 20 cm mezi zařízením a uživatelem během provozu.
-Pásmo 5 GHz může podléhat provozním omezením v závislosti na zemi použití.
+Pásmo 5 GHz a 6 GHz může podléhat provozním omezením v závislosti na zemi použití.
 
 **Danish (DA):**
 
 Oprethold en minimumsafstand på 20 cm mellem enheden og brugeren under drift.
-5 GHz-båndet kan være underlagt driftsmæssige begrænsninger afhængigt af brugslandet.
+5 GHz og 6 GHz-båndet kan være underlagt driftsmæssige begrænsninger afhængigt af brugslandet.
 
 **Dutch (NL):**
 
 Houd tijdens gebruik een minimale afstand van 20 cm tussen het apparaat en de gebruiker aan.
-De 5GHz-band kan onderhevig zijn aan gebruiksbeperkingen afhankelijk van het land van gebruik.
+De 5GHz en 6 GHz-band kan onderhevig zijn aan gebruiksbeperkingen afhankelijk van het land van gebruik.
 
 **Estonian (ET):**
 
 Hoidke seadme ja kasutaja vahel töötamise ajal vähemalt 20 cm kaugust.
-5 GHz sagedusribale võivad kehtida kasutuspiirangud sõltuvalt kasutusriigist.
+5 GHz ja 6 GHz sagedusribale võivad kehtida kasutuspiirangud sõltuvalt kasutusriigist.
 
 **Finnish (FI):**
 
 Pidä laitteen ja käyttäjän välillä vähintään 20 cm etäisyys käytön aikana.
-5 GHz taajuuskaistaan voi kohdistua käyttörajoituksia käyttömaasta riippuen.
+5 GHz:n ja 6 GHz:n taajuusalueilla voi olla käyttörajoituksia käyttömaasta riippuen.
 
 **French (FR):**
 
 Maintenez une distance minimale de 20 cm entre l’appareil et l’utilisateur pendant son fonctionnement.
-La bande de fréquences 5 GHz peut être soumise à des restrictions d’utilisation selon le pays.
+Les bandes de fréquences 5 GHz et 6 GHz peuvent être soumises à des restrictions d'utilisation selon le pays où tu t'en sers.
 
 **German (DE):**
 
 Halten Sie während des Betriebs einen Mindestabstand von 20 cm zwischen dem Gerät und dem Benutzer ein.
-Das 5‑GHz‑Frequenzband kann je nach Einsatzland Nutzungsbeschränkungen unterliegen.
+Für die Frequenzen 5 GHz und 6 GHz können je nach Einsatzland Nutzungsbeschränkungen unterliegen.
 
 **Greek (EL):**
 
 Διατηρείτε ελάχιστη απόσταση 20 cm μεταξύ της συσκευής και του χρήστη κατά τη λειτουργία.
-Η ζώνη συχνοτήτων 5 GHz ενδέχεται να υπόκειται σε περιορισμούς ανάλογα με τη χώρα χρήσης.
+Οι ζώνες συχνοτήτων των 5 GHz και 6 GHz ενδέχεται να υπόκεινται σε περιορισμούς λειτουργίας, ανάλογα με τη χώρα χρήσης.
 
 **Hungarian (HU):**
 
 A működés során tartson legalább 20 cm távolságot az eszköz és a felhasználó között.
-Az 5 GHz-es frekvenciasáv használata országtól függően korlátozott lehet.
+Az 5 GHz-es és 6 GHz-es frekvenciasáv használatára a országonként különböző üzemeltetési korlátozások vonatkozhatnak.
 
 **Irish (GA):**
 
 Coinnigh ar a laghad fad 20 cm idir an gléas agus an t‑úsáideoir le linn úsáide.
-D’fhéadfadh srianta oibriúcháin a bheith ar an mbanda minicíochta 5 GHz ag brath ar an tír.
+D'fhéadfadh go mbeadh srianuimh oibríochtúla i bhfeidhm ar an mbanda minicíochta 5 GHz agus 6 GHz ag brath ar an tír ina n-úsáidtear é.
 
 **Italian (IT):**
 
 Mantenere una distanza minima di 20 cm tra il dispositivo e l’utente durante il funzionamento.
-La banda di frequenza a 5 GHz può essere soggetta a restrizioni operative a seconda del paese.
+Le bande di frequenza a 5 GHz e 6GHz possono essere soggette a restrizioni operative a seconda del paese.
 
 **Latvian (LV):**
 
 Uzturiet vismaz 20 cm attālumu starp ierīci un lietotāju darbības laikā.
-5 GHz frekvenču joslai var būt izmantošanas ierobežojumi atkarībā no valsts.
+5 GHz un 6 GHz frekvenču joslā var tikt piemēroti ekspluatācijas ierobežojumi atkarībā no izmantošanas valsts.
 
 **Lithuanian (LT):**
 
 Naudojimo metu laikykite bent 20 cm atstumą tarp įrenginio ir naudotojo.
-5 GHz dažnių juostai gali būti taikomi naudojimo apribojimai priklausomai nuo šalies.
+5 GHz ir 6 GHz dažnių juostose gali būti taikomi naudojimo apribojimai, priklausomai nuo šalies, kurioje naudojamas įrenginys.
 
 **Maltese (MT):**
 
 Żomm distanza minima ta’ 20 cm bejn l-apparat u l-utent waqt l-użu.
-Il-medda tal-frekwenza 5 GHz tista’ tkun soġġetta għal restrizzjonijiet skont il-pajjiż.
+Il-medda tal-frekwenza 5 GHz u 6 GHz tista’ tkun soġġetta għal restrizzjonijiet skont il-pajjiż.
 
 **Polish (PL):**
 
 Podczas pracy zachowaj minimalną odległość 20 cm między urządzeniem a użytkownikiem.
-Pasmo częstotliwości 5 GHz może podlegać ograniczeniom w zależności od kraju użytkowania.
+Pasma częstotliwości 5 GHz i 6 GHz mogą podlegać ograniczeniom eksploatacyjnym w zależności od kraju, w którym są używane.
 
 **Portuguese (PT):**
 
 Mantenha uma distância mínima de 20 cm entre o dispositivo e o utilizador durante o funcionamento.
-A banda de frequência de 5 GHz pode estar sujeita a restrições de utilização dependendo do país.
+As bandas de frequência de 5 GHz e 6 GHz podem estar sujeitas a restrições de utilização dependendo do país.
 
 **Romanian (RO):**
 
 Mențineți o distanță minimă de 20 cm între dispozitiv și utilizator în timpul funcționării.
-Banda de frecvență de 5 GHz poate face obiectul unor restricții în funcție de țara de utilizare.
+Banda de frecvență de 5 GHz și 6 GHz poate face obiectul unor restricții în funcție de țara de utilizare.
 
 **Slovak (SK):**
 
 Počas prevádzky dodržiavajte minimálnu vzdialenosť 20 cm medzi zariadením a používateľom.
-Pásmo 5 GHz môže podliehať prevádzkovým obmedzeniam v závislosti od krajiny použitia.
+Pásmo frekvencií 5 GHz a 6 GHz môže podliehať prevádzkovým obmedzeniam v závislosti od krajiny, v ktorej sa zariadenie používa.
 
 **Slovenian (SL):**
 
 Med delovanjem ohranjajte najmanj 20 cm razdalje med napravo in uporabnikom.
-Pas frekvenc 5 GHz je lahko omejen glede na državo uporabe.
+Frekvenčni pasovi 5 GHz in 6 GHz so lahko predmet omejitev uporabe, odvisno od države uporabe.
 
 **Spanish (ES):**
 
 Mantenga una distancia mínima de 20 cm entre el dispositivo y el usuario durante su funcionamiento.
-La banda de frecuencia de 5 GHz puede estar sujeta a restricciones según el país de uso.
+Las bandas de frecuencia de 5 GHz y 6 GHz pueden estar sujetas a restricciones según el país de uso.
 
 **Swedish (SV):**
 
 Håll ett minsta avstånd på 20 cm mellan enheten och användaren under drift.
-5 GHz-bandet kan vara föremål för driftbegränsningar beroende på användningsland.
+5 GHz- och 6 GHz-frekvensbanden kan vara föremål för driftsbegränsningar beroende på användningsland.
 
 ## ESD Warning
 
@@ -1400,3 +1398,4 @@ I termini HDMI, HDMI High-Definition Multimedia Interface, l’immagine commerci
 | 25/08/2026 |      1       | Prima versione |
 | 28/08/2026 |      2       | Updated Certifications |
 | 31/08/2026 |      3       | Adding 6 GHz to Safety Information |
+| 29/09/2026 | 4 | Updating values for inputs |

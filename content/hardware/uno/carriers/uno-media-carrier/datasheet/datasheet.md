@@ -8,7 +8,7 @@ type: maker
 
 # Description
 
-<p style="text-align: justify;">The Arduino UNO Media Carrier extends the multimedia capabilities of compatible host boards (UNO Q, VENTUNO Q), enabling advanced vision, display, and audio applications with plug-and-play simplicity. Designed for easy integration, it connects via the JMEDIA and JMISC high-speed connectors, both of which feature passthrough designs to keep all pins available for additional modules or carriers in your setup.</p>
+<p style="text-align: justify;">The Arduino UNO Media Carrier extends the multimedia capabilities of compatible host boards (UNO Q), enabling advanced vision, display, and audio applications with plug-and-play simplicity. Designed for easy integration, it connects via the JMEDIA and JMISC high-speed connectors, both of which feature passthrough designs to keep all pins available for additional modules or carriers in your setup.</p>
 
 <p style="text-align: justify;">Equipped with two MIPI CSI connectors for IMX219 cameras (e.g. Raspberry Pi Camera Module 2), the carrier opens the door to dual-camera computer vision projects, from stereo depth mapping to multi-angle image capture. A MIPI DSI interface provides compatibility with standard 22-pin 4 lanes MIPI DSI displays (e.g. Waveshare), making it easy to add rich, interactive visual output to your projects without additional adapters. For audio, the carrier includes three dedicated 3.5 mm jacks: one combined microphone input and headphone output for flexible audio capture and monitoring, one line out for connecting to amplifiers or powered speakers, and one ear out enabling Class-AB differential earpiece output.</p>
 
@@ -24,7 +24,7 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 ## Application Examples
 
-<p style="text-align: justify;">The UNO Media Carrier expands the multimedia capabilities of compatible host boards (UNO Q, VENTUNO Q), enabling dual-camera computer vision, interactive displays, and multi-channel audio applications. With plug-and-play compatibility for Raspberry Pi cameras and Waveshare displays, the carrier simplifies hardware integration for a wide range of multimedia projects.</p>
+<p style="text-align: justify;">The UNO Media Carrier expands the multimedia capabilities of compatible host boards (UNO Q), enabling dual-camera computer vision, interactive displays, and multi-channel audio applications. With plug-and-play compatibility for Raspberry Pi cameras and Waveshare displays, the carrier simplifies hardware integration for a wide range of multimedia projects.</p>
 
 - **Computer Vision and AI:** Stereo depth mapping for robotics, dual-camera object tracking for automated inspection systems, and gesture recognition interfaces using synchronized camera inputs.
 
@@ -327,7 +327,7 @@ Through the JMEDIA and JMISC connectors, the board provides access to:
 
 ### Power Output Capability
 
-<p style="text-align: justify;">The combined maximum current for the <code>+3V3</code> and <code>+5V_USB</code> rails depends on the host board's specifications. Refer to your host board's datasheet for maximum current limits (UNO Q, VENTUNO Q). The <code>VCC_PX3_1P8</code> rail provides low current, suitable only for I<sup>2</sup>C-level translation circuits and should not be used for applications requiring high current or external device power supply.</p>
+<p style="text-align: justify;">The combined maximum current for the <code>+3V3</code> and <code>+5V_USB</code> rails depends on the host board's specifications. Refer to your host board's datasheet for maximum current limits (UNO Q). The <code>VCC_PX3_1P8</code> rail provides low current, suitable only for I<sup>2</sup>C-level translation circuits and should not be used for applications requiring high current or external device power supply.</p>
 
 ## Device Operation
 
@@ -343,7 +343,7 @@ Through the JMEDIA and JMISC connectors, the board provides access to:
 4. Connect cameras to the `CSI0` and `CSI1` connectors as needed.
 5. Connect a display to the `DSI0` connector if required.
 6. Connect audio peripherals to the 3.5 mm jacks as needed.
-7. Power on the host board. Both UNO Q and VENTUNO Q support 7-24 V DC via VIN input. UNO Q can alternatively be powered via 5 V DC / 3 A USB-C.
+7. Power on the host board. The UNO Q supports 7-24 V DC via VIN input. It can alternatively be powered via 5 V DC / 3 A USB-C.
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   <strong>Note:</strong> Make sure the host board is powered off before installing or removing the UNO Media Carrier to prevent damage to the connectors or components.
@@ -367,7 +367,7 @@ Arduino App Lab [1] is a unified editor that builds and runs projects on both th
 
 Apps use **Bridge** to exchange data between the Linux side and the microcontroller.
 
-Arduino App Lab can be installed on your PC or executed directly on compatible host boards (UNO Q, VENTUNO Q) in Single-Board Computer mode. When using UNO Q, the 4GB LPDDR4X variant is recommended to provide sufficient memory for stable operation and resource-intensive applications. To use the board:
+Arduino App Lab can be installed on your PC or executed directly on compatible host boards (UNO Q) in Single-Board Computer mode. When using UNO Q, the 4GB LPDDR4X variant is recommended to provide sufficient memory for stable operation and resource-intensive applications. To use the board:
 
 - Launch a ready-to-use example in Arduino App Lab, customize it to your needs, or build a new application from scratch using the integrated editor.
 - Press the **Run** button in Arduino App Lab [1].
@@ -376,7 +376,7 @@ Arduino App Lab can be installed on your PC or executed directly on compatible h
 
 For first time setting up:
 
-1. Install Arduino App Lab [1], launch it, and connect the host board (UNO Q, VENTUNO Q). Use a **USB-C data** cable for PC-hosted mode, or simply power the board for SBC mode.
+1. Install Arduino App Lab [1], launch it, and connect the host board (UNO Q). Use a **USB-C data** cable for PC-hosted mode, or simply power the board for SBC mode.
 2. The board will automatically check for updates. If there are any updates available, you will be prompted to install them. Once the update is finished, the Arduino App Lab[1] will need to be restarted.
 3. During the first setup, you will be asked to provide a name and password for the device. You will also be asked to provide Wi-Fi® credentials for your local network.
 4. To test the board, navigate to an example App in the **"Examples"** section of the Arduino App Lab[1], and click on the "Run" button in the top right corner. You can also create a new App in the **"Apps"** section.

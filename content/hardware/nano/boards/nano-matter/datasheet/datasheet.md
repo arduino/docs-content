@@ -49,10 +49,10 @@ The main features are highlighted in the table shown below.
 
 
 | Feature             | Description                                                                                                                                                            |
-|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Microcontroller     | 78 MHz, 32-bit Arm® Cortex®-M33 core (MGM240SD22VNA)                                                                                                                   |
 | Internal Memory     | 1536 kB Flash and 256 kB RAM                                                                                                                                           |
-| Connectivity        | 802.15.4 Thread, Zigbee, Bluetooth® Low Energy 5.3, and Bluetooth® Mesh                                                                                                        |
+| Connectivity        | 802.15.4 Thread, Zigbee, Bluetooth® Low Energy 5.3, and Bluetooth® Mesh                                                                                                |
 | Security            | Secure Vault® from Silicon Labs                                                                                                                                        |
 | USB Connectivity    | USB-C® port for power and data                                                                                                                                         |
 | Power Supply        | Various options for easily powering the board: USB-C® port and external power supply connected through the board's Nano-styled header connector pins (5V, VIN)         |
@@ -132,7 +132,8 @@ The Nano-styled header connectors pinout is shown in the figure below.
 The <strong>Nano Matter with headers (ABX00137)</strong> shares the same architecture as the <strong>Nano Matter (ABX00112)</strong> but comes with headers pre-installed.
 </div>
 
-<div style="page-break-after: always;"></div>
+> [!NOTE]
+> The AREF pin is not connected to the microcontroller by default. To use an external analog reference, close the AREF solder jumper on the bottom of the board with a small amount of solder. Note that this pin is shared with the user button.
 
 ### Block Diagram
 
@@ -176,21 +177,17 @@ A detailed figure below illustrates the power options available on the Nano Matt
 
 If you want to program your Nano Matter offline, install the Arduino Desktop IDE **[1]**. To connect the Nano Matter to your computer, you will need a USB-C® cable.
 
-### Getting Started - Arduino Cloud Editor
-
-All Arduino devices work out of the box on the Arduino Cloud Editor **[2]** by installing a simple plugin. The Arduino Cloud Editor is hosted online. Therefore, it will always be up-to-date with all the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
-
 ### Getting Started - Arduino Cloud
 
-All Arduino IoT-enabled products are supported on Arduino Cloud, which allows you to log, graph, and analyze sensor data, trigger events, and automate your home or business. Take a look at the official documentation to know more.
+While the Nano Matter does not have built-in Wi-Fi, it is possible to integrate it with the Arduino Cloud using a workaround based on its Matter protocol and the Arduino Cloud API. By connecting the board to a third-party Matter controller (like Home Assistant), you can forward data to the Arduino Cloud. To get started with the Arduino Cloud, see **[2]**.
 
 ### Sample Sketches
 
-Sample sketches for the Nano Matter can be found either in the “Examples” menu in the Arduino IDE or the “Nano Matter Documentation” section of Arduino documentation **[4]**.
+Sample sketches for the Nano Matter can be found either in the “Examples” menu in the Arduino IDE or the “Nano Matter Documentation” section of Arduino documentation **[3]**.
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]**, the Arduino Library Reference **[6]**, and the online store **[7]** where you will be able to complement your Nano Matter board with additional extensions, sensors, and actuators.
+Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking out exciting projects on Arduino Project Hub **[4]**, the Arduino Library Reference **[5]**, and the online store **[7]**, where you will be able to complement your Nano Matter board with additional extensions, sensors, and actuators.
 </div>
 
 <div style="page-break-after: always;"></div>
@@ -351,25 +348,27 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Company address  | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
 ## Reference Documentation
-|             **Ref**             | **Link**                                                                        |
-|:-------------------------------:|---------------------------------------------------------------------------------|
-|      Arduino IDE (Desktop)      | https://www.arduino.cc/en/Main/Software                                         |
-|       Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                |
-| Arduino Cloud - Getting started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
-|    Nano Matter Documentation    | https://docs.arduino.cc/hardware/nano-matter                                    |
-|           Project Hub           | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending        |
-|        Library Reference        | https://www.arduino.cc/reference/en/                                            |
-|          Online Store           | https://store.arduino.cc/                                                       |
-         
+
+|             **Ref**             | **Link**                                                                                 |
+| :-----------------------------: | ---------------------------------------------------------------------------------------- |
+|      Arduino IDE (Desktop)      | https://www.arduino.cc/en/Main/Software                                                  |
+| Arduino Cloud - Getting started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started          |
+|    Nano Matter Documentation    | https://docs.arduino.cc/hardware/nano-matter                                             |
+|           Project Hub           | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                 |
+|        Library Reference        | https://www.arduino.cc/reference/en/                                                     |
+|    Simplicity Studio Support    | https://marketplace.visualstudio.com/items?itemName=silabs-bozont.silabs-openocd-flasher |
+|          Online Store           | https://store.arduino.cc/                                                                |
+       
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |                      **Changes**                           |
-| :--------: | :----------: | :--------------------------------------------------------: |
-| 24/03/2026 |      7       | Updating top image to include both variants                |
-| 01/12/2025 |      6       | Additional note on multiple SKUs and certification updates  |
-| 11/02/2025 |      5       | Header Version and SKU added as Collective Datasheet       |
-| 14/11/2024 |      4       | Official launch revision and power information update      |
-| 05/09/2024 |      3       |         Cloud Editor updated from Web Editor               |
-| 07/05/2024 |      2       |                     Board update                           |
-| 21/03/2024 |      1       |               Community Preview Release                    |
+|  **Date**  | **Revision** |                                 **Changes**                                 |
+| :--------: | :----------: | :-------------------------------------------------------------------------: |
+| 05/10/2026 |      8       | Updating supported protocols, programming environments and AREF jumper note |
+| 24/03/2026 |      7       |                 Updating top image to include both variants                 |
+| 01/12/2025 |      6       |         Additional note on multiple SKUs and certification updates          |
+| 11/02/2025 |      5       |            Header Version and SKU added as Collective Datasheet             |
+| 14/11/2024 |      4       |            Official launch revision and power information update            |
+| 05/09/2024 |      3       |                    Cloud Editor updated from Web Editor                     |
+| 07/05/2024 |      2       |                                Board update                                 |
+| 21/03/2024 |      1       |                          Community Preview Release                          |
