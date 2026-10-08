@@ -28,7 +28,9 @@ You will also need to have:
 
 
 <Alert type="note">
+
 Make sure you have around 1GB of free space on your UNO Q for this tutorial.
+
 </Alert>
 
 ## Accessing the Board Shell
