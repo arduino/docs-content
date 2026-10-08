@@ -11,7 +11,10 @@ The **UNO Media Carrier** is a carrier board that provides access to camera, dis
   </Feature>
 
   <Feature title="MIPI-DSI Display Connector" image="display">
-    A 22-pin MIPI-DSI connector supports Waveshare displays, making it easy to add interactive visual output to your projects.
+    The UNO Media Carrier provides a 22-pin MIPI-DSI connector compatible with specific Waveshare displays out of the box, making it easy to add interactive visual output to your projects.
+    <FeatureWrapper>
+      <FeatureLink title="Supported Displays" url="https://docs.arduino.cc/tutorials/uno-media-carrier/user-manual/#compatible-mipi-dsi-displays" blank/>
+    </FeatureWrapper>
   </Feature>
 
   <Feature title="Multi-Channel Audio" image="microphone">

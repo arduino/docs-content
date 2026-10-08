@@ -41,6 +41,12 @@ The UNO Media Carrier is compatible with some Waveshare displays out of the box;
 - [8 inch DSI Touch Display](https://www.waveshare.com/8-dsi-touch-a.htm)
 - [10.1 inch DSI Touch Display](https://www.waveshare.com/10.1-dsi-touch-a.htm)
 
+<Alert type="warning">
+
+Different displays than the ones listed above are not compatible out of the box. But you can manually support them by modifying the devicetree ([tool here](https://github.com/dcuartielles/uno_q_dsi_displays)).
+
+</Alert>
+
 ### Software Requirements
 
 - [Arduino App Lab](https://www.arduino.cc/en/software/#app-lab-section)
