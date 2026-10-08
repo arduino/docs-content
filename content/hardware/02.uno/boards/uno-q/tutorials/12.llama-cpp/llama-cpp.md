@@ -2,7 +2,7 @@
 title: 'Running Llama.cpp with Qwen3.5-0.8B on the Arduino® UNO Q'
 overwriteSidebar: Llama.cpp
 description: 'Install llama.cpp on the Linux side of an Arduino® UNO Q and run local Qwen3.5-0.8B inference'
-difficulty: intermediate
+difficulty: advanced
 tags:
   - Linux
   - AI
