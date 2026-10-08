@@ -11,9 +11,9 @@ The supported displays are the Waveshare DSI Touch "A" series:
 
 | Preset Setting | Display Model | Specifications |
 | :--- | :--- | :--- |
-| `5-dsi-touch-a` | [Waveshare 5″ DSI LCD (A)](https://www.waveshare.com/5-dsi-touch-a.htm) | 800×480 resolution, capacitive touch |
-| `8-dsi-touch-a` | [Waveshare 8″ DSI LCD (A)](https://www.waveshare.com/8-dsi-touch-a.htm) | 1280×800 IPS, capacitive touch |
-| `10-dsi-touch-a` | [Waveshare 10.1″ DSI LCD (A)](https://www.waveshare.com/10.1-dsi-touch-a.htm) | 1280×800 IPS, capacitive touch |
+| `5-dsi-touch-a` | [Waveshare 5″ DSI LCD (A)](https://www.waveshare.com/5-dsi-touch-a.htm) | 720×1280 resolution, capacitive touch |
+| `8-dsi-touch-a` | [Waveshare 8″ DSI LCD (A)](https://www.waveshare.com/8-dsi-touch-a.htm) | 800×1280 IPS, capacitive touch |
+| `10-dsi-touch-a` | [Waveshare 10.1″ DSI LCD (A)](https://www.waveshare.com/10.1-dsi-touch-a.htm) | 800×1280 IPS, capacitive touch |
 
 ## Enable Carrier Mode
 
