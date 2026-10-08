@@ -55,9 +55,9 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   <strong>Hardware Support:</strong> The UNO Media Carrier officially supports cameras based on the IMX219 sensor (e.g., Raspberry Pi Camera Module 2) and the following Waveshare touchscreen LCD displays:
   <ul style="margin-top: 10px; margin-bottom: 10px; padding-left: 20px;">
-    <li><a href="https://www.waveshare.com/5-dsi-touch-a.htm" target="_blank">Waveshare 5″ DSI LCD (A)</a>: 800×480 resolution, capacitive touch (Preset: <code>5-dsi-touch-a</code>)</li>
-    <li><a href="https://www.waveshare.com/8-dsi-touch-a.htm" target="_blank">Waveshare 8″ DSI LCD (A)</a>: 1280×800 IPS, capacitive touch (Preset: <code>8-dsi-touch-a</code>)</li>
-    <li><a href="https://www.waveshare.com/10.1-dsi-touch-a.htm" target="_blank">Waveshare 10.1″ DSI LCD (A)</a>: 1280×800 IPS, capacitive touch (Preset: <code>10-dsi-touch-a</code>)</li>
+    <li><a href="https://www.waveshare.com/5-dsi-touch-a.htm" target="_blank">Waveshare 5″ DSI LCD (A)</a>: 720x1280 IPS, capacitive touch</li>
+    <li><a href="https://www.waveshare.com/8-dsi-touch-a.htm" target="_blank">Waveshare 8″ DSI LCD (A)</a>: 800x1280 IPS, capacitive touch</li>
+    <li><a href="https://www.waveshare.com/10.1-dsi-touch-a.htm" target="_blank">Waveshare 10.1″ DSI LCD (A)</a>: 800x1280 IPS, capacitive touch</li>
   </ul>
   Additional camera and display modules may be supported in future software updates.
 </div>
@@ -131,7 +131,7 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   <strong>Display Support:</strong> The UNO Media Carrier officially supports the following Waveshare touchscreen LCD displays:
   <ul style="margin-top: 10px; margin-bottom: 10px; padding-left: 20px;">
-    <li><a href="https://www.waveshare.com/5-dsi-touch-a.htm" target="_blank">Waveshare 5″ DSI LCD (A)</a>: 720x1280 resolution, capacitive touch</li>
+    <li><a href="https://www.waveshare.com/5-dsi-touch-a.htm" target="_blank">Waveshare 5″ DSI LCD (A)</a>: 720x1280 IPS, capacitive touch</li>
     <li><a href="https://www.waveshare.com/8-dsi-touch-a.htm" target="_blank">Waveshare 8″ DSI LCD (A)</a>: 800×1280 IPS, capacitive touch</li>
     <li><a href="https://www.waveshare.com/10.1-dsi-touch-a.htm" target="_blank">Waveshare 10.1″ DSI LCD (A)</a>: 800×1280 IPS, capacitive touch</li>
   </ul>
@@ -559,6 +559,7 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 # Document Revision History
 
-|  **Date**  | **Revision** | **Changes**       |
-|:----------:|:------------:|-------------------|
-| 27/03/2026 |      1       | Initial release   |
+|  **Date**  | **Revision** | **Changes**                 |
+| :--------: | :----------: | --------------------------- |
+| 07/10/2026 |      2       | MIPI DSI Displays Supported |
+| 27/03/2026 |      1       | Initial release             |
