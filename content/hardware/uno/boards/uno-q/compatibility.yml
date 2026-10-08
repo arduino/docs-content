@@ -5,13 +5,16 @@ software:
   - cloud-editor
 hardware:
   boards: ~
-  carriers: 
+  carriers: ~
   shields: 
     - 4-relays-shield
     - motor-shield-rev3
     - spe-shield
     - 9-axis-motion-shield
     - uno-media-carrier
+  accessories:
+    - bughopper
+    - usb-c-power-supply-65w
   modulino-nodes:
     - modulino-buttons
     - modulino-buzzer
