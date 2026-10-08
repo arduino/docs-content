@@ -8,14 +8,14 @@ tags:
   - AI
   - llama.cpp
   - UNO Q
-author: 'Arduino'
+author: 'Karl Söderby'
 ---
 
 ## Overview
 
 This tutorial installs [llama.cpp](https://github.com/ggml-org/llama.cpp) directly on the Arduino® UNO Q's Linux system and runs inference on a local Large Language Model (LLM). The model used in this tutorial is [Qwen3.5-0.8B](https://huggingface.co/unsloth/Qwen3.5-0.8B-GGUF). The UNO Q uses the Qualcomm® Dragonwing™ QRB2210 processor and ships with a small Debian-based root filesystem and limited disk space, so this guide uses a prebuilt binary release and a small GGUF model instead of compiling from source.
 
-This workflow is independent of the Arduino App. If you want an LLM inside an Arduino App instead, the board already includes the `arduino:llm` Brick, which wraps local inference for you. This guide is for running llama.cpp as a standalone tool directly on the board.
+This workflow is independent of the Arduino App Lab. If you want to use an LLM through the Arduino App Lab, the board already includes the `arduino:llm` Brick, which wraps local inference for you. This guide is for running llama.cpp as a standalone tool directly on the board.
 
 ## Hardware & Software Needed
 
@@ -51,11 +51,11 @@ ssh arduino@<ip-address>
 
 For more alternatives to access the board remotely, see the [Remote Access](https://docs.arduino.cc/tutorials/uno-q/remote-access/) tutorial.
 
-## Connect to Internet
+## Connect to the Internet
 
-This tutorial requires a stable Internet connection to download dependencies & the model. Connecting to Internet is easiest done via the [Arduino App Lab](https://www.arduino.cc/en/software/#app-lab-section), where upon launching and connecting your board, you will be asked to provide network credentials.
+This tutorial requires a stable Internet connection to download dependencies and the model. Connecting to the Internet is easiest via the [Arduino App Lab](https://www.arduino.cc/en/software/#app-lab-section), where, upon launching and connecting your board, you will be asked to provide network credentials.  
 
-You can also connect via `nmtui` on the board's shell, via `nmcli`.
+You can also connect using `nmtui` or `nmcli` in the board's shell.
 
 ## Instructions
 
@@ -106,7 +106,7 @@ LD_LIBRARY_PATH=. ./llama-cli --version
 
 ### 3. Download the Qwen3.5-0.8B GGUF Model
 
-llama.cpp expects the model in GGUF format. A good default for the UNO Q is the Qwen3.5-0.8B model in Q4_K_M quantization, because it is relatively small and still practical for local inference.
+The llama.cpp tool expects the model in GGUF format. A good default for the UNO Q is the Qwen3.5-0.8B model in Q4_K_M quantization, because it is relatively small and still practical for local inference.
 
 Download the model to a dedicated folder:
 
@@ -179,9 +179,18 @@ echo 'alias llama-cli="LD_LIBRARY_PATH=$HOME/llama.cpp/llama-b10644 $HOME/llama.
 source ~/.bashrc
 ```
 
-After that, you can run `llama-cli` directly in a new shell.
+After that, you can run `llama-cli` directly in a new shell, without the `LD_LIBRARY_PATH` prefix or the full path to the binary. For example, to run a single prompt:
 
-## Code Example
+```bash
+llama-cli \
+  -m ~/llama.cpp/models/Qwen3.5-0.8B-Q4_K_M.gguf \
+  -p "Tell me a short fact about the t-rex" \
+  -n 120 --single-turn -rea off
+```
+
+## Command Summary
+
+The following commands summarize the steps above, from checking the board to running the model.
 
 ```bash
 # Check the hardware and disk usage
@@ -216,5 +225,3 @@ LD_LIBRARY_PATH=. ./llama-cli \
 ## Conclusion
 
 This workflow provides a straightforward way to run a small local LLM directly on the Arduino® UNO Q without installing a full compiler toolchain or requiring passwordless `sudo`. The prebuilt llama.cpp release and the compact Qwen3.5-0.8B GGUF model are a practical combination for the limited storage and memory available on the board.
-
-For tight storage situations, remove unused model files or cached downloads, and keep only the binary and GGUF model you are actively using. The result is a working local inference pipeline that is easy to test, demo, and expand.
