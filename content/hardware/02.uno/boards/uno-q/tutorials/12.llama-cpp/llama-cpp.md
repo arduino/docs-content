@@ -23,9 +23,9 @@ This workflow is independent of the Arduino App Lab. If you want to use an LLM t
 - [USB-C® cable](https://store.arduino.cc/collections/cables-wires/products/usb-c-cable-24-pin) (or a separate power source + access via SSH)
 
 You will also need to have:
+
 - [ADB](https://docs.arduino.cc/tutorials/uno-q/adb/) or [SSH](https://docs.arduino.cc/tutorials/uno-q/ssh/) installed on your machine. This allows you to access your board's shell (terminal).
 - [Qwen3.5-0.8B](https://huggingface.co/unsloth/Qwen3.5-0.8B-GGUF) (this will be downloaded when running the installation scripts)
-
 
 <Alert type="note">
 
@@ -134,11 +134,11 @@ LD_LIBRARY_PATH=. ./llama-cli \
 
 The key flags are:
 
-*   `-m`: path to the GGUF model file
-*   `-p`: prompt text
-*   `-n`: maximum tokens to generate
-*   `--single-turn`: answer once and exit instead of opening an interactive chat
-*   `-rea off`: disable the model's built-in reasoning output for shorter, more direct responses
+* `-m`: path to the GGUF model file
+* `-p`: prompt text
+* `-n`: maximum tokens to generate
+* `--single-turn`: answer once and exit instead of opening an interactive chat
+* `-rea off`: disable the model's built-in reasoning output for shorter, more direct responses
 
 The expected output on the board is similar to:
 
