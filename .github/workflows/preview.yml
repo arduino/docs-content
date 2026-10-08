@@ -2,14 +2,29 @@ name: Preview Deployment
 
 on:
   pull_request:
-    types: [labeled]
+    types: [labeled, synchronize]
 
-# Keyed on the label: adding any other label must not cancel a running preview
+# Keyed on the label: pushes and other labels must not cancel a running preview
 concurrency:
   group: netlify-${{ github.workflow }}-${{ github.ref }}-${{ github.event.label.name }}
   cancel-in-progress: true
 
 jobs:
+  # A new push drops the label, so a preview only runs when the label is added again
+  remove-label:
+    name: Remove Preview Label
+    # Fork PRs get a read-only token, and previews never run there anyway
+    if: github.event.action == 'synchronize' && contains(github.event.pull_request.labels.*.name, 'preview') && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      pull-requests: write
+    steps:
+      - run: gh pr edit "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --remove-label preview
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+
   # This job is used to render datasheets, but only if they have changed.
   # It's a separate job so we don't have to cleanup the machine afterwards.
   render-datasheets:
@@ -154,38 +169,6 @@ jobs:
           find ./content/hardware -type f -name "*-full-pinout.pdf" -exec cp {} ./static/resources/pinouts/ \;
           find ./content/hardware -type f -name "*-pinout.png" -exec cp {} ./static/resources/pinouts/ \;
           find ./content/hardware -type f -name "*-step.zip" -exec cp {} ./static/resources/models/ \;
-
-      # - name: Fail on Oversized Files
-      #   id: fail_on_oversized_files
-      #   run: |
-      #     #!/bin/bash
-      #     # This script is a stricter check that fails the workflow if files exceed size limits.
-      #     set -e
-
-      #     # Thresholds in Megabytes (same as the warning step)
-      #     IMAGE_LIMIT_MB=2
-      #     ASSET_LIMIT_MB=10
-
-      #     # Find oversized files and prepare a detailed report
-      #     OVERSIZED_FILES=$(find content -type f \
-      #       \( \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.svg" -o -name "*.gif" \) -size "+${IMAGE_LIMIT_MB}M" \) -o \
-      #       \( \( -name "*.pdf" -o -name "*.zip" -o -name "*.mp4" \) -size "+${ASSET_LIMIT_MB}M" \) \
-      #       -exec ls -lh {} + | awk '{printf "  - %s (%s)\n", $9, $5}')
-
-      #     # Check if the report is non-empty and fail the job if so
-      #     if [ -n "$OVERSIZED_FILES" ]; then
-      #       echo "::error::Found files exceeding size limits. This new check is failing the build as intended."
-      #       echo "--------------------------------------------------"
-      #       echo "Oversized Files Found:"
-      #       echo "$OVERSIZED_FILES"
-      #       echo "--------------------------------------------------"
-      #       echo "Limits:"
-      #       echo "  - Images (PNG, JPG, SVG, GIF): ${IMAGE_LIMIT_MB}MB"
-      #       echo "  - Assets (PDF, ZIP, MP4): ${ASSET_LIMIT_MB}MB"
-      #       exit 1
-      #     else
-      #       echo "No oversized files found. New check passed."
-      #     fi
 
       # Key on the git blob hash of each file, not its size: two different images of equal weight would share a key
       - name: Compressed images key
