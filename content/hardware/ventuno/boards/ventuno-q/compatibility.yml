@@ -2,7 +2,7 @@ software:
   - app-lab
 hardware:
   boards: ~
-  carriers: ~ 
+  carriers: ~
   shields: 
     - 4-relays-shield
     - motor-shield-rev3
@@ -10,9 +10,10 @@ hardware:
     - 9-axis-motion-shield
   accessories:
     - bughopper
-    - usb-c-power-supply-65w
     - usb-c-cable-24-pin
     - usb-c-hub-8-in-1
+    - usb-c-power-supply-65w
+  modulino-nodes:
     - modulino-buttons
     - modulino-buzzer
     - modulino-distance
