@@ -15,6 +15,8 @@ This tutorial shows how to run AI coding agents such as [OpenCode](https://githu
 
 ![AI Agentic development on Arduino UNO Q with OpenCode](assets/hero-banner.png)
 
+***Note: If you work within Arduino App Lab, you can also use its built-in [Agent Mode](/software/app-lab/integrations/agent-mode/). Keep in mind that Agent Mode is currently limited to available integrated agents (currently only Claude Code) and is scoped strictly to creating and managing Arduino App Lab apps. It cannot manage the board's Linux environment in general or tasks outside of Arduino App Lab.***
+
 ## Required Hardware and Software
 
 ### Hardware Requirements
