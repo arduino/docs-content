@@ -6,9 +6,17 @@ type: maker
 
 ![USB-C Hub (8 in 1)](assets/featured.png)
 
+# English
+
 # Description
 
 <p style="text-align: justify;">The Arduino® USB-C Hub (8 in 1) (TPX00241) is a compact multiport adapter designed for use with USB-C devices. This hub expands a single USB-C port into eight functional interfaces, including power delivery, USB data ports, HDMI video output, Ethernet connectivity, and SD/TF card readers. With its plug-and-play design and broad OS compatibility, it provides I/O expansion for development, prototyping, and deployment scenarios.</p>
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 <div style="page-break-after: always;"></div>
 

@@ -8,6 +8,8 @@ author: José Bagur
 
 ![](assets/featured.png)
 
+# English
+
 # Description
 
 <p style="text-align: justify;">The Arduino Bughopper is a compact USB-to-UART bridge board designed to bring straightforward remote debugging via its JCTL 2.54 mm connector. Built around the FT230XQ, the Bughopper provides a reliable, high-speed serial link between your development machine and the target board, enabling advanced debugging and logging without occupying the board's main I/O pins. Its compact 38.5 × 11 mm footprint, USB-C® connectivity, and multiple header options make it easy to integrate into any workspace, enclosure, or automated test setup.</p>
@@ -15,6 +17,12 @@ author: José Bagur
 # Target Areas:
 
 Embedded development, hardware testing, education
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # CONTENTS
 
