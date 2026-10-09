@@ -33,7 +33,7 @@ The commands are the same for both boards unless a step is labeled **UNO Q** or 
 - An RDP client on your computer (for the xrdp method) — Remote Desktop is pre-installed on Windows; on macOS use [Windows App](https://apps.apple.com/app/windows-app/id1295203466); on Linux install [Remmina](https://remmina.org/)
 - The [RustDesk](https://rustdesk.com/) client on your computer (for the RustDesk method)
 
-Most commands in this tutorial run in the board's shell. Open it over SSH, over ADB, or from a terminal in the desktop session. For setup instructions, see the [ADB tutorial](https://docs.arduino.cc/tutorials/uno-q/adb/) for the UNO Q or the [VENTUNO Q user manual](/tutorials/ventuno-q/user-manual/#access-via-ssh-or-adb-terminal).
+Most commands in this tutorial run in the board's shell. Open it over SSH, over ADB, or from a terminal in the desktop session. For setup instructions, see the [ADB tutorial](/tutorials/uno-q/adb/) for the UNO Q or the [VENTUNO Q user manual](/tutorials/ventuno-q/user-manual/#access-via-ssh-or-adb-terminal).
 
 ## Tailscale + SSH
 
@@ -131,7 +131,7 @@ If the board is connected to the same local network as your computer (via Ethern
 If you do not have network access on the board, you can tunnel the RDP connection over USB using ADB port forwarding.
 
 1. Connect the board to your computer via USB-C®.
-2. Ensure ADB is installed on your computer (see the [ADB tutorial](https://docs.arduino.cc/tutorials/uno-q/adb/) for the UNO Q, or the [VENTUNO Q user manual](/tutorials/ventuno-q/user-manual/#access-via-adb), for installation instructions).
+2. Ensure ADB is installed on your computer (see the [ADB tutorial](/tutorials/uno-q/adb/) for the UNO Q, or the [VENTUNO Q user manual](/tutorials/ventuno-q/user-manual/#access-via-adb), for installation instructions).
 3. Forward the RDP port through ADB:
 
    ```bash
@@ -159,64 +159,7 @@ To access the board's desktop remotely from a different network, combine xrdp wi
 
 This provides full graphical desktop access from anywhere in the world, without exposing port `3389` to the public internet.
 
-### Troubleshooting: Black Screen On Connect
-
-If xrdp connects but immediately shows a black screen and disconnects, the cause is usually a conflict with the desktop session already running on the board.
-
-**UNO Q:** When the UNO Q boots, it starts a local desktop session managed by LightDM (the login screen and session manager). That session is already signed in as the `arduino` user and is using the board's main display.
-
-**VENTUNO Q:** The VENTUNO Q shows the GDM login screen when it boots and has no local `arduino` session by default, so xrdp works without any changes. A conflict only happens when a local session exists, either because automatic login is enabled (see the [RustDesk](#rustdesk-desktop-access) section) or because you signed in on a display connected to the board.
-
-When you then connect over xrdp, it tries to start a *second* desktop session for your remote connection, but the two sessions end up sharing resources that only one session can own at a time, most notably the per-user message bus (D-Bus) that desktop apps use to talk to each other. Since the local session got there first, the remote one fails to start cleanly and kicks you out, which is what you see as a black screen.
-
-**VENTUNO Q:** To confirm that a session conflict is the cause, run the following command on the board right after a failed connection:
-
-```bash
-journalctl -b --no-pager | grep "already running"
-```
-
-If the output contains `Session manager already running!`, the two sessions collided.
-
-The fix is to tell xrdp to start its remote desktop session in complete isolation from the local one, with its own private message bus. Overwrite the xrdp startup script.
-
-**UNO Q:**
-
-```bash
-sudo tee /etc/xrdp/startwm.sh << 'EOF'
-#!/bin/sh
-unset DBUS_SESSION_BUS_ADDRESS
-unset XDG_RUNTIME_DIR
-if [ -r /etc/profile ]; then
-    . /etc/profile
-fi
-exec dbus-run-session -- xfce4-session
-EOF
-```
-
-**VENTUNO Q:** First, back up the original startup script. Then overwrite it with the GNOME session command:
-
-```bash
-sudo cp /etc/xrdp/startwm.sh /etc/xrdp/startwm.sh.bak
-sudo tee /etc/xrdp/startwm.sh << 'EOF'
-#!/bin/sh
-unset DBUS_SESSION_BUS_ADDRESS
-unset XDG_RUNTIME_DIR
-if [ -r /etc/profile ]; then
-    . /etc/profile
-fi
-exec dbus-run-session -- gnome-session --session=ubuntu
-EOF
-```
-
-Then restart xrdp:
-
-```bash
-sudo systemctl restart xrdp
-```
-
-***If you are using a different desktop environment on the UNO Q, replace `xfce4-session` with the appropriate command. Check available sessions with `ls /usr/share/xsessions/`.***
-
-***To go back to the original startup script on the VENTUNO Q, run `sudo cp /etc/xrdp/startwm.sh.bak /etc/xrdp/startwm.sh` and restart xrdp.***
+If xrdp connects over any of the methods above but immediately shows a black screen and disconnects, see [Xrdp Black Screen On Connect](#xrdp-black-screen-on-connect).
 
 ---
 
@@ -280,9 +223,11 @@ EOF
 
 ### 3. Configure The Login Manager
 
-The login manager starts the desktop session when the board boots. The UNO Q uses LightDM and the VENTUNO Q uses GDM, so the steps depend on your board.
+The login manager starts the desktop session when the board boots. The steps depend on your board.
 
-**UNO Q:** LightDM is the login manager that starts the desktop session when the UNO Q boots. By default it shows a login screen; we will configure it to sign in the `arduino` user automatically so that the desktop (and RustDesk) become available after a reboot without any user interaction.
+#### UNO Q (LightDM)
+
+By default, LightDM shows a login screen; we will configure it to sign in the `arduino` user automatically so that the desktop (and RustDesk) become available after a reboot without any user interaction.
 
 ***You are changing how the board starts up. After applying this step, the UNO Q will boot straight into the `arduino` desktop session without asking for a password. Skip this step if you need the login screen to remain enabled.***
 
@@ -297,7 +242,9 @@ EOF
 
 To revert auto-login later, open `/etc/lightdm/lightdm.conf` with a text editor and remove the two lines you just added, then reboot.
 
-**VENTUNO Q:** GDM is the login manager that starts the desktop session when the VENTUNO Q boots. Two settings matter for RustDesk:
+#### VENTUNO Q (GDM)
+
+Two GDM settings matter for RustDesk:
 
 1. **Use X11 (required).** The dummy display driver and RustDesk's access to the login screen both need an X11 session, but Ubuntu uses Wayland by default. Tell GDM to use X11:
 
@@ -314,7 +261,7 @@ To revert auto-login later, open `/etc/lightdm/lightdm.conf` with a text editor 
 
 2. **Auto-login (optional).** By default GDM shows a login screen, and RustDesk lets you sign in through it remotely. Enable auto-login only if you want the desktop to be available after a reboot without signing in.
 
-   ***You are changing how the board starts up. After applying this setting, the VENTUNO Q will boot straight into the `arduino` desktop session without asking for a password. Auto-login also creates a local session that triggers the xrdp black screen described in [Troubleshooting: Black Screen On Connect](#troubleshooting-black-screen-on-connect), so apply that fix if you use both.***
+   ***You are changing how the board starts up. After applying this setting, the VENTUNO Q will boot straight into the `arduino` desktop session without asking for a password. Auto-login also creates a local session that triggers the xrdp black screen described in [Xrdp Black Screen On Connect](#xrdp-black-screen-on-connect), so apply that fix if you use both.***
 
    Enable auto-login for the `arduino` user (replace `arduino` with your username if it is different):
 
@@ -361,7 +308,9 @@ Install RustDesk on your client device (macOS, iOS, Windows, Linux) from [rustde
 
 The dummy driver overrides the real GPU, meaning if you plug in a physical monitor via HDMI, it will show a black screen while the dummy driver is active.
 
-You can create a script to easily toggle between the dummy display and the physical HDMI output:
+You can create a script to easily toggle between the dummy display and the physical HDMI output. Use the version for your board.
+
+#### UNO Q
 
 ```bash
 sudo tee /usr/local/bin/toggle-display << 'EOF'
@@ -382,11 +331,28 @@ EOF
 sudo chmod +x /usr/local/bin/toggle-display
 ```
 
-**VENTUNO Q:** The VENTUNO Q uses GDM instead of LightDM. Change the last line of the script so that it restarts GDM:
+#### VENTUNO Q
 
 ```bash
-sudo sed -i 's/systemctl restart lightdm/systemctl restart gdm3/' /usr/local/bin/toggle-display
+sudo tee /usr/local/bin/toggle-display << 'EOF'
+#!/bin/bash
+CONF="/etc/X11/xorg.conf.d/10-dummy.conf"
+BAK="${CONF}.bak"
+
+if [ -f "$CONF" ]; then
+    mv "$CONF" "$BAK"
+    echo "Switched to HDMI (physical display)"
+else
+    mv "$BAK" "$CONF"
+    echo "Switched to dummy (headless/RustDesk)"
+fi
+systemctl restart gdm3
+EOF
+
+sudo chmod +x /usr/local/bin/toggle-display
 ```
+
+#### Run The Script
 
 Switch anytime by running:
 
@@ -396,8 +362,79 @@ sudo toggle-display
 
 ![Toggle Dummy Display](assets/toggle-dummy-display.png)
 
-The script restarts the login manager (LightDM on the UNO Q, GDM on the VENTUNO Q) to apply the change. ***Restarting it ends any desktop session running on the board, including the one you are connected to through RustDesk. Reconnect after the switch completes.***
+The script restarts the login manager to apply the change. ***Restarting it ends any desktop session running on the board, including the one you are connected to through RustDesk. Reconnect after the switch completes.***
 
 ### After Reboot
 
 Everything starts automatically: the login manager starts on the dummy display (and signs in automatically if auto-login is enabled), RustDesk runs, and the desktop is accessible remotely from any device.
+
+---
+
+## Troubleshooting
+
+### Xrdp Black Screen On Connect
+
+If xrdp connects but immediately shows a black screen and disconnects, the cause is usually a conflict with a desktop session already running on the board. When you connect over xrdp, it tries to start a *second* desktop session for your remote connection, but the two sessions end up sharing resources that only one session can own at a time, most notably the per-user message bus (D-Bus) that desktop apps use to talk to each other. Since the local session got there first, the remote one fails to start cleanly and kicks you out, which is what you see as a black screen.
+
+The fix is to tell xrdp to start its remote desktop session in complete isolation from the local one, with its own private message bus, by overwriting the xrdp startup script. The steps depend on your board.
+
+#### UNO Q
+
+When the UNO Q boots, it starts a local desktop session managed by LightDM (the login screen and session manager). That session is already signed in as the `arduino` user and is using the board's main display, so the conflict happens by default.
+
+Overwrite the xrdp startup script:
+
+```bash
+sudo tee /etc/xrdp/startwm.sh << 'EOF'
+#!/bin/sh
+unset DBUS_SESSION_BUS_ADDRESS
+unset XDG_RUNTIME_DIR
+if [ -r /etc/profile ]; then
+    . /etc/profile
+fi
+exec dbus-run-session -- xfce4-session
+EOF
+```
+
+Then restart xrdp:
+
+```bash
+sudo systemctl restart xrdp
+```
+
+***If you are using a different desktop environment, replace `xfce4-session` with the appropriate command. Check available sessions with `ls /usr/share/xsessions/`.***
+
+#### VENTUNO Q
+
+The VENTUNO Q shows the GDM login screen when it boots and has no local `arduino` session by default, so xrdp works without any changes. A conflict only happens when a local session exists, either because automatic login is enabled (see [VENTUNO Q (GDM)](#ventuno-q-gdm) in the RustDesk section) or because you signed in on a display connected to the board.
+
+To confirm that a session conflict is the cause, run the following command on the board right after a failed connection:
+
+```bash
+journalctl -b --no-pager | grep "already running"
+```
+
+If the output contains `Session manager already running!`, the two sessions collided.
+
+First, back up the original startup script. Then overwrite it with the GNOME session command:
+
+```bash
+sudo cp /etc/xrdp/startwm.sh /etc/xrdp/startwm.sh.bak
+sudo tee /etc/xrdp/startwm.sh << 'EOF'
+#!/bin/sh
+unset DBUS_SESSION_BUS_ADDRESS
+unset XDG_RUNTIME_DIR
+if [ -r /etc/profile ]; then
+    . /etc/profile
+fi
+exec dbus-run-session -- gnome-session --session=ubuntu
+EOF
+```
+
+Then restart xrdp:
+
+```bash
+sudo systemctl restart xrdp
+```
+
+***To go back to the original startup script, run `sudo cp /etc/xrdp/startwm.sh.bak /etc/xrdp/startwm.sh` and restart xrdp.***
