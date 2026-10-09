@@ -1481,9 +1481,9 @@ This connector is also used to extend functionalities of the board, and is also 
 |  Pin 51   | SOC_GPIO_74     |                 |
 |  Pin 52   | SOC_GPIO_123    | I2S2_DATA1      |
 |  Pin 53   | +3V3 (OUT)      |                 |
-|  Pin 54   | +5V USB (OUT)   |                 |
+|  Pin 54   | +5V (OUT)       |                 |
 |  Pin 55   | +3V3 (OUT)      |                 |
-|  Pin 56   | +5V USB (OUT)   |                 |
+|  Pin 56   | +5V (OUT)       |                 |
 |  Pin 57   | +1V8 (OUT)      |                 |
 |  Pin 58   | GND             |                 |
 |  Pin 59   | SOC_VCOIN (IN)  | MCU_VBAT        |
