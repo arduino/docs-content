@@ -298,8 +298,9 @@ void loop() {
 
 Now that your VENTUNO Q is powered on and the project is imported, it's time to run the application and interact with your AI assistant! Follow these simple steps:
 
-1. __Check the Models:__ Make sure to have all the AI models downloaded (see [Project AI Models](#1-project-ai-models)).
-2. __Run the Application:__ Click the __Run__ button in Arduino App Lab.
+1. **Check the Models:** Make sure to have all the AI models downloaded (see [Project AI Models](#1-project-ai-models)).
+
+2. **Run the Application:** Click the **Run** button in Arduino App Lab.
 
 <Alert type="warning">
 
@@ -307,28 +308,28 @@ The very first time this could take a while. Custom Brick dependencies are being
 
 </Alert>
 
-1. __Wake the Assistant:__ Speak your configured wake word clearly into the USB microphone (e.g., *"Ventuno"*).
-2. __Wait for the Visual Cue:__ Wait for the LED matrix to light up and the scanning animation begins. This animation is your hardware confirmation that the Automatic Speech Recognition (ASR) is active and recording.
-3. __Speak Your Command:__ Ask your question or state your command naturally (e.g., *"What is the capital of Japan?"* or *"Tell me a short joke"*).
-4. __Listen to the Response:__ The LED matrix will slow its scanning speed while the LLM thinks. Once the response is ready, the matrix will switch to an organic voice waveform animation, and you will hear the assistant's intelligent voice through your USB speaker.
+1. **Wake the Assistant:** Speak your configured wake word clearly into the USB microphone (e.g., *"Ventuno"*).
+2. **Wait for the Visual Cue:** Wait for the LED matrix to light up and the scanning animation begins. This animation is your hardware confirmation that the Automatic Speech Recognition (ASR) is active and recording.
+3. **Speak Your Command:** Ask your question or state your command naturally (e.g., *"What is the capital of Japan?"* or *"Tell me a short joke"*).
+4. **Listen to the Response:** The LED matrix will slow its scanning speed while the LLM thinks. Once the response is ready, the matrix will switch to an organic voice waveform animation, and you will hear the assistant's intelligent voice through your USB speaker.
 
 ### Troubleshooting
 
 Even the smartest assistants sometimes run into hiccups. Here are the most common issues and how to fix them:
 
-- __App crashes immediately with `no microphone device found`:__
+- **App crashes immediately with `no microphone device found`:**
   The application requires an active audio input stream to start the Keyword Spotting brick. Ensure your USB microphone is securely plugged into the USB-A port *before* clicking the Run button in Arduino App Lab.
 
-- __The assistant ignores the wake word "Ventuno":__
+- **The assistant ignores the wake word "Ventuno":**
   If you are saying "Ventuno" but the LED matrix never lights up, the system is likely listening for the default "Hey Arduino" trigger instead. This happens if the custom model isn't configured correctly. Go back to [The Keyword Spotting Model](#the-keyword-spotting-model) section and ensure you have selected your cloned Edge Impulse model inside the Keyword Spotting Brick configuration.
 
-- __The LLM responds but you hear nothing:__
+- **The LLM responds but you hear nothing:**
   If the LLM generates a response but the audio fails to play through your headset or speaker, Linux is routing the `.wav` file to the wrong hardware address. Open the App Lab terminal, run `aplay -l`, and update the `plughw:1,0` parameter in your Python script to match your specific USB audio device card and device numbers.
 
-- __The board reboots or the app crashes during "AI Thinking":__
+- **The board reboots or the app crashes during "AI Thinking":**
   If the system crashes right after the ASR finishes and the LLM begins to process, you are experiencing a power brownout. The NPU draws a spike of current when loading the 8GB model into memory. Ensure you are powering the VENTUNO Q with a robust DC Power Supply (12V-24V, >60W).
 
-- __The assistant gives the wrong time:__
+- **The assistant gives the wrong time:**
   The Python container runs in UTC by default. If the assistant tells you the time in London instead of your local city, locate the `ZoneInfo("America/Santo_Domingo")` line in the Python script and update it to your local [IANA timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ## Conclusion
