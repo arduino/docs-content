@@ -298,8 +298,8 @@ void loop() {
 
 Now that your VENTUNO Q is powered on and the project is imported, it's time to run the application and interact with your AI assistant! Follow these simple steps:
 
-1. **Check the Models:** Make sure to have all the AI models downloaded (see [Project AI Models](#1-project-ai-models)).
-2. **Run the Application:** Click the **Run** button in Arduino App Lab.
+1. __Check the Models:__ Make sure to have all the AI models downloaded (see [Project AI Models](#1-project-ai-models)).
+2. __Run the Application:__ Click the __Run__ button in Arduino App Lab.
 
 <Alert type="warning">
 
