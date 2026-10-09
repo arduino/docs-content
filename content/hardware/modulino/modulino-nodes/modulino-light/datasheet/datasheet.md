@@ -7,6 +7,8 @@ author: Pedro Sousa Lima
 
 ![](assets/featured.png)
 
+# English
+
 # Description
 
 The Arduino Modulino® Light features the LTR-381RGB-01 ambient light, RGB, and infrared sensor, providing comprehensive optical sensing capabilities in a compact form factor. This sensor enables colour recognition, ambient light measurement, and infrared detection for a wide range of interactive and automation applications.
@@ -14,6 +16,12 @@ The Arduino Modulino® Light features the LTR-381RGB-01 ambient light, RGB, and 
 # Target Areas
 
 Maker, beginner, education
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Contents
 ## Application Examples

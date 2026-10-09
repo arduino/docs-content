@@ -7,6 +7,8 @@ author: Pedro Sousa Lima
 
 ![](assets/featured.png)
 
+# English
+
 # Description
 
 The Arduino Modulino LED Matrix features an 8×12 LED matrix (96 blue LEDs total) controlled by an on-board STM32C011F4U6TR microcontroller using charlieplexing technology. This display module provides LED matrix functionality for enabling text, graphics, animations, and visual feedback for a wide range of interactive projects.
@@ -14,6 +16,12 @@ The Arduino Modulino LED Matrix features an 8×12 LED matrix (96 blue LEDs total
 # Target Areas
 
 Maker, beginner, education
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Contents
 ## Application Examples

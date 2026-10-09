@@ -7,11 +7,20 @@ author: Pedro Sousa Lima
 
 ![](assets/featuredPix.png)
 
+# English
+
 # Description
+
 The Modulino® Pixels features **eight LC8822-2020 RGB LEDs** driven by an on-board **STM32C011F4** microcontroller. This setup enables simple I2C connectivity for controlling colorful visual effects, animations, or status indications in a wide variety of projects.
 
 # Target Areas
 Maker, beginner, education
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Contents
 ## Application Examples

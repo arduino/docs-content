@@ -7,6 +7,8 @@ author: Pedro Sousa Lima
 
 ![](assets/featured.png)
 
+# English
+
 # Description
 
 The Arduino Modulino® Vibro, powered by an on-board STM32C011F4 microcontroller, features a compact vibration motor (VZ43FM1B8230001L) for haptic feedback and alert applications. This setup enables simple vibration control via I2C and provides tactile notifications for various interactive projects.
@@ -14,6 +16,12 @@ The Arduino Modulino® Vibro, powered by an on-board STM32C011F4 microcontroller
 # Target Areas
 
 Maker, beginner, education
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Contents
 ## Application Examples

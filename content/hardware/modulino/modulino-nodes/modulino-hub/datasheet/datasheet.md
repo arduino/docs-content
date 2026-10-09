@@ -7,11 +7,20 @@ author: Pedro Sousa Lima
 
 ![](assets/featured.png)
 
+# English
+
 # Description
+
 The Modulino Hub features the TCA9548ARGER I2C multiplexer, providing eight independent I2C channels through a single main bus connection. This powerful module enables complex I2C networks by allowing multiple devices with identical addresses to coexist on separate channels, making it ideal for expanding large-scale sensor networks and complex modular projects.
 
 # Target Areas
 Maker, beginner, education, advanced prototyping
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Contents
 ## Application Examples

@@ -7,11 +7,20 @@ author: Pedro Sousa Lima
 
 ![](assets/featuredKnob.png)
 
+# English
+
 # Description
+
 The Modulino® Knob features a **quadrature rotary encoder** (PEC11J-9215F-S0015) paired with an on-board **STM32C011F4 microcontroller**, enabling both precise rotational input and push-button interaction. The node communicates via I2C (Qwiic interface) by default, but can also be reprogrammed or accessed via other communication interfaces for advanced projects.
 
 # Target Areas
 Maker, beginner, education
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Contents
 
