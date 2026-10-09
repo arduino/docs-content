@@ -5,15 +5,25 @@ type: pro
 variant: 'Collective Datasheet'
 author: Christopher Mendez
 ---
+
 ![](assets/featured.png)
 
+# English
+
 # Description
+
 Arduino Opta® Digital Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 16 programmable inputs for connecting your digital sensors and 8 more relays to operate your machines. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
 
 The Arduino Opta® Digital Expansion comes in two variants: the Opta Ext D1608E (with Electromechanical Relays) and the Opta Ext D1608S (with Solid State Relays), both of them described in this document.
 
 # Target Areas:
 Industrial IoT, Building automation, Electrical loads management, Industrial automation
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # CONTENTS
 ## Product Variants
