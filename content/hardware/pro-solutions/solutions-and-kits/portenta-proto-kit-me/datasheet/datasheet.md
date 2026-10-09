@@ -7,6 +7,8 @@ author: José Bagur
 
 ![](assets/proto-kit-perspective.png)
 
+# English
+
 # Description
 
 <p style="text-align: justify;">Expand your environmental monitoring and motion detection projects with the Arduino Portenta Proto Kit ME (Motion Environment). This kit integrates multiple Arduino Pro products, offering a complete toolkit for collecting data in applications such as predictive maintenance, asset tracking, smart building systems and industrial automation. Designed for reliability and efficiency, the kit features robust sensing capabilities and seamless Cloud connectivity enabled by the Arduino Pro 4G Module. Leverage the Portenta Proto Kit ME to accelerate your prototyping process and transition smoothly from functional prototypes to final products.</p>
@@ -14,6 +16,12 @@ author: José Bagur
 # Target Areas
 
 Predictive maintenance, asset tracking, smart building systems, industrial automation, research and development
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # CONTENTS
 ## Application Examples

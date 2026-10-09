@@ -7,6 +7,8 @@ author: José Bagur
 
 ![](assets/proto-kit-perspective.png)
 
+# English
+
 # Description
 
 <p style="text-align: justify;">Expand your vision-based automation and industrial monitoring projects with the Arduino Portenta Proto Kit VE (Vision Environment). This kit integrates multiple Arduino Pro products, providing a comprehensive solution for developing functional prototypes that leverage advanced image processing and edge AI capabilities. Ideal for applications such as smart quality inspection, automated object detection and industrial vision systems, the kit enables real-time data collection and processing. With robust connectivity options, including seamless Cloud integration via the Arduino Pro 4G Module, the Portenta Proto Kit VE accelerates the transition from concept to deployment, enhancing efficiency and innovation in vision-based automation.
@@ -15,6 +17,12 @@ author: José Bagur
 # Target Areas
 
 Quality inspection, automated object detection, industrial automation, machine vision, research and development
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # CONTENTS
 ## Application Examples
