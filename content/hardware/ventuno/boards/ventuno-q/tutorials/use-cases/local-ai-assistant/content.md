@@ -308,9 +308,9 @@ The very first time this could take a while. Custom Brick dependencies are being
 
 </Alert>
 
-1. **Wake the Assistant:** Speak your configured wake word clearly into the USB microphone (e.g., *"Ventuno"*).
+1. **Wake the Assistant:** Speak your configured wake word clearly into the USB microphone (e.g., _"Ventuno"_).
 2. **Wait for the Visual Cue:** Wait for the LED matrix to light up and the scanning animation begins. This animation is your hardware confirmation that the Automatic Speech Recognition (ASR) is active and recording.
-3. **Speak Your Command:** Ask your question or state your command naturally (e.g., *"What is the capital of Japan?"* or *"Tell me a short joke"*).
+3. **Speak Your Command:** Ask your question or state your command naturally (e.g., _"What is the capital of Japan?"_ or _"Tell me a short joke"_).
 4. **Listen to the Response:** The LED matrix will slow its scanning speed while the LLM thinks. Once the response is ready, the matrix will switch to an organic voice waveform animation, and you will hear the assistant's intelligent voice through your USB speaker.
 
 ### Troubleshooting
@@ -318,7 +318,7 @@ The very first time this could take a while. Custom Brick dependencies are being
 Even the smartest assistants sometimes run into hiccups. Here are the most common issues and how to fix them:
 
 - **App crashes immediately with `no microphone device found`:**
-  The application requires an active audio input stream to start the Keyword Spotting brick. Ensure your USB microphone is securely plugged into the USB-A port *before* clicking the Run button in Arduino App Lab.
+  The application requires an active audio input stream to start the Keyword Spotting brick. Ensure your USB microphone is securely plugged into the USB-A port _before_ clicking the Run button in Arduino App Lab.
 
 - **The assistant ignores the wake word "Ventuno":**
   If you are saying "Ventuno" but the LED matrix never lights up, the system is likely listening for the default "Hey Arduino" trigger instead. This happens if the custom model isn't configured correctly. Go back to [The Keyword Spotting Model](#the-keyword-spotting-model) section and ensure you have selected your cloned Edge Impulse model inside the Keyword Spotting Brick configuration.
