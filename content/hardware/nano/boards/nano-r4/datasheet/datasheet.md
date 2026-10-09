@@ -338,7 +338,7 @@ The Nano R4 was designed to be usable as a surface-mount module and presents a d
 
 ## Certifications
 
-### Certificactions Summary
+### Certifications Summary
 
 |  **Certification**  | **Status** |
 | :-----------------: | :--------: |
