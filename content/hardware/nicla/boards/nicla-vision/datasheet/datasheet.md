@@ -7,6 +7,8 @@ author: Ali Jahangiri, Julián Caro Linares
 
 ![Nicla Vision](assets/featured.png)
 
+# English
+
 # Description
 
 The **Arduino® Nicla Vision** packs machine vision capabilities on the edge into a tiny fingerprint. Record, analyze and upload to the Cloud with the help of one **Arduino® Nicla Vision**. Leverage the onboard camera, STM32 microcontroller, Wi-Fi®/Bluetooth® module and 6-axis IMU to create your wireless sensor network for machine vision applications.
@@ -14,6 +16,12 @@ The **Arduino® Nicla Vision** packs machine vision capabilities on the edge int
 # Target Areas
 
 Wireless sensor networks, data fusion, artificial intelligence, machine vision
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Features
 
