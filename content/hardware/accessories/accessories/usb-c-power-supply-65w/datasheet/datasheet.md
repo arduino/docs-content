@@ -6,9 +6,17 @@ type: maker
 
 ![Arduino USB-C Power Supply (65W)](assets/featured.png)
 
+# English
+
 # Description
 
 <p style="text-align: justify;">The Arduino® USB-C Power Supply (65W) is a compact wall adapter providing up to 65 W via USB-C using the USB Power Delivery (PD) protocol. It is the recommended power source for the Arduino® VENTUNO™ Q and its peripherals. The adapter supports 5 VDC, 9 VDC, 12 VDC, 15 VDC (up to 3.0 A), and 20 VDC (up to 3.25 A), automatically matching the device's needs. It features a foldable plug for easy transport and interchangeable EU and UK plugs.</p>
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 <div style="page-break-after: always;"></div>
 
@@ -383,3 +391,4 @@ The following table lists additional resources related to this product.
 |  **Date**  | **Revision** |  **Changes**  |
 |:----------:|:------------:|:-------------:|
 | 25/08/2026 |       1      | First release |
+| 12/10/2026 |      2       | Added note for Intended Use |

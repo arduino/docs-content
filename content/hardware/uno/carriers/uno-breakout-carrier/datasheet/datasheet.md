@@ -7,6 +7,8 @@ author: Christopher Méndez
 
 ![](assets/featured.png)
 
+# English
+
 # Description
 
 The Arduino UNO Breakout Carrier is designed to give developers complete, direct access to every signal available on the UNO Q’s JMEDIA and JMISC high-speed connectors. Ideal for advanced prototyping, testing, and integration work, it exposes all lines — including high-speed video, camera, audio, I²C, SPI, UART, PWM, power rails, and control signals — to clearly labeled, easy-to-use breakout headers.
@@ -14,6 +16,12 @@ The Arduino UNO Breakout Carrier is designed to give developers complete, direct
 # Target Areas
 
 Rapid Prototyping, Proof of Concept, Edge AI, Research and Development
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Features
 
@@ -346,7 +354,7 @@ the dimensions are in mm.
 
 ## Certifications
 
-### Certificactions Summary
+### Certifications Summary
 
 |  **Certification**  | **Status** |
 | :-----------------: | :--------: |
@@ -453,3 +461,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | **Date**   | **Revision** | **Changes**                                 |
 |------------|--------------|---------------------------------------------|
 | 27/03/2026 | 1            | First Release                               |
+| 12/10/2026 |       2      | Added note for Intended Use |

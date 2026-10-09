@@ -5,9 +5,13 @@ type: pro
 variant: 'Collective Datasheet'
 author: Ali Jahangiri, Julián Caro Linares
 ---
+
 ![](assets/featured.png)
 
+# English
+
 # Description
+
 Arduino Opta® is a secure, easy-to-use micro PLC with Industrial IoT capabilities. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
 
 The Arduino Opta® family has three variants: the Arduino Opta® Lite, Arduino Opta® RS485, and Arduino Opta® WiFi, all of them documented inside this document.
@@ -15,6 +19,12 @@ The Arduino Opta® family has three variants: the Arduino Opta® Lite, Arduino O
 
 # Target Areas:
 Industrial IoT, Building automation, Electrical loads management, Industrial automation
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 
 # CONTENTS
@@ -807,12 +817,13 @@ Cet appareil numérique de la classe A est conforme à la norme NMB-003 du Canad
 
 |  **Date**  | **Revision** |             **Changes**              |
 |:----------:|:------------:|:------------------------------------:|
-| 02/12/2024 |      9       |  Digital input specification update  |
-| 24/09/2024 |      8       |        Expansion port updates        |
-| 11/09/2024 |      7       |      ICES certification updates      |
-| 03/09/2024 |      6       | Cloud Editor updated from Web Editor |
-| 24/07/2024 |      5       |        Wiring specifications         |
-| 07/02/2023 |      4       |           MTBF information           |
-| 16/05/2023 |      3       |            Legal updates             |
-| 13/04/2023 |      2       |          Tech Specs Updates          |
 | 02/03/2023 |      1       |            First Release             |
+| 13/04/2023 |      2       |          Tech Specs Updates          |
+| 16/05/2023 |      3       |            Legal updates             |
+| 07/02/2023 |      4       |           MTBF information           |
+| 24/07/2024 |      5       |        Wiring specifications         |
+| 03/09/2024 |      6       | Cloud Editor updated from Web Editor |
+| 11/09/2024 |      7       |      ICES certification updates      |
+| 24/09/2024 |      8       |        Expansion port updates        |
+| 02/12/2024 |      9       |  Digital input specification update  |
+| 12/10/2026 |      10      | Added note for Intended Use |

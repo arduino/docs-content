@@ -7,11 +7,20 @@ author: Pedro Sousa Lima
 
 ![](assets/featured.png)
 
+# English
+
 # Description
+
 The Modulino Motors, powered by an on-board STM32C011F6 microcontroller and featuring the MAX22211 dual H-bridge driver, delivers precise motor control for up to two brushed DC motors, two solenoids, two latched valves, or one stepper motor. Designed for high-current applications, it handles motor voltages from 5 V to 24 V while maintaining safe operation with reverse polarity protection and transient voltage suppression.
 
 # Target Areas
 Maker, beginner, education, robotics
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Contents
 ## Application Examples
@@ -192,3 +201,5 @@ By default, the board operates as an I2C target device. It manages motor directi
 | **Date**   | **Revision** | **Changes**       |
 |------------|--------------|-------------------|
 | 23/03/2026 | 1            | First release     |
+| 12/10/2026 |       2      | Added note for Intended Use |
+

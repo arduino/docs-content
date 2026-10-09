@@ -4,9 +4,13 @@ title: Arduino® Portenta H7
 type: pro
 variant: 'Collective Datasheet'
 ---
+
 ![](assets/featured.png)
 
+# English
+
 # Description 
+
 Portenta H7 family runs high level codes along with real time tasks thanks to the two processors that makes it possible to run tasks in parallel. For example, it is possible to execute Arduino compiled code along with MicroPython one simultaneously, and have both cores to communicate with one another. 
 
 Within the H7 family,  there are two variants; H7 Lite and H7 Lite Connected. All the three boards and their differences are presented in this datasheet.  
@@ -14,6 +18,12 @@ Within the H7 family,  there are two variants; H7 Lite and H7 Lite Connected. Al
 
 # Target Areas:
 Laboratory equipment, Computer vision
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 <table style="page-break-before: always;">
    <thead>
@@ -918,10 +928,11 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date       | **Revision** | **Changes**                         |
 |------------|--------------|-------------------------------------|
-| 14/11/2024 | 7            | Pinout information updated          |
-| 06/02/2024 | 6            | MTBF information                    |
-| 05/12/2023 | 5            | Accessories section updated         |
-| 17/10/2023 | 4            | I2C ports information section added |
-| 27/01/2023 | 3            | Add power consumption information   |
-| 18/08/2022 | 2            | Add Secure Element specs (SE050C2)  |
 | 27/12/2021 | 1            | First Release                       |
+| 18/08/2022 | 2            | Add Secure Element specs (SE050C2)  |
+| 27/01/2023 | 3            | Add power consumption information   |
+| 17/10/2023 | 4            | I2C ports information section added |
+| 05/12/2023 | 5            | Accessories section updated         |
+| 06/02/2024 | 6            | MTBF information                    |
+| 14/11/2024 | 7            | Pinout information updated          |
+| 12/10/2026 |       8      | Added note for Intended Use |

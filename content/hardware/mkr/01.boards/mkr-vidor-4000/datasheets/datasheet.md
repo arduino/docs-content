@@ -7,6 +7,8 @@ author: Julián Caro Linares
 
 ![](assets/image.svg)
 
+# English
+
 # Description
 
 <p style="text-align: justify;">The Arduino MKR Vidor 4000 (from now on referred to as MKR Vidor 4000) is without a doubt the most advanced and featured-packed board in the MKR family and the only one with a FPGA chip on board. With a camera & HDMI connector, a Wi-Fi® / Bluetooth® module and up to 25 configurable pins, the board offers a huge range of possibilities to implement solutions in different environments and applications.</p>
@@ -15,6 +17,12 @@ author: Julián Caro Linares
 # Target Areas
 
 FPGA, IoT, automation, industry, smart cities, signal processing
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # CONTENTS
 
@@ -333,5 +341,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 |  **Date**  | **Revision** |  **Changes**  |
 | :--------: | :----------: | :-----------: |
-| 14/11/2023 |      2       |  FCC Update   |
 | 07/09/2023 |      1       | First release |
+| 14/11/2023 |      2       |  FCC Update   |
+| 12/10/2026 |       3      | Added note for Intended Use |
+

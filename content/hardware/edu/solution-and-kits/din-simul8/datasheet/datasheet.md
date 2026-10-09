@@ -7,11 +7,19 @@ author: Paolo Cavagnolo
 
 ![render_simul8](assets/Simul8-Perspective-with-Adaptor.png)
 
+# English
+
 # Description
 Arduino® DIN Simul8 is a digital-input-simulator and power distribution board for the Arduino Opta® family and Arduino® PLC Starter Kit. It provides eight toggle switches (0 - 10 V output) and four screw terminal for bringing the 24 V and the GROUND easily to the PLC or other board.
 
 # Target Areas:
 Pro, PLC projects, Education, Industry Ready, Building automation
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Features
 **Note**: This board needs the Arduino Opta® for full functionality.
@@ -178,3 +186,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Date       | **Revision** | **Changes**               |
 | ---------- | ------------ | ------------------------- |
 | 25/03/2024 | 1            | First release             |
+| 12/10/2026 |      2       | Added note for Intended Use |

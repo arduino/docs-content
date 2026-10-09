@@ -7,12 +7,20 @@ author: Julián Caro Linares
 
 ![](assets/featured.png)
 
+# English
+
 # Description
 
 The Arduino® Portenta Machine Control is powered with a 24V DC power supply and provides several input/output digital and analog pins. This makes the board capable of driving high-power relays, sampling analog signals and measuring temperature with different probes.
 
 # Target Areas
 Industry 4.0, system integrators
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Features
 - **STM32H747XI dual Cortex® Microcontroller**
@@ -566,13 +574,14 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 
 | **Date**    | **Revision** | **Changes**                                                                                                                                                           |
-|-------------|:------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 19/11/2024  |      9       | Updated analog output channel details                                                                                                                                 |
-| 03/09/2024  |      8       | Cloud Editor updated from Web Editor                                                                                                                                  |
-| 06/02/2024  |      7       | MTBF information                                                                                                                                                      |
-| 08/05/2023  |      6       | RTD and thermocouples new information                                                                                                                                 |
-| 11/04//2023 |      5       | Updates and table improvements                                                                                                                                        |
-| 13/10/2022  |      4       | Big improvements and fixes                                                                                                                                            |
+|-------------|:------------:|----------------------------------------------------------------------------------------------------------------------------------------|
+| 13/04/2021  |      1       | First release                                                                                                                          |
+| 09/05/2022  |      2       | Remove PT1000, not compatible                                                                                                          |
 | 26/09/2022  |      3       | Fix features indentation, update analog output diagram, fix format issues and update images reflecting the location change of the MAX31855KASA+T converter (top side) |
-| 09/05/2022  |      2       | Remove PT1000, not compatible                                                                                                                                         |
-| 13/04/2021  |      1       | First release                                                                                                                                                         |
+| 13/10/2022  |      4       | Big improvements and fixes                                                                                                             |
+| 11/04//2023 |      5       | Updates and table improvements                                                                                                         |
+| 08/05/2023  |      6       | RTD and thermocouples new information                                                                                                  |
+| 06/02/2024  |      7       | MTBF information                                                                                                                       |
+| 03/09/2024  |      8       | Cloud Editor updated from Web Editor                                                                                                   |
+| 19/11/2024  |      9       | Updated analog output channel details                                                                                                  |
+| 12/10/2026 |       10      | Added note for Intended Use |

@@ -3,9 +3,13 @@ identifier: ASX00031
 title: Arduino® Portenta Breakout Board
 type: pro
 ---
+
 ![](assets/featured.png)
 
+# English
+
 # Description
+
 The Arduino® Portenta Breakout board is designed to assist developers with their prototypes by exposing the high-density connectors of the Portenta family on both sides of the breakout carrier, providing total flexibility for measuring and controlling signals - developing your own hardware, testing the design and measuring the input and output signals out of the high-density connectors.
 
 # Target areas:
@@ -31,6 +35,12 @@ Prototyping
   Standard Portenta high-density connector pinout
 * Safety information
   Class A
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Contents
 ## The Board
@@ -398,8 +408,9 @@ As a global supplier of electronic and electrical components, Arduino is aware o
 ## Change Log
 | **Date**   | **Revision** | **Changes**                                 |
 |------------|--------------|---------------------------------------------|
-| 03/09/2024 | 5            | Cloud Editor updated from Web Editor        |
-| 05/12/2023 | 4            | Accessories section updated and small fixes |
-| 23/08/2022 | 3            | Add RJ-45 jumpers information               |
-| 14/12/2021 | 2            | Clarified Camera compatibility              |
 | 05/05/2021 | 1            | First Release                               |
+| 14/12/2021 | 2            | Clarified Camera compatibility              |
+| 23/08/2022 | 3            | Add RJ-45 jumpers information               |
+| 05/12/2023 | 4            | Accessories section updated and small fixes |
+| 03/09/2024 | 5            | Cloud Editor updated from Web Editor        |
+| 12/10/2026 |       6      | Added note for Intended Use |

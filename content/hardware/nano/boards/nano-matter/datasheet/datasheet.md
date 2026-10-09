@@ -7,6 +7,8 @@ author: José Bagur, Christopher Méndez
 
 ![](assets/Nano-Matter_Top.png)
 
+# English
+
 # Description
 
 <p style="text-align: justify;">Expand your home automation and building management projects with the Arduino Nano Matter. This board integrates the high-performance MGM240S microcontroller from Silicon Labs and directly brings the advanced Matter and Zigbee standards for Internet of Things (IoT) connectivity to hobbyists and professionals. The Nano Matter's compact and sturdy build, measuring 18 mm x 45 mm, is perfect for projects that demand energy efficiency and diverse connectivity options, such as Bluetooth® Low Energy, OpenThread and Zigbee. Embrace the simplicity and versatility of the Nano Matter to effortlessly interface with any Matter® or Zigbee® compatible devices and leverage the Arduino ecosystem's wide range of peripherals and inputs/outputs to enhance your device connectivity and project capabilities. </p>
@@ -16,6 +18,12 @@ The Nano Matter is available in two variants: without headers (SKU: ABX00112) an
 # Target Areas
 
 Internet of Things, home automation, professional automation, environmental monitoring, and climate control
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # CONTENTS
 ## Application Examples
@@ -364,11 +372,13 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 |  **Date**  | **Revision** |                                 **Changes**                                 |
 | :--------: | :----------: | :-------------------------------------------------------------------------: |
-| 05/10/2026 |      8       | Updating supported protocols, programming environments and AREF jumper note |
-| 24/03/2026 |      7       |                 Updating top image to include both variants                 |
-| 01/12/2025 |      6       |         Additional note on multiple SKUs and certification updates          |
-| 11/02/2025 |      5       |            Header Version and SKU added as Collective Datasheet             |
-| 14/11/2024 |      4       |            Official launch revision and power information update            |
-| 05/09/2024 |      3       |                    Cloud Editor updated from Web Editor                     |
-| 07/05/2024 |      2       |                                Board update                                 |
 | 21/03/2024 |      1       |                          Community Preview Release                          |
+| 07/05/2024 |      2       |                                Board update                                 |
+| 05/09/2024 |      3       |                    Cloud Editor updated from Web Editor                     |
+| 14/11/2024 |      4       |            Official launch revision and power information update            |
+| 11/02/2025 |      5       |            Header Version and SKU added as Collective Datasheet             |
+| 01/12/2025 |      6       |         Additional note on multiple SKUs and certification updates          |
+| 24/03/2026 |      7       |                 Updating top image to include both variants                 |
+| 05/10/2026 |      8       | Updating supported protocols, programming environments and AREF jumper note |
+| 12/10/2026 |       9      | Added note for Intended Use |
+

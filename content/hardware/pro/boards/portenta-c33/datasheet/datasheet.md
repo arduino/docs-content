@@ -7,6 +7,8 @@ author: José Bagur
 
 ![](assets/Portenta_C33_Top_View.png)
 
+# English
+
 # Description 
 
 <p style="text-align: justify;">The Portenta C33 is a powerful System-on-Module designed for low-cost Internet of Things (IoT) applications. Based on the R7FA6M5BH2CBG microcontroller from Renesas®, this board shares the same form factor as the Portenta H7 and it is backward compatible with it, making it fully compatible with all Portenta family shields and carriers through its high-density connectors. As a low-cost device, the Portenta C33 is an excellent choice for developers looking to create IoT devices and applications on a budget. Whether you're building a smart home device or a connected industrial sensor, the Portenta C33 provides the processing power and connectivity options you need to get the job done.</p>
@@ -14,6 +16,12 @@ author: José Bagur
 # Target Areas
 
 IoT, building automation, smart cities, and agriculture
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # CONTENTS
 ## Application Examples
@@ -652,12 +660,13 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 |  **Date**  | **Revision** |                       **Changes**                      |
 |:----------:|:------------:|:------------------------------------------------------:|
-| 03/09/2024 |       9      |          Cloud Editor updated from Web Editor          |
-| 16/06/2024 |       8      |     Updated General Specifications Overview section    |
-| 23/01/2024 |       7      |               Updated Interfaces section               |
-| 14/12/2023 |       6      |             Updated Related Product section            |
-| 14/11/2023 |       5      |              FCC and Block Diagram Updates             |
-| 30/10/2023 |       4      |           I2C ports information section added          |
-| 20/06/2023 |       3      | Power tree added, related products information updated |
-| 09/06/2023 |       2      |       Board's power consumption information added      |
 | 14/03/2023 |       1      |                      First release                     |
+| 09/06/2023 |       2      |       Board's power consumption information added      |
+| 20/06/2023 |       3      | Power tree added, related products information updated |
+| 30/10/2023 |       4      |           I2C ports information section added          |
+| 14/11/2023 |       5      |              FCC and Block Diagram Updates             |
+| 14/12/2023 |       6      |             Updated Related Product section            |
+| 23/01/2024 |       7      |               Updated Interfaces section               |
+| 16/06/2024 |       8      |     Updated General Specifications Overview section    |
+| 03/09/2024 |       9      |          Cloud Editor updated from Web Editor          |
+| 12/10/2026 |       10     | Added note for Intended Use |

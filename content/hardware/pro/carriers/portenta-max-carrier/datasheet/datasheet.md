@@ -7,11 +7,20 @@ author: Ali Jahangiri
 
 ![Max Carrier board](assets/featured.png)
 
+# English
+
 # Description 
+
 Enable edge AI for high performance industrial, building automation and robotics applications with the Portenta Max Carrier. The Portenta Max Carrier transforms the Arduino® Portenta family into a standardized industrial platform, ready for use as a single board computer or as a reference design. The Portenta Max Carrier provides easy access to the onboard peripherals of the Arduino® Portenta X8 including Gigabit Ethernet, microSD and PCIe. This board further augments the capabilities of the Portenta X8 with Fieldbus, LoRa®, 4G, Cat-M1 and NB-IoT connectivity providing a platform for Industry 4.0. 
 
 # Target areas:
 Industry 4.0, prototyping, robotics, data logging 
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Features
 **Note**: This board needs the Portenta X8 for full functionality. Not all features are available with the Arduino® Portenta H7.  
@@ -500,8 +509,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 | Date       | **Revision** | **Changes**                               |
 |------------|--------------|-------------------------------------------|
-| 28/02/2025 | 3            | General information and trademark revision |
-
-| 03/09/2024 | 3            | Cloud Editor updated from Web Editor      |
-| 11/20/2023 | 2            | Recommended antennas added                |
 | 10/05/2022 | 1            | First Release                             |
+| 11/20/2023 | 2            | Recommended antennas added                |
+| 03/09/2024 | 3            | Cloud Editor updated from Web Editor      |
+| 28/02/2025 | 4            | General information and trademark revision |
+| 12/10/2026 |       5      | Added note for Intended Use |
+

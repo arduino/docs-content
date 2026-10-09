@@ -8,6 +8,8 @@ author: Christopher Méndez
 
 ![](assets/nano-connector-top.png)
 
+# English
+
 # Description
 
 The Nano Connector Carrier is a practical solution for expanding the capabilities of our Nano product family. It is plug-and-play compatible with Qwiic and Grove modules, making rapid prototyping easier than ever.
@@ -19,6 +21,12 @@ The onboard microSD card slot unlocks new possibilities for data logging, Edge A
 # Target Areas:
 
 Industrial Automation, Rapid Prototyping, Proof of Concept, Edge AI, Research and Development
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # CONTENTS
 
@@ -257,7 +265,7 @@ The Nano Connector Carrier's connectors are placed on the top side of the board,
 
 ## Certifications
 
-### Certificactions Summary
+### Certifications Summary
 
 |  **Certification**  | **Status** |
 | :-----------------: | :--------: |
@@ -364,5 +372,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date      | **Revision** | **Changes**   |
 | --------- | ------------ | ------------- |
-| 22/05/2025 | 2            | Technical corrections, voltage notation standardization, nomenclature fixes and change log correction  |
-| 21/05/2025 | 1            | First Release |
+| 21/05/2025 | 1           | First Release |
+| 22/05/2025 | 2           | Technical corrections, voltage notation standardization, nomenclature fixes and change log correction  |
+| 12/10/2026 |       3      | Added note for Intended Use |

@@ -7,13 +7,22 @@ author: Linnea Åkerberg, Pablo Marquínez, Ali Jahangiri, Taddy Chung
 
 ![Nicla Voice](assets/featured.png)
 
+# English
+
 # Description
+
 The **Arduino® Nicla Voice** packs machine-learning capabilities on the edge into a tiny fingerprint.
 
 Implement always-on speech recognition with the Nicla Voice. The board integrates a dedicated Neural Decision Processor **Syntiant® NDP 120** able to run multiple AI algorithms at the same time. Leverage the built-in microphone, nRF52832 microcontroller, Bluetooth® Low Energy module, 6-axis IMU and 3-axis magnetometer to create your own wireless sensor network for machine learning applications with low power consumption capabilities.
 
 # Target areas:
 noise and vibration detection, low-power speech recognition, contactless operations, gesture recognition
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Features
 
@@ -452,11 +461,13 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                          |
 |------------|--------------|--------------------------------------|
-| 03/09/2024 | 5            | Cloud Editor updated from Web Editor |
-| 11/06/2024 | 4            | Product Labeling section added       |
-| 04/06/2024 | 3            | Typical Output Power updated         |
-| 17/05/2023 | 2            | ESLOV Information updated            |
 | 05/01/2023 | 1            | First release                        |
+| 17/05/2023 | 2            | ESLOV Information updated            |
+| 04/06/2024 | 3            | Typical Output Power updated         |
+| 11/06/2024 | 4            | Product Labeling section added       |
+| 03/09/2024 | 5            | Cloud Editor updated from Web Editor |
+| 12/10/2026 |       6      | Added note for Intended Use |
+
 
 ## Product Warnings and Disclaimers
 

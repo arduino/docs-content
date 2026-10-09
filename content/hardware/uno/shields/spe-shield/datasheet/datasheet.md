@@ -5,7 +5,10 @@ type: maker
 variant: 'Datasheet'
 author: Elizabeth Esparza
 ---
+
 ![](assets/UNO_SPE_Shield_Top.png)
+
+# English
 
 # Description
 
@@ -18,6 +21,12 @@ Its robust design and advanced protection makes it ideal for applications in ind
 # Target Areas:
 
 Industrial automation, building automation, factory automation, automotive networks
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # CONTENTS
 
@@ -407,3 +416,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 |  **Date**  | **Revision** |  **Changes**  |
 | :--------: | :----------: | :-----------: |
 | 21/04/2025 |      1       | First release |
+| 12/10/2026 |       2      | Added note for Intended Use |

@@ -6,6 +6,8 @@ author: Paolo Cavagnolo, Jose Garcia, Julián Caro Linares
 ---
 ![](assets/perspective_front.png)
 
+# English
+
 # Description
 Arduino® Alvik is a powerful and versatile robot specifically designed for programming and STEAM education.
 
@@ -13,6 +15,12 @@ Powered by the [Arduino® Nano ESP32](https://docs.arduino.cc/hardware/nano-esp3
 
 # Target areas:
 Maker, Education, MicroPython, Robotics
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Contents
 
@@ -392,7 +400,8 @@ Use of controls or adjustments, or performance of procedures other than those sp
 
 | Date       | **Revision** |             **Changes**             |
 |------------|:------------:|:-----------------------------------:|
-| 07/07/2025 |      4       |       Correct LED information       |
-| 20/12/2024 |      3       |         Add Certifications          |
-| 13/05/2024 |      2       | Robot's Expandability section added |
 | 24/04/2024 |      1       |            First Release            |
+| 13/05/2024 |      2       | Robot's Expandability section added |
+| 20/12/2024 |      3       |         Add Certifications          |
+| 07/07/2025 |      4       |       Correct LED information       |
+| 12/10/2026 |      5       | Added note for Intended Use |
