@@ -8,13 +8,22 @@ variant: Rev2
 
 ![](assets/featured.png)
 
+# English
+
 # Description
+
 The **Arduino® MKR IoT Carrier Rev2** provides infinite possibilities for IoT projects, including a TFT display to display information, Grove connectors and multiple sensors.
 
 The integrated sensors, circuits and display leave you free to focus on programming and prototyping your ideas.
 
 # Target areas:
 IoT applications, MKR hobbyists
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Features
 

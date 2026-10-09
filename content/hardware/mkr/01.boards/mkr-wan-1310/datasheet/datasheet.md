@@ -6,12 +6,20 @@ type: maker
 
 ![Arduino® MKR WAN 1310](assets/featured.png)
 
+# English
+
 # Description
 
 The Arduino MKR WAN 1310 is a miniature sized module containing a Arm® Cortex®-M0+ SAMD21 processor, the Murata CMWX1ZZABZ LoRa® module, a crypto chip (the ECC508), and a 2MByte SPI Flash. The module can either be mounted as a DIP component throughout the already mounted headers. Like most Arduino MKR form factor boards the MKR WAN 1310 can be powered via USB, via headers orconnecting a Lithium or Lithium Polymer battery to the embedded battery charger (the BQ24195L).
 
 # Target Areas:
 Maker
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Features
 
