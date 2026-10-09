@@ -7,12 +7,20 @@ author: Paolo Cavagnolo
 
 ![render_simul8](assets/Celsius-Perspective-with-Adaptor.png)
 
+# English
+
 # Description
 
 The Arduino® DIN Celsius offers you a mini temperature laboratory to test your PLC skills, with two independent heater circuits and one temperature sensor placed at the center of the board.
 
 # Target Areas:
 Pro, PLC projects, Education, Industry Ready, Building automation
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Features
 **Note**: This board needs the Arduino Opta® for full functionality.
