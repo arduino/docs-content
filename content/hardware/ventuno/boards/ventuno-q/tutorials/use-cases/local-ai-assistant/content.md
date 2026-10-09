@@ -91,13 +91,30 @@ During this specific voice assistant application, the system consumes around **1
 
 Download the `.zip` file of the application and import it into your Arduino App Lab workspace:
 
-[![ ](assets/download-app-new.png)](https://github.com/mcmchris/keyword-asr-local-llm-kokoro-tts/releases/download/v1.0.2/Keyword-ASR-Local-LLM-Kokoro-TTS.zip)
+[![ ](assets/download-app-new.png)](https://github.com/mcmchris/keyword-asr-local-llm-kokoro-tts/releases/latest/download/Keyword-ASR-Local-LLM-Kokoro-TTS.zip)
 
-- **Local LLM + Kokoro TTS:** ([Download Link](https://github.com/mcmchris/keyword-asr-local-llm-kokoro-tts/releases/download/v1.0.2/Keyword-ASR-Local-LLM-Kokoro-TTS.zip)) - The ultimate offline experience. Uses a Custom Brick for high-fidelity offline voice synthesis.
+- **Local LLM + Kokoro TTS:** ([Download Link](https://github.com/mcmchris/keyword-asr-local-llm-kokoro-tts/releases/latest/download/Keyword-ASR-Local-LLM-Kokoro-TTS.zip)) - The ultimate offline experience. Uses a Custom Brick for high-fidelity offline voice synthesis.
 
 Once downloaded, import it to the Arduino App Lab as follows:
 
 ![App Importing](assets/import-app.png)
+
+### Manual App Importing
+
+If importing through the Arduino App Lab fails, you can do it manually by following the steps below:
+
+1. Unzip the app on your host computer.
+2. Copy the App folder to the `~/ArduinoApps` directory in your VENTUNO Q with (using the _command prompt_ or _powershell_):
+
+```bash
+scp -r .\Keyword-ASR-Local-LLM-Kokoro-TTS\ arduino@<ventuno-q-IP>:~/ArduinoApps
+```
+
+<Alert type="note">
+
+Make sure to run the command from the directory where you unzipped the App and replace `<ventuno-q-IP>` with your actual board IP address.
+
+</Alert>
 
 ### 1. Project AI Models
 
@@ -114,14 +131,14 @@ We have trained a highly optimized keyword spotting model that reacts to the wor
 1. Go to this public Edge Impulse project: [Ventuno Keyword Model](https://studio.edgeimpulse.com/public/985298/live).
 2. Clone the project to your own Edge Impulse account.
 3. Pair your Edge Impulse account with the Arduino App Lab environment. Select this model in the Keyword Spotting Brick configuration.
-4. In the Python code, use: `spotter.on_detect("Ventuno", on_keyword_detected)`.
+4. The app will dynamically find the keyword of the model selected.
 
 #### Option B: The Default "Hey Arduino" Wake Word
 
 If you prefer not to use a custom keyword, you can use the built-in model.
 
 1. Select the default model in the Keyword Spotting Brick configuration.
-2. In the Python code, change the detection line to: `spotter.on_detect("hey_arduino", on_keyword_detected)`.
+2. The app will dynamically find the keyword of the default model.
 
 On your Keyword Spotting Brick, select the model to be used:
 
@@ -285,15 +302,15 @@ Now that your VENTUNO Q is powered on and the project is imported, it's time to 
 
 2. **Run the Application:** Click the **Run** button in Arduino App Lab.
 
-  <Alert type="warning">
+<Alert type="warning">
 
-  The very first time this could take a while. Custom Brick dependencies are being installed.
+The very first time this could take a while. Custom Brick dependencies are being installed.
 
-  </Alert>
+</Alert>
 
-1. **Wake the Assistant:** Speak your configured wake word clearly into the USB microphone (e.g., *"Ventuno"*).
+1. **Wake the Assistant:** Speak your configured wake word clearly into the USB microphone (e.g., _"Ventuno"_).
 2. **Wait for the Visual Cue:** Wait for the LED matrix to light up and the scanning animation begins. This animation is your hardware confirmation that the Automatic Speech Recognition (ASR) is active and recording.
-3. **Speak Your Command:** Ask your question or state your command naturally (e.g., *"What is the capital of Japan?"* or *"Tell me a short joke"*).
+3. **Speak Your Command:** Ask your question or state your command naturally (e.g., _"What is the capital of Japan?"_ or _"Tell me a short joke"_).
 4. **Listen to the Response:** The LED matrix will slow its scanning speed while the LLM thinks. Once the response is ready, the matrix will switch to an organic voice waveform animation, and you will hear the assistant's intelligent voice through your USB speaker.
 
 ### Troubleshooting
@@ -301,7 +318,7 @@ Now that your VENTUNO Q is powered on and the project is imported, it's time to 
 Even the smartest assistants sometimes run into hiccups. Here are the most common issues and how to fix them:
 
 - **App crashes immediately with `no microphone device found`:**
-  The application requires an active audio input stream to start the Keyword Spotting brick. Ensure your USB microphone is securely plugged into the USB-A port *before* clicking the Run button in Arduino App Lab.
+  The application requires an active audio input stream to start the Keyword Spotting brick. Ensure your USB microphone is securely plugged into the USB-A port _before_ clicking the Run button in Arduino App Lab.
 
 - **The assistant ignores the wake word "Ventuno":**
   If you are saying "Ventuno" but the LED matrix never lights up, the system is likely listening for the default "Hey Arduino" trigger instead. This happens if the custom model isn't configured correctly. Go back to [The Keyword Spotting Model](#the-keyword-spotting-model) section and ensure you have selected your cloned Edge Impulse model inside the Keyword Spotting Brick configuration.
