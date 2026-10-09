@@ -54,7 +54,7 @@ A stepper motor follows the turns of a potentiometer (or other sensor) on analog
 // create an instance of the stepper class, specifying
 // the number of steps of the motor and the pins it's
 // attached to
-Stepper stepper(STEPS, 8, 9, 10, 11);
+Stepper stepper(STEPS, 8, 10, 9, 11);
 
 // the previous reading from the analog input
 int previous = 0;
