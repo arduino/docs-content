@@ -19,7 +19,7 @@ hardware:
 
 The Arduino® USB Camera is a compact, plug-and-play camera accessory built around the Sony IMX376 image sensor. It captures up to 3840 × 2160 (UHD 4K) video and combines an autofocus lens, an integrated LED ring light, and a built-in microphone in a single unit.
 
-![ ](assets/hero-banner.png)
+![Arduino USB Camera](assets/hero-banner.png)
 
 Because the camera complies with the USB Video Class (UVC) standard, it requires no drivers. Windows, macOS, and Linux automatically recognize it as a standard video capture device. It works as a conventional webcam on any computer, and equally well as a video input for projects running on the Linux side of the Arduino UNO Q and VENTUNO Q boards.
 
