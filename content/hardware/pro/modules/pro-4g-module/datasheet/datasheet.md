@@ -8,6 +8,8 @@ author: José Bagur
 
 ![Pro 4G Module](assets/4G_Module_Top_View.png)
 
+# English
+
 # Description 
 
 <p style="text-align: justify;">
@@ -17,6 +19,12 @@ Start benefit of the fast data throughput and high bandwidths of the Arduino Pro
 # Target Areas
 
 Remote maintenance, fleet management, pipeline monitoring, smart cities, smart buildings, smart parking, and waste management
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # CONTENTS
 

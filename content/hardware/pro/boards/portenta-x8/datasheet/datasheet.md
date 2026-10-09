@@ -7,6 +7,8 @@ author: Ali Jahangiri
 
 ![](assets/featured.png)
 
+# English
+
 # Description
 
 The Arduino® Portenta X8 is a high-performance system on module designed to power the upcoming generation of the Industrial Internet of Things. This board combines the NXP® i.MX 8M Mini (4+1-cores) hosting an embedded Linux OS with the STM32H7 (2-cores) for real-time applications in the Arduino environment. Shield and carrier boards are available to extend the functionality of the Portenta X8 or alternatively can be used as reference designs to develop your own custom solutions.
@@ -14,6 +16,12 @@ The Arduino® Portenta X8 is a high-performance system on module designed to pow
 # Target Areas
 
 Edge computing, industrial internet of things, system on module, artificial intelligence
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Features
 
