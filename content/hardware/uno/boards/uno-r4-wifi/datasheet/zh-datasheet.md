@@ -378,60 +378,69 @@ Arduino Cloud支持所有支持Arduino IoT的产品，让您可以记录、绘�
 
 所有Arduino板都有一个内置引导加载程序，可以通过 USB 对板进行刷新。如果某个草图锁定了处理器，并且无法再通过 USB 连接开发板，则可以在上电后双击复位按钮进入引导加载程序模式。
 
-# 认证
+# Certifications
 
-## 符合性声明 CE DoC（EU）
+## Declaration of Conformity CE DoC (EU)
 
-我们郑重声明，上述产品符合以下欧盟指令的基本要求，因此有资格在欧盟（EU）和欧洲经济区（EEA）市场内自由流通。
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
-## 符合性声明 EU RoHS & REACH 211 01/19/2021
+## Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
 
-Arduino开发板符合欧洲议会的RoHS 2指令2011/65/EU和欧盟理事会于2015年6月4日颁布的RoHS 3指令2015/863/EU，这些指令限制了在电气和电子设备中使用某些有害物质。
+Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
-| 物质                                | 最高限值（ppm) |
-| ----------------------------------- | -------------- |
-| 铅 (Pb)                             | 1000           |
-| 镉 (Cd)                             | 100            |
-| 汞 (Hg)                             | 1000           |
-| 六价铬 (Cr6+)                       | 1000           |
-| 多溴联苯 (PBB)                      | 1000           |
-| 多溴联苯醚 (PBDE)                   | 1000           |
-| 邻苯二甲酸二（2-乙基己基）酯 (DEHP) | 1000           |
-| 邻苯二甲酸丁苄酯 (BBP)              | 1000           |
-| 邻苯二甲酸二丁酯 (DBP)              | 1000           |
-| 邻苯二甲酸二异丁酯 (DIBP)           | 1000           |
+| **Substance**                          | **Maximum Limit (ppm)** |
+| -------------------------------------- | ----------------------- |
+| Lead (Pb)                              | 1000                    |
+| Cadmium (Cd)                           | 100                     |
+| Mercury (Hg)                           | 1000                    |
+| Hexavalent Chromium (Cr6+)             | 1000                    |
+| Poly Brominated Biphenyls (PBB)        | 1000                    |
+| Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
+| Bis(2-Ethylhexyl} phthalate (DEHP)     | 1000                    |
+| Benzyl butyl phthalate (BBP)           | 1000                    |
+| Dibutyl phthalate (DBP)                | 1000                    |
+| Diisobutyl phthalate (DIBP)            | 1000                    |
 
-豁免 ：未申请豁免。
+Exemptions : No exemptions are claimed.
 
-Arduino开发板完全符合欧盟法规 (EC) 1907 /2006 中关于化学品注册、评估、许可和限制 (REACH) 的相关要求。我们声明，在所有产品（以及包装）中，没有任何 SVHCs (<https://echa.europa.eu/web/guest/candidate-list-table>)（欧洲化学品管理局目前发布的《高度关注物质候选授权清单》）的总浓度等于或超过0.1%。我们还声明，我们的产品不含 "授权清单"（REACH 法规附件 XIV）中列出的任何物质，也不含 ECHA（欧洲化学品管理局）1907 /2006/EC 公布的候选清单附件 XVII 中规定的高关注度物质 (SVHC)。
+Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs ([https://echa.europa.eu/web/guest/candidate-list-table](https://echa.europa.eu/web/guest/candidate-list-table)), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
-## 冲突矿物声明
+## Conflict Minerals Declaration
 
-作为电子和电气元件的全球供应商，Arduino知道我们有义务遵守有关冲突矿产的法律法规，特别是《多德-弗兰克华尔街改革和消费者保护法案》第1502条。Arduino不直接采购或加工锡、钽、钨或金等冲突矿物。冲突矿物以焊料的形式存在于我们的产品中，或作为金属合金的组成部分。作为我们合理尽职调查的一部分，Arduino已经联系了我们供应链中的组件供应商，以核实他们是否继续遵守相关规定。根据迄今为止收到的信息，我们声明我们的产品包含来自无冲突地区的冲突矿物。
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 
-## FCC 注意事项
+## FCC Caution
 
-任何未经负责合规的一方明确批准的更改或修改都可能使用户操作设备的权限无效。
+Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
 
-本设备符合 FCC 规则第 15 部分的规定。操作须符合以下两个条件：
+This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
 
-(1) 本设备不得造成有害干扰
+(1) This device may not cause harmful interference
 
-(2) 本设备必须接受任何接收到的干扰，包括可能导致意外运行的干扰。
+(2) this device must accept any interference received, including interference that may cause undesired operation.
 
-**FCC射频辐射暴露声明：**
+**FCC RF Radiation Exposure Statement:**
 
-1.本发射机不得与任何其他天线或发射机共置或一起运行。
+1. This Transmitter must not be co-located or operating in conjunction with any other antenna or transmitter.
 
-2.本设备符合为不受控环境规定的射频辐射暴露限值。
+2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment.
 
-3.安装和操作本设备时，散热器与身体之间的距离至少应为 20 厘米。
+3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
 
-**注：** 本设备已经过测试，符合FCC规则第15部分规定的B类数字设备的限制。这些限制旨在为居住安装提供合理的防止有害干扰的保护。本设备产生、使用和可以辐射射频能量，如果不按照说明书安装和使用，可能会对无线电通信造成有害干扰。但是，不能保证在特定安装中不会发生干扰。如果本设备对无线电或电视接收造成有害干扰，可以通过开关设备来确定，用户应尝试通过以下一种或多种措施来纠正干扰：
-- 调整接收天线的方向或位置。
-- 增加设备与接收器之间的距离。
-- 将设备连接到与接收器连接的电路不同的插座上
-- 向经销商或有经验的无线电/电视技术人员寻求帮助。
+**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
+device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
+reasonable protection against harmful interference in a residential installation. This equipment
+generates, uses and can radiate radio frequency energy and, if not installed and used in
+accordance with the instructions, may cause harmful interference to radio communications.
+However, there is no guarantee that interference will not occur in a particular installation. If
+this equipment does cause harmful interference to radio or television reception, which can be
+determined by turning the equipment off and on, the user is encouraged to try to correct the
+interference by one or more of the following measures:
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the
+receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
 
 English:
 User manuals for licence-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:
@@ -447,47 +456,50 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 
 (2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
 
-**IC SAR 警告：**
+**IC SAR Warning:**
 
 English
-This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.  
+This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
-French：
+French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
-**注意事项：** EUT的工作温度不能超过85℃，也不应低于-40℃。
+**Important:** The operating temperature of the EUT can’t exceed 85 ℃ and shouldn’t be lower than -40 ℃.
 
-Arduino S.r.l.特此声明，本产品符合欧盟指令 2014/53/EU 的基本要求和其他相关规定。本产品可在所有欧盟成员国使用。
+Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
 ## SRRC
 
-本设备包含型号核准代码为：CMIIT  ID: 2022DP6085的无线电发射模块
+This equipment contains a radio transmitter module with model approval code: CMIIT ID: 2022DP6085.
 
-## 公司信息
+## Company Information
 
-| 公司名称 | Arduino SRL                                   |
-| -------- | --------------------------------------------- |
-| 公司地址 | Via Andrea Appiani, 25 - 20900 MONZA（Italy) |
+| Company name    | Arduino SRL                                  |
+| --------------- | -------------------------------------------- |
+| Company Address | Via Andrea Appiani, 25 - 20900 MONZA（Italy) |
 
 
-## 参考文件
+## Reference Documentation
 
 | Ref                       | Link                                                                                            |
 | ------------------------- | ----------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | <https://www.arduino.cc/en/Main/Software>                                                       |
-| Arduino IDE (Cloud)       | <https://create.arduino.cc/editor>                                                              |
-| Cloud IDE Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
-| Project Hub               | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
-| Library Reference         | <https://github.com/arduino-libraries/>                                                         |
-| Online Store              | <https://store.arduino.cc/>                                                                     |
+| Arduino IDE (Desktop)     | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                                                       |
+| Arduino IDE (Cloud)       | [https://create.arduino.cc/editor](https://create.arduino.cc/editor)                                                             |
+| Cloud IDE Getting Started | [https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor) |
+| Project Hub               | [https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending](https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending)                     |
+| Library Reference         | [https://github.com/arduino-libraries/](https://github.com/arduino-libraries/)                                                        |
+| Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                    |
 
-## 更改日志
+## Change Log
 
-| 日期       | ** **修订版** ** | **变更内容**  |
-| ---------- | ---------------- | ------------- |
-| 05/09/2024 | 6                | 从web编辑器更新为云编辑器      |
-| 03/07/2024 | 5                | 一般更新      |
-| 19/09/2023 | 4                | 更新 FCC 部分 |
-| 25/07/2023 | 3                | 更新引脚表    |
-| 30/06/2023 | 2                | 更新引脚文件  |
-| 08/06/2023 | 1                | 首次发布      |
+| Date       | **Revision** | **Changes**                          |
+|------------|--------------|--------------------------------------|
+| 08/06/2023 | 1            | First Release                        |
+| 30/06/2023 | 2            | Update Pinout File                   |
+| 25/07/2023 | 3            | Update Pin Table                     |
+| 19/09/2023 | 4            | Update FCC section                   |
+| 03/07/2024 | 5            | Update Assets                        |
+| 05/09/2024 | 6            | Cloud Editor updated from Web Editor |
+| 09/04/2025 | 7            | Fixed I2C information                |
+| 10/29/2025 | 8            | Mechanical drawing update            |
+| 12/10/2026 |       9      | Added note for Intended Use, and divided language |

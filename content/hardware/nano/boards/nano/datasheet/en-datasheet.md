@@ -166,7 +166,9 @@ Now that you have gone through the basics of what you can do with the board you 
 ![Mechanical dimensions of Arduino Nano](./assets/nano_mechanical_dimension.png)
 
 ## Certifications
+
 ### Declaration of Conformity CE DoC (EU)
+
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA). 
 
 ### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021

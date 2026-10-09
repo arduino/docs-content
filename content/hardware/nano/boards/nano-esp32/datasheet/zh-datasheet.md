@@ -378,62 +378,70 @@ Arduino Cloud 支持所有 Arduino 支持 IoT 功能的产品，让您可以记�
 
 所有 Arduino 电路板都配置有内置的引导加载程序，可以通过 USB 对电路板进行刷新。如果某一程序锁定了处理器，且无法通过 USB 再次访问电路板，则可以在上电后立即双击复位按钮进入引导加载程序模式。
 
-# 认证
+# Certifications
 
-## 符合性声明 CE DoC（欧盟）
+## Declaration of Conformity CE DoC (EU)
 
-我们在此郑重声明，上述产品符合以下欧盟指令的基本要求，因此有资格在包括欧盟（EU）和欧洲经济区（EEA）在内的市场内自由流通。
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
-## 声明符合欧盟 RoHS 和 REACH 211 01/19/2021
+## Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
 
-Arduino 电路板符合欧洲议会关于限制在电子电气设备中使用某些有害物质的 RoHS 2 指令 2011/65/EU 和欧盟理事会于 2015 年 6 月 4 日颁布的关于限制在电子电气设备中使用某些有害物质的 RoHS 3 指令 2015/863/EU。
+Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
-| **物质**                          | **最大限值（ppm)** |
+| **Substance**                          | **Maximum Limit (ppm)** |
 | -------------------------------------- | ----------------------- |
-| 铅 (Pb)                              | 1000                    |
-| 镉 (Cd)                           | 100                     |
-| 汞（Hg）                           | 1000                    |
-| 六价铬（Cr6+）             | 1000                    |
-| 多溴联苯（PBB）        | 1000                    |
-| 多溴联苯醚（PBDE） | 1000                    |
-| 邻苯二甲酸二 (2-乙基己) 酯 (DEHP)     | 1000                    |
-| 邻苯二甲酸丁苄酯（BBP）           | 1000                    |
-| 邻苯二甲酸二丁酯（DBP）                | 1000                    |
-| 邻苯二甲酸二异丁酯（DIBP）            | 1000                    |
+| Lead (Pb)                              | 1000                    |
+| Cadmium (Cd)                           | 100                     |
+| Mercury (Hg)                           | 1000                    |
+| Hexavalent Chromium (Cr6+)             | 1000                    |
+| Poly Brominated Biphenyls (PBB)        | 1000                    |
+| Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
+| Bis(2-Ethylhexyl} phthalate (DEHP)     | 1000                    |
+| Benzyl butyl phthalate (BBP)           | 1000                    |
+| Dibutyl phthalate (DBP)                | 1000                    |
+| Diisobutyl phthalate (DIBP)            | 1000                    |
 
-豁免：未申请任何豁免。
+Exemptions : No exemptions are claimed.
 
-Arduino 电路板完全符合欧盟法规 (EC) 1907/2006 中关于化学品注册、评估、许可和限制 (REACH) 的相关要求。我们声明，所有产品（包括包装）中的 SVHC ([https://echa.europa.eu/web/guest/candidate-list-table](https://echa.europa.eu/web/guest/candidate-list-table)), （欧洲化学品管理局目前发布的《高度关注物质候选授权清单》）含量总浓度均未超过 0.1%。据我们所知，我们还声明，我们的产品不含 ECHA（欧洲化学品管理局）1907/2006/EC 公布的候选清单附件 XVII 中规定的“授权清单”（REACH 法规附件 XIV）和高度关注物质 (SVHC) 所列的任何物质。
+Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs ([https://echa.europa.eu/web/guest/candidate-list-table](https://echa.europa.eu/web/guest/candidate-list-table)), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
-## 冲突矿产声明
+## Conflict Minerals Declaration
 
-作为电子和电气元件的全球供应商，Arduino 意识到我们有义务遵守有关冲突矿产的法律法规，特别是《多德-弗兰克华尔街改革与消费者保护法案》第 1502 条。Arduino 不直接采购或加工锡、钽、钨或金等冲突矿物。冲突矿物以焊料的形式或作为金属合金的组成部分存在于我们的产品中。作为我们合理尽职调查的一部分，Arduino 已联系供应链中的元件供应商，以核实他们是否始终遵守法规的相关规定。根据迄今收到的信息，我们声明我们的产品中含有来自非冲突地区的冲突矿物。
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 
-## FCC 警告
+## FCC Caution
 
-任何未经合规性负责方明确批准的更改或修改都可能导致用户无权操作设备。
+Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
 
-本设备符合 FCC 规则第 15 部分的规定。操作须满足以下两个条件：
+This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
 
-(1) 此设备不会造成有害干扰
+(1) This device may not cause harmful interference
 
-(2) 此设备必须接受接收到的任何干扰，包括可能导致不良操作的干扰。
+(2) this device must accept any interference received, including interference that may cause undesired operation.
 
-**FCC 射频辐射暴露声明**
+**FCC RF Radiation Exposure Statement:**
 
-1. 此发射器不得与任何其他天线或发射器放置在同一位置或同时运行。
+1. This Transmitter must not be co-located or operating in conjunction with any other antenna or transmitter.
 
-2. 此设备符合为非受控环境规定的射频辐射暴露限值。
+2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment.
 
-3. 安装和操作本设备时，辐射源与您的身体之间至少应保持 20 厘米的距离。
+3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
 
-**注:** 本设备已经过测试，符合 FCC 规则第 15 部分对 B 类数字设备的限制。
-这些限制旨在为住宅安装提供合理保护，防止有害干扰。本设备会产生、使用和辐射射频能量，如果不按照说明安装和使用，可能会对无线电通信造成有害干扰。但是，不能保证在特定安装环境中不会产生干扰。如果本设备确实对无线电或电视接收造成有害干扰，可通过关闭再打开本设备来确定，建议用户采取以下一项或多项措施来消除干扰：
+**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
+device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
+reasonable protection against harmful interference in a residential installation. This equipment
+generates, uses and can radiate radio frequency energy and, if not installed and used in
+accordance with the instructions, may cause harmful interference to radio communications.
+However, there is no guarantee that interference will not occur in a particular installation. If
+this equipment does cause harmful interference to radio or television reception, which can be
+determined by turning the equipment off and on, the user is encouraged to try to correct the
+interference by one or more of the following measures:
 
-- 调整接收天线的方向或位置。
-- 增加设备与接收器之间的距离。
-- 将设备连接到与接收器连接的电路不同的插座上。
-- 向经销商或有经验的无线电/电视技术人员寻求帮助。
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the
+  receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
 
 English:
 User manuals for licence-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:
@@ -449,7 +457,7 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 
 (2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
 
-**IC SAR 警告:**
+**IC SAR Warning:**
 
 English
 This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
@@ -457,42 +465,47 @@ This equipment should be installed and operated with a minimum distance of 20 cm
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
-**重要提示:** EUT 的工作温度不能超过 85°C，也不能低于 -40°C。
+**Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40 ℃.
 
-Arduino S.r.l. 特此声明，本产品符合 201453/EU 指令的基本要求和其他相关规定。本产品允许在所有欧盟成员国使用。
+Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
 ## SRRC
 
-本设备包含型号核准代码为：CMIIT  ID: 24J993CLD252 的无线电发射模块。
+This equipment contains a radio transmitter module with model approval code: CMIIT ID: 24J993CLD252.
 
-## 公司信息
 
-| 公司名称    | Arduino S.r.l.                                |
+## Company Information
+
+| Company name    | Arduino S.r.l.                                |
 | --------------- | --------------------------------------------- |
-| 公司地址 | Via Andrea Appiani, 25 Monza, MB, 20900 Italy |
+| Company Address | Via Andrea Appiani, 25 Monza, MB, 20900 Italy |
 
-## 参考资料
+## Reference Documentation
 
-| 参考资料                          | 链接                                                                                            |
-| ---------------------------- | ----------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)        | <https://www.arduino.cc/en/Main/Software>                                                       |
-| Arduino Cloud Editor    | <https://create.arduino.cc/editor>                                                              |
-| Cloud Cloud Editor - 入门指南 | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
-| Arduino Project Hub                  | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
-| 库参考            | <https://github.com/arduino-libraries/>                                                         |
-| 在线商店                 | <https://store.arduino.cc/>                                                                     |
+| Reference                              | Link                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------ |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/Main/Software                                  |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                                         |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/                     |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
+| Library Reference                      | https://github.com/arduino-libraries/                                    |
+| Online Store                           | https://store.arduino.cc/                                                                     |
 
-## 变更日志
+## Change Log
 
-| **日期**   | **变更**                               |
-| ---------- | -------------------------------------- |
-| 2023/08/06 | 发布                                   |
-| 2023/09/01 | 更新电源树流程图。                     |
-| 2023/09/11 | 更新 SPI 部分，更新模拟/数字引脚部分。 |
-| 2023/11/06 | 更正公司名称，更正 VBUS/VUSB           |
-| 2023/11/09 | 方框图更新，天线规格                   |
-| 2023/11/15 | 环境温度更新                           |
-| 2023/11/23 | 为 LP 模式添加了标签                   |
-| 2024/02/23 | 在方框图中添加了天线频率               |
-| 2024/08/23 | SRRC 认证                              |
-| 2024/09/05 | 从web编辑器更新为云编辑器               |
+| **Date**   | **Revision** | **Changes**                                            |
+| ---------- | ------------ | ------------------------------------------------------ |
+| 08/06/2023 |      1       | Release                                                |
+| 09/01/2023 |      2       | Update power tree flowchart.                           |
+| 09/11/2023 |      3       | Update SPI section, update analog/digital pin section. |
+| 11/06/2023 |      4       | Correct company name, correct VBUS/VUSB                |
+| 11/09/2023 |      5       | Block Diagram Update, Antenna Specifications           |
+| 11/15/2023 |      6       | Ambient temperature update                             |
+| 11/23/2023 |      7       | Added label to LP modes                                |
+| 23/02/2024 |      8       | Added antenna frequency to block diagram               |
+| 25/04/2024 |      9       | Updated link to new Cloud Editor                       |
+| 23/08/2024 |      10      | Added SRRC certification                                 |
+| 23/08/2024 |      11      | Cloud Editor updated from Web Editor                  |
+| 12/10/2026 |      12      | Added note for Intended Use, and divided language |
+
+

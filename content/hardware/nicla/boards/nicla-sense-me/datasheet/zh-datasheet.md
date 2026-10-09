@@ -314,15 +314,15 @@ Arduino® Nicla Sense ME 的示例程序可以在 Arduino IDE 的“示例”菜
 
 **注意:** 测量是在启用温度传感器、加速度计和陀螺仪的前提下进行的，这些传感器配置为 1Hz 采样率和 1ms 延迟。
 
-## 认证
+## Certifications
 
-### 认证摘要
+### Certifications Summary
 
 <table>
    <thead>
       <tr>
-         <th style="width: 16%;vertical-align: middle;text-align: center;"><strong>认证</strong></th>
-         <th style="width: 28%;vertical-align: middle;text-align: center;"><strong>状态</strong></th>
+         <th style="width: 16%;vertical-align: middle;text-align: center;"><strong>Certification</strong></th>
+         <th style="width: 28%;vertical-align: middle;text-align: center;"><strong>Status</strong></th>
       </tr>
       <tr></tr>
    </thead>
@@ -350,11 +350,11 @@ Arduino® Nicla Sense ME 的示例程序可以在 Arduino IDE 的“示例”菜
       </tr>
       <tr>
          <td style="vertical-align: middle;text-align: center;"><strong>REACH (EU)</strong></td>
-         <td style="vertical-align: middle;text-align: center;">是</td>
+         <td style="vertical-align: middle;text-align: center;">Yes</td>
       </tr>
       <tr>
          <td style="vertical-align: middle;text-align: center;"><strong>WEEE (EU)</strong></td>
-         <td style="vertical-align: middle;text-align: center;">是</td>
+         <td style="vertical-align: middle;text-align: center;">Yes</td>
       </tr>
       <tr>
          <td style="vertical-align: middle;text-align: center;"><strong>UKCA (UK)</strong></td>
@@ -369,7 +369,7 @@ Arduino® Nicla Sense ME 的示例程序可以在 Arduino IDE 的“示例”菜
       <tr>
          <td style="vertical-align: middle;text-align: center;"><strong>FCC (US)</strong></td>
          <td style="vertical-align: middle;text-align: center;">
-            <p>是</p>
+            <p>Yes</p>
          </td>
       </tr>
       <tr>
@@ -379,81 +379,75 @@ Arduino® Nicla Sense ME 的示例程序可以在 Arduino IDE 的“示例”菜
          </td>
       </tr>
       <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>RCM</strong></td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>是</p>
-         </td>
-      </tr>
-      <tr>
          <td style="vertical-align: middle;text-align: center;"><strong>MIC</strong></td>
          <td style="vertical-align: middle;text-align: center;">
-            <p>是</p>
+            <p>Yes</p>
          </td>
       </tr>
       <tr>
          <td style="vertical-align: middle;text-align: center;"><strong>SRRC</strong></td>
          <td style="vertical-align: middle;text-align: center;">
-            <p>是</p>
+            <p>Yes</p>
          </td>
       </tr>
       <tr>
          <td style="vertical-align: middle;text-align: center;"><strong>CCC</strong></td>
          <td style="vertical-align: middle;text-align: center;">
-            <p>是</p>
+            <p>Yes</p>
          </td>
       </tr>
       <tr>
          <td style="vertical-align: middle;text-align: center;"><strong>GB4943</strong></td>
          <td style="vertical-align: middle;text-align: center;">
-            <p>是</p>
+            <p>Yes</p>
          </td>
       </tr>
    </tbody>
 </table>
 
-### 符合性声明 CE DoC（欧盟）
-我们在此郑重声明，上述产品符合以下欧盟指令的基本要求，因此有资格在包括欧盟（EU）和欧洲经济区（EEA）在内的市场内自由流通。
+### Declaration of Conformity CE DoC (EU)
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA). 
 
-### 声明符合欧盟 RoHS 和 REACH 211 01/19/2021
-Arduino 电路板符合欧洲议会关于限制在电子电气设备中使用某些有害物质的 RoHS 2 指令 2011/65/EU 和欧盟理事会于 2015 年 6 月 4 日颁布的关于限制在电子电气设备中使用某些有害物质的 RoHS 3 指令 2015/863/EU。
+### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
+Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment. 
 
-| 物质                            | **最大限值 (ppm)** |
-| ------------------------------- | ------------------ |
-| 铅 (Pb)                         | 1000               |
-| 镉 (Cd)                         | 100                |
-| 汞 (Hg)                         | 1000               |
-| 六价铬（Cr6+）                  | 1000               |
-| 多溴联苯（PBB）                 | 1000               |
-| 多溴联苯醚（PBDE）              | 1000               |
-| 邻苯二甲酸二(2-乙基己)酯 (DEHP) | 1000               |
-| 邻苯二甲酸丁苄酯 (BBP)          | 1000               |
-| 邻苯二甲酸二丁酯（DBP）         | 1000               |
-| 邻苯二甲酸二异丁酯（DIBP）      | 1000               |
+| Substance                              | **Maximum limit (ppm)** |
+|----------------------------------------|-------------------------|
+| Lead (Pb)                              | 1000                    |
+| Cadmium (Cd)                           | 100                     |
+| Mercury (Hg)                           | 1000                    |
+| Hexavalent Chromium (Cr6+)             | 1000                    |
+| Poly Brominated Biphenyls (PBB)        | 1000                    |
+| Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
+| Bis(2-Ethylhexyl) phthalate (DEHP)     | 1000                    |
+| Benzyl butyl phthalate (BBP)           | 1000                    |
+| Dibutyl phthalate (DBP)                | 1000                    |
+| Diisobutyl phthalate (DIBP)            | 1000                    |
 
-豁免：未申请任何豁免。
+Exemptions: No exemptions are claimed. 
 
-Arduino 电路板完全符合欧盟法规 (EC) 1907/2006 中关于化学品注册、评估、许可和限制 (REACH) 的相关要求。我们声明，所有产品（包括包装）中的 SVHC (https://echa.europa.eu/web/guest/candidate-list-table), （欧洲化学品管理局目前发布的《高度关注物质候选授权清单》）含量总浓度均未超过 0.1%。据我们所知，我们还声明，我们的产品不含 ECHA（欧洲化学品管理局）1907/2006/EC 公布的候选清单附件 XVII 中规定的“授权清单”（REACH 法规附件 XIV）和高度关注物质 (SVHC) 所列的任何物质。
+Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
-### 冲突矿产声明
+### Conflict Minerals Declaration 
 
-作为电子和电气元件的全球供应商，Arduino 意识到我们有义务遵守有关冲突矿产的法律法规，特别是《多德-弗兰克华尔街改革与消费者保护法案》第 1502 条。Arduino 不直接采购或加工锡、钽、钨或金等冲突矿物。冲突矿物以焊料的形式或作为金属合金的组成部分存在于我们的产品中。作为我们合理尽职调查的一部分，Arduino 已联系供应链中的元件供应商，以核实他们是否始终遵守法规的相关规定。根据迄今收到的信息，我们声明我们的产品中含有来自非冲突地区的冲突矿物。
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas. 
 
-## FCC 警告
-任何未经合规性负责方明确批准的更改或修改都可能导致用户无权操作设备。
+## FCC Caution
+Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
 
-本设备符合 FCC 规则第 15 部分的规定。操作须满足以下两个条件：
+This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions: 
 
-(1) 此设备不会造成有害干扰。
+(1) This device may not cause harmful interference
 
-(2) 此设备必须接受接收到的任何干扰，包括可能导致不良操作的干扰。
+(2) this device must accept any interference received, including interference that may cause undesired operation.
 
-**FCC 射频辐射暴露声明：**
+**FCC RF Radiation Exposure Statement:**
 
-1. 此发射器不得与任何其他天线或发射器放置在同一位置或同时运行。
+1. This Transmitter must not be co-located or operating in conjunction with any other antenna or transmitter.
 
-2. 此设备符合为非受控环境规定的射频辐射暴露限值。
+2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment.
 
-3. 本设备在安装和使用时，应确保天线与人体之间的最小距离为 20 厘米。
+3. This equipment should be installed and operated with a minimum distance of 20cm between the radiator & your body.
 
 English: 
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
@@ -469,114 +463,111 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 
 (2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
 
-**IC SAR警告：**
+**IC SAR Warning:**
 
 English 
 This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.  
 
-French:
+French: 
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
-**重要提示：** EUT 的工作温度不能超过 85°C，也不能低于 -40°C。
+**Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
 
-Arduino S.r.l. 特此声明，本产品符合 201453/EU 指令的基本要求和其他相关规定。本产品允许在所有欧盟成员国使用。
+Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states. 
 
-| 频段信息                | 输出功率典型值 |
-| ----------------------- | -------------- |
-| 2.402-2480 MHz, 40 通道 | +6dBm          |
+| Frequency bands             | Typical Output Power |
+| --------------------------- | -------------------- |
+| 2.402-2480 MHz, 40 channels | +6dBm                |
 
-## NCC 低功率警告
+## NCC Low Power Warning
 
 **警語:**
 
-取得審驗證明之低功率射頻器材,非經核准,公司、商號或使用者均不得擅自變更頻率、加大功率或變更原設計之特性及功能。
+取得審驗證明之低功率射頻器材，非經核准，公司、商號或使用者均不得擅自變更頻率、加大功率或變更原設計之特性及功能。
 
-低功率射頻器材之使用不得影響飛航安全及干擾合法通信;經發現有干擾現象時,應立即停用,並改善至無干擾時方得繼續使用。
+低功率射頻器材之使用不得影響飛航安全及干擾合法通信；經發現有干擾現象時，應立即停用，並改善至無干擾時方得繼續使用。
 
-前述合法通信,指依電信管理法規定作業之無線電通信。
+前述合法通信，指依電信管理法規定作業之無線電通信。
 
 低功率射頻器材須忍受合法通信或工業、科學及醫療用電波輻射性電機設備之干擾。
 
 ## SRRC
 
-本设备包含一个射频发射模块，型号核准代码为：CMIIT ID: 25J996Q00001
+This equipment contains a radio transmitter module with model approval code: CMIIT ID: 25J996Q00001.
 
-## 公司信息
+## Company Information
 
-| 公司名称 | Arduino SRL                                    |
-| -------- | ---------------------------------------------- |
-| 公司地址 | Via Andrea Appiani, 25 - 20900 MONZA（意大利） |
+| Company name    | Arduino SRL                                  |
+|-----------------|----------------------------------------------|
+| Company Address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
-## 参考资料
+## Reference Documentation
 
-| 参考资料                     | 链接                                                         |
-| ---------------------------- | ------------------------------------------------------------ |
-| Arduino® IDE (Desktop)       | https://www.arduino.cc/en/Main/Software                      |
-| Arduino® IDE (Cloud)         | https://create.arduino.cc/editor                             |
-| Arduino Cloud IDE - 入门指南 | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
-| Arduino® Pro Website         | https://www.arduino.cc/pro                                   |
-| Arduino Project Hub          | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
-| 库参考                       | https://github.com/bcmi-labs/Arduino_EdgeControl/tree/4dad0d95e93327841046c1ef80bd8b882614eac8 |
-| 在线商店                     | https://store.arduino.cc/                                    |
+| Ref                                | Link                                                                                                |
+|------------------------------------|-----------------------------------------------------------------------------------------------------|
+| Arduino® IDE (Desktop)             | https://www.arduino.cc/en/Main/Software                                                             |
+| Arduino® IDE (Cloud)               | https://create.arduino.cc/editor                                                                    |
+| Arduino® Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
+| Arduino® Pro Website               | https://www.arduino.cc/pro                                                                          |
+| Project Hub                        | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
+| Library Reference                  | https://github.com/bcmi-labs/Arduino_EdgeControl/tree/4dad0d95e93327841046c1ef80bd8b882614eac8      |
+| Online Store                       | https://store.arduino.cc/                                                                           |
 
-## 修订记录
+## Revision History
 
-| **日期**   | **版次** | **变更**                      |
-| ---------- | -------- | ----------------------------- |
-| 05/02/2025 | 8        | 描述                          |
-| 03/09/2024 | 7        | Cloud 编辑已从网页编辑器更新  |
-| 09/01/2024 | 6        | 高性能压力传感器信息已更新    |
-| 03/07/2023 | 5        | 认证汇总表已更新              |
-| 22/12/2022 | 4        | 添加了 NTC 图像及额外引脚信息 |
-| 13/12/2022 | 3        | 更换解决方案概览图像          |
-| 20/07/2021 | 2        | 版次                          |
-| 27/05/2021 | 1        | 首次发布                      |
+| **Date**   | **Revision** | **Changes**                                          |
+| ---------- | ------------ | ---------------------------------------------------- |
+| 27/05/2021 | 1            | Initial Version                                      |
+| 20/07/2021 | 2            | Technical Revisions                                  |
+| 13/12/2022 | 3            | Change Solution Overview Image                       |
+| 22/12/2022 | 4            | Add NTC Image & addition pins info                   |
+| 03/07/2023 | 5            | Certification Summary Table Updated                  |
+| 09/01/2024 | 6            | High-Performance Pressure Sensor information updated |
+| 03/09/2024 | 7            | Cloud Editor updated from Web Editor                 |
+| 05/02/2025 | 8            | Description updates                                  |
+| 12/10/2026 |       9      | Added note for Intended Use |
 
-## 产品警告和免责声明
 
-这些产品仅供合格专业人员销售和安装。Arduino 无法确保购买其产品的任何个人或实体，包括任何“授权经销商”或“授权转售商”，是否具备正确安装相关产品所需的培训或经验。
+## Product Warnings and Disclaimers
 
-正确安装和维护的系统只能降低某些事件（如功能丧失）发生的风险；该系统并非保险或保证，无法确保此类事件不会发生，无法确保会提供充分的警告或保护，也无法防止死亡、人身伤害和/或财产损失的发生。
+THESE PRODUCTS ARE INTENDED FOR SALE TO AND INSTALLATION BY QUALIFIED PROFESSIONALS. ARDUINO CANNOT PROVIDE ANY ASSURANCE THAT ANY PERSON OR ENTITY BUYING ITS PRODUCTS, INCLUDING ANY “AUTHORIZED DEALER” OR “AUTHORIZED RESELLER”, IS PROPERLY TRAINED OR EXPERIENCED TO CORRECTLY INSTALL RELATED PRODUCTS.
 
-在安装产品之前，请确保其固件已升级至最新版本，可从我们的网站下载。在产品的整个生命周期内，务必定期检查固件更新的适用性。
+A PROPERLY INSTALLED AND MAINTAINED SYSTEM MAY ONLY REDUCE THE RISK OF EVENTS SUCH AS LOSS OF FUNCTIONALITY; IT IS NOT INSURANCE OR A GUARANTEE THAT SUCH EVENTS WILL NOT OCCUR, THAT ADEQUATE WARNING OR PROTECTION WILL BE PROVIDED, OR THAT THERE WILL BE NO DEATH, PERSONAL INJURY, AND/OR PROPERTY DAMAGE AS A RESULT.
 
-用户在适用情况下应频繁更改密码，并确保使用高强度密码（密码应足够长且复杂、不得共享，并且必须唯一）。此外，用户有责任确保其防病毒系统为最新版本。
+BEFORE INSTALLING THE PRODUCTS, ENSURE THAT ITS FIRMWARE IS UPGRADED TO THE LATEST VERSION, AVAILABLE FOR DOWNLOAD FROM OUR WEBSITE. DURING THE LIFESPAN OF PRODUCTS, IT IS IMPORTANT TO CHECK ABOUT THE APPLICABILITY OF FIRMWARE UPDATES.
 
-尽管 Arduino 在合理范围内努力减少第三方入侵、破坏或绕过其安全产品、相关软件或云服务器的可能性，但 Arduino 制造、销售和/或许可的任何安全产品、软件或云服务器仍可能被入侵、破坏和/或绕过。
+USERS SHOULD, WHERE APPLICABLE, CHANGE PASSWORDS FREQUENTLY AND ENSURE A HIGH-QUALITY PASSWORD (PASSWORDS SHOULD BE LONG AND COMPLEX ENOUGH, NEVER SHARED, AND ALWAYS UNIQUE). FURTHERMORE, IT IS THE USERS’ RESPONSIBILITY TO KEEP ITS ANTI-VIRUS SYSTEM UP TO DATE.
 
-Arduino 制造、销售或许可的某些产品或软件会连接互联网以发送和/或接收数据（即“物联网”或“IoT”产品）。若在 Arduino 停止支持某 IoT 产品后仍继续使用（例如通知 Arduino 不再提供固件更新或漏洞修复），可能导致性能下降、故障和/或遭受入侵、破坏和/或绕过的风险增加。
+WHILE ARDUINO MAKES REASONABLE EFFORTS TO REDUCE THE PROBABILITY THAT A THIRD PARTY MAY HACK, COMPROMISE OR CIRCUMVENT ITS SECURITY PRODUCTS, RELATED SOFTWARE OR CLOUD SERVERS, ANY SECURITY PRODUCT, SOFTWARE OR CLOUD SERVER MANUFACTURED, SOLD AND/OR LICENSED BY ARDUINO, MAY STILL BE HACKED, COMPROMISED AND/OR CIRCUMVENTED.
 
-除非适用法律要求，Arduino 并不总是对产品与其外围设备（包括但不限于传感器或探测器）之间的通信进行加密。因此，这些通信可能会被拦截，并可能被用来绕过您的系统。
+CERTAIN PRODUCTS OR SOFTWARE MANUFACTURED, SOLD OR LICENSED BY ARDUINO CONNECT TO THE INTERNET TO SEND AND/OR RECEIVE DATA (“INTERNET OF THINGS” OR “IOT” PRODUCTS). ANY CONTINUED USE OF AN IOT PRODUCT AFTER ARDUINO HAS CEASED SUPPORTING THAT IOT PRODUCT (E.G., THROUGH NOTICE THAT ARDUINO NO LONGER PROVIDES FIRMWARE UPDATES OR BUG FIXES) MAY RESULT IN REDUCED PERFORMANCE, MALFUNCTION, AND/OR INCREASED VULNERABILITY TO HACKING, COMPROMISE AND/OR CIRCUMVENTION.
 
-Arduino 产品和软件的正常运行依赖于多个第三方产品和服务，包括但不限于：互联网、蜂窝网络和固定电话连接；移动设备和操作系统兼容性；以及正确的安装和维护。Arduino 不对第三方行为或疏忽造成的任何损害承担责任。
+ARDUINO DOES NOT ALWAYS ENCRYPT COMMUNICATIONS BETWEEN PRODUCTS AND THEIR PERIPHERAL DEVICES INCLUDING, BUT NOT LIMITED TO, SENSORS OR DETECTORS UNLESS REQUIRED BY APPLICABLE LAW. AS A RESULT THESE COMMUNICATIONS MAY BE INTERCEPTED AND COULD BE USED TO CIRCUMVENT YOUR SYSTEM.
 
-电池供电的传感器、探测器、遥控器、设备及其他面板配件的电池寿命有限。尽管这些产品可能设计为在电量即将耗尽时提供某些警告，但提供该类警告的能力有限，并且并非在所有情况下都能提供。根据产品文档定期测试系统是唯一能确认所有传感器、探测器、遥控器、设备及其他面板配件是否正常运行的方法。
+THE ABILITY OF ARDUINO PRODUCTS AND SOFTWARE TO WORK PROPERLY DEPENDS ON A NUMBER OF PRODUCTS AND SERVICES MADE AVAILABLE BY THIRD PARTIES OVER WHICH ARDUINO HAS NO CONTROL INCLUDING, BUT NOT LIMITED TO, INTERNET, CELLULAR AND LANDLINE CONNECTIVITY; MOBILE DEVICE AND OPERATING SYSTEM COMPATIBILITY; AND PROPER INSTALLATION AND MAINTENANCE. ARDUINO SHALL NOT BE LIABLE FOR ANY DAMAGES CAUSED BY ACTIONS OR OMISSIONS OF THIRD PARTIES.
 
-某些传感器、设备和其他面板配件可以被编程为“监管设备”，以便在一定时间内未接收到来自设备的信号时面板会发出指示。但有些设备无法被编程为监管设备。即使可以设置为监管设备的产品，也可能在安装时未被正确编程，可能导致故障未被报告，从而可能造成死亡、严重伤害和/或财产损失。
+BATTERY OPERATED SENSORS, DETECTORS, KEYFOBS, DEVICES AND OTHER PANEL ACCESSORIES HAVE A LIMITED BATTERY LIFE.  WHILE THESE PRODUCTS MAY BE DESIGNED TO PROVIDE SOME WARNING OF IMMINENT BATTERY DEPLETION, THE ABILITY TO DELIVER SUCH WARNINGS IS LIMITED AND SUCH WARNINGS MAY NOT BE PROVIDED IN ALL CIRCUMSTANCES.  PERIODIC TESTING OF THE SYSTEM IN ACCORDANCE WITH PRODUCT DOCUMENTATION IS THE ONLY WAY TO DETERMINE IF ALL SENSORS, DETECTORS, KEYFOBS, DEVICES AND OTHER PANEL ACCESSORIES ARE FUNCTIONING PROPERLY.
 
-所购买的产品含有小部件，可能对儿童或宠物构成窒息危险。请将所有小部件远离儿童和宠物。
+CERTAIN SENSORS, DEVICES AND OTHER PANEL ACCESSORIES MAY BE PROGRAMMED INTO PANEL AS “SUPERVISORY” SO THAT THE PANEL WILL INDICATE IF IT DOES NOT RECEIVE A REGULAR SIGNAL FROM THE DEVICE WITHIN A CERTAIN PERIOD OF TIME.  CERTAIN DEVICES CANNOT BE PROGRAMMED AS SUPERVISORY. DEVICES CAPABLE OF BEING PROGRAMMED AS SUPERVISORY MAY NOT BE PROPERLY PROGRAMMED AT INSTALLATION, RESULTING IN A FAILURE TO REPORT TROUBLE WHICH COULD RESULT IN DEATH, SERIOUS INJURY AND/OR PROPERTY DAMAGE.
 
-买方应将上述产品风险、警告和免责声明信息传达给其客户和最终用户。
+PURCHASED PRODUCTS CONTAIN SMALL PARTS THAT COULD BE A CHOKING HAZARD TO CHILDREN OR PETS. KEEP ALL SMALL PARTS AWAY FROM CHILDREN AND PETS.
 
-**质保免责声明及其他免责声明**
+BUYER SHALL PASS ON THE FOREGOING INFORMATION ON PRODUCT RISKS, WARNINGS AND DISCLAIMERS TO ITS CUSTOMERS AND END USERS.
 
-Arduino 在此免责声明包括所有明示、暗示、法定或其他形式的质保与陈述，包括（但不限于）对其产品和相关软件的适销性或特定用途适用性的任何质保。
+**WARRANTY DISCLAIMERS AND OTHER DISCLAIMERS**
 
-Arduino 不保证其产品和/或相关软件：
-(I) 不会被入侵、破坏和/或绕过；
-(II) 能够预防或充分警告、保护免遭入侵、盗窃、抢劫或火灾；
-(III) 能够在所有环境和应用中正常工作。
+ARDUINO HEREBY DISCLAIMS ALL WARRANTIES AND REPRESENTATIONS, WHETHER EXPRESS, IMPLIED, STATUTORY OR OTHERWISE INCLUDING (BUT NOT LIMITED TO) ANY WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE WITH RESPECT TO ITS PRODUCTS AND RELATED SOFTWARE.
 
-除非适用法律禁止此免责声明，否则 Arduino 对云服务器或传输设施、场所或设备的未经授权访问（即黑客行为），或对数据文件、程序、程序流程或信息的未经授权访问不承担责任。
+ARDUINO MAKES NO REPRESENTATION, WARRANTY, COVENANT OR PROMISE THAT  ITS PRODUCTS AND/OR RELATED SOFTWARE (I) WILL NOT BE HACKED, COMPROMISED AND/OR CIRCUMVENTED; (II) WILL PREVENT, OR PROVIDE ADEQUATE WARNING OR PROTECTION FROM, BREAK-INS, BURGLARY, ROBBERY, FIRE; OR (III) WILL WORK PROPERLY IN ALL ENVIRONMENTS AND APPLICATIONS.
 
-除非产品文档另有说明，系统应每两年至少由合格技术人员检查一次，并在需要时更换备用电池（如适用）。
+ARDUINO WILL NOT BE LIABLE FOR UNAUTHORIZED ACCESS (I.E. HACKING) INTO THE CLOUD SERVERS OR TRANSMISSION FACILITIES, PREMISES OR EQUIPMENT, OR FOR UNAUTHORIZED ACCESS TO DATA FILES, PROGRAMS, PROCEDURES OR INFORMATION THEREON, UNLESS AND ONLY TO THE EXTENT THAT THIS DISCLAIMER IS PROHIBITED BY APPLICABLE LAW.
 
-Arduino 可能在其制造和/或销售的产品中提供某些生物识别功能（如指纹、声纹、面部识别等）和/或数据记录功能（如语音录音），以及数据/信息识别或翻译功能。Arduino 不控制其制造和/或销售产品的使用条件和方式。最终用户和/或安装人员和/或分销商作为这些产品所生成数据（包括任何可识别个人身份的信息或私人数据）的控制者，有责任确保任何 Arduino 产品的安装和使用符合所有适用的隐私及其他法律，包括是否需要取得个人同意、提供通知以及作为数据控制者在法律下的其他义务。Arduino 所提供的任何记录同意的功能，不能替代数据控制者独立判断是否需要取得同意或提供通知的责任，也不能将该义务转移至 Arduino。
+SYSTEMS SHOULD BE CHECKED BY A QUALIFIED TECHNICIAN AT LEAST EVERY TWO YEARS UNLESS OTHERWISE INSTRUCTED IN THE PRODUCT DOCUMENTATION AND, IF APPLICABLE, THE BACKUP BATTERY REPLACED AS REQUIRED.
 
-本文档中的信息如有变更，恕不另行通知。更新信息可在我们的网站产品页面上查阅。Arduino 不承担因本文档内容的任何错误或遗漏而直接或间接引起的任何人身或其他方面的责任、损失或风险。
+ARDUINO MAY MAKE CERTAIN BIOMETRIC CAPABILITIES (E.G., FINGERPRINT, VOICE PRINT, FACIAL RECOGNITION, ETC.) AND/OR DATA RECORDING CAPABILITIES (E.G., VOICE RECORDING), AND/OR DATA/INFORMATION RECOGNITION AND/OR TRANSLATION CAPABILITIES AVAILABLE IN PRODUCTS ARDUINO MANUFACTURES AND/OR RESELLS. ARDUINO DOES NOT CONTROL THE CONDITIONS AND METHODS OF USE OF PRODUCTS IT MANUFACTURES AND/OR RESELLS. THE END-USER AND/OR INSTALLER AND/OR DISTRIBUTOR ACT AS CONTROLLER OF THE DATA RESULTING FROM USE OF THESE PRODUCTS, INCLUDING ANY RESULTING PERSONALLY IDENTIFIABLE INFORMATION OR PRIVATE DATA, AND ARE SOLELY RESPONSIBLE TO ENSURE THAT ANY PARTICULAR INSTALLATION AND USE OF ARDUINO’S PRODUCTS COMPLY WITH ALL APPLICABLE PRIVACY AND OTHER LAWS, INCLUDING ANY REQUIREMENT TO OBTAIN CONSENT FROM OR PROVIDE NOTICE TO INDIVIDUALS AND ANY OTHER OBLIGATIONS END-USER AND/OR INSTALLER MAY HAVE AS CONTROLLERS OR OTHERWISE UNDER LAW. THE CAPABILITY OR USE OF ANY PRODUCTS MANUFACTURED OR SOLD BY ARDUINO TO RECORD CONSENT SHALL NOT BE SUBSTITUTED FOR THE CONTROLLER’S OBLIGATION TO INDEPENDENTLY DETERMINE WHETHER CONSENT OR NOTICE IS REQUIRED, NOR SHALL SUCH CAPABILITY OR USE SHIFT ANY OBLIGATION TO OBTAIN ANY REQUIRED CONSENT OR NOTICE TO ARDUINO.
 
-本出版物可能包含日常操作中使用的屏幕截图和报告示例。示例中可能包含虚构的个人或公司名称。如与真实企业或个人的名称和地址有任何相似，纯属巧合。
+THE INFORMATION IN THIS DOCUMENT IS SUBJECT TO CHANGE WITHOUT NOTICE. UPDATED INFORMATION CAN BE FOUND ON OUR WEB PRODUCT PAGE. ARDUINO ASSUMES NO RESPONSIBILITY FOR INACCURACIES OR OMISSIONS AND SPECIFICALLY DISCLAIMS ANY LIABILITIES, LOSSES, OR RISKS, PERSONAL OR OTHERWISE, INCURRED AS A CONSEQUENCE, DIRECTLY OR INDIRECTLY, OF THE USE OR APPLICATION OF ANY OF THE CONTENTS OF THIS DOCUMENT.
 
-请参考数据手册和用户文档以获取使用信息。
-如需最新产品信息，请联系您的供应商或访问本网站上的产品页面。
+THIS PUBLICATION MAY CONTAIN EXAMPLES OF SCREEN CAPTURES AND REPORTS USED IN DAILY OPERATIONS. EXAMPLES MAY INCLUDE FICTITIOUS NAMES OF INDIVIDUALS AND COMPANIES. ANY SIMILARITY TO NAMES AND ADDRESSES OF ACTUAL BUSINESSES OR PERSONS IS ENTIRELY COINCIDENTAL.
 
+REFER TO THE DATA SHEET AND USER DOCUMENTATION FOR INFORMATION ON USE. FOR THE LATEST PRODUCT INFORMATION, CONTACT YOUR SUPPLIER OR VISIT THE PRODUCT PAGES ON THIS SITE.

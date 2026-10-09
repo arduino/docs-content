@@ -273,60 +273,61 @@ R7FA4M1AB3CFM#AA0 微控制器上的 GPIO 可以处理高达**8 mA**的电流。
 
 所有的 Arduino 板都有一个内置的引导程序，它允许通过 USB 刷新板子。如果一个草稿锁定了处理器，导致板子无法通过 USB 访问，可以通过在开机后双击复位按钮进入引导程序模式。
 
-# 认证
+# Certifications
 
-## 符合性声明 CE DoC（欧盟）
+## Declaration of Conformity CE DoC (EU)
 
-我们在此声明，以上产品符合以下欧盟指令的基本要求，因此有资格在包括欧洲联盟（EU）和欧洲经济区（EEA）的市场内自由流通。
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
-## 声明符合欧盟 RoHS 和 REACH 211 01/19/2021
+## Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
 
-Arduino 板符合欧洲议会 2011/65/EU 关于限制电子电气设备中某些有害物质使用的 RoHS 2 指令和 2015 年 6 月 4 日理事会 2015/863/EU 关于限制电子电气设备中某些有害物质使用的 RoHS 3 指令。
+Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
-| **物质**                             | **最大限制（ppm)** |
-| ------------------------------------ | ------------------ |
-| 铅 (Pb)                              | 1000               |
-| 镉 (Cd)                              | 100                |
-| 水星（Hg）                           | 1000               |
-| 六价铬（Cr6+）                       | 1000               |
-| 多溴联苯醚（PBB）                    | 1000               |
-| 多溴联苯醚（PBDE）                   | 1000               |
-| 邻苯二甲酸二（2-乙基己基）酯（DEHP） | 1000               |
-| 苯基丁酸酯（BBP）                    | 1000               |
-| 邻苯二甲酸二丁酯（DBP）              | 1000               |
-| 邻苯二甲酸二异丁酯（DIBP）           | 1000               |
+| **Substance**                          | **Maximum Limit (ppm)** |
+| -------------------------------------- | ----------------------- |
+| Lead (Pb)                              | 1000                    |
+| Cadmium (Cd)                           | 100                     |
+| Mercury (Hg)                           | 1000                    |
+| Hexavalent Chromium (Cr6+)             | 1000                    |
+| Poly Brominated Biphenyls (PBB)        | 1000                    |
+| Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
+| Bis(2-Ethylhexyl} phthalate (DEHP)     | 1000                    |
+| Benzyl butyl phthalate (BBP)           | 1000                    |
+| Dibutyl phthalate (DBP)                | 1000                    |
+| Diisobutyl phthalate (DIBP)            | 1000                    |
 
-豁免：未申请任何豁免。
+Exemptions : No exemptions are claimed.
 
-Arduino 板符合欧盟法规（EC）1907/2006，涉及化学品的注册、评估、授权和限制（REACH）的相关要求。我们声明在所有产品（以及包装）中，没有任何由 ECHA（欧洲化学品管理局）发布的目前授权的非常关注物质候选清单（[<https://echa.europa.eu/web/guest/candidate-list-table](<https://echa.europa.eu/web/guest/candidate-list-table))中的SVHC（非常关注物质）以浓度等于或超过0.1%的总量存在。据我们所知，我们还声明我们的产品不含有REACH法规附件XIV“授权清单”和ECHA发布的候选清单附件XVII中规定的任何重要量的非常关注物质（SVHC）（欧洲化学品管理局）1907/2006/EC。
+Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs ([<https://echa.europa.eu/web/guest/candidate-list-table](<https://echa.europa.eu/web/guest/candidate-list-table)), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
-## 冲突矿产声明
+## Conflict Minerals Declaration
 
-作为电子和电气元件的全球供应商，Arduino 意识到我们对冲突矿物的法律和法规的义务，特别是多德-弗兰克华尔街改革和消费者保护法第 1502 节。Arduino 不直接采购或加工锡、钽、钨或金等冲突矿物。冲突矿物以焊料的形式或作为金属合金的组成部分存在于我们的产品中。作为我们合理尽职调查的一部分，Arduino 已联系供应链中的元件供应商，以验证他们对法规的持续遵守情况。根据迄今收到的信息，我们声明我们的产品中含有来自无冲突地区的冲突矿物。
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 
-## FCC 警告
+## FCC Caution
 
-任何未经合规责任方明确批准的更改或修改可能会使用户操作设备的权限无效。
+Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
 
-本设备符合 FCC 规则第 15 部分。操作受以下两个条件限制：
+This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
 
-(1) 此设备可能不会造成有害干扰
+(1) This device may not cause harmful interference
 
-(2) 此设备必须接受任何干扰，包括可能导致不良操作的干扰。
+(2) this device must accept any interference received, including interference that may cause undesired operation.
 
-**FCC RF 辐射暴露声明**
+**FCC RF Radiation Exposure Statement:**
 
-1. 此发射器不得与任何其他天线或发射器共同放置或操作。
+1. This Transmitter must not be co-located or operating in conjunction with any other antenna or transmitter.
 
-2. 此设备符合为无控制环境设定的射频辐射暴露限制。
+2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment.
 
-3. 这个设备应该安装和操作时，散热器与您的身体之间应保持至少 20 厘米的距离。
+3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
 
-免许可无线电设备的用户手册应在用户手册的显眼位置或设备上，或两者兼有的地方包含以下或等效的通知。该设备符合加拿大工业部免许可 RSS 标准。操作受以下两个条件的限制：
+English:
+User manuals for licence-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:
 
-(1) 此设备可能不会引起干扰
+(1) this device may not cause interference
 
-(2) 本设备必须接受任何干扰，包括可能导致设备不正常运行的干扰。
+(2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
 French:
 Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :
@@ -335,7 +336,7 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 
 (2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
 
-**IC SAR 警告:**
+**IC SAR Warning:**
 
 English
 This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
@@ -343,31 +344,35 @@ This equipment should be installed and operated with a minimum distance of 20 cm
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
-**重要:** EUT 的工作温度不能超过 85°C，也不能低于-40°C。
+**Important:** The operating temperature of the EUT can’t exceed 85 ℃ and shouldn’t be lower than -40 ℃.
 
-Arduino S.r.l.特此声明，该产品符合 201453/EU 指令的基本要求和其他相关规定。该产品允许在所有欧盟成员国使用。
+Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
-## 公司信息
+## Company Information
 
-| 公司名称 | Arduino S.r.l.                                    |
-| -------- | ---------------------------------------------- |
-| 公司地址 | Via Andrea Appiani, 25 - 20900 MONZA（意大利） |
+| Company name    | Arduino S.r.l.                                  |
+| --------------- | -------------------------------------------- |
+| Company Address | Via Andrea Appiani, 25 - 20900 MONZA（Italy) |
 
-## 参考文档
+## Reference Documentation
 
-| 参考资料                   | 链接                                                                      |
-| ------------------------- | ------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                                   |
-| Arduino Cloud Editor      | https://create.arduino.cc/editor                                          |
-| 开始 Arduino Cloud Editor | https://docs.arduino.cc/arduino-cloud/guides/editor/                      |
-| Arduino Project Hub       | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending  |
-| 图书馆参考                 | https://github.com/arduino-libraries/                                     |
-| 在线商店                   | https://store.arduino.cc/                                                 |
+| Ref                                    | Link                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------ |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/Main/Software                                  |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                                         |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/                     |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
+| Library Reference                      | https://github.com/arduino-libraries/                                    |
+| Arduino Store                          | https://store.arduino.cc/                                                |
 
-## 变更日志
+## Change Log
 
-| 日期       | **修订** | **改变**             |
-| ---------- | -------- | -------------------- |
-| 28/03/2024 | 3        | Update Rated Current |
-| 25/07/2023 | 2        | 更新 Pin 表          |
-| 06/19/2023 | 1        | 首次发布             |
+| Date       | **Revision** | **Changes**                      |
+|------------|--------------|----------------------------------|
+| 06/19/2023 | 1            | First Release                    |
+| 25/07/2023 | 2            | Update Pin Table                 |
+| 28/03/2024 | 3            | Update Rated Current             |
+| 25/04/2024 | 4            | Updated link to new Cloud Editor |
+| 10/29/2025 | 5            | Mechanical drawing update        |
+| 12/10/2026 |       6      | Added note for Intended Use, and divided language |
+
