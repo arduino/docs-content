@@ -112,7 +112,7 @@ scp -r .\Keyword-ASR-Local-LLM-Kokoro-TTS\ arduino@<ventuno-q-IP>:~/ArduinoApps
 
 <Alert type="note">
 
-Make sure to run the command from the directory where you unziped the App and replace `<ventuno-q-IP>` with your actual board IP address.
+Make sure to run the command from the directory where you unzipped the App and replace `<ventuno-q-IP>` with your actual board IP address.
 
 </Alert>
 
