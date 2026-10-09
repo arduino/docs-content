@@ -6,6 +6,8 @@ type: maker
 
 ![](assets/featured.png)
 
+# English
+
 # Description
 
 <p style="text-align: justify;">The Arduino® Starter Kit R4 is a hands-on learning platform built around the Arduino® UNO R4 WiFi. Featuring an Arm® Cortex®-M4 microcontroller, integrated Wi-Fi® and Bluetooth® via ESP32-S3, and a 12x8 red LED matrix, this kit provides makers, students, and educators with a reliable foundation to learn, prototype, and build interactive electronics projects. With included sensors, motors, and actuators, the Starter Kit R4 bridges theoretical learning and practical experimentation through engaging, hands-on activities that teach fundamental programming and electronics concepts.
@@ -14,6 +16,12 @@ type: maker
 # Target Areas
 
 Education, embedded programming, maker prototyping, STEM classrooms
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # CONTENTS
 
