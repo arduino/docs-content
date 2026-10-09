@@ -366,4 +366,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | ---------- | ------------ | -------------------------------------------------- |
 | 04/09/2025 | 2            | Formatting, reference links & nomenclature update  |
 | 23/12/2020 | 1            | First Release                                      |
+| 12/10/2026 |       3      | Added note for Intended Use |
+
 

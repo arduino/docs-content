@@ -389,3 +389,4 @@ The table below summarizes the dimensions of each component included in the kit:
 |  **Date**  | **Revision** |       **Changes**      |
 |:----------:|:------------:|:----------------------:|
 | 31/12/2025 |       1      |      First release     |
+| 12/10/2026 |      2       | Added note for Intended Use |

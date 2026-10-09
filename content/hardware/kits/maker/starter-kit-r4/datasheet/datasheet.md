@@ -529,3 +529,4 @@ As a global supplier of electronic and electrical components, Arduino is aware o
 |:----------:|:------------:|:------------------------------:|
 | 18/11/2025 |       1      |          First release         |
 | 29/07/2026 |       2      | Store and online course update |
+| 12/10/2026 |      3       | Added note for Intended Use |

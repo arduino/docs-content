@@ -351,6 +351,8 @@ The figures below show the main dimensions of the kit in a stacked configuration
 
 |  **Date**  | **Revision** |   **Changes**  |
 |:----------:|:------------:|:--------------:|
-| 20/01/2025 |       3      |  Format fixes  |
-| 16/01/2025 |       2      | Review changes |
 | 10/01/2025 |       1      |  First release |
+| 16/01/2025 |       2      | Review changes |
+| 20/01/2025 |       3      |  Format fixes  |
+| 12/10/2026 |       4      | Added note for Intended Use |
+

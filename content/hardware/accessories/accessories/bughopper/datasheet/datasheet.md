@@ -286,3 +286,4 @@ Exemptions: No exemptions are claimed.
 |:----------:|:------------:|:-------------:|
 | 27/03/2026 |       1      | First release |
 | 30/03/2026 |       2      | Pinout update |
+| 12/10/2026 |       3      | Added note for Intended Use |

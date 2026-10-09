@@ -569,5 +569,6 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 |  **Date**  | **Revision** | **Changes**                 |
 | :--------: | :----------: | --------------------------- |
-| 07/10/2026 |      2       | MIPI DSI Displays Supported |
 | 27/03/2026 |      1       | Initial release             |
+| 07/10/2026 |      2       | MIPI DSI Displays Supported |
+| 12/10/2026 |       3      | Added note for Intended Use |

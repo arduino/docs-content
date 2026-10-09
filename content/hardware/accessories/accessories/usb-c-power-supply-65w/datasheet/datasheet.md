@@ -391,3 +391,4 @@ The following table lists additional resources related to this product.
 |  **Date**  | **Revision** |  **Changes**  |
 |:----------:|:------------:|:-------------:|
 | 25/08/2026 |       1      | First release |
+| 12/10/2026 |      2       | Added note for Intended Use |

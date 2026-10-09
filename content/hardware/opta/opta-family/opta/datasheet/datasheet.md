@@ -817,12 +817,13 @@ Cet appareil numérique de la classe A est conforme à la norme NMB-003 du Canad
 
 |  **Date**  | **Revision** |             **Changes**              |
 |:----------:|:------------:|:------------------------------------:|
-| 02/12/2024 |      9       |  Digital input specification update  |
-| 24/09/2024 |      8       |        Expansion port updates        |
-| 11/09/2024 |      7       |      ICES certification updates      |
-| 03/09/2024 |      6       | Cloud Editor updated from Web Editor |
-| 24/07/2024 |      5       |        Wiring specifications         |
-| 07/02/2023 |      4       |           MTBF information           |
-| 16/05/2023 |      3       |            Legal updates             |
-| 13/04/2023 |      2       |          Tech Specs Updates          |
 | 02/03/2023 |      1       |            First Release             |
+| 13/04/2023 |      2       |          Tech Specs Updates          |
+| 16/05/2023 |      3       |            Legal updates             |
+| 07/02/2023 |      4       |           MTBF information           |
+| 24/07/2024 |      5       |        Wiring specifications         |
+| 03/09/2024 |      6       | Cloud Editor updated from Web Editor |
+| 11/09/2024 |      7       |      ICES certification updates      |
+| 24/09/2024 |      8       |        Expansion port updates        |
+| 02/12/2024 |      9       |  Digital input specification update  |
+| 12/10/2026 |      10      | Added note for Intended Use |

@@ -509,8 +509,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 | Date       | **Revision** | **Changes**                               |
 |------------|--------------|-------------------------------------------|
-| 28/02/2025 | 3            | General information and trademark revision |
-
-| 03/09/2024 | 3            | Cloud Editor updated from Web Editor      |
-| 11/20/2023 | 2            | Recommended antennas added                |
 | 10/05/2022 | 1            | First Release                             |
+| 11/20/2023 | 2            | Recommended antennas added                |
+| 03/09/2024 | 3            | Cloud Editor updated from Web Editor      |
+| 28/02/2025 | 4            | General information and trademark revision |
+| 12/10/2026 |       5      | Added note for Intended Use |
+

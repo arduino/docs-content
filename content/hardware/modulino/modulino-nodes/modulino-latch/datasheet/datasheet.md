@@ -244,3 +244,4 @@ Operation is subject to the following two conditions:
 | **Date**   | **Revision** | **Changes**                       |
 |------------|--------------|-----------------------------------|
 | 01/07/2025 | 1            | First release                     |
+| 12/10/2026 |       2      | Added note for Intended Use |

@@ -372,5 +372,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date      | **Revision** | **Changes**   |
 | --------- | ------------ | ------------- |
-| 22/05/2025 | 2            | Technical corrections, voltage notation standardization, nomenclature fixes and change log correction  |
-| 21/05/2025 | 1            | First Release |
+| 21/05/2025 | 1           | First Release |
+| 22/05/2025 | 2           | Technical corrections, voltage notation standardization, nomenclature fixes and change log correction  |
+| 12/10/2026 |       3      | Added note for Intended Use |

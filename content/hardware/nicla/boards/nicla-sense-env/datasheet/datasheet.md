@@ -334,5 +334,6 @@ As a global supplier of electronic and electrical components, Arduino is aware o
 
 |  **Date**  | **Revision** |                      **Changes**                       |
 |:----------:|:------------:|:------------------------------------------------------:|
-| 14/01/2025 |      2       | Update on Product Compliance with Japan VCCI Statement |
 | 10/10/2024 |      1       |                     First release                      |
+| 14/01/2025 |      2       | Update on Product Compliance with Japan VCCI Statement |
+| 12/10/2026 |       3      | Added note for Intended Use |

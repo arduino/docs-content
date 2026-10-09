@@ -461,11 +461,13 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                          |
 |------------|--------------|--------------------------------------|
-| 03/09/2024 | 5            | Cloud Editor updated from Web Editor |
-| 11/06/2024 | 4            | Product Labeling section added       |
-| 04/06/2024 | 3            | Typical Output Power updated         |
-| 17/05/2023 | 2            | ESLOV Information updated            |
 | 05/01/2023 | 1            | First release                        |
+| 17/05/2023 | 2            | ESLOV Information updated            |
+| 04/06/2024 | 3            | Typical Output Power updated         |
+| 11/06/2024 | 4            | Product Labeling section added       |
+| 03/09/2024 | 5            | Cloud Editor updated from Web Editor |
+| 12/10/2026 |       6      | Added note for Intended Use |
+
 
 ## Product Warnings and Disclaimers
 

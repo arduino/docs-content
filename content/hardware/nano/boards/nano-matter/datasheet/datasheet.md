@@ -372,11 +372,13 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 |  **Date**  | **Revision** |                                 **Changes**                                 |
 | :--------: | :----------: | :-------------------------------------------------------------------------: |
-| 05/10/2026 |      8       | Updating supported protocols, programming environments and AREF jumper note |
-| 24/03/2026 |      7       |                 Updating top image to include both variants                 |
-| 01/12/2025 |      6       |         Additional note on multiple SKUs and certification updates          |
-| 11/02/2025 |      5       |            Header Version and SKU added as Collective Datasheet             |
-| 14/11/2024 |      4       |            Official launch revision and power information update            |
-| 05/09/2024 |      3       |                    Cloud Editor updated from Web Editor                     |
-| 07/05/2024 |      2       |                                Board update                                 |
 | 21/03/2024 |      1       |                          Community Preview Release                          |
+| 07/05/2024 |      2       |                                Board update                                 |
+| 05/09/2024 |      3       |                    Cloud Editor updated from Web Editor                     |
+| 14/11/2024 |      4       |            Official launch revision and power information update            |
+| 11/02/2025 |      5       |            Header Version and SKU added as Collective Datasheet             |
+| 01/12/2025 |      6       |         Additional note on multiple SKUs and certification updates          |
+| 24/03/2026 |      7       |                 Updating top image to include both variants                 |
+| 05/10/2026 |      8       | Updating supported protocols, programming environments and AREF jumper note |
+| 12/10/2026 |       9      | Added note for Intended Use |
+

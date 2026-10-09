@@ -243,3 +243,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | ---------- | ------------ | -------------------------------- |
 | 23/03/2022 | 1            | First Release                    |
 | 25/10/2022 | 2            | Minor markdown and heading fixes |
+| 12/10/2026 |      3       | Added note for Intended Use |

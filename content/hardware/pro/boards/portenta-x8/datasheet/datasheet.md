@@ -570,9 +570,11 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                            |
 |------------|--------------|----------------------------------------|
-| 03/09/2024 | 6            | Cloud Editor updated from Web Editor   |
-| 11/12/2023 | 5            | Add Portenta Hat Carrier compatibility |
-| 07/11/2023 | 4            | Add missing board dimensions           |
-| 26/01/2023 | 3            | Clarify open-source nature of M7 core  |
-| 12/09/2022 | 2            | Make cores clear, minor fixes          |
 | 24/03/2022 | 1            | Release                                |
+| 12/09/2022 | 2            | Make cores clear, minor fixes          |
+| 26/01/2023 | 3            | Clarify open-source nature of M7 core  |
+| 07/11/2023 | 4            | Add missing board dimensions           |
+| 11/12/2023 | 5            | Add Portenta Hat Carrier compatibility |
+| 03/09/2024 | 6            | Cloud Editor updated from Web Editor   |
+| 12/10/2026 |       7      | Added note for Intended Use |
+

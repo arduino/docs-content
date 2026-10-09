@@ -332,5 +332,6 @@ This equipment complies with FCC radiation exposure limits set forth for an unco
 
 |  **Date**  | **Revision** | **Changes**                |
 | :--------: | :----------: | -------------------------- |
-| 01/07/2026 |      2       | Add efficiency at 10% load |
 | 27/03/2026 |      1       | First release              |
+| 01/07/2026 |      2       | Add efficiency at 10% load |
+| 12/10/2026 |      3       | Added note for Intended Use |

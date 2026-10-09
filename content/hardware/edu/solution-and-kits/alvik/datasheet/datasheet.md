@@ -400,7 +400,8 @@ Use of controls or adjustments, or performance of procedures other than those sp
 
 | Date       | **Revision** |             **Changes**             |
 |------------|:------------:|:-----------------------------------:|
-| 07/07/2025 |      4       |       Correct LED information       |
-| 20/12/2024 |      3       |         Add Certifications          |
-| 13/05/2024 |      2       | Robot's Expandability section added |
 | 24/04/2024 |      1       |            First Release            |
+| 13/05/2024 |      2       | Robot's Expandability section added |
+| 20/12/2024 |      3       |         Add Certifications          |
+| 07/07/2025 |      4       |       Correct LED information       |
+| 12/10/2026 |      5       | Added note for Intended Use |

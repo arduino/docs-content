@@ -239,8 +239,10 @@ Operation is subject to the following two conditions:
 # Revision History
 | **Date**   | **Revision** | **Changes**                       |
 |------------|--------------|-----------------------------------|
-| 01/07/2025 | 5            | Certification                     |
-| 17/06/2025 | 4            | Nomenclature updates              |
-| 23/05/2025 | 3            | Fixed pinout table and power info |
-| 21/05/2025 | 2            | Fixed info on LEDs                |
 | 14/05/2025 | 1            | First release                     |
+| 21/05/2025 | 2            | Fixed info on LEDs                |
+| 23/05/2025 | 3            | Fixed pinout table and power info |
+| 17/06/2025 | 4            | Nomenclature updates              |
+| 01/07/2025 | 5            | Certification                     |
+| 12/10/2026 |       6      | Added note for Intended Use |
+

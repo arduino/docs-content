@@ -499,17 +499,19 @@ This equipment contains a radio transmitter module with model approval code: CMI
 
 ## Change Log
 
-| **Date**   | **Changes**                                            |
-| ---------- | ------------------------------------------------------ |
-| 08/06/2023 | Release                                                |
-| 09/01/2023 | Update power tree flowchart.                           |
-| 09/11/2023 | Update SPI section, update analog/digital pin section. |
-| 11/06/2023 | Correct company name, correct VBUS/VUSB                |
-| 11/09/2023 | Block Diagram Update, Antenna Specifications           |
-| 11/15/2023 | Ambient temperature update                             |
-| 11/23/2023 | Added label to LP modes                                |
-| 23/02/2024 | Added antenna frequency to block diagram               |
-| 25/04/2024 | Updated link to new Cloud Editor                       |
-| 23/08/2024 | Added SRRC certification                                 |
-| 23/08/2024 | Cloud Editor updated from Web Editor                  |
+| **Date**   | **Revision** | **Changes**                                            |
+| ---------- | ------------ | ------------------------------------------------------ |
+| 08/06/2023 |      1       | Release                                                |
+| 09/01/2023 |      2       | Update power tree flowchart.                           |
+| 09/11/2023 |      3       | Update SPI section, update analog/digital pin section. |
+| 11/06/2023 |      4       | Correct company name, correct VBUS/VUSB                |
+| 11/09/2023 |      5       | Block Diagram Update, Antenna Specifications           |
+| 11/15/2023 |      6       | Ambient temperature update                             |
+| 11/23/2023 |      7       | Added label to LP modes                                |
+| 23/02/2024 |      8       | Added antenna frequency to block diagram               |
+| 25/04/2024 |      9       | Updated link to new Cloud Editor                       |
+| 23/08/2024 |      10      | Added SRRC certification                                 |
+| 23/08/2024 |      11      | Cloud Editor updated from Web Editor                  |
+| 12/10/2026 |      12      | Added note for Intended Use, and divided language |
+
 

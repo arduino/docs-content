@@ -201,3 +201,5 @@ By default, the board operates as an I2C target device. It manages motor directi
 | **Date**   | **Revision** | **Changes**       |
 |------------|--------------|-------------------|
 | 23/03/2026 | 1            | First release     |
+| 12/10/2026 |       2      | Added note for Intended Use |
+

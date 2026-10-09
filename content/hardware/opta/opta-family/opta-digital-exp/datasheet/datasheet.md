@@ -306,8 +306,10 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 | Date       | **Revision** | **Changes**                          |
 |------------|--------------|--------------------------------------|
-| 02/12/2024 | 5            | Digital input specification update   |
-| 24/09/2024 | 4            | Expansion port updates               |
-| 24/09/2024 | 3            | SSR operating current update         |
-| 03/09/2024 | 2            | Cloud Editor updated from Web Editor |
 | 06/05/2024 | 1            | First Release                        |
+| 03/09/2024 | 2            | Cloud Editor updated from Web Editor |
+| 24/09/2024 | 3            | SSR operating current update         |
+| 24/09/2024 | 4            | Expansion port updates               |
+| 02/12/2024 | 5            | Digital input specification update   |
+| 12/10/2026 |       6      | Added note for Intended Use |
+

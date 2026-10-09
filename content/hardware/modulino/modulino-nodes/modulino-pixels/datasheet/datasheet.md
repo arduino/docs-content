@@ -228,10 +228,12 @@ Operation is subject to the following two conditions:
 # Revision History
 | **Date**   | **Revision** | **Changes**                                                          |
 | ---------- | ------------ | -------------------------------------------------------------------- |
-| 01/07/2025 | 4            | Certification                                                        |
-| 17/06/2025 | 3            | Nomenclature updates                                                 |
-| 23/05/2025 | 2            | Fixed pinout table and power info, removed unrelated characteristics |
 | 14/05/2025 | 1            | First release                                                        |
+| 23/05/2025 | 2            | Fixed pinout table and power info, removed unrelated characteristics |
+| 17/06/2025 | 3            | Nomenclature updates                                                 |
+| 01/07/2025 | 4            | Certification                                                        |
+| 12/10/2026 |       5      | Added note for Intended Use |
+
 
 
 

@@ -222,5 +222,6 @@ The terms HDMI, HDMI High-Definition Multimedia Interface, HDMI trade dress and 
 
 |  **Date**  | **Revision** | **Changes**   |
 |:----------:|:------------:|---------------|
-| 07/04/2026 |      2       | Added HDMI trademark acknowledgement |
 | 27/03/2026 |      1       | First release |
+| 07/04/2026 |      2       | Added HDMI trademark acknowledgement |
+| 12/10/2026 |      3       | Added note for Intended Use |

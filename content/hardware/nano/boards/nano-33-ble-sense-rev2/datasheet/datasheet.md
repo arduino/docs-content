@@ -389,9 +389,11 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date       | **Revision** | **Changes**                           |
 |------------|--------------|---------------------------------------|
-| 25/04/2024 | 5            | Updated link to new Cloud Editor      |
-| 03/05/2023 | 4            | Add SKU for version with headers      |
-| 10/11/2022 | 3            | Updated to account for Rev2 changes:  LSM9DS1 -> BMI270+Bmm150, HTS221 -> HS3003, MPM3610 -> MP2322, PCB modification   |
-| 03/08/2022 | 2            | Reference documentation links updates |
 | 27/04/2021 | 1            | General datasheet updates             |
+| 03/08/2022 | 2            | Reference documentation links updates |
+| 10/11/2022 | 3            | Updated to account for Rev2 changes:  LSM9DS1 -> BMI270+Bmm150, HTS221 -> HS3003, MPM3610 -> MP2322, PCB modification   |
+| 03/05/2023 | 4            | Add SKU for version with headers      |
+| 25/04/2024 | 5            | Updated link to new Cloud Editor      |
+| 12/10/2026 |       6      | Added note for Intended Use |
+
 

@@ -660,12 +660,13 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 |  **Date**  | **Revision** |                       **Changes**                      |
 |:----------:|:------------:|:------------------------------------------------------:|
-| 03/09/2024 |       9      |          Cloud Editor updated from Web Editor          |
-| 16/06/2024 |       8      |     Updated General Specifications Overview section    |
-| 23/01/2024 |       7      |               Updated Interfaces section               |
-| 14/12/2023 |       6      |             Updated Related Product section            |
-| 14/11/2023 |       5      |              FCC and Block Diagram Updates             |
-| 30/10/2023 |       4      |           I2C ports information section added          |
-| 20/06/2023 |       3      | Power tree added, related products information updated |
-| 09/06/2023 |       2      |       Board's power consumption information added      |
 | 14/03/2023 |       1      |                      First release                     |
+| 09/06/2023 |       2      |       Board's power consumption information added      |
+| 20/06/2023 |       3      | Power tree added, related products information updated |
+| 30/10/2023 |       4      |           I2C ports information section added          |
+| 14/11/2023 |       5      |              FCC and Block Diagram Updates             |
+| 14/12/2023 |       6      |             Updated Related Product section            |
+| 23/01/2024 |       7      |               Updated Interfaces section               |
+| 16/06/2024 |       8      |     Updated General Specifications Overview section    |
+| 03/09/2024 |       9      |          Cloud Editor updated from Web Editor          |
+| 12/10/2026 |       10     | Added note for Intended Use |
