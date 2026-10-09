@@ -6,12 +6,20 @@ type: maker
 
 ![](assets/featured.jpg)
 
+# English
+
 # Description
 
 The feature packed **Arduino® Nano RP2040 Connect** brings the new **Raspberry Pi RP2040** microcontroller to the Nano form factor. Make the most of the dual core **32-bit Arm® Cortex®-M0+** to make Internet of Things projects with Bluetooth® and Wi-Fi connectivity thanks to the **u-blox® Nina W102** module. Dive into real-world projects with the onboard accelerometer, gyroscope, RGB LED and microphone. Develop robust embedded AI solutions with minimal effort using the **Nano RP2040 Connect**!
 
 # Target Areas 
 Internet of Things (IoT), machine learning, prototyping,
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Features
 - **Raspberry Pi RP2040** Microcontroller

@@ -6,6 +6,8 @@ type: maker
 
 ![](assets/featured.jpg)
 
+# English
+
 # Description
 
 The **Arduino® Nano 33 BLE Rev2**\* is a miniature-sized module containing a NINA B306 module, based on Nordic nRF52480 and containing an Arm® Cortex®-M4F. The BMI270 and BMM150 jointly provide a 9-axis IMU. The module can either be mounted as a DIP component (when mounting pin headers) or as a SMT component, directly soldering it via the castellated pads.
@@ -18,6 +20,12 @@ The **Arduino® Nano 33 BLE Rev2**\* is a miniature-sized module containing a NI
 # Target Areas
 
 Maker, enhancements, IoT application
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Features
 

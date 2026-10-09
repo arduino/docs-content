@@ -7,6 +7,8 @@ type: maker
 
 ![](assets/featured.png)
 
+# English
+
 # Description
 
 The Arduino® Nano R4 is a Nano form factor board based on the RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#HA0), which embeds a 48 MHz Arm® Cortex®-M4 microprocessor. The Nano R4's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB data memory (EEPROM). The Nano R4 board operates at 5 V, making it hardware compatible with Nano form factor accessories with the same operating voltage.
@@ -18,6 +20,12 @@ Leverage the on-board Qwiic connector for seamless integration with Modulinos, e
 # Target areas:
 
 Digital Signal Processing, System on Module, Edge Computing, Rapid Prototyping
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Contents
 
