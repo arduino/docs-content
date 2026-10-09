@@ -13,7 +13,7 @@ tags:
 
 This example listens for a byte coming from the serial port. When received, the board sends a keystroke back to the computer. The sent keystroke is one higher than what is received, so if you send an "a" from the serial monitor, you'll receive a "b" from the board connected to the computer. A "1" will return a "2" and so on.
 
-**NB:  When you use the Keyboard.print() command, the Leonardo, Micro or Due board takes over your computer's keyboard! To insure you don't lose control of your computer while running a sketch with this function, make sure to set up a reliable control system before you call Keyboard.print(). This sketch is designed to only send a Keyboard command after the board has received a byte over the serial port.**
+**NB:  Your Leonardo, Micro or Due board will initiate a second keyboard device on your host computer, it will not take over your existing keyboard. Both your original host keyboard and the 'send a keystroke' keyboard will be active and will work. This sketch is designed to only send a Keyboard command after the board has received a byte over the serial port.**
 
 ### Hardware Required
 
