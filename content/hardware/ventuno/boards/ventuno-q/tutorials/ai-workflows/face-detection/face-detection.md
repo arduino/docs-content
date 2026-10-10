@@ -38,7 +38,7 @@ In this guide we will cover:
 
 - [Arduino® VENTUNO™ Q](https://store.arduino.cc/products/ventuno-q)
 - [Arduino® USB-C Power Supply (65W)](https://store.arduino.cc/products/usb-c-power-supply-65w), or a 7–24 V DC supply on the power jack
-- USB camera connected to the USB-A port, reachable as `/dev/video0`
+- USB camera connected to the USB-A port (on the VENTUNO Q the onboard camera ISP occupies `/dev/video0`–`/dev/video1`, so a USB webcam usually appears as `/dev/video2`)
 - A display, keyboard, and mouse\* connected to the board (the script opens a live window on-screen)
 
 <Alert type="info">
@@ -112,6 +112,12 @@ This demo needs `opencv-python`, `numpy`, and `ai-edge-litert` (which bundles th
 ```bash
 pip install ai-edge-litert==1.3.0 opencv-python numpy
 ```
+
+<Alert type="note">
+
+**Why this exact version?** The `ai-edge-litert` version is pinned to `1.3.0` on purpose. With a 2.x release, the QNN HTP delegate fails to validate this quantized model's convolution ops (`Failed to validate op ... Conv2d`) and silently falls back to the CPU — so the "NPU" path ends up *slower* than plain CPU execution. Installing `qai-hub-models` in the next section pulls in a 2.x release, which is why you reinstall `1.3.0` before running the demo.
+
+</Alert>
 
 NPU execution additionally needs the QNN HTP delegate (`libQnnTFLiteDelegate.so`), which is provided by the **Qualcomm® AI Runtime (QAIRT)**. It is not installed by default and is not pulled in by any `pip` package, so install it from the board's apt repositories:
 
@@ -205,6 +211,16 @@ python3 face_detection_camera.py            # model on the CPU
 python3 face_detection_camera.py --use-npu  # model on the Hexagon NPU
 ```
 
+<Alert type="note">
+
+**Camera index.** The script defaults to `/dev/video2`, because the VENTUNO Q's onboard camera ISP occupies `/dev/video0` and `/dev/video1` — a USB webcam enumerates after them. If your camera is on a different node (or `cv2.VideoCapture` fails to open), pass `--camera N`, for example `python3 face_detection_camera.py --use-npu --camera 4`. To find your webcam's node, list the capture devices and look for the one backed by the `uvcvideo` driver:
+
+```bash
+for d in /sys/class/video4linux/video*; do echo "$d -> $(cat $d/name)"; done
+```
+
+</Alert>
+
 A window titled **"Face Detect"** opens showing the live camera feed with a **green** bounding box drawn around each detected face. The on-screen overlay reports the model invoke time, the round-trip time (set + invoke + get tensor), and the total per-frame latency. Press **`q`** in the window to quit.
 
 Running on the NPU noticeably lowers the invoke and round-trip latency compared to the CPU.
@@ -235,11 +251,18 @@ import sys
 
 # --- SETUP ---
 MODEL_PATH = 'face_det_lite-lightweight-face-detection-w8a8.tflite'
-use_npu = True if len(sys.argv) >= 2 and sys.argv[1] == '--use-npu' else False
+use_npu = "--use-npu" in sys.argv
+
+# The VENTUNO Q's onboard camera ISP occupies /dev/video0 and /dev/video1, so a
+# USB webcam usually enumerates as /dev/video2. Override with: --camera N
+cam_index = 2
+if "--camera" in sys.argv:
+    cam_index = int(sys.argv[sys.argv.index("--camera") + 1])
 
 experimental_delegates = []
 if use_npu:
-    experimental_delegates = [load_delegate("libQnnTFLiteDelegate.so", options={"backend_type": "htp"})]
+    # "htp_performance_mode": "2" selects the Hexagon "burst" clock profile; without it the NPU runs in its default power mode and is several times slower.
+    experimental_delegates = [load_delegate("libQnnTFLiteDelegate.so", options={"backend_type": "htp", "htp_performance_mode": "2"})]
 
 interpreter = Interpreter(model_path=MODEL_PATH, experimental_delegates=experimental_delegates)
 interpreter.allocate_tensors()
@@ -422,7 +445,12 @@ def process_frame(frame):
 
 # --- MAIN LOOP ---
 mode = "NPU" if use_npu else "CPU"
-cap  = cv2.VideoCapture(0)
+cap  = cv2.VideoCapture(cam_index)
+if not cap.isOpened():
+    raise SystemExit(
+        f"Could not open camera index {cam_index}. On the VENTUNO Q the onboard "
+        f"camera uses /dev/video0-1; pass --camera N with your USB webcam's /dev/videoN number."
+    )
 
 while True:
     ret, frame = cap.read()

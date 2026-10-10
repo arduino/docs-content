@@ -38,7 +38,7 @@ In this guide we will cover:
 
 - [Arduino® VENTUNO™ Q](https://store.arduino.cc/products/ventuno-q)
 - [Arduino® USB-C Power Supply (65W)](https://store.arduino.cc/products/usb-c-power-supply-65w), or a 7–24 V DC supply on the power jack
-- USB camera connected to the USB-A port, reachable as `/dev/video0`
+- USB camera connected to the USB-A port (on the VENTUNO Q the onboard camera ISP occupies `/dev/video0`–`/dev/video1`, so a USB webcam usually appears as `/dev/video2`)
 - A display, keyboard, and mouse\* connected to the board (the script opens a live window on-screen)
 
 <Alert type="info">
@@ -112,6 +112,12 @@ This demo needs `opencv-python`, `numpy`, and `ai-edge-litert` (which bundles th
 ```bash
 pip install ai-edge-litert==1.3.0 opencv-python numpy
 ```
+
+<Alert type="note">
+
+**Why this exact version?** The `ai-edge-litert` version is pinned to `1.3.0` on purpose. With a 2.x release, the QNN HTP delegate fails to validate this quantized model's convolution ops (`Failed to validate op ... Conv2d`) and silently falls back to the CPU. Installing `qai-hub-models` in the next section pulls in a 2.x release, which is why you reinstall `1.3.0` before running the demo.
+
+</Alert>
 
 NPU execution additionally needs the QNN HTP delegate (`libQnnTFLiteDelegate.so`), which is provided by the **Qualcomm® AI Runtime (QAIRT)**. It is not installed by default and is not pulled in by any `pip` package, so install it from the board's apt repositories:
 
@@ -205,6 +211,16 @@ python3 segformer_camera.py            # model on the CPU (noticeably laggy)
 python3 segformer_camera.py --use-npu  # model on the Hexagon NPU (real time)
 ```
 
+<Alert type="note">
+
+**Camera index.** The script defaults to `/dev/video2`, because the VENTUNO Q's onboard camera ISP occupies `/dev/video0` and `/dev/video1` — a USB webcam enumerates after them. If your camera is on a different node (or `cv2.VideoCapture` fails to open), pass `--camera N`, for example `python3 segformer_camera.py --use-npu --camera 4`. To find your webcam's node, list the capture devices and look for the one backed by the `uvcvideo` driver:
+
+```bash
+for d in /sys/class/video4linux/video*; do echo "$d -> $(cat $d/name)"; done
+```
+
+</Alert>
+
 A window titled **"Segformer Segmentation"** opens showing the live camera feed with a color-tinted overlay: each pixel is colored by its predicted class, plus a small legend (the top 5 classes by pixel count, with color swatches) in the corner. The on-screen overlay reports the model invoke time and the total per-frame latency. Press **`q`** in the window to quit.
 
 Running on the NPU is dramatically faster than on the CPU — the difference between a laggy preview and a smooth real-time feed. On a VENTUNO Q running Ubuntu 24.04, averaged over 45 frames:
@@ -212,9 +228,9 @@ Running on the NPU is dramatically faster than on the CPU — the difference bet
 | Model on | Model invoke | Total per frame       |
 | -------- | ------------ | --------------------- |
 | CPU      | 271.7 ms     | 287.2 ms (~3 fps)     |
-| **NPU**  | **20.9 ms**  | **37.9 ms (~26 fps)** |
+| **NPU (burst)** | **~10 ms** | **~30 ms (~33 fps)** |
 
-That is roughly a **13x** speedup on the model itself. This is the largest NPU gain of any model in this collection, because SegFormer is a comparatively large, compute-dense network — exactly the kind of workload the Hexagon™ Tensor Processor is built for.
+That is roughly a **27x** speedup on the model itself. This is the largest NPU gain of any model in this collection, because SegFormer is a comparatively large, compute-dense network — exactly the kind of workload the Hexagon™ Tensor Processor is built for.
 
 If you launch the script from a remote host (`adb` or `ssh`), you will first need to allow it to render on the display.
 
@@ -270,11 +286,18 @@ CLASS_NAMES = [
 ]
 NUM_CLASSES = len(CLASS_NAMES)
 
-use_npu = True if len(sys.argv) >= 2 and sys.argv[1] == '--use-npu' else False
+use_npu = "--use-npu" in sys.argv
+
+# The VENTUNO Q's onboard camera ISP occupies /dev/video0 and /dev/video1, so a
+# USB webcam usually enumerates as /dev/video2. Override with: --camera N
+cam_index = 2
+if "--camera" in sys.argv:
+    cam_index = int(sys.argv[sys.argv.index("--camera") + 1])
 
 experimental_delegates = []
 if use_npu:
-    experimental_delegates = [load_delegate("libQnnTFLiteDelegate.so", options={"backend_type": "htp"})]
+    # "htp_performance_mode": "2" selects the Hexagon "burst" clock profile (fastest).
+    experimental_delegates = [load_delegate("libQnnTFLiteDelegate.so", options={"backend_type": "htp", "htp_performance_mode": "2"})]
 
 interpreter = Interpreter(model_path=MODEL_PATH, experimental_delegates=experimental_delegates)
 interpreter.allocate_tensors()
@@ -348,7 +371,12 @@ def process_frame(frame_bgr):
 
 # --- MAIN LOOP ---
 mode = "NPU" if use_npu else "CPU"
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(cam_index)
+if not cap.isOpened():
+    raise SystemExit(
+        f"Could not open camera index {cam_index}. On the VENTUNO Q the onboard "
+        f"camera uses /dev/video0-1; pass --camera N with your USB webcam's /dev/videoN number."
+    )
 
 while True:
     ret, frame = cap.read()
