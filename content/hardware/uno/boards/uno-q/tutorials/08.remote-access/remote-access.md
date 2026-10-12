@@ -1,11 +1,14 @@
 ---
-title: Remote Access Options for UNO Q
-description: Learn how to access your UNO Q remotely from anywhere using Tailscale, xrdp, or RustDesk.
+title: Remote Access Options for UNO Q and VENTUNO Q
+description: Learn how to access your UNO Q or VENTUNO Q remotely from anywhere using Tailscale, xrdp, or RustDesk.
 author: Ernesto Voltaggio
-tags: [UNO Q, remote access, ssh, tailscale, xrdp, rdp, rustdesk]
+hardware:
+  - hardware/02.uno/boards/uno-q
+  - hardware/14.ventuno/boards/ventuno-q
+tags: [UNO Q, VENTUNO Q, remote access, ssh, tailscale, xrdp, rdp, rustdesk]
 ---
 
-This tutorial covers how to access your [Arduino® UNO Q](https://store.arduino.cc/products/uno-q) remotely from outside your local network. We will cover three methods:
+This tutorial covers how to access your [Arduino® UNO Q](https://store.arduino.cc/products/uno-q) or [Arduino VENTUNO™ Q](https://store.arduino.cc/products/ventuno-q) remotely from outside your local network. We will cover three methods:
 
 1. **Tailscale + SSH:** For secure command-line access from anywhere.
 2. **xrdp (Remote Desktop):** For graphical desktop access over USB, LAN, or VPN using the standard RDP protocol.
@@ -13,11 +16,13 @@ This tutorial covers how to access your [Arduino® UNO Q](https://store.arduino.
 
 Each method is self-contained — pick the one that fits your needs, or combine them.
 
+The commands are the same for both boards unless a step is labeled **UNO Q** or **VENTUNO Q**. The UNO Q runs Debian with LightDM and Xfce, while the VENTUNO Q runs Ubuntu® with GNOME and GDM.
+
 ## Required Hardware and Software
 
 ### Hardware Requirements
 
-- [Arduino® UNO Q](https://store.arduino.cc/products/uno-q)
+- [Arduino UNO Q](https://store.arduino.cc/products/uno-q) or [Arduino VENTUNO Q](https://store.arduino.cc/products/ventuno-q)
 - A computer (macOS, Windows, or Linux) to connect from
 - USB-C® cable (only required for the ADB-over-USB workflow)
 - Network connection (Ethernet or Wi-Fi®) for LAN- or VPN-based methods
@@ -28,13 +33,15 @@ Each method is self-contained — pick the one that fits your needs, or combine 
 - An RDP client on your computer (for the xrdp method) — Remote Desktop is pre-installed on Windows; on macOS use [Windows App](https://apps.apple.com/app/windows-app/id1295203466); on Linux install [Remmina](https://remmina.org/)
 - The [RustDesk](https://rustdesk.com/) client on your computer (for the RustDesk method)
 
+Most commands in this tutorial run in the board's shell. Open it over SSH, over ADB, or from a terminal in the desktop session. For setup instructions, see the [ADB tutorial](/tutorials/uno-q/adb/) for the UNO Q or the [VENTUNO Q user manual](/tutorials/ventuno-q/user-manual/#access-via-ssh-or-adb-terminal).
+
 ## Tailscale + SSH
 
-[Tailscale](https://tailscale.com/) is a zero-config VPN that creates a secure network between your devices. By installing Tailscale on your UNO Q and your computer, you can SSH into your board from anywhere as if it were on your local network.
+[Tailscale](https://tailscale.com/) is a zero-config VPN that creates a secure network between your devices. By installing Tailscale on your board and your computer, you can SSH into your board from anywhere as if it were on your local network.
 
-### 1. Installing Tailscale On UNO Q
+### 1. Installing Tailscale On The Board
 
-1. Connect to your UNO Q via SSH or open a terminal in desktop mode.
+1. Connect to your board via SSH or open a terminal in desktop mode.
 2. Install Tailscale by running the following command:
 
    ```bash
@@ -51,7 +58,7 @@ Each method is self-contained — pick the one that fits your needs, or combine 
 
 ### 2. Connecting Via SSH
 
-Once both your computer and the UNO Q are connected to the same Tailscale network, you can find the board's Tailscale IP address in the Tailscale admin console or by running `tailscale ip -4` on the board.
+Once both your computer and the board are connected to the same Tailscale network, you can find the board's Tailscale IP address in the Tailscale admin console or by running `tailscale ip -4` on the board.
 
 From your computer, SSH into the board using its Tailscale IP:
 
@@ -61,15 +68,21 @@ ssh arduino@<tailscale-ip>
 
 ![Tailscale SSH connection](assets/tailscale-ssh-connection.png)
 
+If MagicDNS is enabled for your Tailscale network, you can use the board's hostname instead of the IP address:
+
+```bash
+ssh arduino@<hostname>
+```
+
 ---
 
 ## Xrdp (Remote Desktop)
 
-[xrdp](http://www.xrdp.org/) is an open-source RDP (Remote Desktop Protocol) server for Linux. RDP is the de facto standard for remote desktop access, and RDP clients are available on all major platforms — Remote Desktop is even pre-installed on Windows machines. Since the UNO Q runs a Debian-based OS, xrdp works out of the box with minimal configuration.
+[xrdp](http://www.xrdp.org/) is an open-source RDP (Remote Desktop Protocol) server for Linux. RDP is the de facto standard for remote desktop access, and RDP clients are available on all major platforms — Remote Desktop is even pre-installed on Windows machines. Since the UNO Q runs Debian and the VENTUNO Q runs Ubuntu, xrdp works out of the box on both with minimal configuration. It starts a separate desktop session for you and does not mirror the display connected to the board.
 
-### 1. Installing Xrdp On UNO Q
+### 1. Installing Xrdp On The Board
 
-Connect to your UNO Q via SSH or ADB shell, then install xrdp and its dependencies:
+Connect to your board via SSH or ADB shell, then install xrdp and its dependencies:
 
 ```bash
 sudo apt update
@@ -100,25 +113,25 @@ Install an RDP client on your computer:
 
 ### RDP Over LAN (Ethernet / Wi-Fi®)
 
-If the UNO Q is connected to the same local network as your computer (via Ethernet or Wi-Fi®), you can connect directly using the board's local IP address.
+If the board is connected to the same local network as your computer (via Ethernet or Wi-Fi®), you can connect directly using the board's local IP address.
 
-1. On the UNO Q, find its IP address:
+1. On the board, find its IP address:
 
    ```bash
    hostname -I
    ```
 
-   *`hostname -I` usually returns more than one address. Use the one that looks like your LAN (typically starting with `192.168.` or `10.`). Ignore `172.x.x.x` addresses — those belong to Docker's internal networks, not your LAN.*
+   *`hostname -I` usually returns more than one address. Use the one that looks like your LAN (typically starting with `192.168.` or `10.`). Ignore `172.x.x.x` addresses — those belong to Docker's internal networks, not your LAN — and `100.x.x.x` addresses, which belong to Tailscale.*
 
 2. On your computer, open your RDP client and connect to `<board-ip>:3389`.
-3. Log in with your UNO Q credentials (default user: `arduino`).
+3. Log in with your board credentials (default user: `arduino`).
 
 ### RDP Over USB Via ADB Forward
 
-If you do not have network access on the UNO Q, you can tunnel the RDP connection over USB using ADB port forwarding.
+If you do not have network access on the board, you can tunnel the RDP connection over USB using ADB port forwarding.
 
-1. Connect the UNO Q to your computer via USB-C®.
-2. Ensure ADB is installed on your computer (see the [ADB tutorial](/tutorials/uno-q/adb/) for installation instructions).
+1. Connect the board to your computer via USB-C®.
+2. Ensure ADB is installed on your computer (see the [ADB tutorial](/tutorials/uno-q/adb/) for the UNO Q, or the [VENTUNO Q user manual](/tutorials/ventuno-q/user-manual/#access-via-adb), for installation instructions).
 3. Forward the RDP port through ADB:
 
    ```bash
@@ -126,15 +139,15 @@ If you do not have network access on the UNO Q, you can tunnel the RDP connectio
    ```
 
 4. Open your RDP client and connect to `localhost:3389`.
-5. Log in with your UNO Q credentials (default user: `arduino`).
+5. Log in with your board credentials (default user: `arduino`).
 
 ***To stop the port forward when you are done, run `adb forward --remove tcp:3389`.***
 
 ### RDP Over VPN (Tailscale)
 
-To access the UNO Q desktop remotely from a different network, combine xrdp with a VPN like [Tailscale](https://tailscale.com/). If you have already set up Tailscale as described in the [Tailscale + SSH](#tailscale--ssh) section, you can connect to the board's Tailscale IP using your RDP client.
+To access the board's desktop remotely from a different network, combine xrdp with a VPN like [Tailscale](https://tailscale.com/). If you have already set up Tailscale as described in the [Tailscale + SSH](#tailscale--ssh) section, you can connect to the board's Tailscale IP using your RDP client.
 
-1. Ensure Tailscale is running on both the UNO Q and your computer.
+1. Ensure Tailscale is running on both the board and your computer.
 2. Find the board's Tailscale IP:
 
    ```bash
@@ -142,47 +155,21 @@ To access the UNO Q desktop remotely from a different network, combine xrdp with
    ```
 
 3. Open your RDP client and connect to `<tailscale-ip>:3389`.
-4. Log in with your UNO Q credentials (default user: `arduino`).
+4. Log in with your board credentials (default user: `arduino`).
 
 This provides full graphical desktop access from anywhere in the world, without exposing port `3389` to the public internet.
 
-### Troubleshooting: Black Screen On Connect
-
-If xrdp connects but immediately shows a black screen and disconnects, the cause is usually a conflict with the desktop session already running on the board.
-
-When the UNO Q boots, it starts a local desktop session managed by LightDM (the login screen and session manager). That session is already signed in as the `arduino` user and is using the board's main display. When you then connect over xrdp, it tries to start a *second* desktop session for your remote connection, but the two sessions end up sharing resources that only one session can own at a time, most notably the per-user message bus (D-Bus) that desktop apps use to talk to each other. Since the local session got there first, the remote one fails to start cleanly and kicks you out, which is what you see as a black screen.
-
-The fix is to tell xrdp to start its remote desktop session in complete isolation from the local one, with its own private message bus. Overwrite the xrdp startup script:
-
-```bash
-sudo tee /etc/xrdp/startwm.sh << 'EOF'
-#!/bin/sh
-unset DBUS_SESSION_BUS_ADDRESS
-unset XDG_RUNTIME_DIR
-if [ -r /etc/profile ]; then
-    . /etc/profile
-fi
-exec dbus-run-session -- xfce4-session
-EOF
-```
-
-Then restart xrdp:
-
-```bash
-sudo systemctl restart xrdp
-```
-
-***If you are using a different desktop environment, replace `xfce4-session` with the appropriate command. Check available sessions with `ls /usr/share/xsessions/`.***
+If xrdp connects over any of the methods above but immediately shows a black screen and disconnects, see [Xrdp Black Screen On Connect](#xrdp-black-screen-on-connect).
 
 ---
 
 ## RustDesk (Desktop Access)
 
-[RustDesk](https://rustdesk.com/) is an open-source remote desktop software. Since the UNO Q can be run headlessly (without a physical monitor), we will configure a dummy display driver so that the desktop environment loads and can be accessed remotely.
+[RustDesk](https://rustdesk.com/) is an open-source remote desktop software. Since the board can be run headlessly (without a physical monitor), we will configure a dummy display driver so that the desktop environment loads and can be accessed remotely.
 
 ### 1. Install RustDesk
 
-First, find the link for the latest `aarch64.deb` package on the [RustDesk Releases page](https://github.com/rustdesk/rustdesk/releases/latest). 
+First, find the link for the latest `aarch64.deb` package on the [RustDesk Releases page](https://github.com/rustdesk/rustdesk/releases/latest).
 
 ![RustDesk Releases Page](assets/rustdesk-releases.png)
 
@@ -196,14 +183,14 @@ sudo apt -f install
 
 ### 2. Install And Configure Dummy Display
 
-1. Install the dummy display driver:
+Install the dummy display driver:
 
 ```bash
 sudo apt install xserver-xorg-video-dummy
 sudo mkdir -p /etc/X11/xorg.conf.d
 ```
 
-2. Create the configuration file:
+Then create the configuration file:
 
 ```bash
 sudo tee /etc/X11/xorg.conf.d/10-dummy.conf << 'EOF'
@@ -234,9 +221,13 @@ EndSection
 EOF
 ```
 
-### 3. Configure LightDM Auto-Login
+### 3. Configure The Login Manager
 
-LightDM is the login manager that starts the desktop session when the UNO Q boots. By default it shows a login screen; we will configure it to sign in the `arduino` user automatically so that the desktop (and RustDesk) become available after a reboot without any user interaction.
+The login manager starts the desktop session when the board boots. The steps depend on your board.
+
+#### UNO Q (LightDM)
+
+By default, LightDM shows a login screen; we will configure it to sign in the `arduino` user automatically so that the desktop (and RustDesk) become available after a reboot without any user interaction.
 
 ***You are changing how the board starts up. After applying this step, the UNO Q will boot straight into the `arduino` desktop session without asking for a password. Skip this step if you need the login screen to remain enabled.***
 
@@ -250,6 +241,38 @@ EOF
 ```
 
 To revert auto-login later, open `/etc/lightdm/lightdm.conf` with a text editor and remove the two lines you just added, then reboot.
+
+#### VENTUNO Q (GDM)
+
+Two GDM settings matter for RustDesk:
+
+1. **Use X11 (required).** The dummy display driver and RustDesk's access to the login screen both need an X11 session, but Ubuntu uses Wayland by default. Tell GDM to use X11:
+
+   ```bash
+   sudo sed -i 's/^#[[:space:]]*WaylandEnable=false/WaylandEnable=false/' /etc/gdm3/custom.conf
+   grep -q '^WaylandEnable=false' /etc/gdm3/custom.conf || sudo sed -i '/^\[daemon\]/a WaylandEnable=false' /etc/gdm3/custom.conf
+   ```
+
+   The first command activates the line if it is commented out. The second one adds it under `[daemon]` if your `custom.conf` does not have it at all. Verify that the setting is active. The output must be `WaylandEnable=false`, without a `#` at the start of the line:
+
+   ```bash
+   grep WaylandEnable /etc/gdm3/custom.conf
+   ```
+
+2. **Auto-login (optional).** By default GDM shows a login screen, and RustDesk lets you sign in through it remotely. Enable auto-login only if you want the desktop to be available after a reboot without signing in.
+
+   ***You are changing how the board starts up. After applying this setting, the VENTUNO Q will boot straight into the `arduino` desktop session without asking for a password. Auto-login also creates a local session that triggers the xrdp black screen described in [Xrdp Black Screen On Connect](#xrdp-black-screen-on-connect), so apply that fix if you use both.***
+
+   Enable auto-login for the `arduino` user (replace `arduino` with your username if it is different):
+
+   ```bash
+   sudo sed -i \
+     -e 's/^#[[:space:]]*AutomaticLoginEnable.*/AutomaticLoginEnable=true/' \
+     -e 's/^#[[:space:]]*AutomaticLogin[[:space:]]*=.*/AutomaticLogin=arduino/' \
+     /etc/gdm3/custom.conf
+   ```
+
+   To revert auto-login later, open `/etc/gdm3/custom.conf` with a text editor, add a `#` in front of the `AutomaticLoginEnable` and `AutomaticLogin` lines, then reboot.
 
 ### 4. Enable RustDesk and Reboot
 
@@ -277,13 +300,17 @@ sudo rustdesk --password your_password
 
 Install RustDesk on your client device (macOS, iOS, Windows, Linux) from [rustdesk.com](https://rustdesk.com/). Enter the board's ID and password. This works across different networks from anywhere in the world.
 
+**VENTUNO Q:** If you did not enable auto-login, RustDesk shows the GDM login screen. Sign in with the `arduino` user and your board password.
+
 ![RustDesk Client UI](assets/rustdesk-client-ui.png)
 
 ### Toggle Between HDMI and Headless Mode
 
-The dummy driver overrides the real GPU, meaning if you plug in a physical monitor via HDMI, it will show a black screen while the dummy driver is active. 
+The dummy driver overrides the real GPU, meaning if you plug in a physical monitor via HDMI, it will show a black screen while the dummy driver is active.
 
-You can create a script to easily toggle between the dummy display and the physical HDMI output:
+You can create a script to easily toggle between the dummy display and the physical HDMI output. Use the version for your board.
+
+#### UNO Q
 
 ```bash
 sudo tee /usr/local/bin/toggle-display << 'EOF'
@@ -304,13 +331,110 @@ EOF
 sudo chmod +x /usr/local/bin/toggle-display
 ```
 
+#### VENTUNO Q
+
+```bash
+sudo tee /usr/local/bin/toggle-display << 'EOF'
+#!/bin/bash
+CONF="/etc/X11/xorg.conf.d/10-dummy.conf"
+BAK="${CONF}.bak"
+
+if [ -f "$CONF" ]; then
+    mv "$CONF" "$BAK"
+    echo "Switched to HDMI (physical display)"
+else
+    mv "$BAK" "$CONF"
+    echo "Switched to dummy (headless/RustDesk)"
+fi
+systemctl restart gdm3
+EOF
+
+sudo chmod +x /usr/local/bin/toggle-display
+```
+
+#### Run The Script
+
 Switch anytime by running:
 
 ```bash
 sudo toggle-display
 ```
+
 ![Toggle Dummy Display](assets/toggle-dummy-display.png)
+
+The script restarts the login manager to apply the change. ***Restarting it ends any desktop session running on the board, including the one you are connected to through RustDesk. Reconnect after the switch completes.***
 
 ### After Reboot
 
-Everything starts automatically: LightDM auto-logs in on the dummy display, RustDesk runs, and the desktop is accessible remotely from any device.
+Everything starts automatically: the login manager starts on the dummy display (and signs in automatically if auto-login is enabled), RustDesk runs, and the desktop is accessible remotely from any device.
+
+---
+
+## Troubleshooting
+
+### Xrdp Black Screen On Connect
+
+If xrdp connects but immediately shows a black screen and disconnects, the cause is usually a conflict with a desktop session already running on the board. When you connect over xrdp, it tries to start a *second* desktop session for your remote connection, but the two sessions end up sharing resources that only one session can own at a time, most notably the per-user message bus (D-Bus) that desktop apps use to talk to each other. Since the local session got there first, the remote one fails to start cleanly and kicks you out, which is what you see as a black screen.
+
+The fix is to tell xrdp to start its remote desktop session in complete isolation from the local one, with its own private message bus, by overwriting the xrdp startup script. The steps depend on your board.
+
+#### UNO Q
+
+When the UNO Q boots, it starts a local desktop session managed by LightDM (the login screen and session manager). That session is already signed in as the `arduino` user and is using the board's main display, so the conflict happens by default.
+
+Overwrite the xrdp startup script:
+
+```bash
+sudo tee /etc/xrdp/startwm.sh << 'EOF'
+#!/bin/sh
+unset DBUS_SESSION_BUS_ADDRESS
+unset XDG_RUNTIME_DIR
+if [ -r /etc/profile ]; then
+    . /etc/profile
+fi
+exec dbus-run-session -- xfce4-session
+EOF
+```
+
+Then restart xrdp:
+
+```bash
+sudo systemctl restart xrdp
+```
+
+***If you are using a different desktop environment, replace `xfce4-session` with the appropriate command. Check available sessions with `ls /usr/share/xsessions/`.***
+
+#### VENTUNO Q
+
+The VENTUNO Q shows the GDM login screen when it boots and has no local `arduino` session by default, so xrdp works without any changes. A conflict only happens when a local session exists, either because automatic login is enabled (see [VENTUNO Q (GDM)](#ventuno-q-gdm) in the RustDesk section) or because you signed in on a display connected to the board.
+
+To confirm that a session conflict is the cause, run the following command on the board right after a failed connection:
+
+```bash
+journalctl -b --no-pager | grep "already running"
+```
+
+If the output contains `Session manager already running!`, the two sessions collided.
+
+First, back up the original startup script. Then overwrite it with the GNOME session command:
+
+```bash
+sudo cp /etc/xrdp/startwm.sh /etc/xrdp/startwm.sh.bak
+sudo tee /etc/xrdp/startwm.sh << 'EOF'
+#!/bin/sh
+unset DBUS_SESSION_BUS_ADDRESS
+unset XDG_RUNTIME_DIR
+if [ -r /etc/profile ]; then
+    . /etc/profile
+fi
+exec dbus-run-session -- gnome-session --session=ubuntu
+EOF
+```
+
+Then restart xrdp:
+
+```bash
+sudo systemctl restart xrdp
+```
+
+***To go back to the original startup script, run `sudo cp /etc/xrdp/startwm.sh.bak /etc/xrdp/startwm.sh` and restart xrdp.***
