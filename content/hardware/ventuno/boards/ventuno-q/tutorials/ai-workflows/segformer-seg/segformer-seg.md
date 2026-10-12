@@ -115,7 +115,7 @@ pip install ai-edge-litert==1.3.0 opencv-python numpy
 
 <Alert type="note">
 
-**Why this exact version?** The `ai-edge-litert` version is pinned to `1.3.0` on purpose. With a 2.x release, the QNN HTP delegate fails to validate this quantized model's convolution ops (`Failed to validate op ... Conv2d`) and silently falls back to the CPU. Installing `qai-hub-models` in the next section pulls in a 2.x release, which is why you reinstall `1.3.0` before running the demo.
+**Why this exact version?** The `ai-edge-litert` version is pinned to `1.3.0` on purpose. With a 2.x release, the QNN HTP delegate fails to validate this quantized model's convolution ops (`Failed to validate op ... Conv2d`) and silently falls back to the CPU.
 
 </Alert>
 
@@ -213,7 +213,7 @@ python3 segformer_camera.py --use-npu  # model on the Hexagon NPU (real time)
 
 <Alert type="note">
 
-**Camera index.** The script defaults to `/dev/video2`, because the VENTUNO Q's onboard camera ISP occupies `/dev/video0` and `/dev/video1` — a USB webcam enumerates after them. If your camera is on a different node (or `cv2.VideoCapture` fails to open), pass `--camera N`, for example `python3 segformer_camera.py --use-npu --camera 4`. To find your webcam's node, list the capture devices and look for the one backed by the `uvcvideo` driver:
+**Note:** The script defaults to `/dev/video2`, because the VENTUNO Q's onboard camera ISP occupies `/dev/video0` and `/dev/video1` — a USB webcam enumerates after them. If your camera is on a different node (or `cv2.VideoCapture` fails to open), pass `--camera N`, for example `python3 segformer_camera.py --use-npu --camera 4`. To find your webcam's node, list the capture devices and look for the one backed by the `uvcvideo` driver:
 
 ```bash
 for d in /sys/class/video4linux/video*; do echo "$d -> $(cat $d/name)"; done

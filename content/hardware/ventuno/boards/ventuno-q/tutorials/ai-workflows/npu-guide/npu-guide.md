@@ -247,7 +247,7 @@ The gap is large. The same models measured in the default mode versus burst on a
 | YOLOv7 (640×640, FP16)                 | ~40 ms             | ~12.5 ms         |
 | Face landmark detector (192×192, INT8) | ~2.7 ms            | ~0.5 ms          |
 
-In both cases the whole graph was on the NPU either way — the only difference is the clock profile. Enabling burst mode will consume more power, and may not be suitable for intense, recurring jobs running on battery powered projects.
+In both cases the whole graph was on the NPU — the only difference is the clock profile. Enabling burst mode will consume more power, and may not be suitable for intense, recurring jobs running on battery powered projects.
 
 ### Switching Modes in LiteRT
 

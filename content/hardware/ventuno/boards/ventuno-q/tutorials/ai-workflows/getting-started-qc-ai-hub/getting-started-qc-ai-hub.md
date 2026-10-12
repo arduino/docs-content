@@ -262,7 +262,7 @@ print("Average latency: %.2f ms" % elapsed)
 
 <Alert type="note">
 
-**Important:** The `htp_performance_mode` option is what makes the NPU fast. It sets the Hexagon™ clock profile, and `"2"` is *burst* mode. If you omit it, the delegate still places the whole graph on the NPU, but in the default power mode the same model takes ~40 ms instead of ~12 ms. The value is passed as a string because the delegate parses it as an integer — passing a name such as `"burst"` raises `std::invalid_argument`.
+**Important:** The `htp_performance_mode` option is what makes the NPU fast. It sets the Hexagon™ clock profile, and `"2"` is *burst* mode. If you omit it, the delegate still places the whole graph on the NPU, but in the default power mode the same model takes ~40 ms instead of ~12 ms. See [this guide](/tutorials/ventuno-q/npu-guide/#npu-performance-modes-burst-vs-default) for details.
 
 </Alert>
 

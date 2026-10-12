@@ -115,7 +115,7 @@ pip install ai-edge-litert==1.3.0 opencv-python numpy
 
 <Alert type="note">
 
-**Why this exact version?** The `ai-edge-litert` version is pinned to `1.3.0` on purpose. With a 2.x release, the QNN HTP delegate fails to validate this quantized model's convolution ops (`Failed to validate op ... Conv2d`) and silently falls back to the CPU — so the "NPU" path ends up *slower* than plain CPU execution. Installing `qai-hub-models` in the next section pulls in a 2.x release, which is why you reinstall `1.3.0` before running the demo.
+**Why this exact version?** The `ai-edge-litert` version is pinned to `1.3.0` on purpose. With a 2.x release, the QNN HTP delegate fails to validate this quantized model's convolution ops (`Failed to validate op ... Conv2d`) and silently falls back to the CPU — so the "NPU" path ends up *slower* than plain CPU execution.
 
 </Alert>
 

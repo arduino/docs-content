@@ -202,7 +202,7 @@ The demo needs three downloads. All of them go into a `models/` folder inside th
 
 ### 1. Fetch the Models From AI Hub
 
-With the virtual environment active and the working directory as the current directory, run:
+With the virtual environment active, run:
 
 ```bash
 cd /home/arduino/eye-gaze
@@ -280,7 +280,7 @@ Your working directory should now contain `.venv/`, `models/`, `prepare_model.py
 
 ## Running the Demo
 
-With the virtual environment active, run the demo from the board's desktop session:
+With the virtual environment active, run the demo:
 
 ```bash
 cd /home/arduino/eye-gaze
@@ -305,16 +305,8 @@ A window titled **"EyeGaze"** opens showing the camera feed, mirrored like a mir
 
 The top-left corner shows the frame rate, the time spent in the face stage and in the eye stage, and the gaze angles in degrees. The two small grayscale images in the top-right corner are the eye crops exactly as the EyeGaze model sees them, which is the quickest way to check that the eyes are being found correctly.
 
-If you launch the script from a remote host (`adb` or `ssh`), you will first need to allow it to render on the display.
+Enable a remote host to run applications on the display:
 
-On the board itself (not using `adb` or `ssh`), open a terminal and run the following:
-
-```bash
-xhost +
-export DISPLAY=:0   # replace 0 with your display number
-```
-
-This will enable a remote host to run applications on the display. If you do not do this, when running the script from a remote host, you will see `xcb` related error.
 
 ### Keyboard Controls
 
@@ -344,7 +336,7 @@ With the window focused:
 
 <Alert type="note">
 
-**Camera index.** The VENTUNO Q's onboard camera pipeline occupies `/dev/video0` and `/dev/video1`, and a USB webcam claims two nodes of which only the first delivers frames. The script therefore does not assume an index: it picks the first node backed by the `uvcvideo` driver. If it reports `No USB webcam found`, check that the camera shows up in `lsusb`, and list the capture devices with:
+**Note:** The VENTUNO Q's onboard camera pipeline occupies `/dev/video0` and `/dev/video1`, and a USB webcam claims two nodes of which only the first delivers frames. The script therefore does not assume an index: it picks the first node backed by the `uvcvideo` driver. If it reports `No USB webcam found`, check that the camera shows up in `lsusb`, and list the capture devices with:
 
 ```bash
 for d in /sys/class/video4linux/video*; do echo "$d -> $(cat $d/name)"; done
@@ -1168,7 +1160,7 @@ The rewritten model loads as a **single NPU partition** and runs in about **1.5 
 
 <Alert type="note">
 
-**Checking for CPU fallback.** `sess.get_providers()` lists `CPUExecutionProvider` even when only a handful of shape operations fall back, so it cannot tell a healthy model from one like this. To see how a model was actually split, create the session with verbose logging. Save the following as `check.py`:
+**Checking for CPU fallback:** `sess.get_providers()` lists `CPUExecutionProvider` even when only a handful of shape operations fall back, so it cannot tell a healthy model from one like this. To see how a model was actually split, create the session with verbose logging. Save the following as `check.py`:
 
 ```python
 import onnxruntime as ort
@@ -1198,4 +1190,4 @@ A model that runs well on the NPU reports one partition, or very few.
 
 ## Conclusion
 
-In this tutorial you set up both NPU runtimes on the VENTUNO Q, downloaded three models from Qualcomm AI Hub, and ran a script that tracks both eyes and estimates gaze direction in real time, with every model accelerated on the Qualcomm® Hexagon™ NPU. You also saw how to recognize a model that silently falls back to the CPU, and how rewriting two unsupported patterns took EyeGaze from 20 ms to 1.5 ms per inference. From here you can build on the gaze output — for example to detect whether someone is looking at a screen, or to drive attention-aware interfaces — directly on the Dragonwing™ QCS8275 processor.
+In this tutorial you set up both NPU runtimes on the VENTUNO Q, downloaded three models from Qualcomm AI Hub, and ran a script that tracks both eyes and estimates gaze direction in real time, with every model accelerated on the Qualcomm® Hexagon™ NPU. You also saw how to recognize a model that silently falls back to the CPU, and how rewriting two unsupported patterns took EyeGaze from 20 ms to 1.5 ms per inference. From here you can build on the gaze output — for example to detect whether someone is looking at a screen, or to drive attention-aware interfaces.
