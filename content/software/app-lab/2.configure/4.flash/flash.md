@@ -15,16 +15,26 @@ There are two primary methods for flashing your board:
 
 If your board is already discovered by Arduino App Lab, you can initiate a flash directly from the interface.
 
+Before you start, check that:
+
+- App Lab is running on your computer. Flashing is not available in [SBC mode](../../setup/standalone/).
+- Your computer has at least **10 GB** of free disk space for downloading and extracting the image.
+- You have a female-to-female jumper wire (or a jumper cap) to put the board into EDL mode.
+
 1. Open **Arduino App Lab** and connect to your board.
 2. Select **Settings** (gear icon) from the left sidebar.
 3. Scroll down to the **Operating system** section.
 4. Select the **Flash board** button. App Lab opens the **Flash board** page.
 5. In the **Configure** step, review the **Build version**. App Lab selects the latest image by default; select **Change** to install a different version.
 6. Choose the data option:
-   * On the **UNO Q**, **Preserve existing data during the board flashing process** is selected by default and keeps the `userdata` partition (mounted at `/home/arduino`). Clear the checkbox for a full reset.
+   * On the **UNO Q**, **Preserve existing data during the board flashing process** is selected by default and keeps the `userdata` partition (mounted at `/home/arduino`). Clear the checkbox for a full reset. If the selected build cannot keep your data, App Lab warns you that flashing requires a complete re-initialization of the board.
    * The **VENTUNO Q** image has no separate user partition, so flashing erases all data on the board. **Back up your files or export your Apps before flashing.**
    ![Screenshot of the Configure step of the Flash board page in Arduino App Lab.](../../assets/playwright/settings/flasher-configure.png)
-7. Select **Start flashing**, then follow the on-screen instructions in the **Preparing the hardware** and **Flash** steps. Flashing cannot be stopped once it starts.
+7. Select **Start flashing**, then follow the on-screen instructions in the **Preparing the hardware** step: disconnect the board, add the jumper between the EDL pins shown in the image, and connect the board to your computer.
+8. In the **Flash** step, App Lab downloads the image, extracts it, and flashes the board partitions. This can take several minutes. Flashing cannot be stopped once it starts.
+9. When the flash is complete, unplug the board, remove the jumper, and plug the board in again. Select **OK, done**.
+
+If flashing fails, select **Show logs** to see the details, then select **Retry**. The process may require a few attempts.
 
    <Alert type="info">
 
@@ -109,6 +119,8 @@ To use the CLI tool, put the board into **Emergency Download Mode (EDL)**.
    arduino-flasher-cli.exe flash ventunoq
    ```
 
+   On Windows, the tool installs the required USB drivers automatically and asks for administrator permission the first time.
+
    <Alert type="success">
 
    **Tip:** If you are flashing an **UNO Q**, you can add the `--preserve-user` flag to the command to keep your stored data and configurations (the `userdata` partition mounted at `/home/arduino`). Note that this flag is not supported for VENTUNO Q, as its image does not have a separate user partition.
@@ -120,6 +132,10 @@ To use the CLI tool, put the board into **Emergency Download Mode (EDL)**.
    **Note:** You can use the `--version <version>` flag to flash a specific image version instead of the latest one, and the `--serial <serial>` flag to target a specific board when multiple are connected. You can also run just `flash` to enter interactive mode.
 
    </Alert>
+
+   To see the images available for your board, run `arduino-flasher-cli list unoq` (or `ventunoq`). If more than one Linux distribution is available for a board, choose one with `--os`. The VENTUNO Q uses Ubuntu by default, and the UNO Q uses Debian.
+
+   To flash an image you have already downloaded, pass its path after the board name, for example `arduino-flasher-cli flash unoq ./my-image.tar.zst`. You can download an image in advance with `arduino-flasher-cli download unoq`.
 
 2. When the tool asks `Do you want to download it? (yes/no)`, type `y` and press **Enter**.
 3. The tool downloads an image (approx. 1 GB), extracts it, and flashes the board. This process can take several minutes.

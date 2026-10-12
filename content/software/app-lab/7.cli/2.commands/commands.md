@@ -1,11 +1,21 @@
 ---
 title: Arduino App CLI Command Reference
 overwriteSidebar: Commands
-description: 
-tags: [Arduino App CLI, UNO Q, Linux, CLI]
+description: Complete reference of all Arduino App CLI commands and options for managing Apps, Bricks, AI models, and system settings on your board.
+tags: [Arduino App CLI, UNO Q, VENTUNO Q, Linux, CLI]
 ---
 
 Manage Arduino Apps directly from the terminal using this command-line interface. Control the lifecycle of your applications, manage Bricks, and configure system settings without a graphical UI.
+
+This reference is generated from the command definitions of Arduino App CLI 0.14. To check the version installed on your board, run `arduino-app-cli version`. For a task-oriented introduction, see [Manage Apps Using Arduino App CLI](../cli/).
+
+Commands that take an `<app_path>` also accept an App ID, such as `user:my-app` or `examples:inspirational/blink`. See [Refer to Apps](../cli/#refer-to-apps).
+
+<Alert type="info">
+
+**Note:** `model install` takes one argument: a model ID from the catalog, a llama.cpp Hugging Face ID (`llamacpp:owner/repo[:quant]`), or the URL of a model file. For example: `arduino-app-cli model install llamacpp:unsloth/Qwen3.5-0.8B-GGUF`.
+
+</Alert>
 
 <!-- arduino-app-cli commands start -->
 ## arduino-app-cli

@@ -29,9 +29,11 @@ If you want your application to launch automatically whenever your board receive
 
 1. [Open an App](../manage-apps/#open-an-app).
 1. Select the arrow (**▼**) next to the App name near the top left corner.
-1. Enable **Run at Startup**.
+1. Enable **Run at startup**.
 
-Once configured, your board will automatically start the App on boot.
+You can also enable **Run at startup** from the menu of an App in the **Apps** list.
+
+Once configured, your board automatically starts the App every time you plug it into any power source, even without a computer. To set the startup App from the board's terminal, run `arduino-app-cli properties set default <app>`.
 
 <Alert type="note">
 
@@ -56,3 +58,9 @@ When an App is running, you can monitor its execution through the **Console** pa
 - **Serial Monitor:** Displays logs from your microcontroller's sketch. Standard `Serial.print()` commands are automatically routed here.
 - **Python:** Displays standard output from your Python script, such as `print()` statements. This is where you monitor the high-level logic and any errors on the Linux side.
 - **Brick logs:** Each Brick that runs in its own container gets a separate tab, labeled with the Brick ID and its container name. Check these tabs to troubleshoot a Brick.
+
+Use the buttons in the console toolbar to turn autoscroll on or off, show or hide timestamps, clear the log, and maximize or minimize the panel.
+
+### Send Input to the Sketch
+
+In the **Serial Monitor** tab, type a message in the field at the bottom of the console and press **Enter** to send it to the sketch. Read it in your sketch with `Monitor.read()` or `Serial.read()`. See the [Monitor API](../../bridge/bridge-api/#monitor-api).

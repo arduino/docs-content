@@ -21,16 +21,17 @@ This onboarding journey assumes you have already installed App Lab and configure
 
 After configuration, App Lab displays the main interface. The left sidebar contains the primary navigation:
 
-- **Apps**: View, edit, and manage Apps you create or duplicate.
+- **Apps**: View, edit, and manage Apps you create, duplicate, or import, and installed App releases. Select **+** next to **Apps** to create a new App.
 - **Learn and explore**:
   - **Inspirations**: Explore community and multi-component showcase projects.
   - **Examples**: Browse built-in, foundational starter examples.
   - **Resources**: Access offline documentation and tutorials.
 - **Bricks manager**:
   - **Bricks**: Explore modular code blocks.
-- **Settings**: Manage preferences, including Wi-Fi networks, Linux passwords, and keyboard layouts.
+- **Settings**: Manage the board, including Wi-Fi networks, Linux passwords, keyboard layouts, system updates, and AI agents.
 - **Account**: Access your Arduino account settings.
-- **Agent Mode**: AI coding assistant in the bottom footer.
+
+The status bar at the bottom of the window shows the connected board, network and system information, notifications, and the **Agent mode** button for the [AI coding agent](../../integrations/agent-mode/).
 
 ![Screenshot of Arduino App Lab, highlighting the left sidebar.](../../assets/playwright/navigation/sidebar-icons-hl.png)
 
@@ -51,19 +52,19 @@ Built-in examples are read-only. To modify the code, you must create a copy of t
 
 1. With the **Blink LED from Python** example still open, select **Copy and edit App** in the top right corner.
 1. Enter a name for your App and select **Create new**. App Lab opens your new editable App.
-1. Find the **File Manager** in the left sidebar.
+1. Find the **Files** section in the Editor sidebar.
 1. Open the **python** folder and select the `main.py` file.
    ![Screenshot of the App Editor in Arduino App Lab, highlighting in the Files browser.](../../assets/playwright/editor/editor-folders-expanded-files-hl.png)
 1. The `main.py` file will open in a new tab. Locate the `time.sleep(1)` command in the `loop` function and change it to `time.sleep(0.1)`.
 1. Select **Run** to start the modified App. If another App is already active, App Lab will prompt you to replace it before proceeding. Select **Confirm and replace** to switch to your new App.
 
-The red LED on your board now blinks at a much faster rate.
+The LED on your board now blinks at a much faster rate.
 
 ## Step 4: Log and Monitor with Python
 
 Printing messages from your code is the simplest way to track your app's behavior and debug issues. In App Lab, standard Python `print()` statements are automatically captured and displayed in the **Python** tab of the integrated console panel.
 
-1. Select `python/main.py` in the **Files** panel.
+1. Select `python/main.py` in the **Files** section.
 2. Locate the `loop()` function and add the following `print` statements to log the state of the LED:
 
     ```python
@@ -81,7 +82,7 @@ Printing messages from your code is the simplest way to track your app's behavio
     ```
 
 3. Select **Run** to start the app.
-4. When the **Console** panel opens at the bottom, select the **Python** tab to see your messages appearing in real-time
+4. When the **Console** panel opens at the bottom, the **Python** tab is selected automatically, and your messages appear in real time.
 
 <!-- TODO: Add additional section for Serial Monitor logging in Sketch
 

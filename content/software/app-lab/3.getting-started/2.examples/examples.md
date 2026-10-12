@@ -45,7 +45,7 @@ After completing these steps, Arduino App Lab redirects you into a new, fully ed
 
 ## Explore Inspirations and Examples
 
-Inspirations and examples can only be viewed in Arduino App Lab when connected to a board. However, the documentation and source files can be accessed in a public code repository.
+Inspirations and examples can only be viewed in Arduino App Lab when connected to a board. App Lab shows the common Inspirations plus the ones made for your board. The documentation and source files of all of them can be accessed in the public [app-bricks-examples](https://github.com/arduino/app-bricks-examples) repository.
 
 <!-- app-bricks-examples table start -->
 ### Common Inspirations
@@ -105,4 +105,14 @@ Inspirations and examples can only be viewed in Arduino App Lab when connected t
 
 ### Core and Foundational Examples
 
-You can find smaller, single-topic code samples in the [Core and Foundational examples](https://github.com/arduino/app-bricks-examples/tree/main/core-and-foundational) folder.
+The **Examples** section of App Lab includes smaller, single-topic code samples, grouped by topic: LED blinking, LED matrix, Bridge basics, logging, App basics, camera, microphone, web UI, and computer vision. Find them in the [Core and Foundational examples](https://github.com/arduino/app-bricks-examples/tree/main/core-and-foundational) folder.
+
+### Brick Examples
+
+Most Arduino Bricks come with small example Apps that show how to use their API, such as getting the board's location with the **TPS** Brick, connecting to an MCP server with the **MCP Client** Brick, or tracking body poses with the **Pose Estimation** Brick. In App Lab, they are listed in the **Examples** section after the Core and Foundational examples, grouped by Brick category. Browse their source in the [Brick examples](https://github.com/arduino/app-bricks-examples/tree/main/bricks/arduino) folder.
+
+<Alert type="success">
+
+**Tip:** For short code snippets you can copy into your own App, open the **Usage examples** tab of a Brick in the editor.
+
+</Alert>

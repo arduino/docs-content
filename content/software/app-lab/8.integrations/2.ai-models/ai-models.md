@@ -262,35 +262,9 @@ To use it in your App, click on the **Install** button and wait for it to be bui
 
 ![Model installation](assets/app-lab-22.1.png)
 
-Finally, you can select your new model by clicking on your **Brick Configuration** button.
+Finally, select your new model in the **AI Models** tab of the Brick, so the Brick uses it when the App runs.
 
 ![Model selection](assets/app-lab-23.1.png)
-
-### Adding Models from Hugging Face
-
-For language models, you can also download an existing model directly from **Hugging Face** without training one.
-
-<Alert type="note">
-
-**Important:** This feature is only available for the **Large Language Model (LLM)** Brick (`arduino:llm`).
-
-</Alert>
-
-To add a model:
-
-1. Ensure your App includes the **Large Language Model (LLM)** Brick.
-2. Select the Brick in the **Bricks** section of the editor sidebar and open the **AI Models** tab.
-3. Under **Bring your own model**, click **Add model from Hugging Face**.
-   ![The Add model from Hugging Face button in the AI Models tab](../../assets/playwright/bricks/llm-ai-models-hugging-face-hl.png)
-4. Enter the model ID in the format `owner/model-name` (e.g., `unsloth/Qwen3.5-0.8B-GGUF`), or paste the full URL of the model page. You can also paste the URL of a specific `.gguf` file from the **Files and versions** tab of the model repository.
-   ![The Add model dialog](../../assets/playwright/bricks/hugging-face-add-model-dialog.png)
-5. Click **Download model**. App Lab checks that the model is compatible, downloads it to your board, and selects it for the Brick.
-
-<Alert type="success">
-
-**Tip:** To find a model ID, open the model on [huggingface.co/models](https://huggingface.co/models) and click the copy icon next to the model name at the top of the page.
-
-</Alert>
 
 ### Running the App
 
@@ -316,5 +290,6 @@ Thanks to the seamless integration between Arduino App Lab and Edge Impulse, you
 * Try creating an audio classification model using a USB microphone to teach your board to recognize voice commands or environmental sounds.
 * Integrate your new custom model into a Logic flow within App Lab to trigger specific actions, such as turning on an LED or sending a notification, when a specific object is detected.
 * Export the `.eim` file manually from Edge Impulse to experiment with running your custom model in C++ or Python projects outside of Arduino App Lab.
+* Looking for a language model instead? [Add a model from Hugging Face](../models/#add-models-from-hugging-face) to the LLM Brick without training one.
 
 <!-- markdownlint-disable-file -->

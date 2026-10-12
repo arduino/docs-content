@@ -115,7 +115,12 @@ def build_markdown_table():
             else:
                 source_name = '—'
             
-            src_url = meta.get('source-model-url') or meta.get('ei-model-url')
+            # Link the label to the matching page: an Edge Impulse model links to its
+            # Studio project, even when source-model-url names the upstream model.
+            if raw_source == 'edgeimpulse':
+                src_url = meta.get('ei-model-url') or meta.get('source-model-url')
+            else:
+                src_url = meta.get('source-model-url') or meta.get('ei-model-url')
             if src_url and source_name != '—':
                 source_linked = f"[{source_name}]({src_url})"
             else:

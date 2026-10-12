@@ -21,33 +21,38 @@ An Arduino App is organized into a main logic layer, along with an optional real
 - **`sketch/sketch.ino`**: Optional. The C++ sketch that runs on the board's microcontroller.
 - **`README.md`**: Optional. Project documentation displayed in the App Lab UI.
 
-The system also manages two configuration files: `app.yaml` (mandatory manifest for App metadata and Bricks) and `sketch.yaml` (mandatory only if a sketch is present). To learn more about the directory structure, see [About Apps](../about-apps/).
+App Lab also manages two configuration files: `app.yaml` (mandatory manifest for App metadata and Bricks) and `sketch/sketch.yaml` (mandatory only if a sketch is present). To learn more about the directory structure, see [About Apps](../about-apps/).
+
+You can add any other files and folders your App needs, such as web assets, images, or data files.
 
 ### Explore and Open Files
 
 1. [Open an App](../manage-apps/#open-an-app).
-1. Find the **File Manager** in the left sidebar.
+1. Find the **Files** section in the Editor sidebar.
    ![Screenshot of the App Editor in Arduino App Lab, highlighting in the Files browser.](../../assets/playwright/editor/editor-folders-expanded-files-hl.png)
-1. If folders are not displaying correctly, try closing and expanding the File Manager.
-1. Click on a folder to expand it.
+1. Click on a folder to expand it. Folder contents load when you expand them.
 1. **Single-click** a file to open it in **Preview Mode**. The tab title will appear italicized, and opening another file will replace this tab.
 1. **Double-click** a file, or modify a previewed file, to **Pin** the tab. Pinned tabs remain open until you close them.
 
 ### Add Files or Folders
 
-1. **Right-click** an empty area in the **File Manager**, or a specific folder where you want to add the new file or folder.
+1. **Right-click** an empty area in the **Files** section, or a specific folder where you want to add the new file or folder.
 1. Select one of the following:
-   - _Create new file_
-   - _Create new folder_
+   - **Create file**
+   - **Create new folder**
+   - **Import file**: Upload files from your computer. Any file type is supported.
+   - **Import folder**: Upload a folder from your computer.
 
 You can also click the **Add file** button to create a new file or folder at the same level as your current selection.
+
+If an imported file or folder has the same name as an existing one, App Lab replaces it.
 
 ### Rename or Delete Files and Folders
 
 1. **Right-click** on the file or folder you want to rename or delete.
 1. Select one of the following:
-   - _Rename_
-   - _Delete_
+   - **Rename**
+   - **Delete**
 
 ### Moving files and folders
 
@@ -57,22 +62,47 @@ The file tree supports **Drag and Drop** organization. Simply click and hold a f
 
 ### Split-Panel Mode
 
-To view multiple files simultaneously—such as editing `main.py` alongside `sketch.ino`, or viewing a `README.md` while coding—you can split the editor:
+To view two files side by side, such as `main.py` next to `sketch.ino`, or a Brick's documentation next to your code, split the editor into two panels. Use one of these methods:
 
-1. Click and hold a file tab.
-2. Drag it to the right or bottom edge of the editor area until a highlighted drop zone appears.
-3. Release the mouse button to create a new split panel.
+- **Right-click** a file tab and select **Split Right** (or **Split Left** from the right panel).
+- Drag a file tab to the right edge of the editor until a highlighted drop zone appears, then release it.
+- Drag a file or Brick from the Editor sidebar into the panel where you want to open it.
+
+To move a file between panels, drag its tab from one panel to the other. App Lab remembers the open panels and tabs of each App.
 
 ### Language Server Protocol (LSP)
 
-Arduino App Lab includes integrated Language Server Protocol (LSP) support for Python and C++. This provides advanced coding assistance:
+Arduino App Lab includes integrated Language Server Protocol (LSP) support for Python, C++, and JavaScript/TypeScript. This provides advanced coding assistance:
 
 - **Auto-completion**: As you type, the editor suggests functions, variables, and imported modules.
 - **Syntax Diagnostics**: Errors and warnings are highlighted in real-time. Hover over highlighted code to read the error message.
-- **Go-to-Definition**: Hold `Ctrl` (or `Cmd` on Mac) and click on a function or variable to jump directly to where it is defined.
+- **Go to Definition**: Hold `Ctrl` (or `Cmd` on Mac) and click on a function or variable to jump directly to where it is defined. You can also right-click and select **Go to Definition**, **Go to Type Definition**, or **Go to Implementation**.
 - **Find All References**: Right-click a function or variable and select **Find All References** to list every place it is used. Select a result in the **References** panel to jump to it.
+- **Rename** and **Format**: Right-click to rename a symbol everywhere it is used, or to format the file.
 
-You can verify the LSP is active by checking the **STATUS** indicator in the bottom right corner of the status bar.
+These actions are available in Python (`.py`, `.pyi`), C/C++ (`.ino`, `.c`, `.cpp`, `.h`, `.hpp`), and JavaScript/TypeScript (`.js`, `.mjs`, `.ts`) files, such as the web front end of a WebUI Brick.
+
+The first time you open an App, App Lab shows **Installing advanced language support** while it prepares the language servers. This may take a few minutes. While the language server starts, the status bar shows **Loading language support** with the progress. If language support is unavailable, hover over the status bar indicator to see the reason.
+
+### Keyboard Shortcuts
+
+| Action | macOS | Windows and Linux |
+| :--- | :--- | :--- |
+| Find | `⌘F` | `Ctrl+F` |
+| Comment / Uncomment | `⌘/` | `Ctrl+/` |
+| Go to Definition | `F12` | `F12` |
+| Go to Type Definition | `⌥F12` | `Alt+F12` |
+| Go to Implementation | `⌘F12` | `Ctrl+F12` |
+| Find All References | `⇧F12` | `Shift+F12` |
+| Rename symbol | `F2` | `F2` |
+| Format file | `⇧⌥F` | `Shift+Alt+F` |
+| Open or close the Agent panel | `⌘L` | `Ctrl+L` |
+
+<Alert type="info">
+
+**Note:** On some keyboards, you need to hold the `Fn` key to use the function keys (`F2`, `F12`).
+
+</Alert>
 
 ## Python Development
 
@@ -80,7 +110,7 @@ The Python script (`main.py`) handles the high-level logic and complex processin
 
 ### App.run()
 
-Every Python script **must** include the `App.run()` function at the very bottom of the file to start the App. This command initializes App utilities and launches any imported Bricks. Note that the App framework ignores any code placed after `App.run()`.
+Every Python script **must** call `App.run()` at the very bottom of the file to start the App. This call starts every Brick you have instantiated and then keeps the App running until it is stopped. Because `App.run()` blocks, any code placed after it does not run while the App is running.
 
 The usage of `App.run()` depends on how you want to control your App's logic:
 
@@ -135,10 +165,12 @@ Bricks are pre-packaged code modules that run as separate processes alongside yo
 
 1. Click the **Add Brick** button at the top of the Editor sidebar to open the Bricks catalog.
    ![Screenshot of the App Editor in Arduino App Lab, highlighting the Bricks section in the Editor sidebar.](../../assets/playwright/editor/add-brick-button.png)
-2. Select a Brick from the list and follow the prompts to configure any required settings.
+2. Select a Brick from the list, select **Add**, and follow the prompts to configure any required settings.
 3. Arduino App Lab automatically adds the Brick configuration to your `app.yaml` file. Note that you should not manually edit the `bricks` entry in this file.
-4. Review the Brick's documentation, which Arduino App Lab opens in a new tab when you add the Brick. The **Overview** and **Usage examples** contain the specific code needed for implementation.
+4. Review the Brick's documentation. Select **Check usage examples** in the confirmation dialog, or click the Brick in the sidebar later. The **Overview** and **Usage examples** contain the specific code needed for implementation.
 5. Import and initialize the Brick in your `main.py` file.
+
+See [Use Bricks in Your App](../../bricks/use-bricks/) for details on configuring Brick variables and AI models.
 
 <Alert type="success">
 
@@ -161,7 +193,15 @@ You can use external Python packages (like `numpy` or `flask`) by creating a req
    requests
    ```
 
-4. When you click **Run**, the `uv` package manager automatically installs the listed packages into the App's virtual environment.
+4. When you click **Run**, the `uv` package manager automatically installs the listed packages into the App's virtual environment. Packages are only reinstalled when `requirements.txt` changes. Installing packages requires an internet connection.
+
+<Alert type="success">
+
+**Tip:** To install a package that isn't available online, such as your own Python library, put its wheel file (`.whl`) in a `python-libraries/` folder in the root of your App. App Lab installs it the next time the App starts.
+
+</Alert>
+
+If a package is installed in a broken state, run `arduino-app-cli app clean-cache <app_path>` on the board to reset the App's virtual environment.
 
 ## Sketch Development
 
@@ -179,6 +219,8 @@ In Arduino App Lab, you install libraries on a per-App basis to prevent version 
 3. Select the desired version and click **Install**.
 4. Arduino App Lab updates the `sketch.yaml` file automatically and downloads the library when you launch the App.
 
+Libraries marked as **core library** are pre-installed on your board, such as the `Arduino_RouterBridge` library used by the Bridge. You can use them without installing them, and they cannot be removed. To remove a library you installed, select **Remove** on its card.
+
 ### Serial Monitor
 
 Standard `Serial.print()` and `Serial.println()` commands are automatically routed to the **Serial Monitor** tab in the App Lab console.
@@ -191,7 +233,7 @@ Standard `Serial.print()` and `Serial.println()` commands are automatically rout
 
 **To use the Serial Monitor:**
 
-1. Open the `serial/sketch.ino` file.
+1. Open the `sketch/sketch.ino` file.
 1. Call `Serial.begin()` inside your `setup()` function.
 1. Use `Serial.print()` or `Serial.println()` for logging. This example sketch prints `Hello from the MCU!` once per second:
    ```cpp
@@ -204,7 +246,7 @@ Standard `Serial.print()` and `Serial.println()` commands are automatically rout
      delay(1000);
    }
    ```
-1. When your App is running, output will appear in the **Serial Monitor** tab of the console panel at the bottom of the editor.
+1. When your App is running, output will appear in the **Serial Monitor** tab of the console panel at the bottom of the editor. To send text to the sketch, type it in the message field at the bottom of the tab and press **Enter**.
    ![Screenshot of Arduino App Lab, displaying the Serial Monitor tab of the integrated Console.](../../assets/playwright/editor/console/console-panel-serial-hl.png)
 
 <Alert type="success">
@@ -221,7 +263,7 @@ See [Getting Started with the Bridge](../../bridge/get-started-with-bridge/) to 
 
 ## Agent Mode (AI Assistant)
 
-Arduino App Lab features a built-in AI coding assistant designed to help you write, understand, and debug code autonomously. You can chat with the agent in a split-view panel alongside your code (`⌘L`), or toggle the full-screen **Agent Mode** from the footer status bar to access your full session history.
+Arduino App Lab includes an AI coding agent that can edit your code, add Bricks, and run your App, with your approval. Open the **AI Assistant** panel next to your code with `⌘L` (macOS) or `Ctrl+L` (Windows and Linux) to ask about the open file or your selected code. Switch to the full-screen **Agent mode** from the status bar to see all your sessions.
 
 To learn how to install, configure, and prompt the AI, see the [Agent Mode integration guide](../../integrations/agent-mode/).
 
@@ -233,7 +275,7 @@ Monitor your App using the **Console** panel at the bottom of the editor by sele
 
 - **App launch**: Compilation output and deployment logs.
 - **Serial Monitor**: `Monitor.print()` or `Serial.print()` output from your Arduino sketch.
-- **Python**: `print()` output from your Python script.
+- **Python**: `print()` output from your Python script. This tab is selected automatically when you run an App.
 - **Brick logs**: One tab for each Brick that runs in its own container.
 
 See [Run and Monitor Apps](../run/) to learn more.

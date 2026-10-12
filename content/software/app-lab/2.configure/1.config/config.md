@@ -41,7 +41,7 @@ On subsequent connections, Arduino App Lab automatically selects the last used b
 
 ## Board Configuration
 
-A setup wizard will automatically launch if the board has not been configured, is missing network working network credentials, or requires a Linux password.
+A setup wizard will automatically launch if the board has not been configured, is missing working network credentials, or requires a Linux password.
 
 Follow these steps to complete the setup:
 
@@ -62,14 +62,16 @@ Follow these steps to complete the setup:
 
 Arduino App Lab automatically manages the software ecosystem on your board to ensure you have the latest features, security patches, and performance improvements.
 
-If updates are available, Arduino App Lab will ask if you want to install the available updates:
+If updates are available, Arduino App Lab shows the **Updates available** dialog:
 
-- Select **Install** to download and install the updates, or **Skip** if you don't want to update the board.
-- Select **Show update details** for additional information about the updates.
+- Select **Install updates** to download and install the updates, or **Skip** if you don't want to update the board now.
+- Select **Show update details** to see the packages and versions that will be updated.
+
+When the update completes, App Lab may ask you to select **Restart App Lab** to load the new version. You can check for updates at any time from **System version** in [Settings](../settings/#system-info).
 
 ![Reviewing software updates in Arduino App Lab](../../assets/configuration/updates/standard/ORIGINAL.png)
 
-The update process is resumable—if the connection is interrupted, the download will continue once reconnected.
+If the connection is interrupted, the download will continue once reconnected. If an update keeps failing, [flash the latest Linux image](../flash/) or [contact Arduino Support](https://www.arduino.cc/en/contact-us/).
 
 <Alert type="info">
 

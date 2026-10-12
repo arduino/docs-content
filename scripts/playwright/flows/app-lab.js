@@ -658,11 +658,10 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
         await agentPanelButton.waitFor({ state: 'visible', timeout: 5000 });
         await capture(page, 'editor/agent-panel-button.png', outDir, {
             highlight: [
-                { locators: agentPanelButton, label: 'AGENT PANEL', labelSide: 'left', alignVertical: true }
+                { locators: agentPanelButton, label: 'AGENT PANEL', labelSide: 'bottom' }
             ],
             percentage: 'top 25%'
         });
-        await capture(page, 'statusbar-agent-mode-hl.png', outDir, { highlight: agentModeButton, percentage: 'bottom 115px' });
 
         await agentPanelButton.click({ force: true });
         await page.waitForTimeout(2000);

@@ -75,8 +75,10 @@ You can import an App shared with you or restored from a backup by uploading its
 1. Select **Apps** in the left sidebar.
 1. In the top-right corner, click the **Create new App +** button and select **Import or install App**.
    ![Screenshot of the Apps page in Arduino App Lab, highlighting the Import or install App option.](../../assets/playwright/apps/create-app-menu-import-hl.png)
-1. Drag and drop your `.zip` file into the import area, or select **Import from computer** to browse for the file.
+1. In the **Import or install an App** dialog, drag and drop your `.zip` file into the import area, or select **Import from computer** to browse for the file.
 1. Select **Open** to complete the import.
+
+The imported App is added to your Apps with its files, Bricks, and sketch libraries. If the archive is not a valid App, App Lab shows **This App is invalid**.
 
 ## Export an App
 
@@ -101,9 +103,45 @@ You can share your App with the community by publishing it on [Arduino Project H
 1. Select **Upload as draft**.
    ![Screenshot of the Publish on Project Hub dialog in Arduino App Lab.](../../assets/playwright/editor/publish-project-hub-dialog.png)
 1. Sign in to your Arduino account, or create one, when prompted.
-1. When the upload finishes, your browser opens the draft on Project Hub. Fill in the remaining fields and submit the project.
+1. App Lab exports your App and uploads it to Project Hub. You can select **Abort upload** to cancel.
+1. When the upload finishes, App Lab shows **Draft created** and your browser opens the draft on Project Hub. Fill in the remaining fields and submit the project.
 
-App Lab builds the release in the background and shows its progress in a card in the corner of the screen. If the build fails, open its build log from the card to see what went wrong.
+If the upload fails, select **RETRY** in the notification.
+
+## Create an App Release
+
+An App release is a ready-to-run package of your App. A release keeps the Bricks, AI models, and code exactly as they were when you created it, so you can deploy it to other boards or share a run-only copy with other App Lab users. Releases are saved as `.ard` files.
+
+1. [Open an App](#open-an-app).
+1. Select the arrow (**▼**) next to the App name near the top left corner.
+1. In the menu, select **Create release**.
+   ![Screenshot of the App menu in Arduino App Lab, highlighting the Create release option.](../../assets/playwright/editor/app-actions-menu-release-hl.png)
+1. The first time, App Lab explains what a release is. Select **Continue**. Check **Don't show it anymore** to skip this step next time.
+1. Fill in the release details:
+   - **Release label** (optional): A label made of numbers or letters that identifies this release, such as `1.0`.
+   - **Target**: The board the release runs on.
+   - **Release note** (optional): A description of the release, shown in **Release info** when the release is installed.
+   - **Include data associated with the App** (optional): Adds data stored by your App to the release. This option is turned off while the App is running, because including data during a run could cause errors.
+   ![Screenshot of the App release dialog in Arduino App Lab.](../../assets/playwright/editor/create-release-dialog.png)
+1. Select **Save and download**, then choose where to save the `.ard` file on your computer.
+
+App Lab builds the release on the board in the background and shows its progress in a card in the corner of the screen. Select **Hide in notifications** to dismiss the card while the build continues, or **Stop** to cancel the build. When the build finishes, App Lab downloads the `.ard` file to the location you chose. If the build fails, select **View log** in the notification to see the build log.
+
+<Alert type="info">
+
+**Note:** You can build one release of the same App at a time. **Create release** is disabled until the current build finishes.
+
+</Alert>
+
+### What a Release Contains
+
+When App Lab builds a release, it freezes the App together with its dependencies for the target board: the Python environment is built, and the container configuration of each Brick is resolved. Installing the release on another board doesn't rebuild anything, so the App runs exactly as it did when you created the release.
+
+The `.ard` file doesn't contain the container images and AI models themselves, only which ones the App uses. They are downloaded when you install the release with **Install app dependencies** enabled, or the first time you run it.
+
+A release is installed apart from your Apps and is read-only. Only secret Brick variables, such as API keys, can be changed in an installed release.
+
+You can also build and install releases from the board's terminal with the [`app build`](../../cli/commands/#app-build) and [`app install`](../../cli/commands/#app-install) commands.
 
 ## Install an App Release
 
@@ -111,7 +149,7 @@ App Lab builds the release in the background and shows its progress in a card in
 1. In the top-right corner, click the **Create new App +** button and select **Import or install App**.
 1. Drag and drop the `.ard` file into the import area, or select **Import from computer** to browse for the file.
 1. Review the release details. Keep **Install app dependencies** enabled to download the Bricks, containers, and AI models the release needs right away. Installing dependencies requires an internet connection.
-1. Select **Install**.
+1. Select **Install**. If you install the dependencies, a card in the corner of the screen shows the download progress, and App Lab notifies you when the App is ready.
 
 <Alert type="warning">
 
@@ -123,21 +161,11 @@ Installed releases appear in the **Apps** list with a **Release** badge. A relea
 
 If you installed a release without its dependencies, App Lab asks you to install them the first time you run it.
 
-## Create an App Release
+<Alert type="info">
 
-An App release is a ready-to-run package of your App. A release keeps the Bricks, AI models, and code exactly as they were when you created it, so you can deploy it to other boards or share a run-only copy with other App Lab users. Releases are saved as `.ard` files.
+**Note:** A release can only be installed on the type of board it was built for, as set in its **Target**. For example, a release built for the UNO Q cannot be installed on a VENTUNO Q.
 
-1. [Open an App](#open-an-app).
-1. Select the arrow (**▼**) next to the App name near the top left corner.
-1. In the menu, select **Create release**.
-   ![Screenshot of the App menu in Arduino App Lab, highlighting the Create release option.](../../assets/playwright/editor/app-actions-menu-release-hl.png)
-1. Fill in the release details:
-   - **Release label** (optional): A label made of numbers or letters that identifies this release, such as `1.0`.
-   - **Target**: The board the release runs on.
-   - **Release note** (optional): A description of the release. You can format it with Markdown and check the result in the **Preview** tab.
-   - **Include data associated with the App** (optional): Adds data stored by your App to the release. This option is turned off while the App is running.
-   ![Screenshot of the App release dialog in Arduino App Lab.](../../assets/playwright/editor/create-release-dialog.png)
-1. Select **Save and download**, then choose where to save the `.ard` file on your computer.
+</Alert>
 
 ## Delete an App
 
