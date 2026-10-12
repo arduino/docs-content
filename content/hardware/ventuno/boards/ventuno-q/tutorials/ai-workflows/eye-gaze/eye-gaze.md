@@ -63,9 +63,11 @@ In this guide we will cover:
 
 ### Software
 
-- `adb` (Android® Platform Tools) or `ssh` available on your host machine
+- \*(optional) `adb` (Android® Platform Tools) or `ssh` available on your host machine
 - Python 3.12 (pre-installed on the VENTUNO Q)
 - Several gigabytes of free storage on the board for the Python packages
+
+\*This tutorial can be completed using the VENTUNO Q in [SBC mode](/tutorials/ventuno-q/user-manual/#single-board-computer-sbc-mode). `adb` and `ssh` are optional tools to remotely connect to the board using your own machine.
 
 <Alert type="warning">
 
@@ -75,7 +77,21 @@ The VENTUNO Q must be powered with its power supply **before** connecting a USB-
 
 ## Accessing the Board Shell
 
-With the board powered from its power jack, you can access the shell (terminal) on the VENTUNO Q using either `adb` or `ssh`.
+To complete this tutorial, you will need access to your board's shell. The following options are available:
+
+- Using `adb` (connection via USB to your board's USB-C® port)
+- Using `ssh` (connection via local network)
+- Using the board as **SBC**, connecting a display, keyboard and mouse
+
+Note that the example provided in this tutorial requires the board to be run as an SBC with a display and keyboard connected. The `adb` and `ssh` options only makes it possible to use your own machine to complete the setup and modify the scripts provided, but the example itself requires the board to be in SBC mode.
+
+### Shell Access (SBC Mode)
+
+To access the shell in SBC mode, power your board and connect a monitor, keyboard and optionally, a mouse. Log in to your board, and open the terminal by clicking the **>_** icon in the dock on the Ubuntu desktop.
+
+For more information on setting the board up as an SBC, read [SBC Mode Setup](/tutorials/ventuno-q/sbc-mode-setup/).
+
+### Shell Access (ADB or SSH)
 
 To connect via `adb`, connect a USB-C® cable between the VENTUNO Q and your computer, then run:
 
@@ -96,12 +112,6 @@ If you don't know the board's IP address, connect a keyboard and monitor and run
 <Alert type="info">
 
 For more alternatives to remotely access your board, please see the [Remote Access](https://docs.arduino.cc/tutorials/uno-q/remote-access/) tutorial.
-
-</Alert>
-
-<Alert type="info">
-
-**Note:** Because this demo opens a live camera window on-screen, run it from the board's actual desktop session (a physical monitor and keyboard, or a VNC/X11 session into the board). `adb` and `ssh` are still the easiest way to install dependencies and download the models before switching to the desktop session to watch the camera feed.
 
 </Alert>
 
@@ -260,8 +270,8 @@ The demo consists of two Python files that live next to the `models/` folder:
 
 | File | Purpose |
 | ---- | ------- |
-| `prepare_model.py` | Rewrites the downloaded EyeGaze model so that it runs entirely on the NPU. It runs automatically the first time you start the demo |
-| `eyegaze.py` | The demo itself |
+| [`prepare_model.py`](https://github.com/arduino/docs-content/tree/main/content/hardware/ventuno/boards/ventuno-q/tutorials/ai-workflows/eye-gaze/resources/prepare_model.py) | Rewrites the downloaded EyeGaze model so that it runs entirely on the NPU. It runs automatically the first time you start the demo |
+| [`eyegaze.py`](https://github.com/arduino/docs-content/tree/main/content/hardware/ventuno/boards/ventuno-q/tutorials/ai-workflows/eye-gaze/resources/eyegaze.py) | The demo itself |
 
 On the VENTUNO Q, move into the working directory and create the first file:
 
@@ -306,7 +316,6 @@ A window titled **"EyeGaze"** opens showing the camera feed, mirrored like a mir
 The top-left corner shows the frame rate, the time spent in the face stage and in the eye stage, and the gaze angles in degrees. The two small grayscale images in the top-right corner are the eye crops exactly as the EyeGaze model sees them, which is the quickest way to check that the eyes are being found correctly.
 
 Enable a remote host to run applications on the display:
-
 
 ### Keyboard Controls
 
@@ -1191,3 +1200,4 @@ A model that runs well on the NPU reports one partition, or very few.
 ## Conclusion
 
 In this tutorial you set up both NPU runtimes on the VENTUNO Q, downloaded three models from Qualcomm AI Hub, and ran a script that tracks both eyes and estimates gaze direction in real time, with every model accelerated on the Qualcomm® Hexagon™ NPU. You also saw how to recognize a model that silently falls back to the CPU, and how rewriting two unsupported patterns took EyeGaze from 20 ms to 1.5 ms per inference. From here you can build on the gaze output — for example to detect whether someone is looking at a screen, or to drive attention-aware interfaces.
+
