@@ -1,0 +1,22 @@
+name: Restore Gatsby cache
+description: "Restore the Gatsby .cache and public/ folders saved by the last production build on main"
+runs:
+  using: composite
+  steps:
+    # Restore only: production on main is the single writer, so no other run can evict the entry every build reads
+    - name: Gatsby main cache
+      uses: actions/cache/restore@v5
+      with:
+        path: .cache
+        key: ${{ runner.os }}-cache-gatsby-node22-${{ github.ref_name }}
+        restore-keys: |
+          ${{ runner.os }}-cache-gatsby-node22-main
+
+    # public/ is ~3.9 GB: one entry per PR filled the 10 GB quota and evicted main's, which is the one every PR reads
+    - name: Gatsby Public Folder cache
+      uses: actions/cache/restore@v5
+      with:
+        path: public/
+        key: ${{ runner.os }}-public-gatsby-node22-${{ github.ref_name }}
+        restore-keys: |
+          ${{ runner.os }}-public-gatsby-node22-main

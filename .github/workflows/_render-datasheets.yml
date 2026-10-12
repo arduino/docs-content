@@ -1,0 +1,56 @@
+name: Render Datasheets (reusable)
+
+on:
+  workflow_call:
+
+jobs:
+  # This job is used to render datasheets, but only if they have changed.
+  # It's a separate job so we don't have to cleanup the machine afterwards.
+  render:
+    name: Render
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      # Checkout stalls intermittently on this repo (~9 GB): on 2026-08-25, 4 of
+      # 8 checkouts hung with no progress at all. Bound the attempt and retry
+      # once, instead of letting a stalled transfer run into the 6h default.
+      - uses: actions/checkout@v5
+        id: checkout
+        continue-on-error: true
+        timeout-minutes: 5
+        with:
+          fetch-depth: 1
+
+      # A checkout killed by the timeout leaves a partial clone behind (and
+      # sometimes a stale index.lock): wiping the workspace makes the second
+      # attempt genuinely independent of the first.
+      - name: Reset workspace before checkout retry
+        if: steps.checkout.outcome == 'failure'
+        run: |
+          shopt -s dotglob
+          rm -rf "${GITHUB_WORKSPACE:?}"/*
+
+      - uses: actions/checkout@v5
+        id: checkout-retry
+        if: steps.checkout.outcome == 'failure'
+        continue-on-error: true
+        timeout-minutes: 5
+        with:
+          fetch-depth: 1
+
+      # Attempt 2 has failed outright before, not only stalled: one more wipe and a last try, bounded by the job timeout
+      - name: Reset workspace before last checkout attempt
+        if: steps.checkout.outcome == 'failure' && steps.checkout-retry.outcome == 'failure'
+        run: |
+          shopt -s dotglob
+          rm -rf "${GITHUB_WORKSPACE:?}"/*
+
+      - uses: actions/checkout@v5
+        if: steps.checkout.outcome == 'failure' && steps.checkout-retry.outcome == 'failure'
+        with:
+          fetch-depth: 1
+
+      - uses: ./.github/actions/generate-datasheets
+        with:
+          artifact-name: datasheets
+          datasheets-path: static/resources/datasheets
