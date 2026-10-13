@@ -77,7 +77,7 @@ This section details the low-level firmware and OS image currently running on th
 - **Linux Distribution**: The active Linux distribution and version.
 - **Kernel Version**: The active Linux kernel version.
 - **Release date**: The release date of the installed OS image.
-- **Install another OS version (flash)**: Select the **Flash board** button to initiate the flashing process and install a different operating system image. See [Flash a New Linux Image](../flash/) to learn more.
+- **Install another OS version (flash)**: Select the **Flash board** button to initiate the flashing process and install a compatible operating system image. See [Flash a New Linux Image](../flash/) to learn more.
 
 ![Screenshot of the Operating system section in the Arduino App Lab settings, highlighting the Flash board button.](../../assets/playwright/settings/settings-flash-board-hl.png)
 
