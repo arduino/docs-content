@@ -107,14 +107,11 @@ If importing through the Arduino App Lab fails, you can do it manually by follow
 2. Copy the App folder to the `~/ArduinoApps` directory in your VENTUNO Q with (using the _command prompt_ or _powershell_):
 
 ```bash
-scp -r .\Keyword-ASR-Local-LLM-Kokoro-TTS\ arduino@<ventuno-q-IP>:~/ArduinoApps
-```
-
-<Alert type="note">
-
-Make sure to run the command from the directory where you unzipped the App and replace `<ventuno-q-IP>` with your actual board IP address.
+scp -r .\Keyword-ASR-Local-LLM-Kokoro-TTS\ arduino@<board name>:~/ArduinoApps
 
 </Alert>
+
+After the command finishes successfully, open the "Apps" view in Arduino App Lab. Open the "Keyword-ASR-Local-LLM-Kokoro-TTS" App you see there.
 
 ### 1. Project AI Models
 
@@ -131,14 +128,12 @@ We have trained a highly optimized keyword spotting model that reacts to the wor
 1. Go to this public Edge Impulse project: [Ventuno Keyword Model](https://studio.edgeimpulse.com/public/985298/live).
 2. Clone the project to your own Edge Impulse account.
 3. Pair your Edge Impulse account with the Arduino App Lab environment. Select this model in the Keyword Spotting Brick configuration.
-4. The app will dynamically find the keyword of the model selected.
 
 #### Option B: The Default "Hey Arduino" Wake Word
 
 If you prefer not to use a custom keyword, you can use the built-in model.
 
 1. Select the default model in the Keyword Spotting Brick configuration.
-2. The app will dynamically find the keyword of the default model.
 
 On your Keyword Spotting Brick, select the model to be used:
 
