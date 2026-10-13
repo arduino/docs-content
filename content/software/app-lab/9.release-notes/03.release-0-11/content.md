@@ -16,7 +16,7 @@ This release introduces App releases, new integrations with Project Hub and Hugg
 
 ### What's New
 
-* **App Releases:** Package an App into a ready-to-run release (`.ard` file) that keeps its Bricks, AI models, and code exactly as they are, to deploy it to other boards or share a run-only copy. Create a release from the App menu, and install one from the **Import or install App** dialog on the **Apps** page. Installed releases are read-only and can be copied for editing. See [Create an App Release](../../apps/manage-apps/#create-an-app-release).
+* **App Releases:** Package an App into a read-only release (`.ard` file) that runs exactly as it did when you created it, to deploy it to other boards or share a run-only copy. Create a release from the App menu, and install one from the **Import or install App** dialog on the **Apps** page. Installed releases are read-only and can be copied for editing. See [Create an App Release](../../apps/manage-apps/#create-an-app-release).
 * **Project Hub Integration:** Upload your App to Arduino Project Hub as a project draft, directly from the App menu. See [Publish on Project Hub](../../apps/manage-apps/#publish-on-project-hub).
 * **Hugging Face Integration:** Add language models for the **Large Language Model (LLM)** Brick from Hugging Face, using a model ID or URL. App Lab checks that the model is compatible and selects a suitable quantization automatically. See [Add Models from Hugging Face](../../integrations/models/#add-models-from-hugging-face).
 * **Agent Panel:** Open the AI agent in a panel next to the editor (`⌘L` / `Ctrl+L`). The agent receives the open file and your selected code as context. Sessions are now organized per App, and you can browse an App's previous sessions from the panel. See [Agent Mode](../../integrations/agent-mode/).
@@ -54,6 +54,8 @@ See the [Arduino App CLI command reference](../../cli/commands/).
 * **Single-Board Computer Mode:** App Lab now starts on the UNO Q when its local storage cannot be opened, and the **Remote access (SSH)** toggle works again.
 * **Operating System Update:** The **Update now** button in the **Operating system** section of **Settings** now opens the flasher.
 * **Console:** Cleared Python logs no longer reappear when you run the App again.
+* **Run at Startup:** The **Run at startup** toggle now shows the correct state after the board restarts.
+* **Temporary Files:** App Lab no longer leaves a copy of the flasher in the temporary folder each time it runs. On the UNO Q, this could fill the memory and make App Lab crash in Single-Board Computer Mode.
 
 ### Release Information
 

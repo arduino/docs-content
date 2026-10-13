@@ -92,7 +92,7 @@ When you change an extension, select **Reboot and apply** and enter the board pa
 
 <Alert type="note">
 
-**Important:** Attach extensions while the board is powered off. If your board runs an older system version, the section shows **Your board software is a bit behind**. Select **Update board** to update the system before you configure board extensions.
+**Important:** Attach extensions while the board is powered off. If your board runs an older system version, the section shows **Extensions need a board update**, because App Lab can't tell which extensions the board supports. Update the board from [System info](#system-info) before you configure board extensions.
 
 </Alert>
 

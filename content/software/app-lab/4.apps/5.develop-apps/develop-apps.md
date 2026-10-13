@@ -38,10 +38,12 @@ You can add any other files and folders your App needs, such as web assets, imag
 
 1. **Right-click** an empty area in the **Files** section, or a specific folder where you want to add the new file or folder.
 1. Select one of the following:
-   - **Create file**
+   - **Create new file**
    - **Create new folder**
    - **Import file**: Upload files from your computer. Any file type is supported.
    - **Import folder**: Upload a folder from your computer.
+
+The menu of an empty area also lets you add parts to your App: **Add sketch folder** (only if the App has no sketch), **Add sketch library**, **Add Brick**, and **Create new Brick**.
 
 You can also click the **Add file** button to create a new file or folder at the same level as your current selection.
 
@@ -218,6 +220,11 @@ In Arduino App Lab, you install libraries on a per-App basis to prevent version 
 2. Search for the library you need (e.g., `Servo` or `OneWire`).
 3. Select the desired version and click **Install**.
 4. Arduino App Lab updates the `sketch.yaml` file automatically and downloads the library when you launch the App.
+
+The **Add sketch library** button is disabled in these cases. Hover over it to see why:
+
+- **The App has no sketch:** Libraries need a `sketch` folder with `sketch.ino` and `sketch.yaml`. Select **Add sketch folder** to create the missing folder and files.
+- **The board is offline:** Libraries are downloaded by the board. Select **CONNECT** to open the network settings and connect the board to the internet.
 
 Libraries marked as **core library** are pre-installed on your board, such as the `Arduino_RouterBridge` library used by the Bridge. You can use them without installing them, and they cannot be removed. To remove a library you installed, select **Remove** on its card.
 

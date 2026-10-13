@@ -57,7 +57,7 @@ When an App is running, you can monitor its execution through the **Console** pa
 - **App launch:** Displays logs related to code compilation, file transfer, and the deployment process. Check this tab if your App fails to launch.
 - **Serial Monitor:** Displays logs from your microcontroller's sketch. Standard `Serial.print()` commands are automatically routed here.
 - **Python:** Displays standard output from your Python script, such as `print()` statements. This is where you monitor the high-level logic and any errors on the Linux side.
-- **Brick logs:** Each Brick that runs in its own container gets a separate tab, labeled with the Brick ID and its container name. Check these tabs to troubleshoot a Brick.
+- **Brick logs:** Each Brick container gets a separate tab, labeled with the Brick ID and the container name, such as `arduino:object_detection [ei-obj-detection-runner]`. A Brick that runs several containers gets one tab for each. Bricks that run inside your Python script, and containers that don't belong to a Brick, log to the **Python** tab instead. Check these tabs to troubleshoot a Brick.
 
 Use the buttons in the console toolbar to turn autoscroll on or off, show or hide timestamps, clear the log, and maximize or minimize the panel.
 

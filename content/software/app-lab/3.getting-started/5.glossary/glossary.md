@@ -43,7 +43,7 @@ A short name that identifies an App in the [Arduino App CLI](#arduino-app-cli), 
 
 ## App Release
 
-A ready-to-run package of an App, saved as an `.ard` file. A release keeps the App's code, Bricks, and AI model configuration exactly as they were when it was created, so it runs the same way on other boards. Installed releases are read-only. See [Create an App Release](../../apps/manage-apps/#create-an-app-release).
+A packaged, read-only version of an App, saved as an `.ard` file. It runs exactly as it did when it was created, on any board of the same type. See [Create an App Release](../../apps/manage-apps/#create-an-app-release).
 
 ## app.yaml
 

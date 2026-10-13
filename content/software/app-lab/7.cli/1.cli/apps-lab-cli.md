@@ -214,7 +214,7 @@ To check the current default App, run `arduino-app-cli properties get default`. 
 
 ## Build and Install App Releases
 
-An App release is a ready-to-run package of an App, saved as a `.ard` archive. To build a release from an App, use the `app build` command:
+An App release is a packaged, read-only version of an App, saved as an `.ard` file. It runs exactly as it did when you created it, on any board of the same type. To build a release from an App, use the `app build` command:
 
 ```sh
 arduino-app-cli app build user:test --release-label 1.0 -o test-1.0.ard
@@ -228,7 +228,7 @@ To install a release on the board, use the `app install` command. The command al
 arduino-app-cli app install /path/to/release.ard
 ```
 
-Add `--no-prepare` to install the release without downloading its dependencies. They are then downloaded the first time you start the release.
+Add `--no-prepare` to install the release without downloading its dependencies. This only postpones the download: they are downloaded the first time you start the release. `app start --no-prepare` starts an App only if its containers and models are already on the board, and fails otherwise.
 
 See the [Commands reference](../commands/) for all options, and [Create an App Release](../../apps/manage-apps/#create-an-app-release) to create releases from App Lab.
 

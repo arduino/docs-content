@@ -110,7 +110,7 @@ If the upload fails, select **RETRY** in the notification.
 
 ## Create an App Release
 
-An App release is a ready-to-run package of your App. A release keeps the Bricks, AI models, and code exactly as they were when you created it, so you can deploy it to other boards or share a run-only copy with other App Lab users. Releases are saved as `.ard` files.
+An App release is a packaged, read-only version of an App, saved as an `.ard` file. It runs exactly as it did when you created it, on any board of the same type. Use releases to deploy an App to other boards or to share a run-only copy with other App Lab users.
 
 1. [Open an App](#open-an-app).
 1. Select the arrow (**▼**) next to the App name near the top left corner.
@@ -159,7 +159,7 @@ You can also build and install releases from the board's terminal with the [`app
 
 Installed releases appear in the **Apps** list with a **Release** badge. A release opens as read-only: you can run it, or select **Copy and edit App** to create an editable copy, leaving the release untouched. To see the release label, date, and notes, open the App menu and select **Release info**.
 
-If you installed a release without its dependencies, App Lab asks you to install them the first time you run it.
+Turning off **Install app dependencies** only postpones the download: the release still needs its containers and models, and App Lab asks you to install them the first time you run it.
 
 <Alert type="info">
 
