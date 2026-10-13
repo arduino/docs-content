@@ -108,6 +108,11 @@ If importing through the Arduino App Lab fails, you can do it manually by follow
 
 ```bash
 scp -r .\Keyword-ASR-Local-LLM-Kokoro-TTS\ arduino@<board name>:~/ArduinoApps
+```
+
+<Alert type="note">
+
+Make sure to run the command from the directory where you unzipped the App and replace `<board name>` with the name you gave to your VENTUNO Q.
 
 </Alert>
 
@@ -134,8 +139,7 @@ We have trained a highly optimized keyword spotting model that reacts to the wor
 If you prefer not to use a custom keyword, you can use the built-in model.
 
 1. Select the default model in the Keyword Spotting Brick configuration.
-
-On your Keyword Spotting Brick, select the model to be used:
+2. On your Keyword Spotting Brick, select the model to be used:
 
 ![Keyword Spotting Model](assets/kws-model.png)
 
