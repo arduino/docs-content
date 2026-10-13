@@ -15,7 +15,7 @@ There are two primary methods for flashing your board:
 
 If your board is already discovered by Arduino App Lab, you can initiate a flash directly from the interface.
 
-1. Open **Arduino App Lab** and ensure your board is connected.
+1. Open **Arduino App Lab** and connect to your board.
 2. Select **Settings** (gear icon) from the left sidebar.
 3. Scroll down to the **Operating system** section.
 4. Select the **Flash board** button. App Lab opens the **Flash board** page.
