@@ -22,7 +22,7 @@ This release introduces App releases, new integrations with Project Hub and Hugg
 * **Agent Panel:** Open the AI agent in a panel next to the editor (`⌘L` / `Ctrl+L`). The agent receives the open file and your selected code as context. Sessions are now organized per App, and you can browse an App's previous sessions from the panel. See [Agent Mode](../../integrations/agent-mode/).
 * **Board Extensions:** Declare carriers and JHat add-ons attached to your board from the **Settings** page. See [Board extensions](../../configure/settings/#board-extensions).
 * **VENTUNO Q Flashing:** Flash the VENTUNO Q from the built-in flasher in the **Settings** page.
-* **Editor Improvements:** **Find All References** for Python and C++, YAML syntax checking, support for any file and folder name, and a separate console tab for each Brick container. The **Python** console tab is now selected automatically when you run an App.
+* **Editor Improvements:** A **References** panel that lists the results of **Find All References**, YAML syntax checking, support for any file and folder name, and a separate console tab for each Brick container. The **Python** console tab is now selected automatically when you run an App.
 
 ### Arduino App CLI 0.14
 

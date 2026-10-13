@@ -47,7 +47,7 @@ The menu of an empty area also lets you add parts to your App: **Add sketch fold
 
 You can also click the **Add file** button to create a new file or folder at the same level as your current selection.
 
-If an imported file or folder has the same name as an existing one, App Lab replaces it.
+If an imported file or folder has the same name as an existing one, App Lab asks whether to **Overwrite** the existing one or **Keep both**.
 
 ### Rename or Delete Files and Folders
 
@@ -283,6 +283,6 @@ Monitor your App using the **Console** panel at the bottom of the editor by sele
 - **App launch**: Compilation output and deployment logs.
 - **Serial Monitor**: `Monitor.print()` or `Serial.print()` output from your Arduino sketch.
 - **Python**: `print()` output from your Python script. This tab is selected automatically when you run an App.
-- **Brick logs**: One tab for each Brick that runs in its own container.
+- **Brick logs**: One tab for each Brick container. See [Monitor an App](../run/#monitor-an-app).
 
 See [Run and Monitor Apps](../run/) to learn more.
