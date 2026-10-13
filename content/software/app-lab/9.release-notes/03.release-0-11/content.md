@@ -29,7 +29,7 @@ This release introduces App releases, new integrations with Project Hub and Hugg
 * **TPS Brick:** A new Brick that estimates the board's location by scanning nearby Wi-Fi access points, with accompanying examples.
 * **Pose Estimation Brick:** A new Brick and the **Pose Detection** example for detecting body poses in video streams.
 * **MCP Client Brick:** New examples demonstrating how to use the MCP Client Brick.
-* **Visualize Smartphone Sensors:** A new example that streams sensor data from a smartphone to a web dashboard.
+* **Visualize Smartphone Sensors:** Use the Arduino IoT Remote App to stream smartphone sensor data to a web dashboard.
 * **New AI models:** Desk Items Detector and Qwen 3-VL-8B VLM.
 
 ### Fixes
