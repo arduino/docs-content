@@ -43,7 +43,7 @@ The fastest way to verify your setup is to run a built-in example without modify
 3. Select the **Run** button (play icon) in the top right corner.
    ![Screenshot of the "Blink LED from Python" example in Arduino App Lab. The Run button is highlighted.](../../assets/playwright/inspirations/blink-led-run.png)
 4. App Lab compiles the C++ sketch and runs the code on your board. The **Console** panel opens automatically at the bottom of the editor to show launch progress. You can confirm the App is active when the **Run** button changes to a **Stop** button and a green notification appears at the bottom of the screen.
-5. Once the **Blink LED from Python** App is running, you will see the red LED (LED3_R) on the board blinking on and off.
+5. Once the **Blink LED from Python** App is running, you will see an LED on the board blinking on and off.
 
 ## Step 3: Copy and Modify the App
 
