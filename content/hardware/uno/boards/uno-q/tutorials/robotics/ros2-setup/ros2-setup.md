@@ -1,5 +1,6 @@
 ---
 title: 'Getting Started with ROS 2 on UNO Q'
+overwriteSidebar: Getting Started with ROS
 difficulty: intermediate
 description: 'Learn how to set up the UNO Q as a desktop system and run ROS 2 Jazzy in a Docker container, with a shared workspace and display access.'
 tags:

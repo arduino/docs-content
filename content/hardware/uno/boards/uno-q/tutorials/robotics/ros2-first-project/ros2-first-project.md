@@ -1,5 +1,6 @@
 ---
 title: 'First ROS 2 Project on UNO Q'
+overwriteSidebar: First ROS project
 difficulty: intermediate
 description: 'Explore the core concepts of ROS 2 through the turtlesim example on the UNO Q, then create your first publisher and subscriber project in a shared workspace.'
 tags:
