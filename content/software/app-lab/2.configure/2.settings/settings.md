@@ -92,7 +92,7 @@ When you change an extension, select **Reboot and apply** and enter the board pa
 
 <Alert type="note">
 
-**Important:** Attach extensions while the board is powered off. The extensions listed depend on the board's system version: on an older system, the section lists only carriers, and add-ons for the JHat header, on boards that have one, appear after you update the board from [System info](#system-info). If the board's system doesn't include the board configuration tool, the section shows **Extensions need a board update** instead, because App Lab can't tell which extensions the board supports.
+**Important:** Attach extensions while the board is powered off. If an extension you attached isn't listed, or the section shows **Extensions need a board update**, update the board from [System info](#system-info).
 
 </Alert>
 
