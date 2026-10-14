@@ -79,14 +79,14 @@ The Modulino® Thermo uses the GXHT30C sensor, a single-chip temperature and hum
 The Modulino® Thermo is available in two hardware versions that differ in the temperature and humidity sensor they use. Boards marked V0.5 or later use the GXHT30C sensor, which responds at I2C address 0x45; earlier boards use the HS3003 sensor from Renesas, which responds at I2C address 0x44. The image below shows the two versions side by side.
 
 > [!NOTE]
-> **Note:** To identify the version of your Modulino® Thermo, check the version marking on the PCB: boards marked **V0.5 or later** use the GXHT30C sensor (black), while earlier boards use the HS3003 sensor (silver). The I2C address of each version is fixed in hardware and cannot be changed. Unless otherwise stated, the specifications in this datasheet refer to boards marked V0.5 or later.
+> **Note:** To identify the version of your Modulino® Thermo, check the version marking on the PCB: boards marked **V0.5 or later** use the GXHT30C sensor (black), while earlier boards use the HS3003 sensor (silver). Unless otherwise stated, the specifications in this datasheet refer to boards marked V0.5 or later.
 
 The main differences between the two hardware versions are summarized in the table below.
 
 |     **Parameter**    |         **V0.5 or later**        |      **Earlier than V0.5**      |
 |:--------------------:|:--------------------------------:|:-------------------------------:|
 |        Sensor        |          GXHT30C (GXCAS)         |         HS3003 (Renesas)        |
-|      I2C Address     |               0x45               |               0x44              |
+|      I2C Address     |     0x45 (0x44 via solder jumper SJ1)     |               0x44              |
 |   Temperature Range  |          -45 to +130 °C          |          -40 to +125 °C         |
 | Temperature Accuracy | ±0.3 °C (typical, -40 to +90 °C) |        ±0.25 °C (typical)       |
 |    Humidity Range    |           0 to 100 %RH           |           0 to 100 %RH          |
@@ -185,7 +185,7 @@ The module has two Qwiic connectors (SM04B-SRSS-TB) wired in parallel on the sam
 
 In addition to the Qwiic connectors, the module exposes two headers for direct wiring. The 1×4 header (J4) replicates the Qwiic signals (GND, +3.3 VDC, SDA, SCL). The 1×5 header (J3) provides access to the sensor's ADDR, nRESET, and ALERT pins, together with GND and +3.3 VDC:
 
-- **ADDR**: Address selection input of the sensor, pulled up to +3.3 VDC through a 4.7 kΩ resistor, which sets the I2C address to 0x45.
+- **ADDR**: Address selection input of the sensor, pulled up to +3.3 VDC through a 4.7 kΩ resistor, which sets the I2C address to 0x45. The solder jumper SJ1 connects this pin to GND (see the [I2C Address](#i2c-address) section).
 
 - **nRST**: Active-low reset input of the sensor, pulled up to +3.3 VDC through a 4.7 kΩ resistor. A low pulse of at least 1 µs resets the sensor.
 
@@ -198,15 +198,17 @@ In addition to the Qwiic connectors, the module exposes two headers for direct w
 
 ### I2C Address
 
-The Modulino® Thermo acts as an I2C target device. Its address is fixed in hardware and depends on the hardware version, as shown in the table below.
+The Modulino® Thermo acts as an I2C target device. Its default address depends on the hardware version, as shown in the table below.
 
-| **Board Silk Name** | **Hardware Version** | **Sensor** | **I2C Address (HEX)** | **Editable Address** |
-|:-------------------:|:--------------------:|:----------:|:---------------------:|:--------------------:|
-|   MODULINO THERMO   |     V0.5 or later    |   GXHT30C  |          0x45         |     Not supported    |
-|   MODULINO THERMO   |   Earlier than V0.5  |   HS3003   |          0x44         |     Not supported    |
+| **Board Silk Name** | **Hardware Version** | **Sensor** | **Default I2C Address (HEX)** | **Alternative I2C Address (HEX)** |
+|:-------------------:|:--------------------:|:----------:|:-----------------------------:|:---------------------------------:|
+|   MODULINO THERMO   |     V0.5 or later    |   GXHT30C  |              0x45             |  0x44 (solder jumper SJ1 closed)  |
+|   MODULINO THERMO   |   Earlier than V0.5  |   HS3003   |              0x44             |           Not supported           |
 
-> [!NOTE]
-> **Note:** On boards marked V0.5 or later, the solder jumper SJ1 connects the sensor's ADDR pin to GND when closed, which would change the I2C address to 0x44. SJ1 is **open by default and must remain open**: the Modulino® library identifies the sensor by its I2C address, and the module will not be recognized if the address is changed.
+On boards marked V0.5 or later, the I2C address is set by the solder jumper SJ1, located on the bottom side of the board. SJ1 is **open by default**, which leaves the sensor's ADDR pin pulled up to +3.3 VDC and sets the address to 0x45. Closing SJ1 connects the ADDR pin to GND and changes the address to 0x44. <!-- TO VERIFY: SJ1 location on the PCB (top or bottom side) -->
+
+> [!CAUTION]
+> **Safety Note:** The Modulino® library identifies the hardware version of the module by its I2C address. A board marked V0.5 or later with SJ1 closed (address 0x44) will be handled as an HS3003-based board and **will not be recognized by the library**. Close SJ1 only when using custom code that addresses the GXHT30C sensor directly.
 
 ### Power LED
 
