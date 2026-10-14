@@ -270,8 +270,8 @@ The demo consists of two Python files that live next to the `models/` folder:
 
 | File | Purpose |
 | ---- | ------- |
-| [`prepare_model.py`](https://github.com/arduino/docs-content/tree/main/content/hardware/ventuno/boards/ventuno-q/tutorials/ai-workflows/eye-gaze/resources/prepare_model.py) | Rewrites the downloaded EyeGaze model so that it runs entirely on the NPU. It runs automatically the first time you start the demo |
-| [`eyegaze.py`](https://github.com/arduino/docs-content/tree/main/content/hardware/ventuno/boards/ventuno-q/tutorials/ai-workflows/eye-gaze/resources/eyegaze.py) | The demo itself |
+| [`prepare_model.py`](https://raw.githubusercontent.com/arduino/docs-content/refs/heads/main/content/hardware/ventuno/boards/ventuno-q/tutorials/ai-workflows/eye-gaze/resources/prepare_model.py) | Rewrites the downloaded EyeGaze model so that it runs entirely on the NPU. It runs automatically the first time you start the demo |
+| [`eyegaze.py`](https://raw.githubusercontent.com/arduino/docs-content/refs/heads/main/content/hardware/ventuno/boards/ventuno-q/tutorials/ai-workflows/eye-gaze/resources/eyegaze.py) | The demo itself |
 
 On the VENTUNO Q, move into the working directory and create the first file:
 
@@ -381,6 +381,8 @@ On the NPU the whole pipeline takes about 15 ms per frame, so the frame rate you
 Both scripts are shown in full below. Save them in the working directory, next to the `models/` folder.
 
 **prepare_model.py**
+
+The script is also available for download [here](https://raw.githubusercontent.com/arduino/docs-content/refs/heads/main/content/hardware/ventuno/boards/ventuno-q/tutorials/ai-workflows/eye-gaze/resources/prepare_model.py)
 
 ```python
 #!/usr/bin/env python3
@@ -514,6 +516,8 @@ if __name__ == "__main__":
 ```
 
 **eyegaze.py**
+
+The script is also available for download [here](https://raw.githubusercontent.com/arduino/docs-content/refs/heads/main/content/hardware/ventuno/boards/ventuno-q/tutorials/ai-workflows/eye-gaze/resources/eyegaze.py)
 
 ```python
 #!/usr/bin/env python3
