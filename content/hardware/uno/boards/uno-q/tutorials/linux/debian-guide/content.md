@@ -1,5 +1,6 @@
 ---
 title: 'Debian Linux Basics for UNO Q'
+overwriteSidebar: Debian Basics
 difficulty: beginner
 compatible-products: [uno-q]
 description: 'Get up to speed with this comprehensive guide to understanding and working with the Debian environment on the UNO Q.'
@@ -117,7 +118,7 @@ This method is ideal when you want to use your UNO Q as a workstation, allowing 
 
 For low-level debugging and early boot diagnostics, the board provides a dedicated Hardware Debug UART interface operating at 1.8 V logic levels (115200 baud) through the JCTL connector.
 
-![Through Hardware Debug UART](../01.user-manual/assets/debug-shell.gif)
+![Through Hardware Debug UART](../../first-steps/user-manual/assets/debug-shell.gif)
 
 This interface connects directly to the SoC's main console (TTY), allowing you to monitor boot and kernel logs, troubleshoot system issues, or access a shell environment before network services like SSH or ADB are available. You can log in using your Linux credentials to interact with the system through the shell.
 

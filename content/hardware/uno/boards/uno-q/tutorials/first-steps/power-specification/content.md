@@ -1,5 +1,6 @@
 ---
 title: 'UNO Q Power Specifications'
+overwriteSidebar: Power Specifications
 difficulty: advanced
 description: "Understand the complete power architecture of the Arduino UNO Q dual-processor board, from input specifications to on-board rails, key components, tolerances and sequencing."
 tags:

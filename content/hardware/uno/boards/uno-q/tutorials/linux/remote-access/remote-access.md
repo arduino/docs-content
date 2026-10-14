@@ -1,6 +1,7 @@
 ---
-title: Remote Access Options for UNO Q and VENTUNO Q
-description: Learn how to access your UNO Q or VENTUNO Q remotely from anywhere using Tailscale, xrdp, or RustDesk.
+title: Remote Access Options for UNO Q
+overwriteSidebar: Remote Access Options
+description: Learn how to access your UNO Q remotely from anywhere using Tailscale, xrdp, or RustDesk.
 author: Ernesto Voltaggio
 hardware:
   - hardware/02.uno/boards/uno-q
