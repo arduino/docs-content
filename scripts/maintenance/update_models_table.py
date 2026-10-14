@@ -3,7 +3,9 @@ import yaml
 import re
 
 # --- Configuration ---
-MODELS_YAML = "../app-bricks-py/models/models-list.yaml"
+# MODELS_YAML or BRICKS_DIR (an app-bricks-py checkout) override the default sibling checkout
+MODELS_YAML = os.environ.get("MODELS_YAML") or os.path.join(
+    os.environ.get("BRICKS_DIR") or "../app-bricks-py", "models", "models-list.yaml")
 
 # The HTML comments to look for in your Markdown files
 START_MARKER = "<!-- app-lab-models table start -->"

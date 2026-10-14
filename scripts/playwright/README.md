@@ -46,5 +46,6 @@ When a step fails, the runner writes a DOM dump, a screenshot, and the error det
 ## Modifying Locators and Adding Flows
 
 - `core/capture.js`: Contains reusable visual capture logic, orthogonal connector drawing, label distribution, and toast suppression.
+- `core/app-lab.js`: Shared App Lab navigation (board selection, Apps page, opening an App, App menu, dialogs, console). Flows and other Playwright scripts use it, so a locator changed for a new App Lab version is fixed in one place.
 - `flows/app-lab.js`: Contains the sequence of interactions and locators for App Lab.
 - `flows/arduino-cloud.js`: Template for adding automated visual captures for other Arduino services.
