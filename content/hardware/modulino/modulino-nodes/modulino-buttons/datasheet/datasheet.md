@@ -7,6 +7,8 @@ author: Pedro Sousa Lima
 
 ![](assets/featured.png)
 
+# English
+
 # Description
 
 The Modulino® Buttons, powered by an on-board STM32C011F4 microcontroller, features three SPST push buttons and three indicator LEDs. This setup enables both simple digital input reading via I2C and more advanced interfacing or reprogramming options. Ideal for projects that require user interaction, menu navigation, or quick control inputs.
@@ -14,6 +16,12 @@ The Modulino® Buttons, powered by an on-board STM32C011F4 microcontroller, feat
 # Target Areas
 
 Maker, beginner, education
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Contents
 ## Application Examples
@@ -231,8 +239,10 @@ Operation is subject to the following two conditions:
 # Revision History
 | **Date**   | **Revision** | **Changes**                       |
 |------------|--------------|-----------------------------------|
-| 01/07/2025 | 5            | Certification                     |
-| 17/06/2025 | 4            | Nomenclature updates              |
-| 23/05/2025 | 3            | Fixed pinout table and power info |
-| 21/05/2025 | 2            | Fixed info on LEDs                |
 | 14/05/2025 | 1            | First release                     |
+| 21/05/2025 | 2            | Fixed info on LEDs                |
+| 23/05/2025 | 3            | Fixed pinout table and power info |
+| 17/06/2025 | 4            | Nomenclature updates              |
+| 01/07/2025 | 5            | Certification                     |
+| 12/10/2026 |       6      | Added note for Intended Use |
+

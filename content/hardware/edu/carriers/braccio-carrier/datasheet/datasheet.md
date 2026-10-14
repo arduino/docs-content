@@ -6,11 +6,19 @@ type: edu
 
 ![](assets/featured.png)
 
+# English
+
 # Description
 Arduino® Braccio Carrier is an add-on board that sits on top of your favorite Arduino educational existing product line providing faster prototyping in increasing demands for robotics and automation. The tailor-made Braccio Carrier has a collection of features that enables quick and easy learning while building small projects.
 
 # Target Areas
 Robotics, Automation, Education, Gaming, Communication
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Features
 - **MaxLinear SP335 Transceiver**
@@ -235,3 +243,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | ---------- | ------------ | -------------------------------- |
 | 23/03/2022 | 1            | First Release                    |
 | 25/10/2022 | 2            | Minor markdown and heading fixes |
+| 12/10/2026 |      3       | Added note for Intended Use |

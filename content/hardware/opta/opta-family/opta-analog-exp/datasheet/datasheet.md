@@ -4,14 +4,24 @@ title: Arduino Opta® Analog Expansion
 type: pro
 author: Christopher Méndez
 ---
+
 ![](assets/featured.png)
 
+# English
+
 # Description
+
 Arduino Opta® Analog Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 8 channels that can be programmed as inputs or outputs for connecting your analog voltage, current, resistive temperature sensors or actuators in addition to 4x dedicated PWM outputs. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
 
 
 # Target Areas:
 Industrial IoT, Building automation, Electrical loads management, Industrial automation
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # CONTENTS
 
@@ -335,8 +345,10 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 |  **Date**  | **Revision** |             **Changes**              |
 |:----------:|:------------:|:------------------------------------:|
-| 24/09/2024 |      4       |        Expansion port updates        |
-| 03/09/2024 |      3       | Cloud Editor updated from Web Editor |
-| 05/07/2024 |      2       |        Block Diagram updated         |
 | 25/07/2024 |      1       |            First Release             |
+| 05/07/2024 |      2       |        Block Diagram updated         |
+| 03/09/2024 |      3       | Cloud Editor updated from Web Editor |
+| 24/09/2024 |      4       |        Expansion port updates        |
+| 12/10/2026 |       5      | Added note for Intended Use |
+
 

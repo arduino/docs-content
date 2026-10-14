@@ -6,7 +6,10 @@ type: pro
 
 ![Edge Control board](assets/edgeControlPreview.png)
 
+# English
+
 # Description 
+
 The Arduino® Edge Control board is designed to address the needs of precision farming. It provides a low power control system, suitable for irrigation with modular connectivity.
 
 The functionality of this board is expandable with Arduino® MKR Boards to provide additional connectivity. 
@@ -14,6 +17,12 @@ The functionality of this board is expandable with Arduino® MKR Boards to provi
 
 # Target areas:
 Agriculture measurements, smart irrigation systems, hydroponics
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 <h2>Features</h2>
 <table style="page-break-before: avoid;">
@@ -541,6 +550,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                          |
 |------------|--------------|--------------------------------------|
-| 03/09/2024 | 3            | Cloud Editor updated from Web Editor |
-| 05/12/2023 | 2            | Accessories section updated          |
 | 05/01/2022 | 1            | First Release                        |
+| 05/12/2023 | 2            | Accessories section updated          |
+| 03/09/2024 | 3            | Cloud Editor updated from Web Editor |
+| 12/10/2026 |       4      | Added note for Intended Use |
+

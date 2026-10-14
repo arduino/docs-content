@@ -6,6 +6,8 @@ type: maker
 
 ![](assets/featured.png)
 
+# English
+
 # Description
 
 <p style="text-align: justify;">The Arduino UNO Media Carrier extends the multimedia capabilities of compatible host boards (UNO Q), enabling advanced vision, display, and audio applications with plug-and-play simplicity. Designed for easy integration, it connects via the JMEDIA and JMISC high-speed connectors, both of which feature passthrough designs to keep all pins available for additional modules or carriers in your setup.</p>
@@ -17,6 +19,12 @@ type: maker
 # Target Areas
 
 Makers and advanced hobbyists, educational institutions and training centers, prototyping teams and startups
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 <div style="page-break-after: always;"></div>
 
@@ -561,5 +569,6 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 |  **Date**  | **Revision** | **Changes**                 |
 | :--------: | :----------: | --------------------------- |
-| 07/10/2026 |      2       | MIPI DSI Displays Supported |
 | 27/03/2026 |      1       | Initial release             |
+| 07/10/2026 |      2       | MIPI DSI Displays Supported |
+| 12/10/2026 |       3      | Added note for Intended Use |

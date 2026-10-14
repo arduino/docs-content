@@ -7,6 +7,8 @@ author: José Bagur
 
 ![](assets/matter-bundle-perspective.jpg)
 
+# English
+
 # Description
 
 <p style="text-align: justify;">Build smarter and prototype faster with the Arduino Matter Discovery Bundle, an all-in-one solution for creating interoperable Internet of Things (IoT) devices using Matter, the industry-backed smart home connectivity standard supported by Apple®, Google, Amazon, Home Assistant, and other major platforms. At the core of this bundle is the Arduino Nano Matter board with pre-mounted headers, powered by Silicon Labs' MGM240S module for Matter-over-Thread connectivity. Combined with the Arduino Nano Connector Carrier featuring Qwiic and Grove interfaces and three Arduino Modulino® modules, this bundle enables rapid prototyping of smart home devices in minutes.</p>
@@ -14,6 +16,12 @@ author: José Bagur
 # Target Areas
 
 <p style="text-align: justify;">Smart home automation, IoT prototyping, home automation education, Matter device development, legacy appliance retrofitting, interoperability testing</p>
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # CONTENTS
 ## Application Examples
@@ -381,3 +389,4 @@ The table below summarizes the dimensions of each component included in the kit:
 |  **Date**  | **Revision** |       **Changes**      |
 |:----------:|:------------:|:----------------------:|
 | 31/12/2025 |       1      |      First release     |
+| 12/10/2026 |      2       | Added note for Intended Use |

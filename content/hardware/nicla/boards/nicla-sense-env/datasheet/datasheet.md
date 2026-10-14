@@ -7,12 +7,21 @@ author: José Bagur
 ---
 ![](assets/featured.png)
 
+# English
+
 # Description
+
 <p style="text-align: justify;">Start sensing the world around you with Nicla Sense Env. The board combines three state-of-the-art sensors from Renesas® with the simplicity of integration and scalability of the Arduino ecosystem. Expand your Portenta, MKR, or Nano projects by adding a Nicla Sense Env. In addition to its ultra-low power temperature and humidity sensor, it integrates two state-of-the-art, industrial-grade gas sensors, able to evaluate air quality in indoor and outdoor environments.</p>
 
 
 # Target Areas:
 Industrial automation, building automation, prototyping
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # CONTENTS
 
@@ -325,5 +334,6 @@ As a global supplier of electronic and electrical components, Arduino is aware o
 
 |  **Date**  | **Revision** |                      **Changes**                       |
 |:----------:|:------------:|:------------------------------------------------------:|
-| 14/01/2025 |      2       | Update on Product Compliance with Japan VCCI Statement |
 | 10/10/2024 |      1       |                     First release                      |
+| 14/01/2025 |      2       | Update on Product Compliance with Japan VCCI Statement |
+| 12/10/2026 |       3      | Added note for Intended Use |

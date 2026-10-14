@@ -5,11 +5,20 @@ type: maker
 ---
 ![](assets/featured.jpg)
 
+# English
+
 # Description 
+
 The Arduino® Nano 33 IoT and Arduino Nano 33 IoT with headers are a miniature sized module containing a Cortex M0+ SAMD21 processor, a Wi-Fi® + Bluetooth® module based on ESP32, a crypto chip which can securely store certificates and pre-shared keys and a 6 axis IMU. The module can either be mounted as a DIP component (when mounting pin headers), or as a SMT component, directly soldering it via the castellated pads.
 
 # Target areas:
 Maker, enhancements, basic IoT application scenarios
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Features
 - **SAMD21G18A** 
@@ -383,7 +392,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date       | **Revision** | **Changes**                           |
 | ---------- | ------------ | ------------------------------------- |
-| 25/04/2024 | 4            | Updated link to new Cloud Editor      |
-| 27/10/2023 | 3            | Correction NINA SPI pins              |
-| 03/08/2022 | 2            | Reference documentation links updates |
 | 15/04/2021 | 1            | General datasheet updates             |
+| 03/08/2022 | 2            | Reference documentation links updates |
+| 27/10/2023 | 3            | Correction NINA SPI pins              |
+| 25/04/2024 | 4            | Updated link to new Cloud Editor      |
+| 12/10/2026 |       5      | Added note for Intended Use |
+

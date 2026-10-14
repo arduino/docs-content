@@ -7,11 +7,20 @@ author: Linnea Akerberg, Ali Jahangiri
 
 ![](assets/featured.png)
 
+# English
+
 # Description
+
 Arduino® Nano Screw Terminal Adapter is a quick, secure and solderless solution for your next Nano project. Easily connect external connections to the screw terminals and use the onboard prototyping area to evaluate ideas and solutions. Easily switch between the various Nano family boards without soldering, while leaving the rest of your project intact.
 
 # Target areas:
-Maker, Nano projects, Prototyping,
+Maker, Nano projects, Prototyping
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Features
 - **Screw connectors** 
@@ -187,5 +196,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 | Date       | **Revision** | **Changes**               |
 | ---------- | ------------ | ------------------------- |
-| 21/01/2025 | 2            | Fixed board dimensions    |
 | 17/06/2022 | 1            | First release             |
+| 21/01/2025 | 2            | Fixed board dimensions    |
+| 12/10/2026 |       3      | Added note for Intended Use |

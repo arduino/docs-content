@@ -7,11 +7,20 @@ author: Pedro Sousa Lima
 
 ![](assets/featuredDist.png)
 
+# English
+
 # Description
+
 The Modulino® Distance, featuring the **VL53L4CDV0DH/1** time-of-flight sensor, provides accurate distance measurements in a compact, easy-to-use form factor. Ideal for proximity detection, obstacle avoidance, and various smart sensing applications.
 
 # Target Areas
 Maker, beginner, education
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Contents
 
@@ -221,9 +230,11 @@ Use of controls or adjustments, or performance of procedures other than those sp
 # Revision History
 | **Date**   | **Revision** | **Changes**                       |
 | ---------- | ------------ | --------------------------------- |
-| 07/07/2025 | 5            | Add laser safety section          |
-| 01/07/2025 | 4            | Certification                     |
-| 17/06/2025 | 3            | Nomenclature updates              |
-| 23/05/2025 | 2            | Fixed pinout table and power info |
 | 14/05/2025 | 1            | First release                     |
+| 23/05/2025 | 2            | Fixed pinout table and power info |
+| 17/06/2025 | 3            | Nomenclature updates              |
+| 01/07/2025 | 4            | Certification                     |
+| 07/07/2025 | 5            | Add laser safety section          |
+| 12/10/2026 |       6      | Added note for Intended Use |
+
 

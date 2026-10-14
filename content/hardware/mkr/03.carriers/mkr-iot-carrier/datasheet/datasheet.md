@@ -6,7 +6,10 @@ type: maker
 
 ![](assets/featured.jpg)
 
+# English
+
 # Description 
+
 The Arduino® MKR IoT Carrier provides infinite possibilities for IoT projects. 
 
 The integrated sensors, circuits and display leave you free to focus on programming and prototyping your ideas. 
@@ -14,6 +17,12 @@ The integrated sensors, circuits and display leave you free to focus on programm
 
 # Target areas:
 IoT applications, MKR hobbyists 
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Features
 
@@ -343,3 +352,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 17/05/2022 | 2            | Technical updates |
 | 26/08/2022 | 3            | IMU ID fix        |
 | 25/04/2024 | 4            | Updated link to new Cloud Editor      |
+| 12/10/2026 |       5      | Added note for Intended Use |
+

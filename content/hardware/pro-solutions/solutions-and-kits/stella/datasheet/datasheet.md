@@ -8,6 +8,8 @@ author: José Bagur
 
 ![](assets/featured.png)
 
+# English
+
 # Description
 
 <p style="text-align: justify;">The Arduino Stella redefines location tracking with its advanced microcontroller, the nRF52840 from Nordic Semiconductor, and the DCU040 Ultra-Wide Band (UWB) module from Truesense. Tailored for modern tracking needs, the Stella excels in pinpointing warehouse assets, ensuring healthcare safety and automating smart buildings. Seamlessly integrating with the Portenta UWB Shield and UWB-enabled smartphones through the dedicated NXP® Trimension App, Apple's Nearby Interaction APIs or Android's UWB Jetpack library, the Stella delivers robust finder functionality, precise point-to-point triggering and comprehensive tracking capabilities for applications demanding reliable, real-time location data.</p>
@@ -15,6 +17,12 @@ author: José Bagur
 # Target Areas
 
 <p style="text-align: justify;">High precision RTLS, industrial applications, finder for IoT, consumer applications, smart home applications</p>
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 <div style="page-break-after: always;"></div>
 
@@ -350,3 +358,4 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 |  **Date**  | **Revision** | **Changes**                            |
 |:----------:|:------------:|----------------------------------------|
 | 24/03/2025 |       1      | First release                          |
+| 12/10/2026 |       2      | Added note for Intended Use |

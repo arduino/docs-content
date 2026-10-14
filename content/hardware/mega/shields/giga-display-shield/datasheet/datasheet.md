@@ -8,12 +8,20 @@ author: Ali Jahangiri, Benjamin Dannegård
 
 ![](assets/featured.jpg)
 
+# English
+
 # Description
 
 The Arduino® GIGA Display Shield is an easy way to add a touchscreen display with orientation detection to your Arduino® GIGA R1 WiFi board.
 
 # Target Areas
 Human-Machine Interface, Display, Shield
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Features
 Note: The GIGA Display Shield requires a GIGA R1 WiFi board to function. It has no microcontroller and cannot be programmed independently.
@@ -251,8 +259,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| **Date**   | **Changes**                      |
-| ---------- | -------------------------------- |
-| 25/04/2024 | Updated link to new Cloud Editor |
-| 24/07/2023 | Release                          |
-| 17/11/2023 | Update operating temperature     |
+| **Date**   | **Revision** | **Changes**                      |
+| ---------- | ------------ | -------------------------------- |
+| 25/04/2024 |       1      | Updated link to new Cloud Editor |
+| 24/07/2023 |       2      | Release                          |
+| 17/11/2023 |       3      | Update operating temperature     |
+| 12/10/2026 |       4      | Added note for Intended Use |
