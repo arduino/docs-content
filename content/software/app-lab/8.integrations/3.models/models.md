@@ -59,7 +59,7 @@ To add a model:
 
 Models must be in the GGUF format used by llama.cpp. Choose a model that fits your board's memory: the built-in language models for the UNO Q have about 1 billion parameters or fewer. App Lab checks that the board has enough free storage before downloading.
 
-You can also install Hugging Face models from the board's terminal with [`arduino-app-cli model install`](../../cli/commands/#model-install), using a llama.cpp ID such as `llamacpp:unsloth/Qwen3.5-0.8B-GGUF`.
+You can also install Hugging Face models from the board's terminal with [`arduino-app-cli model install`](../../cli/commands/#model-install), using a llama.cpp ID with a quantization, such as `llamacpp:unsloth/Qwen3.5-0.8B-GGUF:Q4_K_M`, or the repository alone, such as `unsloth/Qwen3.5-0.8B-GGUF`, to let the board choose the quantization.
 
 ## Manage Models from the Terminal
 

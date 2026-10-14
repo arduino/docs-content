@@ -19,7 +19,7 @@ The AI coding agent built into App Lab. The agent can edit App files, manage Bri
 
 ## Agent Panel
 
-The **AI Assistant** panel that opens next to the editor (`⌘L` / `Ctrl+L`), where you can chat with the agent about the App you are editing. The agent receives the open file and your selected code as context.
+The panel that opens next to the editor (`⌘L` / `Ctrl+L`), where you can chat with the agent about the App you are editing. The agent receives the open file and your selected code as context.
 
 ## AI (Artificial Intelligence)
 
@@ -87,7 +87,7 @@ A setup where Arduino App Lab runs on your computer and connects to the board, e
 
 ## Console
 
-The panel at the bottom of the editor that shows real-time logs of a running App, in separate tabs: **App launch** (startup progress), **Serial Monitor** (sketch output), **Python** (Python output), and one tab for each Brick container. See [Monitor an App](../../apps/run/#monitor-an-app).
+The panel at the bottom of the editor that shows real-time logs of a running App, in separate tabs: **App launch** (startup progress), **Python** (Python output), **Serial Monitor** (sketch output), and one tab for each Brick container. See [Monitor an App](../../apps/run/#monitor-an-app).
 
 ## Container
 

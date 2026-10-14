@@ -271,13 +271,13 @@ arduino-app-cli model list
 arduino-app-cli model install <model_id>
 
 # Install a GGUF language model from Hugging Face
-arduino-app-cli model install llamacpp:unsloth/Qwen3.5-0.8B-GGUF
+arduino-app-cli model install llamacpp:unsloth/Qwen3.5-0.8B-GGUF:Q4_K_M
 
 # Delete a model
 arduino-app-cli model delete <model_id>
 ```
 
-For Hugging Face models, use the format `llamacpp:owner/repo`, optionally followed by `:quant` to choose a specific quantization. See [AI Models](../../integrations/models/) for more information.
+For Hugging Face models, use the format `llamacpp:owner/repo:quant`, where `quant` is the quantization to download, such as `Q4_K_M`. To let the board choose the quantization, use `owner/repo` alone, without the `llamacpp:` prefix. See [AI Models](../../integrations/models/) for more information.
 
 ## System Configuration and Updates
 

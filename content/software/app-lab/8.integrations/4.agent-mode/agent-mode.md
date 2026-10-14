@@ -43,14 +43,14 @@ You can work with the agent in two views. Both use the same sessions, so you can
 
 ### Agent Panel in the Editor
 
-To chat with the agent while keeping your code visible, open the **AI Assistant** panel next to the editor:
+To chat with the agent while keeping your code visible, open the Agent panel next to the editor:
 
 - Press **⌘L** (macOS) or **Ctrl+L** (Windows and Linux). Press it again to close the panel.
 - Or select the **Agent panel** button in the top-right corner of the editor tabs bar.
 
 ![The Agent panel button in the editor tabs bar](../../assets/playwright/editor/agent-panel-button.png)
 
-The panel works on the App that is open in the editor. Its header shows the App name and buttons to start a **New chat**, open the **Sessions history** for this App, and **Close** the panel.
+The panel works on the App that is open in the editor. Its header shows the session title (**New session** for a new session) and the App name, and buttons to start a **New chat**, open the **Sessions history** for this App, and **Close** the panel.
 
 When you send a prompt from the panel, the agent also receives the file that is open in the editor (including unsaved changes) and the lines you have selected. You can ask about "this function" or "the selected code" without pasting it.
 

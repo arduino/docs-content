@@ -43,11 +43,11 @@ You can add any other files and folders your App needs, such as web assets, imag
    - **Import file**: Upload files from your computer. Any file type is supported.
    - **Import folder**: Upload a folder from your computer.
 
-The menu of an empty area also lets you add parts to your App: **Add sketch folder** (only if the App has no sketch), **Add sketch library**, **Add Brick**, and **Create new Brick**.
+The menu of an empty area also lets you add parts to your App: **Add sketch folder** if the App has no sketch, or **Add sketch library** if it has one, **Add Brick**, and **Create new Brick**.
 
 You can also click the **Add file** button to create a new file or folder at the same level as your current selection.
 
-If an imported file or folder has the same name as an existing one, App Lab asks whether to **Overwrite** the existing one or **Keep both**.
+If an imported file or folder has the same name as an existing one, App Lab asks whether to **Overwrite** the existing one or **Keep both**. For a folder, **Overwrite** replaces the whole existing folder: files that are only in the existing folder are deleted, not merged. To keep them, select **Keep both**.
 
 ### Rename or Delete Files and Folders
 
@@ -268,9 +268,9 @@ The `Bridge` allows your Python script and Arduino sketch to exchange data using
 
 See [Getting Started with the Bridge](../../bridge/get-started-with-bridge/) to learn more.
 
-## Agent Mode (AI Assistant)
+## Agent Mode
 
-Arduino App Lab includes an AI coding agent that can edit your code, add Bricks, and run your App, with your approval. Open the **AI Assistant** panel next to your code with `⌘L` (macOS) or `Ctrl+L` (Windows and Linux) to ask about the open file or your selected code. Switch to the full-screen **Agent mode** from the status bar to see all your sessions.
+Arduino App Lab includes an AI coding agent that can edit your code, add Bricks, and run your App, with your approval. Open the Agent panel next to your code with `⌘L` (macOS) or `Ctrl+L` (Windows and Linux) to ask about the open file or your selected code. Switch to the full-screen **Agent mode** from the status bar to see all your sessions.
 
 To learn how to install, configure, and prompt the AI, see the [Agent Mode integration guide](../../integrations/agent-mode/).
 
@@ -281,8 +281,8 @@ Once your code is ready, click the **Run** button in the top right corner. The e
 Monitor your App using the **Console** panel at the bottom of the editor by selecting the following tabs:
 
 - **App launch**: Compilation output and deployment logs.
-- **Serial Monitor**: `Monitor.print()` or `Serial.print()` output from your Arduino sketch.
 - **Python**: `print()` output from your Python script. This tab is selected automatically when you run an App.
+- **Serial Monitor**: `Monitor.print()` or `Serial.print()` output from your Arduino sketch.
 - **Brick logs**: One tab for each Brick container. See [Monitor an App](../run/#monitor-an-app).
 
 See [Run and Monitor Apps](../run/) to learn more.

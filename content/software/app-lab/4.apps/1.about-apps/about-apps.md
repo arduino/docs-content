@@ -44,7 +44,7 @@ You can add any other files and folders your App needs, such as web assets for a
 
 <Alert type="note">
 
-**Important:** When you export an App or create a release without **Include data associated with the App**, every folder named `data` is left out, at any level of the App. Don't use `data` as the name of a folder that contains code or assets your App needs.
+**Important:** When you export an App or create a release without **Include data associated with the App**, every folder named `data` is left out, at any level of the App. A release built with this option only adds the `data/` folder at the top level of the App, so `data` folders inside other folders are always left out of releases. Don't use `data` as the name of a folder that contains code or assets your App needs.
 
 </Alert>
 

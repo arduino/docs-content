@@ -104,13 +104,19 @@ You can share your App with the community by publishing it on [Arduino Project H
    ![Screenshot of the Publish on Project Hub dialog in Arduino App Lab.](../../assets/playwright/editor/publish-project-hub-dialog.png)
 1. Sign in to your Arduino account, or create one, when prompted.
 1. App Lab exports your App and uploads it to Project Hub. You can select **Abort upload** to cancel.
-1. When the upload finishes, App Lab shows **Draft created** and your browser opens the draft on Project Hub. Fill in the remaining fields and submit the project.
+1. When the upload finishes, App Lab shows **Draft created** and your browser opens the draft on Project Hub. Fill in the remaining fields and submit the project. To open the draft again, select **OPEN** in the notification. If you don't submit it right away, you can find it later under **Drafts** in your Project Hub profile.
 
 If the upload fails, select **RETRY** in the notification.
 
 ## Create an App Release
 
 An App release is a packaged, read-only version of an App, saved as an `.ard` file. It runs exactly as it did when you created it, on any board of the same type. Use releases to deploy an App to other boards or to share a run-only copy with other App Lab users.
+
+<Alert type="info">
+
+**Note:** Creating and installing App releases requires Arduino App CLI 0.14 or later on the board, which comes with the board's system update. On a board with an older version, App Lab shows an error such as `404 page not found` or `HTTP 405`. [Update the board](../../configure/config/#manage-software-updates), then try again.
+
+</Alert>
 
 1. [Open an App](#open-an-app).
 1. Select the arrow (**▼**) next to the App name near the top left corner.
@@ -121,7 +127,7 @@ An App release is a packaged, read-only version of an App, saved as an `.ard` fi
    - **Release label** (optional): A label made of numbers or letters that identifies this release, such as `1.0`.
    - **Target**: The board the release runs on.
    - **Release note** (optional): A description of the release, shown in **Release info** when the release is installed.
-   - **Include data associated with the App** (optional): Adds data stored by your App to the release. This option is turned off while the App is running, because including data during a run could cause errors.
+   - **Include data associated with the App** (optional): Adds the App's `data/` folder to the release. This option is turned off while the App is running, because including data during a run could cause errors.
    ![Screenshot of the App release dialog in Arduino App Lab.](../../assets/playwright/editor/create-release-dialog.png)
 1. Select **Save and download**, then choose where to save the `.ard` file on your computer.
 

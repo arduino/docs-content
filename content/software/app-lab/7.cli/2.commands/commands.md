@@ -13,7 +13,7 @@ Commands that take an `<app_path>` also accept an App ID, such as `user:my-app` 
 
 <Alert type="info">
 
-**Note:** `model install` takes one argument: a model ID from the catalog, a llama.cpp Hugging Face ID (`llamacpp:owner/repo[:quant]`), or the URL of a model file. For example: `arduino-app-cli model install llamacpp:unsloth/Qwen3.5-0.8B-GGUF`.
+**Note:** `model install` takes one argument: a model ID from the catalog, a Hugging Face ID (`llamacpp:owner/repo:quant`, or `owner/repo` to let the board choose the quantization), or the URL of a model file. For example: `arduino-app-cli model install llamacpp:unsloth/Qwen3.5-0.8B-GGUF:Q4_K_M`. The `llamacpp:owner/repo` form without a quantization, shown in the command help below, doesn't work in Arduino App CLI 0.14.
 
 </Alert>
 

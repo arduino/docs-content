@@ -29,7 +29,7 @@ This release introduces App releases, new integrations with Project Hub and Hugg
 * **Release Commands:** Build and install App releases from the board's terminal with `app build` and `app install`.
 * **App Status:** `app list` now shows the Apps catalog only. Use the new `app ps` command to see the live status of Apps on the board.
 * **New Commands:** `app ports` lists the ports an App exposes, and `app brick config` sets Brick variables and models from the terminal.
-* **Hugging Face Models:** `model install` accepts llama.cpp Hugging Face IDs (`llamacpp:owner/repo[:quant]`) and model file URLs.
+* **Hugging Face Models:** `model install` accepts Hugging Face IDs (`llamacpp:owner/repo:quant`, or `owner/repo`) and model file URLs.
 
 See the [Arduino App CLI command reference](../../cli/commands/).
 
