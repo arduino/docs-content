@@ -60,6 +60,7 @@ A terminal window will open on the desktop where you can run `arduino-app-cli` a
 | :--- | :--- |
 | Create an App | `arduino-app-cli app new "my-app"` |
 | List your Apps | `arduino-app-cli app list` |
+| Show an App's details | `arduino-app-cli app details user:my-app` |
 | Show running Apps | `arduino-app-cli app ps` |
 | Start an App | `arduino-app-cli app start user:my-app` |
 | Stop an App | `arduino-app-cli app stop user:my-app` |
@@ -194,6 +195,12 @@ To see which network ports an App exposes, for example to open its web interface
 arduino-app-cli app ports user:test
 ```
 
+To see an App's metadata, release details, and the Bricks and variables it uses, run `app details`:
+
+```sh
+arduino-app-cli app details user:test
+```
+
 <Alert type="info">
 
 **Note:** In Arduino App CLI versions earlier than 0.14, `app list` shows all Apps, including examples, together with their status:
@@ -222,7 +229,7 @@ arduino-app-cli app build user:test --release-label 1.0 -o test-1.0.ard
 
 The release is built for the board running the command. Use `--target unoq` or `--target ventunoq` to build for a different board, and `--include-data` to include the App's `data` folder.
 
-To install a release on the board, use the `app install` command. The command also downloads the containers and AI models the release needs:
+To install a release on the board, use the `app install` command. The command asks you to confirm that you trust the release (add `--yes` to skip the prompt), and downloads the containers and AI models the release needs:
 
 ```sh
 arduino-app-cli app install /path/to/release.ard
@@ -247,17 +254,20 @@ Which will show something akin to:
 
 ![List Bricks](assets/list-bricks.png)
 
-To set the variables or the AI model of a Brick in an App, use `app brick config` with `name=value` pairs:
+To set the variables or the AI model of a Brick in an App, use `app brick config`:
 
 ```sh
 # Set a Brick variable
 arduino-app-cli app brick config user:test arduino:cloud_llm API_KEY=<your-key>
 
+# Prompt for a variable value on the terminal (secret values are not echoed)
+arduino-app-cli app brick config user:test arduino:cloud_llm API_KEY
+
 # Select the AI model of a Brick
 arduino-app-cli app brick config user:test arduino:llm --model <model_id>
 ```
 
-An empty value (`NAME=`) clears a variable. In an installed release, only secret variables can be changed.
+Give a variable name without `=value` to be prompted for the value on the terminal, or with an empty value (`NAME=`) to clear it. In an installed release, only secret variables can be changed.
 
 ## AI Models
 

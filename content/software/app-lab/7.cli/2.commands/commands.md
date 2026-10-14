@@ -56,6 +56,7 @@ A CLI tool to manage Arduino Apps, including starting, stopping, logging, and pr
 * [build](#app-build)
 * [clean-cache](#app-clean-cache)
 * [destroy](#app-destroy)
+* [details](#app-details)
 * [export](#app-export)
 * [import](#app-import)
 * [install](#app-install)
@@ -81,16 +82,16 @@ Manage the bricks of an Arduino App
 
 ## app brick config
 
-Set the value of a brick's variable in an Arduino App.
+Set the value of a brick's variables in an Arduino App.
 
-The variables are given as name=value pairs, and an empty value clears one. Only the
-variables named are changed, as the app API does it.
+Variables given as "name" without a value will be prompted for a value on the terminal.
+Variables given as "name=value" will be changed, without any prompt.
+Variables given as "name=" with an empty value will be cleared, without any prompt.
 
-If the given app is an App Release, then only brick variables that are secret can be
-changed.
+On an App Release, only secret variables can be changed.
 
 **Usage:**
-`arduino-app-cli app brick config <app_path> brick_id [name=value...] [flags]`
+`arduino-app-cli app brick config <app_path> brick_id name[=value] [name[=value] ...] [flags]`
 
 **Options:**
 
@@ -136,6 +137,13 @@ Destroy an Arduino App
 **Usage:**
 `arduino-app-cli app destroy <app_path>`
 
+## app details
+
+Show an Arduino App's details
+
+**Usage:**
+`arduino-app-cli app details <app_path>`
+
 ## app export
 
 Export an existing Arduino App to a zip file.
@@ -170,12 +178,17 @@ The install then downloads what the release needs to run, its containers and its
 models, which a start would otherwise wait for. Pass --no-prepare to install the
 release alone, and prepare it later with 'start --prepare'.
 
+A release can run commands on this device, so the install asks for a
+confirmation first. Install a release only from trusted sources. Pass --yes to
+install it without being asked.
+
 **Usage:**
 `arduino-app-cli app install release_path [flags]`
 
 **Options:**
 
 * `--no-prepare`: Install the release alone, without downloading its containers and its models
+* `--yes`: Install without asking for confirmation
 
 ## app list
 
