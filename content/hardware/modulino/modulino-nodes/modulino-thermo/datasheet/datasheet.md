@@ -78,21 +78,23 @@ The Modulino Thermo uses the GXHT30C sensor, a single-chip temperature and humid
 
 The Modulino Thermo is available in two hardware versions that differ in the temperature and humidity sensor they use. Boards marked V0.5 or later use the GXHT30C sensor, which responds at I2C address 0x45; earlier boards use the HS3003 sensor from Renesas, which responds at I2C address 0x44. The image below shows the two versions side by side.
 
+![Arduino Modulino Thermo hardware versiones](assets/thermo_versions.png)
+
 > [!NOTE]
 > **Note:** To identify the version of your Modulino Thermo, check the version marking on the PCB: boards marked **V0.5 or later** use the GXHT30C sensor (black), while earlier boards use the HS3003 sensor (silver). Unless otherwise stated, the specifications in this datasheet refer to boards marked V0.5 or later.
 
 The main differences between the two hardware versions are summarized in the table below.
 
-|     **Parameter**    |         **V0.5 or later**        |      **Earlier than V0.5**      |
-|:--------------------:|:--------------------------------:|:-------------------------------:|
-|        Sensor        |          GXHT30C (GXCAS)         |         HS3003 (Renesas)        |
-|      I2C Address     |     0x45 (0x44 via solder jumper SJ1)     |               0x44              |
-|   Temperature Range  |          -45 to +130 °C          |          -40 to +125 °C         |
-| Temperature Accuracy | ±0.3 °C (typical, -40 to +90 °C) |        ±0.25 °C (typical)       |
-|    Humidity Range    |           0 to 100 %RH           |           0 to 100 %RH          |
-|   Humidity Accuracy  |         ±3 %RH (typical)         |        ±2.8 %RH (typical)       |
-|      Resolution      | 0.015 °C / 0.01 %RH (16-bit ADC) | 14-bit temperature and humidity |
-|  Sensor Supply Range |           2.0 to 5.5 V           |           2.3 to 5.5 V          |
+|     **Parameter**    |         **V0.5 or later**         |      **Earlier than V0.5**      |
+|:--------------------:|:---------------------------------:|:-------------------------------:|
+|        Sensor        |          GXHT30C (GXCAS)          |         HS3003 (Renesas)        |
+|      I2C Address     | 0x45 (0x44 via solder jumper SJ1) |               0x44              |
+|   Temperature Range  |           -45 to +130 °C          |          -40 to +125 °C         |
+| Temperature Accuracy |  ±0.3 °C (typical, -40 to +90 °C) |        ±0.25 °C (typical)       |
+|    Humidity Range    |            0 to 100 %RH           |           0 to 100 %RH          |
+|   Humidity Accuracy  |          ±3 %RH (typical)         |        ±2.8 %RH (typical)       |
+|      Resolution      |  0.015 °C / 0.01 %RH (16-bit ADC) | 14-bit temperature and humidity |
+|  Sensor Supply Range |          +2.0 to +5.5 VDC         |          +2.3 to +5.5 V         |
 
 > [!NOTE]
 > **Note:** The two versions of the Modulino Thermo share the same board outline, connectors, headers, and library API. Sketches and MicroPython scripts written for one version work on the other without changes.
@@ -205,7 +207,7 @@ The Modulino Thermo acts as an I2C target device. Its default address depends on
 |   MODULINO THERMO   |     V0.5 or later    |   GXHT30C  |              0x45             |  0x44 (solder jumper SJ1 closed)  |
 |   MODULINO THERMO   |   Earlier than V0.5  |   HS3003   |              0x44             |           Not supported           |
 
-On boards marked V0.5 or later, the I2C address is set by the solder jumper SJ1, located on the bottom side of the board. SJ1 is **open by default**, which leaves the sensor's ADDR pin pulled up to +3.3 VDC and sets the address to 0x45. Closing SJ1 connects the ADDR pin to GND and changes the address to 0x44. <!-- TO VERIFY: SJ1 location on the PCB (top or bottom side) -->
+On boards marked V0.5 or later, the I2C address is set by the solder jumper SJ1, located on the bottom side of the board. SJ1 is **open by default**, which leaves the sensor's ADDR pin pulled up to +3.3 VDC and sets the address to 0x45. Closing SJ1 connects the ADDR pin to GND and changes the address to 0x44.
 
 > [!CAUTION]
 > **Safety Note:** The Modulino library identifies the hardware version of the module by its I2C address. A board marked V0.5 or later with SJ1 closed (address 0x44) will be handled as an HS3003-based board and **will not be recognized by the library**. Close SJ1 only when using custom code that addresses the GXHT30C sensor directly.
@@ -342,10 +344,10 @@ As a global supplier of electronic and electrical components, Arduino is aware o
 | 1       | Arduino IDE (Desktop)           | https://www.arduino.cc/en/Main/Software                                                                           |
 | 2       | Arduino IDE (Cloud)             | https://create.arduino.cc/editor                                                                                  |
 | 3       | Arduino Cloud - Getting started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started                                   |
-| 4       | Modulino Thermo Documentation  | https://docs.arduino.cc/hardware/modulino-thermo <!-- TO VERIFY: URL -->                                          |
-| 5       | Modulino Library (Arduino)     | https://github.com/arduino-libraries/Arduino_Modulino                                                             |
-| 6       | Modulino Package (MicroPython) | https://github.com/arduino/arduino-modulino-mpy                                                                   |
-| 7       | GXHT30 Sensor Datasheet         | https://www.galaxy-cas.com/uploads/files/202509/GXHT30_datasheet_V3.9_20250919170350.pdf |
+| 4       | Modulino Thermo Documentation  | https://docs.arduino.cc/hardware/modulino-thermo                                                                   |
+| 5       | Modulino Library (Arduino)     | https://github.com/arduino-libraries/Arduino_Modulino                                                              |
+| 6       | Modulino Package (MicroPython) | https://github.com/arduino/arduino-modulino-mpy                                                                    |
+| 7       | GXHT30 Sensor Datasheet         | https://www.galaxy-cas.com/uploads/files/202509/GXHT30_datasheet_V3.9_20250919170350.pdf                          |
 | 8       | Project Hub                     | https://create.arduino.cc/projecthub                                                                              |
 | 9       | Library Reference               | https://www.arduino.cc/reference/en/                                                                              |
 | 10      | Arduino Store                   | https://store.arduino.cc/                                                                                         |
