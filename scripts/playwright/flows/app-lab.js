@@ -115,7 +115,7 @@ async function createAwesomeApp(page) {
     await page.locator('div[class*="app-actions"]').first().waitFor({ state: 'visible', timeout: 15000 });
 }
 
-// Opens AwesomeApp in the editor, creating it first when a step runs on its own.
+// Opens AwesomeApp in the editor, creating it first when a step runs on its own, and ensures main.py and sketch.ino tabs are open.
 async function openAwesomeApp(page) {
     await dismissAnyOpenModals(page);
     await goToApps(page);
@@ -128,6 +128,35 @@ async function openAwesomeApp(page) {
     }
     await page.waitForTimeout(1500);
     await closeConsole(page);
+
+    const tabsList = page.locator('ul[class*="tabs-list"]');
+    const mainPyTab = tabsList.locator('[data-file-id*="main.py"]').first();
+    const sketchTab = tabsList.locator('[data-file-id*="sketch.ino"]').first();
+    const pythonFolder = page.locator('div[role="treeitem"]').filter({ hasText: /^python$/i }).first();
+    const sketchFolder = page.locator('div[role="treeitem"]').filter({ hasText: /^sketch$/i }).first();
+    const mainPyFile = page.locator('div[role="treeitem"]').filter({ hasText: /main\.py/i }).first();
+    const sketchFile = page.locator('div[role="treeitem"]').filter({ hasText: /sketch\.ino/i }).first();
+
+    if (!(await mainPyFile.isVisible({ timeout: 500 }).catch(() => false)) && await pythonFolder.isVisible({ timeout: 1000 }).catch(() => false)) {
+        await pythonFolder.click({ force: true }).catch(() => {});
+        await mainPyFile.waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
+    }
+    if (!(await sketchFile.isVisible({ timeout: 500 }).catch(() => false)) && await sketchFolder.isVisible({ timeout: 1000 }).catch(() => false)) {
+        await sketchFolder.click({ force: true }).catch(() => {});
+        await sketchFile.waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
+    }
+    if (!(await mainPyTab.isVisible({ timeout: 500 }).catch(() => false)) && await mainPyFile.isVisible({ timeout: 1000 }).catch(() => false)) {
+        await mainPyFile.dblclick({ force: true }).catch(() => {});
+        await page.waitForTimeout(300);
+    }
+    if (!(await sketchTab.isVisible({ timeout: 500 }).catch(() => false)) && await sketchFile.isVisible({ timeout: 1000 }).catch(() => false)) {
+        await sketchFile.dblclick({ force: true }).catch(() => {});
+        await page.waitForTimeout(300);
+    }
+    if (await mainPyTab.isVisible({ timeout: 1000 }).catch(() => false)) {
+        await mainPyTab.click({ force: true }).catch(() => {});
+        await page.waitForTimeout(300);
+    }
 }
 
 module.exports = async function runAppLabFlow(page, outDir, options = {}) {
@@ -381,26 +410,28 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
 
         if (await pythonFolder.isVisible({ timeout: 1000 }).catch(() => false)) {
             await pythonFolder.click({ force: true }).catch(() => {});
+            await mainPyFile.waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
         }
         if (await sketchFolder.isVisible({ timeout: 1000 }).catch(() => false)) {
             await sketchFolder.click({ force: true }).catch(() => {});
+            await sketchFile.waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
         }
 
         await capture(page, 'editor/editor-folders-expanded.png', outDir, {});
         await capture(page, 'editor/editor-folders-expanded-sidepanel-hl.png', outDir, { highlight: editorSidePanel, insetHighlight: true });
-        await capture(page, 'editor/editor-folders-expanded-files-hl.png', outDir, { highlight: [pythonFolder, appYamlFile], insetHighlight: false, percentage: 'top 75%' });
+        await capture(page, 'editor/editor-folders-expanded-files-hl.png', outDir, { highlight: [pythonFolder, appYamlFile], insetHighlight: true, percentage: 'top 75%' });
 
         // Edit Code in Sketch and Python
         const editorInput = page.getByRole('textbox').first();
         if (await mainPyFile.isVisible({ timeout: 1000 }).catch(() => false)) {
-            await mainPyFile.click({ force: true }).catch(() => {});
+            await mainPyFile.dblclick({ force: true }).catch(() => {});
             await editorInput.focus().catch(() => {});
             await editorInput.press('Space').catch(() => {});
             await editorInput.press('Backspace').catch(() => {});
         }
 
         if (await sketchFile.isVisible({ timeout: 1000 }).catch(() => false)) {
-            await sketchFile.click({ force: true }).catch(() => {});
+            await sketchFile.dblclick({ force: true }).catch(() => {});
             const sketchPath = path.join(__dirname, '../sketch.ino');
             if (fs.existsSync(sketchPath)) {
                 const sketchCode = fs.readFileSync(sketchPath, 'utf8');
@@ -438,11 +469,15 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
             const stopButtonBottom = statusbar.locator('button').filter({ hasText: 'Stop' }).first();
             const runningAppBottom = statusbar.locator('button').filter({ has: page.locator('span[class*="app-content"]') }).first();
 
+            const consolePanel = page.locator('#console').first();
+
             // Wait for 'Running...' state to appear so we can screenshot it
             await expect(startingAppText).toBeVisible({ timeout: 120000 }).catch(() => {});
             await page.waitForTimeout(500);
 
             await capture(page, 'editor/stop-button.png', outDir, { highlight: stopButtonTop, percentage: 'top 25%' });
+            // While starting: 'Running...' next to Stop, and only the App launch tab in the Console
+            await capture(page, 'editor/console/app-launch-starting.png', outDir, { highlight: consolePanel, insetHighlight: true });
             
             // Wait for compile/upload to complete (up to 2 minutes)
             await expect(startingAppText).toBeHidden({ timeout: 120000 }).catch(() => {});
@@ -452,7 +487,6 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
             await capture(page, 'editor/running-app-bottom.png', outDir, { highlight: runningAppBottom, percentage: 'bottom 50%' });
 
             // Console Panel
-            const consolePanel = page.locator('#console').first();
             const consoleHeader = consolePanel.locator('div[class*="console-panel-header_"]').or(consolePanel.locator('header')).first();
             const consoleTabSerialMonitor = consolePanel.getByRole('button', { name: /Serial Monitor/i }).first();
 

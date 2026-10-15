@@ -99,6 +99,7 @@ The first time you open an App, App Lab shows **Installing advanced language sup
 | Rename symbol | `F2` | `F2` |
 | Format file | `⇧⌥F` | `Shift+Alt+F` |
 | Open or close the Agent panel | `⌘L` | `Ctrl+L` |
+| Zoom in / out / reset | `⌘+`, `⌘-`, `⌘0` | `Ctrl++`, `Ctrl+-`, `Ctrl+0` (Linux), `Ctrl` + scroll wheel (Windows) |
 
 <Alert type="info">
 

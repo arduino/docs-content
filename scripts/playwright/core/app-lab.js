@@ -17,7 +17,7 @@ async function ensureBoardSelected(page, options = {}) {
     // Register handlers for non-blocking dialogs
     const closeWarningDialogButton = page.locator('#close-button');
     const remindMeLaterButton = page.getByRole('button', { name: 'Remind me later' });
-    const confirmAndReplaceButton = page.getByRole('button', { name: 'Confirm and replace' });
+    const confirmAndReplaceButton = page.getByRole('button', { name: /Stop and run|Confirm and replace/i });
     const okGotItButton = page.getByRole('button', { name: /Ok, got it|Get started/i });
 
     page.addLocatorHandler(closeWarningDialogButton, async () => {
@@ -49,14 +49,26 @@ async function ensureBoardSelected(page, options = {}) {
         return;
     }
 
-    // If on welcome screen, verify and select board
+    // If on welcome screen, verify and select board (prefer USB over Network so no SSH password prompt is needed)
     console.log('Checking for connected Arduino UNO Q board...');
     try {
-        await welcomeBoardCard.waitFor({ state: 'visible', timeout: 15000 });
+        await welcomeBoardCard.waitFor({ state: 'visible', timeout: 30000 });
         console.log('Board detected!');
-        await welcomeBoardCard.click({ force: true });
+        const usbBoardCard = page.locator('div[class*="welcome-container"] button, button[class*="board_"]').filter({ hasText: board }).filter({ hasText: /USB/i }).first();
+        if (await usbBoardCard.isVisible({ timeout: 2000 }).catch(() => false)) {
+            await usbBoardCard.click({ force: true });
+        } else {
+            await welcomeBoardCard.click({ force: true });
+        }
     } catch (err) {
         throw new Error('Arduino UNO Q board not detected. Please ensure your board is connected and App Lab is running.');
+    }
+
+    // If a network board was selected and asks for Linux credentials, fill BOARD_PASSWORD when provided
+    const passwordInput = page.locator('div[role="dialog"] input[type="password"]').first();
+    if (process.env.BOARD_PASSWORD && await passwordInput.isVisible({ timeout: 5000 }).catch(() => false)) {
+        await passwordInput.fill(process.env.BOARD_PASSWORD);
+        await page.locator('div[role="dialog"]').getByRole('button', { name: /Confirm/i }).click({ force: true });
     }
 
     // Wait until workspace navigation is ready

@@ -14,14 +14,14 @@ When you have finished writing or modifying your code in the App Lab, you can ex
 1. [Open an App](../manage-apps/#open-an-app).
 2. Click the **Run (▶)** button in the top navigation bar.
 3. The **Console** panel opens automatically at the bottom of the editor as Arduino App Lab compiles your project, transfers it to the board's active memory, and launches it. Start-up logs appear in the **App launch** tab.
-   ![Screenshot of Arduino App Lab. An App is being launched, and the text "Running..." is displayed next to the Run button.](../../assets/app-lab-console/launching/launching.png)
+   ![Screenshot of Arduino App Lab while an App starts: the text "Running..." is displayed next to the Stop button, and the Console shows only the App launch tab.](../../assets/playwright/editor/console/app-launch-starting.png)
    <Alert type="info">
 
    **Note:** While the App is starting, only the **App launch** tab is available, and the system displays the text _"Running…"_ next to the **Stop** button.
 
    </Alert>
-4. When the App launch completes, the text in the **App launch** tab turns green, and the **Serial Monitor** and **Python** tabs become available.
-   ![Screenshot of Arduino App Lab, displaying the App launch tab in the Console with green color text.](../../assets/app-lab-console/running/running.png)
+4. When the App has started, the **Python** and **Serial Monitor** tabs become available, and the **Python** tab is selected automatically.
+   ![Screenshot of the Console in Arduino App Lab after the App has started, with the App launch, Python, and Serial Monitor tabs.](../../assets/playwright/editor/console/console-header-hl.png)
 
 ## Run at Startup
 
