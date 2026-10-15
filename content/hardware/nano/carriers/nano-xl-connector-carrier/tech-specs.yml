@@ -1,0 +1,37 @@
+Carrier:
+  Name: "Arduino® Nano XL Link Connector Carrier"
+  SKU: "ASX00090"
+
+Interfaces:
+  Qwiic Connector: 
+    Included: Yes
+    Protocol: "I2C"
+  Ethernet: 
+    Included: Yes
+    Connector: "RJ45"
+  WiFi Expansion:
+    Connector: "2x4 Female Header"
+    Compatibility: "ESP8266 (ESP-01)"
+  Industrial Communication:
+    CAN Bus: "Yes, via Screw Terminals"
+    RS485: "Yes, via Screw Terminals"
+  Debugging:
+    Included: Yes
+    Connector: "SWD/JTAG"
+    Type: "2x5 1.27mm Header"
+
+Headers:
+  Host Headers: "Dual 30-pin female headers (Inner: Standard Nano, Outer: Nano XL format)"
+  Breakout Headers: "Dual 2x20 female headers (Exposes relevant pins)"
+  Terminal Block: "2x 4-position Screw Terminals (Power IN, CAN, RS485)"
+
+Power and Operating Conditions:
+  IO Voltage: "3.3V"
+  VIN Range: "7V to 24V"
+  Operating Temperature: "-40 °C to +85 °C"
+
+Physical Specifications:
+  Dimensions:
+    Width: "66 mm"
+    Length: "71.8 mm"
+  Form Factor: "Compatible with standard 4U DIN-rail open enclosures"
