@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with the Arduino USB Camera'
-description: 'Learn how to use the Arduino® USB Camera as a standard USB webcam and as a video input for the Arduino® UNO Q and VENTUNO Q boards.'
+description: 'Learn how to use the Arduino® USB Camera as a standard USB webcam and as a video input for the Arduino® UNO™ Q and VENTUNO™ Q boards.'
 difficulty: beginner
 tags:
   - USB Camera
@@ -21,7 +21,7 @@ The Arduino® USB Camera is a compact, plug-and-play camera accessory built arou
 
 ![Arduino USB Camera](assets/hero-banner.png)
 
-Because the camera complies with the USB Video Class (UVC) standard, it requires no drivers. Windows, macOS, and Linux automatically recognize it as a standard video capture device. It works as a conventional webcam on any computer, and equally well as a video input for projects running on the Linux side of the Arduino UNO Q and VENTUNO Q boards.
+Because the camera complies with the USB Video Class (UVC) standard, it requires no drivers. Windows, macOS, and Linux automatically recognize it as a standard video capture device. It works as a conventional webcam on any computer, and equally well as a video input for projects running on the Linux side of the Arduino® UNO™ Q and Arduino® VENTUNO™ Q boards.
 
 This tutorial covers both contexts. You will learn to use the camera as a plug-and-play webcam on a computer, connect it to a UNO Q or VENTUNO Q board, confirm that the system has detected it, and capture your first images and video from the desktop and from the command line.
 
@@ -29,9 +29,9 @@ This tutorial covers both contexts. You will learn to use the camera as a plug-a
 
 The goals of this tutorial are the following:
 
-- Learn about the main hardware features of the Arduino USB Camera.
+- Learn about the main hardware features of the USB Camera.
 - Use the camera as a standard USB webcam on Windows, macOS, or Linux.
-- Connect the camera to an Arduino UNO Q or VENTUNO Q board.
+- Connect the camera to an UNO Q or VENTUNO Q board.
 - Verify that a Linux host detects the camera as a UVC video device.
 - Capture images and video using the **Cheese** application.
 - Capture images and video from the command line.
@@ -41,20 +41,20 @@ The goals of this tutorial are the following:
 
 ### Hardware Requirements
 
-- [Arduino USB Camera (SKU: TPX00246)](https://store.arduino.cc/) (x1)
+- [Arduino® USB Camera (SKU: TPX00246)](https://store.arduino.cc/products/usb-camera) (x1)
 - Computer running Windows, macOS, or Linux (x1)
 
-The Arduino USB Camera has an integrated USB-A cable, so no additional cable is required. To follow the sections covering the Arduino UNO Q and VENTUNO Q boards, the following hardware is also required:
+The USB Camera has an integrated USB-A cable, so no additional cable is required. To follow the sections covering the UNO Q and VENTUNO Q boards, the following hardware is also required:
 
-- [Arduino UNO Q (SKU: ABX00162 or ABX00173)](https://store.arduino.cc/products/uno-q) or [Arduino VENTUNO Q (SKU: ABX00181)](https://store.arduino.cc/) (x1)
-- USB-C® hub with Power Delivery input, HDMI output, and USB-A ports, such as the [Arduino USB-C Hub (8 in 1) (SKU: TPX00241)](https://store.arduino.cc/) (x1) (required for the Arduino UNO Q only)
-- External USB-C® power supply for the hub (x1) such as the [Arduino USB-C Power Supply (45W) (SKU: TPX00242)](https://store.arduino.cc/products/usb-c-power-supply-45w) (required for the Arduino UNO Q only)
+- [Arduino® UNO™ Q (SKU: ABX00162 or ABX00173)](https://store.arduino.cc/products/uno-q) or [Arduino® VENTUNO™ Q (SKU: ABX00181)](https://store.arduino.cc/) (x1)
+- USB-C® hub with Power Delivery input, HDMI output, and USB-A ports, such as the [Arduino® USB-C Hub (8 in 1) (SKU: TPX00241)](https://store.arduino.cc/) (x1) (required for the UNO Q only)
+- External USB-C® power supply for the hub (x1) such as the [Arduino® USB-C Power Supply (45W) (SKU: TPX00242)](https://store.arduino.cc/products/usb-c-power-supply-45w) (required for the UNO Q only)
 - HDMI monitor and HDMI cable (x1)
 - USB keyboard (x1) and USB mouse (x1)
 
 ### Software Requirements
 
-- **No drivers are required**. The camera is a USB Video Class (UVC) device. It is recognized automatically by Windows, macOS, and Linux hosts, including the Linux system running on the Arduino UNO Q and VENTUNO Q boards.
+- **No drivers are required**. The camera is a USB Video Class (UVC) device. It is recognized automatically by Windows, macOS, and Linux hosts, including the Linux system running on the UNO Q and VENTUNO Q boards.
 - [`Cheese`](https://apps.gnome.org/Cheese/), a graphical application for capturing images and video from a webcam.
 - `v4l-utils`, a set of command-line utilities for working with video devices on Linux.
 - `ffmpeg`, a command-line tool for recording and converting audio and video.
@@ -63,7 +63,7 @@ The Linux packages listed above are installed from the system's package reposito
 
 ## Arduino USB Camera Overview
 
-The Arduino USB Camera is a self-contained USB peripheral. It connects to a standard USB port and is automatically recognized as a USB Video Class (UVC) device, so it requires no drivers, adapters, or host-side configuration.
+The USB Camera is a self-contained USB peripheral. It connects to a standard USB port and is automatically recognized as a USB Video Class (UVC) device, so it requires no drivers, adapters, or host-side configuration.
 
 ![The Arduino USB Camera](assets/camera-front-view.png)
 
@@ -96,13 +96,13 @@ The table below summarizes the camera's main specifications:
 
 <Alert type="note">
 
-For the camera's complete technical specifications, refer to the [Arduino USB Camera datasheet](https://docs.arduino.cc/resources/datasheets/TPX00246-datasheet.pdf).
+For the camera's complete technical specifications, refer to the [USB Camera datasheet](https://docs.arduino.cc/resources/datasheets/TPX00246-datasheet.pdf).
 
 </Alert>
 
 ## Using the Camera with a Computer
 
-The Arduino USB Camera works as a conventional webcam on any computer, with no setup beyond connecting it. This is also the quickest way to confirm that the camera is operating correctly.
+The USB Camera works as a conventional webcam on any computer, with no setup beyond connecting it. This is also the quickest way to confirm that the camera is operating correctly.
 
 Connect the camera to a free USB port on your computer using its USB-A cable. No drivers are needed because the camera follows the UVC standard; Windows, macOS, and Linux recognize it automatically as a standard video capture device. The built-in microphone is exposed separately as a standard UAC audio device and becomes available to the system at the same time.
 
@@ -112,13 +112,13 @@ To confirm that the camera is working, open any application that can access a we
 - On macOS, open **Photo Booth**.
 - On Linux, open **Cheese**.
 
-If more than one camera is available on your computer, select the Arduino USB Camera in the application settings. The live preview should appear within a few seconds, and the lens should focus automatically on the subject.
+If more than one camera is available on your computer, select the USB Camera in the application settings. The live preview should appear within a few seconds, and the lens should focus automatically on the subject.
 
 The camera can be used this way for video conferencing, streaming, and recording on any UVC-compatible computer, with no further setup.
 
 ## Connecting the Camera to an Arduino Board
 
-The Arduino USB Camera connects to the Linux side of the Arduino UNO Q and VENTUNO Q boards through a standard USB port. The connection procedure differs between the two boards because each provides a different set of USB ports.
+The USB Camera connects to the Linux side of the UNO Q and VENTUNO Q boards through a standard USB port. The connection procedure differs between the two boards because each provides a different set of USB ports.
 
 <Alert type="note">
 
@@ -126,9 +126,9 @@ The Arduino USB Camera connects to the Linux side of the Arduino UNO Q and VENTU
 
 </Alert>
 
-### Connecting the Camera to the Arduino UNO Q
+### Connecting the Camera to the UNO Q
 
-The Arduino UNO Q provides a single multifunction USB-C port for power, video output, and USB host connectivity. For this reason, you cannot connect the camera directly to the board; you need a USB-C hub with a Power Delivery input.
+The UNO Q provides a single multifunction USB-C port for power, video output, and USB host connectivity. For this reason, you cannot connect the camera directly to the board; you need a USB-C hub with a Power Delivery input.
 
 To connect the camera to the UNO Q, follow the steps below:
 
@@ -137,7 +137,7 @@ To connect the camera to the UNO Q, follow the steps below:
 3. If you plan to follow the [Capturing Video with Cheese](#capturing-video-with-cheese) section, connect an HDMI monitor, a USB keyboard, and a USB mouse to the hub.
 4. Connect the external power supply to the hub's Power Delivery input. The UNO Q does not supply power to the hub; the hub powers itself and the board, and the board boots automatically.
 
-![The Arduino USB Camera connected to the Arduino UNO Q through a USB-C hub](assets/connection-uno-q.png)
+![The USB Camera connected to the UNO Q through a USB-C hub](assets/connection-uno-q.png)
 
 <Alert type="note">
 
@@ -145,16 +145,16 @@ To connect the camera to the UNO Q, follow the steps below:
 
 </Alert>
 
-### Connecting the Camera to the Arduino VENTUNO Q
+### Connecting the Camera to the VENTUNO Q
 
-The Arduino VENTUNO Q has two onboard USB-A 3.0 ports, so you can connect the camera directly to the board without a hub.
+The VENTUNO Q has two onboard USB-A 3.0 ports, so you can connect the camera directly to the board without a hub.
 
 To connect the camera to the VENTUNO Q, follow the steps below:
 
 1. Connect the camera to one of the board's USB-A ports using its USB-A cable.
 2. Power on the board.
 
-![The Arduino USB Camera connected to the Arduino VENTUNO Q](assets/connection-ventuno-q.png)
+![The USB Camera connected to the VENTUNO Q](assets/connection-ventuno-q.png)
 
 The camera is a USB 2.0 High Speed device and operates correctly in a USB 3.0 port, at USB 2.0 speeds.
 
@@ -162,7 +162,7 @@ If you plan to follow the [Capturing Video with Cheese](#capturing-video-with-ch
 
 ## Verifying Camera Detection
 
-This section and the two that follow apply to any Linux host, including the Linux environment of the Arduino UNO Q and VENTUNO Q boards. You can run the commands from a desktop terminal or remotely over SSH.
+This section and the two that follow apply to any Linux host, including the Linux environment of the UNO Q and VENTUNO Q boards. You can run the commands from a desktop terminal or remotely over SSH.
 
 First, install `usbutils` and `v4l-utils`, which provide the tools used to inspect USB and video devices:
 
@@ -189,7 +189,7 @@ The commands in this tutorial use `/dev/videoX` as a placeholder. Replace it wit
 
 <Alert type="note">
 
-**Important note**: On the Arduino VENTUNO Q, `v4l2-ctl --list-devices` also prints `Failed to open /dev/video0: Operation already in progress`. This node belongs to the board's camera subsystem (`cam-req-mgr`) and is held by a system service. The message does not refer to the USB camera and can be safely ignored.
+**Important note**: On the VENTUNO Q, `v4l2-ctl --list-devices` also prints `Failed to open /dev/video0: Operation already in progress`. This node belongs to the board's camera subsystem (`cam-req-mgr`) and is held by a system service. The message does not refer to the USB camera and can be safely ignored.
 
 </Alert>
 
@@ -209,7 +209,7 @@ The output lists the two formats the camera supports, MJPEG and YUY2, along with
 
 ## Capturing Video with Cheese
 
-Cheese is a graphical application that captures images and video from a webcam on Linux systems, and is the quickest way to obtain a live preview from the camera. Since it is a desktop application, it requires a graphical environment. On the Arduino UNO Q and VENTUNO Q boards, this means running the board with a monitor, a keyboard, and a mouse connected, as described in the [Connecting the Camera to an Arduino Board](#connecting-the-camera-to-an-arduino-board) section.
+Cheese is a graphical application that captures images and video from a webcam on Linux systems, and is the quickest way to obtain a live preview from the camera. Since it is a desktop application, it requires a graphical environment. On the UNO Q and VENTUNO Q boards, this means running the board with a monitor, a keyboard, and a mouse connected, as described in the [Connecting the Camera to an Arduino Board](#connecting-the-camera-to-an-arduino-board) section.
 
 Open a terminal and install Cheese:
 
@@ -224,7 +224,7 @@ Once installed, launch the application from the desktop's application menu, or f
 cheese
 ```
 
-Cheese opens with a live preview from the camera. If more than one camera is available, select the Arduino USB Camera from the application preferences. You can also change the capture resolution in **Preferences**, since Cheese may start at a low default resolution.
+Cheese opens with a live preview from the camera. If more than one camera is available, select the USB Camera from the application preferences. You can also change the capture resolution in **Preferences**, since Cheese may start at a low default resolution.
 
 Use the buttons at the bottom of the window to switch between photo and video mode and to start a capture. Captured files are saved in the `Pictures/Webcam` and `Videos/Webcam` folders of your user's home directory.
 
@@ -265,7 +265,7 @@ To record ten seconds of video at 1920 × 1080 and 30 fps, run the following com
 ffmpeg -f v4l2 -input_format mjpeg -video_size 1920x1080 -framerate 30 -i /dev/videoX -t 10 -c:v copy video.mkv
 ```
 
-The `-c:v copy` option stores the camera's MJPEG stream without re-encoding it. This keeps the processor load low, which matters on resource-constrained systems such as the Arduino UNO Q.
+The `-c:v copy` option stores the camera's MJPEG stream without re-encoding it. This keeps the processor load low, which matters on resource-constrained systems such as the UNO Q.
 
 To record video together with audio from the camera's integrated microphone, first identify the audio device assigned to the camera:
 
@@ -288,7 +288,7 @@ The camera supports two output formats, and your choice determines the available
 - **MJPEG** is a compressed format. It sustains 30 fps across the full resolution range, up to 3840 × 2160 (UHD 4K), at the cost of a decoding step on the host.
 - **YUY2 (YUYV)** is an uncompressed format. It avoids decoding on the host, but its higher bandwidth requirements restrict it to lower resolutions and frame rates.
 
-The table below lists a selection of the resolutions available in each format. The complete list is available in the [Arduino USB Camera datasheet](https://docs.arduino.cc/resources/datasheets/TPX00246-datasheet.pdf).
+The table below lists a selection of the resolutions available in each format. The complete list is available in the [USB Camera datasheet](https://docs.arduino.cc/resources/datasheets/TPX00246-datasheet.pdf).
 
 | **Resolution** | **Notes** | **MJPEG** | **YUY2** |
 |:--------------:|:---------:|:---------:|:--------:|
@@ -358,7 +358,7 @@ Because the camera follows the UVC and UAC standards, everything covered here re
 Now that the camera is working, you can integrate it into your own applications:
 
 - Access the camera from your own programs using any library that supports standard video capture devices, and build applications around image processing or computer vision.
-- Combine the camera with the processing capabilities of the Arduino UNO Q and VENTUNO Q boards to build edge AI applications that run inference locally on the captured video.
+- Combine the camera with the processing capabilities of the UNO Q and VENTUNO Q boards to build edge AI applications that run inference locally on the captured video.
 - Explore the [Arduino UNO Q documentation](https://docs.arduino.cc/hardware/uno-q/) and the [Arduino VENTUNO Q documentation](https://docs.arduino.cc/hardware/ventuno-q/) to learn more about each board's Linux side and how to run your applications on it.
 
 ## Support
@@ -369,7 +369,7 @@ If you encounter any issues or have questions while working with your Arduino US
 
 Explore our Help Center, which offers a comprehensive collection of articles and guides for the USB Camera. The Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
-- [Arduino help center page](https://support.arduino.cc/)
+- [Arduino Help center page](https://support.arduino.cc/)
 
 ### Forum
 

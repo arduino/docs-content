@@ -10,7 +10,7 @@ author: José Bagur
 
 # Description
 
-<p style="text-align: justify;">The Arduino® USB Camera is a compact, plug-and-play USB webcam compatible with any UVC-compatible host, including computers and single-board computers. Built around the Sony IMX376 image sensor, it delivers up to 3840 × 2160 (UHD 4K) video and is recognized automatically as a standard USB Video Class (UVC) device, with no drivers to install. Its autofocus lens, integrated LED ring light, and built-in microphone make it equally suited to everyday video conferencing on a PC and to camera-based projects on Arduino boards like the Arduino UNO Q and VENTUNO Q.</p>
+The Arduino® USB Camera is a compact, plug-and-play USB webcam compatible with any UVC-compatible host, including computers and single-board computers. Built around the Sony IMX376 image sensor, it delivers up to 3840 × 2160 (UHD 4K) video and is recognized automatically as a standard USB Video Class (UVC) device, with no drivers to install. Its autofocus lens, integrated LED ring light, and built-in microphone make it equally suited to everyday video conferencing on a PC and to camera-based projects on Arduino boards like the Arduino® UNO™ Q and Arduino® VENTUNO™ Q.
 
 # Target Areas:
 
@@ -20,21 +20,21 @@ Computer vision, video streaming, video conferencing, Edge AI
 
 ## Application Examples
 
-<p style="text-align: justify;">The Arduino® USB Camera works as a standard USB webcam with any UVC-compatible computer and, when connected to an Arduino board, such as the UNO Q or VENTUNO Q, adds high-resolution image capture to a wide range of development scenarios.</p>
+The Arduino USB Camera works as a standard USB webcam with any UVC-compatible computer and, when connected to an Arduino board, such as the UNO Q or VENTUNO Q, adds high-resolution image capture to a wide range of development scenarios.
 
-- <p style="text-align: justify;"><strong>Computer vision and Edge AI</strong>: Capture high-resolution frames directly on the Linux side of the UNO Q or VENTUNO Q for on-device image classification, object detection, and other vision tasks, keeping image processing local to the board.</p>
+- **Computer vision and Edge AI**: Capture high-resolution frames directly on the Linux side of the UNO Q or VENTUNO Q for on-device image classification, object detection, and other vision tasks, keeping image processing local to the board.
   
-- <p style="text-align: justify;"><strong>Video streaming and remote monitoring</strong>: Stream live UHD video over the network for remote monitoring, telepresence, or surveillance setups, taking advantage of the camera's UVC compatibility and high resolution.</p>
+- **Video streaming and remote monitoring**: Stream live UHD video over the network for remote monitoring, telepresence, or surveillance setups, taking advantage of the camera's UVC compatibility and high resolution.
 
-- <p style="text-align: justify;"><strong>Machine vision and inspection</strong>: Use the 4K resolution together with autofocus from 20 cm to infinity for inspection, defect detection, and measurement tasks in prototyping and light industrial scenarios.</p>
+- **Machine vision and inspection**: Use the 4K resolution together with autofocus from 20 cm to infinity for inspection, defect detection, and measurement tasks in prototyping and light industrial scenarios.
 
-- <p style="text-align: justify;"><strong>Video capture and conferencing</strong>: Combine the autofocus lens, integrated LED ring light, and built-in microphone to build recording, conferencing, or content-capture stations driven by the UNO Q or VENTUNO Q.</p>
+- **Video capture and conferencing**: Combine the autofocus lens, integrated LED ring light, and built-in microphone to build recording, conferencing, or content-capture stations driven by the UNO Q or VENTUNO Q.
 
-- <p style="text-align: justify;"><strong>Education and rapid prototyping</strong>: Driver-free UVC operation makes the camera a straightforward, low-friction tool for teaching computer vision fundamentals and building vision-enabled prototypes without additional software setup.</p>
+- **Education and rapid prototyping**: Driver-free UVC operation makes the camera a straightforward, low-friction tool for teaching computer vision fundamentals and building vision-enabled prototypes without additional software setup.
 
-- <p style="text-align: justify;"><strong>Standard USB webcam</strong>: Use the camera as a plug-and-play webcam on any Windows, macOS, or Linux computer for video streaming and recording, with its autofocus lens, LED ring light, and built-in microphone ready to use out of the box.</p>
+- **Standard USB webcam**: Use the camera as a plug-and-play webcam on any Windows, macOS, or Linux computer for video streaming and recording, with its autofocus lens, LED ring light, and built-in microphone ready to use out of the box.
 
-<img src="assets/camera_iso.png" alt="Arduino USB Camera" style="width: 60%; height: auto;"></img>
+![Arduino USB Camera](assets/camera_iso.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -42,7 +42,7 @@ Computer vision, video streaming, video conferencing, Edge AI
 
 ### General Specifications Overview
 
-<p style="text-align: justify;">The Arduino® USB Camera is a compact, plug-and-play camera accessory built around the Sony IMX376 image sensor. It connects over USB to any UVC-compatible host and is recognized automatically as a standard USB Video Class (UVC) device, delivering up to 3840 × 2160 (UHD 4K) video together with autofocus, an integrated LED ring light, and a built-in microphone. Its driver-free UVC operation makes it straightforward to add high-resolution video capture and vision-based applications, including projects running on the Linux side of Arduino boards such as the Arduino UNO Q and VENTUNO Q.</p>
+The USB Camera is a compact, plug-and-play camera accessory built around the Sony IMX376 image sensor. It connects over USB to any UVC-compatible host and is recognized automatically as a standard USB Video Class (UVC) device, delivering up to 3840 × 2160 (UHD 4K) video together with autofocus, an integrated LED ring light, and a built-in microphone. Its driver-free UVC operation makes it straightforward to add high-resolution video capture and vision-based applications, including projects running on the Linux side of Arduino boards such as the UNO Q and VENTUNO Q.
 
 The main features of the camera are highlighted in the table shown below.
 
@@ -82,9 +82,7 @@ The main features of the camera are highlighted in the table shown below.
 
 ### Recommended Operating Conditions
 
-<p style="text-align: justify;">The table below outlines the typical operating conditions of the Arduino® USB Camera. The camera is bus-powered through its USB connection and does not require an external power supply.</p>
-
-<div style="text-align:center;">
+The table below outlines the typical operating conditions of the USB Camera. The camera is bus-powered through its USB connection and does not require an external power supply.
 
 |              **Parameter**              |      **Symbol**     | **Min** | **Typ** | **Max** | **Unit** |
 |:---------------------------------------:|:-------------------:|:-------:|:-------:|:-------:|:--------:|
@@ -94,27 +92,23 @@ The main features of the camera are highlighted in the table shown below.
 |          Operating Temperature          |    T<sub>OP</sub>   |    0    |    -    |    70   |    °C    |
 |           Storage Temperature           |   T<sub>STG</sub>   |   -20   |    -    |    75   |    °C    |
 
-</div>
+<sup>1</sup> The operating current depends on the active video resolution and frame rate. Typical and maximum values are given with the integrated LED ring light disabled (LED off) and enabled (LED on).
 
-<p style="text-align: justify;"><sup>1</sup> The operating current depends on the active video resolution and frame rate. Typical and maximum values are given with the integrated LED ring light disabled (LED off) and enabled (LED on).</p>
+>[!NOTE]
+>**Driver Tip:** The USB Camera is compliant with the **USB Video Class (UVC)** standard and does not require any additional drivers. It is recognized automatically as a standard video device by the Linux system running on the UNO Q and VENTUNO Q, as well as by any other UVC-compatible host.
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;"><strong>Driver Tip:</strong> The Arduino® USB Camera is compliant with the <strong>USB Video Class (UVC)</strong> standard and does not require any additional drivers. It is recognized automatically as a standard video device by the Linux system running on the Arduino UNO Q and VENTUNO Q, as well as by any other UVC-compatible host.</p>
-</div>
-
-<div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;"><strong>Safety Note:</strong> The camera is powered exclusively through its USB connection (USB bus power). <strong>Do not attempt to supply external power to the camera</strong>. When connecting the camera through a USB hub, make sure the hub can supply enough current for the camera and for any other peripheral connected to it.</p>
-</div>
+>[!NOTE]
+>**Safety Note:** The camera is powered exclusively through its USB connection (USB bus power). <**Do not attempt to supply external power to the camera**. When connecting the camera through a USB hub, make sure the hub can supply enough current for the camera and for any other peripheral connected to it.
 
 <div style="page-break-after: always;"></div>
 
 ## Supported Resolutions and Frame Rates
 
-<p style="text-align: justify;">The Arduino® USB Camera supports two output image formats: <strong>MJPEG</strong>, a compressed format, and <strong>YUY2 (YUYV)</strong>, an uncompressed format. Because both formats share the bandwidth of a single USB 2.0 High Speed connection, the maximum frame rate available at a given resolution depends on the selected format. The compressed MJPEG format sustains 30 fps across the full resolution range, up to 3840 × 2160 (UHD 4K), while the uncompressed YUY2 format is limited to lower resolutions and frame rates.</p>
+The USB Camera supports two output image formats: **MJPEG**, a compressed format, and **YUY2 (YUYV)**, an uncompressed format. Because both formats share the bandwidth of a single USB 2.0 High Speed connection, the maximum frame rate available at a given resolution depends on the selected format. The compressed MJPEG format sustains 30 fps across the full resolution range, up to 3840 × 2160 (UHD 4K), while the uncompressed YUY2 format is limited to lower resolutions and frame rates.
 
 ### MJPEG Output
 
-<p style="text-align: justify;">The resolutions and frame rates supported by the camera in MJPEG format are listed in the table below.</p>
+The resolutions and frame rates supported by the camera in MJPEG format are listed in the table below.
 
 | **Resolution** | **Frame Rate** | **Notes** |
 |:--------------:|:--------------:|:---------:|
@@ -137,7 +131,7 @@ The main features of the camera are highlighted in the table shown below.
 
 ### YUY2 (YUYV) Output
 
-<p style="text-align: justify;">The resolutions and frame rates supported by the camera in uncompressed YUY2 format are listed in the table below.</p>
+The resolutions and frame rates supported by the camera in uncompressed YUY2 format are listed in the table below.
 
 | **Resolution** | **Frame Rate** | **Notes** |
 |:--------------:|:--------------:|:---------:|
@@ -150,9 +144,8 @@ The main features of the camera are highlighted in the table shown below.
 |    320 × 180   |     30 fps     |     -     |
 |    176 × 144   |     30 fps     |    QCIF   |
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;"><strong>Performance Tip:</strong> For applications that require high resolution or high frame rates, use the <strong>MJPEG</strong> format. The uncompressed <strong>YUY2</strong> format avoids the decoding step on the host, but its higher bandwidth requirements restrict it to lower resolutions and frame rates over USB 2.0.</p>
-</div>
+>[!NOTE]
+>**Performance Tip:** For applications that require high resolution or high frame rates, use the **MJPEG** format. The uncompressed **YUY2** format avoids the decoding step on the host, but its higher bandwidth requirements restrict it to lower resolutions and frame rates over USB 2.0.
 
 <div style="page-break-after: always;"></div>
 
@@ -160,31 +153,30 @@ The main features of the camera are highlighted in the table shown below.
 
 ### Getting Started
 
-<p style="text-align: justify;">The Arduino® USB Camera is a standard USB Video Class (UVC) device and requires no drivers or additional configuration. On any computer that supports UVC, including Windows, macOS, and Linux systems, the camera works as a plug-and-play webcam: connect it to a USB port and it is recognized automatically as a standard video capture device, ready to use with video conferencing, streaming, or recording applications.</p>
+The USB Camera is a standard USB Video Class (UVC) device and requires no drivers or additional configuration. On any computer that supports UVC, including Windows, macOS, and Linux systems, the camera works as a plug-and-play webcam: connect it to a USB port and it is recognized automatically as a standard video capture device, ready to use with video conferencing, streaming, or recording applications.
 
-<p style="text-align: justify;">To use the camera with an Arduino UNO Q or VENTUNO Q board, connect it to a USB port on the board. On the VENTUNO Q, the camera can be connected directly to the onboard USB Type-A port. On the UNO Q, a USB hub or adapter may be required. Once connected, the Linux system running on the board detects the camera automatically and exposes it as a standard video capture device, which can then be accessed by any application or library that supports UVC devices.</p>
+To use the camera with an UNO Q or VENTUNO Q board, connect it to a USB port on the board. On the VENTUNO Q, the camera can be connected directly to the onboard USB Type-A port. On the UNO Q, a USB hub or adapter may be required. Once connected, the Linux system running on the board detects the camera automatically and exposes it as a standard video capture device, which can then be accessed by any application or library that supports UVC devices.
 
-<p style="text-align: justify;">Because the camera is bus-powered, when it is connected through a USB hub the hub must be able to supply enough current for the camera and for any other peripheral connected to it. <strong>A powered USB hub is recommended when the camera is used together with other USB peripherals, or when the integrated LED ring light is enabled</strong>.</p>
+Because the camera is bus-powered, when it is connected through a USB hub the hub must be able to supply enough current for the camera and for any other peripheral connected to it. **A powered USB hub is recommended when the camera is used together with other USB peripherals, or when the integrated LED ring light is enabled**.
 
 ### Video Capture
 
-<p style="text-align: justify;">The camera streams video in MJPEG or YUY2 (YUYV) format at the resolutions and frame rates listed in the <a href="#supported-resolutions-and-frame-rates">Supported Resolutions and Frame Rates</a> section. The output format, resolution, and frame rate are selected by the host application through the standard UVC interface. Autofocus, automatic exposure control, automatic white balance, and automatic gain control operate on the camera itself and require no configuration on the host side.</p>
+The camera streams video in MJPEG or YUY2 (YUYV) format at the resolutions and frame rates listed in the [Supported Resolutions and Frame Rates](#supported-resolutions-and-frame-rates) section. The output format, resolution, and frame rate are selected by the host application through the standard UVC interface. Autofocus, automatic exposure control, automatic white balance, and automatic gain control operate on the camera itself and require no configuration on the host side.
 
-<p style="text-align: justify;">The camera also includes an integrated single analog microphone, which is exposed to the host as a standard USB Audio Class (UAC) device, independently of the video stream.</p>
+The camera also includes an integrated single analog microphone, which is exposed to the host as a standard USB Audio Class (UAC) device, independently of the video stream.
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;"><strong>Driver Tip:</strong> Because the camera follows the <strong>UVC</strong> standard, it is compatible with any host that implements this class, including the Linux system running on the Arduino UNO Q and VENTUNO Q, as well as Windows, macOS, and Android hosts.</p>
-</div>
+>[!NOTE]
+>**Driver Tip:** Because the camera follows the **UVC** standard, it is compatible with any host that implements this class, including the Linux system running on the UNO Q and VENTUNO Q, as well as Windows, macOS, and Android hosts.
 
 ### LED Ring Light
 
-<p style="text-align: justify;">The integrated LED ring light is controlled by a touch button on the camera, marked with a light-bulb icon. Pressing the button switches the light on and cycles through its warm white and cool white color settings. The LED ring light is controlled entirely on the device and operates independently of the USB video and audio interfaces.</p>
+The integrated LED ring light is controlled by a touch button on the camera, marked with a light-bulb icon. Pressing the button switches the light on and cycles through its warm white and cool white color settings. The LED ring light is controlled entirely on the device and operates independently of the USB video and audio interfaces.
 
-<img src="assets/camera_LED.png" alt="Arduino USB Camera LED button" style="width: 60%; height: auto;"></img>
+![Arduino USB Camera LED button](assets/camera_LED.png)
 
 ### Online Resources
 
-<p style="text-align: justify;">Now that you have learned the basics of the Arduino® USB Camera, you can explore the endless possibilities it provides by checking out exciting projects on Arduino Project Hub <strong>[1]</strong>, the Arduino Library Reference <strong>[2]</strong>, and the online store <strong>[3]</strong>, where you will be able to complement your camera with additional accessories.</p>
+Now that you have learned the basics of the USB Camera, you can explore the endless possibilities it provides by checking out exciting projects on Arduino Project Hub **[1]**, the Arduino Library Reference <**[2]**, and the online store **[3]**, where you will be able to complement your camera with additional accessories.
 
 <div style="page-break-after: always;"></div>
 
@@ -192,27 +184,27 @@ The main features of the camera are highlighted in the table shown below.
 
 ### Product Dimensions
 
-<p style="text-align: justify;">The dimensions and weight of the Arduino® USB Camera are listed in the table below.</p>
+The dimensions and weight of the USB Camera are listed in the table below.
 
 |      **Parameter**     |       **Value**       |
 |:----------------------:|:---------------------:|
 | Dimensions<sup>1</sup> | 70 mm × 40 mm × 90 mm |
 |         Weight         |         105 g         |
 
-<p style="text-align: justify;"><sup>1</sup> Dimensions refer to the <strong>camera body</strong> only, excluding the USB cable. The length of the included USB-A cable is 1 m. </p>
+<sup>1</sup> Dimensions refer to the **camera body** only, excluding the USB cable. The length of the included USB-A cable is 1 m.
 
 <div style="page-break-after: always;"></div>
 
 ### Package Contents
 
-The Arduino® USB Camera is supplied in a box containing the following items:
+The USB Camera is supplied in a box containing the following items:
 
 |       **Item**      | **Quantity** |
 |:-------------------:|:------------:|
 | Arduino® USB Camera |       1      |
 |  USB-A cable (1 m)  |       1      |
 
-<img src="assets/camera_unboxing.png" alt="Arduino USB Camera unboxing" style="width: 60%; height: auto;"></img>
+![Arduino USB Camera unboxing](assets/camera_unboxing.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -247,6 +239,6 @@ The Arduino® USB Camera is supplied in a box containing the following items:
 
 ## Document Revision History
 
-| **Date** | **Revision** |  **Changes**  |
-|:--------:|:------------:|:-------------:|
-| 11/08/26 |       1      | First release |
+| **Date**   | **Revision** |  **Changes**  |
+|:----------:|:------------:|:-------------:|
+| 15/10/2026 |       1      | First release |
