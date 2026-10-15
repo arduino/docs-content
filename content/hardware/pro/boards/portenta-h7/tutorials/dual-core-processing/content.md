@@ -52,7 +52,7 @@ Begin by plugging-in your Portenta board to your computer using an appropriate U
 
 ![A Basic setup of the board attached to your computer](../setting-up-portenta/assets/por_ard_gs_basic_setup.svg)
 
-**Note:** You can access the examples from the tutorials library once it is installed: **Examples > Arduino_Pro_Tutorials > Dual Core Processing**
+**Note:** You can access the examples from the tutorials library once it is installed: **File > Examples > Arduino_Pro_Tutorials > Dual Core Processing**
 
 ### 2. Setting the LED Color 
 In the previous tutorial you learned how to access the built-in RGB LED through the macro definition LED_BUILTIN. You can also control the distinct Red, Green and Blue LED separately through the LEDR, LEDG and LEDB macro definition respectively. 

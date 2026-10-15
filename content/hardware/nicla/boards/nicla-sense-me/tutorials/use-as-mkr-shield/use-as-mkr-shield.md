@@ -68,7 +68,7 @@ The host (MKR WiFi 1010) will communicate through the **BHY2Host** library with 
 
 ### 3. Host Communication of the MKR WiFi 1010
 
-To make the host communicate with the Nicla Sense ME mounted as a shield, you can modify one of the existing examples. Open the sketch under **Examples > Arduino_BHY2Host > Accelerometer** and modify the `setup` function.
+To make the host communicate with the Nicla Sense ME mounted as a shield, you can modify one of the existing examples. Open the sketch under **File > Examples > Arduino_BHY2Host > Accelerometer** and modify the `setup` function.
 
 Add the following parameters to `BHY2Host.begin()`: `BHY2Host.begin(false, NICLA_AS_SHIELD);`
 
@@ -107,7 +107,7 @@ void loop()
 
 ### 4. Program the Nicla Sense ME
 
-Program the Nicla Sense ME with the **App.ino** sketch from the **BHY2** library. You can find it under **Examples > Arduino_BHY2 > App** . Modify it as follows:
+Program the Nicla Sense ME with the **App.ino** sketch from the **BHY2** library. You can find it under **File > Examples > Arduino_BHY2 > App** . Modify it as follows:
 
 
 Navigate to the `setup` function and add two parameters to `BHY2.begin()`
