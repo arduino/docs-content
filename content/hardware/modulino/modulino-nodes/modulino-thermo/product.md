@@ -1,7 +1,6 @@
 ---
 title: Modulino Thermo
 url_shop: https://store.arduino.cc/products/modulino-thermo
-url_guide: https://courses.arduino.cc/plugandmake
 primary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-thermo/
 primary_button_title: Get Started
 secondary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-general/

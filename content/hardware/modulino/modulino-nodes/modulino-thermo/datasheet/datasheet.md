@@ -1,6 +1,6 @@
 ---
 identifier: ABX00103
-title: Arduino® Modulino® Thermo
+title: Arduino® Modulino™ Thermo
 type: maker
 variant: 'Datasheet'
 author: José Bagur and Pedro Lima
@@ -10,7 +10,7 @@ author: José Bagur and Pedro Lima
 
 # Description
 
-The Modulino® Thermo is a compact sensor module that measures temperature and relative humidity. Based on the GXHT30C sensor from GXCAS, the module communicates over I2C through two Qwiic connectors and provides additional headers for direct wiring. It is designed for environmental monitoring, indoor climate control, and IoT applications, and integrates with the Arduino ecosystem through the Modulino library for both Arduino and MicroPython. Boards marked V0.5 or later use the GXHT30C sensor (I2C address 0x45); earlier boards use the HS3003 sensor (I2C address 0x44).
+The Arduino® Modulino™ Thermo is a compact sensor module that measures temperature and relative humidity. Based on the GXHT30C sensor from GXCAS, the module communicates over I2C through two Qwiic connectors and provides additional headers for direct wiring. It is designed for environmental monitoring, indoor climate control, and IoT applications, and integrates with the Arduino ecosystem through the Modulino library for both Arduino and MicroPython. Boards marked V0.5 or later use the GXHT30C sensor (I2C address 0x45); earlier boards use the HS3003 sensor (I2C address 0x44).
 
 # Target Areas:
 
@@ -20,17 +20,17 @@ Maker, beginner, education
 
 ## Application Examples
 
-The Modulino® Thermo combines a temperature and humidity sensor with a plug-and-play Qwiic interface, which makes it suitable for projects where environmental data must be measured with minimal wiring.
+The Modulino Thermo combines a temperature and humidity sensor with a plug-and-play Qwiic interface, which makes it suitable for projects where environmental data must be measured with minimal wiring.
 
 - **Indoor climate control**: Monitor real-time temperature and humidity levels to automatically adjust HVAC systems or trigger alerts when conditions leave a defined range.
 
 - **Greenhouse monitoring**: Track changes in temperature and humidity to maintain growing conditions and detect deviations that affect plant health.
 
-- **Smart home automation**: Combine the Modulino® Thermo with other Modulino® nodes, such as movement or distance sensors, to build automated home systems that respond to environmental changes.
+- **Smart home automation**: Combine the Modulino Thermo with other Modulino nodes, such as movement or distance sensors, to build automated home systems that respond to environmental changes.
 
 - **Classroom experiments**: Collect environmental data for science and engineering activities, with readings available through a few lines of code in Arduino or MicroPython.
 
-<img src="assets/thermo_iso.png" alt="Arduino Modulino Thermo" style="width: 60%; height: auto;"></img>
+![Arduino Modulino Thermo](assets/thermo_iso.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -38,7 +38,7 @@ The Modulino® Thermo combines a temperature and humidity sensor with a plug-and
 
 ### General Specifications Overview
 
-The Modulino® Thermo is built around the GXHT30C temperature and humidity sensor from GXCAS. In addition to the sensor, the module integrates two Qwiic connectors, two headers for direct wiring, and a power LED.
+The Modulino Thermo is built around the GXHT30C temperature and humidity sensor from GXCAS. In addition to the sensor, the module integrates two Qwiic connectors, two headers for direct wiring, and a power LED.
 
 The main features of the module are highlighted in the table shown below.
 
@@ -48,7 +48,7 @@ The main features of the module are highlighted in the table shown below.
 |    Measurement Ranges   | -45 to +130 °C, 0 to 100 %RH                                                                                 |
 |     Accuracy (typ.)     | ±0.3 °C (-40 to +90 °C), ±3 %RH                                                                              |
 | Communication Interface | I2C (address 0x45)                                                                                           |
-|     Qwiic Connectors    | 2× I2C connectors (SM04B-SRSS-TB) for daisy-chaining with other Modulino® nodes and Qwiic-compatible devices |
+|     Qwiic Connectors    | 2× I2C connectors (SM04B-SRSS-TB) for daisy-chaining with other Modulino nodes and Qwiic-compatible devices |
 |         Headers         | 1×4 header (GND, +3.3 VDC, SDA, SCL) and 1×5 header (GND, +3.3 VDC, ADDR, nRST, ALERT) for direct wiring     |
 |       Onboard LED       | Green (power)                                                                                                |
 |       Power Supply      | +3.3 VDC via the Qwiic connectors or the headers                                                             |
@@ -56,7 +56,7 @@ The main features of the module are highlighted in the table shown below.
 
 ### Sensor
 
-The Modulino® Thermo uses the GXHT30C sensor, a single-chip temperature and humidity sensor with a fully calibrated and temperature-compensated digital output. The "C" suffix indicates that the sensor is covered with a dustproof, breathable protective film, which gives the sensor its black appearance and must not be removed. The main characteristics of the sensor are listed in the table below.
+The Modulino Thermo uses the GXHT30C sensor, a single-chip temperature and humidity sensor with a fully calibrated and temperature-compensated digital output. The "C" suffix indicates that the sensor is covered with a dustproof, breathable protective film, which gives the sensor its black appearance and must not be removed. The main characteristics of the sensor are listed in the table below.
 
 |        **Parameter**        | **Details**                                                      |
 |:---------------------------:|------------------------------------------------------------------|
@@ -69,33 +69,35 @@ The Modulino® Thermo uses the GXHT30C sensor, a single-chip temperature and hum
 | Recommended Operating Range | 5 to 60 °C, 20 to 80 %RH                                         |
 |        ADC Resolution       | 16-bit                                                           |
 |     Measurement Duration    | 2.5 / 4.5 / 12.5 ms (typical, low / medium / high repeatability) |
-|        I2C Interface        | Up to 1 MHz (the Modulino® library operates the bus at 100 kHz)  |
+|        I2C Interface        | Up to 1 MHz (the Modulino library operates the bus at 100 kHz)  |
 |           Package           | DFN8, 2.5 × 2.5 × 0.9 mm                                         |
 
 <div style="page-break-after: always;"></div>
 
 ### Hardware Versions
 
-The Modulino® Thermo is available in two hardware versions that differ in the temperature and humidity sensor they use. Boards marked V0.5 or later use the GXHT30C sensor, which responds at I2C address 0x45; earlier boards use the HS3003 sensor from Renesas, which responds at I2C address 0x44. The image below shows the two versions side by side.
+The Modulino Thermo is available in two hardware versions that differ in the temperature and humidity sensor they use. Boards marked V0.5 or later use the GXHT30C sensor, which responds at I2C address 0x45; earlier boards use the HS3003 sensor from Renesas, which responds at I2C address 0x44. The image below shows the two versions side by side.
+
+![Arduino Modulino Thermo hardware versiones](assets/thermo_versions.png)
 
 > [!NOTE]
-> **Note:** To identify the version of your Modulino® Thermo, check the version marking on the PCB: boards marked **V0.5 or later** use the GXHT30C sensor (black), while earlier boards use the HS3003 sensor (silver). Unless otherwise stated, the specifications in this datasheet refer to boards marked V0.5 or later.
+> **Note:** To identify the version of your Modulino Thermo, check the version marking on the PCB: boards marked **V0.5 or later** use the GXHT30C sensor (black), while earlier boards use the HS3003 sensor (silver). Unless otherwise stated, the specifications in this datasheet refer to boards marked V0.5 or later.
 
 The main differences between the two hardware versions are summarized in the table below.
 
-|     **Parameter**    |         **V0.5 or later**        |      **Earlier than V0.5**      |
-|:--------------------:|:--------------------------------:|:-------------------------------:|
-|        Sensor        |          GXHT30C (GXCAS)         |         HS3003 (Renesas)        |
-|      I2C Address     |     0x45 (0x44 via solder jumper SJ1)     |               0x44              |
-|   Temperature Range  |          -45 to +130 °C          |          -40 to +125 °C         |
-| Temperature Accuracy | ±0.3 °C (typical, -40 to +90 °C) |        ±0.25 °C (typical)       |
-|    Humidity Range    |           0 to 100 %RH           |           0 to 100 %RH          |
-|   Humidity Accuracy  |         ±3 %RH (typical)         |        ±2.8 %RH (typical)       |
-|      Resolution      | 0.015 °C / 0.01 %RH (16-bit ADC) | 14-bit temperature and humidity |
-|  Sensor Supply Range |           2.0 to 5.5 V           |           2.3 to 5.5 V          |
+|     **Parameter**    |         **V0.5 or later**         |      **Earlier than V0.5**      |
+|:--------------------:|:---------------------------------:|:-------------------------------:|
+|        Sensor        |          GXHT30C (GXCAS)          |         HS3003 (Renesas)        |
+|      I2C Address     | 0x45 (0x44 via solder jumper SJ1) |               0x44              |
+|   Temperature Range  |           -45 to +130 °C          |          -40 to +125 °C         |
+| Temperature Accuracy |  ±0.3 °C (typical, -40 to +90 °C) |        ±0.25 °C (typical)       |
+|    Humidity Range    |            0 to 100 %RH           |           0 to 100 %RH          |
+|   Humidity Accuracy  |          ±3 %RH (typical)         |        ±2.8 %RH (typical)       |
+|      Resolution      |  0.015 °C / 0.01 %RH (16-bit ADC) | 14-bit temperature and humidity |
+|  Sensor Supply Range |          +2.0 to +5.5 VDC         |          +2.3 to +5.5 V         |
 
 > [!NOTE]
-> **Note:** The two versions of the Modulino® Thermo share the same board outline, connectors, headers, and library API. Sketches and MicroPython scripts written for one version work on the other without changes.
+> **Note:** The two versions of the Modulino Thermo share the same board outline, connectors, headers, and library API. Sketches and MicroPython scripts written for one version work on the other without changes.
 
 ### Related Products
 
@@ -105,7 +107,7 @@ The main differences between the two hardware versions are summarized in the tab
 - Arduino® VENTUNO™ Q (SKU: ABX00181)
 - Arduino® Nano R4 (SKU: ABX00142) 
 - Arduino® Nano Connector Carrier (SKU: ASX00061)
-- Arduino® Modulino® Hub (SKU: ABX00100)
+- Arduino® Modulino™ Hub (SKU: ABX00100)
 
 <div style="page-break-after: always;"></div>
 
@@ -113,7 +115,7 @@ The main differences between the two hardware versions are summarized in the tab
 
 ### Recommended Operating Conditions
 
-The table below outlines the typical operating conditions of the Modulino® Thermo. The module is powered at +3.3 VDC through its Qwiic connectors or headers and does not include a voltage regulator.
+The table below outlines the typical operating conditions of the Modulino Thermo. The module is powered at +3.3 VDC through its Qwiic connectors or headers and does not include a voltage regulator.
 
 |     **Parameter**     |    **Symbol**   | **Min** | **Typ** | **Max** | **Unit** |
 |:---------------------:|:---------------:|:-------:|:-------:|:-------:|:--------:|
@@ -125,13 +127,13 @@ The table below outlines the typical operating conditions of the Modulino® Ther
 > **Sensor Tip:** The GXHT30C sensor shows optimum performance within a temperature range of **5 to 60 °C** and a relative humidity range of **20 to 80 %RH**. Long-term exposure to conditions outside this range, especially at high humidity, may temporarily shift the humidity readings; the sensor slowly returns to its calibrated state once normal conditions are restored.
 
 > [!CAUTION]
-> **Safety Note:** The Modulino® Thermo is designed for +3.3 VDC operation. **Do not power the module from a +5 VDC supply or connect its I2C lines to a +5 VDC bus**; use a host board with a +3.3 VDC Qwiic interface or a suitable level shifter.
+> **Safety Note:** The Modulino Thermo is designed for +3.3 VDC operation. **Do not power the module from a +5 VDC supply or connect its I2C lines to a +5 VDC bus**; use a host board with a +3.3 VDC Qwiic interface or a suitable level shifter.
 
 <div style="page-break-after: always;"></div>
 
 ## Functional Overview
 
-The core of the Modulino® Thermo is the GXHT30C temperature and humidity sensor. The module also contains the connectors, headers, and passive components described in the following subsections.
+The core of the Modulino Thermo is the GXHT30C temperature and humidity sensor. The module also contains the connectors, headers, and passive components described in the following subsections.
 
 ### Pinout
 
@@ -163,7 +165,7 @@ The signals available on each connector and header are listed in the table below
 
 ### Block Diagram
 
-An overview of the Modulino® Thermo high-level architecture is illustrated in the image below.
+An overview of the Modulino Thermo high-level architecture is illustrated in the image below.
 
 ![Arduino Modulino Thermo block diagram](assets/thermo_block_diagram.png)
 
@@ -171,7 +173,7 @@ An overview of the Modulino® Thermo high-level architecture is illustrated in t
 
 ### Power Supply
 
-The Modulino® Thermo is powered at +3.3 VDC through the Qwiic connectors or the +3.3 VDC pin of either header, in accordance with the Qwiic standard. The module has no onboard voltage regulator: the +3.3 VDC rail directly supplies the sensor, the power LED, and the pull-up resistors. Decoupling capacitors (4.7 µF and 100 nF) are placed close to the sensor. The power architecture of the module is shown in the image below.
+The Modulino Thermo is powered at +3.3 VDC through the Qwiic connectors or the +3.3 VDC pin of either header, in accordance with the Qwiic standard. The module has no onboard voltage regulator: the +3.3 VDC rail directly supplies the sensor, the power LED, and the pull-up resistors. Decoupling capacitors (4.7 µF and 100 nF) are placed close to the sensor. The power architecture of the module is shown in the image below.
 
 ![Arduino Modulino Thermo power tree](assets/thermo_power_tree.png)
 
@@ -179,7 +181,7 @@ The Modulino® Thermo is powered at +3.3 VDC through the Qwiic connectors or the
 
 ### Qwiic Connectors
 
-The module has two Qwiic connectors (SM04B-SRSS-TB) wired in parallel on the same I2C bus. One connector is used to connect the module to the host board, while the other allows daisy-chaining additional Modulino® nodes or Qwiic-compatible devices. The connectors carry the +3.3 VDC supply, GND, SDA, and SCL signals.
+The module has two Qwiic connectors (SM04B-SRSS-TB) wired in parallel on the same I2C bus. One connector is used to connect the module to the host board, while the other allows daisy-chaining additional Modulino nodes or Qwiic-compatible devices. The connectors carry the +3.3 VDC supply, GND, SDA, and SCL signals.
 
 ### Additional Headers
 
@@ -192,23 +194,23 @@ In addition to the Qwiic connectors, the module exposes two headers for direct w
 - **ALERT**: Alert output of the sensor, driven high when a measurement exceeds the thresholds configured in the sensor. This pin must be left floating when the alert function is not used.
 
 > [!NOTE]
-> **Note:** The nRESET and ALERT functions of the sensor are not exposed by the Modulino® library. They are available on the header for advanced use with custom code only.
+> **Note:** The nRESET and ALERT functions of the sensor are not exposed by the Modulino library. They are available on the header for advanced use with custom code only.
 
 <div style="page-break-after: always;"></div>
 
 ### I2C Address
 
-The Modulino® Thermo acts as an I2C target device. Its default address depends on the hardware version, as shown in the table below.
+The Modulino Thermo acts as an I2C target device. Its default address depends on the hardware version, as shown in the table below.
 
 | **Board Silk Name** | **Hardware Version** | **Sensor** | **Default I2C Address (HEX)** | **Alternative I2C Address (HEX)** |
 |:-------------------:|:--------------------:|:----------:|:-----------------------------:|:---------------------------------:|
 |   MODULINO THERMO   |     V0.5 or later    |   GXHT30C  |              0x45             |  0x44 (solder jumper SJ1 closed)  |
 |   MODULINO THERMO   |   Earlier than V0.5  |   HS3003   |              0x44             |           Not supported           |
 
-On boards marked V0.5 or later, the I2C address is set by the solder jumper SJ1, located on the bottom side of the board. SJ1 is **open by default**, which leaves the sensor's ADDR pin pulled up to +3.3 VDC and sets the address to 0x45. Closing SJ1 connects the ADDR pin to GND and changes the address to 0x44. <!-- TO VERIFY: SJ1 location on the PCB (top or bottom side) -->
+On boards marked V0.5 or later, the I2C address is set by the solder jumper SJ1, located on the bottom side of the board. SJ1 is **open by default**, which leaves the sensor's ADDR pin pulled up to +3.3 VDC and sets the address to 0x45. Closing SJ1 connects the ADDR pin to GND and changes the address to 0x44.
 
 > [!CAUTION]
-> **Safety Note:** The Modulino® library identifies the hardware version of the module by its I2C address. A board marked V0.5 or later with SJ1 closed (address 0x44) will be handled as an HS3003-based board and **will not be recognized by the library**. Close SJ1 only when using custom code that addresses the GXHT30C sensor directly.
+> **Safety Note:** The Modulino library identifies the hardware version of the module by its I2C address. A board marked V0.5 or later with SJ1 closed (address 0x44) will be handled as an HS3003-based board and **will not be recognized by the library**. Close SJ1 only when using custom code that addresses the GXHT30C sensor directly.
 
 ### Power LED
 
@@ -220,29 +222,29 @@ The module has a green LED (LTST-C190KGKT) connected to the +3.3 VDC rail throug
 
 ### Getting Started - IDE
 
-If you want to program your host board while offline, you need to install the Arduino® Desktop IDE **[1]**. Connect the Modulino® Thermo to the Qwiic connector of your host board using the Qwiic cable included in the package.
+If you want to program your host board while offline, you need to install the Arduino Desktop IDE **[1]**. Connect the Modulino Thermo to the Qwiic connector of your host board using the Qwiic cable included in the package.
 
 ### Getting Started - Arduino Cloud Editor
 
-All Arduino® devices work out-of-the-box on the Arduino® Cloud Editor **[2]** by just installing a simple plugin.
+All Arduino devices work out-of-the-box on the Arduino Cloud Editor **[2]** by just installing a simple plugin.
 
-The Arduino® Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
 
 ### Getting Started - Arduino Cloud
 
-All Arduino® IoT enabled products are supported on Arduino Cloud, which allows you to log, graph, and analyze sensor data, trigger events, and automate your home or business. A Modulino® Thermo template is available on Arduino Cloud to get started quickly.
+All Arduino IoT enabled products are supported on Arduino Cloud, which allows you to log, graph, and analyze sensor data, trigger events, and automate your home or business. A Modulino Thermo template is available on Arduino Cloud to get started quickly.
 
-### Modulino® Library
+### Modulino Library
 
-The Modulino® Thermo is supported by the Modulino® library for Arduino **[5]** and by the Modulino® package for MicroPython **[6]**. Both provide a `ModulinoThermo` class that returns temperature and humidity readings without requiring direct I2C transactions. The library automatically detects the hardware version of the module.
+The Modulino Thermo is supported by the Modulino library for Arduino **[5]** and by the Modulino package for MicroPython **[6]**. Both provide a `ModulinoThermo` class that returns temperature and humidity readings without requiring direct I2C transactions. The library automatically detects the hardware version of the module.
 
 ### Sample Sketches
 
-Sample sketches for the Modulino® Thermo can be found either in the "Examples" menu in the Arduino® IDE or in the "Modulino® Thermo Documentation" section of Arduino® **[4]**.
+Sample sketches for the Modulino Thermo can be found either in the "Examples" menu in the Arduino IDE or in the "Modulino Thermo Documentation" section of Arduino Docs **[4]**.
 
 ### Online Resources
 
-Now that you have learned the basics of the Modulino® Thermo, you can explore the endless possibilities it provides by checking out exciting projects on Arduino Project Hub **[8]**, the Arduino Library Reference **[9]**, and the online store **[10]**, where you will be able to complement your Modulino® Thermo with additional nodes, boards, and accessories.
+Now that you have learned the basics of the Modulino Thermo, you can explore the endless possibilities it provides by checking out exciting projects on Arduino Project Hub **[8]**, the Arduino Library Reference **[9]**, and the online store **[10]**, where you will be able to complement your Modulino Thermo with additional nodes, boards, and accessories.
 
 <div style="page-break-after: always;"></div>
 
@@ -250,7 +252,7 @@ Now that you have learned the basics of the Modulino® Thermo, you can explore t
 
 ### Board Dimensions
 
-The Modulino® Thermo is a 41 mm × 25.36 mm board with a thickness of 1.6 mm (±0.2 mm). It has two Qwiic connectors on its short edges, two headers for direct wiring, and four mounting holes (Ø 3.2 mm) spaced 16 mm vertically and 32 mm horizontally. The board outline is shown in the image below; **all the dimensions are in mm**.
+The Modulino Thermo is a 41 mm × 25.36 mm board with a thickness of 1.6 mm (±0.2 mm). It has two Qwiic connectors on its short edges, two headers for direct wiring, and four mounting holes (Ø 3.2 mm) spaced 16 mm vertically and 32 mm horizontally. The board outline is shown in the image below; **all the dimensions are in mm**.
 
 ![Arduino Modulino Thermo board outline](assets/thermo_mechanical.png)
 
@@ -258,14 +260,14 @@ The Modulino® Thermo is a 41 mm × 25.36 mm board with a thickness of 1.6 mm (�
 
 ### Package Contents
 
-The Modulino® Thermo is supplied in a package containing the following items:
+The Modulino Thermo is supplied in a package containing the following items:
 
 |     **Item**     | **Quantity** |
 |:----------------:|:------------:|
-| Modulino® Thermo |       1      |
+| Modulino™ Thermo |       1      |
 |  I2C Qwiic cable |       1      |
 
-<img src="assets/thermo_package.png" alt="Arduino Modulino Thermo package contents" style="width: 60%; height: auto;"></img>
+![Arduino Modulino Thermo package contents](assets/thermo_package.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -342,10 +344,10 @@ As a global supplier of electronic and electrical components, Arduino is aware o
 | 1       | Arduino IDE (Desktop)           | https://www.arduino.cc/en/Main/Software                                                                           |
 | 2       | Arduino IDE (Cloud)             | https://create.arduino.cc/editor                                                                                  |
 | 3       | Arduino Cloud - Getting started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started                                   |
-| 4       | Modulino® Thermo Documentation  | https://docs.arduino.cc/hardware/modulino-thermo <!-- TO VERIFY: URL -->                                          |
-| 5       | Modulino® Library (Arduino)     | https://github.com/arduino-libraries/Arduino_Modulino                                                             |
-| 6       | Modulino® Package (MicroPython) | https://github.com/arduino/arduino-modulino-mpy                                                                   |
-| 7       | GXHT30 Sensor Datasheet         | https://www.galaxy-cas.com/uploads/files/202509/GXHT30_datasheet_V3.9_20250919170350.pdf |
+| 4       | Modulino Thermo Documentation  | https://docs.arduino.cc/hardware/modulino-thermo                                                                   |
+| 5       | Modulino Library (Arduino)     | https://github.com/arduino-libraries/Arduino_Modulino                                                              |
+| 6       | Modulino Package (MicroPython) | https://github.com/arduino/arduino-modulino-mpy                                                                    |
+| 7       | GXHT30 Sensor Datasheet         | https://www.galaxy-cas.com/uploads/files/202509/GXHT30_datasheet_V3.9_20250919170350.pdf                          |
 | 8       | Project Hub                     | https://create.arduino.cc/projecthub                                                                              |
 | 9       | Library Reference               | https://www.arduino.cc/reference/en/                                                                              |
 | 10      | Arduino Store                   | https://store.arduino.cc/                                                                                         |

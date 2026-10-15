@@ -1,1 +1,1 @@
-Here you will find the technical specifications for the Modulino® Thermo:
+Here you will find the technical specifications for the Modulino Thermo:
