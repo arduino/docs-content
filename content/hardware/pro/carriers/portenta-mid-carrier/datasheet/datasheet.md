@@ -62,11 +62,11 @@ In the following sections, as well as the tables presented in those sections, th
 | --- | --- |
 | **Mini PCIe (x1)** | Mini PCIe connector (J8), High-Density connectors (J1-J2) and breakout header connector<sup>1</sup> (J16) |
 | **Ethernet (x1)** | RJ45 connector (J18) |
-| **SPI (x2)** | SPI0: Breakout header connector (J15) and High-Density connector (J2) <br></br> SPI1: Breakout header connector (J15) and High-Density connector (J2) |
+| **SPI (x2)** | SPI0: Breakout header connector (J15) and High-Density connector (J2) <br/> SPI1: Breakout header connector (J15) and High-Density connector (J2) |
 | **I2S (x1)** | Breakout header connector (J14) and High-Density connector (J1) |
-| **I2C (x3)** | I2C0: Breakout header connector (J15) and High-Density connector (J1) <br></br> I2C1: Breakout header connector (J15) and High-Density connector (J1) <br></br> I2C2: Breakout header connector (J15) and High-Density connector (J2) |
-| **CAN bus (x2)** | CAN0<sup>2</sup>: Breakout header connector (J14) and High-Density connector (J1) <br></br> CAN1<sup>3</sup>: Breakout header connector (J14), High-Density connector (J1), and screw terminal block (J4) |
-| **UART (with flow control) (x4)** | SERIAL0: Breakout header connector (J14) and High-Density connector (J1) <br></br> SERIAL1: Breakout header connector (J14) and High-Density connector (J1) <br></br> SERIAL2: Breakout header connector (J14) and High-Density connector (J2) <br></br> SERIAL3: Breakout header connector (J14) and High-Density connector (J2) |
+| **I2C (x3)** | I2C0: Breakout header connector (J15) and High-Density connector (J1) <br/> I2C1: Breakout header connector (J15) and High-Density connector (J1) <br/> I2C2: Breakout header connector (J15) and High-Density connector (J2) |
+| **CAN bus (x2)** | CAN0<sup>2</sup>: Breakout header connector (J14) and High-Density connector (J1) <br/> CAN1<sup>3</sup>: Breakout header connector (J14), High-Density connector (J1), and screw terminal block (J4) |
+| **UART (with flow control) (x4)** | SERIAL0: Breakout header connector (J14) and High-Density connector (J1) <br/> SERIAL1: Breakout header connector (J14) and High-Density connector (J1) <br/> SERIAL2: Breakout header connector (J14) and High-Density connector (J2) <br/> SERIAL3: Breakout header connector (J14) and High-Density connector (J2) |
 
 <sup>1</sup>For debugging purposes only.
 
@@ -86,9 +86,9 @@ In the following sections, as well as the tables presented in those sections, th
 | **Display support** | Yes, available through the Carrier's GIGA Display Shield connector (J19) (x1) |
 | **Video support** | Only with the Portenta H7 and the Portenta X8 boards through its onboard USB-C® connector |
 | **Camera support<sup>4</sup>** | Yes, available through the MIPI camera connector (J10) and the DVP interface connector (J11) |
-| **DIP switches** | ETH CENTER TAP (SW3): All positions OFF to enable Ethernet for the Portenta X8 board; for the Portenta C33 and H7 boards, Ethernet is always enabled regardless of the switch positions <br></br> BOOT SEL: All positions ON to enable BOOT mode, all positions OFF to enable NORMAL operation mode |
+| **DIP switches** | ETH CENTER TAP (SW3): All positions OFF to enable Ethernet for the Portenta X8 board; for the Portenta C33 and H7 boards, Ethernet is always enabled regardless of the switch positions <br/> BOOT SEL: All positions ON to enable BOOT mode, all positions OFF to enable NORMAL operation mode |
 
-<sup>4</sup> MIPI cameras are only supported by the Portenta X8 board; DVP interface is compatible with Arducam® DVP camera modules.<br>
+<sup>4</sup> MIPI cameras are only supported by the Portenta X8 board; DVP interface is compatible with Arducam® DVP camera modules.
 
 ### Related Accessories (Not Included)
 
@@ -167,8 +167,8 @@ The breakout header connector J14 is used in the Portenta Mid Carrier to expose 
 
 | Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
 | ---------- | ---------- | --------- | ------------------------ | ---------------- | --------- |
-| 1 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
-| 2 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 1 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 2 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 3 | RTS0 |  | SERIAL0_RTS | J1-38 | UART 0 RTS |
 | 4 | RTS1 |  | SERIAL1_RTS | J1-37 | UART 1 RTS |
 | 5 | VIN | +5V | VIN | J1-21, J1-24, J1-32, J1-41, J1-48 |  |
@@ -179,8 +179,8 @@ The breakout header connector J14 is used in the Portenta Mid Carrier to expose 
 | 11 | TX1 |  | SERIAL1_TX | J1-33 | UART 1 TX |
 | 12 | CTS0 |  | SERIAL0_CTS | J1-40 | UART 0 CTS |
 | 13 | CTS1 |  | SERIAL1_CTS | J1-39 | UART 1 CTS |
-| 14 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
-| 15 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 14 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 15 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 16 | RTS2 |  | SERIAL2_RTS | J2-30 | UART 2 RTS |
 | 17 | RTS3 |  | SERIAL3_RTS | J2-29 | UART 3 RTS |
 | 18 | VIN | +5V | VIN | J1-21, J1-24, J1-32, J1-41, J1-48 |  |
@@ -218,10 +218,10 @@ The breakout header connector J15 is used in the Portenta Mid Carrier to expose 
 
 | Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
 | --- | --- | --- | --- | --- | --- |
-| 1 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
-| 2 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
-| 3 | VCC | +3V3<br></br>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
-| 4 | VCC | +3V3<br></br>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
+| 1 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 2 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 3 | VCC | +3V3<br/>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
+| 4 | VCC | +3V3<br/>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
 | 5 | VIN | +5V | VIN | J1-21, J1-24, J1-32, J1-41, J1-48 |  |
 | 6 | VIN | +5V | VIN | J1-21, J1-24, J1-32, J1-41, J1-48 |  |
 | 7 | VREFP |  | ANALOG_VREF_P | J2-71 |  |
@@ -273,11 +273,11 @@ The screw terminal block connector J4 is used to power the Portenta Mid Carrier 
 | Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
 | --- | --- | --- | --- | --- | --- |
 | 1 | VIN | +5V | VIN | J1-21, J1-24, J1-32, J1-41, J1-48 |  |
-| 2 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
-| 3 | VCC | +3V3<br></br>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
-| 4 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
-| 5 | CANH |  | CAN1 TX | J1-49 (through U2) | CAN BUS 1<br></br>CANH |
-| 6 | CANL |  | CAN1 RX | J1-51 (through U2) | CAN BUS 1<br></br>CANL |
+| 2 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 3 | VCC | +3V3<br/>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
+| 4 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 5 | CANH |  | CAN1 TX | J1-49 (through U2) | CAN BUS 1<br/>CANH |
+| 6 | CANL |  | CAN1 RX | J1-51 (through U2) | CAN BUS 1<br/>CANL |
 
 >[!NOTE]
 >**Reverse polarity protection:** IN 5V pins of the carrier's screw terminal block (J4) and breakout header connector (J15) **do not have** reverse polarity protection. Double-check the polarity of your power supply before connecting it to the carrier to avoid damaging it. 
@@ -288,11 +288,11 @@ The JTAG/SWD connector J3 can be used in the Portenta Mid Carrier to test and de
 
 | Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
 | --- | --- | --- | --- | --- | --- |
-| 1 | N/A | +3V3<br></br>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
+| 1 | N/A | +3V3<br/>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
 | 2 | N/A |  | JTAG_SWD | J1-75 | JTAG SWD |
-| 3 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 3 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 4 | N/A |  | JTAG_SCK | J1-77 | JTAG SCK |
-| 5 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 5 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 6 | N/A |  | JTAG_SWO | J1-79 | JTAG SWO |
 | 7 | N/A |  | NC | NC |  |
 | 8 | N/A |  | JTAG_TDI | J1-78 | JTAG TDI |
@@ -305,21 +305,21 @@ The MIPI connector J10 of the Portenta Mid Carrier can be used to connect compat
 
 | Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
 | --- | --- | --- | --- | --- | --- |
-| 1 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 1 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 2 | N/A |  | CAM_D0_D0_N | J2-16 |  |
 | 3 | N/A |  | CAM_D1_D0_P | J2-14 |  |
-| 4 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 4 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 5 | N/A |  | CAM_D2_D1_N | J2-12 |  |
 | 6 | N/A |  | CAM_D3_D1_P | J2-10 |  |
-| 7 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 7 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 8 | N/A |  | CAM_CK_CK_N | J2-20 |  |
 | 9 | N/A |  | CAM_VS_CK_P | J2-18 |  |
-| 10 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 10 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 11 | N/A |  | GPIO_5 | J2-56 |  |
 | 12 | N/A |  | NC | NC |  |
 | 13 | N/A |  | I2C1_SCL | J1-45 | I2C 1 SCL |
 | 14 | N/A |  | I2C1_SDA | J1-43 | I2C 1 SDA |
-| 15 | N/A | +3V3<br></br>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
+| 15 | N/A | +3V3<br/>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
 
 #### DVP Interface Connector (J11)
 
@@ -327,8 +327,8 @@ The DVP interface connector J11 of the Portenta Mid Carrier can be used to conne
 
 | Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
 | --- | --- | --- | --- | --- | --- |
-| 1 | VCC | +3V3<br></br>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
-| 2 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 1 | VCC | +3V3<br/>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
+| 2 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 3 | SCL0 |  | I2C0_SCL | J1-46 | I2C 0 SCL |
 | 4 | SDA0 |  | I2C0_SDA | J1-44 | I2C 0 SDA |
 | 5 | VSYNC |  | CAM_VS_CK_P | J2-18 |  |
@@ -357,7 +357,7 @@ The USB-A 2.0 female connector J13 of the Portenta Mid Carrier can be used for d
 | 1 | N/A | +5V | VIN | J1-21, J1-24, J1-32, J1-41, J1-48 |  |
 | 2 | N/A |  | USB0_D_N | J1-28 | USB D- |
 | 3 | N/A |  | USB0_D_P | J1-26 | USB D+ |
-| 4 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 4 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 
 #### microSD Card Slot (J12)
 
@@ -370,11 +370,11 @@ The microSD card slot J12 of the Portenta Mid Carrier can be used for bootloadin
 | 3 | N/A |  | SDC_CMD | J1-57 |  |
 | 4 | N/A | VDDSDCARD | VSD | J1-72 |  |
 | 5 | N/A |  | SDC_CLK | J1-55 |  |
-| 6 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 6 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 7 | N/A |  | SDC_D0 | J1-59 |  |
 | 8 | N/A |  | SDC_D1 | J1-61 |  |
 | CD1 | N/A |  | SDC_CD | J1-67 |  |
-| CD2 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| CD2 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 
 #### RJ45 Ethernet Connector (J18)
 
@@ -394,7 +394,7 @@ The RJ45 Ethernet connector J18 of the Portenta Mid Carrier can be used for Inte
 | 10 | N/A |  | ETH_A_N | J1-3 |  |
 | 11 | N/A |  | ETH_A_P | J1-1 |  |
 | 12 | N/A | VCC | VCC (through SW3) | J2-23, J2-34, J2-43, J2-69 |  |
-| 13 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 13 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 14 | N/A |  | ETH_LED2 | J1-19 (through resistor) |  |
 | 15 | N/A |  | ETH_LED1 | J1-17 |  |
 | 16 | N/A | VCC | VCC (through resistor) | J2-23, J2-34, J2-43, J2-69 |  |
@@ -408,27 +408,27 @@ The GIGA Display Shield connector J19 of the Portenta Mid Carrier can connect th
 | --- | --- | --- | --- | --- | --- |
 | 1 | DSI D1N |  | DSI_D1_N | J1-12 | DSI D1 N |
 | 2 | DSI D1P |  | DSI_D1_P | J1-10 | DSI D1 P |
-| 3 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
-| 4 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 3 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 4 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 5 | DSI CKN |  | DSI_CK_N | J1-20 | DSI CK N |
 | 6 | DSI CKP |  | DSI_CK_P | J1-18 | DSI CK P |
-| 7 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
-| 8 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 7 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 8 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 9 | DSI D0N |  | DSI_D0_N | J1-16 | DSI D0 N |
 | 10 | DSI D0P |  | DSI_D0_P | J1-14 | DSI D0 P |
-| 11 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
-| 12 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 11 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 12 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 13 | DSI D2N |  | DSI_D2_N | J1-8 | DSI D2 N |
 | 14 | DSI D2P |  | DSI_D2_P | J1-6 | DSI D2 P |
-| 15 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
-| 16 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 15 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 16 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 17 | DSI D3N |  | DSI_D3_N | J1-4 | DSI D3 N |
 | 18 | DSI D3P |  | DSI_D3_P | J1-2 | DSI D3 P |
 | 19 | NC |  | NC | NC |  |
 | 20 | NC |  | NC | NC |  |
 | 21 | VIN | +5V | VIN | J1-21, J1-24, J1-32, J1-41, J1-48 |  |
-| 22 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
-| 23 | VCC | +3V3<br></br>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
+| 22 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 23 | VCC | +3V3<br/>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
 | 24 | VIN | +5V | VIN | J1-21, J1-24, J1-32, J1-41, J1-48 |  |
 
 #### Mini PCIe Connector (J8)
@@ -440,53 +440,53 @@ The Mini PCIe connector J8 of the Portenta Mid Carrier can connect compatible Mi
 | 1 | N/A |  |  |  |  |
 | 2 | N/A | +3V3 PCIE |  |  |  |
 | 3 | N/A |  |  |  |  |
-| 4 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 4 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 5 | N/A |  |  |  |  |
 | 6 | N/A |  |  |  |  |
 | 7 | N/A |  | GPIO_1 | J2-48 |  |
 | 8 | N/A |  |  |  | USIM PWR |
-| 9 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 9 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 10 | N/A |  |  |  | USIM DATA |
 | 11 | N/A |  | PCIE_CK_N | J2-19 | PCIE CK N |
 | 12 | N/A |  |  |  | USIM CLK |
 | 13 | N/A |  | PCIE_CK_P | J2-17 | PCIE CK P |
 | 14 | N/A |  |  |  | USIM RST |
-| 15 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 15 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 16 | N/A |  |  |  |  |
 | 17 | N/A |  |  |  |  |
-| 18 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 18 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 19 | N/A |  |  |  |  |
 | 20 | N/A |  | GPIO_2 | J2-50 |  |
-| 21 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 21 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 22 | N/A |  | PCIE_RST | J2-21 | PCIE RST |
 | 23 | N/A |  | PCIE_RX_N | J2-15 | PCIE RX N |
 | 24 | N/A | +3V3 PCIE |  |  |  |
 | 25 | N/A |  | PCIE_RX_P | J2-13 | PCIE RX P |
-| 26 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
-| 27 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 26 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 27 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 28 | N/A |  |  |  |  |
-| 29 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 29 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 30 | N/A |  | I2C0_SCL | J1-46 | I2C 0 SCL |
 | 31 | N/A |  | PCIE_TX_N | J2-11 | PCIE TX N |
 | 32 | N/A |  | I2C0_SDA | J1-44 | I2C 0 SDA |
 | 33 | N/A |  | PCIE_TX_P | J2-9 | PCIE TX P |
-| 34 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
-| 35 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 34 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 35 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 36 | N/A |  | USB0_D_N | J1-28 | USB 0 D- |
-| 37 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 37 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 38 | N/A |  | USB0_D_P | J1-26 | USB 0 D+ |
 | 39 | N/A | +3V3 PCIE |  |  |  |
-| 40 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 40 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 41 | N/A | +3V3 PCIE |  |  |  |
 | 42 | N/A |  |  |  |  |
-| 43 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 43 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 44 | N/A |  |  |  |  |
 | 45 | N/A |  |  |  |  |
 | 46 | N/A |  |  |  |  |
 | 47 | N/A |  |  |  |  |
 | 48 | N/A |  |  |  |  |
 | 49 | N/A |  |  |  |  |
-| 50 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 50 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 | 51 | N/A |  |  |  |  |
 | 52 | N/A | +3V3 PCIE |  |  |  |
 
@@ -519,7 +519,7 @@ The Mini PCIe breakout header connector J16 of the Portenta Mid Carrier can be u
 | 21 | N/A |  |  |  |  |
 | 22 | N/A |  |  |  |  |
 | 23 | N/A |  |  |  |  |
-| 24 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 24 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br/>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 
 #### Serial Breakout Header Connector (J17)
 
@@ -583,7 +583,6 @@ Sample sketches for the Portenta family boards can be found either in the “Exa
 ### Online Resources
 
 Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino® Library Reference **[6]**, and the online store **[7]**, where you will be able to complement your Portenta Mid Carrier with additional extensions, sensors, and actuators.
-</div>
 
 <div style="page-break-after: always;"></div>
 
