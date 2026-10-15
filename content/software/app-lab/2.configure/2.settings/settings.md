@@ -37,7 +37,7 @@ The Settings page is divided into the sections below. Some sections only appear 
 
 This section provides information about the App Lab application.
 
-- **App Lab version**: The installed version of Arduino App Lab. When a newer version is available, the version is replaced by an **Update to App Lab** button.
+- **App Lab version**: The installed version of Arduino App Lab. When a newer version is available, the version number is replaced by an **Update to App Lab** button.
 - **Documentation**: Select **View documentation** to open the Arduino App Lab documentation.
 
 <Alert type="info">
