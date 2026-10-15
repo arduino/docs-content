@@ -9,9 +9,7 @@ author: José Bagur
 
 # Description 
 
-<p style="text-align: justify;">
 The Arduino Portenta Mid Carrier streamlines project development for Portenta SOMs boards by offering easy access to high-density signals through specialized and dedicated headers. It is compatible with the Portenta C33, H7, and X8 boards and is perfect for many projects, including the Internet of Things applications, asset tracking, machine vision, robotics, and automation. This carrier boasts a variety of ports and interfaces like two CAN bus lines, Ethernet, microSD, and USB, along with camera and display connectors. It features debug pins and a real-time clock battery backup, easing development. Its onboard mini PCIe connector also enables quick cellular connectivity testing, ensuring reliable data transmission even in Wi-Fi® in scarce areas. These features make the Portenta Mid Carrier a vital tool for efficiently creating innovative, connected devices.
-</p>
 
 # Target Areas
 
@@ -21,7 +19,6 @@ Rapid prototyping, asset tracking, Internet of Things, machine vision, robotics,
 
 ## Application Examples
 
-<div style="text-align:justify;">
 The Arduino Portenta Mid Carrier enhances various prototyping applications thanks to its flexible design. The Portenta Mid Carrier provides a robust platform for many projects, from industry-ready prototypes to machine vision and cellular connectivity testing. Here are some application examples:
 
 - **Rapid testing of cellular connectivity**: Use the mini PCIe connector on the Portenta Mid Carrier for swift cellular connectivity testing. This feature is invaluable for applications in smart cities/buildings, remote maintenance, and fleet management, ensuring rapid data transmission even in locations lacking Wi-Fi® coverage.
@@ -29,227 +26,69 @@ The Arduino Portenta Mid Carrier enhances various prototyping applications thank
 - **Frictionless machine vision prototyping**: Pair the Portenta Mid Carrier with an MIPI or Arducam® camera to effortlessly embark on machine vision projects. Whether for object detection and recognition, defect identification, or asset tracking, the Portenta Mid Carrier streamlines the creation of complex vision-based applications.
 - **Reference design**: The Portenta Mid Carrier serves as an excellent reference design and aids in the development of custom products within the Portenta ecosystem. Arduino PRO's full development, production, and operation support provides a solid foundation for tailoring solutions to specific business needs.
 
-</div>
-
 <div style="page-break-after: always;"></div>
 
 ## Features
 
 ### General Specifications Overview
 
-<p style="text-align: justify;">
 The Arduino Portenta Mid Carrier is an excellent tool for building scalable projects based on the Portenta family boards. The Portenta Mid Carrier was designed to give quick access to all the essential signals of the Portenta family boards, simplifying the addition of new features to enterprise projects with its Ethernet and Mini PCIe connectors. With this connector, the Portenta Mid Carrier capabilities are notably enhanced by including cellular connectivity to the carrier, allowing for rapid testing and deployment of applications requiring remote communication. The carrier includes a microSD card slot starting from an external source, and it has two CAN bus lines for connecting to actuators, which helps manage devices easily. Moreover, its onboard camera connectors enable the development of machine vision applications. The Carrier is also a straightforward reference design for creating new custom hardware. 
 
 The main features of the Portenta Mid Carrier are summarized and highlighted in the table below.
-</p>
 
-<div style="text-align:center;">
+| Feature | Description |
+| --- | --- |
+| **Ethernet** | RJ45 connector (x1) |
+| **USB Connectivity** | USB-A 2.0 female connector for data logging operations (x1) |
+| **Power Supply** | Various options for easily powering the Carrier: onboard USB-C® port of the Portenta family board connected to the Carrier, and external power supply connected through the onboard screw terminal block and dedicated pins of the breakout header connectors of the Carrier |
+| **Screw Terminal Block** | Used to power the Carrier and for the CAN bus interface (CAN1) |
+| **Breakout Header Connectors** | Available interfaces through the breakout headers are the following: UART (x4), I2S (x1), CAN bus (x2), SPDIF (x1), PDM (x1), GPIO (x7), SPI (x2), I2C (x3), SAI (x1), PWM (x10), ADC (x8) |
+| **Camera Connectors** | MIPI camera (x1), Digital Video Port (DVP) interface (x1) |
+| **Mini PCIe Interface** | Accessible through the Carrier's dedicated Mini PCIe connector, its High-Density connectors, and the dedicated Mini PCIe breakout header |
+| **Debugging** | Onboard JTAG/SWD debug connector |
+| **Battery Socket** | Onboard CR1225 battery socket used for Real-Time Clock (RTC) support |
+| **Dimensions** | 114 mm x 86.5 mm |
+| **Weight** | 67 g |
+| **Operating Temperature** | -40 °C to +85 °C |
+| **Certifications** | CE, FCC, IC, RoHS, REACH, UKCA, WEEE, Japan (No Radio) |
 
-<table>
-<thead>
-  <tr>
-    <th>Feature</th>
-    <th>Description</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>Ethernet</td>
-    <td>RJ45 connector (x1)</td>
-  </tr>
-  <tr>
-    <td>USB Connectivity</td>
-    <td>USB-A 2.0 female connector for data logging operations (x1)</td>
-  </tr>
-  <tr>
-    <td>Power Supply</td>
-    <td>Various options for easily powering the Carrier: onboard USB-C® port of the Portenta family board connected to the Carrier, and external power supply connected through the onboard screw terminal block and dedicated pins of the breakout header connectors of the Carrier</td>
-  </tr>
-  <tr>
-    <td>Screw Terminal Block</td>
-    <td>Used to power the Carrier and for the CAN bus interface (CAN1)</td>
-  </tr>
-  <tr>
-    <td>Breakout Header Connectors</td>
-    <td>Available interfaces through the breakout headers are the following: UART (x4), I2S (x1), CAN bus (x2), SPDIF (x1), PDM (x1), GPIO (x7), SPI (x2), I2C (x3), SAI (x1), PWM (x10), ADC (x8)</td>
-  </tr>
-  <tr>
-    <td>Camera Connectors</td>
-    <td>MIPI camera (x1), Digital Video Port (DVP) interface (x1)</td>
-  </tr>
-  <tr>
-    <td>Mini PCIe Interface</td>
-    <td>Accessible through the Carrier's dedicated Mini PCIe connector, its High-Density connectors, and the dedicated Mini PCIe breakout header</td>
-  </tr>
-  <tr>
-    <td>Debugging</td>
-    <td>Onboard JTAG/SWD debug connector</td>
-  </tr>
-  <tr>
-    <td>Battery Socket</td>
-    <td>Onboard CR1225 battery socket used for Real-Time Clock (RTC) support</td>
-  </tr>
-  <tr>
-    <td>Dimensions</td>
-    <td>114 mm x 86.5 mm</td>
-  </tr>
-  <tr>
-    <td>Weight</td>
-    <td>67 g</td>
-  </tr>
-  <tr>
-    <td>Operating Temperature</td>
-    <td>-40 °C to +85 °C</td>
-  </tr>
-  <tr>
-    <td>Certifications</td>
-    <td>CE, FCC, IC, RoHS, REACH, UKCA, WEEE, Japan (No Radio)</td>
-  </tr>
-</tbody>
-</table>
-</div>
-
-<p style="text-align: justify;">
 In the following sections, as well as the tables presented in those sections, the communication interfaces and other important features of the Carrier are further detailed.
-</p>
 
 <div style="page-break-after: always;"></div>
 
 ### Communication Interfaces
 
-<div style="text-align:center;">
+| Interfaces | Connector |
+| --- | --- |
+| **Mini PCIe (x1)** | Mini PCIe connector (J8), High-Density connectors (J1-J2) and breakout header connector<sup>1</sup> (J16) |
+| **Ethernet (x1)** | RJ45 connector (J18) |
+| **SPI (x2)** | SPI0: Breakout header connector (J15) and High-Density connector (J2) <br></br> SPI1: Breakout header connector (J15) and High-Density connector (J2) |
+| **I2S (x1)** | Breakout header connector (J14) and High-Density connector (J1) |
+| **I2C (x3)** | I2C0: Breakout header connector (J15) and High-Density connector (J1) <br></br> I2C1: Breakout header connector (J15) and High-Density connector (J1) <br></br> I2C2: Breakout header connector (J15) and High-Density connector (J2) |
+| **CAN bus (x2)** | CAN0<sup>2</sup>: Breakout header connector (J14) and High-Density connector (J1) <br></br> CAN1<sup>3</sup>: Breakout header connector (J14), High-Density connector (J1), and screw terminal block (J4) |
+| **UART (with flow control) (x4)** | SERIAL0: Breakout header connector (J14) and High-Density connector (J1) <br></br> SERIAL1: Breakout header connector (J14) and High-Density connector (J1) <br></br> SERIAL2: Breakout header connector (J14) and High-Density connector (J2) <br></br> SERIAL3: Breakout header connector (J14) and High-Density connector (J2) |
 
-<table>
-    <thead>
-        <tr>
-            <th width="30%" style="text-align: right;">Interfaces</th>
-            <th style="text-align: left;">Connector</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">Mini PCIe (x1)</td>
-            <td style="text-align: left;">Mini PCIe connector (J8), High-Density connectors (J1-J2) and breakout header connector<sup>1</sup> (J16)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">Ethernet (x1)</td>
-            <td style="text-align: left;">RJ45 connector (J18)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">SPI (x2)</td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>SPI0: Breakout header connector (J15) and High-Density connector (J2)</li>
-                    <li>SPI1: Breakout header connector (J15) and High-Density connector (J2)</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">I2S (x1)</td>
-            <td style="text-align: left;">Breakout header connector (J14) and High-Density connector (J1)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">I2C (x3)</td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>I2C0: Breakout header connector (J15) and High-Density connector (J1)</li>
-                    <li>I2C1: Breakout header connector (J15) and High-Density connector (J1)</li>
-                    <li>I2C2: Breakout header connector (J15) and High-Density connector (J2)</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">CAN bus (x2)</td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>CAN0<sup>2</sup>: Breakout header connector (J14) and High-Density connector (J1)</li>
-                    <li>CAN1<sup>3</sup>: Breakout header connector (J14), High-Density connector (J1), and screw terminal block (J4)</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; text-align: right;">UART (with flow control) (x4)</td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>SERIAL0: Breakout header connector (J14) and High-Density connector (J1)</li>
-                    <li>SERIAL1: Breakout header connector (J14) and High-Density connector (J1)</li>
-                    <li>SERIAL2: Breakout header connector (J14) and High-Density connector (J2)</li>
-                    <li>SERIAL3: Breakout header connector (J14) and High-Density connector (J2)</li>
-                </ul>
-            </td>
-        </tr>
-    </tbody>
-</table>
-</div>
-
-<p style="text-align: justify;">
 <sup>1</sup>For debugging purposes only.
 
 <sup>2</sup>CAN0 has no CAN PHY; an external one is needed.
 
 <sup>3</sup>CAN1 has an onboard CAN PHY available through the Carrier's screw terminal block (J4); it can be enabled or disabled via a DIP switch (SW2).
-</p>
 
 ### Other Features
 
-<div style="text-align:center;">
+| Feature | Description |
+| --- | --- |
+| **Additional onboard storage** | microSD card slot (J12) for data logging operations |
+| **SIM card support** | Yes, available through the Carrier's Mini PCIe interface |
+| **RTC Support** | Yes, available through the Carrier's onboard CR1225 battery socket |
+| **USB support** | USB-A 2.0 female connector (J13) for data logging operations |
+| **Camera support** | Yes, through the MIPI camera connector (J10) and the DVP interface connector (J11) |
+| **Display support** | Yes, available through the Carrier's GIGA Display Shield connector (J19) (x1) |
+| **Video support** | Only with the Portenta H7 and the Portenta X8 boards through its onboard USB-C® connector |
+| **Camera support<sup>4</sup>** | Yes, available through the MIPI camera connector (J10) and the DVP interface connector (J11) |
+| **DIP switches** | ETH CENTER TAP (SW3): All positions OFF to enable Ethernet for the Portenta X8 board; for the Portenta C33 and H7 boards, Ethernet is always enabled regardless of the switch positions <br></br> BOOT SEL: All positions ON to enable BOOT mode, all positions OFF to enable NORMAL operation mode |
 
-<table>
-<thead>
-    <tr>
-        <th width="30%" style="text-align: right;">Feature</th>
-        <th style="text-align: left;">Description</th>
-    </tr>
-</thead>
-<tbody>
-    <tr>
-        <td style="text-align: right;">Additional onboard storage</td>
-        <td style="text-align: left;">microSD card slot (J12) for data logging operations</td>
-    </tr>
-    <tr>
-        <td style="text-align: right;">SIM card support</td>
-        <td style="text-align: left;">Yes, available through the Carrier's Mini PCIe interface</td>
-    </tr>
-    <tr>
-        <td style="text-align: right;">RTC Support</td>
-        <td style="text-align: left;">Yes, available through the Carrier's onboard CR1225 battery socket</td>
-    </tr>
-    <tr>
-        <td style="text-align: right;">USB support</td>
-        <td style="text-align: left;">USB-A 2.0 female connector (J13) for data logging operations</td>
-    </tr>
-    <tr>
-        <td style="text-align: right;">Camera support</td>
-        <td style="text-align: left;">Yes, through the MIPI camera connector (J10) and the DVP interface connector (J11)</td>
-    </tr>
-    <tr>
-        <td style="text-align: right;">Display support</td>
-        <td style="text-align: left;">Yes, available through the Carrier's GIGA Display Shield connector (J19) (x1)</td>
-    </tr>
-    <tr>
-        <td style="text-align: right;">Video support</td>
-        <td style="text-align: left;">Only with the Portenta H7 and the Portenta X8 boards through its onboard USB-C® connector</td>
-    </tr>
-    <tr>
-        <td style="text-align: right;">Camera support<sup>4</sup></td>
-        <td style="text-align: left;">Yes, available through the MIPI camera connector (J10) and the DVP interface connector (J11)</td>
-    </tr>
-    <tr>
-        <td style="text-align: right;">DIP switches</td>
-        <td style="text-align: left;">
-            <ul>
-                <li>ETH CENTER TAP (SW3): All positions OFF to enable Ethernet for the Portenta X8 board; for the Portenta C33 and H7 boards, Ethernet is always enabled regardless of the switch positions</li>
-                <li>BOOT SEL: All positions ON to enable BOOT mode, all positions OFF to enable NORMAL operation mode</li>
-            </ul>
-        </td>
-    </tr>
-</tbody>
-</table>
-</div>
-
-<p style="text-align: justify;">
 <sup>4</sup> MIPI cameras are only supported by the Portenta X8 board; DVP interface is compatible with Arducam® DVP camera modules.<br>
-</p>
 
 ### Related Accessories (Not Included)
 
@@ -259,9 +98,8 @@ In the following sections, as well as the tables presented in those sections, th
 - Arducam® DVP camera modules
 - SIM card (only data compatible)
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The Portenta Mid Carrier requires a compatible Portenta family board to operate.
-</div>
+>[!NOTE]
+>**Note:** The Portenta Mid Carrier requires a compatible Portenta family board to operate.
 
 <div style="page-break-after: always;"></div>
 
@@ -269,11 +107,7 @@ In the following sections, as well as the tables presented in those sections, th
 
 ### Recommended Operating Conditions
 
-<p style="text-align: justify;">
 The table below provides a comprehensive guideline for the optimal use of the Arduino Portenta Mid Carrier, outlining typical operating conditions and design limits. The operating conditions of the Portenta Mid Carrier are largely based on the specifications of its components.
-</p>
-
-<div style="text-align:center;">
 
 |                 **Parameter**                |    **Symbol**   | **Min** | **Typ** | **Max** | **Unit** |
 |:--------------------------------------------:|:---------------:|:-------:|:-------:|:-------:|:--------:|
@@ -282,27 +116,18 @@ The table below provides a comprehensive guideline for the optimal use of the Ar
 | Current delivered by the Carrier<sup>3</sup> |  I<sub>C</sub>  |    -    |    -    |   2.0   |     A    |
 |             Operating Temperature            |  T<sub>OP</sub> |   -40   |    -    |    85   |    °C    |
 
-</div>
-
-<p style="text-align: justify;">
 <sup>1</sup> Carrier powered through the USB-C® port of the connected Portenta family board to the carrier.<br>
 <sup>2</sup> Carrier powered through its onboard screw terminal block (J4, IN 5V terminal) or its breakout pin header connector (J15, IN 5V pins).<br>
 <sup>3</sup> Available only for the Mini PCIe card connected to the carrier.
-</p>
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;">
-<strong>Note:</strong> Remember to check out the power specifications of the Mini PCIe card intended to be connected to the carrier to avoid damage to both the card and the carrier. For more safety tips, refer to the carrier's user manual.
-</p>
-</div>
+>[!NOTE]
+>**Note:** Remember to check out the power specifications of the Mini PCIe card intended to be connected to the carrier to avoid damage to both the card and the carrier. For more safety tips, refer to the carrier's user manual.
 
 <div style="page-break-after: always;"></div>
 
 ## Functional Overview
 
-<p style="text-align: justify;">
 The Arduino Portenta Mid Carrier is a powerful tool for developing scalable Portenta-based applications, providing quick access to all high-density signals. It enables expansion with Ethernet and the onboard Mini PCIe connector, with the added capability of cellular connectivity through the Mini PCIe interface for applications that need remote access or communication. This makes it even more versatile for projects like smart cities and IoT. Booting projects from external sources is easy with the microSD card slot, and interacting with actuators is straightforward with onboard CAN bus lines. The carrier also supports industrial machine vision with dedicated camera connectors and offers a reliable foundation for creating proprietary hardware, streamlining the development process across various projects.
-</p>
 
 ### Topology
 
@@ -310,76 +135,17 @@ An overview of the Portenta Mid Carrier topology is illustrated and described in
 
 ![](assets/Portenta_Mid_Carrier_Topology.png)
 
-<div style="text-align:center;">
-
-<table>
-    <thead>
-        <tr>
-            <th>Item</th>
-            <th>Feature</th>
-            <th>Item</th>
-            <th>Feature</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="text-align: right;">J1, J2</td>
-            <td>High-Density connectors of the Portenta family boards</td>
-            <td style="text-align: right;">J3</td>
-            <td>JTAG male connector for debugging</td>
-        </tr>
-        <tr>
-            <td style="text-align: right;">J4</td>
-            <td>Screw terminal block for power supply and CAN bus interface</td>
-            <td style="text-align: right;">J5</td>
-            <td>Battery socket</td>
-        </tr>
-        <tr>
-            <td style="text-align: right;">J8</td>
-            <td>Mini PCIe connector</td>
-            <td style="text-align: right;">J10</td>
-            <td>MIPI camera connector (only compatible with Portenta X8 boards)</td>
-        </tr>
-        <tr>
-            <td style="text-align: right;">J11</td>
-            <td>DVP interface connector</td>
-            <td style="text-align: right;">J12</td>
-            <td>microSD card slot</td>
-        </tr>
-        <tr>
-            <td style="text-align: right;">J13</td>
-            <td>USB-A 2.0 female connector for data logging operations</td>
-            <td style="text-align: right;">J14, J15</td>
-            <td>2.54 mm breakout header connectors</td>
-        </tr>
-        <tr>
-            <td style="text-align: right;">J16</td>
-            <td>Mini PCIe breakout header connector</td>
-            <td style="text-align: right;">J17</td>
-            <td>2.54 mm breakout header connectors</td>
-        </tr>
-        <tr>
-            <td style="text-align: right;">J18</td>
-            <td>RJ45 connector for Ethernet</td>
-            <td style="text-align: right;">J19</td>
-            <td>GIGA Display Shield Connector</td>
-        </tr>
-        <tr>
-            <td style="text-align: right;">SIM1</td>
-            <td>Nano SIM card connector</td>
-            <td style="text-align: right;">SW1</td>
-            <td>Boot select switch</td>
-        </tr>
-        <tr>
-            <td style="text-align: right;">SW2</td>
-            <td>CAN bus interface enable/disable switch</td>
-            <td style="text-align: right;">SW3</td>
-            <td>Ethernet enable/disable switch</td>
-        </tr>
-    </tbody>
-</table>
-
-</div>
+| Item | Feature | Item | Feature |
+| --- | --- | --- | --- |
+| **J1, J2** | High-Density connectors of the Portenta family boards | **J3** | JTAG male connector for debugging |
+| **J4** | Screw terminal block for power supply and CAN bus interface | **J5** | Battery socket |
+| **J8** | Mini PCIe connector | **J10** | MIPI camera connector (only compatible with Portenta X8 boards) |
+| **J11** | DVP interface connector | **J12** | microSD card slot |
+| **J13** | USB-A 2.0 female connector for data logging operations | **J14, J15** | 2.54 mm breakout header connectors |
+| **J16** | Mini PCIe breakout header connector | **J17** | 2.54 mm breakout header connectors |
+| **J18** | RJ45 connector for Ethernet | **J19** | GIGA Display Shield Connector |
+| **SIM1** | Nano SIM card connector | **SW1** | Boot select switch |
+| **SW2** | CAN bus interface enable/disable switch | **SW3** | Ethernet enable/disable switch |
 
 ### Simple Pinout 
 
@@ -395,2490 +161,376 @@ The Portenta Mid Carrier full pinout is shown in the following sections, sorted 
 
 #### Breakout Header Connector (J14)
 
-<p style="text-align: justify;">
 The breakout header connector J14 is used in the Portenta Mid Carrier to expose the connected Portenta family board High-Density signals. J14 is a male header connector with a pin spacing of 2.54 mm.
-</p>
 
-<table align = "center">
-<thead>
-  <tr>
-    <th align="center">Pin Number</th>
-    <th align="center">Silkscreen</th>
-    <th align="center">Power Net</th>
-    <th align="center">Portenta HD Standard Pin</th>
-    <th align="center">High-Density Pin</th>
-    <th align="center">Interface</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td align="center">1</td>
-    <td align="center">GND</td>
-    <td align="center">GND</td>
-    <td align="center">GND</td>
-    <td align="center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">2</td>
-    <td align="center">GND</td>
-    <td align="center">GND</td>
-    <td align="center">GND</td>
-    <td align="center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align="center"></td>
-  </tr>
-  <tr> 
-    <td align="center">3</td>
-    <td align="center">RTS0</td>
-    <td align="center"></td>
-    <td align="center">SERIAL0_RTS</td>
-    <td align="center">J1-38</td>
-    <td align="center">UART 0 RTS</td>
-  </tr>
-  <tr>
-    <td align="center">4</td>
-    <td align="center">RTS1</td>
-    <td align="center"></td>
-    <td align="center">SERIAL1_RTS</td>
-    <td align="center">J1-37</td>
-    <td align="center">UART 1 RTS</td>
-  </tr>
-  <tr>
-    <td align="center">5</td>
-    <td align="center">VIN</td>
-    <td align="center">+5V</td>
-    <td align="center">VIN</td>
-    <td align="center">J1-21, J1-24, J1-32, J1-41, J1-48</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">6</td>
-    <td align="center">VIN</td>
-    <td align="center">+5V</td>
-    <td align="center">VIN</td>
-    <td align="center">J1-21, J1-24, J1-32, J1-41, J1-48</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">8</td>
-    <td align="center">RX0</td>
-    <td align="center"></td>
-    <td align="center">SERIAL0_RX</td>
-    <td align="center">J1-36</td>
-    <td align="center">UART 0 RX</td>
-  </tr>
-  <tr>
-    <td align="center">9</td>
-    <td align="center">RX1</td>
-    <td align="center"></td>
-    <td align="center">SERIAL1_RX</td>
-    <td align="center">J1-35</td>
-    <td align="center">UART 1 RX</td>
-  </tr>
-  <tr>
-    <td align="center">10</td>
-    <td align="center">TX0</td>
-    <td align="center"></td>
-    <td align="center">SERIAL0_TX</td>
-    <td align="center">J1-34</td>
-    <td align="center">UART 0 TX</td>
-  </tr>
-  <tr>
-    <td align="center">11</td>
-    <td align="center">TX1</td>
-    <td align="center"></td>
-    <td align="center">SERIAL1_TX</td>
-    <td align="center">J1-33</td>
-    <td align="center">UART 1 TX</td>
-  </tr>
-  <tr>
-    <td align="center">12</td>
-    <td align="center">CTS0</td>
-    <td align="center"></td>
-    <td align="center">SERIAL0_CTS</td>
-    <td align="center">J1-40</td>
-    <td align="center">UART 0 CTS</td>
-  </tr>
-  <tr>
-    <td align="center">13</td>
-    <td align="center">CTS1</td>
-    <td align="center"></td>
-    <td align="center">SERIAL1_CTS</td>
-    <td align="center">J1-39</td>
-    <td align="center">UART 1 CTS</td>
-  </tr>
-  <tr>
-    <td align="center">14</td>
-    <td align="center">GND</td>
-    <td align="center">GND</td>
-    <td align="center">GND</td>
-    <td align="center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">15</td>
-    <td align="center">GND</td>
-    <td align="center">GND</td>
-    <td align="center">GND</td>
-    <td align="center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">16</td>
-    <td align="center">RTS2</td>
-    <td align="center"></td>
-    <td align="center">SERIAL2_RTS</td>
-    <td align="center">J2-30</td>
-    <td align="center">UART 2 RTS</td>
-  </tr>
-  <tr>
-    <td align="center">17</td>
-    <td align="center">RTS3</td>
-    <td align="center"></td>
-    <td align="center">SERIAL3_RTS</td>
-    <td align="center">J2-29</td>
-    <td align="center">UART 3 RTS</td>
-  </tr>
-  <tr>
-    <td align="center">18</td>
-    <td align="center">VIN</td>
-    <td align="center">+5V</td>
-    <td align="center">VIN</td>
-    <td align="center">J1-21, J1-24, J1-32, J1-41, J1-48</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">19</td>
-    <td align="center">VIN</td>
-    <td align="center">+5V</td>
-    <td align="center">VIN</td>
-    <td align="center">J1-21, J1-24, J1-32, J1-41, J1-48</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">20</td>
-    <td align="center">RX2</td>
-    <td align="center"></td>
-    <td align="center">SERIAL2_RX</td>
-    <td align="center">J2-28</td>
-    <td align="center">UART 2 RX</td>
-  </tr>
-  <tr>
-    <td align="center">21</td>
-    <td align="center">RX3</td>
-    <td align="center"></td>
-    <td align="center">SERIAL3_RX</td>
-    <td align="center">J2-27</td>
-    <td align="center">UART 3 RX</td>
-  </tr>
-  <tr>
-    <td align="center">22</td>
-    <td align="center">TX2</td>
-    <td align="center"></td>
-    <td align="center">SERIAL2_TX</td>
-    <td align="center">J2-26</td>
-    <td align="center">UART 2 TX</td>
-  </tr>
-  <tr>
-    <td align="center">23</td>
-    <td align="center">TX3</td>
-    <td align="center"></td>
-    <td align="center">SERIAL3_TX</td>
-    <td align="center">J2-25</td>
-    <td align="center">UART 3 TX</td>
-  </tr>
-  <tr>
-    <td align="center">24</td>
-    <td align="center">CTS2</td>
-    <td align="center"></td>
-    <td align="center">SERIAL2_CTS</td>
-    <td align="center">J2-32</td>
-    <td align="center">UART 2 CTS</td>
-  </tr>
-  <tr>
-    <td align="center">25</td>
-    <td align="center">CTS3</td>
-    <td align="center"></td>
-    <td align="center">SERIAL3_CTS</td>
-    <td align="center">J2-31</td>
-    <td align="center">UART 3 CTS</td>
-  </tr>
-  <tr>
-    <td align="center">26</td>
-    <td align="center">I2S CLK</td>
-    <td align="center"></td>
-    <td align="center">I2S_CK</td>
-    <td align="center">J1-56</td>
-    <td align="center">I2S CK</td>
-  </tr>
-  <tr>
-    <td align="center">27</td>
-    <td align="center">CAN0 TX</td>
-    <td align="center"></td>
-    <td align="center">CAN0_TX</td>
-    <td align="center">J1-50</td>
-    <td align="center">CAN 0 TX</td>
-  </tr>
-  <tr>
-    <td align="center">28</td>
-    <td align="center">I2S WS</td>
-    <td align="center"></td>
-    <td align="center">I2S_WS</td>
-    <td align="center">J1-58</td>
-    <td align="center">I2S WS</td>
-  </tr>
-  <tr> 
-    <td align="center">29</td>
-    <td align="center">CAN0 RX</td>
-    <td align="center"></td>
-    <td align="center">CAN0_RX</td>
-    <td align="center">J1-52</td>
-    <td align="center">CAN 0 RX</td>
-  </tr>
-  <tr>
-    <td align="center">30</td>
-    <td align="center">I2S SDI</td>
-    <td align="center"></td>
-    <td align="center">I2S_SDI</td>
-    <td align="center">J1-60</td>
-    <td align="center">I2S SDI</td>
-  </tr>
-  <tr>
-    <td align="center">31</td>
-    <td align="center">CAN1 TX</td>
-    <td align="center"></td>
-    <td align="center">CAN1_TX</td>
-    <td align="center">J1-49</td>
-    <td align="center">CAN 1 TX</td>
-  </tr>
-  <tr>
-    <td align="center">32</td>
-    <td align="center">I2S SDO</td>
-    <td align="center"></td>
-    <td align="center">I2S_SDO</td>
-    <td align="center">J1-62</td>
-    <td align="center">I2S SDO</td>
-  </tr>
-  <tr>
-    <td align="center">33</td>
-    <td align="center">CAN1 RX</td>
-    <td align="center"></td>
-    <td align="center">CAN1_RX</td>
-    <td align="center">J1-51</td>
-    <td align="center">CAN 1 RX</td>
-  </tr>
-  <tr>
-    <td align="center">34</td>
-    <td align="center">SPDIF TX</td>
-    <td align="center"></td>
-    <td align="center">SPDIF_TX</td>
-    <td align="center">J1-74</td>
-    <td align="center">SPDIF TX</td>
-  </tr>
-  <tr>
-    <td align="center">35</td>
-    <td align="center">PDM CLK</td>
-    <td align="center"></td>
-    <td align="center">PDM_CK</td>
-    <td align="center">J1-66</td>
-    <td align="center">PDM CK</td>
-  </tr>
-  <tr>
-    <td align="center">36</td>
-    <td align="center">SPDIF RX</td>
-    <td align="center"></td>
-    <td align="center">SPDIF_RX</td>
-    <td align="center">J1-76</td>
-    <td align="center">SPDIF RX</td>
-  </tr>
-  <tr>
-    <td align="center">37</td>
-    <td align="center">PDM D0</td>
-    <td align="center"></td>
-    <td align="center">PDM_D0</td>
-    <td align="center">J1-68</td>
-    <td align="center">PDM D0</td>
-  </tr>
-  <tr>
-    <td align="center">37</td>
-    <td align="center">GPIO0</td>
-    <td align="center"></td>
-    <td align="center">GPIO_0</td>
-    <td align="center">J2-46</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">38</td>
-    <td align="center">PDM D1</td>
-    <td align="center"></td>
-    <td align="center">PDM_D1</td>
-    <td align="center">J1-70</td>
-    <td align="center">PDM D1</td>
-  </tr>
-  <tr>
-    <td align="center">39</td>
-    <td align="center">GPIO1</td>
-    <td align="center"></td>
-    <td align="center">GPIO_0</td>
-    <td align="center">J2-48</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">40</td>
-    <td align="center">GPIO6</td>
-    <td align="center"></td>
-    <td align="center">GPIO_6</td>
-    <td align="center">J2-58</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">41</td>
-    <td align="center">GPIO2</td>
-    <td align="center"></td>
-    <td align="center">GPIO_2</td>
-    <td align="center">J2-50</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">42</td>
-    <td align="center">GPIO5</td>
-    <td align="center"></td>
-    <td align="center">GPIO_5</td>
-    <td align="center">J2-56</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">43</td>
-    <td align="center">GPIO3</td>
-    <td align="center"></td>
-    <td align="center">GPIO_3</td>
-    <td align="center">J2-52</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">44</td>
-    <td align="center">GPIO4</td>
-    <td align="center"></td>
-    <td align="center">GPIO_4</td>
-    <td align="center">J2-54</td>
-    <td align="center"></td>
-  </tr>
-</tbody>
-</table>
+| Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
+| ---------- | ---------- | --------- | ------------------------ | ---------------- | --------- |
+| 1 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 2 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 3 | RTS0 |  | SERIAL0_RTS | J1-38 | UART 0 RTS |
+| 4 | RTS1 |  | SERIAL1_RTS | J1-37 | UART 1 RTS |
+| 5 | VIN | +5V | VIN | J1-21, J1-24, J1-32, J1-41, J1-48 |  |
+| 6 | VIN | +5V | VIN | J1-21, J1-24, J1-32, J1-41, J1-48 |  |
+| 8 | RX0 |  | SERIAL0_RX | J1-36 | UART 0 RX |
+| 9 | RX1 |  | SERIAL1_RX | J1-35 | UART 1 RX |
+| 10 | TX0 |  | SERIAL0_TX | J1-34 | UART 0 TX |
+| 11 | TX1 |  | SERIAL1_TX | J1-33 | UART 1 TX |
+| 12 | CTS0 |  | SERIAL0_CTS | J1-40 | UART 0 CTS |
+| 13 | CTS1 |  | SERIAL1_CTS | J1-39 | UART 1 CTS |
+| 14 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 15 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 16 | RTS2 |  | SERIAL2_RTS | J2-30 | UART 2 RTS |
+| 17 | RTS3 |  | SERIAL3_RTS | J2-29 | UART 3 RTS |
+| 18 | VIN | +5V | VIN | J1-21, J1-24, J1-32, J1-41, J1-48 |  |
+| 19 | VIN | +5V | VIN | J1-21, J1-24, J1-32, J1-41, J1-48 |  |
+| 20 | RX2 |  | SERIAL2_RX | J2-28 | UART 2 RX |
+| 21 | RX3 |  | SERIAL3_RX | J2-27 | UART 3 RX |
+| 22 | TX2 |  | SERIAL2_TX | J2-26 | UART 2 TX |
+| 23 | TX3 |  | SERIAL3_TX | J2-25 | UART 3 TX |
+| 24 | CTS2 |  | SERIAL2_CTS | J2-32 | UART 2 CTS |
+| 25 | CTS3 |  | SERIAL3_CTS | J2-31 | UART 3 CTS |
+| 26 | I2S CLK |  | I2S_CK | J1-56 | I2S CK |
+| 27 | CAN0 TX |  | CAN0_TX | J1-50 | CAN 0 TX |
+| 28 | I2S WS |  | I2S_WS | J1-58 | I2S WS |
+| 29 | CAN0 RX |  | CAN0_RX | J1-52 | CAN 0 RX |
+| 30 | I2S SDI |  | I2S_SDI | J1-60 | I2S SDI |
+| 31 | CAN1 TX |  | CAN1_TX | J1-49 | CAN 1 TX |
+| 32 | I2S SDO |  | I2S_SDO | J1-62 | I2S SDO |
+| 33 | CAN1 RX |  | CAN1_RX | J1-51 | CAN 1 RX |
+| 34 | SPDIF TX |  | SPDIF_TX | J1-74 | SPDIF TX |
+| 35 | PDM CLK |  | PDM_CK | J1-66 | PDM CK |
+| 36 | SPDIF RX |  | SPDIF_RX | J1-76 | SPDIF RX |
+| 37 | PDM D0 |  | PDM_D0 | J1-68 | PDM D0 |
+| 37 | GPIO0 |  | GPIO_0 | J2-46 |  |
+| 38 | PDM D1 |  | PDM_D1 | J1-70 | PDM D1 |
+| 39 | GPIO1 |  | GPIO_0 | J2-48 |  |
+| 40 | GPIO6 |  | GPIO_6 | J2-58 |  |
+| 41 | GPIO2 |  | GPIO_2 | J2-50 |  |
+| 42 | GPIO5 |  | GPIO_5 | J2-56 |  |
+| 43 | GPIO3 |  | GPIO_3 | J2-52 |  |
+| 44 | GPIO4 |  | GPIO_4 | J2-54 |  |
 
 #### Breakout Header Connector (J15)
 
-<p style="text-align: justify;">
 The breakout header connector J15 is used in the Portenta Mid Carrier to expose the connected Portenta family board High-Density signals. J15 is a male header connector with a pin spacing of 2.54 mm.
-</p>
 
-<table align = "center">
-<thead>
-  <tr>
-    <th align="center">Pin Number</th>
-    <th align="center">Silkscreen</th>
-    <th align="center">Power Net</th>
-    <th align="center">Portenta HD Standard Pin</th>
-    <th align="center">High-Density Pin</th>
-    <th align="center">Interface</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td align="center">1</td>
-    <td align="center">GND</td>
-    <td align="center">GND</td>
-    <td align="center">GND</td>
-    <td align="center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">2</td>
-    <td align="center">GND</td>
-    <td align="center">GND</td>
-    <td align="center">GND</td>
-    <td align="center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">3</td>
-    <td align="center">VCC</td>
-    <td align="center">+3V3<br>Portenta</td>
-    <td align="center">VCC</td>
-    <td align="center">J2-23, J2-34, J2-43, J2-69</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">4</td>
-    <td align="center">VCC</td>
-    <td align="center">+3V3<br>Portenta</td>
-    <td align="center">VCC</td>
-    <td align="center">J2-23, J2-34, J2-43, J2-69</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">5</td>
-    <td align="center">VIN</td>
-    <td align="center">+5V</td>
-    <td align="center">VIN</td>
-    <td align="center">J1-21, J1-24, J1-32, J1-41, J1-48</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">6</td>
-    <td align="center">VIN</td>
-    <td align="center">+5V</td>
-    <td align="center">VIN</td>
-    <td align="center">J1-21, J1-24, J1-32, J1-41, J1-48</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">7</td>
-    <td align="center">VREFP</td>
-    <td align="center"></td>
-    <td align="center">ANALOG_VREF_P</td>
-    <td align="center">J2-71</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">8</td>
-    <td align="center">VREFN</td>
-    <td align="center"></td>
-    <td align="center">ANALOG_VREF_N</td>
-    <td align="center">J2-72</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">9</td>
-    <td align="center">A0</td>
-    <td align="center"></td>
-    <td align="center">ANALOG_A0</td>
-    <td align="center">J2-73</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">10</td>
-    <td align="center">SPI0 CS</td>
-    <td align="center"></td>
-    <td align="center">SPI0_CS</td>
-    <td align="center">J2-53</td>
-    <td align="center">SPI 0 CS</td>
-  </tr>
-  <tr>
-    <td align="center">11</td>
-    <td align="center">A1</td>
-    <td align="center"></td>
-    <td align="center">ANALOG_A1</td>
-    <td align="center">J2-75</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">12</td>
-    <td align="center">SPI0 SCLK</td>
-    <td align="center"></td>
-    <td align="center">SPI0_CK</td>
-    <td align="center">J2-37</td>
-    <td align="center">SPI 0 CK</td>
-  </tr>
-  <tr>
-    <td align="center">13</td>
-    <td align="center">A2</td>
-    <td align="center"></td>
-    <td align="center">ANALOG_A2</td>
-    <td align="center">J2-77</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">14</td>
-    <td align="center">SPI0 CIPO</td>
-    <td align="center"></td>
-    <td align="center">SPI0_MISO</td>
-    <td align="center">J2-39</td>
-    <td align="center">SPI 0 CIPO</td>
-  </tr>
-  <tr>
-    <td align="center">15</td>
-    <td align="center">A3</td>
-    <td align="center"></td>
-    <td align="center">ANALOG_A3</td>
-    <td align="center">J2-79</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">16</td>
-    <td align="center">SPI0 COPI</td>
-    <td align="center"></td>
-    <td align="center">SPI0_MOSI</td>
-    <td align="center">J2-41</td>
-    <td align="center">SPI 0 COPI</td>
-  </tr>
-  <tr>
-    <td align="center">17</td>
-    <td align="center">A4</td>
-    <td align="center"></td>
-    <td align="center">ANALOG_A4</td>
-    <td align="center">J2-74</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">18</td>
-    <td align="center">SPI1 CS</td>
-    <td align="center"></td>
-    <td align="center">SPI1_CS</td>
-    <td align="center">J2-36</td>
-    <td align="center">SPI 1 CS</td>
-  </tr>
-  <tr>
-    <td align="center">19</td>
-    <td align="center">A5</td>
-    <td align="center"></td>
-    <td align="center">ANALOG_A5</td>
-    <td align="center">J2-76</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">20</td>
-    <td align="center">SPI1 SCLK</td>
-    <td align="center"></td>
-    <td align="center">SPI1_CK</td>
-    <td align="center">J2-38</td>
-    <td align="center">SPI 1 CK</td>
-  </tr>
-  <tr>
-    <td align="center">21</td>
-    <td align="center">A6</td>
-    <td align="center"></td>
-    <td align="center">ANALOG_A6</td>
-    <td align="center">J2-78</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">22</td>
-    <td align="center">SPI1 CIPO</td>
-    <td align="center"></td>
-    <td align="center">SPI1_MISO</td>
-    <td align="center">J2-40</td>
-    <td align="center">SPI 1 CIPO</td>
-  </tr>
-  <tr>
-    <td align="center">23</td>
-    <td align="center">A7</td>
-    <td align="center"></td>
-    <td align="center">ANALOG_A7</td>
-    <td align="center">J2-80</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">24</td>
-    <td align="center">SPI1 COPI</td>
-    <td align="center"></td>
-    <td align="center">SPI1_MOSI</td>
-    <td align="center">J2-42</td>
-    <td align="center">SPI 1 COPI</td>
-  </tr>
-  <tr>
-    <td align="center">25</td>
-    <td align="center">PWM0</td>
-    <td align="center"></td>
-    <td align="center">PWM_0</td>
-    <td align="center">J2-59</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">26</td>
-    <td align="center">I2C0 SDA</td>
-    <td align="center"></td>
-    <td align="center">I2C0_SDA</td>
-    <td align="center">J1-44</td>
-    <td align="center">I2C 0 SDA</td>
-  </tr>
-  <tr>
-    <td align="center">27</td>
-    <td align="center">PWM1</td>
-    <td align="center"></td>
-    <td align="center">PWM_1</td>
-    <td align="center">J2-61</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">28</td>
-    <td align="center">I2C0 SCL</td>
-    <td align="center"></td>
-    <td align="center">I2C0_SCL</td>
-    <td align="center">J1-46</td>
-    <td align="center">I2C 0 SCL</td>
-  </tr>
-  <tr>
-    <td align="center">29</td>
-    <td align="center">PWM2</td>
-    <td align="center"></td>
-    <td align="center">PWM_2</td>
-    <td align="center">J2-63</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">30</td>
-    <td align="center">I2C1 SDA</td>
-    <td align="center"></td>
-    <td align="center">I2C1_SDA</td>
-    <td align="center">J1-43</td>
-    <td align="center">I2C 1 SDA</td>
-  </tr>
-  <tr>
-    <td align="center">31</td>
-    <td align="center">PWM3</td>
-    <td align="center"></td>
-    <td align="center">PWM_3</td>
-    <td align="center">J2-65</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">32</td>
-    <td align="center">I2C1 SCL</td>
-    <td align="center"></td>
-    <td align="center">I2C1_SCL</td>
-    <td align="center">J1-45</td>
-    <td align="center">I2C 1 SCL</td>
-  </tr>
-  <tr>
-    <td align="center">33</td>
-    <td align="center">PWM4</td>
-    <td align="center"></td>
-    <td align="center">PWM_4</td>
-    <td align="center">J2-67</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">34</td>
-    <td align="center">I2C2 SDA</td>
-    <td align="center"></td>
-    <td align="center">I2C2_SDA</td>
-    <td align="center">J2-45</td>
-    <td align="center">I2C 2 SDA</td>
-  </tr>
-  <tr>
-    <td align="center">35</td>
-    <td align="center">PWM5</td>
-    <td align="center"></td>
-    <td align="center">PWM_5</td>
-    <td align="center">J2-60</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">36</td>
-    <td align="center">I2C2 SCL</td>
-    <td align="center"></td>
-    <td align="center">I2C2_SCL</td>
-    <td align="center">J2-47</td>
-    <td align="center">I2C 2 SCL</td>
-  </tr>
-  <tr>
-    <td align="center">37</td>
-    <td align="center">PWM6</td>
-    <td align="center"></td>
-    <td align="center">PWM_6</td>
-    <td align="center">J2-62</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">38</td>
-    <td align="center">SAI CLK</td>
-    <td align="center"></td>
-    <td align="center">SAI_CK</td>
-    <td align="center">J2-49</td>
-    <td align="center">SAI CLK</td>
-  </tr>
-  <tr>
-    <td align="center">39</td>
-    <td align="center">PWM7</td>
-    <td align="center"></td>
-    <td align="center">PWM_7</td>
-    <td align="center">J2-64</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">40</td>
-    <td align="center">SAI FS</td>
-    <td align="center"></td>
-    <td align="center">SAI_FS</td>
-    <td align="center">J2-51</td>
-    <td align="center">SAI FS</td>
-  </tr>
-  <tr>
-    <td align="center">41</td>
-    <td align="center">PWM8</td>
-    <td align="center"></td>
-    <td align="center">PWM_8</td>
-    <td align="center">J2-66</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">42</td>
-    <td align="center">SAI D0</td>
-    <td align="center"></td>
-    <td align="center">SAI_D0</td>
-    <td align="center">J2-53</td>
-    <td align="center">SAI D0</td>
-  </tr>
-  <tr>
-    <td align="center">43</td>
-    <td align="center">PWM9</td>
-    <td align="center"></td>
-    <td align="center">PWM_9</td>
-    <td align="center">J2-68</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">44</td>
-    <td align="center">SAI D1</td>
-    <td align="center"></td>
-    <td align="center">SAI_D1</td>
-    <td align="center">J2-55</td>
-    <td align="center">SAI D1</td>
-  </tr>
-</tbody>
-</table>
+| Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
+| --- | --- | --- | --- | --- | --- |
+| 1 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 2 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 3 | VCC | +3V3<br></br>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
+| 4 | VCC | +3V3<br></br>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
+| 5 | VIN | +5V | VIN | J1-21, J1-24, J1-32, J1-41, J1-48 |  |
+| 6 | VIN | +5V | VIN | J1-21, J1-24, J1-32, J1-41, J1-48 |  |
+| 7 | VREFP |  | ANALOG_VREF_P | J2-71 |  |
+| 8 | VREFN |  | ANALOG_VREF_N | J2-72 |  |
+| 9 | A0 |  | ANALOG_A0 | J2-73 |  |
+| 10 | SPI0 CS |  | SPI0_CS | J2-53 | SPI 0 CS |
+| 11 | A1 |  | ANALOG_A1 | J2-75 |  |
+| 12 | SPI0 SCLK |  | SPI0_CK | J2-37 | SPI 0 CK |
+| 13 | A2 |  | ANALOG_A2 | J2-77 |  |
+| 14 | SPI0 CIPO |  | SPI0_MISO | J2-39 | SPI 0 CIPO |
+| 15 | A3 |  | ANALOG_A3 | J2-79 |  |
+| 16 | SPI0 COPI |  | SPI0_MOSI | J2-41 | SPI 0 COPI |
+| 17 | A4 |  | ANALOG_A4 | J2-74 |  |
+| 18 | SPI1 CS |  | SPI1_CS | J2-36 | SPI 1 CS |
+| 19 | A5 |  | ANALOG_A5 | J2-76 |  |
+| 20 | SPI1 SCLK |  | SPI1_CK | J2-38 | SPI 1 CK |
+| 21 | A6 |  | ANALOG_A6 | J2-78 |  |
+| 22 | SPI1 CIPO |  | SPI1_MISO | J2-40 | SPI 1 CIPO |
+| 23 | A7 |  | ANALOG_A7 | J2-80 |  |
+| 24 | SPI1 COPI |  | SPI1_MOSI | J2-42 | SPI 1 COPI |
+| 25 | PWM0 |  | PWM_0 | J2-59 |  |
+| 26 | I2C0 SDA |  | I2C0_SDA | J1-44 | I2C 0 SDA |
+| 27 | PWM1 |  | PWM_1 | J2-61 |  |
+| 28 | I2C0 SCL |  | I2C0_SCL | J1-46 | I2C 0 SCL |
+| 29 | PWM2 |  | PWM_2 | J2-63 |  |
+| 30 | I2C1 SDA |  | I2C1_SDA | J1-43 | I2C 1 SDA |
+| 31 | PWM3 |  | PWM_3 | J2-65 |  |
+| 32 | I2C1 SCL |  | I2C1_SCL | J1-45 | I2C 1 SCL |
+| 33 | PWM4 |  | PWM_4 | J2-67 |  |
+| 34 | I2C2 SDA |  | I2C2_SDA | J2-45 | I2C 2 SDA |
+| 35 | PWM5 |  | PWM_5 | J2-60 |  |
+| 36 | I2C2 SCL |  | I2C2_SCL | J2-47 | I2C 2 SCL |
+| 37 | PWM6 |  | PWM_6 | J2-62 |  |
+| 38 | SAI CLK |  | SAI_CK | J2-49 | SAI CLK |
+| 39 | PWM7 |  | PWM_7 | J2-64 |  |
+| 40 | SAI FS |  | SAI_FS | J2-51 | SAI FS |
+| 41 | PWM8 |  | PWM_8 | J2-66 |  |
+| 42 | SAI D0 |  | SAI_D0 | J2-53 | SAI D0 |
+| 43 | PWM9 |  | PWM_9 | J2-68 |  |
+| 44 | SAI D1 |  | SAI_D1 | J2-55 | SAI D1 |
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;">
-<strong>Reverse polarity protection:</strong> IN 5V pins of the carrier's screw terminal block (J4) and breakout header connector (J15) <strong> do not have</strong> reverse polarity protection. Double-check the polarity of your power supply before connecting it to the carrier to avoid damaging it. 
-</p>
-</div>
+>[!NOTE]
+>**Reverse polarity protection:** IN 5V pins of the carrier's screw terminal block (J4) and breakout header connector (J15) **do not have** reverse polarity protection. Double-check the polarity of your power supply before connecting it to the carrier to avoid damaging it. 
 
 #### Screw Terminal Block (J4) 
 
-<p style="text-align: justify;">
 The screw terminal block connector J4 is used to power the Portenta Mid Carrier and to expose the CAN bus interface (CAN1) to the user. 
-</p>
 
-<table align = "center">
-<thead>
-  <tr>
-    <th align = "center">Pin Number</th>
-    <th align = "center">Silkscreen</th>
-    <th align = "center">Power Net</th>
-    <th align = "center">Portenta HD Standard Pin</th>
-    <th align = "center">High-Density Pin</th>
-    <th align = "center">Interface</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td align = "center">1</td>
-    <td align = "center">VIN</td>
-    <td align = "center">+5V</td>
-    <td align = "center">VIN</td>
-    <td align = "center">J1-21, J1-24, J1-32, J1-41, J1-48</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">2</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">3</td>
-    <td align = "center">VCC</td>
-    <td align = "center">+3V3<br>Portenta</td>
-    <td align = "center">VCC</td>
-    <td align = "center">J2-23, J2-34, J2-43, J2-69</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">4</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">5</td>
-    <td align = "center">CANH</td>
-    <td align = "center"></td>
-    <td align = "center">CAN1 TX</td>
-    <td align = "center">J1-49 (through U2)</td>
-    <td align = "center">CAN BUS 1<br>CANH</td>
-  </tr>
-  <tr>
-    <td align = "center">6</td>
-    <td align = "center">CANL</td>
-    <td align = "center"></td>
-    <td align = "center">CAN1 RX</td>
-    <td align = "center">J1-51 (through U2)</td>
-    <td align = "center">CAN BUS 1<br>CANL</td>
-  </tr>
-</tbody>
-</table>
+| Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
+| --- | --- | --- | --- | --- | --- |
+| 1 | VIN | +5V | VIN | J1-21, J1-24, J1-32, J1-41, J1-48 |  |
+| 2 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 3 | VCC | +3V3<br></br>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
+| 4 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 5 | CANH |  | CAN1 TX | J1-49 (through U2) | CAN BUS 1<br></br>CANH |
+| 6 | CANL |  | CAN1 RX | J1-51 (through U2) | CAN BUS 1<br></br>CANL |
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;">
-<strong>Reverse polarity protection:</strong> IN 5V pins of the carrier's screw terminal block (J4) and breakout header connector (J15) <strong> do not have</strong> reverse polarity protection. Double-check the polarity of your power supply before connecting it to the carrier to avoid damaging it. 
-</p>
-</div>
+>[!NOTE]
+>**Reverse polarity protection:** IN 5V pins of the carrier's screw terminal block (J4) and breakout header connector (J15) **do not have** reverse polarity protection. Double-check the polarity of your power supply before connecting it to the carrier to avoid damaging it. 
+
 
 #### JTAG/SWD Connector (J3)
 
-<p style="text-align: justify;">
 The JTAG/SWD connector J3 can be used in the Portenta Mid Carrier to test and debug the connected Portenta family board. 
-</p>
 
-<table align = "center">
-<thead>
-  <tr>
-    <th align = "center">Pin Number</th>
-    <th align = "center">Silkscreen</th>
-    <th align = "center">Power Net</th>
-    <th align = "center">Portenta HD Standard Pin</th>
-    <th align = "center">High-Density Pin</th>
-    <th align = "center">Interface</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td align = "center">1</td>
-    <td align = "center">N/A</td>
-    <td align = "center">+3V3<br>Portenta</td>
-    <td align = "center">VCC</td>
-    <td align = "center">J2-23, J2-34, J2-43, J2-69</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">2</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">JTAG_SWD</td>
-    <td align = "center">J1-75</td>
-    <td align = "center">JTAG SWD</td>
-  </tr>
-  <tr>
-    <td align = "center">3</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">4</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">JTAG_SCK</td>
-    <td align = "center">J1-77</td>
-    <td align = "center">JTAG SCK</td>
-  </tr>
-  <tr>
-    <td align = "center">5</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">6</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">JTAG_SWO</td>
-    <td align = "center">J1-79</td>
-    <td align = "center">JTAG SWO</td>
-  </tr>
-  <tr>
-    <td align = "center">7</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">NC</td>
-    <td align = "center">NC</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">8</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">JTAG_TDI</td>
-    <td align = "center">J1-78</td>
-    <td align = "center">JTAG TDI</td>
-  </tr>
-  <tr>
-    <td align = "center">9</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">JTAG_TRST</td>
-    <td align = "center">J1-80</td>
-    <td align = "center">JTAG TRST</td>
-  </tr>
-  <tr>
-    <td align = "center">10</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">JTAG_RST</td>
-    <td align = "center">J1-73</td>
-    <td align = "center">JTAG RST</td>
-  </tr>
-</tbody>
-</table>
+| Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
+| --- | --- | --- | --- | --- | --- |
+| 1 | N/A | +3V3<br></br>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
+| 2 | N/A |  | JTAG_SWD | J1-75 | JTAG SWD |
+| 3 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 4 | N/A |  | JTAG_SCK | J1-77 | JTAG SCK |
+| 5 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 6 | N/A |  | JTAG_SWO | J1-79 | JTAG SWO |
+| 7 | N/A |  | NC | NC |  |
+| 8 | N/A |  | JTAG_TDI | J1-78 | JTAG TDI |
+| 9 | N/A |  | JTAG_TRST | J1-80 | JTAG TRST |
+| 10 | N/A |  | JTAG_RST | J1-73 | JTAG RST |
 
 #### MIPI Connector (J10)
 
-<p style="text-align: justify;">
-
 The MIPI connector J10 of the Portenta Mid Carrier can be used to connect compatible MIPI cameras to the carrier. Notice that **MIPI cameras are only compatible with the Portenta X8 board**.
 
-</p>
-
-<table align = "center">
-<thead>
-  <tr>
-    <th align = "center">Pin Number</th>
-    <th align = "center">Silkscreen</th>
-    <th align = "center">Power Net</th>
-    <th align = "center">Portenta HD Standard Pin</th>
-    <th align = "center">High-Density Pin</th>
-    <th align = "center">Interface</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td align = "center">1</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">2</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">CAM_D0_D0_N</td>
-    <td align = "center">J2-16</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">3</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">CAM_D1_D0_P</td>
-    <td align = "center">J2-14</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">4</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">5</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">CAM_D2_D1_N</td>
-    <td align = "center">J2-12</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">6</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">CAM_D3_D1_P</td>
-    <td align = "center">J2-10</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">7</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">8</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">CAM_CK_CK_N</td>
-    <td align = "center">J2-20</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">9</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">CAM_VS_CK_P</td>
-    <td align = "center">J2-18</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">10</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">11</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">GPIO_5</td>
-    <td align = "center">J2-56</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">12</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">NC</td>
-    <td align = "center">NC</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">13</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">I2C1_SCL</td>
-    <td align = "center">J1-45</td>
-    <td align = "center">I2C 1 SCL</td>
-  </tr>
-  <tr>
-    <td align = "center">14</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">I2C1_SDA</td>
-    <td align = "center">J1-43</td>
-    <td align = "center">I2C 1 SDA</td>
-  </tr>
-  <tr>
-    <td align = "center">15</td>
-    <td align = "center">N/A</td>
-    <td align = "center">+3V3<br>Portenta</td>
-    <td align = "center">VCC</td>
-    <td align = "center">J2-23, J2-34, J2-43, J2-69</td>
-    <td align = "center"></td>
-  </tr>
-</tbody>
-</table>
+| Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
+| --- | --- | --- | --- | --- | --- |
+| 1 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 2 | N/A |  | CAM_D0_D0_N | J2-16 |  |
+| 3 | N/A |  | CAM_D1_D0_P | J2-14 |  |
+| 4 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 5 | N/A |  | CAM_D2_D1_N | J2-12 |  |
+| 6 | N/A |  | CAM_D3_D1_P | J2-10 |  |
+| 7 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 8 | N/A |  | CAM_CK_CK_N | J2-20 |  |
+| 9 | N/A |  | CAM_VS_CK_P | J2-18 |  |
+| 10 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 11 | N/A |  | GPIO_5 | J2-56 |  |
+| 12 | N/A |  | NC | NC |  |
+| 13 | N/A |  | I2C1_SCL | J1-45 | I2C 1 SCL |
+| 14 | N/A |  | I2C1_SDA | J1-43 | I2C 1 SDA |
+| 15 | N/A | +3V3<br></br>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
 
 #### DVP Interface Connector (J11)
 
-<p style="text-align: justify;">
 The DVP interface connector J11 of the Portenta Mid Carrier can be used to connect compatible Arducam® DVP camera modules to the carrier. 
-</p>
 
-<table align = "center">
-<thead>
-  <tr>
-    <th align = "center">Pin Number</th>
-    <th align = "center">Silkscreen</th>
-    <th align = "center">Power Net</th>
-    <th align = "center">Portenta HD Standard Pin</th>
-    <th align = "center">High-Density Pin</th>
-    <th align = "center">Interface</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td align = "center">1</td>
-    <td align = "center">VCC</td>
-    <td align = "center">+3V3<br>Portenta</td>
-    <td align = "center">VCC</td>
-    <td align = "center">J2-23, J2-34, J2-43, J2-69</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">2</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">3</td>
-    <td align = "center">SCL0</td>
-    <td align = "center"></td>
-    <td align = "center">I2C0_SCL</td>
-    <td align = "center">J1-46</td>
-    <td align = "center">I2C 0 SCL</td>
-  </tr>
-  <tr>
-    <td align = "center">4</td>
-    <td align = "center">SDA0</td>
-    <td align = "center"></td>
-    <td align = "center">I2C0_SDA</td>
-    <td align = "center">J1-44</td>
-    <td align = "center">I2C 0 SDA</td>
-  </tr>
-  <tr>
-    <td align = "center">5</td>
-    <td align = "center">VSYNC</td>
-    <td align = "center"></td>
-    <td align = "center">CAM_VS_CK_P</td>
-    <td align = "center">J2-18</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">6</td>
-    <td align = "center">HREF</td>
-    <td align = "center"></td>
-    <td align = "center">CAM_HS</td>
-    <td align = "center">J2-22</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">7</td>
-    <td align = "center">PCLK</td>
-    <td align = "center"></td>
-    <td align = "center">CAM_CK_CK_N</td>
-    <td align = "center">J2-20</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">8</td>
-    <td align = "center">XCLK</td>
-    <td align = "center"></td>
-    <td align = "center">PWM_0</td>
-    <td align = "center">J2-59</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">9</td>
-    <td align = "center">DOUT7</td>
-    <td align = "center"></td>
-    <td align = "center">CAM_D7_D3_P</td>
-    <td align = "center">J2-2</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">10</td>
-    <td align = "center">DOUT6</td>
-    <td align = "center"></td>
-    <td align = "center">CAM_D6_D3_N</td>
-    <td align = "center">J2-4</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">11</td>
-    <td align = "center">DOUT5</td>
-    <td align = "center"></td>
-    <td align = "center">CAM_D5_D2_P</td>
-    <td align = "center">J2-6</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">12</td>
-    <td align = "center">DOUT4</td>
-    <td align = "center"></td>
-    <td align = "center">CAM_D4_D2_N</td>
-    <td align = "center">J2-8</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">13</td>
-    <td align = "center">DOUT3</td>
-    <td align = "center"></td>
-    <td align = "center">CAM_D3_D1_P</td>
-    <td align = "center">J2-10</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">14</td>
-    <td align = "center">DOUT2</td>
-    <td align = "center"></td>
-    <td align = "center">CAM_D2_D1_N</td>
-    <td align = "center">J2-12</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">15</td>
-    <td align = "center">DOUT1</td>
-    <td align = "center"></td>
-    <td align = "center">CAM_D1_D0_P</td>
-    <td align = "center">J2-14</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">16</td>
-    <td align = "center">DOUT0</td>
-    <td align = "center"></td>
-    <td align = "center">CAM_D0_D0_N</td>
-    <td align = "center">J2-16</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">17</td>
-    <td align = "center">PWRENABLE</td>
-    <td align = "center"></td>
-    <td align = "center">GPIO_3</td>
-    <td align = "center">J2-52</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">18</td>
-    <td align = "center">PWDN</td>
-    <td align = "center"></td>
-    <td align = "center">GPIO_4</td>
-    <td align = "center">J2-54</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">19</td>
-    <td align = "center">PWRENABLE</td>
-    <td align = "center"></td>
-    <td align = "center">GPIO_3</td>
-    <td align = "center">J2-52</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">20</td>
-    <td align = "center">PWDN</td>
-    <td align = "center"></td>
-    <td align = "center">GPIO_4</td>
-    <td align = "center">J2-54</td>
-    <td align = "center"></td>
-  </tr>
-</tbody>
-</table>
+| Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
+| --- | --- | --- | --- | --- | --- |
+| 1 | VCC | +3V3<br></br>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
+| 2 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 3 | SCL0 |  | I2C0_SCL | J1-46 | I2C 0 SCL |
+| 4 | SDA0 |  | I2C0_SDA | J1-44 | I2C 0 SDA |
+| 5 | VSYNC |  | CAM_VS_CK_P | J2-18 |  |
+| 6 | HREF |  | CAM_HS | J2-22 |  |
+| 7 | PCLK |  | CAM_CK_CK_N | J2-20 |  |
+| 8 | XCLK |  | PWM_0 | J2-59 |  |
+| 9 | DOUT7 |  | CAM_D7_D3_P | J2-2 |  |
+| 10 | DOUT6 |  | CAM_D6_D3_N | J2-4 |  |
+| 11 | DOUT5 |  | CAM_D5_D2_P | J2-6 |  |
+| 12 | DOUT4 |  | CAM_D4_D2_N | J2-8 |  |
+| 13 | DOUT3 |  | CAM_D3_D1_P | J2-10 |  |
+| 14 | DOUT2 |  | CAM_D2_D1_N | J2-12 |  |
+| 15 | DOUT1 |  | CAM_D1_D0_P | J2-14 |  |
+| 16 | DOUT0 |  | CAM_D0_D0_N | J2-16 |  |
+| 17 | PWRENABLE |  | GPIO_3 | J2-52 |  |
+| 18 | PWDN |  | GPIO_4 | J2-54 |  |
+| 19 | PWRENABLE |  | GPIO_3 | J2-52 |  |
+| 20 | PWDN |  | GPIO_4 | J2-54 |  |
 
 #### USB-A 2.0 Female Connector (J13)
 
-<p style="text-align: justify;">
 The USB-A 2.0 female connector J13 of the Portenta Mid Carrier can be used for data logging operations and to manage external peripherals with the connected Portenta family board to the carrier. 
-</p>
 
-<table align = "center"> 
-<thead>
-  <tr>
-    <th align = "center">Pin Number</th>
-    <th align = "center">Silkscreen</th>
-    <th align = "center">Power Net</th>
-    <th align = "center">Portenta HD Standard Pin</th>
-    <th align = "center">High-Density Pin</th>
-    <th align = "center">Interface</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td align = "center">1</td>
-    <td align = "center">N/A</td>
-    <td align = "center">+5V</td>
-    <td align = "center">VIN</td>
-    <td align = "center">J1-21, J1-24, J1-32, J1-41, J1-48</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">2</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">USB0_D_N</td>
-    <td align = "center">J1-28</td>
-    <td align = "center">USB D-</td>
-  </tr>
-  <tr>
-    <td align = "center">3</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">USB0_D_P</td>
-    <td align = "center">J1-26</td>
-    <td align = "center">USB D+</td>
-  </tr>
-  <tr>
-    <td align = "center">4</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-</tbody>
-</table>
+| Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
+| --- | --- | --- | --- | --- | --- |
+| 1 | N/A | +5V | VIN | J1-21, J1-24, J1-32, J1-41, J1-48 |  |
+| 2 | N/A |  | USB0_D_N | J1-28 | USB D- |
+| 3 | N/A |  | USB0_D_P | J1-26 | USB D+ |
+| 4 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 
 #### microSD Card Slot (J12)
 
-<p style="text-align: justify;">
 The microSD card slot J12 of the Portenta Mid Carrier can be used for bootloading and data logging operations.
-</p>
 
-<table align = "center">
-<thead>
-  <tr>
-    <th align = "center">Pin Number</th>
-    <th align = "center">Silkscreen</th>
-    <th align = "center">Power Net</th>
-    <th align = "center">Portenta HD Standard Pin</th>
-    <th align = "center">High-Density Pin</th>
-    <th align = "center">Interface</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td align = "center">1</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">SDC_D2</td>
-    <td align = "center">J1-63</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">2</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">SDC_D3</td>
-    <td align = "center">J1-65</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">3</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">SDC_CMD</td>
-    <td align = "center">J1-57</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">4</td>
-    <td align = "center">N/A</td>
-    <td align = "center">VDDSDCARD</td>
-    <td align = "center">VSD</td>
-    <td align = "center">J1-72</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">5</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">SDC_CLK</td>
-    <td align = "center">J1-55</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">6</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">7</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">SDC_D0</td>
-    <td align = "center">J1-59</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">8</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">SDC_D1</td>
-    <td align = "center">J1-61</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">CD1</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">SDC_CD</td>
-    <td align = "center">J1-67</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">CD2</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-</tbody>
-</table>
+| Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
+| --- | --- | --- | --- | --- | --- |
+| 1 | N/A |  | SDC_D2 | J1-63 |  |
+| 2 | N/A |  | SDC_D3 | J1-65 |  |
+| 3 | N/A |  | SDC_CMD | J1-57 |  |
+| 4 | N/A | VDDSDCARD | VSD | J1-72 |  |
+| 5 | N/A |  | SDC_CLK | J1-55 |  |
+| 6 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 7 | N/A |  | SDC_D0 | J1-59 |  |
+| 8 | N/A |  | SDC_D1 | J1-61 |  |
+| CD1 | N/A |  | SDC_CD | J1-67 |  |
+| CD2 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 
 #### RJ45 Ethernet Connector (J18)
 
-<p style="text-align: justify;">
 The RJ45 Ethernet connector J18 of the Portenta Mid Carrier can be used for Internet connectivity and networking via Ethernet.
-</p>
 
-<table align = "center">
-<thead>
-  <tr>
-    <th align = "center">Pin Number</th>
-    <th align = "center">Silkscreen</th>
-    <th align = "center">Power Net</th>
-    <th align = "center">Portenta HD Standard Pin</th>
-    <th align = "center">High-Density Pin</th>
-    <th align = "center">Interface</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td align = "center">1</td>
-    <td align = "center">N/A</td>
-    <td align = "center">VCC</td>
-    <td align = "center">VCC (through SW3)</td>
-    <td align = "center">J2-23, J2-34, J2-43, J2-69</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">2</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">ETH_C_N</td>
-    <td align = "center">J1-11</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">3</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">ETH_C_P</td>
-    <td align = "center">J1-9</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">4</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">ETH_B_P</td>
-    <td align = "center">J1-5</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">5</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">ETH_B_N</td>
-    <td align = "center">J1-7</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">6</td>
-    <td align = "center">N/A</td>
-    <td align = "center">VCC</td>
-    <td align = "center">VCC (through SW3)</td>
-    <td align = "center">J2-23, J2-34, J2-43, J2-69</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">7</td>
-    <td align = "center">N/A</td>
-    <td align = "center">VCC</td>
-    <td align = "center">VCC (through SW3)</td>
-    <td align = "center">J2-23, J2-34, J2-43, J2-69</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">8</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">ETH_D_P</td>
-    <td align = "center">J1-13</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">9</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">ETH_D_N</td>
-    <td align = "center">J1-15</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">10</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">ETH_A_N</td>
-    <td align = "center">J1-3</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">11</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">ETH_A_P</td>
-    <td align = "center">J1-1</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">12</td>
-    <td align = "center">N/A</td>
-    <td align = "center">VCC</td>
-    <td align = "center">VCC (through SW3)</td>
-    <td align = "center">J2-23, J2-34, J2-43, J2-69</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">13</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">14</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">ETH_LED2</td>
-    <td align = "center">J1-19 (through resistor)</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">15</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">ETH_LED1</td>
-    <td align = "center">J1-17</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">16</td>
-    <td align = "center">N/A</td>
-    <td align = "center">VCC</td>
-    <td align = "center">VCC (through resistor)</td>
-    <td align = "center">J2-23, J2-34, J2-43, J2-69</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">17</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">NC</td>
-    <td align = "center">NC</td>
-    <td align = "center"></td>
-  </tr>
-</tbody>
-</table>
+| Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
+| --- | --- | --- | --- | --- | --- |
+| 1 | N/A | VCC | VCC (through SW3) | J2-23, J2-34, J2-43, J2-69 |  |
+| 2 | N/A |  | ETH_C_N | J1-11 |  |
+| 3 | N/A |  | ETH_C_P | J1-9 |  |
+| 4 | N/A |  | ETH_B_P | J1-5 |  |
+| 5 | N/A |  | ETH_B_N | J1-7 |  |
+| 6 | N/A | VCC | VCC (through SW3) | J2-23, J2-34, J2-43, J2-69 |  |
+| 7 | N/A | VCC | VCC (through SW3) | J2-23, J2-34, J2-43, J2-69 |  |
+| 8 | N/A |  | ETH_D_P | J1-13 |  |
+| 9 | N/A |  | ETH_D_N | J1-15 |  |
+| 10 | N/A |  | ETH_A_N | J1-3 |  |
+| 11 | N/A |  | ETH_A_P | J1-1 |  |
+| 12 | N/A | VCC | VCC (through SW3) | J2-23, J2-34, J2-43, J2-69 |  |
+| 13 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 14 | N/A |  | ETH_LED2 | J1-19 (through resistor) |  |
+| 15 | N/A |  | ETH_LED1 | J1-17 |  |
+| 16 | N/A | VCC | VCC (through resistor) | J2-23, J2-34, J2-43, J2-69 |  |
+| 17 | N/A |  | NC | NC |  |
 
 #### GIGA Display Shield Connector (J19)
 
-<p style="text-align: justify;">
 The GIGA Display Shield connector J19 of the Portenta Mid Carrier can connect the GIGA Display Shield (SKU: ASX00039) to the carrier and the connected Portenta family board.
-</p>
 
-<table align = "center">
-<thead>
-  <tr>
-    <th align = "center">Pin Number</th>
-    <th align = "center">Silkscreen</th>
-    <th align = "center">Power Net</th>
-    <th align = "center">Portenta HD Standard Pin</th>
-    <th align = "center">High-Density Pin</th>
-    <th align = "center">Interface</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td align = "center">1</td>
-    <td align = "center">DSI D1N</td>
-    <td align = "center"></td>
-    <td align = "center">DSI_D1_N</td>
-    <td align = "center">J1-12</td>
-    <td align = "center">DSI D1 N</td>
-  </tr>
-  <tr>
-    <td align = "center">2</td>
-    <td align = "center">DSI D1P</td>
-    <td align = "center"></td>
-    <td align = "center">DSI_D1_P</td>
-    <td align = "center">J1-10</td>
-    <td align = "center">DSI D1 P</td>
-  </tr>
-  <tr>
-    <td align = "center">3</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">4</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">5</td>
-    <td align = "center">DSI CKN</td>
-    <td align = "center"></td>
-    <td align = "center">DSI_CK_N</td>
-    <td align = "center">J1-20</td>
-    <td align = "center">DSI CK N</td>
-  </tr>
-  <tr>
-    <td align = "center">6</td>
-    <td align = "center">DSI CKP</td>
-    <td align = "center"></td>
-    <td align = "center">DSI_CK_P</td>
-    <td align = "center">J1-18</td>
-    <td align = "center">DSI CK P</td>
-  </tr>
-  <tr>
-    <td align = "center">7</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">8</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">9</td>
-    <td align = "center">DSI D0N</td>
-    <td align = "center"></td>
-    <td align = "center">DSI_D0_N</td>
-    <td align = "center">J1-16</td>
-    <td align = "center">DSI D0 N</td>
-  </tr>
-  <tr>
-    <td align = "center">10</td>
-    <td align = "center">DSI D0P</td>
-    <td align = "center"></td>
-    <td align = "center">DSI_D0_P</td>
-    <td align = "center">J1-14</td>
-    <td align = "center">DSI D0 P</td>
-  </tr>
-  <tr>
-    <td align = "center">11</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">12</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">13</td>
-    <td align = "center">DSI D2N</td>
-    <td align = "center"></td>
-    <td align = "center">DSI_D2_N</td>
-    <td align = "center">J1-8</td>
-    <td align = "center">DSI D2 N</td>
-  </tr>
-  <tr>
-    <td align = "center">14</td>
-    <td align = "center">DSI D2P</td>
-    <td align = "center"></td>
-    <td align = "center">DSI_D2_P</td>
-    <td align = "center">J1-6</td>
-    <td align = "center">DSI D2 P</td>
-  </tr>
-  <tr>
-    <td align = "center">15</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">16</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">17</td>
-    <td align = "center">DSI D3N</td>
-    <td align = "center"></td>
-    <td align = "center">DSI_D3_N</td>
-    <td align = "center">J1-4</td>
-    <td align = "center">DSI D3 N</td>
-  </tr>
-  <tr>
-    <td align = "center">18</td>
-    <td align = "center">DSI D3P</td>
-    <td align = "center"></td>
-    <td align = "center">DSI_D3_P</td>
-    <td align = "center">J1-2</td>
-    <td align = "center">DSI D3 P</td>
-  </tr>
-  <tr>
-    <td align = "center">19</td>
-    <td align = "center">NC</td>
-    <td align = "center"></td>
-    <td align = "center">NC</td>
-    <td align = "center">NC</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">20</td>
-    <td align = "center">NC</td>
-    <td align = "center"></td>
-    <td align = "center">NC</td>
-    <td align = "center">NC</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">21</td>
-    <td align = "center">VIN</td>
-    <td align = "center">+5V</td>
-    <td align = "center">VIN</td>
-    <td align = "center">J1-21, J1-24, J1-32, J1-41, J1-48</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">22</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">23</td>
-    <td align = "center">VCC</td>
-    <td align = "center">+3V3<br>Portenta</td>
-    <td align = "center">VCC</td>
-    <td align = "center">J2-23, J2-34, J2-43, J2-69</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">24</td>
-    <td align = "center">VIN</td>
-    <td align = "center">+5V</td>
-    <td align = "center">VIN</td>
-    <td align = "center">J1-21, J1-24, J1-32, J1-41, J1-48</td>
-    <td align = "center"></td>
-  </tr>
-</tbody>
-</table>
+| Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
+| --- | --- | --- | --- | --- | --- |
+| 1 | DSI D1N |  | DSI_D1_N | J1-12 | DSI D1 N |
+| 2 | DSI D1P |  | DSI_D1_P | J1-10 | DSI D1 P |
+| 3 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 4 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 5 | DSI CKN |  | DSI_CK_N | J1-20 | DSI CK N |
+| 6 | DSI CKP |  | DSI_CK_P | J1-18 | DSI CK P |
+| 7 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 8 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 9 | DSI D0N |  | DSI_D0_N | J1-16 | DSI D0 N |
+| 10 | DSI D0P |  | DSI_D0_P | J1-14 | DSI D0 P |
+| 11 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 12 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 13 | DSI D2N |  | DSI_D2_N | J1-8 | DSI D2 N |
+| 14 | DSI D2P |  | DSI_D2_P | J1-6 | DSI D2 P |
+| 15 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 16 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 17 | DSI D3N |  | DSI_D3_N | J1-4 | DSI D3 N |
+| 18 | DSI D3P |  | DSI_D3_P | J1-2 | DSI D3 P |
+| 19 | NC |  | NC | NC |  |
+| 20 | NC |  | NC | NC |  |
+| 21 | VIN | +5V | VIN | J1-21, J1-24, J1-32, J1-41, J1-48 |  |
+| 22 | GND | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 23 | VCC | +3V3<br></br>Portenta | VCC | J2-23, J2-34, J2-43, J2-69 |  |
+| 24 | VIN | +5V | VIN | J1-21, J1-24, J1-32, J1-41, J1-48 |  |
 
 #### Mini PCIe Connector (J8)
 
-<p style="text-align: justify;">
 The Mini PCIe connector J8 of the Portenta Mid Carrier can connect compatible Mini PCie cards, for example, the Arduino® Pro 4G Module EMEA (SKU: TPX00201), to the carrier and the connected Portenta family board.
-</p>
 
-<table align = "center">
-<thead>
-  <tr>
-    <th align = "center">Pin Number</th>
-    <th align = "center">Silkscreen</th>
-    <th align = "center">Power Net</th>
-    <th align = "center">Portenta HD Standard Pin</th>
-    <th align = "center">High-Density Pin</th>
-    <th align = "center">Interface</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td align = "center">1</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">2</td>
-    <td align = "center">N/A</td>
-    <td align = "center">+3V3 PCIE</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">3</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">4</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">5</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">6</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">7</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">GPIO_1</td>
-    <td align = "center">J2-48</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">8</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center">USIM PWR</td>
-  </tr>
-  <tr>
-    <td align = "center">9</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">10</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center">USIM DATA</td>
-  </tr>
-  <tr>
-    <td align = "center">11</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">PCIE_CK_N</td>
-    <td align = "center">J2-19</td>
-    <td align = "center">PCIE CK N</td>
-  </tr>
-  <tr>
-    <td align = "center">12</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center">USIM CLK</td>
-  </tr>
-  <tr>
-    <td align = "center">13</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">PCIE_CK_P</td>
-    <td align = "center">J2-17</td>
-    <td align = "center">PCIE CK P</td>
-  </tr>
-  <tr>
-    <td align = "center">14</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center">USIM RST</td>
-  </tr>
-  <tr>
-    <td align = "center">15</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">16</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">17</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">18</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">19</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">20</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">GPIO_2</td>
-    <td align = "center">J2-50</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">21</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">22</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">PCIE_RST</td>
-    <td align = "center">J2-21</td>
-    <td align = "center">PCIE RST</td>
-  </tr>
-  <tr>
-    <td align = "center">23</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">PCIE_RX_N</td>
-    <td align = "center">J2-15</td>
-    <td align = "center">PCIE RX N</td>
-  </tr>
-  <tr>
-    <td align = "center">24</td>
-    <td align = "center">N/A</td>
-    <td align = "center">+3V3 PCIE</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">25</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">PCIE_RX_P</td>
-    <td align = "center">J2-13</td>
-    <td align = "center">PCIE RX P</td>
-  </tr>
-  <tr>
-    <td align = "center">26</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">27</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">28</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">29</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">30</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">I2C0_SCL</td>
-    <td align = "center">J1-46</td>
-    <td align = "center">I2C 0 SCL</td>
-  </tr>
-  <tr>
-    <td align = "center">31</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">PCIE_TX_N</td>
-    <td align = "center">J2-11</td>
-    <td align = "center">PCIE TX N</td>
-  </tr>
-  <tr>
-    <td align = "center">32</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">I2C0_SDA</td>
-    <td align = "center">J1-44</td>
-    <td align = "center">I2C 0 SDA</td>
-  </tr>
-  <tr>
-    <td align = "center">33</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">PCIE_TX_P</td>
-    <td align = "center">J2-9</td>
-    <td align = "center">PCIE TX P</td>
-  </tr>
-  <tr>
-    <td align = "center">34</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">35</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">36</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">USB0_D_N</td>
-    <td align = "center">J1-28</td>
-    <td align = "center">USB 0 D-</td>
-  </tr>
-  <tr>
-    <td align = "center">37</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">38</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">USB0_D_P</td>
-    <td align = "center">J1-26</td>
-    <td align = "center">USB 0 D+</td>
-  </tr>
-  <tr>
-    <td align = "center">39</td>
-    <td align = "center">N/A</td>
-    <td align = "center">+3V3 PCIE</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">40</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">41</td>
-    <td align = "center">N/A</td>
-    <td align = "center">+3V3 PCIE</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">42</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">43</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">44</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">45</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">46</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">47</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">48</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">49</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">50</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">51</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">52</td>
-    <td align = "center">N/A</td>
-    <td align = "center">+3V3 PCIE</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-</tbody>
-</table>
+| Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
+| --- | --- | --- | --- | --- | --- |
+| 1 | N/A |  |  |  |  |
+| 2 | N/A | +3V3 PCIE |  |  |  |
+| 3 | N/A |  |  |  |  |
+| 4 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 5 | N/A |  |  |  |  |
+| 6 | N/A |  |  |  |  |
+| 7 | N/A |  | GPIO_1 | J2-48 |  |
+| 8 | N/A |  |  |  | USIM PWR |
+| 9 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 10 | N/A |  |  |  | USIM DATA |
+| 11 | N/A |  | PCIE_CK_N | J2-19 | PCIE CK N |
+| 12 | N/A |  |  |  | USIM CLK |
+| 13 | N/A |  | PCIE_CK_P | J2-17 | PCIE CK P |
+| 14 | N/A |  |  |  | USIM RST |
+| 15 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 16 | N/A |  |  |  |  |
+| 17 | N/A |  |  |  |  |
+| 18 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 19 | N/A |  |  |  |  |
+| 20 | N/A |  | GPIO_2 | J2-50 |  |
+| 21 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 22 | N/A |  | PCIE_RST | J2-21 | PCIE RST |
+| 23 | N/A |  | PCIE_RX_N | J2-15 | PCIE RX N |
+| 24 | N/A | +3V3 PCIE |  |  |  |
+| 25 | N/A |  | PCIE_RX_P | J2-13 | PCIE RX P |
+| 26 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 27 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 28 | N/A |  |  |  |  |
+| 29 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 30 | N/A |  | I2C0_SCL | J1-46 | I2C 0 SCL |
+| 31 | N/A |  | PCIE_TX_N | J2-11 | PCIE TX N |
+| 32 | N/A |  | I2C0_SDA | J1-44 | I2C 0 SDA |
+| 33 | N/A |  | PCIE_TX_P | J2-9 | PCIE TX P |
+| 34 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 35 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 36 | N/A |  | USB0_D_N | J1-28 | USB 0 D- |
+| 37 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 38 | N/A |  | USB0_D_P | J1-26 | USB 0 D+ |
+| 39 | N/A | +3V3 PCIE |  |  |  |
+| 40 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 41 | N/A | +3V3 PCIE |  |  |  |
+| 42 | N/A |  |  |  |  |
+| 43 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 44 | N/A |  |  |  |  |
+| 45 | N/A |  |  |  |  |
+| 46 | N/A |  |  |  |  |
+| 47 | N/A |  |  |  |  |
+| 48 | N/A |  |  |  |  |
+| 49 | N/A |  |  |  |  |
+| 50 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
+| 51 | N/A |  |  |  |  |
+| 52 | N/A | +3V3 PCIE |  |  |  |
 
 #### Mini PCIe Breakout Header Connector (J16)
 
-<p style="text-align: justify;">
 The Mini PCIe breakout header connector J16 of the Portenta Mid Carrier can be used to debug the Mini PCIe interface. 
-</p>
 
-<table align = "center">
-<thead>
-  <tr>
-    <th>Pin Number</th>
-    <th>Silkscreen</th>
-    <th>Power Net</th>
-    <th>Portenta HD Standard Pin</th>
-    <th>High-Density Pin</th>
-    <th>Interface</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td align = "center">1</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">PCIE_CK_P</td>
-    <td align = "center">J2-17</td>
-    <td align = "center">PCIE CK P</td>
-  </tr>
-  <tr>
-    <td align = "center">2</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">PCIE_TX_P</td>
-    <td align = "center">J2-9</td>
-    <td align = "center">PCIE TX P</td>
-  </tr>
-  <tr>
-    <td align = "center">3</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">PCIE_CK_N</td>
-    <td align = "center">J2-19</td>
-    <td align = "center">PCIE CK N</td>
-  </tr>
-  <tr>
-    <td align = "center">4</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">PCIE_TX_N</td>
-    <td align = "center">J2-11</td>
-    <td align = "center">PCIE TX N</td>
-  </tr>
-  <tr>
-    <td align = "center">5</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">PCIE_RX_N</td>
-    <td align = "center">J2-15</td>
-    <td align = "center">PCIE RX N</td>
-  </tr>
-  <tr>
-    <td align = "center">6</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">7</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">PCIE_RX_P</td>
-    <td align = "center">J2-13</td>
-    <td align = "center">PCIE RX P</td>
-  </tr>
-  <tr>
-    <td align = "center">8</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">9</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">PCIE_RST</td>
-    <td align = "center">J2-21</td>
-    <td align = "center">PCIE RST</td>
-  </tr>
-  <tr>
-    <td align = "center">10</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">11</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">12</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">13</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">14</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">15</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">16</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">17</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">18</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">19</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">20</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">21</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">22</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">23</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-    <td align = "center"></td>
-  </tr>
-  <tr>
-    <td align = "center">24</td>
-    <td align = "center">N/A</td>
-    <td align = "center">GND</td>
-    <td align = "center">GND</td>
-    <td align = "center">J1-22, J1-31, J1-42, J1-47, J1-54<br>J2-24, J2-33, J2-44, J2-57, J2-70</td>
-    <td align = "center"></td>
-  </tr>
-</tbody>
-</table>
+| Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
+| --- | --- | --- | --- | --- | --- |
+| 1 | N/A |  | PCIE_CK_P | J2-17 | PCIE CK P |
+| 2 | N/A |  | PCIE_TX_P | J2-9 | PCIE TX P |
+| 3 | N/A |  | PCIE_CK_N | J2-19 | PCIE CK N |
+| 4 | N/A |  | PCIE_TX_N | J2-11 | PCIE TX N |
+| 5 | N/A |  | PCIE_RX_N | J2-15 | PCIE RX N |
+| 6 | N/A |  |  |  |  |
+| 7 | N/A |  | PCIE_RX_P | J2-13 | PCIE RX P |
+| 8 | N/A |  |  |  |  |
+| 9 | N/A |  | PCIE_RST | J2-21 | PCIE RST |
+| 10 | N/A |  |  |  |  |
+| 11 | N/A |  |  |  |  |
+| 12 | N/A |  |  |  |  |
+| 13 | N/A |  |  |  |  |
+| 14 | N/A |  |  |  |  |
+| 15 | N/A |  |  |  |  |
+| 16 | N/A |  |  |  |  |
+| 17 | N/A |  |  |  |  |
+| 18 | N/A |  |  |  |  |
+| 19 | N/A |  |  |  |  |
+| 20 | N/A |  |  |  |  |
+| 21 | N/A |  |  |  |  |
+| 22 | N/A |  |  |  |  |
+| 23 | N/A |  |  |  |  |
+| 24 | N/A | GND | GND | J1-22, J1-31, J1-42, J1-47, J1-54<br></br>J2-24, J2-33, J2-44, J2-57, J2-70 |  |
 
 #### Serial Breakout Header Connector (J17)
 
-<p style="text-align: justify;">
 The serial breakout header connector J17 of the Portenta Mid Carrier can be used to debug the SERIAL1 interface. 
-</p>
 
-<table align = "center">
-<thead>
-  <tr>
-    <th align = "center">Pin Number</th>
-    <th align = "center">Silkscreen</th>
-    <th align = "center">Power Net</th>
-    <th align = "center">Portenta HD Standard Pin</th>
-    <th align = "center">High-Density Pin</th>
-    <th align = "center">Interface</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td align = "center">1</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">SERIAL1_RX</td>
-    <td align = "center">J1-35</td>
-    <td align = "center">UART 1 RX</td>
-  </tr>
-  <tr>
-    <td align = "center">2</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">SERIAL1_TX</td>
-    <td align = "center">J1-33</td>
-    <td align = "center">UART 1 TX</td>
-  </tr>
-  <tr>
-    <td align = "center">3</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">SERIAL1_RTS</td>
-    <td align = "center">J1-37</td>
-    <td align = "center">UART 1 RTS</td>
-  </tr>
-  <tr>
-    <td align = "center">4</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">SERIAL1_CTS</td>
-    <td align = "center">J1-39</td>
-    <td align = "center">UART 1 CTS</td>
-  </tr>
-  <tr>
-    <td align = "center">5</td>
-    <td align = "center">N/A</td>
-    <td align = "center"></td>
-    <td align = "center">GPIO_6</td>
-    <td align = "center">J2-58</td>
-    <td align = "center"></td>
-  </tr>
-</tbody>
-</table>
+| Pin Number | Silkscreen | Power Net | Portenta HD Standard Pin | High-Density Pin | Interface |
+| --- | --- | --- | --- | --- | --- |
+| 1 | N/A |  | SERIAL1_RX | J1-35 | UART 1 RX |
+| 2 | N/A |  | SERIAL1_TX | J1-33 | UART 1 TX |
+| 3 | N/A |  | SERIAL1_RTS | J1-37 | UART 1 RTS |
+| 4 | N/A |  | SERIAL1_CTS | J1-39 | UART 1 CTS |
+| 5 | N/A |  | GPIO_6 | J2-58 |  |
 
 <div style="page-break-after: always;"></div>
 
@@ -2903,21 +555,15 @@ The Portenta Mid Carrier can be powered through one of these interfaces:
 - **Onboard USB-C® port of the Portenta board**: Provides a convenient way to power the board using standard USB-C® cables and adapters. 
 - **External +5 VDC power supply**: This can be connected to the IN 5V pin of the carrier's screw terminal block J4; it can also be connected to the IN 5V pins of the breakout header connector J15. 
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Reverse polarity protection:</strong> IN 5V pins of the carrier's screw terminal block (J4) and breakout header connector (J15) <strong> do not have</strong> reverse polarity protection. Double-check the polarity of your power supply before connecting it to the Carrier to avoid damaging it. 
-</div>
+>[!NOTE]
+>**Reverse polarity protection:** IN 5V pins of the carrier's screw terminal block (J4) and breakout header connector (J15) **do not have** reverse polarity protection. Double-check the polarity of your power supply before connecting it to the Carrier to avoid damaging it. 
 
-<div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
-<strong>Safety note:</strong> Disconnect power before modifying the carrier connections and configurations to avoid short-circuiting. For more safety tips, refer to the Carrier's user manual.
-</div>
-
-</div>
+>[!NOTE]
+>**Safety note:** Disconnect power before modifying the carrier connections and configurations to avoid short-circuiting. For more safety tips, refer to the Carrier's user manual.
 
 <div style="page-break-after: always;"></div>
 
 ## Device Operation
-
-<div style="text-align:justify;">
 
 ### Getting Started - IDE
 
@@ -2944,9 +590,7 @@ Now that you have gone through the basics of what you can do with the device, yo
 
 ## Mechanical Information
 
-<p style="text-align: justify;">
 The Arduino Portenta Mid Carrier is a one-sided 114 mm x 86.5 mm board with several connectors overhanging its edges. Portenta family boards and Mini PCIE cards are placed on the carrier using dedicated connectors. 
-</p>
 
 ### Carrier Dimensions
 
@@ -2979,15 +623,11 @@ Connectors of the Portenta Mid Carrier are placed primarily on its edges, but th
 
 ### Declaration of Conformity CE DoC (EU)
 
-<p style="text-align: justify;">
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
-</p>
 
 ### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
 
-<p style="text-align: justify;">
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
-</p>
 
 | **Substance**                          | **Maximum Limit (ppm)** |
 |----------------------------------------|-------------------------|
