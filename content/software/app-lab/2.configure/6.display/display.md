@@ -17,26 +17,38 @@ The supported displays are the Waveshare DSI Touch "A" series:
 
 ## Enable Carrier Mode
 
-In the Arduino App Lab **Settings**, enable the **Media Carrier** under the **Carriers** section.
+In the Arduino App Lab **Settings**, turn on **Carriers connected to your board** under the **Board extensions** section.
 
-![Enable carrier mode](assets/enable-carrier.png)
+![Enable carrier mode in the Board extensions section of Settings.](../../assets/playwright/settings/settings-board-extensions-hl.png)
 
 ## Select Display
 
-1. Select the display size that matches your connected display (5", 8", 10" supported).
-2. Click **Apply and Reboot** to apply changes. This will reboot your board.
+1. Next to **display**, select the preset that matches your connected display (`5-dsi-touch-a`, `8-dsi-touch-a`, or `10-dsi-touch-a`).
+2. Click **Reboot and apply** and enter the board password to apply the changes. This will reboot your board.
 
-![Select display type](assets/select-display.png)
+![Select display type in Board extensions.](../../assets/playwright/settings/board-extensions-select-display.png)
 
 After rebooting, the display is active and the desktop environment will render on it. Touch input is available immediately without additional configuration.
 
+<Alert type="info">
+
+**Note:** When a MIPI-DSI display is enabled, the board's USB-C video output is deactivated after restarting.
+
+</Alert>
+
+The carrier display can also be configured from the board's terminal:
+
+```bash
+sudo arduino-linux-config hw enable media-carrier display=8-dsi-touch-a
+```
+
 ## How Carrier Configuration Works
 
-MIPI-DSI displays do not support plug-and-play detection, so the Linux kernel must be told explicitly what hardware is attached. When you select a display size and click **Apply and Reboot**, App Lab stages a Device Tree Overlay (`.dtbo`) that is merged onto the board's base device tree. The Qualcomm kernel reads the device tree only once at startup to configure the display drivers, which is why a full reboot is required for any change to take effect.
+MIPI-DSI displays do not support plug-and-play detection, so the Linux kernel must be told explicitly what hardware is attached. When you select a display size and click **Reboot and apply**, App Lab stages a Device Tree Overlay (`.dtbo`) that is merged onto the board's base device tree. The Qualcomm kernel reads the device tree only once at startup to configure the display drivers, which is why a full reboot is required for any change to take effect.
 
 <Alert type="info">
 
-These settings apply to the **UNO Q** used with the UNO Media Carrier. The **VENTUNO Q** instead provides a native HDMI port that handles EDID autodiscovery, so no configuration or reboot is required and the display does not appear in the **Carriers** settings.
+On the **VENTUNO Q**, you can also configure a MIPI-DSI display on the UNO Media Carrier in **Board extensions** (enabling a DSI display disables the board's `CSI 0` camera port). For standard HDMI monitors connected to the VENTUNO Q's native HDMI port, EDID autodiscovery is handled automatically and no configuration in **Board extensions** is needed.
 
 </Alert>
 

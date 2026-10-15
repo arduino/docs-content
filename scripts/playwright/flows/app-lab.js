@@ -602,6 +602,33 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
             await boardExtensionsTitle.scrollIntoViewIfNeeded();
             await page.waitForTimeout(500);
             await capture(page, 'settings/settings-board-extensions-hl.png', outDir, { highlight: boardExtensionsCard });
+
+            const carrierToggle = boardExtensionsCard.locator('button[class*="toggle-button"], button[aria-pressed]').first();
+            if (await carrierToggle.isVisible({ timeout: 2000 }).catch(() => false)) {
+                await carrierToggle.click({ force: true });
+                await page.waitForTimeout(800);
+
+                const camera0Label = boardExtensionsCard.getByText('camera 0', { exact: true }).first().locator('..');
+                const camera1Label = boardExtensionsCard.getByText('camera 1', { exact: true }).first().locator('..');
+                const displayLabel = boardExtensionsCard.getByText('display', { exact: true }).first().locator('..');
+                const dropdownButtons = boardExtensionsCard.locator('button[class*="dropdown-menu-button"]');
+
+                if (await camera0Label.isVisible({ timeout: 2000 }).catch(() => false)) {
+                    await capture(page, 'settings/board-extensions-select-camera.png', outDir, {
+                        highlight: [camera0Label, camera1Label, dropdownButtons.nth(0), dropdownButtons.nth(1)]
+                    });
+                }
+
+                if (await displayLabel.isVisible({ timeout: 2000 }).catch(() => false)) {
+                    await capture(page, 'settings/board-extensions-select-display.png', outDir, {
+                        highlight: [displayLabel, dropdownButtons.nth(2)]
+                    });
+                }
+
+                // Turn the toggle back off so no carrier changes remain staged
+                await carrierToggle.click({ force: true });
+                await page.waitForTimeout(500);
+            }
         } else {
             console.log('Board extensions section not shown for this board, skipped.');
         }
