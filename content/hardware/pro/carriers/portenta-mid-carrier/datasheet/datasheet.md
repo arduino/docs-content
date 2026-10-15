@@ -116,8 +116,10 @@ The table below provides a comprehensive guideline for the optimal use of the Ar
 | Current delivered by the Carrier<sup>3</sup> |  I<sub>C</sub>  |    -    |    -    |   2.0   |     A    |
 |             Operating Temperature            |  T<sub>OP</sub> |   -40   |    -    |    85   |    °C    |
 
-<sup>1</sup> Carrier powered through the USB-C® port of the connected Portenta family board to the carrier.<br>
-<sup>2</sup> Carrier powered through its onboard screw terminal block (J4, IN 5V terminal) or its breakout pin header connector (J15, IN 5V pins).<br>
+<sup>1</sup> Carrier powered through the USB-C® port of the connected Portenta family board to the carrier.
+
+<sup>2</sup> Carrier powered through its onboard screw terminal block (J4, IN 5V terminal) or its breakout pin header connector (J15, IN 5V pins).
+
 <sup>3</sup> Available only for the Mini PCIe card connected to the carrier.
 
 >[!NOTE]
@@ -279,7 +281,6 @@ The screw terminal block connector J4 is used to power the Portenta Mid Carrier 
 
 >[!NOTE]
 >**Reverse polarity protection:** IN 5V pins of the carrier's screw terminal block (J4) and breakout header connector (J15) **do not have** reverse polarity protection. Double-check the polarity of your power supply before connecting it to the carrier to avoid damaging it. 
-
 
 #### JTAG/SWD Connector (J3)
 
@@ -543,8 +544,6 @@ An overview of the high-level architecture of the Portenta Mid Carrier is illust
 <div style="page-break-after: always;"></div>
 
 ### Power Supply
-
-<div style="text-align:justify;">
 
 The figure below shows the power options available on the Arduino Portenta Mod Carrier and illustrates the Carrier's power architecture.
 
