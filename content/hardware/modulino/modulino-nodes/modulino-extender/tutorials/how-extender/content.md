@@ -16,7 +16,7 @@ software:
  - web-editor
 ---
 
-![Extender Overview](assets/extender_overview.png)
+![Modulino Extender Overview](assets/extender_overview.png)
 
 The Modulino Extender extends the reach of an I2C bus, allowing sensors and actuators to be placed far from the controller. Built around the LTC4311 I2C accelerator, it shortens the rise time of the I2C signals on long cable runs and on buses with many devices. The Extender has no I2C address and requires no configuration or code changes.
 
