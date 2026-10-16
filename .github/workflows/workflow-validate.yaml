@@ -72,6 +72,20 @@ jobs:
       - name: Validate Markdown
         run: python3 scripts/validation/markdownlint/markdownlint.py content
 
+  # Compiles every page as the build does: an unclosed HTML tag passes the other checks but breaks the deploy
+  validate_mdx:
+    name: MDX Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Install MDX compiler
+        run: npm ci --no-audit --fund=false --prefix scripts/validation/mdx
+      - name: Validate MDX
+        run: node scripts/validation/mdx/mdx-check.js content
+
   validate_alerts:
     name: Alert Check
     runs-on: ubuntu-latest
