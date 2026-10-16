@@ -47,7 +47,7 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 #### Connectivity & Media
 
 | **Connector**     | **Details**                                                                                                       |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------- |
+|-------------------|-------------------------------------------------------------------------------------------------------------------|
 | Camera Connectors | - 2× MIPI-CSI 22-pin 4 lanes camera connectors<br></br>- Raspberry Pi camera compatible                           |
 | Display Connector | - 1× MIPI-DSI 22-pin 4 lanes display connector<br></br>- Waveshare display compatible                             |
 | Audio Connectors  | - 1× MIC-IN / Headphones Out 3.5 mm jack<br></br>- 1× Line Out 3.5 mm jack<br></br>- 1× Earphones Out 3.5 mm jack |
@@ -145,8 +145,8 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 | **Jack**                | **Type**    | **Function**                                   |
 |-------------------------|-------------|------------------------------------------------|
 | MIC-IN / Headphones Out | 3.5 mm jack | Combined microphone input and headphone output |
-| Line Out                | 3.5 mm jack | Line-level audio output                        |
-| Earphones Out           | 3.5 mm jack | Earphone output                                |
+| Line Out                | 3.5 mm jack | Mono differential line-level output            |
+| Earphones Out           | 3.5 mm jack | Mono differential earpiece output              |
 
 ### Additional Interfaces
 
@@ -162,7 +162,7 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 ![UNO Media Carrier Peripherals](assets/ASX00083_peripherals.png)
 
-- **LINE OUT (A1):** 3.5 mm audio jack for audio output. Signals routed through JMISC analog audio endpoints (`LINEOUT_P`, `LINEOUT_M`).
+- **LINE OUT (A1):** 3.5 mm audio jack for mono differential line-level output. Signals routed through JMISC analog audio endpoints (`LINEOUT_P`, `LINEOUT_M`).
 - **MICROPHONE IN / HEADPHONES OUT (A2):** 3.5 mm jack supporting microphone input and headphone output. Microphone signals (`MIC2_INP`, `MIC2_INN`, `MIC2_BIAS`) and headphone signals (`HPH_L`, `HPH_R`, `HPH_REF`, `HS_DET`) routed through JMISC.
 - **EAR OUT (A3):** 3.5 mm audio jack for Class-AB differential earpiece output. Signals routed through JMISC analog audio endpoints (`EAR_P_R`, `EAR_M_R`).
 - **DSI0 (B1):** 22-pin 4 lanes MIPI-DSI display connector compatible with [specific](#display-interface) Waveshare MIPI-DSI displays. Operates at 1.8 V logic level, routed from JMEDIA connector.
@@ -454,8 +454,8 @@ Use a 5 V DC / 3 A USB-C source and cable, or power from the 5 V or VIN pins as 
 <p style="text-align: justify;">The UNO Media Carrier provides three 3.5 mm audio jacks for flexible audio input and output. Audio signals are routed through the JMISC connector to the host board's audio codec.</p>
 
 - **MIC-IN / Headphones Out:** Combined jack for microphone input and headphone output. Use a four-pole TRRS connector for simultaneous input and output.
-- **Line Out:** Stereo line-level output for connection to external amplifiers or powered speakers.
-- **Earphones Out:** Direct earphone output for mono or stereo playback.
+- **Line Out:** Mono line-level output on a differential pair (`LINEOUT_P` / `LINEOUT_M`) for connection to external amplifiers or powered speakers with balanced inputs.
+- **Earphones Out:** Mono Class-AB differential earpiece output (`EAR_P_R` / `EAR_M_R`) for small speakers or earpieces.
 
 <div style="page-break-after: always;"></div>
 
@@ -559,7 +559,8 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 # Document Revision History
 
-|  **Date**  | **Revision** | **Changes**                 |
-| :--------: | :----------: | --------------------------- |
-| 07/10/2026 |      2       | MIPI DSI Displays Supported |
-| 27/03/2026 |      1       | Initial release             |
+|  **Date**  | **Revision** | **Changes**                     |
+|:----------:|:------------:|---------------------------------|
+| 16/10/2026 |      3       | Audio output information update |
+| 07/10/2026 |      2       | MIPI DSI Displays Supported     |
+| 27/03/2026 |      1       | Initial release                 |
