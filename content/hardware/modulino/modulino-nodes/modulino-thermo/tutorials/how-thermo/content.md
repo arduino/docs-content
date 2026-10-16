@@ -1,12 +1,13 @@
 ---
 title: "Getting Started with Modulino Thermo"
-description: "Complete guide for the Modulino Thermo temperature and humidity sensor module and programming with Arduino and MicroPython."
+description: "Learn how to use the Modulino Thermo to measure temperature and relative humidity with Arduino and MicroPython."
 tags:
  - Modulino
+ - Thermo
  - Temperature
  - Humidity
- - Qwiic
  - I2C
+ - Qwiic
 author: 'José Bagur, Pedro Sousa Lima'
 hardware:
  - hardware/11.modulinos/modulinos/modulino-thermo
@@ -16,23 +17,29 @@ software:
  - micropython
 ---
 
-![Thermo Overview](assets/thermo_overview.png)
+![Modulino Thermo Overview](assets/thermo_overview.png)
 
-The Modulino Thermo is a Modulino node that measures temperature and relative humidity, which makes it suitable to add environmental monitoring to your projects. It uses the Modulino form factor with Qwiic connectors for easy integration.
+The Modulino Thermo is a Modulino node that measures temperature and relative humidity. It uses a single calibrated digital sensor with an I2C interface and connects to the host board through Qwiic connectors, so no additional circuitry is required. This tutorial describes the hardware of the Modulino Thermo and shows how to read its measurements using both the Arduino and MicroPython libraries.
 
 <Alert type="note">
-
-The Modulino Thermo is available in two hardware versions that differ in the sensor they use. Boards marked **V0.5 or later** on the PCB use the GXHT30C sensor from GXCAS (black), while earlier boards use the HS3003 sensor from Renesas (silver). Both versions share the same board outline, connectors and library API, so the examples in this guide work on both. **Unless otherwise stated, the specifications below refer to boards marked V0.5 or later**.
-
+The Modulino Thermo is available in two hardware versions that differ in the sensor they use. Boards marked **V0.5 or later** on the PCB use the GXHT30C sensor from GXCAS (black), while earlier boards use the HS3003 sensor from Renesas (silver). Both versions share the same board outline, connectors, and library API, so the examples in this tutorial work on both. **Unless otherwise stated, the specifications below refer to boards marked V0.5 or later.**
 </Alert>
 
 ![Modulino Thermo hardware versions](assets/thermo_versions.png)
+
+## Why Use the Modulino Thermo?
+
+Temperature and relative humidity are the two measurements most often needed to monitor an environment, whether it is a room, a greenhouse, an enclosure, or a storage space. Measuring them with discrete sensors requires analog conditioning and a calibration step. The Modulino Thermo integrates both measurements in a single sensor that is calibrated at the factory and delivers its readings in digital form over I2C, so the host board reads temperature and humidity directly, without conversion or calibration code.
+
+Because it uses the Modulino form factor, the Modulino Thermo can be chained with other Modulino nodes on the same Qwiic bus, for example, with a Modulino Pixels to display the readings or with a Modulino Buzzer to signal an alert. Its I2C address is fixed, so using several Modulino Thermo nodes in the same project requires a Modulino Hub, as described in the [General Characteristics](#general-characteristics) section.
 
 ## Hardware Overview
 
 ### General Characteristics
 
-The Modulino Thermo is based on a single-chip temperature and humidity sensor with a calibrated digital I²C output. The table below summarizes the main characteristics of the sensor used in each hardware version:
+The **Modulino Thermo** is based on a single-chip temperature and humidity sensor with a calibrated digital I2C output. Boards marked V0.5 or later use the **GXHT30C** sensor from GXCAS; earlier boards use the **HS3003** sensor from Renesas. The "C" suffix of the GXHT30C indicates that the sensor is covered with a dustproof, breathable protective film, which gives it its black appearance and **must not be removed**.
+
+The main characteristics of the sensor used in each hardware version are summarized in the following table:
 
 |      **Parameter**     |    **V0.5 or later (GXHT30C)**   | **Earlier than V0.5 (HS3003)** |
 |:----------------------:|:--------------------------------:|:------------------------------:|
@@ -42,132 +49,137 @@ The Modulino Thermo is based on a single-chip temperature and humidity sensor wi
 |     Humidity Range     |           0 to 100 %RH           |          0 to 100 %RH          |
 |    Humidity Accuracy   |         ±3 %RH (typical)         |       ±2.8 %RH (typical)       |
 |   Humidity Resolution  |             0.01 %RH             |             14-bit             |
-|  Sensor Supply Voltage |         +2.0 to 5+.5 VDC         |        +2.3 to +5.5 VDC        |
-|    I²C Address (HEX)   |               0x45               |              0x44              |
+|  Sensor Supply Voltage |         +2.0 to +5.5 VDC         |        +2.3 to +5.5 VDC        |
+|    I2C Address (HEX)   |              `0x45`              |             `0x44`             |
 
 <Alert type="note">
-
-The sensor supply ranges above are the specifications of the sensors themselves. On the Modulino Thermo node, the sensor is always supplied at +3.3 VDC through the Qwiic connector or the node's 3V3 pin.
-
+The sensor supply ranges above are the specifications of the sensors themselves. On the Modulino Thermo, the sensor is always supplied at +3.3 VDC through the Qwiic connectors or the `3V3` pin of the optional headers.
 </Alert>
 
-### Sensor Details
+The sensor supports I2C standard mode (100 kHz), fast mode (400 kHz), and fast mode plus (1 MHz). The Modulino library configures the bus at 100 kHz. The default I2C address of the Modulino Thermo is the following:
 
-The Modulino Thermo node (boards marked V0.5 or later) uses the **GXHT30C** temperature and humidity sensor from GXCAS. This sensor natively supports digital communication (I²C), meaning it connects directly to the I²C bus without requiring additional conversion circuitry. The "C" suffix indicates that the sensor is covered with a dustproof, breathable protective film, which gives it its black appearance and **must not be removed**. The sensor provides measurements for the following:
-
-- Temperature
-- Relative humidity
-
-The sensor supports I²C standard mode at 100 kHz, fast mode at 400 kHz and fast mode plus at 1 MHz. The Modulino library configures the bus at 100 kHz. The default address for the module is the following:
-
-| **Modulino I²C Address** | **Hardware I²C Address** |         **Editable Addresses (HEX)**         |
-|:------------------------:|:------------------------:|:--------------------------------------------:|
-|          `0x45`          |          `0x45c          | `0x44` via solder jumper SJ1 (V0.5 or later) |
+| **Modulino I2C Address** | **Hardware I2C Address** |            **Configurable Addresses**            |
+|:------------------------:|:------------------------:|:------------------------------------------------:|
+|          `0x45`          |          `0x45`          | `0x44` via solder jumper SJ1 (V0.5 or later only) |
 
 <Alert type="note">
-
-**On boards marked V0.5 or later, the solder jumper SJ1 on the board connects the sensor's ADDR pin to GND when closed, which changes the I²C address from `0x45` to `0x44`. SJ1 is open by default**. The Modulino library identifies the hardware version by its I²C address, so a V0.5 or later board with SJ1 closed is handled as an HS3003-based board and **will not be recognized by the library**. Close SJ1 only when using custom code that addresses the GXHT30C sensor directly. On earlier boards, the address is fixed at `0x44`.
-
+On boards marked V0.5 or later, the solder jumper SJ1 connects the `ADDR` pin of the sensor to GND when closed, which changes the I2C address from `0x45` to `0x44`. **SJ1 is open by default.** The Modulino library identifies the hardware version by its I2C address, so a V0.5 or later board with SJ1 closed is handled as an HS3003-based board and **is not recognized by the library**. Close SJ1 only when using custom code that addresses the GXHT30C sensor directly. On earlier boards, the address is fixed at `0x44`.
 </Alert>
 
 <Alert type="note">
-
-Since the address cannot be changed while using the Modulino library, using two or more Modulino Thermo modules on the same I²C bus will result in address conflicts and cause communication issues. To use several Modulino Thermo modules at the same time, connect them through a [Modulino Hub](https://store.arduino.cc/products/modulino-hub).
-
+Since the address cannot be changed while using the Modulino library, connecting two or more Modulino Thermo nodes to the same I2C bus results in an address conflict. To use several Modulino Thermo nodes in the same project, connect them through a [Modulino Hub](https://store.arduino.cc/products/modulino-hub).
 </Alert>
 
 ### Pinout
 
 ![Modulino Thermo Pinout](assets/thermo_pinout.png)
 
-**Qwiic / I2C (1×4 Header, J4)**
+#### Qwiic Connectors (2×, 1×4 Each)
 
-The pins of the 1×4 header are described in the table below:
+Both Qwiic connectors share the same I2C and power lines, so either one can be used to connect the host board and the other to continue the Modulino chain. Their pin assignment is described in the following table:
 
 | **Pin** |       **Function**      |
 |:-------:|:-----------------------:|
 |   GND   |          Ground         |
-|  3.3 V  | Power supply (+3.3 VDC) |
-|   SDA   |         I²C data        |
-|   SCL   |        I²C clock        |
+|   3V3   | Power supply (+3.3 VDC) |
+|   SDA   |         I2C data        |
+|   SCL   |        I2C clock        |
 
-These pads and the Qwiic connectors share the same I²C bus. You can optionally solder header pins here.
+#### Optional Header (1×4, J4, Not Mounted)
 
-**Additional 1×5 Header (GXHT30C Signals, J3)**:
+The J4 header exposes the same I2C bus and power lines as the Qwiic connectors, for applications where header pins are preferred:
 
-The pins of the 1×5 header are described in the table below:
+| **Pin** |       **Function**      |
+|:-------:|:-----------------------:|
+|   GND   |          Ground         |
+|   3V3   | Power supply (+3.3 VDC) |
+|   SDA   |         I2C data        |
+|   SCL   |        I2C clock        |
+
+#### Optional Header (1×5, J3, Not Mounted)
+
+On boards marked V0.5 or later, the J3 header provides access to the control signals of the GXHT30C sensor:
 
 | **Pin** |         **Function**        |
 |:-------:|:---------------------------:|
 |   GND   |            Ground           |
-|   3V3   |        +3.3 VDC power       |
-|   ADDR  | I²C address selection input |
+|   3V3   |   Power supply (+3.3 VDC)   |
+|   ADDR  | I2C address selection input |
 |   nRST  |   Reset input (active low)  |
 |  ALERT  |         Alert output        |
 
-<Alert type="note">
-
-The `ADDR` and `nRST` pins have 4.7 kΩ pull-up resistors to +3.3 VDC on the board. `ADDR` sets the I²C address (see the Sensor Details section above); a low pulse of at least 1 µs on `nRST` resets the sensor. `ALERT` is an output that the sensor asserts when a reading exceeds its programmable thresholds; leave it unconnected when the alert function is not used. **The Modulino Arduino library does not use the `nRST` and `ALERT` pins**.
-
-</Alert>
+The `ADDR` and `nRST` pins have 4.7 kΩ pull-up resistors to +3.3 VDC on the board. `ADDR` sets the I2C address, as described in the [General Characteristics](#general-characteristics) section; a low pulse of at least 1 µs on `nRST` resets the sensor. `ALERT` is an output that the sensor asserts when a reading exceeds its programmable thresholds; leave it unconnected when the alert function is not used. **The Modulino library does not use the `nRST` and `ALERT` pins.**
 
 <Alert type="note">
-
-The 1×5 header is only available on boards marked V0.5 or later.
-
+The J3 header is only available on boards marked V0.5 or later.
 </Alert>
 
 ### Power Specifications
 
-The board is powered at +3.3 VDC through the Qwiic interface, as per the Qwiic standard.
+The Modulino Thermo is powered at +3.3 VDC through the Qwiic connectors, as per the Qwiic standard. The electrical characteristics of the GXHT30C sensor are listed in the following table:
 
-|       **Parameter**      |              **Condition**             | **Typical** | **Maximum** | **Unit** |
-|:------------------------:|:--------------------------------------:|:-----------:|:-----------:|:--------:|
-|     Operating Voltage    |                    -                   |     3.3     |      -      |     V    |
-|    Idle Supply Current   |           Sensor idle, 25 °C           |     0.2     |     2.0     |    µA    |
-| Measuring Supply Current |         Sensor measuring, 25 °C        |     600     |     1500    |    µA    |
-|  Average Supply Current  | 1 humidity + temperature measurement/s |     1.7     |      -      |    µA    |
+|       **Parameter**      |              **Condition**             | **Minimum** | **Typical** | **Maximum** | **Unit** |
+|:------------------------:|:--------------------------------------:|:-----------:|:-----------:|:-----------:|:--------:|
+|     Operating Voltage    |                    -                   |      -      |     3.3     |      -      |     V    |
+|    Idle Supply Current   |           Sensor idle, 25 °C           |      -      |     0.2     |     2.0     |    µA    |
+| Measuring Supply Current |         Sensor measuring, 25 °C        |      -      |     600     |     1500    |    µA    |
+|  Average Supply Current  | 1 humidity + temperature measurement/s |      -      |     1.7     |      -      |    µA    |
 
 <Alert type="note">
-
-The currents above are those of the GXHT30C sensor **alone**. Total module consumption is higher, as the board also includes an always-on power LED and pull-up resistors on the `ADDR` and `nRST` lines. For the HS3003 sensor of earlier boards, the average supply current is 24.4 µA at one measurement per second.
-
+The currents above are those of the GXHT30C sensor **alone**. The total consumption of the Modulino Thermo is higher, as the board also includes an always-on power LED and the pull-up resistors on the `ADDR` and `nRST` lines. For the HS3003 sensor of earlier boards, the average supply current is 24.4 µA at one measurement per second.
 </Alert>
+
+### Block Diagram
+
+![Modulino Thermo Block Diagram](assets/thermo_block_diagram.png)
+
+The **GXHT30C** sensor (U1) connects directly to the SDA and SCL lines shared by both Qwiic connectors (J1 and J2) and by the optional J4 header. The optional J3 header exposes the `ADDR`, `nRST`, and `ALERT` signals of the sensor, with `ADDR` and `nRST` pulled up to +3.3 VDC. The solder jumper SJ1 connects `ADDR` to GND when closed. Electrically, the Qwiic connectors and the J4 header share the same I2C bus.
+
+### Power Tree
+
+![Modulino Thermo Power Tree](assets/thermo_power_tree.png)
+
+The +3.3 VDC line from the Qwiic connectors supplies the GXHT30C sensor, the power LED, and the pull-up resistors of the `ADDR` and `nRST` lines directly, with no regulation stage, and is shared by both connectors and the optional headers. <!-- TO VERIFY: decoupling capacitor value on the sensor supply (schematic V0.5) -->
 
 ### Schematic
 
-The Modulino Thermo uses a simple circuit built around the **GXHT30C** sensor (U1), which handles both temperature and humidity measurements, as well as I²C communication.
+The Modulino Thermo uses a simple circuit built around the **GXHT30C** sensor (U1), which handles both the measurements and the I2C communication. The I2C lines are available through the **Qwiic connectors** (J1 and J2, recommended) or the **J4 header**, and the board is powered at **+3.3 VDC** through the Qwiic cable or the `3V3` pin of J4 or J3.
 
-You can connect to the I²C pins (SDA and SCL) using either the **Qwiic connectors** (J1 and J2, recommended) or the **solderable pins** (J4). The board runs on **+3.3 VDC** from the Qwiic cable or the **`3V3` pin** on J4 or J3.
+The full schematic and PCB files are available from the [Modulino Thermo page](https://docs.arduino.cc/hardware/modulinos/modulino-thermo) on Docs.
 
-Full schematic and PCB files are available from the [Modulino Thermo page](https://docs.arduino.cc/hardware/modulinos/modulino-thermo) on Docs.
+## How to Connect
+
+The Modulino Thermo requires no configuration. To add it to your project, follow these steps:
+
+1. Connect your Arduino board to one of the Qwiic connectors of the Modulino Thermo using a Qwiic cable. Every Modulino node ships with a 5 cm cable.
+2. If your project uses other Modulino nodes, connect the next node to the second Qwiic connector of the Modulino Thermo to continue the chain.
+3. Power your Arduino board. The green power LED of the Modulino Thermo turns on, and the node is ready to use.
+
+Boards with an onboard Qwiic connector, such as the **UNO R4 WiFi**, the **UNO Q**, and the **Nano R4**, connect directly to the Modulino Thermo. Boards in the Nano form factor without a Qwiic connector can be mounted on the **Nano Connector Carrier**, which adds Qwiic connectors to them. Alternatively, the Modulino Thermo can be wired to the I2C pins of any board through the optional J4 header.
+
+<Alert type="note">
+The Modulino Thermo operates at +3.3 VDC. The Arduino boards listed above supply that voltage through the Qwiic connector and handle the logic level translation, so no additional circuitry is required. If you wire the node through the J4 header instead, confirm that your board drives the I2C lines at +3.3 VDC.
+</Alert>
 
 ## Programming with Arduino
 
-The Modulino Thermo is fully compatible with the Arduino IDE and the official `Arduino_Modulino` library. The following examples show how to read temperature and humidity and how to build a simple environmental alert.
+The Modulino Thermo is supported by the [Arduino_Modulino](https://github.com/arduino-libraries/Arduino_Modulino) library, which is compatible with the Arduino IDE and the Arduino Cloud Editor. The following examples show how to read temperature and relative humidity and how to build a simple environmental alert.
 
 ### Prerequisites
 
-- An Arduino board with an onboard Qwiic connector: the **UNO R4 WiFi**, the **UNO Q** or the **Nano R4**. Boards in the Nano form factor can also be mounted on the **Nano Connector Carrier**, which adds Qwiic connectors to them.
-- A Qwiic cable. Every Modulino node ships with a 5 cm cable.
-- Install the `Arduino_Modulino` library via the Arduino IDE Library Manager (**version 0.10.0 or later is required for boards marked V0.5 or later**).
-- Connect your Modulino Thermo via Qwiic or solderable headers.
+To follow the Arduino examples of this tutorial, you will need the following:
 
-On the UNO R4 WiFi, the UNO Q and the Nano R4, the Qwiic connector is wired to the secondary I²C interface, and `Modulino.begin()` selects `Wire1` automatically. On any other board the library defaults to `Wire`. **You do not need to specify the interface in your sketch.**
+- An Arduino board with an onboard Qwiic connector (**UNO R4 WiFi**, **UNO Q**, or **Nano R4**), or a Nano form factor board mounted on the **Nano Connector Carrier**
+- A Qwiic cable
+- The `Arduino_Modulino` library, installed from the Library Manager of the Arduino IDE (**version 0.10.0 or later is required for boards marked V0.5 or later**). If you use the Arduino Cloud Editor, the library is already available and no installation is required
 
-<Alert type="note">
-
-The Modulino Thermo operates at +3.3 VDC. The Arduino boards listed above supply that voltage through the Qwiic connector and handle the logic level translation, so no additional circuitry is required. If you wire the module through its solderable pins instead, confirm that your board drives the I²C lines at +3.3 VDC.
-
-</Alert>
+On the UNO R4 WiFi, the UNO Q, and the Nano R4, the Qwiic connector is wired to the secondary I2C interface, and `Modulino.begin()` selects `Wire1` automatically. On any other board, the library defaults to `Wire`. **You do not need to specify the interface in your sketch.**
 
 <Alert type="note">
-
-The `Arduino_Modulino` library detects the hardware version of the module automatically: `thermo.begin()` first looks for the HS3003 sensor at address `0x44` and, if it is not found, for the GXHT30C sensor at address `0x45`. The same sketch works on both versions without changes.
-
+The `Arduino_Modulino` library detects the hardware version of the node automatically: `thermo.begin()` first looks for the HS3003 sensor at address `0x44` and, if it is not found, for the GXHT30C sensor at address `0x45`. The same sketch works on both versions without changes.
 </Alert>
 
-For detailed instructions on setting up your Arduino environment and installing libraries, please refer to the [Getting Started with Modulinos guide](../how-general). The library repository is available [here](https://github.com/arduino-libraries/Arduino_Modulino).
+For detailed instructions on setting up your Arduino environment and installing libraries, refer to the [Getting Started with Modulinos](../how-general) guide.
 
 ### Basic Example
 
@@ -226,24 +238,24 @@ void loop() {
 }
 ```
 
+After uploading the sketch, open the Serial Monitor at 115200 baud to see the temperature and humidity readings.
+
 ### Key Functions
 
 The basic example above relies on the following functions of the `Arduino_Modulino` library:
 
+- `Modulino.begin()`: Initializes the Modulino system (uses `Wire1` on boards with an onboard Qwiic connector).
 - `begin()`: Detects the sensor and initializes it. Returns `true` if the sensor responded at address `0x44` (HS3003) or `0x45` (GXHT30C).
 - `getTemperature()`: Returns the temperature in degrees Celsius as a `float`, or `NAN` if `begin()` failed.
 - `getHumidity()`: Returns the relative humidity as a percentage (`float`, 0.0 to 100.0), or `NAN` if `begin()` failed.
-- `Modulino.begin()`: Initializes the Modulino system (uses `Wire1` on boards with an onboard Qwiic connector).
 
 <Alert type="note">
-
-On boards marked V0.5 or later, the library caches the sensor reading for one second: calling `getTemperature()` and `getHumidity()` back to back triggers a single I²C transaction, and calling either function more than once per second returns the same values. The sensor is read again once the second has elapsed.
-
+On boards marked V0.5 or later, the library caches the sensor reading for one second: calling `getTemperature()` and `getHumidity()` back to back triggers a single I2C transaction, and calling either function more than once per second returns the same values. The sensor is read again once the second has elapsed.
 </Alert>
 
 ### Advanced Example - Environmental Alert
 
-This example compares the readings against temperature and humidity thresholds and prints an alert when either of them is exceeded.
+This example compares the readings against temperature and humidity thresholds and prints an alert when either of them is exceeded:
 
 ```arduino
 /**
@@ -318,38 +330,32 @@ void loop() {
 ```
 
 <Alert type="note">
-
-The thresholds in this example are arbitrary. Adjust them to the conditions of your own environment, and keep the sensor away from heat sources such as motors, power supplies or the host board's voltage regulator, which can raise the temperature reading by several degrees.
-
+The thresholds in this example are arbitrary. Adjust them to the conditions of your own environment, and keep the sensor away from heat sources such as motors, power supplies, or the voltage regulator of the host board, which can raise the temperature reading by several degrees.
 </Alert>
 
 ## Programming with MicroPython
 
-The Modulino Thermo is fully compatible with MicroPython through the official Modulino MicroPython library.
+The Modulino Thermo is supported by the [Modulino MicroPython package](https://github.com/arduino/arduino-modulino-mpy). The following examples show how to read temperature and relative humidity and how to build a simple data logger.
 
 <Alert type="warning">
-
-At the time of writing, **the Modulino MicroPython library (version 1.2.0) supports the HS3003 sensor only**. Boards marked V0.5 or later (GXHT30C sensor, address 0x45) are not detected by `ModulinoThermo()` until a new version of the library is released. Check the [library repository](https://github.com/arduino/arduino-modulino-mpy) for the latest version.
-
+At the time of writing, **the Modulino MicroPython package (version 1.2.0) supports the HS3003 sensor only**. Boards marked V0.5 or later (GXHT30C sensor, address `0x45`) are not detected by `ModulinoThermo()` until a new version of the package is released. Check the [package repository](https://github.com/arduino/arduino-modulino-mpy) for the latest version.
 </Alert>
 
 ### Prerequisites
 
-To follow the MicroPython examples of this guide, you will need the following:
+To follow the MicroPython examples of this tutorial, you will need the following:
 
-- An Arduino board that officially supports MicroPython, such as the **Nano ESP32**, the **Nano RP2040 Connect**, the **Nano 33 BLE Sense**, the **GIGA R1 WiFi** or the **Portenta H7**. Mount a Nano form factor board on the **Nano Connector Carrier** to connect the Modulino Thermo through Qwiic
-- A Qwiic cable. Every Modulino node ships with a 5 cm cable
-- Install the Modulino MicroPython library. The recommended method uses `mpremote` and `mip` (this also installs the sensor driver that the Modulino Thermo depends on):
+- An Arduino board that officially supports MicroPython, such as the **Nano ESP32**, the **Nano RP2040 Connect**, the **Nano 33 BLE Sense**, the **GIGA R1 WiFi**, or the **Portenta H7**. Mount a Nano form factor board on the **Nano Connector Carrier** to connect the Modulino Thermo through Qwiic
+- A Qwiic cable
+- The Modulino MicroPython package, installed with the [Arduino MicroPython Package Installer](https://labs.arduino.cc/en/labs/micropython-package-installer) by searching for **Modulino**, or from a terminal with `mpremote` and `mip`:
 
-  ```
+  ```bash
   mpremote mip install github:arduino/arduino-modulino-mpy
   ```
 
-- Ensure Arduino Lab for MicroPython is installed
+- Arduino Lab for MicroPython, to run the scripts on the board
 
-On Arduino boards the library detects the correct I²C interface automatically, so `ModulinoThermo()` needs no arguments.
-
-See [Getting Started with Modulinos](../how-general) for detailed instructions.
+On Arduino boards, the package detects the correct I2C interface automatically, so `ModulinoThermo()` needs no arguments. For detailed instructions, refer to the [Getting Started with Modulinos](../how-general) guide.
 
 ### Basic Example
 
@@ -396,21 +402,19 @@ The basic example above relies on the following properties of the `ModulinoTherm
 
 - `.temperature`: Returns the temperature in degrees Celsius as a `float`, or `None` if the sensor data is not ready.
 - `.relative_humidity`: Returns the relative humidity as a percentage (`float`), or `None` if the sensor data is not ready.
-- `.measurements`: Returns both values at once as a named tuple with the fields `temperature` and `relative_humidity`, using a single I²C transaction.
+- `.measurements`: Returns both values at once as a named tuple with the fields `temperature` and `relative_humidity`, using a single I2C transaction.
 
 <Alert type="note">
-
 Each access to `.temperature` or `.relative_humidity` triggers a full sensor reading. When you need both values, read `.measurements` once instead of accessing the two properties separately: it is faster and guarantees that both values come from the same measurement.
-
 </Alert>
 
 ### Differences From the Arduino Library
 
-The MicroPython implementation is not a direct port of the Arduino one. The table below summarizes the differences to keep in mind when moving an application between the two.
+The MicroPython implementation is not a direct port of the Arduino one. The following table summarizes the differences to keep in mind when moving an application between the two:
 
 |         **Aspect**         |                **Arduino**                |           **MicroPython**           |
 |:--------------------------:|:-----------------------------------------:|:-----------------------------------:|
-| Hardware version detection |          Automatic (0x44 or 0x45)         | HS3003 only (0x44) in version 1.2.0 |
+| Hardware version detection |        Automatic (`0x44` or `0x45`)       | HS3003 only (`0x44`) in version 1.2.0 |
 |    Reading not available   |       `NAN` (sensor not initialized)      |    `None` (sensor data not ready)   |
 |        Reading cache       | One second on boards marked V0.5 or later | None, every access reads the sensor |
 |      Combined reading      |               Not available               |     `.measurements` named tuple     |
@@ -418,7 +422,7 @@ The MicroPython implementation is not a direct port of the Arduino one. The tabl
 
 ### Advanced Example - Data Logger
 
-This example logs a reading at a fixed interval, keeps the most recent samples in memory and prints basic statistics each time a new sample is stored. It uses `ticks_diff()` to measure elapsed time, which handles the wrap-around of the millisecond counter correctly.
+This example logs a reading at a fixed interval, keeps the most recent samples in memory, and prints basic statistics each time a new sample is stored. It uses `ticks_diff()` to measure elapsed time, which handles the wrap-around of the millisecond counter correctly:
 
 ```python
 """
@@ -493,44 +497,32 @@ while True:
 ```
 
 <Alert type="note">
-
-The samples are kept in RAM and are lost when the board is reset. To keep a permanent record, write each sample to a file on the board's file system or send it to a host computer over the serial connection.
-
+The samples are kept in RAM and are lost when the board is reset. To keep a permanent record, write each sample to a file on the file system of the board or send it to a host computer over the serial connection.
 </Alert>
 
 ## Troubleshooting
 
-### Sensor Not Reachable
+### Sensor Not Detected
 
-If your Modulino's power LED isn't on or the sensor isn't responsive:
+If the power LED of the Modulino Thermo is off, check that the Qwiic cable is firmly clicked into place at both ends and that the host board is powered. If the LED is on but the sensor does not respond, check the return value of `thermo.begin()` in Arduino: it returns `false` when the sensor did not answer at address `0x44` or `0x45`.
 
-- Ensure the host board is connected to your computer and the Modulino is connected to the host board
-- Verify that the power LEDs on both are lit.
-- Check that the Qwiic cable is properly clicked into place.
-- Check the return value of `thermo.begin()` in Arduino. If it returns `false`, the sensor did not answer at address `0x44` or `0x45`.
-- On boards marked V0.5 or later, make sure you are using Arduino_Modulino version 0.10.0 or later. Earlier versions only look for the sensor at address `0x44`.
-- On boards marked V0.5 or later, verify that the solder jumper SJ1 is open. If it was closed, the module answers at address `0x44` and the library handles it as an HS3003-based board.
-- If you have more than one Modulino Thermo on the bus, remove all but one or connect them through a Modulino Hub: the address cannot be changed while using the Modulino library
+On boards marked V0.5 or later, make sure that you are using `Arduino_Modulino` version 0.10.0 or later, since earlier versions only look for the sensor at address `0x44`. Also verify that the solder jumper SJ1 is open; if it was closed, the node answers at address `0x44` and the library handles it as an HS3003-based board. In MicroPython, remember that package version 1.2.0 supports the HS3003 sensor only, as described in the [Programming with MicroPython](#programming-with-micropython) section.
+
+If there is more than one Modulino Thermo on the bus, remove all but one or connect them through a Modulino Hub, since the address cannot be changed while using the Modulino library.
 
 ### Readings Are NAN or None
 
-If `getTemperature()` and `getHumidity()` return `NAN` in Arduino, `begin()` failed and the sensor was never initialized. Check the previous section.
-
-If `.temperature` and `.relative_humidity` return `None` in MicroPython, the sensor reported that its data is not ready. Wait a few milliseconds and read again; the basic example shows how to skip these readings.
-
-### Inaccurate Values
-
-If the sensor values are not accurate:
-
-- Keep the sensor away from heat-generating components such as motors, power supplies or the host board's voltage regulator, which can raise the temperature reading by several degrees
-- Allow the sensor time to stabilize after power-on and after any change in the environment
-- Do not touch or cover the black protective film of the GXHT30C sensor, and keep it clean and free of condensation
-- Avoid exposing the sensor to volatile solvents such as acetone, ethanol or isopropyl alcohol, which permanently shift the humidity readings
-- After long exposure to very high humidity, the sensor may read high for a while. It slowly returns to its calibrated state once normal conditions are restored
+If `getTemperature()` and `getHumidity()` return `NAN` in Arduino, `begin()` failed and the sensor was never initialized; check the previous section. If `.temperature` and `.relative_humidity` return `None` in MicroPython, the sensor reported that its data is not ready. Wait a few milliseconds and read again; the basic example shows how to skip these readings.
 
 ### Readings Do Not Change
 
-On boards marked V0.5 or later, the Arduino library caches the sensor reading for one second. If you call `getTemperature()` or `getHumidity()` several times within the same second, you will get the same values. This is expected behavior, not a fault.
+On boards marked V0.5 or later, the Arduino library caches the sensor reading for one second. If you call `getTemperature()` or `getHumidity()` several times within the same second, you get the same values. This is the expected behavior, not a fault.
+
+### Inaccurate Readings
+
+If the readings are not accurate, keep the sensor away from heat-generating components such as motors, power supplies, or the voltage regulator of the host board, which can raise the temperature reading by several degrees, and allow the sensor time to stabilize after power-on and after any change in the environment.
+
+Do not touch or cover the black protective film of the GXHT30C sensor, and keep it clean and free of condensation. Avoid exposing the sensor to volatile solvents such as acetone, ethanol, or isopropyl alcohol, which permanently shift the humidity readings. After long exposure to very high humidity, the sensor may read high for a while; it slowly returns to its calibrated state once normal conditions are restored.
 
 ### Library Issues
 
@@ -538,18 +530,22 @@ See the [Getting Started with Modulinos](../how-general) guide for library insta
 
 ## Project Ideas
 
-Now that you've learned how to use your Modulino Thermo, try these projects:
+Now that you are familiar with the Modulino Thermo, you can use it in projects such as the following:
 
 - **Smart greenhouse monitor**: Track temperature and humidity for optimal plant growth
-- **Weather station**: Combine with other Modulino nodes to create a complete weather monitoring system
+- **Weather station**: Combine the Modulino Thermo with other Modulino nodes to build a complete weather monitoring system
 - **HVAC controller**: Monitor room conditions and trigger heating or cooling systems
-- **Food storage monitor**: Keep an eye on the conditions in pantries, cellars or refrigerators
+- **Food storage monitor**: Keep track of the conditions in pantries, cellars, or refrigerators
 - **Data logger**: Record environmental conditions over time for analysis, as shown in the MicroPython advanced example
-- **Comfort zone indicator**: Use with Modulino Pixels to show comfort levels with colors
-- **Pet habitat monitor**: Make sure reptile or tropical fish environments stay within range
+- **Comfort zone indicator**: Use a Modulino Pixels to show comfort levels with colors
+- **Pet habitat monitor**: Keep reptile or tropical fish environments within range
 
 ## Conclusion
 
-In this guide, you learned about the hardware of the Modulino Thermo, including the two hardware versions of the module and how to identify them, and how to read temperature and relative humidity from it using both the `Arduino_Modulino` library and the Modulino MicroPython library. You also learned how to use the readings in an environmental alert and in a data logger, and how to troubleshoot the most common issues.
+In this tutorial, you learned about the hardware of the Modulino Thermo, including its two hardware versions and how to identify them, how to connect it to your Arduino board, and how to read temperature and relative humidity from it using both the `Arduino_Modulino` library and the Modulino MicroPython package. You also learned how to use the readings in an environmental alert and in a data logger, and how to troubleshoot the most common issues.
 
-The Modulino Thermo is a simple way to add environmental sensing to a project, and it combines well with other Modulino nodes to build complete monitoring and control systems. For more information about the module, refer to the [Modulino Thermo page](https://docs.arduino.cc/hardware/modulinos/modulino-thermo) in Docs, where you will find the datasheet, the schematic and the pinout.
+For more information, refer to the following resources:
+
+- [Modulino Thermo page](https://docs.arduino.cc/hardware/modulinos/modulino-thermo), with the datasheet, the schematic, and the pinout
+- [Arduino_Modulino library](https://github.com/arduino-libraries/Arduino_Modulino)
+- [Modulino MicroPython package](https://github.com/arduino/arduino-modulino-mpy)
