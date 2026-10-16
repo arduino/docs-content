@@ -114,7 +114,7 @@ The Modulino Extender is also useful on buses with many devices. Even with short
 
 The Modulino Extender requires no configuration. To add it to an I2C bus, follow these steps:
 
-1. Connect a Qwiic cable an Arduino board to one of the Qwiic connectors of the Modulino Extender.
+1. Connect an Arduino board to one of the Qwiic connectors of the Modulino Extender using a Qwiic cable.
 2. Connect the remote device to the other Qwiic connector of the Modulino Extender.
 3. For cable runs longer than a standard Qwiic cable, use the cable types described in the [Cable Requirements](#cable-requirements) section.
 
