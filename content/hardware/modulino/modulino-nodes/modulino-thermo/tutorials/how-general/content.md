@@ -200,14 +200,14 @@ used by the Arduino Wire library.
 | Thermo | 0x44 | No | No |
 | Joystick | 0x2C | No | Yes |
 | Light | 0x53 | No | No |
-| Latch Relay | Pending confirmation | No | Yes |
+| Latch Relay | 0x15 | No | Yes |
 | Vibro | 0x38 | No | Yes |
 | LED Matrix | 0x39 | No | Yes |
 | Hub | 0x70 | 0x70–0x77 (solder jumpers) | No |
 | Motors | 0x48 | No | Yes |
 | Extender | N/A | N/A | N/A |
 
-### Address configuration
+### Address Configuration
 
 - Software-configurable modules can be assigned a different I2C
   address using the Arduino_Modulino AddressChanger utility.
