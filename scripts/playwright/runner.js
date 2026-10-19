@@ -104,7 +104,9 @@ async function run() {
     };
 
     try {
-        await page.goto(CONFIG.baseUrl, { timeout: 30000 });
+        if (!flowModule.skipBaseUrl) {
+            await page.goto(CONFIG.baseUrl, { timeout: 30000 });
+        }
         if (typeof flowModule === 'function') {
             await flowModule(page, outDir, options);
         } else if (flowModule && typeof flowModule.run === 'function') {

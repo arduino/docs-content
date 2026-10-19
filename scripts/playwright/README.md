@@ -48,4 +48,5 @@ When a step fails, the runner writes a DOM dump, a screenshot, and the error det
 - `core/capture.js`: Contains reusable visual capture logic, orthogonal connector drawing, label distribution, and toast suppression.
 - `core/app-lab.js`: Shared App Lab navigation (board selection, Apps page, opening an App, App menu, dialogs, console). Flows and other Playwright scripts use it, so a locator changed for a new App Lab version is fixed in one place.
 - `flows/app-lab.js`: Contains the sequence of interactions and locators for App Lab.
+- `flows/renders.js`: Generates cropped board hardware callout diagrams (such as the `JCTL` boot pins for UNO Q and VENTUNO Q) directly from the board renders in `content/software/app-lab/assets/renders/` (`node runner.js --flow renders`).
 - `flows/arduino-cloud.js`: Template for adding automated visual captures for other Arduino services.

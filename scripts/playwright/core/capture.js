@@ -24,7 +24,15 @@ async function highlightElement(page, highlightDefs, isInsetGlobal = false) {
                 inset: def.inset !== undefined ? def.inset : isInsetGlobal,
                 alignVertical: def.alignVertical || false,
                 fixedY: def.fixedY !== undefined ? def.fixedY : null,
-                connectorMidX: def.connectorMidX !== undefined ? def.connectorMidX : null
+                fixedX: def.fixedX !== undefined ? def.fixedX : null,
+                connectorMidX: def.connectorMidX !== undefined ? def.connectorMidX : null,
+                shape: def.shape || 'box',
+                fill: def.fill || null,
+                outlineWidth: def.outlineWidth || 4,
+                strokeWidth: def.strokeWidth || 2,
+                fontSize: def.fontSize || 14,
+                badgePadding: def.badgePadding || '4px 12px',
+                badgeRadius: def.badgeRadius || 4
             });
         }
     }
@@ -82,13 +90,16 @@ async function highlightElement(page, highlightDefs, isInsetGlobal = false) {
 
             console.log(`[Box] Def ${i} (${def.label || 'no-label'}): left=${box.left}, right=${box.right}, top=${box.top}, bottom=${box.bottom}, cx=${boxCx}, cy=${boxCy}`);
 
+            const isCircle = def.shape === 'circle' || def.shape === 'point';
+            const ow = def.outlineWidth || 4;
             const overlay = document.createElement('div');
             overlay.className = 'playwright-highlight-overlay';
             overlay.style.cssText = `
                 position: fixed; pointer-events: none; z-index: 999998;
                 top: ${box.top}px; left: ${box.left}px; width: ${bw}px; height: ${bh}px;
-                outline: 4px solid #FF8C00; outline-offset: ${def.inset ? '-4px' : '2px'};
-                border-radius: 4px;
+                outline: ${ow}px solid #FF8C00; outline-offset: ${isCircle ? '0px' : (def.inset ? `-${ow}px` : '2px')};
+                border-radius: ${isCircle ? '50%' : '4px'};
+                ${def.fill ? `background-color: ${def.fill};` : ''}
             `;
             document.body.appendChild(overlay);
 
@@ -98,8 +109,8 @@ async function highlightElement(page, highlightDefs, isInsetGlobal = false) {
                 badge.className = 'playwright-highlight-overlay';
                 badge.style.cssText = `
                     position: fixed; z-index: 999999; background-color: #FF8C00; color: white;
-                    padding: 4px 12px; font-size: 14px; font-weight: bold; font-family: sans-serif;
-                    border-radius: 4px; white-space: nowrap; visibility: hidden; top: 0; left: 0;
+                    padding: ${def.badgePadding || '4px 12px'}; font-size: ${def.fontSize || 14}px; font-weight: bold; font-family: sans-serif;
+                    border-radius: ${def.badgeRadius || 4}px; white-space: nowrap; visibility: hidden; top: 0; left: 0;
                 `;
                 document.body.appendChild(badge);
                 const br = badge.getBoundingClientRect();
@@ -112,6 +123,7 @@ async function highlightElement(page, highlightDefs, isInsetGlobal = false) {
                     cy: boxCy,
                     alignVertical: def.alignVertical || false,
                     fixedY: def.fixedY !== undefined ? def.fixedY : null,
+                    fixedX: def.fixedX !== undefined ? def.fixedX : null,
                     connectorMidX: def.connectorMidX !== undefined ? def.connectorMidX : null
                 });
             }
@@ -192,7 +204,11 @@ async function highlightElement(page, highlightDefs, isInsetGlobal = false) {
                 if (first.cy < tLimit && !first.alignVertical && first.fixedY === null) first.cy = tLimit;
             }
             group.forEach(item => {
-                item.finalX = side === 'left' ? colX - item.w : colX;
+                if (item.fixedX !== null) {
+                    item.finalX = item.fixedX;
+                } else {
+                    item.finalX = side === 'left' ? colX - item.w : colX;
+                }
                 if (item.fixedY !== null) {
                     item.finalY = item.fixedY;
                     item.cy = item.fixedY + item.h / 2;
@@ -216,6 +232,8 @@ async function highlightElement(page, highlightDefs, isInsetGlobal = false) {
             const threshold = 5;
             const cornerMargin = 4;
             const cSide = item.def.connectorSide || item.side;
+            const isCircle = item.def.shape === 'circle' || item.def.shape === 'point';
+            const edgeOffset = isCircle ? (item.def.outlineWidth || 4) / 2 : 2;
 
             if (item.side === 'top' || item.side === 'bottom') {
                 startX = item.cx;
@@ -223,15 +241,15 @@ async function highlightElement(page, highlightDefs, isInsetGlobal = false) {
                 
                 if (cSide === 'top') {
                     endX = Math.max(item.box.left + cornerMargin, Math.min(item.box.right - cornerMargin, item.boxCx));
-                    endY = item.box.top - 2;
+                    endY = item.box.top - edgeOffset;
                 } else if (cSide === 'bottom') {
                     endX = Math.max(item.box.left + cornerMargin, Math.min(item.box.right - cornerMargin, item.boxCx));
-                    endY = item.box.bottom + 2;
+                    endY = item.box.bottom + edgeOffset;
                 } else if (cSide === 'left') {
-                    endX = item.box.left - 2;
+                    endX = item.box.left - edgeOffset;
                     endY = Math.max(item.box.top + cornerMargin, Math.min(item.box.bottom - cornerMargin, item.boxCy));
                 } else {
-                    endX = item.box.right + 2;
+                    endX = item.box.right + edgeOffset;
                     endY = Math.max(item.box.top + cornerMargin, Math.min(item.box.bottom - cornerMargin, item.boxCy));
                 }
                 
@@ -251,15 +269,15 @@ async function highlightElement(page, highlightDefs, isInsetGlobal = false) {
 
                 if (cSide === 'top') {
                     endX = Math.max(item.box.left + cornerMargin, Math.min(item.box.right - cornerMargin, item.boxCx));
-                    endY = item.box.top - 2;
+                    endY = item.box.top - edgeOffset;
                 } else if (cSide === 'bottom') {
                     endX = Math.max(item.box.left + cornerMargin, Math.min(item.box.right - cornerMargin, item.boxCx));
-                    endY = item.box.bottom + 2;
+                    endY = item.box.bottom + edgeOffset;
                 } else if (cSide === 'left') {
-                    endX = item.box.left - 2;
+                    endX = item.box.left - edgeOffset;
                     endY = Math.max(item.box.top + cornerMargin, Math.min(item.box.bottom - cornerMargin, item.boxCy));
                 } else {
-                    endX = item.box.right + 2;
+                    endX = item.box.right + edgeOffset;
                     endY = Math.max(item.box.top + cornerMargin, Math.min(item.box.bottom - cornerMargin, item.boxCy));
                 }
                 
@@ -277,7 +295,7 @@ async function highlightElement(page, highlightDefs, isInsetGlobal = false) {
 
             path.setAttribute('d', d);
             path.setAttribute('stroke', '#FF8C00');
-            path.setAttribute('stroke-width', '2');
+            path.setAttribute('stroke-width', String(item.def.strokeWidth || 2));
             path.setAttribute('fill', 'none');
             svg.appendChild(path);
 
@@ -302,7 +320,8 @@ async function capture(page, pathname, outDir, options = {}) {
         crop,
         padding = 0,
         percentage,
-        insetHighlight = false
+        insetHighlight = false,
+        omitBackground = false
     } = options;
 
     // Move mouse away to prevent hover tooltips or active states
@@ -316,7 +335,7 @@ async function capture(page, pathname, outDir, options = {}) {
     if (highlight) {
         const highlightDefs = Array.isArray(highlight) && highlight[0] && !highlight[0].click && !highlight[0].elementHandle 
             ? highlight 
-            : [{ locators: highlight, label: label, labelSide: options.labelSide, connectorSide: options.connectorSide, inset: insetHighlight }];
+            : [{ locators: highlight, label: label, labelSide: options.labelSide, connectorSide: options.connectorSide, inset: insetHighlight, shape: options.shape, fill: options.fill }];
 
         labelRects = await highlightElement(page, highlightDefs, insetHighlight);
         await page.waitForTimeout(100); 
@@ -388,6 +407,7 @@ async function capture(page, pathname, outDir, options = {}) {
 
     await page.screenshot({
         path: fullPath,
+        omitBackground,
         clip: {
             x: Math.max(0, rect.x),
             y: Math.max(0, rect.y),

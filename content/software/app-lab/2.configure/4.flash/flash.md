@@ -30,7 +30,7 @@ Before you start, check that:
    * On the **UNO Q**, **Preserve existing data during the board flashing process** is selected by default and keeps the `userdata` partition (mounted at `/home/arduino`). Clear the checkbox for a full reset. If the selected build cannot keep your data, App Lab warns you that flashing requires a complete re-initialization of the board.
    * The **VENTUNO Q** image has no separate user partition, so flashing erases all data on the board. **Back up your files or export your Apps before flashing.**
    ![Screenshot of the Configure step of the Flash board page in Arduino App Lab.](../../assets/playwright/settings/flasher-configure.png)
-7. Select **Start flashing**, then follow the on-screen instructions in the **Preparing the hardware** step: disconnect the board, add the jumper between the EDL pins shown in the image, and connect the board to your computer.
+7. Select **Start flashing**, then follow the on-screen instructions in the **Preparing the hardware** step: disconnect the board, add the jumper between the `JCTL` boot pins shown in the image (`GND` and `USB_BOOT` on the **UNO Q**, or `GND` and `FORCE_BOOT` on the **VENTUNO Q**), and connect the board to your computer.
 8. In the **Flash** step, App Lab downloads the image, extracts it, and flashes the board partitions. This can take several minutes. Flashing cannot be stopped once it starts.
 9. When the flash is complete, unplug the board, remove the jumper, and plug the board in again. Select **OK, done**.
 
@@ -52,19 +52,16 @@ To use the CLI tool, put the board into **Emergency Download Mode (EDL)**.
 
 <Alert type="note">
 
-**Important:** Short the EDL pins **before** connecting the board to your computer. Failure to do so causes the flasher tool to hang indefinitely with a "Waiting for EDL device" message.
+**Important:** Short the `JCTL` boot pins **before** connecting the board to your computer. Failure to do so causes the flasher tool to hang indefinitely with a "Waiting for EDL device" message.
 
 </Alert>
 
-1. Disconnect the board from your computer.
-2. Locate the two **EDL pins** on the board.
-   ![The EDL pins on the UNO Q.](../../assets/flashing/flashing-pins.png)
-
-   <Alert type="info">
-
-   **Note:** The image shows the EDL pins on the UNO Q. The VENTUNO Q has its EDL pins in a different location; see [Flashing the Ubuntu Image](/tutorials/ventuno-q/flash-image/) for VENTUNO Q instructions.
-
-   </Alert>
+1. Disconnect the board from your computer and any external power source.
+2. Locate the **JCTL** header on the board and identify the two boot pins in the rightmost column:
+   * **UNO Q:** `GND` (upper row) and `USB_BOOT` (lower row)
+     ![The GND and USB_BOOT boot pins on the UNO Q JCTL header.](../../assets/playwright/flashing/uno-q-jctl-pins.png)
+   * **VENTUNO Q:** `GND` (upper row) and `FORCE_BOOT` (lower row)
+     ![The GND and FORCE_BOOT boot pins on the VENTUNO Q JCTL header.](../../assets/playwright/flashing/ventuno-q-jctl-pins.png)
 
 3. Short these two pins together using a female-to-female jumper cable or a jumper cap.
 
@@ -74,11 +71,11 @@ To use the CLI tool, put the board into **Emergency Download Mode (EDL)**.
 
    </Alert>
 
-4. With the jumper in place, connect the board to your computer using a USB-C cable.
+4. With the jumper in place, connect the board to your computer using a USB-C cable (on the **VENTUNO Q**, connect the external power supply first).
 
 <Alert type="success">
 
-**Tip:** After connecting the board, you can remove the short from the pins. Your board remains in EDL mode until you restart it without the EDL pins shorted.
+**Tip:** After connecting the board, you can remove the short from the pins. Your board remains in EDL mode until you restart it without the pins shorted.
 
 </Alert>
 
@@ -143,7 +140,7 @@ To use the CLI tool, put the board into **Emergency Download Mode (EDL)**.
 ### Step 4: Finalize and Reboot
 
 1. Once the tool reports a successful flash, unplug the board from your computer.
-2. Remove the short from the EDL pins if they are still connected.
+2. Remove the short from the **JCTL** pins if they are still connected.
 3. Re-connect the USB-C cable to your computer to boot the new Linux OS.
 
 ## Troubleshooting
@@ -152,7 +149,7 @@ To use the CLI tool, put the board into **Emergency Download Mode (EDL)**.
 
 If the Flasher tool hangs at a `Waiting for EDL device` message, it means the tool cannot communicate with the board. There are two primary causes for this:
 
-- **EDL Mode Not Triggered:** The board is not correctly in EDL mode. Unplug the board, ensure the jumper cable securely shorts the EDL pins, and then reconnect the USB cable.
+- **EDL Mode Not Triggered:** The board is not correctly in EDL mode. Unplug the board, ensure the jumper cable securely shorts `GND` and `USB_BOOT` (UNO Q) or `GND` and `FORCE_BOOT` (VENTUNO Q) on the **JCTL** header, and then reconnect the USB cable.
 
 - **Missing udev Rules (Linux):** When the board enters EDL mode, it connects using a Qualcomm USB vendor ID (`05c6`). If your Linux system lacks the necessary `udev` rules or group permissions for this ID, the flasher tool cannot communicate with the board and will hang indefinitely.
 
