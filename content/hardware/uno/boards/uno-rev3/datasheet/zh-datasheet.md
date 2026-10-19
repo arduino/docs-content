@@ -8,12 +8,17 @@ type: maker
 
 # 中文 (ZH)
 
-
 # 描述
 Arduino UNO R3 是熟悉电子技术和编码的完美开发板。这款多功能开发板配备了著名的 ATmega328P 和 ATMega 16U2 处理器。该开发板将为您带来 Arduino 世界绝佳的初次体验。
 
 # 目标领域：
 创客、介绍、工业领域
+
+**产品预期用途**
+
+Arduino 硬件产品主要用于开发和原型制作，但也可能支持生产解决方案。开发人员必须根据预期部署环境，尽早设计并验证安全控制措施。安全是 Arduino 与解决方案构建者共同承担的责任，解决方案构建者必须评估硬件提供的安全功能，并添加任何必要的保护措施。
+
+请访问 [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/)，查看完整的《Arduino 硬件产品：预期用途与安全模型》。
 
 # 特点
 * **ATMega328P** 处理器
@@ -293,4 +298,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 06/2021    | 1            | Datasheet release                |
 | 26/07/2023 | 2            | General Update                   |
 | 25/04/2024 | 3            | Updated link to new Cloud Editor |
-| 12/10/2026 |       4      | Added note for Intended Use, and divided language |
+| 12/10/2026 | 4            | Added note for Intended Use, and divided language |
