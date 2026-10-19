@@ -99,11 +99,11 @@ When you export for the UNO Q, you get an **.eim (Edge Impulse Model)** file. Th
 
 ![Video Object Detection Brick](assets/app-lab-0.5.png)
 
-- Navigate to the **AI models** tab in the Brick. The interface lists available models for your Brick, showing only the built-in Default models if no new ones have been trained.
+- Navigate to the **AI Models** tab in the Brick. The interface lists available models for your Brick, showing only the built-in Default models if no new ones have been trained.
 
 ![AI models Brick option](assets/app-lab-1.png)
 
-- To start training your custom model, click on **Train new AI model** shown in the image above. Then, click on **Ok, let's start**.
+- To start training your custom model, click on **Train new AI Model** shown in the image above. Then, click on **OK, let's start**.
 
 ![Start the Edge Impulse pairing](assets/app-lab-2.png)
 

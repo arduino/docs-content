@@ -45,18 +45,18 @@ A setup wizard will automatically launch if the board has not been configured, i
 
 Follow these steps to complete the setup:
 
-1. **Board Configuration:**
-   - _Keyboard Layout._ Choose your preferred keyboard layout. This is essential if you plan to use the board in Standalone (SBC) mode with a physical keyboard.
-   - _Board Name._ Assign a unique name to your board. This name will identify your board in the App Lab interface and on your local network (e.g., `my-board.local`).
+1. **Board configuration:**
+   - _Keyboard layout._ Choose your preferred keyboard layout. This is essential if you plan to use the board in Standalone (SBC) mode with a physical keyboard.
+   - _Board name._ Assign a unique name to your board. This name will identify your board in the App Lab interface and on your local network (e.g., `my-board.local`).
    ![Selecting a board in Arduino App Lab.](../../assets/configuration/initial/board-configuration.png)
-1. **Network Setup:** Select your local Wi-Fi network and enter the password. An internet connection is required for downloading "Bricks" and system updates. When your board connects to the Internet, it will automatically check for software updates.
+1. **Network setup:** Select your local Wi-Fi network and enter the password. An internet connection is required for downloading "Bricks" and system updates. When your board connects to the Internet, it will automatically check for software updates.
 1. **Set Linux Password:** Create a custom password for the default `arduino` user account.
    <Alert type="warning">
 
    **Important:** The Linux password is required for Network Mode, SSH access, and logging into the Debian desktop in SBC mode. Ensure you save it securely.
 
    </Alert>
-1. **Arduino Account:** Sign in with your Arduino account to enable additional features. If Arduino App Lab does not prompt you to sign in, you can do this later from the **Account** tab in the sidebar.
+1. **Arduino account:** Sign in with your Arduino account to enable additional features. If Arduino App Lab does not prompt you to sign in, you can do this later from the **Account** tab in the sidebar.
 
 ## Manage Software Updates
 
