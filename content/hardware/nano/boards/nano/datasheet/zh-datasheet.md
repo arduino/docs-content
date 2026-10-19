@@ -8,13 +8,18 @@ type: maker
 
 # 中文 (ZH)
 
-
 # 描述
 
 **Arduino® Nano**是一款智能开发板，旨在以最小的尺寸构建更快的原型。Arduino Nano 是 Nano 系列中最早的一款产品，可为您的试验电路板友好型应用提供足够的接口。该开发板的核心是**ATmega328 微控制器**，时钟频率为 16 MHz，功能与 Arduino Duemilanove 大致相同。该电路板提供 20 个数字输入/输出引脚、8 个模拟引脚和一个微型 USB 端口。
 
 # 目标领域：
 创客、安全、环境、机器人和控制系统
+
+**产品预期用途**
+
+Arduino 硬件产品主要用于开发和原型制作，但也可能支持生产解决方案。开发人员必须根据预期部署环境，尽早设计并验证安全控制措施。安全是 Arduino 与解决方案构建者共同承担的责任，解决方案构建者必须评估硬件提供的安全功能，并添加任何必要的保护措施。
+
+请访问 [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/)，查看完整的《Arduino 硬件产品：预期用途与安全模型》。
 
 # 特点
 - **ATmega328** 微控制器
@@ -254,8 +259,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                           |
 | ---------- | ------------ | ------------------------------------- |
-| 12/04/2022 | 1            | First Release                         |
-| 03/08/2022 | 2            | Reference documentation links updates |
-| 25/04/2024 | 3            | Updated link to new Cloud Editor      |
-| 12/06/2025 | 4            | Updated power tree                    |
+| 12/04/2022 |       1      | First Release                         |
+| 03/08/2022 |       2      | Reference documentation links updates |
+| 25/04/2024 |       3      | Updated link to new Cloud Editor      |
+| 12/06/2025 |       4      | Updated power tree                    |
 | 12/10/2026 |       5      | Added note for Intended Use, and divided language |
