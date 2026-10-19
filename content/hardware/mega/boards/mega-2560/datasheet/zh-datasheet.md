@@ -8,12 +8,17 @@ type: maker
 
 # 中文 (ZH)
 
-
 # 描述
 与 Arduino 的其他开发板相比，Arduino® Mega 2560 Rev3 是一款用于构建广泛应用的示范性开发板。该电路板内置 ATmega2560 微控制器，工作频率为 16 MHz。电路板包含 54 个数字输入/输出引脚、16 个模拟输入、4 个 UART（硬件串行端口）、一个 USB 连接、一个电源插孔、一个 ICSP 接头和一个复位按钮。 
 
 # 目标领域：
 3D 打印、机器人、创客
+
+**产品预期用途**
+
+Arduino 硬件产品主要用于开发和原型制作，但也可能支持生产解决方案。开发人员必须根据预期部署环境，尽早设计并验证安全控制措施。安全是 Arduino 与解决方案构建者共同承担的责任，解决方案构建者必须评估硬件提供的安全功能，并添加任何必要的保护措施。
+
+请访问 [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/)，查看完整的《Arduino 硬件产品：预期用途与安全模型》。
 
 # 特点
 - **ATmega2560 处理器**
@@ -358,7 +363,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                              |
 | ---------- | ------------ | ---------------------------------------- |
-| 29/09/2020 | 1            | First Release                            |
-| 09/10/2023 | 2            | Updated recommended operating conditions |
-| 25/04/2024 | 3            | Updated link to new Cloud Editor         |
+| 29/09/2020 |      1       | First Release                            |
+| 09/10/2023 |      2       | Updated recommended operating conditions |
+| 25/04/2024 |      3       | Updated link to new Cloud Editor         |
 | 12/10/2026 |      4       | Added note for Intended Use, and divided language |
