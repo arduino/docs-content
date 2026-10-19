@@ -15,7 +15,7 @@ tags:
   - Qualcomm AI Hub
 author: "Karl Söderby"
 hardware:
-  - hardware/14.ventuno/boards/ventuno-q
+  - hardware/ventuno/boards/ventuno-q
 software:
   - app-lab
 ---
