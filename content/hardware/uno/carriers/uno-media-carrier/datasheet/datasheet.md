@@ -55,7 +55,7 @@ Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](http
 #### Connectivity & Media
 
 | **Connector**     | **Details**                                                                                                       |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------- |
+|-------------------|-------------------------------------------------------------------------------------------------------------------|
 | Camera Connectors | - 2× MIPI-CSI 22-pin 4 lanes camera connectors<br></br>- Raspberry Pi camera compatible                           |
 | Display Connector | - 1× MIPI-DSI 22-pin 4 lanes display connector<br></br>- Waveshare display compatible                             |
 | Audio Connectors  | - 1× MIC-IN / Headphones Out 3.5 mm jack<br></br>- 1× Line Out 3.5 mm jack<br></br>- 1× Earphones Out 3.5 mm jack |
@@ -153,8 +153,8 @@ Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](http
 | **Jack**                | **Type**    | **Function**                                   |
 |-------------------------|-------------|------------------------------------------------|
 | MIC-IN / Headphones Out | 3.5 mm jack | Combined microphone input and headphone output |
-| Line Out                | 3.5 mm jack | Line-level audio output                        |
-| Earphones Out           | 3.5 mm jack | Earphone output                                |
+| Line Out                | 3.5 mm jack | Mono differential line-level output            |
+| Earphones Out           | 3.5 mm jack | Mono differential earpiece output              |
 
 ### Additional Interfaces
 
@@ -170,16 +170,16 @@ Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](http
 
 ![UNO Media Carrier Peripherals](assets/ASX00083_peripherals.png)
 
-- **LINE OUT (A1):** 3.5 mm audio jack for audio output. Signals routed through JMISC analog audio endpoints (`LINEOUT_P`, `LINEOUT_M`).
+- **LINE OUT (A1):** 3.5 mm audio jack for mono differential line-level output. Signals routed through JMISC analog audio endpoints (`LINEOUT_P`, `LINEOUT_M`).
 - **MICROPHONE IN / HEADPHONES OUT (A2):** 3.5 mm jack supporting microphone input and headphone output. Microphone signals (`MIC2_INP`, `MIC2_INN`, `MIC2_BIAS`) and headphone signals (`HPH_L`, `HPH_R`, `HPH_REF`, `HS_DET`) routed through JMISC.
-- **EAR OUT (A3):** 3.5 mm audio jack for Class-AB differential earpiece output. Signals routed through JMISC analog audio endpoints (`EAR_P_R`, `EAR_M_R`).
+- **EAR OUT (A3):** 3.5 mm audio jack for Class-AB differential earpiece output. Signals routed through JMISC analog audio endpoints (`EAR_P`, `EAR_M`).
 - **DSI0 (B1):** 22-pin 4 lanes MIPI-DSI display connector compatible with [specific](#display-interface) Waveshare MIPI-DSI displays. Operates at 1.8 V logic level, routed from JMEDIA connector.
 - **CSI1 (B2):** 22-pin 4 lanes MIPI-CSI camera connector compatible with IMX219 cameras (e.g. Raspberry Pi Camera Module 2). Operates at 1.8 V logic level, routed from JMEDIA connector. Camera 1 interface.
 - **CSI0 (B3):** 22-pin 4 lanes MIPI-CSI camera connector compatible with IMX219 cameras. Operates at 1.8 V logic level, routed from JMEDIA connector. Camera 0 interface.
 - **JMEDIA CONNECTOR (JMEDIA):** Female 60-pin high-speed connector interfacing with the host board's JMEDIA header. Routes MIPI-CSI camera signals (`CSI0`, `CSI1`), MIPI-DSI display signals (DSI0), Camera Control Interface I<sup>2</sup>C (`CCI_I2C0`, `CCI_I2C1`), camera master clocks (CAM_MCLK0, CAM_MCLK1), and power rails. Signals operate at 1.8 V logic level. Passthrough design maintains pin availability for stacking.
 - **JMISC CONNECTOR (JMISC):** Female 60-pin mixed-voltage connector interfacing with the host board's JMISC header. Routes SoC GPIO (1.8 V), MCU GPIO and peripherals (3.3 V), analog audio signals, debug or trace interfaces, and power rails (`+3V3`, `+5V_USB`, `+1V8`, `VBAT`, `VCOIN`). Passthrough design maintains pin availability for stacking.
 
-<p style="text-align: justify;">MIPI-CSI and MIPI-DSI signals operate in the 1.8 V DC domain. Camera Control Interface (CCI) I<sup>2</sup>C buses provide camera configuration and control. Audio signals are analog and referenced to ground. Level translation is required when interfacing 1.8 V DC SoC signals with 3.3 V DC or 5 V DC devices.</p>
+<p style="text-align: justify;">MIPI-CSI and MIPI-DSI signals operate in the 1.8 V DC domain. Camera Control Interface (CCI) I<sup>2</sup>C buses provide camera configuration and control. Audio signals are analog. Line out and earpiece outputs are differential pairs, while headphone and microphone signals are referenced to ground. Level translation is required when interfacing 1.8 V DC SoC signals with 3.3 V DC or 5 V DC devices.</p>
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   Do not use the Camera Control Interface I<sup>2</sup>C lines (CCI_I2C0, CCI_I2C1) or audio interface signals (MI2S0) as general-purpose I/O. These signals are interface-dedicated, operate at 1.8 V DC, and are reserved for their specific functions.
@@ -189,20 +189,20 @@ Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](http
 
 | **Pin** | **Designation** | **Direction** | **Voltage** | **Notes**             |
 |--------:|-----------------|---------------|-------------|-----------------------|
-|       1 | +5V             | OUT           | +5V         | 5V power output       |
-|       2 | DC_IN           | IN            | 7-24V       | DC input from user    |
-|       3 | PWR_3P3V        | OUT           | +3.3V       | 3.3V main logic power |
+|       1 | PWR_3P3V        | OUT           | +3.3V       | 3.3V main logic power |
+|       2 | +5V             | OUT           | +5V         | 5V power output       |
+|       3 | DC_IN           | IN            | 7-24V       | DC input from user    |
 |       4 | GND             | -             | 0V          | Ground                |
 
-This header provides access to the main power rails for external use or testing. It is connected to JMEDIA power distribution and includes test points TP21 (`DC_IN`) and TP22 (`PWR_3P3V`) for voltage monitoring.
+This header provides access to the main power rails for external use or testing. It is connected to JMEDIA and JMISC power distribution and includes test point TP22 (`PWR_3P3V`) for voltage monitoring and TP21 (`GND`) as a ground reference.
 
 ### Low Voltage Power Header (J10)
 
 | **Pin** | **Designation** | **Direction** | **Voltage** | **Notes**                            |
 |--------:|-----------------|---------------|-------------|--------------------------------------|
-|       1 | VCC_PX3_1P8     | OUT           | +1.8V       | 1.8V I2C translation rail            |
+|       1 | VBAT            | OUT           | Variable    | Battery voltage from host board buck |
 |       2 | VCOIN           | IN            | 3.0V        | Coin cell backup (max 3.6V)          |
-|       3 | VBAT            | OUT           | Variable    | Battery voltage from host board buck |
+|       3 | VCC_PX3_1P8     | OUT           | +1.8V       | 1.8V I2C translation rail            |
 |       4 | GND             | -             | 0V          | Ground                               |
 
 This header provides access to low voltage and backup power rails connected to JMISC power distribution. Test point TP20 (`VCC_PX3_1P8`) is available for the 1.8 V rail. The VCOIN input (pin 59) has a maximum voltage limit of 3.6 V DC and accepts power from an external CR2032 coin cell battery for host board RTC backup. The VBAT output (pin 60) provides battery voltage from the host board's buck converter.
@@ -286,8 +286,8 @@ This header mirrors the JMISC Female connector and exposes power rails, SoC GPIO
 |      20 | MCU_OPAMP1_VOUT | PA3          | OpAmp 1 output              |
 |      22 | MCU_OPAMP1_VINP | PA0          | OpAmp 1 positive input      |
 |      24 | MCU_OPAMP1_VINM | PA1          | OpAmp 1 negative input      |
-|      28 | EAR_P_R         | -            | Earpiece speaker positive   |
-|      30 | EAR_M_R         | -            | Earpiece speaker negative   |
+|      28 | EAR_P           | -            | Earpiece speaker positive   |
+|      30 | EAR_M           | -            | Earpiece speaker negative   |
 |      32 | LINEOUT_P       | -            | Line out positive           |
 |      34 | LINEOUT_M       | -            | Line out negative           |
 |      36 | HPH_L           | -            | Headphone left channel      |
@@ -341,7 +341,7 @@ Through the JMEDIA and JMISC connectors, the board provides access to:
 
 ### Logic Level Compatibility
 
-<p style="text-align: justify;">The board uses three logic domains: MPU signals (SoC) operate at 1.8 V DC, MCU signals run at 3.3 V DC, and analog audio/microphone signals are referenced to ground. Level translation is mandatory when connecting 3.3 V DC or 5 V DC devices to 1.8 V DC SoC GPIO pins to prevent damage to the host board processor.</p>
+<p style="text-align: justify;">The board uses three logic domains: MPU signals (SoC) operate at 1.8 V DC, MCU signals run at 3.3 V DC, and analog headphone and microphone signals are referenced to ground, while line out and earpiece outputs are differential. Level translation is mandatory when connecting 3.3 V DC or 5 V DC devices to 1.8 V DC SoC GPIO pins to prevent damage to the host board processor.</p>
 
 ### Audio Interface Signals
 
@@ -408,7 +408,7 @@ For first time setting up:
   <strong>Note:</strong> In <strong>PC-hosted</strong> mode, a <em>USB data</em> connection is required for first-time setup. Afterwards, you can use the <strong>Network</strong> target over LAN (SSH). In <strong>Single-Board Computer (SBC)</strong> mode, no USB data link is needed for setup, just power the board and use the <strong>Network</strong> target once it joins your network. For peripherals in SBC mode (keyboard, mouse, USB camera, microphone), use a USB-C dongle with external power delivery capabilities. When DisplayPort Alt-Mode is active, USB data transfer speeds are reduced.</p>
 </div>
 
-Use a 5 V DC / 3 A USB-C source and cable, or power from the 5 V or VIN pins as specified in the [input power section](#input-power) (USB-C is 5 V DC only / VIN is 7-24 V DC).
+Use a 5 V DC / 3 A USB-C source and cable, or power from the VIN input as specified in the [power considerations section](#power-considerations) (USB-C is 5 V DC only / VIN is 7-24 V DC).
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   First boot typically takes 20 to 30 seconds while Linux starts. Wait for the boot LED sequence or the LED-matrix animation to finish before interacting with the board.
@@ -462,8 +462,8 @@ Use a 5 V DC / 3 A USB-C source and cable, or power from the 5 V or VIN pins as 
 <p style="text-align: justify;">The UNO Media Carrier provides three 3.5 mm audio jacks for flexible audio input and output. Audio signals are routed through the JMISC connector to the host board's audio codec.</p>
 
 - **MIC-IN / Headphones Out:** Combined jack for microphone input and headphone output. Use a four-pole TRRS connector for simultaneous input and output.
-- **Line Out:** Stereo line-level output for connection to external amplifiers or powered speakers.
-- **Earphones Out:** Direct earphone output for mono or stereo playback.
+- **Line Out:** Mono line-level output on a differential pair (`LINEOUT_P` / `LINEOUT_M`) for connection to external amplifiers or powered speakers with balanced inputs.
+- **Earphones Out:** Mono Class-AB differential earpiece output (`EAR_P` / `EAR_M`) for small speakers or earpieces.
 
 <div style="page-break-after: always;"></div>
 
@@ -567,8 +567,9 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 # Document Revision History
 
-|  **Date**  | **Revision** | **Changes**                 |
-| :--------: | :----------: | --------------------------- |
-| 27/03/2026 |      1       | Initial release             |
-| 07/10/2026 |      2       | MIPI DSI Displays Supported |
-| 12/10/2026 |       3      | Added note for Intended Use |
+|  **Date**  | **Revision** | **Changes**                               |
+|:----------:|:------------:|-------------------------------------------|
+| 27/03/2026 |      1       | Initial release                           |
+| 07/10/2026 |      2       | MIPI DSI Displays Supported               |
+| 16/10/2026 |      3       | Audio output and power information update |
+| 19/10/2026 |       4      | Added note for Intended Use |

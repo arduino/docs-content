@@ -1,7 +1,6 @@
 ---
 title: Modulino Thermo
 url_shop: https://store.arduino.cc/products/modulino-thermo
-url_guide: https://courses.arduino.cc/plugandmake
 primary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-thermo/
 primary_button_title: Get Started
 secondary_button_url: https://docs.arduino.cc/tutorials/modulino-thermo/how-general/
@@ -12,4 +11,4 @@ useCases: [prototyping, accessories]
 releaseDate: 2025-05-22
 ---
 
-Monitor temperature and humidity seamlessly with the HS3003 sensor. Whether building a weather station or a climate control project, this module makes data capture straightforward. Designed for Arduino UNO R4 WiFi or any Qwiic-capable board; solderable pins provide an alternative wiring option.
+Monitor temperature and humidity with the GXHT30C sensor. Whether building a weather station or a climate control project, this module makes data capture simple. Designed for any Arduino board with a Qwiic connector; solderable pins provide an alternative wiring option.

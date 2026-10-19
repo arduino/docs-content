@@ -13,6 +13,7 @@ This directory contains the automated validation tools for `arduino/docs-content
 | **Relative Links** | `scripts/validation/relative_links/relative_links.py` | `Link Check` | Validates all relative links and `#heading-slug` anchors against production route mappings. |
 | **Image & Assets** | `scripts/validation/image_links/image_links.py` | `Image Check` | Flags broken image references and identifies orphaned files in `assets/` folders. |
 | **Content Linter (Legacy)** | `scripts/validation/content-lint.sh` | `Content Linter` | Runs legacy YAML frontmatter schema checks for hardware tutorials during migration. |
+| **MDX Compile** | `scripts/validation/mdx/mdx-check.js` | `MDX Check` | Compiles every page with the MDX version that builds the site, so unclosed or mismatched HTML tags fail before the deploy. |
 
 ---
 
@@ -35,6 +36,10 @@ python3 scripts/validation/image_links/image_links.py validate content
 
 # 5. Spell check
 codespell -I scripts/resources/spell-check-ignore-list.txt ./content/
+
+# 6. Compile every page as the build does (needs Node.js)
+npm ci --prefix scripts/validation/mdx
+node scripts/validation/mdx/mdx-check.js content
 ```
 
 ---
@@ -52,6 +57,8 @@ Place a `.lintignore` file in `content/` or any subdirectory to exclude unmigrat
 hardware/01.mkr/
 hardware/08.legacy/
 ```
+
+The MDX Check is the exception: the build compiles every page, ignored or not, so it checks them all.
 
 ### 2. Tool-Specific Ignores & Retention
 
@@ -72,3 +79,4 @@ Detailed documentation for each tool is available in its respective directory:
 - [Alert Tags Validator Documentation](alert_tags/README.md)
 - [Relative Links Validator Documentation](relative_links/README.md)
 - [Image Links Validation Documentation](image_links/README.md)
+- [MDX Check Documentation](mdx/README.md)

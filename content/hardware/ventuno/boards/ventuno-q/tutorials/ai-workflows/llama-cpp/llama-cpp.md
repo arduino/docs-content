@@ -115,16 +115,16 @@ There are two ways to get OpenCL headers and the ICD loader on the VENTUNO Q.
 
 **Option A — Package manager (recommended):**
 
-Install the OpenCL headers and the ICD loader, together with Qualcomm's Adreno™ OpenCL driver:
+Install Qualcomm's Adreno™ OpenCL driver together with its development package, which provides the OpenCL headers and the `libOpenCL.so` library needed to build llama.cpp:
 
 ```bash
 sudo apt update
-sudo apt install ocl-icd-opencl-dev opencl-headers qcom-adreno-cl1
+sudo apt install qcom-adreno-cl1 qcom-adreno-cl-dev
 ```
 
 <Alert type="note">
 
-**Important:** `qcom-adreno-cl1` is the Qualcomm® Adreno™ OpenCL user-mode driver, and llama.cpp will not use the GPU without it. The open-source Mesa driver (`mesa-opencl-icd`, also known as `rusticl`) does detect the Adreno™ 623 and will show up in `clinfo`, but it does not expose the OpenCL subgroups extension that llama.cpp's OpenCL backend requires. With only Mesa installed, llama.cpp prints `drop unsupported device` and silently falls back to the CPU.
+**Important:** `qcom-adreno-cl1` is the Qualcomm® Adreno™ OpenCL user-mode driver, and llama.cpp will not use the GPU without it. It replaces the generic OpenCL loader, so do not install `ocl-icd-opencl-dev` or `opencl-headers` alongside it: `apt` reports a package conflict and installs nothing. `qcom-adreno-cl-dev` already provides everything those packages would. The open-source Mesa driver (`mesa-opencl-icd`, also known as `rusticl`) does detect the Adreno™ 623 and will show up in `clinfo`, but it does not expose the OpenCL subgroups extension that llama.cpp's OpenCL backend requires. With only Mesa installed, llama.cpp prints `drop unsupported device` and silently falls back to the CPU.
 
 </Alert>
 
@@ -240,7 +240,7 @@ ggml_opencl: device: 'QUALCOMM Adreno(TM) 623 (OpenCL 3.0 Adreno(TM) 623)'
 ggml_opencl: vector subgroup broadcast support: true
 ```
 
-If you instead see `rusticl` as the platform followed by `drop unsupported device` and an empty device list, the Qualcomm® Adreno™ driver is missing — go back to Step 2 and install `qcom-adreno-cl1`.
+If you instead see `rusticl` as the platform followed by `drop unsupported device` and an empty device list, the Qualcomm® Adreno™ driver is missing — go back to Step 2 and install `qcom-adreno-cl1` and `qcom-adreno-cl-dev`.
 
 ## Downloading and Quantizing a Model
 

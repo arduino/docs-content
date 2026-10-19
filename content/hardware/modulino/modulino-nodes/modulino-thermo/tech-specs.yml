@@ -1,11 +1,25 @@
 Node:
   Name: Modulino Thermo
   SKU: ABX00103
-  Board recommended: Arduino® UNO R4 WiFi (ABX00087) and Arduino® UNO Q (ABX00162/ABX00173)
-  Communications: I2C (over Qwiic connector or solderable pin)
-  Operational voltage: 3.3V
+  Board recommended: Any Arduino® board with a Qwiic connector
+  Communications: I²C (over Qwiic connectors or solderable headers)
+  Operational voltage: +3.3 VDC
   Sensor:
-    HS3003: 0x44
+    GXHT30C (boards marked V0.5 or later): 0x45
+    HS3003 (earlier boards): 0x44
+  Temperature range:
+    GXHT30C: -45 to +130 °C
+    HS3003: -40 to +125 °C # TO VERIFY against the HS3003 datasheet
+  Temperature accuracy (typical):
+    GXHT30C: ±0.3 °C (-40 to +90 °C)
+    HS3003: ±0.2 °C (-10 to +80 °C) # TO VERIFY against the HS3003 datasheet
+  Humidity range: 0 to 100 %RH
+  Humidity accuracy (typical):
+    GXHT30C: ±3 %RH
+    HS3003: ±1.5 %RH (10 to 90 %RH) # TO VERIFY against the HS3003 datasheet
+  Resolution:
+    GXHT30C: 0.015 °C / 0.01 %RH
+    HS3003: 14 bit # TO VERIFY against the HS3003 datasheet
 
 Other accessories:
   Qwiic cables: 1x

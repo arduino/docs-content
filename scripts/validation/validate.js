@@ -10,6 +10,7 @@ import { validateNestedLists } from 'content-lint';
 import { validateBrokenLinks } from 'content-lint';
 import { validateFolderName } from 'content-lint';
 import { ConfigManager } from 'content-lint';
+import { isTranslatedTutorial } from './translations.js';
 
 const configManager = new ConfigManager();
 configManager.addConfigFile("generic", "./config/config-generic.yml");
@@ -33,10 +34,12 @@ if(configManager.getConfig("generic").validateMetadata){
     validator.addValidation(datasheets, validateMetaData, configManager.getConfig("datasheets").metadataSchema);
 }
 
-// Title case is an English convention. Localized datasheets (e.g. de-datasheet.md) follow the
-// capitalization rules of their own language, so they are exempt. English ones are still checked.
+// Title case is an English convention: localized datasheets (de-datasheet.md) and translated tutorials
+// (built-in-rgb-de.md) follow the capitalization of their own language. English ones are still checked.
 const localizedDatasheetPattern = /[\\/](?!en-)[a-z]{2}-datasheet\.md$/;
-const titleCaseArticles = allArticles.filter((article) => !localizedDatasheetPattern.test(article.contentFilePath));
+const titleCaseArticles = allArticles.filter(
+  (article) => !localizedDatasheetPattern.test(article.contentFilePath) && !isTranslatedTutorial(article.contentFilePath)
+);
 
 // Verifies that the titles are in the correct format
 validator.addValidation(datasheets, validateNumberedHeadings);
