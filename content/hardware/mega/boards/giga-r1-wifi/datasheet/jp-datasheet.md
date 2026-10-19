@@ -7,6 +7,10 @@ author: Ali Jahangiri
 
 ![](assets/featured.png)
 
+
+
+# 日本語
+
 # 概要
 
 Arduino® GIGA R1 WiFi は、STM32H7 の性能を Mega フォームファクタにもたらし、オンボードの Wi‑Fi® と Bluetooth® 接続を備えた初の Mega ボードです。ピンヘッダから容易にアクセスできる 76 本のデジタル入出力（うち 13 本は PWM 対応）、14 本のアナログ入力、2 系統のアナログ出力（DAC）を提供します。デュアルコア Arm® Cortex®‑M7 / Arm® Cortex®‑M4 を搭載した STM32 マイクロプロセッサは、オンボードメモリやオーディオジャックとあいまって、エッジでの機械学習や信号処理を可能にします。
