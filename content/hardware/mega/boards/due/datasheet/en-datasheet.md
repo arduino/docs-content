@@ -688,7 +688,7 @@ User manuals for license-exempt radio apparatus shall contain the following or e
 (2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
 French:
-Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes:
+Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :
 
 (1) l’ appareil nedoit pas produire de brouillage
 
