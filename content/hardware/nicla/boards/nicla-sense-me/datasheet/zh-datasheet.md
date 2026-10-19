@@ -18,6 +18,12 @@ Arduino Nicla Sense ME 是我们迄今为止体积最小的产品，将一系列
 # 目标领域
 无线传感器网络、数据融合、人工智能与气体检测
 
+**产品预期用途**
+
+Arduino 硬件产品主要用于开发和原型制作，但也可能支持生产解决方案。开发人员必须根据预期部署环境，尽早设计并验证安全控制措施。安全是 Arduino 与解决方案构建者共同承担的责任，解决方案构建者必须评估硬件提供的安全功能，并添加任何必要的保护措施。
+
+请访问 [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/)，查看完整的《Arduino 硬件产品：预期用途与安全模型》。
+
 # 目录
 
 ## 特点
@@ -457,7 +463,7 @@ User manuals for license-exempt radio apparatus shall contain the following or e
 (2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
 French: 
-Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes:
+Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :
 
 (1) l’appareil nedoit pas produire de brouillage
 
@@ -525,7 +531,7 @@ This equipment contains a radio transmitter module with model approval code: CMI
 | 09/01/2024 | 6            | High-Performance Pressure Sensor information updated |
 | 03/09/2024 | 7            | Cloud Editor updated from Web Editor                 |
 | 05/02/2025 | 8            | Description updates                                  |
-| 12/10/2026 |       9      | Added note for Intended Use |
+| 12/10/2026 | 9            | Added note for Intended Use                          |
 
 
 ## Product Warnings and Disclaimers
