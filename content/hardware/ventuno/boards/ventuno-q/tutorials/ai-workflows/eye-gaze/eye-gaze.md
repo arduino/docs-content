@@ -382,7 +382,7 @@ Both scripts are shown in full below. Save them in the working directory, next t
 
 **prepare_model.py**
 
-The script is also available for download [here](https://raw.githubusercontent.com/arduino/docs-content/refs/heads/main/content/hardware/ventuno/boards/ventuno-q/tutorials/ai-workflows/eye-gaze/resources/prepare_model.py)
+The script is also available for download [through this link](https://raw.githubusercontent.com/arduino/docs-content/refs/heads/main/content/hardware/ventuno/boards/ventuno-q/tutorials/ai-workflows/eye-gaze/resources/prepare_model.py)
 
 ```python
 #!/usr/bin/env python3
@@ -517,7 +517,7 @@ if __name__ == "__main__":
 
 **eyegaze.py**
 
-The script is also available for download [here](https://raw.githubusercontent.com/arduino/docs-content/refs/heads/main/content/hardware/ventuno/boards/ventuno-q/tutorials/ai-workflows/eye-gaze/resources/eyegaze.py)
+The script is also available for download [through this link](https://raw.githubusercontent.com/arduino/docs-content/refs/heads/main/content/hardware/ventuno/boards/ventuno-q/tutorials/ai-workflows/eye-gaze/resources/eyegaze.py)
 
 ```python
 #!/usr/bin/env python3
@@ -1204,4 +1204,3 @@ A model that runs well on the NPU reports one partition, or very few.
 ## Conclusion
 
 In this tutorial you set up both NPU runtimes on the VENTUNO Q, downloaded three models from Qualcomm AI Hub, and ran a script that tracks both eyes and estimates gaze direction in real time, with every model accelerated on the Qualcomm® Hexagon™ NPU. You also saw how to recognize a model that silently falls back to the CPU, and how rewriting two unsupported patterns took EyeGaze from 20 ms to 1.5 ms per inference. From here you can build on the gaze output — for example to detect whether someone is looking at a screen, or to drive attention-aware interfaces.
-
