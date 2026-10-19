@@ -209,20 +209,14 @@ used by the Arduino Wire library.
 
 ### Address Configuration
 
-- Software-configurable modules can be assigned a different I2C
-  address using the Arduino_Modulino AddressChanger utility.
-- Fixed-address modules do not support address changes through
-  that utility.
-- The Movement and Hub modules support hardware address
-  selection using solder jumpers.
+- Software-configurable modules can be assigned a different I2C address using the Arduino_Modulino AddressChanger utility.
+- Fixed-address modules do not support address changes through that utility.
+- The Movement and Hub modules support hardware address selection using solder jumpers.
 - The Extender does not require an I2C address.
 
-Some older documentation uses firmware pinstrap values instead of
-7-bit I2C addresses. For example, Buttons uses pinstrap value
-0x7C, corresponding to the 7-bit bus address 0x3E.
+Some older documentation uses firmware pinstrap values instead of 7-bit I2C addresses. For example, Buttons uses pinstrap value 0x7C, corresponding to the 7-bit bus address 0x3E.
 
-When changing a module's address, choose an unused address and
-power-cycle the module after configuration.
+When changing a module's address, choose an unused address and power-cycle the module after configuration.
 
 ## General Troubleshooting
 
