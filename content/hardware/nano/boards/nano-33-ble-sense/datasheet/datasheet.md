@@ -184,6 +184,7 @@ The board can be powered via USB connector, V<sub>IN</sub> or V<sub>USB</sub> pi
 **NOTE:** Since V<sub>USB</sub> feeds V<sub>IN</sub> via a Schottky diode and a DC-DC regulator specified minimum input voltage is 4.5V the minimum supply voltage from USB has to be increased to a voltage in the range between 4.8V to 4.96V depending on the current being drawn.
 
 ## Board Operation 
+
 ### Getting Started - IDE
 If you want to program your Nano 33 BLE Sense while offline you need to install the Arduino Desktop IDE [1] To connect the Nano 33 BLE Sense to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
@@ -272,6 +273,7 @@ The board measures are mixed between metric and imperial. Imperial measures are 
 ![Board layout](assets/outline.png)
 
 ## Certifications
+
 ### Declaration of Conformity CE DoC (EU)
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
@@ -375,7 +377,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date       | **Revision** | **Changes**                           |
 | ---------- | ------------ |-------------------------------------- |
-| 27/04/2021 | 1            | General datasheet updates             |
-| 03/08/2022 | 2            | Reference documentation links updates |
-| 25/04/2024 | 3            | Updated link to new Cloud Editor      |
-| 12/10/2026 |       4      | Added note for Intended Use |
+| 27/04/2021 |      1       | General datasheet updates             |
+| 03/08/2022 |      2       | Reference documentation links updates |
+| 25/04/2024 |      3       | Updated link to new Cloud Editor      |
+| 12/10/2026 |      4       | Added note for Intended Use |
