@@ -398,7 +398,7 @@ As a global supplier of electronic and electrical components, Arduino is aware o
 |          **Ref**          | **Link**                                                     |
 | :-----------------------: | ------------------------------------------------------------ |
 |   Arduino IDE (Desktop)   | https://www.arduino.cc/en/Main/Software                      |
-|    Arduino IDE (Cloud)    | https://create.arduino.cc/editor                             |
+|    Arduino IDE (Cloud)    | https://app.arduino.cc/sketches/                             |
 | Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
 |    Arduino Pro Website    | https://www.arduino.cc/pro                                   |
 |        Project Hub        | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
