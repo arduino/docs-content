@@ -371,6 +371,7 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
 ## Laser Safety Information
+
 This product contains a laser emitter and corresponding drive circuitry. The laser output is designed to meet **Class 1 laser safety limits** under all reasonably foreseeable conditions including single faults, in compliance with **IEC 60825-1:2014**.
 Do not increase the laser output power by any means. Do not use any optics to focus the laser beam.
 **Caution:**  
@@ -404,4 +405,4 @@ Use of controls or adjustments, or performance of procedures other than those sp
 | 13/05/2024 |      2       | Robot's Expandability section added |
 | 20/12/2024 |      3       |         Add Certifications          |
 | 07/07/2025 |      4       |       Correct LED information       |
-| 12/10/2026 |      5       | Added note for Intended Use |
+| 12/10/2026 |      5       |        Added note for Intended Use  |
