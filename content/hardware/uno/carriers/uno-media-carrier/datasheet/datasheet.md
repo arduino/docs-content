@@ -572,4 +572,4 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 | 27/03/2026 |      1       | Initial release                           |
 | 07/10/2026 |      2       | MIPI DSI Displays Supported               |
 | 16/10/2026 |      3       | Audio output and power information update |
-| 19/10/2026 |       4      | Added note for Intended Use |
+| 19/10/2026 |      4       | Added note for Intended Use               |
