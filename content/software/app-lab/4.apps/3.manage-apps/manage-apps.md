@@ -143,7 +143,11 @@ App Lab builds the release on the board in the background and shows its progress
 
 When App Lab builds a release, it freezes the App together with its dependencies for the target board: the Python environment is built, and the container configuration of each Brick is resolved. Installing the release on another board doesn't rebuild anything, so the App runs exactly as it did when you created the release.
 
-The `.ard` file doesn't contain the container images or catalog AI models themselves, only which ones the App uses. They are downloaded when you install the release with **Install app dependencies** enabled, or the first time you run it. Custom models trained in your own Edge Impulse project are included in the `.ard` file and installed on the board with the release.
+The release handles the container images and AI models the App uses as follows:
+
+- **Container images and AI models from the [model catalog](../../integrations/models/#model-catalog) or Hugging Face**: The `.ard` file only lists them. They are downloaded when you install the release with **Install app dependencies** enabled, or the first time you run it.
+- **AI models you trained in your own Edge Impulse project**: The `.ard` file includes them, and they are installed on the board with the release.
+- **AI models used by [Custom Bricks](../../bricks/custom-bricks/#ai-models-in-custom-bricks)**: The `.ard` file neither lists nor includes them. Install them on the target board yourself.
 
 A release is installed apart from your Apps and is read-only. Only secret Brick variables, such as API keys, can be changed in an installed release.
 

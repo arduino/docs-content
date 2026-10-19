@@ -1,7 +1,7 @@
 ---
 title: AI Models in Arduino App Lab
 overwriteSidebar: AI Models
-description: Learn how to download and select AI models for your Bricks, add models from Hugging Face, and browse the built-in models available in Arduino App Lab.
+description: Learn how to download and select AI models for your Bricks, add models from Hugging Face, and browse the model catalog of Arduino App Lab.
 author: Arduino
 tags: [App Lab, AI, Models, Machine Learning]
 difficulty: beginner
@@ -76,9 +76,9 @@ arduino-app-cli model install <model_id>
 arduino-app-cli model delete <model_id>
 ```
 
-## Built-in Models
+## Model Catalog
 
-The following tables list the AI models available out-of-the-box in App Lab, grouped by capability. The **Boards** column shows the boards each model runs on: models marked **Unrestricted** run on every supported board, and VENTUNO Q versions are optimized for its NPU.
+The following tables list the models App Lab offers, grouped by capability. Some come pre-installed on the board; the others are downloaded when you select **Download** or run an App that uses them. The **Boards** column shows the boards each model runs on: models marked **Unrestricted** run on every supported board, and VENTUNO Q versions are optimized for its NPU.
 
 <!-- app-lab-models table start -->
 ### Vision

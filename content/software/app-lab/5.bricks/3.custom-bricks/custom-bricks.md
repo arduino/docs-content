@@ -268,8 +268,8 @@ In the App Lab ecosystem, there is a strict separation between **AI Bricks** (th
 
 A Custom Brick can use a model from the board by referring to its model ID:
 
-- **Default model**: Set `model_name` in `brick_config.yaml` to the ID of the model the Brick uses by default.
-- **Model per App**: Set `model` on the Brick entry in `app.yaml` to override the default for one App.
+- **Model per App**: Set `model` on the Brick entry in `app.yaml`. This is the model the App's containers receive when the App starts. App Lab doesn't show an **AI Models** tab for Custom Bricks, so edit `app.yaml` directly.
+- **Default model**: Set `model_name` in `brick_config.yaml` to the ID of the model the Brick is designed for. In Custom Bricks, this default isn't passed to the containers, so also set `model` in `app.yaml`.
 
 ```yaml
 # bricks/my_custom_brick/brick_config.yaml
@@ -278,7 +278,16 @@ name: My Custom Brick
 model_name: yolox-object-detection
 ```
 
-When the App starts, the selected model ID is passed to the Brick's containers, and the model must already be installed on the board. Use `arduino-app-cli model list` to see the IDs of the models available on your board.
+```yaml
+# app.yaml
+bricks:
+  - my_custom_brick:
+      model: yolox-object-detection
+```
+
+When the App starts, the App's containers, including the Brick's, receive the configuration variables that the board's model catalog defines for the selected model, such as `EI_OBJ_DETECTION_MODEL=/models/ootb/ei/yolo-x-nano.eim`. They don't receive the model ID itself.
+
+The model of a Custom Brick isn't downloaded automatically, neither when the App starts nor when you install an [App release](../../apps/manage-apps/#create-an-app-release) of the App. Install it on each board first with `arduino-app-cli model install <model_id>`. If the model isn't installed, the App still starts, but the files the variables point to don't exist. Use `arduino-app-cli model list` to see the IDs of the models for your board, including models that aren't installed yet.
 
 <Alert type="info">
 
