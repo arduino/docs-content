@@ -10,7 +10,7 @@ type: maker
 
 # Description
 
-The feature packed **Arduino® Nano RP2040 Connect** brings the new **Raspberry Pi RP2040** microcontroller to the Nano form factor. Make the most of the dual core **32-bit Arm® Cortex®-M0+** to make Internet of Things projects with Bluetooth® and Wi-Fi connectivity thanks to the **u-blox® Nina W102** module. Dive into real-world projects with the onboard accelerometer, gyroscope, RGB LED and microphone. Develop robust embedded AI solutions with minimal effort using the **Nano RP2040 Connect**!
+The feature packed **Arduino® Nano RP2040 Connect** brings the new **Raspberry Pi RP2040** microcontroller to the Nano form factor. Make the most of the dual core **32-bit Arm® Cortex®-M0+** to make Internet of Things projects with Bluetooth® and Wi-Fi connectivity thanks to the **u-blox® Nina W102** module. Dive into real-world projects with the onboard accelerometer, gyroscope, RGB LED and microphone. Develop robust embedded AI solutions with minimal effort using the Nano RP2040 Connect!
 
 # Target Areas 
 Internet of Things (IoT), machine learning, prototyping,
@@ -198,6 +198,7 @@ The Nano RP2040 Connect can be powered by either the Micro USB port (J1) or alte
 
 
 ## Board Operation
+
 ### Getting Started - IDE
 If you want to program your Nano RP2040 Connect while offline you need to install the Arduino Desktop IDE **[1]** To connect the Nano RP2040 Connect to your computer, you’ll need a micro USB cable. This also provides power to the board, as indicated by the LED.
 
@@ -378,9 +379,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                         |
 | ---------- | ------------ | ----------------------------------- |
-| 14/05/2020 | 1            | First Release                       |
-| 02/12/2021 | 2            | Changes requested for certification |
-| 12/07/2022 | 3            | General maintenance updates         |
-| 25/04/2024 | 4            | Updated link to new Cloud Editor    |
-| 12/10/2026 |       5      | Added note for Intended Use |
+| 14/05/2020 |       1      | First Release                       |
+| 02/12/2021 |       2      | Changes requested for certification |
+| 12/07/2022 |       3      | General maintenance updates         |
+| 25/04/2024 |       4      | Updated link to new Cloud Editor    |
+| 12/10/2026 |       5      | Added note for Intended Use         |
 
