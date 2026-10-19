@@ -19,6 +19,12 @@ Arduino® GIGA R1 WiFi は、STM32H7 の性能を Mega フォームファクタ�
 
 3D プリンティング、信号処理、メイカー、ロボティクス
 
+**製品の用途**
+
+Arduinoハードウェア製品は、主に開発およびプロトタイピングを目的としているが、量産ソリューションにも対応する場合がある。開発者は、想定される導入環境に基づき、早期にセキュリティ対策を設計・検証しなければならない。セキュリティはArduinoとソリューション構築者の双方の責任であり、ソリューション構築者はハードウェアが備えるセキュリティ機能を評価し、必要な保護措置を追加しなければならない。
+
+Arduinoハードウェア製品の「使用目的およびセキュリティモデル」の全文については、[docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/)を参照のこと。
+
 # 機能
 
 - **STM32H747XIH6** Microcontroller
