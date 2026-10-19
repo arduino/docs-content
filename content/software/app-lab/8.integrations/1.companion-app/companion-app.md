@@ -1,7 +1,7 @@
 ---
 title: IoT Remote App Integration for Arduino App Lab
 overwriteSidebar: IoT Remote App Integration
-description: This tutorial teaches you how to leverage the Arduino IoT Remote app to use your phone sensors with Arduino App Lab applications.
+description: This tutorial teaches you how to use the Arduino IoT Remote app to use your phone sensors with Arduino App Lab applications.
 author: Christopher Méndez
 hardware:
   - hardware/uno/boards/uno-q
@@ -59,7 +59,7 @@ The system uses two communication channels:
 
 ## Mobile Camera Streaming
 
-To test this feature, we will leverage the **Detect Objects on Smartphone Camera** example inside the Arduino App Lab. It will allow us to easily learn how this feature works and try it out without the need to develop an App from scratch. 
+To test this feature, we will use the **Detect Objects on Smartphone Camera** example inside the Arduino App Lab. It shows how this feature works, and you can try it out without developing an App from scratch. 
 
 ![Detect Objects on Smartphone Camera](assets/mobile-example.png)
 
@@ -207,7 +207,7 @@ document.getElementById('videoIframe').src = streamUrl;
 
 In this tutorial, you learned how to transform your smartphone into a wireless input device for Arduino App Lab using the Arduino IoT Remote app. You successfully configured your network environment, paired your phone with your board via a QR code, and streamed live video to power an AI object detection model.
 
-This integration eliminates the need for external USB webcams, allowing you to prototype computer vision applications more freely. By understanding the handshake mechanism between the Python® backend and the JavaScript frontend, you now have the foundation to build custom applications that leverage the powerful sensors already present in your mobile device.
+This integration eliminates the need for external USB webcams, allowing you to prototype computer vision applications more freely. By understanding the handshake mechanism between the Python® backend and the JavaScript frontend, you now have the foundation to build custom applications that use the sensors in your mobile device.
 
 ### Next Steps
 

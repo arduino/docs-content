@@ -9,7 +9,7 @@ tags:
   - IoT
 ---
 
-**Bricks** are the modular building blocks of an Arduino App Lab application. They package complex features—such as machine learning models, web interfaces, or database integrations—into reusable components. Think of them as "plug-and-play" services: instead of writing thousands of lines of code from scratch, you add a Brick to your project and interact with it using a few lines of Python.
+**Bricks** are the modular building blocks of an Arduino App Lab application. They package complex features—such as machine learning models, web interfaces, or database integrations—into reusable components. Add a Brick to your App and use it with a few lines of Python.
 
 ## Quick Links
 
@@ -21,12 +21,12 @@ Depending on your goal, jump directly to the relevant documentation:
 
 ## About Bricks
 
-Bricks save time by handling heavy infrastructure and background tasks automatically. Instead of setting up complex machine learning environments, configuring databases, or writing socket servers, you instantiate a Brick and let the framework handle the rest.
+Bricks save time by handling heavy infrastructure and background tasks automatically. Instead of setting up complex machine learning environments, configuring databases, or writing socket servers, you instantiate a Brick, and the Brick handles the setup.
 
 Technically, a **Brick** is a Python module that interacts with your main application. Bricks run in one of two ways:
 
 - **Pure Python Bricks:** These run entirely inside your App's Python environment. They provide utility functions, compute logic, or cloud connections without launching additional containers.
-- **Containerized Bricks:** These act as Python bridges to isolated **Docker containerized services** running in the background. Your application script (`main.py`) interacts with the Brick's Python API, which handles any necessary network communication with the underlying container behind the scenes.
+- **Containerized Bricks:** These act as Python bridges to isolated **Docker containerized services** running in the background. Your application script (`main.py`) interacts with the Brick's Python API, which handles any necessary network communication with the underlying container.
 
 While App Lab provides a wide catalog of pre-built Arduino Bricks, you can also create **Custom Bricks** directly within your application. Custom Bricks use the exact same architecture as pre-built Bricks, allowing you to package your own specialized Python logic or third-party Docker containers into modular, reusable components.
 

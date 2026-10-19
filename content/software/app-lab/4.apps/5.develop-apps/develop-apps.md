@@ -58,7 +58,7 @@ If an imported file or folder has the same name as an existing one, App Lab asks
 
 ### Moving files and folders
 
-The file tree supports **Drag and Drop** organization. Simply click and hold a file or folder, then drag it to your desired location within the project structure.
+The file tree supports **Drag and Drop** organization. Click and hold a file or folder, then drag it to your desired location within the project structure.
 
 ## Editor
 

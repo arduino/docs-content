@@ -129,7 +129,7 @@ To use the CLI tool, put the board into **Emergency Download Mode (EDL)**.
 
    <Alert type="info">
 
-   **Note:** You can use the `--version <version>` flag to flash a specific image version instead of the latest one, and the `--serial <serial>` flag to target a specific board when multiple are connected. You can also run just `flash` to enter interactive mode.
+   **Note:** You can use the `--version <version>` flag to flash a specific image version instead of the latest one, and the `--serial <serial>` flag to target a specific board when multiple are connected. Run `flash` without arguments to enter interactive mode.
 
    </Alert>
 

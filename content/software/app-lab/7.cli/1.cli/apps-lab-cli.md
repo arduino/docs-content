@@ -250,7 +250,7 @@ arduino-app-cli brick list
 arduino-app-cli brick details arduino:<brick>
 ```
 
-Which will show something akin to:
+The output looks like this:
 
 ![List Bricks](assets/list-bricks.png)
 

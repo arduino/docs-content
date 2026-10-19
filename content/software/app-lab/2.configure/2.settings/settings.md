@@ -83,7 +83,7 @@ This section tells the board which hardware extensions are attached, so the syst
 
 - **Carriers connected to your board**: Turn on the toggle when a carrier is attached, then select which peripheral you are connecting to each carrier port. Select **How to attach a carrier** for instructions.
 
-  For example, with the **UNO Media Carrier** attached to an UNO Q, the section lists the carrier's two camera ports (camera 0 and camera 1) and its display port. For each port, select the type of camera or display you connected (such as `type1-2lanes` or `type1-4lanes` for a CSI camera), or leave it on **No camera** / **No display**. The available ports and options are reported by the board, so they depend on the carrier and the system version. For step-by-step instructions, see [MIPI-CSI Camera](../mipi-camera/) and [MIPI-DSI Display](../display/).
+  For example, with the **UNO Media Carrier** attached to an UNO Q, the section lists the carrier's two camera ports (camera 0 and camera 1) and its display port. For each port, select the type of camera or display you connected (such as `type1-2lanes` or `type1-4lanes` for a CSI camera), or leave it on **No camera** / **No display**. The available ports and options depend on the carrier and the board's system version. For step-by-step instructions, see [MIPI-CSI Camera](../mipi-camera/) and [MIPI-DSI Display](../display/).
 
   On the **VENTUNO Q**, a DSI display disables the board's CSI 0 port, and the other two CSI ports work either on the carrier or on the board, not both.
 - **Add-ons connected to JHat header**: Turn on the toggle when an add-on is attached to the JHat header, then select the **Add-on type**. Only add-ons that need to be declared are listed. Select **How to attach an Hat** for instructions.
@@ -98,9 +98,7 @@ When you change an extension, select **Reboot and apply** and enter the board pa
 
 ### CSI Camera
 
-This section only appears on the **VENTUNO Q** running Ubuntu, where the camera server (`cam-server`) is not pre-installed. It doesn't configure cameras itself: declare your cameras in [Board extensions](#board-extensions), then install the camera server manually by following the [MIPI CSI camera guide](/tutorials/ventuno-q/mipi-csi-camera/). Select **Open setup guide** to open it.
-
-App Lab doesn't show this section on other systems, such as the Debian image of the UNO Q, because no manual installation is needed there.
+This section only appears on the **VENTUNO Q** running Ubuntu, where the camera server (`cam-server`) is not pre-installed. To use your cameras, declare them in [Board extensions](#board-extensions), then install the camera server manually by following the [MIPI CSI camera guide](/tutorials/ventuno-q/mipi-csi-camera/). Select **Open setup guide** to open it.
 
 ### System info
 

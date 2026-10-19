@@ -127,7 +127,7 @@ An App release is a packaged, read-only version of an App, saved as an `.ard` fi
    - **Release label** (optional): A label made of numbers or letters that identifies this release, such as `1.0`.
    - **Target**: The board the release runs on.
    - **Release note** (optional): A description of the release, shown in **Release info** when the release is installed.
-   - **Include data associated with the App** (optional): Adds the App's `data/` folder to the release. This option is turned off while the App is running, because including data during a run could cause errors.
+   - **Include data associated with the App** (optional): Adds the App's `data/` folder to the release. This option is unavailable while the App is running.
    ![Screenshot of the App release dialog in Arduino App Lab.](../../assets/playwright/editor/create-release-dialog.png)
 1. Select **Save and download**, then choose where to save the `.ard` file on your computer.
 

@@ -7,7 +7,7 @@ tags:
   - Arduino App Lab
 ---
 
-This glossary defines the terms used across the Arduino App Lab documentation and interface. Terms are listed alphabetically.
+This glossary defines the terms used across the Arduino App Lab documentation and interface.
 
 ## ADB (Android Debug Bridge)
 

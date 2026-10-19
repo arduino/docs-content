@@ -11,7 +11,7 @@ tags:
 
 **Agent Mode** brings an AI coding agent into Arduino App Lab. Describe what you want to build, and the agent scaffolds Apps, edits Python and sketch code, adds Bricks and AI models, runs your App, and reads its logs, all without leaving App Lab. Every action that changes your board or your files waits for your approval.
 
-Currently, **Claude Code™** (by Anthropic) is supported as a **Preview**. Codex and OpenCode are listed as **Coming soon**.
+Agent Mode supports **Claude Code™** (by Anthropic) as a **Preview**. Support for Codex and OpenCode is coming soon.
 
 ## Requirements
 
@@ -23,7 +23,7 @@ Currently, **Claude Code™** (by Anthropic) is supported as a **Preview**. Code
 1. Select **Settings** (gear icon) in the left sidebar and scroll down to the **Agent** section.
 
    You can also select **Set up an agent** in the Agent panel, or select the **Agent mode** button in the status bar.
-2. Select **Install** on the **Claude Code** card. App Lab downloads the agent runtime (Node.js and the Claude Code packages) to your computer. Nothing is installed on the board.
+2. Select **Install** on the **Claude Code** card. App Lab downloads the agent runtime (Node.js and the Claude Code packages) to the device running App Lab. In Connected Mode, that is your computer, and nothing is installed on the board.
 3. Select **Connect**, then sign in using one of the two tabs:
    - **Sign in**: Select **Sign in with Anthropic**. Your browser opens the Anthropic sign-in page. When the page shows a sign-in token, copy it, paste it in the **Paste token** field in App Lab, and confirm. If the browser does not open, select **Copy link** and open the link manually.
    - **API Key**: Paste your Anthropic API key and select **Verify**.
@@ -106,7 +106,7 @@ Use the **Mode** and **Model** pickers in the prompt area of the chat to adjust 
   - **Bypass Permissions**: Skips all approval checks. Use with caution.
 - **Model** selects the Claude model. Larger models (Opus) are more thorough; smaller models (Sonnet, Haiku) are faster and use fewer tokens.
 
-The modes and models offered come from Claude Code and can change when the agent runtime is updated.
+Claude Code provides these modes and models, so they can change when you update the agent runtime.
 
 ## Sessions
 

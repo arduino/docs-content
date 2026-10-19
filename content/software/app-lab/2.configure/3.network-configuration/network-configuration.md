@@ -45,7 +45,7 @@ App Lab reaches the Arduino App CLI daemon on the board through its USB (ADB) or
 
 ## Domain Whitelist
 
-If you are operating behind a restrictive firewall, you must allow traffic to the following domains. Domains used by the board and domains used by the computer running App Lab are listed separately.
+If you are operating behind a restrictive firewall, you must allow traffic to the following domains.
 
 ### Board: Core Infrastructure
 
@@ -68,9 +68,9 @@ If you are operating behind a restrictive firewall, you must allow traffic to th
 - `login.arduino.cc`
 - `projecthub.arduino.cc`: Publishing Apps on Project Hub from App Lab.
 
-### Computer: Agent Mode
+### Agent Mode
 
-These domains are used by the computer running App Lab when you use [Agent Mode](../../integrations/agent-mode/):
+When you use [Agent Mode](../../integrations/agent-mode/), the device running App Lab needs access to these domains: your computer in Connected Mode, or the board itself in [SBC Mode](../../setup/standalone/).
 
 - `nodejs.org` and `registry.npmjs.org`: Download of the agent runtime when you install an agent.
 - `claude.ai`, `platform.claude.com`, and `api.anthropic.com`: Sign-in and requests to Claude.

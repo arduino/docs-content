@@ -7,13 +7,13 @@ tags: [Arduino App CLI, UNO Q, VENTUNO Q, Linux, CLI]
 
 Manage Arduino Apps directly from the terminal using this command-line interface. Control the lifecycle of your applications, manage Bricks, and configure system settings without a graphical UI.
 
-This reference is generated from the command definitions of Arduino App CLI 0.14. To check the version installed on your board, run `arduino-app-cli version`. For a task-oriented introduction, see [Manage Apps Using Arduino App CLI](../cli/).
+This reference covers Arduino App CLI 0.14. To check the version installed on your board, run `arduino-app-cli version`. For a task-oriented introduction, see [Manage Apps Using Arduino App CLI](../cli/).
 
 Commands that take an `<app_path>` also accept an App ID, such as `user:my-app` or `examples:inspirational/blink`. See [Refer to Apps](../cli/#refer-to-apps).
 
 <Alert type="info">
 
-**Note:** `model install` takes one argument: a model ID from the catalog, a Hugging Face ID (`llamacpp:owner/repo:quant`, or `owner/repo` to let the board choose the quantization), or the URL of a model file. For example: `arduino-app-cli model install llamacpp:unsloth/Qwen3.5-0.8B-GGUF:Q4_K_M`. The `llamacpp:owner/repo` form without a quantization, shown in the command help below, doesn't work in Arduino App CLI 0.14.
+**Note:** `model install` takes one argument: a model ID from the catalog, a Hugging Face ID (`llamacpp:owner/repo:quant`, or `owner/repo` to let the board choose the quantization), or the URL of a model file. For example: `arduino-app-cli model install llamacpp:unsloth/Qwen3.5-0.8B-GGUF:Q4_K_M`. In Arduino App CLI 0.14, the `llamacpp:` form requires a quantization: `llamacpp:owner/repo` alone fails.
 
 </Alert>
 
