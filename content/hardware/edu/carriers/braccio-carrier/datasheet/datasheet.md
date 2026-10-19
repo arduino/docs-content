@@ -203,7 +203,7 @@ User manuals for license-exempt radio apparatus shall contain the following or e
 (2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
 French:
-Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes:
+Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :
 
 (1) l’ appareil nedoit pas produire de brouillage
 
@@ -241,6 +241,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 | **Date**   | **Revision** | **Changes**                      |
 | ---------- | ------------ | -------------------------------- |
-| 23/03/2022 | 1            | First Release                    |
-| 25/10/2022 | 2            | Minor markdown and heading fixes |
-| 12/10/2026 |      3       | Added note for Intended Use |
+| 23/03/2022 |      1       | First Release                    |
+| 25/10/2022 |      2       | Minor markdown and heading fixes |
+| 12/10/2026 |      3       | Added note for Intended Use      |
