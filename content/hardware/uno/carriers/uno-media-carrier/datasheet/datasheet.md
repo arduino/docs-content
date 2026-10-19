@@ -534,7 +534,7 @@ English:
 (2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
 French:
-<p style="text-align: justify;">Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes:</p>
+<p style="text-align: justify;">Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :</p>
 
 (1) l’ appareil nedoit pas produire de brouillage
 
