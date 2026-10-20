@@ -377,5 +377,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 20/02/2023        | 3            | Change grove connector power rail from +5.0V to +3.3V |
 | 25/04/2024        | 4            | Updated link to new Cloud Editor                      |
 | 04/02/2025        | 5            | Update link for Certification                         |
-| 12/10/2026        |       6      | Added note for Intended Use |
+| 20/10/2026        |       6      | Added note for Intended Use |
 

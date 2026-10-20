@@ -363,9 +363,10 @@ As a global supplier of electronic and electrical components, Arduino is aware o
 
 | **Date** | **Revision** | **Changes**                                                                    |
 |:--------:|:------------:|--------------------------------------------------------------------------------|
-| 14/10/26 |       6      | Sensor updated to GXHT30C (boards marked V0.5 or later); document restructured |
-| 24/11/25 |       5      | I2C information changed                                                        |
-| 01/07/25 |       4      | Certification                                                                  |
-| 17/06/25 |       3      | Nomenclature updates                                                           |
-| 23/05/25 |       2      | Power info                                                                     |
 | 14/05/25 |       1      | First release                                                                  |
+| 23/05/25 |       2      | Power info                                                                     |
+| 17/06/25 |       3      | Nomenclature updates                                                           |
+| 01/07/25 |       4      | Certification                                                                  |
+| 24/11/25 |       5      | I2C information changed                                                        |
+| 14/10/26 |       6      | Sensor updated to GXHT30C (boards marked V0.5 or later); document restructured |
+| 20/10/2026 |      7       | Added note for Intended Use |

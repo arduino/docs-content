@@ -232,5 +232,5 @@ Operation is subject to the following two conditions:
 | 23/05/2025 | 2            | Fixed pinout table, power info, and unrelated characteristics |
 | 17/06/2025 | 3            | Nomenclature updates                                          |
 | 01/07/2025 | 4            | Certification                                                 |
-| 12/10/2026 |       5      | Added note for Intended Use |
+| 20/10/2026 |       5      | Added note for Intended Use |
 

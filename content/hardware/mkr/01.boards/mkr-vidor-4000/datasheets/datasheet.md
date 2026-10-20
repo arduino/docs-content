@@ -343,5 +343,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | :--------: | :----------: | :-----------: |
 | 07/09/2023 |      1       | First release |
 | 14/11/2023 |      2       |  FCC Update   |
-| 12/10/2026 |       3      | Added note for Intended Use |
+| 20/10/2026 |       3      | Added note for Intended Use |
 

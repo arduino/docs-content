@@ -545,4 +545,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 |:----------:|:------------:|---------------------------------------|
 | 14/10/2025 |      1       | First release                         |
 | 20/11/2025 |     2        | Added UIFlow v2.0 support information |
-| 12/10/2026 |      3       | Added note for Intended Use |
+| 20/10/2026 |      3       | Added note for Intended Use |

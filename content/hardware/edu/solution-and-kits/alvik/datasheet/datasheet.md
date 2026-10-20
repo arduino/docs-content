@@ -405,4 +405,4 @@ Use of controls or adjustments, or performance of procedures other than those sp
 | 13/05/2024 |      2       | Robot's Expandability section added |
 | 20/12/2024 |      3       |         Add Certifications          |
 | 07/07/2025 |      4       |       Correct LED information       |
-| 12/10/2026 |      5       |        Added note for Intended Use  |
+| 20/10/2026 |      5       |        Added note for Intended Use  |

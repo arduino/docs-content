@@ -341,5 +341,5 @@ Hereby, Arduino S.r.l. declares that this product complies with essential requir
 | ---------- | ------------ | -------------------------------- |
 | 2024/02/21 |       1      | First Release                    |
 | 25/04/2024 |       2      | Updated link to new Cloud Editor |
-| 12/10/2026 |       3      | Added note for Intended Use |
+| 20/10/2026 |       3      | Added note for Intended Use |
 

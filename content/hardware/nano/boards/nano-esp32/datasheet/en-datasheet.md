@@ -512,6 +512,6 @@ This equipment contains a radio transmitter module with model approval code: CMI
 | 25/04/2024 |      9       | Updated link to new Cloud Editor                       |
 | 23/08/2024 |      10      | Added SRRC certification                                 |
 | 23/08/2024 |      11      | Cloud Editor updated from Web Editor                  |
-| 12/10/2026 |      12      | Added note for Intended Use, and divided language |
+| 20/10/2026 |      12      | Added note for Intended Use, and divided language |
 
 

@@ -396,5 +396,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 03/08/2022 | 2            | Reference documentation links updates |
 | 27/10/2023 | 3            | Correction NINA SPI pins              |
 | 25/04/2024 | 4            | Updated link to new Cloud Editor      |
-| 12/10/2026 |       5      | Added note for Intended Use |
+| 20/10/2026 |       5      | Added note for Intended Use |
 

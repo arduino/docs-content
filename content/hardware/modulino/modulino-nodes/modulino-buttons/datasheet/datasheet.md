@@ -244,5 +244,5 @@ Operation is subject to the following two conditions:
 | 23/05/2025 | 3            | Fixed pinout table and power info |
 | 17/06/2025 | 4            | Nomenclature updates              |
 | 01/07/2025 | 5            | Certification                     |
-| 12/10/2026 |       6      | Added note for Intended Use |
+| 20/10/2026 |       6      | Added note for Intended Use |
 

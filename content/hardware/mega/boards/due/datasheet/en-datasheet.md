@@ -529,9 +529,8 @@ These pins offer a range of functionalities, including digital input/output, ser
 </div>
 
 
-<div style="page-break-inside: avoid;">
+<div style="page-break-after: always;"></div>
 
-<div style="text-align:center;">
 
 | Pin | Function | Type    | Description    |
 |-----|----------|---------|----------------|
@@ -556,9 +555,8 @@ These pins offer a range of functionalities, including digital input/output, ser
 
 <caption>D22 - D53 RHS pinout</caption>
 
-</div>
 
-<div style="page-break-inside: avoid;">
+<div style="page-break-after: always;"></div>
 
 ## Device Operation
 
@@ -729,4 +727,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 |  **Date**  | **Revision** |  **Changes**  |
 | :--------: | :----------: | :-----------: |
 | 12/06/2024 |      1       | First release |
-| 12/10/2026 |      2       | Added note for Intended Use, and divided language |
+| 20/10/2026 |      2       | Added note for Intended Use, and divided language |

@@ -365,5 +365,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 27/09/2022 | 3            | Rendering problems fixed              |
 | 25/04/2024 | 4            | Updated link to new Cloud Editor      |
 | 25/04/2024 | 5            | Updated Wi-Fi module information      |
-| 12/10/2026 |       5      | Added note for Intended Use |
+| 20/10/2026 |       6      | Added note for Intended Use |
 

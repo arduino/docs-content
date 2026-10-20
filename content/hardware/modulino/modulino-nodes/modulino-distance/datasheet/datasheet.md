@@ -235,6 +235,6 @@ Use of controls or adjustments, or performance of procedures other than those sp
 | 17/06/2025 | 3            | Nomenclature updates              |
 | 01/07/2025 | 4            | Certification                     |
 | 07/07/2025 | 5            | Add laser safety section          |
-| 12/10/2026 |       6      | Added note for Intended Use |
+| 20/10/2026 |       6      | Added note for Intended Use |
 
 
