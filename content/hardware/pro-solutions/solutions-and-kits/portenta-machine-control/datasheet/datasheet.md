@@ -584,4 +584,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 06/02/2024  |      7       | MTBF information                                                                                                                       |
 | 03/09/2024  |      8       | Cloud Editor updated from Web Editor                                                                                                   |
 | 19/11/2024  |      9       | Updated analog output channel details                                                                                                  |
-| 12/10/2026 |       10      | Added note for Intended Use |
+| 20/10/2026 |       10      | Added note for Intended Use |

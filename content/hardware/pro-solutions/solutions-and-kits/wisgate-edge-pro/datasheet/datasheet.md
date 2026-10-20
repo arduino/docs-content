@@ -494,5 +494,5 @@ Company information: Make sure is updated and always the same.
 |:----------:|:------------:|:-------------------:|
 | 12/03/2025 |      1       |    First release    |
 | 14/03/2025 |      2       | Format improvements |
-| 12/10/2026 |       3      | Added note for Intended Use |
+| 20/10/2026 |       3      | Added note for Intended Use |
 

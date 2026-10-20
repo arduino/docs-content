@@ -311,5 +311,5 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 | 24/09/2024 | 3            | SSR operating current update         |
 | 24/09/2024 | 4            | Expansion port updates               |
 | 02/12/2024 | 5            | Digital input specification update   |
-| 12/10/2026 |       6      | Added note for Intended Use |
+| 20/10/2026 |       6      | Added note for Intended Use |
 

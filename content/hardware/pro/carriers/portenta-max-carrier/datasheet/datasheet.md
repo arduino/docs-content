@@ -513,5 +513,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 11/20/2023 | 2            | Recommended antennas added                |
 | 03/09/2024 | 3            | Cloud Editor updated from Web Editor      |
 | 28/02/2025 | 4            | General information and trademark revision |
-| 12/10/2026 |       5      | Added note for Intended Use |
+| 20/10/2026 |       5      | Added note for Intended Use |
 

@@ -198,4 +198,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | ---------- | ------------ | ------------------------- |
 | 17/06/2022 | 1            | First release             |
 | 21/01/2025 | 2            | Fixed board dimensions    |
-| 12/10/2026 |       3      | Added note for Intended Use |
+| 20/10/2026 |       3      | Added note for Intended Use |

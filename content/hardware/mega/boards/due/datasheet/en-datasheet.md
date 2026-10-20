@@ -24,8 +24,8 @@ Arduino Hardware Products are primarily intended for development and prototyping
 Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Contents
-## Application Examples
 
+## Application Examples
 
 The Arduino Due combines the performance of the Atmel SAM3X8E microcontroller with the flexibility of the Arduino platform, offering a versatile solution for developers, hobbyists, and professionals alike. With its 32-bit architecture and clock speed of 84 MHz, the Due delivers robust performance for demanding applications.
 
@@ -37,10 +37,9 @@ The Arduino Due combines the performance of the Atmel SAM3X8E microcontroller wi
 
 - **Prototyping:** The Arduino Due serves as an invaluable tool for quickly iterating and testing new ideas for IoT devices. By leveraging the Due's extensive I/O capabilities and compatibility with various sensors, communication modules, and actuators, developers can rapidly assemble and test prototypes of IoT devices. Whether it is a smart home sensor node, a weather station, or a remote monitoring system, the Arduino Due provides a flexible platform for integrating components, writing firmware, and validating functionality. With the Due's support for Arduino libraries and easy-to-use development environment, prototypers can focus on innovation and experimentation, accelerating the process of bringing ideas to fruition.
 
+<div style="page-break-after: always;"> </div>
 
 ## Features
-
-<div style="page-break-inside: avoid;">
 
 ### General Specifications Overview
 
@@ -86,7 +85,6 @@ The Arduino Due is a versatile microcontroller board designed for a wide range o
 | DAC1 and DAC2                         | True analog output 12-bits resolution (4096 levels) |
 | PWM outputs                           | 12x PWM outputs                                     |
 
-</div>
 
 ## Accessories
 
@@ -99,6 +97,7 @@ The Arduino Due is a versatile microcontroller board designed for a wide range o
 - Arduino Motor Shield Rev3 (A000079)
 
 ## Rating
+
 ### Recommended Operating Conditions
 
 | Symbol          | Description                      | Min                | Typ | Max                | Unit |
@@ -109,7 +108,8 @@ The Arduino Due is a versatile microcontroller board designed for a wide range o
 | V<sub>IL</sub>  | Input low-level voltage          | 0                  |     | 0.3*V<sub>DD</sub> | V    |
 | T<sub>OP</sub>  | Operating Temperature            | -40                | 25  | 85                 | °C   |
 
-**Note:** V<sub>DD</sub> controls the logic level and is connected to the 3.3 V power rail. V<sub>AREF</sub> is for the analog logic.
+>[!NOTE]
+>**Note:** V<sub>DD</sub> controls the logic level and is connected to the 3.3 V power rail. V<sub>AREF</sub> is for the analog logic.
 
 ### Power Specification
 
@@ -118,11 +118,8 @@ The Arduino Due is a versatile microcontroller board designed for a wide range o
 | Supply voltage    | 7.0 | -   | 12  | V    |
 | Permissible range | 6.0 | -   | 16  | V    |
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;">
-<strong>Safety Note:</strong> Unlike most traditional Arduino boards, the Arduino Due board runs at 3.3 V. Keep in mind the maximum voltage that the I/O pins can tolerate is 3.3 V. Applying voltages higher than 3.3 V to any I/O pin could damage the board.
-</p>
-</div>
+>[!NOTE]
+>**Safety Note:** Unlike most traditional Arduino boards, the Arduino Due board runs at 3.3 V. Keep in mind the maximum voltage that the I/O pins can tolerate is 3.3 V. Applying voltages higher than 3.3 V to any I/O pin could damage the board.
 
 ### Current Consumption
 
@@ -131,7 +128,7 @@ The Arduino Due is a versatile microcontroller board designed for a wide range o
 | Normal Mode Current Consumption                 | I<sub>NM</sub> | 130 | --- | 800 | mA   |
 
 
-<div style="page-break-inside: avoid;">
+<div style="page-break-after: always;"> </div>
 
 ## Functional Overview
 
@@ -141,11 +138,8 @@ The Arduino Due pinout is shown in the following figure.
 
 ![Arduino Due pinout](assets/ad-pinout.png)
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;">
-<strong>Safety Note:</strong> Disconnect power before board modifications to avoid short-circuiting.
-</p>
-</div>
+>[!NOTE]
+>**Safety Note:** Disconnect power before board modifications to avoid short-circuiting.
 
 ### Full Pinout Table
 
@@ -153,7 +147,6 @@ The full pinout of the Arduino Due is available in the following tables.
 
 #### Board's 24-Pin Header
 
-<div style="text-align:center;">
 
 | Pin | Function | Type    | Description                                              |
 | --- | -------- | ------- | -------------------------------------------------------- |
@@ -182,14 +175,7 @@ The full pinout of the Arduino Due is available in the following tables.
 | 23  | CANRX    | Digital | CAN Bus Receiver                                         |
 | 24  | CANTX    | Digital | CAN Bus Transmitter                                      |
 
-<caption>Board's 24-Pin Header pinout</caption>
-
-</div>
-
-
 #### Board's 26-Pin Header
-
-<div style="text-align:center;">
 
 | Pin | Function | Type    | Description                                       |
 | --- | -------- | ------- | ------------------------------------------------- |
@@ -220,15 +206,9 @@ The full pinout of the Arduino Due is available in the following tables.
 | 25  | D20/SDA  | Digital | GPIO 20 / I2C 0 Dataline                          |
 | 26  | D21/SCL  | Digital | GPIO 21 / I2C 0 Clock                             |
 
-<caption>Board's 26-Pin Header pinout</caption>
-
-</div>
-
 #### SPI
 
 The board provides an SPI interface and full access to its pinout as it can be seen in the following table.
-
-<div style="text-align:center;">
 
 | Pin | Function | Type     | Description                  |
 |-----|----------|----------|------------------------------|
@@ -239,13 +219,7 @@ The board provides an SPI interface and full access to its pinout as it can be s
 | 5   | RESET    | Internal | Reset                        |
 | 6   | GND      | Internal | Ground                       |
 
-<caption>SPI pinout</caption>
-
-</div>
-
 #### Digital Pins D22 - D53 LHS
-
-<div style="text-align:center;">
 
 | Pin | Function | Type    | Description    |
 |-----|----------|---------|----------------|
@@ -268,13 +242,7 @@ The board provides an SPI interface and full access to its pinout as it can be s
 | 17  | D52      | Digital | GPIO 52        |
 | 18  | GND      | Power   | Ground         |
 
-<caption>D22 - D53 LHS pinout</caption>
-
-</div>
-
 #### Digital Pins D22 - D53 RHS
-
-<div style="text-align:center;">
 
 | Pin | Function | Type    | Description    |
 |-----|----------|---------|----------------|
@@ -297,15 +265,9 @@ The board provides an SPI interface and full access to its pinout as it can be s
 | 17  | D53      | Digital | GPIO 53        |
 | 18  | GND      | Power   | Ground         |
 
-<caption>D22 - D53 RHS pinout</caption>
-
-</div>
-
 #### JTAG Pins
 
 The board provides access to the debugging interface using the JTAG pins as it can be seen in the following table.
-
-<div style="text-align:center;">
 
 | Pin | Function | Type    | Description      |
 |-----|----------|---------|------------------|
@@ -319,10 +281,6 @@ The board provides access to the debugging interface using the JTAG pins as it c
 | 8   | GND      | Power   | GROUND           |
 | 9   | TMS      | Digital | Test Mode Select |
 | 10  | +3V3     | Power   | +3V3 Power Rail  |
-
-<caption>Debugging's JTAG pinout</caption>
-
-</div>
 
 ### Block Diagram
 
@@ -339,8 +297,6 @@ The Arduino Due can be powered in multiple ways:
 - The Power Jack: The Due can be powered using a DC power supply connected to the power jack, which accepts a voltage range of 7 to 12 V.
 
 **It is essential to note that the Arduino Due operates at 3.3 V, so any external power source must be regulated to this voltage level. Additionally, the power supply should be able to provide sufficient current for the board's operation and any connected peripherals.**
-
-</div>
 
 ![Arduino Due Power Tree](assets/Due_Power_Tree.svg)
 
@@ -366,9 +322,7 @@ In the following drawing you can see the main integrated circuits and passive co
 
 #### JTAG Connector
 
-<p style="text-align: justify;">Debugging capabilities are integrated directly into the Arduino Due and are accessible via the 6-pin JTAG connector.</p>
-
-<div style="text-align:center;">
+Debugging capabilities are integrated directly into the Arduino Due and are accessible via the 6-pin JTAG connector.
 
 | Pin | Function | Type    | Description      |
 |-----|----------|---------|------------------|
@@ -383,28 +337,21 @@ In the following drawing you can see the main integrated circuits and passive co
 | 9   | TMS      | Digital | Test Mode Select |
 | 10  | +3V3     | Power   | +3V3 Power Rail  |
 
-<caption>JTAG pinout</caption>
-
-</div>
-
 #### Native USB Port
-
-<p style="text-align: justify;">The Arduino Due's Native USB port features a USB Type-B connector. This port allows the board to communicate directly with a computer as a USB device, enabling functionalities such as USB host/device capabilities and USB OTG (On-The-Go) functionality.</p>
+The Arduino Due's Native USB port features a USB Type-B connector. This port allows the board to communicate directly with a computer as a USB device, enabling functionalities such as USB host/device capabilities and USB OTG (On-The-Go) functionality.
 
 ![Arduino Due USB port](assets/DueUSBPorts.jpg)
 
 #### Programming USB Port
 
-<p style="text-align: justify;">This port allows the board to be programmed and powered via a USB connection to a computer. It facilitates serial communication between the Arduino Due and the computer, enabling the uploading of sketches and interaction with the Arduino IDE. The port is connected to the ATmega16U2 microcontroller, which acts as a USB-to-serial converter, simplifying the programming process. When connected to a computer, the Arduino IDE recognizes the board as a COM port, enabling seamless communication for programming and debugging purposes.</p>
+This port allows the board to be programmed and powered via a USB connection to a computer. It facilitates serial communication between the Arduino Due and the computer, enabling the uploading of sketches and interaction with the Arduino IDE. The port is connected to the ATmega16U2 microcontroller, which acts as a USB-to-serial converter, simplifying the programming process. When connected to a computer, the Arduino IDE recognizes the board as a COM port, enabling seamless communication for programming and debugging purposes.
 
 
 #### Board's 24-Pin Header Connector
 
-<p style="text-align: justify;">The 24-pin header connector provides a range of interfaces and general-purpose pins essential for various applications</p>
+The 24-pin header connector provides a range of interfaces and general-purpose pins essential for various applications.
 
 These pins offer a range of functionalities, including analog and digital input/output, power supply connections, analog-to-digital, digital-to-analog conversion and CAN bus communication.
-
-<div style="text-align:center;">
 
 | Pin | Function | Type    | Description                                             |
 | --- | -------- | ------- | ------------------------------------------------------- |
@@ -433,17 +380,11 @@ These pins offer a range of functionalities, including analog and digital input/
 | 23  | CANRX    | Digital | CAN Bus Receiver                                        |
 | 24  | CANTX    | Digital | CAN Bus Transmitter                                     |
 
-<caption>Board's 24-Pin Header pinout</caption>
-
-</div>
-
 #### Board's 26-Pin Header Connector
 
-<p style="text-align: justify;">The 26-pin header connector on the Arduino Due offers a comprehensive set of interfaces and versatile pins crucial for diverse applications</p>
+The 26-pin header connector on the Arduino Due offers a comprehensive set of interfaces and versatile pins crucial for diverse applications.
 
 These pins offer a range of functionalities, including digital input/output, serial communication, PWM (Pulse Width Modulation) outputs, and I2C (Inter-Integrated Circuit) communication.
-
-<div style="text-align:center;">
 
 | Pin | Function | Type    | Description                                       |
 | --- | -------- | ------- | ------------------------------------------------- |
@@ -474,15 +415,9 @@ These pins offer a range of functionalities, including digital input/output, ser
 | 25  | D20/SDA  | Digital | GPIO 20 / I2C 0 Dataline                          |
 | 26  | D21/SCL  | Digital | GPIO 21 / I2C 0 Clock                             |
 
-<caption>Board's 26-Pin Header pinout</caption>
-
-</div>
-
 #### SPI
 
-<p style="text-align: justify;">These pins facilitate communication between the Arduino Due and external SPI devices </p>
-
-<div style="text-align:center;">
+These pins facilitate communication between the Arduino Due and external SPI devices.
 
 | Pin | Function | Type     | Description                  |
 | --- | -------- | -------- | ---------------------------- |
@@ -493,15 +428,9 @@ These pins offer a range of functionalities, including digital input/output, ser
 | 5   | RESET    | Internal | Reset                        |
 | 6   | GND      | Internal | Ground                       |
 
-<caption>SPI pinout</caption>
-
-</div>
-
 #### D22 to D53 on Left and Right Side
 
-<p style="text-align: justify;">These digital pins provide a wide range of GPIO (General Purpose Input/Output) capabilities for interfacing with external sensors, actuators, and other digital devices in Arduino Due projects. </p>
-
-<div style="text-align:center;">
+These digital pins provide a wide range of GPIO (General Purpose Input/Output) capabilities for interfacing with external sensors, actuators, and other digital devices in Arduino Due projects.
 
 | Pin | Function | Type    | Description    |
 |-----|----------|---------|----------------|
@@ -524,13 +453,7 @@ These pins offer a range of functionalities, including digital input/output, ser
 | 17  | D52      | Digital | GPIO 52        |
 | 18  | GND      | Power   | Ground         |
 
-<caption>D22 - D53 LHS pinout</caption>
-
-</div>
-
-
 <div style="page-break-after: always;"></div>
-
 
 | Pin | Function | Type    | Description    |
 |-----|----------|---------|----------------|
@@ -552,9 +475,6 @@ These pins offer a range of functionalities, including digital input/output, ser
 | 16  | D51      | Digital | GPIO 51        |
 | 17  | D53      | Digital | GPIO 53        |
 | 18  | GND      | Power   | Ground         |
-
-<caption>D22 - D53 RHS pinout</caption>
-
 
 <div style="page-break-after: always;"></div>
 
@@ -584,9 +504,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ## Mechanical Information
 
-<p style="text-align: justify;">
-
-The Arduino Due is a microcontroller board measuring 101.52 mm x 53.3 mm, featuring two USB-B connectors and a big quantity of GPIO pins headers.</p>
+The Arduino Due is a microcontroller board measuring 101.52 mm x 53.3 mm, featuring two USB-B connectors and a big quantity of GPIO pins headers.
 
 ### Board Dimensions
 
@@ -599,7 +517,6 @@ The Arduino Due board outline and mounting holes dimensions are shown in the fig
 Connectors of the Arduino Due are placed on the left side of the board; their placement is shown in the figure below. All the dimensions are in mm.
 
 ![Arduino Due Technical drawing](assets/Arduino_Due_Connectors.png)
-
 
 ## Certifications
 
@@ -618,11 +535,11 @@ Connectors of the Arduino Due are placed on the left side of the board; their pl
 
 ### Declaration of Conformity CE DoC (EU)
 
-<p style="text-align: justify;">We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).</p>
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
 ### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
 
-<p style="text-align: justify;">Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.</p>
+Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
 | Substance                              | **Maximum limit (ppm)** |
 |----------------------------------------|-------------------------|
@@ -639,11 +556,11 @@ Connectors of the Arduino Due are placed on the left side of the board; their pl
 
 Exemptions: No exemptions are claimed.
 
-<p style="text-align: justify;">Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.</p>
+Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
 ### Conflict Minerals Declaration
 
-<p style="text-align: justify;">As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regard to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.</p>
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regard to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 
 ### FCC Caution
 
@@ -663,15 +580,8 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
 
-**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
-device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
-reasonable protection against harmful interference in a residential installation. This equipment
-generates, uses and can radiate radio frequency energy and, if not installed and used in
-accordance with the instructions, may cause harmful interference to radio communications.
-However, there is no guarantee that interference will not occur in a particular installation. If
-this equipment does cause harmful interference to radio or television reception, which can be
-determined by turning the equipment off and on, the user is encouraged to try to correct the
-interference by one or more of the following measures:
+**Note:** This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
+
 - Reorient or relocate the receiving antenna.
 - Increase the separation between the equipment and receiver.
 - Connect the equipment into an outlet on a circuit different from that to which the
@@ -679,6 +589,7 @@ receiver is connected.
 - Consult the dealer or an experienced radio/TV technician for help.
 
 English:
+
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
 (1) this device may not cause interference
@@ -686,6 +597,7 @@ User manuals for license-exempt radio apparatus shall contain the following or e
 (2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
 French:
+
 Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :
 
 (1) l’ appareil nedoit pas produire de brouillage
@@ -695,9 +607,11 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 **IC SAR Warning:**
 
 English:
+
 This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
 French:
+
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
 **Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.

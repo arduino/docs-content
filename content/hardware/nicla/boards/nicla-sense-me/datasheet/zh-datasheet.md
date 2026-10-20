@@ -531,7 +531,7 @@ This equipment contains a radio transmitter module with model approval code: CMI
 | 09/01/2024 | 6            | High-Performance Pressure Sensor information updated |
 | 03/09/2024 | 7            | Cloud Editor updated from Web Editor                 |
 | 05/02/2025 | 8            | Description updates                                  |
-| 12/10/2026 | 9            | Added note for Intended Use                          |
+| 20/10/2026 | 9            | Added note for Intended Use                          |
 
 
 ## Product Warnings and Disclaimers

@@ -380,5 +380,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 01/12/2025 |      6       |         Additional note on multiple SKUs and certification updates          |
 | 24/03/2026 |      7       |                 Updating top image to include both variants                 |
 | 05/10/2026 |      8       | Updating supported protocols, programming environments and AREF jumper note |
-| 12/10/2026 |       9      | Added note for Intended Use |
+| 20/10/2026 |       9      | Added note for Intended Use |
 

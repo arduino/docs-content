@@ -349,6 +349,6 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 | 05/07/2024 |      2       |        Block Diagram updated         |
 | 03/09/2024 |      3       | Cloud Editor updated from Web Editor |
 | 24/09/2024 |      4       |        Expansion port updates        |
-| 12/10/2026 |       5      | Added note for Intended Use |
+| 20/10/2026 |       5      | Added note for Intended Use |
 
 

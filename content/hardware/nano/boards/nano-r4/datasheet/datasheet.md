@@ -448,5 +448,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 31/03/2025 | 1            | First Release                         |
 | 23/05/2025 | 2            | Headers variant added                 |
 | 07/07/2025 | 3            | ADC and current limitation info added |
-| 12/10/2026 |       4      | Added note for Intended Use |
+| 20/10/2026 |       4      | Added note for Intended Use |
 

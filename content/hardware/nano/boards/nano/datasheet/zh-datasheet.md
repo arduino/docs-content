@@ -263,4 +263,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 03/08/2022 |       2      | Reference documentation links updates |
 | 25/04/2024 |       3      | Updated link to new Cloud Editor      |
 | 12/06/2025 |       4      | Updated power tree                    |
-| 12/10/2026 |       5      | Added note for Intended Use, and divided language |
+| 20/10/2026 |       5      | Added note for Intended Use, and divided language |

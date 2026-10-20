@@ -36,10 +36,9 @@ Arduino Due 集 Atmel SAM3X8E 微控制器的性能和 Arduino 平台的灵活�
 
 - **原型设计：** Arduino Due 是快速迭代和测试物联网设备新想法的宝贵工具。利用 Due 广泛的输入/输出功能以及与各种传感器、通信模块和执行器的兼容性，开发人员可以快速组装和测试物联网设备原型。无论是智能家居传感器节点、气象站还是远程监控系统，Arduino Due 都提供了一个灵活的平台，便于集成组件、编写固件和验证功能。凭借 Due 对 Arduino 库的支持和易于使用的开发环境，原型设计人员可以专注于创新和实验，加速将想法转化为现实的过程。
 
+<div style="page-break-after: always;"></div>
 
 ## 特点
-
-<div style="page-break-inside: avoid;">
 
 ### 一般规格概述
 
@@ -85,8 +84,6 @@ Arduino Due 是一款多功能微控制器板，专为各种应用而设计。�
 | DAC1 和 DAC2                         | 真值模拟输出 12 位分辨率（4096 个电平） |
 | PWM 输出                           | 12 个 PWM 输出                                     |
 
-</div>
-
 ## 配件
 
 - USB 电缆 Type-A 公端转 Micro Type-B 公端（不包括在内）
@@ -98,6 +95,7 @@ Arduino Due 是一款多功能微控制器板，专为各种应用而设计。�
 - Arduino Motor Shield Rev3 (A000079)
 
 ## 额定值
+
 ### 建议运行条件
 
 | 符号          | 描述                      | 最小值                | 典型值 | 最大值                | 单位 |
@@ -117,11 +115,8 @@ Arduino Due 是一款多功能微控制器板，专为各种应用而设计。�
 | 电源电压    | 7.0 | -   | 12  | V    |
 | 允许范围 | 6.0 | -   | 16  | V    |
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;">
-<strong>安全注意事项:</strong> 与大多数传统的 Arduino 电路板不同，Arduino Due 电路板工作电压为 3.3V。请注意，I/O 引脚能够承受的最大电压为 3.3V。为任何 I/O 引脚使用高于 3.3V 的电压可能会损坏电路板。
-</p>
-</div>
+>[!NOTE]
+>**安全注意事项:** 与大多数传统的 Arduino 电路板不同，Arduino Due 电路板工作电压为 3.3V。请注意，I/O 引脚能够承受的最大电压为 3.3V。为任何 I/O 引脚使用高于 3.3V 的电压可能会损坏电路板。
 
 ### 电流消耗
 
@@ -129,29 +124,24 @@ Arduino Due 是一款多功能微控制器板，专为各种应用而设计。�
 | ----------------------------------------------- | -------------- | --- | --- | --- | ---- |
 | 正常模式下的电流消耗                 | I<sub>NM</sub> | 130 | --- | 800 | mA   |
 
-
-<div style="page-break-inside: avoid;">
+<div style="page-break-after: always;"></div>
 
 ## 功能概述
 
 ### 引脚布局
 
 Arduino Due 的引脚布局如下图所示。
+
 ![Arduino Due 引脚布局](assets/ad-pinout.png)
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;">
-<strong>安全注意事项:</strong> 在修改电路板之前，请断开电源，以避免短路。
-</p>
-</div>
+>[!NOTE]
+>**安全注意事项:** 在修改电路板之前，请断开电源，以避免短路。
 
 ### 完整引脚配置表
 
 Arduino Due 的完整引脚配置如下表所示。
 
 #### 电路板的 24 引脚接头
-
-<div style="text-align:center;">
 
 | 引脚 | 功能 | 类型    | 描述                                              |
 | --- | -------- | ------- | -------------------------------------------------------- |
@@ -180,13 +170,7 @@ Arduino Due 的完整引脚配置如下表所示。
 | 23  | CANRX    | 数字 | CAN 总线接收器                                         |
 | 24  | CANTX    | 数字 | CAN 总线发射器                                      |
 
-<caption>电路板的 24 引脚接头引脚布局</caption>
-
-</div>
-
 #### 电路板的 26 引脚接头
-
-<div style="text-align:center;">
 
 | 引脚 | 功能 | 类型    | 描述                                       |
 | --- | -------- | ------- | ------------------------------------------------- |
@@ -217,14 +201,9 @@ Arduino Due 的完整引脚配置如下表所示。
 | 25  | D20/SDA  | 数字 | GPIO 20 / I2C 0 数据线                          |
 | 26  | D21/SCL  | 数字 | GPIO 21/ I2C 0 时钟                             |
 
-<caption>电路板的 26 引脚接头引脚布局</caption>
-
-</div>
-
 #### SPI
 
 该电路板提供 SPI 接口和完整的引脚布局，如下表所示。
-
 
 | 引脚 | 功能 | 类型     | 描述                  |
 |-----|----------|----------|------------------------------|
@@ -235,12 +214,7 @@ Arduino Due 的完整引脚配置如下表所示。
 | 5   | RESET    | 内部 | 复位                        |
 | 6   | GND      | 内部 | 接地                       |
 
-<caption>SPI 引脚布局</caption>
-
 #### 数字引脚 D22 - D53 LHS
-
-<div style="text-align:center;">
-
 
 | 引脚 | 功能 | 类型    | 描述    |
 |-----|----------|---------|----------------|
@@ -263,13 +237,7 @@ Arduino Due 的完整引脚配置如下表所示。
 | 17  | D52      | 数字 | GPIO 52        |
 | 18  | GND      | 电源   | 接地         |
 
-<caption>D22 - D53 LHS 引脚布局</caption>
-
-</div>
-
 #### 数字引脚 D22 - D53 LHS
-
-<div style="text-align:center;">
 
 | 引脚 | 功能 | 类型    | 描述    |
 |-----|----------|---------|----------------|
@@ -292,15 +260,9 @@ Arduino Due 的完整引脚配置如下表所示。
 | 17  | D53      | 数字 | GPIO 53        |
 | 18  | GND      | 电源   | 接地         |
 
-<caption>D22 - D53 RHS 引脚布局</caption>
-
-</div>
-
 #### JTAG 复位
 
 该电路板通过 JTAG 引脚提供调试接口的访问权限，如下表所示。
-
-<div style="text-align:center;">
 
 | 引脚 | 功能 | 类型    | 描述      |
 |-----|----------|---------|------------------|
@@ -314,11 +276,6 @@ Arduino Due 的完整引脚配置如下表所示。
 | 8   | GND      | 电源   | 接地           |
 | 9   | TMS      | 数字 | 测试模式选择 |
 | 10  | +3V3     | 电源   | +3V3 电源轨  |
-
-<caption>调试的 JTAG 引脚布局</caption>
-
-</div>
-
 
 ### 方框图
 
@@ -336,10 +293,7 @@ Arduino Due 的完整引脚配置如下表所示。
 
 **必须注意的是，Arduino Due 的工作电压为 3.3 V，因此任何外部电源都必须调节到这一电压水平。此外，电源应能为电路板的运行和任何连接的外设提供足够的电流。**
 
-</div>
-
 ![Arduino Due 电源树](assets/Due_Power_Tree.svg)
-
 
 ### 产品拓扑结构
 
@@ -359,12 +313,9 @@ Arduino Due 的完整引脚配置如下表所示。
 | SPI      | SPI 引脚布局                  |
 | ICSP1    | ICSPI1 引脚布局               |
 
-
 #### JTAG 连接器
 
-<p style="text-align: justify;">调试功能直接集成到 Arduino Due 中，可通过 6 针 JTAG 连接器访问。</p>
-
-<div style="text-align:center;">
+调试功能直接集成到 Arduino Due 中，可通过 6 针 JTAG 连接器访问。
 
 | 引脚 | 功能 | 类型    | 描述      |
 |-----|----------|---------|------------------|
@@ -379,28 +330,22 @@ Arduino Due 的完整引脚配置如下表所示。
 | 9   | TMS      | 数字 | 测试模式选择 |
 | 10  | +3V3     | 电源   | +3V3 电源轨  |
 
-<caption>JTAG 引脚布局</caption>
-
-</div>
-
 #### 原生 USB 端口
 
-<p style="text-align: justify;">Arduino Due 的原生 USB 端口采用 USB Type-B 接口。该端口允许电路板作为 USB 设备与计算机直接通信，从而实现 USB 主机/设备功能和 USB OTG（On-The-Go）功能。</p>
+Arduino Due 的原生 USB 端口采用 USB Type-B 接口。该端口允许电路板作为 USB 设备与计算机直接通信，从而实现 USB 主机/设备功能和 USB OTG（On-The-Go）功能。
 
 ![Arduino Due USB 端口](assets/DueUSBPorts.jpg)
 
 #### 编程 USB 端口
 
-<p style="text-align: justify;">该端口允许通过 USB 连接计算机对电路板进行编程和供电。它有助于 Arduino Due 与计算机之间的串行通信，从而支持上传程序并与 Arduino IDE 交互。该端口与 ATmega16U2 微控制器相连，后者充当 USB 转串口转换器，简化了编程过程。当连接到计算机时，Arduino IDE 会将电路板识别为 COM 端口，从而实现无缝通信，达到编程和调试的目的。</p>
+该端口允许通过 USB 连接计算机对电路板进行编程和供电。它有助于 Arduino Due 与计算机之间的串行通信，从而支持上传程序并与 Arduino IDE 交互。该端口与 ATmega16U2 微控制器相连，后者充当 USB 转串口转换器，简化了编程过程。当连接到计算机时，Arduino IDE 会将电路板识别为 COM 端口，从而实现无缝通信，达到编程和调试的目的。
 
 
 #### 电路板的 24 引脚接头连接器
 
-<p style="text-align: justify;">24 引脚接头连接器提供各种应用所需的接口和通用引脚。</p>
+24 引脚接头连接器提供各种应用所需的接口和通用引脚。
 
 这些引脚提供一系列功能，包括模拟和数字输入/输出、电源连接、模数转换、数模转换和 CAN 总线通信。
-
-<div style="text-align:center;">
 
 | 引脚 | 功能 | 类型    | 描述                                             |
 | --- | -------- | ------- | ------------------------------------------------------- |
@@ -429,18 +374,11 @@ Arduino Due 的完整引脚配置如下表所示。
 | 23  | CANRX    | 数字 | CAN 总线接收器                                        |
 | 24  | CANTX    | 数字 | CAN 总线发射器                                     |
 
-<caption>电路板的 24 引脚接头引脚布局</caption>
-
-</div>
-
 #### 电路板的 26 引脚接头连接器
 
-<p style="text-align: justify;">Arduino Due 上的 26 针接头连接器提供了一套全面的接口和多功能引脚，对各种应用至关重要。</p>
+Arduino Due 上的 26 针接头连接器提供了一套全面的接口和多功能引脚，对各种应用至关重要。
 
 这些引脚提供一系列功能，包括数字输入/输出、串行通信、PWM（脉宽调制）输出和 I2C（集成电路总线）通信。
-
-<div style="text-align:center;">
-
 
 | 引脚 | 功能 | 类型    | 描述                                       |
 | --- | -------- | ------- | ------------------------------------------------- |
@@ -471,16 +409,9 @@ Arduino Due 的完整引脚配置如下表所示。
 | 25  | D20/SDA  | 数字 | GPIO 20 / I2C 0 数据线                          |
 | 26  | D21/SCL  | 数字 | GPIO 21/ I2C 0 时钟                             |
 
-<caption>电路板的 26 引脚接头引脚布局</caption>
-
-</div>
-
-
 #### SPI
 
-<p style="text-align: justify;">这些引脚有助于 Arduino Due 与外部 SPI 设备之间的通信。</p>
-
-<div style="text-align:center;">
+这些引脚有助于 Arduino Due 与外部 SPI 设备之间的通信。
 
 | 引脚 | 功能 | 类型     | 描述                  |
 | --- | -------- | -------- | ---------------------------- |
@@ -491,15 +422,9 @@ Arduino Due 的完整引脚配置如下表所示。
 | 5   | RESET    | 内部 | 复位                        |
 | 6   | GND      | 内部 | 接地                       |
 
-<caption>SPI 引脚布局</caption>
-
-</div>
-
 #### 左侧和右侧的 D22 至 D53
 
-<p style="text-align: justify;">这些数字引脚提供了广泛的 GPIO（通用输入/输出）功能，用于连接 Arduino Due 项目中的外部传感器、执行器和其他数字设备。</p>
-
-<div style="text-align:center;">
+这些数字引脚提供了广泛的 GPIO（通用输入/输出）功能，用于连接 Arduino Due 项目中的外部传感器、执行器和其他数字设备。
 
 | 引脚 | 功能 | 类型    | 描述    |
 |-----|----------|---------|----------------|
@@ -522,13 +447,7 @@ Arduino Due 的完整引脚配置如下表所示。
 | 17  | D52      | 数字 | GPIO 52        |
 | 18  | GND      | 电源   | 接地         |
 
-<caption>D22 - D53 LHS 引脚布局</caption>
-
-</div>
-
-<div style="page-break-inside: avoid;">
-
-<div style="text-align:center;">
+<div style="page-break-after: always;"></div>
 
 | 引脚 | 功能 | 类型    | 描述    |
 |-----|----------|---------|----------------|
@@ -551,11 +470,7 @@ Arduino Due 的完整引脚配置如下表所示。
 | 17  | D53      | 数字 | GPIO 53        |
 | 18  | GND      | 电源   | 接地         |
 
-<caption>D22 - D53 RHS 引脚布局</caption>
-
-</div>
-
-<div style="page-break-inside: avoid;">
+<div style="page-break-after: always;"></div>
 
 ## 电路板操作
 
@@ -582,8 +497,8 @@ Arduino Cloud 支持所有支持 IoT 功能的 Arduino 产品，让您可以记�
 所有 Arduino 电路板都配置有内置的引导加载程序，可以通过 USB 对电路板进行刷新。如果某一程序锁定了处理器，且无法通过 USB 再次访问电路板，则可以在上电后立即双击复位按钮进入引导加载程序模式。
 
 ## 机械层信息
-<p style="text-align: justify;">
-Arduino Due 是一块微控制器电路板，尺寸为 101.52 毫米 x 53.3 毫米，具有两个 USB-B 接口和大量 GPIO 引脚接头。</p>
+
+Arduino Due 是一块微控制器电路板，尺寸为 101.52 毫米 x 53.3 毫米，具有两个 USB-B 接口和大量 GPIO 引脚接头。
 
 ### 电路板尺寸
 
@@ -615,11 +530,11 @@ Arduino Due 的连接器位于电路板左侧；其位置如下图所示。所�
 
 ### Declaration of Conformity CE DoC (EU)
 
-<p style="text-align: justify;">We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).</p>
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
 ### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
 
-<p style="text-align: justify;">Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.</p>
+Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
 | Substance                              | **Maximum limit (ppm)** |
 |----------------------------------------|-------------------------|
@@ -636,11 +551,11 @@ Arduino Due 的连接器位于电路板左侧；其位置如下图所示。所�
 
 Exemptions: No exemptions are claimed.
 
-<p style="text-align: justify;">Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.</p>
+Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
 ### Conflict Minerals Declaration
 
-<p style="text-align: justify;">As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regard to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.</p>
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regard to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 
 ### FCC Caution
 
@@ -660,15 +575,8 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
 
-**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
-device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
-reasonable protection against harmful interference in a residential installation. This equipment
-generates, uses and can radiate radio frequency energy and, if not installed and used in
-accordance with the instructions, may cause harmful interference to radio communications.
-However, there is no guarantee that interference will not occur in a particular installation. If
-this equipment does cause harmful interference to radio or television reception, which can be
-determined by turning the equipment off and on, the user is encouraged to try to correct the
-interference by one or more of the following measures:
+**Note:** This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
+
 - Reorient or relocate the receiving antenna.
 - Increase the separation between the equipment and receiver.
 - Connect the equipment into an outlet on a circuit different from that to which the
@@ -676,6 +584,7 @@ receiver is connected.
 - Consult the dealer or an experienced radio/TV technician for help.
 
 English:
+
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
 (1) this device may not cause interference
@@ -683,6 +592,7 @@ User manuals for license-exempt radio apparatus shall contain the following or e
 (2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
 French:
+
 Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :
 
 (1) l’ appareil nedoit pas produire de brouillage
@@ -692,9 +602,11 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 **IC SAR Warning:**
 
 English:
+
 This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
 French:
+
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
 **Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.

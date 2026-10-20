@@ -669,4 +669,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 23/01/2024 |       7      |               Updated Interfaces section               |
 | 16/06/2024 |       8      |     Updated General Specifications Overview section    |
 | 03/09/2024 |       9      |          Cloud Editor updated from Web Editor          |
-| 12/10/2026 |       10     | Added note for Intended Use |
+| 20/10/2026 |       10     | Added note for Intended Use |

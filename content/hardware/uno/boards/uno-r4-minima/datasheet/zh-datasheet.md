@@ -380,5 +380,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 28/03/2024 | 3            | Update Rated Current             |
 | 25/04/2024 | 4            | Updated link to new Cloud Editor |
 | 10/29/2025 | 5            | Mechanical drawing update        |
-| 12/10/2026 |       6      | Added note for Intended Use, and divided language |
+| 20/10/2026 |       6      | Added note for Intended Use, and divided language |
 

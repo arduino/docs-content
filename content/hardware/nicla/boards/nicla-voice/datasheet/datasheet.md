@@ -466,7 +466,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 04/06/2024 | 3            | Typical Output Power updated         |
 | 11/06/2024 | 4            | Product Labeling section added       |
 | 03/09/2024 | 5            | Cloud Editor updated from Web Editor |
-| 12/10/2026 |       6      | Added note for Intended Use |
+| 20/10/2026 |       6      | Added note for Intended Use |
 
 
 ## Product Warnings and Disclaimers

@@ -935,4 +935,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 05/12/2023 | 5            | Accessories section updated         |
 | 06/02/2024 | 6            | MTBF information                    |
 | 14/11/2024 | 7            | Pinout information updated          |
-| 12/10/2026 |       8      | Added note for Intended Use |
+| 20/10/2026 |       8      | Added note for Intended Use |

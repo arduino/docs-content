@@ -463,5 +463,5 @@ Cet appareil numérique de la classe B est conforme à la norme NMB-003 du Canad
 | 25/04/2024 |       3      | Updated link to new Cloud Editor |
 | 17/09/2025 |       4      | Certification Updates            |
 | 16/01/2026 |       5      | Add ISED antenna specifications  |
-| 12/10/2026 |       6      | Added note for Intended Use, and divided language |
+| 20/10/2026 |       6      | Added note for Intended Use, and divided language |
 

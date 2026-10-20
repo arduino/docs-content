@@ -466,5 +466,5 @@ Use of controls or adjustments, or performance of procedures other than those sp
 | 10/04/2024 | 6            | Product Labeling section added - FCC information updated |
 | 03/09/2024 | 7            | Cloud Editor updated from Web Editor                     |
 | 01/10/2024 | 8            | Board Topology & general documentation update            |
-| 12/10/2026 |       9      | Added note for Intended Use |
+| 20/10/2026 |       9      | Added note for Intended Use |
 

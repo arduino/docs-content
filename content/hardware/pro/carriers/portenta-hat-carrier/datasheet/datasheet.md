@@ -941,6 +941,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 25/10/2023 | 1            | First Release                        |
 | 02/11/2023 | 2            | Flashing Mode Description            |
 | 03/09/2024 | 3            | Cloud Editor updated from Web Editor |
-| 12/10/2026 |       4      | Added note for Intended Use |
+| 20/10/2026 |       4      | Added note for Intended Use |
 
 

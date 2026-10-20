@@ -508,4 +508,4 @@ This equipment contains a radio transmitter module with model approval code: CMI
 | 05/09/2024 | 6            | Cloud Editor updated from Web Editor |
 | 09/04/2025 | 7            | Fixed I2C information                |
 | 10/29/2025 | 8            | Mechanical drawing update            |
-| 12/10/2026 |       9      | Added note for Intended Use, and divided language |
+| 20/10/2026 |       9      | Added note for Intended Use, and divided language |

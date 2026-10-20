@@ -576,5 +576,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 07/11/2023 | 4            | Add missing board dimensions           |
 | 11/12/2023 | 5            | Add Portenta Hat Carrier compatibility |
 | 03/09/2024 | 6            | Cloud Editor updated from Web Editor   |
-| 12/10/2026 |       7      | Added note for Intended Use |
+| 20/10/2026 |       7      | Added note for Intended Use |
 
