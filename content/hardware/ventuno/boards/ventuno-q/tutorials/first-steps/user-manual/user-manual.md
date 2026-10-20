@@ -1925,7 +1925,7 @@ Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a c
 
 Join our community forum to connect with other VENTUNO Q users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the VENTUNO Q.
 
-- [VENTUNO Q category in the Arduino Forum](https://forum.arduino.cc/c/official-hardware/uno-family/ventuno-q/222)
+- [VENTUNO Q category in the Arduino Forum](https://forum.arduino.cc/c/official-hardware/ventuno-q/227)
 
 ### Contact Us
 
