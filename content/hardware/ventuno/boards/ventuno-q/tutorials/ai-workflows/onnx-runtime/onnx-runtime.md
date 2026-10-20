@@ -198,7 +198,8 @@ os.environ["LD_LIBRARY_PATH"] = "/usr/lib:" + os.environ.get("LD_LIBRARY_PATH", 
 so = ort.SessionOptions()
 so.add_session_config_entry("session.disable_cpu_ep_fallback", "0")
 
-providers = [("QNNExecutionProvider", {"backend_type": "htp", "library_path": QNN_LIB})]
+# "htp_performance_mode": "burst" runs the NPU at its highest clock profile for the lowest latency.
+providers = [("QNNExecutionProvider", {"backend_type": "htp", "htp_performance_mode": "burst", "library_path": QNN_LIB})]
 sess = ort.InferenceSession(MODEL_PATH, sess_options=so, providers=providers)
 
 input_name = sess.get_inputs()[0].name
@@ -295,6 +296,7 @@ if args.use_npu:
     providers = [
         ("QNNExecutionProvider", {
             "backend_type": "htp",
+            "htp_performance_mode": "burst",  # highest clock profile; lowest latency
             "library_path": QNN_LIB
         })
     ]
@@ -431,7 +433,7 @@ python3 gaze_tracker.py            # runs on the CPU
 python3 gaze_tracker.py --use-npu  # runs on the Hexagon NPU (QNN)
 ```
 
-On a VENTUNO Q running Ubuntu 24.04, this model averages about **23 ms** per inference on the NPU versus about **190 ms** on the CPU — roughly an **8x** speedup. Exact figures vary with the camera frame rate and what else the board is doing.
+On a VENTUNO Q running Ubuntu 24.04, this model averages about **23 ms** per inference on the NPU (in [burst mode](/tutorials/ventuno-q/npu-guide#npu-performance-modes-burst-vs-default)) versus about **190 ms** on the CPU — roughly an **8x** speedup. Exact figures vary with the camera frame rate and what else the board is doing.
 
 ### Result
 
