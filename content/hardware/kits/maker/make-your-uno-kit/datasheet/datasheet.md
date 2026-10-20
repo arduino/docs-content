@@ -5,11 +5,21 @@ type: maker
 ---
 
 ![](assets/featured.png)
+
+# English
+
 # Description
+
 The **Arduino® Make Your UNO Kit** is the perfect kit to learn the basics of electronics and coding by assembling your own **Arduino® UNO**. Become familiar with soldering by mounting every single component, unleash your creativity with the **Audio Synth Shield**, and learn how to code using your new **UNO** board to create amazing projects!
 
 # Target areas:
 Maker, introduction, education
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Features
 <table>
@@ -362,7 +372,9 @@ The **Make Your UNO Kit** shares with the standard **UNO** boards the same shape
 <div style="page-break-after:always;"></div>
 
 ## Certifications
+
 ### Declaration of Conformity CE DoC (EU)
+
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
 | Directive                                           | Conforms To                                       |
@@ -392,6 +404,7 @@ Exemptions: No exemptions are claimed.
 Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
 ### Conflict Minerals Declaration
+
 As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 
 ## FCC Caution
@@ -458,5 +471,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date       | **Revision** | **Changes**                      |
 | ---------- | ------------ | -------------------------------- |
-| 25/04/2024 | 2            | Updated link to new Cloud Editor |
-| 01/11/2022 | 1            | First release                    |
+| 01/11/2022 |      1       | First release                    |
+| 25/04/2024 |      2       | Updated link to new Cloud Editor |
+| 20/10/2026 |      3       | Added note for Intended Use |

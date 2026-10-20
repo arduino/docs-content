@@ -32,6 +32,13 @@ The Modulino Thermo combines a temperature and humidity sensor with a plug-and-p
 
 ![Arduino Modulino Thermo](assets/thermo_iso.png)
 
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
+
+
 <div style="page-break-after: always;"></div>
 
 ## Features
@@ -356,9 +363,10 @@ As a global supplier of electronic and electrical components, Arduino is aware o
 
 | **Date** | **Revision** | **Changes**                                                                    |
 |:--------:|:------------:|--------------------------------------------------------------------------------|
-| 14/10/26 |       6      | Sensor updated to GXHT30C (boards marked V0.5 or later); document restructured |
-| 24/11/25 |       5      | I2C information changed                                                        |
-| 01/07/25 |       4      | Certification                                                                  |
-| 17/06/25 |       3      | Nomenclature updates                                                           |
-| 23/05/25 |       2      | Power info                                                                     |
 | 14/05/25 |       1      | First release                                                                  |
+| 23/05/25 |       2      | Power info                                                                     |
+| 17/06/25 |       3      | Nomenclature updates                                                           |
+| 01/07/25 |       4      | Certification                                                                  |
+| 24/11/25 |       5      | I2C information changed                                                        |
+| 14/10/26 |       6      | Sensor updated to GXHT30C (boards marked V0.5 or later); document restructured |
+| 20/10/2026 |      7       | Added note for Intended Use |
