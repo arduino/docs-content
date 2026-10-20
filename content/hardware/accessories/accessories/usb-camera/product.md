@@ -1,6 +1,7 @@
 ---
 title: USB Camera
 url_shop: "https://store.arduino.cc/products/usb-camera"
+forumCategorySlug: '/official-hardware/accessories/usb-camera/233'
 sku: [TPX00246]
 releaseDate: 2026-10-15
 useCases: [accessories]

@@ -375,7 +375,7 @@ Explore our Help Center, which offers a comprehensive collection of articles and
 
 Join our community forum to connect with other USB Camera users, share your experiences, and ask questions. The Forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the USB Camera.
 
-- [USB Camera category in the Arduino Forum](https://forum.arduino.cc/c/official-hardware/accessories/)
+- [USB Camera category in the Arduino Forum](https://forum.arduino.cc/c/official-hardware/accessories/usb-camera/233)
 
 ### Contact Us
 
